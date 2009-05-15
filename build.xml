@@ -1,0 +1,116 @@
+<project name="DITA For Publishers" basedir=".">
+
+  <property file="build.properties"/>
+  <property file="${user.home}/.build.properties"/>
+	<property file="${user.home}/build.properties"/>
+
+	
+  <property name="dist" location="${basedir}/dist"/>
+  <property name="lib" location="${basedir}/java/lib"/>
+  <property name="src" location="${basedir}/src/java"/>
+	<property name="sampledocs" location="${basedir}/sample_docs"/>
+	<property name="plugin.dist" location="${dist}/plugins"/>
+  <property name="package.dist" location="${dist}/dtl-redo"/>
+  <property name="dita-ot-dir" location="c:\DITA-OT1.4.3"/>
+  <property name="plugin-src" value="${basedir}/toolkit_plugins"/>
+  <property name="plugin-deploy_target" value="${dita-ot-dir}/plugins"/>
+  <property name="doctypes.plugin-src" value="${plugin-src}/com.astd.doctypes"/>
+  <property name="doctypes.plugin-dist" value="${plugin.dist}/com.astd.doctypes"/>
+  <property name="doctypes.src" value="${basedir}/doctypes"/>
+  <property name="xslt.src" value="${basedir}/xslt"/>
+
+	<import file="${dita-ot-dir}${file.separator}integrator.xml" optional="yes"/>
+
+  <property name="lib.home" value="${lib}" />
+  <property name="src.home" value="${basedir}/src" />
+  <property name="src.java.home" value="${src.home}/java" />
+
+  <property name="resources.home" value="${src.home}/resources" />
+
+	<target name="init">
+    <tstamp/>
+  </target>
+
+  <tstamp>
+		<format property="package.date" pattern="yyyy-mm-dd"/>
+	</tstamp>
+  
+
+  <target name="clean">
+  </target>
+	
+	
+	<target name="dist-toolkit-plugins" description="Packages the DITA Open Toolkit plugins for deployment to a working Toolkit instance">
+    <delete includeEmptyDirs="true" failonerror="false">
+      <fileset dir="${plugin.dist}"/>
+    </delete>
+		<mkdir dir="${plugin.dist}"/>
+		
+		<copy todir="${plugin.dist}">
+			<fileset dir="${plugin-src}">
+			</fileset>
+		</copy>
+    <copy todir="${doctypes.plugin-dist}/doctypes">
+      <fileset dir="${doctypes.src}">
+      </fileset>
+    </copy>
+  </target>
+	
+	<target name="deploy-toolkit-plugins" depends="dist-toolkit-plugins"
+	  description="Deploy plugins to local DITA Open Toolkit">
+		<delete failonerror="false">
+			<fileset dir="${plugin-deploy_target}">
+				<include name="com.astd.*"/>
+		  </fileset>
+		</delete>
+		
+		<copy todir="${plugin-deploy_target}">
+			<fileset dir="${plugin.dist}">
+				<include name="**/*"/>
+        <exclude name="**/CVS"/>
+			</fileset>
+		</copy>
+		
+    <!-- Itegrate the deployed plugins: -->
+    <antcall target="integrate"/>
+
+	</target>
+	
+	<target name="dist-init">
+		<delete failonerror="false">
+			<fileset dir="${dist}"/>
+  	</delete>
+		<mkdir dir="${dist}"/>
+		<mkdir dir="${package.dist}"/>
+  </target>
+	
+	<target name="package-toolkit-plugins" depends="dist-toolkit-plugins"
+		description="Create distributable Zip packages of the different Toolkit plugins"
+		>
+    <zip destfile="${package.dist}/com_astd_toolkit_plugins.zip">
+      <fileset dir="${plugin.dist}">
+        <include name="com.astd.*/**"/>
+      </fileset>
+    </zip>
+  </target>
+	
+	<target name="package-delivery" depends="dist-init, package-toolkit-plugins"
+		description="Create distributable package of all the deliverables"
+		>
+    <copy todir="${package.dist}/doctypes" flatten="true" includeemptydirs="false">
+      <fileset dir="${doctypes.src}">
+        <include name="*/**"/>
+      	<exclude name="**/catalog.xml"/>
+      </fileset>
+    </copy>
+    <copy todir="${package.dist}/xslt">
+      <fileset dir="${xslt.src}">
+      </fileset>
+    </copy>
+    <copy todir="${package.dist}/sampledocs">
+      <fileset dir="${sampledocs}">
+      </fileset>
+    </copy>
+	</target>
+	
+</project>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!--                    DOMAIN EXTENSIONS                          -->
+<!--                    Common (default) integrations              -->
+<!-- ============================================================= -->
+
+
+<!ENTITY % fig          
+  "fig
+  "      
+>
+
+<!ENTITY % ph
+  "ph | 
+   %hi-d-ph; |
+   %d4p_formatting-d-ph;
+  "
+>
+
+<!ENTITY % p         
+  "p     | 
+   %d4p_formatting-d-p;
+  "      
+>
+
+<!ENTITY % data
+  "data |
+   %d4p_classification-d-data;
+  "
+>
+
+<!ENTITY % image
+  "image |
+   %d4p_formatting-d-image;
+  "
+>
+
+<!ENTITY % keyword
+  "keyword |
+   %xml-d-keyword;
+  "
+>
+                      
+
+<!-- ============================================================= -->
+<!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
+<!-- ============================================================= -->
+<!--                    Must be declared ahead of the DTDs, which
+                        puts @domains first in order               -->
+
+<!ENTITY included-domains 
+    "&hi-d-att; 
+     &indexing-d-att;
+     &d4p_formatting-d-att;
+     &d4p_classification-d-att;
+     &xml-d-att;
+    "                
+ >
+
+<!--                    Definitions of declared elements           -->
+<!ENTITY % topicDefns   PUBLIC 
+                       "-//OASIS//ENTITIES DITA Topic Definitions//EN" 
+                       "topicDefn.ent"                              >
+%topicDefns;
+
+
+<!-- =================== End of declaration set ==================== -->

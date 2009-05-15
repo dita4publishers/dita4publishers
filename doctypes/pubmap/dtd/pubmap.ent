@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!--  MODULE:    DITA PubMap Entity                                -->
+<!--  VERSION:   1.2                                               -->
+<!--  DATE:      May 2009                                          -->
+<!--                                                               -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+<!--                    TYPICAL INVOCATION                         -->
+<!--                                                               -->
+<!--  Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "urn:pubid:dita4publishers.sourceforge.net/entities/dtd/pubmap"
+      Delivered as file "pubmap.ent"                               -->
+
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    Declaring the domain entity for bookmaps          -->
+<!--                                                               -->
+<!--                                                               -->
+<!--  UPDATES:                                                     -->
+<!-- ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    PUBMAP ENTITIES                            -->
+<!-- ============================================================= -->
+
+<!ENTITY pubmap-att     
+  "(map pubmap)"
+>
+
+
+<!-- ================== End Pubmap Entities ===================== -->

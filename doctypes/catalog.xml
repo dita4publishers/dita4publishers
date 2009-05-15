@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+  
+  <!-- domain modules -->
+  
+  <nextCatalog catalog="common/catalog.xml"/>
+  <nextCatalog catalog="d4p_classificationDomain/catalog.xml"/>
+  <nextCatalog catalog="d4p_formattingDomain/catalog.xml"/>
+  
+  <!-- Topic types -->
+  
+  <nextCatalog catalog="article/catalog.xml"/>
+  <nextCatalog catalog="chapter/catalog.xml"/>
+  <nextCatalog catalog="sidebar/catalog.xml"/>
+  <nextCatalog catalog="subsection/catalog.xml"/>
+  
+  <!-- Map types -->
+  
+  <nextCatalog catalog="pubmap/catalog.xml"/>
+  
+  
+</catalog>

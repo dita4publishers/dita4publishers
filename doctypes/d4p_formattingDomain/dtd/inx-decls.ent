@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--=====================================
+    INX Element Types
+    
+    Declares elements types for INX elements so documents
+    that include them can validate.
+    
+    Note that it is not possible to have a complete
+    DTD for INX files since plugins can add new
+    object types or attributes.
+    =====================================-->
+    
+    
+ <!ENTITY % inx-components
+   "(txsr |
+     cflo)
+   "
+ >
+ 
+ <!ELEMENT txsr
+   (pcnt)
+ >
+ <!ATTLIST txsr
+  pStyle
+    CDATA
+    #IMPLIED
+  cStyle
+    CDATA
+    #IMPLIED
+  prst
+     CDATA
+     #IMPLIED
+  crst
+     CDATA
+     #IMPLIED
+  IMa1
+     CDATA
+     #IMPLIED
+  IMa2
+     CDATA
+     #IMPLIED
+  ptfs
+     CDATA
+     #IMPLIED
+  phzs
+     CDATA
+     #IMPLIED
+  bshf
+     CDATA
+     #IMPLIED
+  pvts
+     CDATA
+     #IMPLIED
+  nobk
+     CDATA
+     #IMPLIED
+  pake
+     CDATA
+     #IMPLIED
+  trak
+     CDATA
+     #IMPLIED
+  spbe
+     CDATA
+     #IMPLIED
+  spaf
+     CDATA
+     #IMPLIED
+  inbl
+     CDATA
+     #IMPLIED
+  szld
+     CDATA
+     #IMPLIED
+  font
+     CDATA
+     #IMPLIED
+  alts
+     CDATA
+     #IMPLIED
+  posm
+     CDATA
+     #IMPLIED
+     
+>
+ 
+ <!ELEMENT pcnt
+   (#PCDATA)*
+>
+
+<!ELEMENT cflo
+  (txsr)*
+>
+<!ATTLIST cflo
+  OVRF
+     CDATA
+     #IMPLIED
+  stcs
+     CDATA
+     #IMPLIED
+  InTc
+     CDATA
+     #IMPLIED
+  TCAc
+     CDATA
+     #IMPLIED
+  sLbl
+     CDATA
+     #IMPLIED
+  sTtl
+     CDATA
+     #IMPLIED
+  Jang
+     CDATA
+     #IMPLIED
+  lckS
+     CDATA
+     #IMPLIED
+  pXLS
+     CDATA
+     #IMPLIED
+  pWRD
+     CDATA
+     #IMPLIED
+  pTXT
+     CDATA
+     #IMPLIED
+  pSMP
+     CDATA
+     #IMPLIED
+  Self
+     CDATA
+     #IMPLIED
+  SnippetParent
+     CDATA
+     #IMPLIED
+ >
+ 
+ <!-- End of declaration set -->
