@@ -11,8 +11,10 @@
   
   <nextCatalog catalog="article/catalog.xml"/>
   <nextCatalog catalog="chapter/catalog.xml"/>
+  <nextCatalog catalog="part/catalog.xml"/>
   <nextCatalog catalog="sidebar/catalog.xml"/>
   <nextCatalog catalog="subsection/catalog.xml"/>
+  <nextCatalog catalog="topic/catalog.xml"/>
   
   <!-- Map types -->
   
