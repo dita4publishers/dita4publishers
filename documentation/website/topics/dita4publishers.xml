@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/topic" "topic.dtd">
+<topic
+  id="topic-1">
+  <title>DITA For Publishers</title>
+  <body>
+    <p>The DITA for Publishers project is an open-source, community project to enable the quick and
+      productive use of DITA by Publishers. Enabling activities include:<ul>
+        <li>Providing generic DITA specializations for common publishing document components,
+          including publishing-specific map types ("pubmap"), topic types ("article", "chapter",
+          "subsection", "sidebar"), and domains ("formatting domain", "classification domain").</li>
+        <li>Providing DITA Open Toolkit plugins with basic HTML and PDF rendering support for the
+          specializations.</li>
+        <li>Providing tutorial and how-to guidance to Publishing users of DITA</li>
+        <li>Host additional DITA-related tools specific to or of significant value to publishers
+          when those tools need a home.</li>
+        <li>Provide an open forum for gathering Publishing-specific requirements for the DITA
+          standard and its supporting tools, in anticipating of the eventual formation of a
+          Publishing subcommittee within the DITA Technical Committee.</li>
+      </ul><table
+        frame="none">
+        <title>Project Quick Reference</title>
+        <tgroup
+          cols="2">
+          <colspec
+            colname="c1"
+            colnum="1"
+            colwidth="1.0*"/>
+          <colspec
+            colname="c2"
+            colnum="2"
+            colwidth="1.0*"/>
+          <tbody>
+            <row>
+              <entry>dita4publishers DITA Open Toolkit plugin</entry>
+              <entry>Coming soon</entry>
+            </row>
+            <row>
+              <entry>dita4publishers user documentation</entry>
+              <entry>Coming soon</entry>
+            </row>
+            <row>
+              <entry>dita4publishers SourceForge project </entry>
+              <entry><xref
+                  href="https://sourceforge.net/projects/dita4publishers/"
+                  scope="external">https://sourceforge.net/projects/dita4publishers/</xref></entry>
+            </row>
+            <row>
+              <entry>dita4publishers source code access (Subversion-based)</entry>
+              <entry><xref
+                  href="http://dita4publishers.svn.sourceforge.net/viewvc/dita4publishers/"
+                  scope="external">http://dita4publishers.svn.sourceforge.net/viewvc/dita4publishers/</xref></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table></p>
+  </body>
+</topic>

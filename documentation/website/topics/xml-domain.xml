@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/topic" "topic.dtd">
+<topic
+  id="topicid">
+  <title>XML Domain</title>
+  <prolog>
+    <copyright>
+      <copyryear
+        year="2009"/>
+      <copyrholder>DITA For Publishers</copyrholder>
+    </copyright>
+    <critdates>
+      <created
+        date="2009-00-00"/>
+    </critdates>
+  </prolog>
+  <body>
+    <p>The XML domain provides phrase-level elements for identifying mentions of XML components. It
+      is convenient for documents that discuss XML markup (such as this one).</p>
+    <note>The XML Domain is a generic domain developed by Really Strategies. Is provided as a
+      convenience to RSI clients.</note>
+    <p>The XML domain provides the following element types:<dl>
+        <dlentry>
+          <dt><xmlelem>xmlelem</xmlelem></dt>
+          <dd>Identifies a mention of an XML element type (tagname).</dd>
+        </dlentry>
+        <dlentry>
+          <dt><xmlelem>xmlatt</xmlelem></dt>
+          <dd>Identifies a mention of an XML attribute.</dd>
+        </dlentry>
+        <dlentry>
+          <dt><xmlelem>textent</xmlelem></dt>
+          <dd>Identifies a mention of an XML text entity.</dd>
+        </dlentry>
+        <dlentry>
+          <dt><xmlelem>parment</xmlelem></dt>
+          <dd>Identifies a mention of an XML parameter entity.</dd>
+        </dlentry>
+        <dlentry>
+          <dt><xmlelem>numcharref</xmlelem></dt>
+          <dd>Identifies a mention of an XML numeric character reference.</dd>
+        </dlentry>
+      </dl></p>
+  </body>
+</topic>

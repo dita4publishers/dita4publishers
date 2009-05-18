@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/topic" "topic.dtd">
+<topic
+  id="topic-1">
+  <title>DITA for Publishers Specialization Modules Overview</title>
+  <body>
+    <p>The DITA for Publishers project provides map, topic, and domain specializations for
+      constructs needed by typical publishing documents.</p>
+    <p>The map specializations are:<dl>
+        <dlentry>
+          <dt>pubmap</dt>
+          <dd>Publication map. Similar to the DITA 1.1 bookmap, but less constrained. Represents a
+            single publication, nominally as presented in print (although may be adapted for other
+            media formats as well). Includes publishing-specific metadata not available from
+            bookmap, such as both 10- and 13-digit ISBNs and ISSNs. Includes the ability to
+            represent arbitrary single pages, such as often occur in fiction books before the main
+            content. Also includes facilities for including cover components.</dd>
+        </dlentry>
+      </dl></p>
+    <p>The topic specializations are:<dl>
+        <dlentry>
+          <dt>article</dt>
+          <dd>For articles within periodicals or article-based books. Allows nested subsection and
+            sidebar topic types in the default shell configuration. Enables authoring of complete
+            articles as single files.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>chapter</dt>
+          <dd>For chapters within books. Allows nested subsection and sidebar topic types in the
+            default shell configuration. Enables authoring of complete chapters as single
+            files.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>part</dt>
+          <dd>For parts within books. Provides the part title and, optionally, introductory body
+            content. Can be configured to allow nested chapter or subsection topics but does not in
+            the default shell configuration.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>subsection</dt>
+          <dd>Generic subsection within articles and chapters. Enables creation of arbitrary
+            hierarchies of titled divisions, e.g., within chapters and articles. Base for more
+            specialized subsection types.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>sidebar</dt>
+          <dd>Generic out-of-line topic. May contain nested subsections in the default shell
+            configuration. Base for more specialized sidebar types.</dd>
+        </dlentry>
+      </dl></p>
+    <p>The domain specializations are:<dl>
+        <dlentry>
+          <dt>formatting</dt>
+          <dd>Provides elements that request or capture specific formatting effects, including line
+            breaks, tabs, and mathematical equations represented using any combination of MathML,
+            InDesign data, or graphics.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>XML</dt>
+          <dd>Provides elements for identifying mentions of XML constructs.</dd>
+        </dlentry>
+      </dl></p>
+  </body>
+</topic>
