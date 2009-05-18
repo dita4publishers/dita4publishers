@@ -1,10 +1,10 @@
 <!-- 
   Plugin descriptor for the RSuite documentation doctypes
   
-  Copyright (c) 2009 American Society for Training and Development
+  Copyright (c) 2009 DITA For Publishers
   
   This plug-in provides all the DTD and XSD declarations for the specialized
-  map and topic types used by the ASTD documents and publications.
+  map and topic types for the DITA For Publishers project.
   
   To enable resolution of references to the doctypes and schemas, you 
   must perform the following one-type action after adding the plugin

@@ -14,8 +14,8 @@
   <property name="dita-ot-dir" location="c:\DITA-OT1.4.3"/>
   <property name="plugin-src" value="${basedir}/toolkit_plugins"/>
   <property name="plugin-deploy_target" value="${dita-ot-dir}/plugins"/>
-  <property name="doctypes.plugin-src" value="${plugin-src}/com.astd.doctypes"/>
-  <property name="doctypes.plugin-dist" value="${plugin.dist}/com.astd.doctypes"/>
+  <property name="doctypes.plugin-src" value="${plugin-src}/net.sourceforge.dita4publishers.doctypes"/>
+  <property name="doctypes.plugin-dist" value="${plugin.dist}/net.sourceforge.dita4publishers.doctypes"/>
   <property name="doctypes.src" value="${basedir}/doctypes"/>
   <property name="xslt.src" value="${basedir}/xslt"/>
 
@@ -60,7 +60,7 @@
 	  description="Deploy plugins to local DITA Open Toolkit">
 		<delete failonerror="false">
 			<fileset dir="${plugin-deploy_target}">
-				<include name="com.astd.*"/>
+				<include name="net.sourceforge.dita4publishers.*"/>
 		  </fileset>
 		</delete>
 		
@@ -87,9 +87,9 @@
 	<target name="package-toolkit-plugins" depends="dist-toolkit-plugins"
 		description="Create distributable Zip packages of the different Toolkit plugins"
 		>
-    <zip destfile="${package.dist}/com_astd_toolkit_plugins.zip">
+    <zip destfile="${package.dist}/net_sourceforge_dita4publishers_toolkit_plugins.zip">
       <fileset dir="${plugin.dist}">
-        <include name="com.astd.*/**"/>
+        <include name="net.sourceforge.dita4publishers.*/**"/>
       </fileset>
     </zip>
   </target>
