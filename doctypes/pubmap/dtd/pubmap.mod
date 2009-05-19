@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ============================================================= -->
-<!--                    HEADER                                     -->
 <!-- ============================================================= -->
+<!--                    HEADER                                     -->
 <!--  MODULE:    DITA Pubmap                                       -->
 <!--  VERSION:   1.2                                               -->
 <!--  DATE:      May 2009                                          -->
@@ -73,10 +73,13 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap"
 <!ENTITY % pubowner       "pubowner"                               >
 <!ENTITY % pubpartno      "pubpartno"                              >
 <!ENTITY % pubrestriction "pubrestriction"                         >
+<!ENTITY % publicense     "publicense"                             >
 <!ENTITY % pubrights      "pubrights"                              >
 <!ENTITY % pubtitle       "pubtitle"                               >
 <!ENTITY % pubtitlealt    "pubtitlealt"                            >
 
+<!ENTITY % keydefs         "keydefs"                                 >
+<!ENTITY % keydef-group    "keydef-group"                            >
 <!ENTITY % pubbody         "pubbody"                                 >
 <!ENTITY % chapter         "chapter"                                 >
 <!ENTITY % covers          "covers"                                 >
@@ -188,6 +191,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap"
   "(((%title;) | 
      (%pubtitle;))?,
    (%pubmeta;)?, 
+   (%keydefs;)?,
    (%covers;)?,
    (%colophon;)?, 
    ((%frontmatter;) |
@@ -297,6 +301,50 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap"
 <!ELEMENT frontmatter    %frontmatter.content;>
 <!ATTLIST frontmatter    %frontmatter.attributes;>
 
+<!--                    LONG NAME: Key Definitions                    -->
+<!ENTITY % keydefs.content
+ "((%topicmeta;)?,
+   ((%keydef;) |
+    (%keydef-group;))*)"
+>
+<!ENTITY % keydefs.attributes
+             "outputclass 
+                        CDATA 
+                                  #IMPLIED
+              processing-role
+                   CDATA
+                   'resource-only'
+              navtitle
+                   CDATA
+                   #IMPLIED
+               %topicref-atts;
+              %univ-atts;"
+>
+<!ELEMENT keydefs    %keydefs.content;>
+<!ATTLIST keydefs    %keydefs.attributes;>
+
+<!--                    LONG NAME: Key Definition Group                    -->
+<!ENTITY % keydef-group.content
+ "((%topicmeta;)?,
+   ((%keydef;) |
+    (%keydef-group;))*)"
+>
+<!ENTITY % keydef-group.attributes
+             "outputclass 
+                        CDATA 
+                                  #IMPLIED
+              processing-role
+                   CDATA
+                   'resource-only'
+              navtitle
+                   CDATA
+                   #IMPLIED
+              %topicref-atts;
+              %univ-atts;"
+>
+<!ELEMENT keydef-group    %keydef-group.content;>
+<!ATTLIST keydef-group    %keydef-group.attributes;>
+
 
 <!--                    LONG NAME: Back Matter                     -->
 <!ENTITY % backmatter.content
@@ -308,6 +356,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap"
    %topicref; |
    %subsection; |
    %article; | 
+   %chapter; |
    %page;)*"
 >
 <!ENTITY % backmatter.attributes
@@ -886,9 +935,12 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap"
 <!ENTITY % pubrights.content
                        "((%copyrfirst;)?, 
                          (%copyrlast;)?,
-                         (%pubowner;), 
-                         (%pubrestriction;)?, 
-                         (%summary;)?)"
+                         (%pubowner;)?, 
+                         (%pubrestriction;)?,
+                         (%publicense;)?,
+                         (%summary;)?,
+                         (%data; |
+                          %data-about;)*)"
 >
 <!ENTITY % pubrights.attributes
              "%data-element-atts;"
@@ -896,6 +948,21 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap"
 <!ELEMENT pubrights    %pubrights.content;>
 <!ATTLIST pubrights    %pubrights.attributes;>
 
+
+<!-- LONG NAME: Publication License -->
+<!-- Intended to hold license statements for
+     documents that are in the public domain
+     or otherwise not owned or not under a traditional
+     copyright.
+  -->
+<!ENTITY % publicense.content
+  "(%data.cnt;)*"
+>
+<!ENTITY % publicense.attributes
+             "%data-element-atts;"
+>
+<!ELEMENT publicense    %publicense.content;>
+<!ATTLIST publicense    %publicense.attributes;>
 
 <!--                    LONG NAME: First Copyright                 -->
 <!ENTITY % copyrfirst.content
@@ -1119,6 +1186,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap"
                          ((%appendix;) |
                           (%chapter;) |
                           (%part;) |
+                          (%page;) |
                           (%topicref;))*)"
 >
 <!ENTITY % pubbody.attributes
@@ -1541,15 +1609,45 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap"
 <!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
 <!-- ============================================================= -->
 
-<!ATTLIST pubmap     %global-atts; class CDATA "- map/map pubmap/pubmap ">
 <!ATTLIST abbrevlist  %global-atts; class CDATA "- map/topicref pubmap/abbrevlist ">
 <!ATTLIST amendments  %global-atts; class CDATA "- map/topicref pubmap/amendments ">
 <!ATTLIST appendix    %global-atts; class CDATA "- map/topicref pubmap/appendix ">
-<!ATTLIST subsection  %global-atts; class CDATA "- map/topicref pubmap/subsection ">
-<!ATTLIST sidebar     %global-atts; class CDATA "- map/topicref pubmap/sidebar ">
 <!ATTLIST approved    %global-atts; class CDATA "- topic/data pubmap/approved ">
+<!ATTLIST article     %global-atts; class CDATA "- map/topicref pubmap/article ">
+<!ATTLIST back-cover  %global-atts; class CDATA "- map/topicref pubmap/back-cover ">
+<!ATTLIST back-flap   %global-atts; class CDATA "- map/topicref pubmap/back-flap ">
+<!ATTLIST book-jacket %global-atts; class CDATA "- map/topicref pubmap/book-jacket ">
 <!ATTLIST backmatter  %global-atts; class CDATA "- map/topicref pubmap/backmatter ">
 <!ATTLIST bibliolist  %global-atts; class CDATA "- map/topicref pubmap/bibliolist ">
+<!ATTLIST chapter     %global-atts; class CDATA "- map/topicref pubmap/chapter ">
+<!ATTLIST colophon    %global-atts; class CDATA "- map/topicref pubmap/colophon ">
+<!ATTLIST completed   %global-atts; class CDATA "- topic/ph pubmap/completed ">
+<!ATTLIST copyrfirst  %global-atts; class CDATA "- topic/data pubmap/copyrfirst ">
+<!ATTLIST copyrlast   %global-atts; class CDATA "- topic/data pubmap/copyrlast ">
+<!ATTLIST covers      %global-atts; class CDATA "- map/topicref pubmap/covers ">
+<!ATTLIST day         %global-atts; class CDATA "- topic/ph pubmap/day ">
+<!ATTLIST dedication  %global-atts; class CDATA "- map/topicref pubmap/dedication ">
+<!ATTLIST draftintro  %global-atts; class CDATA "- map/topicref pubmap/draftintro ">
+<!ATTLIST edited      %global-atts; class CDATA "- topic/data pubmap/edited ">
+<!ATTLIST edition     %global-atts; class CDATA "- topic/data pubmap/edition ">
+<!ATTLIST figurelist  %global-atts; class CDATA "- map/topicref pubmap/figurelist ">
+<!ATTLIST front-cover %global-atts; class CDATA "- map/topicref pubmap/front-cover ">
+<!ATTLIST front-flap  %global-atts; class CDATA "- map/topicref pubmap/front-flap ">
+<!ATTLIST frontmatter %global-atts; class CDATA "- map/topicref pubmap/frontmatter ">
+<!ATTLIST glossarylist %global-atts; class CDATA "- map/topicref pubmap/glossarylist ">
+<!ATTLIST indexlist   %global-atts; class CDATA "- map/topicref pubmap/indexlist ">
+<!ATTLIST keydefs     %global-atts; class CDATA "- topic/topicref pubmap/keydefs ">
+<!ATTLIST keydef-group %global-atts; class CDATA "- topic/topicref pubmap/keydef-group ">
+<!ATTLIST mainpubtitle %global-atts;  class CDATA "- topic/ph pubmap/mainpubtitle ">
+<!ATTLIST maintainer  %global-atts; class CDATA "- topic/data pubmap/maintainer ">
+<!ATTLIST month       %global-atts; class CDATA "- topic/ph pubmap/month ">
+<!ATTLIST notices     %global-atts; class CDATA "- map/topicref pubmap/notices ">
+<!ATTLIST organization %global-atts; class CDATA "- topic/data pubmap/organization ">
+<!ATTLIST page        %global-atts; class CDATA "- map/topicref pubmap/page ">
+<!ATTLIST part        %global-atts; class CDATA "- map/topicref pubmap/part ">
+<!ATTLIST person      %global-atts; class CDATA "- topic/data pubmap/person ">
+<!ATTLIST preface     %global-atts; class CDATA "- map/topicref pubmap/preface ">
+<!ATTLIST printlocation %global-atts; class CDATA "- topic/data pubmap/printlocation ">
 <!ATTLIST pubabstract %global-atts; class CDATA "- map/topicref pubmap/pubabstract ">
 <!ATTLIST pubchangehistory %global-atts; class CDATA "- topic/data pubmap/pubchangehistory ">
 <!ATTLIST pubevent   %global-atts; class CDATA "- topic/data pubmap/pubevent ">
@@ -1558,51 +1656,33 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap"
 <!ATTLIST publibrary %global-atts;  class CDATA "- topic/ph pubmap/publibrary ">
 <!ATTLIST publist    %global-atts; class CDATA "- map/topicref pubmap/publist ">
 <!ATTLIST publists   %global-atts; class CDATA "- map/topicref pubmap/publists ">
+<!ATTLIST pubmap     %global-atts; class CDATA "- map/map pubmap/pubmap ">
 <!ATTLIST pubmeta    %global-atts; class CDATA "- map/topicmeta pubmap/pubmeta ">
 <!ATTLIST pubnumber  %global-atts; class CDATA "- topic/data pubmap/pubnumber ">
 <!ATTLIST pubowner   %global-atts; class CDATA "- topic/data pubmap/pubowner ">
 <!ATTLIST pubpartno  %global-atts; class CDATA "- topic/data pubmap/pubpartno ">
 <!ATTLIST pubrestriction %global-atts; class CDATA "- topic/data pubmap/pubrestriction ">
+<!ATTLIST publicense %global-atts; class CDATA "- topic/data pubmap/publicense ">
 <!ATTLIST pubrights  %global-atts; class CDATA "- topic/data pubmap/pubrights ">
 <!ATTLIST pubtitle   %global-atts;  class CDATA "- topic/title pubmap/pubtitle ">
 <!ATTLIST pubtitlealt %global-atts;  class CDATA "- topic/ph pubmap/pubtitlealt ">
-<!ATTLIST chapter     %global-atts; class CDATA "- map/topicref pubmap/chapter ">
 <!ATTLIST pubbody     %global-atts; class CDATA "- map/topicref pubmap/pubbody ">
-<!ATTLIST colophon    %global-atts; class CDATA "- map/topicref pubmap/colophon ">
-<!ATTLIST completed   %global-atts; class CDATA "- topic/ph pubmap/completed ">
-<!ATTLIST copyrfirst  %global-atts; class CDATA "- topic/data pubmap/copyrfirst ">
-<!ATTLIST copyrlast   %global-atts; class CDATA "- topic/data pubmap/copyrlast ">
-<!ATTLIST day         %global-atts; class CDATA "- topic/ph pubmap/day ">
-<!ATTLIST dedication  %global-atts; class CDATA "- map/topicref pubmap/dedication ">
-<!ATTLIST draftintro  %global-atts; class CDATA "- map/topicref pubmap/draftintro ">
-<!ATTLIST edited      %global-atts; class CDATA "- topic/data pubmap/edited ">
-<!ATTLIST edition     %global-atts; class CDATA "- topic/data pubmap/edition ">
-<!ATTLIST figurelist  %global-atts; class CDATA "- map/topicref pubmap/figurelist ">
-<!ATTLIST frontmatter %global-atts; class CDATA "- map/topicref pubmap/frontmatter ">
-<!ATTLIST glossarylist %global-atts; class CDATA "- map/topicref pubmap/glossarylist ">
-<!ATTLIST indexlist   %global-atts; class CDATA "- map/topicref pubmap/indexlist ">
-<!ATTLIST isbn        %global-atts; class CDATA "- topic/data pubmap/isbn ">
-<!ATTLIST mainpubtitle %global-atts;  class CDATA "- topic/ph pubmap/mainpubtitle ">
-<!ATTLIST maintainer  %global-atts; class CDATA "- topic/data pubmap/maintainer ">
-<!ATTLIST month       %global-atts; class CDATA "- topic/ph pubmap/month ">
-<!ATTLIST notices     %global-atts; class CDATA "- map/topicref pubmap/notices ">
-<!ATTLIST organization %global-atts; class CDATA "- topic/data pubmap/organization ">
-<!ATTLIST part        %global-atts; class CDATA "- map/topicref pubmap/part ">
-<!ATTLIST person      %global-atts; class CDATA "- topic/data pubmap/person ">
-<!ATTLIST preface     %global-atts; class CDATA "- map/topicref pubmap/preface ">
-<!ATTLIST printlocation %global-atts; class CDATA "- topic/data pubmap/printlocation ">
 <!ATTLIST published   %global-atts; class CDATA "- topic/data pubmap/published ">
 <!ATTLIST publisherinformation %global-atts; class CDATA "- topic/publisher pubmap/publisherinformation ">
 <!ATTLIST publishtype %global-atts; class CDATA "- topic/data pubmap/publishtype ">
 <!ATTLIST reviewed    %global-atts; class CDATA "- topic/data pubmap/reviewed ">
 <!ATTLIST revisionid  %global-atts; class CDATA "- topic/ph pubmap/revisionid ">
+<!ATTLIST sidebar     %global-atts; class CDATA "- map/topicref pubmap/sidebar ">
+<!ATTLIST spine       %global-atts; class CDATA "- map/topicref pubmap/spine ">
 <!ATTLIST started     %global-atts; class CDATA "- topic/ph pubmap/started ">
+<!ATTLIST subsection  %global-atts; class CDATA "- map/topicref pubmap/subsection ">
 <!ATTLIST summary     %global-atts; class CDATA "- topic/ph pubmap/summary ">
 <!ATTLIST tablelist   %global-atts; class CDATA "- map/topicref pubmap/tablelist ">
 <!ATTLIST tested      %global-atts; class CDATA "- topic/data pubmap/tested ">
 <!ATTLIST toc         %global-atts; class CDATA "- map/topicref pubmap/toc ">
 <!ATTLIST trademarklist %global-atts; class CDATA "- map/topicref pubmap/trademarklist ">
 <!ATTLIST volume      %global-atts; class CDATA "- topic/data pubmap/volume ">
+<!ATTLIST wrap-cover  %global-atts; class CDATA "- map/topicref pubmap/wrap-cover ">
 <!ATTLIST year        %global-atts; class CDATA "- topic/ph pubmap/year ">
 
 <!-- ================== End pub map ============================= -->

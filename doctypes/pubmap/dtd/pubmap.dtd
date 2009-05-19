@@ -111,6 +111,12 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/pubmap"
 "../../base/dtd/map.mod"                                                      >
 %map-type;
 
+<!ENTITY % mapgroup-d-def  
+                        PUBLIC 
+"-//OASIS//ELEMENTS DITA 1.2 Map Group Domain//EN" 
+"mapGroup.mod"                                                 >
+%mapgroup-d-def;
+
 <!ENTITY % pubmap-type PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap" 
 "pubmap.mod"                                                        >
@@ -119,12 +125,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/pubmap"
 <!-- ============================================================= -->
 <!--                    DOMAIN ELEMENT INTEGRATION                 -->
 <!-- ============================================================= -->
-
-<!ENTITY % mapgroup-d-def  
-                        PUBLIC 
-"-//OASIS//ELEMENTS DITA 1.2 Map Group Domain//EN" 
-"../../base/dtd/mapGroup.mod"                                                 >
-%mapgroup-d-def;
 
 <!ENTITY % indexing-d-def
                         PUBLIC 
