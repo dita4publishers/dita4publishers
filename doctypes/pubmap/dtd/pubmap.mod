@@ -197,12 +197,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap"
    ((%frontmatter;) |
     (%department;) |
     (%page;))*,
-   ((%pubbody;) |
-    ((%chapter;) | 
-      (%part;) |
-      (%article;) |
-      (%department;)
-    )*), 
+   ((%pubbody;)), 
    ((%appendixes;) |
     (%appendix;) |
     (%backmatter;) |
@@ -1189,11 +1184,64 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap"
                           (%page;) |
                           (%topicref;))*)"
 >
+
+<!-- Sets collection-type to sequence by default -->
 <!ENTITY % pubbody.attributes
              'outputclass 
                          CDATA 
                                    #IMPLIED
-              %topicref-atts;
+
+             collection-type 
+                        (choice | 
+                         family | 
+                         sequence | 
+                         unordered |
+                         -dita-use-conref-target) 
+                         "sequence"
+              type 
+                        CDATA 
+                                  #IMPLIED
+              scope 
+                        (external | 
+                         local | 
+                         peer | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              locktitle 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              format 
+                        CDATA 
+                                  #IMPLIED
+              linking 
+                        (none | 
+                         normal | 
+                         sourceonly | 
+                         targetonly |
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              toc 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              print 
+                        (no | 
+                         printonly | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              search 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              chunk 
+                        CDATA 
+                                  #IMPLIED
+
               %univ-atts;' 
 >
 <!ELEMENT pubbody    %pubbody.content;>
