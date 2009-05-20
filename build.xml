@@ -8,9 +8,11 @@
   <property name="dist" location="${basedir}/dist"/>
   <property name="lib" location="${basedir}/java/lib"/>
   <property name="src" location="${basedir}/src/java"/>
-	<property name="sampledocs" location="${basedir}/sample_docs"/>
+  <property name="docs" location="${basedir}/documentation"/>
+	<property name="sampledata" location="${basedir}/sample_data"/>
 	<property name="plugin.dist" location="${dist}/plugins"/>
   <property name="package.dist" location="${dist}/dita4publishers"/>
+	<property name="package.zip.base" value="dita4publishers"/>
   <property name="dita-ot-dir" location="c:\DITA-OT1.5"/>
   <property name="plugin-src" value="${basedir}/toolkit_plugins"/>
   <property name="plugin-deploy_target" value="${dita-ot-dir}/plugins"/>
@@ -79,8 +81,8 @@
 	</target>
 	
 	<target name="dist-init">
-		<delete failonerror="false">
-			<fileset dir="${dist}"/>
+		<delete failonerror="true" includeemptydirs="true">
+			<fileset dir="${dist}" includes="*/**"/>
   	</delete>
 		<mkdir dir="${dist}"/>
 		<mkdir dir="${package.dist}"/>
@@ -99,20 +101,26 @@
 	<target name="package-delivery" depends="dist-init, package-toolkit-plugins"
 		description="Create distributable package of all the deliverables"
 		>
-    <copy todir="${package.dist}/doctypes" flatten="true" includeemptydirs="false">
-      <fileset dir="${doctypes.src}">
-        <include name="*/**"/>
-      	<exclude name="**/catalog.xml"/>
-      </fileset>
-    </copy>
     <copy todir="${package.dist}/xslt">
       <fileset dir="${xslt.src}">
+        <include name="*/**"/>
       </fileset>
     </copy>
-    <copy todir="${package.dist}/sampledocs">
-      <fileset dir="${sampledocs}">
+    <copy todir="${package.dist}/sample_data">
+      <fileset dir="${sampledata}">
+        <include name="*/**"/>
       </fileset>
     </copy>
+    <copy todir="${package.dist}/documentation">
+      <fileset dir="${docs}">
+        <include name="*/**"/>
+      </fileset>
+    </copy>
+		
+		<zip destfile="${dist}/${package.zip.base}-${package.date}.zip">
+			<fileset dir="${package.dist}" >
+			</fileset>
+		</zip>
 	</target>
 	
 </project>
