@@ -10,8 +10,8 @@
   <property name="src" location="${basedir}/src/java"/>
 	<property name="sampledocs" location="${basedir}/sample_docs"/>
 	<property name="plugin.dist" location="${dist}/plugins"/>
-  <property name="package.dist" location="${dist}/dtl-redo"/>
-  <property name="dita-ot-dir" location="c:\DITA-OT1.4.3"/>
+  <property name="package.dist" location="${dist}/dita4publishers"/>
+  <property name="dita-ot-dir" location="c:\DITA-OT1.5"/>
   <property name="plugin-src" value="${basedir}/toolkit_plugins"/>
   <property name="plugin-deploy_target" value="${dita-ot-dir}/plugins"/>
   <property name="doctypes.plugin-src" value="${plugin-src}/net.sourceforge.dita4publishers.doctypes"/>
@@ -40,37 +40,39 @@
   </target>
 	
 	
-	<target name="dist-toolkit-plugins" description="Packages the DITA Open Toolkit plugins for deployment to a working Toolkit instance">
+	<target name="dist-toolkit-plugins" description="Packages the DITA Open Toolkit plugins for deployment to a working Toolkit instance"
+		 depends="dist-init"
+		>
     <delete includeEmptyDirs="true" failonerror="false">
-      <fileset dir="${plugin.dist}"/>
+      <fileset dir="${plugin.dist}"  includes="net.sourceforge.dita4publishers.*/**"/>
     </delete>
-		<mkdir dir="${plugin.dist}"/>
-		
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin-src}">
 			</fileset>
 		</copy>
     <copy todir="${doctypes.plugin-dist}/doctypes">
       <fileset dir="${doctypes.src}">
+        <exclude name="xmlDomain/**"/>
+      </fileset>
+    </copy>
+    <copy todir="${plugin.dist}/net.sourceforge.dita4publishers.xmldomain.doctypes">
+      <fileset dir="${doctypes.src}/xmldomain">
+        <include name="*/**"/>
       </fileset>
     </copy>
   </target>
 	
 	<target name="deploy-toolkit-plugins" depends="dist-toolkit-plugins"
 	  description="Deploy plugins to local DITA Open Toolkit">
-		<delete failonerror="false">
-			<fileset dir="${plugin-deploy_target}">
-				<include name="net.sourceforge.dita4publishers.*"/>
-		  </fileset>
+		<delete failonerror="true" includeemptydirs="true">
+			<fileset dir="${plugin-deploy_target}" includes="net.sourceforge.dita4publishers.*/**"/>
 		</delete>
-		
 		<copy todir="${plugin-deploy_target}">
 			<fileset dir="${plugin.dist}">
 				<include name="**/*"/>
         <exclude name="**/CVS"/>
 			</fileset>
 		</copy>
-		
     <!-- Itegrate the deployed plugins: -->
     <antcall target="integrate"/>
 
@@ -84,7 +86,7 @@
 		<mkdir dir="${package.dist}"/>
   </target>
 	
-	<target name="package-toolkit-plugins" depends="dist-toolkit-plugins"
+	<target name="package-toolkit-plugins" depends="dist-init, dist-toolkit-plugins"
 		description="Create distributable Zip packages of the different Toolkit plugins"
 		>
     <zip destfile="${package.dist}/net_sourceforge_dita4publishers_toolkit_plugins.zip">
