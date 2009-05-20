@@ -1,0 +1,13 @@
+<!-- 
+  Plugin descriptor for the XML domain HTML rendering plugin.
+  
+  Copyright (c) 2009 DITA For Publishers
+    
+  This plug-in extends the base DITA-to-HTML process to provide appropriate
+  rendering for XML domain elements.
+  
+  -->
+<plugin id="com.reallysi.xmldomain.html">
+  <require plugin="net.sourceforge.dita4publishers.xmldomain.doctypes"/> 
+  <feature extension="dita.xsl.xhtml" value="xsl/xmlDomain2html.xsl" type="file"/>  
+</plugin>
