@@ -1,0 +1,5 @@
+<plugin id="net.sourceforge.dita4publishers.epub">
+  <feature extension="dita.conductor.target.relative"
+    value="build_shell.xml" type="file"/>
+  <feature extension="dita.conductor.transtype.check" value="epub" type="txt"/>
+</plugin>
