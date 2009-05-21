@@ -20,7 +20,7 @@
         <stepresult>
           <p>You should get these directories and zip files:<dl>
               <dlentry>
-                <dt><filepath>net_sourceforge_dita4publishers_toolkit_plugins.zip</filepath></dt>
+                <dt><filepath>dita4publishers_toolkit_plugins.zip</filepath></dt>
                 <dd>Contains the DITA for Publishers Toolkit plugins. To be installed in your local
                   Open Toolkit's <filepath>plugins</filepath> directory.</dd>
               </dlentry>
@@ -48,10 +48,9 @@
         </stepresult>
       </step>
       <step>
-        <cmd>Unzip the file <filepath>net_sourceforge_dita4publishers_toolkit_plugins</filepath>
-          into your local Open Toolkit's <filepath>plugins</filepath> directory so that each
-          top-level directory in the Zip file is a direct child of <filepath
-          >plugins</filepath>.</cmd>
+        <cmd>Unzip the file <filepath>dita4publishers_toolkit_plugins</filepath> into your local
+          Open Toolkit's <filepath>plugins</filepath> directory so that each top-level directory in
+          the Zip file is a direct child of <filepath>plugins</filepath>.</cmd>
         <stepresult>
           <p>Your <filepath>plugins</filepath> directory should include these DITA for Publishers
             plugin directories:<ul>

@@ -8,9 +8,13 @@
   <property name="dist" location="${basedir}/dist"/>
   <property name="lib" location="${basedir}/java/lib"/>
   <property name="src" location="${basedir}/src/java"/>
+  <property name="build" location="${basedir}/build"/>
   <property name="temp" location="${basedir}/temp"/>
   <property name="epubTemp" location="${temp}/epub"/>
+  <property name="epubBuild" location="${build}/epubs"/>
   <property name="docs" location="${basedir}/documentation"/>
+  <property name="website.source" location="${docs}/website"/>
+  <property name="website.build" location="${build}/website"/>
 	<property name="sampledata" location="${basedir}/sample_data"/>
 	<property name="plugin.dist" location="${dist}/plugins"/>
   <property name="package.dist" location="${dist}/dita4publishers"/>
@@ -100,17 +104,36 @@
 		<mkdir dir="${package.dist}"/>
   </target>
 	
+	<target name="dist-epub-plugin">
+    <delete failonerror="true" includeemptydirs="true">
+      <fileset dir="${plugin.dist}" includes="net.sourceforge.dita4publishers.epub/**"/>
+    </delete>
+    <copy todir="${plugin.dist}/net.sourceforge.dita4publishers.epub">
+      <fileset dir="${plugin-src}/net.sourceforge.dita4publishers.epub">
+        <include name="**/*"/>
+      </fileset>
+    </copy>
+	</target>
+	
+	<target name="package-epub-plugin" depends="dist-epub-plugin">
+    <zip destfile="${dist}/dita4publishers_epub_plugin-${package.date}.zip">
+      <fileset dir="${plugin.dist}">
+        <include name="net.sourceforge.dita4publishers.epub/**"/>
+      </fileset>
+    </zip>		
+	</target>
+	
 	<target name="package-toolkit-plugins" depends="dist-init, dist-toolkit-plugins"
 		description="Create distributable Zip packages of the different Toolkit plugins"
 		>
-    <zip destfile="${package.dist}/net_sourceforge_dita4publishers_toolkit_plugins.zip">
+    <zip destfile="${package.dist}/dita4publishers_toolkit_plugins.zip">
       <fileset dir="${plugin.dist}">
         <include name="net.sourceforge.dita4publishers.*/**"/>
       </fileset>
     </zip>
   </target>
 	
-	<target name="package-delivery" depends="dist-init, package-toolkit-plugins"
+	<target name="package-delivery" depends="dist-init, package-toolkit-plugins, package-epub-plugin"
 		description="Create distributable package of all the deliverables"
 		>
     <copy todir="${package.dist}/xslt">
@@ -129,10 +152,55 @@
       </fileset>
     </copy>
 		
+    <copy todir="${package.dist}/epubs">
+      <fileset dir="${epubBuild}">
+        <include name="**/*.epub"/>
+      </fileset>
+    </copy>
+    
 		<zip destfile="${dist}/${package.zip.base}-${package.date}.zip">
 			<fileset dir="${package.dist}" >
 			</fileset>
 		</zip>
+	</target>
+	
+	<target name="upload-packages-to-sourceforge" depends="package-delivery, package-epub-plugin"
+		description="Uploads the delivery packages to SourceForge in order to enable a new file release"
+		>
+		<scp todir="${sourceforge.username}@frs.sourceforge.net:uploads" password="${sourceforge.password}"
+			verbose="true"
+			>
+			<fileset dir="${dist}/dita4publishers/epubs">
+				<include name="**/*.epub"/>
+			</fileset>
+      <fileset dir="${dist}">
+        <include name="*.zip"/>
+      </fileset>
+		</scp>
+  </target>
+	
+	<target name="upload-website-contents-to-sourceforge">
+		<!-- FIXME: Once can run Toolkit processes from this build file, need to
+		     be dependent on separate target for generating the Web site HTML.
+		  -->
+		<scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs"
+		 password="${sourceforge.password}"
+			verbose="true"
+			>
+			<fileset dir="${website.source}/static-html">
+				<include name="index.html"/>
+			</fileset>
+      <fileset dir="${website.build}">
+        <include name="*"/>
+      </fileset>
+		</scp>
+		<!-- NOTE: As far as I can tell, the target directory has to already exist -->
+		<scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs/topics"
+	     password="${sourceforge.password}"
+	      verbose="true"
+			>
+      <fileset dir="${website.build}/topics"/>
+		</scp>
 	</target>
 	
 	<target name="generate-epubs-for-samples" depends="integrate, epub-wizard-of-oz"

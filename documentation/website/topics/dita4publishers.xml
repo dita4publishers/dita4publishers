@@ -18,7 +18,7 @@
           standard and its supporting tools, in anticipating of the eventual formation of a
           Publishing subcommittee within the DITA Technical Committee.</li>
       </ul><table
-        frame="none">
+        frame="all">
         <title>Project Quick Reference</title>
         <tgroup
           cols="2">
@@ -33,8 +33,9 @@
           <tbody>
             <row>
               <entry>dita4publishers DITA materials (includes Open Toolkit plugins)</entry>
-              <entry><xref href="https://sourceforge.net/project/downloading.php?group_id=262530&amp;filename=dita4publishers-2009-05-20.zip&amp;a=13956649"
-                  scope="external">dita4publishers-2009-05-20.zip</xref></entry>
+              <entry><xref
+                  href="https://sourceforge.net/project/platformdownload.php?group_id=262530&amp;sel_platform=16366"
+                  scope="external">Release dita4publishers-2009-05-21</xref></entry>
             </row>
             <row>
               <entry>dita4publishers user documentation</entry>
@@ -53,6 +54,13 @@
               <entry><xref
                   href="http://dita4publishers.svn.sourceforge.net/viewvc/dita4publishers/"
                   scope="external">http://dita4publishers.svn.sourceforge.net/viewvc/dita4publishers/</xref></entry>
+            </row>
+            <row>
+              <entry>EPubs (readable with EPub readers)</entry>
+              <entry><xref
+                  href="https://sourceforge.net/project/downloading.php?group_id=262530&amp;filename=wizard-of-oz.epub"
+                  format="html"
+                  scope="external">Wizard of Oz</xref></entry>
             </row>
           </tbody>
         </tgroup>

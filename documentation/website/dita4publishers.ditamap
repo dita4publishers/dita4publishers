@@ -20,5 +20,10 @@
       <topicref
         href="topics/using-source-code.xml"/>
     </topicref>
+    <topicref
+      href="topics/plugins-overview.xml">
+      <topicref
+        href="topics/epub-plugin.xml"/>
+    </topicref>
   </topicref>
 </map>
