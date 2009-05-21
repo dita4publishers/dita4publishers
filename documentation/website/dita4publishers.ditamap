@@ -3,5 +3,22 @@
 <map
   title="DITA Topic Map">
   <topicref
-    href="dita4publishers.xml"/>
+    href="topics/dita4publishers.xml">
+    <topicref
+      href="topics/publishers-and-publishing-docs.xml"/>
+    <topicref
+      href="topics/specialization-modules-overview.xml">
+      <topicref
+        href="topics/formatting-domain.xml"/>
+      <topicref
+        href="topics/xml-domain.xml"/>
+    </topicref>
+    <topicref
+      href="topics/how-to-use.xml">
+      <topicref
+        href="topics/install-instructions.xml"/>
+      <topicref
+        href="topics/using-source-code.xml"/>
+    </topicref>
+  </topicref>
 </map>

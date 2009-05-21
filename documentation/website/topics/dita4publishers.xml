@@ -25,19 +25,22 @@
           <colspec
             colname="c1"
             colnum="1"
-            colwidth="1.0*"/>
+            colwidth="0.55*"/>
           <colspec
             colname="c2"
             colnum="2"
-            colwidth="1.0*"/>
+            colwidth="1.45*"/>
           <tbody>
             <row>
-              <entry>dita4publishers DITA Open Toolkit plugin</entry>
-              <entry>Coming soon</entry>
+              <entry>dita4publishers DITA materials (includes Open Toolkit plugins)</entry>
+              <entry><xref href="https://sourceforge.net/project/downloading.php?group_id=262530&amp;filename=dita4publishers-2009-05-20.zip&amp;a=13956649"
+                  scope="external">dita4publishers-2009-05-20.zip</xref></entry>
             </row>
             <row>
               <entry>dita4publishers user documentation</entry>
-              <entry>Coming soon</entry>
+              <entry><xref
+                  href="how-to-use.xml#topic-id"
+                  format="dita">How To Use the DITA For Publishers Materials</xref></entry>
             </row>
             <row>
               <entry>dita4publishers SourceForge project </entry>
