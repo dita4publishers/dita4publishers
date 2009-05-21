@@ -8,6 +8,8 @@
   <property name="dist" location="${basedir}/dist"/>
   <property name="lib" location="${basedir}/java/lib"/>
   <property name="src" location="${basedir}/src/java"/>
+  <property name="temp" location="${basedir}/temp"/>
+  <property name="epubTemp" location="${temp}/epub"/>
   <property name="docs" location="${basedir}/documentation"/>
 	<property name="sampledata" location="${basedir}/sample_data"/>
 	<property name="plugin.dist" location="${dist}/plugins"/>
@@ -22,6 +24,7 @@
   <property name="xslt.src" value="${basedir}/xslt"/>
 
 	<import file="${dita-ot-dir}${file.separator}integrator.xml" optional="yes"/>
+  
 
   <property name="lib.home" value="${lib}" />
   <property name="src.home" value="${basedir}/src" />
@@ -29,12 +32,21 @@
 
   <property name="resources.home" value="${src.home}/resources" />
 
+	<path id="dita-classpath"
+		>
+		<fileset dir="${dita-ot-dir}/lib">
+		  <include name="**/*.jar"/>
+		</fileset>
+	</path>
+	
+
+	
 	<target name="init">
     <tstamp/>
   </target>
 
   <tstamp>
-		<format property="package.date" pattern="yyyy-mm-dd"/>
+		<format property="package.date" pattern="yyyy-MM-dd"/>
 	</tstamp>
   
 
@@ -121,6 +133,35 @@
 			<fileset dir="${package.dist}" >
 			</fileset>
 		</zip>
+	</target>
+	
+	<target name="generate-epubs-for-samples" depends="integrate, epub-wizard-of-oz"
+	  description="Generate ePUB versions of the publications in sample_data"
+	>
+  </target>
+	
+	<target name="epub-wizard-of-oz" description="Generate epub for the Wizard of Oz">
+		<antcall target="epub-map">
+			<param name="mapname" value="wizard-of-oz"/>
+		</antcall>
+	</target>
+	
+	<target name="epub-map">
+		<echo message="mapname='${mapname}'"/>
+		<ant antfile="${dita-ot-dir}${file.separator}build.xml"
+			dir="${dita-ot-dir}"
+			target="dita2epub"
+			
+			>
+			<property name="args.input" location="${sampledata}/${mapname}/${mapname}.ditamap"/>
+      <property name="transtype" value="dita2epub"/>
+			<property name="args.outext" value="html"/>
+			<property name="args.xhtml.toc" value="index"/>
+			<property name="dita.dir" location="${dita-ot-dir}"/>
+			<property name="dita.temp.dir" location="${temp}/dita-temp"/>
+			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
+			<property name="output.dir" location="${epubTemp}"/>
+	  </ant>
 	</target>
 	
 </project>
