@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/act" "act.dtd">
+<act id="act-i">
+  <title>Act I</title>
+  <prologue id="prologue">
+    <title></title>
+    <prologue-body>
+    </prologue-body>
+  </prologue>
+  
+  <scene id="a1-s1">
+    <title>Scene 1</title>
+    <scene-body>
+      <speech>
+        <speaker>Eliot</speaker>
+        <line>adfasdf</line>
+        <line>adfadsaf </line>
+        <stagedir>adsfasd</stagedir>
+      </speech>
+      
+    </scene-body>
+  </scene>
+  <epilogue id="epilogue">
+    <title>Epilogue</title>
+    <epilogue-body>
+    </epilogue-body>
+  </epilogue>
+  
+</act>

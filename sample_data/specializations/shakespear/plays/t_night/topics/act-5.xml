@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/act" "act.dtd">
+<act id="act-5">
+   <title>ACT V</title>
+   <scene id="act-5-scene-1">
+      <title>SCENE I.  Before OLIVIA's house.</title>
+      <scene-body>
+         <stagedir>Enter Clown and FABIAN</stagedir>
+         <speech>
+            <speaker>FABIAN</speaker>
+            <line>Now, as thou lovest me, let me see his letter.</line>
+         </speech>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>Good Master Fabian, grant me another request.</line>
+         </speech>
+         <speech>
+            <speaker>FABIAN</speaker>
+            <line>Any thing.</line>
+         </speech>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>Do not desire to see this letter.</line>
+         </speech>
+         <speech>
+            <speaker>FABIAN</speaker>
+            <line>This is, to give a dog, and in recompense desire my</line>
+            <line>dog again.</line>
+         </speech>
+         <stagedir>Enter DUKE ORSINO, VIOLA, CURIO, and Lords</stagedir>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>Belong you to the Lady Olivia, friends?</line>
+         </speech>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>Ay, sir; we are some of her trappings.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>I know thee well; how dost thou, my good fellow?</line>
+         </speech>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>Truly, sir, the better for my foes and the worse</line>
+            <line>for my friends.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>Just the contrary; the better for thy friends.</line>
+         </speech>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>No, sir, the worse.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>How can that be?</line>
+         </speech>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>Marry, sir, they praise me and make an ass of me;</line>
+            <line>now my foes tell me plainly I am an ass: so that by</line>
+            <line>my foes, sir I profit in the knowledge of myself,</line>
+            <line>and by my friends, I am abused: so that,</line>
+            <line>conclusions to be as kisses, if your four negatives</line>
+            <line>make your two affirmatives why then, the worse for</line>
+            <line>my friends and the better for my foes.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>Why, this is excellent.</line>
+         </speech>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>By my troth, sir, no; though it please you to be</line>
+            <line>one of my friends.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>Thou shalt not be the worse for me: there's gold.</line>
+         </speech>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>But that it would be double-dealing, sir, I would</line>
+            <line>you could make it another.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>O, you give me ill counsel.</line>
+         </speech>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>Put your grace in your pocket, sir, for this once,</line>
+            <line>and let your flesh and blood obey it.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>Well, I will be so much a sinner, to be a</line>
+            <line>double-dealer: there's another.</line>
+         </speech>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>Primo, secundo, tertio, is a good play; and the old</line>
+            <line>saying is, the third pays for all: the triplex,</line>
+            <line>sir, is a good tripping measure; or the bells of</line>
+            <line>Saint Bennet, sir, may put you in mind; one, two, three.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>You can fool no more money out of me at this throw:</line>
+            <line>if you will let your lady know I am here to speak</line>
+            <line>with her, and bring her along with you, it may awake</line>
+            <line>my bounty further.</line>
+         </speech>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>Marry, sir, lullaby to your bounty till I come</line>
+            <line>again. I go, sir; but I would not have you to think</line>
+            <line>that my desire of having is the sin of covetousness:</line>
+            <line>but, as you say, sir, let your bounty take a nap, I</line>
+            <line>will awake it anon.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>VIOLA</speaker>
+            <line>Here comes the man, sir, that did rescue me.</line>
+         </speech>
+         <stagedir>Enter ANTONIO and Officers</stagedir>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>That face of his I do remember well;</line>
+            <line>Yet, when I saw it last, it was besmear'd</line>
+            <line>As black as Vulcan in the smoke of war:</line>
+            <line>A bawbling vessel was he captain of,</line>
+            <line>For shallow draught and bulk unprizable;</line>
+            <line>With which such scathful grapple did he make</line>
+            <line>With the most noble bottom of our fleet,</line>
+            <line>That very envy and the tongue of loss</line>
+            <line>Cried fame and honour on him. What's the matter?</line>
+         </speech>
+         <speech>
+            <speaker>First Officer</speaker>
+            <line>Orsino, this is that Antonio</line>
+            <line>That took the Phoenix and her fraught from Candy;</line>
+            <line>And this is he that did the Tiger board,</line>
+            <line>When your young nephew Titus lost his leg:</line>
+            <line>Here in the streets, desperate of shame and state,</line>
+            <line>In private brabble did we apprehend him.</line>
+         </speech>
+         <speech>
+            <speaker>VIOLA</speaker>
+            <line>He did me kindness, sir, drew on my side;</line>
+            <line>But in conclusion put strange speech upon me:</line>
+            <line>I know not what 'twas but distraction.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>Notable pirate! thou salt-water thief!</line>
+            <line>What foolish boldness brought thee to their mercies,</line>
+            <line>Whom thou, in terms so bloody and so dear,</line>
+            <line>Hast made thine enemies?</line>
+         </speech>
+         <speech>
+            <speaker>ANTONIO</speaker>
+            <line>Orsino, noble sir,</line>
+            <line>Be pleased that I shake off these names you give me:</line>
+            <line>Antonio never yet was thief or pirate,</line>
+            <line>Though I confess, on base and ground enough,</line>
+            <line>Orsino's enemy. A witchcraft drew me hither:</line>
+            <line>That most ingrateful boy there by your side,</line>
+            <line>From the rude sea's enraged and foamy mouth</line>
+            <line>Did I redeem; a wreck past hope he was:</line>
+            <line>His life I gave him and did thereto add</line>
+            <line>My love, without retention or restraint,</line>
+            <line>All his in dedication; for his sake</line>
+            <line>Did I expose myself, pure for his love,</line>
+            <line>Into the danger of this adverse town;</line>
+            <line>Drew to defend him when he was beset:</line>
+            <line>Where being apprehended, his false cunning,</line>
+            <line>Not meaning to partake with me in danger,</line>
+            <line>Taught him to face me out of his acquaintance,</line>
+            <line>And grew a twenty years removed thing</line>
+            <line>While one would wink; denied me mine own purse,</line>
+            <line>Which I had recommended to his use</line>
+            <line>Not half an hour before.</line>
+         </speech>
+         <speech>
+            <speaker>VIOLA</speaker>
+            <line>How can this be?</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>When came he to this town?</line>
+         </speech>
+         <speech>
+            <speaker>ANTONIO</speaker>
+            <line>To-day, my lord; and for three months before,</line>
+            <line>No interim, not a minute's vacancy,</line>
+            <line>Both day and night did we keep company.</line>
+         </speech>
+         <stagedir>Enter OLIVIA and Attendants</stagedir>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>Here comes the countess: now heaven walks on earth.</line>
+            <line>But for thee, fellow; fellow, thy words are madness:</line>
+            <line>Three months this youth hath tended upon me;</line>
+            <line>But more of that anon. Take him aside.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>What would my lord, but that he may not have,</line>
+            <line>Wherein Olivia may seem serviceable?</line>
+            <line>Cesario, you do not keep promise with me.</line>
+         </speech>
+         <speech>
+            <speaker>VIOLA</speaker>
+            <line>Madam!</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>Gracious Olivia,--</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>What do you say, Cesario? Good my lord,--</line>
+         </speech>
+         <speech>
+            <speaker>VIOLA</speaker>
+            <line>My lord would speak; my duty hushes me.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>If it be aught to the old tune, my lord,</line>
+            <line>It is as fat and fulsome to mine ear</line>
+            <line>As howling after music.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>Still so cruel?</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Still so constant, lord.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>What, to perverseness? you uncivil lady,</line>
+            <line>To whose ingrate and unauspicious altars</line>
+            <line>My soul the faithfull'st offerings hath breathed out</line>
+            <line>That e'er devotion tender'd! What shall I do?</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Even what it please my lord, that shall become him.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>Why should I not, had I the heart to do it,</line>
+            <line>Like to the Egyptian thief at point of death,</line>
+            <line>Kill what I love?--a savage jealousy</line>
+            <line>That sometimes savours nobly. But hear me this:</line>
+            <line>Since you to non-regardance cast my faith,</line>
+            <line>And that I partly know the instrument</line>
+            <line>That screws me from my true place in your favour,</line>
+            <line>Live you the marble-breasted tyrant still;</line>
+            <line>But this your minion, whom I know you love,</line>
+            <line>And whom, by heaven I swear, I tender dearly,</line>
+            <line>Him will I tear out of that cruel eye,</line>
+            <line>Where he sits crowned in his master's spite.</line>
+            <line>Come, boy, with me; my thoughts are ripe in mischief:</line>
+            <line>I'll sacrifice the lamb that I do love,</line>
+            <line>To spite a raven's heart within a dove.</line>
+         </speech>
+         <speech>
+            <speaker>VIOLA</speaker>
+            <line>And I, most jocund, apt and willingly,</line>
+            <line>To do you rest, a thousand deaths would die.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Where goes Cesario?</line>
+         </speech>
+         <speech>
+            <speaker>VIOLA</speaker>
+            <line>After him I love</line>
+            <line>More than I love these eyes, more than my life,</line>
+            <line>More, by all mores, than e'er I shall love wife.</line>
+            <line>If I do feign, you witnesses above</line>
+            <line>Punish my life for tainting of my love!</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Ay me, detested! how am I beguiled!</line>
+         </speech>
+         <speech>
+            <speaker>VIOLA</speaker>
+            <line>Who does beguile you? who does do you wrong?</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Hast thou forgot thyself? is it so long?</line>
+            <line>Call forth the holy father.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>Come, away!</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Whither, my lord? Cesario, husband, stay.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>Husband!</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Ay, husband: can he that deny?</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>Her husband, sirrah!</line>
+         </speech>
+         <speech>
+            <speaker>VIOLA</speaker>
+            <line>No, my lord, not I.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Alas, it is the baseness of thy fear</line>
+            <line>That makes thee strangle thy propriety:</line>
+            <line>Fear not, Cesario; take thy fortunes up;</line>
+            <line>Be that thou know'st thou art, and then thou art</line>
+            <line>As great as that thou fear'st.</line>
+            <stagedir>Enter Priest</stagedir>
+            <line>O, welcome, father!</line>
+            <line>Father, I charge thee, by thy reverence,</line>
+            <line>Here to unfold, though lately we intended</line>
+            <line>To keep in darkness what occasion now</line>
+            <line>Reveals before 'tis ripe, what thou dost know</line>
+            <line>Hath newly pass'd between this youth and me.</line>
+         </speech>
+         <speech>
+            <speaker>Priest</speaker>
+            <line>A contract of eternal bond of love,</line>
+            <line>Confirm'd by mutual joinder of your hands,</line>
+            <line>Attested by the holy close of lips,</line>
+            <line>Strengthen'd by interchangement of your rings;</line>
+            <line>And all the ceremony of this compact</line>
+            <line>Seal'd in my function, by my testimony:</line>
+            <line>Since when, my watch hath told me, toward my grave</line>
+            <line>I have travell'd but two hours.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>O thou dissembling cub! what wilt thou be</line>
+            <line>When time hath sow'd a grizzle on thy case?</line>
+            <line>Or will not else thy craft so quickly grow,</line>
+            <line>That thine own trip shall be thine overthrow?</line>
+            <line>Farewell, and take her; but direct thy feet</line>
+            <line>Where thou and I henceforth may never meet.</line>
+         </speech>
+         <speech>
+            <speaker>VIOLA</speaker>
+            <line>My lord, I do protest--</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>O, do not swear!</line>
+            <line>Hold little faith, though thou hast too much fear.</line>
+         </speech>
+         <stagedir>Enter SIR ANDREW</stagedir>
+         <speech>
+            <speaker>SIR ANDREW</speaker>
+            <line>For the love of God, a surgeon! Send one presently</line>
+            <line>to Sir Toby.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>What's the matter?</line>
+         </speech>
+         <speech>
+            <speaker>SIR ANDREW</speaker>
+            <line>He has broke my head across and has given Sir Toby</line>
+            <line>a bloody coxcomb too: for the love of God, your</line>
+            <line>help! I had rather than forty pound I were at home.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Who has done this, Sir Andrew?</line>
+         </speech>
+         <speech>
+            <speaker>SIR ANDREW</speaker>
+            <line>The count's gentleman, one Cesario: we took him for</line>
+            <line>a coward, but he's the very devil incardinate.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>My gentleman, Cesario?</line>
+         </speech>
+         <speech>
+            <speaker>SIR ANDREW</speaker>
+            <line>'Od's lifelings, here he is! You broke my head for</line>
+            <line>nothing; and that that I did, I was set on to do't</line>
+            <line>by Sir Toby.</line>
+         </speech>
+         <speech>
+            <speaker>VIOLA</speaker>
+            <line>Why do you speak to me? I never hurt you:</line>
+            <line>You drew your sword upon me without cause;</line>
+            <line>But I bespoke you fair, and hurt you not.</line>
+         </speech>
+         <speech>
+            <speaker>SIR ANDREW</speaker>
+            <line>If a bloody coxcomb be a hurt, you have hurt me: I</line>
+            <line>think you set nothing by a bloody coxcomb.</line>
+            <stagedir>Enter SIR TOBY BELCH and Clown</stagedir>
+            <line>Here comes Sir Toby halting; you shall hear more:</line>
+            <line>but if he had not been in drink, he would have</line>
+            <line>tickled you othergates than he did.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>How now, gentleman! how is't with you?</line>
+         </speech>
+         <speech>
+            <speaker>SIR TOBY BELCH</speaker>
+            <line>That's all one: has hurt me, and there's the end</line>
+            <line>on't. Sot, didst see Dick surgeon, sot?</line>
+         </speech>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>O, he's drunk, Sir Toby, an hour agone; his eyes</line>
+            <line>were set at eight i' the morning.</line>
+         </speech>
+         <speech>
+            <speaker>SIR TOBY BELCH</speaker>
+            <line>Then he's a rogue, and a passy measures panyn: I</line>
+            <line>hate a drunken rogue.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Away with him! Who hath made this havoc with them?</line>
+         </speech>
+         <speech>
+            <speaker>SIR ANDREW</speaker>
+            <line>I'll help you, Sir Toby, because well be dressed together.</line>
+         </speech>
+         <speech>
+            <speaker>SIR TOBY BELCH</speaker>
+            <line>Will you help? an ass-head and a coxcomb and a</line>
+            <line>knave, a thin-faced knave, a gull!</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Get him to bed, and let his hurt be look'd to.</line>
+         </speech>
+         <stagedir>Exeunt Clown, FABIAN, SIR TOBY BELCH, and SIR ANDREW</stagedir>
+         <stagedir>Enter SEBASTIAN</stagedir>
+         <speech>
+            <speaker>SEBASTIAN</speaker>
+            <line>I am sorry, madam, I have hurt your kinsman:</line>
+            <line>But, had it been the brother of my blood,</line>
+            <line>I must have done no less with wit and safety.</line>
+            <line>You throw a strange regard upon me, and by that</line>
+            <line>I do perceive it hath offended you:</line>
+            <line>Pardon me, sweet one, even for the vows</line>
+            <line>We made each other but so late ago.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>One face, one voice, one habit, and two persons,</line>
+            <line>A natural perspective, that is and is not!</line>
+         </speech>
+         <speech>
+            <speaker>SEBASTIAN</speaker>
+            <line>Antonio, O my dear Antonio!</line>
+            <line>How have the hours rack'd and tortured me,</line>
+            <line>Since I have lost thee!</line>
+         </speech>
+         <speech>
+            <speaker>ANTONIO</speaker>
+            <line>Sebastian are you?</line>
+         </speech>
+         <speech>
+            <speaker>SEBASTIAN</speaker>
+            <line>Fear'st thou that, Antonio?</line>
+         </speech>
+         <speech>
+            <speaker>ANTONIO</speaker>
+            <line>How have you made division of yourself?</line>
+            <line>An apple, cleft in two, is not more twin</line>
+            <line>Than these two creatures. Which is Sebastian?</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Most wonderful!</line>
+         </speech>
+         <speech>
+            <speaker>SEBASTIAN</speaker>
+            <line>Do I stand there? I never had a brother;</line>
+            <line>Nor can there be that deity in my nature,</line>
+            <line>Of here and every where. I had a sister,</line>
+            <line>Whom the blind waves and surges have devour'd.</line>
+            <line>Of charity, what kin are you to me?</line>
+            <line>What countryman? what name? what parentage?</line>
+         </speech>
+         <speech>
+            <speaker>VIOLA</speaker>
+            <line>Of Messaline: Sebastian was my father;</line>
+            <line>Such a Sebastian was my brother too,</line>
+            <line>So went he suited to his watery tomb:</line>
+            <line>If spirits can assume both form and suit</line>
+            <line>You come to fright us.</line>
+         </speech>
+         <speech>
+            <speaker>SEBASTIAN</speaker>
+            <line>A spirit I am indeed;</line>
+            <line>But am in that dimension grossly clad</line>
+            <line>Which from the womb I did participate.</line>
+            <line>Were you a woman, as the rest goes even,</line>
+            <line>I should my tears let fall upon your cheek,</line>
+            <line>And say 'Thrice-welcome, drowned Viola!'</line>
+         </speech>
+         <speech>
+            <speaker>VIOLA</speaker>
+            <line>My father had a mole upon his brow.</line>
+         </speech>
+         <speech>
+            <speaker>SEBASTIAN</speaker>
+            <line>And so had mine.</line>
+         </speech>
+         <speech>
+            <speaker>VIOLA</speaker>
+            <line>And died that day when Viola from her birth</line>
+            <line>Had number'd thirteen years.</line>
+         </speech>
+         <speech>
+            <speaker>SEBASTIAN</speaker>
+            <line>O, that record is lively in my soul!</line>
+            <line>He finished indeed his mortal act</line>
+            <line>That day that made my sister thirteen years.</line>
+         </speech>
+         <speech>
+            <speaker>VIOLA</speaker>
+            <line>If nothing lets to make us happy both</line>
+            <line>But this my masculine usurp'd attire,</line>
+            <line>Do not embrace me till each circumstance</line>
+            <line>Of place, time, fortune, do cohere and jump</line>
+            <line>That I am Viola: which to confirm,</line>
+            <line>I'll bring you to a captain in this town,</line>
+            <line>Where lie my maiden weeds; by whose gentle help</line>
+            <line>I was preserved to serve this noble count.</line>
+            <line>All the occurrence of my fortune since</line>
+            <line>Hath been between this lady and this lord.</line>
+         </speech>
+         <speech>
+            <speaker>SEBASTIAN</speaker>
+            <line>
+               <stagedir>To OLIVIA</stagedir>  So comes it, lady, you have been mistook:</line>
+            <line>But nature to her bias drew in that.</line>
+            <line>You would have been contracted to a maid;</line>
+            <line>Nor are you therein, by my life, deceived,</line>
+            <line>You are betroth'd both to a maid and man.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>Be not amazed; right noble is his blood.</line>
+            <line>If this be so, as yet the glass seems true,</line>
+            <line>I shall have share in this most happy wreck.</line>
+            <stagedir>To VIOLA</stagedir>
+            <line>Boy, thou hast said to me a thousand times</line>
+            <line>Thou never shouldst love woman like to me.</line>
+         </speech>
+         <speech>
+            <speaker>VIOLA</speaker>
+            <line>And all those sayings will I overswear;</line>
+            <line>And those swearings keep as true in soul</line>
+            <line>As doth that orbed continent the fire</line>
+            <line>That severs day from night.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>Give me thy hand;</line>
+            <line>And let me see thee in thy woman's weeds.</line>
+         </speech>
+         <speech>
+            <speaker>VIOLA</speaker>
+            <line>The captain that did bring me first on shore</line>
+            <line>Hath my maid's garments: he upon some action</line>
+            <line>Is now in durance, at Malvolio's suit,</line>
+            <line>A gentleman, and follower of my lady's.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>He shall enlarge him: fetch Malvolio hither:</line>
+            <line>And yet, alas, now I remember me,</line>
+            <line>They say, poor gentleman, he's much distract.</line>
+            <stagedir>Re-enter Clown with a letter, and FABIAN</stagedir>
+            <line>A most extracting frenzy of mine own</line>
+            <line>From my remembrance clearly banish'd his.</line>
+            <line>How does he, sirrah?</line>
+         </speech>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>Truly, madam, he holds Belzebub at the staves's end as</line>
+            <line>well as a man in his case may do: has here writ a</line>
+            <line>letter to you; I should have given't you to-day</line>
+            <line>morning, but as a madman's epistles are no gospels,</line>
+            <line>so it skills not much when they are delivered.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Open't, and read it.</line>
+         </speech>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>Look then to be well edified when the fool delivers</line>
+            <line>the madman.</line>
+            <stagedir>Reads</stagedir>
+            <line>'By the Lord, madam,'--</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>How now! art thou mad?</line>
+         </speech>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>No, madam, I do but read madness: an your ladyship</line>
+            <line>will have it as it ought to be, you must allow Vox.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Prithee, read i' thy right wits.</line>
+         </speech>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>So I do, madonna; but to read his right wits is to</line>
+            <line>read thus: therefore perpend, my princess, and give ear.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Read it you, sirrah.</line>
+         </speech>
+         <stagedir>To FABIAN</stagedir>
+         <speech>
+            <speaker>FABIAN</speaker>
+            <line>
+               <stagedir>Reads</stagedir>  'By the Lord, madam, you wrong me, and the</line>
+            <line>world shall know it: though you have put me into</line>
+            <line>darkness and given your drunken cousin rule over</line>
+            <line>me, yet have I the benefit of my senses as well as</line>
+            <line>your ladyship. I have your own letter that induced</line>
+            <line>me to the semblance I put on; with the which I doubt</line>
+            <line>not but to do myself much right, or you much shame.</line>
+            <line>Think of me as you please. I leave my duty a little</line>
+            <line>unthought of and speak out of my injury.</line>
+            <line>THE MADLY-USED MALVOLIO.'</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Did he write this?</line>
+         </speech>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>Ay, madam.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>This savours not much of distraction.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>See him deliver'd, Fabian; bring him hither.</line>
+            <stagedir>Exit FABIAN</stagedir>
+            <line>My lord so please you, these things further</line>
+            <line>thought on,</line>
+            <line>To think me as well a sister as a wife,</line>
+            <line>One day shall crown the alliance on't, so please you,</line>
+            <line>Here at my house and at my proper cost.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>Madam, I am most apt to embrace your offer.</line>
+            <stagedir>To VIOLA</stagedir>
+            <line>Your master quits you; and for your service done him,</line>
+            <line>So much against the mettle of your sex,</line>
+            <line>So far beneath your soft and tender breeding,</line>
+            <line>And since you call'd me master for so long,</line>
+            <line>Here is my hand: you shall from this time be</line>
+            <line>Your master's mistress.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>A sister! you are she.</line>
+         </speech>
+         <stagedir>Re-enter FABIAN, with MALVOLIO</stagedir>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>Is this the madman?</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Ay, my lord, this same.</line>
+            <line>How now, Malvolio!</line>
+         </speech>
+         <speech>
+            <speaker>MALVOLIO</speaker>
+            <line>Madam, you have done me wrong,</line>
+            <line>Notorious wrong.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Have I, Malvolio? no.</line>
+         </speech>
+         <speech>
+            <speaker>MALVOLIO</speaker>
+            <line>Lady, you have. Pray you, peruse that letter.</line>
+            <line>You must not now deny it is your hand:</line>
+            <line>Write from it, if you can, in hand or phrase;</line>
+            <line>Or say 'tis not your seal, nor your invention:</line>
+            <line>You can say none of this: well, grant it then</line>
+            <line>And tell me, in the modesty of honour,</line>
+            <line>Why you have given me such clear lights of favour,</line>
+            <line>Bade me come smiling and cross-garter'd to you,</line>
+            <line>To put on yellow stockings and to frown</line>
+            <line>Upon Sir Toby and the lighter people;</line>
+            <line>And, acting this in an obedient hope,</line>
+            <line>Why have you suffer'd me to be imprison'd,</line>
+            <line>Kept in a dark house, visited by the priest,</line>
+            <line>And made the most notorious geck and gull</line>
+            <line>That e'er invention play'd on? tell me why.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Alas, Malvolio, this is not my writing,</line>
+            <line>Though, I confess, much like the character</line>
+            <line>But out of question 'tis Maria's hand.</line>
+            <line>And now I do bethink me, it was she</line>
+            <line>First told me thou wast mad; then camest in smiling,</line>
+            <line>And in such forms which here were presupposed</line>
+            <line>Upon thee in the letter. Prithee, be content:</line>
+            <line>This practise hath most shrewdly pass'd upon thee;</line>
+            <line>But when we know the grounds and authors of it,</line>
+            <line>Thou shalt be both the plaintiff and the judge</line>
+            <line>Of thine own cause.</line>
+         </speech>
+         <speech>
+            <speaker>FABIAN</speaker>
+            <line>Good madam, hear me speak,</line>
+            <line>And let no quarrel nor no brawl to come</line>
+            <line>Taint the condition of this present hour,</line>
+            <line>Which I have wonder'd at. In hope it shall not,</line>
+            <line>Most freely I confess, myself and Toby</line>
+            <line>Set this device against Malvolio here,</line>
+            <line>Upon some stubborn and uncourteous parts</line>
+            <line>We had conceived against him: Maria writ</line>
+            <line>The letter at Sir Toby's great importance;</line>
+            <line>In recompense whereof he hath married her.</line>
+            <line>How with a sportful malice it was follow'd,</line>
+            <line>May rather pluck on laughter than revenge;</line>
+            <line>If that the injuries be justly weigh'd</line>
+            <line>That have on both sides pass'd.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>Alas, poor fool, how have they baffled thee!</line>
+         </speech>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>Why, 'some are born great, some achieve greatness,</line>
+            <line>and some have greatness thrown upon them.' I was</line>
+            <line>one, sir, in this interlude; one Sir Topas, sir; but</line>
+            <line>that's all one. 'By the Lord, fool, I am not mad.'</line>
+            <line>But do you remember? 'Madam, why laugh you at such</line>
+            <line>a barren rascal? an you smile not, he's gagged:'</line>
+            <line>and thus the whirligig of time brings in his revenges.</line>
+         </speech>
+         <speech>
+            <speaker>MALVOLIO</speaker>
+            <line>I'll be revenged on the whole pack of you.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>OLIVIA</speaker>
+            <line>He hath been most notoriously abused.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE ORSINO</speaker>
+            <line>Pursue him and entreat him to a peace:</line>
+            <line>He hath not told us of the captain yet:</line>
+            <line>When that is known and golden time convents,</line>
+            <line>A solemn combination shall be made</line>
+            <line>Of our dear souls. Meantime, sweet sister,</line>
+            <line>We will not part from hence. Cesario, come;</line>
+            <line>For so you shall be, while you are a man;</line>
+            <line>But when in other habits you are seen,</line>
+            <line>Orsino's mistress and his fancy's queen.</line>
+         </speech>
+         <stagedir>Exeunt all, except Clown</stagedir>
+         <speech>
+            <speaker>Clown</speaker>
+            <line>
+               <stagedir>Sings</stagedir>
+            </line>
+            <line>When that I was and a little tiny boy,</line>
+            <line>With hey, ho, the wind and the rain,</line>
+            <line>A foolish thing was but a toy,</line>
+            <line>For the rain it raineth every day.</line>
+            <line>But when I came to man's estate,</line>
+            <line>With hey, ho, &amp;c.</line>
+            <line>'Gainst knaves and thieves men shut their gate,</line>
+            <line>For the rain, &amp;c.</line>
+            <line>But when I came, alas! to wive,</line>
+            <line>With hey, ho, &amp;c.</line>
+            <line>By swaggering could I never thrive,</line>
+            <line>For the rain, &amp;c.</line>
+            <line>But when I came unto my beds,</line>
+            <line>With hey, ho, &amp;c.</line>
+            <line>With toss-pots still had drunken heads,</line>
+            <line>For the rain, &amp;c.</line>
+            <line>A great while ago the world begun,</line>
+            <line>With hey, ho, &amp;c.</line>
+            <line>But that's all one, our play is done,</line>
+            <line>And we'll strive to please you every day.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+      </scene-body>
+   </scene>
+</act>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE personae
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/personae" "personae.dtd">
+<personae id="personae">
+   <title>Dramatis Personae</title>
+   <personae-body>
+      <pgroup>
+         <persona>MARK ANTONY</persona>
+         <persona>OCTAVIUS CAESAR</persona>
+         <persona>M. AEMILIUS LEPIDUS</persona>
+         <grpdescr>triumvirs.</grpdescr>
+      </pgroup>
+      <persona>SEXTUS POMPEIUS</persona>
+      <pgroup>
+         <persona>DOMITIUS ENOBARBUS</persona>
+         <persona>VENTIDIUS</persona>
+         <persona>EROS</persona>
+         <persona>SCARUS</persona>
+         <persona>DERCETAS</persona>
+         <persona>DEMETRIUS</persona>
+         <persona>PHILO</persona>
+         <grpdescr>friends to Antony.</grpdescr>
+      </pgroup>
+      <pgroup>
+         <persona>MECAENAS</persona>
+         <persona>AGRIPPA</persona>
+         <persona>DOLABELLA</persona>
+         <persona>PROCULEIUS</persona>
+         <persona>THYREUS</persona>
+         <persona>GALLUS</persona>
+         <persona>MENAS</persona>
+         <grpdescr>friends to Caesar.</grpdescr>
+      </pgroup>
+      <pgroup>
+         <persona>MENECRATES</persona>
+         <persona>VARRIUS</persona>
+         <grpdescr>friends to Pompey.</grpdescr>
+      </pgroup>
+      <persona>TAURUS, lieutenant-general to Caesar.</persona>
+      <persona>CANIDIUS, lieutenant-general to Antony.</persona>
+      <persona>SILIUS, an officer in Ventidius's army.</persona>
+      <persona>EUPHRONIUS, an ambassador from Antony to Caesar.</persona>
+      <pgroup>
+         <persona>ALEXAS</persona>
+         <persona>MARDIAN, a Eunuch.</persona>
+         <persona>SELEUCUS</persona>
+         <persona>DIOMEDES</persona>
+         <grpdescr>attendants on Cleopatra.</grpdescr>
+      </pgroup>
+      <persona>A Soothsayer. </persona>
+      <persona>A Clown. </persona>
+      <persona>CLEOPATRA, queen of Egypt.</persona>
+      <persona>OCTAVIA, sister to Caesar and wife to Antony.</persona>
+      <pgroup>
+         <persona>CHARMIAN</persona>
+         <persona>IRAS</persona>
+         <grpdescr>attendants on Cleopatra.</grpdescr>
+      </pgroup>
+      <persona>Officers, Soldiers, Messengers, and other Attendants.</persona>
+   </personae-body>
+</personae>

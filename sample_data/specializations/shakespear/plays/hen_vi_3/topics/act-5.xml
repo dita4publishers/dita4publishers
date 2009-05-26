@@ -1,0 +1,1003 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/act" "act.dtd">
+<act id="act-5">
+   <title>ACT V</title>
+   <scene id="act-5-scene-1">
+      <title>SCENE I.  Coventry.</title>
+      <scene-body>
+         <stagedir>Enter WARWICK, the Mayor of Coventry, two Messengers,
+and others upon the walls</stagedir>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>Where is the post that came from valiant Oxford?</line>
+            <line>How far hence is thy lord, mine honest fellow?</line>
+         </speech>
+         <speech>
+            <speaker>First Messenger</speaker>
+            <line>By this at Dunsmore, marching hitherward.</line>
+         </speech>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>How far off is our brother Montague?</line>
+            <line>Where is the post that came from Montague?</line>
+         </speech>
+         <speech>
+            <speaker>Second Messenger</speaker>
+            <line>By this at Daintry, with a puissant troop.</line>
+         </speech>
+         <stagedir>Enter SIR JOHN SOMERVILLE</stagedir>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>Say, Somerville, what says my loving son?</line>
+            <line>And, by thy guess, how nigh is Clarence now?</line>
+         </speech>
+         <speech>
+            <speaker>SOMERSET</speaker>
+            <line>At Southam I did leave him with his forces,</line>
+            <line>And do expect him here some two hours hence.</line>
+         </speech>
+         <stagedir>Drum heard</stagedir>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>Then Clarence is at hand, I hear his drum.</line>
+         </speech>
+         <speech>
+            <speaker>SOMERSET</speaker>
+            <line>It is not his, my lord; here Southam lies:</line>
+            <line>The drum your honour hears marcheth from Warwick.</line>
+         </speech>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>Who should that be? belike, unlook'd-for friends.</line>
+         </speech>
+         <speech>
+            <speaker>SOMERSET</speaker>
+            <line>They are at hand, and you shall quickly know.</line>
+         </speech>
+         <stagedir>March: flourish. Enter KING EDWARD IV, GLOUCESTER,
+and soldiers</stagedir>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Go, trumpet, to the walls, and sound a parle.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>See how the surly Warwick mans the wall!</line>
+         </speech>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>O unbid spite! is sportful Edward come?</line>
+            <line>Where slept our scouts, or how are they seduced,</line>
+            <line>That we could hear no news of his repair?</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Now, Warwick, wilt thou ope the city gates,</line>
+            <line>Speak gentle words and humbly bend thy knee,</line>
+            <line>Call Edward king and at his hands beg mercy?</line>
+            <line>And he shall pardon thee these outrages.</line>
+         </speech>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>Nay, rather, wilt thou draw thy forces hence,</line>
+            <line>Confess who set thee up and pluck'd thee own,</line>
+            <line>Call Warwick patron and be penitent?</line>
+            <line>And thou shalt still remain the Duke of York.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>I thought, at least, he would have said the king;</line>
+            <line>Or did he make the jest against his will?</line>
+         </speech>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>Is not a dukedom, sir, a goodly gift?</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Ay, by my faith, for a poor earl to give:</line>
+            <line>I'll do thee service for so good a gift.</line>
+         </speech>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>'Twas I that gave the kingdom to thy brother.</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Why then 'tis mine, if but by Warwick's gift.</line>
+         </speech>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>Thou art no Atlas for so great a weight:</line>
+            <line>And weakling, Warwick takes his gift again;</line>
+            <line>And Henry is my king, Warwick his subject.</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>But Warwick's king is Edward's prisoner:</line>
+            <line>And, gallant Warwick, do but answer this:</line>
+            <line>What is the body when the head is off?</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Alas, that Warwick had no more forecast,</line>
+            <line>But, whiles he thought to steal the single ten,</line>
+            <line>The king was slily finger'd from the deck!</line>
+            <line>You left poor Henry at the Bishop's palace,</line>
+            <line>And, ten to one, you'll meet him in the Tower.</line>
+         </speech>
+         <speech>
+            <speaker>EDWARD</speaker>
+            <line>'Tis even so; yet you are Warwick still.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Come, Warwick, take the time; kneel down, kneel down:</line>
+            <line>Nay, when? strike now, or else the iron cools.</line>
+         </speech>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>I had rather chop this hand off at a blow,</line>
+            <line>And with the other fling it at thy face,</line>
+            <line>Than bear so low a sail, to strike to thee.</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Sail how thou canst, have wind and tide thy friend,</line>
+            <line>This hand, fast wound about thy coal-black hair</line>
+            <line>Shall, whiles thy head is warm and new cut off,</line>
+            <line>Write in the dust this sentence with thy blood,</line>
+            <line>'Wind-changing Warwick now can change no more.'</line>
+         </speech>
+         <stagedir>Enter OXFORD, with drum and colours</stagedir>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>O cheerful colours! see where Oxford comes!</line>
+         </speech>
+         <speech>
+            <speaker>OXFORD</speaker>
+            <line>Oxford, Oxford, for Lancaster!</line>
+         </speech>
+         <stagedir>He and his forces enter the city</stagedir>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>The gates are open, let us enter too.</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>So other foes may set upon our backs.</line>
+            <line>Stand we in good array; for they no doubt</line>
+            <line>Will issue out again and bid us battle:</line>
+            <line>If not, the city being but of small defence,</line>
+            <line>We'll quickly rouse the traitors in the same.</line>
+         </speech>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>O, welcome, Oxford! for we want thy help.</line>
+         </speech>
+         <stagedir>Enter MONTAGUE with drum and colours</stagedir>
+         <speech>
+            <speaker>MONTAGUE</speaker>
+            <line>Montague, Montague, for Lancaster!</line>
+         </speech>
+         <stagedir>He and his forces enter the city</stagedir>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Thou and thy brother both shall buy this treason</line>
+            <line>Even with the dearest blood your bodies bear.</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>The harder match'd, the greater victory:</line>
+            <line>My mind presageth happy gain and conquest.</line>
+         </speech>
+         <stagedir>Enter SOMERSET, with drum and colours</stagedir>
+         <speech>
+            <speaker>SOMERSET</speaker>
+            <line>Somerset, Somerset, for Lancaster!</line>
+         </speech>
+         <stagedir>He and his forces enter the city</stagedir>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Two of thy name, both Dukes of Somerset,</line>
+            <line>Have sold their lives unto the house of York;</line>
+            <line>And thou shalt be the third if this sword hold.</line>
+         </speech>
+         <stagedir>Enter CLARENCE, with drum and colours</stagedir>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>And lo, where George of Clarence sweeps along,</line>
+            <line>Of force enough to bid his brother battle;</line>
+            <line>With whom an upright zeal to right prevails</line>
+            <line>More than the nature of a brother's love!</line>
+            <line>Come, Clarence, come; thou wilt, if Warwick call.</line>
+         </speech>
+         <speech>
+            <speaker>CLARENCE</speaker>
+            <line>Father of Warwick, know you what this means?</line>
+            <stagedir>Taking his red rose out of his hat</stagedir>
+            <line>Look here, I throw my infamy at thee</line>
+            <line>I will not ruinate my father's house,</line>
+            <line>Who gave his blood to lime the stones together,</line>
+            <line>And set up Lancaster. Why, trow'st thou, Warwick,</line>
+            <line>That Clarence is so harsh, so blunt, unnatural,</line>
+            <line>To bend the fatal instruments of war</line>
+            <line>Against his brother and his lawful king?</line>
+            <line>Perhaps thou wilt object my holy oath:</line>
+            <line>To keep that oath were more impiety</line>
+            <line>Than Jephthah's, when he sacrificed his daughter.</line>
+            <line>I am so sorry for my trespass made</line>
+            <line>That, to deserve well at my brother's hands,</line>
+            <line>I here proclaim myself thy mortal foe,</line>
+            <line>With resolution, wheresoe'er I meet thee--</line>
+            <line>As I will meet thee, if thou stir abroad--</line>
+            <line>To plague thee for thy foul misleading me.</line>
+            <line>And so, proud-hearted Warwick, I defy thee,</line>
+            <line>And to my brother turn my blushing cheeks.</line>
+            <line>Pardon me, Edward, I will make amends:</line>
+            <line>And, Richard, do not frown upon my faults,</line>
+            <line>For I will henceforth be no more unconstant.</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Now welcome more, and ten times more beloved,</line>
+            <line>Than if thou never hadst deserved our hate.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Welcome, good Clarence; this is brotherlike.</line>
+         </speech>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>O passing traitor, perjured and unjust!</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>What, Warwick, wilt thou leave the town and fight?</line>
+            <line>Or shall we beat the stones about thine ears?</line>
+         </speech>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>Alas, I am not coop'd here for defence!</line>
+            <line>I will away towards Barnet presently,</line>
+            <line>And bid thee battle, Edward, if thou darest.</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Yes, Warwick, Edward dares, and leads the way.</line>
+            <line>Lords, to the field; Saint George and victory!</line>
+            <stagedir>Exeunt King Edward and his company. March. Warwick
+and his company follow</stagedir>
+            <line>3 KING HENRY VI</line>
+         </speech>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-2">
+      <title>SCENE II.  A field of battle near Barnet.</title>
+      <scene-body>
+         <stagedir>Alarum and excursions. Enter KING EDWARD IV, bringing
+forth WARWICK wounded</stagedir>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>So, lie thou there: die thou, and die our fear;</line>
+            <line>For Warwick was a bug that fear'd us all.</line>
+            <line>Now, Montague, sit fast; I seek for thee,</line>
+            <line>That Warwick's bones may keep thine company.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>Ah, who is nigh? come to me, friend or foe,</line>
+            <line>And tell me who is victor, York or Warwick?</line>
+            <line>Why ask I that? my mangled body shows,</line>
+            <line>My blood, my want of strength, my sick heart shows.</line>
+            <line>That I must yield my body to the earth</line>
+            <line>And, by my fall, the conquest to my foe.</line>
+            <line>Thus yields the cedar to the axe's edge,</line>
+            <line>Whose arms gave shelter to the princely eagle,</line>
+            <line>Under whose shade the ramping lion slept,</line>
+            <line>Whose top-branch overpeer'd Jove's spreading tree</line>
+            <line>And kept low shrubs from winter's powerful wind.</line>
+            <line>These eyes, that now are dimm'd with death's black veil,</line>
+            <line>Have been as piercing as the mid-day sun,</line>
+            <line>To search the secret treasons of the world:</line>
+            <line>The wrinkles in my brows, now filled with blood,</line>
+            <line>Were liken'd oft to kingly sepulchres;</line>
+            <line>For who lived king, but I could dig his grave?</line>
+            <line>And who durst mine when Warwick bent his brow?</line>
+            <line>Lo, now my glory smear'd in dust and blood!</line>
+            <line>My parks, my walks, my manors that I had.</line>
+            <line>Even now forsake me, and of all my lands</line>
+            <line>Is nothing left me but my body's length.</line>
+            <line>Why, what is pomp, rule, reign, but earth and dust?</line>
+            <line>And, live we how we can, yet die we must.</line>
+         </speech>
+         <stagedir>Enter OXFORD and SOMERSET</stagedir>
+         <speech>
+            <speaker>SOMERSET</speaker>
+            <line>Ah, Warwick, Warwick! wert thou as we are.</line>
+            <line>We might recover all our loss again;</line>
+            <line>The queen from France hath brought a puissant power:</line>
+            <line>Even now we heard the news: ah, could'st thou fly!</line>
+         </speech>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>Why, then I would not fly. Ah, Montague,</line>
+            <line>If thou be there, sweet brother, take my hand.</line>
+            <line>And with thy lips keep in my soul awhile!</line>
+            <line>Thou lovest me not; for, brother, if thou didst,</line>
+            <line>Thy tears would wash this cold congealed blood</line>
+            <line>That glues my lips and will not let me speak.</line>
+            <line>Come quickly, Montague, or I am dead.</line>
+         </speech>
+         <speech>
+            <speaker>SOMERSET</speaker>
+            <line>Ah, Warwick! Montague hath breathed his last;</line>
+            <line>And to the latest gasp cried out for Warwick,</line>
+            <line>And said 'Commend me to my valiant brother.'</line>
+            <line>And more he would have said, and more he spoke,</line>
+            <line>Which sounded like a clamour in a vault,</line>
+            <line>That mought not be distinguished; but at last</line>
+            <line>I well might hear, delivered with a groan,</line>
+            <line>'O, farewell, Warwick!'</line>
+         </speech>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>Sweet rest his soul! Fly, lords, and save yourselves;</line>
+            <line>For Warwick bids you all farewell to meet in heaven.</line>
+         </speech>
+         <stagedir>Dies</stagedir>
+         <speech>
+            <speaker>OXFORD</speaker>
+            <line>Away, away, to meet the queen's great power!</line>
+            <stagedir>Here they bear away his body. Exeunt</stagedir>
+            <line>3 KING HENRY VI</line>
+         </speech>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-3">
+      <title>SCENE III.  Another part of the field.</title>
+      <scene-body>
+         <stagedir>Flourish. Enter KING EDWARD IV in triumph; with
+GLOUCESTER, CLARENCE, and the rest</stagedir>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Thus far our fortune keeps an upward course,</line>
+            <line>And we are graced with wreaths of victory.</line>
+            <line>But, in the midst of this bright-shining day,</line>
+            <line>I spy a black, suspicious, threatening cloud,</line>
+            <line>That will encounter with our glorious sun,</line>
+            <line>Ere he attain his easeful western bed:</line>
+            <line>I mean, my lords, those powers that the queen</line>
+            <line>Hath raised in Gallia have arrived our coast</line>
+            <line>And, as we hear, march on to fight with us.</line>
+         </speech>
+         <speech>
+            <speaker>CLARENCE</speaker>
+            <line>A little gale will soon disperse that cloud</line>
+            <line>And blow it to the source from whence it came:</line>
+            <line>The very beams will dry those vapours up,</line>
+            <line>For every cloud engenders not a storm.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>The queen is valued thirty thousand strong,</line>
+            <line>And Somerset, with Oxford fled to her:</line>
+            <line>If she have time to breathe be well assured</line>
+            <line>Her faction will be full as strong as ours.</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>We are advertised by our loving friends</line>
+            <line>That they do hold their course toward Tewksbury:</line>
+            <line>We, having now the best at Barnet field,</line>
+            <line>Will thither straight, for willingness rids way;</line>
+            <line>And, as we march, our strength will be augmented</line>
+            <line>In every county as we go along.</line>
+            <line>Strike up the drum; cry 'Courage!' and away.</line>
+            <stagedir>Exeunt</stagedir>
+            <line>3 KING HENRY VI</line>
+         </speech>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-4">
+      <title>SCENE IV.  Plains near Tewksbury.</title>
+      <scene-body>
+         <stagedir>March. Enter QUEEN MARGARET, PRINCE EDWARD,
+SOMERSET, OXFORD, and soldiers</stagedir>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>Great lords, wise men ne'er sit and wail their loss,</line>
+            <line>But cheerly seek how to redress their harms.</line>
+            <line>What though the mast be now blown overboard,</line>
+            <line>The cable broke, the holding-anchor lost,</line>
+            <line>And half our sailors swallow'd in the flood?</line>
+            <line>Yet lives our pilot still. Is't meet that he</line>
+            <line>Should leave the helm and like a fearful lad</line>
+            <line>With tearful eyes add water to the sea</line>
+            <line>And give more strength to that which hath too much,</line>
+            <line>Whiles, in his moan, the ship splits on the rock,</line>
+            <line>Which industry and courage might have saved?</line>
+            <line>Ah, what a shame! ah, what a fault were this!</line>
+            <line>Say Warwick was our anchor; what of that?</line>
+            <line>And Montague our topmost; what of him?</line>
+            <line>Our slaughter'd friends the tackles; what of these?</line>
+            <line>Why, is not Oxford here another anchor?</line>
+            <line>And Somerset another goodly mast?</line>
+            <line>The friends of France our shrouds and tacklings?</line>
+            <line>And, though unskilful, why not Ned and I</line>
+            <line>For once allow'd the skilful pilot's charge?</line>
+            <line>We will not from the helm to sit and weep,</line>
+            <line>But keep our course, though the rough wind say no,</line>
+            <line>From shelves and rocks that threaten us with wreck.</line>
+            <line>As good to chide the waves as speak them fair.</line>
+            <line>And what is Edward but ruthless sea?</line>
+            <line>What Clarence but a quicksand of deceit?</line>
+            <line>And Richard but a ragged fatal rock?</line>
+            <line>All these the enemies to our poor bark.</line>
+            <line>Say you can swim; alas, 'tis but a while!</line>
+            <line>Tread on the sand; why, there you quickly sink:</line>
+            <line>Bestride the rock; the tide will wash you off,</line>
+            <line>Or else you famish; that's a threefold death.</line>
+            <line>This speak I, lords, to let you understand,</line>
+            <line>If case some one of you would fly from us,</line>
+            <line>That there's no hoped-for mercy with the brothers</line>
+            <line>More than with ruthless waves, with sands and rocks.</line>
+            <line>Why, courage then! what cannot be avoided</line>
+            <line>'Twere childish weakness to lament or fear.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE EDWARD</speaker>
+            <line>Methinks a woman of this valiant spirit</line>
+            <line>Should, if a coward heard her speak these words,</line>
+            <line>Infuse his breast with magnanimity</line>
+            <line>And make him, naked, foil a man at arms.</line>
+            <line>I speak not this as doubting any here</line>
+            <line>For did I but suspect a fearful man</line>
+            <line>He should have leave to go away betimes,</line>
+            <line>Lest in our need he might infect another</line>
+            <line>And make him of like spirit to himself.</line>
+            <line>If any such be here--as God forbid!--</line>
+            <line>Let him depart before we need his help.</line>
+         </speech>
+         <speech>
+            <speaker>OXFORD</speaker>
+            <line>Women and children of so high a courage,</line>
+            <line>And warriors faint! why, 'twere perpetual shame.</line>
+            <line>O brave young prince! thy famous grandfather</line>
+            <line>Doth live again in thee: long mayst thou live</line>
+            <line>To bear his image and renew his glories!</line>
+         </speech>
+         <speech>
+            <speaker>SOMERSET</speaker>
+            <line>And he that will not fight for such a hope.</line>
+            <line>Go home to bed, and like the owl by day,</line>
+            <line>If he arise, be mock'd and wonder'd at.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>Thanks, gentle Somerset; sweet Oxford, thanks.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE EDWARD</speaker>
+            <line>And take his thanks that yet hath nothing else.</line>
+         </speech>
+         <stagedir>Enter a Messenger</stagedir>
+         <speech>
+            <speaker>Messenger</speaker>
+            <line>Prepare you, lords, for Edward is at hand.</line>
+            <line>Ready to fight; therefore be resolute.</line>
+         </speech>
+         <speech>
+            <speaker>OXFORD</speaker>
+            <line>I thought no less: it is his policy</line>
+            <line>To haste thus fast, to find us unprovided.</line>
+         </speech>
+         <speech>
+            <speaker>SOMERSET</speaker>
+            <line>But he's deceived; we are in readiness.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>This cheers my heart, to see your forwardness.</line>
+         </speech>
+         <speech>
+            <speaker>OXFORD</speaker>
+            <line>Here pitch our battle; hence we will not budge.</line>
+         </speech>
+         <stagedir>Flourish and march. Enter KING EDWARD IV, GLOUCESTER,
+CLARENCE, and soldiers</stagedir>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Brave followers, yonder stands the thorny wood,</line>
+            <line>Which, by the heavens' assistance and your strength,</line>
+            <line>Must by the roots be hewn up yet ere night.</line>
+            <line>I need not add more fuel to your fire,</line>
+            <line>For well I wot ye blaze to burn them out</line>
+            <line>Give signal to the fight, and to it, lords!</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>Lords, knights, and gentlemen, what I should say</line>
+            <line>My tears gainsay; for every word I speak,</line>
+            <line>Ye see, I drink the water of mine eyes.</line>
+            <line>Therefore, no more but this: Henry, your sovereign,</line>
+            <line>Is prisoner to the foe; his state usurp'd,</line>
+            <line>His realm a slaughter-house, his subjects slain,</line>
+            <line>His statutes cancell'd and his treasure spent;</line>
+            <line>And yonder is the wolf that makes this spoil.</line>
+            <line>You fight in justice: then, in God's name, lords,</line>
+            <line>Be valiant and give signal to the fight.</line>
+            <stagedir>Alarum. Retreat. Excursions. Exeunt</stagedir>
+            <line>3 KING HENRY VI</line>
+         </speech>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-5">
+      <title>SCENE V.  Another part of the field.</title>
+      <scene-body>
+         <stagedir>Flourish. Enter KING EDWARD IV, GLOUCESTER, CLARENCE,
+and soldiers; with QUEEN MARGARET, OXFORD, and
+SOMERSET, prisoners</stagedir>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Now here a period of tumultuous broils.</line>
+            <line>Away with Oxford to Hames Castle straight:</line>
+            <line>For Somerset, off with his guilty head.</line>
+            <line>Go, bear them hence; I will not hear them speak.</line>
+         </speech>
+         <speech>
+            <speaker>OXFORD</speaker>
+            <line>For my part, I'll not trouble thee with words.</line>
+         </speech>
+         <speech>
+            <speaker>SOMERSET</speaker>
+            <line>Nor I, but stoop with patience to my fortune.</line>
+         </speech>
+         <stagedir>Exeunt Oxford and Somerset, guarded</stagedir>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>So part we sadly in this troublous world,</line>
+            <line>To meet with joy in sweet Jerusalem.</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Is proclamation made, that who finds Edward</line>
+            <line>Shall have a high reward, and he his life?</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>It is: and lo, where youthful Edward comes!</line>
+         </speech>
+         <stagedir>Enter soldiers, with PRINCE EDWARD</stagedir>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Bring forth the gallant, let us hear him speak.</line>
+            <line>What! can so young a thorn begin to prick?</line>
+            <line>Edward, what satisfaction canst thou make</line>
+            <line>For bearing arms, for stirring up my subjects,</line>
+            <line>And all the trouble thou hast turn'd me to?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE EDWARD</speaker>
+            <line>Speak like a subject, proud ambitious York!</line>
+            <line>Suppose that I am now my father's mouth;</line>
+            <line>Resign thy chair, and where I stand kneel thou,</line>
+            <line>Whilst I propose the selfsame words to thee,</line>
+            <line>Which traitor, thou wouldst have me answer to.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>Ah, that thy father had been so resolved!</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>That you might still have worn the petticoat,</line>
+            <line>And ne'er have stol'n the breech from Lancaster.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE EDWARD</speaker>
+            <line>Let AEsop fable in a winter's night;</line>
+            <line>His currish riddles sort not with this place.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>By heaven, brat, I'll plague ye for that word.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>Ay, thou wast born to be a plague to men.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>For God's sake, take away this captive scold.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE EDWARD</speaker>
+            <line>Nay, take away this scolding crookback rather.</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Peace, wilful boy, or I will charm your tongue.</line>
+         </speech>
+         <speech>
+            <speaker>CLARENCE</speaker>
+            <line>Untutor'd lad, thou art too malapert.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE EDWARD</speaker>
+            <line>I know my duty; you are all undutiful:</line>
+            <line>Lascivious Edward, and thou perjured George,</line>
+            <line>And thou mis-shapen Dick, I tell ye all</line>
+            <line>I am your better, traitors as ye are:</line>
+            <line>And thou usurp'st my father's right and mine.</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Take that, thou likeness of this railer here.</line>
+         </speech>
+         <stagedir>Stabs him</stagedir>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Sprawl'st thou? take that, to end thy agony.</line>
+         </speech>
+         <stagedir>Stabs him</stagedir>
+         <speech>
+            <speaker>CLARENCE</speaker>
+            <line>And there's for twitting me with perjury.</line>
+         </speech>
+         <stagedir>Stabs him</stagedir>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>O, kill me too!</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Marry, and shall.</line>
+         </speech>
+         <stagedir>Offers to kill her</stagedir>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Hold, Richard, hold; for we have done too much.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Why should she live, to fill the world with words?</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>What, doth she swoon? use means for her recovery.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Clarence, excuse me to the king my brother;</line>
+            <line>I'll hence to London on a serious matter:</line>
+            <line>Ere ye come there, be sure to hear some news.</line>
+         </speech>
+         <speech>
+            <speaker>CLARENCE</speaker>
+            <line>What? what?</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>The Tower, the Tower.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>O Ned, sweet Ned! speak to thy mother, boy!</line>
+            <line>Canst thou not speak? O traitors! murderers!</line>
+            <line>They that stabb'd Caesar shed no blood at all,</line>
+            <line>Did not offend, nor were not worthy blame,</line>
+            <line>If this foul deed were by to equal it:</line>
+            <line>He was a man; this, in respect, a child:</line>
+            <line>And men ne'er spend their fury on a child.</line>
+            <line>What's worse than murderer, that I may name it?</line>
+            <line>No, no, my heart will burst, and if I speak:</line>
+            <line>And I will speak, that so my heart may burst.</line>
+            <line>Butchers and villains! bloody cannibals!</line>
+            <line>How sweet a plant have you untimely cropp'd!</line>
+            <line>You have no children, butchers! if you had,</line>
+            <line>The thought of them would have stirr'd up remorse:</line>
+            <line>But if you ever chance to have a child,</line>
+            <line>Look in his youth to have him so cut off</line>
+            <line>As, deathmen, you have rid this sweet young prince!</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Away with her; go, bear her hence perforce.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>Nay, never bear me hence, dispatch me here,</line>
+            <line>Here sheathe thy sword, I'll pardon thee my death:</line>
+            <line>What, wilt thou not? then, Clarence, do it thou.</line>
+         </speech>
+         <speech>
+            <speaker>CLARENCE</speaker>
+            <line>By heaven, I will not do thee so much ease.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>Good Clarence, do; sweet Clarence, do thou do it.</line>
+         </speech>
+         <speech>
+            <speaker>CLARENCE</speaker>
+            <line>Didst thou not hear me swear I would not do it?</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>Ay, but thou usest to forswear thyself:</line>
+            <line>'Twas sin before, but now 'tis charity.</line>
+            <line>What, wilt thou not? Where is that devil's butcher,</line>
+            <line>Hard-favour'd Richard? Richard, where art thou?</line>
+            <line>Thou art not here: murder is thy alms-deed;</line>
+            <line>Petitioners for blood thou ne'er put'st back.</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Away, I say; I charge ye, bear her hence.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>So come to you and yours, as to this Prince!</line>
+         </speech>
+         <stagedir>Exit, led out forcibly</stagedir>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Where's Richard gone?</line>
+         </speech>
+         <speech>
+            <speaker>CLARENCE</speaker>
+            <line>To London, all in post; and, as I guess,</line>
+            <line>To make a bloody supper in the Tower.</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>He's sudden, if a thing comes in his head.</line>
+            <line>Now march we hence: discharge the common sort</line>
+            <line>With pay and thanks, and let's away to London</line>
+            <line>And see our gentle queen how well she fares:</line>
+            <line>By this, I hope, she hath a son for me.</line>
+            <stagedir>Exeunt</stagedir>
+            <line>3 KING HENRY VI</line>
+         </speech>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-6">
+      <title>SCENE VI.  London. The Tower.</title>
+      <scene-body>
+         <stagedir>Enter KING HENRY VI and GLOUCESTER, with the
+Lieutenant, on the walls</stagedir>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Good day, my lord. What, at your book so hard?</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>Ay, my good lord:--my lord, I should say rather;</line>
+            <line>'Tis sin to flatter; 'good' was little better:</line>
+            <line>'Good Gloucester' and 'good devil' were alike,</line>
+            <line>And both preposterous; therefore, not 'good lord.'</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Sirrah, leave us to ourselves: we must confer.</line>
+         </speech>
+         <stagedir>Exit Lieutenant</stagedir>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>So flies the reckless shepherd from the wolf;</line>
+            <line>So first the harmless sheep doth yield his fleece</line>
+            <line>And next his throat unto the butcher's knife.</line>
+            <line>What scene of death hath Roscius now to act?</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Suspicion always haunts the guilty mind;</line>
+            <line>The thief doth fear each bush an officer.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>The bird that hath been limed in a bush,</line>
+            <line>With trembling wings misdoubteth every bush;</line>
+            <line>And I, the hapless male to one sweet bird,</line>
+            <line>Have now the fatal object in my eye</line>
+            <line>Where my poor young was limed, was caught and kill'd.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Why, what a peevish fool was that of Crete,</line>
+            <line>That taught his son the office of a fowl!</line>
+            <line>An yet, for all his wings, the fool was drown'd.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>I, Daedalus; my poor boy, Icarus;</line>
+            <line>Thy father, Minos, that denied our course;</line>
+            <line>The sun that sear'd the wings of my sweet boy</line>
+            <line>Thy brother Edward, and thyself the sea</line>
+            <line>Whose envious gulf did swallow up his life.</line>
+            <line>Ah, kill me with thy weapon, not with words!</line>
+            <line>My breast can better brook thy dagger's point</line>
+            <line>Than can my ears that tragic history.</line>
+            <line>But wherefore dost thou come? is't for my life?</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Think'st thou I am an executioner?</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>A persecutor, I am sure, thou art:</line>
+            <line>If murdering innocents be executing,</line>
+            <line>Why, then thou art an executioner.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Thy son I kill'd for his presumption.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>Hadst thou been kill'd when first thou didst presume,</line>
+            <line>Thou hadst not lived to kill a son of mine.</line>
+            <line>And thus I prophesy, that many a thousand,</line>
+            <line>Which now mistrust no parcel of my fear,</line>
+            <line>And many an old man's sigh and many a widow's,</line>
+            <line>And many an orphan's water-standing eye--</line>
+            <line>Men for their sons, wives for their husbands,</line>
+            <line>And orphans for their parents timeless death--</line>
+            <line>Shall rue the hour that ever thou wast born.</line>
+            <line>The owl shriek'd at thy birth,--an evil sign;</line>
+            <line>The night-crow cried, aboding luckless time;</line>
+            <line>Dogs howl'd, and hideous tempest shook down trees;</line>
+            <line>The raven rook'd her on the chimney's top,</line>
+            <line>And chattering pies in dismal discords sung.</line>
+            <line>Thy mother felt more than a mother's pain,</line>
+            <line>And, yet brought forth less than a mother's hope,</line>
+            <line>To wit, an indigested and deformed lump,</line>
+            <line>Not like the fruit of such a goodly tree.</line>
+            <line>Teeth hadst thou in thy head when thou wast born,</line>
+            <line>To signify thou camest to bite the world:</line>
+            <line>And, if the rest be true which I have heard,</line>
+            <line>Thou camest--</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>I'll hear no more: die, prophet in thy speech:</line>
+            <stagedir>Stabs him</stagedir>
+            <line>For this amongst the rest, was I ordain'd.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>Ay, and for much more slaughter after this.</line>
+            <line>God forgive my sins, and pardon thee!</line>
+         </speech>
+         <stagedir>Dies</stagedir>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>What, will the aspiring blood of Lancaster</line>
+            <line>Sink in the ground? I thought it would have mounted.</line>
+            <line>See how my sword weeps for the poor king's death!</line>
+            <line>O, may such purple tears be alway shed</line>
+            <line>From those that wish the downfall of our house!</line>
+            <line>If any spark of life be yet remaining,</line>
+            <line>Down, down to hell; and say I sent thee thither:</line>
+            <stagedir>Stabs him again</stagedir>
+            <line>I, that have neither pity, love, nor fear.</line>
+            <line>Indeed, 'tis true that Henry told me of;</line>
+            <line>For I have often heard my mother say</line>
+            <line>I came into the world with my legs forward:</line>
+            <line>Had I not reason, think ye, to make haste,</line>
+            <line>And seek their ruin that usurp'd our right?</line>
+            <line>The midwife wonder'd and the women cried</line>
+            <line>'O, Jesus bless us, he is born with teeth!'</line>
+            <line>And so I was; which plainly signified</line>
+            <line>That I should snarl and bite and play the dog.</line>
+            <line>Then, since the heavens have shaped my body so,</line>
+            <line>Let hell make crook'd my mind to answer it.</line>
+            <line>I have no brother, I am like no brother;</line>
+            <line>And this word 'love,' which graybeards call divine,</line>
+            <line>Be resident in men like one another</line>
+            <line>And not in me: I am myself alone.</line>
+            <line>Clarence, beware; thou keep'st me from the light:</line>
+            <line>But I will sort a pitchy day for thee;</line>
+            <line>For I will buz abroad such prophecies</line>
+            <line>That Edward shall be fearful of his life,</line>
+            <line>And then, to purge his fear, I'll be thy death.</line>
+            <line>King Henry and the prince his son are gone:</line>
+            <line>Clarence, thy turn is next, and then the rest,</line>
+            <line>Counting myself but bad till I be best.</line>
+            <line>I'll throw thy body in another room</line>
+            <line>And triumph, Henry, in thy day of doom.</line>
+            <stagedir>Exit, with the body</stagedir>
+            <line>3 KING HENRY VI</line>
+         </speech>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-7">
+      <title>SCENE VII.  London. The palace.</title>
+      <scene-body>
+         <stagedir>Flourish. Enter KING EDWARD IV, QUEEN ELIZABETH,
+CLARENCE, GLOUCESTER, HASTINGS, a Nurse with the
+young Prince, and Attendants</stagedir>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Once more we sit in England's royal throne,</line>
+            <line>Re-purchased with the blood of enemies.</line>
+            <line>What valiant foemen, like to autumn's corn,</line>
+            <line>Have we mow'd down, in tops of all their pride!</line>
+            <line>Three Dukes of Somerset, threefold renown'd</line>
+            <line>For hardy and undoubted champions;</line>
+            <line>Two Cliffords, as the father and the son,</line>
+            <line>And two Northumberlands; two braver men</line>
+            <line>Ne'er spurr'd their coursers at the trumpet's sound;</line>
+            <line>With them, the two brave bears, Warwick and Montague,</line>
+            <line>That in their chains fetter'd the kingly lion</line>
+            <line>And made the forest tremble when they roar'd.</line>
+            <line>Thus have we swept suspicion from our seat</line>
+            <line>And made our footstool of security.</line>
+            <line>Come hither, Bess, and let me kiss my boy.</line>
+            <line>Young Ned, for thee, thine uncles and myself</line>
+            <line>Have in our armours watch'd the winter's night,</line>
+            <line>Went all afoot in summer's scalding heat,</line>
+            <line>That thou mightst repossess the crown in peace;</line>
+            <line>And of our labours thou shalt reap the gain.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  I'll blast his harvest, if your head were laid;</line>
+            <line>For yet I am not look'd on in the world.</line>
+            <line>This shoulder was ordain'd so thick to heave;</line>
+            <line>And heave it shall some weight, or break my back:</line>
+            <line>Work thou the way,--and thou shalt execute.</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Clarence and Gloucester, love my lovely queen;</line>
+            <line>And kiss your princely nephew, brothers both.</line>
+         </speech>
+         <speech>
+            <speaker>CLARENCE</speaker>
+            <line>The duty that I owe unto your majesty</line>
+            <line>I seal upon the lips of this sweet babe.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN ELIZABETH</speaker>
+            <line>Thanks, noble Clarence; worthy brother, thanks.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>And, that I love the tree from whence thou sprang'st,</line>
+            <line>Witness the loving kiss I give the fruit.</line>
+            <line>
+               <stagedir>Aside</stagedir>  To say the truth, so Judas kiss'd his master,</line>
+            <line>And cried 'all hail!' when as he meant all harm.</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Now am I seated as my soul delights,</line>
+            <line>Having my country's peace and brothers' loves.</line>
+         </speech>
+         <speech>
+            <speaker>CLARENCE</speaker>
+            <line>What will your grace have done with Margaret?</line>
+            <line>Reignier, her father, to the king of France</line>
+            <line>Hath pawn'd the Sicils and Jerusalem,</line>
+            <line>And hither have they sent it for her ransom.</line>
+         </speech>
+         <speech>
+            <speaker>KING EDWARD IV</speaker>
+            <line>Away with her, and waft her hence to France.</line>
+            <line>And now what rests but that we spend the time</line>
+            <line>With stately triumphs, mirthful comic shows,</line>
+            <line>Such as befits the pleasure of the court?</line>
+            <line>Sound drums and trumpets! farewell sour annoy!</line>
+            <line>For here, I hope, begins our lasting joy.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+</act>

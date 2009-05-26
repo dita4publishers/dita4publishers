@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE personae
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/personae" "personae.dtd">
+<personae id="personae">
+   <title>Dramatis Personae</title>
+   <personae-body>
+      <persona>The DUKE OF VENICE. </persona>
+      <pgroup>
+         <persona>The PRINCE OF MOROCCO</persona>
+         <persona>The PRINCE OF ARRAGON</persona>
+         <grpdescr>suitors to Portia.</grpdescr>
+      </pgroup>
+      <persona>ANTONIO, a merchant of Venice.</persona>
+      <persona>BASSANIO, his friend, suitor likewise to Portia.</persona>
+      <pgroup>
+         <persona>SALANIO</persona>
+         <persona>SALARINO</persona>
+         <persona>GRATIANO</persona>
+         <persona>SALERIO</persona>
+         <grpdescr>friends to Antonio and Bassanio.</grpdescr>
+      </pgroup>
+      <persona>LORENZO, in love with Jessica.</persona>
+      <persona>SHYLOCK, a rich Jew.</persona>
+      <persona>TUBAL, a Jew, his friend.</persona>
+      <persona>LAUNCELOT GOBBO, the clown, servant to SHYLOCK. </persona>
+      <persona>OLD GOBBO, father to Launcelot. </persona>
+      <persona>LEONARDO, servant to BASSANIO.</persona>
+      <pgroup>
+         <persona>BALTHASAR</persona>
+         <persona>STEPHANO</persona>
+         <grpdescr>servants to PORTIA.</grpdescr>
+      </pgroup>
+      <persona>PORTIA, a rich heiress.</persona>
+      <persona>NERISSA, her waiting-maid.</persona>
+      <persona>JESSICA, daughter to SHYLOCK.</persona>
+      <persona>Magnificoes of Venice, Officers of the Court of Justice, Gaoler, Servants to Portia, and other Attendants.</persona>
+   </personae-body>
+</personae>

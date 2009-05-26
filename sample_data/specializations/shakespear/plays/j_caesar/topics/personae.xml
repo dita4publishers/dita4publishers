@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE personae
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/personae" "personae.dtd">
+<personae id="personae">
+   <title>Dramatis Personae</title>
+   <personae-body>
+      <persona>JULIUS CAESAR</persona>
+      <pgroup>
+         <persona>OCTAVIUS CAESAR</persona>
+         <persona>MARCUS ANTONIUS</persona>
+         <persona>M. AEMILIUS LEPIDUS</persona>
+         <grpdescr>triumvirs after death of Julius Caesar.</grpdescr>
+      </pgroup>
+      <pgroup>
+         <persona>CICERO</persona>
+         <persona>PUBLIUS</persona>
+         <persona>POPILIUS LENA</persona>
+         <grpdescr>senators.</grpdescr>
+      </pgroup>
+      <pgroup>
+         <persona>MARCUS BRUTUS</persona>
+         <persona>CASSIUS</persona>
+         <persona>CASCA</persona>
+         <persona>TREBONIUS</persona>
+         <persona>LIGARIUS</persona>
+         <persona>DECIUS BRUTUS</persona>
+         <persona>METELLUS CIMBER</persona>
+         <persona>CINNA</persona>
+         <grpdescr>conspirators against Julius Caesar.</grpdescr>
+      </pgroup>
+      <pgroup>
+         <persona>FLAVIUS</persona>
+         <persona>MARULLUS</persona>
+         <grpdescr>tribunes.</grpdescr>
+      </pgroup>
+      <persona>ARTEMIDORUS Of Cnidos, a teacher of rhetoric. </persona>
+      <persona>A Soothsayer</persona>
+      <persona>CINNA, a poet. </persona>
+      <persona>Another Poet</persona>
+      <pgroup>
+         <persona>LUCILIUS</persona>
+         <persona>TITINIUS</persona>
+         <persona>MESSALA</persona>
+         <persona>Young CATO</persona>
+         <persona>VOLUMNIUS</persona>
+         <grpdescr>friends to Brutus and Cassius.</grpdescr>
+      </pgroup>
+      <pgroup>
+         <persona>VARRO</persona>
+         <persona>CLITUS</persona>
+         <persona>CLAUDIUS</persona>
+         <persona>STRATO</persona>
+         <persona>LUCIUS</persona>
+         <persona>DARDANIUS</persona>
+         <grpdescr>servants to Brutus.</grpdescr>
+      </pgroup>
+      <persona>PINDARUS, servant to Cassius.</persona>
+      <persona>CALPURNIA, wife to Caesar.</persona>
+      <persona>PORTIA, wife to Brutus.</persona>
+      <persona>Senators, Citizens, Guards, Attendants, &amp;c.</persona>
+   </personae-body>
+</personae>

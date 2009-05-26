@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE personae
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/personae" "personae.dtd">
+<personae id="personae">
+   <title>Dramatis Personae</title>
+   <personae-body>
+      <persona>DUKE SENIOR, living in banishment.</persona>
+      <persona>DUKE FREDERICK, his brother, an usurper of his dominions.</persona>
+      <pgroup>
+         <persona>AMIENS</persona>
+         <persona>JAQUES</persona>
+         <grpdescr>lords attending on the banished duke.</grpdescr>
+      </pgroup>
+      <persona>LE BEAU, a courtier attending upon Frederick.</persona>
+      <persona>CHARLES, wrestler to Frederick.</persona>
+      <pgroup>
+         <persona>OLIVER</persona>
+         <persona>JAQUES   </persona>
+         <persona>ORLANDO</persona>
+         <grpdescr>sons of Sir Rowland de Boys.</grpdescr>
+      </pgroup>
+      <pgroup>
+         <persona>ADAM</persona>
+         <persona>DENNIS</persona>
+         <grpdescr>servants to Oliver.</grpdescr>
+      </pgroup>
+      <persona>TOUCHSTONE, a clown.</persona>
+      <persona>SIR OLIVER MARTEXT, a vicar.</persona>
+      <pgroup>
+         <persona>CORIN</persona>
+         <persona>SILVIUS</persona>
+         <grpdescr>shepherds.</grpdescr>
+      </pgroup>
+      <persona>WILLIAM, a country fellow in love with Audrey.</persona>
+      <persona>A person representing HYMEN. </persona>
+      <persona>ROSALIND, daughter to the banished duke.</persona>
+      <persona>CELIA, daughter to Frederick.</persona>
+      <persona>PHEBE, a shepherdess.</persona>
+      <persona>AUDREY, a country wench.</persona>
+      <persona>Lords, pages, and attendants, &amp;c.</persona>
+   </personae-body>
+</personae>

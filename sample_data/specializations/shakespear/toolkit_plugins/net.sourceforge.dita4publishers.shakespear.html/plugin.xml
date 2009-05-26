@@ -1,0 +1,13 @@
+<!-- 
+  Plugin descriptor for the Shakespear play HTML rendering plugin.
+  
+  Copyright (c) 2009 DITA For Publishers
+    
+  This plug-in extends the base DITA-to-HTML process to provide appropriate
+  rendering for play-specific .
+  
+  -->
+<plugin id="net.sourceforge.dita4publishers.shakespear.html">
+  <require plugin="net.sourceforge.dita4publishers.shakespear.doctypes"/> 
+  <feature extension="dita.xsl.xhtml" value="xsl/play2html.xsl" type="file"/>  
+</plugin>

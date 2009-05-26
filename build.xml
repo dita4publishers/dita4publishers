@@ -21,10 +21,13 @@
 	<property name="package.zip.base" value="dita4publishers"/>
   <property name="dita-ot-dir" location="c:\DITA-OT1.5"/>
   <property name="plugin-src" value="${basedir}/toolkit_plugins"/>
+	<property name="shakespear-sample" value="${basedir}/sample_data/specializations/shakespear"/>
+  <property name="plugin-shakespear-samples-src" value="${shakespear-sample}/toolkit_plugins"/>
   <property name="plugin-deploy_target" value="${dita-ot-dir}/plugins"/>
-  <property name="doctypes.plugin-src" value="${plugin-src}/net.sourceforge.dita4publishers.doctypes"/>
   <property name="doctypes.plugin-dist" value="${plugin.dist}/net.sourceforge.dita4publishers.doctypes"/>
+  <property name="doctypes.plugin-shakespear-dist" value="${plugin.dist}/net.sourceforge.dita4publishers.shakespear.doctypes"/>
   <property name="doctypes.src" value="${basedir}/doctypes"/>
+  <property name="doctypes-skakespear-samples.src" value="${shakespear-sample}/doctypes"/>
   <property name="xslt.src" value="${basedir}/xslt"/>
 
 	<import file="${dita-ot-dir}${file.separator}integrator.xml" optional="yes"/>
@@ -68,6 +71,19 @@
 			<fileset dir="${plugin-src}">
 			</fileset>
 		</copy>
+    <copy todir="${plugin.dist}">
+      <fileset dir="${plugin-shakespear-samples-src}">
+      </fileset>
+    </copy>
+    <copy todir="${doctypes.plugin-dist}/doctypes">
+      <fileset dir="${doctypes.src}">
+        <exclude name="xmlDomain/**"/>
+      </fileset>
+    </copy>
+    <copy todir="${doctypes.plugin-shakespear-dist}/doctypes">
+      <fileset dir="${doctypes-skakespear-samples.src}">
+      </fileset>
+    </copy>
     <copy todir="${doctypes.plugin-dist}/doctypes">
       <fileset dir="${doctypes.src}">
         <exclude name="xmlDomain/**"/>

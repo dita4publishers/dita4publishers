@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/act" "act.dtd">
+<act id="act-2">
+   <title>ACT II</title>
+   <scene id="act-2-scene-1">
+      <title>SCENE I.  Padua. A room in BAPTISTA'S house.</title>
+      <scene-body>
+         <stagedir>Enter KATHARINA and BIANCA</stagedir>
+         <speech>
+            <speaker>BIANCA</speaker>
+            <line>Good sister, wrong me not, nor wrong yourself,</line>
+            <line>To make a bondmaid and a slave of me;</line>
+            <line>That I disdain: but for these other gawds,</line>
+            <line>Unbind my hands, I'll pull them off myself,</line>
+            <line>Yea, all my raiment, to my petticoat;</line>
+            <line>Or what you will command me will I do,</line>
+            <line>So well I know my duty to my elders.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>Of all thy suitors, here I charge thee, tell</line>
+            <line>Whom thou lovest best: see thou dissemble not.</line>
+         </speech>
+         <speech>
+            <speaker>BIANCA</speaker>
+            <line>Believe me, sister, of all the men alive</line>
+            <line>I never yet beheld that special face</line>
+            <line>Which I could fancy more than any other.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>Minion, thou liest. Is't not Hortensio?</line>
+         </speech>
+         <speech>
+            <speaker>BIANCA</speaker>
+            <line>If you affect him, sister, here I swear</line>
+            <line>I'll plead for you myself, but you shall have</line>
+            <line>him.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>O then, belike, you fancy riches more:</line>
+            <line>You will have Gremio to keep you fair.</line>
+         </speech>
+         <speech>
+            <speaker>BIANCA</speaker>
+            <line>Is it for him you do envy me so?</line>
+            <line>Nay then you jest, and now I well perceive</line>
+            <line>You have but jested with me all this while:</line>
+            <line>I prithee, sister Kate, untie my hands.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>If that be jest, then all the rest was so.</line>
+         </speech>
+         <stagedir>Strikes her</stagedir>
+         <stagedir>Enter BAPTISTA</stagedir>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>Why, how now, dame! whence grows this insolence?</line>
+            <line>Bianca, stand aside. Poor girl! she weeps.</line>
+            <line>Go ply thy needle; meddle not with her.</line>
+            <line>For shame, thou helding of a devilish spirit,</line>
+            <line>Why dost thou wrong her that did ne'er wrong thee?</line>
+            <line>When did she cross thee with a bitter word?</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>Her silence flouts me, and I'll be revenged.</line>
+         </speech>
+         <stagedir>Flies after BIANCA</stagedir>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>What, in my sight? Bianca, get thee in.</line>
+         </speech>
+         <stagedir>Exit BIANCA</stagedir>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>What, will you not suffer me? Nay, now I see</line>
+            <line>She is your treasure, she must have a husband;</line>
+            <line>I must dance bare-foot on her wedding day</line>
+            <line>And for your love to her lead apes in hell.</line>
+            <line>Talk not to me: I will go sit and weep</line>
+            <line>Till I can find occasion of revenge.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>Was ever gentleman thus grieved as I?</line>
+            <line>But who comes here?</line>
+         </speech>
+         <stagedir>Enter GREMIO, LUCENTIO in the habit of a mean man;
+PETRUCHIO, with HORTENSIO as a musician; and TRANIO,
+with BIONDELLO bearing a lute and books</stagedir>
+         <speech>
+            <speaker>GREMIO</speaker>
+            <line>Good morrow, neighbour Baptista.</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>Good morrow, neighbour Gremio.</line>
+            <line>God save you, gentlemen!</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>And you, good sir! Pray, have you not a daughter</line>
+            <line>Call'd Katharina, fair and virtuous?</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>I have a daughter, sir, called Katharina.</line>
+         </speech>
+         <speech>
+            <speaker>GREMIO</speaker>
+            <line>You are too blunt: go to it orderly.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>You wrong me, Signior Gremio: give me leave.</line>
+            <line>I am a gentleman of Verona, sir,</line>
+            <line>That, hearing of her beauty and her wit,</line>
+            <line>Her affability and bashful modesty,</line>
+            <line>Her wondrous qualities and mild behavior,</line>
+            <line>Am bold to show myself a forward guest</line>
+            <line>Within your house, to make mine eye the witness</line>
+            <line>Of that report which I so oft have heard.</line>
+            <line>And, for an entrance to my entertainment,</line>
+            <line>I do present you with a man of mine,</line>
+            <stagedir>Presenting HORTENSIO</stagedir>
+            <line>Cunning in music and the mathematics,</line>
+            <line>To instruct her fully in those sciences,</line>
+            <line>Whereof I know she is not ignorant:</line>
+            <line>Accept of him, or else you do me wrong:</line>
+            <line>His name is Licio, born in Mantua.</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>You're welcome, sir; and he, for your good sake.</line>
+            <line>But for my daughter Katharina, this I know,</line>
+            <line>She is not for your turn, the more my grief.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>I see you do not mean to part with her,</line>
+            <line>Or else you like not of my company.</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>Mistake me not; I speak but as I find.</line>
+            <line>Whence are you, sir? what may I call your name?</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Petruchio is my name; Antonio's son,</line>
+            <line>A man well known throughout all Italy.</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>I know him well: you are welcome for his sake.</line>
+         </speech>
+         <speech>
+            <speaker>GREMIO</speaker>
+            <line>Saving your tale, Petruchio, I pray,</line>
+            <line>Let us, that are poor petitioners, speak too:</line>
+            <line>Baccare! you are marvellous forward.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>O, pardon me, Signior Gremio; I would fain be doing.</line>
+         </speech>
+         <speech>
+            <speaker>GREMIO</speaker>
+            <line>I doubt it not, sir; but you will curse your</line>
+            <line>wooing. Neighbour, this is a gift very grateful, I am</line>
+            <line>sure of it. To express the like kindness, myself,</line>
+            <line>that have been more kindly beholding to you than</line>
+            <line>any, freely give unto you this young scholar,</line>
+            <stagedir>Presenting LUCENTIO</stagedir>
+            <line>that hath been long studying at Rheims; as cunning</line>
+            <line>in Greek, Latin, and other languages, as the other</line>
+            <line>in music and mathematics: his name is Cambio; pray,</line>
+            <line>accept his service.</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>A thousand thanks, Signior Gremio.</line>
+            <line>Welcome, good Cambio.</line>
+            <stagedir>To TRANIO</stagedir>
+            <line>But, gentle sir, methinks you walk like a stranger:</line>
+            <line>may I be so bold to know the cause of your coming?</line>
+         </speech>
+         <speech>
+            <speaker>TRANIO</speaker>
+            <line>Pardon me, sir, the boldness is mine own,</line>
+            <line>That, being a stranger in this city here,</line>
+            <line>Do make myself a suitor to your daughter,</line>
+            <line>Unto Bianca, fair and virtuous.</line>
+            <line>Nor is your firm resolve unknown to me,</line>
+            <line>In the preferment of the eldest sister.</line>
+            <line>This liberty is all that I request,</line>
+            <line>That, upon knowledge of my parentage,</line>
+            <line>I may have welcome 'mongst the rest that woo</line>
+            <line>And free access and favour as the rest:</line>
+            <line>And, toward the education of your daughters,</line>
+            <line>I here bestow a simple instrument,</line>
+            <line>And this small packet of Greek and Latin books:</line>
+            <line>If you accept them, then their worth is great.</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>Lucentio is your name; of whence, I pray?</line>
+         </speech>
+         <speech>
+            <speaker>TRANIO</speaker>
+            <line>Of Pisa, sir; son to Vincentio.</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>A mighty man of Pisa; by report</line>
+            <line>I know him well: you are very welcome, sir,</line>
+            <line>Take you the lute, and you the set of books;</line>
+            <line>You shall go see your pupils presently.</line>
+            <line>Holla, within!</line>
+            <stagedir>Enter a Servant</stagedir>
+            <line>Sirrah, lead these gentlemen</line>
+            <line>To my daughters; and tell them both,</line>
+            <line>These are their tutors: bid them use them well.</line>
+            <stagedir>Exit Servant, with LUCENTIO and HORTENSIO,
+BIONDELLO following</stagedir>
+            <line>We will go walk a little in the orchard,</line>
+            <line>And then to dinner. You are passing welcome,</line>
+            <line>And so I pray you all to think yourselves.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Signior Baptista, my business asketh haste,</line>
+            <line>And every day I cannot come to woo.</line>
+            <line>You knew my father well, and in him me,</line>
+            <line>Left solely heir to all his lands and goods,</line>
+            <line>Which I have better'd rather than decreased:</line>
+            <line>Then tell me, if I get your daughter's love,</line>
+            <line>What dowry shall I have with her to wife?</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>After my death the one half of my lands,</line>
+            <line>And in possession twenty thousand crowns.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>And, for that dowry, I'll assure her of</line>
+            <line>Her widowhood, be it that she survive me,</line>
+            <line>In all my lands and leases whatsoever:</line>
+            <line>Let specialties be therefore drawn between us,</line>
+            <line>That covenants may be kept on either hand.</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>Ay, when the special thing is well obtain'd,</line>
+            <line>That is, her love; for that is all in all.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Why, that is nothing: for I tell you, father,</line>
+            <line>I am as peremptory as she proud-minded;</line>
+            <line>And where two raging fires meet together</line>
+            <line>They do consume the thing that feeds their fury:</line>
+            <line>Though little fire grows great with little wind,</line>
+            <line>Yet extreme gusts will blow out fire and all:</line>
+            <line>So I to her and so she yields to me;</line>
+            <line>For I am rough and woo not like a babe.</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>Well mayst thou woo, and happy be thy speed!</line>
+            <line>But be thou arm'd for some unhappy words.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Ay, to the proof; as mountains are for winds,</line>
+            <line>That shake not, though they blow perpetually.</line>
+         </speech>
+         <stagedir>Re-enter HORTENSIO, with his head broke</stagedir>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>How now, my friend! why dost thou look so pale?</line>
+         </speech>
+         <speech>
+            <speaker>HORTENSIO</speaker>
+            <line>For fear, I promise you, if I look pale.</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>What, will my daughter prove a good musician?</line>
+         </speech>
+         <speech>
+            <speaker>HORTENSIO</speaker>
+            <line>I think she'll sooner prove a soldier</line>
+            <line>Iron may hold with her, but never lutes.</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>Why, then thou canst not break her to the lute?</line>
+         </speech>
+         <speech>
+            <speaker>HORTENSIO</speaker>
+            <line>Why, no; for she hath broke the lute to me.</line>
+            <line>I did but tell her she mistook her frets,</line>
+            <line>And bow'd her hand to teach her fingering;</line>
+            <line>When, with a most impatient devilish spirit,</line>
+            <line>'Frets, call you these?' quoth she; 'I'll fume</line>
+            <line>with them:'</line>
+            <line>And, with that word, she struck me on the head,</line>
+            <line>And through the instrument my pate made way;</line>
+            <line>And there I stood amazed for a while,</line>
+            <line>As on a pillory, looking through the lute;</line>
+            <line>While she did call me rascal fiddler</line>
+            <line>And twangling Jack; with twenty such vile terms,</line>
+            <line>As had she studied to misuse me so.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Now, by the world, it is a lusty wench;</line>
+            <line>I love her ten times more than e'er I did:</line>
+            <line>O, how I long to have some chat with her!</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>Well, go with me and be not so discomfited:</line>
+            <line>Proceed in practise with my younger daughter;</line>
+            <line>She's apt to learn and thankful for good turns.</line>
+            <line>Signior Petruchio, will you go with us,</line>
+            <line>Or shall I send my daughter Kate to you?</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>I pray you do.</line>
+            <stagedir>Exeunt all but PETRUCHIO</stagedir>
+            <line>I will attend her here,</line>
+            <line>And woo her with some spirit when she comes.</line>
+            <line>Say that she rail; why then I'll tell her plain</line>
+            <line>She sings as sweetly as a nightingale:</line>
+            <line>Say that she frown, I'll say she looks as clear</line>
+            <line>As morning roses newly wash'd with dew:</line>
+            <line>Say she be mute and will not speak a word;</line>
+            <line>Then I'll commend her volubility,</line>
+            <line>And say she uttereth piercing eloquence:</line>
+            <line>If she do bid me pack, I'll give her thanks,</line>
+            <line>As though she bid me stay by her a week:</line>
+            <line>If she deny to wed, I'll crave the day</line>
+            <line>When I shall ask the banns and when be married.</line>
+            <line>But here she comes; and now, Petruchio, speak.</line>
+            <stagedir>Enter KATHARINA</stagedir>
+            <line>Good morrow, Kate; for that's your name, I hear.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>Well have you heard, but something hard of hearing:</line>
+            <line>They call me Katharina that do talk of me.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>You lie, in faith; for you are call'd plain Kate,</line>
+            <line>And bonny Kate and sometimes Kate the curst;</line>
+            <line>But Kate, the prettiest Kate in Christendom</line>
+            <line>Kate of Kate Hall, my super-dainty Kate,</line>
+            <line>For dainties are all Kates, and therefore, Kate,</line>
+            <line>Take this of me, Kate of my consolation;</line>
+            <line>Hearing thy mildness praised in every town,</line>
+            <line>Thy virtues spoke of, and thy beauty sounded,</line>
+            <line>Yet not so deeply as to thee belongs,</line>
+            <line>Myself am moved to woo thee for my wife.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>Moved! in good time: let him that moved you hither</line>
+            <line>Remove you hence: I knew you at the first</line>
+            <line>You were a moveable.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Why, what's a moveable?</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>A join'd-stool.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Thou hast hit it: come, sit on me.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>Asses are made to bear, and so are you.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Women are made to bear, and so are you.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>No such jade as you, if me you mean.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Alas! good Kate, I will not burden thee;</line>
+            <line>For, knowing thee to be but young and light--</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>Too light for such a swain as you to catch;</line>
+            <line>And yet as heavy as my weight should be.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Should be! should--buzz!</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>Well ta'en, and like a buzzard.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>O slow-wing'd turtle! shall a buzzard take thee?</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>Ay, for a turtle, as he takes a buzzard.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Come, come, you wasp; i' faith, you are too angry.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>If I be waspish, best beware my sting.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>My remedy is then, to pluck it out.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>Ay, if the fool could find it where it lies,</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Who knows not where a wasp does</line>
+            <line>wear his sting? In his tail.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>In his tongue.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Whose tongue?</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>Yours, if you talk of tails: and so farewell.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>What, with my tongue in your tail? nay, come again,</line>
+            <line>Good Kate; I am a gentleman.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>That I'll try.</line>
+         </speech>
+         <stagedir>She strikes him</stagedir>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>I swear I'll cuff you, if you strike again.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>So may you lose your arms:</line>
+            <line>If you strike me, you are no gentleman;</line>
+            <line>And if no gentleman, why then no arms.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>A herald, Kate? O, put me in thy books!</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>What is your crest? a coxcomb?</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>A combless cock, so Kate will be my hen.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>No cock of mine; you crow too like a craven.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Nay, come, Kate, come; you must not look so sour.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>It is my fashion, when I see a crab.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Why, here's no crab; and therefore look not sour.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>There is, there is.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Then show it me.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>Had I a glass, I would.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>What, you mean my face?</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>Well aim'd of such a young one.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Now, by Saint George, I am too young for you.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>Yet you are wither'd.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>'Tis with cares.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>I care not.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Nay, hear you, Kate: in sooth you scape not so.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>I chafe you, if I tarry: let me go.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>No, not a whit: I find you passing gentle.</line>
+            <line>'Twas told me you were rough and coy and sullen,</line>
+            <line>And now I find report a very liar;</line>
+            <line>For thou are pleasant, gamesome, passing courteous,</line>
+            <line>But slow in speech, yet sweet as spring-time flowers:</line>
+            <line>Thou canst not frown, thou canst not look askance,</line>
+            <line>Nor bite the lip, as angry wenches will,</line>
+            <line>Nor hast thou pleasure to be cross in talk,</line>
+            <line>But thou with mildness entertain'st thy wooers,</line>
+            <line>With gentle conference, soft and affable.</line>
+            <line>Why does the world report that Kate doth limp?</line>
+            <line>O slanderous world! Kate like the hazel-twig</line>
+            <line>Is straight and slender and as brown in hue</line>
+            <line>As hazel nuts and sweeter than the kernels.</line>
+            <line>O, let me see thee walk: thou dost not halt.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>Go, fool, and whom thou keep'st command.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Did ever Dian so become a grove</line>
+            <line>As Kate this chamber with her princely gait?</line>
+            <line>O, be thou Dian, and let her be Kate;</line>
+            <line>And then let Kate be chaste and Dian sportful!</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>Where did you study all this goodly speech?</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>It is extempore, from my mother-wit.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>A witty mother! witless else her son.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Am I not wise?</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>Yes; keep you warm.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Marry, so I mean, sweet Katharina, in thy bed:</line>
+            <line>And therefore, setting all this chat aside,</line>
+            <line>Thus in plain terms: your father hath consented</line>
+            <line>That you shall be my wife; your dowry 'greed on;</line>
+            <line>And, Will you, nill you, I will marry you.</line>
+            <line>Now, Kate, I am a husband for your turn;</line>
+            <line>For, by this light, whereby I see thy beauty,</line>
+            <line>Thy beauty, that doth make me like thee well,</line>
+            <line>Thou must be married to no man but me;</line>
+            <line>For I am he am born to tame you Kate,</line>
+            <line>And bring you from a wild Kate to a Kate</line>
+            <line>Conformable as other household Kates.</line>
+            <line>Here comes your father: never make denial;</line>
+            <line>I must and will have Katharina to my wife.</line>
+         </speech>
+         <stagedir>Re-enter BAPTISTA, GREMIO, and TRANIO</stagedir>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>Now, Signior Petruchio, how speed you with my daughter?</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>How but well, sir? how but well?</line>
+            <line>It were impossible I should speed amiss.</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>Why, how now, daughter Katharina! in your dumps?</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>Call you me daughter? now, I promise you</line>
+            <line>You have show'd a tender fatherly regard,</line>
+            <line>To wish me wed to one half lunatic;</line>
+            <line>A mad-cup ruffian and a swearing Jack,</line>
+            <line>That thinks with oaths to face the matter out.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Father, 'tis thus: yourself and all the world,</line>
+            <line>That talk'd of her, have talk'd amiss of her:</line>
+            <line>If she be curst, it is for policy,</line>
+            <line>For she's not froward, but modest as the dove;</line>
+            <line>She is not hot, but temperate as the morn;</line>
+            <line>For patience she will prove a second Grissel,</line>
+            <line>And Roman Lucrece for her chastity:</line>
+            <line>And to conclude, we have 'greed so well together,</line>
+            <line>That upon Sunday is the wedding-day.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINA</speaker>
+            <line>I'll see thee hang'd on Sunday first.</line>
+         </speech>
+         <speech>
+            <speaker>GREMIO</speaker>
+            <line>Hark, Petruchio; she says she'll see thee</line>
+            <line>hang'd first.</line>
+         </speech>
+         <speech>
+            <speaker>TRANIO</speaker>
+            <line>Is this your speeding? nay, then, good night our part!</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Be patient, gentlemen; I choose her for myself:</line>
+            <line>If she and I be pleased, what's that to you?</line>
+            <line>'Tis bargain'd 'twixt us twain, being alone,</line>
+            <line>That she shall still be curst in company.</line>
+            <line>I tell you, 'tis incredible to believe</line>
+            <line>How much she loves me: O, the kindest Kate!</line>
+            <line>She hung about my neck; and kiss on kiss</line>
+            <line>She vied so fast, protesting oath on oath,</line>
+            <line>That in a twink she won me to her love.</line>
+            <line>O, you are novices! 'tis a world to see,</line>
+            <line>How tame, when men and women are alone,</line>
+            <line>A meacock wretch can make the curstest shrew.</line>
+            <line>Give me thy hand, Kate: I will unto Venice,</line>
+            <line>To buy apparel 'gainst the wedding-day.</line>
+            <line>Provide the feast, father, and bid the guests;</line>
+            <line>I will be sure my Katharina shall be fine.</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>I know not what to say: but give me your hands;</line>
+            <line>God send you joy, Petruchio! 'tis a match.</line>
+         </speech>
+         <speech>
+            <speaker>GREMIO</speaker>
+            <speaker>TRANIO</speaker>
+            <line>Amen, say we: we will be witnesses.</line>
+         </speech>
+         <speech>
+            <speaker>PETRUCHIO</speaker>
+            <line>Father, and wife, and gentlemen, adieu;</line>
+            <line>I will to Venice; Sunday comes apace:</line>
+            <line>We will have rings and things and fine array;</line>
+            <line>And kiss me, Kate, we will be married o'Sunday.</line>
+         </speech>
+         <stagedir>Exeunt PETRUCHIO and KATHARINA severally</stagedir>
+         <speech>
+            <speaker>GREMIO</speaker>
+            <line>Was ever match clapp'd up so suddenly?</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>Faith, gentlemen, now I play a merchant's part,</line>
+            <line>And venture madly on a desperate mart.</line>
+         </speech>
+         <speech>
+            <speaker>TRANIO</speaker>
+            <line>'Twas a commodity lay fretting by you:</line>
+            <line>'Twill bring you gain, or perish on the seas.</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>The gain I seek is, quiet in the match.</line>
+         </speech>
+         <speech>
+            <speaker>GREMIO</speaker>
+            <line>No doubt but he hath got a quiet catch.</line>
+            <line>But now, Baptists, to your younger daughter:</line>
+            <line>Now is the day we long have looked for:</line>
+            <line>I am your neighbour, and was suitor first.</line>
+         </speech>
+         <speech>
+            <speaker>TRANIO</speaker>
+            <line>And I am one that love Bianca more</line>
+            <line>Than words can witness, or your thoughts can guess.</line>
+         </speech>
+         <speech>
+            <speaker>GREMIO</speaker>
+            <line>Youngling, thou canst not love so dear as I.</line>
+         </speech>
+         <speech>
+            <speaker>TRANIO</speaker>
+            <line>Graybeard, thy love doth freeze.</line>
+         </speech>
+         <speech>
+            <speaker>GREMIO</speaker>
+            <line>But thine doth fry.</line>
+            <line>Skipper, stand back: 'tis age that nourisheth.</line>
+         </speech>
+         <speech>
+            <speaker>TRANIO</speaker>
+            <line>But youth in ladies' eyes that flourisheth.</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>Content you, gentlemen: I will compound this strife:</line>
+            <line>'Tis deeds must win the prize; and he of both</line>
+            <line>That can assure my daughter greatest dower</line>
+            <line>Shall have my Bianca's love.</line>
+            <line>Say, Signior Gremio, What can you assure her?</line>
+         </speech>
+         <speech>
+            <speaker>GREMIO</speaker>
+            <line>First, as you know, my house within the city</line>
+            <line>Is richly furnished with plate and gold;</line>
+            <line>Basins and ewers to lave her dainty hands;</line>
+            <line>My hangings all of Tyrian tapestry;</line>
+            <line>In ivory coffers I have stuff'd my crowns;</line>
+            <line>In cypress chests my arras counterpoints,</line>
+            <line>Costly apparel, tents, and canopies,</line>
+            <line>Fine linen, Turkey cushions boss'd with pearl,</line>
+            <line>Valance of Venice gold in needlework,</line>
+            <line>Pewter and brass and all things that belong</line>
+            <line>To house or housekeeping: then, at my farm</line>
+            <line>I have a hundred milch-kine to the pail,</line>
+            <line>Sixscore fat oxen standing in my stalls,</line>
+            <line>And all things answerable to this portion.</line>
+            <line>Myself am struck in years, I must confess;</line>
+            <line>And if I die to-morrow, this is hers,</line>
+            <line>If whilst I live she will be only mine.</line>
+         </speech>
+         <speech>
+            <speaker>TRANIO</speaker>
+            <line>That 'only' came well in. Sir, list to me:</line>
+            <line>I am my father's heir and only son:</line>
+            <line>If I may have your daughter to my wife,</line>
+            <line>I'll leave her houses three or four as good,</line>
+            <line>Within rich Pisa walls, as any one</line>
+            <line>Old Signior Gremio has in Padua;</line>
+            <line>Besides two thousand ducats by the year</line>
+            <line>Of fruitful land, all which shall be her jointure.</line>
+            <line>What, have I pinch'd you, Signior Gremio?</line>
+         </speech>
+         <speech>
+            <speaker>GREMIO</speaker>
+            <line>Two thousand ducats by the year of land!</line>
+            <line>My land amounts not to so much in all:</line>
+            <line>That she shall have; besides an argosy</line>
+            <line>That now is lying in Marseilles' road.</line>
+            <line>What, have I choked you with an argosy?</line>
+         </speech>
+         <speech>
+            <speaker>TRANIO</speaker>
+            <line>Gremio, 'tis known my father hath no less</line>
+            <line>Than three great argosies; besides two galliases,</line>
+            <line>And twelve tight galleys: these I will assure her,</line>
+            <line>And twice as much, whate'er thou offer'st next.</line>
+         </speech>
+         <speech>
+            <speaker>GREMIO</speaker>
+            <line>Nay, I have offer'd all, I have no more;</line>
+            <line>And she can have no more than all I have:</line>
+            <line>If you like me, she shall have me and mine.</line>
+         </speech>
+         <speech>
+            <speaker>TRANIO</speaker>
+            <line>Why, then the maid is mine from all the world,</line>
+            <line>By your firm promise: Gremio is out-vied.</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>I must confess your offer is the best;</line>
+            <line>And, let your father make her the assurance,</line>
+            <line>She is your own; else, you must pardon me,</line>
+            <line>if you should die before him, where's her dower?</line>
+         </speech>
+         <speech>
+            <speaker>TRANIO</speaker>
+            <line>That's but a cavil: he is old, I young.</line>
+         </speech>
+         <speech>
+            <speaker>GREMIO</speaker>
+            <line>And may not young men die, as well as old?</line>
+         </speech>
+         <speech>
+            <speaker>BAPTISTA</speaker>
+            <line>Well, gentlemen,</line>
+            <line>I am thus resolved: on Sunday next you know</line>
+            <line>My daughter Katharina is to be married:</line>
+            <line>Now, on the Sunday following, shall Bianca</line>
+            <line>Be bride to you, if you this assurance;</line>
+            <line>If not, Signior Gremio:</line>
+            <line>And so, I take my leave, and thank you both.</line>
+         </speech>
+         <speech>
+            <speaker>GREMIO</speaker>
+            <line>Adieu, good neighbour.</line>
+            <stagedir>Exit BAPTISTA</stagedir>
+            <line>Now I fear thee not:</line>
+            <line>Sirrah young gamester, your father were a fool</line>
+            <line>To give thee all, and in his waning age</line>
+            <line>Set foot under thy table: tut, a toy!</line>
+            <line>An old Italian fox is not so kind, my boy.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>TRANIO</speaker>
+            <line>A vengeance on your crafty wither'd hide!</line>
+            <line>Yet I have faced it with a card of ten.</line>
+            <line>'Tis in my head to do my master good:</line>
+            <line>I see no reason but supposed Lucentio</line>
+            <line>Must get a father, call'd 'supposed Vincentio;'</line>
+            <line>And that's a wonder: fathers commonly</line>
+            <line>Do get their children; but in this case of wooing,</line>
+            <line>A child shall get a sire, if I fail not of my cunning.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+      </scene-body>
+   </scene>
+</act>

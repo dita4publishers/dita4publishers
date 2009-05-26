@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/act" "act.dtd">
+<act id="act-5">
+   <title>ACT V</title>
+   <scene id="act-5-scene-1">
+      <title>SCENE I.  Mantua. A street.</title>
+      <scene-body>
+         <stagedir>Enter ROMEO</stagedir>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>If I may trust the flattering truth of sleep,</line>
+            <line>My dreams presage some joyful news at hand:</line>
+            <line>My bosom's lord sits lightly in his throne;</line>
+            <line>And all this day an unaccustom'd spirit</line>
+            <line>Lifts me above the ground with cheerful thoughts.</line>
+            <line>I dreamt my lady came and found me dead--</line>
+            <line>Strange dream, that gives a dead man leave</line>
+            <line>to think!--</line>
+            <line>And breathed such life with kisses in my lips,</line>
+            <line>That I revived, and was an emperor.</line>
+            <line>Ah me! how sweet is love itself possess'd,</line>
+            <line>When but love's shadows are so rich in joy!</line>
+            <stagedir>Enter BALTHASAR, booted</stagedir>
+            <line>News from Verona!--How now, Balthasar!</line>
+            <line>Dost thou not bring me letters from the friar?</line>
+            <line>How doth my lady? Is my father well?</line>
+            <line>How fares my Juliet? that I ask again;</line>
+            <line>For nothing can be ill, if she be well.</line>
+         </speech>
+         <speech>
+            <speaker>BALTHASAR</speaker>
+            <line>Then she is well, and nothing can be ill:</line>
+            <line>Her body sleeps in Capel's monument,</line>
+            <line>And her immortal part with angels lives.</line>
+            <line>I saw her laid low in her kindred's vault,</line>
+            <line>And presently took post to tell it you:</line>
+            <line>O, pardon me for bringing these ill news,</line>
+            <line>Since you did leave it for my office, sir.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Is it even so? then I defy you, stars!</line>
+            <line>Thou know'st my lodging: get me ink and paper,</line>
+            <line>And hire post-horses; I will hence to-night.</line>
+         </speech>
+         <speech>
+            <speaker>BALTHASAR</speaker>
+            <line>I do beseech you, sir, have patience:</line>
+            <line>Your looks are pale and wild, and do import</line>
+            <line>Some misadventure.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Tush, thou art deceived:</line>
+            <line>Leave me, and do the thing I bid thee do.</line>
+            <line>Hast thou no letters to me from the friar?</line>
+         </speech>
+         <speech>
+            <speaker>BALTHASAR</speaker>
+            <line>No, my good lord.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>No matter: get thee gone,</line>
+            <line>And hire those horses; I'll be with thee straight.</line>
+            <stagedir>Exit BALTHASAR</stagedir>
+            <line>Well, Juliet, I will lie with thee to-night.</line>
+            <line>Let's see for means: O mischief, thou art swift</line>
+            <line>To enter in the thoughts of desperate men!</line>
+            <line>I do remember an apothecary,--</line>
+            <line>And hereabouts he dwells,--which late I noted</line>
+            <line>In tatter'd weeds, with overwhelming brows,</line>
+            <line>Culling of simples; meagre were his looks,</line>
+            <line>Sharp misery had worn him to the bones:</line>
+            <line>And in his needy shop a tortoise hung,</line>
+            <line>An alligator stuff'd, and other skins</line>
+            <line>Of ill-shaped fishes; and about his shelves</line>
+            <line>A beggarly account of empty boxes,</line>
+            <line>Green earthen pots, bladders and musty seeds,</line>
+            <line>Remnants of packthread and old cakes of roses,</line>
+            <line>Were thinly scatter'd, to make up a show.</line>
+            <line>Noting this penury, to myself I said</line>
+            <line>'An if a man did need a poison now,</line>
+            <line>Whose sale is present death in Mantua,</line>
+            <line>Here lives a caitiff wretch would sell it him.'</line>
+            <line>O, this same thought did but forerun my need;</line>
+            <line>And this same needy man must sell it me.</line>
+            <line>As I remember, this should be the house.</line>
+            <line>Being holiday, the beggar's shop is shut.</line>
+            <line>What, ho! apothecary!</line>
+         </speech>
+         <stagedir>Enter Apothecary</stagedir>
+         <speech>
+            <speaker>Apothecary</speaker>
+            <line>Who calls so loud?</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Come hither, man. I see that thou art poor:</line>
+            <line>Hold, there is forty ducats: let me have</line>
+            <line>A dram of poison, such soon-speeding gear</line>
+            <line>As will disperse itself through all the veins</line>
+            <line>That the life-weary taker may fall dead</line>
+            <line>And that the trunk may be discharged of breath</line>
+            <line>As violently as hasty powder fired</line>
+            <line>Doth hurry from the fatal cannon's womb.</line>
+         </speech>
+         <speech>
+            <speaker>Apothecary</speaker>
+            <line>Such mortal drugs I have; but Mantua's law</line>
+            <line>Is death to any he that utters them.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Art thou so bare and full of wretchedness,</line>
+            <line>And fear'st to die? famine is in thy cheeks,</line>
+            <line>Need and oppression starveth in thine eyes,</line>
+            <line>Contempt and beggary hangs upon thy back;</line>
+            <line>The world is not thy friend nor the world's law;</line>
+            <line>The world affords no law to make thee rich;</line>
+            <line>Then be not poor, but break it, and take this.</line>
+         </speech>
+         <speech>
+            <speaker>Apothecary</speaker>
+            <line>My poverty, but not my will, consents.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>I pay thy poverty, and not thy will.</line>
+         </speech>
+         <speech>
+            <speaker>Apothecary</speaker>
+            <line>Put this in any liquid thing you will,</line>
+            <line>And drink it off; and, if you had the strength</line>
+            <line>Of twenty men, it would dispatch you straight.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>There is thy gold, worse poison to men's souls,</line>
+            <line>Doing more murders in this loathsome world,</line>
+            <line>Than these poor compounds that thou mayst not sell.</line>
+            <line>I sell thee poison; thou hast sold me none.</line>
+            <line>Farewell: buy food, and get thyself in flesh.</line>
+            <line>Come, cordial and not poison, go with me</line>
+            <line>To Juliet's grave; for there must I use thee.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-2">
+      <title>SCENE II.  Friar Laurence's cell.</title>
+      <scene-body>
+         <stagedir>Enter FRIAR JOHN</stagedir>
+         <speech>
+            <speaker>FRIAR JOHN</speaker>
+            <line>Holy Franciscan friar! brother, ho!</line>
+         </speech>
+         <stagedir>Enter FRIAR LAURENCE</stagedir>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>This same should be the voice of Friar John.</line>
+            <line>Welcome from Mantua: what says Romeo?</line>
+            <line>Or, if his mind be writ, give me his letter.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR JOHN</speaker>
+            <line>Going to find a bare-foot brother out</line>
+            <line>One of our order, to associate me,</line>
+            <line>Here in this city visiting the sick,</line>
+            <line>And finding him, the searchers of the town,</line>
+            <line>Suspecting that we both were in a house</line>
+            <line>Where the infectious pestilence did reign,</line>
+            <line>Seal'd up the doors, and would not let us forth;</line>
+            <line>So that my speed to Mantua there was stay'd.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Who bare my letter, then, to Romeo?</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR JOHN</speaker>
+            <line>I could not send it,--here it is again,--</line>
+            <line>Nor get a messenger to bring it thee,</line>
+            <line>So fearful were they of infection.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Unhappy fortune! by my brotherhood,</line>
+            <line>The letter was not nice but full of charge</line>
+            <line>Of dear import, and the neglecting it</line>
+            <line>May do much danger. Friar John, go hence;</line>
+            <line>Get me an iron crow, and bring it straight</line>
+            <line>Unto my cell.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR JOHN</speaker>
+            <line>Brother, I'll go and bring it thee.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Now must I to the monument alone;</line>
+            <line>Within three hours will fair Juliet wake:</line>
+            <line>She will beshrew me much that Romeo</line>
+            <line>Hath had no notice of these accidents;</line>
+            <line>But I will write again to Mantua,</line>
+            <line>And keep her at my cell till Romeo come;</line>
+            <line>Poor living corse, closed in a dead man's tomb!</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-3">
+      <title>SCENE III.  A churchyard; in it a tomb belonging to the Capulets.</title>
+      <scene-body>
+         <stagedir>Enter PARIS, and his Page bearing flowers and a torch</stagedir>
+         <speech>
+            <speaker>PARIS</speaker>
+            <line>Give me thy torch, boy: hence, and stand aloof:</line>
+            <line>Yet put it out, for I would not be seen.</line>
+            <line>Under yond yew-trees lay thee all along,</line>
+            <line>Holding thine ear close to the hollow ground;</line>
+            <line>So shall no foot upon the churchyard tread,</line>
+            <line>Being loose, unfirm, with digging up of graves,</line>
+            <line>But thou shalt hear it: whistle then to me,</line>
+            <line>As signal that thou hear'st something approach.</line>
+            <line>Give me those flowers. Do as I bid thee, go.</line>
+         </speech>
+         <speech>
+            <speaker>PAGE</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  I am almost afraid to stand alone</line>
+            <line>Here in the churchyard; yet I will adventure.</line>
+         </speech>
+         <stagedir>Retires</stagedir>
+         <speech>
+            <speaker>PARIS</speaker>
+            <line>Sweet flower, with flowers thy bridal bed I strew,--</line>
+            <line>O woe! thy canopy is dust and stones;--</line>
+            <line>Which with sweet water nightly I will dew,</line>
+            <line>Or, wanting that, with tears distill'd by moans:</line>
+            <line>The obsequies that I for thee will keep</line>
+            <line>Nightly shall be to strew thy grave and weep.</line>
+            <stagedir>The Page whistles</stagedir>
+            <line>The boy gives warning something doth approach.</line>
+            <line>What cursed foot wanders this way to-night,</line>
+            <line>To cross my obsequies and true love's rite?</line>
+            <line>What with a torch! muffle me, night, awhile.</line>
+         </speech>
+         <stagedir>Retires</stagedir>
+         <stagedir>Enter ROMEO and BALTHASAR, with a torch,
+mattock, &amp;c</stagedir>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Give me that mattock and the wrenching iron.</line>
+            <line>Hold, take this letter; early in the morning</line>
+            <line>See thou deliver it to my lord and father.</line>
+            <line>Give me the light: upon thy life, I charge thee,</line>
+            <line>Whate'er thou hear'st or seest, stand all aloof,</line>
+            <line>And do not interrupt me in my course.</line>
+            <line>Why I descend into this bed of death,</line>
+            <line>Is partly to behold my lady's face;</line>
+            <line>But chiefly to take thence from her dead finger</line>
+            <line>A precious ring, a ring that I must use</line>
+            <line>In dear employment: therefore hence, be gone:</line>
+            <line>But if thou, jealous, dost return to pry</line>
+            <line>In what I further shall intend to do,</line>
+            <line>By heaven, I will tear thee joint by joint</line>
+            <line>And strew this hungry churchyard with thy limbs:</line>
+            <line>The time and my intents are savage-wild,</line>
+            <line>More fierce and more inexorable far</line>
+            <line>Than empty tigers or the roaring sea.</line>
+         </speech>
+         <speech>
+            <speaker>BALTHASAR</speaker>
+            <line>I will be gone, sir, and not trouble you.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>So shalt thou show me friendship. Take thou that:</line>
+            <line>Live, and be prosperous: and farewell, good fellow.</line>
+         </speech>
+         <speech>
+            <speaker>BALTHASAR</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  For all this same, I'll hide me hereabout:</line>
+            <line>His looks I fear, and his intents I doubt.</line>
+         </speech>
+         <stagedir>Retires</stagedir>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Thou detestable maw, thou womb of death,</line>
+            <line>Gorged with the dearest morsel of the earth,</line>
+            <line>Thus I enforce thy rotten jaws to open,</line>
+            <line>And, in despite, I'll cram thee with more food!</line>
+         </speech>
+         <stagedir>Opens the tomb</stagedir>
+         <speech>
+            <speaker>PARIS</speaker>
+            <line>This is that banish'd haughty Montague,</line>
+            <line>That murder'd my love's cousin, with which grief,</line>
+            <line>It is supposed, the fair creature died;</line>
+            <line>And here is come to do some villanous shame</line>
+            <line>To the dead bodies: I will apprehend him.</line>
+            <stagedir>Comes forward</stagedir>
+            <line>Stop thy unhallow'd toil, vile Montague!</line>
+            <line>Can vengeance be pursued further than death?</line>
+            <line>Condemned villain, I do apprehend thee:</line>
+            <line>Obey, and go with me; for thou must die.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>I must indeed; and therefore came I hither.</line>
+            <line>Good gentle youth, tempt not a desperate man;</line>
+            <line>Fly hence, and leave me: think upon these gone;</line>
+            <line>Let them affright thee. I beseech thee, youth,</line>
+            <line>Put not another sin upon my head,</line>
+            <line>By urging me to fury: O, be gone!</line>
+            <line>By heaven, I love thee better than myself;</line>
+            <line>For I come hither arm'd against myself:</line>
+            <line>Stay not, be gone; live, and hereafter say,</line>
+            <line>A madman's mercy bade thee run away.</line>
+         </speech>
+         <speech>
+            <speaker>PARIS</speaker>
+            <line>I do defy thy conjurations,</line>
+            <line>And apprehend thee for a felon here.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Wilt thou provoke me? then have at thee, boy!</line>
+         </speech>
+         <stagedir>They fight</stagedir>
+         <speech>
+            <speaker>PAGE</speaker>
+            <line>O Lord, they fight! I will go call the watch.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>PARIS</speaker>
+            <line>O, I am slain!</line>
+            <stagedir>Falls</stagedir>
+            <line>If thou be merciful,</line>
+            <line>Open the tomb, lay me with Juliet.</line>
+         </speech>
+         <stagedir>Dies</stagedir>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>In faith, I will. Let me peruse this face.</line>
+            <line>Mercutio's kinsman, noble County Paris!</line>
+            <line>What said my man, when my betossed soul</line>
+            <line>Did not attend him as we rode? I think</line>
+            <line>He told me Paris should have married Juliet:</line>
+            <line>Said he not so? or did I dream it so?</line>
+            <line>Or am I mad, hearing him talk of Juliet,</line>
+            <line>To think it was so? O, give me thy hand,</line>
+            <line>One writ with me in sour misfortune's book!</line>
+            <line>I'll bury thee in a triumphant grave;</line>
+            <line>A grave? O no! a lantern, slaughter'd youth,</line>
+            <line>For here lies Juliet, and her beauty makes</line>
+            <line>This vault a feasting presence full of light.</line>
+            <line>Death, lie thou there, by a dead man interr'd.</line>
+            <stagedir>Laying PARIS in the tomb</stagedir>
+            <line>How oft when men are at the point of death</line>
+            <line>Have they been merry! which their keepers call</line>
+            <line>A lightning before death: O, how may I</line>
+            <line>Call this a lightning? O my love! my wife!</line>
+            <line>Death, that hath suck'd the honey of thy breath,</line>
+            <line>Hath had no power yet upon thy beauty:</line>
+            <line>Thou art not conquer'd; beauty's ensign yet</line>
+            <line>Is crimson in thy lips and in thy cheeks,</line>
+            <line>And death's pale flag is not advanced there.</line>
+            <line>Tybalt, liest thou there in thy bloody sheet?</line>
+            <line>O, what more favour can I do to thee,</line>
+            <line>Than with that hand that cut thy youth in twain</line>
+            <line>To sunder his that was thine enemy?</line>
+            <line>Forgive me, cousin! Ah, dear Juliet,</line>
+            <line>Why art thou yet so fair? shall I believe</line>
+            <line>That unsubstantial death is amorous,</line>
+            <line>And that the lean abhorred monster keeps</line>
+            <line>Thee here in dark to be his paramour?</line>
+            <line>For fear of that, I still will stay with thee;</line>
+            <line>And never from this palace of dim night</line>
+            <line>Depart again: here, here will I remain</line>
+            <line>With worms that are thy chamber-maids; O, here</line>
+            <line>Will I set up my everlasting rest,</line>
+            <line>And shake the yoke of inauspicious stars</line>
+            <line>From this world-wearied flesh. Eyes, look your last!</line>
+            <line>Arms, take your last embrace! and, lips, O you</line>
+            <line>The doors of breath, seal with a righteous kiss</line>
+            <line>A dateless bargain to engrossing death!</line>
+            <line>Come, bitter conduct, come, unsavoury guide!</line>
+            <line>Thou desperate pilot, now at once run on</line>
+            <line>The dashing rocks thy sea-sick weary bark!</line>
+            <line>Here's to my love!</line>
+            <stagedir>Drinks</stagedir>
+            <line>O true apothecary!</line>
+            <line>Thy drugs are quick. Thus with a kiss I die.</line>
+         </speech>
+         <stagedir>Dies</stagedir>
+         <stagedir>Enter, at the other end of the churchyard, FRIAR
+LAURENCE, with a lantern, crow, and spade</stagedir>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Saint Francis be my speed! how oft to-night</line>
+            <line>Have my old feet stumbled at graves! Who's there?</line>
+         </speech>
+         <speech>
+            <speaker>BALTHASAR</speaker>
+            <line>Here's one, a friend, and one that knows you well.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Bliss be upon you! Tell me, good my friend,</line>
+            <line>What torch is yond, that vainly lends his light</line>
+            <line>To grubs and eyeless skulls? as I discern,</line>
+            <line>It burneth in the Capel's monument.</line>
+         </speech>
+         <speech>
+            <speaker>BALTHASAR</speaker>
+            <line>It doth so, holy sir; and there's my master,</line>
+            <line>One that you love.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Who is it?</line>
+         </speech>
+         <speech>
+            <speaker>BALTHASAR</speaker>
+            <line>Romeo.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>How long hath he been there?</line>
+         </speech>
+         <speech>
+            <speaker>BALTHASAR</speaker>
+            <line>Full half an hour.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Go with me to the vault.</line>
+         </speech>
+         <speech>
+            <speaker>BALTHASAR</speaker>
+            <line>I dare not, sir</line>
+            <line>My master knows not but I am gone hence;</line>
+            <line>And fearfully did menace me with death,</line>
+            <line>If I did stay to look on his intents.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Stay, then; I'll go alone. Fear comes upon me:</line>
+            <line>O, much I fear some ill unlucky thing.</line>
+         </speech>
+         <speech>
+            <speaker>BALTHASAR</speaker>
+            <line>As I did sleep under this yew-tree here,</line>
+            <line>I dreamt my master and another fought,</line>
+            <line>And that my master slew him.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Romeo!</line>
+            <stagedir>Advances</stagedir>
+            <line>Alack, alack, what blood is this, which stains</line>
+            <line>The stony entrance of this sepulchre?</line>
+            <line>What mean these masterless and gory swords</line>
+            <line>To lie discolour'd by this place of peace?</line>
+            <stagedir>Enters the tomb</stagedir>
+            <line>Romeo! O, pale! Who else? what, Paris too?</line>
+            <line>And steep'd in blood? Ah, what an unkind hour</line>
+            <line>Is guilty of this lamentable chance!</line>
+            <line>The lady stirs.</line>
+         </speech>
+         <stagedir>JULIET wakes</stagedir>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>O comfortable friar! where is my lord?</line>
+            <line>I do remember well where I should be,</line>
+            <line>And there I am. Where is my Romeo?</line>
+         </speech>
+         <stagedir>Noise within</stagedir>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>I hear some noise. Lady, come from that nest</line>
+            <line>Of death, contagion, and unnatural sleep:</line>
+            <line>A greater power than we can contradict</line>
+            <line>Hath thwarted our intents. Come, come away.</line>
+            <line>Thy husband in thy bosom there lies dead;</line>
+            <line>And Paris too. Come, I'll dispose of thee</line>
+            <line>Among a sisterhood of holy nuns:</line>
+            <line>Stay not to question, for the watch is coming;</line>
+            <line>Come, go, good Juliet,</line>
+            <stagedir>Noise again</stagedir>
+            <line>I dare no longer stay.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Go, get thee hence, for I will not away.</line>
+            <stagedir>Exit FRIAR LAURENCE</stagedir>
+            <line>What's here? a cup, closed in my true love's hand?</line>
+            <line>Poison, I see, hath been his timeless end:</line>
+            <line>O churl! drunk all, and left no friendly drop</line>
+            <line>To help me after? I will kiss thy lips;</line>
+            <line>Haply some poison yet doth hang on them,</line>
+            <line>To make die with a restorative.</line>
+            <stagedir>Kisses him</stagedir>
+            <line>Thy lips are warm.</line>
+         </speech>
+         <speech>
+            <speaker>First Watchman</speaker>
+            <line>
+               <stagedir>Within</stagedir>  Lead, boy: which way?</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Yea, noise? then I'll be brief. O happy dagger!</line>
+            <stagedir>Snatching ROMEO's dagger</stagedir>
+            <line>This is thy sheath;</line>
+            <stagedir>Stabs herself</stagedir>
+            <line>there rust, and let me die.</line>
+         </speech>
+         <stagedir>Falls on ROMEO's body, and dies</stagedir>
+         <stagedir>Enter Watch, with the Page of PARIS</stagedir>
+         <speech>
+            <speaker>PAGE</speaker>
+            <line>This is the place; there, where the torch doth burn.</line>
+         </speech>
+         <speech>
+            <speaker>First Watchman</speaker>
+            <line>The ground is bloody; search about the churchyard:</line>
+            <line>Go, some of you, whoe'er you find attach.</line>
+            <line>Pitiful sight! here lies the county slain,</line>
+            <line>And Juliet bleeding, warm, and newly dead,</line>
+            <line>Who here hath lain these two days buried.</line>
+            <line>Go, tell the prince: run to the Capulets:</line>
+            <line>Raise up the Montagues: some others search:</line>
+            <line>We see the ground whereon these woes do lie;</line>
+            <line>But the true ground of all these piteous woes</line>
+            <line>We cannot without circumstance descry.</line>
+         </speech>
+         <stagedir>Re-enter some of the Watch, with BALTHASAR</stagedir>
+         <speech>
+            <speaker>Second Watchman</speaker>
+            <line>Here's Romeo's man; we found him in the churchyard.</line>
+         </speech>
+         <speech>
+            <speaker>First Watchman</speaker>
+            <line>Hold him in safety, till the prince come hither.</line>
+         </speech>
+         <stagedir>Re-enter others of the Watch, with FRIAR LAURENCE</stagedir>
+         <speech>
+            <speaker>Third Watchman</speaker>
+            <line>Here is a friar, that trembles, sighs and weeps:</line>
+            <line>We took this mattock and this spade from him,</line>
+            <line>As he was coming from this churchyard side.</line>
+         </speech>
+         <speech>
+            <speaker>First Watchman</speaker>
+            <line>A great suspicion: stay the friar too.</line>
+         </speech>
+         <stagedir>Enter the PRINCE and Attendants</stagedir>
+         <speech>
+            <speaker>PRINCE</speaker>
+            <line>What misadventure is so early up,</line>
+            <line>That calls our person from our morning's rest?</line>
+         </speech>
+         <stagedir>Enter CAPULET, LADY CAPULET, and others</stagedir>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>What should it be, that they so shriek abroad?</line>
+         </speech>
+         <speech>
+            <speaker>LADY CAPULET</speaker>
+            <line>The people in the street cry Romeo,</line>
+            <line>Some Juliet, and some Paris; and all run,</line>
+            <line>With open outcry toward our monument.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE</speaker>
+            <line>What fear is this which startles in our ears?</line>
+         </speech>
+         <speech>
+            <speaker>First Watchman</speaker>
+            <line>Sovereign, here lies the County Paris slain;</line>
+            <line>And Romeo dead; and Juliet, dead before,</line>
+            <line>Warm and new kill'd.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE</speaker>
+            <line>Search, seek, and know how this foul murder comes.</line>
+         </speech>
+         <speech>
+            <speaker>First Watchman</speaker>
+            <line>Here is a friar, and slaughter'd Romeo's man;</line>
+            <line>With instruments upon them, fit to open</line>
+            <line>These dead men's tombs.</line>
+         </speech>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>O heavens! O wife, look how our daughter bleeds!</line>
+            <line>This dagger hath mista'en--for, lo, his house</line>
+            <line>Is empty on the back of Montague,--</line>
+            <line>And it mis-sheathed in my daughter's bosom!</line>
+         </speech>
+         <speech>
+            <speaker>LADY CAPULET</speaker>
+            <line>O me! this sight of death is as a bell,</line>
+            <line>That warns my old age to a sepulchre.</line>
+         </speech>
+         <stagedir>Enter MONTAGUE and others</stagedir>
+         <speech>
+            <speaker>PRINCE</speaker>
+            <line>Come, Montague; for thou art early up,</line>
+            <line>To see thy son and heir more early down.</line>
+         </speech>
+         <speech>
+            <speaker>MONTAGUE</speaker>
+            <line>Alas, my liege, my wife is dead to-night;</line>
+            <line>Grief of my son's exile hath stopp'd her breath:</line>
+            <line>What further woe conspires against mine age?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE</speaker>
+            <line>Look, and thou shalt see.</line>
+         </speech>
+         <speech>
+            <speaker>MONTAGUE</speaker>
+            <line>O thou untaught! what manners is in this?</line>
+            <line>To press before thy father to a grave?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE</speaker>
+            <line>Seal up the mouth of outrage for a while,</line>
+            <line>Till we can clear these ambiguities,</line>
+            <line>And know their spring, their head, their</line>
+            <line>true descent;</line>
+            <line>And then will I be general of your woes,</line>
+            <line>And lead you even to death: meantime forbear,</line>
+            <line>And let mischance be slave to patience.</line>
+            <line>Bring forth the parties of suspicion.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>I am the greatest, able to do least,</line>
+            <line>Yet most suspected, as the time and place</line>
+            <line>Doth make against me of this direful murder;</line>
+            <line>And here I stand, both to impeach and purge</line>
+            <line>Myself condemned and myself excused.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE</speaker>
+            <line>Then say at once what thou dost know in this.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>I will be brief, for my short date of breath</line>
+            <line>Is not so long as is a tedious tale.</line>
+            <line>Romeo, there dead, was husband to that Juliet;</line>
+            <line>And she, there dead, that Romeo's faithful wife:</line>
+            <line>I married them; and their stol'n marriage-day</line>
+            <line>Was Tybalt's dooms-day, whose untimely death</line>
+            <line>Banish'd the new-made bridegroom from the city,</line>
+            <line>For whom, and not for Tybalt, Juliet pined.</line>
+            <line>You, to remove that siege of grief from her,</line>
+            <line>Betroth'd and would have married her perforce</line>
+            <line>To County Paris: then comes she to me,</line>
+            <line>And, with wild looks, bid me devise some mean</line>
+            <line>To rid her from this second marriage,</line>
+            <line>Or in my cell there would she kill herself.</line>
+            <line>Then gave I her, so tutor'd by my art,</line>
+            <line>A sleeping potion; which so took effect</line>
+            <line>As I intended, for it wrought on her</line>
+            <line>The form of death: meantime I writ to Romeo,</line>
+            <line>That he should hither come as this dire night,</line>
+            <line>To help to take her from her borrow'd grave,</line>
+            <line>Being the time the potion's force should cease.</line>
+            <line>But he which bore my letter, Friar John,</line>
+            <line>Was stay'd by accident, and yesternight</line>
+            <line>Return'd my letter back. Then all alone</line>
+            <line>At the prefixed hour of her waking,</line>
+            <line>Came I to take her from her kindred's vault;</line>
+            <line>Meaning to keep her closely at my cell,</line>
+            <line>Till I conveniently could send to Romeo:</line>
+            <line>But when I came, some minute ere the time</line>
+            <line>Of her awaking, here untimely lay</line>
+            <line>The noble Paris and true Romeo dead.</line>
+            <line>She wakes; and I entreated her come forth,</line>
+            <line>And bear this work of heaven with patience:</line>
+            <line>But then a noise did scare me from the tomb;</line>
+            <line>And she, too desperate, would not go with me,</line>
+            <line>But, as it seems, did violence on herself.</line>
+            <line>All this I know; and to the marriage</line>
+            <line>Her nurse is privy: and, if aught in this</line>
+            <line>Miscarried by my fault, let my old life</line>
+            <line>Be sacrificed, some hour before his time,</line>
+            <line>Unto the rigour of severest law.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE</speaker>
+            <line>We still have known thee for a holy man.</line>
+            <line>Where's Romeo's man? what can he say in this?</line>
+         </speech>
+         <speech>
+            <speaker>BALTHASAR</speaker>
+            <line>I brought my master news of Juliet's death;</line>
+            <line>And then in post he came from Mantua</line>
+            <line>To this same place, to this same monument.</line>
+            <line>This letter he early bid me give his father,</line>
+            <line>And threatened me with death, going in the vault,</line>
+            <line>I departed not and left him there.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE</speaker>
+            <line>Give me the letter; I will look on it.</line>
+            <line>Where is the county's page, that raised the watch?</line>
+            <line>Sirrah, what made your master in this place?</line>
+         </speech>
+         <speech>
+            <speaker>PAGE</speaker>
+            <line>He came with flowers to strew his lady's grave;</line>
+            <line>And bid me stand aloof, and so I did:</line>
+            <line>Anon comes one with light to ope the tomb;</line>
+            <line>And by and by my master drew on him;</line>
+            <line>And then I ran away to call the watch.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE</speaker>
+            <line>This letter doth make good the friar's words,</line>
+            <line>Their course of love, the tidings of her death:</line>
+            <line>And here he writes that he did buy a poison</line>
+            <line>Of a poor 'pothecary, and therewithal</line>
+            <line>Came to this vault to die, and lie with Juliet.</line>
+            <line>Where be these enemies? Capulet! Montague!</line>
+            <line>See, what a scourge is laid upon your hate,</line>
+            <line>That heaven finds means to kill your joys with love.</line>
+            <line>And I for winking at your discords too</line>
+            <line>Have lost a brace of kinsmen: all are punish'd.</line>
+         </speech>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>O brother Montague, give me thy hand:</line>
+            <line>This is my daughter's jointure, for no more</line>
+            <line>Can I demand.</line>
+         </speech>
+         <speech>
+            <speaker>MONTAGUE</speaker>
+            <line>But I can give thee more:</line>
+            <line>For I will raise her statue in pure gold;</line>
+            <line>That while Verona by that name is known,</line>
+            <line>There shall no figure at such rate be set</line>
+            <line>As that of true and faithful Juliet.</line>
+         </speech>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>As rich shall Romeo's by his lady's lie;</line>
+            <line>Poor sacrifices of our enmity!</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE</speaker>
+            <line>A glooming peace this morning with it brings;</line>
+            <line>The sun, for sorrow, will not show his head:</line>
+            <line>Go hence, to have more talk of these sad things;</line>
+            <line>Some shall be pardon'd, and some punished:</line>
+            <line>For never was a story of more woe</line>
+            <line>Than this of Juliet and her Romeo.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+</act>

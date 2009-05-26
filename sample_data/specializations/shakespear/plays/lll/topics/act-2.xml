@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/act" "act.dtd">
+<act id="act-2">
+   <title>ACT II</title>
+   <scene id="act-2-scene-1">
+      <title>SCENE I.  The same.</title>
+      <scene-body>
+         <stagedir>Enter the PRINCESS of France, ROSALINE, MARIA,
+KATHARINE, BOYET, Lords, and other Attendants</stagedir>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>Now, madam, summon up your dearest spirits:</line>
+            <line>Consider who the king your father sends,</line>
+            <line>To whom he sends, and what's his embassy:</line>
+            <line>Yourself, held precious in the world's esteem,</line>
+            <line>To parley with the sole inheritor</line>
+            <line>Of all perfections that a man may owe,</line>
+            <line>Matchless Navarre; the plea of no less weight</line>
+            <line>Than Aquitaine, a dowry for a queen.</line>
+            <line>Be now as prodigal of all dear grace</line>
+            <line>As Nature was in making graces dear</line>
+            <line>When she did starve the general world beside</line>
+            <line>And prodigally gave them all to you.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>Good Lord Boyet, my beauty, though but mean,</line>
+            <line>Needs not the painted flourish of your praise:</line>
+            <line>Beauty is bought by judgement of the eye,</line>
+            <line>Not utter'd by base sale of chapmen's tongues:</line>
+            <line>I am less proud to hear you tell my worth</line>
+            <line>Than you much willing to be counted wise</line>
+            <line>In spending your wit in the praise of mine.</line>
+            <line>But now to task the tasker: good Boyet,</line>
+            <line>You are not ignorant, all-telling fame</line>
+            <line>Doth noise abroad, Navarre hath made a vow,</line>
+            <line>Till painful study shall outwear three years,</line>
+            <line>No woman may approach his silent court:</line>
+            <line>Therefore to's seemeth it a needful course,</line>
+            <line>Before we enter his forbidden gates,</line>
+            <line>To know his pleasure; and in that behalf,</line>
+            <line>Bold of your worthiness, we single you</line>
+            <line>As our best-moving fair solicitor.</line>
+            <line>Tell him, the daughter of the King of France,</line>
+            <line>On serious business, craving quick dispatch,</line>
+            <line>Importunes personal conference with his grace:</line>
+            <line>Haste, signify so much; while we attend,</line>
+            <line>Like humble-visaged suitors, his high will.</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>Proud of employment, willingly I go.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>All pride is willing pride, and yours is so.</line>
+            <stagedir>Exit BOYET</stagedir>
+            <line>Who are the votaries, my loving lords,</line>
+            <line>That are vow-fellows with this virtuous duke?</line>
+         </speech>
+         <speech>
+            <speaker>First Lord</speaker>
+            <line>Lord Longaville is one.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>Know you the man?</line>
+         </speech>
+         <speech>
+            <speaker>MARIA</speaker>
+            <line>I know him, madam: at a marriage-feast,</line>
+            <line>Between Lord Perigort and the beauteous heir</line>
+            <line>Of Jaques Falconbridge, solemnized</line>
+            <line>In Normandy, saw I this Longaville:</line>
+            <line>A man of sovereign parts he is esteem'd;</line>
+            <line>Well fitted in arts, glorious in arms:</line>
+            <line>Nothing becomes him ill that he would well.</line>
+            <line>The only soil of his fair virtue's gloss,</line>
+            <line>If virtue's gloss will stain with any soil,</line>
+            <line>Is a sharp wit matched with too blunt a will;</line>
+            <line>Whose edge hath power to cut, whose will still wills</line>
+            <line>It should none spare that come within his power.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>Some merry mocking lord, belike; is't so?</line>
+         </speech>
+         <speech>
+            <speaker>MARIA</speaker>
+            <line>They say so most that most his humours know.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>Such short-lived wits do wither as they grow.</line>
+            <line>Who are the rest?</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>The young Dumain, a well-accomplished youth,</line>
+            <line>Of all that virtue love for virtue loved:</line>
+            <line>Most power to do most harm, least knowing ill;</line>
+            <line>For he hath wit to make an ill shape good,</line>
+            <line>And shape to win grace though he had no wit.</line>
+            <line>I saw him at the Duke Alencon's once;</line>
+            <line>And much too little of that good I saw</line>
+            <line>Is my report to his great worthiness.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALINE</speaker>
+            <line>Another of these students at that time</line>
+            <line>Was there with him, if I have heard a truth.</line>
+            <line>Biron they call him; but a merrier man,</line>
+            <line>Within the limit of becoming mirth,</line>
+            <line>I never spent an hour's talk withal:</line>
+            <line>His eye begets occasion for his wit;</line>
+            <line>For every object that the one doth catch</line>
+            <line>The other turns to a mirth-moving jest,</line>
+            <line>Which his fair tongue, conceit's expositor,</line>
+            <line>Delivers in such apt and gracious words</line>
+            <line>That aged ears play truant at his tales</line>
+            <line>And younger hearings are quite ravished;</line>
+            <line>So sweet and voluble is his discourse.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>God bless my ladies! are they all in love,</line>
+            <line>That every one her own hath garnished</line>
+            <line>With such bedecking ornaments of praise?</line>
+         </speech>
+         <speech>
+            <speaker>First Lord</speaker>
+            <line>Here comes Boyet.</line>
+         </speech>
+         <stagedir>Re-enter BOYET</stagedir>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>Now, what admittance, lord?</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>Navarre had notice of your fair approach;</line>
+            <line>And he and his competitors in oath</line>
+            <line>Were all address'd to meet you, gentle lady,</line>
+            <line>Before I came. Marry, thus much I have learnt:</line>
+            <line>He rather means to lodge you in the field,</line>
+            <line>Like one that comes here to besiege his court,</line>
+            <line>Than seek a dispensation for his oath,</line>
+            <line>To let you enter his unpeopled house.</line>
+            <line>Here comes Navarre.</line>
+         </speech>
+         <stagedir>Enter FERDINAND, LONGAVILLE, DUMAIN, BIRON, and
+Attendants</stagedir>
+         <speech>
+            <speaker>FERDINAND</speaker>
+            <line>Fair princess, welcome to the court of Navarre.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>'Fair' I give you back again; and 'welcome' I have</line>
+            <line>not yet: the roof of this court is too high to be</line>
+            <line>yours; and welcome to the wide fields too base to be mine.</line>
+         </speech>
+         <speech>
+            <speaker>FERDINAND</speaker>
+            <line>You shall be welcome, madam, to my court.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>I will be welcome, then: conduct me thither.</line>
+         </speech>
+         <speech>
+            <speaker>FERDINAND</speaker>
+            <line>Hear me, dear lady; I have sworn an oath.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>Our Lady help my lord! he'll be forsworn.</line>
+         </speech>
+         <speech>
+            <speaker>FERDINAND</speaker>
+            <line>Not for the world, fair madam, by my will.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>Why, will shall break it; will and nothing else.</line>
+         </speech>
+         <speech>
+            <speaker>FERDINAND</speaker>
+            <line>Your ladyship is ignorant what it is.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>Were my lord so, his ignorance were wise,</line>
+            <line>Where now his knowledge must prove ignorance.</line>
+            <line>I hear your grace hath sworn out house-keeping:</line>
+            <line>Tis deadly sin to keep that oath, my lord,</line>
+            <line>And sin to break it.</line>
+            <line>But pardon me. I am too sudden-bold:</line>
+            <line>To teach a teacher ill beseemeth me.</line>
+            <line>Vouchsafe to read the purpose of my coming,</line>
+            <line>And suddenly resolve me in my suit.</line>
+         </speech>
+         <speech>
+            <speaker>FERDINAND</speaker>
+            <line>Madam, I will, if suddenly I may.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>You will the sooner, that I were away;</line>
+            <line>For you'll prove perjured if you make me stay.</line>
+         </speech>
+         <speech>
+            <speaker>BIRON</speaker>
+            <line>Did not I dance with you in Brabant once?</line>
+         </speech>
+         <speech>
+            <speaker>ROSALINE</speaker>
+            <line>Did not I dance with you in Brabant once?</line>
+         </speech>
+         <speech>
+            <speaker>BIRON</speaker>
+            <line>I know you did.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALINE</speaker>
+            <line>How needless was it then to ask the question!</line>
+         </speech>
+         <speech>
+            <speaker>BIRON</speaker>
+            <line>You must not be so quick.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALINE</speaker>
+            <line>'Tis 'long of you that spur me with such questions.</line>
+         </speech>
+         <speech>
+            <speaker>BIRON</speaker>
+            <line>Your wit's too hot, it speeds too fast, 'twill tire.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALINE</speaker>
+            <line>Not till it leave the rider in the mire.</line>
+         </speech>
+         <speech>
+            <speaker>BIRON</speaker>
+            <line>What time o' day?</line>
+         </speech>
+         <speech>
+            <speaker>ROSALINE</speaker>
+            <line>The hour that fools should ask.</line>
+         </speech>
+         <speech>
+            <speaker>BIRON</speaker>
+            <line>Now fair befall your mask!</line>
+         </speech>
+         <speech>
+            <speaker>ROSALINE</speaker>
+            <line>Fair fall the face it covers!</line>
+         </speech>
+         <speech>
+            <speaker>BIRON</speaker>
+            <line>And send you many lovers!</line>
+         </speech>
+         <speech>
+            <speaker>ROSALINE</speaker>
+            <line>Amen, so you be none.</line>
+         </speech>
+         <speech>
+            <speaker>BIRON</speaker>
+            <line>Nay, then will I be gone.</line>
+         </speech>
+         <speech>
+            <speaker>FERDINAND</speaker>
+            <line>Madam, your father here doth intimate</line>
+            <line>The payment of a hundred thousand crowns;</line>
+            <line>Being but the one half of an entire sum</line>
+            <line>Disbursed by my father in his wars.</line>
+            <line>But say that he or we, as neither have,</line>
+            <line>Received that sum, yet there remains unpaid</line>
+            <line>A hundred thousand more; in surety of the which,</line>
+            <line>One part of Aquitaine is bound to us,</line>
+            <line>Although not valued to the money's worth.</line>
+            <line>If then the king your father will restore</line>
+            <line>But that one half which is unsatisfied,</line>
+            <line>We will give up our right in Aquitaine,</line>
+            <line>And hold fair friendship with his majesty.</line>
+            <line>But that, it seems, he little purposeth,</line>
+            <line>For here he doth demand to have repaid</line>
+            <line>A hundred thousand crowns; and not demands,</line>
+            <line>On payment of a hundred thousand crowns,</line>
+            <line>To have his title live in Aquitaine;</line>
+            <line>Which we much rather had depart withal</line>
+            <line>And have the money by our father lent</line>
+            <line>Than Aquitaine so gelded as it is.</line>
+            <line>Dear Princess, were not his requests so far</line>
+            <line>From reason's yielding, your fair self should make</line>
+            <line>A yielding 'gainst some reason in my breast</line>
+            <line>And go well satisfied to France again.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>You do the king my father too much wrong</line>
+            <line>And wrong the reputation of your name,</line>
+            <line>In so unseeming to confess receipt</line>
+            <line>Of that which hath so faithfully been paid.</line>
+         </speech>
+         <speech>
+            <speaker>FERDINAND</speaker>
+            <line>I do protest I never heard of it;</line>
+            <line>And if you prove it, I'll repay it back</line>
+            <line>Or yield up Aquitaine.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>We arrest your word.</line>
+            <line>Boyet, you can produce acquittances</line>
+            <line>For such a sum from special officers</line>
+            <line>Of Charles his father.</line>
+         </speech>
+         <speech>
+            <speaker>FERDINAND</speaker>
+            <line>Satisfy me so.</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>So please your grace, the packet is not come</line>
+            <line>Where that and other specialties are bound:</line>
+            <line>To-morrow you shall have a sight of them.</line>
+         </speech>
+         <speech>
+            <speaker>FERDINAND</speaker>
+            <line>It shall suffice me: at which interview</line>
+            <line>All liberal reason I will yield unto.</line>
+            <line>Meantime receive such welcome at my hand</line>
+            <line>As honour without breach of honour may</line>
+            <line>Make tender of to thy true worthiness:</line>
+            <line>You may not come, fair princess, in my gates;</line>
+            <line>But here without you shall be so received</line>
+            <line>As you shall deem yourself lodged in my heart,</line>
+            <line>Though so denied fair harbour in my house.</line>
+            <line>Your own good thoughts excuse me, and farewell:</line>
+            <line>To-morrow shall we visit you again.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>Sweet health and fair desires consort your grace!</line>
+         </speech>
+         <speech>
+            <speaker>FERDINAND</speaker>
+            <line>Thy own wish wish I thee in every place!</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>BIRON</speaker>
+            <line>Lady, I will commend you to mine own heart.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALINE</speaker>
+            <line>Pray you, do my commendations; I would be glad to see it.</line>
+         </speech>
+         <speech>
+            <speaker>BIRON</speaker>
+            <line>I would you heard it groan.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALINE</speaker>
+            <line>Is the fool sick?</line>
+         </speech>
+         <speech>
+            <speaker>BIRON</speaker>
+            <line>Sick at the heart.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALINE</speaker>
+            <line>Alack, let it blood.</line>
+         </speech>
+         <speech>
+            <speaker>BIRON</speaker>
+            <line>Would that do it good?</line>
+         </speech>
+         <speech>
+            <speaker>ROSALINE</speaker>
+            <line>My physic says 'ay.'</line>
+         </speech>
+         <speech>
+            <speaker>BIRON</speaker>
+            <line>Will you prick't with your eye?</line>
+         </speech>
+         <speech>
+            <speaker>ROSALINE</speaker>
+            <line>No point, with my knife.</line>
+         </speech>
+         <speech>
+            <speaker>BIRON</speaker>
+            <line>Now, God save thy life!</line>
+         </speech>
+         <speech>
+            <speaker>ROSALINE</speaker>
+            <line>And yours from long living!</line>
+         </speech>
+         <speech>
+            <speaker>BIRON</speaker>
+            <line>I cannot stay thanksgiving.</line>
+         </speech>
+         <stagedir>Retiring</stagedir>
+         <speech>
+            <speaker>DUMAIN</speaker>
+            <line>Sir, I pray you, a word: what lady is that same?</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>The heir of Alencon, Katharine her name.</line>
+         </speech>
+         <speech>
+            <speaker>DUMAIN</speaker>
+            <line>A gallant lady. Monsieur, fare you well.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>LONGAVILLE</speaker>
+            <line>I beseech you a word: what is she in the white?</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>A woman sometimes, an you saw her in the light.</line>
+         </speech>
+         <speech>
+            <speaker>LONGAVILLE</speaker>
+            <line>Perchance light in the light. I desire her name.</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>She hath but one for herself; to desire that were a shame.</line>
+         </speech>
+         <speech>
+            <speaker>LONGAVILLE</speaker>
+            <line>Pray you, sir, whose daughter?</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>Her mother's, I have heard.</line>
+         </speech>
+         <speech>
+            <speaker>LONGAVILLE</speaker>
+            <line>God's blessing on your beard!</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>Good sir, be not offended.</line>
+            <line>She is an heir of Falconbridge.</line>
+         </speech>
+         <speech>
+            <speaker>LONGAVILLE</speaker>
+            <line>Nay, my choler is ended.</line>
+            <line>She is a most sweet lady.</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>Not unlike, sir, that may be.</line>
+         </speech>
+         <stagedir>Exit LONGAVILLE</stagedir>
+         <speech>
+            <speaker>BIRON</speaker>
+            <line>What's her name in the cap?</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>Rosaline, by good hap.</line>
+         </speech>
+         <speech>
+            <speaker>BIRON</speaker>
+            <line>Is she wedded or no?</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>To her will, sir, or so.</line>
+         </speech>
+         <speech>
+            <speaker>BIRON</speaker>
+            <line>You are welcome, sir: adieu.</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>Farewell to me, sir, and welcome to you.</line>
+         </speech>
+         <stagedir>Exit BIRON</stagedir>
+         <speech>
+            <speaker>MARIA</speaker>
+            <line>That last is Biron, the merry madcap lord:</line>
+            <line>Not a word with him but a jest.</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>And every jest but a word.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>It was well done of you to take him at his word.</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>I was as willing to grapple as he was to board.</line>
+         </speech>
+         <speech>
+            <speaker>MARIA</speaker>
+            <line>Two hot sheeps, marry.</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>And wherefore not ships?</line>
+            <line>No sheep, sweet lamb, unless we feed on your lips.</line>
+         </speech>
+         <speech>
+            <speaker>MARIA</speaker>
+            <line>You sheep, and I pasture: shall that finish the jest?</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>So you grant pasture for me.</line>
+         </speech>
+         <stagedir>Offering to kiss her</stagedir>
+         <speech>
+            <speaker>MARIA</speaker>
+            <line>Not so, gentle beast:</line>
+            <line>My lips are no common, though several they be.</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>Belonging to whom?</line>
+         </speech>
+         <speech>
+            <speaker>MARIA</speaker>
+            <line>To my fortunes and me.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>Good wits will be jangling; but, gentles, agree:</line>
+            <line>This civil war of wits were much better used</line>
+            <line>On Navarre and his book-men; for here 'tis abused.</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>If my observation, which very seldom lies,</line>
+            <line>By the heart's still rhetoric disclosed with eyes,</line>
+            <line>Deceive me not now, Navarre is infected.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>With what?</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>With that which we lovers entitle affected.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>Your reason?</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>Why, all his behaviors did make their retire</line>
+            <line>To the court of his eye, peeping thorough desire:</line>
+            <line>His heart, like an agate, with your print impress'd,</line>
+            <line>Proud with his form, in his eye pride express'd:</line>
+            <line>His tongue, all impatient to speak and not see,</line>
+            <line>Did stumble with haste in his eyesight to be;</line>
+            <line>All senses to that sense did make their repair,</line>
+            <line>To feel only looking on fairest of fair:</line>
+            <line>Methought all his senses were lock'd in his eye,</line>
+            <line>As jewels in crystal for some prince to buy;</line>
+            <line>Who, tendering their own worth from where they were glass'd,</line>
+            <line>Did point you to buy them, along as you pass'd:</line>
+            <line>His face's own margent did quote such amazes</line>
+            <line>That all eyes saw his eyes enchanted with gazes.</line>
+            <line>I'll give you Aquitaine and all that is his,</line>
+            <line>An you give him for my sake but one loving kiss.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCESS</speaker>
+            <line>Come to our pavilion: Boyet is disposed.</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>But to speak that in words which his eye hath</line>
+            <line>disclosed.</line>
+            <line>I only have made a mouth of his eye,</line>
+            <line>By adding a tongue which I know will not lie.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALINE</speaker>
+            <line>Thou art an old love-monger and speakest skilfully.</line>
+         </speech>
+         <speech>
+            <speaker>MARIA</speaker>
+            <line>He is Cupid's grandfather and learns news of him.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALINE</speaker>
+            <line>Then was Venus like her mother, for her father is but grim.</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>Do you hear, my mad wenches?</line>
+         </speech>
+         <speech>
+            <speaker>MARIA</speaker>
+            <line>No.</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>What then, do you see?</line>
+         </speech>
+         <speech>
+            <speaker>ROSALINE</speaker>
+            <line>Ay, our way to be gone.</line>
+         </speech>
+         <speech>
+            <speaker>BOYET</speaker>
+            <line>You are too hard for me.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+</act>

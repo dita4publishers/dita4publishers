@@ -1,0 +1,1341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/act" "act.dtd">
+<act id="act-4">
+   <title>ACT IV</title>
+   <scene id="act-4-scene-1">
+      <title>SCENE I.  A room in the castle.</title>
+      <scene-body>
+         <stagedir>Enter KING CLAUDIUS, QUEEN GERTRUDE, ROSENCRANTZ,
+and GUILDENSTERN</stagedir>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>There's matter in these sighs, these profound heaves:</line>
+            <line>You must translate: 'tis fit we understand them.</line>
+            <line>Where is your son?</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>Bestow this place on us a little while.</line>
+            <stagedir>Exeunt ROSENCRANTZ and GUILDENSTERN</stagedir>
+            <line>Ah, my good lord, what have I seen to-night!</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>What, Gertrude? How does Hamlet?</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>Mad as the sea and wind, when both contend</line>
+            <line>Which is the mightier: in his lawless fit,</line>
+            <line>Behind the arras hearing something stir,</line>
+            <line>Whips out his rapier, cries, 'A rat, a rat!'</line>
+            <line>And, in this brainish apprehension, kills</line>
+            <line>The unseen good old man.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>O heavy deed!</line>
+            <line>It had been so with us, had we been there:</line>
+            <line>His liberty is full of threats to all;</line>
+            <line>To you yourself, to us, to every one.</line>
+            <line>Alas, how shall this bloody deed be answer'd?</line>
+            <line>It will be laid to us, whose providence</line>
+            <line>Should have kept short, restrain'd and out of haunt,</line>
+            <line>This mad young man: but so much was our love,</line>
+            <line>We would not understand what was most fit;</line>
+            <line>But, like the owner of a foul disease,</line>
+            <line>To keep it from divulging, let it feed</line>
+            <line>Even on the pith of Life. Where is he gone?</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>To draw apart the body he hath kill'd:</line>
+            <line>O'er whom his very madness, like some ore</line>
+            <line>Among a mineral of metals base,</line>
+            <line>Shows itself pure; he weeps for what is done.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>O Gertrude, come away!</line>
+            <line>The sun no sooner shall the mountains touch,</line>
+            <line>But we will ship him hence: and this vile deed</line>
+            <line>We must, with all our majesty and skill,</line>
+            <line>Both countenance and excuse. Ho, Guildenstern!</line>
+            <stagedir>Re-enter ROSENCRANTZ and GUILDENSTERN</stagedir>
+            <line>Friends both, go join you with some further aid:</line>
+            <line>Hamlet in madness hath Polonius slain,</line>
+            <line>And from his mother's closet hath he dragg'd him:</line>
+            <line>Go seek him out; speak fair, and bring the body</line>
+            <line>Into the chapel. I pray you, haste in this.</line>
+            <stagedir>Exeunt ROSENCRANTZ and GUILDENSTERN</stagedir>
+            <line>Come, Gertrude, we'll call up our wisest friends;</line>
+            <line>And let them know, both what we mean to do,</line>
+            <line>And what's untimely done...</line>
+            <line>Whose whisper o'er the world's diameter,</line>
+            <line>As level as the cannon to his blank,</line>
+            <line>Transports his poison'd shot, may miss our name,</line>
+            <line>And hit the woundless air. O, come away!</line>
+            <line>My soul is full of discord and dismay.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-4-scene-2">
+      <title>SCENE II.  Another room in the castle.</title>
+      <scene-body>
+         <stagedir>Enter HAMLET</stagedir>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Safely stowed.</line>
+         </speech>
+         <speech>
+            <speaker>ROSENCRANTZ</speaker>
+            <speaker>GUILDENSTERN</speaker>
+            <line>
+               <stagedir>Within</stagedir>  Hamlet! Lord Hamlet!</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>What noise? who calls on Hamlet?</line>
+            <line>O, here they come.</line>
+         </speech>
+         <stagedir>Enter ROSENCRANTZ and GUILDENSTERN</stagedir>
+         <speech>
+            <speaker>ROSENCRANTZ</speaker>
+            <line>What have you done, my lord, with the dead body?</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Compounded it with dust, whereto 'tis kin.</line>
+         </speech>
+         <speech>
+            <speaker>ROSENCRANTZ</speaker>
+            <line>Tell us where 'tis, that we may take it thence</line>
+            <line>And bear it to the chapel.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Do not believe it.</line>
+         </speech>
+         <speech>
+            <speaker>ROSENCRANTZ</speaker>
+            <line>Believe what?</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>That I can keep your counsel and not mine own.</line>
+            <line>Besides, to be demanded of a sponge! what</line>
+            <line>replication should be made by the son of a king?</line>
+         </speech>
+         <speech>
+            <speaker>ROSENCRANTZ</speaker>
+            <line>Take you me for a sponge, my lord?</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Ay, sir, that soaks up the king's countenance, his</line>
+            <line>rewards, his authorities. But such officers do the</line>
+            <line>king best service in the end: he keeps them, like</line>
+            <line>an ape, in the corner of his jaw; first mouthed, to</line>
+            <line>be last swallowed: when he needs what you have</line>
+            <line>gleaned, it is but squeezing you, and, sponge, you</line>
+            <line>shall be dry again.</line>
+         </speech>
+         <speech>
+            <speaker>ROSENCRANTZ</speaker>
+            <line>I understand you not, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>I am glad of it: a knavish speech sleeps in a</line>
+            <line>foolish ear.</line>
+         </speech>
+         <speech>
+            <speaker>ROSENCRANTZ</speaker>
+            <line>My lord, you must tell us where the body is, and go</line>
+            <line>with us to the king.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>The body is with the king, but the king is not with</line>
+            <line>the body. The king is a thing--</line>
+         </speech>
+         <speech>
+            <speaker>GUILDENSTERN</speaker>
+            <line>A thing, my lord!</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Of nothing: bring me to him. Hide fox, and all after.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-4-scene-3">
+      <title>SCENE III.  Another room in the castle.</title>
+      <scene-body>
+         <stagedir>Enter KING CLAUDIUS, attended</stagedir>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>I have sent to seek him, and to find the body.</line>
+            <line>How dangerous is it that this man goes loose!</line>
+            <line>Yet must not we put the strong law on him:</line>
+            <line>He's loved of the distracted multitude,</line>
+            <line>Who like not in their judgment, but their eyes;</line>
+            <line>And where tis so, the offender's scourge is weigh'd,</line>
+            <line>But never the offence. To bear all smooth and even,</line>
+            <line>This sudden sending him away must seem</line>
+            <line>Deliberate pause: diseases desperate grown</line>
+            <line>By desperate appliance are relieved,</line>
+            <line>Or not at all.</line>
+            <stagedir>Enter ROSENCRANTZ</stagedir>
+            <line>How now! what hath befall'n?</line>
+         </speech>
+         <speech>
+            <speaker>ROSENCRANTZ</speaker>
+            <line>Where the dead body is bestow'd, my lord,</line>
+            <line>We cannot get from him.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>But where is he?</line>
+         </speech>
+         <speech>
+            <speaker>ROSENCRANTZ</speaker>
+            <line>Without, my lord; guarded, to know your pleasure.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Bring him before us.</line>
+         </speech>
+         <speech>
+            <speaker>ROSENCRANTZ</speaker>
+            <line>Ho, Guildenstern! bring in my lord.</line>
+         </speech>
+         <stagedir>Enter HAMLET and GUILDENSTERN</stagedir>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Now, Hamlet, where's Polonius?</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>At supper.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>At supper! where?</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Not where he eats, but where he is eaten: a certain</line>
+            <line>convocation of politic worms are e'en at him. Your</line>
+            <line>worm is your only emperor for diet: we fat all</line>
+            <line>creatures else to fat us, and we fat ourselves for</line>
+            <line>maggots: your fat king and your lean beggar is but</line>
+            <line>variable service, two dishes, but to one table:</line>
+            <line>that's the end.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Alas, alas!</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>A man may fish with the worm that hath eat of a</line>
+            <line>king, and cat of the fish that hath fed of that worm.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>What dost you mean by this?</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Nothing but to show you how a king may go a</line>
+            <line>progress through the guts of a beggar.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Where is Polonius?</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>In heaven; send hither to see: if your messenger</line>
+            <line>find him not there, seek him i' the other place</line>
+            <line>yourself. But indeed, if you find him not within</line>
+            <line>this month, you shall nose him as you go up the</line>
+            <line>stairs into the lobby.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Go seek him there.</line>
+         </speech>
+         <stagedir>To some Attendants</stagedir>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>He will stay till ye come.</line>
+         </speech>
+         <stagedir>Exeunt Attendants</stagedir>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Hamlet, this deed, for thine especial safety,--</line>
+            <line>Which we do tender, as we dearly grieve</line>
+            <line>For that which thou hast done,--must send thee hence</line>
+            <line>With fiery quickness: therefore prepare thyself;</line>
+            <line>The bark is ready, and the wind at help,</line>
+            <line>The associates tend, and every thing is bent</line>
+            <line>For England.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>For England!</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Ay, Hamlet.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Good.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>So is it, if thou knew'st our purposes.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>I see a cherub that sees them. But, come; for</line>
+            <line>England! Farewell, dear mother.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Thy loving father, Hamlet.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>My mother: father and mother is man and wife; man</line>
+            <line>and wife is one flesh; and so, my mother. Come, for England!</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Follow him at foot; tempt him with speed aboard;</line>
+            <line>Delay it not; I'll have him hence to-night:</line>
+            <line>Away! for every thing is seal'd and done</line>
+            <line>That else leans on the affair: pray you, make haste.</line>
+            <stagedir>Exeunt ROSENCRANTZ and GUILDENSTERN</stagedir>
+            <line>And, England, if my love thou hold'st at aught--</line>
+            <line>As my great power thereof may give thee sense,</line>
+            <line>Since yet thy cicatrice looks raw and red</line>
+            <line>After the Danish sword, and thy free awe</line>
+            <line>Pays homage to us--thou mayst not coldly set</line>
+            <line>Our sovereign process; which imports at full,</line>
+            <line>By letters congruing to that effect,</line>
+            <line>The present death of Hamlet. Do it, England;</line>
+            <line>For like the hectic in my blood he rages,</line>
+            <line>And thou must cure me: till I know 'tis done,</line>
+            <line>Howe'er my haps, my joys were ne'er begun.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-4-scene-4">
+      <title>SCENE IV.  A plain in Denmark.</title>
+      <scene-body>
+         <stagedir>Enter FORTINBRAS, a Captain, and Soldiers, marching</stagedir>
+         <speech>
+            <speaker>PRINCE FORTINBRAS</speaker>
+            <line>Go, captain, from me greet the Danish king;</line>
+            <line>Tell him that, by his licence, Fortinbras</line>
+            <line>Craves the conveyance of a promised march</line>
+            <line>Over his kingdom. You know the rendezvous.</line>
+            <line>If that his majesty would aught with us,</line>
+            <line>We shall express our duty in his eye;</line>
+            <line>And let him know so.</line>
+         </speech>
+         <speech>
+            <speaker>Captain</speaker>
+            <line>I will do't, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE FORTINBRAS</speaker>
+            <line>Go softly on.</line>
+         </speech>
+         <stagedir>Exeunt FORTINBRAS and Soldiers</stagedir>
+         <stagedir>Enter HAMLET, ROSENCRANTZ, GUILDENSTERN, and others</stagedir>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Good sir, whose powers are these?</line>
+         </speech>
+         <speech>
+            <speaker>Captain</speaker>
+            <line>They are of Norway, sir.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>How purposed, sir, I pray you?</line>
+         </speech>
+         <speech>
+            <speaker>Captain</speaker>
+            <line>Against some part of Poland.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Who commands them, sir?</line>
+         </speech>
+         <speech>
+            <speaker>Captain</speaker>
+            <line>The nephews to old Norway, Fortinbras.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Goes it against the main of Poland, sir,</line>
+            <line>Or for some frontier?</line>
+         </speech>
+         <speech>
+            <speaker>Captain</speaker>
+            <line>Truly to speak, and with no addition,</line>
+            <line>We go to gain a little patch of ground</line>
+            <line>That hath in it no profit but the name.</line>
+            <line>To pay five ducats, five, I would not farm it;</line>
+            <line>Nor will it yield to Norway or the Pole</line>
+            <line>A ranker rate, should it be sold in fee.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Why, then the Polack never will defend it.</line>
+         </speech>
+         <speech>
+            <speaker>Captain</speaker>
+            <line>Yes, it is already garrison'd.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Two thousand souls and twenty thousand ducats</line>
+            <line>Will not debate the question of this straw:</line>
+            <line>This is the imposthume of much wealth and peace,</line>
+            <line>That inward breaks, and shows no cause without</line>
+            <line>Why the man dies. I humbly thank you, sir.</line>
+         </speech>
+         <speech>
+            <speaker>Captain</speaker>
+            <line>God be wi' you, sir.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>ROSENCRANTZ</speaker>
+            <line>Wilt please you go, my lord?</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>I'll be with you straight go a little before.</line>
+            <stagedir>Exeunt all except HAMLET</stagedir>
+            <line>How all occasions do inform against me,</line>
+            <line>And spur my dull revenge! What is a man,</line>
+            <line>If his chief good and market of his time</line>
+            <line>Be but to sleep and feed? a beast, no more.</line>
+            <line>Sure, he that made us with such large discourse,</line>
+            <line>Looking before and after, gave us not</line>
+            <line>That capability and god-like reason</line>
+            <line>To fust in us unused. Now, whether it be</line>
+            <line>Bestial oblivion, or some craven scruple</line>
+            <line>Of thinking too precisely on the event,</line>
+            <line>A thought which, quarter'd, hath but one part wisdom</line>
+            <line>And ever three parts coward, I do not know</line>
+            <line>Why yet I live to say 'This thing's to do;'</line>
+            <line>Sith I have cause and will and strength and means</line>
+            <line>To do't. Examples gross as earth exhort me:</line>
+            <line>Witness this army of such mass and charge</line>
+            <line>Led by a delicate and tender prince,</line>
+            <line>Whose spirit with divine ambition puff'd</line>
+            <line>Makes mouths at the invisible event,</line>
+            <line>Exposing what is mortal and unsure</line>
+            <line>To all that fortune, death and danger dare,</line>
+            <line>Even for an egg-shell. Rightly to be great</line>
+            <line>Is not to stir without great argument,</line>
+            <line>But greatly to find quarrel in a straw</line>
+            <line>When honour's at the stake. How stand I then,</line>
+            <line>That have a father kill'd, a mother stain'd,</line>
+            <line>Excitements of my reason and my blood,</line>
+            <line>And let all sleep? while, to my shame, I see</line>
+            <line>The imminent death of twenty thousand men,</line>
+            <line>That, for a fantasy and trick of fame,</line>
+            <line>Go to their graves like beds, fight for a plot</line>
+            <line>Whereon the numbers cannot try the cause,</line>
+            <line>Which is not tomb enough and continent</line>
+            <line>To hide the slain? O, from this time forth,</line>
+            <line>My thoughts be bloody, or be nothing worth!</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-4-scene-5">
+      <title>SCENE V.  Elsinore. A room in the castle.</title>
+      <scene-body>
+         <stagedir>Enter QUEEN GERTRUDE, HORATIO, and a Gentleman</stagedir>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>I will not speak with her.</line>
+         </speech>
+         <speech>
+            <speaker>Gentleman</speaker>
+            <line>She is importunate, indeed distract:</line>
+            <line>Her mood will needs be pitied.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>What would she have?</line>
+         </speech>
+         <speech>
+            <speaker>Gentleman</speaker>
+            <line>She speaks much of her father; says she hears</line>
+            <line>There's tricks i' the world; and hems, and beats her heart;</line>
+            <line>Spurns enviously at straws; speaks things in doubt,</line>
+            <line>That carry but half sense: her speech is nothing,</line>
+            <line>Yet the unshaped use of it doth move</line>
+            <line>The hearers to collection; they aim at it,</line>
+            <line>And botch the words up fit to their own thoughts;</line>
+            <line>Which, as her winks, and nods, and gestures</line>
+            <line>yield them,</line>
+            <line>Indeed would make one think there might be thought,</line>
+            <line>Though nothing sure, yet much unhappily.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>'Twere good she were spoken with; for she may strew</line>
+            <line>Dangerous conjectures in ill-breeding minds.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>Let her come in.</line>
+            <stagedir>Exit HORATIO</stagedir>
+            <line>To my sick soul, as sin's true nature is,</line>
+            <line>Each toy seems prologue to some great amiss:</line>
+            <line>So full of artless jealousy is guilt,</line>
+            <line>It spills itself in fearing to be spilt.</line>
+         </speech>
+         <stagedir>Re-enter HORATIO, with OPHELIA</stagedir>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>Where is the beauteous majesty of Denmark?</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>How now, Ophelia!</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>
+               <stagedir>Sings</stagedir>
+            </line>
+            <line>How should I your true love know</line>
+            <line>From another one?</line>
+            <line>By his cockle hat and staff,</line>
+            <line>And his sandal shoon.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>Alas, sweet lady, what imports this song?</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>Say you? nay, pray you, mark.</line>
+            <stagedir>Sings</stagedir>
+            <line>He is dead and gone, lady,</line>
+            <line>He is dead and gone;</line>
+            <line>At his head a grass-green turf,</line>
+            <line>At his heels a stone.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>Nay, but, Ophelia,--</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>Pray you, mark.</line>
+            <stagedir>Sings</stagedir>
+            <line>White his shroud as the mountain snow,--</line>
+         </speech>
+         <stagedir>Enter KING CLAUDIUS</stagedir>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>Alas, look here, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>
+               <stagedir>Sings</stagedir>
+            </line>
+            <line>Larded with sweet flowers</line>
+            <line>Which bewept to the grave did go</line>
+            <line>With true-love showers.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>How do you, pretty lady?</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>Well, God 'ild you! They say the owl was a baker's</line>
+            <line>daughter. Lord, we know what we are, but know not</line>
+            <line>what we may be. God be at your table!</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Conceit upon her father.</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>Pray you, let's have no words of this; but when they</line>
+            <line>ask you what it means, say you this:</line>
+            <stagedir>Sings</stagedir>
+            <line>To-morrow is Saint Valentine's day,</line>
+            <line>All in the morning betime,</line>
+            <line>And I a maid at your window,</line>
+            <line>To be your Valentine.</line>
+            <line>Then up he rose, and donn'd his clothes,</line>
+            <line>And dupp'd the chamber-door;</line>
+            <line>Let in the maid, that out a maid</line>
+            <line>Never departed more.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Pretty Ophelia!</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>Indeed, la, without an oath, I'll make an end on't:</line>
+            <stagedir>Sings</stagedir>
+            <line>By Gis and by Saint Charity,</line>
+            <line>Alack, and fie for shame!</line>
+            <line>Young men will do't, if they come to't;</line>
+            <line>By cock, they are to blame.</line>
+            <line>Quoth she, before you tumbled me,</line>
+            <line>You promised me to wed.</line>
+            <line>So would I ha' done, by yonder sun,</line>
+            <line>An thou hadst not come to my bed.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>How long hath she been thus?</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>I hope all will be well. We must be patient: but I</line>
+            <line>cannot choose but weep, to think they should lay him</line>
+            <line>i' the cold ground. My brother shall know of it:</line>
+            <line>and so I thank you for your good counsel. Come, my</line>
+            <line>coach! Good night, ladies; good night, sweet ladies;</line>
+            <line>good night, good night.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Follow her close; give her good watch,</line>
+            <line>I pray you.</line>
+            <stagedir>Exit HORATIO</stagedir>
+            <line>O, this is the poison of deep grief; it springs</line>
+            <line>All from her father's death. O Gertrude, Gertrude,</line>
+            <line>When sorrows come, they come not single spies</line>
+            <line>But in battalions. First, her father slain:</line>
+            <line>Next, your son gone; and he most violent author</line>
+            <line>Of his own just remove: the people muddied,</line>
+            <line>Thick and unwholesome in their thoughts and whispers,</line>
+            <line>For good Polonius' death; and we have done but greenly,</line>
+            <line>In hugger-mugger to inter him: poor Ophelia</line>
+            <line>Divided from herself and her fair judgment,</line>
+            <line>Without the which we are pictures, or mere beasts:</line>
+            <line>Last, and as much containing as all these,</line>
+            <line>Her brother is in secret come from France;</line>
+            <line>Feeds on his wonder, keeps himself in clouds,</line>
+            <line>And wants not buzzers to infect his ear</line>
+            <line>With pestilent speeches of his father's death;</line>
+            <line>Wherein necessity, of matter beggar'd,</line>
+            <line>Will nothing stick our person to arraign</line>
+            <line>In ear and ear. O my dear Gertrude, this,</line>
+            <line>Like to a murdering-piece, in many places</line>
+            <line>Gives me superfluous death.</line>
+         </speech>
+         <stagedir>A noise within</stagedir>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>Alack, what noise is this?</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Where are my Switzers? Let them guard the door.</line>
+            <stagedir>Enter another Gentleman</stagedir>
+            <line>What is the matter?</line>
+         </speech>
+         <speech>
+            <speaker>Gentleman</speaker>
+            <line>Save yourself, my lord:</line>
+            <line>The ocean, overpeering of his list,</line>
+            <line>Eats not the flats with more impetuous haste</line>
+            <line>Than young Laertes, in a riotous head,</line>
+            <line>O'erbears your officers. The rabble call him lord;</line>
+            <line>And, as the world were now but to begin,</line>
+            <line>Antiquity forgot, custom not known,</line>
+            <line>The ratifiers and props of every word,</line>
+            <line>They cry 'Choose we: Laertes shall be king:'</line>
+            <line>Caps, hands, and tongues, applaud it to the clouds:</line>
+            <line>'Laertes shall be king, Laertes king!'</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>How cheerfully on the false trail they cry!</line>
+            <line>O, this is counter, you false Danish dogs!</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>The doors are broke.</line>
+         </speech>
+         <stagedir>Noise within</stagedir>
+         <stagedir>Enter LAERTES, armed; Danes following</stagedir>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>Where is this king? Sirs, stand you all without.</line>
+         </speech>
+         <speech>
+            <speaker>Danes</speaker>
+            <line>No, let's come in.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>I pray you, give me leave.</line>
+         </speech>
+         <speech>
+            <speaker>Danes</speaker>
+            <line>We will, we will.</line>
+         </speech>
+         <stagedir>They retire without the door</stagedir>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>I thank you: keep the door. O thou vile king,</line>
+            <line>Give me my father!</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>Calmly, good Laertes.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>That drop of blood that's calm proclaims me bastard,</line>
+            <line>Cries cuckold to my father, brands the harlot</line>
+            <line>Even here, between the chaste unsmirched brow</line>
+            <line>Of my true mother.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>What is the cause, Laertes,</line>
+            <line>That thy rebellion looks so giant-like?</line>
+            <line>Let him go, Gertrude; do not fear our person:</line>
+            <line>There's such divinity doth hedge a king,</line>
+            <line>That treason can but peep to what it would,</line>
+            <line>Acts little of his will. Tell me, Laertes,</line>
+            <line>Why thou art thus incensed. Let him go, Gertrude.</line>
+            <line>Speak, man.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>Where is my father?</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Dead.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>But not by him.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Let him demand his fill.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>How came he dead? I'll not be juggled with:</line>
+            <line>To hell, allegiance! vows, to the blackest devil!</line>
+            <line>Conscience and grace, to the profoundest pit!</line>
+            <line>I dare damnation. To this point I stand,</line>
+            <line>That both the worlds I give to negligence,</line>
+            <line>Let come what comes; only I'll be revenged</line>
+            <line>Most thoroughly for my father.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Who shall stay you?</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>My will, not all the world:</line>
+            <line>And for my means, I'll husband them so well,</line>
+            <line>They shall go far with little.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Good Laertes,</line>
+            <line>If you desire to know the certainty</line>
+            <line>Of your dear father's death, is't writ in your revenge,</line>
+            <line>That, swoopstake, you will draw both friend and foe,</line>
+            <line>Winner and loser?</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>None but his enemies.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Will you know them then?</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>To his good friends thus wide I'll ope my arms;</line>
+            <line>And like the kind life-rendering pelican,</line>
+            <line>Repast them with my blood.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Why, now you speak</line>
+            <line>Like a good child and a true gentleman.</line>
+            <line>That I am guiltless of your father's death,</line>
+            <line>And am most sensible in grief for it,</line>
+            <line>It shall as level to your judgment pierce</line>
+            <line>As day does to your eye.</line>
+         </speech>
+         <speech>
+            <speaker>Danes</speaker>
+            <line>
+               <stagedir>Within</stagedir>                Let her come in.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>How now! what noise is that?</line>
+            <stagedir>Re-enter OPHELIA</stagedir>
+            <line>O heat, dry up my brains! tears seven times salt,</line>
+            <line>Burn out the sense and virtue of mine eye!</line>
+            <line>By heaven, thy madness shall be paid by weight,</line>
+            <line>Till our scale turn the beam. O rose of May!</line>
+            <line>Dear maid, kind sister, sweet Ophelia!</line>
+            <line>O heavens! is't possible, a young maid's wits</line>
+            <line>Should be as moral as an old man's life?</line>
+            <line>Nature is fine in love, and where 'tis fine,</line>
+            <line>It sends some precious instance of itself</line>
+            <line>After the thing it loves.</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>
+               <stagedir>Sings</stagedir>
+            </line>
+            <line>They bore him barefaced on the bier;</line>
+            <line>Hey non nonny, nonny, hey nonny;</line>
+            <line>And in his grave rain'd many a tear:--</line>
+            <line>Fare you well, my dove!</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>Hadst thou thy wits, and didst persuade revenge,</line>
+            <line>It could not move thus.</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>
+               <stagedir>Sings</stagedir>
+            </line>
+            <line>You must sing a-down a-down,</line>
+            <line>An you call him a-down-a.</line>
+            <line>O, how the wheel becomes it! It is the false</line>
+            <line>steward, that stole his master's daughter.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>This nothing's more than matter.</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>There's rosemary, that's for remembrance; pray,</line>
+            <line>love, remember: and there is pansies. that's for thoughts.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>A document in madness, thoughts and remembrance fitted.</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>There's fennel for you, and columbines: there's rue</line>
+            <line>for you; and here's some for me: we may call it</line>
+            <line>herb-grace o' Sundays: O you must wear your rue with</line>
+            <line>a difference. There's a daisy: I would give you</line>
+            <line>some violets, but they withered all when my father</line>
+            <line>died: they say he made a good end,--</line>
+            <stagedir>Sings</stagedir>
+            <line>For bonny sweet Robin is all my joy.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>Thought and affliction, passion, hell itself,</line>
+            <line>She turns to favour and to prettiness.</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>
+               <stagedir>Sings</stagedir>
+            </line>
+            <line>And will he not come again?</line>
+            <line>And will he not come again?</line>
+            <line>No, no, he is dead:</line>
+            <line>Go to thy death-bed:</line>
+            <line>He never will come again.</line>
+            <line>His beard was as white as snow,</line>
+            <line>All flaxen was his poll:</line>
+            <line>He is gone, he is gone,</line>
+            <line>And we cast away moan:</line>
+            <line>God ha' mercy on his soul!</line>
+            <line>And of all Christian souls, I pray God. God be wi' ye.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>Do you see this, O God?</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Laertes, I must commune with your grief,</line>
+            <line>Or you deny me right. Go but apart,</line>
+            <line>Make choice of whom your wisest friends you will.</line>
+            <line>And they shall hear and judge 'twixt you and me:</line>
+            <line>If by direct or by collateral hand</line>
+            <line>They find us touch'd, we will our kingdom give,</line>
+            <line>Our crown, our life, and all that we can ours,</line>
+            <line>To you in satisfaction; but if not,</line>
+            <line>Be you content to lend your patience to us,</line>
+            <line>And we shall jointly labour with your soul</line>
+            <line>To give it due content.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>Let this be so;</line>
+            <line>His means of death, his obscure funeral--</line>
+            <line>No trophy, sword, nor hatchment o'er his bones,</line>
+            <line>No noble rite nor formal ostentation--</line>
+            <line>Cry to be heard, as 'twere from heaven to earth,</line>
+            <line>That I must call't in question.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>So you shall;</line>
+            <line>And where the offence is let the great axe fall.</line>
+            <line>I pray you, go with me.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-4-scene-6">
+      <title>SCENE VI.  Another room in the castle.</title>
+      <scene-body>
+         <stagedir>Enter HORATIO and a Servant</stagedir>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>What are they that would speak with me?</line>
+         </speech>
+         <speech>
+            <speaker>Servant</speaker>
+            <line>Sailors, sir: they say they have letters for you.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Let them come in.</line>
+            <stagedir>Exit Servant</stagedir>
+            <line>I do not know from what part of the world</line>
+            <line>I should be greeted, if not from Lord Hamlet.</line>
+         </speech>
+         <stagedir>Enter Sailors</stagedir>
+         <speech>
+            <speaker>First Sailor</speaker>
+            <line>God bless you, sir.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Let him bless thee too.</line>
+         </speech>
+         <speech>
+            <speaker>First Sailor</speaker>
+            <line>He shall, sir, an't please him. There's a letter for</line>
+            <line>you, sir; it comes from the ambassador that was</line>
+            <line>bound for England; if your name be Horatio, as I am</line>
+            <line>let to know it is.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>
+               <stagedir>Reads</stagedir>  'Horatio, when thou shalt have overlooked</line>
+            <line>this, give these fellows some means to the king:</line>
+            <line>they have letters for him. Ere we were two days old</line>
+            <line>at sea, a pirate of very warlike appointment gave us</line>
+            <line>chase. Finding ourselves too slow of sail, we put on</line>
+            <line>a compelled valour, and in the grapple I boarded</line>
+            <line>them: on the instant they got clear of our ship; so</line>
+            <line>I alone became their prisoner. They have dealt with</line>
+            <line>me like thieves of mercy: but they knew what they</line>
+            <line>did; I am to do a good turn for them. Let the king</line>
+            <line>have the letters I have sent; and repair thou to me</line>
+            <line>with as much speed as thou wouldst fly death. I</line>
+            <line>have words to speak in thine ear will make thee</line>
+            <line>dumb; yet are they much too light for the bore of</line>
+            <line>the matter. These good fellows will bring thee</line>
+            <line>where I am. Rosencrantz and Guildenstern hold their</line>
+            <line>course for England: of them I have much to tell</line>
+            <line>thee. Farewell.</line>
+            <line>'He that thou knowest thine, HAMLET.'</line>
+            <line>Come, I will make you way for these your letters;</line>
+            <line>And do't the speedier, that you may direct me</line>
+            <line>To him from whom you brought them.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-4-scene-7">
+      <title>SCENE VII.  Another room in the castle.</title>
+      <scene-body>
+         <stagedir>Enter KING CLAUDIUS and LAERTES</stagedir>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Now must your conscience my acquaintance seal,</line>
+            <line>And you must put me in your heart for friend,</line>
+            <line>Sith you have heard, and with a knowing ear,</line>
+            <line>That he which hath your noble father slain</line>
+            <line>Pursued my life.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>It well appears: but tell me</line>
+            <line>Why you proceeded not against these feats,</line>
+            <line>So crimeful and so capital in nature,</line>
+            <line>As by your safety, wisdom, all things else,</line>
+            <line>You mainly were stirr'd up.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>O, for two special reasons;</line>
+            <line>Which may to you, perhaps, seem much unsinew'd,</line>
+            <line>But yet to me they are strong. The queen his mother</line>
+            <line>Lives almost by his looks; and for myself--</line>
+            <line>My virtue or my plague, be it either which--</line>
+            <line>She's so conjunctive to my life and soul,</line>
+            <line>That, as the star moves not but in his sphere,</line>
+            <line>I could not but by her. The other motive,</line>
+            <line>Why to a public count I might not go,</line>
+            <line>Is the great love the general gender bear him;</line>
+            <line>Who, dipping all his faults in their affection,</line>
+            <line>Would, like the spring that turneth wood to stone,</line>
+            <line>Convert his gyves to graces; so that my arrows,</line>
+            <line>Too slightly timber'd for so loud a wind,</line>
+            <line>Would have reverted to my bow again,</line>
+            <line>And not where I had aim'd them.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>And so have I a noble father lost;</line>
+            <line>A sister driven into desperate terms,</line>
+            <line>Whose worth, if praises may go back again,</line>
+            <line>Stood challenger on mount of all the age</line>
+            <line>For her perfections: but my revenge will come.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Break not your sleeps for that: you must not think</line>
+            <line>That we are made of stuff so flat and dull</line>
+            <line>That we can let our beard be shook with danger</line>
+            <line>And think it pastime. You shortly shall hear more:</line>
+            <line>I loved your father, and we love ourself;</line>
+            <line>And that, I hope, will teach you to imagine--</line>
+            <stagedir>Enter a Messenger</stagedir>
+            <line>How now! what news?</line>
+         </speech>
+         <speech>
+            <speaker>Messenger</speaker>
+            <line>Letters, my lord, from Hamlet:</line>
+            <line>This to your majesty; this to the queen.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>From Hamlet! who brought them?</line>
+         </speech>
+         <speech>
+            <speaker>Messenger</speaker>
+            <line>Sailors, my lord, they say; I saw them not:</line>
+            <line>They were given me by Claudio; he received them</line>
+            <line>Of him that brought them.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Laertes, you shall hear them. Leave us.</line>
+            <stagedir>Exit Messenger</stagedir>
+            <stagedir>Reads</stagedir>
+            <line>'High and mighty, You shall know I am set naked on</line>
+            <line>your kingdom. To-morrow shall I beg leave to see</line>
+            <line>your kingly eyes: when I shall, first asking your</line>
+            <line>pardon thereunto, recount the occasion of my sudden</line>
+            <line>and more strange return.                  'HAMLET.'</line>
+            <line>What should this mean? Are all the rest come back?</line>
+            <line>Or is it some abuse, and no such thing?</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>Know you the hand?</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>'Tis Hamlets character. 'Naked!</line>
+            <line>And in a postscript here, he says 'alone.'</line>
+            <line>Can you advise me?</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>I'm lost in it, my lord. But let him come;</line>
+            <line>It warms the very sickness in my heart,</line>
+            <line>That I shall live and tell him to his teeth,</line>
+            <line>'Thus didest thou.'</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>If it be so, Laertes--</line>
+            <line>As how should it be so? how otherwise?--</line>
+            <line>Will you be ruled by me?</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>Ay, my lord;</line>
+            <line>So you will not o'errule me to a peace.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>To thine own peace. If he be now return'd,</line>
+            <line>As checking at his voyage, and that he means</line>
+            <line>No more to undertake it, I will work him</line>
+            <line>To an exploit, now ripe in my device,</line>
+            <line>Under the which he shall not choose but fall:</line>
+            <line>And for his death no wind of blame shall breathe,</line>
+            <line>But even his mother shall uncharge the practise</line>
+            <line>And call it accident.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>My lord, I will be ruled;</line>
+            <line>The rather, if you could devise it so</line>
+            <line>That I might be the organ.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>It falls right.</line>
+            <line>You have been talk'd of since your travel much,</line>
+            <line>And that in Hamlet's hearing, for a quality</line>
+            <line>Wherein, they say, you shine: your sum of parts</line>
+            <line>Did not together pluck such envy from him</line>
+            <line>As did that one, and that, in my regard,</line>
+            <line>Of the unworthiest siege.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>What part is that, my lord?</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>A very riband in the cap of youth,</line>
+            <line>Yet needful too; for youth no less becomes</line>
+            <line>The light and careless livery that it wears</line>
+            <line>Than settled age his sables and his weeds,</line>
+            <line>Importing health and graveness. Two months since,</line>
+            <line>Here was a gentleman of Normandy:--</line>
+            <line>I've seen myself, and served against, the French,</line>
+            <line>And they can well on horseback: but this gallant</line>
+            <line>Had witchcraft in't; he grew unto his seat;</line>
+            <line>And to such wondrous doing brought his horse,</line>
+            <line>As he had been incorpsed and demi-natured</line>
+            <line>With the brave beast: so far he topp'd my thought,</line>
+            <line>That I, in forgery of shapes and tricks,</line>
+            <line>Come short of what he did.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>A Norman was't?</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>A Norman.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>Upon my life, Lamond.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>The very same.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>I know him well: he is the brooch indeed</line>
+            <line>And gem of all the nation.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>He made confession of you,</line>
+            <line>And gave you such a masterly report</line>
+            <line>For art and exercise in your defence</line>
+            <line>And for your rapier most especially,</line>
+            <line>That he cried out, 'twould be a sight indeed,</line>
+            <line>If one could match you: the scrimers of their nation,</line>
+            <line>He swore, had had neither motion, guard, nor eye,</line>
+            <line>If you opposed them. Sir, this report of his</line>
+            <line>Did Hamlet so envenom with his envy</line>
+            <line>That he could nothing do but wish and beg</line>
+            <line>Your sudden coming o'er, to play with him.</line>
+            <line>Now, out of this,--</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>What out of this, my lord?</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Laertes, was your father dear to you?</line>
+            <line>Or are you like the painting of a sorrow,</line>
+            <line>A face without a heart?</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>Why ask you this?</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Not that I think you did not love your father;</line>
+            <line>But that I know love is begun by time;</line>
+            <line>And that I see, in passages of proof,</line>
+            <line>Time qualifies the spark and fire of it.</line>
+            <line>There lives within the very flame of love</line>
+            <line>A kind of wick or snuff that will abate it;</line>
+            <line>And nothing is at a like goodness still;</line>
+            <line>For goodness, growing to a plurisy,</line>
+            <line>Dies in his own too much: that we would do</line>
+            <line>We should do when we would; for this 'would' changes</line>
+            <line>And hath abatements and delays as many</line>
+            <line>As there are tongues, are hands, are accidents;</line>
+            <line>And then this 'should' is like a spendthrift sigh,</line>
+            <line>That hurts by easing. But, to the quick o' the ulcer:--</line>
+            <line>Hamlet comes back: what would you undertake,</line>
+            <line>To show yourself your father's son in deed</line>
+            <line>More than in words?</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>To cut his throat i' the church.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>No place, indeed, should murder sanctuarize;</line>
+            <line>Revenge should have no bounds. But, good Laertes,</line>
+            <line>Will you do this, keep close within your chamber.</line>
+            <line>Hamlet return'd shall know you are come home:</line>
+            <line>We'll put on those shall praise your excellence</line>
+            <line>And set a double varnish on the fame</line>
+            <line>The Frenchman gave you, bring you in fine together</line>
+            <line>And wager on your heads: he, being remiss,</line>
+            <line>Most generous and free from all contriving,</line>
+            <line>Will not peruse the foils; so that, with ease,</line>
+            <line>Or with a little shuffling, you may choose</line>
+            <line>A sword unbated, and in a pass of practise</line>
+            <line>Requite him for your father.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>I will do't:</line>
+            <line>And, for that purpose, I'll anoint my sword.</line>
+            <line>I bought an unction of a mountebank,</line>
+            <line>So mortal that, but dip a knife in it,</line>
+            <line>Where it draws blood no cataplasm so rare,</line>
+            <line>Collected from all simples that have virtue</line>
+            <line>Under the moon, can save the thing from death</line>
+            <line>That is but scratch'd withal: I'll touch my point</line>
+            <line>With this contagion, that, if I gall him slightly,</line>
+            <line>It may be death.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Let's further think of this;</line>
+            <line>Weigh what convenience both of time and means</line>
+            <line>May fit us to our shape: if this should fail,</line>
+            <line>And that our drift look through our bad performance,</line>
+            <line>'Twere better not assay'd: therefore this project</line>
+            <line>Should have a back or second, that might hold,</line>
+            <line>If this should blast in proof. Soft! let me see:</line>
+            <line>We'll make a solemn wager on your cunnings: I ha't.</line>
+            <line>When in your motion you are hot and dry--</line>
+            <line>As make your bouts more violent to that end--</line>
+            <line>And that he calls for drink, I'll have prepared him</line>
+            <line>A chalice for the nonce, whereon but sipping,</line>
+            <line>If he by chance escape your venom'd stuck,</line>
+            <line>Our purpose may hold there.</line>
+            <stagedir>Enter QUEEN GERTRUDE</stagedir>
+            <line>How now, sweet queen!</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>One woe doth tread upon another's heel,</line>
+            <line>So fast they follow; your sister's drown'd, Laertes.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>Drown'd! O, where?</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>There is a willow grows aslant a brook,</line>
+            <line>That shows his hoar leaves in the glassy stream;</line>
+            <line>There with fantastic garlands did she come</line>
+            <line>Of crow-flowers, nettles, daisies, and long purples</line>
+            <line>That liberal shepherds give a grosser name,</line>
+            <line>But our cold maids do dead men's fingers call them:</line>
+            <line>There, on the pendent boughs her coronet weeds</line>
+            <line>Clambering to hang, an envious sliver broke;</line>
+            <line>When down her weedy trophies and herself</line>
+            <line>Fell in the weeping brook. Her clothes spread wide;</line>
+            <line>And, mermaid-like, awhile they bore her up:</line>
+            <line>Which time she chanted snatches of old tunes;</line>
+            <line>As one incapable of her own distress,</line>
+            <line>Or like a creature native and indued</line>
+            <line>Unto that element: but long it could not be</line>
+            <line>Till that her garments, heavy with their drink,</line>
+            <line>Pull'd the poor wretch from her melodious lay</line>
+            <line>To muddy death.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>Alas, then, she is drown'd?</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>Drown'd, drown'd.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>Too much of water hast thou, poor Ophelia,</line>
+            <line>And therefore I forbid my tears: but yet</line>
+            <line>It is our trick; nature her custom holds,</line>
+            <line>Let shame say what it will: when these are gone,</line>
+            <line>The woman will be out. Adieu, my lord:</line>
+            <line>I have a speech of fire, that fain would blaze,</line>
+            <line>But that this folly douts it.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Let's follow, Gertrude:</line>
+            <line>How much I had to do to calm his rage!</line>
+            <line>Now fear I this will give it start again;</line>
+            <line>Therefore let's follow.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+</act>

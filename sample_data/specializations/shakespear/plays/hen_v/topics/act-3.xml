@@ -1,0 +1,1382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/act" "act.dtd">
+<act id="act-3">
+   <title>ACT III</title>
+   <prologue id="act-3-prologue">
+      <title>PROLOGUE.</title>
+      <prologue-body>
+         <stagedir>Enter Chorus</stagedir>
+         <speech>
+            <speaker>Chorus</speaker>
+            <line>Thus with imagined wing our swift scene flies</line>
+            <line>In motion of no less celerity</line>
+            <line>Than that of thought. Suppose that you have seen</line>
+            <line>The well-appointed king at Hampton pier</line>
+            <line>Embark his royalty; and his brave fleet</line>
+            <line>With silken streamers the young Phoebus fanning:</line>
+            <line>Play with your fancies, and in them behold</line>
+            <line>Upon the hempen tackle ship-boys climbing;</line>
+            <line>Hear the shrill whistle which doth order give</line>
+            <line>To sounds confused; behold the threaden sails,</line>
+            <line>Borne with the invisible and creeping wind,</line>
+            <line>Draw the huge bottoms through the furrow'd sea,</line>
+            <line>Breasting the lofty surge: O, do but think</line>
+            <line>You stand upon the ravage and behold</line>
+            <line>A city on the inconstant billows dancing;</line>
+            <line>For so appears this fleet majestical,</line>
+            <line>Holding due course to Harfleur. Follow, follow:</line>
+            <line>Grapple your minds to sternage of this navy,</line>
+            <line>And leave your England, as dead midnight still,</line>
+            <line>Guarded with grandsires, babies and old women,</line>
+            <line>Either past or not arrived to pith and puissance;</line>
+            <line>For who is he, whose chin is but enrich'd</line>
+            <line>With one appearing hair, that will not follow</line>
+            <line>These cull'd and choice-drawn cavaliers to France?</line>
+            <line>Work, work your thoughts, and therein see a siege;</line>
+            <line>Behold the ordnance on their carriages,</line>
+            <line>With fatal mouths gaping on girded Harfleur.</line>
+            <line>Suppose the ambassador from the French comes back;</line>
+            <line>Tells Harry that the king doth offer him</line>
+            <line>Katharine his daughter, and with her, to dowry,</line>
+            <line>Some petty and unprofitable dukedoms.</line>
+            <line>The offer likes not: and the nimble gunner</line>
+            <line>With linstock now the devilish cannon touches,</line>
+            <stagedir>Alarum, and chambers go off</stagedir>
+            <line>And down goes all before them. Still be kind,</line>
+            <line>And eke out our performance with your mind.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+      </prologue-body>
+   </prologue>
+   <scene id="act-3-scene-1">
+      <title>SCENE I.  France. Before Harfleur.</title>
+      <scene-body>
+         <stagedir>Alarum. Enter KING HENRY, EXETER, BEDFORD,
+GLOUCESTER, and Soldiers, with scaling-ladders</stagedir>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Once more unto the breach, dear friends, once more;</line>
+            <line>Or close the wall up with our English dead.</line>
+            <line>In peace there's nothing so becomes a man</line>
+            <line>As modest stillness and humility:</line>
+            <line>But when the blast of war blows in our ears,</line>
+            <line>Then imitate the action of the tiger;</line>
+            <line>Stiffen the sinews, summon up the blood,</line>
+            <line>Disguise fair nature with hard-favour'd rage;</line>
+            <line>Then lend the eye a terrible aspect;</line>
+            <line>Let pry through the portage of the head</line>
+            <line>Like the brass cannon; let the brow o'erwhelm it</line>
+            <line>As fearfully as doth a galled rock</line>
+            <line>O'erhang and jutty his confounded base,</line>
+            <line>Swill'd with the wild and wasteful ocean.</line>
+            <line>Now set the teeth and stretch the nostril wide,</line>
+            <line>Hold hard the breath and bend up every spirit</line>
+            <line>To his full height. On, on, you noblest English.</line>
+            <line>Whose blood is fet from fathers of war-proof!</line>
+            <line>Fathers that, like so many Alexanders,</line>
+            <line>Have in these parts from morn till even fought</line>
+            <line>And sheathed their swords for lack of argument:</line>
+            <line>Dishonour not your mothers; now attest</line>
+            <line>That those whom you call'd fathers did beget you.</line>
+            <line>Be copy now to men of grosser blood,</line>
+            <line>And teach them how to war. And you, good yeoman,</line>
+            <line>Whose limbs were made in England, show us here</line>
+            <line>The mettle of your pasture; let us swear</line>
+            <line>That you are worth your breeding; which I doubt not;</line>
+            <line>For there is none of you so mean and base,</line>
+            <line>That hath not noble lustre in your eyes.</line>
+            <line>I see you stand like greyhounds in the slips,</line>
+            <line>Straining upon the start. The game's afoot:</line>
+            <line>Follow your spirit, and upon this charge</line>
+            <line>Cry 'God for Harry, England, and Saint George!'</line>
+         </speech>
+         <stagedir>Exeunt. Alarum, and chambers go off</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-3-scene-2">
+      <title>SCENE II.  The same.</title>
+      <scene-body>
+         <stagedir>Enter NYM, BARDOLPH, PISTOL, and Boy</stagedir>
+         <speech>
+            <speaker>BARDOLPH</speaker>
+            <line>On, on, on, on, on! to the breach, to the breach!</line>
+         </speech>
+         <speech>
+            <speaker>NYM</speaker>
+            <line>Pray thee, corporal, stay: the knocks are too hot;</line>
+            <line>and, for mine own part, I have not a case of lives:</line>
+            <line>the humour of it is too hot, that is the very</line>
+            <line>plain-song of it.</line>
+         </speech>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>The plain-song is most just: for humours do abound:</line>
+            <line>Knocks go and come; God's vassals drop and die;</line>
+            <line>And sword and shield,</line>
+            <line>In bloody field,</line>
+            <line>Doth win immortal fame.</line>
+         </speech>
+         <speech>
+            <speaker>Boy</speaker>
+            <line>Would I were in an alehouse in London! I would give</line>
+            <line>all my fame for a pot of ale and safety.</line>
+         </speech>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>And I:</line>
+            <line>If wishes would prevail with me,</line>
+            <line>My purpose should not fail with me,</line>
+            <line>But thither would I hie.</line>
+         </speech>
+         <speech>
+            <speaker>Boy</speaker>
+            <line>As duly, but not as truly,</line>
+            <line>As bird doth sing on bough.</line>
+         </speech>
+         <stagedir>Enter FLUELLEN</stagedir>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>Up to the breach, you dogs! avaunt, you cullions!</line>
+         </speech>
+         <stagedir>Driving them forward</stagedir>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>Be merciful, great duke, to men of mould.</line>
+            <line>Abate thy rage, abate thy manly rage,</line>
+            <line>Abate thy rage, great duke!</line>
+            <line>Good bawcock, bate thy rage; use lenity, sweet chuck!</line>
+         </speech>
+         <speech>
+            <speaker>NYM</speaker>
+            <line>These be good humours! your honour wins bad humours.</line>
+         </speech>
+         <stagedir>Exeunt all but Boy</stagedir>
+         <speech>
+            <speaker>Boy</speaker>
+            <line>As young as I am, I have observed these three</line>
+            <line>swashers. I am boy to them all three: but all they</line>
+            <line>three, though they would serve me, could not be man</line>
+            <line>to me; for indeed three such antics do not amount to</line>
+            <line>a man. For Bardolph, he is white-livered and</line>
+            <line>red-faced; by the means whereof a' faces it out, but</line>
+            <line>fights not. For Pistol, he hath a killing tongue</line>
+            <line>and a quiet sword; by the means whereof a' breaks</line>
+            <line>words, and keeps whole weapons. For Nym, he hath</line>
+            <line>heard that men of few words are the best men; and</line>
+            <line>therefore he scorns to say his prayers, lest a'</line>
+            <line>should be thought a coward: but his few bad words</line>
+            <line>are matched with as few good deeds; for a' never</line>
+            <line>broke any man's head but his own, and that was</line>
+            <line>against a post when he was drunk. They will steal</line>
+            <line>any thing, and call it purchase. Bardolph stole a</line>
+            <line>lute-case, bore it twelve leagues, and sold it for</line>
+            <line>three half pence. Nym and Bardolph are sworn</line>
+            <line>brothers in filching, and in Calais they stole a</line>
+            <line>fire-shovel: I knew by that piece of service the</line>
+            <line>men would carry coals. They would have me as</line>
+            <line>familiar with men's pockets as their gloves or their</line>
+            <line>handkerchers: which makes much against my manhood,</line>
+            <line>if I should take from another's pocket to put into</line>
+            <line>mine; for it is plain pocketing up of wrongs. I</line>
+            <line>must leave them, and seek some better service:</line>
+            <line>their villany goes against my weak stomach, and</line>
+            <line>therefore I must cast it up.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <stagedir>Re-enter FLUELLEN, GOWER following</stagedir>
+         <speech>
+            <speaker>GOWER</speaker>
+            <line>Captain Fluellen, you must come presently to the</line>
+            <line>mines; the Duke of Gloucester would speak with you.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>To the mines! tell you the duke, it is not so good</line>
+            <line>to come to the mines; for, look you, the mines is</line>
+            <line>not according to the disciplines of the war: the</line>
+            <line>concavities of it is not sufficient; for, look you,</line>
+            <line>the athversary, you may discuss unto the duke, look</line>
+            <line>you, is digt himself four yard under the</line>
+            <line>countermines: by Cheshu, I think a' will plough up</line>
+            <line>all, if there is not better directions.</line>
+         </speech>
+         <speech>
+            <speaker>GOWER</speaker>
+            <line>The Duke of Gloucester, to whom the order of the</line>
+            <line>siege is given, is altogether directed by an</line>
+            <line>Irishman, a very valiant gentleman, i' faith.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>It is Captain Macmorris, is it not?</line>
+         </speech>
+         <speech>
+            <speaker>GOWER</speaker>
+            <line>I think it be.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>By Cheshu, he is an ass, as in the world: I will</line>
+            <line>verify as much in his beard: be has no more</line>
+            <line>directions in the true disciplines of the wars, look</line>
+            <line>you, of the Roman disciplines, than is a puppy-dog.</line>
+         </speech>
+         <stagedir>Enter MACMORRIS and Captain JAMY</stagedir>
+         <speech>
+            <speaker>GOWER</speaker>
+            <line>Here a' comes; and the Scots captain, Captain Jamy, with him.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>Captain Jamy is a marvellous falourous gentleman,</line>
+            <line>that is certain; and of great expedition and</line>
+            <line>knowledge in th' aunchient wars, upon my particular</line>
+            <line>knowledge of his directions: by Cheshu, he will</line>
+            <line>maintain his argument as well as any military man in</line>
+            <line>the world, in the disciplines of the pristine wars</line>
+            <line>of the Romans.</line>
+         </speech>
+         <speech>
+            <speaker>JAMY</speaker>
+            <line>I say gud-day, Captain Fluellen.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>God-den to your worship, good Captain James.</line>
+         </speech>
+         <speech>
+            <speaker>GOWER</speaker>
+            <line>How now, Captain Macmorris! have you quit the</line>
+            <line>mines? have the pioneers given o'er?</line>
+         </speech>
+         <speech>
+            <speaker>MACMORRIS</speaker>
+            <line>By Chrish, la! tish ill done: the work ish give</line>
+            <line>over, the trompet sound the retreat. By my hand, I</line>
+            <line>swear, and my father's soul, the work ish ill done;</line>
+            <line>it ish give over: I would have blowed up the town, so</line>
+            <line>Chrish save me, la! in an hour: O, tish ill done,</line>
+            <line>tish ill done; by my hand, tish ill done!</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>Captain Macmorris, I beseech you now, will you</line>
+            <line>voutsafe me, look you, a few disputations with you,</line>
+            <line>as partly touching or concerning the disciplines of</line>
+            <line>the war, the Roman wars, in the way of argument,</line>
+            <line>look you, and friendly communication; partly to</line>
+            <line>satisfy my opinion, and partly for the satisfaction,</line>
+            <line>look you, of my mind, as touching the direction of</line>
+            <line>the military discipline; that is the point.</line>
+         </speech>
+         <speech>
+            <speaker>JAMY</speaker>
+            <line>It sall be vary gud, gud feith, gud captains bath:</line>
+            <line>and I sall quit you with gud leve, as I may pick</line>
+            <line>occasion; that sall I, marry.</line>
+         </speech>
+         <speech>
+            <speaker>MACMORRIS</speaker>
+            <line>It is no time to discourse, so Chrish save me: the</line>
+            <line>day is hot, and the weather, and the wars, and the</line>
+            <line>king, and the dukes: it is no time to discourse. The</line>
+            <line>town is beseeched, and the trumpet call us to the</line>
+            <line>breach; and we talk, and, be Chrish, do nothing:</line>
+            <line>'tis shame for us all: so God sa' me, 'tis shame to</line>
+            <line>stand still; it is shame, by my hand: and there is</line>
+            <line>throats to be cut, and works to be done; and there</line>
+            <line>ish nothing done, so Chrish sa' me, la!</line>
+         </speech>
+         <speech>
+            <speaker>JAMY</speaker>
+            <line>By the mess, ere theise eyes of mine take themselves</line>
+            <line>to slomber, ay'll de gud service, or ay'll lig i'</line>
+            <line>the grund for it; ay, or go to death; and ay'll pay</line>
+            <line>'t as valourously as I may, that sall I suerly do,</line>
+            <line>that is the breff and the long. Marry, I wad full</line>
+            <line>fain hear some question 'tween you tway.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>Captain Macmorris, I think, look you, under your</line>
+            <line>correction, there is not many of your nation--</line>
+         </speech>
+         <speech>
+            <speaker>MACMORRIS</speaker>
+            <line>Of my nation! What ish my nation? Ish a villain,</line>
+            <line>and a bastard, and a knave, and a rascal. What ish</line>
+            <line>my nation? Who talks of my nation?</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>Look you, if you take the matter otherwise than is</line>
+            <line>meant, Captain Macmorris, peradventure I shall think</line>
+            <line>you do not use me with that affability as in</line>
+            <line>discretion you ought to use me, look you: being as</line>
+            <line>good a man as yourself, both in the disciplines of</line>
+            <line>war, and in the derivation of my birth, and in</line>
+            <line>other particularities.</line>
+         </speech>
+         <speech>
+            <speaker>MACMORRIS</speaker>
+            <line>I do not know you so good a man as myself: so</line>
+            <line>Chrish save me, I will cut off your head.</line>
+         </speech>
+         <speech>
+            <speaker>GOWER</speaker>
+            <line>Gentlemen both, you will mistake each other.</line>
+         </speech>
+         <speech>
+            <speaker>JAMY</speaker>
+            <line>A! that's a foul fault.</line>
+         </speech>
+         <stagedir>A parley sounded</stagedir>
+         <speech>
+            <speaker>GOWER</speaker>
+            <line>The town sounds a parley.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>Captain Macmorris, when there is more better</line>
+            <line>opportunity to be required, look you, I will be so</line>
+            <line>bold as to tell you I know the disciplines of war;</line>
+            <line>and there is an end.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-3-scene-3">
+      <title>SCENE III.  The same. Before the gates.</title>
+      <scene-body>
+         <stagedir>The Governor and some Citizens on the walls; the
+English forces below. Enter KING HENRY and his train</stagedir>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>How yet resolves the governor of the town?</line>
+            <line>This is the latest parle we will admit;</line>
+            <line>Therefore to our best mercy give yourselves;</line>
+            <line>Or like to men proud of destruction</line>
+            <line>Defy us to our worst: for, as I am a soldier,</line>
+            <line>A name that in my thoughts becomes me best,</line>
+            <line>If I begin the battery once again,</line>
+            <line>I will not leave the half-achieved Harfleur</line>
+            <line>Till in her ashes she lie buried.</line>
+            <line>The gates of mercy shall be all shut up,</line>
+            <line>And the flesh'd soldier, rough and hard of heart,</line>
+            <line>In liberty of bloody hand shall range</line>
+            <line>With conscience wide as hell, mowing like grass</line>
+            <line>Your fresh-fair virgins and your flowering infants.</line>
+            <line>What is it then to me, if impious war,</line>
+            <line>Array'd in flames like to the prince of fiends,</line>
+            <line>Do, with his smirch'd complexion, all fell feats</line>
+            <line>Enlink'd to waste and desolation?</line>
+            <line>What is't to me, when you yourselves are cause,</line>
+            <line>If your pure maidens fall into the hand</line>
+            <line>Of hot and forcing violation?</line>
+            <line>What rein can hold licentious wickedness</line>
+            <line>When down the hill he holds his fierce career?</line>
+            <line>We may as bootless spend our vain command</line>
+            <line>Upon the enraged soldiers in their spoil</line>
+            <line>As send precepts to the leviathan</line>
+            <line>To come ashore. Therefore, you men of Harfleur,</line>
+            <line>Take pity of your town and of your people,</line>
+            <line>Whiles yet my soldiers are in my command;</line>
+            <line>Whiles yet the cool and temperate wind of grace</line>
+            <line>O'erblows the filthy and contagious clouds</line>
+            <line>Of heady murder, spoil and villany.</line>
+            <line>If not, why, in a moment look to see</line>
+            <line>The blind and bloody soldier with foul hand</line>
+            <line>Defile the locks of your shrill-shrieking daughters;</line>
+            <line>Your fathers taken by the silver beards,</line>
+            <line>And their most reverend heads dash'd to the walls,</line>
+            <line>Your naked infants spitted upon pikes,</line>
+            <line>Whiles the mad mothers with their howls confused</line>
+            <line>Do break the clouds, as did the wives of Jewry</line>
+            <line>At Herod's bloody-hunting slaughtermen.</line>
+            <line>What say you? will you yield, and this avoid,</line>
+            <line>Or, guilty in defence, be thus destroy'd?</line>
+         </speech>
+         <speech>
+            <speaker>GOVERNOR</speaker>
+            <line>Our expectation hath this day an end:</line>
+            <line>The Dauphin, whom of succors we entreated,</line>
+            <line>Returns us that his powers are yet not ready</line>
+            <line>To raise so great a siege. Therefore, great king,</line>
+            <line>We yield our town and lives to thy soft mercy.</line>
+            <line>Enter our gates; dispose of us and ours;</line>
+            <line>For we no longer are defensible.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Open your gates. Come, uncle Exeter,</line>
+            <line>Go you and enter Harfleur; there remain,</line>
+            <line>And fortify it strongly 'gainst the French:</line>
+            <line>Use mercy to them all. For us, dear uncle,</line>
+            <line>The winter coming on and sickness growing</line>
+            <line>Upon our soldiers, we will retire to Calais.</line>
+            <line>To-night in Harfleur we will be your guest;</line>
+            <line>To-morrow for the march are we addrest.</line>
+         </speech>
+         <stagedir>Flourish. The King and his train enter the town</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-3-scene-4">
+      <title>SCENE IV.  The FRENCH KING's palace.</title>
+      <scene-body>
+         <stagedir>Enter KATHARINE and ALICE</stagedir>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Alice, tu as ete en Angleterre, et tu parles bien le langage.</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>Un peu, madame.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Je te prie, m'enseignez: il faut que j'apprenne a</line>
+            <line>parler. Comment appelez-vous la main en Anglois?</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>La main? elle est appelee de hand.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>De hand. Et les doigts?</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>Les doigts? ma foi, j'oublie les doigts; mais je me</line>
+            <line>souviendrai. Les doigts? je pense qu'ils sont</line>
+            <line>appeles de fingres; oui, de fingres.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>La main, de hand; les doigts, de fingres. Je pense</line>
+            <line>que je suis le bon ecolier; j'ai gagne deux mots</line>
+            <line>d'Anglois vitement. Comment appelez-vous les ongles?</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>Les ongles? nous les appelons de nails.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>De nails. Ecoutez; dites-moi, si je parle bien: de</line>
+            <line>hand, de fingres, et de nails.</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>C'est bien dit, madame; il est fort bon Anglois.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Dites-moi l'Anglois pour le bras.</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>De arm, madame.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Et le coude?</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>De elbow.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>De elbow. Je m'en fais la repetition de tous les</line>
+            <line>mots que vous m'avez appris des a present.</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>Il est trop difficile, madame, comme je pense.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Excusez-moi, Alice; ecoutez: de hand, de fingres,</line>
+            <line>de nails, de arma, de bilbow.</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>De elbow, madame.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>O Seigneur Dieu, je m'en oublie! de elbow. Comment</line>
+            <line>appelez-vous le col?</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>De neck, madame.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>De nick. Et le menton?</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>De chin.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>De sin. Le col, de nick; de menton, de sin.</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>Oui. Sauf votre honneur, en verite, vous prononcez</line>
+            <line>les mots aussi droit que les natifs d'Angleterre.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Je ne doute point d'apprendre, par la grace de Dieu,</line>
+            <line>et en peu de temps.</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>N'avez vous pas deja oublie ce que je vous ai enseigne?</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Non, je reciterai a vous promptement: de hand, de</line>
+            <line>fingres, de mails--</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>De nails, madame.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>De nails, de arm, de ilbow.</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>Sauf votre honneur, de elbow.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Ainsi dis-je; de elbow, de nick, et de sin. Comment</line>
+            <line>appelez-vous le pied et la robe?</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>De foot, madame; et de coun.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>De foot et de coun! O Seigneur Dieu! ce sont mots</line>
+            <line>de son mauvais, corruptible, gros, et impudique, et</line>
+            <line>non pour les dames d'honneur d'user: je ne voudrais</line>
+            <line>prononcer ces mots devant les seigneurs de France</line>
+            <line>pour tout le monde. Foh! le foot et le coun!</line>
+            <line>Neanmoins, je reciterai une autre fois ma lecon</line>
+            <line>ensemble: de hand, de fingres, de nails, de arm, de</line>
+            <line>elbow, de nick, de sin, de foot, de coun.</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>Excellent, madame!</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>C'est assez pour une fois: allons-nous a diner.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-3-scene-5">
+      <title>SCENE V.  The same.</title>
+      <scene-body>
+         <stagedir>Enter the KING OF FRANCE, the DAUPHIN, the DUKE oF
+BOURBON, the Constable Of France, and others</stagedir>
+         <speech>
+            <speaker>KING OF FRANCE</speaker>
+            <line>'Tis certain he hath pass'd the river Somme.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>And if he be not fought withal, my lord,</line>
+            <line>Let us not live in France; let us quit all</line>
+            <line>And give our vineyards to a barbarous people.</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>O Dieu vivant! shall a few sprays of us,</line>
+            <line>The emptying of our fathers' luxury,</line>
+            <line>Our scions, put in wild and savage stock,</line>
+            <line>Spirt up so suddenly into the clouds,</line>
+            <line>And overlook their grafters?</line>
+         </speech>
+         <speech>
+            <speaker>BOURBON</speaker>
+            <line>Normans, but bastard Normans, Norman bastards!</line>
+            <line>Mort de ma vie! if they march along</line>
+            <line>Unfought withal, but I will sell my dukedom,</line>
+            <line>To buy a slobbery and a dirty farm</line>
+            <line>In that nook-shotten isle of Albion.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>Dieu de batailles! where have they this mettle?</line>
+            <line>Is not their climate foggy, raw and dull,</line>
+            <line>On whom, as in despite, the sun looks pale,</line>
+            <line>Killing their fruit with frowns? Can sodden water,</line>
+            <line>A drench for sur-rein'd jades, their barley-broth,</line>
+            <line>Decoct their cold blood to such valiant heat?</line>
+            <line>And shall our quick blood, spirited with wine,</line>
+            <line>Seem frosty? O, for honour of our land,</line>
+            <line>Let us not hang like roping icicles</line>
+            <line>Upon our houses' thatch, whiles a more frosty people</line>
+            <line>Sweat drops of gallant youth in our rich fields!</line>
+            <line>Poor we may call them in their native lords.</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>By faith and honour,</line>
+            <line>Our madams mock at us, and plainly say</line>
+            <line>Our mettle is bred out and they will give</line>
+            <line>Their bodies to the lust of English youth</line>
+            <line>To new-store France with bastard warriors.</line>
+         </speech>
+         <speech>
+            <speaker>BOURBON</speaker>
+            <line>They bid us to the English dancing-schools,</line>
+            <line>And teach lavoltas high and swift corantos;</line>
+            <line>Saying our grace is only in our heels,</line>
+            <line>And that we are most lofty runaways.</line>
+         </speech>
+         <speech>
+            <speaker>KING OF FRANCE</speaker>
+            <line>Where is Montjoy the herald? speed him hence:</line>
+            <line>Let him greet England with our sharp defiance.</line>
+            <line>Up, princes! and, with spirit of honour edged</line>
+            <line>More sharper than your swords, hie to the field:</line>
+            <line>Charles Delabreth, high constable of France;</line>
+            <line>You Dukes of Orleans, Bourbon, and of Berri,</line>
+            <line>Alencon, Brabant, Bar, and Burgundy;</line>
+            <line>Jaques Chatillon, Rambures, Vaudemont,</line>
+            <line>Beaumont, Grandpre, Roussi, and Fauconberg,</line>
+            <line>Foix, Lestrale, Bouciqualt, and Charolois;</line>
+            <line>High dukes, great princes, barons, lords and knights,</line>
+            <line>For your great seats now quit you of great shames.</line>
+            <line>Bar Harry England, that sweeps through our land</line>
+            <line>With pennons painted in the blood of Harfleur:</line>
+            <line>Rush on his host, as doth the melted snow</line>
+            <line>Upon the valleys, whose low vassal seat</line>
+            <line>The Alps doth spit and void his rheum upon:</line>
+            <line>Go down upon him, you have power enough,</line>
+            <line>And in a captive chariot into Rouen</line>
+            <line>Bring him our prisoner.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>This becomes the great.</line>
+            <line>Sorry am I his numbers are so few,</line>
+            <line>His soldiers sick and famish'd in their march,</line>
+            <line>For I am sure, when he shall see our army,</line>
+            <line>He'll drop his heart into the sink of fear</line>
+            <line>And for achievement offer us his ransom.</line>
+         </speech>
+         <speech>
+            <speaker>KING OF FRANCE</speaker>
+            <line>Therefore, lord constable, haste on Montjoy.</line>
+            <line>And let him say to England that we send</line>
+            <line>To know what willing ransom he will give.</line>
+            <line>Prince Dauphin, you shall stay with us in Rouen.</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>Not so, I do beseech your majesty.</line>
+         </speech>
+         <speech>
+            <speaker>KING OF FRANCE</speaker>
+            <line>Be patient, for you shall remain with us.</line>
+            <line>Now forth, lord constable and princes all,</line>
+            <line>And quickly bring us word of England's fall.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-3-scene-6">
+      <title>SCENE VI.  The English camp in Picardy.</title>
+      <scene-body>
+         <stagedir>Enter GOWER and FLUELLEN, meeting</stagedir>
+         <speech>
+            <speaker>GOWER</speaker>
+            <line>How now, Captain Fluellen! come you from the bridge?</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>I assure you, there is very excellent services</line>
+            <line>committed at the bridge.</line>
+         </speech>
+         <speech>
+            <speaker>GOWER</speaker>
+            <line>Is the Duke of Exeter safe?</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>The Duke of Exeter is as magnanimous as Agamemnon;</line>
+            <line>and a man that I love and honour with my soul, and my</line>
+            <line>heart, and my duty, and my life, and my living, and</line>
+            <line>my uttermost power: he is not-God be praised and</line>
+            <line>blessed!--any hurt in the world; but keeps the</line>
+            <line>bridge most valiantly, with excellent discipline.</line>
+            <line>There is an aunchient lieutenant there at the</line>
+            <line>pridge, I think in my very conscience he is as</line>
+            <line>valiant a man as Mark Antony; and he is a man of no</line>
+            <line>estimation in the world; but did see him do as</line>
+            <line>gallant service.</line>
+         </speech>
+         <speech>
+            <speaker>GOWER</speaker>
+            <line>What do you call him?</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>He is called Aunchient Pistol.</line>
+         </speech>
+         <speech>
+            <speaker>GOWER</speaker>
+            <line>I know him not.</line>
+         </speech>
+         <stagedir>Enter PISTOL</stagedir>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>Here is the man.</line>
+         </speech>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>Captain, I thee beseech to do me favours:</line>
+            <line>The Duke of Exeter doth love thee well.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>Ay, I praise God; and I have merited some love at</line>
+            <line>his hands.</line>
+         </speech>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>Bardolph, a soldier, firm and sound of heart,</line>
+            <line>And of buxom valour, hath, by cruel fate,</line>
+            <line>And giddy Fortune's furious fickle wheel,</line>
+            <line>That goddess blind,</line>
+            <line>That stands upon the rolling restless stone--</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>By your patience, Aunchient Pistol. Fortune is</line>
+            <line>painted blind, with a muffler afore her eyes, to</line>
+            <line>signify to you that Fortune is blind; and she is</line>
+            <line>painted also with a wheel, to signify to you, which</line>
+            <line>is the moral of it, that she is turning, and</line>
+            <line>inconstant, and mutability, and variation: and her</line>
+            <line>foot, look you, is fixed upon a spherical stone,</line>
+            <line>which rolls, and rolls, and rolls: in good truth,</line>
+            <line>the poet makes a most excellent description of it:</line>
+            <line>Fortune is an excellent moral.</line>
+         </speech>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>Fortune is Bardolph's foe, and frowns on him;</line>
+            <line>For he hath stolen a pax, and hanged must a' be:</line>
+            <line>A damned death!</line>
+            <line>Let gallows gape for dog; let man go free</line>
+            <line>And let not hemp his wind-pipe suffocate:</line>
+            <line>But Exeter hath given the doom of death</line>
+            <line>For pax of little price.</line>
+            <line>Therefore, go speak: the duke will hear thy voice:</line>
+            <line>And let not Bardolph's vital thread be cut</line>
+            <line>With edge of penny cord and vile reproach:</line>
+            <line>Speak, captain, for his life, and I will thee requite.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>Aunchient Pistol, I do partly understand your meaning.</line>
+         </speech>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>Why then, rejoice therefore.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>Certainly, aunchient, it is not a thing to rejoice</line>
+            <line>at: for if, look you, he were my brother, I would</line>
+            <line>desire the duke to use his good pleasure, and put</line>
+            <line>him to execution; for discipline ought to be used.</line>
+         </speech>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>Die and be damn'd! and figo for thy friendship!</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>It is well.</line>
+         </speech>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>The fig of Spain!</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>Very good.</line>
+         </speech>
+         <speech>
+            <speaker>GOWER</speaker>
+            <line>Why, this is an arrant counterfeit rascal; I</line>
+            <line>remember him now; a bawd, a cutpurse.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>I'll assure you, a' uttered as brave words at the</line>
+            <line>bridge as you shall see in a summer's day. But it</line>
+            <line>is very well; what he has spoke to me, that is well,</line>
+            <line>I warrant you, when time is serve.</line>
+         </speech>
+         <speech>
+            <speaker>GOWER</speaker>
+            <line>Why, 'tis a gull, a fool, a rogue, that now and then</line>
+            <line>goes to the wars, to grace himself at his return</line>
+            <line>into London under the form of a soldier. And such</line>
+            <line>fellows are perfect in the great commanders' names:</line>
+            <line>and they will learn you by rote where services were</line>
+            <line>done; at such and such a sconce, at such a breach,</line>
+            <line>at such a convoy; who came off bravely, who was</line>
+            <line>shot, who disgraced, what terms the enemy stood on;</line>
+            <line>and this they con perfectly in the phrase of war,</line>
+            <line>which they trick up with new-tuned oaths: and what</line>
+            <line>a beard of the general's cut and a horrid suit of</line>
+            <line>the camp will do among foaming bottles and</line>
+            <line>ale-washed wits, is wonderful to be thought on. But</line>
+            <line>you must learn to know such slanders of the age, or</line>
+            <line>else you may be marvellously mistook.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>I tell you what, Captain Gower; I do perceive he is</line>
+            <line>not the man that he would gladly make show to the</line>
+            <line>world he is: if I find a hole in his coat, I will</line>
+            <line>tell him my mind.</line>
+            <stagedir>Drum heard</stagedir>
+            <line>Hark you, the king is coming, and I must speak with</line>
+            <line>him from the pridge.</line>
+            <stagedir>Drum and colours. Enter KING HENRY, GLOUCESTER, and Soldiers</stagedir>
+            <line>God pless your majesty!</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>How now, Fluellen! camest thou from the bridge?</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>Ay, so please your majesty. The Duke of Exeter has</line>
+            <line>very gallantly maintained the pridge: the French is</line>
+            <line>gone off, look you; and there is gallant and most</line>
+            <line>prave passages; marry, th' athversary was have</line>
+            <line>possession of the pridge; but he is enforced to</line>
+            <line>retire, and the Duke of Exeter is master of the</line>
+            <line>pridge: I can tell your majesty, the duke is a</line>
+            <line>prave man.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>What men have you lost, Fluellen?</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>The perdition of th' athversary hath been very</line>
+            <line>great, reasonable great: marry, for my part, I</line>
+            <line>think the duke hath lost never a man, but one that</line>
+            <line>is like to be executed for robbing a church, one</line>
+            <line>Bardolph, if your majesty know the man: his face is</line>
+            <line>all bubukles, and whelks, and knobs, and flames o'</line>
+            <line>fire: and his lips blows at his nose, and it is like</line>
+            <line>a coal of fire, sometimes plue and sometimes red;</line>
+            <line>but his nose is executed and his fire's out.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>We would have all such offenders so cut off: and we</line>
+            <line>give express charge, that in our marches through the</line>
+            <line>country, there be nothing compelled from the</line>
+            <line>villages, nothing taken but paid for, none of the</line>
+            <line>French upbraided or abused in disdainful language;</line>
+            <line>for when lenity and cruelty play for a kingdom, the</line>
+            <line>gentler gamester is the soonest winner.</line>
+         </speech>
+         <stagedir>Tucket. Enter MONTJOY</stagedir>
+         <speech>
+            <speaker>MONTJOY</speaker>
+            <line>You know me by my habit.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Well then I know thee: what shall I know of thee?</line>
+         </speech>
+         <speech>
+            <speaker>MONTJOY</speaker>
+            <line>My master's mind.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Unfold it.</line>
+         </speech>
+         <speech>
+            <speaker>MONTJOY</speaker>
+            <line>Thus says my king: Say thou to Harry of England:</line>
+            <line>Though we seemed dead, we did but sleep: advantage</line>
+            <line>is a better soldier than rashness. Tell him we</line>
+            <line>could have rebuked him at Harfleur, but that we</line>
+            <line>thought not good to bruise an injury till it were</line>
+            <line>full ripe: now we speak upon our cue, and our voice</line>
+            <line>is imperial: England shall repent his folly, see</line>
+            <line>his weakness, and admire our sufferance. Bid him</line>
+            <line>therefore consider of his ransom; which must</line>
+            <line>proportion the losses we have borne, the subjects we</line>
+            <line>have lost, the disgrace we have digested; which in</line>
+            <line>weight to re-answer, his pettiness would bow under.</line>
+            <line>For our losses, his exchequer is too poor; for the</line>
+            <line>effusion of our blood, the muster of his kingdom too</line>
+            <line>faint a number; and for our disgrace, his own</line>
+            <line>person, kneeling at our feet, but a weak and</line>
+            <line>worthless satisfaction. To this add defiance: and</line>
+            <line>tell him, for conclusion, he hath betrayed his</line>
+            <line>followers, whose condemnation is pronounced. So far</line>
+            <line>my king and master; so much my office.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>What is thy name? I know thy quality.</line>
+         </speech>
+         <speech>
+            <speaker>MONTJOY</speaker>
+            <line>Montjoy.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Thou dost thy office fairly. Turn thee back.</line>
+            <line>And tell thy king I do not seek him now;</line>
+            <line>But could be willing to march on to Calais</line>
+            <line>Without impeachment: for, to say the sooth,</line>
+            <line>Though 'tis no wisdom to confess so much</line>
+            <line>Unto an enemy of craft and vantage,</line>
+            <line>My people are with sickness much enfeebled,</line>
+            <line>My numbers lessened, and those few I have</line>
+            <line>Almost no better than so many French;</line>
+            <line>Who when they were in health, I tell thee, herald,</line>
+            <line>I thought upon one pair of English legs</line>
+            <line>Did march three Frenchmen. Yet, forgive me, God,</line>
+            <line>That I do brag thus! This your air of France</line>
+            <line>Hath blown that vice in me: I must repent.</line>
+            <line>Go therefore, tell thy master here I am;</line>
+            <line>My ransom is this frail and worthless trunk,</line>
+            <line>My army but a weak and sickly guard;</line>
+            <line>Yet, God before, tell him we will come on,</line>
+            <line>Though France himself and such another neighbour</line>
+            <line>Stand in our way. There's for thy labour, Montjoy.</line>
+            <line>Go bid thy master well advise himself:</line>
+            <line>If we may pass, we will; if we be hinder'd,</line>
+            <line>We shall your tawny ground with your red blood</line>
+            <line>Discolour: and so Montjoy, fare you well.</line>
+            <line>The sum of all our answer is but this:</line>
+            <line>We would not seek a battle, as we are;</line>
+            <line>Nor, as we are, we say we will not shun it:</line>
+            <line>So tell your master.</line>
+         </speech>
+         <speech>
+            <speaker>MONTJOY</speaker>
+            <line>I shall deliver so. Thanks to your highness.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>I hope they will not come upon us now.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>We are in God's hand, brother, not in theirs.</line>
+            <line>March to the bridge; it now draws toward night:</line>
+            <line>Beyond the river we'll encamp ourselves,</line>
+            <line>And on to-morrow, bid them march away.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-3-scene-7">
+      <title>SCENE VII.  The French camp, near Agincourt:</title>
+      <scene-body>
+         <stagedir>Enter the Constable of France, the LORD RAMBURES,
+ORLEANS, DAUPHIN, with others</stagedir>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>Tut! I have the best armour of the world. Would it were day!</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>You have an excellent armour; but let my horse have his due.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>It is the best horse of Europe.</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>Will it never be morning?</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>My lord of Orleans, and my lord high constable, you</line>
+            <line>talk of horse and armour?</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>You are as well provided of both as any prince in the world.</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>What a long night is this! I will not change my</line>
+            <line>horse with any that treads but on four pasterns.</line>
+            <line>Ca, ha! he bounds from the earth, as if his</line>
+            <line>entrails were hairs; le cheval volant, the Pegasus,</line>
+            <line>chez les narines de feu! When I bestride him, I</line>
+            <line>soar, I am a hawk: he trots the air; the earth</line>
+            <line>sings when he touches it; the basest horn of his</line>
+            <line>hoof is more musical than the pipe of Hermes.</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>He's of the colour of the nutmeg.</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>And of the heat of the ginger. It is a beast for</line>
+            <line>Perseus: he is pure air and fire; and the dull</line>
+            <line>elements of earth and water never appear in him, but</line>
+            <line>only in Patient stillness while his rider mounts</line>
+            <line>him: he is indeed a horse; and all other jades you</line>
+            <line>may call beasts.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>Indeed, my lord, it is a most absolute and excellent horse.</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>It is the prince of palfreys; his neigh is like the</line>
+            <line>bidding of a monarch and his countenance enforces homage.</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>No more, cousin.</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>Nay, the man hath no wit that cannot, from the</line>
+            <line>rising of the lark to the lodging of the lamb, vary</line>
+            <line>deserved praise on my palfrey: it is a theme as</line>
+            <line>fluent as the sea: turn the sands into eloquent</line>
+            <line>tongues, and my horse is argument for them all:</line>
+            <line>'tis a subject for a sovereign to reason on, and for</line>
+            <line>a sovereign's sovereign to ride on; and for the</line>
+            <line>world, familiar to us and unknown to lay apart</line>
+            <line>their particular functions and wonder at him. I</line>
+            <line>once writ a sonnet in his praise and began thus:</line>
+            <line>'Wonder of nature,'--</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>I have heard a sonnet begin so to one's mistress.</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>Then did they imitate that which I composed to my</line>
+            <line>courser, for my horse is my mistress.</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>Your mistress bears well.</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>Me well; which is the prescript praise and</line>
+            <line>perfection of a good and particular mistress.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>Nay, for methought yesterday your mistress shrewdly</line>
+            <line>shook your back.</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>So perhaps did yours.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>Mine was not bridled.</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>O then belike she was old and gentle; and you rode,</line>
+            <line>like a kern of Ireland, your French hose off, and in</line>
+            <line>your straight strossers.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>You have good judgment in horsemanship.</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>Be warned by me, then: they that ride so and ride</line>
+            <line>not warily, fall into foul bogs. I had rather have</line>
+            <line>my horse to my mistress.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>I had as lief have my mistress a jade.</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>I tell thee, constable, my mistress wears his own hair.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>I could make as true a boast as that, if I had a sow</line>
+            <line>to my mistress.</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>'Le chien est retourne a son propre vomissement, et</line>
+            <line>la truie lavee au bourbier;' thou makest use of any thing.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>Yet do I not use my horse for my mistress, or any</line>
+            <line>such proverb so little kin to the purpose.</line>
+         </speech>
+         <speech>
+            <speaker>RAMBURES</speaker>
+            <line>My lord constable, the armour that I saw in your tent</line>
+            <line>to-night, are those stars or suns upon it?</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>Stars, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>Some of them will fall to-morrow, I hope.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>And yet my sky shall not want.</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>That may be, for you bear a many superfluously, and</line>
+            <line>'twere more honour some were away.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>Even as your horse bears your praises; who would</line>
+            <line>trot as well, were some of your brags dismounted.</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>Would I were able to load him with his desert! Will</line>
+            <line>it never be day? I will trot to-morrow a mile, and</line>
+            <line>my way shall be paved with English faces.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>I will not say so, for fear I should be faced out of</line>
+            <line>my way: but I would it were morning; for I would</line>
+            <line>fain be about the ears of the English.</line>
+         </speech>
+         <speech>
+            <speaker>RAMBURES</speaker>
+            <line>Who will go to hazard with me for twenty prisoners?</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>You must first go yourself to hazard, ere you have them.</line>
+         </speech>
+         <speech>
+            <speaker>DAUPHIN</speaker>
+            <line>'Tis midnight; I'll go arm myself.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>The Dauphin longs for morning.</line>
+         </speech>
+         <speech>
+            <speaker>RAMBURES</speaker>
+            <line>He longs to eat the English.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>I think he will eat all he kills.</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>By the white hand of my lady, he's a gallant prince.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>Swear by her foot, that she may tread out the oath.</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>He is simply the most active gentleman of France.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>Doing is activity; and he will still be doing.</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>He never did harm, that I heard of.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>Nor will do none to-morrow: he will keep that good name still.</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>I know him to be valiant.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>I was told that by one that knows him better than</line>
+            <line>you.</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>What's he?</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>Marry, he told me so himself; and he said he cared</line>
+            <line>not who knew it</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>He needs not; it is no hidden virtue in him.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>By my faith, sir, but it is; never any body saw it</line>
+            <line>but his lackey: 'tis a hooded valour; and when it</line>
+            <line>appears, it will bate.</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>Ill will never said well.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>I will cap that proverb with 'There is flattery in friendship.'</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>And I will take up that with 'Give the devil his due.'</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>Well placed: there stands your friend for the</line>
+            <line>devil: have at the very eye of that proverb with 'A</line>
+            <line>pox of the devil.'</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>You are the better at proverbs, by how much 'A</line>
+            <line>fool's bolt is soon shot.'</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>You have shot over.</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>'Tis not the first time you were overshot.</line>
+         </speech>
+         <stagedir>Enter a Messenger</stagedir>
+         <speech>
+            <speaker>Messenger</speaker>
+            <line>My lord high constable, the English lie within</line>
+            <line>fifteen hundred paces of your tents.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>Who hath measured the ground?</line>
+         </speech>
+         <speech>
+            <speaker>Messenger</speaker>
+            <line>The Lord Grandpre.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>A valiant and most expert gentleman. Would it were</line>
+            <line>day! Alas, poor Harry of England! he longs not for</line>
+            <line>the dawning as we do.</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>What a wretched and peevish fellow is this king of</line>
+            <line>England, to mope with his fat-brained followers so</line>
+            <line>far out of his knowledge!</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>If the English had any apprehension, they would run away.</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>That they lack; for if their heads had any</line>
+            <line>intellectual armour, they could never wear such heavy</line>
+            <line>head-pieces.</line>
+         </speech>
+         <speech>
+            <speaker>RAMBURES</speaker>
+            <line>That island of England breeds very valiant</line>
+            <line>creatures; their mastiffs are of unmatchable courage.</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>Foolish curs, that run winking into the mouth of a</line>
+            <line>Russian bear and have their heads crushed like</line>
+            <line>rotten apples! You may as well say, that's a</line>
+            <line>valiant flea that dare eat his breakfast on the lip of a lion.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>Just, just; and the men do sympathize with the</line>
+            <line>mastiffs in robustious and rough coming on, leaving</line>
+            <line>their wits with their wives: and then give them</line>
+            <line>great meals of beef and iron and steel, they will</line>
+            <line>eat like wolves and fight like devils.</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>Ay, but these English are shrewdly out of beef.</line>
+         </speech>
+         <speech>
+            <speaker>Constable</speaker>
+            <line>Then shall we find to-morrow they have only stomachs</line>
+            <line>to eat and none to fight. Now is it time to arm:</line>
+            <line>come, shall we about it?</line>
+         </speech>
+         <speech>
+            <speaker>ORLEANS</speaker>
+            <line>It is now two o'clock: but, let me see, by ten</line>
+            <line>We shall have each a hundred Englishmen.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+</act>

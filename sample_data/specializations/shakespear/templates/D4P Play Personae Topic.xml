@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE personae PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/personae" "personae.dtd">
+<personae id="personae">
+  <title>Dramatis Personae</title>
+  <personae-body>
+    <persona>Some guy</persona>
+    <pgroup>
+      <persona>asdfads</persona>
+      <grpdescr>asdfasdfasd</grpdescr>
+    </pgroup>
+    
+  </personae-body>
+</personae>

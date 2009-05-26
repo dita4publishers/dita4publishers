@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/playmap"
+    uri="playmap.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/playmap/playmap.dtd"
+    uri="playmap.dtd"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net/modules/shakespear/playmap"
+    uri="playmap.mod"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net/modules/shakespear/playmap/playmap.mod"
+    uri="playmap.mod"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net/entities/shakespear/playmap"
+    uri="playmap.ent"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net/entities/shakespear/playmap/playmap.ent"
+    uri="playmap.ent"
+  />
+  
+</catalog>

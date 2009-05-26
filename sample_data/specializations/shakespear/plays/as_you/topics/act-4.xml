@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/act" "act.dtd">
+<act id="act-4">
+   <title>ACT IV</title>
+   <scene id="act-4-scene-1">
+      <title>SCENE I.  The forest.</title>
+      <scene-body>
+         <stagedir>Enter ROSALIND, CELIA, and JAQUES</stagedir>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>I prithee, pretty youth, let me be better acquainted</line>
+            <line>with thee.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>They say you are a melancholy fellow.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>I am so; I do love it better than laughing.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Those that are in extremity of either are abominable</line>
+            <line>fellows and betray themselves to every modern</line>
+            <line>censure worse than drunkards.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>Why, 'tis good to be sad and say nothing.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Why then, 'tis good to be a post.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>I have neither the scholar's melancholy, which is</line>
+            <line>emulation, nor the musician's, which is fantastical,</line>
+            <line>nor the courtier's, which is proud, nor the</line>
+            <line>soldier's, which is ambitious, nor the lawyer's,</line>
+            <line>which is politic, nor the lady's, which is nice, nor</line>
+            <line>the lover's, which is all these: but it is a</line>
+            <line>melancholy of mine own, compounded of many simples,</line>
+            <line>extracted from many objects, and indeed the sundry's</line>
+            <line>contemplation of my travels, in which my often</line>
+            <line>rumination wraps me m a most humorous sadness.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>A traveller! By my faith, you have great reason to</line>
+            <line>be sad: I fear you have sold your own lands to see</line>
+            <line>other men's; then, to have seen much and to have</line>
+            <line>nothing, is to have rich eyes and poor hands.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>Yes, I have gained my experience.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>And your experience makes you sad: I had rather have</line>
+            <line>a fool to make me merry than experience to make me</line>
+            <line>sad; and to travel for it too!</line>
+         </speech>
+         <stagedir>Enter ORLANDO</stagedir>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>Good day and happiness, dear Rosalind!</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>Nay, then, God be wi' you, an you talk in blank verse.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Farewell, Monsieur Traveller: look you lisp and</line>
+            <line>wear strange suits, disable all the benefits of your</line>
+            <line>own country, be out of love with your nativity and</line>
+            <line>almost chide God for making you that countenance you</line>
+            <line>are, or I will scarce think you have swam in a</line>
+            <line>gondola. Why, how now, Orlando! where have you been</line>
+            <line>all this while? You a lover! An you serve me such</line>
+            <line>another trick, never come in my sight more.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>My fair Rosalind, I come within an hour of my promise.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Break an hour's promise in love! He that will</line>
+            <line>divide a minute into a thousand parts and break but</line>
+            <line>a part of the thousandth part of a minute in the</line>
+            <line>affairs of love, it may be said of him that Cupid</line>
+            <line>hath clapped him o' the shoulder, but I'll warrant</line>
+            <line>him heart-whole.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>Pardon me, dear Rosalind.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Nay, an you be so tardy, come no more in my sight: I</line>
+            <line>had as lief be wooed of a snail.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>Of a snail?</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Ay, of a snail; for though he comes slowly, he</line>
+            <line>carries his house on his head; a better jointure,</line>
+            <line>I think, than you make a woman: besides he brings</line>
+            <line>his destiny with him.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>What's that?</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Why, horns, which such as you are fain to be</line>
+            <line>beholding to your wives for: but he comes armed in</line>
+            <line>his fortune and prevents the slander of his wife.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>Virtue is no horn-maker; and my Rosalind is virtuous.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>And I am your Rosalind.</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>It pleases him to call you so; but he hath a</line>
+            <line>Rosalind of a better leer than you.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Come, woo me, woo me, for now I am in a holiday</line>
+            <line>humour and like enough to consent. What would you</line>
+            <line>say to me now, an I were your very very Rosalind?</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>I would kiss before I spoke.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Nay, you were better speak first, and when you were</line>
+            <line>gravelled for lack of matter, you might take</line>
+            <line>occasion to kiss. Very good orators, when they are</line>
+            <line>out, they will spit; and for lovers lacking--God</line>
+            <line>warn us!--matter, the cleanliest shift is to kiss.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>How if the kiss be denied?</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Then she puts you to entreaty, and there begins new matter.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>Who could be out, being before his beloved mistress?</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Marry, that should you, if I were your mistress, or</line>
+            <line>I should think my honesty ranker than my wit.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>What, of my suit?</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Not out of your apparel, and yet out of your suit.</line>
+            <line>Am not I your Rosalind?</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>I take some joy to say you are, because I would be</line>
+            <line>talking of her.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Well in her person I say I will not have you.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>Then in mine own person I die.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>No, faith, die by attorney. The poor world is</line>
+            <line>almost six thousand years old, and in all this time</line>
+            <line>there was not any man died in his own person,</line>
+            <line>videlicit, in a love-cause. Troilus had his brains</line>
+            <line>dashed out with a Grecian club; yet he did what he</line>
+            <line>could to die before, and he is one of the patterns</line>
+            <line>of love. Leander, he would have lived many a fair</line>
+            <line>year, though Hero had turned nun, if it had not been</line>
+            <line>for a hot midsummer night; for, good youth, he went</line>
+            <line>but forth to wash him in the Hellespont and being</line>
+            <line>taken with the cramp was drowned and the foolish</line>
+            <line>coroners of that age found it was 'Hero of Sestos.'</line>
+            <line>But these are all lies: men have died from time to</line>
+            <line>time and worms have eaten them, but not for love.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>I would not have my right Rosalind of this mind,</line>
+            <line>for, I protest, her frown might kill me.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>By this hand, it will not kill a fly. But come, now</line>
+            <line>I will be your Rosalind in a more coming-on</line>
+            <line>disposition, and ask me what you will. I will grant</line>
+            <line>it.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>Then love me, Rosalind.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Yes, faith, will I, Fridays and Saturdays and all.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>And wilt thou have me?</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Ay, and twenty such.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>What sayest thou?</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Are you not good?</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>I hope so.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Why then, can one desire too much of a good thing?</line>
+            <line>Come, sister, you shall be the priest and marry us.</line>
+            <line>Give me your hand, Orlando. What do you say, sister?</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>Pray thee, marry us.</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>I cannot say the words.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>You must begin, 'Will you, Orlando--'</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>Go to. Will you, Orlando, have to wife this Rosalind?</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>I will.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Ay, but when?</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>Why now; as fast as she can marry us.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Then you must say 'I take thee, Rosalind, for wife.'</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>I take thee, Rosalind, for wife.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>I might ask you for your commission; but I do take</line>
+            <line>thee, Orlando, for my husband: there's a girl goes</line>
+            <line>before the priest; and certainly a woman's thought</line>
+            <line>runs before her actions.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>So do all thoughts; they are winged.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Now tell me how long you would have her after you</line>
+            <line>have possessed her.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>For ever and a day.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Say 'a day,' without the 'ever.' No, no, Orlando;</line>
+            <line>men are April when they woo, December when they wed:</line>
+            <line>maids are May when they are maids, but the sky</line>
+            <line>changes when they are wives. I will be more jealous</line>
+            <line>of thee than a Barbary cock-pigeon over his hen,</line>
+            <line>more clamorous than a parrot against rain, more</line>
+            <line>new-fangled than an ape, more giddy in my desires</line>
+            <line>than a monkey: I will weep for nothing, like Diana</line>
+            <line>in the fountain, and I will do that when you are</line>
+            <line>disposed to be merry; I will laugh like a hyen, and</line>
+            <line>that when thou art inclined to sleep.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>But will my Rosalind do so?</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>By my life, she will do as I do.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>O, but she is wise.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Or else she could not have the wit to do this: the</line>
+            <line>wiser, the waywarder: make the doors upon a woman's</line>
+            <line>wit and it will out at the casement; shut that and</line>
+            <line>'twill out at the key-hole; stop that, 'twill fly</line>
+            <line>with the smoke out at the chimney.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>A man that had a wife with such a wit, he might say</line>
+            <line>'Wit, whither wilt?'</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Nay, you might keep that cheque for it till you met</line>
+            <line>your wife's wit going to your neighbour's bed.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>And what wit could wit have to excuse that?</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Marry, to say she came to seek you there. You shall</line>
+            <line>never take her without her answer, unless you take</line>
+            <line>her without her tongue. O, that woman that cannot</line>
+            <line>make her fault her husband's occasion, let her</line>
+            <line>never nurse her child herself, for she will breed</line>
+            <line>it like a fool!</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>For these two hours, Rosalind, I will leave thee.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Alas! dear love, I cannot lack thee two hours.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>I must attend the duke at dinner: by two o'clock I</line>
+            <line>will be with thee again.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Ay, go your ways, go your ways; I knew what you</line>
+            <line>would prove: my friends told me as much, and I</line>
+            <line>thought no less: that flattering tongue of yours</line>
+            <line>won me: 'tis but one cast away, and so, come,</line>
+            <line>death! Two o'clock is your hour?</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>Ay, sweet Rosalind.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>By my troth, and in good earnest, and so God mend</line>
+            <line>me, and by all pretty oaths that are not dangerous,</line>
+            <line>if you break one jot of your promise or come one</line>
+            <line>minute behind your hour, I will think you the most</line>
+            <line>pathetical break-promise and the most hollow lover</line>
+            <line>and the most unworthy of her you call Rosalind that</line>
+            <line>may be chosen out of the gross band of the</line>
+            <line>unfaithful: therefore beware my censure and keep</line>
+            <line>your promise.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>With no less religion than if thou wert indeed my</line>
+            <line>Rosalind: so adieu.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Well, Time is the old justice that examines all such</line>
+            <line>offenders, and let Time try: adieu.</line>
+         </speech>
+         <stagedir>Exit ORLANDO</stagedir>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>You have simply misused our sex in your love-prate:</line>
+            <line>we must have your doublet and hose plucked over your</line>
+            <line>head, and show the world what the bird hath done to</line>
+            <line>her own nest.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>O coz, coz, coz, my pretty little coz, that thou</line>
+            <line>didst know how many fathom deep I am in love! But</line>
+            <line>it cannot be sounded: my affection hath an unknown</line>
+            <line>bottom, like the bay of Portugal.</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>Or rather, bottomless, that as fast as you pour</line>
+            <line>affection in, it runs out.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>No, that same wicked bastard of Venus that was begot</line>
+            <line>of thought, conceived of spleen and born of madness,</line>
+            <line>that blind rascally boy that abuses every one's eyes</line>
+            <line>because his own are out, let him be judge how deep I</line>
+            <line>am in love. I'll tell thee, Aliena, I cannot be out</line>
+            <line>of the sight of Orlando: I'll go find a shadow and</line>
+            <line>sigh till he come.</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>And I'll sleep.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-4-scene-2">
+      <title>SCENE II.  The forest.</title>
+      <scene-body>
+         <stagedir>Enter JAQUES, Lords, and Foresters</stagedir>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>Which is he that killed the deer?</line>
+         </speech>
+         <speech>
+            <speaker>A Lord</speaker>
+            <line>Sir, it was I.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>Let's present him to the duke, like a Roman</line>
+            <line>conqueror; and it would do well to set the deer's</line>
+            <line>horns upon his head, for a branch of victory. Have</line>
+            <line>you no song, forester, for this purpose?</line>
+         </speech>
+         <speech>
+            <speaker>Forester</speaker>
+            <line>Yes, sir.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>Sing it: 'tis no matter how it be in tune, so it</line>
+            <line>make noise enough.</line>
+         </speech>
+         <subhead>SONG.</subhead>
+         <speech>
+            <speaker>Forester</speaker>
+            <line>What shall he have that kill'd the deer?</line>
+            <line>His leather skin and horns to wear.</line>
+            <line>Then sing him home;</line>
+            <stagedir>The rest shall bear this burden</stagedir>
+            <line>Take thou no scorn to wear the horn;</line>
+            <line>It was a crest ere thou wast born:</line>
+            <line>Thy father's father wore it,</line>
+            <line>And thy father bore it:</line>
+            <line>The horn, the horn, the lusty horn</line>
+            <line>Is not a thing to laugh to scorn.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-4-scene-3">
+      <title>SCENE III.  The forest.</title>
+      <scene-body>
+         <stagedir>Enter ROSALIND and CELIA</stagedir>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>How say you now? Is it not past two o'clock? and</line>
+            <line>here much Orlando!</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>I warrant you, with pure love and troubled brain, he</line>
+            <line>hath ta'en his bow and arrows and is gone forth to</line>
+            <line>sleep. Look, who comes here.</line>
+         </speech>
+         <stagedir>Enter SILVIUS</stagedir>
+         <speech>
+            <speaker>SILVIUS</speaker>
+            <line>My errand is to you, fair youth;</line>
+            <line>My gentle Phebe bid me give you this:</line>
+            <line>I know not the contents; but, as I guess</line>
+            <line>By the stern brow and waspish action</line>
+            <line>Which she did use as she was writing of it,</line>
+            <line>It bears an angry tenor: pardon me:</line>
+            <line>I am but as a guiltless messenger.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Patience herself would startle at this letter</line>
+            <line>And play the swaggerer; bear this, bear all:</line>
+            <line>She says I am not fair, that I lack manners;</line>
+            <line>She calls me proud, and that she could not love me,</line>
+            <line>Were man as rare as phoenix. 'Od's my will!</line>
+            <line>Her love is not the hare that I do hunt:</line>
+            <line>Why writes she so to me? Well, shepherd, well,</line>
+            <line>This is a letter of your own device.</line>
+         </speech>
+         <speech>
+            <speaker>SILVIUS</speaker>
+            <line>No, I protest, I know not the contents:</line>
+            <line>Phebe did write it.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Come, come, you are a fool</line>
+            <line>And turn'd into the extremity of love.</line>
+            <line>I saw her hand: she has a leathern hand.</line>
+            <line>A freestone-colour'd hand; I verily did think</line>
+            <line>That her old gloves were on, but 'twas her hands:</line>
+            <line>She has a huswife's hand; but that's no matter:</line>
+            <line>I say she never did invent this letter;</line>
+            <line>This is a man's invention and his hand.</line>
+         </speech>
+         <speech>
+            <speaker>SILVIUS</speaker>
+            <line>Sure, it is hers.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Why, 'tis a boisterous and a cruel style.</line>
+            <line>A style for-challengers; why, she defies me,</line>
+            <line>Like Turk to Christian: women's gentle brain</line>
+            <line>Could not drop forth such giant-rude invention</line>
+            <line>Such Ethiope words, blacker in their effect</line>
+            <line>Than in their countenance. Will you hear the letter?</line>
+         </speech>
+         <speech>
+            <speaker>SILVIUS</speaker>
+            <line>So please you, for I never heard it yet;</line>
+            <line>Yet heard too much of Phebe's cruelty.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>She Phebes me: mark how the tyrant writes.</line>
+            <stagedir>Reads</stagedir>
+            <line>Art thou god to shepherd turn'd,</line>
+            <line>That a maiden's heart hath burn'd?</line>
+            <line>Can a woman rail thus?</line>
+         </speech>
+         <speech>
+            <speaker>SILVIUS</speaker>
+            <line>Call you this railing?</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>
+               <stagedir>Reads</stagedir>
+            </line>
+            <line>Why, thy godhead laid apart,</line>
+            <line>Warr'st thou with a woman's heart?</line>
+            <line>Did you ever hear such railing?</line>
+            <line>Whiles the eye of man did woo me,</line>
+            <line>That could do no vengeance to me.</line>
+            <line>Meaning me a beast.</line>
+            <line>If the scorn of your bright eyne</line>
+            <line>Have power to raise such love in mine,</line>
+            <line>Alack, in me what strange effect</line>
+            <line>Would they work in mild aspect!</line>
+            <line>Whiles you chid me, I did love;</line>
+            <line>How then might your prayers move!</line>
+            <line>He that brings this love to thee</line>
+            <line>Little knows this love in me:</line>
+            <line>And by him seal up thy mind;</line>
+            <line>Whether that thy youth and kind</line>
+            <line>Will the faithful offer take</line>
+            <line>Of me and all that I can make;</line>
+            <line>Or else by him my love deny,</line>
+            <line>And then I'll study how to die.</line>
+         </speech>
+         <speech>
+            <speaker>SILVIUS</speaker>
+            <line>Call you this chiding?</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>Alas, poor shepherd!</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Do you pity him? no, he deserves no pity. Wilt</line>
+            <line>thou love such a woman? What, to make thee an</line>
+            <line>instrument and play false strains upon thee! not to</line>
+            <line>be endured! Well, go your way to her, for I see</line>
+            <line>love hath made thee a tame snake, and say this to</line>
+            <line>her: that if she love me, I charge her to love</line>
+            <line>thee; if she will not, I will never have her unless</line>
+            <line>thou entreat for her. If you be a true lover,</line>
+            <line>hence, and not a word; for here comes more company.</line>
+         </speech>
+         <stagedir>Exit SILVIUS</stagedir>
+         <stagedir>Enter OLIVER</stagedir>
+         <speech>
+            <speaker>OLIVER</speaker>
+            <line>Good morrow, fair ones: pray you, if you know,</line>
+            <line>Where in the purlieus of this forest stands</line>
+            <line>A sheep-cote fenced about with olive trees?</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>West of this place, down in the neighbour bottom:</line>
+            <line>The rank of osiers by the murmuring stream</line>
+            <line>Left on your right hand brings you to the place.</line>
+            <line>But at this hour the house doth keep itself;</line>
+            <line>There's none within.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVER</speaker>
+            <line>If that an eye may profit by a tongue,</line>
+            <line>Then should I know you by description;</line>
+            <line>Such garments and such years: 'The boy is fair,</line>
+            <line>Of female favour, and bestows himself</line>
+            <line>Like a ripe sister: the woman low</line>
+            <line>And browner than her brother.' Are not you</line>
+            <line>The owner of the house I did inquire for?</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>It is no boast, being ask'd, to say we are.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVER</speaker>
+            <line>Orlando doth commend him to you both,</line>
+            <line>And to that youth he calls his Rosalind</line>
+            <line>He sends this bloody napkin. Are you he?</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>I am: what must we understand by this?</line>
+         </speech>
+         <speech>
+            <speaker>OLIVER</speaker>
+            <line>Some of my shame; if you will know of me</line>
+            <line>What man I am, and how, and why, and where</line>
+            <line>This handkercher was stain'd.</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>I pray you, tell it.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVER</speaker>
+            <line>When last the young Orlando parted from you</line>
+            <line>He left a promise to return again</line>
+            <line>Within an hour, and pacing through the forest,</line>
+            <line>Chewing the food of sweet and bitter fancy,</line>
+            <line>Lo, what befell! he threw his eye aside,</line>
+            <line>And mark what object did present itself:</line>
+            <line>Under an oak, whose boughs were moss'd with age</line>
+            <line>And high top bald with dry antiquity,</line>
+            <line>A wretched ragged man, o'ergrown with hair,</line>
+            <line>Lay sleeping on his back: about his neck</line>
+            <line>A green and gilded snake had wreathed itself,</line>
+            <line>Who with her head nimble in threats approach'd</line>
+            <line>The opening of his mouth; but suddenly,</line>
+            <line>Seeing Orlando, it unlink'd itself,</line>
+            <line>And with indented glides did slip away</line>
+            <line>Into a bush: under which bush's shade</line>
+            <line>A lioness, with udders all drawn dry,</line>
+            <line>Lay couching, head on ground, with catlike watch,</line>
+            <line>When that the sleeping man should stir; for 'tis</line>
+            <line>The royal disposition of that beast</line>
+            <line>To prey on nothing that doth seem as dead:</line>
+            <line>This seen, Orlando did approach the man</line>
+            <line>And found it was his brother, his elder brother.</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>O, I have heard him speak of that same brother;</line>
+            <line>And he did render him the most unnatural</line>
+            <line>That lived amongst men.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVER</speaker>
+            <line>And well he might so do,</line>
+            <line>For well I know he was unnatural.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>But, to Orlando: did he leave him there,</line>
+            <line>Food to the suck'd and hungry lioness?</line>
+         </speech>
+         <speech>
+            <speaker>OLIVER</speaker>
+            <line>Twice did he turn his back and purposed so;</line>
+            <line>But kindness, nobler ever than revenge,</line>
+            <line>And nature, stronger than his just occasion,</line>
+            <line>Made him give battle to the lioness,</line>
+            <line>Who quickly fell before him: in which hurtling</line>
+            <line>From miserable slumber I awaked.</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>Are you his brother?</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Wast you he rescued?</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>Was't you that did so oft contrive to kill him?</line>
+         </speech>
+         <speech>
+            <speaker>OLIVER</speaker>
+            <line>'Twas I; but 'tis not I I do not shame</line>
+            <line>To tell you what I was, since my conversion</line>
+            <line>So sweetly tastes, being the thing I am.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>But, for the bloody napkin?</line>
+         </speech>
+         <speech>
+            <speaker>OLIVER</speaker>
+            <line>By and by.</line>
+            <line>When from the first to last betwixt us two</line>
+            <line>Tears our recountments had most kindly bathed,</line>
+            <line>As how I came into that desert place:--</line>
+            <line>In brief, he led me to the gentle duke,</line>
+            <line>Who gave me fresh array and entertainment,</line>
+            <line>Committing me unto my brother's love;</line>
+            <line>Who led me instantly unto his cave,</line>
+            <line>There stripp'd himself, and here upon his arm</line>
+            <line>The lioness had torn some flesh away,</line>
+            <line>Which all this while had bled; and now he fainted</line>
+            <line>And cried, in fainting, upon Rosalind.</line>
+            <line>Brief, I recover'd him, bound up his wound;</line>
+            <line>And, after some small space, being strong at heart,</line>
+            <line>He sent me hither, stranger as I am,</line>
+            <line>To tell this story, that you might excuse</line>
+            <line>His broken promise, and to give this napkin</line>
+            <line>Dyed in his blood unto the shepherd youth</line>
+            <line>That he in sport doth call his Rosalind.</line>
+         </speech>
+         <stagedir>ROSALIND swoons</stagedir>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>Why, how now, Ganymede! sweet Ganymede!</line>
+         </speech>
+         <speech>
+            <speaker>OLIVER</speaker>
+            <line>Many will swoon when they do look on blood.</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>There is more in it. Cousin Ganymede!</line>
+         </speech>
+         <speech>
+            <speaker>OLIVER</speaker>
+            <line>Look, he recovers.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>I would I were at home.</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>We'll lead you thither.</line>
+            <line>I pray you, will you take him by the arm?</line>
+         </speech>
+         <speech>
+            <speaker>OLIVER</speaker>
+            <line>Be of good cheer, youth: you a man! you lack a</line>
+            <line>man's heart.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>I do so, I confess it. Ah, sirrah, a body would</line>
+            <line>think this was well counterfeited! I pray you, tell</line>
+            <line>your brother how well I counterfeited. Heigh-ho!</line>
+         </speech>
+         <speech>
+            <speaker>OLIVER</speaker>
+            <line>This was not counterfeit: there is too great</line>
+            <line>testimony in your complexion that it was a passion</line>
+            <line>of earnest.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Counterfeit, I assure you.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVER</speaker>
+            <line>Well then, take a good heart and counterfeit to be a man.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>So I do: but, i' faith, I should have been a woman by right.</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>Come, you look paler and paler: pray you, draw</line>
+            <line>homewards. Good sir, go with us.</line>
+         </speech>
+         <speech>
+            <speaker>OLIVER</speaker>
+            <line>That will I, for I must bear answer back</line>
+            <line>How you excuse my brother, Rosalind.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>I shall devise something: but, I pray you, commend</line>
+            <line>my counterfeiting to him. Will you go?</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+</act>
