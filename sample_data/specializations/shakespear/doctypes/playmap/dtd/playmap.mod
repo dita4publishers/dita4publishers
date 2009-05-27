@@ -49,9 +49,9 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/playmap"
 <!ENTITY % acts          "acts"                                >
 <!ENTITY % scene-description "scene-description"                       >
 <!ENTITY % act               "act"                                     >
-<!ENTITY % epilog            "epilog"                                  >
+<!ENTITY % epilogue          "epilogue"                                  >
 <!ENTITY % induct            "induct"                                  >
-<!ENTITY % prolog            "prolog"                                  >
+<!ENTITY % prologue          "prologue"                                  >
 <!ENTITY % scene             "scene"                                   >
 <!ENTITY % personae          "personae"                                >
 
@@ -108,9 +108,12 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/playmap"
    (%covers;)?,
    (%colophon;)?, 
    ((%personae;) |
+    (%induct;) |
+    (%prologue;) |
     (%page;))*,
    ((%acts;)), 
    ((%page;) |
+    (%epilogue;) |
     (%colophon;))*,
    (%reltable;)*)"
 >
@@ -188,9 +191,9 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/playmap"
                        "((%topicmeta;)?, 
                          (%personae;)?,
                          (%induct;)?,
-                         (%prolog;)?,
+                         (%prologue;)?,
                          (%act;)+,
-                         (%epilog;)?)"
+                         (%epilogue;)?)"
 >
 
 <!-- Sets collection-type to sequence by default -->
@@ -288,16 +291,16 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/playmap"
 <!ELEMENT personae    %personae.content;>
 <!ATTLIST personae    %personae.attributes;>
 
-<!ENTITY % epilog.content
+<!ENTITY % epilogue.content
  "((%topicmeta;)?, 
    (%scene; |
     %topicref;)*)"
 >
-<!ENTITY % epilog.attributes
+<!ENTITY % epilogue.attributes
  "%play-component-atts;"
 >
-<!ELEMENT epilog    %epilog.content;>
-<!ATTLIST epilog    %epilog.attributes;>
+<!ELEMENT epilogue    %epilogue.content;>
+<!ATTLIST epilogue    %epilogue.attributes;>
 
 <!ENTITY % induct.content
  "((%topicmeta;)?, 
@@ -310,16 +313,16 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/playmap"
 <!ELEMENT induct    %induct.content;>
 <!ATTLIST induct    %induct.attributes;>
 
-<!ENTITY % prolog.content
+<!ENTITY % prologue.content
  "((%topicmeta;)?, 
    (%scene; |
     %topicref;)*)"
 >
-<!ENTITY % prolog.attributes
+<!ENTITY % prologue.attributes
  "%play-component-atts;"
 >
-<!ELEMENT prolog    %prolog.content;>
-<!ATTLIST prolog    %prolog.attributes;>
+<!ELEMENT prologue    %prologue.content;>
+<!ATTLIST prologue    %prologue.attributes;>
 
 <!ENTITY % scene.content
  "((%topicmeta;)?, 
@@ -337,8 +340,8 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/playmap"
 <!ATTLIST playmetadata %global-atts; class CDATA "- map/metadata pubmap/metadata   playmap/playmetadata ">
 <!ATTLIST acts        %global-atts; class CDATA "- map/topicref pubmap/pubbody      playmap/acts ">
 <!ATTLIST act         %global-atts; class CDATA "- map/topicref playmap/topicref    playmap/act ">
-<!ATTLIST prolog      %global-atts; class CDATA "- map/topicref playmap/topicref    playmap/prolog ">
-<!ATTLIST epilog      %global-atts; class CDATA "- map/topicref playmap/topicref    playmap/epilog ">
+<!ATTLIST prologue    %global-atts; class CDATA "- map/topicref playmap/topicref    playmap/prologue ">
+<!ATTLIST epilogue    %global-atts; class CDATA "- map/topicref playmap/topicref    playmap/epilogue ">
 <!ATTLIST induct      %global-atts; class CDATA "- map/topicref playmap/topicref    playmap/induct ">
 <!ATTLIST scene       %global-atts; class CDATA "- map/topicref playmap/topicref    playmap/scene ">
 <!ATTLIST scene-description %global-atts; class CDATA "- map/data   playmap/data        playmap/scene-description ">

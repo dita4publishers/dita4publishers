@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE playmap
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/playmap" "playmap.dtd">
-<playmap>
+<playmap xml:lang="en">
    <title>The Tragedy of King Richard the Second</title>
    <playmeta>
       <playmetadata>
          <scene-description>SCENE  England and Wales.</scene-description>
       </playmetadata>
    </playmeta>
+   <covers>
+      <front-cover href="topics/front-cover.xml"/>
+   </covers>
    <personae href="topics/personae.xml"/>
    <acts>
       <act href="topics/act-1.xml"/>

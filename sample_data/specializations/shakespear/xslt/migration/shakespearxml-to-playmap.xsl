@@ -29,21 +29,31 @@
   <xsl:output name="prologue"
     doctype-public="urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/prologue"
     doctype-system="prologue.dtd"
+    indent="yes"
   />
   
   <xsl:output name="epilogue"
     doctype-public="urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/epilogue"
     doctype-system="epilogue.dtd"
+    indent="yes"
   />
   
   <xsl:output name="scene"
     doctype-public="urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/scene"
     doctype-system="scene.dtd"
+    indent="yes"
   />
   
   <xsl:output name="induct"
     doctype-public="urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/induct"
     doctype-system="induct.dtd"
+    indent="yes"
+  />
+  
+  <xsl:output name="topic"
+    doctype-public="-//OASIS//DTD DITA Topic//EN"
+    doctype-system="topic.dtd"
+    indent="yes"
   />
   
   <xsl:template match="/">
@@ -51,13 +61,17 @@
   </xsl:template>
   
   <xsl:template match="PLAY">
-    <playmap>
+    <playmap xml:lang="en">
       <xsl:apply-templates select="TITLE"/>
       <playmeta>      
         <playmetadata>
         <xsl:apply-templates select="SCNDESCR"/>
       </playmetadata>
       </playmeta>
+      <covers>
+        <front-cover href="topics/front-cover.xml"/>
+        <xsl:apply-templates select="." mode="front-cover"/>
+      </covers>
       <xsl:apply-templates select="PERSONAE"/>
       <xsl:apply-templates select="PROLOGUE | INDUCT">
         <xsl:with-param name="actPrefix" as="xs:string" select="''" tunnel="yes"/>        
@@ -69,6 +83,63 @@
         <xsl:with-param name="actPrefix" as="xs:string" select="''" tunnel="yes"/>        
       </xsl:apply-templates>
     </playmap>
+  </xsl:template>
+  
+  <xsl:template mode="front-cover" match="PLAY">
+    <xsl:result-document href="topics/front-cover.xml" format="topic">
+      <topic id="front-cover" outputclass="front-cover">
+        <xsl:apply-templates select="TITLE" mode="#current"/>
+        <body>
+          <xsl:apply-templates select="PLAYSUBT" mode="front-cover"/>
+          <xsl:apply-templates select="SCNDESCR " mode="front-cover"/>
+          
+          <fig frame="all" outputclass="cover-picture">
+            <p><image href="images/cover-graphic.jpg"
+              placement="break" align="center" width="200"
+              >
+              <alt>Cover Graphic</alt>
+            </image>
+            </p>
+          </fig>
+          <section spectitle="License">
+            <xsl:apply-templates select="FM" mode="front-cover"/>            
+          </section>
+        </body>
+      </topic>
+    </xsl:result-document>
+  </xsl:template>
+  
+  <xsl:template mode="front-cover" match="TITLE">
+    <title><xsl:apply-templates/></title>
+  </xsl:template>
+  
+  <xsl:template mode="front-cover" match="SCNDESCR">
+    <p><xsl:apply-templates/></p>
+  </xsl:template>
+  
+  <xsl:template mode="front-cover" match="PLAYSUBT">
+    <p outputclass="play-subtitle"><b><xsl:apply-templates/></b></p>
+  </xsl:template>
+  
+  <xsl:template match="P">
+    <p><xsl:apply-templates/></p>
+  </xsl:template>
+  
+  <xsl:template mode="front-cover" match="FM">
+    <p>By agreement with Jon Bosak, this edition is
+      published under the <xref
+        href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/"
+        format="html"
+        scope="external">Creative Commons Attribution-Noncommercial-Share Alike</xref> license. Jon's original
+      license and attributions also apply (see below).</p>
+    <p><xref
+      href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/"
+      format="html"
+      scope="external"><image
+        href="http://i.creativecommons.org/l/by-nc-sa/3.0/us/88x31.png">
+        <alt>Creative Commons License</alt>
+      </image></xref></p>
+    <xsl:apply-templates/>
   </xsl:template>
   
   <xsl:template match="PLAY/SCNDESCR">

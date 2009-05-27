@@ -13,6 +13,14 @@
     </div>
   </xsl:template>
   
+  <xsl:template match="*[contains(@class, ' topic/p ')][@outputclass = 'play-subtitle']" priority="10">
+    <div style="display: block; text-align: center; font-weight: bold; 
+                font-size: 16px; margin: 50px;" 
+      class="{@outputclass}">
+      <xsl:apply-templates/>
+    </div>
+  </xsl:template>
+  
   <xsl:template match="*[contains(@class, ' personae/pgroup ')]" priority="10">
     <div style="display: block; margin-left: 0.25in" class="pgroup">
       <xsl:apply-templates/>

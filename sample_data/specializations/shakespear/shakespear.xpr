@@ -85,5 +85,13 @@
             <file name="../../shaks200/two_gent.xml"/>
             <file name="../../shaks200/win_tale.xml"/>
         </folder>
+        <folder name="plugin source">
+            <file
+                name="toolkit_plugins/net.sourceforge.dita4publishers.shakespear.html/xsl/play2html.xsl"
+            />
+        </folder>
+        <folder name="specialization modules">
+            <file name="doctypes/playmap/dtd/playmap.mod"/>
+        </folder>
     </projectTree>
 </project>

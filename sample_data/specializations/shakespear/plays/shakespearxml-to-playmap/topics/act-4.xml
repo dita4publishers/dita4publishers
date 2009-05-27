@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/act" "act.dtd">
+<act id="act-4">
+   <title>ACT IV</title>
+   <scene id="act-4-scene-1">
+      <title>SCENE I.  A street in Westminster.</title>
+      <scene-body>
+         <stagedir>Enter two Gentlemen, meeting one another</stagedir>
+         <speech>
+            <speaker>First Gentleman</speaker>
+            <line>You're well met once again.</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>So are you.</line>
+         </speech>
+         <speech>
+            <speaker>First Gentleman</speaker>
+            <line>You come to take your stand here, and behold</line>
+            <line>The Lady Anne pass from her coronation?</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>'Tis all my business. At our last encounter,</line>
+            <line>The Duke of Buckingham came from his trial.</line>
+         </speech>
+         <speech>
+            <speaker>First Gentleman</speaker>
+            <line>'Tis very true: but that time offer'd sorrow;</line>
+            <line>This, general joy.</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>'Tis well: the citizens,</line>
+            <line>I am sure, have shown at full their royal minds--</line>
+            <line>As, let 'em have their rights, they are ever forward--</line>
+            <line>In celebration of this day with shows,</line>
+            <line>Pageants and sights of honour.</line>
+         </speech>
+         <speech>
+            <speaker>First Gentleman</speaker>
+            <line>Never greater,</line>
+            <line>Nor, I'll assure you, better taken, sir.</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>May I be bold to ask at what that contains,</line>
+            <line>That paper in your hand?</line>
+         </speech>
+         <speech>
+            <speaker>First Gentleman</speaker>
+            <line>Yes; 'tis the list</line>
+            <line>Of those that claim their offices this day</line>
+            <line>By custom of the coronation.</line>
+            <line>The Duke of Suffolk is the first, and claims</line>
+            <line>To be high-steward; next, the Duke of Norfolk,</line>
+            <line>He to be earl marshal: you may read the rest.</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>I thank you, sir: had I not known those customs,</line>
+            <line>I should have been beholding to your paper.</line>
+            <line>But, I beseech you, what's become of Katharine,</line>
+            <line>The princess dowager? how goes her business?</line>
+         </speech>
+         <speech>
+            <speaker>First Gentleman</speaker>
+            <line>That I can tell you too. The Archbishop</line>
+            <line>Of Canterbury, accompanied with other</line>
+            <line>Learned and reverend fathers of his order,</line>
+            <line>Held a late court at Dunstable, six miles off</line>
+            <line>From Ampthill where the princess lay; to which</line>
+            <line>She was often cited by them, but appear'd not:</line>
+            <line>And, to be short, for not appearance and</line>
+            <line>The king's late scruple, by the main assent</line>
+            <line>Of all these learned men she was divorced,</line>
+            <line>And the late marriage made of none effect</line>
+            <line>Since which she was removed to Kimbolton,</line>
+            <line>Where she remains now sick.</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>Alas, good lady!</line>
+            <stagedir>Trumpets</stagedir>
+            <line>The trumpets sound: stand close, the queen is coming.</line>
+         </speech>
+         <stagedir>Hautboys</stagedir>
+         <stagedir>THE ORDER OF THE CORONATION</stagedir>
+         <stagedir>1. A lively flourish of Trumpets.</stagedir>
+         <stagedir>2. Then, two Judges.</stagedir>
+         <stagedir>3. Lord Chancellor, with the purse and mace before him.</stagedir>
+         <stagedir>4. Choristers, singing.</stagedir>
+         <stagedir>Music</stagedir>
+         <stagedir>5. Mayor of London, bearing the mace. Then Garter, in his coat of arms, and on his head a gilt copper crown.</stagedir>
+         <stagedir>6. Marquess Dorset, bearing a sceptre of gold, on his head a demi-coronal of gold. With him, SURREY, bearing the rod of silver with the dove, crowned with an earl's coronet. Collars of SS.</stagedir>
+         <stagedir>7. SUFFOLK, in his robe of estate, his coronet on his head, bearing a long white wand, as high-steward. With him, NORFOLK, with the rod of marshalship, a coronet on his head. Collars of SS.</stagedir>
+         <stagedir>8. A canopy borne by four of the Cinque-ports; under it, QUEEN ANNE in her robe; in her hair richly adorned with pearl, crowned. On each side her, the Bishops of London and Winchester.</stagedir>
+         <stagedir>9. The old Duchess of Norfolk, in a coronal of gold, wrought with flowers, bearing QUEEN ANNE's train.</stagedir>
+         <stagedir>10. Certain Ladies or Countesses, with plain circlets of gold without flowers.</stagedir>
+         <stagedir>They pass over the stage in order and state</stagedir>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>A royal train, believe me. These I know:</line>
+            <line>Who's that that bears the sceptre?</line>
+         </speech>
+         <speech>
+            <speaker>First Gentleman</speaker>
+            <line>Marquess Dorset:</line>
+            <line>And that the Earl of Surrey, with the rod.</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>A bold brave gentleman. That should be</line>
+            <line>The Duke of Suffolk?</line>
+         </speech>
+         <speech>
+            <speaker>First Gentleman</speaker>
+            <line>'Tis the same: high-steward.</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>And that my Lord of Norfolk?</line>
+         </speech>
+         <speech>
+            <speaker>First Gentleman</speaker>
+            <line>Yes;</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>Heaven bless thee!</line>
+            <stagedir>Looking on QUEEN ANNE</stagedir>
+            <line>Thou hast the sweetest face I ever look'd on.</line>
+            <line>Sir, as I have a soul, she is an angel;</line>
+            <line>Our king has all the Indies in his arms,</line>
+            <line>And more and richer, when he strains that lady:</line>
+            <line>I cannot blame his conscience.</line>
+         </speech>
+         <speech>
+            <speaker>First Gentleman</speaker>
+            <line>They that bear</line>
+            <line>The cloth of honour over her, are four barons</line>
+            <line>Of the Cinque-ports.</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>Those men are happy; and so are all are near her.</line>
+            <line>I take it, she that carries up the train</line>
+            <line>Is that old noble lady, Duchess of Norfolk.</line>
+         </speech>
+         <speech>
+            <speaker>First Gentleman</speaker>
+            <line>It is; and all the rest are countesses.</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>Their coronets say so. These are stars indeed;</line>
+            <line>And sometimes falling ones.</line>
+         </speech>
+         <speech>
+            <speaker>First Gentleman</speaker>
+            <line>No more of that.</line>
+         </speech>
+         <stagedir>Exit procession, and then a great flourish of trumpets</stagedir>
+         <stagedir>Enter a third Gentleman</stagedir>
+         <speech>
+            <speaker>First Gentleman</speaker>
+            <line>God save you, sir! where have you been broiling?</line>
+         </speech>
+         <speech>
+            <speaker>Third Gentleman</speaker>
+            <line>Among the crowd i' the Abbey; where a finger</line>
+            <line>Could not be wedged in more: I am stifled</line>
+            <line>With the mere rankness of their joy.</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>You saw</line>
+            <line>The ceremony?</line>
+         </speech>
+         <speech>
+            <speaker>Third Gentleman</speaker>
+            <line>That I did.</line>
+         </speech>
+         <speech>
+            <speaker>First Gentleman</speaker>
+            <line>How was it?</line>
+         </speech>
+         <speech>
+            <speaker>Third Gentleman</speaker>
+            <line>Well worth the seeing.</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>Good sir, speak it to us.</line>
+         </speech>
+         <speech>
+            <speaker>Third Gentleman</speaker>
+            <line>As well as I am able. The rich stream</line>
+            <line>Of lords and ladies, having brought the queen</line>
+            <line>To a prepared place in the choir, fell off</line>
+            <line>A distance from her; while her grace sat down</line>
+            <line>To rest awhile, some half an hour or so,</line>
+            <line>In a rich chair of state, opposing freely</line>
+            <line>The beauty of her person to the people.</line>
+            <line>Believe me, sir, she is the goodliest woman</line>
+            <line>That ever lay by man: which when the people</line>
+            <line>Had the full view of, such a noise arose</line>
+            <line>As the shrouds make at sea in a stiff tempest,</line>
+            <line>As loud, and to as many tunes: hats, cloaks--</line>
+            <line>Doublets, I think,--flew up; and had their faces</line>
+            <line>Been loose, this day they had been lost. Such joy</line>
+            <line>I never saw before. Great-bellied women,</line>
+            <line>That had not half a week to go, like rams</line>
+            <line>In the old time of war, would shake the press,</line>
+            <line>And make 'em reel before 'em. No man living</line>
+            <line>Could say 'This is my wife' there; all were woven</line>
+            <line>So strangely in one piece.</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>But, what follow'd?</line>
+         </speech>
+         <speech>
+            <speaker>Third Gentleman</speaker>
+            <line>At length her grace rose, and with modest paces</line>
+            <line>Came to the altar; where she kneel'd, and saint-like</line>
+            <line>Cast her fair eyes to heaven and pray'd devoutly.</line>
+            <line>Then rose again and bow'd her to the people:</line>
+            <line>When by the Archbishop of Canterbury</line>
+            <line>She had all the royal makings of a queen;</line>
+            <line>As holy oil, Edward Confessor's crown,</line>
+            <line>The rod, and bird of peace, and all such emblems</line>
+            <line>Laid nobly on her: which perform'd, the choir,</line>
+            <line>With all the choicest music of the kingdom,</line>
+            <line>Together sung 'Te Deum.' So she parted,</line>
+            <line>And with the same full state paced back again</line>
+            <line>To York-place, where the feast is held.</line>
+         </speech>
+         <speech>
+            <speaker>First Gentleman</speaker>
+            <line>Sir,</line>
+            <line>You must no more call it York-place, that's past;</line>
+            <line>For, since the cardinal fell, that title's lost:</line>
+            <line>'Tis now the king's, and call'd Whitehall.</line>
+         </speech>
+         <speech>
+            <speaker>Third Gentleman</speaker>
+            <line>I know it;</line>
+            <line>But 'tis so lately alter'd, that the old name</line>
+            <line>Is fresh about me.</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>What two reverend bishops</line>
+            <line>Were those that went on each side of the queen?</line>
+         </speech>
+         <speech>
+            <speaker>Third Gentleman</speaker>
+            <line>Stokesly and Gardiner; the one of Winchester,</line>
+            <line>Newly preferr'd from the king's secretary,</line>
+            <line>The other, London.</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>He of Winchester</line>
+            <line>Is held no great good lover of the archbishop's,</line>
+            <line>The virtuous Cranmer.</line>
+         </speech>
+         <speech>
+            <speaker>Third Gentleman</speaker>
+            <line>All the land knows that:</line>
+            <line>However, yet there is no great breach; when it comes,</line>
+            <line>Cranmer will find a friend will not shrink from him.</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>Who may that be, I pray you?</line>
+         </speech>
+         <speech>
+            <speaker>Third Gentleman</speaker>
+            <line>Thomas Cromwell;</line>
+            <line>A man in much esteem with the king, and truly</line>
+            <line>A worthy friend. The king has made him master</line>
+            <line>O' the jewel house,</line>
+            <line>And one, already, of the privy council.</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>He will deserve more.</line>
+         </speech>
+         <speech>
+            <speaker>Third Gentleman</speaker>
+            <line>Yes, without all doubt.</line>
+            <line>Come, gentlemen, ye shall go my way, which</line>
+            <line>Is to the court, and there ye shall be my guests:</line>
+            <line>Something I can command. As I walk thither,</line>
+            <line>I'll tell ye more.</line>
+         </speech>
+         <speech>
+            <speaker>Both</speaker>
+            <line>You may command us, sir.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-4-scene-2">
+      <title>SCENE II.  Kimbolton.</title>
+      <scene-body>
+         <stagedir>Enter KATHARINE, Dowager, sick; led between
+GRIFFITH, her gentleman usher, and PATIENCE, her woman</stagedir>
+         <speech>
+            <speaker>GRIFFITH</speaker>
+            <line>How does your grace?</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>O Griffith, sick to death!</line>
+            <line>My legs, like loaden branches, bow to the earth,</line>
+            <line>Willing to leave their burthen. Reach a chair:</line>
+            <line>So; now, methinks, I feel a little ease.</line>
+            <line>Didst thou not tell me, Griffith, as thou led'st me,</line>
+            <line>That the great child of honour, Cardinal Wolsey, Was dead?</line>
+         </speech>
+         <speech>
+            <speaker>GRIFFITH</speaker>
+            <line>Yes, madam; but I think your grace,</line>
+            <line>Out of the pain you suffer'd, gave no ear to't.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Prithee, good Griffith, tell me how he died:</line>
+            <line>If well, he stepp'd before me, happily</line>
+            <line>For my example.</line>
+         </speech>
+         <speech>
+            <speaker>GRIFFITH</speaker>
+            <line>Well, the voice goes, madam:</line>
+            <line>For after the stout Earl Northumberland</line>
+            <line>Arrested him at York, and brought him forward,</line>
+            <line>As a man sorely tainted, to his answer,</line>
+            <line>He fell sick suddenly, and grew so ill</line>
+            <line>He could not sit his mule.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Alas, poor man!</line>
+         </speech>
+         <speech>
+            <speaker>GRIFFITH</speaker>
+            <line>At last, with easy roads, he came to Leicester,</line>
+            <line>Lodged in the abbey; where the reverend abbot,</line>
+            <line>With all his covent, honourably received him;</line>
+            <line>To whom he gave these words, 'O, father abbot,</line>
+            <line>An old man, broken with the storms of state,</line>
+            <line>Is come to lay his weary bones among ye;</line>
+            <line>Give him a little earth for charity!'</line>
+            <line>So went to bed; where eagerly his sickness</line>
+            <line>Pursued him still: and, three nights after this,</line>
+            <line>About the hour of eight, which he himself</line>
+            <line>Foretold should be his last, full of repentance,</line>
+            <line>Continual meditations, tears, and sorrows,</line>
+            <line>He gave his honours to the world again,</line>
+            <line>His blessed part to heaven, and slept in peace.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>So may he rest; his faults lie gently on him!</line>
+            <line>Yet thus far, Griffith, give me leave to speak him,</line>
+            <line>And yet with charity. He was a man</line>
+            <line>Of an unbounded stomach, ever ranking</line>
+            <line>Himself with princes; one that, by suggestion,</line>
+            <line>Tied all the kingdom: simony was fair-play;</line>
+            <line>His own opinion was his law: i' the presence</line>
+            <line>He would say untruths; and be ever double</line>
+            <line>Both in his words and meaning: he was never,</line>
+            <line>But where he meant to ruin, pitiful:</line>
+            <line>His promises were, as he then was, mighty;</line>
+            <line>But his performance, as he is now, nothing:</line>
+            <line>Of his own body he was ill, and gave</line>
+            <line>The clergy in example.</line>
+         </speech>
+         <speech>
+            <speaker>GRIFFITH</speaker>
+            <line>Noble madam,</line>
+            <line>Men's evil manners live in brass; their virtues</line>
+            <line>We write in water. May it please your highness</line>
+            <line>To hear me speak his good now?</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Yes, good Griffith;</line>
+            <line>I were malicious else.</line>
+         </speech>
+         <speech>
+            <speaker>GRIFFITH</speaker>
+            <line>This cardinal,</line>
+            <line>Though from an humble stock, undoubtedly</line>
+            <line>Was fashion'd to much honour from his cradle.</line>
+            <line>He was a scholar, and a ripe and good one;</line>
+            <line>Exceeding wise, fair-spoken, and persuading:</line>
+            <line>Lofty and sour to them that loved him not;</line>
+            <line>But to those men that sought him sweet as summer.</line>
+            <line>And though he were unsatisfied in getting,</line>
+            <line>Which was a sin, yet in bestowing, madam,</line>
+            <line>He was most princely: ever witness for him</line>
+            <line>Those twins Of learning that he raised in you,</line>
+            <line>Ipswich and Oxford! one of which fell with him,</line>
+            <line>Unwilling to outlive the good that did it;</line>
+            <line>The other, though unfinish'd, yet so famous,</line>
+            <line>So excellent in art, and still so rising,</line>
+            <line>That Christendom shall ever speak his virtue.</line>
+            <line>His overthrow heap'd happiness upon him;</line>
+            <line>For then, and not till then, he felt himself,</line>
+            <line>And found the blessedness of being little:</line>
+            <line>And, to add greater honours to his age</line>
+            <line>Than man could give him, he died fearing God.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>After my death I wish no other herald,</line>
+            <line>No other speaker of my living actions,</line>
+            <line>To keep mine honour from corruption,</line>
+            <line>But such an honest chronicler as Griffith.</line>
+            <line>Whom I most hated living, thou hast made me,</line>
+            <line>With thy religious truth and modesty,</line>
+            <line>Now in his ashes honour: peace be with him!</line>
+            <line>Patience, be near me still; and set me lower:</line>
+            <line>I have not long to trouble thee. Good Griffith,</line>
+            <line>Cause the musicians play me that sad note</line>
+            <line>I named my knell, whilst I sit meditating</line>
+            <line>On that celestial harmony I go to.</line>
+         </speech>
+         <stagedir>Sad and solemn music</stagedir>
+         <speech>
+            <speaker>GRIFFITH</speaker>
+            <line>She is asleep: good wench, let's sit down quiet,</line>
+            <line>For fear we wake her: softly, gentle Patience.</line>
+         </speech>
+         <stagedir>The vision. Enter, solemnly tripping one after
+another, six personages, clad in white robes,
+wearing on their heads garlands of bays, and golden
+vizards on their faces; branches of bays or palm in
+their hands. They first congee unto her, then
+dance; and, at certain changes, the first two hold
+a spare garland over her head; at which the other
+four make reverent curtsies; then the two that held
+the garland deliver the same to the other next two,
+who observe the same order in their changes, and
+holding the garland over her head: which done,
+they deliver the same garland to the last two, who
+likewise observe the same order: at which, as it
+were by inspiration, she makes in her sleep signs
+of rejoicing, and holdeth up her hands to heaven:
+and so in their dancing vanish, carrying the
+garland with them. The music continues</stagedir>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Spirits of peace, where are ye? are ye all gone,</line>
+            <line>And leave me here in wretchedness behind ye?</line>
+         </speech>
+         <speech>
+            <speaker>GRIFFITH</speaker>
+            <line>Madam, we are here.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>It is not you I call for:</line>
+            <line>Saw ye none enter since I slept?</line>
+         </speech>
+         <speech>
+            <speaker>GRIFFITH</speaker>
+            <line>None, madam.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>No? Saw you not, even now, a blessed troop</line>
+            <line>Invite me to a banquet; whose bright faces</line>
+            <line>Cast thousand beams upon me, like the sun?</line>
+            <line>They promised me eternal happiness;</line>
+            <line>And brought me garlands, Griffith, which I feel</line>
+            <line>I am not worthy yet to wear: I shall, assuredly.</line>
+         </speech>
+         <speech>
+            <speaker>GRIFFITH</speaker>
+            <line>I am most joyful, madam, such good dreams</line>
+            <line>Possess your fancy.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Bid the music leave,</line>
+            <line>They are harsh and heavy to me.</line>
+         </speech>
+         <stagedir>Music ceases</stagedir>
+         <speech>
+            <speaker>PATIENCE</speaker>
+            <line>Do you note</line>
+            <line>How much her grace is alter'd on the sudden?</line>
+            <line>How long her face is drawn? how pale she looks,</line>
+            <line>And of an earthy cold? Mark her eyes!</line>
+         </speech>
+         <speech>
+            <speaker>GRIFFITH</speaker>
+            <line>She is going, wench: pray, pray.</line>
+         </speech>
+         <speech>
+            <speaker>PATIENCE</speaker>
+            <line>Heaven comfort her!</line>
+         </speech>
+         <stagedir>Enter a Messenger</stagedir>
+         <speech>
+            <speaker>Messenger</speaker>
+            <line>An't like your grace,--</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>You are a saucy fellow:</line>
+            <line>Deserve we no more reverence?</line>
+         </speech>
+         <speech>
+            <speaker>GRIFFITH</speaker>
+            <line>You are to blame,</line>
+            <line>Knowing she will not lose her wonted greatness,</line>
+            <line>To use so rude behavior; go to, kneel.</line>
+         </speech>
+         <speech>
+            <speaker>Messenger</speaker>
+            <line>I humbly do entreat your highness' pardon;</line>
+            <line>My haste made me unmannerly. There is staying</line>
+            <line>A gentleman, sent from the king, to see you.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Admit him entrance, Griffith: but this fellow</line>
+            <line>Let me ne'er see again.</line>
+            <stagedir>Exeunt GRIFFITH and Messenger</stagedir>
+            <stagedir>Re-enter GRIFFITH, with CAPUCIUS</stagedir>
+            <line>If my sight fail not,</line>
+            <line>You should be lord ambassador from the emperor,</line>
+            <line>My royal nephew, and your name Capucius.</line>
+         </speech>
+         <speech>
+            <speaker>CAPUCIUS</speaker>
+            <line>Madam, the same; your servant.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>O, my lord,</line>
+            <line>The times and titles now are alter'd strangely</line>
+            <line>With me since first you knew me. But, I pray you,</line>
+            <line>What is your pleasure with me?</line>
+         </speech>
+         <speech>
+            <speaker>CAPUCIUS</speaker>
+            <line>Noble lady,</line>
+            <line>First mine own service to your grace; the next,</line>
+            <line>The king's request that I would visit you;</line>
+            <line>Who grieves much for your weakness, and by me</line>
+            <line>Sends you his princely commendations,</line>
+            <line>And heartily entreats you take good comfort.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>O my good lord, that comfort comes too late;</line>
+            <line>'Tis like a pardon after execution:</line>
+            <line>That gentle physic, given in time, had cured me;</line>
+            <line>But now I am past an comforts here, but prayers.</line>
+            <line>How does his highness?</line>
+         </speech>
+         <speech>
+            <speaker>CAPUCIUS</speaker>
+            <line>Madam, in good health.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>So may he ever do! and ever flourish,</line>
+            <line>When I shall dwell with worms, and my poor name</line>
+            <line>Banish'd the kingdom! Patience, is that letter,</line>
+            <line>I caused you write, yet sent away?</line>
+         </speech>
+         <speech>
+            <speaker>PATIENCE</speaker>
+            <line>No, madam.</line>
+         </speech>
+         <stagedir>Giving it to KATHARINE</stagedir>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Sir, I most humbly pray you to deliver</line>
+            <line>This to my lord the king.</line>
+         </speech>
+         <speech>
+            <speaker>CAPUCIUS</speaker>
+            <line>Most willing, madam.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>In which I have commended to his goodness</line>
+            <line>The model of our chaste loves, his young daughter;</line>
+            <line>The dews of heaven fall thick in blessings on her!</line>
+            <line>Beseeching him to give her virtuous breeding--</line>
+            <line>She is young, and of a noble modest nature,</line>
+            <line>I hope she will deserve well,--and a little</line>
+            <line>To love her for her mother's sake, that loved him,</line>
+            <line>Heaven knows how dearly. My next poor petition</line>
+            <line>Is, that his noble grace would have some pity</line>
+            <line>Upon my wretched women, that so long</line>
+            <line>Have follow'd both my fortunes faithfully:</line>
+            <line>Of which there is not one, I dare avow,</line>
+            <line>And now I should not lie, but will deserve</line>
+            <line>For virtue and true beauty of the soul,</line>
+            <line>For honesty and decent carriage,</line>
+            <line>A right good husband, let him be a noble</line>
+            <line>And, sure, those men are happy that shall have 'em.</line>
+            <line>The last is, for my men; they are the poorest,</line>
+            <line>But poverty could never draw 'em from me;</line>
+            <line>That they may have their wages duly paid 'em,</line>
+            <line>And something over to remember me by:</line>
+            <line>If heaven had pleased to have given me longer life</line>
+            <line>And able means, we had not parted thus.</line>
+            <line>These are the whole contents: and, good my lord,</line>
+            <line>By that you love the dearest in this world,</line>
+            <line>As you wish Christian peace to souls departed,</line>
+            <line>Stand these poor people's friend, and urge the king</line>
+            <line>To do me this last right.</line>
+         </speech>
+         <speech>
+            <speaker>CAPUCIUS</speaker>
+            <line>By heaven, I will,</line>
+            <line>Or let me lose the fashion of a man!</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>I thank you, honest lord. Remember me</line>
+            <line>In all humility unto his highness:</line>
+            <line>Say his long trouble now is passing</line>
+            <line>Out of this world; tell him, in death I bless'd him,</line>
+            <line>For so I will. Mine eyes grow dim. Farewell,</line>
+            <line>My lord. Griffith, farewell. Nay, Patience,</line>
+            <line>You must not leave me yet: I must to bed;</line>
+            <line>Call in more women. When I am dead, good wench,</line>
+            <line>Let me be used with honour: strew me over</line>
+            <line>With maiden flowers, that all the world may know</line>
+            <line>I was a chaste wife to my grave: embalm me,</line>
+            <line>Then lay me forth: although unqueen'd, yet like</line>
+            <line>A queen, and daughter to a king, inter me.</line>
+            <line>I can no more.</line>
+         </speech>
+         <stagedir>Exeunt, leading KATHARINE</stagedir>
+      </scene-body>
+   </scene>
+</act>

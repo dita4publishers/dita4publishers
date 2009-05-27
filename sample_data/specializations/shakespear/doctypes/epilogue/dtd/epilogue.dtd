@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- =============================================================
-     DITA For Publishers Act Topic Type
+     DITA For Publishers Epilogue Topic Type
      
-     Represents an act within a Shakespear play.
+     Represents an epilogue within a Shakespear play.
      
      Specializes from play-component
      
@@ -53,15 +53,13 @@
 
 <!--                    Redefine the infotype entity to exclude 
                         other topic types and disallow nesting     -->
-<!ENTITY % act-info-types 
-  "scene |
-   prologue |
-   epilogue
+<!ENTITY % epilogue-info-types 
+  "scene
   "
 >
 
 <!ENTITY % info-types
-  "%act-info-types;
+  "%epilogue-info-types;
   "
 >
 
@@ -98,12 +96,21 @@
 >                                                     
 %play-component-typemod;
 
-<!ENTITY % act-typemod 
+<!ENTITY % epilogue-typemod 
                         PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/modules/shakespear/act" 
-"act.mod"                                                        
+"urn:pubid:dita4publishers.sourceforge.net/modules/shakespear/epilogue" 
+"epilogue.mod"                                                        
 >                                                     
-%act-typemod;
+%epilogue-typemod;
+
+<!ENTITY % scene-typemod 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net/modules/shakespear/scene" 
+"scene.mod"                                                        
+>                                                     
+%scene-typemod;
+
+
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ELEMENT INTEGRATION                 -->
@@ -116,4 +123,4 @@
 
 
 
-<!-- ================== End act DTD  ==================== -->
+<!-- ================== End epilogue DTD  ==================== -->
