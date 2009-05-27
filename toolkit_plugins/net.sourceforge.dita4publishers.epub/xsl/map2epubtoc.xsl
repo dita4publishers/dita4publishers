@@ -115,7 +115,7 @@
         <xsl:with-param name="navPointTitleBase" select="$navPointTitleBase"/>
       </xsl:apply-templates>
     </xsl:variable>
-
+    
     <navPoint id="{generate-id()}"
                   playOrder="{count(preceding::*[contains(@class,' map/topicref ')]) +
                              count(ancestor::*[contains(@class,' map/topicref ')]) + 1}"> 
@@ -127,7 +127,12 @@
     </navPoint>
   </xsl:template>
   
-  <xsl:template mode="nav-point-title" match="*[contains(@class, ' pubmap/chapter ')]">
+  <xsl:template mode="nav-point-title" match="*[contains(@class, ' map/topicref ')]">
+    <xsl:param name="navPointTitleBase"/>
+    <xsl:value-of select="$navPointTitleBase"/>
+  </xsl:template>
+  
+  <xsl:template mode="nav-point-title" match="*[contains(@class, ' pubmap/chapter ')]" priority="10">
     <xsl:param name="navPointTitleBase"/>
     <xsl:text>Chapter </xsl:text>
     <xsl:number count="*[contains(@class, ' pubmap/chapter ')]"
