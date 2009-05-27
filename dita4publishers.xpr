@@ -7,6 +7,7 @@
     </meta>
     <projectTree name="dita4publishers.xpr">
         <file name="templates/maps/D4P%20Pubmap.ditamap"/>
+        <file name="documentation/website/dita4publishers.ditamap"/>
         <file name="doctypes/pubmap/dtd/pubmap.mod"/>
         <file
             name="sample_data/simple_publication/simple_publication.ditamap"

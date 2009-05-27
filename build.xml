@@ -195,10 +195,7 @@
 		</scp>
   </target>
 	
-	<target name="upload-website-contents-to-sourceforge">
-		<!-- FIXME: Once can run Toolkit processes from this build file, need to
-		     be dependent on separate target for generating the Web site HTML.
-		  -->
+	<target name="upload-website-contents-to-sourceforge" depends="generate-web-site">
 		<scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs"
 		 password="${sourceforge.password}"
 			verbose="true"
@@ -247,5 +244,31 @@
 			<property name="output.dir" location="${epubTemp}"/>
 	  </ant>
 	</target>
-	
+
+	 <target name="generate-web-site">
+      <delete includeEmptyDirs="true" failonerror="false">
+        <fileset dir="${website.build}"  includes="*/**"/>
+      </delete>
+	 	
+	    <ant antfile="${dita-ot-dir}${file.separator}build.xml"
+	      dir="${dita-ot-dir}"
+	      target="dita2xhtml"
+	      
+	      >
+	      <property name="args.input" location="${docs}/website/dita4publishers.ditamap"/>
+	      <property name="transtype" value="dita2xhtml"/>
+	      <property name="args.outext" value="html"/>
+	      <property name="args.xhtml.toc" value="toc"/>
+	      <property name="dita.dir" location="${dita-ot-dir}"/>
+	      <property name="dita.temp.dir" location="${temp}/dita-temp"/>
+	      <property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
+	      <property name="output.dir" location="${website.build}"/>
+	    </ant>
+	 	
+	 	  <copy todir="${website.build}">
+	 	  	<fileset dir="${docs}/website/static-html" includes="index.html"/>
+	 	  </copy>
+	  </target>
+	  
+
 </project>
