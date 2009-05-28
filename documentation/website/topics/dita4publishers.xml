@@ -3,6 +3,14 @@
 <topic
   id="topic-1">
   <title>DITA For Publishers</title>
+  <prolog>
+    <critdates>
+      <created
+        date="2009-05-20"/>
+      <revised
+        modified="2009-05-28"/>
+    </critdates>
+  </prolog>
   <body>
     <p>The DITA for Publishers project is an open-source, community project to enable the quick and
       productive use of DITA by Publishers. Enabling activities include:<ul>
@@ -25,17 +33,25 @@
           <colspec
             colname="c1"
             colnum="1"
-            colwidth="0.55*"/>
+            colwidth="1*"/>
           <colspec
             colname="c2"
             colnum="2"
-            colwidth="1.45*"/>
+            colwidth="1*"/>
           <tbody>
             <row>
               <entry>dita4publishers DITA materials (includes Open Toolkit plugins)</entry>
               <entry><xref
-                  href="https://sourceforge.net/project/platformdownload.php?group_id=262530&amp;sel_platform=16366"
-                  scope="external">Release dita4publishers-2009-05-21</xref></entry>
+                  href="https://http://downloads.sourceforge.net/dita4publishers/dita4publishers-2009-05-28.zip   "
+                  scope="external">http://downloads.sourceforge.net/dita4publishers/dita4publishers-2009-05-28.zip
+                </xref></entry>
+            </row>
+            <row>
+              <entry>EPub generation Open Toolkit Plugin</entry>
+              <entry><xref
+                  href="http://downloads.sourceforge.net/dita4publishers/dita4publishers_epub_plugin-2009-05-28.zip"
+                  format="html"
+                  scope="external">http://downloads.sourceforge.net/dita4publishers/dita4publishers_epub_plugin-2009-05-28.zip</xref></entry>
             </row>
             <row>
               <entry>dita4publishers user documentation</entry>
@@ -57,13 +73,21 @@
             </row>
             <row>
               <entry>EPubs (readable with EPub readers)</entry>
-              <entry><xref
-                  href="https://sourceforge.net/project/downloading.php?group_id=262530&amp;filename=wizard-of-oz.epub"
-                  format="html"
-                  scope="external">Wizard of Oz</xref></entry>
+              <entry>
+                <ul>
+                  <li><xref
+                      href="http://downloads.sourceforge.net/dita4publishers/wizard-of-oz.epub"
+                      format="html"
+                      scope="external">Wizard of Oz</xref></li>
+                  <li><xref
+                      href="shakespear-plays-epubs-catalog.xml#topic-1"
+                      format="dita">Shakespear Play EPub Catalog</xref></li>
+                </ul>
+              </entry>
             </row>
           </tbody>
         </tgroup>
       </table></p>
+    <p>Last revised: 28 May 2009</p>
   </body>
 </topic>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/topic" "topic.dtd">
+<topic
+  id="topic-id">
+  <title>Sample Publications</title>
+  <body>
+    <p>The DITA For Publishers project includes a number of sample publications that test and
+      demonstrate the DITA For Publishers specializations and supporting processors. These samples
+      are mostly public-domain publications adapted from <xref
+        href="http://www.gutenberg.org"
+        format="html"
+        scope="external">Project Gutenberg</xref>, as well as an DITA-based reworking of Jon Bosak's
+      XML Shakespear dada set. In addition, the DITA For Publishers project has an open call for
+      contributions of sample publications (see TBD).</p>
+    <p>In the source tree, all the samples are in the directory <xref
+        href="http://dita4publishers.svn.sourceforge.net/viewvc/dita4publishers/trunk/sample_data/"
+        format="html"
+        scope="external">trunk/sample_data/</xref>, organized into unspecialized publications and
+      specializations, where the specializations include any specialization modules, supporting
+      Toolkit plugins, and so on. The general organization is that each publication is organized
+      into its own directory where the directory name is the same as the publication's root DITA
+      map. This organization allows for general production scripts to simply take the publication
+      name and work out the map name, output file names, and so on, from that. </p>
+  </body>
+</topic>

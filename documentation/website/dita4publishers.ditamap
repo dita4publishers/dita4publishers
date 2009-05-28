@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/map.dtd">
-<map
-  title="DITA Topic Map">
+<map>
+  <title>DITA For Publishers</title>
   <topicref
     href="topics/dita4publishers.xml">
     <topicref
@@ -26,6 +26,20 @@
       href="topics/plugins-overview.xml">
       <topicref
         href="topics/epub-plugin.xml"/>
+    </topicref>
+    <topicref
+      href="topics/sample-publications-overview.xml">
+      <topicref
+        href="topics/sample-pub-wizard-of-oz.xml"/>
+      <topicref
+        href="topics/sample-pub-shakespear-plays.xml">
+        <topicref
+          href="topics/shakespear-plays-license.xml"/>
+        <topicref
+          href="topics/shakespear-plays-epubs-catalog.xml"/>
+      </topicref>
+      <topicref
+        href="topics/call-for-samples.xml"/>
     </topicref>
   </topicref>
 </map>

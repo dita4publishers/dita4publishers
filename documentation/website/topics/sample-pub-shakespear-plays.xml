@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/topic" "topic.dtd">
+<topic
+  id="topic-id">
+  <title>Sample Publications: Shakespear Plays</title>
+  <body>
+    <p>The Shakespear Plays sample demonstrates how to create publication-specific specializations
+      for data that is more structured than just paragraphs and lists.</p>
+    <p>The DITA source is based on Jon Bosak's XML Shakespear data set, which he had created as an
+      exercise in markup design and with the goal of producing interesting XML content for
+      transforming, searching, and so on.</p>
+    <p>With Jon's approval, I have created a DITA specialization that emulates Jon's original markup
+      design as closely as possible within the constraints and requirements of DITA. The materials
+      are provided via a <xref
+        href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/"
+        format="html"
+        scope="external">Creative Commons Attribution-Noncommercial-Share Alike</xref> license.</p>
+    <p><xref
+        href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/"
+        format="html"
+        scope="external"><image
+          href="http://i.creativecommons.org/l/by-nc-sa/3.0/us/88x31.png">
+          <alt>Creative Commons License</alt>
+        </image></xref></p>
+    <p>In the original XML data set, each play is provided as a single-file XML document. While it
+      would have been possible to create a topic specialization that allowed an analogous
+      single-file representation of the whole play, it seemed to make more sense to represent the
+      whole play as a map and organize the top-level components into separate topics.</p>
+    <p>Thus, the specializations for the plays are:<dl>
+        <dlentry>
+          <dt>playmap</dt>
+          <dd>Represents the play as whole. Holds the play-level metadata. Provides specialized
+            topicrefs for grouping the play components and linking to them: <xmlelem>invoc</xmlelem>
+            (invocation), <xmlelem>prologue</xmlelem>, <xmlelem>epilogue</xmlelem>, and <xmlelem
+              >act</xmlelem>, with the initial assumption being that these top-level play components
+            would be managed as single files (that is, the scenes within an act would not be broken
+            out into separate files).</dd>
+        </dlentry>
+        <dlentry>
+          <dt>play-component</dt>
+          <dd>An "abstract" base topic type that establishes the common components needed by the
+            concrete topic types (act, scene, etc.). Looking at Jon's markup design, it was clear
+            that each of the different major play components shared many of the same structural
+            components and structural rules. In that case, it is necessary, or at least, convenient
+            to have a common base topic type from which concrete types are derived. Defines
+            specialized elements for representing speeches as sets of lines and stage
+            directions.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>act</dt>
+          <dd>Topic type for holding an entire act. An act consists of one or more <xmlelem
+              >scene</xmlelem> topics. May also include a <xmlelem>prologue</xmlelem> or <xmlelem
+              >epilogue</xmlelem> topic.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>scene</dt>
+          <dd>Topic type for holding an individual scene within an act. Scene topics have no nested
+            topics by default (but, for example, it could make sense to allow nested commentary
+            topics if it was useful to allow authoring of commentary within the scene source
+            document, rather than linking it to the scene using normal DITA linking
+            mechanisms).</dd>
+        </dlentry>
+        <dlentry>
+          <dt>induct</dt>
+          <dd>Topic type for the "induction" part of the play, if there is one (e.g., <cite>Henry
+              IV, Part 2</cite>).</dd>
+        </dlentry>
+        <dlentry>
+          <dt>personae</dt>
+          <dd>Topic type for the "dramatis personae" for the play, that is, a list of characters.
+            Defines specialized elements for identifying the characters and grouping sets of
+            characters together.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>prologue</dt>
+          <dd>Topic type for a prologue for the entire play or for an individual act.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>epilogue</dt>
+          <dd>Topic type for an epilogue for the entire play or for an individual act.</dd>
+        </dlentry>
+      </dl></p>
+    <p>The <xmlelem>scene</xmlelem> topic type can be literally nested within the other
+      scene-containing topic types or managed as separate topic files.</p>
+    <p>The Shakespear plays materials includes a Toolkit plugin that extends the XHTML transform to
+      render the play-specific elements appropriately. Using this plugin, you can then generate both
+      HTML and EPub renderings of the plays that look like plays.</p>
+  </body>
+</topic>

@@ -1,0 +1,330 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+  id="topic-1">
+  <title>Shakespear Play EPub Catalog</title>
+  <body>
+    <p>The Shakespear Play EPubs are served as individual files on the DITA For Publisher's download
+      area. You should be able to open these EPubs directly with an Web-connected EPub reader, such
+      as Stanza or Adobe Digital Editions.</p>
+    <p>The plays are provided through a Creative Commons, attribution, non-commercial share-alike license.</p>
+    <table
+      frame="all">
+      <title>Shakespear Play EPubs</title>
+      <tgroup
+        cols="2">
+        <colspec
+          colname="c1"
+          colnum="1"/>
+        <colspec
+          colname="c2"
+          colnum="2"/>
+        <thead>
+          <row>
+            <entry>Play</entry>
+            <entry>URL</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>The Tragedy of Antony and Cleopatra</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/a_and_c.epub"
+                scope="external">a_and_c.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>All's Well That Ends Well</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/all_well.epub"
+                scope="external">all_well.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>As You Like It</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/as_you.epub"
+                scope="external">as_you.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Comedy of Errors</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/com_err.epub"
+                scope="external">com_err.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Tragedy of Coriolanus</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/coriolan.epub"
+                scope="external">coriolan.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>Cymbeline</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/cymbelin.epub"
+                scope="external">cymbelin.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>A Midsummer Night's Dream</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/dream.epub"
+                scope="external">dream.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Tragedy of Hamlet, Prince of Denmark</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/hamlet.epub"
+                scope="external">hamlet.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The First Part of Henry the Fourth</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/hen_iv_1.epub"
+                scope="external">hen_iv_1.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Second Part of Henry the Fourth</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/hen_iv_2.epub"
+                scope="external">hen_iv_2.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Life of Henry the Fifth</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/hen_v.epub"
+                scope="external">hen_v.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The First Part of Henry the Sixth</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/hen_vi_1.epub"
+                scope="external">hen_vi_1.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Second Part of Henry the Sixth</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/hen_vi_2.epub"
+                scope="external">hen_vi_2.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Third Part of Henry the Sixth</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/hen_vi_3.epub"
+                scope="external">hen_vi_3.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Famous History of the Life of Henry the Eighth</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/hen_viii.epub"
+                scope="external">hen_viii.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Tragedy of Julius Caesar</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/j_caesar.epub"
+                scope="external">j_caesar.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Life and Death of King John</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/john.epub"
+                scope="external">john.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Tragedy of King Lear</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/lear.epub"
+                scope="external">lear.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>Love's Labour's Lost</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/lll.epub"
+                scope="external">lll.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>Measure for Measure</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/m_for_m.epub"
+                scope="external">m_for_m.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Merry Wives of Windsor</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/m_wives.epub"
+                scope="external">m_wives.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Tragedy of Macbeth</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/macbeth.epub"
+                scope="external">macbeth.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Merchant of Venice</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/merchant.epub"
+                scope="external">merchant.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>Much Ado about Nothing</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/much_ado.epub"
+                scope="external">much_ado.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Tragedy of Othello, the Moor of Venice</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/othello.epub"
+                scope="external">othello.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>Pericles, Prince of Tyre</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/pericles.epub"
+                scope="external">pericles.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Tragedy of Romeo and Juliet</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/r_and_j.epub"
+                scope="external">r_and_j.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Tragedy of King Richard the Second</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/rich_ii.epub"
+                scope="external">rich_ii.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Tragedy of Richard the Third</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/rich_iii.epub"
+                scope="external">rich_iii.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>Twelfth Night, or What You Will</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/t_night.epub"
+                scope="external">t_night.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Taming of the Shrew</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/taming.epub"
+                scope="external">taming.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Tempest</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/tempest.epub"
+                scope="external">tempest.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Life of Timon of Athens</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/timon.epub"
+                scope="external">timon.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Tragedy of Titus Andronicus</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/titus.epub"
+                scope="external">titus.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The History of Troilus and Cressida</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/troilus.epub"
+                scope="external">troilus.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Two Gentlemen of Verona</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/two_gent.epub"
+                scope="external">two_gent.epub</xref>
+            </entry>
+          </row>
+          <row>
+            <entry>The Winter's Tale</entry>
+            <entry>
+              <xref
+                href="http://downloads.sourceforge.net/dita4publishers/win_tale.epub"
+                scope="external">win_tale.epub</xref>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </body>
+</topic>
