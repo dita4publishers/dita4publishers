@@ -219,22 +219,77 @@
 	<target name="generate-epubs-for-samples" depends="integrate, epub-wizard-of-oz"
 	  description="Generate ePUB versions of the publications in sample_data"
 	>
+	  </target>
+	  
+  <target name="test-epub-shakespear-play" description="Test generation of epubs for shakespear plays">
+	    <property name="sampleRootDir" value="${shakespear-sample}/plays"/>
+	    <antcall target="epub-map"><param name="mapname" value="hen_viii"/></antcall>
   </target>
+	
+	<target name="epub-shakespear-plays" description="Generate epubs for each of the shakespear plays">
+		<property name="sampleRootDir" value="${shakespear-sample}/plays"/>
+		<antcall target="epub-map"><param name="mapname" value="a_and_c"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="all_well"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="as_you"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="com_err"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="coriolan"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="cymbelin"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="dream"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="hamlet"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="hen_iv_1"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="hen_iv_2"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="hen_v"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="hen_vi_1"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="hen_vi_2"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="hen_vi_3"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="hen_viii"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="j_caesar"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="john"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="lear"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="lll"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="m_for_m"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="m_wives"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="macbeth"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="merchant"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="much_ado"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="othello"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="pericles"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="r_and_j"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="rich_ii"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="rich_iii"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="t_night"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="taming"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="tempest"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="timon"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="titus"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="troilus"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="two_gent"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="win_tale"/></antcall>
+	</target>
 	
 	<target name="epub-wizard-of-oz" description="Generate epub for the Wizard of Oz">
 		<antcall target="epub-map">
 			<param name="mapname" value="wizard-of-oz"/>
+			<param name="sampleRootDir" value="${sampledata}"/>
 		</antcall>
 	</target>
 	
 	<target name="epub-map">
 		<echo message="mapname='${mapname}'"/>
+		
+		<!-- The epub process doesn't clean out the output directory, so
+		     we have to do it.
+		  -->
+    <delete includeEmptyDirs="true" failonerror="false">
+      <fileset dir="${epubTemp}"  includes="*/**"/>
+    </delete>
+
 		<ant antfile="${dita-ot-dir}${file.separator}build.xml"
 			dir="${dita-ot-dir}"
 			target="dita2epub"
 			
 			>
-			<property name="args.input" location="${sampledata}/${mapname}/${mapname}.ditamap"/>
+			<property name="args.input" location="${sampleRootDir}/${mapname}/${mapname}.ditamap"/>
       <property name="transtype" value="dita2epub"/>
 			<property name="args.outext" value="html"/>
 			<property name="args.xhtml.toc" value="index"/>
@@ -243,6 +298,16 @@
 			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
 			<property name="output.dir" location="${epubTemp}"/>
 	  </ant>
+		<!-- The EPub is in the temp dir and we need to move it to the epub build directory.
+		
+		     This is problem with the EPub process in the way that it does the zipping of
+		     the EPub package in the output dir, instead of in another temp directory.
+		 -->
+		<move todir="${epubBuild}">
+			<fileset dir="${epubTemp}">
+				<include name="${mapname}.epub"/>
+		  </fileset>
+		</move>
 	</target>
 
 	 <target name="generate-web-site">
