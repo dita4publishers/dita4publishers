@@ -1,4 +1,14 @@
 <project name="DITA For Publishers" basedir=".">
+	
+	<!-- NOTE: This script requires that the DITA Open Toolkit
+	           libraries be included in the Java classpath
+	           used to run Ant itself. See the project
+	           documentation for setup instructions. For 
+	           Eclipse, you need to add the jars in the
+	           Toolkit lib/ and lib/saxon/ directories
+	           to the Ant jars configured in the Eclipse
+	           Ant/runtime preferences.
+	  -->
 
   <property file="build.properties"/>
   <property file="${user.home}/.build.properties"/>
