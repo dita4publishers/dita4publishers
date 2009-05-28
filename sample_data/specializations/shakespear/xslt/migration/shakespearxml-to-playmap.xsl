@@ -126,7 +126,7 @@
   </xsl:template>
   
   <xsl:template mode="front-cover" match="FM">
-    <p>By agreement with Jon Bosak, this edition is
+    <p>By agreement with Jon Bosak (2009), this edition is
       published under the <xref
         href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/"
         format="html"
@@ -208,8 +208,9 @@
     <induct id="{concat($actPrefix, 'induct')}">
       <xsl:apply-templates select="TITLE"/>
       <induct-body>
-        <xsl:apply-templates select="*[not(self::TITLE)]"/>
+        <xsl:apply-templates select="SPEECH | STAGEDIR | SUBHEAD"/>
       </induct-body>
+      <xsl:apply-templates select="SCENE"/>
     </induct>
   </xsl:template>
   
