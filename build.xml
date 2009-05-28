@@ -190,7 +190,7 @@
 		</zip>
 	</target>
 	
-	<target name="upload-packages-to-sourceforge" depends="package-delivery, package-epub-plugin"
+	<target name="upload-packages-to-sourceforge" depends="package-delivery, package-epub-plugin, generate-epubs-for-samples"
 		description="Uploads the delivery packages to SourceForge in order to enable a new file release"
 		>
 		<scp todir="${sourceforge.username}@frs.sourceforge.net:uploads" password="${sourceforge.password}"
@@ -226,7 +226,7 @@
 		</scp>
 	</target>
 	
-	<target name="generate-epubs-for-samples" depends="integrate, epub-wizard-of-oz"
+	<target name="generate-epubs-for-samples" depends="integrate, epub-wizard-of-oz, epub-shakespear-plays"
 	  description="Generate ePUB versions of the publications in sample_data"
 	>
 	  </target>
