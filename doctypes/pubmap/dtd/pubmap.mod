@@ -109,6 +109,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap"
 <!ENTITY % edited          "edited"                                  >
 <!ENTITY % edition         "edition"                                 >
 <!ENTITY % figurelist      "figurelist"                              >
+<!ENTITY % forward         "forward"                                 >
 <!ENTITY % frontmatter     "frontmatter"                             >
 <!ENTITY % glossarylist    "glossarylist"                            >
 <!ENTITY % indexlist       "indexlist"                               >
@@ -273,6 +274,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap"
    %dedication; | 
    %draftintro; | 
    %notices; | 
+   %forward; | 
    %preface; | 
    %topicref; |
    %subsection; |
@@ -1163,6 +1165,17 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap"
 <!ATTLIST page    %page.attributes;>
 
 
+<!--                    LONG NAME: Forward                         -->
+<!ENTITY % forward.content
+                       "((%topicmeta;)?, 
+                         (%topicref;)*)"
+>
+<!ENTITY % forward.attributes
+             "%chapter-atts;"
+>
+<!ELEMENT forward    %forward.content;>
+<!ATTLIST forward    %forward.attributes;>
+
 
 <!--                    LONG NAME: Preface                         -->
 <!ENTITY % preface.content
@@ -1679,11 +1692,17 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap"
 <!ATTLIST edited      %global-atts; class CDATA "- topic/data pubmap/edited ">
 <!ATTLIST edition     %global-atts; class CDATA "- topic/data pubmap/edition ">
 <!ATTLIST figurelist  %global-atts; class CDATA "- map/topicref pubmap/figurelist ">
+<!ATTLIST forward     %global-atts; class CDATA "- map/topicref pubmap/forward ">
 <!ATTLIST front-cover %global-atts; class CDATA "- map/topicref pubmap/front-cover ">
 <!ATTLIST front-flap  %global-atts; class CDATA "- map/topicref pubmap/front-flap ">
 <!ATTLIST frontmatter %global-atts; class CDATA "- map/topicref pubmap/frontmatter ">
 <!ATTLIST glossarylist %global-atts; class CDATA "- map/topicref pubmap/glossarylist ">
 <!ATTLIST indexlist   %global-atts; class CDATA "- map/topicref pubmap/indexlist ">
+<!ATTLIST isbn-10     %global-atts; class CDATA "- topic/data pubmap/isbn-10 ">
+<!ATTLIST isbn-13     %global-atts; class CDATA "- topic/data pubmap/isbn-13 ">
+<!ATTLIST issn        %global-atts; class CDATA "- topic/data pubmap/issn ">
+<!ATTLIST issn-13     %global-atts; class CDATA "- topic/data pubmap/issn-13 ">
+<!ATTLIST issn-10     %global-atts; class CDATA "- topic/data pubmap/issn-13 ">
 <!ATTLIST keydefs     %global-atts; class CDATA "- topic/topicref pubmap/keydefs ">
 <!ATTLIST keydef-group %global-atts; class CDATA "- topic/topicref pubmap/keydef-group ">
 <!ATTLIST mainpubtitle %global-atts;  class CDATA "- topic/ph pubmap/mainpubtitle ">
