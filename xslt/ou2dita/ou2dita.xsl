@@ -30,6 +30,22 @@
     indent="yes"
   />
   
+  <xsl:output 
+    name="learningPlan"
+    doctype-public="-//OASIS//DTD DITA Learning Plan//EN"
+    doctype-system="learningPlan.dtd"
+    method="xml"
+    indent="yes"
+  />
+  
+  <xsl:output 
+    name="topic"
+    doctype-public="-//OASIS//DTD DITA Topic//EN"
+    doctype-system="topic.dtd"
+    method="xml"
+    indent="yes"
+  />
+  
   <xsl:template match="/">
     <xsl:if test="not(/Item)">
       <xsl:message terminate="yes"> + [ERROR] Expected Item as root element. Cannot continue.</xsl:message>
@@ -73,9 +89,11 @@
   <xsl:template mode="topicmeta" 
      match="
        FrontMatter | 
+       BackMatter | 
        Unit | 
        CourseTitle |
-       Section
+       Section |
+       Heading
        "
        /><!-- Ignore for topicmeta -->
   
@@ -84,7 +102,16 @@
       <topicmeta>
         <navtitle>Frontmatter</navtitle>
       </topicmeta>
-      <xsl:apply-templates/>
+      <xsl:apply-templates mode="topicrefs"/>
+    </topichead>
+  </xsl:template>
+  
+  <xsl:template match="BackMatter">
+    <topichead>
+      <topicmeta>
+        <navtitle>Backmatter</navtitle>
+      </topicmeta>
+      <xsl:apply-templates mode="topicrefs"/>
     </topichead>
   </xsl:template>
   
@@ -110,6 +137,14 @@
       </topicmeta>
       <xsl:apply-templates mode="topicrefs"/>
     </topicref>    
+    <xsl:result-document href="{$topicUrl}" format="learningContent">
+      <learningContent id="{@id}">
+        <xsl:apply-templates select="Title" mode="topictitle"/>
+        <!-- Session never has any direct untitled content -->
+        <learningContentbody/>
+      </learningContent>
+    </xsl:result-document>
+    
   </xsl:template>
   
   <xsl:template match="Section" mode="topicrefs">
@@ -138,6 +173,7 @@
       <topicmeta>
         <xsl:apply-templates mode="topicmeta" select="Title"/>
       </topicmeta>
+      <xsl:apply-templates mode="topicrefs" select="SubSubSection"/>
     </topicref>    
     <xsl:result-document href="{$topicUrl}" format="learningContent">
       <learningContent id="{@id}">
@@ -151,23 +187,141 @@
     </xsl:result-document>
   </xsl:template>
   
+  <xsl:template match="SubSubSection" mode="topicrefs">
+    <xsl:variable name="topicUrl" select="local:getTopicUrl(.)"/>
+    <topicref href="{$topicUrl}">
+      <topicmeta>
+        <xsl:apply-templates mode="topicmeta" select="Heading[1]"/>
+      </topicmeta>
+    </topicref>    
+    <xsl:result-document href="{$topicUrl}" format="learningContent">
+      <learningContent id="{@id}">
+        <xsl:apply-templates select="Heading[1]" mode="topictitle"/>
+        <learningContentbody>
+          <section>
+            <xsl:apply-templates/>
+          </section>
+        </learningContentbody>
+      </learningContent>
+    </xsl:result-document>
+  </xsl:template>
+  
+  <xsl:template match="Imprint" mode="topicrefs">
+    <xsl:variable name="topicUrl" select="local:getTopicUrl(.)"/>
+    <topicref href="{$topicUrl}">
+    </topicref>    
+    <xsl:result-document href="{$topicUrl}" format="topic">
+      <topic id="imprint">
+        <title>Imprint</title>
+        <body>
+            <xsl:apply-templates/>
+        </body>
+      </topic>
+    </xsl:result-document>
+  </xsl:template>
+  
+  <xsl:template match="Introduction" mode="topicrefs">
+    <xsl:variable name="topicUrl" select="local:getTopicUrl(.)"/>
+    <topicref href="{$topicUrl}">
+    </topicref>    
+    <xsl:result-document href="{$topicUrl}" format="topic">
+      <topic id="introduction">
+        <xsl:apply-templates select="Title" mode="topictitle"/>
+        <body>
+          <xsl:apply-templates/>
+        </body>
+      </topic>
+    </xsl:result-document>
+  </xsl:template>
+  
+  <xsl:template match="LearningOutcomes" mode="topicrefs">
+    <xsl:variable name="topicUrl" select="local:getTopicUrl(.)"/>
+    <topicref href="{$topicUrl}">
+    </topicref>    
+    <xsl:result-document href="{$topicUrl}" format="learningContent">
+      <learningContent id="learningOutcomes">
+        <title>Learning Outcomes</title>
+        <learningContentbody>
+          <lcObjectives>
+            <xsl:apply-templates select="Paragraph"/>
+            <lcObjectivesGroup>
+              <xsl:apply-templates select="LearningOutcome"/>
+            </lcObjectivesGroup>
+          </lcObjectives>
+        </learningContentbody>
+      </learningContent>
+    </xsl:result-document>
+  </xsl:template>
+  
   <xsl:template match="Acknowledgements" mode="topicrefs">
     <xsl:variable name="topicUrl" select="local:getTopicUrl(.)"/>
     <topicref href="{$topicUrl}">
-      <topicmeta>
-        <xsl:apply-templates mode="topicmeta" select="Title"/>
-      </topicmeta>
     </topicref>    
+    <xsl:result-document href="{$topicUrl}" format="topic">
+      <topic id="acknowledgements">
+        <xsl:apply-templates select="Heading[1]" mode="topictitle"/>
+        <body>
+          <xsl:apply-templates/>
+        </body>
+      </topic>
+    </xsl:result-document>
+  </xsl:template>
+
+  <xsl:template match="Acknowledgements/Heading[1]" mode="#default"/>
+  
+  <xsl:template match="SubSubSection/Heading[1]" mode="#default"/>
+  
+  <xsl:template match="Acknowledgements/Heading[1] | SubSubSection/Heading[1]" mode="topictitle">
+    <title><xsl:apply-templates/></title>
+  </xsl:template>
+  
+  <xsl:template match="LearningOutcomes/Paragraph">
+    <lcObjectivesStem><xsl:apply-templates/></lcObjectivesStem>
+  </xsl:template>
+  
+  <xsl:template match="LearningOutcome">
+    <lcObjective><xsl:apply-templates/></lcObjective>
+  </xsl:template>
+  
+  <xsl:template match="Preface" mode="topicrefs">
+    <xsl:variable name="topicUrl" select="local:getTopicUrl(.)"/>
+    <topicref href="{$topicUrl}">
+    </topicref>    
+    <xsl:result-document href="{$topicUrl}" format="topic">
+      <topic id="preface">
+        <title>Preface</title>
+        <body>
+          <xsl:apply-templates/>
+        </body>
+      </topic>
+    </xsl:result-document>
+  </xsl:template>
+  
+  <xsl:template match="Standard">
+    <xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="GeneralInfo | FirstPublished | Copyright | Rights | Edited | Typeset | Printed | ISBN | Edition
+    ">
+    <section spectitle="{name(.)}">
+      <xsl:apply-templates/>
+    </section>
+  </xsl:template>
+  
+  <xsl:template match="Address">
+     <section spectitle="Address">
+       <lines>
+         <xsl:apply-templates/>
+       </lines>
+     </section> 
+  </xsl:template>
+  
+  <xsl:template match="AddressLine">
+    <xsl:apply-templates/><xsl:text>&#x0a;</xsl:text>
   </xsl:template>
   
   <xsl:template match="BackMatter" mode="topicrefs">
-    <xsl:variable name="topicUrl" select="local:getTopicUrl(.)"/>
-    <topicref href="{$topicUrl}">
-      <topicmeta>
-        <xsl:apply-templates mode="topicmeta" select="Title"/>
-      </topicmeta>
-      <xsl:apply-templates mode="topicrefs"/>
-    </topicref>    
+    <xsl:apply-templates mode="topicrefs"/>
   </xsl:template>
   
   <xsl:template match="Paragraph">
@@ -191,6 +345,14 @@
   
   <xsl:template match="InlineEquation">
     <ph outputclass="{name(.)}"><xsl:apply-templates/></ph>
+  </xsl:template>
+  
+  <xsl:template match="InlineEquation/Description">
+    <ph outputclass="inlineequation-description"><xsl:apply-templates/></ph>
+  </xsl:template>
+  
+  <xsl:template match="Equation/Description">
+    <p outputclass="equation-description"><xsl:apply-templates/></p>
   </xsl:template>
   
   <xsl:template match="Equation | Box">
@@ -219,6 +381,10 @@
     <p outputclass="Heading"><b><xsl:apply-templates/></b></p>
   </xsl:template>
   
+  <xsl:template match="SubHeading">
+    <p outputclass="SubHeading"><b><xsl:apply-templates/></b></p>
+  </xsl:template>
+  
   <xsl:template match="CrossRef">
     <!-- FIXME: Need function to convert incoming idref into proper
                 topic-id/element-id pair.
@@ -234,6 +400,96 @@
   
   <xsl:template match="Image">
     <image href="{@src}">
+      <xsl:apply-templates/>
+    </image>
+  </xsl:template>
+  
+  <xsl:template match="Description">
+    <alt><xsl:apply-templates/></alt>
+  </xsl:template>
+  
+  <xsl:template match="SourceReference">
+    <p outputclass="{name(.)}">
+      <xsl:text>Source: </xsl:text><xsl:apply-templates/></p>
+  </xsl:template>
+  
+  <xsl:template match="ItemRights | OwnerRef | ItemRef | ItemAcknowledgement">
+    <data name="{name(.)}">
+      <xsl:apply-templates/>
+    </data>
+  </xsl:template>
+  
+  
+  
+  <xsl:template match="SAQ">
+    <sectiondiv outputclass="SAQ">
+      <xsl:apply-templates/>
+    </sectiondiv>
+  </xsl:template>
+  
+  <xsl:template match="Activity">
+    <sectiondiv outputclass="Activity">
+      <xsl:apply-templates/>
+    </sectiondiv>
+  </xsl:template>
+  
+  <xsl:template match="SAQ/Question">
+    <sectiondiv outputclass="saq.question">
+      <xsl:apply-templates/>
+    </sectiondiv>
+  </xsl:template>
+  
+  <xsl:template match="Activity/Question">
+    <sectiondiv outputclass="activity.question">
+      <xsl:apply-templates/>
+    </sectiondiv>
+  </xsl:template>
+  
+  <xsl:template match="SAQ/Answer">
+    <sectiondiv outputclass="saq.answer">
+      <xsl:apply-templates/>
+    </sectiondiv>
+  </xsl:template>
+  
+  <xsl:template match="Table">
+    <xsl:apply-templates select="*[not(self::TableHead)]"/>
+  </xsl:template>
+
+  <xsl:template match="TableHead">
+      <title><xsl:apply-templates/></title>
+  </xsl:template>
+  
+  <xsl:template match="TableBody">
+    <table>
+      <xsl:apply-templates select="../TableHead"/>
+      <xsl:apply-templates select="table"/>
+    </table>
+  </xsl:template>
+  
+  <xsl:template match="table">
+    <tgroup cols="{count(tr[1]/(td | th))}">
+      <tbody>
+        <xsl:apply-templates/>
+      </tbody>
+    </tgroup>
+  </xsl:template>
+  
+  <xsl:template match="tr">
+    <row>
+      <xsl:apply-templates/>
+    </row>
+  </xsl:template>
+  
+  <xsl:template match="td">
+    <entry><xsl:apply-templates/></entry>
+  </xsl:template>
+  
+  <xsl:template match="th">
+    <entry outputclass="th"><b><xsl:apply-templates/></b></entry>
+  </xsl:template>
+  
+  <xsl:template match="MediaContent">
+    <image href="{concat(@src, '.', @type)}">
       <xsl:apply-templates/>
     </image>
   </xsl:template>
@@ -262,7 +518,8 @@
      ItemTitle |
      UnitTitle |
      Title |
-     SubSection
+     SubSection |
+     SubSubSection
      "/>
   
   <xsl:template match="*" priority="-1">
@@ -295,6 +552,24 @@
       </xsl:when>
       <xsl:when test="$context/self::SubSection">
         <xsl:sequence select="concat($sessionDir, string($context/ancestor::Section/@id), '/', 'subsection_', string($context/@id), '.xml')"/>        
+      </xsl:when>
+      <xsl:when test="$context/self::SubSubSection">
+        <xsl:sequence select="concat($sessionDir, string($context/ancestor::Section/@id), '/', 'subsubsection_', string($context/@id), '.xml')"/>        
+      </xsl:when>
+      <xsl:when test="$context/self::Imprint">
+        <xsl:sequence select="concat('frontmatter', '/', 'topic_', 'imprint', '.xml')"/>        
+      </xsl:when>
+      <xsl:when test="$context/self::Preface">
+        <xsl:sequence select="concat('frontmatter', '/', 'topic_', 'preface', '.xml')"/>        
+      </xsl:when>
+      <xsl:when test="$context/self::Introduction">
+        <xsl:sequence select="concat('frontmatter', '/', 'topic_', 'introduction', '.xml')"/>        
+      </xsl:when>
+      <xsl:when test="$context/self::LearningOutcomes">
+        <xsl:sequence select="concat('frontmatter', '/', 'topic_', 'outcomes', '.xml')"/>        
+      </xsl:when>
+      <xsl:when test="$context/self::Acknowledgements">
+        <xsl:sequence select="concat('backmatter', '/', 'topic_', 'acknowledgements', '.xml')"/>        
       </xsl:when>
       <xsl:otherwise>
         <xsl:message> + [WARNING] getTopicUrl(): Unrecognized element type <xsl:sequence select="name($context)"/>.</xsl:message>
