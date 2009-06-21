@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC003_001">
+   <title>3.1 First steps towards a distance scale</title>
+   <learningContentbody>
+      <section>
+          
+          <p>As you will see from <xref href="#TBL001">Table 2</xref>, when it comes to astronomy and cosmology, one is
+            called on to deal with a wide range of distances. (Note that a light-year (ly) is the
+            distance light travels in one year, i.e. 9.46 × 10<sup>15</sup> m. The
+            distances are also quoted in a very commonly used astronomical unit of distance: the
+            megaparsec, Mpc, where a parsec (pc) is 3.26 ly or
+            3.09 × 10<sup>16</sup>m.)</p>
+          <table>
+            <title>Table 2</title>
+            <tgroup cols="2">
+               <tbody>
+                  <row>
+                     <entry outputclass="th">
+                        <b/>
+                     </entry>
+                     <entry outputclass="th">
+                        <b>Distance</b>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>Earth–Moon</entry>
+                     <entry>1.28 light-seconds</entry>
+                     <entry>1.25 × 10<sup>−14</sup> Mpc</entry>
+                  </row>
+                  <row>
+                     <entry>Earth–Sun</entry>
+                     <entry>8.3 light-minutes</entry>
+                     <entry>4.8 × 10<sup>−12</sup> Mpc</entry>
+                  </row>
+                  <row>
+                     <entry>Nearest star</entry>
+                     <entry>≈ 4 ly</entry>
+                     <entry>1.23 × 10<sup>−6</sup> Mpc</entry>
+                  </row>
+                  <row>
+                     <entry>Diameter of our Galaxy</entry>
+                     <entry>≈ 10<sup>5</sup> ly</entry>
+                     <entry>3 × 10<sup>−2</sup> Mpc</entry>
+                  </row>
+                  <row>
+                     <entry>Distance to nearest galaxy</entry>
+                     <entry>≈ 2 × 10<sup>6</sup> ly</entry>
+                     <entry>≈ 1 Mpc</entry>
+                  </row>
+                  <row>
+                     <entry>Farthest galaxy seen</entry>
+                     <entry>≈ 4 × 10<sup>9</sup> ly</entry>
+                     <entry>≈ 1.2 × 10<sup>3</sup> Mpc</entry>
+                  </row>
+              </tbody>
+            </tgroup>
+         </table>
+         <p outputclass="SourceReference">Source: </p>
+          
+          
+          <p>To measure the distance of a far-off galaxy clearly requires a series of steps.
+            The first of these, the Earth–Sun distance, is based on our knowledge of the
+            orbital period of the Earth about the Sun, and that of some other planet. One can then
+            readily obtain an estimate of their <i>relative</i> distances from the Sun by using
+            Kepler's third law. To convert this to an <i>absolute</i> measurement, one needs a
+            determination of the actual distance between the Earth and the planet at some time. In
+            practice, this fix is gained by measuring the distances to Mercury, Venus and Mars,
+            using radar. These then allow one to compute the Earth–Sun distance. It is
+            currently estimated, with obvious high precision, to be 149 597 870.66 km.</p>
+          <p>Knowing this, the diameter of the Earth's orbit can now be used as a baseline
+            for measuring the distance to nearby stars, using the surveyor's triangulation method.
+            One makes angular measurements on a star from opposite ends of an Earth-orbital
+            diameter, i.e. at intervals of 6 months. At the time of writing (2004), data from the
+            Hipparcos satellite surpass in precision and scope all previous measurements of nearby
+            stellar distances.</p>
+          <p>But no matter how good this satellite-gathered data, there soon comes a stage
+            where the angles become too small to measure accurately using the triangulation method.
+            Some other method must be employed to extend the distance scale to the more distant
+            stars.</p>
+          <p>If a source has a known total light output, i.e. known <i>luminosity</i>, then
+            it can be used as a standard source. The distance of the source can be found from the
+              <i>received</i> light power. The further away the star is, the fainter it appears. The
+            relationship follows an inverse square law (allowing for various corrections, such as
+            that due to the absorption of light by interstellar dust). The light power received per
+            unit area of detector is called the <i>flux density</i>. It follows, summing over the
+            area of a sphere centred on the star and of radius, <i>r</i>, equal to the distance to
+            the star, that in the absence of absorption:</p>
+          <fig outputclass="Equation">
+            <image href="../../media/S357_1_e002i.gif"/>
+            <p outputclass="equation-description"/>
+         </fig>
+          <p>Unfortunately stars differ widely in their luminosities, so if we simply look
+            up at the sky and pick out a faint star, it may be either an intrinsically dim star, or
+            a particularly distant star – or partly dim and distant.</p>
+          <p>This ambiguity can be partly overcome by recognising that, while it is
+            impossible to directly measure the luminosity of a particular source, one <i>can</i>
+            estimate the temperature of the star. This is done from measurements on the overall
+            shape of its emitted spectrum – stars emitting predominantly in the red part of
+            the spectrum being cooler than those that emit more in the blue region. Thus the
+            spectrum, and hence temperature, can be determined with a fair degree of confidence.
+            Now, it turns out that when observations are made on a compact cluster of stars (the
+            cluster being small enough for all its stars to be considered equidistant from us), a
+            plot of flux density versus temperature generally gives the <i>same</i> distribution no
+            matter which cluster is chosen – apart from an overall constant factor depending
+            on the distance to the cluster. Thus, the most likely luminosity of a star is related to
+            its temperature. But in order to use the temperatures of stars to obtain luminosities,
+            and hence distances, from Equation 2, we need to progress beyond a plot of <i>flux
+              density</i> versus temperature to one of luminosity versus temperature.</p>
+          <p>In order to achieve this, studies have been made of a group of about 100 stars
+            called the ‘Hyades star cluster’. This group is close enough to us for its
+            distance to be determined by the Hipparcos satellite. Knowing this distance and the flux
+            density of the stars, the luminosities could be established, and the plot of luminosity
+            versus temperature calibrated. By studying the flux densities and colours of stars more
+            distant than the Hyades star cluster, we can use this calibrated plot to infer their
+            distances from us.</p>
+          <p>This method applies to stars confined to our own Galaxy. As for stars in other
+            galaxies, most of these cannot be distinguished separately. So, the next step is to try
+            to find a particularly bright type of star – one that <i>can</i> be recognised
+            not only in our Galaxy but also in neighbouring galaxies. If this were possible, it
+            would give us a method of extending the distance scale out to other galaxies.
+            Fortunately there <i>does</i> exist a type of star that can be recognised at least in
+            neighbouring galaxies – a star known as a
+            
+            <i>Cepheid variable</i>. The important characteristic of a Cepheid is that its light
+            output varies in a regular fashion, with a period which is directly related to its mean
+            luminosity (see <xref href="#FIG001_004">Figure 6</xref>a). The variation is due to cyclical changes in
+            diameter. The relationship between mean luminosity and period can be calibrated by
+            studying Cepheids that are sufficiently close for their distances to have been measured
+            by methods mentioned earlier. So whenever such stars can be distinguished from the other
+            types of variable star in the more distant galaxies, their luminosities can be deduced
+            (see <xref href="#FIG001_004">Figure 6</xref>b). Comparing luminosity with the measured flux
+            density then enables the distance of the star to be calculated. Cepheids have been used
+            extensively to measure the distances to nearby galaxies -those belonging to a cluster of
+            galaxies known as the Local Group (to be described later). Following the advent of the
+            Hubble Space Telescope with its superior resolution of individual stars, it became
+            possible in 1996 to extend Cepheid-based measurements as far as a galaxy known as M100,
+            in the Virgo cluster, yielding a distance of 5.6 × 10<sup>7</sup>
+            ly.</p>
+          <fig>
+            <title>
+              <b>Figure 6</b>: (a) An 18-day section of the light curve of the typical Cepheid
+              variable, Delta Cephei, which has a 5.37-day oscillation.
+              (b)
+              The observed relationship between the period and luminosity (in watts) of Cepheid
+              variables (1 W = 1 J s<sup>−1</sup>). Notice that both
+              scales are logarithmic, so the straight line implies that period
+              ∝
+                (luminosity)<sup>
+                  <i>m</i>
+               </sup>, where 1/<i>m</i> is the slope of the
+              line.</title>
+            <image href="../../media/S357_1_004i.jpg"/>
+            <p outputclass="SourceReference">Source: based on H. Arp (1960) in <i>Astronomical J.</i>, 65, 426 <data name="ItemRights">
+                  <data name="OwnerRef"/>
+                  <data name="ItemRef"/>
+                  <data name="ItemAcknowledgement">based on H. Arp (1960) in <i>Astronomical J.</i>, 65,
+                  426</data>
+              </data>
+            </p>
+            <p/>
+         </fig>
+          
+          <p>Another type of star that can be recognised in other galaxies is a <i>Type Ia
+              supernova</i>. What happens is this: when a medium-sized star, such as the Sun,
+            approaches the end of its active life, it shrinks down to a small star called a
+            ‘white dwarf’. If the white dwarf happens to belong to a binary system of
+            two stars, it can, from time to time, capture material from the atmosphere of its
+            companion, so increasing its own mass. But this is a process that cannot continue
+            indefinitely. The maximum mass for a white dwarf is 1.4 solar masses; anything above
+            that limit and its inner forces cannot resist the inward pull of gravity, and the star
+            has to collapse down to the next stable form (called a ‘neutron star’).
+            Thus, the white dwarf in the binary system can capture material only up to this limiting
+            mass. Once it exceeds this limit, the collapse occurs with the excess energy emitted as
+            an explosion – the Type Ia supernova. Because white dwarfs are always of the same
+            limiting mass when this happens, the explosions are similar, yielding essentially the
+            same spectrum and variation of light intensity over time. (It is these characteristics
+            that allow the Type Ia supernovae to be distinguished from other types.) Why they are
+            important in the present context is that, to within ±30%, they have the same
+            luminosity. Taking into account that the variation in luminosity with time does show a
+            difference in characteristic decay times, and these are correlated to somewhat different
+            values of peak luminosity, allowance can be made for this, and the uncertainty spread in
+            peak luminosity reduced to ±20%. This in turn leads to relative distances
+            measurable to ±10%.</p>
+          <p>Type Ia supernovae provide us with standard lamps (or standard
+              <i>explosions!</i>), that, at their peak, are 100 000 times brighter than a Cepheid,
+            and are visible hundreds of times further away. Having established their luminosity by
+            measuring the few that occur in galaxies for which the distance is already known from
+            measurements on Cepheids, they can be used to extend the distance scale to very great
+            distances.</p>
+          <p>This however still does not go far enough. Since normal stars cannot be
+            resolved in the farther galaxies, the additional methods of estimating distance will
+            have to be based on the properties of galaxies <i>as a whole</i>. We therefore interrupt
+            the distance story to describe some properties of whole galaxies, showing first why they
+            are important to cosmology, and then how they have led to new ways of measuring
+            distance.</p>
+          
+          <sectiondiv outputclass="SAQ">
+            <p outputclass="Heading">
+               <b>Question 4</b>
+            </p>
+            <sectiondiv outputclass="saq.question">
+              <p>Suppose an astronomer using a telescope of 2 m diameter has a detector
+                whose limit of sensitivity is 3.2 ×10<sup>−17</sup> W. Use <xref href="#FIG001_004">Figure 6</xref> to deduce, for this instrument, the period
+                of the faintest Cepheid variable that can be observed at a distance of
+                  2 × 10<sup>6</sup> ly [light years].</p>
+              <p>(<i>Remember:</i> The value of a light-year in SI units is given on the <xref href="http://openlearn.open.ac.uk/file.php/3639/S357Datasheets.pdf"
+                        scope="external"
+                        format="html">data sheet</xref>)</p>
+            </sectiondiv>
+            <sectiondiv outputclass="saq.answer">
+              <p>At 2 × 10<sup>6</sup> ly, the fraction of light intercepted
+                is:</p>
+              <p>
+                  <ph outputclass="InlineEquation">
+                     <image href="../../media/S357_1_ie002i.gif"/>
+                     <ph outputclass="inlineequation-description"/>
+                  </ph>
+               </p>
+              <p>The energy received from the faintest star is
+                  3.2 × 10<sup>−17</sup> W.</p>
+              <p>Therefore the output of the star must be</p>
+              <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue030i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+              <p>From <xref href="#FIG001_004">Figure 6</xref>(b), the corresponding period of the Cepheid
+                variable is about 3 days.</p>
+            </sectiondiv>
+          </sectiondiv>
+          
+        </section>
+   </learningContentbody>
+</learningContent>

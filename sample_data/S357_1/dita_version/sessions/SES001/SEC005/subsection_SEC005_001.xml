@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC005_001">
+   <title>5.1 A second major discovery</title>
+   <learningContentbody>
+      <section>
+          
+          <p>In the introduction to this unit, we said that there were three pillars of
+            evidence for the big bang. We now turn to the second. It rests on a discovery that ranks
+            in importance with that of Hubble's law. It came about when observations in a new region
+            of the electromagnetic spectrum – the microwave region – became possible.
+            This was due to the invention of new detectors, working at frequencies as high as 30 000
+            MHz. In 1965, two Bell Telephone scientists, A. Penzias and R. Wilson, were
+            investigating the radio noise found at wavelengths between a few millimetres and a few
+            centimetres. These wavelengths were, at the time, a relatively untapped field for
+            communications. (They are now very useful for satellites because even small antennae
+            give narrow beams at these wavelengths. Penzias and Wilson were working on the
+            Telstar/Echo satellite project at that time.)</p>
+          <p>They found that, once all known sources of noise had been accounted for, they
+            were left with a residual signal which was coming equally from all directions. It was
+            soon realised that because of this isotropy, it could not originate on the Earth, or in
+            the Solar System. Nor could it be coming even from the Galaxy – the Galaxy being
+            a thin disc, with us not at its centre.</p>
+          
+          <sectiondiv outputclass="SAQ">
+            <p outputclass="Heading">
+               <b>Question 9</b>
+            </p>
+            <sectiondiv outputclass="saq.question">
+              <p>Consider our Galaxy to be a uniform disc which is generating radio waves
+                uniformly throughout its volume (<xref href="#FIG001_016">Figure 19</xref>). Assume for the purposes of this question
+                that all other radio sources are negligible. Also assume that the Earth is in the
+                central plane of the disc but off centre (nearer the edge than the centre) and that
+                it is at rest in the Galaxy. <i>Sketch</i> graphs showing the way the signal picked
+                up by a radio telescope on Earth will vary when the telescope rotates:</p>
+              <p>(a) in the plane of the
+                Galaxy;</p>
+               <p>(b) in a plane
+                perpendicular to the Galaxy.</p>
+              <fig>
+                  <title>
+                     <b>Figure 19</b>: The Earth inside the Galaxy, shown schematically as a
+                  disc</title>
+                  <image href="../../media/S357_1_016i.jpg"/>
+                  <p/>
+               </fig>
+            </sectiondiv>
+            <sectiondiv outputclass="saq.answer">
+              <p>
+                  <b>(a)</b> If <i>φ</i> is the angle between the direction of the
+                telescope and the line from the centre of the Galaxy to the telescope, with
+                  <i>φ</i> = 0 corresponding to looking directly away from the
+                centre of the Galaxy, then, if the telescope is swept round in the plane of the
+                Galaxy, the variation of intensity <i>W</i> of radio waves with φ will be that
+                shown in <xref href="#FIG001_034">Figure 18</xref>(a).</p>
+              <p>
+                  <b>(b)</b> If <i>θ</i> is the angle between the direction of the
+                telescope and a line drawn perpendicular to the plane of the Galaxy at the
+                telescope, with <i>θ</i> = 0 corresponding to looking directly
+                ‘upwards’ through the disc, then the variation of intensity <i>W</i>
+                of radio waves with <i>θ</i> will be as shown in <xref href="#FIG001_034">Figure 18</xref> (b).</p>
+              <fig>
+                  <title>
+                     <b>Figure 18</b>: Variation of intensity of radio waves with angle (a) in the
+                  plane of the Galaxy, and (b) in a plane perpendicular to the Galaxy</title>
+                  <image href="../../media/S357_1_034i.jpg"/>
+                  <p/>
+               </fig>
+            </sectiondiv>
+          </sectiondiv>
+          <p>Having separated out these other sources of background noise, it was concluded
+            that the isotropic component had to be of cosmic origin. It is called the <i>cosmic
+              microwave background radiation</i>.</p>
+          
+          <p>
+            <xref href="#FIG001_017">Figure 20</xref>(a) shows how complicated the overall microwave
+            spectrum is, due largely to a set of lines generated in the Earth's atmosphere. <xref href="#FIG001_017">Figure 20</xref>(b) focuses on the region at the left-hand side
+            of <xref href="#FIG001_017">Figure 20</xref>(a). This region is of interest because it is
+            at lower frequencies than most of the atmospheric lines. The atmospheric interference
+            varies with the thickness of the atmosphere, and hence with the angle of observation.
+            This noise can therefore be separated out from the cosmic signal in which we are
+            interested. <xref href="#FIG001_017">Figure 20</xref>(b) shows the microwave spectrum after
+            correcting for the effects of the atmosphere.</p>
+          <fig>
+            <title>
+              <b>Figure 20</b>: (a) The overall ground-based microwave spectrum. (b) Ground-based
+              measurements by Penzias and Wilson, and by other observers, of the microwave intensity
+              at various frequencies; an enlargement of the spectrum shown at the left-hand side of
+              (a), corrected to remove the effects of the atmosphere. The shaded area represents the
+              limits given by measurements made with a detector that covered a wide band of
+              frequencies. (The solid line shows a thermal spectrum corresponding to a temperature
+              of 2.8 K. The term ‘thermal spectrum’ is explained a little later in the
+              text.)</title>
+            <image href="../../media/S357_1_017i.jpg"/>
+            <p outputclass="SourceReference">Source: (a) based on D.P. Woody <i>et al.</i> (1975) in <i>Phys. Rev.
+              Lett.</i>, 34, 1036–9; (b) based on R.A. Muller (1978) in <i>Scientific
+                American</i>, 238, 64–74 <data name="ItemRights">
+                  <data name="OwnerRef"/>
+                  <data name="ItemRef"/>
+                  <data name="ItemAcknowledgement">(a) based on D.P. Woody <i>et al.</i> (1975) in <i>Phys. Rev.
+                    Lett.</i>, 34, 1036–9; (b) based on R.A. Muller (1978) in <i>Scientific
+                    American</i>, 238, 64–74</data>
+              </data>
+            </p>
+            <p/>
+         </fig>
+          <p>In 1989, the COBE satellite was launched. It was able to make measurements from
+            above the Earth's atmosphere and was therefore not subject to some of the problems
+            encountered by Penzias and Wilson, and by other ground-based observers. However, a major
+            contaminant – radiation originating from within the Galaxy – remained. The
+            COBE results, after correction for this effect, are shown in <xref href="#FIG001_018">Figure 21</xref>.</p>
+          <p>The shape revealed by this closer look is identical to that found for the
+            spectrum inside a hot cavity – for example the spectrum in an oven or furnace (<xref href="#FIG001_019">Figure 22</xref>). It is called a ‘black body’
+            spectrum (because it is that which is given out by an idealised heated black surface),
+            or simply a <i>‘thermal’ spectrum</i>.</p>
+          
+          <fig>
+            <title>
+              <b>Figure 21</b>: Data on the microwave background radiation taken by the COBE
+              satellite. The curve through the data points is that of a thermal spectrum of 2.73 K.
+              Note that Figure 20(b) had a logarithmic frequency scale, while this one is
+              linear</title>
+            <image href="../../media/S357_1_018i.jpg"/>
+            <p outputclass="SourceReference">Source: courtesy of NASA/CSFC and COBE Science Working Group <data name="ItemRights">
+                  <data name="OwnerRef"/>
+                  <data name="ItemRef"/>
+                  <data name="ItemAcknowledgement">courtesy of NASA/CSFC and COBE Science Working
+                  Group</data>
+              </data>
+            </p>
+            <p/>
+         </fig>
+          <fig>
+            <title>
+              <b>Figure 22</b>: Thermal spectra for various temperatures, <i>T</i>, based on
+              laboratory measurements of relative intensity, <i>W</i>, of radiation with frequency
+                <i>f</i>
+            </title>
+            <image href="../../media/S357_1_019i.jpg"/>
+            <p/>
+         </fig>
+          <p>One of the basic features of thermal radiation is that, regardless of the
+            temperature of the surface or enclosure generating it, the <i>shape</i> of the spectrum
+            is always the same. The <i>peak</i> of the spectrum moves up to higher frequencies as
+            the temperature rises (it might glow red hot or white hot). But the basic shape remains
+            the same. What this means is that if the spectra for two different temperatures are
+            drawn on two graphs, we can always choose scales – linear but different –
+            so that the graphs can be superimposed (<xref href="#FIG001_020">Figures 23</xref> and <xref href="#FIG001_021">24</xref>). This single, characteristic shape arises from, and
+            is an indicator of, the equilibrium conditions inside the oven. The rescaling in <xref href="#FIG001_020">Figure 23</xref> works <i>only</i> for thermal spectra, and so
+            is a true indicator of equilibrium.</p>
+          <p>As an example of the opposite extreme, take the line spectra from a hydrogen
+            lamp and a sodium lamp. No amount of rescaling would fit these two together; they are
+            quite distinct.</p>
+          <fig>
+            <title>
+              <b>Figure 23</b>: What is meant by the shapes of thermal spectra being independent of
+              temperature: (a) is the measured spectrum at 998 K (from Figure 22); (b) is obtained
+              from (a) by expanding the vertical scale by a factor of
+                (1646﻿/﻿998)﻿<sup>3</sup>; (c) is obtained from (b) by
+              expanding the horizontal scale by a factor of (1646/998); (d) is the measured spectrum
+              at 1646 K (from Figure 22) plotted using the same scales as those in (a), and is the
+              same curve as (c).</title>
+            <image href="../../media/S357_1_020i.jpg"/>
+            <p/>
+         </fig>
+          <fig>
+            <title>
+              <b>Figure 24</b>: As suggested by Figure 23, a plot of <i>W/T</i>
+               <sup>3</sup> as a
+              function of <i>f/T</i> is a single curve, for all temperatures; that is, if
+                <i>W/T</i>
+               <sup>3</sup> is plotted against <i>f</i>/<i>T</i> for a number of
+              frequencies and temperatures, the plotted points for all frequencies and temperatures
+              lie on one and the same curve</title>
+            <image href="../../media/S357_1_021i.jpg"/>
+            <p/>
+         </fig>
+          
+          <p>Since the cosmic microwave spectrum has a thermal shape; the conclusion is that
+            it was generated in equilibrium conditions – in some sort of cavity. But the
+            radiation fills the Universe: the ‘cavity’ is the Universe itself, a
+            cavity with no walls.</p>
+          <p>The word ‘equilibrium’ is used here with some reservations. The
+            Universe has not reached overall equilibrium, and strictly speaking never will. This is
+            because of the expansion of the Universe. We saw in <xref href="#SEC004_001">Section 4.1</xref> how the wavelength of light from distant
+            galaxies is redshifted due to the expansion of the Universe. It turns out that the same
+            thing happens to the microwave background radiation; its wavelength is also increased.
+            The peak frequency of the spectrum is reduced, and this means the radiation is
+            progressively cooling. Hence the radiation has not strictly speaking reached
+            equilibrium. However, the processes which transferred energy between radiation and
+            matter in the early Universe were so rapid that it is meaningful to think of a
+            quasi-equilibrium state having been attained at an early time, with the temperature
+            gradually falling subsequently because of the expansion of the Universe.</p>
+          <p>A second feature of the thermal spectrum is that if the detector is situated
+            within the ‘oven’ generating it (as distinct from looking at a distant
+            black surface or opening to an oven), the intensity of the radiation at any particular
+            frequency uniquely identifies the thermal curve to which it belongs, i.e. what the
+            temperature of the ‘oven’ is. So, if <xref href="#FIG001_019">Figure 22</xref> referred to thermal spectra picked up by a
+            detector situated <i>inside</i> an oven, the ordinate of the graph could be expressed in
+            terms of <i>absolute</i>, rather than <i>relative</i> intensities. Under these
+            circumstances, a measurement of intensity at a single frequency, say
+              60 × 10<sup>12</sup> Hz, would be sufficient to identify which curve
+            that data point belonged to, and hence what the temperature of the oven was.</p>
+          
+          <p>Inasmuch as the Universe can be regarded as an ‘oven’, and we are
+            in it, Penzias and Wilson were able to estimate from the intensity of the radiation at
+            the single frequency they were detecting that the temperature was about 3 K. For this
+            reason, the cosmic microwave background radiation is often called the <i>3 K
+              radiation</i>. The spectrum observed by COBE allowed a more precise estimate of the
+            temperature, namely 2.73 K. This is based on the results presented in <xref href="#FIG001_018">Figure 21</xref>, where it should be noted that the data points
+            do not deviate from the thermal curve by more than 0.03%, this being consistent with
+            measurement precision.</p>
+          <p>In the 1940s, some theoreticians already had an inkling that this radiation
+            should exist, from the predictions of their cosmological models. The Abbe Georges
+            Lemaitre, a Belgian cosmologist, was the first to see clearly (around 1927) that the
+            expansion of the Universe pointed back to a ‘big bang’. But he could not
+            get much further because not enough was known about nuclear physics at that time. It was
+            George Gamow and his colleagues, in 1948, who first saw that very high temperatures must
+            be involved at early times in an expanding Universe. They sketched out some nuclear
+            reactions that must therefore have taken place. By 1953, their reconstruction had been
+            refined and gave definite predictions for nuclear abundances – and radiation
+            intensity. It was at this stage they realised that radiation had been a vital component
+            in the early Universe and that this same radiation, albeit substantially redshifted and
+            cooled, should still be around today (there being no other place for it to go!). In the
+            1950s, radio equipment already existed which was sensitive enough to detect this
+            radiation. Indeed, radio astronomy was developing fast, based at first on the technology
+            of military radar in World War II. So by 1953 the stage was set for this radiation to be
+            discovered. But as it so happened, the two groups, theoretical and experimental, did not
+            stumble into each other for another 12 years. Despite conferences and journals,
+            scientific communication with New Jersey was not as effective as communication over
+              10<sup>10</sup> light-years! When theory and observation finally came together, the
+            question of priority took some sorting out, as indicated in Gamow's letter, reproduced
+            as <xref href="#FIG001_022">Figure 25</xref>.</p>
+          <fig>
+            <title>
+              <b>Figure 25</b>: A letter from George Gamow to Arno Penzias</title>
+            <image href="../../media/S357_1_022i.jpg"/>
+            <p outputclass="SourceReference">Source: courtesy of Dr A.A. Penzias <data name="ItemRights">
+                  <data name="OwnerRef"/>
+                  <data name="ItemRef"/>
+                  <data name="ItemAcknowledgement">courtesy of Dr A.A. Penzias</data>
+              </data>
+            </p>
+            <p/>
+         </fig>
+          <p>The reference to ‘almighty Dicke’ at the end of this letter
+            concerns R. H. Dicke, the leader of a group at Princeton University (also in New Jersey)
+            which was pursuing both theoretical and observational research into the background
+            radiation in the 1960s. The paper by Penzias and Wilson announcing their discovery, and
+            a paper by Dicke's group providing a possible cosmological interpretation, were
+            published back to back in volume 142 of the <i>Astrophysical Journal</i> in
+            1965.</p>
+          <p>The spectrum of thermal radiation at a given temperature <i>T</i> can be
+            expressed in terms of a function <i>W</i>(<i>f</i>, <i>T</i>) which gives the intensity
+            of radiation of frequency <i>f</i>. The energy density of that part of the radiation
+            with frequencies lying between <i>f</i> and <i>f</i> + Δ<i>f</i> is given by
+              <i>W</i>(<i>f</i>, <i>T</i>) Δ<i>f</i>. The formula for <i>W</i>(<i>f</i>,
+              <i>T</i>) was derived by Max Planck in 1900:</p>
+          <fig outputclass="Equation">
+            <image href="../../media/S357_1_e007i.gif"/>
+            <p outputclass="equation-description"/>
+         </fig>
+          <p>where <i>A</i> and <i>B</i> are constants. At low frequencies (<i>f</i>
+            ≪
+            <i>T</i>/<i>B</i>), one can use a simpler approximate formula:</p>
+          <fig outputclass="Equation">
+            <image href="../../media/S357_1_e008i.gif"/>
+            <p outputclass="equation-description"/>
+         </fig>
+          <sectiondiv outputclass="Activity">
+            <p outputclass="Heading">
+               <b>Study comment</b>
+            </p>
+            <sectiondiv outputclass="activity.question">
+              <p>We suggest that you do not omit
+                <xref href="#SAQ001_010">Question 10</xref> as it contains information that will be
+                needed later.</p>
+            </sectiondiv>
+          </sectiondiv>
+          
+          <sectiondiv outputclass="SAQ">
+            <p outputclass="Heading">
+               <b>Question 10</b>
+            </p>
+            <sectiondiv outputclass="saq.question">
+              
+              <p>(a) Verify the result represented by <xref href="#FIG001_021">Figure 24</xref>, that <i>W/T</i>
+                  <sup>3</sup> is a function
+                of <i>f/T</i> only, which applies for all frequencies and temperatures.</p>
+              
+              <p>(b) Use the result of (a) to show that maximum intensity occurs at a
+                frequency, <i>f</i>
+                  <sub>max</sub>, which is proportional to the
+                temperature.</p>
+              
+              <p>(c) Imagine that you receive a radio message from a very distant galaxy,
+                informing you about measurements of the cosmic background radiation at various
+                frequencies (defined in terms of fractions of the frequency of a standard spectral
+                line). These results do not agree with your own measurements of the radiation. In
+                particular, you find that the quoted value of the maximum intensity is <i>eight</i>
+                times your value and occurs at a frequency that is <i>twice</i> your frequency for
+                maximum intensity. You find that the quoted intensities at low frequencies are
+                  <i>twice</i> your values at the same frequencies. How can you explain these
+                discrepancies? (You may assume that the discrepancy is not due to calibration or
+                other errors.)</p>
+              
+            </sectiondiv>
+            <sectiondiv outputclass="saq.answer">
+              <p>
+                  <b>(a)</b> Let <i>y</i> = <i>W</i>/<i>T</i>
+                  <sup>3</sup> and
+                  <i>x</i> = <i>f</i>/<i>T</i>. Then</p>
+              <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue039i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+              <p>which shows that <i>W</i>/<i>T</i>
+                  <sup>3</sup> is a function of
+                  <i>f</i>/<i>T</i> only.</p>
+              <p>
+                  <b>(b)</b> From the above expression for <i>y</i>, we see there must be a
+                universal value of <i>x</i> which gives a maximum value of <i>y</i>. But a maximum
+                value of <i>y</i> implies a maximum value of <i>W</i> at a given temperature. If we
+                denote this value of <i>x</i> by the constant <i>x</i>
+                  <sub>max</sub>, it follows
+                that</p>
+              <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue040i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+              <p>and hence that</p>
+              <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue041i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+              <p>Thus the frequency, <i>f</i>
+                  <sub>max</sub> which gives maximum intensity is
+                proportional to the temperature <i>T</i>. (You might have heard of this relation
+                referred to as Wien's displacement law.)</p>
+              <p>
+                  <b>(c)</b> The explanation is that the cosmic background radiation has
+                cooled during the time it took for the radio message to reach you. The discrepancies
+                between their results and yours can all be explained by this difference in
+                temperature of the radiation.</p>
+              <p>In part (b), it was shown that the frequency, <i>f</i>
+                  <sub>max</sub>,
+                corresponding to maximum intensity, is proportional to <i>T</i>. Since their value
+                of <i>f</i>
+                  <sub>max</sub> is twice yours, the temperature of the cosmic background
+                radiation then must have been twice what it is here and now, i.e. it must have been
+                just under 6 K.</p>
+              <p>In part (a), it was shown that:</p>
+              <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue042i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+              <p>If the maximum intensity is <i>W</i>
+                  <sub>max</sub>, it follows
+                that</p>
+              <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue043i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+              <p>which is independent of <i>T</i> since <i>x</i>
+                  <sub>max</sub> is a
+                universal constant from part (b). Hence</p>
+              <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue044i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+              <p>which is why their value of <i>W</i>
+                  <sub>max</sub> is
+                2<sup>3</sup> = 8 times yours.</p>
+              <p>Finally, Equation 8 shows that the intensity at a given low frequency is
+                proportional to the temperature and hence will be twice what you measure now at the
+                  <i>same</i> low frequency.</p>
+            </sectiondiv>
+          </sectiondiv>
+          
+          <sectiondiv outputclass="SAQ">
+            <p outputclass="Heading">
+               <b>Question 11</b>
+            </p>
+            <sectiondiv outputclass="saq.question">
+              
+              <p>(a) On the basis of your solutions to parts (a) and (b) of <xref href="#SAQ001_010">Question 10</xref>, which would be hotter, a red star or a
+                yellow star?</p>
+              
+              <p>(b) The curves of <xref href="#FIG001_019">Figure 22</xref> can be used to extrapolate results to
+                lower temperatures. By taking a measurement off the figure, and using the result of <xref href="#SAQ001_010">Question 10</xref>(b), estimate the frequency of the
+                intensity maximum for radiation emitted by a body at room temperature. What is the
+                term used to describe electromagnetic radiation in this frequency range?</p>
+              
+            </sectiondiv>
+            <sectiondiv outputclass="saq.answer">
+              <p>
+                  <b>(a)</b> We have already established (in part (b) of the previous
+                question) that the frequency of maximum intensity increases proportionately with
+                temperature. As yellow light has a higher frequency than red light we would expect
+                the yellow star to be the hotter.</p>
+              <p>
+                  <b>(b)</b> From <xref href="#FIG001_019">Figure 22</xref>, we see that the maximum intensity for a
+                temperature of, say, 1646 K occurs at a frequency of about
+                  92 × 10<sup>12</sup> Hz. The maximum for room temperature, taken to
+                be 300 K, is then given by
+                  (300/1646) × 92 × 10<sup>12</sup> Hz = 16.8 × 10<sup>12</sup> Hz.</p>
+              <p>Radiation of this frequency occurs in the infrared part of the
+                spectrum.</p>
+            </sectiondiv>
+          </sectiondiv>
+        </section>
+   </learningContentbody>
+</learningContent>

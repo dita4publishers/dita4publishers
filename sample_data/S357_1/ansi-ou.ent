@@ -1,0 +1,2281 @@
+<!-- ansi-3B2.ent  entity set of characters for 3B2 XHTML production -->
+<!-- 18/2/2002 D.W. updated from html version 7/1/2000 to XML format -->
+
+<!-- Entities commented out in this set are declared in one of the sets:
+     3B2-HTMLlat1.ent, 3B2-HTMLsym.ent, 3B2-HTMLspec.ent -->
+
+
+<!-- ISO Characters not defined elsewhere -->
+
+<!-- Logoleft -->
+<!ENTITY LogoLeft                     "LogoLeft">                  <!-- 108 -->
+<!-- End of Font -->                                                                    
+                                                                                        
+<!-- LogoCentre -->                                                                     
+<!ENTITY LogoCentre                   "LogoCentre">                  <!-- 99 -->
+<!-- End of Font -->                                                                        
+                                                                                         
+<!-- Symbol -->                                                                          
+<!-- ENTITY nbhyphen                     "nbhyphen"-->                <!-- 30 -->
+<!-- ENTITY forall                       "forall"-->                <!-- 34 -->
+<!-- ENTITY exist                        "exist"-->                <!-- 36 -->
+<!-- ENTITY ni                           "ni"-->                <!-- 39 -->
+<!-- ENTITY lowast                       "lowast"-->                <!-- 42 -->
+<!-- ENTITY minus                        "minus"-->                <!-- 45 -->
+<!-- ENTITY cong                         "cong"-->                <!-- 64 -->
+<!ENTITY capAlpha                     "capAlpha">                  <!-- 65 -->
+<!ENTITY capBeta                      "capBeta">                  <!-- 66 -->
+<!ENTITY capChi                       "capChi">                  <!-- 67 -->
+<!ENTITY capDelta                     "capDelta">                  <!-- 68 -->
+<!ENTITY capEpsi                      "capEpsi">                  <!-- 69 -->
+<!ENTITY capPhi                       "capPhi">                  <!-- 70 -->
+<!ENTITY capGamma                     "capGamma">                  <!-- 71 -->
+<!ENTITY capEta                       "capEta">                  <!-- 72 -->
+<!ENTITY capIota                      "capIota">                  <!-- 73 -->
+<!ENTITY thetav                       "thetav">                  <!-- 74 -->
+<!ENTITY capKappa                     "capKappa">                  <!-- 75 -->
+<!ENTITY capLambda                    "capLambda">                  <!-- 76 -->
+<!ENTITY capMu                        "capMu">                  <!-- 77 -->
+<!ENTITY capNu                        "capNu">                  <!-- 78 -->
+<!ENTITY capOmicron                   "capOmicron">                  <!-- 79 -->
+<!ENTITY capPi                        "capPi">                  <!-- 80 -->
+<!ENTITY capTheta                     "capTheta">                  <!-- 81 -->
+<!ENTITY capRho                       "capRho">                  <!-- 82 -->
+<!ENTITY capSigma                     "capSigma">                  <!-- 83 -->
+<!ENTITY capTau                       "capTau">                  <!-- 84 -->
+<!ENTITY capUpsiv                     "capUpsiv">                  <!-- 85 -->
+<!ENTITY sigmav                       "sigmav">                  <!-- 86 -->
+<!ENTITY capOmega                     "capOmega">                  <!-- 87 -->
+<!ENTITY capXi                        "capXi">                  <!-- 88 -->
+<!ENTITY capPsi                       "capPsi">                  <!-- 89 -->
+<!ENTITY capZeta                      "capZeta">                  <!-- 90 -->
+<!ENTITY lsqb                         "lsqb">                  <!-- 91 -->
+<!-- ENTITY there4                       "there4"-->                  <!-- 92 -->
+<!ENTITY bottom                       "bottom">                  <!-- 94 -->
+<!-- ENTITY hibar                        "hibar"-->                <!-- 96 -->
+<!-- ENTITY alpha                        "alpha"-->                <!-- 97 -->
+<!-- ENTITY beta                         "beta"-->                <!-- 98 -->
+<!-- ENTITY chi                          "chi"-->                <!-- 99 -->
+<!-- ENTITY delta                        "delta"-->                <!-- 100 -->
+<!ENTITY epsiv                        "epsiv">                  <!-- 101 -->
+<!-- ENTITY phis                         "phis"-->                <!-- 102 -->
+<!-- ENTITY gamma                        "gamma"-->                <!-- 103 -->
+<!-- ENTITY eta                          "eta"-->                <!-- 104 -->
+<!-- ENTITY iota                         "iota"-->                <!-- 105 -->
+<!ENTITY phiv                         "phiv">                  <!-- 106 -->
+<!-- ENTITY kappa                        "kappa"-->                <!-- 107 -->
+<!-- ENTITY lambda                       "lambda"-->                <!-- 108 -->
+<!-- ENTITY mu                           "mu"-->                <!-- 109 -->
+<!-- ENTITY nu                           "nu"-->                <!-- 110 -->
+<!-- ENTITY omicron                      "omicron"-->                <!-- 111 -->
+<!-- ENTITY pi                           "pi"-->                <!-- 112 -->
+<!-- ENTITY thetas                       "thetas"-->                <!-- 113 -->
+<!-- ENTITY rho                          "rho"-->                <!-- 114 -->
+<!-- ENTITY sigma                        "sigma"-->                <!-- 115 -->
+<!-- ENTITY tau                          "tau"-->                <!-- 116 -->
+<!-- ENTITY upsi                         "upsi"-->                <!-- 117 -->
+<!-- ENTITY piv                          "piv"-->                <!-- 118 -->
+<!-- ENTITY omega                        "omega"-->                <!-- 119 -->
+<!-- ENTITY xi                           "xi"-->                <!-- 120 -->
+<!-- ENTITY psi                          "psi"-->                <!-- 121 -->
+<!-- ENTITY zeta                         "zeta"-->                <!-- 122 -->
+<!ENTITY capUpsi                      "capUpsi">                  <!-- 161 -->
+<!-- ENTITY prime                        "prime"-->                  <!-- 162 -->
+<!-- ENTITY le                           "le"-->                  <!-- 163 -->
+<!ENTITY solv                         "solv">                  <!-- 164 -->
+<!-- ENTITY infin                        "infin"-->                <!-- 165 -->
+<!-- ENTITY fnof                         "fnof"-->                <!-- 166 -->
+<!-- ENTITY clubs                        "clubs"-->                <!-- 167 -->
+<!-- ENTITY diams                        "diams"-->                <!-- 168 -->
+<!-- ENTITY hearts                       "hearts"-->                <!-- 169 -->
+<!-- ENTITY spades                       "spades"-->                <!-- 170 -->
+<!-- ENTITY harr                         "harr"-->                <!-- 171 -->
+<!-- ENTITY larr                         "larr"-->                <!-- 172 -->
+<!-- ENTITY uarr                         "uarr"-->                <!-- 173 -->
+<!-- ENTITY rarr                         "rarr"-->                <!-- 174 -->
+<!-- ENTITY darr                         "darr"-->                <!-- 175 -->
+<!-- ENTITY deg                          "deg"-->                <!-- 176 -->
+<!-- ENTITY plusmn                       "plusmn"-->                <!-- 177 -->
+<!ENTITY dblPrime                     "dblPrime">                <!-- 178 -->
+<!-- ENTITY ge                           "ge"-->                <!-- 179 -->
+<!-- ENTITY multi                        "multi"-->                <!-- 180 -->
+<!-- ENTITY prop                         "prop"-->                <!-- 181 -->
+<!ENTITY partial                      "partial">                <!-- 182 -->
+<!-- ENTITY bull                         "bull"-->                <!-- 183 -->
+<!-- ENTITY divide                       "divide"-->                <!-- 184 -->
+<!-- ENTITY ne                           "ne"-->                <!-- 185 -->
+<!-- ENTITY equiv                        "equiv"-->                <!-- 186 -->
+<!ENTITY ap                           "ap">                <!-- 187 -->
+<!-- ENTITY hellip                       "hellip"-->                <!-- 188 -->
+<!ENTITY verbarv                      "verbarv">                <!-- 189 -->
+<!ENTITY horbar                       "horbar">                <!-- 190 -->
+<!ENTITY dlsh                         "dlsh">                <!-- 191 -->
+<!ENTITY aleph                        "aleph">                <!-- 192 -->
+<!-- ENTITY image                        "image"-->                <!-- 193 -->
+<!-- ENTITY real                         "real"-->                <!-- 194 -->
+<!-- ENTITY weierp                       "weierp"-->                <!-- 195 -->
+<!-- ENTITY otimes                       "otimes"-->                <!-- 196 -->
+<!-- ENTITY oplus                        "oplus"-->                <!-- 197 -->
+<!-- ENTITY empty                        "empty"-->                <!-- 198 -->
+<!-- ENTITY cap                          "cap"-->                <!-- 199 -->
+<!-- ENTITY cup                          "cup"-->                <!-- 200 -->
+<!-- ENTITY sup                          "sup"-->                <!-- 201 -->
+<!-- ENTITY supe                         "supe"-->                <!-- 202 -->
+<!-- ENTITY nsub                         "nsub"-->                <!-- 203 -->
+<!-- ENTITY sub                          "sub"-->                <!-- 204 -->
+<!-- ENTITY sube                         "sube"-->                <!-- 205 -->
+<!-- ENTITY isin                         "isin"-->                <!-- 206 -->
+<!-- ENTITY notin                        "notin"-->                <!-- 207 -->
+<!-- ENTITY ang                          "ang"-->                <!-- 208 -->
+<!-- ENTITY nabla                        "nabla"-->                <!-- 209 -->
+<!-- ENTITY reg                          "reg"-->                <!-- 210 -->
+<!-- ENTITY trade                        "trade"-->                <!-- 212 -->
+<!-- ENTITY prod                         "prod"-->                <!-- 213 -->
+<!-- ENTITY radic                        "radic"-->                <!-- 214 -->
+<!-- ENTITY middot                       "middot"-->                <!-- 215 -->
+<!-- ENTITY not                          "not"-->                <!-- 216 -->
+<!-- ENTITY and                          "and"-->                <!-- 217 -->
+<!-- ENTITY or                           "or"-->                <!-- 218 -->
+<!ENTITY hdblArr                      "hdblArr">                  <!-- 219 -->
+<!ENTITY ldblArr                      "ldblArr">                  <!-- 220 -->
+<!ENTITY udblArr                      "udblArr">                  <!-- 221 -->
+<!ENTITY rdblArr                      "rdblArr">                  <!-- 222 -->
+<!ENTITY ddblArr                      "ddblArr">                  <!-- 223 -->
+<!-- ENTITY diam                         "diam"-->                <!-- 224 -->
+<!-- ENTITY lang                         "lang"-->                <!-- 225 -->
+<!ENTITY regv                         "regv">                  <!-- 226 -->
+<!ENTITY copyv                        "copyv">                  <!-- 227 -->
+<!ENTITY tradev                       "tradev">                  <!-- 228 -->
+<!-- ENTITY sum                          "sum"-->                <!-- 229 -->
+<!ENTITY topxlpar                     "topxlpar">                  <!-- 230 -->
+<!ENTITY midxlpar                     "midxlpar">                  <!-- 231 -->
+<!ENTITY botxlpar                     "botxlpar">                  <!-- 232 -->
+<!-- ENTITY lceil                        "lceil"-->                <!-- 233 -->
+<!ENTITY lwall                        "lwall">                  <!-- 234 -->
+<!-- ENTITY lfloor                       "lfloor"-->                <!-- 235 -->
+<!ENTITY topxlcub                     "topxlcub">                  <!-- 236 -->
+<!ENTITY midxlcub                     "midxlcub">                  <!-- 237 -->
+<!ENTITY botxlcub                     "botxlcub">                  <!-- 238 -->
+<!ENTITY extxcub                      "extxcub">                  <!-- 239 -->
+<!-- ENTITY rang                         "rang"-->                  <!-- 241 -->
+<!-- ENTITY int                          "int"-->                  <!-- 242 -->
+<!ENTITY topxint                      "topxint">                  <!-- 243 -->
+<!ENTITY midxint                      "midxint">                  <!-- 244 -->
+<!ENTITY botxint                      "botxint">                  <!-- 245 -->
+<!ENTITY topxrpar                     "topxrpar">                  <!-- 246 -->
+<!ENTITY midxrpar                     "midxrpar">                  <!-- 247 -->
+<!ENTITY botxrpar                     "botxrpar">                  <!-- 248 -->
+<!-- ENTITY rceil                        "rceil"-->                  <!-- 249 -->
+<!ENTITY rwall                        "rwall">                  <!-- 250 -->
+<!-- ENTITY rfloor                       "rfloor"-->                  <!-- 251 -->
+<!ENTITY topxrcub                     "topxrcub">                  <!-- 252 -->
+<!ENTITY midxrcub                     "midxrcub">                  <!-- 253 -->
+<!ENTITY botxrcub                     "botxrcub">                  <!-- 254 -->
+<!-- End of Font -->                                                                        
+                                                                                            
+<!-- XSymbol -->                                                                            
+<!-- ENTITY nbhyphen                     "nbhyphen"-->                  <!-- 30 -->
+<!-- ENTITY forall                       "forall"-->                  <!-- 34 -->
+<!-- ENTITY exist                        "exist"-->                  <!-- 36 -->
+<!-- ENTITY ni                           "ni"-->                  <!-- 39 -->
+<!-- ENTITY lowast                       "lowast"-->                  <!-- 42 -->
+<!-- ENTITY minus                        "minus"-->                  <!-- 45 -->
+<!ENTITY cong                         "cong">                  <!-- 64 -->
+<!-- ENTITY capAlpha                     "capAlpha"-->                  <!-- 65 -->
+<!-- ENTITY capBeta                      "capBeta"-->                  <!-- 66 -->
+<!ENTITY capChi                       "capChi">                  <!-- 67 -->
+<!ENTITY capDelta                     "capDelta">                  <!-- 68 -->
+<!ENTITY capEpsi                      "capEpsi">                  <!-- 69 -->
+<!ENTITY capPhi                       "capPhi">                  <!-- 70 -->
+<!ENTITY capGamma                     "capGamma">                  <!-- 71 -->
+<!ENTITY capEta                       "capEta">                  <!-- 72 -->
+<!ENTITY capIota                      "capIota">                  <!-- 73 -->
+<!ENTITY thetav                       "thetav">                  <!-- 74 -->
+<!ENTITY capKappa                     "capKappa">                  <!-- 75 -->
+<!ENTITY capLambda                    "capLambda">                  <!-- 76 -->
+<!ENTITY capMu                        "capMu">                  <!-- 77 -->
+<!ENTITY capNu                        "capNu">                  <!-- 78 -->
+<!ENTITY capOmicron                   "capOmicron">                  <!-- 79 -->
+<!ENTITY capPi                        "capPi">                  <!-- 80 -->
+<!ENTITY capTheta                     "capTheta">                  <!-- 81 -->
+<!ENTITY capRho                       "capRho">                  <!-- 82 -->
+<!ENTITY capSigma                     "capSigma">                  <!-- 83 -->
+<!ENTITY capTau                       "capTau">                  <!-- 84 -->
+<!ENTITY capUpsiv                     "capUpsiv">                  <!-- 85 -->
+<!ENTITY sigmav                       "sigmav">                  <!-- 86 -->
+<!ENTITY capOmega                     "capOmega">                  <!-- 87 -->
+<!ENTITY capXi                        "capXi">                  <!-- 88 -->
+<!ENTITY capPsi                       "capPsi">                  <!-- 89 -->
+<!ENTITY capZeta                      "capZeta">                  <!-- 90 -->
+<!-- ENTITY lsqb                         "lsqb"-->                  <!-- 91 -->
+<!-- ENTITY there4                       "there4"-->                  <!-- 92 -->
+<!-- ENTITY bottom                       "bottom"-->                  <!-- 94 -->
+<!ENTITY hibar                        "hibar">                  <!-- 96 -->
+<!-- ENTITY alpha                        "alpha"-->                  <!-- 97 -->
+<!-- ENTITY beta                         "beta"-->                  <!-- 98 -->
+<!-- ENTITY chi                          "chi"-->                  <!-- 99 -->
+<!-- ENTITY delta                        "delta"-->                  <!-- 100 -->
+<!-- ENTITY epsiv                        "epsiv"-->                  <!-- 101 -->
+<!ENTITY phis                         "phis">                  <!-- 102 -->
+<!-- ENTITY gamma                        "gamma"-->                  <!-- 103 -->
+<!-- ENTITY eta                          "eta"-->                  <!-- 104 -->
+<!-- ENTITY iota                         "iota"-->                  <!-- 105 -->
+<!-- ENTITY phiv                         "phiv"-->                  <!-- 106 -->
+<!ENTITY kappa                        "kappa">                  <!-- 107 -->
+<!ENTITY lambda                       "lambda">                  <!-- 108 -->
+<!ENTITY mu                           "mu">                  <!-- 109 -->
+<!ENTITY nu                           "nu">                  <!-- 110 -->
+<!ENTITY omicron                      "omicron">                  <!-- 111 -->
+<!ENTITY pi                           "pi">                  <!-- 112 -->
+<!ENTITY thetas                       "thetas">                  <!-- 113 -->
+<!ENTITY rho                          "rho">                  <!-- 114 -->
+<!ENTITY sigma                        "sigma">                  <!-- 115 -->
+<!ENTITY tau                          "tau">                  <!-- 116 -->
+<!ENTITY upsi                         "upsi">                  <!-- 117 -->
+<!ENTITY piv                          "piv">                  <!-- 118 -->
+<!ENTITY omega                        "omega">                  <!-- 119 -->
+<!ENTITY xi                           "xi">                  <!-- 120 -->
+<!ENTITY psi                          "psi">                  <!-- 121 -->
+<!ENTITY zeta                         "zeta">                  <!-- 122 -->
+<!ENTITY capUpsi                      "capUpsi">                  <!-- 161 -->
+<!-- ENTITY prime                        "prime"-->                  <!-- 162 -->
+<!ENTITY le                           "le">                  <!-- 163 -->
+<!ENTITY solv                         "solv">                  <!-- 164 -->
+<!ENTITY infin                        "infin">                  <!-- 165 -->
+<!ENTITY fnof                         "fnof">                  <!-- 166 -->
+<!ENTITY clubs                        "clubs">                  <!-- 167 -->
+<!ENTITY diams                        "diams">                  <!-- 168 -->
+<!ENTITY hearts                       "hearts">                  <!-- 169 -->
+<!ENTITY spades                       "spades">                  <!-- 170 -->
+<!ENTITY harr                         "harr">                  <!-- 171 -->
+<!ENTITY larr                         "larr">                  <!-- 172 -->
+<!ENTITY uarr                         "uarr">                  <!-- 173 -->
+<!ENTITY rarr                         "rarr">                  <!-- 174 -->
+<!ENTITY darr                         "darr">                  <!-- 175 -->
+<!-- ENTITY deg                          "deg"-->                  <!-- 176 -->
+<!-- ENTITY plusmn                       "plusmn"-->                  <!-- 177 -->
+<!ENTITY dblPrime                     "dblPrime">                  <!-- 178 -->
+<!ENTITY ge                           "ge">                  <!-- 179 -->
+<!-- ENTITY multi                        "multi"-->                  <!-- 180 -->
+<!ENTITY prop                         "prop">                  <!-- 181 -->
+<!ENTITY partial                      "partial">                  <!-- 182 -->
+<!ENTITY bull                         "bull">                  <!-- 183 -->
+<!-- ENTITY divide                       "divide"-->                  <!-- 184 -->
+<!ENTITY ne                           "ne">                  <!-- 185 -->
+<!ENTITY equiv                        "equiv">                  <!-- 186 -->
+<!ENTITY ap                           "ap">                  <!-- 187 -->
+<!ENTITY hellip                       "hellip">                  <!-- 188 -->
+<!ENTITY verbarv                      "verbarv">                  <!-- 189 -->
+<!ENTITY horbar                       "horbar">                  <!-- 190 -->
+<!ENTITY dlsh                         "dlsh">                  <!-- 191 -->
+<!ENTITY aleph                        "aleph">                  <!-- 192 -->
+<!ENTITY image                        "image">                  <!-- 193 -->
+<!ENTITY real                         "real">                  <!-- 194 -->
+<!ENTITY weierp                       "weierp">                  <!-- 195 -->
+<!ENTITY otimes                       "otimes">                  <!-- 196 -->
+<!ENTITY oplus                        "oplus">                  <!-- 197 -->
+<!ENTITY empty                        "empty">                  <!-- 198 -->
+<!ENTITY cap                          "cap">                  <!-- 199 -->
+<!-- ENTITY cup                          "cup"-->                  <!-- 200 -->
+<!ENTITY sup                          "sup">                  <!-- 201 -->
+<!ENTITY supe                         "supe">                  <!-- 202 -->
+<!ENTITY nsub                         "nsub">                  <!-- 203 -->
+<!ENTITY sub                          "sub">                  <!-- 204 -->
+<!ENTITY sube                         "sube">                  <!-- 205 -->
+<!ENTITY isin                         "isin">                  <!-- 206 -->
+<!ENTITY notin                        "notin">                  <!-- 207 -->
+<!ENTITY ang                          "ang">                  <!-- 208 -->
+<!ENTITY nabla                        "nabla">                  <!-- 209 -->
+<!ENTITY reg                          "reg">                  <!-- 210 -->
+<!ENTITY trade                        "trade">                  <!-- 212 -->
+<!ENTITY prod                         "prod">                  <!-- 213 -->
+<!ENTITY radic                        "radic">                  <!-- 214 -->
+<!-- ENTITY middot                       "middot"-->                  <!-- 215 -->
+<!ENTITY not                          "not">                  <!-- 216 -->
+<!ENTITY and                          "and">                  <!-- 217 -->
+<!ENTITY or                           "or">                  <!-- 218 -->
+<!ENTITY hdblArr                      "hdblArr">                  <!-- 219 -->
+<!ENTITY ldblArr                      "ldblArr">                  <!-- 220 -->
+<!ENTITY udblArr                      "udblArr">                  <!-- 221 -->
+<!ENTITY rdblArr                      "rdblArr">                  <!-- 222 -->
+<!ENTITY ddblArr                      "ddblArr">                  <!-- 223 -->
+<!ENTITY diam                         "diam">                  <!-- 224 -->
+<!ENTITY lang                         "lang">                  <!-- 225 -->
+<!ENTITY regv                         "regv">                  <!-- 226 -->
+<!ENTITY copyv                        "copyv">                  <!-- 227 -->
+<!ENTITY tradev                       "tradev">                  <!-- 228 -->
+<!ENTITY sum                          "sum">                  <!-- 229 -->
+<!ENTITY topxlpar                     "topxlpar">                  <!-- 230 -->
+<!ENTITY midxlpar                     "midxlpar">                  <!-- 231 -->
+<!ENTITY botxlpar                     "botxlpar">                  <!-- 232 -->
+<!ENTITY lceil                        "lceil">                  <!-- 233 -->
+<!ENTITY lwall                        "lwall">                  <!-- 234 -->
+<!ENTITY lfloor                       "lfloor">                  <!-- 235 -->
+<!ENTITY topxlcub                     "topxlcub">                  <!-- 236 -->
+<!ENTITY midxlcub                     "midxlcub">                  <!-- 237 -->
+<!ENTITY botxlcub                     "botxlcub">                  <!-- 238 -->
+<!ENTITY extxcub                      "extxcub">                  <!-- 239 -->
+<!ENTITY apple                        "apple">                  <!-- 240 -->
+<!ENTITY rang                         "rang">                  <!-- 241 -->
+<!ENTITY int                          "int">                  <!-- 242 -->
+<!ENTITY topxint                      "topxint">                  <!-- 243 -->
+<!ENTITY midxint                      "midxint">                  <!-- 244 -->
+<!ENTITY botxint                      "botxint">                  <!-- 245 -->
+<!ENTITY topxrpar                     "topxrpar">                  <!-- 246 -->
+<!ENTITY midxrpar                     "midxrpar">                  <!-- 247 -->
+<!ENTITY botxrpar                     "botxrpar">                  <!-- 248 -->
+<!ENTITY rceil                        "rceil">                  <!-- 249 -->
+<!ENTITY rwall                        "rwall">                  <!-- 250 -->
+<!ENTITY rfloor                       "rfloor">                  <!-- 251 -->
+<!ENTITY topxrcub                     "topxrcub">                  <!-- 252 -->
+<!ENTITY midxrcub                     "midxrcub">                  <!-- 253 -->
+<!ENTITY botxrcub                     "botxrcub">                  <!-- 254 -->
+<!-- End of Font -->                                                                    
+                                                                                        
+<!-- ChemTimes -->                                                                      
+<!ENTITY subs3                        "subs3">                  <!-- 35 -->
+<!ENTITY quot                         "quot">                  <!-- 39 -->
+<!-- ENTITY alpha                        "alpha"-->                  <!-- 64 -->
+<!ENTITY bond                         "bond">                  <!-- 92 -->
+<!-- ENTITY beta                         "beta"-->                  <!-- 94 -->
+<!-- ENTITY minus                        "minus"-->                  <!-- 95 -->
+<!ENTITY dshbond                      "dshbond">                  <!-- 96 -->
+<!ENTITY dblBond                      "dblBond">                  <!-- 124 -->
+<!ENTITY tbond                        "tbond">                  <!-- 126 -->
+<!ENTITY capAring                     "capAring">                  <!-- 129 -->
+<!ENTITY capCplus                     "capCplus">                  <!-- 130 -->
+<!ENTITY sbsnital                     "sbsnital">                  <!-- 132 -->
+<!ENTITY sast                         "sast">                  <!-- 140 -->
+<!ENTITY capCmn                       "capCmn">                  <!-- 141 -->
+<!ENTITY nital                        "nital">                  <!-- 150 -->
+<!ENTITY supr8                        "supr8">                  <!-- 161 -->
+<!ENTITY subs4                        "subs4">                  <!-- 162 -->
+<!ENTITY num                          "num">                  <!-- 163 -->
+<!ENTITY subs6                        "subs6">                  <!-- 164 -->
+<!ENTITY subs8                        "subs8">                  <!-- 165 -->
+<!ENTITY subs7                        "subs7">                  <!-- 166 -->
+<!ENTITY capSmn                       "capSmn">                  <!-- 167 -->
+<!ENTITY subs2                        "subs2">                  <!-- 170 -->
+<!ENTITY suprdeltamn                  "suprdeltamn">                  <!-- 171 -->
+<!ENTITY suprdeltaplus                "suprdeltaplus">                  <!-- 172 -->
+<!ENTITY subsplus                     "subsplus">                  <!-- 173 -->
+<!ENTITY dblPrime                     "dblPrime">                  <!-- 174 -->
+<!ENTITY capOplus                     "capOplus">                  <!-- 175 -->
+<!ENTITY subs5                        "subs5">                  <!-- 176 -->
+<!ENTITY suprplus                     "suprplus">                  <!-- 177 -->
+<!ENTITY rlhar2                       "rlhar2">                  <!-- 178 -->
+<!-- ENTITY middot                       "middot"-->                  <!-- 179 -->
+<!ENTITY mu                           "mu">                  <!-- 181 -->
+<!-- ENTITY delta                        "delta"-->                  <!-- 182 -->
+<!ENTITY capPplus                     "capPplus">                  <!-- 184 -->
+<!ENTITY capPmn                       "capPmn">                  <!-- 185 -->
+<!ENTITY capBmn                       "capBmn">                  <!-- 186 -->
+<!ENTITY subs9                        "subs9">                  <!-- 187 -->
+<!ENTITY subs0                        "subs0">                  <!-- 188 -->
+<!-- ENTITY prime                        "prime"-->                  <!-- 190 -->
+<!ENTITY capOmn                       "capOmn">                  <!-- 191 -->
+<!ENTITY suprstnd                     "suprstnd">                  <!-- 192 -->
+<!ENTITY subs1                        "subs1">                  <!-- 193 -->
+<!ENTITY harr                         "harr">                  <!-- 199 -->
+<!ENTITY xharr                        "xharr">                  <!-- 200 -->
+<!ENTITY scolon                       "scolon">                  <!-- 201 -->
+<!ENTITY subsmn                       "subsmn">                  <!-- 208 -->
+<!ENTITY suprmn                       "suprmn">                  <!-- 209 -->
+<!ENTITY larr                         "larr">                  <!-- 210 -->
+<!ENTITY xlarr                        "xlarr">                  <!-- 211 -->
+<!ENTITY rarr                         "rarr">                  <!-- 212 -->
+<!ENTITY xrarr                        "xrarr">                  <!-- 213 -->
+<!ENTITY stnd                         "stnd">                  <!-- 214 -->
+<!ENTITY subsdot                      "subsdot">                  <!-- 216 -->
+<!ENTITY capNmn                       "capNmn">                  <!-- 217 -->
+<!ENTITY supr1                        "supr1">                  <!-- 218 -->
+<!ENTITY supr2                        "supr2">                  <!-- 219 -->
+<!ENTITY supr3                        "supr3">                  <!-- 220 -->
+<!ENTITY supr4                        "supr4">                  <!-- 221 -->
+<!ENTITY supr5                        "supr5">                  <!-- 222 -->
+<!ENTITY supr6                        "supr6">                  <!-- 223 -->
+<!ENTITY supr7                        "supr7">                  <!-- 224 -->
+<!ENTITY supr9                        "supr9">                  <!-- 225 -->
+<!ENTITY supr0                        "supr0">                  <!-- 226 -->
+<!ENTITY capSplus                     "capSplus">                  <!-- 234 -->
+<!ENTITY capDelta                     "capDelta">                  <!-- 235 -->
+<!ENTITY stbond                       "stbond">                  <!-- 242 -->
+<!ENTITY capNplus                     "capNplus">                  <!-- 246 -->
+<!-- ENTITY multi                        "multi"-->                  <!-- 247 -->
+<!ENTITY xrlhar2                      "xrlhar2">                  <!-- 248 -->
+<!ENTITY suprdot                      "suprdot">                  <!-- 249 -->
+<!ENTITY ring                         "ring">                  <!-- 251 -->
+<!ENTITY suprdotv                     "suprdotv">                  <!-- 252 -->
+<!ENTITY suprplus                     "suprplus">                  <!-- 253 -->
+<!ENTITY suprmn                       "suprmn">                  <!-- 254 -->
+<!ENTITY suprast                      "suprast">                  <!-- 255 -->
+<!-- End of Font -->                                                                 
+                                                                                     
+<!-- FrTimes -->                                                                     
+<!ENTITY FrTimes33                    "FrTimes33">                  <!-- 33 -->
+<!ENTITY FrTimes34                    "FrTimes34">                  <!-- 34 -->
+<!ENTITY FrTimes35                    "FrTimes35">                  <!-- 35 -->
+<!ENTITY FrTimes36                    "FrTimes36">                  <!-- 36 -->
+<!ENTITY FrTimes37                    "FrTimes37">                  <!-- 37 -->
+<!ENTITY FrTimes38                    "FrTimes38">                  <!-- 38 -->
+<!ENTITY FrTimes39                    "FrTimes39">                  <!-- 39 -->
+<!ENTITY FrTimes40                    "FrTimes40">                  <!-- 40 -->
+<!ENTITY FrTimes41                    "FrTimes41">                  <!-- 41 -->
+<!ENTITY FrTimes42                    "FrTimes42">                  <!-- 42 -->
+<!ENTITY FrTimes43                    "FrTimes43">                  <!-- 43 -->
+<!ENTITY FrTimes44                    "FrTimes44">                  <!-- 44 -->
+<!ENTITY FrTimes45                    "FrTimes45">                  <!-- 45 -->
+<!ENTITY FrTimes46                    "FrTimes46">                  <!-- 46 -->
+<!ENTITY FrTimes47                    "FrTimes47">                  <!-- 47 -->
+<!ENTITY FrTimes58                    "FrTimes58">                  <!-- 58 -->
+<!ENTITY FrTimes59                    "FrTimes59">                  <!-- 59 -->
+<!ENTITY FrTimes60                    "FrTimes60">                  <!-- 60 -->
+<!ENTITY FrTimes61                    "FrTimes61">                  <!-- 61 -->
+<!ENTITY FrTimes62                    "FrTimes62">                  <!-- 62 -->
+<!ENTITY FrTimes63                    "FrTimes63">                  <!-- 63 -->
+<!ENTITY FrTimes64                    "FrTimes64">                  <!-- 64 -->
+<!ENTITY FrTimes65                    "FrTimes65">                  <!-- 65 -->
+<!ENTITY FrTimes66                    "FrTimes66">                  <!-- 66 -->
+<!ENTITY FrTimes67                    "FrTimes67">                  <!-- 67 -->
+<!ENTITY FrTimes68                    "FrTimes68">                  <!-- 68 -->
+<!ENTITY FrTimes69                    "FrTimes69">                  <!-- 69 -->
+<!ENTITY FrTimes70                    "FrTimes70">                  <!-- 70 -->
+<!ENTITY FrTimes71                    "FrTimes71">                  <!-- 71 -->
+<!ENTITY FrTimes72                    "FrTimes72">                  <!-- 72 -->
+<!ENTITY FrTimes73                    "FrTimes73">                  <!-- 73 -->
+<!ENTITY numer10                      "numer10">                  <!-- 74 -->
+<!ENTITY FrTimes75                    "FrTimes75">                  <!-- 75 -->
+<!ENTITY FrTimes76                    "FrTimes76">                  <!-- 76 -->
+<!ENTITY FrTimes77                    "FrTimes77">                  <!-- 77 -->
+<!ENTITY FrTimes78                    "FrTimes78">                  <!-- 78 -->
+<!ENTITY FrTimes79                    "FrTimes79">                  <!-- 79 -->
+<!ENTITY FrTimes80                    "FrTimes80">                  <!-- 80 -->
+<!ENTITY FrTimes81                    "FrTimes81">                  <!-- 81 -->
+<!ENTITY FrTimes82                    "FrTimes82">                  <!-- 82 -->
+<!ENTITY FrTimes83                    "FrTimes83">                  <!-- 83 -->
+<!ENTITY FrTimes84                    "FrTimes84">                  <!-- 84 -->
+<!ENTITY FrTimes85                    "FrTimes85">                  <!-- 85 -->
+<!ENTITY FrTimes86                    "FrTimes86">                  <!-- 86 -->
+<!ENTITY FrTimes87                    "FrTimes87">                  <!-- 87 -->
+<!ENTITY FrTimes88                    "FrTimes88">                  <!-- 88 -->
+<!ENTITY FrTimes89                    "FrTimes89">                  <!-- 89 -->
+<!ENTITY denom10                      "denom10">                  <!-- 90 -->
+<!ENTITY FrTimes91                    "FrTimes91">                  <!-- 91 -->
+<!ENTITY FrTimes92                    "FrTimes92">                  <!-- 92 -->
+<!ENTITY FrTimes93                    "FrTimes93">                  <!-- 93 -->
+<!ENTITY FrTimes94                    "FrTimes94">                  <!-- 94 -->
+<!ENTITY FrTimes95                    "FrTimes95">                  <!-- 95 -->
+<!ENTITY frac12                       "frac12">                  <!-- 96 -->
+<!ENTITY frac13                       "frac13">                  <!-- 97 -->
+<!ENTITY frac23                       "frac23">                  <!-- 98 -->
+<!ENTITY frac14                       "frac14">                  <!-- 99 -->
+<!ENTITY frac34                       "frac34">                  <!-- 100 -->
+<!ENTITY frac15                       "frac15">                  <!-- 101 -->
+<!ENTITY frac25                       "frac25">                  <!-- 102 -->
+<!ENTITY frac35                       "frac35">                  <!-- 103 -->
+<!ENTITY frac45                       "frac45">                  <!-- 104 -->
+<!ENTITY frac16                       "frac16">                  <!-- 105 -->
+<!ENTITY frac56                       "frac56">                  <!-- 106 -->
+<!ENTITY frac17                       "frac17">                  <!-- 107 -->
+<!ENTITY frac27                       "frac27">                  <!-- 108 -->
+<!ENTITY frac37                       "frac37">                  <!-- 109 -->
+<!ENTITY frac47                       "frac47">                  <!-- 110 -->
+<!ENTITY frac57                       "frac57">                  <!-- 111 -->
+<!ENTITY frac67                       "frac67">                  <!-- 112 -->
+<!ENTITY frac18                       "frac18">                  <!-- 113 -->
+<!ENTITY frac38                       "frac38">                  <!-- 114 -->
+<!ENTITY frac58                       "frac58">                  <!-- 115 -->
+<!ENTITY frac78                       "frac78">                  <!-- 116 -->
+<!ENTITY frac19                       "frac19">                  <!-- 117 -->
+<!ENTITY frac29                       "frac29">                  <!-- 118 -->
+<!ENTITY frac49                       "frac49">                  <!-- 119 -->
+<!ENTITY frac59                       "frac59">                  <!-- 120 -->
+<!ENTITY frac79                       "frac79">                  <!-- 121 -->
+<!ENTITY frac89                       "frac89">                  <!-- 122 -->
+<!ENTITY frac32                       "frac32">                  <!-- 123 -->
+<!ENTITY frac110                      "frac110">                  <!-- 124 -->
+<!ENTITY frac310                      "frac310">                  <!-- 125 -->
+<!ENTITY frac710                      "frac710">                  <!-- 126 -->
+<!ENTITY numer0                       "numer0">                  <!-- 128 -->
+<!ENTITY numer1                       "numer1">                  <!-- 129 -->
+<!ENTITY numer2                       "numer2">                  <!-- 130 -->
+<!ENTITY numer3                       "numer3">                  <!-- 131 -->
+<!ENTITY numer4                       "numer4">                  <!-- 132 -->
+<!ENTITY numer5                       "numer5">                  <!-- 133 -->
+<!ENTITY numer6                       "numer6">                  <!-- 134 -->
+<!ENTITY numer7                       "numer7">                  <!-- 135 -->
+<!ENTITY numer8                       "numer8">                  <!-- 136 -->
+<!ENTITY numer9                       "numer9">                  <!-- 137 -->
+<!ENTITY numer10                      "numer10">                  <!-- 138 -->
+<!ENTITY denom0                       "denom0">                  <!-- 144 -->
+<!ENTITY denom1                       "denom1">                  <!-- 145 -->
+<!ENTITY denom2                       "denom2">                  <!-- 146 -->
+<!ENTITY denom3                       "denom3">                  <!-- 147 -->
+<!ENTITY denom4                       "denom4">                  <!-- 148 -->
+<!ENTITY denom5                       "denom5">                  <!-- 149 -->
+<!ENTITY denom6                       "denom6">                  <!-- 150 -->
+<!ENTITY denom7                       "denom7">                  <!-- 151 -->
+<!ENTITY denom8                       "denom8">                  <!-- 152 -->
+<!ENTITY denom9                       "denom9">                  <!-- 153 -->
+<!ENTITY denom10                      "denom10">                  <!-- 154 -->
+<!ENTITY numer8                       "numer8">                  <!-- 161 -->
+<!ENTITY denom4                       "denom4">                  <!-- 162 -->
+<!ENTITY denom3                       "denom3">                  <!-- 163 -->
+<!ENTITY denom6                       "denom6">                  <!-- 164 -->
+<!ENTITY denom8                       "denom8">                  <!-- 165 -->
+<!ENTITY denom7                       "denom7">                  <!-- 166 -->
+<!ENTITY denom2                       "denom2">                  <!-- 170 -->
+<!ENTITY frbar                        "frbar">                  <!-- 173 -->
+<!ENTITY denom5                       "denom5">                  <!-- 176 -->
+<!ENTITY frbar                        "frbar">                  <!-- 177 -->
+<!ENTITY denom9                       "denom9">                  <!-- 187 -->
+<!ENTITY denom0                       "denom0">                  <!-- 188 -->
+<!ENTITY denom1                       "denom1">                  <!-- 193 -->
+<!ENTITY frbar                        "frbar">                  <!-- 208 -->
+<!ENTITY frbar                        "frbar">                  <!-- 209 -->
+<!ENTITY numer1                       "numer1">                  <!-- 218 -->
+<!ENTITY numer2                       "numer2">                  <!-- 219 -->
+<!ENTITY numer3                       "numer3">                  <!-- 220 -->
+<!ENTITY numer4                       "numer4">                  <!-- 221 -->
+<!ENTITY numer5                       "numer5">                  <!-- 222 -->
+<!ENTITY numer6                       "numer6">                  <!-- 223 -->
+<!ENTITY numer7                       "numer7">                  <!-- 224 -->
+<!ENTITY numer9                       "numer9">                  <!-- 225 -->
+<!ENTITY numer0                       "numer0">                  <!-- 226 -->
+<!-- End of Font -->                                                                    
+                                                                                        
+<!-- MoreMath -->                                                                       
+<!ENTITY lharu                        "lharu">                  <!-- 33 -->
+<!ENTITY dblGt                        "dblGt">                  <!-- 34 -->
+<!ENTITY caronma                      "caronma">                  <!-- 35 -->
+<!ENTITY rhard                        "rhard">                  <!-- 36 -->
+<!ENTITY suplpar                      "suplpar">                  <!-- 37 -->
+<!ENTITY smile                        "smile">                  <!-- 38 -->
+<!ENTITY MoreMath39                   "MoreMath39">                  <!-- 39 -->
+<!ENTITY prv                          "prv">                  <!-- 40 -->
+<!ENTITY scv                          "scv">                  <!-- 41 -->
+<!ENTITY frownv                       "frownv">                  <!-- 42 -->
+<!ENTITY rharue                       "rharue">                  <!-- 43 -->
+<!ENTITY dblColonv                    "dblColonv">                  <!-- 44 -->
+<!ENTITY dotbar                       "dotbar">                  <!-- 45 -->
+<!ENTITY becausv                      "becausv">                  <!-- 46 -->
+<!ENTITY bowtie                       "bowtie">                  <!-- 47 -->
+<!ENTITY odotv                        "odotv">                  <!-- 48 -->
+<!ENTITY thinsp                       "thinsp">                  <!-- 49 -->
+<!ENTITY ensp                         "ensp">                  <!-- 50 -->
+<!ENTITY emsp                         "emsp">                  <!-- 51 -->
+<!ENTITY MoreMath52                   "MoreMath52">                  <!-- 52 -->
+<!ENTITY MoreMath53                   "MoreMath53">                  <!-- 53 -->
+<!ENTITY MoreMath54                   "MoreMath54">                  <!-- 54 -->
+<!ENTITY MoreMath55                   "MoreMath55">                  <!-- 55 -->
+<!ENTITY MoreMath56                   "MoreMath56">                  <!-- 56 -->
+<!ENTITY MoreMath57                   "MoreMath57">                  <!-- 57 -->
+<!ENTITY dblLt                        "dblLt">                  <!-- 58 -->
+<!ENTITY bbfsemi                      "bbfsemi">                  <!-- 59 -->
+<!ENTITY les                          "les">                  <!-- 60 -->
+<!ENTITY asymp                        "asymp">                  <!-- 61 -->
+<!ENTITY ges                          "ges">                  <!-- 62 -->
+<!ENTITY MoreMath63                   "MoreMath63">                  <!-- 63 -->
+<!ENTITY lhard                        "lhard">                  <!-- 64 -->
+<!ENTITY MoreMath65                   "MoreMath65">                  <!-- 65 -->
+<!ENTITY bbfcapBv                     "bbfcapBv">                  <!-- 66 -->
+<!ENTITY bbfcapCv                     "bbfcapCv">                  <!-- 67 -->
+<!ENTITY xutri                        "xutri">                  <!-- 68 -->
+<!ENTITY bumpv                        "bumpv">                  <!-- 69 -->
+<!-- ENTITY female                       "female"-->                  <!-- 70 -->
+<!ENTITY dblGtv2                      "dblGtv2">                  <!-- 71 -->
+<!ENTITY lharumax                     "lharumax">                  <!-- 72 -->
+<!ENTITY xcap                         "xcap">                  <!-- 73 -->
+<!ENTITY MoreMath74                   "MoreMath74">                  <!-- 74 -->
+<!ENTITY MoreMath75                   "MoreMath75">                  <!-- 75 -->
+<!-- ENTITY dblLtv                       "dblLtv"-->                  <!-- 76 -->
+<!-- ENTITY male                         "male"-->                  <!-- 77 -->
+<!ENTITY bbfcapNv                     "bbfcapNv">                  <!-- 78 -->
+<!ENTITY cirv                         "cirv">                  <!-- 79 -->
+<!ENTITY amalg                        "amalg">                  <!-- 80 -->
+<!ENTITY bbfcapQv                     "bbfcapQv">                  <!-- 81 -->
+<!ENTITY bbfcapRv                     "bbfcapRv">                  <!-- 82 -->
+<!ENTITY altern                       "altern">                  <!-- 83 -->
+<!ENTITY intcalv                      "intcalv">                  <!-- 84 -->
+<!ENTITY xcup                         "xcup">                  <!-- 85 -->
+<!ENTITY bbfcapVv                     "bbfcapVv">                  <!-- 86 -->
+<!ENTITY MoreMath87                   "MoreMath87">                  <!-- 87 -->
+<!ENTITY nearr                        "nearr">                  <!-- 88 -->
+<!ENTITY drarr                        "drarr">                  <!-- 89 -->
+<!ENTITY bbfcapZv                     "bbfcapZv">                  <!-- 90 -->
+<!ENTITY sqsub                        "sqsub">                  <!-- 91 -->
+<!ENTITY dblVerbarv                   "dblVerbarv">                  <!-- 92 -->
+<!ENTITY sqsup                        "sqsup">                  <!-- 93 -->
+<!ENTITY suprpar                      "suprpar">                  <!-- 94 -->
+<!ENTITY odash                        "odash">                  <!-- 95 -->
+<!ENTITY MoreMath96                   "MoreMath96">                  <!-- 96 -->
+<!ENTITY vndblrArr                    "vndblrArr">                  <!-- 97 -->
+<!ENTITY fetbar                       "fetbar">                  <!-- 98 -->
+<!ENTITY curarrv                      "curarrv">                  <!-- 99 -->
+<!ENTITY sdiam                        "sdiam">                  <!-- 100 -->
+<!ENTITY bumpev                       "bumpev">                  <!-- 101 -->
+<!ENTITY MoreMath102                  "MoreMath102">                  <!-- 102 -->
+<!ENTITY gsimv                        "gsimv">                  <!-- 103 -->
+<!ENTITY lharucapma                   "lharucapma">                  <!-- 104 -->
+<!ENTITY vstrike                      "vstrike">                  <!-- 105 -->
+<!ENTITY scheck                       "scheck">                  <!-- 106 -->
+<!ENTITY MoreMath107                  "MoreMath107">                  <!-- 107 -->
+<!ENTITY lsimv                        "lsimv">                  <!-- 108 -->
+<!ENTITY mapv                         "mapv">                  <!-- 109 -->
+<!ENTITY sqcap                        "sqcap">                  <!-- 110 -->
+<!ENTITY bempty                       "bempty">                  <!-- 111 -->
+<!ENTITY rtang                        "rtang">                  <!-- 112 -->
+<!ENTITY MoreMath113                  "MoreMath113">                  <!-- 113 -->
+<!ENTITY dividerv                     "dividerv">                  <!-- 114 -->
+<!ENTITY indent                       "indent">                  <!-- 115 -->
+<!ENTITY vdash                        "vdash">                  <!-- 116 -->
+<!ENTITY uplus                        "uplus">                  <!-- 117 -->
+<!ENTITY MoreMath118                  "MoreMath118">                  <!-- 118 -->
+<!ENTITY sqcup                        "sqcup">                  <!-- 119 -->
+<!ENTITY dlurbar                      "dlurbar">                  <!-- 120 -->
+<!ENTITY uldrbar                      "uldrbar">                  <!-- 121 -->
+<!ENTITY MoreMath122                  "MoreMath122">                  <!-- 122 -->
+<!ENTITY sqsube                       "sqsube">                  <!-- 123 -->
+<!ENTITY tverbar                      "tverbar">                  <!-- 124 -->
+<!ENTITY sqsupe                       "sqsupe">                  <!-- 125 -->
+<!ENTITY sqwave                       "sqwave">                  <!-- 126 -->
+<!ENTITY acutecapma                   "acutecapma">                  <!-- 129 -->
+<!ENTITY cudarr                       "cudarr">                  <!-- 130 -->
+<!ENTITY boxul                        "boxul">                  <!-- 135 -->
+<!ENTITY boxhuv                       "boxhuv">                  <!-- 137 -->
+<!ENTITY angmsd                       "angmsd">                  <!-- 138 -->
+<!ENTITY acutema                      "acutema">                  <!-- 140 -->
+<!ENTITY cuuarr                       "cuuarr">                  <!-- 141 -->
+<!ENTITY boxur                        "boxur">                  <!-- 142 -->
+<!ENTITY boxvrv                       "boxvrv">                  <!-- 144 -->
+<!ENTITY boxdr                        "boxdr">                  <!-- 146 -->
+<!ENTITY boxhdv                       "boxhdv">                  <!-- 148 -->
+<!ENTITY boxdl                        "boxdl">                  <!-- 151 -->
+<!ENTITY boxvlv                       "boxvlv">                  <!-- 153 -->
+<!ENTITY boxvh                        "boxvh">                  <!-- 158 -->
+<!ENTITY dashv                        "dashv">                  <!-- 160 -->
+<!ENTITY rarrcapma                    "rarrcapma">                  <!-- 161 -->
+<!ENTITY barma                        "barma">                  <!-- 162 -->
+<!ENTITY rharu                        "rharu">                  <!-- 163 -->
+<!ENTITY circma                       "circma">                  <!-- 164 -->
+<!ENTITY rarrma                       "rarrma">                  <!-- 165 -->
+<!ENTITY brevema                      "brevema">                  <!-- 166 -->
+<!ENTITY gravema                      "gravema">                  <!-- 169 -->
+<!ENTITY dblDot                       "dblDot">                  <!-- 170 -->
+<!ENTITY simev                        "simev">                  <!-- 173 -->
+<!ENTITY bange                        "bange">                  <!-- 174 -->
+<!ENTITY dotcapmab                    "dotcapmab">                  <!-- 175 -->
+<!ENTITY tildema                      "tildema">                  <!-- 176 -->
+<!ENTITY elhard                       "elhard">                  <!-- 177 -->
+<!ENTITY domres                       "domres">                  <!-- 178 -->
+<!ENTITY else                         "else">                  <!-- 179 -->
+<!ENTITY nwarr                        "nwarr">                  <!-- 180 -->
+<!ENTITY supdotv                      "supdotv">                  <!-- 181 -->
+<!ENTITY tribar                       "tribar">                  <!-- 182 -->
+<!ENTITY lowtilde                     "lowtilde">                  <!-- 183 -->
+<!ENTITY priorch                      "priorch">                  <!-- 186 -->
+<!ENTITY zerosl                       "zerosl">                  <!-- 188 -->
+<!ENTITY glv                          "glv">                  <!-- 190 -->
+<!ENTITY ringma                       "ringma">                  <!-- 191 -->
+<!ENTITY dotma                        "dotma">                  <!-- 193 -->
+<!ENTITY subdotv                      "subdotv">                  <!-- 194 -->
+<!ENTITY dblVdashv                    "dblVdashv">                  <!-- 196 -->
+<!ENTITY dlarr                        "dlarr">                  <!-- 197 -->
+<!ENTITY wreath                       "wreath">                  <!-- 198 -->
+<!ENTITY boxh                         "boxh">                  <!-- 199 -->
+<!ENTITY boxv                         "boxv">                  <!-- 200 -->
+<!ENTITY lgv                          "lgv">                  <!-- 201 -->
+<!ENTITY mnplusv                      "mnplusv">                  <!-- 208 -->
+<!ENTITY ldblSqb                      "ldblSqb">                  <!-- 210 -->
+<!ENTITY angv                         "angv">                  <!-- 211 -->
+<!ENTITY rdblSqb                      "rdblSqb">                  <!-- 212 -->
+<!ENTITY bang                         "bang">                  <!-- 213 -->
+<!ENTITY xor                          "xor">                  <!-- 215 -->
+<!ENTITY dotcapma                     "dotcapma">                  <!-- 218 -->
+<!ENTITY dblDotcapma                  "dblDotcapma">                  <!-- 219 -->
+<!ENTITY caroncapma                   "caroncapma">                  <!-- 220 -->
+<!ENTITY barcapma                     "barcapma">                  <!-- 221 -->
+<!ENTITY tildecapma                   "tildecapma">                  <!-- 222 -->
+<!ENTITY circcapma                    "circcapma">                  <!-- 223 -->
+<!ENTITY brevecapma                   "brevecapma">                  <!-- 224 -->
+<!ENTITY cupre                        "cupre">                  <!-- 225 -->
+<!ENTITY cusce                        "cusce">                  <!-- 226 -->
+<!ENTITY xsqcup                       "xsqcup">                  <!-- 227 -->
+<!ENTITY bumpdblEv                    "bumpdblEv">                  <!-- 228 -->
+<!ENTITY models                       "models">                  <!-- 230 -->
+<!ENTITY uldrarr                      "uldrarr">                  <!-- 231 -->
+<!ENTITY xuplus                       "xuplus">                  <!-- 232 -->
+<!ENTITY slstrike                     "slstrike">                  <!-- 233 -->
+<!ENTITY xdtri                        "xdtri">                  <!-- 235 -->
+<!ENTITY ethv                         "ethv">                  <!-- 236 -->
+<!ENTITY gravecapma                   "gravecapma">                  <!-- 237 -->
+<!ENTITY acutema                      "acutema">                  <!-- 238 -->
+<!ENTITY ange                         "ange">                  <!-- 242 -->
+<!ENTITY dlurarr                      "dlurarr">                  <!-- 244 -->
+<!ENTITY xsqcap                       "xsqcap">                  <!-- 246 -->
+<!ENTITY xand                         "xand">                  <!-- 247 -->
+<!ENTITY domdel                       "domdel">                  <!-- 248 -->
+<!ENTITY bdomdel                      "bdomdel">                  <!-- 249 -->
+<!ENTITY acutecapma                   "acutecapma">                  <!-- 250 -->
+<!-- End of Font -->                                                                 
+                                                                                     
+<!-- MathematicalPi1 -->                                                             
+<!ENTITY dblLtv                       "dblLtv">                  <!-- 33 -->
+<!ENTITY planck                       "planck">                  <!-- 34 -->
+<!ENTITY le                           "le">                  <!-- 35 -->
+<!ENTITY ge                           "ge">                  <!-- 36 -->
+<!ENTITY ldblE                        "ldblE">                  <!-- 37 -->
+<!ENTITY lsim                         "lsim">                  <!-- 38 -->
+<!ENTITY exist                        "exist">                  <!-- 39 -->
+<!ENTITY lsims                        "lsims">                  <!-- 40 -->
+<!ENTITY gsims                        "gsims">                  <!-- 41 -->
+<!ENTITY gsim                         "gsim">                  <!-- 42 -->
+<!ENTITY lg                           "lg">                  <!-- 43 -->
+<!ENTITY lt                           "lt">                  <!-- 44 -->
+<!ENTITY tprime                       "tprime">                  <!-- 45 -->
+<!ENTITY gt                           "gt">                  <!-- 46 -->
+<!ENTITY sol                          "sol">                  <!-- 47 -->
+<!ENTITY dblPrime                     "dblPrime">                  <!-- 48 -->
+<!-- ENTITY plus                         "plus"-->                  <!-- 49 -->
+<!-- ENTITY minus                        "minus"-->                  <!-- 50 -->
+<!-- ENTITY multi                        "multi"-->                  <!-- 51 -->
+<!-- ENTITY divide                       "divide"-->                  <!-- 52 -->
+<!ENTITY equals                       "equals">                  <!-- 53 -->
+<!-- ENTITY plusmn                       "plusmn"-->                  <!-- 54 -->
+<!ENTITY mnplus                       "mnplus">                  <!-- 55 -->
+<!-- ENTITY deg                          "deg"-->                  <!-- 56 -->
+<!-- ENTITY prime                        "prime"-->                  <!-- 57 -->
+<!ENTITY aleph                        "aleph">                  <!-- 58 -->
+<!ENTITY forall                       "forall">                  <!-- 59 -->
+<!ENTITY les                          "les">                  <!-- 60 -->
+<!ENTITY nabla                        "nabla">                  <!-- 61 -->
+<!ENTITY ges                          "ges">                  <!-- 62 -->
+<!-- ENTITY middot                       "middot"-->                  <!-- 63 -->
+<!ENTITY dblGtv                       "dblGtv">                  <!-- 64 -->
+<!-- ENTITY capAlpha                     "capAlpha"-->                  <!-- 65 -->
+<!-- ENTITY capBeta                      "capBeta"-->                  <!-- 66 -->
+<!ENTITY capPsi                       "capPsi">                  <!-- 67 -->
+<!ENTITY capDelta                     "capDelta">                  <!-- 68 -->
+<!ENTITY capEpsi                      "capEpsi">                  <!-- 69 -->
+<!ENTITY capPhi                       "capPhi">                  <!-- 70 -->
+<!ENTITY capGamma                     "capGamma">                  <!-- 71 -->
+<!ENTITY capEta                       "capEta">                  <!-- 72 -->
+<!ENTITY capIota                      "capIota">                  <!-- 73 -->
+<!ENTITY capXi                        "capXi">                  <!-- 74 -->
+<!ENTITY capKappa                     "capKappa">                  <!-- 75 -->
+<!ENTITY capLambda                    "capLambda">                  <!-- 76 -->
+<!ENTITY capMu                        "capMu">                  <!-- 77 -->
+<!ENTITY capNu                        "capNu">                  <!-- 78 -->
+<!ENTITY capOmicron                   "capOmicron">                  <!-- 79 -->
+<!ENTITY capPi                        "capPi">                  <!-- 80 -->
+<!ENTITY capTheta                     "capTheta">                  <!-- 81 -->
+<!ENTITY capRho                       "capRho">                  <!-- 82 -->
+<!ENTITY capSigma                     "capSigma">                  <!-- 83 -->
+<!ENTITY capTau                       "capTau">                  <!-- 84 -->
+<!ENTITY capThetav                    "capThetav">                  <!-- 85 -->
+<!ENTITY capOmega                     "capOmega">                  <!-- 86 -->
+<!ENTITY betav                        "betav">                  <!-- 87 -->
+<!ENTITY capChi                       "capChi">                  <!-- 88 -->
+<!ENTITY capUpsi                      "capUpsi">                  <!-- 89 -->
+<!ENTITY capZeta                      "capZeta">                  <!-- 90 -->
+<!ENTITY empty                        "empty">                  <!-- 91 -->
+<!ENTITY bsol                         "bsol">                  <!-- 92 -->
+<!ENTITY ndash                        "ndash">                  <!-- 93 -->
+<!ENTITY gdblE                        "gdblE">                  <!-- 94 -->
+<!ENTITY gl                           "gl">                  <!-- 95 -->
+<!ENTITY infin                        "infin">                  <!-- 96 -->
+<!-- ENTITY alpha                        "alpha"-->                  <!-- 97 -->
+<!-- ENTITY beta                         "beta"-->                  <!-- 98 -->
+<!ENTITY psi                          "psi">                  <!-- 99 -->
+<!-- ENTITY delta                        "delta"-->                  <!-- 100 -->
+<!ENTITY epsi                         "epsi">                  <!-- 101 -->
+<!-- ENTITY phis                         "phis"-->                  <!-- 102 -->
+<!-- ENTITY gamma                        "gamma"-->                  <!-- 103 -->
+<!-- ENTITY eta                          "eta"-->                  <!-- 104 -->
+<!-- ENTITY iota                         "iota"-->                  <!-- 105 -->
+<!ENTITY xi                           "xi">                  <!-- 106 -->
+<!ENTITY kappa                        "kappa">                  <!-- 107 -->
+<!ENTITY lambda                       "lambda">                  <!-- 108 -->
+<!ENTITY mu                           "mu">                  <!-- 109 -->
+<!ENTITY nu                           "nu">                  <!-- 110 -->
+<!ENTITY omicron                      "omicron">                  <!-- 111 -->
+<!ENTITY pi                           "pi">                  <!-- 112 -->
+<!ENTITY thetav                       "thetav">                  <!-- 113 -->
+<!ENTITY rho                          "rho">                  <!-- 114 -->
+<!ENTITY sigma                        "sigma">                  <!-- 115 -->
+<!ENTITY tau                          "tau">                  <!-- 116 -->
+<!ENTITY thetas                       "thetas">                  <!-- 117 -->
+<!ENTITY omega                        "omega">                  <!-- 118 -->
+<!-- ENTITY phiv                         "phiv"-->                  <!-- 119 -->
+<!-- ENTITY chi                          "chi"-->                  <!-- 120 -->
+<!ENTITY upsi                         "upsi">                  <!-- 121 -->
+<!ENTITY zeta                         "zeta">                  <!-- 122 -->
+<!ENTITY sdash                        "sdash">                  <!-- 123 -->
+<!ENTITY verbar                       "verbar">                  <!-- 124 -->
+<!ENTITY mdash                        "mdash">                  <!-- 125 -->
+<!ENTITY prop                         "prop">                  <!-- 126 -->
+<!ENTITY vnldblE                      "vnldblE">                  <!-- 162 -->
+<!ENTITY vnle                         "vnle">                  <!-- 163 -->
+<!ENTITY vngdblE                      "vngdblE">                  <!-- 164 -->
+<!ENTITY vnge                         "vnge">                  <!-- 166 -->
+<!ENTITY sigmav                       "sigmav">                  <!-- 167 -->
+<!-- ENTITY epsiv                        "epsiv"-->                  <!-- 171 -->
+<!ENTITY partial                      "partial">                  <!-- 173 -->
+<!ENTITY vne                          "vne">                  <!-- 176 -->
+<!ENTITY vnlt                         "vnlt">                  <!-- 178 -->
+<!ENTITY vngt                         "vngt">                  <!-- 179 -->
+<!ENTITY vnles                        "vnles">                  <!-- 181 -->
+<!ENTITY nges                         "nges">                  <!-- 192 -->
+<!ENTITY lambdastrok                  "lambdastrok">                  <!-- 194 -->
+<!ENTITY piv                          "piv">                  <!-- 195 -->
+<!ENTITY vnges                        "vnges">                  <!-- 214 -->
+<!ENTITY nle                          "nle">                  <!-- 220 -->
+<!ENTITY nldblE                       "nldblE">                  <!-- 221 -->
+<!ENTITY ne                           "ne">                  <!-- 222 -->
+<!ENTITY ngdblE                       "ngdblE">                  <!-- 223 -->
+<!ENTITY nge                          "nge">                  <!-- 224 -->
+<!ENTITY nless                        "nless">                  <!-- 241 -->
+<!ENTITY ngt                          "ngt">                  <!-- 242 -->
+<!ENTITY nles                         "nles">                  <!-- 247 -->
+<!ENTITY les                          "les">                  <!-- 248 -->
+<!ENTITY ges                          "ges">                  <!-- 249 -->
+<!ENTITY vnles                        "vnles">                  <!-- 250 -->
+<!ENTITY kappav                       "kappav">                  <!-- 251 -->
+<!-- End of Font -->                                            
+                                            
+<!-- MathematicalPi2 -->                                                             
+<!ENTITY scrpcapA                     "scrpcapA">                  <!-- 33 -->
+<!ENTITY scrpbldh                     "scrpbldh">                  <!-- 34 -->
+<!ENTITY scrpcapC                     "scrpcapC">                  <!-- 35 -->
+<!ENTITY scrpcapD                     "scrpcapD">                  <!-- 36 -->
+<!ENTITY scrpcapE                     "scrpcapE">                  <!-- 37 -->
+<!ENTITY scrpcapG                     "scrpcapG">                  <!-- 38 -->
+<!ENTITY scrph                        "scrph">                  <!-- 39 -->
+<!ENTITY scrpcapI                     "scrpcapI">                  <!-- 40 -->
+<!ENTITY scrpcapJ                     "scrpcapJ">                  <!-- 41 -->
+<!ENTITY scrpcapH                     "scrpcapH">                  <!-- 42 -->
+<!ENTITY scrpcapL                     "scrpcapL">                  <!-- 43 -->
+<!ENTITY scrpl                        "scrpl">                  <!-- 44 -->
+<!ENTITY scrpcapX                     "scrpcapX">                  <!-- 45 -->
+<!ENTITY scrplstrok                   "scrplstrok">                  <!-- 46 -->
+<!ENTITY scrpz                        "scrpz">                  <!-- 47 -->
+<!ENTITY scrpcapW                     "scrpcapW">                  <!-- 48 -->
+<!ENTITY scrpcapN                     "scrpcapN">                  <!-- 49 -->
+<!ENTITY scrpcapO                     "scrpcapO">                  <!-- 50 -->
+<!ENTITY scrpcapP                     "scrpcapP">                  <!-- 51 -->
+<!ENTITY scrpcapQ                     "scrpcapQ">                  <!-- 52 -->
+<!ENTITY scrpcapR                     "scrpcapR">                  <!-- 53 -->
+<!ENTITY scrpcapS                     "scrpcapS">                  <!-- 54 -->
+<!ENTITY scrpcapT                     "scrpcapT">                  <!-- 55 -->
+<!ENTITY scrpcapU                     "scrpcapU">                  <!-- 56 -->
+<!ENTITY scrpcapV                     "scrpcapV">                  <!-- 57 -->
+<!ENTITY scrpbldg                     "scrpbldg">                  <!-- 58 -->
+<!ENTITY scrpg                        "scrpg">                  <!-- 59 -->
+<!ENTITY scrpbldl                     "scrpbldl">                  <!-- 60 -->
+<!ENTITY scrpcapY                     "scrpcapY">                  <!-- 61 -->
+<!ENTITY scrpbldlstrok                "scrpbldlstrok">                  <!-- 62 -->
+<!ENTITY scrpbldz                     "scrpbldz">                  <!-- 63 -->
+<!ENTITY scrpcapB                     "scrpcapB">                  <!-- 64 -->
+<!ENTITY frktrcapA                    "frktrcapA">                  <!-- 65 -->
+<!ENTITY frktrcapB                    "frktrcapB">                  <!-- 66 -->
+<!ENTITY frktrcapC                    "frktrcapC">                  <!-- 67 -->
+<!ENTITY frktrcapD                    "frktrcapD">                  <!-- 68 -->
+<!ENTITY frktrcapE                    "frktrcapE">                  <!-- 69 -->
+<!ENTITY frktrcapF                    "frktrcapF">                  <!-- 70 -->
+<!ENTITY frktrcapG                    "frktrcapG">                  <!-- 71 -->
+<!ENTITY frktrcapH                    "frktrcapH">                  <!-- 72 -->
+<!ENTITY frktrcapI                    "frktrcapI">                  <!-- 73 -->
+<!ENTITY frktrcapJ                    "frktrcapJ">                  <!-- 74 -->
+<!ENTITY frktrcapK                    "frktrcapK">                  <!-- 75 -->
+<!ENTITY frktrcapL                    "frktrcapL">                  <!-- 76 -->
+<!ENTITY frktrcapM                    "frktrcapM">                  <!-- 77 -->
+<!ENTITY frktrcapN                    "frktrcapN">                  <!-- 78 -->
+<!ENTITY frktrcapO                    "frktrcapO">                  <!-- 79 -->
+<!ENTITY frktrcapP                    "frktrcapP">                  <!-- 80 -->
+<!ENTITY frktrcapQ                    "frktrcapQ">                  <!-- 81 -->
+<!ENTITY frktrcapR                    "frktrcapR">                  <!-- 82 -->
+<!ENTITY frktrcapS                    "frktrcapS">                  <!-- 83 -->
+<!ENTITY frktrcapT                    "frktrcapT">                  <!-- 84 -->
+<!ENTITY frktrcapU                    "frktrcapU">                  <!-- 85 -->
+<!ENTITY frktrcapV                    "frktrcapV">                  <!-- 86 -->
+<!ENTITY frktrcapW                    "frktrcapW">                  <!-- 87 -->
+<!ENTITY frktrcapX                    "frktrcapX">                  <!-- 88 -->
+<!ENTITY frktrcapY                    "frktrcapY">                  <!-- 89 -->
+<!ENTITY frktrcapZ                    "frktrcapZ">                  <!-- 90 -->
+<!ENTITY cularr                       "cularr">                  <!-- 91 -->
+<!ENTITY cudrarr                      "cudrarr">                  <!-- 92 -->
+<!ENTITY scrpcapZ                     "scrpcapZ">                  <!-- 93 -->
+<!ENTITY scrpcapF                     "scrpcapF">                  <!-- 94 -->
+<!ENTITY scrpcapK                     "scrpcapK">                  <!-- 95 -->
+<!ENTITY cularrplus                   "cularrplus">                  <!-- 96 -->
+<!ENTITY frktra                       "frktra">                  <!-- 97 -->
+<!ENTITY frktrb                       "frktrb">                  <!-- 98 -->
+<!ENTITY frktrc                       "frktrc">                  <!-- 99 -->
+<!ENTITY frktrd                       "frktrd">                  <!-- 100 -->
+<!ENTITY frktre                       "frktre">                  <!-- 101 -->
+<!ENTITY frktrf                       "frktrf">                  <!-- 102 -->
+<!ENTITY frktrg                       "frktrg">                  <!-- 103 -->
+<!ENTITY frktrh                       "frktrh">                  <!-- 104 -->
+<!ENTITY frktri                       "frktri">                  <!-- 105 -->
+<!ENTITY frktrj                       "frktrj">                  <!-- 106 -->
+<!ENTITY frktrk                       "frktrk">                  <!-- 107 -->
+<!ENTITY frktrl                       "frktrl">                  <!-- 108 -->
+<!ENTITY frktrm                       "frktrm">                  <!-- 109 -->
+<!ENTITY frktrn                       "frktrn">                  <!-- 110 -->
+<!ENTITY frktro                       "frktro">                  <!-- 111 -->
+<!ENTITY frktrp                       "frktrp">                  <!-- 112 -->
+<!ENTITY frktrq                       "frktrq">                  <!-- 113 -->
+<!ENTITY frktrr                       "frktrr">                  <!-- 114 -->
+<!ENTITY frktrs                       "frktrs">                  <!-- 115 -->
+<!ENTITY frktrt                       "frktrt">                  <!-- 116 -->
+<!ENTITY frktru                       "frktru">                  <!-- 117 -->
+<!ENTITY frktrv                       "frktrv">                  <!-- 118 -->
+<!ENTITY frktrw                       "frktrw">                  <!-- 119 -->
+<!ENTITY frktrx                       "frktrx">                  <!-- 120 -->
+<!ENTITY frktry                       "frktry">                  <!-- 121 -->
+<!ENTITY frktrz                       "frktrz">                  <!-- 122 -->
+<!ENTITY curarr                       "curarr">                  <!-- 123 -->
+<!ENTITY cudlarr                      "cudlarr">                  <!-- 124 -->
+<!ENTITY scrpcapM                     "scrpcapM">                  <!-- 125 -->
+<!ENTITY curarrmn                     "curarrmn">                  <!-- 126 -->
+<!ENTITY dshdslbond                   "dshdslbond">                  <!-- 162 -->
+<!ENTITY dshuslbond                   "dshuslbond">                  <!-- 163 -->
+<!ENTITY dshhorbond                   "dshhorbond">                  <!-- 170 -->
+<!ENTITY comp                         "comp">                  <!-- 173 -->
+<!ENTITY map                          "map">                  <!-- 176 -->
+<!ENTITY dshverbond                   "dshverbond">                  <!-- 193 -->
+<!ENTITY scrpbldl                     "scrpbldl">                  <!-- 248 -->
+<!ENTITY scrpbldlstrok                "scrpbldlstrok">                  <!-- 249 -->
+<!-- End of Font -->                                                                 
+                                                                                     
+<!-- MathematicalPi3 -->                                                             
+<!ENTITY xradic                       "xradic">                  <!-- 33 -->
+<!ENTITY parequiv                     "parequiv">                  <!-- 34 -->
+<!ENTITY xint                         "xint">                  <!-- 35 -->
+<!ENTITY xconint                      "xconint">                  <!-- 36 -->
+<!ENTITY xdblConint                   "xdblConint">                  <!-- 37 -->
+<!ENTITY xprod                        "xprod">                  <!-- 38 -->
+<!ENTITY pareq                        "pareq">                  <!-- 39 -->
+<!ENTITY xdblVerbar                   "xdblVerbar">                  <!-- 40 -->
+<!ENTITY xthkverbar                   "xthkverbar">                  <!-- 41 -->
+<!ENTITY xverbar                      "xverbar">                  <!-- 42 -->
+<!ENTITY xthkrpar                     "xthkrpar">                  <!-- 43 -->
+<!ENTITY sim                          "sim">                  <!-- 44 -->
+<!ENTITY xopenlcub                    "xopenlcub">                  <!-- 45 -->
+<!ENTITY sime                         "sime">                  <!-- 46 -->
+<!ENTITY sol                          "sol">                  <!-- 47 -->
+<!ENTITY xopenrsqb                    "xopenrsqb">                  <!-- 48 -->
+<!ENTITY xlpar                        "xlpar">                  <!-- 49 -->
+<!ENTITY xrpar                        "xrpar">                  <!-- 50 -->
+<!ENTITY xlsqb                        "xlsqb">                  <!-- 51 -->
+<!ENTITY xrsqb                        "xrsqb">                  <!-- 52 -->
+<!ENTITY xlcub                        "xlcub">                  <!-- 53 -->
+<!ENTITY xrcub                        "xrcub">                  <!-- 54 -->
+<!ENTITY xlang                        "xlang">                  <!-- 55 -->
+<!ENTITY xrang                        "xrang">                  <!-- 56 -->
+<!ENTITY xopenlsqb                    "xopenlsqb">                  <!-- 57 -->
+<!ENTITY quadeq                       "quadeq">                  <!-- 58 -->
+<!ENTITY equiv                        "equiv">                  <!-- 59 -->
+<!ENTITY ap                           "ap">                  <!-- 60 -->
+<!ENTITY xopenrcub                    "xopenrcub">                  <!-- 61 -->
+<!ENTITY cong                         "cong">                  <!-- 62 -->
+<!ENTITY apdblE                       "apdblE">                  <!-- 63 -->
+<!ENTITY xsol                         "xsol">                  <!-- 64 -->
+<!ENTITY vellip                       "vellip">                  <!-- 65 -->
+<!ENTITY sopenrsqb                    "sopenrsqb">                  <!-- 66 -->
+<!ENTITY sthkrpar                     "sthkrpar">                  <!-- 67 -->
+<!ENTITY srpar                        "srpar">                  <!-- 68 -->
+<!ENTITY sint                         "sint">                  <!-- 69 -->
+<!ENTITY slsqb                        "slsqb">                  <!-- 70 -->
+<!ENTITY srsqb                        "srsqb">                  <!-- 71 -->
+<!ENTITY slcub                        "slcub">                  <!-- 72 -->
+<!ENTITY sdblVerbar                   "sdblVerbar">                  <!-- 73 -->
+<!ENTITY srcub                        "srcub">                  <!-- 74 -->
+<!ENTITY slang                        "slang">                  <!-- 75 -->
+<!ENTITY srang                        "srang">                  <!-- 76 -->
+<!ENTITY sopenrcub                    "sopenrcub">                  <!-- 77 -->
+<!ENTITY sopenlcub                    "sopenlcub">                  <!-- 78 -->
+<!ENTITY ssum                         "ssum">                  <!-- 79 -->
+<!ENTITY sprod                        "sprod">                  <!-- 80 -->
+<!ENTITY sdivider                     "sdivider">                  <!-- 81 -->
+<!ENTITY sconint                      "sconint">                  <!-- 82 -->
+<!ENTITY slpar                        "slpar">                  <!-- 83 -->
+<!ENTITY sdblConint                   "sdblConint">                  <!-- 84 -->
+<!ENTITY sverbar                      "sverbar">                  <!-- 85 -->
+<!ENTITY sopenlsqb                    "sopenlsqb">                  <!-- 86 -->
+<!ENTITY xoverbar                     "xoverbar">                  <!-- 87 -->
+<!ENTITY sthklpar                     "sthklpar">                  <!-- 88 -->
+<!ENTITY sthksol                      "sthksol">                  <!-- 89 -->
+<!ENTITY sthkverbar                   "sthkverbar">                  <!-- 90 -->
+<!ENTITY slpareq                      "slpareq">                  <!-- 91 -->
+<!ENTITY smash                        "smash">                  <!-- 92 -->
+<!ENTITY tverhor                      "tverhor">                  <!-- 93 -->
+<!ENTITY xsum                         "xsum">                  <!-- 94 -->
+<!ENTITY xthklpar                     "xthklpar">                  <!-- 95 -->
+<!ENTITY xwedge                       "xwedge">                  <!-- 96 -->
+<!ENTITY qutint                       "qutint">                  <!-- 97 -->
+<!ENTITY openrsqb                     "openrsqb">                  <!-- 98 -->
+<!ENTITY thkrpar                      "thkrpar">                  <!-- 99 -->
+<!ENTITY rpar                         "rpar">                  <!-- 100 -->
+<!ENTITY int                          "int">                  <!-- 101 -->
+<!-- ENTITY lsqb                         "lsqb"-->                  <!-- 102 -->
+<!ENTITY rsqb                         "rsqb">                  <!-- 103 -->
+<!ENTITY lcub                         "lcub">                  <!-- 104 -->
+<!ENTITY dblVerbar                    "dblVerbar">                  <!-- 105 -->
+<!ENTITY rcub                         "rcub">                  <!-- 106 -->
+<!ENTITY lang                         "lang">                  <!-- 107 -->
+<!ENTITY rang                         "rang">                  <!-- 108 -->
+<!ENTITY openrcub                     "openrcub">                  <!-- 109 -->
+<!ENTITY openlcub                     "openlcub">                  <!-- 110 -->
+<!ENTITY sum                          "sum">                  <!-- 111 -->
+<!ENTITY prod                         "prod">                  <!-- 112 -->
+<!ENTITY divider                      "divider">                  <!-- 113 -->
+<!ENTITY conint                       "conint">                  <!-- 114 -->
+<!ENTITY lpar                         "lpar">                  <!-- 115 -->
+<!ENTITY dblConint                    "dblConint">                  <!-- 116 -->
+<!ENTITY mid                          "mid">                  <!-- 117 -->
+<!ENTITY openlsqb                     "openlsqb">                  <!-- 118 -->
+<!ENTITY xthkoverbar                  "xthkoverbar">                  <!-- 119 -->
+<!ENTITY thklpar                      "thklpar">                  <!-- 120 -->
+<!ENTITY thksol                       "thksol">                  <!-- 121 -->
+<!ENTITY thkverbar                    "thkverbar">                  <!-- 122 -->
+<!ENTITY slparequiv                   "slparequiv">                  <!-- 123 -->
+<!ENTITY verbar                       "verbar">                  <!-- 124 -->
+<!ENTITY tverequiv                    "tverequiv">                  <!-- 125 -->
+<!ENTITY xvee                         "xvee">                  <!-- 126 -->
+<!ENTITY veebar                       "veebar">                  <!-- 162 -->
+<!ENTITY barwed                       "barwed">                  <!-- 163 -->
+<!ENTITY veedblBar                    "veedblBar">                  <!-- 164 -->
+<!ENTITY hixoverbar                   "hixoverbar">                  <!-- 167 -->
+<!ENTITY dblVee                       "dblVee">                  <!-- 170 -->
+<!ENTITY napdblE                      "napdblE">                  <!-- 174 -->
+<!ENTITY dblBarwed                    "dblBarwed">                  <!-- 176 -->
+<!ENTITY vnsim                        "vnsim">                  <!-- 178 -->
+<!ENTITY vnsime                       "vnsime">                  <!-- 179 -->
+<!ENTITY vnap                         "vnap">                  <!-- 181 -->
+<!ENTITY thkoverbar                   "thkoverbar">                  <!-- 183 -->
+<!ENTITY nquadeq                      "nquadeq">                  <!-- 184 -->
+<!ENTITY vnquadeq                     "vnquadeq">                  <!-- 185 -->
+<!ENTITY vnapdblE                     "vnapdblE">                  <!-- 190 -->
+<!ENTITY ncong                        "ncong">                  <!-- 192 -->
+<!ENTITY dblWed                       "dblWed">                  <!-- 193 -->
+<!ENTITY vnequiv                      "vnequiv">                  <!-- 201 -->
+<!ENTITY sradic                       "sradic">                  <!-- 206 -->
+<!ENTITY radic                        "radic">                  <!-- 207 -->
+<!ENTITY vncong                       "vncong">                  <!-- 214 -->
+<!ENTITY overbar                      "overbar">                  <!-- 227 -->
+<!ENTITY hioverbar                    "hioverbar">                  <!-- 234 -->
+<!ENTITY nsim                         "nsim">                  <!-- 239 -->
+<!ENTITY nsime                        "nsime">                  <!-- 241 -->
+<!ENTITY nequiv                       "nequiv">                  <!-- 242 -->
+<!ENTITY nap                          "nap">                  <!-- 247 -->
+<!ENTITY ap                           "ap">                  <!-- 248 -->
+<!ENTITY cong                         "cong">                  <!-- 249 -->
+<!ENTITY vnap                         "vnap">                  <!-- 250 -->
+<!-- End of Font -->                                                                 
+                                                                                     
+<!-- MathematicalPi4 -->                                                             
+<!ENTITY dblSub                       "dblSub">                  <!-- 33 -->
+<!ENTITY bldcap                       "bldcap">                  <!-- 34 -->
+<!ENTITY sube                         "sube">                  <!-- 35 -->
+<!ENTITY supe                         "supe">                  <!-- 36 -->
+<!ENTITY subsim                       "subsim">                  <!-- 37 -->
+<!ENTITY subdot                       "subdot">                  <!-- 38 -->
+<!ENTITY bldsup                       "bldsup">                  <!-- 39 -->
+<!ENTITY subsub                       "subsub">                  <!-- 40 -->
+<!ENTITY supsup                       "supsup">                  <!-- 41 -->
+<!ENTITY supdot                       "supdot">                  <!-- 42 -->
+<!ENTITY supsub                       "supsub">                  <!-- 43 -->
+<!ENTITY sub                          "sub">                  <!-- 44 -->
+<!ENTITY tprime                       "tprime">                  <!-- 45 -->
+<!ENTITY sup                          "sup">                  <!-- 46 -->
+<!ENTITY sol                          "sol">                  <!-- 47 -->
+<!ENTITY dblPrime                     "dblPrime">                  <!-- 48 -->
+<!ENTITY plus                         "plus">                  <!-- 49 -->
+<!-- ENTITY minus                        "minus"-->                  <!-- 50 -->
+<!-- ENTITY multi                        "multi"-->                  <!-- 51 -->
+<!-- ENTITY divide                       "divide"-->                  <!-- 52 -->
+<!ENTITY equals                       "equals">                  <!-- 53 -->
+<!-- ENTITY plusmn                       "plusmn"-->                  <!-- 54 -->
+<!ENTITY mnplus                       "mnplus">                  <!-- 55 -->
+<!-- ENTITY deg                          "deg"-->                  <!-- 56 -->
+<!-- ENTITY prime                        "prime"-->                  <!-- 57 -->
+<!ENTITY bldcup                       "bldcup">                  <!-- 58 -->
+<!ENTITY bldsub                       "bldsub">                  <!-- 59 -->
+<!-- ENTITY cup                          "cup"-->                  <!-- 60 -->
+<!ENTITY nabla                        "nabla">                  <!-- 61 -->
+<!ENTITY cap                          "cap">                  <!-- 62 -->
+<!-- ENTITY middot                       "middot"-->                  <!-- 63 -->
+<!ENTITY dblSup                       "dblSup">                  <!-- 64 -->
+<!-- ENTITY capAlpha                     "capAlpha"-->                  <!-- 65 -->
+<!-- ENTITY capBeta                      "capBeta"-->                  <!-- 66 -->
+<!ENTITY capPsi                       "capPsi">                  <!-- 67 -->
+<!ENTITY capDelta                     "capDelta">                  <!-- 68 -->
+<!ENTITY capEpsi                      "capEpsi">                  <!-- 69 -->
+<!ENTITY capPhi                       "capPhi">                  <!-- 70 -->
+<!ENTITY capGamma                     "capGamma">                  <!-- 71 -->
+<!ENTITY capEta                       "capEta">                  <!-- 72 -->
+<!ENTITY capIota                      "capIota">                  <!-- 73 -->
+<!ENTITY capXi                        "capXi">                  <!-- 74 -->
+<!ENTITY capKappa                     "capKappa">                  <!-- 75 -->
+<!ENTITY capLambda                    "capLambda">                  <!-- 76 -->
+<!ENTITY capMu                        "capMu">                  <!-- 77 -->
+<!ENTITY capNu                        "capNu">                  <!-- 78 -->
+<!ENTITY capOmicron                   "capOmicron">                  <!-- 79 -->
+<!ENTITY capPi                        "capPi">                  <!-- 80 -->
+<!ENTITY capTheta                     "capTheta">                  <!-- 81 -->
+<!ENTITY capRho                       "capRho">                  <!-- 82 -->
+<!ENTITY capSigma                     "capSigma">                  <!-- 83 -->
+<!ENTITY capTau                       "capTau">                  <!-- 84 -->
+<!ENTITY capThetav                    "capThetav">                  <!-- 85 -->
+<!ENTITY capOmega                     "capOmega">                  <!-- 86 -->
+<!ENTITY betav                        "betav">                  <!-- 87 -->
+<!ENTITY capChi                       "capChi">                  <!-- 88 -->
+<!ENTITY capUpsi                      "capUpsi">                  <!-- 89 -->
+<!ENTITY capZeta                      "capZeta">                  <!-- 90 -->
+<!ENTITY isin                         "isin">                  <!-- 91 -->
+<!ENTITY empty                        "empty">                  <!-- 92 -->
+<!ENTITY ni                           "ni">                  <!-- 93 -->
+<!ENTITY supsim                       "supsim">                  <!-- 94 -->
+<!ENTITY subsup                       "subsup">                  <!-- 95 -->
+<!ENTITY infin                        "infin">                  <!-- 96 -->
+<!-- ENTITY alpha                        "alpha"-->                  <!-- 97 -->
+<!-- ENTITY beta                         "beta"-->                  <!-- 98 -->
+<!ENTITY psi                          "psi">                  <!-- 99 -->
+<!-- ENTITY delta                        "delta"-->                  <!-- 100 -->
+<!ENTITY epsi                         "epsi">                  <!-- 101 -->
+<!-- ENTITY phis                         "phis"-->                  <!-- 102 -->
+<!-- ENTITY gamma                        "gamma"-->                  <!-- 103 -->
+<!-- ENTITY eta                          "eta"-->                  <!-- 104 -->
+<!-- ENTITY iota                         "iota"-->                  <!-- 105 -->
+<!ENTITY xi                           "xi">                  <!-- 106 -->
+<!ENTITY kappa                        "kappa">                  <!-- 107 -->
+<!ENTITY lambda                       "lambda">                  <!-- 108 -->
+<!ENTITY mu                           "mu">                  <!-- 109 -->
+<!ENTITY nu                           "nu">                  <!-- 110 -->
+<!ENTITY omicron                      "omicron">                  <!-- 111 -->
+<!ENTITY pi                           "pi">                  <!-- 112 -->
+<!ENTITY thetav                       "thetav">                  <!-- 113 -->
+<!ENTITY rho                          "rho">                  <!-- 114 -->
+<!ENTITY sigma                        "sigma">                  <!-- 115 -->
+<!ENTITY tau                          "tau">                  <!-- 116 -->
+<!ENTITY thetas                       "thetas">                  <!-- 117 -->
+<!ENTITY omega                        "omega">                  <!-- 118 -->
+<!-- ENTITY phiv                         "phiv"-->                  <!-- 119 -->
+<!-- ENTITY chi                          "chi"-->                  <!-- 120 -->
+<!ENTITY upsi                         "upsi">                  <!-- 121 -->
+<!ENTITY zeta                         "zeta">                  <!-- 122 -->
+<!ENTITY isin                         "isin">                  <!-- 123 -->
+<!ENTITY verbar                       "verbar">                  <!-- 124 -->
+<!ENTITY ni                           "ni">                  <!-- 125 -->
+<!ENTITY prop                         "prop">                  <!-- 126 -->
+<!ENTITY vnsupe                       "vnsupe">                  <!-- 162 -->
+<!ENTITY vnsube                       "vnsube">                  <!-- 163 -->
+<!ENTITY sigmav                       "sigmav">                  <!-- 167 -->
+<!-- ENTITY epsiv                        "epsiv"-->                  <!-- 171 -->
+<!ENTITY partial                      "partial">                  <!-- 173 -->
+<!ENTITY bldnsup                      "bldnsup">                  <!-- 174 -->
+<!ENTITY vne                          "vne">                  <!-- 176 -->
+<!ENTITY vnsub                        "vnsub">                  <!-- 181 -->
+<!ENTITY bldvnsup                     "bldvnsup">                  <!-- 190 -->
+<!ENTITY nsup                         "nsup">                  <!-- 192 -->
+<!ENTITY piv                          "piv">                  <!-- 195 -->
+<!ENTITY kappav                       "kappav">                  <!-- 198 -->
+<!ENTITY bldvnsub                     "bldvnsub">                  <!-- 201 -->
+<!ENTITY vnotin                       "vnotin">                  <!-- 210 -->
+<!ENTITY notin                        "notin">                  <!-- 211 -->
+<!ENTITY vnni                         "vnni">                  <!-- 212 -->
+<!ENTITY nni                          "nni">                  <!-- 213 -->
+<!ENTITY vnsup                        "vnsup">                  <!-- 214 -->
+<!ENTITY nsube                        "nsube">                  <!-- 220 -->
+<!ENTITY nsupe                        "nsupe">                  <!-- 221 -->
+<!ENTITY ne                           "ne">                  <!-- 222 -->
+<!ENTITY bldnsub                      "bldnsub">                  <!-- 242 -->
+<!ENTITY nsub                         "nsub">                  <!-- 247 -->
+<!-- ENTITY cup                          "cup"-->                  <!-- 248 -->
+<!ENTITY cap                          "cap">                  <!-- 249 -->
+<!ENTITY vnsub                        "vnsub">                  <!-- 250 -->
+<!ENTITY lambdastrok                  "lambdastrok">                  <!-- 251 -->
+<!-- End of Font -->                                                                 
+                                                                                     
+<!-- MathematicalPi5 -->                                                             
+<!ENTITY suprsime                     "suprsime">                  <!-- 33 -->
+<!ENTITY vncong                       "vncong">                  <!-- 34 -->
+<!ENTITY suprminus                    "suprminus">                  <!-- 35 -->
+<!ENTITY suprrarr                     "suprrarr">                  <!-- 36 -->
+<!ENTITY supreq                       "supreq">                  <!-- 37 -->
+<!ENTITY bldtdot                      "bldtdot">                  <!-- 38 -->
+<!ENTITY vnsime                       "vnsime">                  <!-- 39 -->
+<!ENTITY dotbarbelow                  "dotbarbelow">                  <!-- 40 -->
+<!ENTITY bprimev                      "bprimev">                  <!-- 41 -->
+<!ENTITY dotbelow                     "dotbelow">                  <!-- 42 -->
+<!ENTITY quadprime                    "quadprime">                  <!-- 43 -->
+<!ENTITY vnlt                         "vnlt">                  <!-- 44 -->
+<!ENTITY dblEvee                      "dblEvee">                  <!-- 45 -->
+<!ENTITY vngt                         "vngt">                  <!-- 46 -->
+<!ENTITY nsim                         "nsim">                  <!-- 47 -->
+<!ENTITY wedbar                       "wedbar">                  <!-- 48 -->
+<!ENTITY plusdblE                     "plusdblE">                  <!-- 49 -->
+<!ENTITY dblEplus                     "dblEplus">                  <!-- 50 -->
+<!ENTITY plussim                      "plussim">                  <!-- 51 -->
+<!ENTITY simplus                      "simplus">                  <!-- 52 -->
+<!ENTITY eisin                        "eisin">                  <!-- 53 -->
+<!ENTITY eni                          "eni">                  <!-- 54 -->
+<!ENTITY subdblE                      "subdblE">                  <!-- 55 -->
+<!ENTITY supdblE                      "supdblE">                  <!-- 56 -->
+<!ENTITY barvee                       "barvee">                  <!-- 57 -->
+<!ENTITY vnap                         "vnap">                  <!-- 58 -->
+<!ENTITY vnsim                        "vnsim">                  <!-- 59 -->
+<!ENTITY vnldblE                      "vnldblE">                  <!-- 60 -->
+<!ENTITY weddblE                      "weddblE">                  <!-- 61 -->
+<!ENTITY vngdblE                      "vngdblE">                  <!-- 62 -->
+<!ENTITY ne                           "ne">                  <!-- 63 -->
+<!ENTITY suprlarr                     "suprlarr">                  <!-- 64 -->
+<!ENTITY ldot                         "ldot">                  <!-- 65 -->
+<!ENTITY nmid                         "nmid">                  <!-- 66 -->
+<!ENTITY frown                        "frown">                  <!-- 67 -->
+<!ENTITY suprbmumap                   "suprbmumap">                  <!-- 68 -->
+<!ENTITY suprbmumapf                  "suprbmumapf">                  <!-- 69 -->
+<!ENTITY suprmumap                    "suprmumap">                  <!-- 70 -->
+<!ENTITY dotbarma                     "dotbarma">                  <!-- 71 -->
+<!ENTITY bardotma                     "bardotma">                  <!-- 72 -->
+<!ENTITY lowbarma                     "lowbarma">                  <!-- 73 -->
+<!ENTITY dblDotbarma                  "dblDotbarma">                  <!-- 74 -->
+<!ENTITY bardblDotma                  "bardblDotma">                  <!-- 75 -->
+<!ENTITY brevebarma                   "brevebarma">                  <!-- 76 -->
+<!ENTITY cularr                       "cularr">                  <!-- 77 -->
+<!ENTITY dcurarr                      "dcurarr">                  <!-- 78 -->
+<!ENTITY barbelow                     "barbelow">                  <!-- 79 -->
+<!ENTITY isin                         "isin">                  <!-- 80 -->
+<!ENTITY suprlarrv                    "suprlarrv">                  <!-- 81 -->
+<!ENTITY suprmumapf                   "suprmumapf">                  <!-- 82 -->
+<!ENTITY gsdot                        "gsdot">                  <!-- 83 -->
+<!ENTITY suprlharu                    "suprlharu">                  <!-- 84 -->
+<!ENTITY dblPrimev                    "dblPrimev">                  <!-- 85 -->
+<!ENTITY rarrw                        "rarrw">                  <!-- 86 -->
+<!ENTITY suprrarrv                    "suprrarrv">                  <!-- 87 -->
+<!ENTITY sfrown                       "sfrown">                  <!-- 88 -->
+<!ENTITY suprrharu                    "suprrharu">                  <!-- 89 -->
+<!ENTITY bsimv                        "bsimv">                  <!-- 90 -->
+<!ENTITY grpdot                       "grpdot">                  <!-- 91 -->
+<!ENTITY MathematicalPi592            "MathematicalPi592">                  <!-- 92 -->
+<!ENTITY twixt                        "twixt">                  <!-- 93 -->
+<!ENTITY tdot                         "tdot">                  <!-- 94 -->
+<!ENTITY bdblPrime                    "bdblPrime">                  <!-- 95 -->
+<!ENTITY weierp                       "weierp">                  <!-- 96 -->
+<!ENTITY pr                           "pr">                  <!-- 97 -->
+<!ENTITY ldblEg                       "ldblEg">                  <!-- 98 -->
+<!ENTITY leg                          "leg">                  <!-- 99 -->
+<!ENTITY prcue                        "prcue">                  <!-- 100 -->
+<!ENTITY els                          "els">                  <!-- 101 -->
+<!ENTITY sccue                        "sccue">                  <!-- 102 -->
+<!ENTITY esim                         "esim">                  <!-- 103 -->
+<!ENTITY simesim                      "simesim">                  <!-- 104 -->
+<!ENTITY simg                         "simg">                  <!-- 105 -->
+<!ENTITY simsdot                      "simsdot">                  <!-- 106 -->
+<!ENTITY simrdblDot                   "simrdblDot">                  <!-- 107 -->
+<!ENTITY euler                        "euler">                  <!-- 108 -->
+<!ENTITY lgdblE                       "lgdblE">                  <!-- 109 -->
+<!ENTITY gldblE                       "gldblE">                  <!-- 110 -->
+<!ENTITY bsimls                       "bsimls">                  <!-- 111 -->
+<!ENTITY simgs                        "simgs">                  <!-- 112 -->
+<!ENTITY sqult                        "sqult">                  <!-- 113 -->
+<!ENTITY egs                          "egs">                  <!-- 114 -->
+<!ENTITY sc                           "sc">                  <!-- 115 -->
+<!ENTITY dblEl                        "dblEl">                  <!-- 116 -->
+<!ENTITY siml                         "siml">                  <!-- 117 -->
+<!ENTITY gdblEl                       "gdblEl">                  <!-- 118 -->
+<!ENTITY squgt                        "squgt">                  <!-- 119 -->
+<!ENTITY gel                          "gel">                  <!-- 120 -->
+<!ENTITY dblEg                        "dblEg">                  <!-- 121 -->
+<!ENTITY simv                         "simv">                  <!-- 122 -->
+<!ENTITY ni                           "ni">                  <!-- 123 -->
+<!ENTITY sim                          "sim">                  <!-- 124 -->
+<!ENTITY asymp                        "asymp">                  <!-- 125 -->
+<!ENTITY hidot                        "hidot">                  <!-- 126 -->
+<!ENTITY npr                          "npr">                  <!-- 129 -->
+<!ENTITY vnpr                         "vnpr">                  <!-- 140 -->
+<!ENTITY vndblEl                      "vndblEl">                  <!-- 160 -->
+<!ENTITY nsupdblE                     "nsupdblE">                  <!-- 161 -->
+<!ENTITY suprrarrv2                   "suprrarrv2">                  <!-- 162 -->
+<!ENTITY dtriv                        "dtriv">                  <!-- 163 -->
+<!ENTITY vneni                        "vneni">                  <!-- 164 -->
+<!ENTITY vnsupdblE                    "vnsupdblE">                  <!-- 165 -->
+<!ENTITY vnsubdblE                    "vnsubdblE">                  <!-- 166 -->
+<!ENTITY vnsc                         "vnsc">                  <!-- 167 -->
+<!ENTITY vnegs                        "vnegs">                  <!-- 168 -->
+<!ENTITY vnesim                       "vnesim">                  <!-- 169 -->
+<!ENTITY suprlarrv2                   "suprlarrv2">                  <!-- 170 -->
+<!ENTITY vnels                        "vnels">                  <!-- 171 -->
+<!ENTITY vndblEl                      "vndblEl">                  <!-- 172 -->
+<!ENTITY equals                       "equals">                  <!-- 173 -->
+<!ENTITY vneisin                      "vneisin">                  <!-- 176 -->
+<!ENTITY ne                           "ne">                  <!-- 177 -->
+<!ENTITY vndblEg                      "vndblEg">                  <!-- 180 -->
+<!ENTITY vnsimesim                    "vnsimesim">                  <!-- 181 -->
+<!ENTITY vnprcue                      "vnprcue">                  <!-- 182 -->
+<!ENTITY notin                        "notin">                  <!-- 184 -->
+<!ENTITY vnotin                       "vnotin">                  <!-- 185 -->
+<!ENTITY nabla                        "nabla">                  <!-- 187 -->
+<!ENTITY grp                          "grp">                  <!-- 188 -->
+<!ENTITY nssim                        "nssim">                  <!-- 192 -->
+<!ENTITY vnsccue                      "vnsccue">                  <!-- 196 -->
+<!ENTITY vnssim                       "vnssim">                  <!-- 199 -->
+<!ENTITY nssim                        "nssim">                  <!-- 200 -->
+<!ENTITY npr                          "npr">                  <!-- 206 -->
+<!ENTITY vnpr                         "vnpr">                  <!-- 207 -->
+<!ENTITY vne                          "vne">                  <!-- 208 -->
+<!ENTITY vnni                         "vnni">                  <!-- 210 -->
+<!ENTITY nni                          "nni">                  <!-- 211 -->
+<!ENTITY vnasymp                      "vnasymp">                  <!-- 212 -->
+<!ENTITY nasymp                       "nasymp">                  <!-- 213 -->
+<!ENTITY hidot                        "hidot">                  <!-- 217 -->
+<!ENTITY neisin                       "neisin">                  <!-- 222 -->
+<!ENTITY neni                         "neni">                  <!-- 223 -->
+<!ENTITY nsubdblE                     "nsubdblE">                  <!-- 224 -->
+<!ENTITY nels                         "nels">                  <!-- 228 -->
+<!ENTITY negs                         "negs">                  <!-- 229 -->
+<!ENTITY ndblEl                       "ndblEl">                  <!-- 230 -->
+<!ENTITY ndblEg                       "ndblEg">                  <!-- 231 -->
+<!ENTITY sphangd                      "sphangd">                  <!-- 233 -->
+<!ENTITY nsc                          "nsc">                  <!-- 234 -->
+<!ENTITY nprcue                       "nprcue">                  <!-- 235 -->
+<!ENTITY nsccue                       "nsccue">                  <!-- 236 -->
+<!ENTITY nesim                        "nesim">                  <!-- 237 -->
+<!ENTITY nsimesim                     "nsimesim">                  <!-- 238 -->
+<!ENTITY nmidv                        "nmidv">                  <!-- 245 -->
+<!ENTITY vnldblE                      "vnldblE">                  <!-- 248 -->
+<!ENTITY vngdblE                      "vngdblE">                  <!-- 249 -->
+<!ENTITY vnsimesim                    "vnsimesim">                  <!-- 250 -->
+<!-- End of Font -->                                                                        
+                                                                                            
+<!-- MathematicalPi6 -->                                                                    
+<!ENTITY oplusv                       "oplusv">                  <!-- 33 -->
+<!ENTITY bottoms                      "bottoms">                  <!-- 34 -->
+<!ENTITY otimesv                      "otimesv">                  <!-- 35 -->
+<!ENTITY oequal                       "oequal">                  <!-- 36 -->
+<!ENTITY oplus                        "oplus">                  <!-- 37 -->
+<!ENTITY ostyle                       "ostyle">                  <!-- 38 -->
+<!-- ENTITY bottom                       "bottom"-->                  <!-- 39 -->
+<!ENTITY odot                         "odot">                  <!-- 40 -->
+<!ENTITY sdotb                        "sdotb">                  <!-- 41 -->
+<!ENTITY ominus                       "ominus">                  <!-- 42 -->
+<!ENTITY compfn                       "compfn">                  <!-- 43 -->
+<!ENTITY dtri                         "dtri">                  <!-- 44 -->
+<!ENTITY stare                        "stare">                  <!-- 45 -->
+<!ENTITY dtrif                        "dtrif">                  <!-- 46 -->
+<!ENTITY ang                          "ang">                  <!-- 47 -->
+<!ENTITY queste                       "queste">                  <!-- 48 -->
+<!ENTITY dotbar                       "dotbar">                  <!-- 49 -->
+<!ENTITY barrdblDot                   "barrdblDot">                  <!-- 50 -->
+<!ENTITY barfdblDot                   "barfdblDot">                  <!-- 51 -->
+<!ENTITY geomprop                     "geomprop">                  <!-- 52 -->
+<!ENTITY erdblDot                     "erdblDot">                  <!-- 53 -->
+<!ENTITY efdblDot                     "efdblDot">                  <!-- 54 -->
+<!ENTITY edblDot                      "edblDot">                  <!-- 55 -->
+<!ENTITY esdot                        "esdot">                  <!-- 56 -->
+<!ENTITY eqdot                        "eqdot">                  <!-- 57 -->
+<!ENTITY vellip                       "vellip">                  <!-- 58 -->
+<!ENTITY colon                        "colon">                  <!-- 59 -->
+<!ENTITY dblColon                     "dblColon">                  <!-- 60 -->
+<!ENTITY weddblE                      "weddblE">                  <!-- 61 -->
+<!ENTITY boxhu                        "boxhu">                  <!-- 62 -->
+<!ENTITY angles                       "angles">                  <!-- 63 -->
+<!ENTITY ominusv                      "ominusv">                  <!-- 64 -->
+<!ENTITY bbfcapA                      "bbfcapA">                  <!-- 65 -->
+<!ENTITY bbfcapB                      "bbfcapB">                  <!-- 66 -->
+<!ENTITY bbfcapC                      "bbfcapC">                  <!-- 67 -->
+<!ENTITY bbfcapD                      "bbfcapD">                  <!-- 68 -->
+<!ENTITY bbfcapE                      "bbfcapE">                  <!-- 69 -->
+<!ENTITY bbfcapF                      "bbfcapF">                  <!-- 70 -->
+<!ENTITY bbfcapG                      "bbfcapG">                  <!-- 71 -->
+<!ENTITY bbfcapH                      "bbfcapH">                  <!-- 72 -->
+<!ENTITY bbfcapI                      "bbfcapI">                  <!-- 73 -->
+<!ENTITY bbfcapJ                      "bbfcapJ">                  <!-- 74 -->
+<!ENTITY bbfcapK                      "bbfcapK">                  <!-- 75 -->
+<!ENTITY bbfcapL                      "bbfcapL">                  <!-- 76 -->
+<!ENTITY bbfcapM                      "bbfcapM">                  <!-- 77 -->
+<!ENTITY bbfcapN                      "bbfcapN">                  <!-- 78 -->
+<!ENTITY bbfcapO                      "bbfcapO">                  <!-- 79 -->
+<!ENTITY bbfcapP                      "bbfcapP">                  <!-- 80 -->
+<!ENTITY bbfcapQ                      "bbfcapQ">                  <!-- 81 -->
+<!ENTITY bbfcapR                      "bbfcapR">                  <!-- 82 -->
+<!ENTITY bbfcapS                      "bbfcapS">                  <!-- 83 -->
+<!ENTITY bbfcapT                      "bbfcapT">                  <!-- 84 -->
+<!ENTITY bbfcapU                      "bbfcapU">                  <!-- 85 -->
+<!ENTITY bbfcapV                      "bbfcapV">                  <!-- 86 -->
+<!ENTITY bbfcapW                      "bbfcapW">                  <!-- 87 -->
+<!ENTITY bbfcapX                      "bbfcapX">                  <!-- 88 -->
+<!ENTITY bbfcapY                      "bbfcapY">                  <!-- 89 -->
+<!ENTITY bbfcapZ                      "bbfcapZ">                  <!-- 90 -->
+<!-- ENTITY there4                       "there4"-->                  <!-- 91 -->
+<!ENTITY sphang                       "sphang">                  <!-- 92 -->
+<!ENTITY sphangv                      "sphangv">                  <!-- 93 -->
+<!ENTITY otimes                       "otimes">                  <!-- 94 -->
+<!ENTITY dottri                       "dottri">                  <!-- 95 -->
+<!ENTITY rect                         "rect">                  <!-- 96 -->
+<!ENTITY styleb                       "styleb">                  <!-- 97 -->
+<!ENTITY ltrif                        "ltrif">                  <!-- 98 -->
+<!ENTITY rtrif                        "rtrif">                  <!-- 99 -->
+<!ENTITY cirf                         "cirf">                  <!-- 100 -->
+<!ENTITY diamv                        "diamv">                  <!-- 101 -->
+<!ENTITY cirlhf                       "cirlhf">                  <!-- 102 -->
+<!ENTITY cirrhf                       "cirrhf">                  <!-- 103 -->
+<!ENTITY squ                          "squ">                  <!-- 104 -->
+<!ENTITY squulhf                      "squulhf">                  <!-- 105 -->
+<!ENTITY squf                         "squf">                  <!-- 106 -->
+<!ENTITY squlhf                       "squlhf">                  <!-- 107 -->
+<!ENTITY squrhf                       "squrhf">                  <!-- 108 -->
+<!ENTITY utrif                        "utrif">                  <!-- 109 -->
+<!ENTITY utri                         "utri">                  <!-- 110 -->
+<!ENTITY squdrhf                      "squdrhf">                  <!-- 111 -->
+<!ENTITY lowast                       "lowast">                  <!-- 112 -->
+<!ENTITY star                         "star">                  <!-- 113 -->
+<!ENTITY diamfv                       "diamfv">                  <!-- 114 -->
+<!ENTITY cir                          "cir">                  <!-- 115 -->
+<!ENTITY utrilhf                      "utrilhf">                  <!-- 116 -->
+<!ENTITY xsqu                         "xsqu">                  <!-- 117 -->
+<!ENTITY ltri                         "ltri">                  <!-- 118 -->
+<!ENTITY starf                        "starf">                  <!-- 119 -->
+<!ENTITY rtri                         "rtri">                  <!-- 120 -->
+<!ENTITY utrirhf                      "utrirhf">                  <!-- 121 -->
+<!ENTITY capLsans                     "capLsans">                  <!-- 122 -->
+<!ENTITY becaus                       "becaus">                  <!-- 123 -->
+<!ENTITY bsphang                      "bsphang">                  <!-- 124 -->
+<!ENTITY bsphangv                     "bsphangv">                  <!-- 125 -->
+<!ENTITY rhomb                        "rhomb">                  <!-- 126 -->
+<!ENTITY boxvl                        "boxvl">                  <!-- 162 -->
+<!ENTITY boxvr                        "boxvr">                  <!-- 163 -->
+<!ENTITY bump                         "bump">                  <!-- 164 -->
+<!ENTITY boxhd                        "boxhd">                  <!-- 170 -->
+<!ENTITY bumpe                        "bumpe">                  <!-- 176 -->
+<!ENTITY intcal                       "intcal">                  <!-- 193 -->
+<!ENTITY dblColon                     "dblColon">                  <!-- 248 -->
+<!ENTITY boxhu                        "boxhu">                  <!-- 249 -->
+<!-- End of Font -->                                                                 
+                                                                                     
+<!-- PatchWork -->                                                                   
+<!ENTITY larrma                       "larrma">                  <!-- 33 -->
+<!ENTITY PatchWork34                  "PatchWork34">                  <!-- 34 -->
+<!ENTITY rarrcapma                    "rarrcapma">                  <!-- 35 -->
+<!ENTITY rarrmedma                    "rarrmedma">                  <!-- 36 -->
+<!ENTITY rarrshortma                  "rarrshortma">                  <!-- 37 -->
+<!ENTITY uarr                         "uarr">                  <!-- 38 -->
+<!ENTITY PatchWork39                  "PatchWork39">                  <!-- 39 -->
+<!ENTITY nearr                        "nearr">                  <!-- 40 -->
+<!ENTITY cudarr                       "cudarr">                  <!-- 41 -->
+<!ENTITY dlarr                        "dlarr">                  <!-- 42 -->
+<!ENTITY cuuarr                       "cuuarr">                  <!-- 43 -->
+<!ENTITY dlangmsd                     "dlangmsd">                  <!-- 44 -->
+<!ENTITY PatchWork45                  "PatchWork45">                  <!-- 45 -->
+<!ENTITY drangmsd                     "drangmsd">                  <!-- 46 -->
+<!ENTITY PatchWork47                  "PatchWork47">                  <!-- 47 -->
+<!ENTITY halfthinsp                   "halfthinsp">                  <!-- 48 -->
+<!ENTITY thinsp                       "thinsp">                  <!-- 49 -->
+<!ENTITY thicksp                      "thicksp">                  <!-- 50 -->
+<!ENTITY ensp                         "ensp">                  <!-- 51 -->
+<!ENTITY emsp                         "emsp">                  <!-- 52 -->
+<!ENTITY benzen                       "benzen">                  <!-- 53 -->
+<!ENTITY uelec                        "uelec">                  <!-- 54 -->
+<!ENTITY delec                        "delec">                  <!-- 55 -->
+<!ENTITY pairelec                     "pairelec">                  <!-- 56 -->
+<!ENTITY PatchWork57                  "PatchWork57">                  <!-- 57 -->
+<!ENTITY PatchWork58                  "PatchWork58">                  <!-- 58 -->
+<!ENTITY PatchWork59                  "PatchWork59">                  <!-- 59 -->
+<!ENTITY ulangmsd                     "ulangmsd">                  <!-- 60 -->
+<!ENTITY PatchWork61                  "PatchWork61">                  <!-- 61 -->
+<!ENTITY urangmsd                     "urangmsd">                  <!-- 62 -->
+<!ENTITY PatchWork63                  "PatchWork63">                  <!-- 63 -->
+<!ENTITY xrarrma                      "xrarrma">                  <!-- 64 -->
+<!ENTITY PatchWork65                  "PatchWork65">                  <!-- 65 -->
+<!ENTITY PatchWork66                  "PatchWork66">                  <!-- 66 -->
+<!ENTITY PatchWork67                  "PatchWork67">                  <!-- 67 -->
+<!ENTITY PatchWork68                  "PatchWork68">                  <!-- 68 -->
+<!ENTITY elecfield                    "elecfield">                  <!-- 69 -->
+<!ENTITY capFunitvec                  "capFunitvec">                  <!-- 70 -->
+<!ENTITY PatchWork71                  "PatchWork71">                  <!-- 71 -->
+<!ENTITY PatchWork72                  "PatchWork72">                  <!-- 72 -->
+<!ENTITY capIunitvec                  "capIunitvec">                  <!-- 73 -->
+<!ENTITY capJunitvec                  "capJunitvec">                  <!-- 74 -->
+<!ENTITY capKunitvec                  "capKunitvec">                  <!-- 75 -->
+<!ENTITY PatchWork76                  "PatchWork76">                  <!-- 76 -->
+<!ENTITY PatchWork77                  "PatchWork77">                  <!-- 77 -->
+<!ENTITY PatchWork78                  "PatchWork78">                  <!-- 78 -->
+<!ENTITY capOAvec                     "capOAvec">                  <!-- 79 -->
+<!ENTITY capPQvec                     "capPQvec">                  <!-- 80 -->
+<!ENTITY dharr                        "dharr">                  <!-- 81 -->
+<!ENTITY PatchWork82                  "PatchWork82">                  <!-- 82 -->
+<!ENTITY PatchWork83                  "PatchWork83">                  <!-- 83 -->
+<!ENTITY PatchWork84                  "PatchWork84">                  <!-- 84 -->
+<!ENTITY PatchWork85                  "PatchWork85">                  <!-- 85 -->
+<!ENTITY PatchWork86                  "PatchWork86">                  <!-- 86 -->
+<!ENTITY capOmegavec                  "capOmegavec">                  <!-- 87 -->
+<!ENTITY PatchWork88                  "PatchWork88">                  <!-- 88 -->
+<!ENTITY PatchWork89                  "PatchWork89">                  <!-- 89 -->
+<!ENTITY PatchWork90                  "PatchWork90">                  <!-- 90 -->
+<!ENTITY PatchWork91                  "PatchWork91">                  <!-- 91 -->
+<!ENTITY PatchWork92                  "PatchWork92">                  <!-- 92 -->
+<!ENTITY PatchWork93                  "PatchWork93">                  <!-- 93 -->
+<!ENTITY darr                         "darr">                  <!-- 94 -->
+<!ENTITY PatchWork95                  "PatchWork95">                  <!-- 95 -->
+<!ENTITY PatchWork96                  "PatchWork96">                  <!-- 96 -->
+<!ENTITY alphavec                     "alphavec">                  <!-- 97 -->
+<!ENTITY PatchWork98                  "PatchWork98">                  <!-- 98 -->
+<!ENTITY PatchWork99                  "PatchWork99">                  <!-- 99 -->
+<!ENTITY PatchWork100                 "PatchWork100">                  <!-- 100 -->
+<!ENTITY elecfieldvector              "elecfieldvector">                  <!-- 101 -->
+<!ENTITY capFvecsans                  "capFvecsans">                  <!-- 102 -->
+<!ENTITY PatchWork103                 "PatchWork103">                  <!-- 103 -->
+<!ENTITY PatchWork104                 "PatchWork104">                  <!-- 104 -->
+<!ENTITY iunitvec                     "iunitvec">                  <!-- 105 -->
+<!ENTITY junitvec                     "junitvec">                  <!-- 106 -->
+<!ENTITY kunitvec                     "kunitvec">                  <!-- 107 -->
+<!ENTITY PatchWork108                 "PatchWork108">                  <!-- 108 -->
+<!ENTITY PatchWork109                 "PatchWork109">                  <!-- 109 -->
+<!ENTITY PatchWork110                 "PatchWork110">                  <!-- 110 -->
+<!ENTITY PatchWork111                 "PatchWork111">                  <!-- 111 -->
+<!ENTITY PatchWork112                 "PatchWork112">                  <!-- 112 -->
+<!ENTITY thetaunitvec                 "thetaunitvec">                  <!-- 113 -->
+<!ENTITY runitvec                     "runitvec">                  <!-- 114 -->
+<!ENTITY PatchWork115                 "PatchWork115">                  <!-- 115 -->
+<!ENTITY PatchWork116                 "PatchWork116">                  <!-- 116 -->
+<!ENTITY PatchWork117                 "PatchWork117">                  <!-- 117 -->
+<!ENTITY PatchWork118                 "PatchWork118">                  <!-- 118 -->
+<!ENTITY omegavec                     "omegavec">                  <!-- 119 -->
+<!ENTITY PatchWork120                 "PatchWork120">                  <!-- 120 -->
+<!ENTITY PatchWork121                 "PatchWork121">                  <!-- 121 -->
+<!ENTITY PatchWork122                 "PatchWork122">                  <!-- 122 -->
+<!ENTITY PatchWork123                 "PatchWork123">                  <!-- 123 -->
+<!ENTITY PatchWork124                 "PatchWork124">                  <!-- 124 -->
+<!ENTITY PatchWork125                 "PatchWork125">                  <!-- 125 -->
+<!ENTITY PatchWork126                 "PatchWork126">                  <!-- 126 -->
+<!ENTITY iunitvecsans                 "iunitvecsans">                  <!-- 148 -->
+<!ENTITY rarrmedcapma                 "rarrmedcapma">                  <!-- 162 -->
+<!ENTITY rarrma                       "rarrma">                  <!-- 163 -->
+<!ENTITY runitvecsans                 "runitvecsans">                  <!-- 168 -->
+<!ENTITY xrarrcapma                   "xrarrcapma">                  <!-- 170 -->
+<!ENTITY rarrshortcapma               "rarrshortcapma">                  <!-- 176 -->
+<!ENTITY larrcapma                    "larrcapma">                  <!-- 193 -->
+<!ENTITY capFunitvecsans              "capFunitvecsans">                  <!-- 196 -->
+<!ENTITY junitvecsans                 "junitvecsans">                  <!-- 198 -->
+<!ENTITY udhar2                       "udhar2">                  <!-- 206 -->
+<!ENTITY uharl                        "uharl">                  <!-- 207 -->
+<!ENTITY anticline                    "anticline">                  <!-- 218 -->
+<!ENTITY syncline                     "syncline">                  <!-- 219 -->
+<!ENTITY vbeds                        "vbeds">                  <!-- 220 -->
+<!ENTITY strikedip                    "strikedip">                  <!-- 221 -->
+<!ENTITY capIunitvecsans              "capIunitvecsans">                  <!-- 233 -->
+<!ENTITY capFvec                      "capFvec">                  <!-- 236 -->
+<!ENTITY capJunitvecsans              "capJunitvecsans">                  <!-- 239 -->
+<!ENTITY capKunitvecsans              "capKunitvecsans">                  <!-- 240 -->
+<!ENTITY capunitvecma                 "capunitvecma">                  <!-- 245 -->
+<!ENTITY unitvecma                    "unitvecma">                  <!-- 246 -->
+<!ENTITY male                         "male">                  <!-- 248 -->
+<!ENTITY female                       "female">                  <!-- 249 -->
+<!ENTITY planck                       "planck">                  <!-- 250 -->
+<!ENTITY kunitvecsans                 "kunitvecsans">                  <!-- 251 -->
+<!-- End of Font -->                                                                         
+                                                                                     
+<!-- ZapfDingbats -->                                                                
+<!ENTITY write                        "write">                  <!-- 30 -->
+<!ENTITY scisbb                       "scisbb">                  <!-- 33 -->
+<!ENTITY scis                         "scis">                  <!-- 34 -->
+<!ENTITY scisbt                       "scisbt">                  <!-- 35 -->
+<!ENTITY sciso                        "sciso">                  <!-- 36 -->
+<!ENTITY phone                        "phone">                  <!-- 37 -->
+<!ENTITY handset                      "handset">                  <!-- 38 -->
+<!ENTITY magtape                      "magtape">                  <!-- 39 -->
+<!ENTITY airplane                     "airplane">                  <!-- 40 -->
+<!ENTITY envlp                        "envlp">                  <!-- 41 -->
+<!ENTITY rfistf                       "rfistf">                  <!-- 42 -->
+<!ENTITY rfist                        "rfist">                  <!-- 43 -->
+<!ENTITY victry                       "victry">                  <!-- 44 -->
+<!ENTITY write                        "write">                  <!-- 45 -->
+<!ENTITY drpencil                     "drpencil">                  <!-- 46 -->
+<!ENTITY rpencil                      "rpencil">                  <!-- 47 -->
+<!ENTITY urpencil                     "urpencil">                  <!-- 48 -->
+<!ENTITY rnib                         "rnib">                  <!-- 49 -->
+<!ENTITY rnibf                        "rnibf">                  <!-- 50 -->
+<!ENTITY check                        "check">                  <!-- 51 -->
+<!ENTITY checkv                       "checkv">                  <!-- 52 -->
+<!ENTITY multivl                      "multivl">                  <!-- 53 -->
+<!ENTITY multivb                      "multivb">                  <!-- 54 -->
+<!ENTITY cross                        "cross">                  <!-- 55 -->
+<!ENTITY crossv                       "crossv">                  <!-- 56 -->
+<!ENTITY plusfout                     "plusfout">                  <!-- 57 -->
+<!ENTITY plusvb                       "plusvb">                  <!-- 58 -->
+<!ENTITY plusco                       "plusco">                  <!-- 59 -->
+<!ENTITY plusbco                      "plusbco">                  <!-- 60 -->
+<!ENTITY lcrossf                      "lcrossf">                  <!-- 61 -->
+<!ENTITY lcrosssh                     "lcrosssh">                  <!-- 62 -->
+<!ENTITY lcrossfout                   "lcrossfout">                  <!-- 63 -->
+<!ENTITY malt                         "malt">                  <!-- 64 -->
+<!ENTITY stdavid                      "stdavid">                  <!-- 65 -->
+<!ENTITY crosstear                    "crosstear">                  <!-- 66 -->
+<!ENTITY crossball                    "crossball">                  <!-- 67 -->
+<!ENTITY crossballx                   "crossballx">                  <!-- 68 -->
+<!ENTITY crossclub                    "crossclub">                  <!-- 69 -->
+<!ENTITY lozf                         "lozf">                  <!-- 70 -->
+<!ENTITY loz                          "loz">                  <!-- 71 -->
+<!ENTITY starf                        "starf">                  <!-- 72 -->
+<!ENTITY star                         "star">                  <!-- 73 -->
+<!ENTITY ofstar                       "ofstar">                  <!-- 74 -->
+<!ENTITY starfco                      "starfco">                  <!-- 75 -->
+<!ENTITY starcf                       "starcf">                  <!-- 76 -->
+<!ENTITY starfout                     "starfout">                  <!-- 77 -->
+<!ENTITY starfoutb                    "starfoutb">                  <!-- 78 -->
+<!ENTITY starengr                     "starengr">                  <!-- 79 -->
+<!ENTITY starsh                       "starsh">                  <!-- 80 -->
+<!ENTITY astbv                        "astbv">                  <!-- 81 -->
+<!ENTITY astbvco                      "astbvco">                  <!-- 82 -->
+<!ENTITY ast8                         "ast8">                  <!-- 83 -->
+<!ENTITY star8f                       "star8f">                  <!-- 84 -->
+<!ENTITY star8engr                    "star8engr">                  <!-- 85 -->
+<!ENTITY sext                         "sext">                  <!-- 86 -->
+<!ENTITY octile                       "octile">                  <!-- 87 -->
+<!ENTITY octilev                      "octilev">                  <!-- 88 -->
+<!ENTITY star12                       "star12">                  <!-- 89 -->
+<!ENTITY star16                       "star16">                  <!-- 90 -->
+<!ENTITY sixtearcf                    "sixtearcf">                  <!-- 91 -->
+<!ENTITY sixtearco                    "sixtearco">                  <!-- 92 -->
+<!ENTITY sixtearx                     "sixtearx">                  <!-- 93 -->
+<!ENTITY sixpetfo                     "sixpetfo">                  <!-- 94 -->
+<!ENTITY flowerfco                    "flowerfco">                  <!-- 95 -->
+<!ENTITY flower                       "flower">                  <!-- 96 -->
+<!ENTITY flower8                      "flower8">                  <!-- 97 -->
+<!ENTITY sunflower                    "sunflower">                  <!-- 98 -->
+<!ENTITY flowerstar                   "flowerstar">                  <!-- 99 -->
+<!ENTITY snow                         "snow">                  <!-- 100 -->
+<!ENTITY snowout                      "snowout">                  <!-- 101 -->
+<!ENTITY snowx                        "snowx">                  <!-- 102 -->
+<!ENTITY crossflower                  "crossflower">                  <!-- 103 -->
+<!ENTITY crossflowerx                 "crossflowerx">                  <!-- 104 -->
+<!ENTITY sixtearbx                    "sixtearbx">                  <!-- 105 -->
+<!ENTITY ast8tear                     "ast8tear">                  <!-- 106 -->
+<!ENTITY ast8tearm                    "ast8tearm">                  <!-- 107 -->
+<!ENTITY cirf                         "cirf">                  <!-- 108 -->
+<!ENTITY cirsh                        "cirsh">                  <!-- 109 -->
+<!ENTITY squf                         "squf">                  <!-- 110 -->
+<!ENTITY squshdr                      "squshdr">                  <!-- 111 -->
+<!ENTITY squshur                      "squshur">                  <!-- 112 -->
+<!ENTITY blockdr                      "blockdr">                  <!-- 113 -->
+<!ENTITY blockur                      "blockur">                  <!-- 114 -->
+<!ENTITY utrif                        "utrif">                  <!-- 115 -->
+<!ENTITY dtrif                        "dtrif">                  <!-- 116 -->
+<!ENTITY diamsf                       "diamsf">                  <!-- 117 -->
+<!ENTITY diam4diam                    "diam4diam">                  <!-- 118 -->
+<!ENTITY rsemicirf                    "rsemicirf">                  <!-- 119 -->
+<!ENTITY verbarvth                    "verbarvth">                  <!-- 120 -->
+<!ENTITY verbarvm                     "verbarvm">                  <!-- 121 -->
+<!ENTITY verbarvb                     "verbarvb">                  <!-- 122 -->
+<!ENTITY lsquox                       "lsquox">                  <!-- 123 -->
+<!ENTITY rsquox                       "rsquox">                  <!-- 124 -->
+<!ENTITY ldquox                       "ldquox">                  <!-- 125 -->
+<!ENTITY rdquox                       "rdquox">                  <!-- 126 -->
+<!ENTITY lparm                        "lparm">                  <!-- 128 -->
+<!ENTITY rparm                        "rparm">                  <!-- 129 -->
+<!ENTITY lparb                        "lparb">                  <!-- 130 -->
+<!ENTITY rparb                        "rparb">                  <!-- 131 -->
+<!ENTITY langvm                       "langvm">                  <!-- 132 -->
+<!ENTITY rangvm                       "rangvm">                  <!-- 133 -->
+<!ENTITY lchev                        "lchev">                  <!-- 134 -->
+<!ENTITY rchev                        "rchev">                  <!-- 135 -->
+<!ENTITY langvb                       "langvb">                  <!-- 136 -->
+<!ENTITY rangvb                       "rangvb">                  <!-- 137 -->
+<!ENTITY lsplb                        "lsplb">                  <!-- 138 -->
+<!ENTITY rsplb                        "rsplb">                  <!-- 139 -->
+<!ENTITY lcubv                        "lcubv">                  <!-- 140 -->
+<!ENTITY rcubv                        "rcubv">                  <!-- 141 -->
+<!ENTITY parav                        "parav">                  <!-- 161 -->
+<!ENTITY exclvb                       "exclvb">                  <!-- 162 -->
+<!ENTITY exclheart                    "exclheart">                  <!-- 163 -->
+<!ENTITY heartx                       "heartx">                  <!-- 164 -->
+<!ENTITY heartr                       "heartr">                  <!-- 165 -->
+<!ENTITY finial                       "finial">                  <!-- 166 -->
+<!ENTITY stfinl                       "stfinl">                  <!-- 167 -->
+<!ENTITY clubsv                       "clubsv">                  <!-- 168 -->
+<!ENTITY diamsv                       "diamsv">                  <!-- 169 -->
+<!ENTITY heartsv                      "heartsv">                  <!-- 170 -->
+<!ENTITY spadesv                      "spadesv">                  <!-- 171 -->
+<!ENTITY o1                           "o1">                  <!-- 172 -->
+<!ENTITY o2                           "o2">                  <!-- 173 -->
+<!ENTITY o3                           "o3">                  <!-- 174 -->
+<!ENTITY o4                           "o4">                  <!-- 175 -->
+<!ENTITY o5                           "o5">                  <!-- 176 -->
+<!ENTITY o6                           "o6">                  <!-- 177 -->
+<!ENTITY o7                           "o7">                  <!-- 178 -->
+<!ENTITY o8                           "o8">                  <!-- 179 -->
+<!ENTITY o9                           "o9">                  <!-- 180 -->
+<!ENTITY o10                          "o10">                  <!-- 181 -->
+<!ENTITY revo1                        "revo1">                  <!-- 182 -->
+<!ENTITY revo2                        "revo2">                  <!-- 183 -->
+<!ENTITY revo3                        "revo3">                  <!-- 184 -->
+<!ENTITY revo4                        "revo4">                  <!-- 185 -->
+<!ENTITY revo5                        "revo5">                  <!-- 186 -->
+<!ENTITY revo6                        "revo6">                  <!-- 187 -->
+<!ENTITY revo7                        "revo7">                  <!-- 188 -->
+<!ENTITY revo8                        "revo8">                  <!-- 189 -->
+<!ENTITY revo9                        "revo9">                  <!-- 190 -->
+<!ENTITY revo10                       "revo10">                  <!-- 191 -->
+<!ENTITY o1v                          "o1v">                  <!-- 192 -->
+<!ENTITY o2v                          "o2v">                  <!-- 193 -->
+<!ENTITY o3v                          "o3v">                  <!-- 194 -->
+<!ENTITY o4v                          "o4v">                  <!-- 195 -->
+<!ENTITY o5v                          "o5v">                  <!-- 196 -->
+<!ENTITY o6v                          "o6v">                  <!-- 197 -->
+<!ENTITY o7v                          "o7v">                  <!-- 198 -->
+<!ENTITY o8v                          "o8v">                  <!-- 199 -->
+<!ENTITY o9v                          "o9v">                  <!-- 200 -->
+<!ENTITY o10v                         "o10v">                  <!-- 201 -->
+<!ENTITY revo1v                       "revo1v">                  <!-- 202 -->
+<!ENTITY revo2v                       "revo2v">                  <!-- 203 -->
+<!ENTITY revo3v                       "revo3v">                  <!-- 204 -->
+<!ENTITY revo4v                       "revo4v">                  <!-- 205 -->
+<!ENTITY revo5v                       "revo5v">                  <!-- 206 -->
+<!ENTITY revo6v                       "revo6v">                  <!-- 207 -->
+<!ENTITY revo7v                       "revo7v">                  <!-- 208 -->
+<!ENTITY revo8v                       "revo8v">                  <!-- 209 -->
+<!ENTITY revo9v                       "revo9v">                  <!-- 210 -->
+<!ENTITY revo10v                      "revo10v">                  <!-- 211 -->
+<!ENTITY rarrdk                       "rarrdk">                  <!-- 212 -->
+<!ENTITY rarrbarb                     "rarrbarb">                  <!-- 213 -->
+<!ENTITY harrbarb                     "harrbarb">                  <!-- 214 -->
+<!ENTITY varrbarb                     "varrbarb">                  <!-- 215 -->
+<!ENTITY drarrtt                      "drarrtt">                  <!-- 216 -->
+<!ENTITY rarrtt                       "rarrtt">                  <!-- 217 -->
+<!ENTITY urarrtt                      "urarrtt">                  <!-- 218 -->
+<!ENTITY rarrlbarb                    "rarrlbarb">                  <!-- 219 -->
+<!ENTITY rarrrnd                      "rarrrnd">                  <!-- 220 -->
+<!ENTITY rarrthtri                    "rarrthtri">                  <!-- 221 -->
+<!ENTITY rarrmdtri                    "rarrmdtri">                  <!-- 222 -->
+<!ENTITY rarrsc                       "rarrsc">                  <!-- 223 -->
+<!ENTITY rarrscw                      "rarrscw">                  <!-- 224 -->
+<!ENTITY rarrwf                       "rarrwf">                  <!-- 225 -->
+<!ENTITY rdartof                      "rdartof">                  <!-- 226 -->
+<!ENTITY rdartfo                      "rdartfo">                  <!-- 227 -->
+<!ENTITY rdartf                       "rdartf">                  <!-- 228 -->
+<!ENTITY rarrwfhku                    "rarrwfhku">                  <!-- 229 -->
+<!ENTITY rarrwfhkd                    "rarrwfhkd">                  <!-- 230 -->
+<!ENTITY rarrxwf                      "rarrxwf">                  <!-- 231 -->
+<!ENTITY rarrwfch                     "rarrwfch">                  <!-- 232 -->
+<!ENTITY rarrwshr                     "rarrwshr">                  <!-- 233 -->
+<!ENTITY rarrwshl                     "rarrwshl">                  <!-- 234 -->
+<!ENTITY rarrflshd                    "rarrflshd">                  <!-- 235 -->
+<!ENTITY rarrflshu                    "rarrflshu">                  <!-- 236 -->
+<!ENTITY rarrwshd                     "rarrwshd">                  <!-- 237 -->
+<!ENTITY rarrwshu                     "rarrwshu">                  <!-- 238 -->
+<!ENTITY rarrvtshd                    "rarrvtshd">                  <!-- 239 -->
+<!ENTITY rarrvtshu                    "rarrvtshu">                  <!-- 241 -->
+<!ENTITY ofrarr                       "ofrarr">                  <!-- 242 -->
+<!ENTITY rarrtf                       "rarrtf">                  <!-- 243 -->
+<!ENTITY drarrstf                     "drarrstf">                  <!-- 244 -->
+<!ENTITY rarrstf                      "rarrstf">                  <!-- 245 -->
+<!ENTITY urarrstf                     "urarrstf">                  <!-- 246 -->
+<!ENTITY drarrftf                     "drarrftf">                  <!-- 247 -->
+<!ENTITY rarrftf                      "rarrftf">                  <!-- 248 -->
+<!ENTITY urarrftf                     "urarrftf">                  <!-- 249 -->
+<!ENTITY rarrteart                    "rarrteart">                  <!-- 250 -->
+<!ENTITY rarrxteart                   "rarrxteart">                  <!-- 251 -->
+<!ENTITY rarrbtf                      "rarrbtf">                  <!-- 252 -->
+<!ENTITY rarrbtfx                     "rarrbtfx">                  <!-- 253 -->
+<!ENTITY rarropen                     "rarropen">                  <!-- 254 -->
+<!-- End of Font -->                                                                 
+                                                                                     
+<!-- Graeca -->                                                                      
+<!-- ENTITY nbhyphen                     "nbhyphen"-->                  <!-- 30 -->
+<!ENTITY lenis                        "lenis">                  <!-- 33 -->
+<!ENTITY sfgr                         "sfgr">                  <!-- 34 -->
+<!ENTITY lenisacute                   "lenisacute">                  <!-- 35 -->
+<!ENTITY asperacute                   "asperacute">                  <!-- 36 -->
+<!ENTITY lenisgrave                   "lenisgrave">                  <!-- 37 -->
+<!ENTITY circlenis                    "circlenis">                  <!-- 38 -->
+<!ENTITY circgrac                     "circgrac">                  <!-- 39 -->
+<!ENTITY circasper                    "circasper">                  <!-- 42 -->
+<!ENTITY dotac                        "dotac">                  <!-- 43 -->
+<!ENTITY iotasubac                    "iotasubac">                  <!-- 47 -->
+<!ENTITY colgr                        "colgr">                  <!-- 58 -->
+<!ENTITY gravegrac                    "gravegrac">                  <!-- 59 -->
+<!ENTITY diegrac                      "diegrac">                  <!-- 62 -->
+<!ENTITY dieacuteac                   "dieacuteac">                  <!-- 63 -->
+<!ENTITY asper                        "asper">                  <!-- 64 -->
+<!ENTITY capAgr                       "capAgr">                  <!-- 65 -->
+<!ENTITY capBgr                       "capBgr">                  <!-- 66 -->
+<!ENTITY capKHgr                      "capKHgr">                  <!-- 67 -->
+<!ENTITY capDgr                       "capDgr">                  <!-- 68 -->
+<!ENTITY capEgr                       "capEgr">                  <!-- 69 -->
+<!ENTITY capPHgr                      "capPHgr">                  <!-- 70 -->
+<!ENTITY capGgr                       "capGgr">                  <!-- 71 -->
+<!ENTITY capEEgr                      "capEEgr">                  <!-- 72 -->
+<!ENTITY capIgr                       "capIgr">                  <!-- 73 -->
+<!ENTITY asperac                      "asperac">                  <!-- 74 -->
+<!ENTITY capKgr                       "capKgr">                  <!-- 75 -->
+<!ENTITY capLgr                       "capLgr">                  <!-- 76 -->
+<!ENTITY capMgr                       "capMgr">                  <!-- 77 -->
+<!ENTITY capNgr                       "capNgr">                  <!-- 78 -->
+<!ENTITY capOgr                       "capOgr">                  <!-- 79 -->
+<!ENTITY capPgr                       "capPgr">                  <!-- 80 -->
+<!ENTITY capTHgr                      "capTHgr">                  <!-- 81 -->
+<!ENTITY capRgr                       "capRgr">                  <!-- 82 -->
+<!ENTITY capSgr                       "capSgr">                  <!-- 83 -->
+<!ENTITY capTgr                       "capTgr">                  <!-- 84 -->
+<!ENTITY capUgr                       "capUgr">                  <!-- 85 -->
+<!ENTITY acutegr                      "acutegr">                  <!-- 86 -->
+<!ENTITY capOHgr                      "capOHgr">                  <!-- 87 -->
+<!ENTITY capXgr                       "capXgr">                  <!-- 88 -->
+<!ENTITY capPSgr                      "capPSgr">                  <!-- 89 -->
+<!ENTITY capZgr                       "capZgr">                  <!-- 90 -->
+<!ENTITY lenisacuteac                 "lenisacuteac">                  <!-- 91 -->
+<!ENTITY circlenisac                  "circlenisac">                  <!-- 92 -->
+<!ENTITY lenisgraveac                 "lenisgraveac">                  <!-- 93 -->
+<!ENTITY aspergrave                   "aspergrave">                  <!-- 94 -->
+<!ENTITY questgr                      "questgr">                  <!-- 95 -->
+<!ENTITY diegraveac                   "diegraveac">                  <!-- 96 -->
+<!ENTITY agr                          "agr">                  <!-- 97 -->
+<!ENTITY bgr                          "bgr">                  <!-- 98 -->
+<!ENTITY khgr                         "khgr">                  <!-- 99 -->
+<!ENTITY dgr                          "dgr">                  <!-- 100 -->
+<!ENTITY egrv                         "egrv">                  <!-- 101 -->
+<!ENTITY phgr                         "phgr">                  <!-- 102 -->
+<!ENTITY ggr                          "ggr">                  <!-- 103 -->
+<!ENTITY eegr                         "eegr">                  <!-- 104 -->
+<!ENTITY igr                          "igr">                  <!-- 105 -->
+<!ENTITY lenisac                      "lenisac">                  <!-- 106 -->
+<!ENTITY kgr                          "kgr">                  <!-- 107 -->
+<!ENTITY lgr                          "lgr">                  <!-- 108 -->
+<!ENTITY mgr                          "mgr">                  <!-- 109 -->
+<!ENTITY ngr                          "ngr">                  <!-- 110 -->
+<!ENTITY ogr                          "ogr">                  <!-- 111 -->
+<!ENTITY pgr                          "pgr">                  <!-- 112 -->
+<!ENTITY thgr                         "thgr">                  <!-- 113 -->
+<!ENTITY rgr                          "rgr">                  <!-- 114 -->
+<!ENTITY sgr                          "sgr">                  <!-- 115 -->
+<!ENTITY tgr                          "tgr">                  <!-- 116 -->
+<!ENTITY ugr                          "ugr">                  <!-- 117 -->
+<!ENTITY acutegrac                    "acutegrac">                  <!-- 118 -->
+<!ENTITY ohgr                         "ohgr">                  <!-- 119 -->
+<!ENTITY xgr                          "xgr">                  <!-- 120 -->
+<!ENTITY psgr                         "psgr">                  <!-- 121 -->
+<!ENTITY zgr                          "zgr">                  <!-- 122 -->
+<!ENTITY asperacuteac                 "asperacuteac">                  <!-- 123 -->
+<!ENTITY circasperac                  "circasperac">                  <!-- 124 -->
+<!ENTITY aspergraveac                 "aspergraveac">                  <!-- 125 -->
+<!ENTITY circdie                      "circdie">                  <!-- 126 -->
+<!ENTITY percent                      "percent">                  <!-- 145 -->
+<!ENTITY rrep                         "rrep">                  <!-- 146 -->
+<!ENTITY supnum                       "supnum">                  <!-- 147 -->
+<!ENTITY dollar                       "dollar">                  <!-- 148 -->
+<!ENTITY rord                         "rord">                  <!-- 149 -->
+<!ENTITY nbsp                         "nbsp">                  <!-- 160 -->
+<!ENTITY omit                         "omit">                  <!-- 161 -->
+<!ENTITY ulcorn                       "ulcorn">                  <!-- 162 -->
+<!ENTITY insert                       "insert">                  <!-- 163 -->
+<!ENTITY romit                        "romit">                  <!-- 164 -->
+<!ENTITY wye                          "wye">                  <!-- 165 -->
+<!ENTITY circasper                    "circasper">                  <!-- 166 -->
+<!ENTITY circgracv                    "circgracv">                  <!-- 167 -->
+<!ENTITY yew                          "yew">                  <!-- 168 -->
+<!ENTITY gee                          "gee">                  <!-- 169 -->
+<!ENTITY lsqbgr                       "lsqbgr">                  <!-- 170 -->
+<!ENTITY rdotord                      "rdotord">                  <!-- 171 -->
+<!ENTITY el                           "el">                  <!-- 172 -->
+<!ENTITY lowlong                      "lowlong">                  <!-- 173 -->
+<!ENTITY arh                          "arh">                  <!-- 174 -->
+<!ENTITY capJay                       "capJay">                  <!-- 175 -->
+<!ENTITY kay                          "kay">                  <!-- 176 -->
+<!ENTITY shortac                      "shortac">                  <!-- 177 -->
+<!ENTITY ee                           "ee">                  <!-- 180 -->
+<!ENTITY em                           "em">                  <!-- 181 -->
+<!ENTITY lord                         "lord">                  <!-- 182 -->
+<!ENTITY ldblSqb                      "ldblSqb">                  <!-- 183 -->
+<!ENTITY rsqbgr                       "rsqbgr">                  <!-- 186 -->
+<!ENTITY astgr                        "astgr">                  <!-- 187 -->
+<!ENTITY captildeac                   "captildeac">                  <!-- 191 -->
+<!ENTITY numcom                       "numcom">                  <!-- 192 -->
+<!ENTITY capWye                       "capWye">                  <!-- 193 -->
+<!ENTITY capArh                       "capArh">                  <!-- 194 -->
+<!ENTITY ranggr                       "ranggr">                  <!-- 195 -->
+<!ENTITY tripunct                     "tripunct">                  <!-- 196 -->
+<!ENTITY alephv                       "alephv">                  <!-- 197 -->
+<!ENTITY capCee                       "capCee">                  <!-- 199 -->
+<!ENTITY eye                          "eye">                  <!-- 200 -->
+<!ENTITY slashgr                      "slashgr">                  <!-- 201 -->
+<!ENTITY daggergr                     "daggergr">                  <!-- 202 -->
+<!ENTITY capYew                       "capYew">                  <!-- 203 -->
+<!ENTITY capGee                       "capGee">                  <!-- 204 -->
+<!ENTITY capEss                       "capEss">                  <!-- 205 -->
+<!ENTITY capDee                       "capDee">                  <!-- 206 -->
+<!ENTITY capEff                       "capEff">                  <!-- 207 -->
+<!ENTITY rinsert                      "rinsert">                  <!-- 209 -->
+<!ENTITY capEl                        "capEl">                  <!-- 210 -->
+<!ENTITY hebrot                       "hebrot">                  <!-- 211 -->
+<!ENTITY commatgr                     "commatgr">                  <!-- 212 -->
+<!ENTITY drcorn                       "drcorn">                  <!-- 213 -->
+<!ENTITY bigdot                       "bigdot">                  <!-- 214 -->
+<!ENTITY rcubgr                       "rcubgr">                  <!-- 216 -->
+<!ENTITY sampi                        "sampi">                  <!-- 217 -->
+<!ENTITY colongr                      "colongr">                  <!-- 218 -->
+<!ENTITY digamma                      "digamma">                  <!-- 219 -->
+<!ENTITY urcorn                       "urcorn">                  <!-- 220 -->
+<!ENTITY ess                          "ess">                  <!-- 223 -->
+<!ENTITY plusgr                       "plusgr">                  <!-- 224 -->
+<!ENTITY lsubpar                      "lsubpar">                  <!-- 225 -->
+<!ENTITY eff                          "eff">                  <!-- 226 -->
+<!ENTITY langgr                       "langgr">                  <!-- 227 -->
+<!ENTITY strkthru                     "strkthru">                  <!-- 228 -->
+<!ENTITY aye                          "aye">                  <!-- 229 -->
+<!ENTITY linlin                       "linlin">                  <!-- 230 -->
+<!ENTITY cee                          "cee">                  <!-- 231 -->
+<!ENTITY plusmngr                     "plusmngr">                  <!-- 232 -->
+<!ENTITY rsubpar                      "rsubpar">                  <!-- 233 -->
+<!ENTITY grkot                        "grkot">                  <!-- 234 -->
+<!ENTITY undmrk                       "undmrk">                  <!-- 235 -->
+<!ENTITY timesdots                    "timesdots">                  <!-- 236 -->
+<!ENTITY separator                    "separator">                  <!-- 237 -->
+<!ENTITY querygr                      "querygr">                  <!-- 238 -->
+<!ENTITY dblUdot                      "dblUdot">                  <!-- 239 -->
+<!ENTITY linsert                      "linsert">                  <!-- 241 -->
+<!ENTITY dividegr                     "dividegr">                  <!-- 242 -->
+<!ENTITY brvbargr                     "brvbargr">                  <!-- 243 -->
+<!ENTITY slell                        "slell">                  <!-- 244 -->
+<!ENTITY dlcorn                       "dlcorn">                  <!-- 245 -->
+<!ENTITY distac                       "distac">                  <!-- 246 -->
+<!ENTITY tildeac                      "tildeac">                  <!-- 247 -->
+<!ENTITY lcubgr                       "lcubgr">                  <!-- 248 -->
+<!ENTITY tsquare                      "tsquare">                  <!-- 249 -->
+<!ENTITY subsep                       "subsep">                  <!-- 250 -->
+<!ENTITY sectgr                       "sectgr">                  <!-- 251 -->
+<!ENTITY capdiegrac                   "capdiegrac">                  <!-- 252 -->
+<!ENTITY hishort                      "hishort">                  <!-- 255 -->
+<!-- End of Font -->                                                                        
+                                                                                     
+<!-- OUmusic -->                                                                     
+<!ENTITY tieabove                     "tieabove">                  <!-- 22 -->
+<!ENTITY cresc                        "cresc">                  <!-- 23 -->
+<!ENTITY decresc                      "decresc">                  <!-- 24 -->
+<!-- ENTITY nbhyphen                     "nbhyphen"-->                  <!-- 30 -->
+<!ENTITY fb3                          "fb3">                  <!-- 33 -->
+<!ENTITY pause                        "pause">                  <!-- 34 -->
+<!ENTITY sharp                        "sharp">                  <!-- 35 -->
+<!ENTITY scroll                       "scroll">                  <!-- 36 -->
+<!ENTITY segno                        "segno">                  <!-- 37 -->
+<!ENTITY gclef                        "gclef">                  <!-- 38 -->
+<!ENTITY imartellato                  "imartellato">                  <!-- 39 -->
+<!ENTITY pedaloff                     "pedaloff">                  <!-- 42 -->
+<!-- ENTITY minus                        "minus"-->                  <!-- 45 -->
+<!ENTITY pclef                        "pclef">                  <!-- 47 -->
+<!ENTITY uappogg                      "uappogg">                  <!-- 58 -->
+<!ENTITY dappogg                      "dappogg">                  <!-- 59 -->
+<!ENTITY crotchetdotonstave           "crotchetdotonstave">                  <!-- 60 -->
+<!ENTITY stave                        "stave">                  <!-- 61 -->
+<!ENTITY accent                       "accent">                  <!-- 62 -->
+<!ENTITY fclef                        "fclef">                  <!-- 63 -->
+<!ENTITY fb5                          "fb5">                  <!-- 64 -->
+<!ENTITY ucrotchetcl                  "ucrotchetcl">                  <!-- 65 -->
+<!ENTITY cclef                        "cclef">                  <!-- 66 -->
+<!ENTITY allabreve                    "allabreve">                  <!-- 67 -->
+<!ENTITY dacapo                       "dacapo">                  <!-- 68 -->
+<!ENTITY uquaver                      "uquaver">                  <!-- 69 -->
+<!ENTITY mezzoforte                   "mezzoforte">                  <!-- 70 -->
+<!ENTITY quartertone                  "quartertone">                  <!-- 71 -->
+<!ENTITY uminim                       "uminim">                  <!-- 72 -->
+<!ENTITY gracesharp                   "gracesharp">                  <!-- 73 -->
+<!ENTITY uxtrahook                    "uxtrahook">                  <!-- 74 -->
+<!ENTITY uxtradblHook                 "uxtradblHook">                  <!-- 75 -->
+<!ENTITY botbracket                   "botbracket">                  <!-- 76 -->
+<!ENTITY lmordent                     "lmordent">                  <!-- 77 -->
+<!ENTITY semiquaverdot                "semiquaverdot">                  <!-- 78 -->
+<!ENTITY artharmonic                  "artharmonic">                  <!-- 79 -->
+<!ENTITY mezzopiano                   "mezzopiano">                  <!-- 80 -->
+<!ENTITY ucrotchet                    "ucrotchet">                  <!-- 81 -->
+<!ENTITY udemisemiquaver              "udemisemiquaver">                  <!-- 82 -->
+<!ENTITY sforzando                    "sforzando">                  <!-- 83 -->
+<!ENTITY turn                         "turn">                  <!-- 84 -->
+<!ENTITY fermata                      "fermata">                  <!-- 85 -->
+<!ENTITY octavexb                     "octavexb">                  <!-- 86 -->
+<!ENTITY brevenote                    "brevenote">                  <!-- 87 -->
+<!ENTITY usemiquaver                  "usemiquaver">                  <!-- 88 -->
+<!ENTITY usemiquavercl                "usemiquavercl">                  <!-- 89 -->
+<!ENTITY forzando                     "forzando">                  <!-- 90 -->
+<!ENTITY midbracket                   "midbracket">                  <!-- 91 -->
+<!ENTITY stem                         "stem">                  <!-- 92 -->
+<!ENTITY repeatstart                  "repeatstart">                  <!-- 93 -->
+<!ENTITY percussacc                   "percussacc">                  <!-- 94 -->
+<!ENTITY leger                        "leger">                  <!-- 95 -->
+<!ENTITY trillv                       "trillv">                  <!-- 96 -->
+<!ENTITY dcrotchetcl                  "dcrotchetcl">                  <!-- 97 -->
+<!ENTITY flat                         "flat">                  <!-- 98 -->
+<!ENTITY commontime                   "commontime">                  <!-- 99 -->
+<!ENTITY dalsegno                     "dalsegno">                  <!-- 100 -->
+<!ENTITY dquaver                      "dquaver">                  <!-- 101 -->
+<!ENTITY arpeggio                     "arpeggio">                  <!-- 103 -->
+<!ENTITY dminim                       "dminim">                  <!-- 104 -->
+<!ENTITY graceflat                    "graceflat">                  <!-- 105 -->
+<!ENTITY threepthreeptwoeight         "threepthreeptwoeight">                  <!-- 106 -->
+<!ENTITY tiebelow                     "tiebelow">                  <!-- 107 -->
+<!ENTITY barline                      "barline">                  <!-- 108 -->
+<!ENTITY mordent                      "mordent">                  <!-- 109 -->
+<!ENTITY natur                        "natur">                  <!-- 110 -->
+<!ENTITY natharmonic                  "natharmonic">                  <!-- 111 -->
+<!ENTITY dcrotchet                    "dcrotchet">                  <!-- 113 -->
+<!ENTITY ddemisemiquaver              "ddemisemiquaver">                  <!-- 114 -->
+<!ENTITY ukulele                      "ukulele">                  <!-- 116 -->
+<!ENTITY ifermata                     "ifermata">                  <!-- 117 -->
+<!ENTITY ipercussacc                  "ipercussacc">                  <!-- 118 -->
+<!ENTITY semibreve                    "semibreve">                  <!-- 119 -->
+<!ENTITY dsemiquaver                  "dsemiquaver">                  <!-- 120 -->
+<!ENTITY dsemiquavercl                "dsemiquavercl">                  <!-- 121 -->
+<!ENTITY repeatDots                   "repeatDots">                  <!-- 123 -->
+<!ENTITY xtrastem                     "xtrastem">                  <!-- 124 -->
+<!ENTITY repeatend                    "repeatend">                  <!-- 125 -->
+<!ENTITY shake                        "shake">                  <!-- 126 -->
+<!ENTITY repeatmid                    "repeatmid">                  <!-- 128 -->
+<!ENTITY uquavercl                    "uquavercl">                  <!-- 129 -->
+<!ENTITY usemihemidemisemiquaver      "usemihemidemisemiquaver">                 <!-- 130 -->
+<!ENTITY fb35sharp                    "fb35sharp">                  <!-- 131 -->
+<!ENTITY quaverpair                   "quaverpair">                  <!-- 132 -->
+<!ENTITY quavertriple                 "quavertriple">                  <!-- 133 -->
+<!ENTITY semiquaverpairquaver         "semiquaverpairquaver">                  <!-- 134 -->
+<!ENTITY quaversemiquaverpair         "quaversemiquaverpair">                  <!-- 135 -->
+<!ENTITY quaverdotsemiquaver          "quaverdotsemiquaver">                  <!-- 136 -->
+<!ENTITY minimcrotchettied            "minimcrotchettied">                  <!-- 137 -->
+<!ENTITY crotchetquavertied           "crotchetquavertied">                  <!-- 138 -->
+<!ENTITY minimdotcrotchetdottied      "minimdotcrotchetdottied">                 <!-- 139 -->
+<!ENTITY dquavercl                    "dquavercl">                  <!-- 140 -->
+<!ENTITY dsemihemidemisemiquaver      "dsemihemidemisemiquaver">                 <!-- 141 -->
+<!ENTITY minimdotrest                 "minimdotrest">                  <!-- 142 -->
+<!ENTITY semibrevedotrest             "semibrevedotrest">                  <!-- 143 -->
+<!ENTITY threeeight                   "threeeight">                  <!-- 144 -->
+<!ENTITY fourfour                     "fourfour">                  <!-- 145 -->
+<!ENTITY threefour                    "threefour">                  <!-- 146 -->
+<!ENTITY twofour                      "twofour">                  <!-- 147 -->
+<!ENTITY sixeight                     "sixeight">                  <!-- 148 -->
+<!ENTITY foureight                    "foureight">                  <!-- 149 -->
+<!ENTITY seveneight                   "seveneight">                  <!-- 152 -->
+<!ENTITY nineeight                    "nineeight">                  <!-- 153 -->
+<!ENTITY twelveeight                  "twelveeight">                  <!-- 154 -->
+<!ENTITY fourtwo                      "fourtwo">                  <!-- 155 -->
+<!ENTITY twotwo                       "twotwo">                  <!-- 156 -->
+<!ENTITY sixfour                      "sixfour">                  <!-- 157 -->
+<!ENTITY fivefour                     "fivefour">                  <!-- 158 -->
+<!ENTITY semiquaverquad               "semiquaverquad">                  <!-- 159 -->
+<!ENTITY pedal                        "pedal">                  <!-- 161 -->
+<!ENTITY quadruplet                   "quadruplet">                  <!-- 162 -->
+<!ENTITY triplet                      "triplet">                  <!-- 163 -->
+<!ENTITY sextuplet                    "sextuplet">                  <!-- 164 -->
+<!ENTITY octuplet                     "octuplet">                  <!-- 165 -->
+<!ENTITY heptuplet                    "heptuplet">                  <!-- 166 -->
+<!ENTITY topbrace                     "topbrace">                  <!-- 167 -->
+<!ENTITY demisemiquaverrest           "demisemiquaverrest">                  <!-- 168 -->
+<!ENTITY dgracenote                   "dgracenote">                  <!-- 169 -->
+<!ENTITY duplet                       "duplet">                  <!-- 170 -->
+<!ENTITY quaverquad                   "quaverquad">                  <!-- 171 -->
+<!ENTITY shortpause                   "shortpause">                  <!-- 172 -->
+<!ENTITY mussqu                       "mussqu">                  <!-- 173 -->
+<!ENTITY martellato                   "martellato">                  <!-- 174 -->
+<!ENTITY uminimcl                     "uminimcl">                  <!-- 175 -->
+<!ENTITY quintuplet                   "quintuplet">                  <!-- 176 -->
+<!ENTITY musutri                      "musutri">                  <!-- 177 -->
+<!ENTITY bowup                        "bowup">                  <!-- 178 -->
+<!ENTITY bowdown                      "bowdown">                  <!-- 179 -->
+<!ENTITY ddemisemiquavercl            "ddemisemiquavercl">                  <!-- 180 -->
+<!ENTITY trillsign                    "trillsign">                  <!-- 181 -->
+<!ENTITY twoptwopthreeeight           "twoptwopthreeeight">                  <!-- 182 -->
+<!ENTITY semibreverest                "semibreverest">                  <!-- 183 -->
+<!ENTITY moltepianissimo              "moltepianissimo">                  <!-- 184 -->
+<!ENTITY pianissimo                   "pianissimo">                  <!-- 185 -->
+<!ENTITY dblFlat                      "dblFlat">                  <!-- 186 -->
+<!ENTITY nontuplet                    "nontuplet">                  <!-- 187 -->
+<!ENTITY zerotuplet                   "zerotuplet">                  <!-- 188 -->
+<!ENTITY mezzo                        "mezzo">                  <!-- 189 -->
+<!ENTITY trem                         "trem">                  <!-- 190 -->
+<!ENTITY dminimcl                     "dminimcl">                  <!-- 191 -->
+<!ENTITY dblSharp                     "dblSharp">                  <!-- 192 -->
+<!ENTITY monotuplet                   "monotuplet">                  <!-- 193 -->
+<!ENTITY topbracket                   "topbracket">                  <!-- 194 -->
+<!ENTITY octava                       "octava">                  <!-- 195 -->
+<!ENTITY fortissimo                   "fortissimo">                  <!-- 196 -->
+<!ENTITY semiquaverrest               "semiquaverrest">                  <!-- 197 -->
+<!ENTITY dhemidemisemiquaver          "dhemidemisemiquaver">                  <!-- 198 -->
+<!ENTITY eighteight                   "eighteight">                  <!-- 199 -->
+<!ENTITY acciac                       "acciac">                  <!-- 201 -->
+<!ENTITY semibrevedot                 "semibrevedot">                  <!-- 202 -->
+<!ENTITY dappoggonnote                "dappoggonnote">                  <!-- 203 -->
+<!ENTITY dadadadah                    "dadadadah">                  <!-- 204 -->
+<!ENTITY crotchetdotrest              "crotchetdotrest">                  <!-- 205 -->
+<!ENTITY crotchetrest                 "crotchetrest">                  <!-- 206 -->
+<!ENTITY noteheadf                    "noteheadf">                  <!-- 207 -->
+<!ENTITY mussquf                      "mussquf">                  <!-- 208 -->
+<!ENTITY musutrif                     "musutrif">                  <!-- 209 -->
+<!ENTITY dblBarl                      "dblBarl">                  <!-- 210 -->
+<!ENTITY dblBarr                      "dblBarr">                  <!-- 211 -->
+<!ENTITY rptbar                       "rptbar">                  <!-- 212 -->
+<!ENTITY quaverdot                    "quaverdot">                  <!-- 213 -->
+<!ENTITY musurect                     "musurect">                  <!-- 214 -->
+<!ENTITY octaveb                      "octaveb">                  <!-- 215 -->
+<!ENTITY threetwo                     "threetwo">                  <!-- 216 -->
+<!ENTITY trill                        "trill">                  <!-- 217 -->
+<!ENTITY dsemiquaver                  "dsemiquaver">                  <!-- 218 -->
+<!ENTITY demisemiquaverquad           "demisemiquaverquad">                  <!-- 219 -->
+<!ENTITY percuss                      "percuss">                  <!-- 220 -->
+<!ENTITY brevealt                     "brevealt">                  <!-- 221 -->
+<!ENTITY coda                         "coda">                  <!-- 222 -->
+<!ENTITY crotchetdot                  "crotchetdot">                  <!-- 223 -->
+<!ENTITY musdtrif                     "musdtrif">                  <!-- 224 -->
+<!ENTITY musdiam                      "musdiam">                  <!-- 225 -->
+<!ENTITY musdiamf                     "musdiamf">                  <!-- 226 -->
+<!ENTITY breverest                    "breverest">                  <!-- 227 -->
+<!ENTITY quaverrest                   "quaverrest">                  <!-- 228 -->
+<!ENTITY semihemidemisemiquaverrest   "semihemidemisemiquaverrest">              <!-- 229 -->
+<!ENTITY crotchetrestalt              "crotchetrestalt">                  <!-- 230 -->
+<!ENTITY udemisemiquaver              "udemisemiquaver">                  <!-- 231 -->
+<!ENTITY ishortpause                  "ishortpause">                  <!-- 232 -->
+<!ENTITY gracenatur                   "gracenatur">                  <!-- 233 -->
+<!ENTITY botbrace                     "botbrace">                  <!-- 234 -->
+<!ENTITY quavertriplet                "quavertriplet">                  <!-- 235 -->
+<!ENTITY moltefortissimo              "moltefortissimo">                  <!-- 236 -->
+<!ENTITY ugracenote                   "ugracenote">                  <!-- 237 -->
+<!ENTITY minimrest                    "minimrest">                  <!-- 238 -->
+<!ENTITY uhemidemisemiquaver          "uhemidemisemiquaver">                  <!-- 239 -->
+<!ENTITY dashedbarline                "dashedbarline">                  <!-- 241 -->
+<!ENTITY crotcheteq                   "crotcheteq">                  <!-- 242 -->
+<!ENTITY letterr                      "letterr">                  <!-- 243 -->
+<!ENTITY hemidemisemiquaverrest       "hemidemisemiquaverrest">                  <!-- 244 -->
+<!ENTITY crotchetrestaltlow           "crotchetrestaltlow">                  <!-- 245 -->
+<!ENTITY noteheadfv                   "noteheadfv">                  <!-- 246 -->
+<!ENTITY semiquaversextet             "semiquaversextet">                  <!-- 247 -->
+<!ENTITY gclefonstave                 "gclefonstave">                  <!-- 248 -->
+<!ENTITY fclefonstave                 "fclefonstave">                  <!-- 249 -->
+<!ENTITY notehead                     "notehead">                  <!-- 250 -->
+<!ENTITY altoclef                     "altoclef">                  <!-- 252 -->
+<!ENTITY tenorclef                    "tenorclef">                  <!-- 253 -->
+<!ENTITY systsep                      "systsep">                  <!-- 254 -->
+<!ENTITY minimdot                     "minimdot">                  <!-- 255 -->
+<!-- End of Font -->                                                                    
+                                                                                     
+<!-- Default -->                                                                     
+<!-- ENTITY nbhyphen                     "nbhyphen"-->                  <!-- 30 -->
+<!-- ENTITY quot                         "quot"-->                  <!-- 39 -->
+<!-- ENTITY lsqb                         "lsqb"-->                  <!-- 91 -->
+<!ENTITY rsqb                         "rsqb">                  <!-- 93 -->
+<!ENTITY grave                        "grave">                  <!-- 96 -->
+<!ENTITY lsquor                       "lsquor">                  <!-- 130 -->
+<!ENTITY florin                       "florin">                  <!-- 131 -->
+<!ENTITY ldquor                       "ldquor">                  <!-- 132 -->
+<!-- ENTITY hellip                       "hellip"-->                  <!-- 133 -->
+<!-- ENTITY dagger                       "dagger"-->                  <!-- 134 -->
+<!ENTITY dblDagger                    "dblDagger">                  <!-- 135 -->
+<!-- ENTITY circ                         "circ"-->                  <!-- 136 -->
+<!-- ENTITY permil                       "permil"-->                  <!-- 137 -->
+<!ENTITY capScaron                    "capScaron">                  <!-- 138 -->
+<!-- ENTITY lsaquo                       "lsaquo"-->                  <!-- 139 -->
+<!ENTITY capOElig                     "capOElig">                  <!-- 140 -->
+<!-- ENTITY lsquo                        "lsquo"-->                  <!-- 145 -->
+<!-- ENTITY rsquo                        "rsquo"-->                  <!-- 146 -->
+<!-- ENTITY ldquo                        "ldquo"-->                  <!-- 147 -->
+<!-- ENTITY rdquo                        "rdquo"-->                  <!-- 148 -->
+<!-- ENTITY bull                         "bull"-->                  <!-- 149 -->
+<!-- ENTITY ndash                        "ndash"-->                  <!-- 150 -->
+<!-- ENTITY mdash                        "mdash"-->                  <!-- 151 -->
+<!-- ENTITY trade                        "trade"-->                  <!-- 153 -->
+<!-- ENTITY scaron                       "scaron"-->                  <!-- 154 -->
+<!-- ENTITY rsaquo                       "rsaquo"-->                  <!-- 155 -->
+<!-- ENTITY oelig                        "oelig"-->                  <!-- 156 -->
+<!ENTITY capYuml                      "capYuml">                  <!-- 159 -->
+<!-- ENTITY nbsp                         "nbsp"-->                  <!-- 160 -->
+<!-- ENTITY iexcl                        "iexcl"-->                  <!-- 161 -->
+<!-- ENTITY cent                         "cent"-->                  <!-- 162 -->
+<!-- ENTITY pound                        "pound"-->                  <!-- 163 -->
+<!-- ENTITY curren                       "curren"-->                  <!-- 164 -->
+<!-- ENTITY yen                          "yen"-->                  <!-- 165 -->
+<!-- ENTITY brvbar                       "brvbar"-->                  <!-- 166 -->
+<!-- ENTITY sect                         "sect"-->                  <!-- 167 -->
+<!ENTITY die                          "die">                  <!-- 168 -->
+<!-- ENTITY ordf                         "ordf"-->                  <!-- 170 -->
+<!-- ENTITY laquo                        "laquo"-->                  <!-- 171 -->
+<!-- ENTITY not                          "not"-->                  <!-- 172 -->
+<!ENTITY nbhyphen                     "nbhyphen">                  <!-- 173 -->
+<!-- ENTITY reg                          "reg"-->                  <!-- 174 -->
+<!-- ENTITY macr                         "macr"-->                  <!-- 175 -->
+<!-- ENTITY deg                          "deg"-->                  <!-- 176 -->
+<!-- ENTITY plusmn                       "plusmn"-->                  <!-- 177 -->
+<!-- ENTITY sup2                         "sup2"-->                  <!-- 178 -->
+<!-- ENTITY sup3                         "sup3"-->                  <!-- 179 -->
+<!-- ENTITY acute                        "acute"-->                  <!-- 180 -->
+<!-- ENTITY micro                        "micro"-->                  <!-- 181 -->
+<!-- ENTITY para                         "para"-->                  <!-- 182 -->
+<!-- ENTITY middot                       "middot"-->                  <!-- 183 -->
+<!-- ENTITY cedil                        "cedil"-->                  <!-- 184 -->
+<!-- ENTITY sup1                         "sup1"-->                  <!-- 185 -->
+<!-- ENTITY ordm                         "ordm"-->                  <!-- 186 -->
+<!-- ENTITY raquo                        "raquo"-->                  <!-- 187 -->
+<!ENTITY frac14v                      "frac14v">                  <!-- 188 -->
+<!ENTITY frac12v                      "frac12v">                  <!-- 189 -->
+<!ENTITY frac34v                      "frac34v">                  <!-- 190 -->
+<!-- ENTITY iquest                       "iquest"-->                <!-- 191 -->
+<!ENTITY capAgrave                    "capAgrave">                  <!-- 192 -->
+<!ENTITY capAacute                    "capAacute">                  <!-- 193 -->
+<!ENTITY capAcirc                     "capAcirc">                  <!-- 194 -->
+<!ENTITY capAtilde                    "capAtilde">                  <!-- 195 -->
+<!ENTITY capAuml                      "capAuml">                  <!-- 196 -->
+<!ENTITY capAring                     "capAring">                  <!-- 197 -->
+<!ENTITY capAElig                     "capAElig">                  <!-- 198 -->
+<!ENTITY capCcedil                    "capCcedil">                  <!-- 199 -->
+<!ENTITY capEgrave                    "capEgrave">                  <!-- 200 -->
+<!ENTITY capEacute                    "capEacute">                  <!-- 201 -->
+<!ENTITY capEcirc                     "capEcirc">                  <!-- 202 -->
+<!ENTITY capEuml                      "capEuml">                  <!-- 203 -->
+<!ENTITY capIgrave                    "capIgrave">                  <!-- 204 -->
+<!ENTITY capIacute                    "capIacute">                  <!-- 205 -->
+<!ENTITY capIcirc                     "capIcirc">                  <!-- 206 -->
+<!ENTITY capIuml                      "capIuml">                  <!-- 207 -->
+<!ENTITY capEth                       "capEth">                  <!-- 208 -->
+<!ENTITY capNtilde                    "capNtilde">                  <!-- 209 -->
+<!ENTITY capOgrave                    "capOgrave">                  <!-- 210 -->
+<!ENTITY capOacute                    "capOacute">                  <!-- 211 -->
+<!ENTITY capOcirc                     "capOcirc">                  <!-- 212 -->
+<!ENTITY capOtilde                    "capOtilde">                  <!-- 213 -->
+<!ENTITY capOuml                      "capOuml">                  <!-- 214 -->
+<!ENTITY multi                        "multi">                  <!-- 215 -->
+<!ENTITY capOslash                    "capOslash">                  <!-- 216 -->
+<!ENTITY capUgrave                    "capUgrave">                  <!-- 217 -->
+<!ENTITY capUacute                    "capUacute">                  <!-- 218 -->
+<!ENTITY capUcirc                     "capUcirc">                  <!-- 219 -->
+<!ENTITY capUuml                      "capUuml">                  <!-- 220 -->
+<!ENTITY capYacute                    "capYacute">                  <!-- 221 -->
+<!ENTITY capThorn                     "capThorn">                  <!-- 222 -->
+<!-- ENTITY szlig                        "szlig"-->                  <!-- 223 -->
+<!-- ENTITY agrave                       "agrave"-->                  <!-- 224 -->
+<!-- ENTITY aacute                       "aacute"-->                  <!-- 225 -->
+<!-- ENTITY acirc                        "acirc"-->                  <!-- 226 -->
+<!-- ENTITY atilde                       "atilde"-->                  <!-- 227 -->
+<!-- ENTITY auml                         "auml"-->                  <!-- 228 -->
+<!-- ENTITY aring                        "aring"-->                  <!-- 229 -->
+<!-- ENTITY aelig                        "aelig"-->                  <!-- 230 -->
+<!-- ENTITY ccedil                       "ccedil"-->                  <!-- 231 -->
+<!-- ENTITY egrave                       "egrave"-->                  <!-- 232 -->
+<!-- ENTITY eacute                       "eacute"-->                  <!-- 233 -->
+<!-- ENTITY ecirc                        "ecirc"-->                  <!-- 234 -->
+<!-- ENTITY euml                         "euml"-->                  <!-- 235 -->
+<!-- ENTITY igrave                       "igrave"-->                  <!-- 236 -->
+<!-- ENTITY iacute                       "iacute"-->                  <!-- 237 -->
+<!-- ENTITY icirc                        "icirc"-->                  <!-- 238 -->
+<!-- ENTITY iuml                         "iuml"-->                  <!-- 239 -->
+<!-- ENTITY eth                          "eth"-->                  <!-- 240 -->
+<!-- ENTITY ntilde                       "ntilde"-->                  <!-- 241 -->
+<!-- ENTITY ograve                       "ograve"-->                  <!-- 242 -->
+<!-- ENTITY oacute                       "oacute"-->                  <!-- 243 -->
+<!-- ENTITY ocirc                        "ocirc"-->                  <!-- 244 -->
+<!-- ENTITY otilde                       "otilde"-->                  <!-- 245 -->
+<!-- ENTITY ouml                         "ouml"-->                  <!-- 246 -->
+<!-- ENTITY divide                       "divide"-->                  <!-- 247 -->
+<!-- ENTITY oslash                       "oslash"-->                  <!-- 248 -->
+<!-- ENTITY ugrave                       "ugrave"-->                  <!-- 249 -->
+<!-- ENTITY uacute                       "uacute"-->                  <!-- 250 -->
+<!-- ENTITY ucirc                        "ucirc"-->                  <!-- 251 -->
+<!-- ENTITY uuml                         "uuml"-->                  <!-- 252 -->
+<!-- ENTITY yacute                       "yacute"-->                  <!-- 253 -->
+<!-- ENTITY thorn                        "thorn"-->                  <!-- 254 -->
+<!-- ENTITY yuml                         "yuml"-->                  <!-- 255 -->
+<!-- End of Font -->                                          
+       
+<!-- End of Entity Set -->       

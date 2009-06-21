@@ -1,0 +1,319 @@
+<!-- special-3B2.ent  entity set of special characters for 3B2 XHTML production -->
+<!-- 15/2/2002 D.W. updated from html version 12/2/2002 to XML format -->
+<!-- last updated 14/11/2006 DTW -->
+
+<!ENTITY programrule           "programrule">         <!--rule beneath program listings -->
+
+<!ENTITY pgbrk                 "pgbrk">               <!--page break code -->
+<!ENTITY colbrk                "colbrk">              <!--column break code -->
+<!ENTITY cellbrk               "cellbrk">             <!--cell break code -->
+<!ENTITY jreturn               "jreturn">             <!--justified text return -->
+<!ENTITY oulogo               "oulogo">             <!--OU logo -->
+
+<!ENTITY saqrule               "saqrule">             <!--saq rule -->
+<!ENTITY tvicon                "tvicon">              <!--tv icon -->
+<!ENTITY cdicon                "cdicon">              <!--cd icon -->
+<!ENTITY videoicon             "videoicon">           <!-- -->
+<!ENTITY studyicon             "studyicon">           <!--study icon -->
+<!ENTITY setbook               "setbook">             <!--also reader -->
+<!ENTITY reader                "reader">              <!-- use where setbook is also required in same job -->
+<!ENTITY firstclass            "firstclass">          <!-- -->
+<!ENTITY video                 "video">               <!-- -->
+<!ENTITY audio                 "audio">               <!-- -->
+<!ENTITY www                   "www">                 <!-- -->
+<!ENTITY hypernote             "hypernote">           <!-- -->
+<!ENTITY metanote              "metanote">            <!-- -->
+<!ENTITY trunk                 "trunk">               <!-- -->
+<!ENTITY lawcards              "lawcards">            <!-- -->
+<!ENTITY metholody             "metholody">           <!-- -->
+<!ENTITY offprints             "offprints">           <!-- -->
+<!ENTITY sofwareicon           "sofwareicon">         <!-- -->
+<!ENTITY mhfile                "mhfile">              <!-- managers help file, OUBS -->
+<!ENTITY wallchart             "wallchart">           <!-- -->
+<!ENTITY supps                 "supps">               <!-- -->
+<!ENTITY dictionary            "dictionary">          <!-- dictionary icon -->
+
+<!ENTITY close                 "close">               <!--windows close icon -->
+<!ENTITY minimise              "minimise">            <!--windows minimise icon -->
+<!ENTITY maximise              "maximise">            <!--windows maximise icon -->
+<!ENTITY restore               "restore">             <!--windows restore icon -->
+
+
+<!ENTITY offprints             "offprints">           <!--similar to book type icon -->
+<!ENTITY scores                "scores">              <!--music score marginal icon -->
+
+<!ENTITY ousup                 "ousup">               <!--OU version of sup, maths supersection -->
+<!ENTITY ousub                 "ousub">               <!--OU version of sub, maths subsection -->
+
+<!ENTITY smiley                "smiley">              <!--Wingdings smiley -->
+<!ENTITY face                  "face">                <!--Wingdings face -->
+<!ENTITY plane                 "plane">               <!--Wingdings plane -->
+<!ENTITY maltv                 "maltv">               <!--Wingdings maltv -->
+
+<!ENTITY ast                   "ast">                 <!-- asterisk -->
+
+<!ENTITY meuble                "meuble">              <!--techphonetic character -->
+<!ENTITY agneau                "agneau">              <!--techphonetic character -->
+<!ENTITY camping               "camping">             <!--techphonetic character -->
+<!ENTITY plat                  "plat">                <!--techphonetic character -->
+<!ENTITY donner                "donner">              <!--techphonetic character -->
+<!ENTITY premier               "premier">             <!--techphonetic character -->
+<!ENTITY lui                   "lui">                 <!--techphonetic character -->
+<!ENTITY matin                 "matin">               <!--techphonetic character -->
+<!ENTITY haricot               "haricot">             <!--techphonetic character -->
+<!ENTITY lundi                 "lundi">               <!--techphonetic character -->
+<!ENTITY bon                   "bon">                 <!--techphonetic character -->
+<!ENTITY deux                  "deux">                <!--techphonetic character -->
+<!ENTITY chat                  "chat">                <!--techphonetic character -->
+<!ENTITY je                    "je">                  <!--techphonetic character -->
+<!ENTITY gare                  "gare">                <!--techphonetic character -->
+
+<!ENTITY abreve                "abreve">              <!--diacritic character -->
+<!ENTITY cdot                  "cdot">                <!--diacritic character -->
+<!ENTITY capCcaron             "capCcaron">           <!--diacritic character -->
+<!ENTITY cacute                "cacute">              <!--diacritic character -->
+<!ENTITY ccaron                "ccaron">              <!--diacritic character -->
+<!ENTITY capEmacr              "capEmacr">            <!--diacritic character -->
+<!ENTITY ebreve                "ebreve">              <!--diacritic character -->
+<!ENTITY edot                  "edot">                <!--diacritic character -->
+<!ENTITY ecaron                "ecaron">              <!--diacritic character -->
+<!ENTITY capOmacr              "capOmacr">            <!--diacritic character -->
+<!ENTITY capRcaron             "capRcaron">           <!--diacritic character -->
+<!ENTITY rcaron                "rcaron">              <!--diacritic character -->
+<!ENTITY emsp14                "emsp14">              <!--quarter em space -->
+<!ENTITY nacute                "nacute">              <!--n acute -->
+<!ENTITY xmacr                 "xmacr">               <!--x macron -->
+<!ENTITY ubreve                "ubreve">              <!--u breve -->
+<!ENTITY odotb                 "odotb">               <!--o dot below -->
+<!ENTITY sdotb                 "sdotb">               <!--s dot below -->
+<!ENTITY schwa                 "schwa">               <!--Latin rotated e, mid central vowel -->
+<!ENTITY acy                   "acy">                 <!--TechPhonetic a -->
+
+
+<!ENTITY eqn1                  "eqn1">                <!--equation -->
+<!ENTITY eqn2                  "eqn2">                <!--equation -->
+<!ENTITY eqn3                  "eqn3">                <!--equation -->
+<!ENTITY eqn4                  "eqn4">                <!--equation -->
+<!ENTITY eqn5                  "eqn5">                <!--equation -->
+<!ENTITY eqn6                  "eqn6">                <!--equation -->
+<!ENTITY eqn7                  "eqn7">                <!--equation -->
+<!ENTITY eqn8                  "eqn8">                <!--equation -->
+<!ENTITY eqn9                  "eqn9">                <!--equation -->
+<!ENTITY eqn10                 "eqn10">               <!--equation -->
+<!ENTITY eqn11                 "eqn11">               <!--equation -->
+<!ENTITY eqn12                 "eqn12">               <!--equation -->
+<!ENTITY eqn13                 "eqn13">               <!--equation -->
+<!ENTITY eqn14                 "eqn14">               <!--equation -->
+<!ENTITY eqn15                 "eqn15">               <!--equation -->
+<!ENTITY eqn16                 "eqn16">               <!--equation -->
+<!ENTITY eqn17                 "eqn17">               <!--equation -->
+<!ENTITY eqn18                 "eqn18">               <!--equation -->
+<!ENTITY eqn19                 "eqn19">               <!--equation -->
+<!ENTITY eqn20                 "eqn20">               <!--equation -->
+
+<!ENTITY bfeuro                "bfeuro">              <!--bold face euro curency symbol -->
+
+<!ENTITY hairsp                "hairsp">              <!--hair space -->
+
+<!ENTITY amacr                 "amacr">               <!-- -->
+<!ENTITY capEth                "capEth">              <!-- -->
+<!ENTITY inodot                "inodot">              <!-- -->
+<!ENTITY dudot                 "dudot">               <!-- -->
+<!ENTITY caron                 "caron">               <!-- -->
+<!ENTITY eth                   "eth">                 <!-- -->
+<!ENTITY capYacute             "capYacute">           <!-- -->
+<!ENTITY yacute                "yacute">              <!-- -->
+<!ENTITY capScaron             "capScaron">           <!-- -->
+<!ENTITY scaron                "scaron">              <!-- -->
+<!ENTITY sacute                "sacute">              <!-- -->
+<!ENTITY sup2                  "sup2">                <!-- -->
+<!ENTITY sup3                  "sup3">                <!-- -->
+<!ENTITY thorn                 "thorn">               <!-- -->
+<!ENTITY half                  "half">                <!-- -->
+<!ENTITY sup1                  "sup1">                <!-- -->
+<!ENTITY times                 "times">               <!-- -->
+<!ENTITY brvbar                "brvbar">              <!-- -->
+<!ENTITY capThorn              "capThorn">            <!-- -->
+<!ENTITY capAmacr              "capAmacr">            <!-- -->
+<!ENTITY hudot                 "hudot">               <!-- -->
+<!ENTITY capRudot              "capRudot">            <!-- -->
+<!ENTITY capTudot              "capTudot">            <!-- -->
+<!ENTITY capNudot              "capNudot">            <!-- -->
+<!ENTITY capLudot              "capLudot">            <!-- -->
+<!ENTITY capSudot              "capSudot">            <!-- -->
+<!ENTITY capSacute             "capSacute">           <!-- -->
+<!ENTITY sacute                "sacute">              <!-- -->
+<!ENTITY amacr                 "amacr">               <!-- -->
+<!ENTITY imacr                 "imacr">               <!-- -->
+<!ENTITY umacr                 "umacr">               <!-- -->
+<!ENTITY rudot                 "rudot">               <!-- -->
+<!ENTITY tudot                 "tudot">               <!-- -->
+<!ENTITY dudot                 "dudot">               <!-- -->
+<!ENTITY nudot                 "nudot">               <!-- -->
+<!ENTITY capIudot              "capIudot">            <!-- -->
+<!ENTITY mudot                 "mudot">               <!-- -->
+<!ENTITY omacr                 "omacr">               <!-- -->
+<!ENTITY sudot                 "sudot">               <!-- -->
+<!ENTITY emacr                 "emacr">               <!-- -->
+<!ENTITY capImacr              "capImacr">            <!-- -->
+<!ENTITY capDudot              "capDudot">            <!-- -->
+<!ENTITY capMudot              "capMudot">            <!-- -->
+<!ENTITY rmacrudot             "rmacrudot">           <!-- -->
+<!ENTITY capNdot               "capNdot">             <!-- -->
+<!ENTITY ndot                  "ndot">                <!-- -->
+<!ENTITY capHudot              "capHudot">            <!-- -->
+<!ENTITY capAuml               "capAuml">             <!-- -->
+<!ENTITY capAring              "capAring">            <!-- -->
+<!ENTITY capCcedil             "capCcedil">           <!-- -->
+<!ENTITY capEacute             "capEacute">           <!-- -->
+<!ENTITY capNtilde             "capNtilde">           <!-- -->
+<!ENTITY capOuml               "capOuml">             <!-- -->
+<!ENTITY aring                 "aring">               <!-- -->
+<!ENTITY ntilde                "ntilde">              <!-- -->
+<!ENTITY capUmacr              "capUmacr">            <!-- -->
+<!ENTITY capRmacrudot          "capRmacrudot">        <!-- -->
+<!ENTITY capAgrave             "capAgrave">           <!-- -->
+<!ENTITY capAtilde             "capAtilde">           <!-- -->
+<!ENTITY capOtilde             "capOtilde">           <!-- -->
+<!ENTITY yuml                  "yuml">                <!-- -->
+<!ENTITY capYuml               "capYuml">             <!-- -->
+<!ENTITY capAcirc              "capAcirc">            <!-- -->
+<!ENTITY capEcirc              "capEcirc">            <!-- -->
+<!ENTITY capAacute             "capAacute">           <!-- -->
+<!ENTITY capEuml               "capEuml">             <!-- -->
+<!ENTITY capEgrave             "capEgrave">           <!-- -->
+<!ENTITY capIacute             "capIacute">           <!-- -->
+<!ENTITY capIcirc              "capIcirc">            <!-- -->
+<!ENTITY capIuml               "capIuml">             <!-- -->
+<!ENTITY capIgrave             "capIgrave">           <!-- -->
+<!ENTITY capOacute             "capOacute">           <!-- -->
+<!ENTITY capOcirc              "capOcirc">            <!-- -->
+<!ENTITY capOgrave             "capOgrave">           <!-- -->
+<!ENTITY capOuml               "capOuml">             <!-- -->
+<!ENTITY capUacute             "capUacute">           <!-- -->
+<!ENTITY capUcirc              "capUcirc">            <!-- -->
+<!ENTITY capUgrave             "capUgrave">           <!-- -->
+<!ENTITY capUuml               "capUuml">             <!-- -->
+<!ENTITY circ                  "circ">                <!-- -->
+<!ENTITY tilde                 "tilde">               <!-- -->
+<!ENTITY cedil                 "cedil">               <!-- -->
+
+<!ENTITY rlharpoon             "rlharpoon">           <!-- right left harpoon -->
+<!ENTITY rangquote             "rangquote">           <!-- right angle quote -->
+<!ENTITY langquote             "langquote">           <!-- left angle quote -->
+
+                                                   
+<!ENTITY nodot                 "nodot">               <!--n with dot above -->
+<!ENTITY oodot                 "oodot">               <!--o with dot above -->
+<!ENTITY house                 "house">               <!-- house shaped symbol unicode 8962 -->
+<!ENTITY dsubcomma             "dsubcomma">           <!-- German double subscript comma -->
+<!ENTITY commat                "commat">              <!-- 'at' character -->
+<!ENTITY lambdastroke          "lambdastroke">        <!-- lambda with stroke through  -->
+<!ENTITY laccarr               "laccarr">             <!--   -->
+<!ENTITY circle                "circle">              <!--  open circle -->
+<!ENTITY squx                  "squx">                <!--  x in square -->
+<!ENTITY apos                  "apos">                <!--  apostrophy -->
+<!ENTITY quest                 "quest">               <!--  question mark, where redefinition/style change of symbol is required -->
+
+
+
+<!ENTITY ti33                     "ti33">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti34                     "ti34">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti35                     "ti35">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti36                     "ti36">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti39                     "ti39">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti80                     "ti80">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti83                     "ti83">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti88                     "ti88">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti108                    "ti108">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti111                    "ti111">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti112                    "ti112">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti113                    "ti113">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti114                    "ti114">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti115                    "ti115">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti121                    "ti121">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti122                    "ti122">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti123                    "ti123">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti124                    "ti124">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti125                    "ti125">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti126                    "ti126">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti131                    "ti131">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti132                    "ti132">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti133                    "ti133">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti134                    "ti134">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti145                    "ti145">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti151                    "ti151">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti152                    "ti152">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti153                    "ti153">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti154                    "ti154">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti155                    "ti155">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti160                    "ti160">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti161                    "ti161">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti162                    "ti162">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti163                    "ti163">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti164                    "ti164">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti165                    "ti165">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti171                    "ti171">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti172                    "ti172">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti173                    "ti173">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti174                    "ti174">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti175                    "ti175">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti181                    "ti181">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti182                    "ti182">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti183                    "ti183">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti184                    "ti184">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti185                    "ti185">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti191                    "ti191">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti192                    "ti192">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti193                    "ti193">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti194                    "ti194">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti195                    "ti195">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti199                    "ti199">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti201                    "ti201">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti202                    "ti202">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti203                    "ti203">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti204                    "ti204">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti205                    "ti205">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti210                    "ti210">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti211                    "ti211">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti212                    "ti212">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti213                    "ti213">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti214                    "ti214">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti215                    "ti215">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti216                    "ti216">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti217                    "ti217">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti218                    "ti218">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti219                    "ti219">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti220                    "ti220">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti222                    "ti222">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti226                    "ti226">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti227                    "ti227">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti228                    "ti228">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti229                    "ti229">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti230                    "ti230">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti231                    "ti231">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti232                    "ti232">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti233                    "ti233">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti234                    "ti234">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti235                    "ti235">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti236                    "ti236">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti237                    "ti237">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti252                    "ti252">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti253                    "ti253">              <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti254                    "ti254">              <!--  Texas Instruments TI83 Calculator Symbol -->
+
+<!ENTITY ti80c34                  "ti80c34">            <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti80c46                  "ti80c46">            <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti80c65                  "ti80c65">            <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti80c65                  "ti80c65">            <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti80c77                  "ti80c77">            <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti80c105                 "ti80c105">           <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti80c162                 "ti80c162">           <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti80c163                 "ti80c163">           <!--  Texas Instruments TI83 Calculator Symbol -->
+<!ENTITY ti80c175                 "ti80c175">           <!--  Texas Instruments TI83 Calculator Symbol -->
+
+<!ENTITY scedil                   "scedil">             <!--  s with cedilla -->
+<!ENTITY tsubcomma                "tsubcomma">          <!--  t with comma below -->
+<!ENTITY tintegral                "tintegral">          <!--  t with integral sign kerned together -->
+
+<!-- End of Entity Set -->       

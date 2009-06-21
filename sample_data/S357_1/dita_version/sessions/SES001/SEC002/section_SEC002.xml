@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC002">
+   <title>2 Radiation from the galaxies</title>
+   <learningContentbody>
+      <section>
+        
+        
+        <p>Stars occur in great collections called <i>galaxies</i>. The distribution and
+          motion of galaxies provide us with the first important experimental information on which
+          we shall build our understanding of the type of universe we inhabit. So, what do we know
+          about galaxies?</p>
+        <p>All the stars that can be distinguished by the naked eye – a few thousand
+          in number – belong to one galaxy: our own Milky Way Galaxy. Sometimes it is just
+          written Galaxy, with a capital G, to distinguish it from all the billions of other
+          galaxies in the observable Universe.</p>
+        <p>Our Galaxy has the overall shape of a flattened spiral. As shown in <xref href="#FIG001_001">Figure 1</xref>, we are halfway inside the Galaxy so the spiral
+          form is not obvious to us as we look at the sky. In fact it has only been revealed by
+          detailed radio mapping. This is because there are large sections of the
+           Galaxy that are obscured from optical
+          observations by the intervening <i>dust</i> and gas which scatter and absorb visible
+          light. (However, they are essentially transparent to radio waves.) If there were an
+          unobscured view through telescopes, we would be able to see to the far side of the Galaxy,
+          and in doing so we would record about 10<sup>11</sup> stars within it.</p>
+        <fig>
+            <title>
+               <b>Figure 1</b>: The Solar System is about halfway out from the centre of the Milky Way
+            galaxy. We have a relatively clear view outwards from the disc to other
+            galaxies</title>
+            <image href="../../media/S357_1_001i.jpg"/>
+            <p/>
+         </fig>
+        <p>Fortunately for astronomers, the stars, though vast in number, display a degree
+          of uniformity which makes their classification and study possible. Their masses are
+          broadly similar – most are contained within a couple of orders of magnitude, with
+          our Sun having a typical average mass. They do differ considerably in size and therefore
+          in density (since their masses are similar), but these differences are thought principally
+          to relate to different <i>stages</i> in the life of a star rather than to different
+            <i>types</i> of star. These various stages correspond to different types of nuclei
+          taking part in the nuclear reactions that provide the energy output. It is one of the
+          features of astrophysics that one is able to take nuclear data obtained in the laboratory
+          and use them to understand the various stages of evolution seen in different stars. The
+          main process in young stars is a sequence of reactions leading to the fusion of hydrogen
+          nuclei to make helium nuclei. Later, helium fuses to form carbon, then carbon undergoes
+          reactions which build up heavier nuclei. This can continue up to iron. The different
+          reactions take place at different temperatures and pressures, so this progression of
+          reactions governs the sequence in which a star changes its size and
+          appearance.</p>
+        
+        
+        <p>Stellar evolution is too slow a process for us to see any particular star undergo
+          change in one human lifetime, apart from a few exceptionally young stars, and some very
+          old stars undergoing gravitational collapse leading to supernova explosions. But by
+          observing different stars at their respective different stages of development, it is
+          possible to piece together the whole of a typical stellar life cycle.</p>
+        <p>The general idea of an evolutionary sequence – one that can be
+          reconstructed on a computer – is of concern in this unit for the following reason:
+          when astronomers look at a very distant galaxy, they are receiving radiation that left its
+          source long ago. The galaxy will, therefore, seem <i>younger</i> than it actually is now.
+          The travel time for the light may have been hundreds or thousands of millions of years. To
+          interpret the observations, one needs to know how the power output of the galaxy evolves
+          with time.</p>
+        <p>The light from a typical galaxy derives mostly from the stars it contains, with
+          only a small amount from interstellar matter. So, to understand the power output of a
+          galaxy one has to add together the light from about 10<sup>11</sup> stars at various
+          stages of development. We cannot assume that the stars of the distant galaxy will be
+          emitting the same amount of light as those of our own Galaxy today; the distant stars will
+          be seen at an earlier stage in their development when perhaps their power output was
+          different from what it actually is now. Indeed, there is an added complication. The
+          evolution of a star depends critically on its <i>mass</i>. A very massive star will shine
+          much more brightly than a less massive one, but over a much shorter time period. It could
+          be that when we look at a young galaxy, we see many more massive stars living out their
+          brief active lives than we observe today in our own Galaxy. So the mass distribution of
+          active stars in our Galaxy might not be representative of what we see happening in the
+          distant younger galaxy. It is difficult to know how to compensate for this. The mass
+          distribution of the stars in a galaxy depends on the way the galaxy was formed, and
+          unfortunately, the formation and growth of galaxies remains an unsolved, or at least
+          poorly understood, problem.</p>
+        <p>In summary, we know little about the way the power output of a galaxy changes
+          with time, and this represents a severe limitation on the cosmologist's use and
+          interpretation of astronomical data on power output. The frustration this causes will
+          become apparent later.</p>
+        <p>The light from a galaxy can tell us more than just its overall power output.
+          Additional information comes from the analysis of its <i>spectrum</i>. Let us assume that
+          light comes mainly from the stars and that we can ignore interstellar matter. The majority
+          of galaxies are too far away for it to be possible to resolve individual stars, and
+          therefore the best one can do is to take the spectrum of the galaxy as a whole:
+            10<sup>11</sup> stars summed together. How can we relate this to a stellar
+          spectrum?</p>
+        <p>The light from a star comes from the hot layers of gas near its surface. This
+          light filters out through the dilute layers above. As it does so, characteristic patterns
+          of absorption lines are imprinted on the spectrum.</p>
+        
+        
+        <p>
+            <xref href="#FIG001_002">Figure 2</xref> shows part of the <i>absorption spectrum</i> of
+          the Sun, compared to an <i>emission spectrum</i> produced in the laboratory.</p>
+        <fig>
+            <title>
+               <b>Figure 2</b>: The absorption spectrum of light from the Sun, for wavelengths between
+            390 nm and 450 nm. It is complicated because of the many elements involved. The bright
+            lines above and below the absorption spectrum belong to the emission spectrum of a
+            laboratory reference source</title>
+            <image href="../../media/S357_1_002i.jpg"/>
+            <p outputclass="SourceReference">Source: Hale Observatories <data name="ItemRights">
+                  <data name="OwnerRef"/>
+                  <data name="ItemRef"/>
+                  <data name="ItemAcknowledgement">Hale Observatories</data>
+               </data>
+            </p>
+            <p/>
+         </fig>
+        
+        <sectiondiv outputclass="SAQ">
+            <p outputclass="Heading">
+               <b>Question 1</b>
+            </p>
+            <sectiondiv outputclass="saq.question">
+               <p>A beam of white light is passed through a bulb containing calcium vapour.
+              Explain, in broad terms, with the aid of diagrams, the nature of the light
+              transmitted, (a) in the direction of the beam, and (b) at an angle to it.</p>
+            </sectiondiv>
+            <sectiondiv outputclass="saq.answer">
+               <p>
+                  <b>(a)</b> At position A (<xref href="#FIG001_032">Figure 3</xref>), the spectrum of the observed light consists
+              of a flat continuum with absorption lines (corresponding to the transitions between
+              the ground state and other states) as in <xref href="#FIG001_033">Figure 4</xref>(a).</p>
+               <p>
+                  <b>(b)</b> At position B, no direct light is seen. The light that is observed
+              comes from calcium atoms that have been excited, and is therefore an emission spectrum
+              of lines on a dark background, with the wavelengths of the lines the same as those of
+              the absorption lines seen at position A. This is shown in <xref href="#FIG001_033">Figure 4</xref>(b).</p>
+               <fig>
+                  <title>
+                     <b>Figure 3</b>: White light is passed through a bulb containing calcium vapour and
+                observed at A (in the direction of the beam) and at B (at an angle to the
+                beam)</title>
+                  <image href="../../media/S357_1_032i.jpg"/>
+                  <p/>
+               </fig>
+               <fig>
+                  <title>
+                     <b>Figure 4</b>: The spectra observed at the points A and B of Figure 3</title>
+                  <image href="../../media/S357_1_033i.jpg"/>
+                  <p outputclass="SourceReference">Source: 
+                <data name="ItemRights">
+                        <data name="OwnerRef"/>
+                        <data name="ItemRef"/>
+                        <data name="ItemAcknowledgement"/>
+                     </data>
+                  </p>
+                  <p/>
+               </fig>
+            </sectiondiv>
+        </sectiondiv>
+        
+        
+        
+        <p>The spectral lines in the light from a galaxy enable the astronomer to identify
+          the elements emitting the light. Any of the ninety or so stable elements may be present,
+          but the lighter elements, especially hydrogen, are usually the more abundant. Because some
+          elements are common to most stars, the absorption lines of these particular elements will
+          be visible in the light of the galaxy as a whole. Also, the absorption lines of magnesium,
+          sodium, calcium and iron are often easy to distinguish, even though other elements, such
+          as hydrogen and helium, are more abundant than these.</p>
+        <p>Usually the absorption lines are sharp and identifiable, despite several effects
+          which can broaden them. One of these effects is a <i>Doppler shift</i> caused by the
+          rotation of the source. For example, the spectral lines of calcium atoms moving towards us
+          would have their apparent frequencies systematically increased (blueshifted) according to
+          the equation</p>
+        <fig outputclass="Equation">
+            <image href="../../media/S357_1_ue018i.gif"/>
+            <p outputclass="equation-description"/>
+         </fig>
+        <p>where <i>f</i>
+            <sub>0</sub> is the observed frequency, <i>f</i>
+            <sub>1</sub> is the
+          emitted frequency and <ph outputclass="InlineEquation">
+               <image href="../../media/S357_1_ie00italvi.gif"/>
+               <ph outputclass="inlineequation-description"/>
+            </ph> is the speed of appoach.
+          The spectral lines of atoms moving away from us would be correspondingly redshifted. This
+          Doppler shift causes the width of a given spectral line to <i>broaden</i> if we are
+          viewing the rotating galaxy along the plane of its disc so that the light-absorbing atoms
+          belonging to stars on one side are moving away from us, while those on the opposite side
+          are moving towards us (refer back to <xref href="#FIG001_001">Figure 1</xref>). In addition, the star itself might be rotating
+          so that different parts of the star would have different components of velocity towards or
+          away from us, thereby increasing the broadening. Random motions of stars can also cause
+          line broadening in a similar way.</p>
+        <p>The shifts and broadenings of the lines are not usually bad enough to mask the
+          spectrum. Therefore, although a galaxy is a very complicated light source, its light is
+          not just a meaningless jumble of fuzzy lines. There are some features, such as the calcium
+          lines, which stand out sharply.</p>
+        
+        <sectiondiv outputclass="SAQ">
+            <p outputclass="Heading">
+               <b>Question 2</b>
+            </p>
+            <sectiondiv outputclass="saq.question">
+            
+               <p>(a) It can be shown that when radiation rises a height <i>H</i> near the
+              Earth's surface, there is a shift in frequency towards the red end of the spectrum
+              given by Δ<i>f</i>/<i>f</i> = −<i>gH/c</i>
+                  <sup>2</sup>, where
+                <i>g</i> is the acceleration due to gravity. When radiation starting from the
+              surface of a body of mass <i>M</i> and radius <i>R</i> escapes to a large distance, it
+              suffers a fractional frequency shift
+                Δ<i>f</i>/<i>f</i> = −<i>GM/Rc</i>
+                  <sup>2</sup>, where
+                <i>G</i> is the gravitational constant. Outline the steps you would need to take to
+              establish the connection between these two statements <i>without</i> necessarily
+              giving the derivation. (<i>Hint:</i> Bear in mind that
+                <i>g</i> = <i>GM/R</i>
+                  <sup>2</sup>.)</p>
+            
+               <p>(b) Imagine a star with a mass
+                <i>M</i> = 2 × 10<sup>30</sup> kg, a radius
+                <i>R</i> = 7 × 10<sup>8</sup> m and a period of rotation
+                <i>T</i> = 2 × 10<sup>6</sup> s (similar to the Sun).
+              Suppose also that the typical speed of turbulent motion in the atmosphere of the star
+              is 6000 m s<sup>−1</sup>. How is the frequency of the hydrogen line whose
+              wavelength in the laboratory is 656 nm, affected by:</p>
+            
+               <p>(i) gravitational redshift;</p>
+            
+               <p>(ii) Doppler shift due to rotation;</p>
+            
+               <p>(iii) Doppler shift due to turbulence?</p>
+            
+               <p>(The values of <i>G</i> and <i>c</i> are given in the <xref href="http://openlearn.open.ac.uk/file.php/3639/S357Datasheets.pdf"
+                        scope="external"
+                        format="html">data sheet</xref>, and the formula for the Doppler shift of light is
+              given in the equation above.)</p>
+            
+            </sectiondiv>
+            <sectiondiv outputclass="saq.answer">
+               <p>
+                  <b>(a)</b> The result
+                  Δ<i>f</i>/<i>f</i> = −<i>gH/c<sup>2</sup>
+                  </i>
+              applies only to small changes in height, <i>H</i>. For a large change, one must take
+              account of the fact that <i>g</i> changes with height. The value of <i>g</i> is given
+              by equating the weight of a body, <i>mg</i>, to the gravitational attraction. Thus at
+              the surface of the Earth</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue009i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>where <i>M</i> and <i>R</i> are the mass and radius of the Earth
+              respectively. At any distance <i>r</i> (greater than <i>R</i>), we may write more
+              generally</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue010i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>At each distance <i>r</i>, the frequency shift caused by rising to <i>r</i> +
+                <i>dr</i> is given by the formula .</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue011i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>where we write <i>dr</i> in place of <i>H</i>. Thus the total frequency shift
+              suffered in escaping to a very large distance (‘infinity’) is determined
+              by:</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue012i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>where <i>f</i>
+                  <sub>1</sub> is the emitted frequency and <i>f</i>
+                  <sub>0</sub>
+              is the observed frequency. This gives the method asked for in the
+              Question.</p>
+               <p>Performing the integration (which the Question did <i>not</i> ask for) gives
+              the stated result. In fact,</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue013i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>Provided the magnitude of Δ<i>f</i> = <i>f</i>
+                  <sub>0</sub>
+              −
+              <i>f</i>
+                  <sub>1</sub> ≪
+              <i>f</i>
+                  <sub>1</sub>, we can approximate the left-hand side of this equation
+              by</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue014i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>and conclude that, for any emitted frequency <i>f</i>.</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue015i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>
+                  <b>(b) (i)</b> Using the result of part (a), we can find the effect of the
+              gravitational redshift on light leaving the star as follows:</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue016i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>All the radiation leaving the star has been ‘redshifted’ by
+              this amount by the time it reaches the Earth, which we may certainly regard as at an
+              ‘infinite’ distance from the star.</p>
+               <p>
+                  <b>(ii)</b> The speed at the edge of the star is</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue017i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>The Doppler shift is</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue018i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>
+                  <i/> when <ph outputclass="InlineEquation">
+                     <image href="../../media/S357_1_ie00italvi.gif"/>
+                     <ph outputclass="inlineequation-description"/>
+                  </ph> is a speed of
+              approach. Here,</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue019i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>This could be used directly in the formula but since <ph outputclass="InlineEquation">
+                     <image href="../../media/S357_1_ie00italvi.gif"/>
+                     <ph outputclass="inlineequation-description"/>
+                  </ph>/<i>c</i> is so small,
+              we can use the approximation</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue020i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>so the fractional change in frequency, Δ<i>f</i>/<i>f</i>, is
+              simply:</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue021i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>Light from the advancing limb is blueshifted by this amount, and from the
+              receding limb is redshifted by this amount. The width imparted to lines is thus the
+              fraction 14.7 ×10<sup>−6</sup> of their central frequency.</p>
+               <p>
+                  <b>(iii)</b> The turbulent motion again produces both blueshifts and
+              redshifts, of amount ±6000 m
+                s<sup>−1</sup>/<i>c</i> = ±20 × 10<sup>−6</sup>.</p>
+               <p>The frequency of the 656 nm line is given by</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue022i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>The frequency shifts are therefore as shown in <xref href="#TBL003">Table 1</xref>.</p>
+               <table>
+                  <title>Table 1</title>
+                  <tgroup cols="5">
+                     <tbody>
+                        <row>
+                           <entry outputclass="th">
+                              <b/>
+                           </entry>
+                           <entry outputclass="th">
+                              <b/>
+                           </entry>
+                           <entry outputclass="th">
+                              <b>Δ<i>f</i>/<i>f</i>
+                              </b>
+                           </entry>
+                           <entry outputclass="th">
+                              <b/>
+                           </entry>
+                           <entry outputclass="th">
+                              <b>Δ<i>f/</i>MHz</b>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>gravitation</entry>
+                           <entry outputclass="th">
+                              <b/>
+                           </entry>
+                           <entry>−2.12 × 10<sup>−6</sup>
+                           </entry>
+                           <entry outputclass="th">
+                              <b/>
+                           </entry>
+                           <entry>−970</entry>
+                        </row>
+                        <row>
+                           <entry>rotation</entry>
+                           <entry outputclass="th">
+                              <b/>
+                           </entry>
+                           <entry>±7.33 × 10<sup>−6</sup>
+                           </entry>
+                           <entry outputclass="th">
+                              <b/>
+                           </entry>
+                           <entry>±3350</entry>
+                        </row>
+                        <row>
+                           <entry>turbulence</entry>
+                           <entry outputclass="th">
+                              <b/>
+                           </entry>
+                           <entry>±20 × 10<sup>−6</sup>
+                           </entry>
+                           <entry outputclass="th">
+                              <b/>
+                           </entry>
+                           <entry>±9150</entry>
+                        </row>
+                     </tbody>
+                  </tgroup>
+               </table>
+               <p outputclass="SourceReference">Source: </p>
+            </sectiondiv>
+        </sectiondiv>
+        <p> </p>
+        <p>In many galaxies, spectral lines have been observed whose <i>relative</i>
+          positions correspond exactly with those of a known element (so that the spectrum is
+          confidently identified), but whose <i>absolute</i> frequencies are all noticeably shifted.
+          This can have nothing to do with the random motions of the stars within the galaxy, or the
+          rotations of either the individual stars or of the galaxy as a whole; all these motions
+          (being as often towards us as away from us) would merely broaden the line. A net shift of
+          all the lines in a spectrum seems to suggest that the galaxy itself has a line-of-sight
+          motion (i.e. a component of velocity towards or away from us). The shift is nearly always
+          to longer wavelengths, i.e. towards the red end of the visible spectrum, so it is referred
+          to as the ‘redshift’. If the redshift is interpreted as a Doppler shift (an
+          interpretation we shall reconsider later) due to the motion of the galaxies, then it
+          follows that most of the galaxies are receding from us. In other words, <i>the Universe is
+            expanding</i>.</p>
+        <p>The term ‘redshift’ has a precise definition: it is equal to
+          Δλ/λ, where Δλ is the shift in wavelength of a line whose
+          emitted wavelength is λ. The value of Δλ/λ is the same for all the
+          lines in the spectrum of an object receding at a given speed, and is normally denoted by
+            <i>z:</i>
+         </p>
+        <fig outputclass="Equation">
+            <image href="../../media/S357_1_e001i.gif"/>
+            <p outputclass="equation-description"/>
+         </fig>
+        <p>where λ<sub>0</sub> is the observed wavelength now, and λ<sub>1</sub>
+          is the wavelength at emission. These redshifts in the spectra of galaxies are generally
+            <i>far</i> larger than the stellar effects considered in <xref href="#SAQ001_002">Question 2</xref>, as can be judged from <xref href="#FIG001_003">Figure 5</xref>.</p>
+        <fig>
+            <title>
+               <b>Figure 5</b>: The absorption spectra of five different galaxies. Only the most
+            strongly absorbed lines, common to the bulk of the stars, are visible, but this is
+            enough to give a recognisable pattern</title>
+            <image href="../../media/S357_1_003i.jpg"/>
+            <p outputclass="SourceReference">Source: Hale Observatories <data name="ItemRights">
+                  <data name="OwnerRef"/>
+                  <data name="ItemRef"/>
+                  <data name="ItemAcknowledgement">Hale Observatories</data>
+               </data>
+            </p>
+            <p/>
+         </fig>
+        
+        <p>In summary then, when dealing with light from stars, there are three ways in
+          which the frequency can be shifted:</p>
+        <p>(i) The Doppler shift due to motion – whether that arises through the
+          rotation of the star, its bodily motion along the line of sight, or turbulence in its
+          atmosphere. This type of shift, which can be red or blue, is accounted for by special
+          relativity.</p>
+        <p>(ii) The gravitational redshift, arising from general relativity.</p>
+        <p>(iii) A new type of redshift due to the recession of the galaxies,
+          which is also a consequence of general
+          relativity.</p>
+        <p>(Note that it is customary to reserve the suffix, 0, for the values of quantities
+          as they are at the present time, <i>t</i>
+            <sub>0</sub>. Values at other times must carry
+          some other suffix. In this way, we end up with the rather counterintuitive situation where
+            λ<sub>1</sub> applies to an <i>earlier</i> time, <i>t</i>
+            <sub>1</sub>, than
+            λ<sub>0</sub>.)</p>
+        
+        <sectiondiv outputclass="SAQ">
+            <p outputclass="Heading">
+               <b>Question 3</b>
+            </p>
+            <sectiondiv outputclass="saq.question">
+               <p>Hydrogen has emission lines at 434, 486 and 656 nm. A galaxy is observed to
+              have these three lines redshifted in wavelength by 2% (i.e.
+              <i>z</i> = Δλ/λ = 0.02). What wavelengths will
+              be observed? What is the frequency shift Δ<i>f</i>/<i>f</i> ?</p>
+            </sectiondiv>
+            <sectiondiv outputclass="saq.answer">
+               <p>If λ<sub>1</sub> is the emitted wavelength and λ<sub>0</sub> is
+              the observed wavelength, then</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue023i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>Therefore</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue024i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>Thus the observed wavelengths are:</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue025i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>The relative frequency shift is given by</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue026i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>But</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue027i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>Therefore</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue028i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>and</p>
+               <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue029i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+               <p>Note that the shift in frequency is the same for all lines of the spectrum,
+              but differs from the shift in wavelength, which is <i>z</i>.</p>
+            </sectiondiv>
+        </sectiondiv>
+        
+        <p>As we shall see later in this unit, the redshift in galactic light has provided
+          one of the main clues to the nature of the large-scale structure of spacetime. But to
+          discover how the pattern of the redshifts observed in different galaxies reveals this
+          structure, we need further information about the distances of galaxies.</p>
+      </section>
+   </learningContentbody>
+</learningContent>

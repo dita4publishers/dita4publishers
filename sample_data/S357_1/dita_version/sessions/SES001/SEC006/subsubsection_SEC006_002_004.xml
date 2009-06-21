@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC006_002_004">
+   <title>6.2.4 The speed and direction of the Earth's motion</title>
+   <learningContentbody>
+      <section>
+            
+            <p>The first significant claim to have detected the motion of the Earth relative
+              to the ‘frame of isotropic 3 K radiation’ came in 1977 from a group at
+              Berkeley, California. They concluded that the Earth is moving at a speed of (390
+              ± 60) km s<sup>−1</sup>, in a direction towards the constellation Leo,
+              relative to a frame in which the 3 K radiation is isotropic. Their conclusion resulted
+              from observations of a variation of intensity with angle of the form predicted by
+              Equation 14, which we have called a 24-hour variation.</p>
+            <p>Now this motion of the Earth through the 3 K radiation will be the resultant
+              of several component motions:</p>
+            <ol>
+              <li>
+                <p>The Earth's velocity about the Sun (of magnitude 30 km
+                    s<sup>−1</sup>):</p>
+              </li>
+              <li>
+                <p>The velocity of the Sun itself about the Galactic centre (currently
+                  estimated to be of magnitude 230 km s<sup>−1</sup>):</p>
+              </li>
+              <li>
+                <p>The velocity of the Galaxy relative to the Local Group;</p>
+              </li>
+              <li>
+                <p>Whatever velocity the Local Group has relative to the ‘frame of
+                  isotropic 3 K radiation’.</p>
+              </li>
+            </ol>
+            <fig>
+            <title>
+                <b>Figure 28</b>: The absolute motion of the Earth. The Earth travels in its orbit
+                round the Sun at 30 km s<sup>−1</sup> and is being swept around the centre of
+                the Galaxy at 230 km s<sup>−1</sup>. Experiment shows that the Earth's net
+                speed through the 3 K radiation is about 400 km s<sup>−1</sup>. The Earth's
+                net velocity lies in the same plane as its orbit round the Sun and at an angle
+                tilted sharply upwards (northwards) from the plane of the Galaxy. In this diagram,
+                the Earth's net velocity is depicted as a heavy arrow centred on the Sun (pointing
+                upwards and to the right), since the two bodies travel together. Both are being
+                carried by the Galaxy's own motion through the 3 K radiation. In order to account
+                for the Earth's motion with respect to the 3 K radiation, the Galaxy must be
+                travelling at about 600 km s<sup>−1</sup> in the direction shown by the
+                coloured arrow centred on the disc of the Galaxy.</title>
+            <image href="../../media/S357_1_025i.jpg"/>
+            <p outputclass="SourceReference">Source: based on R.A. Muller (1978) in <i>Scientific American</i>, 238,
+                64–74 <data name="ItemRights">
+                  <data name="OwnerRef"/>
+                  <data name="ItemRef"/>
+                  <data name="ItemAcknowledgement">based on R.A. Muller (1978) in <i>Scientific American</i>,
+                    238, 64–74</data>
+                </data>
+              </p>
+            <p/>
+         </fig>
+            <p>The Earth's speed of about 400 km s<sup>−1</sup>, relative to this
+              frame in which the radiation is isotropic, is comparable to its speed of about 230 km
+                s<sup>−1</sup> relative to the Galactic centre of mass. Nevertheless, the
+              Galaxy as a whole must be moving through the 3 K radiation even <i>faster</i> than the
+              Earth, because the direction of the Solar System's orbital velocity round the Galaxy
+              is almost <i>opposite</i> to the direction of maximum observed intensity of the 3 K
+              radiation and hence opposite to the direction of the Earth's velocity through the 3 K
+              radiation, as depicted in <xref href="#FIG001_025">Figure 28</xref>. Adding the two velocity vectors gives the
+              centre of the Galaxy a velocity whose magnitude is about 600 km s<sup>−1</sup>
+              with respect to the 3 K radiation. Now <i>if our Galaxy were isolated</i>, this
+              velocity could only be interpreted as a departure (and 600 km s<sup>−1</sup>
+              would be an embarrassingly large departure) from the basic idea of cosmology that the
+              expansion of the Universe is shared by all matter and radiation; an isolated galaxy,
+              or the centre of mass of a cluster of galaxies, should <i>not</i> be moving with
+              respect to the 3 K radiation. But our Galaxy is not isolated, it is a member of our
+              Local Group of galaxies. It cannot be stationary with respect to the centre of mass of
+              the Local Group but must, to avoid falling in, be travelling around in some quite
+              complicated orbit. So the next step towards an understanding of the 600 km
+                s<sup>−1</sup> is to subtract from it the velocity of our Galaxy in its
+              movement about the Local Group. Unfortunately this velocity is not very well known,
+              because the estimates of the masses of some of the galaxies in the Local Group are
+              very rough. But current data give the speed of our Galaxy with respect to the
+              Andromeda galaxy (which is the other major member of our Local Group) as 40 km
+                s<sup>−1</sup>. This might be an indication of the kind of velocity we have
+              relative to the centre of mass of the Local Group. If so, it still leaves an
+              unexplained speed of 500–600 km s<sup>−1</sup>.</p>
+            <p>Our Local Group is thought to be a member of a cluster of clusters called the
+              Local Supercluster. So the next step is to subtract the velocity of our Local Group
+              with respect to the centre of mass of the Local Supercluster from the 600 km
+                s<sup>−1</sup>. If this is also the final step, the answer should be
+              compatible with zero. Unfortunately, the uncertainties are, at this stage, too great
+              to be able to decide whether the velocity of our Local Group can be entirely explained
+              in terms of the effects of a Local Supercluster. If not, then the effects of other
+              structures such as more distant superclusters and the voids between them, must also be
+              taken into account.</p>
+          </section>
+   </learningContentbody>
+</learningContent>

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC004_001">
+   <title>4.1 Hubble's discoveries</title>
+   <learningContentbody>
+      <section>
+          
+          <p>In this section, we bring together two important features of galaxies –
+            their redshifts and their distances.</p>
+          <p>This crucial development owes its origins to Edwin Hubble. His pioneering work
+            in 1923 first led to the confirmation that certain of the fuzzy patches in the sky,
+            loosely called ‘nebulae’, were in fact galaxies like our own.</p>
+          <fig>
+            <title>
+              <b>Figure 14</b>: (a) Nebula NGC 6514, a cloud of gas and dust in our own Galaxy; (b)
+              Hubble showed that objects like M31 (NGC 224, now called the Andromeda galaxy) were
+              galaxies like our own, and they ceased to be called nebulae. The two large bright
+              patches near M31 are satellite galaxies, NGC 205 and NGC 221</title>
+            <image href="../../media/S357_1_012i.jpg"/>
+            <p outputclass="SourceReference">Source: (a) courtesy of Uppsala University; (b) Hale Observatories <data name="ItemRights">
+                  <data name="OwnerRef"/>
+                  <data name="ItemRef"/>
+                  <data name="ItemAcknowledgement">(a) courtesy of Uppsala University; (b) Hale
+                  Observatories</data>
+              </data>
+            </p>
+            <p/>
+         </fig>
+          
+          <p>It was immediately realised that the Universe was enormously bigger than had
+            previously been thought. Also the number of galaxies was large. In fact, it is now known
+            that the number of galaxies accessible to our telescopes is comparable with the number
+            of stars in our Galaxy – about 100 billion (i.e. 10<sup>11</sup>).</p>
+          <p>A second significant discovery made by Hubble concerned the spectra of
+            galaxies, nearly all of which are redshifted. This redshift was a systematic shift of
+              <i>all</i> the lines to the red end of the spectrum (it was discovered by another US
+            astronomer, Vesto Slipher). Using his measurements of distance, Hubble showed that the
+              <i>redshift increased with distance</i>. As far as he could tell, the redshift of a
+            galaxy was proportional to its distance.</p>
+          <fig>
+            <title>
+              <b>Figure 15</b>: The redshift–distance relationship for galaxies, as plotted
+              by Hubble in 1929. The solid line represents the relationship inferred from individual
+              galaxies (solid circles), the dashed line the relationship when the galaxies are
+              combined into groups (open circles). Hubble's distance scale has been omitted since it
+              is now known that it was in error.</title>
+            <image href="../../media/S357_1_013i.jpg"/>
+            <p outputclass="SourceReference">Source: based on E. P. Hubble (1929) in <i>Proc. Nat. Acad. Sci.</i>, 15, 168
+                <data name="ItemRights">
+                  <data name="OwnerRef"/>
+                  <data name="ItemRef"/>
+                  <data name="ItemAcknowledgement">based on E. P. Hubble (1929) in <i>Proc. Nat. Acad. Sci.</i>,
+                  15, 168</data>
+              </data>
+            </p>
+            <p/>
+         </fig>
+          <p>Hubble's original measurements, shown in <xref href="#FIG001_013">Figure 15</xref>, exhibited a large scatter about a straight
+            line. This was partly due to the inevitable observational uncertainties, especially in
+            distance measurements. But even if one were able to remove the observational
+            uncertainties, there would still have been a considerable scatter about a straight line.
+            This comes from the fact that most of the galaxies Hubble looked at were members of
+            clusters, and each was moving about within its cluster. Because the galaxies were rather
+            close to us, the speeds associated with this random motion were comparable to the
+            recessional speed Hubble was trying to measure. Sometimes the motion of the galaxy
+            relative to the cluster centre was directed towards us (giving a blueshift component),
+            sometimes away from us (adding a further redshift component). If the structure of the
+            cluster were well enough known, these effects could, in principle, be estimated and a
+            correction applied. Allowance must also be made for small gravitational redshifts (see <xref href="#SAQ001_002">Question 2</xref>). Finally, the motion of the Earth with
+            respect to our Local Group must be subtracted. (This will be discussed in <xref href="#SEC006_002_004">Section 6.2.4</xref>.) Suppose that <i>all</i> these
+            corrections could be perfectly made in all cases. Then a redshift (<i>z</i>) against
+            distance (<i>r</i>) plot would, as far as we know, appear as in <xref href="#FIG001_014">Figure 16</xref>.</p>
+          
+          <fig>
+            <title>
+              <b>Figure 16</b>: An idealised Hubble diagram with all sources of scatter
+              removed</title>
+            <image href="../../media/S357_1_014i.jpg"/>
+            <p/>
+         </fig>
+          <p>The straight line in <xref href="#FIG001_014">Figure 16</xref> would represent the underlying cosmological
+            redshift. Thus, for this <i>cosmological redshift</i>, we have</p>
+          <fig outputclass="Equation">
+            <image href="../../media/S357_1_e003i.gif"/>
+            <p outputclass="equation-description"/>
+         </fig>
+          
+          
+          
+          <p>Interpreting the observed redshift as a Doppler shift implies that each galaxy
+            is receding at a speed proportional to its distance from us. To see this, consider the
+            Doppler shift formula
+            and
+            the relationship between redshift, wavelength change and frequency shift given in the
+            answer to <xref href="#SAQ001_003">Question 3</xref>
+            . It follows that the redshift, <i>z</i>, is given by</p>
+          <fig outputclass="Equation">
+            <image href="../../media/S357_1_e004i.gif"/>
+            <p outputclass="equation-description"/>
+         </fig>
+          <p>Hence, Equations 3 and 4 together imply that</p>
+          <fig outputclass="Equation">
+            <image href="../../media/S357_1_e005i.gif"/>
+            <p outputclass="equation-description"/>
+         </fig>
+          <p>This provides the basis for one of the common ways of writing <i>Hubble's
+              law</i>,</p>
+          <fig outputclass="Equation">
+            <image href="../../media/S357_1_e006i.gif"/>
+            <p outputclass="equation-description"/>
+         </fig>
+          <p>The factor of proportionality, <i>H</i>, is sometimes called the <i>Hubble
+              constant</i>. But the term <i>parameter</i> is perhaps preferable since the word
+            ‘constant’ might lead one to think that it should remain constant in time
+            – instead of being a constant of proportionality between two variables <i>as
+              those variables are at a particular point in time. H</i> must, we now realise, vary
+            slowly with time.</p>
+          <p>If the speed of recession is proportional to distance, this implies <i>all</i>
+            distances between galaxies are increasing at the same rate. Not only do all clusters of
+            galaxies appear to be receding from us here on Earth, they would appear to be receding
+            in exactly the same manner from whatever vantage point an observer adopted.</p>
+          <p>Hubble's work has been continued, refined, and extended to much more distant
+            and fainter galaxies.</p>
+          
+          <sectiondiv outputclass="SAQ">
+            <p outputclass="Heading">
+               <b>Question 6</b>
+            </p>
+            <sectiondiv outputclass="saq.question">
+              <p>Taking typical intercluster distances to be approximately
+                  2 × 10<sup>8</sup> ly, and the value of <i>H</i> to be about
+                  2 × 10<sup>−18</sup> s<sup>−1</sup>, estimate the
+                minimum <i>z</i> value that can reliably be ascribed to the expansion of the
+                Universe. Compare this with the redshifts measured by Hubble in <xref href="#FIG001_013">Figure 15</xref>.</p>
+            </sectiondiv>
+            <sectiondiv outputclass="saq.answer">
+              <p>To get a redshift that can confidently be regarded as due to expansion, we
+                must look to another cluster.</p>
+              <p>Intercluster distances are approximately</p>
+              <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue031i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+              <p>The Hubble constant is about 2 × 10<sup>−18</sup>
+                  s<sup>−1</sup>
+               </p>
+              <p>Hence the cosmological redshift of a neighbouring cluster is</p>
+              <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue032i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+              <p>Compare this with <xref href="#FIG001_013">Figure 15</xref> – Hubble was not able to look far
+                enough!</p>
+            </sectiondiv>
+          </sectiondiv>
+          <p>Since it is hard to measure the distance to a far-off galaxy, it is not
+            surprising that there has been a good deal of controversy about the reliability of
+            distance estimates. The redshift measurements are much easier to make and are more
+            direct, so there has been much less uncertainty over them. Nevertheless, it is useful to
+            have a check, and this has been provided by radio astronomers measuring the redshift of
+            lines in the radio spectrum, such as that due to the emission of hydrogen at a
+            wavelength of 21 cm. This confirms that the redshift is the same over a large range of
+            frequencies.</p>
+          <p>Based on a range of recent results, the value of <i>H</i> is currently reckoned
+            to be 2.3 × 10<sup>−18</sup> s<sup>−1</sup>, with an
+            observational uncertainty of about 10%.</p>
+          <p>Hubble, who interpreted redshifts in terms of recessional velocities, would
+            quote this as 23 km s<sup>−1</sup> for every million light-years of distance of a
+            galaxy. Estimates of <i>H</i> are often quoted in terms of km s<sup>−1</sup>
+              Mpc<sup>−1</sup>. In these units, <i>H</i> is about 70 km s<sup>−1</sup>
+              Mpc<sup>−1</sup>.</p>
+          <p>It has become common usage to write
+            <i>H</i> = <i>h</i> × 100 km s<sup>−1</sup>
+              Mpc<sup>−1</sup>, in which case <i>h</i> currently has a best estimate of
+            0.7.</p>
+          <p>We end this section with a more up-to-date version of the Hubble diagram (<xref href="#FIG001_015">Figure 17</xref>) for some galaxies and clusters of
+            galaxies.</p>
+          <fig>
+            <title>
+              <b>Figure 17</b>: A plot of redshift against distance for a selection of galaxies and
+              clusters of galaxies</title>
+            <image href="../../media/S357_1_015i.jpg"/>
+            <p outputclass="SourceReference">Source: adapted from A. Sandage (1970) <i>Physics Today</i>, vol. 34, February
+              1970, American Institute of Physics <data name="ItemRights">
+                  <data name="OwnerRef"/>
+                  <data name="ItemRef"/>
+                  <data name="ItemAcknowledgement">adapted from A. Sandage (1970) <i>Physics Today</i>, vol. 34,
+                  February 1970, American Institute of Physics</data>
+              </data>
+            </p>
+            <p/>
+         </fig>
+          
+          <sectiondiv outputclass="SAQ">
+            <p outputclass="Heading">
+               <b>Question 7</b>
+            </p>
+            <sectiondiv outputclass="saq.question">
+              <p>Use the sum of the shifts calculated for the star specified in <xref href="#SAQ001_002">Question 2</xref> to give an estimate of the uncertainty in
+                the cosmological redshift <i>z</i> for a star in a galaxy at
+                  4 × 10<sup>6</sup> ly from us. (This may be an overestimate because
+                the centre of a line can be estimated quite well even if the line is fuzzy. However,
+                in a real galactic spectrum there will be a further component of broadening due to
+                galactic rotation.)</p>
+            </sectiondiv>
+            <sectiondiv outputclass="saq.answer">
+              <p>From <xref href="#SAQ001_002">Question 2</xref>(b), parts (ii) and (iii), the minimum
+                width of the lines is</p>
+              <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue033i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+              <p>with a systematic fractional shift of about
+                  −2 × 10<sup>−6</sup> (<xref href="#SAQ001_002">Question 2</xref>(b), (i)). Thus the contributions to
+                  Δ<i>f</i>/<i>f</i> due to turbulence, rotation and gravitational redshift
+                vary between (+20 + 7 − 2) × 10<sup>−6</sup> and
+                (−20 – 7 – 2) × 10<sup>−6</sup>. This
+                gives an error of about ±3 × 10<sup>−5</sup>. For a
+                galaxy at 4 × 10<sup>6</sup> ly
+                  (≈4 × 10<sup>6</sup> × 10<sup>16</sup> m),
+                the expected cosmological redshift is</p>
+              <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue034i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+              <p>Thus the line-broadening effects are approximately a fraction</p>
+              <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue035i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+              <p>of the expected cosmological shift.</p>
+              <p>Notice that a distance of 4 × 10<sup>6</sup> ly corresponds
+                to nearby galaxies in our Local Group and the relative uncertainties in redshift
+                will <i>decrease</i> with distance. They are commonly less than 1%. The
+                uncertainties in distance, however, will increase with distance, because less
+                accurate estimation procedures have to be used. Also note that a distance of
+                  4 × 10<sup>6</sup> ly may be unreasonably small for cosmological
+                consideration.</p>
+            </sectiondiv>
+          </sectiondiv>
+          
+          <sectiondiv outputclass="SAQ">
+            <p outputclass="Heading">
+               <b>Question 8</b>
+            </p>
+            <sectiondiv outputclass="saq.question">
+              <p>By taking appropriate readings off the graph of <xref href="#FIG001_015">Figure 17</xref>, estimate the value of the Hubble
+                constant, <i>H</i>, indicated by this set of data.</p>
+            </sectiondiv>
+            <sectiondiv outputclass="saq.answer">
+              <p>One can use any pair of points on the straight line graph that has been
+                drawn, but to minimise reading errors we take the extreme points. The difference in
+                  <i>z</i> is 1.0000 − 0.0025 = 0.9975. The difference in distance,
+                  <i>r</i>, is 4000 − 10 = 3990 Mpc.</p>
+              <p>Thus</p>
+              <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue036i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+              <p>But</p>
+              <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue037i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+              <p>So</p>
+              <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue038i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+            </sectiondiv>
+          </sectiondiv>
+        </section>
+   </learningContentbody>
+</learningContent>

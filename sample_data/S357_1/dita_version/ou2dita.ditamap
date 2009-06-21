@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/learningMap" "learningMap.dtd">
+<map>
+   <title>Space, time and cosmology</title>
+   <topicmeta>
+      <data name="CourseCode">S357</data>
+  
+      <data name="ItemID"/>
+      <data name="ItemTitle"/>
+  
+  
+   </topicmeta>
+  
+  
+  
+  
+  <topichead>
+      <topicmeta>
+         <navtitle>Frontmatter</navtitle>
+      </topicmeta>
+      <topicref href="frontmatter/topic_imprint.xml"/>
+      <topicref href="frontmatter/topic_preface.xml"/>
+      <topicref href="frontmatter/topic_introduction.xml"/>
+      <topicref href="frontmatter/topic_outcomes.xml"/>
+  </topichead>
+  <topicref keys="S357_1">
+      <topicmeta>
+         <navtitle>The big bang</navtitle>
+         <data name="ByLine"/>
+      </topicmeta>
+    
+    
+    
+      <topicref href="sessions/SES001/session_SES001.xml">
+         <topicmeta>
+            <navtitle/>
+         </topicmeta>
+      
+      
+      
+         <topicref href="sessions/SES001/SEC001/section_SEC001.xml">
+            <topicmeta>
+               <navtitle>1 Introducing cosmology</navtitle>
+            </topicmeta>
+         </topicref>
+         <topicref href="sessions/SES001/SEC002/section_SEC002.xml">
+            <topicmeta>
+               <navtitle>2 Radiation from the galaxies</navtitle>
+            </topicmeta>
+         </topicref>
+         <topicref href="sessions/SES001/SEC003/section_SEC003.xml">
+            <topicmeta>
+               <navtitle>3 Distances of galaxies</navtitle>
+            </topicmeta>
+            <topicref href="sessions/SES001/SEC003/subsection_SEC003_001.xml">
+               <topicmeta>
+                  <navtitle>3.1 First steps towards a distance scale</navtitle>
+               </topicmeta>
+            </topicref>
+            <topicref href="sessions/SES001/SEC003/subsection_SEC003_002.xml">
+               <topicmeta>
+                  <navtitle>3.2 Some general properties of galaxies</navtitle>
+               </topicmeta>
+            </topicref>
+            <topicref href="sessions/SES001/SEC003/subsection_SEC003_003.xml">
+               <topicmeta>
+                  <navtitle>3.3 Extending the distance scale</navtitle>
+               </topicmeta>
+            </topicref>
+         </topicref>
+         <topicref href="sessions/SES001/SEC004/section_SEC004.xml">
+            <topicmeta>
+               <navtitle>4 The variation of redshift with distance</navtitle>
+            </topicmeta>
+            <topicref href="sessions/SES001/SEC004/subsection_SEC004_001.xml">
+               <topicmeta>
+                  <navtitle>4.1 Hubble's discoveries</navtitle>
+               </topicmeta>
+            </topicref>
+            <topicref href="sessions/SES001/SEC004/subsection_SEC004_002.xml">
+               <topicmeta>
+                  <navtitle>4.2 Evidence for a big bang</navtitle>
+               </topicmeta>
+            </topicref>
+         </topicref>
+         <topicref href="sessions/SES001/SEC005/section_SEC005.xml">
+            <topicmeta>
+               <navtitle>5 The microwave background radiation</navtitle>
+            </topicmeta>
+            <topicref href="sessions/SES001/SEC005/subsection_SEC005_001.xml">
+               <topicmeta>
+                  <navtitle>5.1 A second major discovery</navtitle>
+               </topicmeta>
+            </topicref>
+            <topicref href="sessions/SES001/SEC005/subsection_SEC005_002.xml">
+               <topicmeta>
+                  <navtitle>5.2 The origin of the 3 K radiation</navtitle>
+               </topicmeta>
+            </topicref>
+            <topicref href="sessions/SES001/SEC005/subsection_SEC005_003.xml">
+               <topicmeta>
+                  <navtitle>5.3 The redshift of the 3 K radiation</navtitle>
+               </topicmeta>
+            </topicref>
+         </topicref>
+         <topicref href="sessions/SES001/SEC006/section_SEC006.xml">
+            <topicmeta>
+               <navtitle>6 The angular distribution of the 3 K radiation</navtitle>
+            </topicmeta>
+            <topicref href="sessions/SES001/SEC006/subsection_SEC006_001.xml">
+               <topicmeta>
+                  <navtitle>6.1 Basic isotropy</navtitle>
+               </topicmeta>
+            </topicref>
+            <topicref href="sessions/SES001/SEC006/subsection_SEC006_002.xml">
+               <topicmeta>
+                  <navtitle>6.2 The effect of the motion of the Earth</navtitle>
+               </topicmeta>
+               <topicref href="sessions/SES001/SEC006/subsubsection_SEC006_002_001.xml">
+                  <topicmeta/>
+               </topicref>
+               <topicref href="sessions/SES001/SEC006/subsubsection_SEC006_002_002.xml">
+                  <topicmeta/>
+               </topicref>
+               <topicref href="sessions/SES001/SEC006/subsubsection_SEC006_002_003.xml">
+                  <topicmeta/>
+               </topicref>
+               <topicref href="sessions/SES001/SEC006/subsubsection_SEC006_002_004.xml">
+                  <topicmeta/>
+               </topicref>
+            </topicref>
+            <topicref href="sessions/SES001/SEC006/subsection_SEC006_003.xml">
+               <topicmeta>
+                  <navtitle>6.3 Anisotropies in the Universe itself</navtitle>
+               </topicmeta>
+            </topicref>
+         </topicref>
+         <topicref href="sessions/SES001/SEC007/section_SEC007.xml">
+            <topicmeta>
+               <navtitle>7 The primordial nuclear abundances</navtitle>
+            </topicmeta>
+            <topicref href="sessions/SES001/SEC007/subsection_SEC007_001.xml">
+               <topicmeta>
+                  <navtitle>7.1 Introduction</navtitle>
+               </topicmeta>
+            </topicref>
+            <topicref href="sessions/SES001/SEC007/subsection_SEC007_002.xml">
+               <topicmeta>
+                  <navtitle>7.2 The temperature of matter and radiation</navtitle>
+               </topicmeta>
+            </topicref>
+            <topicref href="sessions/SES001/SEC007/subsection_SEC007_003.xml">
+               <topicmeta>
+                  <navtitle>7.3 The formation of light nuclei</navtitle>
+               </topicmeta>
+            </topicref>
+            <topicref href="sessions/SES001/SEC007/subsection_SEC007_004.xml">
+               <topicmeta>
+                  <navtitle>7.4 Nuclear abundances as evidence for the big bang</navtitle>
+               </topicmeta>
+            </topicref>
+         </topicref>
+         <topicref href="sessions/SES001/SEC008/section_SEC008.xml">
+            <topicmeta>
+               <navtitle>8 Conclusion</navtitle>
+            </topicmeta>
+         </topicref>
+         <topicref href="sessions/SES001/SEC009/section_SEC009.xml">
+            <topicmeta>
+               <navtitle>Summary</navtitle>
+            </topicmeta>
+         </topicref>
+      </topicref>
+    
+      <topicref href="backmatter/topic_acknowledgements.xml"/>
+    
+  </topicref>
+</map>
