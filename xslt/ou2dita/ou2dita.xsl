@@ -399,7 +399,7 @@
   </xsl:template>
   
   <xsl:template match="Image">
-    <image href="{@src}">
+    <image href="{concat('../../media/', @src)}">
       <xsl:apply-templates/>
     </image>
   </xsl:template>
@@ -489,7 +489,7 @@
   </xsl:template>
   
   <xsl:template match="MediaContent">
-    <image href="{concat(@src, '.', @type)}">
+    <image href="{concat('../../media/', @src, '.', @type)}">
       <xsl:apply-templates/>
     </image>
   </xsl:template>
