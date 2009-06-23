@@ -16,7 +16,7 @@ Rights Reserved. -->
 
 <project name="dita2epub" default="dita2epub">
 
-  <!-- test to see where the fo plugin is located, plugins or demo -->
+  <!-- test to see where the plugin is located, plugins or demo -->
   <dirname property="epub.dir" file="${ant.file.dita2epub}"/>
 
   <target name="dita2epub"
