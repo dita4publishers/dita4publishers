@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC003_002">
+   <title>3.2 Have I used the correct order for my calculation?</title>
+   <learningContentbody>
+      <section>
+          
+          <p>When calculating an answer it is important that you give careful consideration
+            to the order of operations used in the calculation. If you are using a mixture of
+            operations remember that certain operations take priority in a calculation. Consider the
+            following, apparently, simple sum.</p>
+          <p>   1 + 2 × 3 = ?</p>
+          <p>What answer would you give?</p>
+          <p>Did you give 7 as your response, or 9?</p>
+          <p>The correct answer is 7 but can you explain why?</p>
+          <p>If you have a calculator handy, check that it follows the correct order. Some
+            basic calculators do not, but scientific calculators should do
+            so.</p>
+          <p>Brackets come first, then powers, and then
+            multiplication and division (working from left to right), and finally addition and
+            subtraction (working from left to right).</p>
+          <p>Consider this sum:</p>
+          <p>   10 − 5 + 3 = ?</p>
+          <p>What answer would you give?</p>
+          <p>Did you provide 2 as your response, or 8?</p>
+          <p>The correct answer is 8 but can you explain why?</p>
+          <p>The operations of addition and subtraction belong to the same group, and so you
+            perform the calculation from left to right. Addition does not have priority over
+            subtraction.</p>
+          <p>Consider these calculations:</p>
+          <p>   (1 + 2) × 3 = ?</p>
+          <p>   10 − (5 + 3) = ?</p>
+          <p>These calculations are similar to earlier ones but this time involve the use of
+            brackets, which take priority over the other operations. The correct answers here are 9
+            and 2 respectively.</p>
+          
+        </section>
+   </learningContentbody>
+</learningContent>

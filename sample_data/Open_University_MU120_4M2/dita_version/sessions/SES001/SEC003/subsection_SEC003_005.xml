@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC003_005">
+   <title>3.5 Does the answer make sense in the real world?</title>
+   <learningContentbody>
+      <section>
+          
+          
+          <fig>
+            <title/>
+            <image href="../../media/cartoon5.jpg"/>
+            <p/>
+         </fig>
+          <p>Having completed a calculation it is important to check whether your answer
+            makes sense. British money for example can only be issued to the nearest penny. If you
+            share a bill for £20 among three people, your calculator would give an answer of £6.666
+            666 667. So how much should be paid by each person?</p>
+          <p>You would probably round up to £6.67 or £6.70 and put the extra pence in a
+            charity tin.</p>
+          <p>It is important, when performing a calculation, to consider the context of the
+            problem you are solving. The final answers should take the context of the problem into
+            account. This means using appropriate rounding in order to give sensible
+            answers.</p>
+          <p>Suppose you were intending to buy sand to make a foundation for a path of slabs
+            and the sand came in pre-packaged bags of 20 kg. If your calculations showed that,
+            theoretically, you need 69 kg of sand, you would still have to buy four bags of sand,
+            since three bags would be insufficient.</p>
+          <p>You might be able to break a biscuit into halves, but it is difficult to give
+            six children 4.833 3333 biscuits each. Similarly, an answer which suggests you can
+            afford to take 10.134 people on an outing is not very sensible.</p>
+          <p>When you get a mathematical answer, you need to interpret the answer within the
+            context of the original problem and round your answer appropriately for the situation.
+            So if you could afford to take 10.134 people on the trip, you would probably interpret
+            this as ten people. As for 4.833 3333 biscuits, you would need to round down rather than
+            up otherwise there would not be enough biscuits: four or four and a half might be all
+            right, depending upon whether you could break them in half easily.</p>
+          <sectiondiv outputclass="Example">
+            <p outputclass="Heading">
+               <b>Example 13</b>
+            </p>
+            <p>Interpret the answers to the following sensibly.</p>
+            <ul>
+              <li>
+                  <p>
+                     <b>(a)</b> Five people share a total bill for a night out of £56.66. They
+                  perform the calculation 56.66 ÷ 5 = 11.332.</p>
+              </li>
+              <li>
+                  <p>
+                     <b>(b)</b> A children's charity has raised £1546.60 to pay for deprived
+                  children to go on holiday. Twelve children are selected to go. The calculation
+                  1546.60 ÷ 12 = 128.883 3333 is performed to see how much is available for each
+                  child.</p>
+              </li>
+            </ul>
+            <sectiondiv outputclass="Answer">
+               <p outputclass="SubHeading">
+                  <b>Solution</b>
+               </p>
+              <ul>
+                  <li>
+                     <p>
+                        <b>(a) </b>To make sure that the bill is covered, the 11.332 needs to
+                    be rounded up so that each person pays £11.34. (The extra 4p collected could be
+                    added to the tip.)</p>
+                  </li>
+                  <li>
+                     <p>
+                        <b>(b)</b> This needs to be rounded down in order not to exceed the
+                    budget (unless further funds are available), and so something like £125 each
+                    (plus a contingency fund of £46.60) might be suitable.</p>
+                  </li>
+              </ul>
+            </sectiondiv>
+          </sectiondiv>
+          <p>The decision to make when giving a rounded answer to a problem is difficult to
+            quantify and is often dependent upon previous knowledge or experience. Despite this
+            difficulty it is always necessary to be conscious of the context of the problem you are
+            solving and to give appropriate answers.</p>
+          
+        </section>
+   </learningContentbody>
+</learningContent>

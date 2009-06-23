@@ -33,6 +33,9 @@ Section Title {
     margin-top:1px;
 }
 
+Image {
+  content: attr(src, url);
+}
 
 a:link, a.dimmed:link, a:link h2, a.dimmed:link h2 {
     color:#669954;

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC001_005">
+   <title>1.5 Significant figures</title>
+   <learningContentbody>
+      <section>
+          
+          <p>Sometimes it doesn’t make sense to round to a specific number of decimal
+            places. If, say, you were calculating the cost of fencing at £10.65 per metre, for a
+            garden boundary, the length of which had been given to you as 185 feet, then you would
+            want to multiply 10.65 × 185 × 0.3048. (Conversion of feet to metres was given in <xref href="#EXA002">Example 2</xref>.) To do the calculation quickly, you might round
+            this to 10 × 200 × 0.3 = 600 and thus estimate the cost as about £600. (You might use
+            this figure as a check on the exact calculation, done on a calculator.)</p>
+          
+          <fig>
+            <title/>
+            <image href="../../media/math03.jpg"/>
+            <p/>
+         </fig>
+          <p/>
+          <p>What has been done is round each of 10.65, 185, 0.3048 to <i>one significant
+              figure</i>. (We often write ‘s.f.’ for ‘significant figures’.) Thus 10.65 is rounded
+            to 10 (the 1 is the significant figure); 185 has been rounded to 200 (the 2 is the
+            significant figure); and 0.3048 has been rounded to 0.3 (the 3 is the significant
+            figure). All of these numbers contained zeros, but they were not deemed significant so
+            far as the accuracy of the estimation was concerned. In the £600 answer, only the 6 is
+            significant. You would expect the answer to be about six hundreds but not zero tens and
+            zero units.</p>
+          <fig outputclass="Box">
+            <p>The first non zero digit (from the left) in a number is the first significant
+              figure. To round to a given number of significant figures, first count from the first
+              significant digit to the number required (including zeros). If the next digit is 5, 6,
+              7, 8 or 9 round up, otherwise round down.</p>
+          </fig>
+          <sectiondiv outputclass="Example">
+            <p outputclass="Heading">
+               <b>Example 3</b>
+            </p>
+            <p>A particular mobile phone allows you to check the free space available in the
+              memory. Suppose the display shows 2354 856 bytes. Express this available memory space
+              correct to:</p>
+            <ul>
+              <li>
+                  <p>(a) One significant figure (1 s.f.), which might be appropriate if
+                  comparing it to another phone.</p>
+              </li>
+              <li>
+                  <p>(b) Two significant figures (2 s.f.), which might be appropriate if
+                  working out if there is enough memory for a large
+                  picture file.</p>
+              </li>
+            </ul>
+            <sectiondiv outputclass="Answer">
+               <p outputclass="SubHeading">
+                  <b>Solution</b>
+               </p>
+              <ul>
+                  <li>
+                     <p>(a) One significant figure: the first digit (from the left) is the 2.
+                    The next significant digit is the 3, and since this is less than 5 round down.
+                    Thus the available memory space in the phone is about 2000 000 bytes (1
+                    s.f.).</p>
+                  </li>
+                  <li>
+                     <p>(b) Two significant figures: the third significant digit is the 5, so
+                    round up. Thus the available memory space in the phone is about 2400 000 bytes
+                    (to 2 s.f.).</p>
+                  </li>
+              </ul>
+            </sectiondiv>
+         </sectiondiv>
+          
+        </section>
+   </learningContentbody>
+</learningContent>

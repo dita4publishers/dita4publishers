@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="metadata.xsd">
+<identifier>MU120_4M2</identifier>
+<url>http://openlearn.open.ac.uk/course/view.php?id=3502</url>
+<location>learn</location>
+<title>Rounding and estimation</title>
+<description>Scientific calculators are a wonderful invention, but they're only as good as the people who use them. If you often get an unexpected – or ridiculous – result when you press the ‘enter’ button, this unit is for you. Learn how to do a calculation correctly and get the right answer every time.</description>
+<source/>
+<authors>
+	<author/>
+</authors>
+<educationalDescription>
+			<Paragraph>When you have studied this unit you should be able to:</Paragraph>
+			<LearningOutcome>round a given whole number to the nearest 10, 100, 1000 and so on;</LearningOutcome>
+			<LearningOutcome>round a decimal number to a given number of decimal places or significant figures;</LearningOutcome>
+			<LearningOutcome>use rounded numbers to find rough estimates for calculations;</LearningOutcome>
+			<LearningOutcome>use the course calculator for decimal calculations involving +, −, × and ÷, giving your answer to a specified accuracy (e.g. decimal places or significant figures) and checking your answer by finding a rough estimate;</LearningOutcome>
+			<LearningOutcome>check your answers to calculations by ensuring that the correct calculation has been done, in the correct order;</LearningOutcome>
+			<LearningOutcome>check your answers by checking that the units are consistent;</LearningOutcome>
+			<LearningOutcome>check your answers by checking the result against a rough estimate;</LearningOutcome>
+			<LearningOutcome>check your answers by checking that the answer makes sense in the context of the problem.</LearningOutcome>
+</educationalDescription>
+<rights>
+	<Paragraph/>
+</rights>
+<classificationKeywords><keyword>Mathematics and Statistics</keyword><keyword>significant_figures</keyword><keyword>whole_numbers</keyword><keyword>decimals</keyword></classificationKeywords>
+<date>2008-03-03</date>
+<version>1.0</version>
+<prerequisites/>
+<level>introductory</level>
+<time>5</time>
+<relations>
+<relation>
+	<url>http://www3.open.ac.uk/courses/bin/p12.dll?C01MU120</url>
+    <urltitle>An OU course on this topic</urltitle>
+    <urlgroup>OU Links</urlgroup>
+</relation>
+<relation>
+    <url>http://www3.open.ac.uk/courses/classifications/mathematics_and_statistics.shtm</url>
+    <urltitle>Study this topic at the OU</urltitle>
+    <urlgroup>OU Links</urlgroup>
+</relation>
+<relation>
+    <url>http://www.open2.net/sciencetechnologynature/</url>
+    <urltitle>open2.net: Science &amp; Nature</urltitle>
+    <urlgroup>OU Links</urlgroup>
+    </relation>
+</relations>
+</unit>

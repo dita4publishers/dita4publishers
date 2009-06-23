@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC001_003_001">
+   <title>Try some yourself</title>
+   <learningContentbody>
+      <section>
+            
+            <sectiondiv outputclass="Activity">
+              <sectiondiv outputclass="activity.question">
+                <p>
+                  <b>1</b> Round the numbers below:</p>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(a)</b> to the nearest 10.</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(b)</b> to the nearest 100.</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(c)</b> to the nearest 1000.</p>
+                  </li>
+                </ul>
+                <p>  325 089,  45 982,  11 985</p>
+              </sectiondiv>
+              <sectiondiv outputclass="Answer">
+                <ul>
+                  <li>
+                    <p>
+                        <b>(a)</b>   325 090,  45 980,  11 990</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(b)</b>   325 100,  46 000,  12 000</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(c) </b>  325 000,  46 000,  12 000</p>
+                  </li>
+                </ul>
+              </sectiondiv>
+            </sectiondiv>
+            <sectiondiv outputclass="Activity">
+              <sectiondiv outputclass="activity.question">
+                <p>
+                  <b>2</b> Some of the entries in the following table are incorrect. Identify the
+                  errors and write down the correct rounding.</p>
+                <table>
+                  <title/>
+                  <tgroup cols="2">
+                     <tbody>
+                        <row>
+                           <entry outputclass="th">
+                              <b/>
+                           </entry>
+                           <entry outputclass="th">
+                              <b>Rounded to nearest</b>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry outputclass="th">
+                              <b>Number</b>
+                           </entry>
+                           <entry outputclass="th">
+                              <b>10</b>
+                           </entry>
+                           <entry outputclass="th">
+                              <b>100</b>
+                           </entry>
+                           <entry outputclass="th">
+                              <b>1000</b>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>254 987</entry>
+                           <entry>254 980</entry>
+                           <entry>254 990</entry>
+                           <entry>255 087</entry>
+                        </row>
+                        <row>
+                           <entry>12 345</entry>
+                           <entry>12 350</entry>
+                           <entry>12 400</entry>
+                           <entry>12 000</entry>
+                        </row>
+                        <row>
+                           <entry>963</entry>
+                           <entry>960</entry>
+                           <entry>1 000</entry>
+                           <entry>1 060</entry>
+                        </row>
+                    </tbody>
+                  </tgroup>
+               </table>
+               <p outputclass="SourceReference">Source: </p>
+              </sectiondiv>
+              <sectiondiv outputclass="Answer">
+                
+                <p>The corrected entries are in bold.</p>
+                <table>
+                  <title/>
+                  <tgroup cols="2">
+                     <tbody>
+                        <row>
+                           <entry outputclass="th">
+                              <b/>
+                           </entry>
+                           <entry outputclass="th">
+                              <b>Rounded to nearest</b>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry outputclass="th">
+                              <b>Number</b>
+                           </entry>
+                           <entry outputclass="th">
+                              <b>10</b>
+                           </entry>
+                           <entry outputclass="th">
+                              <b>100</b>
+                           </entry>
+                           <entry outputclass="th">
+                              <b>1000</b>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>254 987</entry>
+                           <entry>
+                              <b>254 990</b>
+                           </entry>
+                           <entry>
+                              <b>255 000</b>
+                           </entry>
+                           <entry>
+                              <b>255 000</b>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>12 345</entry>
+                           <entry>12 350</entry>
+                           <entry>
+                              <b>12 300</b>
+                           </entry>
+                           <entry>12 000</entry>
+                        </row>
+                        <row>
+                           <entry>963</entry>
+                           <entry>960</entry>
+                           <entry>1 000</entry>
+                           <entry>
+                              <b>1 000</b>
+                           </entry>
+                        </row>
+                    </tbody>
+                  </tgroup>
+               </table>
+               <p outputclass="SourceReference">Source: </p>
+              </sectiondiv>
+            </sectiondiv>
+            <sectiondiv outputclass="Activity">
+              <sectiondiv outputclass="activity.question">
+                <p>
+                  <b>3</b> The population of London in 1984 was 6696 000 (to the nearest
+                  thousand). Round this to the nearest million.</p>
+              </sectiondiv>
+              <sectiondiv outputclass="Answer">
+                <p>7000 000</p>
+              </sectiondiv>
+            </sectiondiv>
+            <sectiondiv outputclass="Activity">
+              <sectiondiv outputclass="activity.question">
+                <p>
+                  <b>4</b> Suppose a friend's heart rate is 68 beats per minute. Use
+                  sensible rounding and answer these questions.</p>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(a)</b> How many heart beats per day?</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(b)</b> How many heart beats per week, month, year?</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(c)</b> How many beats per lifetime?</p>
+                  </li>
+                </ul>
+                <p>Interpret your results as if to your friend.</p>
+              </sectiondiv>
+              <sectiondiv outputclass="Answer">
+                <ul>
+                  <li>
+                    <p>
+                        <b>(a)</b> Day: 68 × 60 × 24 = 97 920, i.e. about 100 000 beats per
+                      day (rounded to the nearest hundred thousand).</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(b)</b> Week: 97 920 × 7 = 685 440, i.e. about 700 000 beats per
+                      week (rounded to the nearest hundred thousand).</p>
+                  </li>
+                  <li>
+                    <p>Month: 97 920 × 30 = 2737 600, i.e. about 3 000 000 to nearest
+                      million.</p>
+                  </li>
+                  <li>
+                    <p>Year: because the numbers now are so big it would be appropriate to
+                      use numbers that are approximations, e.g.</p>
+                  </li>
+                  <li>
+                    <p>3 million × 12 = 36 million <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 40
+                      million.</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(c)</b> Lifetime: A lifetime could last from a very short time to
+                      over a hundred years, so an assumption must be made. Supposing it to be 80
+                      years gives</p>
+                  </li>
+                  <li>
+                    <p>40 000 000 × 80 = 3 200 000 000, i.e. approximately 3
+                      billion.</p>
+                  </li>
+                  <li>
+                     <p>Your interpretation as if to your friend might be something
+                      like:</p>
+                    <ul>
+                        <li>
+                           <p>Well Chris, if your heart beats at about 70 beats per minute,
+                          this means that it beats about a hundred thousand times a day, about seven
+                          hundred thousand times a week, about three million a month and about
+                          thirty-six million a year. So if you live to be 80 you would expect your
+                          heart to beat about three billion times. No wonder we should be looking
+                          after our hearts!</p>
+                        </li>
+                     </ul>
+                  </li>
+                </ul>
+              </sectiondiv>
+            </sectiondiv>
+          </section>
+   </learningContentbody>
+</learningContent>
