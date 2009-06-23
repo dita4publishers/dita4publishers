@@ -98,7 +98,7 @@
        /><!-- Ignore for topicmeta -->
   
   <xsl:template match="FrontMatter">
-    <topichead>
+    <topichead collection-type="sequence">
       <topicmeta>
         <navtitle>Frontmatter</navtitle>
       </topicmeta>
@@ -107,7 +107,7 @@
   </xsl:template>
   
   <xsl:template match="BackMatter">
-    <topichead>
+    <topichead collection-type="sequence">
       <topicmeta>
         <navtitle>Backmatter</navtitle>
       </topicmeta>
@@ -116,7 +116,7 @@
   </xsl:template>
   
   <xsl:template match="Unit">
-    <topicref keys="{string(UnitID)}">
+    <topicref keys="{string(UnitID)}" collection-type="sequence">
       <topicmeta>
         <navtitle><xsl:apply-templates select="UnitTitle" mode="topicmeta"/></navtitle>
         <xsl:apply-templates mode="topicmeta" select="ByLine"/>
@@ -131,7 +131,7 @@
   
   <xsl:template match="Session" mode="topicrefs">
     <xsl:variable name="topicUrl" select="local:getTopicUrl(.)"/>
-    <topicref href="{$topicUrl}">
+    <topicref href="{$topicUrl}" collection-type="sequence">
       <topicmeta>
         <xsl:apply-templates mode="topicmeta" select="Title"/>
       </topicmeta>
@@ -149,7 +149,7 @@
   
   <xsl:template match="Section" mode="topicrefs">
     <xsl:variable name="topicUrl" select="local:getTopicUrl(.)"/>
-    <topicref href="{$topicUrl}">
+    <topicref href="{$topicUrl}"  collection-type="sequence">
       <topicmeta>
         <xsl:apply-templates mode="topicmeta" select="Title"/>
       </topicmeta>
@@ -169,14 +169,19 @@
   
   <xsl:template match="SubSection" mode="topicrefs">
     <xsl:variable name="topicUrl" select="local:getTopicUrl(.)"/>
-    <topicref href="{$topicUrl}">
+    <topicref href="{$topicUrl}" collection-type="sequence">
       <topicmeta>
         <xsl:apply-templates mode="topicmeta" select="Title"/>
       </topicmeta>
       <xsl:apply-templates mode="topicrefs" select="SubSubSection"/>
     </topicref>    
+    <xsl:variable name="idValue" as="xs:string"
+      select="if (@id)
+        then string(@id)
+        else generate-id(.)"
+    />
     <xsl:result-document href="{$topicUrl}" format="learningContent">
-      <learningContent id="{@id}">
+      <learningContent id="{$idValue}">
         <xsl:apply-templates select="Title" mode="topictitle"/>
         <learningContentbody>
           <section>
@@ -189,13 +194,18 @@
   
   <xsl:template match="SubSubSection" mode="topicrefs">
     <xsl:variable name="topicUrl" select="local:getTopicUrl(.)"/>
-    <topicref href="{$topicUrl}">
+    <topicref href="{$topicUrl}" collection-type="sequence">
       <topicmeta>
         <xsl:apply-templates mode="topicmeta" select="Heading[1]"/>
       </topicmeta>
     </topicref>    
+    <xsl:variable name="idValue" as="xs:string"
+      select="if (@id)
+      then string(@id)
+      else generate-id(.)"
+    />
     <xsl:result-document href="{$topicUrl}" format="learningContent">
-      <learningContent id="{@id}">
+      <learningContent id="{$idValue}">
         <xsl:apply-templates select="Heading[1]" mode="topictitle"/>
         <learningContentbody>
           <section>
@@ -208,7 +218,7 @@
   
   <xsl:template match="Imprint" mode="topicrefs">
     <xsl:variable name="topicUrl" select="local:getTopicUrl(.)"/>
-    <topicref href="{$topicUrl}">
+    <topicref href="{$topicUrl}" collection-type="sequence">
     </topicref>    
     <xsl:result-document href="{$topicUrl}" format="topic">
       <topic id="imprint">
@@ -222,7 +232,7 @@
   
   <xsl:template match="Introduction" mode="topicrefs">
     <xsl:variable name="topicUrl" select="local:getTopicUrl(.)"/>
-    <topicref href="{$topicUrl}">
+    <topicref href="{$topicUrl}" collection-type="sequence">
     </topicref>    
     <xsl:result-document href="{$topicUrl}" format="topic">
       <topic id="introduction">
@@ -236,7 +246,7 @@
   
   <xsl:template match="LearningOutcomes" mode="topicrefs">
     <xsl:variable name="topicUrl" select="local:getTopicUrl(.)"/>
-    <topicref href="{$topicUrl}">
+    <topicref href="{$topicUrl}" collection-type="sequence">
     </topicref>    
     <xsl:result-document href="{$topicUrl}" format="learningContent">
       <learningContent id="learningOutcomes">
@@ -255,7 +265,7 @@
   
   <xsl:template match="Acknowledgements" mode="topicrefs">
     <xsl:variable name="topicUrl" select="local:getTopicUrl(.)"/>
-    <topicref href="{$topicUrl}">
+    <topicref href="{$topicUrl}" collection-type="sequence">
     </topicref>    
     <xsl:result-document href="{$topicUrl}" format="topic">
       <topic id="acknowledgements">
@@ -285,7 +295,7 @@
   
   <xsl:template match="Preface" mode="topicrefs">
     <xsl:variable name="topicUrl" select="local:getTopicUrl(.)"/>
-    <topicref href="{$topicUrl}">
+    <topicref href="{$topicUrl}" collection-type="sequence">
     </topicref>    
     <xsl:result-document href="{$topicUrl}" format="topic">
       <topic id="preface">
@@ -314,6 +324,22 @@
          <xsl:apply-templates/>
        </lines>
      </section> 
+  </xsl:template>
+  
+  <xsl:template match="Verse">
+    <xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="Example">
+    <sectiondiv outputclass="Example">
+      <xsl:apply-templates/>
+    </sectiondiv>
+  </xsl:template>
+  
+  <xsl:template match="Answer">
+    <sectiondiv outputclass="Answer">
+      <xsl:apply-templates/>
+    </sectiondiv>
   </xsl:template>
   
   <xsl:template match="AddressLine">
@@ -361,19 +387,19 @@
     </fig>
   </xsl:template>
   
-  <xsl:template match="NumberedList">
+  <xsl:template match="NumberedList | NumberedSubsidiaryList">
     <ol>
       <xsl:apply-templates/>
     </ol>
   </xsl:template>
   
-  <xsl:template match="BulletedList">
+  <xsl:template match="BulletedList | UnNumberedList | UnNumberedSubsidiaryList | BulletedSubsidiaryList">
     <ul>
       <xsl:apply-templates/>
     </ul>
   </xsl:template>
   
-  <xsl:template match="ListItem">
+  <xsl:template match="ListItem | SubListItem">
     <li><xsl:apply-templates/></li>
   </xsl:template>
   
@@ -494,7 +520,7 @@
     </image>
   </xsl:template>
   
-  <xsl:template match="i | b | sub | sup">
+  <xsl:template match="i | b | sub | sup | u">
     <xsl:element name="{name(.)}"><xsl:apply-templates/></xsl:element>
   </xsl:template>
   
@@ -542,19 +568,26 @@
            then string($context/@id)
            else string($context/ancestor::Session/@id), 
         '/')"
-      />
+    />
+    <xsl:variable name="idValue" as="xs:string"
+      select="
+        if ($context/@id) 
+           then string($context/@id)
+           else generate-id($context)
+      "
+    />
     <xsl:choose>
       <xsl:when test="$context/self::Session">
-        <xsl:sequence select="concat($sessionDir,  'session_', string($context/@id), '.xml')"/>
+        <xsl:sequence select="concat($sessionDir,  'session_', $idValue, '.xml')"/>
       </xsl:when>
       <xsl:when test="$context/self::Section">
-        <xsl:sequence select="concat($sessionDir, string($context/@id), '/', 'section_', string($context/@id), '.xml')"/>        
+        <xsl:sequence select="concat($sessionDir, $idValue, '/', 'section_', $idValue, '.xml')"/>        
       </xsl:when>
       <xsl:when test="$context/self::SubSection">
-        <xsl:sequence select="concat($sessionDir, string($context/ancestor::Section/@id), '/', 'subsection_', string($context/@id), '.xml')"/>        
+        <xsl:sequence select="concat($sessionDir, string($context/ancestor::Section/@id), '/', 'subsection_', $idValue, '.xml')"/>        
       </xsl:when>
       <xsl:when test="$context/self::SubSubSection">
-        <xsl:sequence select="concat($sessionDir, string($context/ancestor::Section/@id), '/', 'subsubsection_', string($context/@id), '.xml')"/>        
+        <xsl:sequence select="concat($sessionDir, string($context/ancestor::Section/@id), '/', 'subsubsection_', $idValue, '.xml')"/>        
       </xsl:when>
       <xsl:when test="$context/self::Imprint">
         <xsl:sequence select="concat('frontmatter', '/', 'topic_', 'imprint', '.xml')"/>        
