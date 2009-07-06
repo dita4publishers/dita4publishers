@@ -101,28 +101,6 @@
       useContent="elementsOnly"
     />
     
-    <style styleId="FeatureType"
-      structureType="prologData"
-      tagName="data"
-      baseClass=" topic/data "
-      containingTopic="root"
-      topicZone="prolog"
-      putValueIn="valueAtt"
-      dataName="feature"
-    />
-    
-    <style styleId="InterviewSubject"
-      structureType="prologData"
-      tagName="data"
-      baseClass=" topic/data "
-      containingTopic="root"
-      topicZone="prolog"
-      useContent="textOnly"
-      putValueIn="valueAtt"
-      dataName="interview-subject"
-    />
-    
-    
     <style styleId="sidebar"
       structureType="skip"
     />
@@ -148,36 +126,6 @@
     <style styleId="italic"
       structureType="ph"
       tagName="i"
-      topicZone="inline"
-    />
-    
-    <style styleId="authorName"
-      structureType="ph"
-      tagName="author-name"
-      topicZone="inline"
-    />
-    
-    <style styleId="authorTitle"
-      structureType="ph"
-      tagName="author-title"
-      topicZone="inline"
-    />
-    
-    <style styleId="authorDesc"
-      structureType="ph"
-      tagName="author-desc"
-      topicZone="inline"
-    />
-    
-    <style styleId="authorAffiliation"
-      structureType="ph"
-      tagName="author-affiliation"
-      topicZone="inline"
-    />
-    
-    <style styleId="authorEmail"
-      structureType="ph"
-      tagName="author-email"
       topicZone="inline"
     />
     
