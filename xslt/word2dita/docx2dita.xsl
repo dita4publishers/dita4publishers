@@ -215,12 +215,39 @@
              it can also be the map title. If it's the map title, generate it.
           -->
         <xsl:if test="local:isMapTitle($firstP)">
-          <xsl:element name="{prologType}">
-            <xsl:apply-templates select="$firstP"/>
+          <xsl:apply-templates select="$firstP"/>
+        </xsl:if>
+        <xsl:if test="$content[@mapZone = 'topicmeta' and (@level = $level or not(@level))]">
+          <!-- Now process any map-level topic metadata paragraphs. -->
+          <xsl:element name="{$prologType}">
+            <xsl:apply-templates select="$content[@mapZone = 'topicmeta' and (@level = $level or not(@level))]"/>
           </xsl:element>
         </xsl:if>
-        <!-- In either case, the first paragraph has been consumed at this point. -->
-        <xsl:apply-templates select="$content[position() > 1]"/>
+        <xsl:for-each-group select="$content[position() > 1]" 
+          group-starting-with="*[(@structureType = 'topicTitle' or @structureType = 'map' or @structureType = 'mapTitle') and
+                                 @level = string($nextLevel)]">
+          <xsl:choose>
+            <xsl:when test="@structureType = 'topicTitle'">
+              <xsl:call-template name="makeTopic">
+                <xsl:with-param name="content" select="current-group()"/>
+                <xsl:with-param name="level" select="$nextLevel"/>
+              </xsl:call-template>
+            </xsl:when>
+            <xsl:when test="@structureType = 'map' or @structureType = 'mapTitle'">
+              <xsl:call-template name="makeMap">
+                <xsl:with-param name="content" select="current-group()"/>
+                <xsl:with-param name="level" select="$nextLevel"/>
+              </xsl:call-template>
+            </xsl:when>
+            <xsl:when test="current-group()[position() = 1]">
+              <!-- Ignore this stuff since it should be map metadata or ignorable stuff -->
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:message> + [WARNING] Shouldn't be here, first para=<xsl:sequence select="current-group()[1]"/></xsl:message>
+            </xsl:otherwise>
+          </xsl:choose>
+          
+        </xsl:for-each-group>
       </xsl:element>
     </xsl:result-document>
   </xsl:template>
@@ -313,11 +340,8 @@
     </xsl:element>      
     </xsl:variable>
     
-    <xsl:message> + [INFO] Debug topic content processed, makeDoc="<xsl:sequence select="$makeDoc"/>result=<xsl:sequence select="$resultTopic"/></xsl:message>
     <xsl:choose>
       <xsl:when test="$makeDoc">
-        <xsl:sequence select="local:debugMessage('$makeDoc is true')"/>
-        
         <xsl:variable name="topicUrl"
            as="xs:string"
            select="local:getResultUrlForTopic($firstP)"
@@ -344,7 +368,7 @@
             <xsl:attribute name="chunk" select="$firstP/@chunk"/>
           </xsl:if>
         </xsl:element>
-        <xsl:result-document href="local:getResultUrlForTopic($firstP)"
+        <xsl:result-document href="{local:getResultUrlForTopic($firstP)}"
           doctype-public="{$format/@doctype-public}"
           doctype-system="{$format/@doctype-system}"
           >
