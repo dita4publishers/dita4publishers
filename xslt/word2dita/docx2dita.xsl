@@ -5,8 +5,9 @@
       
       xmlns:rsiwp="http://reallysi.com/namespaces/generic-wordprocessing-xml"
       xmlns:stylemap="http://reallysi.com/namespaces/style-to-tag-map"
+      xmlns:relpath="http://dita2indesign/functions/relpath"
       
-      exclude-result-prefixes="xs rsiwp stylemap local"
+      exclude-result-prefixes="xs rsiwp stylemap local relpath"
       version="2.0">
 
   <!--==========================================
@@ -28,14 +29,14 @@
     
     =========================================== -->
   
+  <xsl:import href="../lib/relpath_util.xsl"/>
+  
   <xsl:include href="wordml2simple.xsl"/>
   
+  <xsl:param name="outputDir" as="xs:string"/>
+  <xsl:param name="rootMapUrl" select="'rootMap.ditamap'" as="xs:string"/>
   
   
-  <xsl:output 
-    doctype-public="urn:pubid:astd.com/doctypes/dita/article"
-    doctype-system="article.dtd"
-  />
   
   <xsl:template match="/" priority="10">
     <xsl:variable name="simpleWpDoc" as="element()">
@@ -48,16 +49,28 @@
     <!-- First <p> in doc should be title for the root topic. If it's not, bail -->  
     <xsl:variable name="firstP" select="rsiwp:body/(rsiwp:p|rsiwp:table)[1]" as="element()?"/>
 <!--    <xsl:message> + [DEBUG] firstP=<xsl:sequence select="$firstP"/></xsl:message>-->
-    <xsl:if test="$firstP and not(local:isRootTopicTitle($firstP))">
+    <xsl:if test="$firstP and not(local:isRootTopicTitle($firstP)) and not(local:isMap($firstP))">
       <xsl:message terminate="yes"> + [ERROR] The first block in the Word document must be mapped to the root topic title.
-        First para is style <xsl:sequence select="$firstP/@style"/>, mapped as <xsl:sequence 
+        First para is style <xsl:sequence select="string($firstP/@style)"/>, mapped as <xsl:sequence 
           select="key('styleMaps', string($firstP/@style), $styleMapDoc)[1]"/> 
       </xsl:message>
     </xsl:if>
-    <xsl:call-template name="makeTopic">
-      <xsl:with-param name="content" select="rsiwp:body/(rsiwp:p|rsiwp:table)"/>
-      <xsl:with-param name="level" select="0"/>
-    </xsl:call-template>
+    <xsl:choose>
+      <xsl:when test="local:isRootTopicTitle($firstP)">
+        <xsl:call-template name="makeTopic">
+          <xsl:with-param name="content" select="rsiwp:body/(rsiwp:p|rsiwp:table)"/>
+          <xsl:with-param name="level" select="0"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:when test="local:isMap($firstP)">
+        <xsl:call-template name="makeMap">
+          <xsl:with-param name="content" select="rsiwp:body/(rsiwp:p|rsiwp:table)"/>
+          <xsl:with-param name="level" select="0"/>
+          <xsl:with-param name="mapUrl" select="$rootMapUrl" as="xs:string"/>
+        </xsl:call-template>
+      </xsl:when>
+    </xsl:choose>
+    
   </xsl:template>
   
   <xsl:template match="rsiwp:p[@structureType = 'skip']" priority="10"/>
@@ -160,12 +173,66 @@
     <xsl:copy/>
   </xsl:template>
   
+  <xsl:template name="makeMap">
+    <xsl:param name="content" as="element()+"/>
+    <xsl:param name="level" as="xs:double"/><!-- Level of this topic -->
+    <xsl:param name="mapUrl" as="xs:string" select="concat('map_', generate-id($content/*[1]), '.ditamap')"/>
+    
+    <xsl:variable name="firstP" select="$content[1]"/>
+    <xsl:variable name="nextLevel" select="$level + 1" as="xs:double"/>
+    
+    <xsl:variable name="formatName" select="$firstP/@mapType" as="xs:string?"/>
+    <xsl:if test="not($formatName)">
+      <xsl:message terminate="yes"> + [ERROR] No mapType= attribute for paragraph style <xsl:sequence select="string($firstP/@styleId)"/>, which is mapped to structure type "map".</xsl:message>
+    </xsl:if>
+    
+    <xsl:variable name="format" select="key('formats', $formatName, $styleMapDoc)[1]"/>
+    <xsl:if test="not($format)">
+      <xsl:message terminate="yes"> + [ERROR] Failed to find output element with name "<xsl:sequence select="$formatName"/> specified for style <xsl:sequence select="string($firstP/@styleId)"/>.</xsl:message>
+    </xsl:if>
+    
+    <xsl:variable name="prologType" as="xs:string"
+      select="
+      if ($firstP/@prologType and $firstP/@prologType != '')
+      then $firstP/@prologType
+      else 'topicmeta'
+      "
+    />
+    
+    <xsl:variable name="resultUrl" as="xs:string"
+      select="relpath:newFile($outputDir, $mapUrl)"
+    />
+    
+    <xsl:message> + [INFO] Creating new map document "<xsl:sequence select="$resultUrl"/>"...</xsl:message>
+    
+    
+    <xsl:result-document href="{$resultUrl}"
+       doctype-public="{$format/@doctype-public}"
+       doctype-system="{$format/@doctype-system}"
+      >
+      <xsl:element name="{$firstP/@tagName}">
+        <!-- The first paragraph can simply trigger a (possibly) untitled map, or
+             it can also be the map title. If it's the map title, generate it.
+          -->
+        <xsl:if test="local:isMapTitle($firstP)">
+          <xsl:element name="{prologType}">
+            <xsl:apply-templates select="$firstP"/>
+          </xsl:element>
+        </xsl:if>
+        <!-- In either case, the first paragraph has been consumed at this point. -->
+        <xsl:apply-templates select="$content[position() > 1]"/>
+      </xsl:element>
+    </xsl:result-document>
+  </xsl:template>
+  
   <xsl:template name="makeTopic">
     <xsl:param name="content" as="element()+"/>
     <xsl:param name="level" as="xs:double"/><!-- Level of this topic -->
     
     <xsl:variable name="firstP" select="$content[1]"/>
     <xsl:variable name="nextLevel" select="$level + 1" as="xs:double"/>
+    
+    <xsl:variable name="makeDoc" select="$firstP/@topicDoc = 'yes'" as="xs:boolean"/>
     
     <xsl:variable name="bodyType" as="xs:string"
       select="
@@ -183,6 +250,7 @@
       "
     />
     
+    <xsl:variable name="resultTopic">
     <xsl:element name="{local:getTopicType($firstP)}">
       <xsl:attribute name="id" select="generate-id($firstP)"/>
       <xsl:variable name="titleTagName" as="xs:string"
@@ -242,7 +310,53 @@
           </xsl:otherwise>
         </xsl:choose>        
       </xsl:for-each-group>
-    </xsl:element>
+    </xsl:element>      
+    </xsl:variable>
+    
+    <xsl:message> + [INFO] Debug topic content processed, makeDoc="<xsl:sequence select="$makeDoc"/>result=<xsl:sequence select="$resultTopic"/></xsl:message>
+    <xsl:choose>
+      <xsl:when test="$makeDoc">
+        <xsl:sequence select="local:debugMessage('$makeDoc is true')"/>
+        
+        <xsl:variable name="topicUrl"
+           as="xs:string"
+           select="local:getResultUrlForTopic($firstP)"
+        />
+        
+        <xsl:variable name="resultUrl" as="xs:string"
+            select="relpath:newFile($outputDir,$topicUrl)"
+        />
+        
+        <xsl:message> + [INFO] Creating new topic document "<xsl:sequence select="$resultUrl"/>"...</xsl:message>
+        
+        <xsl:variable name="formatName" select="$firstP/@topicType" as="xs:string?"/>
+        <xsl:if test="not($formatName)">
+          <xsl:message terminate="yes"> + [ERROR] No topicType= attribute for paragraph style <xsl:sequence select="string($firstP/@styleId)"/>, when topicDoc="yes".</xsl:message>
+        </xsl:if>
+        
+        <xsl:variable name="format" select="key('formats', $formatName, $styleMapDoc)[1]"/>
+        <xsl:if test="not($format)">
+          <xsl:message terminate="yes"> + [ERROR] Failed to find output element with name "<xsl:sequence select="$formatName"/> specified for style <xsl:sequence select="string($firstP/@styleId)"/>.</xsl:message>
+        </xsl:if>
+        <xsl:element name="{$firstP/@topicrefType}">
+          <xsl:attribute name="href" select="$topicUrl"/>
+          <xsl:if test="$firstP/@chunk">
+            <xsl:attribute name="chunk" select="$firstP/@chunk"/>
+          </xsl:if>
+        </xsl:element>
+        <xsl:result-document href="local:getResultUrlForTopic($firstP)"
+          doctype-public="{$format/@doctype-public}"
+          doctype-system="{$format/@doctype-system}"
+          >
+          <xsl:sequence select="$resultTopic"/>
+        </xsl:result-document>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="$resultTopic"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    
+    
   </xsl:template>
   
   <xsl:template name="handleBodyParas">
@@ -376,6 +490,79 @@
     </art>
   </xsl:template>
   
+  <xsl:function name="local:isMap" as="xs:boolean">
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="styleName" as="xs:string"
+      select="$context/@style"
+    />
+    <xsl:choose>
+      <xsl:when test="$styleName = '' or $styleName = '[None]'">
+        <xsl:sequence select="false()"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="styleMap" as="element()?"
+          select="key('styleMaps', $styleName, $styleMapDoc)[1]"
+        />
+        <xsl:sequence
+          select="
+          if ($styleMap)
+          then ($styleMap/@structureType = 'map' or
+                $styleMap/@structureType = 'mapTitle')
+          else false()
+          "
+        />
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
+  
+  <xsl:function name="local:isMapRoot" as="xs:boolean">
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="styleName" as="xs:string"
+      select="$context/@style"
+    />
+    <xsl:choose>
+      <xsl:when test="$styleName = '' or $styleName = '[None]'">
+        <xsl:sequence select="false()"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="styleMap" as="element()?"
+          select="key('styleMaps', $styleName, $styleMapDoc)[1]"
+        />
+        <xsl:sequence
+          select="
+          if ($styleMap)
+          then $styleMap/@structureType = 'map'
+          else false()
+          "
+        />
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
+  
+  <xsl:function name="local:isMapTitle" as="xs:boolean">
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="styleName" as="xs:string"
+      select="$context/@style"
+    />
+    <xsl:choose>
+      <xsl:when test="$styleName = '' or $styleName = '[None]'">
+        <xsl:sequence select="false()"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="styleMap" as="element()?"
+          select="key('styleMaps', $styleName, $styleMapDoc)[1]"
+        />
+        <xsl:sequence
+          select="
+          if ($styleMap)
+          then $styleMap/@structureType = 'mapTitle'
+          else false()
+          "
+        />
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
+  
   <xsl:function name="local:isRootTopicTitle" as="xs:boolean">
     <xsl:param name="context" as="element()"/>
     <xsl:variable name="styleName" as="xs:string"
@@ -392,7 +579,7 @@
         <xsl:sequence
           select="
           if ($styleMap)
-          then $styleMap/@level = '0'
+          then (($styleMap/@level = '0') and ($styleMap/@structureType = 'topicTitle'))
           else false()
           "
         />
@@ -449,6 +636,49 @@
     </xsl:choose>
     
   </xsl:function>
+
+  <xsl:function name="local:getMapType" as="xs:string">
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="styleId" as="xs:string"
+      select="$context/@style"
+    />
+    <xsl:choose>
+      <xsl:when test="$styleId = '' or $styleId = '[None]'">
+        <xsl:sequence select="'unknown-map-type'"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="styleMap" as="element()"
+          select="key('styleMaps', $styleId, $styleMapDoc)[1]"
+        />
+        <xsl:sequence
+          select="
+          if ($styleMap and $styleMap/@mapType)
+          then string($styleMap/@mapType)
+          else 'unknown-map-type'
+          "
+        />
+      </xsl:otherwise>
+    </xsl:choose>
+    
+  </xsl:function>
+  
+  <xsl:function name="local:getResultUrlForTopic" as="xs:string">
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="result" as="xs:string">
+      <xsl:apply-templates mode="topic-url" select="$context"/>
+    </xsl:variable>
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+
+  <xsl:template match="rsiwp:p" mode="topic-url">
+    <xsl:sequence select="concat('topics/topic_', generate-id(.), '.dita')"/>
+  </xsl:template>
+  
+  
+  <xsl:template match="rsiwp:*" mode="topic-url">
+    <xsl:message> + [WARNING] Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/> in mode 'topic-url'</xsl:message>
+    <xsl:sequence select="concat('topics/topic_', generate-id(.), '.dita')"/>
+  </xsl:template>
   
   <xsl:function name="local:debugMessage">
     <xsl:param name="msg" as="xs:string"/>

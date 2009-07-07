@@ -43,6 +43,7 @@
   
   <xsl:param name="styleMapUri" as="xs:string"/>
   
+  <xsl:key name="formats" match="stylemap:output" use="@name"/>
   <xsl:key name="styleMaps" match="stylemap:style" use="@styleId"/>
   <xsl:key name="relsById" match="rels:Relationship" use="@Id"/>
   
@@ -251,7 +252,6 @@
   </xsl:template>
 
   <xsl:template match="w:tbl">
-    <xsl:message> + [DEBUG] w:tbl: Starting...</xsl:message>
     <xsl:variable name="styleData" as="element()">
       <stylemap:style styleId="table"
         structureType="block"
@@ -340,7 +340,9 @@
                        w:tblW |
                        w:tblBorders |
                        w:tblLook |
-                       w:tblGrid
+                       w:tblGrid |
+                       w:lastRenderedPageBreak |
+                       w:fldChar
                        "
   />
   
