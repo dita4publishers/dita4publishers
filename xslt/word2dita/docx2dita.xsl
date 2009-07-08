@@ -86,9 +86,17 @@
     <xsl:if test="not(./@tagName)">
       <xsl:message> + [WARNING] No style to tag mapping for paragraph style "<xsl:sequence select="string(@style)"/>"</xsl:message>
     </xsl:if>
-    <xsl:element name="{$tagName}">
-      <xsl:call-template name="transformParaContent"/>    
-    </xsl:element>
+    <xsl:choose>
+      <xsl:when test="count(./*) = 0 and normalize-space(.) = ''">
+<!--        <xsl:message> + [DEBUG] Skipping apparently-empty paragraph: <xsl:sequence select="local:reportPara(.)"/></xsl:message>-->
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:element name="{$tagName}">
+          <xsl:call-template name="transformParaContent"/>    
+        </xsl:element>
+      </xsl:otherwise>
+    </xsl:choose>
+    
   </xsl:template>
   
   <xsl:template name="transformParaContent">
@@ -207,13 +215,13 @@
     
     
     <xsl:result-document href="{$resultUrl}"
-       doctype-public="{$format/@doctype-public}"
-       doctype-system="{$format/@doctype-system}"
+      doctype-public="{$format/@doctype-public}"
+      doctype-system="{$format/@doctype-system}"
       >
       <xsl:element name="{$firstP/@tagName}">
         <!-- The first paragraph can simply trigger a (possibly) untitled map, or
-             it can also be the map title. If it's the map title, generate it.
-          -->
+          it can also be the map title. If it's the map title, generate it.
+        -->
         <xsl:if test="local:isMapTitle($firstP)">
           <xsl:apply-templates select="$firstP"/>
         </xsl:if>
@@ -225,7 +233,7 @@
         </xsl:if>
         <xsl:for-each-group select="$content[position() > 1]" 
           group-starting-with="*[(@structureType = 'topicTitle' or @structureType = 'map' or @structureType = 'mapTitle') and
-                                 @level = string($nextLevel)]">
+          @level = string($nextLevel)]">
           <xsl:choose>
             <xsl:when test="@structureType = 'topicTitle'">
               <xsl:call-template name="makeTopic">
@@ -257,91 +265,9 @@
     <xsl:param name="level" as="xs:double"/><!-- Level of this topic -->
     
     <xsl:variable name="firstP" select="$content[1]"/>
-    <xsl:variable name="nextLevel" select="$level + 1" as="xs:double"/>
     
     <xsl:variable name="makeDoc" select="$firstP/@topicDoc = 'yes'" as="xs:boolean"/>
     
-    <xsl:variable name="bodyType" as="xs:string"
-      select="
-      if ($firstP/@bodyType)
-      then $firstP/@bodyType
-      else 'body'
-      "
-    />
-    
-    <xsl:variable name="prologType" as="xs:string"
-      select="
-      if ($firstP/@prologType and $firstP/@prologType != '')
-      then $firstP/@prologType
-      else 'prolog'
-      "
-    />
-    
-    <xsl:variable name="initialSectionType" as="xs:string" select="string(@initialSectionType)"/>
-    
-    <xsl:variable name="resultTopic">
-    <xsl:element name="{local:getTopicType($firstP)}">
-      <xsl:attribute name="id" select="generate-id($firstP)"/>
-      <xsl:variable name="titleTagName" as="xs:string"
-        select="if ($firstP/@tagName)
-        then $firstP/@tagName
-        else 'title'
-        "
-      />
-      <xsl:apply-templates select="$firstP"/>
-      <xsl:for-each-group select="$content[position() > 1]" 
-        group-starting-with="*[@structureType = 'topicTitle' and @level = string($nextLevel)]">
-        <xsl:choose>
-          <xsl:when test="current-group()[position() = 1] and current-group()[1][@structureType != 'topicTitle']">
-            <!-- Prolog and body elements for the topic -->
-            <!-- NOTE: can't process title itself here because we're using title elements to define
-                 topic boundaries.
-              -->
-            <xsl:apply-templates select="current-group()[@topicZone = 'titleAlts']"/>        
-            <xsl:apply-templates select="current-group()[@topicZone = 'shortdesc']"/>             
-            <xsl:if test="current-group()[@topicZone = 'prolog' or $level = 0]">
-              <xsl:choose>
-                <xsl:when test="$level = 0">
-                  <xsl:element name="{$prologType}">
-                    <!-- For root topic, can pull metadata from anywhere in the incoming document. -->
-                    <xsl:apply-templates select="root($firstP)//*[@containingTopic = 'root' and 
-                                                                  @topicZone = 'prolog' and 
-                                                                  contains(@baseClass, ' topic/author ')]"/>                        
-                    <xsl:apply-templates select="root($firstP)//*[@containingTopic = 'root' and 
-                                                                  @topicZone = 'prolog' and 
-                                                                  contains(@baseClass, ' topic/data ')
-                                                                  ]"/>                        
-                  </xsl:element>                  
-                </xsl:when>
-                <xsl:when test="current-group()[@topicZone = 'prolog' and @containingTopic != 'root']">
-                  <xsl:element name="{$prologType}">
-                    <xsl:apply-templates select="//*[@containingTopic = 'root' and @topicZone = 'prolog']"/>
-                  </xsl:element>
-                </xsl:when>
-                <xsl:otherwise/><!-- Must be only root-level prolog elements in this non-root topic context -->
-              </xsl:choose>
-            </xsl:if>
-            <xsl:if test="current-group()[@topicZone = 'body']">
-              <xsl:message> + [DEBUG] current group is topicZone body</xsl:message>
-              <xsl:element name="{$bodyType}">
-                <xsl:call-template name="handleSectionParas">
-                  <xsl:with-param name="sectionParas" select="current-group()[@topicZone = 'body']" as="element()*"/>
-                  <xsl:with-param name="initialSectionType" select="$initialSectionType" as="xs:string"/>
-                </xsl:call-template>
-              </xsl:element>                  
-            </xsl:if>
-          </xsl:when>
-          <xsl:otherwise>
-<!--            <xsl:message> + [DEBUG] makeTopic(): Calling makeTopic...</xsl:message>-->
-            <xsl:call-template name="makeTopic">
-              <xsl:with-param name="content" select="current-group()"/>
-              <xsl:with-param name="level" select="$level + 1"/>
-            </xsl:call-template>
-          </xsl:otherwise>
-        </xsl:choose>        
-      </xsl:for-each-group>
-    </xsl:element>      
-    </xsl:variable>
     
     <xsl:choose>
       <xsl:when test="$makeDoc">
@@ -365,25 +291,114 @@
         <xsl:if test="not($format)">
           <xsl:message terminate="yes"> + [ERROR] Failed to find output element with name "<xsl:sequence select="$formatName"/> specified for style <xsl:sequence select="string($firstP/@styleId)"/>.</xsl:message>
         </xsl:if>
-        <xsl:element name="{$firstP/@topicrefType}">
-          <xsl:attribute name="href" select="$topicUrl"/>
-          <xsl:if test="$firstP/@chunk">
-            <xsl:attribute name="chunk" select="$firstP/@chunk"/>
-          </xsl:if>
-        </xsl:element>
         <xsl:result-document href="{local:getResultUrlForTopic($firstP)}"
           doctype-public="{$format/@doctype-public}"
           doctype-system="{$format/@doctype-system}"
           >
-          <xsl:sequence select="$resultTopic"/>
+          <xsl:call-template name="constructTopic">
+            <xsl:with-param name="content" select="$content"/>
+            <xsl:with-param name="level" select="$level"/>
+          </xsl:call-template>
         </xsl:result-document>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:sequence select="$resultTopic"/>
+        <xsl:call-template name="constructTopic">
+          <xsl:with-param name="content" select="$content"/>
+          <xsl:with-param name="level" select="$level"/>
+        </xsl:call-template>
       </xsl:otherwise>
     </xsl:choose>
+  </xsl:template>
+
+  <!-- Constructs the topic itself -->
+  <xsl:template name="constructTopic">
+    <xsl:param name="content"/>
+    <xsl:param name="level"/>
+    
+    <xsl:variable name="initialSectionType" as="xs:string" select="string(@initialSectionType)"/>
+    <xsl:variable name="firstP" select="$content[1]"/>
+    <xsl:variable name="nextLevel" select="$level + 1" as="xs:double"/>
+    
+    <xsl:variable name="bodyType" as="xs:string"
+      select="
+      if ($firstP/@bodyType)
+      then $firstP/@bodyType
+      else 'body'
+      "
+    />
+    
+    <xsl:variable name="prologType" as="xs:string"
+      select="
+      if ($firstP/@prologType and $firstP/@prologType != '')
+      then $firstP/@prologType
+      else 'prolog'
+      "
+    />
     
     
+    <xsl:variable name="nextLevel" select="$level + 1" as="xs:double"/>
+    
+    <xsl:element name="{local:getTopicType($firstP)}">
+      <xsl:attribute name="id" select="generate-id($firstP)"/>
+      <xsl:variable name="titleTagName" as="xs:string"
+        select="if ($firstP/@tagName)
+        then $firstP/@tagName
+        else 'title'
+        "
+      />
+      <xsl:apply-templates select="$firstP"/>
+      <xsl:for-each-group select="$content[position() > 1]" 
+        group-starting-with="*[@structureType = 'topicTitle' and @level = string($nextLevel)]">
+        <xsl:choose>
+          <xsl:when test="current-group()[position() = 1] and current-group()[1][@structureType != 'topicTitle']">
+            <!-- Prolog and body elements for the topic -->
+            <!-- NOTE: can't process title itself here because we're using title elements to define
+              topic boundaries.
+            -->
+            <xsl:apply-templates select="current-group()[@topicZone = 'titleAlts']"/>        
+            <xsl:apply-templates select="current-group()[@topicZone = 'shortdesc']"/>             
+            <xsl:if test="current-group()[@topicZone = 'prolog' or $level = 0]">
+              <xsl:choose>
+                <xsl:when test="$level = 0">
+                  <xsl:element name="{$prologType}">
+                    <!-- For root topic, can pull metadata from anywhere in the incoming document. -->
+                    <xsl:apply-templates select="root($firstP)//*[@containingTopic = 'root' and 
+                      @topicZone = 'prolog' and 
+                      contains(@baseClass, ' topic/author ')]"/>                        
+                    <xsl:apply-templates select="root($firstP)//*[@containingTopic = 'root' and 
+                      @topicZone = 'prolog' and 
+                      contains(@baseClass, ' topic/data ')
+                      ]"/>                        
+                  </xsl:element>                  
+                </xsl:when>
+                <xsl:when test="current-group()[@topicZone = 'prolog' and @containingTopic != 'root']">
+                  <xsl:element name="{$prologType}">
+                    <xsl:apply-templates select="//*[@containingTopic = 'root' and @topicZone = 'prolog']"/>
+                  </xsl:element>
+                </xsl:when>
+                <xsl:otherwise/><!-- Must be only root-level prolog elements in this non-root topic context -->
+              </xsl:choose>
+            </xsl:if>
+            <xsl:if test="current-group()[@topicZone = 'body']">
+              <xsl:message> + [DEBUG] current group is topicZone body</xsl:message>
+              <xsl:element name="{$bodyType}">
+                <xsl:call-template name="handleSectionParas">
+                  <xsl:with-param name="sectionParas" select="current-group()[@topicZone = 'body']" as="element()*"/>
+                  <xsl:with-param name="initialSectionType" select="$initialSectionType" as="xs:string"/>
+                </xsl:call-template>
+              </xsl:element>                  
+            </xsl:if>
+          </xsl:when>
+          <xsl:otherwise>
+            <!--            <xsl:message> + [DEBUG] makeTopic(): Calling makeTopic...</xsl:message>-->
+            <xsl:call-template name="makeTopic">
+              <xsl:with-param name="content" select="current-group()"/>
+              <xsl:with-param name="level" select="$level + 1"/>
+            </xsl:call-template>
+          </xsl:otherwise>
+        </xsl:choose>        
+      </xsl:for-each-group>
+    </xsl:element>      
   </xsl:template>
   
   <xsl:template name="handleSectionParas">
