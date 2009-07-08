@@ -277,6 +277,8 @@
       "
     />
     
+    <xsl:variable name="initialSectionType" as="xs:string" select="string(@initialSectionType)"/>
+    
     <xsl:variable name="resultTopic">
     <xsl:element name="{local:getTopicType($firstP)}">
       <xsl:attribute name="id" select="generate-id($firstP)"/>
@@ -322,8 +324,9 @@
             <xsl:if test="current-group()[@topicZone = 'body']">
               <xsl:message> + [DEBUG] current group is topicZone body</xsl:message>
               <xsl:element name="{$bodyType}">
-                <xsl:call-template name="handleBodyParas">
-                  <xsl:with-param name="bodyParas" select="current-group()[@topicZone = 'body']" as="element()*"/>
+                <xsl:call-template name="handleSectionParas">
+                  <xsl:with-param name="sectionParas" select="current-group()[@topicZone = 'body']" as="element()*"/>
+                  <xsl:with-param name="initialSectionType" select="$initialSectionType" as="xs:string"/>
                 </xsl:call-template>
               </xsl:element>                  
             </xsl:if>
@@ -381,6 +384,46 @@
     </xsl:choose>
     
     
+  </xsl:template>
+  
+  <xsl:template name="handleSectionParas">
+    <xsl:param name="sectionParas" as="element()*"/>
+    <xsl:param name="initialSectionType" as="xs:string"/>
+    <xsl:for-each-group select="$sectionParas" group-starting-with="*[@structureType = 'section']">
+      <xsl:choose>
+        <xsl:when test="current-group()[position() = 1] and @structureType != 'section'">
+          <xsl:choose>
+            <xsl:when test="$initialSectionType != ''">
+              <xsl:element name="{$initialSectionType}">
+                <xsl:call-template name="handleBodyParas">
+                  <xsl:with-param name="bodyParas" select="current-group()"/>
+                </xsl:call-template>
+              </xsl:element>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:call-template name="handleBodyParas">
+                <xsl:with-param name="bodyParas" select="current-group()"/>
+              </xsl:call-template>
+            </xsl:otherwise>
+          </xsl:choose>
+          
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:element name="{@tagName}">
+            <xsl:variable name="bodyParas"
+              select="if (@useAsTitle = 'no')
+                         then current-group()[position() > 1]
+                         else current-group()
+                         
+              "
+            />
+            <xsl:call-template name="handleBodyParas">
+              <xsl:with-param name="bodyParas" select="$bodyParas"/>
+            </xsl:call-template>
+          </xsl:element>
+        </xsl:otherwise>
+      </xsl:choose>      
+    </xsl:for-each-group>
   </xsl:template>
   
   <xsl:template name="handleBodyParas">
