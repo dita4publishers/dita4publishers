@@ -512,7 +512,10 @@
           
         </xsl:when>
         <xsl:otherwise>
-          <xsl:element name="{@tagName}">
+          <xsl:variable name="sectionType" as="xs:string"
+              select="if (@sectionType) then string(@sectionType) else 'section'"
+          />
+          <xsl:element name="{$sectionType}">
             <xsl:variable name="bodyParas"
               select="if (@useAsTitle = 'no')
                          then current-group()[position() > 1]
