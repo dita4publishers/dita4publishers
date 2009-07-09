@@ -42,6 +42,11 @@
     <xsl:variable name="simpleWpDoc" as="element()">
       <xsl:call-template name="processDocumentXml"/>
     </xsl:variable>
+    <xsl:variable name="tempDoc" select="relpath:newFile($outputDir, 'simpleWpDoc.xml')" as="xs:string"/>
+    <xsl:result-document href="{$tempDoc}">
+      <xsl:message> + [DEBUG] Intermediate simple WP doc saved as <xsl:sequence select="$tempDoc"/></xsl:message>
+      <xsl:sequence select="$simpleWpDoc"/>
+    </xsl:result-document>
     <xsl:apply-templates select="$simpleWpDoc"/>
   </xsl:template>
   
@@ -92,6 +97,7 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:element name="{$tagName}">
+          <xsl:sequence select="./@outputclass"/>
           <xsl:call-template name="transformParaContent"/>    
         </xsl:element>
       </xsl:otherwise>
@@ -120,7 +126,7 @@
   </xsl:template>
   
   <xsl:template match="rsiwp:table">
-    <xsl:message> + [DEBUG] rsiwp:table: Starting...</xsl:message>
+<!--    <xsl:message> + [DEBUG] rsiwp:table: Starting...</xsl:message>-->
     <xsl:variable name="tagName" as="xs:string"
       select="
       if (@tagName) 
@@ -189,7 +195,7 @@
     <xsl:variable name="firstP" select="$content[1]"/>
     <xsl:variable name="nextLevel" select="$level + 1" as="xs:double"/>
     
-    <xsl:variable name="formatName" select="$firstP/@mapType" as="xs:string?"/>
+    <xsl:variable name="formatName" select="$firstP/@format" as="xs:string?"/>
     <xsl:if test="not($formatName)">
       <xsl:message terminate="yes"> + [ERROR] No mapType= attribute for paragraph style <xsl:sequence select="string($firstP/@styleId)"/>, which is mapped to structure type "map".</xsl:message>
     </xsl:if>
@@ -217,18 +223,22 @@
     <xsl:result-document href="{$resultUrl}"
       doctype-public="{$format/@doctype-public}"
       doctype-system="{$format/@doctype-system}"
+      indent="yes"
       >
-      <xsl:element name="{$firstP/@tagName}">
+      <xsl:element name="{$firstP/@mapType}">
         <!-- The first paragraph can simply trigger a (possibly) untitled map, or
           it can also be the map title. If it's the map title, generate it.
         -->
         <xsl:if test="local:isMapTitle($firstP)">
           <xsl:apply-templates select="$firstP"/>
         </xsl:if>
-        <xsl:if test="$content[@mapZone = 'topicmeta' and (@level = $level or not(@level))]">
+        <xsl:if test="$content[@topicZone = 'topicmeta' and @containingTopic = 'root']">
+          <xsl:variable name="prologParas" select="$content[@topicZone = 'topicmeta' and @containingTopic = 'root']" as="node()*"/>
           <!-- Now process any map-level topic metadata paragraphs. -->
           <xsl:element name="{$prologType}">
-            <xsl:apply-templates select="$content[@mapZone = 'topicmeta' and (@level = $level or not(@level))]"/>
+            <xsl:call-template name="handleTopicProlog">
+              <xsl:with-param name="content" select="$prologParas"/>
+            </xsl:call-template>
           </xsl:element>
         </xsl:if>
         <xsl:call-template name="generateTopics">
@@ -243,6 +253,15 @@
         
       </xsl:element>
     </xsl:result-document>
+  </xsl:template>
+  
+  <xsl:template name="handleTopicProlog">
+    <xsl:param name="content" as="node()*"/>
+    
+    <xsl:call-template name="handleBodyParas">
+      <xsl:with-param name="bodyParas" select="$content"/>
+    </xsl:call-template>
+    
   </xsl:template>
   
   <!-- Generate topicsrefs and topicheads.
@@ -263,7 +282,7 @@
       />
       <xsl:choose>
         <xsl:when test="@structureType = 'topicTitle' and @topicDoc = 'yes'">
-          <xsl:message> + [DEBUG] generateTopicrefs: Got a doc-creating topic title. Level=<xsl:sequence select="string(@level)"/></xsl:message>
+<!--          <xsl:message> + [DEBUG] generateTopicrefs: Got a doc-creating topic title. Level=<xsl:sequence select="string(@level)"/></xsl:message>-->
           <xsl:variable name="topicUrl"
             as="xs:string"
             select="local:getResultUrlForTopic(current-group()[1])"
@@ -277,7 +296,7 @@
            </xsl:element>          
         </xsl:when>
         <xsl:when test="@structureType = 'topichead'">
-          <xsl:message> + [DEBUG] generateTopicrefs: Got a topic head. Level=<xsl:sequence select="string(@level)"/></xsl:message>
+<!--          <xsl:message> + [DEBUG] generateTopicrefs: Got a topic head. Level=<xsl:sequence select="string(@level)"/></xsl:message>-->
           <xsl:variable name="topicheadType" select="if (@topicheadType) then string(@topicheadType) else 'topichead'"/>
           <xsl:variable name="topicmetaType" select="if (@topicmetaType) then string(@topicmetaType) else 'topicmeta'"/>
           <xsl:variable name="navtitleType" select="if (@navtitleType) then string(@navtitleType) else 'navtitle'"/>
@@ -292,7 +311,7 @@
           </xsl:element>          
         </xsl:when>
         <xsl:when test="@structureType = 'map' or @structureType = 'mapTitle'">
-          <xsl:message> + [DEBUG] generateTopicrefs: Got a map-reference-generating map or map title. Level=<xsl:sequence select="string(@level)"/></xsl:message>
+<!--          <xsl:message> + [DEBUG] generateTopicrefs: Got a map-reference-generating map or map title. Level=<xsl:sequence select="string(@level)"/></xsl:message>-->
           <xsl:element name="{$topicrefType}">
             <xsl:attribute name="format" select="'ditamap'"/>
             <xsl:call-template name="generateTopicrefs">
@@ -428,6 +447,9 @@
     
     <xsl:element name="{local:getTopicType($firstP)}">
       <xsl:attribute name="id" select="generate-id($firstP)"/>
+      <xsl:if test="$firstP/@topicOutputclass">
+        <xsl:attribute name="outputclass" select="$firstP/@topicOutputclass"/>
+      </xsl:if>
       <xsl:variable name="titleTagName" as="xs:string"
         select="if ($firstP/@tagName)
         then $firstP/@tagName
@@ -468,7 +490,7 @@
               </xsl:choose>
             </xsl:if>
             <xsl:if test="current-group()[@topicZone = 'body']">
-              <xsl:message> + [DEBUG] current group is topicZone body</xsl:message>
+<!--              <xsl:message> + [DEBUG] current group is topicZone body</xsl:message>-->
               <xsl:element name="{$bodyType}">
                 <xsl:call-template name="handleSectionParas">
                   <xsl:with-param name="sectionParas" select="current-group()[@topicZone = 'body']" as="element()*"/>
@@ -554,7 +576,7 @@
   </xsl:template>
   
   <xsl:template match="containerGroup">
-    <xsl:message> + [DEBUG] Handling groupContainer...</xsl:message>
+<!--    <xsl:message> + [DEBUG] Handling groupContainer...</xsl:message>-->
     
     <xsl:call-template name="processLevelNContainers">
       <xsl:with-param name="context" select="*" as="element()*"/>
@@ -574,8 +596,11 @@
       <xsl:message> + [DEBUG]   $currentContainer != @containerType="<xsl:sequence select="$currentContainer != string(@containerType)"/>"</xsl:message>
       <xsl:choose>
         <xsl:when test="$currentContainer != string(@containerType)">
-          <xsl:message> + [DEBUG ]  currentContainer != @containerType</xsl:message>
+          <xsl:message> + [DEBUG ]  currentContainer != @containerType, currentPara=<xsl:sequence select="local:reportPara(.)"/></xsl:message>
           <xsl:element name="{@containerType}">
+            <xsl:if test="@containerOutputclass">
+              <xsl:attribute name="outputclass" select="string(@containerOutputclass)"/>
+            </xsl:if>
             <xsl:for-each select="current-group()">
               <xsl:call-template name="handleGroupSequence">
                  <xsl:with-param name="level" select="$level"/>
@@ -873,7 +898,10 @@
                        if ($para/@containerType)
                           then concat(' containerType=', $para/@containerType)
                           else '',
-                       ']',
+                       if ($para/@containerOutputclass)
+                          then concat(' containerOutputclass=', $para/@containerOutputclass)
+                          else '',
+                          ']',
                        substring(normalize-space($para), 1,20)
                        )"
       />

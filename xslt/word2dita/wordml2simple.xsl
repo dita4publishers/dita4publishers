@@ -111,10 +111,12 @@
       </xsl:choose>      
     </xsl:variable>
     <xsl:if test="$styleData/@structureType = 'listItem'"></xsl:if>
-    <xsl:call-template name="handlePara">
-      <xsl:with-param name="styleId" select="$styleId"/>
-      <xsl:with-param name="styleData" select="$styleData"/>
-    </xsl:call-template>  
+    <xsl:if test="$styleData/@structureType != 'skip'">
+      <xsl:call-template name="handlePara">
+        <xsl:with-param name="styleId" select="$styleId"/>
+        <xsl:with-param name="styleData" select="$styleData"/>
+      </xsl:call-template>  
+    </xsl:if>
   </xsl:template>
   
   <xsl:template name="handlePara">
