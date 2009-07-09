@@ -21,5 +21,9 @@
   <nextCatalog catalog="pubmap/catalog.xml"/>
   
   <nextCatalog catalog="learningMap/catalog.xml"/>
+
+  <!-- Non-DITA types -->
+  
+  <nextCatalog catalog="style2tagmap/catalog.xml"/>
   
 </catalog>
