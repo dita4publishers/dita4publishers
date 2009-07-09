@@ -4,7 +4,7 @@
       xmlns:local="urn:local-functions"
       
       xmlns:rsiwp="http://reallysi.com/namespaces/generic-wordprocessing-xml"
-      xmlns:stylemap="http://reallysi.com/namespaces/style-to-tag-map"
+      xmlns:stylemap="urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap"
       xmlns:relpath="http://dita2indesign/functions/relpath"
       
       exclude-result-prefixes="xs rsiwp stylemap local relpath"
