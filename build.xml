@@ -18,6 +18,7 @@
   <property name="dist" location="${basedir}/dist"/>
   <property name="lib" location="${basedir}/java/lib"/>
   <property name="src" location="${basedir}/src/java"/>
+  <property name="rsuiteSrc" location="${basedir}/rsuite"/>
   <property name="build" location="${basedir}/build"/>
   <property name="temp" location="${basedir}/temp"/>
   <property name="epubTemp" location="${temp}/epub"/>
@@ -48,6 +49,12 @@
   <property name="src.java.home" value="${src.home}/java" />
 
   <property name="resources.home" value="${src.home}/resources" />
+  <property name="classes.home" value="${target.home}/classes"/>
+
+	<property name="rsuite-plugin.name"  value="dita4publishers" />
+
+  <property name="target.home"         value="target"/>
+  <property name="target.jar"          value="${rsuite-plugin.name}-rsuite-plugin.jar"/>
 
 	<path id="dita-classpath"
 		>
@@ -111,6 +118,7 @@
 		<delete failonerror="true" includeemptydirs="true">
 			<fileset dir="${plugin-deploy_target}" includes="net.sourceforge.dita4publishers.*/**"/>
 		</delete>
+		<mkdir dir="${plugin-deploy_target}"/>
 		<copy todir="${plugin-deploy_target}">
 			<fileset dir="${plugin.dist}">
 				<include name="**/*"/>
@@ -123,7 +131,7 @@
 	</target>
 	
 	<target name="dist-init">
-		<delete failonerror="true" includeemptydirs="true">
+		<delete failonerror="false" includeemptydirs="true">
 			<fileset dir="${dist}" includes="*/**"/>
   	</delete>
 		<mkdir dir="${dist}"/>
@@ -321,29 +329,54 @@
 	</target>
 
 	 <target name="generate-web-site">
-      <delete includeEmptyDirs="true" failonerror="false">
-        <fileset dir="${website.build}"  includes="*/**"/>
-      </delete>
-	 	
-	    <ant antfile="${dita-ot-dir}${file.separator}build.xml"
-	      dir="${dita-ot-dir}"
-	      target="dita2xhtml"
-	      
-	      >
-	      <property name="args.input" location="${docs}/website/dita4publishers.ditamap"/>
-	      <property name="transtype" value="dita2xhtml"/>
-	      <property name="args.outext" value="html"/>
-	      <property name="args.xhtml.toc" value="toc"/>
-	      <property name="dita.dir" location="${dita-ot-dir}"/>
-	      <property name="dita.temp.dir" location="${temp}/dita-temp"/>
-	      <property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
-	      <property name="output.dir" location="${website.build}"/>
-	    </ant>
-	 	
-	 	  <copy todir="${website.build}">
-	 	  	<fileset dir="${docs}/website/static-html" includes="index.html"/>
-	 	  </copy>
-	  </target>
-	  
+    <delete includeEmptyDirs="true" failonerror="false">
+      <fileset dir="${website.build}"  includes="*/**"/>
+    </delete>
+ 	
+    <ant antfile="${dita-ot-dir}${file.separator}build.xml"
+      dir="${dita-ot-dir}"
+      target="dita2xhtml"
+      
+      >
+      <property name="args.input" location="${docs}/website/dita4publishers.ditamap"/>
+      <property name="transtype" value="dita2xhtml"/>
+      <property name="args.outext" value="html"/>
+      <property name="args.xhtml.toc" value="toc"/>
+      <property name="dita.dir" location="${dita-ot-dir}"/>
+      <property name="dita.temp.dir" location="${temp}/dita-temp"/>
+      <property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
+      <property name="output.dir" location="${website.build}"/>
+    </ant>
+ 	
+ 	  <copy todir="${website.build}">
+ 	  	<fileset dir="${docs}/website/static-html" includes="index.html"/>
+ 	  </copy>
+  </target>
+	
+	<target name="init-target">
+    <delete dir="${target.home}" failonerror="false"/>
+    <mkdir dir="${target.home}"/>
+</target>
+
+  <target name="package-rsuite-plugins" depends="init-target">
+    <copy file="${rsuiteSrc}/rsuite-plugins/rsuite-plugin.xml" todir="${classes.home}"/>
+    <copy todir="${classes.home}//WebContent/xslt">
+      <fileset dir="${xslt.src}"/>
+    </copy>
+    <jar destfile="${target.home}/${target.jar}" >
+      <fileset dir="${classes.home}" >
+        <include name="**.*" />
+        <include name="**/**.*" />
+        <exclude name="**/log4j.properties"/>
+      </fileset>
+    </jar>
+  </target>
+
+	 <target name="deploy-rsuite-plugins-locally" description="Deploy the plugin to a local server's plugin directory"
+	  depends="package-rsuite-plugins"
+	  >
+	  <copy file="${target.home}/${target.jar}" 
+	      todir="${rsuite.plugins.dir}"/>
+	 </target>
 
 </project>
