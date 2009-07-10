@@ -192,25 +192,23 @@
               </xs:annotation>
             </xs:enumeration>
             <xs:enumeration
-              value="prologData">
+              value="topicGroup">
               <xs:annotation>
                 <xs:documentation>
                   <xhtml:div
                     xmlns="http://www.w3.org/1999/xhtml">
-                    <p>The style maps to some specialization of topic/data that goes in the prolog
-                      of a topic or map.</p>
+                    <p>The paragraph generates a new topicgroup element in the result map. Topicgroups do not have titles.</p>
                   </xhtml:div>
                 </xs:documentation>
               </xs:annotation>
             </xs:enumeration>
             <xs:enumeration
-              value="block">
+              value="topicHead">
               <xs:annotation>
                 <xs:documentation>
                   <xhtml:div
                     xmlns="http://www.w3.org/1999/xhtml">
-                    <p>The paragraph generates a block (e.g., a paragraph) that does not, itself,
-                      contain other paragraphs.</p>
+                    <p>The paragraph generates a new topichead element in the result map and provides its titles.</p>
                   </xhtml:div>
                 </xs:documentation>
               </xs:annotation>
@@ -227,18 +225,6 @@
               </xs:annotation>
             </xs:enumeration>
             <xs:enumeration
-              value="paraContainer">
-              <xs:annotation>
-                <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
-                    <p>The paragraph generates an element that contains paragraphs (e.g., section,
-                      fig, etc.)</p>
-                  </xhtml:div>
-                </xs:documentation>
-              </xs:annotation>
-            </xs:enumeration>
-            <xs:enumeration
               value="skip">
               <xs:annotation>
                 <xs:documentation>
@@ -248,6 +234,39 @@
                       process. Skipped paragraphs are removed before analysis of body and section
                       content in order to determine adjacent paragraphs for the purpose of
                       generating containers.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="dt">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Paragraph is the definition term part of a dlentry within a definition list.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="dd">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Paragraph is the definition description part of a dlentry within a definition list.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="xref">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>A cross reference.</p>
                   </xhtml:div>
                 </xs:documentation>
               </xs:annotation>
