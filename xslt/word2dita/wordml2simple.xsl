@@ -19,7 +19,7 @@
       xmlns:local="urn:local-functions"
       
       xmlns:rsiwp="http://reallysi.com/namespaces/generic-wordprocessing-xml"
-      xmlns:stylemap="http://reallysi.com/namespaces/style-to-tag-map"
+      xmlns:stylemap="urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap"
       xmlns="http://reallysi.com/namespaces/generic-wordprocessing-xml"
       
       exclude-result-prefixes="a pic xs mv mo ve o r m v w10 w wne wp local"
