@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =============================================================
+     Style to Tag Mapping 
+     
+     Describes documents that define a mapping from word processing
+     styles to DITA result markup.
+     
+     Copyright (c) 2009 DITA For Publishers
+
+
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    Style 2 tagmap ENTITIES                            -->
+<!-- ============================================================= -->
+
+<!ENTITY style2tagmap-att     
+  "(map style2tagmap)"
+>
+
+
+<!-- ================== End style2tagmap Entities ===================== -->
