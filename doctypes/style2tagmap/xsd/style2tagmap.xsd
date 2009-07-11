@@ -611,7 +611,7 @@
               <h2>Use Paragraph as Section Title?</h2>
               <p>For styles that map to a specialiation of topic/section, indicates whether or not
                 the paragraph content should be used as the section title. The default is "yes". If
-                set to "yes", or unspecified, must set a value for titleType</p>
+                set to "yes", or unspecified, must set a value for tagName</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
