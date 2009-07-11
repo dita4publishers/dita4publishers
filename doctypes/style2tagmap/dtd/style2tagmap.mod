@@ -111,7 +111,7 @@
   "((%title;),
     (%documentation;)?,
     (%outputs;)?,
-    (%styleset;)
+    (%styleset;)*
     )"
 >
 <!ENTITY % style2tagmap.attributes
