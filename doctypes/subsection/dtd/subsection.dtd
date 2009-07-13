@@ -80,13 +80,13 @@
 
 <!ENTITY % subsection-typemod 
                         PUBLIC 
-"urn:pubid:/modules/subsection" 
+"urn:pubid:dita4publishers.sourceforge.net/modules/subsection" 
 "subsection.mod"                                                        >                                                     
 %subsection-typemod;
 
 <!ENTITY % sidebar-typemod 
                         PUBLIC 
-"urn:pubid:/modules/sidebar" 
+"urn:pubid:dita4publishers.sourceforge.net/modules/sidebar" 
 "sidebar.mod"                                                        >                                                     
 %sidebar-typemod;
 
