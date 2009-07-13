@@ -3,7 +3,12 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:s2t="urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:RSUITE="http://www.reallysi.com"
   targetNamespace="urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap">
+  
+  <xs:import namespace="http://www.reallysi.com"
+    schemaLocation="rsuite_metadata.xsd" />
+  
   <xs:annotation>
     <xs:documentation>
       <xhtml:div
@@ -29,6 +34,8 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
+      <xs:element ref="RSUITE:METADATA" minOccurs="0"/>
+      <xs:element ref="s2t:title" minOccurs="0"/>
       <xs:element
         ref="s2t:documentation"
         minOccurs="0"
@@ -39,6 +46,11 @@
         maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
+  
+  <xs:element name="title">
+    <xs:complexType mixed="true"/>
+  </xs:element>
+  
   <xs:element
     name="documentation">
     <xs:annotation>
@@ -220,6 +232,17 @@
                   <xhtml:div
                     xmlns="http://www.w3.org/1999/xhtml">
                     <p>The paragraph generates a new section</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="shortdesc">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The paragraph acts as the containing topic's short description.</p>
                   </xhtml:div>
                 </xs:documentation>
               </xs:annotation>
@@ -416,6 +439,8 @@
               <p>Indicates which general part of the result topic the element goes in, one of:<dl>
                   <dt>title</dt>
                   <dd>The topic or map title.</dd>
+                  <dt>shortdesc</dt>
+                  <dd>The short description for a topic.</dd>
                   <dt>topicmeta</dt>
                   <dd>The topicmeta container for a map.</dd>
                   <dt>prolog</dt>
@@ -664,6 +689,42 @@
                 will be used in the result, any other text will be ignored.</p>
               <p>This is useful for the case where you need to pull discrete fields out of text,
                 such as pulling names and emails from a formated "about the author" paragraph.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="spectitle"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div
+              xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Section Spectitle Match Pattern</h2>
+              <p>For paragraphs that start sections and need to set the spectitle attribute.</p>
+              <p>For paragraphs that have runin headings, where the run-in heading text
+              should be used as the value of the spectitle attribute on the result section, can use one of the
+              values "#toColon", "#toPeriod", or {fixme: implement other options} to capture that text and use
+              it as the spectitle value and omit it from the first paragraph of the result section.</p>
+              <p>If the section-starting paragraph does not have a runin title, can specify literal text to use
+                as the spectitle value. If spectitle is not specified, you can specify useAsTitle to have the
+                paragraph used or not used as the section title. If neither spectitle nor useAsTitle is specified,
+                then the following paragraph should map to a title element if the section should have a title.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="dlEntryType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div
+              xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Definition List Entry Element Type</h2>
+              <p>Specifies the tag name for the definition list entry container for a dt/dd pair.</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
