@@ -105,6 +105,10 @@
                 <dd>Represents a cross reference. Intended to map to <xmlelem>xref</xmlelem> or a
                   specialization of <xmlelem>xref</xmlelem>.</dd>
               </dlentry>
+              <dlentry>
+                <dt>shortdesc</dt>
+                <dd>A paragraph that serves as the shortdesc for its containing topic.</dd>
+              </dlentry>
             </dl></dd>
         </dlentry>
         <dlentry>
