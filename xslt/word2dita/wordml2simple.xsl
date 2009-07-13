@@ -56,6 +56,7 @@
   />
   
   <xsl:template match="/" name="processDocumentXml">
+    <xsl:message> + [INFO] styleMap=<xsl:sequence select="document-uri($styleMapDoc)"/></xsl:message>
     <xsl:if test="not(/w:document)">
       <xsl:message terminate="yes"> + [ERROR] Input document must be a w:document document.</xsl:message>
     </xsl:if>
