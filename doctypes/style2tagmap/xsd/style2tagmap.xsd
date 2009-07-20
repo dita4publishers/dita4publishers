@@ -137,7 +137,8 @@
       <xs:attribute
         name="styleId"
         type="xs:string"
-        use="required">
+        default="block"
+        use="optional">
         <xs:annotation>
           <xs:documentation>
             <xhtml:div
@@ -243,6 +244,18 @@
                   <xhtml:div
                     xmlns="http://www.w3.org/1999/xhtml">
                     <p>The paragraph acts as the containing topic's short description.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="block">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Indicates that the paragraph is a generic block container, e.g. a DITA paragraph
+                    or similar.</p>
                   </xhtml:div>
                 </xs:documentation>
               </xs:annotation>
