@@ -86,6 +86,11 @@
   
   <xsl:template match="w:p">
     <xsl:param name="mapUnstyledParasTo" select="'p'" tunnel="yes"/>
+    
+    <xsl:variable name="specifiedStyleId" as="xs:string"
+      select="string(./w:pPr/w:pStyle/@w:val)"
+    />
+    
     <xsl:variable name="styleId"
       as="xs:string"
       select="
@@ -101,8 +106,31 @@
         <xsl:when test="$styleMap">          
           <xsl:sequence select="$styleMap"/>
         </xsl:when>
+        <xsl:when test="not($styleMap) and $specifiedStyleId = '' and normalize-space(.) = ''">
+          <!-- Don't report unstyled and completely empty paragraphs. They will be 
+          filtered out in later processing phases. -->
+          <stylemap:style styleId="copy"
+            structureType="block"
+            tagName="p"
+            topicZone="body"
+          />          
+        </xsl:when>
         <xsl:otherwise>
-          <xsl:message> + [WARNING: No style mapping for paragraph with style ID "<xsl:sequence select="$styleId"/>"</xsl:message>
+          <xsl:choose>
+            <xsl:when test="$specifiedStyleId = ''">
+              <xsl:variable name="contentString" as="xs:string"
+                select="if (string-length(normalize-space(.)) > 60)
+                then concat(substring(normalize-space(.),1, 60), '...')
+                else normalize-space(.)
+                "
+              />
+              <xsl:message> - [WARNING: Unstyled non-empty paragraph with content "<xsl:sequence select="$contentString"/>"</xsl:message>              
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:message> - [WARNING: No style mapping for paragraph with style ID "<xsl:sequence select="$styleId"/>"</xsl:message>
+            </xsl:otherwise>
+          </xsl:choose>
+          
           <stylemap:style styleId="copy"
             structureType="block"
             tagName="p"
@@ -164,7 +192,7 @@
           select="key('styleMaps', $runStyle, $styleMapDoc)[1]"
         />
         <xsl:if test="not($runStyleMap)">
-          <xsl:message> + [WARNING: No style mapping for character run with style ID "<xsl:sequence select="$runStyle"/>"</xsl:message>              
+          <xsl:message> - [WARNING: No style mapping for character run with style ID "<xsl:sequence select="$runStyle"/>"</xsl:message>              
         </xsl:if>
         <xsl:variable name="runTagName"
           as="xs:string"
