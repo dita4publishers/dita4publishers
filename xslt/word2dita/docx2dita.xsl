@@ -48,6 +48,7 @@
       <xsl:sequence select="$simpleWpDoc"/>
     </xsl:result-document>
     <xsl:apply-templates select="$simpleWpDoc"/>
+    <xsl:message> + [INFO] Done.</xsl:message>
   </xsl:template>
   
   <xsl:template match="rsiwp:document">
@@ -55,7 +56,7 @@
     <xsl:variable name="firstP" select="rsiwp:body/(rsiwp:p|rsiwp:table)[1]" as="element()?"/>
 <!--    <xsl:message> + [DEBUG] firstP=<xsl:sequence select="$firstP"/></xsl:message>-->
     <xsl:if test="$firstP and not(local:isRootTopicTitle($firstP)) and not(local:isMap($firstP))">
-      <xsl:message terminate="yes"> + [ERROR] The first block in the Word document must be mapped to the root topic title.
+      <xsl:message terminate="yes"> - [ERROR] The first block in the Word document must be mapped to the root topic title.
         First para is style <xsl:sequence select="string($firstP/@style)"/>, mapped as <xsl:sequence 
           select="key('styleMaps', string($firstP/@style), $styleMapDoc)[1]"/> 
       </xsl:message>
@@ -289,6 +290,9 @@
           />
           <xsl:element name="{$topicrefType}">
              <xsl:attribute name="href" select="$topicUrl"/>
+             <xsl:if test="@chunk">
+               <xsl:copy-of select="@chunk"/>
+             </xsl:if>
              <xsl:call-template name="generateTopicrefs">
                <xsl:with-param name="content" select="current-group()[position() > 1]" as="node()*"/>
                <xsl:with-param name="level" select="$level + 1" as="xs:double"/>
@@ -460,8 +464,8 @@
       <xsl:for-each-group select="$content[position() > 1]" 
         group-starting-with="*[@structureType = 'topicTitle' and @level = string($nextLevel)]">
         <xsl:choose>
-          <xsl:when test="current-group()[position() = 1] and current-group()[1][@structureType != 'topicTitle']">
-            <!-- Prolog and body elements for the topic -->
+            <xsl:when test="current-group()[position() = 1] and current-group()[1][@structureType != 'topicTitle']">
+              <!-- Prolog and body elements for the topic -->
             <!-- NOTE: can't process title itself here because we're using title elements to define
               topic boundaries.
             -->
@@ -561,7 +565,7 @@
       <xsl:choose>
         <xsl:when test="@containerType">
           <xsl:variable name="containerGroup" as="element()">
-            <containerGroup>
+            <containerGroup containerType="{@containerType}">
               <xsl:sequence select="current-group()"/>
             </containerGroup>
           </xsl:variable>
@@ -589,14 +593,16 @@
     <xsl:param name="context" as="element()*"/>
     <xsl:param name="level" as="xs:integer"/>
     <xsl:param name="currentContainer" as="xs:string"/>
-    <xsl:message> + [DEBUG] processLevelNContainers, level="<xsl:sequence select="$level"/>"</xsl:message>
+<!--    <xsl:message> + [DEBUG] processLevelNContainers, level="<xsl:sequence select="$level"/>"</xsl:message>
     <xsl:message> + [DEBUG]   currentContainer="<xsl:sequence select="$currentContainer"/>"</xsl:message>
+-->    
     <xsl:for-each-group select="$context[@level = $level]" group-adjacent="@containerType">
-      <xsl:message> + [DEBUG]   @containerType="<xsl:sequence select="string(@containerType)"/>"</xsl:message>
+<!--      <xsl:message> + [DEBUG]   @containerType="<xsl:sequence select="string(@containerType)"/>"</xsl:message>
       <xsl:message> + [DEBUG]   $currentContainer != @containerType="<xsl:sequence select="$currentContainer != string(@containerType)"/>"</xsl:message>
+-->
       <xsl:choose>
         <xsl:when test="$currentContainer != string(@containerType)">
-          <xsl:message> + [DEBUG ]  currentContainer != @containerType, currentPara=<xsl:sequence select="local:reportPara(.)"/></xsl:message>
+<!--          <xsl:message> + [DEBUG ]  currentContainer != @containerType, currentPara=<xsl:sequence select="local:reportPara(.)"/></xsl:message>-->
           <xsl:element name="{@containerType}">
             <xsl:if test="@containerOutputclass">
               <xsl:attribute name="outputclass" select="string(@containerOutputclass)"/>
@@ -623,13 +629,15 @@
   <xsl:template name="handleGroupSequence">
     <xsl:param name="level"/>
     <xsl:choose>
-      <xsl:when test="@containerType = 'dl' and @structureType = 'dt'">
-        <xsl:message> + [DEBUG] Found a dl-contained item.</xsl:message>
-        <xsl:element name="{@dlEntryType}">
+      <xsl:when test="@structureType = 'dt'">
+        <xsl:variable name="dlEntryType" as="xs:string"
+          select="if (@dlEntryType) then string(@dlEntryType) else 'dlentry'"
+        />
+        <xsl:element name="{$dlEntryType}">
           <xsl:call-template name="transformPara"/>          
           <xsl:variable name="followingSibling" as="element()?" select="following-sibling::*[1]"/>
           <xsl:if test="not($followingSibling/@structureType = 'dd')">
-            <xsl:message> +[WARNING] Paragraph following a paragraph mapped to "dt" is not mapped to "dd". Found "<xsl:sequence 
+            <xsl:message> - [WARNING] Paragraph following a paragraph with structure type 'dt' does not have structure type 'dd'. Found "<xsl:sequence 
               select="string($followingSibling/@structureType)"/>"</xsl:message>
           </xsl:if>
           <xsl:for-each select="$followingSibling">
@@ -638,12 +646,11 @@
           <!-- FIXME: This isn't going to handle nested paras within DD -->
         </xsl:element>
       </xsl:when>
-      <xsl:when test="@containerType = 'dl' and @structureType = 'dd'"/><!-- Handled by dt processing -->
+      <xsl:when test="@structureType = 'dd'"/><!-- Handled by dt processing -->
       <xsl:when test="following-sibling::*[1][@level &gt; $level]">
         <xsl:variable name="me" select="." as="element()"/>
         <xsl:element name="{@tagName}">
           <xsl:call-template name="transformParaContent"/>
-          <xsl:message> + [DEBUG]   Found following lower-level siblings...</xsl:message>
           <xsl:call-template name="processLevelNContainers">
             <xsl:with-param name="context" 
               select="following-sibling::*[(@level = $level + 1) and 
