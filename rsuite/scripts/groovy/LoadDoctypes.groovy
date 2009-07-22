@@ -92,7 +92,6 @@ def otherMoTypes = 	[
                    	  ['art',"'Art '"],
                    	]
 	
-if (false) {
 topicTypes.each {
 	loadAndConfigureTopicDtd(new File(doctypesDir, it + "/dtd/" + it + ".dtd"), 
 	        baseTopicTypeURI + it, 
@@ -102,9 +101,7 @@ topicTypes.each {
 	        catalog);
 	
 }
-}
 
-if (false) {
 mapTypes.each {
     loadAndConfigureMapDtd(new File(doctypesDir, it + "/dtd/" + it + ".dtd"), 
             baseTopicTypeURI + it, 
@@ -114,20 +111,53 @@ mapTypes.each {
     
 }
     
+
+//Special cases:
+
+println "Importing style2tagmap.xsd"
+def schemaFile = new File(doctypesDir, "style2tagmap/xsd/style2tagmap.xsd") 
+def importer = importerFactory.generateImporter("XMLSchema", new SchemaInputSource(schemaFile));
+uuid = importer.execute()   
+def moDefList = [];
+moDefList.add(new ManagedObjectDefinition(['name' : '{urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap}:style2tagmap', 
+                                           'displayNameXPath': "title", 
+                                           'versionable': 'true', 
+                                           'reusable': 'true']))
+rsuite.setManagedObjectDefinitions(uuid, false, moDefList)
+
+// Specializations:
+	
+doctypesDir = new File(projectDir, "sample_data/specializations/shakespear/doctypes");
+
+topicTypes = ['act', 
+              'epilogue', 
+              'induct', 
+              'personae', 
+              'prologue', 
+              'scene', 
+              ]
+    
+mapTypes = ['playmap',
+           ]   
+    
+topicTypes.each {
+    loadAndConfigureTopicDtd(new File(doctypesDir, it + "/dtd/" + it + ".dtd"), 
+            baseTopicTypeURI + it, 
+            topicTypes, 
+            otherMoTypes,
+            previewXslFile,
+            catalog);
+    
 }
 
-// Special cases:
-
-	println "Importing style2tagmap.xsd"
-	def schemaFile = new File(doctypesDir, "style2tagmap/xsd/style2tagmap.xsd")	
-	def importer = importerFactory.generateImporter("XMLSchema", new SchemaInputSource(schemaFile));
-	uuid = importer.execute()	
-    def moDefList = [];
-    moDefList.add(new ManagedObjectDefinition(['name' : '{urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap}:style2tagmap', 
-                                               'displayNameXPath': "title", 
-                                               'versionable': 'true', 
-                                               'reusable': 'true']))
-    rsuite.setManagedObjectDefinitions(uuid, false, moDefList)
+mapTypes.each {
+    loadAndConfigureMapDtd(new File(doctypesDir, it + "/dtd/" + it + ".dtd"), 
+            baseTopicTypeURI + it, 
+            it, 
+            previewXslFile,
+            catalog);
+    
+}
 
 
 // End of script
