@@ -2,9 +2,9 @@
 <!-- ============================================================= -->
 <!--                    HEADER                                     -->
 <!-- ============================================================= -->
-<!--  MODULE:    DITA for Publishers Pubmap Entity                 -->
+<!--  MODULE:    DITA PubMap Domain Entity                         -->
 <!--  VERSION:   1.2                                               -->
-<!--  DATE:      February 2008                                     -->
+<!--  DATE:      July 2009                                         -->
 <!--                                                               -->
 <!-- ============================================================= -->
 
@@ -14,31 +14,77 @@
 <!--                                                               -->
 <!--  Refer to this file by the following public identifier or an 
       appropriate system identifier 
-PUBLIC "urn:pubid:dita4publishers.sourceforge.net/entities/dtd/pubmap"
-      Delivered as file "pubmap.ent"                               -->
+PUBLIC "urn:pubid:dita4publishers.sourceforge.net/entities/dtd/pubmapDomain"
+      Delivered as file "pubmapDomain.ent"                         -->
 
 <!-- ============================================================= -->
 <!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
 <!--                                                               -->
-<!-- PURPOSE:    Declaring the domain entity for concept topics    -->
+<!-- PURPOSE:    Declaring the domain entities for publication     -->
+<!--             maps domain.                                      -->
 <!--                                                               -->
-<!-- ORIGINAL CREATION DATE:                                       -->
-<!--             July  2009                                        -->
-<!--                                                               -->
-<!--             (C) Copyright 2009 DITA For Publishers            -->
-<!--             All Rights Reserved.                              -->
 <!--                                                               -->
 <!--  UPDATES:                                                     -->
 <!-- ============================================================= -->
 
 
 <!-- ============================================================= -->
-<!--                    CONCEPT ENTITIES                           -->
+<!--                    PUBMAP ENTITIES                            -->
 <!-- ============================================================= -->
 
-<!ENTITY pubmap-att     
-  "(map pubmap)"
+<!ENTITY % pubmap-d-topicref 
+                        "
+abbrevlist     |
+amendments     |
+appendix       |
+article        |
+back-cover     |
+back-flap      |
+book-jacket    |
+backmatter     |
+bibliolist     |
+chapter        |
+colophon       |
+covers         |
+dedication     |
+department     |
+draftintro     |
+figurelist     |
+forward        |
+front-cover    |
+front-flap     |
+frontmatter    |
+glossarylist   |
+indexlist      |
+keydefs        |
+keydef-group   |
+notices        |
+page           |
+part           |
+preface        |
+pubabstract    |
+publist        |
+publists       |
+pubbody        |
+subsection     |
+sidebar        |
+spine          |
+tablelist      |
+toc            |
+trademarklist  |
+wrap-cover    
+"
 >
 
+<!ENTITY % pubmap-d-topicmeta
+"pubmeta
+"
+>
 
-<!-- ================== End Concept Entities ===================== -->
+<!ENTITY % pubmap-d-title
+"pubtitle
+">
+<!ENTITY pubmap-d-att "(map pubmap-d)">
+
+
+<!-- ================== End Pubmap Domain Entities ===================== -->

@@ -43,21 +43,12 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/pubmap"
 "../../base/dtd/mapGroup.ent"                                                 >
 %mapgroup-d-dec;
 
-<!ENTITY % indexing-d-dec     PUBLIC 
-"-//OASIS//ENTITIES DITA 1.2 Indexing Domain//EN" 
-"../../base/dtd/indexingDomain.ent"                                           >
-%indexing-d-dec;
-
-<!ENTITY % delay-d-dec     
-  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Delayed Resolution Domain//EN" 
-         "../../base/dtd/delayResolutionDomain.ent"                                                       
->%delay-d-dec;
-
-<!ENTITY % xnaldomain-d-dec 
+<!ENTITY % pubmap-d-dec 
                         PUBLIC 
-"-//OASIS//ENTITIES DITA 1.2 XNAL Domain//EN" 
-"../../xnal/dtd/xnalDomain.ent"                                      >
-%xnaldomain-d-dec;
+"urn:pubid:dita4publishers.sourceforge.net/entities/dtd/pubmapDomain" 
+"../../pubmapDomain/dtd/pubmapDomain.ent"                                                 
+>
+%pubmap-d-dec;
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ATTRIBUTE DECLARATIONS              -->
@@ -70,18 +61,10 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/pubmap"
 <!--                    One for each extended base element, with
                         the name of the domain(s) in which the
                         extension was declared                     -->
-<!ENTITY % author       "author | 
-                         %xnal-d-author;
-                        ">
 <!ENTITY % topicref     "topicref |
                          %mapgroup-d-topicref;
                         ">
-<!ENTITY % index-base   "index-base |
-                         %indexing-d-index-base;
-                        ">
-<!ENTITY % keywords     "keywords | 
-                         %delay-d-keywords;
-                        ">
+
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
@@ -95,11 +78,8 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/pubmap"
 <!--                    Must be declared ahead of the DTDs, which
                         puts @domains first in order               -->
 <!ENTITY included-domains 
-                        "&pubmap-att;
-                         &delay-d-att;
+                        "&pubmap-d-att;
                          &mapgroup-d-att;
-                         &indexing-d-att; 
-                         &xnal-d-att;
                         ">
 
 <!-- ============================================================= -->
@@ -117,30 +97,19 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/pubmap"
 "mapGroup.mod"                                                 >
 %mapgroup-d-def;
 
+<!ENTITY % pubmap-d-def PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain" 
+"pubmapDomain.mod"                                                        >
+%pubmap-d-def;
+
 <!ENTITY % pubmap-type PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap" 
-"pubmap.mod"                                                        >
+"pubmap.mod"                                                      >
 %pubmap-type;
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ELEMENT INTEGRATION                 -->
 <!-- ============================================================= -->
 
-<!ENTITY % indexing-d-def
-                        PUBLIC 
-"-//OASIS//ELEMENTS DITA 1.2 Indexing Domain//EN" 
-"../../base/dtd/indexingDomain.mod"                                           >
-%indexing-d-def;
-
-<!ENTITY % delay-d-def     
-  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Delayed Resolution Domain//EN" 
-         "../../base/dtd/delayResolutionDomain.mod"
->%delay-d-def;
-
-<!ENTITY % xnaldomain-d-def  
-                        PUBLIC 
-"-//OASIS//ELEMENTS DITA 1.2 XNAL Domain//EN" 
-"../../xnal/dtd/xnalDomain.mod"                                      >
-%xnaldomain-d-def;
 
 <!-- ================== End DITA pubmap DTD  ==================== -->

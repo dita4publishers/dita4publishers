@@ -6,6 +6,7 @@
   <nextCatalog catalog="common/catalog.xml"/>
   <nextCatalog catalog="d4p_classificationDomain/catalog.xml"/>
   <nextCatalog catalog="d4p_formattingDomain/catalog.xml"/>
+  <nextCatalog catalog="pubmapDomain/catalog.xml"/>
   
   <!-- Topic types -->
   
@@ -19,7 +20,6 @@
   <!-- Map types -->
   
   <nextCatalog catalog="pubmap/catalog.xml"/>
-  
   <nextCatalog catalog="learningMap/catalog.xml"/>
 
   <!-- Non-DITA types -->
