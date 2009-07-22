@@ -127,6 +127,12 @@ rsuite.setManagedObjectDefinitions(uuid, false, moDefList)
 
 // Specializations:
 	
+	
+	
+
+baseTopicTypeURI = "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/";
+baseMapTypeURI = "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/";
+
 doctypesDir = new File(projectDir, "sample_data/specializations/shakespear/doctypes");
 
 topicTypes = ['act', 
