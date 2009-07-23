@@ -242,15 +242,33 @@
             </xsl:call-template>
           </xsl:element>
         </xsl:if>
-        <xsl:call-template name="generateTopics">
-          <xsl:with-param name="content" select="$content" as="node()*"/>
-          <xsl:with-param name="level" select="$nextLevel"/>
-        </xsl:call-template>        
+        <xsl:choose>
+          <xsl:when test="$firstP/@rootTopicrefType">
+            <xsl:element name="{$firstP/@rootTopicrefType}">
+              <xsl:call-template name="generateTopics">
+                <xsl:with-param name="content" select="$content" as="node()*"/>
+                <xsl:with-param name="level" select="$nextLevel"/>
+              </xsl:call-template>        
+              
+              <xsl:call-template name="generateTopicrefs">
+                <xsl:with-param name="content" select="$content" as="node()*"/>
+                <xsl:with-param name="level" select="$nextLevel"/>
+              </xsl:call-template>
+            </xsl:element>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:call-template name="generateTopics">
+              <xsl:with-param name="content" select="$content" as="node()*"/>
+              <xsl:with-param name="level" select="$nextLevel"/>
+            </xsl:call-template>        
+            
+            <xsl:call-template name="generateTopicrefs">
+              <xsl:with-param name="content" select="$content" as="node()*"/>
+              <xsl:with-param name="level" select="$nextLevel"/>
+            </xsl:call-template>
+          </xsl:otherwise>
+        </xsl:choose>
         
-        <xsl:call-template name="generateTopicrefs">
-          <xsl:with-param name="content" select="$content" as="node()*"/>
-          <xsl:with-param name="level" select="$nextLevel"/>
-        </xsl:call-template>
         
       </xsl:element>
     </xsl:result-document>
