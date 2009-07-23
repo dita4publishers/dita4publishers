@@ -742,6 +742,21 @@
           </xs:documentation>
         </xs:annotation>
       </xs:attribute>
+      <xs:attribute
+        name="rootTopicrefType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div
+              xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Root Topicref Element Type</h2>
+              <p>Specifies the tag name for the root topicref element to use around all generated
+              topicrefs within the map.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:element
