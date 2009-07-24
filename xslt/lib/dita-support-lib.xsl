@@ -161,7 +161,8 @@
             <xsl:message> + [DEBUG] df:resolveTopicRef(): topicUri is a string, trying to resolve...</xsl:message>
             </xsl:if>
             <xsl:choose>
-              <xsl:when test="doc-available(resolve-uri($topicUri, base-uri($context)))">
+              <xsl:when test="true()"><!-- doc-available does not appear to be reliable function -->
+<!--                <xsl:when test="doc-available(resolve-uri($topicUri, base-uri($context)))">-->
                 <xsl:if test="$debugBoolean">
                   <xsl:message> + [DEBUG] df:resolveTopicRef(): target document is available.</xsl:message>
                 </xsl:if>
