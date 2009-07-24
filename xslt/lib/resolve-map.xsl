@@ -37,11 +37,15 @@
   <xsl:import href="relpath_util.xsl"/>
   
   <xsl:template match="/*[df:class(., 'map/map')]" mode="resolve-map">
-    <xsl:copy copy-namespaces="no">
-      <xsl:apply-templates select="node() | @*" mode="#current">
-        <xsl:with-param name="resolvedMapBaseUri" select="document-uri(root(.))" as="xs:string" tunnel="yes"/>
-      </xsl:apply-templates>
-    </xsl:copy>
+    <xsl:message> + [INFO] resolve-map(): Constructing resolved map...</xsl:message>
+      <xsl:copy copy-namespaces="no">
+        <xsl:apply-templates select="node() | @*" mode="#current">
+          <xsl:with-param name="resolvedMapBaseUri" select="document-uri(root(.))" as="xs:string" tunnel="yes"/>
+        </xsl:apply-templates>
+      </xsl:copy>
+    <xsl:message> + [INFO]</xsl:message>
+    <xsl:message> + [INFO] resolve-map(): Resolved map constructed.</xsl:message>
+    <xsl:message> + [INFO]</xsl:message>
   </xsl:template>
   
   <xsl:template mode="resolve-map" match="@*">
@@ -70,7 +74,7 @@
       "
     />
     <xsl:if test="$debugBoolean">
-      <xsl:message> + [DEBUG] ** For topic head "<xsl:sequence select="name(.)"/>", parentHeadLevel=<xsl:sequence select="$parentHeadLevel"/>, myHeadLevel=<xsl:sequence select="$myHeadLevel"/></xsl:message>
+      <xsl:message> + [DEBUG] resolve-map():  ** For topic head "<xsl:sequence select="name(.)"/>", parentHeadLevel=<xsl:sequence select="$parentHeadLevel"/>, myHeadLevel=<xsl:sequence select="$myHeadLevel"/></xsl:message>
     </xsl:if>
     <xsl:copy>
       <xsl:apply-templates select="@*" mode="#current"/>
@@ -85,7 +89,7 @@
   
   <xsl:template match="*[ df:isTopicGroup(.)]" mode="resolve-map">
     <xsl:if test="$debugBoolean">
-      <xsl:message> + [DEBUG] ** Processing topic group "<xsl:sequence select="name(.)"/>"</xsl:message>
+      <xsl:message> + [DEBUG] resolve-map(): ** Processing topic group "<xsl:sequence select="name(.)"/>"</xsl:message>
     </xsl:if>
     <xsl:copy>
       <xsl:apply-templates select="@* | node()" mode="#current"/>
@@ -104,7 +108,7 @@
       select="relpath:getRelativePath(relpath:getParent($resolvedMapBaseUri), $originalUri)"
     />
     <xsl:if test="$debugBoolean and false()">
-      <xsl:message> + [DEBUG] ** Handling topicref/@href. Original href="<xsl:sequence select="string(.)"/>"</xsl:message>
+      <xsl:message> + [DEBUG] resolve-map():  ** Handling topicref/@href. Original href="<xsl:sequence select="string(.)"/>"</xsl:message>
       <xsl:message> + [DEBUG]     resolvedMapBaseUri="<xsl:sequence select="$resolvedMapBaseUri"/>"</xsl:message>
       <xsl:message> + [DEBUG]     baseUri=           "<xsl:sequence select="$baseUri"/>"</xsl:message>
       <xsl:message> + [DEBUG]     originalUri=       "<xsl:sequence select="$originalUri"/>"</xsl:message>
@@ -127,27 +131,27 @@
                  sidebars.
       -->
     <xsl:if test="$debugBoolean">
-      <xsl:message> + [DEBUG] ** Processing topic ref "<xsl:sequence select="name(.)"/>"</xsl:message>
+      <xsl:message> + [DEBUG] resolve-map(): ** Processing topic ref "<xsl:sequence select="name(.)"/>"</xsl:message>
       <xsl:choose>      
        <xsl:when test="$refTarget">
-         <xsl:message> + [DEBUG] refTarget type="<xsl:sequence select="name($refTarget[1])"/>"</xsl:message>
+         <xsl:message> + [DEBUG] resolve-map():  refTarget type="<xsl:sequence select="name($refTarget[1])"/>"</xsl:message>
        </xsl:when>
        <xsl:otherwise>
-         <xsl:message> + [DEBUG] failed to resolve reference: <xsl:sequence select="df:reportTopicref(.)"/></xsl:message>
+         <xsl:message> + [DEBUG] resolve-map(): failed to resolve reference: <xsl:sequence select="df:reportTopicref(.)"/></xsl:message>
        </xsl:otherwise>
      </xsl:choose>
     </xsl:if>
       <xsl:choose>
         <xsl:when test="@format = 'ditamap'">
           <xsl:if test="$debugBoolean">
-            <xsl:message> + [DEBUG] Reference is to a subordinate map.</xsl:message>
+            <xsl:message> + [DEBUG] resolve-map(): Reference is to a subordinate map.</xsl:message>
           </xsl:if>
           <!-- Reference to subordinate map -->
           <!-- FIXME: Implement metadata and attribute propogation from
                map to map per 1.2 spec.
           -->
           <xsl:if test="not(df:class($refTarget, 'map/map'))">
-            <xsl:message> + [WARNING] Topicref with format='ditamap' did not resolve to a map, got <xsl:sequence select="name($refTarget)"/> (class=<xsl:sequence select="$refTarget/@class"/>)</xsl:message>
+            <xsl:message> + [WARNING] resolve-map(): Topicref with format='ditamap' did not resolve to a map, got <xsl:sequence select="name($refTarget)"/> (class=<xsl:sequence select="$refTarget/@class"/>)</xsl:message>
             <xsl:copy>
               <xsl:apply-templates select="@* | node()"/>              
             </xsl:copy>
@@ -158,7 +162,7 @@
         </xsl:when>
         <xsl:otherwise>
           <xsl:if test="$debugBoolean">
-            <xsl:message> + [DEBUG] Reference is to a non-map resource</xsl:message>
+            <xsl:message> + [DEBUG] resolve-map(): Reference is to a non-map resource</xsl:message>
           </xsl:if>
           <xsl:variable name="myHeadLevel" 
             select="$parentHeadLevel + 1"
