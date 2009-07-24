@@ -136,6 +136,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % issn-13 "issn-13" >
 <!ENTITY % issn-10 "issn-10" >
 <!ENTITY % issue "issue" >
+<!ENTITY % locnumber "locnumber" >
 <!ENTITY % maintainer "maintainer" >
 <!ENTITY % organization "organization" >
 <!ENTITY % person "person" >
@@ -263,6 +264,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
    %forward; | 
    %preface; | 
    %topicref; |
+   %chapter; |
    %subsection; |
    %department; |
    %page; |
@@ -474,7 +476,8 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
                          (%issn;)*, 
                          (%issn-10;)*, 
                          (%issn-13;)*, 
-                         (%pubnumber;)?, 
+                         (%pubnumber;)*, 
+                         (%locnumber;)*, 
                          (%issue;)*, 
                          (%volume;)*, 
                          (%maintainer;)?)"
@@ -934,6 +937,15 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ELEMENT pubnumber    %pubnumber.content;>
 <!ATTLIST pubnumber    %pubnumber.attributes;>
 
+<!--                    LONG NAME: Library of Congress Number                     -->
+<!ENTITY % locnumber.content
+                       "(%words.cnt;)*"
+>
+<!ENTITY % locnumber.attributes
+             "%data-element-atts;"
+>
+<!ELEMENT locnumber    %locnumber.content;>
+<!ATTLIST locnumber    %locnumber.attributes;>
 
 <!--                    LONG NAME: Volume                          -->
 <!ENTITY % volume.content
@@ -1933,6 +1945,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ATTLIST issn-13          %global-atts; class CDATA "- topic/data pubmap-d/issn-13 ">
 <!ATTLIST issn-10          %global-atts; class CDATA "- topic/data pubmap-d/issn-13 ">
 <!ATTLIST issue            %global-atts; class CDATA "- topic/data pubmap-d/issue ">
+<!ATTLIST locnumber        %global-atts; class CDATA "- topic/data pubmap-d/locnumber ">
 <!ATTLIST maintainer       %global-atts; class CDATA "- topic/data pubmap-d/maintainer ">
 <!ATTLIST organization     %global-atts; class CDATA "- topic/data pubmap-d/organization ">
 <!ATTLIST person           %global-atts; class CDATA "- topic/data pubmap-d/person ">
