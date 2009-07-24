@@ -17,9 +17,14 @@
        Copyright (c) 2009 DITA For Publishers
       ============================================================ -->    
   
+  <xsl:import href="dita-previewImpl.xsl"/>
+  
   <xsl:param name="rsuite.sessionkey" as="xs:string" select="'unset'"/>
   <xsl:param name="rsuite.serverurl" as="xs:string" select="'urn:unset:/dev/null'"/>
   
-  <xsl:include href="dita-previewImpl.xsl"/>
-
+  <xsl:variable name="debugBoolean" select="true()" as="xs:boolean"/>
+  
+  <xsl:template match="/">
+    <xsl:apply-imports/>
+  </xsl:template>
 </xsl:stylesheet>
