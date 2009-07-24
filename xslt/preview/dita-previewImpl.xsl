@@ -20,6 +20,7 @@
   
   <xsl:import href="../lib/dita-support-lib.xsl"/>
   <xsl:import href="../lib/resolve-map.xsl"/>
+  <xsl:import href="dita-hi-dPreview.xsl"/>
   <xsl:import href="dita-topicPreview.xsl"/>
   
   <xsl:param name="debug" select="'false'"/>
