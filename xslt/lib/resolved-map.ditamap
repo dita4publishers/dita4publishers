@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookpub
+  PUBLIC "urn:pubid:astd.com/doctypes/dita/bookpub" "bookpub.dtd">
+<bookpub xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+         ditaarch:DITAArchVersion="1.2"
+         domains="(map bookpub-d) (map pubmap-d)                          (map mapgroup-d)                         "
+         class="- map/map bookpub/bookpub ">
+   <pubtitle class="- topic/title pubmap-d/pubtitle ">
+      <mainpubtitle class="- topic/ph pubmap-d/mainpubtitle "/>
+   </pubtitle>
+   <keydefs processing-role="resource-only" class="- topic/topicref pubmap-d/keydefs "/>
+   <astd-book collection-type="sequence" class="- map/topicref bookpub/astd-book ">
+      <frontmatter class="- map/topicref pubmap-d/frontmatter ">
+         <topicref href="frontmatter/book-56286-328-preface.xml" class="- map/topicref "
+                   headLevel="1"/>
+      </frontmatter>
+      <pubbody collection-type="sequence" class="- map/topicref pubmap-d/pubbody ">
+         <part href="body/section-01/topics/book-56286-328-section-01.xml"
+               class="- map/topicref pubmap-d/part "
+               headLevel="1">
+            <chapter href="body/section-01/topics/book-56286-328-chapter-01.xml"
+                     class="- map/topicref pubmap-d/chapter "
+                     headLevel="2"/>
+            <chapter href="body/section-01/topics/book-56286-328-chapter-02.xml"
+                     class="- map/topicref pubmap-d/chapter "
+                     headLevel="2"/>
+            <chapter href="body/section-01/topics/book-56286-328-chapter-03.xml"
+                     class="- map/topicref pubmap-d/chapter "
+                     headLevel="2"/>
+         </part>
+         <part href="body/section-02/topics/book-56286-328-section-02.xml"
+               class="- map/topicref pubmap-d/part "
+               headLevel="1"/>
+         <part href="body/section-03/topics/book-56286-328-section-03.xml"
+               class="- map/topicref pubmap-d/part "
+               headLevel="1"/>
+      </pubbody>
+      <backmatter class="- map/topicref pubmap-d/backmatter ">
+         <chapter href="backmatter/book-56286-328-further-reading.xml"
+                  class="- map/topicref pubmap-d/chapter "
+                  headLevel="1"/>
+         <chapter href="backmatter/book-56286-328-about-the-authors.xml"
+                  class="- map/topicref pubmap-d/chapter "
+                  headLevel="1"/>
+      </backmatter>
+   </astd-book>
+</bookpub>

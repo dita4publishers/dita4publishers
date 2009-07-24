@@ -4,6 +4,11 @@
       exclude-result-prefixes="xs"
       version="2.0">
   
+  <xsl:output indent="yes"
+    doctype-public="urn:pubid:astd.com/doctypes/dita/bookpub"
+    doctype-system="bookpub.dtd"
+  />
+  
   <xsl:variable name="debugBoolean" select="true()" as="xs:boolean"/>
   
   <xsl:include href="resolve-map.xsl"/>

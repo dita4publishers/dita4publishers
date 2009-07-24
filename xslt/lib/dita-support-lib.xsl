@@ -140,12 +140,12 @@
         <xsl:message> + [DEBUG] df:resolveTopicRef(): context is a topicref.</xsl:message>
         </xsl:if>
         <xsl:variable name="topicUri" as="xs:string" 
-        select="if (contains($context/@href, '#')) then substring-before($context/@href, '#') else normalize-space($context/@href)"/>
+          select="if (contains($context/@href, '#')) then substring-before($context/@href, '#') else normalize-space($context/@href)"/>
         <xsl:if test="$debugBoolean">
         <xsl:message> + [DEBUG] df:resolveTopicRef(): topicUri="<xsl:sequence select="$topicUri"/>"</xsl:message>
         </xsl:if>
         <xsl:variable name="topicFragId" as="xs:string" 
-        select="if (contains($context/@href, '#')) then substring-after($context/@href, '#') else ''"/>
+           select="if (contains($context/@href, '#')) then substring-after($context/@href, '#') else ''"/>
         <xsl:if test="$debugBoolean">
         <xsl:message> + [DEBUG] df:resolveTopicRef(): topicFragId="<xsl:sequence select="$topicFragId"/>"</xsl:message>
         </xsl:if>
@@ -189,8 +189,14 @@
                         <xsl:sequence select="$topicDoc/*/*[df:class(., 'topic/topic')][1]"/>
                         <xsl:message> -     Info: Using first child topic <xsl:sequence select="$topicDoc/*/*[df:class(., 'topic/topic')][1]/@id"/> of document "<xsl:sequence select="$topicUri"/>".</xsl:message>
                       </xsl:when>
+                      <xsl:when test="$topicDoc/*[df:class(., 'map/map')]">
+                        <xsl:if test="$debugBoolean">
+                          <xsl:message> + [DEBUG] df:resolveTopicRef(): root of topicDoc is a map, returning root element.</xsl:message>
+                        </xsl:if>
+                        <xsl:sequence select="$topicDoc/*[1]"/>
+                      </xsl:when>
                       <xsl:otherwise>
-                        <xsl:message> -     Warning: document "<xsl:sequence select="$topicUri"/>" not a topic or does not contain a topic as its first child.</xsl:message>
+                        <xsl:message> -     Warning: document "<xsl:sequence select="$topicUri"/>" not a topic or map or does not contain a topic as its first child.</xsl:message>
                         <xsl:sequence select="/.."/>
                       </xsl:otherwise>
                     </xsl:choose>    
