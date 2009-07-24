@@ -35,8 +35,16 @@
  
   <xsl:import href="dita-support-lib.xsl"/>
   <xsl:import href="relpath_util.xsl"/>
+
+ <xsl:template match="/*" mode="resolve-map">
+   <xsl:message> + [INFO] Root element in mode resolve-map was not a map, got <xsl:sequence select="name(.)"/>[class=<xsl:sequence select="string(@class)"/></xsl:message>
+   <map>
+     <topicref class="- map/topicref "
+        href="{document-uri(root(.))}"/>
+   </map>
+ </xsl:template>
   
-  <xsl:template match="/*[df:class(., 'map/map')]" mode="resolve-map">
+  <xsl:template match="/*[df:class(., 'map/map')]" mode="resolve-map" priority="10">
     <xsl:message> + [INFO] resolve-map(): Constructing resolved map...</xsl:message>
       <xsl:copy copy-namespaces="no">
         <xsl:apply-templates select="node() | @*" mode="#current">
