@@ -364,9 +364,6 @@
     <copy todir="${classes.home}/WebContent/xslt">
       <fileset dir="${xslt.src}"/>
     </copy>
-    <copy todir="${classes.home}/WebContent/xslt">
-      <fileset dir="${rsuiteSrc}/xslt"/>
-    </copy>
     <jar destfile="${target.home}/${target.jar}" >
       <fileset dir="${classes.home}" >
         <include name="**.*" />
