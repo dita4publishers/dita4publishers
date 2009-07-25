@@ -392,57 +392,7 @@
     <xsl:sequence select="string-join($att-strings, ' ')"/>
   </xsl:function>
   
-  <xsl:template name="copy-element" match="*" priority="-1">
-    <xsl:param name="aidParaStyle" as="xs:string" select="''"/>
-    <xsl:param name="aidCharacterStyle" as="xs:string" select="''"/>
-    <xsl:param name="generatedTitleStyle" as="xs:string" select="''"/>
-    <xsl:param name="additionalInitialChildren" as="element()*"/>
-    <xsl:param name="isPara" select="false()" as="xs:boolean"/>
-    <xsl:param name="inParaContext" select="false()" as="xs:boolean" tunnel="yes"/>
-    <xsl:param name="generatedContent" as="element()*"/>
-    <xsl:param name="content" as="node()*" select="* | text()"/>
-    <xsl:copy>
-      <xsl:apply-templates select="@*" mode="#current"/>
-      <xsl:if test="$aidParaStyle != ''">
-        <xsl:attribute name="aid:pstyle" select="$aidParaStyle"/>
-      </xsl:if>
-      <xsl:if test="$aidCharacterStyle != ''">
-        <xsl:attribute name="aid:cstyle" select="$aidCharacterStyle"/>
-      </xsl:if>
-      <xsl:if test="$generatedTitleStyle != ''">
-        <d2cs:generated_title aid:pstyle="{$generatedTitleStyle}"><xsl:text>
-        </xsl:text></d2cs:generated_title>
-      </xsl:if>
-      <xsl:sequence select="$additionalInitialChildren"/>
-      <xsl:choose>
-        <xsl:when test="count($generatedContent) > 0">
-          <xsl:sequence select="$generatedContent"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:apply-templates select="$content">
-            <xsl:with-param name="inParaContext" select="not($inParaContext) and $isPara" tunnel="yes"/>
-          </xsl:apply-templates>
-        </xsl:otherwise>
-      </xsl:choose>      
-    </xsl:copy>
-    <xsl:if test="$isPara">
-      <!-- Put a newline before the paragraph end to trigger a new paragraph break in Indesign. -->
-      <xsl:text>&#x0a;</xsl:text>
-    </xsl:if>
-  </xsl:template>
  
-  <xsl:template match="text()" priority="-1">
-    <xsl:param name="inParaContext" select="false()" as="xs:boolean" tunnel="yes"/>
-    <xsl:choose>
-      <xsl:when test="$inParaContext">
-        <xsl:sequence select="replace(replace(., '[\n\r]', ' '), '  ', ' ')"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:copy/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-  
   <xsl:template match="@*" priority="-1" mode="#all">
     <xsl:sequence select="."/>
   </xsl:template>
@@ -451,6 +401,16 @@
     <!-- Copy elements that are unstyled or that do not establish paragraph contexts -->
     <xsl:call-template name="copy-element"/>  
   </xsl:template> 
+  
+  <xsl:template name="copy-element">
+    <xsl:copy>
+      <xsl:apply-templates select="node()|@*" mode="#current"/>
+    </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template mode="copy-element" match="text()">
+    <xsl:copy/>
+  </xsl:template>
   
   <xsl:function name="df:reportTopicref" as="node()*">
     <xsl:param name="topicref" as="element()*"/>
