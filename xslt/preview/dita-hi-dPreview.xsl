@@ -21,7 +21,7 @@
   <xsl:import href="../lib/dita-support-lib.xsl"/>
 
   <xsl:template match="*[df:class(., 'hi-d/i')]">
-    <xsl:message> + [DEBUG] dita-hi-dPreview.xsl: <xsl:sequence select="name(.)"/>[class=<xsl:sequence select="string(@class)"/>]</xsl:message>
+    <xsl:message> + [DEBUG] **** dita-hi-dPreview.xsl: <xsl:sequence select="name(.)"/>[class=<xsl:sequence select="string(@class)"/>]</xsl:message>
     <i class="{df:getHtmlClass(.)}"><xsl:apply-templates/></i>
   </xsl:template>
   
@@ -45,14 +45,4 @@
     <sup class="{df:getHtmlClass(.)}"><xsl:apply-templates/></sup>
   </xsl:template>
   
-  <!-- ===========================
-       Catch-all templates
-       =========================== -->
-    
-  <xsl:template match="*" mode="#all" priority="-1"> 
-    <xsl:message> + [DEBUG] dita-hi-dPreview.xsl: Catch call caught <xsl:sequence select="name(.)"/>[class=<xsl:sequence select="string(@class)"/>]</xsl:message>
-    <xsl:apply-imports/>
-  </xsl:template>
-  
-   
 </xsl:stylesheet>

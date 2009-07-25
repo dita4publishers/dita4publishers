@@ -24,6 +24,32 @@
   <xsl:param name="debug" select="'false'"/>
   <xsl:variable name="debugBoolean" select="if ($debug = 'true') then true() else false()" as="xs:boolean"/>
   
+  <xsl:param name="rsuite.sessionkey" as="xs:string" select="'unset'"/>
+  <xsl:param name="rsuite.serverurl" as="xs:string" select="'urn:unset:/dev/null'"/>
+  
+  <xsl:variable name="debugBoolean" select="true()" as="xs:boolean"/>
+  
+  <xsl:template match="/">
+    <xsl:message> + [DEBUG] dita-topicPreview: In root match  </xsl:message>
+    <xsl:variable name="resolvedMap" as="element()">      
+      <xsl:apply-templates mode="resolve-map">
+        <xsl:with-param name="parentHeadLevel" as="xs:integer" select="0" tunnel="yes"/>
+      </xsl:apply-templates>
+    </xsl:variable>
+    <!--    <xsl:message> + [DEBUG] dita-previewImpl: resolved map:
+      <xsl:sequence select="$resolvedMap"/>
+      </xsl:message>
+    -->    <html>
+      <head>
+        <title><xsl:apply-templates select="*/*[df:class(., 'topic/title')]" mode="head"/></title>
+        <xsl:apply-templates select="$resolvedMap" mode="head"/>                
+      </head>
+      <body>
+        <xsl:apply-templates select="$resolvedMap"/>
+      </body>
+    </html>
+  </xsl:template>  
+  
   <xsl:template match="/*" mode="head">
     <LINK REL="stylesheet" TYPE="text/css" 
       HREF="/rsuite/rest/v1/content/alias/dita-preview.css?skey={$rsuite.sessionkey}"/>    
@@ -116,6 +142,18 @@
     <ol class="{df:getHtmlClass(.)}">
       <xsl:apply-templates/>
     </ol>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/sl')]">
+    <div class="{df:getHtmlClass(.)}" style="margin-left: 0.5in">
+      <xsl:apply-templates/>
+    </div>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/sli')]">
+    <p class="{df:getHtmlClass(.)}" >
+      <xsl:apply-templates/>
+    </p>
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/li')]">
@@ -383,11 +421,12 @@
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
-  <xsl:template match="*" mode="#default" priority="-1">    
+  <xsl:template match="*" mode="#default">    
+    <xsl:message> + [DEBUG] dita-topicPreview: Catch all in #default mode: <xsl:sequence select="name(.)"/>[class=<xsl:sequence select="string(@class)"/>]</xsl:message>
     <div style="margin-left: 1em;">
       <span style="color: green;">[<xsl:value-of select="@class"/>{</span><xsl:apply-templates/><span style="color: green;">}]</span>
     </div>
   </xsl:template>
   
-   
+  
 </xsl:stylesheet>

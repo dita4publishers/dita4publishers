@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
       xmlns:xs="http://www.w3.org/2001/XMLSchema"
-      exclude-result-prefixes="xs"
+      xmlns:df="http://dita2indesign.org/dita/functions"
+      exclude-result-prefixes="xs df"
       version="2.0">
       
   <!-- ===========================================================
@@ -17,14 +18,6 @@
        Copyright (c) 2009 DITA For Publishers
       ============================================================ -->    
   
-  <xsl:import href="dita-previewImpl.xsl"/>
+  <xsl:import href="dita-previewImpl.xsl"/>  
   
-  <xsl:param name="rsuite.sessionkey" as="xs:string" select="'unset'"/>
-  <xsl:param name="rsuite.serverurl" as="xs:string" select="'urn:unset:/dev/null'"/>
-  
-  <xsl:variable name="debugBoolean" select="true()" as="xs:boolean"/>
-  
-  <xsl:template match="/">
-    <xsl:apply-imports/>
-  </xsl:template>
 </xsl:stylesheet>
