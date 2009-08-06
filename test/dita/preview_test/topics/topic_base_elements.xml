@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/topic" "topic.dtd">
+<topic
+  id="topicid">
+  <title>Samples of All Base Topic Element Types</title>
+  <titlealts>
+    <navtitle>Nav title for samples of all base topic element types</navtitle>
+    <searchtitle>Search title for samples of all base topic element types</searchtitle>
+  </titlealts>
+  <shortdesc>This topic contains samples of all the topic element types defined in the base topic
+    module. (This is the short description.)</shortdesc>
+  <prolog>
+    <copyright>
+      <copyryear
+        year="2009"/>
+      <copyrholder>Really Strategies, Inc.</copyrholder>
+    </copyright>
+    <critdates>
+      <created
+        date="2009-00-00"/>
+    </critdates>
+    <metadata>
+      <prodinfo>
+        <prodname>DITA For Publishers</prodname>
+        <vrmlist>
+          <vrm
+            version="3"
+            release="2"
+            modification="3"/>
+        </vrmlist>
+      </prodinfo>
+    </metadata>
+  </prolog>
+  <body><bodydiv>
+      <p>Paragraph with a bodydiv.</p>
+    </bodydiv><section>
+      <title>Inline elements</title>
+      <p><b>bold</b></p>
+      <p><i>italic</i></p>
+      <p><u>underline</u></p>
+      <p><tt>teletype</tt></p>
+      <p><b><i>italic within bold</i></b>, <i><b>bold within italic</b></i></p>
+      <p><cite>citation text</cite></p>
+      <p>Index term: <indexterm>index term level 1<indexterm>index term level
+          2</indexterm></indexterm></p>
+      <p><keyword>keyword 1</keyword></p>
+      <p><ph>generic phrase</ph></p>
+      <p><q>quoted phrase</q></p>
+      <p>base<sub>subscript</sub><sup>superscript</sup></p>
+      <p><term>term 1</term></p>
+      <p><ph><text>text</text></ph></p>
+      <p><tm
+          tmtype="reg">Registered Trademark</tm>, <tm
+          tmtype="service">Service mark</tm>, <tm
+          tmtype="tm">Trademark</tm></p>
+      <p>Boolean true: <boolean
+          state="yes"/>, false: <boolean
+          state="no"/>.</p>
+      <p>Footnote with no ID.<fn>This is a footnote with no ID</fn></p>
+      <p>Footnote and footnote ref.<xref
+          href="#topicid/fn-01"
+          type="fn"
+          scope="local"/><fn
+          id="fn-01">Footnote with an @id attribute.</fn></p>
+    </section><section
+      spectitle="Blocks"><p>This is a generic paragraph.</p><p>Second paragraph. </p><p>Third
+        paragraph.</p><fig>
+        <title>Figure with a title</title>
+        <p>This is the body of the figure.</p>
+      </fig><image
+        href="graphics/image_01.jpg"
+        id="image_03ed944e-bdad-4660-ad75-0d73d1376664">
+        <alt>Image directly w/in section</alt>
+      </image><lines>Lines line 1
+Lines line 2
+Lines line 3</lines><lq>This is a long quote. More
+        long quote.</lq><note
+        type="attention">Attention note.</note><note
+        type="caution">Caution note.</note><note
+        type="danger">Danger note.</note><note
+        type="fastpath">Fastpath note.</note><note
+        type="important">Important note.</note><note
+        type="note">Note note.</note><note
+        type="notice">Notice note.</note><note
+        type="remember">Remember note.</note><note
+        type="restriction">Restriction note.</note><note
+        type="tip">Tip note.</note><note
+        type="warning">Warning note.</note><note
+        type="other"
+        othertype="other-note-type">Other note, othertype:
+        other-note-type</note><pre>This is a pre element
+Line 2 of pre
+Line 3 of pre</pre><sectiondiv>
+        <p>Paragraph within a sectiondiv.</p>
+      </sectiondiv></section><section
+      spectitle="Lists">
+      <p>Within a section with an explicit spectitle attribute.</p>
+      <p>Ordered list w/in a paragraph:<ol
+          id="ol_83a27fc1-7082-4538-a2b7-1a228d0ab8f7">
+          <li>List item level 1</li>
+          <li>List item level 1<ol
+              id="ol_3d326c2e-77fe-42ce-a78c-06d7b58b7448">
+              <li>List item level 2</li>
+              <li>List item level 2</li>
+            </ol></li>
+          <li>List item level 1 </li>
+        </ol></p>
+      <p>Unordered list within a paragraph:</p>
+      <ul>
+        <li>List item level 1</li>
+        <li>List item level 1<ul>
+            <li>List item level 2</li>
+            <li>List item level 2</li>
+          </ul></li>
+        <li>List item level 1 </li>
+      </ul>
+      <p>Simple list:<sl>
+          <sli>List item level 1</sli>
+          <sli>List item level 1</sli>
+          <sli>List item level 1</sli>
+        </sl></p>
+      <p>Definition list:<dl>
+          <dlhead>
+            <dthd>DT Head</dthd>
+            <ddhd>DD Head</ddhd>
+          </dlhead>
+          <dlentry>
+            <dt>dl item 1</dt>
+            <dd>Definition list item.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>dl item 2</dt>
+            <dd>Definition list item.</dd>
+          </dlentry>
+        </dl></p>
+    </section><section
+      spectitle="Tables">
+      <p>A simple table of two rows and two columns:</p>
+      <simpletable
+        id="simpletable_106b8a77-3a38-4944-b840-a604c89681be">
+        <strow>
+          <stentry>R1C1</stentry>
+          <stentry>R1C2</stentry>
+        </strow>
+        <strow>
+          <stentry>R2C1</stentry>
+          <stentry>R2C2</stentry>
+        </strow>
+      </simpletable>
+      <p>A CALS table with header:</p>
+      <table
+        frame="all"
+        id="table_ff9ee48f-ffc5-41be-87c8-607a779b7b53">
+        <title>Sample CALS Table</title>
+        <tgroup
+          cols="3">
+          <colspec
+            colname="c1"
+            colnum="1"/>
+          <colspec
+            colname="c2"
+            colnum="2"/>
+          <colspec
+            colname="c3"
+            colnum="3"/>
+          <thead>
+            <row>
+              <entry>Header 1</entry>
+              <entry>Header 2</entry>
+              <entry>Header 3</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>R1C1</entry>
+              <entry>R1C2</entry>
+              <entry>R1C3</entry>
+            </row>
+            <row>
+              <entry>R2C1</entry>
+              <entry>R2C2</entry>
+              <entry>R2C3</entry>
+            </row>
+            <row>
+              <entry>R3C1</entry>
+              <entry>R3C2</entry>
+              <entry>R3C3</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section><example>
+      <p>Paragraph within an example element.</p>
+    </example><section
+      spectitle="Cross References">
+      <p>Cross refs go here.</p>
+    </section></body>
+</topic>
