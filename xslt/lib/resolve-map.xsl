@@ -38,7 +38,7 @@
 
  <xsl:template match="/*" mode="resolve-map">
    <xsl:message> + [INFO] Root element in mode resolve-map was not a map, got <xsl:sequence select="name(.)"/>[class=<xsl:sequence select="string(@class)"/></xsl:message>
-   <map>
+   <map class="- map/map "> 
      <topicref class="- map/topicref "
         href="{document-uri(root(.))}"/>
    </map>

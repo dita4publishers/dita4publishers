@@ -21,9 +21,6 @@
   <xsl:import href="../lib/dita-support-lib.xsl"/>
   <xsl:import href="../lib/resolve-map.xsl"/>
   
-  <xsl:param name="debug" select="'false'"/>
-  <xsl:variable name="debugBoolean" select="if ($debug = 'true') then true() else false()" as="xs:boolean"/>
-  
   <xsl:param name="rsuite.sessionkey" as="xs:string" select="'unset'"/>
   <xsl:param name="rsuite.serverurl" as="xs:string" select="'urn:unset:/dev/null'"/>
   
@@ -41,7 +38,7 @@
       </xsl:message>
     -->    <html>
       <head>
-        <title><xsl:apply-templates select="*/*[df:class(., 'topic/title')]" mode="head"/></title>
+        <title><xsl:apply-templates select="/*/*[df:class(., 'topic/title')]" mode="head"/></title>
         <xsl:apply-templates select="$resolvedMap" mode="head"/>                
       </head>
       <body>
@@ -61,7 +58,7 @@
     <xsl:message> + [DEBUG] dita-topicPreview: **** in base topic/topic template: subtopicContent=<xsl:sequence select="name($subtopicContent[1])"/></xsl:message>
     <!-- FIXME: Use the topicref to determine our topic nesting -->
     <div class="{df:getHtmlClass(.)}">
-      <a id="{@id}" name="{@id}"/>
+      <a id="{generate-id(.)}" name="{generate-id(.)}"/>
       <xsl:apply-templates/>
       <xsl:apply-templates select="$topicref/*">
         <xsl:with-param name="subtopicContent" select="()" tunnel="yes" as="node()*"/>
@@ -78,7 +75,63 @@
     <span class="{df:getHtmlClass(.)}"><xsl:apply-templates/></span>
   </xsl:template>
   
+  <xsl:template match="*[df:class(., 'topic/text')]">
+    <span class="{df:getHtmlClass(.)}"><xsl:apply-templates/></span>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/fn') and not(@id)]">
+    <span class="{df:getHtmlClass(.)}"><sup><a href="#{generate-id(.)}"
+      ><xsl:number count="*[df:class(., 'topic/fn') and not(@id)] | 
+        *[df:class(., 'topic/xref') and @scope = 'local' and @type = 'fn']" format="1" level="any"
+      /></a></sup></span>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/fn') and @id]">
+    <!-- Only rendered if referenced by an xref of type 'fn' -->
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/fn') and not(@id)]" mode="footnotes" name="render-footnote">
+    <div class="{df:getHtmlClass(.)}"><xsl:text>[</xsl:text><a id="{generate-id(.)}" name="{generate-id(.)}"
+      ><xsl:number count="*[df:class(., 'topic/fn') and not(@id)] | 
+        *[df:class(., 'topic/xref') and @scope = 'local' and @type = 'fn']" format="1" level="any"
+      /></a><xsl:text>]</xsl:text>
+      <xsl:apply-templates/>
+    </div>
+  </xsl:template>  
+  
+  <xsl:template match="*[df:class(., 'topic/boolean')]">
+    <span class="{df:getHtmlClass(.)}">
+      <xsl:choose>
+        <xsl:when test="@state = 'yes'"><xsl:text>Yes</xsl:text></xsl:when>
+        <xsl:when test="@state = 'no'"><xsl:text>No</xsl:text></xsl:when>
+        <xsl:otherwise>{Unrecognized value '<xsl:sequence select="string(@state)"/>' for @state on topic/boolean}</xsl:otherwise>
+      </xsl:choose>      
+    </span>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/tm')]">
+    <span class="{df:getHtmlClass(.)}"><xsl:apply-templates/>
+      <xsl:choose>
+        <xsl:when test="@tmtype = 'reg'"><xsl:text>®</xsl:text></xsl:when>
+        <xsl:when test="@tmtype = 'service'"><xsl:text>℠</xsl:text></xsl:when>
+        <xsl:otherwise><sup>TM</sup></xsl:otherwise>
+      </xsl:choose>      
+    </span>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/q')]">
+    <span class="{df:getHtmlClass(.)}"><xsl:text>&#x201c;</xsl:text><xsl:apply-templates/><xsl:text>&#x201d;</xsl:text></span>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/indexterm')]">
+    <!-- suppressed in default mode -->
+  </xsl:template>
+  
   <xsl:template match="*[df:class(., 'topic/cite')]">
+    <i class="{df:getHtmlClass(.)}"><xsl:apply-templates/></i>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/term')]">
     <i class="{df:getHtmlClass(.)}"><xsl:apply-templates/></i>
   </xsl:template>
   
@@ -90,6 +143,18 @@
   
   <xsl:template match="*[df:class(., 'topic/bodydiv')]">
     <div class="{df:getHtmlClass(.)}">
+      <xsl:apply-templates/>
+    </div>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/fig')]/*[df:class(., 'topic/title')]">
+    <div class="{df:getHtmlClass(.)}">
+      <xsl:text>Figure </xsl:text>
+      <xsl:number count="*[df:class(., 'topic/fig')][*[df:class(., 'topic/title')]]"
+        level="any"
+        format="1."
+      />
+      <xsl:text> </xsl:text>
       <xsl:apply-templates/>
     </div>
   </xsl:template>
@@ -108,6 +173,10 @@
   
   <xsl:template match="*[df:class(., 'topic/topic')]/*[df:class(., 'topic/title')]">
     <h2><xsl:apply-templates/></h2>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/title')]" mode="head">
+    <xsl:apply-templates mode="text-only"/>
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/sectiondiv')]">
@@ -132,6 +201,20 @@
     </div>
   </xsl:template>
   
+  <xsl:template match="*[df:class(., 'topic/example')]">
+    <div class="{df:getHtmlClass(.)}">
+      <xsl:choose>
+        <xsl:when test="@spectitle">
+          <h3><xsl:sequence select="string(@spectitle)"/></h3>
+        </xsl:when>
+        <xsl:otherwise>
+          <h3>Example</h3>
+        </xsl:otherwise>
+      </xsl:choose>
+      <xsl:apply-templates/>
+    </div>
+  </xsl:template>
+  
   <xsl:template match="*[df:class(., 'topic/ul')]">
     <ul class="{df:getHtmlClass(.)}">
       <xsl:apply-templates/>
@@ -142,6 +225,36 @@
     <ol class="{df:getHtmlClass(.)}">
       <xsl:apply-templates/>
     </ol>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/dl')]">
+    <dl class="{df:getHtmlClass(.)}">
+      <xsl:apply-templates/>
+    </dl>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/dlentry')]">
+    <xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/dlhead')]">
+    <xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/dthd')]">
+    <dt class="{df:getHtmlClass(.)}"><b><xsl:apply-templates/></b></dt>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/ddhd')]">
+    <dd class="{df:getHtmlClass(.)}"><b><xsl:apply-templates/></b></dd>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/dt')]">
+    <dt class="{df:getHtmlClass(.)}"><b><xsl:apply-templates/></b></dt>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/dd')]">
+    <dd class="{df:getHtmlClass(.)}"><xsl:apply-templates/></dd>
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/sl')]">
@@ -164,6 +277,10 @@
   
   <xsl:template match="*[df:class(., 'topic/p')]">
     <p class="{df:getHtmlClass(.)}"><xsl:apply-templates/></p>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/pre')]">
+    <pre class="{df:getHtmlClass(.)}"><xsl:apply-templates/></pre>
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/lines')]">
@@ -215,16 +332,39 @@
     ============================================ --> 
   
   <xsl:template match="*[df:class(., 'topic/image')]">
-    <img src="{@href}" class="{df:getHtmlClass(.)}">
+    <img src="{concat(@href, '?skey=',$rsuite.sessionkey)}" class="{df:getHtmlClass(.)}">
       <xsl:attribute name="alt">
         <xsl:apply-templates mode="text-only"/>
       </xsl:attribute>
     </img>
   </xsl:template>  
   
+  <xsl:template match="*[df:class(., 'topic/xref') and @type = 'fn']" mode="footnotes">
+    <xsl:variable name="targetUri" as="xs:string?"
+      select="@href"
+    />
+    <xsl:variable name="footnote" as="element()?"
+      select="df:resolveTopicElementRef(., @href)"
+    />
+    <xsl:choose>
+      <xsl:when test="$footnote">
+        <xsl:for-each select="$footnote">
+          <xsl:call-template name="render-footnote"/>
+        </xsl:for-each>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:message> - [WARNING] Failed to resolve reference to footnote "<xsl:sequence select="string(@href)"/>"</xsl:message>
+      </xsl:otherwise>
+    </xsl:choose>
+    
+  </xsl:template>  
+  
   <xsl:template match="*[df:class(., 'topic/xref')]">
     <xsl:variable name="targetUri" as="xs:string?"
        select="@href"
+    />
+    <xsl:variable name="targetElement" as="element()?"
+      select="if (@scope = 'local') then df:resolveTopicElementRef(., @href) else ()"
     />
     <a href="{$targetUri}">
       <xsl:choose>
@@ -235,6 +375,14 @@
           <xsl:choose>
             <xsl:when test="normalize-space(.) != ''">
               <xsl:apply-templates/>
+            </xsl:when>
+            <xsl:when test="@type = 'fn' and @scope = 'local'">
+              <span class="{df:getHtmlClass(.)}"><sup><a href="#{generate-id($targetElement)}"
+                ><xsl:number count="*[df:class(., 'topic/fn') and not(@id)] | 
+                  *[df:class(., 'topic/xref') and @scope = 'local' and @type = 'fn']" 
+                  format="1" 
+                  level="any"
+                /></a></sup></span>
             </xsl:when>
             <xsl:otherwise>
               <!-- FIXME: Implement target resolution and link text generation -->
@@ -247,10 +395,6 @@
     </a>
     
   </xsl:template>  
-  
-  <xsl:template mode="text-only" match="*">
-    <xsl:apply-templates/>
-  </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/table')]">
     <table class="{df:getHtmlClass(.)}">
@@ -337,9 +481,21 @@
        ============================================ --> 
   
   <xsl:template match="*[df:class(., 'map/map')]">
-    <xsl:apply-templates/>
+    <div class="map-title">
+      <xsl:apply-templates select="*[df:class(., 'topic/title')]"/>
+    </div>
+    <xsl:apply-templates mode="toc" select="."/>
+    <div class="main-flow">
+      <xsl:apply-templates select="*[not(df:class(., 'topic/title'))]"/>
+      <xsl:apply-templates mode="footnotes"/>
+    </div>
   </xsl:template>
 
+  <xsl:template match="*[df:class(., 'map/map')]/*[df:class(., 'topic/title')]">
+    <h1><xsl:apply-templates/></h1>
+  </xsl:template>
+  
+  
   <!-- Suppress in default mode -->
   <xsl:template 
     match="
@@ -380,7 +536,7 @@
     </xsl:apply-templates>
   </xsl:template>
   
-  <xsl:template match="*[df:isTopicRef(.) and not(@format = 'ditamap')]">
+  <xsl:template match="*[df:isTopicRef(.) and not(@format = 'ditamap')]" mode="#default footnotes">
     <xsl:if test="true()">
       <xsl:message> + [DEBUG] dita-topicPreview: Handling topicref to non-map resource: <xsl:sequence select="df:reportTopicref(.)"/></xsl:message>
     </xsl:if>
@@ -399,7 +555,7 @@
     </xsl:variable>
     
     <!-- NOTE: subordinate topicrefs are handled in the template for the referenced topic. -->
-    <xsl:apply-templates select="$target">
+    <xsl:apply-templates select="$target" mode="#current">
       <xsl:with-param name="topicref" select="." as="element()" tunnel="no"/>
       <xsl:with-param name="subtopicContent" as="node()*" select="$subtopicContent" tunnel="yes"/>      
     </xsl:apply-templates>
@@ -421,10 +577,16 @@
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
+  <xsl:template mode="footnotes" match="*">
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template mode="footnotes" match="text()"/>
+  
   <xsl:template match="*" mode="#default">    
     <xsl:message> + [DEBUG] dita-topicPreview: Catch all in #default mode: <xsl:sequence select="name(.)"/>[class=<xsl:sequence select="string(@class)"/>]</xsl:message>
     <div style="margin-left: 1em;">
-      <span style="color: green;">[<xsl:value-of select="@class"/>{</span><xsl:apply-templates/><span style="color: green;">}]</span>
+      <span style="color: green;">[<xsl:value-of select="if (@class) then @class else concat('No Class Value: ', name(.))"/>{</span><xsl:apply-templates/><span style="color: green;">}]</span>
     </div>
   </xsl:template>
   
