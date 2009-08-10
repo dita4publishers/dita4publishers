@@ -88,6 +88,24 @@
     <xsl:sequence select="concat('topichead-', generate-id($context))"/>
   </xsl:function>
   
+  <xsl:function name="df:getNavtitleForTopic" as="xs:string">
+    <xsl:param name="topic" as="element()"/>
+    <xsl:variable name="navTitle">
+      <xsl:choose>
+        <xsl:when test="$topic/*[df:class(., 'topic/titlealts')]/*[df:class(., 'topic/navtitle')]">
+          <xsl:apply-templates select="$topic/*[df:class(., 'topic/titlealts')]/*[df:class(., 'topic/navtitle')]" mode="text-only"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates select="$topic/*[df:class(., 'topic/title')]" mode="text-only"/>
+        </xsl:otherwise>
+      </xsl:choose>          
+    </xsl:variable>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] df:getNavtitleForTopicref(): returning "<xsl:sequence select="$navTitle"/>"</xsl:message>
+    </xsl:if>
+    <xsl:sequence select="$navTitle"/>
+  </xsl:function>
+  
   <xsl:function name="df:getNavtitleForTopicref" as="xs:string">
     <xsl:param name="topicref" as="element()"/>
     <xsl:choose>
@@ -113,16 +131,7 @@
             </xsl:if>
           </xsl:otherwise>
         </xsl:choose>
-        
-        <xsl:variable name="navTitle" 
-          select="if ($targetTopic/*[df:class(., 'topic/titlealts')]/*[df:class(., 'topic/navtitle')])
-                     then normalize-space($targetTopic/*[df:class(., 'topic/titlealts')]/*[df:class(., 'topic/navtitle')])
-                     else normalize-space($targetTopic/*[df:class(., 'topic/title')])
-                     "/>
-        <xsl:if test="$debugBoolean">
-        <xsl:message> + [DEBUG] df:getNavtitleForTopicref(): returning "<xsl:sequence select="$navTitle"/>"</xsl:message>
-        </xsl:if>
-        <xsl:sequence select="$navTitle"/>
+        <xsl:sequence select="df:getNavtitleForTopic($targetTopic)"/>  
       </xsl:otherwise>
     </xsl:choose>
   </xsl:function>
