@@ -887,9 +887,17 @@
   
   <xsl:function name="local:getResultUrlForTopic" as="xs:string">
     <xsl:param name="context" as="element()"/>
-    <xsl:variable name="result" as="xs:string">
+    <xsl:variable name="topicRelativeUri" as="xs:string">
       <xsl:apply-templates mode="topic-url" select="$context"/>
     </xsl:variable>
+    <!-- FIXME: This use of the outputDir parameter is a workaround for a bug
+         in Saxon 9.1.0.7. It should not be necessary if the main result
+         file has been set, which it always should be when this transform is
+         run by RSuite.
+      -->
+    <xsl:variable name="result" as="xs:string"
+      select="relpath:newFile($outputDir, $topicRelativeUri)"
+    />
     <xsl:sequence select="$result"/>
   </xsl:function>
 
