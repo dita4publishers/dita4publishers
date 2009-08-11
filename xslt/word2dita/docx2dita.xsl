@@ -43,11 +43,11 @@
       <xsl:call-template name="processDocumentXml"/>
     </xsl:variable>
     <xsl:variable name="tempDoc" select="relpath:newFile($outputDir, 'simpleWpDoc.xml')" as="xs:string"/>
-    <xsl:result-document href="{$tempDoc}">
+<!--    <xsl:result-document href="{$tempDoc}">
       <xsl:message> + [DEBUG] Intermediate simple WP doc saved as <xsl:sequence select="$tempDoc"/></xsl:message>
       <xsl:sequence select="$simpleWpDoc"/>
     </xsl:result-document>
-    <xsl:apply-templates select="$simpleWpDoc"/>
+-->    <xsl:apply-templates select="$simpleWpDoc"/>
     <xsl:message> + [INFO] Done.</xsl:message>
   </xsl:template>
   
