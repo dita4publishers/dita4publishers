@@ -99,6 +99,9 @@
       <xsl:otherwise>
         <xsl:element name="{$tagName}">
           <xsl:sequence select="./@outputclass"/>
+          <xsl:if test="./@dataName">
+            <xsl:attribute name="name" select="./@dataName"/>
+          </xsl:if>
           <xsl:call-template name="transformParaContent"/>    
         </xsl:element>
       </xsl:otherwise>
@@ -366,6 +369,16 @@
       group-starting-with="*[(@structureType = 'topicTitle' or @structureType = 'map' or @structureType = 'mapTitle') and
       @level = string($level)]">
       <xsl:choose>
+        <xsl:when test="@structureType = 'topicTitle' and @secondStructureType = 'mapTitle'">
+          <xsl:call-template name="makeMap">
+            <xsl:with-param name="content" select="current-group()" as="node()*"/>
+            <xsl:with-param name="level" select="$level"/>
+          </xsl:call-template>
+          <xsl:call-template name="makeTopic">
+            <xsl:with-param name="content" select="current-group()" as="node()*"/>
+            <xsl:with-param name="level" select="$level"/>
+          </xsl:call-template>
+        </xsl:when>
         <xsl:when test="@structureType = 'topicTitle'">
           <xsl:call-template name="makeTopic">
             <xsl:with-param name="content" select="current-group()" as="node()*"/>
@@ -503,9 +516,9 @@
                       ]"/>                        
                   </xsl:element>                  
                 </xsl:when>
-                <xsl:when test="current-group()[@topicZone = 'prolog' and @containingTopic != 'root']">
+                <xsl:when test="current-group()[@topicZone = 'prolog' and not(@containingTopic)]">
                   <xsl:element name="{$prologType}">
-                    <xsl:apply-templates select="//*[@containingTopic = 'root' and @topicZone = 'prolog']"/>
+                    <xsl:apply-templates select="current-group()[not(@containingTopic) and @topicZone = 'prolog']"/>
                   </xsl:element>
                 </xsl:when>
                 <xsl:otherwise/><!-- Must be only root-level prolog elements in this non-root topic context -->
@@ -582,12 +595,26 @@
     <xsl:for-each-group select="$bodyParas" group-adjacent="boolean(@containerType)">
       <xsl:choose>
         <xsl:when test="@containerType">
-          <xsl:variable name="containerGroup" as="element()">
-            <containerGroup containerType="{@containerType}">
-              <xsl:sequence select="current-group()"/>
-            </containerGroup>
-          </xsl:variable>
-          <xsl:apply-templates select="$containerGroup"/>
+          <xsl:choose>
+            <xsl:when test="@containerOutputclass">
+              <xsl:for-each-group select="current-group()" group-adjacent="@containerOutputclass">
+                <xsl:variable name="containerGroup" as="element()">
+                  <containerGroup containerType="{@containerType}" containerOutputclass="{@containerOutputclass}">
+                    <xsl:sequence select="current-group()"/>
+                  </containerGroup>
+                </xsl:variable>
+                <xsl:apply-templates select="$containerGroup"/>
+              </xsl:for-each-group>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:variable name="containerGroup" as="element()">
+                <containerGroup containerType="{@containerType}">
+                  <xsl:sequence select="current-group()"/>
+                </containerGroup>
+              </xsl:variable>
+              <xsl:apply-templates select="$containerGroup"/>
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:when>
         <xsl:otherwise>
           <xsl:apply-templates select="current-group()"/>
@@ -599,7 +626,6 @@
   
   <xsl:template match="containerGroup">
 <!--    <xsl:message> + [DEBUG] Handling groupContainer...</xsl:message>-->
-    
     <xsl:call-template name="processLevelNContainers">
       <xsl:with-param name="context" select="*" as="element()*"/>
       <xsl:with-param name="level" select="1" as="xs:integer"/>
@@ -640,32 +666,56 @@
           </xsl:for-each>
         </xsl:otherwise>
       </xsl:choose>
-      
     </xsl:for-each-group>    
   </xsl:template>
-  
   <xsl:template name="handleGroupSequence">
     <xsl:param name="level"/>
     <xsl:choose>
-      <xsl:when test="@structureType = 'dt'">
+      <xsl:when test="@structureType = 'dt' and @level=$level">
         <xsl:variable name="dlEntryType" as="xs:string"
           select="if (@dlEntryType) then string(@dlEntryType) else 'dlentry'"
         />
         <xsl:element name="{$dlEntryType}">
           <xsl:call-template name="transformPara"/>          
           <xsl:variable name="followingSibling" as="element()?" select="following-sibling::*[1]"/>
-          <xsl:if test="not($followingSibling/@structureType = 'dd')">
-            <xsl:message> - [WARNING] Paragraph following a paragraph with structure type 'dt' does not have structure type 'dd'. Found "<xsl:sequence 
-              select="string($followingSibling/@structureType)"/>"</xsl:message>
-          </xsl:if>
-          <xsl:for-each select="$followingSibling">
-            <xsl:call-template name="transformPara"/>
-          </xsl:for-each>
+          <xsl:variable name="precedingSibling" as="element()?" select="preceding-sibling::*[1]"/>
+          <xsl:choose>
+            <xsl:when test="$followingSibling/@level &gt; @level">
+              <xsl:for-each-group select="following-sibling::*" group-adjacent="@level">
+                <xsl:if test="@level &gt; $level">
+                  <xsl:element name="{@containerType}">
+                  <xsl:for-each select="current-group()">
+                    <xsl:choose>
+                      <xsl:when test="@structureType = 'dt'">
+                        <xsl:variable name="nestedFollowingSibling" as="element()?" select="following-sibling::*[1]"/>
+                        <xsl:variable name="dlEntryType" as="xs:string"
+                          select="if (@dlEntryType) then string(@dlEntryType) else 'dlentry'"
+                        />
+                        <xsl:element name="{$dlEntryType}">
+                          <xsl:call-template name="transformPara"/>
+                          <xsl:for-each select="$nestedFollowingSibling">
+                            <xsl:call-template name="transformPara"/>
+                          </xsl:for-each>
+                        </xsl:element>
+                      </xsl:when>
+                    </xsl:choose>
+                  </xsl:for-each>
+                </xsl:element>
+                </xsl:if>
+              </xsl:for-each-group>
+            </xsl:when>
+            <xsl:when test="$precedingSibling/@level &lt; @level"/>
+              <xsl:otherwise>
+                <xsl:for-each select="$followingSibling">
+                  <xsl:call-template name="transformPara"/>
+                </xsl:for-each>
+              </xsl:otherwise>
+          </xsl:choose>
           <!-- FIXME: This isn't going to handle nested paras within DD -->
         </xsl:element>
       </xsl:when>
       <xsl:when test="@structureType = 'dd'"/><!-- Handled by dt processing -->
-      <xsl:when test="following-sibling::*[1][@level &gt; $level]">
+     <xsl:when test="following-sibling::*[1][@level &gt; $level]">
         <xsl:variable name="me" select="." as="element()"/>
         <xsl:element name="{@tagName}">
           <xsl:call-template name="transformParaContent"/>
