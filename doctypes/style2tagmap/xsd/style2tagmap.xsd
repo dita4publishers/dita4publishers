@@ -193,6 +193,17 @@
               </xs:annotation>
             </xs:enumeration>
             <xs:enumeration
+              value="prologData">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The style maps to an element that goes in the prolog container of topic.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
               value="topicTitle">
               <xs:annotation>
                 <xs:documentation>
@@ -256,6 +267,174 @@
                     xmlns="http://www.w3.org/1999/xhtml">
                     <p>Indicates that the paragraph is a generic block container, e.g. a DITA paragraph
                     or similar.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="skip">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Indicates that the paragraph should be completely ignored by the generation
+                      process. Skipped paragraphs are removed before analysis of body and section
+                      content in order to determine adjacent paragraphs for the purpose of
+                      generating containers.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="dt">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Paragraph is the definition term part of a dlentry within a definition list.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="dd">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Paragraph is the definition description part of a dlentry within a definition list.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="xref">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>A cross reference.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute
+        name="secondStructureType"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div
+              xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Second Structure Type</h2>
+              <p>If a paragraph maps to two structure types, eg topic title and map title, the second structure type attribute is used. This determines the general
+                type of processing and result for the style.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction
+            base="xs:NMTOKEN">
+            <xs:enumeration
+              value="mapTitle">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The paragraph maps to the title of a map. Map titles are optional.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="topicmeta">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The style maps to an element that goes in the topicmeta container of a map or
+                      topicref within a map.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="prologData">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The style maps to an element that goes in the prolog container of topic.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="topicTitle">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The paragraph maps to the title of a topic. For a given result topic there
+                      must be exactly one paragraph that maps to the topic title.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="topicGroup">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The paragraph generates a new topicgroup element in the result map. Topicgroups do not have titles.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="topicHead">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The paragraph generates a new topichead element in the result map and provides its titles.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="section">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The paragraph generates a new section</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="shortdesc">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The paragraph acts as the containing topic's short description.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="block">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Indicates that the paragraph is a generic block container, e.g. a DITA paragraph
+                      or similar.</p>
                   </xhtml:div>
                 </xs:documentation>
               </xs:annotation>
