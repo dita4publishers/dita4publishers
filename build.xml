@@ -1,4 +1,6 @@
-<project name="DITA For Publishers" basedir=".">
+<project name="DITA For Publishers" basedir="."
+  xmlns:ivy="antlib:org.apache.ivy.ant"
+	>
 	
 	<!-- NOTE: This script requires that the DITA Open Toolkit
 	           libraries be included in the Java classpath
@@ -16,7 +18,7 @@
 
 	
   <property name="dist" location="${basedir}/dist"/>
-  <property name="lib" location="${basedir}/java/lib"/>
+  <property name="lib" location="${basedir}/lib"/>
   <property name="src" location="${basedir}/src/java"/>
   <property name="rsuiteSrc" location="${basedir}/rsuite"/>
   <property name="build" location="${basedir}/build"/>
@@ -64,8 +66,17 @@
 		</fileset>
 	</path>
 	
+  <path id="classpath.base">
+    <pathelement path="${classes.home}"/>
+    <fileset dir="${lib}">
+        <include name="*.jar"/>
+    </fileset>
+  </path>
 
-	
+  <target name="resolve" description="Retrieve dependencies with ivy" depends="init">
+      <ivy:retrieve pattern="${ivy.lib.dir}/[artifact].[ext]" />
+  </target>
+
 	<target name="init">
     <tstamp/>
   </target>
@@ -358,12 +369,32 @@
     <delete dir="${target.home}" failonerror="false"/>
     <mkdir dir="${target.home}"/>
 </target>
+	
+  <target name="compile" depends="init">
+    
+    <delete dir="${classes.home}" />
+    
+    <mkdir dir="${classes.home}"/>
+    <javac       
+      srcdir="${src.java.home}"
+      destdir="${classes.home}"
+      debug="on"
+      deprecation="on">
+      <classpath refid="classpath.base"/>
+    </javac>    
+  </target>
+  
 
-  <target name="package-rsuite-plugins" depends="init-target">
+  <target name="package-rsuite-plugins" depends="init-target, clean, compile">
     <copy file="${rsuiteSrc}/rsuite-plugins/rsuite-plugin.xml" todir="${classes.home}"/>
     <copy todir="${classes.home}/WebContent/xslt">
       <fileset dir="${xslt.src}"/>
     </copy>
+    <copy todir="${classes.home}">
+       <fileset dir="${lib}" >
+        <include name="rsuite-dita-tools.jar" />
+       </fileset>
+     </copy>
     <jar destfile="${target.home}/${target.jar}" >
       <fileset dir="${classes.home}" >
         <include name="**.*" />
@@ -372,7 +403,6 @@
       </fileset>
     </jar>
   </target>
-
 	 <target name="deploy-rsuite-plugins-locally" description="Deploy the plugin to a local server's plugin directory"
 	  depends="package-rsuite-plugins"
 	  >
