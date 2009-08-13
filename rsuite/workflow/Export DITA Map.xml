@@ -1,0 +1,28 @@
+<process-definition xmlns="urn:jbpm.org:jpdl-3.1" name="Export DITA Map">
+  <start-state name="StartNode">
+    <transition name="" to="Export DITA Map" />
+  </start-state>
+  <end-state name="EndNode" />
+  <node name="Export DITA Map">
+    <action class="org.dita4publishers.rsuite.workflow.actions.MapExporterActionHandler">
+      <outputPath>/Users/ekimber/temp/mapexport</outputPath>
+    </action>
+    <transition name="" to="DecisionNode" />
+  </node>
+  <task-node name="Error Occured">
+    <task name="Look At Log" description="Map export errors occurred">
+      <event type="task-create">
+        <action class="com.reallysi.rsuite.system.workflow.actions.taskcreate.AssignTaskToUserFromVariable" />
+      </event>
+      <assignment pooled-actors="RSuiteAdministrator" />
+      <controller class="com.reallysi.rsuite.system.workflow.RSuiteJbpmTaskControllerDelegation">
+        <variable name="rsuite contents" access="read,,required" />
+      </controller>
+    </task>
+    <transition name="Done" to="EndNode" />
+  </task-node>
+  <decision name="DecisionNode" expression="#{EXCEPTION_OCCUR == true}">
+    <transition name="true" to="Error Occured" />
+    <transition name="false" to="EndNode" />
+  </decision>
+</process-definition>
