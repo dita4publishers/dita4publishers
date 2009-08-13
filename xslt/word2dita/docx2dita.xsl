@@ -194,7 +194,7 @@
   <xsl:template name="makeMap">
     <xsl:param name="content" as="element()+"/>
     <xsl:param name="level" as="xs:double"/><!-- Level of this topic -->
-    <xsl:param name="mapUrl" as="xs:string" select="concat('map_', generate-id($content/*[1]), '.ditamap')"/>
+    <xsl:param name="mapUrl" as="xs:string" select="concat('map_', generate-id($content[1]), '.ditamap')"/>
     
     <xsl:variable name="firstP" select="$content[1]"/>
     <xsl:variable name="nextLevel" select="$level + 1" as="xs:double"/>
@@ -248,6 +248,10 @@
         <xsl:choose>
           <xsl:when test="$firstP/@rootTopicrefType">
             <xsl:element name="{$firstP/@rootTopicrefType}">
+              <!-- L&T learningObjects must have @collection-type for SCORM output -->
+              <xsl:if test="$firstP/@rootTopicrefType = 'learningObject'">
+                <xsl:attribute name="collection-type" select="'sequence'"/>
+              </xsl:if>
               <xsl:call-template name="generateTopics">
                 <xsl:with-param name="content" select="$content" as="node()*"/>
                 <xsl:with-param name="level" select="$nextLevel"/>
@@ -339,10 +343,17 @@
 <!--          <xsl:message> + [DEBUG] generateTopicrefs: Got a map-reference-generating map or map title. Level=<xsl:sequence select="string(@level)"/></xsl:message>-->
           <xsl:element name="{$topicrefType}">
             <xsl:attribute name="format" select="'ditamap'"/>
-            <xsl:call-template name="generateTopicrefs">
-              <xsl:with-param name="content" select="current-group()[position() > 1]" as="node()*"/>
-              <xsl:with-param name="level" select="$level + 1" as="xs:double"/>
-            </xsl:call-template>
+            <xsl:attribute name="navtitle" select="."/>
+            <xsl:attribute name="href" select="concat('map_', generate-id(.), '.ditamap')"/>
+            
+            <xsl:for-each select="./*[@structureType = 'topicTitle' and @level = $level]">
+              <xsl:call-template name="generateTopicrefs">
+                <xsl:with-param name="content" select="current-group()[position() > 1]" as="node()*"/>
+                <xsl:with-param name="level" select="$level + 1" as="xs:double"/>
+              </xsl:call-template>
+            </xsl:for-each>
+            
+            
           </xsl:element>          
         </xsl:when>
         <xsl:when test="current-group()[position() = 1]">
