@@ -43,15 +43,18 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/playmap"
 "../../base/dtd/mapGroup.ent"                                                 >
 %mapgroup-d-dec;
 
+<!ENTITY % pubmap-d-dec 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net/entities/dtd/pubmapDomain" 
+"../../pubmapDomain/dtd/pubmapDomain.ent"                                                 
+>
+%pubmap-d-dec;
+
 <!ENTITY % indexing-d-dec     PUBLIC 
 "-//OASIS//ENTITIES DITA 1.2 Indexing Domain//EN" 
 "../../base/dtd/indexingDomain.ent"                                           >
 %indexing-d-dec;
 
-<!ENTITY % delay-d-dec     
-  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Delayed Resolution Domain//EN" 
-         "../../base/dtd/delayResolutionDomain.ent"                                                       
->%delay-d-dec;
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ATTRIBUTE DECLARATIONS              -->
@@ -65,13 +68,11 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/playmap"
                         the name of the domain(s) in which the
                         extension was declared                     -->
 <!ENTITY % topicref     "topicref |
-                         %mapgroup-d-topicref;
+                         %mapgroup-d-topicref; |
+                         %pubmap-d-topicref;
                         ">
 <!ENTITY % index-base   "index-base |
                          %indexing-d-index-base;
-                        ">
-<!ENTITY % keywords     "keywords | 
-                         %delay-d-keywords;
                         ">
 
 <!-- ============================================================= -->
@@ -86,8 +87,8 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/playmap"
 <!--                    Must be declared ahead of the DTDs, which
                         puts @domains first in order               -->
 <!ENTITY included-domains 
-                        "&playmap-att;
-                         &delay-d-att;
+                        "&pubmap-d-att;
+                         &playmap-att;
                          &mapgroup-d-att;
                          &indexing-d-att; 
                         ">
@@ -107,10 +108,10 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/playmap"
 "mapGroup.mod"                                                 >
 %mapgroup-d-def;
 
-<!ENTITY % pubmap-type PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap" 
-"pubmap.mod"                                                        >
-%pubmap-type;
+<!ENTITY % pubmap-d-def PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain" 
+"pubmapDomain.mod"                                                        >
+%pubmap-d-def;
 
 <!ENTITY % playmap-type PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/playmap" 
@@ -126,10 +127,5 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/playmap"
 "-//OASIS//ELEMENTS DITA 1.2 Indexing Domain//EN" 
 "../../base/dtd/indexingDomain.mod"                                           >
 %indexing-d-def;
-
-<!ENTITY % delay-d-def     
-  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Delayed Resolution Domain//EN" 
-         "../../base/dtd/delayResolutionDomain.mod"
->%delay-d-def;
 
 <!-- ================== End DITA playmap DTD  ==================== -->
