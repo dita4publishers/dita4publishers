@@ -62,7 +62,8 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/pubmap"
                         the name of the domain(s) in which the
                         extension was declared                     -->
 <!ENTITY % topicref     "topicref |
-                         %mapgroup-d-topicref;
+                         %mapgroup-d-topicref; |
+                         %pubmap-d-topicref;
                         ">
 
 
