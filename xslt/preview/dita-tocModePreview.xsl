@@ -38,9 +38,17 @@
       select="generate-id($targetTopic)"
     />
     <li><a href="#{$topicid}"><xsl:sequence select="df:getNavtitleForTopicref(.)"/></a>
-      <xsl:if test="*[df:class(., 'map/topicref')]">
+      <xsl:if test="*[df:class(., 'map/topicref')] | $targetTopic/*[df:class(., 'topic/topic')]">
         <ul class="toc">
-          <xsl:apply-templates mode="#current"/>
+          <xsl:choose>
+            <xsl:when test="*[df:class(., 'map/topicref')]">
+              <xsl:apply-templates mode="#current"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:apply-templates select="$targetTopic/*[df:class(., 'topic/topic')]" mode="toc"/>
+            </xsl:otherwise>
+          </xsl:choose>
+          
         </ul>
       </xsl:if>
     </li>
@@ -50,10 +58,22 @@
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
-  <xsl:template match="*[df:class(., 'topic/title')]" mode="toc">
+  <xsl:template match="*[df:class(., 'map/map')]/*[df:class(., 'topic/title')]" mode="toc">
   </xsl:template>
 
-
+  <xsl:template match="*[df:class(., 'topic/topic')]" mode="toc">
+    <xsl:variable name="topicid" as="xs:string"
+      select="generate-id(.)"
+    />
+    <li><a href="#{$topicid}"><xsl:sequence select="df:getNavtitleForTopic(.)"/></a>
+      <xsl:if test="*[df:class(., 'topic/topic')]">
+        <ul>
+          <xsl:apply-templates select="*[df:class(., 'topic/topic')]" mode="#current"/>
+        </ul>
+      </xsl:if>
+    </li>
+  </xsl:template>
+  
   <xsl:template match="*" mode="toc">    
     <xsl:message> + [DEBUG] dita-tocModePreview: Catch-all in toc mode: <xsl:sequence select="name(.)"/>[class=<xsl:sequence select="string(@class)"/>]</xsl:message>
     <div style="margin-left: 1em;">

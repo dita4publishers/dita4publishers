@@ -21,7 +21,6 @@
   <xsl:import href="../lib/dita-support-lib.xsl"/>
 
   <xsl:template match="*[df:class(., 'hi-d/i')]">
-    <xsl:message> + [DEBUG] **** dita-hi-dPreview.xsl: <xsl:sequence select="name(.)"/>[class=<xsl:sequence select="string(@class)"/>]</xsl:message>
     <i class="{df:getHtmlClass(.)}"><xsl:apply-templates/></i>
   </xsl:template>
   

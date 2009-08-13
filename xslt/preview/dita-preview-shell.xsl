@@ -18,6 +18,6 @@
        Copyright (c) 2009 DITA For Publishers
       ============================================================ -->    
   
-  <xsl:import href="dita-previewImpl.xsl"/>  
+  <xsl:import href="rsuite:/res/plugin/dita4publishers/xslt/preview/dita-previewImpl.xsl"/>  
   
 </xsl:stylesheet>

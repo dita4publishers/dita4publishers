@@ -27,25 +27,72 @@
   <xsl:variable name="debugBoolean" select="true()" as="xs:boolean"/>
   
   <xsl:template match="/">
-    <xsl:message> + [DEBUG] dita-topicPreview: In root match  </xsl:message>
     <xsl:variable name="resolvedMap" as="element()">      
       <xsl:apply-templates mode="resolve-map">
         <xsl:with-param name="parentHeadLevel" as="xs:integer" select="0" tunnel="yes"/>
       </xsl:apply-templates>
     </xsl:variable>
-    <!--    <xsl:message> + [DEBUG] dita-previewImpl: resolved map:
+        <!--<xsl:message> + [DEBUG] dita-previewImpl: resolved map:
       <xsl:sequence select="$resolvedMap"/>
-      </xsl:message>
-    -->    <html>
+      </xsl:message>-->
+        <html>
       <head>
         <title><xsl:apply-templates select="/*/*[df:class(., 'topic/title')]" mode="head"/></title>
-        <xsl:apply-templates select="$resolvedMap" mode="head"/>                
+        <xsl:apply-templates select="$resolvedMap" mode="head"/>
+        <xsl:apply-templates select="$resolvedMap" mode="embedded-css-stylesheet"/>
       </head>
       <body>
         <xsl:apply-templates select="$resolvedMap"/>
       </body>
     </html>
   </xsl:template>  
+  
+  <xsl:template match="*[df:class(., 'map/map')]" mode="embedded-css-stylesheet">
+    <xsl:message> + [DEBUG] mode embedded-css-stylesheet</xsl:message>
+    <!-- Default embedded CSS. Override by putting this template
+         in a higher-priority module.
+      -->
+    <style type="text/css">
+      body { 
+      font-family: Verdana, Helvetica, sans-serif;
+      }
+      
+      h1, h2, h3, h4 {
+      font-family: Verdana, Helvetica, sans-serif;
+      color: blue;
+      }
+      
+      .keyword {
+      font-weight: bold;
+      }
+      
+      .table-of-contents {
+      font-size: 9pt;
+      display: block;
+      width: 300px;
+      float: left;
+      border: solid blue 1px;
+      padding-right: 6px;
+      padding-left: 6px;
+      padding-bottom: 6px;
+      margin-right: 6px;
+      }
+      
+      .main-flow {
+      display: block;
+      }
+      
+      .draft-comment {
+      border: solid green 1pt; 
+      padding: 6pt; 
+      background-color: #00F900;      
+      }
+      
+      .codeblock {
+      background-color: #C0C0C0;
+      }
+    </style>
+  </xsl:template>
   
   <xsl:template match="/*" mode="head">
     <LINK REL="stylesheet" TYPE="text/css" 
@@ -55,7 +102,6 @@
   <xsl:template match="*[df:class(., 'topic/topic')]">
     <xsl:param name="topicref" as="element()?" tunnel="no"/>
     <xsl:param name="subtopicContent" as="node()*" tunnel="yes"/>
-    <xsl:message> + [DEBUG] dita-topicPreview: **** in base topic/topic template: subtopicContent=<xsl:sequence select="name($subtopicContent[1])"/></xsl:message>
     <!-- FIXME: Use the topicref to determine our topic nesting -->
     <div class="{df:getHtmlClass(.)}">
       <a id="{generate-id(.)}" name="{generate-id(.)}"/>
@@ -279,6 +325,14 @@
     <p class="{df:getHtmlClass(.)}"><xsl:apply-templates/></p>
   </xsl:template>
   
+  <xsl:template match="*[df:class(., 'topic/draft-comment')]">
+    <div class="{df:getHtmlClass(.)}">
+      <b>Draft Comment by <span class="draft-comment-author"
+        ><xsl:sequence select="if (@author) then string(@author) else 'No Author'"
+        />: </span></b> <xsl:apply-templates/>
+    </div>
+  </xsl:template>
+  
   <xsl:template match="*[df:class(., 'topic/pre')]">
     <pre class="{df:getHtmlClass(.)}"><xsl:apply-templates/></pre>
   </xsl:template>
@@ -298,8 +352,33 @@
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/note')]">
+    <xsl:variable name="label" as="xs:string">
+      <xsl:choose>
+        <xsl:when test="@type != ''">
+          <xsl:choose>
+            <xsl:when test="@type = 'other'">
+              <xsl:sequence select="string(@othertype)"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:choose>
+                <xsl:when test="@type = 'note'">
+                  <xsl:sequence select="'Note'"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:sequence select="string(@type)"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:otherwise>
+          </xsl:choose>          
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:sequence select="'Note'"/>
+        </xsl:otherwise>
+      </xsl:choose>      
+    </xsl:variable>
+    
     <p class="{df:getHtmlClass(.)}"><b>
-      <xsl:sequence select="if (@type = 'other') then string(@othertype) else string(@type)"/>: </b>
+      <xsl:sequence select="$label"/>: </b>
       <xsl:apply-templates/>
     </p>
   </xsl:template>
@@ -505,14 +584,14 @@
     "/>
   
   <xsl:template match="*[df:isTopicGroup(.)]">
-    <xsl:if test="$debugBoolean or true()">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] dita-topicPreview: Handling topic group <xsl:sequence select="name(.)"/></xsl:message>
     </xsl:if>
     <xsl:apply-templates/>
   </xsl:template>
   
   <xsl:template match="*[df:isTopicHead(.)]">
-    <xsl:if test="$debugBoolean or true()">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] dita-topicPreview: Handling topichead <xsl:sequence select="name(.)"/></xsl:message>
     </xsl:if>
     <div class="{df:getHtmlClass(.)}">
@@ -525,7 +604,7 @@
   
   <xsl:template match="*[df:isTopicRef(.) and @format = 'ditamap']">
     <!-- NOTE: This would only happen for peer and external scope maps -->
-    <xsl:if test="true()">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] dita-topicPreview: Handling topicref to map: <xsl:sequence select="string(@href)"/></xsl:message>
     </xsl:if>
     <xsl:variable name="target"
@@ -537,17 +616,17 @@
   </xsl:template>
   
   <xsl:template match="*[df:isTopicRef(.) and not(@format = 'ditamap')]" mode="#default footnotes">
-    <xsl:if test="true()">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] dita-topicPreview: Handling topicref to non-map resource: <xsl:sequence select="df:reportTopicref(.)"/></xsl:message>
     </xsl:if>
     <xsl:variable name="target" as="element()?"
        select="df:resolveTopicRef(.)"
     />
-    <xsl:if test="true()">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] dita-topicPreview:   target element=<xsl:sequence select="name($target)"/>[class=<xsl:sequence select="string($target/@class)"/>]</xsl:message>
     </xsl:if>
     
-    <xsl:if test="true()">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] dita-topicPreview:  constructing subtopicContent by applying templates to <xsl:sequence select="./*"/> </xsl:message>
     </xsl:if>
     <xsl:variable name="subtopicContent" as="node()*">
@@ -584,7 +663,9 @@
   <xsl:template mode="footnotes" match="text()"/>
   
   <xsl:template match="*" mode="#default">    
-    <xsl:message> + [DEBUG] dita-topicPreview: Catch all in #default mode: <xsl:sequence select="name(.)"/>[class=<xsl:sequence select="string(@class)"/>]</xsl:message>
+     <xsl:if test="$debugBoolean">
+       <xsl:message> + [DEBUG] dita-topicPreview: Catch all in #default mode: <xsl:sequence select="name(.)"/>[class=<xsl:sequence select="string(@class)"/>]</xsl:message>
+     </xsl:if>
     <div style="margin-left: 1em;">
       <span style="color: green;">[<xsl:value-of select="if (@class) then @class else concat('No Class Value: ', name(.))"/>{</span><xsl:apply-templates/><span style="color: green;">}]</span>
     </div>
