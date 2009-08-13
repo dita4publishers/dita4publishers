@@ -1,4 +1,4 @@
-// Script to import and configure the ASTD DTDs into RSuite
+// Script to import and configure the doctypes for support documents (e.g., style-to-tag maps).
 //
 import com.reallysi.rsuite.admin.importer.*
 import com.reallysi.rsuite.client.api.*
@@ -74,43 +74,6 @@ def loadAndConfigureDtd(dtdFile, dtdPublicId, moDefList, previewXslFile, catalog
 }
 
 
-// lesson:
-	
-def topicTypes = ['article', 
-                  'chapter', 
-                  'part', 
-                  'sidebar', 
-                  'subsection', 
-                  'topic', 
-                  ]
-	
-def mapTypes = ['pubmap',
-                'learningMap', 
-                ]	
-	
-def otherMoTypes = 	[ 
-                   	  ['art',"'Art '"],
-                   	]
-	
-topicTypes.each {
-	loadAndConfigureTopicDtd(new File(doctypesDir, it + "/dtd/" + it + ".dtd"), 
-	        baseTopicTypeURI + it, 
-	        topicTypes, 
-	        otherMoTypes,
-	        previewXslFile,
-	        catalog);
-	
-}
-
-mapTypes.each {
-    loadAndConfigureMapDtd(new File(doctypesDir, it + "/dtd/" + it + ".dtd"), 
-            baseTopicTypeURI + it, 
-            it, 
-            previewXslFile,
-            catalog);
-    
-}
-    
 
 //Special cases:
 
@@ -123,47 +86,8 @@ moDefList.add(new ManagedObjectDefinition(['name' : '{urn:public:/dita4publisher
                                            'displayNameXPath': "title", 
                                            'versionable': 'true', 
                                            'reusable': 'true']))
-rsuite.setManagedObjectDefinitions(uuid, false, moDefList)
+rsuite.setManagedObjectDefinitions(uuid, false, moDefList)	
 
-// Specializations:
-	
-	
-	
-
-baseTopicTypeURI = "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/";
-baseMapTypeURI = "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/";
-
-doctypesDir = new File(projectDir, "sample_data/specializations/shakespear/doctypes");
-
-topicTypes = ['act', 
-              'epilogue', 
-              'induct', 
-              'personae', 
-              'prologue', 
-              'scene', 
-              ]
-    
-mapTypes = ['playmap',
-           ]   
-    
-topicTypes.each {
-    loadAndConfigureTopicDtd(new File(doctypesDir, it + "/dtd/" + it + ".dtd"), 
-            baseTopicTypeURI + it, 
-            topicTypes, 
-            otherMoTypes,
-            previewXslFile,
-            catalog);
-    
-}
-
-mapTypes.each {
-    loadAndConfigureMapDtd(new File(doctypesDir, it + "/dtd/" + it + ".dtd"), 
-            baseTopicTypeURI + it, 
-            it, 
-            previewXslFile,
-            catalog);
-    
-}
 
 
 // End of script
