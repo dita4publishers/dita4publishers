@@ -74,8 +74,12 @@ def loadAndConfigureDtd(dtdFile, dtdPublicId, moDefList, previewXslFile, catalog
 }
 
 
-// lesson:
-	
+
+	def otherMoTypes =     [ 
+                      ['art',"'Art '"],
+                    ]
+
+if (true) {	
 def topicTypes = ['article', 
                   'chapter', 
                   'part', 
@@ -88,9 +92,6 @@ def mapTypes = ['pubmap',
                 'learningMap', 
                 ]	
 	
-def otherMoTypes = 	[ 
-                   	  ['art',"'Art '"],
-                   	]
 	
 topicTypes.each {
 	loadAndConfigureTopicDtd(new File(doctypesDir, it + "/dtd/" + it + ".dtd"), 
@@ -111,9 +112,11 @@ mapTypes.each {
     
 }
     
+} // if (false)
 
 //Special cases:
 
+if (true) {
 println "Importing style2tagmap.xsd"
 def schemaFile = new File(doctypesDir, "style2tagmap/xsd/style2tagmap.xsd") 
 def importer = importerFactory.generateImporter("XMLSchema", new SchemaInputSource(schemaFile));
@@ -125,11 +128,12 @@ moDefList.add(new ManagedObjectDefinition(['name' : '{urn:public:/dita4publisher
                                            'reusable': 'true']))
 rsuite.setManagedObjectDefinitions(uuid, false, moDefList)
 
+}
 // Specializations:
 	
 	
 	
-
+if (true) {
 baseTopicTypeURI = "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/";
 baseMapTypeURI = "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/";
 
@@ -165,5 +169,5 @@ mapTypes.each {
     
 }
 
-
+}
 // End of script
