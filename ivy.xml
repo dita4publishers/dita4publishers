@@ -1,11 +1,10 @@
 <ivy-module version="2.0">
   <info organisation="RSI" module="rsuite-admin-client"/>
   <dependencies>
-  <!-- 
     <dependency org="rsi" name="rsuite-api" rev="20090720"/>
     <dependency org="rsi" name="rsi-inx-util" rev="20090114"/>
     <dependency org="rsi" name="rsi-utils" rev="20090106"/>
-
+    
     <dependency org="apache" name="ant" rev="1.7.1" />
     <dependency org="apache" name="commons-logging" rev="1.1"/>
     <dependency org="log4j" name="log4j" rev="1.2.15" transitive="false"/>
@@ -19,9 +18,6 @@
     <dependency org="dita-ot" name="dita-ot" rev="1.5m15">
       <artifact  name="dita-ot-rsi-dev" type="zip"/>
     </dependency>
-    
-    
--->
-    
+        
   </dependencies>
 </ivy-module>
