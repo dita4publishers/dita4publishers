@@ -14,47 +14,6 @@
 
   </extensionProvider>
   
-    <extensionProvider id="rsuite.Workflow">
-     <actionHandler 
-         type="org.dita4publishers.rsuite.workflow.actions.DitaOtXhtmlTaskRunningActionHandler"
-        label="DITA to XHTML">
-         <variableList>
-           <variable><name>outputPath</name></variable>
-           <variable><name>buildProperties</name></variable>
-           <variable><name>antReportIdVarName</name></variable>           
-         </variableList>            
-     </actionHandler>
-     <actionHandler 
-         type="org.dita4publishers.rsuite.workflow.actions.AntTaskRunningActionHandler"
-        label="Run Ant Task">
-         <variableList>
-           <variable><name>buildFilePath</name></variable>
-           <variable><name>buildTarget</name></variable>
-           <variable><name>buildProperties</name></variable>
-           <variable><name>antReportIdVarName</name></variable>
-         </variableList>            
-     </actionHandler>
-     <actionHandler
-       type="org.dita4publishers.rsuite.workflow.actions.MapExporterActionHandler"
-       label="Export DITA Maps"
-     >
-         <variableList>
-         <variable><name>outputPath</name></variable>
-         </variableList>            
-     </actionHandler>
-     <actionHandler
-       type="org.dita4publishers.rsuite.workflow.actions.MapImporterActionHandler"
-       label="Import DITA Maps"
-     >
-         <variableList>
-           <variable><name>rootMapPath</name></variable>
-           <variable><name>mapFileName</name></variable>
-           <variable><name>parentBrowseTreeFolder</name></variable>
-           <variable><name>parentCaNode</name></variable>
-         </variableList>            
-     </actionHandler>
-     
-  </extensionProvider>
-  
+      
  
 </rsuite-plugin>
