@@ -201,7 +201,7 @@
     
     <xsl:variable name="formatName" select="$firstP/@format" as="xs:string?"/>
     <xsl:if test="not($formatName)">
-      <xsl:message terminate="yes"> + [ERROR] No mapType= attribute for paragraph style <xsl:sequence select="string($firstP/@styleId)"/>, which is mapped to structure type "map".</xsl:message>
+      <xsl:message terminate="yes"> + [ERROR] No format= attribute for paragraph style <xsl:sequence select="string($firstP/@styleId)"/>, which is mapped to structure type "map".</xsl:message>
     </xsl:if>
     
     <xsl:variable name="format" select="key('formats', $formatName, $styleMapDoc)[1]"/>
@@ -232,6 +232,8 @@
       <xsl:element name="{$firstP/@mapType}">
         <!-- The first paragraph can simply trigger a (possibly) untitled map, or
           it can also be the map title. If it's the map title, generate it.
+          First paragraph can also generate a root topicref and/or a topicref
+          to a topic in addition to the map.
         -->
         <xsl:if test="local:isMapTitle($firstP)">
           <xsl:apply-templates select="$firstP"/>
@@ -245,60 +247,26 @@
             </xsl:call-template>
           </xsl:element>
         </xsl:if>
-        <xsl:choose>
-          <xsl:when test="$firstP/@rootTopicrefType">
-            <xsl:element name="{$firstP/@rootTopicrefType}">
-              <!-- L&T learningObjects must have @collection-type for SCORM output -->
-              <xsl:if test="$firstP/@rootTopicrefType = 'learningObject'">
-                <xsl:attribute name="collection-type" select="'sequence'"/>
-              </xsl:if>
-              <xsl:choose>
-                <xsl:when test="$firstP/@topicrefType">
-                  <xsl:element name="{$firstP/@topicrefType}">
-                    <xsl:if test="$firstP/@outputclass">
-                      <xsl:attribute name="outputclass" select="$firstP/@outputclass"/>
-                    </xsl:if>
-                    <xsl:if test="$firstP/@chunk">
-                      <xsl:attribute name="chunk" select="$firstP/@chunk"/>
-                    </xsl:if>
-                    <xsl:call-template name="generateTopicsAndTopicrefs">
-                      <xsl:with-param name="content" select="$content" as="node()*"/>
-                      <xsl:with-param name="nextLevel" select="$nextLevel"/>
-                    </xsl:call-template>                  
-                  </xsl:element>
-                </xsl:when>
-                <xsl:otherwise>
-                  <xsl:call-template name="generateTopicsAndTopicrefs">
-                    <xsl:with-param name="content" select="$content" as="node()*"/>
-                    <xsl:with-param name="nextLevel" select="$nextLevel"/>
-                  </xsl:call-template>                  
-                </xsl:otherwise>
-              </xsl:choose>              
-            </xsl:element>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:call-template name="generateTopicsAndTopicrefs">
-              <xsl:with-param name="content" select="$content" as="node()*"/>
-              <xsl:with-param name="nextLevel" select="$nextLevel"/>
-            </xsl:call-template>                  
-          </xsl:otherwise>
-        </xsl:choose>
+        <xsl:call-template name="generateTopicsAndTopicrefs">
+          <xsl:with-param name="content" select="$content" as="node()*"/>
+          <xsl:with-param name="nextLevel" select="$nextLevel" as="xs:integer"/>
+        </xsl:call-template>                  
       </xsl:element>
     </xsl:result-document>
   </xsl:template>
   
   <xsl:template name="generateTopicsAndTopicrefs">
     <xsl:param name="content" as="node()*"/>
-    <xsl:param name="nextLevel"/>
-    <xsl:call-template name="generateTopics">
-      <xsl:with-param name="content" select="$content" as="node()*"/>
-      <xsl:with-param name="level" select="$nextLevel" as="xs:integer"/>
-    </xsl:call-template>        
+    <xsl:param name="nextLevel" as="xs:integer"/>
     
     <xsl:call-template name="generateTopicrefs">
       <xsl:with-param name="content" select="$content" as="node()*"/>
       <xsl:with-param name="level" select="$nextLevel" as="xs:integer"/>
     </xsl:call-template>
+    <xsl:call-template name="generateTopics">
+      <xsl:with-param name="content" select="$content" as="node()*"/>
+      <xsl:with-param name="level" select="$nextLevel" as="xs:integer"/>
+    </xsl:call-template>        
     
   </xsl:template>
   
@@ -316,43 +284,106 @@
   <xsl:template name="generateTopicrefs">
     <xsl:param name="content" as="node()*"/>
     <xsl:param name="level" as="xs:integer"/>
+    <xsl:variable name="firstP" select="$content[1]" as="element()*"/>
     
+    <xsl:choose>
+      <xsl:when test="$firstP/@rootTopicrefType != ''">
+        <xsl:message> + [DEBUG] generateTopicrefs(): First para specifies rootTopicrefType</xsl:message>
+        <xsl:element name="{$firstP/@rootTopicrefType}">
+          <xsl:if test="string($firstP/@rootTopicrefType) = 'learningObject'">
+            <!-- FIXME: This is a workaround until we implement the ability
+              to specify collection-type for the root topicref type.
+            -->
+            <xsl:attribute name="collection-type" select="'sequence'"/>
+          </xsl:if>
+          <xsl:choose>
+            <xsl:when test="@topicrefType != ''">
+              <xsl:element name="{@topicrefType}">
+                <xsl:variable name="topicUrl"
+                  as="xs:string"
+                  select="local:getResultUrlForTopic($firstP)"
+                />
+                <xsl:call-template name="generateTopicrefAtts">
+                  <xsl:with-param name="topicUrl" select="$topicUrl"/>
+                </xsl:call-template>            
+                <xsl:call-template name="generateSubordinateTopicrefs">
+                  <xsl:with-param name="content" select="$content"/>
+                  <xsl:with-param name="level" select="$level"/>
+                </xsl:call-template>    
+              </xsl:element>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:call-template name="generateSubordinateTopicrefs">
+                <xsl:with-param name="content" select="$content"/>
+                <xsl:with-param name="level" select="$level"/>
+              </xsl:call-template>    
+            </xsl:otherwise>
+          </xsl:choose>          
+        </xsl:element>
+      </xsl:when>
+      <xsl:when test="$firstP/@topicrefType">
+        <xsl:message> + [DEBUG] generateTopicrefs(): First para specifies topicrefType but not rootTopicrefType</xsl:message>
+        <xsl:element name="{$firstP/@topicrefType}">
+          <xsl:variable name="topicUrl"
+            as="xs:string"
+            select="local:getResultUrlForTopic($firstP)"
+          />
+          <xsl:call-template name="generateTopicrefAtts">
+            <xsl:with-param name="topicUrl" select="$topicUrl"/>
+          </xsl:call-template>            
+          <xsl:call-template name="generateSubordinateTopicrefs">
+            <xsl:with-param name="content" select="$content"/>
+            <xsl:with-param name="level" select="$level"/>
+          </xsl:call-template>    
+        </xsl:element>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="generateSubordinateTopicrefs">
+          <xsl:with-param name="content" select="$content"/>
+          <xsl:with-param name="level" select="$level"/>
+        </xsl:call-template>    
+      </xsl:otherwise>
+    </xsl:choose>
+    
+  </xsl:template>
+  <xsl:template name="generateSubordinateTopicrefs">
+    <xsl:param name="content"/>
+    <xsl:param name="level"/>
     <xsl:for-each-group select="$content[position() > 1]" 
       group-starting-with="*[(@structureType = 'topicTitle' or 
-                              @structureType = 'map' or 
-                              @structureType = 'mapTitle' or
-                              @structureType = 'topicHead' or
-                              @structureType = 'topicGroup')  and
-                              @level = string($level)]">
+      @structureType = 'map' or 
+      @structureType = 'mapTitle' or
+      @structureType = 'topicHead' or
+      @structureType = 'topicGroup')  and
+      @level = string($level)]">
       <xsl:variable name="topicrefType" as="xs:string"
         select="if (@topicrefType) then @topicrefType else 'topicref'"
       />
       <xsl:choose>
         <xsl:when test="@structureType = 'topicTitle' and @topicDoc = 'yes'">
-<!--          <xsl:message> + [DEBUG] generateTopicrefs: Got a doc-creating topic title. Level=<xsl:sequence select="string(@level)"/></xsl:message>-->
+          <!--          <xsl:message> + [DEBUG] generateTopicrefs: Got a doc-creating topic title. Level=<xsl:sequence select="string(@level)"/></xsl:message>-->
           <xsl:variable name="topicUrl"
             as="xs:string"
             select="local:getResultUrlForTopic(current-group()[1])"
           />
-          <xsl:element name="{$topicrefType}">
-             <xsl:attribute name="href" select="$topicUrl"/>
-             <xsl:if test="@chunk">
-               <xsl:copy-of select="@chunk"/>
-             </xsl:if>
-             <xsl:call-template name="generateTopicrefs">
-               <xsl:with-param name="content" select="current-group()[position() > 1]" as="node()*"/>
-               <xsl:with-param name="level" select="$level + 1"  as="xs:integer"/>
-             </xsl:call-template>
-           </xsl:element>          
+          <xsl:element name="{$topicrefType}">            
+            <xsl:call-template name="generateTopicrefAtts">
+              <xsl:with-param name="topicUrl" select="$topicUrl"/>
+            </xsl:call-template>            
+            <xsl:call-template name="generateTopicrefs">
+              <xsl:with-param name="content" select="current-group()[position() > 1]" as="node()*"/>
+              <xsl:with-param name="level" select="$level + 1"  as="xs:integer"/>
+            </xsl:call-template>
+          </xsl:element>          
         </xsl:when>
         <xsl:when test="@structureType = 'topichead'">
-<!--          <xsl:message> + [DEBUG] generateTopicrefs: Got a topic head. Level=<xsl:sequence select="string(@level)"/></xsl:message>-->
+          <!--          <xsl:message> + [DEBUG] generateTopicrefs: Got a topic head. Level=<xsl:sequence select="string(@level)"/></xsl:message>-->
           <xsl:variable name="topicheadType" select="if (@topicheadType) then string(@topicheadType) else 'topichead'"/>
           <xsl:variable name="topicmetaType" select="if (@topicmetaType) then string(@topicmetaType) else 'topicmeta'"/>
           <xsl:variable name="navtitleType" select="if (@navtitleType) then string(@navtitleType) else 'navtitle'"/>
           <xsl:element name="{$topicheadType}">
             <xsl:element name="{$topicmetaType}">
-               <xsl:apply-templates select="current-group()[1]"/>
+              <xsl:apply-templates select="current-group()[1]"/>
             </xsl:element>
             <xsl:call-template name="generateTopicrefs">
               <xsl:with-param name="content" select="current-group()[position() > 1]" as="node()*"/>
@@ -361,8 +392,23 @@
           </xsl:element>          
         </xsl:when>
         <xsl:when test="@structureType = 'map' or @structureType = 'mapTitle'">
-<!--          <xsl:message> + [DEBUG] generateTopicrefs: Got a map-reference-generating map or map title. Level=<xsl:sequence select="string(@level)"/></xsl:message>-->
-          <xsl:element name="{$topicrefType}">
+          <!--          <xsl:message> + [DEBUG] generateTopicrefs: Got a map-reference-generating map or map title. Level=<xsl:sequence select="string(@level)"/></xsl:message>-->
+          <xsl:variable name="mapRefType" as="xs:string"
+          >
+            <xsl:choose>
+              <xsl:when test="@mapRefType != ''">
+                <xsl:sequence select="string(@mapRefType)"/>
+              </xsl:when>
+              <xsl:when test="@rootTopicrefType != ''">
+                <xsl:sequence select="string(@rootTopicrefType)"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:sequence select="$topicrefType"/>
+              </xsl:otherwise>
+            </xsl:choose>
+            
+          </xsl:variable>
+          <xsl:element name="{$mapRefType}">
             <xsl:attribute name="format" select="'ditamap'"/>
             <xsl:attribute name="navtitle" select="."/>
             <xsl:attribute name="href" select="concat('map_', generate-id(.), '.ditamap')"/>
@@ -387,6 +433,20 @@
     </xsl:for-each-group>
     
   </xsl:template>
+  <xsl:template name="generateTopicrefAtts">
+    <xsl:param name="topicUrl"/>
+    <xsl:attribute name="href" select="$topicUrl"/>
+    <xsl:if test="@chunk">
+      <xsl:copy-of select="@chunk"/>
+    </xsl:if>
+    <xsl:if test="@collection-type">
+      <xsl:copy-of select="@collection-type"/>
+    </xsl:if>
+    <xsl:if test="@processing-role">
+      <xsl:copy-of select="@processing-role"/>
+    </xsl:if>
+    
+  </xsl:template>
   
   
  
@@ -397,7 +457,12 @@
     <xsl:param name="content" as="node()*"/>
     <xsl:param name="level" as="xs:integer"/>
     
-    <xsl:for-each-group select="$content[position() > 1]" 
+    <!-- First paragraph is a special case because a first para
+         may generate both a map and a topicref.
+      -->
+    <xsl:variable name="firstP" select="$content[1]" as="element()*"/>
+    
+    <xsl:for-each-group select="$content" 
       group-starting-with="*[(@structureType = 'topicTitle' or @structureType = 'map' or @structureType = 'mapTitle') and
       @level = string($level)]">
       <xsl:choose>
@@ -418,10 +483,25 @@
           </xsl:call-template>
         </xsl:when>
         <xsl:when test="@structureType = 'map' or @structureType = 'mapTitle'">
-          <xsl:call-template name="makeMap">
-            <xsl:with-param name="content" select="current-group()" as="node()*"/>
-            <xsl:with-param name="level" select="$level" as="xs:integer"/>
-          </xsl:call-template>
+          <xsl:choose>
+            <xsl:when test="count(. | $firstP) = 1">
+              <xsl:choose>
+                <xsl:when test="@topicrefType != ''">
+                  <xsl:call-template name="makeTopic">
+                    <xsl:with-param name="content" select="current-group()" as="node()*"/>
+                    <xsl:with-param name="level" select="$level" as="xs:integer"/>
+                  </xsl:call-template>
+                </xsl:when>
+                <xsl:otherwise/><!-- Just a map generator, ignore the paragraph -->
+              </xsl:choose>              
+            </xsl:when>
+            <xsl:otherwise><!-- Not the first para, handle normally -->
+              <xsl:call-template name="makeMap">
+                <xsl:with-param name="content" select="current-group()" as="node()*"/>
+                <xsl:with-param name="level" select="$level" as="xs:integer"/>
+              </xsl:call-template>
+            </xsl:otherwise>
+          </xsl:choose>          
         </xsl:when>
         <xsl:when test="current-group()[position() = 1]">
           <!-- Ignore this stuff since it should be map metadata or ignorable stuff -->
