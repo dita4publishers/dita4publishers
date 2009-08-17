@@ -738,6 +738,23 @@
         </xs:annotation>
       </xs:attribute>
       <xs:attribute
+        name="mapRefType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div
+              xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Map Reference Element Type Name</h2>
+              <p>For paragraphs that generate new maps and, the topicref type
+              to use for the reference to the map from the parent map. If not
+              specified, the rootTopicrefType or topicrefType is used as the
+              map reference type.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
         name="dataName"
         type="xs:string"
         use="optional">
@@ -932,6 +949,34 @@
               <h2>Root Topicref Element Type</h2>
               <p>Specifies the tag name for the root topicref element to use around all generated
               topicrefs within the map.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="collection-type"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div
+              xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Collection Type</h2>
+              <p>As for DITA topicref.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="processing-role"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div
+              xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Processing Role</h2>
+              <p>As for DITA topicref.</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
