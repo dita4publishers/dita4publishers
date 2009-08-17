@@ -65,13 +65,13 @@
       <xsl:when test="local:isRootTopicTitle($firstP)">
         <xsl:call-template name="makeTopic">
           <xsl:with-param name="content" select="rsiwp:body/(rsiwp:p|rsiwp:table)" as="node()*"/>
-          <xsl:with-param name="level" select="0"/>
+          <xsl:with-param name="level" select="0" as="xs:integer"/>
         </xsl:call-template>
       </xsl:when>
       <xsl:when test="local:isMap($firstP)">
         <xsl:call-template name="makeMap">
           <xsl:with-param name="content" select="rsiwp:body/(rsiwp:p|rsiwp:table)" as="node()*"/>
-          <xsl:with-param name="level" select="0"/>
+          <xsl:with-param name="level" select="0" as="xs:integer"/>
           <xsl:with-param name="mapUrl" select="$rootMapUrl" as="xs:string"/>
         </xsl:call-template>
       </xsl:when>
@@ -193,11 +193,11 @@
   
   <xsl:template name="makeMap">
     <xsl:param name="content" as="element()+"/>
-    <xsl:param name="level" as="xs:double"/><!-- Level of this topic -->
+    <xsl:param name="level"  as="xs:integer"/><!-- Level of this topic -->
     <xsl:param name="mapUrl" as="xs:string" select="concat('map_', generate-id($content[1]), '.ditamap')"/>
     
     <xsl:variable name="firstP" select="$content[1]"/>
-    <xsl:variable name="nextLevel" select="$level + 1" as="xs:double"/>
+    <xsl:variable name="nextLevel" select="$level + 1" as="xs:integer"/>
     
     <xsl:variable name="formatName" select="$firstP/@format" as="xs:string?"/>
     <xsl:if test="not($formatName)">
@@ -252,33 +252,54 @@
               <xsl:if test="$firstP/@rootTopicrefType = 'learningObject'">
                 <xsl:attribute name="collection-type" select="'sequence'"/>
               </xsl:if>
-              <xsl:call-template name="generateTopics">
-                <xsl:with-param name="content" select="$content" as="node()*"/>
-                <xsl:with-param name="level" select="$nextLevel"/>
-              </xsl:call-template>        
-              
-              <xsl:call-template name="generateTopicrefs">
-                <xsl:with-param name="content" select="$content" as="node()*"/>
-                <xsl:with-param name="level" select="$nextLevel"/>
-              </xsl:call-template>
+              <xsl:choose>
+                <xsl:when test="$firstP/@topicrefType">
+                  <xsl:element name="{$firstP/@topicrefType}">
+                    <xsl:if test="$firstP/@outputclass">
+                      <xsl:attribute name="outputclass" select="$firstP/@outputclass"/>
+                    </xsl:if>
+                    <xsl:if test="$firstP/@chunk">
+                      <xsl:attribute name="chunk" select="$firstP/@chunk"/>
+                    </xsl:if>
+                    <xsl:call-template name="generateTopicsAndTopicrefs">
+                      <xsl:with-param name="content" select="$content" as="node()*"/>
+                      <xsl:with-param name="nextLevel" select="$nextLevel"/>
+                    </xsl:call-template>                  
+                  </xsl:element>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:call-template name="generateTopicsAndTopicrefs">
+                    <xsl:with-param name="content" select="$content" as="node()*"/>
+                    <xsl:with-param name="nextLevel" select="$nextLevel"/>
+                  </xsl:call-template>                  
+                </xsl:otherwise>
+              </xsl:choose>              
             </xsl:element>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:call-template name="generateTopics">
+            <xsl:call-template name="generateTopicsAndTopicrefs">
               <xsl:with-param name="content" select="$content" as="node()*"/>
-              <xsl:with-param name="level" select="$nextLevel"/>
-            </xsl:call-template>        
-            
-            <xsl:call-template name="generateTopicrefs">
-              <xsl:with-param name="content" select="$content" as="node()*"/>
-              <xsl:with-param name="level" select="$nextLevel"/>
-            </xsl:call-template>
+              <xsl:with-param name="nextLevel" select="$nextLevel"/>
+            </xsl:call-template>                  
           </xsl:otherwise>
         </xsl:choose>
-        
-        
       </xsl:element>
     </xsl:result-document>
+  </xsl:template>
+  
+  <xsl:template name="generateTopicsAndTopicrefs">
+    <xsl:param name="content" as="node()*"/>
+    <xsl:param name="nextLevel"/>
+    <xsl:call-template name="generateTopics">
+      <xsl:with-param name="content" select="$content" as="node()*"/>
+      <xsl:with-param name="level" select="$nextLevel" as="xs:integer"/>
+    </xsl:call-template>        
+    
+    <xsl:call-template name="generateTopicrefs">
+      <xsl:with-param name="content" select="$content" as="node()*"/>
+      <xsl:with-param name="level" select="$nextLevel" as="xs:integer"/>
+    </xsl:call-template>
+    
   </xsl:template>
   
   <xsl:template name="handleTopicProlog">
@@ -294,7 +315,7 @@
   -->
   <xsl:template name="generateTopicrefs">
     <xsl:param name="content" as="node()*"/>
-    <xsl:param name="level"/>
+    <xsl:param name="level" as="xs:integer"/>
     
     <xsl:for-each-group select="$content[position() > 1]" 
       group-starting-with="*[(@structureType = 'topicTitle' or 
@@ -320,7 +341,7 @@
              </xsl:if>
              <xsl:call-template name="generateTopicrefs">
                <xsl:with-param name="content" select="current-group()[position() > 1]" as="node()*"/>
-               <xsl:with-param name="level" select="$level + 1" as="xs:double"/>
+               <xsl:with-param name="level" select="$level + 1"  as="xs:integer"/>
              </xsl:call-template>
            </xsl:element>          
         </xsl:when>
@@ -335,7 +356,7 @@
             </xsl:element>
             <xsl:call-template name="generateTopicrefs">
               <xsl:with-param name="content" select="current-group()[position() > 1]" as="node()*"/>
-              <xsl:with-param name="level" select="$level + 1" as="xs:double"/>
+              <xsl:with-param name="level" select="$level + 1" as="xs:integer"/>
             </xsl:call-template>
           </xsl:element>          
         </xsl:when>
@@ -349,7 +370,7 @@
             <xsl:for-each select="./*[@structureType = 'topicTitle' and @level = $level]">
               <xsl:call-template name="generateTopicrefs">
                 <xsl:with-param name="content" select="current-group()[position() > 1]" as="node()*"/>
-                <xsl:with-param name="level" select="$level + 1" as="xs:double"/>
+                <xsl:with-param name="level" select="$level + 1" as="xs:integer"/>
               </xsl:call-template>
             </xsl:for-each>
             
@@ -374,7 +395,7 @@
     -->
   <xsl:template name="generateTopics">
     <xsl:param name="content" as="node()*"/>
-    <xsl:param name="level"/>
+    <xsl:param name="level" as="xs:integer"/>
     
     <xsl:for-each-group select="$content[position() > 1]" 
       group-starting-with="*[(@structureType = 'topicTitle' or @structureType = 'map' or @structureType = 'mapTitle') and
@@ -383,23 +404,23 @@
         <xsl:when test="@structureType = 'topicTitle' and @secondStructureType = 'mapTitle'">
           <xsl:call-template name="makeMap">
             <xsl:with-param name="content" select="current-group()" as="node()*"/>
-            <xsl:with-param name="level" select="$level"/>
+            <xsl:with-param name="level" select="$level" as="xs:integer"/>
           </xsl:call-template>
           <xsl:call-template name="makeTopic">
             <xsl:with-param name="content" select="current-group()" as="node()*"/>
-            <xsl:with-param name="level" select="$level"/>
+            <xsl:with-param name="level" select="$level" as="xs:integer"/>
           </xsl:call-template>
         </xsl:when>
         <xsl:when test="@structureType = 'topicTitle'">
           <xsl:call-template name="makeTopic">
             <xsl:with-param name="content" select="current-group()" as="node()*"/>
-            <xsl:with-param name="level" select="$level"/>
+            <xsl:with-param name="level" select="$level" as="xs:integer"/>
           </xsl:call-template>
         </xsl:when>
         <xsl:when test="@structureType = 'map' or @structureType = 'mapTitle'">
           <xsl:call-template name="makeMap">
             <xsl:with-param name="content" select="current-group()" as="node()*"/>
-            <xsl:with-param name="level" select="$level"/>
+            <xsl:with-param name="level" select="$level" as="xs:integer"/>
           </xsl:call-template>
         </xsl:when>
         <xsl:when test="current-group()[position() = 1]">
@@ -415,7 +436,7 @@
   
   <xsl:template name="makeTopic">
     <xsl:param name="content" as="node()+"/>
-    <xsl:param name="level" as="xs:double"/><!-- Level of this topic -->
+    <xsl:param name="level" as="xs:integer"/><!-- Level of this topic -->
     
     <xsl:variable name="firstP" select="$content[1]"/>
     
@@ -450,14 +471,14 @@
           >
           <xsl:call-template name="constructTopic">
             <xsl:with-param name="content" select="$content"  as="node()*"/>
-            <xsl:with-param name="level" select="$level"/>
+            <xsl:with-param name="level" select="$level" as="xs:integer"/>
           </xsl:call-template>
         </xsl:result-document>
       </xsl:when>
       <xsl:otherwise>
         <xsl:call-template name="constructTopic">
           <xsl:with-param name="content" select="$content" as="node()*"/>
-          <xsl:with-param name="level" select="$level"/>
+          <xsl:with-param name="level" select="$level" as="xs:integer"/>
         </xsl:call-template>
       </xsl:otherwise>
     </xsl:choose>
@@ -466,11 +487,11 @@
   <!-- Constructs the topic itself -->
   <xsl:template name="constructTopic">
     <xsl:param name="content" as="node()*"/>
-    <xsl:param name="level"/>
+    <xsl:param name="level" as="xs:integer"/>
     
     <xsl:variable name="initialSectionType" as="xs:string" select="string(@initialSectionType)"/>
     <xsl:variable name="firstP" select="$content[1]"/>
-    <xsl:variable name="nextLevel" select="$level + 1" as="xs:double"/>
+    <xsl:variable name="nextLevel" select="$level + 1" as="xs:integer"/>
     
     <xsl:variable name="bodyType" as="xs:string"
       select="
@@ -489,7 +510,7 @@
     />
     
     
-    <xsl:variable name="nextLevel" select="$level + 1" as="xs:double"/>
+    <xsl:variable name="nextLevel" select="$level + 1" as="xs:integer"/>
     
     <xsl:element name="{local:getTopicType($firstP)}">
       <xsl:attribute name="id" select="generate-id($firstP)"/>
@@ -549,7 +570,7 @@
             <!--            <xsl:message> + [DEBUG] makeTopic(): Calling makeTopic...</xsl:message>-->
             <xsl:call-template name="makeTopic">
               <xsl:with-param name="content" select="current-group()" as="node()*"/>
-              <xsl:with-param name="level" select="$level + 1"/>
+              <xsl:with-param name="level" select="$level + 1" as="xs:integer"/>
             </xsl:call-template>
           </xsl:otherwise>
         </xsl:choose>        
@@ -664,7 +685,7 @@
             </xsl:if>
             <xsl:for-each select="current-group()">
               <xsl:call-template name="handleGroupSequence">
-                 <xsl:with-param name="level" select="$level"/>
+                <xsl:with-param name="level" select="$level" as="xs:integer"/>
               </xsl:call-template>
             </xsl:for-each>
           </xsl:element>
@@ -672,7 +693,7 @@
         <xsl:otherwise>
           <xsl:for-each select="current-group()">
             <xsl:call-template name="handleGroupSequence">
-              <xsl:with-param name="level" select="$level"/>
+              <xsl:with-param name="level" select="$level" as="xs:integer"/>
             </xsl:call-template>
           </xsl:for-each>
         </xsl:otherwise>
@@ -680,7 +701,7 @@
     </xsl:for-each-group>    
   </xsl:template>
   <xsl:template name="handleGroupSequence">
-    <xsl:param name="level"/>
+    <xsl:param name="level" as="xs:integer"/>
     <xsl:choose>
       <xsl:when test="@structureType = 'dt' and @level=$level">
         <xsl:variable name="dlEntryType" as="xs:string"
