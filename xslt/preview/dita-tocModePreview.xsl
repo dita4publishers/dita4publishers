@@ -60,6 +60,8 @@
   
   <xsl:template match="*[df:class(., 'map/map')]/*[df:class(., 'topic/title')]" mode="toc">
   </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'map/topicmeta')]" mode="toc"/>
 
   <xsl:template match="*[df:class(., 'topic/topic')]" mode="toc">
     <xsl:variable name="topicid" as="xs:string"
