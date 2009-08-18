@@ -91,4 +91,9 @@ moDefList.add(new ManagedObjectDefinition(['name' : '{urn:public:/dita4publisher
                                            'reusable': 'true']))
 rsuite.setManagedObjectDefinitions(uuid, false, namespaceDecls, moDefList);	
 
+def tagmapPreviewXslFile = new File(xsltDir, "style2tagmap/preview/style2tagmap-preview.xsl")
+if (tagmapPreviewXslFile != null && tagmapPreviewXslFile.exists()) {
+    rsuite.loadStylesheetForSchema(uuid, tagmapPreviewXslFile)
+}
+
 // End of script
