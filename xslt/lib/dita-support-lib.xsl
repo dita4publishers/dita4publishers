@@ -131,7 +131,15 @@
             </xsl:if>
           </xsl:otherwise>
         </xsl:choose>
-        <xsl:sequence select="df:getNavtitleForTopic($targetTopic)"/>  
+        <xsl:choose>
+          <xsl:when test="$targetTopic">
+            <xsl:sequence select="df:getNavtitleForTopic($targetTopic)"/>  
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:sequence select="'{Failed to get navtitle for topicref}'"/>
+          </xsl:otherwise>
+        </xsl:choose>
+        
       </xsl:otherwise>
     </xsl:choose>
   </xsl:function>
