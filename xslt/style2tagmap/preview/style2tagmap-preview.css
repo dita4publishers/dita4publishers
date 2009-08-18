@@ -1,0 +1,18 @@
+/**
+ * CSS for style2tag map 
+ */
+ 
+ div.style {
+   border-top: blue solid 2pt;
+ }
+ 
+ .styleAttName {
+   font-weight: bold;
+ }
+ 
+ .outputName {
+   font-weight: bold;
+ }
+ 
+ .styleAttValue {
+ }
