@@ -76,6 +76,9 @@
     </li>
   </xsl:template>
   
+  <xsl:template match="RSUITE:*" mode="toc" priority="2"/>    
+  
+  
   <xsl:template match="*" mode="toc">    
     <xsl:message> + [DEBUG] dita-tocModePreview: Catch-all in toc mode: <xsl:sequence select="name(.)"/>[class=<xsl:sequence select="string(@class)"/>]</xsl:message>
     <div style="margin-left: 1em;">

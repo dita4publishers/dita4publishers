@@ -32,9 +32,9 @@
         <xsl:with-param name="parentHeadLevel" as="xs:integer" select="0" tunnel="yes"/>
       </xsl:apply-templates>
     </xsl:variable>
-        <!--<xsl:message> + [DEBUG] dita-previewImpl: resolved map:
+        <xsl:message> + [DEBUG] dita-previewImpl: resolved map:
       <xsl:sequence select="$resolvedMap"/>
-      </xsl:message>-->
+      </xsl:message>
         <html>
       <head>
         <title><xsl:apply-templates select="/*/*[df:class(., 'topic/title')]" mode="head"/></title>
@@ -109,7 +109,9 @@
       <xsl:apply-templates select="$topicref/*">
         <xsl:with-param name="subtopicContent" select="()" tunnel="yes" as="node()*"/>
       </xsl:apply-templates>
-      <xsl:sequence select="$subtopicContent"/>
+      <!-- WEK: This was original code. Not sure if it should be here but
+        removing it appears to fix the duplicate output bug. -->
+      <!--<xsl:sequence select="$subtopicContent"/>-->
     </div>
   </xsl:template>
   
@@ -343,12 +345,6 @@
  
   <xsl:template match="*[df:class(., 'topic/lq')]">
     <blockquote class="{df:getHtmlClass(.)}"><xsl:apply-templates/></blockquote>
-  </xsl:template>
-  
-  <xsl:template match="/*[df:class(., 'map/map')]/*[df:class(., 'topic/title')]">
-    <h1>
-      <xsl:apply-templates/>
-    </h1>      
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/note')]">
@@ -648,7 +644,7 @@
        Catch-all templates
        =========================== -->
     
-  <xsl:template match="RSUITE:*"/><!-- Suppress RSUITE elements by default -->
+  <xsl:template match="RSUITE:*" priority="2"/><!-- Suppress RSUITE elements by default -->
   
   <xsl:template match="*" mode="head" priority="-1"/><!-- Suppress by default in head mode -->
   

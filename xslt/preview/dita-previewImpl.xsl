@@ -28,6 +28,7 @@
   <xsl:import href="dita-ui-dPreview.xsl"/>
   <xsl:import href="dita-xml-dPreview.xsl"/>
   <xsl:import href="dita-pubmap-dPreview.xsl"/>
+  <xsl:import href="dita-rsuiteMetadataPreview.xsl"/>
   
   <xsl:param name="debug" select="'false'"/>
   <xsl:variable name="debugBoolean" select="if ($debug = 'true') then true() else false()" as="xs:boolean"/>
