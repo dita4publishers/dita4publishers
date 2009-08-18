@@ -82,12 +82,13 @@ def schemaFile = new File(doctypesDir, "style2tagmap/xsd/style2tagmap.xsd")
 def importer = importerFactory.generateImporter("XMLSchema", new SchemaInputSource(schemaFile));
 uuid = importer.execute()   
 def moDefList = [];
+
+def namespaceDecls = (String[])[ "s2t=" + "urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap"];
+
 moDefList.add(new ManagedObjectDefinition(['name' : '{urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap}:style2tagmap', 
-                                           'displayNameXPath': "title", 
+                                           'displayNameXPath': "s2t:title", 
                                            'versionable': 'true', 
                                            'reusable': 'true']))
-rsuite.setManagedObjectDefinitions(uuid, false, moDefList)	
-
-
+rsuite.setManagedObjectDefinitions(uuid, false, namespaceDecls, moDefList);	
 
 // End of script
