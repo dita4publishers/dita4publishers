@@ -161,12 +161,15 @@
           <xsl:if test="not(df:class($refTarget, 'map/map'))">
             <xsl:message> + [WARNING] resolve-map(): Topicref with format='ditamap' did not resolve to a map, got <xsl:sequence select="name($refTarget)"/> (class=<xsl:sequence select="$refTarget/@class"/>)</xsl:message>
             <xsl:copy>
-              <xsl:apply-templates select="@* | node()"/>              
+              <xsl:apply-templates select="@* | node()"/>           
             </xsl:copy>
           </xsl:if>
           <!-- Process the direct-child topicrefs and reltables in the referenced map -->
           <xsl:apply-templates select="$refTarget/*[df:class(., 'map/topicref') or *[df:class(., 'map/reltable')]]"
-            mode="#current"/>          
+            mode="#current">
+            <xsl:with-param name="resolvedMapBaseUri" tunnel="yes" as="xs:string" 
+              select="document-uri(root($refTarget))"/>
+          </xsl:apply-templates>      
         </xsl:when>
         <xsl:otherwise>
           <xsl:if test="$debugBoolean">
