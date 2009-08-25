@@ -194,8 +194,22 @@
   <xsl:template name="makeMap">
     <xsl:param name="content" as="element()+"/>
     <xsl:param name="level"  as="xs:integer"/><!-- Level of this topic -->
-    <xsl:param name="mapUrl" as="xs:string" select="concat('map_', generate-id($content[1]), '.ditamap')"/>
+    <!-- <xsl:param name="mapUrl" as="xs:string" select="concat('map_', generate-id($content[1]), '.ditamap')"/> -->
     
+    <xsl:param name="mapUrl" as="xs:string">
+      <xsl:variable name="mapTitleFragment" as="xs:string">
+        <xsl:choose>
+          <xsl:when test="contains($content[1],' ')">
+            <xsl:value-of select="replace(substring-before(.,' '),'[\p{P}\p{Z}\p{C}]','')"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="replace($content[1],'[\p{P}\p{Z}\p{C}]','')"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
+      <xsl:value-of select="concat('map_', $mapTitleFragment, '_', generate-id($content[1]), format-time(current-time(),'[h][m][s]'), '.ditamap')"/>
+    </xsl:param>
+  
     <xsl:variable name="firstP" select="$content[1]"/>
     <xsl:variable name="nextLevel" select="$level + 1" as="xs:integer"/>
     
@@ -517,11 +531,9 @@
   <xsl:template name="makeTopic">
     <xsl:param name="content" as="node()+"/>
     <xsl:param name="level" as="xs:integer"/><!-- Level of this topic -->
-    
     <xsl:variable name="firstP" select="$content[1]"/>
-    
+    <xsl:variable name="topicFileName" select="substring-before($firstP,' ')"/>
     <xsl:variable name="makeDoc" select="$firstP/@topicDoc = 'yes'" as="xs:boolean"/>
-    
     
     <xsl:choose>
       <xsl:when test="$makeDoc">
@@ -1063,14 +1075,34 @@
     <xsl:sequence select="$result"/>
   </xsl:function>
 
-  <xsl:template match="rsiwp:p" mode="topic-url">
-    <xsl:sequence select="concat('topics/topic_', generate-id(.), '.dita')"/>
+  <xsl:template match="rsiwp:p" mode="topic-url">   
+    <xsl:variable name="topicTitleFragment" as="xs:string">
+      <xsl:choose>
+        <xsl:when test="contains(.,' ')">
+          <xsl:value-of select="replace(substring-before(.,' '),'[\p{P}\p{Z}\p{C}]','')"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="replace(.,'[\p{P}\p{Z}\p{C}]','')"/>
+        </xsl:otherwise>
+      </xsl:choose>
+      </xsl:variable>
+    <xsl:sequence select="concat('topics/topic_', $topicTitleFragment, '_', generate-id(.),format-time(current-time(),'[h][m][s]'), '.dita')"/>
   </xsl:template>
-  
+ 
   
   <xsl:template match="rsiwp:*" mode="topic-url">
     <xsl:message> + [WARNING] Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/> in mode 'topic-url'</xsl:message>
-    <xsl:sequence select="concat('topics/topic_', generate-id(.), '.dita')"/>
+    <xsl:variable name="topicTitleFragment">
+      <xsl:choose>
+        <xsl:when test="contains(.,' ')">
+          <xsl:value-of select="replace(substring-before(.,' '),'[\p{P}\p{Z}\p{C}]','')"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="replace(.,'[\p{P}\p{Z}\p{C}]','')"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:sequence select="concat('topics/topic_', $topicTitleFragment, '_', generate-id(.),format-time(current-time(),'[h][m][s]'), '.dita')"/>
   </xsl:template>
   
   <xsl:function name="local:debugMessage">
