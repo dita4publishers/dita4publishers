@@ -139,8 +139,13 @@
         </xsl:otherwise>
       </xsl:choose>      
     </xsl:variable>
-    <xsl:if test="$styleData/@structureType = 'listItem'"></xsl:if>
-    <xsl:if test="$styleData/@structureType != 'skip'">
+    <xsl:if test="false() and $debugBoolean">
+      <xsl:message> + [DEBUG] match on w:p: structureType = "<xsl:sequence select="string($styleData/@structureType)"/>"</xsl:message>
+    </xsl:if>
+    <xsl:if test="string($styleData/@structureType) != 'skip'">
+      <xsl:if test="false() and $debugBoolean">
+        <xsl:message> + [DEBUG] match on w:p: Paragraph not skipped, calling handlePara. p=<xsl:sequence select="substring(string(./w:r[1]), 0, 40)"/></xsl:message>
+      </xsl:if>
       <xsl:call-template name="handlePara">
         <xsl:with-param name="styleId" select="$styleId"/>
         <xsl:with-param name="styleData" select="$styleData"/>
@@ -155,7 +160,9 @@
       <xsl:for-each select="$styleData/@*">
         <xsl:copy/>
       </xsl:for-each>
-      <!--      <xsl:message> + [DEBUG] p="<xsl:sequence select="substring(normalize-space(.), 1, 40)"/>"</xsl:message>-->
+      <xsl:if test="$debugBoolean">        
+        <xsl:message> + [DEBUG] handlePara: p="<xsl:sequence select="substring(normalize-space(.), 1, 40)"/>"</xsl:message>
+      </xsl:if>
       <xsl:for-each-group select="w:r | w:hyperlink" group-adjacent="name(.)">
         <xsl:choose>
           <xsl:when test="current-group()[1][self::w:hyperlink]">
