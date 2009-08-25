@@ -123,6 +123,11 @@
         <include name="*/**"/>
       </fileset>
     </copy>
+		<zip destfile="${plugin.dist}/dita4publishers-toolkit-plugins.zip">
+      <fileset dir="${plugin.dist}">
+        <include name="net.sourceforge.dita4publishers.*/**"/>
+      </fileset>
+		</zip>
   </target>
 	
 	<target name="deploy-toolkit-plugins" depends="dist-toolkit-plugins"
