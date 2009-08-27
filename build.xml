@@ -373,7 +373,7 @@
 	<target name="init-target">
     <delete dir="${target.home}" failonerror="false"/>
     <mkdir dir="${target.home}"/>
-</target>
+  </target>
 	
   <target name="compile" depends="init">
     
@@ -408,7 +408,8 @@
       </fileset>
     </jar>
   </target>
-	 <target name="deploy-rsuite-plugins-locally" description="Deploy the plugin to a local server's plugin directory"
+	
+	<target name="deploy-rsuite-plugins-locally" description="Deploy the plugin to a local server's plugin directory"
 	  depends="package-rsuite-plugins"
 	  >
 	  <copy file="${target.home}/${target.jar}" 
