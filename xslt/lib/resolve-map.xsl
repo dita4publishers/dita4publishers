@@ -57,16 +57,24 @@
   </xsl:template>
   
   <xsl:template mode="resolve-map" match="@*">
-<!--    <xsl:if test="$debugBoolean">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG]   Default attribute handling: <xsl:sequence select="name(..)"/>/@<xsl:sequence select="name(.)"/>="<xsl:sequence select="string(.)"/>"</xsl:message>
     </xsl:if>
--->    <xsl:copy/>
+    <xsl:copy/>
   </xsl:template>
   
   <xsl:template mode="resolve-map" match="*" priority="-1">
     <xsl:copy>
       <xsl:apply-templates select="node() | @*" mode="#current"/>
     </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'map/topicref') and @processing-role = 'resource-only']" mode="resolve-map"
+    priority="10"
+    >
+    <xsl:copy>
+      <xsl:apply-templates select="node() | @*" mode="#current"/>
+    </xsl:copy>    
   </xsl:template>
   
   <xsl:template match="*[(df:isTopicHead(.))]" mode="resolve-map">
@@ -115,12 +123,15 @@
     <xsl:variable name="newHrefValue" as="xs:string"
       select="relpath:getRelativePath(relpath:getParent($resolvedMapBaseUri), $originalUri)"
     />
-    <xsl:if test="$debugBoolean and false()">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] resolve-map():  ** Handling topicref/@href. Original href="<xsl:sequence select="string(.)"/>"</xsl:message>
       <xsl:message> + [DEBUG]     resolvedMapBaseUri="<xsl:sequence select="$resolvedMapBaseUri"/>"</xsl:message>
       <xsl:message> + [DEBUG]     baseUri=           "<xsl:sequence select="$baseUri"/>"</xsl:message>
       <xsl:message> + [DEBUG]     originalUri=       "<xsl:sequence select="$originalUri"/>"</xsl:message>
       <xsl:message> + [DEBUG]     newHrefValue=      "<xsl:sequence select="$newHrefValue"/>"</xsl:message>
+    </xsl:if>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] resolve-map: Setting @href to "<xsl:value-of select="$newHrefValue"/>"</xsl:message>
     </xsl:if>
     <xsl:attribute name="{name(.)}" select="$newHrefValue"/>
   </xsl:template>
@@ -167,8 +178,6 @@
           <!-- Process the direct-child topicrefs and reltables in the referenced map -->
           <xsl:apply-templates select="$refTarget/*[df:class(., 'map/topicref') or *[df:class(., 'map/reltable')]]"
             mode="#current">
-            <xsl:with-param name="resolvedMapBaseUri" tunnel="yes" as="xs:string" 
-              select="document-uri(root($refTarget))"/>
           </xsl:apply-templates>      
         </xsl:when>
         <xsl:otherwise>
@@ -179,14 +188,21 @@
             select="$parentHeadLevel + 1"
           />
           <xsl:copy>
+            <xsl:if test="$debugBoolean">
+              <xsl:message> + [DEBUG] resolve-map(): Applying templates to all attributes: <xsl:sequence select="@*"/>...</xsl:message>
+            </xsl:if>
             <xsl:apply-templates select="@*" mode="#current"/>
             <xsl:if test="$myHeadLevel != $parentHeadLevel">
               <xsl:attribute name="headLevel" select="$myHeadLevel"/>
+            </xsl:if>
+            <xsl:if test="$debugBoolean">
+              <xsl:message> + [DEBUG] resolve-map(): Applying templates to children of the topicref...</xsl:message>
             </xsl:if>
             <xsl:apply-templates select="node()" mode="#current">
               <xsl:with-param name="parentHeadLevel" select="$myHeadLevel" tunnel="yes" as="xs:integer"/>
             </xsl:apply-templates>
           </xsl:copy>    
+          
         </xsl:otherwise>
       </xsl:choose>      
   </xsl:template>
