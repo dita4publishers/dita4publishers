@@ -38,7 +38,7 @@
     </div>
   </xsl:template>
   
-  <xsl:template match="*[df:class(., 'pubmap-d/publisherinformation')]/*[df:class(., 'pubmap-d/organization')]">
+  <xsl:template match="*[df:class(., 'pubmap-d/publisherinformation')]/*[df:class(., 'pubmap-d/organization')]" priority="10">
     <p class="{df:getHtmlClass(.)}">
       <xsl:text>Publisher: </xsl:text>
       <xsl:apply-templates/>
