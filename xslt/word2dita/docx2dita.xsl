@@ -34,7 +34,7 @@
   <xsl:include href="wordml2simple.xsl"/>
   
   <xsl:param name="outputDir" as="xs:string"/>
-  <xsl:param name="rootMapUrl" select="concat('rootMap_', format-time(current-time(),'[h][m][s][f]'),'.ditamap')" as="xs:string"/>
+  <xsl:param name="rootMapUrl" select="'rootMap.ditamap'" as="xs:string"/>
   <xsl:param name="debug" select="'false'" as="xs:string"/>
 
   <xsl:variable name="debugBoolean" as="xs:boolean" select="$debug = 'true'"/>  
@@ -865,9 +865,27 @@
           select="if (@dlEntryType) then string(@dlEntryType) else 'dlentry'"
         />
         <xsl:element name="{$dlEntryType}">
-          <xsl:call-template name="transformPara"/>          
+          <xsl:call-template name="transformPara"/>
           <xsl:variable name="followingSibling" as="element()?" select="following-sibling::*[1]"/>
           <xsl:variable name="precedingSibling" as="element()?" select="preceding-sibling::*[1]"/>
+          <!-- find position of next <dt> element type -->
+          <xsl:variable name="followingSiblingDtPositions" as="item()*">
+            <xsl:for-each select="following-sibling::*">
+              <xsl:if test="@structureType='dt'">
+                <xsl:sequence select="position()"/>
+              </xsl:if>
+            </xsl:for-each>
+          </xsl:variable>
+          <xsl:variable name="firstFollowingSiblingDtPosition" as="xs:integer">
+            <xsl:choose>
+              <xsl:when test="following-sibling::*[@structureType='dt']">
+                <xsl:value-of select="$followingSiblingDtPositions[position()=1]"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:value-of select="0"/>
+              </xsl:otherwise>
+            </xsl:choose>
+          </xsl:variable>
           <xsl:choose>
             <xsl:when test="$followingSibling/@level &gt; @level">
               <xsl:for-each-group select="following-sibling::*" group-adjacent="@level">
@@ -882,9 +900,41 @@
                         />
                         <xsl:element name="{$dlEntryType}">
                           <xsl:call-template name="transformPara"/>
+                          <!-- find position of next <dt> element type -->
+                          <xsl:variable name="followingNestedSiblingDtPositions" as="item()*">
+                            <xsl:for-each select="following-sibling::*">
+                              <xsl:if test="@structureType='dt'">
+                                <xsl:sequence select="position()"/>
+                              </xsl:if>
+                            </xsl:for-each>
+                          </xsl:variable>
+                          <xsl:variable name="firstFollowingNestedSiblingDtPosition" as="xs:integer">
+                            <xsl:choose>
+                              <xsl:when test="following-sibling::*[@structureType='dt']">
+                                <xsl:value-of select="$followingNestedSiblingDtPositions[position()=1]"/>
+                              </xsl:when>
+                              <xsl:otherwise>
+                                <xsl:value-of select="0"/>
+                              </xsl:otherwise>
+                            </xsl:choose>
+                          </xsl:variable>
+                          <xsl:choose>
+                            <xsl:when test="following-sibling::*[@structureType='dt']">
+                              <xsl:for-each select="following-sibling::*[@structureType='dd'][position() &lt; $firstFollowingNestedSiblingDtPosition]">
+                                <xsl:call-template name="transformPara"/>
+                              </xsl:for-each>
+                            </xsl:when>
+                            <xsl:otherwise>
+                              <xsl:for-each select="$nestedFollowingSibling">
+                                <xsl:call-template name="transformPara"/>
+                              </xsl:for-each>
+                            </xsl:otherwise>
+                          </xsl:choose>
+                          <!-- 
                           <xsl:for-each select="$nestedFollowingSibling">
                             <xsl:call-template name="transformPara"/>
                           </xsl:for-each>
+                          -->
                         </xsl:element>
                       </xsl:when>
                     </xsl:choose>
@@ -895,12 +945,20 @@
             </xsl:when>
             <xsl:when test="$precedingSibling/@level &lt; @level"/>
               <xsl:otherwise>
-                <xsl:for-each select="$followingSibling">
-                  <xsl:call-template name="transformPara"/>
-                </xsl:for-each>
+                <xsl:choose>
+                  <xsl:when test="following-sibling::*[@structureType='dt']">
+                    <xsl:for-each select="following-sibling::*[@structureType='dd'][position() &lt; $firstFollowingSiblingDtPosition]">
+                      <xsl:call-template name="transformPara"/>
+                    </xsl:for-each>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:for-each select="following-sibling::*[@structureType='dd']">
+                      <xsl:call-template name="transformPara"/>
+                    </xsl:for-each>
+                  </xsl:otherwise>
+                </xsl:choose>
               </xsl:otherwise>
           </xsl:choose>
-          <!-- FIXME: This isn't going to handle nested paras within DD -->
         </xsl:element>
       </xsl:when>
       <xsl:when test="string(@structureType) = 'dd'"/><!-- Handled by dt processing -->
