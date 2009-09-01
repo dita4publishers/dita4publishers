@@ -34,7 +34,7 @@
   <xsl:include href="wordml2simple.xsl"/>
   
   <xsl:param name="outputDir" as="xs:string"/>
-  <xsl:param name="rootMapUrl" select="'rootMap.ditamap'" as="xs:string"/>
+  <xsl:param name="rootMapUrl" select="concat('rootMap_', format-time(current-time(),'[h][m][s][f]'),'.ditamap')" as="xs:string"/>
   <xsl:param name="debug" select="'false'" as="xs:string"/>
 
   <xsl:variable name="debugBoolean" as="xs:boolean" select="$debug = 'true'"/>  
@@ -440,10 +440,23 @@
             </xsl:choose>
             
           </xsl:variable>
+          <xsl:variable name="mapUrl" as="xs:string">
+            <xsl:variable name="mapTitleFragment" as="xs:string">
+              <xsl:choose>
+                <xsl:when test="contains(.,' ')">
+                  <xsl:value-of select="replace(substring-before(.,' '),'[\p{P}\p{Z}\p{C}]','')"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="replace(.,'[\p{P}\p{Z}\p{C}]','')"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:variable>
+            <xsl:value-of select="concat('map_', $mapTitleFragment, '_', generate-id(.), format-time(current-time(),'[h][m][s]'), '.ditamap')"/>
+          </xsl:variable>
           <xsl:element name="{$mapRefType}">
             <xsl:attribute name="format" select="'ditamap'"/>
             <xsl:attribute name="navtitle" select="."/>
-            <xsl:attribute name="href" select="concat('map_', generate-id(.), '.ditamap')"/>
+            <xsl:attribute name="href" select="$mapUrl"/>
             
             <xsl:for-each select="./*[string(@structureType) = 'topicTitle' and string(@level) = $level]">
               <xsl:call-template name="generateTopicrefs">
