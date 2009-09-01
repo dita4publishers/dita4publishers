@@ -32,10 +32,12 @@
         <xsl:with-param name="parentHeadLevel" as="xs:integer" select="0" tunnel="yes"/>
       </xsl:apply-templates>
     </xsl:variable>
-        <xsl:message> + [DEBUG] dita-previewImpl: resolved map:
-      <xsl:sequence select="$resolvedMap"/>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] dita-previewImpl: resolved map:
+        <xsl:sequence select="$resolvedMap"/>
       </xsl:message>
-        <html>
+    </xsl:if>
+     <html>
       <head>
         <title><xsl:apply-templates select="/*/*[df:class(., 'topic/title')]" mode="head"/></title>
         <xsl:apply-templates select="$resolvedMap" mode="head"/>
@@ -384,7 +386,9 @@
        ============================================ --> 
   
   <xsl:template match="*[df:class(., 'map/topicmeta')]">
-    <xsl:apply-templates/>
+    <div class="map-topicmeta">
+      <xsl:apply-templates/>
+    </div>
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'map/shortdesc')] | *[df:class(., 'topic/shortdesc')]">
@@ -598,6 +602,10 @@
     </div>
   </xsl:template>
   
+  <xsl:template match="*[df:class(., 'map/topicref') and @processing-role = 'resource-only']" priority="10">
+    <!-- Ignore resource-only topicrefs in default mode -->
+  </xsl:template>
+    
   <xsl:template match="*[df:isTopicRef(.) and @format = 'ditamap']">
     <!-- NOTE: This would only happen for peer and external scope maps -->
     <xsl:if test="$debugBoolean">
