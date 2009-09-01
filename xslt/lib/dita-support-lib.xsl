@@ -473,10 +473,6 @@
   </xsl:function>
   
  
-  <xsl:template match="@*" priority="-1" mode="#all">
-    <xsl:sequence select="."/>
-  </xsl:template>
-  
   <xsl:template match="*" priority="-1" mode="used-topics resolve-maprefs ">
     <!-- Copy elements that are unstyled or that do not establish paragraph contexts -->
     <xsl:call-template name="copy-element"/>  
