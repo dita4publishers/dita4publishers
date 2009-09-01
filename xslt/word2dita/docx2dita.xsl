@@ -34,7 +34,7 @@
   <xsl:include href="wordml2simple.xsl"/>
   
   <xsl:param name="outputDir" as="xs:string"/>
-  <xsl:param name="rootMapUrl" select="'rootMap.ditamap'" as="xs:string"/>
+  <xsl:param name="rootMapUrl" select="concat('rootMap_', format-time(current-time(),'[h][m][s][f]'),'.ditamap')" as="xs:string"/>
   <xsl:param name="debug" select="'false'" as="xs:string"/>
 
   <xsl:variable name="debugBoolean" as="xs:boolean" select="$debug = 'true'"/>  
