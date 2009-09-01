@@ -14,12 +14,20 @@
   <xsl:import href="../lib/dita-support-lib.xsl"/>
   
   <xsl:template match="*[df:class(., 'map/map')]" mode="toc">
+    <xsl:message> + [INFO] Generating ToC...</xsl:message>
     <div class="table-of-contents">
       <h2>Table of Contents</h2>
       <ul class="toc">
         <xsl:apply-templates mode="#current"/>
       </ul>
     </div>
+    <xsl:message> + [INFO] ToC Done.</xsl:message>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'map/topicref') and @processing-role = 'resource-only']" mode="toc"
+    priority="10"
+    >    
+    <!-- Ignore resource-only topicrefs in ToC mode -->
   </xsl:template>
   
   <xsl:template match="*[df:isTopicHead(.)]" mode="toc">
@@ -79,7 +87,7 @@
   <xsl:template match="RSUITE:*" mode="toc" priority="2"/>    
   
   
-  <xsl:template match="*" mode="toc">    
+  <xsl:template match="*" mode="toc" priority="-1">    
     <xsl:message> + [DEBUG] dita-tocModePreview: Catch-all in toc mode: <xsl:sequence select="name(.)"/>[class=<xsl:sequence select="string(@class)"/>]</xsl:message>
     <div style="margin-left: 1em;">
       <span style="color: green;">[<xsl:value-of select="if (@class) then @class else concat('No Class Value: ', name(.))"/>{</span><xsl:apply-templates/><span style="color: green;">}]</span>
