@@ -45,7 +45,8 @@
     </xsl:variable>
     <xsl:variable name="tempDoc" select="relpath:newFile($outputDir, 'simpleWpDoc.xml')" as="xs:string"/>
     
-     <xsl:if test="true()">        
+     <!-- NOTE: do not set this check to true(): it will fail when run within RSuite -->
+     <xsl:if test="$debugBoolean">        
        <xsl:result-document href="{$tempDoc}">
            <xsl:message> + [DEBUG] Intermediate simple WP doc saved as <xsl:sequence select="$tempDoc"/></xsl:message>
            <xsl:sequence select="$simpleWpDoc"/>
