@@ -173,10 +173,10 @@
           </xsl:when>
           <xsl:when test="current-group()[1][self::w:r]">
             <xsl:for-each-group select="current-group()" group-by="local:getRunStyle(.)">
-              <xsl:call-template name="handleRunSequence">
+                <xsl:call-template name="handleRunSequence">
                 <xsl:with-param name="runSequence" select="current-group()"/>
-              </xsl:call-template>
-            </xsl:for-each-group>            
+                </xsl:call-template>
+              </xsl:for-each-group>
           </xsl:when>
           <xsl:otherwise>
             <xsl:message terminate="yes"> + [ERROR] handlePara(): Unhandled element type <xsl:sequence select="name(.)"/></xsl:message>
@@ -192,7 +192,28 @@
     <xsl:variable name="runStyle" select="local:getRunStyle($runSequence[1])" as="xs:string"/>
     <xsl:choose>
       <xsl:when test="$runStyle = ''">
-        <xsl:apply-templates select="current-group()"/>
+        <xsl:for-each-group select="current-group()" group-adjacent="local:getRunFontStyle(.)">
+          <xsl:variable name="runFontStyle" select="local:getRunFontStyle(current-group()[1])" as="xs:string"/>
+          <xsl:choose>
+            <xsl:when test="$runFontStyle != 'none'">
+              <xsl:choose>
+                <xsl:when test="$runFontStyle = 'strike'">
+                  <ph outputclass="strikethrough">
+                    <xsl:apply-templates select="current-group()"/>
+                  </ph>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:element name="{$runFontStyle}">
+                    <xsl:apply-templates select="current-group()"/>
+                  </xsl:element>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:apply-templates select="current-group()"/>
+            </xsl:otherwise>
+          </xsl:choose>
+         </xsl:for-each-group>
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="runStyleMap" as="element()?"
@@ -215,7 +236,29 @@
               <xsl:copy/>
             </xsl:for-each>
           </xsl:if>
-          <xsl:apply-templates select="current-group()"/></xsl:element>
+          <xsl:for-each-group select="current-group()" group-by="local:getRunFontStyle(.)">
+            <xsl:variable name="runFontStyle" select="local:getRunFontStyle($runSequence[1])" as="xs:string"/>
+            <xsl:choose>
+              <xsl:when test="$runFontStyle != ''">
+                <xsl:choose>
+                  <xsl:when test="$runFontStyle = 'strike'">
+                    <ph outputclass="strikethrough">
+                      <xsl:apply-templates select="current-group()"/>
+                    </ph>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:element name="{$runFontStyle}">
+                      <xsl:apply-templates select="current-group()"/>
+                    </xsl:element>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:apply-templates select="current-group()"/>
+              </xsl:otherwise>
+            </xsl:choose>
+          </xsl:for-each-group>
+        </xsl:element>
       </xsl:otherwise>
     </xsl:choose>        
     
@@ -391,6 +434,33 @@
           then string($context/w:rPr/w:rStyle/@w:val)
           else ''
     "/>
+  </xsl:function>
+  
+  <xsl:function name="local:getRunFontStyle" as="xs:string">
+    <xsl:param name="context" as="element()*"/>
+    <xsl:choose>
+      <xsl:when test="$context/w:rPr/w:vertAlign/@w:val='superscript'">
+        <xsl:sequence select="'sup'"/>
+      </xsl:when>
+      <xsl:when test="$context/w:rPr/w:vertAlign/@w:val='subscript'">
+        <xsl:sequence select="'sub'"/>
+      </xsl:when>
+      <xsl:when test="$context/w:rPr/w:strike">
+        <xsl:sequence select="'strike'"/>
+      </xsl:when>
+      <xsl:when test="$context/w:rPr/w:b">
+        <xsl:sequence select="'b'"/>
+      </xsl:when>
+      <xsl:when test="$context/w:rPr/w:u">
+        <xsl:sequence select="'u'"/>
+      </xsl:when>
+      <xsl:when test="$context/w:rPr/w:i">
+        <xsl:sequence select="'i'"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="'none'"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:function>
   
   <xsl:function name="local:getHyperlinkStyle" as="xs:string">
