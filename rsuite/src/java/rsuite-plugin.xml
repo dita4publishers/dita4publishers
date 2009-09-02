@@ -1,0 +1,34 @@
+<rsuite-plugin id="dita4publishers">
+  <!-- RSuite CMS plugin configuration. Used to package the DITA4Publishers transforms and
+       other resources into an RSuite plugin for use by other RSuite-integrated components,
+       e.g. action handlers.
+     -->
+
+  <extensionProvider id="rsuite.WebService">
+
+    <!-- for the static root starting at "/dita4publishers",
+         serve the files in /WebContent of the plugin -->
+
+    <staticWebService root="/dita4publishers"
+                      path="/WebContent"/>
+
+  </extensionProvider>
+  
+    <extensionProvider id="rsuite.Workflow">
+        <actionHandler type="org.dita4publishers.rsuite.workflow.actions.Docx2XmlActionHandler"
+            label="DITA4Publishers - Docx to DITA XML">
+           <variableList>
+             <variable><name>mapFileName</name></variable>
+             <variable><name>styleMapUri</name></variable>
+             <variable><name>xsltUri</name></variable>
+             <variable><name>outputPath</name></variable>
+             <variable><name>docxMoId</name></variable>
+             <variable><name>resultFileName</name></variable>
+           </variableList>
+        </actionHandler>
+        <actionHandler type="com.reallysi.rsuite.system.workflow.actions.SetVariablesFromMoDetails"
+            label="Set Variables from MO Details">
+        </actionHandler>
+   </extensionProvider>      
+ 
+</rsuite-plugin>

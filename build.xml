@@ -19,7 +19,7 @@
 	
   <property name="dist" location="${basedir}/dist"/>
   <property name="lib" location="${basedir}/lib"/>
-  <property name="src" location="${basedir}/src/java"/>
+  <property name="src" location="${basedir}/rsuite/src/java"/>
   <property name="rsuiteSrc" location="${basedir}/rsuite"/>
   <property name="build" location="${basedir}/build"/>
   <property name="temp" location="${basedir}/temp"/>
@@ -48,7 +48,7 @@
   
 
   <property name="lib.home" value="${lib}" />
-  <property name="src.home" value="${basedir}/src" />
+  <property name="src.home" value="${basedir}/rsuite/src" />
   <property name="src.java.home" value="${src.home}/java" />
 
   <property name="resources.home" value="${src.home}/resources" />
@@ -391,7 +391,7 @@
   
 
   <target name="package-rsuite-plugins" depends="init-target, clean, compile">
-    <copy file="${rsuiteSrc}/rsuite-plugins/rsuite-plugin.xml" todir="${classes.home}"/>
+    <copy file="${src}/rsuite-plugin.xml" todir="${classes.home}"/>
     <copy todir="${classes.home}/WebContent/xslt">
       <fileset dir="${xslt.src}"/>
     </copy>
