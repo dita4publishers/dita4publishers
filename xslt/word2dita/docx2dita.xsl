@@ -45,7 +45,7 @@
     </xsl:variable>
     <xsl:variable name="tempDoc" select="relpath:newFile($outputDir, 'simpleWpDoc.xml')" as="xs:string"/>
     
-     <xsl:if test="false() and $debugBoolean">        
+     <xsl:if test="true()">        
        <xsl:result-document href="{$tempDoc}">
            <xsl:message> + [DEBUG] Intermediate simple WP doc saved as <xsl:sequence select="$tempDoc"/></xsl:message>
            <xsl:sequence select="$simpleWpDoc"/>
@@ -786,6 +786,7 @@
         <xsl:when test="@containerType">
           <xsl:choose>
             <xsl:when test="@containerOutputclass">
+              <xsl:message select="."/>
               <xsl:for-each-group select="current-group()" group-adjacent="@containerOutputclass">
                 <xsl:variable name="containerGroup" as="element()">
                   <containerGroup containerType="{@containerType}" containerOutputclass="{@containerOutputclass}">
@@ -988,6 +989,13 @@
   
   <xsl:template match="rsiwp:tab" mode="p-content">
     <tab/>
+  </xsl:template>
+  
+  <xsl:template match="rsiwp:b | rsiwp:i | rsiwp:u | rsiwp:sup | rsiwp:sub | rsiwp:ph" mode="p-content">
+    <xsl:element name="{local-name()}">
+      <xsl:sequence select="./@*"/>
+      <xsl:apply-templates mode="p-content"/>
+    </xsl:element>
   </xsl:template>
   
   <xsl:template match="rsiwp:hyperlink" mode="p-content">
