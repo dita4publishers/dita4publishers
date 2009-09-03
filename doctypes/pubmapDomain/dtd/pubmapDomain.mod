@@ -1881,9 +1881,9 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ATTLIST glossary-group-mapref %global-atts; class CDATA "- map/topicref pubmap-d/glossary-group-mapref ">
 <!ATTLIST glossarylist  %global-atts; class CDATA "- map/topicref pubmap-d/glossarylist ">
 <!ATTLIST indexlist     %global-atts; class CDATA "- map/topicref pubmap-d/indexlist ">
-<!ATTLIST keydefs       %global-atts; class CDATA "- topic/topicref pubmap-d/keydefs ">
+<!ATTLIST keydefs       %global-atts; class CDATA "- map/topicref pubmap-d/keydefs ">
 <!ATTLIST keydefs-mapref %global-atts; class CDATA "- map/topicref pubmap-d/keydefs-mapref ">
-<!ATTLIST keydef-group  %global-atts; class CDATA "- topic/topicref pubmap-d/keydef-group ">
+<!ATTLIST keydef-group  %global-atts; class CDATA "- map/topicref pubmap-d/keydef-group ">
 <!ATTLIST keydef-mapref %global-atts; class CDATA "- map/topicref pubmap-d/keydef-mapref ">
 <!ATTLIST notices       %global-atts; class CDATA "- map/topicref pubmap-d/notices ">
 <!ATTLIST page          %global-atts; class CDATA "- map/topicref pubmap-d/page ">
