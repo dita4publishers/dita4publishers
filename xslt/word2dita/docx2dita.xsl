@@ -192,6 +192,9 @@
       <xsl:message> + [WARNING] No style to tag mapping for character style "<xsl:sequence select="string(@style)"/>"</xsl:message>
     </xsl:if>
     <xsl:element name="{$tagName}">
+      <xsl:if test="@outputclass">
+        <xsl:attribute name="outputclass" select="string(@outputclass)"/>
+      </xsl:if>
       <xsl:apply-templates mode="#current"/>
     </xsl:element>
   </xsl:template>
@@ -787,7 +790,6 @@
         <xsl:when test="@containerType">
           <xsl:choose>
             <xsl:when test="@containerOutputclass">
-              <xsl:message select="."/>
               <xsl:for-each-group select="current-group()" group-adjacent="@containerOutputclass">
                 <xsl:variable name="containerGroup" as="element()">
                   <containerGroup containerType="{@containerType}" containerOutputclass="{@containerOutputclass}">
