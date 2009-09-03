@@ -172,7 +172,7 @@
             <xsl:apply-templates select="current-group()"/>
           </xsl:when>
           <xsl:when test="current-group()[1][self::w:r]">
-            <xsl:for-each-group select="current-group()" group-by="local:getRunStyle(.)">
+            <xsl:for-each-group select="current-group()" group-adjacent="local:getRunStyle(.)">
                 <xsl:call-template name="handleRunSequence">
                 <xsl:with-param name="runSequence" select="current-group()"/>
                 </xsl:call-template>
