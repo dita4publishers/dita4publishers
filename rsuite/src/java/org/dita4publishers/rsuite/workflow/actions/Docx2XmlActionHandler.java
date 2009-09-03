@@ -166,9 +166,11 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 
 		LoggingSaxonMessageListener logger = context.getXmlApiManager().newLoggingSaxonMessageListener(context.getWorkflowLog());
 	    File copiedReportFile = null;
+		boolean exceptionOccured = false;
 		try {
 			bean.generateXmlS9Api(docxFile, resultFile, logger);
 		} catch (RSuiteException e) {
+			exceptionOccured = true;
 			String msg = "Exception transforming document: " + e.getMessage();
 			reportAndThrowRSuiteException(context, msg);
 			throw e;
@@ -183,6 +185,13 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 			.append(getNowString())
 			.append("\n\n")
 			.append(logger.getLogString());
+			if (exceptionOccured) {
+				reportStr
+				.append(" + [ERROR] Exception occurred: ")
+				.append(context.getVariable(EXCEPTION_MESSAGE_VAR));
+			} else {
+				reportStr.append(" + [INFO] Process finished normally");
+			}
 		    StoredReport report = context.getReportManager().saveReport(reportFileName, reportStr.toString());
 		    copiedReportFile = new File(mapDir, report.getSuggestedFileName());
 		    wfLog.info("Generation report in location  \"" + copiedReportFile.getAbsolutePath() + "\"");	
