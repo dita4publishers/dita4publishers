@@ -181,7 +181,7 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 			.append("Result file: ")
 			.append(resultMapFile.getAbsolutePath())
 			.append("\n")
-			.append("Time performend: ")
+			.append("Time performed: ")
 			.append(getNowString())
 			.append("\n\n")
 			.append(logger.getLogString());
