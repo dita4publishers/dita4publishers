@@ -26,9 +26,7 @@
              <variable><name>resultFileName</name></variable>
            </variableList>
         </actionHandler>
-        <actionHandler type="com.reallysi.rsuite.system.workflow.actions.SetVariablesFromMoDetails"
-            label="Set Variables from MO Details">
-        </actionHandler>
+
    </extensionProvider>      
  
 </rsuite-plugin>
