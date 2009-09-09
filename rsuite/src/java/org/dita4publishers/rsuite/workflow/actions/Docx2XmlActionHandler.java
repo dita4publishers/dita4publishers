@@ -251,7 +251,7 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 		this.setParameter(RESULT_FILE_NAME_PARAM, resultFileName);
 	}
 	
-	public void setCourseScriptMoId(String docxMoId) {
+	public void setDocxMoId(String docxMoId) {
 		this.setParameter(DOCX_MO_ID_PARAM, docxMoId);
 	}
 }
