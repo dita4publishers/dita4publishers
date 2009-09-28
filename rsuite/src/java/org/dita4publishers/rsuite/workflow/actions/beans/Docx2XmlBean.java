@@ -73,10 +73,11 @@ public class Docx2XmlBean extends TransformSupportBean {
 	 * @param docxFile
 	 * @param resultFile
 	 * @param logger 
+	 * @param userParams Optional parameters to pass to the style sheet.
 	 * @return
 	 * @throws Exception
 	 */
-	public void generateXmlS9Api(File docxFile, File resultFile, LoggingSaxonMessageListener logger) throws RSuiteException {
+	public void generateXmlS9Api(File docxFile, File resultFile, LoggingSaxonMessageListener logger, Map<String, String> userParams) throws RSuiteException {
 		Log wfLog = context.getWorkflowLog();
 		
 		File tempDir = null;
@@ -112,6 +113,8 @@ public class Docx2XmlBean extends TransformSupportBean {
 			throw new RuntimeException("Unexpected MalformedURLException:  " + e.getMessage());
 		}
 		params.put("rootMapUrl", rootMapUrl);
+		if (userParams != null)
+			params.putAll(userParams);
 		
 		applyTransform(documentXml, resultFile, params, logger, wfLog, tempDir);
    }

@@ -24,6 +24,7 @@
              <variable><name>outputPath</name></variable>
              <variable><name>docxMoId</name></variable>
              <variable><name>resultFileName</name></variable>
+             <variable><name>fileNamePrefix</name></variable>
            </variableList>
         </actionHandler>
 

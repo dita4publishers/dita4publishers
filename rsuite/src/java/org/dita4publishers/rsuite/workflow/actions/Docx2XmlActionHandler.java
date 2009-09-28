@@ -1,6 +1,8 @@
 package org.dita4publishers.rsuite.workflow.actions;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
@@ -21,6 +23,12 @@ import com.reallysi.rsuite.api.xml.LoggingSaxonMessageListener;
  * Generates XML from from DOCX MO.
  */
 public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
+
+	/**
+	 * Prefix to add to each generated filename. If not specified,
+	 * there is no prefix.
+	 */
+	public static final String FILE_NAME_PREFIX_PARAM = "fileNamePref";
 
 	/**
 	 * Optional. The name of the file generated directly by the XSLT (as opposed to
@@ -143,6 +151,8 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 			}
 		}
 			
+		String fileNamePrefix = resolveVariablesAndExpressions(context, getParameterWithDefault(FILE_NAME_PREFIX_PARAM, ""));
+		
 		String docxFilename = mo.getDisplayName();
 		
 		String fileNameBase = FilenameUtils.getBaseName(docxFilename);
@@ -172,9 +182,13 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 
 		LoggingSaxonMessageListener logger = context.getXmlApiManager().newLoggingSaxonMessageListener(context.getWorkflowLog());
 	    File copiedReportFile = null;
+	    Map<String, String> params = new HashMap<String, String>();
+	    params.put("debug", "true"); // FIXME: Make an action handler parameter
+	    params.put("fileNamePrefix", fileNamePrefix);
+	    
 		boolean exceptionOccured = false;
 		try {
-			bean.generateXmlS9Api(docxFile, resultFile, logger);
+			bean.generateXmlS9Api(docxFile, resultFile, logger, params);
 		} catch (RSuiteException e) {
 			exceptionOccured = true;
 			String msg = "Exception transforming document: " + e.getMessage();
@@ -259,5 +273,9 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 	
 	public void setDocxMoId(String docxMoId) {
 		this.setParameter(DOCX_MO_ID_PARAM, docxMoId);
+	}
+	
+	public void setFileNamePrefix(String fileNamePref) {
+		this.setParameter(FILE_NAME_PREFIX_PARAM, fileNamePref);
 	}
 }
