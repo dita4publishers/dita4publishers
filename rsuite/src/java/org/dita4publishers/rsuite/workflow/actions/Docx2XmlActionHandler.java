@@ -7,6 +7,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.logging.Log;
 import org.dita4publishers.rsuite.workflow.actions.beans.Docx2XmlBean;
 
+import com.reallysi.rsuite.api.ContentAssembly;
 import com.reallysi.rsuite.api.ManagedObject;
 import com.reallysi.rsuite.api.RSuiteException;
 import com.reallysi.rsuite.api.report.StoredReport;
@@ -118,13 +119,14 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 		
 		if (docxMoId == null || "".equals(docxMoId)) {
 			MoListWorkflowObject moList = context.getMoListWorkflowObject();
-			if (moList == null || moList.isEmpty()) {
+			if (moList == null || moList.isEmpty() || mo instanceof ContentAssembly) {
 				String msg = "No managed objects in the workflow context and " + DOCX_MO_ID_PARAM + " parameter not specified . Nothing to do";
 				reportAndThrowRSuiteException(context, msg);
-			} 
+			} 			
 			MoWorkflowObject moObject = moList.getMoList().get(0); // First item in list should be course script MO.
 			mo = context.getManagedObjectService().getManagedObject(getSystemUser(), moObject.getMoid());
-			if (!"docx".equals(mo.getContentType().toLowerCase())) {
+			String contentType = mo.getContentType();
+			if (contentType == null || !"docx".equals(contentType.toLowerCase())) {
 				reportAndThrowRSuiteException(context, "First MO in MO list is not a DOCX file, found " + mo.getContentType());
 			}
 		} else {
@@ -132,7 +134,11 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 			if (mo == null) {
 				reportAndThrowRSuiteException(context, "Failed to find MO with ID [" + docxMoId + "]");
 			}
-			if (!"docx".equals(mo.getContentType().toLowerCase())) {
+			if (mo instanceof ContentAssembly) {
+				reportAndThrowRSuiteException(context, "Specified MO [" + docxMoId + "] is a content assembly or content assembly node.");
+			}
+			String contentType = mo.getContentType();
+			if (contentType == null || !"docx".equals(contentType.toLowerCase())) {
 				reportAndThrowRSuiteException(context, "Specified mo [" + docxMoId + "] is not a DOCX file, found " + mo.getContentType());
 			}
 		}
