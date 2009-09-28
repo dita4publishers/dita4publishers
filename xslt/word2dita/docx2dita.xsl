@@ -35,7 +35,7 @@
   
   <xsl:param name="outputDir" as="xs:string"/>
   <xsl:param name="rootMapUrl" select="concat('rootMap_', format-time(current-time(),'[h][m][s][f]'),'.ditamap')" as="xs:string"/>
-  <xsl:param name="debug" select="'false'" as="xs:string"/>
+  <xsl:param name="debug" select="'true'" as="xs:string"/>
   <xsl:param name="topicExtension" select="'.dita'"/><!-- Extension for generated topic files -->
 
   <xsl:variable name="debugBoolean" as="xs:boolean" select="$debug = 'true'"/>  
@@ -89,6 +89,7 @@
           <xsl:with-param name="level" select="0" as="xs:integer"/>
           <xsl:with-param name="mapUrl" select="$rootMapUrl" as="xs:string"/>
           <xsl:with-param name="treePos" select="(1)" as="xs:integer+" tunnel="yes"/>
+          <xsl:with-param name="topicrefType" select="'mapref'"/><!-- shouldn't be necessary, but it is -->
         </xsl:call-template>
       </xsl:when>
     </xsl:choose>
@@ -405,7 +406,7 @@
           </xsl:if>
           <xsl:variable name="topicUrl"
             as="xs:string"
-            select="local:getResultUrlForTopic(current-group()[1], @topicrefType, ($treePos, position()))"
+            select="local:getResultUrlForTopic(current-group()[1], $topicrefType, ($treePos, position()))"
           />
           <xsl:element name="{$topicrefType}">            
             <xsl:call-template name="generateTopicrefAtts">
@@ -588,7 +589,7 @@
       <xsl:when test="$makeDoc">
         <xsl:variable name="topicUrl"
            as="xs:string"
-           select="local:getResultUrlForTopic($firstP, @topicrefType, $treePos)"
+           select="local:getResultUrlForTopic($firstP, $topicrefType, $treePos)"
         />
         
         <xsl:variable name="resultUrl" as="xs:string"
