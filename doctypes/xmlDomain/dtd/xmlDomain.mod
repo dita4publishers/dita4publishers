@@ -42,6 +42,9 @@
 >
 <!ATTLIST xmlelem               
   %univ-atts;                                  
+  keyref
+    CDATA
+    #IMPLIED                                 
   outputclass 
     CDATA
     #IMPLIED    
@@ -53,6 +56,9 @@
 >
 <!ATTLIST xmlatt
   %univ-atts;                                  
+  keyref
+    CDATA
+    #IMPLIED                                 
   outputclass 
     CDATA
     #IMPLIED    
@@ -64,6 +70,9 @@
 >
 <!ATTLIST textent
   %univ-atts;                                  
+  keyref
+    CDATA
+    #IMPLIED                                 
   outputclass 
     CDATA
     #IMPLIED    
@@ -75,6 +84,9 @@
 >
 <!ATTLIST parment
   %univ-atts;                                  
+  keyref
+    CDATA
+    #IMPLIED                                 
   outputclass 
     CDATA
     #IMPLIED    
@@ -86,6 +98,9 @@
 >
 <!ATTLIST numcharref
   %univ-atts;                                  
+  keyref
+    CDATA
+    #IMPLIED                                 
   outputclass 
     CDATA
     #IMPLIED    
