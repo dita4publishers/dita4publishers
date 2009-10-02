@@ -166,10 +166,15 @@
       <xsl:for-each-group select="w:r | w:hyperlink" group-adjacent="name(.)">
         <xsl:choose>
           <xsl:when test="current-group()[1][self::w:hyperlink]">
-            <!-- Hyperlinks may contain multiple runs with different styles, so need
-                 to handle each link separately.
+            <!-- FIXME: This is a hack. Correct processing of hyperlinks needs to be
+              much more sophisticated. This code is essentially ignoring the link aspect
+              of the hyperlink.
             -->
-            <xsl:apply-templates select="current-group()"/>
+            <xsl:for-each select="current-group()">
+              <xsl:call-template name="handleRunSequence">
+                <xsl:with-param name="runSequence" select="w:r"/>
+              </xsl:call-template>              
+            </xsl:for-each>
           </xsl:when>
           <xsl:when test="current-group()[1][self::w:r]">
             <xsl:for-each-group select="current-group()" group-adjacent="local:getRunStyle(.)">
@@ -192,7 +197,7 @@
     <xsl:variable name="runStyle" select="local:getRunStyle($runSequence[1])" as="xs:string"/>
     <xsl:choose>
       <xsl:when test="$runStyle = ''">
-        <xsl:apply-templates select="current-group()"/>
+        <xsl:apply-templates select="$runSequence"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="runStyleMap" as="element()?"
@@ -203,7 +208,7 @@
         </xsl:if>
         <xsl:variable name="runTagName"
           as="xs:string"
-          select="if (current-group()[1][self::w:hyperlink])
+          select="if ($runSequence[1][self::w:hyperlink])
           then 'hyperlink'
           else 'run'
           "
@@ -215,7 +220,7 @@
               <xsl:copy/>
             </xsl:for-each>
           </xsl:if>
-          <xsl:apply-templates select="current-group()"/></xsl:element>
+          <xsl:apply-templates select="$runSequence"/></xsl:element>
       </xsl:otherwise>
     </xsl:choose>        
     

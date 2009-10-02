@@ -36,7 +36,9 @@
   <xsl:param name="outputDir" as="xs:string"/>
   <xsl:param name="rootMapUrl" select="concat('rootMap_', format-time(current-time(),'[h][m][s][f]'),'.ditamap')" as="xs:string"/>
   <xsl:param name="debug" select="'true'" as="xs:string"/>
-  <xsl:param name="topicExtension" select="'.dita'"/><!-- Extension for generated topic files -->
+  <xsl:param name="topicExtension" select="'.dita'" as="xs:string"/><!-- Extension for generated topic files -->
+  <xsl:param name="fileNamePrefix" select="''" as="xs:string"/><!-- Prefix for genenerated file names -->
+  
 
   <xsl:variable name="debugBoolean" as="xs:boolean" select="$debug = 'true'"/>  
   
@@ -220,12 +222,16 @@
     <xsl:param name="topicrefType" select="$content[1]/@topicrefType" as="xs:string"/>
     
     <xsl:param name="mapUrl" as="xs:string" select="local:getResultUrlForMap($content[1], $topicrefType, $treePos)"/>
-  
-    <xsl:if test="true()">
+
+    <xsl:variable name="firstP" select="$content[1]"/>
+    
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] makeMap: firstP=<xsl:value-of select="$firstP"/></xsl:message>
+    </xsl:if>
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] makeMap: mapUrl=<xsl:sequence select="$mapUrl"/></xsl:message>
     </xsl:if>
     
-    <xsl:variable name="firstP" select="$content[1]"/>
     <xsl:variable name="nextLevel" select="$level + 1" as="xs:integer"/>
     
     <xsl:variable name="formatName" select="$firstP/@format" as="xs:string?"/>
@@ -412,10 +418,12 @@
             <xsl:call-template name="generateTopicrefAtts">
               <xsl:with-param name="topicUrl" select="$topicUrl"/>
             </xsl:call-template>            
-            <xsl:call-template name="generateTopicrefs">
-              <xsl:with-param name="content" select="current-group()[position() > 1]" as="node()*"/>
-              <xsl:with-param name="level" select="$level + 1"  as="xs:integer"/>
-            </xsl:call-template>
+            <xsl:if test="current-group()[position() > 1]">
+              <xsl:call-template name="generateTopicrefs">
+                <xsl:with-param name="content" select="current-group()[position() > 1]" as="node()*"/>
+                <xsl:with-param name="level" select="$level + 1"  as="xs:integer"/>
+              </xsl:call-template>
+            </xsl:if>
           </xsl:element>          
         </xsl:when>
         <xsl:when test="string(@structureType) = 'topichead'">
@@ -582,6 +590,11 @@
     </xsl:if>
 
     <xsl:variable name="firstP" select="$content[1]"/>
+
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] makeMap: firstP=<xsl:value-of select="$firstP"/></xsl:message>
+    </xsl:if>
+    
     <xsl:variable name="topicFileName" select="substring-before($firstP,' ')"/>
     <xsl:variable name="makeDoc" select="string($firstP/@topicDoc) = 'yes'" as="xs:boolean"/>
     
@@ -1278,7 +1291,7 @@
       </xsl:for-each>
     </xsl:variable>
     
-    <xsl:variable name="result" select="concat('topics/topic', string-join($treePosString, ''),$topicExtension)"/>
+    <xsl:variable name="result" select="concat('topics/', $fileNamePrefix, 'topic', string-join($treePosString, ''), '_', count(./preceding-sibling::rsiwp:p),$topicExtension)"/>
     <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] rsiwp:p, mode=topic-url: result="<xsl:sequence select="$result"/>"</xsl:message>
     </xsl:if>
@@ -1301,7 +1314,7 @@
       </xsl:for-each>
     </xsl:variable>
     
-    <xsl:variable name="result" select="concat('map', string-join($treePosString, ''),$topicExtension)"/>
+    <xsl:variable name="result" select="concat($fileNamePrefix, 'map', string-join($treePosString, ''), '.ditamap')"/>
     <xsl:if test="true()">
       <xsl:message> + [DEBUG] rsiwp:p, mode="map-url": result=<xsl:sequence select="$result"/></xsl:message>
     </xsl:if>
