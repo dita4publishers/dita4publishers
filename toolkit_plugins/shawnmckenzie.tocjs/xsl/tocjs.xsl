@@ -86,6 +86,11 @@
     <!-- do nothing for now -->
   </xsl:template>
 
+
+  <xsl:template match="*[contains(@class, ' topic/title ')]">
+    <!-- do nothing for now -->
+  </xsl:template>
+
   <xsl:template match="*[contains(@class, ' map/navref ')]">
     <xsl:message> WARNING! navref not supported. </xsl:message>
   </xsl:template>
