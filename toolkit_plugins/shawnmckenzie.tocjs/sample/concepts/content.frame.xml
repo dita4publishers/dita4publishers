@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+ This file is part of the DITA Open Toolkit project hosted on
+ Sourceforge.net. See the accompanying license.txt file for
+ applicable licenses.
+ 
+ (C) Copyright Shawn McKenzie, 2007. All Rights Reserved.
+ *-->
+<?xml-stylesheet href="../../../../xsl/ditaview_shell.xsl" type="text/xsl"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "../../../../dtd/concept.dtd">
+<concept id="tocjs_target" xml:lang="en-us">
+ <title>Configuring a Frameset Target</title>
+ <conbody>
+  <p>You can set the name of the frame you want tocjs links to open in by setting a parameter in
+   your ant build file. For instance, the <filepath>buildsample.xml</filepath> file in this plugin
+   sets this parameter to <codeph>contentwin</codeph>:
+  </p>
+  <codeblock>
+   &lt;property name="content.frame" value="contentwin"/&gt;
+  </codeblock>
+  <p>The <filepath>tocjs/sample/basefiles/frameset.html</filepath> file uses
+   <codeph>contentwin</codeph> as the name of the content pane. The above property in the <filepath>buildsample.xml</filepath>
+   file sets this property for use by the <codeph>tocjs</codeph> transtype. By default, the tocjs plugin will
+  set the content frame name to <codeph>contentwin</codeph> if you do not set this property to maintain backward
+   compatibility (previous versions of the plugin had this hard-coded).</p>
+  <p>Properties in Ant build files are more like constants than variables. You can only set them
+   once, and they are global. This can cause problems if you want to use different frame names in
+   separate projects. For instance, many people pull separate Ant build files into a single
+   <filepath>build.xml</filepath> like this:</p>
+  <codeblock>
+   &lt;project name=&quot;dita.build&quot; default=&quot;prompt&quot; basedir=&quot;.&quot;&gt;
+    &lt;import file=&quot;${basedir}${file.separator}ant${file.separator}foo.xml&quot;/&gt;
+    &lt;import file=&quot;${basedir}${file.separator}ant${file.separator}bar.xml&quot;/&gt;
+    &lt;import file=&quot;${basedir}${file.separator}ant${file.separator}fnord.xml&quot;/&gt;
+   ...
+  </codeblock>
+  <p>In the above case, you could set the <codeph>content.frame</codeph> property in
+   <filepath>build.xml</filepath> (or any of the other imported files) and it would be globally set
+   for each Ant target. However, if you want a different target in <filepath>foo.xml</filepath> than
+   you have in <filepath>bar.xml</filepath>, you would need to not import those files into
+   <filepath>build.xml</filepath>, add a separate property to each file, and call your targets like:
+  <codeblock>ant -f ant/foo.xml mytarget</codeblock>
+  This will ensure you don't wind up with an unexpected parameter being set due to the global nature
+  of properties in Ant.</p>
+ </conbody>
+</concept>

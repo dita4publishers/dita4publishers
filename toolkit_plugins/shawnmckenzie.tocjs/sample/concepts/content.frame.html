@@ -1,0 +1,69 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="security" content="public">
+<meta name="Robots" content="index,follow">
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="concept">
+<meta name="DC.Title" content="Configuring a Frameset Target">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="tocjs_target">
+<meta name="DC.Language" content="en-us">
+<link rel="stylesheet" type="text/css" href="../basefiles/sophos.css"><title>Configuring a Frameset Target</title>
+</head>
+<body id="tocjs_target"><a name="tocjs_target"><!-- --></a>
+
+
+ <h1 class="topictitle1">Configuring a Frameset Target</h1>
+
+ <div>
+  <p>You can set the name of the frame you want tocjs links to open in by setting a parameter in
+   your ant build file. For instance, the <span class="filepath">buildsample.xml</span> file in this plugin
+   sets this parameter to <samp class="codeph">contentwin</samp>:
+  </p>
+
+  <pre>
+   &lt;property name="content.frame" value="contentwin"/&gt;
+  </pre>
+
+  <p>The <span class="filepath">tocjs/sample/basefiles/frameset.html</span> file uses
+   <samp class="codeph">contentwin</samp> as the name of the content pane. The above property in the <span class="filepath">buildsample.xml</span>
+   file sets this property for use by the <samp class="codeph">tocjs</samp> transtype. By default, the tocjs plugin will
+  set the content frame name to <samp class="codeph">contentwin</samp> if you do not set this property to maintain backward
+   compatibility (previous versions of the plugin had this hard-coded).</p>
+
+  <p>Properties in Ant build files are more like constants than variables. You can only set them
+   once, and they are global. This can cause problems if you want to use different frame names in
+   separate projects. For instance, many people pull separate Ant build files into a single
+   <span class="filepath">build.xml</span> like this:</p>
+
+  <pre>
+   &lt;project name="dita.build" default="prompt" basedir="."&gt;
+    &lt;import file="${basedir}${file.separator}ant${file.separator}foo.xml"/&gt;
+    &lt;import file="${basedir}${file.separator}ant${file.separator}bar.xml"/&gt;
+    &lt;import file="${basedir}${file.separator}ant${file.separator}fnord.xml"/&gt;
+   ...
+  </pre>
+
+  <div class="p">In the above case, you could set the <samp class="codeph">content.frame</samp> property in
+   <span class="filepath">build.xml</span> (or any of the other imported files) and it would be globally set
+   for each Ant target. However, if you want a different target in <span class="filepath">foo.xml</span> than
+   you have in <span class="filepath">bar.xml</span>, you would need to not import those files into
+   <span class="filepath">build.xml</span>, add a separate property to each file, and call your targets like:
+  <pre>ant -f ant/foo.xml mytarget</pre>
+
+  This will ensure you don't wind up with an unexpected parameter being set due to the global nature
+  of parameters in Ant.</div>
+
+ </div>
+
+
+</body>
+</html>
