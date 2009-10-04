@@ -8,5 +8,12 @@
     uri="learningMap.dtd"
   />
   
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:learningMap"
+    uri="learningMap.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:learningMap.dtd"
+    uri="learningMap.dtd"
+  />
+  
   
 </catalog>  

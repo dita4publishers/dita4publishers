@@ -7,4 +7,11 @@
   <system systemId="urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/topic.dtd"
           uri="topic.dtd"
   />
+
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic"
+    uri="topic.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic.dtd"
+    uri="topic.dtd"
+  />
 </catalog>  

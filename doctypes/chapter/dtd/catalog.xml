@@ -14,5 +14,19 @@
   <system systemId="urn:pubid:/modules/article.mod"
     uri="chapter.mod"
   />
+
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter"
+    uri="chapter.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter.dtd"
+    uri="chapter.dtd"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:modules:chapter"
+    uri="chapter.mod"
+  />
+  <system systemId="urn:pubid::modules:article.mod"
+    uri="chapter.mod"
+  />
   
 </catalog>  

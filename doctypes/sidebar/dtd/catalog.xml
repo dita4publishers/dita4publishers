@@ -14,4 +14,18 @@
     <system systemId="urn:pubid:/modules/sidebar.mod"
         uri="sidebar.mod"
     />
+
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:sidebar"
+    uri="sidebar.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:sidebar.dtd"
+    uri="sidebar.dtd"
+    />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:modules:sidebar"
+    uri="sidebar.mod"
+  />
+  <system systemId="urn:pubid::modules:sidebar.mod"
+    uri="sidebar.mod"
+  />
 </catalog>  

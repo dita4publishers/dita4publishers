@@ -15,5 +15,19 @@
   <system systemId="urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmap/pubmapDomain.mod"
     uri="pubmapDomain.mod"
   />
+
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pubmapDomain"
+    uri="pubmapDomain.ent"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pubmap:pubmapDomain.ent"
+    uri="pubmapDomain.ent"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmapDomain"
+    uri="pubmapDomain.mod"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmap:pubmapDomain.mod"
+    uri="pubmapDomain.mod"
+  />
   
 </catalog>
