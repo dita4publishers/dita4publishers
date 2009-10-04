@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
+<chapter
+  id="d5e2"><title>Community and Documentation</title><shortdesc>The scale of the global community
+    that is going to be able to participate in all sorts of discovery and innovation is something
+    that the world has simply never seen before.&#8232;—Thomas Friedman, The World is
+    Flat</shortdesc><prolog/><body><p>This chapter explores the idea that a small group of people
+      who have a sense of belonging in an online community may provide content much like a technical
+      writer does. Regardless of their background, education, or training, more people are becoming
+      providers of technical information on the web. The gift economy, where altruism motivates
+      contributions more than monetary gain, is partially responsible for this shift. <indexterm
+        >Anderson, Chris</indexterm>Chris Anderson, author of <i>The Long Tail</i>, also wrote the
+      article, “Free! Why $0.00 Is the Future of Business” for Wired<indexterm>Wired</indexterm>
+        magazine<fn><p>
+        http://www.wired.com/techbiz/it/magazine/16-03/ff_free?currentPage=all</p></fn> in February
+      of 2008. In the article he describes a taxonomy<indexterm>taxonomy</indexterm> of “free” that
+      contains many models including the gift economy. In <i>Naked Conversations</i>, bloggers
+        <indexterm>Scobel, Robert</indexterm>Robert Scobel and <indexterm>Israel,
+      Shel</indexterm>Shel Israel state “Altruism turns people on even more than making money.”
+      Combine these altruistic motivations with a publishing system that has a low barrier to entry
+      and you get a whole new way of working and writing. </p><p>If anyone can be a writer, what
+      communities of writers have formed, and what have they accomplished? Why would you leverage
+      someone’s sense of community belonging for documentation instead of hiring professional
+      writers? How do you form communities online and in the real world? </p><p><indexterm
+          >communities<indexterm>definition of</indexterm></indexterm><i>Community</i> has many
+      definitions, but an <i>online community</i> has specific elements that shape its definition.
+      From a blog entry by Forrester Research analyst Jeremiah <indexterm>Owyang,
+        Jeremiah</indexterm>Owyang comes this definition: “An online community is: Where a group of
+      people with similar goals or interests connect and exchange information using web tools.”<fn
+          ><p> http://www.web-strategist.com/blog/2007/12/28/defining-the-term-community/</p></fn>
+      As you might expect from a community researcher, Owyang says that his Twitter followers helped
+      him shape that definition. Howard <indexterm>Rheingold, Howard</indexterm>Rheingold defines a
+      virtual <indexterm>communities<indexterm>virtual</indexterm></indexterm>community<indexterm
+        >virtual communities</indexterm> in his book, <i>The Virtual Community</i>, as “when people
+      carry on public discussions long enough, with sufficient human feeling, to form webs of
+      personal relationships.” Think of the online communities you belong to. You know there are
+      common elements of discussion, agreement, core values, and unifying goals that help you
+      identify it as a community. Relationships are the makeup of communities. Connections with each
+      other establish relationships. Not all relationships in a community have to be positive­—even
+      contentious debate can help a community meet its goals as long as the relationships remain
+      respectful and intact after discussions.</p><p>Although in-person <indexterm
+          >collaboration<indexterm>in-person</indexterm></indexterm>collaboration is an aspect of
+      communities and documentation, much communication happens only online until community members
+      meet at a conference or a networking event. Much of the communication that helps you feel like
+      you know a person in the community happens online long before a face-to-face meeting. It’s
+      that in-person or online conversation and public discourse that forges the relationships that
+      create a community. </p><p>Sometimes the tools that help create the connections are mistaken
+      for the community itself. Community is built from the connections, not the tools. For example,
+      a blog with <indexterm>comments<indexterm>on blog posts</indexterm></indexterm><indexterm
+          >comments<indexterm>on blog posts</indexterm></indexterm>comments might constitute a
+      conversation, but it does not constitute the community itself. This distinction is important
+      for a few reasons. First, it can help you choose which tools you can use to form a community.
+      Second, it can help you understand why you might not have a community on your hands, yet, even
+      though the right tools are in place. And, it can help you understand why a wiki has few edits
+      yet many hits. Perhaps the sense of belonging to a community with a specific purpose and set
+      of goals and the motivations that follow are not yet present. Or perhaps the technology layers
+      are not familiar, so people don’t feel comfortable in an online community until they make
+      sense of the tools for communication and interaction. </p></body><subsection
+    id="d5e91"><title>Motivations for writers and online communities</title><body><p>Why are any of
+        us interested in documenting a complex product or process? It’s possible that the core of
+        our motivation is recognition or reward, measured in terms of money or success. Or maybe we
+        think that writing and communicating with text, images, audio, or video is a great way to
+        make a living. But, an underlying motivator for many technical writers is the desire to help
+        others learn. By teaching, you learn twice. By joining a community, being a community
+        member, and looking for places where you can either contribute or motivate others to
+        contribute, you are empowering <indexterm>collaboration<indexterm>with
+          audiences</indexterm></indexterm>collaborative efforts unlike any seen in the past. What I
+        am observing more is that community members who do not have a writing role still want to
+        write or communicate information about the product or service.</p><p>I can identify with the
+        desire to help people through my work with the One Laptop per Child project<indexterm>One
+          Laptop per Child<indexterm>author's experience with</indexterm></indexterm>. My kids and
+        the kids in my son’s preschool classroom inspired me to work for the first time on an open
+        source project. My first experience with Sugar, the open source operating system for the
+        laptop, was an emulation on my laptop, and I was floored by its elegance and simplicity,
+        created by a community of developers and usability experts giving their time to the project.
+        I was inspired by the high quality of their offering and wanted the documentation to match
+        it.</p><p>I have found my volunteer work to be invaluable as a learning experience and
+        exercise in connecting to others. But I will also admit that one of my motivations has been
+        to experiment with publishing and book promotion, with an idea in the back of my head that
+        FLOSS Manuals could hit upon a huge bestselling book idea. </p><p>Before the OLPC Book
+        Sprint in August, the FLOSS Manuals community had quite a nice discussion about money and
+        free documentation. Income from book sales is typically used to further fund <indexterm
+          >FLOSS Manuals<indexterm>goals</indexterm></indexterm>FLOSS Manuals’ goals as a non-profit
+        community—invest your gains to further your aims.</p><p>So while writers are accustomed to
+        earning money directly for writing, they might find that they are motivated not by the money
+        itself but by the additional activities the money can fund. For example, profits from a Book
+        Sprint can be used to fund future Book Sprints.</p></body><subsection
+      id="d5e119"><title>New roles for writers</title><body><p>One of the roles I learned about
+          while writing for a wiki is “<indexterm>manager, community</indexterm><indexterm>community
+            manager</indexterm><indexterm>communities<indexterm>managing</indexterm></indexterm>community
+          manager.” In many wiki environments, the writer can be the “content <indexterm
+              >content<indexterm>curators of</indexterm></indexterm>curator,” someone who assembles
+          collections based on themes. But if your goal is to build and grow a wiki, you need to
+          build and grow the community for it first. People who feel they are part of a community
+          may share knowledge as the community becomes a <indexterm>communities<indexterm>of
+              practice</indexterm></indexterm>community of practice. Clay <indexterm>Shirky,
+            Clay</indexterm>Shirky, in his talk about his book, <i>Here Comes Everybody</i>,<fn><p>
+              http://cyber.law.harvard.edu/interactive/events/2008/02/shirky</p></fn> explains how
+          quickly a community of practice can form now that online tools speed up the process of
+          teaching specific techniques and learning them from others. A community of practice uses
+          people as conduits to transfer knowledge. As those who study knowledge management have
+          learned, workers spend a third of their time searching for information, and workers are
+          five times more likely to turn to experienced co-workers for information rather than
+          reading a book, thereby shortening their learning curve and hopefully avoiding mistakes.
+          </p><p>You have probably heard of the phrase “train the trainer.” You may even imagine
+          that your role as a writer is to write to the person who reads enough to learn a product
+          inside and out and become the in-house expert for it. As an extension of that writer’s
+          role of training the trainer, a writer may become a leader within the online <indexterm
+              >communities<indexterm>writer's role in</indexterm></indexterm>community, teaching
+          other community members. This trainer role may be highly motivating to some.</p><p
+          >Particular types of users are more likely to seek out online <indexterm
+              >communities<indexterm>participation in</indexterm></indexterm>communities for
+          information—competent performers, proficient performers, and expert performers, as defined
+          by Dreyfus and Dreyfus in <i>Mind over Machine</i>. In their “Model of Skill Acquisition,”
+          these types of users are separated from the novices and advanced beginners, who represent
+          the first two stages in the model. Advanced users are more likely to demand useful
+          examples, instructions for getting results or achieving a specific goal, and advanced
+          troubleshooting information. </p><p>When managing a community of experts, realize that the
+          rules of the community can make entry difficult. Consider that some <indexterm
+              >communities<indexterm>rules</indexterm></indexterm>communities have an unspoken “no
+          whining” rule, which creates a very different atmosphere than a community that has a
+          “there are no dumb questions” philosophy. </p></body></subsection><subsection
+      id="d5e177"><title>Free as in freedom documentation</title><body><p>Why do people contribute
+          to documentation for no payment or even unknowingly, since they don’t consider themselves
+          to be writers? Andy Oram<indexterm>Oram, Andy</indexterm>, senior editor at O’Reilly
+          Media, studied contributions to documentation by surveying people who contribute to online
+          forums, email <indexterm>mailing lists<indexterm>contributions
+          to</indexterm></indexterm>lists, or wikis. His “Why Do People Write Free Documentation?
+          Results of a Survey”<fn><p>
+              http://www.onlamp.com/pub/a/onlamp/2007/06/14/why-do-people-write-free-documentation-results-of-a-survey.html?page=1</p></fn>
+          report contains many findings, some of which are surprising:</p><ul><li>People generally
+            don’t think that they were contributing to documentation.</li><li>People don’t think of
+            themselves as writers, despite the fact that the communication is written.</li></ul><p
+          >Because the people surveyed were not paid directly for their written contributions, their
+          contributions could be considered free as in “no-cost.” In <indexterm>open
+              source<indexterm>open documentation contributions</indexterm></indexterm>open source
+          circles, “free” can mean “freedom” rather than “no cost.” “Free” documentation, however,
+          represents a shift away from these two definitions. </p><p>The email/Internet/search
+          engine infrastructure that is in place enables all of us to feel like we are getting and
+          giving information for free. In reality, a small group of people who have computers and
+          pay $40 per month for high speed Internet access offer their time and knowledge in
+          information exchanges in the hope that they will be repaid by others’ time and knowledge,
+          through recognition, by achieving a sense of belonging, or by gaining back time through
+          efficiency gains. These <indexterm>communities<indexterm>motivations
+            of</indexterm></indexterm>motivations for contribution (reciprocity, reputation,
+          attachment, and efficiency) in any online <indexterm>communities<indexterm>participation
+              in</indexterm></indexterm>community are documented by Peter Kollack in his paper, The
+          Economies of Online <indexterm>collaboration<indexterm>motivations
+            for</indexterm></indexterm>Collaboration.<fn><p>
+              http://www.sscnet.ucla.edu/soc/faculty/kollock/papers/economies.htm</p></fn>
+        </p><p>For some, payment is in yet another free, no-cost form. Perhaps you could even go so
+          far as to say that their payment is in happiness. <indexterm>Hunt, Tara</indexterm>Tara
+            Hunt<indexterm>Tara Hunt</indexterm>, author of <i>The </i><indexterm>Whuffie Factor,
+            The</indexterm><i>Whuffie Factor</i> and blogger at horsepigcow.com discusses the
+          happiness factor in a 197-slide deck (offered for free!).<fn><p>
+              http://www.slideshare.net/missrogue/happiness-as-your-business-model-414463</p></fn>
+          The following four items represent what Tara calls pillars of happiness:</p><ul><li
+            >Autonomy: Give people the ability to personalize their experience, offer choices, be
+            open and transparent. </li><li>Competence: Let people feel like they’re good at what
+            they do. </li><li>Relatedness: People want to connect with others in similar situations.
+            </li><li>Self-esteem: People who are confident in their knowledge or relationships have
+            self-esteem. </li></ul></body></subsection><subsection
+      id="d5e253"><title>Joining a community</title><body><p>This new <indexterm
+              >collaboration<indexterm>economy of</indexterm></indexterm>collaborative economy will
+          affect technical writers who are paid for <indexterm>social media<indexterm>community
+              involvement</indexterm></indexterm>documentation. Part of the new role for writers in
+          Web 2.0 is becoming a community member, being a contributor, and being a reader of
+          contributions from other community members. </p><p><indexterm>communities<indexterm
+              >conversations in</indexterm></indexterm>Community membership is a hands-on activity
+          that you do best when you have practice at it. It is not easy to get experience, but it is
+          necessary. You must read the online arguments (flame wars) and observe other’s reactions
+          to know how to handle them better each time they happen. You can observe leadership
+          passing hands and the delegation that occurs. But observation does not always teach you
+          how to step into a leadership role or delegate well.</p><p>You can learn the ebb and flow
+          of a <indexterm>communities<indexterm>measuring conversations
+            in</indexterm></indexterm><indexterm>conversations<indexterm>measuring "social
+              weather"</indexterm></indexterm>conversation and become a meteorologist for the
+            “<indexterm>social weather</indexterm>social weather” that’s ongoing in a community. For
+          an example of social weather, do what Clay <indexterm>Shirky, Clay</indexterm>Shirky
+          writes in his description of the course with the same name at New York University. Simply
+          make some observations next time you walk into a restaurant. Is it noisy or quiet? Slow or
+          busy? Are there couples or groups dining? In a restaurant you have visual and auditory
+          cues to give your inner meteorologist a chance to assess the social weather. In an online
+          community, you need to understand the cues that occur in writing, in emoticons, and in
+          frequency and intensity of updates to content. In the presentation “Blogs and the social
+          weather” at the Internet Research 3.0 conference in October 2002, Alex Halavais describes
+          a deep dive analysis of bloggers’ discourse.</p><lq><p><i> “By measuring changes in word
+              frequency within a large set of popular blogs over a period of four weeks, and
+              comparing these changes to those in the ‘traditional’ media represented on the web, we
+              are able to come to a better understanding of the nature of the content found on these
+              sites. This view is further refined by clustering those blogs that carry similar
+              content. While those who blog may not be very representative of the public at large,
+              charting discourse in this way presents an interesting new window on public opinion.”
+              </i><indexterm>Halavais, Alan</indexterm><fn><p>
+                http://aoir.org/2002/program/halavais2.html</p></fn></p></lq><p>While this concept
+          may sound new and exciting, it is quite 20th century. Analyzing newspaper content to
+          determine public opinion was researcher A.A.<indexterm>blogs<indexterm>analyzing
+              conversations in</indexterm></indexterm>Tenney’s original concept<fn><p> Tenney, A. A.
+              (1912). The scientific analysis of the press. Independent 73:895-898.</p></fn> in
+          1912.</p><p>So what are some ideas for keeping the <indexterm>social
+          weather</indexterm>social weather sunny and clear in a community? <indexterm>Hunt,
+            Tara</indexterm>Tara Hunt’s pillars of happiness are a good set of guidelines for
+          testing your social deliverables for helping users and contributors. When community
+          members can voice an opinion, give an honest review, and build an article or a diagram or
+          a picture or a video, perhaps by taking on a writing role, they feel autonomous and
+          happiness follows. Kathy Sierra calls creating competent users “helping users kick ass,”
+          and she has written valuable blog entries about how to do that.<fn><p>
+              http://headrush.typepad.com/</p></fn> In the area of relatedness, a writer doesn’t
+          necessarily have to be a community member to enable people to talk to each other and meet
+          in person more easily. Organizing tweetups (in-person gatherings for <indexterm
+              >Twitter<indexterm>tweetups</indexterm></indexterm>Twitter users) or user group
+          meetings are an extension of the community manager role, enabling people to feel related
+          to one another. Documentation that enables relatedness, such as helping wiki writers talk
+          to each other via comments or “<indexterm>wikis<indexterm>talk
+            pages</indexterm></indexterm>talk” pages contributes to that pillar of happiness. </p><p
+          >I found that after moving OLPC content to the FLOSS Manuals wiki, I still communicated
+          project information via the OLPC wiki at wiki.laptop.org. When I organized the Book
+          Sprint, I used a particular request page on the wiki to invite community members to the
+          event. Volunteers then contacted me through my wiki “Talk” page which sent an email
+          notification to the email address I had designated while still keeping our discussion open
+          for any project contributor to see. </p></body></subsection><subsection
+      id="d5e335"><title>Growing a community</title><body><p>Create guidelines and a central purpose
+          for the community if you are going to <indexterm>communities<indexterm
+              >building</indexterm></indexterm>grow one organically. For example, some online
+            <indexterm>communities<indexterm>growing</indexterm></indexterm>communities subscribe to
+          one overarching rule: No whining. Others may set a basic rule like: The only dumb question
+          is the one unasked. These two communities will attract different members. Also, after you
+          identify an established community you want to join, realize that it may take a direction
+          that you hadn’t considered by changing its goals or changing some of its rules or culture.
+          </p><p>Rather than trying to single-handedly grow the community, delegate to and recruit
+          from the established community members for tasks that are not in your area.</p><p
+            ><indexterm>communities<indexterm>patterns</indexterm></indexterm>Communities may have
+            <indexterm>wikis<indexterm>patterns</indexterm></indexterm>patterns and anti-patterns
+          much like the wiki patterns that Stewart <indexterm>Mader, Stewart</indexterm>Mader
+          identified in his book of the same name. In online communities, people can block progress
+          on community projects such as coding open source software. For example, someone might
+          offer to address a bug but then doesn’t. The lack of follow-through becomes a block for
+          anyone else who wants to make progress on the bug. Lack of documentation can also hamper
+          community efforts. Ever-changing or ambiguous licensing of code may cause a community to
+          abandon it if the license is not easy to use or not in line with the community’s vision.
+          </p><p>Realize that benevolent dictatorship may not be the correct approach for a
+          community. A benevolent dictatorship usually involves one leader who maintains a stance of
+          always doing what’s best for the community, but maintains control over all decisions. Keep
+          a balance as you foster community interaction, especially if you become a leader. Realize
+          that everyone can have a role or several roles at once, both leading and following. </p><p
+          >Software management books author Gerald <indexterm>Weinberg, Gerald</indexterm>Weinberg
+          once said, “No matter what the problem is, it’s always a people problem.” Remember that
+          technology layers cannot fix basic <indexterm>communities<indexterm>trust
+              within</indexterm></indexterm>trust issues or bad behavior. Rather than adding
+          administration layers, complex access control lists, or even check-ins, talk through the
+          people problems. And if you are the benevolent dictator, be ready to allow the community
+          to self-govern if that is the right direction for it.</p></body></subsection></subsection><subsection
+    id="d5e378"><title>Real-world events</title><prolog><metadata><keywords>
+          <indexterm>events</indexterm>
+        </keywords></metadata></prolog><body><p>One reason people join an online <indexterm
+            >communities<indexterm>in-person interaction</indexterm></indexterm>community is the
+        in-person interaction that can happen at professional conferences or networking <indexterm
+            >communities<indexterm>events</indexterm></indexterm>events. They may join a community
+        related to their profession or to the tools needed for their job, or a community related to
+        a fun recreational interest. It follows that people want to meet others in person at
+        meetings and gatherings. These events not only enable you to communicate with your company’s
+        customers; events help the customers meet and talk to each other. User groups and focus
+        groups are examples of real-world meetings that have a single goal in mind. <indexterm
+          >unconferences</indexterm>Unconferences, <indexterm>barcamp</indexterm><ph>barcamps</ph>,
+        and <indexterm>meetups</indexterm>meetups are another type of real-world event where people
+        with similar interests and goals meet to share information. A newly-defined event called a
+          <indexterm>Book Sprint</indexterm>Book Sprint borrows from these camp concepts to create a
+        one-week event of collaborative authoring that generates a book. </p></body><subsection
+      id="d5e410"><title>Unconferences, barcamps, and meetups</title><body><p>An unconference or
+            <indexterm>conversations<indexterm>barcamp</indexterm></indexterm>barcamp is usually
+          defined by its lack of definition. The morning of the event, attendees gather at one place
+          in front of a white board or poster and offer to share their knowledge in presentations or
+          demonstrations. The unconference has no agenda until session ideas are placed on a white
+          board, often using Post-it notes, in certain time slots so that participants can find
+          sessions to attend. Sometimes a wiki page can help shape the agenda before the event, but
+          the board at the event is the “final” schedule. </p><p>A meetup is a prearranged group
+          meeting and the online social networking site meetup.com facilitates organizing those
+          meetings. A combination of meetup and <indexterm>Twitter<indexterm
+            >tweetups</indexterm></indexterm>Twitter, a Tweetup is an in-person meeting organized
+          using Twitter for publicity and invites. Sometimes these events are intended for casual
+          entertaining, other times they are organized for professional networking. The main point
+          of these types of gatherings is to take advantage of the higher fidelity conversations
+          that in-person events offer.</p><p>How can you plan for such a purposely impromptu event
+          such as an unconference? First you have to realize that the attendees are going to make or
+          break the event. I had little experience with planning an unconference when I was asked to
+          plan one that would take place during the 2008 DocTrain West conference. With the
+          encouragement and help of one person who was certainly going to attend, I was able to grow
+          the invitation list with like-minded individuals. We ended up with some of the most
+          interesting attendees, and one person said it was the most useful session of the
+          conference to him, a compliment considering that the unconference was embedded within a
+          highly valuable conference with a devoted group of
+    attendees.</p></body></subsection></subsection><subsection
+    id="d5e428"><title>Book Sprints</title><body><p>A <indexterm>FLOSS Manuals<indexterm>Book
+            Sprints</indexterm></indexterm>Book Sprint is <indexterm>content<indexterm>collaboration
+            in creating</indexterm></indexterm><indexterm>collaboration<indexterm>authoring
+            and</indexterm></indexterm>collaborative authoring, in a short time such as 3–4 months,
+        with the express goal of <indexterm>technical documentation<indexterm>collaborative
+            authoring</indexterm></indexterm>publishing a book. That sums up the goal of the Book
+        Sprint as devised by Tomas Krag, whose interests lie in the use of technology for developing
+        nations and who was much more interested in the distribution of content and ideas than
+        protecting his rights as an author. <indexterm>Hyde, Adam</indexterm>Adam Hyde, founder of
+        FLOSS Manuals, was keen to explore the idea of an extreme Book Sprint, which compresses the
+        authoring and production of a print-ready book into a week-long sprint. The first year after
+        the birth of the Book Sprint concept, Adam and FLOSS Manuals experimented with several
+        models of the sprint.</p><p>An entire Book Sprints book is available on the FLOSS Manuals
+        website, offering how-to guidance for running your own Book Sprint. This section re-uses
+        some of that content to spread the Book Sprint ideas and concepts as a collaboration
+        technique. </p></body><subsection
+      id="d5e457"><title>Book Sprint planning</title><body><p><indexterm>discussions about
+              content<indexterm>in Book Sprints</indexterm></indexterm>Although the goal of the Book
+          Sprint is to produce a book in one week, the planning of the event often determines its
+          success. This section details some of the planning you should do in advance of the Book
+          Sprint dates. Although a FLOSS Manuals Book Sprint uses the FLOSS Manuals wiki tool, you
+          can use this advice with any collaborative authoring tool. </p><p>Scope</p><p>What topics
+          will the book cover?</p><p>When determining the <indexterm>content<indexterm>scope of, for
+              Book Sprints</indexterm></indexterm>scope of a book, you might experience a “chicken
+          and egg” scenario. You might want to plan the scope and then invite people to attend, but
+          at the same time you may wonder whether it is better to invite people to attend and then
+          let them decide the scope. <indexterm>Hyde, Adam</indexterm>Adam Hyde thinks that you can
+          strike a balance. You can decide on the overall topic of a book, such as an existing
+          software product, before inviting anyone. The writers participating in the sprint can then
+          help brainstorm the details of the content. It’s easier to motivate people if they have
+          input early in the process.</p><p>Target Audience</p><p>Along with the scope comes the
+          target audience, and one decision certainly shapes the other.</p><p>Who do you want to
+          read the book? What are the job titles they hold? What organizations or groups do they
+          belong to? Are they students in a college or industry professionals in the workforce? What
+          other publications might they read, or what subject matter should they already be familiar
+          with? What is their general level of computer literacy? What operating systems are they
+          most commonly using?</p><p>Answering these questions should also help you identify
+          potential participants in the Book Sprint as writers, editors, or technicians who can
+          serve as subject matter experts.</p><p>Ideally, you can include a person from the target
+          audience in the sprint as a document tester. For example, if the target audience is
+          “newbies,” then invite someone who is new to the product. Instead of trying to imagine the
+          level at which to write the material, you will find more value in having a member of your
+          target audience in the room to look the experts in the eye and say “I don’t understand
+          what that means.” The experts may then have to recalibrate their tone. This is not to say
+          that the target audience member is always right, but the experts have to justify their
+          position when challenged, which leads to better content.</p><p>Invitations</p><p>An
+          important first decision when planning an event is whether you will select and invite a
+          limited number of attendees or let the attendee list grow by allowing those initially
+          invited to invite others<indexterm>invitations to in-person events</indexterm>. After you
+          determine your core set of participants, choose a date and location that should work well
+          for most of them. After you set a date and location for the core set of participants, you
+          can open the event up to others. </p><p>With the FLOSS Manuals OLPC and <indexterm
+            >SugarLabs</indexterm>SugarLabs Book Sprint, we had a last-minute request to attend the
+          Book Sprint from a journalist located in the UK. Although she didn’t have firsthand
+          experience with the XO laptop, she was interested in the <indexterm>One Laptop per
+              Child<indexterm>Book Sprint</indexterm></indexterm>One Laptop per Child project and
+          wanted to attend the Book Sprint in order to write a freelance journalist article about
+          the experience. Although we were intrigued and flattered, we declined her request to
+          attend because we wanted writers who could contribute immediately and also wanted to avoid
+          distractions for the other attendees and participants. It turned out to be the right
+          decision for all involved since we were a very focused group. </p><p>Draw up the
+          outline</p><p>You perform two types of planning for a Book Sprint: planning the content
+          and planning the event itself.</p><p>A <indexterm>content<indexterm
+              >topic-oriented</indexterm></indexterm>topic-oriented, <indexterm>content<indexterm
+              >single-sourcing</indexterm></indexterm>single-sourcing approach to content means that
+          each chapter is a standalone piece of content that can be reused in many different
+          remixes. This approach also means that the content can be used in a printed book, a PDF
+          file, a collection of browse-able HTML files, or embedded in a website as if it were
+          directly created in that web site. Planning with reuse in mind is important to the success
+          of the sprint. </p><p>You should choose reusable content that can be completed in the
+          allotted time for the Book Sprint. Part of the time spent in a Book Sprint is reusing or
+          rewriting what else has been written on the topic. Identifying content that is already
+          written ahead of time is part of your planning process. What books, websites, or wikis
+          already discuss the technology on which Book Sprint focuses? Can you re-use any of that
+          content based on their licensing of the content?</p><p>After you have a proposed audience
+          and scope for a Book Sprint, take the time to talk about your ideas with others who are
+          interested in reading the content. Make sure you have buy-in for the audience and scope
+          for which you are planning, and revise as necessary until you feel ready to start
+          outlining the book. In a few Book Sprints, the outline was completed the Sunday just
+          before the week of the sprint.</p><p>Reuse existing content</p><p>After you have created
+          the outline, you should spend time finding as much existing content as possible.
+            <indexterm>content<indexterm>reusable</indexterm></indexterm>Re-use, re-use, re-use.
+          Search the web and book stores for related content and write to each of the authors asking
+          if you can re-use their content. </p><p>If material is available and it is under a liberal
+          license—the same as the one as you want to use—ethical and fair treatment of the content
+          means writing to the authors not to ask their permission but to ask for their “blessing”
+          or endorsement to re-use the content. Many of those authors like to know where their
+          content is re-used, and you might find that you have a new, enthusiastic contributor
+          coming on board as the result of your communication. At the very least they will probably
+          tell other people about your project and that provides good outreach for you.</p><p
+          >Getting existing material is important not just because it can contribute to the total
+          content of the book but because it is motivating for the writers to see that some of the
+          work has already been done before they start. The writers might throw most of it out but
+          by then the content has already had its motivating effect.</p></body></subsection><subsection
+      id="d5e541"><title>Book Sprint logistics </title><body><p>You need to plan the dates,
+          location, and participants in the sprint before you get very far. Either the dates and
+          location are determined by the participants, or who participates will determine where and
+          when the event takes place. In either situation, you need to consider some basic issues.
+          Location and date selection depend on each other because some locations are not going to
+          be available for certain dates. Travel time, distance, and cost as well as visa
+          considerations are also part of the equation. If participants need a visa to come to the
+          U.S. for such an event, at least a month lead time is necessary. </p><p>Transportation
+          </p><p>How will everyone get there? Will you find the funds for travel or will the
+          participants need to cover some or all of their travel expenses themselves? Travel costs
+          are often the largest expense. The following sections provide an example of the travel
+          expenses for a Book Sprint with about ten to twelve participants in Austin, Texas.</p><p
+            ><i>Airfare</i>:</p><ul><li>Airfare from Amsterdam $1000</li><li>Airfare (for two
+            people) from Boston $800</li><li>Airfare from Wisconsin $400</li><li>Total airfare
+            $2200</li></ul><p>Six additional participants were all within driving distance of
+          Austin. We did not have to pay for parking at the host location, and we did not reimburse
+          mileage for driving, which would change the total travel costs.</p><p><i>Car
+          rental</i>:</p><ul><li>Two cars, $100 per for a week, $200 total</li></ul><p>We did not
+          rent cars for this Book Sprint. Driving people around once they were in Austin was my duty
+          as a host and logistics coordinator, but we could have rented one or two cars (at about
+          $100 each) for the week and made our lives much easier. Good logistics planning allows
+          writing to be the focus of the week.</p><p>Location and other venues </p><p>The venue
+          needs to have a single table where everyone can work. The sprinters need ample power
+          sockets (or lots of extension cables), and you need a good Internet connection, preferably
+          wireless. All-hours access to the building or room itself is helpful. Some host locations
+          may want all participants to sign a release so that the host is not liable for damage or
+          injury. Signing a release should be fine—nearly all of the planning is based on good faith
+          in others anyway, so suing when the location is typically donated would be poor
+          form.</p><p><i>Location</i> costs: $0 </p><p>Accommodations </p><p>Where will everyone
+          sleep? Will they pay for their own accommodation or will you find funds for it? Is the
+          accommodation sufficiently close to the Book Sprint venue so that participants don’t waste
+          energy and time traveling every day? Do heavy snorers, smokers, or light sleepers need
+          their own room? Do you need to have a space to prepare and cook meals? </p><p>The hotel
+          rate was a corporate rate and in total it was $1333 for five nights with two of the rooms
+          shared by four participants. The hotel was within walking distance of the sprint
+          location.</p><p>Food </p><p>What is everyone going to eat and who will pay for it? Are
+          there any special food requirements? Who is going to make the food? Where will you get the
+          food? Can participants get a quick snack and caffeinated beverages as needed? Is everyone
+          comfortable with alcohol and if so, what do they drink?</p><p>The best estimate is based
+          on a per diem for the host city. Austin is $38 a day using a less expensive corporate rate
+          for example, so the total would be $950 to provide all the food.</p><p>Fun </p><p>Is there
+          anything nearby for some fun time out? It’s important to let the <indexterm
+              >communities<indexterm>in-person interaction</indexterm></indexterm>team spend time
+          together having fun. The Book Sprint is intended to be a fun event that encourages more
+          collaborative efforts long after the intense week is done. The event can be as simple as a
+          cookout or a hike for some sightseeing. Be sure to incorporate fun into the plan. It’s
+          important to allow time for relationship building.</p></body></subsection><subsection
+      id="d5e602"><title>Book Sprint budget</title><body><p>For the Austin-based Book Sprint, the
+          costs totaled about $5000. We raised money by asking for donations from each of the
+          participating organizations (RedHat, <indexterm>One Laptop per Child<indexterm>Book
+              Sprint</indexterm></indexterm>OLPC, and <indexterm>SugarLabs</indexterm>SugarLabs),
+          and FLOSS Manuals covered the remaining cost.</p><p>The total cost is comparable to hiring
+          a contract technical writer for a specific deliverable, yet the results from the
+          collaborative authoring effort generated more interest in the projects, and the quality
+          was quite high. </p></body></subsection><subsection
+      id="d5e616"><title>If there are online communities already, why hold a face-to-face meeting?
+        </title><body><p>In an article published in STC <i>Intercom</i> January 2009, titled
+          “Embrace the ‘Un’—When the Community Runs the <indexterm>communities<indexterm
+              >events</indexterm></indexterm>Event,” Janet <indexterm>Swisher,
+          Janet</indexterm>Swisher relates a story about the <indexterm>technical
+              documentation<indexterm>collaborative authoring</indexterm></indexterm>One Laptop per
+          Child and <indexterm>SugarLabs</indexterm>SugarLabs Book Sprint in which she was a
+            participant.<fn><p>
+              http://justwriteclick.com/blog/wp-content/uploads/2009/01/embracetheunnoad.pdf</p></fn>
+          While editing, she came across a wiki page that contained an embedded note saying
+            “<indexterm>One Laptop per Child<indexterm>collaboration</indexterm></indexterm>confirm
+          with Walter”—Walter Bender, founding member of the MIT Media Lab and a fellow Book Sprint
+          writer who has unique first-hand knowledge and experience with the XO laptop created by
+          OLPC. Janet walked over to Walter and asked the question that was listed on the wiki page.
+          Without the <indexterm>collaboration<indexterm>in-person</indexterm></indexterm>in-person
+          nature of the Book Sprint, this interaction may have taken a day or two via email,
+          assuming that Walter could make an email a priority. </p><p>Although extroverts prefer an
+          in-person meeting for authoring documentation, there are also good business reasons for
+          enhancing the<indexterm>collaboration<indexterm>authoring and</indexterm></indexterm>
+          collaboration and <indexterm>conversations<indexterm>Book
+          Sprints</indexterm></indexterm>communication by holding an in-person event: </p><ul><li
+            >Forging relationships that will help with ongoing writing projects and information
+            seeking </li><li>Keeping people motivated to continue contributing to the project
+            </li><li>Offering a strategy for updating and maintaining the documentation because a
+            community has been created around both the event and the content itself </li></ul><p>The
+          community feeling that you build during a Book Sprint project can carry the momentum from
+          the project forward, giving people the urge to work on the book in coming weeks and
+          leaving them with the feeling they’d like to work together again in the future. It also
+          creates evangelists for the projects and generates excitement.</p><p>Remote contributions
+          to a Book Sprint </p><p>Remote participation in a Book Sprint can occur, but it is
+          supplemental to the actual event. In the case of the August 2008 FLOSS Manuals Book
+          Sprint, we had a daily conference call so that remote participants could report their
+          status and any blocks to their writing. We had a constant communication channel open on
+            <indexterm>IRC (Internet Relay Chat)</indexterm>IRC (<indexterm>Internet Relay Chat
+            (IRC)</indexterm>Internet Relay Chat). The founder of FLOSS Manuals, <indexterm>Hyde,
+            Adam</indexterm>Adam Hyde, was always available for technical questions in the sprint
+          room, plus the main FLOSS Manuals developer Aleksandar <indexterm>Erkalovic,
+            Aleksandar</indexterm>Erkalovic was at the ready in Croatia to fix or explain any issues
+          we found while sprinting.</p><p>The experience of the <indexterm>FLOSS Manuals<indexterm
+              >collaborative writing</indexterm></indexterm>FLOSS Manuals sprints is that the
+          majority of the work occurs in the “real space” of the sprint. There have been exceptions
+          to this. The <i>Introduction to the Command Line</i> sprint held in <indexterm
+              >collaboration<indexterm>Book Sprints</indexterm></indexterm>collaboration with the
+          Free Software Foundation is an example where there were few real-space participants and
+          many remote participants. Whichever way the participation is split, remote contributions
+          are very important, and it’s absolutely necessary to devise a plan to coordinate the real
+          space and remote contributions. </p><p>There are excellent tools for assisting with
+          communication for remote contributors. We have used phone conferences (either Voice Over
+          Internet Protocol (VOIP) or “real” phones), but in general these are not as effective for
+          ongoing <indexterm>collaboration<indexterm>FLOSS
+          Manuals</indexterm></indexterm>collaboration as text-based communication. A persistently
+          open text-based chat is good for “ambient” remote communication, and better suited for
+            <indexterm>collaboration<indexterm>Book Sprints</indexterm></indexterm>collaboration
+          with remote participants over a day, a week, or longer. Voice chat seems to put too much
+          focus on immediate activities, and there are often dreary moments when participants are
+          trying to think of something to say. </p><p>However, quick conference calls can be very
+          effective to help the real-space Book Sprint team realize that they are not working in
+          isolation and that active, real people somewhere else on the planet care about what they
+          are doing and want to help. They can give a motivating boost but are not absolutely
+          necessary for coordinating work. </p><p>FLOSS Manuals provides the following tools for
+          online communication among contributors: a chat widget online, IRC, <indexterm
+              >email<indexterm>notifications</indexterm></indexterm>email notifications of changes
+          to a topic, and a comparison page showing the changes from one contribution to the
+          next.</p><p>Online chat widget</p><p>To chat with others while contributing to a book, we
+          have provided a little inline chat window. You can see it on the right of all pages in the
+          WRITE section of FLOSS Manuals website and it is also present in the editing pages. It is
+          a simple mechanism requiring no extra plug-ins to work in your browser. The chat actually
+          works by sending messages to the FLOSS Manuals <indexterm>IRC (Internet Relay
+            Chat)</indexterm>IRC <indexterm>conversations<indexterm>Internet Relay Chat
+              (IRC)</indexterm></indexterm>(<indexterm>Internet Relay Chat (IRC)</indexterm>Internet
+          Relay Chat) channel. This chat is for communicating briefly about anything that comes to
+          mind. The text format is short, and there is no history or ability to scroll back. The
+          online chat is one chat room; there is no provision (yet) for chatting on a book-specific
+          basis. All <indexterm>comments<indexterm>in chat</indexterm></indexterm><indexterm
+              >comments<indexterm>in chat</indexterm></indexterm>comments are out in the open for
+          all to see and remain there until someone else starts a discussion and forces your
+          comments off the page. </p><p>For more elaborate conversations that you want to record, or
+          for private messaging, you should use an IRC client when working on open source projects
+          because many participants and subject matter experts use that same tool. For other
+          projects, there may be a preferred enterprise <indexterm>conversations<indexterm>instant
+              messaging</indexterm></indexterm>instant messaging tool, or a real-time chat or video
+          capability that you can use. shows the FLOSS Manuals chat widget in action while someone
+          is editing a chapter.</p><p>FLOSS Manuals chat widget</p></body></subsection><subsection
+      id="d5e761"><title>IRC (Internet Relay Chat)</title><prolog><metadata><keywords>
+            <indexterm>IRC (Internet Relay Chat)</indexterm>
+          </keywords></metadata></prolog><body><p>IRC is an “old school” technology. Its “Channels”
+          are mainly inhabited by geeks, especially free-software geeks. For chat, it’s a good
+          technology because it requires very little bandwidth: if you are on a slow connection it
+          works quite well. IRC chat rooms or channels are contained within “IRC Networks.” FLOSS
+          Manuals uses the Freenode IRC network, one of the oldest and most popular. Anyone can
+          create a chat room on the Freenode network, and the FLOSS Manuals chat room most
+          frequently used is #flossmanuals. The web-based chat mentioned above connects to that main
+          channel. </p><p>To use the IRC chat rooms, you need to have an IRC client installed or a
+          browser plug-in installed. The server information is irc.freenode.net. After you connect
+          to the server, you can join a chat room. There are other real-time-chat options available
+          such as Campfire and Etherpad. The persistent, synchronous conversations and discussions
+          groups can have with these tools are extremely valuable when pulling off a Book
+          Sprint.</p><p>Notifications </p><p>Every book in FLOSS Manuals has an email notification
+          feature and live visual notifications of who is editing. By subscribing to <indexterm
+              >email<indexterm>notifications</indexterm></indexterm>email notifications, you get
+          email every time a change is made in that book. These notifications also link to a “diff”
+          view that shows the recent changes and highlights the differences. Both types of
+          notifications are great during Book Sprints for keeping an eye on who is doing what. If
+          someone changes something you have written, you can see the change and contact them if
+          necessary to discuss the change. </p><p>In the editing interface () you can see who is
+          editing any chapter. This view is useful for seeing how much activity is going on but it
+          also helps coordinate contributions.</p><p>Editing notifications</p></body></subsection><subsection
+      id="d5e783"><title>Book Sprints outside of free software</title><body><p>With communication
+          tools assisting the authoring and an authoring tool that enables quick authoring and
+          edits, you can accomplish the goal of a book in five days. <indexterm>IBM<indexterm
+              >RedBooks</indexterm></indexterm><indexterm>collaboration<indexterm>IBM</indexterm></indexterm>IBM
+          has been holding similar in-person events with their RedBooks projects for years. They
+          would give subject matter experts a half-day of training in FrameMaker, have them
+            <indexterm>technical documentation<indexterm>collaborative
+            authoring</indexterm></indexterm>collaboratively outline a RedBook, and then send them
+          on their separate ways after a week of authoring and in-person discussions. Some RedBooks
+          have moved content into a wiki for internal collaboration.<fn><p>
+              http://www.slideshare.net/almondjoy/redbooks-wiki-central-texas-dita-ug-presentation</p></fn></p><p>Think
+          of an Agile development team with an embedded writer, meaning that a team consists of
+          developers, designers, testers, and writers. Accomplishing a user story about
+          documentation may benefit from the advice given in this section about Book Sprints. The
+          entire team may decide to use a wiki and collaborate on a book-like project for an
+          iteration. You could use your planning day to outline the deliverable, determine the
+          audience, and invite others to share in the fun of accomplishing a book delivery in a
+          time-boxed manner.</p></body></subsection></subsection></chapter>
