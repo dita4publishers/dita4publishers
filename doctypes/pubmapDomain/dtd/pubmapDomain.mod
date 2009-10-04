@@ -88,6 +88,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % publists "publists" >
 <!ENTITY % pubbody "pubbody" >
 <!ENTITY % pubbody-mapref "pubbody-mapref" >
+<!ENTITY % publication "publication" >
 <!ENTITY % subsection "subsection" >
 <!ENTITY % subsection-mapref "subsection-mapref" >
 <!ENTITY % sidebar "sidebar" >
@@ -165,7 +166,67 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!--                    COMMON ATTLIST SETS                        -->
 <!-- ============================================================= -->
 
-<!-- Currently: same as topicref, minus @query -->
+<!-- Currently: same as topicref, sets collection-type to 'sequence' -->
+
+<!ENTITY % pub-topicref-atts 
+             "collection-type 
+                        (choice | 
+                         family | 
+                         sequence | 
+                         unordered |
+                         -dita-use-conref-target) 
+                                 'sequence'
+              type 
+                        CDATA 
+                                  #IMPLIED
+              processing-role
+                        (normal |
+                         resource-only |
+                         -dita-use-conref-target)
+                                  #IMPLIED
+              scope 
+                        (external | 
+                         local | 
+                         peer | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              locktitle 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              format 
+                        CDATA 
+                                  #IMPLIED
+              linking 
+                        (none | 
+                         normal | 
+                         sourceonly | 
+                         targetonly |
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              toc 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              print 
+                        (no | 
+                         printonly | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              search 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              chunk 
+                        CDATA 
+                                  #IMPLIED
+  "
+>
+
 <!ENTITY % chapter-atts 
              'navtitle 
                          CDATA 
@@ -185,9 +246,10 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
               outputclass 
                          CDATA 
                                    #IMPLIED
-              %topicref-atts;
+              %pub-topicref-atts;
               %univ-atts;' 
 >
+
 
 <!ENTITY % mapref-atts
  'navtitle 
@@ -289,7 +351,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
               outputclass 
                         CDATA 
                                   #IMPLIED
-              %topicref-atts;
+              %pub-topicref-atts;
               %univ-atts;"
 >
 <!ELEMENT frontmatter    %frontmatter.content;>
@@ -393,7 +455,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
               outputclass 
                         CDATA 
                                   #IMPLIED
-              %topicref-atts;
+              %pub-topicref-atts;
               %univ-atts;"
 >
 <!ELEMENT backmatter    %backmatter.content;>
@@ -1254,6 +1316,18 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 >
 <!ELEMENT preface    %preface.content;>
 <!ATTLIST preface    %preface.attributes;>
+<!--                    LONG NAME: publication                         -->
+<!ENTITY % publication.content
+                       "((%topicref;)*) 
+                        "
+>
+
+<!ENTITY % publication.attributes
+             '%chapter-atts;' 
+>
+<!ELEMENT publication    %publication.content;>
+<!ATTLIST publication    %publication.attributes;>
+
 
 <!--                    LONG NAME: pubbody                         -->
 <!ENTITY % pubbody.content
@@ -1929,6 +2003,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ATTLIST publists      %global-atts; class CDATA "- map/topicref pubmap-d/publists ">
 <!ATTLIST pubbody       %global-atts; class CDATA "- map/topicref pubmap-d/pubbody ">
 <!ATTLIST pubbody-mapref %global-atts; class CDATA "- map/topicref pubmap-d/pubbody-mapref ">
+<!ATTLIST publication   %global-atts; class CDATA "- map/topicref pubmap-d/publication ">
 <!ATTLIST subsection    %global-atts; class CDATA "- map/topicref pubmap-d/subsection ">
 <!ATTLIST subsection-mapref %global-atts; class CDATA "- map/topicref pubmap-d/subsection-mapref ">
 <!ATTLIST sidebar       %global-atts; class CDATA "- map/topicref pubmap-d/sidebar ">

@@ -57,9 +57,18 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/map"
                         the name of the domain(s) in which the
                         extension was declared                     -->
 <!ENTITY % topicref     "topicref |
-                         %mapgroup-d-topicref;
+                         %mapgroup-d-topicref; |
+                         %pubmap-d-topicref;
                         ">
 
+<!ENTITY % topicmeta "topicmeta |
+                      %pubmap-d-topicmeta;
+
+                      ">
+
+<!ENTITY % title "title |
+                  %pubmap-d-title;
+                  ">
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
@@ -75,6 +84,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/map"
 <!ENTITY included-domains 
                         "&pubmap-d-att;
                          &mapgroup-d-att;
+                         &pubmap-d-att;
                         ">
 
 <!-- ============================================================= -->
