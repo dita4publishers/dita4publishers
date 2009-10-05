@@ -7,7 +7,9 @@
   <pubmeta>
   </pubmeta>
   <publication
-    href="covers/front-cover.dita">
+    href="covers/front-cover.dita"
+    class="- map/topicref pubmap-d/publication "
+    chunk="to-content">
     <topicref
       href="chapters/copyright-page.xml"
       collection-type="sequence"/>
