@@ -5,7 +5,7 @@
       xmlns:local="urn:local-functions"
       
       xmlns:rsiwp="http://reallysi.com/namespaces/generic-wordprocessing-xml"
-      xmlns:stylemap="http://reallysi.com/namespaces/style-to-tag-map"
+      xmlns:stylemap="urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap"
       xmlns="http://reallysi.com/namespaces/generic-wordprocessing-xml"
       xmlns:idPkg="http://ns.adobe.com/AdobeInDesign/idml/1.0/packaging"
       
@@ -27,6 +27,9 @@
       =========================================== -->
   
   <xsl:param name="styleMapUri" as="xs:string"/>
+  <xsl:param name="debug" select="'true'" as="xs:string"/>
+  
+  <xsl:variable name="debugBoolean" as="xs:boolean" select="$debug = 'true'"/>  
   
   <xsl:key name="styleMaps" match="stylemap:style" use="@styleId"/>
   
@@ -103,6 +106,10 @@
     </xsl:for-each-group>
   </xsl:template>
   
+  <xsl:template match="Footnote">
+    <fn><xsl:apply-templates /></fn>
+  </xsl:template>
+  
   <xsl:template match="text()" mode="makeTextRuns"/>
   
   <xsl:template match="Content/text()" mode="makeTextRuns" priority="10">
@@ -116,12 +123,26 @@
       <xsl:with-param name="charStyleId" select="@AppliedCharacterStyle" as="xs:string" tunnel="yes"/>
     </xsl:apply-templates>
   </xsl:template>
+
+  <xsl:template match="CrossReferenceSource" mode="makeTextRuns">
+      <xsl:apply-templates mode="makeTextRuns">
+        <xsl:with-param name="charStyleId" select="@AppliedCharacterStyle" as="xs:string" tunnel="yes"/>
+      </xsl:apply-templates>
+  </xsl:template>
   
   <xsl:template match="Br" mode="makeTextRuns">
     <xsl:sequence select="."/>
   </xsl:template>
   
-  <xsl:template match="Content | PageReference | Footnote" mode="makeTextRuns">
+  <xsl:template match="Footnote" mode="makeTextRuns">
+    <xsl:sequence select="."/>
+  </xsl:template>
+  
+  <xsl:template match="PageReference" mode="makeTextRuns">
+    <xsl:sequence select="."/>
+  </xsl:template>
+  
+  <xsl:template match="Content" mode="makeTextRuns">
     <xsl:param name="paraStyleId" as="xs:string" tunnel="yes"/>
     <xsl:param name="charStyleId" as="xs:string" tunnel="yes"/>
     <xsl:copy>
@@ -129,6 +150,31 @@
       <xsl:attribute name="cStyle" select="$charStyleId"/>
       <xsl:apply-templates mode="makeTextRuns"/>
     </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template match="PageReference">
+    
+    <!-- IDML page references are index markers -->
+    <!-- 
+      <PageReference Self="u4b5b" PageReferenceType="CurrentPage" 
+      ReferencedTopic="u173TopicnWeb 2.0Topicnfit with Agile development"/>
+      
+    -->
+    <xsl:variable name="indexTokens" select="tokenize(@ReferencedTopic, 'Topicn')[position() > 1]" as="xs:string*"/>
+<!--    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] PageReference: indexTokens="<xsl:sequence select="$indexTokens"/></xsl:message>
+    </xsl:if>
+-->    <xsl:if test="count($indexTokens) > 0">
+      <indexterm><xsl:sequence select="$indexTokens[1]"/>
+        <xsl:if test="count($indexTokens) > 1">
+          <indexterm><xsl:sequence select="$indexTokens[2]"/>
+            <xsl:if test="count($indexTokens) > 2">
+              <indexterm><xsl:sequence select="$indexTokens[2]"/></indexterm>
+            </xsl:if>
+          </indexterm>
+        </xsl:if>
+      </indexterm>
+    </xsl:if>
   </xsl:template>
   
   <xsl:template name="handlePara">
@@ -146,21 +192,66 @@
             </xsl:call-template>
           </xsl:when>
           <xsl:when test="current-group()[1][self::Br]"/><!-- silently ignore -->
+          <xsl:when test="current-group()[1][self::indexterm]">
+            <xsl:sequence select="current-group()"/>
+          </xsl:when>
+          <xsl:when test="current-group()[1][self::CrossReferenceSource]">
+            <xsl:call-template name="handleRunSequence">
+              <xsl:with-param name="runSequence" select="current-group()"/>
+            </xsl:call-template>
+          </xsl:when>
+          <xsl:when test="current-group()[1][self::rsiwp:table]">
+            <xsl:sequence select="current-group()"/>
+          </xsl:when>
           <xsl:otherwise>
             <xsl:message terminate="yes"> + [ERROR] idml2simple: handlePara(): Unhandled element type <xsl:sequence select="name(.)"/></xsl:message>
           </xsl:otherwise>
         </xsl:choose>
         
       </xsl:for-each-group>
-    </p>
-    
+    </p>    
   </xsl:template>
+  
+  <xsl:template mode="makeTextRuns" match="Table">
+    <xsl:variable name="columnCount" as="xs:integer" select="count(./Column)"/>
+    <table>
+      <cols>
+        <xsl:apply-templates select="Column"/>
+      </cols>
+      <xsl:for-each-group select="Cell" group-by="substring-after(@Name, ':')">
+        <tr>
+          <xsl:apply-templates select="current-group()"/>
+        </tr>
+      </xsl:for-each-group>
+    </table>
+  </xsl:template>  
+  
+  <xsl:template match="Cell">
+    <td>
+      <xsl:apply-templates/>
+    </td>
+  </xsl:template>
+  
+  <xsl:template match="Column">
+    <col/><!-- FIXME: Set more useful properties -->
+  </xsl:template>
+  
+  <xsl:template match="Row">
+    <!-- Ignore for now -->
+  </xsl:template>
+  
+  
+  <xsl:template match="*" mode="table" priority="0">
+    <xsl:message> + [WARNING] mode table: Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/></xsl:message>
+  </xsl:template>
+  
   <xsl:template name="handleRunSequence">
     <xsl:param name="runSequence" as="element()*"/>
+    
     <xsl:variable name="runStyle" select="local:getRunStyle($runSequence[1])" as="xs:string"/>
     <xsl:choose>
       <xsl:when test="$runStyle = '' or ends-with($runStyle, '[No character style]')">
-        <xsl:apply-templates select="current-group()"/>
+        <xsl:apply-templates select="$runSequence"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="runStyleMap" as="element()?"
@@ -182,7 +273,7 @@
               <xsl:copy/>
             </xsl:for-each>
           </xsl:if>
-          <xsl:apply-templates select="current-group()"/></xsl:element>
+          <xsl:apply-templates select="$runSequence"/></xsl:element>
       </xsl:otherwise>
     </xsl:choose>        
     
