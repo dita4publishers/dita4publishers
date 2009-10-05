@@ -2,12 +2,13 @@
 <!DOCTYPE chapter
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
 <chapter
-  id="d5e2">
-  <title>Towards the Future of Documentation</title>
-  <shortdesc>Tell me… and I will forget. Show me… and I will remember. &#8232;Involve me… and I
-    will understand.&#8232;—Confucius</shortdesc>
+  id="d5e2"><title>Towards the Future of Documentation</title>
+  <shortdesc>Tell me… and I will forget. Show me… and I will remember. &#8232;Involve me… and I will
+    understand.&#8232;—Confucius</shortdesc>
   <prolog/>
-  <body>
+  <body><p><image
+        href="images/chapter01.png"
+        width="5in"/></p>
     <p>As writers and content creators we are witnesses to the age of information shifting to the
       age of interaction. One week of content from the New York Times contains as much information
       as a person could get in a lifetime in the 18th century, according to information architect
@@ -23,9 +24,9 @@
       cats, on a blog!” or “I’d rather not trust an encyclopedia that would accept me as a
         <indexterm>community-generated content<indexterm>distrust
       of</indexterm></indexterm>contributor.” Even if the Groucho Marx reference was meant in jest,
-      how can we learn from the age-old
-        <indexterm>content<indexterm>community-generated</indexterm></indexterm>community behaviors
-      that are now being applied to documentation?</p>
+      how can we learn from the age-old <indexterm>content<indexterm
+        >community-generated</indexterm></indexterm>community behaviors that are now being applied
+      to documentation?</p>
     <p>Documentation as conversation means getting closer to users and helping them perform well.
         <indexterm>user-centered design</indexterm>User-centered design has been touted as one of
       the most important ideas developed in the last twenty years of workplace writing.<fn><p>
@@ -55,17 +56,17 @@
         quilters are writing <indexterm>blogs<indexterm>reduction of publishing
           costs</indexterm></indexterm>blogs,<fn><p> My mom writes a quilting blog at
             quilterjan.blogspot.com and has over 30,000 hits in the 15 months she has been writing.
-          </p></fn> and online
-        <indexterm>communities<indexterm>quilting</indexterm></indexterm>communities are forming
-        around the passion for quilts and quilting.</p>
+          </p></fn> and online <indexterm>communities<indexterm
+        >quilting</indexterm></indexterm>communities are forming around the passion for quilts and
+        quilting.</p>
       <p>Over the years, the <indexterm>conversations<indexterm>cost of</indexterm></indexterm>cost
         of <indexterm>conversations<indexterm>ease of</indexterm></indexterm>conversation has
         dropped across a number of areas. We have gone from the need to design, then write, and then
         go through a long, sometimes arduous publishing<indexterm>publishing<indexterm>changes
             in</indexterm></indexterm> process (that was out of reach for ordinary people) to
-        print-on-demand services and other “instant” methods for publication. With
-            <indexterm>blogging<indexterm>microblogging</indexterm></indexterm>microblogging
-        services like Twitter, you can merely have a thought, decide to express it, type it on your
+        print-on-demand services and other “instant” methods for publication. With <indexterm
+            >blogging<indexterm>microblogging</indexterm></indexterm>microblogging services like
+        Twitter, you can merely have a thought, decide to express it, type it on your
           smartphone<indexterm>iPhone</indexterm>, and immediately push it out to all your
         followers. It’s a searchable piece of content and can even be re-used as a sidebar on a
         “macro” blog. Communication is immediate and filtered as the recipient requests.</p>
@@ -76,17 +77,16 @@
     <title>Anticipating actions and questions</title>
     <body>
       <p>As a professional writer entering the wiki world, I had to determine my goals for designing
-        documentation that would be part of a
-            <indexterm>conversations<indexterm>community</indexterm></indexterm>conversation within
-        a community. I learned that conversations are typically measured in three areas within an
-        enterprise: public relations, customer support, and sales and marketing. With this framework
-        in mind, I determined that my best fit was in the customer support area for One Laptop per
-          Child<indexterm>One Laptop per Child<indexterm>author's experience
-          with</indexterm></indexterm> when I volunteered to write documentation for parents,
-        teachers, and students using the sturdy hardware and open source education platform. An open
-        source project or platform means that the goods and knowledge that built it are freely
-        available to copy, distribute, and modify so that it can be shared with others, even the
-        source code. </p>
+        documentation that would be part of a <indexterm>conversations<indexterm
+            >community</indexterm></indexterm>conversation within a community. I learned that
+        conversations are typically measured in three areas within an enterprise: public relations,
+        customer support, and sales and marketing. With this framework in mind, I determined that my
+        best fit was in the customer support area for One Laptop per Child<indexterm>One Laptop per
+            Child<indexterm>author's experience with</indexterm></indexterm> when I volunteered to
+        write documentation for parents, teachers, and students using the sturdy hardware and open
+        source education platform. An open source project or platform means that the goods and
+        knowledge that built it are freely available to copy, distribute, and modify so that it can
+        be shared with others, even the source code. </p>
       <p>When you start supporting customers, especially for technical information, you want to
         analyze their tasks and anticipate their questions. In <i>The 4-Hour Workweek</i>, Timothy
           <indexterm>Ferriss, Timothy</indexterm>Ferriss says that the first web page you create
@@ -131,12 +131,12 @@
         we use every day?</p>
       <p>In addition to finding passion in the tasks users do, writers should be applying customer
         support data, to help them keep up with changes in questions as time goes on and as releases
-        go out the door. Much like the most popular
-          <indexterm>Google<indexterm>search</indexterm></indexterm>Google
-            search<indexterm>search<indexterm>relevance</indexterm></indexterm> hits, the most
-        frequently accessed questions and answers should rise to the top of a customer support
-        knowledge base. Interviewing those who spend the most time on the phone or in the field with
-        customers gives us valuable insight into the questions that are currently being asked.</p>
+        go out the door. Much like the most popular <indexterm>Google<indexterm
+          >search</indexterm></indexterm>Google search<indexterm>search<indexterm
+            >relevance</indexterm></indexterm> hits, the most frequently accessed questions and
+        answers should rise to the top of a customer support knowledge base. Interviewing those who
+        spend the most time on the phone or in the field with customers gives us valuable insight
+        into the questions that are currently being asked.</p>
     </body>
     <subsection
       id="d5e180">
@@ -170,20 +170,19 @@
           landing pages are text-heavy and feature-focused rather than task-oriented. Search forms
           and entering a couple of keywords are more often the starting point for users reading
           online help.</p>
-        <p>How many times have you heard someone say, “I found the following
-              Microsoft<indexterm>Microsoft<indexterm>Knowledge Base,
-            searching</indexterm></indexterm> Knowledge Base article using a Google
-              search<indexterm>search<indexterm>accessing documentation
-            through</indexterm></indexterm>” (or have said the same thing yourself)? Microsoft has
+        <p>How many times have you heard someone say, “I found the following Microsoft<indexterm
+              >Microsoft<indexterm>Knowledge Base, searching</indexterm></indexterm> Knowledge Base
+          article using a Google search<indexterm>search<indexterm>accessing documentation
+              through</indexterm></indexterm>” (or have said the same thing yourself)? Microsoft has
           built excellent content in their Knowledge Base, but a competitor’s search engine often
           brings users to the site. Although the Knowledge Base must have a search engine available
           to visitors (much like a manual of some sort is still required for many consumer
           products), when a visitor finds the content by using another search engine, all the
           resources, time, and money spent on providing a search engine on that Knowledge Base were
           wasted. The company experiences zero return on investment<indexterm>return on investment
-              (ROI)<indexterm>search implementation</indexterm></indexterm> for the
-              <indexterm>search<indexterm>investment in</indexterm></indexterm>search engine, but
-          total return on investment on the <indexterm>return on investment (ROI)<indexterm>content
+              (ROI)<indexterm>search implementation</indexterm></indexterm> for the <indexterm
+              >search<indexterm>investment in</indexterm></indexterm>search engine, but total return
+          on investment on the <indexterm>return on investment (ROI)<indexterm>content
               development</indexterm></indexterm>content itself. </p>
         <p>Search relevance has to do with Google’s secret algorithms and the calculations used for
           ranking by any search engine. This relevance brings a user to your content when they are
@@ -192,11 +191,11 @@
             http://www.google.com/support/webmasters/?hl=en</p></fn> it may not be found as often as
           blog entries on the same topic. For example, Google indicates that fewer than 100 links
           from a sitemap are ideal, and warns that not every search engine spider searches dynamic
-          pages with multiple parameters in the URL. You may have noticed that a recently
-              <indexterm>content<indexterm>up-to-date</indexterm></indexterm>updated blog entry or
-          wiki page tends to have more links to its entries by Google. A commenter notes this in a
-          comment on the blog entry in the Britannica <indexterm>blogs<indexterm>search
-              rankings</indexterm></indexterm>blog.<fn><p>
+          pages with multiple parameters in the URL. You may have noticed that a recently <indexterm
+              >content<indexterm>up-to-date</indexterm></indexterm>updated blog entry or wiki page
+          tends to have more links to its entries by Google. A commenter notes this in a comment on
+          the blog entry in the Britannica <indexterm>blogs<indexterm>search
+            rankings</indexterm></indexterm>blog.<fn><p>
               http://www.britannica.com/blogs/2008/11/the-fast-food-information-age-we-are-what-we-read/</p></fn>
           “Perhaps another idea would be to ask Google WHY the social media (i.e. Wikipedia) entry
           for a topic ranks so much higher than the vetted, Britannica entry?”</p>
@@ -204,14 +203,12 @@
           Search is important to conversational documentation because of the importance search
           engines place on frequently-updated content. If your user assistance system is offline or
           infrequently updated, your users may not find answers by searching with popular search
-          engines. For example, Google gives a higher
-              <indexterm>search<indexterm>rankings</indexterm></indexterm>search ranking to more
-          oft-updated content. </p>
-        <p><indexterm>help, online<indexterm>searching
-            within</indexterm></indexterm><indexterm>help,
-            online<indexterm>finding</indexterm></indexterm>Naturally, you know your audience best.
-          If they do not require online access to use your product, they may not search for answers
-          to questions in a search engine. </p>
+          engines. For example, Google gives a higher <indexterm>search<indexterm
+              >rankings</indexterm></indexterm>search ranking to more oft-updated content. </p>
+        <p><indexterm>help, online<indexterm>searching within</indexterm></indexterm><indexterm
+            >help, online<indexterm>finding</indexterm></indexterm>Naturally, you know your audience
+          best. If they do not require online access to use your product, they may not search for
+          answers to questions in a search engine. </p>
         <p>Merely using a blog or <indexterm>wikis<indexterm>search
             relevance</indexterm></indexterm>wiki as a holding place for content may improve the
           search ranking. You may think that your users will search within the help in the product
@@ -225,10 +222,10 @@
           to improve the ranking of those searches. Perhaps you want to integrate user-generated
           content into your user assistance if search engines tend to value those entries more than
           others. </p>
-        <p>You can also place a carefully-crafted search index as the entry point to
-              <indexterm>content<indexterm>community-generated</indexterm></indexterm>community
-          content. Adobe created a Google Custom Search Engine as a front-end to community content
-          and hand-selected the most useful community offerings such as blogs and video tutorials at
+        <p>You can also place a carefully-crafted search index as the entry point to <indexterm
+              >content<indexterm>community-generated</indexterm></indexterm>community content. Adobe
+          created a Google Custom Search Engine as a front-end to community content and
+          hand-selected the most useful community offerings such as blogs and video tutorials at
           community.adobe.com. By indexing only the highest-quality outside resources, Adobe helps
           build trust with the readers that use the search hits to find information.</p>
       </body>
@@ -275,7 +272,7 @@
         use technology more often, but also demand simplicity and elegance, many products have
         become easier and more intuitive to use. As more products are available in a global
         marketplace, words are increasingly substituted with images and illustrations.
-            Video<indexterm>video<indexterm>communicating technical topics
+          Video<indexterm>video<indexterm>communicating technical topics
           with</indexterm></indexterm> editors and video producers are technical communicators as
         they develop training<indexterm>training</indexterm> courses. The market for words and
         printed books still exists, but favors “missing manuals,” guides for dummies, and other
@@ -289,13 +286,12 @@
       <p>Conversation<indexterm>conversations<indexterm>defining</indexterm></indexterm> as a
         discourse is nearly undefinable since it spans so many speech events and environments from
         informal to formal, intimate to public, and argumentative to collaborative, plus many more
-        in a spectrum. But certain contexts for
-            <indexterm>conversations<indexterm>joining</indexterm></indexterm>conversation are
-        useful for <indexterm>technical documentation<indexterm>benefiting from
-            conversation</indexterm></indexterm><indexterm>technical
-            documentation<indexterm>conversations within</indexterm></indexterm><indexterm>social
-            media<indexterm>technical writers and</indexterm></indexterm>documentation, such as the
-        communities of practice that allow users to participate in conversations that Nicky
+        in a spectrum. But certain contexts for <indexterm>conversations<indexterm
+            >joining</indexterm></indexterm>conversation are useful for <indexterm>technical
+            documentation<indexterm>benefiting from conversation</indexterm></indexterm><indexterm
+          >technical documentation<indexterm>conversations within</indexterm></indexterm><indexterm
+          >social media<indexterm>technical writers and</indexterm></indexterm>documentation, such
+        as the communities of practice that allow users to participate in conversations that Nicky
           <indexterm>Bleiel, Nicky</indexterm>Bleiel describes as “Convergence Technical
         Communication” in an article for The Content Wrangler.<fn><p>
             http://www.thecontentwrangler.com/article/convergence_technical_communication_strategies_for_incorporating_web_20/</p></fn></p>
@@ -330,16 +326,15 @@
           they need, when they need it, in the amount they need, as quickly as possible.” Good
           information chunking and organizing practices create a just-in-time conversation to help
           someone, somewhere accomplish his or her goals.</p>
-        <p><indexterm>Hyde, Adam</indexterm>Adam Hyde, founder of <indexterm>FLOSS
-              Manuals<indexterm>collaborative
-              writing</indexterm></indexterm><indexterm>collaboration<indexterm>FLOSS
+        <p><indexterm>Hyde, Adam</indexterm>Adam Hyde, founder of <indexterm>FLOSS Manuals<indexterm
+              >collaborative writing</indexterm></indexterm><indexterm>collaboration<indexterm>FLOSS
               Manuals</indexterm></indexterm>FLOSS Manuals, finds that conversation has a clear and
           direct value in the in-person events called Book Sprints that serve to create content from
-          outlines in a short period of time, such as a week. He perceives that the
-              <indexterm>conversations<indexterm>in-person</indexterm></indexterm><indexterm>conversations<indexterm>Book
-              Sprints</indexterm></indexterm>conversation takes place on at least four
-              <indexterm>conversations<indexterm>levels
-              of</indexterm></indexterm><indexterm>content<indexterm>collaboration in
+          outlines in a short period of time, such as a week. He perceives that the <indexterm
+              >conversations<indexterm>in-person</indexterm></indexterm><indexterm
+              >conversations<indexterm>Book Sprints</indexterm></indexterm>conversation takes place
+          on at least four <indexterm>conversations<indexterm>levels
+            of</indexterm></indexterm><indexterm>content<indexterm>collaboration in
               creating</indexterm></indexterm>levels: </p>
         <ul>
           <li>In the room: With all participants seated around the same table conversations need to
@@ -355,11 +350,11 @@
           <li>Outside the room: Be in touch with people outside the room and ask for their take on
             the texts. It is important to know if the texts really are going in a direction that can
             be understood by people that have not been privy to the conversations in the Book Sprint
-            room. Encourage remote participants to feed back into the conversation via
-              <indexterm>Internet Relay Chat
-                (IRC)</indexterm><indexterm>conversations<indexterm>Internet Relay Chat
-                (IRC)</indexterm></indexterm>Internet Relay Chat (<indexterm>IRC (Internet Relay
-              Chat)</indexterm>IRC), email, editing, and the FLOSS Manuals web chat.</li>
+            room. Encourage remote participants to feed back into the conversation via <indexterm
+              >Internet Relay Chat (IRC)</indexterm><indexterm>conversations<indexterm>Internet
+                Relay Chat (IRC)</indexterm></indexterm>Internet Relay Chat (<indexterm>IRC
+              (Internet Relay Chat)</indexterm>IRC), email, editing, and the FLOSS Manuals web
+            chat.</li>
           <li>With the reader: When writing, use a direct and friendly and conversational voice. One
             trick to getting disk jockeys to relax and sound ‘normal’ on air is to cut out a picture
             of a face, stick it to the microphone and ask the DJ to talk ‘to’ that person. This
@@ -430,10 +425,10 @@
         even if your documentation can’t “talk back” to your users, it can help users talk to each
         other and make connections that help them do their jobs well, play with technology at home,
         or learn something new in a classroom setting. Instead of concentrating on single sourcing
-        methods or the tools of the trade, think about <indexterm>technical
-            documentation<indexterm>benefiting from
-        conversation</indexterm></indexterm>documentation and user assistance as a multiple-channel
-        communication device, perhaps with the help of some social technology applications.</p>
+        methods or the tools of the trade, think about <indexterm>technical documentation<indexterm
+            >benefiting from conversation</indexterm></indexterm>documentation and user assistance
+        as a multiple-channel communication device, perhaps with the help of some social technology
+        applications.</p>
       <p>Many skills that are valuable in delivering traditional user assistance are easily
         transferable to social network integration for user assistance. These skills include:</p>
       <ul>
@@ -447,19 +442,20 @@
       id="d5e518">
       <title>Pack carefully when moving content towards conversation </title>
       <body>
-        <p>Technical writers have plenty of good reasons to avoid actual
-              <indexterm>conversations<indexterm>enabling</indexterm></indexterm><indexterm>conversations<indexterm>avoiding</indexterm></indexterm>conversations
-          with customers. We are not usually trained to handle an angry customer or to troubleshoot
-          the product at the technical level that is necessary. But technical writers are typically
-          good at learning quickly and applying technology to solve problems. You might think that
-          social media or social networking is meant only for young people, or that only a person
-          with too much spare time appreciates things like social bookmarking or Second Life. But
-          these technologies do not belong only to the young, the technically savvy, or the
-          extremely extroverted. The demographics for both Facebook and Twitter users show trends
-          towards an aging group. The fastest growing demographic group for Facebook in February
-          2009 includes people over the age of 35<fn><p>
-              http://www.facebook.com/press/info.php?statistics</p></fn> and more than 40% of
-          Twitter users are age 35–49.</p>
+        <p>Technical writers have plenty of good reasons to avoid actual <indexterm
+              >conversations<indexterm>enabling</indexterm></indexterm><indexterm
+              >conversations<indexterm>avoiding</indexterm></indexterm>conversations with customers.
+          We are not usually trained to handle an angry customer or to troubleshoot the product at
+          the technical level that is necessary. But technical writers are typically good at
+          learning quickly and applying technology to solve problems. You might think that social
+          media or social networking is meant only for young people, or that only a person with too
+          much spare time appreciates things like social bookmarking or Second Life. But these
+          technologies do not belong only to the young, the technically savvy, or the extremely
+          extroverted. The demographics for both Facebook and Twitter users show trends towards an
+          aging group. The fastest growing demographic group for Facebook in February 2009 includes
+          people over the age of 35<fn><p>
+            http://www.facebook.com/press/info.php?statistics</p></fn> and more than 40% of Twitter
+          users are age 35–49.</p>
         <p>Technical communicators are already skilled in many of these technologies and just have
           to learn to apply them to communication with users. Welcome and seek out internal coaching
           in the area of customer communications, though. Missteps may cause setbacks in your plans
