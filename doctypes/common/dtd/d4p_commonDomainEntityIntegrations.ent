@@ -19,7 +19,8 @@
 
 <!ENTITY % p         
   "p     | 
-   %d4p_formatting-d-p;
+   %d4p_formatting-d-p;     | 
+   %d4p_pubcontent-d-p;
   "      
 >
 

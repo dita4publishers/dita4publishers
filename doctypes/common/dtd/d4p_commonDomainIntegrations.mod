@@ -22,6 +22,12 @@
 >
 %d4p_classification-d-def;
 
+<!ENTITY % d4p_pubcontent-d-def    PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/modules/d4p_pubcontentDomain" 
+"../../d4p_pubcontentDomain/dtd/d4p_pubcontentDomain.mod"                                                
+>
+%d4p_pubcontent-d-def;
+
 <!ENTITY % xml-d-def     
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/modules/xml/declarations" 
          "../../xml_domain/dtd/xmlDomain.mod"                                                
