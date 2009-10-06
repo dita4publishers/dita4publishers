@@ -2,254 +2,336 @@
 <!DOCTYPE chapter
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
 <chapter
-  id="d5e2"><title>Wikis and Open Documentation Systems</title><shortdesc>Your wiki is not
-    Wikipedia.&#8232;—Stewart Mader</shortdesc><prolog/><body><p>The recent explosion of wikis
-      hosted on the Internet and the extreme success of Wikipedia, the largest online reference
-      encyclopedia, has led to discussions about where a wiki might fit into technical
-      documentation. Originally created in 1995 for making quick web pages, wiki means “quick” in
-      Hawaiian and is now synonymous with collaborative authoring. Over 90 wiki applications are
-      available, and most offer cross-platform, cross-browser pages. Wikis encourage collaboration
-      because they allow any one with the right permissions to edit any web page, and many wikis can
-      even reconcile differences when two authors edit the same article at the same time. </p><p
-      >Wikis represent a shift towards living, breathing, changing documentation, and not all
+  id="d5e2">
+  <title>Wikis and Open Documentation Systems</title>
+  <prolog/>
+  <body>
+    <p><image
+        href="images/chapter06.png"
+        id="image_1eaabc02-b507-433f-a667-5d32540ef502"
+        width="5in"/></p>
+    <epigram>Your wiki is not Wikipedia.&#8232;—Stewart Mader</epigram>
+    <p>The recent explosion of wikis hosted on the Internet and the extreme success of Wikipedia,
+      the largest online reference encyclopedia, has led to discussions about where a wiki might fit
+      into technical documentation. Originally created in 1995 for making quick web pages, wiki
+      means “quick” in Hawaiian and is now synonymous with collaborative authoring. Over 90 wiki
+      applications are available, and most offer cross-platform, cross-browser pages. Wikis
+      encourage collaboration because they allow any one with the right permissions to edit any web
+      page, and many wikis can even reconcile differences when two authors edit the same article at
+      the same time. </p>
+    <p>Wikis represent a shift towards living, breathing, changing documentation, and not all
       writers are certain of their value or place in <indexterm>technical documentation<indexterm
           >wikis and</indexterm></indexterm>technical deliverables. I believe that wikis encourage
       crowd-sourcing, or delegating work to a large group of semi-organized individuals (a crowd),
       and help writers see customers’ view points. Customers might expect a wiki when a customer
         <indexterm>forums<indexterm>compared to wikis</indexterm></indexterm>forum does not provide
       enough information to answer their questions or when scrolling through multiple answers on a
-      forum becomes tedious. </p><p>Wikis are good for project management and communication, for
-      information gathering and collection of source material, and for content delivery. Wikis can
-      be either the source of your content or the published deliverable from another source. This
-      chapter talks about both sourcing models and also contains a roundtrip discussion, where the
-      content goes to a wiki and the wiki articles come back to a source file to be modified again
-      and again. </p><p>Using wikis for project <indexterm>wikis<indexterm
+      forum becomes tedious. </p>
+    <p>Wikis are good for project management and communication, for information gathering and
+      collection of source material, and for content delivery. Wikis can be either the source of
+      your content or the published deliverable from another source. This chapter talks about both
+      sourcing models and also contains a roundtrip discussion, where the content goes to a wiki and
+      the wiki articles come back to a source file to be modified again and again. </p>
+    <p>Using wikis for project <indexterm>wikis<indexterm
         >enterprise</indexterm></indexterm><indexterm>wikis<indexterm>collaboration
         in</indexterm></indexterm>collaboration is an important model and one that is prevalent in
       today’s workplace. Scott Abel, creator of The Content Wrangler, and Stewart Mader, author of
       Wikipatterns and wiki adoption consultant, recently collaborated on some research into wiki
-      use in the enterprise, producing a report titled “Why Businesses Don’t Collaborate.”<fn><p>
-          http://www.scribd.com/doc/16336782/Why-Businesses-Dont-Collaborate-Meeting-Management-Group-Input-and-Wiki-Usage-Survey-Results</p></fn>
-      In their report they discuss uses of the enterprise wiki, which is a wiki behind a corporate
-      firewall. The security layer for this type of wiki is based on the credentials already
-      established for company email and the company network. By using the enterprise wiki rather
-      than relying on email for tasks like distributing meeting agendas and posting meeting minutes,
-      people save time, work together, and distribute updates and information more easily. One
-      responder to the survey noted, “I’ve found that people are much more likely to participate
-      when they can just go update wiki pages vs. reviewing formal/traditional documents.” </p><p>I
-      also believe that wikis are not always the best-fit application, depending on the business
-      needs for the wiki. Some disadvantages for wikis include:</p><ul><li>Portability: A wiki often
-        is run from a server and even though web servers are becoming smaller and smaller on disk,
-        gathering up all the pieces to create a portable wiki may not be practical.</li><li
-        >Connectivity requirements: Wikis are often online-only content, so people cannot browse a
-        wiki on an airplane, for example.</li><li>Access control choices and implications: People’s
-        perceptions of wikis are that they should be open for editing, but if you want to use a wiki
-        just to enable <indexterm>collaboration<indexterm>wikis and</indexterm></indexterm>comments,
-        you might not meet some users expectations.</li><li>Output deliverables: Many wikis offer
-        output formats ranging from PDF to content for a mobile smartphone, but those may not meet
-        your users standards for output quality.</li></ul><p>In March and April of 2008, 493 people
-      responded to a survey from the Center for Information Development Management that asked about
-      publishing practices and information management techniques. More than half of the respondents
-      said they use wikis internally but just 9% use wikis for externally facing documents.<fn><p>
-          http://www.cidmblog.com/?q=node/33</p></fn> My interpretation is that we are getting more
-      practice using wikis for project management and internal collaboration, but we are not yet
-      replacing traditional <indexterm>help, online<indexterm>compared to
-        wikis</indexterm></indexterm>help systems with wikis. </p><p>Wiki<indexterm>wikis<indexterm
-          >comparison to online help</indexterm></indexterm> applications offer many advantages over
-      traditional HTML publication methods. From Microsoft’s early WinHelp to Compiled HTML Help
-      format (CHM)<indexterm>CHM</indexterm> to the open source Eclipse help<indexterm>Eclipse
-        help</indexterm>, we have seen a growing demand for user assistance systems designed to be
-      cross-platform and network friendly. Many wikis use wikitext for editing, a simplified markup
-      language that is often an alternative to HTML coding. There are also some pitfalls to avoid
-      when using wikitext<indexterm>wikitext<indexterm>example</indexterm></indexterm> instead of
-      traditional <indexterm>HTML<indexterm>used in wikis</indexterm></indexterm>HTML markup,
-      however. For example, wikitext is not exactly the same for every engine so learning one
-      wikitext syntax is not transferable to another wiki. Some wikitext is <indexterm
-          >HTML<indexterm>used in wikis</indexterm></indexterm>HTML-based, other wikitext is
-      text-based. </p><p>Following are some ways that <indexterm>technical documentation<indexterm
-          >wikis and</indexterm></indexterm>wikis are different from traditional user assistance
-      systems. </p><ul><li>Editing: The “wikitext” markup used by many wikis is meant to be simple
-        and easy to use</li><li>Linking: Many wikis allow page-name-based linking to other wiki
-        pages, or simple HTML linking methods</li><li>Subscribing options: RSS<indexterm>RSS (Really
-          Simple Syndication)<indexterm>subscribing to wikis</indexterm></indexterm> feeds for
-        recent changes, “watch” pages for edits</li><li>Searching:<indexterm>wikis<indexterm
-            >searching in</indexterm></indexterm> Search<indexterm>search<indexterm>in
-            wikis</indexterm></indexterm> engine technology often is included</li><li>Scalability:
-        Many pages edited by many authors </li><li>Access control: Registration and logins can
-        control authoring privileges</li></ul><p>To quote the introduction to the CommonCraft video
-      instructions for wikis, “wiki web sites are easy to use, but hard to describe.” I recommend
-      their video, Wikis in Plain English, for an introduction to wikis and how they work in less
-      than four minutes’ time.<fn><p> http://www.youtube.com/watch?v=-dnL00TdmLY</p></fn>
-    </p><p>Learning about different <indexterm>wikis<indexterm>learning
-        about</indexterm></indexterm>wikis and how they work should involve hands-on exercises as
-      well as reading and watching videos about wikis. Many wikis offer a sandbox area so that you
-      can see the editor and try your hand at wiki editing.</p><p> shows a troubleshooting page on
-      the <indexterm>One Laptop per Child<indexterm>wiki</indexterm></indexterm>One Laptop per Child
-      wiki at wiki.laptop.org. It has a table of contents advance organizer feature built in to the
-      wiki page, a graphic, navigation in the sidebar, and a visible search form. The tabs at the
-      top are prominent features of the wiki, enabling users to discuss, edit, and view a history of
-      the page. </p><p>wiki.laptop.org while displaying a page</p><p>Even without logging in, a user
-      can click the edit tab in this particular wiki. When you click the edit tab, you see a new
-      interface that shows the editor window. In , the wikitext is text-based. For example, the
-      three equals signs in a row (===) on each end of a phrase indicate a heading. </p><p
-      >wiki.laptop.org while editing a page</p><p>The website wikimatrix.org, a comprehensive tool
-      that describes wiki applications and lets you run side-by-side comparisons, uses the following
-      categories to evaluate wikis:</p><p>When evaluating <indexterm>evaluation<indexterm>of wiki
-          applications</indexterm></indexterm>wikis, just like any technology tools, you should
-      first decide the business needs and use cases for the wiki. After gathering use cases,
-      determine the fit for the list of wiki applications that meet your business objectives and use
-      cases. </p><p>Another practical consideration for selecting a wiki application is whether it
-      uses a <indexterm>wikis<indexterm>database-driven</indexterm></indexterm>database to serve up
-      the content. If you need access to the content for repurposing, versioning, backing up, or
+      use in the enterprise, producing a report titled “Why Businesses Don’t Collaborate.”<fn>
+        <p>
+          http://www.scribd.com/doc/16336782/Why-Businesses-Dont-Collaborate-Meeting-Management-Group-Input-and-Wiki-Usage-Survey-Results</p>
+      </fn> In their report they discuss uses of the enterprise wiki, which is a wiki behind a
+      corporate firewall. The security layer for this type of wiki is based on the credentials
+      already established for company email and the company network. By using the enterprise wiki
+      rather than relying on email for tasks like distributing meeting agendas and posting meeting
+      minutes, people save time, work together, and distribute updates and information more easily.
+      One responder to the survey noted, “I’ve found that people are much more likely to participate
+      when they can just go update wiki pages vs. reviewing formal/traditional documents.” </p>
+    <p>I also believe that wikis are not always the best-fit application, depending on the business
+      needs for the wiki. Some disadvantages for wikis include:</p>
+    <ul>
+      <li>Portability: A wiki often is run from a server and even though web servers are becoming
+        smaller and smaller on disk, gathering up all the pieces to create a portable wiki may not
+        be practical.</li>
+      <li>Connectivity requirements: Wikis are often online-only content, so people cannot browse a
+        wiki on an airplane, for example.</li>
+      <li>Access control choices and implications: People’s perceptions of wikis are that they
+        should be open for editing, but if you want to use a wiki just to enable <indexterm
+            >collaboration<indexterm>wikis and</indexterm></indexterm>comments, you might not meet
+        some users expectations.</li>
+      <li>Output deliverables: Many wikis offer output formats ranging from PDF to content for a
+        mobile smartphone, but those may not meet your users standards for output quality.</li>
+    </ul>
+    <p>In March and April of 2008, 493 people responded to a survey from the Center for Information
+      Development Management that asked about publishing practices and information management
+      techniques. More than half of the respondents said they use wikis internally but just 9% use
+      wikis for externally facing documents.<fn>
+        <p> http://www.cidmblog.com/?q=node/33</p>
+      </fn> My interpretation is that we are getting more practice using wikis for project
+      management and internal collaboration, but we are not yet replacing traditional <indexterm
+        >help, online<indexterm>compared to wikis</indexterm></indexterm>help systems with wikis. </p>
+    <p>Wiki<indexterm>wikis<indexterm>comparison to online help</indexterm></indexterm> applications
+      offer many advantages over traditional HTML publication methods. From Microsoft’s early
+      WinHelp to Compiled HTML Help format (CHM)<indexterm>CHM</indexterm> to the open source
+      Eclipse help<indexterm>Eclipse help</indexterm>, we have seen a growing demand for user
+      assistance systems designed to be cross-platform and network friendly. Many wikis use wikitext
+      for editing, a simplified markup language that is often an alternative to HTML coding. There
+      are also some pitfalls to avoid when using wikitext<indexterm>wikitext<indexterm
+          >example</indexterm></indexterm> instead of traditional <indexterm>HTML<indexterm>used in
+          wikis</indexterm></indexterm>HTML markup, however. For example, wikitext is not exactly
+      the same for every engine so learning one wikitext syntax is not transferable to another wiki.
+      Some wikitext is <indexterm>HTML<indexterm>used in wikis</indexterm></indexterm>HTML-based,
+      other wikitext is text-based. </p>
+    <p>Following are some ways that <indexterm>technical documentation<indexterm>wikis
+          and</indexterm></indexterm>wikis are different from traditional user assistance systems. </p>
+    <ul>
+      <li>Editing: The “wikitext” markup used by many wikis is meant to be simple and easy to
+        use</li>
+      <li>Linking: Many wikis allow page-name-based linking to other wiki pages, or simple HTML
+        linking methods</li>
+      <li>Subscribing options: RSS<indexterm>RSS (Really Simple Syndication)<indexterm>subscribing
+            to wikis</indexterm></indexterm> feeds for recent changes, “watch” pages for edits</li>
+      <li>Searching:<indexterm>wikis<indexterm>searching in</indexterm></indexterm> Search<indexterm
+            >search<indexterm>in wikis</indexterm></indexterm> engine technology often is
+        included</li>
+      <li>Scalability: Many pages edited by many authors </li>
+      <li>Access control: Registration and logins can control authoring privileges</li>
+    </ul>
+    <p>To quote the introduction to the CommonCraft video instructions for wikis, “wiki web sites
+      are easy to use, but hard to describe.” I recommend their video, Wikis in Plain English, for
+      an introduction to wikis and how they work in less than four minutes’ time.<fn>
+        <p> http://www.youtube.com/watch?v=-dnL00TdmLY</p>
+      </fn></p>
+    <p>Learning about different <indexterm>wikis<indexterm>learning
+      about</indexterm></indexterm>wikis and how they work should involve hands-on exercises as well
+      as reading and watching videos about wikis. Many wikis offer a sandbox area so that you can
+      see the editor and try your hand at wiki editing.</p>
+    <p> shows a troubleshooting page on the <indexterm>One Laptop per Child<indexterm
+          >wiki</indexterm></indexterm>One Laptop per Child wiki at wiki.laptop.org. It has a table
+      of contents advance organizer feature built in to the wiki page, a graphic, navigation in the
+      sidebar, and a visible search form. The tabs at the top are prominent features of the wiki,
+      enabling users to discuss, edit, and view a history of the page. </p>
+    <p>wiki.laptop.org while displaying a page</p>
+    <p>Even without logging in, a user can click the edit tab in this particular wiki. When you
+      click the edit tab, you see a new interface that shows the editor window. In , the wikitext is
+      text-based. For example, the three equals signs in a row (===) on each end of a phrase
+      indicate a heading. </p>
+    <p>wiki.laptop.org while editing a page</p>
+    <p>The website wikimatrix.org, a comprehensive tool that describes wiki applications and lets
+      you run side-by-side comparisons, uses the following categories to evaluate wikis:</p>
+    <p>When evaluating <indexterm>evaluation<indexterm>of wiki
+      applications</indexterm></indexterm>wikis, just like any technology tools, you should first
+      decide the business needs and use cases for the wiki. After gathering use cases, determine the
+      fit for the list of wiki applications that meet your business objectives and use cases. </p>
+    <p>Another practical consideration for selecting a wiki application is whether it uses a
+        <indexterm>wikis<indexterm>database-driven</indexterm></indexterm>database to serve up the
+      content. If you need access to the content for repurposing, versioning, backing up, or
       translating, how easy is it to get access to the data structures? Are you more comfortable
-      with database commands or file copy commands and automation? </p><p>You want to determine the
-      license that you use for the content created on your <indexterm>wikis<indexterm>licensing
-          content</indexterm></indexterm>wiki so that you can decide if creating new deliverables
-      from the wiki source and sharing the content is allowed. </p><p>The editing syntax for wikis
-      varies widely. Some use HTML and some use <indexterm>wikis<indexterm
-        >syntax</indexterm></indexterm>wikitext for editing. Wikitext is a markup language that
-      usually simplifies the markup further than just HTML, using conventions such as asterisks *
-      for bullets and square brackets [] to indicate linked text. Will your users tend to spend time
-      in a WYSIWYG editor, or will they be more comfortable in a particular wikitext<indexterm
-          >wikitext<indexterm>varied syntax</indexterm></indexterm>, and if so, what wikitext do
-      they already know? Do most of your users already know rudimentary HTML<indexterm
-          >HTML<indexterm>used in wikis</indexterm></indexterm> markup?</p><p>How about <indexterm
-          >wikis<indexterm>scripting support</indexterm></indexterm>scripting support within the
-      wiki? Some wiki applications enable programmatic solutions within a page, such as creating a
-      table of contents automatically or enabling embedded pages within pages. Are you going to have
-      editors who will want advanced features that scripting offers, such as embedded expanding
-      tables of contents or publishing items from an RSS feed? Scripts may solve some web publishing
-      problems, but for a casual wiki editor, scripted instructions add to the complexity of viewing
-      the wikitext. </p><p>Like HTML help systems, wiki syntax should give you the ability to easily
-      link to other wiki pages and to external sources. Be aware of how difficult or easy it is to
-      link to non-wiki resources with the wiki markup offered by the wiki application you are
-      evaluating.</p><p>An added benefit of wikis is the ability to subscribe to RSS feeds that
-      enable you or other wiki users to “watch” what pages are being edited. Find out the
-      granularity of what changes you can be notified on—is it per article, per page, per category,
-      per section? </p><p>While setting up search engines within a traditional help system is often
-      difficult, most wiki applications build in easy search mechanisms within the body of the wiki.
-      Find out if you can integrate another search engine with the wiki application or if you must
-      use the one shipped with the wiki. </p></body><subsection
-    id="d5e226"><title>Starting or reinvigorating a wiki</title><body><p>A wiki is not always the
-        answer to the question being asked. One of my favorite quotes about a <indexterm
-            >communities<indexterm>wikis supporting</indexterm></indexterm>wiki is from a blog
-        article in which the author told a story about how starting a wiki was in reality just a
-        procrastination attempt—put off the real work of collaborating and cooperating with each
-        other by distracting yourself with wiki application research and selection and
-          installation.<fn><p> http://www.hacknot.info/hacknot/action/showEntry?eid=71</p></fn> It’s
-        so true that the hardest part about working on a wiki is not writing the content but
-        building the trust and relationships that will ensure the wiki continues to grow and thrive.
-        So if you are ready to work on growing wiki use<indexterm>adopting wikis in documentation
-          process</indexterm>, and not just installing wiki software, here are an some best
-        practices for building your wiki. </p></body><subsection
-      id="d5e242"><title>Conduct an audience analysis</title><prolog><metadata><keywords>
+      with database commands or file copy commands and automation? </p>
+    <p>You want to determine the license that you use for the content created on your <indexterm
+          >wikis<indexterm>licensing content</indexterm></indexterm>wiki so that you can decide if
+      creating new deliverables from the wiki source and sharing the content is allowed. </p>
+    <p>The editing syntax for wikis varies widely. Some use HTML and some use <indexterm
+          >wikis<indexterm>syntax</indexterm></indexterm>wikitext for editing. Wikitext is a markup
+      language that usually simplifies the markup further than just HTML, using conventions such as
+      asterisks * for bullets and square brackets [] to indicate linked text. Will your users tend
+      to spend time in a WYSIWYG editor, or will they be more comfortable in a particular
+        wikitext<indexterm>wikitext<indexterm>varied syntax</indexterm></indexterm>, and if so, what
+      wikitext do they already know? Do most of your users already know rudimentary HTML<indexterm
+          >HTML<indexterm>used in wikis</indexterm></indexterm> markup?</p>
+    <p>How about <indexterm>wikis<indexterm>scripting support</indexterm></indexterm>scripting
+      support within the wiki? Some wiki applications enable programmatic solutions within a page,
+      such as creating a table of contents automatically or enabling embedded pages within pages.
+      Are you going to have editors who will want advanced features that scripting offers, such as
+      embedded expanding tables of contents or publishing items from an RSS feed? Scripts may solve
+      some web publishing problems, but for a casual wiki editor, scripted instructions add to the
+      complexity of viewing the wikitext. </p>
+    <p>Like HTML help systems, wiki syntax should give you the ability to easily link to other wiki
+      pages and to external sources. Be aware of how difficult or easy it is to link to non-wiki
+      resources with the wiki markup offered by the wiki application you are evaluating.</p>
+    <p>An added benefit of wikis is the ability to subscribe to RSS feeds that enable you or other
+      wiki users to “watch” what pages are being edited. Find out the granularity of what changes
+      you can be notified on—is it per article, per page, per category, per section? </p>
+    <p>While setting up search engines within a traditional help system is often difficult, most
+      wiki applications build in easy search mechanisms within the body of the wiki. Find out if you
+      can integrate another search engine with the wiki application or if you must use the one
+      shipped with the wiki. </p>
+  </body>
+  <subsection
+    id="d5e226">
+    <title>Starting or reinvigorating a wiki</title>
+    <body>
+      <p>A wiki is not always the answer to the question being asked. One of my favorite quotes
+        about a <indexterm>communities<indexterm>wikis supporting</indexterm></indexterm>wiki is
+        from a blog article in which the author told a story about how starting a wiki was in
+        reality just a procrastination attempt—put off the real work of collaborating and
+        cooperating with each other by distracting yourself with wiki application research and
+        selection and installation.<fn>
+          <p> http://www.hacknot.info/hacknot/action/showEntry?eid=71</p>
+        </fn> It’s so true that the hardest part about working on a wiki is not writing the content
+        but building the trust and relationships that will ensure the wiki continues to grow and
+        thrive. So if you are ready to work on growing wiki use<indexterm>adopting wikis in
+          documentation process</indexterm>, and not just installing wiki software, here are an some
+        best practices for building your wiki. </p>
+    </body>
+    <subsection
+      id="d5e242">
+      <title>Conduct an audience analysis</title>
+      <prolog>
+        <metadata>
+          <keywords>
             <indexterm>social media<indexterm>audience analysis</indexterm></indexterm>
             <indexterm>audience analysis</indexterm>
             <indexterm>audience analysis</indexterm>
-          </keywords></metadata></prolog><body><p>Just like with other information deliverables,
-          knowing your audience is an important part of running a <indexterm>wikis<indexterm
-              >audience analysis for</indexterm></indexterm>wiki. For example, WoWwiki.com is a
-          popular wiki run by the community for a popular game, <indexterm>World of
-            Warcraft</indexterm><indexterm>communities<indexterm>World of
-            Warcraft</indexterm></indexterm>World of Warcraft. This particular wiki’s community
+          </keywords>
+        </metadata>
+      </prolog>
+      <body>
+        <p>Just like with other information deliverables, knowing your audience is an important part
+          of running a <indexterm>wikis<indexterm>audience analysis for</indexterm></indexterm>wiki.
+          For example, WoWwiki.com is a popular wiki run by the community for a popular game,
+            <indexterm>World of Warcraft</indexterm><indexterm>communities<indexterm>World of
+              Warcraft</indexterm></indexterm>World of Warcraft. This particular wiki’s community
           wants strategy articles and reference information for their wiki; users’ technical or
           how-to questions or discussions are roundly dismissed, and the community shapes the wiki
-          in the way they want it to be.<fn><p> Based on my notes from a 2008 SXSWi panel, Edit Me:
-              How Gamers are Adopting the Wiki Way.
-              http://justwriteclick.com/2008/03/16/stories-from-sxswi-2008-edit-me-how-gamers-are-adopting-the-wiki-way/</p></fn>
-          So, before starting a wiki, offer a survey or talk to customers about their hopes and
-          expectations.</p></body></subsection><subsection
-      id="d5e269"><title>Build a wiki style guide</title><prolog><metadata><keywords>
+          in the way they want it to be.<fn>
+            <p> Based on my notes from a 2008 SXSWi panel, Edit Me: How Gamers are Adopting the Wiki
+              Way.
+              http://justwriteclick.com/2008/03/16/stories-from-sxswi-2008-edit-me-how-gamers-are-adopting-the-wiki-way/</p>
+          </fn> So, before starting a wiki, offer a survey or talk to customers about their hopes
+          and expectations.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e269">
+      <title>Build a wiki style guide</title>
+      <prolog>
+        <metadata>
+          <keywords>
             <indexterm>style guidance</indexterm>
-          </keywords></metadata></prolog><body><p>You may already have a <indexterm>wikis<indexterm
-              >style guidance</indexterm></indexterm><indexterm>content<indexterm>style
+          </keywords>
+        </metadata>
+      </prolog>
+      <body>
+        <p>You may already have a <indexterm>wikis<indexterm>style
+            guidance</indexterm></indexterm><indexterm>content<indexterm>style
               guidelines</indexterm></indexterm>style guide for your writing deliverables. You may
           have a list of preferred action words for tasks and steps, or a description of how you
           capitalize headings or the titles of wiki pages, to standardize your wiki’s URLs. Embed
           your wiki style guide directly on the wiki itself as a wiki page. Make sure that your own
-          contributions consistently follow a style guide. </p><p>A style guide can also describe
-          which <indexterm>wikis<indexterm>categories</indexterm></indexterm>categories are helpful
-          in your wiki, and some of the background decisions for choosing those categories. As an
-          example, the OLPC Wiki has a Style Guide page<fn><p>
-              http://wiki.laptop.org/go/Style_guide</p></fn> that helps new contributors understand
-          the structure and organization of the wiki. The Firefox Support Knowledge Base has a
-          comprehensive style guide<fn><p> http://support.mozilla.com/en-US/kb/Style+Guide</p></fn>
-          that also refers contributors to Sun Microsystem’s style guide, <ph>Read Me First! A Style
-            Guide for the Computer Industry</ph>. If contributors do not follow the style guide,
-          even with reminders, decide if you want to edit the text to match the style guide or if
-          the community will accept the text without strict adherence to a style guide.</p><p
-          >Another way of defining style is determining a “<indexterm>wikis<indexterm
+          contributions consistently follow a style guide. </p>
+        <p>A style guide can also describe which <indexterm>wikis<indexterm
+            >categories</indexterm></indexterm>categories are helpful in your wiki, and some of the
+          background decisions for choosing those categories. As an example, the OLPC Wiki has a
+          Style Guide page<fn>
+            <p> http://wiki.laptop.org/go/Style_guide</p>
+          </fn> that helps new contributors understand the structure and organization of the wiki.
+          The Firefox Support Knowledge Base has a comprehensive style guide<fn>
+            <p> http://support.mozilla.com/en-US/kb/Style+Guide</p>
+          </fn> that also refers contributors to Sun Microsystem’s style guide, <ph>Read Me First! A
+            Style Guide for the Computer Industry</ph>. If contributors do not follow the style
+          guide, even with reminders, decide if you want to edit the text to match the style guide
+          or if the community will accept the text without strict adherence to a style guide.</p>
+        <p>Another way of defining style is determining a “<indexterm>wikis<indexterm
               >voice</indexterm></indexterm>voice” for your wiki. Decide ahead of time the types of
           information and word choices that the wiki pages reflect. Refer to Chapter 7, “Finding
-          your Voice,” for more suggestions and style guidance.</p></body></subsection><subsection
-      id="d5e309"><title>Offer wiki how-to guides or training sessions</title><body><p>Wiki
-            <indexterm>wikis<indexterm>tutorials</indexterm></indexterm><indexterm
+          your Voice,” for more suggestions and style guidance.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e309">
+      <title>Offer wiki how-to guides or training sessions</title>
+      <body>
+        <p>Wiki <indexterm>wikis<indexterm>tutorials</indexterm></indexterm><indexterm
             >training</indexterm>tutorials give new users a chance to learn in a safe environment,
           one in which they can explore and experiment and not worry about harming the wiki. A
           tutorial or just a page with some simple how-to steps might be sufficient. Offer a
           “sandbox” area or single page in your wiki where people can try out the interface and
-          practice writing the wikitext knowing that their changes are not permanent.</p><p>Another
-          way to help users get comfortable making edits is to purposely leave typos in certain
-          pages, giving users a chance to correct small areas before attempting to revise an article
-          or add a new article. </p><p>A how-to guide may be helpful for describing common tasks,
-          such as starting an editable section or starting a new page. Even an experienced wiki user
-          might need a short how-to guide on the basics if the wiki application is unfamiliar.</p><p
-          >If your wiki seems to be intimidating to some, or if your customer base is not already
+          practice writing the wikitext knowing that their changes are not permanent.</p>
+        <p>Another way to help users get comfortable making edits is to purposely leave typos in
+          certain pages, giving users a chance to correct small areas before attempting to revise an
+          article or add a new article. </p>
+        <p>A how-to guide may be helpful for describing common tasks, such as starting an editable
+          section or starting a new page. Even an experienced wiki user might need a short how-to
+          guide on the basics if the wiki application is unfamiliar.</p>
+        <p>If your wiki seems to be intimidating to some, or if your customer base is not already
           familiar with the wikitext<indexterm>wikitext<indexterm>training</indexterm></indexterm>
           you are using, you may want to offer webinars or training sessions to help boost people’s
           confidence in contributing to the wiki. If your wiki is only for an internal audience, you
           could offer informal brown bag lunches to demonstrate how to edit the wiki or add pages.
           At Webworks.com, a company that develops content conversion and deployment solutions, they
           held a brown bag lunch for the entire company before the wiki was rolled out, and all but
-          one of the employees have made edits on the wiki.</p></body></subsection><subsection
-      id="d5e332"><title>Set rules for arbitration</title><prolog><metadata><keywords>
+          one of the employees have made edits on the wiki.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e332">
+      <title>Set rules for arbitration</title>
+      <prolog>
+        <metadata>
+          <keywords>
             <indexterm>wikis<indexterm>rules for arbitration</indexterm></indexterm>
             <indexterm>rules for arbitration</indexterm>
-          </keywords></metadata></prolog><body><p>Depending on the subject matter of your <indexterm
-            >policies, social computing<indexterm>wiki arbitration</indexterm></indexterm>wiki, you
-          may have controversial articles that get a lot of discussion or <indexterm
-              >collaboration<indexterm>wikis and</indexterm></indexterm>comments, or rounds of
-          aggressive edits in which one contributor is pitted against another for the “truth” or
-          being “right.” When this type of standoff happens, it is best to have rules for
-          arbitration to determine which edit is the edit that remains. Sometimes a community leader
-          will step into this role, but sometimes your company will have to take a stand. Either
-          way, be sure to have a written policy available on the <indexterm>wikis<indexterm
-              >policies</indexterm></indexterm>wiki to set expectations. Experienced contributors
-          want to know the rules of engagement and the expectations of the community.</p><p>You may
-          also determine that a particular wiki’s architecture model allows for only one wiki
-          article per topic, but multiple wiki articles could be true for each topic. For example,
-          collaborations for online textbooks do not use the one-article-per-topic model for their
-            <indexterm>collaboration<indexterm>online textbooks</indexterm></indexterm>collaborative
-          authoring environments. Instead, they allow multiple authors to write more than one
-          conclusive article, such as describing how the American Civil War started. When the
-          textbook is compiled for printing or PDF<indexterm>PDF, as wiki output</indexterm>
-          creation, a “lens,” or specialized content filter, determines which article is included in
-          the textbook. Some wiki applications will enable this <indexterm>content<indexterm
-              >filtering</indexterm></indexterm>filtering capability so that readers can devise
-          their own lenses for the content, but more often, only one wiki page “wins” the battle for
-          being the true article on the wiki.</p></body></subsection><subsection
-      id="d5e371"><title>Differentiate “warranted” content</title><prolog><metadata><keywords>
+          </keywords>
+        </metadata>
+      </prolog>
+      <body>
+        <p>Depending on the subject matter of your <indexterm>policies, social computing<indexterm
+              >wiki arbitration</indexterm></indexterm>wiki, you may have controversial articles
+          that get a lot of discussion or <indexterm>collaboration<indexterm>wikis
+            and</indexterm></indexterm>comments, or rounds of aggressive edits in which one
+          contributor is pitted against another for the “truth” or being “right.” When this type of
+          standoff happens, it is best to have rules for arbitration to determine which edit is the
+          edit that remains. Sometimes a community leader will step into this role, but sometimes
+          your company will have to take a stand. Either way, be sure to have a written policy
+          available on the <indexterm>wikis<indexterm>policies</indexterm></indexterm>wiki to set
+          expectations. Experienced contributors want to know the rules of engagement and the
+          expectations of the community.</p>
+        <p>You may also determine that a particular wiki’s architecture model allows for only one
+          wiki article per topic, but multiple wiki articles could be true for each topic. For
+          example, collaborations for online textbooks do not use the one-article-per-topic model
+          for their <indexterm>collaboration<indexterm>online
+          textbooks</indexterm></indexterm>collaborative authoring environments. Instead, they allow
+          multiple authors to write more than one conclusive article, such as describing how the
+          American Civil War started. When the textbook is compiled for printing or PDF<indexterm
+            >PDF, as wiki output</indexterm> creation, a “lens,” or specialized content filter,
+          determines which article is included in the textbook. Some wiki applications will enable
+          this <indexterm>content<indexterm>filtering</indexterm></indexterm>filtering capability so
+          that readers can devise their own lenses for the content, but more often, only one wiki
+          page “wins” the battle for being the true article on the wiki.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e371">
+      <title>Differentiate “warranted” content</title>
+      <prolog>
+        <metadata>
+          <keywords>
             <indexterm>wikis<indexterm>warranted content</indexterm></indexterm>
             <indexterm>warranted content</indexterm>
-          </keywords></metadata></prolog><body><p>Many <indexterm>wikis<indexterm>content
-              models</indexterm></indexterm><indexterm>content<indexterm>warranted</indexterm></indexterm>wiki
-          users are following a <indexterm>publishing<indexterm>wiki
-            content</indexterm></indexterm><indexterm>publishing<indexterm
-            >models</indexterm></indexterm><indexterm>publishing<indexterm>internal content to
-              external content</indexterm></indexterm>publishing model that clearly designates an
-          area of the <indexterm>technical documentation<indexterm>wikis
-          and</indexterm></indexterm>wiki that is tested, warranted, vetted, and company-backed. A
-          common model for many groups is to have an internal <indexterm>wikis<indexterm>publishing
-              models</indexterm></indexterm>wiki where drafts are published and discussion occurs,
-          and an external wiki that houses the content that is considered “warranted.” For example,
-            <indexterm>FLOSS Manuals<indexterm>wiki</indexterm></indexterm>FLOSS Manuals has a
-            “<indexterm>wikis<indexterm>write area</indexterm></indexterm>Write” area where all
-          content remains while it is still in draft stage and a “<indexterm>wikis<indexterm>read
-              area</indexterm></indexterm>Read” area to which wiki pages are published when the
-          content is ready. A small group of writers with “Maintainer” privileges has the capability
-          to move content from the “Write” area to the “Read” area.</p><p><indexterm>Dyer,
-            Lisa</indexterm>Lisa Dyer, a development manager at Lombardi Software, uses a similar
-          model in maintaining three wikis. The <indexterm>collaboration<indexterm
+          </keywords>
+        </metadata>
+      </prolog>
+      <body>
+        <p>Many <indexterm>wikis<indexterm>content models</indexterm></indexterm><indexterm
+              >content<indexterm>warranted</indexterm></indexterm>wiki users are following a
+            <indexterm>publishing<indexterm>wiki content</indexterm></indexterm><indexterm
+              >publishing<indexterm>models</indexterm></indexterm><indexterm>publishing<indexterm
+              >internal content to external content</indexterm></indexterm>publishing model that
+          clearly designates an area of the <indexterm>technical documentation<indexterm>wikis
+              and</indexterm></indexterm>wiki that is tested, warranted, vetted, and company-backed.
+          A common model for many groups is to have an internal <indexterm>wikis<indexterm
+              >publishing models</indexterm></indexterm>wiki where drafts are published and
+          discussion occurs, and an external wiki that houses the content that is considered
+          “warranted.” For example, <indexterm>FLOSS Manuals<indexterm
+          >wiki</indexterm></indexterm>FLOSS Manuals has a “<indexterm>wikis<indexterm>write
+              area</indexterm></indexterm>Write” area where all content remains while it is still in
+          draft stage and a “<indexterm>wikis<indexterm>read area</indexterm></indexterm>Read” area
+          to which wiki pages are published when the content is ready. A small group of writers with
+          “Maintainer” privileges has the capability to move content from the “Write” area to the
+          “Read” area.</p>
+        <p><indexterm>Dyer, Lisa</indexterm>Lisa Dyer, a development manager at Lombardi Software,
+          uses a similar model in maintaining three wikis. The <indexterm>collaboration<indexterm
               >internal</indexterm></indexterm>internal-only wiki is used by developers, business
           analysts, quality testers, and information developers to write, display, and discuss use
           cases, test plans, and other software documentation artifacts. Guaranteed, tested content
@@ -261,10 +343,17 @@
           employees can edit articles and customers can view this content as well, but the
           disclaimer on the wiki states that the content is not tested and following the
           instructions may or may not have expected results. You can read more about their wiki
-          model in “Using Structured Wikis in Software Engineering” from WikiSym 2008.<fn><p>
-              http://www.wikis4se.org/lib/exe/fetch.php/2008:wikis4se-2008-using_structured_wikis_in_software_engineering.pdf</p></fn></p></body></subsection><subsection
-      id="d5e450"><title>Integrate the wiki with other content</title><body><p><indexterm
-              >content<indexterm>combining</indexterm></indexterm>Although<indexterm>help,
+          model in “Using Structured Wikis in Software Engineering” from WikiSym 2008.<fn>
+            <p>
+              http://www.wikis4se.org/lib/exe/fetch.php/2008:wikis4se-2008-using_structured_wikis_in_software_engineering.pdf</p>
+          </fn></p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e450">
+      <title>Integrate the wiki with other content</title>
+      <body>
+        <p><indexterm>content<indexterm>combining</indexterm></indexterm>Although<indexterm>help,
               online<indexterm>integrating wikis with</indexterm></indexterm> some <indexterm
             >technical documentation<indexterm>wikis and</indexterm></indexterm>people find that
             a<indexterm>content<indexterm>wiki</indexterm></indexterm> wiki is sufficient for
@@ -275,131 +364,181 @@
           follows your style requirements, and is included in search and indexing tools. If you need
           to set the wiki apart because it is unvetted content, or because it contains only
           tutorials or specialized content, it still should follow corporate guidelines for visual
-          style. </p><p>If a wiki’s look and feel is widely different from other deliverables, the
-          wiki may appear like an afterthought or unneeded part of the documentation set. <indexterm
-            >Johnson, Tom</indexterm>Tom Johnson, on idratherbewriting.com, also found that the
-          scope of the search<indexterm>search<indexterm>in wikis</indexterm></indexterm> boxes is
-          an important usability aspect of integrating the wiki with other content in your
-          documentation set. Tom voices his concerns about user assistance that is fragmented and in
-          too many locations without a unifying search or theme.<fn><p>
-              http://www.idratherbewriting.com/2008/02/06/a-web-20-documentation-idea-gone-wrong/</p></fn>
-          When users are within a stand-alone help system, they may not know that a wiki exists.
-          Finding ways to expand the user assistance system to include the wiki or support
+          style. </p>
+        <p>If a wiki’s look and feel is widely different from other deliverables, the wiki may
+          appear like an afterthought or unneeded part of the documentation set. <indexterm>Johnson,
+            Tom</indexterm>Tom Johnson, on idratherbewriting.com, also found that the scope of the
+            search<indexterm>search<indexterm>in wikis</indexterm></indexterm> boxes is an important
+          usability aspect of integrating the wiki with other content in your documentation set. Tom
+          voices his concerns about user assistance that is fragmented and in too many locations
+          without a unifying search or theme.<fn>
+            <p>
+              http://www.idratherbewriting.com/2008/02/06/a-web-20-documentation-idea-gone-wrong/</p>
+          </fn> When users are within a stand-alone help system, they may not know that a wiki
+          exists. Finding ways to expand the user assistance system to include the wiki or support
             <indexterm>forums<indexterm>searching through online help</indexterm></indexterm>forums
-          in a search would help direct readers to the conversation-based content. </p><p>You may
-          find that you can single-source to initially build a wiki. Webworks.com offers publishing
-          to wikitext from multiple types of source files. One XML-based standard for technical
-          documentation, the Darwin Information Typing Architecture (DITA), enables the DITA2Wiki
-            <indexterm>open source<indexterm>DITA2Wiki</indexterm></indexterm>open source project
-          which offers a framework to use DITA source files to populate a wiki. Other projects such
-          as the Mylyn <indexterm>MediaWiki<indexterm>transform to
-          DITA</indexterm></indexterm>MediaWiki to DITA project<fn><p>
-              http://greensopinion.blogspot.com/2008/11/mylyn-wikitext-targets-oasis-dita.html</p></fn>
-          have found ways to transform wikitext<indexterm>wikitext<indexterm>transform from
+          in a search would help direct readers to the conversation-based content. </p>
+        <p>You may find that you can single-source to initially build a wiki. Webworks.com offers
+          publishing to wikitext from multiple types of source files. One XML-based standard for
+          technical documentation, the Darwin Information Typing Architecture (DITA), enables the
+          DITA2Wiki <indexterm>open source<indexterm>DITA2Wiki</indexterm></indexterm>open source
+          project which offers a framework to use DITA source files to populate a wiki. Other
+          projects such as the Mylyn <indexterm>MediaWiki<indexterm>transform to
+            DITA</indexterm></indexterm>MediaWiki to DITA project<fn>
+            <p> http://greensopinion.blogspot.com/2008/11/mylyn-wikitext-targets-oasis-dita.html</p>
+          </fn> have found ways to transform wikitext<indexterm>wikitext<indexterm>transform from
               XML</indexterm></indexterm> into XML files. Another workflow is to author in a wiki
           and output PDF<indexterm>PDF, as wiki output</indexterm> files as books from the wiki.
             <indexterm>wikislices</indexterm>Wikislices are another method for extracting a book
           from a specific set of wiki pages. But wiki integration could also mean supplying a wiki
           with updated articles but then use a <indexterm>wikis<indexterm
             >slicing</indexterm></indexterm>wikislicing technique to pull those articles back into
-          user assistance that is delivered in another way. </p><p>Another aspect of integrating a
-          wiki with other content is ensuring that an online identity is associated with the wiki.
-          For example, if a login ID is already required for access to your customer support
-          website, perhaps your wiki could use the same login credentials, lending credibility to
-          the wiki because only supported customers could edit the content.</p></body></subsection><subsection
-      id="d5e533"><title>Ensure that your wiki has original content</title><body><p>Let your wiki
-          community know that you are fully committed to the wiki by offering <indexterm
-              >content<indexterm>wiki</indexterm></indexterm>original articles found nowhere else.
-          Knowing that the wiki is dynamic and original will entice readers to continue to visit it.
-          Even more enticing would be to feature a community member’s contribution on a regular
-          basis. This best practice works well when the wiki is just a part of your overall
+          user assistance that is delivered in another way. </p>
+        <p>Another aspect of integrating a wiki with other content is ensuring that an online
+          identity is associated with the wiki. For example, if a login ID is already required for
+          access to your customer support website, perhaps your wiki could use the same login
+          credentials, lending credibility to the wiki because only supported customers could edit
+          the content.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e533">
+      <title>Ensure that your wiki has original content</title>
+      <body>
+        <p>Let your wiki community know that you are fully committed to the wiki by offering
+            <indexterm>content<indexterm>wiki</indexterm></indexterm>original articles found nowhere
+          else. Knowing that the wiki is dynamic and original will entice readers to continue to
+          visit it. Even more enticing would be to feature a community member’s contribution on a
+          regular basis. This best practice works well when the wiki is just a part of your overall
             <indexterm>technical documentation<indexterm>wikis
           and</indexterm></indexterm>documentation set. If your wiki is the sole source of end-user
           documentation, then the wiki itself is all “original” content, meaning, its content cannot
-          be found in other publications.</p></body></subsection><subsection
-      id="d5e547"><title>Beware of spammers, and back up often</title><prolog><metadata><keywords>
+          be found in other publications.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e547">
+      <title>Beware of spammers, and back up often</title>
+      <prolog>
+        <metadata>
+          <keywords>
             <indexterm>wikis<indexterm>spammers</indexterm></indexterm>
             <indexterm>spammers</indexterm>
-          </keywords></metadata></prolog><body><p>You want to constantly check the wiki for edits or
+          </keywords>
+        </metadata>
+      </prolog>
+      <body>
+        <p>You want to constantly check the wiki for edits or <indexterm>collaboration<indexterm
+              >wikis and</indexterm></indexterm><indexterm>comments<indexterm
+            >spam</indexterm></indexterm>comments that do not look genuine or well-meaning. You can
+          reverse those changes if they happen. Spammers will not target your wiki for long once
+          they understand that their efforts are futile. </p>
+        <p>You can protect your wiki from spam-based changes by requiring users who make edits or
             <indexterm>collaboration<indexterm>wikis and</indexterm></indexterm><indexterm
-              >comments<indexterm>spam</indexterm></indexterm>comments that do not look genuine or
-          well-meaning. You can reverse those changes if they happen. Spammers will not target your
-          wiki for long once they understand that their efforts are futile. </p><p>You can protect
-          your wiki from spam-based changes by requiring users who make edits or <indexterm
-              >collaboration<indexterm>wikis and</indexterm></indexterm><indexterm
               >comments<indexterm>spam</indexterm></indexterm>comments to solve a math sum in a web
           form or enter a text string from a graphic before submitting a comment. Tools such as
-            Captcha<fn><p> http://www.captcha.net/</p></fn> have this type of requirement and are
-          prevalent and effective. Some wikis allow you to block, redirect, or ban users or even IP
-          addresses.</p><p>Wiki <indexterm>wikis<indexterm
-            >vandalism</indexterm></indexterm><indexterm>vandalism, wiki</indexterm>vandalism is
-          different from wiki spam. Typically a vandal’s intent is to disrupt the community or
-          personally annoy or distract a particular community member. Again, immediate reversal of
-          the vandalism and backup of your wiki can often stop vandals. Vandalism is rare and is not
-          typical for most wiki communities. An active community can also help you keep unwanted
-          content and spam out of your wiki. Rather than expending energy preventing vandalism, work
-          harder on building your community and encouraging contributors.</p></body></subsection><subsection
-      id="d5e589"><title>Keep updating content </title><body><p>The point of having a wiki is to
-          enable constant editing and adding of new <indexterm>content<indexterm
-              >up-to-date</indexterm></indexterm>content. Users expect wikis, more than most forms
-          of documentation, to have timely and frequent updates, and most wiki tools offer a
-          timeline of <indexterm>content<indexterm>wiki</indexterm></indexterm>changes so users can
-          easily view the latest edits and additions. </p><p>If your product’s release schedule does
-          not typically have regular updates, you may find that a wiki is not a good match for your
-          product documentation, and you might look elsewhere for customer conversations. </p><p
-          >GigaSpaces technical writer Gilad David <indexterm>Maayan, Gilad David</indexterm>Maayan
+            Captcha<fn>
+            <p> http://www.captcha.net/</p>
+          </fn> have this type of requirement and are prevalent and effective. Some wikis allow you
+          to block, redirect, or ban users or even IP addresses.</p>
+        <p>Wiki <indexterm>wikis<indexterm>vandalism</indexterm></indexterm><indexterm>vandalism,
+            wiki</indexterm>vandalism is different from wiki spam. Typically a vandal’s intent is to
+          disrupt the community or personally annoy or distract a particular community member.
+          Again, immediate reversal of the vandalism and backup of your wiki can often stop vandals.
+          Vandalism is rare and is not typical for most wiki communities. An active community can
+          also help you keep unwanted content and spam out of your wiki. Rather than expending
+          energy preventing vandalism, work harder on building your community and encouraging
+          contributors.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e589">
+      <title>Keep updating content </title>
+      <body>
+        <p>The point of having a wiki is to enable constant editing and adding of new <indexterm
+              >content<indexterm>up-to-date</indexterm></indexterm>content. Users expect wikis, more
+          than most forms of documentation, to have timely and frequent updates, and most wiki tools
+          offer a timeline of <indexterm>content<indexterm>wiki</indexterm></indexterm>changes so
+          users can easily view the latest edits and additions. </p>
+        <p>If your product’s release schedule does not typically have regular updates, you may find
+          that a wiki is not a good match for your product documentation, and you might look
+          elsewhere for customer conversations. </p>
+        <p>GigaSpaces technical writer Gilad David <indexterm>Maayan, Gilad David</indexterm>Maayan
           says “we weren’t updating our <indexterm>help, online<indexterm>compared to
               wikis</indexterm></indexterm>help pages as often as we would have liked,” in a case
-          study published on the <indexterm>Atlassian Confluence</indexterm>Atlassian web site.<fn
-              ><p> http://www.atlassian.com/software/confluence/casestudies/gigaspaces.jsp</p></fn>
-          He moved their online help content to a wiki to gain more frequent updates, more
-          contributors, improved searching, finding, and a better overall user
-        experience.</p></body></subsection><subsection
-      id="d5e623"><title>Become a member of the community</title><body><p>If you are willing to
-          share your professional identity with customers, you lend credibility to your intention to
-          become part of their <indexterm>communities<indexterm>participation
-            in</indexterm></indexterm>community. In some cases, depending on the wiki and the
-          corporate culture, you might not want to insert yourself too much into the community that
-          is building up. For example, a developer of a game might be attacked if he or she tries to
-          defend design decisions made in the game by writing wiki articles. Plus, if writing
-          strategy articles is not part of a developer’s job description and the wiki community
-          members prefer that the developer continue to develop features, article writing might be a
-          perceived waste of resources. If instead the developer makes a useful comment on a wiki
-          page, he or she is still contributing to the community but in a way that the community
-          would embrace instead of attack.</p></body></subsection><subsection
-      id="d5e632"><title>Maintain categories</title><body><p>Many technical writers excel in
-          creating indexes and keywords, including inferring other terms that people might want to
-          use. With <indexterm>wikis<indexterm>categories</indexterm></indexterm>categories on a
-          wiki, you can organize in many ways, beyond keywords. Although you do not want to
-          over-organize a wiki and risk discouraging community contributions, you can suggest
-          categories, tags,<indexterm>tagging<indexterm>wiki content</indexterm></indexterm> and
-          keywords to a contributor just as you would to a co-worker. However be prepared to accept
-          if they don’t want to use them. Ease of use and low barriers to entry may be more valuable
-          than strict rules about consistency.</p></body></subsection><subsection
-      id="d5e646"><title>Watch recent changes</title><body><p>If you want to become an active
-          contributor to a wiki, you should keep an eye on the recent changes page, either by
-            RSS<indexterm>RSS (Really Simple Syndication)<indexterm>subscribing to
-            wikis</indexterm></indexterm> or email notification. This practice gives you an idea of
-          what areas are being heavily revised and also what areas might be under contentious
-          debate.</p><p>You also want to watch certain pages, such as pages that you start or edit,
-          to see how your changes are interpreted and whether activity happens on your page. In the
-          case of the One Laptop per Child<indexterm>One Laptop per Child<indexterm
-            >wiki</indexterm></indexterm> simple user guide, I watched the wiki page that contained
-          the user guide content and was pleasantly surprised when Walter Bender, the president of
-            development<indexterm>development</indexterm> for the project at that time, <indexterm
-            >One Laptop per Child<indexterm>collaboration</indexterm></indexterm>contributed
-            <indexterm>One Laptop per Child<indexterm>user guide edits</indexterm></indexterm>edits
-          from his wealth of experience in deploying the laptops.</p></body></subsection><subsection
-      id="d5e675"><title>Expect small percentages of contributors and value them highly</title><body
-          ><p>As with other types of online <indexterm>communities<indexterm>statistics
+          study published on the <indexterm>Atlassian Confluence</indexterm>Atlassian web site.<fn>
+            <p> http://www.atlassian.com/software/confluence/casestudies/gigaspaces.jsp</p>
+          </fn> He moved their online help content to a wiki to gain more frequent updates, more
+          contributors, improved searching, finding, and a better overall user experience.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e623">
+      <title>Become a member of the community</title>
+      <body>
+        <p>If you are willing to share your professional identity with customers, you lend
+          credibility to your intention to become part of their <indexterm>communities<indexterm
+              >participation in</indexterm></indexterm>community. In some cases, depending on the
+          wiki and the corporate culture, you might not want to insert yourself too much into the
+          community that is building up. For example, a developer of a game might be attacked if he
+          or she tries to defend design decisions made in the game by writing wiki articles. Plus,
+          if writing strategy articles is not part of a developer’s job description and the wiki
+          community members prefer that the developer continue to develop features, article writing
+          might be a perceived waste of resources. If instead the developer makes a useful comment
+          on a wiki page, he or she is still contributing to the community but in a way that the
+          community would embrace instead of attack.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e632">
+      <title>Maintain categories</title>
+      <body>
+        <p>Many technical writers excel in creating indexes and keywords, including inferring other
+          terms that people might want to use. With <indexterm>wikis<indexterm
+              >categories</indexterm></indexterm>categories on a wiki, you can organize in many
+          ways, beyond keywords. Although you do not want to over-organize a wiki and risk
+          discouraging community contributions, you can suggest categories, tags,<indexterm
+              >tagging<indexterm>wiki content</indexterm></indexterm> and keywords to a contributor
+          just as you would to a co-worker. However be prepared to accept if they don’t want to use
+          them. Ease of use and low barriers to entry may be more valuable than strict rules about
+          consistency.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e646">
+      <title>Watch recent changes</title>
+      <body>
+        <p>If you want to become an active contributor to a wiki, you should keep an eye on the
+          recent changes page, either by RSS<indexterm>RSS (Really Simple Syndication)<indexterm
+              >subscribing to wikis</indexterm></indexterm> or email notification. This practice
+          gives you an idea of what areas are being heavily revised and also what areas might be
+          under contentious debate.</p>
+        <p>You also want to watch certain pages, such as pages that you start or edit, to see how
+          your changes are interpreted and whether activity happens on your page. In the case of the
+          One Laptop per Child<indexterm>One Laptop per Child<indexterm>wiki</indexterm></indexterm>
+          simple user guide, I watched the wiki page that contained the user guide content and was
+          pleasantly surprised when Walter Bender, the president of development<indexterm
+            >development</indexterm> for the project at that time, <indexterm>One Laptop per
+              Child<indexterm>collaboration</indexterm></indexterm>contributed <indexterm>One Laptop
+            per Child<indexterm>user guide edits</indexterm></indexterm>edits from his wealth of
+          experience in deploying the laptops.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e675">
+      <title>Expect small percentages of contributors and value them highly</title>
+      <body>
+        <p>As with other types of online <indexterm>communities<indexterm>statistics
               about</indexterm></indexterm><indexterm>communities<indexterm>participation
               in</indexterm></indexterm>communities, you will not have hundreds of content
           contributors. Realistically, you might have a core group of about five contributors for
           most types of information products. Several sets of research provide insight into this
-          pattern. </p><p>Jakob Nielsen wrote “<indexterm>participation<indexterm
-              >inequality</indexterm></indexterm><indexterm>content<indexterm>user-generated</indexterm></indexterm>Participation
-          inequality: Encouraging more users to participate”<fn><p>
-              http://www.useit.com/alertbox/participation_inequality.html</p></fn>
+          pattern. </p>
+        <p>Jakob Nielsen wrote “<indexterm>participation<indexterm
+            >inequality</indexterm></indexterm><indexterm>content<indexterm>user-generated</indexterm></indexterm>Participation
+          inequality: Encouraging more users to participate”<fn>
+            <p> http://www.useit.com/alertbox/participation_inequality.html</p>
+          </fn>
           <indexterm>content<indexterm>contributions, statistics about</indexterm></indexterm>in
           2006 to describe the 90% lurker/9% small <indexterm>content<indexterm
               >community-generated</indexterm></indexterm>contribution/1% large <indexterm
@@ -412,188 +551,243 @@
           towards more lurkers and fewer elite contributors (which may also be a desired result).
           His first suggestion is to recognize that these numbers have been observed for years and
           that you can’t really change these values by much—perhaps by only a few tenths of a
-          percent. </p><p>Nielsen’s suggestions include ideas that are easily transferred to user
-          assistance or to wiki contributions. First, make it easy to contribute quickly, such as
-          offering star rating capability instead of only a web form. The ability to rate an article
-          is included in many online help systems, and exposing the <indexterm>help,
-              online<indexterm>rating topics</indexterm></indexterm>ratings to the reader helps to
-          determine how “well-worn” a help topic is. With forum software you can also determine the
-          value of a community member’s contributions based on reputation systems.</p><p>Another
-          suggestion is to make <indexterm>participation<indexterm>as a side
-            effect</indexterm></indexterm>participation a side effect. I’ve explored this idea in a
-          blog post, looking for ideas on how to make a user assistance system show the fine lines
+          percent. </p>
+        <p>Nielsen’s suggestions include ideas that are easily transferred to user assistance or to
+          wiki contributions. First, make it easy to contribute quickly, such as offering star
+          rating capability instead of only a web form. The ability to rate an article is included
+          in many online help systems, and exposing the <indexterm>help, online<indexterm>rating
+              topics</indexterm></indexterm>ratings to the reader helps to determine how “well-worn”
+          a help topic is. With forum software you can also determine the value of a community
+          member’s contributions based on reputation systems.</p>
+        <p>Another suggestion is to make <indexterm>participation<indexterm>as a side
+              effect</indexterm></indexterm>participation a side effect. I’ve explored this idea in
+          a blog post, looking for ideas on how to make a user assistance system show the fine lines
           of wear, like a cookbook that falls open to your favorite recipe because the binding has
-          been flattened on your kitchen countertop.<fn><p>
-              http://justwriteclick.com/2008/05/28/can-online-help-show-read-wear/</p></fn> This
-          indicator of use is called “read wear.” Here are some of the ideas to indicate “read wear”
-          that I came up with and people who commented on my blog entry added to. </p><ul><li>Model
-            a wiki‘s “most active pages” feature, which shows the page with the most edits. However,
-            the page with the most edits may be more controversial than truthful, so the most
-            popular pages might be more useful.</li><li>When a user searches, show the <indexterm
-                >search<indexterm>relevance</indexterm></indexterm>most searched-for terms. Users
-            might connect concepts more easily when they understand what others are searching for.
-            </li><li>Show the most recently viewed knowledge base articles or most popular articles.
-            I found that useful in the past when searching through BMC Software’s rich knowledge
-            base. Just as CNN and other news sites offer a list of the <indexterm>help,
-                online<indexterm>most emailed topics</indexterm></indexterm>most <indexterm
-                >email<indexterm>tracking</indexterm></indexterm>emailed stories per hour, you could
-            show the most emailed<indexterm>help, online<indexterm>emailing
-              topics</indexterm></indexterm> online help topics. </li><li>Use <indexterm
-                >tagging<indexterm>online help</indexterm></indexterm><indexterm>content<indexterm
-                >tagging</indexterm></indexterm>tag <indexterm>clouds, tag</indexterm>clouds to
-            display read wear as well, with the largest tag indicating the highest number of topics
-            on that subject that users have tagged.</li></ul><p>I found that popularity, time spent
-          on the page, rating on a page, and number of edits on a page are the strongest to weakest
-          indicators of read wear for an online content system.</p><p>Nielsen also encourages the
-          use of <indexterm>content<indexterm>templates for</indexterm></indexterm>templates and
-          draft content so that users don’t have to start from a blank page. I know a writer who
-          pre-filled as many technical articles with as much information as he could before sending
-          the draft copies to his Subject Matter Expert (SME). The SME, a recognized programmer who
-          built software for electronic keyboards, happily added content into the pre-filled
-          articles.</p><p>Nielsen also says to <indexterm>forums<indexterm>rewarding participation
-              in</indexterm></indexterm>reward, but not over-reward, participants, and he encourages
+          been flattened on your kitchen countertop.<fn>
+            <p> http://justwriteclick.com/2008/05/28/can-online-help-show-read-wear/</p>
+          </fn> This indicator of use is called “read wear.” Here are some of the ideas to indicate
+          “read wear” that I came up with and people who commented on my blog entry added to. </p>
+        <ul>
+          <li>Model a wiki‘s “most active pages” feature, which shows the page with the most edits.
+            However, the page with the most edits may be more controversial than truthful, so the
+            most popular pages might be more useful.</li>
+          <li>When a user searches, show the <indexterm>search<indexterm
+              >relevance</indexterm></indexterm>most searched-for terms. Users might connect
+            concepts more easily when they understand what others are searching for. </li>
+          <li>Show the most recently viewed knowledge base articles or most popular articles. I
+            found that useful in the past when searching through BMC Software’s rich knowledge base.
+            Just as CNN and other news sites offer a list of the <indexterm>help, online<indexterm
+                >most emailed topics</indexterm></indexterm>most <indexterm>email<indexterm
+                >tracking</indexterm></indexterm>emailed stories per hour, you could show the most
+              emailed<indexterm>help, online<indexterm>emailing topics</indexterm></indexterm>
+            online help topics. </li>
+          <li>Use <indexterm>tagging<indexterm>online help</indexterm></indexterm><indexterm
+                >content<indexterm>tagging</indexterm></indexterm>tag <indexterm>clouds,
+              tag</indexterm>clouds to display read wear as well, with the largest tag indicating
+            the highest number of topics on that subject that users have tagged.</li>
+        </ul>
+        <p>I found that popularity, time spent on the page, rating on a page, and number of edits on
+          a page are the strongest to weakest indicators of read wear for an online content
+          system.</p>
+        <p>Nielsen also encourages the use of <indexterm>content<indexterm>templates
+            for</indexterm></indexterm>templates and draft content so that users don’t have to start
+          from a blank page. I know a writer who pre-filled as many technical articles with as much
+          information as he could before sending the draft copies to his Subject Matter Expert
+          (SME). The SME, a recognized programmer who built software for electronic keyboards,
+          happily added content into the pre-filled articles.</p>
+        <p>Nielsen also says to <indexterm>forums<indexterm>rewarding participation
+            in</indexterm></indexterm>reward, but not over-reward, participants, and he encourages
           the use of a reputation system. I especially like the idea of moderate rewards for
           participation so that dominant profiles do not take over the community. Balance is key,
-          along with recognizing that you won’t overcome the community makeup.</p><p>Growing your
-          community should also contribute to the growth of <indexterm>participation<indexterm
-              >growing</indexterm></indexterm>participation. Andy Oram<indexterm>Oram,
-            Andy</indexterm>’s study<fn><p>
-              http://www.onlamp.com/pub/a/onlamp/2006/07/06/rethinking-community-documentation.html</p></fn>
-          of why people contribute documentation to free and <indexterm>open source<indexterm
+          along with recognizing that you won’t overcome the community makeup.</p>
+        <p>Growing your community should also contribute to the growth of <indexterm
+              >participation<indexterm>growing</indexterm></indexterm>participation. Andy
+            Oram<indexterm>Oram, Andy</indexterm>’s study<fn>
+            <p>
+              http://www.onlamp.com/pub/a/onlamp/2006/07/06/rethinking-community-documentation.html</p>
+          </fn> of why people contribute documentation to free and <indexterm>open source<indexterm
               >contributions to</indexterm></indexterm>open source software projects shows that
-          building communities is the clear winner. </p><p>Applying the 90-9-1 rule makes the
-            <indexterm>communities<indexterm>growing</indexterm></indexterm>growth of a <indexterm
-              >wikis<indexterm>participation, increasing</indexterm></indexterm>community concrete.
-          For example, if you start with 3 writers out of 300 wiki participants and grow the
-          community to 3,000 wiki participants, it’s possible to have 30 contributing heavily to
-          your wiki project if the 1% large contribution number holds throughout the community’s
-          growth.</p><p>Some wiki examples show variances in these percentages, but as described
-          earlier, certain best practices can shift the participant percentages. Following are two
-          examples of wikis that have had their participation percentage values studied.</p><p
-          >Wikipedia Contributors<indexterm>Wikipedia</indexterm>
-        </p><p> The article “Who Writes Wikipedia” by Aaron <indexterm>Swartz,
-          Aaron</indexterm>Swartz discusses the claims made by Jimbo Wales that on Wikipedia, “over
-          50% of all the edits are done by just .7% of the users ... 524 people.” Aaron Swartz
-          describes the story he saw from his studies as follows:</p><lq><p>“When you put it all
-            together, the story become [sic] clear: an outsider makes one edit to add a chunk of
-            information, then insiders make several edits tweaking and reformatting it. In addition,
-            insiders rack up thousands of edits doing things like changing the name of a category
-            across the entire site—the kind of thing only insiders deeply care about. As a result,
-            insiders account for the vast majority of the edits. But it’s the outsiders who provide
-            nearly all of the content.” <fn><p>
-              http://www.aaronsw.com/weblog/whowriteswikipedia</p></fn></p></lq><p><indexterm>MSDN</indexterm>MSDN
-          Community Content Contributors</p><p>Although not precisely a <indexterm>technical
-              documentation<indexterm>wikis and</indexterm></indexterm><indexterm>wikis,
-              examples<indexterm>MSDN</indexterm></indexterm><indexterm>community-generated
-              content<indexterm>MSDN as example of</indexterm></indexterm>wiki, the Microsothat are
-          wiki-like. According to the site as of December 20, 2007,<fn><p>
-              http://msdn2.microsoft.com/en-us/library/default.aspx</p></fn> 1866 edits out of 10851
-          total edits were made by the top five contributors (three of whom are Microsoft
-          employees). That percentage is slightly above 1% at 1.72%. Looking again on April 14,
-          2009, there are two Microsoft employees in the top five. There were over 6000
-          contributions from the top five contributors out of 31615 total edits, but a contribution
-          can be a comment or a topic so it’s more difficult to measure contribution
-          percentages.</p></body></subsection><subsection
-      id="d5e877"><title>Recruit other internal reviewers </title><body><p>Although most online
-          communities strictly adhere to the 90-9-1 rule (where only 1 percent of the community
-          contributes content), you can shift those numbers slightly by recruiting others in your
-          company to offer their perspectives to the wiki and do minor edits and upkeep when needed.
-          Have someone from customer support keep an eye on the recent changes or <indexterm
-              >collaboration<indexterm>wikis and</indexterm></indexterm>comments RSS<indexterm>RSS
-            (Really Simple Syndication)<indexterm>subscribing to wikis</indexterm></indexterm> feed
-          and also ask a marketing or sales representative to do the same.</p></body></subsection><subsection
-      id="d5e891"><title>Do not expect a wiki to fix other broken areas</title><body><p>A wiki is an
-          open documentation system that may reveal flaws in the system faster than you might like.
-          Also, wiki collaboration can be a tricky balancing act, and if your writing team does not
-          already collaborate and share well, a wiki may cause battles over who can see and edit
-          which content items, and lead to other technology-based secrecy problems that can
-          undermine the spirit of the wiki.</p></body></subsection><subsection
-      id="d5e896"><title>Do not build a wiki if customers do not want it</title><body><p>If your
-          customers have not requested a wiki, there’s no need to build one or coerce them into
-          thinking they need one. Instead, “wiki-fy” your documentation set by thinking about other
-          aspects of wikis that you could adopt without actually using a wiki. How about a comment
-          or a <indexterm>help, online<indexterm>rating topics</indexterm></indexterm>rating form on
-          each help topic? Or, set up a method of ensuring that customers or service personnel get
-          credit and perhaps a byline when they make significant contributions? Also realize that
-          your customers may not know all of the features that a wiki could give them, such as
-          notifications on content changes. </p></body></subsection><subsection
-      id="d5e905"><title>Wiki round tripping</title><prolog><metadata><keywords>
+          building communities is the clear winner. </p>
+        <p>Applying the 90-9-1 rule makes the <indexterm>communities<indexterm
+            >growing</indexterm></indexterm>growth of a <indexterm>wikis<indexterm>participation,
+              increasing</indexterm></indexterm>community concrete. For example, if you start with 3
+          writers out of 300 wiki participants and grow the community to 3,000 wiki participants,
+          it’s possible to have 30 contributing heavily to your wiki project if the 1% large
+          contribution number holds throughout the community’s growth.</p>
+        <p>Some wiki examples show variances in these percentages, but as described earlier, certain
+          best practices can shift the participant percentages. Following are two examples of wikis
+          that have had their participation percentage values studied.</p>
+        <p>Wikipedia Contributors<indexterm>Wikipedia</indexterm>
+        </p>
+        <p> The article “Who Writes Wikipedia” by Aaron <indexterm>Swartz, Aaron</indexterm>Swartz
+          discusses the claims made by Jimbo Wales that on Wikipedia, “over 50% of all the edits are
+          done by just .7% of the users ... 524 people.” Aaron Swartz describes the story he saw
+          from his studies as follows:</p>
+        <lq>
+          <p>“When you put it all together, the story become [sic] clear: an outsider makes one edit
+            to add a chunk of information, then insiders make several edits tweaking and
+            reformatting it. In addition, insiders rack up thousands of edits doing things like
+            changing the name of a category across the entire site—the kind of thing only insiders
+            deeply care about. As a result, insiders account for the vast majority of the edits. But
+            it’s the outsiders who provide nearly all of the content.” <fn>
+              <p> http://www.aaronsw.com/weblog/whowriteswikipedia</p>
+            </fn></p>
+        </lq>
+        <p><indexterm>MSDN</indexterm>MSDN Community Content Contributors</p>
+        <p>Although not precisely a <indexterm>technical documentation<indexterm>wikis
+              and</indexterm></indexterm><indexterm>wikis, examples<indexterm
+            >MSDN</indexterm></indexterm><indexterm>community-generated content<indexterm>MSDN as
+              example of</indexterm></indexterm>wiki, the Microsothat are wiki-like. According to
+          the site as of December 20, 2007,<fn>
+            <p> http://msdn2.microsoft.com/en-us/library/default.aspx</p>
+          </fn> 1866 edits out of 10851 total edits were made by the top five contributors (three of
+          whom are Microsoft employees). That percentage is slightly above 1% at 1.72%. Looking
+          again on April 14, 2009, there are two Microsoft employees in the top five. There were
+          over 6000 contributions from the top five contributors out of 31615 total edits, but a
+          contribution can be a comment or a topic so it’s more difficult to measure contribution
+          percentages.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e877">
+      <title>Recruit other internal reviewers </title>
+      <body>
+        <p>Although most online communities strictly adhere to the 90-9-1 rule (where only 1 percent
+          of the community contributes content), you can shift those numbers slightly by recruiting
+          others in your company to offer their perspectives to the wiki and do minor edits and
+          upkeep when needed. Have someone from customer support keep an eye on the recent changes
+          or <indexterm>collaboration<indexterm>wikis and</indexterm></indexterm>comments
+            RSS<indexterm>RSS (Really Simple Syndication)<indexterm>subscribing to
+            wikis</indexterm></indexterm> feed and also ask a marketing or sales representative to
+          do the same.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e891">
+      <title>Do not expect a wiki to fix other broken areas</title>
+      <body>
+        <p>A wiki is an open documentation system that may reveal flaws in the system faster than
+          you might like. Also, wiki collaboration can be a tricky balancing act, and if your
+          writing team does not already collaborate and share well, a wiki may cause battles over
+          who can see and edit which content items, and lead to other technology-based secrecy
+          problems that can undermine the spirit of the wiki.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e896">
+      <title>Do not build a wiki if customers do not want it</title>
+      <body>
+        <p>If your customers have not requested a wiki, there’s no need to build one or coerce them
+          into thinking they need one. Instead, “wiki-fy” your documentation set by thinking about
+          other aspects of wikis that you could adopt without actually using a wiki. How about a
+          comment or a <indexterm>help, online<indexterm>rating topics</indexterm></indexterm>rating
+          form on each help topic? Or, set up a method of ensuring that customers or service
+          personnel get credit and perhaps a byline when they make significant contributions? Also
+          realize that your customers may not know all of the features that a wiki could give them,
+          such as notifications on content changes. </p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e905">
+      <title>Wiki round tripping</title>
+      <prolog>
+        <metadata>
+          <keywords>
             <indexterm>round tripping, wiki</indexterm>
-          </keywords></metadata></prolog><body><p><indexterm>wikis<indexterm>single-sourcing
-              content</indexterm></indexterm><indexterm>content<indexterm>round
-            tripping</indexterm></indexterm>Single-sourcing—<indexterm>wikis<indexterm>round
-              tripping</indexterm></indexterm>writing once and <indexterm>publishing<indexterm>wiki
-              content</indexterm></indexterm>publishing the <indexterm>content<indexterm
-              >single-sourcing</indexterm></indexterm>content to many different formats—has been a
-          popular documentation method for many years now. Many technical writers already write in a
-            single-sourcing<indexterm>single-sourcing</indexterm> environment and wonder if a wiki
-          is yet another output. I’d suggest different approaches for wiki as source and wiki as
-          output, depending on the type of content and the community that you expect to contribute
-          to the wiki. </p><p>Wiki round tripping is the conversion from source to wiki and back. It
-          may mean processing information files in XML or XHTML, generating output to a wiki in
-          wikitext, collecting the changes on the wiki, and folding them back into the source files,
+          </keywords>
+        </metadata>
+      </prolog>
+      <body>
+        <p><indexterm>wikis<indexterm>single-sourcing content</indexterm></indexterm><indexterm
+              >content<indexterm>round tripping</indexterm></indexterm>Single-sourcing—<indexterm
+              >wikis<indexterm>round tripping</indexterm></indexterm>writing once and <indexterm
+              >publishing<indexterm>wiki content</indexterm></indexterm>publishing the <indexterm
+              >content<indexterm>single-sourcing</indexterm></indexterm>content to many different
+          formats—has been a popular documentation method for many years now. Many technical writers
+          already write in a single-sourcing<indexterm>single-sourcing</indexterm> environment and
+          wonder if a wiki is yet another output. I’d suggest different approaches for wiki as
+          source and wiki as output, depending on the type of content and the community that you
+          expect to contribute to the wiki. </p>
+        <p>Wiki round tripping is the conversion from source to wiki and back. It may mean
+          processing information files in XML or XHTML, generating output to a wiki in wikitext,
+          collecting the changes on the wiki, and folding them back into the source files,
           effectively taking the content on a trip around from source to wiki to source. Here are
-          some suggestions for methods that may work. </p><ul><li>True round tripping in a wiki is
-            feasible, if you don’t mind edits coming through the wiki back into your source. This
-            type of round trip essentially means that the wiki is a source of content. </li><li>A
-            round trip in which the wiki is the continual output would mean that every time you
+          some suggestions for methods that may work. </p>
+        <ul>
+          <li>True round tripping in a wiki is feasible, if you don’t mind edits coming through the
+            wiki back into your source. This type of round trip essentially means that the wiki is a
+            source of content. </li>
+          <li>A round trip in which the wiki is the continual output would mean that every time you
             publish the single source, you publish to a wiki. In this type of round trip, the
             ability to view a revision history is essential for the wiki community to understand
-            what changed after the “publishing round trip event” occurred.</li><li>A round trip in
-            which the wiki is static and published as-is to another format, such as a book or
-              PDF<indexterm>PDF, as wiki output</indexterm>, is yet another model. </li><li>You can
-            populate a wiki with content that is written in an easy-to-use authoring system with
-            which your writers are familiar. This method is an excellent way to get an active wiki
-            up and running. However, if you intend for the wiki to be more than just a fancy
-              <indexterm>help, online<indexterm>compared to wikis</indexterm></indexterm>help system
-            with comments, and you want to allow for community edits, then your wiki becomes the
-            source from that initial publishing point onward. </li></ul><p>Another idea in the wiki
-          round tripping arena is using DITA<indexterm>DITA</indexterm> as an in-between
-          authoring-source-and-wiki-storage mechanism. At <indexterm>IBM<indexterm>BlueBooks
-              wiki</indexterm></indexterm>IBM, they have successfully converted unstructured
-          FrameMaker chapters into DITA topics and then used XSLT to write to <indexterm
-              >MediaWiki<indexterm>from FrameMaker to</indexterm></indexterm>MediaWiki for an
-          internal wiki used by their 60,000 services personnel to document complex and specific
+            what changed after the “publishing round trip event” occurred.</li>
+          <li>A round trip in which the wiki is static and published as-is to another format, such
+            as a book or PDF<indexterm>PDF, as wiki output</indexterm>, is yet another model. </li>
+          <li>You can populate a wiki with content that is written in an easy-to-use authoring
+            system with which your writers are familiar. This method is an excellent way to get an
+            active wiki up and running. However, if you intend for the wiki to be more than just a
+            fancy <indexterm>help, online<indexterm>compared to wikis</indexterm></indexterm>help
+            system with comments, and you want to allow for community edits, then your wiki becomes
+            the source from that initial publishing point onward. </li>
+        </ul>
+        <p>Another idea in the wiki round tripping arena is using DITA<indexterm>DITA</indexterm> as
+          an in-between authoring-source-and-wiki-storage mechanism. At <indexterm>IBM<indexterm
+              >BlueBooks wiki</indexterm></indexterm>IBM, they have successfully converted
+          unstructured FrameMaker chapters into DITA topics and then used XSLT to write to
+            <indexterm>MediaWiki<indexterm>from FrameMaker to</indexterm></indexterm>MediaWiki for
+          an internal wiki used by their 60,000 services personnel to document complex and specific
           configurations for optimal performance or for best practices. These special documents are
           called RedBooks, and the BlueBooks wiki uses RedBooks content to allow experts to
           collaborate with each other on revisions of existing content. DITA serves as a data
-          conduit, allowing the information to flow into the wiki.</p><p>Round tripping wiki content
-          might be necessary only if you cannot adjust to the wiki as your authoring environment.
-          You might have business reasons for protecting the content by strictly limiting authors,
-          or you might be able to gain efficiencies or get a particular output by using an
-          already-familiar authoring tool. </p><p>Business cases for round tripping include the need
-          to tap into an existing technical person already recognized in the field by allowing their
-          wiki edits to return to the single-sourced content, the need for high-quality print output
-          from a source other than the wiki, and the need to keep the tool “experts” within the
-          non-wiki tool with which they are familiar. Other considerations include the volume of
-          edits, the need for semantic markup, the amount of “workaround” documentation that might
-          cause contention on an external wiki, and the audience itself. </p></body></subsection><subsection
-      id="d5e976"><title>Single-sourcing in XML and repurposing the content</title><body><p>Wikis
-          can be sourced from other files or document types, including XML schemas like
+          conduit, allowing the information to flow into the wiki.</p>
+        <p>Round tripping wiki content might be necessary only if you cannot adjust to the wiki as
+          your authoring environment. You might have business reasons for protecting the content by
+          strictly limiting authors, or you might be able to gain efficiencies or get a particular
+          output by using an already-familiar authoring tool. </p>
+        <p>Business cases for round tripping include the need to tap into an existing technical
+          person already recognized in the field by allowing their wiki edits to return to the
+          single-sourced content, the need for high-quality print output from a source other than
+          the wiki, and the need to keep the tool “experts” within the non-wiki tool with which they
+          are familiar. Other considerations include the volume of edits, the need for semantic
+          markup, the amount of “workaround” documentation that might cause contention on an
+          external wiki, and the audience itself. </p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e976">
+      <title>Single-sourcing in XML and repurposing the content</title>
+      <body>
+        <p>Wikis can be sourced from other files or document types, including XML schemas like
             DITA<indexterm>DITA</indexterm>. If you use single-sourced content to populate or seed a
           wiki initially, you may also consider round tripping the content. If you’re trying to make
           a help system that looks like a wiki, but you are not taking advantage of the
           collaborative and crowdsourcing<indexterm>crowdsourcing</indexterm> aspects of a wiki, you
           just have a help system on the web. Also, the source files from which you created the wiki
           become effectively dead content if you go to the wiki and never re-connect back to the
-          source files.</p><p>But there are content models that work well with a wiki as the
-          published output from XML source. You can use the wiki as a deliverable, and use it not
-          for editing but to collect end-user comments and offer notifications. </p><p>You may have
-          another wiki published from XML source where only consultants have editing capabilities. A
-          few people would contribute to that type of wiki and edit the articles that are pre-seeded
-          by an information development team. In a wiki for such a focused audience, technical
-          debate about scenarios and implementations may occur. Any edits to wiki pages would be
-          manageable to manually change in your XML source files. </p><p>If your wiki becomes the
-          single source, and you output <indexterm>wikis<indexterm>PDF output
-            from</indexterm></indexterm>PDFs or <indexterm>wikislices</indexterm>wikislices from it,
-          be aware that wiki syntax<indexterm>wikis<indexterm>syntax</indexterm></indexterm> is, for
-          many, a step backwards to the days of manual markup and may not be as quick and efficient
-          as today’s authoring tools. You may be limited to only the subset of HTML markup that the
-          wiki allows, or you may have access to complex macros, but at the cost of having to learn
-          the macro language for the wiki application and perhaps teach other users.
-      </p></body></subsection><subsection
-      id="d5e1005"><title>Understanding wiki patterns and wiki structures</title><body><p
-          >Wikipatterns.com is an extremely useful site to help you start <indexterm>wikis<indexterm
+          source files.</p>
+        <p>But there are content models that work well with a wiki as the published output from XML
+          source. You can use the wiki as a deliverable, and use it not for editing but to collect
+          end-user comments and offer notifications. </p>
+        <p>You may have another wiki published from XML source where only consultants have editing
+          capabilities. A few people would contribute to that type of wiki and edit the articles
+          that are pre-seeded by an information development team. In a wiki for such a focused
+          audience, technical debate about scenarios and implementations may occur. Any edits to
+          wiki pages would be manageable to manually change in your XML source files. </p>
+        <p>If your wiki becomes the single source, and you output <indexterm>wikis<indexterm>PDF
+              output from</indexterm></indexterm>PDFs or <indexterm>wikislices</indexterm>wikislices
+          from it, be aware that wiki syntax<indexterm>wikis<indexterm
+            >syntax</indexterm></indexterm> is, for many, a step backwards to the days of manual
+          markup and may not be as quick and efficient as today’s authoring tools. You may be
+          limited to only the subset of HTML markup that the wiki allows, or you may have access to
+          complex macros, but at the cost of having to learn the macro language for the wiki
+          application and perhaps teach other users. </p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e1005">
+      <title>Understanding wiki patterns and wiki structures</title>
+      <body>
+        <p>Wikipatterns.com is an extremely useful site to help you start <indexterm>wikis<indexterm
               >patterns</indexterm></indexterm>wiki writing or maintenance. The book of the same
           name gives insights into wiki adoption and offers valuable case studies. Wiki patterns and
           other design patterns originate conceptually from architecture patterns. For example, an
@@ -602,231 +796,339 @@
           this structure?” For a wiki, a comparison to an entryway pattern might be the welcoming
           pattern, where a current wiki contributor leaves a note on a new wiki contributor’s
             “<indexterm>wikis<indexterm>talk pages</indexterm></indexterm>talk” page or drops them a
-          welcoming email after their first edit.</p><p>Wiki patterns help you understand the people
-          patterns and adoption patterns for the wiki. One adoption anti-pattern is Too much
-            structure.<fn><p>
-            http://wikipatterns.com/display/wikipatterns/Too+much+structure</p></fn> When you
-          overload a wiki with strict guidelines or lots of empty pages, trying to get people to
-          contribute, you may notice that the wiki does not grow organically like you hoped. In
-          Wikipatterns, Stewart Mader suggests, “A wiki will evolve into the optimal organization of
-          information as people use it, and it’s better to adjust the structure based on the
-          content, instead of the other way around.” If a wiki is meant to be a content deliverable,
-          strict hierarchy may work just fine to help readers find content. But a wiki that you
-          expect to have contributions to should have the flexibility to grow as the community sees
-          fit. </p></body></subsection><subsection
-      id="d5e1025"><title>Inheriting or maintaining a large wiki</title><body><p>Some wikis are
-          already in place and in a certain state by the time you are introduced to them. How can
-          you begin work on a large wiki, and what are some areas where you can help by contributing
-          to wiki content?</p><p>With the <indexterm>One Laptop per Child<indexterm
-            >wiki</indexterm></indexterm>OLPC wiki, an individual contributor, David <indexterm
-            >Farning, David</indexterm>Farning, went through the wiki and found the following
-          categories. It’s an accurate content analysis based on my experience with the wiki. It was
-          impressive and also helped explain my initial bewilderment at how to wrap my arms around
-          the entire wiki.</p><ul><li>Philosophy</li><li>Contributing</li><li>Creating</li><li
-            >Curating</li><li>Projects</li><li>Deliverable</li><li>In progress</li><li>Ideas</li><li
-            >Management</li></ul><p>After the volunteer came up with these categories, he asked SJ
-            <indexterm>Klein, SJ</indexterm>Klein, director of community content<indexterm
-            >community-generated content<indexterm>contributions to</indexterm></indexterm> and
-          long-time Wikipedian, if he thought the wiki needed structure. SJ Klein said that a wiki
-          is purposefully without hierarchy (flat), especially for projects, to not force a parent
-          or sibling sense for projects. He also said, however, that if you have a specific tree
-          hierarchy in mind, feel free to develop the idea in some temporary space. So, when you are
-          working on a large wiki, if you have some good ideas about organization, set them up and
-          then ask for community feedback. </p><p>Here are a few more ideas for starting out in a
-          large wiki environment:</p><ul><li>Although the task might seem similar to starting a
-            large writing project, I have found that wiki editing has some subtle differences
-            because of the collaboration and community “vibe” already present behind the pages. You
-            have to work to figure out that vibe, and then determine your course. New people must
-            get a feel for the community so that they can figure out who they might irritate or
-            please by editing a topic and whether they have the confidence to provide correct
-            content.</li><li>Figure out your role within the wiki community. It might take a while
-            for you to get to know who’s there, what <i>their</i> roles are, and where you might
-            best fit in. Introduce yourself with your profile<indexterm>profile, online</indexterm>
-            page, following the wiki pattern, <indexterm>MySpace<indexterm>wiki
-              pattern</indexterm></indexterm>MySpace.<fn><p>
-                http://www.wikipatterns.com/display/wikipatterns/MySpace</p></fn></li><li>Just like
-            a newbie on a writing team, find out if there’s some “grunt work” that you can do to get
-            your feet wet and to gain the community’s trust.</li><li>Deletions in a wiki can incur
-            some wrath, so they seem risky to do when you are starting out. If you do think some
-            content should be deleted, contact the original author or the big contributors and ask
-            whether you can mark it for deletion. Then, mark it and hope that someone else (a wiki
-            administrator) determines that it should be deleted.</li><li>Start small by <indexterm
-                >tagging<indexterm>wiki content</indexterm></indexterm>tagging or applying
-            templates. Those tasks help you get a feel for the bigger picture.</li></ul><p>If you
-          want to coach others who come to your <indexterm>wikis<indexterm>collaboration
+          welcoming email after their first edit.</p>
+        <p>Wiki patterns help you understand the people patterns and adoption patterns for the wiki.
+          One adoption anti-pattern is Too much structure.<fn>
+            <p> http://wikipatterns.com/display/wikipatterns/Too+much+structure</p>
+          </fn> When you overload a wiki with strict guidelines or lots of empty pages, trying to
+          get people to contribute, you may notice that the wiki does not grow organically like you
+          hoped. In Wikipatterns, Stewart Mader suggests, “A wiki will evolve into the optimal
+          organization of information as people use it, and it’s better to adjust the structure
+          based on the content, instead of the other way around.” If a wiki is meant to be a content
+          deliverable, strict hierarchy may work just fine to help readers find content. But a wiki
+          that you expect to have contributions to should have the flexibility to grow as the
+          community sees fit. </p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e1025">
+      <title>Inheriting or maintaining a large wiki</title>
+      <body>
+        <p>Some wikis are already in place and in a certain state by the time you are introduced to
+          them. How can you begin work on a large wiki, and what are some areas where you can help
+          by contributing to wiki content?</p>
+        <p>With the <indexterm>One Laptop per Child<indexterm>wiki</indexterm></indexterm>OLPC wiki,
+          an individual contributor, David <indexterm>Farning, David</indexterm>Farning, went
+          through the wiki and found the following categories. It’s an accurate content analysis
+          based on my experience with the wiki. It was impressive and also helped explain my initial
+          bewilderment at how to wrap my arms around the entire wiki.</p>
+        <ul>
+          <li>Philosophy</li>
+          <li>Contributing</li>
+          <li>Creating</li>
+          <li>Curating</li>
+          <li>Projects</li>
+          <li>Deliverable</li>
+          <li>In progress</li>
+          <li>Ideas</li>
+          <li>Management</li>
+        </ul>
+        <p>After the volunteer came up with these categories, he asked SJ <indexterm>Klein,
+            SJ</indexterm>Klein, director of community content<indexterm>community-generated
+              content<indexterm>contributions to</indexterm></indexterm> and long-time Wikipedian,
+          if he thought the wiki needed structure. SJ Klein said that a wiki is purposefully without
+          hierarchy (flat), especially for projects, to not force a parent or sibling sense for
+          projects. He also said, however, that if you have a specific tree hierarchy in mind, feel
+          free to develop the idea in some temporary space. So, when you are working on a large
+          wiki, if you have some good ideas about organization, set them up and then ask for
+          community feedback. </p>
+        <p>Here are a few more ideas for starting out in a large wiki environment:</p>
+        <ul>
+          <li>Although the task might seem similar to starting a large writing project, I have found
+            that wiki editing has some subtle differences because of the collaboration and community
+            “vibe” already present behind the pages. You have to work to figure out that vibe, and
+            then determine your course. New people must get a feel for the community so that they
+            can figure out who they might irritate or please by editing a topic and whether they
+            have the confidence to provide correct content.</li>
+          <li>Figure out your role within the wiki community. It might take a while for you to get
+            to know who’s there, what <i>their</i> roles are, and where you might best fit in.
+            Introduce yourself with your profile<indexterm>profile, online</indexterm> page,
+            following the wiki pattern, <indexterm>MySpace<indexterm>wiki
+              pattern</indexterm></indexterm>MySpace.<fn>
+              <p> http://www.wikipatterns.com/display/wikipatterns/MySpace</p>
+            </fn></li>
+          <li>Just like a newbie on a writing team, find out if there’s some “grunt work” that you
+            can do to get your feet wet and to gain the community’s trust.</li>
+          <li>Deletions in a wiki can incur some wrath, so they seem risky to do when you are
+            starting out. If you do think some content should be deleted, contact the original
+            author or the big contributors and ask whether you can mark it for deletion. Then, mark
+            it and hope that someone else (a wiki administrator) determines that it should be
+            deleted.</li>
+          <li>Start small by <indexterm>tagging<indexterm>wiki
+            content</indexterm></indexterm>tagging or applying templates. Those tasks help you get a
+            feel for the bigger picture.</li>
+        </ul>
+        <p>If you want to coach others who come to your <indexterm>wikis<indexterm>collaboration
               in</indexterm></indexterm>wiki looking to do editing, you might look at the
-          Mozillazine Knowledge Base’s guidelines on their About page.<fn><p>
-              http://kb.mozillazine.org/MozillaZine_Knowledge_Base:About</p></fn> For writers who
-          want to come in and “make big changes,” their wiki states “If you want to propose changes
-          that affect a number of articles, for example a new categorization system or a generally
-          reformatting of a class of articles, you should make your suggestion at [the wiki page]
-          Knowledge Base changes. Doing so will give other editors and chance to give their opinions
-          on the proposal. Even if you don’t think your change will be implemented, we’re still
-          interested in hearing your opinions.”<fn><p>
-              http://kb.mozillazine.org/Knowledge_Base_changes</p></fn> I appreciate this
-          informative and welcoming statement because it helps contributors understand the way to
-          approach their large wiki and its community members.</p></body></subsection></subsection><subsection
-    id="d5e1115"><title>Alternatives when a wiki is not the right match </title><body><p>If you
-        determine that business objectives do not warrant a conversation or community-based
+          Mozillazine Knowledge Base’s guidelines on their About page.<fn>
+            <p> http://kb.mozillazine.org/MozillaZine_Knowledge_Base:About</p>
+          </fn> For writers who want to come in and “make big changes,” their wiki states “If you
+          want to propose changes that affect a number of articles, for example a new categorization
+          system or a generally reformatting of a class of articles, you should make your suggestion
+          at [the wiki page] Knowledge Base changes. Doing so will give other editors and chance to
+          give their opinions on the proposal. Even if you don’t think your change will be
+          implemented, we’re still interested in hearing your opinions.”<fn>
+            <p> http://kb.mozillazine.org/Knowledge_Base_changes</p>
+          </fn> I appreciate this informative and welcoming statement because it helps contributors
+          understand the way to approach their large wiki and its community members.</p>
+      </body>
+    </subsection>
+  </subsection>
+  <subsection
+    id="d5e1115">
+    <title>Alternatives when a wiki is not the right match </title>
+    <body>
+      <p>If you determine that business objectives do not warrant a conversation or community-based
         documentation, such as a wiki or customer-focused blog, you might consider different ways of
-        implementing the changes to your current documentation output or methods.</p></body><subsection
-      id="d5e1119"><title>Online help possibilities</title><body><p>If you are evaluating tools for
-            <indexterm>wikis<indexterm>comparison to online help</indexterm></indexterm><indexterm
-              >content<indexterm>online help</indexterm></indexterm>online help, you may want to
-          seek out online help tools that integrate <indexterm>comments<indexterm>in
-              help</indexterm></indexterm>comments, community, or <indexterm>conversations<indexterm
-              >enabling</indexterm></indexterm>conversation within the documentation.</p><p>An
-          important first step may be to get your user assistance on the Internet. If your
+        implementing the changes to your current documentation output or methods.</p>
+    </body>
+    <subsection
+      id="d5e1119">
+      <title>Online help possibilities</title>
+      <body>
+        <p>If you are evaluating tools for <indexterm>wikis<indexterm>comparison to online
+              help</indexterm></indexterm><indexterm>content<indexterm>online
+            help</indexterm></indexterm>online help, you may want to seek out online help tools that
+          integrate <indexterm>comments<indexterm>in help</indexterm></indexterm>comments,
+          community, or <indexterm>conversations<indexterm
+          >enabling</indexterm></indexterm>conversation within the documentation.</p>
+        <p>An important first step may be to get your user assistance on the Internet. If your
             <indexterm>help, online<indexterm>searching within</indexterm></indexterm>online help is
           not <indexterm>search<indexterm>online help and</indexterm></indexterm>searchable because
           it is not on the Internet, consider ways to put it online rather than offline.<indexterm
-            >help, online<indexterm>integrating conversations in</indexterm></indexterm></p><p
-          >Consider a <indexterm>help, online<indexterm>feedback
+            >help, online<indexterm>integrating conversations in</indexterm></indexterm></p>
+        <p>Consider a <indexterm>help, online<indexterm>feedback
           tools</indexterm></indexterm>feedback server or Javascript solution that offers tools that
           enable <indexterm>comments<indexterm>in help</indexterm></indexterm>comments and other
           social web integrations. You may want to implement a rating system for each help topic or
           a comment form for each topic. Wiki applications already provide these features, but you
-          may be able to integrate a rating system using existing web content tools.</p><p>If you
-          decide to share the contents of your online <indexterm>help, online<indexterm
+          may be able to integrate a rating system using existing web content tools.</p>
+        <p>If you decide to share the contents of your online <indexterm>help, online<indexterm
               >licensing</indexterm></indexterm>help by licensing it with a <indexterm>Creative
             Commons license</indexterm>Creative Commons license, you could embed the CC image at the
-          bottom of each page and change the licensing information page in your online help. </p><p
-          >The following table offers some questions to ask about your online help system to look
-          for possibilities for integrating conversations or
-    communities.</p></body></subsection></subsection><subsection
-    id="d5e1185"><title>Talking with writers of wikis</title><body><p>You can learn from writers who
-        document their products with wikis. This interview is with <indexterm>Elling,
-          Dee</indexterm>Dee Elling, who maintains a wiki about CodeGear for Embarcadero. While
-        researching my STC <i>Intercom</i> article about wikis and technical documentation<fn><p>
-            https://www.stc.org/intercom/PDFs/2007/20070910_16-19.pdf</p></fn>, I interviewed Dee
-        Elling via phone and email because she left a helpful comment on my talk.bmc.com blog entry
-        about a DITA<indexterm>DITA</indexterm> and wiki combo. Dee’s the manager of the
-        documentation group at CodeGear and she blogs at http://blogs.codegear.com/deeelling/.</p><p
-        >Interview about wikis for technical documentation with Dee Elling of Embarcadero</p><p><i
-          >July 26th, 2007 </i></p><p><ph>Anne</ph>: What are some of the factors for selecting a
-        wiki software package?</p><p><ph>Dee</ph>: <i>I’ve encountered hesitation from some writers
-          about using a markup interface. Many writers preferred a Word-like GUI interface, such as
+          bottom of each page and change the licensing information page in your online help. </p>
+        <p>The following table offers some questions to ask about your online help system to look
+          for possibilities for integrating conversations or communities.</p>
+      </body>
+    </subsection>
+  </subsection>
+  <subsection
+    id="d5e1185">
+    <title>Talking with writers of wikis</title>
+    <body>
+      <p>You can learn from writers who document their products with wikis. This interview is with
+          <indexterm>Elling, Dee</indexterm>Dee Elling, who maintains a wiki about CodeGear for
+        Embarcadero. While researching my STC <i>Intercom</i> article about wikis and technical
+          documentation<fn>
+          <p> https://www.stc.org/intercom/PDFs/2007/20070910_16-19.pdf</p>
+        </fn>, I interviewed Dee Elling via phone and email because she left a helpful comment on my
+        talk.bmc.com blog entry about a DITA<indexterm>DITA</indexterm> and wiki combo. Dee’s the
+        manager of the documentation group at CodeGear and she blogs at
+        http://blogs.codegear.com/deeelling/.</p>
+      <p>Interview about wikis for technical documentation with Dee Elling of Embarcadero</p>
+      <p><i>July 26th, 2007 </i></p>
+      <p><ph>Anne</ph>: What are some of the factors for selecting a wiki software package?</p>
+      <p><ph>Dee</ph>: <i>I’ve encountered hesitation from some writers about using a markup
+          interface. Many writers preferred a Word-like GUI interface, such as
           Confluence</i><indexterm>Confluence</indexterm><i> provides. Another consideration is
           cost, since there is not always a budget for new systems; at CodeGear we use
           </i><indexterm>MediaWiki<indexterm>at CodeGear</indexterm></indexterm><i>MediaWiki.
           Primarily we manage internal information such as schedules and doc plans; lately we are
-          collaborating with engineers to write FAQs and release notes.</i></p><p><i>At my previous
-          employer, one engineering team was writing the documentation themselves on the wiki (using
-          outlines provided by the writer), and the writer cleaned it up and converted it to
-          PDF</i><indexterm>PDF, as wiki output</indexterm><i> for distribution with the product.
-          That is a great use case which I believe could seed the adoption</i><indexterm>adopting
-          wikis in documentation process</indexterm><i> of wikis into the documentation process,
-          especially in companies where there are limited doc resources.</i></p><p><i>At CodeGear I
-          can post copyrighted material to our Developer Network. The Developer Network technology
-          allows comments on postings, which is not the same as wiki but a good start. Since
-          joining, I have started to post traditional doc content as “articles” there. I’ve already
-          fixed a few doc issues due to rapid customer feedback! We are also working on a design to
-          make the website interface more wiki-like.</i></p><p><ph>Anne</ph>: How do you get legal
-        approval for such an open-edit site?</p><p><ph>Dee</ph>: <i>At my previous company I never
-          got to the stage of implementing a public wiki. However I had many discussions about the
-          legal aspects related to the product documentation. The legal aspects seem complex, but
-          lawyers can write new terms for new situations.</i></p><p><i>At CodeGear the issue will
-          involve intellectual property, but the user base is so active on the internet that there
-          are few “secrets”. More important will be the issue of releasing information too soon or
-          otherwise getting in trouble with SOX compliance. (That makes my head spin!)</i></p><p><ph
-          >Anne</ph>: What are the considerations when choosing where the wiki is hosted?</p><p><ph
-          >Dee</ph>: <i>Cost and reliability are factors, but most important is buy-in from the IT
-          department, who would likely manage the hosting.</i></p><p><ph>Anne</ph>: Which types of
-        products are best targeted for a wiki?</p><p><ph>Dee</ph>: <i>Complex software products are
-          a good example. There is so much flexibility in software and product documentation cannot
-          cover every use case. The wiki lets </i><indexterm>collaboration<indexterm>with
-            customers</indexterm></indexterm><i>customers add content that is relevant to their own
-          use cases, and that will benefit others.</i></p><p><ph>Anne</ph>: How can you encourage
-        your users to contribute?</p><p><ph>Dee</ph>: <i>Keeping up a dialog with the customers is
-          helpful. If you respond to them, a dialog develops, and they are more likely to contribute
-          again.</i></p><p><ph>Anne</ph>: What are some of the success factors for the wikis that
-        contain technical documentation?</p><p><ph>Dee</ph>: <i>Does it result in more positive
-          feedback from customers? Do customers help each other and contribute to strengthening the
-          installed base? Does it increase product visibility and mindshare in the market? Is it
-          perceived as a strategic advantage over competitors? Does it cut down on tech support
-          phone calls?</i></p><p><ph>Anne</ph>: What traps should be avoided?</p><p><ph>Dee</ph>: <i
-          >The trap of not responding or not paying attention. Writers must diligently track the
-          “living documents” they have created, and they must truly collaborate. If customers
-          contribute and their contributions go unrecognized, they may think that the company is not
-          fully supporting them.</i></p><p><i>Public wiki documentation must be actively managed and
-          that takes more writer effort than in the past, when documents were forgotten as soon as
-          they went to manufacturing. Contrary to the fear that with wikis you don’t need writers
-          anymore, I believe that with wikis the role of the writer will
-    grow.</i></p></body></subsection><subsection
-    id="d5e1333"><title>Wiki examples</title><body><p>This section contains examples of some of the
-        highest profile wikis in use today for technical documentation, targeting end-users of a
-        product or service, or assisting developers in their tasks. Although only a small number of
-        technical documentation wikis are publicly available, I believe that many more wikis are
-        used internally in companies to enhance <indexterm>collaboration<indexterm
-            >internal</indexterm></indexterm>collaboration within a company.</p></body><subsection
-      id="d5e1342"><title>Adobe Labs</title><body><p>labs.adobe.com/wiki</p><p>The Adobe Labs <indexterm>wikis,
-              examples<indexterm>Adobe Labs</indexterm></indexterm>wiki (see ) targets developers
-          using Adobe technology and is one of the top wikis for daily-use statistics according to
-          Alexa rank.<fn><p>
-              http://www.alexa.com/site/ds/top_sites?ts_mode=global&amp;lang=none&amp;page=1</p></fn>
-          This example shows how a <indexterm>communities<indexterm>wikis
-            supporting</indexterm></indexterm>community can build up around a wiki—developers
+          collaborating with engineers to write FAQs and release notes.</i></p>
+      <p><i>At my previous employer, one engineering team was writing the documentation themselves
+          on the wiki (using outlines provided by the writer), and the writer cleaned it up and
+          converted it to PDF</i><indexterm>PDF, as wiki output</indexterm><i> for distribution with
+          the product. That is a great use case which I believe could seed the
+          adoption</i><indexterm>adopting wikis in documentation process</indexterm><i> of wikis
+          into the documentation process, especially in companies where there are limited doc
+          resources.</i></p>
+      <p><i>At CodeGear I can post copyrighted material to our Developer Network. The Developer
+          Network technology allows comments on postings, which is not the same as wiki but a good
+          start. Since joining, I have started to post traditional doc content as “articles” there.
+          I’ve already fixed a few doc issues due to rapid customer feedback! We are also working on
+          a design to make the website interface more wiki-like.</i></p>
+      <p><ph>Anne</ph>: How do you get legal approval for such an open-edit site?</p>
+      <p><ph>Dee</ph>: <i>At my previous company I never got to the stage of implementing a public
+          wiki. However I had many discussions about the legal aspects related to the product
+          documentation. The legal aspects seem complex, but lawyers can write new terms for new
+          situations.</i></p>
+      <p><i>At CodeGear the issue will involve intellectual property, but the user base is so active
+          on the internet that there are few “secrets”. More important will be the issue of
+          releasing information too soon or otherwise getting in trouble with SOX compliance. (That
+          makes my head spin!)</i></p>
+      <p><ph>Anne</ph>: What are the considerations when choosing where the wiki is hosted?</p>
+      <p><ph>Dee</ph>: <i>Cost and reliability are factors, but most important is buy-in from the IT
+          department, who would likely manage the hosting.</i></p>
+      <p><ph>Anne</ph>: Which types of products are best targeted for a wiki?</p>
+      <p><ph>Dee</ph>: <i>Complex software products are a good example. There is so much flexibility
+          in software and product documentation cannot cover every use case. The wiki lets
+          </i><indexterm>collaboration<indexterm>with customers</indexterm></indexterm><i>customers
+          add content that is relevant to their own use cases, and that will benefit others.</i></p>
+      <p><ph>Anne</ph>: How can you encourage your users to contribute?</p>
+      <p><ph>Dee</ph>: <i>Keeping up a dialog with the customers is helpful. If you respond to them,
+          a dialog develops, and they are more likely to contribute again.</i></p>
+      <p><ph>Anne</ph>: What are some of the success factors for the wikis that contain technical
+        documentation?</p>
+      <p><ph>Dee</ph>: <i>Does it result in more positive feedback from customers? Do customers help
+          each other and contribute to strengthening the installed base? Does it increase product
+          visibility and mindshare in the market? Is it perceived as a strategic advantage over
+          competitors? Does it cut down on tech support phone calls?</i></p>
+      <p><ph>Anne</ph>: What traps should be avoided?</p>
+      <p><ph>Dee</ph>: <i>The trap of not responding or not paying attention. Writers must
+          diligently track the “living documents” they have created, and they must truly
+          collaborate. If customers contribute and their contributions go unrecognized, they may
+          think that the company is not fully supporting them.</i></p>
+      <p><i>Public wiki documentation must be actively managed and that takes more writer effort
+          than in the past, when documents were forgotten as soon as they went to manufacturing.
+          Contrary to the fear that with wikis you don’t need writers anymore, I believe that with
+          wikis the role of the writer will grow.</i></p>
+    </body>
+  </subsection>
+  <subsection
+    id="d5e1333">
+    <title>Wiki examples</title>
+    <body>
+      <p>This section contains examples of some of the highest profile wikis in use today for
+        technical documentation, targeting end-users of a product or service, or assisting
+        developers in their tasks. Although only a small number of technical documentation wikis are
+        publicly available, I believe that many more wikis are used internally in companies to
+        enhance <indexterm>collaboration<indexterm>internal</indexterm></indexterm>collaboration
+        within a company.</p>
+    </body>
+    <subsection
+      id="d5e1342">
+      <title>Adobe Labs</title>
+      <body>
+        <p>labs.adobe.com/wiki</p>
+        <p>The Adobe Labs <indexterm>wikis, examples<indexterm>Adobe
+          Labs</indexterm></indexterm>wiki (see ) targets developers using Adobe technology and is
+          one of the top wikis for daily-use statistics according to Alexa rank.<fn>
+            <p> http://www.alexa.com/site/ds/top_sites?ts_mode=global&amp;lang=none&amp;page=1</p>
+          </fn> This example shows how a <indexterm>communities<indexterm>wikis
+              supporting</indexterm></indexterm>community can build up around a wiki—developers
           helping other developers accomplish a specific task. This type of wiki can help build
           communities of practice more quickly than at any time prior to the introduction of wiki
-          te</p></body></subsection><subsection
-      id="d5e1363"><title>he </title><prolog><metadata><keywords>
+          te</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e1363">
+      <title>he </title>
+      <prolog>
+        <metadata>
+          <keywords>
             <indexterm>Apache</indexterm>
-          </keywords></metadata></prolog><body><p>wiki.apache.org</p><p>Apache <indexterm>wikis,
-              examples<indexterm>Apache</indexterm></indexterm>is a collection of <indexterm>open
-              source<indexterm>Apache</indexterm></indexterm>open source tools that run the majority
-          of web servers on the Internet. Apache is one of the best-known successful open source
-          software examples, and it is a natural choice for its documentation to be available in a
-          wiki (see ), open to all for editing and contribution.</p></body></subsection><subsection
-      id="d5e1384"><title>eBay </title><prolog><metadata><keywords>
+          </keywords>
+        </metadata>
+      </prolog>
+      <body>
+        <p>wiki.apache.org</p>
+        <p>Apache <indexterm>wikis, examples<indexterm>Apache</indexterm></indexterm>is a collection
+          of <indexterm>open source<indexterm>Apache</indexterm></indexterm>open source tools that
+          run the majority of web servers on the Internet. Apache is one of the best-known
+          successful open source software examples, and it is a natural choice for its documentation
+          to be available in a wiki (see ), open to all for editing and contribution.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e1384">
+      <title>eBay </title>
+      <prolog>
+        <metadata>
+          <keywords>
             <indexterm>eBay wiki</indexterm>
-          </keywords></metadata></prolog><body><p>wiki.ebay.com</p><p>In 2006, eBay created a
-            <indexterm>wikis, examples<indexterm>eBay</indexterm></indexterm>wiki (see ) so that
-          sellers could help other sellers and to cut down on customer support calls.<fn><p>
-              http://www.forbes.com/markets/2006/06/14/ebay-0614markets04.html</p></fn> This wiki
-          should have worked well for many reasons. First of all, sellers are already trying to
-          promote themselves and their stores, so contributing content helps them stand out in the
-          crowded marketplace. Also, because a grading system is already motivating sellers, they
-          are accustomed to online rating systems that also motivate them to continue and enhance
-          their wiki contributions. However, eBay discontinued support for the wiki and now hosts it
-          at ebaywiki.jot.com. No active contributions are sought, and the wiki articles are only
-          retrievable, not writeable.</p></body></subsection><subsection
-      id="d5e1403"><title>Microso</title><body><p>msdn2.microsoft.com/en-us/library/default.aspx</p><p>Microsoft’s
-          Developer Network (MSDN), , has been watched closely as one of the first forays into
-          community-contributed content, but as it has evolved over the last few years, it barely
-          qualifies as a wiki by most wiki standards.<fn><p>
-              http://searchwindevelopment.techtarget.com/news/article/0,289142,sid8_gci1211391,00.html</p></fn>
-          Rather than allowing any article to be edited, MSDN allows only certain highly structured
-            <indexterm>content<indexterm>community-generated</indexterm></indexterm>contributions
-          such as code examples. The system strongly types the information to be entered in a web
-          form. Also, the MSDN wiki’s top contributors are Microsoft employees rather than outsiders
-          to the company. Still, many contributions are made to the wiki-like system, and it is
-          important to watch and learn from large-scale <indexterm>content<indexterm
-              >user-generated</indexterm></indexterm>deployments of user-generated
-      </p></body></subsection><subsection
-      id="d5e1425"><title>nDS </title><body><p>www.opends.org/wiki</p><p>The <indexterm
-            >OpenDS</indexterm>OpenDS <indexterm>wikis, examples<indexterm
-            >OpenDS</indexterm></indexterm>wiki (see ) was created because of the open source nature
-          of the OpenDS product, and the wiki is the only source of documentation for the product.
-          Three writers are paid to maintain it, just as any technical writer is paid to create and
-          maintain documentation in any other tool. The writer Ragan <indexterm>Haggard,
-            Ragan</indexterm>Haggard has presented a few times<fn><p>
-              https://www.opends.org/wiki/page/RHaggard</p></fn> on his experience with wikis for
-          documentation, and he likes the easy access and simple interface that the wiki, which uses
-          the <indexterm>MediaWiki<indexterm>for OpenDS wiki</indexterm></indexterm>MediaWiki
-          application, offers. However, community participation has not been growing. This type of
-          response has been common for wiki roll-outs related to product documentation—apathy is
-          more prevalent than any type of vanda</p></body></subsection><subsection
-      id="d5e1454"><title>Cisco </title><body><p>docwiki.cisco.com</p><p>After <indexterm
-            >Cisco</indexterm><indexterm>wikis, examples<indexterm
-          >Cisco</indexterm></indexterm>Cisco first rolled out a customer support wiki and
+          </keywords>
+        </metadata>
+      </prolog>
+      <body>
+        <p>wiki.ebay.com</p>
+        <p>In 2006, eBay created a <indexterm>wikis, examples<indexterm
+          >eBay</indexterm></indexterm>wiki (see ) so that sellers could help other sellers and to
+          cut down on customer support calls.<fn>
+            <p> http://www.forbes.com/markets/2006/06/14/ebay-0614markets04.html</p>
+          </fn> This wiki should have worked well for many reasons. First of all, sellers are
+          already trying to promote themselves and their stores, so contributing content helps them
+          stand out in the crowded marketplace. Also, because a grading system is already motivating
+          sellers, they are accustomed to online rating systems that also motivate them to continue
+          and enhance their wiki contributions. However, eBay discontinued support for the wiki and
+          now hosts it at ebaywiki.jot.com. No active contributions are sought, and the wiki
+          articles are only retrievable, not writeable.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e1403">
+      <title>Microso</title>
+      <body>
+        <p>msdn2.microsoft.com/en-us/library/default.aspx</p>
+        <p>Microsoft’s Developer Network (MSDN), , has been watched closely as one of the first
+          forays into community-contributed content, but as it has evolved over the last few years,
+          it barely qualifies as a wiki by most wiki standards.<fn>
+            <p>
+              http://searchwindevelopment.techtarget.com/news/article/0,289142,sid8_gci1211391,00.html</p>
+          </fn> Rather than allowing any article to be edited, MSDN allows only certain highly
+          structured <indexterm>content<indexterm
+          >community-generated</indexterm></indexterm>contributions such as code examples. The
+          system strongly types the information to be entered in a web form. Also, the MSDN wiki’s
+          top contributors are Microsoft employees rather than outsiders to the company. Still, many
+          contributions are made to the wiki-like system, and it is important to watch and learn
+          from large-scale <indexterm>content<indexterm
+          >user-generated</indexterm></indexterm>deployments of user-generated </p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e1425">
+      <title>nDS </title>
+      <body>
+        <p>www.opends.org/wiki</p>
+        <p>The <indexterm>OpenDS</indexterm>OpenDS <indexterm>wikis, examples<indexterm
+              >OpenDS</indexterm></indexterm>wiki (see ) was created because of the open source
+          nature of the OpenDS product, and the wiki is the only source of documentation for the
+          product. Three writers are paid to maintain it, just as any technical writer is paid to
+          create and maintain documentation in any other tool. The writer Ragan <indexterm>Haggard,
+            Ragan</indexterm>Haggard has presented a few times<fn>
+            <p> https://www.opends.org/wiki/page/RHaggard</p>
+          </fn> on his experience with wikis for documentation, and he likes the easy access and
+          simple interface that the wiki, which uses the <indexterm>MediaWiki<indexterm>for OpenDS
+              wiki</indexterm></indexterm>MediaWiki application, offers. However, community
+          participation has not been growing. This type of response has been common for wiki
+          roll-outs related to product documentation—apathy is more prevalent than any type of
+          vanda</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e1454">
+      <title>Cisco </title>
+      <body>
+        <p>docwiki.cisco.com</p>
+        <p>After <indexterm>Cisco</indexterm><indexterm>wikis, examples<indexterm
+            >Cisco</indexterm></indexterm>Cisco first rolled out a customer support wiki and
           experienced some success with it, the Cisco documentation team was asked to create a wiki
           for end-user documentation, shown in . It is still a young wiki for external use, and
           Cisco conducted a careful pilot project, allowing internal-only access, before releasing
-          the wiki for external use.</p></body></subsection></subsection><subsection
-    id="d5e1468"><title>Wiki wrap up</title><body><p>While organizing the content and picking the
-        right tool are important, there are many other implications when using a wiki for
-        information delivery. Understand that the 90-9-1 rule means you will have a small club of
-        one-percenters, and that one-percenter may be you. The community built around the wiki is as
-        important or more important than the tool used to build the wiki. Because wikis are not like
-        traditional documentation, strict style guidance and strict hierarchies may not work for the
-        community that embraces the wiki. </p></body></subsection></chapter>
+          the wiki for external use.</p>
+      </body>
+    </subsection>
+  </subsection>
+  <subsection
+    id="d5e1468">
+    <title>Wiki wrap up</title>
+    <body>
+      <p>While organizing the content and picking the right tool are important, there are many other
+        implications when using a wiki for information delivery. Understand that the 90-9-1 rule
+        means you will have a small club of one-percenters, and that one-percenter may be you. The
+        community built around the wiki is as important or more important than the tool used to
+        build the wiki. Because wikis are not like traditional documentation, strict style guidance
+        and strict hierarchies may not work for the community that embraces the wiki. </p>
+    </body>
+  </subsection>
+</chapter>

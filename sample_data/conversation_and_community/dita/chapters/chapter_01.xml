@@ -2,13 +2,15 @@
 <!DOCTYPE chapter
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
 <chapter
-  id="d5e2"><title>Towards the Future of Documentation</title>
-  <shortdesc>Tell me… and I will forget. Show me… and I will remember. &#8232;Involve me… and I will
-    understand.&#8232;—Confucius</shortdesc>
+  id="d5e2">
+  <title>Towards the Future of Documentation</title>
   <prolog/>
-  <body><p><image
+  <body>
+    <p><image
         href="images/chapter01.png"
         width="5in"/></p>
+    <epigram>Tell me… and I will forget. Show me… and I will remember. <br/>Involve me… and I will
+        understand.<br/>—Confucius</epigram>
     <p>As writers and content creators we are witnesses to the age of information shifting to the
       age of interaction. One week of content from the New York Times contains as much information
       as a person could get in a lifetime in the 18th century, according to information architect
@@ -29,8 +31,9 @@
       to documentation?</p>
     <p>Documentation as conversation means getting closer to users and helping them perform well.
         <indexterm>user-centered design</indexterm>User-centered design has been touted as one of
-      the most important ideas developed in the last twenty years of workplace writing.<fn><p>
-          http://owl.english.purdue.edu/owl/resource/624/01/</p></fn>
+      the most important ideas developed in the last twenty years of workplace writing.<fn>
+        <p> http://owl.english.purdue.edu/owl/resource/624/01/</p>
+      </fn>
       <indexterm>Web 2.0<indexterm>role in user-centered design</indexterm></indexterm>Web 2.0 gives
       users a chance to interact with information and other users. </p>
     <p>Now, writers can take the idea of user-centered design a step further by starting
@@ -54,9 +57,10 @@
         Internet, but people everywhere write instructions to each other on <indexterm>mailing
             lists<indexterm>community-based content</indexterm></indexterm>mailing lists and forums,
         quilters are writing <indexterm>blogs<indexterm>reduction of publishing
-          costs</indexterm></indexterm>blogs,<fn><p> My mom writes a quilting blog at
-            quilterjan.blogspot.com and has over 30,000 hits in the 15 months she has been writing.
-          </p></fn> and online <indexterm>communities<indexterm
+          costs</indexterm></indexterm>blogs,<fn>
+          <p> My mom writes a quilting blog at quilterjan.blogspot.com and has over 30,000 hits in
+            the 15 months she has been writing. </p>
+        </fn> and online <indexterm>communities<indexterm
         >quilting</indexterm></indexterm>communities are forming around the passion for quilts and
         quilting.</p>
       <p>Over the years, the <indexterm>conversations<indexterm>cost of</indexterm></indexterm>cost
@@ -99,17 +103,18 @@
         the HeadFirst series, and authored the Creating Passionate Users <indexterm>blogs,
             examples<indexterm>Creating Passionate Users</indexterm></indexterm>blog. According to
         her, books that embed questions right within the instructions are “the best user manuals
-        EVER.” Her blog entry on “Creating Passionate Users,”<fn><p>
-            http://headrush.typepad.com/creating_passionate_users/2006/09/how_to_get_user.html</p></fn>
-        states that a good manual for a complex product should include at least five distinct
+        EVER.” Her blog entry on “Creating Passionate Users,”<fn>
+          <p> http://headrush.typepad.com/creating_passionate_users/2006/09/how_to_get_user.html</p>
+        </fn> states that a good manual for a complex product should include at least five distinct
         sections: Reference Guide, Tutorial, Learning/Understanding, Cookbook/Recipe, and Start
         Here. Her detailed descriptions of each section describe, in essence, John Carroll’s basic
-        concepts of <indexterm>minimalist documentation</indexterm>minimal documentation.<fn><p>
-            Minimalism was first described by John <indexterm>Carroll, John</indexterm>Carroll as an
-            instructional design philosophy at the IBM Watson Research Center in the 1980s,
-            presented in his book <ph>The Nurnberg Funnel</ph>.</p></fn> And the principles of
-        minimal documentation play a major role in creating documentation that fits into user
-        conversation. Minimalist principles encourage both writer and instructor to:</p>
+        concepts of <indexterm>minimalist documentation</indexterm>minimal documentation.<fn>
+          <p> Minimalism was first described by John <indexterm>Carroll, John</indexterm>Carroll as
+            an instructional design philosophy at the IBM Watson Research Center in the 1980s,
+            presented in his book <ph>The Nurnberg Funnel</ph>.</p>
+        </fn> And the principles of minimal documentation play a major role in creating
+        documentation that fits into user conversation. Minimalist principles encourage both writer
+        and instructor to:</p>
       <ul>
         <li>Get the user up and running quickly</li>
         <li>Let the user think and improvise</li>
@@ -187,18 +192,19 @@
         <p>Search relevance has to do with Google’s secret algorithms and the calculations used for
           ranking by any search engine. This relevance brings a user to your content when they are
           seeking an answer to a specific question. If your help system does not follow Google’s
-          basic Webmaster guidelines,<fn><p>
-            http://www.google.com/support/webmasters/?hl=en</p></fn> it may not be found as often as
-          blog entries on the same topic. For example, Google indicates that fewer than 100 links
-          from a sitemap are ideal, and warns that not every search engine spider searches dynamic
-          pages with multiple parameters in the URL. You may have noticed that a recently <indexterm
-              >content<indexterm>up-to-date</indexterm></indexterm>updated blog entry or wiki page
-          tends to have more links to its entries by Google. A commenter notes this in a comment on
-          the blog entry in the Britannica <indexterm>blogs<indexterm>search
-            rankings</indexterm></indexterm>blog.<fn><p>
-              http://www.britannica.com/blogs/2008/11/the-fast-food-information-age-we-are-what-we-read/</p></fn>
-          “Perhaps another idea would be to ask Google WHY the social media (i.e. Wikipedia) entry
-          for a topic ranks so much higher than the vetted, Britannica entry?”</p>
+          basic Webmaster guidelines,<fn>
+            <p> http://www.google.com/support/webmasters/?hl=en</p>
+          </fn> it may not be found as often as blog entries on the same topic. For example, Google
+          indicates that fewer than 100 links from a sitemap are ideal, and warns that not every
+          search engine spider searches dynamic pages with multiple parameters in the URL. You may
+          have noticed that a recently <indexterm>content<indexterm
+            >up-to-date</indexterm></indexterm>updated blog entry or wiki page tends to have more
+          links to its entries by Google. A commenter notes this in a comment on the blog entry in
+          the Britannica <indexterm>blogs<indexterm>search rankings</indexterm></indexterm>blog.<fn>
+            <p>
+              http://www.britannica.com/blogs/2008/11/the-fast-food-information-age-we-are-what-we-read/</p>
+          </fn> “Perhaps another idea would be to ask Google WHY the social media (i.e. Wikipedia)
+          entry for a topic ranks so much higher than the vetted, Britannica entry?”</p>
         <p>Secret algorithms or not, as a writer you need to understand your user’s entry points.
           Search is important to conversational documentation because of the importance search
           engines place on frequently-updated content. If your user assistance system is offline or
@@ -246,10 +252,11 @@
     <body>
       <p>In February, 2008, STC President Linda <indexterm>Oestriech, Linda</indexterm>Oestriech
         stated in a podcast<indexterm>podcasts<indexterm>Tech Writer Voices</indexterm></indexterm>
-        on Tech Writer Voices<fn><p>
-            http://www.idratherbewriting.com/2008/02/05/interview-with-stc-president-linda-oestreich-the-direction-the-stc-is-heading/</p></fn>,
-        “We aren’t the technical writers of the 70s.” I might add that we aren’t even the technical
-        writers of the 90s. How have <indexterm>technical documentation<indexterm>changes
+        on Tech Writer Voices<fn>
+          <p>
+            http://www.idratherbewriting.com/2008/02/05/interview-with-stc-president-linda-oestreich-the-direction-the-stc-is-heading/</p>
+        </fn>, “We aren’t the technical writers of the 70s.” I might add that we aren’t even the
+        technical writers of the 90s. How have <indexterm>technical documentation<indexterm>changes
             in</indexterm></indexterm>changing technology and expectations influenced technical
         communication and writing today compared to 10 or 30 years ago?</p>
       <p>Many have been wondering about the state of technical communications and looking to the
@@ -258,9 +265,9 @@
         had no expectations of simply being able to pick something up and know how to use it. He
         describes how the user manuals weighed more than the product itself (and this was when
         computers filled a room). In those days, he says users invested enough in the technology
-        that they wanted to learn the product, and started with reading the manuals.<fn><p>
-            http://www.uie.com/brainsparks/2007/05/16/where-did-technical-writing-go/</p></fn>
-      </p>
+        that they wanted to learn the product, and started with reading the manuals.<fn>
+          <p> http://www.uie.com/brainsparks/2007/05/16/where-did-technical-writing-go/</p>
+        </fn></p>
       <p>In contrast, Kathy <indexterm>Sierra, Kathy</indexterm>Sierra describes a successful manual
         today as a page-turner—user-friendly, one that users learn from, one that pushes users to
         higher levels of understanding by being motivating as well informational. Technical writers
@@ -293,8 +300,10 @@
           >social media<indexterm>technical writers and</indexterm></indexterm>documentation, such
         as the communities of practice that allow users to participate in conversations that Nicky
           <indexterm>Bleiel, Nicky</indexterm>Bleiel describes as “Convergence Technical
-        Communication” in an article for The Content Wrangler.<fn><p>
-            http://www.thecontentwrangler.com/article/convergence_technical_communication_strategies_for_incorporating_web_20/</p></fn></p>
+        Communication” in an article for The Content Wrangler.<fn>
+          <p>
+            http://www.thecontentwrangler.com/article/convergence_technical_communication_strategies_for_incorporating_web_20/</p>
+        </fn></p>
       <p>Imagine that you are assigned to answer customer support calls at a mobile phone network
         supplier for a day. You would establish a connection with each customer, put a name with a
         voice or face or email address, and from a quick customer database search, you know who the
@@ -407,13 +416,15 @@
           Messaging)</indexterm>
         <indexterm>conversations<indexterm>instant
         messaging</indexterm></indexterm>conversation—quick, real-time questions and fast answers,
-        tailored to nearly every potential customer situation?<fn><p>
-            http://blogs.msdn.com/harrymiller/archive/2007/07/16/the-im-model-of-tech-writing.aspx</p></fn>
-        We may be seeing the birth of such a user’s guide with Twitter’s popularity as a customer
-        care platform and the <indexterm>Twitter<indexterm>user growth
-        rate</indexterm></indexterm>Twitter user base growing at a rate of over 30% in one month
-        (February 2009).<fn><p>
-            http://siteanalytics.compete.com/facebook.com+twitter.com/?metric=uv</p></fn></p>
+        tailored to nearly every potential customer situation?<fn>
+          <p>
+            http://blogs.msdn.com/harrymiller/archive/2007/07/16/the-im-model-of-tech-writing.aspx</p>
+        </fn> We may be seeing the birth of such a user’s guide with Twitter’s popularity as a
+        customer care platform and the <indexterm>Twitter<indexterm>user growth
+          rate</indexterm></indexterm>Twitter user base growing at a rate of over 30% in one month
+        (February 2009).<fn>
+          <p> http://siteanalytics.compete.com/facebook.com+twitter.com/?metric=uv</p>
+        </fn></p>
       <p>Different users have different <indexterm>technical documentation<indexterm>expectations
             for</indexterm></indexterm>expectations and needs for documentation. Some users expect
         precise answers from a user guide. Some want to impress people with their knowledge and
@@ -453,9 +464,9 @@
           technologies do not belong only to the young, the technically savvy, or the extremely
           extroverted. The demographics for both Facebook and Twitter users show trends towards an
           aging group. The fastest growing demographic group for Facebook in February 2009 includes
-          people over the age of 35<fn><p>
-            http://www.facebook.com/press/info.php?statistics</p></fn> and more than 40% of Twitter
-          users are age 35–49.</p>
+          people over the age of 35<fn>
+            <p> http://www.facebook.com/press/info.php?statistics</p>
+          </fn> and more than 40% of Twitter users are age 35–49.</p>
         <p>Technical communicators are already skilled in many of these technologies and just have
           to learn to apply them to communication with users. Welcome and seek out internal coaching
           in the area of customer communications, though. Missteps may cause setbacks in your plans
@@ -489,8 +500,9 @@
         boyd, (she prefers no capitalization of her name), points out in a talk at the Microsoft
         Research Tech Fest called, Social Media is Here to Stay… Now What? Web 2.0 has different
         meanings for technologists, businesses, and users. She also says, “Social media is the
-        latest buzzword in a long line of buzzwords.”<fn><p>
-            http://www.danah.org/papers/talks/MSRTechFest2009.html</p></fn></p>
+        latest buzzword in a long line of buzzwords.”<fn>
+          <p> http://www.danah.org/papers/talks/MSRTechFest2009.html</p>
+        </fn></p>
       <p>No matter what the preferred term is, those of us researching social aspects of information
         dissemination can find many applications beyond news reporting and brand building for social
         media. The next chapter explores some of the basics and then dives into examples of web

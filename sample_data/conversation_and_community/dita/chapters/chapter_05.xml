@@ -2,16 +2,18 @@
 <!DOCTYPE chapter
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
 <chapter
-  id="d5e2"><title>Commenting and Connecting with Users</title><abstract>
-    <p
-      outputclass="intro-quote">The biggest mistake is believing there is one right way to listen,
-      &#8232;to talk, to have a conversation - or a relationship. &#8232;—Deborah Tannen</p>
-    <p
-      outputclass="intro-quote">It was impossible to get a conversation going, &#8232;everybody was
-      talking too much.&#8232;—Yogi Berra</p>
-  </abstract>
+  id="d5e2">
+  <title>Commenting and Connecting with Users</title>
   <prolog/>
   <body>
+    <p><image
+        href="images/chapter05.png"
+        id="image_ecd21818-dc5f-474d-b0ac-c989b7db7115"
+        width="5in"/></p>
+    <epigram>The biggest mistake is believing there is one right way to listen, <br/>to talk, to
+      have a conversation - or a relationship. <br/>—Deborah Tannen</epigram>
+    <epigram>It was impossible to get a conversation going, <br/>everybody was talking too much.<br
+      />—Yogi Berra</epigram>
     <p>There are new social computing tools being invented all the time, and traditional websites
       are also finding ways to incorporate tagging, sharing, and other collaboration helpers in
       their content. <indexterm>conversations<indexterm>blogs</indexterm></indexterm>Blogs have led
@@ -216,7 +218,7 @@
   </subsection>
   <subsection
     id="d5e248">
-    <title>Providing infrastructure for &#8232;customer blogs</title>
+    <title>Providing infrastructure for customer blogs</title>
     <body>
       <p>In many organizations, the technical publication department will not take the lead in
         designing or providing <indexterm>blogs<indexterm
@@ -247,24 +249,25 @@
           (PDF)</indexterm> (PDF<indexterm>PDF, as wiki output</indexterm>) or in an online help
         system. A wikislice is a selected cross-section of a wiki, created by wiki editors
         selectively extracting content on a particular group of articles for different audiences or
-        deliverables. The sample wikislices on Wikipedia<fn><p>
-            http://en.wikipedia.org/wiki/Wikipedia:WikiProject_Wikislice </p></fn> contain content
-        related to mathematics, chemistry, and physics, to name a few subjects. A wikislice can be
-        downloaded to consume offline, so an Internet connection is not necessary once the content
-        is local. And because the wikislice can be styled differently from the wiki as a whole, it
-        can benefit from a more readable format, and its content can be more easily digestible and
-        organized than the vast expanse of a well-populated wiki. </p>
-      <p>A project called <indexterm>InfoSlicer</indexterm>InfoSlicer<fn><p>
-            http://activities.sugarlabs.org/en-US/sugar/addon/4042</p></fn> is housed on the
-          <indexterm>open source<indexterm>InfoSlicer</indexterm></indexterm><indexterm>open
-            source<indexterm>SugarLabs</indexterm></indexterm>SugarLabs website, host site for the
-        developers of the <indexterm>Sugar learning platform</indexterm>Sugar learning platform. A
-        team created InfoSlicer to help teachers create curriculum by downloading and re-mixing
-        Wikipedia articles. For example, if a teacher wants to teach students about the African
-        continent, they can download articles about animals, clothing, civil structures, and
-        traditions that are native to countries in Africa, then combine them into one set of
-        articles. The Darwin Information Typing Architecture (DITA) is the technology that combines
-        the data since the underlying organization layer is a DITA map structure.</p>
+        deliverables. The sample wikislices on Wikipedia<fn>
+          <p> http://en.wikipedia.org/wiki/Wikipedia:WikiProject_Wikislice </p>
+        </fn> contain content related to mathematics, chemistry, and physics, to name a few
+        subjects. A wikislice can be downloaded to consume offline, so an Internet connection is not
+        necessary once the content is local. And because the wikislice can be styled differently
+        from the wiki as a whole, it can benefit from a more readable format, and its content can be
+        more easily digestible and organized than the vast expanse of a well-populated wiki. </p>
+      <p>A project called <indexterm>InfoSlicer</indexterm>InfoSlicer<fn>
+          <p> http://activities.sugarlabs.org/en-US/sugar/addon/4042</p>
+        </fn> is housed on the <indexterm>open source<indexterm
+          >InfoSlicer</indexterm></indexterm><indexterm>open source<indexterm
+          >SugarLabs</indexterm></indexterm>SugarLabs website, host site for the developers of the
+          <indexterm>Sugar learning platform</indexterm>Sugar learning platform. A team created
+        InfoSlicer to help teachers create curriculum by downloading and re-mixing Wikipedia
+        articles. For example, if a teacher wants to teach students about the African continent,
+        they can download articles about animals, clothing, civil structures, and traditions that
+        are native to countries in Africa, then combine them into one set of articles. The Darwin
+        Information Typing Architecture (DITA) is the technology that combines the data since the
+        underlying organization layer is a DITA map structure.</p>
       <p>InfoSlicer for creating wikislices</p>
       <p>To use some slice of a wiki as part of your online help system, you could set up a plug-in
         that queries the wiki’s database or source content for specific articles at specific
@@ -351,8 +354,9 @@
           choice. </p>
         <p>You may find ways to discover what your readers are doing without requiring their
           participation to do so, like Will Hill’s “read-wear” phrase and concept discussed in
-          Chapter 6.<fn><p> http://www.useit.com/alertbox/participation_inequality.html</p></fn>
-        </p>
+          Chapter 6.<fn>
+            <p> http://www.useit.com/alertbox/participation_inequality.html</p>
+          </fn></p>
       </body>
     </subsection>
     <subsection
@@ -400,16 +404,17 @@
           questions, using artificial intelligence stored in knowledge reserves, dictionaries, or
           other reference materials such as concordances to guess at a needed response. For example,
           IRC has a helper robot called IRCza that is natural language artificial intelligence chat
-          robot for IRC.<fn><p> http://timberfrog.com/icqza/irczafaq.html</p></fn> AOL Instant
-          Messenger offers AIMbots, which can tell you when movies are going to show. According to
-          the paper “Using Instant Messaging to Provide an Intelligent Learning Environment,”
-            <indexterm>Artificial Intelligence Markup Language (AIML)</indexterm>Artificial
-          Intelligence Markup Language (AIML)<fn><p>
-            http://www.alicebot.org/TR/2001/WD-aiml/</p></fn> is an XML-compliant language that
-          facilitates the creation of “<indexterm>chatbots</indexterm>chatbots” with various
-          personalities and kinds of knowledge. By connecting the chatbot to a support knowledge
-          base of frequent responses, you might be able to offer a virtual conversation with
-          responses to a customer.</p>
+          robot for IRC.<fn>
+            <p> http://timberfrog.com/icqza/irczafaq.html</p>
+          </fn> AOL Instant Messenger offers AIMbots, which can tell you when movies are going to
+          show. According to the paper “Using Instant Messaging to Provide an Intelligent Learning
+          Environment,” <indexterm>Artificial Intelligence Markup Language
+          (AIML)</indexterm>Artificial Intelligence Markup Language (AIML)<fn>
+            <p> http://www.alicebot.org/TR/2001/WD-aiml/</p>
+          </fn> is an XML-compliant language that facilitates the creation of “<indexterm
+            >chatbots</indexterm>chatbots” with various personalities and kinds of knowledge. By
+          connecting the chatbot to a support knowledge base of frequent responses, you might be
+          able to offer a virtual conversation with responses to a customer.</p>
       </body>
     </subsection>
     <subsection
@@ -472,18 +477,21 @@
         </metadata>
       </prolog>
       <body>
-        <p>At sites such as Screencast.com<fn><p> http://screencast.com/</p></fn> and IgniteCAST,<fn
-              ><p> http://www.ignitecast.com</p></fn> users can use a desktop tool to capture
-          screenshots or screencasts, which are videos showing the computer screen that are often
-          narrated with a voice script to explain what is happening on the screen. The related
-          website hosts the image or video files for playback. Photos may be the best solution to
-          showing sequential instructions rather than writing them out, or even using complicated 3D
-          modeling software. For example, a Lego fan posted instructions for building a
-            refrigerator<fn><p>
-            http://www.flickr.com/photos/nolnet/3184800280/in/photostream/</p></fn> with Legos by
-          laying out the Lego pieces, taking photos, and putting the whole collage together with
-          some text for instructions.<fn><p>
-              http://www.flickr.com/photos/28119014@N06/3185664328</p></fn></p>
+        <p>At sites such as Screencast.com<fn>
+            <p> http://screencast.com/</p>
+          </fn> and IgniteCAST,<fn>
+            <p> http://www.ignitecast.com</p>
+          </fn> users can use a desktop tool to capture screenshots or screencasts, which are videos
+          showing the computer screen that are often narrated with a voice script to explain what is
+          happening on the screen. The related website hosts the image or video files for playback.
+          Photos may be the best solution to showing sequential instructions rather than writing
+          them out, or even using complicated 3D modeling software. For example, a Lego fan posted
+          instructions for building a refrigerator<fn>
+            <p> http://www.flickr.com/photos/nolnet/3184800280/in/photostream/</p>
+          </fn> with Legos by laying out the Lego pieces, taking photos, and putting the whole
+          collage together with some text for instructions.<fn>
+            <p> http://www.flickr.com/photos/28119014@N06/3185664328</p>
+          </fn></p>
         <p><indexterm>Sun Microsystems<indexterm>platform</indexterm></indexterm>Sun Microsystems
           offers a platform for video uploads and screencasts at slx.sun.com/media where anyone with
           a Sun login (employee or external customer) can upload video messages or screencasts to
