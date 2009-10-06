@@ -93,35 +93,35 @@
 <!ATTLIST foo %ph.content-att; >
 <!ENTITY % play-component-typemod 
                         PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/modules/shakespear/play-component" 
+"urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:play-component" 
 "../../play-component/dtd/play-component.mod"
 >                                                     
 %play-component-typemod;
 
 <!ENTITY % act-typemod 
                         PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/modules/shakespear/act" 
+"urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:act" 
 "act.mod"                                                        
 >                                                     
 %act-typemod;
 
 <!ENTITY % scene-typemod 
                         PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/modules/shakespear/scene" 
+"urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:scene" 
 "scene.mod"                                                        
 >                                                     
 %scene-typemod;
 
 <!ENTITY % epilogue-typemod 
                         PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/modules/shakespear/epilogue" 
+"urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:epilogue" 
 "epilogue.mod"                                                        
 >                                                     
 %epilogue-typemod;
 
 <!ENTITY % prologue-typemod 
                         PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/modules/shakespear/prologue" 
+"urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:prologue" 
 "prologue.mod"                                                        
 >                                                     
 %prologue-typemod;

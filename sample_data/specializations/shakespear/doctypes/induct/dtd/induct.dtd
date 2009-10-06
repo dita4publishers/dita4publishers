@@ -91,21 +91,21 @@
 <!ATTLIST foo %ph.content-att; >
 <!ENTITY % play-component-typemod 
                         PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/modules/shakespear/play-component" 
+"urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:play-component" 
 "../../play-component/dtd/play-component.mod"
 >                                                     
 %play-component-typemod;
 
 <!ENTITY % induct-typemod 
                         PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/modules/shakespear/induct" 
+"urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:induct" 
 "induct.mod"                                                        
 >                                                     
 %induct-typemod;
 
 <!ENTITY % scene-typemod 
                         PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/modules/shakespear/scene" 
+"urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:scene" 
 "scene.mod"                                                        
 >                                                     
 %scene-typemod;
