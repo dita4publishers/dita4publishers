@@ -37,17 +37,26 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/entities/dtd/pubmapDomain"
 abbrevlist     |
 amendments     |
 appendix       |
+appendix-mapref |
+appendixes     |
+appendixes-mapref |
 article        |
+article-mapref |
 back-cover     |
 back-flap      |
 book-jacket    |
 backmatter     |
+backmatter-mapref |
 bibliolist     |
 chapter        |
+chapter-mapref |
 colophon       |
+copyright-page |
 covers         |
+covers-mapref  |
 dedication     |
 department     |
+department-mapref |
 draftintro     |
 figurelist     |
 forward        |
@@ -60,22 +69,29 @@ glossary-mapref |
 indexlist      |
 keydefs        |
 keydef-group   |
+keydef-group-mapref |
 notices        |
 page           |
 part           |
+part-mapref    |
 preface        |
 pubabstract    |
 publist        |
 publists       |
 pubbody        |
+pubbody-mapref |
 publication    |
+publication-mapref |
 subsection     |
+subsection-mapref |
 sidebar        |
+sidebar-mapref |
 spine          |
 tablelist      |
 toc            |
 trademarklist  |
-wrap-cover    
+wrap-cover  |
+wrap-cover-mapref    
 "
 >
 

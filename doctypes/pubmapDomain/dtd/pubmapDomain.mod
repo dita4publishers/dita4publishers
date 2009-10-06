@@ -54,7 +54,9 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % chapter "chapter" >
 <!ENTITY % chapter-mapref "chapter-mapref" >
 <!ENTITY % colophon "colophon" >
+<!ENTITY % copyright-page "copyright-page" >
 <!ENTITY % covers "covers" >
+<!ENTITY % covers-mapref "covers-mapref" >
 <!ENTITY % dedication "dedication" >
 <!ENTITY % department "department" >
 <!ENTITY % department-mapref "department-mapref" >
@@ -89,6 +91,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % pubbody "pubbody" >
 <!ENTITY % pubbody-mapref "pubbody-mapref" >
 <!ENTITY % publication "publication" >
+<!ENTITY % publication-mapref "publication-mapref" >
 <!ENTITY % subsection "subsection" >
 <!ENTITY % subsection-mapref "subsection-mapref" >
 <!ENTITY % sidebar "sidebar" >
@@ -109,6 +112,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % completed "completed" >
 <!ENTITY % day "day" >
 <!ENTITY % mainpubtitle "mainpubtitle" >
+<!ENTITY % subtitle "subtitle" >
 <!ENTITY % month "month" >
 <!ENTITY % publibrary "publibrary" >
 <!ENTITY % pubtitlealt "pubtitlealt" >
@@ -322,6 +326,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
  "(%article; |
    %chapter; |
    %colophon; | 
+   %copyright-page; | 
    %dedication; | 
    %department; |
    %draftintro; | 
@@ -1160,6 +1165,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % pubtitle.content
                        "((%publibrary;)?,
                          (%mainpubtitle;),
+                         (%subtitle;)?,
                          (%pubtitlealt;)*)"
 >
 <!ENTITY % pubtitle.attributes
@@ -1218,6 +1224,24 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 >
 <!ELEMENT mainpubtitle    %mainpubtitle.content;>
 <!ATTLIST mainpubtitle    %mainpubtitle.attributes;>
+
+<!--                    LONG NAME: Subtitle                 -->
+<!ENTITY % subtitle.content
+                       "(#PCDATA | 
+                         %basic.ph.noxref; | 
+                         %image;)*"
+>
+<!ENTITY % subtitle.attributes
+             "keyref 
+                        CDATA 
+                                  #IMPLIED
+              %univ-atts;
+              outputclass
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT subtitle    %subtitle.content;>
+<!ATTLIST subtitle    %subtitle.attributes;>
 
  
 <!--                    LONG NAME: Alternate pub Title            -->
@@ -1328,6 +1352,16 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ELEMENT publication    %publication.content;>
 <!ATTLIST publication    %publication.attributes;>
 
+
+<!ENTITY % publication-mapref.content
+ "%mapref.cnt;"
+>
+<!ENTITY % publication-mapref.attributes
+ "%mapref-atts;
+ "
+>
+<!ELEMENT publication-mapref    %publication-mapref.content;>
+<!ATTLIST publication-mapref    %publication-mapref.attributes;>
 
 <!--                    LONG NAME: pubbody                         -->
 <!ENTITY % pubbody.content
@@ -1520,6 +1554,15 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 >
 <!ELEMENT covers    %covers.content;>
 <!ATTLIST covers    %covers.attributes;>
+
+<!ENTITY % covers-mapref.content
+ "%mapref.cnt;"
+>
+<!ENTITY % covers-mapref.attributes
+ "%mapref-atts;"
+>
+<!ELEMENT covers-mapref    %covers-mapref.content;>
+<!ATTLIST covers-mapref    %covers-mapref.attributes;>
 
 <!--                    LONG NAME: front-cover                      -->
 <!ENTITY % front-cover.content
@@ -1750,6 +1793,16 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ELEMENT colophon    %colophon.content;>
 <!ATTLIST colophon    %colophon.attributes;>
 
+<!--                    LONG NAME: Copyright page                  -->
+<!ENTITY % copyright-page.content
+                       "EMPTY"
+>
+<!ENTITY % copyright-page.attributes
+             "%chapter-atts;"
+>
+<!ELEMENT copyright-page    %copyright-page.content;>
+<!ATTLIST copyright-page    %copyright-page.attributes;>
+
 
 <!--                    LONG NAME: pub Lists                      -->
 <!ENTITY % publists.content
@@ -1971,6 +2024,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ATTLIST chapter       %global-atts; class CDATA "- map/topicref pubmap-d/chapter ">
 <!ATTLIST chapter-mapref %global-atts; class CDATA "- map/topicref pubmap-d/chapter-mapref ">
 <!ATTLIST colophon      %global-atts; class CDATA "- map/topicref pubmap-d/colophon ">
+<!ATTLIST copyright-page %global-atts; class CDATA "- map/topicref pubmap-d/copyright-page ">
 <!ATTLIST covers        %global-atts; class CDATA "- map/topicref pubmap-d/covers ">
 <!ATTLIST dedication    %global-atts; class CDATA "- map/topicref pubmap-d/dedication ">
 <!ATTLIST department    %global-atts; class CDATA "- map/topicref pubmap-d/department ">
@@ -2004,6 +2058,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ATTLIST pubbody       %global-atts; class CDATA "- map/topicref pubmap-d/pubbody ">
 <!ATTLIST pubbody-mapref %global-atts; class CDATA "- map/topicref pubmap-d/pubbody-mapref ">
 <!ATTLIST publication   %global-atts; class CDATA "- map/topicref pubmap-d/publication ">
+<!ATTLIST publication-mapref %global-atts; class CDATA "- map/topicref pubmap-d/publication-mapref ">
 <!ATTLIST subsection    %global-atts; class CDATA "- map/topicref pubmap-d/subsection ">
 <!ATTLIST subsection-mapref %global-atts; class CDATA "- map/topicref pubmap-d/subsection-mapref ">
 <!ATTLIST sidebar       %global-atts; class CDATA "- map/topicref pubmap-d/sidebar ">
@@ -2024,6 +2079,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ATTLIST completed    %global-atts; class CDATA "- topic/ph pubmap-d/completed ">
 <!ATTLIST day          %global-atts; class CDATA "- topic/ph pubmap-d/day ">
 <!ATTLIST mainpubtitle %global-atts; class CDATA "- topic/ph pubmap-d/mainpubtitle ">
+<!ATTLIST subtitle     %global-atts; class CDATA "- topic/ph pubmap-d/subtitle ">
 <!ATTLIST month        %global-atts; class CDATA "- topic/ph pubmap-d/month ">
 <!ATTLIST publibrary   %global-atts; class CDATA "- topic/ph pubmap-d/publibrary ">
 <!ATTLIST pubtitlealt  %global-atts; class CDATA "- topic/ph pubmap-d/pubtitlealt ">

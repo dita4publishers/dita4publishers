@@ -76,18 +76,21 @@
  "((%pubtitle;)?, 
    (%pubmeta;)?,
    (%keydefs;)?,
-   (%covers;)?,
-   (%colophon;)?, 
-   ((%frontmatter;) |
-    (%department;) |
-    (%page;))*,
-   ((%pubbody;)), 
-   ((%appendixes;) |
-    (%appendix;) |
-    (%backmatter;) |
-    (%page;) |
-    (%department;) |
-    (%colophon;))*,
+   ((%mapref;) |
+    ((%publication;) |
+     (%publication-mapref;))|
+    ((%covers;)?,
+     (%colophon;)?, 
+     ((%frontmatter;) |
+      (%department;) |
+      (%page;))*,
+     ((%pubbody;)), 
+     ((%appendixes;) |
+      (%appendix;) |
+      (%backmatter;) |
+      (%page;) |
+      (%department;) |
+      (%colophon;))*)),
    (%data.elements.incl; |
     %reltable;)*)
  "

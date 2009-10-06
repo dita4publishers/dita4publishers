@@ -66,6 +66,16 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/pubmap"
                          %pubmap-d-topicref;
                         ">
 
+<!ENTITY % topicmeta "topicmeta |
+                      %pubmap-d-topicmeta;
+
+                      ">
+
+<!ENTITY % title "title |
+                  %pubmap-d-title;
+                  ">
+
+
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
