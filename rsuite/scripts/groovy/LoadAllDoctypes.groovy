@@ -21,8 +21,8 @@ def doctypesDir = new File(projectDir, "doctypes");
 def File xsltDir = new File(projectDir, "/xslt");
 def File previewXslFile = new File(xsltDir, "preview/dita-preview-shell.xsl");
 
-def baseTopicTypeURI = "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/";
-def baseMapTypeURI = "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/";
+def baseTopicTypeURI = "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:";
+def baseMapTypeURI = "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:";
 
 
 def loadAndConfigureTopicDtd(dtdFile, dtdPublicId, topicTypes, otherMoTypes, previewXslFile, catalog)
@@ -122,7 +122,7 @@ def schemaFile = new File(doctypesDir, "style2tagmap/xsd/style2tagmap.xsd")
 def importer = importerFactory.generateImporter("XMLSchema", new SchemaInputSource(schemaFile));
 uuid = importer.execute()   
 def moDefList = [];
-moDefList.add(new ManagedObjectDefinition(['name' : '{urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap}:style2tagmap', 
+moDefList.add(new ManagedObjectDefinition(['name' : '{urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap}:style2tagmap', 
                                            'displayNameXPath': "title", 
                                            'versionable': 'true', 
                                            'reusable': 'true']))
@@ -134,8 +134,8 @@ rsuite.setManagedObjectDefinitions(uuid, false, moDefList)
 	
 	
 if (true) {
-baseTopicTypeURI = "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/";
-baseMapTypeURI = "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/";
+baseTopicTypeURI = "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:";
+baseMapTypeURI =   "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:";
 
 doctypesDir = new File(projectDir, "sample_data/specializations/shakespear/doctypes");
 
