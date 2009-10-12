@@ -39,10 +39,7 @@
   <xsl:param name="rootMapUrl" select="concat('rootMap_', format-time(current-time(),'[h][m][s][f]'),'.ditamap')" as="xs:string"/>
   <xsl:param name="topicExtension" select="'.dita'" as="xs:string"/><!-- Extension for generated topic files -->
   <xsl:param name="fileNamePrefix" select="''" as="xs:string"/><!-- Prefix for genenerated file names -->
-  <xsl:param name="debug" select="'true'" as="xs:string"/>
-  
-  <xsl:variable name="debugBoolean" as="xs:boolean" select="$debug = 'true'"/>  
-  
+    
   <xsl:template match="rsiwp:document">
     <xsl:message> + [INFO] simple2dita: Processing rsiwp:document...</xsl:message>
     <!-- First <p> in doc should be title for the root topic. If it's not, bail -->  
@@ -580,7 +577,7 @@
     <xsl:param name="content" as="node()+"/>
     <xsl:param name="level" as="xs:integer"/><!-- Level of this topic -->
     <xsl:param name="treePos" as="xs:integer+" tunnel="yes"/><!-- Tree position of topic in map tree -->
-    <xsl:param name="topicrefType" select="$content[1]/@topicrefType" as="xs:string"/>
+    <xsl:param name="topicrefType" select="$content[1]/@topicrefType" as="xs:string?"/>
     
     <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] makeTopic: treePos=<xsl:sequence select="$treePos"/></xsl:message>
