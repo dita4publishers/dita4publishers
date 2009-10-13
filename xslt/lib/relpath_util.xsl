@@ -6,6 +6,14 @@
   
   >
   
+  <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:desc>
+      <xd:p>Returns the base URI of the specified context node. Fixes "file:///" to "file:/" 
+      for compatibility with processors that choke on "file:///".</xd:p>
+    </xd:desc>
+    <xd:param name="context"></xd:param>
+    <xd:return></xd:return>
+  </xd:doc>
   <xsl:function name="relpath:base-uri" as="xs:string">
     <xsl:param name="context" as="node()"/>
     <xsl:variable name="baseUri" select="string(base-uri($context))" as="xs:string"/>
@@ -18,6 +26,13 @@
     <xsl:sequence select="$resultBaseUri"/>
   </xsl:function>
   
+  <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:desc>
+      <xd:p>URL encodes a URL string to handle the characters: space, "[", and "]"</xd:p>
+    </xd:desc>
+    <xd:param name="inUriString"></xd:param>
+    <xd:return></xd:return>
+  </xd:doc>
   <xsl:function name="relpath:encodeUri" as="xs:string">
     <xsl:param name="inUriString" as="xs:string"/>
     <xsl:variable name="temp1" as="xs:string"
@@ -35,6 +50,13 @@
     <xsl:sequence select="$outUriString"/>
   </xsl:function>
   
+  <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:desc>
+      <xd:p>Gets the filename of the resource (last path component) as for Java File.getName().</xd:p>
+    </xd:desc>
+    <xd:param name="sourcePath"></xd:param>
+    <xd:return></xd:return>
+  </xd:doc>
   <xsl:function name="relpath:getName" as="xs:string">
     <!-- As for Java File.getName(): returns the last
          component of the path.
@@ -43,6 +65,13 @@
     <xsl:value-of select="tokenize($sourcePath, '/')[last()]"/>
   </xsl:function>
   
+  <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:desc>
+      <xd:p>Gets the name part of the resource filename, that is, the filename with any extension removed.</xd:p>
+    </xd:desc>
+    <xd:param name="sourcePath"></xd:param>
+    <xd:return></xd:return>
+  </xd:doc>
   <xsl:function name="relpath:getNamePart" as="xs:string">
     <!-- Returns the name part of a filename, excluding
          any trailing extension.
@@ -58,6 +87,13 @@
     <xsl:value-of select="$result"/>
   </xsl:function>
   
+  <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:desc>
+      <xd:p>Gets the extension, if any, of the resource's filename.</xd:p>
+    </xd:desc>
+    <xd:param name="sourcePath"></xd:param>
+    <xd:return></xd:return>
+  </xd:doc>
   <xsl:function name="relpath:getExtension" as="xs:string">
     <!-- Returns the extension part of a filename, excluding the
          leading "."
@@ -73,19 +109,31 @@
     <xsl:value-of select="$result"/>
   </xsl:function>
   
+  <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:desc>
+      <xd:p>As for Java File.getParent(): returns all but the last
+        components of the path.</xd:p>
+    </xd:desc>
+    <xd:param name="sourcePath"></xd:param>
+    <xd:return></xd:return>
+  </xd:doc>
   <xsl:function name="relpath:getParent" as="xs:string">
-    <!-- As for Java File.getParent(): returns all but the last
-         components of the path.
-    -->
     <xsl:param name="sourcePath" as="xs:string"/>
     <xsl:value-of select="string-join(tokenize($sourcePath, '/')[position() &lt; last()], '/')"/>
   </xsl:function>
   
+  <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:desc>
+      <xd:p>As for Java File(File, path)): Returns a new a absolute path representing
+        the new file. File must be a path (because XSLT has no way to distinguish
+        a file from a directory).</xd:p>
+    </xd:desc>
+    <xd:param name="parentPath">Parent directory for the new file.</xd:param>
+    <xd:param name="childFile">Path and name of child file. May be an absolute or relative
+    path.</xd:param>
+    <xd:return></xd:return>
+  </xd:doc>
   <xsl:function name="relpath:newFile" as="xs:string">
-    <!-- As for Java File(File, path)): Returns a new a absolute path representing
-         the new file. File must be a path (because XSLT has no way to distinguish
-         a file from a directory).
-    -->
     <xsl:param name="parentPath" as="xs:string"/>
     <xsl:param name="childFile" as="xs:string"/>
     <xsl:choose>
@@ -113,8 +161,14 @@
     </xsl:choose>
   </xsl:function>
   
+  <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:desc>
+      <xd:p>Given a path resolves any ".." or "." terms to produce an absolute path</xd:p>
+    </xd:desc>
+    <xd:param name="sourcePath"></xd:param>
+    <xd:return></xd:return>
+  </xd:doc>
   <xsl:function name="relpath:getAbsolutePath" as="xs:string">
-    <!-- Given a path resolves any ".." or "." terms to produce an absolute path -->
     <xsl:param name="sourcePath" as="xs:string"/>
     <xsl:variable name="pathTokens" select="tokenize($sourcePath, '/')" as="xs:string*"/>
     <xsl:if test="false()">
@@ -139,6 +193,14 @@
     <xsl:value-of select="$result"/>
   </xsl:function>
   
+  <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:desc>
+      <xd:p>Removes any relative components from the path.</xd:p>
+    </xd:desc>
+    <xd:param name="pathTokens"></xd:param>
+    <xd:param name="resultTokens"></xd:param>
+    <xd:return></xd:return>
+  </xd:doc>
   <xsl:function name="relpath:makePathAbsolute" as="xs:string*">
     <xsl:param name="pathTokens" as="xs:string*"/>
     <xsl:param name="resultTokens" as="xs:string*"/>
@@ -157,34 +219,38 @@
                          "/>
   </xsl:function>
   
+  <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:desc>
+      <xd:p>Calculate relative path that gets from from source path to target path.</xd:p>
+      <xd:pre>
+        Given:
+        
+        [1]  Target: /A/B/C
+        Source: /A/B/C/X
+        
+        Return: "X"
+        
+        [2]  Target: /A/B/C
+        Source: /E/F/G/X
+        
+        Return: "/E/F/G/X"
+        
+        [3]  Target: /A/B/C
+        Source: /A/D/E/X
+        
+        Return: "../../D/E/X"
+        
+        [4]  Target: /A/B/C
+        Source: /A/X
+        
+        Return: "../../X"
+      </xd:pre>
+    </xd:desc>
+    <xd:param name="source"></xd:param>
+    <xd:param name="target"></xd:param>
+    <xd:return></xd:return>
+  </xd:doc>
   <xsl:function name="relpath:getRelativePath" as="xs:string">
-<!-- Calculate relative path that gets from from source path to target path.
-  
-  Given:
-  
-  [1]  Target: /A/B/C
-     Source: /A/B/C/X
-  
-  Return: "X"
-  
-  [2]  Target: /A/B/C
-       Source: /E/F/G/X
-  
-  Return: "/E/F/G/X"
-    
-  [3]  Target: /A/B/C
-       Source: /A/D/E/X
-  
-  Return: "../../D/E/X"
-  
-  [4]  Target: /A/B/C
-       Source: /A/X
-  
-  Return: "../../X"
-  
-  
--->
-  
     <xsl:param name="source" as="xs:string"/><!-- Path to get relative path *from* -->
     <xsl:param name="target" as="xs:string"/><!-- Path to get relataive path *to* -->
     <xsl:if test="false()">
