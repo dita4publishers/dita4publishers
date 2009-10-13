@@ -20,9 +20,10 @@
       
       xmlns:rsiwp="http://reallysi.com/namespaces/generic-wordprocessing-xml"
       xmlns:stylemap="urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap"
+      xmlns:relpath="http://dita2indesign/functions/relpath"
       xmlns="http://reallysi.com/namespaces/generic-wordprocessing-xml"
       
-      exclude-result-prefixes="a pic xs mv mo ve o r m v w10 w wne wp local"
+      exclude-result-prefixes="a pic xs mv mo ve o r m v w10 w wne wp local relpath"
       version="2.0">
   
   <!--==========================================
@@ -40,8 +41,22 @@
       Originally developed by Really Strategies, Inc.
       
       =========================================== -->
+
+  <xsl:import href="../lib/relpath_util.xsl"/>
   
   <xsl:param name="styleMapUri" as="xs:string"/>
+  <xsl:param name="mediaDirUri" select="relpath:newFile($outputDir, 'topics/media')" as="xs:string"/>  
+  <xsl:param name="outputDir" as="xs:string"/>
+  
+  
+  <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:desc>
+      <xd:p>The absolute URL of the directory that contains the media objects extracted
+      from the DOCX package. The presumption is that some process has copied the media/
+      directory from the DOCX package to an appropriate location relative to where
+      the DITA XML will be generated.</xd:p>
+    </xd:desc>
+  </xd:doc>
   
   <xsl:key name="formats" match="stylemap:output" use="@name"/>
   <xsl:key name="styleMaps" match="stylemap:style" use="@styleId"/>
@@ -363,9 +378,19 @@
     <xsl:variable name="rel" as="element()?"
       select="key('relsById', @r:embed, $relsDoc)"
     />
+    <xsl:variable name="target" select="string($rel/@Target)" as="xs:string"/>
+    <xsl:variable name="imageFilename" as="xs:string"
+      select="relpath:getName($target)"
+    />
+    <xsl:variable name="srcValue" as="xs:string"
+      select="relpath:newFile($mediaDirUri, $imageFilename)"
+    />
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] $srcValue="<xsl:value-of select="$srcValue"/>"</xsl:message>
+    </xsl:if>
     <xsl:choose>
       <xsl:when test="$rel and string($rel/@Type) = $imageRelType">
-        <image src="{$rel/@Target}"/>
+        <image src="{$srcValue}"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:message> + [WARNING] a:blip: Failed to find Relationship of type Image for relationship ID "<xsl:sequence select="@r:embed"/>"</xsl:message>

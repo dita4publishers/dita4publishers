@@ -35,11 +35,14 @@
   
   <xsl:import href="../lib/relpath_util.xsl"/>
   
-  <xsl:param name="outputDir" as="xs:string"/>
+  <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:desc>
+      <xd:p>Directory into which the resulting DITA XML is generated.</xd:p>
+    </xd:desc>
+  </xd:doc>
   <xsl:param name="rootMapUrl" select="concat('rootMap_', format-time(current-time(),'[h][m][s][f]'),'.ditamap')" as="xs:string"/>
   <xsl:param name="topicExtension" select="'.dita'" as="xs:string"/><!-- Extension for generated topic files -->
   <xsl:param name="fileNamePrefix" select="''" as="xs:string"/><!-- Prefix for genenerated file names -->
-    
   <xsl:template match="rsiwp:document">
     <xsl:message> + [INFO] simple2dita: Processing rsiwp:document...</xsl:message>
     <!-- First <p> in doc should be title for the root topic. If it's not, bail -->  
@@ -621,6 +624,7 @@
           <xsl:call-template name="constructTopic">
             <xsl:with-param name="content" select="$content"  as="node()*"/>
             <xsl:with-param name="level" select="$level" as="xs:integer"/>
+            <xsl:with-param name="resultUrl" as="xs:string" tunnel="yes" select="$resultUrl"/>
           </xsl:call-template>
         </xsl:result-document>
       </xsl:when>
@@ -1089,11 +1093,30 @@
     </xsl:element>
   </xsl:template>
   
+  <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:desc>
+      <xd:p>Generates a DITA image element. The URL of the image is determined
+      by creating a relative path constructed from the value of the @src
+      attribute in the simple WP, which should point to the absolute
+      location of the image as it will be accessed by the generated XML,
+      and the directory containing the result file for the
+      topic being generated, so the resulting value is a relative
+      path from the containing topic document to the image.</xd:p>
+    </xd:desc>
+    <xd:param name="resultUrl"></xd:param>
+  </xd:doc>
   <xsl:template match="rsiwp:image" mode="p-content">
+    <xsl:param name="resultUrl" as="xs:string" tunnel="yes"/>
+    
+    <xsl:variable name="resultDir" select="relpath:getParent($resultUrl)"/>
+    <xsl:variable name="srcAtt" select="@src" as="xs:string"/>
+    <xsl:variable name="imageUrl" as="xs:string"
+      select="relpath:getRelativePath($resultDir, $srcAtt)"
+    />
     <art>
-      <art_title><xsl:sequence select="string(@src)"/></art_title>
-      <image href="{@src}">
-        <alt><xsl:sequence select="string(@src)"/></alt>
+      <art_title><xsl:sequence select="$imageUrl"/></art_title>
+      <image href="{$imageUrl}">
+        <alt><xsl:sequence select="$imageUrl"/></alt>
       </image>
     </art>
   </xsl:template>
