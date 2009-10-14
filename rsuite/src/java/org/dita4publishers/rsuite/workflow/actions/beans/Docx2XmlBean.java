@@ -12,6 +12,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 
 import com.reallysi.rsuite.api.RSuiteException;
@@ -105,7 +106,26 @@ public class Docx2XmlBean extends TransformSupportBean {
 		File resultDir = resultFile.getParentFile();
 		File topicsDir = new File(resultDir, "topics");
 		topicsDir.mkdirs();
+
+		// Copy the media folder from the DocX to the generated topics directory
+		File mediaSrcDir = new File(new File(tempDir, "word"), "media");
+		if (mediaSrcDir.exists()) {
+			// FIXME: Parameterize this directory
+			File mediaTargetDir = new File(topicsDir, "media");
+			try {
+				FileUtils.copyDirectory(mediaSrcDir, mediaTargetDir);
+			} catch (IOException e) {
+				String msg = "Failed to copy media subfolder from DOCX file" + docxFile.getAbsolutePath() + "\": " + e.getMessage();			
+				logAndThrowRSuiteException(wfLog, e, msg);
+			}
+			try {
+				params.put("mediaDirUri", mediaTargetDir.toURL().toExternalForm());
+			} catch (MalformedURLException e) {
+				throw new RuntimeException("Unexpected MalformedURLException:  " + e.getMessage());
+			}
+		}
 		
+
 		params.put("styleMapUri", styleMapUri);
 		try {
 			params.put("outputDir", resultDir.toURL().toExternalForm());
