@@ -83,7 +83,29 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 	 * URL of the XSLT to apply to the DOX file.
 	 */
 	public static final String XSLT_URI_PARAM = "xsltUri";
+	/**
+	 * URL of the XSLT that rewrites graphic filenames in DOCX
+     * relationships file.
+     * <p>The XSLT will be called with the parameter
+     * <tt>graphicFileNamePrefix</tt>, and that prefix should
+     * be applied to the base filename of images in the DOCX
+     * relationships mapping file.
+     * </p>
+	 */
+	public static final String XSLT_GRAPHIC_RENAME_URI_PARAM =
+        "xsltGraphicRenameUri";
 
+    /**
+     * Primary prefix string to use when renaming graphics.
+     * <p>The value of this parameter along with the managed
+     * object ID of the DOCX object will be prepended to each
+     * graphic filename.
+     * </p>
+     * <p>If this parameter is not specified, then the
+     * default prefix of "<tt>rsi</tt>" will be used.
+     * </p>
+     */
+    public static final String GRAPHICS_PREFIX_PARAM = "graphicsPrefix";
 	
 	/**
 	 * Optional. Name of the workflow variable to hold the ID of the
@@ -115,6 +137,20 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 		String styleMapUri = getParameter(STYLE_MAP_URI_PARAM);		
 		styleMapUri = resolveVariables(context, styleMapUri);
 
+        String xsltGfxRenameUri = getParameter(XSLT_GRAPHIC_RENAME_URI_PARAM);
+        if (xsltGfxRenameUri == null) {
+            xsltGfxRenameUri = "rsuite:/res/plugin/dita4publishers/xslt/word2dita/rewriteDocxGraphics.xsl";
+        } else {
+            xsltGfxRenameUri = resolveVariables(context, xsltGfxRenameUri);
+        }
+
+        String gfxPrefix = getParameter(GRAPHICS_PREFIX_PARAM);
+        if (gfxPrefix == null) {
+            gfxPrefix = "";
+        } else {
+            gfxPrefix = resolveVariables(context, gfxPrefix);
+        }
+
 		Docx2XmlBean bean = null; 
 		
 		File outputDir = getOutputDir(context);
@@ -132,7 +168,8 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 				reportAndThrowRSuiteException(context, msg);
 			} 			
 			MoWorkflowObject moObject = moList.getMoList().get(0); // First item in list should be course script MO.
-			mo = context.getManagedObjectService().getManagedObject(getSystemUser(), moObject.getMoid());
+            docxMoId = moObject.getMoid();
+			mo = context.getManagedObjectService().getManagedObject(getSystemUser(), docxMoId);
 			String contentType = mo.getContentType();
 			if (contentType == null || !"docx".equals(contentType.toLowerCase())) {
 				reportAndThrowRSuiteException(context, "First MO in MO list is not a DOCX file, found " + mo.getContentType());
@@ -161,6 +198,9 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 		context.setVariable(MAP_FILE_NAME_VARNAME, mapFileName);
 		
 		bean = new Docx2XmlBean(context, xsltUri, styleMapUri, mapFileName);
+        if (xsltGfxRenameUri != null || !"".equals(xsltGfxRenameUri)) {
+            bean.setXsltGraphicRenameUri(xsltGfxRenameUri);
+        }
 
 		docxFile = new File(mo.getExternalAssetPath());
 		// Put the map into a directory named for the map:
@@ -185,6 +225,14 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 	    Map<String, String> params = new HashMap<String, String>();
 	    params.put("debug", "true"); // FIXME: Make an action handler parameter
 	    params.put("fileNamePrefix", fileNamePrefix);
+
+        // Parameter specifying what prefix to add to each graphic filename
+        // to help insure uniqueness.
+        // NOTE: The prefix needs to be something that is "persistent"
+        //       with multiple calls to this handler to insure that the
+        //       graphic filenames are the same if docx is re-converted.
+        //       To do this, we use the ID of the docx MO.
+        params.put("graphicFileNamePrefix", gfxPrefix+docxMoId+"_");
 	    
 		boolean exceptionOccured = false;
 		try {
@@ -278,4 +326,12 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 	public void setFileNamePrefix(String fileNamePref) {
 		this.setParameter(FILE_NAME_PREFIX_PARAM, fileNamePref);
 	}
+
+    public void setXsltGraphicRenameUri(String s) {
+        this.setParameter(XSLT_GRAPHIC_RENAME_URI_PARAM, s);
+    }
+
+    public void setGraphicsPrefix(String s) {
+        this.setParameter(GRAPHICS_PREFIX_PARAM, s);
+    }
 }

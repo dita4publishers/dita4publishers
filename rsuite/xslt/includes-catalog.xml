@@ -3,6 +3,8 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/word2dita/docx2dita.xsl" 
     uri="../../xslt/word2dita/docx2dita.xsl"/>
+  <uri name="rsuite:/res/plugin/dita4publishers/xslt/word2dita/rewriteDocxGraphics.xsl" 
+    uri="../../xslt/word2dita/rewriteDocxGraphics.xsl"/>
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/lib/relpath_util.xsl" 
     uri="../../xslt/lib/relpath_util.xsl"/>
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/lib/dita-support-lib.xsl" 

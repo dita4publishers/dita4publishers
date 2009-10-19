@@ -129,11 +129,62 @@ public class TransformSupportBean {
 		
 	}
 
-
 	public void applyTransform(Source xmlSource, Destination result, Map<String, String> params,
 			LoggingSaxonMessageListener logger, Log wfLog, File tempDir) throws RSuiteException {
-				
-	    XsltTransformer trans = context.getXmlApiManager().getSaxonXsltTransformer(xsltUri, logger);
+        applyTransform(xsltUri, xmlSource, result, params, logger, wfLog, tempDir);
+	}
+
+	public void applyTransform(
+            URI xslt,
+            File inputXmlFile,
+            File resultFile,
+            Map<String, String> params,
+            LoggingSaxonMessageListener logger,
+            Log wfLog,
+            File tempDir
+    ) throws RSuiteException {
+	    SAXSource saxSource = null;
+        FileInputStream in = null;
+        try {
+            try {
+                InputSource inSource = new InputSource(
+                        new FileInputStream(inputXmlFile));
+                // FIXME: Set validation to true to force a failure for
+                // testing the logging:
+                XMLReader reader = context.getXmlApiManager().
+                    getLoggingXMLReader(wfLog, true);
+                saxSource = new SAXSource(reader, inSource);
+
+            } catch (FileNotFoundException e) {
+                String msg = "File not found exception: " + e.getMessage();			
+                logAndThrowRSuiteException(wfLog, e, msg);
+            }
+
+            Serializer result = new Serializer();
+            result.setOutputFile(resultFile);
+
+            applyTransform(xslt, saxSource, result, params,
+                    logger, wfLog, tempDir);
+        } finally {
+            if (in != null) {
+                try {
+                    in.close();
+                } catch (Exception e) {
+                }
+            }
+        }
+    }
+
+	public void applyTransform(
+            URI xslt,
+            Source xmlSource,
+            Destination result,
+            Map<String, String> params,
+            LoggingSaxonMessageListener logger,
+            Log wfLog,
+            File tempDir
+    ) throws RSuiteException {
+	    XsltTransformer trans = context.getXmlApiManager().getSaxonXsltTransformer(xslt, logger);
 	    
 	    for (String name : params.keySet()) {
 	    	String value = params.get(name);
@@ -149,7 +200,7 @@ public class TransformSupportBean {
 		}
 	    trans.setDestination(result);
 	
-	    wfLog.info("Applying XSLT transform \"" + xsltUri.toString() + "\" to input source " + xmlSource.getSystemId());
+	    wfLog.info("Applying XSLT transform \"" + xslt.toString() + "\" to input source " + xmlSource.getSystemId());
 	    try {
 			trans.transform();
 		} catch (SaxonApiException e) {

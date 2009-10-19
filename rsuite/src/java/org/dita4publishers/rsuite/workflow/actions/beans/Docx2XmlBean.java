@@ -6,6 +6,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.zip.ZipEntry;
@@ -19,17 +21,42 @@ import com.reallysi.rsuite.api.RSuiteException;
 import com.reallysi.rsuite.api.workflow.WorkflowExecutionContext;
 import com.reallysi.rsuite.api.xml.LoggingSaxonMessageListener;
 
+/**
+ * Convert MS Word docx file into DITA XML.
+ */
 public class Docx2XmlBean extends TransformSupportBean {
 
 	
 	private String styleMapUri;
 	private String rootMapUrl;
+	private URI xsltGfxRenameUri;
+
+    /**
+     * Construct new docx-to-xml converter.
+     * @param   context             RSuite workflow context.
+     * @param   xsltUriString       DOX XSLT to use.
+     * @param   styleMapUriString   Style mapping file.
+     * @param   rootMapUrl          Root map.
+     * @throws  RSuiteException     If an error occurs.
+     */
 	public Docx2XmlBean(WorkflowExecutionContext context, String xsltUriString, String styleMapUriString, String rootMapUrl) throws RSuiteException{
 		super(context, xsltUriString);
 		
 		this.styleMapUri = styleMapUriString;		
 		this.rootMapUrl = rootMapUrl;
 	}
+
+    public void setXsltGraphicRenameUri(
+            String uri
+    ) throws RSuiteException {
+        try {
+            this.xsltGfxRenameUri = new URI(uri);
+		} catch (URISyntaxException e) {
+			String msg = "Failed to construct URI from URI string\"" +
+                uri + "\": " + e.getMessage();			
+			logAndThrowRSuiteException(context.getWorkflowLog(), e, msg);
+		}
+    }
 
 
 	private void unzip(File zipInFile, File outputDir) throws IOException{
@@ -78,7 +105,13 @@ public class Docx2XmlBean extends TransformSupportBean {
 	 * @return
 	 * @throws Exception
 	 */
-	public void generateXmlS9Api(File docxFile, File resultFile, LoggingSaxonMessageListener logger, Map<String, String> userParams) throws RSuiteException {
+	public void generateXmlS9Api(
+            File docxFile,
+            File resultFile,
+            LoggingSaxonMessageListener logger,
+            Map<String, String> userParams
+    ) throws RSuiteException
+    {
 		Log wfLog = context.getWorkflowLog();
 		
 		File tempDir = null;
@@ -101,6 +134,9 @@ public class Docx2XmlBean extends TransformSupportBean {
 			String msg = "Failed to find document.xml within DOCX package. This should not happen.";
 			logAndThrowRSuiteException(wfLog, null, msg);
 		}
+        if (xsltGfxRenameUri != null) {
+            reworkGraphics(tempDir, logger, userParams);
+        }
 		
 		Map<String, String> params = new HashMap<String, String>();
 		File resultDir = resultFile.getParentFile();
@@ -137,7 +173,69 @@ public class Docx2XmlBean extends TransformSupportBean {
 			params.putAll(userParams);
 		
 		applyTransform(documentXml, resultFile, params, logger, wfLog, tempDir);
-   }
+    }
 
+    private static final String DOC_RELS_PATH =
+        "word" + File.separator + "_rels" + File.separator +
+        "document.xml.rels";
+    private static final String MEDIA_PATH =
+        "word" + File.separator + "media";
 
+    private void reworkGraphics(
+            File dir,
+            LoggingSaxonMessageListener logger,
+            Map<String, String> params
+    ) throws RSuiteException {
+		Log wfLog = context.getWorkflowLog();
+        wfLog.info("Attempting to rename graphics...");
+
+        File mediaDir = new File(dir, MEDIA_PATH);
+        if (!mediaDir.exists()) {
+            wfLog.info(
+                "DOCX does not contain media directory, skipping renaming");
+            return;
+        }
+        File[] fileList = mediaDir.listFiles();
+        if (fileList == null) {
+            wfLog.info("DOCX media directory is empty, skipping renaming");
+            return;
+        }
+
+        String prefix = params.get("graphicFileNamePrefix");
+        if (prefix == null || "".equals(prefix)) {
+            wfLog.info("graphicFileNamePrefix not set, skipping renaming");
+            return;
+        }
+        File rels = new File(dir, DOC_RELS_PATH);
+        if (!rels.exists()) {
+            wfLog.warn("No "+rels+" in docx, skipping renaming");
+            return;
+        }
+        File relsOrg = new File(rels.getAbsolutePath()+".org.RSI");
+        if (!rels.renameTo(relsOrg)) {
+            logAndThrowRSuiteException(wfLog, null,
+                    "Unable to rename \""+rels+"\" to \""+relsOrg+"\"");
+        }
+
+        // Process relationships file
+		applyTransform(xsltGfxRenameUri, relsOrg, rels, params,
+                logger, wfLog, dir);
+
+        // Rename graphic filenames
+        // XXX: We blindly rename every file in here since we assume
+        //      reference to it exists in rels file and has been updated
+        //      by rels transform.
+        for (File f : fileList) {
+            if (f.isDirectory()) {
+                continue;
+            }
+            String basename = f.getName();
+            String newBasename = prefix + basename;
+            File newFile = new File(f.getParentFile(), newBasename);
+            if (!f.renameTo(newFile)) {
+                logAndThrowRSuiteException(wfLog, null,
+                        "Unable to rename \""+f+"\" to \""+newFile+"\"");
+            }
+        }
+    }
 }
