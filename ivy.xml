@@ -16,8 +16,8 @@
 
     <dependency org="jboss" name="jbpm" rev="rsuite-20090317" />
 
-    <dependency org="dita-ot" name="dita-ot" rev="1.5m15">
-      <artifact  name="dita-ot-rsi-dev" type="zip"/>
+    <dependency org="rsi" name="rsuite-dita-ot-15" rev="1.5m19c">
+      <artifact  name="rsuite-dita-ot-15" type="zip"/>
     </dependency>
         
   </dependencies>
