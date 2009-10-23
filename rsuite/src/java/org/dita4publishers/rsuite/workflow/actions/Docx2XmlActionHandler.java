@@ -31,6 +31,12 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 	public static final String FILE_NAME_PREFIX_PARAM = "fileNamePref";
 
 	/**
+	 * Prefix to add to each submap's generated name, after the filename
+	 * prefix.
+	 */
+	public static final String SUBMAP_NAME_PREFIX_PARAM = "submapNamePref";
+
+	/**
 	 * Optional. The name of the file generated directly by the XSLT (as opposed to
 	 * the map file name when a map is generated). Specify this parameter
 	 * when the transform will only generate a single topic rather than 
@@ -189,6 +195,7 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 		}
 			
 		String fileNamePrefix = resolveVariablesAndExpressions(context, getParameterWithDefault(FILE_NAME_PREFIX_PARAM, ""));
+		String submapNamePrefix = resolveVariablesAndExpressions(context, getParameterWithDefault(SUBMAP_NAME_PREFIX_PARAM, "map"));
 		
 		String docxFilename = mo.getDisplayName();
 		
@@ -225,6 +232,7 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 	    Map<String, String> params = new HashMap<String, String>();
 	    params.put("debug", "true"); // FIXME: Make an action handler parameter
 	    params.put("fileNamePrefix", fileNamePrefix);
+	    params.put("submapNamePrefix", submapNamePrefix);
 
         // Parameter specifying what prefix to add to each graphic filename
         // to help insure uniqueness.
@@ -325,6 +333,10 @@ public class Docx2XmlActionHandler extends Dita4PublishersActionHandlerBase {
 	
 	public void setFileNamePrefix(String fileNamePref) {
 		this.setParameter(FILE_NAME_PREFIX_PARAM, fileNamePref);
+	}
+
+	public void setSubmapNamePrefix(String submapNamePref) {
+		this.setParameter(SUBMAP_NAME_PREFIX_PARAM, submapNamePref);
 	}
 
     public void setXsltGraphicRenameUri(String s) {
