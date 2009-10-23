@@ -35,12 +35,10 @@
   
   <xsl:import href="../lib/relpath_util.xsl"/>
   
-  <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
-    <xd:desc>
-      <xd:p>Directory into which the resulting DITA XML is generated.</xd:p>
-    </xd:desc>
-  </xd:doc>
-  <xsl:param name="rootMapUrl" select="concat('rootMap_', format-time(current-time(),'[h][m][s][f]'),'.ditamap')" as="xs:string"/>
+  <xsl:param name="rootMapName" as="xs:string" select="'rootmap'"/>
+  <xsl:param name="submapNamePrefix" as="xs:string" select="'map'"/>
+  
+  <xsl:param name="rootMapUrl" select="concat($rootMapName, '.ditamap')" as="xs:string"/>
   <xsl:param name="topicExtension" select="'.dita'" as="xs:string"/><!-- Extension for generated topic files -->
   <xsl:param name="fileNamePrefix" select="''" as="xs:string"/><!-- Prefix for genenerated file names -->
   <xsl:template match="rsiwp:document">
@@ -64,7 +62,6 @@
         <xsl:call-template name="makeTopic">
           <xsl:with-param name="content" select="rsiwp:body/(rsiwp:p|rsiwp:table)" as="node()*"/>
           <xsl:with-param name="level" select="0" as="xs:integer"/>
-          <xsl:with-param name="treePos" select="(1)" as="xs:integer+" tunnel="yes"/>
         </xsl:call-template>
       </xsl:when>
       <xsl:when test="local:isMap($firstP)">
@@ -74,9 +71,9 @@
         <xsl:call-template name="makeMap">
           <xsl:with-param name="content" select="rsiwp:body/(rsiwp:p|rsiwp:table)" as="node()*"/>
           <xsl:with-param name="level" select="0" as="xs:integer"/>
-          <xsl:with-param name="mapUrl" select="$rootMapUrl" as="xs:string"/>
-          <xsl:with-param name="treePos" select="(1)" as="xs:integer+" tunnel="yes"/>
+          <xsl:with-param name="newMapUrl" select="$rootMapUrl" as="xs:string"/>
           <xsl:with-param name="topicrefType" select="'mapref'"/><!-- shouldn't be necessary, but it is -->
+          <xsl:with-param name="mapUrl" select="relpath:newFile($outputDir, 'garbage.ditamap')" tunnel="yes" as="xs:string"/>
         </xsl:call-template>
       </xsl:when>
     </xsl:choose>
@@ -87,6 +84,7 @@
   <xsl:template match="rsiwp:p[string(@structureType) = 'skip']" priority="10"/>
   
   <xsl:template match="rsiwp:p" name="transformPara">
+    <xsl:message> + [DEBUG] rsiwp:p (transformPara): text=<xsl:sequence select="substring(., 1, 40)"/></xsl:message>
     <xsl:variable name="tagName" as="xs:string"
       select="
       if (@tagName) 
@@ -217,8 +215,10 @@
     <xsl:param name="level"  as="xs:integer"/><!-- Level of this topic -->
     <xsl:param name="treePos" as="xs:integer*" tunnel="yes"/><!-- Sequence of integers representing tree position of parent. --> 
     <xsl:param name="topicrefType" select="$content[1]/@topicrefType" as="xs:string"/>
+    <xsl:param name="mapUrl" as="xs:string" tunnel="yes"/>
     
-    <xsl:param name="mapUrl" as="xs:string" select="local:getResultUrlForMap($content[1], $topicrefType, $treePos)"/>
+    <xsl:param name="newMapUrl" as="xs:string" 
+      select="local:getResultUrlForMap($content[1], $topicrefType, $treePos, $mapUrl)"/>
 
     <xsl:variable name="firstP" select="$content[1]"/>
     
@@ -226,7 +226,7 @@
       <xsl:message> + [DEBUG] makeMap: firstP=<xsl:value-of select="$firstP"/></xsl:message>
     </xsl:if>
     <xsl:if test="$debugBoolean">
-      <xsl:message> + [DEBUG] makeMap: mapUrl=<xsl:sequence select="$mapUrl"/></xsl:message>
+      <xsl:message> + [DEBUG] makeMap: newMapUrl=<xsl:sequence select="$newMapUrl"/></xsl:message>
     </xsl:if>
     
     <xsl:variable name="nextLevel" select="$level + 1" as="xs:integer"/>
@@ -250,7 +250,7 @@
     />
     
     <xsl:variable name="resultUrl" as="xs:string"
-      select="relpath:newFile($outputDir, $mapUrl)"
+      select="relpath:newFile(relpath:getParent($mapUrl), $newMapUrl)"
     />
     
     <xsl:message> + [INFO] Creating new map document "<xsl:sequence select="$resultUrl"/>"...</xsl:message>
@@ -286,6 +286,7 @@
         <xsl:call-template name="generateTopicsAndTopicrefs">
           <xsl:with-param name="content" select="$content" as="node()*"/>
           <xsl:with-param name="nextLevel" select="$nextLevel" as="xs:integer"/>
+          <xsl:with-param name="mapUrl" as="xs:string" tunnel="yes" select="$resultUrl"/>
         </xsl:call-template>                  
       </xsl:element>
     </xsl:result-document>
@@ -320,7 +321,8 @@
   <xsl:template name="generateTopicrefs">
     <xsl:param name="content" as="node()*"/>
     <xsl:param name="level" as="xs:integer"/>
-    <xsl:param name="treePos" as="xs:integer+" tunnel="yes"/>
+    <xsl:param name="treePos" as="xs:integer*" tunnel="yes"/>
+    <xsl:param name="mapUrl" as="xs:string" tunnel="yes"/>
     <xsl:variable name="firstP" select="$content[1]" as="element()"/>
     
     <xsl:if test="$debugBoolean">
@@ -329,7 +331,7 @@
 
     <xsl:variable name="topicUrl"
       as="xs:string"
-      select="local:getResultUrlForTopic($firstP, string(@topicrefType), ($treePos, 1))"
+      select="local:getResultUrlForTopic($firstP, string(@topicrefType), ($treePos, 1), $mapUrl)"
     />
     
     <xsl:choose>
@@ -391,7 +393,9 @@
   <xsl:template name="generateSubordinateTopicrefs">
     <xsl:param name="content"/>
     <xsl:param name="level" as="xs:integer"/>
-    <xsl:param name="treePos" as="xs:integer+" tunnel="yes"/>
+    <xsl:param name="treePos" as="xs:integer*" tunnel="yes" select="()"/>
+    <xsl:param name="mapUrl" as="xs:string" tunnel="yes"/>
+    
     <xsl:for-each-group select="$content[position() > 1]" 
       group-starting-with="*[(string(@structureType) = 'topicTitle' or 
       string(@structureType) = 'map' or 
@@ -409,7 +413,7 @@
           </xsl:if>
           <xsl:variable name="topicUrl"
             as="xs:string"
-            select="local:getResultUrlForTopic(current-group()[1], $topicrefType, ($treePos, position()))"
+            select="local:getResultUrlForTopic(current-group()[1], $topicrefType, ($treePos, position()), $mapUrl)"
           />
           <xsl:element name="{$topicrefType}">            
             <xsl:call-template name="generateTopicrefAtts">
@@ -438,7 +442,7 @@
             <xsl:call-template name="generateTopicrefs">
               <xsl:with-param name="content" select="current-group()[position() > 1]" as="node()*"/>
               <xsl:with-param name="level" select="$level + 1" as="xs:integer"/>
-              <xsl:with-param name="treePos" select="($treePos, position())" tunnel="yes"/>
+              <xsl:with-param name="treePos" select="($treePos, position() - 2)" tunnel="yes"/>
             </xsl:call-template>
           </xsl:element>          
         </xsl:when>
@@ -461,17 +465,19 @@
             </xsl:choose>
             
           </xsl:variable>
-          <xsl:variable name="mapUrl" as="xs:string" select="local:getResultUrlForMap(., $mapRefType, ($treePos, position()))">
+          <xsl:variable name="newMapUrl" as="xs:string" 
+            select="local:getResultUrlForMap(., $mapRefType, ($treePos, position() - 2), $mapUrl)">
           </xsl:variable>
           <xsl:element name="{$mapRefType}">
             <xsl:attribute name="format" select="'ditamap'"/>
             <xsl:attribute name="navtitle" select="."/>
-            <xsl:attribute name="href" select="$mapUrl"/>
+            <xsl:attribute name="href" select="relpath:getRelativePath(relpath:getParent($mapUrl), $newMapUrl)"/>
             
             <xsl:for-each select="./*[string(@structureType) = 'topicTitle' and @level = $level]">
               <xsl:call-template name="generateTopicrefs">
                 <xsl:with-param name="content" select="current-group()[position() > 1]" as="node()*"/>
                 <xsl:with-param name="treePos" select="($treePos, $level, position())" as="xs:integer+" tunnel="yes"/>
+                <xsl:with-param name="mapUrl" select="$newMapUrl" tunnel="yes"/>
               </xsl:call-template>
             </xsl:for-each>
             
@@ -490,7 +496,13 @@
   </xsl:template>
   <xsl:template name="generateTopicrefAtts">
     <xsl:param name="topicUrl"/>
-    <xsl:attribute name="href" select="$topicUrl"/>
+    <xsl:param name="mapUrl" tunnel="yes" as="xs:string"/>
+    
+    <xsl:variable name="topicRelUrl"
+      select="relpath:getRelativePath(relpath:getParent($mapUrl), $topicUrl)"
+    />
+    
+    <xsl:attribute name="href" select="$topicRelUrl"/>
     <xsl:if test="@chunk">
       <xsl:copy-of select="@chunk"/>
     </xsl:if>
@@ -511,7 +523,7 @@
   <xsl:template name="generateTopics">
     <xsl:param name="content" as="node()*"/>
     <xsl:param name="level" as="xs:integer"/>
-    <xsl:param name="treePos" as="xs:integer+" tunnel="yes"/>
+    <xsl:param name="treePos" as="xs:integer*" tunnel="yes" select="()"/>
     
     <!-- First paragraph is a special case because a first para
          may generate both a map and a topicref.
@@ -526,7 +538,7 @@
           <xsl:call-template name="makeMap">
             <xsl:with-param name="content" select="current-group()" as="node()*"/>
             <xsl:with-param name="level" select="$level" as="xs:integer"/>
-            <xsl:with-param name="treePos" select="($treePos, position())" tunnel="yes"/>
+            <xsl:with-param name="treePos" select="($treePos, ( position() -2))" tunnel="yes"/>
           </xsl:call-template>
           <xsl:call-template name="makeTopic">
             <xsl:with-param name="content" select="current-group()" as="node()*"/>
@@ -560,7 +572,7 @@
               <xsl:call-template name="makeMap">
                 <xsl:with-param name="content" select="current-group()" as="node()*"/>
                 <xsl:with-param name="level" select="$level" as="xs:integer"/>
-                <xsl:with-param name="treePos" select="($treePos, position())" tunnel="yes"/>
+                <xsl:with-param name="treePos" select="($treePos, position() -2)" tunnel="yes"/>
               </xsl:call-template>
             </xsl:otherwise>
           </xsl:choose>          
@@ -581,6 +593,7 @@
     <xsl:param name="level" as="xs:integer"/><!-- Level of this topic -->
     <xsl:param name="treePos" as="xs:integer+" tunnel="yes"/><!-- Tree position of topic in map tree -->
     <xsl:param name="topicrefType" select="$content[1]/@topicrefType" as="xs:string?"/>
+    <xsl:param name="mapUrl" as="xs:string" tunnel="yes"/>
     
     <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] makeTopic: treePos=<xsl:sequence select="$treePos"/></xsl:message>
@@ -599,7 +612,7 @@
       <xsl:when test="$makeDoc">
         <xsl:variable name="topicUrl"
            as="xs:string"
-           select="local:getResultUrlForTopic($firstP, $topicrefType, $treePos)"
+           select="local:getResultUrlForTopic($firstP, $topicrefType, $treePos, $mapUrl)"
         />
         
         <xsl:variable name="resultUrl" as="xs:string"
@@ -1107,6 +1120,7 @@
   </xd:doc>
   <xsl:template match="rsiwp:image" mode="p-content">
     <xsl:param name="resultUrl" as="xs:string" tunnel="yes"/>
+    <xsl:message> + [DEBUG] *** rsiwp:image: Generating an art element for image "<xsl:value-of select="$resultUrl"/>"</xsl:message>
     
     <xsl:variable name="resultDir" select="relpath:getParent($resultUrl)"/>
     <xsl:variable name="srcAtt" select="@src" as="xs:string"/>
@@ -1308,6 +1322,7 @@
     <xsl:param name="context" as="element()"/>
     <xsl:param name="topicrefType" as="xs:string"/>
     <xsl:param name="treePos" as="xs:integer+"/>
+    <xsl:param name="mapUrl" as="xs:string"/>
     
     <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] getResultUrlForTopic(): topicrefType=<xsl:value-of select="$topicrefType"/>, treePos=<xsl:value-of select="$treePos"/></xsl:message>
@@ -1318,13 +1333,10 @@
         <xsl:with-param name="treePos" as="xs:integer+" select="$treePos"/>   
       </xsl:apply-templates>
     </xsl:variable>
-    <!-- FIXME: This use of the outputDir parameter is a workaround for a bug
-         in Saxon 9.1.0.7. It should not be necessary if the main result
-         file has been set, which it always should be when this transform is
-         run by RSuite.
-      -->
+    <!-- mapUrl is the URL of the map document -->
+    <xsl:variable name="parentDir" select="relpath:getParent($mapUrl)" as="xs:string"/>
     <xsl:variable name="result" as="xs:string"
-      select="relpath:newFile($outputDir, $topicRelativeUri)"
+      select="relpath:newFile($parentDir, $topicRelativeUri)"
     />
     <xsl:sequence select="$result"/>
   </xsl:function>
@@ -1333,19 +1345,16 @@
     <xsl:param name="context" as="element()"/>
     <xsl:param name="topicrefType" as="xs:string"/>
     <xsl:param name="treePos" as="xs:integer+"/>
+    <xsl:param name="parentMapUrl" as="xs:string"/>
+    
     <xsl:variable name="mapRelativeUri" as="xs:string+">
       <xsl:apply-templates mode="map-url" select="$context">
         <xsl:with-param name="topicrefType" as="xs:string" select="$topicrefType"/>
         <xsl:with-param name="treePos" as="xs:integer+" select="$treePos"/>        
       </xsl:apply-templates>
     </xsl:variable>
-    <!-- FIXME: This use of the outputDir parameter is a workaround for a bug
-      in Saxon 9.1.0.7. It should not be necessary if the main result
-      file has been set, which it always should be when this transform is
-      run by RSuite.
-    -->
     <xsl:variable name="result" as="xs:string"
-      select="relpath:newFile($outputDir, string-join($mapRelativeUri, ''))"
+      select="relpath:newFile(relpath:getParent($parentMapUrl), string-join($mapRelativeUri, ''))"
     />
     <xsl:sequence select="$result"/>
   </xsl:function>
@@ -1363,6 +1372,7 @@
       </xsl:for-each>
     </xsl:variable>
     
+<!--    <xsl:variable name="result" select="concat('topics/', $fileNamePrefix, 'topic', string-join($treePosString, ''),$topicExtension)"/>-->
     <xsl:variable name="result" select="concat('topics/', $fileNamePrefix, 'topic', string-join($treePosString, ''), '_', count(./preceding-sibling::rsiwp:p),$topicExtension)"/>
     <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] rsiwp:p, mode=topic-url: result="<xsl:sequence select="$result"/>"</xsl:message>
@@ -1376,7 +1386,7 @@
   <xsl:template match="rsiwp:p" mode="map-url">   
     <xsl:param name="treePos" as="xs:integer+"/>
     
-    <xsl:if test="true()">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] rsiwp:p, mode=map-url: treePos=<xsl:sequence select="$treePos"/></xsl:message>
     </xsl:if>
     
@@ -1386,7 +1396,9 @@
       </xsl:for-each>
     </xsl:variable>
     
-    <xsl:variable name="result" select="concat($fileNamePrefix, 'map', string-join($treePosString, ''), '.ditamap')"/>
+    <xsl:variable name="submapName" as="xs:string" select="concat($fileNamePrefix, $submapNamePrefix, string-join($treePosString, ''))"/>
+    
+    <xsl:variable name="result" select="concat($submapName, '/', $submapName, '.ditamap')"/>
     <xsl:if test="true()">
       <xsl:message> + [DEBUG] rsiwp:p, mode="map-url": result=<xsl:sequence select="$result"/></xsl:message>
     </xsl:if>
