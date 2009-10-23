@@ -73,7 +73,7 @@
   <xsl:template match="/" name="processDocumentXml">
     <xsl:message> + [INFO] styleMap=<xsl:sequence select="document-uri($styleMapDoc)"/></xsl:message>
     <xsl:if test="not(/w:document)">
-      <xsl:message terminate="yes"> + [ERROR] Input document must be a w:document document.</xsl:message>
+      <xsl:message terminate="yes"> - [ERROR] Input document must be a w:document document.</xsl:message>
     </xsl:if>
     
     <xsl:variable name="relsDoc" as="document-node()?"
@@ -175,7 +175,7 @@
       <xsl:for-each select="$styleData/@*">
         <xsl:copy/>
       </xsl:for-each>
-      <xsl:if test="$debugBoolean">        
+      <xsl:if test="false() and $debugBoolean">        
         <xsl:message> + [DEBUG] handlePara: p="<xsl:sequence select="substring(normalize-space(.), 1, 40)"/>"</xsl:message>
       </xsl:if>
       <xsl:for-each-group select="w:r | w:hyperlink" group-adjacent="name(.)">
@@ -199,7 +199,7 @@
             </xsl:for-each-group>            
           </xsl:when>
           <xsl:otherwise>
-            <xsl:message terminate="yes"> + [ERROR] handlePara(): Unhandled element type <xsl:sequence select="name(.)"/></xsl:message>
+            <xsl:message terminate="yes"> - [ERROR] handlePara(): Unhandled element type <xsl:sequence select="name(.)"/></xsl:message>
           </xsl:otherwise>
         </xsl:choose>
         
@@ -368,6 +368,14 @@
     -->
     <xsl:apply-templates select=".//pic:blipFill"/>
   </xsl:template>
+
+  <xsl:template match="w:pict">
+    <xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="v:shape">
+    <xsl:apply-templates/>
+  </xsl:template>
   
   <xsl:template match="pic:blipFill">
     <xsl:apply-templates select=".//a:blip"/>
@@ -375,8 +383,22 @@
   
   <xsl:template match="a:blip">
     <xsl:param name="relsDoc" tunnel="yes" as="document-node()?"/>
+    <xsl:variable name="imageUri" select="local:getImageReferenceUri($relsDoc, @r:embed)" as="xs:string"/>
+    <image src="{$imageUri}"/>
+  </xsl:template>
+  
+  <xsl:template match="v:imagedata">
+    <xsl:param name="relsDoc" tunnel="yes" as="document-node()?"/>
+    <xsl:variable name="imageUri" select="local:getImageReferenceUri($relsDoc, @r:id)" as="xs:string"/>
+    <image src="{$imageUri}"/>
+  </xsl:template>
+  
+  <xsl:function name="local:getImageReferenceUri" as="xs:string">
+    <xsl:param name="relsDoc" as="document-node()?"/>
+    <xsl:param name="relId" as="xs:string"/>
+ 
     <xsl:variable name="rel" as="element()?"
-      select="key('relsById', @r:embed, $relsDoc)"
+      select="key('relsById', $relId, $relsDoc)"
     />
     <xsl:variable name="target" select="string($rel/@Target)" as="xs:string"/>
     <xsl:variable name="imageFilename" as="xs:string"
@@ -385,19 +407,17 @@
     <xsl:variable name="srcValue" as="xs:string"
       select="relpath:newFile($mediaDirUri, $imageFilename)"
     />
-    <xsl:if test="$debugBoolean">
-      <xsl:message> + [DEBUG] $srcValue="<xsl:value-of select="$srcValue"/>"</xsl:message>
-    </xsl:if>
     <xsl:choose>
       <xsl:when test="$rel and string($rel/@Type) = $imageRelType">
-        <image src="{$srcValue}"/>
+        <xsl:sequence select="$srcValue"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message> + [WARNING] a:blip: Failed to find Relationship of type Image for relationship ID "<xsl:sequence select="@r:embed"/>"</xsl:message>
+        <xsl:message> - [WARNING] getImageReferenceUri(): Failed to find Relationship of type Image for relationship ID "<xsl:sequence select="$relId"/>"</xsl:message>
+        <xsl:sequence select="concat('unresolvedgraphic_id_', $relId)"></xsl:sequence>
       </xsl:otherwise>
     </xsl:choose>
     
-  </xsl:template>
+  </xsl:function>
   
   <xsl:template match="w:proofErr |
                        w:pPr |
@@ -410,7 +430,8 @@
                        w:tblLook |
                        w:tblGrid |
                        w:lastRenderedPageBreak |
-                       w:fldChar
+                       w:fldChar |
+                       v:shapetype
                        "
   />
   
@@ -448,11 +469,11 @@
   </xsl:function>
   
   <xsl:template match="w:*" priority="-0.5">
-    <xsl:message> + [WARNING] wordml2simple: Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/></xsl:message>
+    <xsl:message> - [WARNING] wordml2simple: Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/></xsl:message>
   </xsl:template>
   
   <xsl:template match="*" priority="-1">
-    <xsl:message> + [WARNING] wordml2simple: Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/></xsl:message>
+    <xsl:message> - [WARNING] wordml2simple: Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/></xsl:message>
   </xsl:template>
 
 </xsl:stylesheet>
