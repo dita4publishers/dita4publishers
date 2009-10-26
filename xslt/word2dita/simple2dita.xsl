@@ -4,7 +4,7 @@
       xmlns:local="urn:local-functions"
       
       xmlns:rsiwp="http://reallysi.com/namespaces/generic-wordprocessing-xml"
-      xmlns:stylemap="urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap"
+      xmlns:stylemap="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap"
       xmlns:relpath="http://dita2indesign/functions/relpath"
       
       exclude-result-prefixes="xs rsiwp stylemap local relpath"
@@ -41,6 +41,7 @@
   <xsl:param name="rootMapUrl" select="concat($rootMapName, '.ditamap')" as="xs:string"/>
   <xsl:param name="topicExtension" select="'.dita'" as="xs:string"/><!-- Extension for generated topic files -->
   <xsl:param name="fileNamePrefix" select="''" as="xs:string"/><!-- Prefix for genenerated file names -->
+  
   <xsl:template match="rsiwp:document">
     <xsl:message> + [INFO] simple2dita: Processing rsiwp:document...</xsl:message>
     <!-- First <p> in doc should be title for the root topic. If it's not, bail -->  
@@ -102,13 +103,43 @@
         </xsl:if>
       </xsl:when>
       <xsl:otherwise>
+        <xsl:variable name="idGenerator" as="xs:string">
+          <xsl:choose>
+            <xsl:when test="string(@idGenerator) = ''">
+              <xsl:sequence select="'default'"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:sequence select="string(@idGenerator)"/>
+            </xsl:otherwise>
+          </xsl:choose>
+          
+        </xsl:variable>
         <xsl:element name="{$tagName}">
           <xsl:sequence select="./@outputclass"/>
           <xsl:if test="./@dataName">
             <xsl:attribute name="name" select="./@dataName"/>
           </xsl:if>
+          <xsl:apply-templates select="." mode="generate-id">
+            <xsl:with-param name="idGenerator" select="$idGenerator" as="xs:string"/>
+          </xsl:apply-templates>
           <xsl:call-template name="transformParaContent"/>    
         </xsl:element>
+      </xsl:otherwise>
+    </xsl:choose>    
+  </xsl:template>
+  
+  <xsl:template mode="generate-id" match="*">
+    <xsl:param name="idGenerator" select="''"/>
+    <xsl:choose>
+      <xsl:when test="$idGenerator = ''">
+        <!-- Don't generate an ID -->
+      </xsl:when>
+      <xsl:when test="$idGenerator = 'default'">
+        <xsl:attribute name="id" select="generate-id(.)"/>
+      </xsl:when>      
+      <xsl:otherwise>
+        <xsl:message> - [WARN] generate-id: Unrecognized ID generator "<xsl:sequence select="$idGenerator"/>". Using generate-id().</xsl:message>
+        <xsl:attribute name="id" select="generate-id(.)"/>
       </xsl:otherwise>
     </xsl:choose>
     
@@ -1372,8 +1403,8 @@
       </xsl:for-each>
     </xsl:variable>
     
-<!--    <xsl:variable name="result" select="concat('topics/', $fileNamePrefix, 'topic', string-join($treePosString, ''),$topicExtension)"/>-->
-    <xsl:variable name="result" select="concat('topics/', $fileNamePrefix, 'topic', string-join($treePosString, ''), '_', count(./preceding-sibling::rsiwp:p),$topicExtension)"/>
+    <xsl:variable name="result" select="concat('topics/', $fileNamePrefix, 'topic', string-join($treePosString, ''),$topicExtension)"/>
+<!--    <xsl:variable name="result" select="concat('topics/', $fileNamePrefix, 'topic', string-join($treePosString, ''), '_', count(./preceding-sibling::rsiwp:p),$topicExtension)"/>-->
     <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] rsiwp:p, mode=topic-url: result="<xsl:sequence select="$result"/>"</xsl:message>
     </xsl:if>
