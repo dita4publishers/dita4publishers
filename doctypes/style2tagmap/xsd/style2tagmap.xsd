@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:s2t="urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap"
+  xmlns:s2t="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
   xmlns:RSUITE="http://www.reallysi.com"
-  targetNamespace="urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap">
+  targetNamespace="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap">
   
   <xs:import namespace="http://www.reallysi.com"
     schemaLocation="rsuite_metadata.xsd" />
@@ -977,6 +977,33 @@
               xmlns="http://www.w3.org/1999/xhtml">
               <h2>Processing Role</h2>
               <p>As for DITA topicref.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="idGenerator"
+        type="xs:NMTOKEN"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div
+              xmlns="http://www.w3.org/1999/xhtml">
+              <h2>ID Generator</h2>
+              <p>For elements that should have an ID generated, the name of the
+              ID generator to use. The default value is "default", where the default
+              ID generator may be result element type specific (e.g., topics may
+              have a different default ID generator than list items).</p>
+              <p>The set of available ID generators is determined by any local overrides
+              used. The ID generator name is passed as a parameter to the apply-templates
+              call for the mode "generate-id" applied to the incoming element.</p>
+              <p>Elements that DITA rules require to have an ID will use the "default"
+              ID generator by default, so it is not necessary to specify this attribute
+              for elements that have a required ID except to change the ID generator (e.g.,
+              styles that map to topics).</p>
+              <p>For elements for which IDs are optional, specify this attribute with a
+              value of "default" to get IDs using the default generator. Specify a different
+              generator name to use that generator.</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
