@@ -106,7 +106,7 @@
         <xsl:variable name="idGenerator" as="xs:string">
           <xsl:choose>
             <xsl:when test="string(@idGenerator) = ''">
-              <xsl:sequence select="'default'"/>
+              <xsl:sequence select="''"/>
             </xsl:when>
             <xsl:otherwise>
               <xsl:sequence select="string(@idGenerator)"/>
@@ -121,6 +121,7 @@
           </xsl:if>
           <xsl:apply-templates select="." mode="generate-id">
             <xsl:with-param name="idGenerator" select="$idGenerator" as="xs:string"/>
+            <xsl:with-param name="tagName" select="$tagName" as="xs:string"/>
           </xsl:apply-templates>
           <xsl:call-template name="transformParaContent"/>    
         </xsl:element>
@@ -134,12 +135,10 @@
       <xsl:when test="$idGenerator = ''">
         <!-- Don't generate an ID -->
       </xsl:when>
-      <xsl:when test="$idGenerator = 'default'">
-        <xsl:attribute name="id" select="generate-id(.)"/>
-      </xsl:when>      
       <xsl:otherwise>
-        <xsl:message> - [WARN] generate-id: Unrecognized ID generator "<xsl:sequence select="$idGenerator"/>". Using generate-id().</xsl:message>
         <xsl:attribute name="id" select="generate-id(.)"/>
+        <!-- This will be removed during ID fixup pass -->
+        <xsl:attribute name="idGenerator" select="$idGenerator"/>
       </xsl:otherwise>
     </xsl:choose>
     
@@ -360,9 +359,16 @@
       <xsl:message> + [DEBUG] generateTopicrefs: treePos=<xsl:sequence select="$treePos"/></xsl:message>
     </xsl:if>
 
+    <xsl:variable name="topicName" as="xs:string">
+      <xsl:apply-templates mode="topic-name" select="$firstP">
+        <xsl:with-param name="treePos" select="($treePos, 1)" as="xs:integer*" />
+      </xsl:apply-templates>
+    </xsl:variable>
+    
+    
     <xsl:variable name="topicUrl"
       as="xs:string"
-      select="local:getResultUrlForTopic($firstP, string(@topicrefType), ($treePos, 1), $mapUrl)"
+      select="local:getResultUrlForTopic($firstP, string(@topicrefType), ($treePos, 1), $mapUrl, $topicName)"
     />
     
     <xsl:choose>
@@ -442,9 +448,16 @@
           <xsl:if test="$debugBoolean">        
             <xsl:message> + [DEBUG] generateTopicrefs: Got a doc-creating topic title. Level=<xsl:sequence select="string(@level)"/></xsl:message>
           </xsl:if>
+          <xsl:variable name="topicName" as="xs:string">
+            <xsl:apply-templates mode="topic-name" select="current-group()[1]">
+              <xsl:with-param name="treePos" select="($treePos, position())" as="xs:integer+"/>
+            </xsl:apply-templates>
+          </xsl:variable>
+          
+          
           <xsl:variable name="topicUrl"
             as="xs:string"
-            select="local:getResultUrlForTopic(current-group()[1], $topicrefType, ($treePos, position()), $mapUrl)"
+            select="local:getResultUrlForTopic(current-group()[1], $topicrefType, ($treePos, position()), $mapUrl, $topicName)"
           />
           <xsl:element name="{$topicrefType}">            
             <xsl:call-template name="generateTopicrefAtts">
@@ -641,9 +654,15 @@
     
     <xsl:choose>
       <xsl:when test="$makeDoc">
+        <xsl:variable name="topicName" as="xs:string">
+          <xsl:apply-templates mode="topic-name" select="$firstP">
+            <xsl:with-param name="treePos" select="$treePos" as="xs:integer+"/>
+          </xsl:apply-templates>
+        </xsl:variable>
+        
         <xsl:variable name="topicUrl"
            as="xs:string"
-           select="local:getResultUrlForTopic($firstP, $topicrefType, $treePos, $mapUrl)"
+           select="local:getResultUrlForTopic($firstP, $topicrefType, $treePos, $mapUrl, $topicName)"
         />
         
         <xsl:variable name="resultUrl" as="xs:string"
@@ -661,30 +680,76 @@
         <xsl:if test="not($format)">
           <xsl:message terminate="yes"> + [ERROR] Failed to find output element with name "<xsl:sequence select="$formatName"/> specified for style <xsl:sequence select="string($firstP/@styleId)"/>.</xsl:message>
         </xsl:if>
-        <xsl:result-document href="{$resultUrl}"
-          doctype-public="{$format/@doctype-public}"
-          doctype-system="{$format/@doctype-system}"
-          >
+        <xsl:variable name="resultDoc" as="node()*"> 
           <xsl:call-template name="constructTopic">
             <xsl:with-param name="content" select="$content"  as="node()*"/>
             <xsl:with-param name="level" select="$level" as="xs:integer"/>
             <xsl:with-param name="resultUrl" as="xs:string" tunnel="yes" select="$resultUrl"/>
+            <xsl:with-param name="topicName" as="xs:string" tunnel="yes" select="$topicName"/>
           </xsl:call-template>
+        </xsl:variable>
+        <!-- Now do ID fixup on the result document: -->
+        <xsl:result-document href="{$resultUrl}"
+            doctype-public="{$format/@doctype-public}"
+            doctype-system="{$format/@doctype-system}"
+            >
+          <xsl:apply-templates select="$resultDoc" mode="id-fixup"/>
         </xsl:result-document>
       </xsl:when>
       <xsl:otherwise>
+        <xsl:variable name="topicName" as="xs:string">
+          <xsl:apply-templates mode="topic-name" select="$firstP">
+            <xsl:with-param name="treePos" select="$treePos" as="xs:integer+"/>
+          </xsl:apply-templates>
+        </xsl:variable>
         <xsl:call-template name="constructTopic">
           <xsl:with-param name="content" select="$content" as="node()*"/>
           <xsl:with-param name="level" select="$level" as="xs:integer"/>
+          <xsl:with-param name="topicName" as="xs:string" tunnel="yes" select="$topicName"/>
         </xsl:call-template>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
 
+  <!-- ID fixup mode is an identity transform that should only modify ID attributes -->
+  
+  <xsl:template mode="id-fixup" match="*">
+    <xsl:copy>
+      <xsl:apply-templates select="@*,node()" mode="#current"/>
+    </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template mode="id-fixup" match="@id" priority="2">
+    <!-- Override this template to implement specific ID generators -->
+    <xsl:variable name="idGenerator" select="string(../@idGenerator)" as="xs:string"/>
+    <xsl:choose>
+      <xsl:when test="$idGenerator = '' or $idGenerator = 'default'">
+        <xsl:copy/><!-- Use the base generated ID value. -->
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:message> - [WARNING] Unrecognized ID generator name "<xsl:sequence select="$idGenerator"/>"</xsl:message>
+        <xsl:copy/><!-- Use the base generated ID value. -->
+      </xsl:otherwise>
+    </xsl:choose>    
+  </xsl:template>
+  
+  <xsl:template mode="id-fixup" match="@idGenerator">
+    <!-- Suppress -->
+  </xsl:template>
+  
+  <xsl:template mode="id-fixup" match="@*">
+    <xsl:copy/>
+  </xsl:template>
+  
+  <xsl:template mode="id-fixup" match="text() | processing-instruction()">
+    <xsl:copy/>
+  </xsl:template>
+  
   <!-- Constructs the topic itself -->
   <xsl:template name="constructTopic">
     <xsl:param name="content" as="node()*"/>
     <xsl:param name="level" as="xs:integer"/>
+    <xsl:param name="topicName" as="xs:string" tunnel="yes" select="generate-id(.)"/>
     
     <xsl:variable name="initialSectionType" as="xs:string" select="string(@initialSectionType)"/>
     <xsl:variable name="firstP" select="$content[1]"/>
@@ -735,7 +800,7 @@
     
     
     <xsl:element name="{$topicType}">
-      <xsl:attribute name="id" select="generate-id($firstP)"/>
+      <xsl:attribute name="id" select="$topicName"/>
       <xsl:if test="$firstP/@topicOutputclass">
         <xsl:attribute name="outputclass" select="$firstP/@topicOutputclass"/>
       </xsl:if>
@@ -1354,6 +1419,7 @@
     <xsl:param name="topicrefType" as="xs:string"/>
     <xsl:param name="treePos" as="xs:integer+"/>
     <xsl:param name="mapUrl" as="xs:string"/>
+    <xsl:param name="topicName" as="xs:string"/>
     
     <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] getResultUrlForTopic(): topicrefType=<xsl:value-of select="$topicrefType"/>, treePos=<xsl:value-of select="$treePos"/></xsl:message>
@@ -1362,6 +1428,7 @@
       <xsl:apply-templates mode="topic-url" select="$context">
         <xsl:with-param name="topicrefType" as="xs:string" select="$topicrefType"/>
         <xsl:with-param name="treePos" as="xs:integer+" select="$treePos"/>   
+        <xsl:with-param name="topicName" as="xs:string" select="$topicName"/>   
       </xsl:apply-templates>
     </xsl:variable>
     <!-- mapUrl is the URL of the map document -->
@@ -1389,22 +1456,32 @@
     />
     <xsl:sequence select="$result"/>
   </xsl:function>
-  
-  <xsl:template match="rsiwp:p" mode="topic-url">   
+
+  <xsl:template match="rsiwp:p" mode="topic-name">
+    <!-- Generates the name for a topic, which can then be
+         used in IDs and filenames.
+      -->
     <xsl:param name="treePos" as="xs:integer+"/>
-    
-    <xsl:if test="$debugBoolean">
-      <xsl:message> + [DEBUG] rsiwp:p, mode=topic-url: treePos=<xsl:sequence select="$treePos"/></xsl:message>
-    </xsl:if>
-    
     <xsl:variable name="treePosString" as="xs:string+">
       <xsl:for-each select="$treePos">
         <xsl:value-of select="concat('_', .)"/>
       </xsl:for-each>
     </xsl:variable>
+
+    <xsl:variable name="result" select="concat($fileNamePrefix, 'topic', string-join($treePosString, ''))"/>
+    <xsl:sequence select="$result"/>
     
-    <xsl:variable name="result" select="concat('topics/', $fileNamePrefix, 'topic', string-join($treePosString, ''),$topicExtension)"/>
-<!--    <xsl:variable name="result" select="concat('topics/', $fileNamePrefix, 'topic', string-join($treePosString, ''), '_', count(./preceding-sibling::rsiwp:p),$topicExtension)"/>-->
+  </xsl:template>  
+ 
+  <xsl:template match="rsiwp:p" mode="topic-url">   
+    <xsl:param name="treePos" as="xs:integer+"/>
+    <xsl:param name="topicName" as="xs:string"/>
+    
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] rsiwp:p, mode=topic-url: treePos=<xsl:sequence select="$treePos"/></xsl:message>
+    </xsl:if>
+
+    <xsl:variable name="result" select="concat('topics/', $topicName, $topicExtension)"/>
     <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] rsiwp:p, mode=topic-url: result="<xsl:sequence select="$result"/>"</xsl:message>
     </xsl:if>
