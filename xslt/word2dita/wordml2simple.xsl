@@ -19,7 +19,7 @@
       xmlns:local="urn:local-functions"
       
       xmlns:rsiwp="http://reallysi.com/namespaces/generic-wordprocessing-xml"
-      xmlns:stylemap="urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap"
+      xmlns:stylemap="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap"
       xmlns:relpath="http://dita2indesign/functions/relpath"
       xmlns="http://reallysi.com/namespaces/generic-wordprocessing-xml"
       
