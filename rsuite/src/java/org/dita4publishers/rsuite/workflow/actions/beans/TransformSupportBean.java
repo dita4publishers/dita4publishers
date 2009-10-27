@@ -80,7 +80,14 @@ public class TransformSupportBean {
 			throw new RSuiteException(0, "Managed object " + mo.getDisplayName() + "[" + mo.getId() + "] returned null for getElement() method.");
 		}
 		Document doc = element.getOwnerDocument();
+		String docUri = doc.getDocumentURI();
+		if (docUri == null || "".equals(docUri.trim())) {
+			// FIXME: The need for this is removed in 3.3.2, where the document URI is set by the MO itself.
+		    doc.setDocumentURI("rsuite:/res/content/" + mo.getId());
+		    docUri = doc.getDocumentURI();
+		}
 		Source source = new DOMSource(doc);
+		source.setSystemId(docUri);
 		Serializer result = new Serializer();
 		result.setOutputFile(resultFile);
 		applyTransform(source, result, params, logger, wfLog, tempDir);
