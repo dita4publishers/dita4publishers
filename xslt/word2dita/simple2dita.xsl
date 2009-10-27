@@ -693,7 +693,7 @@
             doctype-public="{$format/@doctype-public}"
             doctype-system="{$format/@doctype-system}"
             >
-          <xsl:apply-templates select="$resultDoc" mode="id-fixup"/>
+          <xsl:apply-templates select="$resultDoc" mode="final-fixup"/>
         </xsl:result-document>
       </xsl:when>
       <xsl:otherwise>
@@ -713,13 +713,13 @@
 
   <!-- ID fixup mode is an identity transform that should only modify ID attributes -->
   
-  <xsl:template mode="id-fixup" match="*">
+  <xsl:template mode="final-fixup" match="*">
     <xsl:copy>
       <xsl:apply-templates select="@*,node()" mode="#current"/>
     </xsl:copy>
   </xsl:template>
   
-  <xsl:template mode="id-fixup" match="@id" priority="2">
+  <xsl:template mode="final-fixup" match="@id" priority="2">
     <!-- Override this template to implement specific ID generators -->
     <xsl:variable name="idGenerator" select="string(../@idGenerator)" as="xs:string"/>
     <xsl:choose>
@@ -733,15 +733,15 @@
     </xsl:choose>    
   </xsl:template>
   
-  <xsl:template mode="id-fixup" match="@idGenerator">
+  <xsl:template mode="final-fixup" match="@idGenerator | @class">
     <!-- Suppress -->
   </xsl:template>
   
-  <xsl:template mode="id-fixup" match="@*">
+  <xsl:template mode="final-fixup" match="@*">
     <xsl:copy/>
   </xsl:template>
   
-  <xsl:template mode="id-fixup" match="text() | processing-instruction()">
+  <xsl:template mode="final-fixup" match="text() | processing-instruction()">
     <xsl:copy/>
   </xsl:template>
   
