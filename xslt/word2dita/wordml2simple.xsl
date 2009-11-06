@@ -18,12 +18,13 @@
       
       xmlns:local="urn:local-functions"
       
+      xmlns:saxon="http://saxon.sf.net/"
       xmlns:rsiwp="http://reallysi.com/namespaces/generic-wordprocessing-xml"
       xmlns:stylemap="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap"
       xmlns:relpath="http://dita2indesign/functions/relpath"
       xmlns="http://reallysi.com/namespaces/generic-wordprocessing-xml"
       
-      exclude-result-prefixes="a pic xs mv mo ve o r m v w10 w wne wp local relpath"
+      exclude-result-prefixes="a pic xs mv mo ve o r m v w10 w wne wp local relpath saxon"
       version="2.0">
   
   <!--==========================================
@@ -171,7 +172,7 @@
   <xsl:template name="handlePara">
     <xsl:param name="styleId"/>
     <xsl:param name="styleData"/>
-    <p style="{$styleId}">
+    <p style="{$styleId}" wordLocation="{saxon:path()}">
       <xsl:for-each select="$styleData/@*">
         <xsl:copy/>
       </xsl:for-each>

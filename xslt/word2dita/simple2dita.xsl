@@ -63,6 +63,7 @@
         <xsl:call-template name="makeTopic">
           <xsl:with-param name="content" select="rsiwp:body/(rsiwp:p|rsiwp:table)" as="node()*"/>
           <xsl:with-param name="level" select="0" as="xs:integer"/>
+          <xsl:with-param name="treePos" select="(0)" as="xs:integer+" tunnel="yes"/>
         </xsl:call-template>
       </xsl:when>
       <xsl:when test="local:isMap($firstP)">
@@ -114,7 +115,8 @@
           </xsl:choose>
           
         </xsl:variable>
-        <xsl:element name="{$tagName}">
+        <xsl:element name="{$tagName}">  
+          <xsl:attribute name="xtrc" select="@wordLocation"/>
           <xsl:sequence select="./@outputclass"/>
           <xsl:if test="./@dataName">
             <xsl:attribute name="name" select="./@dataName"/>
@@ -184,7 +186,8 @@
       else 'table'
       "
     />
-    <xsl:element name="{$tagName}">
+    <xsl:element name="{$tagName}">  
+      <xsl:attribute name="xtrc" select="@wordLocation"/>
       <!-- FIXME: Need to account for table heads and table bodies -->
       <tgroup cols="{count(rsiwp:cols/rsiwp:col)}">
         <xsl:apply-templates select="rsiwp:cols"/>
@@ -229,6 +232,7 @@
       <xsl:message> + [WARNING] No style to tag mapping for character style "<xsl:sequence select="string(@style)"/>"</xsl:message>
     </xsl:if>
     <xsl:element name="{$tagName}">
+      <xsl:attribute name="xtrc" select="@wordLocation"/>
       <xsl:if test="@outputclass">
         <xsl:attribute name="outputclass" select="string(@outputclass)"/>
       </xsl:if>
@@ -292,7 +296,8 @@
       indent="yes"
       >
       <xsl:element name="{$firstP/@mapType}">
-        <!-- The first paragraph can simply trigger a (possibly) untitled map, or
+        <xsl:attribute name="xtrc" select="$firstP/@wordLocation"/>
+          <!-- The first paragraph can simply trigger a (possibly) untitled map, or
           it can also be the map title. If it's the map title, generate it.
           First paragraph can also generate a root topicref and/or a topicref
           to a topic in addition to the map.
@@ -304,6 +309,7 @@
           <xsl:variable name="prologParas" select="$content[string(@topicZone) = 'topicmeta' and string(@containingTopic) = 'root']" as="node()*"/>
           <!-- Now process any map-level topic metadata paragraphs. -->
           <xsl:element name="{$prologType}">
+            <xsl:attribute name="xtrc" select="$firstP/@wordLocation"/>
             <xsl:call-template name="handleTopicProlog">
               <xsl:with-param name="content" select="$prologParas"/>
             </xsl:call-template>
@@ -377,7 +383,8 @@
           <xsl:message> + [DEBUG] generateTopicrefs(): First para specifies rootTopicrefType</xsl:message>
         </xsl:if>
         <xsl:element name="{$firstP/@rootTopicrefType}">
-          <xsl:if test="string($firstP/@rootTopicrefType) = 'learningObject'">
+          <xsl:attribute name="xtrc" select="$firstP/@wordLocation"/>
+            <xsl:if test="string($firstP/@rootTopicrefType) = 'learningObject'">
             <!-- FIXME: This is a workaround until we implement the ability
               to specify collection-type for the root topicref type.
             -->
@@ -386,6 +393,7 @@
           <xsl:choose>
             <xsl:when test="@topicrefType != ''">
               <xsl:element name="{@topicrefType}">
+                <xsl:attribute name="xtrc" select="@wordLocation"/>
                 <xsl:call-template name="generateTopicrefAtts">
                   <xsl:with-param name="topicUrl" select="$topicUrl"/>
                 </xsl:call-template>            
@@ -480,7 +488,9 @@
           <xsl:variable name="topicmetaType" select="if (@topicmetaType) then string(@topicmetaType) else 'topicmeta'"/>
           <xsl:variable name="navtitleType" select="if (@navtitleType) then string(@navtitleType) else 'navtitle'"/>
           <xsl:element name="{$topicheadType}">
+            <xsl:attribute name="xtrc" select="@wordLocation"/>
             <xsl:element name="{$topicmetaType}">
+              <xsl:attribute name="xtrc" select="@wordLocation"/>
               <xsl:apply-templates select="current-group()[1]"/>
             </xsl:element>
             <xsl:call-template name="generateTopicrefs">
@@ -516,6 +526,7 @@
             <xsl:attribute name="format" select="'ditamap'"/>
             <xsl:attribute name="navtitle" select="."/>
             <xsl:attribute name="href" select="relpath:getRelativePath(relpath:getParent($mapUrl), $newMapUrl)"/>
+            <xsl:attribute name="xtrc" select="@wordLocation"/>
             
             <xsl:for-each select="./*[string(@structureType) = 'topicTitle' and @level = $level]">
               <xsl:call-template name="generateTopicrefs">
@@ -556,7 +567,8 @@
     <xsl:if test="@processing-role">
       <xsl:copy-of select="@processing-role"/>
     </xsl:if>
-    
+    <xsl:attribute name="xtrc" select="@wordLocation"/>
+      
   </xsl:template>
   
   
@@ -637,7 +649,7 @@
     <xsl:param name="level" as="xs:integer"/><!-- Level of this topic -->
     <xsl:param name="treePos" as="xs:integer+" tunnel="yes"/><!-- Tree position of topic in map tree -->
     <xsl:param name="topicrefType" select="$content[1]/@topicrefType" as="xs:string?"/>
-    <xsl:param name="mapUrl" as="xs:string" tunnel="yes"/>
+    <xsl:param name="mapUrl" as="xs:string?" tunnel="yes"/>
     
     <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] makeTopic: treePos=<xsl:sequence select="$treePos"/></xsl:message>
@@ -801,6 +813,7 @@
     
     <xsl:element name="{$topicType}">
       <xsl:attribute name="id" select="$topicName"/>
+      <xsl:attribute name="xtrc" select="$firstP/@wordLocation"/>
       <xsl:if test="$firstP/@topicOutputclass">
         <xsl:attribute name="outputclass" select="$firstP/@topicOutputclass"/>
       </xsl:if>
@@ -834,6 +847,7 @@
               <xsl:choose>
                 <xsl:when test="$level = 0">
                   <xsl:element name="{$prologType}">
+                    <xsl:attribute name="xtrc" select="$firstP/@wordLocation"/>
                     <!-- For root topic, can pull metadata from anywhere in the incoming document. -->
                     <xsl:apply-templates select="root($firstP)//*[string(@containingTopic) = 'root' and 
                       string(@topicZone) = 'prolog' and 
@@ -856,11 +870,13 @@
                 </xsl:when>
                 <xsl:when test="current-group()[string(@topicZone) = 'prolog' and not(@containingTopic)]">
                   <xsl:element name="{$prologType}">
+                    <xsl:attribute name="xtrc" select="@wordLocation"/>
                     <xsl:apply-templates select="current-group()[not(@containingTopic) and string(@topicZone) = 'prolog']"/>
                   </xsl:element>
                 </xsl:when>
                 <xsl:when test="count($titleIndexEntries) > 0">
                   <xsl:element name="{$prologType}">
+                    <xsl:attribute name="xtrc" select="@wordLocation"/>
                     <metadata>
                       <keywords>
                         <xsl:apply-templates select="$titleIndexEntries" mode="p-content"/>                          
@@ -876,6 +892,7 @@
                 <xsl:message> + [DEBUG] current group is topicZone body</xsl:message>
               </xsl:if>
               <xsl:element name="{$bodyType}">
+                <xsl:attribute name="xtrc" select="@wordLocation"/>
                 <xsl:call-template name="handleSectionParas">
                   <xsl:with-param name="sectionParas" select="current-group()[string(@topicZone) = 'body']" as="element()*"/>
                   <xsl:with-param name="initialSectionType" select="$initialSectionType" as="xs:string"/>
@@ -910,6 +927,7 @@
           <xsl:choose>
             <xsl:when test="$initialSectionType != ''">
               <xsl:element name="{$initialSectionType}">
+                <xsl:attribute name="xtrc" select="@wordLocation"/>
                 <xsl:call-template name="handleBodyParas">
                   <xsl:with-param name="bodyParas" select="current-group()"/>
                 </xsl:call-template>
@@ -928,6 +946,7 @@
               select="if (@sectionType) then string(@sectionType) else 'section'"
           />
           <xsl:element name="{$sectionType}">
+            <xsl:attribute name="xtrc" select="@wordLocation"/>
             <xsl:variable name="bodyParas"
               select="if (string(@useAsTitle) = 'no')
                          then current-group()[position() > 1]
@@ -1003,6 +1022,7 @@
         <xsl:when test="$currentContainer != string(@containerType)">
 <!--          <xsl:message> + [DEBUG ]  currentContainer != @containerType, currentPara=<xsl:sequence select="local:reportPara(.)"/></xsl:message>-->
           <xsl:element name="{@containerType}">
+            <xsl:attribute name="xtrc" select="@wordLocation"/>
             <xsl:if test="@containerOutputclass">
               <xsl:attribute name="outputclass" select="string(@containerOutputclass)"/>
             </xsl:if>
@@ -1030,7 +1050,8 @@
         <xsl:variable name="dlEntryType" as="xs:string"
           select="if (@dlEntryType) then string(@dlEntryType) else 'dlentry'"
         />
-        <xsl:element name="{$dlEntryType}">
+        <xsl:element name="{$dlEntryType}"> 
+          <xsl:attribute name="xtrc" select="@wordLocation"/>
           <xsl:call-template name="transformPara"/>
           <xsl:variable name="followingSibling" as="element()?" select="following-sibling::*[1]"/>
           <xsl:variable name="precedingSibling" as="element()?" select="preceding-sibling::*[1]"/>
@@ -1057,6 +1078,8 @@
               <xsl:for-each-group select="following-sibling::*" group-adjacent="@level">
                 <xsl:if test="@level &gt; $level">
                   <xsl:element name="{@containerType}">
+                    <xsl:attribute name="xtrc" select="@wordLocation"/>
+                    
                   <xsl:for-each select="current-group()">
                     <xsl:choose>
                       <xsl:when test="string(@structureType) = 'dt'">
@@ -1064,7 +1087,8 @@
                         <xsl:variable name="dlEntryType" as="xs:string"
                           select="if (@dlEntryType) then string(@dlEntryType) else 'dlentry'"
                         />
-                        <xsl:element name="{$dlEntryType}">
+                        <xsl:element name="{$dlEntryType}">  
+                          <xsl:attribute name="xtrc" select="@wordLocation"/>
                           <xsl:call-template name="transformPara"/>
                           <!-- find position of next <dt> element type -->
                           <xsl:variable name="followingNestedSiblingDtPositions" as="item()*">
@@ -1130,8 +1154,9 @@
       <xsl:when test="string(@structureType) = 'dd'"/><!-- Handled by dt processing -->
      <xsl:when test="following-sibling::*[1][@level &gt; $level]">
         <xsl:variable name="me" select="." as="element()"/>
-        <xsl:element name="{@tagName}">
-          <xsl:call-template name="transformParaContent"/>
+       <xsl:element name="{@tagName}">  
+         <xsl:attribute name="xtrc" select="@wordLocation"/>
+         <xsl:call-template name="transformParaContent"/>
           <xsl:call-template name="processLevelNContainers">
             <xsl:with-param name="context" 
               select="following-sibling::*[(@level = $level + 1) and 
