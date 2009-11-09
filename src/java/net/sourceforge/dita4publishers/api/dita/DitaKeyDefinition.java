@@ -59,12 +59,6 @@ public interface DitaKeyDefinition extends Comparable<DitaKeyDefinition> {
 	DitaFormat getFormat();
 
 	/**
-	 * @return MO ID of the map from which the key definition was constructed.
-	 * Null if the key definition was not constructed from a map.
-	 */
-	String getMapMoID();
-
-	/**
 	 * For collation, keys are sorted alphabetically by key in a locale-
 	 * specific way (that is, UIs are free to sort keys based on the 
 	 * current locale). There is no DITA-defined processing implication for

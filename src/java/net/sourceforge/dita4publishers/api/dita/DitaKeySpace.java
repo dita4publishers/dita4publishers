@@ -47,6 +47,7 @@ public interface DitaKeySpace {
 	/**
 	 * 
 	 * @return Set of all key definitions, effective and not, for the specified key.
+	 * @throws  
 	 */
 	List<DitaKeyDefinition> getAllKeyDefinitions(KeyAccessOptions keyAccessOptions, String key) throws DitaApiException;
 

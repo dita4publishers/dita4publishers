@@ -3,6 +3,8 @@
  */
 package net.sourceforge.dita4publishers.api.dita;
 
+import org.w3c.dom.Document;
+
 
 
 /**
@@ -40,5 +42,10 @@ public interface DitaIdTarget {
 	 * @return The tag name of the target element (e.g., "topic", "p", etc.).
 	 */
 	String getTagName();
+
+	/**
+	 * @return Document that contains the element.
+	 */
+	Document getDocument();
 
 }

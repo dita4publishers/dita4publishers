@@ -25,4 +25,15 @@ public interface DitaKeyDefinitionContext {
 	 */
 	boolean isOutOfDate() throws DitaApiException;
 
+	/**
+	 * @param keyAccessOptions
+	 * @return The key access options set on the key key definition context.
+	 */
+	KeyAccessOptions getKeyAccessOptions();
+
+	/**
+	 * @param keyAccessOptions
+	 */
+	void setKeyAccessOptions(KeyAccessOptions keyAccessOptions);
+
 }

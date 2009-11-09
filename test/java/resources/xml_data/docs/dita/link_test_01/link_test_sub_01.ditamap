@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map class="- map/map " ditaarch:DITAArchVersion="1.2" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+  <title class="- topic/title ">Link Test 01 Submap 01</title>
+  <topicref
+    keys="key-01"
+    href="topics/topic_03.xml" class="- map/topicref  "/>
+  <topicref
+    keys="key-06"
+    href="topics/topic_06.xml" class="- map/topicref  "/>
+  
+</map>
