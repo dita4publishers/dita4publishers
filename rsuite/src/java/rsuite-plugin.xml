@@ -14,20 +14,4 @@
 
   </extensionProvider>
   
-    <extensionProvider id="rsuite.Workflow">
-        <actionHandler type="org.dita4publishers.rsuite.workflow.actions.Docx2XmlActionHandler"
-            label="DITA4Publishers - Docx to DITA XML">
-           <variableList>
-             <variable><name>mapFileName</name></variable>
-             <variable><name>styleMapUri</name></variable>
-             <variable><name>xsltUri</name></variable>
-             <variable><name>outputPath</name></variable>
-             <variable><name>docxMoId</name></variable>
-             <variable><name>resultFileName</name></variable>
-             <variable><name>fileNamePrefix</name></variable>
-           </variableList>
-        </actionHandler>
-
-   </extensionProvider>      
- 
 </rsuite-plugin>

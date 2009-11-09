@@ -390,8 +390,12 @@
   </target>
   
 
-  <target name="package-rsuite-plugins" depends="init-target, clean, compile">
-    <copy file="${src}/rsuite-plugin.xml" todir="${classes.home}"/>
+	
+  <target name="package-rsuite-plugins" depends="init-target, clean">
+    <!-- NOTE: The RSuite plugin only packages Web-accessible resources.
+               It contains no Java code.
+      -->
+  	<copy file="${src}/rsuite-plugin.xml" todir="${classes.home}"/>
     <copy todir="${classes.home}/WebContent/xslt">
       <fileset dir="${xslt.src}"/>
     </copy>

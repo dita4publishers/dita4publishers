@@ -9,13 +9,15 @@
 	<classpathentry kind="lib" path="lib/log4j.jar"/>
 	<classpathentry kind="lib" path="lib/rsi-inx-util.jar"/>
 	<classpathentry kind="lib" path="lib/rsi-utils.jar"/>
-	<classpathentry kind="lib" path="lib/rsuite-api.jar"/>
 	<classpathentry kind="lib" path="lib/saxon9-s9api.jar"/>
 	<classpathentry kind="lib" path="lib/saxon9-xpath.jar"/>
 	<classpathentry kind="lib" path="lib/saxon9.jar"/>
-	<classpathentry kind="lib" path="lib/rsuite-dita-tools.jar" sourcepath="/eduneering/src/java"/>
 	<classpathentry kind="lib" path="lib/jbpm.jar"/>
 	<classpathentry kind="lib" path="lib/ant.jar"/>
 	<classpathentry kind="lib" path="lib/commons-io.jar"/>
+	<classpathentry kind="lib" path="lib/resolver.jar"/>
+	<classpathentry kind="lib" path="lib/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="lib/xml-apis.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="build"/>
 </classpath>
