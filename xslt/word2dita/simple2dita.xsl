@@ -86,7 +86,9 @@
   <xsl:template match="rsiwp:p[string(@structureType) = 'skip']" priority="10"/>
   
   <xsl:template match="rsiwp:p" name="transformPara">
-    <xsl:message> + [DEBUG] rsiwp:p (transformPara): text=<xsl:sequence select="substring(., 1, 40)"/></xsl:message>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] rsiwp:p (transformPara): text=<xsl:sequence select="substring(., 1, 40)"/></xsl:message>
+    </xsl:if>
     <xsl:variable name="tagName" as="xs:string"
       select="
       if (@tagName) 
@@ -99,7 +101,7 @@
     </xsl:if>
     <xsl:choose>
       <xsl:when test="count(./*) = 0 and normalize-space(.) = ''">
-        <xsl:if test="$debugBoolean">                  
+        <xsl:if test="$debugBoolean">
           <xsl:message> + [DEBUG] Skipping apparently-empty paragraph: <xsl:sequence select="local:reportPara(.)"/></xsl:message>
         </xsl:if>
       </xsl:when>
@@ -947,11 +949,29 @@
           />
           <xsl:element name="{$sectionType}">
             <xsl:attribute name="xtrc" select="@wordLocation"/>
+            <xsl:if test="@spectitle != ''">
+              <xsl:message> + [DEBUG] @spectitle = '<xsl:sequence select="string(@spectitle)"/>'</xsl:message>
+              <xsl:variable name="spectitle" select="local:constructSpectitle(.)" as="xs:string"/>
+              <xsl:message> + [DEBUG] $spectitle = '<xsl:sequence select="$spectitle"/>'</xsl:message>
+              <xsl:attribute name="spectitle" select="$spectitle"/>
+            </xsl:if>
+            <xsl:variable name="firstSectionPara" as="element()">
+              <xsl:choose>
+                <xsl:when test="starts-with(@spectitle, '#')">
+                  <xsl:sequence select="local:removeSpectitleContent(.)"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:sequence select="current-group()[1]"/>
+                </xsl:otherwise>
+              </xsl:choose>
+              
+            </xsl:variable>
             <xsl:variable name="bodyParas"
-              select="if (string(@useAsTitle) = 'no')
+              select="if (string(@useAsTitle) = 'no' or 
+                          ((@spectitle != '') and 
+                           (not(starts-with(@spectitle, '#')))))
                          then current-group()[position() > 1]
-                         else current-group()
-                         
+                         else ($firstSectionPara, current-group()[position() > 1])                         
               "
             />
             <xsl:call-template name="handleBodyParas">
@@ -1532,7 +1552,7 @@
     <xsl:variable name="submapName" as="xs:string" select="concat($fileNamePrefix, $submapNamePrefix, string-join($treePosString, ''))"/>
     
     <xsl:variable name="result" select="concat($submapName, '/', $submapName, '.ditamap')"/>
-    <xsl:if test="true()">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] rsiwp:p, mode="map-url": result=<xsl:sequence select="$result"/></xsl:message>
     </xsl:if>
     <xsl:sequence select="$result"/>
@@ -1597,6 +1617,42 @@
                        )"
       />
     </xsl:if>
+  </xsl:function>
+ 
+  <xsl:function name="local:constructSpectitle">
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="specTitleSpec" select="string($context/@spectitle)"/>    
+    <xsl:variable name="spectitle" as="xs:string">
+      <xsl:choose>
+        <xsl:when test="$specTitleSpec = '#toColon'">
+          <xsl:sequence select="substring-before(string($context), ':')"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:sequence select="string($context/@spectitle)"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:sequence select="$spectitle"/>
+  </xsl:function>
+  
+  <xsl:function name="local:removeSpectitleContent" as="element()">
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="initialText" as="xs:string" select="$context/text()[count(preceding-sibling::*) = 0]"/>
+    <xsl:message> + [DEBUG] removeSpectitleContent="<xsl:sequence select="$initialText"/>"</xsl:message>
+    <xsl:element name="{name($context)}"
+      namespace="{namespace-uri($context)}"
+      >
+      <xsl:sequence select="$context/@*"/>
+      <xsl:choose>
+        <xsl:when test="string($context/@spectitle) = '#toColon'">
+          <xsl:sequence select="substring-after($initialText, ': ')"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:sequence select="string($initialText)"/>
+        </xsl:otherwise>
+      </xsl:choose>
+      <xsl:sequence select="$context/* | $context/text()[count(preceding-sibling::*) gt 0]"/>
+    </xsl:element>
   </xsl:function>
   
   <xsl:template match="rsiwp:*" priority="-0.5" mode="p-content">
