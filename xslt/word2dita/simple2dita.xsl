@@ -738,6 +738,7 @@
     <xsl:variable name="idGenerator" select="string(../@idGenerator)" as="xs:string"/>
     <xsl:choose>
       <xsl:when test="$idGenerator = '' or $idGenerator = 'default'">
+        <xsl:message> + [DEBUG] final-fixup/@ID: Using default ID generator, returning "<xsl:sequence select="string(.)"/>"</xsl:message>
         <xsl:copy/><!-- Use the base generated ID value. -->
       </xsl:when>
       <xsl:otherwise>
@@ -764,6 +765,7 @@
     <xsl:param name="content" as="node()*"/>
     <xsl:param name="level" as="xs:integer"/>
     <xsl:param name="topicName" as="xs:string" tunnel="yes" select="generate-id(.)"/>
+    <xsl:param name="treePos" as="xs:integer+" tunnel="yes"/><!-- Tree position of topic in map tree -->
     
     <xsl:variable name="initialSectionType" as="xs:string" select="string(@initialSectionType)"/>
     <xsl:variable name="firstP" select="$content[1]"/>
@@ -810,8 +812,8 @@
     
     <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] constructTopic: Creating topic element <xsl:value-of select="$topicType"/></xsl:message>
+      <xsl:message> + [DEBUG] constructTopic: topicName="<xsl:sequence select="$topicName"/>"</xsl:message>
     </xsl:if>
-    
     
     <xsl:element name="{$topicType}">
       <xsl:attribute name="id" select="$topicName"/>
@@ -909,6 +911,7 @@
             <xsl:call-template name="makeTopic">
               <xsl:with-param name="content" select="current-group()" as="node()*"/>
               <xsl:with-param name="level" select="$level + 1" as="xs:integer"/>
+              <xsl:with-param name="treePos" select="($treePos, position() - 1)" as="xs:integer+" tunnel="yes"/>
             </xsl:call-template>
           </xsl:otherwise>
         </xsl:choose>        
@@ -950,9 +953,7 @@
           <xsl:element name="{$sectionType}">
             <xsl:attribute name="xtrc" select="@wordLocation"/>
             <xsl:if test="@spectitle != ''">
-              <xsl:message> + [DEBUG] @spectitle = '<xsl:sequence select="string(@spectitle)"/>'</xsl:message>
               <xsl:variable name="spectitle" select="local:constructSpectitle(.)" as="xs:string"/>
-              <xsl:message> + [DEBUG] $spectitle = '<xsl:sequence select="$spectitle"/>'</xsl:message>
               <xsl:attribute name="spectitle" select="$spectitle"/>
             </xsl:if>
             <xsl:variable name="firstSectionPara" as="element()">
@@ -1261,7 +1262,6 @@
   </xd:doc>
   <xsl:template match="rsiwp:image" mode="p-content">
     <xsl:param name="resultUrl" as="xs:string" tunnel="yes"/>
-    <xsl:message> + [DEBUG] *** rsiwp:image: Generating an art element for image "<xsl:value-of select="$resultUrl"/>"</xsl:message>
     
     <xsl:variable name="resultDir" select="relpath:getParent($resultUrl)"/>
     <xsl:variable name="srcAtt" select="@src" as="xs:string"/>
@@ -1638,7 +1638,6 @@
   <xsl:function name="local:removeSpectitleContent" as="element()">
     <xsl:param name="context" as="element()"/>
     <xsl:variable name="initialText" as="xs:string" select="$context/text()[count(preceding-sibling::*) = 0]"/>
-    <xsl:message> + [DEBUG] removeSpectitleContent="<xsl:sequence select="$initialText"/>"</xsl:message>
     <xsl:element name="{name($context)}"
       namespace="{namespace-uri($context)}"
       >
