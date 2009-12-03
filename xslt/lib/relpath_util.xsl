@@ -277,6 +277,24 @@
     </xsl:choose>
   </xsl:function>
   
+  <xsl:function name="relpath:toUrl" as="xs:string">
+    <xsl:param name="filepath" as="xs:string"/>
+    <xsl:variable name="url" as="xs:string"
+      select="if (contains($filepath, '\'))
+       then translate($filepath, '\', '/')
+       else $filepath
+      "
+    />
+    <xsl:variable name="fileUrl" as="xs:string"
+      select="
+      if (matches($url, '^[a-zA-Z]:'))
+        then concat('file:/', $url)
+        else $url
+        "
+    />
+    <xsl:sequence select="$fileUrl"/>
+  </xsl:function>
+  
   <xsl:function name="relpath:analyzePathTokens" as="xs:string*">
     <xsl:param name="sourceTokens" as="xs:string*"/>
     <xsl:param name="targetTokens" as="xs:string*"/>
