@@ -16,6 +16,9 @@ import java.util.Set;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 
+import net.sourceforge.dita4publishers.api.dita.DitaApiException;
+import net.sourceforge.dita4publishers.api.dita.DitaBoundedObjectSet;
+import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
 import net.sourceforge.dita4publishers.api.ditabos.AddressingException;
 import net.sourceforge.dita4publishers.api.ditabos.BosException;
 import net.sourceforge.dita4publishers.api.ditabos.BosMember;
@@ -23,6 +26,7 @@ import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
 import net.sourceforge.dita4publishers.api.ditabos.DitaTreeWalker;
 import net.sourceforge.dita4publishers.api.ditabos.NonXmlBosMember;
 import net.sourceforge.dita4publishers.api.ditabos.XmlBosMember;
+import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
 
 import org.apache.commons.logging.Log;
 import org.w3c.dom.Document;
@@ -44,14 +48,13 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	private List<BosMember> walkedMembers = new ArrayList<BosMember>();
 	/**
 	 * @param keySpace
-	 * @param failOnAddressResolutionFailure 
 	 * @param bosConstructionOptions 
 	 * @throws BosException 
 	 */
 	public DitaTreeWalkerBase(Log log,
-			DitaKeySpace keySpace, boolean failOnAddressResolutionFailure, BosConstructionOptions bosConstructionOptions) throws BosException {
-		super(log, failOnAddressResolutionFailure, bosConstructionOptions);
-		this.keySpace = keySpace;
+			DitaKeySpace keySpace, BosConstructionOptions bosConstructionOptions) throws BosException {
+		super(log, bosConstructionOptions);
+		this.keySpace = keySpace;		
 	}
 
 	/**
@@ -70,16 +73,21 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	 * @throws BosException 
 	 */
 	protected void walkTopic(BoundedObjectSet bos, XmlBosMember xmlBosMember, int level) throws BosException {
-		walkTopicGetDependencies(bos, xmlBosMember);
+		try {
+			walkTopicGetDependencies(bos, xmlBosMember);
+		} catch (DitaApiException e) {
+			throw new BosException("DITA API exception walking topic", e);
+		}
 	}
 
 	/**
 	 * @param bos
 	 * @param member
 	 * @throws BosException 
+	 * @throws DitaApiException 
 	 */
-	protected void walkMapGetDependencies(BoundedObjectSet bos, XmlBosMember member)
-			throws BosException {
+	protected void walkMapGetDependencies(BoundedObjectSet bos, DitaMapBosMember member)
+			throws BosException, DitaApiException {
 				NodeList topicrefs;
 				try {
 					topicrefs = (NodeList)DitaUtil.allTopicrefs.evaluate(member.getElement(), XPathConstants.NODESET);
@@ -103,7 +111,15 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 					String href = null;
 					
 					try {
-						if (DitaUtil.targetIsADitaFormat(topicref)) {
+						if (bosConstructionOptions.isMapTreeOnly()) {
+							if (DitaUtil.targetIsADitaMap(topicref) && topicref.hasAttribute("href")) {
+								href = topicref.getAttribute("href");
+								// Don't bother resolving pointers to the same doc.
+								// We don't record dependencies on ourself.
+								if (!href.startsWith("#"))
+									targetDoc = AddressingUtil.resolveHrefToDoc(topicref, href, bosConstructionOptions, this.failOnAddressResolutionFailure);								
+							}
+						} else if (DitaUtil.targetIsADitaFormat(topicref)) {
 	 						if (topicref.hasAttribute("keyref")) {
 								targetDoc = resolveKeyrefToDoc(topicref.getAttribute("keyref"));
 							}
@@ -160,9 +176,10 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	 * @param bos
 	 * @param member
 	 * @throws BosException 
+	 * @throws DitaApiException 
 	 */
 	protected void walkMemberGetDependencies(BoundedObjectSet bos, BosMember member)
-			throws BosException {
+			throws BosException, DitaApiException {
 				if (!(member instanceof XmlBosMember)) {
 					// Nothing to do for now. At some point should be able
 					// to delegate to walker for non-XML objects.
@@ -170,9 +187,9 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 					Element elem = ((XmlBosMember)member).getElement();
 					this.walkedMembers.add(member);
 					if (DitaUtil.isDitaMap(elem)) {
-						walkMapGetDependencies(bos, (XmlBosMember)member);
+						walkMapGetDependencies(bos, (DitaMapBosMember)member);
 					} else if (DitaUtil.isDitaTopic(elem)) {
-						walkTopicGetDependencies(bos, (XmlBosMember)member);
+						walkTopicGetDependencies(bos, (DitaTopicBosMember)member);
 					} else {
 						log.warn("XML Managed object of type \"" + elem.getTagName() + "\" is not recognized as a map or topic. Not examining for dependencies");
 					}
@@ -184,9 +201,10 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	 * @param bos
 	 * @param member
 	 * @throws BosException 
+	 * @throws DitaApiException 
 	 */
 	private void walkTopicGetDependencies(BoundedObjectSet bos, XmlBosMember member)
-			throws BosException {
+			throws BosException, DitaApiException {
 				log.info("walkTopicGetDependencies(): handling topic " + member + "...");
 				Set<BosMember> newMembers = new HashSet<BosMember>(); 
 				log.info("walkTopicGetDependencies():   getting conref dependencies...");
@@ -268,9 +286,10 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	 * @param member
 	 * @param newMembers
 	 * @throws BosException 
+	 * @throws DitaApiException 
 	 */
 	protected void findLinkDependencies(BoundedObjectSet bos, XmlBosMember member, Set<BosMember> newMembers)
-			throws BosException {
+			throws BosException, DitaApiException {
 				NodeList links;
 				try {
 					links = (NodeList)DitaUtil.allHrefsAndKeyrefs.evaluate(member.getElement(), XPathConstants.NODESET);
@@ -341,7 +360,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 
 
 	private void findConrefDependencies(BoundedObjectSet bos, XmlBosMember member, Set<BosMember> newMembers)
-			throws BosException {
+			throws BosException, DitaApiException {
 				NodeList conrefs;
 				try {
 					conrefs = (NodeList)DitaUtil.allConrefs.evaluate(member.getElement(), XPathConstants.NODESET);
@@ -385,14 +404,16 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	/**
 	 * @param key
 	 * @return Document to which key 
+	 * @throws DitaApiException 
+	 * @throws AddressingException 
 	 * @throws BosException 
 	 */
-	private Document resolveKeyrefToDoc(String key) throws BosException {
+	private Document resolveKeyrefToDoc(String key) throws DitaApiException, AddressingException {
 		try {
-			return keySpace.resolveKeyToDocument(key);
+			return keySpace.resolveKeyToDocument(key, this.bosConstructionOptions.getKeyAccessOptions());
 		} catch (AddressingException e) {
 			if (this.failOnAddressResolutionFailure) {
-				throw new BosException("Failed to resolve key reference to key \"" + key + "\": " + e.getMessage());
+				throw new AddressingException("Failed to resolve key reference to key \"" + key + "\": " + e.getMessage());
 			}
 		}
 		return null;
@@ -405,7 +426,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	 */
 	private File resolveKeyrefToFile(String key) throws BosException {
 		try {
-			return keySpace.resolveKeyToFile(key);
+			return keySpace.resolveKeyToFile(key, this.bosConstructionOptions.getKeyAccessOptions());
 		} catch (AddressingException e) {
 			if (this.failOnAddressResolutionFailure) {
 				throw new BosException("Failed to resolve key reference to key \"" + key + "\": " + e.getMessage());
@@ -421,9 +442,10 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	 * @param elem
 	 * @param level
 	 * @throws BosException 
+	 * @throws DitaApiException 
 	 */
 	protected void walkMapCalcMapTree(BoundedObjectSet bos, XmlBosMember currentMember, Document mapDoc,
-			int level) throws BosException {
+			int level) throws BosException, DitaApiException {
 				String levelSpacer = getLevelSpacer(level);
 				
 				log.info("walkMap(): " + levelSpacer + "Walking map  " + mapDoc.getDocumentURI() + "...");
@@ -484,7 +506,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 			}
 
 
-	public void walk(BoundedObjectSet bos, Document mapDoc) throws BosException {
+	public void walk(DitaBoundedObjectSet bos, Document mapDoc) throws BosException, DitaApiException {
 		URI mapUri;
 		try {
 			String mapUriStr = mapDoc.getDocumentURI();
@@ -501,6 +523,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 		Element elem = mapDoc.getDocumentElement();
 	
 		bos.setRootMember(member);
+		bos.setKeySpace(keySpace);
 	
 		// NOTE: if input is a map, then walking the map
 		// will populate the key namespace before processing
@@ -529,7 +552,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 			Iterator<BosMember> iter = mapMembers.iterator();
 			while (iter.hasNext()) {
 				BosMember mapMember = iter.next();
-				walkMapGetDependencies(bos, (XmlBosMember)mapMember);
+				walkMapGetDependencies(bos, (DitaMapBosMember)mapMember);
 			}
 			log.info("walk(): Map dependencies calculated.");
 			
@@ -544,10 +567,22 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 		
 	}
 
-	public void walk(BoundedObjectSet bos) throws BosException {
+	public void walk(DitaBoundedObjectSet bos) throws BosException, DitaApiException {
 		if (this.getRootObject() == null)
 			throw new BosException("Root object no set, cannot continue.");
 		walk(bos, (Document) this.getRootObject());
+	}
+
+	public void walk(BoundedObjectSet bos) throws BosException {
+		if (this.getRootObject() == null)
+			throw new BosException("Root object no set, cannot continue.");
+		if (!(bos instanceof DitaBoundedObjectSet))
+			throw new BosException("BOS must be a DitaBoundedObjectSet");
+		try {
+			walk((DitaBoundedObjectSet)bos, (Document) this.getRootObject());
+		} catch (DitaApiException e) {
+			throw new BosException("DITA API exception: " + e.getMessage(), e);
+		}
 	}
 
 

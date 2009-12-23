@@ -87,8 +87,9 @@ Lines line 3</lines><lq>This is a long quote. More
         type="tip">Tip note.</note><note
         type="warning">Warning note.</note><note
         type="other"
-        othertype="other-note-type">Other note, othertype:
-        other-note-type</note><pre>This is a pre element
+        othertype="other-note-type">Other note, othertype: other-note-type</note><note>This is a
+        note with no @type
+        value.</note><pre>This is a pre element
 Line 2 of pre
 Line 3 of pre</pre><sectiondiv>
         <p>Paragraph within a sectiondiv.</p>

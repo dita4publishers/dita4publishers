@@ -11,10 +11,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
+import net.sourceforge.dita4publishers.api.dita.DitaBoundedObjectSet;
+import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
 import net.sourceforge.dita4publishers.api.ditabos.BosException;
 import net.sourceforge.dita4publishers.api.ditabos.BosMember;
 import net.sourceforge.dita4publishers.api.ditabos.BosVisitor;
-import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBosMember;
 import net.sourceforge.dita4publishers.api.ditabos.NonXmlBosMember;
 import net.sourceforge.dita4publishers.api.ditabos.XmlBosMember;
@@ -30,7 +31,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  * Holds a set of DITA resources, e.g. all the dependencies
  * rooted at a given map.
  */
-public class BoundedObjectSetImpl implements BoundedObjectSet {
+public class DitaBoundedObjectSetImpl implements DitaBoundedObjectSet {
 
 	private static final int TREE_REPORT = 1;
 	@SuppressWarnings("unused")
@@ -39,14 +40,15 @@ public class BoundedObjectSetImpl implements BoundedObjectSet {
 	private Map<String, BosMember> members = new HashMap<String, BosMember>();
 	private Log log;
 	private List<BosMember> reportedMembers = new ArrayList<BosMember>();
-	private BosConstructionOptions domOptions;
+	private BosConstructionOptions bosOptions;
+	private DitaKeySpace keySpace;
 
 	/**
 	 * @param log
 	 */
-	public BoundedObjectSetImpl(BosConstructionOptions domOptions) {
-		this.domOptions = domOptions;
-		this.log = domOptions.getLog();
+	public DitaBoundedObjectSetImpl(BosConstructionOptions bosOptions) {
+		this.bosOptions = bosOptions;
+		this.log = bosOptions.getLog();
 	}
 
 	/* (non-Javadoc)
@@ -108,7 +110,7 @@ public class BoundedObjectSetImpl implements BoundedObjectSet {
 	 * @see com.reallysi.tools.dita.BoundedObjectSet#reportBos(org.apache.commons.logging.Log)
 	 */
 	public void reportBos(Log log) {
-		reportBos(log, BoundedObjectSetImpl.TREE_REPORT);
+		reportBos(log, DitaBoundedObjectSetImpl.TREE_REPORT);
 	}
 
 	/**
@@ -231,7 +233,22 @@ public class BoundedObjectSetImpl implements BoundedObjectSet {
 	 * @see com.reallysi.tools.dita.BoundedObjectSet#hasInvalidMembers()
 	 */
 	public boolean hasInvalidMembers() {
-		return this.domOptions.getInvalidDocuments().size() > 0;
+		return this.bosOptions.getInvalidDocuments().size() > 0;
+	}
+
+	/* (non-Javadoc)
+	 * @see net.sourceforge.dita4publishers.api.dita.DitaBoundedObjectSet#getKeySpace()
+	 */
+	public DitaKeySpace getKeySpace() {
+		return this.keySpace;
+	}
+
+	/* (non-Javadoc)
+	 * @see net.sourceforge.dita4publishers.api.dita.DitaBoundedObjectSet#setKeySpace(net.sourceforge.dita4publishers.impl.ditabos.DitaKeySpace)
+	 */
+	public void setKeySpace(
+			DitaKeySpace keySpace) {
+		this.keySpace = keySpace;
 	}
 
 }

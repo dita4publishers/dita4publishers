@@ -32,13 +32,12 @@ public abstract class TreeWalkerBase implements TreeWalker {
 	protected BosConstructionOptions bosConstructionOptions;
 
 	/**
-	 * @param failOnAddressResolutionFailure 
 	 * @param bosConstructionOptions 
 	 * @throws BosException 
 	 */
-	public TreeWalkerBase(Log log, boolean failOnAddressResolutionFailure, BosConstructionOptions bosConstructionOptions) throws BosException {
+	public TreeWalkerBase(Log log, BosConstructionOptions bosConstructionOptions) throws BosException {
 		this.log = log;
-		this.failOnAddressResolutionFailure = failOnAddressResolutionFailure;
+		this.failOnAddressResolutionFailure = bosConstructionOptions.getFailOnAddressResolutionFailure();
 		this.bosConstructionOptions = bosConstructionOptions;
 		this.catalogs = bosConstructionOptions.getCatalogs();
 		this.domCache = bosConstructionOptions.getDomCache();

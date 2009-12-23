@@ -7,10 +7,16 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
+import net.sourceforge.dita4publishers.api.dita.DitaApiException;
+import net.sourceforge.dita4publishers.api.dita.DitaBoundedObjectSet;
+import net.sourceforge.dita4publishers.api.dita.DitaKeyDefinitionContext;
+import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
+import net.sourceforge.dita4publishers.api.ditabos.BosException;
+import net.sourceforge.dita4publishers.api.ditabos.DitaTreeWalker;
+import net.sourceforge.dita4publishers.impl.dita.InMemoryDitaKeySpace;
+import net.sourceforge.dita4publishers.impl.dita.KeyDefinitionContextImpl;
 
 import org.apache.commons.logging.Log;
-import org.jbpm.graph.exe.ExecutionContext;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -21,20 +27,23 @@ public class DitaBosHelper {
 	
 
 	/**
-	 * @param context
+	 * @param bosOptions
 	 * @param log 
 	 * @param mo
 	 * @return
+	 * @throws BosException 
 	 */
-	public static BoundedObjectSet calculateMapBos(
-			ExecutionContext context, Log log, Document rootMap) throws DitaBosHelperException {
+	public static DitaBoundedObjectSet calculateMapBos(
+			BosConstructionOptions bosOptions, Log log, Document rootMap) throws DitaBosHelperException, BosException {
 
-		// Walk the tree of pointers, adding unique MOs to the list:
-		Map<URI, Document> domCache = new HashMap<URI, Document>();
+		Map<URI, Document> domCache = bosOptions.getDomCache();
 		
-		BosConstructionOptions domOptions = new BosConstructionOptions(log, domCache);
-
-		BoundedObjectSet bos = new BoundedObjectSetImpl(domOptions);
+		if (domCache == null) {
+			domCache = new HashMap<URI, Document>();
+			bosOptions.setDomCache(domCache);
+		}
+		
+		DitaBoundedObjectSet bos = new DitaBoundedObjectSetImpl(bosOptions);
 		
 		log.info("calculateMapBos(): Starting map BOS calculation...");
 		
@@ -43,46 +52,37 @@ public class DitaBosHelper {
 			throw new DitaBosHelperException("Input root map " + rootMap.getDocumentURI() + " does not appear to be a DITA map or topic.");
 		}
 		
-		DitaKeySpace keySpace = new DitaKeySpace(domOptions);
+		DitaKeySpace keySpace;
+		try {
+			DitaKeyDefinitionContext keyDefContext = new KeyDefinitionContextImpl(rootMap);
+			keySpace = new InMemoryDitaKeySpace(keyDefContext, rootMap, bosOptions);
+		} catch (DitaApiException e) {
+			throw new BosException("DITA API Exception: " + e.getMessage(), e);
+		}
 		
-//		DitaTreeWalker walker = new DitaMoTreeWalker(log, keySpace, domOptions);
-//		walker.setRootObject(rootMap);
-//		walker.walk(bos);
+		DitaTreeWalker walker = new DitaDomTreeWalker(log, keySpace, bosOptions);
+		walker.setRootObject(rootMap);
+		walker.walk(bos);
 		
 		log.info("calculateMapBos(): Returning BOS. BOS has " + bos.size() + " members.");
 		return bos;
 	}
 
 	/**
-	 * @param context
+	 * Constructs just the map tree part of a DITA bounded object set.
+	 * @param bosOptions
 	 * @param log
-	 * @param mapDoc
-	 * @param bosConstructionOptions 
+	 * @param rootMap
 	 * @return
 	 * @throws DitaBosHelperException 
+	 * @throws BosException 
 	 */
-	public static BoundedObjectSet calculateMapBos(
-			ExecutionContext context, Log log, Document mapDoc, BosConstructionOptions bosConstructionOptions) throws DitaBosHelperException {
-		BoundedObjectSet bos = new BoundedObjectSetImpl(bosConstructionOptions);
-		
-		log.info("calculateMapBos(): Starting map BOS calculation...");
-		
-		Element elem = mapDoc.getDocumentElement();
-		if (!DitaUtil.isDitaMap(elem)) {
-			throw new DitaBosHelperException("Input document " + mapDoc.getDocumentURI()  + " does not appear to be a DITA map.");
-		}
-		
-		DitaKeySpace keySpace = new DitaKeySpace(bosConstructionOptions);
-		
-//		DitaTreeWalker walker = new DitaFileTreeWalker(context, log, keySpace, bosConstructionOptions);
-//		walker.setRootObject(mapDoc);
-//		walker.walk(bos);
-		
-		log.info("calculateMapBos(): Returning BOS. BOS has " + bos.size() + " members.");
+	public static DitaBoundedObjectSet calculateMapTree(
+			BosConstructionOptions bosOptions, Log log, Document rootMap) throws DitaBosHelperException, BosException {
+		Map<URI, Document> domCache = bosOptions.getDomCache();
+		bosOptions.setMapTreeOnly(true);
+		DitaBoundedObjectSet bos = calculateMapBos(bosOptions, log, rootMap);
 		return bos;
-		
 	}
-	
-
 
 }

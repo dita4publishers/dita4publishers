@@ -3,10 +3,14 @@
  */
 package net.sourceforge.dita4publishers.api.dita;
 
+import java.io.File;
 import java.util.List;
 import java.util.Set;
 
+import net.sourceforge.dita4publishers.api.ditabos.AddressingException;
+
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 /**
  * Represents a set of unique key-to-definition bindings.
@@ -20,33 +24,44 @@ import org.w3c.dom.Document;
 public interface DitaKeySpace {
 
 	/**
-	 * @return List of keys in the key space.
+	 * @return List of keys in the key space, as determined by the key access options..
 	 * @throws DitaApiException 
 	 */
 	Set<String> getKeys(KeyAccessOptions keyAccessOptions) throws DitaApiException;
 
 	/** 
-	 * @return The number of keys in the key space. Note that the
+	 * @return The number of effective keys in the key space. Note that the
 	 * number of keys may be greater than the number of key definitions
 	 * as a given key definition may define more than one key.
 	 */
 	long size() throws DitaApiException;
 
+	/** 
+	 * @return The number of effective keys in the key space as determined
+	 * by the specified key access options. Note that the
+	 * number of keys may be greater than the number of key definitions
+	 * as a given key definition may define more than one key.
+	 */
+	long size(KeyAccessOptions keyAccessOptions) throws DitaApiException;
+
 	/**
 	 * 
-	 * @return Set of key definitions that establish the key space.
+	 * @return Set, possibly empty, of key definitions that establish the key space, as determined by
+	 * the specified key access options.
 	 */
 	Set<DitaKeyDefinition> getEffectiveKeyDefinitions(KeyAccessOptions keyAccessOptions) throws DitaApiException;
 	
 	/**
 	 * 
-	 * @return Set of all key definitions, effective and not, in the key space.
+	 * @return Set, possibly empty, of all key definitions, effective and not, in the key space, as determined by
+	 * the specified key access options.
 	 */
 	List<DitaKeyDefinition> getAllKeyDefinitions(KeyAccessOptions keyAccessOptions) throws DitaApiException;
 
 	/**
 	 * 
-	 * @return Set of all key definitions, effective and not, for the specified key.
+	 * @return Set, possibly empty, of all key definitions, effective and not, for the specified key, as determined by
+	 * the specified key access options.
 	 * @throws  
 	 */
 	List<DitaKeyDefinition> getAllKeyDefinitions(KeyAccessOptions keyAccessOptions, String key) throws DitaApiException;
@@ -57,12 +72,36 @@ public interface DitaKeySpace {
 	Document getRootMap(KeyAccessOptions keyAccessOptions) throws DitaApiException;
 
 	/**
-	 * Gets the effective key definition for the specified key.
+	 * Gets the effective key definition for the specified key, as determined by
+	 * the specified key access options.
 	 * @param user
 	 * @param key
 	 * @return The key definition, or null if the key is not defined.
 	 */
 	DitaKeyDefinition getKeyDefinition(KeyAccessOptions keyAccessOptions, String key) throws DitaApiException;
+
+	/**
+	 * Given a key, returns the DOM document the key is bound to, if any (keys may be bound
+	 * to non-XML resources).
+	 * @param key
+	 * @return DOM or null, if the key is not bound or not bound an XML resource.
+	 * @throws DitaApiException 
+	 */
+	Document resolveKeyToDocument(String key, KeyAccessOptions keyAccessOptions) throws AddressingException, DitaApiException;
+
+	/**
+	 * Given a key, returns the File to which the key is bound, if any.
+	 * @param key
+	 * @return File or null, if key is not bound.
+	 */
+	File resolveKeyToFile(String key, KeyAccessOptions keyAccessOptions) throws AddressingException;
+
+	/**
+	 * Adds key definitions from the specified document.
+	 * @param mapElement Document element for a DITA map.
+	 * @throws DitaApiException 
+	 */
+	void addKeyDefinitions(Element mapElement) throws DitaApiException;
 
 
 }

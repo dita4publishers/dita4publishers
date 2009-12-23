@@ -46,7 +46,7 @@ public abstract class BosMemberBase implements BosMember {
 	 * @param bos
 	 * @param dataSourceFile
 	 */
-	public BosMemberBase(BoundedObjectSetImpl bos, File dataSourceFile) {
+	public BosMemberBase(DitaBoundedObjectSetImpl bos, File dataSourceFile) {
 		this.bos = bos;
 		this.setFile(dataSourceFile);
 		this.key = dataSourceFile.getAbsolutePath();

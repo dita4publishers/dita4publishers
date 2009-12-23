@@ -3,16 +3,19 @@
  */
 package net.sourceforge.dita4publishers.impl.ditabos;
 
+import java.io.File;
+import java.net.URI;
+
+import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
 import net.sourceforge.dita4publishers.api.ditabos.BosException;
-import net.sourceforge.dita4publishers.impl.dita.InMemoryDitaKeySpace;
 
 import org.apache.commons.logging.Log;
 import org.w3c.dom.Document;
 
 /**
- * DITA walker that operates on DOMs as input.
+ * DITA walker that operates on files as input.
  */
-public class DitaFileTreeWalker extends DitaTreeWalkerBase  {
+public class DitaDomTreeWalker extends DitaTreeWalkerBase  {
 
 	/**
 	 * @param context
@@ -21,8 +24,8 @@ public class DitaFileTreeWalker extends DitaTreeWalkerBase  {
 	 * @param catalogs
 	 * @throws BosException
 	 */
-	public DitaFileTreeWalker(Log log,
-			InMemoryDitaKeySpace keySpace, boolean failOnAddressResolutionFailure, BosConstructionOptions bosConstructionOptions) throws BosException {
+	public DitaDomTreeWalker(Log log,
+			DitaKeySpace keySpace, BosConstructionOptions bosConstructionOptions) throws BosException {
 		super(log, keySpace, bosConstructionOptions);
 	}
 
@@ -31,10 +34,13 @@ public class DitaFileTreeWalker extends DitaTreeWalkerBase  {
 	 */
 	public void setRootObject(Object rootObject) throws BosException {
 		// NOTE: Not accepting URLs because URLs are too limiting--should use URIs
-		if (!(rootObject instanceof Document)) {
+		if (!(rootObject instanceof Document ||
+			  rootObject instanceof URI ||
+			  rootObject instanceof File)) {
 			throw new BosException("Unhandled root object type " + rootObject.getClass().getName());
 		}	
-		this.rootObject = rootObject;		
+		this.rootObject = rootObject;
+		
 	}
 
 }

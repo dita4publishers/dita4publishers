@@ -1,6 +1,5 @@
 package net.sourceforge.dita4publishers.api.dita;
 
-import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
 import java.util.HashMap;
@@ -12,8 +11,8 @@ import java.util.Set;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-
 import net.sourceforge.dita4publishers.impl.dita.InMemoryDitaLinkManagementService;
+import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaUtil;
 import net.sourceforge.dita4publishers.impl.ditabos.DomUtil;
 
@@ -21,7 +20,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.xml.sax.InputSource;
 
 
 public class DitaLinkManagementServiceTest
@@ -34,6 +32,7 @@ public class DitaLinkManagementServiceTest
   }
 
 
+	URL catalogManagerProperties = getClass().getResource("/resources/CatalogManager.properties");
 	URL rootMapUrl = getClass().getResource("/resources/xml_data/docs/dita/link_test_01/link_test_01.ditamap");
 	URL topic01Url = getClass().getResource("/resources/xml_data/docs/dita/link_test_01/topics/topic_01.xml");
 	URL topic03Url = getClass().getResource("/resources/xml_data/docs/dita/link_test_01/topics/topic_03.xml");
@@ -45,9 +44,20 @@ public class DitaLinkManagementServiceTest
 
   public void setUp() throws Exception {
 		
-	    assertNotNull(rootMapUrl);
-		dlmService = new InMemoryDitaLinkManagementService();
-		// Load rootMap document
+	assertNotNull(catalogManagerProperties);
+	Properties catProps = new Properties();
+	catProps.load(catalogManagerProperties.openStream());
+	String catalog = catProps.getProperty("catalogs");
+	assertNotNull(catalog);
+	String[] catalogs = {catalog};
+	assertNotNull(rootMapUrl);
+	Map<URI, Document> domCache = new HashMap<URI, Document>();
+	BosConstructionOptions bosOptions = new BosConstructionOptions(log, domCache);
+	bosOptions.setCatalogs(catalogs);
+	dlmService = new InMemoryDitaLinkManagementService(bosOptions);
+	// Load rootMap document
+	rootMap = DomUtil.getDomForUri(new URI(rootMapUrl.toExternalForm()), bosOptions);
+	assertNotNull(rootMap);
 }
 
   
@@ -64,7 +74,9 @@ public class DitaLinkManagementServiceTest
 	  String key03 = "key-03"; // Declared on same topicref as key-04
 	  String key04 = "key-04"; // Declared on same topicref as key-03
 	  String key05 = "key-05"; // Uses keyref to key-02, no href.
-	  int keyCount = 5;
+	  String key06 = "key-06"; // Uses keyref to key-02, no href.
+	  String key07 = "key-07"; // Defined in submap 01.
+	  int keyCount = 7;
 
 	  DitaKeySpace keySpace; 
 

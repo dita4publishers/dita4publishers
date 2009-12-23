@@ -12,6 +12,8 @@ import java.util.Set;
 
 import javax.xml.transform.URIResolver;
 
+import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
+
 import org.apache.commons.logging.Log;
 import org.w3c.dom.Document;
 
@@ -26,6 +28,9 @@ public class BosConstructionOptions {
 	private Map<URI, Document> domCache = new HashMap<URI, Document>();
 	private Set<URI> invalidDocs  = new HashSet<URI>();
 	private URIResolver uriResolver = null; // Use built-in resolver
+	private boolean failOnAddressResolutionFailure = true;
+	private boolean mapTreeOnly = false;
+	private KeyAccessOptions keyAccessOptions = new KeyAccessOptions();
 
 	/**
 	 * @return the invalidDocs
@@ -137,6 +142,39 @@ public class BosConstructionOptions {
 	 */
 	public URIResolver getUriResolver() {
 		return this.uriResolver;
+	}
+
+	/**
+	 * @return
+	 */
+	public boolean getFailOnAddressResolutionFailure() {
+		return this.failOnAddressResolutionFailure;
+	}
+	
+	public void setFailOnAddressResolutionFailure(boolean failOnAddressResolutionFailure) {
+		this.failOnAddressResolutionFailure = failOnAddressResolutionFailure;
+	}
+
+	/**
+	 * @param b
+	 */
+	public void setMapTreeOnly(boolean mapTreeOnly) {
+		this.mapTreeOnly = mapTreeOnly;
+	}
+	
+	public boolean isMapTreeOnly() {
+		return this.mapTreeOnly;
+	}
+
+	/**
+	 * @return
+	 */
+	public KeyAccessOptions getKeyAccessOptions() {
+		return this.keyAccessOptions ;
+	}
+	
+	public void SetKeyAccessOptions(KeyAccessOptions keyAccessOptions) {
+		this.keyAccessOptions = keyAccessOptions;
 	}
 
 }

@@ -466,13 +466,27 @@ public class DitaUtil {
 		return true; // default format is "dita"
 		
 	} 
-
+	
+	/**
+	 * Returns true if the topicref specifies format="ditamap"
+	 * @param topicref
+	 * @return
+	 */
+	public static boolean targetIsADitaMap(Element topicref) {
+		if (topicref.hasAttribute(DITA_FORMAT_ATTNAME)) {
+			String formatValue = topicref.getAttribute(DITA_FORMAT_ATTNAME);
+			if ("ditamap".equalsIgnoreCase(formatValue))
+				return true;
+		}
+		return false;
+	}
+	
 	public static NodeList getKeyDefinitions(Element mapElem) {
 		NodeList resultNl = null;
 		try {
 			resultNl = (NodeList)allKeyDefs.evaluate(mapElem, XPathConstants.NODESET);
 		} catch (XPathExpressionException e) {
-			log.error("Unexpected exception evaluating XPath expression " + allKeyDefs.toString());
+			throw new RuntimeException("Unexpected exception evaluating XPath expression " + allKeyDefs.toString(), e);
 		}
 		return resultNl;
 		
@@ -505,6 +519,6 @@ public class DitaUtil {
 		// FIXME: Handle "first topic child of root" rule for non-topic elements.
 		return doc.getDocumentElement();
 	}
-	
+
 
 }

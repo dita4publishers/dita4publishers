@@ -18,7 +18,7 @@ public class NonXmlBosMemberImpl extends BosMemberBase implements NonXmlBosMembe
 	 * @param bos
 	 * @param dataSourcefile
 	 */
-	public NonXmlBosMemberImpl(BoundedObjectSetImpl bos, File dataSourcefile) {
+	public NonXmlBosMemberImpl(DitaBoundedObjectSetImpl bos, File dataSourcefile) {
 		super(bos, dataSourcefile);
 	}
 

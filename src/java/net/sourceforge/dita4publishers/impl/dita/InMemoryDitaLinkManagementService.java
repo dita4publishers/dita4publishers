@@ -3,6 +3,7 @@
  */
 package net.sourceforge.dita4publishers.impl.dita;
 
+import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +24,9 @@ import net.sourceforge.dita4publishers.api.dita.DitaReference;
 import net.sourceforge.dita4publishers.api.dita.DitaResource;
 import net.sourceforge.dita4publishers.api.dita.DitaResultSetFilter;
 import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
+import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaUtil;
+import net.sourceforge.dita4publishers.impl.ditabos.DomUtil;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -48,6 +51,15 @@ public class InMemoryDitaLinkManagementService implements DitaLinkManagementServ
 
 	private KeyAccessOptions defaultKeyAccessOptions = new KeyAccessOptions();
 
+	private BosConstructionOptions bosOptions = null;
+
+	/**
+	 * @param bosOptions
+	 */
+	public InMemoryDitaLinkManagementService(BosConstructionOptions bosOptions) {
+		this.bosOptions = bosOptions; // Provides DOM cache, other options.
+	}
+
 	/* (non-Javadoc)
 	 * @see com.reallysi.rsuite.service.DitaLinkManagementService#getKeys(com.reallysi.rsuite.api.keyAccessOptions, com.reallysi.rsuite.api.ManagedObject)
 	 */
@@ -66,10 +78,30 @@ public class InMemoryDitaLinkManagementService implements DitaLinkManagementServ
 	 */
 	private DitaKeySpace calculateKeySpaceForMap(DitaKeyDefinitionContext keydefContext) throws DitaApiException {
 		((KeyDefinitionContextImpl)keydefContext).setOutOfDate();
-		DitaKeySpace keySpace = new InMemoryDitaKeySpace(keydefContext);
+		Document rootMap = getDomForContext(keydefContext);
+		DitaKeySpace keySpace = new InMemoryDitaKeySpace(keydefContext, rootMap, this.bosOptions);
 		keyspaceCache.put(keydefContext, keySpace);
 		((KeyDefinitionContextImpl)keydefContext).setUpToDate();
 		return keySpace;
+	}
+
+	/**
+	 * @param keydefContext
+	 * @return
+	 * @throws DitaApiException 
+	 */
+	private Document getDomForContext(DitaKeyDefinitionContext keydefContext) throws DitaApiException {
+		String mapUri = keydefContext.getRootMapId();
+		Document dom = null;
+		if (this.bosOptions.getDomCache().containsKey(mapUri))
+			return this.bosOptions.getDomCache().get(mapUri);
+		
+		try {
+			dom = DomUtil.getDomForUri(new URI(mapUri), this.bosOptions);
+		} catch (Exception e) {
+			throw new DitaApiException("Exception constructing DOM for root map \"" + mapUri + "\"", e);
+		}
+		return dom;
 	}
 
 	/* (non-Javadoc)

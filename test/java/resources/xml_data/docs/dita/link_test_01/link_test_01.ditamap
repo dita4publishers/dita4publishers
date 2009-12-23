@@ -4,11 +4,25 @@
   ditaarch:DITAArchVersion="1.2"
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"><title
     class="- topic/title ">Link Test 01</title>
+  <!--  This map tree defines the following unique keys:
+    
+    key-01 
+    key-02
+    key-03
+    key-04
+    key-05
+    key-06
+    key-07
+    
+    -->
+  
   <!-- NOTE: This map also defines key key-01 but because
              it is lower in the map tree, that definition
              is not effective, even thought the map is included
              in the top-level map before the definition of 
              key-01 here.
+             
+             sub_01 defines key key-06.
     -->
   <mapref
     href="link_test_sub_01.ditamap"
@@ -16,12 +30,14 @@
   <topicref
     keys="key-01"
     href="topics/topic_01.xml"
-    class="- map/topicref  "/><topicref
+    class="- map/topicref  "/>
+  <topicref
     keys="key-02"
     href="http://www.example.com"
     format="html"
     scope="external"
-    class="- map/topicref "/><topicref
+    class="- map/topicref "/>
+  <topicref
     keys="key-03 key-04"
     href="topics/topic_03.xml"
     class="- map/topicref "/>
@@ -45,4 +61,5 @@
     href="images/image_01.jpg"
     format="jpg" 
     class="- map/topicref  "
-    keys="key-06"/></map>
+    keys="key-06"/>
+</map>
