@@ -79,7 +79,6 @@ public class DitaBosHelper {
 	 */
 	public static DitaBoundedObjectSet calculateMapTree(
 			BosConstructionOptions bosOptions, Log log, Document rootMap) throws DitaBosHelperException, BosException {
-		Map<URI, Document> domCache = bosOptions.getDomCache();
 		bosOptions.setMapTreeOnly(true);
 		DitaBoundedObjectSet bos = calculateMapBos(bosOptions, log, rootMap);
 		return bos;

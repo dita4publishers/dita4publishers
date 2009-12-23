@@ -18,7 +18,7 @@ import javax.xml.xpath.XPathExpressionException;
 
 import net.sourceforge.dita4publishers.api.dita.DitaApiException;
 import net.sourceforge.dita4publishers.api.dita.DitaBoundedObjectSet;
-import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
+import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
 import net.sourceforge.dita4publishers.api.ditabos.AddressingException;
 import net.sourceforge.dita4publishers.api.ditabos.BosException;
 import net.sourceforge.dita4publishers.api.ditabos.BosMember;
@@ -26,7 +26,6 @@ import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
 import net.sourceforge.dita4publishers.api.ditabos.DitaTreeWalker;
 import net.sourceforge.dita4publishers.api.ditabos.NonXmlBosMember;
 import net.sourceforge.dita4publishers.api.ditabos.XmlBosMember;
-import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
 
 import org.apache.commons.logging.Log;
 import org.w3c.dom.Document;
