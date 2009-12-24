@@ -11,6 +11,7 @@ import java.net.URL;
 import net.sourceforge.dita4publishers.api.dita.DitaApiException;
 import net.sourceforge.dita4publishers.api.dita.DitaFormat;
 import net.sourceforge.dita4publishers.api.dita.DitaKeyDefinition;
+import net.sourceforge.dita4publishers.api.dita.DitaPropsSpec;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaUtil;
 
 import org.apache.commons.logging.Log;
@@ -33,6 +34,9 @@ public class DitaKeyDefinitionImpl implements DitaKeyDefinition {
 	private String keyref = null;
 	private String key = null;
 	private Document containingDoc;
+
+
+	private DitaPropsSpec propsSpec;
 
 	/**
 	 * @param document
@@ -73,6 +77,8 @@ public class DitaKeyDefinitionImpl implements DitaKeyDefinition {
 			log.debug("DitaKeyDefinitionImpl(): format=\"" + format + "\"");
 			
 		}
+		
+		propsSpec = DitaUtil.constructPropsSpec(keydefElem);
 	}
 
 	/* (non-Javadoc)
@@ -158,6 +164,13 @@ public class DitaKeyDefinitionImpl implements DitaKeyDefinition {
 			str.append(this.keyref);
 		str.append("]");
 		return str.toString();
+	}
+
+	/* (non-Javadoc)
+	 * @see net.sourceforge.dita4publishers.api.dita.DitaKeyDefinition#getDitaPropsSpec()
+	 */
+	public DitaPropsSpec getDitaPropsSpec() {
+		return this.propsSpec;
 	}
 
 }

@@ -20,6 +20,8 @@ import net.sourceforge.dita4publishers.api.dita.DitaApiException;
 import net.sourceforge.dita4publishers.api.dita.DitaKeyDefinition;
 import net.sourceforge.dita4publishers.api.dita.DitaKeyDefinitionContext;
 import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
+import net.sourceforge.dita4publishers.api.dita.DitaPropsSpec;
+import net.sourceforge.dita4publishers.api.dita.DitavalSpec;
 import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
 import net.sourceforge.dita4publishers.api.ditabos.AddressingException;
 import net.sourceforge.dita4publishers.api.ditabos.BosException;
@@ -259,9 +261,17 @@ public class InMemoryDitaKeySpace implements DitaKeySpace {
 	 */
 	public List<DitaKeyDefinition> getAllKeyDefinitions(
 			KeyAccessOptions keyAccessOptions) throws DitaApiException {
-		// FIXME: Use the key access options to filter the set of key definitions
-		// returned.
-		return this.allKeyDefinitions ;
+		List<DitaKeyDefinition> resultList = new ArrayList<DitaKeyDefinition>();
+		DitavalSpec ditavalSpec = keyAccessOptions.getDitavalSpec();
+		if (ditavalSpec == null) {
+			resultList.addAll(allKeyDefinitions);
+			return resultList;
+		}
+		for (DitaKeyDefinition keyDef : this.allKeyDefinitions) {
+			if (this.isApplicable(keyDef, keyAccessOptions))
+				resultList.add(keyDef);
+		}
+		return resultList;
 	}
 
 	/* (non-Javadoc)
@@ -315,15 +325,22 @@ public class InMemoryDitaKeySpace implements DitaKeySpace {
 	}
 
 	/**
-	 * @param cand
+	 * @param keyDef
 	 * @param keyAccessOptions
 	 * @return
 	 */
-	private boolean isApplicable(DitaKeyDefinition cand,
+	private boolean isApplicable(DitaKeyDefinition keyDef,
 			KeyAccessOptions keyAccessOptions) {
-		// FIXME: Apply filtering to the key definition to determine
-		// if it is applicable.
-		return true;
+		DitavalSpec ditavalSpec = keyAccessOptions.getDitavalSpec();
+		if (ditavalSpec == null)
+			return true;
+		DitaPropsSpec propsSpec = keyDef.getDitaPropsSpec();
+		for (String propName : propsSpec.getProperties()) {
+			for (String value : propsSpec.getPropertyValues(propName))
+			if (ditavalSpec.isExcluded(propName, value))
+				return false;
+		}
+ 		return true;
 	}
 
 	/* (non-Javadoc)

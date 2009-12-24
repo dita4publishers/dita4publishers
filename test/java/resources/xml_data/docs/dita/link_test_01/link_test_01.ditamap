@@ -2,6 +2,7 @@
 <map
   class="- map/map "
   ditaarch:DITAArchVersion="1.2"
+  domains="a(props myprop)"
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"><title
     class="- topic/title ">Link Test 01</title>
   <!--  This map tree defines the following unique keys:
@@ -27,9 +28,22 @@
   <mapref
     href="link_test_sub_01.ditamap"
     format="ditamap" class="+ map/topicref mapgroup-d/mapref "/>
+  <!-- OSX-specific key definition -->
   <topicref
     keys="key-01"
-    href="topics/topic_01.xml"
+    href="topics/topic_01-osx.xml"
+    platform="osx"
+    class="- map/topicref  "/>
+  <!-- Windows-specific key definition -->
+  <topicref
+    keys="key-01"
+    href="topics/topic_01-win.xml"
+    platform="windows"
+    class="- map/topicref  "/>
+  <!-- Generic key definition -->
+  <topicref
+    keys="key-01"
+    href="topics/topic_01-all-platforms.xml"
     class="- map/topicref  "/>
   <topicref
     keys="key-02"

@@ -18,6 +18,10 @@ import net.sourceforge.dita4publishers.api.PropertyContainer;
  */
 public class KeyAccessOptions implements PropertyContainer {
 
+	/**
+	 * 
+	 */
+	public static final String DITAVAL_SPEC_PROP = "ditavalSpec";
 	private Map<String, Object> properties = new HashMap<String, Object>();
 
 	/* (non-Javadoc)
@@ -58,6 +62,17 @@ public class KeyAccessOptions implements PropertyContainer {
 	 */
 	public String getProperty(String name) {
 		return (String)this.properties.get(name);
+	}
+
+	/**
+	 * @param ditavalSpec
+	 */
+	public void setDitavalSpec(DitavalSpec ditavalSpec) {
+		this.setProperty(DITAVAL_SPEC_PROP, ditavalSpec);
+	}
+	
+	public DitavalSpec getDitavalSpec() {
+		return (DitavalSpec)this.getPropertyValue(DITAVAL_SPEC_PROP);
 	}
 
 

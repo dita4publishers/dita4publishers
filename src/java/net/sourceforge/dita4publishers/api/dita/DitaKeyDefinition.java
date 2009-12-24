@@ -78,4 +78,9 @@ public interface DitaKeyDefinition extends Comparable<DitaKeyDefinition> {
 	 */
 	public boolean equals(DitaKeyDefinition keyDefinition);
 
+	/**
+	 * @return The DITA properties specification for the key definition.
+	 */
+	DitaPropsSpec getDitaPropsSpec();
+
 }

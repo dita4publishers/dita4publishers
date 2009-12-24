@@ -12,6 +12,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
+import net.sourceforge.dita4publishers.impl.dita.DitavalSpecImpl;
 import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelper;
 import net.sourceforge.dita4publishers.impl.ditabos.DomUtil;
@@ -61,7 +62,7 @@ public class DitaBosConstructionTest
 	  BoundedObjectSet mapBos = DitaBosHelper.calculateMapBos(bosOptions,log, rootMap);
 	  assertNotNull(mapBos);
 	  // mapBos.reportBos(log);
-	  assertEquals(7, mapBos.size());
+	  assertEquals(9, mapBos.size());
 	  
   }
   
@@ -93,7 +94,31 @@ public class DitaBosConstructionTest
 	  
 	  List<DitaKeyDefinition> allKeyDefs = keySpace.getAllKeyDefinitions(keyAccessOptions);
 	  assertNotNull(allKeyDefs);
-	  assertEquals(9, allKeyDefs.size());
+	  assertEquals(11, allKeyDefs.size());
+	  
+  }
+  
+  public void testDitaKeySpaceFiltering() throws Exception {
+	  DitaBoundedObjectSet mapBos = DitaBosHelper.calculateMapTree(bosOptions,log, rootMap);
+	  assertNotNull(mapBos);
+	  // mapBos.reportBos(log);
+	  assertEquals(2, mapBos.size());
+	  
+	  DitaKeySpace keySpace = mapBos.getKeySpace();
+	  assertEquals(7, keySpace.size());
+	  
+	  KeyAccessOptions keyAccessOptions = new KeyAccessOptions();
+	  DitavalSpec ditavalSpec = new DitavalSpecImpl();
+	  ditavalSpec.addExclusion("platform", "windows");
+	  keyAccessOptions.setDitavalSpec(ditavalSpec);
+	  
+	  Set<DitaKeyDefinition> effectiveKeyDefs = keySpace.getEffectiveKeyDefinitions(keyAccessOptions);
+	  assertNotNull(effectiveKeyDefs);
+	  assertEquals(7, effectiveKeyDefs.size());
+	  
+	  List<DitaKeyDefinition> allKeyDefs = keySpace.getAllKeyDefinitions(keyAccessOptions);
+	  assertNotNull(allKeyDefs);
+	  assertEquals(10, allKeyDefs.size());
 	  
   }
   

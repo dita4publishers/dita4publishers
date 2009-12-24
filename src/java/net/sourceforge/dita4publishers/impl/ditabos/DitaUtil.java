@@ -2,6 +2,7 @@ package net.sourceforge.dita4publishers.impl.ditabos;
 
 import java.io.File;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -14,6 +15,7 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
+import net.sourceforge.dita4publishers.api.dita.DitaPropsSpec;
 import net.sourceforge.dita4publishers.api.ditabos.AddressingException;
 
 import org.apache.commons.logging.Log;
@@ -144,6 +146,16 @@ public class DitaUtil {
 	public static final String DITA_FORMAT_VALUE_HTML = "html";
 	public static final String DITA_FORMAT_ATT_DEFAULT = DITA_FORMAT_VALUE_DITA;
 	public static final String DITA_TYPE_ATT_DEFAULT = "topic";
+
+	private static final List<String> BASE_PROPS_ATTS = new ArrayList<String>();
+	
+	static {
+		BASE_PROPS_ATTS.add("platform");
+		BASE_PROPS_ATTS.add("product");
+		BASE_PROPS_ATTS.add("audience");
+		BASE_PROPS_ATTS.add("otherprops");
+		BASE_PROPS_ATTS.add("props");
+	}
 
 
 
@@ -518,6 +530,137 @@ public class DitaUtil {
 	public static Element getImplicitElementFromDoc(Document doc) {
 		// FIXME: Handle "first topic child of root" rule for non-topic elements.
 		return doc.getDocumentElement();
+	}
+
+	/**
+	 * @param keydefElem
+	 * @return
+	 */
+	public static DitaPropsSpec constructPropsSpec(Element elem) {
+		Element docElem = elem.getOwnerDocument().getDocumentElement();
+		String domainsAtt = docElem.getAttribute("domains");
+		DitaPropsSpec propsSpec = new DitaPropsSpec();
+		String[] propsAtts = getPropsAtts(domainsAtt);
+		for (String propName : propsAtts) {
+			if (elem.hasAttribute(propName)) {
+				String attval = elem.getAttribute(propName);
+				if (attval.contains("(")) {
+					parseGeneralizedPropsValue(attval, propsSpec);
+				} else {
+					String[] tokens = attval.split(" ");
+					for (String propVal : tokens) {
+						propsSpec.addPropValue(propName, propVal);
+					}
+				}
+				
+			}
+		}
+		return propsSpec;
+	}
+
+	/**
+	 * @param attval
+	 * @param propsSpec
+	 */
+	private static void parseGeneralizedPropsValue(String attval,
+			DitaPropsSpec propsSpec) {
+		throw new NotImplementedException();
+	}
+
+	/**
+	 * @param domainsAtt
+	 * @return
+	 */
+	private static String[] getPropsAtts(String domainsAtt) {
+		List<String> propsAtts = new ArrayList<String>();
+		String[] result = new String[propsAtts.size()];
+		propsAtts.addAll(BASE_PROPS_ATTS);
+		if (domainsAtt == null)
+			return propsAtts.toArray(result);
+		char c;
+		int p = 0;
+		while (p < domainsAtt.length()) {
+			c = domainsAtt.charAt(p);
+			switch (c) {
+			case ' ':
+			case '\t':
+				p++;
+				break;
+			case '(':
+				p = parseParens(domainsAtt, ++p);
+				break;
+			case 'a':
+				p = parsePropsDomain(domainsAtt, ++p, propsAtts);
+				break;
+			default:
+				throw new RuntimeException("Unexpected character \"" + c + "\" at position " + p+1 + " in domains attribute value \"" + domainsAtt + "\"" +
+						". Expected space, '(', or 'a'."); 
+			}
+		}
+		result = new String[propsAtts.size()];
+		return propsAtts.toArray(result);
+	}
+
+	/**
+	 * @param domainsAtt
+	 * @param i
+	 * @param propsAtts
+	 * @return
+	 */
+	private static int parsePropsDomain(String domainsAtt, int p,
+			List<String> propsAtts) {
+		if (p >= domainsAtt.length()) {
+			throw new RuntimeException("Unexpected end of string, expected '(' in domains attribute value \"" + domainsAtt + "\"");
+		}
+		char c = domainsAtt.charAt(p++);
+		if (c != '(') {
+			throw new RuntimeException("Expected '(' following 'a', found '" + c + "' at position " + p + " in domains attribute value \"" + domainsAtt + "\"");
+		}
+		StringBuilder buf = new StringBuilder();
+		boolean done = false;
+		while (!done && p < domainsAtt.length()) {
+			c = domainsAtt.charAt(p);
+			switch (c) {
+			case ')':
+				p++;
+				done = true;
+				break;
+			default:
+				buf.append(c);
+				p++;
+			}
+		}
+		if (!done) {
+			throw new RuntimeException("Unexpected end of string, expected ')' in domains attribute value \"" + domainsAtt + "\"");
+		}
+		String[] tokens = buf.toString().trim().split(" ");
+		if (tokens.length < 2) {
+			throw new RuntimeException("Expected two tokens in attribute domain declaration, found " + tokens.length + " in domains attribute value \"" + domainsAtt + "\"");
+		}
+		if ("props".equals(tokens[0])) {
+			propsAtts.add(tokens[tokens.length - 1]);
+		}
+		return p;
+	}
+
+	/**
+	 * Scan to ")", return position following the ")".
+	 * @param domainsAtt
+	 * @param p
+	 * @return position of character following the ")".
+	 */
+	private static int parseParens(String domainsAtt, int p) {
+		char c = domainsAtt.charAt(p);
+		while (p < domainsAtt.length()) {
+			switch (c) {
+			case ')':
+				p++;
+				break;
+			default:
+				p++;
+			}
+ 		}
+		return p;
 	}
 
 
