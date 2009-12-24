@@ -23,4 +23,11 @@ public interface DitavalSpec {
 	 */
 	boolean isExcluded(String propName, String value);
 
+	/**
+	 * Adds an explicit inclusion for a given property.
+	 * @param propName
+	 * @param value
+	 */
+	void addInclusion(String propName, String value);
+
 }

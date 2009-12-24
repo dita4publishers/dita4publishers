@@ -564,7 +564,49 @@ public class DitaUtil {
 	 */
 	private static void parseGeneralizedPropsValue(String attval,
 			DitaPropsSpec propsSpec) {
-		throw new NotImplementedException();
+		// pattern is "propname(value) propname(value)"
+		char c;
+		int p = 0;
+		StringBuilder buf = new StringBuilder();
+		boolean inPropName = true; 
+		String propName = null;
+		
+		while (p < attval.length()) {
+			c = attval.charAt(p);
+			switch(c) {
+			case '(':
+				if (inPropName) {
+					propName = buf.toString();
+					buf = new StringBuilder();
+					inPropName = false;
+					p++;
+				} else {
+					throw new RuntimeException("Unexpected left paren at position " + ++p + " in generalized props attribue value \"" + attval + "\"");
+				}
+				break;
+			case ')':
+				if (!inPropName) {
+					propsSpec.addPropValue(propName, buf.toString());
+					propName = null;
+					inPropName = true;
+					p++;
+				} else {
+					throw new RuntimeException("Unexpected right paren at position " + ++p + " in generalized props attribue value \"" + attval + "\"");
+				}
+				break;
+			case ' ':
+				p++;
+				break;
+			default:
+				buf.append(c);
+				p++;
+			}
+		}
+		
+		if (!inPropName) 
+			throw new RuntimeException("Unexpected end of string parsing property value in generalized props attribute value \"" + attval + "\"");
+
+		
 	}
 
 	/**

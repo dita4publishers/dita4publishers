@@ -3,15 +3,15 @@
  */
 package net.sourceforge.dita4publishers.api.dita;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 /**
  * Represents a unique set of DITA properties (@props values).
+ * <p>Two DitaPropsSpecs are equal if they define the same
+ * set of values for the same set of property names.</p>
  * 
  */
 public class DitaPropsSpec {
@@ -33,10 +33,8 @@ public class DitaPropsSpec {
 	/**
 	 * @return
 	 */
-	public List<String> getProperties() {
-		List<String> result = new ArrayList<String>();
-		result.addAll(propertyValues.keySet());
-		return result;
+	public Set<String> getProperties() {
+		return propertyValues.keySet();
 	}
 
 	/**
@@ -48,5 +46,20 @@ public class DitaPropsSpec {
 			return this.propertyValues.get(propName);
 		return new HashSet<String>();
 	}
+	
+	public boolean equals(DitaPropsSpec cand) {
+		boolean result = false;
+		if (this.propertyValues.keySet().equals(cand.getProperties())) {
+			result = true;
+			for (String propName : this.propertyValues.keySet()) {
+				Set<String> values = this.propertyValues.get(propName);
+				if (!cand.getPropertyValues(propName).equals(values))
+					return false;
+			}
+		}
+		return result;
+	}
+
+
 
 }

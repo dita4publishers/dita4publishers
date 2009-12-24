@@ -38,7 +38,7 @@
   <topicref
     keys="key-01"
     href="topics/topic_01-win.xml"
-    platform="windows"
+    props="platform(windows)"
     class="- map/topicref  "/>
   <!-- Generic key definition -->
   <topicref
