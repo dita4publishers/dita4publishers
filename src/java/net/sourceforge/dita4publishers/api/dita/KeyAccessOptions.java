@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009 Really Strategies, Inc.
+ * Copyright 2009, 2010 DITA for Publishers project (dita4publishers.sourceforge.net)  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at     http://www.apache.org/licenses/LICENSE-2.0  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
  */
 package net.sourceforge.dita4publishers.api.dita;
 
@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import net.sourceforge.dita4publishers.api.PropertyContainer;
+import net.sourceforge.dita4publishers.impl.dita.DitavalSpecImpl;
 
 
 /**
@@ -73,6 +74,34 @@ public class KeyAccessOptions implements PropertyContainer {
 	
 	public DitavalSpec getDitavalSpec() {
 		return (DitavalSpec)this.getPropertyValue(DITAVAL_SPEC_PROP);
+	}
+
+	/**
+	 * Add a DITA value exclusion
+	 * @param propName
+	 * @param value
+	 */
+	public void addExclusion(String propName, String value) {
+		DitavalSpec spec = getDitavalSpec();
+		if (spec == null) {
+			spec = new DitavalSpecImpl();
+			this.setDitavalSpec(spec);
+		}
+		spec.addExclusion(propName, value);
+	}
+
+	/**
+	 * Add a DITA value exclusion
+	 * @param propName
+	 * @param value
+	 */
+	public void addInclusion(String propName, String value) {
+		DitavalSpec spec = getDitavalSpec();
+		if (spec == null) {
+			spec = new DitavalSpecImpl();
+			this.setDitavalSpec(spec);
+		}
+		spec.addInclusion(propName, value);
 	}
 
 

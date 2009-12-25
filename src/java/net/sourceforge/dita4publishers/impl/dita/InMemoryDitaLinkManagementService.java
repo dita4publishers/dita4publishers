@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009 Really Strategies, Inc.
+ * Copyright 2009, 2010 DITA for Publishers project (dita4publishers.sourceforge.net)  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at     http://www.apache.org/licenses/LICENSE-2.0  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
  */
 package net.sourceforge.dita4publishers.impl.dita;
 
@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import net.sourceforge.dita4publishers.api.dita.DitaApiException;
+import net.sourceforge.dita4publishers.api.dita.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.api.dita.DitaElementResource;
 import net.sourceforge.dita4publishers.api.dita.DitaFormat;
 import net.sourceforge.dita4publishers.api.dita.DitaIdTarget;
@@ -25,6 +26,7 @@ import net.sourceforge.dita4publishers.api.dita.DitaResource;
 import net.sourceforge.dita4publishers.api.dita.DitaResultSetFilter;
 import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
 import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
+import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelper;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaUtil;
 import net.sourceforge.dita4publishers.impl.ditabos.DomUtil;
 
@@ -79,7 +81,13 @@ public class InMemoryDitaLinkManagementService implements DitaLinkManagementServ
 	private DitaKeySpace calculateKeySpaceForMap(DitaKeyDefinitionContext keydefContext) throws DitaApiException {
 		((KeyDefinitionContextImpl)keydefContext).setOutOfDate();
 		Document rootMap = getDomForContext(keydefContext);
-		DitaKeySpace keySpace = new InMemoryDitaKeySpace(keydefContext, rootMap, this.bosOptions);
+		DitaBoundedObjectSet mapBos = null;
+		try {
+			mapBos = DitaBosHelper.calculateMapTree(bosOptions,log, rootMap);
+		} catch (Exception e) {
+			throw new DitaApiException("Exception construction map tree and key space: " + e.getMessage(), e);
+		}
+		DitaKeySpace keySpace = mapBos.getKeySpace();
 		keyspaceCache.put(keydefContext, keySpace);
 		((KeyDefinitionContextImpl)keydefContext).setUpToDate();
 		return keySpace;
@@ -254,22 +262,29 @@ public class InMemoryDitaLinkManagementService implements DitaLinkManagementServ
 	}
 
 	/**
-	 * @param user
-	 * @param resUrl
-	 * @return
+	 * @param keyAccessOptions Options that control access to resources.
+	 * @param resUrl Absolute URL of the target resource.
+	 * @return Root element of the target resource (topic or map).
 	 */
 	private Element resolveUriToElement(KeyAccessOptions keyAccessOptions, URL resUrl) throws DitaApiException {
 		Element result = null;
 		Document doc = null;
+		String urlString = resUrl.toExternalForm();
+		String resUrlString = null;
+		if (urlString.contains("#")) {
+			resUrlString = urlString.substring(0, urlString.indexOf("#"));
+		} else {
+			resUrlString = urlString;
+		}
+
 		try {
 			InputSource src = new InputSource(resUrl.openStream());
-			src.setSystemId(resUrl.toExternalForm());
-			// doc = DomUtils.getW3CDomFromInputSource(src);
+			src.setSystemId(resUrlString);
+			doc = DomUtil.getDomForSource(src, bosOptions, false);
 		} catch (Exception e) {
 			throw new DitaApiException( "Exception contructing DOM from URL " + resUrl + ": " + e.getMessage(), e);
 		}
 		
-		String urlString = resUrl.toExternalForm();
 		if (urlString.contains("#")) {
 			String fragId = urlString.split("#")[1];
 			result = DitaUtil.resolveDitaFragmentId(doc, fragId);
@@ -393,8 +408,20 @@ public class InMemoryDitaLinkManagementService implements DitaLinkManagementServ
 	/* (non-Javadoc)
 	 * @see com.reallysi.rsuite.service.DitaLinkManagementService#isKeyDefined(java.lang.String)
 	 */
-	public boolean isKeyDefined(String key) {
-		throw new NotImplementedException();
+	public boolean isKeyDefined(String key) throws DitaApiException {
+		return isKeyDefined(new KeyAccessOptions(), key);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.reallysi.rsuite.service.DitaLinkManagementService#isKeyDefined(java.lang.String)
+	 */
+	public boolean isKeyDefined(KeyAccessOptions keyAccessOptions, String key) throws DitaApiException {
+		for (DitaKeySpace keySpace : this.keyspaceCache.values()) {
+			if (keySpace.definesKey(keyAccessOptions, key)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/* (non-Javadoc)
@@ -410,7 +437,11 @@ public class InMemoryDitaLinkManagementService implements DitaLinkManagementServ
 	 */
 	public boolean isKeyDefined(KeyAccessOptions keyAccessOptions, String key,
 			DitaKeyDefinitionContext keydefContext) throws DitaApiException {
-		throw new NotImplementedException();
+		DitaKeySpace keySpace = getKeySpace(keyAccessOptions, keydefContext);
+		if (keySpace != null) {
+			return keySpace.definesKey(keyAccessOptions, key);
+		}
+		return false;	
 	}
 
 
@@ -570,6 +601,14 @@ public class InMemoryDitaLinkManagementService implements DitaLinkManagementServ
 		//        options specify unfiltered key spaces, could either throw
 		//        an exception or reconstruct all the spaces. Probably the former.
 		this.defaultKeyAccessOptions = keyAccessOptions;
+	}
+
+	/* (non-Javadoc)
+	 * @see net.sourceforge.dita4publishers.api.dita.DitaLinkManagementService#getDefaultKeyAccessOptions()
+	 */
+	public KeyAccessOptions getDefaultKeyAccessOptions()
+			throws DitaApiException {
+		return this.defaultKeyAccessOptions;
 	}
 
 

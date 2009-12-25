@@ -1,21 +1,6 @@
-/*
 
- * Created on Apr 25, 2004
-
- *
-
- */
 
 package net.sourceforge.dita4publishers.impl.ditabos;
-
-/**
- * 
- * @author eliot
- * 
- * 
- * 
- *         \
- */
 
 public class DomException extends Exception {
 

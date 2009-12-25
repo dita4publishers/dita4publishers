@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009 Really Strategies, Inc.
+ * Copyright 2009, 2010 DITA for Publishers project (dita4publishers.sourceforge.net)  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at     http://www.apache.org/licenses/LICENSE-2.0  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
  */
 package net.sourceforge.dita4publishers.api.dita;
 
@@ -227,6 +227,15 @@ public interface DitaLinkManagementService  {
 	boolean isKeyDefined(String key) throws DitaApiException;
 
 	/**
+	 * Checks to see if the specified key is defined anywhere in the repository as
+	 * determined by the key access options.
+	 * @param key 
+	 * @param keyAccessOptions
+	 * @return True if any key definition in the repository defines the key.
+	 */
+	boolean isKeyDefined(KeyAccessOptions keyAccessOptions, String key) throws DitaApiException;
+
+	/**
 	 * Checks to see if the specified key is defined in the key definition
 	 * context.
 	 * @param key
@@ -337,6 +346,14 @@ public interface DitaLinkManagementService  {
 	 * @throws DitaApiException
 	 */
 	void setDefaultKeyAccessOptions(KeyAccessOptions keyAccessOptions) throws DitaApiException;
+	
+	/**
+	 * Gets the default key access options used for key space construction and access.
+	 * @throws DitaApiException
+	 * @return KeyAccessOptions
+	 */
+	KeyAccessOptions getDefaultKeyAccessOptions() throws DitaApiException;
+
 	/**
 	 * Removes a root DITA map from the service.
 	 * @param rootMap Map from which the key space was originally constructed.

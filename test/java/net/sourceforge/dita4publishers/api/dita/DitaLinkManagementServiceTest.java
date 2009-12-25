@@ -1,3 +1,6 @@
+/**
+ * Copyright 2009, 2010 DITA for Publishers project (dita4publishers.sourceforge.net)  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at     http://www.apache.org/licenses/LICENSE-2.0  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+ */
 package net.sourceforge.dita4publishers.api.dita;
 
 import java.net.URI;
@@ -31,6 +34,14 @@ public class DitaLinkManagementServiceTest
     return suite; 
   }
 
+  String key01 = "key-01"; // Declared twice, only first is effective, href to topic-01
+  String key02 = "key-02"; // href to topic-02
+  String key03 = "key-03"; // Declared on same topicref as key-04
+  String key04 = "key-04"; // Declared on same topicref as key-03
+  String key05 = "key-05"; // Uses keyref to key-02, no href.
+  String key06 = "key-06"; // Uses keyref to key-02, no href.
+  String key07 = "key-07"; // Defined in submap 01.
+  int keyCount = 7;
 
 	URL catalogManagerProperties = getClass().getResource("/resources/CatalogManager.properties");
 	URL rootMapUrl = getClass().getResource("/resources/xml_data/docs/dita/link_test_01/link_test_01.ditamap");
@@ -69,14 +80,6 @@ public class DitaLinkManagementServiceTest
 	  Element resourceElement = null;
 	  URI resourceUri = null;
 
-	  String key01 = "key-01"; // Declared twice, only first is effective, href to topic-01
-	  String key02 = "key-02"; // href to topic-02
-	  String key03 = "key-03"; // Declared on same topicref as key-04
-	  String key04 = "key-04"; // Declared on same topicref as key-03
-	  String key05 = "key-05"; // Uses keyref to key-02, no href.
-	  String key06 = "key-06"; // Uses keyref to key-02, no href.
-	  String key07 = "key-07"; // Defined in submap 01.
-	  int keyCount = 7;
 
 	  DitaKeySpace keySpace; 
 
@@ -120,7 +123,7 @@ public class DitaLinkManagementServiceTest
 	  assertEquals(keyCount, keySpace.size());
 	  
 	  Document candDoc = keySpace.getRootMap(keyAccessOptions);
-	  assertEquals(candDoc, rootMap);
+	  assertEquals(candDoc.getDocumentURI(), rootMap.getDocumentURI());
 	  
 	  // Get all key definitions in the repository:
 	  Set<DitaKeyDefinition> keyDefSet = dlmService.getEffectiveKeyDefinitions(keyAccessOptions, keydefContext);
@@ -145,19 +148,41 @@ public class DitaLinkManagementServiceTest
 	  
 	  keyDefList = dlmService.getAllKeyDefinitionsForKey(keyAccessOptions, key01);
 	  assertNotNull("All keyDefs for key01 are null", keyDefList);
-	  assertEquals(2, keyDefList.size());
+	  assertEquals(5, keyDefList.size());
 	  
-	  // Get all the key definitions for a key in a specific context:
+	  // Get the effective definition for a key in a specific context:
 	  
 	  keyDef = dlmService.getKeyDefinition(keyAccessOptions, keydefContext, key01);
 	  assertNotNull(keyDef);
 	  assertEquals(key01, keyDef.getKey());
 	  
-	  // Get all the key definitions for a key in a specific context:
+	  // Get key definitions based on filtering spec:
+	  
+	  KeyAccessOptions kaoNotWindows = new KeyAccessOptions();
+	  kaoNotWindows.addExclusion("platform", "windows");
+	  
+	  KeyAccessOptions kaoNotOsx = new KeyAccessOptions();
+	  kaoNotOsx.addExclusion("platform", "osx");
+	  
+	  KeyAccessOptions kaoNotOsxOrWin = new KeyAccessOptions();
+	  kaoNotOsxOrWin.addExclusion("platform", "osx");
+	  kaoNotOsxOrWin.addExclusion("platform", "windows");
+	  
+	  DitaKeyDefinition keyDefOsx = dlmService.getKeyDefinition(kaoNotWindows, keydefContext, key01);
+	  assertNotNull(keyDefOsx);
+	  assertEquals(keyDefOsx, keyDef); // Should be same because OSX keydef is first in map.
+	  
+	  assertTrue(keyDefOsx.getDitaPropsSpec().equals(keyDef.getDitaPropsSpec()));
+	  
+	  DitaKeyDefinition keyDefWindows = dlmService.getKeyDefinition(kaoNotOsx, keydefContext, key01);
+	  assertFalse(keyDefOsx.equals(keyDefWindows));
+	  assertFalse(keyDefOsx.getDitaPropsSpec().equals(keyDefWindows.getDitaPropsSpec()));
+	  
+ 	  // Get all the key definitions for a key in a specific context:
 	  
 	  keyDefList = dlmService.getAllKeyDefinitionsForKey(keyAccessOptions, keydefContext, key01);
 	  assertNotNull(keyDefList);
-	  assertEquals(2, keyDefList.size());
+	  assertEquals(5, keyDefList.size());
 	  
 	  DitaResource res; 
 	  DitaElementResource elemRes;
@@ -181,94 +206,14 @@ public class DitaLinkManagementServiceTest
 	  assertFalse("Expected non-Element resource", res instanceof DitaElementResource);
 	  resUrl = res.getUrl();
 	  assertNotNull(resUrl);
-	  
-	  // Key references:
-	  
-	  DitaReference ref;
-	  List<DitaReference> refs;
-	  Document topic01 = null;
-	  
-	  refs = dlmService.getKeyWhereUsed(keyAccessOptions, key01);
-	  assertNotNull(refs);
-	  assertEquals(2, refs.size());
-	  
-	  DitaResultSetFilter filter;
-	  
-	  refs = dlmService.getKeyWhereUsed(keyAccessOptions, key01, keydefContext);
-	  assertNotNull(refs);
-	  assertEquals(2, refs.size());
-	  
-	  // Key references limited via filter:
-	  
-	  filter = new DitaFilterByType("topic/keyword");
-	  refs = dlmService.getKeyWhereUsed(keyAccessOptions, key01, filter);
-	  assertNotNull(refs);
-	  assertEquals(1, refs.size());
-	  refs = dlmService.getKeyWhereUsed(keyAccessOptions, key01, filter, topic01);
-	  assertNotNull(refs);
-	  assertEquals(1, refs.size());
-	  
-	  ref = refs.get(0);
-	  assertNotNull(ref);
-	  
-	  assertEquals(true, ref.isDitaElement());
-	  assertEquals(false, ref.isTopicRef());
-	  Element elem;
-	  
-	  elem = ref.getElement();
-	  assertNotNull(elem);
-	  assertTrue(elem.hasAttribute("class"));
-	  assertTrue(elem.getAttribute("class").contentEquals(" topic/keyword")); // Note: no trailing slash to work around ML 3.2 bug
-	  
+
 	  // Check if key is defined:
 	  
 	  assertTrue(dlmService.isKeyDefined(key01));
 	  assertTrue(dlmService.isKeyDefined(key01, keydefContext));
 	  assertFalse(dlmService.isKeyDefined("not-a-key"));
 	  assertFalse(dlmService.isKeyDefined("not-a-key", keydefContext));
-	  
-	  // FIXME: Need more tests for the detailed properties of key definitions and 
-	  // resources, e.g., navigation titles, titles, etc.
-	  
-	  // Where-used for elements with IDs:
-	  
-	  DitaElementResource potentialTarget;
-	  
-	  List<Document> usedBy;
-	  
-	  Document targetTopic = null;
-	  // FIXME: construct doc from  topic01Url
 
-	  // Target is a topic that is the root element of its containing MO:
-	  potentialTarget = dlmService.constructDitaElementResource(targetTopic);
-	  assertNotNull(potentialTarget);
-	  assertNotNull(potentialTarget.getElement());
-	  assertTrue(DitaUtil.isDitaTopic(potentialTarget.getElement()));
-	  
-	  // Get direct uses anywhere in the repository:
-	  usedBy = dlmService.getWhereUsed(keyAccessOptions, potentialTarget);
-	  assertNotNull(usedBy);
-	  assertEquals(1, usedBy.size());
-	  
-	  // Get direct uses within a context:
-	  
-	  usedBy = dlmService.getWhereUsed(keyAccessOptions, potentialTarget, keydefContext);
-	  assertNotNull(usedBy);
-	  assertEquals(1, usedBy.size());
-	  
-	  usedBy = dlmService.getWhereUsedByKey(keyAccessOptions, potentialTarget, keydefContext);
-	  assertNotNull(usedBy);
-
-  
-	  // Get the key definitions that point to the specified target:
-	  
-	  List<DitaKeyDefinition> keyBindings;
-	  keyBindings = dlmService.getKeyBindings(keyAccessOptions, potentialTarget);
-	  assertNotNull(keyBindings);
-	  
-	  keyBindings = dlmService.getKeyBindings(keyAccessOptions, potentialTarget, keydefContext);
-	  assertNotNull(keyBindings);
-	  
 }
   
   public void testIdTargetManagementApi() throws Exception {
@@ -331,6 +276,112 @@ public class DitaLinkManagementServiceTest
 	  DitaKeyDefinitionContext keydefContext = dlmService.registerRootMap(rootMap);
 	  assertNotNull(keydefContext);
 	  
-  }
+}
+
+  
+  public void testKeyWhereUsed() throws Exception {
+	  // get DOM for the rootMap.
+	  
+	  DitaKeySpace keySpace; 
+
+	  // Map document contains 6 topicrefs, of which 5 define keys.
+	  
+	  // Test management of key space registry and handling of out-of-date
+	  // key spaces.
+	  
+	  KeyAccessOptions keyAccessOptions = new KeyAccessOptions();
+	  
+	  
+	  DitaKeyDefinitionContext keydefContext = dlmService.registerRootMap(rootMap);
+	  assertNotNull(keydefContext);
+	  DitaKeyDefinitionContext candKeydefContext = dlmService.getKeyDefinitionContext(rootMap);
+	  assertEquals(keydefContext, candKeydefContext);
+	  
+	  keySpace = dlmService.getKeySpace(keyAccessOptions, keydefContext);
+	  assertNotNull(keySpace);
+	  assertEquals(rootMap.getDocumentURI(), keySpace.getRootMap(keyAccessOptions).getDocumentURI());
+
+	  // Key references:
+	  
+	  DitaReference ref;
+	  List<DitaReference> refs;
+	  Document topic01 = null;
+	  
+	  refs = dlmService.getKeyWhereUsed(keyAccessOptions, key01);
+	  assertNotNull(refs);
+	  assertEquals(2, refs.size());
+	  
+	  
+	  refs = dlmService.getKeyWhereUsed(keyAccessOptions, key01, keydefContext);
+	  assertNotNull(refs);
+	  assertEquals(2, refs.size());
+	  
+	  // Key references limited via filter:
+	  
+	  DitaResultSetFilter filter;
+	  filter = new DitaFilterByType("topic/keyword");
+	  refs = dlmService.getKeyWhereUsed(keyAccessOptions, key01, filter);
+	  assertNotNull(refs);
+	  assertEquals(1, refs.size());
+	  refs = dlmService.getKeyWhereUsed(keyAccessOptions, key01, filter, topic01);
+	  assertNotNull(refs);
+	  assertEquals(1, refs.size());
+	  
+	  ref = refs.get(0);
+	  assertNotNull(ref);
+	  
+	  assertEquals(true, ref.isDitaElement());
+	  assertEquals(false, ref.isTopicRef());
+	  Element elem;
+	  
+	  elem = ref.getElement();
+	  assertNotNull(elem);
+	  assertTrue(elem.hasAttribute("class"));
+	  assertTrue(elem.getAttribute("class").contentEquals(" topic/keyword")); // Note: no trailing slash to work around ML 3.2 bug
+	  
+	  
+	  // FIXME: Need more tests for the detailed properties of key definitions and 
+	  // resources, e.g., navigation titles, titles, etc.
+	  
+	  // Where-used for elements with IDs:
+	  
+	  DitaElementResource potentialTarget;
+	  
+	  List<Document> usedBy;
+	  
+	  Document targetTopic = null;
+	  // FIXME: construct doc from  topic01Url
+
+	  // Target is a topic that is the root element of its containing MO:
+	  potentialTarget = dlmService.constructDitaElementResource(targetTopic);
+	  assertNotNull(potentialTarget);
+	  assertNotNull(potentialTarget.getElement());
+	  assertTrue(DitaUtil.isDitaTopic(potentialTarget.getElement()));
+	  
+	  // Get direct uses anywhere in the repository:
+	  usedBy = dlmService.getWhereUsed(keyAccessOptions, potentialTarget);
+	  assertNotNull(usedBy);
+	  assertEquals(1, usedBy.size());
+	  
+	  // Get direct uses within a context:
+	  
+	  usedBy = dlmService.getWhereUsed(keyAccessOptions, potentialTarget, keydefContext);
+	  assertNotNull(usedBy);
+	  assertEquals(1, usedBy.size());
+	  
+	  usedBy = dlmService.getWhereUsedByKey(keyAccessOptions, potentialTarget, keydefContext);
+	  assertNotNull(usedBy);
+
+  
+	  // Get the key definitions that point to the specified target:
+	  
+	  List<DitaKeyDefinition> keyBindings;
+	  keyBindings = dlmService.getKeyBindings(keyAccessOptions, potentialTarget);
+	  assertNotNull(keyBindings);
+	  
+	  keyBindings = dlmService.getKeyBindings(keyAccessOptions, potentialTarget, keydefContext);
+	  assertNotNull(keyBindings);
+	  
+}
   
 }

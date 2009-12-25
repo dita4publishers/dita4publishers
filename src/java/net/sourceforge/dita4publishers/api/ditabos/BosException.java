@@ -3,10 +3,12 @@
  */
 package net.sourceforge.dita4publishers.api.ditabos;
 
+import net.sourceforge.dita4publishers.api.dita.DitaApiException;
+
 /**
  * Base exception type for BOS exceptions.
  */
-public class BosException extends Exception {
+public class BosException extends DitaApiException {
 
 	private static final long serialVersionUID = 1L;
 

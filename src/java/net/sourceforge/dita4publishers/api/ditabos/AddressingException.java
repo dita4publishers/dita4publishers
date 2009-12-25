@@ -2,12 +2,14 @@
 
 package net.sourceforge.dita4publishers.api.ditabos;
 
+import net.sourceforge.dita4publishers.api.dita.DitaApiException;
+
 /**
  * @author eliot
  *
  */
 
-public class AddressingException extends Exception {
+public class AddressingException extends DitaApiException {
 
 	private static final long serialVersionUID = 1L;
 

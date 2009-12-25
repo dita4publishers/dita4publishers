@@ -397,4 +397,20 @@ public class InMemoryDitaKeySpace implements DitaKeySpace {
 		throw new NotImplementedException();
 	}
 
+
+
+	/* (non-Javadoc)
+	 * @see net.sourceforge.dita4publishers.api.dita.DitaKeySpace#definesKey(net.sourceforge.dita4publishers.api.dita.KeyAccessOptions, java.lang.String)
+	 */
+	public boolean definesKey(KeyAccessOptions keyAccessOptions, String key) throws DitaApiException {
+		if (this.allKeyDefinitionsByKey.containsKey(key)) {
+			if (keyAccessOptions.getDitavalSpec() == null)
+				return true; // Can't be conditional
+			else {
+				return this.getAllKeyDefinitions(keyAccessOptions, key).size() > 0;
+			}
+		}
+		return false;
+	}
+
 }

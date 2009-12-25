@@ -8,38 +8,26 @@
 
 package net.sourceforge.dita4publishers.impl.ditabos;
 
-
-
 public class DataUtilException extends Exception {
-
 
 	private static final long serialVersionUID = 1L;
 
-
-
 	public DataUtilException(Throwable e) {
 
-    	super(e);
+		super(e);
 
-    }
+	}
 
+	public DataUtilException(String msg, Throwable e) {
 
+		super(msg, e);
 
-    public DataUtilException(String msg, Throwable e) {
+	}
 
-        super(msg, e);
+	public DataUtilException(String msg) {
 
-    }
+		super(msg);
 
-
-
-    public DataUtilException(String msg) {
-
-        super(msg);
-
-    }
-
-
+	}
 
 }
-
