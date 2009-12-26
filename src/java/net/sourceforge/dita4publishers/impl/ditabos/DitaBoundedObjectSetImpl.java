@@ -206,6 +206,8 @@ public class DitaBoundedObjectSetImpl implements DitaBoundedObjectSet {
 				newMember = new DitaMapBosMember(this, doc);
 			} else if (DitaUtil.isDitaTopic(elem)) {
 				newMember = new DitaTopicBosMember(this, doc);
+			} else if (DitaUtil.isDitaBase(elem)) {
+				newMember = new DitaTopicBosMember(this, doc);
 			} else {
 				log.warn("constructBosMember(): Element \"" + elem.getLocalName() + "\" is in a DITA document but is neither a map nor a topic.");
 				newMember = new DitaBosMember(this, doc);

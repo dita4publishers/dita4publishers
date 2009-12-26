@@ -186,6 +186,10 @@ public abstract class BosMemberBase implements BosMember {
 	public boolean isInvalid() {
 		return this.isInvalid ;
 	}
+	
+	public boolean equals(Object candMember) {
+		return (this.getKey().equals(((BosMember)candMember).getKey()));
+	}
 
 	
 }

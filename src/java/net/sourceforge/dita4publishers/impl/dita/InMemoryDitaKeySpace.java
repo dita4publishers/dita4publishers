@@ -312,9 +312,11 @@ public class InMemoryDitaKeySpace implements DitaKeySpace {
 			KeyAccessOptions keyAccessOptions, String key)
 			throws DitaApiException {
 		List<DitaKeyDefinition> keyDefs = this.allKeyDefinitionsByKey.get(key);
+		DitaKeyDefinition keyDef = null;
+		if (keyDefs == null)
+			return keyDef;
 		if (keyDefs.size() == 1)
 			return keyDefs.get(0);
-		DitaKeyDefinition keyDef = null;
 		for (DitaKeyDefinition cand : keyDefs) {
 			if (isApplicable(cand, keyAccessOptions)) {
 				keyDef = cand;

@@ -203,24 +203,25 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	 */
 	private void walkTopicGetDependencies(BoundedObjectSet bos, XmlBosMember member)
 			throws BosException, DitaApiException {
-				log.info("walkTopicGetDependencies(): handling topic " + member + "...");
+				log.debug("walkTopicGetDependencies(): handling topic " + member + "...");
 				Set<BosMember> newMembers = new HashSet<BosMember>(); 
-				log.info("walkTopicGetDependencies():   getting conref dependencies...");
+				log.debug("walkTopicGetDependencies():   getting conref dependencies...");
 			
 				findConrefDependencies(bos, member, newMembers);
-				log.info("walkTopicGetDependencies():   getting link dependencies...");
+				log.debug("walkTopicGetDependencies():   getting link dependencies...");
 				findLinkDependencies(bos, member, newMembers);
 
 				findObjectDependencies(bos, member, newMembers);
 
 				// Now walk the new members:
 				
-				log.info("walkTopicGetDependencies(): Found " + newMembers.size() + " new members.");
+				log.debug("walkTopicGetDependencies(): Found " + newMembers.size() + " new members.");
 				
 				for (BosMember newMember : newMembers) {
-					if (!walkedMembers.contains(newMember))
-						log.info("walkTopicGetDependencies(): walking unwalked dependency member " + member + "...");
+					if (!walkedMembers.contains(newMember)) {
+						log.debug("walkTopicGetDependencies(): walking unwalked dependency member " + member + "...");
 						walkMemberGetDependencies(bos, newMember);
+					}
 				}
 				
 			}
@@ -240,7 +241,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 			throw new BosException("Unexcepted exception evaluating xpath " + DitaUtil.allObjects);
 		}
 		
-		log.info("findObjectDependencies(): Found " + objects.getLength() + " topic/object elements");
+		log.debug("findObjectDependencies(): Found " + objects.getLength() + " topic/object elements");
 
 		for (int i = 0;i < objects.getLength(); i++) {
 			Element objectElem = (Element)objects.item(i);
@@ -251,7 +252,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 			String href = null;
 			try {
 				if (objectElem.hasAttribute("data")) {
-					log.info("findObjectDependencies(): resolving reference to data \"" + objectElem.getAttribute("data") + "\"...");
+					log.debug("findObjectDependencies(): resolving reference to data \"" + objectElem.getAttribute("data") + "\"...");
 					href = objectElem.getAttribute("data");
 					// FIXME: This assumes that the @data value will be a relative URL. In fact, it could be relative
 					//        to the value of the @codebase attribute if specified.
@@ -268,7 +269,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 
 			BosMember childMember = null;
 			if (targetUri != null) {
-				log.info("findObjectDependencies(): Got URI \"" + targetUri.toString() + "\"");
+				log.debug("findObjectDependencies(): Got URI \"" + targetUri.toString() + "\"");
 				childMember = bos.constructBosMember((BosMember)member, targetUri);
 			}
 			bos.addMember(member, childMember);
@@ -295,7 +296,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 					throw new BosException("Unexcepted exception evaluating xpath " + DitaUtil.allTopicrefs);
 				}
 				
-				log.info("findLinkDependencies(): Found " + links.getLength() + " href- or keyref-using elements");
+				log.debug("findLinkDependencies(): Found " + links.getLength() + " href- or keyref-using elements");
 				
 				for (int i = 0;i < links.getLength(); i++) {
 					Element link = (Element)links.item(i);
@@ -307,7 +308,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 					String href = null;
 					try {
 						if (link.hasAttribute("keyref")) {
-							log.info("findLinkDependencies(): resolving reference to key \"" + link.getAttribute("keyref") + "\"...");
+							log.debug("findLinkDependencies(): resolving reference to key \"" + link.getAttribute("keyref") + "\"...");
 							if (!DitaUtil.targetIsADitaFormat(link) || DitaUtil.isDitaType(link, "topic/image")) {
 								targetUri = resolveKeyrefToUri(link.getAttribute("keyref"));
 							} else {
@@ -315,7 +316,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 							}
 						}
 						if (targetUri == null && targetDoc == null && link.hasAttribute("href")) {
-							log.info("findLinkDependencies(): resolving reference to href \"" + link.getAttribute("href") + "\"...");
+							log.debug("findLinkDependencies(): resolving reference to href \"" + link.getAttribute("href") + "\"...");
 							href = link.getAttribute("href");
 							if (DitaUtil.isDitaType(link, "topic/image")) {
 								targetUri = AddressingUtil.resolveHrefToUri(link, link.getAttribute("href"), this.failOnAddressResolutionFailure);
@@ -336,22 +337,21 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 						}
 					}
 					
-					if (targetDoc == null && targetUri == null)
+					if (targetDoc == null && targetUri == null || targetDoc == member.getDocument())
 						continue;
 
 					BosMember childMember = null;
 					if (targetDoc != null) {		
-						log.info("findLinkDependencies(): Got document \"" + targetDoc.getDocumentURI() + "\"");
+						log.debug("findLinkDependencies(): Got document \"" + targetDoc.getDocumentURI() + "\"");
 						childMember = bos.constructBosMember(member, targetDoc);
 					} else if (targetUri != null) {
-						log.info("findLinkDependencies(): Got URI \"" + targetUri.toString() + "\"");
+						log.debug("findLinkDependencies(): Got URI \"" + targetUri.toString() + "\"");
 						childMember = bos.constructBosMember((BosMember)member, targetUri);
 					}
-					bos.addMember(member, childMember);
+//					bos.addMember(member, childMember);
 					newMembers.add(childMember);
 					// Key references don't need to be rewritten so we only care if an href was used to resolve the dependency
-					if (href != null)
-						member.registerDependency(href, childMember);
+					member.registerDependency(href, childMember);
 				}
 				
 			}
@@ -389,9 +389,9 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 						}
 					}
 					
-					if (targetDoc != null) {		
+					if (targetDoc != null && targetDoc != member.getDocument()) {		
 						BosMember childMember = bos.constructBosMember(member, targetDoc);
-						bos.addMember(member, childMember);
+						// bos.addMember(member, childMember);
 						newMembers.add(childMember);
 						if (href != null)
 							member.registerDependency(href, childMember);
@@ -446,7 +446,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 			int level) throws BosException, DitaApiException {
 				String levelSpacer = getLevelSpacer(level);
 				
-				log.info("walkMap(): " + levelSpacer + "Walking map  " + mapDoc.getDocumentURI() + "...");
+				log.debug("walkMap(): " + levelSpacer + "Walking map  " + mapDoc.getDocumentURI() + "...");
 			
 				Element mapRoot = mapDoc.getDocumentElement();
 				
@@ -463,7 +463,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 					Element topicRef = (Element)resultNl.item(i);
 					if (DitaUtil.isMapReference(topicRef)) {
 						String href = topicRef.getAttribute("href");
-						log.info("walkMap(): " + levelSpacer + "  handling map reference to href \"" + href + "\"...");
+						log.debug("walkMap(): " + levelSpacer + "  handling map reference to href \"" + href + "\"...");
 						Document targetDoc = null;
 						try {
 							targetDoc = AddressingUtil.resolveHrefToDoc(topicRef,href, bosConstructionOptions, this.failOnAddressResolutionFailure);
@@ -478,13 +478,13 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 					}
 				}
 			
-				log.info("walkMap(): " + levelSpacer + "  Found " + childMaps.size() + " child maps.");
+				log.debug("walkMap(): " + levelSpacer + "  Found " + childMaps.size() + " child maps.");
 			
 				// Now we have a list of the child maps in document order by reference.
 				// Iterate over them to update the key space:
 				
 				if (childMaps.size() > 0) {
-					log.info("walkMap(): " + levelSpacer + "  Adding key definitions from child maps...");
+					log.debug("walkMap(): " + levelSpacer + "  Adding key definitions from child maps...");
 					
 					for (Document childMap : childMaps) {
 						keySpace.addKeyDefinitions(childMap.getDocumentElement());
@@ -492,13 +492,13 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 					
 					// Now walk each of the maps to process the next level in the map hierarchy:
 					
-					log.info("walkMap(): " + levelSpacer + "  Walking child maps...");
+					log.debug("walkMap(): " + levelSpacer + "  Walking child maps...");
 					for (Document childMapDoc : childMaps) {
 						XmlBosMember childMember = bos.constructBosMember(currentMember, childMapDoc);
 						bos.addMember(currentMember, childMember);
 						walkMapCalcMapTree(bos, childMember, childMapDoc, level + 1);
 					}
-					log.info("walkMap(): " + levelSpacer + "  Done walking child maps");
+					log.debug("walkMap(): " + levelSpacer + "  Done walking child maps");
 				}
 				
 			}
@@ -514,7 +514,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 		} catch (URISyntaxException e) {
 			throw new BosException("Failed to construct URI from document URI \"" + mapDoc.getDocumentURI() + "\": " + e.getMessage());
 		}
-		log.info("walk(): Walking document " + mapUri.toString() + "...");
+		log.debug("walk(): Walking document " + mapUri.toString() + "...");
 		// Add this map's keys to the key space.
 		
 		XmlBosMember member = bos.constructBosMember((BosMember)null, mapDoc);
@@ -532,32 +532,32 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 		
 		
 		if (DitaUtil.isDitaMap(elem)) {
-			log.info("walk(): Adding root map's keys to key space...");
+			log.debug("walk(): Adding root map's keys to key space...");
 			keySpace.addKeyDefinitions(elem);
 			
 			// Walk the map to determine the tree of maps and calculate
 			// the key space rooted at the starting map:
-			log.info("walk(): Walking the map to calculate the map tree...");
+			log.debug("walk(): Walking the map to calculate the map tree...");
 			walkMapCalcMapTree(bos, member, mapDoc, 1);
-			log.info("walk(): Map tree calculated.");
+			log.debug("walk(): Map tree calculated.");
 			
 			// At this point, we have a set of map BOS members and a populated key space;
 			// Iterate over the maps to find all non-map dependencies (topics, images,
 			// objects, xref targets, and link targets):
 	
-			log.info("walk(): Calculating map dependencies for map " + member.getKey() + "...");
+			log.debug("walk(): Calculating map dependencies for map " + member.getKey() + "...");
 			Collection<BosMember> mapMembers = bos.getMembers();
 			Iterator<BosMember> iter = mapMembers.iterator();
 			while (iter.hasNext()) {
 				BosMember mapMember = iter.next();
 				walkMapGetDependencies(bos, (DitaMapBosMember)mapMember);
 			}
-			log.info("walk(): Map dependencies calculated.");
+			log.debug("walk(): Map dependencies calculated.");
 			
 		} else if (DitaUtil.isDitaTopic(elem)) {
-			log.info("walk(): Calculating topic dependencies for topic " + member.getKey() + "...");
+			log.debug("walk(): Calculating topic dependencies for topic " + member.getKey() + "...");
 			walkTopic(bos, (XmlBosMember)member, 1);
-			log.info("walk(): Topic dependencies calculated.");
+			log.debug("walk(): Topic dependencies calculated.");
 		} else {
 			// Not a map or topic, delegate walking:
 			walkNonDitaResource(bos, (NonXmlBosMember)member, 1);

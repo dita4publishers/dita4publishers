@@ -166,9 +166,18 @@ public class AddressingUtil {
 				if (href.startsWith("#"))
 					return refElem.getOwnerDocument();
 				String baseUriStr = refElem.getOwnerDocument().getBaseURI();
+				String resourceUriStr = null;
+				if (href.contains("#"))
+					resourceUriStr = href.substring(0,href.indexOf("#"));
+				else
+					resourceUriStr = href;
+				if (resourceUriStr.contains("\\")) {
+					logger.warn("Found href value with backslashes: \"" + resourceUriStr + "\". Converting to '/', may still not work.");
+					resourceUriStr = resourceUriStr.replace("\\", "/");
+				}
 				try {
 					URI baseUri = new URI(baseUriStr);
-					URI targetUri = baseUri.resolve(href);
+					URI targetUri = baseUri.resolve(resourceUriStr);
 					Map<URI, Document>domCache = domOptions.getDomCache();
 					if (domCache.containsKey(targetUri))
 						return domCache.get(targetUri);

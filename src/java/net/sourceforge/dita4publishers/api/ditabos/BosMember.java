@@ -124,4 +124,5 @@ public interface BosMember {
 	 * @param uri
 	 */
 	public abstract void setUri(URI uri);
+	
 }

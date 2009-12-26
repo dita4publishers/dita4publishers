@@ -31,6 +31,11 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class DitaUtil {
 	
+	/**
+	 * 
+	 */
+	public static final String DITA_ELEM_TAGNAME = "dita";
+
 	private static final Log log = LogFactory.getLog(DitaUtil.class);
 
 	public static final String ALL_KEYDEFS_XPATH = 
@@ -140,7 +145,7 @@ public class DitaUtil {
 	public static final String DITA_KEYS_ATTNAME = "keys";
 	public static final String DITA_TYPE_ATTNAME = "type";
 	
-	public static final String DITA_FORMAT_VALUE_DITA = "dita";
+	public static final String DITA_FORMAT_VALUE_DITA = DITA_ELEM_TAGNAME;
 	public static final String DITA_FORMAT_VALUE_DITAMAP = "ditamap";
 	public static final String DITA_FORMAT_VALUE_PDF = "pdf";
 	public static final String DITA_FORMAT_VALUE_HTML = "html";
@@ -191,7 +196,7 @@ public class DitaUtil {
 	public static boolean isInDitaDocument(Element elem) {
 		Element root = elem.getOwnerDocument().getDocumentElement();
 		Element cand = root;
-		if (cand.getTagName().equals("dita")) {
+		if (cand.getTagName().equals(DITA_ELEM_TAGNAME)) {
 			// FIXME: This a little weak but unlikely to return false positives.			
 			return true; 
 		}
@@ -472,7 +477,7 @@ public class DitaUtil {
 	public static boolean targetIsADitaFormat(Element link) {
 		if (link.hasAttribute(DITA_FORMAT_ATTNAME)) {
 			String formatValue = link.getAttribute(DITA_FORMAT_ATTNAME);
-			if (!"dita".equalsIgnoreCase(formatValue) && !"ditamap".equalsIgnoreCase(formatValue))
+			if (!DITA_ELEM_TAGNAME.equalsIgnoreCase(formatValue) && !"ditamap".equalsIgnoreCase(formatValue))
 				return false;
 		}
 		return true; // default format is "dita"
@@ -703,6 +708,14 @@ public class DitaUtil {
 			}
  		}
 		return p;
+	}
+
+	/**
+	 * @param elem
+	 * @return
+	 */
+	public static boolean isDitaBase(Element elem) {
+		return elem.getNodeName().equals(DITA_ELEM_TAGNAME);
 	}
 
 
