@@ -15,6 +15,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import net.sourceforge.dita4publishers.impl.dita.InMemoryDitaLinkManagementService;
+import net.sourceforge.dita4publishers.impl.dita.TextKeySpaceReporter;
 import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaUtil;
 import net.sourceforge.dita4publishers.impl.ditabos.DomUtil;
@@ -72,7 +73,7 @@ public class DitaLinkManagementServiceTest
 }
 
   
-  public void testDitaKeyrefApi() throws Exception {
+  public void testDitaKeyspaceConstruction() throws Exception {
 
 	  
 	  // get DOM for the rootMap.
@@ -111,6 +112,24 @@ public class DitaLinkManagementServiceTest
 	  assertNotNull(keydefContext);
 	  assertTrue(keydefContext.isOutOfDate());
 	  
+	  // Report the key space:
+	  
+	  // Default key sorting:
+	  KeyReportOptions reportOptions = new KeyReportOptions();
+	  KeySpaceReporter reporter = new TextKeySpaceReporter(System.out);
+	  reporter.report(keyAccessOptions, dlmService.getKeySpace(keyAccessOptions, keydefContext), reportOptions);
+
+	  
+	  // Sort by map:
+	  reportOptions.setSortByMap(true);
+	  reporter.report(keyAccessOptions, dlmService.getKeySpace(keyAccessOptions, keydefContext), reportOptions);
+	  
+	  // All keys, not just effective keys:
+	  
+	  reportOptions.setSortByMap(false);
+	  reportOptions.setAllKeys(true);
+	  reporter.report(keyAccessOptions, dlmService.getKeySpace(keyAccessOptions, keydefContext), reportOptions);
+
 	  // Test operations on keys and key definitions:
 	  
 	  Set<String> keys = dlmService.getKeys(keyAccessOptions, keydefContext);

@@ -6,6 +6,8 @@ package net.sourceforge.dita4publishers.api.dita;
 import java.net.URI;
 import java.net.URL;
 
+import org.w3c.dom.Element;
+
 /**
  * Represents the definition of a single key. Note that a single
  * topicref element may define any number of keys. However, for 
@@ -82,5 +84,22 @@ public interface DitaKeyDefinition extends Comparable<DitaKeyDefinition> {
 	 * @return The DITA properties specification for the key definition.
 	 */
 	DitaPropsSpec getDitaPropsSpec();
+
+	/**
+	 * @return The resource to which this key definition is bound. Will be
+	 * a DOM (DITA document), Element (the key definition element), or
+	 * a URI.
+	 */
+	Object getResource();
+
+	/**
+	 * @return The DITA element (specialization of topicref) that defined the key.
+	 */
+	Element getKeyDefElem();
+
+	/**
+	 * @param resource The object the key is bound to.
+	 */
+	void setResource(Object resource);
 
 }

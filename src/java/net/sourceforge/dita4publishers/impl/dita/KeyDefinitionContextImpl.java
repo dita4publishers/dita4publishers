@@ -3,11 +3,11 @@
  */
 package net.sourceforge.dita4publishers.impl.dita;
 
-import org.w3c.dom.Document;
-
 import net.sourceforge.dita4publishers.api.dita.DitaApiException;
 import net.sourceforge.dita4publishers.api.dita.DitaKeyDefinitionContext;
 import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
+
+import org.w3c.dom.Document;
 
 /**
  *

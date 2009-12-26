@@ -15,6 +15,7 @@ import javax.xml.transform.URIResolver;
 import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
 
 import org.apache.commons.logging.Log;
+import org.apache.xerces.xni.grammars.XMLGrammarPool;
 import org.w3c.dom.Document;
 
 /**
@@ -31,6 +32,7 @@ public class BosConstructionOptions {
 	private boolean failOnAddressResolutionFailure = true;
 	private boolean mapTreeOnly = false;
 	private KeyAccessOptions keyAccessOptions = new KeyAccessOptions();
+	private XMLGrammarPool grammarPool = GrammarPoolManager.getGrammarPool();
 
 	/**
 	 * @return the invalidDocs
@@ -175,6 +177,13 @@ public class BosConstructionOptions {
 	
 	public void SetKeyAccessOptions(KeyAccessOptions keyAccessOptions) {
 		this.keyAccessOptions = keyAccessOptions;
+	}
+
+	/**
+	 * @return
+	 */
+	public XMLGrammarPool getGrammarPool() {
+		return this.grammarPool;
 	}
 
 }

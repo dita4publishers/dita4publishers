@@ -2,10 +2,12 @@ package net.sourceforge.dita4publishers.impl.ditabos;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.Map;
 
 import net.sourceforge.dita4publishers.api.ditabos.AddressingException;
@@ -119,28 +121,32 @@ public class AddressingUtil {
 	 * @param href
 	 * @return
 	 * @throws URISyntaxException 
+	 * @throws URISyntaxException 
 	 * @throws IOException 
 	 * @throws DomException 
 	 * @throws MalformedURLException 
 	 */
-	public static File resolveHrefToFile(Element topicRef, String href, boolean failOnAddressResolutionFailure)
+	public static URI resolveHrefToUri(Element topicRef, String href, boolean failOnAddressResolutionFailure)
 			throws AddressingException {
-				File targetFile = null;
+				URI targetUri = null;
 				if (href.startsWith("#"))
-					return new File(topicRef.getOwnerDocument().getDocumentURI());
+					try {
+						return new URI(topicRef.getOwnerDocument().getDocumentURI());
+					} catch (URISyntaxException e) {
+						throw new AddressingException("URISyntaxException from document URI \"" + topicRef.getOwnerDocument().getDocumentURI() + "\": " + e.getMessage(), e);
+					}
 				String baseUriStr = topicRef.getOwnerDocument().getBaseURI();
 				try {
 					if (href.contains("#"))
 						href = href.substring(0,href.indexOf("#"));
 					URI baseUri = new URI(baseUriStr);
-					URI targetUri = baseUri.resolve(href);
-					targetFile = new File(targetUri);
+					targetUri = baseUri.resolve(href);
 				} catch (Exception e) {
 					if (failOnAddressResolutionFailure) {
 						throw new AddressingException("Failed to resolve href \"" + href + "\": " + e.getClass().getSimpleName() + ": " + e.getMessage());
 					}
 				}
-				return targetFile;
+				return targetUri;
 			}
 
 
@@ -195,12 +201,12 @@ public class AddressingUtil {
 	 * @return
 	 * @throws AddressingException 
 	 */
-	public static File resolveObjectDataToFile(Element objectElem,
+	public static URI resolveObjectDataToUri(Element objectElem,
 			boolean failOnAddressResolutionFailure) throws AddressingException {
 		if (!objectElem.hasAttribute("data"))
 			return null;
 		
-		File result = null;
+		URI result = null;
 
 		String dataUrlStr = objectElem.getAttribute("data");
 		String baseUrlStr = objectElem.getOwnerDocument().getBaseURI();
@@ -241,10 +247,30 @@ public class AddressingUtil {
 			throw new AddressingException("URI syntax exception: " + e.getMessage(), e);
 		}
 		
-		result = new File(dataUrl.getFile());
+		boolean exists = true;
+		URLConnection connection = null;
+		InputStream stream = null;
+		try {			
+		    connection = dataUrl.openConnection();
+		    connection.setConnectTimeout(1);
+		    connection.setReadTimeout(1);
+			stream = connection.getInputStream();
+		} catch (IOException e) {
+			logger.debug("resolveObjectDataToUri(): IOException openning connection to URL \"" + dataUrl + "\"");
+			exists = false;
+		} catch (Exception e) {
+			logger.info("Unexpected exception: " + e.getClass().getSimpleName() + " = " + e.getMessage());
+			exists = false;
+		} finally {
+			try {
+				stream.close();
+			} catch (IOException e) {
+				// Don't care.
+			}
+		}
 		
-		if (failOnAddressResolutionFailure && !result.exists()) {
-			throw new AddressingException("Failed to resolve @data value \"" + dataUrlStr + " to a file using absolute URL \"" + dataUrl.toExternalForm() + "\"");
+		if (failOnAddressResolutionFailure && !exists) {
+			throw new AddressingException("Failed to resolve @data value \"" + dataUrlStr + " to an accessible resource using absolute URL \"" + dataUrl.toExternalForm() + "\"");
 		}
 		
 		return result;

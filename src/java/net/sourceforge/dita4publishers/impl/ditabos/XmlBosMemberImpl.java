@@ -3,7 +3,6 @@
  */
 package net.sourceforge.dita4publishers.impl.ditabos;
 
-import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -40,8 +39,7 @@ public class XmlBosMemberImpl extends BosMemberBase implements XmlBosMember {
 				docUri = rawDocUri.substring(0, rawDocUri.indexOf("?"));
 			else
 				docUri = rawDocUri;
-			File file = new File(new URI(docUri));
-			this.setFile(file);
+			this.setUri(new URI(docUri));
 		} catch (URISyntaxException e) {
 			throw new BosException("URISyntaxException creating file for document URI \"" + doc.getDocumentURI() + "\": " + e.getMessage());
 		}

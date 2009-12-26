@@ -38,6 +38,12 @@ public class DitaKeyDefinitionImpl implements DitaKeyDefinition {
 
 	private DitaPropsSpec propsSpec;
 
+
+	private Element keydefElem;
+
+
+	private Object resource;
+
 	/**
 	 * @param document
 	 * @param key 
@@ -48,6 +54,7 @@ public class DitaKeyDefinitionImpl implements DitaKeyDefinition {
 	 */
 	public DitaKeyDefinitionImpl(Document document, String key, Element keydefElem) throws DitaApiException {
 		this.containingDoc = document;
+		this.keydefElem = keydefElem;
 		String baseUriStr = keydefElem.getBaseURI();
 		if (baseUriStr == null)
 			throw new DitaApiException("keydef element has a null base URI.");
@@ -176,6 +183,27 @@ public class DitaKeyDefinitionImpl implements DitaKeyDefinition {
 	 */
 	public DitaPropsSpec getDitaPropsSpec() {
 		return this.propsSpec;
+	}
+
+	/* (non-Javadoc)
+	 * @see net.sourceforge.dita4publishers.api.dita.DitaKeyDefinition#getKeyDefElem()
+	 */
+	public Element getKeyDefElem() {
+		return this.keydefElem;
+	}
+
+	/* (non-Javadoc)
+	 * @see net.sourceforge.dita4publishers.api.dita.DitaKeyDefinition#getResource()
+	 */
+	public Object getResource() {
+		return this.resource;
+	}
+
+	/* (non-Javadoc)
+	 * @see net.sourceforge.dita4publishers.api.dita.DitaKeyDefinition#setResource(java.lang.Object)
+	 */
+	public void setResource(Object resource) {
+		this.resource = resource;
 	}
 
 }

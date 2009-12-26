@@ -3,7 +3,7 @@
  */
 package net.sourceforge.dita4publishers.impl.ditabos;
 
-import java.io.File;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -219,13 +219,13 @@ public class DitaBoundedObjectSetImpl implements DitaBoundedObjectSet {
 	/* (non-Javadoc)
 	 * @see com.reallysi.tools.dita.BoundedObjectSet#constructBosMember(com.reallysi.tools.dita.BosMember, java.io.File)
 	 */
-	public BosMember constructBosMember(BosMember member, File targetFile) throws BosException {
-		String key = targetFile.getAbsolutePath();
+	public BosMember constructBosMember(BosMember member, URI targetUri) throws BosException {
+		String key = targetUri.toString();
 		if (this.getMember(key) != null) {
 			BosMember cand = this.getMember(key);
 			return cand;
 		}
-		NonXmlBosMember newMember = new NonXmlBosMemberImpl(this, targetFile);
+		NonXmlBosMember newMember = new NonXmlBosMemberImpl(this, targetUri);
 		return newMember;
 	}
 

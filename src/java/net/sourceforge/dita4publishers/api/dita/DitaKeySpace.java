@@ -3,7 +3,7 @@
  */
 package net.sourceforge.dita4publishers.api.dita;
 
-import java.io.File;
+import java.net.URI;
 import java.util.List;
 import java.util.Set;
 
@@ -93,8 +93,9 @@ public interface DitaKeySpace {
 	 * Given a key, returns the File to which the key is bound, if any.
 	 * @param key
 	 * @return File or null, if key is not bound.
+	 * @throws DitaApiException 
 	 */
-	File resolveKeyToFile(String key, KeyAccessOptions keyAccessOptions) throws AddressingException;
+	URI resolveKeyToUri(String key, KeyAccessOptions keyAccessOptions) throws AddressingException, DitaApiException;
 
 	/**
 	 * Adds key definitions from the specified document.
@@ -111,6 +112,5 @@ public interface DitaKeySpace {
 	 * @throws DitaApiException 
 	 */
 	boolean definesKey(KeyAccessOptions keyAccessOptions, String key) throws DitaApiException;
-
 
 }

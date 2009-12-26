@@ -3,7 +3,7 @@
  */
 package net.sourceforge.dita4publishers.impl.ditabos;
 
-import java.io.File;
+import java.net.URI;
 
 import net.sourceforge.dita4publishers.api.ditabos.BosException;
 import net.sourceforge.dita4publishers.api.ditabos.BosVisitor;
@@ -16,10 +16,10 @@ public class NonXmlBosMemberImpl extends BosMemberBase implements NonXmlBosMembe
 
 	/**
 	 * @param bos
-	 * @param dataSourcefile
+	 * @param dataSourceUri
 	 */
-	public NonXmlBosMemberImpl(DitaBoundedObjectSetImpl bos, File dataSourcefile) {
-		super(bos, dataSourcefile);
+	public NonXmlBosMemberImpl(DitaBoundedObjectSetImpl bos, URI dataSourceUri) {
+		super(bos, dataSourceUri);
 	}
 
 	/* (non-Javadoc)

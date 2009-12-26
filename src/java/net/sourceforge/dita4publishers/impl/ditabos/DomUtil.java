@@ -17,7 +17,10 @@ import net.sourceforge.dita4publishers.api.ditabos.BosMemberValidationException;
 
 import org.apache.log4j.Logger;
 import org.apache.xerces.parsers.DOMParser;
+import org.apache.xerces.parsers.XIncludeAwareParserConfiguration;
 import org.apache.xerces.util.XMLCatalogResolver;
+import org.apache.xerces.xni.grammars.XMLGrammarPool;
+import org.apache.xerces.xni.parser.XMLParserConfiguration;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -87,12 +90,23 @@ public class DomUtil {
 	 * @throws DomException
 	 * @throws BosMemberValidationException 
 	 */
-	public static Document getDomForSource(InputSource source, BosConstructionOptions domOptions, boolean throwExceptionIfInvalid) throws DomException, BosMemberValidationException {
-		DOMParser dp = new org.apache.xerces.parsers.DOMParser();
-//		LoggingErrorHandler errorHandler = new LoggingErrorHandler(domOptions.getLog(), domOptions.getReport());
-//		dp.setErrorHandler(errorHandler);
+	public static Document getDomForSource(InputSource source, BosConstructionOptions bosOptions, boolean throwExceptionIfInvalid) throws DomException, BosMemberValidationException {
+		URI docUri = null;
+		try {
+			docUri = new URI(source.getSystemId());
+		} catch (URISyntaxException e) {
+			throw new DomException("Exception constructing URI from system ID \"" + source.getSystemId() + "\" for document source: " + e.getMessage(), e);
+		}
+		
+		if (bosOptions.getDomCache().containsKey(docUri)) {
+			logger.debug("getDomForSource(): Found DOM for \"" + source.getSystemId() + "\" in DOM cache, returning it.");
+			return bosOptions.getDomCache().get(docUri);
+		}
+		
+		logger.debug("getDomForSource(): Parsing input source \"" + source.getSystemId() + "\"...");
+		
 		XMLCatalogResolver resolver = new XMLCatalogResolver();
-		String[] catalogs = domOptions.getCatalogs();
+		String[] catalogs = bosOptions.getCatalogs();
 		String catalogList = System.getProperty("xml.catalog.files");
 		if (catalogList != null && !"".equals(catalogList)) {
 			StringTokenizer  tokens = new StringTokenizer(catalogList, ";");
@@ -104,8 +118,21 @@ public class DomUtil {
 				}
 			}
 		}
+		
+		XMLGrammarPool grammarPool = bosOptions.getGrammarPool();
+		
+		if (grammarPool == null) {
+			grammarPool = GrammarPoolManager.getGrammarPool();
+		}
+		
+
 		resolver.setCatalogList(catalogs);
+		DOMParser dp = null;
 		try {
+			XMLParserConfiguration config = new XIncludeAwareParserConfiguration();
+			config.setProperty("http://apache.org/xml/properties/internal/grammar-pool",
+			    grammarPool);
+			dp = new org.apache.xerces.parsers.DOMParser(config);
 			dp.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", true);
 			dp.setFeature("http://apache.org/xml/features/dom/defer-node-expansion", false);
 			dp.setFeature("http://xml.org/sax/features/validation", true);
@@ -113,7 +140,7 @@ public class DomUtil {
 			dp.parse(source);
 		} catch (Exception e) {
 			try {
-				domOptions.registerInvalidDocument(source.getSystemId());
+				bosOptions.registerInvalidDocument(source.getSystemId());
 				if (throwExceptionIfInvalid) {
 					throw new BosMemberValidationException("BOS member is not valid: " + source.getSystemId());
 				}
@@ -134,9 +161,12 @@ public class DomUtil {
 		}
 		
 		Document doc = dp.getDocument();
+		logger.debug("getDomForSource(): Adding document \"" + docUri.toString() + "\" to DOM cache.");
+		bosOptions.getDomCache().put(docUri, doc);
+		logger.debug("getDomForSource(): Returning DOM for document \"" + source.getSystemId() + "\"");
 		return doc;
 	}
-
+	
     /**
      * Given an element node and a namespace URI, returns the local prefix associated with that
      * namespace (that is, the nearest ancestor or self element that declares the namespace).

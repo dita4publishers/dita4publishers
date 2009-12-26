@@ -66,9 +66,9 @@ public class InMemoryDitaLinkManagementService implements DitaLinkManagementServ
 	 * @see com.reallysi.rsuite.service.DitaLinkManagementService#getKeys(com.reallysi.rsuite.api.keyAccessOptions, com.reallysi.rsuite.api.ManagedObject)
 	 */
 	public Set<String> getKeys(KeyAccessOptions keyAccessOptions, DitaKeyDefinitionContext keydefContext) throws DitaApiException {
-		log.info("getKeys(): Getting key space...");
+		log.debug("getKeys(): Getting key space...");
 		DitaKeySpace keySpace = getKeySpace(keyAccessOptions, keydefContext);
-		log.info("getKeys(): Returning keys");
+		log.debug("getKeys(): Returning keys");
 		return keySpace.getKeys(keyAccessOptions);
 	}
 
@@ -128,15 +128,15 @@ public class InMemoryDitaLinkManagementService implements DitaLinkManagementServ
 		DitaKeySpace keySpace = null;
 		if (isRegistered(keydefContext)) {
 			if (keyspaceCache.containsKey(keydefContext)) {
-				log.info("getKeySpace(): Getting key space from cache.");
+				log.debug("getKeySpace(): Getting key space from cache.");
 				checkOutOfDateAndUpdateAsNeeded(keydefContext);
 				keySpace = keyspaceCache.get(keydefContext);
 			} else {		
-				log.info("getKeySpace(): No keyspace in cache, calculating key space...");
+				log.debug("getKeySpace(): No keyspace in cache, calculating key space...");
 				keySpace = calculateKeySpaceForMap(keydefContext);
 			}
 		} else {
-			log.info("Key space for map [" + keydefContext.getRootMapId() + "] is not registered.");
+			log.debug("Key space for map [" + keydefContext.getRootMapId() + "] is not registered.");
 		}
 		return keySpace;
 		
@@ -232,8 +232,12 @@ public class InMemoryDitaLinkManagementService implements DitaLinkManagementServ
 	 */
 	private Document getRootMapForContext(KeyAccessOptions keyAccessOptions,
 			DitaKeyDefinitionContext keydefContext) throws DitaApiException {
-		String moId = keydefContext.getRootMapId();
-		throw new NotImplementedException();
+		String mapUri = keydefContext.getRootMapId();
+		try {
+			return DomUtil.getDomForUri(new URI(mapUri), this.bosOptions);
+		} catch (Exception e) {
+			throw new DitaApiException(e);
+		}
 	}
 
 	/**

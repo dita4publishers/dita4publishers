@@ -18,6 +18,8 @@ import net.sourceforge.dita4publishers.api.ditabos.BosMember;
 import net.sourceforge.dita4publishers.api.ditabos.BosVisitor;
 import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
 
+import org.apache.commons.io.FilenameUtils;
+
 /**
  *
  */
@@ -31,7 +33,6 @@ public abstract class BosMemberBase implements BosMember {
 	protected String key;
 	protected BoundedObjectSet bos = null;
 	protected boolean isXml = false;
-	private File file;
 	private boolean isInvalid = false;
 	private URI sourceUri;
 
@@ -44,12 +45,19 @@ public abstract class BosMemberBase implements BosMember {
 
 	/**
 	 * @param bos
-	 * @param dataSourceFile
+	 * @param dataSourceUri
 	 */
-	public BosMemberBase(DitaBoundedObjectSetImpl bos, File dataSourceFile) {
+	public BosMemberBase(DitaBoundedObjectSetImpl bos, URI dataSourceUri) {
 		this.bos = bos;
-		this.setFile(dataSourceFile);
-		this.key = dataSourceFile.getAbsolutePath();
+		this.setUri(dataSourceUri);
+		this.key = dataSourceUri.toString();
+	}
+
+	/**
+	 * @param dataSourceUri
+	 */
+	public void setUri(URI dataSourceUri) {
+		this.sourceUri = dataSourceUri;
 	}
 
 	/**
@@ -76,26 +84,12 @@ public abstract class BosMemberBase implements BosMember {
 	 * @return
 	 */
 	public String getFileName() {
-		if (this.fileName == null && this.getFile() != null) {
-			this.fileName = this.getFile().getName();
+		if (this.fileName == null && this.getUri() != null) {
+			this.fileName = FilenameUtils.getName(this.getUri().getPath());
 		}
 		return this.fileName;
 	}
 	
-	public File getFile() {
-		if (this.file != null)
-			return this.file;
-		else {
-			if (this.fileSystemDirectory != null && this.fileName != null) {
-				if (!"".equals(this.fileName.trim())) {
-					this.file = new File(this.fileSystemDirectory, this.fileName);
-					return this.file;
-				}
-			}
-		}
-		return null;
-	}
-
 	public abstract void accept(BosVisitor visitor) throws BosException;
 
 	public void setFileSystemDir(File directory) {
@@ -104,10 +98,6 @@ public abstract class BosMemberBase implements BosMember {
 
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
-	}
-
-	public void setFile(File file) {
-		this.file = file;
 	}
 
 	public List<BosMember> getChildren() {
@@ -175,7 +165,7 @@ public abstract class BosMemberBase implements BosMember {
 			
 			// FIXME: Need to rationalize use of files and URIs
 			
-			if (this.getFile() != null) {
+			if (this.getUri() != null) {
 				String fileName = this.getFileName();
 				buf.append(", file=")
 				.append(fileName);
@@ -185,6 +175,13 @@ public abstract class BosMemberBase implements BosMember {
 			
 			return buf.toString();
 		}
+
+	/**
+	 * @return
+	 */
+	public URI getUri() {
+		return this.sourceUri;
+	}
 
 	public boolean isInvalid() {
 		return this.isInvalid ;

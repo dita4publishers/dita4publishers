@@ -3,9 +3,8 @@
  */
 package net.sourceforge.dita4publishers.api.ditabos;
 
-import java.io.File;
+import java.net.URI;
 import java.util.Collection;
-
 
 import org.apache.commons.logging.Log;
 import org.w3c.dom.Document;
@@ -62,14 +61,14 @@ public interface BoundedObjectSet {
 			Document mapDoc) throws BosException;
 
 	/**
-	 * Create a BOS member whose data source is a file. Implies that the
+	 * Create a BOS member whose data source is a URI. Implies that the
 	 * data source is not an XML document.
 	 * @param member
-	 * @param targetFile
+	 * @param targetUri
 	 * @return
 	 */
 	public abstract BosMember constructBosMember(BosMember member,
-			File targetFile) throws BosException;
+			URI targetUri) throws BosException;
 
 	/**
 	 * @return True if any member of the BOS fails a validation check during BOS construction.

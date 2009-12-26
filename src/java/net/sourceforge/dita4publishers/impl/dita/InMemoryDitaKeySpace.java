@@ -3,7 +3,6 @@
  */
 package net.sourceforge.dita4publishers.impl.dita;
 
-import java.io.File;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.TreeSet;
 
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
@@ -29,7 +29,6 @@ import net.sourceforge.dita4publishers.impl.ditabos.AddressingUtil;
 import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaUtil;
 import net.sourceforge.dita4publishers.impl.ditabos.DomUtil;
-import net.sourceforge.dita4publishers.impl.ditabos.KeySpaceEntry;
 import net.sourceforge.dita4publishers.impl.ditabos.UnresolvedResource;
 
 import org.apache.commons.logging.Log;
@@ -49,7 +48,6 @@ public class InMemoryDitaKeySpace implements DitaKeySpace {
 
 	private static Log log = LogFactory.getLog(InMemoryDitaKeySpace.class);
 	
-	private Map<String, KeySpaceEntry> resourcesByKey = new HashMap<String, KeySpaceEntry>();
 	private BosConstructionOptions bosOptions;
 	private List<DitaKeyDefinition> allKeyDefinitions = new ArrayList<DitaKeyDefinition>();
 	private Map<String, List<DitaKeyDefinition>> allKeyDefinitionsByKey = new HashMap<String, List<DitaKeyDefinition>>();
@@ -88,22 +86,14 @@ public class InMemoryDitaKeySpace implements DitaKeySpace {
 			throw new RuntimeException("Unexpected exception evaluating XPath expression \"" + DitaUtil.ALL_KEYDEFS_XPATH + "\"");
 		}
 		
-		log.info("addKeyDefinitions(): Found " + keydefs.getLength() + " key-defining topicrefs in the map");
+		log.debug("addKeyDefinitions(): Found " + keydefs.getLength() + " key-defining topicrefs in the map");
 		for (int i = 0; i < keydefs.getLength(); i++) {
 			Element keydef = (Element)keydefs.item(i);
 			String keydefStr = keydef.getAttribute("keys");
 			StringTokenizer tokenizer = new StringTokenizer(keydefStr, " ");
 			while (tokenizer.hasMoreTokens()) {
 				String key = tokenizer.nextToken();
-				KeySpaceEntry entry = new KeySpaceEntry(key, keydef);
 				registerKeyDefinition(mapElement, keydef, key);
-				
-				if (!this.resourcesByKey.containsKey(key)) {
-					log.info("addKeyDefinitions(): Adding entry for new key \"" + key + "\"");
-					this.resourcesByKey.put(key, entry);
-				} else {
-					log.info("addKeyDefinitions(): Skipping duplicate definition of key \"" + key + "\" for resource \"" + DitaUtil.getImmediateResourceForKeydef(keydef) + "\"");
-				}
 			}
 		}
 	}
@@ -118,14 +108,6 @@ public class InMemoryDitaKeySpace implements DitaKeySpace {
 		}
 		keyDefs.add(keyDef);
 		allKeyDefinitions.add(keyDef);
-	}
-
-	/**
-	 * @param key
-	 * @return 
-	 */
-	public KeySpaceEntry getKeyDefinition(String key) {
-		return this.resourcesByKey.get(key);
 	}
 
 	/**
@@ -147,20 +129,28 @@ public class InMemoryDitaKeySpace implements DitaKeySpace {
 			log.info("[WARNING] Key contained a '/' character. Callers should strip off element ID references before calling this method.");
 			key = key.split("/")[0];
 		}
-		KeySpaceEntry kse = this.resourcesByKey.get(key);
-		Object res = kse.getResource();
-		if (res == null) {
-			res = resolveKeyrefResource(kse);
-		}
+
 		Document result = null;
+		
+		DitaKeyDefinition keyDef = this.getKeyDefinition(keyAccessOptions, key);
+		
+		if (keyDef == null) {
+			log.debug("Failed to resolve key \"" + key + "\" to a resource object");
+			return result;
+		}
+		
+		Object res = keyDef.getResource();
+		if (res == null) {
+			res = resolveKeyrefResource(keyDef);
+		}
 		if (res instanceof Document) {
-			log.info("Found XML BOS Member for key \"" + key + "\", returning it");
+			log.debug("Found XML BOS Member for key \"" + key + "\", returning it");
 			return (Document)res;
 		}
 		if (res == null || res instanceof UnresolvedResource) {
-			log.info("Failed to resolve key \"" + key + "\" to a resource object");
+			log.debug("Failed to resolve key \"" + key + "\" to a resource object");
 		} else {
-			log.info("Key \"" + key + "\" resolved to a non-XmlBosMember object: " + res.getClass().getSimpleName());
+			log.debug("Key \"" + key + "\" resolved to a non-XmlBosMember object: " + res.getClass().getSimpleName());
 		}
 		return result;
 	}
@@ -177,8 +167,8 @@ public class InMemoryDitaKeySpace implements DitaKeySpace {
 	/* (non-Javadoc)
 	 * @see net.sourceforge.dita4publishers.api.dita.DitaKeySpace#resolveKeyToFile(java.lang.String, net.sourceforge.dita4publishers.api.dita.KeyAccessOptions)
 	 */
-	public File resolveKeyToFile(String key) throws AddressingException {
-	  return resolveKeyToFile(key, this.defaultKeyAccessOptions);
+	public URI resolveKeyToFile(String key) throws DitaApiException {
+	  return resolveKeyToUri(key, this.defaultKeyAccessOptions);
 	}
 
 
@@ -186,74 +176,75 @@ public class InMemoryDitaKeySpace implements DitaKeySpace {
 	/**
 	 * @param key
 	 * @return
-	 * @throws AddressingException 
+	 * @throws DitaApiException 
 	 * @throws DitaApiException 
 	 */
-	public File resolveKeyToFile(String key, KeyAccessOptions keyAccessOptions) throws AddressingException {
+	public URI resolveKeyToUri(String key, KeyAccessOptions keyAccessOptions) throws DitaApiException {
 		if (key.contains("/")) {
 			log.info("[WARNING] Key contained a '/' character. Callers should strip off element ID references before calling this method.");
 			key = key.split("/")[0];
 		}
-		KeySpaceEntry kse = this.resourcesByKey.get(key);
-		if (kse == null) {
+		DitaKeyDefinition keyDef = this.getKeyDefinition(keyAccessOptions, key);
+		if (keyDef == null) {
 			log.warn("Key \"" + key + "\" not defined in key space.");
 			return null;
 		}
 			
-		Object res = kse.getResource();
+		Object res = keyDef.getResource();
 		if (res == null) {
-			res = resolveKeyrefResource(kse);
+			res = resolveKeyrefResource(keyDef);
 		}
-		File result = null;
-		if (res instanceof File) {
-			log.info("Found non-XML BOS Member for key \"" + key + "\", returning it");
-			result = (File)res;
+		URI result = null;
+		if (res instanceof URI) {
+			log.debug("Found non-XML BOS Member for key \"" + key + "\", returning it");
+			result = (URI)res;
+			
 		}
 		if (res == null || res instanceof UnresolvedResource) {
-			log.info("Failed to resolve key \"" + key + "\" to a resource object");
+			log.debug("Failed to resolve key \"" + key + "\" to a resource object");
 		} else {
-			log.info("Key \"" + key + "\" resolved to a non-XmlBosMember object: " + res.getClass().getSimpleName());
+			log.debug("Key \"" + key + "\" resolved to an object: " + res.getClass().getSimpleName());
 		}
 		return result;
 	}
 
 
 	/**
-	 * @param kse
+	 * @param keyDef
 	 * @throws AddressingException 
 	 * @throws BosException 
 	 */
-	private Object resolveKeyrefResource(KeySpaceEntry kse) throws AddressingException {
-		Element keydef = kse.getKeyDef(); 
-		if (keydef.hasAttribute("href")) {
-			String format = keydef.getAttribute("format");
+	private Object resolveKeyrefResource(DitaKeyDefinition keyDef) throws AddressingException {
+		Element keydefElem = keyDef.getKeyDefElem(); 
+		if (keydefElem.hasAttribute("href")) {
+			String format = keydefElem.getAttribute("format");
 			if (format == null || "".equals(format)) {
 				format = "dita";
 			}
-			String href = keydef.getAttribute("href");
+			String href = keydefElem.getAttribute("href");
 			if (format.equals("dita") || format.equals("ditamap")) {
 				// target should be a DITA map or topic document
-				Document doc = AddressingUtil.resolveHrefToDoc(keydef, href, this.bosOptions, false); 
+				Document doc = AddressingUtil.resolveHrefToDoc(keydefElem, href, this.bosOptions, false); 
 				if (doc == null) {
-					log.warn("Failed to resolve keyref \"" + kse.getKey() + "\" to a DITA resource with URL \"" + href  + "\"");
-					kse.setResource(new UnresolvedResource());
+					log.warn("Failed to resolve keyref \"" + keyDef.getKey() + "\" to a DITA resource with URL \"" + href  + "\"");
+					keyDef.setResource(new UnresolvedResource());
 				} else {
-					kse.setResource(doc);
+					keyDef.setResource(doc);
 				}
 			} else {
-				File file = AddressingUtil.resolveHrefToFile(keydef, href, false);
-				if (file == null) {
-					log.warn("Failed to resolve keyref \"" + kse.getKey() + "\" to a non-DITA resource with URL \"" + href  + "\"");
-					kse.setResource(new UnresolvedResource());
+				URI uri = AddressingUtil.resolveHrefToUri(keydefElem, href, false);
+				if (uri == null) {
+					log.warn("Failed to resolve keyref \"" + keyDef.getKey() + "\" to a non-DITA resource with URL \"" + href  + "\"");
+					keyDef.setResource(new UnresolvedResource());
 				} else {
-					kse.setResource(file);
+					keyDef.setResource(uri);
 				}
 			}
 		} else {
-			// If no HREF, then the keydef's own document is the resource.
-			kse.setResource(keydef.getOwnerDocument());
+			// If no HREF, then the keydef is the resource.
+			keyDef.setResource(keydefElem);
 		}
-		return kse.getResource();
+		return keyDef.getResource();
 	}
 
 	/* (non-Javadoc)
@@ -291,18 +282,18 @@ public class InMemoryDitaKeySpace implements DitaKeySpace {
 	 */
 	public Set<DitaKeyDefinition> getEffectiveKeyDefinitions(
 			KeyAccessOptions keyAccessOptions) throws DitaApiException {
-		Set<DitaKeyDefinition> resultList = new HashSet<DitaKeyDefinition>();
+		Set<DitaKeyDefinition> resultSet = new TreeSet<DitaKeyDefinition>();
 		// For each key, get the first key definition for which access is allowed.
 		for (String key : allKeyDefinitionsByKey.keySet()) {
 			List<DitaKeyDefinition> keyDefs = allKeyDefinitionsByKey.get(key);
 			for (DitaKeyDefinition keyDef : keyDefs) {
 				if (isApplicable(keyDef, keyAccessOptions)) {
-					resultList.add(keyDef);
+					resultSet.add(keyDef);
 					break;
 				}
 			}
 		}
-		return resultList;
+		return resultSet;
 	}
 
 	/* (non-Javadoc)
@@ -412,5 +403,7 @@ public class InMemoryDitaKeySpace implements DitaKeySpace {
 		}
 		return false;
 	}
+
+
 
 }

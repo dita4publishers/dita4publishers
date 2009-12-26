@@ -3,7 +3,6 @@
  */
 package net.sourceforge.dita4publishers.impl.ditabos;
 
-import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -99,7 +98,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 				for (int i = 0;i < topicrefs.getLength(); i++) {
 					Element topicref = (Element)topicrefs.item(i);
 					Document targetDoc = null;
-					File targetFile = null;
+					URI targetUri = null;
 					
 					// For now, only consider local resources. 
 					if (!DitaUtil.isLocalScope(topicref))
@@ -131,14 +130,14 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 							}
 						} else {
 							if (topicref.hasAttribute("keyref")) {
-								targetFile = resolveKeyrefToFile(topicref.getAttribute("keyref"));
+								targetUri = resolveKeyrefToUri(topicref.getAttribute("keyref"));
 							}
-							if (targetFile == null && topicref.hasAttribute("href")) {
+							if (targetUri == null && topicref.hasAttribute("href")) {
 								href = topicref.getAttribute("href");
 								// Don't bother resolving pointers to the same doc.
 								// We don't record dependencies on ourself.
 								if (!href.startsWith("#"))
-									targetFile = AddressingUtil.resolveHrefToFile(topicref, href, this.failOnAddressResolutionFailure);
+									targetUri = AddressingUtil.resolveHrefToUri(topicref, href, this.failOnAddressResolutionFailure);
 							}
 						}
 					} catch (AddressingException e) {
@@ -151,8 +150,8 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 					if (targetDoc != null) {								
 						childMember = bos.constructBosMember(member, targetDoc);
 					}
-					if (targetFile != null) {
-						childMember = bos.constructBosMember(member, targetFile);
+					if (targetUri != null) {
+						childMember = bos.constructBosMember(member, targetUri);
 					}
 					if (childMember != null) {
 						bos.addMember(member, childMember);
@@ -245,7 +244,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 
 		for (int i = 0;i < objects.getLength(); i++) {
 			Element objectElem = (Element)objects.item(i);
-			File targetFile = null;
+			URI targetUri = null;
 			
 			// If there is a key reference, attempt to resolve it,
 			// then fall back to href, if any.
@@ -256,7 +255,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 					href = objectElem.getAttribute("data");
 					// FIXME: This assumes that the @data value will be a relative URL. In fact, it could be relative
 					//        to the value of the @codebase attribute if specified.
-					targetFile = AddressingUtil.resolveObjectDataToFile(objectElem, this.failOnAddressResolutionFailure);
+					targetUri = AddressingUtil.resolveObjectDataToUri(objectElem, this.failOnAddressResolutionFailure);
 				}
 			} catch (AddressingException e) {
 				if (this.failOnAddressResolutionFailure) {
@@ -264,13 +263,13 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 				}
 			}
 			
-			if (targetFile == null)
+			if (targetUri == null)
 				continue;
 
 			BosMember childMember = null;
-			if (targetFile != null) {
-				log.info("findObjectDependencies(): Got file \"" + targetFile.getAbsolutePath() + "\"");
-				childMember = bos.constructBosMember((BosMember)member, targetFile);
+			if (targetUri != null) {
+				log.info("findObjectDependencies(): Got URI \"" + targetUri.toString() + "\"");
+				childMember = bos.constructBosMember((BosMember)member, targetUri);
 			}
 			bos.addMember(member, childMember);
 			newMembers.add(childMember);
@@ -301,7 +300,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 				for (int i = 0;i < links.getLength(); i++) {
 					Element link = (Element)links.item(i);
 					Document targetDoc = null;
-					File targetFile = null;
+					URI targetUri = null;
 					
 					// If there is a key reference, attempt to resolve it,
 					// then fall back to href, if any.
@@ -310,19 +309,19 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 						if (link.hasAttribute("keyref")) {
 							log.info("findLinkDependencies(): resolving reference to key \"" + link.getAttribute("keyref") + "\"...");
 							if (!DitaUtil.targetIsADitaFormat(link) || DitaUtil.isDitaType(link, "topic/image")) {
-								targetFile = resolveKeyrefToFile(link.getAttribute("keyref"));
+								targetUri = resolveKeyrefToUri(link.getAttribute("keyref"));
 							} else {
 								targetDoc = resolveKeyrefToDoc(link.getAttribute("keyref"));
 							}
 						}
-						if (targetFile == null && targetDoc == null && link.hasAttribute("href")) {
+						if (targetUri == null && targetDoc == null && link.hasAttribute("href")) {
 							log.info("findLinkDependencies(): resolving reference to href \"" + link.getAttribute("href") + "\"...");
 							href = link.getAttribute("href");
 							if (DitaUtil.isDitaType(link, "topic/image")) {
-								targetFile = AddressingUtil.resolveHrefToFile(link, link.getAttribute("href"), this.failOnAddressResolutionFailure);
+								targetUri = AddressingUtil.resolveHrefToUri(link, link.getAttribute("href"), this.failOnAddressResolutionFailure);
 							} else if (!DitaUtil.targetIsADitaFormat(link) && 
 									   DitaUtil.isLocalOrPeerScope(link)) {
-										targetFile = AddressingUtil.resolveHrefToFile(link, link.getAttribute("href"), this.failOnAddressResolutionFailure);
+										targetUri = AddressingUtil.resolveHrefToUri(link, link.getAttribute("href"), this.failOnAddressResolutionFailure);
 							} else {
 								// If we get here, isn't an image reference and is presumably a DITA format resource.
 								// Don't bother with links within the same XML document.
@@ -337,16 +336,16 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 						}
 					}
 					
-					if (targetDoc == null && targetFile == null)
+					if (targetDoc == null && targetUri == null)
 						continue;
 
 					BosMember childMember = null;
 					if (targetDoc != null) {		
 						log.info("findLinkDependencies(): Got document \"" + targetDoc.getDocumentURI() + "\"");
 						childMember = bos.constructBosMember(member, targetDoc);
-					} else if (targetFile != null) {
-						log.info("findLinkDependencies(): Got file \"" + targetFile.getAbsolutePath() + "\"");
-						childMember = bos.constructBosMember((BosMember)member, targetFile);
+					} else if (targetUri != null) {
+						log.info("findLinkDependencies(): Got URI \"" + targetUri.toString() + "\"");
+						childMember = bos.constructBosMember((BosMember)member, targetUri);
 					}
 					bos.addMember(member, childMember);
 					newMembers.add(childMember);
@@ -421,11 +420,11 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	/**
 	 * @param key
 	 * @return
-	 * @throws BosException 
+	 * @throws DitaApiException 
 	 */
-	private File resolveKeyrefToFile(String key) throws BosException {
+	private URI resolveKeyrefToUri(String key) throws DitaApiException {
 		try {
-			return keySpace.resolveKeyToFile(key, this.bosConstructionOptions.getKeyAccessOptions());
+			return keySpace.resolveKeyToUri(key, this.bosConstructionOptions.getKeyAccessOptions());
 		} catch (AddressingException e) {
 			if (this.failOnAddressResolutionFailure) {
 				throw new BosException("Failed to resolve key reference to key \"" + key + "\": " + e.getMessage());

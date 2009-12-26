@@ -5,6 +5,7 @@ package net.sourceforge.dita4publishers.api.ditabos;
 
 import java.io.File;
 import java.io.InputStream;
+import java.net.URI;
 import java.util.List;
 import java.util.Map;
 
@@ -63,13 +64,6 @@ public interface BosMember {
 	public abstract void setFileName(String fileName);
 
 	/**
-	 * The file associated with the BOS member. Setting the file overrides
-	 * any previously-set file system directory or file name.
-	 * @param fileName
-	 */
-	public abstract void setFile(File file);
-
-	/**
 	 * @param visitor
 	 * @throws BosException 
 	 */
@@ -84,12 +78,6 @@ public interface BosMember {
 	 * @return
 	 */
 	public abstract String getFileName();
-
-	/**
-	 * @return The file to which the member is associated. Will be null
-	 * if the file or file name has not been set.
-	 */
-	public abstract File getFile();
 
 	/**
 	 * @return
@@ -125,6 +113,15 @@ public interface BosMember {
 	 */
 	public abstract boolean isInvalid();
 
+	/**
+	 * 
+	 * @return The URI to which the BOS member is associated.
+	 */
+	public abstract URI getUri();
 
-
+	/**
+	 * Sets the URI to which thie BOS member is associated.
+	 * @param uri
+	 */
+	public abstract void setUri(URI uri);
 }
