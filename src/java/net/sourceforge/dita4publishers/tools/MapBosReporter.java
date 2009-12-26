@@ -8,7 +8,13 @@ import java.net.URI;
 import java.net.URL;
 import java.util.HashMap;
 
+import net.sourceforge.dita4publishers.api.dita.DitaBoundedObjectSet;
+import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
+import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
+import net.sourceforge.dita4publishers.api.dita.KeyReportOptions;
+import net.sourceforge.dita4publishers.api.dita.KeySpaceReporter;
 import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
+import net.sourceforge.dita4publishers.impl.dita.TextKeySpaceReporter;
 import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelper;
 import net.sourceforge.dita4publishers.impl.ditabos.DomUtil;
@@ -112,12 +118,17 @@ public class MapBosReporter {
 		
 		setupCatalogs(bosOptions);
 		
-//		bosOptions.setCatalogs(catalogs);
 		URL rootMapUrl = mapFile.toURL();
 		rootMap = DomUtil.getDomForUri(new URI(rootMapUrl.toExternalForm()), bosOptions);
-		BoundedObjectSet mapBos = DitaBosHelper.calculateMapBos(bosOptions,log, rootMap);
+		DitaBoundedObjectSet mapBos = DitaBosHelper.calculateMapBos(bosOptions,log, rootMap);
 		mapBos.reportBos(log);
-
+		
+		DitaKeySpace keySpace = mapBos.getKeySpace();
+				
+		KeySpaceReporter reporter = new TextKeySpaceReporter(System.out);
+		KeyReportOptions reportOptions = new KeyReportOptions();
+		reportOptions.setAllKeys(true);
+		reporter.report(new KeyAccessOptions(), keySpace, reportOptions);
 
 	}
 

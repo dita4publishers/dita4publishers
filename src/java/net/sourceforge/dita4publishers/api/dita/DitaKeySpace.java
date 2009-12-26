@@ -5,6 +5,7 @@ package net.sourceforge.dita4publishers.api.dita;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import net.sourceforge.dita4publishers.api.ditabos.AddressingException;
@@ -112,5 +113,15 @@ public interface DitaKeySpace {
 	 * @throws DitaApiException 
 	 */
 	boolean definesKey(KeyAccessOptions keyAccessOptions, String key) throws DitaApiException;
+
+	/**
+	 * Returns a map of key names to key definitions, where the key definitions
+	 * are in occurrence order within the map tree.
+	 * @param keyAccessOptions
+	 * @return Map of key names to key definitions.
+	 * @throws DitaApiException 
+	 */
+	Map<? extends String, List<? extends DitaKeyDefinition>> getAllKeyDefinitionsByKey(
+			KeyAccessOptions keyAccessOptions) throws DitaApiException;
 
 }

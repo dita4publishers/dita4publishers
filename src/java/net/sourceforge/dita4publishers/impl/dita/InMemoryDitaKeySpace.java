@@ -49,8 +49,17 @@ public class InMemoryDitaKeySpace implements DitaKeySpace {
 	private static Log log = LogFactory.getLog(InMemoryDitaKeySpace.class);
 	
 	private BosConstructionOptions bosOptions;
+
+	/**
+	 * All key definitions in the order they are encountered in the map tree.
+	 */
 	private List<DitaKeyDefinition> allKeyDefinitions = new ArrayList<DitaKeyDefinition>();
+	
+	/**
+	 * All key definitions indexed by key name.
+	 */
 	private Map<String, List<DitaKeyDefinition>> allKeyDefinitionsByKey = new HashMap<String, List<DitaKeyDefinition>>();
+
 	KeyAccessOptions defaultKeyAccessOptions = new KeyAccessOptions();
 	private Document rootMap;
 	
@@ -402,6 +411,21 @@ public class InMemoryDitaKeySpace implements DitaKeySpace {
 			}
 		}
 		return false;
+	}
+
+
+
+	/* (non-Javadoc)
+	 * @see net.sourceforge.dita4publishers.api.dita.DitaKeySpace#getAllKeyDefinitionsByKey(net.sourceforge.dita4publishers.api.dita.KeyAccessOptions)
+	 */
+	public Map<? extends String, List<? extends DitaKeyDefinition>> getAllKeyDefinitionsByKey(
+			KeyAccessOptions keyAccessOptions) throws DitaApiException {
+		Map<String, List<? extends DitaKeyDefinition>> resultMap = new HashMap<String, List<? extends DitaKeyDefinition>>();
+		for (String key : this.allKeyDefinitionsByKey.keySet()) {
+			List<? extends DitaKeyDefinition> list = this.getAllKeyDefinitions(keyAccessOptions, key);
+			resultMap.put(key,list);
+		}
+		return resultMap;
 	}
 
 
