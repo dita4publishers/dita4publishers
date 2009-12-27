@@ -4,10 +4,8 @@
 package net.sourceforge.dita4publishers.impl.ditabos;
 
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
@@ -33,13 +31,9 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  */
 public class DitaBoundedObjectSetImpl implements DitaBoundedObjectSet {
 
-	private static final int TREE_REPORT = 1;
-	@SuppressWarnings("unused")
-	private static final int FLAT_REPORT = 2;
 	private BosMember root;
 	private Map<String, BosMember> members = new HashMap<String, BosMember>();
 	private Log log;
-	private List<BosMember> reportedMembers = new ArrayList<BosMember>();
 	private BosConstructionOptions bosOptions;
 	private DitaKeySpace keySpace;
 
@@ -106,25 +100,6 @@ public class DitaBoundedObjectSetImpl implements DitaBoundedObjectSet {
 		return memberCol;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.reallysi.tools.dita.BoundedObjectSet#reportBos(org.apache.commons.logging.Log)
-	 */
-	public void reportBos(Log log) {
-		reportBos(log, DitaBoundedObjectSetImpl.TREE_REPORT);
-	}
-
-	/**
-	 * @param log
-	 * @param reportType
-	 */
-	private void reportBos(Log log, int reportType) {
-		if (reportType == TREE_REPORT) {
-			reportBosAsTree(log);
-		} else {
-			reportBosAsSet(log);
-		}
-	}
-
 	/**
 	 * @param log
 	 */
@@ -135,37 +110,6 @@ public class DitaBoundedObjectSetImpl implements DitaBoundedObjectSet {
 	/**
 	 * @param log
 	 */
-	private void reportBosAsTree(Log log) {
-		log.info("---------------------------------------------------------------------)");
-		String indent = "";
-		log.info("BOS report:");
-		this.reportedMembers = new ArrayList<BosMember>();
-		BosMember member = this.getRoot();
-		reportBosMember(log, indent, member);
-		log.info(" + ");
-		log.info(" + Total members: " + this.size());
-		log.info("---------------------------------------------------------------------)");
-		
-	}
-
-	private void reportBosMember(Log log, String indent, BosMember member) {
-		log.info(" + " + indent + member.toString());
-		log.info(" + " + indent + "Dependencies:");
-		for (BosMember dep : member.getDependencies().values()) {
-			log.info(" + " + indent + "  -> " + dep);
-		}
-		log.info(" + " + indent + "Children:");
-		indent += "  ";
-		// Only report children on first encounter:
-		if (!this.reportedMembers.contains(member)) {
-			this.reportedMembers.add(member);
-			for (BosMember child : member.getChildren()) {
-				reportBosMember(log, indent, child);
-			}
-		}
-		
-	}
-
 	/* (non-Javadoc)
 	 * @see com.reallysi.tools.dita.BoundedObjectSet#accept(com.reallysi.tools.dita.BosVisitor)
 	 */

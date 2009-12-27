@@ -6,6 +6,7 @@ package net.sourceforge.dita4publishers.tools;
 import java.io.File;
 import java.net.URI;
 import java.net.URL;
+import java.util.Date;
 import java.util.HashMap;
 
 import net.sourceforge.dita4publishers.api.dita.DitaBoundedObjectSet;
@@ -13,11 +14,15 @@ import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
 import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
 import net.sourceforge.dita4publishers.api.dita.KeyReportOptions;
 import net.sourceforge.dita4publishers.api.dita.KeySpaceReporter;
+import net.sourceforge.dita4publishers.api.ditabos.BosReportOptions;
 import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
+import net.sourceforge.dita4publishers.api.ditabos.DitaBosReporter;
 import net.sourceforge.dita4publishers.impl.dita.TextKeySpaceReporter;
 import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelper;
 import net.sourceforge.dita4publishers.impl.ditabos.DomUtil;
+import net.sourceforge.dita4publishers.impl.ditabos.TextDitaBosReporter;
+import net.sourceforge.dita4publishers.util.TimingUtils;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -120,8 +125,12 @@ public class MapBosReporter {
 		
 		URL rootMapUrl = mapFile.toURL();
 		rootMap = DomUtil.getDomForUri(new URI(rootMapUrl.toExternalForm()), bosOptions);
+		Date startTime = TimingUtils.getNowTime();
 		DitaBoundedObjectSet mapBos = DitaBosHelper.calculateMapBos(bosOptions,log, rootMap);
-		mapBos.reportBos(log);
+		log.info("Map BOS construction took " + TimingUtils.reportElapsedTime(startTime));
+		DitaBosReporter bosReporter = new TextDitaBosReporter();
+		BosReportOptions bosReportOptions = new BosReportOptions();
+		bosReporter.report(mapBos, bosReportOptions);
 		
 		DitaKeySpace keySpace = mapBos.getKeySpace();
 				

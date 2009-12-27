@@ -163,11 +163,9 @@ public abstract class BosMemberBase implements BosMember {
 			.append(" ")
 			.append(this.getClass().getSimpleName());
 			
-			// FIXME: Need to rationalize use of files and URIs
-			
 			if (this.getUri() != null) {
 				String fileName = this.getFileName();
-				buf.append(", file=")
+				buf.append(", filename=")
 				.append(fileName);
 			} else {
 				buf.append(", {No associated file}");

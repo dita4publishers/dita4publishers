@@ -186,7 +186,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 					this.walkedMembers.add(member);
 					if (DitaUtil.isDitaMap(elem)) {
 						walkMapGetDependencies(bos, (DitaMapBosMember)member);
-					} else if (DitaUtil.isDitaTopic(elem)) {
+					} else if (DitaUtil.isDitaTopic(elem) || DitaUtil.isDitaBase(elem)) {
 						walkTopicGetDependencies(bos, (DitaTopicBosMember)member);
 					} else {
 						log.warn("XML Managed object of type \"" + elem.getTagName() + "\" is not recognized as a map or topic. Not examining for dependencies");

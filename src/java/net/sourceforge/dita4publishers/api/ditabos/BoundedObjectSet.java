@@ -35,11 +35,6 @@ public interface BoundedObjectSet {
 	public abstract Collection<BosMember> getMembers();
 
 	/**
-	 * @param log
-	 */
-	public abstract void reportBos(Log log);
-
-	/**
 	 * @param visitor
 	 * @throws BosException 
 	 */
