@@ -22,8 +22,6 @@ import org.apache.commons.logging.Log;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 
 /**
  * Holds a set of DITA resources, e.g. all the dependencies
@@ -98,13 +96,6 @@ public class DitaBoundedObjectSetImpl implements DitaBoundedObjectSet {
 		Collection<BosMember> memberCol = new Vector<BosMember>();
 		memberCol.addAll(this.members.values());
 		return memberCol;
-	}
-
-	/**
-	 * @param log
-	 */
-	private void reportBosAsSet(Log log) {
-		throw new NotImplementedException();
 	}
 
 	/**

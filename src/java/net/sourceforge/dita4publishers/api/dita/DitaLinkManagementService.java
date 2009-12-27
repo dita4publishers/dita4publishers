@@ -6,6 +6,8 @@ package net.sourceforge.dita4publishers.api.dita;
 import java.util.List;
 import java.util.Set;
 
+import net.sourceforge.dita4publishers.impl.dita.DitaClassImpl;
+
 import org.w3c.dom.Document;
 
 

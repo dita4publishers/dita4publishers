@@ -33,15 +33,8 @@ public class DitaKeyDefinitionImpl implements DitaKeyDefinition {
 	private String href = null;
 	private String keyref = null;
 	private String key = null;
-	private Document containingDoc;
-
-
 	private DitaPropsSpec propsSpec;
-
-
 	private Element keydefElem;
-
-
 	private Object resource;
 
 	/**
@@ -53,7 +46,6 @@ public class DitaKeyDefinitionImpl implements DitaKeyDefinition {
 	 * @throws DitaApiException 
 	 */
 	public DitaKeyDefinitionImpl(Document document, String key, Element keydefElem) throws DitaApiException {
-		this.containingDoc = document;
 		this.keydefElem = keydefElem;
 		String baseUriStr = keydefElem.getBaseURI();
 		if (baseUriStr == null)

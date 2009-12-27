@@ -8,6 +8,8 @@ package net.sourceforge.dita4publishers.impl.dita;
  */
 public class DitaClassSpecificationException extends DitaException {
 
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * @param message
 	 */

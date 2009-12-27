@@ -58,4 +58,8 @@ public enum DitaFormat {
 		this.name = name;
 	}
 	
+	public String toString() {
+		return name;
+	}
+	
 }

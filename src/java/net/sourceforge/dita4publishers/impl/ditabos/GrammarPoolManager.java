@@ -26,6 +26,7 @@ public class GrammarPoolManager {
 	}
 
 	private static ThreadLocal<XMLGrammarPool> grammarPool = new ThreadLocal<XMLGrammarPool>() {
+		@SuppressWarnings("unused")
 		protected synchronized XMLGrammarPool initialvalue() {
 			XMLGrammarPool grammarPool = initializeGrammarPool();
 			set(grammarPool);

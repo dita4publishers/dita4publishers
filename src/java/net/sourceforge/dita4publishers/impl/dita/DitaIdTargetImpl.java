@@ -4,7 +4,6 @@
 package net.sourceforge.dita4publishers.impl.dita;
 
 import net.sourceforge.dita4publishers.api.dita.DitaClass;
-import net.sourceforge.dita4publishers.api.dita.DitaClassImpl;
 import net.sourceforge.dita4publishers.api.dita.DitaIdTarget;
 
 import org.apache.commons.logging.Log;

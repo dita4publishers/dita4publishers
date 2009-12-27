@@ -15,7 +15,6 @@ import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
 import net.sourceforge.dita4publishers.api.dita.KeyReportOptions;
 import net.sourceforge.dita4publishers.api.dita.KeySpaceReporter;
 import net.sourceforge.dita4publishers.api.ditabos.BosReportOptions;
-import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBosReporter;
 import net.sourceforge.dita4publishers.impl.dita.TextKeySpaceReporter;
 import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
