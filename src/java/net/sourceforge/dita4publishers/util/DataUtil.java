@@ -32,6 +32,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
 
+ /**
+  * Utilities for working with XML data and such.
+  */
  public class DataUtil {
 
 	/**

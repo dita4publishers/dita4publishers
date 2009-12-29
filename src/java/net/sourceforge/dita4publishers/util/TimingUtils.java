@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- *
+ * Trivial utility for capturing and reporting timing information.
  */
 public class TimingUtils {
 

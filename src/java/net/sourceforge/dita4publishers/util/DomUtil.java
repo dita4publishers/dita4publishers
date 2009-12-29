@@ -31,7 +31,9 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 
-
+/**
+ * Utilities for constructing W3C DOMs.
+ */
 public class DomUtil {
 
 	static Logger logger = Logger.getLogger(DomUtil.class);

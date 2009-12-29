@@ -8,7 +8,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 /**
- *
+ * A BOS member that is an XML document represented as a W3C DOM.
  */
 public interface XmlBosMember extends BosMember {
 

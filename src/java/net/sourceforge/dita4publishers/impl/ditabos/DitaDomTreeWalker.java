@@ -13,7 +13,7 @@ import org.apache.commons.logging.Log;
 import org.w3c.dom.Document;
 
 /**
- * DITA walker that operates on files as input.
+ * DITA walker that operates on W3C DOMs as input.
  */
 public class DitaDomTreeWalker extends DitaTreeWalkerBase  {
 

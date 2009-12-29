@@ -6,7 +6,7 @@ package net.sourceforge.dita4publishers.api.ditabos;
 import net.sourceforge.dita4publishers.api.dita.DitaApiException;
 
 /**
- * Interface for DITA BOS reporters
+ * Interface for DITA BOS reporters.
  */
 public interface DitaBosReporter extends BosReporter {
 

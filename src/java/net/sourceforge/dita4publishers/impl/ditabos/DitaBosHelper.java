@@ -22,7 +22,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 /**
- * Provides RSuite-specific DITA processing support. 
+ * Provides DITA BOS construction support and business logic. 
  */
 public class DitaBosHelper {
 	

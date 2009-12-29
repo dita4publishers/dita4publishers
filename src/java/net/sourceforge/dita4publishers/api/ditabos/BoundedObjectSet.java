@@ -10,57 +10,76 @@ import org.apache.commons.logging.Log;
 import org.w3c.dom.Document;
 
 /**
- *
+ * Represents a set of storage objects (files, URIs, etc.). A bounded object set (BOS) may
+ * be constructed from some initial data object (e.g., a DITA map document, a Word document)
+ * or may be constructed manually as an arbitrary list of objects. Each member of the bounded
+ * object set represents a unique storage object.
+ * <p>At its simplest a BOS is a flat list of files. However, BOS members may have associated
+ * child members, allowing a BOS to represent one or more trees. A given BOS member may
+ * have any number of parents.</p>
  */
 public interface BoundedObjectSet {
 
 	/**
-	 * @return
+	 * Gets the root member of the BOS, if one has been defined. Bounded object sets
+	 * constructed from some initial starting object, such as a DITA map, have a natural
+	 * and unambiguous root. Bounded object sets constructed from arbitrary lists of 
+	 * objects may not have a meaningful root object.
+	 * @return The root member or null, if there is no defined root member (or the BOS
+	 * has no members).
 	 */
 	public abstract BosMember getRoot();
 
 	/**
-	 * @return
+	 * Gets the number of members in the BOS>
+	 * @return The number of members in the BOS.
 	 */
 	public abstract long size();
 
 	/**
+	 * Sets the root member of the BOS.
 	 * @param member
 	 */
 	public abstract void setRootMember(BosMember member);
 
 	/**
-	 * @return
+	 * Gets the BOS members as a collection.
+	 * @return A collection of all the members of the BOS. The order
+	 * of the members is effectively random.
 	 */
 	public abstract Collection<BosMember> getMembers();
 
 	/**
+	 * Accepts a BOS visitor and applies it to the BOS appropriately.
 	 * @param visitor
 	 * @throws BosException 
 	 */
 	public abstract void accept(BosVisitor visitor) throws BosException;
 
 	/**
-	 * @return
+	 * Gets the log associated with the BOS.
+	 * @return The log associated with the BOS.
 	 */
 	public abstract Log getLog();
 
 	/**
 	 * Create a BOS member whose data source is an XML document.
 	 * @param parentMember
-	 * @param mapDoc
-	 * @return
+	 * @param document
+	 * @return The BOS member. If a BOS member for specified document
+	 * already exists, that member is returned.
 	 * @throws BosException 
 	 */
 	public abstract XmlBosMember constructBosMember(BosMember parentMember,
-			Document mapDoc) throws BosException;
+			Document document) throws BosException;
 
 	/**
 	 * Create a BOS member whose data source is a URI. Implies that the
 	 * data source is not an XML document.
 	 * @param member
 	 * @param targetUri
-	 * @return
+	 * @return The BOS member. If a BOS member for the specified URI already
+	 * exists, that member is returned.
 	 */
 	public abstract BosMember constructBosMember(BosMember member,
 			URI targetUri) throws BosException;
