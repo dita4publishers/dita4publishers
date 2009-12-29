@@ -116,7 +116,8 @@ public class DitaLinkManagementServiceTest
 	  
 	  // Default key sorting:
 	  KeyReportOptions reportOptions = new KeyReportOptions();
-	  KeySpaceReporter reporter = new TextKeySpaceReporter(System.out);
+	  KeySpaceReporter reporter = new TextKeySpaceReporter();
+	  reporter.setPrintStream(System.out);
 	  reporter.report(keyAccessOptions, dlmService.getKeySpace(keyAccessOptions, keydefContext), reportOptions);
 
 	  
