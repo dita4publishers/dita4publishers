@@ -35,7 +35,9 @@ import org.w3c.dom.Document;
 
 /**
  * Command-line utility to construct a DITA map BOS and generate
- * a textual BOS report to STDOUT.
+ * a BOS report to STDOUT.
+ * <p>The MapBosReporter can use any DitaBosReporter or KeySpaceReporter
+ * implementations to generate the actual report.</p>
  */
 public class MapBosReporter {
 	

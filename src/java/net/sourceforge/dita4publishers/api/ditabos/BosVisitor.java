@@ -4,21 +4,18 @@
 package net.sourceforge.dita4publishers.api.ditabos;
 
 import net.sourceforge.dita4publishers.impl.ditabos.BosMemberBase;
-import net.sourceforge.dita4publishers.impl.ditabos.DitaBosMember;
-import net.sourceforge.dita4publishers.impl.ditabos.DitaMapBosMember;
-import net.sourceforge.dita4publishers.impl.ditabos.DitaTopicBosMember;
 
 
 /**
- * Vistors that operate on Bounded Object Sets
+ * Visitors that operate on Bounded Object Sets
  */
 public interface BosVisitor {
 
 	/**
-	 * @param ditaBoundedObjectSet
+	 * @param boundedObjectSet
 	 * @throws BosException 
 	 */
-	void visit(BoundedObjectSet ditaBoundedObjectSet) throws BosException;
+	void visit(BoundedObjectSet boundedObjectSet) throws BosException;
 
 	/**
 	 * @param member
@@ -27,18 +24,7 @@ public interface BosVisitor {
 	void visit(BosMemberBase member) throws BosException;
 
 	/**
-	 * @param ditaBosMember
-	 * @throws BosException 
-	 * 
-	 */
-	void visit(DitaBosMember ditaBosMember) throws BosException;
-
-	void visit(DitaMapBosMember bosMember) throws BosException;
-	
-	void visit(DitaTopicBosMember bosMember) throws BosException;
-	
-	/**
-	 * @param ditaBosMember
+	 * @param bosMember
 	 * @throws BosException 
 	 * 
 	 */

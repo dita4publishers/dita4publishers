@@ -34,6 +34,7 @@ public interface DitaKeySpace {
 	 * @return The number of effective keys in the key space. Note that the
 	 * number of keys may be greater than the number of key definitions
 	 * as a given key definition may define more than one key.
+	 * @throws DitaApiException
 	 */
 	long size() throws DitaApiException;
 
@@ -42,6 +43,7 @@ public interface DitaKeySpace {
 	 * by the specified key access options. Note that the
 	 * number of keys may be greater than the number of key definitions
 	 * as a given key definition may define more than one key.
+	 * @throws DitaApiException
 	 */
 	long size(KeyAccessOptions keyAccessOptions) throws DitaApiException;
 
@@ -49,6 +51,7 @@ public interface DitaKeySpace {
 	 * 
 	 * @return Set, possibly empty, of key definitions that establish the key space, as determined by
 	 * the specified key access options.
+	 * @throws DitaApiException
 	 */
 	Set<DitaKeyDefinition> getEffectiveKeyDefinitions(KeyAccessOptions keyAccessOptions) throws DitaApiException;
 	
@@ -56,6 +59,7 @@ public interface DitaKeySpace {
 	 * 
 	 * @return Set, possibly empty, of all key definitions, effective and not, in the key space, as determined by
 	 * the specified key access options.
+	 * @throws DitaApiException
 	 */
 	List<DitaKeyDefinition> getAllKeyDefinitions(KeyAccessOptions keyAccessOptions) throws DitaApiException;
 
@@ -63,21 +67,23 @@ public interface DitaKeySpace {
 	 * 
 	 * @return Set, possibly empty, of all key definitions, effective and not, for the specified key, as determined by
 	 * the specified key access options.
-	 * @throws  
+	 * @throws DitaApiException
 	 */
 	List<DitaKeyDefinition> getAllKeyDefinitions(KeyAccessOptions keyAccessOptions, String key) throws DitaApiException;
 
 	/**
 	 * @return Root map that establishes the key space.
+	 * @throws DitaApiException
 	 */
 	Document getRootMap(KeyAccessOptions keyAccessOptions) throws DitaApiException;
 
 	/**
 	 * Gets the effective key definition for the specified key, as determined by
 	 * the specified key access options.
-	 * @param user
+	 * @param keyAccessOptions
 	 * @param key
 	 * @return The key definition, or null if the key is not defined.
+	 * @throws DitaApiException
 	 */
 	DitaKeyDefinition getKeyDefinition(KeyAccessOptions keyAccessOptions, String key) throws DitaApiException;
 

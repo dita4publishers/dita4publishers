@@ -47,8 +47,10 @@ public class KeyAccessOptions implements PropertyContainer {
 	}
 
 	/**
-	 * @param name
-	 * @param default
+	 * Gets the value of the specified property, returning the
+	 * specified default value if the property is not set.
+	 * @param name Name of property to get
+	 * @param defaultValue Default value to use if property is not set.
 	 * @return
 	 */
 	public String getProperty(String name, String defaultValue) {
@@ -58,20 +60,31 @@ public class KeyAccessOptions implements PropertyContainer {
 	}
 
 	/**
+	 * Gets the value of the specified property.
 	 * @param name
-	 * @return
+	 * @return The property value, or null if the property is not set.
 	 */
 	public String getProperty(String name) {
 		return (String)this.properties.get(name);
 	}
 
 	/**
-	 * @param ditavalSpec
+	 * Sets the ditaval specification to use in accessing keys.
+	 * If the ditaval spec is not set, then all key definitions
+	 * are applicable, meaning the first definition of a given
+	 * key will be the effective definition.
+	 * @param ditavalSpec Ditaval specification defining the 
+	 * values for one or more select properties (@props attributes)
+	 * to use to determine the applicability of individual DITA elements.
 	 */
 	public void setDitavalSpec(DitavalSpec ditavalSpec) {
 		this.setProperty(DITAVAL_SPEC_PROP, ditavalSpec);
 	}
 	
+	/**
+	 * 
+	 * @return The Ditaval specification, if set.
+	 */
 	public DitavalSpec getDitavalSpec() {
 		return (DitavalSpec)this.getPropertyValue(DITAVAL_SPEC_PROP);
 	}

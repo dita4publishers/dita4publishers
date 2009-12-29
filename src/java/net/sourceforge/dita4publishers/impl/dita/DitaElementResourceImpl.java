@@ -35,7 +35,7 @@ public class DitaElementResourceImpl extends DitaResourceImpl implements DitaEle
 	}
 
 	/**
-	 * @param elem
+	 * @param doc
 	 */
 	public DitaElementResourceImpl(Document doc) {
 		super(doc);

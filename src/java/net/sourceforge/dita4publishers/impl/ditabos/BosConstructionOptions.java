@@ -159,7 +159,8 @@ public class BosConstructionOptions {
 	}
 
 	/**
-	 * @param b
+	 * @param mapTreeOnly Set to true to construct a BOS reflecting just the
+	 * map tree. If set to false, the entire DITA BOS is constructed.
 	 */
 	public void setMapTreeOnly(boolean mapTreeOnly) {
 		this.mapTreeOnly = mapTreeOnly;

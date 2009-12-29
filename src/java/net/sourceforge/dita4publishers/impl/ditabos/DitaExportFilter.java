@@ -12,7 +12,12 @@ import org.xml.sax.ext.Attributes2Impl;
 import org.xml.sax.ext.DefaultHandler2;
 
 /**
- *
+ * SAX filter for suppressing DITA attributes that should not be included in 
+ * document instances that have an associated DTD or XSD. Intended for use primarily
+ * in exporting DITA documents from XML repositories that store all attributes 
+ * literally or in any processing pipeline that instantiates defaulted attributes.
+ * Can be extended to do other filtering as well, such as repository-specific
+ * attributes or content.
  */
 public class DitaExportFilter extends DefaultHandler2 implements ContentHandler {
 	

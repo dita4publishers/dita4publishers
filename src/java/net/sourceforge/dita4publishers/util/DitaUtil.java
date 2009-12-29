@@ -175,7 +175,7 @@ public class DitaUtil {
 
 	/**
 	 * Returns true if the element appears to be a map or within a map.
-	 * @param root
+	 * @param elem
 	 * @return True or false
 	 */
 	public static boolean isDitaMap(Element elem) {
@@ -284,7 +284,7 @@ public class DitaUtil {
 	 * Resolve a topicref href= value to a file.
 	 * @param elem
 	 * @param memberFile
-	 * @param scope local, peer, or external
+	 * @param scopeLimit scope local, peer, or external
 	 * @return
 	 * @throws AddressingException 
 	 */
@@ -312,7 +312,7 @@ public class DitaUtil {
 
 	/**
 	 * Given a DITA map document, returns the map's title, if there is one.
-	 * @param rootDom
+	 * @param mapDoc
 	 * @return The title as a string or null if there is no title.
 	 */
 	public static String getMapTitle(Document mapDoc) {
@@ -547,7 +547,7 @@ public class DitaUtil {
 	}
 
 	/**
-	 * @param keydefElem
+	 * @param elem
 	 * @return
 	 */
 	public static DitaPropsSpec constructPropsSpec(Element elem) {

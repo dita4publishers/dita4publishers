@@ -59,7 +59,9 @@ public class XmlBosMemberImpl extends BosMemberBase implements XmlBosMember {
 	}
 
 	/**
-	 * @param doc
+	 * Sets the root element of the BOS member. The element's owner document
+	 * is set as the member's document.
+	 * @param element
 	 */
 	public Element setElement(Element element) throws BosException {
 		this.element = element;

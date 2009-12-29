@@ -58,7 +58,8 @@ public class DomUtil {
 
 	/**
 	 * Constructs a DOM from the specified XML document file.
-	 * @param xmlFile Document entity of the file to load.
+	 * @param xmlResource Document entity of the file to load.
+	 * @param bosOptions
 	 * @return The DOM Document object for the document.
 	 * @throws DomException
 	 * @throws IOException 
@@ -66,27 +67,29 @@ public class DomUtil {
 	 * @throws BosMemberValidationException 
 	 * @throws FileNotFoundException 
 	 */
-	public static Document getDomForUri(URI xmlResource, BosConstructionOptions domOptions) throws DomException, MalformedURLException, IOException, BosMemberValidationException {
+	public static Document getDomForUri(URI xmlResource, BosConstructionOptions bosOptions) throws DomException, MalformedURLException, IOException, BosMemberValidationException {
 		InputSource source = new InputSource(xmlResource.toURL().openStream());
 		source.setSystemId(xmlResource.toString());
-		return getDomForSource(source, domOptions, false);
+		return getDomForSource(source, bosOptions, false);
 	}
 
 	/**
 	 * Constructs a DOM from the specified XML document file.
-	 * @param xmlFile Document entity of the file to load.
+	 * @param stream InputStream containing the document data to be parsed.
+	 * @param bosOptions
 	 * @return The DOM Document object for the document.
 	 * @throws DomException
 	 * @throws BosMemberValidationException 
 	 */
-	public static Document getDomForStream(InputStream stream, BosConstructionOptions domOptions) throws DomException, BosMemberValidationException {
-		return getDomForSource(new InputSource(stream), domOptions, false);
+	public static Document getDomForStream(InputStream stream, BosConstructionOptions bosOptions) throws DomException, BosMemberValidationException {
+		return getDomForSource(new InputSource(stream), bosOptions, false);
 	}
 
 	/**
 	 * Constructs a DOM from the specified XML document file.
 	 * @param throwExceptionIfInvalid 
-	 * @param xmlFile Document entity of the file to load.
+	 * @param source InputSource containing the data to be parsed.
+	 * @param bosOptions
 	 * @return The DOM Document object for the document.
 	 * @throws DomException
 	 * @throws BosMemberValidationException 
@@ -192,6 +195,7 @@ public class DomUtil {
 	/**
 	 * Given an element, returns the list of all unique namespace URIs used in the element
 	 * tree rooted at that element.
+	 * @param elem Element to calculate the namespaces used.
 	 */
 	public static Collection<String> getDocumentNamespaces(Element elem) {
 		Set<String> namespaces = new TreeSet<String>();
@@ -242,7 +246,9 @@ public class DomUtil {
     /**
      * Given a schemaLocation attribute value, replaces the URI for a given namespace
      * with the specified new URI.
-     * @param string
+     * @param originalAttVal
+     * @param schemaUri
+     * @param newSchemaLoc 
      * @return
      */
     public static String UpdateSchemaLocationValue(String originalAttVal, String schemaUri, String newSchemaLoc) {

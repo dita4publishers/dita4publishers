@@ -18,10 +18,9 @@ import org.w3c.dom.Document;
 public class DitaDomTreeWalker extends DitaTreeWalkerBase  {
 
 	/**
-	 * @param context
+	 * @param log
 	 * @param keySpace
-	 * @param failOnAddressResolutionFailure
-	 * @param catalogs
+	 * @param bosConstructionOptions
 	 * @throws BosException
 	 */
 	public DitaDomTreeWalker(Log log,

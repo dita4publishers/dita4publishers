@@ -40,7 +40,7 @@ public class DitaMapImportOptions implements PropertyContainer {
 
 	/**
 	 * @param name
-	 * @param default
+	 * @param defaultValue
 	 * @return
 	 */
 	public String getProperty(String name, String defaultValue) {
@@ -73,8 +73,7 @@ public class DitaMapImportOptions implements PropertyContainer {
 
 
 	/**
-	 * @param string
-	 * @return
+	 * @return True if validation has been turned on.
 	 */
 	public boolean getValidate() {
 		return this.validate;

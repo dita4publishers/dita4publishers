@@ -195,7 +195,7 @@ import org.w3c.dom.Text;
 
     /**
      * Exactly like value-of()
-     * @param titleElem
+     * @param elem
      * @return Concatenation of all descendant text nodes.
      */
 	public static String getStringValueOfElement(Element elem) {
@@ -404,7 +404,7 @@ import org.w3c.dom.Text;
     }
 
     /**
-     * @param docKey
+     * @param path
      * @return
      */
     public static Vector<String> tokenizePath(String path) {

@@ -28,9 +28,10 @@ public class DitaBosHelper {
 	
 
 	/**
+	 * Constructs a full DITA BOS from the specified root map using the specified BOS construction options.
 	 * @param bosOptions
 	 * @param log 
-	 * @param mo
+	 * @param rootMap
 	 * @return
 	 * @throws BosException 
 	 */

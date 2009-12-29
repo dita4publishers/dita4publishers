@@ -81,6 +81,7 @@ public interface DitaLinkManagementService  {
 	 * @param keydefContext
 	 * @param key
 	 * @return Key definition or null if key is not defined.
+	 * @throws DitaApiException
 	 */
 	DitaKeyDefinition getKeyDefinition(KeyAccessOptions keyAccessOptions, DitaKeyDefinitionContext keydefContext,
 			String key) throws DitaApiException;
@@ -90,6 +91,7 @@ public interface DitaLinkManagementService  {
 	 * @param keyAccessOptions
 	 * @param keydefContext
 	 * @return The key space. The key space may be empty.
+	 * @throws DitaApiException
 	 */
 	DitaKeySpace getKeySpace(KeyAccessOptions keyAccessOptions, DitaKeyDefinitionContext keydefContext) throws DitaApiException;
 
@@ -99,6 +101,7 @@ public interface DitaLinkManagementService  {
 	 * @param keyAccessOptions
 	 * @param keydefContext
 	 * @return Set, possibly empty, of key definitions.
+	 * @throws DitaApiException
 	 */
 	Set<DitaKeyDefinition> getEffectiveKeyDefinitions(KeyAccessOptions keyAccessOptions,
 			DitaKeyDefinitionContext keydefContext) throws DitaApiException;
@@ -107,8 +110,9 @@ public interface DitaLinkManagementService  {
 	 * Returns the list of all key definitions, effective or not, in the 
 	 * key space.
 	 * @param keyAccessOptions
-	 * @param context
+	 * @param keydefContext
 	 * @return Set, possibly empty, of key definitions.
+	 * @throws DitaApiException
 	 */
 	List<DitaKeyDefinition> getAllKeyDefinitions(KeyAccessOptions keyAccessOptions,
 			DitaKeyDefinitionContext keydefContext) throws DitaApiException;
@@ -117,10 +121,11 @@ public interface DitaLinkManagementService  {
 	 * Looks up the resource for the specified key in the key space
 	 * established by the specified root map.
 	 * @param keyAccessOptions
-	 * @param context
+	 * @param keydefContext
 	 * @param key Key to get the resource for.
 	 * @return The resource object or null if the key is not defined.
 	 * @see getKeyDefinition
+	 * @throws DitaApiException
 	 */
 	DitaResource getResource(KeyAccessOptions keyAccessOptions, DitaKeyDefinitionContext keydefContext, String key)  throws DitaApiException;
 
@@ -131,6 +136,7 @@ public interface DitaLinkManagementService  {
 	 * @param key
 	 * @return List, possibly empty, references that specify a
 	 * reference to the key.
+	 * @throws DitaApiException
 	 */
 	List<DitaReference> getKeyWhereUsed(KeyAccessOptions keyAccessOptions, String key) throws DitaApiException;
 
@@ -148,6 +154,7 @@ public interface DitaLinkManagementService  {
 	 * result set.
 	 * @return List, possibly, empty of references to the specified
 	 * key within the specified use context.
+	 * @throws DitaApiException
 	 */
 	List<DitaReference> getKeyWhereUsed(KeyAccessOptions keyAccessOptions, String key,
 			DitaKeyDefinitionContext context) throws DitaApiException;
@@ -159,6 +166,7 @@ public interface DitaLinkManagementService  {
 	 * @param key
 	 * @param filter
 	 * @return
+	 * @throws DitaApiException
 	 */
 	List<DitaReference> getKeyWhereUsed(KeyAccessOptions keyAccessOptions, String key,
 			DitaResultSetFilter filter) throws DitaApiException;
@@ -178,7 +186,7 @@ public interface DitaLinkManagementService  {
 	 * @param context 
 	 * @return The list, possibly empty, of references of the specified
 	 * type within the specified context.
-	 * @see getKeyWhereUsed(
+	 * @throws DitaApiException
 	 */
 	List<DitaReference> getKeyWhereUsed(KeyAccessOptions keyAccessOptions, String key,
 			DitaResultSetFilter filter, Document topic01) throws DitaApiException;
@@ -190,6 +198,7 @@ public interface DitaLinkManagementService  {
 	 * @param keydefContext
 	 * @return The context or null if the root map document is not registered.
 	 * @throws DitaApiException 
+	 * @throws DitaApiException
 	 */
 	DitaKeyDefinitionContext getKeyDefinitionContext(Document rootMap) throws DitaApiException;
 
@@ -199,6 +208,7 @@ public interface DitaLinkManagementService  {
 	 * @param keydefContext
 	 * @param key
 	 * @return The list, possibly empty, of the key definitions for the key in the specified context.
+	 * @throws DitaApiException
 	 */
 	List<DitaKeyDefinition> getAllKeyDefinitionsForKey(KeyAccessOptions keyAccessOptions,
 			DitaKeyDefinitionContext keydefContext, String key) throws DitaApiException;
@@ -208,6 +218,7 @@ public interface DitaLinkManagementService  {
 	 * @param keyAccessOptions
 	 * @param key
 	 * @return The list, possibly empty, of the key definitions for the key.
+	 * @throws DitaApiException
 	 */
 	List<DitaKeyDefinition> getAllKeyDefinitionsForKey(KeyAccessOptions keyAccessOptions, String key) throws DitaApiException;
 
@@ -225,6 +236,7 @@ public interface DitaLinkManagementService  {
 	 * Checks to see if the specified key is defined anywhere in the repository.
 	 * @param key
 	 * @return True if any key definition in the repository defines the key.
+	 * @throws DitaApiException
 	 */
 	boolean isKeyDefined(String key) throws DitaApiException;
 
@@ -234,6 +246,7 @@ public interface DitaLinkManagementService  {
 	 * @param key 
 	 * @param keyAccessOptions
 	 * @return True if any key definition in the repository defines the key.
+	 * @throws DitaApiException
 	 */
 	boolean isKeyDefined(KeyAccessOptions keyAccessOptions, String key) throws DitaApiException;
 
@@ -243,6 +256,7 @@ public interface DitaLinkManagementService  {
 	 * @param key
 	 * @param keydefContext
 	 * @return True if the key is defined within the key definition context.
+	 * @throws DitaApiException
 	 */
 	boolean isKeyDefined(String key, DitaKeyDefinitionContext keydefContext) throws DitaApiException;
 
@@ -253,6 +267,7 @@ public interface DitaLinkManagementService  {
 	 * @param key
 	 * @param keydefContext
 	 * @return True if the key is defined within the key definition context.
+	 * @throws DitaApiException
 	 */
 	boolean isKeyDefined(KeyAccessOptions keyAccessOptions, String key, DitaKeyDefinitionContext keydefContext) throws DitaApiException;
 
@@ -260,6 +275,7 @@ public interface DitaLinkManagementService  {
 	 * @param mo XML document that has as its root a DITA map or topic
 	 * element.
 	 * @return DitaElementResource reflecting the root map or topic of the MO.
+	 * @throws DitaApiException
 	 */
 	DitaElementResource constructDitaElementResource(Document mo) throws DitaApiException;
 
@@ -270,18 +286,20 @@ public interface DitaLinkManagementService  {
 	 * @param potentialTarget
 	 * @return List, possibly empty, of documents that contain elements
 	 * that address the target by direct URI (rather than by key).
+	 * @throws DitaApiException
 	 */
 	List<Document> getWhereUsed(KeyAccessOptions keyAccessOptions,
 			DitaElementResource potentialTarget) throws DitaApiException;
 
 	/**
-	 * Determines the set of documents, with the map context, within which the specified
+	 * Determines the set of documents, within the map context, within which the specified
 	 * target is used by direct reference. The map context establishes the effective bounded
 	 * object set of local scope DITA document dependencies (maps and topics). 
 	 * @param keyAccessOptions
 	 * @param potentialTarget
 	 * @param keydefContext
 	 * @return
+	 * @throws DitaApiException
 	 */
 	List<Document> getWhereUsed(KeyAccessOptions keyAccessOptions,
 			DitaElementResource potentialTarget,
@@ -294,6 +312,7 @@ public interface DitaLinkManagementService  {
 	 * @param keyAccessOptions
 	 * @param potentialTarget
 	 * @param keydefContext
+	 * @throws DitaApiException
 	 * @return
 	 */
 	List<Document> getWhereUsedByKey(KeyAccessOptions keyAccessOptions,
@@ -308,6 +327,7 @@ public interface DitaLinkManagementService  {
 	 * @param keyAccessOptions
 	 * @param potentialTarget
 	 * @return
+	 * @throws DitaApiException
 	 */
 	List<DitaKeyDefinition> getKeyBindings(KeyAccessOptions keyAccessOptions,
 			DitaElementResource potentialTarget) throws DitaApiException;
@@ -321,6 +341,7 @@ public interface DitaLinkManagementService  {
 	 * be a DITA element resource or a non-DITA resource.
 	 * @param keydefContext
 	 * @return
+	 * @throws DitaApiException
 	 */
 	List<DitaKeyDefinition> getKeyBindings(KeyAccessOptions keyAccessOptions,
 			DitaResource potentialTarget,
@@ -330,6 +351,7 @@ public interface DitaLinkManagementService  {
 	 * Registers a root DITA map to the service.
 	 * @param rootMap Map that establishes a new key space.
 	 * @return The context object for the registered key space.
+	 * @throws DitaApiException
 	 */
 	DitaKeyDefinitionContext registerRootMap(Document rootMap) throws DitaApiException;
 
@@ -338,6 +360,7 @@ public interface DitaLinkManagementService  {
 	 * @param keyAccessOptions Key access options to use in constructing the key space.
 	 * @param rootMap Map that establishes a new key space.
 	 * @return The context object for the registered key space.
+	 * @throws DitaApiException
 	 */
 	DitaKeyDefinitionContext registerRootMap(KeyAccessOptions keyAccessOptions, Document rootMap) throws DitaApiException;
 
@@ -353,12 +376,14 @@ public interface DitaLinkManagementService  {
 	 * Gets the default key access options used for key space construction and access.
 	 * @throws DitaApiException
 	 * @return KeyAccessOptions
+	 * @throws DitaApiException
 	 */
 	KeyAccessOptions getDefaultKeyAccessOptions() throws DitaApiException;
 
 	/**
 	 * Removes a root DITA map from the service.
 	 * @param rootMap Map from which the key space was originally constructed.
+	 * @throws DitaApiException
 	 * 
 	 */
 	void unRegisterRootMap(Document rootMap) throws DitaApiException;
@@ -367,6 +392,7 @@ public interface DitaLinkManagementService  {
 	 * Removes a key space from the service.
 	 * @param keydefContext The key definition context for the key space to
 	 * be removed.
+	 * @throws DitaApiException
 	 */
 	void unRegisterKeySpace(DitaKeyDefinitionContext keydefContext) throws DitaApiException;
 	
@@ -382,6 +408,7 @@ public interface DitaLinkManagementService  {
 	/**
 	 * @param context
 	 * @return
+	 * @throws DitaApiException
 	 */
 	boolean isRegistered(Document rootMap)  throws DitaApiException;
 
@@ -400,6 +427,7 @@ public interface DitaLinkManagementService  {
 	 * @return List, possibly empty, of target elements. Note that because DITA requires
 	 * topic elements to have IDs, this list will only be empty if there are no DITA
 	 * topics in the repository.
+	 * @throws DitaApiException
 	 */
 	List<DitaIdTarget> getIdTargets(KeyAccessOptions keyAccessOptions) throws DitaApiException;
 
@@ -413,6 +441,7 @@ public interface DitaLinkManagementService  {
 	 * specified topic. 
 	 * @return DitaIdTarget for the specified element or null, if no element
 	 * with the specified ID exists in the specified topic.
+	 * @throws DitaApiException
 	 */
 	DitaIdTarget getIdTarget(KeyAccessOptions keyAccessOptions, Document containingDoc, String topicId,
 			String elemId) throws DitaApiException;

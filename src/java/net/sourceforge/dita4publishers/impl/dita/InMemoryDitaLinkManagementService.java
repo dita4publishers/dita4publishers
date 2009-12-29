@@ -40,7 +40,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 
 /**
- *
+ * In-memory (non-persistent) implementation of the Dita Link Management Service API. 
  */
 public class InMemoryDitaLinkManagementService implements DitaLinkManagementService {
 
@@ -538,8 +538,8 @@ public class InMemoryDitaLinkManagementService implements DitaLinkManagementServ
 	}
 
 	/**
-	 * @param rootMap
-	 * @return
+	 * @param context
+	 * @return True if the specified key definition context (e.g., root map) is registered.
 	 * @throws DitaApiException 
 	 */
 	public boolean isRegistered(DitaKeyDefinitionContext context) throws DitaApiException {

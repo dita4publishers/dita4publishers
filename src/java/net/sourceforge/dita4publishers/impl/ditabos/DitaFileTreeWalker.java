@@ -15,10 +15,10 @@ import org.w3c.dom.Document;
 public class DitaFileTreeWalker extends DitaTreeWalkerBase  {
 
 	/**
-	 * @param context
+	 * @param log
 	 * @param keySpace
 	 * @param failOnAddressResolutionFailure
-	 * @param catalogs
+	 * @param bosConstructionOptions
 	 * @throws BosException
 	 */
 	public DitaFileTreeWalker(Log log,
@@ -30,7 +30,6 @@ public class DitaFileTreeWalker extends DitaTreeWalkerBase  {
 	 * @see com.reallysi.tools.dita.TreeWalker#setRootObject(java.lang.Object)
 	 */
 	public void setRootObject(Object rootObject) throws BosException {
-		// NOTE: Not accepting URLs because URLs are too limiting--should use URIs
 		if (!(rootObject instanceof Document)) {
 			throw new BosException("Unhandled root object type " + rootObject.getClass().getName());
 		}	

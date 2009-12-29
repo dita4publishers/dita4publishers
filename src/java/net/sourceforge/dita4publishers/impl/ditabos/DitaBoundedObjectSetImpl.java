@@ -36,7 +36,7 @@ public class DitaBoundedObjectSetImpl implements DitaBoundedObjectSet {
 	private DitaKeySpace keySpace;
 
 	/**
-	 * @param log
+	 * @param bosOptions
 	 */
 	public DitaBoundedObjectSetImpl(BosConstructionOptions bosOptions) {
 		this.bosOptions = bosOptions;
@@ -98,9 +98,6 @@ public class DitaBoundedObjectSetImpl implements DitaBoundedObjectSet {
 		return memberCol;
 	}
 
-	/**
-	 * @param log
-	 */
 	/* (non-Javadoc)
 	 * @see com.reallysi.tools.dita.BoundedObjectSet#accept(com.reallysi.tools.dita.BosVisitor)
 	 */

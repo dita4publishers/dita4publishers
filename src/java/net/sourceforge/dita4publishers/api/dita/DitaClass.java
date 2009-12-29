@@ -51,7 +51,7 @@ public interface DitaClass {
 	boolean isType(DitaClass candType);
 
 	/**
-	 * @param DITA type specification (module/tagname)
+	 * @param string DITA type specification (module/tagname)
 	 * @return True if the type specification occurs in the class hierarchy for
 	 * this DITA class.
 	 */

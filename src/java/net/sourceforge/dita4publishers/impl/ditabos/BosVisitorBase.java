@@ -41,10 +41,6 @@ public abstract class BosVisitorBase implements BosVisitor {
 	}
 
 
-	public void xvisit(DitaBosMember ditaBosMember) throws BosException {
-		visit((BosMember)ditaBosMember);
-	}
-
 	public void visit(BosMemberBase member) throws BosException {
 		visit((BosMember)member);
 	}
@@ -62,17 +58,6 @@ public abstract class BosVisitorBase implements BosVisitor {
 		
 	}
 
-
-	public void xvisit(DitaMapBosMember bosMember) throws BosException {
-		visit((DitaBosMember)bosMember);
-		
-	}
-
-
-	public void visit(DitaTopicBosMember bosMember) throws BosException {
-		visit((BosMember)bosMember);
-		
-	}
 
 
 }
