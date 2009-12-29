@@ -13,7 +13,6 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import net.sourceforge.dita4publishers.api.dita.DitaApiException;
-import net.sourceforge.dita4publishers.api.dita.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.api.dita.DitaElementResource;
 import net.sourceforge.dita4publishers.api.dita.DitaFormat;
 import net.sourceforge.dita4publishers.api.dita.DitaIdTarget;
@@ -25,10 +24,11 @@ import net.sourceforge.dita4publishers.api.dita.DitaReference;
 import net.sourceforge.dita4publishers.api.dita.DitaResource;
 import net.sourceforge.dita4publishers.api.dita.DitaResultSetFilter;
 import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
+import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelper;
-import net.sourceforge.dita4publishers.impl.ditabos.DitaUtil;
-import net.sourceforge.dita4publishers.impl.ditabos.DomUtil;
+import net.sourceforge.dita4publishers.util.DitaUtil;
+import net.sourceforge.dita4publishers.util.DomUtil;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

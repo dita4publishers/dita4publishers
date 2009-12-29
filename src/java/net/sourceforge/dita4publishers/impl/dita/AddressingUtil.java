@@ -1,4 +1,4 @@
-package net.sourceforge.dita4publishers.impl.ditabos;
+package net.sourceforge.dita4publishers.impl.dita;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,6 +13,9 @@ import java.util.Map;
 import net.sourceforge.dita4publishers.api.ditabos.AddressingException;
 import net.sourceforge.dita4publishers.api.ditabos.BosException;
 import net.sourceforge.dita4publishers.api.ditabos.BosMemberValidationException;
+import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
+import net.sourceforge.dita4publishers.util.DomException;
+import net.sourceforge.dita4publishers.util.DomUtil;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.log4j.Logger;

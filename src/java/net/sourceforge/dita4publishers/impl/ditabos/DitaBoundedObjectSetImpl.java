@@ -9,14 +9,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 
-import net.sourceforge.dita4publishers.api.dita.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
 import net.sourceforge.dita4publishers.api.ditabos.BosException;
 import net.sourceforge.dita4publishers.api.ditabos.BosMember;
 import net.sourceforge.dita4publishers.api.ditabos.BosVisitor;
-import net.sourceforge.dita4publishers.api.ditabos.DitaBosMember;
+import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.api.ditabos.NonXmlBosMember;
 import net.sourceforge.dita4publishers.api.ditabos.XmlBosMember;
+import net.sourceforge.dita4publishers.util.DitaUtil;
 
 import org.apache.commons.logging.Log;
 import org.w3c.dom.Document;

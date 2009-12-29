@@ -6,7 +6,7 @@
 
   ---------------------------------------------------------------------------*/
 
-package net.sourceforge.dita4publishers.impl.ditabos;
+package net.sourceforge.dita4publishers.util;
 
 public class DataUtilException extends Exception {
 

@@ -3,10 +3,11 @@
  */
 package net.sourceforge.dita4publishers.api.dita;
 
+
 /**
  * Generates a report of a key space.
  */
-public interface KeySpaceReporter {
+public interface KeySpaceReporter extends Reporter {
 
 	/**
 	 * Generates a key space report.

@@ -12,7 +12,7 @@ import net.sourceforge.dita4publishers.api.dita.DitaApiException;
 import net.sourceforge.dita4publishers.api.dita.DitaFormat;
 import net.sourceforge.dita4publishers.api.dita.DitaKeyDefinition;
 import net.sourceforge.dita4publishers.api.dita.DitaPropsSpec;
-import net.sourceforge.dita4publishers.impl.ditabos.DitaUtil;
+import net.sourceforge.dita4publishers.util.DitaUtil;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

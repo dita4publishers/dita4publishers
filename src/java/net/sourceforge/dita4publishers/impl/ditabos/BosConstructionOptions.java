@@ -13,6 +13,7 @@ import java.util.Set;
 import javax.xml.transform.URIResolver;
 
 import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
+import net.sourceforge.dita4publishers.util.GrammarPoolManager;
 
 import org.apache.commons.logging.Log;
 import org.apache.xerces.xni.grammars.XMLGrammarPool;

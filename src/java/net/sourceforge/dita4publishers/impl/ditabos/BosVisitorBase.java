@@ -7,7 +7,6 @@ import net.sourceforge.dita4publishers.api.ditabos.BosException;
 import net.sourceforge.dita4publishers.api.ditabos.BosMember;
 import net.sourceforge.dita4publishers.api.ditabos.BosVisitor;
 import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
-import net.sourceforge.dita4publishers.api.ditabos.DitaBosMember;
 
 import org.apache.commons.logging.Log;
 import org.jbpm.graph.exe.ExecutionContext;

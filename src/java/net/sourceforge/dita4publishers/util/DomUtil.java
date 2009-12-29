@@ -1,4 +1,4 @@
-package net.sourceforge.dita4publishers.impl.ditabos;
+package net.sourceforge.dita4publishers.util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,6 +14,7 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import net.sourceforge.dita4publishers.api.ditabos.BosMemberValidationException;
+import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
 
 import org.apache.log4j.Logger;
 import org.apache.xerces.parsers.DOMParser;

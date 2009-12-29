@@ -4,23 +4,22 @@
 package net.sourceforge.dita4publishers.tools;
 
 import java.io.File;
+import java.io.PrintStream;
 import java.net.URI;
 import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
 
-import net.sourceforge.dita4publishers.api.dita.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
 import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
 import net.sourceforge.dita4publishers.api.dita.KeyReportOptions;
 import net.sourceforge.dita4publishers.api.dita.KeySpaceReporter;
 import net.sourceforge.dita4publishers.api.ditabos.BosReportOptions;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBosReporter;
-import net.sourceforge.dita4publishers.impl.dita.TextKeySpaceReporter;
+import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelper;
-import net.sourceforge.dita4publishers.impl.ditabos.DomUtil;
-import net.sourceforge.dita4publishers.impl.ditabos.TextDitaBosReporter;
+import net.sourceforge.dita4publishers.util.DomUtil;
 import net.sourceforge.dita4publishers.util.TimingUtils;
 
 import org.apache.commons.cli.CommandLine;
@@ -54,6 +53,12 @@ public class MapBosReporter {
 	private static final String CATALOG_OPTION_ONE_CHAR = "c";
 
 	private static final String MAPTREE_OPTION_ONE_CHAR = "m";
+
+	private static final String DITAVAL_OPTION_ONE_CHAR = "d";
+
+	private static final String BOS_REPORTER_CLASS_OPTION_ONE_CHAR = "b";
+
+	private static final String KEYSPACE_REPORTER_CLASS_OPTION_ONE_CHAR = "k";
 
 	private CommandLine commandLine;
 
@@ -110,7 +115,22 @@ public class MapBosReporter {
 		File mapFile = new File(mapFilepath);
 		checkExistsAndCanReadSystemExit(mapFile);
 		System.err.println("Processing map \"" + mapFile.getAbsolutePath() + "\"...");
-		
+
+		PrintStream outStream = System.out;
+
+		if (commandLine.hasOption(OUTPUT_OPTION_ONE_CHAR)) {
+			String outputFilepath = commandLine.getOptionValue("o");
+			File outputFile = new File(outputFilepath);
+			
+			if (!outputFile.canWrite()) {
+				throw new RuntimeException("File " + outputFile.getAbsolutePath() + " cannot be written to.");
+			}
+			outStream = new PrintStream(outputFile);
+		}
+				
+		DitaBosReporter bosReporter = getBosReporter(outStream);
+		KeySpaceReporter keyreporter = getKeyspaceReporter(outStream);
+
 		Document rootMap = null;
 		BosConstructionOptions bosOptions = new BosConstructionOptions(log, new HashMap<URI, Document>());
 		if (commandLine.hasOption(MAPTREE_OPTION_ONE_CHAR)) {
@@ -122,22 +142,73 @@ public class MapBosReporter {
 		
 		setupCatalogs(bosOptions);
 		
-		URL rootMapUrl = mapFile.toURL();
-		rootMap = DomUtil.getDomForUri(new URI(rootMapUrl.toExternalForm()), bosOptions);
-		Date startTime = TimingUtils.getNowTime();
-		DitaBoundedObjectSet mapBos = DitaBosHelper.calculateMapBos(bosOptions,log, rootMap);
-		log.info("Map BOS construction took " + TimingUtils.reportElapsedTime(startTime));
-		DitaBosReporter bosReporter = new TextDitaBosReporter();
-		BosReportOptions bosReportOptions = new BosReportOptions();
-		bosReporter.report(mapBos, bosReportOptions);
 		
-		DitaKeySpace keySpace = mapBos.getKeySpace();
-				
-		KeySpaceReporter reporter = new TextKeySpaceReporter(System.out);
-		KeyReportOptions reportOptions = new KeyReportOptions();
-		reportOptions.setAllKeys(true);
-		reporter.report(new KeyAccessOptions(), keySpace, reportOptions);
+		try {
+			URL rootMapUrl = mapFile.toURL();
+			rootMap = DomUtil.getDomForUri(new URI(rootMapUrl.toExternalForm()), bosOptions);
+			Date startTime = TimingUtils.getNowTime();
+			DitaBoundedObjectSet mapBos = DitaBosHelper.calculateMapBos(bosOptions,log, rootMap);
+			System.err.println("Map BOS construction took " + TimingUtils.reportElapsedTime(startTime));
+			BosReportOptions bosReportOptions = new BosReportOptions();
+			bosReporter.report(mapBos, bosReportOptions);
+			
+			DitaKeySpace keySpace = mapBos.getKeySpace();
+			
+			KeyReportOptions reportOptions = new KeyReportOptions();
+			reportOptions.setAllKeys(true);
+			keyreporter.report(new KeyAccessOptions(), keySpace, reportOptions);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			outStream.close();
+		}
 
+	}
+
+	@SuppressWarnings("unchecked")
+	protected KeySpaceReporter getKeyspaceReporter(PrintStream outStream) throws Exception {
+		String reporterClass = TextKeySpaceReporter.class.getCanonicalName();
+		if (commandLine.hasOption(KEYSPACE_REPORTER_CLASS_OPTION_ONE_CHAR))
+			reporterClass = commandLine.getOptionValue(KEYSPACE_REPORTER_CLASS_OPTION_ONE_CHAR);
+		Class<? extends KeySpaceReporter> clazz;
+		try {
+			clazz = (Class<? extends KeySpaceReporter>) Class.forName(reporterClass);
+		} catch (ClassNotFoundException e) {
+			System.err.println("Key space reporter class \"" + reporterClass + "\" not found. Check class name and class path.");
+			throw e;
+		} 
+		KeySpaceReporter reporter;
+		try {
+			reporter = clazz.newInstance();
+		} catch (Exception e) {
+			System.err.println("Failed to create instance of key space reporter class \"" + reporterClass + "\": " + e.getMessage());
+			throw e;
+		}
+		reporter.setPrintStream(outStream);
+		return reporter;
+	}
+
+	@SuppressWarnings("unchecked")
+	protected DitaBosReporter getBosReporter(PrintStream outStream) throws Exception {
+		String reporterClass = HtmlDitaBosReporter.class.getCanonicalName();
+		if (commandLine.hasOption(BOS_REPORTER_CLASS_OPTION_ONE_CHAR))
+			reporterClass = commandLine.getOptionValue(BOS_REPORTER_CLASS_OPTION_ONE_CHAR);
+		Class<? extends DitaBosReporter> clazz;
+		try {
+			clazz = (Class<? extends DitaBosReporter>) Class.forName(reporterClass);
+		} catch (ClassNotFoundException e) {
+			System.err.println("BOS reporter class \"" + reporterClass + "\" not found. Check class name and class path.");
+			throw e;
+		} 
+		DitaBosReporter reporter;
+		try {
+			reporter = clazz.newInstance();
+		} catch (Exception e) {
+			System.err.println("Failed to create instance of BOS reporter class \"" + reporterClass + "\": " + e.getMessage());
+			throw e;
+		}
+		reporter.setPrintStream(outStream);
+		return reporter;
 	}
 
 	/**
@@ -191,6 +262,20 @@ public class MapBosReporter {
 
 		options.addOption(CATALOG_OPTION_ONE_CHAR, "catalog", true, "(Catalog) Path and filename of the XML catalog to use for resolving DTDs (e.g., catalog-dita.xml)");
 		opt = options.getOption(OUTPUT_OPTION_ONE_CHAR);
+		opt.setRequired(false);
+
+		options.addOption(DITAVAL_OPTION_ONE_CHAR, "ditaval", true, "(Ditaval) Path and filename of the the Ditaval file to used to determine applicable key definitions and other elements.");
+		opt = options.getOption(DITAVAL_OPTION_ONE_CHAR);
+		opt.setRequired(false);
+
+		options.addOption(BOS_REPORTER_CLASS_OPTION_ONE_CHAR, "bosreporterclass", true, "(BOS reporter class) Fully-qualified class name of the BOS reporter to use. " +
+				"If not specified, the built-in text BOS reporter is used.");
+		opt = options.getOption(BOS_REPORTER_CLASS_OPTION_ONE_CHAR);
+		opt.setRequired(false);
+
+		options.addOption(KEYSPACE_REPORTER_CLASS_OPTION_ONE_CHAR, "keyspacereporterclass", true, "(Key space reporter class) Fully-qualified class name of the key space reporter to use." +
+				" If not specified, the built-in text key space reporter is used.");
+		opt = options.getOption(KEYSPACE_REPORTER_CLASS_OPTION_ONE_CHAR);
 		opt.setRequired(false);
 
 		options.addOption(MAPTREE_OPTION_ONE_CHAR, "maptree", false, "(Map tree only) When specified, only calculates the map tree, not the entire DITA BOS.");

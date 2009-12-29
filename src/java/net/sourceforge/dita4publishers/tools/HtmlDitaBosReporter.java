@@ -1,105 +1,93 @@
 /**
  * Copyright (c) 2009 Really Strategies, Inc.
  */
-package net.sourceforge.dita4publishers.impl.ditabos;
+package net.sourceforge.dita4publishers.tools;
 
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import net.sourceforge.dita4publishers.api.dita.DitaApiException;
-import net.sourceforge.dita4publishers.api.dita.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.api.ditabos.BosMember;
 import net.sourceforge.dita4publishers.api.ditabos.BosReportOptions;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBosReporter;
+import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
+import net.sourceforge.dita4publishers.impl.dita.ReporterBase;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
- * Generates a textual BOS report
+ * Generates an HTML BOS report. Generates markup that goes in
+ * an HTML body element.
  */
-public class TextDitaBosReporter implements DitaBosReporter {
-
-	private PrintStream outStream = System.out;
+public class HtmlDitaBosReporter extends ReporterBase implements DitaBosReporter {
 
 	private List<BosMember> reportedMembers = new ArrayList<BosMember>();
-
-	/**
-	 * @param out
-	 */
-	public TextDitaBosReporter() {
-	}
-
-	/**
-	 * @param out
-	 */
-	public TextDitaBosReporter(PrintStream out) {
-		this.outStream = out;
-	}
 
 	/* (non-Javadoc)
 	 * @see net.sourceforge.dita4publishers.api.ditabos.DitaBosReporter#report(net.sourceforge.dita4publishers.api.dita.DitaBoundedObjectSet)
 	 */
 	public void report(DitaBoundedObjectSet mapBos, BosReportOptions reportOptions) throws DitaApiException {
+		if (outStream == null)
+			throw new DitaApiException("Output stream not set. Call setPrintStream().");
 		if (reportOptions.isReportTypeTree()) {
 			reportBosAsTree(mapBos);
 		} else {
 			reportBosAsSet(mapBos);
-		}
-		
+		}		
 	}
 	
 	/**
 	 * @param mapBos
 	 */
 	private void reportBosAsSet(DitaBoundedObjectSet mapBos) {
-		// TODO Auto-generated method stub
-		
+		throw new NotImplementedException();	
 	}
 
 	private void reportBosAsTree(DitaBoundedObjectSet mapBos) {
-		outStream.println("---------------------------------------------------------------------");
-		String indent = "";
-		outStream.println("BOS report for BOS \"" + mapBos.getRoot().getKey() + "\"");
+		outStream.println("<div class='bos-report'>");
+		outStream.println("<h1>BOS report for BOS \"" + mapBos.getRoot().getKey() + "\"</h1>");
+		outStream.println("<p>Total members: " + mapBos.size() + "</p>");
 		this.reportedMembers = new ArrayList<BosMember>();
 		BosMember member = mapBos.getRoot();
-		reportBosMember(indent, member);
-		outStream.println();
-		outStream.println(" Total members: " + mapBos.size());
-		outStream.println("---------------------------------------------------------------------");
-		
+		outStream.println("<ul>");
+		reportBosMember(member);
+		outStream.println("</ul>");
+		outStream.println("</div>");		
 	}
 
-	private void reportBosMember(String indent, BosMember member) {
-		outStream.println();
-		outStream.println(indent + "+ " + member.toString());
+	private void reportBosMember(BosMember member) {
+		outStream.printf("<li>%s", member.toString());
 		Collection<BosMember> childs = member.getChildren();
 		if (childs.size() > 0) {
-			outStream.println();
-			outStream.println(indent + "  + Children:");
+			outStream.println("<br/>Children:");
+			outStream.println("<ul>");
 			// Only report children on first encounter:
 			if (!this.reportedMembers.contains(member)) {
 				this.reportedMembers.add(member);
 				for (BosMember child : member.getChildren()) {
-					reportBosMember(indent + "    ", child);
+					reportBosMember(child);
 				}
+			} else {
+				outStream.printf("<li>%s</li>", member.toString());
 			}
+			outStream.println("</ul>");
 		}
 		Collection<BosMember> deps = member.getDependencies().values();
 		if (deps.size() > 0) {
-			outStream.println();
-			outStream.println(indent + "  + Dependencies:");
+			outStream.println("<br/>Dependencies:");
+			outStream.println("<ul>");
 			for (BosMember dep : deps) {
 				if (!childs.contains(dep)) {
-					outStream.println(indent + "    -> " + dep);
+					outStream.printf("<li>%s</li>", dep);
 				}
 			}
+			outStream.println("</ul>");
 		} else {
 			outStream.println();
-			outStream.println(indent + "  + No dependencies.");
+			outStream.println("<br/>No dependencies.");
 		}
-		
+		outStream.println("</li>");
 	}
-
 
 
 }

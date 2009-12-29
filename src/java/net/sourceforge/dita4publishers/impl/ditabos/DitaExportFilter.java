@@ -3,6 +3,8 @@
  */
 package net.sourceforge.dita4publishers.impl.ditabos;
 
+import net.sourceforge.dita4publishers.util.DitaUtil;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;

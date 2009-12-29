@@ -15,10 +15,10 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import net.sourceforge.dita4publishers.impl.dita.InMemoryDitaLinkManagementService;
-import net.sourceforge.dita4publishers.impl.dita.TextKeySpaceReporter;
 import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
-import net.sourceforge.dita4publishers.impl.ditabos.DitaUtil;
-import net.sourceforge.dita4publishers.impl.ditabos.DomUtil;
+import net.sourceforge.dita4publishers.tools.TextKeySpaceReporter;
+import net.sourceforge.dita4publishers.util.DitaUtil;
+import net.sourceforge.dita4publishers.util.DomUtil;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

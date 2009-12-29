@@ -25,11 +25,10 @@ import net.sourceforge.dita4publishers.api.dita.DitavalSpec;
 import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
 import net.sourceforge.dita4publishers.api.ditabos.AddressingException;
 import net.sourceforge.dita4publishers.api.ditabos.BosException;
-import net.sourceforge.dita4publishers.impl.ditabos.AddressingUtil;
 import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
-import net.sourceforge.dita4publishers.impl.ditabos.DitaUtil;
-import net.sourceforge.dita4publishers.impl.ditabos.DomUtil;
 import net.sourceforge.dita4publishers.impl.ditabos.UnresolvedResource;
+import net.sourceforge.dita4publishers.util.DitaUtil;
+import net.sourceforge.dita4publishers.util.DomUtil;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

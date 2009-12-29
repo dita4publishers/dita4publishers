@@ -4,7 +4,6 @@
 package net.sourceforge.dita4publishers.api.ditabos;
 
 import net.sourceforge.dita4publishers.api.dita.DitaApiException;
-import net.sourceforge.dita4publishers.api.dita.DitaBoundedObjectSet;
 
 /**
  * Interface for DITA BOS reporters

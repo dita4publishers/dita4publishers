@@ -1,4 +1,4 @@
-package net.sourceforge.dita4publishers.impl.ditabos;
+package net.sourceforge.dita4publishers.util;
 
 import java.io.File;
 import java.net.URI;
@@ -17,6 +17,8 @@ import javax.xml.xpath.XPathFactory;
 
 import net.sourceforge.dita4publishers.api.dita.DitaPropsSpec;
 import net.sourceforge.dita4publishers.api.ditabos.AddressingException;
+import net.sourceforge.dita4publishers.impl.dita.AddressingUtil;
+import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -28,7 +30,14 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 
 
-
+/**
+ * Provides general utilities and constants for working with
+ * DITA documents. Provides XPath expressions for common
+ * DITA queries as well as constants for many DITA element type
+ * and attribute names. Provides methods for both getting 
+ * components from DITA documents and querying the DITA nature
+ * of various element and attributes.
+ */
 public class DitaUtil {
 	
 	/**

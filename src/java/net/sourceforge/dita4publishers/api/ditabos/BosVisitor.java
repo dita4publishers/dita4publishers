@@ -4,6 +4,7 @@
 package net.sourceforge.dita4publishers.api.ditabos;
 
 import net.sourceforge.dita4publishers.impl.ditabos.BosMemberBase;
+import net.sourceforge.dita4publishers.impl.ditabos.DitaBosMember;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaMapBosMember;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaTopicBosMember;
 
