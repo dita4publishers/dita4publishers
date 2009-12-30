@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "http://reallysi.com/doctypes/dita/map" "map.dtd">
+<!-- FIXME: Rename this file to match the name of its containing directory. -->
+<map>
+  <title>DITA For Publishers Java API and Tools</title>
+  <topicmeta>
+    <copyright>
+      <copyryear
+        year="2009"/>
+      <copyrholder>DITA For Publishers</copyrholder>
+    </copyright>
+    <prodinfo>
+      <prodname>DOCX2DITA</prodname>
+      <vrmlist>
+        <vrm
+          version="0"
+          release="8"/>
+      </vrmlist>
+    </prodinfo>
+  </topicmeta>
+  <topicref
+    href="dita-api-and-tools/dita-api-and-tools.xml">
+    <topicref
+      href="dita-api-and-tools/d4p-link-management-api.xml"/>
+    <topicref
+      href="dita-api-and-tools/d4p-tools.xml">
+      <topicref
+        href="dita-api-and-tools/MapBosReport_ref.xml"/>
+    </topicref>
+  </topicref>
+</map>
