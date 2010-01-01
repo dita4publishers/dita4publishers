@@ -4,11 +4,12 @@
 package net.sourceforge.dita4publishers.impl.ditabos;
 
 
-import net.sourceforge.dita4publishers.api.ditabos.BosException;
-import net.sourceforge.dita4publishers.api.ditabos.BosVisitor;
-import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
+import net.sourceforge.dita4publishers.api.bos.BosException;
+import net.sourceforge.dita4publishers.api.bos.BosVisitor;
+import net.sourceforge.dita4publishers.api.bos.BoundedObjectSet;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBosMember;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBosVisitor;
+import net.sourceforge.dita4publishers.impl.bos.XmlBosMemberImpl;
 
 import org.w3c.dom.Document;
 

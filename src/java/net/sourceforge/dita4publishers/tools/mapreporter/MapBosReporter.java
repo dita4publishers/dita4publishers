@@ -10,14 +10,14 @@ import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
 
+import net.sourceforge.dita4publishers.api.bos.BosReportOptions;
 import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
 import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
 import net.sourceforge.dita4publishers.api.dita.KeyReportOptions;
 import net.sourceforge.dita4publishers.api.dita.KeySpaceReporter;
-import net.sourceforge.dita4publishers.api.ditabos.BosReportOptions;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBosReporter;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
-import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
+import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelper;
 import net.sourceforge.dita4publishers.tools.common.MapBosProcessorBase;
 import net.sourceforge.dita4publishers.util.DomUtil;

@@ -3,7 +3,8 @@
  */
 package net.sourceforge.dita4publishers.impl.ditabos;
 
-import net.sourceforge.dita4publishers.api.ditabos.BosException;
+import net.sourceforge.dita4publishers.api.bos.BosException;
+import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.dita.InMemoryDitaKeySpace;
 
 import org.apache.commons.logging.Log;

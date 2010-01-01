@@ -16,9 +16,9 @@ import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 import net.sourceforge.dita4publishers.api.dita.DitaPropsSpec;
-import net.sourceforge.dita4publishers.api.ditabos.AddressingException;
+import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
+import net.sourceforge.dita4publishers.impl.dita.AddressingException;
 import net.sourceforge.dita4publishers.impl.dita.AddressingUtil;
-import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

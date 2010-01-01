@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import net.sourceforge.dita4publishers.api.ditabos.AddressingException;
+import net.sourceforge.dita4publishers.impl.dita.AddressingException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

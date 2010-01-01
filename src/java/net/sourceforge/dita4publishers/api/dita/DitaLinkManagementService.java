@@ -172,32 +172,25 @@ public interface DitaLinkManagementService  {
 			DitaResultSetFilter filter) throws DitaApiException;
 
 	/**
-	 * Returns the list of references of the specified type to the
-	 * specified key. This is a repository-global lookup.
+	 * Returns the list of references to elements within the specified document 
+	 * as filtered by the result set filter. 
+	 * This is a repository-global lookup.
 	 * @param keyAccessOptions
 	 * @param key
-	 * @param type The element type name or DITA class token of the
-	 * type to return. Bare element type names match exactly against
-	 * the element type of the reference. DITA class tokens 
-	 * ({module}/{tagname}) match all elements that have the specified
-	 * DITA type in their specialization hierarchy.
-	 * @param context document that defines the scope of the 
-	 * result set.
+	 * @param filter Result set filter
 	 * @param context 
 	 * @return The list, possibly empty, of references of the specified
 	 * type within the specified context.
 	 * @throws DitaApiException
 	 */
 	List<DitaReference> getKeyWhereUsed(KeyAccessOptions keyAccessOptions, String key,
-			DitaResultSetFilter filter, Document topic01) throws DitaApiException;
+			DitaResultSetFilter filter, Document context) throws DitaApiException;
 
 	/**
 	 * Gets a key definition context instance for the specified
 	 * registered map document. 
-	 * @param keyAccessOptions
-	 * @param keydefContext
+	 * @param rootMap Map the establishes the key definition context.
 	 * @return The context or null if the root map document is not registered.
-	 * @throws DitaApiException 
 	 * @throws DitaApiException
 	 */
 	DitaKeyDefinitionContext getKeyDefinitionContext(Document rootMap) throws DitaApiException;

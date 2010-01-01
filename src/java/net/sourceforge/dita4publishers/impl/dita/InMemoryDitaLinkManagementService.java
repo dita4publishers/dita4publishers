@@ -25,7 +25,7 @@ import net.sourceforge.dita4publishers.api.dita.DitaResource;
 import net.sourceforge.dita4publishers.api.dita.DitaResultSetFilter;
 import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
-import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
+import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelper;
 import net.sourceforge.dita4publishers.util.DitaUtil;
 import net.sourceforge.dita4publishers.util.DomUtil;

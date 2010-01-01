@@ -3,6 +3,8 @@
  */
 package net.sourceforge.dita4publishers.api.ditabos;
 
+import net.sourceforge.dita4publishers.api.bos.BosReportOptions;
+import net.sourceforge.dita4publishers.api.bos.BosReporter;
 import net.sourceforge.dita4publishers.api.dita.DitaApiException;
 
 /**

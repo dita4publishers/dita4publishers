@@ -1,6 +1,6 @@
 
 
-package net.sourceforge.dita4publishers.api.ditabos;
+package net.sourceforge.dita4publishers.impl.dita;
 
 import net.sourceforge.dita4publishers.api.dita.DitaApiException;
 

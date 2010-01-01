@@ -1,0 +1,43 @@
+<body>
+Defines APIs for representing and processing generic "bounded object sets" (BOS).
+A bounded object set is the finite set of resources (store objects, e.g., files) 
+ultimately used from some
+starting resource (e.g., a root map in a DITA context) or specified in some
+other way (e.g., a manually constructed list of maps and topics and related
+objects). Bounded object sets are about storage (files) not logical structures
+(elements). In general, any hyperlink that addresses a logical construct
+within a different storage object implies a storage-object-to-storage-object
+dependency between the storage object containing the link and the storage
+object containing the target of the link. For example, a cross reference
+within a DITA topic to an element within another DITA topic within a different
+XML document implies a dependency of the document containing the xref on 
+the document containing the element that is the target of the xref.
+<p>This API is a generic bounded object set API that provides
+the general model for a set of resources where each resource may have children
+and may have non-child dependencies (representing arbitrary links from one
+resource to another). A BOS member may have an associated URI, representing
+the literal resource the BOS member represents. Each BOS member has a unique
+key within the BOS, typically (but not necessarily), its fully-qualified
+URI. The BOS member key is explicitly abstract so that implementations can
+use other keys, such as repository object IDs or whatever.</p>
+<p>BOS processing is modeled generally using the Visitor pattern, which is
+implemented to do various things with the BOS once constructed, such
+as determining new URIs for BOS members as part of an import or export
+operation, rewriting pointers within BOS member data to reflect movement or
+reorganizing of the data for storage or interchange, or whatever.</p>
+<p>The BOS model also includes a general BOS Reporter API for classes
+that generate different types of reports for the BOS, such as reports
+of BOS members or, in the case of DITA BOSes, key space reports.</p>
+<p>In general, a bounded object set is exactly that: a set of objects, with
+no necessary relationships among the members. In particular, any member of the
+BOS may be dependent on any other members of the BOS. However, many data types, 
+including DITA, have privledged parent-child relationships among resources,
+so it is often useful to be able to view a BOS as a tree or as a set of trees
+(more generally, any BOS member may be the root of a tree). This is certainly
+the case for DITA where map-to-map topicrefs establish a tree of maps and,
+more specifically, the rules for key space construction establish a strict
+tree in which each map in the map tree occurs exactly once. The BOS API includes
+methods for creating parent-child relationships among BOS members and accessing
+the BOS as a tree rather than as a flat set of members.</p>
+</body>
+

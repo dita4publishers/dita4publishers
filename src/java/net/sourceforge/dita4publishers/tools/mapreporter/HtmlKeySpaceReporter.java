@@ -19,7 +19,7 @@ import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
 import net.sourceforge.dita4publishers.api.dita.KeyByMapComparator;
 import net.sourceforge.dita4publishers.api.dita.KeyReportOptions;
 import net.sourceforge.dita4publishers.api.dita.KeySpaceReporter;
-import net.sourceforge.dita4publishers.api.ditabos.AddressingException;
+import net.sourceforge.dita4publishers.impl.dita.AddressingException;
 import net.sourceforge.dita4publishers.impl.dita.ReporterBase;
 
 import org.w3c.dom.Document;

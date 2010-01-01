@@ -17,12 +17,12 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import net.sourceforge.dita4publishers.api.ditabos.BosException;
-import net.sourceforge.dita4publishers.api.ditabos.BosMember;
-import net.sourceforge.dita4publishers.api.ditabos.BosVisitor;
+import net.sourceforge.dita4publishers.api.bos.BosException;
+import net.sourceforge.dita4publishers.api.bos.BosMember;
+import net.sourceforge.dita4publishers.api.bos.BosVisitor;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
+import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.dita.AddressingUtil;
-import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelper;
 import net.sourceforge.dita4publishers.tools.common.MapBosProcessorBase;
 import net.sourceforge.dita4publishers.util.DomUtil;

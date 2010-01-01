@@ -6,8 +6,9 @@ package net.sourceforge.dita4publishers.impl.ditabos;
 import java.io.File;
 import java.net.URI;
 
+import net.sourceforge.dita4publishers.api.bos.BosException;
 import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
-import net.sourceforge.dita4publishers.api.ditabos.BosException;
+import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 
 import org.apache.commons.logging.Log;
 import org.w3c.dom.Document;

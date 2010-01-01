@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2009 DITA2InDesign project (dita2indesign.sourceforge.net)  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at     http://www.apache.org/licenses/LICENSE-2.0  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
  */
-package net.sourceforge.dita4publishers.impl.ditabos;
+package net.sourceforge.dita4publishers.impl.bos;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,15 +13,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.sourceforge.dita4publishers.api.ditabos.BosException;
-import net.sourceforge.dita4publishers.api.ditabos.BosMember;
-import net.sourceforge.dita4publishers.api.ditabos.BosVisitor;
-import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
+import net.sourceforge.dita4publishers.api.bos.BosException;
+import net.sourceforge.dita4publishers.api.bos.BosMember;
+import net.sourceforge.dita4publishers.api.bos.BosVisitor;
+import net.sourceforge.dita4publishers.api.bos.BoundedObjectSet;
+import net.sourceforge.dita4publishers.api.bos.DependencyType;
+import net.sourceforge.dita4publishers.impl.ditabos.DitaBoundedObjectSetImpl;
 
 import org.apache.commons.io.FilenameUtils;
 
 /**
- *
+ * Base implementation for BOS members. Manages non-type-specific
+ * properties and whatnot.
  */
 public abstract class BosMemberBase implements BosMember {
 
@@ -36,6 +39,8 @@ public abstract class BosMemberBase implements BosMember {
 	private boolean isInvalid = false;
 	private URI sourceUri;
 	private URI effectiveUri;
+	private Map<String, Object> properties = new HashMap<String, Object>();
+	private Map<DependencyType, List<? extends BosMember>> dependenciesByType = new HashMap<DependencyType, List<? extends BosMember>>();
 
 	/**
 	 * @param bos
@@ -79,14 +84,25 @@ public abstract class BosMemberBase implements BosMember {
 	 * @param targetMember
 	 */
 	public void registerDependency(String key, BosMember targetMember) {
-		dependencies.put(key, targetMember);
+		registerDependency(key, targetMember, DependencyType.DEPENDENCY);
 	}
 
 	/**
-	 * @return
+	 * Registers a BOS member on which the member is dependent, specifing a key by 
+	 * which the member can be later looked up, such as the original referencing
+	 * element, the fully-qualified URI of the target, a database key, or whatever.
+	 * Intended to enable mapping from original references in member data to
+	 * the target managed object in order to rewrite pointers.
+	 * @param key
+	 * @param targetMember
 	 */
-	public File getFileSystemDirectory() {
-		return this.fileSystemDirectory;
+	public void registerDependency(String key, BosMember targetMember, DependencyType type) {
+		dependencies.put(key, targetMember);
+		List<? extends BosMember> membersOfType = null;
+		if (!dependenciesByType.containsKey(type)) {
+			membersOfType = new ArrayList<BosMember>();
+			this.dependenciesByType.put(type, membersOfType);
+		}
 	}
 
 	/**
@@ -100,10 +116,6 @@ public abstract class BosMemberBase implements BosMember {
 	}
 	
 	public abstract void accept(BosVisitor visitor) throws BosException;
-
-	public void setFileSystemDir(File directory) {
-		this.fileSystemDirectory = directory;
-	}
 
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
@@ -202,6 +214,18 @@ public abstract class BosMemberBase implements BosMember {
 	
 	public boolean equals(Object candMember) {
 		return (this.getKey().equals(((BosMember)candMember).getKey()));
+	}
+
+	public Map<String, Object> getPropertyMap() {
+		return this.properties;
+	}
+
+	public Object getPropertyValue(String key) {
+		return this.properties.get(key);
+	}
+
+	public void setProperty(String key, Object value) {
+		this.properties.put(key, value);		
 	}
 
 	

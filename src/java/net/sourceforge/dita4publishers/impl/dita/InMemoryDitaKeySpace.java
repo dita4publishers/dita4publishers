@@ -16,6 +16,7 @@ import java.util.TreeSet;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 
+import net.sourceforge.dita4publishers.api.bos.BosException;
 import net.sourceforge.dita4publishers.api.dita.DitaApiException;
 import net.sourceforge.dita4publishers.api.dita.DitaKeyDefinition;
 import net.sourceforge.dita4publishers.api.dita.DitaKeyDefinitionContext;
@@ -23,10 +24,8 @@ import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
 import net.sourceforge.dita4publishers.api.dita.DitaPropsSpec;
 import net.sourceforge.dita4publishers.api.dita.DitavalSpec;
 import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
-import net.sourceforge.dita4publishers.api.ditabos.AddressingException;
-import net.sourceforge.dita4publishers.api.ditabos.BosException;
-import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
-import net.sourceforge.dita4publishers.impl.ditabos.UnresolvedResource;
+import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
+import net.sourceforge.dita4publishers.impl.bos.UnresolvedResource;
 import net.sourceforge.dita4publishers.util.DitaUtil;
 import net.sourceforge.dita4publishers.util.DomUtil;
 

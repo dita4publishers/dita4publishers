@@ -6,9 +6,9 @@ package net.sourceforge.dita4publishers.impl.ditabos;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import net.sourceforge.dita4publishers.api.ditabos.AddressingException;
-import net.sourceforge.dita4publishers.api.ditabos.BosException;
-import net.sourceforge.dita4publishers.api.ditabos.BosMember;
+import net.sourceforge.dita4publishers.api.bos.BosException;
+import net.sourceforge.dita4publishers.api.bos.BosMember;
+import net.sourceforge.dita4publishers.impl.dita.AddressingException;
 import net.sourceforge.dita4publishers.impl.dita.AddressingUtil;
 
 import org.apache.commons.io.FilenameUtils;

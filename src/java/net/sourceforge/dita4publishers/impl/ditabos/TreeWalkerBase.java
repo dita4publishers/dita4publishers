@@ -9,8 +9,9 @@ import java.util.Map;
 import javax.xml.transform.URIResolver;
 import javax.xml.xpath.XPathExpression;
 
-import net.sourceforge.dita4publishers.api.ditabos.BosException;
-import net.sourceforge.dita4publishers.api.ditabos.TreeWalker;
+import net.sourceforge.dita4publishers.api.bos.BosException;
+import net.sourceforge.dita4publishers.api.bos.TreeWalker;
+import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 
 import org.apache.commons.logging.Log;
 import org.jbpm.graph.exe.ExecutionContext;

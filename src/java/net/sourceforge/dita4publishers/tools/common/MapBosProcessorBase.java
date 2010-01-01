@@ -5,7 +5,7 @@ package net.sourceforge.dita4publishers.tools.common;
 
 import java.io.File;
 
-import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
+import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Option;

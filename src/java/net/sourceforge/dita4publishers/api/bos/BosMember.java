@@ -1,13 +1,15 @@
 /**
  * Copyright (c) 2009 DITA2InDesign project (dita2indesign.sourceforge.net)  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at     http://www.apache.org/licenses/LICENSE-2.0  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
  */
-package net.sourceforge.dita4publishers.api.ditabos;
+package net.sourceforge.dita4publishers.api.bos;
 
 import java.io.File;
 import java.io.InputStream;
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
+
+import net.sourceforge.dita4publishers.api.PropertyContainer;
 
 
 /**
@@ -24,7 +26,7 @@ import java.util.Map;
  * setting the file system path and file name to use to construct the file.
  * </p>
  */
-public interface BosMember {
+public interface BosMember extends PropertyContainer {
 
 	/**
 	 * @return unique key within the BOS by which the member is identified
@@ -50,15 +52,9 @@ public interface BosMember {
 	public abstract List<BosMember> getChildren();
 
 	/**
-	 * Sets the file system directory in which the BOS member's file
-	 * does (import) or should (export) exist.
-	 * @param directory
-	 */
-	public abstract void setFileSystemDir(File directory);
-
-	/**
-	 * The filename, within the separately-specified file system directory, to
-	 * use for the member.
+	 * The filename to use for the member.
+	 * This can be used to establish a result filename
+	 * without specifying the full URI.
 	 * @param fileName
 	 */
 	public abstract void setFileName(String fileName);
@@ -70,12 +66,7 @@ public interface BosMember {
 	public abstract void accept(BosVisitor visitor) throws BosException;
 
 	/**
-	 * @return
-	 */
-	public abstract File getFileSystemDirectory();
-
-	/**
-	 * @return
+	 * @return File name set for the BOS member.
 	 */
 	public abstract String getFileName();
 
@@ -97,11 +88,21 @@ public interface BosMember {
 	public abstract BosMember getDependency(String key);
 
 	/**
+	 * Registers a generic (untyped) dependency.
 	 * @param href
 	 * @param dependentMember
 	 */
 	public abstract void registerDependency(String href,
 			BosMember dependentMember);
+
+	/**
+	 * Registers a dependency classified by the specified type.
+	 * @param href
+	 * @param dependentMember
+	 * @param type Dependencyh type
+	 */
+	public abstract void registerDependency(String href,
+			BosMember dependentMember, DependencyType type);
 
 	/**
 	 * @return true if the Member is an XML BOS member

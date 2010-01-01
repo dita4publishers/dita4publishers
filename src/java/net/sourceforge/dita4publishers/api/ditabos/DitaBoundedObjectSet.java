@@ -3,6 +3,7 @@
  */
 package net.sourceforge.dita4publishers.api.ditabos;
 
+import net.sourceforge.dita4publishers.api.bos.BoundedObjectSet;
 import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
 
 /**

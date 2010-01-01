@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import net.sourceforge.dita4publishers.api.bos.BosMember;
+import net.sourceforge.dita4publishers.api.bos.BosReportOptions;
 import net.sourceforge.dita4publishers.api.dita.DitaApiException;
-import net.sourceforge.dita4publishers.api.ditabos.BosMember;
-import net.sourceforge.dita4publishers.api.ditabos.BosReportOptions;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBosReporter;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.impl.dita.ReporterBase;

@@ -3,8 +3,8 @@
  */
 package net.sourceforge.dita4publishers.impl.ditabos;
 
-import net.sourceforge.dita4publishers.api.ditabos.BosException;
-import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
+import net.sourceforge.dita4publishers.api.bos.BosException;
+import net.sourceforge.dita4publishers.api.bos.BoundedObjectSet;
 import net.sourceforge.dita4publishers.api.ditabos.DitaTopicBosMember;
 
 import org.w3c.dom.Document;

@@ -7,12 +7,13 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.sourceforge.dita4publishers.api.bos.BosException;
 import net.sourceforge.dita4publishers.api.dita.DitaApiException;
 import net.sourceforge.dita4publishers.api.dita.DitaKeyDefinitionContext;
 import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
-import net.sourceforge.dita4publishers.api.ditabos.BosException;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.api.ditabos.DitaTreeWalker;
+import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.dita.InMemoryDitaKeySpace;
 import net.sourceforge.dita4publishers.impl.dita.KeyDefinitionContextImpl;
 import net.sourceforge.dita4publishers.util.DitaUtil;

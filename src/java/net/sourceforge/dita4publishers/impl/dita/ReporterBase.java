@@ -5,8 +5,8 @@ package net.sourceforge.dita4publishers.impl.dita;
 
 import java.io.PrintStream;
 
+import net.sourceforge.dita4publishers.api.Reporter;
 import net.sourceforge.dita4publishers.api.dita.DitaApiException;
-import net.sourceforge.dita4publishers.api.dita.Reporter;
 
 /**
  * Base implementation class for Reporter instances. All reporters are

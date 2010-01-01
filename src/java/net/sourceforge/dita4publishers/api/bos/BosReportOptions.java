@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2009 Really Strategies, Inc.
  */
-package net.sourceforge.dita4publishers.api.ditabos;
+package net.sourceforge.dita4publishers.api.bos;
 
 import java.util.HashMap;
 import java.util.Map;

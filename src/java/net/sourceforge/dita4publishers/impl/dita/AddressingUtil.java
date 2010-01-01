@@ -10,10 +10,9 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
 
-import net.sourceforge.dita4publishers.api.ditabos.AddressingException;
-import net.sourceforge.dita4publishers.api.ditabos.BosException;
-import net.sourceforge.dita4publishers.api.ditabos.BosMemberValidationException;
-import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
+import net.sourceforge.dita4publishers.api.bos.BosException;
+import net.sourceforge.dita4publishers.api.bos.BosMemberValidationException;
+import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.util.DomException;
 import net.sourceforge.dita4publishers.util.DomUtil;
 

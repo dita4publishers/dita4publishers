@@ -3,6 +3,8 @@
  */
 package net.sourceforge.dita4publishers.api.dita;
 
+import net.sourceforge.dita4publishers.api.Reporter;
+
 
 /**
  * Generates a report of a key space.

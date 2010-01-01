@@ -23,8 +23,8 @@ import javax.xml.transform.URIResolver;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import net.sourceforge.dita4publishers.api.ditabos.BosMemberValidationException;
-import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
+import net.sourceforge.dita4publishers.api.bos.BosMemberValidationException;
+import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 
 import org.apache.log4j.Logger;
 import org.apache.xerces.parsers.DOMParser;

@@ -8,12 +8,12 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import net.sourceforge.dita4publishers.api.ditabos.BosException;
-import net.sourceforge.dita4publishers.api.ditabos.BosMember;
-import net.sourceforge.dita4publishers.api.ditabos.BosVisitor;
-import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
+import net.sourceforge.dita4publishers.api.bos.BosException;
+import net.sourceforge.dita4publishers.api.bos.BosMember;
+import net.sourceforge.dita4publishers.api.bos.BosVisitor;
+import net.sourceforge.dita4publishers.api.bos.BoundedObjectSet;
+import net.sourceforge.dita4publishers.impl.bos.BosVisitorBase;
 import net.sourceforge.dita4publishers.impl.dita.AddressingUtil;
-import net.sourceforge.dita4publishers.impl.ditabos.BosVisitorBase;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaMapBosMemberImpl;
 import net.sourceforge.dita4publishers.impl.ditabos.UriToUriPointerRewritingBosVisitor;
 
@@ -43,14 +43,17 @@ public class DxpFileOrganizingBosVisitor extends BosVisitorBase implements
 	private URI baseUri;
 
 	/**
-	 * @param context
-	 * @param log
+	 * Construct a new visitor using default options and log.
 	 */
 	public DxpFileOrganizingBosVisitor() {
 		super();
 		log = LogFactory.getLog(BosVisitorBase.class);
 	}
 
+	/**
+	 * Construct a new visitor with explicit DXP options and default log.
+	 * @param options
+	 */
 	public DxpFileOrganizingBosVisitor(DxpOptions options) {
 		super();
 		log = LogFactory.getLog(BosVisitorBase.class);

@@ -3,6 +3,8 @@
  */
 package net.sourceforge.dita4publishers.api.ditabos;
 
+import net.sourceforge.dita4publishers.api.bos.BosException;
+import net.sourceforge.dita4publishers.api.bos.BosVisitor;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaBosMemberImpl;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaMapBosMemberImpl;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaTopicBosMemberImpl;
