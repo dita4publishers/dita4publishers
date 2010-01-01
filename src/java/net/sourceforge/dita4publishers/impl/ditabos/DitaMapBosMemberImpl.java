@@ -5,20 +5,21 @@ package net.sourceforge.dita4publishers.impl.ditabos;
 
 import net.sourceforge.dita4publishers.api.ditabos.BosException;
 import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
+import net.sourceforge.dita4publishers.api.ditabos.DitaMapBosMember;
 
 import org.w3c.dom.Document;
 
 /**
  * A DITA BOS member that represents a DITA map
  */
-public class DitaMapBosMember extends DitaBosMember {
+public class DitaMapBosMemberImpl extends DitaBosMemberImpl implements DitaMapBosMember {
 
 	/**
 	 * @param bos
 	 * @param doc
 	 * @throws BosException
 	 */
-	public DitaMapBosMember(BoundedObjectSet bos, Document doc)
+	public DitaMapBosMemberImpl(BoundedObjectSet bos, Document doc)
 			throws BosException {
 		super(bos, doc);
 	}

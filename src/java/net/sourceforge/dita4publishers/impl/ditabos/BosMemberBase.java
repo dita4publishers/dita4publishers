@@ -35,6 +35,7 @@ public abstract class BosMemberBase implements BosMember {
 	protected boolean isXml = false;
 	private boolean isInvalid = false;
 	private URI sourceUri;
+	private URI effectiveUri;
 
 	/**
 	 * @param bos
@@ -49,15 +50,23 @@ public abstract class BosMemberBase implements BosMember {
 	 */
 	public BosMemberBase(DitaBoundedObjectSetImpl bos, URI dataSourceUri) {
 		this.bos = bos;
-		this.setUri(dataSourceUri);
+		this.setDataSourceUri(dataSourceUri);
+		this.setEffectiveUri(dataSourceUri);
 		this.key = dataSourceUri.toString();
 	}
 
 	/**
 	 * @param dataSourceUri
 	 */
-	public void setUri(URI dataSourceUri) {
+	public void setDataSourceUri(URI dataSourceUri) {
 		this.sourceUri = dataSourceUri;
+	}
+
+	/**
+	 * @param uri
+	 */
+	public void setEffectiveUri(URI uri) {
+		this.effectiveUri = uri;
 	}
 
 	/**
@@ -84,8 +93,8 @@ public abstract class BosMemberBase implements BosMember {
 	 * @return
 	 */
 	public String getFileName() {
-		if (this.fileName == null && this.getUri() != null) {
-			this.fileName = FilenameUtils.getName(this.getUri().getPath());
+		if (this.fileName == null && this.getEffectiveUri() != null) {
+			this.fileName = FilenameUtils.getName(this.getEffectiveUri().getPath());
 		}
 		return this.fileName;
 	}
@@ -146,6 +155,8 @@ public abstract class BosMemberBase implements BosMember {
 
 	public InputStream getInputStream() throws BosException {
 		try {
+			if (this.sourceUri == null)
+				throw new RuntimeException("sourceUri not set for BOS member " + this.toString());
 			return this.sourceUri.toURL().openStream();
 		} catch (MalformedURLException e) {
 			throw new BosException(e);
@@ -163,7 +174,7 @@ public abstract class BosMemberBase implements BosMember {
 			.append(" ")
 			.append(this.getClass().getSimpleName());
 			
-			if (this.getUri() != null) {
+			if (this.getEffectiveUri() != null) {
 				String fileName = this.getFileName();
 				buf.append(", filename=")
 				.append(fileName);
@@ -177,7 +188,11 @@ public abstract class BosMemberBase implements BosMember {
 	/**
 	 * @return
 	 */
-	public URI getUri() {
+	public URI getEffectiveUri() {
+		return this.effectiveUri;
+	}
+
+	public URI getDataSourceUri() {
 		return this.sourceUri;
 	}
 

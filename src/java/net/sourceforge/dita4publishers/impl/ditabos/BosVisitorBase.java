@@ -9,6 +9,7 @@ import net.sourceforge.dita4publishers.api.ditabos.BosVisitor;
 import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
 
 import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.jbpm.graph.exe.ExecutionContext;
 
 /**
@@ -17,7 +18,7 @@ import org.jbpm.graph.exe.ExecutionContext;
  */
 public abstract class BosVisitorBase implements BosVisitor {
 
-	protected Log log;
+	protected Log log = LogFactory.getLog(BosVisitorBase.class);
 	protected ExecutionContext context;
 
 
@@ -30,19 +31,17 @@ public abstract class BosVisitorBase implements BosVisitor {
 		this.log = log;
 	}
 	
-
 	/**
-	 * @param context
-	 * @param log
+	 * @param log 
+	 * 
 	 */
-	public BosVisitorBase(ExecutionContext context, Log log) {
-		this.log = log;
-		this.context = context;
+	public BosVisitorBase() {
+		super();
 	}
+	
 
-
-	public void visit(BosMemberBase member) throws BosException {
-		visit((BosMember)member);
+	public void visit(BosMember member) throws BosException {
+		log.warn("Fell through to visit(BosMember) method in BosVisitorBase visiting " + member.getClass().getName());
 	}
 
 

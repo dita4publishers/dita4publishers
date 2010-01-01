@@ -135,14 +135,14 @@ public class DitaBoundedObjectSetImpl implements DitaBoundedObjectSet {
 		// FIXME: Integrate some sort of XML BOS member factory here.
 		if (DitaUtil.isInDitaDocument(elem)) {
 			if (DitaUtil.isDitaMap(elem)) {
-				newMember = new DitaMapBosMember(this, doc);
+				newMember = new DitaMapBosMemberImpl(this, doc);
 			} else if (DitaUtil.isDitaTopic(elem)) {
-				newMember = new DitaTopicBosMember(this, doc);
+				newMember = new DitaTopicBosMemberImpl(this, doc);
 			} else if (DitaUtil.isDitaBase(elem)) {
-				newMember = new DitaTopicBosMember(this, doc);
+				newMember = new DitaTopicBosMemberImpl(this, doc);
 			} else {
 				log.warn("constructBosMember(): Element \"" + elem.getLocalName() + "\" is in a DITA document but is neither a map nor a topic.");
-				newMember = new DitaBosMember(this, doc);
+				newMember = new DitaBosMemberImpl(this, doc);
 			}
 		} else {
 			newMember = new XmlBosMemberImpl(this, doc);

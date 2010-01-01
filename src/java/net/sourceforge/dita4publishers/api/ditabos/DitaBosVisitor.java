@@ -3,9 +3,9 @@
  */
 package net.sourceforge.dita4publishers.api.ditabos;
 
-import net.sourceforge.dita4publishers.impl.ditabos.DitaBosMember;
-import net.sourceforge.dita4publishers.impl.ditabos.DitaMapBosMember;
-import net.sourceforge.dita4publishers.impl.ditabos.DitaTopicBosMember;
+import net.sourceforge.dita4publishers.impl.ditabos.DitaBosMemberImpl;
+import net.sourceforge.dita4publishers.impl.ditabos.DitaMapBosMemberImpl;
+import net.sourceforge.dita4publishers.impl.ditabos.DitaTopicBosMemberImpl;
 
 /**
  * Visitors that visit DITA Bounded Object Sets.
@@ -16,21 +16,21 @@ public interface DitaBosVisitor extends BosVisitor {
 	 * @throws BosException 
 	 * 
 	 */
-	void visit(DitaBosMember ditaBosMember) throws BosException;
+	void visit(DitaBosMemberImpl ditaBosMember) throws BosException;
 
 	/**
 	 * 
 	 * @param ditaMapBosMember
 	 * @throws BosException
 	 */
-	void visit(DitaMapBosMember ditaMapBosMember) throws BosException;
+	void visit(DitaMapBosMemberImpl ditaMapBosMember) throws BosException;
 	
 	/**
 	 * 
 	 * @param ditaTopicBosMember
 	 * @throws BosException
 	 */
-	void visit(DitaTopicBosMember ditaTopicBosMember) throws BosException;
+	void visit(DitaTopicBosMemberImpl ditaTopicBosMember) throws BosException;
 	
 
 }

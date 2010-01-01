@@ -3,9 +3,6 @@
  */
 package net.sourceforge.dita4publishers.api.ditabos;
 
-import net.sourceforge.dita4publishers.impl.ditabos.BosMemberBase;
-
-
 /**
  * Visitors that operate on Bounded Object Sets
  */
@@ -16,12 +13,6 @@ public interface BosVisitor {
 	 * @throws BosException 
 	 */
 	void visit(BoundedObjectSet boundedObjectSet) throws BosException;
-
-	/**
-	 * @param member
-	 * @throws BosException 
-	 */
-	void visit(BosMemberBase member) throws BosException;
 
 	/**
 	 * @param bosMember

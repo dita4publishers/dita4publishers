@@ -1,0 +1,228 @@
+/**
+ * Copyright 2009, 2010 DITA for Publishers project (dita4publishers.sourceforge.net)  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at     http://www.apache.org/licenses/LICENSE-2.0  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+ */
+package net.sourceforge.dita4publishers.tools.dxp;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
+
+import net.sourceforge.dita4publishers.api.ditabos.BosException;
+import net.sourceforge.dita4publishers.api.ditabos.BosMember;
+import net.sourceforge.dita4publishers.api.ditabos.BosVisitor;
+import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
+import net.sourceforge.dita4publishers.impl.dita.AddressingUtil;
+import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
+import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelper;
+import net.sourceforge.dita4publishers.tools.common.MapBosProcessorBase;
+import net.sourceforge.dita4publishers.util.DomUtil;
+import net.sourceforge.dita4publishers.util.TimingUtils;
+
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.HelpFormatter;
+import org.apache.commons.cli.Options;
+import org.apache.commons.cli.ParseException;
+import org.apache.commons.cli.PosixParser;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.w3c.dom.Document;
+
+/**
+ * Command-line utility to create and manage DITA Interchange Packages (DXP).
+ * <p>A DITA Interchange Package is a Zip file containing some or all of the
+ * dependencies used from a root map.
+ * </p>
+ */
+public class DitaDxpMapPackager extends MapBosProcessorBase {
+	
+	private static Log log = LogFactory.getLog(DitaDxpMapPackager.class);
+
+	/**
+	 * @param line
+	 */
+	public DitaDxpMapPackager(CommandLine line) {
+		this.commandLine = line;
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		Options cmdlineOptions = configureOptions();
+
+		CommandLineParser parser = new PosixParser();
+		
+	    CommandLine cmdline = null;
+		try {
+		    // parse the command line arguments
+		    cmdline = parser.parse(cmdlineOptions, args );
+		}
+		catch( ParseException exp ) {
+			HelpFormatter formatter = new HelpFormatter();
+			formatter.printHelp(DitaDxpMapPackager.class.getSimpleName(), cmdlineOptions);
+			System.exit(-1);
+		}
+		
+		if (!cmdline.hasOption(INPUT_OPTION_ONE_CHAR) || !cmdline.hasOption(OUTPUT_OPTION_ONE_CHAR)) {
+			HelpFormatter formatter = new HelpFormatter();
+			formatter.printHelp(DitaDxpMapPackager.class.getSimpleName(), cmdlineOptions);
+			System.exit(-1);
+		}
+		
+		
+		DitaDxpMapPackager app = new DitaDxpMapPackager(cmdline);
+		try {
+			app.run();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+
+	}
+
+	/**
+	 * @throws Exception 
+	 * 
+	 */
+	private void run() throws Exception {
+		String mapFilepath = commandLine.getOptionValue("i");
+		File mapFile = new File(mapFilepath);
+		checkExistsAndCanReadSystemExit(mapFile);
+		System.err.println("Processing map \"" + mapFile.getAbsolutePath() + "\"...");
+
+
+
+		String outputFilepath = commandLine.getOptionValue("o");
+		File outputZipFile = new File(outputFilepath);
+		outputZipFile.getParentFile().mkdirs();
+		
+		if (!outputZipFile.getParentFile().canWrite()) {
+			throw new RuntimeException("File " + outputZipFile.getAbsolutePath() + " cannot be written to.");
+		}
+				
+		Document rootMap = null;
+		BosConstructionOptions bosOptions = new BosConstructionOptions(log, new HashMap<URI, Document>());
+		
+		setupCatalogs(bosOptions);
+		
+		
+		try {
+			URL rootMapUrl = mapFile.toURL();
+			rootMap = DomUtil.getDomForUri(new URI(rootMapUrl.toExternalForm()), bosOptions);
+			Date startTime = TimingUtils.getNowTime();
+			DitaBoundedObjectSet mapBos = DitaBosHelper.calculateMapBos(bosOptions,log, rootMap);
+			System.err.println("Map BOS construction took " + TimingUtils.reportElapsedTime(startTime));
+			
+			// Do packaging here
+			
+			zipMapBos(mapBos, outputZipFile);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// Do final stuff here.
+		}
+
+	}
+
+	/**
+	 * @param mapBos
+	 * @param outputZipFile
+	 * @throws IOException 
+	 * @throws BosException 
+	 */
+	private void zipMapBos(DitaBoundedObjectSet mapBos, File outputZipFile) throws BosException, IOException {
+		// Zip up the BOS members into the zip.
+		/*
+		 *  Some potential complexities:
+		 *  
+		 *  - DXP package spec requires either a map manifest or that 
+		 *  there be exactly one map at the root of the zip package. This 
+		 *  means that the file structure of the BOS needs to be checked to
+		 *  see if the files already conform to this structure and, if not,
+		 *  they need to be reorganized and have pointers rewritten if a 
+		 *  map manifest has not been requested.
+		 *  
+		 *  - If the file structure of the original data includes files not
+		 *  below the root map, the file organization must be reworked whether
+		 *  or not a map manifest has been requested.
+		 *  
+		 *  - Need to generate DXP map manifest if a manifest is requested.
+		 *  
+		 *  - If user has requested that the original file structure be 
+		 *  remembered, a manifest must be generated.
+		 */
+		
+		log.info("Determining zip file organization...");
+		
+		BosVisitor visitor = new DxpFileOrganizingBosVisitor();
+		visitor.visit(mapBos);
+		
+		log.info("Creating DXP package \"" + outputZipFile.getAbsolutePath() + "\"...");
+		OutputStream outStream = new FileOutputStream(outputZipFile);
+		ZipOutputStream zipOutStream = new ZipOutputStream(outStream);
+		
+		ZipEntry entry = null;
+		
+		// At this point, URIs of all members should reflect their
+		// storage location within the resulting DXP package. There
+		// must also be a root map, either the original map
+		// we started with or a DXP manifest map.
+		
+		URI rootMapUri = mapBos.getRoot().getEffectiveUri();
+		URI baseUri = null;
+		try {
+			baseUri = AddressingUtil.getParent(rootMapUri);
+		} catch (URISyntaxException e) {
+			throw new BosException("URI syntax exception getting parent URI: " + e.getMessage());
+		}
+		
+		Set<String> dirs = new HashSet<String>();
+
+		log.info("Constructing DXP package...");
+		for (BosMember member : mapBos.getMembers()) {
+			log.info("Adding member " + member + " to zip...");
+			URI relativeUri = baseUri.relativize(member.getEffectiveUri());
+			File temp = new File(relativeUri.getPath());
+			String parentPath = temp.getParent();
+			if (!"".equals(parentPath) && parentPath != null && !dirs.contains(parentPath)) {
+				entry = new ZipEntry(parentPath);
+				zipOutStream.putNextEntry(entry);
+				zipOutStream.closeEntry();				
+				dirs.add(parentPath);
+			}
+			entry = new ZipEntry(relativeUri.getPath());			
+			zipOutStream.putNextEntry(entry);
+			IOUtils.copy(member.getInputStream(), zipOutStream);
+			zipOutStream.closeEntry();
+		}
+		
+		zipOutStream.close();
+		log.info("DXP package created.");
+	}
+
+	/**
+	 * @return
+	 */
+	private static Options configureOptions() {
+		Options options = configureOptionsBase();
+		
+
+		return options;
+	}
+
+
+}

@@ -7,29 +7,38 @@ package net.sourceforge.dita4publishers.impl.ditabos;
 import net.sourceforge.dita4publishers.api.ditabos.BosException;
 import net.sourceforge.dita4publishers.api.ditabos.BosVisitor;
 import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
+import net.sourceforge.dita4publishers.api.ditabos.DitaBosMember;
+import net.sourceforge.dita4publishers.api.ditabos.DitaBosVisitor;
 
 import org.w3c.dom.Document;
 
 /**
  * Base for implementations of DitaBosMember
  */
-public class DitaBosMember extends XmlBosMemberImpl {
+public class DitaBosMemberImpl extends XmlBosMemberImpl implements DitaBosMember {
 
 	/**
 	 * @param bos
 	 * @param doc
 	 * @throws BosException 
 	 */
-	public DitaBosMember(BoundedObjectSet bos, Document doc) throws BosException {
+	public DitaBosMemberImpl(BoundedObjectSet bos, Document doc) throws BosException {
 		super(bos, doc);
 	}
 
 	/* (non-Javadoc)
 	 * @see com.reallysi.tools.dita.DitaBosMemberBase#accept(com.reallysi.tools.dita.BosVisitor)
 	 */
+	/* (non-Javadoc)
+	 * @see net.sourceforge.dita4publishers.impl.ditabos.DitaBosMember#accept(net.sourceforge.dita4publishers.api.ditabos.BosVisitor)
+	 */
 	@Override
 	public void accept(BosVisitor visitor) throws BosException {
-		visitor.visit(this);
+		if (visitor instanceof DitaBosVisitor) {
+			((DitaBosVisitor)visitor).visit(this);
+		} else {
+			visitor.visit(this);
+		}
 	}
 
 

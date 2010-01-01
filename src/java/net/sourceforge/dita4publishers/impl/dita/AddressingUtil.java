@@ -288,9 +288,15 @@ public class AddressingUtil {
 		return result;
 	}
 	
+	/**
+	 * Gets the URI of the directory that contains the resource. 
+	 * @param uri URI to get the parent of.
+	 * @return URI of the parent. Note that the path always ends in "/".
+	 * @throws URISyntaxException
+	 */
 	public static URI getParent(URI uri) throws URISyntaxException {
 
-        String parentPath = new File(uri.getPath()).getParent();
+        String parentPath = new File(uri.getPath()).getParent() + "/";
 
         if(parentPath == null) {
             return new URI("../");
@@ -299,5 +305,64 @@ public class AddressingUtil {
         return new URI(uri.getScheme(), uri.getUserInfo(), uri.getHost(), uri.getPort(), parentPath.replace('\\', '/'), uri.getQuery(), uri.getFragment());
     }
 
+	/**
+	 * Finds the relative path from the baseUri to the target URI.
+	 * @param targetUri The URI of the resource to get the relative path to.
+	 * @param baseUri URI of the directory the path should be relative to. 
+	 * @return
+	 */
+	 public static String getRelativePath(URI targetUri, URI baseUri) {
+	
+		 //  We need the -1 argument to split to make sure we get a trailing 
+		 //  "" token if the base ends in the path separator and is therefore
+		 //  a directory. We require directory paths to end in the path
+		 //  separator -- otherwise they are indistinguishable from files.
+		 String pathSeparator = "/";
+		 String targetPath = targetUri.getPath();
+		 String[] base = baseUri.getPath().split(pathSeparator);
+		 String[] target = targetPath.split(pathSeparator);
+		
+		 //  First get all the common elements. Store them as a string,
+		 //  and also count how many of them there are. 
+		 String common = "";
+		 int commonIndex = 0;
+		 for (int i = 0; i < target.length && i < base.length; i++) {
+		     if (target[i].equals(base[i])) {
+		         common += target[i] + pathSeparator;
+		         commonIndex++;
+		     }
+		     else break;
+		 }
+		
+		 if (commonIndex == 0)
+		 {
+		     //  Whoops -- not even a single common path element. This most
+		     //  likely indicates differing drive letters, like C: and D:. 
+		     //  These paths cannot be relativized. Return the target path.
+		     return targetPath;
+		 }
+		
+		 String relative = "";
+		 if (base.length == commonIndex) {
+			 // Do nothing.
+		 }
+		 else {
+		     int numDirsUp = base.length - commonIndex; 
+		     //  The number of directories we have to backtrack is the length of 
+		     //  the base path MINUS the number of common path elements, minus
+		     //  one because the last element in the path isn't a directory.
+		     for (int i = 1; i <= (numDirsUp); i++) {
+		         relative += ".." + pathSeparator;
+		     }
+		 }
+		 //if we are comparing directories then we 
+		 if (targetPath.length() > common.length()) {
+		  //it's OK, it isn't a directory
+		  relative += targetPath.substring(common.length());
+		 }
+		
+		 return relative;
+	 }
 
+ 
 }

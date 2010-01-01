@@ -3,6 +3,9 @@
  */
 package net.sourceforge.dita4publishers.impl.ditabos;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -10,8 +13,10 @@ import net.sourceforge.dita4publishers.api.ditabos.BosException;
 import net.sourceforge.dita4publishers.api.ditabos.BosVisitor;
 import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
 import net.sourceforge.dita4publishers.api.ditabos.XmlBosMember;
+import net.sourceforge.dita4publishers.util.DomUtil;
 
 import org.w3c.dom.Document;
+
 import org.w3c.dom.Element;
 
 /**
@@ -39,7 +44,8 @@ public class XmlBosMemberImpl extends BosMemberBase implements XmlBosMember {
 				docUri = rawDocUri.substring(0, rawDocUri.indexOf("?"));
 			else
 				docUri = rawDocUri;
-			this.setUri(new URI(docUri));
+			this.setEffectiveUri(new URI(docUri));
+			this.setDataSourceUri(new URI(docUri));
 		} catch (URISyntaxException e) {
 			throw new BosException("URISyntaxException creating file for document URI \"" + doc.getDocumentURI() + "\": " + e.getMessage());
 		}
@@ -78,9 +84,6 @@ public class XmlBosMemberImpl extends BosMemberBase implements XmlBosMember {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.reallysi.tools.dita.BosMember#rewritePointers()
-	 */
-	/* (non-Javadoc)
 	 * @see com.reallysi.tools.dita.XmlBosMember#rewritePointers()
 	 */
 	public void rewritePointers() throws BosException {
@@ -106,4 +109,14 @@ public class XmlBosMemberImpl extends BosMemberBase implements XmlBosMember {
 		return this.document;
 	}
 	
+	public InputStream getInputStream() throws BosException {
+		// Serialize DOM to a stream so we always get 
+		// any modifications made to the DOM.
+		try {
+			return DomUtil.serializeToInputStream(this.document);
+		} catch (Exception e) {
+			throw new BosException("Exception serializing document to InputStream: " + e.getMessage(), e);
+		}
+	}
+
 }

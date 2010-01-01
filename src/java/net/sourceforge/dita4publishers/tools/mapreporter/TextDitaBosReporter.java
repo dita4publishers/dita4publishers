@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2009 Really Strategies, Inc.
  */
-package net.sourceforge.dita4publishers.tools;
+package net.sourceforge.dita4publishers.tools.mapreporter;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,10 +16,9 @@ import net.sourceforge.dita4publishers.impl.dita.ReporterBase;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
- * Generates an HTML BOS report. Generates markup that goes in
- * an HTML body element.
+ * Generates a textual BOS report
  */
-public class HtmlDitaBosReporter extends ReporterBase implements DitaBosReporter {
+public class TextDitaBosReporter extends ReporterBase implements DitaBosReporter {
 
 	private List<BosMember> reportedMembers = new ArrayList<BosMember>();
 
@@ -33,7 +32,8 @@ public class HtmlDitaBosReporter extends ReporterBase implements DitaBosReporter
 			reportBosAsTree(mapBos);
 		} else {
 			reportBosAsSet(mapBos);
-		}		
+		}
+		
 	}
 	
 	/**
@@ -44,49 +44,47 @@ public class HtmlDitaBosReporter extends ReporterBase implements DitaBosReporter
 	}
 
 	private void reportBosAsTree(DitaBoundedObjectSet mapBos) {
-		outStream.println("<div class='bos-report'>");
-		outStream.println("<h1>BOS report for BOS \"" + mapBos.getRoot().getKey() + "\"</h1>");
-		outStream.println("<p>Total members: " + mapBos.size() + "</p>");
+		outStream.println("---------------------------------------------------------------------");
+		String indent = "";
+		outStream.println("BOS report for BOS \"" + mapBos.getRoot().getKey() + "\"");
 		this.reportedMembers = new ArrayList<BosMember>();
 		BosMember member = mapBos.getRoot();
-		outStream.println("<ul>");
-		reportBosMember(member);
-		outStream.println("</ul>");
-		outStream.println("</div>");		
+		reportBosMember(indent, member);
+		outStream.println();
+		outStream.println(" Total members: " + mapBos.size());
+		outStream.println("---------------------------------------------------------------------");
+		
 	}
 
-	private void reportBosMember(BosMember member) {
-		outStream.printf("<li>%s", member.toString());
+	private void reportBosMember(String indent, BosMember member) {
+		outStream.println();
+		outStream.println(indent + "+ " + member.toString());
 		Collection<BosMember> childs = member.getChildren();
 		if (childs.size() > 0) {
-			outStream.println("<br/>Children:");
-			outStream.println("<ul>");
+			outStream.println();
+			outStream.println(indent + "  + Children:");
 			// Only report children on first encounter:
 			if (!this.reportedMembers.contains(member)) {
 				this.reportedMembers.add(member);
 				for (BosMember child : member.getChildren()) {
-					reportBosMember(child);
+					reportBosMember(indent + "    ", child);
 				}
-			} else {
-				outStream.printf("<li>%s</li>", member.toString());
 			}
-			outStream.println("</ul>");
 		}
 		Collection<BosMember> deps = member.getDependencies().values();
 		if (deps.size() > 0) {
-			outStream.println("<br/>Dependencies:");
-			outStream.println("<ul>");
+			outStream.println();
+			outStream.println(indent + "  + Dependencies:");
 			for (BosMember dep : deps) {
 				if (!childs.contains(dep)) {
-					outStream.printf("<li>%s</li>", dep);
+					outStream.println(indent + "    -> " + dep);
 				}
 			}
-			outStream.println("</ul>");
 		} else {
 			outStream.println();
-			outStream.println("<br/>No dependencies.");
+			outStream.println(indent + "  + No dependencies.");
 		}
-		outStream.println("</li>");
+		
 	}
 
 

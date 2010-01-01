@@ -86,7 +86,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	 * @throws BosException 
 	 * @throws DitaApiException 
 	 */
-	protected void walkMapGetDependencies(BoundedObjectSet bos, DitaMapBosMember member)
+	protected void walkMapGetDependencies(BoundedObjectSet bos, DitaMapBosMemberImpl member)
 			throws BosException, DitaApiException {
 				NodeList topicrefs;
 				try {
@@ -187,9 +187,9 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 					Element elem = ((XmlBosMember)member).getElement();
 					this.walkedMembers.add(member);
 					if (DitaUtil.isDitaMap(elem)) {
-						walkMapGetDependencies(bos, (DitaMapBosMember)member);
+						walkMapGetDependencies(bos, (DitaMapBosMemberImpl)member);
 					} else if (DitaUtil.isDitaTopic(elem) || DitaUtil.isDitaBase(elem)) {
-						walkTopicGetDependencies(bos, (DitaTopicBosMember)member);
+						walkTopicGetDependencies(bos, (DitaTopicBosMemberImpl)member);
 					} else {
 						log.warn("XML Managed object of type \"" + elem.getTagName() + "\" is not recognized as a map or topic. Not examining for dependencies");
 					}
@@ -552,7 +552,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 			Iterator<BosMember> iter = mapMembers.iterator();
 			while (iter.hasNext()) {
 				BosMember mapMember = iter.next();
-				walkMapGetDependencies(bos, (DitaMapBosMember)mapMember);
+				walkMapGetDependencies(bos, (DitaMapBosMemberImpl)mapMember);
 			}
 			log.debug("walk(): Map dependencies calculated.");
 			

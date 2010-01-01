@@ -5,22 +5,24 @@ package net.sourceforge.dita4publishers.impl.ditabos;
 
 import net.sourceforge.dita4publishers.api.ditabos.BosException;
 import net.sourceforge.dita4publishers.api.ditabos.BoundedObjectSet;
+import net.sourceforge.dita4publishers.api.ditabos.DitaTopicBosMember;
 
 import org.w3c.dom.Document;
 
 /**
  * A DITA BOS Member that represents a topic.
  */ 
-public class DitaTopicBosMember extends DitaBosMember {
+public class DitaTopicBosMemberImpl extends DitaBosMemberImpl implements DitaTopicBosMember {
 
 	/**
 	 * @param bos
 	 * @param doc
 	 * @throws BosException
 	 */
-	public DitaTopicBosMember(BoundedObjectSet bos, Document doc)
+	public DitaTopicBosMemberImpl(BoundedObjectSet bos, Document doc)
 			throws BosException {
 		super(bos, doc);
 	}
+	
 
 }

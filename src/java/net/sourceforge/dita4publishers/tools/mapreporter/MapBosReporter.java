@@ -1,7 +1,7 @@
 /**
  * Copyright 2009, 2010 DITA for Publishers project (dita4publishers.sourceforge.net)  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at     http://www.apache.org/licenses/LICENSE-2.0  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
  */
-package net.sourceforge.dita4publishers.tools;
+package net.sourceforge.dita4publishers.tools.mapreporter;
 
 import java.io.File;
 import java.io.PrintStream;
@@ -19,6 +19,7 @@ import net.sourceforge.dita4publishers.api.ditabos.DitaBosReporter;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelper;
+import net.sourceforge.dita4publishers.tools.common.MapBosProcessorBase;
 import net.sourceforge.dita4publishers.util.DomUtil;
 import net.sourceforge.dita4publishers.util.TimingUtils;
 
@@ -39,30 +40,15 @@ import org.w3c.dom.Document;
  * <p>The MapBosReporter can use any DitaBosReporter or KeySpaceReporter
  * implementations to generate the actual report.</p>
  */
-public class MapBosReporter {
+public class MapBosReporter extends MapBosProcessorBase {
 	
 	private static Log log = LogFactory.getLog(MapBosReporter.class);
 
-	/**
-	 * 
-	 */
-	private static final String OUTPUT_OPTION_ONE_CHAR = "o";
-	/**
-	 * 
-	 */
-	private static final String INPUT_OPTION_ONE_CHAR = "i";
-
-	private static final String CATALOG_OPTION_ONE_CHAR = "c";
-
 	private static final String MAPTREE_OPTION_ONE_CHAR = "m";
-
-	private static final String DITAVAL_OPTION_ONE_CHAR = "d";
 
 	private static final String BOS_REPORTER_CLASS_OPTION_ONE_CHAR = "b";
 
 	private static final String KEYSPACE_REPORTER_CLASS_OPTION_ONE_CHAR = "k";
-
-	private CommandLine commandLine;
 
 	/**
 	 * @param line
@@ -80,10 +66,10 @@ public class MapBosReporter {
 
 		CommandLineParser parser = new PosixParser();
 		
-	    CommandLine line = null;
+	    CommandLine cmdline = null;
 		try {
 		    // parse the command line arguments
-		    line = parser.parse(cmdlineOptions, args );
+		    cmdline = parser.parse(cmdlineOptions, args );
 		}
 		catch( ParseException exp ) {
 			HelpFormatter formatter = new HelpFormatter();
@@ -91,14 +77,14 @@ public class MapBosReporter {
 			System.exit(-1);
 		}
 		
-		if (!line.hasOption(INPUT_OPTION_ONE_CHAR)) {
+		if (!cmdline.hasOption(INPUT_OPTION_ONE_CHAR)) {
 			HelpFormatter formatter = new HelpFormatter();
 			formatter.printHelp(MapBosReporter.class.getSimpleName(), cmdlineOptions);
 			System.exit(-1);
 		}
 		
 		
-		MapBosReporter app = new MapBosReporter(line);
+		MapBosReporter app = new MapBosReporter(cmdline);
 		try {
 			app.run();
 		} catch (Exception e) {
@@ -214,43 +200,10 @@ public class MapBosReporter {
 	}
 
 	/**
-	 * @param bosOptions
-	 */
-	private void setupCatalogs(BosConstructionOptions bosOptions) {
-		String[] catalogs = new String[1];
-		File catalogFile = null;
-		
-		if (commandLine.hasOption(CATALOG_OPTION_ONE_CHAR)) {
-			String catalogPath = commandLine.getOptionValue(CATALOG_OPTION_ONE_CHAR);
-			catalogFile = new File(catalogPath);
-			
-		} else {
-			String ditaHome = System.getenv("DITA_HOME");
-			if (ditaHome != null && !"".equals(ditaHome.trim())) {
-				File ditaDir = new File(ditaHome);
-				catalogFile = new File(ditaDir, "catalog-dita.xml");
-				
-			}
-		}
-		if (catalogFile != null) {
-			try {
-				checkExistsAndCanRead(catalogFile);
-			} catch (Exception e) {
-				System.err.println("Catalog file \"" + catalogFile.getAbsolutePath() + "\" does not exist or cannot be read.");
-				System.exit(1);
-			}
-			catalogs[0] = catalogFile.getAbsolutePath(); 
-		}
-			
-		bosOptions.setCatalogs(catalogs);
-		
-	}
-
-	/**
 	 * @return
 	 */
-	private static Options configureOptions() {
-		Options options = new Options();
+	protected static Options configureOptions() {
+		Options options = configureOptionsBase();
 		Option opt = null;
 		
 		options.addOption(INPUT_OPTION_ONE_CHAR, "map", true, "(Input) The root map from which to calculate the map tree or bounded object set");
@@ -286,27 +239,6 @@ public class MapBosReporter {
 
 
 		return options;
-	}
-
-	private static void checkExistsAndCanReadSystemExit(File file) {
-		try {
-			checkExistsAndCanRead(file);
-		} catch(Exception e) {
-			System.err.println(e.getMessage());
-			System.exit(-1);
-		}
-	}
-
-	/**
-	 * @param file
-	 */
-	private static void checkExistsAndCanRead(File file) {
-		if (!file.exists()) {
-			throw new RuntimeException("File " + file.getAbsolutePath() + " does not exist.");
-		}
-		if (!file.canRead()) {
-			throw new RuntimeException("File " + file.getAbsolutePath() + " exists but cannot be read.");
-		}
 	}
 
 

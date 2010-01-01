@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2009 Really Strategies, Inc.
  */
-package net.sourceforge.dita4publishers.tools;
+package net.sourceforge.dita4publishers.tools.mapreporter;
 
 import java.net.URI;
 import java.util.Comparator;
@@ -25,9 +25,10 @@ import net.sourceforge.dita4publishers.impl.dita.ReporterBase;
 import org.w3c.dom.Document;
 
 /**
- * Creates a text report of a key space.
+ * Creates an HTML report of a key space. Generates markup
+ * that goes within an HTML body element.
  */
-public class TextKeySpaceReporter extends ReporterBase implements KeySpaceReporter {
+public class HtmlKeySpaceReporter extends ReporterBase implements KeySpaceReporter {
 
 
 	/* (non-Javadoc)
@@ -35,16 +36,12 @@ public class TextKeySpaceReporter extends ReporterBase implements KeySpaceReport
 	 */
 	public void report(KeyAccessOptions keyAccessOptions, DitaKeySpace keySpace, KeyReportOptions reportOptions) throws DitaApiException {
 
-		outStream.println("---------------------------------------------------");
-		outStream.println("Key report for keySpace " + keySpace.getRootMap(keyAccessOptions).getDocumentURI());
-		outStream.println();
 		if (reportOptions.isOnlyEffectiveKeys()) {
 			// Just report the effective keys:
 			reportEffectiveKeys(keyAccessOptions, keySpace, reportOptions);
 		} else {
 			reportAllKeys(keyAccessOptions, keySpace, reportOptions);
 		}
-		outStream.println("---------------------------------------------------");
 	}
 
 
@@ -58,30 +55,37 @@ public class TextKeySpaceReporter extends ReporterBase implements KeySpaceReport
 	 * @throws DitaApiException 
 	 */
 	private void reportAllKeys(KeyAccessOptions keyAccessOptions, DitaKeySpace keySpace, KeyReportOptions keyReportOptions) throws DitaApiException {
-		outStream.println(" All keys:\n");
+		outStream.println("<h1>All keys:</h1>");
 		
 		Map<String, List<? extends DitaKeyDefinition>> keyDefsByKey = new TreeMap<String, List<? extends DitaKeyDefinition>>();
 		keyDefsByKey.putAll(keySpace.getAllKeyDefinitionsByKey(keyAccessOptions));
+		outStream.println("<table border='1' width='100%' layout='auto'>");
+		outStream.println("<thead>\n<th>Key</th>\n<th>Definitions</th></thead>");
 		for (String key : keyDefsByKey.keySet()) {
-			outStream.println();
-			outStream.printf(" + %s:\n", key);
+			outStream.println("<tr>");
+			outStream.printf("<td valign='top'>%s</td>", key);
 			List<? extends DitaKeyDefinition> keyDefs = keyDefsByKey.get(key);
 			int i = 0;
+			outStream.println("<td>");
+			outStream.println("<ol>");
 			for (DitaKeyDefinition keyDef : keyDefs) {
-				outStream.println();
-				outStream.printf("   [%2d] Defining map: %s\n", ++i, keyDef.getBaseUri());
-				outStream.printf("        href:         %s\n", (keyDef.getHref() != null?keyDef.getHref():"Not specified."));
-				outStream.printf("        keyref:       %s\n", (keyDef.getKeyref() != null?keyDef.getKeyref():"Not specified"));
+				outStream.printf("<li>Defining map: %s\n", keyDef.getBaseUri());
+				outStream.printf("<p>href: %s\n", (keyDef.getHref() != null?keyDef.getHref():"Not specified.") + "</p>");
+				outStream.printf("<p>keyref: %s\n", (keyDef.getKeyref() != null?keyDef.getKeyref():"Not specified") + "</p>");
 				DitaPropsSpec propsSpec = keyDef.getDitaPropsSpec();
 				if (propsSpec != null && propsSpec.getProperties().size() > 0) {
-					outStream.println("        Selection properties:");
+					outStream.println("<p>Selection properties:<ul>");
 					for (String property : propsSpec.getProperties()) {
-						outStream.printf("          + %s=%s\n", property, propsSpec.getPropertyValues(property));
+						outStream.printf("<li>%s=%s\n", property, propsSpec.getPropertyValues(property) + "</li>");
 					}
+					outStream.println("</ul>");
 				}
 			}
+			outStream.println("</ol>");
+			outStream.println("</td>");
+			outStream.println("</tr>");
 		}
-		
+		outStream.println("</table>");
 	}
 
 
@@ -96,7 +100,8 @@ public class TextKeySpaceReporter extends ReporterBase implements KeySpaceReport
 	 */
 	private void reportEffectiveKeys(KeyAccessOptions keyAccessOptions, DitaKeySpace keySpace, KeyReportOptions keyReportOptions) throws DitaApiException {
 		
-		outStream.println(" Effective keys:\n");
+		outStream.println("<body>");
+		outStream.println("<h1>Effective keys:</h1>");
 		
 		Comparator<DitaKeyDefinition> comparator = null;
 		if (keyReportOptions.isSortByMap()) {
@@ -105,15 +110,20 @@ public class TextKeySpaceReporter extends ReporterBase implements KeySpaceReport
 		
 		SortedSet<DitaKeyDefinition> keyDefs = new TreeSet<DitaKeyDefinition>(comparator);
 		keyDefs.addAll(keySpace.getEffectiveKeyDefinitions(keyAccessOptions));
+		outStream.println("<table border='1' width='100%' layout='auto'>");
+		outStream.println("<thead>\n<th>Key</th>\n<th>Bound Resource</th><th>Defining Map</th></thead>");
 		for (DitaKeyDefinition keyDef : keyDefs) 	{
 			String boundResourceUri = getBoundResource(keyAccessOptions,
 					keySpace, keyDef);
-			
-			outStream.printf(" + %s\n\tBound resource: %s\n\tDefining map:   %s\n", 
+			outStream.println("<tr>");
+			outStream.printf("<td>%s</td>\n<td>%s</td>\n<td>%s</td>\n", 
 					keyDef.getKey(), 
 					boundResourceUri, 
 					keyDef.getBaseUri());
+			outStream.println("</tr>");
 		}
+		outStream.println("</body>");
+
 	}
 
 	protected String getBoundResource(KeyAccessOptions keyAccessOptions,

@@ -1,5 +1,7 @@
 package net.sourceforge.dita4publishers.util;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,6 +15,14 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.URIResolver;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
 import net.sourceforge.dita4publishers.api.ditabos.BosMemberValidationException;
 import net.sourceforge.dita4publishers.impl.ditabos.BosConstructionOptions;
 
@@ -24,6 +34,7 @@ import org.apache.xerces.xni.grammars.XMLGrammarPool;
 import org.apache.xerces.xni.parser.XMLParserConfiguration;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
+import org.w3c.dom.DocumentType;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -265,6 +276,96 @@ public class DomUtil {
     		resultVal.append(nsName + " " + schemaLoc + " ");
     	}
         return resultVal.toString();
+    }
+
+    /**
+     * Uses a null transform to serialize a DOM into an input stream using the default encoding.
+     * @param doc Document to be serialized.
+     * @return InputStream on the serialized bytes.
+     * @throws Exception
+     */
+    public static InputStream serializeToInputStream(
+    	    Document doc) throws Exception 
+    	  {
+    	return serializeToInputStream(doc, null);
+    }
+
+    /**
+     * Uses a null transform to serialize a DOM into an input stream.
+     * @param doc Document to be serialized.
+     * @param encoding Encoding to serialize to. If null, encoding is utf-8
+     * @return InputStream on the serialized bytes.
+     * @throws Exception
+     */
+    public static InputStream serializeToInputStream(
+    	    Document doc, 
+    	    String encoding) throws Exception 
+    	  {
+    	    if (encoding == null)
+    	      encoding = "utf-8";
+    	    
+    	    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+    	    javax.xml.transform.Result rslt = new StreamResult(bos);
+    	    javax.xml.transform.Source src = new DOMSource(doc);
+    	    
+    	    try {
+    	      Transformer transformer = getTransformerFactory().newTransformer();
+    	      
+    	      transformer.setOutputProperty(OutputKeys.ENCODING, encoding);
+    	      
+    	      transformer.setOutputProperty
+    	        (OutputKeys.OMIT_XML_DECLARATION, "no");
+    	      
+    	      // Set a property on the transformer if the caller wants a doctype and
+    	      // the node's owning document has the information
+    	      if (doc.getDoctype() != null) 
+    	      {
+    	        DocumentType doctype = doc.getDoctype();
+    	        if (doctype.getPublicId() != null)
+    	          transformer.setOutputProperty
+    	            (OutputKeys.DOCTYPE_PUBLIC, doctype.getPublicId());
+    	        if (doctype.getSystemId() != null)
+    	          transformer.setOutputProperty
+    	            (OutputKeys.DOCTYPE_SYSTEM, doctype.getSystemId());
+    	      }
+    	  
+    	      transformer.transform(src, rslt);
+    	    } 
+    	    catch (TransformerException e) 
+    	    {
+    	      throw new RuntimeException("Cannot serialize document: ", e);
+    		}
+    	    return new ByteArrayInputStream(bos.toByteArray());
+    }
+
+    /**
+     * Gets a transformer factory using the default URI resolver.
+     * @return transformer factory instance.
+     * @throws RSuiteException
+     */
+    public static TransformerFactory getTransformerFactory() throws Exception
+    {
+    	return getTransformerFactory(null);
+    }
+
+    /**
+     * Gets a transformer fractory configured using the specified URI resolver.
+     * @param uriResolver URI resolver to use with the factory. If null, default URI resolver is used.
+     * @return transformer factory instance.
+     * @throws RSuiteException
+     */
+    public static TransformerFactory getTransformerFactory(URIResolver uriResolver) throws Exception
+    {
+      TransformerFactory factory = new net.sf.saxon.TransformerFactoryImpl(); // TransformerFactory.newInstance();
+  	  
+      // Replace the default URI resolver with a chained resolver
+      // that calls our internal resolver first, and then falls
+      // back to the secondary resolver (set from the original value).    
+      
+      if (uriResolver != null)
+    	  factory.setURIResolver(uriResolver);
+      
+      return factory;
     }
 
 

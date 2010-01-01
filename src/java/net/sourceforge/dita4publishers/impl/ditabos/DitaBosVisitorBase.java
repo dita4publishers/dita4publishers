@@ -22,20 +22,21 @@ public abstract class DitaBosVisitorBase extends BosVisitorBase implements
 		super(log);
 	}
 
-	public void visit(DitaBosMember ditaBosMember) throws BosException {
+	public void visit(DitaBosMemberImpl ditaBosMember) throws BosException {
 		visit((BosMember)ditaBosMember);
 	}
 
-	public void visit(DitaMapBosMember bosMember) throws BosException {
-		visit((DitaBosMember)bosMember);
+	public void visit(DitaMapBosMemberImpl bosMember) throws BosException {
+		visit((DitaBosMemberImpl)bosMember);
 		
 	}
 
 
-	public void visit(DitaTopicBosMember bosMember) throws BosException {
-		visit((BosMember)bosMember);
+	public void visit(DitaTopicBosMemberImpl bosMember) throws BosException {
+		visit((DitaBosMemberImpl)bosMember);
 		
 	}
+	
 
 
 }

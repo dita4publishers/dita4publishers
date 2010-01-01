@@ -114,15 +114,48 @@ public interface BosMember {
 	public abstract boolean isInvalid();
 
 	/**
-	 * 
-	 * @return The URI to which the BOS member is associated.
+	 * Gets the effective URI of the BOS member, as distinct from
+	 * its data source URI. This
+	 * URI may be modified as part of BOS processing to reflect
+	 * a new target location, for example,
+	 * to reflect reorganization of files as part of a packaging
+	 * or export operation. Use getDataSourceUri() to get the
+	 * original URI of the BOS member's data source.
+	 * @return The URI to which the BOS member is associated. 
 	 */
-	public abstract URI getUri();
+	public abstract URI getEffectiveUri();
 
 	/**
-	 * Sets the URI to which thie BOS member is associated.
+	 * Returns the URI of data source for the BOS member. This
+	 * URI should always enable access to the data as long 
+	 * as the URI itself can be resolved (that is, the URI
+	 * should work barring connectivity issues). This URI
+	 * is effectively invariant. Use setUri() and getUri()
+	 * to manipulate the effective URI for the BOS member
+	 * as determined by BOS processing.
+	 * @return URI by which the data of the BOS member can
+	 * be accessed.
+	 */
+	public abstract URI getDataSourceUri();
+
+	/**
+	 * Sets the URI of the data source for the BOS member
+	 * (e.g., the storage object from which the BOS member
+	 * is constructed. This URI should not be modified
+	 * during BOS processing unless the location of the
+	 * data source itself has changed.
+	 */
+	public abstract void setDataSourceUri(URI uri);
+
+	/**
+	 * Sets the effective URI for the BOS member, for 
+	 * example, to reflect a modification of the storage
+	 * location of the BOS member as part of a packaging
+	 * or export operation. This URI may reflect a resource
+	 * that has not yet been created, thus it cannot be used
+	 * to access the BOS member's data.
 	 * @param uri
 	 */
-	public abstract void setUri(URI uri);
+	public abstract void setEffectiveUri(URI uri);
 	
 }
