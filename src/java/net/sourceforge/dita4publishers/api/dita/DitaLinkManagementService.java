@@ -399,8 +399,8 @@ public interface DitaLinkManagementService  {
 	void markKeySpaceOutOfDate(DitaKeyDefinitionContext keydefContext) throws DitaApiException;
 
 	/**
-	 * @param context
-	 * @return
+	 * @param rootMap The map that defines a key space
+	 * @return True if the map is registered as a key space root.
 	 * @throws DitaApiException
 	 */
 	boolean isRegistered(Document rootMap)  throws DitaApiException;

@@ -1,0 +1,37 @@
+<body>
+<h2>DITA for Publishers DITA API and Tools Package</h2>
+<p>This package provides a set of APIs for DITA link
+management as well as sample implementations of the
+APIs and some simple tools that use the APIs.</p>
+<p>The focus of the package is on the construction
+of DITA "bounded object sets": the set of storage
+objects ultimately required in order to process
+a given set of maps and topics completely.</p>
+<p>One of the main link management challenges with
+DITA 1.2 is constructing and use key spaces. The
+DITA link management API provides a general key space
+construction and resolution API, packaged in a
+more general DITA Link Management Service API.</p>
+<p>The implementation provided includes a general
+DITA BOS constructor, which is then used to build
+key spaces managed by a simple DITA Link Management
+Service implementation.</p>
+<p>The tools provided include:
+<ul>
+<li>A map BOS reporter, which generates BOS and key
+space reports for DITA maps.</li>
+<li>A DITA Interchange Package (ditadxp.sourceforge.net)
+builder, which constructs Zip packages of all the local
+dependencies required by a given root map.</li>
+</ul>
+<p>The API is intended to be a public API that could be
+used by different types of DITA-aware tools: editors,
+processors, content management systems, etc.</p>
+<p>The implementations provide both tests of the APIs
+and code that can be the base for new processors.</p>
+<p>The API and all implementations in this package are
+licensed with the same Apache open source license as
+the DITA Open Toolkit.</p>
+<p>See the descriptions for each package for more details
+on the API and implementations.</p>
+</body>

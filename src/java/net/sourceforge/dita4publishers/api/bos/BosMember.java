@@ -13,23 +13,40 @@ import net.sourceforge.dita4publishers.api.PropertyContainer;
 
 
 /**
- * Represents a unique object within a set of objects (a "bounded object set") to be imported to or exported from 
- * the RSuite repository, essentially acting as a mapping between files or other external
- * resources and RSuite Managed Objects. Each BOS member must have a unique key within the BOS. For export,
- * the key is the RSuite Managed Object ID, which is always globally unique within the RSuite repository.
- * For import, the key is normally the full path of the BOS member's associated file, although BOS constructors
- * may use any algorithm for determining keys. BOS member identity is determined by the key value.
- * <p>
- * For import, BOS members are normally constructed from files or URI-accessed resources and then associated
- * with Managed Objects. For export, BOS members are constructed from Managed Objects and then associated with
- * the files to which they are exported. Files can be associated by either setting the file directly or by
- * setting the file system path and file name to use to construct the file.
- * </p>
+ * Represents a unique storage object within a set of storage objects (a "bounded object set"). A BOS
+ * member has the following properties:<ul>
+ * <li>Key: The BOS member's unique identifier within the BOS. The key can be any
+ * string. Two BOS members are equal if they have the same key. Typically keys
+ * will be absolute URIs or repository object IDs.</li>
+ * <li>Data source: The data contained by the storage object the BOS member
+ * represents. BOS processors may modify the BOS member's data during BOS 
+ * processing, for example, to rewrite pointers in an XML document. In general,
+ * implementations should expect to create a copy of the original data and
+ * allow the copy to be modified without affecting the original.</li>
+ * <li>Effective URI: the URI of the BOS member in some target storage space. Used
+ * to create a mapping from BOS members as originally stored to some target space, e.g.,
+ * packaging within a Zip, export from a CMS, import to a CMS, etc.</li>
+ * <li>Dependencies: The set of BOS members on which this member depends for
+ * any reason. Dependencies typically reflect semantic links or inclusion (composition)
+ * relationships among storage objects. Each dependency has one or more associated
+ * dependency types, reflecting the reasons why the dependency exists. Note that 
+ * a given dependent BOS member is only listed once regardless of the number of times
+ * it is linked from the using member or the number of different ways it is linked.
+ * The purpose of the dependency list is to simply establish that one BOS member
+ * requires another for any reason.</li>
+ * <li>Children: A BOS member may have some dependencies identified as children,
+ * allowing the BOS to represent a tree or set of trees of storage objects. A given BOS member
+ * may have any number of parents.</li>
+ * </ul>
+ * <p>BOS members are generic property containers, so they may have any number
+ * of arbitrary properties.</p>
+ * 
  */
 public interface BosMember extends PropertyContainer {
 
 	/**
-	 * @return unique key within the BOS by which the member is identified
+	 * Gets the unique key for the BOS member.
+	 * @return Unique key within the BOS by which the member is identified
 	 */
 	public abstract String getKey();
 
@@ -39,49 +56,77 @@ public interface BosMember extends PropertyContainer {
 	 */
 	public abstract void addParent(BosMember parentMember);
 
+	/**
+	 * Gets the parents of the BOS member
+	 * @return List, possibly empty, of parent members.
+	 */
 	public abstract List<BosMember> getParents();
 
 	/**
+	 * Adds a child member.
 	 * @param member
 	 */
 	public abstract void addChild(BosMember member);
 
 	/**
-	 * @return
+	 * Gets the children of the member, if any.
+	 * @return List, possibly empty, of child BOS members.
 	 */
 	public abstract List<BosMember> getChildren();
 
 	/**
 	 * The filename to use for the member.
 	 * This can be used to establish a result filename
-	 * without specifying the full URI.
-	 * @param fileName
+	 * without specifying the full URI. The file name need
+	 * not be unique within the BOS.
+	 * @param fileName The filename associated with the BOS member.
 	 */
 	public abstract void setFileName(String fileName);
 
 	/**
+	 * Accepts a BOS visitor per the standard Visitor pattern. Applies
+	 * the visitor to the BOS member.
 	 * @param visitor
 	 * @throws BosException 
 	 */
 	public abstract void accept(BosVisitor visitor) throws BosException;
 
 	/**
+	 * Gets the associated file name of the BOS member.
 	 * @return File name set for the BOS member.
 	 */
 	public abstract String getFileName();
 
 	/**
-	 * @return
+	 * Gets an input stream for accessing the member's data content.
+	 * The input stream should reflect any modifications made to the 
+	 * data source during BOS processing.
+	 * @return An input stream on the member's data source.
 	 * @throws BosException 
 	 */
 	public abstract InputStream getInputStream() throws BosException;
 
 	/**
+	 * Gets the dependencies registered with the BOS member. Does not
+	 * include any members only registered as children.
 	 * @return Dependencies as a map of member keys to members.
 	 */
 	public abstract Map<String, ? extends BosMember> getDependencies();
 
 	/**
+	 * Gets the dependencies registered with the BOS member. Does not
+	 * include any members only registered as children.
+	 * @param includeChildren When true, includes children in the list of dependencies.
+	 * @return Dependencies as a map of member keys to members.
+	 */
+	public abstract Map<String, ? extends BosMember> getDependencies(boolean includeChildren);
+
+	/**
+	 * Gets a dependency with the specified key. Note that the key is not necessarily the
+	 * dependent member's key, but is a specific to the BOS member that has the dependency.
+	 * For example, the key may be the unresolved value of an @href attribute, a DITA key name,
+	 * or some other value specific to that member's use of the dependency. This allows
+	 * lookup of dependencies by their original addressing syntax.
 	 * @param key
 	 * @return Dependency with the specified key, or null if the specified key is not a dependency. 
 	 */
@@ -126,11 +171,13 @@ public interface BosMember extends PropertyContainer {
 			BosMember dependentMember, DependencyType type);
 
 	/**
-	 * @return true if the Member is an XML BOS member
+	 * Indicates that the member is an XML BOS member
+	 * @return true if the member is an XML BOS member
 	 */
 	public abstract boolean isXml();
 
 	/**
+	 * Indicates that the BOS member failed some validation check during BOS construction.
 	 * @return True if the member is not valid (e.g., failed a validation check during BOS construction).
 	 */
 	public abstract boolean isInvalid();

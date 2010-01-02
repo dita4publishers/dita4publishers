@@ -6,7 +6,14 @@ package net.sourceforge.dita4publishers.api.bos;
 
 
 /**
- * Base tree walker interface
+ * Base tree walker interface. Tree walkers use the Walker pattern to process the root member of a BOS (e.g., a root DITA map, 
+ * a Word doc, an InDesign document) and determine the other BOS members. The general processing pattern is:
+ * <ol>
+ * <li>Construct a new BOS instance.</li>
+ * <li>Construct the root member and set is as the BOS root.</li>
+ * <li>Apply a walker to the BOS to do the BOS construction.</li>
+ * </ol>
+ * <p>BOS visitors are intended to operate on already-constructed BOSes</p>
  */
 public interface TreeWalker {
 	

@@ -103,6 +103,16 @@ public abstract class BosMemberBase implements BosMember {
 	 */
 	public void registerDependency(String key, BosMember targetMember, DependencyType type) {
 		dependencies.put(key, targetMember);
+		registerDependencyByType(targetMember, type);
+	}
+
+	/**
+	 * Allows registering child dependencies without adding the child to the dependencies map.
+	 * @param targetMember
+	 * @param type
+	 */
+	protected void registerDependencyByType(BosMember targetMember,
+			DependencyType type) {
 		if (!dependenciesByType.containsKey(type)) {
 			this.dependenciesByType.put(type, new HashSet<BosMember>());
 		}
@@ -157,15 +167,27 @@ public abstract class BosMemberBase implements BosMember {
 		if (!this.children.contains(member)) {
 			this.children.add(member);
 			member.addParent(this);
+			registerDependencyByType(member, DependencyType.CHILD);
 		}
 		
 	}
 
-	public Map<String, BosMember> getDependencies() {
+	public Map<String, ? extends BosMember> getDependencies() {
+		return getDependencies(false);
+	}
+	
+	public Map<String, ? extends BosMember> getDependencies(boolean includeChildren) {
 		Map<String, BosMember> newMap = new HashMap<String, BosMember>();
 		newMap.putAll(this.dependencies);
+		if (includeChildren) {
+			for (BosMember member : this.children) {
+				newMap.put(member.getKey(), member);
+			}
+		}
 		return newMap;
 	}
+
+
 
 	public BosMember getDependency(String key) {
 		return this.dependencies.get(key);
