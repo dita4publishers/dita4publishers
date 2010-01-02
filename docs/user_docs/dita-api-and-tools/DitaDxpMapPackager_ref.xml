@@ -2,26 +2,23 @@
 <!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/reference.dtd">
 <reference
   id="referenceId">
-  <title>MapBosReporter</title>
-  <shortdesc>Generates a DITA map tree or full map bounded object set (BOS) report.</shortdesc>
+  <title>DitaDxpMapPackager</title>
+  <shortdesc>Creates a DITA Interchange Package (DXP) Zip file from a DITA map containing all the
+    local dependencies required by the map.</shortdesc>
   <refbody>
     <refsyn>
       <syntaxdiagram>
         <groupseq>
-          <kwd>MapBosReport</kwd>
+          <kwd>DitaDxpMapPackager</kwd>
         </groupseq>
         <groupseq><groupcomp><delim>-</delim><kwd>i</kwd></groupcomp>
           <var>input map file</var></groupseq>
         <groupseq
           importance="optional"><groupcomp><delim>-</delim><kwd>o</kwd></groupcomp>
-          <var>report file</var></groupseq>
+          <var>DXP zip file</var></groupseq>
         <groupseq
           importance="optional"><groupcomp><delim>-</delim><kwd>c</kwd></groupcomp>
           <var>XML catalog file</var></groupseq>
-        <groupseq
-          importance="optional">
-          <groupcomp><delim>-</delim><kwd>m</kwd></groupcomp>
-        </groupseq>
         <groupseq
           importance="optional"><groupcomp><delim>-</delim><kwd>d</kwd></groupcomp>
           <var>Ditaval file</var></groupseq>
@@ -39,8 +36,9 @@
       </property>
       <property>
         <proptype>-o</proptype>
-        <propvalue>(optional) Path and filename of the generated BOS report. If not specified,
-          report is written to STDOUT.</propvalue>
+        <propvalue>(optional) Path and filename of the DXP package. If not specified, a package
+          named <filepath><varname>mapFilename</varname>.dxp</filepath> in the same directory as the
+          input map will be created.</propvalue>
       </property>
       <property>
         <proptype>-c</proptype>
@@ -48,11 +46,6 @@
           schema references. If not specified, and the DITA_HOME environment variable is set, the
             <filepath>catalog-dita.xml</filepath> file will be used, if found. If DITA_HOME is not
           set, then no catalogs are used.</propvalue>
-      </property>
-      <property>
-        <proptype>-m</proptype>
-        <propvalue>(optional) When specified, only the map tree, not the full BOS, is constructed
-          and reported.</propvalue>
       </property>
       <property>
         <proptype>-d</proptype>
@@ -63,18 +56,20 @@
     <section
       spectitle="Usage">
       <p>To run from the command line, use a Java command like so (all on one
-        line):<codeblock>java -Xmx512M -jar dita4publishers-mapbosreporter.jar 
+        line):<codeblock>java -Xmx512M -jar dita4publishers-dxppackager.jar 
   -i ~/workspace/dita_12_spec/dita1.2-complete.ditamap  
-  -o bos-report.txt</codeblock></p>
+  -o ditaspec-complete.dxp</codeblock></p>
       <p>As the BOS construction process builds DOMs of each document in the BOS, larger maps will
         require more Java memory, as specified by the <parmname>-Xmx</parmname> Java parameter. This
         example processes the DITA 1.2 full specification (architectural spec and language
         reference), consistent of 779 separate documents.</p>
-      <p>The resulting report consists of the BOS report, listing the map tree and all the topics
-        used from it (representing topics as children of maps) and all the dependencies of each
-        topic (other topics or non-DITA resources linked to from the topic), followed by the key
-        space report, listing all the key definitions in the map tree. If you specify <parmname
-          >-m</parmname>, the BOS report reflects only the map tree, no topics.</p>
+      <p>The resulting Zip file contains all the local dependencies required by the root map as
+        determined by the BOS construction process.</p>
+      <p>The DITA Interchange Package specification requires that the resulting package have either
+        exactly one root map in the top-level directory or have a DXP manifest map. By default the
+        DXP map packager reorganizes the BOS members so that the root map is by itself in the root
+        directory and all dependencies are in directories below it. If files have to be moved to
+        accomplish this all affected pointers will be rewritten to reflect the moves.</p>
     </section>
   </refbody>
 </reference>
