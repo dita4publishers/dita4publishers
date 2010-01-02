@@ -7,11 +7,11 @@ import net.sourceforge.dita4publishers.api.bos.DependencyType;
 
 
 /**
- * Map to map navref dependency 
+ * Cross reference dependency (<xref> or keyref-only elements that address a topic).
  */
-public class MapToMapNavrefDependency implements DependencyType {
+public class XRefDependency implements DependencyType  {
 
 	public String toString() {
-		return "Map to map navref";
+		return "Cross reference";
 	}
 }

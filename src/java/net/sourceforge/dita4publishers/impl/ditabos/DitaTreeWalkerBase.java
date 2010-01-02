@@ -18,10 +18,13 @@ import javax.xml.xpath.XPathExpressionException;
 import net.sourceforge.dita4publishers.api.bos.BosException;
 import net.sourceforge.dita4publishers.api.bos.BosMember;
 import net.sourceforge.dita4publishers.api.bos.BoundedObjectSet;
+import net.sourceforge.dita4publishers.api.bos.DependencyType;
 import net.sourceforge.dita4publishers.api.bos.NonXmlBosMember;
 import net.sourceforge.dita4publishers.api.bos.XmlBosMember;
 import net.sourceforge.dita4publishers.api.dita.DitaApiException;
 import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
+import net.sourceforge.dita4publishers.api.ditabos.ConrefDependency;
+import net.sourceforge.dita4publishers.api.ditabos.Constants;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.api.ditabos.DitaTreeWalker;
 import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
@@ -160,7 +163,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 						bos.addMember(member, childMember);
 						newMembers.add((BosMember)childMember);
 						if (href != null)
-							member.registerDependency(href, childMember);
+							member.registerDependency(href, childMember, Constants.TOPTCREF_DEPENDENCY);
 					}
 				}
 				
@@ -278,7 +281,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 			bos.addMember(member, childMember);
 			newMembers.add(childMember);
 			if (href != null)
-				member.registerDependency(href, childMember);
+				member.registerDependency(href, childMember, Constants.OBJECT_DEPENDENCY);
 		}
 
 	}
@@ -309,6 +312,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 					// If there is a key reference, attempt to resolve it,
 					// then fall back to href, if any.
 					String href = null;
+					DependencyType depType = Constants.LINK_DEPENDENCY;
 					try {
 						if (link.hasAttribute("keyref")) {
 							log.debug("findLinkDependencies(): resolving reference to key \"" + link.getAttribute("keyref") + "\"...");
@@ -323,14 +327,21 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 							href = link.getAttribute("href");
 							if (DitaUtil.isDitaType(link, "topic/image")) {
 								targetUri = AddressingUtil.resolveHrefToUri(link, link.getAttribute("href"), this.failOnAddressResolutionFailure);
+								depType = Constants.IMAGE_DEPENDENCY;
 							} else if (!DitaUtil.targetIsADitaFormat(link) && 
 									   DitaUtil.isLocalOrPeerScope(link)) {
 										targetUri = AddressingUtil.resolveHrefToUri(link, link.getAttribute("href"), this.failOnAddressResolutionFailure);
 							} else {
 								// If we get here, isn't an image reference and is presumably a DITA format resource.
 								// Don't bother with links within the same XML document.
-								if (!href.startsWith("#") && DitaUtil.isLocalOrPeerScope(link)) 
+								if (!href.startsWith("#") && DitaUtil.isLocalOrPeerScope(link)) {
 									targetDoc = AddressingUtil.resolveHrefToDoc(link, link.getAttribute("href"), bosConstructionOptions, this.failOnAddressResolutionFailure);
+								}
+								if (DitaUtil.isDitaType(link, "topic/xref")) {
+									depType = Constants.XREF_DEPENDENCY;
+								} else if (DitaUtil.isDitaType(link, "topic/link")) {
+									depType = Constants.LINK_DEPENDENCY;
+								}
 								
 							}
 						}
@@ -351,10 +362,9 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 						log.debug("findLinkDependencies(): Got URI \"" + targetUri.toString() + "\"");
 						childMember = bos.constructBosMember((BosMember)member, targetUri);
 					}
-//					bos.addMember(member, childMember);
 					newMembers.add(childMember);
 					// Key references don't need to be rewritten so we only care if an href was used to resolve the dependency
-					member.registerDependency(href, childMember);
+					member.registerDependency(href, childMember, depType);
 				}
 				
 			}
@@ -396,8 +406,10 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 						BosMember childMember = bos.constructBosMember(member, targetDoc);
 						// bos.addMember(member, childMember);
 						newMembers.add(childMember);
-						if (href != null)
-							member.registerDependency(href, childMember);
+						if (href != null) {
+							member.registerDependency(href, childMember, Constants.CONREF_DEPENDENCY);
+							
+						}
 					}
 				}
 			}

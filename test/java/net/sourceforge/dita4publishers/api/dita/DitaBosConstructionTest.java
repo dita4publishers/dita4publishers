@@ -14,11 +14,17 @@ import java.util.Set;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import net.sourceforge.dita4publishers.api.bos.BosMember;
+import net.sourceforge.dita4publishers.api.bos.BosReportOptions;
 import net.sourceforge.dita4publishers.api.bos.BoundedObjectSet;
+import net.sourceforge.dita4publishers.api.bos.DependencyType;
+import net.sourceforge.dita4publishers.api.ditabos.Constants;
+import net.sourceforge.dita4publishers.api.ditabos.DitaBosReporter;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.dita.DitavalSpecImpl;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelper;
+import net.sourceforge.dita4publishers.tools.mapreporter.TextDitaBosReporter;
 import net.sourceforge.dita4publishers.util.DomUtil;
 
 import org.apache.commons.logging.Log;
@@ -63,11 +69,36 @@ public class DitaBosConstructionTest
 
   
   public void testDitaBosConstruction() throws Exception {
-	  BoundedObjectSet mapBos = DitaBosHelper.calculateMapBos(bosOptions,log, rootMap);
+	  DitaBoundedObjectSet mapBos = DitaBosHelper.calculateMapBos(bosOptions,log, rootMap);
 	  assertNotNull(mapBos);
 	  // mapBos.reportBos(log);
 	  assertEquals(9, mapBos.size());
+
+	  BosMember member = null;
+	  for (BosMember cand : mapBos.getMembers()) {
+		  if (cand.getFileName().equals("topic_03.xml")) {
+			  member = cand;
+			  break;
+		  }
+	  }
+	  assertNotNull(member);
+	  Set<BosMember> deps = member.getDependenciesOfType(Constants.IMAGE_DEPENDENCY);
+	  assertNotNull(deps);
+	  assertEquals(1,deps.size());
+	  BosMember dep = deps.iterator().next();
+	  assertEquals("file:/Users/ekimber/workspace/dita4publishers/build/resources/xml_data/docs/dita/link_test_01/images/image_01.jpg", dep.getKey());
+	  Set<DependencyType> depTypes = member.getDependencyTypes();
+	  assertNotNull(depTypes);
+	  assertEquals(1,depTypes.size());
+	  assertTrue(depTypes.contains(Constants.IMAGE_DEPENDENCY));
 	  
+	  depTypes = member.getDependencyTypes(dep.getKey());
+	  assertNotNull(depTypes);
+	  assertTrue(depTypes.contains(Constants.IMAGE_DEPENDENCY));
+	  
+	  DitaBosReporter reporter = new TextDitaBosReporter();
+	  reporter.setPrintStream(System.out);
+	  reporter.report(mapBos, new BosReportOptions());
   }
   
   public void testDitaMapTreeConstruction() throws Exception {

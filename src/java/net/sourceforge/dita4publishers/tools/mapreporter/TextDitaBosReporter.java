@@ -6,9 +6,11 @@ package net.sourceforge.dita4publishers.tools.mapreporter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import net.sourceforge.dita4publishers.api.bos.BosMember;
 import net.sourceforge.dita4publishers.api.bos.BosReportOptions;
+import net.sourceforge.dita4publishers.api.bos.DependencyType;
 import net.sourceforge.dita4publishers.api.dita.DitaApiException;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBosReporter;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
@@ -71,13 +73,17 @@ public class TextDitaBosReporter extends ReporterBase implements DitaBosReporter
 				}
 			}
 		}
-		Collection<BosMember> deps = member.getDependencies().values();
+		Collection<? extends BosMember> deps = member.getDependencies().values();
 		if (deps.size() > 0) {
 			outStream.println();
 			outStream.println(indent + "  + Dependencies:");
 			for (BosMember dep : deps) {
 				if (!childs.contains(dep)) {
-					outStream.println(indent + "    -> " + dep);
+					Set<DependencyType> depTypes = member.getDependencyTypes(dep.getKey());
+					String depTypesReport = DependencyType.DEPENDENCY.toString();
+					if (depTypes != null)
+						depTypesReport = depTypes.toString();
+					outStream.println(indent + "    -> [" + depTypesReport + "] " + dep);
 				}
 			}
 		} else {

@@ -3,11 +3,11 @@
  */
 package net.sourceforge.dita4publishers.api.bos;
 
-import java.io.File;
 import java.io.InputStream;
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import net.sourceforge.dita4publishers.api.PropertyContainer;
 
@@ -77,15 +77,36 @@ public interface BosMember extends PropertyContainer {
 	public abstract InputStream getInputStream() throws BosException;
 
 	/**
-	 * @return
+	 * @return Dependencies as a map of member keys to members.
 	 */
-	public abstract Map<String, BosMember> getDependencies();
+	public abstract Map<String, ? extends BosMember> getDependencies();
 
 	/**
 	 * @param key
-	 * @return
+	 * @return Dependency with the specified key, or null if the specified key is not a dependency. 
 	 */
 	public abstract BosMember getDependency(String key);
+	
+	
+	/**
+	 * Gets the set of dependencies of the specified type.
+	 * @param type DependencyType to return.
+	 * @return Set, possibly empty, of dependencies of the specified type.
+	 */
+	public abstract Set<BosMember> getDependenciesOfType(DependencyType type);
+
+	/**
+	 * Gets the set of dependency types registered for the dependencies of 
+	 * this BOS member.
+	 * @return Set, possibly empty, of dependency types.
+	 */
+	public abstract Set<DependencyType> getDependencyTypes();
+
+	/**
+	 * Gets the set of dependency types the specified member is registered as.
+	 * @return Set, possibly empty, of dependency types.
+	 */
+	public abstract Set<DependencyType> getDependencyTypes(String key);
 
 	/**
 	 * Registers a generic (untyped) dependency.

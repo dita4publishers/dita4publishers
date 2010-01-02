@@ -5,12 +5,13 @@ package net.sourceforge.dita4publishers.api.ditabos;
 
 import net.sourceforge.dita4publishers.api.bos.DependencyType;
 
+
 /**
- * Map to map dependency.
+ * DITA link dependency (created via <link> or <relatatedLinks>).
  */
-public abstract class MapToMapDependency implements DependencyType {
+public class LinkDependency implements DependencyType {
 
 	public String toString() {
-		return "Map to map";
+		return "Link";
 	}
 }

@@ -110,7 +110,7 @@ public class MapBosReporter extends MapBosProcessorBase {
 			String outputFilepath = commandLine.getOptionValue("o");
 			File outputFile = new File(outputFilepath);
 			
-			if (!outputFile.canWrite()) {
+			if (!outputFile.getParentFile().canWrite()) {
 				throw new RuntimeException("File " + outputFile.getAbsolutePath() + " cannot be written to.");
 			}
 			outStream = new PrintStream(outputFile);
@@ -178,7 +178,7 @@ public class MapBosReporter extends MapBosProcessorBase {
 
 	@SuppressWarnings("unchecked")
 	protected DitaBosReporter getBosReporter(PrintStream outStream) throws Exception {
-		String reporterClass = HtmlDitaBosReporter.class.getCanonicalName();
+		String reporterClass = TextDitaBosReporter.class.getCanonicalName();
 		if (commandLine.hasOption(BOS_REPORTER_CLASS_OPTION_ONE_CHAR))
 			reporterClass = commandLine.getOptionValue(BOS_REPORTER_CLASS_OPTION_ONE_CHAR);
 		Class<? extends DitaBosReporter> clazz;

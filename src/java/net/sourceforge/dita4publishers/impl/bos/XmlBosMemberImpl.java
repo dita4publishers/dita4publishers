@@ -3,9 +3,7 @@
  */
 package net.sourceforge.dita4publishers.impl.bos;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -16,7 +14,6 @@ import net.sourceforge.dita4publishers.api.bos.XmlBosMember;
 import net.sourceforge.dita4publishers.util.DomUtil;
 
 import org.w3c.dom.Document;
-
 import org.w3c.dom.Element;
 
 /**

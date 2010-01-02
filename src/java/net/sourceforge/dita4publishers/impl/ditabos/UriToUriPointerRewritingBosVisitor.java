@@ -11,7 +11,6 @@ import net.sourceforge.dita4publishers.api.bos.BosMember;
 import net.sourceforge.dita4publishers.impl.dita.AddressingException;
 import net.sourceforge.dita4publishers.impl.dita.AddressingUtil;
 
-import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Element;
@@ -53,7 +52,6 @@ public class UriToUriPointerRewritingBosVisitor extends
 			throw new AddressingException("URI syntax exception getting parent of URI \"" + member.getEffectiveUri() + "\": " + e.getMessage());
 		}
 		URI depUri = depMember.getEffectiveUri();
-		URI newUri = baseUri.relativize(depUri);
 		String newHref = AddressingUtil.getRelativePath(depUri, baseUri);		
 		log.debug("New href=\"" + newHref + "\"");
 		return newHref;

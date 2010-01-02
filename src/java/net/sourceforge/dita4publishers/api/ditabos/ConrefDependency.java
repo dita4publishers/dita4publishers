@@ -5,12 +5,13 @@ package net.sourceforge.dita4publishers.api.ditabos;
 
 import net.sourceforge.dita4publishers.api.bos.DependencyType;
 
+
 /**
- * Map to topic dependency.
+ * A content reference dependency between two DITA documents.
  */
-public class MapToTopicDependency implements DependencyType {
+public class ConrefDependency implements DependencyType {
 
 	public String toString() {
-		return "Map to topic";
+		return "Conref";
 	}
 }

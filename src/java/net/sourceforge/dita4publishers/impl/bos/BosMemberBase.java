@@ -10,8 +10,10 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import net.sourceforge.dita4publishers.api.bos.BosException;
 import net.sourceforge.dita4publishers.api.bos.BosMember;
@@ -40,7 +42,8 @@ public abstract class BosMemberBase implements BosMember {
 	private URI sourceUri;
 	private URI effectiveUri;
 	private Map<String, Object> properties = new HashMap<String, Object>();
-	private Map<DependencyType, List<? extends BosMember>> dependenciesByType = new HashMap<DependencyType, List<? extends BosMember>>();
+	private Map<DependencyType, Set<BosMember>> dependenciesByType = new HashMap<DependencyType, Set<BosMember>>();
+	private Map<String, Set<DependencyType>> dependencyTypesByKey = new HashMap<String, Set<DependencyType>>();
 
 	/**
 	 * @param bos
@@ -93,16 +96,23 @@ public abstract class BosMemberBase implements BosMember {
 	 * element, the fully-qualified URI of the target, a database key, or whatever.
 	 * Intended to enable mapping from original references in member data to
 	 * the target managed object in order to rewrite pointers.
+	 * <p>Note that while a given member is never added to dependencies multiple
+	 * times, it be registered under any number of dependency types.
 	 * @param key
 	 * @param targetMember
 	 */
 	public void registerDependency(String key, BosMember targetMember, DependencyType type) {
 		dependencies.put(key, targetMember);
-		List<? extends BosMember> membersOfType = null;
 		if (!dependenciesByType.containsKey(type)) {
-			membersOfType = new ArrayList<BosMember>();
-			this.dependenciesByType.put(type, membersOfType);
+			this.dependenciesByType.put(type, new HashSet<BosMember>());
 		}
+		
+		this.dependenciesByType.get(type).add(targetMember);
+
+		if (!dependencyTypesByKey.containsKey(targetMember.getKey())) {
+			this.dependencyTypesByKey.put(targetMember.getKey(), new HashSet<DependencyType>());
+		}
+		this.dependencyTypesByKey.get(targetMember.getKey()).add(type);
 	}
 
 	/**
@@ -226,6 +236,20 @@ public abstract class BosMemberBase implements BosMember {
 
 	public void setProperty(String key, Object value) {
 		this.properties.put(key, value);		
+	}
+
+	public Set<DependencyType> getDependencyTypes() {
+		return this.dependenciesByType.keySet();
+	}
+
+	public Set<BosMember> getDependenciesOfType(DependencyType type) {
+		Set<BosMember> resultSet = this.dependenciesByType.get(type);
+		return resultSet;
+	}
+
+	public Set<DependencyType> getDependencyTypes(String key) {
+		Set<DependencyType> resultSet = this.dependencyTypesByKey .get(key);
+		return resultSet;
 	}
 
 	

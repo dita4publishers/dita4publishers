@@ -72,7 +72,7 @@ public class HtmlDitaBosReporter extends ReporterBase implements DitaBosReporter
 			}
 			outStream.println("</ul>");
 		}
-		Collection<BosMember> deps = member.getDependencies().values();
+		Collection<? extends BosMember> deps = member.getDependencies().values();
 		if (deps.size() > 0) {
 			outStream.println("<br/>Dependencies:");
 			outStream.println("<ul>");

@@ -5,12 +5,13 @@ package net.sourceforge.dita4publishers.api.ditabos;
 
 import net.sourceforge.dita4publishers.api.bos.DependencyType;
 
+
 /**
- * Topic to non-DITA resource (e.g., image, Web page) dependency.
+ * Map to resource topicref dependency.
  */
-public class TopicToNonDitaResourceDependency implements DependencyType {
+public class TopicrefDependency implements DependencyType {
 
 	public String toString() {
-		return "Topic to non-DITA resource";
+		return "Map to resource topicref";
 	}
 }
