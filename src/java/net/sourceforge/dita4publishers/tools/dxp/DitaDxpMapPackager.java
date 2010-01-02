@@ -34,6 +34,7 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.commons.cli.PosixParser;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -47,6 +48,10 @@ import org.w3c.dom.Document;
  */
 public class DitaDxpMapPackager extends MapBosProcessorBase {
 	
+	/**
+	 * 
+	 */
+	public static final String DXP_EXTENSION = ".dxp";
 	private static Log log = LogFactory.getLog(DitaDxpMapPackager.class);
 
 	/**
@@ -76,7 +81,7 @@ public class DitaDxpMapPackager extends MapBosProcessorBase {
 			System.exit(-1);
 		}
 		
-		if (!cmdline.hasOption(INPUT_OPTION_ONE_CHAR) || !cmdline.hasOption(OUTPUT_OPTION_ONE_CHAR)) {
+		if (!cmdline.hasOption(INPUT_OPTION_ONE_CHAR)) {
 			HelpFormatter formatter = new HelpFormatter();
 			formatter.printHelp(DitaDxpMapPackager.class.getSimpleName(), cmdlineOptions);
 			System.exit(-1);
@@ -105,8 +110,16 @@ public class DitaDxpMapPackager extends MapBosProcessorBase {
 
 
 
-		String outputFilepath = commandLine.getOptionValue("o");
-		File outputZipFile = new File(outputFilepath);
+		File outputZipFile = null; 
+		String outputFilepath = null;
+		if (commandLine.hasOption(OUTPUT_OPTION_ONE_CHAR)) {
+			outputFilepath = commandLine.getOptionValue(OUTPUT_OPTION_ONE_CHAR);
+			outputZipFile = new File(outputFilepath);
+		} else {
+			File parentDir = mapFile.getParentFile();
+			String nameBase = FilenameUtils.getBaseName(mapFile.getName());
+			outputZipFile = new File(parentDir, nameBase + DXP_EXTENSION);
+		}
 		outputZipFile.getParentFile().mkdirs();
 		
 		if (!outputZipFile.getParentFile().canWrite()) {
@@ -198,6 +211,10 @@ public class DitaDxpMapPackager extends MapBosProcessorBase {
 			URI relativeUri = baseUri.relativize(member.getEffectiveUri());
 			File temp = new File(relativeUri.getPath());
 			String parentPath = temp.getParent();
+			if (parentPath != null && !"".equals(parentPath) && !parentPath.endsWith("/")) {
+				parentPath += "/";
+			}
+			log.debug("parentPath=\"" + parentPath + "\"");
 			if (!"".equals(parentPath) && parentPath != null && !dirs.contains(parentPath)) {
 				entry = new ZipEntry(parentPath);
 				zipOutStream.putNextEntry(entry);
