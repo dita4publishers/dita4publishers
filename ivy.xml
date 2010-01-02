@@ -7,6 +7,7 @@
     <dependency org="apache" name="ant" rev="1.7.1" />
     <dependency org="apache" name="commons-logging" rev="1.1"/>
     <dependency org="apache" name="commons-io" rev="1.4"/>
+    <dependency org="apache" name="commons-cli" rev="1.2"/>
     <dependency org="log4j" name="log4j" rev="1.2.15" transitive="false"/>
     
     <dependency org="apache" name="xml-apis" rev="20080213" />
