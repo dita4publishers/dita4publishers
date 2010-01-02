@@ -163,7 +163,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 						bos.addMember(member, childMember);
 						newMembers.add((BosMember)childMember);
 						if (href != null)
-							member.registerDependency(href, childMember, Constants.TOPTCREF_DEPENDENCY);
+							member.registerDependency(href, childMember, Constants.TOPICREF_DEPENDENCY);
 					}
 				}
 				
@@ -308,11 +308,17 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 					Element link = (Element)links.item(i);
 					Document targetDoc = null;
 					URI targetUri = null;
+					String dependencyKey = null; // Original href or keyref value
 					
 					// If there is a key reference, attempt to resolve it,
 					// then fall back to href, if any.
 					String href = null;
 					DependencyType depType = Constants.LINK_DEPENDENCY;
+					if (DitaUtil.isDitaType(link, "topic/image")) {
+						depType = Constants.IMAGE_DEPENDENCY;
+					} else if (DitaUtil.isDitaType(link, "topic/xref")) {
+						depType = Constants.XREF_DEPENDENCY;
+					}
 					try {
 						if (link.hasAttribute("keyref")) {
 							log.debug("findLinkDependencies(): resolving reference to key \"" + link.getAttribute("keyref") + "\"...");
@@ -325,9 +331,9 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 						if (targetUri == null && targetDoc == null && link.hasAttribute("href")) {
 							log.debug("findLinkDependencies(): resolving reference to href \"" + link.getAttribute("href") + "\"...");
 							href = link.getAttribute("href");
+							dependencyKey = href;
 							if (DitaUtil.isDitaType(link, "topic/image")) {
 								targetUri = AddressingUtil.resolveHrefToUri(link, link.getAttribute("href"), this.failOnAddressResolutionFailure);
-								depType = Constants.IMAGE_DEPENDENCY;
 							} else if (!DitaUtil.targetIsADitaFormat(link) && 
 									   DitaUtil.isLocalOrPeerScope(link)) {
 										targetUri = AddressingUtil.resolveHrefToUri(link, link.getAttribute("href"), this.failOnAddressResolutionFailure);
@@ -337,13 +343,10 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 								if (!href.startsWith("#") && DitaUtil.isLocalOrPeerScope(link)) {
 									targetDoc = AddressingUtil.resolveHrefToDoc(link, link.getAttribute("href"), bosConstructionOptions, this.failOnAddressResolutionFailure);
 								}
-								if (DitaUtil.isDitaType(link, "topic/xref")) {
-									depType = Constants.XREF_DEPENDENCY;
-								} else if (DitaUtil.isDitaType(link, "topic/link")) {
-									depType = Constants.LINK_DEPENDENCY;
-								}
 								
 							}
+						} else {
+							dependencyKey = AddressingUtil.getKeyNameFromKeyref(link);
 						}
 					} catch (AddressingException e) {
 						if (this.failOnAddressResolutionFailure) {
@@ -364,7 +367,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 					}
 					newMembers.add(childMember);
 					// Key references don't need to be rewritten so we only care if an href was used to resolve the dependency
-					member.registerDependency(href, childMember, depType);
+					member.registerDependency(dependencyKey, childMember, depType);
 				}
 				
 			}

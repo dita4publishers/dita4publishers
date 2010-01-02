@@ -97,7 +97,7 @@ public abstract class BosMemberBase implements BosMember {
 	 * Intended to enable mapping from original references in member data to
 	 * the target managed object in order to rewrite pointers.
 	 * <p>Note that while a given member is never added to dependencies multiple
-	 * times, it be registered under any number of dependency types.
+	 * times, it may be registered under any number of dependency types.
 	 * @param key
 	 * @param targetMember
 	 */

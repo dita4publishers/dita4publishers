@@ -12,7 +12,7 @@ public class Constants {
 	public static final ImageDependency IMAGE_DEPENDENCY = new ImageDependency(); 
 	public static final LinkDependency LINK_DEPENDENCY = new LinkDependency(); 
 	public static final ObjectDependency OBJECT_DEPENDENCY = new ObjectDependency(); 
-	public static final TopicrefDependency TOPTCREF_DEPENDENCY = new TopicrefDependency(); 
+	public static final TopicrefDependency TOPICREF_DEPENDENCY = new TopicrefDependency(); 
 	public static final XRefDependency XREF_DEPENDENCY = new XRefDependency(); 
 
 }

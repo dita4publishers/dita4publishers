@@ -13,6 +13,7 @@ import java.util.Map;
 import net.sourceforge.dita4publishers.api.bos.BosException;
 import net.sourceforge.dita4publishers.api.bos.BosMemberValidationException;
 import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
+import net.sourceforge.dita4publishers.util.DitaUtil;
 import net.sourceforge.dita4publishers.util.DomException;
 import net.sourceforge.dita4publishers.util.DomUtil;
 
@@ -362,6 +363,19 @@ public class AddressingUtil {
 		
 		 return relative;
 	 }
+
+	/**
+	 * @param keyrefElem
+	 * @return Key name part of a key reference value.
+	 */
+	public static String getKeyNameFromKeyref(Element keyrefElem) {
+		String keyName = keyrefElem.getAttribute(DitaUtil.DITA_KEYREF_ATTNAME);
+		if (keyName.contains("/")) {
+			String[] parts = keyName.split("/");
+			keyName = parts[0];
+		}
+		return keyName;
+	}
 
  
 }

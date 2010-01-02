@@ -16,7 +16,6 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import net.sourceforge.dita4publishers.api.bos.BosMember;
 import net.sourceforge.dita4publishers.api.bos.BosReportOptions;
-import net.sourceforge.dita4publishers.api.bos.BoundedObjectSet;
 import net.sourceforge.dita4publishers.api.bos.DependencyType;
 import net.sourceforge.dita4publishers.api.ditabos.Constants;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBosReporter;
@@ -74,27 +73,40 @@ public class DitaBosConstructionTest
 	  // mapBos.reportBos(log);
 	  assertEquals(9, mapBos.size());
 
-	  BosMember member = null;
+	  BosMember memberTopic03 = null;
+	  BosMember memberTopic04 = null;
 	  for (BosMember cand : mapBos.getMembers()) {
 		  if (cand.getFileName().equals("topic_03.xml")) {
-			  member = cand;
-			  break;
+			  memberTopic03 = cand;
+		  }
+		  if (cand.getFileName().equals("topic_04.xml")) {
+			  memberTopic04 = cand;
 		  }
 	  }
-	  assertNotNull(member);
-	  Set<BosMember> deps = member.getDependenciesOfType(Constants.IMAGE_DEPENDENCY);
+	  assertNotNull(memberTopic03);
+	  assertNotNull(memberTopic04);
+	  Set<BosMember> deps = memberTopic03.getDependenciesOfType(Constants.IMAGE_DEPENDENCY);
 	  assertNotNull(deps);
 	  assertEquals(1,deps.size());
 	  BosMember dep = deps.iterator().next();
 	  assertEquals("file:/Users/ekimber/workspace/dita4publishers/build/resources/xml_data/docs/dita/link_test_01/images/image_01.jpg", dep.getKey());
-	  Set<DependencyType> depTypes = member.getDependencyTypes();
+	  Set<DependencyType> depTypes = memberTopic03.getDependencyTypes();
 	  assertNotNull(depTypes);
 	  assertEquals(1,depTypes.size());
 	  assertTrue(depTypes.contains(Constants.IMAGE_DEPENDENCY));
 	  
-	  depTypes = member.getDependencyTypes(dep.getKey());
+	  depTypes = memberTopic03.getDependencyTypes(dep.getKey());
 	  assertNotNull(depTypes);
 	  assertTrue(depTypes.contains(Constants.IMAGE_DEPENDENCY));
+	  
+	  Map <String, ? extends BosMember> depMap = memberTopic04.getDependencies();
+	  assertEquals("Expected 2 dependencies", 2, depMap.size());
+	  
+	  depTypes = memberTopic04.getDependencyTypes();
+	  assertEquals("Expected 2 dependency types", 2, depTypes.size());
+	  assertTrue("Expected xref dep type", depTypes.contains(Constants.XREF_DEPENDENCY));
+	  assertTrue("Expected image dep type", depTypes.contains(Constants.IMAGE_DEPENDENCY));
+	  
 	  
 	  DitaBosReporter reporter = new TextDitaBosReporter();
 	  reporter.setPrintStream(System.out);
