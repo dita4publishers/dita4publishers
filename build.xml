@@ -19,12 +19,14 @@
 	
   <property name="dist" location="${basedir}/dist"/>
   <property name="lib" location="${basedir}/lib"/>
-  <property name="src" location="${basedir}/rsuite/src/java"/>
+  <property name="src" location="${basedir}/src/java"/>
+  <property name="rsuite.src" location="${basedir}/rsuite/rsuite.src/java"/>
   <property name="rsuiteSrc" location="${basedir}/rsuite"/>
   <property name="build" location="${basedir}/build"/>
   <property name="temp" location="${basedir}/temp"/>
   <property name="epubTemp" location="${temp}/epub"/>
   <property name="epubBuild" location="${build}/epubs"/>
+  <property name="docs.dir" location="${basedir}/docs"/>
   <property name="docs" location="${basedir}/documentation"/>
   <property name="website.source" location="${docs}/website"/>
   <property name="website.build" location="${build}/website"/>
@@ -43,12 +45,15 @@
   <property name="doctypes-skakespear-samples.src" value="${shakespear-sample}/doctypes"/>
   <property name="xslt.src" location="${basedir}/xslt"/>
 	<property name="target.home" location="${basedir}/target"/>
+	<property name="api-and-tools.dirname" value="d4p-api-and-tools"/>
+	<property name="api-and-tools.target" location="${target.home}/${api-and-tools.dirname}"/>
+  <property name="api-and-tools.dist" location="${dist}/${api-and-tools.dirname}"/>
 
 	<import file="${dita-ot-dir}${file.separator}integrator.xml" optional="yes"/>
   
 
   <property name="lib.home" value="${lib}" />
-  <property name="src.home" value="${basedir}/rsuite/src" />
+  <property name="src.home" value="${basedir}/src" />
   <property name="src.java.home" value="${src.home}/java" />
 
   <property name="resources.home" value="${src.home}/resources" />
@@ -155,6 +160,15 @@
 		<mkdir dir="${package.dist}"/>
   </target>
 	
+  <target name="dist-api-and-tools" description="Create distribution package for API and tools materials."
+  	depends="package-api-and-tools">
+    <zip destfile="${dist}/${api-and-tools.dirname}-${package.date}.zip">
+      <fileset dir="${api-and-tools.target}">
+      	<include name="**/*"/>
+      </fileset>
+    </zip>    
+  </target>
+  
 	<target name="dist-epub-plugin">
     <delete failonerror="true" includeemptydirs="true">
       <fileset dir="${plugin.dist}" includes="net.sourceforge.dita4publishers.epub/**"/>
@@ -307,6 +321,22 @@
 			<param name="mapname" value="wizard-of-oz"/>
 			<param name="sampleRootDir" value="${sampledata}"/>
 		</antcall>
+	  </target>
+	  
+	<target name="html-api-and-tools-docs" description="Generate HTML for API and tools documentation">
+    <ant antfile="${dita-ot-dir}${file.separator}build.xml"
+      dir="${dita-ot-dir}"
+      target="dita2xhtml"      
+      >
+      <property name="args.input" location="${docs.dir}/user_docs/dita-api-and-tools.ditamap"/>
+      <property name="transtype" value="xhtml"/>
+      <property name="args.outext" value="html"/>
+      <property name="args.xhtml.toc" value="index"/>
+      <property name="dita.dir" location="${dita-ot-dir}"/>
+      <property name="dita.temp.dir" location="${temp}/dita-temp"/>
+      <property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
+      <property name="output.dir" location="${website.build}"/>
+    </ant>
 	</target>
 	
 	<target name="epub-map">
@@ -343,16 +373,19 @@
 				<include name="${mapname}.epub"/>
 		  </fileset>
 		</move>
+	  </target>
+
+	 <target name="init-web-site">
+	    <delete includeEmptyDirs="true" failonerror="false">
+	      <fileset dir="${website.build}"  includes="*/**"/>
+	    </delete>
 	</target>
 
-	 <target name="generate-web-site">
-    <delete includeEmptyDirs="true" failonerror="false">
-      <fileset dir="${website.build}"  includes="*/**"/>
-    </delete>
+	 <target name="generate-web-site" depends="init-web-site, html-api-and-tools-docs">
  	
     <ant antfile="${dita-ot-dir}${file.separator}build.xml"
       dir="${dita-ot-dir}"
-      target="dita2xhtml"
+      target="dita2html"
       
       >
       <property name="args.input" location="${docs}/website/dita4publishers.ditamap"/>
@@ -373,6 +406,8 @@
 	<target name="init-target">
     <delete dir="${target.home}" failonerror="false"/>
     <mkdir dir="${target.home}"/>
+		<mkdir dir="${api-and-tools.target}"/>
+    <mkdir dir="${api-and-tools.target}/lib"/>
   </target>
 	
   <target name="compile" depends="init">
@@ -388,6 +423,83 @@
       <classpath refid="classpath.base"/>
     </javac>    
   </target>
+	
+	<target name="jar-tools" depends="init, init-target, compile, jar-api" 
+	  description="Create jar for tools and implementation components">
+		<jar destfile="${api-and-tools.target}/lib/dita4publishers-dita-impl.jar" basedir="${classes.home}">
+			<include name="net/sourceforge/dita4publishers/impl/**/**.*"/>
+      <include name="net/sourceforge/dita4publishers/tools/common/**.*"/>
+      <include name="net/sourceforge/dita4publishers/util/**/**.*"/>
+		</jar>
+    <jar destfile="${api-and-tools.target}/dita4publishers-mapbosreporter.jar" basedir="${classes.home}">
+      <include name="net/sourceforge/dita4publishers/tools/mapreporter/**/**.*"/>
+      <manifest>
+        <attribute name="Main-Class" value="net.sourceforge.dita4publishers.tools.mapreporter.MapBosReporter"/>
+        <attribute name="Class-Path" value=". 
+          lib/.
+          lib/dita4publishers-dita-api.jar
+          lib/dita4publishers-dita-impl.jar
+          lib/commons-logging.jar
+          lib/commons-cli.jar
+          lib/commons-io.jar
+          lib/log4j.jar
+          lib/resolver.jar
+          lib/xml-apis.jar
+          lib/xercesImpl.jar
+          lib/saxon9.jar
+          lib/saxon9-dom.jar
+          lib/saxon9-s9api.jar
+          lib/saxon9-xpath.jar
+              "
+        />
+      </manifest>
+    </jar>
+    <jar destfile="${api-and-tools.target}/dita4publishers-dxppackager.jar" basedir="${classes.home}">
+      <include name="net/sourceforge/dita4publishers/tools/dxp/**/**.*"/>
+      <manifest>
+        <attribute name="Main-Class" value="net.sourceforge.dita4publishers.tools.dxp.DitaDxpMapPackager"/>
+        <attribute name="Class-Path" value=". 
+          lib/.
+          lib/dita4publishers-dita-api.jar
+          lib/dita4publishers-dita-impl.jar
+          lib/commons-logging.jar
+          lib/commons-cli.jar
+          lib/commons-io.jar
+          lib/log4j.jar
+          lib/resolver.jar
+          lib/xml-apis.jar
+          lib/xercesImpl.jar
+          lib/saxon9.jar
+          lib/saxon9-dom.jar
+          lib/saxon9-s9api.jar
+          lib/saxon9-xpath.jar
+              "
+        />
+      </manifest>
+    </jar>
+	  </target>
+	  
+	<target name="javadoc-api-and-tools" depends="init, init-target, compile" 
+	    description="Generate Javadoc for API and">
+		<javadoc
+			access="public"
+			destdir="${api-and-tools.target}/docs/javadoc"
+		  classpathref="classpath.base"
+			overview="${src}/net/sourceforge/dita4publishers/overview.html"
+			>
+			<fileset dir="${src}">
+				<include name="net/sourceforge/dita4publishers/**/*.java"/>
+			</fileset>
+		</javadoc>
+	</target>
+  
+  <target name="jar-api" depends="init, init-target, compile" 
+    description="Create jar for API components">
+  	<mkdir dir="${api-and-tools.target}/lib"/>
+    <jar destfile="${api-and-tools.target}/lib/dita4publishers-dita-api.jar" basedir="${classes.home}">
+      <include name="net/sourceforge/dita4publishers/api/**/**.*"/>
+    </jar>
+  </target>
   
 
 	
@@ -395,7 +507,7 @@
     <!-- NOTE: The RSuite plugin only packages Web-accessible resources.
                It contains no Java code.
       -->
-  	<copy file="${src}/rsuite-plugin.xml" todir="${classes.home}"/>
+  	<copy file="${rsuite.src}/rsuite-plugin.xml" todir="${classes.home}"/>
     <copy todir="${classes.home}/WebContent/xslt">
       <fileset dir="${xslt.src}"/>
     </copy>
@@ -408,6 +520,27 @@
     </jar>
   </target>
 	
+  <target name="package-api-and-tools" depends="init-target, jar-api, jar-tools, javadoc-api-and-tools">
+  	<mkdir dir="${target.home}/d4p-api-and-tools"/>
+  	<copy todir="${api-and-tools.target}/lib">
+  		<fileset dir="${lib}">
+        <include name="log4j.properties"/>
+        <include name="dita4publishers-dita-api.jar"/>
+    		<include name="commons-logging.jar"/>
+    		<include name="commons-cli.jar"/>
+    		<include name="commons-io.jar"/>
+    		<include name="log4j.jar"/>
+    		<include name="resolver.jar"/>
+    		<include name="xml-apis.jar"/>
+    		<include name="xercesImpl.jar"/>
+    		<include name="saxon9.jar"/>
+    		<include name="saxon9-dom.jar"/>
+    		<include name="saxon9-s9api.jar"/>
+    		<include name="saxon9-xpath.jar"/>
+  	  </fileset>
+  	</copy>
+  </target>
+  
 	<target name="deploy-rsuite-plugins-locally" description="Deploy the plugin to a local server's plugin directory"
 	  depends="package-rsuite-plugins"
 	  >
