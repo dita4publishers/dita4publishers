@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<topic
+  id="topic-1"
+  class="- topic/topic "
+  ditaarch:DITAArchVersion="1.2"
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+  <title
+    class="- topic/title ">Topic 04</title>
+  <body>
+    <p>This is topic 04.</p>
+    <p>XRef to topic 01 via key: <xref
+        keyref="key-01"
+        class="- topic/xref ">topic 01</xref>.</p>
+    <p>Reference to a graphic via key: <image
+        href="bogus-garbage"
+        keyref="key-06"
+        class="- topic/image "/></p>
+  </body>
+</topic>
