@@ -20,7 +20,7 @@
   <property name="dist" location="${basedir}/dist"/>
   <property name="lib" location="${basedir}/lib"/>
   <property name="src" location="${basedir}/src/java"/>
-  <property name="rsuite.src" location="${basedir}/rsuite/rsuite.src/java"/>
+  <property name="rsuite.src" location="${basedir}/rsuite/src/java"/>
   <property name="rsuiteSrc" location="${basedir}/rsuite"/>
   <property name="build" location="${basedir}/build"/>
   <property name="temp" location="${basedir}/temp"/>
