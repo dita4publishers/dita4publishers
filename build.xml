@@ -198,7 +198,7 @@
     </zip>
   </target>
 	
-	<target name="package-delivery" depends="dist-init, package-toolkit-plugins, package-epub-plugin"
+	<target name="package-delivery" depends="dist-init, package-toolkit-plugins, package-epub-plugin, package-api-and-tools"
 		description="Create distributable package of all the deliverables"
 		>
     <copy todir="${package.dist}/xslt">
