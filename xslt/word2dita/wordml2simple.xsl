@@ -179,7 +179,11 @@
       <xsl:if test="false() and $debugBoolean">        
         <xsl:message> + [DEBUG] handlePara: p="<xsl:sequence select="substring(normalize-space(.), 1, 40)"/>"</xsl:message>
       </xsl:if>
-      <xsl:for-each-group select="w:r | w:hyperlink" group-adjacent="name(.)">
+      <!-- FIXME: This code is not doing anything specific with smartTag elements, just
+                  processing their children. Doing something intelligent with smartTags
+                  would require additional logic.
+        -->
+      <xsl:for-each-group select="w:r | w:hyperlink | w:smartTag/w:r" group-adjacent="name(.)">
         <xsl:choose>
           <xsl:when test="current-group()[1][self::w:hyperlink]">
             <!-- FIXME: This is a hack. Correct processing of hyperlinks needs to be
@@ -198,6 +202,14 @@
                 <xsl:with-param name="runSequence" select="current-group()"/>
               </xsl:call-template>
             </xsl:for-each-group>            
+          </xsl:when>
+          <xsl:when test="current-group()[1][self::w:smartTag]">
+            <xsl:message> + [DEBUG] *** got a w:smartTag. current-group=<xsl:sequence select="current-group()"/></xsl:message>
+            <xsl:for-each select="current-group()">
+              <xsl:call-template name="handleRunSequence">
+                <xsl:with-param name="runSequence" select="w:r"/>
+              </xsl:call-template>              
+            </xsl:for-each>
           </xsl:when>
           <xsl:otherwise>
             <xsl:message terminate="yes"> - [ERROR] handlePara(): Unhandled element type <xsl:sequence select="name(.)"/></xsl:message>
@@ -243,6 +255,10 @@
   </xsl:template>
   
   <xsl:template match="w:r">
+    <xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="w:smartTag">
     <xsl:apply-templates/>
   </xsl:template>
   
