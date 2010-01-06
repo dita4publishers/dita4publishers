@@ -429,6 +429,7 @@
 		<jar destfile="${api-and-tools.target}/lib/dita4publishers-dita-impl.jar" basedir="${classes.home}">
 			<include name="net/sourceforge/dita4publishers/impl/**/**.*"/>
       <include name="net/sourceforge/dita4publishers/tools/common/**.*"/>
+      <include name="net/sourceforge/dita4publishers/tools/dxp/**.*"/>
       <include name="net/sourceforge/dita4publishers/util/**/**.*"/>
 		</jar>
     <jar destfile="${api-and-tools.target}/dita4publishers-mapbosreporter.jar" basedir="${classes.home}">
@@ -455,9 +456,32 @@
       </manifest>
     </jar>
     <jar destfile="${api-and-tools.target}/dita4publishers-dxppackager.jar" basedir="${classes.home}">
-      <include name="net/sourceforge/dita4publishers/tools/dxp/**/**.*"/>
+      <include name="net/sourceforge/dita4publishers/tools/ditadxpmappackager/**/**.*"/>
       <manifest>
-        <attribute name="Main-Class" value="net.sourceforge.dita4publishers.tools.dxp.DitaDxpMapPackager"/>
+        <attribute name="Main-Class" value="net.sourceforge.dita4publishers.tools.ditadxpmappackager.DitaDxpMapPackager"/>
+        <attribute name="Class-Path" value=". 
+          lib/.
+          lib/dita4publishers-dita-api.jar
+          lib/dita4publishers-dita-impl.jar
+          lib/commons-logging.jar
+          lib/commons-cli.jar
+          lib/commons-io.jar
+          lib/log4j.jar
+          lib/resolver.jar
+          lib/xml-apis.jar
+          lib/xercesImpl.jar
+          lib/saxon9.jar
+          lib/saxon9-dom.jar
+          lib/saxon9-s9api.jar
+          lib/saxon9-xpath.jar
+              "
+        />
+      </manifest>
+    </jar>
+    <jar destfile="${api-and-tools.target}/dita4publishers-dxpunpacker.jar" basedir="${classes.home}">
+      <include name="net/sourceforge/dita4publishers/tools/ditadxpunpacker/**/**.*"/>
+      <manifest>
+        <attribute name="Main-Class" value="net.sourceforge.dita4publishers.tools.ditadxpunpacker.DitaDxpUnpacker"/>
         <attribute name="Class-Path" value=". 
           lib/.
           lib/dita4publishers-dita-api.jar
