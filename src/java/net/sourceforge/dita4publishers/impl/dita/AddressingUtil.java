@@ -3,6 +3,7 @@ package net.sourceforge.dita4publishers.impl.dita;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.JarURLConnection;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -143,7 +144,7 @@ public class AddressingUtil {
 					if (href.contains("#"))
 						href = href.substring(0,href.indexOf("#"));
 					URI baseUri = new URI(baseUriStr);
-					targetUri = baseUri.resolve(href);
+					targetUri = resolveUri(baseUri, href);
 				} catch (Exception e) {
 					if (failOnAddressResolutionFailure) {
 						throw new AddressingException("Failed to resolve href \"" + href + "\": " + e.getClass().getSimpleName() + ": " + e.getMessage());
@@ -179,8 +180,9 @@ public class AddressingUtil {
 					resourceUriStr = resourceUriStr.replace("\\", "/");
 				}
 				try {
-					URI baseUri = new URI(baseUriStr);
-					URI targetUri = baseUri.resolve(resourceUriStr);
+					URI baseUri = AddressingUtil.getParent(new URI(baseUriStr));
+					
+					URI targetUri = resolveUri(baseUri, resourceUriStr);
 					Map<URI, Document>domCache = domOptions.getDomCache();
 					if (domCache.containsKey(targetUri))
 						return domCache.get(targetUri);
@@ -203,6 +205,23 @@ public class AddressingUtil {
 				}
 				return targetDoc;
 			}
+
+	public static URI resolveUri(URI baseUri, String resourceUriStr)
+			throws URISyntaxException, MalformedURLException {
+		URI targetUri = null;
+		if (baseUri.toString().startsWith("jar:")) {
+			URI temp = new URI(resourceUriStr);
+			if (temp.isAbsolute()) {
+				targetUri = temp;
+			} else {
+				URL targetUrl = new URL(baseUri.toURL(), resourceUriStr);
+				targetUri = targetUrl.toURI();
+			}
+		} else {
+			targetUri = baseUri.resolve(resourceUriStr);
+		}
+		return targetUri;
+	}
 
 	/**
 	 * Resolves the @data attribute of an object element to its resource, if @data
@@ -257,6 +276,10 @@ public class AddressingUtil {
 				return null; // Not relative to the base URI, not a local/peer resource.
 		} catch (URISyntaxException e) {
 			throw new AddressingException("URI syntax exception: " + e.getMessage(), e);
+		} catch (MalformedURLException e) {
+			throw new AddressingException("Malformed URL exception: " + e.getMessage(), e);
+		} catch (IOException e) {
+			throw new AddressingException("IO exception: " + e.getMessage(), e);
 		}
 		
 		boolean exists = true;
@@ -293,16 +316,49 @@ public class AddressingUtil {
 	 * @param uri URI to get the parent of.
 	 * @return URI of the parent. Note that the path always ends in "/".
 	 * @throws URISyntaxException
+	 * @throws IOException 
+	 * @throws MalformedURLException 
 	 */
-	public static URI getParent(URI uri) throws URISyntaxException {
+	public static URI getParent(URI uri) throws URISyntaxException, MalformedURLException, IOException {
+		
+		if (uri.toString().startsWith("jar:")) {
+			JarURLConnection jarConn = (JarURLConnection)(uri.toURL().openConnection());
+			String entryName = jarConn.getEntryName();
+			String parentPath = "";
 
-        String parentPath = new File(uri.getPath()).getParent() + "/";
+			if (entryName != null) {
+				parentPath = (new File(entryName)).getParent();				
+			}
+			String jarUrlStr = "jar:" + jarConn.getJarFileURL().toExternalForm() + "!/";
+			URL jarUrl = new URL(jarUrlStr);
+			URL parentUrl = null;
+			if (parentPath != null)
+				parentUrl = new URL(jarUrl, parentPath + "/");
+			else 
+				parentUrl = jarUrl;
+			return parentUrl.toURI();
+			
+		} else {		
+			String parentPath = null;
+			File baseFile = null;
+			String path = uri.getPath();
+			if (path != null) {
+				baseFile = new File(path);
+			} else {
+				throw new RuntimeException("getPath() on URI \"" + uri + "\" returned null"); 
+			}
+	        parentPath = baseFile.getParent();
+	        if(parentPath == null) {
+	            return new URI("../");
+	        }
+	        if (!"/".equals(parentPath)) {
+	        	parentPath += "/";
+	        }
 
-        if(parentPath == null) {
-            return new URI("../");
-        }
+	        return new URI(uri.getScheme(), uri.getUserInfo(), uri.getHost(), uri.getPort(), parentPath.replace('\\', '/'), uri.getQuery(), uri.getFragment());
+		}
 
-        return new URI(uri.getScheme(), uri.getUserInfo(), uri.getHost(), uri.getPort(), parentPath.replace('\\', '/'), uri.getQuery(), uri.getFragment());
+
     }
 
 	/**
@@ -319,8 +375,32 @@ public class AddressingUtil {
 		 //  separator -- otherwise they are indistinguishable from files.
 		 String pathSeparator = "/";
 		 String targetPath = targetUri.getPath();
-		 String[] base = baseUri.getPath().split(pathSeparator);
-		 String[] target = targetPath.split(pathSeparator);
+		 String[] base; 
+		 String[] target;
+		 if (baseUri.toString().startsWith("jar:")) {
+			 try {
+				JarURLConnection conn = (JarURLConnection)(baseUri.toURL().openConnection());
+				String entryName = conn.getEntryName();
+				if (entryName == null)
+					entryName = pathSeparator;
+				base = entryName.split(pathSeparator);
+				if (!targetUri.toString().startsWith("jar:")) {
+					throw new RuntimeException("Base URI is a jar URI but target URI is not, got \"" + targetUri.toString() + "\"");
+				}
+				conn = (JarURLConnection)(targetUri.toURL().openConnection());
+				entryName = conn.getEntryName();
+				if (entryName == null)
+					entryName = pathSeparator;
+				targetPath = entryName;
+				target = conn.getEntryName().split(pathSeparator);
+			} catch (Exception e) {
+				throw new RuntimeException("Unexpected exception from jar: URL: " + e.getMessage());
+			}
+			 
+		 } else {
+			 base = baseUri.getPath().split(pathSeparator);
+			 target = targetPath.split(pathSeparator);
+		 }
 		
 		 //  First get all the common elements. Store them as a string,
 		 //  and also count how many of them there are. 

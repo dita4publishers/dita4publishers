@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?><?workdir /Users/ekimber/workspace/dita4publishers/test/java/resources/xml_data/docs/dita/bookmap_01/temp/topics?><?path2project ../?><topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" id="topic-1" ditaarch:DITAArchVersion="1.2" domains="(topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    " class="- topic/topic " xtrf="/Users/ekimber/workspace/dita4publishers/test/java/resources/xml_data/docs/dita/bookmap_01/topics/topic-01.xml" xtrc="topic:1">
+  <title class="- topic/title " xtrf="/Users/ekimber/workspace/dita4publishers/test/java/resources/xml_data/docs/dita/bookmap_01/topics/topic-01.xml" xtrc="title:1">Topic 01</title>
+  <body class="- topic/body " xtrf="/Users/ekimber/workspace/dita4publishers/test/java/resources/xml_data/docs/dita/bookmap_01/topics/topic-01.xml" xtrc="body:1">
+    <p class="- topic/p " xtrf="/Users/ekimber/workspace/dita4publishers/test/java/resources/xml_data/docs/dita/bookmap_01/topics/topic-01.xml" xtrc="p:1">Topic 01</p>
+  </body>
+</topic>

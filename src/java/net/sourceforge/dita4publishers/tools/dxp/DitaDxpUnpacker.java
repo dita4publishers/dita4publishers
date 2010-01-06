@@ -28,23 +28,23 @@ import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Document;
 
 /**
- * Command-line utility to create and manage DITA Interchange Packages (DXP).
+ * Command-line utility to unpack DITA Interchange Packages (DXP).
  * <p>A DITA Interchange Package is a Zip file containing some or all of the
  * dependencies used from a root map.
  * </p>
  */
-public class DitaDxpMapPackager extends MapBosProcessorBase {
+public class DitaDxpUnpacker extends MapBosProcessorBase {
 	
 	/**
 	 * 
 	 */
 	public static final String DXP_EXTENSION = ".dxp";
-	private static Log log = LogFactory.getLog(DitaDxpMapPackager.class);
+	private static Log log = LogFactory.getLog(DitaDxpUnpacker.class);
 
 	/**
 	 * @param line
 	 */
-	public DitaDxpMapPackager(CommandLine line) {
+	public DitaDxpUnpacker(CommandLine line) {
 		this.commandLine = line;
 	}
 
@@ -64,18 +64,18 @@ public class DitaDxpMapPackager extends MapBosProcessorBase {
 		}
 		catch( ParseException exp ) {
 			HelpFormatter formatter = new HelpFormatter();
-			formatter.printHelp(DitaDxpMapPackager.class.getSimpleName(), cmdlineOptions);
+			formatter.printHelp(DitaDxpUnpacker.class.getSimpleName(), cmdlineOptions);
 			System.exit(-1);
 		}
 		
 		if (!cmdline.hasOption(INPUT_OPTION_ONE_CHAR)) {
 			HelpFormatter formatter = new HelpFormatter();
-			formatter.printHelp(DitaDxpMapPackager.class.getSimpleName(), cmdlineOptions);
+			formatter.printHelp(DitaDxpUnpacker.class.getSimpleName(), cmdlineOptions);
 			System.exit(-1);
 		}
 		
 		
-		DitaDxpMapPackager app = new DitaDxpMapPackager(cmdline);
+		DitaDxpUnpacker app = new DitaDxpUnpacker(cmdline);
 		try {
 			app.run();
 		} catch (Exception e) {
@@ -90,52 +90,34 @@ public class DitaDxpMapPackager extends MapBosProcessorBase {
 	 * 
 	 */
 	private void run() throws Exception {
-		String mapFilepath = commandLine.getOptionValue("i");
-		File mapFile = new File(mapFilepath);
-		checkExistsAndCanReadSystemExit(mapFile);
-		System.err.println("Processing map \"" + mapFile.getAbsolutePath() + "\"...");
-
-
-
-		File outputZipFile = null; 
-		String outputFilepath = null;
-		if (commandLine.hasOption(OUTPUT_OPTION_ONE_CHAR)) {
-			outputFilepath = commandLine.getOptionValue(OUTPUT_OPTION_ONE_CHAR);
-			outputZipFile = new File(outputFilepath);
-		} else {
-			File parentDir = mapFile.getParentFile();
-			String nameBase = FilenameUtils.getBaseName(mapFile.getName());
-			outputZipFile = new File(parentDir, nameBase + DXP_EXTENSION);
+		
+		String dxpFilepath = commandLine.getOptionValue(INPUT_OPTION_ONE_CHAR);
+		File dxpFile = new File(dxpFilepath);
+		checkExistsAndCanReadSystemExit(dxpFile);
+		System.err.println("Processing DXP package \"" + dxpFile.getAbsolutePath() + "\"...");
+		
+		String outputDirpath = commandLine.getOptionValue(OUTPUT_OPTION_ONE_CHAR);
+		File outputDir = new File(outputDirpath);
+		if (outputDir.exists() && !outputDir.isDirectory()) {
+			System.err.println("Output directory \"" + outputDirpath + "\" is not a directory.");
+			System.exit(1);
 		}
-		outputZipFile.getParentFile().mkdirs();
 		
-		if (!outputZipFile.getParentFile().canWrite()) {
-			throw new RuntimeException("File " + outputZipFile.getAbsolutePath() + " cannot be written to.");
+		outputDir.mkdirs();
+		if (!outputDir.exists()) {
+			System.err.println("Failed to create output directory \"" + outputDirpath + "\".");
+			System.exit(1);
 		}
-				
-		Document rootMap = null;
-		BosConstructionOptions bosOptions = new BosConstructionOptions(log, new HashMap<URI, Document>());
 		
-		setupCatalogs(bosOptions);
-		
+		if (!outputDir.canWrite()) {
+			System.err.println("Cannot write to output directory \"" + outputDirpath + "\".");
+			System.exit(1);
+		}
 		
 		try {
-			URL rootMapUrl = mapFile.toURL();
-			rootMap = DomUtil.getDomForUri(new URI(rootMapUrl.toExternalForm()), bosOptions);
-			Date startTime = TimingUtils.getNowTime();
-			DitaBoundedObjectSet mapBos = DitaBosHelper.calculateMapBos(bosOptions,log, rootMap);
-			System.err.println("Map BOS construction took " + TimingUtils.reportElapsedTime(startTime));
-			
-			// Do packaging here
-			
-			DitaDxpOptions options = new DitaDxpOptions();
-			
-			DitaDxpHelper.zipMapBos(mapBos, outputZipFile, options);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			// Do final stuff here.
+			DitaDxpHelper.unpackDxpPackage(dxpFile, outputDir, new DitaDxpOptions());
+		} catch (DitaDxpException e) {
+			System.err.println("DITA DXP Error: " + e.getMessage());
 		}
 
 	}
@@ -145,7 +127,9 @@ public class DitaDxpMapPackager extends MapBosProcessorBase {
 	 */
 	private static Options configureOptions() {
 		Options options = configureOptionsBase();
-		
+			
+		options.getOption(INPUT_OPTION_ONE_CHAR).setDescription("DXP file to unpack.");
+		options.getOption(OUTPUT_OPTION_ONE_CHAR).setDescription("Directory the DXP package is unpacked into.");
 
 		return options;
 	}

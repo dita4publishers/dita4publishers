@@ -20,6 +20,8 @@ public abstract class BosVisitorBase implements BosVisitor {
 
 	protected Log log = LogFactory.getLog(BosVisitorBase.class);
 	protected ExecutionContext context;
+	protected BoundedObjectSet bos;
+	protected BosMember rootMember;
 
 
 	/**
@@ -50,6 +52,8 @@ public abstract class BosVisitorBase implements BosVisitor {
 	public void visit(BoundedObjectSet bos)
 			throws BosException {
 		// By default, just iterate over the members as a flat list.
+		this.bos = bos;
+		this.rootMember = bos.getRoot();
 		for (BosMember member : bos.getMembers()) {
 			member.accept(this);
 		}

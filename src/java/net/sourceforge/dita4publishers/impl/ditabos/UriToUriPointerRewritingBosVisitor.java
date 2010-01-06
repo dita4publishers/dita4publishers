@@ -3,6 +3,8 @@
  */
 package net.sourceforge.dita4publishers.impl.ditabos;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -50,6 +52,10 @@ public class UriToUriPointerRewritingBosVisitor extends
 			baseUri = AddressingUtil.getParent(member.getEffectiveUri());
 		} catch (URISyntaxException e) {
 			throw new AddressingException("URI syntax exception getting parent of URI \"" + member.getEffectiveUri() + "\": " + e.getMessage());
+		} catch (MalformedURLException e) {
+			throw new AddressingException("MalformedURLException getting parent of URI \"" + member.getEffectiveUri() + "\": " + e.getMessage());
+		} catch (IOException e) {
+			throw new AddressingException("IOException getting parent of URI \"" + member.getEffectiveUri() + "\": " + e.getMessage());
 		}
 		URI depUri = depMember.getEffectiveUri();
 		String newHref = AddressingUtil.getRelativePath(depUri, baseUri);		

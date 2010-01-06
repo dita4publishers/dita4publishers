@@ -5,7 +5,10 @@ package net.sourceforge.dita4publishers.impl.ditabos;
 
 import net.sourceforge.dita4publishers.api.bos.BosException;
 import net.sourceforge.dita4publishers.api.bos.BosMember;
+import net.sourceforge.dita4publishers.api.ditabos.DitaBosMember;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBosVisitor;
+import net.sourceforge.dita4publishers.api.ditabos.DitaMapBosMember;
+import net.sourceforge.dita4publishers.api.ditabos.DitaTopicBosMember;
 import net.sourceforge.dita4publishers.impl.bos.BosVisitorBase;
 
 import org.apache.commons.logging.Log;
@@ -23,18 +26,18 @@ public abstract class DitaBosVisitorBase extends BosVisitorBase implements
 		super(log);
 	}
 
-	public void visit(DitaBosMemberImpl ditaBosMember) throws BosException {
+	public void visit(DitaBosMember ditaBosMember) throws BosException {
 		visit((BosMember)ditaBosMember);
 	}
 
-	public void visit(DitaMapBosMemberImpl bosMember) throws BosException {
-		visit((DitaBosMemberImpl)bosMember);
+	public void visit(DitaMapBosMember bosMember) throws BosException {
+		visit((DitaBosMember)bosMember);
 		
 	}
 
 
-	public void visit(DitaTopicBosMemberImpl bosMember) throws BosException {
-		visit((DitaBosMemberImpl)bosMember);
+	public void visit(DitaTopicBosMember bosMember) throws BosException {
+		visit((DitaBosMember)bosMember);
 		
 	}
 	

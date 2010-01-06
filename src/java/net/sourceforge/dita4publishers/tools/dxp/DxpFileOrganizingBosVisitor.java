@@ -3,6 +3,7 @@
  */
 package net.sourceforge.dita4publishers.tools.dxp;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -98,6 +99,10 @@ public class DxpFileOrganizingBosVisitor extends BosVisitorBase implements
 			this.baseUri = AddressingUtil.getParent(rootMapUri);
 		} catch (URISyntaxException e) {
 			throw new BosException("URI syntax exception calculating base URI for root map: " + e.getMessage());
+		} catch (MalformedURLException e) {
+			throw new BosException("MalformedURLException calculating base URI for root map: " + e.getMessage());
+		} catch (IOException e) {
+			throw new BosException("IOException calculating base URI for root map: " + e.getMessage());
 		}
 		
 		this.rewriteRequired = false;
@@ -111,6 +116,10 @@ public class DxpFileOrganizingBosVisitor extends BosVisitorBase implements
 				memberBase = AddressingUtil.getParent(memberUri);
 			} catch (URISyntaxException e) {
 				throw new BosException("URI syntax exception: " + e.getMessage() + " getting base URI for member " + member);
+			} catch (MalformedURLException e) {
+				throw new BosException("MalformedURLException: " + e.getMessage() + " getting base URI for member " + member);
+			} catch (IOException e) {
+				throw new BosException("IOException: " + e.getMessage() + " getting base URI for member " + member);
 			}
 			URI relativeUri = baseUri.relativize(memberUri);
 			boolean isAbsolute = relativeUri.isAbsolute();
