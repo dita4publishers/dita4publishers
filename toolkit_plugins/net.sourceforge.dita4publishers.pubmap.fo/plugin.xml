@@ -1,0 +1,15 @@
+<!-- 
+  Plugin descriptor for the DITA4Publishers pubmap map domain PDF2 extensions
+  
+  Copyright (c) 2010 DITA For Publishers
+  
+  This plugin provides both a Customization/ directory (used by setting
+  a parameter to the PDF2 Ant task) as well as extensions and overrides
+  of the base DITA-to-FO XSLTs.  
+  -->
+<plugin id="net.sourceforge.dita4publishers.pubmap.fo">
+  <require plugin="net.sourceforge.dita4publishers.xml-d.fo"/> 
+  <feature extension="dita.xsl.xslfo"
+      value="xsl/pubmap2xslfo.xsl" type="file"/>
+      
+</plugin>
