@@ -48,7 +48,8 @@ public class DitaBosHelper {
 		
 		DitaBoundedObjectSet bos = new DitaBoundedObjectSetImpl(bosOptions);
 		
-		log.info("calculateMapBos(): Starting map BOS calculation...");
+		if (!bosOptions.isQuiet())
+			log.info("calculateMapBos(): Starting map BOS calculation...");
 		
 		Element elem = rootMap.getDocumentElement();
 		if (!DitaUtil.isDitaMap(elem) && !DitaUtil.isDitaTopic(elem)) {
@@ -67,7 +68,8 @@ public class DitaBosHelper {
 		walker.setRootObject(rootMap);
 		walker.walk(bos);
 		
-		log.info("calculateMapBos(): Returning BOS. BOS has " + bos.size() + " members.");
+		if (!bosOptions.isQuiet())
+			log.info("calculateMapBos(): Returning BOS. BOS has " + bos.size() + " members.");
 		return bos;
 	}
 

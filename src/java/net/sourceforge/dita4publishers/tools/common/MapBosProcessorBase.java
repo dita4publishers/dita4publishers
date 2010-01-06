@@ -6,6 +6,7 @@ package net.sourceforge.dita4publishers.tools.common;
 import java.io.File;
 
 import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
+import net.sourceforge.dita4publishers.tools.dxp.DitaDxpOptions;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Option;
@@ -16,6 +17,10 @@ import org.apache.commons.cli.Options;
  */
 public abstract class MapBosProcessorBase {
 
+	/**
+	 * 
+	 */
+	public static final String QUIET_OPTION_ONE_CHAR = "q";
 	/**
 	 * 
 	 */
@@ -61,6 +66,12 @@ public abstract class MapBosProcessorBase {
 		
 	}
 
+	protected void handleCommonDxpOptions(DitaDxpOptions options) {
+		if (commandLine.hasOption(QUIET_OPTION_ONE_CHAR)) {
+			options.setQuiet(true);
+		}
+	}
+
 	protected static void checkExistsAndCanReadSystemExit(File file) {
 		try {
 			checkExistsAndCanRead(file);
@@ -93,7 +104,7 @@ public abstract class MapBosProcessorBase {
 		options.addOption(OUTPUT_OPTION_ONE_CHAR, "out", true, "(Output) The name of the output directory and, optionally, report file to generate.  " +
 				"If not specified, output goes to STDOUT.");
 		opt = options.getOption(OUTPUT_OPTION_ONE_CHAR);
-		opt.setRequired(false);
+		opt.setRequired(true);
 
 		options.addOption(CATALOG_OPTION_ONE_CHAR, "catalog", true, "(Catalog) Path and filename of the XML catalog to use for resolving DTDs (e.g., catalog-dita.xml)");
 		opt = options.getOption(OUTPUT_OPTION_ONE_CHAR);
@@ -101,6 +112,10 @@ public abstract class MapBosProcessorBase {
 
 		options.addOption(DITAVAL_OPTION_ONE_CHAR, "ditaval", true, "(Ditaval) Path and filename of the the Ditaval file to used to determine applicable key definitions and other elements.");
 		opt = options.getOption(DITAVAL_OPTION_ONE_CHAR);
+		opt.setRequired(false);
+
+		options.addOption(QUIET_OPTION_ONE_CHAR, "quiet", false, "(Quiet) Turns off logging of actions.");
+		opt = options.getOption(QUIET_OPTION_ONE_CHAR);
 		opt.setRequired(false);
 
 		return options;

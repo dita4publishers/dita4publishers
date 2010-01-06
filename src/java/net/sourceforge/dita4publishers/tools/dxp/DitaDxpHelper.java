@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2010 Really Strategies, Inc.
+ * Copyright 2010 DITA for Publishers project (dita4publishers.sourceforge.net)  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at     http://www.apache.org/licenses/LICENSE-2.0  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
  */
 package net.sourceforge.dita4publishers.tools.dxp;
 
@@ -75,12 +75,13 @@ public class DitaDxpHelper {
 		 *  remembered, a manifest must be generated.
 		 */
 		
-		log.info("Determining zip file organization...");
+		log.debug("Determining zip file organization...");
 		
 		BosVisitor visitor = new DxpFileOrganizingBosVisitor();
 		visitor.visit(mapBos);
 		
-		log.info("Creating DXP package \"" + outputZipFile.getAbsolutePath() + "\"...");
+		if (!options.isQuiet())
+			log.info("Creating DXP package \"" + outputZipFile.getAbsolutePath() + "\"...");
 		OutputStream outStream = new FileOutputStream(outputZipFile);
 		ZipOutputStream zipOutStream = new ZipOutputStream(outStream);
 		
@@ -101,9 +102,11 @@ public class DitaDxpHelper {
 		
 		Set<String> dirs = new HashSet<String>();
 
-		log.info("Constructing DXP package...");
+		if (!options.isQuiet())
+			log.info("Constructing DXP package...");
 		for (BosMember member : mapBos.getMembers()) {
-			log.info("Adding member " + member + " to zip...");
+			if (!options.isQuiet())
+				log.info("Adding member " + member + " to zip...");
 			URI relativeUri = baseUri.relativize(member.getEffectiveUri());
 			File temp = new File(relativeUri.getPath());
 			String parentPath = temp.getParent();
@@ -124,16 +127,17 @@ public class DitaDxpHelper {
 		}
 		
 		zipOutStream.close();
-		log.info("DXP package created.");
+		if (!options.isQuiet())
+			log.info("DXP package created.");
 	}
 
 	/**
 	 * @param zipFile
-	 * @param ditaDxpOptions 
+	 * @param dxpOptions 
 	 * @return
 	 * @throws DitaDxpException 
 	 */
-	public static ZipEntry getDxpPackageRootMap(ZipFile zipFile, DitaDxpOptions ditaDxpOptions) throws DitaDxpException {
+	public static ZipEntry getDxpPackageRootMap(ZipFile zipFile, DitaDxpOptions dxpOptions) throws DitaDxpException {
 
 		List<ZipEntry> candidateRootEntries = new ArrayList<ZipEntry>();
 		List<ZipEntry> candidateDirs = new ArrayList<ZipEntry>();
@@ -164,6 +168,8 @@ public class DitaDxpHelper {
 
 		// If exactly one map at the top level, must be the root map of the package.
 		if (candidateRootEntries.size() == 1) {
+			if (!dxpOptions.isQuiet())
+				log.info("Using root map " + candidateRootEntries.get(0).getName());
 			return candidateRootEntries.get(0);
 		}
 		
@@ -181,12 +187,19 @@ public class DitaDxpHelper {
 			while (entries.hasMoreElements()) {
 				ZipEntry entry = entries.nextElement();
 				File temp = new File(entry.getName());
-				if (parentPath.equals(temp.getParent()) && entry.getName().endsWith(".ditamap")) {
+				String entryParent = temp.getParent();
+				if (entryParent == null) 
+					entryParent = "/";
+				else
+					entryParent += "/";
+				if (parentPath.equals(entryParent) && entry.getName().endsWith(".ditamap")) {
 					candidateRootEntries.add(entry);
 				}
 			}
 			if (candidateRootEntries.size() == 1) {
 				// Must be the root map
+				if (!dxpOptions.isQuiet())
+					log.info("Using root map " + candidateRootEntries.get(0).getName());
 				return candidateRootEntries.get(0);
 			}
 			if (candidateRootEntries.size() > 1) {
@@ -208,6 +221,17 @@ public class DitaDxpHelper {
 	 */
 	public static void unpackDxpPackage(File dxpFile, File outputDir,
 			DitaDxpOptions dxpOptions) throws Exception {
+		unpackDxpPackage(dxpFile, outputDir, dxpOptions, log);
+	}
+
+	/**
+	 * @param dxpFile
+	 * @param outputDir
+	 * @param dxpOptions
+	 * @throws Exception 
+	 */
+	public static void unpackDxpPackage(File dxpFile, File outputDir,
+			DitaDxpOptions dxpOptions, Log log) throws Exception {
 		ZipFile zipFile = new ZipFile(dxpFile);
 		ZipEntry rootMapEntry = getDxpPackageRootMap(zipFile, dxpOptions);
 		// rootMapEntry will have a value if we get this far.
@@ -223,10 +247,12 @@ public class DitaDxpHelper {
 		 */
 		
 		if (dxpOptions.isUnzipAll()) {
-			MultithreadedUnzippingController controller = new MultithreadedUnzippingController();
-			log.info("Unzipping entire DXP package \"" + dxpFile.getAbsolutePath() + "\" to output directory \"" + outputDir + "\"...");
+			MultithreadedUnzippingController controller = new MultithreadedUnzippingController(dxpOptions);
+			if (!dxpOptions.isQuiet())
+				log.info("Unzipping entire DXP package \"" + dxpFile.getAbsolutePath() + "\" to output directory \"" + outputDir + "\"...");
 			controller.unzip(dxpFile, outputDir, true);
-			log.info("Unzip complete");
+			if (!dxpOptions.isQuiet())
+				log.info("Unzip complete");
 		} else {
 			List<String> mapIds = dxpOptions.getRootMaps();
 			List<ZipEntry> mapEntries = new ArrayList<ZipEntry>();
@@ -257,6 +283,9 @@ public class DitaDxpHelper {
 			File outputDir, DitaDxpOptions dxpOptions) throws IOException, DomException, BosException, DitaBosHelperException {
 		Map<URI, Document> domCache = new HashMap<URI, Document>();
 		
+		if (!dxpOptions.isQuiet())
+			log.info("Extracting map " + mapEntry.getName() + "...");
+
 		BosConstructionOptions bosOptions = new BosConstructionOptions(log, domCache);
 		
 		InputSource source = new InputSource(zipFile.getInputStream(mapEntry));
@@ -273,6 +302,8 @@ public class DitaDxpHelper {
 		
 		MapCopyingBosVisitor visitor = new MapCopyingBosVisitor(outputDir);
 		visitor.visit(mapBos);
+		if (!dxpOptions.isQuiet())
+			log.info("Map extracted.");
 	}
 
 	/**

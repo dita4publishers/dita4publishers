@@ -36,13 +36,16 @@ public class MultithreadedUnzippingController
 	private ZipListener listener;
 	private ZipFileFilter filter;
 	private int maxThreads = 0;
+
+	private DitaDxpOptions dxpOptions = new DitaDxpOptions();
 	
 	/**
+	 * @param dxpOptions 
 	 * 
 	 */
-	public MultithreadedUnzippingController()
+	public MultithreadedUnzippingController(DitaDxpOptions dxpOptions)
 	{
-	  
+		this.dxpOptions = dxpOptions;
 	}
 	
   /**
@@ -279,6 +282,9 @@ public class MultithreadedUnzippingController
       if (filter != null && !filter.accept(entry))
         continue;
 		  
+      if(!dxpOptions.isQuiet())
+    	  log.info("Unzipping file \"" + entry.getName() + "...");
+
       futureCompletions.add(es.submit(new EntryUnzip(listener, zf, entry, outputPath)));
 		}
 		
@@ -362,7 +368,6 @@ public class MultithreadedUnzippingController
           copyInputStream(in, out);
           
           if (listener == null) {
-            if(log.isDebugEnabled())
         	  log.debug("created file: " + file.getAbsolutePath());
           }
           else

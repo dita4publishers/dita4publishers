@@ -1,7 +1,7 @@
 /**
  * Copyright 2009, 2010 DITA for Publishers project (dita4publishers.sourceforge.net)  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at     http://www.apache.org/licenses/LICENSE-2.0  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
  */
-package net.sourceforge.dita4publishers.tools.dxp;
+package net.sourceforge.dita4publishers.tools.ditadxpmappackager;
 
 import java.io.File;
 import java.net.URI;
@@ -13,6 +13,8 @@ import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelper;
 import net.sourceforge.dita4publishers.tools.common.MapBosProcessorBase;
+import net.sourceforge.dita4publishers.tools.dxp.DitaDxpHelper;
+import net.sourceforge.dita4publishers.tools.dxp.DitaDxpOptions;
 import net.sourceforge.dita4publishers.util.DomUtil;
 import net.sourceforge.dita4publishers.util.TimingUtils;
 
@@ -93,7 +95,12 @@ public class DitaDxpMapPackager extends MapBosProcessorBase {
 		String mapFilepath = commandLine.getOptionValue("i");
 		File mapFile = new File(mapFilepath);
 		checkExistsAndCanReadSystemExit(mapFile);
-		System.err.println("Processing map \"" + mapFile.getAbsolutePath() + "\"...");
+
+		DitaDxpOptions dxpOptions = new DitaDxpOptions();
+		handleCommonDxpOptions(dxpOptions);
+
+		if (!dxpOptions.isQuiet())
+			System.err.println("Processing map \"" + mapFile.getAbsolutePath() + "\"...");
 
 
 
@@ -115,7 +122,7 @@ public class DitaDxpMapPackager extends MapBosProcessorBase {
 				
 		Document rootMap = null;
 		BosConstructionOptions bosOptions = new BosConstructionOptions(log, new HashMap<URI, Document>());
-		
+		bosOptions.setQuiet(dxpOptions.isQuiet());
 		setupCatalogs(bosOptions);
 		
 		
@@ -124,13 +131,13 @@ public class DitaDxpMapPackager extends MapBosProcessorBase {
 			rootMap = DomUtil.getDomForUri(new URI(rootMapUrl.toExternalForm()), bosOptions);
 			Date startTime = TimingUtils.getNowTime();
 			DitaBoundedObjectSet mapBos = DitaBosHelper.calculateMapBos(bosOptions,log, rootMap);
-			System.err.println("Map BOS construction took " + TimingUtils.reportElapsedTime(startTime));
+			if (!dxpOptions.isQuiet())
+				System.err.println("Map BOS construction took " + TimingUtils.reportElapsedTime(startTime));
 			
 			// Do packaging here
 			
-			DitaDxpOptions options = new DitaDxpOptions();
-			
-			DitaDxpHelper.zipMapBos(mapBos, outputZipFile, options);
+
+			DitaDxpHelper.zipMapBos(mapBos, outputZipFile, dxpOptions);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -146,6 +153,11 @@ public class DitaDxpMapPackager extends MapBosProcessorBase {
 	private static Options configureOptions() {
 		Options options = configureOptionsBase();
 		
+		// FIXME: Should provide the ability to zip up a directory, generating a DXP manifest if
+		// there are multiple root maps. Should also provide a way to specify multiple input maps and/or
+		// add maps an existing package.
+		options.getOption(INPUT_OPTION_ONE_CHAR).setDescription("(Input map) Root map to be packaged.");
+		options.getOption(OUTPUT_OPTION_ONE_CHAR).setDescription("(Output package) DXP package file.");
 
 		return options;
 	}

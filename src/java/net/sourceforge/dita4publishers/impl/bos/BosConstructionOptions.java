@@ -34,6 +34,7 @@ public class BosConstructionOptions {
 	private boolean mapTreeOnly = false;
 	private KeyAccessOptions keyAccessOptions = new KeyAccessOptions();
 	private XMLGrammarPool grammarPool = GrammarPoolManager.getGrammarPool();
+	private boolean quiet = false;  // When true, suppresses info logging.
 
 	/**
 	 * @return the invalidDocs
@@ -186,6 +187,17 @@ public class BosConstructionOptions {
 	 */
 	public XMLGrammarPool getGrammarPool() {
 		return this.grammarPool;
+	}
+
+	/**
+	 * @return
+	 */
+	public boolean isQuiet() {
+		return this.quiet  == true;
+	}
+	
+	public void setQuiet(boolean b) {
+		this.quiet = b;
 	}
 
 }
