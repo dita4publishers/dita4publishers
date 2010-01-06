@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<?workdir /Users/ekimber/workspace/dita4publishers/test/java/resources/xml_data/docs/dita/bookmap_01/temp?><?path2project ?><map class="- map/map " ditaarch:DITAArchVersion="1.2" domains="(topic delay-d)                          (map mapgroup-d)                           (topic indexing-d)                          (map glossref-d)                         " xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" xtrc="map:1" xtrf="/Users/ekimber/workspace/dita4publishers/test/java/resources/xml_data/docs/dita/bookmap_01/bookmap_01.ditamap">
-  <title class="- topic/title " xtrc="title:1" xtrf="/Users/ekimber/workspace/dita4publishers/test/java/resources/xml_data/docs/dita/bookmap_01/bookmap_01.ditamap">
-    Main book title
-  </title>
-  <topicref class="- map/topicref " href="file:/Users/ekimber/workspace/dita4publishers/test/java/resources/xml_data/docs/dita/bookmap_01/topics/topic-01.xml" xtrc="topicref:1" xtrf="/Users/ekimber/workspace/dita4publishers/test/java/resources/xml_data/docs/dita/bookmap_01/bookmap_01.ditamap"><topicmeta class="- map/topicmeta "></topicmeta></topicref>
-  <topicref class="- map/topicref " href="file:///Users/ekimber/workspace/dita4publishers/test/java/resources/xml_data/docs/dita/bookmap_01/topics/topic-01.xml" type="topic" xtrc="topicref:2" xtrf="/Users/ekimber/workspace/dita4publishers/test/java/resources/xml_data/docs/dita/bookmap_01/bookmap_01.ditamap"><topicmeta class="- map/topicmeta "><navtitle class="- topic/navtitle ">Topic 01</navtitle><?ditaot gentext?><linktext class="- map/linktext ">Topic 01</linktext></topicmeta></topicref>
-</map>
