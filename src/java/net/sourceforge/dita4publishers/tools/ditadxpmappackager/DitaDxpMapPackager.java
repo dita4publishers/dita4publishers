@@ -93,8 +93,7 @@ public class DitaDxpMapPackager extends MapBosProcessorBase {
 	 */
 	private void run() throws Exception {
 		String mapFilepath = commandLine.getOptionValue("i");
-		File mapFile = new File(mapFilepath);
-		mapFile = mapFile.getAbsoluteFile();
+		File mapFile = new File(mapFilepath).getAbsoluteFile();
 		checkExistsAndCanReadSystemExit(mapFile);
 
 		DitaDxpOptions dxpOptions = new DitaDxpOptions();
@@ -109,7 +108,7 @@ public class DitaDxpMapPackager extends MapBosProcessorBase {
 		String outputFilepath = null;
 		if (commandLine.hasOption(OUTPUT_OPTION_ONE_CHAR)) {
 			outputFilepath = commandLine.getOptionValue(OUTPUT_OPTION_ONE_CHAR);
-			outputZipFile = new File(outputFilepath);
+			outputZipFile = new File(outputFilepath).getAbsoluteFile();
 		} else {
 			File parentDir = mapFile.getParentFile();
 			String nameBase = FilenameUtils.getBaseName(mapFile.getName());
