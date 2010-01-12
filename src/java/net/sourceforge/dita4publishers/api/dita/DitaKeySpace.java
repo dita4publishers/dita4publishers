@@ -16,7 +16,7 @@ import org.w3c.dom.Element;
 /**
  * Represents a set of unique key-to-definition bindings.
  * <p>The key space does not itself do resolution of keys
- * to resourcesÑthat is managed by the link management
+ * to resourcesâ€”that is managed by the link management
  * server. Thus the key space simply represents the
  * result of having established the effective set of
  * unique key definitions (and therefore keys) established
