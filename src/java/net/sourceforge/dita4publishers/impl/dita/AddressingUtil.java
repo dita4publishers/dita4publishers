@@ -298,7 +298,8 @@ public class AddressingUtil {
 			exists = false;
 		} finally {
 			try {
-				stream.close();
+				if (stream != null)
+					stream.close();
 			} catch (IOException e) {
 				// Don't care.
 			}
