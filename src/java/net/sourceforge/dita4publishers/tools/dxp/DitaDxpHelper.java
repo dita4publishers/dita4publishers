@@ -128,7 +128,7 @@ public class DitaDxpHelper {
 		
 		zipOutStream.close();
 		if (!options.isQuiet())
-			log.info("DXP package created.");
+			log.info("DXP package \"" + outputZipFile.getAbsolutePath() + "\" created.");
 	}
 
 	/**
