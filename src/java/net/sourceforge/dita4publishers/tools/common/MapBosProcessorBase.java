@@ -31,6 +31,7 @@ public abstract class MapBosProcessorBase {
 	protected static final String INPUT_OPTION_ONE_CHAR = "i";
 	protected static final String CATALOG_OPTION_ONE_CHAR = "c";
 	protected static final String DITAVAL_OPTION_ONE_CHAR = "d";
+	protected static final String ADDRESSING_FAILURE_OPTION_ONE_CHAR = "f";
 	protected CommandLine commandLine;
 
 	/**
@@ -116,6 +117,10 @@ public abstract class MapBosProcessorBase {
 
 		options.addOption(QUIET_OPTION_ONE_CHAR, "quiet", false, "(Quiet) Turns off logging of actions.");
 		opt = options.getOption(QUIET_OPTION_ONE_CHAR);
+		opt.setRequired(false);
+
+		options.addOption(ADDRESSING_FAILURE_OPTION_ONE_CHAR, "addressfailure", false, "(Fail on addressing failure) When specified, addressing failures cause BOS construction to fail.");
+		opt = options.getOption(ADDRESSING_FAILURE_OPTION_ONE_CHAR);
 		opt.setRequired(false);
 
 		return options;
