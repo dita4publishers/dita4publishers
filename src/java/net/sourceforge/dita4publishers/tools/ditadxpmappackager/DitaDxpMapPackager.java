@@ -94,6 +94,7 @@ public class DitaDxpMapPackager extends MapBosProcessorBase {
 	private void run() throws Exception {
 		String mapFilepath = commandLine.getOptionValue("i");
 		File mapFile = new File(mapFilepath);
+		mapFile = mapFile.getAbsoluteFile();
 		checkExistsAndCanReadSystemExit(mapFile);
 
 		DitaDxpOptions dxpOptions = new DitaDxpOptions();
@@ -114,7 +115,8 @@ public class DitaDxpMapPackager extends MapBosProcessorBase {
 			String nameBase = FilenameUtils.getBaseName(mapFile.getName());
 			outputZipFile = new File(parentDir, nameBase + DXP_EXTENSION);
 		}
-		outputZipFile.getParentFile().mkdirs();
+		File parentFile = outputZipFile.getParentFile();
+		parentFile.mkdirs();
 		
 		if (!outputZipFile.getParentFile().canWrite()) {
 			throw new RuntimeException("File " + outputZipFile.getAbsolutePath() + " cannot be written to.");
@@ -123,6 +125,10 @@ public class DitaDxpMapPackager extends MapBosProcessorBase {
 		Document rootMap = null;
 		BosConstructionOptions bosOptions = new BosConstructionOptions(log, new HashMap<URI, Document>());
 		bosOptions.setQuiet(dxpOptions.isQuiet());
+		boolean failOnAddressingFailure = false;
+		if (commandLine.hasOption(ADDRESSING_FAILURE_OPTION_ONE_CHAR))
+			failOnAddressingFailure = true;
+		bosOptions.setFailOnAddressResolutionFailure(failOnAddressingFailure); 
 		setupCatalogs(bosOptions);
 		
 		
