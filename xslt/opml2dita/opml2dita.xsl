@@ -30,6 +30,8 @@
   <xsl:param name="subjectNavigationMapTitleTagname" select="'title'" as="xs:string"/>
   <xsl:param name="subjectNavigationMapTopicrefTagname" select="'topicref'" as="xs:string"/>
   
+  <xsl:param name="keyPrefix" select="'SUBJECT'" as="xs:string"/>
+  
   <xsl:output
     doctype-public="-//OASIS//ELEMENTS DITA Map//EN"
     doctype-system="map.dtd"
@@ -103,13 +105,24 @@
     </xsl:result-document>
   </xsl:template>
   
-  <xsl:template match="expansionState"
+  <xsl:template match="expansionState" mode="#all"
   />
   
   <xsl:function name="local:constructSubjectKey" as="xs:string">
     <xsl:param name="context" as="element()"/>
-    <xsl:sequence select="generate-id($context)"/>
+    <xsl:variable name="subjectKey" as="xs:string">
+      <xsl:apply-templates select="$context" mode="construct-subject-key"/>
+    </xsl:variable>
+    <xsl:sequence select="$subjectKey"/>
   </xsl:function>
+  
+  <xsl:template mode="construct-subject-key" match="outline">
+    <xsl:variable name="itemNumber" as="xs:string">
+      <xsl:number count="outline" level="any" format="000001"/>
+    </xsl:variable>
+    <xsl:variable name="keyValue" select="concat($keyPrefix, $itemNumber)" as="xs:string"/>
+    <xsl:sequence select="$keyValue"/>
+  </xsl:template>
   
   <xsl:function name="local:constructTopicUri" as="xs:string">
     <xsl:param name="context" as="element()"/>
