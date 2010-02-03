@@ -119,6 +119,14 @@
         name="doctype-public"
         type="xs:string"
         use="optional"/>
+      <xs:attribute
+        name="noNamespaceSchemalocation"
+        type="xs:string"
+        use="optional"/>
+      <xs:attribute
+        name="schemaLocation"
+        type="xs:string"
+        use="optional"/>
     </xs:complexType>
   </xs:element>
   <xs:element
