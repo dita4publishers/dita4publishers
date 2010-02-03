@@ -6,6 +6,7 @@
       xmlns:rsiwp="http://reallysi.com/namespaces/generic-wordprocessing-xml"
       xmlns:stylemap="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap"
       xmlns:relpath="http://dita2indesign/functions/relpath"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       
       exclude-result-prefixes="xs rsiwp stylemap local relpath"
       version="2.0">
@@ -272,10 +273,27 @@
       <xsl:message terminate="yes"> + [ERROR] No format= attribute for paragraph style <xsl:sequence select="string($firstP/@styleId)"/>, which is mapped to structure type "map".</xsl:message>
     </xsl:if>
     
-    <xsl:variable name="format" select="key('formats', $formatName, $styleMapDoc)[1]"/>
+    <xsl:variable name="format" select="key('formats', $formatName, $styleMapDoc)[1]" as="element()?"/>
     <xsl:if test="not($format)">
       <xsl:message terminate="yes"> + [ERROR] Failed to find output element with name "<xsl:sequence select="$formatName"/> specified for style <xsl:sequence select="string($firstP/@styleId)"/>.</xsl:message>
     </xsl:if>
+    
+    <xsl:if test="false() and $debugBoolean">
+      <xsl:message> + [DEBUG] makeMap: format="<xsl:sequence select="$format"/></xsl:message>
+    </xsl:if>
+    
+    <xsl:variable name="schemaAtts" as="attribute()*">
+      <xsl:if test="$format/@noNamespaceSchemaLocation">
+        <xsl:attribute name="xsi:noNamespaceSchemaLocation"
+          select="string($format/@noNamespaceSchemaLocation)"
+        />
+      </xsl:if>
+      <xsl:if test="$format/@schemaLocation != ''">
+        <xsl:attribute name="xsi:schemaLocation"
+          select="string($format/@schemaLocation)"
+        />
+      </xsl:if>      
+    </xsl:variable>
     
     <xsl:variable name="prologType" as="xs:string"
       select="
@@ -298,6 +316,7 @@
       indent="yes"
       >
       <xsl:element name="{$firstP/@mapType}">
+        <xsl:sequence select="$schemaAtts"/>
         <xsl:attribute name="xtrc" select="$firstP/@wordLocation"/>
           <!-- The first paragraph can simply trigger a (possibly) untitled map, or
           it can also be the map title. If it's the map title, generate it.
@@ -690,16 +709,40 @@
           <xsl:message terminate="yes"> + [ERROR] No topicType= attribute for paragraph style <xsl:sequence select="string($firstP/@styleId)"/>, when topicDoc="yes".</xsl:message>
         </xsl:if>
         
-        <xsl:variable name="format" select="key('formats', $formatName, $styleMapDoc)[1]"/>
+        <xsl:variable name="format" select="key('formats', $formatName, $styleMapDoc)[1]" as="element()?"/>
         <xsl:if test="not($format)">
           <xsl:message terminate="yes"> + [ERROR] Failed to find output element with name "<xsl:sequence select="$formatName"/> specified for style <xsl:sequence select="string($firstP/@styleId)"/>.</xsl:message>
         </xsl:if>
+        
+        <xsl:if test="false() or $debugBoolean">
+          <xsl:message> + [DEBUG] makeMap: format="<xsl:sequence select="$format"/></xsl:message>
+        </xsl:if>
+        
+        
+        <xsl:variable name="schemaAtts" as="attribute()*">
+          <xsl:if test="$format/@noNamespaceSchemalocation">
+            <xsl:attribute name="xsi:noNamespaceSchemaLocation"
+              select="string($format/@noNamespaceSchemaLocation)"
+            />
+          </xsl:if>
+          <xsl:if test="$format/@schemaLocation != ''">
+            <xsl:attribute name="xsi:schemaLocation"
+              select="string($format/@schemaLocation)"
+            />
+          </xsl:if>
+        </xsl:variable>
+        <xsl:if test="false() or $debugBoolean">
+          <xsl:message> + [DEBUG] makeTopic: schemaAtts=<xsl:sequence select="$schemaAtts"/></xsl:message>
+        </xsl:if>
+        
+        
         <xsl:variable name="resultDoc" as="node()*"> 
           <xsl:call-template name="constructTopic">
             <xsl:with-param name="content" select="$content"  as="node()*"/>
             <xsl:with-param name="level" select="$level" as="xs:integer"/>
             <xsl:with-param name="resultUrl" as="xs:string" tunnel="yes" select="$resultUrl"/>
             <xsl:with-param name="topicName" as="xs:string" tunnel="yes" select="$topicName"/>
+            <xsl:with-param name="schemaAtts" as="attribute()*" select="$schemaAtts"/>
           </xsl:call-template>
         </xsl:variable>
         <!-- Now do ID fixup on the result document: -->
@@ -766,6 +809,7 @@
     <xsl:param name="level" as="xs:integer"/>
     <xsl:param name="topicName" as="xs:string" tunnel="yes" select="generate-id(.)"/>
     <xsl:param name="treePos" as="xs:integer+" tunnel="yes"/><!-- Tree position of topic in map tree -->
+    <xsl:param name="schemaAtts" as="attribute()*" select="()"/>
     
     <xsl:variable name="initialSectionType" as="xs:string" select="string(@initialSectionType)"/>
     <xsl:variable name="firstP" select="$content[1]"/>
@@ -815,9 +859,13 @@
       <xsl:message> + [DEBUG] constructTopic: topicName="<xsl:sequence select="$topicName"/>"</xsl:message>
     </xsl:if>
     
+    <xsl:if test="false() or $debugBoolean">
+      <xsl:message> + [DEBUG] constructTopic: schemaAtts=<xsl:sequence select="$schemaAtts"/></xsl:message>
+    </xsl:if>
     <xsl:element name="{$topicType}">
       <xsl:attribute name="id" select="$topicName"/>
       <xsl:attribute name="xtrc" select="$firstP/@wordLocation"/>
+      <xsl:sequence select="$schemaAtts"/>
       <xsl:if test="$firstP/@topicOutputclass">
         <xsl:attribute name="outputclass" select="$firstP/@topicOutputclass"/>
       </xsl:if>
