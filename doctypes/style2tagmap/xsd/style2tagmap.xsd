@@ -120,7 +120,7 @@
         type="xs:string"
         use="optional"/>
       <xs:attribute
-        name="noNamespaceSchemalocation"
+        name="noNamespaceSchemaLocation"
         type="xs:string"
         use="optional"/>
       <xs:attribute
