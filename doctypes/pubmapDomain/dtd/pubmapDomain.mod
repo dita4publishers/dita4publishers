@@ -136,6 +136,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % copyrlast "copyrlast" >
 <!ENTITY % edited "edited" >
 <!ENTITY % edition "edition" >
+<!ENTITY % doi "doi" >
 <!ENTITY % isbn "isbn" >
 <!ENTITY % isbn-10 "isbn-10" >
 <!ENTITY % isbn-13 "isbn-13" >
@@ -549,6 +550,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % pubid.content
                        "((%pubpartno;)*, 
                          (%edition;)?, 
+                         (%doi;)*, 
                          (%isbn;)*, 
                          (%isbn-10;)*, 
                          (%isbn-13;)*, 
@@ -928,7 +930,17 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ATTLIST edition    %edition.attributes;>
 
 
-<!--                    LONG NAME: ISBN Number                     -->
+<!--                    LONG NAME: Digital object identifier          -->
+<!ENTITY % doi.content
+                       "(#PCDATA |
+                         %keyword;)*"
+>
+<!ENTITY % doi.attributes
+             "%data-element-atts;"
+>
+<!ELEMENT doi    %doi.content;>
+<!ATTLIST doi    %doi.attributes;>
+
 <!ENTITY % isbn.content
                        "(#PCDATA |
                          %keyword;)*"
@@ -2103,6 +2115,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ATTLIST copyrlast        %global-atts; class CDATA "- topic/data pubmap-d/copyrlast ">
 <!ATTLIST edited           %global-atts; class CDATA "- topic/data pubmap-d/edited ">
 <!ATTLIST edition          %global-atts; class CDATA "- topic/data pubmap-d/edition ">
+<!ATTLIST doi              %global-atts; class CDATA "- topic/data pubmap-d/doi ">
 <!ATTLIST isbn             %global-atts; class CDATA "- topic/data pubmap-d/isbn ">
 <!ATTLIST isbn-10          %global-atts; class CDATA "- topic/data pubmap-d/isbn-10 ">
 <!ATTLIST isbn-13          %global-atts; class CDATA "- topic/data pubmap-d/isbn-13 ">
