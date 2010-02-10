@@ -84,7 +84,7 @@
      ((%frontmatter;) |
       (%department;) |
       (%page;))*,
-     ((%pubbody;)), 
+     ((%pubbody;)?), 
      ((%appendixes;) |
       (%appendix;) |
       (%backmatter;) |
