@@ -84,6 +84,8 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % page "page" >
 <!ENTITY % part "part" >
 <!ENTITY % part-mapref "part-mapref" >
+<!ENTITY % partsection "partsection" >
+<!ENTITY % partsection-mapref "partsection-mapref" >
 <!ENTITY % preface "preface" >
 <!ENTITY % pubabstract "pubabstract" >
 <!ENTITY % publist "publist" >
@@ -1681,6 +1683,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
                           (%department;) |
                           (%figurelist;) |
                           (%glossarylist;) |
+                          (%partsection;) |
                           (%publist;) |
                           (%publists;) |
                           (%page;) |
@@ -1702,6 +1705,36 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 >
 <!ELEMENT part-mapref    %part-mapref.content;>
 <!ATTLIST part-mapref    %part-mapref.attributes;>
+
+<!ENTITY % partsection.content
+                       "((%topicmeta;)?,
+                         ((%chapter;) | 
+                          (%article;) |
+                          (%department;) |
+                          (%figurelist;) |
+                          (%glossarylist;) |
+                          (%partsection;) |
+                          (%publist;) |
+                          (%publists;) |
+                          (%page;) |
+                          (%tablelist;) |
+                          (%toc;) |
+                          topicref)* )"
+>
+<!ENTITY % partsection.attributes
+             "%chapter-atts;"
+>
+<!ELEMENT partsection    %partsection.content;>
+<!ATTLIST partsection    %partsection.attributes;>
+
+<!ENTITY % partsection-mapref.content
+ "%mapref.cnt;"
+>
+<!ENTITY % partsection-mapref.attributes
+ "%mapref-atts;"
+>
+<!ELEMENT partsection-mapref    %partsection-mapref.content;>
+<!ATTLIST partsection-mapref    %partsection-mapref.attributes;>
 
 
 <!--                    LONG NAME: Department                            -->
@@ -2063,6 +2096,8 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ATTLIST page          %global-atts; class CDATA "- map/topicref pubmap-d/page ">
 <!ATTLIST part          %global-atts; class CDATA "- map/topicref pubmap-d/part ">
 <!ATTLIST part-mapref %global-atts; class CDATA "- map/topicref pubmap-d/part-mapref ">
+<!ATTLIST partsection   %global-atts; class CDATA "- map/topicref pubmap-d/partsection ">
+<!ATTLIST partsection-mapref %global-atts; class CDATA "- map/topicref pubmap-d/partsection-mapref ">
 <!ATTLIST preface       %global-atts; class CDATA "- map/topicref pubmap-d/preface ">
 <!ATTLIST pubabstract   %global-atts; class CDATA "- map/topicref pubmap-d/pubabstract ">
 <!ATTLIST publist       %global-atts; class CDATA "- map/topicref pubmap-d/publist ">
