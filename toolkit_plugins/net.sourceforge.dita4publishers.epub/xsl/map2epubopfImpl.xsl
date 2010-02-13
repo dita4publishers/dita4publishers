@@ -6,25 +6,26 @@ If map/topicmeta element has author, publisher, and copyright elements,
 they will be added to the epub file as Dublin Core metadata.
 
 -->
-<xsl:stylesheet version="1.0"
-                xmlns:opf="http://www.idpf.org/2007/opf"
-                xmlns:dc="http://purl.org/dc/elements/1.1/"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
+<xsl:stylesheet version="2.0"
+  xmlns:df="http://dita2indesign.org/dita/functions"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:opf="http://www.idpf.org/2007/opf"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  exclude-result-prefixes="df xs"
+  >
+  <xsl:import href="lib/dita-support-lib.xsl"/>
+  
   <!-- See note about my-URI-stub in build_dita2epub.xml. Hopefully a
        better URI will be passed to override this. -->
-  <xsl:param name="IdURIStub">http://my-URI-stub/</xsl:param>
+  <xsl:param name="IdURIStub" select="'http://my-URI-stub/'" as="xs:string"/>
 
-  <xsl:param name="tempFilesDir">tempFilesDir value not passed</xsl:param>
+  <xsl:param name="tempFilesDir" select="'tempFilesDir value not passed'" as="xs:string"/>
 
 <!-- XSLT document function needs full URI for parameter, so this is
      used for that. -->
-  <xsl:variable name="inputURLstub">
-    <xsl:text>file:///</xsl:text>
-    <xsl:value-of select="translate($tempFilesDir,':\','|/')">
-    </xsl:value-of>
-    <xsl:text>/</xsl:text>
-  </xsl:variable>
+  <xsl:variable name="inputURLstub" as="xs:string" 
+    select="concat('file:///', translate($tempFilesDir,':\','|/'), '/')"/>
 
   <xsl:strip-space elements="*"/>
   <xsl:output indent="yes"/>
@@ -51,7 +52,7 @@ they will be added to the epub file as Dublin Core metadata.
   </xsl:template>
 
 
-  <xsl:template match="*[contains(@class,' map/map ')]">
+  <xsl:template match="*[df:class(., 'map/map')]">
 
         <xsl:if test="not(@xml:lang)">
           <xsl:message> ===== Warning: dc:language required in epub file; please add xml:lang attribute to map element.
@@ -78,18 +79,18 @@ they will be added to the epub file as Dublin Core metadata.
           <!-- title is an attribute of map, but bookmap puts title in
                bookmap/booktitle/mainbooktitle -->
           <xsl:choose>
-            <xsl:when test="*[contains(@class,' bookmap/booktitle ')]/
-                            *[contains(@class,' bookmap/mainbooktitle ')]">
-              <xsl:value-of select="*[contains(@class,' bookmap/booktitle ')]/
-                                    *[contains(@class,' bookmap/mainbooktitle ')]"/>
+            <xsl:when test="*[df:class(., 'bookmap/booktitle')]/
+                            *[df:class(., 'bookmap/mainbooktitle')]">
+              <xsl:value-of select="*[df:class(., 'bookmap/booktitle')]/
+                                    *[df:class(., 'bookmap/mainbooktitle')]"/>
             </xsl:when>
-            <xsl:when test="*[contains(@class,' pubmap/pubtitle ')]/
-              *[contains(@class,' pubmap/mainpubtitle ')]">
-              <xsl:value-of select="*[contains(@class,' pubmap/pubtitle ')]/
-                *[contains(@class,' pubmap/mainpubtitle ')]"/>
+            <xsl:when test="*[df:class(., 'pubmap/pubtitle')]/
+              *[df:class(., 'pubmap/mainpubtitle')]">
+              <xsl:value-of select="*[df:class(., 'pubmap/pubtitle')]/
+                *[df:class(., 'pubmap/mainpubtitle')]"/>
             </xsl:when>
-            <xsl:when test="*[contains(@class,' topic/title ')]">
-              <xsl:value-of select="*[contains(@class,' topic/title ')]"/>
+            <xsl:when test="*[df:class(., 'topic/title')]">
+              <xsl:value-of select="*[df:class(., 'topic/title')]"/>
             </xsl:when>
             <xsl:when test="@title">
               <xsl:value-of select="@title"/>              
@@ -107,8 +108,8 @@ they will be added to the epub file as Dublin Core metadata.
         <dc:identifier id="bookid">
           <xsl:value-of select="$IdURIStub"/>
           <xsl:choose>
-            <xsl:when test="*[contains(@class,' pubmap/pubmeta ')]/*[contains(@class,' pubmap/pubid ')]">
-              <xsl:apply-templates select="*[contains(@class,' pubmap/pubmeta ')]/*[contains(@class,' pubmap/pubid ')]"
+            <xsl:when test="*[df:class(., 'pubmap/pubmeta')]/*[df:class(., 'pubmap/pubid')]">
+              <xsl:apply-templates select="*[df:class(., 'pubmap/pubmeta')]/*[df:class(., 'pubmap/pubid')]"
                 mode="bookid"
               />
             </xsl:when>
@@ -122,30 +123,30 @@ they will be added to the epub file as Dublin Core metadata.
         <!-- Remaining metadata fields optional, so 
              their tags only get output if values exist. -->
 
-        <xsl:apply-templates select="*[contains(@class,' map/topicmeta ')]/*[contains(@class,' topic/author ')]"/>
+        <xsl:apply-templates select="*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/author')]"/>
 
-        <xsl:apply-templates select="*[contains(@class,' map/topicmeta ')]/*[contains(@class,' topic/publisher ')]"/>
+        <xsl:apply-templates select="*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/publisher')]"/>
 
-        <xsl:apply-templates select="*[contains(@class,' map/topicmeta ')]/*[contains(@class,' topic/copyright ')]"/>
+        <xsl:apply-templates select="*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/copyright')]"/>
 
       </metadata>
 
       <manifest xmlns:opf="http://www.idpf.org/2007/opf">
         <opf:item id="ncx" href="toc.ncx" media-type="text/xml"/>
         <!-- List the XHTML files -->
-        <xsl:apply-templates mode="manifest" select=".//*[contains(@class,' map/topicref ') and @href]"/>
+        <xsl:apply-templates mode="manifest" select=".//*[df:class(., 'map/topicref ') and @href]"/>
         <!-- List the images -->
-        <xsl:apply-templates mode="getpics" select=".//*[contains(@class,' map/topicref ') and @href]"/>
+        <xsl:apply-templates mode="getpics" select=".//*[df:class(., 'map/topicref ') and @href]"/>
       </manifest>
 
       <spine toc="ncx">
-        <xsl:apply-templates mode="spine" select=".//*[contains(@class,' map/topicref ') and @href]"/>
+        <xsl:apply-templates mode="spine" select=".//*[df:class(., 'map/topicref ') and @href]"/>
       </spine>
 
     </package>
   </xsl:template>
 
-  <xsl:template match="*[contains(@class,' map/topicref ') and @href and @scope != 'external']" mode="getpics">
+  <xsl:template match="*[df:class(., 'map/topicref ') and @href and @scope != 'external']" mode="getpics">
     <!-- This assumes that the @href value is not already a URL, and
          that it points to a locally stored file. To do: don't assume
          this. -->
@@ -177,7 +178,7 @@ they will be added to the epub file as Dublin Core metadata.
   <xsl:template match="text()" mode="getpics"/>
 
 
-  <xsl:template match="*[contains(@class,' topic/image ')]" mode="getpics">
+  <xsl:template match="*[df:class(., 'topic/image')]" mode="getpics">
 
     <xsl:param name="dir"/>
 
@@ -210,53 +211,53 @@ they will be added to the epub file as Dublin Core metadata.
   </xsl:template>
 
 
-  <xsl:template match="*[contains(@class,' map/map ')]/*[contains(@class,' map/topicmeta ')]/*[contains(@class,' topic/author ')]"> 
+  <xsl:template match="*[df:class(., 'map/map')]/*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/author')]"> 
     <dc:creator opf:role="aut" opf:file-as="Feedbooks"><xsl:apply-templates/></dc:creator>
   </xsl:template>
 
-  <xsl:template match="*[contains(@class,' map/map ')]/*[contains(@class,' map/topicmeta ')]/*[contains(@class,' topic/publisher ')]"> 
+  <xsl:template match="*[df:class(., 'map/map')]/*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/publisher')]"> 
     <dc:publisher><xsl:apply-templates/></dc:publisher>
   </xsl:template>
 
-  <xsl:template match="*[contains(@class,' map/map ')]/*[contains(@class,' map/topicmeta ')]/*[contains(@class,' topic/copyright ')]"> 
+  <xsl:template match="*[df:class(., 'map/map')]/*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/copyright')]"> 
     <!-- copyryear and copyrholder are required children of copyright element -->
-    <dc:rights>Copyright <xsl:value-of select="*[contains(@class,' topic/copyryear ')]/@year"/><xsl:text> </xsl:text><xsl:value-of select="*[contains(@class,' topic/copyrholder ')]"/></dc:rights>
+    <dc:rights>Copyright <xsl:value-of select="*[df:class(., 'topic/copyryear')]/@year"/><xsl:text> </xsl:text><xsl:value-of select="*[df:class(., 'topic/copyrholder')]"/></dc:rights>
   </xsl:template>
 
-  <xsl:template match="*[contains(@class,' map/topicref ')]" mode="manifest">
+  <xsl:template match="*[df:class(., 'map/topicref')]" mode="manifest">
     <opf:item id="{generate-id()}" href="{substring-before(@href,'.xml')}.html"
               media-type="application/xhtml+xml"/>
   </xsl:template>
 
-  <xsl:template match="*[contains(@class,' map/topicref ')]" mode="spine">
+  <xsl:template match="*[df:class(., 'map/topicref')]" mode="spine">
     <opf:itemref idref="{generate-id()}"/>
   </xsl:template>
   
-  <xsl:template match="*[contains(@class, ' pubmap/pubid ')]" mode="bookid">
+  <xsl:template match="*[df:class(., 'pubmap/pubid')]" mode="bookid">
     <xsl:choose>
-      <xsl:when test="not(normalize-space(*[contains(@class, ' pubmap/isbn-13 ')]) = '')">
-        <xsl:value-of select="normalize-space(*[contains(@class, ' pubmap/isbn-13 ')])"/>
+      <xsl:when test="not(normalize-space(*[df:class(., 'pubmap/isbn-13')]) = '')">
+        <xsl:value-of select="normalize-space(*[df:class(., 'pubmap/isbn-13')])"/>
       </xsl:when>
-      <xsl:when test="not(normalize-space(*[contains(@class, ' pubmap/isbn-10 ')]) = '')">
-        <xsl:value-of select="normalize-space(*[contains(@class, ' pubmap/isbn-10 ')])"/>
+      <xsl:when test="not(normalize-space(*[df:class(., 'pubmap/isbn-10')]) = '')">
+        <xsl:value-of select="normalize-space(*[df:class(., 'pubmap/isbn-10')])"/>
       </xsl:when>
-      <xsl:when test="not(normalize-space(*[contains(@class, ' pubmap/isbn ')]) = '')">
-        <xsl:value-of select="normalize-space(*[contains(@class, ' pubmap/isbn ')])"/>
+      <xsl:when test="not(normalize-space(*[df:class(., 'pubmap/isbn')]) = '')">
+        <xsl:value-of select="normalize-space(*[df:class(., 'pubmap/isbn')])"/>
       </xsl:when>
-      <xsl:when test="not(normalize-space(*[contains(@class, ' pubmap/issn-13 ')]) = '')">
-        <xsl:value-of select="normalize-space(*[contains(@class, ' pubmap/issn-13 ')])"/>
+      <xsl:when test="not(normalize-space(*[df:class(., 'pubmap/issn-13')]) = '')">
+        <xsl:value-of select="normalize-space(*[df:class(., 'pubmap/issn-13')])"/>
       </xsl:when>
-      <xsl:when test="not(normalize-space(*[contains(@class, ' pubmap/issn-10 ')]) = '')">
-        <xsl:value-of select="normalize-space(*[contains(@class, ' pubmap/issn-10 ')])"/>
+      <xsl:when test="not(normalize-space(*[df:class(., 'pubmap/issn-10')]) = '')">
+        <xsl:value-of select="normalize-space(*[df:class(., 'pubmap/issn-10')])"/>
       </xsl:when>
-      <xsl:when test="not(normalize-space(*[contains(@class, ' pubmap/issn ')]) = '')">
-        <xsl:value-of select="normalize-space(*[contains(@class, ' pubmap/issn ')])"/>
+      <xsl:when test="not(normalize-space(*[df:class(., 'pubmap/issn')]) = '')">
+        <xsl:value-of select="normalize-space(*[df:class(., 'pubmap/issn')])"/>
       </xsl:when>
-      <xsl:when test="not(normalize-space(*[contains(@class, ' pubmap/pubpartno ')]) = '')">
-        <xsl:value-of select="normalize-space(*[contains(@class, ' pubmap/pubpartno ')])"/>
+      <xsl:when test="not(normalize-space(*[df:class(., 'pubmap/pubpartno')]) = '')">
+        <xsl:value-of select="normalize-space(*[df:class(., 'pubmap/pubpartno')])"/>
       </xsl:when>
-      <xsl:when test="not(normalize-space(*[contains(@class, ' pubmap/pubnumber ')]) = '')">
-        <xsl:value-of select="normalize-space(*[contains(@class, ' pubmap/pubnumber ')])"/>
+      <xsl:when test="not(normalize-space(*[df:class(., 'pubmap/pubnumber')]) = '')">
+        <xsl:value-of select="normalize-space(*[df:class(., 'pubmap/pubnumber')])"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:text>{No publication ID}</xsl:text>

@@ -1,0 +1,120 @@
+<project name="dita2epub" default="dita2epub"
+  >
+  
+  <!-- test to see where the plugin is located, plugins or demo -->
+  <dirname property="epub.dir" file="${ant.file.dita2epub}"/>
+  
+  <target name="dita2epub"
+    unless="noMap"
+    xmlns:dita="http://dita-ot.sourceforge.net"
+    dita:depends="build-init, preprocess, copy-css, dita.topics.xhtml, 
+    dita.inner.topics.xhtml, dita.outer.topics.xhtml,epub"
+    dita:extension="depends org.dita.dost.platform.InsertDependsAction">
+    <antcall target="dita.map.epub"/>
+  </target>
+  
+  <target name="epub"
+    unless="noMap"
+    depends="opf, tococx, containerxml, mimetype, zipepub"/>
+  
+  
+  <target name="containerxml">
+    <mkdir dir="${output.dir}${file.separator}META-INF"/>
+    <copy file="${epub.dir}${file.separator}resource${file.separator}container.xml"
+      todir="${output.dir}${file.separator}META-INF"/>
+  </target>
+  
+  
+  <target name="mimetype">
+    <copy file="${epub.dir}${file.separator}resource${file.separator}mimetype"
+      todir="${output.dir}"/>
+  </target>
+  
+  
+  <target name="zipepub">
+    <!-- Two steps because mimetype must go in first,
+      uncompressed. Looks like ant puts later zipped files in
+      first, so mimetype is in second zip task. -->
+    <zip destfile="${output.dir}${file.separator}${dita.map.filename.root}.epub"
+      basedir="${output.dir}"
+      includes="META-INF${file.separator}container.xml,toc.ncx,
+      content.opf,container.opf,**/*.html,**/*.css,**/*.HTML,**/*.CSS,
+      **/*.jpg,**/*.gif,**/*.png,**/*.JPG,**/*.GIF,**/*.PNG"/>
+    
+    <!--  WEK: Not sure if compression is allowed or required by the ePub standard. -->
+    <zip destfile="${output.dir}${file.separator}${dita.map.filename.root}.epub"
+      basedir="${output.dir}"
+      includes="mimetype"
+      update="true"
+      compress="true"/>
+    
+  </target>
+  
+  
+  <target name="dita.map.epub"
+    depends="dita.map.epub.init"/>
+  
+  
+  <target name="dita.map.epub.init" if="epub.plugin"
+    depends="dita.map.epub.plugin.init">
+    <antcall target="dita.map.epub.generate.plugin"/>
+  </target>
+  
+  
+  <target name="dita.map.epub.plugin.init"
+    description="Init properties for Epub">
+    <basename property="dita.map.toc.root"
+      file="${dita.input.filename}"
+      suffix=".ditamap" />
+    <condition property="args.epub.toc" value="${dita.map.toc.root}">
+      <not>
+        <isset property="args.epub.toc" />
+      </not>
+    </condition>
+    <condition property="out.ext" value=".html">
+      <not>
+        <isset property="out.ext" />
+      </not>
+    </condition>
+    <condition property="noPlugin">
+      <equals arg1="${dita.epub.plugin}" arg2="no" />
+    </condition>
+  </target>
+  
+  
+  <target name="opf" description="build content.opf file">
+    <!-- Tell xsl/map2epubopf.xsl to create content.opf from dita.input.filename. -->
+    <echo message="I think dita.script.dir is ${dita.script.dir}"/>
+    <echo message="I think basedir is ${basedir}"/>
+    <echo message="I think my xsl is ${basedir}${file.separator}xsl${file.separator}map2epubopf.xsl"/>
+    <xslt processor="trax"
+      basedir="${dita.temp.dir}"
+      destdir="${output.dir}"
+      includes="${dita.input.filename}"
+      classpathref="dost.class.path"
+      style="${epub.dir}${file.separator}xsl${file.separator}map2epubopf.xsl">
+      <param name="IdURIStub" expression="http://my-URI-stub/" />
+      <param name="tempFilesDir"
+        expression="${basedir}${file.separator}${dita.temp.dir}" />
+      <mapper type="regexp" from="${dita.input.filename}" to="content.opf"/>
+    </xslt>
+  </target>
+  
+  
+  <target name="tococx" description="build toc.ncx file">
+    <!-- Tell xsl/map2epubtoc.xsl to create toc.ncx from dita.input.filename. -->
+    <xslt processor="trax"
+      basedir="${dita.temp.dir}"
+      destdir="${output.dir}"
+      includes="${dita.input.filename}"
+      classpathref="dost.class.path"
+      style="${epub.dir}${file.separator}xsl${file.separator}map2epubtoc.xsl">
+      <mapper type="regexp" from="${dita.input.filename}" to="toc.ncx"/>
+    </xslt>
+  </target>
+  
+  
+  <!-- deprecrated: keep for back-compatibility, will be removed in a later release -->
+  <target name="dita.topics.epub" depends="dita.topics.xhtml" />
+  
+</project>
