@@ -4,9 +4,13 @@
                 xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/"
                 xmlns:df="http://dita2indesign.org/dita/functions"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:local="urn:functions:local"
+                exclude-result-prefixes="local xs df xsl"
   >
   
   <xsl:import href="lib/dita-support-lib.xsl"/>
+  
+  <xsl:include href="map2epubCommon.xsl"/>
 
   <xsl:param name="IdURIStub">http://example.org/dummy/URIstub/</xsl:param>
 
@@ -15,6 +19,10 @@
 
 
   <xsl:template match="*[df:class(., 'map/map')]">
+    <xsl:variable name="pubTitle" as="xs:string">
+      <xsl:apply-templates select="*[df:class(., 'topic/title')] | @title" mode="pubtitle"/>
+    </xsl:variable>           
+      
     <ncx xmlns="http://www.daisy.org/z3986/2005/ncx/"
          version="2005-1" xml:lang="en">
       <head xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/">
@@ -25,45 +33,30 @@
       </head>
       <docTitle xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/">
 
-        <text>
-          <xsl:apply-templates select="*[df:class(., 'topic/title')] | @title" mode="pubtitle"/>
-        </text>
+        <text><xsl:sequence select="$pubTitle"/></text>
       </docTitle>
       <navMap>
-        <xsl:apply-templates select="*[df:class(., 'map/topicref')]"/>
+        <xsl:choose>
+          <xsl:when test="$pubTitle != ''">
+            <!-- FIXME: If there is a pubtitle, generate a root navPoint for the title.
+                        This will require passing down a parameter with the offset to
+                        use for calculating playOrder.
+                        
+                        When I created a root node, Adobe Digital Editions refused
+                        to show it in the TOC view.
+              -->
+            <xsl:apply-templates select="*[df:class(., 'map/topicref')]"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:apply-templates select="*[df:class(., 'map/topicref')]"/>
+          </xsl:otherwise>
+        </xsl:choose>
+        
       </navMap>
     </ncx>
 
   </xsl:template>
   
-  <xsl:template mode="pubtitle" match="@title">
-    <xsl:value-of select="."/>
-  </xsl:template>
-  
-  <xsl:template match="*[df:class(., 'topic/title')]" mode="pubtitle">
-    <xsl:apply-templates mode="#current"/>
-  </xsl:template>
-  
-  <xsl:template match="*[df:class(., 'bookmap/booktitle')]" mode="pubtitle" priority="10">
-    <xsl:apply-templates mode="#current" select="*[df:class(., 'bookmap/mainbooktitle')]"/>
-  </xsl:template>
-  
-  <xsl:template match="*[df:class(., 'pubmap-d/pubtitle')]" mode="pubtitle" priority="10">
-    <xsl:apply-templates mode="#current" select="*[df:class(., 'pubmap-d/mainpubtitle')]"/>
-  </xsl:template>
-  
-  <xsl:template mode="pubtitle" match="*" priority="-1">
-    <xsl:message> + [WARNING] mode pubtitle: unhandled element <xsl:sequence select="concat(name(..), '/', name(.))"/></xsl:message>
-    <xsl:apply-templates mode="#current"/>
-  </xsl:template>
-  
-  <xsl:template mode="pubtitle" match="*[df:class(., 'topic/ph')] | 
-    *[df:class(., 'topic/term')] | 
-    *[df:class(., 'topic/keyword')] | 
-    *[df:class(., 'topic/text')] ">
-    <xsl:apply-templates mode="#current"/>
-  </xsl:template>
-
 
   <!-- Convert each topicref to a navPoint. -->
   <xsl:template match="*[df:isTopicRef(.)]"
@@ -75,8 +68,7 @@
     </xsl:variable>
     
     <navPoint id="{generate-id()}"
-                  playOrder="{count(preceding::*[df:class(., 'map/topicref')]) +
-                             count(ancestor::*[df:class(., 'map/topicref')]) + 1}"> 
+                  playOrder="{local:getPlayOrder(.)}"> 
       <navLabel>
         <text><xsl:value-of select="$navPointTitle"/></text>
       </navLabel>
@@ -100,8 +92,7 @@
   <xsl:template match="*[df:isTopicHead(.)]"
                 xmlns="http://www.daisy.org/z3986/2005/ncx/">
     <navPoint id="{generate-id()}"
-                  playOrder="{count(preceding::*[df:class(., 'map/topicref')]) +
-                             count(ancestor::*[df:class(., 'map/topicref')]) + 1}"> 
+      playOrder="{local:getPlayOrder(.)}"> 
       <navLabel>
         <text><xsl:apply-templates select="." mode="nav-point-title"/></text>
       </navLabel>
@@ -146,6 +137,16 @@
   </xsl:template>
   
   <xsl:template match="text()"/>
+  
+  <xsl:function name="local:getPlayOrder" as="xs:string">
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="playOrder" 
+      select="count($context/preceding::*[df:class(., 'map/topicref') and not(@processing-role = 'resource-only')]) + 
+      count($context/ancestor::*[df:class(., 'map/topicref') and not(@processing-role = 'resource-only')]) +
+      1" as="xs:integer"/>
+<!--    <xsl:message> + [DEBUG] getPlayOrder: playOrder="<xsl:sequence select="$playOrder"/>"</xsl:message>-->
+    <xsl:sequence select="string($playOrder)"/>
+  </xsl:function>
 
 
 </xsl:stylesheet>

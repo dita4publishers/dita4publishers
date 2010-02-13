@@ -12,9 +12,14 @@ they will be added to the epub file as Dublin Core metadata.
   xmlns:opf="http://www.idpf.org/2007/opf"
   xmlns:dc="http://purl.org/dc/elements/1.1/"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  exclude-result-prefixes="df xs"
+  xmlns:relpath="http://dita2indesign/functions/relpath"
+  xmlns="http://www.idpf.org/2007/opf"
+  exclude-result-prefixes="df xs relpath"
   >
   <xsl:import href="lib/dita-support-lib.xsl"/>
+  <xsl:import href="lib/relpath_util.xsl"/>
+  
+  <xsl:include href="map2epubCommon.xsl"/>
   
   <!-- See note about my-URI-stub in build_dita2epub.xml. Hopefully a
        better URI will be passed to override this. -->
@@ -39,7 +44,7 @@ they will be added to the epub file as Dublin Core metadata.
     <xsl:choose>
       <xsl:when test="not(contains($string,'/'))"/>
       <xsl:when test="substring($string,$nextCharToCheck,1) = '/'">
-        <xsl:value-of select="substring($string,1,$nextCharToCheck)"/>
+        <xsl:sequence select="substring($string,1,$nextCharToCheck)"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:call-template name="pathname">
@@ -54,15 +59,17 @@ they will be added to the epub file as Dublin Core metadata.
 
   <xsl:template match="*[df:class(., 'map/map')]">
 
-        <xsl:if test="not(@xml:lang)">
-          <xsl:message> ===== Warning: dc:language required in epub file; please add xml:lang attribute to map element.
-          </xsl:message>
-        </xsl:if>
+    <xsl:if test="not(@xml:lang)">
+      <xsl:message> - [WARNING] dc:language required in epub file; please add xml:lang attribute to map element. Using en-US.
+      </xsl:message>
+    </xsl:if>
 
-        <xsl:if test="$IdURIStub = 'http://my-URI-stub/'">
-          <xsl:message> ===== Warning: epub ID must be URL; if you don't want it built on "http://my-URI-stub/" reset IdURIStub param in build_dita2epub.xml.
-          </xsl:message>
-        </xsl:if>
+    <xsl:if test="$IdURIStub = 'http://my-URI-stub/'">
+      <xsl:message> - [WARNING] epub ID must be URL; if you don't want it built on "http://my-URI-stub/" reset IdURIStub param in build_dita2epub.xml.
+      </xsl:message>
+    </xsl:if>
+    
+    <xsl:variable name="lang" select="if (@xml:lang) then string(@xml:lang) else 'en-US'" as="xs:string"/>
 
     <package xmlns="http://www.idpf.org/2007/opf"
              xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -76,37 +83,13 @@ they will be added to the epub file as Dublin Core metadata.
              elements. -->
 
         <dc:title>
-          <!-- title is an attribute of map, but bookmap puts title in
-               bookmap/booktitle/mainbooktitle -->
-          <xsl:choose>
-            <xsl:when test="*[df:class(., 'bookmap/booktitle')]/
-                            *[df:class(., 'bookmap/mainbooktitle')]">
-              <xsl:value-of select="*[df:class(., 'bookmap/booktitle')]/
-                                    *[df:class(., 'bookmap/mainbooktitle')]"/>
-            </xsl:when>
-            <xsl:when test="*[df:class(., 'pubmap/pubtitle')]/
-              *[df:class(., 'pubmap/mainpubtitle')]">
-              <xsl:value-of select="*[df:class(., 'pubmap/pubtitle')]/
-                *[df:class(., 'pubmap/mainpubtitle')]"/>
-            </xsl:when>
-            <xsl:when test="*[df:class(., 'topic/title')]">
-              <xsl:value-of select="*[df:class(., 'topic/title')]"/>
-            </xsl:when>
-            <xsl:when test="@title">
-              <xsl:value-of select="@title"/>              
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:text>{No map title}</xsl:text>
-            </xsl:otherwise>
-          </xsl:choose>
+          <xsl:apply-templates select="*[df:class(., 'topic/title')] | @title" mode="pubtitle"/>
         </dc:title>
 
-        <dc:language xsi:type="dcterms:RFC3066">
-          <xsl:value-of select="@xml:lang"/>
-        </dc:language>
+        <dc:language xsi:type="dcterms:RFC3066"><xsl:sequence select="$lang"/></dc:language>
 
         <dc:identifier id="bookid">
-          <xsl:value-of select="$IdURIStub"/>
+          <xsl:sequence select="$IdURIStub"/>
           <xsl:choose>
             <xsl:when test="*[df:class(., 'pubmap/pubmeta')]/*[df:class(., 'pubmap/pubid')]">
               <xsl:apply-templates select="*[df:class(., 'pubmap/pubmeta')]/*[df:class(., 'pubmap/pubid')]"
@@ -114,7 +97,7 @@ they will be added to the epub file as Dublin Core metadata.
               />
             </xsl:when>
             <xsl:when test="@id">
-              <xsl:value-of select="@id"/>
+              <xsl:sequence select="string(@id)"/>
             </xsl:when>
           </xsl:choose>
           
@@ -150,27 +133,12 @@ they will be added to the epub file as Dublin Core metadata.
     <!-- This assumes that the @href value is not already a URL, and
          that it points to a locally stored file. To do: don't assume
          this. -->
-    <xsl:variable name="topicrefURL">
-      <xsl:value-of select="$inputURLstub"/>
-      <xsl:choose>
-        <xsl:when test="contains(@href,'#')">
-          <xsl:value-of select="substring-before(@href,'#')"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="@href"/>
-        </xsl:otherwise>
-      </xsl:choose>
+    <xsl:variable name="topicrefURL" as="xs:string">
+      <xsl:sequence select="$inputURLstub"/>
+      <xsl:sequence select="if (contains(@href,'#')) then substring-before(@href,'#') else string(@href)"/>
     </xsl:variable>
 
-    <xsl:variable name="hrefDir">
-      <xsl:call-template name="pathname">
-        <xsl:with-param name="string" select="@href"/>
-      </xsl:call-template>
-    </xsl:variable>
-
-<!--    <xsl:apply-templates select="document($topicrefURL)" mode="getpics">
-      <xsl:with-param name="dir" select="$hrefDir"/>
-    </xsl:apply-templates> -->
+    <xsl:variable name="hrefDir" select="relpath:getParent(string(@href))" as="xs:string"/>
 
   </xsl:template>
 
@@ -182,7 +150,7 @@ they will be added to the epub file as Dublin Core metadata.
 
     <xsl:param name="dir"/>
 
-    <opf:item id="{generate-id()}" href="{$dir}{@href}">
+    <opf:item id="{generate-id()}" href="{concat($dir, @href)}">
       <xsl:attribute name="media-type">
         <xsl:choose>
           <xsl:when test="contains(@href,'.jpg')">image/jpeg</xsl:when>
@@ -192,7 +160,7 @@ they will be added to the epub file as Dublin Core metadata.
           <xsl:when test="contains(@href,'.png')">image/png</xsl:when>
           <xsl:when test="contains(@href,'.PNG')">image/png</xsl:when>
           <xsl:otherwise>
-            <xsl:message>Warning: <xsl:value-of select="@href"/> image format not supported by DITA Open Toolkit.
+            <xsl:message>Warning: <xsl:sequence select="@href"/> image format not supported by DITA Open Toolkit.
             </xsl:message>
           </xsl:otherwise>
         </xsl:choose>
@@ -224,7 +192,7 @@ they will be added to the epub file as Dublin Core metadata.
     <dc:rights>Copyright <xsl:value-of select="*[df:class(., 'topic/copyryear')]/@year"/><xsl:text> </xsl:text><xsl:value-of select="*[df:class(., 'topic/copyrholder')]"/></dc:rights>
   </xsl:template>
 
-  <xsl:template match="*[df:class(., 'map/topicref')]" mode="manifest">
+  <xsl:template match="*[df:isTopicRef(.)]" mode="manifest">
     <opf:item id="{generate-id()}" href="{substring-before(@href,'.xml')}.html"
               media-type="application/xhtml+xml"/>
   </xsl:template>
@@ -236,28 +204,28 @@ they will be added to the epub file as Dublin Core metadata.
   <xsl:template match="*[df:class(., 'pubmap/pubid')]" mode="bookid">
     <xsl:choose>
       <xsl:when test="not(normalize-space(*[df:class(., 'pubmap/isbn-13')]) = '')">
-        <xsl:value-of select="normalize-space(*[df:class(., 'pubmap/isbn-13')])"/>
+        <xsl:sequence select="normalize-space(*[df:class(., 'pubmap/isbn-13')])"/>
       </xsl:when>
       <xsl:when test="not(normalize-space(*[df:class(., 'pubmap/isbn-10')]) = '')">
-        <xsl:value-of select="normalize-space(*[df:class(., 'pubmap/isbn-10')])"/>
+        <xsl:sequence select="normalize-space(*[df:class(., 'pubmap/isbn-10')])"/>
       </xsl:when>
       <xsl:when test="not(normalize-space(*[df:class(., 'pubmap/isbn')]) = '')">
-        <xsl:value-of select="normalize-space(*[df:class(., 'pubmap/isbn')])"/>
+        <xsl:sequence select="normalize-space(*[df:class(., 'pubmap/isbn')])"/>
       </xsl:when>
       <xsl:when test="not(normalize-space(*[df:class(., 'pubmap/issn-13')]) = '')">
-        <xsl:value-of select="normalize-space(*[df:class(., 'pubmap/issn-13')])"/>
+        <xsl:sequence select="normalize-space(*[df:class(., 'pubmap/issn-13')])"/>
       </xsl:when>
       <xsl:when test="not(normalize-space(*[df:class(., 'pubmap/issn-10')]) = '')">
-        <xsl:value-of select="normalize-space(*[df:class(., 'pubmap/issn-10')])"/>
+        <xsl:sequence select="normalize-space(*[df:class(., 'pubmap/issn-10')])"/>
       </xsl:when>
       <xsl:when test="not(normalize-space(*[df:class(., 'pubmap/issn')]) = '')">
-        <xsl:value-of select="normalize-space(*[df:class(., 'pubmap/issn')])"/>
+        <xsl:sequence select="normalize-space(*[df:class(., 'pubmap/issn')])"/>
       </xsl:when>
       <xsl:when test="not(normalize-space(*[df:class(., 'pubmap/pubpartno')]) = '')">
-        <xsl:value-of select="normalize-space(*[df:class(., 'pubmap/pubpartno')])"/>
+        <xsl:sequence select="normalize-space(*[df:class(., 'pubmap/pubpartno')])"/>
       </xsl:when>
       <xsl:when test="not(normalize-space(*[df:class(., 'pubmap/pubnumber')]) = '')">
-        <xsl:value-of select="normalize-space(*[df:class(., 'pubmap/pubnumber')])"/>
+        <xsl:sequence select="normalize-space(*[df:class(., 'pubmap/pubnumber')])"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:text>{No publication ID}</xsl:text>
