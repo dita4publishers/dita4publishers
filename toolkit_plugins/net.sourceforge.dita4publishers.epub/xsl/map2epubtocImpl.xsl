@@ -3,7 +3,8 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/"
                 xmlns:df="http://dita2indesign.org/dita/functions"
-                xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"                
+                xmlns="http://www.daisy.org/z3986/2005/ncx/"
                 xmlns:local="urn:functions:local"
                 exclude-result-prefixes="local xs df xsl"
   >
@@ -59,8 +60,7 @@
   
 
   <!-- Convert each topicref to a navPoint. -->
-  <xsl:template match="*[df:isTopicRef(.)]"
-                xmlns="http://www.daisy.org/z3986/2005/ncx/">
+  <xsl:template match="*[df:isTopicRef(.)]">
     <!-- For title that shows up in ncx:text, use the navtitle. If it's
     not there, use the first title element in the referenced file. -->
     <xsl:variable name="navPointTitle">
@@ -77,41 +77,65 @@
     </navPoint>
   </xsl:template>
   
-  <xsl:template mode="nav-point-title" match="*[df:class(., 'map/topicref')]">
+  <xsl:template mode="nav-point-title" match="*[df:isTopicRef(.)] | *[df:isTopicHead(.)]">
     <xsl:variable name="navPointTitleString" select="df:getNavtitleForTopicref(.)"/>
     <xsl:sequence select="$navPointTitleString"/>    
   </xsl:template>
     
   <xsl:template match="*[df:isTopicGroup(.)]" priority="10">
-    <xsl:apply-templates select="*[df:class(., 'map/topicref')]"/>
+    <xsl:variable name="navPointTitle" as="xs:string*">
+      <xsl:apply-templates select="." mode="nav-point-title"/>
+    </xsl:variable>
+<!--    <xsl:message> + [DEBUG] isTopicGroup(): navPointTitle="<xsl:sequence select="$navPointTitle"/>"</xsl:message>-->
+    <xsl:choose>
+      <xsl:when test="normalize-space(string-join($navPointTitle, ' ')) != ''">
+        <navPoint id="{generate-id()}"
+          playOrder="{local:getPlayOrder(.)}"> 
+          <navLabel>
+            <text><xsl:sequence select="$navPointTitle"/></text>
+          </navLabel>
+          <content src=""/>
+          <xsl:apply-templates select="*[df:class(.,'map/topicref')]"/>
+        </navPoint>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates select="*[df:class(., 'map/topicref')]"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    
   </xsl:template>
+  
+  <xsl:template mode="#all" match="*[df:class(., 'map/topicref') and (@processing-role = 'resource-only')]" priority="20"/>
 
 
   <!-- topichead elements get a navPoint, but don't actually point to
        anything.  Same with topicref that has no @href. -->
-  <xsl:template match="*[df:isTopicHead(.)]"
-                xmlns="http://www.daisy.org/z3986/2005/ncx/">
+  <xsl:template match="*[df:isTopicHead(.) or df:isTopicGroup(.)]">
     <navPoint id="{generate-id()}"
       playOrder="{local:getPlayOrder(.)}"> 
       <navLabel>
         <text><xsl:apply-templates select="." mode="nav-point-title"/></text>
       </navLabel>
       <content src=""/>
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="*[df:class(., 'map/topicref')]"/>
     </navPoint>
   </xsl:template>
 
-  <xsl:template match="*[df:class(.,' bookmap/frontmatter')]" priority="10" mode="nav-point-title">
+  <xsl:template match="*[df:class(., 'bookmap/frontmatter')] | *[df:class(., 'pubmap-d/frontmatter')]" priority="10" mode="nav-point-title">
     <xsl:value-of select="'Frontmatter'"/>
   </xsl:template>
   <xsl:template match="*[df:class(., 'bookmap/backmatter')]" priority="10" mode="nav-point-title">
     <xsl:value-of select="'Backmatter'"/>
   </xsl:template>
-  <xsl:template match="*[df:class(.,' pubmap/appendixes')]" priority="10" mode="nav-point-title">
+  <xsl:template match="*[df:class(., 'pubmap-d/appendixes')]" priority="10" mode="nav-point-title">
     <xsl:value-of select="'Appendixes'"/>
   </xsl:template>
   
-  <xsl:template mode="nav-point-title" match="*[df:class(., 'topic/fn')]">
+  <xsl:template match="*[df:isTopicGroup(.)]" mode="nav-point-title">
+    <!-- By default, topic groups have no titles -->
+  </xsl:template>
+  
+  <xsl:template mode="nav-point-title #default" match="*[df:class(., 'topic/fn')]" priority="10">
     <!-- Suppress footnotes in titles -->
   </xsl:template>
   
