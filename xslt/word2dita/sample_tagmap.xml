@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<style2tagmap xmlns="http://reallysi.com/namespaces/style-to-tag-map">
+<style2tagmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap ../../doctypes/style2tagmap/xsd/style2tagmap.xsd"
+  xmlns="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap">
   <documentation>
     
   </documentation>
@@ -65,7 +67,7 @@
     />
     
     <style styleId="ExecutiveSummary"
-      structureType="paraContainer"
+      structureType="block"
       tagName="p"
       containerType="executive-summary"
       topicZone="body"
@@ -106,25 +108,24 @@
     />
     
     <style styleId="cite"
-      structureType="ph"
       tagName="cite"
       topicZone="inline"
     />
     
     <style styleId="Strong"
-      structureType="ph"
+      
       tagName="b"
       topicZone="inline"
     />
     
     <style styleId="bold"
-      structureType="ph"
+      
       tagName="b"
       topicZone="inline"
     />
     
     <style styleId="italic"
-      structureType="ph"
+      
       tagName="i"
       topicZone="inline"
     />
@@ -136,7 +137,7 @@
     />
     
     <style styleId="ListBullet"
-      structureType="listItem"
+      structureType="block"
       tagName="li"
       containerType="ul"
       topicZone="body"
@@ -144,7 +145,7 @@
     />
     
     <style styleId="ListBulletsidebar"
-      structureType="listItem"
+      structureType="block"
       tagName="li"
       containerType="ul"
       topicZone="body"
@@ -152,7 +153,7 @@
     />
     
     <style styleId="CiteText"
-      structureType="paraContainer"
+      structureType="block"
       tagName="p"
       containerType="lq"
       topicZone="body"
@@ -160,7 +161,7 @@
     />
     
     <style styleId="figcaption"
-      structureType="paraContainer"
+      structureType="block"
       tagName="title"
       containerType="fig"
       topicZone="body"
@@ -174,7 +175,7 @@
     />
     
     <style styleId="ListNumber"
-        structureType="listItem"
+        structureType="block"
         tagName="li"
         containerType="ol"
         topicZone="body"
