@@ -745,6 +745,7 @@
             <xsl:with-param name="schemaAtts" as="attribute()*" select="$schemaAtts"/>
           </xsl:call-template>
         </xsl:variable>
+        <xsl:message> + DEBUG: resultDoc=<xsl:sequence select="$resultDoc"/></xsl:message>
         <!-- Now do ID fixup on the result document: -->
         <xsl:result-document href="{$resultUrl}"
             doctype-public="{$format/@doctype-public}"
@@ -759,11 +760,17 @@
             <xsl:with-param name="treePos" select="$treePos" as="xs:integer+"/>
           </xsl:apply-templates>
         </xsl:variable>
-        <xsl:call-template name="constructTopic">
-          <xsl:with-param name="content" select="$content" as="node()*"/>
-          <xsl:with-param name="level" select="$level" as="xs:integer"/>
-          <xsl:with-param name="topicName" as="xs:string" tunnel="yes" select="$topicName"/>
-        </xsl:call-template>
+        <xsl:variable name="resultDoc" as="node()*">
+          <xsl:call-template name="constructTopic">
+            <xsl:with-param name="content" select="$content" as="node()*"/>
+            <xsl:with-param name="level" select="$level" as="xs:integer"/>
+            <xsl:with-param name="topicName" as="xs:string" tunnel="yes" select="$topicName"/>
+          </xsl:call-template>
+        </xsl:variable>
+        <xsl:variable name="fixedUpDoc" as="node()*">
+          <xsl:apply-templates select="$resultDoc" mode="final-fixup"/>
+        </xsl:variable>
+        <xsl:sequence select="$fixedUpDoc"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -845,8 +852,6 @@
       <xsl:message> + [DEBUG] constructTopic: prologType="<xsl:value-of select="$prologType"/>"</xsl:message>
       <xsl:message> + [DEBUG] constructTopic: initialSectionType="<xsl:value-of select="$initialSectionType"/>"</xsl:message>
     </xsl:if>
-    
-    <xsl:variable name="nextLevel" select="$level + 1" as="xs:integer"/>
     
     <xsl:variable name="titleIndexEntries" as="element()*">
       <xsl:if test="local:isTopicTitle($firstP)">
@@ -1316,12 +1321,9 @@
     <xsl:variable name="imageUrl" as="xs:string"
       select="relpath:getRelativePath($resultDir, $srcAtt)"
     />
-    <art>
-      <art_title><xsl:sequence select="$imageUrl"/></art_title>
-      <image href="{$imageUrl}">
-        <alt><xsl:sequence select="$imageUrl"/></alt>
-      </image>
-    </art>
+    <image href="{$imageUrl}">
+      <alt><xsl:sequence select="$imageUrl"/></alt>
+    </image>
   </xsl:template>
   
   <xsl:function name="local:isMap" as="xs:boolean">
