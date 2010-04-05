@@ -42,6 +42,12 @@
   "
 >
                       
+<!ENTITY % lines
+  "lines |
+   %d4p_verse-d-lines;
+  "
+>
+                      
 
 <!-- ============================================================= -->
 <!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
@@ -54,6 +60,7 @@
      &indexing-d-att;
      &d4p_formatting-d-att;
      &d4p_classification-d-att;
+     &d4p_verse-d-att;
      &xml-d-att;
     "                
  >

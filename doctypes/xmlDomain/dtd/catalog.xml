@@ -7,4 +7,10 @@
   <public publicId="urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/modules/xml/declarations"
     uri="xmlDomain.mod"
   />
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:xml:entities"
+    uri="xmlDomain.ent"
+  />
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:xml:declarations"
+    uri="xmlDomain.mod"
+  />
 </catalog>
