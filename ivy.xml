@@ -18,14 +18,11 @@
     
 
     <dependency org="saxonica" name="saxon9" rev="9.1.0.7" />
+    <dependency org="saxonica" name="saxon9-dom" rev="9.1.0.7" />
     <dependency org="saxonica" name="saxon9-xpath" rev="9.1.0.7" />
     <dependency org="saxonica" name="saxon9-s9api" rev="9.1.0.7" />
 
     <dependency org="jboss" name="jbpm" rev="rsuite-20090317" />
 
-    <dependency org="rsi" name="rsuite-dita-ot-15" rev="1.5m19c">
-      <artifact  name="rsuite-dita-ot-15" type="zip"/>
-    </dependency>
-        
   </dependencies>
 </ivy-module>
