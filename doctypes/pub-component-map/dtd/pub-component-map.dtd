@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ============================================================= -->
-<!--                    HEADER                                     -->
-<!-- ============================================================= -->
-<!--  MODULE:    DITA Pubmap DTD                                   -->
-<!--  VERSION:   1.2                                               -->
-<!--  DATE:      May 2009                                          -->
-<!--                                                               -->
-<!-- ============================================================= -->
+<!-- =============================================================
+
+     Publication Component Map
+     
+     This map type integrates the DITA for Publishers Publication 
+     Map Domain.
+     
+     Used for maps the represent a single component of a complete
+     publication, e.g. a part, chapter, appendix, etc.
+
+     ============================================================= -->
 
 <!-- ============================================================= -->
 <!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
@@ -14,24 +17,18 @@
 <!--                                                               -->
 <!--  Refer to this file by the following public identifier or an 
       appropriate system identifier 
-PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap"
-      Delivered as file "pubmap.dtd"                               -->
+PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pub-component-map"
+      Delivered as file "pub-component-map.dtd"                               -->
  
-<!-- ============================================================= -->
-<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
-<!--                                                               -->
-<!-- PURPOSE:    DTD to describe DITA Publication Maps             -->
-<!--                                                               -->
-<!-- ============================================================= -->
 
 <!-- ============================================================= -->
 <!--                    MAP ENTITY DECLARATIONS                    -->
 <!-- ============================================================= -->
 
-<!ENTITY % pubmap-dec     
-  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pubmap" 
-         "pubmap.ent"
->%pubmap-dec;
+<!ENTITY % pub-component-map-dec     
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pub-component-map" 
+         "pub-component-map.ent"
+>%pub-component-map-dec;
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ENTITY DECLARATIONS                 -->
@@ -91,6 +88,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap"
 <!ENTITY included-domains 
                         "&pubmap-d-att;
                          &mapgroup-d-att;
+                         &pub-component-map-att;
                         ">
 
 <!-- ============================================================= -->
@@ -113,14 +111,14 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap"
 "pubmapDomain.mod"                                                        >
 %pubmap-d-def;
 
-<!ENTITY % pubmap-type PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmap" 
-"pubmap.mod"                                                      >
-%pubmap-type;
+<!ENTITY % pub-component-map-type PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pub-component-map" 
+"pub-component-map.mod"                                                      >
+%pub-component-map-type;
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ELEMENT INTEGRATION                 -->
 <!-- ============================================================= -->
 
 
-<!-- ================== End DITA pubmap DTD  ==================== -->
+<!-- ================== End DITA pub-component-map DTD  ==================== -->

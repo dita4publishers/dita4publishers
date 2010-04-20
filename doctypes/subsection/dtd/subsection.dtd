@@ -17,8 +17,8 @@
 <!-- ============================================================= -->
 
 <!ENTITY % commonDomainIntegrations-dec
-  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/modules/commonDomainIntegrations/entities"
-         "../common/d4p_commonDomainIntegration.ent"
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations:entities"
+         "d4p_commonDomainIntegration.ent"
 >%commonDomainIntegrations-dec;
 
 <!-- ============================================================= -->
@@ -35,8 +35,8 @@
                         
                         
 <!ENTITY % commonDomainEntityIntegrations-dec
-  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/modules/commonDomainIntegrations/integrationEntities"
-         "../common/d4p_commonDomainEntityIntegrations.ent"
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations:integrationEntities"
+         "d4p_commonDomainEntityIntegrations.ent"
 >%commonDomainEntityIntegrations-dec;
 
 <!-- ============================================================= -->
@@ -80,13 +80,13 @@
 
 <!ENTITY % subsection-typemod 
                         PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/modules/subsection" 
+"urn:pubid:dita4publishers.sourceforge.net:modules:subsection" 
 "subsection.mod"                                                        >                                                     
 %subsection-typemod;
 
 <!ENTITY % sidebar-typemod 
                         PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/modules/sidebar" 
+"urn:pubid:dita4publishers.sourceforge.net:modules:sidebar" 
 "sidebar.mod"                                                        >                                                     
 %sidebar-typemod;
 
@@ -97,7 +97,7 @@
 <!-- ============================================================= -->
 
 <!ENTITY % commonDomainIntegrations
-  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/modules/commonDomainIntegrations"
-         "../common/d4p_commonDomainIntegration.mod"
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations"
+         "d4p_commonDomainIntegration.mod"
 >%commonDomainIntegrations;
 <!-- ================== End subsection DTD  ==================== -->

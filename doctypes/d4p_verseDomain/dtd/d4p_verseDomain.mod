@@ -47,7 +47,8 @@
 >
 
 <!ENTITY % stanza.content 
- "  (%ph.cnt;)*
+ "  (%ph.cnt; | 
+     %verse-line;)*
  "
 >
 <!ENTITY % stanza.attributes

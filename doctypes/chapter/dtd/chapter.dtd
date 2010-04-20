@@ -17,8 +17,8 @@
 <!-- ============================================================= -->
 
 <!ENTITY % commonDomainIntegrations-dec
-  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/modules/commonDomainIntegrations/entities"
-         "../common/d4p_commonDomainIntegrations.ent"
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations:entities"
+         "d4p_commonDomainIntegrations.ent"
 >%commonDomainIntegrations-dec;
 
 
@@ -36,8 +36,8 @@
                         
                         
 <!ENTITY % commonDomainEntityIntegrations-dec
-  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/modules/commonDomainIntegrations/integrationEntities"
-         "../common/d4p_commonDomainEntityIntegrations.ent"
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations:integrationEntities"
+         "d4p_commonDomainEntityIntegrations.ent"
 >%commonDomainEntityIntegrations-dec;
 
 
@@ -99,21 +99,21 @@
 
 <!ENTITY % chapter-typemod 
                         PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/modules/chapter" 
+"urn:pubid:dita4publishers.sourceforge.net:modules:chapter" 
 "chapter.mod"                                                        >                                                     
 %chapter-typemod;
 
 <!ENTITY % subsection-typemod 
                         PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/modules/subsection" 
-"../../subsection/dtd/subsection.mod"                                                        
+"urn:pubid:dita4publishers.sourceforge.net:modules:subsection" 
+"subsection.mod"                                                        
 >                                                     
 %subsection-typemod;
 
 <!ENTITY % sidebar-typemod 
                         PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/modules/sidebar" 
-"../../sidebar/dtd/sidebar.mod"                                                        >                                                     
+"urn:pubid:dita4publishers.sourceforge.net:modules:sidebar" 
+"sidebar.mod"                                                        >                                                     
 %sidebar-typemod;
 
 
@@ -123,8 +123,8 @@
 <!-- ============================================================= -->
 
 <!ENTITY % commonDomainIntegrations
-  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/modules/commonDomainIntegrations"
-         "../common/d4p_commonDomainIntegration.mod"
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations"
+         "d4p_commonDomainIntegration.mod"
 >%commonDomainIntegrations;
 
 <!-- ================== End Lesson DTD  ==================== -->

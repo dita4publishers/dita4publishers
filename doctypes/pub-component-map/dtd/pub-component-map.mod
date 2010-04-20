@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- =============================================================
-     DITA For Publishers Publication Map module
+     DITA For Publishers Publication Component Map module
      
-     Map that represents a publication.
-     
-     This module is an example of defining a specific map type
-     that uses the publication map domain elements exclusively.
-     The publication map domain elements can also be used in 
-     other map types as needed; there is no requirement to use
-     the pubmap map element just to get publication map 
-     components. This allows you to define completely different
-     organizations of publication-specific topicref types.
-     
-     Copyright (c) 2009 DITA For Publishers
+     Map that represents a component of a publication.
+          
+     Copyright (c) 2010 DITA For Publishers
 
      ============================================================= -->
 
@@ -55,7 +47,7 @@
 <!-- ============================================================= -->
  
 
-<!ENTITY % pubmap      "pubmap"                                      >
+<!ENTITY % pub-component-map      "pub-component-map"                                      >
 
 
 <!-- ============================================================= -->
@@ -72,34 +64,52 @@
 <!--                    ELEMENT DECLARATIONS                       -->
 <!-- ============================================================= -->
 
-<!ENTITY % pubmap.content 
- "((%pubtitle;)?, 
-   (%pubmeta;)?,
+<!ENTITY % pub-component-map.content 
+ "((%topicmeta;)?,
    (%keydefs;)?,
-   ((%mapref;) |
-    ((%publication;) |
-     (%publication-mapref;))|
-    ((%covers;)?,
-     (%colophon;)?, 
-     ((%frontmatter;) |
-      (%department;) |
-      (%page;))*,
-     ((%pubbody;) |
-      (%part;) |
-      (%chapter;) |
-      (%sidebar;) |
-      (%subsection;))?, 
-     ((%appendixes;) |
-      (%appendix;) |
-      (%backmatter;) |
-      (%page;) |
-      (%department;) |
-      (%colophon;))*)),
+   (
+    (%abbrevlist;) |
+    (%amendments;) |
+    (%appendix;) |
+    (%appendixes;) |
+    (%article;) |
+    (%backmatter;) |
+    (%book-jacket;) |
+    (%bibliolist;) |
+    (%chapter;) |
+    (%colophon;) | 
+    (%copyright-page;) | 
+    (%covers;) |
+    (%dedication;) |
+    (%department;) |
+    (%draftintro;) |
+    (%figurelist;) |
+    (%forward;) |
+    (%frontmatter;) |
+    (%glossary;) |
+    (%glossarylist;) |
+    (%indexlist;) |
+    (%notices;) |
+    (%page;) |
+    (%part;) |
+    (%partsection;) |
+    (%preface;) |
+    (%pubabstract;) |
+    (%publist;) |
+    (%publists;) |
+    (%pubbody;) |
+    (%sidebar;) |
+    (%subsection;) |
+    (%tablelist;) |
+    (%toc;) |
+    (%topicref;) |
+    (%trademarklist;)
+   )?,
    (%data.elements.incl; |
     %reltable;)*)
  "
 >
-<!ENTITY % pubmap.attributes
+<!ENTITY % pub-component-map.attributes
  "title 
             CDATA 
                       #IMPLIED
@@ -117,11 +127,11 @@
   %topicref-atts;
   %select-atts;"
 >
-<!ELEMENT pubmap       
-  %pubmap.content;                  
+<!ELEMENT pub-component-map       
+  %pub-component-map.content;                  
 >
-<!ATTLIST pubmap
-  %pubmap.attributes;
+<!ATTLIST pub-component-map
+  %pub-component-map.attributes;
   %arch-atts;
   domains    
     CDATA                
@@ -135,6 +145,6 @@
 <!-- ============================================================= -->
 
 
-<!ATTLIST pubmap      %global-atts;  class CDATA "- map/map pubmap/pubmap ">
+<!ATTLIST pub-component-map      %global-atts;  class CDATA "- map/map pub-component-map/pub-component-map ">
 
-<!-- ================== End Pubmap Declaration Set  ===================== -->
+<!-- ================== End Pub Component Map Declaration Set  ===================== -->

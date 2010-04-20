@@ -16,8 +16,8 @@
 <!-- ============================================================= -->
 
 <!ENTITY % commonDomainIntegrations-dec
-  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/modules/commonDomainIntegrations/entities"
-         "../common/d4p_commonDomainIntegrations.ent"
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations:entities"
+         "d4p_commonDomainIntegrations.ent"
 >%commonDomainIntegrations-dec;
 
 
@@ -35,8 +35,8 @@
                         
                         
 <!ENTITY % commonDomainEntityIntegrations-dec
-  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/modules/commonDomainIntegrations/integrationEntities"
-         "../common/d4p_commonDomainEntityIntegrations.ent"
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations:integrationEntities"
+         "d4p_commonDomainEntityIntegrations.ent"
 >%commonDomainEntityIntegrations-dec;
 
 
@@ -91,7 +91,7 @@
 
 <!ENTITY % part-typemod 
                         PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/modules/part" 
+"urn:pubid:dita4publishers.sourceforge.net:modules:part" 
 "part.mod"                                                        >                                                     
 %part-typemod;
 
@@ -101,8 +101,8 @@
 <!-- ============================================================= -->
 
 <!ENTITY % commonDomainIntegrations
-  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/modules/commonDomainIntegrations"
-         "../common/d4p_commonDomainIntegration.mod"
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations"
+         "d4p_commonDomainIntegration.mod"
 >%commonDomainIntegrations;
 
 <!-- ================== End Lesson DTD  ==================== -->
