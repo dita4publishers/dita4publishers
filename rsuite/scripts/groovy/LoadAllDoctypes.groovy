@@ -21,8 +21,8 @@ def doctypesDir = new File(projectDir, "doctypes");
 def File xsltDir = new File(projectDir, "/xslt");
 def File previewXslFile = new File(xsltDir, "preview/dita-preview-shell.xsl");
 
-def baseTopicTypeURI = "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:";
-def baseMapTypeURI = "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:";
+def baseTopicTypeURI = "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:";
+def baseMapTypeURI = "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:";
 
 
 def loadAndConfigureTopicDtd(dtdFile, dtdPublicId, topicTypes, otherMoTypes, previewXslFile, catalog)
@@ -51,9 +51,9 @@ def loadAndConfigureMapDtd(dtdFile, dtdPublicId, mapType, previewXslFile, catalo
     def moDefList = [];
     moDefList.add(new ManagedObjectDefinition(['name' : mapType, 
 	   'displayNameXPath': 
-		   "(if (*[contains(@class, ' topic/title')]) " +
+		   "if (*[contains(@class, ' topic/title')]) " +
               " then *[contains(@class, ' topic/title')] " +
-              " else string(@title)", 
+              " else string(@title)",
 	   'versionable': 'true', 
 	   'reusable': 'true']))
     
