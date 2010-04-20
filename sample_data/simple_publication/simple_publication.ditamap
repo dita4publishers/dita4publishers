@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/pubmap" "pubmap.dtd">
+<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
 <pubmap>
   <pubmeta>
     <author>author information      
@@ -9,31 +9,37 @@
       <organization>Publisher info</organization>
     </publisherinformation>
     <critdates>
-      <created date="2009-05-20"/>
+      <created
+        date="2009-05-20"/>
     </critdates>
-    <permissions view="yes"/>
-    <metadata>
-    </metadata>
+    <permissions
+      view="yes"/>
+    <metadata> </metadata>
     <audience/>
-    <category></category>
+    <category/>
     <keywords>
       <keyword>a keyword</keyword>
     </keywords>
     <prodinfo>
-      <prodname></prodname>
+      <prodname/>
       <vrmlist>
-        <vrm version=""/>
+        <vrm
+          version=""/>
       </vrmlist>
     </prodinfo>
-    <othermeta name="foo" content="bar"/>
-    <resourceid id="object-id" appname="some-app"/>
+    <othermeta
+      name="foo"
+      content="bar"/>
+    <resourceid
+      id="object-id"
+      appname="some-app"/>
     <pubid>
       <edition>first edition</edition>
       <isbn-10>1234-567867-0</isbn-10>
       <isbn-13>1234-567867-123-0</isbn-13>
-      <issn-10></issn-10>
-      <issn-13></issn-13>
-      <pubnumber></pubnumber>
+      <issn-10/>
+      <issn-13/>
+      <pubnumber/>
       <volume>1</volume>
       <maintainer>
         <person>person name</person>
@@ -41,13 +47,13 @@
       </maintainer>
     </pubid>
     <pubchangehistory>
-      <edited></edited>
-      <tested></tested>
-      <approved></approved>
-    </pubchangehistory>    
+      <edited/>
+      <tested/>
+      <approved/>
+    </pubchangehistory>
     <pubrights>
-      <pubowner></pubowner>
-      <publicense></publicense>
+      <pubowner/>
+      <publicense/>
     </pubrights>
     <data>additional data</data>
   </pubmeta>
@@ -59,42 +65,45 @@
       <topicmeta>
         <navtitle>Some key definitions</navtitle>
       </topicmeta>
-      <keydef keys="foo bar"/>
+      <keydef
+        keys="foo bar"/>
     </keydef-group>
-    <keydef keys="bar">
+    <keydef
+      keys="bar">
       <topicmeta>
         <linktext>This is a keydef with linktext.</linktext>
       </topicmeta>
     </keydef>
   </keydefs>
-  <covers>
-    <book-jacket>
-      <front-flap/>
-      <back-flap/>
-      <spine/>
-      <front-cover/>
-      <back-cover/>
-    </book-jacket>
-  </covers>
-  <page/>
-  <frontmatter>
-  </frontmatter>
-  <pubbody>
+  <publication>
+    <covers>
+      <book-jacket>
+        <front-flap/>
+        <back-flap/>
+        <spine/>
+        <front-cover/>
+        <back-cover/>
+      </book-jacket>
+    </covers>
     <page/>
-    <chapter>
-      <subsection/>
-      <sidebar/>
-    </chapter>
-    <chapter/>
-    <part>
+    <frontmatter> </frontmatter>
+    <pubbody>
+      <page/>
+      <chapter>
+        <subsection/>
+        <sidebar/>
+      </chapter>
       <chapter/>
-    </part>
-  </pubbody>
-  <backmatter>
-    <chapter/>
-  </backmatter>
-  <appendixes>
-    <appendix/>
-  </appendixes>
-  <colophon/>
+      <part>
+        <chapter/>
+      </part>
+    </pubbody>
+    <backmatter>
+      <chapter/>
+    </backmatter>
+    <appendixes>
+      <appendix/>
+    </appendixes>
+    <colophon/>
+  </publication>
 </pubmap>

@@ -114,7 +114,4 @@
   </target>
   
   
-  <!-- deprecrated: keep for back-compatibility, will be removed in a later release -->
-  <target name="dita.topics.epub" depends="dita.topics.xhtml" />
-  
 </project>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?><?workdir /Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/temp/topics?><?path2project ../?><topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" id="front-cover" outputclass="front-cover" ditaarch:DITAArchVersion="1.2" domains="(topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    " class="- topic/topic " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="topic:1">
+   <title class="- topic/title " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="title:1">The Tragedy of Antony and Cleopatra</title>
+   <body class="- topic/body " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="body:1">
+      <p outputclass="play-subtitle" class="- topic/p " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="p:1">
+         <b class="+ topic/ph hi-d/b " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="b:1">ANTONY AND CLEOPATRA</b>
+      </p>
+      <p class="- topic/p " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="p:2">SCENE  In several parts of the Roman empire.</p>
+      <fig frame="all" outputclass="cover-picture" class="- topic/fig " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="fig:1">
+         <p class="- topic/p " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="p:3">
+            <image href="images/cover-graphic.jpg" placement="break" align="center" width="200" class="- topic/image " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="image:1">
+               <alt class="- topic/alt " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="alt:1">Cover Graphic</alt>
+            </image>
+         </p>
+      </fig>
+      <section spectitle="License" class="- topic/section " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="section:1">
+         <p class="- topic/p " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="p:4">By agreement with Jon Bosak (2009), this edition is
+      published under the <xref href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/" format="html" scope="external" class="- topic/xref " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="xref:1"><?ditaot usertext?>Creative Commons Attribution-Noncommercial-Share Alike</xref> license. Jon's original
+      license and attributions also apply (see below).</p>
+         <p class="- topic/p " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="p:5">
+            <xref href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/" format="html" scope="external" class="- topic/xref " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="xref:2"><?ditaot usertext?>
+               <image href="http://i.creativecommons.org/l/by-nc-sa/3.0/us/88x31.png" placement="inline" class="- topic/image " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="image:2">
+                  <alt class="- topic/alt " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="alt:2">Creative Commons License</alt>
+               </image>
+            </xref>
+         </p>
+         <p class="- topic/p " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="p:6">ASCII text placed in the public domain by Moby Lexical Tools, 1992.</p>
+         <p class="- topic/p " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="p:7">SGML markup by Jon Bosak, 1992-1994.</p>
+         <p class="- topic/p " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="p:8">XML version by Jon Bosak, 1996-1999.</p>
+         <p class="- topic/p " xtrf="/Users/ekimber/workspace/dita4publishers/sample_data/specializations/shakespear/plays/a_and_c/topics/front-cover.xml" xtrc="p:9">The XML markup in this version is Copyright © 1999 Jon Bosak.
+This work may freely be distributed on condition that it not be
+modified or altered in any way.</p>
+      </section>
+   </body>
+</topic>

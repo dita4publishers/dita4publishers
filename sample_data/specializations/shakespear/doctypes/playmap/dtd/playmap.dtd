@@ -14,7 +14,7 @@
 <!--                                                               -->
 <!--  Refer to this file by the following public identifier or an 
       appropriate system identifier 
-PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/playmap"
+PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:playmap"
       Delivered as file "playmap.dtd"                               -->
  
 <!-- ============================================================= -->
@@ -29,7 +29,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/playmap"
 <!-- ============================================================= -->
 
 <!ENTITY % playmap-dec     
-  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/entities/dtd/playmap" 
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:entities:dtd:playmap" 
          "playmap.ent"
 >%playmap-dec;
 
@@ -40,19 +40,19 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/playmap"
 <!ENTITY % mapgroup-d-dec 
                         PUBLIC 
 "-//OASIS//ENTITIES DITA 1.2 Map Group Domain//EN" 
-"../../base/dtd/mapGroup.ent"                                                 >
+"mapGroup.ent"                                                 >
 %mapgroup-d-dec;
 
 <!ENTITY % pubmap-d-dec 
                         PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/entities/dtd/pubmapDomain" 
-"../../pubmapDomain/dtd/pubmapDomain.ent"                                                 
+"urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pubmapDomain" 
+"pubmapDomain.ent"                                                 
 >
 %pubmap-d-dec;
 
 <!ENTITY % indexing-d-dec     PUBLIC 
 "-//OASIS//ENTITIES DITA 1.2 Indexing Domain//EN" 
-"../../base/dtd/indexingDomain.ent"                                           >
+"indexingDomain.ent"                                           >
 %indexing-d-dec;
 
 
@@ -109,12 +109,12 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/playmap"
 %mapgroup-d-def;
 
 <!ENTITY % pubmap-d-def PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain" 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmapDomain" 
 "pubmapDomain.mod"                                                        >
 %pubmap-d-def;
 
 <!ENTITY % playmap-type PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net/modules/dtd/playmap" 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dtd:playmap" 
 "playmap.mod"                                                        >
 %playmap-type;
 
@@ -125,7 +125,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/playmap"
 <!ENTITY % indexing-d-def
                         PUBLIC 
 "-//OASIS//ELEMENTS DITA 1.2 Indexing Domain//EN" 
-"../../base/dtd/indexingDomain.mod"                                           >
+"indexingDomain.mod"                                           >
 %indexing-d-def;
 
 <!-- ================== End DITA playmap DTD  ==================== -->

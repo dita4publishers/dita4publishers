@@ -1,81 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/pubmap" "pubmap.dtd">
+<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
 <pubmap
-  xml:lang="en"><pubtitle>
+  xml:lang="en">
+  <pubtitle>
     <mainpubtitle>The Project Gutenberg Etext of The Wonderful Wizard of Oz</mainpubtitle>
-  </pubtitle><pubmeta><author>L. Frank Baum</author><source
-      >http://www.gutenberg.org/files/55/55-h/55-h.htm</source><critdates>
+  </pubtitle>
+  <pubmeta>
+    <author>L. Frank Baum</author>
+    <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source>
+    <critdates>
       <created
         date="February, 1993"/>
       <revised
         modified="March 29, 2004"/>
     </critdates>
-    <pubid><pubnumber>Ebook #55</pubnumber></pubid>
-    <pubrights><publicense>Project Gutenberg License.</publicense></pubrights>
+    <pubid>
+      <pubnumber>Ebook #55</pubnumber>
+    </pubid>
+    <pubrights>
+      <publicense>Project Gutenberg License.</publicense>
+    </pubrights>
   </pubmeta>
   <keydefs>
     <topicmeta>
       <navtitle>Key Definitions</navtitle>
     </topicmeta>
   </keydefs>
-  <covers>
-    <front-cover
-      href="covers/wizard-of-oz-front-cover.xml"/>
-  </covers><frontmatter>
-    <page
-      href="frontmatter/about-project-gutenberg.xml"/>
-    <topicref
-      href="frontmatter/introduction.xml"/>
-  </frontmatter><pubbody
-    collection-type="sequence">
-    <chapter
-      href="chapters/chapter_1.xml"
-      class="- map/topicref pubmap/chapter "/>
-    <chapter
-      href="chapters/chapter_2.xml"/>
-    <chapter
-      href="chapters/chapter_3.xml"/>
-    <chapter
-      href="chapters/chapter_4.xml"/>
-    <chapter
-      href="chapters/chapter_5.xml"/>
-    <chapter
-      href="chapters/chapter_6.xml"/>
-    <chapter
-      href="chapters/chapter_7.xml"/>
-    <chapter
-      href="chapters/chapter_8.xml"/>
-    <chapter
-      href="chapters/chapter_9.xml"/>
-    <chapter
-      href="chapters/chapter_10.xml"/>
-    <chapter
-      href="chapters/chapter_11.xml"/>
-    <chapter
-      href="chapters/chapter_12.xml"/>
-    <chapter
-      href="chapters/chapter_13.xml"/>
-    <chapter
-      href="chapters/chapter_14.xml"/>
-    <chapter
-      href="chapters/chapter_15.xml"/>
-    <chapter
-      href="chapters/chapter_16.xml"/>
-    <chapter
-      href="chapters/chapter_17.xml"/>
-    <chapter
-      href="chapters/chapter_18.xml"/>
-    <chapter
-      href="chapters/chapter_19.xml"/>
-    <chapter
-      href="chapters/chapter_20.xml"/>
-    <chapter
-      href="chapters/chapter_21.xml"/>
-    <chapter
-      href="chapters/chapter_22.xml"/>
-    <chapter
-      href="chapters/chapter_23.xml"/>
-    <chapter
-      href="chapters/chapter_24.xml"/>
-  </pubbody><colophon
-    href="backmatter/colophon.xml"/></pubmap>
+  <publication>
+    <covers>
+      <front-cover
+        href="covers/wizard-of-oz-front-cover.xml"/>
+    </covers>
+    <frontmatter>
+      <page
+        href="frontmatter/about-project-gutenberg.xml"/>
+      <topicref
+        href="frontmatter/introduction.xml"/>
+    </frontmatter>
+    <pubbody
+      collection-type="sequence">
+      <chapter
+        href="chapters/chapter_1.xml"
+        class="- map/topicref pubmap/chapter "/>
+      <chapter
+        href="chapters/chapter_2.xml"/>
+      <chapter
+        href="chapters/chapter_3.xml"/>
+      <chapter
+        href="chapters/chapter_4.xml"/>
+      <chapter
+        href="chapters/chapter_5.xml"/>
+      <chapter
+        href="chapters/chapter_6.xml"/>
+      <chapter
+        href="chapters/chapter_7.xml"/>
+      <chapter
+        href="chapters/chapter_8.xml"/>
+      <chapter
+        href="chapters/chapter_9.xml"/>
+      <chapter
+        href="chapters/chapter_10.xml"/>
+      <chapter
+        href="chapters/chapter_11.xml"/>
+      <chapter
+        href="chapters/chapter_12.xml"/>
+      <chapter
+        href="chapters/chapter_13.xml"/>
+      <chapter
+        href="chapters/chapter_14.xml"/>
+      <chapter
+        href="chapters/chapter_15.xml"/>
+      <chapter
+        href="chapters/chapter_16.xml"/>
+      <chapter
+        href="chapters/chapter_17.xml"/>
+      <chapter
+        href="chapters/chapter_18.xml"/>
+      <chapter
+        href="chapters/chapter_19.xml"/>
+      <chapter
+        href="chapters/chapter_20.xml"/>
+      <chapter
+        href="chapters/chapter_21.xml"/>
+      <chapter
+        href="chapters/chapter_22.xml"/>
+      <chapter
+        href="chapters/chapter_23.xml"/>
+      <chapter
+        href="chapters/chapter_24.xml"/>
+    </pubbody>
+    <colophon
+      href="backmatter/colophon.xml"/>
+  </publication>
+</pubmap>

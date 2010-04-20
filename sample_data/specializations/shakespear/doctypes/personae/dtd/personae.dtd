@@ -87,7 +87,7 @@
 <!ENTITY % play-component-typemod 
                         PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:play-component" 
-"../../play-component/dtd/play-component.mod"
+"play-component.mod"
 >                                                     
 %play-component-typemod;
 

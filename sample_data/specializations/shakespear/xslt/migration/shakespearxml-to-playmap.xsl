@@ -9,43 +9,43 @@
   -->
  
   <xsl:output
-    doctype-public="urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/playmap"
+    doctype-public="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear/dtd/playmap"
     doctype-system="playmap.dtd"
     indent="yes"
   />
   
   <xsl:output name="personae"
-    doctype-public="urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/personae"
+    doctype-public="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear/dtd/personae"
     doctype-system="personae.dtd"
     indent="yes"
   />
   
   <xsl:output name="act"
-    doctype-public="urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/act"
+    doctype-public="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear/dtd/act"
     doctype-system="act.dtd"
     indent="yes"
   />
   
   <xsl:output name="prologue"
-    doctype-public="urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/prologue"
+    doctype-public="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear/dtd/prologue"
     doctype-system="prologue.dtd"
     indent="yes"
   />
   
   <xsl:output name="epilogue"
-    doctype-public="urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/epilogue"
+    doctype-public="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear/dtd/epilogue"
     doctype-system="epilogue.dtd"
     indent="yes"
   />
   
   <xsl:output name="scene"
-    doctype-public="urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/scene"
+    doctype-public="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear/dtd/scene"
     doctype-system="scene.dtd"
     indent="yes"
   />
   
   <xsl:output name="induct"
-    doctype-public="urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/shakespear/dtd/induct"
+    doctype-public="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear/dtd/induct"
     doctype-system="induct.dtd"
     indent="yes"
   />
