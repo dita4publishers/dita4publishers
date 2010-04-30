@@ -5,7 +5,7 @@
      Provides phrase-level elements for identifying mentions of
      XML constructs: element types, attributes, etc.
      
-     Copyright (c) 2009 DITA For Publishers
+     Copyright (c) 2009, 2010 DITA For Publishers
      
      This domain module may be used by anyone without restriction.
      
@@ -37,10 +37,14 @@
 
 
 <!--                    LONG NAME: XML Element                            -->
-<!ELEMENT xmlelem  
-  (#PCDATA)*
->
-<!ATTLIST xmlelem               
+<!ENTITY % xmlelem.content
+"
+  (#PCDATA |
+   (%keyword;) |
+   (%text;))*
+">
+<!ENTITY % xmlelem.attributes
+"
   %univ-atts;                                  
   keyref
     CDATA
@@ -48,13 +52,19 @@
   outputclass 
     CDATA
     #IMPLIED    
->
+">
+<!ELEMENT xmlelem %xmlelem.content; >
+<!ATTLIST xmlelem %xmlelem.attributes; >
 
 <!--                    LONG NAME: XML Attribute                            -->
-<!ELEMENT xmlatt  
-  (#PCDATA)*
->
-<!ATTLIST xmlatt
+<!ENTITY % xmlatt.content
+"
+  (#PCDATA |
+   (%keyword;) |
+   (%text;))*
+">
+<!ENTITY % xmlatt.attributes
+"
   %univ-atts;                                  
   keyref
     CDATA
@@ -62,13 +72,19 @@
   outputclass 
     CDATA
     #IMPLIED    
->
+">
+<!ELEMENT xmlatt %xmlatt.content; >
+<!ATTLIST xmlatt %xmlatt.attributes; >
 
 <!--                    LONG NAME: Text entity -->
-<!ELEMENT textent  
-  (#PCDATA)*
->
-<!ATTLIST textent
+<!ENTITY % textent.content
+"
+  (#PCDATA |
+   (%keyword;) |
+   (%text;))*
+">
+<!ENTITY % textent.attributes
+"
   %univ-atts;                                  
   keyref
     CDATA
@@ -76,13 +92,19 @@
   outputclass 
     CDATA
     #IMPLIED    
->
+">
+<!ELEMENT textent %textent.content; >
+<!ATTLIST textent %textent.attributes; >
 
 <!--                    LONG NAME: Parameter entity -->
-<!ELEMENT parment  
-  (#PCDATA)*
->
-<!ATTLIST parment
+<!ENTITY % parment.content
+"
+  (#PCDATA |
+   (%keyword;) |
+   (%text;))*
+">
+<!ENTITY % parment.attributes
+"
   %univ-atts;                                  
   keyref
     CDATA
@@ -90,13 +112,19 @@
   outputclass 
     CDATA
     #IMPLIED    
->
+">
+<!ELEMENT parment %parment.content; >
+<!ATTLIST parment %parment.attributes; >
 
 <!--                    LONG NAME: Numeric character reference -->
-<!ELEMENT numcharref  
-  (#PCDATA)*
->
-<!ATTLIST numcharref
+<!ENTITY % numcharref.content
+"
+  (#PCDATA |
+   (%keyword;) |
+   (%text;))*
+">
+<!ENTITY % numcharref.attributes
+"
   %univ-atts;                                  
   keyref
     CDATA
@@ -104,7 +132,9 @@
   outputclass 
     CDATA
     #IMPLIED    
->
+">
+<!ELEMENT numcharref %numcharref.content; >
+<!ATTLIST numcharref %numcharref.attributes; >
 
 
 <!-- ============================================================= -->
