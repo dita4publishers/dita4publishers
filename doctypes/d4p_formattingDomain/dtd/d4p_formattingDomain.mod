@@ -5,9 +5,21 @@
      Defines specializations of p and ph for requesting specific
      formatting effects.
      
-     Copyright (c) 2009 DITA For Publishers
+     Copyright (c) 2009, 2010 DITA For Publishers
      
      ============================================================= -->
+     
+ <!ENTITY % art           "art" >
+ <!ENTITY % art_title     "art_title" >
+ <!ENTITY % br            "br" >
+ <!ENTITY % eqn_inline    "eqn_inline" >
+ <!ENTITY % eqn_block     "eqn_block" >
+ <!ENTITY % enumerator    "enumerator" >
+ <!ENTITY % frac          "frac" >
+ <!ENTITY % inx_snippet   "inx_snippet" >
+ <!ENTITY % linethrough   "linethrough" >
+ <!ENTITY % tab           "tab" >
+     
 
 <!ENTITY % MATHML.prefixed "INCLUDE">
 
@@ -28,53 +40,128 @@
 <!--                    ELEMENT DECLARATIONS                       -->
 <!-- ============================================================= -->
 
-<!ELEMENT br
-  EMPTY
->
-<!ATTLIST br
->
+<!ENTITY % br.content "EMPTY" >
+<!ENTITY % br.attributes
+ "
+   %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    #IMPLIED    
 
-<!ELEMENT tab
-  EMPTY
->
-<!ATTLIST tab
->
+ "
+> 
+<!ELEMENT br %br.content; >
+<!ATTLIST br %br.attributes; >
 
-<!ELEMENT frac
+
+
+<!ENTITY % tab.content "EMPTY" >
+<!ENTITY % tab.attributes
+ "
+   %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    #IMPLIED    
+
+ "
+> 
+<!ELEMENT tab %tab.content; >
+<!ATTLIST tab %tab.attributes; >
+
+
+<!ENTITY % frac.content
+"
   (#PCDATA | 
-   ph |
+   ph|
    i |
    b)*
+  " 
 >
-<!ATTLIST frac
->
+<!ENTITY % frac.attributes
+ "
+   %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    #IMPLIED    
 
-<!ELEMENT eqn_inline
-  (inx_snippet |
+ "
+> 
+<!ELEMENT frac %frac.content; >
+<!ATTLIST frac %frac.attributes; >
+
+
+<!ENTITY % eqn_inline.content 
+"
+  (%inx_snippet; |
    m:math |
-   art |
+   %art; |
    %data;)*
->
-<!ATTLIST eqn_inline
-  %univ-atts;
->
+">
+<!ENTITY % eqn_inline.attributes
+ "
+   %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    #IMPLIED    
 
-<!ELEMENT eqn_block
-  (inx_snippet |
+ "
+> 
+<!ELEMENT eqn_inline %eqn_inline.content; >
+<!ATTLIST eqn_inline %eqn_inline.attributes; >
+
+<!ENTITY % eqn_block.content
+"
+  (%inx_snippet; |
    m:math |
-   art |
+   %art; |
    %data;)*
+"
 >
-<!ATTLIST eqn_block
-  %univ-atts;
->
+<!ENTITY % eqn_block.attributes
+ "
+   %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    #IMPLIED    
 
-<!ELEMENT art
-  (art_title?,
-   image*,
-   classification?)
->
-<!ATTLIST art
+ "
+> 
+<!ELEMENT eqn_block %eqn_block.content; >
+<!ATTLIST eqn_block %eqn_block.attributes; >
+
+<!ENTITY % art.content
+"
+  ((%art_title;)?,
+   (%image;)*,
+   (%data;)*)
+">
+<!ENTITY % art.attributes
+"
   %id-atts;
   %localization-atts;
   base       
@@ -84,12 +171,16 @@
   outputclass 
     CDATA                            
     #IMPLIED    
->
+">
+<!ELEMENT art %art.content; >
+<!ATTLIST art %art.attributes; >
 
-<!ELEMENT art_title
+<!ENTITY % art_title.content
+"
   (%ph.cnt;)*
->
-<!ATTLIST art_title
+">
+<!ENTITY % art_title.attributes
+" 
   %id-atts;
   %localization-atts;
   base       
@@ -99,16 +190,66 @@
   outputclass 
     CDATA                            
     #IMPLIED    
->
+">
+<!ELEMENT art_title %art_title.content; >
+<!ATTLIST art_title %art_title.attributes; >
 
-
-
-<!ELEMENT inx_snippet
+<!ENTITY % inx_snippet.content
+"
   (%inx-components;)*
+">
+<!ENTITY % inx_snippet.attributes
+"
+  %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    #IMPLIED    
+">
+<!ELEMENT inx_snippet %inx_snippet.content; >
+<!ATTLIST inx_snippet %inx_snippet.attributes; >
+
+<!ENTITY % enumerator.content 
+ "(%ph.cnt;)*"
 >
-<!ATTLIST inx_snippet
-  %univ-atts;
+<!ENTITY % enumerator.attributes 
+ "
+  %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    #IMPLIED    
+ "
+ >
+<!ELEMENT enumerator %enumerator.content; >
+<!ATTLIST enumerator %enumerator.attributes; >
+
+<!ENTITY % linethrough.content 
+ "(%ph.cnt;)*"
 >
+<!ENTITY % linethrough.attributes 
+ "
+  %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    #IMPLIED    
+ "
+ >
+<!ELEMENT linethrough %linethrough.content; >
+<!ATTLIST linethrough %linethrough.attributes; >
 
 <!-- ============================================================= -->
 <!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
@@ -118,10 +259,12 @@
 <!ATTLIST art_title        %global-atts;  class CDATA "+ topic/data  d4p-formatting-d/art_title ">
 
 <!ATTLIST br               %global-atts;  class CDATA "+ topic/ph  d4p-formatting-d/br ">
-<!ATTLIST frac             %global-atts;  class CDATA "+ topic/ph  d4p-formatting-d/frac ">
-<!ATTLIST tab              %global-atts;  class CDATA "+ topic/ph  d4p-formatting-d/tab ">
+<!ATTLIST enumerator       %global-atts;  class CDATA "+ topic/data  d4p-formatting-d/enumerator ">
 <!ATTLIST eqn_inline       %global-atts;  class CDATA "+ topic/ph  d4p-formatting-d/eqn_inline ">
 <!ATTLIST eqn_block        %global-atts;  class CDATA "+ topic/p   d4p-formatting-d/eqn_block ">
+<!ATTLIST frac             %global-atts;  class CDATA "+ topic/ph  d4p-formatting-d/frac ">
 <!ATTLIST inx_snippet      %global-atts;  class CDATA "+ topic/foreign  d4p-formatting-d/inx_snippet ">
+<!ATTLIST linethrough      %global-atts;  class CDATA "+ topic/ph  d4p-formatting-d/linethrough ">
+<!ATTLIST tab              %global-atts;  class CDATA "+ topic/ph  d4p-formatting-d/tab ">
 
 <!-- ================== End Formatting Domain ==================== -->

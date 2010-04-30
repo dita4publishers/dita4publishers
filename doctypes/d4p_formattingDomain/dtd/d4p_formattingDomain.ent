@@ -16,8 +16,10 @@
 
 <!ENTITY % d4p_formatting-d-ph
    "br |
+    enumerator |
     eqn_inline |
-    tab
+    linethrough |
+    tab 
    "
 >
 
