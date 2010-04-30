@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">
+  
+  <public publicId="-//W3C//DTD MathML 2.0//EN"
+    uri="mathml2.dtd"
+  />
+  <public publicId="-//W3C//ENTITIES MathML 2.0 Qualified Names 1.0//EN"
+    uri="mathml2-qname-1.mod"
+  />
+  
+  
+</catalog>
