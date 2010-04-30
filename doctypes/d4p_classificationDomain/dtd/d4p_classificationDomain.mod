@@ -5,7 +5,7 @@
      Defines specializations of data for classifying components
      of publications (topics, figures, tables, etc.).
      
-     Copyright (c) 2009 DITA For Publishers
+     Copyright (c) 2009, 2010 DITA For Publishers
      
      ============================================================= -->
 
@@ -20,18 +20,20 @@
 <!--                    ELEMENT DECLARATIONS                       -->
 <!-- ============================================================= -->
 
-
-<!ELEMENT classification
-  (data*,
-   keyword*
+<!ENTITY % classification.content
+"
+  ((%data;)*,
+   (%keyword;)*
   )
->
-<!ATTLIST classification
+">
+<!ENTITY % classification.attributes
+"
   name
     NMTOKEN
-    "classification"
->
-
+    'classification'
+">
+<!ELEMENT classification %classification.content; >
+<!ATTLIST classification %classification.attributes; >
 
 <!-- ============================================================= -->
 <!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
