@@ -68,7 +68,7 @@
         <info>
           <p>There are many ways to do this, but one way is to use a command window. Navigate to
             your Open Toolkit's directory and then issue this command:</p>
-          <codeblock>tools/ant/ant -f integrate.xml</codeblock>
+          <codeblock>tools/ant/bin/ant -f integrator.xml</codeblock>
           <p>That should run and you should see some sort of happy message.</p>
           <p>If you are using a Toolkit installed with an XML editor, running any Toolkit process
             from the editor should automatically do the integration step.</p>
@@ -79,7 +79,7 @@
           publications.</cmd>
         <info>
           <p>Using a command line from the DITA OT directory, this command should work:</p>
-          <codeblock>java -jar lib\dost.jar /i:/Users/myname/dita4publishers/sample_data/wizard-of-oz/wizard-of-oz.ditamap /transtype:epub</codeblock>
+          <codeblock>java -jar lib/dost.jar /i:/Users/myname/dita4publishers/sample_data/wizard-of-oz/wizard-of-oz.ditamap /transtype:epub</codeblock>
           <p>Specifying the actual path to where you put the sample data.</p>
         </info>
       </step>
