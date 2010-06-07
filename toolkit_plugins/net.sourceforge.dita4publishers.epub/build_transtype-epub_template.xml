@@ -3,6 +3,10 @@
   
   <!-- test to see where the plugin is located, plugins or demo -->
   <dirname property="epub.dir" file="${ant.file.dita2epub}"/>
+	
+	<!-- Set this property to set the ePub URI stub to a useful value. -->
+	<property name="idURIStub"
+	  value="http://my-URI-stub/"/>
   
   <target name="dita2epub"
     unless="noMap"
@@ -15,7 +19,7 @@
   
   <target name="epub"
     unless="noMap"
-    depends="opf, tococx, containerxml, mimetype, zipepub"/>
+    depends="opf, tocncx, containerxml, mimetype, zipepub"/>
   
   
   <target name="containerxml">
@@ -83,17 +87,15 @@
   
   
   <target name="opf" description="build content.opf file">
-    <!-- Tell xsl/map2epubopf.xsl to create content.opf from dita.input.filename. -->
-    <echo message="I think dita.script.dir is ${dita.script.dir}"/>
-    <echo message="I think basedir is ${basedir}"/>
-    <echo message="I think my xsl is ${basedir}${file.separator}xsl${file.separator}map2epubopf.xsl"/>
+  	<!-- Generate the ePub OPF manifest file. -->
+  	<echo message="idURStub='${idURIStub}'"/>
     <xslt processor="trax"
       basedir="${dita.temp.dir}"
       destdir="${output.dir}"
       includes="${dita.input.filename}"
       classpathref="dost.class.path"
       style="${epub.dir}${file.separator}xsl${file.separator}map2epubopf.xsl">
-      <param name="IdURIStub" expression="http://my-URI-stub/" />
+      <param name="idURIStub" expression="${idURIStub}" />
       <param name="tempFilesDir"
         expression="${basedir}${file.separator}${dita.temp.dir}" />
       <mapper type="regexp" from="${dita.input.filename}" to="content.opf"/>
@@ -101,7 +103,7 @@
   </target>
   
   
-  <target name="tococx" description="build toc.ncx file">
+  <target name="tocncx" description="build toc.ncx file">
     <!-- Tell xsl/map2epubtoc.xsl to create toc.ncx from dita.input.filename. -->
     <xslt processor="trax"
       basedir="${dita.temp.dir}"
