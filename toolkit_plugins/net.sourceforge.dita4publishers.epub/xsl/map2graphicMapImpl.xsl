@@ -11,10 +11,12 @@
   <xsl:import href="lib/dita-support-lib.xsl"/>
   <xsl:import href="lib/relpath_util.xsl"/>
   
-  <xsl:template match="*[df:class(., 'map/map')]" mode="generate-graphic-map">
-    <graphic-map>
-      <xsl:apply-templates select="/*//*" mode="#current"/>
-    </graphic-map>
+  <xsl:output name="graphic-map" method="xml" indent="yes"/>
+  
+  <xsl:template match="*[df:class(., 'map/map')]" mode="generate-graphic-map">]">
+    <xsl:message> + [INFO] Generating graphic input-to-output map...</xsl:message>
+    <xsl:apply-templates mode="#current"/>
+    <xsl:message> + [INFO] Graphic input-to-output map generated.</xsl:message>
   </xsl:template>  
   
   <xsl:template match="*[df:isTopicRef(.)]" mode="generate-graphic-map">

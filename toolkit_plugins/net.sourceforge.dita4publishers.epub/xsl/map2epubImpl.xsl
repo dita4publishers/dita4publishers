@@ -36,17 +36,25 @@
        The input to this transform is a fully-resolved map. All processing of maps
        and topics is driven by references from the map.
        
-       The primary output of this transform is the OPF file, which is the main manifest
-       for the ePub. This file should be named "content.opf". All other files are
-       generated using xsl:result-document.
+       All files produced by this transform use xsl:result document. The primary
+       output should be named deleteme.txt. It should be empty but extensions 
+       may inadvertently output data outside the scope of a containing xsl:result-document
+       instruction.
        ============================================================== -->
 
   <xsl:import href="lib/dita-support-lib.xsl"/>
   <xsl:import href="lib/relpath_util.xsl"/>
   
+  <!-- Import the base HTML output generation transform. -->
+  <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
+  
+  
+  <xsl:include href="map2epubCommon.xsl"/>
   <xsl:include href="map2epubopfImpl.xsl"/>
   <xsl:include href="map2graphicMapImpl.xsl"/>
   <xsl:include href="map2epubContentImpl.xsl"/>
+  <xsl:include href="map2epubTocImpl.xsl"/>
+  <xsl:include href="html2xhtmlImpl.xsl"/>
   
   <!-- Directory into which the generated output is put.
 
@@ -54,6 +62,7 @@
        produce the final ePub package.
        -->
   <xsl:param name="outdir" select="./epub"/>
+  
   <!-- The path of the directory, relative the $outdir parameter,
     to hold the graphics in the EPub package. Should not have
     a leading "/". 
@@ -64,6 +73,10 @@
     a leading "/". 
   -->  
   <xsl:param name="topicsOutputDir" select="'topics'" as="xs:string"/>
+  
+  <xsl:param name="debug" select="'false'" as="xs:string"/>
+  
+  <xsl:variable name="debugBinary" select="$debug = 'true'" as="xs:boolean"/>
   
   <xsl:variable name="topicsOutputPath">
     <xsl:choose>
@@ -94,16 +107,27 @@
     <xsl:message> + [INFO] outdir="<xsl:sequence select="$outdir"/>"</xsl:message>
     
     <xsl:variable name="graphicMap" as="element()">
-      <xsl:apply-templates select="." mode="generate-graphic-map"/>
+      <graphic-map>
+        <xsl:apply-templates select="." mode="generate-graphic-map"/>
+      </graphic-map>     
     </xsl:variable>
-    
-    <xsl:result-document href="{relpath:newFile($outdir, 'graphicMap.xml')}" method="xml">
+    <xsl:result-document href="{relpath:newFile($outdir, 'graphicMap.xml')}" format="graphic-map">
       <xsl:sequence select="$graphicMap"/>
-    </xsl:result-document>
-    
-    <xsl:apply-templates select="." mode="generate-opf"/>
-    <xsl:apply-templates select="." mode="generate-toc"/>
+    </xsl:result-document>    
+    <xsl:call-template name="make-meta-inf"/>
     <xsl:apply-templates select="." mode="generate-content"/>
+    <xsl:apply-templates select="." mode="generate-toc"/>
+    <xsl:apply-templates select="." mode="generate-opf"/>
+  </xsl:template>
+  
+  <xsl:template name="make-meta-inf">
+    <xsl:result-document href="{relpath:newFile(relpath:newFile($outdir, 'META-INF'), 'container.xml')}">
+      <container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">
+        <rootfiles>
+          <rootfile full-path="content.opf" media-type="application/oebps-package+xml"/>
+        </rootfiles>
+      </container>
+    </xsl:result-document>
   </xsl:template>
   
 </xsl:stylesheet>

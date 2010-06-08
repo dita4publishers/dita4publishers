@@ -3,78 +3,96 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/"
                 xmlns:df="http://dita2indesign.org/dita/functions"
-                xmlns:xs="http://www.w3.org/2001/XMLSchema"                
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:relpath="http://dita2indesign/functions/relpath"
+                xmlns:epubutil="http://dita4publishers.org/functions/epubutil"
                 xmlns="http://www.daisy.org/z3986/2005/ncx/"
                 xmlns:local="urn:functions:local"
-                exclude-result-prefixes="local xs df xsl"
+                exclude-result-prefixes="local xs df xsl relpath epubutil"
   >
   
   <xsl:import href="lib/dita-support-lib.xsl"/>
+  <xsl:import href="lib/relpath_util.xsl"/>
+  <xsl:import href="epub-generation-utils.xsl"/>
   
-  <xsl:include href="map2epubCommon.xsl"/>
-
   <xsl:param name="IdURIStub">http://example.org/dummy/URIstub/</xsl:param>
 
   <xsl:strip-space elements="*"/>
-  <xsl:output indent="yes"/>
+  <xsl:output indent="yes" name="ncx" method="xml"/>
 
 
-  <xsl:template match="*[df:class(., 'map/map')]">
+  <xsl:template match="*[df:class(., 'map/map')]" mode="generate-toc">
     <xsl:variable name="pubTitle" as="xs:string">
       <xsl:apply-templates select="*[df:class(., 'topic/title')] | @title" mode="pubtitle"/>
     </xsl:variable>           
-      
-    <ncx xmlns="http://www.daisy.org/z3986/2005/ncx/"
-         version="2005-1" xml:lang="en">
-      <head xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/">
-        <meta name="dtb:uid" content="{$IdURIStub}{@id}"/>
-        <meta name="dtb:depth" content="1"/>
-        <meta name="dtb:totalPageCount" content="0"/>
-        <meta name="dtb:maxPageNumber" content="0"/>
-      </head>
-      <docTitle xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/">
-
-        <text><xsl:sequence select="$pubTitle"/></text>
-      </docTitle>
-      <navMap>
-        <xsl:choose>
-          <xsl:when test="$pubTitle != ''">
-            <!-- FIXME: If there is a pubtitle, generate a root navPoint for the title.
-                        This will require passing down a parameter with the offset to
-                        use for calculating playOrder.
-                        
-                        When I created a root node, Adobe Digital Editions refused
-                        to show it in the TOC view.
+    <xsl:variable name="resultUri" 
+      select="relpath:newFile($outdir, 'toc.ncx')" 
+      as="xs:string"/>
+    <xsl:message> + [INFO] Generating ToC (NCX) file "<xsl:sequence select="$resultUri"/>"...</xsl:message>
+    
+    <xsl:result-document href="{$resultUri}" format="ncx">
+      <ncx xmlns="http://www.daisy.org/z3986/2005/ncx/"
+        version="2005-1" xml:lang="en">
+        <head xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/">
+          <meta name="dtb:uid" content="{$IdURIStub}{@id}"/>
+          <meta name="dtb:depth" content="1"/>
+          <meta name="dtb:totalPageCount" content="0"/>
+          <meta name="dtb:maxPageNumber" content="0"/>
+        </head>
+        <docTitle xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/">
+          
+          <text><xsl:sequence select="$pubTitle"/></text>
+        </docTitle>
+        <navMap>
+          <xsl:choose>
+            <xsl:when test="$pubTitle != ''">
+              <!-- FIXME: If there is a pubtitle, generate a root navPoint for the title.
+                This will require passing down a parameter with the offset to
+                use for calculating playOrder.
+                
+                When I created a root node, Adobe Digital Editions refused
+                to show it in the TOC view.
               -->
-            <xsl:apply-templates select="*[df:class(., 'map/topicref')]"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:apply-templates select="*[df:class(., 'map/topicref')]"/>
-          </xsl:otherwise>
-        </xsl:choose>
-        
-      </navMap>
-    </ncx>
-
+              <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
+            </xsl:otherwise>
+          </xsl:choose>
+          
+        </navMap>
+      </ncx>
+    </xsl:result-document>  
+    <xsl:message> + [INFO] ToC generation done.</xsl:message>
   </xsl:template>
   
 
   <!-- Convert each topicref to a navPoint. -->
-  <xsl:template match="*[df:isTopicRef(.)]">
+  <xsl:template match="*[df:isTopicRef(.)]" mode="generate-toc">
     <!-- For title that shows up in ncx:text, use the navtitle. If it's
     not there, use the first title element in the referenced file. -->
     <xsl:variable name="navPointTitle">
       <xsl:apply-templates select="." mode="nav-point-title"/>      
     </xsl:variable>
     
-    <navPoint id="{generate-id()}"
-                  playOrder="{local:getPlayOrder(.)}"> 
-      <navLabel>
-        <text><xsl:value-of select="$navPointTitle"/></text>
-      </navLabel>
-      <content src="{substring-before(@href,'.xml')}.html"/>
-      <xsl:apply-templates/>
-    </navPoint>
+    <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
+    <xsl:choose>
+      <xsl:when test="not($topic)">
+        <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="targetUri" select="epubutil:getTopicResultUrl($topicsOutputPath, $topic)" as="xs:string"/>
+        <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
+        <navPoint id="{generate-id()}"
+                      playOrder="{local:getPlayOrder(.)}"> 
+          <navLabel>
+            <text><xsl:value-of select="$navPointTitle"/></text>
+          </navLabel>
+          <content src="{$relativeUri}"/>
+          <xsl:apply-templates mode="#current"/>
+        </navPoint>
+      </xsl:otherwise>
+    </xsl:choose>    
   </xsl:template>
   
   <xsl:template mode="nav-point-title" match="*[df:isTopicRef(.)] | *[df:isTopicHead(.)]">
@@ -82,7 +100,7 @@
     <xsl:sequence select="$navPointTitleString"/>    
   </xsl:template>
     
-  <xsl:template match="*[df:isTopicGroup(.)]" priority="10">
+  <xsl:template match="*[df:isTopicGroup(.)]" priority="10" mode="generate-toc">
     <xsl:variable name="navPointTitle" as="xs:string*">
       <xsl:apply-templates select="." mode="nav-point-title"/>
     </xsl:variable>
@@ -95,11 +113,11 @@
             <text><xsl:sequence select="$navPointTitle"/></text>
           </navLabel>
           <content src=""/>
-          <xsl:apply-templates select="*[df:class(.,'map/topicref')]"/>
+          <xsl:apply-templates select="*[df:class(.,'map/topicref')]" mode="#current"/>
         </navPoint>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:apply-templates select="*[df:class(., 'map/topicref')]"/>
+        <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
       </xsl:otherwise>
     </xsl:choose>
     
@@ -110,14 +128,14 @@
 
   <!-- topichead elements get a navPoint, but don't actually point to
        anything.  Same with topicref that has no @href. -->
-  <xsl:template match="*[df:isTopicHead(.) or df:isTopicGroup(.)]">
+  <xsl:template match="*[df:isTopicHead(.) or df:isTopicGroup(.)]" mode="generate-toc">
     <navPoint id="{generate-id()}"
       playOrder="{local:getPlayOrder(.)}"> 
       <navLabel>
         <text><xsl:apply-templates select="." mode="nav-point-title"/></text>
       </navLabel>
       <content src=""/>
-      <xsl:apply-templates select="*[df:class(., 'map/topicref')]"/>
+      <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
     </navPoint>
   </xsl:template>
 
@@ -139,8 +157,8 @@
     <!-- Suppress footnotes in titles -->
   </xsl:template>
   
-  <xsl:template match="*[df:class(., 'topic/tm')]"> 
-    <xsl:apply-templates/><xsl:text>[tm]</xsl:text>
+  <xsl:template match="*[df:class(., 'topic/tm')]" mode="generate-toc"> 
+    <xsl:apply-templates mode="#current"/><xsl:text>[tm]</xsl:text>
   </xsl:template>
   
   <xsl:template match="
@@ -152,15 +170,15 @@
     *[df:class(., 'topic/image')] |
     *[df:class(., 'topic/keyword')] |
     *[df:class(., 'topic/term')]
-    ">
-    <xsl:apply-templates/>
+    " mode="generate-toc">
+    <xsl:apply-templates mode="#current"/>
   </xsl:template>
 
-  <xsl:template match="*[df:class(., 'topic/title')]//text()">
+  <xsl:template match="*[df:class(., 'topic/title')]//text()" mode="generate-toc">
     <xsl:copy/>
   </xsl:template>
   
-  <xsl:template match="text()"/>
+  <xsl:template match="text()" mode="generate-toc"/>
   
   <xsl:function name="local:getPlayOrder" as="xs:string">
     <xsl:param name="context" as="element()"/>

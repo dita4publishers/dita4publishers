@@ -8,10 +8,11 @@
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:epubutil="http://dita4publishers.org/functions/epubutil"
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
-  xmlns="http://www.idpf.org/2007/opf"
+  
   exclude-result-prefixes="df xs relpath epubutil opf dc xd"
   version="2.0">
-  
+ 
+  <!-- xmlns="http://www.w3.org/1999/xhtml" --> 
   <!-- Generates HTML ePub content from a DITA map.
     
   -->
@@ -27,12 +28,15 @@
   />
   
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-content">
-    <xsl:message> + [DEBUG] Handling map in mode generate-content</xsl:message>
+    <xsl:message> + [INFO] Generating content...</xsl:message>
     <xsl:apply-templates mode="#current"/>
+    <xsl:message> + [INFO] Content generated.</xsl:message>
   </xsl:template>
   
   <xsl:template match="*[df:isTopicRef(.)]" mode="generate-content">
-    <xsl:message> + [DEBUG] Handling topicref to "<xsl:sequence select="string(@href)"/>" in mode generate-content</xsl:message>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] Handling topicref to "<xsl:sequence select="string(@href)"/>" in mode generate-content</xsl:message>
+    </xsl:if>
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
     <xsl:choose>
       <xsl:when test="not($topic)">
@@ -53,11 +57,22 @@
     <xsl:param name="topicref" as="element()" tunnel="yes"/>
     
     <xsl:variable name="resultUri" select="epubutil:getTopicResultUrl($topicsOutputPath, .)" as="xs:string"/>
+    <xsl:variable name="htmlNoNamespace" as="node()*">
+      <xsl:apply-templates select="."/>      
+    </xsl:variable>
     <xsl:result-document format="topic-html" href="{$resultUri}" exclude-result-prefixes="opf">
-      <html>
-        <xsl:apply-templates select="."/>
-      </html>
+      <xsl:apply-templates select="$htmlNoNamespace" mode="html2xhtml"/>
     </xsl:result-document>
+  </xsl:template>
+  
+  <xsl:template name="chapter-setup">
+    <!-- NOTE: This template is based on the same template from dita2xhtmlImpl.xsl -->
+    <html>
+      <xsl:call-template name="setTopicLanguage"/>
+      <xsl:value-of select="$newline"/>
+      <xsl:call-template name="chapterHead"/>
+      <xsl:call-template name="chapterBody"/> 
+    </html>
   </xsl:template>
   
   <xsl:template match="

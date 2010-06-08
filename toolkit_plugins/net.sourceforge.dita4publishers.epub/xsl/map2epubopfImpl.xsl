@@ -5,8 +5,9 @@
   xmlns:dc="http://purl.org/dc/elements/1.1/"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:relpath="http://dita2indesign/functions/relpath"
+  xmlns:epubutil="http://dita4publishers.org/functions/epubutil"
   xmlns="http://www.idpf.org/2007/opf"
-  exclude-result-prefixes="df xs relpath"
+  exclude-result-prefixes="df xs relpath epubutil"
   >
 
   <!-- Convert a DITA map to an EPUB content.opf file. 
@@ -21,8 +22,6 @@
   <xsl:import href="lib/dita-support-lib.xsl"/>
   <xsl:import href="lib/relpath_util.xsl"/>
   
-  <xsl:include href="map2epubCommon.xsl"/>
-  
   <!-- See note about my-URI-stub in build_dita2epub.xml. Hopefully a
        better URI will be passed to override this. -->
   <xsl:param name="idURIStub" select="'http://my-URI-stub/'" as="xs:string"/>
@@ -36,7 +35,7 @@
 
   <xsl:strip-space elements="*"/>
   <!-- Output format for the content.opf file -->
-  <xsl:output
+  <xsl:output name="opf"
     indent="yes"
     method="xml"
   />
@@ -54,7 +53,14 @@
     </xsl:if>
     
     <xsl:variable name="lang" select="if (@xml:lang) then string(@xml:lang) else 'en-US'" as="xs:string"/>
-
+    
+    <xsl:variable name="resultUri" 
+      select="relpath:newFile($outdir, 'content.opf')" 
+      as="xs:string"/>
+    
+    <xsl:message> + [INFO] Generating OPF file "<xsl:sequence select="$resultUri"/>"...</xsl:message>
+    
+    <xsl:result-document format="opf" href="{$resultUri}">
       <package xmlns="http://www.idpf.org/2007/opf"
         xmlns:dc="http://purl.org/dc/elements/1.1/"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -102,11 +108,15 @@
         </metadata>
         
         <manifest xmlns:opf="http://www.idpf.org/2007/opf">
-          <opf:item id="ncx" href="toc.ncx" media-type="text/xml"/>
+          <opf:item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
           <!-- List the XHTML files -->
           <xsl:apply-templates mode="manifest" select=".//*[df:class(., 'map/topicref') and @href]"/>
           <!-- List the images -->
           <xsl:apply-templates mode="getpics" select=".//*[df:class(., 'map/topicref') and @href]"/>
+          <opf:item id="commonltr.css" href="topics/commonltr.css" media-type="text/css"/>
+          <opf:item id="commonrtl.css" href="topics/commonrtl.css" media-type="text/css"/>
+          <!-- FIXME: Need ability to add references to user-supplied CSS files as defined using
+               normal Toolkit methods -->
         </manifest>
         
         <spine toc="ncx">
@@ -114,6 +124,8 @@
         </spine>
         
       </package>
+    </xsl:result-document>  
+    <xsl:message> + [INFO] OPF file generation done.</xsl:message>
   </xsl:template>
 
   <xsl:template match="*[df:class(., 'map/topicref') and @href and @scope != 'external']" mode="getpics">
@@ -121,6 +133,7 @@
          that it points to a locally stored file. To do: don't assume
          this. -->
     <!-- FIXME: Need to construct the output URI for the graphic using a common function -->
+    
     <xsl:variable name="topicrefURL" as="xs:string">
       <xsl:sequence select="$inputURLstub"/>
       <xsl:sequence select="if (contains(@href,'#')) then substring-before(@href,'#') else string(@href)"/>
@@ -186,8 +199,18 @@
   </xsl:template>
 
   <xsl:template match="*[df:isTopicRef(.)]" mode="manifest">
-    <opf:item id="{generate-id()}" href="{substring-before(@href,'.xml')}.html"
+    <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
+    <xsl:choose>
+      <xsl:when test="not($topic)">
+        <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="targetUri" select="epubutil:getTopicResultUrl($topicsOutputPath, $topic)" as="xs:string"/>
+        <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
+        <opf:item id="{generate-id()}" href="{$relativeUri}"
               media-type="application/xhtml+xml"/>
+      </xsl:otherwise>
+    </xsl:choose>    
   </xsl:template>
 
   <xsl:template match="*[df:class(., 'map/topicref')]" mode="spine">
@@ -227,5 +250,5 @@
     
   </xsl:template>
 
-  <xsl:template match="text()" mode="#default generate-opf"/>
+  <xsl:template match="text()" mode="generate-opf"/>
 </xsl:stylesheet>
