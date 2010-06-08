@@ -17,8 +17,8 @@
 
   <xsl:template match="*[contains(@class, ' xml-d/xmlatt ')]" priority="10">
     <code>
+      <xsl:text>@</xsl:text>
       <xsl:apply-templates/>
-      <xsl:text>=</xsl:text>
     </code>
   </xsl:template>
 
