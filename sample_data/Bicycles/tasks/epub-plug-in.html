@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Creating ePub eBooks from DITA XML"/>
+<meta name="abstract" content="This section explains how to obtain the Dita4Publishers plug-in and create an ePub eBook from content written in DITA XML, with the Open Toolkit."/>
+<meta name="description" content="This section explains how to obtain the Dita4Publishers plug-in and create an ePub eBook from content written in DITA XML, with the Open Toolkit."/>
+<meta name="DC.Relation" scheme="URI" content="../concepts/About-epub-output.html"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/Translating_DITA_Project.html"/>
+<meta name="DC.Relation" scheme="URI" content="../reference/Web_Output_Of_Elements.html"/>
+<meta name="DC.Creator" content="Ray Lloyd"/>
+<meta name="DC.Publisher" content="dita2web"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="epub-plug-in"/>
+<meta name="DC.Language" content="en-gb"/>
+<link rel="stylesheet" type="text/css" href="../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../css/epub.css"/>
+<title>Creating ePub eBooks from DITA XML</title>
+</head>
+<body id="epub-plug-in">
+
+
+    <h1 class="topictitle1">Creating ePub eBooks from DITA XML</h1>
+
+    
+    <div><p class="rl_shortdesc">This section explains how to obtain the Dita4Publishers plug-in and create an ePub
+        eBook from content written in DITA XML, with the Open Toolkit.</p>
+
+        <div class="p">The prerequisite for this procedure is that you have the Open Toolkit installed and
+            running. No other software is required.</div>
+
+        <div class="section">
+            <p>If you have content in DITA XML you can create an ePub eBook just like you would
+                generate a PDF, XHTML or other output. An ePub eBook is a zip file which is renamed
+                with the <span class="parmname">.epub</span> extension. This file contains XHTML content
+                files and several other files. The whole package must conform with the ePub
+                standard. The plug-in takes care of all of this for you.</p>
+
+        </div>
+
+        <ol><li class="stepexpand">
+                <span>Go to <a href="http://dita4publishers.sourceforge.net/" target="_blank">Dita4Publishers</a> website where you can find all the
+                    links and information you need about the plug-in.</span>
+                 The ePub plug-in can be downloaded from the <a href="http://sourceforge.net/projects/dita4publishers/" target="_blank">SourceForge</a> project page.
+            </li>
+<li class="stepexpand">
+                <span>Unzip the downloaded zip file and read the readme file that explains where you
+                    should put the plug-in.</span>
+                 You should put the contents of the zip in the plug-ins folder of the
+                    DITA OT installation.
+            </li>
+<li class="stepexpand">
+                <span>Run the tests as indicated in the readme file. The code is for processing from
+                    the Java command line. If you don't know what this is look it up in the DITA
+                    Open Toolkit User Guide. Alternatively, you can use Ant to generate your output
+                    just like the other OT test examples.</span>
+                 You should now have the test output in the default
+                        <span class="uicontrol">out</span> folder which is a child of your DITA OT
+                    installation. The tests should only take a few seconds to generate. If you want
+                    you can make an ePub from some of the other content provided with the OT by
+                    pointing the input to a ditamap of choice, for example the Language Reference
+                        Guide.<div class="note"><span class="notetitle">Note:</span>  Generating the Language Reference Guide takes several
+                        minutes.</div>
+
+            </li>
+</ol>
+
+        <div class="section">You are now ready to create an ePub eBook from any content you may have in DITA XML,
+            including content you have in foreign languages. Your ePub eBooks can be viewed on an
+            eBook reader device or on your computer with Adobe Digital Editions for
+            example.</div>
+
+    </div>
+
+<div>
+<ul class="ullinks">
+<li class="ulchildlink"><strong><a href="../concepts/About-epub-output.html">About ePub Output</a></strong><br/>
+The following are notes about the ePub output generated with the Open Toolkit ePub         plug-in.</li>
+<li class="ulchildlink"><strong><a href="../tasks/Translating_DITA_Project.html">Translating a DITA XML Project</a></strong><br/>
+Translating a DITA XML project is fairly straightforward if you have a DITA-aware   translation memory tool and you keep your files well-organised.</li>
+<li class="ulchildlink"><strong><a href="../reference/Web_Output_Of_Elements.html">XHTML Output of DITA Elements</a></strong><br/>
+This topic shows how some of the DITA elements look in the xhtml output when viewed 		in a browser. Some styling is default but additional CSS styling can create attractive 		effects. </li>
+</ul>
+</div>
+
+</body>
+</html>

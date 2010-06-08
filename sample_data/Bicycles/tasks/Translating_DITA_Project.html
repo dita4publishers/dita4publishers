@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Translating a DITA XML Project"/>
+<meta name="abstract" content="Translating a DITA XML project is fairly straightforward if you have a DITA-aware translation memory tool and you keep your files well-organised."/>
+<meta name="description" content="Translating a DITA XML project is fairly straightforward if you have a DITA-aware translation memory tool and you keep your files well-organised."/>
+<meta name="DC.subject" content="DITA-aware translation tool, tageditor, validate, validation, technical translations, business translations, technical writing, business writing, editing, dita, darwin information typing architecture, structured writing, reuse, re-use, topic-based, chunking, separate content and presentation, translation memory, translation memories, small and medium-sized companies, web design, css, tagging, multilingual content, multilingual website, epub, ebook"/>
+<meta name="keywords" content="DITA-aware translation tool, tageditor, validate, validation, technical translations, business translations, technical writing, business writing, editing, dita, darwin information typing architecture, structured writing, reuse, re-use, topic-based, chunking, separate content and presentation, translation memory, translation memories, small and medium-sized companies, web design, css, tagging, multilingual content, multilingual website, epub, ebook"/>
+<meta name="DC.Relation" scheme="URI" content="../tasks/epub-plug-in.html"/>
+<meta name="DC.Creator" content="Ray Lloyd"/>
+<meta name="DC.Creator" content="Ray Lloyd"/>
+<meta name="DC.Publisher" content="dita2web"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="green_four"/>
+<meta name="DC.Language" content="en-gb"/>
+<link rel="stylesheet" type="text/css" href="../css/commonltr.css"/>
+<link rel="stylesheet" type="text/css" href="../css/epub.css"/>
+<title>Translating a DITA XML Project</title>
+</head>
+<body id="green_four">
+
+
+ <h1 class="topictitle1">Translating a DITA XML Project</h1>
+
+ 
+ 
+ <div><p class="rl_shortdesc">Translating a DITA XML project is fairly straightforward if you have a DITA-aware
+  translation memory tool and you keep your files well-organised.</p>
+
+  <div class="p">
+   <div class="p">The XML topic files are translated using a <span class="wintitle">DITA-aware translation tool</span>
+    which separates the content and the tags, and validates the translated topic file. The files
+    that need to be translated are:<ul>
+     <li>topic files</li>
+
+     <li>the ditamap</li>
+
+     <li>header and footer files</li>
+
+    </ul>
+
+   </div>
+
+   <div class="note"><span class="notetitle">Note:</span> Any transforms you created to override the Open Toolkit must not contain any text to be
+    translated.</div>
+
+  </div>
+
+  <div class="section">
+   <p>Translating a topic is fairly straightforward but you must change the
+     <span class="parmname">xml:lang</span> attribute.</p>
+
+  </div>
+
+  <ol id="green_four__steps_9B377253B0484D8B9AECB53AE94CD1E9"><li class="stepexpand">
+    <span>Make a copy of the source language project folder, e.g. the <span class="parmname">en</span>, and
+     rename it with a language code, e.g. the <span class="parmname">nl</span> for Dutch. Put this folder at
+     the same level as the source language folder in a parent directory.</span>
+   </li>
+<li class="stepexpand">
+    <span>Translate the individual topic files and make sure the <span class="parmname">xml:lang</span>
+     attribute is changed to the target language. This is necessary to ensure the correct localised
+     strings are pulled when the files are processed by the Open Toolkit.</span>
+     If you are using a DITA-aware translation memory tool, you will only see the inline
+     tags that need to be transferred to the target translation.<div class="longquote">If you use a DITA-aware
+      translation memory tool, your target language version will not require any mark-up because you
+      are re-using the mark-up of the original language.</div>
+
+   </li>
+<li class="stepexpand">
+    <span>Check that the file is still valid when you have completed the translation. </span>
+   </li>
+<li class="stepexpand">
+    <span>Close the first file and continue with all the topic files.</span>
+   </li>
+<li class="stepexpand">
+    <span>When all the topic files are translated, check that the <span class="parmname">ditamap</span>
+     attribute file has no translatable content, for example in the <span class="parmname">title</span>
+     attribute.</span>
+     
+     <div class="note"><span class="notetitle">Note:</span> It is recommended not to put translatable content in the ditamap.</div>
+
+    
+   </li>
+<li class="stepexpand">
+    <span>Translate the <span class="parmname">header</span> and <span class="parmname">footer</span> XML files.</span>
+     These files may contain short boilerplate text.
+   </li>
+<li class="stepexpand">
+    <span>Now copy your build file (an Ant Script for example) and change the input folder and output
+     folder to your new language and build your output again.</span>
+   </li>
+</ol>
+
+  <div class="section">
+   <p>You now have your translated content in the same output format or formats that you have your
+    original language. The correct localised strings, links and content are pulled into the output.
+    All the effort you put into creating the transforms for your first language is re-used for all
+    subsequent languages.</p>
+
+  </div>
+
+ </div>
+
+<div>
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a href="../tasks/epub-plug-in.html" title="This section explains how to obtain the Dita4Publishers plug-in and create an ePub eBook from content written in DITA XML, with the Open Toolkit.">Creating ePub eBooks from DITA XML</a></div>
+</div>
+</div>
+
+</body>
+</html>
