@@ -49,7 +49,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	 * Holds the list of BosMembers we've already walked to get their
 	 * dependencies, so we don't walk the same member twice.
 	 */
-	private List<BosMember> walkedMembers = new ArrayList<BosMember>();
+	private Set<BosMember> walkedMembers = new HashSet<BosMember>();
 	/**
 	 * @param keySpace
 	 * @param bosConstructionOptions 
