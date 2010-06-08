@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
+<pubmap
+  xml:lang="en_US">
+  <pubtitle>
+    <mainpubtitle>ePub Test Document</mainpubtitle>
+  </pubtitle>
+  <pubmeta>
+    <author>Tester McTesterson</author>
+    <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source>
+    <critdates>
+      <created
+        date="February, 1993"/>
+      <revised
+        modified="March 29, 2004"/>
+    </critdates>
+    <pubid>
+      <pubnumber>Ebook #55</pubnumber>
+    </pubid>
+    <pubrights>
+      <publicense>Project Gutenberg License.</publicense>
+    </pubrights>
+  </pubmeta>
+  <keydefs>
+    <topicmeta>
+      <navtitle>Key Definitions</navtitle>
+    </topicmeta>
+  </keydefs>
+  <publication>
+    <covers>
+      <front-cover
+        href="covers/epub-test-front-cover.xml"/>
+    </covers>
+    <frontmatter>
+      <page
+        href="frontmatter/about-project-gutenberg.xml"/>
+      <topicref
+        href="frontmatter/introduction.xml"/>
+    </frontmatter>
+    <pubbody
+      collection-type="sequence">
+      <chapter
+        href="chapters/chapter_1.xml"
+        class="- map/topicref pubmap/chapter "/>
+      <chapter
+        href="chapters/chapter_2.xml"/>
+      <chapter
+        href="chapters/chapter_3.xml"/>
+      <chapter
+        href="chapters/chapter_4.xml"/>
+    </pubbody>
+    <colophon
+      href="backmatter/colophon.xml"/>
+  </publication>
+  
+</pubmap>

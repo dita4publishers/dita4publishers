@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic
+  id="topic-id">
+  <title>Introduction</title>
+  <body>
+    <p>This is a data set for testing ePub generation from DITA For Publihers publication maps. It contains
+    content from the full Wizard of OZ sample publication. It includes all the main components of a full
+    publication and enough chapters to hopefully exercise ToC generation well enough.</p>
+  </body>
+</topic>
