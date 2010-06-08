@@ -138,13 +138,15 @@
 	<target name="deploy-toolkit-plugins" depends="dist-toolkit-plugins"
 	  description="Deploy plugins to local DITA Open Toolkit">
 		<delete failonerror="true" includeemptydirs="true">
-			<fileset dir="${plugin-deploy_target}" includes="net.sourceforge.dita4publishers.*/**"/>
+			<fileset dir="${plugin-deploy_target}" includes="net.sourceforge.dita4publishers.*/**">
+			</fileset>
 		</delete>
 		<mkdir dir="${plugin-deploy_target}"/>
 		<copy todir="${plugin-deploy_target}">
 			<fileset dir="${plugin.dist}">
 				<include name="**/*"/>
         <exclude name="**/CVS"/>
+				<exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/>
 			</fileset>
 		</copy>
     <!-- Itegrate the deployed plugins: -->
@@ -229,22 +231,34 @@
 		</zip>
 	</target>
 	
-	<target name="upload-packages-to-sourceforge" depends="package-delivery, package-epub-plugin, generate-epubs-for-samples"
+	<target name="upload-packages-to-sourceforge" depends="package-delivery, package-epub-plugin, upload-epubs-to-sourceforge"
 		description="Uploads the delivery packages to SourceForge in order to enable a new file release"
 		>
 		<scp todir="${sourceforge.username}@frs.sourceforge.net:uploads" password="${sourceforge.password}"
 			verbose="true"
 			>
-			<fileset dir="${dist}/dita4publishers/epubs">
-				<include name="**/*.epub"/>
-			</fileset>
       <fileset dir="${dist}">
         <include name="*.zip"/>
       </fileset>
 		</scp>
+	  </target>
+		
+	<target name="upload-epubs-to-sourceforge" depends="generate-epubs-for-samples, do-upload-epubs-to-sourceforge">
   </target>
 	
-	<target name="upload-website-contents-to-sourceforge" depends="generate-web-site">
+	<target name="do-upload-epubs-to-sourceforge" 
+		>
+		<scp todir="${sourceforge.username}@frs.sourceforge.net:/home/frs/project/d/di/dita4publishers/epubs/" 
+			password="${sourceforge.password}"
+			verbose="true"
+			>
+			<fileset dir="${dist}/dita4publishers/epubs">
+				<include name="**/*.epub"/>
+			</fileset>
+		</scp>
+  </target>
+	
+	<target name="upload-website-contents-to-sourceforge" depends="generate-web-site" description="Upload Web site contents to sourceforge">
 		<scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs"
 		 password="${sourceforge.password}"
 			verbose="true"
@@ -271,12 +285,12 @@
 	  </target>
 	  
   <target name="test-epub-shakespear-play" description="Test generation of epubs for shakespear plays">
-	    <property name="sampleRootDir" value="${shakespear-sample}/plays"/>
+	    <property name="sampleRootDir" location="${shakespear-sample}/plays"/>
 	    <antcall target="epub-map"><param name="mapname" value="hen_viii"/></antcall>
   </target>
 	
 	<target name="epub-shakespear-plays" description="Generate epubs for each of the shakespear plays">
-		<property name="sampleRootDir" value="${shakespear-sample}/plays"/>
+		<property name="sampleRootDir" location="${shakespear-sample}/plays"/>
 		<antcall target="epub-map"><param name="mapname" value="a_and_c"/></antcall>
 		<antcall target="epub-map"><param name="mapname" value="all_well"/></antcall>
 		<antcall target="epub-map"><param name="mapname" value="as_you"/></antcall>
@@ -319,7 +333,7 @@
 	<target name="epub-wizard-of-oz" description="Generate epub for the Wizard of Oz">
 		<antcall target="epub-map">
 			<param name="mapname" value="wizard-of-oz"/>
-			<param name="sampleRootDir" value="${sampledata}"/>
+			<param name="sampleRootDir" location="${sampledata}"/>
 		</antcall>
 	  </target>
 	  
@@ -335,7 +349,7 @@
       <property name="dita.dir" location="${dita-ot-dir}"/>
       <property name="dita.temp.dir" location="${temp}/dita-temp"/>
       <property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
-      <property name="output.dir" location="${website.build}"/>
+      <property name="output.dir" location="${website.build}/api-and-tools"/>
     </ant>
 	</target>
 	
@@ -349,7 +363,7 @@
       <fileset dir="${epubTemp}"  includes="*/**"/>
     </delete>
 
-		<ant antfile="${dita-ot-dir}${file.separator}build.xml"
+		<ant antfile="${dita-ot-dir}/build.xml"
 			dir="${dita-ot-dir}"
 			target="dita2epub"
 			
@@ -381,11 +395,11 @@
 	    </delete>
 	</target>
 
-	 <target name="generate-web-site" depends="init-web-site, html-api-and-tools-docs">
+	 <target name="generate-web-site" depends="init-web-site, html-api-and-tools-docs" description="Generate Web site HTML">
  	
-    <ant antfile="${dita-ot-dir}${file.separator}build.xml"
+    <ant antfile="${dita-ot-dir}/build.xml"
       dir="${dita-ot-dir}"
-      target="dita2html"
+      target="dita2xhtml"
       
       >
       <property name="args.input" location="${docs}/website/dita4publishers.ditamap"/>
