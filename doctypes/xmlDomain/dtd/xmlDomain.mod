@@ -35,13 +35,12 @@
 <!--                    ELEMENT DECLARATIONS                       -->
 <!-- ============================================================= -->
 
-
 <!--                    LONG NAME: XML Element                            -->
 <!ENTITY % xmlelem.content
 "
   (#PCDATA |
-   (%keyword;) |
-   (%text;))*
+   %keyword; |
+   %text;)*
 ">
 <!ENTITY % xmlelem.attributes
 "
@@ -60,8 +59,8 @@
 <!ENTITY % xmlatt.content
 "
   (#PCDATA |
-   (%keyword;) |
-   (%text;))*
+   %keyword; |
+   %text;)*
 ">
 <!ENTITY % xmlatt.attributes
 "
@@ -80,8 +79,8 @@
 <!ENTITY % textent.content
 "
   (#PCDATA |
-   (%keyword;) |
-   (%text;))*
+   %keyword; |
+   %text;)*
 ">
 <!ENTITY % textent.attributes
 "
@@ -100,8 +99,8 @@
 <!ENTITY % parment.content
 "
   (#PCDATA |
-   (%keyword;) |
-   (%text;))*
+   %keyword; |
+   %text;)*
 ">
 <!ENTITY % parment.attributes
 "
@@ -120,8 +119,8 @@
 <!ENTITY % numcharref.content
 "
   (#PCDATA |
-   (%keyword;) |
-   (%text;))*
+   %keyword; |
+   %text;)*
 ">
 <!ENTITY % numcharref.attributes
 "
