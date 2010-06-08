@@ -5,21 +5,52 @@
   xmlns:df="http://dita2indesign.org/dita/functions"
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:relpath="http://dita2indesign/functions/relpath"
+  xmlns:gmap="http://dita4publishers/namespaces/graphic-input-to-output-map"
   exclude-result-prefixes="xs df relpath"
   version="2.0">
   
   <xsl:import href="lib/dita-support-lib.xsl"/>
   <xsl:import href="lib/relpath_util.xsl"/>
   
-  <xsl:output name="graphic-map" method="xml" indent="yes"/>
+  <xsl:output name="graphic-map" method="xml" indent="yes" />
   
-  <xsl:template match="*[df:class(., 'map/map')]" mode="generate-graphic-map">]">
+  <xsl:template match="*[df:class(., 'map/map')]" mode="generate-graphic-map">
     <xsl:message> + [INFO] Generating graphic input-to-output map...</xsl:message>
-    <xsl:apply-templates mode="#current"/>
+    <xsl:variable name="graphicRefs" as="element()*">
+      <xsl:apply-templates mode="get-graphic-refs"/>
+    </xsl:variable>
+    
+    <xsl:variable name="uniqueRefs" as="element()">
+      <root>
+        <xsl:for-each-group select="$graphicRefs" group-by="@href">
+          <xsl:copy-of select="current-group()[1]"/>
+        </xsl:for-each-group>        
+      </root>
+    </xsl:variable>
+        
+    <gmap:graphic-map>
+      <xsl:for-each select="$uniqueRefs/*">
+        <xsl:variable name="absoluteUrl" as="xs:string" select="@href"/>
+        <xsl:variable name="filename" as="xs:string" select="@filename"/>
+        <xsl:variable name="namePart" as="xs:string" select="relpath:getNamePart($filename)"/>
+        <xsl:variable name="extension" as="xs:string" select="relpath:getExtension($filename)" />
+        <xsl:variable name="key" 
+          select="
+          if (count(preceding-sibling::*[@filename = $filename]) > 0)
+          then concat($namePart, '-', count(preceding-sibling::*[@filename = $filename]) + 1, '.', $extension)
+          else $filename
+          "
+        />
+        <gmap:graphic-map-item
+          input-url="{$absoluteUrl}"
+          output-url="{relpath:newFile($imagesOutputPath, $key)}"
+        />
+      </xsl:for-each>
+    </gmap:graphic-map>
     <xsl:message> + [INFO] Graphic input-to-output map generated.</xsl:message>
   </xsl:template>  
   
-  <xsl:template match="*[df:isTopicRef(.)]" mode="generate-graphic-map">
+  <xsl:template match="*[df:isTopicRef(.)]" mode="generate-graphic-map get-graphic-refs">
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
     <xsl:choose>
       <xsl:when test="not($topic)">
@@ -31,6 +62,17 @@
     </xsl:choose>    
   </xsl:template>
   
+  <xsl:template match="*[df:class(.,'topic/image')]" mode="get-graphic-refs">
+    <xsl:variable name="docUri" select="string(document-uri(root(.)))" as="xs:string"/>
+    <xsl:variable name="parentPath" select="relpath:getParent($docUri)" as="xs:string"/>
+    <xsl:variable name="graphicPath" select="@href" as="xs:string"/>
+    <xsl:variable name="rawUrl" select="concat($parentPath, '/', $graphicPath)" as="xs:string"/>
+    <xsl:variable name="absoluteUrl" select="relpath:getAbsolutePath($rawUrl)"/>
+    
+    <gmap:graphic-ref href="{$absoluteUrl}" filename="{relpath:getName($absoluteUrl)}"/>
+    
+  </xsl:template>
+  
   <xsl:template match="*[df:class(.,'topic/image')]" mode="generate-graphic-map">
     <xsl:variable name="docUri" select="string(document-uri(root(.)))" as="xs:string"/>
     <xsl:variable name="parentPath" select="relpath:getParent($docUri)" as="xs:string"/>
@@ -38,11 +80,12 @@
     <xsl:variable name="rawUrl" select="concat($parentPath, '/', $graphicPath)" as="xs:string"/>
     <xsl:variable name="absoluteUrl" select="relpath:getAbsolutePath($rawUrl)"/>
     
-    <graphic-map-item
+    <gmap:graphic-map-item
       input-url="{$absoluteUrl}"
       output-url="{relpath:newFile($imagesOutputPath, relpath:getName($absoluteUrl))}"
     />        
   </xsl:template>
-  <xsl:template match="text()" mode="generate-graphic-map"/>
+  
+  <xsl:template match="text()" mode="generate-graphic-map get-graphic-refs"/>
   
 </xsl:stylesheet>

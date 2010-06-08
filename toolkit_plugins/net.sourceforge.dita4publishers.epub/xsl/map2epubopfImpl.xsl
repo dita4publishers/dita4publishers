@@ -6,8 +6,9 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:epubutil="http://dita4publishers.org/functions/epubutil"
+  xmlns:gmap="http://dita4publishers/namespaces/graphic-input-to-output-map"  
   xmlns="http://www.idpf.org/2007/opf"
-  exclude-result-prefixes="df xs relpath epubutil"
+  exclude-result-prefixes="df xs relpath epubutil gmap"
   >
 
   <!-- Convert a DITA map to an EPUB content.opf file. 
@@ -41,7 +42,8 @@
   />
 
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-opf">
-
+    <xsl:param name="graphicMap" as="element()" tunnel="yes"/>
+    
     <xsl:if test="not(@xml:lang)">
       <xsl:message> - [WARNING] dc:language required in epub file; please add xml:lang attribute to map element. Using en-US.
       </xsl:message>
@@ -112,7 +114,7 @@
           <!-- List the XHTML files -->
           <xsl:apply-templates mode="manifest" select=".//*[df:class(., 'map/topicref') and @href]"/>
           <!-- List the images -->
-          <xsl:apply-templates mode="getpics" select=".//*[df:class(., 'map/topicref') and @href]"/>
+          <xsl:apply-templates mode="manifest" select="$graphicMap"/>
           <opf:item id="commonltr.css" href="topics/commonltr.css" media-type="text/css"/>
           <opf:item id="commonrtl.css" href="topics/commonrtl.css" media-type="text/css"/>
           <!-- FIXME: Need ability to add references to user-supplied CSS files as defined using
@@ -127,60 +129,6 @@
     </xsl:result-document>  
     <xsl:message> + [INFO] OPF file generation done.</xsl:message>
   </xsl:template>
-
-  <xsl:template match="*[df:class(., 'map/topicref') and @href and @scope != 'external']" mode="getpics">
-    <!-- This assumes that the @href value is not already a URL, and
-         that it points to a locally stored file. To do: don't assume
-         this. -->
-    <!-- FIXME: Need to construct the output URI for the graphic using a common function -->
-    
-    <xsl:variable name="topicrefURL" as="xs:string">
-      <xsl:sequence select="$inputURLstub"/>
-      <xsl:sequence select="if (contains(@href,'#')) then substring-before(@href,'#') else string(@href)"/>
-    </xsl:variable>
-
-    <xsl:variable name="hrefDir" select="relpath:getParent(string(@href))" as="xs:string"/>
-    
-    <xsl:message> + [DEBUG] hrefDir="<xsl:sequence select="$hrefDir"/>"</xsl:message>
-
-  </xsl:template>
-
-
-  <xsl:template match="text()" mode="getpics"/>
-
-
-  <xsl:template match="*[df:class(., 'topic/image')]" mode="getpics">
-
-    <xsl:param name="dir"/>
-
-    <opf:item id="{generate-id()}" href="{concat($dir, @href)}">
-      <xsl:attribute name="media-type">
-        <xsl:choose>
-          <xsl:when test="contains(@href,'.jpg')">image/jpeg</xsl:when>
-          <xsl:when test="contains(@href,'.JPG')">image/jpeg</xsl:when>
-          <xsl:when test="contains(@href,'.gif')">image/gif</xsl:when>
-          <xsl:when test="contains(@href,'.GIF')">image/gif</xsl:when>
-          <xsl:when test="contains(@href,'.png')">image/png</xsl:when>
-          <xsl:when test="contains(@href,'.PNG')">image/png</xsl:when>
-          <xsl:otherwise>
-            <xsl:message>Warning: <xsl:sequence select="@href"/> image format not supported by DITA Open Toolkit.
-            </xsl:message>
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:attribute>
-    </opf:item>
-  </xsl:template>
-
-
-  <!-- When searching for image elements, if we find anything besides a
-       topicref or an image, just keep looking. -->
-  <xsl:template match="*" mode="getpics">
-    <xsl:param name="dir"/>
-    <xsl:apply-templates mode="getpics">
-      <xsl:with-param name="dir" select="$dir"/>
-    </xsl:apply-templates>
-  </xsl:template>
-
 
   <xsl:template match="*[df:class(., 'map/map')]/*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/author')]" 
     mode="generate-opf">  
@@ -249,6 +197,29 @@
     </xsl:choose>
     
   </xsl:template>
+  
+  <xsl:template match="gmap:graphic-map" mode="manifest">
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
 
-  <xsl:template match="text()" mode="generate-opf"/>
+  <xsl:template match="gmap:graphic-map-item" mode="manifest">
+    <xsl:variable name="imageFilename" select="relpath:getName(@output-url)" as="xs:string"/>
+    <xsl:variable name="imageExtension" select="lower-case(relpath:getExtension($imageFilename))" as="xs:string"/>
+    
+    <opf:item id="{generate-id()}" href="{relpath:getRelativePath($outdir, relpath:newFile($imagesOutputPath, $imageFilename))}">
+      <xsl:attribute name="media-type">
+        <xsl:choose>
+          <xsl:when test="$imageExtension = 'jpg'"><xsl:sequence select="'image/jpeg'"/></xsl:when>
+          <xsl:when test="$imageExtension = 'gif'"><xsl:sequence select="'image/gif'"/></xsl:when>
+          <xsl:when test="$imageExtension = 'png'"><xsl:sequence select="'image/png'"/></xsl:when>
+          <xsl:otherwise>
+            <xsl:message> - [WARN] Image extension "<xsl:sequence select="$imageExtension"/>" not recognized, may not work with ePub viewers.</xsl:message>
+            <xsl:sequence select="concat('application/', lower-case($imageExtension))"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:attribute>
+    </opf:item>
+  </xsl:template>
+  
+  <xsl:template match="text()" mode="generate-opf manifest"/>
 </xsl:stylesheet>

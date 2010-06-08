@@ -107,9 +107,7 @@
     <xsl:message> + [INFO] outdir="<xsl:sequence select="$outdir"/>"</xsl:message>
     
     <xsl:variable name="graphicMap" as="element()">
-      <graphic-map>
-        <xsl:apply-templates select="." mode="generate-graphic-map"/>
-      </graphic-map>     
+      <xsl:apply-templates select="." mode="generate-graphic-map"/>
     </xsl:variable>
     <xsl:result-document href="{relpath:newFile($outdir, 'graphicMap.xml')}" format="graphic-map">
       <xsl:sequence select="$graphicMap"/>
@@ -117,7 +115,9 @@
     <xsl:call-template name="make-meta-inf"/>
     <xsl:apply-templates select="." mode="generate-content"/>
     <xsl:apply-templates select="." mode="generate-toc"/>
-    <xsl:apply-templates select="." mode="generate-opf"/>
+    <xsl:apply-templates select="." mode="generate-opf">
+      <xsl:with-param name="graphicMap" as="element()" tunnel="yes" select="$graphicMap"/>
+    </xsl:apply-templates>
   </xsl:template>
   
   <xsl:template name="make-meta-inf">
