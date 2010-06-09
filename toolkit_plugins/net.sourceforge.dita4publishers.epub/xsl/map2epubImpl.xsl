@@ -113,6 +113,7 @@
       <xsl:sequence select="$graphicMap"/>
     </xsl:result-document>    
     <xsl:call-template name="make-meta-inf"/>
+    <xsl:call-template name="make-mimetype"/>
     <xsl:apply-templates select="." mode="generate-content"/>
     <xsl:apply-templates select="." mode="generate-toc"/>
     <xsl:apply-templates select="." mode="generate-opf">
@@ -127,6 +128,12 @@
           <rootfile full-path="content.opf" media-type="application/oebps-package+xml"/>
         </rootfiles>
       </container>
+    </xsl:result-document>
+  </xsl:template>
+  
+  <xsl:template name="make-mimetype">
+    <xsl:result-document href="{relpath:newFile($outdir, 'mimetype')}" method="text">
+      <xsl:text>application/epub+zip</xsl:text>
     </xsl:result-document>
   </xsl:template>
   
