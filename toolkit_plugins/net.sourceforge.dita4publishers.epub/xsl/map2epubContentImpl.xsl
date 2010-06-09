@@ -65,24 +65,6 @@
     </xsl:result-document>
   </xsl:template>
   
-  <xsl:template name="chapter-setup">
-    <!-- NOTE: This template is based on the same template from dita2xhtmlImpl.xsl -->
-    <html>
-      <xsl:call-template name="setTopicLanguage"/>
-      <xsl:value-of select="$newline"/>
-      <xsl:call-template name="chapterHead"/>
-      <xsl:call-template name="chapterBody"/> 
-    </html>
-  </xsl:template>
-  
-  <xsl:template match="
-    /*/*[df:class(., 'topic/title')] |
-    /*/*[df:class(., 'map/topicmeta')] |
-    /*/*[df:class(., 'map/reltable')] 
-    ">
-    <!-- Ignore map metadata, title, and reltables -->
-  </xsl:template>
-  
   <xsl:template match="text()" mode="generate-content"/>
   
 </xsl:stylesheet>

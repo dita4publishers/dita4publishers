@@ -28,6 +28,16 @@
     <xsl:variable name="resultUri" 
       select="relpath:newFile($outdir, 'toc.ncx')" 
       as="xs:string"/>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] navPoints
+        
+        <xsl:for-each select="//*[local:isNavPoint(.)]">
+ + [DEBUG] <xsl:copy/>
+        </xsl:for-each>
+        
+      </xsl:message>
+    </xsl:if>
+    
     <xsl:message> + [INFO] Generating ToC (NCX) file "<xsl:sequence select="$resultUri"/>"...</xsl:message>
     
     <xsl:result-document href="{$resultUri}" format="ncx">
@@ -39,8 +49,7 @@
           <meta name="dtb:totalPageCount" content="0"/>
           <meta name="dtb:maxPageNumber" content="0"/>
         </head>
-        <docTitle xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/">
-          
+        <docTitle xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/">          
           <text><xsl:sequence select="$pubTitle"/></text>
         </docTitle>
         <navMap>
@@ -112,7 +121,6 @@
           <navLabel>
             <text><xsl:sequence select="$navPointTitle"/></text>
           </navLabel>
-          <content src=""/>
           <xsl:apply-templates select="*[df:class(.,'map/topicref')]" mode="#current"/>
         </navPoint>
       </xsl:when>
@@ -134,21 +142,10 @@
       <navLabel>
         <text><xsl:apply-templates select="." mode="nav-point-title"/></text>
       </navLabel>
-      <content src=""/>
       <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
     </navPoint>
   </xsl:template>
 
-  <xsl:template match="*[df:class(., 'bookmap/frontmatter')] | *[df:class(., 'pubmap-d/frontmatter')]" priority="10" mode="nav-point-title">
-    <xsl:value-of select="'Frontmatter'"/>
-  </xsl:template>
-  <xsl:template match="*[df:class(., 'bookmap/backmatter')]" priority="10" mode="nav-point-title">
-    <xsl:value-of select="'Backmatter'"/>
-  </xsl:template>
-  <xsl:template match="*[df:class(., 'pubmap-d/appendixes')]" priority="10" mode="nav-point-title">
-    <xsl:value-of select="'Appendixes'"/>
-  </xsl:template>
-  
   <xsl:template match="*[df:isTopicGroup(.)]" mode="nav-point-title">
     <!-- By default, topic groups have no titles -->
   </xsl:template>
@@ -182,12 +179,38 @@
   
   <xsl:function name="local:getPlayOrder" as="xs:string">
     <xsl:param name="context" as="element()"/>
-    <xsl:variable name="playOrder" 
-      select="count($context/preceding::*[df:class(., 'map/topicref') and not(@processing-role = 'resource-only')]) + 
-      count($context/ancestor::*[df:class(., 'map/topicref') and not(@processing-role = 'resource-only')]) +
-      1" as="xs:integer"/>
+    <xsl:variable name="playOrder" as="xs:string">
+      <xsl:number count="*[local:isNavPoint(.)]" level="any" format="1" select="$context"/>      
+    </xsl:variable> 
 <!--    <xsl:message> + [DEBUG] getPlayOrder: playOrder="<xsl:sequence select="$playOrder"/>"</xsl:message>-->
     <xsl:sequence select="string($playOrder)"/>
+  </xsl:function>
+  
+  <xsl:function name="local:isNavPoint" as="xs:boolean">
+    <xsl:param name="context" as="element()"/>
+    <xsl:choose>
+      <xsl:when test="$context/@processing-role = 'resource-only'">
+        <xsl:sequence select="false()"/>
+      </xsl:when>
+      <xsl:when test="df:isTopicRef($context) or df:isTopicHead($context)">
+        <xsl:sequence select="true()"/>
+      </xsl:when>
+      <xsl:when test="df:isTopicGroup($context)">
+        <xsl:variable name="navPointTitle" as="xs:string*">
+          <xsl:apply-templates select="$context" mode="nav-point-title"/>
+        </xsl:variable>
+        <!-- If topic head has a title (e.g., a generated title), then it 
+             acts as a navigation point.
+          -->
+        <xsl:sequence
+           select="normalize-space(string-join($navPointTitle, ' ')) != ''"
+        />
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="false()"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    
   </xsl:function>
 
 

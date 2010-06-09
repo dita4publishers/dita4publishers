@@ -18,6 +18,16 @@
     </html>
   </xsl:template>
   
+  <xsl:template mode="html2xhtml" match="img[not(@alt)]">
+    <xsl:element name="{name(.)}">
+      <xsl:attribute name="alt" select="@src"/>
+      <xsl:apply-templates select="@*,node()" mode="#current"/>
+    </xsl:element>
+  </xsl:template>
+
+  <!-- <a> elements used for IDs are not used in XHTML -->
+  <xsl:template match="a[@name and not(@href)]" priority="10" mode="html2xhtml"/>
+  
   <xsl:template mode="html2xhtml" match="*">
     <xsl:element name="{name(.)}">
       <xsl:apply-templates select="@*,node()" mode="#current"/>
