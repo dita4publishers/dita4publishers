@@ -57,6 +57,7 @@
     <xsl:param name="topicref" as="element()" tunnel="yes"/>
     
     <xsl:variable name="resultUri" select="epubutil:getTopicResultUrl($topicsOutputPath, .)" as="xs:string"/>
+    <xsl:message> + [INFO] Writing result HTML file "<xsl:sequence select="$resultUri"/>"...</xsl:message>
     <xsl:variable name="htmlNoNamespace" as="node()*">
       <xsl:apply-templates select="."/>      
     </xsl:variable>

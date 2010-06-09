@@ -104,7 +104,7 @@
   
   <xsl:template match="/*[df:class(., 'map/map')]">
     
-    <xsl:message> + [INFO] outdir="<xsl:sequence select="$outdir"/>"</xsl:message>
+    <xsl:call-template name="report-parameters"/>
     
     <xsl:variable name="graphicMap" as="element()">
       <xsl:apply-templates select="." mode="generate-graphic-map"/>
@@ -135,6 +135,26 @@
     <xsl:result-document href="{relpath:newFile($outdir, 'mimetype')}" method="text">
       <xsl:text>application/epub+zip</xsl:text>
     </xsl:result-document>
+  </xsl:template>
+  
+  <xsl:template name="report-parameters">
+    <xsl:message> 
+==========================================
+Parameters:
+
+      + outdir = "<xsl:sequence select="$outdir"/>"
+      + imagesOutputDir = "<xsl:sequence select="$imagesOutputDir"/>"
+      + topicsOutputDir = "<xsl:sequence select="$topicsOutputDir"/>"
+      + debug = "<xsl:sequence select="$debug"/>"
+
+Global Variables:
+
+      + topicsOutputPath = "<xsl:sequence select="$topicsOutputPath"/>"
+      + imagesOutputPath = "<xsl:sequence select="$imagesOutputPath"/>"
+      + debugBoolean = "<xsl:sequence select="$debugBoolean"/>"
+      
+==========================================
+</xsl:message>
   </xsl:template>
   
 </xsl:stylesheet>

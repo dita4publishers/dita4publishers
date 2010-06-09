@@ -7,58 +7,47 @@
 	<!-- Set this property to set the ePub URI stub to a useful value. -->
 	<property name="idURIStub"
 	  value="http://my-URI-stub/"/>
-  
+
+	<!-- The name of the directory, within the ePub package, to contain all images: -->
+	<property name="images.output.dir" value="images"/>
+	<!-- The name of the directory, within the ePub package, to contain all topics: -->
+	<property name="topics.output.dir" value="topics"/>
+	<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
+	<property name="debug" value="false"/>
+
+	<property name="epub.temp.dir" location="${dita.temp.dir}/epub_temp"/>
+
   <target name="dita2epub"
     unless="noMap"
     xmlns:dita="http://dita-ot.sourceforge.net"
     dita:depends="build-init, preprocess, copy-css, dita.topics.xhtml, 
     dita.inner.topics.xhtml, dita.outer.topics.xhtml,epub"
     dita:extension="depends org.dita.dost.platform.InsertDependsAction">
-    <antcall target="dita.map.epub"/>
   </target>
   
   <target name="epub"
     unless="noMap"
-    depends="opf, tocncx, containerxml, mimetype, zipepub"/>
-  
-  
-  <target name="containerxml">
-    <mkdir dir="${output.dir}${file.separator}META-INF"/>
-    <copy file="${epub.dir}${file.separator}resource${file.separator}container.xml"
-      todir="${output.dir}${file.separator}META-INF"/>
-  </target>
-  
-  
-  <target name="mimetype">
-    <copy file="${epub.dir}${file.separator}resource${file.separator}mimetype"
-      todir="${output.dir}"/>
-  </target>
-  
+    depends="dita.map.epub, copy.graphics, zipepub"/>
   
   <target name="zipepub">
     <!-- Two steps because mimetype must go in first,
       uncompressed. Looks like ant puts later zipped files in
       first, so mimetype is in second zip task. -->
     <zip destfile="${output.dir}${file.separator}${dita.map.filename.root}.epub"
-      basedir="${output.dir}"
+      basedir="${epub.temp.dir}"
       includes="META-INF${file.separator}container.xml,toc.ncx,
       content.opf,container.opf,**/*.html,**/*.css,**/*.HTML,**/*.CSS,
-      **/*.jpg,**/*.gif,**/*.png,**/*.JPG,**/*.GIF,**/*.PNG"/>
+      **/*.jpg,**/*.gif,**/*.png,**/*.svg,**/*.JPG,**/*.GIF,**/*.PNG,**/*.SVG"/>
     
-    <!--  WEK: Not sure if compression is allowed or required by the ePub standard. -->
     <zip destfile="${output.dir}${file.separator}${dita.map.filename.root}.epub"
-      basedir="${output.dir}"
+      basedir="${epub.temp.dir}"
       includes="mimetype"
       update="true"
-      compress="true"/>
+      compress="false"/>
     
   </target>
   
-  
-  <target name="dita.map.epub"
-    depends="dita.map.epub.init"/>
-  
-  
+    
   <target name="dita.map.epub.init" if="epub.plugin"
     depends="dita.map.epub.plugin.init">
     <antcall target="dita.map.epub.generate.plugin"/>
@@ -85,35 +74,29 @@
     </condition>
   </target>
   
+
   
-  <target name="opf" description="build content.opf file">
-  	<!-- Generate the ePub OPF manifest file. -->
-  	<echo message="idURStub='${idURIStub}'"/>
+  <target name="dita.map.epub" depends="dita.map.epub.init" 
+  	description="Generate all ePub components from input map and topics">
+  	<echo message=" [DEBUG] output.dir=${output.dir}"/>
+    <echo message=" [DEBUG] dita.temp.dir=${dita.temp.dir}"/>
+    <echo message=" [DEBUG] epub.temp.dir=${epub.temp.dir}"/>
+  	
+  	<property name="map2epub.style" location="${epub.dir}/xsl/map2epub.xsl"/>
     <xslt processor="trax"
       basedir="${dita.temp.dir}"
       destdir="${output.dir}"
       includes="${dita.input.filename}"
       classpathref="dost.class.path"
-      style="${epub.dir}${file.separator}xsl${file.separator}map2epubopf.xsl">
-      <param name="idURIStub" expression="${idURIStub}" />
-      <param name="tempFilesDir"
-        expression="${basedir}${file.separator}${dita.temp.dir}" />
-      <mapper type="regexp" from="${dita.input.filename}" to="content.opf"/>
+      style="${map2epub.style}">
+     	<param name="outdir" expression="${epub.temp.dir}"/>
+     	<param name="imagesOutputDir" expression="${images.output.dir}"/>
+     	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
+      <param name="debug" expression="${debug}"/>
     </xslt>
   </target>
   
-  
-  <target name="tocncx" description="build toc.ncx file">
-    <!-- Tell xsl/map2epubtoc.xsl to create toc.ncx from dita.input.filename. -->
-    <xslt processor="trax"
-      basedir="${dita.temp.dir}"
-      destdir="${output.dir}"
-      includes="${dita.input.filename}"
-      classpathref="dost.class.path"
-      style="${epub.dir}${file.separator}xsl${file.separator}map2epubtoc.xsl">
-      <mapper type="regexp" from="${dita.input.filename}" to="toc.ncx"/>
-    </xslt>
-  </target>
-  
-  
+  <target name="copy.graphics" 
+	  description="Copies graphics from input to the ePub output directory based on the graphic map generated during epub generation">
+	</target>
 </project>
