@@ -15,7 +15,7 @@
     <xsl:param name="topic" as="element()"/>
   
     <xsl:variable name="topicFilename" 
-      select="concat(relpath:getNamePart(document-uri(root($topic))), '.html')" 
+      select="concat('topic_', generate-id($topic), '.html')" 
       as="xs:string"/>  
     
     <xsl:sequence select="relpath:newFile($outdir, $topicFilename)"/>

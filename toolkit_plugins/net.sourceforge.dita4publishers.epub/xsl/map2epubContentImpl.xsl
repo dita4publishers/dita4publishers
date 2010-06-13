@@ -11,16 +11,31 @@
   
   exclude-result-prefixes="df xs relpath epubutil opf dc xd"
   version="2.0">
- 
-  <!-- xmlns="http://www.w3.org/1999/xhtml" --> 
-  <!-- Generates HTML ePub content from a DITA map.
+  <!-- =============================================================
     
-  -->
+    DITA Map to ePub Transformation: Content Generation Module
+    
+    Copyright (c) 2010 DITA For Publishers
+    
+    This module generates output HTML files for each topic referenced
+    from the incoming map.
+    
+    Because all the HTML files are output to a single directory, this
+    process generates unique (and opaque) filenames for the result
+    HTML files. [It would be possible, given more effort, to generate
+    distinct names that reflected the original filenames but it doesn't
+    appear to be worth the effort.]
+    
+    The output generation template logs messages that show the
+    source-to-result mapping to make it easier to debug issues
+    with the generated topics.
+    
+    =============================================================  -->
   
   <xsl:import href="lib/dita-support-lib.xsl"/>
   <xsl:import href="lib/relpath_util.xsl"/>
   <xsl:import href="epub-generation-utils.xsl"/>
-  
+    
   <xsl:output name="topic-html"
     method="xhtml"
     encoding="UTF-8"
@@ -29,7 +44,11 @@
   
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-content">
     <xsl:message> + [INFO] Generating content...</xsl:message>
-    <xsl:apply-templates mode="#current"/>
+    <xsl:for-each-group select=".//*[df:isTopicRef(.)]"
+       group-by="generate-id(df:resolveTopicRef(.))"
+      >     
+      <xsl:apply-templates select="current-group()[1]" mode="generate-content"/>
+    </xsl:for-each-group>
     <xsl:message> + [INFO] Content generated.</xsl:message>
   </xsl:template>
   
@@ -48,7 +67,6 @@
         </xsl:apply-templates>
       </xsl:otherwise>
     </xsl:choose>    
-    <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/topic')]" mode="generate-content">
@@ -58,7 +76,8 @@
     <xsl:param name="topicref" as="element()" tunnel="yes"/>
     
     <xsl:variable name="resultUri" select="epubutil:getTopicResultUrl($topicsOutputPath, .)" as="xs:string"/>
-    <xsl:message> + [INFO] Writing result HTML file "<xsl:sequence select="$resultUri"/>"...</xsl:message>
+    
+    <xsl:message> + [INFO] Writing topic <xsl:sequence select="document-uri(root(.))"/> to HTML file "<xsl:sequence select="relpath:newFile($topicsOutputDir, relpath:getName($resultUri))"/>"...</xsl:message>
     <xsl:variable name="htmlNoNamespace" as="node()*">
       <xsl:apply-templates select="."/>      
     </xsl:variable>
