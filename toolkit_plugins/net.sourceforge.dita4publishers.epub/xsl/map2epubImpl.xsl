@@ -62,8 +62,9 @@
        produce the final ePub package.
        -->
   <xsl:param name="outdir" select="./epub"/>
+  <xsl:param name="tempdir" select="./temp"/>
   
-  <!-- The path of the directory, relative the $outdir parameter,
+ <!-- The path of the directory, relative the $outdir parameter,
     to hold the graphics in the EPub package. Should not have
     a leading "/". 
   -->  
@@ -143,6 +144,7 @@
 Parameters:
 
       + outdir = "<xsl:sequence select="$outdir"/>"
+      + tempdir = "<xsl:sequence select="$tempdir"/>"
       + imagesOutputDir = "<xsl:sequence select="$imagesOutputDir"/>"
       + topicsOutputDir = "<xsl:sequence select="$topicsOutputDir"/>"
       + debug = "<xsl:sequence select="$debug"/>"
