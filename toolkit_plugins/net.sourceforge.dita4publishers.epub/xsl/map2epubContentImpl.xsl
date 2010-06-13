@@ -48,6 +48,7 @@
         </xsl:apply-templates>
       </xsl:otherwise>
     </xsl:choose>    
+    <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/topic')]" mode="generate-content">
@@ -67,5 +68,7 @@
   </xsl:template>
   
   <xsl:template match="text()" mode="generate-content"/>
+  
+  <xsl:template match="*[df:class(., 'map/topicmeta')]" priority="10"/>
   
 </xsl:stylesheet>
