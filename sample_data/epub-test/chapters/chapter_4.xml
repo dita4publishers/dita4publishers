@@ -4,6 +4,10 @@
 <chapter id="chapterid">
 <title>The Road Through the Forest</title>
 <body>
+  <p>This chapter tests references to topics with the same name filename, both in different subdirectories
+  as well as the same file referenced from two places in the map.</p> 
+  <p>For references to different topics with the same filename, the output process must create distinct names since all the HTML files are output to one directory. </p>
+    <p>For multiple references to the same file, it is to be determined whether or not each reference requires a separate output file. Doing so would require reworking any prev/next or ancestor/descendant links to reflect the reference's location in the map, which the Toolkit does not do.</p>
 <p>After a few hours the road began to be rough, and the walking
 grew so difficult that the Scarecrow often stumbled over the
 yellow bricks, which were here very uneven.  Sometimes, indeed,

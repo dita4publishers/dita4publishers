@@ -2,7 +2,8 @@
 <!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
 <topic
   id="topic-id">
-  <title>ePub Test</title>
-  <body><art><art_title>ePub Test Cover</art_title><image
-    href="images/1407-02.jpg"/></art></body>
+  <title>Subordinate Topic 4</title>
+  <body>
+    <p>This is a subordinate topic.</p>
+  </body>
 </topic>

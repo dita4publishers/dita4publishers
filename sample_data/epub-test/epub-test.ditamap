@@ -2,29 +2,22 @@
 <!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
 <pubmap
   xml:lang="en_US">
-  <pubtitle>
-    <mainpubtitle>ePub Test Document</mainpubtitle>
-  </pubtitle>
-  <pubmeta>
-    <author>Tester McTesterson</author>
-    <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source>
-    <critdates>
-      <created
-        date="February, 1993"/>
-      <revised
-        modified="March 29, 2004"/>
-    </critdates>
-    <pubid>
-      <pubnumber>Ebook #55</pubnumber>
-    </pubid>
-    <pubrights>
-      <publicense>Project Gutenberg License.</publicense>
-    </pubrights>
-  </pubmeta>
+  <pubtitle> <mainpubtitle>ePub Test Document</mainpubtitle> </pubtitle>
+  <pubmeta> <author>Tester McTesterson</author>
+    <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source> <critdates>
+    <created
+      date="February, 1993"/>
+    <revised
+      modified="March 29, 2004"/>
+    </critdates> <pubid> <pubnumber>Ebook #55</pubnumber> </pubid> <pubrights>
+    <publicense>Project Gutenberg License.</publicense> </pubrights> </pubmeta>
   <keydefs>
     <topicmeta>
       <navtitle>Key Definitions</navtitle>
     </topicmeta>
+    <keydef
+      keys="the_cyclone"
+      href="chapters/chapter_1.xml"/>
   </keydefs>
   <publication>
     <covers>
@@ -40,17 +33,43 @@
     <pubbody
       collection-type="sequence">
       <chapter
-        href="chapters/chapter_1.xml"
-        class="- map/topicref pubmap/chapter "/>
+        class="- map/topicref pubmap/chapter "
+        keyref="the_cyclone"/>
       <chapter
-        href="chapters/chapter_2.xml"/>
+        href="chapters/chapter_2.xml">
+        <topicmeta>
+          <navtitle>Chapter 2 navtitle in map</navtitle>
+        </topicmeta>
+        <topicref
+          href="chapters/subtopic-01.xml"/>
+      </chapter>
       <chapter
-        href="chapters/chapter_3.xml"/>
+        href="chapters/chapter_3.xml">
+        <topicgroup>
+          <topicref
+            href="chapters/subtopic-02.xml"/>
+        </topicgroup>
+      </chapter>
       <chapter
-        href="chapters/chapter_4.xml"/>
+        href="chapters/chapter_4.xml">
+        <topichead
+          navtitle="Topic Head 1">
+          <topicref
+            href="chapters/chapter-04/topic-head-1/subtopic-03.xml"/>
+        </topichead>
+        <topichead
+          navtitle="Topic Head 2"
+          chunk="to-content">
+          <topicref
+            href="chapters/chapter-04/topic-head-2/subtopic-03.xml"/>
+        </topichead>
+        <topicref
+          href="chapters/subtopic-02.xml"/>
+        <topicref
+          href="chapters/subtopic-04.xml"/>
+      </chapter>
     </pubbody>
     <colophon
       href="backmatter/colophon.xml"/>
   </publication>
-  
 </pubmap>
