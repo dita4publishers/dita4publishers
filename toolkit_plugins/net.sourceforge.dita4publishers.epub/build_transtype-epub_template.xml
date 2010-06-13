@@ -14,6 +14,8 @@
 	<property name="topics.output.dir" value="topics"/>
 	<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
 	<property name="debug" value="false"/>
+	
+	<property name="args.hide.parent.link" value="yes"/><!-- Turn off parent links in topics by default -->
 
 	<property name="epub.temp.dir" location="${dita.temp.dir}/epub_temp"/>
 
@@ -82,6 +84,9 @@
     <echo message=" [DEBUG] dita.temp.dir=${dita.temp.dir}"/>
     <echo message=" [DEBUG] epub.temp.dir=${epub.temp.dir}"/>
   	
+  	<mkdir dir="${epub.temp.dir}"/>
+  	<makeurl file="${epub.temp.dir}" property="epub.xslt.outdir"/>
+  	
   	<property name="map2epub.style" location="${epub.dir}/xsl/map2epub.xsl"/>
     <xslt processor="trax"
       basedir="${dita.temp.dir}"
@@ -89,7 +94,7 @@
       includes="${dita.input.filename}"
       classpathref="dost.class.path"
       style="${map2epub.style}">
-     	<param name="outdir" expression="${epub.temp.dir}"/>
+     	<param name="outdir" expression="${epub.xslt.outdir}"/>
      	<param name="imagesOutputDir" expression="${images.output.dir}"/>
      	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
       <param name="debug" expression="${debug}"/>
