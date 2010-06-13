@@ -18,7 +18,7 @@
 	<property name="args.hide.parent.link" value="yes"/><!-- Turn off parent links in topics by default -->
 
 	<property name="epub.temp.dir" location="${dita.temp.dir}/epub_temp"/>
-
+	
   <target name="dita2epub"
     unless="noMap"
     xmlns:dita="http://dita-ot.sourceforge.net"
@@ -29,7 +29,7 @@
   
   <target name="epub"
     unless="noMap"
-    depends="dita.map.epub, copy.graphics, zipepub"/>
+    depends="dita.map.epub, zipepub"/>
   
   <target name="zipepub">
     <!-- Two steps because mimetype must go in first,
@@ -86,6 +86,7 @@
   	
   	<mkdir dir="${epub.temp.dir}"/>
   	<makeurl file="${epub.temp.dir}" property="epub.xslt.outdir"/>
+  	<makeurl file="${dita.temp.dir}" property="epub.xslt.tempdir"/>
   	
   	<property name="map2epub.style" location="${epub.dir}/xsl/map2epub.xsl"/>
     <xslt processor="trax"
@@ -95,10 +96,12 @@
       classpathref="dost.class.path"
       style="${map2epub.style}">
      	<param name="outdir" expression="${epub.xslt.outdir}"/>
+     	<param name="tempdir" expression="${epub.xslt.tempdir}"/>
      	<param name="imagesOutputDir" expression="${images.output.dir}"/>
      	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
       <param name="debug" expression="${debug}"/>
     </xslt>
+  	
   </target>
   
   <target name="copy.graphics" 
