@@ -28,6 +28,14 @@
   <!-- <a> elements used for IDs are not used in XHTML -->
   <xsl:template match="a[@name and not(@href)]" priority="10" mode="html2xhtml"/>
   
+  <xsl:template match="a[@href]" priority="20" mode="html2xhtml">
+    <xsl:variable name="newHref" select="@href" as="xs:string"/>
+    <a>
+      <xsl:attribute name="href" select="$newHref"/>
+      <xsl:apply-templates select="@*,node()" mode="#current"/>
+    </a>
+  </xsl:template>
+  
   <xsl:template mode="html2xhtml" match="*">
     <xsl:element name="{name(.)}">
       <xsl:apply-templates select="@*,node()" mode="#current"/>

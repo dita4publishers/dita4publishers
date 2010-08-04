@@ -62,8 +62,17 @@
         <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:apply-templates select="$topic" mode="#current">
+        <xsl:variable name="tempTopic" as="document-node()">
+          <xsl:message> + [DEBUG] Applying href fixup processing...</xsl:message>
+          <xsl:document>
+            <xsl:apply-templates select="$topic" mode="href-fixup"/>
+          </xsl:document>
+          <xsl:message> + [DEBUG] Href fixup processing done.</xsl:message>
+        </xsl:variable>
+        <xsl:apply-templates select="$tempTopic" mode="#current">
           <xsl:with-param name="topicref" as="element()" select="." tunnel="yes"/>
+          <xsl:with-param name="resultUri" select="epubutil:getTopicResultUrl($topicsOutputPath, $topic)"
+           tunnel="yes"/>
         </xsl:apply-templates>
       </xsl:otherwise>
     </xsl:choose>    
@@ -73,9 +82,9 @@
     <!-- This template generates the output file for a referenced topic.
       -->
     <!-- The topicref that referenced the topic -->
-    <xsl:param name="topicref" as="element()" tunnel="yes"/>
-    
-    <xsl:variable name="resultUri" select="epubutil:getTopicResultUrl($topicsOutputPath, .)" as="xs:string"/>
+    <xsl:param name="topicref" as="element()" tunnel="yes"/>    
+    <!-- Result URI to which the document should be written. -->
+    <xsl:param name="resultUri" as="xs:string" tunnel="yes"/>
     
     <xsl:message> + [INFO] Writing topic <xsl:sequence select="document-uri(root(.))"/> to HTML file "<xsl:sequence select="relpath:newFile($topicsOutputDir, relpath:getName($resultUri))"/>"...</xsl:message>
     <xsl:variable name="htmlNoNamespace" as="node()*">

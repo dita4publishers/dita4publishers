@@ -13,6 +13,7 @@
   <xsl:import href="lib/relpath_util.xsl"/>
   
   <xsl:output name="graphic-map" method="xml" indent="yes" />
+  <xsl:output name="ant" method="xml" indent="yes" />
   
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-graphic-map">
     <xsl:message> + [INFO] Generating graphic input-to-output map...</xsl:message>
@@ -63,7 +64,7 @@
   </xsl:template>
   
   <xsl:template match="*[df:class(.,'topic/image')]" mode="get-graphic-refs">
-    <xsl:variable name="docUri" select="string(document-uri(root(.)))" as="xs:string"/>
+    <xsl:variable name="docUri" select="relpath:toUrl(@xtrf)" as="xs:string"/>
     <xsl:variable name="parentPath" select="relpath:getParent($docUri)" as="xs:string"/>
     <xsl:variable name="graphicPath" select="@href" as="xs:string"/>
     <xsl:variable name="rawUrl" select="concat($parentPath, '/', $graphicPath)" as="xs:string"/>
@@ -74,7 +75,7 @@
   </xsl:template>
   
   <xsl:template match="*[df:class(.,'topic/image')]" mode="generate-graphic-map">
-    <xsl:variable name="docUri" select="string(document-uri(root(.)))" as="xs:string"/>
+    <xsl:variable name="docUri" select="relpath:toUrl(@xtrf)" as="xs:string"/>
     <xsl:variable name="parentPath" select="relpath:getParent($docUri)" as="xs:string"/>
     <xsl:variable name="graphicPath" select="@href" as="xs:string"/>
     <xsl:variable name="rawUrl" select="concat($parentPath, '/', $graphicPath)" as="xs:string"/>
@@ -85,6 +86,8 @@
       output-url="{relpath:newFile($imagesOutputPath, relpath:getName($absoluteUrl))}"
     />        
   </xsl:template>
+  
+
   
   <xsl:template match="text()" mode="generate-graphic-map get-graphic-refs"/>
   

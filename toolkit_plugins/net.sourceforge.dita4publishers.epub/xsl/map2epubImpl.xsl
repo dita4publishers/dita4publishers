@@ -55,6 +55,8 @@
   <xsl:include href="map2epubContentImpl.xsl"/>
   <xsl:include href="map2epubTocImpl.xsl"/>
   <xsl:include href="html2xhtmlImpl.xsl"/>
+  <xsl:include href="topicHrefFixup.xsl"/>
+  <xsl:include href="graphicMap2AntCopyScript.xsl"/>
   
   <!-- Directory into which the generated output is put.
 
@@ -77,6 +79,17 @@
   
   <xsl:param name="debug" select="'false'" as="xs:string"/>
   
+  <xsl:param name="rawPlatformString" select="'unknown'" as="xs:string"/><!-- As provided by Ant -->
+  
+  <xsl:variable name="platform" as="xs:string"
+    select="
+    if (starts-with($rawPlatformString, 'Win') or 
+        starts-with($rawPlatformString, 'Win'))
+       then 'windows'
+       else 'nx'
+    "
+  />
+  
   <xsl:variable name="debugBinary" select="$debug = 'true'" as="xs:boolean"/>
   
   <xsl:variable name="topicsOutputPath">
@@ -94,7 +107,9 @@
   <xsl:variable name="imagesOutputPath">
     <xsl:choose>
       <xsl:when test="$imagesOutputDir != ''">
-        <xsl:sequence select="concat($outdir, '/', $imagesOutputDir)"/>
+        <xsl:sequence select="concat($outdir, 
+          if (ends-with($outdir, '/')) then '' else '/', 
+          $imagesOutputDir)"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:sequence select="$outdir"/>
@@ -118,6 +133,9 @@
     <xsl:apply-templates select="." mode="generate-content"/>
     <xsl:apply-templates select="." mode="generate-toc"/>
     <xsl:apply-templates select="." mode="generate-opf">
+      <xsl:with-param name="graphicMap" as="element()" tunnel="yes" select="$graphicMap"/>
+    </xsl:apply-templates>
+    <xsl:apply-templates select="." mode="generate-graphic-copy-ant-script">
       <xsl:with-param name="graphicMap" as="element()" tunnel="yes" select="$graphicMap"/>
     </xsl:apply-templates>
   </xsl:template>

@@ -106,5 +106,8 @@
   
   <target name="copy.graphics" 
 	  description="Copies graphics from input to the ePub output directory based on the graphic map generated during epub generation">
+  	<ant antfile="${epub.xslt.outdir}/copy-graphics.xml"  		
+  		>
+  	</ant>
 	</target>
 </project>

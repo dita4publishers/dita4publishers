@@ -295,6 +295,65 @@
     <xsl:sequence select="$fileUrl"/>
   </xsl:function>
   
+  <xsl:function name="relpath:toFile" as="xs:string">
+    <xsl:param name="url" as="xs:string"/>
+    <xsl:param name="platform" as="xs:string"/><!-- One of "windows", "nx" -->
+    <xsl:message> + [DEBUG] -------------</xsl:message>
+    <xsl:message> + [DEBUG] toFile(): url='<xsl:sequence select="$url"/>', platform='<xsl:sequence select="$platform"/>'</xsl:message>
+    <xsl:variable name="result" as="xs:string"
+       select="
+       if ($platform = 'windows')
+          then relpath:urlToWindowsFile($url)
+          else relpath:urlToNxFile($url)
+       "
+    />
+    <xsl:message> + [DEBUG] toFile(): result='<xsl:sequence select="$result"/>'</xsl:message>
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+  
+  <xsl:function name="relpath:urlToNxFile" as="xs:string">
+    <xsl:param name="url" as="xs:string"/>
+    <xsl:choose>
+      <xsl:when test="matches($url, '^file:.+')">
+        <xsl:variable name="filepath" select="substring-after($url, 'file:')" as="xs:string"/>
+        <xsl:variable name="result" as="xs:string"
+          select="
+          if (starts-with($filepath, '///'))
+          then substring($filepath, 3)
+          else $filepath
+          "
+        />
+        <xsl:sequence select="$result"/>
+      </xsl:when>
+      <xsl:when test="matches($url, '^[a-zA-Z]+:.+')">
+        <xsl:sequence select="'{cannot convert absolute URL to file path}'"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="$url"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
+  
+  <xsl:function name="relpath:urlToWindowsFile" as="xs:string">
+    <xsl:param name="url" as="xs:string"/>
+    <xsl:message> + [DEBUG] urlToWindowsFile(): url='<xsl:sequence select="$url"/>'</xsl:message>
+    <xsl:variable name="basePath" as="xs:string"
+       select="relpath:urlToNxFile($url)"
+    />
+    <xsl:message> + [DEBUG] urlToWindowsFile(): basePath='<xsl:sequence select="$basePath"/>'</xsl:message>
+    <xsl:variable name="windowsPath" select="replace($basePath, '/', '\\')" as="xs:string"/>
+    <xsl:variable name="result" as="xs:string" 
+      select="
+      if (matches($windowsPath, '^\\[a-zA-Z]+:'))
+         then substring($windowsPath, 2)
+         else $windowsPath
+      " />
+    <xsl:message> + [DEBUG] urlToWindowsFile(): Returning '<xsl:sequence select="$result"/>'</xsl:message>
+    <xsl:sequence select="$result"/>
+  </xsl:function> 
+  
+  
+  
   <xsl:function name="relpath:analyzePathTokens" as="xs:string*">
     <xsl:param name="sourceTokens" as="xs:string*"/>
     <xsl:param name="targetTokens" as="xs:string*"/>
