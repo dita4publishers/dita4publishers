@@ -12,17 +12,17 @@
   
   <xsl:function name="epubutil:getTopicResultUrl" as="xs:string">
     <xsl:param name="outdir" as="xs:string"/><!-- Output directory -->
-    <xsl:param name="topic" as="element()"/>
+    <xsl:param name="topicDoc" as="document-node()"/>
   
     <xsl:variable name="topicHtmlFilename" 
-      select="epubutil:constructHtmlResultTopicFilename($topic)" 
+      select="epubutil:constructHtmlResultTopicFilename($topicDoc)" 
       as="xs:string"/>  
     
     <xsl:sequence select="relpath:newFile($outdir, $topicHtmlFilename)"/>
   </xsl:function>
   
   <xsl:function name="epubutil:constructHtmlResultTopicFilename" as="xs:string">
-    <xsl:param name="topic" as="element()"/>
+    <xsl:param name="topic" as="document-node()"/>
     <xsl:variable name="topicFilename" 
       select="concat(epubutil:getResultTopicBaseName($topic), '.html')" 
       as="xs:string"/>
@@ -34,16 +34,16 @@
     construct full filenames of different types.
     -->
   <xsl:function name="epubutil:getResultTopicBaseName" as="xs:string">
-    <xsl:param name="topic" as="element()"/>
-    <xsl:variable name="topicUri" select="string(document-uri(root($topic)))" as="xs:string"/>
-    <xsl:variable name="baseName" select="concat(relpath:getNamePart($topicUri), '_', generate-id($topic))" as="xs:string"/>
+    <xsl:param name="topicDoc" as="document-node()"/>
+    <xsl:variable name="topicUri" select="string(document-uri(root($topicDoc)))" as="xs:string"/>
+    <xsl:variable name="baseName" select="concat(relpath:getNamePart($topicUri), '_', generate-id($topicDoc))" as="xs:string"/>
     <xsl:sequence select="$baseName"/>
   </xsl:function>
 
   <xsl:function name="epubutil:getXmlResultTopicFileName" as="xs:string">
-    <xsl:param name="topic" as="element()"/>
-    <xsl:variable name="topicUri" select="string(document-uri(root($topic)))" as="xs:string"/>
-    <xsl:variable name="baseName" select="epubutil:getResultTopicBaseName($topic)" as="xs:string"/>
+    <xsl:param name="topicDoc" as="document-node()"/>
+    <xsl:variable name="topicUri" select="string(document-uri(root($topicDoc)))" as="xs:string"/>
+    <xsl:variable name="baseName" select="epubutil:getResultTopicBaseName($topicDoc)" as="xs:string"/>
     <xsl:variable name="ext" select="relpath:getExtension($topicUri)"/>
     <xsl:variable name="fileName" select="concat($baseName, '.', $ext)" as="xs:string"/>
     <xsl:sequence select="$fileName"/>

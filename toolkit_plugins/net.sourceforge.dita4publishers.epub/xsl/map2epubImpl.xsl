@@ -57,6 +57,7 @@
   <xsl:include href="html2xhtmlImpl.xsl"/>
   <xsl:include href="topicHrefFixup.xsl"/>
   <xsl:include href="graphicMap2AntCopyScript.xsl"/>
+  <xsl:include href="epubHtmlOverrides.xsl"/>
   
   <!-- Directory into which the generated output is put.
 

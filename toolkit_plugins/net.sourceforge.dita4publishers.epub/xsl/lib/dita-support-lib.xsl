@@ -142,6 +142,34 @@
     </xsl:choose>
   </xsl:function>
   
+  <xsl:function name="df:getDocumentThatContainsRefTarget" as="document-node()?">
+    <!-- Resolve a reference to the document that contains the ultimate reference target. --> 
+    <xsl:param name="context" as="element()"/>
+    <xsl:sequence select="df:getDocumentThatContainsRefTarget($context, $context/@href)"/>
+  </xsl:function>
+  
+  <xsl:function name="df:getDocumentThatContainsRefTarget" as="document-node()?">
+    <!-- Resolve a reference to the document that contains the ultimate reference target. --> 
+    <xsl:param name="context" as="element()"/>
+    <xsl:param name="targetUri" as="xs:string"/>
+
+    <xsl:variable name="resourcePart" as="xs:string" 
+      select="
+      if (contains($targetUri, '#')) 
+      then substring-before($targetUri, '#') 
+      else normalize-space($targetUri)"
+    />
+    <xsl:choose>
+      <xsl:when test="$resourcePart = ''">
+        <xsl:sequence select="root($context)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="targetDoc" select="document($resourcePart, $context)" as="document-node()?"/>
+        <xsl:sequence select="$targetDoc"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
+  
   <xsl:function name="df:resolveTopicRef" as="element()?">
     <!-- Resolves a topicref to its target topic element, if it can be resolved -->
     <xsl:param name="context" as="element()"/><!-- Topicref element -->

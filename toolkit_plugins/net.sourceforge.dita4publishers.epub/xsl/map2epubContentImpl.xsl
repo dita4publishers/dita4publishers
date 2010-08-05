@@ -71,7 +71,7 @@
         </xsl:variable>
         <xsl:apply-templates select="$tempTopic" mode="#current">
           <xsl:with-param name="topicref" as="element()" select="." tunnel="yes"/>
-          <xsl:with-param name="resultUri" select="epubutil:getTopicResultUrl($topicsOutputPath, $topic)"
+          <xsl:with-param name="resultUri" select="epubutil:getTopicResultUrl($topicsOutputPath, root($topic))"
            tunnel="yes"/>
         </xsl:apply-templates>
       </xsl:otherwise>

@@ -20,17 +20,17 @@
   <xsl:template mode="href-fixup" match="image/@href" priority="10">
     <xsl:variable name="origHref" select="." as="xs:string"/>
     <xsl:variable name="newHref" select="concat('../images/', relpath:getName($origHref))" as="xs:string"/>
-    <xsl:message> + [DEBUG] href-fixup, image/@href: newHref='<xsl:sequence select="$newHref"/>'</xsl:message>
     <xsl:attribute name="href" select="$newHref"/>
   </xsl:template>
   
-  <xsl:template mode="href-fixup" match="xref[not(@scope = 'external')]/@href" priority="10">
-    <xsl:message> + [DEBUG] href-fixup, @href att..., value="<xsl:sequence select="string(.)"/>"</xsl:message>
+  <xsl:template mode="href-fixup" match="xref[not(@scope = 'external')]/@href | 
+                      link[not(@scope = 'external')]/@href" priority="10">
+    <xsl:message> + [DEBUG] href-fixup 
+       @href att..., value="<xsl:sequence select="string(.)"/>"</xsl:message>
     <xsl:variable name="origHref" select="." as="xs:string"/>
-    <xsl:variable name="targetTopic" as="element()?"
-       select="df:resolveTopicElementRef(.., $origHref)"
+    <xsl:variable name="targetTopic" as="document-node()?"
+      select="df:getDocumentThatContainsRefTarget(..)"
     />
-    <xsl:message> + [DEBUG] href-fixup, targetTopic=<xsl:sequence select="name($targetTopic[1])"/>.</xsl:message>
     <xsl:variable name="newHref" as="xs:string">
       <xsl:choose>
         <xsl:when test="$targetTopic">
