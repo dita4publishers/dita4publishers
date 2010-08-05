@@ -33,35 +33,25 @@
   <xsl:template match="gmap:graphic-map" mode="generate-graphic-copy-ant-script">
     <project name="graphics-copy" default="copy-graphics">
       <target name="copy-graphics">
-        <xsl:for-each-group 
-          select="gmap:graphic-map-item" 
-          group-by="relpath:getParent(string(./@ouput-url))">
-          <xsl:variable name="outputDir" select="relpath:toFile(relpath:getParent(string(./@ouput-url)), $platform)"/>
-          <copy todir="{relpath:toFile($imagesOutputPath, $platform)}">
-            <xsl:for-each-group select="current-group()" 
-              group-by="relpath:getParent(string(./@input-url))">
-              <xsl:variable name="sourceDir" 
-                select="relpath:toFile(relpath:getParent(string(./@input-url)), $platform)"/>
-              <fileset dir="{$sourceDir}">
-                <xsl:apply-templates select="current-group()" mode="#current">
-                  <xsl:with-param name="dir" select="$sourceDir" as="xs:string" tunnel="yes"/>
-                </xsl:apply-templates>
-              </fileset>
-            </xsl:for-each-group>
-          </copy>
-        </xsl:for-each-group>
+        <echo message="Doing copy graphics..."/>
+        <xsl:apply-templates mode="#current"/>
       </target>
     </project>
   </xsl:template>
   
   <xsl:template match="gmap:graphic-map-item" mode="generate-graphic-copy-ant-script">
-    <xsl:param name="dir" tunnel="yes"/><!-- Directory containing the graphic -->
     <!--
       <gmap:graphic-map-item 
         input-url="file:/Users/ekimber/workspace/dita4publishers/sample_data/epub-test/covers/images/1407-02.jpg"
         output-url="file:/Users/ekimber/workspace/dita4publishers/sample_data/epub-test/epub/images/1407-02.jpg"/>
     -->
-    <include name="{relpath:getName(@input-url)}"/>
+    <xsl:variable name="sourceDir" 
+      select="relpath:toFile(relpath:getParent(string(@input-url)), $platform)"/>
+    <copy toFile="{relpath:toFile(string(@output-url), $platform)}">
+      <fileset dir="{$sourceDir}">
+        <include name="{relpath:getName(@input-url)}"/>
+      </fileset>
+    </copy>
   </xsl:template>
   
 </xsl:stylesheet>

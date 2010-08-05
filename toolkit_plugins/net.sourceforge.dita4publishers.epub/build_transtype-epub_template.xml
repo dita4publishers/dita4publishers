@@ -102,11 +102,13 @@
       <param name="debug" expression="${debug}"/>
     </xslt>
   	
+  	<antcall target="copy.graphics"/>
+  	
   </target>
   
   <target name="copy.graphics" 
 	  description="Copies graphics from input to the ePub output directory based on the graphic map generated during epub generation">
-  	<ant antfile="${epub.xslt.outdir}/copy-graphics.xml"  		
+  	<ant antfile="${epub.temp.dir}/copy-graphics.xml"  		
   		>
   	</ant>
 	</target>

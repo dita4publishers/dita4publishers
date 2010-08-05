@@ -4,7 +4,9 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:epubutil="http://dita4publishers.org/functions/epubutil"
   xmlns:df="http://dita2indesign.org/dita/functions"
-  exclude-result-prefixes="xs epubutil df"
+  xmlns:relpath="http://dita2indesign/functions/relpath"
+  
+  exclude-result-prefixes="xs epubutil df relpath"
   version="2.0">
 
   <xsl:import href="lib/dita-support-lib.xsl"/>
@@ -13,6 +15,13 @@
   <xsl:template match="/" mode="href-fixup">
     <xsl:message> + [DEBUG] href-fixup, root template...</xsl:message>
     <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template mode="href-fixup" match="image/@href" priority="10">
+    <xsl:variable name="origHref" select="." as="xs:string"/>
+    <xsl:variable name="newHref" select="concat('../images/', relpath:getName($origHref))" as="xs:string"/>
+    <xsl:message> + [DEBUG] href-fixup, image/@href: newHref='<xsl:sequence select="$newHref"/>'</xsl:message>
+    <xsl:attribute name="href" select="$newHref"/>
   </xsl:template>
   
   <xsl:template mode="href-fixup" match="xref[not(@scope = 'external')]/@href" priority="10">

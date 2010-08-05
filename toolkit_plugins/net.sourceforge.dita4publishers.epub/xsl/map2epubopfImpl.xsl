@@ -205,8 +205,17 @@
   <xsl:template match="gmap:graphic-map-item" mode="manifest">
     <xsl:variable name="imageFilename" select="relpath:getName(@output-url)" as="xs:string"/>
     <xsl:variable name="imageExtension" select="lower-case(relpath:getExtension($imageFilename))" as="xs:string"/>
-    
-    <opf:item id="{generate-id()}" href="{relpath:getRelativePath($outdir, relpath:newFile($imagesOutputPath, $imageFilename))}">
+    <xsl:variable name="hrefPath" as="xs:string" 
+      select="relpath:getParent(@output-url)"/>
+    <xsl:variable name="imageHref" 
+      select="relpath:newFile(relpath:getRelativePath($outdir, $hrefPath), $imageFilename)" as="xs:string"/>
+    <xsl:message> + [DEBUG]
+    outdir      =<xsl:sequence select="$outdir"/>
+    output-url  =<xsl:sequence select="string(@output-url)"/>
+    hrefPath    =<xsl:sequence select="$hrefPath"/>
+    imageHref   =<xsl:sequence select="$imageHref"/>
+    </xsl:message>
+    <opf:item id="{generate-id()}" href="{$imageHref}">
       <xsl:attribute name="media-type">
         <xsl:choose>
           <xsl:when test="$imageExtension = 'jpg'"><xsl:sequence select="'image/jpeg'"/></xsl:when>
