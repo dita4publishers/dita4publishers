@@ -254,9 +254,9 @@
     <xsl:param name="source" as="xs:string"/><!-- Path to get relative path *from* -->
     <xsl:param name="target" as="xs:string"/><!-- Path to get relataive path *to* -->
     <xsl:if test="false()">
-      <xsl:message> + DEBUG: relpath:getRelativePath(): Starting...</xsl:message>
-      <xsl:message> + DEBUG:     source="<xsl:value-of select="$source"/>"</xsl:message>
-      <xsl:message> + DEBUG:     target="<xsl:value-of select="$target"/>"</xsl:message>
+      <xsl:message> + [DEBUG]: relpath:getRelativePath(): Starting...</xsl:message>
+      <xsl:message> + [DEBUG]:     source="<xsl:value-of select="$source"/>"</xsl:message>
+      <xsl:message> + [DEBUG]:     target="<xsl:value-of select="$target"/>"</xsl:message>
     </xsl:if>
     <xsl:variable name="sourceTokens" select="tokenize((if (starts-with($source, '/')) then substring-after($source, '/') else $source), '/')" as="xs:string*"/>
     <xsl:variable name="targetTokens" select="tokenize((if (starts-with($target, '/')) then substring-after($target, '/') else $target), '/')" as="xs:string*"/>
@@ -298,8 +298,10 @@
   <xsl:function name="relpath:toFile" as="xs:string">
     <xsl:param name="url" as="xs:string"/>
     <xsl:param name="platform" as="xs:string"/><!-- One of "windows", "nx" -->
-    <xsl:message> + [DEBUG] -------------</xsl:message>
-    <xsl:message> + [DEBUG] toFile(): url='<xsl:sequence select="$url"/>', platform='<xsl:sequence select="$platform"/>'</xsl:message>
+    <xsl:if test="false()">      
+      <xsl:message> + [DEBUG] -------------</xsl:message>
+      <xsl:message> + [DEBUG] toFile(): url='<xsl:sequence select="$url"/>', platform='<xsl:sequence select="$platform"/>'</xsl:message>
+    </xsl:if>
     <xsl:variable name="result" as="xs:string"
        select="
        if ($platform = 'windows')
@@ -307,7 +309,9 @@
           else relpath:urlToNxFile($url)
        "
     />
-    <xsl:message> + [DEBUG] toFile(): result='<xsl:sequence select="$result"/>'</xsl:message>
+    <xsl:if test="false()">      
+      <xsl:message> + [DEBUG] toFile(): result='<xsl:sequence select="$result"/>'</xsl:message>
+    </xsl:if>
     <xsl:sequence select="$result"/>
   </xsl:function>
   
@@ -336,11 +340,15 @@
   
   <xsl:function name="relpath:urlToWindowsFile" as="xs:string">
     <xsl:param name="url" as="xs:string"/>
-    <xsl:message> + [DEBUG] urlToWindowsFile(): url='<xsl:sequence select="$url"/>'</xsl:message>
+    <xsl:if test="false()">      
+      <xsl:message> + [DEBUG] urlToWindowsFile(): url='<xsl:sequence select="$url"/>'</xsl:message>
+    </xsl:if>
     <xsl:variable name="basePath" as="xs:string"
        select="relpath:urlToNxFile($url)"
     />
-    <xsl:message> + [DEBUG] urlToWindowsFile(): basePath='<xsl:sequence select="$basePath"/>'</xsl:message>
+    <xsl:if test="false()">      
+      <xsl:message> + [DEBUG] urlToWindowsFile(): basePath='<xsl:sequence select="$basePath"/>'</xsl:message>
+    </xsl:if>
     <xsl:variable name="windowsPath" select="replace($basePath, '/', '\\')" as="xs:string"/>
     <xsl:variable name="result" as="xs:string" 
       select="
@@ -348,7 +356,9 @@
          then substring($windowsPath, 2)
          else $windowsPath
       " />
-    <xsl:message> + [DEBUG] urlToWindowsFile(): Returning '<xsl:sequence select="$result"/>'</xsl:message>
+    <xsl:if test="false()">      
+      <xsl:message> + [DEBUG] urlToWindowsFile(): Returning '<xsl:sequence select="$result"/>'</xsl:message>
+    </xsl:if>
     <xsl:sequence select="$result"/>
   </xsl:function> 
   

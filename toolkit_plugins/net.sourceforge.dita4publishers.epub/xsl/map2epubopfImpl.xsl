@@ -209,12 +209,14 @@
       select="relpath:getParent(@output-url)"/>
     <xsl:variable name="imageHref" 
       select="relpath:newFile(relpath:getRelativePath($outdir, $hrefPath), $imageFilename)" as="xs:string"/>
-    <xsl:message> + [DEBUG]
-    outdir      =<xsl:sequence select="$outdir"/>
-    output-url  =<xsl:sequence select="string(@output-url)"/>
-    hrefPath    =<xsl:sequence select="$hrefPath"/>
-    imageHref   =<xsl:sequence select="$imageHref"/>
-    </xsl:message>
+    <xsl:if test="false()">
+      <xsl:message> + [DEBUG]
+        outdir      =<xsl:sequence select="$outdir"/>
+        output-url  =<xsl:sequence select="string(@output-url)"/>
+        hrefPath    =<xsl:sequence select="$hrefPath"/>
+        imageHref   =<xsl:sequence select="$imageHref"/>
+      </xsl:message>
+    </xsl:if>
     <opf:item id="{generate-id()}" href="{$imageHref}">
       <xsl:attribute name="media-type">
         <xsl:choose>
