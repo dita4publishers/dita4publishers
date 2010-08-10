@@ -18,6 +18,9 @@
     <keydef
       keys="the_cyclone"
       href="chapters/chapter_1.xml"/>
+    <keydef
+      keys="the_rescue_of_the_tinman"
+      href="chapters/chapter_5.xml"/>
   </keydefs>
   <publication>
     <covers>
@@ -32,9 +35,14 @@
     </frontmatter>
     <pubbody
       collection-type="sequence">
+      <topicref
+        href="chapters/element-test.xml"/>
+      <topicref
+        href="chapters/cross-refs-01.xml"/>
+      <topicref
+        href="chapters/cross-ref-targets-01.xml"/>
       <chapter
-        class="- map/topicref pubmap/chapter "
-        keyref="the_cyclone"/>
+        href="chapters/chapter_1.xml"/>
       <chapter
         href="chapters/chapter_2.xml">
         <topicmeta>
@@ -68,6 +76,8 @@
         <topicref
           href="chapters/subtopic-04.xml"/>
       </chapter>
+      <chapter
+        keyref="the_rescue_of_the_tinman"/>
     </pubbody>
     <colophon
       href="backmatter/colophon.xml"/>
