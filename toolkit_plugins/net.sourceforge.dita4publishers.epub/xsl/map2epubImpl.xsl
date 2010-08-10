@@ -172,6 +172,7 @@ Global Variables:
 
       + topicsOutputPath = "<xsl:sequence select="$topicsOutputPath"/>"
       + imagesOutputPath = "<xsl:sequence select="$imagesOutputPath"/>"
+      + platform = "<xsl:sequence select="$platform"/>"
       + debugBoolean = "<xsl:sequence select="$debugBoolean"/>"
       
 ==========================================

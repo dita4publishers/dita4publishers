@@ -21,14 +21,16 @@
       <xsl:apply-templates mode="get-graphic-refs"/>
     </xsl:variable>
     
+    <xsl:message> + [INFO]   Found <xsl:sequence select="count($graphicRefs)"/> graphic references.</xsl:message>
     <xsl:variable name="uniqueRefs" as="element()">
       <root>
-        <xsl:for-each-group select="$graphicRefs" group-by="@href">
+        <xsl:for-each-group select="$graphicRefs" group-by="string(@href)">
           <xsl:copy-of select="current-group()[1]"/>
         </xsl:for-each-group>        
       </root>
     </xsl:variable>
-        
+    <xsl:message> + [INFO]   Found <xsl:sequence select="count($uniqueRefs/*)"/> unique graphic references.</xsl:message>
+    
     <gmap:graphic-map>
       <xsl:for-each select="$uniqueRefs/*">
         <xsl:variable name="absoluteUrl" as="xs:string" select="@href"/>

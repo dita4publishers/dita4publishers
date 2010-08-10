@@ -47,7 +47,18 @@
     -->
     <xsl:variable name="sourceDir" 
       select="relpath:toFile(relpath:getParent(string(@input-url)), $platform)"/>
-    <copy toFile="{relpath:toFile(string(@output-url), $platform)}">
+    <xsl:if test="false()">
+      <xsl:message> + [DEBUG] graphic-map-item: $sourceDir="<xsl:sequence select="$sourceDir"/>"</xsl:message>
+    </xsl:if>
+    <xsl:variable name="toFile" select="relpath:toFile(string(@output-url), $platform)" as="xs:string"/>
+    <xsl:message> + [INFO]   Mapping input graphic 
+ + [INFO]      Input URL: <xsl:sequence select="string(@input-url)"/>
+ + [INFO]    Target File: <xsl:sequence select="$toFile"/> 
+    </xsl:message>
+    <xsl:if test="false()">    
+      <xsl:message> + [DEBUG] graphic-map-item: $toFile="<xsl:sequence select="$toFile"/>"</xsl:message>
+    </xsl:if>
+    <copy toFile="{$toFile}">
       <fileset dir="{$sourceDir}">
         <include name="{relpath:getName(@input-url)}"/>
       </fileset>
