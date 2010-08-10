@@ -103,6 +103,7 @@
     </delete>
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin-src}">
+				<exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/>
 			</fileset>
 		</copy>
     <copy todir="${plugin.dist}">
@@ -196,6 +197,7 @@
     <zip destfile="${package.dist}/dita4publishers_toolkit_plugins.zip">
       <fileset dir="${plugin.dist}">
         <include name="net.sourceforge.dita4publishers.*/**"/>
+        <exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/>
       </fileset>
     </zip>
   </target>
