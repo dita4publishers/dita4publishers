@@ -63,11 +63,9 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="tempTopic" as="document-node()">
-          <xsl:message> + [DEBUG] Applying href fixup processing...</xsl:message>
           <xsl:document>
             <xsl:apply-templates select="$topic" mode="href-fixup"/>
           </xsl:document>
-          <xsl:message> + [DEBUG] Href fixup processing done.</xsl:message>
         </xsl:variable>
         <xsl:apply-templates select="$tempTopic" mode="#current">
           <xsl:with-param name="topicref" as="element()" select="." tunnel="yes"/>

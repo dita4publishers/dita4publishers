@@ -8,8 +8,4 @@
   
   <!-- Overrides of built-in HTML generation templates -->
   
-  <xsl:template match="*[contains(@class, ' topic/related-link ')]" mode="#all" name="related-links:group-result.">
-    <xsl:message> + [DEBUG] Suppress related links.</xsl:message>
-    <!-- Suppress related links -->
-  </xsl:template>  
 </xsl:stylesheet>

@@ -22,8 +22,7 @@
   <target name="dita2epub"
     unless="noMap"
     xmlns:dita="http://dita-ot.sourceforge.net"
-    dita:depends="build-init, preprocess, copy-css, dita.topics.xhtml, 
-    dita.inner.topics.xhtml, dita.outer.topics.xhtml,epub"
+    dita:depends="build-init, preprocess, copy-css,epub"
     dita:extension="depends org.dita.dost.platform.InsertDependsAction">
   </target>
   

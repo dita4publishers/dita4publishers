@@ -13,7 +13,6 @@
   <xsl:import href="epub-generation-utils.xsl"/>
   
   <xsl:template match="/" mode="href-fixup">
-    <xsl:message> + [DEBUG] href-fixup, root template...</xsl:message>
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
@@ -25,8 +24,10 @@
   
   <xsl:template mode="href-fixup" match="xref[not(@scope = 'external')]/@href | 
                       link[not(@scope = 'external')]/@href" priority="10">
-    <xsl:message> + [DEBUG] href-fixup 
-       @href att..., value="<xsl:sequence select="string(.)"/>"</xsl:message>
+    <xsl:if test="false()">
+      <xsl:message> + [DEBUG] href-fixup 
+        @href att..., value="<xsl:sequence select="string(.)"/>"</xsl:message>
+    </xsl:if>
     <xsl:variable name="origHref" select="." as="xs:string"/>
     <xsl:variable name="targetTopic" as="document-node()?"
       select="df:getDocumentThatContainsRefTarget(..)"
@@ -38,12 +39,14 @@
         </xsl:when>
         <xsl:otherwise>
           <xsl:message> + [WARN] Unable to resolve href '<xsl:sequence select="string(.)"/>' to a topic</xsl:message>
-          <xsl:sequence select="'unresolvable-reference'"/>
+          <xsl:sequence select="'unresolvable-reference.xml'"/>
         </xsl:otherwise>
       </xsl:choose>      
     </xsl:variable>
     
-    <xsl:message> + [DEBUG] href-fixup, newHref='<xsl:sequence select="$newHref"/>'</xsl:message>
+    <xsl:if test="false()">
+      <xsl:message> + [DEBUG] href-fixup, newHref='<xsl:sequence select="$newHref"/>'</xsl:message>
+    </xsl:if>
     <xsl:attribute name="href" select="$newHref"/>
   </xsl:template>
   
