@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:relpath="http://dita2indesign/functions/relpath"
-  exclude-result-prefixes="local xs"
+  exclude-result-prefixes="xs"
   >
   
   <xsl:include href="relpath_util.xsl"/>
@@ -15,13 +15,17 @@
   <xsl:template match="/">
 <!--    <xsl:call-template name="testEncodeUrl"/>
     <xsl:call-template name="testGetAbsolutePath"/>
--->    <xsl:call-template name="testGetRelativePath"/>
-<!--    <xsl:call-template name="testGetName"/>
+    -->
+    <xsl:call-template name="testGetRelativePath"/>
+    <!--
+    <xsl:call-template name="testGetName"/>
     <xsl:call-template name="testGetParent"/>
     <xsl:call-template name="testNewFile"/>
     <xsl:call-template name="testGetNamePart"/>
     <xsl:call-template name="testGetExtension"/>
--->  </xsl:template>
+-->
+    <xsl:call-template name="testUrlToFile"/>    
+  </xsl:template>
   
   <xsl:template name="testEncodeUrl">
     <xsl:variable name="testData" as="element()">
@@ -310,6 +314,51 @@
     </xsl:variable>
     <xsl:apply-templates select="$testData" mode="testGetExtension"/>
   </xsl:template>
+  
+  <xsl:template name="testUrlToFile">
+    <xsl:variable name="testData" as="element()">
+      <test_data>
+        <title>toFile() Tests</title>
+        <test>
+          <url>foo/bar</url>
+          <platform>windows</platform>
+          <result>foo\bar</result>
+        </test>
+        <test>
+          <url>file:/c:/foo/bar</url>
+          <platform>windows</platform>
+          <result>c:\foo\bar</result>
+        </test>
+        <test>
+          <url>file:///c:/foo/bar</url>
+          <platform>windows</platform>
+          <result>c:\foo\bar</result>
+        </test>
+        <test>
+          <url>url:/foo/bar</url>
+          <platform>windows</platform>
+          <result>{cannot convert absolute URL to file path}</result>
+        </test>
+        <test>
+          <url>file:/foo/bar</url>
+          <platform>nx</platform>
+          <result>/foo/bar</result>
+        </test>
+        <test>
+          <url>file:///foo/bar</url>
+          <platform>nx</platform>
+          <result>/foo/bar</result>
+        </test>
+        <test>
+          <url>foo/bar</url>
+          <platform>nx</platform>
+          <result>foo/bar</result>
+        </test>
+      </test_data>
+    </xsl:variable>
+    <xsl:apply-templates select="$testData" mode="testUrlToFile"/>
+  </xsl:template>
+  
   <xsl:template match="title" mode="#all">
     <xsl:text>&#x0a;</xsl:text>
     <xsl:value-of select="."/>
@@ -414,6 +463,19 @@
     <xsl:text>      parent: "</xsl:text><xsl:value-of select="parent"/><xsl:text>"&#x0a;</xsl:text>
     <xsl:text>      child: "</xsl:text><xsl:value-of select="child"/><xsl:text>"&#x0a;</xsl:text>
     <xsl:variable name="cand" select="relpath:newFile(string(parent), string(child))" as="xs:string"/>
+    <xsl:variable name="pass" select="$cand = string(result)" as="xs:boolean"/>
+    <xsl:text>      result: "</xsl:text><xsl:value-of select="$cand"/><xsl:text>", pass: </xsl:text><xsl:value-of select="$pass"/><xsl:text>&#x0a;</xsl:text>
+    <xsl:if test="not($pass)">
+      <xsl:text>      expected result: "</xsl:text><xsl:value-of select="result"/><xsl:text>"&#x0a;</xsl:text>
+    </xsl:if>
+    <xsl:copy-of select="comment"/>
+    <xsl:text>&#x0a;</xsl:text>
+  </xsl:template>
+
+  <xsl:template match="test" mode="testUrlToFile">
+    <xsl:text>Test Case: </xsl:text><xsl:number count="test" format="[1]"/><xsl:text>&#x0a;</xsl:text>
+    <!-- <xsl:message> + [DEBUG] test=<xsl:sequence select="."/></xsl:message> -->
+    <xsl:variable name="cand" select="relpath:toFile(string(url), string(platform))" as="xs:string"/>
     <xsl:variable name="pass" select="$cand = string(result)" as="xs:boolean"/>
     <xsl:text>      result: "</xsl:text><xsl:value-of select="$cand"/><xsl:text>", pass: </xsl:text><xsl:value-of select="$pass"/><xsl:text>&#x0a;</xsl:text>
     <xsl:if test="not($pass)">
