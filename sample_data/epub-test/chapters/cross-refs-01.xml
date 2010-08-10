@@ -13,6 +13,13 @@
     <p>XRef to a subordinate topic in another topic document: <xref
       href="cross-ref-targets-01.xml#topic_d91f8e41-7bfd-4a33-a5b9-cc4ee91c250f"
       format="dita">Subordinate Topic 2</xref>.</p>
+    <p>Here is a direct xref to Wizard of OZ, Chapter 1: <xref
+      href="chapter_1.xml#chapterid"
+      format="dita"/>.</p>
+    <p>Here is a keyref xref to Wizard of OZ, Chapter 1: <xref
+      keyref="the_cyclone"/>.</p>
+    <p>Here is a keyword keyref to Wizard of OZ, Chapter 1: A <keyword
+      keyref="the_cyclone">cyclone</keyword> is also called a <keyword>tornado</keyword>.</p>
   </body>
   <topic
     id="topic_98167a29-7b15-4844-80ed-c8fb81447f44">

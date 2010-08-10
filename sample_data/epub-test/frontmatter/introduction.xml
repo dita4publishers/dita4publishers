@@ -5,12 +5,6 @@
   <title>Introduction</title>
   <body>
     <p>This is a data set for testing ePub generation from DITA For Publihers publication maps. It contains content from the full Wizard of OZ sample publication. It includes all the main components of a full publication and enough chapters to hopefully exercise ToC generation well enough.</p>
-    <p>Here is a direct xref to chapter 1: <xref
-      href="../chapters/chapter_1.xml#chapterid"
-      format="dita"/>.</p>
-    <p>Here is a keyref xref to chapter 1: <xref
-      keyref="the_cyclone"/>.</p>
-    <p>Here is a keyword keyref to chapter 1: A <keyword
-      keyref="the_cyclone">cyclone</keyword> is also called a <keyword>tornado</keyword>.</p>
+    
   </body>
 </topic>

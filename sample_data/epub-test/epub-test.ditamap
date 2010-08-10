@@ -17,7 +17,7 @@
     </topicmeta>
     <keydef
       keys="the_cyclone"
-      href="chapters/chapter_1.xml"/>
+      href="hide/chapters/chapter_1.xml"/>
     <keydef
       keys="the_rescue_of_the_tinman"
       href="chapters/chapter_5.xml"/>
@@ -37,6 +37,8 @@
       collection-type="sequence">
       <topicref
         href="chapters/element-test.xml"/>
+      <topicref
+        href="chapters/push_pull.dita"/>
       <topicref
         href="chapters/cross-refs-01.xml"/>
       <topicref
