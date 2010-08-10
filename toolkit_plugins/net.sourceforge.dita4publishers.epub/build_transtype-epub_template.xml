@@ -99,6 +99,7 @@
      	<param name="imagesOutputDir" expression="${images.output.dir}"/>
      	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
       <param name="debug" expression="${debug}"/>
+    	<param name="rawPlatformString" expression="${os.name}"/>
     </xslt>
   	
   	<antcall target="copy.graphics"/>
