@@ -349,13 +349,30 @@
     <xsl:if test="false()">      
       <xsl:message> + [DEBUG] urlToWindowsFile(): basePath='<xsl:sequence select="$basePath"/>'</xsl:message>
     </xsl:if>
-    <xsl:variable name="windowsPath" select="replace($basePath, '/', '\\')" as="xs:string"/>
-    <xsl:variable name="result" as="xs:string" 
+    <xsl:variable name="windowsPath" as="xs:string" 
       select="
-      if (matches($windowsPath, '^\\[a-zA-Z]+:'))
-         then substring($windowsPath, 2)
-         else $windowsPath
-      " />
+     replace(
+      replace($basePath, '/', '\\'), 
+      '%20', 
+      ' ')" 
+      />
+    <xsl:if test="false()">      
+      <xsl:message> + [DEBUG] urlToWindowsFile(): windowsPath='<xsl:sequence select="$windowsPath"/>'</xsl:message>
+    </xsl:if>
+    <xsl:variable name="result" as="xs:string">
+      <xsl:choose>
+        <xsl:when test="matches($windowsPath, '^\\[a-zA-Z]+:')">
+          <xsl:sequence select="substring($windowsPath, 2)"/>
+        </xsl:when>
+        <xsl:when test="matches($windowsPath, '^\\\\\\[a-zA-Z]+:')">
+          <xsl:sequence select="substring($windowsPath, 4)"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:sequence select="$windowsPath"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    
     <xsl:if test="false()">      
       <xsl:message> + [DEBUG] urlToWindowsFile(): Returning '<xsl:sequence select="$result"/>'</xsl:message>
     </xsl:if>
