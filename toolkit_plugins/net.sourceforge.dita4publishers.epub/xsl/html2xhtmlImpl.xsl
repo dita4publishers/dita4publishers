@@ -42,7 +42,18 @@
     </xsl:element>
   </xsl:template>
   
-  <xsl:template match="@lang" priority="10"/>
+  <xsl:template match="u" priority="10" mode="html2xhtml">
+    <!-- DITA <u> (underline element) -->
+    <span class="underline" style="text-decoration: underline"><xsl:apply-templates mode="#current"/></span>
+  </xsl:template>
+  
+  <xsl:template  mode="html2xhtml" match="
+    @lang |
+    @compact |
+    @width |
+    @type |
+    @xxx
+    " priority="10"/>
   
   <xsl:template mode="html2xhtml" match="@*|text()|processing-instruction()|comment()">
     <xsl:copy-of select="."/>
