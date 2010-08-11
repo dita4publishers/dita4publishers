@@ -549,6 +549,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 
 
 <!--                    LONG NAME: pub ID                         -->
+<!-- Allows unspecialized data as an escape. -->
 <!ENTITY % pubid.content
                        "((%pubpartno;)*, 
                          (%edition;)?, 
@@ -563,7 +564,8 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
                          (%locnumber;)*, 
                          (%issue;)*, 
                          (%volume;)*, 
-                         (%maintainer;)?)"
+                         (%maintainer;)?,
+                         (data*))"
 >
 <!ENTITY % pubid.attributes
              "%data-element-atts;"
