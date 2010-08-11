@@ -26,7 +26,7 @@
                       link[not(@scope = 'external')]/@href" priority="10">
     <xsl:if test="false()">
       <xsl:message> + [DEBUG] href-fixup 
-        @href att..., value="<xsl:sequence select="string(.)"/>"</xsl:message>
+        <xsl:sequence select="name(..)"/>/@href att..., value="<xsl:sequence select="string(.)"/>"</xsl:message>
     </xsl:if>
     <xsl:variable name="origHref" select="." as="xs:string"/>
     <xsl:variable name="targetTopic" as="document-node()?"

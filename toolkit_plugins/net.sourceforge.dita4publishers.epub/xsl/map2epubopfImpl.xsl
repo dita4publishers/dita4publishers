@@ -22,6 +22,7 @@
   
   <xsl:import href="lib/dita-support-lib.xsl"/>
   <xsl:import href="lib/relpath_util.xsl"/>
+  <xsl:import href="epub-generation-utils.xsl"/>
   
   <!-- See note about my-URI-stub in build_dita2epub.xml. Hopefully a
        better URI will be passed to override this. -->
@@ -43,13 +44,15 @@
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-opf">
     <xsl:param name="graphicMap" as="element()" tunnel="yes"/>
     
+    <xsl:message> + [INFO] Generating OPF manifest file...</xsl:message>
+    
     <xsl:if test="not(@xml:lang)">
       <xsl:message> - [WARNING] dc:language required in epub file; please add xml:lang attribute to map element. Using en-US.
       </xsl:message>
     </xsl:if>
 
     <xsl:if test="$idURIStub = 'http://my-URI-stub/'">
-      <xsl:message> - [WARNING] epub ID must be a URL; if you don't want it built on "http://my-URI-stub/" set the Ant property idURIStub to the appropriate URL.
+      <xsl:message> - [WARNING] epub ID must be a URL; if you don't want it built on "http://my-URI-stub/" set the Ant property epub.pubid.uri.stub to the appropriate URL.
       </xsl:message>
     </xsl:if>
     
@@ -77,21 +80,34 @@
             <xsl:apply-templates select="*[df:class(., 'topic/title')] | @title" mode="pubtitle"/>
           </dc:title>
           
-          <dc:language xsi:type="dcterms:RFC3066"><xsl:sequence select="$lang"/></dc:language>
+          <dc:language id="language"><xsl:sequence select="$lang"/></dc:language>
           
           <dc:identifier id="bookid">
-            <xsl:sequence select="$idURIStub"/>
-            <xsl:choose>
-              <xsl:when test="*[df:class(., 'pubmap/pubmeta')]/*[df:class(., 'pubmap/pubid')]">
-                <xsl:apply-templates select="*[df:class(., 'pubmap/pubmeta')]/*[df:class(., 'pubmap/pubid')]"
-                  mode="bookid"
-                />
-              </xsl:when>
-              <xsl:when test="@id">
-                <xsl:sequence select="string(@id)"/>
-              </xsl:when>
-            </xsl:choose>
+            <xsl:variable name="basePubId" as="xs:string*">
+              <xsl:choose>
+                <xsl:when test="*[df:class(., 'pubmap-d/pubmeta')]/*[df:class(., 'pubmap-d/pubid')]">
+                  <xsl:apply-templates select="*[df:class(., 'pubmap-d/pubmeta')]/*[df:class(., 'pubmap-d/pubid')]"
+                    mode="bookid"
+                  />
+                </xsl:when>
+                <xsl:when test="@id">
+                  <xsl:sequence select="string(@id)"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:sequence select="'no-pubid-value'"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:variable>
             
+            <xsl:variable name="pubid" as="xs:string" select="normalize-space(string-join($basePubId,''))"/>
+            <xsl:variable name="bookid" select="string(resolve-uri($idURIStub, $pubid))" as="xs:string"/>
+            <!-- FIXME: Need to refine how EPUB ID is constructed. Not sure what shape this should take
+                        given that you can have any number of pubid elements.
+              -->
+            <xsl:message> + [DEBUG] basePubId="<xsl:sequence select="$basePubId"/>"</xsl:message>
+            <xsl:message> + [DEBUG] pubid="<xsl:sequence select="$pubid"/>"</xsl:message>
+            <xsl:message> + [DEBUG] bookid="<xsl:sequence select="$bookid"/>"</xsl:message>
+            <xsl:sequence select="$bookid"/>
           </dc:identifier>
           
           <!-- Remaining metadata fields optional, so 
@@ -111,7 +127,7 @@
         <manifest xmlns:opf="http://www.idpf.org/2007/opf">
           <opf:item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
           <!-- List the XHTML files -->
-          <xsl:apply-templates mode="manifest" select=".//*[df:isTopicRef(.)]"/>
+          <xsl:apply-templates mode="manifest" select=".//*[df:isTopicRef(.) or df:isTopicHead(.)]"/>
           <!-- List the images -->
           <xsl:apply-templates mode="manifest" select="$graphicMap"/>
           <!-- FIXME: Will need to provide parameters for constructing references
@@ -132,7 +148,20 @@
 
   <xsl:template match="*[df:class(., 'map/map')]/*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/author')]" 
     mode="generate-opf">  
-    <dc:creator opf:role="aut" opf:file-as="Feedbooks"><xsl:apply-templates/></dc:creator>
+    <dc:creator opf:role="aut"
+      ><xsl:apply-templates select=".//*[df:class(., 'topic/data')]" mode="data-to-atts"
+      /><xsl:apply-templates
+    /></dc:creator>
+  </xsl:template>
+  
+  <xsl:template mode="data-to-atts" match="text()"/><!-- Suppress all text by default -->
+  
+  <xsl:template match="*[df:class(., 'topic/data')]" mode="data-to-atts" priority="-1">
+    <xsl:message> + [INFO] mode data-to-atss: Unhandled data element <xsl:sequence select="name(.)"/>, @name="<xsl:sequence select="string(@name)"/>"</xsl:message>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/author')]//*[df:class(., 'topic/data') and @name = 'file-as']" mode="data-to-atts">
+    <xsl:attribute name="opf:file-as" select="normalize-space(.)"/>
   </xsl:template>
 
   <xsl:template match="*[df:class(., 'map/map')]/*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/publisher')]" 
@@ -161,12 +190,31 @@
     </xsl:choose>    
   </xsl:template>
 
+  <xsl:template match="*[df:isTopicHead(.)]" mode="manifest">
+    <xsl:if test="false()">
+      <xsl:message> + [DEBUG] in mode manifest, handling topichead <xsl:sequence select="df:getNavtitleForTopicref(.)"/></xsl:message>
+    </xsl:if>
+    <xsl:variable name="titleOnlyTopicFilename" as="xs:string"
+      select="epubutil:getTopicheadHtmlResultTopicFilename(.)" />
+    <xsl:variable name="targetUri" as="xs:string"
+          select="        
+       if ($topicsOutputDir != '') 
+          then concat($topicsOutputDir, '/', $titleOnlyTopicFilename) 
+          else $titleOnlyTopicFilename
+          " />
+    <opf:item id="{generate-id()}" href="{$targetUri}"
+      media-type="application/xhtml+xml"/>
+  </xsl:template>
+  
   <xsl:template match="*[df:class(., 'map/topicref')]" mode="spine">
     <opf:itemref idref="{generate-id()}"/>
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'pubmap/pubid')]" mode="bookid">
     <xsl:choose>
+      <xsl:when test=".//*[df:class(., 'topic/data') and @name = 'epub-bookid']">
+        <xsl:sequence select="normalize-space(.//*[df:class(., 'topic/data') and @name = 'epub-bookid'][1])"></xsl:sequence>
+      </xsl:when>
       <xsl:when test="not(normalize-space(*[df:class(., 'pubmap/isbn-13')]) = '')">
         <xsl:sequence select="normalize-space(*[df:class(., 'pubmap/isbn-13')])"/>
       </xsl:when>

@@ -93,6 +93,10 @@
   
   <xsl:param name="rawPlatformString" select="'unknown'" as="xs:string"/><!-- As provided by Ant -->
   
+  <xsl:param name="titleOnlyTopicClassSpec" select="'- topic/topic '" as="xs:string"/>
+
+  <xsl:param name="titleOnlyTopicTitleClassSpec" select="'- topic/title '" as="xs:string"/>
+  
   <xsl:variable name="platform" as="xs:string"
     select="
     if (starts-with($rawPlatformString, 'Win') or 
@@ -187,6 +191,8 @@ Parameters:
       + cssOutputDir    = "<xsl:sequence select="$cssOutputDir"/>"
       + imagesOutputDir = "<xsl:sequence select="$imagesOutputDir"/>"
       + topicsOutputDir = "<xsl:sequence select="$topicsOutputDir"/>"
+      + titleOnlyTopicClassSpec = "<xsl:sequence select="$titleOnlyTopicClassSpec"/>"
+      + titleOnlyTopicTitleClassSpec = "<xsl:sequence select="$titleOnlyTopicTitleClassSpec"/>"
       + WORKDIR         = "<xsl:sequence select="$WORKDIR"/>"
       + PATH2PROJ       = "<xsl:sequence select="$PATH2PROJ"/>"
       + KEYREF-FILE     = "<xsl:sequence select="$KEYREF-FILE"/>"

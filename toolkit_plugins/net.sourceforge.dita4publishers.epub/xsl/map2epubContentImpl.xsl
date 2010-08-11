@@ -54,7 +54,39 @@
       </xsl:if>
       <xsl:apply-templates select="current-group()[1]" mode="generate-content"/>
     </xsl:for-each-group>
+    <xsl:message> + [INFO] Generating title-only topics for topicheads...</xsl:message>
+    <xsl:apply-templates select=".//*[df:isTopicHead(.)]" mode="generate-content"/>
     <xsl:message> + [INFO] Content generated.</xsl:message>
+  </xsl:template>
+  
+  <xsl:template match="*[df:isTopicHead(.)]" mode="generate-content">
+    <xsl:if test="false()">
+      <xsl:message> + [DEBUG] Handling topichead "<xsl:sequence select="df:getNavtitleForTopicref(.)"/>" in mode generate-content</xsl:message>
+    </xsl:if>
+    <xsl:variable name="topicheadFilename" as="xs:string"
+      select="epubutil:getTopicheadHtmlResultTopicFilename(.)" />
+    <xsl:variable name="generatedTopic" as="document-node()">
+      <xsl:document>
+        <topic id="{relpath:getNamePart($topicheadFilename)}"
+          xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+          ditaarch:DITAArchVersion="1.2"
+          domains="(topic topic)"
+          >
+          <xsl:attribute name="class"
+            select="$titleOnlyTopicClassSpec"
+          />
+          <title>
+            <xsl:attribute name="class"
+              select="$titleOnlyTopicTitleClassSpec"
+            />
+            <xsl:sequence select="df:getNavtitleForTopicref(.)"/></title>
+        </topic>
+      </xsl:document>
+    </xsl:variable>
+    <xsl:apply-templates select="$generatedTopic" mode="generate-content">
+      <xsl:with-param name="topicref" select="." as="element()" tunnel="yes"/>
+      <xsl:with-param name="resultUri" select="relpath:newFile($topicsOutputPath, $topicheadFilename)" as="xs:string" tunnel="yes"/>
+    </xsl:apply-templates>
   </xsl:template>
   
   <xsl:template match="*[df:isTopicRef(.)]" mode="generate-content">

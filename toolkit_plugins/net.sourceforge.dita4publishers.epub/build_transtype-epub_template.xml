@@ -20,7 +20,16 @@
 
 	<property name="epub.temp.dir" value="${dita.temp.dir}${file.separator}epub_temp"/>
 	
-  <target name="dita2epub"
+	<!-- Defines the @class value to use for topic elements generated for topicheads. -->
+	<property name="title.only.topic.class.spec" value="- topic/topic "/>
+	
+	<!-- Defines the @class value to use for topic title elements generated for topicheads. -->
+	<property name="title.only.topic.title.class.spec" value="- topic/title "/>
+	
+	<!-- Leading portion of full EPUB publication ID to be appended to the publication ID -->
+	<property name="epub.pubid.uri.stub" value="http://my-URI-stub/"/>
+
+	<target name="dita2epub"
     unless="noMap"
     xmlns:dita="http://dita-ot.sourceforge.net"
     dita:depends="build-init, preprocess,epub"
@@ -87,8 +96,6 @@
   	
   	<property name="map2epub.style" location="${epub.dir}/xsl/map2epub.xsl"/>
   	
-  	<echo message=" + [DEBUG] epub.temp.dir=${epub.temp.dir}"/>
-  	<echo message=" + [DEBUG] epub.xslt.outdir=${epub.xslt.outdir}"/>
   	<!-- FIXME:
   	     
   	     Need to parameterize all aspects of the output file organization
@@ -108,6 +115,9 @@
      	<param name="cssOutputDir" expression="${css.output.dir}"/>
       <param name="debug" expression="${debug}"/>
     	<param name="rawPlatformString" expression="${os.name}"/>
+    	<param name="titleOnlyTopicClassSpec" expression="${title.only.topic.class.spec}"/>
+    	<param name="titleOnlyTopicTitleClassSpec" expression="${title.only.topic.title.class.spec}"/>
+    	<param name="idURIStub" expression="${epub.pubid.uri.stub}"/>
 
     	<!-- Parameters from dita2xhtml and similar transtypes: -->   
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
@@ -134,7 +144,6 @@
       </and>
     </condition>
     <property name="user.csspath.real" value="${epub.temp.dir}/${topics.output.dir}/${user.csspath}"/>
-  	<echo message=" + [DEBUG] user.csspath.real='${user.csspath.real}'"/>
     <mkdir dir="${user.csspath.real}"/>    
     <!-- Always copy system default css files -->
     <copy todir="${user.csspath.real}">

@@ -48,4 +48,11 @@
     <xsl:variable name="fileName" select="concat($baseName, '.', $ext)" as="xs:string"/>
     <xsl:sequence select="$fileName"/>
   </xsl:function>
+  
+  <xsl:function name="epubutil:getTopicheadHtmlResultTopicFilename" as="xs:string">
+    <xsl:param name="topichead" as="element()"/>
+    
+    <xsl:variable name="result" select="concat('topichead_', generate-id($topichead), '.html')" as="xs:string"/>
+    <xsl:sequence select="$result"/>
+  </xsl:function>
 </xsl:stylesheet>

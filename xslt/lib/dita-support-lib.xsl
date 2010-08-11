@@ -2,8 +2,8 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
   xmlns:df="http://dita2indesign.org/dita/functions"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:d2cs="http://www.sourceforge.net/projects/dita2indesign/dita2creativesuite/element_types"
-  xmlns:aid="http://ns.adobe.com/AdobeInDesign/4.0/"
+  xmlns:relpath="http://dita2indesign/functions/relpath"
+  exclude-result-prefixes="relpath df"
   >
   
   <!-- =====================================================================
@@ -12,6 +12,9 @@
     Copyright (c) 2008, 2009 DITA2InDesign Project
     
     =====================================================================-->
+  
+  <xsl:import href="relpath_util.xsl"/>
+  
   
   <xsl:key name="topicsById" match="*[df:class(., 'topic/topic')]" use="@id"/>
   
@@ -144,6 +147,34 @@
     </xsl:choose>
   </xsl:function>
   
+  <xsl:function name="df:getDocumentThatContainsRefTarget" as="document-node()?">
+    <!-- Resolve a reference to the document that contains the ultimate reference target. --> 
+    <xsl:param name="context" as="element()"/>
+    <xsl:sequence select="df:getDocumentThatContainsRefTarget($context, $context/@href)"/>
+  </xsl:function>
+  
+  <xsl:function name="df:getDocumentThatContainsRefTarget" as="document-node()?">
+    <!-- Resolve a reference to the document that contains the ultimate reference target. --> 
+    <xsl:param name="context" as="element()"/>
+    <xsl:param name="targetUri" as="xs:string"/>
+
+    <xsl:variable name="resourcePart" as="xs:string" 
+      select="
+      if (contains($targetUri, '#')) 
+      then substring-before($targetUri, '#') 
+      else normalize-space($targetUri)"
+    />
+    <xsl:choose>
+      <xsl:when test="$resourcePart = ''">
+        <xsl:sequence select="root($context)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="targetDoc" select="document($resourcePart, $context)" as="document-node()?"/>
+        <xsl:sequence select="$targetDoc"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
+  
   <xsl:function name="df:resolveTopicRef" as="element()?">
     <!-- Resolves a topicref to its target topic element, if it can be resolved -->
     <xsl:param name="context" as="element()"/><!-- Topicref element -->
@@ -157,7 +188,7 @@
         <xsl:message> + [DEBUG] df:resolveTopicRef(): context is a topicref.</xsl:message>
         </xsl:if>
         <xsl:variable name="topicUri" as="xs:string" 
-          select="if (contains($context/@href, '#')) then substring-before($context/@href, '#') else normalize-space($context/@href)"/>
+          select="df:getEffectiveTopicUri($context)"/>
         <xsl:if test="$debugBoolean">
         <xsl:message> + [DEBUG] df:resolveTopicRef(): topicUri="<xsl:sequence select="$topicUri"/>"</xsl:message>
         </xsl:if>
@@ -461,6 +492,29 @@
       "/>
   </xsl:function>
   
+  <xsl:function name="df:getEffectiveTopicUri">
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="baseUri" as="xs:string"
+       select="
+    if (contains($context/@href, '#')) 
+       then substring-before($context/@href, '#') 
+       else normalize-space($context/@href)
+    "/>    
+    <xsl:variable name="result" as="xs:string">
+      <xsl:choose>
+        <xsl:when test="string($context/@copy-to) != ''">
+          <xsl:variable name="copyTo" select="$context/@copy-to" as="xs:string"/>
+          <xsl:variable name="fullUri" select="string(resolve-uri($copyTo, document-uri(root($context))))" as="xs:string"/>
+          <xsl:sequence select="relpath:getRelativePath(relpath:getParent(document-uri(root($context))), $fullUri)"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:sequence select="$baseUri"/>
+        </xsl:otherwise>
+      </xsl:choose>
+      
+    </xsl:variable>
+    <xsl:sequence select="$result"/>
+  </xsl:function>
   
   <xsl:function name="df:format-atts" as="xs:string">
     <xsl:param name="context" as="element()"/>

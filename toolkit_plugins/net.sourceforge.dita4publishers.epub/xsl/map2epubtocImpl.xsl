@@ -26,7 +26,7 @@
     <xsl:variable name="resultUri" 
       select="relpath:newFile($outdir, 'toc.ncx')" 
       as="xs:string"/>
-    <xsl:if test="true()">
+    <xsl:if test="false()">
       <xsl:message> + [DEBUG] navPoints
         
         <xsl:for-each select="//*[local:isNavPoint(.)]">
@@ -119,6 +119,8 @@
           <navLabel>
             <text><xsl:sequence select="$navPointTitle"/></text>
           </navLabel>
+          <!-- FIXME: This is bogus, but we should never get here. -->
+          <content src="topics/topicgroup_00000.html"/>          
           <xsl:apply-templates select="*[df:class(.,'map/topicref')]" mode="#current"/>
         </navPoint>
       </xsl:when>
@@ -135,11 +137,19 @@
   <!-- topichead elements get a navPoint, but don't actually point to
        anything.  Same with topicref that has no @href. -->
   <xsl:template match="*[df:isTopicHead(.) or df:isTopicGroup(.)]" mode="generate-toc">
+    <xsl:variable name="titleOnlyTopicFilename" as="xs:string"
+      select="epubutil:getTopicheadHtmlResultTopicFilename(.)"
+    />
     <navPoint id="{generate-id()}"
       playOrder="{local:getPlayOrder(.)}"> 
       <navLabel>
         <text><xsl:apply-templates select="." mode="nav-point-title"/></text>
       </navLabel>
+      <content src="{
+        if ($topicsOutputDir != '') 
+        then concat($topicsOutputDir, '/', $titleOnlyTopicFilename) 
+        else $titleOnlyTopicFilename}
+        "/>                
       <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
     </navPoint>
   </xsl:template>
