@@ -253,12 +253,15 @@
   <xsl:function name="relpath:getRelativePath" as="xs:string">
     <xsl:param name="source" as="xs:string"/><!-- Path to get relative path *from* -->
     <xsl:param name="target" as="xs:string"/><!-- Path to get relataive path *to* -->
+    <xsl:variable name="effectiveSource" as="xs:string"
+      select="if (ends-with($source, '/') and string-length($source) > 1) then substring($source, 1, string-length($source) - 1) else $source"
+    />
     <xsl:if test="false()">
       <xsl:message> + [DEBUG]: relpath:getRelativePath(): Starting...</xsl:message>
-      <xsl:message> + [DEBUG]:     source="<xsl:value-of select="$source"/>"</xsl:message>
+      <xsl:message> + [DEBUG]:     source="<xsl:value-of select="$effectiveSource"/>"</xsl:message>
       <xsl:message> + [DEBUG]:     target="<xsl:value-of select="$target"/>"</xsl:message>
     </xsl:if>
-    <xsl:variable name="sourceTokens" select="tokenize((if (starts-with($source, '/')) then substring-after($source, '/') else $source), '/')" as="xs:string*"/>
+    <xsl:variable name="sourceTokens" select="tokenize((if (starts-with($effectiveSource, '/')) then substring-after($effectiveSource, '/') else $effectiveSource), '/')" as="xs:string*"/>
     <xsl:variable name="targetTokens" select="tokenize((if (starts-with($target, '/')) then substring-after($target, '/') else $target), '/')" as="xs:string*"/>
     <xsl:choose>
       <xsl:when test="(count($sourceTokens) > 0 and count($targetTokens) > 0) and 
