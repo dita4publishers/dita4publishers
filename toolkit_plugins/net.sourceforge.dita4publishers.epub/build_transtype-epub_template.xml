@@ -10,6 +10,7 @@
 
 	<!-- The name of the directory, within the ePub package, to contain all images: -->
 	<property name="images.output.dir" value="images"/>
+	<property name="css.output.dir" value="topics"/>
 	<!-- The name of the directory, within the ePub package, to contain all topics: -->
 	<property name="topics.output.dir" value="topics"/>
 	<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
@@ -17,12 +18,12 @@
 	
 	<property name="args.hide.parent.link" value="yes"/><!-- Turn off parent links in topics by default -->
 
-	<property name="epub.temp.dir" location="${dita.temp.dir}/epub_temp"/>
+	<property name="epub.temp.dir" value="${dita.temp.dir}${file.separator}epub_temp"/>
 	
   <target name="dita2epub"
     unless="noMap"
     xmlns:dita="http://dita-ot.sourceforge.net"
-    dita:depends="build-init, preprocess, copy-css,epub"
+    dita:depends="build-init, preprocess,epub"
     dita:extension="depends org.dita.dost.platform.InsertDependsAction">
   </target>
   
@@ -77,17 +78,23 @@
   
 
   
-  <target name="dita.map.epub" depends="dita.map.epub.init" 
+  <target name="dita.map.epub" depends="dita.map.epub.init, epub-copy-css" 
   	description="Generate all ePub components from input map and topics">
-  	<echo message=" [DEBUG] output.dir=${output.dir}"/>
-    <echo message=" [DEBUG] dita.temp.dir=${dita.temp.dir}"/>
-    <echo message=" [DEBUG] epub.temp.dir=${epub.temp.dir}"/>
   	
   	<mkdir dir="${epub.temp.dir}"/>
   	<makeurl file="${epub.temp.dir}" property="epub.xslt.outdir"/>
   	<makeurl file="${dita.temp.dir}" property="epub.xslt.tempdir"/>
   	
   	<property name="map2epub.style" location="${epub.dir}/xsl/map2epub.xsl"/>
+  	
+  	<echo message=" + [DEBUG] epub.temp.dir=${epub.temp.dir}"/>
+  	<echo message=" + [DEBUG] epub.xslt.outdir=${epub.xslt.outdir}"/>
+  	<!-- FIXME:
+  	     
+  	     Need to parameterize all aspects of the output file organization
+  	     as much as possible, including the names of the topic and images
+  	     directories, names of the CSS files to use, etc.
+  	-->
     <xslt processor="trax"
       basedir="${dita.temp.dir}"
       destdir="${output.dir}"
@@ -98,8 +105,14 @@
      	<param name="tempdir" expression="${epub.xslt.tempdir}"/>
      	<param name="imagesOutputDir" expression="${images.output.dir}"/>
      	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
+     	<param name="cssOutputDir" expression="${css.output.dir}"/>
       <param name="debug" expression="${debug}"/>
     	<param name="rawPlatformString" expression="${os.name}"/>
+
+    	<!-- Parameters from dita2xhtml and similar transtypes: -->   
+      <param name="WORKDIR" expression="${workdir}" if="workdir"/>
+      <param name="CSS" expression="${args.css.file}" if="args.css.file" />
+      <param name="CSSPATH" expression="${user.csspath}" if="user.csspath" />
     </xslt>
   	
   	<antcall target="copy.graphics"/>
@@ -112,4 +125,27 @@
   		>
   	</ant>
 	</target>
+	
+  <target name="epub-copy-css" unless="user.csspath.url" description="Copy CSS files">    
+    <condition property="user.copycss.yes">
+      <and>
+        <equals arg1="${args.copycss}" arg2="yes"/>
+        <isset property="args.css.present"/>
+      </and>
+    </condition>
+    <property name="user.csspath.real" value="${epub.temp.dir}/${topics.output.dir}/${user.csspath}"/>
+  	<echo message=" + [DEBUG] user.csspath.real='${user.csspath.real}'"/>
+    <mkdir dir="${user.csspath.real}"/>    
+    <!-- Always copy system default css files -->
+    <copy todir="${user.csspath.real}">
+      <fileset dir="${dita.resource.dir}" includes="*.css"/>
+    </copy>    
+    <!-- Copy user specify css file when required -->
+    <antcall target="epub-copy-css-user"/>
+  </target>
+
+  <target name="epub-copy-css-user" if="user.copycss.yes">
+    <copy file="${args.css.real}" todir="${user.csspath.real}"/>
+  </target>
+
 </project>
