@@ -16,11 +16,14 @@
       <navtitle>Key Definitions</navtitle>
     </topicmeta>
     <keydef
-      keys="the_cyclone"
-      href="hide/chapters/chapter_1.xml"/>
+      keys="keyed-topic-01"
+      href="chapters/keyed-topic-one.xml"/>
     <keydef
       keys="the_rescue_of_the_tinman"
       href="chapters/chapter_5.xml"/>
+    <keydef
+      href="chapters/chapter_1.xml"
+      keys="the_cyclone"/>
   </keydefs>
   <publication>
     <covers>
@@ -38,11 +41,14 @@
       <topicref
         href="chapters/element-test.xml"/>
       <topicref
-        href="chapters/push_pull.dita"/>
-      <topicref
         href="chapters/cross-refs-01.xml"/>
       <topicref
         href="chapters/cross-ref-targets-01.xml"/>
+      <chapter
+        href="chapters/keyref-tests.xml">
+        <chapter
+          keyref="keyed-topic-01"/>
+      </chapter>
       <chapter
         href="chapters/chapter_1.xml"/>
       <chapter
@@ -78,8 +84,6 @@
         <topicref
           href="chapters/subtopic-04.xml"/>
       </chapter>
-      <chapter
-        keyref="the_rescue_of_the_tinman"/>
     </pubbody>
     <colophon
       href="backmatter/colophon.xml"/>
