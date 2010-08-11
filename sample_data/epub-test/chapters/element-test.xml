@@ -2,8 +2,10 @@
 <!DOCTYPE chapter PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
 <chapter
   id="chapter-id">
-  <title>General Element Tests</title>
+  <title><ph>General Element Tests</ph> 
+    <ph>second phrase in title with intervening space</ph></title>
   <body>
+    <p>The title of this chapter contains two <xmlelem>ph</xmlelem> elements with a literal space between them. The space should be preserved in the output ToC.</p>
     <section>
       <title>Inline elements</title>
       <p>Bold: <b>bold text</b>.</p>

@@ -3,13 +3,15 @@
 <pubmap
   xml:lang="en_US">
   <pubtitle> <mainpubtitle>ePub Test Document</mainpubtitle> </pubtitle>
-  <pubmeta> <author>Tester McTesterson</author>
+  <pubmeta> <author><data
+    name="file-as">McTesterson, Tester</data>Tester McTesterson</author>
     <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source> <critdates>
     <created
       date="February, 1993"/>
     <revised
       modified="March 29, 2004"/>
-    </critdates> <pubid> <pubnumber>Ebook #55</pubnumber> </pubid> <pubrights>
+    </critdates> <pubid> <pubnumber>Ebook #55</pubnumber> <data
+    name="epub-bookid">epubid-value</data> </pubid> <pubrights>
     <publicense>Project Gutenberg License.</publicense> </pubrights> </pubmeta>
   <keydefs>
     <topicmeta>
@@ -40,6 +42,29 @@
       collection-type="sequence">
       <topicref
         href="chapters/element-test.xml"/>
+      <chapter
+        href="chapters/title-only-topic-01.xml">
+        <topicref
+          navtitle="Topic Head 1">
+          <topicref
+            href="chapters/chapter-04/topic-head-1/subtopic-03.xml"/>
+        </topicref>
+        <topichead
+          navtitle="Topic Head 2"
+          chunk="to-content"> </topichead>
+        <topicref
+          href="chapters/subtopic-02.xml"/>
+        <topicref
+          href="chapters/chapter-04/topic-head-2/subtopic-03.xml"
+          copy-to="subtopic-03-2nd-ref.xml"/>
+        <topicref
+          href="chapters/subtopic-04.xml"/>
+        <topicgroup>
+          <topicref
+            href="chapters/subtopic-02.xml"
+            copy-to="subtopic-02-2nd-ref.xml"/>
+        </topicgroup>
+      </chapter>
       <topicref
         href="chapters/cross-refs-01.xml"/>
       <topicref
@@ -60,30 +85,9 @@
           href="chapters/subtopic-01.xml"/>
       </chapter>
       <chapter
-        href="chapters/chapter_3.xml">
-        <topicgroup>
-          <topicref
-            href="chapters/subtopic-02.xml"/>
-        </topicgroup>
-      </chapter>
+        href="chapters/chapter_3.xml"/>
       <chapter
-        href="chapters/chapter_4.xml">
-        <topichead
-          navtitle="Topic Head 1">
-          <topicref
-            href="chapters/chapter-04/topic-head-1/subtopic-03.xml"/>
-        </topichead>
-        <topichead
-          navtitle="Topic Head 2"
-          chunk="to-content">
-          <topicref
-            href="chapters/chapter-04/topic-head-2/subtopic-03.xml"/>
-        </topichead>
-        <topicref
-          href="chapters/subtopic-02.xml"/>
-        <topicref
-          href="chapters/subtopic-04.xml"/>
-      </chapter>
+        href="chapters/chapter_4.xml"/>
     </pubbody>
     <colophon
       href="backmatter/colophon.xml"/>
