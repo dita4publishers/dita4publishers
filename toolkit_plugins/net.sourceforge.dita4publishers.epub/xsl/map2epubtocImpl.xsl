@@ -1,4 +1,3 @@
-<!-- Convert a DITA map to an EPUB toc.ncx file. -->
 <xsl:stylesheet version="2.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/"
@@ -10,14 +9,13 @@
                 xmlns:local="urn:functions:local"
                 exclude-result-prefixes="local xs df xsl relpath epubutil"
   >
+  <!-- Convert a DITA map to an EPUB toc.ncx file. -->
   
   <xsl:import href="lib/dita-support-lib.xsl"/>
   <xsl:import href="lib/relpath_util.xsl"/>
   <xsl:import href="epub-generation-utils.xsl"/>
   
-  <xsl:param name="IdURIStub">http://example.org/dummy/URIstub/</xsl:param>
 
-  <xsl:strip-space elements="*"/>
   <xsl:output indent="yes" name="ncx" method="xml"/>
 
 
@@ -28,7 +26,7 @@
     <xsl:variable name="resultUri" 
       select="relpath:newFile($outdir, 'toc.ncx')" 
       as="xs:string"/>
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="true()">
       <xsl:message> + [DEBUG] navPoints
         
         <xsl:for-each select="//*[local:isNavPoint(.)]">
@@ -95,7 +93,7 @@
         <navPoint id="{generate-id()}"
                       playOrder="{local:getPlayOrder(.)}"> 
           <navLabel>
-            <text><xsl:value-of select="$navPointTitle"/></text>
+            <text><xsl:value-of select="normalize-space($navPointTitle)"/></text>
           </navLabel>
           <content src="{$relativeUri}"/>
           <xsl:apply-templates mode="#current"/>

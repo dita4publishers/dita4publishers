@@ -34,7 +34,6 @@
   <xsl:variable name="inputURLstub" as="xs:string" 
     select="concat('file:///', translate($tempFilesDir,':\','|/'), '/')"/>
 
-  <xsl:strip-space elements="*"/>
   <!-- Output format for the content.opf file -->
   <xsl:output name="opf"
     indent="yes"

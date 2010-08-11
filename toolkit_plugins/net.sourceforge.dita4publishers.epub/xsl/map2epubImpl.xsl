@@ -59,6 +59,11 @@
   <xsl:include href="graphicMap2AntCopyScript.xsl"/>
   <xsl:include href="epubHtmlOverrides.xsl"/>
   
+  <!-- Initial part of ePUB ID URI. Should reflect the book's
+       owner.
+    -->
+  <xsl:param name="IdURIStub">http://example.org/dummy/URIstub/</xsl:param>
+  
   <!-- Directory into which the generated output is put.
 
        This should be the directory that will be zipped up to
