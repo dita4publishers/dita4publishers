@@ -112,13 +112,14 @@
         <manifest xmlns:opf="http://www.idpf.org/2007/opf">
           <opf:item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
           <!-- List the XHTML files -->
-          <xsl:apply-templates mode="manifest" select=".//*[df:class(., 'map/topicref') and @href]"/>
+          <xsl:apply-templates mode="manifest" select=".//*[df:isTopicRef(.)]"/>
           <!-- List the images -->
           <xsl:apply-templates mode="manifest" select="$graphicMap"/>
-          <opf:item id="commonltr.css" href="topics/commonltr.css" media-type="text/css"/>
-          <opf:item id="commonrtl.css" href="topics/commonrtl.css" media-type="text/css"/>
-          <!-- FIXME: Need ability to add references to user-supplied CSS files as defined using
-               normal Toolkit methods -->
+          <!-- FIXME: Will need to provide parameters for constructing references
+               to user-specified CSS files.
+            -->
+          <opf:item id="commonltr.css" href="{$cssOutputDir}/commonltr.css" media-type="text/css"/>
+          <opf:item id="commonrtl.css" href="{$cssOutputDir}/commonrtl.css" media-type="text/css"/>
         </manifest>
         
         <spine toc="ncx">

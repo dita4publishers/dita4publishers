@@ -44,16 +44,21 @@
   
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-content">
     <xsl:message> + [INFO] Generating content...</xsl:message>
-    <xsl:for-each-group select=".//*[df:isTopicRef(.)]"
+    <xsl:for-each-group select=".//*[df:isTopicRef(.) and not(@processing-role = 'resource-only')]"
        group-by="generate-id(df:resolveTopicRef(.))"
       >     
+     
+      <xsl:if test="false()">
+        <xsl:message> + [DEBUG] topicref: grouping-key="<xsl:sequence select="current-grouping-key()"/>", href="<xsl:sequence select="string(current-group()[1]/@href)"/>"
+        </xsl:message>
+      </xsl:if>
       <xsl:apply-templates select="current-group()[1]" mode="generate-content"/>
     </xsl:for-each-group>
     <xsl:message> + [INFO] Content generated.</xsl:message>
   </xsl:template>
   
   <xsl:template match="*[df:isTopicRef(.)]" mode="generate-content">
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="false()">
       <xsl:message> + [DEBUG] Handling topicref to "<xsl:sequence select="string(@href)"/>" in mode generate-content</xsl:message>
     </xsl:if>
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
@@ -74,6 +79,11 @@
         </xsl:apply-templates>
       </xsl:otherwise>
     </xsl:choose>    
+  </xsl:template>
+  
+  <xsl:template match="*" mode="generate-content" priority="-1">
+    <xsl:message> + [DEBUG] In catchall for generate-content, got 
+      <xsl:sequence select="."/></xsl:message>
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/topic')]" mode="generate-content">

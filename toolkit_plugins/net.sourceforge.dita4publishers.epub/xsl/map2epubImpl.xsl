@@ -77,6 +77,12 @@
     a leading "/". 
   -->  
   <xsl:param name="topicsOutputDir" select="'topics'" as="xs:string"/>
+
+  <!-- The path of the directory, relative the $outdir parameter,
+    to hold the CSS files in the EPub package. Should not have
+    a leading "/". 
+  -->  
+  <xsl:param name="cssOutputDir" select="'topics'" as="xs:string"/>
   
   <xsl:param name="debug" select="'false'" as="xs:string"/>
   
@@ -94,30 +100,39 @@
   <xsl:variable name="debugBinary" select="$debug = 'true'" as="xs:boolean"/>
   
   <xsl:variable name="topicsOutputPath">
-    <xsl:choose>
-      <xsl:when test="$topicsOutputDir != ''">
-        <xsl:sequence select="concat($outdir, '/', $topicsOutputDir)"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:sequence select="$outdir"/>
-      </xsl:otherwise>
-    </xsl:choose>
-    
+      <xsl:choose>
+        <xsl:when test="$topicsOutputDir != ''">
+          <xsl:sequence select="concat($outdir, $topicsOutputDir)"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:sequence select="$outdir"/>
+        </xsl:otherwise>
+      </xsl:choose>    
   </xsl:variable>
 
   <xsl:variable name="imagesOutputPath">
-    <xsl:choose>
-      <xsl:when test="$imagesOutputDir != ''">
-        <xsl:sequence select="concat($outdir, 
-          if (ends-with($outdir, '/')) then '' else '/', 
-          $imagesOutputDir)"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:sequence select="$outdir"/>
-      </xsl:otherwise>
-    </xsl:choose>
-    
-  </xsl:variable>
+      <xsl:choose>
+        <xsl:when test="$imagesOutputDir != ''">
+          <xsl:sequence select="concat($outdir, 
+            if (ends-with($outdir, '/')) then '' else '/', 
+            $imagesOutputDir)"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:sequence select="$outdir"/>
+        </xsl:otherwise>
+      </xsl:choose>    
+  </xsl:variable>  
+  
+  <xsl:variable name="cssOutputPath">
+      <xsl:choose>
+        <xsl:when test="$cssOutputDir != ''">
+          <xsl:sequence select="concat($outdir, $cssOutputDir)"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:sequence select="$outdir"/>
+        </xsl:otherwise>
+      </xsl:choose>    
+</xsl:variable>  
   
   <xsl:template match="/*[df:class(., 'map/map')]">
     
@@ -162,18 +177,25 @@
 ==========================================
 Parameters:
 
-      + outdir = "<xsl:sequence select="$outdir"/>"
-      + tempdir = "<xsl:sequence select="$tempdir"/>"
+      + outdir          = "<xsl:sequence select="$outdir"/>"
+      + tempdir         = "<xsl:sequence select="$tempdir"/>"
+      + cssOutputDir    = "<xsl:sequence select="$cssOutputDir"/>"
       + imagesOutputDir = "<xsl:sequence select="$imagesOutputDir"/>"
       + topicsOutputDir = "<xsl:sequence select="$topicsOutputDir"/>"
-      + debug = "<xsl:sequence select="$debug"/>"
+      + WORKDIR         = "<xsl:sequence select="$WORKDIR"/>"
+      + PATH2PROJ       = "<xsl:sequence select="$PATH2PROJ"/>"
+      + KEYREF-FILE     = "<xsl:sequence select="$KEYREF-FILE"/>"
+      + CSS             = "<xsl:sequence select="$CSS"/>"
+      + CSSPATH         = "<xsl:sequence select="$CSSPATH"/>"
+      + debug           = "<xsl:sequence select="$debug"/>"
 
 Global Variables:
 
+      + cssOutputPath    = "<xsl:sequence select="$cssOutputPath"/>"
       + topicsOutputPath = "<xsl:sequence select="$topicsOutputPath"/>"
       + imagesOutputPath = "<xsl:sequence select="$imagesOutputPath"/>"
-      + platform = "<xsl:sequence select="$platform"/>"
-      + debugBoolean = "<xsl:sequence select="$debugBoolean"/>"
+      + platform         = "<xsl:sequence select="$platform"/>"
+      + debugBoolean     = "<xsl:sequence select="$debugBoolean"/>"
       
 ==========================================
 </xsl:message>
