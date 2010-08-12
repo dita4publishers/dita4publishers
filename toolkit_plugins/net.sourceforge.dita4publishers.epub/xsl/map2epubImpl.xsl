@@ -97,6 +97,12 @@
 
   <xsl:param name="titleOnlyTopicTitleClassSpec" select="'- topic/title '" as="xs:string"/>
   
+  <!-- Maxminum depth of the generated ToC -->
+  <xsl:param name="maxTocDepth" as="xs:string" select="'5'"/>
+  
+  <xsl:variable name="maxTocDepthInt" select="xs:integer($maxTocDepth)" as="xs:integer"/>
+  
+  
   <xsl:variable name="platform" as="xs:string"
     select="
     if (starts-with($rawPlatformString, 'Win') or 

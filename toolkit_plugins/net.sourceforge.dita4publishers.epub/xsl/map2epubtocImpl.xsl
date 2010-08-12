@@ -20,7 +20,7 @@
 
 
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-toc">
-    <xsl:variable name="pubTitle" as="xs:string">
+    <xsl:variable name="pubTitle" as="xs:string*">
       <xsl:apply-templates select="*[df:class(., 'topic/title')] | @title" mode="pubtitle"/>
     </xsl:variable>           
     <xsl:variable name="resultUri" 
@@ -36,6 +36,28 @@
       </xsl:message>
     </xsl:if>
     
+    <xsl:message> + [INFO] Constructing effective ToC structure...</xsl:message>
+    
+    <!-- Build the ToC tree so we can then calculate the playorder of the navitems. -->
+    <xsl:variable name="navmap" as="element()">
+      <ncx:navMap>
+        <xsl:choose>
+          <xsl:when test="$pubTitle != ''">
+            <!-- FIXME: If there is a pubtitle, generate a root navPoint for the title.
+              
+              This will require generating an HTML file to represent the whole publication,
+              e.g., as for topicheads. This would be a good opportunity to generate a
+              document cover, which should be defined as an extension point.
+            -->
+            <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
+          </xsl:otherwise>
+        </xsl:choose>        
+      </ncx:navMap>
+    </xsl:variable>
+    
     <xsl:message> + [INFO] Generating ToC (NCX) file "<xsl:sequence select="$resultUri"/>"...</xsl:message>
     
     <xsl:result-document href="{$resultUri}" format="ncx">
@@ -50,29 +72,32 @@
         <docTitle xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/">          
           <text><xsl:sequence select="$pubTitle"/></text>
         </docTitle>
-        <navMap>
-          <xsl:choose>
-            <xsl:when test="$pubTitle != ''">
-              <!-- FIXME: If there is a pubtitle, generate a root navPoint for the title.
-                This will require passing down a parameter with the offset to
-                use for calculating playOrder.
-                
-                When I created a root node, Adobe Digital Editions refused
-                to show it in the TOC view.
-              -->
-              <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
-            </xsl:otherwise>
-          </xsl:choose>
-          
-        </navMap>
+        <xsl:apply-templates select="$navmap" mode="calc-play-order"/>
       </ncx>
     </xsl:result-document>  
     <xsl:message> + [INFO] ToC generation done.</xsl:message>
   </xsl:template>
   
+  <xsl:template mode="calc-play-order" match="ncx:navPoint">
+    <xsl:variable name="playOrder">
+      <xsl:number  count="ncx:navPoint" level="any" format="1"/>
+    </xsl:variable>
+    <xsl:message> + [DEBUG] calc-play-order: playOrder="<xsl:sequence select="$playOrder"/>"</xsl:message>
+    <xsl:copy>
+      <xsl:attribute name="playOrder" select="$playOrder"/>
+      <xsl:apply-templates select="@*,*" mode="#current"/>      
+    </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template mode="calc-play-order" match="*" priority="-1">
+    <xsl:copy>
+      <xsl:apply-templates select="@*,*" mode="#current"/>
+    </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template mode="calc-play-order" match="@*|text()" priority="-1">
+    <xsl:sequence select="."/>
+  </xsl:template>
 
   <!-- Convert each topicref to a navPoint. -->
   <xsl:template match="*[df:isTopicRef(.)]" mode="generate-toc">
@@ -91,12 +116,16 @@
         <xsl:variable name="targetUri" select="epubutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
         <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
         <navPoint id="{generate-id()}"
-                      playOrder="{local:getPlayOrder(.)}"> 
+                      > 
           <navLabel>
             <text><xsl:value-of select="normalize-space($navPointTitle)"/></text>
           </navLabel>
           <content src="{$relativeUri}"/>
-          <xsl:apply-templates mode="#current"/>
+          <!-- Any subordinate topics in the currently-referenced topic are
+               reflected in the ToC before any subordinate topicrefs.
+            -->
+          <xsl:apply-templates mode="#current" 
+            select="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]"/>
         </navPoint>
       </xsl:otherwise>
     </xsl:choose>    
@@ -108,14 +137,15 @@
   </xsl:template>
     
   <xsl:template match="*[df:isTopicGroup(.)]" priority="10" mode="generate-toc">
-    <xsl:variable name="navPointTitle" as="xs:string*">
+    <xsl:variable name="rawNavPointTitle" as="xs:string*">
       <xsl:apply-templates select="." mode="nav-point-title"/>
     </xsl:variable>
+    <xsl:variable name="navPointTitle" select="normalize-space(string-join($rawNavPointTitle, ' '))" as="xs:string"/>
 <!--    <xsl:message> + [DEBUG] isTopicGroup(): navPointTitle="<xsl:sequence select="$navPointTitle"/>"</xsl:message>-->
     <xsl:choose>
-      <xsl:when test="normalize-space(string-join($navPointTitle, ' ')) != ''">
+      <xsl:when test="$navPointTitle != ''">
         <navPoint id="{generate-id()}"
-          playOrder="{local:getPlayOrder(.)}"> 
+          > 
           <navLabel>
             <text><xsl:sequence select="$navPointTitle"/></text>
           </navLabel>
@@ -131,6 +161,35 @@
     
   </xsl:template>
   
+  <xsl:template match="*[df:class(., 'topic/topic')]" mode="generate-toc">
+    <!-- Non-root topics generate ToC entries if they are within the ToC depth -->
+    <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
+    <xsl:if test="$tocDepth le $maxTocDepthInt">
+      <xsl:variable name="rawNavPointTitle" as="xs:string">
+        <xsl:apply-templates select="*[df:class(., 'topic/title')]" mode="nav-point-title"/>
+      </xsl:variable>
+      <xsl:variable name="navPointTitle" select="normalize-space(string-join($rawNavPointTitle, ' '))" as="xs:string"/>
+      <navPoint id="{generate-id()}"
+        > 
+        <navLabel>
+          <text><xsl:sequence select="$navPointTitle"/></text>
+        </navLabel>
+        <xsl:variable name="targetUri" select="epubutil:getTopicResultUrl($topicsOutputPath, root(.))" as="xs:string"/>
+        <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
+        <!-- FIXME: Likely need to map input IDs to output IDs. -->
+        <xsl:variable name="fragId" as="xs:string"
+          select="string(@id)"
+        />
+        <content src="{concat($relativeUri, '#', $fragId)}"/>          
+        <xsl:apply-templates select="*[df:class(.,'topic/topic')]" mode="#current">
+          <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes"
+            select="$tocDepth + 1"
+          />
+        </xsl:apply-templates>
+      </navPoint>
+    </xsl:if>
+  </xsl:template>
+  
   <xsl:template mode="#all" match="*[df:class(., 'map/topicref') and (@processing-role = 'resource-only')]" priority="20"/>
 
 
@@ -141,7 +200,7 @@
       select="epubutil:getTopicheadHtmlResultTopicFilename(.)"
     />
     <navPoint id="{generate-id()}"
-      playOrder="{local:getPlayOrder(.)}"> 
+      > 
       <navLabel>
         <text><xsl:apply-templates select="." mode="nav-point-title"/></text>
       </navLabel>
@@ -163,7 +222,19 @@
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/tm')]" mode="generate-toc"> 
-    <xsl:apply-templates mode="#current"/><xsl:text>[tm]</xsl:text>
+    <xsl:apply-templates mode="#current"/>
+    <xsl:choose>
+      <xsl:when test="@type = 'reg'">
+        <xsl:text>[reg]</xsl:text>
+      </xsl:when>
+      <xsl:when test="@type = 'sm'">
+        <xsl:text>[sm]</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>[tm]</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
+    
   </xsl:template>
   
   <xsl:template match="
@@ -184,15 +255,6 @@
   </xsl:template>
   
   <xsl:template match="text()" mode="generate-toc"/>
-  
-  <xsl:function name="local:getPlayOrder" as="xs:string">
-    <xsl:param name="context" as="element()"/>
-    <xsl:variable name="playOrder" as="xs:string">
-      <xsl:number count="*[local:isNavPoint(.)]" level="any" format="1" select="$context"/>      
-    </xsl:variable> 
-<!--    <xsl:message> + [DEBUG] getPlayOrder: playOrder="<xsl:sequence select="$playOrder"/>"</xsl:message>-->
-    <xsl:sequence select="string($playOrder)"/>
-  </xsl:function>
   
   <xsl:function name="local:isNavPoint" as="xs:boolean">
     <xsl:param name="context" as="element()"/>
