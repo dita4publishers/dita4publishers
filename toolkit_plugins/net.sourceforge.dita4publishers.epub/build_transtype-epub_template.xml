@@ -32,10 +32,9 @@
 	<target name="dita2epub"
     unless="noMap"
     xmlns:dita="http://dita-ot.sourceforge.net"
-    dita:depends="zipepub"
+		dita:depends="build-init, preprocess,epub"
     dita:extension="depends org.dita.dost.platform.InsertDependsAction">
   </target>
-<!--  dita:depends="build-init, preprocess,epub" -->
   
   <target name="epub"
     unless="noMap"
