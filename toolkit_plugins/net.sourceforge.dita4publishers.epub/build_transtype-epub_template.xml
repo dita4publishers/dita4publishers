@@ -32,30 +32,31 @@
 	<target name="dita2epub"
     unless="noMap"
     xmlns:dita="http://dita-ot.sourceforge.net"
-    dita:depends="build-init, preprocess,epub"
+    dita:depends="zipepub"
     dita:extension="depends org.dita.dost.platform.InsertDependsAction">
   </target>
+<!--  dita:depends="build-init, preprocess,epub" -->
   
   <target name="epub"
     unless="noMap"
     depends="dita.map.epub, zipepub"/>
-  
+	  
   <target name="zipepub">
     <!-- Two steps because mimetype must go in first,
       uncompressed. Looks like ant puts later zipped files in
       first, so mimetype is in second zip task. -->
     <zip destfile="${output.dir}${file.separator}${dita.map.filename.root}.epub"
       basedir="${epub.temp.dir}"
+    	compress="true"
       includes="META-INF${file.separator}container.xml,toc.ncx,
       content.opf,container.opf,**/*.html,**/*.css,**/*.HTML,**/*.CSS,
       **/*.jpg,**/*.gif,**/*.png,**/*.svg,**/*.JPG,**/*.GIF,**/*.PNG,**/*.SVG"/>
-    
     <zip destfile="${output.dir}${file.separator}${dita.map.filename.root}.epub"
       basedir="${epub.temp.dir}"
       includes="mimetype"
       update="true"
-      compress="false"/>
-    
+    	keepcompression="true"
+    	compress="false"/>
   </target>
   
     
