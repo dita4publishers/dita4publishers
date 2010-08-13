@@ -2,10 +2,10 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
   prefer="public">  
 
-  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:sidebar"
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:sidebar"
     uri="sidebar.dtd"
   />
-  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:sidebar.dtd"
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:sidebar.dtd"
     uri="sidebar.dtd"
     />
   
