@@ -16,16 +16,22 @@
   <xsl:output name="ant" method="xml" indent="yes" />
   
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-graphic-map">
+    <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
     <xsl:message> + [INFO] Generating graphic input-to-output map...</xsl:message>
     <xsl:variable name="graphicRefs" as="element()*">
       <xsl:apply-templates mode="get-graphic-refs"/>
+      <xsl:if test="$effectiveCoverGraphicUri != ''">
+        <gmap:graphic-ref id="{$coverImageId}" 
+          href="{$effectiveCoverGraphicUri}" 
+          filename="{relpath:getName($effectiveCoverGraphicUri)}"/>
+      </xsl:if>
     </xsl:variable>
     
     <xsl:message> + [INFO]   Found <xsl:sequence select="count($graphicRefs)"/> graphic references.</xsl:message>
     <xsl:variable name="uniqueRefs" as="element()">
       <root>
         <xsl:for-each-group select="$graphicRefs" group-by="string(@href)">
-          <xsl:copy-of select="current-group()[1]"/>
+          <xsl:sequence select="current-group()[1]"/>
         </xsl:for-each-group>        
       </root>
     </xsl:variable>
@@ -47,7 +53,16 @@
         <gmap:graphic-map-item
           input-url="{$absoluteUrl}"
           output-url="{relpath:newFile($imagesOutputPath, $key)}"
-        />
+        >
+          <xsl:choose>
+            <xsl:when test="@id">
+              <xsl:sequence select="@id"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:attribute name="id" select="generate-id(.)"/>
+            </xsl:otherwise>
+          </xsl:choose>          
+        </gmap:graphic-map-item>        
       </xsl:for-each>
     </gmap:graphic-map>
     <xsl:message> + [INFO] Graphic input-to-output map generated.</xsl:message>
@@ -71,6 +86,14 @@
     <xsl:variable name="graphicPath" select="@href" as="xs:string"/>
     <xsl:variable name="rawUrl" select="concat($parentPath, '/', $graphicPath)" as="xs:string"/>
     <xsl:variable name="absoluteUrl" select="relpath:getAbsolutePath($rawUrl)"/>
+    <xsl:message> + [DEBUG] get-graphic-refs for image:
+      
+      docUri="<xsl:sequence select="$docUri"/>"
+      parentPath="<xsl:sequence select="$parentPath"/>"
+      graphicPath="<xsl:sequence select="$graphicPath"/>"
+      rawUrl="<xsl:sequence select="$rawUrl"/>"
+      absoluteUrl="<xsl:sequence select="$absoluteUrl"/>"      
+    </xsl:message>
     
     <gmap:graphic-ref href="{$absoluteUrl}" filename="{relpath:getName($absoluteUrl)}"/>
     

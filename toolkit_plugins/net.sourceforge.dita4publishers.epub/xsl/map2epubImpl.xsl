@@ -115,6 +115,53 @@
     lower-case($generateIndex) = 'on'
     "/>
   
+  <!-- Absolute URI of the graphic to use for the cover. Specify
+       when the source markup does not enable determination
+       of the cover graphic.
+    -->
+  <xsl:param name="coverGraphicUri" as="xs:string" select="''" />
+  
+  <xsl:variable name="coverImageId" select="'coverimage'" as="xs:string"/>
+  
+  <xsl:template name="report-parameters">
+    <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
+    <xsl:message> 
+      ==========================================
+      Plugin version: ^version^ - build ^buildnumber^ at ^timestamp^
+      
+      Parameters:
+      
+      + coverGraphicUri = "<xsl:sequence select="$coverGraphicUri"/>"
+      + cssOutputDir    = "<xsl:sequence select="$cssOutputDir"/>"
+      + generateIndex   = "<xsl:sequence select="$generateIndex"/>
+      + imagesOutputDir = "<xsl:sequence select="$imagesOutputDir"/>"
+      + outdir          = "<xsl:sequence select="$outdir"/>"
+      + tempdir         = "<xsl:sequence select="$tempdir"/>"
+      + titleOnlyTopicClassSpec = "<xsl:sequence select="$titleOnlyTopicClassSpec"/>"
+      + titleOnlyTopicTitleClassSpec = "<xsl:sequence select="$titleOnlyTopicTitleClassSpec"/>"
+      + topicsOutputDir = "<xsl:sequence select="$topicsOutputDir"/>"
+
+      + WORKDIR         = "<xsl:sequence select="$WORKDIR"/>"
+      + PATH2PROJ       = "<xsl:sequence select="$PATH2PROJ"/>"
+      + KEYREF-FILE     = "<xsl:sequence select="$KEYREF-FILE"/>"
+      + CSS             = "<xsl:sequence select="$CSS"/>"
+      + CSSPATH         = "<xsl:sequence select="$CSSPATH"/>"
+      + debug           = "<xsl:sequence select="$debug"/>"
+      
+      Global Variables:
+      
+      + cssOutputPath    = "<xsl:sequence select="$cssOutputPath"/>"
+      + effectiveCoverGraphicUri = "<xsl:sequence select="$effectiveCoverGraphicUri"/>"
+      + topicsOutputPath = "<xsl:sequence select="$topicsOutputPath"/>"
+      + imagesOutputPath = "<xsl:sequence select="$imagesOutputPath"/>"
+      + platform         = "<xsl:sequence select="$platform"/>"
+      + debugBoolean     = "<xsl:sequence select="$debugBoolean"/>"
+      
+      ==========================================
+    </xsl:message>
+  </xsl:template>
+  
+  
   <xsl:output method="xml" name="indented-xml"
     indent="yes"
   />
@@ -170,10 +217,18 @@
   
   <xsl:template match="/*[df:class(., 'map/map')]">
     
-    <xsl:call-template name="report-parameters"/>
+    <xsl:variable name="effectiveCoverGraphicUri" as="xs:string">
+      <xsl:apply-templates select="." mode="get-cover-graphic-uri"/>
+    </xsl:variable>
+
+    <xsl:call-template name="report-parameters">
+      <xsl:with-param name="effectiveCoverGraphicUri" select="$effectiveCoverGraphicUri" as="xs:string" tunnel="yes"/>
+    </xsl:call-template>
     
     <xsl:variable name="graphicMap" as="element()">
-      <xsl:apply-templates select="." mode="generate-graphic-map"/>
+      <xsl:apply-templates select="." mode="generate-graphic-map">
+        <xsl:with-param name="effectiveCoverGraphicUri" select="$effectiveCoverGraphicUri" as="xs:string" tunnel="yes"/>        
+      </xsl:apply-templates>
     </xsl:variable>
     <xsl:result-document href="{relpath:newFile($outdir, 'graphicMap.xml')}" format="graphic-map">
       <xsl:sequence select="$graphicMap"/>
@@ -211,6 +266,7 @@
     <xsl:apply-templates select="." mode="generate-opf">
       <xsl:with-param name="graphicMap" as="element()" tunnel="yes" select="$graphicMap"/>
       <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
+      <xsl:with-param name="effectiveCoverGraphicUri" select="$effectiveCoverGraphicUri" as="xs:string" tunnel="yes"/>        
     </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-graphic-copy-ant-script">
       <xsl:with-param name="graphicMap" as="element()" tunnel="yes" select="$graphicMap"/>
@@ -233,37 +289,37 @@
     </xsl:result-document>
   </xsl:template>
   
-  <xsl:template name="report-parameters">
-    <xsl:message> 
-==========================================
-Plugin version: ^version^ - build ^buildnumber^ at ^timestamp^
-
-Parameters:
-
-      + outdir          = "<xsl:sequence select="$outdir"/>"
-      + tempdir         = "<xsl:sequence select="$tempdir"/>"
-      + cssOutputDir    = "<xsl:sequence select="$cssOutputDir"/>"
-      + imagesOutputDir = "<xsl:sequence select="$imagesOutputDir"/>"
-      + topicsOutputDir = "<xsl:sequence select="$topicsOutputDir"/>"
-      + titleOnlyTopicClassSpec = "<xsl:sequence select="$titleOnlyTopicClassSpec"/>"
-      + titleOnlyTopicTitleClassSpec = "<xsl:sequence select="$titleOnlyTopicTitleClassSpec"/>"
-      + WORKDIR         = "<xsl:sequence select="$WORKDIR"/>"
-      + PATH2PROJ       = "<xsl:sequence select="$PATH2PROJ"/>"
-      + KEYREF-FILE     = "<xsl:sequence select="$KEYREF-FILE"/>"
-      + CSS             = "<xsl:sequence select="$CSS"/>"
-      + CSSPATH         = "<xsl:sequence select="$CSSPATH"/>"
-      + debug           = "<xsl:sequence select="$debug"/>"
-
-Global Variables:
-
-      + cssOutputPath    = "<xsl:sequence select="$cssOutputPath"/>"
-      + topicsOutputPath = "<xsl:sequence select="$topicsOutputPath"/>"
-      + imagesOutputPath = "<xsl:sequence select="$imagesOutputPath"/>"
-      + platform         = "<xsl:sequence select="$platform"/>"
-      + debugBoolean     = "<xsl:sequence select="$debugBoolean"/>"
-      
-==========================================
-</xsl:message>
-  </xsl:template>
+  <xsl:template match="/*[df:class(., 'map/map')]" mode="get-cover-graphic-uri">
+    <!-- NOTE: override this template in order to implement different business logic
+         for determining the cover graphic.
+    -->
+    <xsl:variable name="baseGraphicUri" as="xs:string">
+      <xsl:choose>
+        <xsl:when test="*[df:class(., 'map/topicmeta')]//*[df:class(., 'topic/data') and @name = 'covergraphic']">
+          <xsl:variable name="elem" select="(*[df:class(., 'map/topicmeta')]//*[df:class(., 'topic/data') and @name = 'covergraphic'])[1]" as="element()"/>
+          <xsl:choose>
+            <xsl:when test="$elem/@value">
+              <xsl:sequence select="string($elem/@value)"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:sequence select="string($elem)"/>
+            </xsl:otherwise>
+          </xsl:choose>          
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:sequence select="$coverGraphicUri"/>
+        </xsl:otherwise>
+      </xsl:choose>      
+    </xsl:variable>
+    <xsl:variable name="docUri" select="relpath:toUrl(@xtrf)" as="xs:string"/>
+    <xsl:variable name="finalUri" as="xs:string"
+      select="
+      if ($baseGraphicUri = '')
+         then ''
+         else relpath:newFile(relpath:getParent($docUri), $baseGraphicUri)
+      " 
+    />
+    <xsl:sequence select="$finalUri"/>
+  </xsl:template>  
   
 </xsl:stylesheet>

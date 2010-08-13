@@ -93,6 +93,8 @@
   	<mkdir dir="${epub.temp.dir}"/>
   	<makeurl file="${epub.temp.dir}" property="epub.xslt.outdir"/>
   	<makeurl file="${dita.temp.dir}" property="epub.xslt.tempdir"/>
+  	<makeurl file="${cover.graphic.file}" property="cover.graphic.uri" validate="false"/>
+  	<echo message="[DEBUG] cover.graphic.uri=${cover.graphic.uri}"/>
   	
   	<property name="map2epub.style" location="${epub.dir}/xsl/map2epub.xsl"/>
   	
@@ -108,16 +110,17 @@
       includes="${dita.input.filename}"
       classpathref="dost.class.path"
       style="${map2epub.style}">
-     	<param name="outdir" expression="${epub.xslt.outdir}"/>
-     	<param name="tempdir" expression="${epub.xslt.tempdir}"/>
-     	<param name="imagesOutputDir" expression="${images.output.dir}"/>
-     	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
      	<param name="cssOutputDir" expression="${css.output.dir}"/>
       <param name="debug" expression="${debug}"/>
+    	<param name="coverGraphicUri" expression="cover.graphic.uri" if="cover.graphic.file"/>
+    	<param name="idURIStub" expression="${epub.pubid.uri.stub}"/>
+     	<param name="imagesOutputDir" expression="${images.output.dir}"/>
+     	<param name="outdir" expression="${epub.xslt.outdir}"/>
+     	<param name="tempdir" expression="${epub.xslt.tempdir}"/>
     	<param name="rawPlatformString" expression="${os.name}"/>
     	<param name="titleOnlyTopicClassSpec" expression="${title.only.topic.class.spec}"/>
     	<param name="titleOnlyTopicTitleClassSpec" expression="${title.only.topic.title.class.spec}"/>
-    	<param name="idURIStub" expression="${epub.pubid.uri.stub}"/>
+     	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
 
     	<!-- Parameters from dita2xhtml and similar transtypes: -->   
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>

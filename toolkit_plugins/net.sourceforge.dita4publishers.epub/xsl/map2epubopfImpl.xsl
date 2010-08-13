@@ -43,6 +43,7 @@
 
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-opf">
     <xsl:param name="graphicMap" as="element()" tunnel="yes"/>
+    <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
     
     <xsl:message> + [INFO] Generating OPF manifest file...</xsl:message>
     
@@ -122,6 +123,9 @@
           <xsl:apply-templates select="*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/copyright')]" 
             mode="generate-opf"/>
           
+          <xsl:if test="$effectiveCoverGraphicUri != ''">
+            <meta name="cover" content="{$coverImageId}"/>
+          </xsl:if>
         </metadata>
         
         <manifest xmlns:opf="http://www.idpf.org/2007/opf">
@@ -265,7 +269,7 @@
         imageHref   =<xsl:sequence select="$imageHref"/>
       </xsl:message>
     </xsl:if>
-    <opf:item id="{generate-id()}" href="{$imageHref}">
+    <opf:item id="{@id}" href="{$imageHref}">
       <xsl:attribute name="media-type">
         <xsl:choose>
           <xsl:when test="$imageExtension = 'jpg'"><xsl:sequence select="'image/jpeg'"/></xsl:when>
