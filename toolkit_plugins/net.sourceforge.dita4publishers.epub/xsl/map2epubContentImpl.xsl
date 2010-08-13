@@ -135,6 +135,17 @@
     </xsl:result-document>
   </xsl:template>
   
+  <xsl:template match="
+    *[df:class(., 'topic/body')]//*[df:class(., 'topic/indexterm')] |
+    *[df:class(., 'topic/shortdesc')]//*[df:class(., 'topic/indexterm')] |
+    *[df:class(., 'topic/abstract')]//*[df:class(., 'topic/indexterm')]
+     "
+     priority="10"
+    >
+    <xsl:message> + [DEBUG] Found an index item in topic content: [<xsl:sequence select="string(.)"/>]</xsl:message>
+    <a id="{generate-id()}" class="indexterm-anchor"/>
+  </xsl:template>
+  
   <xsl:template match="text()" mode="generate-content"/>
   
   <xsl:template match="*[df:class(., 'map/topicmeta')]" priority="10"/>

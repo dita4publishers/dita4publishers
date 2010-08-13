@@ -5,9 +5,10 @@
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:relpath="http://dita2indesign/functions/relpath"
                 xmlns:epubutil="http://dita4publishers.org/functions/epubutil"
+                xmlns:index-terms="http://dita4publishers.org/index-terms"
                 xmlns="http://www.daisy.org/z3986/2005/ncx/"
                 xmlns:local="urn:functions:local"
-                exclude-result-prefixes="local xs df xsl relpath epubutil"
+                exclude-result-prefixes="local xs df xsl relpath epubutil index-terms"
   >
   <!-- Convert a DITA map to an EPUB toc.ncx file. -->
   
@@ -20,6 +21,7 @@
 
 
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-toc">
+    <xsl:param name="index-terms" as="element()"/>
     <xsl:variable name="pubTitle" as="xs:string*">
       <xsl:apply-templates select="*[df:class(., 'topic/title')] | @title" mode="pubtitle"/>
     </xsl:variable>           
@@ -59,6 +61,16 @@
             </xsl:apply-templates>
           </xsl:otherwise>
         </xsl:choose>        
+        <xsl:if test="$index-terms/index-terms:index-term">
+          <xsl:message> + [DEBUG] found index terms, adding navpoint to generated index...</xsl:message>
+          <navPoint id="{generate-id($index-terms)}"
+            > 
+            <navLabel>
+              <text>Index</text>
+            </navLabel>
+            <content src="generated-index.html"/>
+          </navPoint>          
+        </xsl:if>
       </ncx:navMap>
     </xsl:variable>
         

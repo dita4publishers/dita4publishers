@@ -4,6 +4,7 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:df="http://dita2indesign.org/dita/functions"  
+  xmlns:index-terms="http://dita4publishers.org/index-terms"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   exclude-result-prefixes="xs xd df relpath"
   version="2.0">
@@ -53,7 +54,8 @@
   <xsl:include href="map2epubopfImpl.xsl"/>
   <xsl:include href="map2graphicMapImpl.xsl"/>
   <xsl:include href="map2epubContentImpl.xsl"/>
-  <xsl:include href="map2epubTocImpl.xsl"/>
+  <xsl:include href="map2epubtocImpl.xsl"/>
+  <xsl:include href="map2epubIndexImpl.xsl"/>
   <xsl:include href="html2xhtmlImpl.xsl"/>
   <xsl:include href="topicHrefFixup.xsl"/>
   <xsl:include href="graphicMap2AntCopyScript.xsl"/>
@@ -99,6 +101,23 @@
   
   <!-- Maxminum depth of the generated ToC -->
   <xsl:param name="maxTocDepth" as="xs:string" select="'5'"/>
+  
+  <!-- Include back-of-the-book-index if any index entries in source 
+  
+       For now default to no since index generation is still under development.
+  -->  
+  <xsl:param name="generateIndex" as="xs:string" select="'no'"/>
+  
+  <xsl:variable name="generateIndexBoolean" 
+    select="
+    lower-case($generateIndex) = 'yes' or 
+    lower-case($generateIndex) = 'true' or
+    lower-case($generateIndex) = 'on'
+    "/>
+  
+  <xsl:output method="xml" name="indented-xml"
+    indent="yes"
+  />
   
   <xsl:variable name="maxTocDepthInt" select="xs:integer($maxTocDepth)" as="xs:integer"/>
   
@@ -161,10 +180,37 @@
     </xsl:result-document>    
     <xsl:call-template name="make-meta-inf"/>
     <xsl:call-template name="make-mimetype"/>
+    
+    <xsl:message> + [INFO] Gathering index terms...</xsl:message>
+    
+    <!-- Gather all the index entries from the map and topic. 
+    -->
+    <xsl:variable name="index-terms" as="element()">
+      <index-terms xmlns="http://dita4publishers.org/index-terms">
+        <xsl:if test="$generateIndexBoolean">
+          <xsl:apply-templates mode="gather-index-terms"/>
+        </xsl:if>
+      </index-terms>
+    </xsl:variable>
+    
+    <xsl:if test="true()">
+      <xsl:result-document href="{relpath:newFile($outdir, 'index-terms.xml')}"
+        format="indented-xml"
+        >
+        <xsl:sequence select="$index-terms"/>
+      </xsl:result-document>
+    </xsl:if>
+    
     <xsl:apply-templates select="." mode="generate-content"/>
-    <xsl:apply-templates select="." mode="generate-toc"/>
+    <xsl:apply-templates select="." mode="generate-toc">
+      <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
+    </xsl:apply-templates>
+    <xsl:apply-templates select="." mode="generate-index">
+      <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
+    </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-opf">
       <xsl:with-param name="graphicMap" as="element()" tunnel="yes" select="$graphicMap"/>
+      <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
     </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-graphic-copy-ant-script">
       <xsl:with-param name="graphicMap" as="element()" tunnel="yes" select="$graphicMap"/>
