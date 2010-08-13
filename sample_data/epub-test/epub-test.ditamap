@@ -42,14 +42,14 @@
       collection-type="sequence">
       <topicref
         href="chapters/element-test.xml"/>
-      <chapter
+        <chapter
         href="chapters/title-only-topic-01.xml">
         <topicref
           navtitle="Topic Head 1">
           <topicref
             href="chapters/chapter-04/topic-head-1/subtopic-03.xml"/>
         </topicref>
-        <topichead
+            <topichead
           navtitle="Topic Head 2"
           chunk="to-content"> </topichead>
         <topicref
@@ -64,17 +64,50 @@
             href="chapters/subtopic-02.xml"
             copy-to="subtopic-02-2nd-ref.xml"/>
         </topicgroup>
+            <topichead
+          navtitle="Deep Nesting Lvl 2">
+          <topichead
+            navtitle="Deep Nesting Lvl 3">
+            <topichead
+              navtitle="Deep Nesting Lvl 4">
+              <topichead
+                navtitle="Deep Nesting Lvl 5">
+                <topichead
+                  navtitle="Deep Nesting Lvl 6">
+                  <topichead
+                    navtitle="Deep Nesting Lvl 7"/>
+                </topichead>
+              </topichead>
+            </topichead>
+          </topichead>
+          <topichead
+            navtitle="2nd Deep Nesting Lvl 3">
+            <topichead
+              navtitle="Deep Nesting Lvl 4">
+              <topichead
+                navtitle="Deep Nesting Lvl 5">
+                <topichead
+                  navtitle="Deep Nesting Lvl 6">
+                  <topichead
+                    navtitle="Deep Nesting Lvl 7"/>
+                </topichead>
+              </topichead>
+            </topichead>
+          </topichead>
+        </topichead>
       </chapter>
       <topicref
         href="chapters/cross-refs-01.xml"/>
       <topicref
         href="chapters/cross-ref-targets-01.xml"/>
+      <topicref
+        href="chapters/deeply-nested-chapter.xml"/>
       <chapter
-        href="chapters/keyref-tests.xml">
-        <chapter
-          keyref="keyed-topic-01"/>
+      href="chapters/keyref-tests.xml">
+      <chapter
+        keyref="keyed-topic-01"/>
       </chapter>
-      <chapter
+        <chapter
         href="chapters/chapter_1.xml"/>
       <chapter
         href="chapters/chapter_2.xml">
@@ -91,5 +124,5 @@
     </pubbody>
     <colophon
       href="backmatter/colophon.xml"/>
-  </publication>
+ </publication>
 </pubmap>
