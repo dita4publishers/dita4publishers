@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/map.dtd">
+<map>
+  <title>DITA For Publishers User Guide</title>
+  <topicmeta> <copyright> <copyryear
+    year="2010"/> <copyrholder>DITA for Publishers</copyrholder> </copyright> <data
+    name="covergraphic"
+    value="d4p-users-guide/images/cover-graphic.jpg"/> </topicmeta>
+  <topicgroup
+    outputclass="pubroot">
+    <topicref
+      href="d4p-users-guide/topics/about-this-book.xml"/>
+    <topicref
+      href="d4p-users-guide/introduction-chapter.xml">
+      <topicref
+        href="d4p-users-guide/tasks/plugin-installation.xml"/>
+    </topicref>
+    <topicref
+      href="d4p-users-guide/epub-plugin/generating-epubs.xml">
+      <topicref
+        href="d4p-users-guide/epub-plugin/generating-epubs-from-oxygen.xml"/>
+      <topicref
+        href="d4p-users-guide/epub-plugin/epub-transtype-parameters-ref.xml">
+        <topicref
+          href="d4p-users-guide/epub-plugin/reference/ant-parm-cssOutputDir.xml"/>
+        <topicref
+          href="d4p-users-guide/epub-plugin/reference/ant-parm-epubPubidUriStub.xml"/>
+        <topicref
+          href="d4p-users-guide/epub-plugin/reference/ant-parm-epubTempDir.xml"/>
+        <topicref
+          href="d4p-users-guide/epub-plugin/reference/ant-parm-imagesOutputDir.xml"/>
+        <topicref
+          href="d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicClassSpec.xml"/>
+        <topicref
+          href="d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicTitleClassSpec.xml"/>
+        <topicref
+          href="d4p-users-guide/epub-plugin/reference/ant-parm-topicsOutputDir.xml"/>
+      </topicref>
+    </topicref>
+  </topicgroup>
+</map>

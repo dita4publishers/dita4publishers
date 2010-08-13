@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/reference.dtd">
+<reference id="referenceId">
+  <title>css.output.dir Ant parameter</title>
+  <shortdesc>Specifies the directory to hold the CSS style sheets included in the EPUB package.</shortdesc>
+  <refbody>
+    <section
+      spectitle="Value">
+      <p>Any valid directory name.</p>
+    </section>
+    <section
+      spectitle="Default">
+      <p>"topics"</p>
+    </section>
+    <section
+      spectitle="XSLT Parameter">
+      <p>cssOutputDir</p>
+    </section>
+  </refbody>
+</reference>

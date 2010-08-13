@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
+<chapter
+  id="chapter-id">
+  <title>Generating EPUBs from DITA Content</title>
+  <shortdesc>The D4P EPUB generation Open Toolkit plugin enables generation of delivery-ready EPUBs from any conforming DITA content.</shortdesc>
+  <body>
+    <p>The DITA for Publishers EPUB generation plugin (net.sourceforge.dita4publishers.epub) generates EPUBs that conform to the IDPF EPUB standard. The plugin works with any conforming DITA content. The resulting EPUBs may be used with any EPUB reader software or hardware. They EPUBs have been tested on a number of devices and readers, including iBooks and Adobe Digital Editions.</p>
+    <p>See <xref
+      href="../tasks/plugin-installation.xml#taskId"
+      format="dita"/> for instructions on how to install the EPUB plugin to the DITA Open Toolkit.</p>
+    <p>The EPUB plugin does not require any specific markup in order to get a usable EPUB. However, the plugin does take advantage of specific markup in order to generate EPUB-specific features such as cover graphics, book identifiers, and so on.</p>
+    <p>The plugin defines the transformation type "epub" (Ant target "dita2epub"). It is based on the standard HTML transformation type and therefore takes all the same parameters as the HTML transformation type. All EPUB-specific parameters are optional.</p>
+    <p>You can use the EPUB transformation type by simply specifying a transtype value of "epub" rather than "html" and use the same parameters you would use for HTML generation.</p>
+  </body>
+</chapter>

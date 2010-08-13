@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA task//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/task.dtd">
+<task id="taskId">
+ <title>Generating EPUBs From OxygenXML</title>
+ <shortdesc>You can configure a DITA transformation scenario in OxygenXML to generate EPUBs.</shortdesc>
+ <taskbody>
+    <context>
+      <p>You must have the EPUB plugin deployed to the Open Toolkit used by OxygenXML, normally in the <filepath>frameworks/dita/DITA-OT</filepath> directory under Oxygen's installation directory. You can also use a different Toolkit by changing the value of the <parmname>dita.dir</parmname> Ant parameter.</p>
+      <p>These instructions reflect Oxygen version 11.2.</p>
+      <p>To set up an EPUB transformation scenario in OxygenXML, do the following.</p>
+    </context>
+    <steps
+      id="steps_bd2ab97b-2b84-4975-b881-a037eff4c6dd">
+      <step>
+        <cmd>From either the main editing window or the DITA Maps Manager, open the "Configure Transformation Scenario" dialog (the little wrench and red arrow button in the toolbar).</cmd>
+      </step>
+      <step>
+        <cmd>Select "DITA OT Transformation" from the <uicontrol>Scenario Type</uicontrol> pulldown.</cmd>
+      </step>
+      <step>
+        <cmd>Select the "DITA Map XHTML" transform and press the <uicontrol>Duplicate</uicontrol> button.</cmd>
+        <stepresult>
+          <p>The "Edit Scenario" dialog should open.</p>
+        </stepresult>
+      </step>
+      <step>
+        <cmd>Change the scenario name to something like "DITA Map EPUB"</cmd>
+      </step>
+      <step>
+        <cmd>Select the <uicontrol>Advanced</uicontrol> tab and in the <uicontrol>Build target</uicontrol> field enter "dita2epub".</cmd>
+      </step>
+      <step>
+        <cmd>Select the <uicontrol>OK</uicontrol> button to save the scenario.</cmd>
+        <stepresult>
+          <p>You should see your new scenario in the list of available DITA OT transformation scenarios.</p>
+        </stepresult>
+      </step>
+    </steps>
+    <result>
+      <p>The scenario should be ready to use. You can test it by applying it to any DITA map. By default, the EPUB file is generated in a directory named <filepath>epub</filepath> below directory containing the root map.</p>
+      <p>You can edit the scenario to add additional EPUB parameters as necessary. Simply open the scenario in the Scenario Editor, select the "add parameter" button, and create the parameter. The EPUB-specific parameters are documented in </p>
+    </result>
+  </taskbody>
+</task>
