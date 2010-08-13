@@ -190,6 +190,8 @@
   <xsl:template name="report-parameters">
     <xsl:message> 
 ==========================================
+Plugin version: ^version^ - build ^buildnumber^ at ^timestamp^
+
 Parameters:
 
       + outdir          = "<xsl:sequence select="$outdir"/>"

@@ -49,15 +49,19 @@
               e.g., as for topicheads. This would be a good opportunity to generate a
               document cover, which should be defined as an extension point.
             -->
-            <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
+            <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current">
+              <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes" select="1"/>              
+            </xsl:apply-templates>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
+            <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current">
+              <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes" select="1"/>                            
+            </xsl:apply-templates>
           </xsl:otherwise>
         </xsl:choose>        
       </ncx:navMap>
     </xsl:variable>
-    
+        
     <xsl:message> + [INFO] Generating ToC (NCX) file "<xsl:sequence select="$resultUri"/>"...</xsl:message>
     
     <xsl:result-document href="{$resultUri}" format="ncx">
@@ -82,7 +86,6 @@
     <xsl:variable name="playOrder">
       <xsl:number  count="ncx:navPoint" level="any" format="1"/>
     </xsl:variable>
-    <xsl:message> + [DEBUG] calc-play-order: playOrder="<xsl:sequence select="$playOrder"/>"</xsl:message>
     <xsl:copy>
       <xsl:attribute name="playOrder" select="$playOrder"/>
       <xsl:apply-templates select="@*,*" mode="#current"/>      
@@ -91,44 +94,51 @@
   
   <xsl:template mode="calc-play-order" match="*" priority="-1">
     <xsl:copy>
-      <xsl:apply-templates select="@*,*" mode="#current"/>
+      <xsl:apply-templates select="@*,node()" mode="#current"/>
     </xsl:copy>
   </xsl:template>
   
   <xsl:template mode="calc-play-order" match="@*|text()" priority="-1">
-    <xsl:sequence select="."/>
+    <xsl:copy/>
   </xsl:template>
 
   <!-- Convert each topicref to a navPoint. -->
   <xsl:template match="*[df:isTopicRef(.)]" mode="generate-toc">
-    <!-- For title that shows up in ncx:text, use the navtitle. If it's
-    not there, use the first title element in the referenced file. -->
-    <xsl:variable name="navPointTitle">
-      <xsl:apply-templates select="." mode="nav-point-title"/>      
-    </xsl:variable>
-    
-    <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
-    <xsl:choose>
-      <xsl:when test="not($topic)">
-        <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:variable name="targetUri" select="epubutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
-        <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
-        <navPoint id="{generate-id()}"
-                      > 
-          <navLabel>
-            <text><xsl:value-of select="normalize-space($navPointTitle)"/></text>
-          </navLabel>
-          <content src="{$relativeUri}"/>
-          <!-- Any subordinate topics in the currently-referenced topic are
-               reflected in the ToC before any subordinate topicrefs.
+    <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
+    <xsl:if test="$tocDepth le $maxTocDepthInt">
+      <!-- For title that shows up in ncx:text, use the navtitle. If it's
+        not there, use the first title element in the referenced file. -->
+      <xsl:variable name="navPointTitle">
+        <xsl:apply-templates select="." mode="nav-point-title"/>      
+      </xsl:variable>
+      
+      <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
+      <xsl:choose>
+        <xsl:when test="not($topic)">
+          <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:variable name="targetUri" select="epubutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
+          <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
+          <navPoint id="{generate-id()}"
+            > 
+            <navLabel>
+              <text><xsl:value-of select="normalize-space($navPointTitle)"/></text>
+            </navLabel>
+            <content src="{$relativeUri}"/>
+            <!-- Any subordinate topics in the currently-referenced topic are
+              reflected in the ToC before any subordinate topicrefs.
             -->
-          <xsl:apply-templates mode="#current" 
-            select="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]"/>
-        </navPoint>
-      </xsl:otherwise>
-    </xsl:choose>    
+            <xsl:apply-templates mode="#current" 
+              select="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]">
+              <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes"
+                select="$tocDepth + 1"
+              />
+            </xsl:apply-templates>
+          </navPoint>
+        </xsl:otherwise>
+      </xsl:choose>    
+    </xsl:if>    
   </xsl:template>
   
   <xsl:template mode="nav-point-title" match="*[df:isTopicRef(.)] | *[df:isTopicHead(.)]">
@@ -137,35 +147,41 @@
   </xsl:template>
     
   <xsl:template match="*[df:isTopicGroup(.)]" priority="10" mode="generate-toc">
-    <xsl:variable name="rawNavPointTitle" as="xs:string*">
-      <xsl:apply-templates select="." mode="nav-point-title"/>
-    </xsl:variable>
-    <xsl:variable name="navPointTitle" select="normalize-space(string-join($rawNavPointTitle, ' '))" as="xs:string"/>
-<!--    <xsl:message> + [DEBUG] isTopicGroup(): navPointTitle="<xsl:sequence select="$navPointTitle"/>"</xsl:message>-->
-    <xsl:choose>
-      <xsl:when test="$navPointTitle != ''">
-        <navPoint id="{generate-id()}"
-          > 
-          <navLabel>
-            <text><xsl:sequence select="$navPointTitle"/></text>
-          </navLabel>
-          <!-- FIXME: This is bogus, but we should never get here. -->
-          <content src="topics/topicgroup_00000.html"/>          
-          <xsl:apply-templates select="*[df:class(.,'map/topicref')]" mode="#current"/>
-        </navPoint>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
-      </xsl:otherwise>
-    </xsl:choose>
-    
+    <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
+    <xsl:if test="$tocDepth le $maxTocDepthInt">
+      <xsl:variable name="rawNavPointTitle" as="xs:string*">
+        <xsl:apply-templates select="." mode="nav-point-title"/>
+      </xsl:variable>
+      <xsl:variable name="navPointTitle" select="normalize-space(string-join($rawNavPointTitle, ' '))" as="xs:string"/>
+  <!--    <xsl:message> + [DEBUG] isTopicGroup(): navPointTitle="<xsl:sequence select="$navPointTitle"/>"</xsl:message>-->
+      <xsl:choose>
+        <xsl:when test="$navPointTitle != ''">
+          <navPoint id="{generate-id()}"
+            > 
+            <navLabel>
+              <text><xsl:sequence select="$navPointTitle"/></text>
+            </navLabel>
+            <!-- FIXME: This is bogus, but we should never get here. -->
+            <content src="topics/topicgroup_00000.html"/>          
+            <xsl:apply-templates select="*[df:class(.,'map/topicref')]" mode="#current">
+              <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes"
+                select="$tocDepth + 1"
+              />            
+            </xsl:apply-templates>
+          </navPoint>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:if>    
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/topic')]" mode="generate-toc">
     <!-- Non-root topics generate ToC entries if they are within the ToC depth -->
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
     <xsl:if test="$tocDepth le $maxTocDepthInt">
-      <xsl:variable name="rawNavPointTitle" as="xs:string">
+      <xsl:variable name="rawNavPointTitle" as="xs:string*">
         <xsl:apply-templates select="*[df:class(., 'topic/title')]" mode="nav-point-title"/>
       </xsl:variable>
       <xsl:variable name="navPointTitle" select="normalize-space(string-join($rawNavPointTitle, ' '))" as="xs:string"/>
@@ -196,27 +212,41 @@
   <!-- topichead elements get a navPoint, but don't actually point to
        anything.  Same with topicref that has no @href. -->
   <xsl:template match="*[df:isTopicHead(.) or df:isTopicGroup(.)]" mode="generate-toc">
-    <xsl:variable name="titleOnlyTopicFilename" as="xs:string"
-      select="epubutil:getTopicheadHtmlResultTopicFilename(.)"
-    />
-    <navPoint id="{generate-id()}"
-      > 
-      <navLabel>
-        <text><xsl:apply-templates select="." mode="nav-point-title"/></text>
-      </navLabel>
-      <content src="{
-        if ($topicsOutputDir != '') 
-        then concat($topicsOutputDir, '/', $titleOnlyTopicFilename) 
-        else $titleOnlyTopicFilename}
-        "/>                
-      <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
-    </navPoint>
+    <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
+    <xsl:if test="$tocDepth le $maxTocDepthInt">
+      <xsl:variable name="titleOnlyTopicFilename" as="xs:string"
+        select="epubutil:getTopicheadHtmlResultTopicFilename(.)"
+      />
+      <xsl:variable name="rawNavPointTitle" as="xs:string*">
+        <xsl:apply-templates select="." mode="nav-point-title"/>
+      </xsl:variable>
+      <navPoint id="{generate-id()}"
+        > 
+        <navLabel>
+          <text><xsl:sequence select="$rawNavPointTitle"/></text>
+        </navLabel>
+        <content src="{
+          if ($topicsOutputDir != '') 
+          then concat($topicsOutputDir, '/', $titleOnlyTopicFilename) 
+          else $titleOnlyTopicFilename}
+          "/>                
+        <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current">
+          <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes"
+            select="$tocDepth + 1"
+          />        
+        </xsl:apply-templates>
+      </navPoint>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="*[df:isTopicGroup(.)]" mode="nav-point-title">
     <!-- By default, topic groups have no titles -->
   </xsl:template>
   
+<!--  <xsl:template mode="nav-point-title" match="*[df:class(., 'topic/title')]" priority="10">
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+-->  
   <xsl:template mode="nav-point-title #default" match="*[df:class(., 'topic/fn')]" priority="10">
     <!-- Suppress footnotes in titles -->
   </xsl:template>

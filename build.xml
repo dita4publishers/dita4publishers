@@ -16,6 +16,7 @@
   <property file="${user.home}/.build.properties"/>
 	<property file="${user.home}/build.properties"/>
 
+	<property name="version" value="0.9"/>
 	
   <property name="dist" location="${basedir}/dist"/>
   <property name="lib" location="${basedir}/lib"/>
@@ -63,6 +64,8 @@
 
   <property name="target.home"         value="target"/>
   <property name="target.jar"          value="${rsuite-plugin.name}-rsuite-plugin.jar"/>
+	
+	
 
 	<path id="dita-classpath"
 		>
@@ -83,6 +86,7 @@
   </target>
 
 	<target name="init">
+		<buildnumber/>
     <tstamp/>
   </target>
 
@@ -106,6 +110,22 @@
 				<exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/>
 			</fileset>
 		</copy>
+		<replace file="${plugin.dist}/net.sourceforge.dita4publishers.epub/xsl/map2epubImpl.xsl"
+			propertyfile="${basedir}/build.number"
+			>
+			<replacefilter
+				token="^buildnumber^"
+				property="build.number"
+			/>
+			<replacefilter
+				token="^version^"
+			  value="${version}"
+			/>
+			<replacefilter
+				token="^timestamp^"
+			  value="${package.date}"
+			/>
+		</replace>
     <copy todir="${plugin.dist}">
       <fileset dir="${plugin-shakespear-samples-src}">
       </fileset>
@@ -155,7 +175,7 @@
 
 	</target>
 	
-	<target name="dist-init">
+	<target name="dist-init" depends="init">
 		<delete failonerror="false" includeemptydirs="true">
 			<fileset dir="${dist}" includes="*/**"/>
   	</delete>
