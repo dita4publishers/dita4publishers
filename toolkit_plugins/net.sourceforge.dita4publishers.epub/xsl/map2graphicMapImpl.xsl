@@ -19,7 +19,7 @@
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
     <xsl:message> + [INFO] Generating graphic input-to-output map...</xsl:message>
     <xsl:variable name="graphicRefs" as="element()*">
-      <xsl:apply-templates mode="get-graphic-refs"/>
+      <xsl:apply-templates mode="get-graphic-refs" select=".//*[df:isTopicRef(.)]"/>
       <xsl:if test="$effectiveCoverGraphicUri != ''">
         <gmap:graphic-ref id="{$coverImageId}" 
           href="{$effectiveCoverGraphicUri}" 
