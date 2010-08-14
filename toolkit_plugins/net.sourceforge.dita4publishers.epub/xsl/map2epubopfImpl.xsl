@@ -126,6 +126,8 @@
           <xsl:if test="$effectiveCoverGraphicUri != ''">
             <meta name="cover" content="{$coverImageId}"/>
           </xsl:if>
+          <xsl:apply-templates mode="generate-opf"
+            select="*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/data') and @name = 'opf-metadata']"/>
         </metadata>
         
         <manifest xmlns:opf="http://www.idpf.org/2007/opf">
@@ -249,7 +251,20 @@
     </xsl:choose>
     
   </xsl:template>
+
+  <xsl:template match="*[df:class(., 'topic/data') and @name = 'opf-metadata']" mode="generate-opf">
+    <xsl:apply-templates select="*[df:class(., 'topic/data')]" mode="generate-opf-metadata"/>
+  </xsl:template>
   
+  <xsl:template match="*[df:class(., 'topic/data')]" mode="generate-opf-metadata">
+    <xsl:variable name="value" as="xs:string"
+      select="if (@value)
+        then string(@value)
+        else string(.)"
+    />
+    <meta name="{@name}" content="{$value}"/>
+  </xsl:template>
+
   <xsl:template match="gmap:graphic-map" mode="manifest">
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
