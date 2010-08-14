@@ -4,7 +4,13 @@
   <pubtitle>
     <mainpubtitle/>
   </pubtitle>
-  <pubmeta/>
+  <pubmeta>
+    <metadata>
+      <keywords>
+        <indexterm/>
+      </keywords>
+    </metadata>
+  </pubmeta>
   <keydefs>
     <topicmeta>
       <navtitle>Key Definitions</navtitle>
