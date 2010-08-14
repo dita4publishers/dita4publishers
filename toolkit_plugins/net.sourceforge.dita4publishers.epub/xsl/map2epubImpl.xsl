@@ -295,6 +295,12 @@
     -->
     <xsl:variable name="baseGraphicUri" as="xs:string">
       <xsl:choose>
+        <xsl:when test="//*[df:class(., 'pubmap-d/epub-cover-graphic')]">
+          <xsl:variable name="targetUri" as="xs:string"
+            select="df:getEffectiveTopicUri((//*[df:class(., 'pubmap-d/epub-cover-graphic')])[1])"
+          />
+          <xsl:sequence select="$targetUri"/>
+        </xsl:when>
         <xsl:when test="*[df:class(., 'map/topicmeta')]//*[df:class(., 'topic/data') and @name = 'covergraphic']">
           <xsl:variable name="elem" select="(*[df:class(., 'map/topicmeta')]//*[df:class(., 'topic/data') and @name = 'covergraphic'])[1]" as="element()"/>
           <xsl:choose>
