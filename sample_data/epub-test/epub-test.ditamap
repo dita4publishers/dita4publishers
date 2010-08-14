@@ -12,7 +12,11 @@
       modified="March 29, 2004"/>
     </critdates> <pubid> <pubnumber>Ebook #55</pubnumber> <data
     name="epub-bookid">epubid-value</data> </pubid> <pubrights>
-    <publicense>Project Gutenberg License.</publicense> </pubrights> </pubmeta>
+    <publicense>Project Gutenberg License.</publicense> </pubrights> 
+    <data name="opf-metadata">
+      <data name="item-one" value="value one"/>
+    </data>
+  </pubmeta>
   <keydefs>
     <topicmeta>
       <navtitle>Key Definitions</navtitle>
@@ -29,6 +33,7 @@
   </keydefs>
   <publication>
     <covers>
+      <epub-cover-graphic format="jpg" href="covers/images/1407-02.jpg"/>
       <front-cover
         href="covers/epub-test-front-cover.xml"/>
     </covers>
