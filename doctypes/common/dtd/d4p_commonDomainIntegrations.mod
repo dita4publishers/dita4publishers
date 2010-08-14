@@ -10,6 +10,11 @@
 "highlightDomain.mod"                                                >
 %hi-d-def;
 
+<!ENTITY % indexing-d-def     
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Indexing Domain//EN" 
+         "../../base/dtd/indexingDomain.mod"
+>%indexing-d-def;
+
 <!ENTITY % d4p_formatting-d-def     PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_formattingDomain" 
 "../../d4p_formattingDomain/dtd/d4p_formattingDomain.mod"
