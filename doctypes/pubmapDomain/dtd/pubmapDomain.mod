@@ -61,6 +61,8 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % department "department" >
 <!ENTITY % department-mapref "department-mapref" >
 <!ENTITY % draftintro "draftintro" >
+<!ENTITY % epub-cover-graphic "epub-cover-graphic" >
+<!ENTITY % epub-cover "epub-cover" >
 <!ENTITY % figurelist "figurelist" >
 <!ENTITY % forward "forward" >
 <!ENTITY % forward-mapref "forward-mapref" >
@@ -76,6 +78,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % glossarylist "glossarylist" >
 <!ENTITY % glossarylist-mapref "glossarylist-mapref" >
 <!ENTITY % indexlist "indexlist" >
+<!ENTITY % inside-front-cover "inside-front-cover" >
 <!ENTITY % keydefs "keydefs" >
 <!ENTITY % keydefs-mapref "keydefs-mapref" >
 <!ENTITY % keydef-group "keydef-group" >
@@ -1137,10 +1140,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % pubrestriction.content
                        "EMPTY"
 >
-<!-- Same attributes as data-element-atts, except for @value -->
-<!-- 20080128: Removed enumeration for @value for DITA 1.2. Previous values:
-               confidential, licensed, restricted, 
-               unclassified, -dita-use-conref-target               -->
 <!ENTITY % pubrestriction.attributes
              "%univ-atts;
               name 
@@ -1559,10 +1558,12 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 
 <!--                    LONG NAME: Covers                      -->
 <!ENTITY % covers.content
-                       "(front-cover?,
-                         inside-front-cover?,
-                         back-cover?,
-                         book-jacket?)"
+                       "((%epub-cover-graphic;)*,
+                         (%epub-cover;)*,
+                         (%front-cover;)*,
+                         (%inside-front-cover;)*,
+                         (%back-cover;)*,
+                         (%book-jacket;)*)"
 >                         
 <!-- FIXME: should be a topic group -->                         
 <!ENTITY % covers.attributes
@@ -1579,6 +1580,49 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 >
 <!ELEMENT covers-mapref    %covers-mapref.content;>
 <!ATTLIST covers-mapref    %covers-mapref.attributes;>
+
+<!--                    LONG NAME: epub-cover                      -->
+<!ENTITY % epub-cover.content
+                       "(%topicmeta;)?"            
+>
+<!ENTITY % epub-cover.attributes
+             "%chapter-atts;"
+>
+<!ELEMENT epub-cover    %epub-cover.content;>
+<!ATTLIST epub-cover    %epub-cover.attributes;>
+
+<!--                    LONG NAME: epub-cover-graphic               -->
+<!-- Points to a graphic to use for EPUB covers (e.g., for iBooks) -->
+<!ENTITY % epub-cover-graphic.content
+                       "(%topicmeta;)?"            
+>
+<!ENTITY % epub-cover-graphic.attributes "
+              processing-role
+                        (resource-only)
+                                   'resource-only'
+              scope 
+                        (local) 
+                                  'local'
+              format 
+                        (jpg | 
+                         png |
+                         gif |
+                         svg)
+                        #REQUIRED                         
+              href
+                  CDATA
+                  #IMPLIED
+              keyref
+                  CDATA
+                  #IMPLIED
+              keys
+                  NMTOKENS
+                  #IMPLIED              
+              %univ-atts;        
+
+">
+<!ELEMENT epub-cover-graphic    %epub-cover-graphic.content;>
+<!ATTLIST epub-cover-graphic    %epub-cover-graphic.attributes;>
 
 <!--                    LONG NAME: front-cover                      -->
 <!ENTITY % front-cover.content
@@ -2077,6 +2121,8 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ATTLIST department    %global-atts; class CDATA "+ map/topicref pubmap-d/department ">
 <!ATTLIST department-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/department-mapref ">
 <!ATTLIST draftintro    %global-atts; class CDATA "+ map/topicref pubmap-d/draftintro ">
+<!ATTLIST epub-cover    %global-atts; class CDATA "+ map/topicref pubmap-d/epub-cover ">
+<!ATTLIST epub-cover-graphic %global-atts; class CDATA "+ map/topicref pubmap-d/epub-cover-graphic ">
 <!ATTLIST figurelist    %global-atts; class CDATA "+ map/topicref pubmap-d/figurelist ">
 <!ATTLIST forward       %global-atts; class CDATA "+ map/topicref pubmap-d/forward ">
 <!ATTLIST front-cover   %global-atts; class CDATA "+ map/topicref pubmap-d/front-cover ">

@@ -23,18 +23,21 @@
    %d4p_pubcontent-d-p;
   "      
 >
-
+<!--
 <!ENTITY % data
-  "data |
-   %d4p_classification-d-data;
+  "data
   "
 >
-
+-->
 <!ENTITY % image
   "image |
    %d4p_formatting-d-image;
   "
 >
+
+<!ENTITY % index-base   "index-base | 
+                         %indexing-d-index-base;
+                        ">
 
 <!ENTITY % keyword
   "keyword |

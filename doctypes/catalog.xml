@@ -19,6 +19,10 @@
   <nextCatalog catalog="subsection/catalog.xml"/>
   <nextCatalog catalog="topic/catalog.xml"/>
   
+  <nextCatalog catalog="concept/catalog.xml"/>
+  <nextCatalog catalog="reference/catalog.xml"/>
+  <nextCatalog catalog="task/catalog.xml"/>
+
   <!-- Map types -->
   
   <nextCatalog catalog="map/catalog.xml"/>
