@@ -38,7 +38,9 @@
     </steps>
     <result>
       <p>The scenario should be ready to use. You can test it by applying it to any DITA map. By default, the EPUB file is generated in a directory named <filepath>epub</filepath> below directory containing the root map.</p>
-      <p>You can edit the scenario to add additional EPUB parameters as necessary. Simply open the scenario in the Scenario Editor, select the "add parameter" button, and create the parameter. The EPUB-specific parameters are documented in </p>
+      <p>You can edit the scenario to add additional EPUB parameters as necessary. Simply open the scenario in the Scenario Editor, select the "add parameter" button, and create the parameter. The EPUB-specific parameters are documented in <xref
+        href="epub-transtype-parameters-ref.xml#conceptId"
+        format="dita"/>.</p>
     </result>
   </taskbody>
 </task>

@@ -1,41 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/map.dtd">
-<map>
-  <title>DITA For Publishers User Guide</title>
-  <topicmeta> <copyright> <copyryear
-    year="2010"/> <copyrholder>DITA for Publishers</copyrholder> </copyright> <data
-    name="covergraphic"
-    value="d4p-users-guide/images/cover-graphic.jpg"/> </topicmeta>
-  <topicgroup
-    outputclass="pubroot">
-    <topicref
-      href="d4p-users-guide/topics/about-this-book.xml"/>
-    <topicref
-      href="d4p-users-guide/introduction-chapter.xml">
+<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
+<pubmap>
+  <pubtitle> <mainpubtitle>DITA For Publishers User Guide</mainpubtitle> </pubtitle>
+  <pubmeta> <author>W. Eliot Kimber</author> <keywords> <indexterm/> </keywords> <prodinfo>
+    <prodname>DITA For Publishers</prodname>
+    <vrmlist>
+      <vrm
+        version="0"
+        release="9"
+        modification="0"/>
+    </vrmlist>
+    </prodinfo> <pubrights> <copyrfirst> <year>2010</year> </copyrfirst>
+    <pubowner><organization>DITA For Publishers</organization></pubowner> </pubrights> </pubmeta>
+  <keydefs>
+    <topicmeta>
+      <navtitle>Key Definitions</navtitle>
+    </topicmeta>
+  </keydefs>
+  <publication>
+    <covers>
+      <back-cover
+        href="d4p-users-guide/frontmatter/coverpage.xml"/>
+    </covers>
+    <frontmatter>
       <topicref
-        href="d4p-users-guide/tasks/plugin-installation.xml"/>
-    </topicref>
-    <topicref
-      href="d4p-users-guide/epub-plugin/generating-epubs.xml">
+        href="d4p-users-guide/topics/about-this-book.xml"/>
+    </frontmatter>
+    <pubbody>
+      <chapter
+        href="d4p-users-guide/introduction-chapter.xml">
+        <subsection
+          href="d4p-users-guide/tasks/plugin-installation.xml"/>
+      </chapter>
+      <chapter
+        href="d4p-users-guide/epub-plugin/generating-epubs.xml">
+        <subsection
+          href="d4p-users-guide/epub-plugin/generating-epubs-from-oxygen.xml"/>
+        <subsection
+          href="d4p-users-guide/epub-plugin/creating-cover-graphics.xml"/>
+        <subsection
+          href="d4p-users-guide/epub-plugin/epub-transtype-parameters-ref.xml">
+          <topicref
+            href="d4p-users-guide/epub-plugin/reference/ant-parm-coverGraphicFile.xml"/>
+          <topicref
+            href="d4p-users-guide/epub-plugin/reference/ant-parm-cssOutputDir.xml"/>
+          <topicref
+            href="d4p-users-guide/epub-plugin/reference/ant-parm-epubPubidUriStub.xml"/>
+          <topicref
+            href="d4p-users-guide/epub-plugin/reference/ant-parm-epubTempDir.xml"/>
+          <topicref
+            href="d4p-users-guide/epub-plugin/reference/ant-parm-imagesOutputDir.xml"/>
+          <topicref
+            href="d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicClassSpec.xml"/>
+          <topicref
+            href="d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicTitleClassSpec.xml"/>
+          <topicref
+            href="d4p-users-guide/epub-plugin/reference/ant-parm-topicsOutputDir.xml"/>
+        </subsection>
+      </chapter>
+    </pubbody>
+    <backmatter>
       <topicref
-        href="d4p-users-guide/epub-plugin/generating-epubs-from-oxygen.xml"/>
-      <topicref
-        href="d4p-users-guide/epub-plugin/epub-transtype-parameters-ref.xml">
-        <topicref
-          href="d4p-users-guide/epub-plugin/reference/ant-parm-cssOutputDir.xml"/>
-        <topicref
-          href="d4p-users-guide/epub-plugin/reference/ant-parm-epubPubidUriStub.xml"/>
-        <topicref
-          href="d4p-users-guide/epub-plugin/reference/ant-parm-epubTempDir.xml"/>
-        <topicref
-          href="d4p-users-guide/epub-plugin/reference/ant-parm-imagesOutputDir.xml"/>
-        <topicref
-          href="d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicClassSpec.xml"/>
-        <topicref
-          href="d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicTitleClassSpec.xml"/>
-        <topicref
-          href="d4p-users-guide/epub-plugin/reference/ant-parm-topicsOutputDir.xml"/>
-      </topicref>
-    </topicref>
-  </topicgroup>
-</map>
+        href="d4p-users-guide/backmatter/colophon.xml"/>
+    </backmatter>
+  </publication>
+</pubmap>

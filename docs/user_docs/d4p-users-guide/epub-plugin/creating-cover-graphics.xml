@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">
+<concept id="conceptId">
+ <title>Creating Cover Graphics and Covers</title>
+ <shortdesc>Some readers and book libraries, such as iBooks, have special conventions for cover graphics.</shortdesc>
+ <conbody>
+  <p>Some EPUB readers and library systems have special conventions for covers and cover graphics that are used to provide a graphic or icon for the book. In addition, you may want to generate or provide a cover page that serves as the first page in play order for the EPUB.</p>
+    <p>For example, with iBooks, if you put the metadata entry <codeph>&lt;meta name="cover" content="coverimage"/></codeph> in your EPUB's OPF file (the main manifest), where "coverimage" is the manifest ID of an included graphic, then iBooks will use that graphic in the iBooks bookshelf in iTunes and in iBooks, rather than the default cover graphic. Other readers and EPUB libraries have similar features.</p>
+    <p>The EPUB transform provides several ways to specify the cover graphic:<ul>
+      <li>You can specify the graphic as a parameter to the generation process (<xref
+        href="reference/ant-parm-coverGraphicFile.xml#referenceId"
+        format="dita"/>)</li>
+      <li>You can include a <codeph>&lt;data></codeph> element with a @name value of "covergraphic" in the root map's <codeph>&lt;topicmeta></codeph> element, where the value or content of the <codeph>&lt;data></codeph> element is the absolute or relative path (from the map) of the graphic to use.</li>
+      <li>You can use the DITA for Publishers <codeph>&lt;epub-cover-graphic></codeph> element within the <codeph>&lt;covers></codeph> section of a publication map to point to the cover graphic.</li>
+      <li>You can implement a Toolkit plugin that extends the base EPUB generation transform and override the template for <codeph>map</codeph> in the mode "get-cover-graphic-uri". For example, you may have an existing convention for representing cover graphics in your publications.</li>
+      </ul></p>
+    <p>TBD: Tips about graphics for EPUBs in different readers. If anyone knows anything useful, please let me know—Eliot.</p>
+ </conbody>
+</concept>

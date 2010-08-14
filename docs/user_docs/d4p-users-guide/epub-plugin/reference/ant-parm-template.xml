@@ -3,6 +3,13 @@
 <reference id="referenceId">
   <title>epub.xxx Ant parameter</title>
   <shortdesc/>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>transformation parameters<indexterm/></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
   <refbody>
     <section
       spectitle="Value">
