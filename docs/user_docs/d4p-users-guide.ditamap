@@ -2,7 +2,8 @@
 <!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
 <pubmap>
   <pubtitle> <mainpubtitle>DITA For Publishers User Guide</mainpubtitle> </pubtitle>
-  <pubmeta> <author>W. Eliot Kimber</author> <keywords> <indexterm/> </keywords> <prodinfo>
+  <pubmeta> <author>W. Eliot Kimber</author> <keywords> <indexterm/>
+    <indexterm>Word<index-see>MS Word</index-see></indexterm> </keywords> <prodinfo>
     <prodname>DITA For Publishers</prodname>
     <vrmlist>
       <vrm
@@ -35,38 +36,54 @@
     </frontmatter>
     <pubbody>
       <chapter
+        href="d4p-users-guide/topics/intro-to-d4p.xml"/>
+      <part
         href="d4p-users-guide/introduction-chapter.xml">
-        <subsection
+        <chapter
           href="d4p-users-guide/tasks/plugin-installation.xml"/>
-      </chapter>
-      <chapter
-        href="d4p-users-guide/epub-plugin/generating-epubs.xml">
-        <subsection
-          href="d4p-users-guide/epub-plugin/generating-epubs-from-oxygen.xml"/>
-        <subsection
-          href="d4p-users-guide/epub-plugin/creating-cover-graphics.xml"/>
-        <subsection
-          href="d4p-users-guide/epub-plugin/epub-transtype-parameters-ref.xml">
-          <topicref
-            href="d4p-users-guide/epub-plugin/reference/ant-parm-coverGraphicFile.xml"/>
-          <topicref
-            href="d4p-users-guide/epub-plugin/reference/ant-parm-cssOutputDir.xml"/>
-          <topicref
-            href="d4p-users-guide/epub-plugin/reference/ant-parm-epubPubidUriStub.xml"/>
-          <topicref
-            href="d4p-users-guide/epub-plugin/reference/ant-parm-epubTempDir.xml"/>
-          <topicref
-            href="d4p-users-guide/epub-plugin/reference/ant-parm-imagesOutputDir.xml"/>
-          <topicref
-            href="d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicClassSpec.xml"/>
-          <topicref
-            href="d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicTitleClassSpec.xml"/>
-          <topicref
-            href="d4p-users-guide/epub-plugin/reference/ant-parm-topicsOutputDir.xml"/>
-        </subsection>
-        <abbrevlist
-          href="d4p-users-guide/epub-plugin/creating-opf-metadata.xml"/>
-      </chapter>
+        <chapter
+          href="d4p-users-guide/epub-plugin/generating-epubs.xml">
+          <subsection
+            href="d4p-users-guide/epub-plugin/generating-epubs-from-oxygen.xml"/>
+          <subsection
+            href="d4p-users-guide/epub-plugin/creating-cover-graphics.xml"/>
+          <abbrevlist
+            href="d4p-users-guide/epub-plugin/creating-opf-metadata.xml"/>
+          <subsection
+            href="d4p-users-guide/epub-plugin/epub-transtype-parameters-ref.xml">
+            <topicref
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-coverGraphicFile.xml"/>
+            <topicref
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-cssOutputDir.xml"/>
+            <topicref
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-epubPubidUriStub.xml"/>
+            <topicref
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-epubTempDir.xml"/>
+            <topicref
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-imagesOutputDir.xml"/>
+            <topicref
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicClassSpec.xml"/>
+            <topicref
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicTitleClassSpec.xml"/>
+            <topicref
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-topicsOutputDir.xml"/>
+          </subsection>
+        </chapter>
+      </part>
+      <part
+        href="d4p-users-guide/vocabulary-part/vocabulary-part.xml">
+        <chapter
+          href="d4p-users-guide/vocabulary-part/d4p-vocabulary-concepts.xml"/>
+        <chapter
+          href="d4p-users-guide/vocabulary-part/d4p-vocabulary-reference.xml"/>
+      </part>
+      <part
+        href="d4p-users-guide/transform-frameworks-part/transform-frameworks-part.xml">
+        <chapter
+          href="d4p-users-guide/transform-frameworks-part/word-to-dita-framework-chapter.xml"/>
+        <chapter
+          href="d4p-users-guide/transform-frameworks-part/dita-to-indesign-framework-chapter.xml"/>
+      </part>
     </pubbody>
     <backmatter>
       <topicref
