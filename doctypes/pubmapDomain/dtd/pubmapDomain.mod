@@ -394,8 +394,58 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
               navtitle
                    CDATA
                    #IMPLIED
-               %topicref-atts;
-              %univ-atts;"
+              collection-type 
+                        (choice | 
+                         family | 
+                         sequence | 
+                         unordered |
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              type 
+                        CDATA 
+                                  #IMPLIED
+              scope 
+                        (external | 
+                         local | 
+                         peer | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              locktitle 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              format 
+                        CDATA 
+                                  #IMPLIED
+              linking 
+                        (none | 
+                         normal | 
+                         sourceonly | 
+                         targetonly |
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              toc 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              print 
+                        (no | 
+                         printonly | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              search 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              chunk 
+                        CDATA 
+                                  #IMPLIED
+              %univ-atts;
+"
 >
 <!ELEMENT keydefs    %keydefs.content;>
 <!ATTLIST keydefs    %keydefs.attributes;>
@@ -425,7 +475,56 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
               navtitle
                    CDATA
                    #IMPLIED
-              %topicref-atts;
+              collection-type 
+                        (choice | 
+                         family | 
+                         sequence | 
+                         unordered |
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              type 
+                        CDATA 
+                                  #IMPLIED
+              scope 
+                        (external | 
+                         local | 
+                         peer | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              locktitle 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              format 
+                        CDATA 
+                                  #IMPLIED
+              linking 
+                        (none | 
+                         normal | 
+                         sourceonly | 
+                         targetonly |
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              toc 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              print 
+                        (no | 
+                         printonly | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              search 
+                        (no | 
+                         yes | 
+                         -dita-use-conref-target) 
+                                  #IMPLIED
+              chunk 
+                        CDATA 
+                                  #IMPLIED
               %univ-atts;"
 >
 <!ELEMENT keydef-group    %keydef-group.content;>
