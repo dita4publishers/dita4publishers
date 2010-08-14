@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
 <concept id="conceptId">
   <title>EPUB Transformation Parameters</title>
   <shortdesc>EPUB-specific parameters for the EPUB transformation type</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>transformation parameters</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
   <conbody>
     <p>The EPUB transformation type allows a number of parameters that configure the details of the generated EPUB. Available options include:<ul
       id="ul_afc9168f-c20e-44a4-a21c-8f1317200eb8">

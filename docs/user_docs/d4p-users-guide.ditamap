@@ -19,7 +19,14 @@
   </keydefs>
   <publication>
     <covers>
-      <back-cover
+      <epub-cover-graphic
+        href="d4p-users-guide/images/epub-cover-graphic.jpg"
+        format="jpg">
+        <topicmeta>
+          <navtitle>Cover Graphic</navtitle>
+        </topicmeta>
+      </epub-cover-graphic>
+      <front-cover
         href="d4p-users-guide/frontmatter/coverpage.xml"/>
     </covers>
     <frontmatter>

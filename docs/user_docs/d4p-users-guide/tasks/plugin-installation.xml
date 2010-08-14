@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/task.dtd">
+<!DOCTYPE task PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:task" "task.dtd">
 <task id="taskId">
     <title>Installing the Toolkit Plugins</title>
     <shortdesc>How to install the DITA for Publishers Toolkit plugins to the Open Toolkit.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>toolkit plugins<indexterm>installing</indexterm></indexterm>
+        <indexterm>installing toolkit plugins</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
     <taskbody>
         <context>
             <p>All the plugins are distributed as Zip files. Installation is basically unzipping the Zips into the Toolkit's <filepath>plugins</filepath> directory and then running the <filepath>integrator.xml</filepath> Ant task. </p>
