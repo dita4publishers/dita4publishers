@@ -65,7 +65,8 @@
 <!-- ============================================================= -->
 
 <!ENTITY % pub-component-map.content 
- "((%topicmeta;)?,
+ "((%title;)?,
+   (%topicmeta;)?,
    (%keydefs;)?,
    (
     (%abbrevlist;) |
