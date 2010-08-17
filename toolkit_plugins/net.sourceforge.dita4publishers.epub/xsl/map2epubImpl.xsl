@@ -60,6 +60,8 @@
   <xsl:include href="topicHrefFixup.xsl"/>
   <xsl:include href="graphicMap2AntCopyScript.xsl"/>
   <xsl:include href="epubHtmlOverrides.xsl"/>
+
+  <xsl:include href="map2epubD4PImpl.xsl"/>
   
   <!-- Initial part of ePUB ID URI. Should reflect the book's
        owner.
@@ -141,6 +143,7 @@
       + titleOnlyTopicTitleClassSpec = "<xsl:sequence select="$titleOnlyTopicTitleClassSpec"/>"
       + topicsOutputDir = "<xsl:sequence select="$topicsOutputDir"/>"
 
+      + DITAEXT         = "<xsl:sequence select="$DITAEXT"/>"
       + WORKDIR         = "<xsl:sequence select="$WORKDIR"/>"
       + PATH2PROJ       = "<xsl:sequence select="$PATH2PROJ"/>"
       + KEYREF-FILE     = "<xsl:sequence select="$KEYREF-FILE"/>"
@@ -214,6 +217,11 @@
         </xsl:otherwise>
       </xsl:choose>    
 </xsl:variable>  
+  
+  <xsl:template match="/">
+    <xsl:message> + [DEBUG] Root template in default mode. Root element is "<xsl:sequence select="name(/*[1])"/>", class="<xsl:sequence select="string(/*[1]/@class)"/>:</xsl:message>
+    <xsl:apply-templates/>
+  </xsl:template>
   
   <xsl:template match="/*[df:class(., 'map/map')]">
     

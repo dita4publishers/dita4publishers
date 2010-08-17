@@ -39,7 +39,7 @@
         </xsl:when>
         <xsl:otherwise>
           <xsl:message> + [WARN] Unable to resolve href '<xsl:sequence select="string(.)"/>' to a topic</xsl:message>
-          <xsl:sequence select="'unresolvable-reference.xml'"/>
+          <xsl:sequence select="concat('unresolvable-reference', $DITAEXT)"/>
         </xsl:otherwise>
       </xsl:choose>      
     </xsl:variable>

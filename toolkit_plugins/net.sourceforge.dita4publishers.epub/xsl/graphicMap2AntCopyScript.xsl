@@ -58,7 +58,8 @@
     <xsl:if test="false()">    
       <xsl:message> + [DEBUG] graphic-map-item: $toFile="<xsl:sequence select="$toFile"/>"</xsl:message>
     </xsl:if>
-    <copy toFile="{$toFile}">
+    <copy toFile="{$toFile}"
+    >
       <fileset dir="{$sourceDir}">
         <include name="{relpath:getName(@input-url)}"/>
       </fileset>

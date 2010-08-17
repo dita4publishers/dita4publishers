@@ -42,6 +42,8 @@
     indent="yes"
   />
   
+  
+  
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-content">
     <xsl:message> + [INFO] Generating content...</xsl:message>
     <xsl:for-each-group select=".//*[df:isTopicRef(.) and not(@processing-role = 'resource-only')]"
@@ -128,11 +130,51 @@
     
     <xsl:message> + [INFO] Writing topic <xsl:sequence select="document-uri(root(.))"/> to HTML file "<xsl:sequence select="relpath:newFile($topicsOutputDir, relpath:getName($resultUri))"/>"...</xsl:message>
     <xsl:variable name="htmlNoNamespace" as="node()*">
-      <xsl:apply-templates select="."/>      
+      <xsl:apply-templates select="." mode="map-driven-content-processing"/>      
     </xsl:variable>
     <xsl:result-document format="topic-html" href="{$resultUri}" exclude-result-prefixes="opf">
       <xsl:apply-templates select="$htmlNoNamespace" mode="html2xhtml"/>
     </xsl:result-document>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/topic')]" priority="100" mode="map-driven-content-processing">
+    <!-- This template is a general dispatch template that applies
+      templates to the topicref in a distinct mode so processors
+      can do topic output processing based on the topicref context
+      if the want. -->
+    <xsl:param name="topicref" as="element()?" tunnel="yes"/>
+    <xsl:message> + [DEBUG] #default: general topic processing template. Got topicref type "<xsl:sequence select="name($topicref)"/>", topic type "<xsl:sequence select="name(.)"/>"</xsl:message>
+    <xsl:choose>
+      <xsl:when test="$topicref">
+        <xsl:apply-templates select="$topicref" mode="topicref-driven-content">
+          <xsl:with-param name="topic" select="." as="element()?"/>
+        </xsl:apply-templates>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:message> + [DEBUG] #default: general topic processing template. Applying imports...
+        </xsl:message>
+        <!-- Do default processing -->
+        <xsl:apply-templates select="."/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
+  <xsl:template mode="topicref-driven-content" match="*[df:class(., 'map/topicref')]">
+    <!-- Default topicref-driven content template. Simply applies normal processing
+      in the default context to the topic parameter. -->
+    <xsl:param name="topic" as="element()?"/>
+    <xsl:message> + [DEBUG] topicref-driven-content: dispatch template. Got topicref type "<xsl:sequence select="name(.)"/>", topic type "<xsl:sequence select="name($topic)"/>"</xsl:message>
+    <xsl:for-each select="$topic">
+      <!-- Process the topic in the default mode, meaning the base Toolkit-provided
+        HTML output processing.
+        
+        By providing the topicref as a tunneled parameter it makes it available
+        to custom extensions to the base Toolkit processing.
+      -->
+      <xsl:apply-templates select=".">
+        <xsl:with-param name="topicref" select="()" as="element()?" tunnel="yes"></xsl:with-param>
+      </xsl:apply-templates>
+    </xsl:for-each>
   </xsl:template>
   
   <xsl:template match="
@@ -145,6 +187,7 @@
     <xsl:message> + [DEBUG] Found an index item in topic content: [<xsl:sequence select="string(.)"/>]</xsl:message>
     <a id="{generate-id()}" class="indexterm-anchor"/>
   </xsl:template>
+  
   
   <xsl:template match="text()" mode="generate-content"/>
   
