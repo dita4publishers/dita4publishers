@@ -1,0 +1,29 @@
+<!-- =============================================================
+     DITA For Publishers Enumeration Domain
+     
+     Defines specializations of data and topicref for defining and
+     specifying both literal (invariant) and automatic enumerators
+     for use in content, for example, to capture numbers from original
+     content or to provide author control over number of things
+     specific to a given publication.
+     
+     Copyright (c) 2010 DITA For Publishers
+     
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    Enumeration DOMAIN ENTITIES                -->
+<!-- ============================================================= -->
+
+<!ENTITY % d4p_enumerationTopic-d-data
+   "d4pEnumerator
+   "
+>
+
+<!ENTITY   d4p_enumerationTopic-d-att     
+  "(topic d4p_enumerationTopic-d)"
+>
+
+
+<!-- ================== End Enumeration Topic Domain Entities ============ -->

@@ -19,31 +19,43 @@
 
 <!ENTITY % d4p_formatting-d-dec     PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_formattingDomain:entities" 
-"../../d4p_formattingDomain/dtd/d4p_formattingDomain.ent"                                                
+"d4p_formattingDomain.ent"                                                
 >
 %d4p_formatting-d-dec;
 
+<!ENTITY % d4p_enumerationTopic-d-dec     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:entities:dtd:dita:d4p_enumerationTopicDomain:entities" 
+"d4p_enumerationTopicDomain.ent"                                                
+>
+%d4p_enumerationTopic-d-dec;
+
+<!ENTITY % d4p_simpleEnumeration-d-dec     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:entities:dtd:dita:d4p_simpleEnumerationDomain:entities" 
+"d4p_simpleEnumerationDomain.ent"                                                
+>
+%d4p_simpleEnumeration-d-dec;
+
 <!ENTITY % d4p_classification-d-dec     PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_classificationDomain:entities" 
-"../../d4p_classificationDomain/dtd/d4p_classificationDomain.ent"                                                
+"d4p_classificationDomain.ent"                                                
 >
 %d4p_classification-d-dec;
 
 <!ENTITY % d4p_pubcontent-d-dec     PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_pubcontentDomain:entities" 
-"../../d4p_pubcontentDomain/dtd/d4p_pubcontentDomain.ent"                                                
+"d4p_pubcontentDomain.ent"                                                
 >
 %d4p_pubcontent-d-dec;
 
 <!ENTITY % d4p_verse-d-dec     PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_verseDomain:entities" 
-"../../d4p_pubcontentDomain/dtd/d4p_verseDomain.ent"                                                
+"d4p_verseDomain.ent"                                                
 >
 %d4p_verse-d-dec;
 
 <!ENTITY % xml-d-dec     
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:xml:entities" 
-         "../../xml_domain/dtd/xmlDomain.ent"                                                
+         "xmlDomain.ent"                                                
 >
 %xml-d-dec;
 

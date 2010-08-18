@@ -23,12 +23,13 @@
    %d4p_pubcontent-d-p;
   "      
 >
-<!--
 <!ENTITY % data
-  "data
+  "data | 
+   %d4p_enumerationTopic-d-data; | 
+   %d4p_simpleEnumeration-d-data;
   "
 >
--->
+
 <!ENTITY % image
   "image |
    %d4p_formatting-d-image;
