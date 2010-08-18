@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic
+  id="topic-id">
+  <title>
+    <d4pEnumerator>
+      <!-- Specifies the specific enumeration stream this enumerator is part of. 
+           The value is a "stream name", e.g., "partNumber", "chapterNumber", etc.
+      -->
+      <dp4EnumeratorStream value="partNumber"/>
+      <!-- The ordinal value of the enumerator. This value is intended to capture
+        values that should not be generated, e.g., values in original documents
+        the markup intends to represent exactly.           
+      -->
+      <d4pEnumeratorOrdinalValue value="1"/> 
+      <!-- The value of the enumerator as displayed, as distinct for the ordinal
+           value of the enumerator.       
+      -->
+      <d4pEnumeratorDisplayValue>I</d4pEnumeratorDisplayValue> 
+      <!-- The enumeration format string as for the XSLT xsl:number instruction. 
+           If not specified here then it's taken from the stream definition, if any,
+           or inferred from the display value, if possible (e.g., as though the
+           display value was an @format value).
+      -->
+      <d4pEnumeratorFormat value="I"/>
+    </d4pEnumerator>
+    Enumerator Test
+  </title>
+  <shortdesc/>
+  <body>
+    <p/>
+  </body>
+  <topic
+    id="topic_0e777c1f-aab0-4e6e-8831-7d4f647ce68f">
+    <title><d4pEnumerator>
+      <dp4EnumeratorStream
+        value="sectionNumber"/>
+      <d4pEnumeratorOrdinalValue
+        value="1"
+        name="d4pEnumeratorOrdinalValue"/>
+      </d4pEnumerator><data>this is data</data><d4pSimpleEnumerator>Part 1.</d4pSimpleEnumerator></title>
+  </topic>
+</topic>
