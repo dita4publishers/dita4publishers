@@ -12,7 +12,7 @@
      components. This allows you to define completely different
      organizations of publication-specific topicref types.
      
-     Copyright (c) 2009 DITA For Publishers
+     Copyright (c) 2009, 2010 DITA For Publishers
 
      ============================================================= -->
 
@@ -76,6 +76,7 @@
  "((%pubtitle;)?, 
    (%pubmeta;)?,
    (%keydefs;)?,
+   (%topicref;)*,
    ((%mapref;) |
     ((%publication;) |
      (%publication-mapref;))|
@@ -125,7 +126,7 @@
   %arch-atts;
   domains    
     CDATA                
-    "(map pubmap-d) &included-domains;"    
+    "(map mapgroup-d) (map pubmap-d) (map pubmeta-d) (map d4p_enumerationMap-d) &included-domains;"    
 >
 
 

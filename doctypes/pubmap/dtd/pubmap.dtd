@@ -50,6 +50,25 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap"
 >
 %pubmap-d-dec;
 
+<!ENTITY % pubmeta-d-dec 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pubmetadataDomain" 
+"pubmetadataDomain.ent"                                                 
+>
+%pubmeta-d-dec;
+
+<!ENTITY % d4p_enumerationMap-d-dec     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:entities:dtd:dita:d4p_enumerationMap:entities" 
+"d4p_enumerationMapDomain.ent"                                                
+>
+%d4p_enumerationMap-d-dec;
+
+<!ENTITY % d4p_simpleEnumeration-d-dec     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:entities:dtd:dita:d4p_simpleEnumerationDomain:entities" 
+"d4p_simpleEnumerationDomain.ent"                                                
+>
+%d4p_simpleEnumeration-d-dec;
+
 <!ENTITY % indexing-d-dec     PUBLIC 
 "-//OASIS//ENTITIES DITA Indexing Domain//EN" 
 "indexingDomain.ent"                                                 >
@@ -70,11 +89,12 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap"
                         extension was declared                     -->
 <!ENTITY % topicref     "topicref |
                          %mapgroup-d-topicref; |
-                         %pubmap-d-topicref;
+                         %pubmap-d-topicref; |
+                         %d4p_enumerationMap-d-topicref;
                         ">
 
 <!ENTITY % topicmeta "topicmeta |
-                      %pubmap-d-topicmeta;
+                      %pubmeta-d-topicmeta;
 
                       ">
 
@@ -86,6 +106,11 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap"
                          %indexing-d-index-base;
                         ">
 
+<!ENTITY % data
+  "data | 
+   %d4p_simpleEnumeration-d-data;
+  "
+>
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
@@ -99,8 +124,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap"
 <!--                    Must be declared ahead of the DTDs, which
                         puts @domains first in order               -->
 <!ENTITY included-domains 
-                        "&pubmap-d-att;
-                         &mapgroup-d-att;
+                        "&d4p_simpleEnumerationMap-d-att;
                         ">
 
 <!-- ============================================================= -->
@@ -123,21 +147,39 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap"
 "pubmapDomain.mod"                                                        >
 %pubmap-d-def;
 
+<!ENTITY % pubmeta-d-def PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmetadataDomain" 
+"pubmetadataDomain.mod"                                                        >
+%pubmeta-d-def;
+
+<!ENTITY % d4p_enumerationMap-d-def     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dita:modules:d4p_enumerationMap" 
+"d4p_enumerationMapDomain.mod"
+>
+%d4p_enumerationMap-d-def;
+
+<!ENTITY % d4p_simpleEnumeration-d-def     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dita:modules:d4p_simpleEnumerationDomain" 
+"d4p_simpleEnumeration.mod"
+>
+%d4p_simpleEnumeration-d-def;
+
+
 <!ENTITY % pubmap-type PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmap" 
 "pubmap.mod"                                                      >
 %pubmap-type;
-
-<!ENTITY % indexing-d-def     
-  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Indexing Domain//EN" 
-         "../../base/dtd/indexingDomain.mod"
->%indexing-d-def;
 
 
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ELEMENT INTEGRATION                 -->
 <!-- ============================================================= -->
+
+<!ENTITY % indexing-d-def     
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Indexing Domain//EN" 
+         "../../base/dtd/indexingDomain.mod"
+>%indexing-d-def;
 
 
 <!-- ================== End DITA pubmap DTD  ==================== -->

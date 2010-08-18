@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= 
+
+     DITA for Publishers Publication Metadata Map Domain
+     
+     Copyright (c) 2010 DITA for Publishers
+
+     =============================================================
+-->
+
+
+<!-- ============================================================= -->
+<!--                    PUBMAP ENTITIES                            -->
+<!-- ============================================================= -->
+
+
+<!ENTITY % pubmeta-d-topicmeta
+"pubmeta
+"
+>
+
+<!ENTITY pubmeta-d-att "(map pubmeta-d)">
+
+
+<!-- ================== End Pub Metadata Domain Entities ===================== -->
