@@ -38,67 +38,67 @@
     </div>
   </xsl:template>
   
-  <xsl:template match="*[df:class(., 'pubmap-d/publisherinformation')]/*[df:class(., 'pubmap-d/organization')]" priority="10">
+  <xsl:template match="*[df:class(., 'pubmeta-d/publisherinformation')]/*[df:class(., 'pubmeta-d/organization')]" priority="10">
     <p class="{df:getHtmlClass(.)}">
       <xsl:text>Publisher: </xsl:text>
       <xsl:apply-templates/>
     </p>
   </xsl:template>
   
-  <xsl:template match="*[df:class(., 'pubmap-d/isbn')]">
+  <xsl:template match="*[df:class(., 'pubmeta-d/isbn')]">
     <p class="{df:getHtmlClass(.)}">
       <xsl:text>ISBN: </xsl:text>
       <xsl:apply-templates/>
     </p>
   </xsl:template>
   
-  <xsl:template match="*[df:class(., 'pubmap-d/isbn-10')]">
+  <xsl:template match="*[df:class(., 'pubmeta-d/isbn-10')]">
     <p class="{df:getHtmlClass(.)}">
       <xsl:text>ISBN-10: </xsl:text>
       <xsl:apply-templates/>
     </p>
   </xsl:template>
   
-  <xsl:template match="*[df:class(., 'pubmap-d/isbn-13')]">
+  <xsl:template match="*[df:class(., 'pubmeta-d/isbn-13')]">
     <p class="{df:getHtmlClass(.)}">
       <xsl:text>ISBN-13: </xsl:text>
       <xsl:apply-templates/>
     </p>
   </xsl:template>
 
-  <xsl:template match="*[df:class(., 'pubmap-d/printlocation')]">
+  <xsl:template match="*[df:class(., 'pubmeta-d/printlocation')]">
     <p class="{df:getHtmlClass(.)}">
       <xsl:text>Printed location: </xsl:text>
       <xsl:apply-templates/>
     </p>
   </xsl:template>
   
-  <xsl:template match="*[df:class(., 'pubmap-d/pubrights')]">
+  <xsl:template match="*[df:class(., 'pubmeta-d/pubrights')]">
     <p class="{df:getHtmlClass(.)}">
       <xsl:apply-templates/>
     </p>
   </xsl:template>
   
-  <xsl:template match="*[df:class(., 'pubmap-d/publicense')]">
+  <xsl:template match="*[df:class(., 'pubmeta-d/publicense')]">
     <p class="{df:getHtmlClass(.)}">
       <xsl:apply-templates/>
     </p>
   </xsl:template>
   
-  <xsl:template match="*[df:class(., 'pubmap-d/copyrfirst')]">
+  <xsl:template match="*[df:class(., 'pubmeta-d/copyrfirst')]">
     <xsl:text>Copyright (c) </xsl:text><xsl:apply-templates/><xsl:text> </xsl:text>
   </xsl:template>
   
   <xsl:template match="
-    *[df:class(., 'pubmap-d/publisherinformation')] |
-    *[df:class(., 'pubmap-d/pubid')] |
-    *[df:class(., 'pubmap-d/organization')] |
-    *[df:class(., 'pubmap-d/pubowner')] 
+    *[df:class(., 'pubmeta-d/publisherinformation')] |
+    *[df:class(., 'pubmeta-d/pubid')] |
+    *[df:class(., 'pubmeta-d/organization')] |
+    *[df:class(., 'pubmeta-d/pubowner')] 
     ">
     <xsl:apply-templates/>
   </xsl:template>
   
-  <xsl:template match="*[df:class(., 'pubmap-d/locnumber')]">
+  <xsl:template match="*[df:class(., 'pubmeta-d/locnumber')]">
     <p class="{df:getHtmlClass(.)}">
       <xsl:text>Library of Congress Control Number: </xsl:text>
       <xsl:apply-templates/>
