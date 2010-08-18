@@ -5,8 +5,12 @@
   
   <nextCatalog catalog="common/catalog.xml"/>
   <nextCatalog catalog="d4p_classificationDomain/catalog.xml"/>
+  <nextCatalog catalog="d4p_enumerationBaseTopicDomain/catalog.xml"/>
+  <nextCatalog catalog="d4p_enumerationTopicDomain/catalog.xml"/>
+  <nextCatalog catalog="d4p_enumerationMapDomain/catalog.xml"/>
   <nextCatalog catalog="d4p_formattingDomain/catalog.xml"/>
   <nextCatalog catalog="d4p_pubcontentDomain/catalog.xml"/>
+  <nextCatalog catalog="d4p_simpleEnumerationDomain/catalog.xml"/>
   <nextCatalog catalog="d4p_verseDomain/catalog.xml"/>
   <nextCatalog catalog="pubmapDomain/catalog.xml"/>
   
