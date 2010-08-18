@@ -820,56 +820,56 @@
 
 <!-- ph types: -->
 
-<!ATTLIST completed    %global-atts; class CDATA "+ topic/ph pubmap-d/completed ">
-<!ATTLIST day          %global-atts; class CDATA "+ topic/ph pubmap-d/day ">
-<!ATTLIST month        %global-atts; class CDATA "+ topic/ph pubmap-d/month ">
-<!ATTLIST revisionid   %global-atts; class CDATA "+ topic/ph pubmap-d/revisionid ">
-<!ATTLIST started      %global-atts; class CDATA "+ topic/ph pubmap-d/started ">
-<!ATTLIST summary      %global-atts; class CDATA "+ topic/ph pubmap-d/summary ">
-<!ATTLIST year         %global-atts; class CDATA "+ topic/ph pubmap-d/year ">
+<!ATTLIST completed    %global-atts; class CDATA "+ topic/ph pubmeta-d/completed ">
+<!ATTLIST day          %global-atts; class CDATA "+ topic/ph pubmeta-d/day ">
+<!ATTLIST month        %global-atts; class CDATA "+ topic/ph pubmeta-d/month ">
+<!ATTLIST revisionid   %global-atts; class CDATA "+ topic/ph pubmeta-d/revisionid ">
+<!ATTLIST started      %global-atts; class CDATA "+ topic/ph pubmeta-d/started ">
+<!ATTLIST summary      %global-atts; class CDATA "+ topic/ph pubmeta-d/summary ">
+<!ATTLIST year         %global-atts; class CDATA "+ topic/ph pubmeta-d/year ">
 
 <!-- topicmeta types: -->
 
-<!ATTLIST pubmeta      %global-atts; class CDATA "+ map/topicmeta pubmap-d/pubmeta ">
+<!ATTLIST pubmeta      %global-atts; class CDATA "+ map/topicmeta pubmeta-d/pubmeta ">
 
 <!-- publisher types: -->
 
-<!ATTLIST publisherinformation %global-atts; class CDATA "+ topic/publisher pubmap-d/publisherinformation ">
+<!ATTLIST publisherinformation %global-atts; class CDATA "+ topic/publisher pubmeta-d/publisherinformation ">
 
 <!-- data types: -->
 
-<!ATTLIST approved         %global-atts; class CDATA "+ topic/data pubmap-d/approved ">
-<!ATTLIST copyrfirst       %global-atts; class CDATA "+ topic/data pubmap-d/copyrfirst ">
-<!ATTLIST copyrlast        %global-atts; class CDATA "+ topic/data pubmap-d/copyrlast ">
-<!ATTLIST edited           %global-atts; class CDATA "+ topic/data pubmap-d/edited ">
-<!ATTLIST edition          %global-atts; class CDATA "+ topic/data pubmap-d/edition ">
-<!ATTLIST doi              %global-atts; class CDATA "+ topic/data pubmap-d/doi ">
-<!ATTLIST isbn             %global-atts; class CDATA "+ topic/data pubmap-d/isbn ">
-<!ATTLIST isbn-10          %global-atts; class CDATA "+ topic/data pubmap-d/isbn-10 ">
-<!ATTLIST isbn-13          %global-atts; class CDATA "+ topic/data pubmap-d/isbn-13 ">
-<!ATTLIST issn             %global-atts; class CDATA "+ topic/data pubmap-d/issn ">
-<!ATTLIST issn-13          %global-atts; class CDATA "+ topic/data pubmap-d/issn-13 ">
-<!ATTLIST issn-10          %global-atts; class CDATA "+ topic/data pubmap-d/issn-13 ">
-<!ATTLIST issue            %global-atts; class CDATA "+ topic/data pubmap-d/issue ">
-<!ATTLIST locnumber        %global-atts; class CDATA "+ topic/data pubmap-d/locnumber ">
-<!ATTLIST maintainer       %global-atts; class CDATA "+ topic/data pubmap-d/maintainer ">
-<!ATTLIST organization     %global-atts; class CDATA "+ topic/data pubmap-d/organization ">
-<!ATTLIST person           %global-atts; class CDATA "+ topic/data pubmap-d/person ">
-<!ATTLIST printlocation    %global-atts; class CDATA "+ topic/data pubmap-d/printlocation ">
-<!ATTLIST pubchangehistory %global-atts; class CDATA "+ topic/data pubmap-d/pubchangehistory ">
-<!ATTLIST pubevent         %global-atts; class CDATA "+ topic/data pubmap-d/pubevent ">
-<!ATTLIST pubeventtype     %global-atts; class CDATA "+ topic/data pubmap-d/pubeventtype ">
-<!ATTLIST pubid            %global-atts; class CDATA "+ topic/data pubmap-d/pubid ">
-<!ATTLIST pubnumber        %global-atts; class CDATA "+ topic/data pubmap-d/pubnumber ">
-<!ATTLIST pubowner         %global-atts; class CDATA "+ topic/data pubmap-d/pubowner ">
-<!ATTLIST pubpartno        %global-atts; class CDATA "+ topic/data pubmap-d/pubpartno ">
-<!ATTLIST pubrestriction   %global-atts; class CDATA "+ topic/data pubmap-d/pubrestriction ">
-<!ATTLIST publicense       %global-atts; class CDATA "+ topic/data pubmap-d/publicense ">
-<!ATTLIST pubrights        %global-atts; class CDATA "+ topic/data pubmap-d/pubrights ">
-<!ATTLIST published        %global-atts; class CDATA "+ topic/data pubmap-d/published ">
-<!ATTLIST publishtype      %global-atts; class CDATA "+ topic/data pubmap-d/publishtype ">
-<!ATTLIST reviewed         %global-atts; class CDATA "+ topic/data pubmap-d/reviewed ">
-<!ATTLIST tested           %global-atts; class CDATA "+ topic/data pubmap-d/tested ">
-<!ATTLIST volume           %global-atts; class CDATA "+ topic/data pubmap-d/volume ">
+<!ATTLIST approved         %global-atts; class CDATA "+ topic/data pubmeta-d/approved ">
+<!ATTLIST copyrfirst       %global-atts; class CDATA "+ topic/data pubmeta-d/copyrfirst ">
+<!ATTLIST copyrlast        %global-atts; class CDATA "+ topic/data pubmeta-d/copyrlast ">
+<!ATTLIST edited           %global-atts; class CDATA "+ topic/data pubmeta-d/edited ">
+<!ATTLIST edition          %global-atts; class CDATA "+ topic/data pubmeta-d/edition ">
+<!ATTLIST doi              %global-atts; class CDATA "+ topic/data pubmeta-d/doi ">
+<!ATTLIST isbn             %global-atts; class CDATA "+ topic/data pubmeta-d/isbn ">
+<!ATTLIST isbn-10          %global-atts; class CDATA "+ topic/data pubmeta-d/isbn-10 ">
+<!ATTLIST isbn-13          %global-atts; class CDATA "+ topic/data pubmeta-d/isbn-13 ">
+<!ATTLIST issn             %global-atts; class CDATA "+ topic/data pubmeta-d/issn ">
+<!ATTLIST issn-13          %global-atts; class CDATA "+ topic/data pubmeta-d/issn-13 ">
+<!ATTLIST issn-10          %global-atts; class CDATA "+ topic/data pubmeta-d/issn-13 ">
+<!ATTLIST issue            %global-atts; class CDATA "+ topic/data pubmeta-d/issue ">
+<!ATTLIST locnumber        %global-atts; class CDATA "+ topic/data pubmeta-d/locnumber ">
+<!ATTLIST maintainer       %global-atts; class CDATA "+ topic/data pubmeta-d/maintainer ">
+<!ATTLIST organization     %global-atts; class CDATA "+ topic/data pubmeta-d/organization ">
+<!ATTLIST person           %global-atts; class CDATA "+ topic/data pubmeta-d/person ">
+<!ATTLIST printlocation    %global-atts; class CDATA "+ topic/data pubmeta-d/printlocation ">
+<!ATTLIST pubchangehistory %global-atts; class CDATA "+ topic/data pubmeta-d/pubchangehistory ">
+<!ATTLIST pubevent         %global-atts; class CDATA "+ topic/data pubmeta-d/pubevent ">
+<!ATTLIST pubeventtype     %global-atts; class CDATA "+ topic/data pubmeta-d/pubeventtype ">
+<!ATTLIST pubid            %global-atts; class CDATA "+ topic/data pubmeta-d/pubid ">
+<!ATTLIST pubnumber        %global-atts; class CDATA "+ topic/data pubmeta-d/pubnumber ">
+<!ATTLIST pubowner         %global-atts; class CDATA "+ topic/data pubmeta-d/pubowner ">
+<!ATTLIST pubpartno        %global-atts; class CDATA "+ topic/data pubmeta-d/pubpartno ">
+<!ATTLIST pubrestriction   %global-atts; class CDATA "+ topic/data pubmeta-d/pubrestriction ">
+<!ATTLIST publicense       %global-atts; class CDATA "+ topic/data pubmeta-d/publicense ">
+<!ATTLIST pubrights        %global-atts; class CDATA "+ topic/data pubmeta-d/pubrights ">
+<!ATTLIST published        %global-atts; class CDATA "+ topic/data pubmeta-d/published ">
+<!ATTLIST publishtype      %global-atts; class CDATA "+ topic/data pubmeta-d/publishtype ">
+<!ATTLIST reviewed         %global-atts; class CDATA "+ topic/data pubmeta-d/reviewed ">
+<!ATTLIST tested           %global-atts; class CDATA "+ topic/data pubmeta-d/tested ">
+<!ATTLIST volume           %global-atts; class CDATA "+ topic/data pubmeta-d/volume ">
 
 <!-- ================== End pub map domain ============================= -->
