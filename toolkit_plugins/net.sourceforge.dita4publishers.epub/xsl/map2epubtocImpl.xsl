@@ -227,7 +227,7 @@
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
     <xsl:if test="$tocDepth le $maxTocDepthInt">
       <xsl:variable name="titleOnlyTopicFilename" as="xs:string"
-        select="epubutil:getTopicheadHtmlResultTopicFilename(.)"
+        select="normalize-space(epubutil:getTopicheadHtmlResultTopicFilename(.))"
       />
       <xsl:variable name="rawNavPointTitle" as="xs:string*">
         <xsl:apply-templates select="." mode="nav-point-title"/>
@@ -237,11 +237,13 @@
         <navLabel>
           <text><xsl:sequence select="$rawNavPointTitle"/></text>
         </navLabel>
-        <content src="{
+        <xsl:variable name="contentUri" as="xs:string"
+          select="          
           if ($topicsOutputDir != '') 
           then concat($topicsOutputDir, '/', $titleOnlyTopicFilename) 
-          else $titleOnlyTopicFilename}
-          "/>                
+          else $titleOnlyTopicFilename"
+        />
+        <content src="{$contentUri}"/>                
         <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current">
           <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes"
             select="$tocDepth + 1"

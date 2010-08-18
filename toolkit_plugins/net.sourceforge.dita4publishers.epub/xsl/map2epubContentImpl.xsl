@@ -66,7 +66,7 @@
       <xsl:message> + [DEBUG] Handling topichead "<xsl:sequence select="df:getNavtitleForTopicref(.)"/>" in mode generate-content</xsl:message>
     </xsl:if>
     <xsl:variable name="topicheadFilename" as="xs:string"
-      select="epubutil:getTopicheadHtmlResultTopicFilename(.)" />
+      select="normalize-space(epubutil:getTopicheadHtmlResultTopicFilename(.))" />
     <xsl:variable name="generatedTopic" as="document-node()">
       <xsl:document>
         <topic id="{relpath:getNamePart($topicheadFilename)}"
@@ -143,7 +143,6 @@
       can do topic output processing based on the topicref context
       if the want. -->
     <xsl:param name="topicref" as="element()?" tunnel="yes"/>
-    <xsl:message> + [DEBUG] #default: general topic processing template. Got topicref type "<xsl:sequence select="name($topicref)"/>", topic type "<xsl:sequence select="name(.)"/>"</xsl:message>
     <xsl:choose>
       <xsl:when test="$topicref">
         <xsl:apply-templates select="$topicref" mode="topicref-driven-content">
@@ -151,8 +150,6 @@
         </xsl:apply-templates>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message> + [DEBUG] #default: general topic processing template. Applying imports...
-        </xsl:message>
         <!-- Do default processing -->
         <xsl:apply-templates select="."/>
       </xsl:otherwise>
@@ -163,7 +160,6 @@
     <!-- Default topicref-driven content template. Simply applies normal processing
       in the default context to the topic parameter. -->
     <xsl:param name="topic" as="element()?"/>
-    <xsl:message> + [DEBUG] topicref-driven-content: dispatch template. Got topicref type "<xsl:sequence select="name(.)"/>", topic type "<xsl:sequence select="name($topic)"/>"</xsl:message>
     <xsl:for-each select="$topic">
       <!-- Process the topic in the default mode, meaning the base Toolkit-provided
         HTML output processing.
@@ -184,7 +180,9 @@
      "
      priority="10"
     >
-    <xsl:message> + [DEBUG] Found an index item in topic content: [<xsl:sequence select="string(.)"/>]</xsl:message>
+    <xsl:if test="false()">
+      <xsl:message> + [DEBUG] Found an index item in topic content: [<xsl:sequence select="string(.)"/>]</xsl:message>
+    </xsl:if>
     <a id="{generate-id()}" class="indexterm-anchor"/>
   </xsl:template>
   

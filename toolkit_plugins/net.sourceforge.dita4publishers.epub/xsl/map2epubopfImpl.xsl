@@ -144,7 +144,7 @@
         </manifest>
         
         <spine toc="ncx">
-          <xsl:apply-templates mode="spine" select=".//*[df:class(., 'map/topicref') and @href]"/>
+          <xsl:apply-templates mode="spine" select=".//*[df:isTopicRef(.) or df:isTopicHead(.)]"/>
         </spine>
         
       </package>
