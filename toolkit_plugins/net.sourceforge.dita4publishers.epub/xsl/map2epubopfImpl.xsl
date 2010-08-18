@@ -86,8 +86,8 @@
           <dc:identifier id="bookid">
             <xsl:variable name="basePubId" as="xs:string*">
               <xsl:choose>
-                <xsl:when test="*[df:class(., 'pubmap-d/pubmeta')]/*[df:class(., 'pubmap-d/pubid')]">
-                  <xsl:apply-templates select="*[df:class(., 'pubmap-d/pubmeta')]/*[df:class(., 'pubmap-d/pubid')]"
+                <xsl:when test="*[df:class(., 'pubmeta-d/pubmeta')]/*[df:class(., 'pubmeta-d/pubid')]">
+                  <xsl:apply-templates select="*[df:class(., 'pubmeta-d/pubmeta')]/*[df:class(., 'pubmeta-d/pubid')]"
                     mode="bookid"
                   />
                 </xsl:when>
