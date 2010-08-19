@@ -135,7 +135,14 @@
           <navPoint id="{generate-id()}"
             > 
             <navLabel>
-              <text><xsl:value-of select="normalize-space($navPointTitle)"/></text>
+              <xsl:variable name="enumeration" as="xs:string?">
+                <xsl:apply-templates select="." mode="enumeration"/>
+              </xsl:variable>
+              <text><xsl:value-of select="
+                if ($enumeration = '')
+                   then normalize-space($navPointTitle)
+                   else concat($enumeration, ' ', $navPointTitle)
+                   "/></text>
             </navLabel>
             <content src="{$relativeUri}"/>
             <!-- Any subordinate topics in the currently-referenced topic are
@@ -235,7 +242,14 @@
       <navPoint id="{generate-id()}"
         > 
         <navLabel>
-          <text><xsl:sequence select="$rawNavPointTitle"/></text>
+          <xsl:variable name="enumeration" as="xs:string?">
+            <xsl:apply-templates select="." mode="enumeration"/>
+          </xsl:variable>
+          <text><xsl:value-of select="
+            if ($enumeration = '')
+            then normalize-space(rawNavPointTitle)
+            else concat($enumeration, ' ', rawNavPointTitle)
+            "/></text>
         </navLabel>
         <xsl:variable name="contentUri" as="xs:string"
           select="          
