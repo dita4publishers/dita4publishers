@@ -2,14 +2,16 @@
 <!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
 <pubmap>
   <pubtitle> <mainpubtitle>DITA For Publishers User Guide</mainpubtitle> </pubtitle>
-  <pubmeta> <author>W. Eliot Kimber</author> <keywords> <indexterm/>
-    <indexterm>Word<index-see>MS Word</index-see></indexterm> </keywords> <prodinfo>
+  <pubmeta> <author>W. Eliot Kimber</author> <keywords>
+    <indexterm/>
+    <indexterm>Word<index-see>MS Word</index-see></indexterm>
+    </keywords> <prodinfo>
     <prodname>DITA For Publishers</prodname>
     <vrmlist>
       <vrm
         version="0"
         release="9"
-        modification="0"/>
+        modification="2"/>
     </vrmlist>
     </prodinfo> <pubrights> <copyrfirst> <year>2010</year> </copyrfirst>
     <pubowner><organization>DITA For Publishers</organization></pubowner> </pubrights> </pubmeta>
@@ -34,7 +36,8 @@
       <topicref
         href="d4p-users-guide/topics/about-this-book.xml"/>
     </frontmatter>
-    <pubbody>
+    <pubbody
+      class="+ map/topicref pubmap-d/pubbody ">
       <chapter
         href="d4p-users-guide/topics/intro-to-d4p.xml"/>
       <part
@@ -85,6 +88,10 @@
           href="d4p-users-guide/transform-frameworks-part/dita-to-indesign-framework-chapter.xml"/>
       </part>
     </pubbody>
+    <appendixes>
+      <appendix
+        href="d4p-users-guide/appendixes/appendix-01.xml"/>
+    </appendixes>
     <backmatter>
       <topicref
         href="d4p-users-guide/backmatter/colophon.xml"/>
