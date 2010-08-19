@@ -28,6 +28,42 @@
       -->
     <xsl:apply-templates select="$topic"/>    
   </xsl:template>
+
+  <xsl:template mode="enumeration" match="*[df:class(., 'pubmap-d/part')]" 
+    priority="10">
+    <span class='enumeration_part'>
+      <xsl:text>Part </xsl:text><!-- FIXME: Enable localization of the string. -->
+      <xsl:number count="*[df:class(., 'pubmap-d/part')]" format="I" level="single"/>
+      <xsl:text>. </xsl:text>
+    </span>
+  </xsl:template>
+  
+  <xsl:template mode="enumeration" match="*[df:class(., 'pubmap-d/chapter')]">
+    <span class='enumeration_chapter'>
+      <xsl:text>Chapter </xsl:text><!-- FIXME: Enable localization of the string. -->
+      <xsl:number 
+        count="*[df:class(., 'pubmap-d/chapter')]" 
+        format="1." 
+        level="any" 
+        from="*[df:class(., 'pubmap-d/pubbody')]"/>
+      <xsl:text> </xsl:text>
+    </span>
+  </xsl:template>
+
+  <xsl:template mode="enumeration" match="*[df:class(., 'pubmap-d/appendix')]">
+    <span class='enumeration_chapter'>
+      <xsl:text>Appendix </xsl:text><!-- FIXME: Enable localization of the string. -->
+      <xsl:number 
+        count="*[df:class(., 'map/topicref') and not(@processing-role = 'resource-only')]" 
+        format="A." 
+        level="single" 
+        from="*[df:class(., 'pubmap-d/appendixes')]"/>
+      <xsl:text> </xsl:text>
+    </span>
+  </xsl:template>
+  
+  <!-- FIXME: Add rules for other topicrefs -->
+  
   <!-- TOC (.ncx) generation context -->
   
   <!-- OPF (.opf) generation context -->

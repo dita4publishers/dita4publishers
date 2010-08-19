@@ -158,8 +158,12 @@
   
   <xsl:template mode="topicref-driven-content" match="*[df:class(., 'map/topicref')]">
     <!-- Default topicref-driven content template. Simply applies normal processing
-      in the default context to the topic parameter. -->
+    in the default context to the topic parameter. -->
     <xsl:param name="topic" as="element()?"/>
+    <xsl:if test="false()">
+      <xsl:message> + [DEBUG] topicref-driven-content: topicref="<xsl:sequence select="name(.)"/>, class="<xsl:sequence select="string(@class)"/>"</xsl:message>
+    </xsl:if>
+    <xsl:variable name="topicref" select="." as="element()"/>
     <xsl:for-each select="$topic">
       <!-- Process the topic in the default mode, meaning the base Toolkit-provided
         HTML output processing.
@@ -168,7 +172,7 @@
         to custom extensions to the base Toolkit processing.
       -->
       <xsl:apply-templates select=".">
-        <xsl:with-param name="topicref" select="()" as="element()?" tunnel="yes"></xsl:with-param>
+        <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
       </xsl:apply-templates>
     </xsl:for-each>
   </xsl:template>
@@ -186,6 +190,33 @@
     <a id="{generate-id()}" class="indexterm-anchor"/>
   </xsl:template>
   
+  <!-- NOTE: the body of this template is taken from the base dita2xhtmlImpl.xsl -->
+  <xsl:template match="*[df:class(., 'topic/topic')]/*[df:class(., 'topic/title')]">
+    <xsl:param name="topicref" select="()" as="element()?" tunnel="yes"/>
+    <xsl:param name="headinglevel">
+      <xsl:choose>
+        <xsl:when test="count(ancestor::*[contains(@class,' topic/topic ')]) > 6">6</xsl:when>
+        <xsl:otherwise><xsl:value-of select="count(ancestor::*[contains(@class,' topic/topic ')])"/></xsl:otherwise>
+      </xsl:choose>
+    </xsl:param>
+    <xsl:variable name="htmlClass"  select="concat('topictitle', $headinglevel)" as="xs:string"/>
+    <xsl:element name="h{$headinglevel}">
+      <xsl:attribute name="class" select="$htmlClass"/>
+      <xsl:call-template name="commonattributes">
+        <xsl:with-param name="default-output-class" select="$htmlClass" as="xs:string"/>      
+      </xsl:call-template>
+      <xsl:apply-templates select="$topicref" mode="enumeration"/>
+      <xsl:apply-templates/>
+    </xsl:element>    
+  </xsl:template>
+  
+  
+  <!-- Enumeration mode manages generating numbers from topicrefs -->
+  <xsl:template match="* | text()" mode="enumeration">
+    <xsl:if test="false()">
+      <xsl:message> + [DEBUG] enumeration: catch-all template. Element="<xsl:sequence select="name(.)"/></xsl:message>
+    </xsl:if>
+  </xsl:template>
   
   <xsl:template match="text()" mode="generate-content"/>
   

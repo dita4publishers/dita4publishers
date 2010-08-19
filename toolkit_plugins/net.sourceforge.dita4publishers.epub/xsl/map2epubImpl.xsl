@@ -51,10 +51,10 @@
   
   
   <xsl:include href="map2epubCommon.xsl"/>
-  <xsl:include href="map2epubopfImpl.xsl"/>
+  <xsl:include href="map2epubOpfImpl.xsl"/>
   <xsl:include href="map2graphicMapImpl.xsl"/>
   <xsl:include href="map2epubContentImpl.xsl"/>
-  <xsl:include href="map2epubtocImpl.xsl"/>
+  <xsl:include href="map2epubTocImpl.xsl"/>
   <xsl:include href="map2epubIndexImpl.xsl"/>
   <xsl:include href="html2xhtmlImpl.xsl"/>
   <xsl:include href="topicHrefFixup.xsl"/>
@@ -62,6 +62,7 @@
   <xsl:include href="epubHtmlOverrides.xsl"/>
 
   <xsl:include href="map2epubD4PImpl.xsl"/>
+  <xsl:include href="map2epubBookmapImpl.xsl"/>
   
   <!-- Initial part of ePUB ID URI. Should reflect the book's
        owner.
