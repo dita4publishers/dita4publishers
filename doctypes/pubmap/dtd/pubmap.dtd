@@ -124,7 +124,8 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap"
 <!--                    Must be declared ahead of the DTDs, which
                         puts @domains first in order               -->
 <!ENTITY included-domains 
-                        "&d4p_simpleEnumerationMap-d-att;
+                        "
+                         &d4p_simpleEnumerationMap-d-att;
                         ">
 
 <!-- ============================================================= -->

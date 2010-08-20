@@ -47,6 +47,25 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pub-componen
 >
 %pubmap-d-dec;
 
+<!ENTITY % pubmeta-d-dec 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pubmetadataDomain" 
+"pubmetadataDomain.ent"                                                 
+>
+%pubmeta-d-dec;
+
+<!ENTITY % d4p_enumerationMap-d-dec     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:entities:dtd:dita:d4p_enumerationMap:entities" 
+"d4p_enumerationMapDomain.ent"                                                
+>
+%d4p_enumerationMap-d-dec;
+
+<!ENTITY % d4p_simpleEnumeration-d-dec     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:entities:dtd:dita:d4p_simpleEnumerationDomain:entities" 
+"d4p_simpleEnumerationDomain.ent"                                                
+>
+%d4p_simpleEnumeration-d-dec;
+
 <!ENTITY % indexing-d-dec     
   PUBLIC "-//OASIS//ENTITIES DITA 1.2 Indexing Domain//EN" 
          "../../base/dtd/indexingDomain.ent"                                                 
@@ -67,11 +86,12 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pub-componen
                         extension was declared                     -->
 <!ENTITY % topicref     "topicref |
                          %mapgroup-d-topicref; |
-                         %pubmap-d-topicref;
+                         %pubmap-d-topicref; |
+                         %d4p_enumerationMap-d-topicref;
                         ">
 
 <!ENTITY % topicmeta "topicmeta |
-                      %pubmap-d-topicmeta;
+                      %pubmeta-d-topicmeta;
 
                       ">
 
@@ -82,6 +102,12 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pub-componen
 <!ENTITY % index-base   "index-base | 
                          %indexing-d-index-base;
                         ">
+
+<!ENTITY % data
+  "data | 
+   %d4p_simpleEnumeration-d-data;
+  "
+>
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
@@ -95,10 +121,12 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pub-componen
 <!--                    Must be declared ahead of the DTDs, which
                         puts @domains first in order               -->
 <!ENTITY included-domains 
-                        "&pubmap-d-att;
+                        "
+                         &pubmap-d-att;
                          &mapgroup-d-att;
                          &indexing-d-att;
                          &pub-component-map-att;
+                         &d4p_simpleEnumerationMap-d-att;
                         ">
 
 <!-- ============================================================= -->
@@ -120,6 +148,24 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pub-componen
 "urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmapDomain" 
 "pubmapDomain.mod"                                                        >
 %pubmap-d-def;
+
+<!ENTITY % pubmeta-d-def PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmetadataDomain" 
+"pubmetadataDomain.mod"                                                        >
+%pubmeta-d-def;
+
+<!ENTITY % d4p_enumerationMap-d-def     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dita:modules:d4p_enumerationMap" 
+"d4p_enumerationMapDomain.mod"
+>
+%d4p_enumerationMap-d-def;
+
+<!ENTITY % d4p_simpleEnumeration-d-def     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dita:modules:d4p_simpleEnumerationDomain" 
+"d4p_simpleEnumeration.mod"
+>
+%d4p_simpleEnumeration-d-def;
+
 
 <!ENTITY % pub-component-map-type PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pub-component-map" 
