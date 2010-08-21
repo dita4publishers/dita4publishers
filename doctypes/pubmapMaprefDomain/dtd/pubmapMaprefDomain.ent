@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!--  MODULE:    DITA PubMap Mapref Domain Entity                  -->
+<!--  VERSION:   0.9                                               -->
+<!--  DATE:      July 2010                                         -->
+<!--                                                               -->
+<!-- ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    Declaring the domain entities for publication     -->
+<!--             maps mapref domain.                               -->
+<!--                                                               -->
+<!--                                                               -->
+<!--  UPDATES:                                                     -->
+<!-- ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    PUBMAP MAPREF ENTITIES                     -->
+<!-- ============================================================= -->
+
+<!ENTITY % pubmapMapref-d-topicref 
+                        "
+appendix-mapref |
+appendixes-mapref |
+article-mapref |
+backmatter-mapref |
+chapter-mapref |
+covers-mapref  |
+department-mapref |
+glossary-mapref |
+keydef-group-mapref |
+part-mapref    |
+pubbody-mapref |
+publication-mapref |
+subsection-mapref |
+sidebar-mapref |
+wrap-cover-mapref    
+"
+>
+
+
+<!ENTITY pubmapMapref-d-att "(map pubmap-d pubmapMapref-d)">
+
+
+<!-- ================== End Pubmap Mapref Domain Entities ===================== -->

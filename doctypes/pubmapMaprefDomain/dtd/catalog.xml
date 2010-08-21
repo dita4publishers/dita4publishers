@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pubmapMaprefDomain"
+    uri="pubmapMaprefDomain.ent"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pubmap:pubmapMaprefDomain.ent"
+    uri="pubmapMaprefDomain.ent"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmapMaprefDomain"
+    uri="pubmapMaprefDomain.mod"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmap:pubmapMaprefDomain.mod"
+    uri="pubmapMaprefDomain.mod"
+  />
+  
+</catalog>
