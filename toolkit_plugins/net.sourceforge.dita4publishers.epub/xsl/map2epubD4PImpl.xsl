@@ -33,7 +33,10 @@
     priority="10">
     <span class='enumeration_part'>
       <xsl:text>Part </xsl:text><!-- FIXME: Enable localization of the string. -->
-      <xsl:number count="*[df:class(., 'pubmap-d/part')]" format="I" level="single"/>
+      <!-- When maps are merged, if there are two root topicrefs, both get the class of the referencing 
+           topicref, e.g., <keydefs/><part/> as the children of the target map becomes two mapref topicrefs in the
+           merged result. -->
+      <xsl:number count="*[df:class(., 'pubmap-d/part')][not(@processing-role = 'resource-only')]" format="I" level="single"/>
       <xsl:text>. </xsl:text>
     </span>
   </xsl:template>
@@ -42,7 +45,7 @@
     <span class='enumeration_chapter'>
       <xsl:text>Chapter </xsl:text><!-- FIXME: Enable localization of the string. -->
       <xsl:number 
-        count="*[df:class(., 'pubmap-d/chapter')]" 
+        count="*[df:class(., 'pubmap-d/chapter')][not(@processing-role = 'resource-only')]" 
         format="1." 
         level="any" 
         from="*[df:class(., 'pubmap-d/pubbody')]"/>
@@ -54,7 +57,7 @@
     <span class='enumeration_chapter'>
       <xsl:text>Appendix </xsl:text><!-- FIXME: Enable localization of the string. -->
       <xsl:number 
-        count="*[df:class(., 'map/topicref') and not(@processing-role = 'resource-only')]" 
+        count="*[df:class(., 'map/topicref')][not(@processing-role = 'resource-only')]" 
         format="A." 
         level="single" 
         from="*[df:class(., 'pubmap-d/appendixes')]"/>
