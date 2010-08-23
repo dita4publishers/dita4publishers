@@ -28,6 +28,7 @@
   </keydefs>
   <publication>
     <covers>
+      <epub-cover-graphic format="jpg" href="covers/images/woz-front-cover-epub.jpg"/>
       <front-cover
         href="covers/wizard-of-oz-front-cover.xml"/>
     </covers>
@@ -40,8 +41,7 @@
     <pubbody
       collection-type="sequence">
       <chapter
-        href="chapters/chapter_1.xml"
-        class="- map/topicref pubmap/chapter "/>
+        href="chapters/chapter_1.xml"/>
       <chapter
         href="chapters/chapter_2.xml"/>
       <chapter
