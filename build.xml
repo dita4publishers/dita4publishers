@@ -13,11 +13,13 @@
 	  -->
 
   <property file="build.properties"/>
+	<!-- NOTE: Update version.properties as needed to reflect new 
+	           versions of project components.
+	  -->
+  <property file="version.properties"/>
   <property file="${user.home}/.build.properties"/>
 	<property file="${user.home}/build.properties"/>
 
-	<property name="version" value="0.9"/>
-	
   <property name="dist" location="${basedir}/dist"/>
   <property name="lib" location="${basedir}/lib"/>
   <property name="src" location="${basedir}/src/java"/>
@@ -119,7 +121,7 @@
 			/>
 			<replacefilter
 				token="^version^"
-			  value="${version}"
+			  value="${epub_version}"
 			/>
 			<replacefilter
 				token="^timestamp^"
