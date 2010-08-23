@@ -2,12 +2,15 @@
 <!DOCTYPE chapter PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
 <chapter
   id="chapter-id">
-  <title><ph>General Element Tests</ph> 
+  <title><ph>General Element Tests</ph>
     <ph>second phrase in title with intervening space</ph></title>
   <body>
     <p>The title of this chapter contains two <xmlelem>ph</xmlelem> elements with a literal space between them. The space should be preserved in the output ToC.</p>
-    <section>
-      <title>Inline elements</title>
+  </body>
+  <subsection
+    id="ss1">
+    <title>Inline elements</title>
+    <body>
       <p>Bold: <b>bold text</b>.</p>
       <p>Italic: <i>italic text</i>.</p>
       <p>Bold italic: <b><i>bold italic</i></b>.</p>
@@ -26,9 +29,12 @@
         tmtype="service">service mark</tm></p>
       <p>Teletype: <tt>teletype text</tt>.</p>
       <p>Underline: <u>underlined text</u>.</p>
-    </section>
-    <section>
-      <title>Tables</title>
+    </body>
+  </subsection>
+  <subsection
+    id="ss2">
+    <title>Tables</title>
+    <body>
       <p>A simple table:</p>
       <simpletable>
         <strow>
@@ -110,14 +116,23 @@
           </tbody>
         </tgroup>
       </table>
-    </section>
-    <section>
-      <title>Graphics and Media Objects</title>
-      <p><art><art_title>ePub Test Cover</art_title><image
-        href="../covers/images/1407-02.jpg"/></art></p>
-    </section>
-    <section>
-      <title>Other Elements</title>
+    </body>
+  </subsection>
+  <subsection
+    id="ss3">
+    <title>Graphics and Media Objects</title>
+    <body>
+      <p><art>
+        <art_title>ePub Test Cover</art_title>
+        <image
+          href="../covers/images/1407-02.jpg"/>
+        </art></p>
+    </body>
+  </subsection>
+  <subsection
+    id="ss4">
+    <title>Other Elements</title>
+    <body>
       <p>Definition list:</p>
       <dl>
         <dlhead>
@@ -133,6 +148,24 @@
           <dd>This is the 2nd definition.</dd>
         </dlentry>
       </dl>
-    </section>
-  </body>
+    </body>
+  </subsection>
+  <subsection
+    id="ss5">
+    <title>Elements That Produce Bad XHTML Unless Overridden</title>
+    <body>
+      <p>The elements in this section produce invalid (per the epubcheck tool) XHTML when using the base HTML generation templates. These elements must be handled in the HTML-to-XHTML fixup process.</p>
+      <fig>
+        <title>Title of Figure with Description</title>
+        <desc>Figure description. This results in invalid XHTML.</desc>
+        <lines>This is the content of the figure.
+In this case it is &lt;lines>.</lines>
+      </fig>
+      <lq>A long quote (blockquote in HTML). This is a <term>term</term> in the long quote
+      <p>This is a properly-tagged paragraph</p>
+        More unwrapped text after the paragraph.
+      </lq>
+    </body>
+  </subsection>
+
 </chapter>

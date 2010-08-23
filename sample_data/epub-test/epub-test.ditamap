@@ -2,20 +2,31 @@
 <!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
 <pubmap
   xml:lang="en_US">
-  <pubtitle> <mainpubtitle>ePub Test Document</mainpubtitle> </pubtitle>
-  <pubmeta> <author><data
-    name="file-as">McTesterson, Tester</data>Tester McTesterson</author>
-    <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source> <critdates>
-    <created
-      date="February, 1993"/>
-    <revised
-      modified="March 29, 2004"/>
-    </critdates> <pubid> <pubnumber>Ebook #55</pubnumber> <data
-    name="epub-bookid">epubid-value</data> </pubid> <pubrights>
-    <publicense>Project Gutenberg License.</publicense> </pubrights> 
-    <data name="opf-metadata">
-      <data name="item-one" value="value one"/>
-    </data>
+  <pubtitle>
+    <mainpubtitle>ePub Test Document</mainpubtitle>
+  </pubtitle>
+  <pubmeta>
+    <author><data
+      name="file-as">McTesterson, Tester</data>Tester McTesterson</author>
+    <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source>
+    <critdates>
+      <created
+        date="February, 1993"/>
+      <revised
+        modified="March 29, 2004"/>
+    </critdates>
+    <pubid>
+      <pubnumber>Ebook #55</pubnumber>
+      <data
+        name="epub-bookid">epubid-value</data>
+    </pubid>
+    <pubrights>
+      <publicense>Project Gutenberg License.</publicense>
+    </pubrights>
+    <data
+      name="opf-metadata"> <data
+      name="item-one"
+      value="value one"/> </data>
   </pubmeta>
   <keydefs>
     <topicmeta>
@@ -33,7 +44,9 @@
   </keydefs>
   <publication>
     <covers>
-      <epub-cover-graphic format="jpg" href="covers/images/1407-02.jpg"/>
+      <epub-cover-graphic
+        format="jpg"
+        href="covers/images/1407-02.jpg"/>
       <front-cover
         href="covers/epub-test-front-cover.xml"/>
     </covers>
@@ -45,16 +58,16 @@
     </frontmatter>
     <pubbody
       collection-type="sequence">
-      <topicref
+      <chapter
         href="chapters/element-test.xml"/>
-        <chapter
+      <chapter
         href="chapters/title-only-topic-01.xml">
         <topicref
           navtitle="Topic Head 1">
           <topicref
             href="chapters/chapter-04/topic-head-1/subtopic-03.xml"/>
         </topicref>
-            <topichead
+        <topichead
           navtitle="Topic Head 2"
           chunk="to-content"> </topichead>
         <topicref
@@ -69,7 +82,7 @@
             href="chapters/subtopic-02.xml"
             copy-to="subtopic-02-2nd-ref.xml"/>
         </topicgroup>
-            <topichead
+        <topichead
           navtitle="Deep Nesting Lvl 2">
           <topichead
             navtitle="Deep Nesting Lvl 3">
@@ -101,18 +114,18 @@
           </topichead>
         </topichead>
       </chapter>
-      <topicref
+      <chapter
         href="chapters/cross-refs-01.xml"/>
-      <topicref
+      <chapter
         href="chapters/cross-ref-targets-01.xml"/>
-      <topicref
+      <chapter
         href="chapters/deeply-nested-chapter.xml"/>
       <chapter
-      href="chapters/keyref-tests.xml">
-      <chapter
-        keyref="keyed-topic-01"/>
+        href="chapters/keyref-tests.xml">
+        <subsection
+          keyref="keyed-topic-01"/>
       </chapter>
-        <chapter
+      <chapter
         href="chapters/chapter_1.xml"/>
       <chapter
         href="chapters/chapter_2.xml">
@@ -129,5 +142,5 @@
     </pubbody>
     <colophon
       href="backmatter/colophon.xml"/>
- </publication>
+  </publication>
 </pubmap>
