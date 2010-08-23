@@ -3,6 +3,7 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+  xmlns:local="urn:functions:local"
   xmlns="http://www.w3.org/1999/xhtml"
   exclude-result-prefixes="xs xd"
   version="2.0">
@@ -36,6 +37,23 @@
     </a>
   </xsl:template>
   
+  <xsl:template match="blockquote" priority="20" mode="html2xhtml">
+    <blockquote>
+      <xsl:apply-templates select="@*" mode="#current"/>
+      <xsl:for-each-group select="*|text()" 
+        group-adjacent="local:getBlockOrInlineGroupingKey(.)">
+        <xsl:choose>
+          <xsl:when test="current-grouping-key() = 'inline'">
+            <p><xsl:apply-templates select="current-group()" mode="#current"/></p>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:apply-templates select="current-group()" mode="#current"/>
+          </xsl:otherwise>
+        </xsl:choose>        
+      </xsl:for-each-group>
+    </blockquote>
+  </xsl:template>  
+  
   <xsl:template mode="html2xhtml" match="*">
     <xsl:element name="{name(.)}">
       <xsl:apply-templates select="@*,node()" mode="#current"/>
@@ -49,6 +67,7 @@
   
   <xsl:template  mode="html2xhtml" match="
     @lang |
+    @target |
     @compact |
     @width |
     @type |
@@ -58,4 +77,36 @@
   <xsl:template mode="html2xhtml" match="@*|text()|processing-instruction()|comment()">
     <xsl:copy-of select="."/>
   </xsl:template>
+  
+  <xsl:function name="local:getBlockOrInlineGroupingKey" as="xs:string">
+    <xsl:param name="context" as="node()"/>
+    <xsl:choose>
+      <xsl:when 
+        test="
+        $context/self::address |
+        $context/self::blockquote |
+        $context/self::del |
+        $context/self::div |
+        $context/self::dl |
+        $context/self::fieldset |
+        $context/self::form |
+        $context/self::h1 |
+        $context/self::hr |
+        $context/self::ins |
+        $context/self::noscript |
+        $context/self::ol |
+        $context/self::p |
+        $context/self::pre |
+        $context/self::script |
+        $context/self::table |
+        $context/self::ul
+        
+        ">
+        <xsl:sequence select="'block'"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="'inline'"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
 </xsl:stylesheet>
