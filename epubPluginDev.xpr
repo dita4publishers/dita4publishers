@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="11.2">
+    <meta>
+        <filters directoryPatterns="" filePatterns=""
+            positiveFilePatterns="" showHiddenFiles="false"/>
+        <options/>
+    </meta>
+    <projectTree name="epubPluginDev.xpr">
+        <folder
+            path="toolkit_plugins/net.sourceforge.dita4publishers.epub/"/>
+        <file name="sample_data/cover-test/cover-test.ditamap"/>
+        <file name="docs/user_docs/d4p-users-guide.ditamap"/>
+        <file name="sample_data/epub-test/epub-test.ditamap"/>
+        <file
+            name="toolkit_plugins/net.sourceforge.dita4publishers.epub/xsl/map2epubContentImpl.xsl"/>
+        <file
+            name="toolkit_plugins/net.sourceforge.dita4publishers.epub/xsl/map2epubD4PImpl.xsl"/>
+        <file
+            name="toolkit_plugins/net.sourceforge.dita4publishers.epub/xsl/map2epubImpl.xsl"
+        />
+    </projectTree>
+</project>
