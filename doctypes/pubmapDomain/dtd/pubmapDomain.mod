@@ -39,74 +39,52 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % abbrevlist "abbrevlist" >
 <!ENTITY % amendments "amendments" >
 <!ENTITY % appendix "appendix" >
-<!ENTITY % appendix-mapref "appendix-mapref" >
 <!ENTITY % appendixes "appendixes" >
-<!ENTITY % appendixes-mapref "appendixes-mapref" >
 <!ENTITY % article "article" >
-<!ENTITY % article-mapref "article-mapref" >
 <!ENTITY % back-cover "back-cover" >
 <!ENTITY % back-flap "back-flap" >
 <!ENTITY % backmatter "backmatter" >
-<!ENTITY % backmatter-mapref "backmatter-mapref" >
 <!ENTITY % bibliolist "bibliolist" >
-<!ENTITY % bibliolist-mapref "bibliolist-map" >
 <!ENTITY % book-jacket "book-jacket" >
 <!ENTITY % chapter "chapter" >
-<!ENTITY % chapter-mapref "chapter-mapref" >
 <!ENTITY % colophon "colophon" >
 <!ENTITY % copyright-page "copyright-page" >
 <!ENTITY % covers "covers" >
-<!ENTITY % covers-mapref "covers-mapref" >
 <!ENTITY % dedication "dedication" >
 <!ENTITY % department "department" >
-<!ENTITY % department-mapref "department-mapref" >
 <!ENTITY % draftintro "draftintro" >
 <!ENTITY % epub-cover-graphic "epub-cover-graphic" >
 <!ENTITY % epub-cover "epub-cover" >
 <!ENTITY % figurelist "figurelist" >
 <!ENTITY % forward "forward" >
-<!ENTITY % forward-mapref "forward-mapref" >
 <!ENTITY % front-cover "front-cover" >
 <!ENTITY % front-flap "front-flap" >
 <!ENTITY % frontmatter "frontmatter" >
-<!ENTITY % frontmatter-mapref "frontmatter-mapref" >
 <!ENTITY % glossary "glossary" >
-<!ENTITY % glossary-mapref "glossary-mapref" >
 <!ENTITY % glossentry "glossentry" >
 <!ENTITY % glossary-group "glossary-group" >
-<!ENTITY % glossary-group-mapref "glossary-group-mapref" >
 <!ENTITY % glossarylist "glossarylist" >
-<!ENTITY % glossarylist-mapref "glossarylist-mapref" >
 <!ENTITY % indexlist "indexlist" >
 <!ENTITY % inside-front-cover "inside-front-cover" >
 <!ENTITY % keydefs "keydefs" >
-<!ENTITY % keydefs-mapref "keydefs-mapref" >
 <!ENTITY % keydef-group "keydef-group" >
-<!ENTITY % keydef-group-mapref "keydef-group-mapref" >
 <!ENTITY % notices "notices" >
 <!ENTITY % page "page" >
 <!ENTITY % part "part" >
-<!ENTITY % part-mapref "part-mapref" >
 <!ENTITY % partsection "partsection" >
-<!ENTITY % partsection-mapref "partsection-mapref" >
 <!ENTITY % preface "preface" >
 <!ENTITY % pubabstract "pubabstract" >
 <!ENTITY % publist "publist" >
 <!ENTITY % publists "publists" >
 <!ENTITY % pubbody "pubbody" >
-<!ENTITY % pubbody-mapref "pubbody-mapref" >
 <!ENTITY % publication "publication" >
-<!ENTITY % publication-mapref "publication-mapref" >
 <!ENTITY % subsection "subsection" >
-<!ENTITY % subsection-mapref "subsection-mapref" >
 <!ENTITY % sidebar "sidebar" >
-<!ENTITY % sidebar-mapref "sidebar-mapref" >
 <!ENTITY % spine "spine" >
 <!ENTITY % tablelist "tablelist" >
 <!ENTITY % toc "toc" >
 <!ENTITY % trademarklist "trademarklist" >
 <!ENTITY % wrap-cover "wrap-cover" >
-<!ENTITY % wrap-cover-mapref "wrap-cover-mapref" >
 
 <!-- title types: -->
 
@@ -292,14 +270,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ELEMENT frontmatter    %frontmatter.content;>
 <!ATTLIST frontmatter    %frontmatter.attributes;>
 
-<!ENTITY % frontmatter-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % frontmatter-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT frontmatter-mapref    %frontmatter-mapref.content;>
-<!ATTLIST frontmatter-mapref    %frontmatter-mapref.attributes;>
 
 
 <!--                    LONG NAME: Key Definitions                    -->
@@ -374,15 +344,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ELEMENT keydefs    %keydefs.content;>
 <!ATTLIST keydefs    %keydefs.attributes;>
 
-<!ENTITY % keydefs-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % keydefs-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT keydefs-mapref    %keydefs-mapref.content;>
-<!ATTLIST keydefs-mapref    %keydefs-mapref.attributes;>
-
 <!--                    LONG NAME: Key Definition Group                    -->
 <!ENTITY % keydef-group.content
  "((%topicmeta;)?,
@@ -454,14 +415,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ELEMENT keydef-group    %keydef-group.content;>
 <!ATTLIST keydef-group    %keydef-group.attributes;>
 
-<!ENTITY % keydef-group-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % keydef-group-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT keydef-group-mapref    %keydef-group-mapref.content;>
-<!ATTLIST keydef-group-mapref    %keydef-group-mapref.attributes;>
 
 <!--                    LONG NAME: Back Matter                     -->
 <!ENTITY % backmatter.content
@@ -494,16 +447,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 >
 <!ELEMENT backmatter    %backmatter.content;>
 <!ATTLIST backmatter    %backmatter.attributes;>
-
-<!ENTITY % backmatter-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % backmatter-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT backmatter-mapref    %backmatter-mapref.content;>
-<!ATTLIST backmatter-mapref    %backmatter-mapref.attributes;>
-
 
 
 <!--                    LONG NAME: pub Title                      -->
@@ -664,17 +607,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ELEMENT forward    %forward.content;>
 <!ATTLIST forward    %forward.attributes;>
 
-<!ENTITY % forward-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % forward-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT forward-mapref    %forward-mapref.content;>
-<!ATTLIST forward-mapref    %forward-mapref.attributes;>
-
-
-
 <!--                    LONG NAME: Preface                         -->
 <!ENTITY % preface.content
                        "((%topicmeta;)?, 
@@ -698,29 +630,14 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ATTLIST publication    %publication.attributes;>
 
 
-<!ENTITY % publication-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % publication-mapref.attributes
- "%mapref-atts;
- "
->
-<!ELEMENT publication-mapref    %publication-mapref.content;>
-<!ATTLIST publication-mapref    %publication-mapref.attributes;>
-
 <!--                    LONG NAME: pubbody                         -->
 <!ENTITY % pubbody.content
                        "((%topicmeta;)?, 
                          ((%appendix;) |
-                          (%appendix-mapref;) |
                           (%article;) |
-                          (%article-mapref;) |
                           (%chapter;) |
-                          (%chapter-mapref;) |
                           (%glossary;) |
-                          (%glossary-mapref;) |
                           (%part;) |
-                          (%part-mapref;) |
                           (%page;) |
                           (%topicref;))*)"
 >
@@ -787,15 +704,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ELEMENT pubbody    %pubbody.content;>
 <!ATTLIST pubbody    %pubbody.attributes;>
 
-<!ENTITY % pubbody-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % pubbody-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT pubbody-mapref    %pubbody-mapref.content;>
-<!ATTLIST pubbody-mapref    %pubbody-mapref.attributes;>
-
 <!--                    LONG NAME: Chapter                         -->
 <!ENTITY % chapter.content
                        "((%topicmeta;)?, 
@@ -810,17 +718,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ELEMENT chapter    %chapter.content;>
 <!ATTLIST chapter    %chapter.attributes;>
 
-<!ENTITY % chapter-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % chapter-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT chapter-mapref    %chapter-mapref.content;>
-<!ATTLIST chapter-mapref    %chapter-mapref.attributes;>
-
-
-
 <!--                    LONG NAME: Article                      -->
 <!ENTITY % article.content
                        "%chapter.content;"
@@ -830,15 +727,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 >
 <!ELEMENT article    %article.content;>
 <!ATTLIST article    %article.attributes;>
-
-<!ENTITY % article-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % article-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT article-mapref    %article-mapref.content;>
-<!ATTLIST article-mapref    %article-mapref.attributes;>
 
 <!--                    LONG NAME: Subsection                      -->
 <!ENTITY % subsection.content
@@ -854,15 +742,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ELEMENT subsection    %subsection.content;>
 <!ATTLIST subsection    %subsection.attributes;>
 
-<!ENTITY % subsection-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % subsection-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT subsection-mapref    %subsection-mapref.content;>
-<!ATTLIST subsection-mapref    %subsection-mapref.attributes;>
-
 <!--                    LONG NAME: Sidebar                      -->
 <!ENTITY % sidebar.content
                        "((%topicmeta;)?, 
@@ -875,16 +754,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 >
 <!ELEMENT sidebar    %sidebar.content;>
 <!ATTLIST sidebar    %sidebar.attributes;>
-
-<!ENTITY % sidebar-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % sidebar-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT sidebar-mapref    %sidebar-mapref.content;>
-<!ATTLIST sidebar-mapref    %sidebar-mapref.attributes;>
-
 
 <!--                    LONG NAME: Covers                      -->
 <!ENTITY % covers.content
@@ -901,15 +770,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 >
 <!ELEMENT covers    %covers.content;>
 <!ATTLIST covers    %covers.attributes;>
-
-<!ENTITY % covers-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % covers-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT covers-mapref    %covers-mapref.content;>
-<!ATTLIST covers-mapref    %covers-mapref.attributes;>
 
 <!--                    LONG NAME: epub-cover                      -->
 <!ENTITY % epub-cover.content
@@ -994,15 +854,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ELEMENT wrap-cover    %wrap-cover.content;>
 <!ATTLIST wrap-cover    %wrap-cover.attributes;>
 
-<!ENTITY % wrap-cover-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % wrap-cover-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT wrap-cover-mapref    %wrap-cover-mapref.content;>
-<!ATTLIST wrap-cover-mapref    %wrap-cover-mapref.attributes;>
-
 <!--                    LONG NAME: front flap                      -->
 <!ENTITY % front-flap.content
                        "(%topicmeta;)?"            
@@ -1054,33 +905,25 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!--                    LONG NAME: Part                            -->
 <!ENTITY % part.content
                        "((%topicmeta;)?,
-                         ((%chapter;) | 
-                          (%article;) |
-                          (%department;) |
-                          (%figurelist;) |
-                          (%glossarylist;) |
-                          (%partsection;) |
-                          (%publist;) |
-                          (%publists;) |
-                          (%page;) |
-                          (%tablelist;) |
-                          (%toc;) |
-                          topicref)* )"
+                         ((%keydefs;)?,
+                          ((%chapter;) | 
+                           (%article;) |
+                           (%department;) |
+                           (%figurelist;) |
+                           (%glossarylist;) |
+                           (%partsection;) |
+                           (%publist;) |
+                           (%publists;) |
+                           (%page;) |
+                           (%tablelist;) |
+                           (%toc;) |
+                           topicref))* )"
 >
 <!ENTITY % part.attributes
              "%chapter-atts;"
 >
 <!ELEMENT part    %part.content;>
 <!ATTLIST part    %part.attributes;>
-
-<!ENTITY % part-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % part-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT part-mapref    %part-mapref.content;>
-<!ATTLIST part-mapref    %part-mapref.attributes;>
 
 <!ENTITY % partsection.content
                        "((%topicmeta;)?,
@@ -1103,16 +946,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ELEMENT partsection    %partsection.content;>
 <!ATTLIST partsection    %partsection.attributes;>
 
-<!ENTITY % partsection-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % partsection-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT partsection-mapref    %partsection-mapref.content;>
-<!ATTLIST partsection-mapref    %partsection-mapref.attributes;>
-
-
 <!--                    LONG NAME: Department                            -->
 <!ENTITY % department.content
                        "((%topicmeta;)?,
@@ -1128,17 +961,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ELEMENT department    %department.content;>
 <!ATTLIST department    %department.attributes;>
 
-<!ENTITY % department-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % department-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT department-mapref    %department-mapref.content;>
-<!ATTLIST department-mapref    %department-mapref.attributes;>
-
-
-
 <!--                    LONG NAME: Appendixes                        -->
 <!ENTITY % appendixes.content
                        "((%topicmeta;)?, 
@@ -1151,15 +973,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ELEMENT appendixes    %appendixes.content;>
 <!ATTLIST appendixes    %appendixes.attributes;>
 
-<!ENTITY % appendixes-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % appendixes-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT appendixes-mapref    %appendixes-mapref.content;>
-<!ATTLIST appendixes-mapref    %appendixes-mapref.attributes;>
-
 <!--                    LONG NAME: Appendix                        -->
 <!ENTITY % appendix.content
                        "((%topicmeta;)?, 
@@ -1170,16 +983,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 >
 <!ELEMENT appendix    %appendix.content;>
 <!ATTLIST appendix    %appendix.attributes;>
-
-<!ENTITY % appendix-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % appendix-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT appendix-mapref    %appendix-mapref.content;>
-<!ATTLIST appendix-mapref    %appendix-mapref.attributes;>
-
 
 <!--                    LONG NAME: Notices                         -->
 <!ENTITY % notices.content
@@ -1315,17 +1118,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ELEMENT bibliolist    %bibliolist.content;>
 <!ATTLIST bibliolist    %bibliolist.attributes;>
 
-<!ENTITY % bibliolist-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % bibliolist-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT bibliolist-mapref    %bibliolist-mapref.content;>
-<!ATTLIST bibliolist-mapref    %bibliolist-mapref.attributes;>
-
-
-
 <!--                    LONG NAME: Glossary List                   -->
 <!ENTITY % glossarylist.content
                        "((%topicmeta;)?, 
@@ -1336,15 +1128,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 >
 <!ELEMENT glossarylist    %glossarylist.content;>
 <!ATTLIST glossarylist    %glossarylist.attributes;>
-
-<!ENTITY % glossarylist-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % glossarylist-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT glossarylist-mapref    %glossarylist-mapref.content;>
-<!ATTLIST glossarylist-mapref    %glossarylist-mapref.attributes;>
 
 <!--                    LONG NAME: Glossary                   -->
 <!ENTITY % glossary.content
@@ -1358,16 +1141,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ELEMENT glossary    %glossarylist.content;>
 <!ATTLIST glossary    %glossarylist.attributes;>
 
-<!ENTITY % glossary-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % glossary-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT glossary-mapref    %glossary-mapref.content;>
-<!ATTLIST glossary-mapref    %glossary-mapref.attributes;>
-
-
 <!--                    LONG NAME: Glossary Group                  -->
 <!ENTITY % glossary-group.content
                        "((%topicmeta;)?, 
@@ -1379,15 +1152,6 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 >
 <!ELEMENT glossary-group    %glossary-group.content;>
 <!ATTLIST glossary-group    %glossary-group.attributes;>
-
-<!ENTITY % glossary-group-mapref.content
- "%mapref.cnt;"
->
-<!ENTITY % glossary-group-mapref.attributes
- "%mapref-atts;"
->
-<!ELEMENT glossary-group-mapref    %glossary-group-mapref.content;>
-<!ATTLIST glossary-group-mapref    %glossary-group-mapref.attributes;>
 
 <!--                    LONG NAME: Glossary Entry                  -->
 <!ENTITY % glossentry.content
@@ -1430,71 +1194,52 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ATTLIST abbrevlist    %global-atts; class CDATA "+ map/topicref pubmap-d/abbrevlist ">
 <!ATTLIST amendments    %global-atts; class CDATA "+ map/topicref pubmap-d/amendments ">
 <!ATTLIST appendix      %global-atts; class CDATA "+ map/topicref pubmap-d/appendix ">
-<!ATTLIST appendix-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/appendix-mapref ">
 <!ATTLIST appendixes    %global-atts; class CDATA "+ map/topicref pubmap-d/appendixes ">
-<!ATTLIST appendixes-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/appendixes-mapref ">
 <!ATTLIST article       %global-atts; class CDATA "+ map/topicref pubmap-d/article ">
-<!ATTLIST article-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/article-mapref ">
 <!ATTLIST back-cover    %global-atts; class CDATA "+ map/topicref pubmap-d/back-cover ">
 <!ATTLIST back-flap     %global-atts; class CDATA "+ map/topicref pubmap-d/back-flap ">
 <!ATTLIST backmatter    %global-atts; class CDATA "+ map/topicref pubmap-d/backmatter ">
-<!ATTLIST backmatter-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/backmatter-mapref ">
 <!ATTLIST book-jacket   %global-atts; class CDATA "+ map/topicref pubmap-d/book-jacket ">
 <!ATTLIST bibliolist    %global-atts; class CDATA "+ map/topicref pubmap-d/bibliolist ">
-<!ATTLIST bibliolist-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/bibliolist-mapref ">
 <!ATTLIST chapter       %global-atts; class CDATA "+ map/topicref pubmap-d/chapter ">
-<!ATTLIST chapter-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/chapter-mapref ">
 <!ATTLIST colophon      %global-atts; class CDATA "+ map/topicref pubmap-d/colophon ">
 <!ATTLIST copyright-page %global-atts; class CDATA "+ map/topicref pubmap-d/copyright-page ">
 <!ATTLIST covers        %global-atts; class CDATA "+ map/topicref pubmap-d/covers ">
 <!ATTLIST dedication    %global-atts; class CDATA "+ map/topicref pubmap-d/dedication ">
 <!ATTLIST department    %global-atts; class CDATA "+ map/topicref pubmap-d/department ">
-<!ATTLIST department-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/department-mapref ">
 <!ATTLIST draftintro    %global-atts; class CDATA "+ map/topicref pubmap-d/draftintro ">
 <!ATTLIST epub-cover    %global-atts; class CDATA "+ map/topicref pubmap-d/epub-cover ">
-<!ATTLIST epub-cover-graphic %global-atts; class CDATA "+ map/topicref pubmap-d/epub-cover-graphic ">
+<!ATTLIST epub-cover-graphic    %global-atts; class CDATA "+ map/topicref pubmap-d/epub-cover-graphic ">
 <!ATTLIST figurelist    %global-atts; class CDATA "+ map/topicref pubmap-d/figurelist ">
 <!ATTLIST forward       %global-atts; class CDATA "+ map/topicref pubmap-d/forward ">
 <!ATTLIST front-cover   %global-atts; class CDATA "+ map/topicref pubmap-d/front-cover ">
 <!ATTLIST front-flap    %global-atts; class CDATA "+ map/topicref pubmap-d/front-flap ">
 <!ATTLIST frontmatter   %global-atts; class CDATA "+ map/topicref pubmap-d/frontmatter ">
-<!ATTLIST frontmatter-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/frontmatter-mapref ">
 <!ATTLIST glossary       %global-atts; class CDATA "+ map/topicref pubmap-d/glossary ">
-<!ATTLIST glossary-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/glossary-mapref ">
 <!ATTLIST glossentry    %global-atts; class CDATA "+ map/topicref pubmap-d/glossentry ">
 <!ATTLIST glossary-group  %global-atts; class CDATA "+ map/topicref pubmap-d/glossary-group ">
-<!ATTLIST glossary-group-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/glossary-group-mapref ">
 <!ATTLIST glossarylist  %global-atts; class CDATA "+ map/topicref pubmap-d/glossarylist ">
 <!ATTLIST indexlist     %global-atts; class CDATA "+ map/topicref pubmap-d/indexlist ">
 <!ATTLIST inside-front-cover   %global-atts; class CDATA "+ map/topicref pubmap-d/inside-front-cover ">
 <!ATTLIST keydefs       %global-atts; class CDATA "+ map/topicref pubmap-d/keydefs ">
-<!ATTLIST keydefs-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/keydefs-mapref ">
 <!ATTLIST keydef-group  %global-atts; class CDATA "+ map/topicref pubmap-d/keydef-group ">
-<!ATTLIST keydef-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/keydef-mapref ">
 <!ATTLIST notices       %global-atts; class CDATA "+ map/topicref pubmap-d/notices ">
 <!ATTLIST page          %global-atts; class CDATA "+ map/topicref pubmap-d/page ">
 <!ATTLIST part          %global-atts; class CDATA "+ map/topicref pubmap-d/part ">
-<!ATTLIST part-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/part-mapref ">
 <!ATTLIST partsection   %global-atts; class CDATA "+ map/topicref pubmap-d/partsection ">
-<!ATTLIST partsection-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/partsection-mapref ">
 <!ATTLIST preface       %global-atts; class CDATA "+ map/topicref pubmap-d/preface ">
 <!ATTLIST pubabstract   %global-atts; class CDATA "+ map/topicref pubmap-d/pubabstract ">
 <!ATTLIST publist       %global-atts; class CDATA "+ map/topicref pubmap-d/publist ">
 <!ATTLIST publists      %global-atts; class CDATA "+ map/topicref pubmap-d/publists ">
 <!ATTLIST pubbody       %global-atts; class CDATA "+ map/topicref pubmap-d/pubbody ">
-<!ATTLIST pubbody-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/pubbody-mapref ">
 <!ATTLIST publication   %global-atts; class CDATA "+ map/topicref pubmap-d/publication ">
-<!ATTLIST publication-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/publication-mapref ">
 <!ATTLIST sidebar       %global-atts; class CDATA "+ map/topicref pubmap-d/sidebar ">
-<!ATTLIST sidebar-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/sidebar-mapref ">
 <!ATTLIST spine         %global-atts; class CDATA "+ map/topicref pubmap-d/spine ">
 <!ATTLIST subsection    %global-atts; class CDATA "+ map/topicref pubmap-d/subsection ">
-<!ATTLIST subsection-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/subsection-mapref ">
 <!ATTLIST tablelist     %global-atts; class CDATA "+ map/topicref pubmap-d/tablelist ">
 <!ATTLIST toc           %global-atts; class CDATA "+ map/topicref pubmap-d/toc ">
 <!ATTLIST trademarklist %global-atts; class CDATA "+ map/topicref pubmap-d/trademarklist ">
 <!ATTLIST wrap-cover    %global-atts; class CDATA "+ map/topicref pubmap-d/wrap-cover ">
-<!ATTLIST wrap-cover-mapref %global-atts; class CDATA "+ map/topicref pubmap-d/wrap-cover-mapref ">
 
 <!-- title types: -->
 

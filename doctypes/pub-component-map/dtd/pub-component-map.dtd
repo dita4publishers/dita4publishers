@@ -54,6 +54,14 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pub-componen
 >
 %pubmeta-d-dec;
 
+<!ENTITY % pubmapMapref-d-dec 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pubmapMaprefDomain" 
+"pubmapMaprefDomain.ent"                                                 
+>
+%pubmapMapref-d-dec;
+
+
 <!ENTITY % d4p_enumerationMap-d-dec     PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:entities:dtd:dita:d4p_enumerationMap:entities" 
 "d4p_enumerationMapDomain.ent"                                                
@@ -87,6 +95,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pub-componen
 <!ENTITY % topicref     "topicref |
                          %mapgroup-d-topicref; |
                          %pubmap-d-topicref; |
+                         %pubmapMapref-d-topicref; |
                          %d4p_enumerationMap-d-topicref;
                         ">
 
@@ -123,6 +132,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pub-componen
 <!ENTITY included-domains 
                         "
                          &pubmap-d-att;
+                         &pubmapMapref-d-att;
                          &mapgroup-d-att;
                          &indexing-d-att;
                          &pub-component-map-att;
@@ -148,6 +158,11 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pub-componen
 "urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmapDomain" 
 "pubmapDomain.mod"                                                        >
 %pubmap-d-def;
+
+<!ENTITY % pubmapMapref-d-def PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmapMaprefDomain" 
+"pubmapMaprefDomain.mod"                                                        >
+%pubmapMapref-d-def;
 
 <!ENTITY % pubmeta-d-def PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmetadataDomain" 
