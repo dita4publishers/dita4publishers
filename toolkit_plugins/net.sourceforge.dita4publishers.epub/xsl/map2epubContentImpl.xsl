@@ -164,7 +164,7 @@
     <!-- Default topicref-driven content template. Simply applies normal processing
     in the default context to the topic parameter. -->
     <xsl:param name="topic" as="element()?"/>
-    <xsl:if test="true()">
+    <xsl:if test="false()">
       <xsl:message> + [DEBUG] topicref-driven-content: topicref="<xsl:sequence select="name(.)"/>, class="<xsl:sequence select="string(@class)"/>"</xsl:message>
     </xsl:if>
     <xsl:variable name="topicref" select="." as="element()"/>

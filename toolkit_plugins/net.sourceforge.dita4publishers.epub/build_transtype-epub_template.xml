@@ -139,12 +139,9 @@
   	</ant>
 	</target>
 	
-  <target name="epub-copy-css" unless="user.csspath.url" description="Copy CSS files">    
+  <target name="epub-copy-css"  description="Copy CSS files">    
     <condition property="user.copycss.yes">
-      <and>
-        <equals arg1="${args.copycss}" arg2="yes"/>
-        <isset property="args.css.present"/>
-      </and>
+      <isset property="args.css.present"/>
     </condition>
     <property name="user.csspath.real" value="${epub.temp.dir}/${topics.output.dir}/${user.csspath}"/>
     <mkdir dir="${user.csspath.real}"/>    

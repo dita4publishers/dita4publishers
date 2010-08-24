@@ -141,6 +141,9 @@
             -->
           <opf:item id="commonltr.css" href="{$cssOutputDir}/commonltr.css" media-type="text/css"/>
           <opf:item id="commonrtl.css" href="{$cssOutputDir}/commonrtl.css" media-type="text/css"/>
+          <xsl:if test="$CSS != ''">
+            <opf:item id="{$CSS}" href="{$cssOutputDir}/{$CSS}" media-type="text/css"/>
+          </xsl:if>
         </manifest>
         
         <spine toc="ncx">
