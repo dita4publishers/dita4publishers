@@ -77,31 +77,37 @@
   <xsl:template mode="html2xhtml" match="@*|text()|processing-instruction()|comment()">
     <xsl:copy-of select="."/>
   </xsl:template>
-  
+  <xsl:function name="local:isBlock" as="xs:boolean">
+    <xsl:param name="context" as="node()"/>
+    <xsl:variable name="result" as="xs:boolean"
+      select="
+      $context/self::address or
+      $context/self::blockquote or
+      $context/self::del or
+      $context/self::div or
+      $context/self::dl or
+      $context/self::fieldset or
+      $context/self::form or
+      $context/self::h1 or
+      $context/self::hr or
+      $context/self::ins or
+      $context/self::noscript or
+      $context/self::ol or
+      $context/self::p or
+      $context/self::pre or
+      $context/self::script or
+      $context/self::table or
+      $context/self::ul
+      "
+    />
+    <xsl:sequence select="$result"/>    
+  </xsl:function>
+    
   <xsl:function name="local:getBlockOrInlineGroupingKey" as="xs:string">
     <xsl:param name="context" as="node()"/>
     <xsl:choose>
       <xsl:when 
-        test="
-        $context/self::address |
-        $context/self::blockquote |
-        $context/self::del |
-        $context/self::div |
-        $context/self::dl |
-        $context/self::fieldset |
-        $context/self::form |
-        $context/self::h1 |
-        $context/self::hr |
-        $context/self::ins |
-        $context/self::noscript |
-        $context/self::ol |
-        $context/self::p |
-        $context/self::pre |
-        $context/self::script |
-        $context/self::table |
-        $context/self::ul
-        
-        ">
+        test="local:isBlock($context)">
         <xsl:sequence select="'block'"/>
       </xsl:when>
       <xsl:otherwise>
