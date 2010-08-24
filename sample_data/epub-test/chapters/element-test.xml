@@ -157,7 +157,13 @@
       <p>The elements in this section produce invalid (per the epubcheck tool) XHTML when using the base HTML generation templates. These elements must be handled in the HTML-to-XHTML fixup process.</p>
       <fig>
         <title>Title of Figure with Description</title>
-        <desc>Figure description. This results in invalid XHTML.</desc>
+        <desc>Figure description. This is a description with no subordinate markup.</desc>
+        <lines>This is the content of the figure.
+In this case it is &lt;lines>.</lines>
+      </fig>
+      <fig>
+        <title>Title of Figure with Description</title>
+        <desc><p>Figure description in a nested p element</p></desc>
         <lines>This is the content of the figure.
 In this case it is &lt;lines>.</lines>
       </fig>
