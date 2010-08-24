@@ -124,16 +124,20 @@
     <!-- This template generates the output file for a referenced topic.
       -->
     <!-- The topicref that referenced the topic -->
-    <xsl:param name="topicref" as="element()" tunnel="yes"/>    
+    <xsl:param name="topicref" as="element()?" tunnel="yes"/>    
     <!-- Result URI to which the document should be written. -->
     <xsl:param name="resultUri" as="xs:string" tunnel="yes"/>
     
     <xsl:message> + [INFO] Writing topic <xsl:sequence select="document-uri(root(.))"/> to HTML file "<xsl:sequence select="relpath:newFile($topicsOutputDir, relpath:getName($resultUri))"/>"...</xsl:message>
     <xsl:variable name="htmlNoNamespace" as="node()*">
-      <xsl:apply-templates select="." mode="map-driven-content-processing"/>      
+      <xsl:apply-templates select="." mode="map-driven-content-processing">
+        <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
+      </xsl:apply-templates>      
     </xsl:variable>
     <xsl:result-document format="topic-html" href="{$resultUri}" exclude-result-prefixes="opf">
-      <xsl:apply-templates select="$htmlNoNamespace" mode="html2xhtml"/>
+      <xsl:apply-templates select="$htmlNoNamespace" mode="html2xhtml">
+        <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>        
+      </xsl:apply-templates>
     </xsl:result-document>
   </xsl:template>
   
@@ -160,7 +164,7 @@
     <!-- Default topicref-driven content template. Simply applies normal processing
     in the default context to the topic parameter. -->
     <xsl:param name="topic" as="element()?"/>
-    <xsl:if test="false()">
+    <xsl:if test="true()">
       <xsl:message> + [DEBUG] topicref-driven-content: topicref="<xsl:sequence select="name(.)"/>, class="<xsl:sequence select="string(@class)"/>"</xsl:message>
     </xsl:if>
     <xsl:variable name="topicref" select="." as="element()"/>
@@ -209,6 +213,23 @@
       <xsl:apply-templates/>
     </xsl:element>    
   </xsl:template>
+  
+  <!-- Override of same template from base HTML so we can unset the 
+       topicref tunnelling parameter.
+  -->
+  <xsl:template match="/dita | *[contains(@class,' topic/topic ')]">
+    <xsl:choose>
+      <xsl:when test="not(parent::*)">
+        <xsl:apply-templates select="." mode="root_element"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates select="." mode="child.topic">
+          <xsl:with-param name="topicref" select="()" tunnel="yes" as="element()?"/>
+        </xsl:apply-templates>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
   
   
   <!-- Enumeration mode manages generating numbers from topicrefs -->

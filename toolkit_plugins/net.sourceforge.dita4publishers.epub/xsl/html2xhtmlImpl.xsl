@@ -77,6 +77,7 @@
   <xsl:template mode="html2xhtml" match="@*|text()|processing-instruction()|comment()">
     <xsl:copy-of select="."/>
   </xsl:template>
+  
   <xsl:function name="local:isBlock" as="xs:boolean">
     <xsl:param name="context" as="node()"/>
     <xsl:variable name="result" as="xs:boolean"
