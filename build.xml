@@ -213,10 +213,20 @@
     </zip>		
 	</target>
 	
-	<target name="package-toolkit-plugins" depends="dist-init, dist-toolkit-plugins"
+	<target name="package-vocabulary-plugins" depends="dist-init, dist-toolkit-plugins"
 		description="Create distributable Zip packages of the different Toolkit plugins"
 		>
-    <zip destfile="${package.dist}/dita4publishers_toolkit_plugins.zip">
+    <zip destfile="${package.dist}/dita4publishers_vocabulary_plugins-${vocab_version}-${package.date}.zip">
+      <fileset dir="${plugin.dist}">
+        <include name="net.sourceforge.dita4publishers.doctypes/**"/>
+      </fileset>
+    </zip>
+  </target>
+	
+	<target name="package-toolkit-plugins" depends="dist-init, dist-toolkit-plugins"
+		description="Create distributable Zip package of just the vocabulary modules."
+		>
+    <zip destfile="${package.dist}/dita4publishers_toolkit_plugins-${vocab_version}-${package.date}.zip">
       <fileset dir="${plugin.dist}">
         <include name="net.sourceforge.dita4publishers.*/**"/>
         <exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/>
