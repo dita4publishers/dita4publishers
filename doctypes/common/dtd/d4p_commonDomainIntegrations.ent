@@ -59,5 +59,13 @@
 >
 %xml-d-dec;
 
+<!-- ============================================================= -->
+<!-- DOMAIN ATTRIBUTE DECLARATIONS -->
+<!-- ============================================================= -->
 
+<!ENTITY % d4p_renditionTargetAtt-d-dec     
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_renditionTargetAttDomain:entities" 
+         "d4p_renditionTargetAttDomain.ent"                                                
+>
+%d4p_renditionTargetAtt-d-dec;
 <!-- End of common domain integration entities -->

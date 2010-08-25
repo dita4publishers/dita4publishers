@@ -64,6 +64,7 @@
      &indexing-d-att;
      &d4p_formatting-d-att;
      &d4p_classification-d-att;
+     &d4p_renditionTargetAtt-d-att;
      &d4p_verse-d-att;
      &xml-d-att;
     "                
@@ -75,5 +76,10 @@
                        "topicDefn.ent"                              >
 %topicDefns;
 
+<!-- ============================================================= -->
+<!-- DOMAIN ATTRIBUTE EXTENSIONS -->
+<!-- ============================================================= -->
 
+<!ENTITY % props-attribute-extensions "%d4p_renditionTargetAtt-d-attribute;" >
+<!ENTITY % base-attribute-extensions "" >
 <!-- =================== End of declaration set ==================== -->
