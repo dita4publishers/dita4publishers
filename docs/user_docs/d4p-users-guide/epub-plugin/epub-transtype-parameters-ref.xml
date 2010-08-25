@@ -20,6 +20,7 @@
       <li>The graphic to use as the EPUB cover graphic (&lt;meta name="cover" content="coverimage" /> as used by iBooks) if the cover image is not indicated by markup in the map.</li>
       <li>The EPUB publication ID</li>
       <li>Do not treat external-scope xrefs as links in the HTML (avoids EPUB validation issues with unavailable resources).</li>
+      <li>Include user-specified CSS files in the generated EPUB package.</li>
       </ul></p>
     <p>The parameters documented in this section are Ant parameters recognized by the <filepath>build_transtype_epub.xml</filepath> Ant script. Each of these Ant parameters corresponds to an XSLT parameter used by the underlying XSLT transforms. The XSLT parameters are defined in the <filepath>map2epubImpl.xsl</filepath> transform in the EPUB plugin's <filepath>xsl/</filepath> directory.</p>
   </conbody>

@@ -48,6 +48,8 @@
           href="d4p-users-guide/epub-plugin/generating-epubs.xml">
           <subsection
             href="d4p-users-guide/epub-plugin/generating-epubs-from-oxygen.xml"/>
+          <topicref
+            href="d4p-users-guide/epub-plugin/using-custom-css.xml"/>
           <subsection
             href="d4p-users-guide/epub-plugin/creating-cover-graphics.xml"/>
           <abbrevlist
@@ -57,7 +59,8 @@
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-coverGraphicFile.xml"/>
             <topicref
-              href="d4p-users-guide/epub-plugin/reference/ant-parm-cssOutputDir.xml"/>
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-cssOutputDir.xml"
+              keys="css.output.dir_refentry"/>
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-epubPubidUriStub.xml"/>
             <topicref
@@ -77,6 +80,20 @@
         href="d4p-users-guide/vocabulary-part/vocabulary-part.xml">
         <chapter
           href="d4p-users-guide/vocabulary-part/d4p-vocabulary-concepts.xml"/>
+        <chapter
+          href="d4p-users-guide/vocabulary-part/domain-modules-overview.xml">
+          <subsection
+            href="d4p-users-guide/vocabulary-part/map-domains-overview.xml"/>
+          <subsection
+            href="d4p-users-guide/vocabulary-part/topic-domains-overview.xml"/>
+          <subsection
+            href="d4p-users-guide/vocabulary-part/rendition-target-att.xml"/>
+        </chapter>
+        <chapter
+          href="d4p-users-guide/vocabulary-part/integrating-modules.xml">
+          <subsection
+            href="d4p-users-guide/vocabulary-part/integrating-attribute-domains.xml"/>
+        </chapter>
         <chapter
           href="d4p-users-guide/vocabulary-part/d4p-vocabulary-reference.xml"/>
       </part>
