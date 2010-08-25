@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
+<chapter
+  id="chapter-id">
+  <title>Test of Filtering and Flagging</title>
+  <body>
+    <p
+      d4p_renditionTarget="epub">This is for EPUB only</p>
+    <p
+      d4p_renditionTarget="pdf">This is for PDF only.</p>
+    <p>This is unconditional content.</p>
+  </body>
+</chapter>

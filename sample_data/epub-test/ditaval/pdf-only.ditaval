@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<val>
+  <prop action="exclude" att="d4p_renditionTarget" val="epub" />
+  <prop action="flag" att="d4p_renditionTarget" val="pdf" color="red">
+    <startflag><alt-text>[PDF]</alt-text></startflag>    
+  </prop>
+</val>

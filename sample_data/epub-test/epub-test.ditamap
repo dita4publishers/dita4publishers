@@ -2,32 +2,20 @@
 <!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
 <pubmap
   xml:lang="en_US">
-  <pubtitle>
-    <mainpubtitle>ePub Test Document</mainpubtitle>
-  </pubtitle>
-  <pubmeta>
-    <author><data
-      name="file-as">McTesterson, Tester</data>Tester McTesterson</author>
-    <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source>
-    <critdates>
-      <created
-        date="February, 1993"/>
-      <revised
-        modified="March 29, 2004"/>
-    </critdates>
-    <pubid>
-      <pubnumber>Ebook #55</pubnumber>
-      <data
-        name="epub-bookid">epubid-value</data>
-    </pubid>
-    <pubrights>
-      <publicense>Project Gutenberg License.</publicense>
-    </pubrights>
-    <data
-      name="opf-metadata"> <data
-      name="item-one"
-      value="value one"/> </data>
-  </pubmeta>
+  <pubtitle> <mainpubtitle>ePub Test Document</mainpubtitle> </pubtitle>
+  <pubmeta> <author><data
+    name="file-as">McTesterson, Tester</data>Tester McTesterson</author>
+    <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source> <critdates>
+    <created
+      date="February, 1993"/>
+    <revised
+      modified="March 29, 2004"/>
+    </critdates> <pubid> <pubnumber>Ebook #55</pubnumber> <data
+    name="epub-bookid">epubid-value</data> </pubid> <pubrights>
+    <publicense>Project Gutenberg License.</publicense> </pubrights> <data
+    name="opf-metadata"> <data
+    name="item-one"
+    value="value one"/> </data> </pubmeta>
   <keydefs>
     <topicmeta>
       <navtitle>Key Definitions</navtitle>
@@ -125,6 +113,8 @@
         <subsection
           keyref="keyed-topic-01"/>
       </chapter>
+      <chapter
+        href="chapters/filtering-and-flagging-test.xml"/>
       <chapter
         href="chapters/chapter_1.xml"/>
       <chapter
