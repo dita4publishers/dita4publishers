@@ -5,7 +5,7 @@
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:local="urn:functions:local"
   xmlns="http://www.w3.org/1999/xhtml"
-  exclude-result-prefixes="xs xd"
+  exclude-result-prefixes="xs xd local"
   version="2.0">
   <!-- Transform unnamespaced HTML docs into namespaced XHTML docs are required by the epub spec. 
   
@@ -28,6 +28,10 @@
 
   <!-- <a> elements used for IDs are not used in XHTML -->
   <xsl:template match="a[@name and not(@href)]" priority="10" mode="html2xhtml"/>
+  
+  <xsl:template match="a/@name" mode="html2xhtml" priority="10">
+    <xsl:attribute name="id" select="string(.)"/>
+  </xsl:template>
   
   <xsl:template match="a[@href]" priority="20" mode="html2xhtml">
     <xsl:variable name="newHref" select="@href" as="xs:string"/>
@@ -63,6 +67,12 @@
   <xsl:template match="u" priority="10" mode="html2xhtml">
     <!-- DITA <u> (underline element) -->
     <span class="underline" style="text-decoration: underline"><xsl:apply-templates mode="#current"/></span>
+  </xsl:template>
+  
+  <xsl:template match="p/div" priority="10" mode="html2xhtml">
+    <span>
+      <xsl:apply-templates select="@*,node()" mode="#current"
+      /></span>
   </xsl:template>
   
   <xsl:template  mode="html2xhtml" match="
