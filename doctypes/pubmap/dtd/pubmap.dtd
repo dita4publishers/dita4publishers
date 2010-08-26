@@ -139,7 +139,9 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap"
                         puts @domains first in order               -->
 <!ENTITY included-domains 
                         "
+                         &pubmap-d-att;
                          &pubmapMapref-d-att;
+                         &pubmeta-d-att;
                          &d4p_renditionTargetAtt-d-att;
                          &d4p_simpleEnumerationMap-d-att;
                         ">
@@ -200,7 +202,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap"
 
 <!ENTITY % indexing-d-def     
   PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Indexing Domain//EN" 
-         "../../base/dtd/indexingDomain.mod"
+         "indexingDomain.mod"
 >%indexing-d-def;
 
 
