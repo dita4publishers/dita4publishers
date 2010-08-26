@@ -48,9 +48,13 @@
         count="*[df:class(., 'pubmap-d/chapter')][not(@processing-role = 'resource-only')]" 
         format="1." 
         level="any" 
-        from="*[df:class(., 'pubmap-d/pubbody')]"/>
+        from="*[df:class(., 'pubmap-d/pubbody')] | *[df:class(., 'map/map')]"/>
       <xsl:text> </xsl:text>
     </span>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/data')]" mode="#all">
+    <!-- Suppress <data> by default. -->
   </xsl:template>
 
   <xsl:template mode="enumeration" match="*[df:class(., 'pubmap-d/appendix')]">
