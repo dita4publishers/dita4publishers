@@ -3,7 +3,7 @@
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:playmap" "playmap.dtd">
 <playmap xml:lang="en">
    <title>The Life of Henry the Fifth</title>
-   <playmeta>
+   <playmeta><author>William Shakespear</author>
       <playmetadata>
          <scene-description>SCENE  England; afterwards France.</scene-description>
       </playmetadata>

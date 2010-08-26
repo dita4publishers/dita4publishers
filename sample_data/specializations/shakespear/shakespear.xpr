@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
+<project version="11.2">
     <meta>
         <filters directoryPatterns="" filePatterns=""
             positiveFilePatterns="" showHiddenFiles="false"/>
@@ -45,45 +45,9 @@
             <file name="plays/win_tale/win_tale.ditamap"/>
         </folder>
         <folder name="original-xml">
-            <file name="../../shaks200/a_and_c.xml"/>
-            <file name="../../shaks200/all_well.xml"/>
-            <file name="../../shaks200/as_you.xml"/>
-            <file name="../../shaks200/com_err.xml"/>
-            <file name="../../shaks200/coriolan.xml"/>
-            <file name="../../shaks200/cymbelin.xml"/>
-            <file name="../../shaks200/dream.xml"/>
-            <file name="../../shaks200/hamlet.xml"/>
-            <file name="../../shaks200/hen_iv_1.xml"/>
-            <file name="../../shaks200/hen_iv_2.xml"/>
-            <file name="../../shaks200/hen_v.xml"/>
-            <file name="../../shaks200/hen_vi_1.xml"/>
-            <file name="../../shaks200/hen_vi_2.xml"/>
-            <file name="../../shaks200/hen_vi_3.xml"/>
-            <file name="../../shaks200/hen_viii.xml"/>
-            <file name="../../shaks200/j_caesar.xml"/>
-            <file name="../../shaks200/john.xml"/>
-            <file name="../../shaks200/lear.xml"/>
-            <file name="../../shaks200/lll.xml"/>
-            <file name="../../shaks200/m_for_m.xml"/>
-            <file name="../../shaks200/m_wives.xml"/>
-            <file name="../../shaks200/macbeth.xml"/>
-            <file name="../../shaks200/merchant.xml"/>
-            <file name="../../shaks200/much_ado.xml"/>
-            <file name="../../shaks200/othello.xml"/>
-            <file name="../../shaks200/pericles.xml"/>
             <file
-                name="toolkit_plugins/net.sourceforge.dita4publishers.shakespear.html/xsl/play2html.xsl"/>
-            <file name="../../shaks200/r_and_j.xml"/>
-            <file name="../../shaks200/rich_ii.xml"/>
-            <file name="../../shaks200/rich_iii.xml"/>
-            <file name="../../shaks200/t_night.xml"/>
-            <file name="../../shaks200/taming.xml"/>
-            <file name="../../shaks200/tempest.xml"/>
-            <file name="../../shaks200/timon.xml"/>
-            <file name="../../shaks200/titus.xml"/>
-            <file name="../../shaks200/troilus.xml"/>
-            <file name="../../shaks200/two_gent.xml"/>
-            <file name="../../shaks200/win_tale.xml"/>
+                name="toolkit_plugins/net.sourceforge.dita4publishers.shakespear.html/xsl/play2html.xsl"
+            />
         </folder>
         <folder name="plugin source">
             <file
@@ -93,5 +57,7 @@
         <folder name="specialization modules">
             <file name="doctypes/playmap/dtd/playmap.mod"/>
         </folder>
+        <file name="doctypes/playmap/dtd/catalog.xml"/>
+        <file name="doctypes/playmap/dtd/playmap.dtd"/>
     </projectTree>
 </project>

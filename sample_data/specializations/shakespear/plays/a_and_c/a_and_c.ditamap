@@ -3,7 +3,7 @@
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:playmap" "playmap.dtd">
 <playmap xml:lang="en">
    <title>The Tragedy of Antony and Cleopatra</title>
-   <playmeta>
+   <playmeta><author>William Shakespear</author>
       <playmetadata>
          <scene-description>SCENE  In several parts of the Roman empire.</scene-description>
       </playmetadata>

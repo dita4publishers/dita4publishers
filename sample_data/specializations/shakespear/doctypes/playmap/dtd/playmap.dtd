@@ -50,6 +50,26 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:playmap"
 >
 %pubmap-d-dec;
 
+<!ENTITY % pubmapMapref-d-dec 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pubmapMaprefDomain" 
+"pubmapMaprefDomain.ent"                                                 
+>
+%pubmapMapref-d-dec;
+
+<!ENTITY % pubmeta-d-dec 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pubmetadataDomain" 
+"pubmetadataDomain.ent"                                                 
+>
+%pubmeta-d-dec;
+
+<!ENTITY % d4p_simpleEnumeration-d-dec     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:entities:dtd:dita:d4p_simpleEnumerationDomain:entities" 
+"d4p_simpleEnumerationDomain.ent"                                                
+>
+%d4p_simpleEnumeration-d-dec;
+
 <!ENTITY % indexing-d-dec     PUBLIC 
 "-//OASIS//ENTITIES DITA 1.2 Indexing Domain//EN" 
 "indexingDomain.ent"                                           >
@@ -60,6 +80,13 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:playmap"
 <!--                    DOMAIN ATTRIBUTE DECLARATIONS              -->
 <!-- ============================================================= -->
 
+<!ENTITY % d4p_renditionTargetAtt-d-dec     
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_renditionTargetAttDomain:entities" 
+         "d4p_renditionTargetAttDomain.ent"                                                
+>
+%d4p_renditionTargetAtt-d-dec;
+
+
 
 <!-- ============================================================= -->
 <!--                    DOMAIN EXTENSIONS                          -->
@@ -69,16 +96,23 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:playmap"
                         extension was declared                     -->
 <!ENTITY % topicref     "topicref |
                          %mapgroup-d-topicref; |
+                         %pubmapMapref-d-topicref; |
                          %pubmap-d-topicref;
                         ">
 <!ENTITY % index-base   "index-base |
                          %indexing-d-index-base;
                         ">
 
+<!ENTITY % data
+  "data | 
+   %d4p_simpleEnumeration-d-data;
+  "
+>
+
 <!-- ============================================================= -->
 <!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
 <!-- ============================================================= -->
-<!ENTITY % props-attribute-extensions  ""                            >
+<!ENTITY % props-attribute-extensions "%d4p_renditionTargetAtt-d-attribute;" >
 <!ENTITY % base-attribute-extensions   ""                            >
 
 <!-- ============================================================= -->
@@ -87,7 +121,12 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:playmap"
 <!--                    Must be declared ahead of the DTDs, which
                         puts @domains first in order               -->
 <!ENTITY included-domains 
-                        "&pubmap-d-att;
+                        "                         
+                         &pubmap-d-att;
+                         &pubmapMapref-d-att;
+                         &pubmeta-d-att;
+                         &d4p_renditionTargetAtt-d-att;
+                         &d4p_simpleEnumerationMap-d-att;
                          &playmap-att;
                          &mapgroup-d-att;
                          &indexing-d-att; 
@@ -113,6 +152,17 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:playmap"
 "pubmapDomain.mod"                                                        >
 %pubmap-d-def;
 
+<!ENTITY % pubmapMapref-d-def PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmapMaprefDomain" 
+"pubmapMaprefDomain.mod"                                                        >
+%pubmapMapref-d-def;
+
+<!ENTITY % pubmeta-d-def PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmetadataDomain" 
+"pubmetadataDomain.mod"                                                        >
+%pubmeta-d-def;
+
+
 <!ENTITY % playmap-type PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:modules:dtd:playmap" 
 "playmap.mod"                                                        >
@@ -121,6 +171,13 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:playmap"
 <!-- ============================================================= -->
 <!--                    DOMAIN ELEMENT INTEGRATION                 -->
 <!-- ============================================================= -->
+
+<!ENTITY % d4p_simpleEnumeration-d-def     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dita:modules:d4p_simpleEnumerationDomain" 
+"d4p_simpleEnumeration.mod"
+>
+%d4p_simpleEnumeration-d-def;
+
 
 <!ENTITY % indexing-d-def
                         PUBLIC 

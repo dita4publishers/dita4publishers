@@ -3,7 +3,7 @@
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:playmap" "playmap.dtd">
 <playmap xml:lang="en">
    <title>The Merry Wives of Windsor</title>
-   <playmeta>
+   <playmeta><author>William Shakespear</author>
       <playmetadata>
          <scene-description>SCENE  Windsor, and the neighbourhood.</scene-description>
       </playmetadata>

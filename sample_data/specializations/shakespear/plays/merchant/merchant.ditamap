@@ -3,7 +3,7 @@
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:playmap" "playmap.dtd">
 <playmap xml:lang="en">
    <title>The Merchant of Venice</title>
-   <playmeta>
+   <playmeta><author>William Shakespear</author>
       <playmetadata>
          <scene-description>SCENE  Partly at Venice, and partly at Belmont, the seat of PORTIA, on the Continent.</scene-description>
       </playmetadata>

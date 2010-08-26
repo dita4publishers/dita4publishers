@@ -3,7 +3,7 @@
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:playmap" "playmap.dtd">
 <playmap>
    <title>The Famous History of the Life of Henry the Eighth</title>
-   <playmeta>
+   <playmeta><author>William Shakespear</author>
       <playmetadata>
          <scene-description>SCENE  London; Westminster; Kimbolton</scene-description>
       </playmetadata>
