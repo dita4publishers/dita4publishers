@@ -14,8 +14,8 @@
   
   <xsl:template match="*[contains(@class, ' xml-d/xmlatt ')]" priority="10">
     <fo:inline font-size="90%" font-family="Monospaced">
+      <xsl:text>@</xsl:text>
       <xsl:apply-templates/>
-      <xsl:text>=</xsl:text>
     </fo:inline>
   </xsl:template>
   

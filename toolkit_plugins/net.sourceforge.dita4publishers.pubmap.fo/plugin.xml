@@ -10,7 +10,7 @@
 <plugin id="net.sourceforge.dita4publishers.pubmap.fo">
   <require plugin="net.sourceforge.dita4publishers.formatting-d.fo"/> 
   <require plugin="net.sourceforge.dita4publishers.pubContent-d.fo"/> 
-  <require plugin="net.sourceforge.dita4publishers.xml-d.fo"/> 
+  <require plugin="net.sourceforge.dita4publishers.xmldomain.fo"/> 
   <feature extension="dita.xsl.xslfo"
       value="xsl/pubmap2xslfo.xsl" type="file"/>
       

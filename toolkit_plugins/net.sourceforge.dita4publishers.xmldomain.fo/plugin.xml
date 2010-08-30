@@ -5,7 +5,7 @@
   
   Implements XSL-FO rendering of elements in the XML domain.
   -->
-<plugin id="net.sourceforge.dita4publishers.xml-d.fo">
+<plugin id="net.sourceforge.dita4publishers.xmldomain.fo">
   <feature extension="dita.xsl.xslfo"
       value="xsl/xml-d2fo.xsl" type="file"/>
       
