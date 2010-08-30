@@ -38,7 +38,7 @@
   <property name="package.dist" location="${dist}/dita4publishers"/>
 	<property name="package.zip.base" value="dita4publishers"/>
   <property name="dita-ot-dir" location="c:\DITA-OT1.5"/>
-  <property name="plugin-src" location="${basedir}/toolkit_plugins"/>
+  <property name="plugin.src" location="${basedir}/toolkit_plugins"/>
 	<property name="shakespear-sample" location="${basedir}/sample_data/specializations/shakespear"/>
   <property name="plugin-shakespear-samples-src" value="${shakespear-sample}/toolkit_plugins"/>
   <property name="plugin-deploy_target" location="${dita-ot-dir}/plugins"/>
@@ -108,8 +108,8 @@
       <fileset dir="${plugin.dist}"  includes="net.sourceforge.dita4publishers.*/**"/>
     </delete>
 		<copy todir="${plugin.dist}">
-			<fileset dir="${plugin-src}">
-				<exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/>
+			<fileset dir="${plugin.src}">
+<!--				<exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/> -->
 			</fileset>
 		</copy>
 		<replace file="${plugin.dist}/net.sourceforge.dita4publishers.epub/xsl/map2epubImpl.xsl"
@@ -169,7 +169,9 @@
 			<fileset dir="${plugin.dist}">
 				<include name="**/*"/>
         <exclude name="**/CVS"/>
+				<!--
 				<exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/>
+				-->
 			</fileset>
 		</copy>
     <!-- Itegrate the deployed plugins: -->
@@ -199,14 +201,14 @@
       <fileset dir="${plugin.dist}" includes="net.sourceforge.dita4publishers.epub/**"/>
     </delete>
     <copy todir="${plugin.dist}/net.sourceforge.dita4publishers.epub">
-      <fileset dir="${plugin-src}/net.sourceforge.dita4publishers.epub">
+      <fileset dir="${plugin.src}/net.sourceforge.dita4publishers.epub">
         <include name="**/*"/>
       </fileset>
     </copy>
 	</target>
 	
 	<target name="package-epub-plugin" depends="dist-epub-plugin">
-    <zip destfile="${dist}/dita4publishers_epub_plugin-${package.date}.zip">
+    <zip destfile="${dist}/dita4publishers-epub-plugin-${package.date}.zip">
       <fileset dir="${plugin.dist}">
         <include name="net.sourceforge.dita4publishers.epub/**"/>
       </fileset>
@@ -216,7 +218,7 @@
 	<target name="package-vocabulary-plugins" depends="dist-init, dist-toolkit-plugins"
 		description="Create distributable Zip packages of the different Toolkit plugins"
 		>
-    <zip destfile="${package.dist}/dita4publishers_vocabulary_plugins-${vocab_version}-${package.date}.zip">
+    <zip destfile="${package.dist}/dita4publishers-vocabulary-plugins-${vocab_version}-${package.date}.zip">
       <fileset dir="${plugin.dist}">
         <include name="net.sourceforge.dita4publishers.doctypes/**"/>
       </fileset>
@@ -226,10 +228,10 @@
 	<target name="package-toolkit-plugins" depends="dist-init, dist-toolkit-plugins"
 		description="Create distributable Zip package of just the vocabulary modules."
 		>
-    <zip destfile="${package.dist}/dita4publishers_toolkit_plugins-${vocab_version}-${package.date}.zip">
+    <zip destfile="${package.dist}/dita4publishers-toolkit-plugins-${vocab_version}-${package.date}.zip">
       <fileset dir="${plugin.dist}">
         <include name="net.sourceforge.dita4publishers.*/**"/>
-        <exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/>
+        <!-- <exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/> -->
       </fileset>
     </zip>
   </target>
@@ -409,19 +411,10 @@
 			<property name="dita.dir" location="${dita-ot-dir}"/>
 			<property name="dita.temp.dir" location="${temp}/dita-temp"/>
 			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
-			<property name="output.dir" location="${epubTemp}"/>
+			<property name="output.dir" location="${epubBuild}"/>
 	  </ant>
-		<!-- The EPub is in the temp dir and we need to move it to the epub build directory.
-		
-		     This is problem with the EPub process in the way that it does the zipping of
-		     the EPub package in the output dir, instead of in another temp directory.
-		 -->
-		<move todir="${epubBuild}">
-			<fileset dir="${epubTemp}">
-				<include name="${mapname}.epub"/>
-		  </fileset>
-		</move>
-	  </target>
+
+	</target>
 
 	 <target name="init-web-site">
 	    <delete includeEmptyDirs="true" failonerror="false">
@@ -446,7 +439,7 @@
       <property name="output.dir" location="${website.build}"/>
     </ant>
  	
- 	  <copy todir="${website.build}">
+ 	  <copy todir="${website.build}" >
  	  	<fileset dir="${docs}/website/static-html" includes="index.html"/>
  	  </copy>
   </target>
