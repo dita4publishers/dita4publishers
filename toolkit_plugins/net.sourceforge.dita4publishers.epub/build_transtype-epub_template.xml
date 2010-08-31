@@ -59,13 +59,7 @@
   </target>
   
     
-  <target name="dita.map.epub.init" if="epub.plugin"
-    depends="dita.map.epub.plugin.init">
-    <antcall target="dita.map.epub.generate.plugin"/>
-  </target>
-  
-  
-  <target name="dita.map.epub.plugin.init"
+  <target name="dita.map.epub.init"
     description="Init properties for Epub">
     <basename property="dita.map.toc.root"
       file="${dita.input.filename}"
