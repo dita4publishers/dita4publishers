@@ -29,6 +29,8 @@
   <property name="temp" location="${basedir}/temp"/>
   <property name="epubTemp" location="${temp}/epub"/>
   <property name="epubBuild" location="${build}/epubs"/>
+  <property name="kindleTemp" location="${temp}/kindle"/>
+  <property name="kindleBuild" location="${build}/kindle"/>
   <property name="docs.dir" location="${basedir}/docs"/>
   <property name="docs" location="${basedir}/documentation"/>
   <property name="website.source" location="${docs}/website"/>
@@ -371,7 +373,23 @@
 			<param name="mapname" value="wizard-of-oz"/>
 			<param name="sampleRootDir" location="${sampledata}"/>
 		</antcall>
-	  </target>
+	</target>
+  
+  <!-- this builds wizard of oz with only three chapters to save processing time -->
+  <target name="epub-epub-test" description="Generate epub for EPUB test document">
+    <antcall target="epub-map">
+      <param name="mapname" value="epub-test"/>
+      <param name="sampleRootDir" location="${sampledata}"/>
+    </antcall>
+  </target>
+  
+  <!-- this builds kindle version of epub-test -->
+  <target name="kindle-epub-test" description="Generate kindle for an excerpt of the EPUB Test document">
+    <antcall target="kindle-map">
+      <param name="mapname" value="epub-test"/>
+      <param name="sampleRootDir" location="${sampledata}"/>
+    </antcall>
+  </target>
 	  
 	<target name="html-api-and-tools-docs" description="Generate HTML for API and tools documentation">
     <ant antfile="${dita-ot-dir}${file.separator}build.xml"
@@ -412,6 +430,33 @@
 			<property name="dita.temp.dir" location="${temp}/dita-temp"/>
 			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
 			<property name="output.dir" location="${epubBuild}"/>
+	  </ant>
+
+	</target>
+
+	<target name="kindle-map">
+		<echo message="mapname='${mapname}'"/>
+		
+		<!-- The kindle process doesn't clean out the output directory, so
+		     we have to do it.
+		  -->
+    <delete includeEmptyDirs="true" failonerror="false">
+      <fileset dir="${kindleTemp}"  includes="*/**"/>
+    </delete>
+
+		<ant antfile="${dita-ot-dir}/build.xml"
+			dir="${dita-ot-dir}"
+			target="dita2kindle"
+			
+			>
+			<property name="args.input" location="${sampleRootDir}/${mapname}/${mapname}.ditamap"/>
+      <property name="transtype" value="dita2kindle"/>
+			<property name="args.outext" value="html"/>
+			<property name="args.xhtml.toc" value="index"/>
+			<property name="dita.dir" location="${dita-ot-dir}"/>
+			<property name="dita.temp.dir" location="${temp}/dita-temp"/>
+			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
+			<property name="output.dir" location="${kindleBuild}"/>
 	  </ant>
 
 	</target>
