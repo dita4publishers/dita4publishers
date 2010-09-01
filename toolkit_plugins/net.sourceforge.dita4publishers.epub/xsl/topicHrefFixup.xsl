@@ -9,7 +9,7 @@
   exclude-result-prefixes="xs epubutil df relpath"
   version="2.0">
 
-  <xsl:import href="../../net.sourceforge.dita4publishers.xslt.common/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="epub-generation-utils.xsl"/>
   
   <xsl:template match="/" mode="href-fixup">

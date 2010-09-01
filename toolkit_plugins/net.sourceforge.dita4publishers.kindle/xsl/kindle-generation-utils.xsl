@@ -8,7 +8,7 @@
   exclude-result-prefixes="xs kindleutil relpath"  
   version="2.0">
   
-  <xsl:import href="../../net.sourceforge.dita4publishers.xslt.common/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   
   <xsl:function name="kindleutil:getTopicResultUrl" as="xs:string">
     <xsl:param name="outdir" as="xs:string"/><!-- Output directory -->

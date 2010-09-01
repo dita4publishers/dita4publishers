@@ -43,10 +43,10 @@
        instruction.
        ============================================================== -->
 
-  <xsl:import href="../../net.sourceforge.dita4publishers.xslt.common/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.xslt.common/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.xslt.common/xsl/graphicMap2AntCopyScript.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.xslt.common/xsl/map2graphicMapImpl.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMapImpl.xsl"/>
     
   <!-- Import the base HTML output generation transform. -->
   <xsl:import href="../../../xsl/dita2xhtml.xsl"/>

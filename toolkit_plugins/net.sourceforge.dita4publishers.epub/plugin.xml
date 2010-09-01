@@ -1,6 +1,6 @@
 <plugin id="net.sourceforge.dita4publishers.epub">
 
-  <require plugin="net.sourceforge.dita4publishers.xslt.common"/> 
+  <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
 
   <template file="build_transtype-epub_template.xml"/>
   
