@@ -456,11 +456,12 @@
     <!-- Returns true if the topicref has no navititle and no href or keyref -->
     <xsl:param name="context" as="element()"/>
     <xsl:sequence 
-      select="df:class($context, 'map/topicref') and 
-      (not($context/@href) or $context/@href = '') and
-      (not($context/@keyref) or $context/@keyref = '') and
+      select="df:class($context, 'mapgroup-d/topicgroup') or 
+      (df:class($context, 'map/topicref') and 
+       (not($context/@href) or $context/@href = '') and
+       (not($context/@keyref) or $context/@keyref = '') and
        not($context/@navtitle != '' or 
-           $context/*[df:class($context, 'map/topicmeta')]/*[df:class(., 'topic/navtitle')])"/>
+           $context/*[df:class($context, 'map/topicmeta')]/*[df:class(., 'topic/navtitle')]))"/>
   </xsl:function>
   
   <xsl:function name="df:isTopicRef" as="xs:boolean">
