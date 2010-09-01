@@ -101,6 +101,13 @@
             </topichead>
           </topichead>
         </topichead>
+        <topicgroup>
+          <topicmeta>
+            <navtitle>Navtitle for Topic Group. Should be completely ignored for output purposes.</navtitle>
+          </topicmeta>
+          <topichead
+            navtitle="Topic Head Within Topic Group With Navtitle"/>
+        </topicgroup>
       </chapter>
       <chapter
         href="chapters/cross-refs-01.xml"/>
