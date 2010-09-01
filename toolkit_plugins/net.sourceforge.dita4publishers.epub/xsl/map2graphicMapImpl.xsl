@@ -86,15 +86,16 @@
     <xsl:variable name="graphicPath" select="@href" as="xs:string"/>
     <xsl:variable name="rawUrl" select="concat($parentPath, '/', $graphicPath)" as="xs:string"/>
     <xsl:variable name="absoluteUrl" select="relpath:getAbsolutePath($rawUrl)"/>
-    <xsl:message> + [DEBUG] get-graphic-refs for image:
-      
-      docUri="<xsl:sequence select="$docUri"/>"
-      parentPath="<xsl:sequence select="$parentPath"/>"
-      graphicPath="<xsl:sequence select="$graphicPath"/>"
-      rawUrl="<xsl:sequence select="$rawUrl"/>"
-      absoluteUrl="<xsl:sequence select="$absoluteUrl"/>"      
-    </xsl:message>
-    
+    <xsl:if test="$debugBoolean">    
+      <xsl:message> + [DEBUG] get-graphic-refs for image:
+          
+          docUri="<xsl:sequence select="$docUri"/>"
+          parentPath="<xsl:sequence select="$parentPath"/>"
+          graphicPath="<xsl:sequence select="$graphicPath"/>"
+          rawUrl="<xsl:sequence select="$rawUrl"/>"
+          absoluteUrl="<xsl:sequence select="$absoluteUrl"/>"      
+        </xsl:message>
+     </xsl:if>   
     <gmap:graphic-ref href="{$absoluteUrl}" filename="{relpath:getName($absoluteUrl)}"/>
     
   </xsl:template>

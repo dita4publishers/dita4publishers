@@ -230,7 +230,7 @@
 
   <!-- topichead elements get a navPoint, but don't actually point to
        anything.  Same with topicref that has no @href. -->
-  <xsl:template match="*[df:isTopicHead(.) or df:isTopicGroup(.)]" mode="generate-toc">
+  <xsl:template match="*[df:isTopicHead(.)]" mode="generate-toc">
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
     <xsl:if test="$tocDepth le $maxTocDepthInt">
       <xsl:variable name="titleOnlyTopicFilename" as="xs:string"
@@ -247,8 +247,8 @@
           </xsl:variable>
           <text><xsl:value-of select="
             if ($enumeration = '')
-            then normalize-space(rawNavPointTitle)
-            else concat($enumeration, ' ', rawNavPointTitle)
+            then normalize-space($rawNavPointTitle)
+            else concat($enumeration, ' ', $rawNavPointTitle)
             "/></text>
         </navLabel>
         <xsl:variable name="contentUri" as="xs:string"
@@ -268,7 +268,7 @@
   </xsl:template>
 
   <xsl:template match="*[df:isTopicGroup(.)]" mode="nav-point-title">
-    <!-- By default, topic groups have no titles -->
+    <!-- Per the 1.2 spec, topic group navtitles are always ignored -->
   </xsl:template>
   
 <!--  <xsl:template mode="nav-point-title" match="*[df:class(., 'topic/title')]" priority="10">

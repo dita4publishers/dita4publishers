@@ -53,10 +53,6 @@
     </span>
   </xsl:template>
   
-  <xsl:template match="*[df:class(., 'topic/data')]" mode="#all">
-    <!-- Suppress <data> by default. -->
-  </xsl:template>
-
   <xsl:template mode="enumeration" match="*[df:class(., 'pubmap-d/appendix')]">
     <span class='enumeration_chapter'>
       <xsl:text>Appendix </xsl:text><!-- FIXME: Enable localization of the string. -->
