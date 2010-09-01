@@ -1,0 +1,150 @@
+<project name="dita2kindle" default="dita2kindle"
+  >
+  
+  <!-- test to see where the plugin is located, plugins or demo -->
+  <dirname property="kindle.dir" file="${ant.file.dita2kindle}"/>
+	
+	<!-- Set this property to set the ePub URI stub to a useful value. -->
+	<property name="idURIStub"
+	  value="http://my-URI-stub/"/>
+
+	<!-- The name of the directory, within the ePub package, to contain all images: -->
+	<property name="images.output.dir" value="images"/>
+	<property name="css.output.dir" value="topics"/>
+	<!-- The name of the directory, within the ePub package, to contain all topics: -->
+	<property name="topics.output.dir" value="topics"/>
+	<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
+	<property name="debug" value="false"/>
+	
+	<property name="args.hide.parent.link" value="yes"/><!-- Turn off parent links in topics by default -->
+
+	<property name="kindle.temp.dir" value="${dita.temp.dir}${file.separator}kindle_temp"/>
+	
+	<!-- Defines the @class value to use for topic elements generated for topicheads. -->
+	<property name="title.only.topic.class.spec" value="- topic/topic "/>
+	
+	<!-- Defines the @class value to use for topic title elements generated for topicheads. -->
+	<property name="title.only.topic.title.class.spec" value="- topic/title "/>
+	
+	<!-- Leading portion of full EPUB publication ID to be appended to the publication ID -->
+	<property name="kindle.pubid.uri.stub" value="http://my-URI-stub/"/>
+
+	<target name="dita2kindle"
+    unless="noMap"
+    xmlns:dita="http://dita-ot.sourceforge.net"
+		dita:depends="build-init, preprocess,kindle"
+    dita:extension="depends org.dita.dost.platform.InsertDependsAction">
+  </target>
+  
+  <target name="kindle"
+    unless="noMap"
+    depends="dita.map.kindle, zipkindle"/>
+	  
+  <target name="zipkindle">
+    <!-- Two steps because mimetype must go in first,
+      uncompressed. Looks like ant puts later zipped files in
+      first, so mimetype is in second zip task. -->
+    <zip destfile="${output.dir}${file.separator}${dita.map.filename.root}.kindle"
+      basedir="${kindle.temp.dir}"
+    	compress="true"
+      includes="META-INF${file.separator}container.xml,toc.ncx,
+      content.opf,container.opf,**/*.html,**/*.css,**/*.HTML,**/*.CSS,
+      **/*.jpg,**/*.gif,**/*.png,**/*.svg,**/*.JPG,**/*.GIF,**/*.PNG,**/*.SVG"/>
+    <zip destfile="${output.dir}${file.separator}${dita.map.filename.root}.kindle"
+      basedir="${kindle.temp.dir}"
+      includes="mimetype"
+      update="true"
+    	keepcompression="true"
+    	compress="false"/>
+  </target>
+  
+    
+  <target name="dita.map.kindle.init"
+    description="Init properties for Epub">
+    <basename property="dita.map.toc.root"
+      file="${dita.input.filename}"
+      suffix=".ditamap" />
+    <condition property="args.kindle.toc" value="${dita.map.toc.root}">
+      <not>
+        <isset property="args.kindle.toc" />
+      </not>
+    </condition>
+    <condition property="out.ext" value=".html">
+      <not>
+        <isset property="out.ext" />
+      </not>
+    </condition>
+    <condition property="noPlugin">
+      <equals arg1="${dita.kindle.plugin}" arg2="no" />
+    </condition>
+  </target>
+  
+
+  
+  <target name="dita.map.kindle" depends="dita.map.kindle.init, kindle-copy-css" 
+  	description="Generate all ePub components from input map and topics">
+  	
+  	<mkdir dir="${kindle.temp.dir}"/>
+  	<makeurl file="${kindle.temp.dir}" property="kindle.xslt.outdir"/>
+  	<makeurl file="${dita.temp.dir}" property="kindle.xslt.tempdir"/>
+  	<makeurl file="${cover.graphic.file}" property="cover.graphic.uri" validate="false"/>
+  	<echo message="[DEBUG] cover.graphic.uri=${cover.graphic.uri}"/>
+  	
+  	<property name="map2kindle.style" location="${kindle.dir}/xsl/map2kindle.xsl"/>
+
+  	<echo message="[DEBUG] input file='${dita.temp.dir}${file.separator}${user.input.file}'"/>
+
+    <xslt processor="trax"
+      basedir="${dita.temp.dir}"
+      destdir="${output.dir}"
+      includesfile="${dita.temp.dir}${file.separator}fullditamap.list"
+      classpathref="dost.class.path"
+      style="${map2kindle.style}">
+     	<param name="cssOutputDir" expression="${css.output.dir}"/>
+      <param name="debug" expression="${debug}"/>
+    	<param name="coverGraphicUri" expression="cover.graphic.uri" if="cover.graphic.file"/>
+    	<param name="idURIStub" expression="${kindle.pubid.uri.stub}"/>
+     	<param name="imagesOutputDir" expression="${images.output.dir}"/>
+     	<param name="outdir" expression="${kindle.xslt.outdir}"/>
+     	<param name="tempdir" expression="${kindle.xslt.tempdir}"/>
+    	<param name="rawPlatformString" expression="${os.name}"/>
+    	<param name="titleOnlyTopicClassSpec" expression="${title.only.topic.class.spec}"/>
+    	<param name="titleOnlyTopicTitleClassSpec" expression="${title.only.topic.title.class.spec}"/>
+     	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
+
+    	<!-- Parameters from dita2xhtml and similar transtypes: -->   
+      <param name="WORKDIR" expression="${workdir}" if="workdir"/>
+      <param name="CSS" expression="${args.css.file}" if="args.css.file" />
+      <param name="CSSPATH" expression="${user.csspath}" if="user.csspath" />
+    </xslt>
+  	
+  	<antcall target="kindle.copy.graphics"/>
+  	
+  </target>
+  
+  <target name="kindle.copy.graphics" 
+	  description="Copies graphics from input to the ePub output directory based on the graphic map generated during kindle generation">
+  	<ant antfile="${kindle.temp.dir}/copy-graphics.xml"  		
+  		>
+  	</ant>
+	</target>
+	
+  <target name="kindle-copy-css"  description="Copy CSS files">    
+    <condition property="user.copycss.yes">
+      <isset property="args.css.present"/>
+    </condition>
+    <property name="user.csspath.real" value="${kindle.temp.dir}/${topics.output.dir}/${user.csspath}"/>
+    <mkdir dir="${user.csspath.real}"/>    
+    <!-- Always copy system default css files -->
+    <copy todir="${user.csspath.real}">
+      <fileset dir="${dita.resource.dir}" includes="*.css"/>
+    </copy>    
+    <!-- Copy user specify css file when required -->
+    <antcall target="kindle-copy-css-user"/>
+  </target>
+
+  <target name="kindle-copy-css-user" if="user.copycss.yes">
+    <copy file="${args.css.real}" todir="${user.csspath.real}"/>
+  </target>
+
+</project>
