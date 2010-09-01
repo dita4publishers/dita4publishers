@@ -43,22 +43,22 @@
        instruction.
        ============================================================== -->
 
-  <xsl:import href="lib/dita-support-lib.xsl"/>
-  <xsl:import href="lib/relpath_util.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.xslt.common/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.xslt.common/xsl/lib/relpath_util.xsl"/>
   
   <!-- Import the base HTML output generation transform. -->
   <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
   
+  <xsl:import href="../../net.sourceforge.dita4publishers.xslt.common/xsl/graphicMap2AntCopyScript.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.xslt.common/xsl/map2graphicMapImpl.xsl"/>
   
   <xsl:include href="map2epubCommon.xsl"/>
   <xsl:include href="map2epubOpfImpl.xsl"/>
-  <xsl:include href="map2graphicMapImpl.xsl"/>
   <xsl:include href="map2epubContentImpl.xsl"/>
   <xsl:include href="map2epubTocImpl.xsl"/>
   <xsl:include href="map2epubIndexImpl.xsl"/>
   <xsl:include href="html2xhtmlImpl.xsl"/>
   <xsl:include href="topicHrefFixup.xsl"/>
-  <xsl:include href="graphicMap2AntCopyScript.xsl"/>
   <xsl:include href="epubHtmlOverrides.xsl"/>
 
   <xsl:include href="map2epubD4PImpl.xsl"/>

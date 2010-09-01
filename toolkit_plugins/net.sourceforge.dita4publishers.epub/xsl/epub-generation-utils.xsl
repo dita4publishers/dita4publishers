@@ -8,7 +8,7 @@
   exclude-result-prefixes="xs epubutil relpath"  
   version="2.0">
   
-  <xsl:import href="lib/relpath_util.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.xslt.common/xsl/lib/relpath_util.xsl"/>
   
   <xsl:function name="epubutil:getTopicResultUrl" as="xs:string">
     <xsl:param name="outdir" as="xs:string"/><!-- Output directory -->

@@ -10,8 +10,8 @@
   >
   <!-- Generate a back-of-the-book index for inclusion in the EPUB. -->
   
-  <xsl:import href="lib/dita-support-lib.xsl"/>
-  <xsl:import href="lib/relpath_util.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.xslt.common/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.xslt.common/xsl/lib/relpath_util.xsl"/>
   <xsl:import href="epub-generation-utils.xsl"/>
   
 

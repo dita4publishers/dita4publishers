@@ -7,7 +7,7 @@
   exclude-result-prefixes="xs df"
   version="2.0">
 
-  <xsl:import href="lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.xslt.common/xsl/lib/dita-support-lib.xsl"/>
   
   <!-- Pub Title mode: -->
 
