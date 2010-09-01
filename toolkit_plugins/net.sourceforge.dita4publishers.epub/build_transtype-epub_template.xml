@@ -91,17 +91,13 @@
   	<echo message="[DEBUG] cover.graphic.uri=${cover.graphic.uri}"/>
   	
   	<property name="map2epub.style" location="${epub.dir}/xsl/map2epub.xsl"/>
-  	
-  	<!-- FIXME:
-  	     
-  	     Need to parameterize all aspects of the output file organization
-  	     as much as possible, including the names of the topic and images
-  	     directories, names of the CSS files to use, etc.
-  	-->
+
+  	<echo message="[DEBUG] input file='${dita.temp.dir}${file.separator}${user.input.file}'"/>
+
     <xslt processor="trax"
       basedir="${dita.temp.dir}"
       destdir="${output.dir}"
-      includes="${dita.input.filename}"
+      includesfile="${dita.temp.dir}${file.separator}fullditamap.list"
       classpathref="dost.class.path"
       style="${map2epub.style}">
      	<param name="cssOutputDir" expression="${css.output.dir}"/>
