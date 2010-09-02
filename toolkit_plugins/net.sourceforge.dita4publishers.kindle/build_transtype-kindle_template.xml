@@ -29,7 +29,7 @@
 	<!-- Leading portion of full EPUB publication ID to be appended to the publication ID -->
 	<property name="kindle.pubid.uri.stub" value="http://my-URI-stub/"/>
 	
-	<property name="kindleGenExecutable" value="/Users/ekimber/apps/KindleGen_Mac_i386_v1.1/kindlegen"/>
+	<property name="kindleGenExecutable" value="kindlegen"/>
 	<property name="kindlegenArgs" value="-unicode"/>
 
 	<target name="dita2kindle"
