@@ -28,6 +28,9 @@
 	
 	<!-- Leading portion of full EPUB publication ID to be appended to the publication ID -->
 	<property name="kindle.pubid.uri.stub" value="http://my-URI-stub/"/>
+	
+	<property name="kindleGenExecutable" value="/Users/ekimber/apps/KindleGen_Mac_i386_v1.1/kindlegen"/>
+	<property name="kindlegenArgs" value="-unicode"/>
 
 	<target name="dita2kindle"
     unless="noMap"
@@ -120,6 +123,8 @@
   	
   	<antcall target="kindle.copy.graphics"/>
   	
+  	<antcall target="kindlegen"/>
+  	
   </target>
   
   <target name="kindle.copy.graphics" 
@@ -146,5 +151,21 @@
   <target name="kindle-copy-css-user" if="user.copycss.yes">
     <copy file="${args.css.real}" todir="${user.csspath.real}"/>
   </target>
+	
+	<target name="kindlegen">
+		<!-- Run the kindlegen utility. -->
+		<exec
+			dir="${kindle.temp.dir}"
+			executable="${kindleGenExecutable}"
+			error="${output.dir}/kindlegen.log"
+			resultproperty="resultCode"
+			failonerror="false"
+			searchpath="true"
+			>
+			<arg value="content.opf"/>
+			<arg line="${kindlegenArgs}"/>
+		</exec>
+		<echo message="After kindlegen, result code is '${resultCode}'"/>
+	</target>
 
 </project>
