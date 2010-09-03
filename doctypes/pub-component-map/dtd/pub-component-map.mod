@@ -16,24 +16,6 @@
 <!--                   ARCHITECTURE ENTITIES                       -->
 <!-- ============================================================= -->
 
-<!-- default namespace prefix for DITAArchVersion attribute can be
-     overridden through predefinition in the document type shell   -->
-<!ENTITY % DITAArchNSPrefix
-  "ditaarch"
->
-
-<!-- must be instanced on each topic type                          -->
-<!ENTITY % arch-atts 
-  "xmlns:%DITAArchNSPrefix; 
-     CDATA
-     #FIXED 'http://dita.oasis-open.org/architecture/2005/'
-   %DITAArchNSPrefix;:DITAArchVersion
-     CDATA
-     '1.2'
-"
->
-
-
 
 <!-- ============================================================= -->
 <!--                   SPECIALIZATION OF DECLARED ELEMENTS         -->

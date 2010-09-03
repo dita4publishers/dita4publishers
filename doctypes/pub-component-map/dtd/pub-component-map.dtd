@@ -100,9 +100,18 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pub-componen
 <!ENTITY % topicref     "topicref |
                          %mapgroup-d-topicref; |
                          %pubmap-d-topicref; |
-                         %pubmapMapref-d-topicref; |
                          %d4p_enumerationMap-d-topicref;
                         ">
+                        
+<!ENTITY % chapter
+  "chapter |
+   %pubmapMapref-d-chapter;"
+>
+<!ENTITY % article
+  "article |
+   %pubmapMapref-d-article;"
+>
+
 
 <!ENTITY % topicmeta "topicmeta |
                       %pubmeta-d-topicmeta;
