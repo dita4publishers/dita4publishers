@@ -10,6 +10,8 @@
   xmlns="http://www.idpf.org/2007/opf"
   exclude-result-prefixes="df xs relpath kindleutil gmap"
   >
+  
+  <!-- removing all opf prefixes from elements, as kindlegen does not like them -->
 
   <!-- Convert a DITA map to an EPUB content.opf file. 
     
@@ -80,8 +82,11 @@
           <dc:title>
             <xsl:apply-templates select="*[df:class(., 'topic/title')] | @title" mode="pubtitle"/>
           </dc:title>
-          
-          <dc:language id="language"><xsl:sequence select="$lang"/></dc:language>
+          <!-- kindlegen does not like the id attribute
+                also prefers string en-US to en_US as defined elsewhere
+                hardcoding that for now          -->
+          <!--<dc:language id="language"><xsl:sequence select="$lang"/></dc:language>-->
+          <dc:language>en-us</dc:language>
           
           <dc:identifier id="bookid">
             <xsl:variable name="basePubId" as="xs:string*">
@@ -131,7 +136,9 @@
         </metadata>
         
         <manifest xmlns:opf="http://www.idpf.org/2007/opf">
-          <opf:item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+          <!-- all these opf prefixes must go to please kindlegen -->
+          <!--<opf:item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>-->
+          <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
           <!-- List the XHTML files -->
           <xsl:apply-templates mode="manifest" select=".//*[df:isTopicRef(.) or df:isTopicHead(.)]"/>
           <!-- List the images -->
@@ -139,11 +146,14 @@
           <!-- FIXME: Will need to provide parameters for constructing references
                to user-specified CSS files.
             -->
-          <opf:item id="commonltr.css" href="{$cssOutputDir}/commonltr.css" media-type="text/css"/>
-          <opf:item id="commonrtl.css" href="{$cssOutputDir}/commonrtl.css" media-type="text/css"/>
+          <item id="commonltr.css" href="{$cssOutputDir}/commonltr.css" media-type="text/css"/>
+          <item id="commonrtl.css" href="{$cssOutputDir}/commonrtl.css" media-type="text/css"/>
           <xsl:if test="$CSS != ''">
-            <opf:item id="{$CSS}" href="{$cssOutputDir}/{$CSS}" media-type="text/css"/>
+            <item id="{$CSS}" href="{$cssOutputDir}/{$CSS}" media-type="text/css"/>
           </xsl:if>
+          <!-- kindle requires a cover image
+               hard coding it for now          -->
+          <item id="coverimage" media-type="image/jpg" href="./images/1407-02.jpg"/>
         </manifest>
         
         <spine toc="ncx">
@@ -193,8 +203,11 @@
       <xsl:otherwise>
         <xsl:variable name="targetUri" select="kindleutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
         <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
-        <opf:item id="{generate-id()}" href="{$relativeUri}"
-              media-type="application/xhtml+xml"/>
+        <!-- losing the opf prefix to please kindlegen -->
+        <!--<opf:item id="{generate-id()}" href="{$relativeUri}"
+        media-type="application/xhtml+xml"/>-->
+        <item id="{generate-id()}" href="{$relativeUri}"
+          media-type="application/xhtml+xml"/>
       </xsl:otherwise>
     </xsl:choose>    
   </xsl:template>
@@ -211,12 +224,12 @@
           then concat($topicsOutputDir, '/', $titleOnlyTopicFilename) 
           else $titleOnlyTopicFilename
           " />
-    <opf:item id="{generate-id()}" href="{$targetUri}"
+    <item id="{generate-id()}" href="{$targetUri}"
       media-type="application/xhtml+xml"/>
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'map/topicref')]" mode="spine">
-    <opf:itemref idref="{generate-id()}"/>
+    <itemref idref="{generate-id()}"/>
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'pubmap/pubid')]" mode="bookid">
@@ -287,7 +300,7 @@
         imageHref   =<xsl:sequence select="$imageHref"/>
       </xsl:message>
     </xsl:if>
-    <opf:item id="{@id}" href="{$imageHref}">
+    <item id="{@id}" href="{$imageHref}">
       <xsl:attribute name="media-type">
         <xsl:choose>
           <xsl:when test="$imageExtension = 'jpg'"><xsl:sequence select="'image/jpeg'"/></xsl:when>
@@ -299,7 +312,7 @@
           </xsl:otherwise>
         </xsl:choose>
       </xsl:attribute>
-    </opf:item>
+    </item>
   </xsl:template>
   
   <xsl:template match="text()" mode="generate-opf manifest"/>

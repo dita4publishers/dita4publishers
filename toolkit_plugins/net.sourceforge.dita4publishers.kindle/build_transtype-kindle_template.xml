@@ -38,15 +38,12 @@
 		dita:depends="build-init, preprocess,kindle"
     dita:extension="depends org.dita.dost.platform.InsertDependsAction">
   </target>
-  
-  <target name="kindle"
+  <!-- dont really need the zipkindle -->
+  <!--<target name="kindle"
     unless="noMap"
     depends="dita.map.kindle, zipkindle"/>
 	  
   <target name="zipkindle">
-    <!-- Two steps because mimetype must go in first,
-      uncompressed. Looks like ant puts later zipped files in
-      first, so mimetype is in second zip task. -->
     <zip destfile="${output.dir}${file.separator}${dita.map.filename.root}.kindle"
       basedir="${kindle.temp.dir}"
     	compress="true"
@@ -59,8 +56,10 @@
       update="true"
     	keepcompression="true"
     	compress="false"/>
-  </target>
-  
+  </target>-->
+  <target name="kindle"
+    unless="noMap"
+    depends="dita.map.kindle"/>
     
   <target name="dita.map.kindle.init"
     description="Init properties for Epub">
@@ -151,20 +150,13 @@
   <target name="kindle-copy-css-user" if="user.copycss.yes">
     <copy file="${args.css.real}" todir="${user.csspath.real}"/>
   </target>
-	
+	<!-- executable required filename 
+	     filename is hardcoded here in arg
+	-->
 	<target name="kindlegen">
-		<!-- Run the kindlegen utility. -->
-		<exec
-			dir="${kindle.temp.dir}"
-			executable="${kindleGenExecutable}"
-			error="${output.dir}/kindlegen.log"
-			resultproperty="resultCode"
-			failonerror="false"
-			searchpath="true"
-			>
-			<arg value="content.opf"/>
-			<arg line="${kindlegenArgs}"/>
-		</exec>
+	  <exec executable="${kindleGenExecutable}">
+	    <arg file="${kindle.temp.dir}/content.opf"/>
+	  </exec>
 		<echo message="After kindlegen, result code is '${resultCode}'"/>
 	</target>
 
