@@ -11,13 +11,17 @@
      
  <!ENTITY % art           "art" >
  <!ENTITY % art_title     "art_title" >
+ <!ENTITY % b-i          "b-i"                                      >
  <!ENTITY % br            "br" >
+ <!ENTITY % b-sc         "b-sc"                                         >
  <!ENTITY % eqn_inline    "eqn_inline" >
  <!ENTITY % eqn_block     "eqn_block" >
  <!ENTITY % enumerator    "enumerator" >
  <!ENTITY % frac          "frac" >
  <!ENTITY % inx_snippet   "inx_snippet" >
  <!ENTITY % linethrough   "linethrough" >
+ <!ENTITY % roman        "roman"                                      >
+ <!ENTITY % sc           "sc"                                         >
  <!ENTITY % tab           "tab" >
      
 
@@ -251,6 +255,75 @@
 <!ELEMENT linethrough %linethrough.content; >
 <!ATTLIST linethrough %linethrough.attributes; >
 
+
+<!ENTITY % roman.content
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %foreign.unknown.incl;)*"
+>
+<!ENTITY % roman.attributes
+             "%univ-atts; 
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT roman    %roman.content;>
+<!ATTLIST roman    %roman.attributes;>
+
+
+
+<!--                    LONG NAME: Small Caps                     -->
+<!ENTITY % sc.content
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %foreign.unknown.incl;)*"
+>
+<!ENTITY % sc.attributes
+             "%univ-atts; 
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT sc    %sc.content;>
+<!ATTLIST sc    %sc.attributes;>
+
+
+<!--                    LONG NAME: Bold Italic                     -->
+<!ENTITY % b-i.content
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %foreign.unknown.incl;)*"
+>
+<!ENTITY % b-i.attributes
+             "%univ-atts; 
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT b-i    %b-i.content;>
+<!ATTLIST b-i    %b-i.attributes;>
+
+
+<!--                    LONG NAME: Bold Small Caps                     -->
+<!ENTITY % b-sc.content
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %foreign.unknown.incl;)*"
+>
+<!ENTITY % b-sc.attributes
+             "%univ-atts; 
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT b-sc    %b-sc.content;>
+<!ATTLIST b-sc    %b-sc.attributes;>
+
+
 <!-- ============================================================= -->
 <!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
 <!-- ============================================================= -->
@@ -258,13 +331,18 @@
 <!ATTLIST art              %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/art ">
 <!ATTLIST art_title        %global-atts;  class CDATA "+ topic/data  d4p-formatting-d/art_title ">
 
-<!ATTLIST br               %global-atts;  class CDATA "+ topic/ph  d4p-formatting-d/br ">
+<!ATTLIST b-i              %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/b-i "  >
+<!ATTLIST br               %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/br ">
+<!ATTLIST b-sc             %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/b-sc "  >
 <!ATTLIST enumerator       %global-atts;  class CDATA "+ topic/data  d4p-formatting-d/enumerator ">
-<!ATTLIST eqn_inline       %global-atts;  class CDATA "+ topic/ph  d4p-formatting-d/eqn_inline ">
-<!ATTLIST eqn_block        %global-atts;  class CDATA "+ topic/p   d4p-formatting-d/eqn_block ">
-<!ATTLIST frac             %global-atts;  class CDATA "+ topic/ph  d4p-formatting-d/frac ">
-<!ATTLIST inx_snippet      %global-atts;  class CDATA "+ topic/foreign  d4p-formatting-d/inx_snippet ">
-<!ATTLIST linethrough      %global-atts;  class CDATA "+ topic/ph  d4p-formatting-d/linethrough ">
-<!ATTLIST tab              %global-atts;  class CDATA "+ topic/ph  d4p-formatting-d/tab ">
+<!ATTLIST eqn_inline       %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/eqn_inline ">
+<!ATTLIST eqn_block        %global-atts;  class CDATA "+ topic/p     d4p-formatting-d/eqn_block ">
+<!ATTLIST frac             %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/frac ">
+<!ATTLIST inx_snippet      %global-atts;  class CDATA "+ topic/foreign d4p-formatting-d/inx_snippet ">
+<!ATTLIST linethrough      %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/linethrough ">
+<!ATTLIST roman            %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/roman "  >
+<!ATTLIST sc               %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/sc "  >
+<!ATTLIST tab              %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/tab ">
+
 
 <!-- ================== End Formatting Domain ==================== -->
