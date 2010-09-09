@@ -55,7 +55,6 @@
  
 
 <!ENTITY % sidebar      "sidebar"                           >
-<!ENTITY % sidebar-body "sidebar-body"                      >
 
 
 <!-- ============================================================= -->
@@ -72,7 +71,7 @@
 <!--                    ELEMENT DECLARATIONS                       -->
 <!-- ============================================================= -->
 
-<!ELEMENT sidebar       
+<!ENTITY % sidebar.content "       
   ((%title;), 
    (%titlealts;)?,
    (%abstract; | 
@@ -81,8 +80,8 @@
    (%body;)?, 
    (%related-links;)?,
    (%sidebar-info-types;)* )                   
->
-<!ATTLIST sidebar        
+">
+<!ENTITY % sidebar.attributes '        
   id         
     ID                               
     #REQUIRED
@@ -98,8 +97,9 @@
   domains    
     CDATA                
     "&included-domains;"    
->
-
+'>
+<!ELEMENT sidebar %sidebar.content; >
+<!ATTLIST sidebar %sidebar.attributes; >
 
 
 <!-- ============================================================= -->
