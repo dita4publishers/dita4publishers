@@ -7,7 +7,7 @@
      
      Specializes from topic.
      
-     Copyright (c) 2009 DITA For Publishers.
+     Copyright (c) 2009, 2010 DITA For Publishers.
 
      ============================================================= -->
 
@@ -18,24 +18,6 @@
 <!-- ============================================================= -->
 <!--                   ARCHITECTURE ENTITIES                       -->
 <!-- ============================================================= -->
-
-<!-- default namespace prefix for DITAArchVersion attribute can be
-     overridden through predefinition in the document type shell   -->
-<!ENTITY % DITAArchNSPrefix
-  "ditaarch"
->
-
-<!-- must be instanced on each topic type                          -->
-<!ENTITY % arch-atts 
-  "xmlns:%DITAArchNSPrefix; 
-     CDATA
-     #FIXED 'http://dita.oasis-open.org/architecture/2005/'
-   %DITAArchNSPrefix;:DITAArchVersion
-     CDATA
-     '1.2'
-"
->
-
 
 
 <!-- ============================================================= -->
@@ -72,7 +54,7 @@
 <!--                    ELEMENT DECLARATIONS                       -->
 <!-- ============================================================= -->
 
-<!ELEMENT subsection       
+<!ENTITY % subsection.content "       
   ((%title;), 
    (%titlealts;)?,
    (%abstract; | 
@@ -81,8 +63,8 @@
    (%body;)?, 
    (%related-links;)?,
    (%subsection-info-types;)* )                   
->
-<!ATTLIST subsection        
+">
+<!ENTITY % subsection.attributes '        
   id         
     ID                               
     #REQUIRED
@@ -98,8 +80,9 @@
   domains    
     CDATA                
     "&included-domains;"    
->
-
+'>
+<!ELEMENT subsection %subsection.content; >
+<!ATTLIST subsection %subsection.attributes; >
 
 
 <!-- ============================================================= -->
