@@ -104,7 +104,7 @@
 	
 	
 	<target name="dist-toolkit-plugins" description="Packages the DITA Open Toolkit plugins for deployment to a working Toolkit instance"
-		 depends="dist-init"
+		 depends="dist-init, dist-dita2indesign-toolkit-plugins"
 		>
     <delete includeEmptyDirs="true" failonerror="false">
       <fileset dir="${plugin.dist}"  includes="net.sourceforge.dita4publishers.*/**"/>
@@ -159,6 +159,45 @@
       </fileset>
 		</zip>
   </target>
+	
+  <target name="dist-dita2indesign-toolkit-plugins" 
+  	description="Creates a standalone distribution of the DITA2InDesign Open Toolkit plug-ins" 
+  	depends="dist-init">
+    <delete includeEmptyDirs="true" failonerror="false">
+      <fileset dir="${plugin.dist}"  includes="org.dita2indesign.*/**"/>
+    </delete>
+		<copy todir="${plugin.dist}">
+			<fileset dir="${plugin.src}">
+			</fileset>
+		</copy>
+  	<copy todir="${plugin.dist}/org.dita2indesign.dita2indesign/xsl">
+  		<fileset dir="${xslt.src}/dita2indesign">
+  		</fileset>
+    </copy>
+		<replace file="${plugin.dist}/org.dita2indesign.dita2indesign/xsl/dita2indesignImpl.xsl"
+			propertyfile="${basedir}/build.number"
+			>
+			<replacefilter
+				token="^buildnumber^"
+				property="build.number"
+			/>
+			<replacefilter
+				token="^version^"
+			  value="${dita2indesign_version}"
+			/>
+			<replacefilter
+				token="^timestamp^"
+			  value="${package.date}"
+			/>
+		</replace>
+		<zip destfile="${plugin.dist}/dita2indesign-toolkit-plugins-${dita2indesign_version}-${package.date}.zip">
+      <fileset dir="${plugin.dist}">
+        <include name="org.dita2indesign.*/**"/>
+      </fileset>
+		</zip>
+  </target>
+
+
 	
 	<target name="deploy-toolkit-plugins" depends="dist-toolkit-plugins"
 	  description="Deploy plugins to local DITA Open Toolkit">
@@ -611,6 +650,20 @@
     </jar>
   </target>
   
+  <target name="jar-inx-util" depends="dist-init">
+    <jar jarfile="${dist}/dita2indesign-inx-util.jar" basedir="${build}" >
+    <manifest>
+      <attribute name="Class-Path" value=". 
+        lib/commons-loggin.jar
+        lib/log4j.jar
+        lib/resolver.jar
+        lib/xercesImpl.jar
+            "
+      />
+    </manifest>
+    </jar>
+  </target>
+
 
 	
   <target name="package-rsuite-plugins" depends="init-target, clean">
