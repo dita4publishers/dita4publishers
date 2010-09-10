@@ -1,0 +1,408 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="copyright" content="(C) Copyright 2005">
+<meta name="DC.rights.owner" content="(C) Copyright 2005">
+<meta name="DC.Type" content="topic">
+<meta name="DC.Title" content="Lists">
+<meta name="DC.Format" content="XHTML">
+<meta name="DC.Identifier" content="lists">
+<link rel="stylesheet" type="text/css" href="commonltr.css">
+<title>Lists</title>
+</head>
+<body id="lists"><a name="lists"><!-- --></a>
+
+
+  <h1 class="topictitle1">Lists</h1>
+
+  <div>
+    <p>This topics contains samples of all the different kinds of base lists (ol, ul, sl, dl) in
+      various combinations. One challenge with rendering lists in DITA is that list items are not
+      required to contain paragraph elements, so a list item may consist of just PCDATA or PCDATA
+      followed by paragraphs or other paragraph-level elements or may have only paragraphs.</p>
+
+    <div class="section"><h2 class="sectiontitle">Single-Level Lists</h2>
+      
+      <p>Simple list (cannot contain paragraph-level elements within sli):</p>
+
+      <br><ul class="simple">
+        <li>Simple list item 1. PCData only</li>
+
+        <li>Simple list item 2. PCData only</li>
+
+        <li>Simple list item 3. PCData only</li>
+
+      </ul>
+
+      <p>Unordered list without nested paras:</p>
+
+      <br><ul>
+        <li>Unordered list item 1 PCDATA only.</li>
+
+        <li>Unordered list item 2 PCDATA only.<p>Second paragraph of unordered list item with no
+            initial paragraph. So, unless this reef was subject to the intermittent eruptions of a
+            geyser, the Governor Higginson had fair and honest dealings with some aquatic mammal,
+            until then unknown, that could spurt from its blowholes waterspouts mixed with air and
+            steam.</p>
+</li>
+
+        <li>Unordered list item 3 PCDATA only.</li>
+
+      </ul>
+
+      <p>Unordered list with nested paras:</p>
+
+      <br><ul>
+        <li>
+          <p>Unordered list item 1, nested para.</p>
+
+        </li>
+
+        <li>
+          <p>Unordered list item 2, nested para.</p>
+
+          <p>Second paragraph of unordered list item with initial paragraph. Similar events were
+            likewise observed in Pacific seas, on July 23 of the same year, by the Christopher
+            Columbus from the West India &amp; Pacific Steam Navigation Co.</p>
+
+        </li>
+
+        <li>
+          <p>Unordered list item 3, nested para.</p>
+
+        </li>
+
+      </ul>
+
+      <p>Ordered list without nested paras:</p>
+
+      <br><ol>
+        <li>Ordered list item 1 PCDATA only.</li>
+
+        <li>Ordered list item 2 PCDATA only.<p>Second paragraph of ordered list item with no initial
+            paragraph. Consequently, this extraordinary cetacean could transfer itself from one
+            locality to another with startling swiftness, since within an interval of just three
+            days, the Governor Higginson and the Christopher Columbus had observed it at two
+            positions on the charts separated by a distance of more than 700 nautical leagues.</p>
+</li>
+
+        <li>Ordered list item 3 PCDATA only.</li>
+
+      </ol>
+
+      <p>Ordered list with nested paras:</p>
+
+      <br><ol>
+        <li>
+          <p>Ordered list item 1, nested para</p>
+
+        </li>
+
+        <li>
+          <p>Ordered list item 2, nested para</p>
+
+          <p>Second paragraph of ordered list item with initial paragraph. Fifteen days later and
+            2,000 leagues farther, the Helvetia from the Compagnie Nationale and the Shannon from
+            the Royal Mail line, running on opposite tacks in that part of the Atlantic lying
+            between the United States and Europe, respectively signaled each other that the monster
+            had been sighted in latitude 42&deg; 15' north and longitude 60&deg; 35' west of the meridian of
+            Greenwich.</p>
+
+        </li>
+
+        <li>
+          <p>Ordered list item 3, nested para</p>
+
+        </li>
+
+      </ol>
+
+      <p>A definition list without nested paras:</p>
+
+      <dl>
+        
+          <dt><strong>Term Head</strong></dt>
+
+          <dd><strong>Definition Head</strong></dd>
+
+        
+        
+          <dt class="dlterm">term 1</dt>
+
+          <dd>Term definition 1 with no initial paragraph.</dd>
+
+        
+        
+          <dt class="dlterm">term 2</dt>
+
+          <dd>Term definition 2 with no initial paragraph.<p>Section paragraph of dd. One after
+              another, reports arrived that would profoundly affect public opinion: new observations
+              taken by the transatlantic liner Pereire, the Inman line's Etna running afoul of the
+              monster, an official report drawn up by officers on the French frigate Normandy,
+              dead&#8211;earnest reckonings obtained by the general staff of Commodore Fitz&#8211;James aboard
+              the Lord Clyde.</p>
+</dd>
+
+        
+        
+          <dt class="dlterm">term 3</dt>
+
+          <dd>Term definition 3 with no initial paragraph.</dd>
+
+        
+      </dl>
+
+      <p>A definition list with nested paras:</p>
+
+      <dl>
+        
+          <dt><strong>Term Head</strong></dt>
+
+          <dd><strong>Definition Head</strong></dd>
+
+        
+        
+          <dt class="dlterm">term 1</dt>
+
+          <dd>
+            <p>Term definition 1 with initial paragraph.</p>
+
+          </dd>
+
+        
+        
+          <dt class="dlterm">term 2</dt>
+
+          <dd>
+            <p>Term definition 2 with initial paragraph.</p>
+
+            <p>Section paragraph of dd. One after another, reports arrived that would profoundly
+              affect public opinion: new observations taken by the transatlantic liner Pereire, the
+              Inman line's Etna running afoul of the monster, an official report drawn up by
+              officers on the French frigate Normandy, dead&#8211;earnest reckonings obtained by the
+              general staff of Commodore Fitz&#8211;James aboard the Lord Clyde.</p>
+
+          </dd>
+
+        
+        
+          <dt class="dlterm">term 3</dt>
+
+          <dd>
+            <p>Term definition 3 with initial paragraph.</p>
+
+          </dd>
+
+        
+      </dl>
+
+    </div>
+
+    <div class="section"><h2 class="sectiontitle">Nested Unordered Lists</h2>
+      
+      <p>This section does not try to exercise all the combinations of initial paragraph. Using no
+        initial paragraph in all cases.</p>
+
+      <p>Unordered lists nested four deep:</p>
+
+      <br><ul>
+        <li>Unordered list item 1 PCDATA only.</li>
+
+        <li>Unordered list item 2 PCDATA only.<br><ul>
+            <li>2nd-level Unordered list item 1 PCDATA only.</li>
+
+            <li>2nd-level Unordered list item 2 PCDATA only.<p>Second paragraph of 2nd-level list
+                item with no initial paragraph. So, unless this reef was subject to the intermittent
+                eruptions of a geyser, the Governor Higginson had fair and honest dealings with some
+                aquatic mammal, until then unknown, that could spurt from its blowholes waterspouts
+                mixed with air and steam.</p>
+</li>
+
+            <li>2nd-level Unordered list item 3 PCDATA only.<br><ul>
+                <li>3rd-level Unordered list item 1 PCDATA only.</li>
+
+                <li>3rd-level Unordered list item 2 PCDATA only.<p>Second paragraph of 3rd-level
+                    unordered list item with no initial paragraph. So, unless this reef was subject
+                    to the intermittent eruptions of a geyser, the Governor Higginson had fair and
+                    honest dealings with some aquatic mammal, until then unknown, that could spurt
+                    from its blowholes waterspouts mixed with air and steam.</p>
+</li>
+
+                <li>3rd-level Unordered list item 3 PCDATA only.<br><ul>
+                    <li>4th-level Unordered list item 1 PCDATA only.</li>
+
+                    <li>4th-level Unordered list item 2 PCDATA only.<p>Second paragraph of 4th-level
+                        unordered list item with no initial paragraph. So, unless this reef was
+                        subject to the intermittent eruptions of a geyser, the Governor Higginson
+                        had fair and honest dealings with some aquatic mammal, until then unknown,
+                        that could spurt from its blowholes waterspouts mixed with air and
+                      steam.</p>
+</li>
+
+                    <li>4th-level Unordered list item 3 PCDATA only.</li>
+
+                  </ul>
+</li>
+
+              </ul>
+</li>
+
+          </ul>
+</li>
+
+        <li>Unordered list item 3 PCDATA only.</li>
+
+      </ul>
+
+    </div>
+
+    <div class="section"><h2 class="sectiontitle">Nested Ordered Lists</h2>
+      
+      <p>Ordered lists nested four deep:</p>
+
+      <br><ol>
+        <li>Ordered list item 1 PCDATA only.</li>
+
+        <li>Ordered list item 2 PCDATA only.<br><ol type="a">
+            <li>2nd-level Ordered list item 1 PCDATA only.</li>
+
+            <li>2nd-level Ordered list item 2 PCDATA only.<p>Second paragraph of 2nd-level list item
+                with no initial paragraph. So, unless this reef was subject to the intermittent
+                eruptions of a geyser, the Governor Higginson had fair and honest dealings with some
+                aquatic mammal, until then unknown, that could spurt from its blowholes waterspouts
+                mixed with air and steam.</p>
+</li>
+
+            <li>2nd-level Ordered list item 3 PCDATA only.<br><ol type="i">
+                <li>3rd-level Ordered list item 1 PCDATA only.</li>
+
+                <li>3rd-level Ordered list item 2 PCDATA only.<p>Second paragraph of 3rd-level
+                    Ordered list item with no initial paragraph. So, unless this reef was subject to
+                    the intermittent eruptions of a geyser, the Governor Higginson had fair and
+                    honest dealings with some aquatic mammal, until then unknown, that could spurt
+                    from its blowholes waterspouts mixed with air and steam.</p>
+</li>
+
+                <li>3rd-level Ordered list item 3 PCDATA only.<br><ol>
+                    <li>4th-level Ordered list item 1 PCDATA only.</li>
+
+                    <li>4th-level Ordered list item 2 PCDATA only.<p>Second paragraph of 4th-level
+                        Ordered list item with no initial paragraph. So, unless this reef was
+                        subject to the intermittent eruptions of a geyser, the Governor Higginson
+                        had fair and honest dealings with some aquatic mammal, until then unknown,
+                        that could spurt from its blowholes waterspouts mixed with air and
+                      steam.</p>
+</li>
+
+                    <li>4th-level Ordered list item 3 PCDATA only.</li>
+
+                  </ol>
+</li>
+
+              </ol>
+</li>
+
+          </ol>
+</li>
+
+        <li>Ordered list item 3 PCDATA only.</li>
+
+      </ol>
+
+    </div>
+
+    <div class="section"><h2 class="sectiontitle">Nested Definition Lists</h2>
+      
+      <p>Definition lists nested three deep:</p>
+
+      <dl>
+        
+          <dt><strong>Term Head</strong></dt>
+
+          <dd><strong>Definition Head</strong></dd>
+
+        
+        
+          <dt class="dlterm">term 1</dt>
+
+          <dd>Term definition 1 with no initial paragraph.</dd>
+
+        
+        
+          <dt class="dlterm">term 2</dt>
+
+          <dd>Term definition 2 with no initial paragraph.<dl>
+              
+                <dt><strong>Term Head</strong></dt>
+
+                <dd><strong>Definition Head</strong></dd>
+
+              
+              
+                <dt class="dlterm">2nd-level term 1</dt>
+
+                <dd>Term definition 1 with no initial paragraph.</dd>
+
+              
+              
+                <dt class="dlterm">2nd-level term 2</dt>
+
+                <dd>Term definition 2 with no initial paragraph.<dl>
+                    
+                      <dt><strong>Term Head</strong></dt>
+
+                      <dd><strong>Definition Head</strong></dd>
+
+                    
+                    
+                      <dt class="dlterm">3rd-level term 1</dt>
+
+                      <dd>Term definition 1 with no initial paragraph.</dd>
+
+                    
+                    
+                      <dt class="dlterm">3rd-level term 2</dt>
+
+                      <dd>Term definition 2 with no initial paragraph.</dd>
+
+                    
+                    
+                      <dt class="dlterm">3rd-level term 3</dt>
+
+                      <dd>Term definition 3 with no initial paragraph.</dd>
+
+                    
+                  </dl>
+</dd>
+
+              
+              
+                <dt class="dlterm">2nd-level term 3</dt>
+
+                <dd>Term definition 3 with no initial paragraph.</dd>
+
+              
+            </dl>
+</dd>
+
+        
+        
+          <dt class="dlterm">term 3</dt>
+
+          <dd>Term definition 3 with no initial paragraph.</dd>
+
+        
+      </dl>
+
+    </div>
+
+  </div>
+
+
+</body>
+</html>

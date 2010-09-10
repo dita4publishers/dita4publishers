@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="topic-1">
+  <title>Generic Topic</title>
+  <body>
+    <p>This is a completely generic topic. It should be given a "critdates" element
+    in its post-processed form as a result of the topicmeta element contained by
+    the topicref that points to it.</p>
+  </body>
+</topic>
