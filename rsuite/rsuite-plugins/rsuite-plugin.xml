@@ -1,0 +1,19 @@
+<rsuite-plugin id="dita2indesign">
+  <!-- RSuite CMS plugin configuration. Used to package the DITA2InDesign transforms and
+       other resources into an RSuite plugin for use by other RSuite-integrated components,
+       e.g. action handlers.
+     -->
+
+  <extensionProvider id="rsuite.WebService">
+
+    <!-- for the static root starting at "/dita4publishers",
+         serve the files in /WebContent of the plugin -->
+
+    <staticWebService root="/dita2indesign"
+                      path="/WebContent"/>
+
+  </extensionProvider>
+  
+      
+ 
+</rsuite-plugin>
