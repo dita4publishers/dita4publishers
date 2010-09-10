@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+
+  <!-- Entries for schemas used by the test documents -->
+  
+  <system systemId="urn:dita2indesign:doctypes:schema:map"
+    uri="map_local_shell_01/map_local_shell_01.xsd"
+  />
+
+  <system systemId="urn:dita2indesign:doctypes:schema:topic"
+    uri="topic_local_shell_01/topic_local_shell_01.xsd"
+  />
+</catalog>

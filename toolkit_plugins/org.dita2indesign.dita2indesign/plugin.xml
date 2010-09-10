@@ -1,0 +1,9 @@
+<plugin id="org.dita2indesign.dita2indesign">
+  <template file="build_transtype-indesign_template.xml"/>
+  
+  <template file="xsl/dita2indesign_template.xsl"/>
+
+  <feature extension="dita.conductor.transtype.check" value="indesign" type="txt"/>
+  <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
+
+</plugin>
