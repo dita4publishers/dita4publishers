@@ -9,4 +9,11 @@
     uri="../../xslt/lib/relpath_util.xsl"/>
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/lib/dita-support-lib.xsl" 
     uri="../../xslt/lib/dita-support-lib.xsl"/>
+
+  <uri name="rsuite:/res/plugin/dita2indesign/xslt/dita2indesign/lib/incx_generation_util.xsl" 
+    uri="../../xslt/dita2indesign/lib/incx_generation_util.xsl"/>
+  <uri name="rsuite:/res/plugin/dita2indesign/xslt/dita2indesign/elem2styleMapper.xsl" 
+    uri="../../xslt/dita2indesign/elem2styleMapper.xsl"/>
+  <uri name="rsuite:/res/plugin/dita2indesign/xslt/dita2indesign/topic2article.xsl" 
+    uri="../../xslt/dita2indesign/topic2article.xsl"/>
 </catalog>
