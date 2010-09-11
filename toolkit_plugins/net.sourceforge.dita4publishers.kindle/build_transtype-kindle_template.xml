@@ -38,26 +38,8 @@
 		dita:depends="build-init, preprocess,kindle"
     dita:extension="depends org.dita.dost.platform.InsertDependsAction">
   </target>
-  <!-- dont really need the zipkindle -->
-  <!--<target name="kindle"
-    unless="noMap"
-    depends="dita.map.kindle, zipkindle"/>
-	  
-  <target name="zipkindle">
-    <zip destfile="${output.dir}${file.separator}${dita.map.filename.root}.kindle"
-      basedir="${kindle.temp.dir}"
-    	compress="true"
-      includes="META-INF${file.separator}container.xml,toc.ncx,
-      content.opf,container.opf,**/*.html,**/*.css,**/*.HTML,**/*.CSS,
-      **/*.jpg,**/*.gif,**/*.png,**/*.svg,**/*.JPG,**/*.GIF,**/*.PNG,**/*.SVG"/>
-    <zip destfile="${output.dir}${file.separator}${dita.map.filename.root}.kindle"
-      basedir="${kindle.temp.dir}"
-      includes="mimetype"
-      update="true"
-    	keepcompression="true"
-    	compress="false"/>
-  </target>-->
-  <target name="kindle"
+
+	<target name="kindle"
     unless="noMap"
     depends="dita.map.kindle"/>
     
