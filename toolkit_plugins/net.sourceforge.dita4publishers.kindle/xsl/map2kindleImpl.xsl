@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
-  xmlns:df="http://dita2indesign.org/dita/functions"  
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+  xmlns:df="http://dita2indesign.org/dita/functions"
   xmlns:index-terms="http://dita4publishers.org/index-terms"
-  xmlns:relpath="http://dita2indesign/functions/relpath"
-  exclude-result-prefixes="xs xd df relpath"
+  xmlns:relpath="http://dita2indesign/functions/relpath" exclude-result-prefixes="xs xd df relpath"
   version="2.0">
-  
+
   <!-- =============================================================
     
        DITA Map to ePub Transformation
@@ -45,16 +42,21 @@
 
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
+  <xsl:import
+    href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMapImpl.xsl"/>
-    
+
   <!-- Import the base HTML output generation transform. -->
   <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
- 
+
   <xsl:include href="map2kindleCommon.xsl"/>
   <xsl:include href="map2kindleOpfImpl.xsl"/>
   <xsl:include href="map2kindleContentImpl.xsl"/>
   <xsl:include href="map2kindleTocImpl.xsl"/>
+  <!-- ======================================== -->
+  <!-- ============= the html toc ============= -->
+  <xsl:include href="map2kindleHtmlTocImpl.xsl"/>
+  <!-- ======================================== -->
   <xsl:include href="map2kindleIndexImpl.xsl"/>
   <xsl:include href="html2xhtmlImpl.xsl"/>
   <xsl:include href="topicHrefFixup.xsl"/>
@@ -62,12 +64,12 @@
 
   <xsl:include href="map2kindleD4PImpl.xsl"/>
   <xsl:include href="map2kindleBookmapImpl.xsl"/>
-  
+
   <!-- Initial part of ePUB ID URI. Should reflect the book's
        owner.
     -->
   <xsl:param name="IdURIStub">http://example.org/dummy/URIstub/</xsl:param>
-  
+
   <!-- Directory into which the generated output is put.
 
        This should be the directory that will be zipped up to
@@ -75,177 +77,175 @@
        -->
   <xsl:param name="outdir" select="./kindle"/>
   <xsl:param name="tempdir" select="./temp"/>
-  
- <!-- The path of the directory, relative the $outdir parameter,
+
+  <!-- The path of the directory, relative the $outdir parameter,
     to hold the graphics in the EPub package. Should not have
     a leading "/". 
-  -->  
+  -->
   <xsl:param name="imagesOutputDir" select="'images'" as="xs:string"/>
   <!-- The path of the directory, relative the $outdir parameter,
     to hold the topics in the EPub package. Should not have
     a leading "/". 
-  -->  
+  -->
   <xsl:param name="topicsOutputDir" select="'topics'" as="xs:string"/>
 
   <!-- The path of the directory, relative the $outdir parameter,
     to hold the CSS files in the EPub package. Should not have
     a leading "/". 
-  -->  
+  -->
   <xsl:param name="cssOutputDir" select="'topics'" as="xs:string"/>
-  
+
   <xsl:param name="debug" select="'false'" as="xs:string"/>
-  
-  <xsl:param name="rawPlatformString" select="'unknown'" as="xs:string"/><!-- As provided by Ant -->
-  
+
+  <xsl:param name="rawPlatformString" select="'unknown'" as="xs:string"/>
+  <!-- As provided by Ant -->
+
   <xsl:param name="titleOnlyTopicClassSpec" select="'- topic/topic '" as="xs:string"/>
 
   <xsl:param name="titleOnlyTopicTitleClassSpec" select="'- topic/title '" as="xs:string"/>
-  
+
   <!-- Maxminum depth of the generated ToC -->
   <xsl:param name="maxTocDepth" as="xs:string" select="'5'"/>
-  
+
   <!-- Include back-of-the-book-index if any index entries in source 
   
        For now default to no since index generation is still under development.
-  -->  
+  -->
   <xsl:param name="generateIndex" as="xs:string" select="'no'"/>
-  
-  <xsl:variable name="generateIndexBoolean" 
+
+  <xsl:variable name="generateIndexBoolean"
     select="
     lower-case($generateIndex) = 'yes' or 
     lower-case($generateIndex) = 'true' or
     lower-case($generateIndex) = 'on'
     "/>
-  
+
   <!-- Absolute URI of the graphic to use for the cover. Specify
        when the source markup does not enable determination
        of the cover graphic.
-    -->
-  <xsl:param name="coverGraphicUri" as="xs:string" select="''" />
-  
+  -->
+
+  <!-- 
+        TBD: kindlegen expects a cover in the form of a cover image, 
+        but allows the use of a cover page in the form of an HTML page
+        in addition to the cover image
+        
+        so, we need to define a cover image and possibly a cover html page
+        
+        one possibility is to add a placeholder for cases where there
+        is no cover image defined in the publication being processed
+        
+  -->
+  <xsl:param name="coverGraphicUri" as="xs:string" select="''"/>
+
   <xsl:variable name="coverImageId" select="'coverimage'" as="xs:string"/>
-  
+
   <xsl:template name="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
-    <xsl:message> 
-      ==========================================
-      Plugin version: ^version^ - build ^buildnumber^ at ^timestamp^
-      
-      Parameters:
-      
-      + coverGraphicUri = "<xsl:sequence select="$coverGraphicUri"/>"
-      + cssOutputDir    = "<xsl:sequence select="$cssOutputDir"/>"
-      + generateIndex   = "<xsl:sequence select="$generateIndex"/>
-      + imagesOutputDir = "<xsl:sequence select="$imagesOutputDir"/>"
-      + outdir          = "<xsl:sequence select="$outdir"/>"
-      + tempdir         = "<xsl:sequence select="$tempdir"/>"
-      + titleOnlyTopicClassSpec = "<xsl:sequence select="$titleOnlyTopicClassSpec"/>"
-      + titleOnlyTopicTitleClassSpec = "<xsl:sequence select="$titleOnlyTopicTitleClassSpec"/>"
-      + topicsOutputDir = "<xsl:sequence select="$topicsOutputDir"/>"
-
-      + DITAEXT         = "<xsl:sequence select="$DITAEXT"/>"
-      + WORKDIR         = "<xsl:sequence select="$WORKDIR"/>"
-      + PATH2PROJ       = "<xsl:sequence select="$PATH2PROJ"/>"
-      + KEYREF-FILE     = "<xsl:sequence select="$KEYREF-FILE"/>"
-      + CSS             = "<xsl:sequence select="$CSS"/>"
-      + CSSPATH         = "<xsl:sequence select="$CSSPATH"/>"
-      + debug           = "<xsl:sequence select="$debug"/>"
-      
-      Global Variables:
-      
-      + cssOutputPath    = "<xsl:sequence select="$cssOutputPath"/>"
-      + effectiveCoverGraphicUri = "<xsl:sequence select="$effectiveCoverGraphicUri"/>"
-      + topicsOutputPath = "<xsl:sequence select="$topicsOutputPath"/>"
-      + imagesOutputPath = "<xsl:sequence select="$imagesOutputPath"/>"
-      + platform         = "<xsl:sequence select="$platform"/>"
-      + debugBoolean     = "<xsl:sequence select="$debugBoolean"/>"
-      
-      ==========================================
-    </xsl:message>
+    <xsl:message> ========================================== Plugin version: ^version^ - build
+      ^buildnumber^ at ^timestamp^ Parameters: + coverGraphicUri = "<xsl:sequence
+        select="$coverGraphicUri"/>" + cssOutputDir = "<xsl:sequence select="$cssOutputDir"/>" +
+      generateIndex = "<xsl:sequence select="$generateIndex"/> + imagesOutputDir = "<xsl:sequence
+        select="$imagesOutputDir"/>" + outdir = "<xsl:sequence select="$outdir"/>" + tempdir =
+        "<xsl:sequence select="$tempdir"/>" + titleOnlyTopicClassSpec = "<xsl:sequence
+        select="$titleOnlyTopicClassSpec"/>" + titleOnlyTopicTitleClassSpec = "<xsl:sequence
+        select="$titleOnlyTopicTitleClassSpec"/>" + topicsOutputDir = "<xsl:sequence
+        select="$topicsOutputDir"/>" + DITAEXT = "<xsl:sequence select="$DITAEXT"/>" + WORKDIR =
+        "<xsl:sequence select="$WORKDIR"/>" + PATH2PROJ = "<xsl:sequence select="$PATH2PROJ"/>" +
+      KEYREF-FILE = "<xsl:sequence select="$KEYREF-FILE"/>" + CSS = "<xsl:sequence select="$CSS"/>"
+      + CSSPATH = "<xsl:sequence select="$CSSPATH"/>" + debug = "<xsl:sequence select="$debug"/>"
+      Global Variables: + cssOutputPath = "<xsl:sequence select="$cssOutputPath"/>" +
+      effectiveCoverGraphicUri = "<xsl:sequence select="$effectiveCoverGraphicUri"/>" +
+      topicsOutputPath = "<xsl:sequence select="$topicsOutputPath"/>" + imagesOutputPath =
+        "<xsl:sequence select="$imagesOutputPath"/>" + platform = "<xsl:sequence select="$platform"
+      />" + debugBoolean = "<xsl:sequence select="$debugBoolean"/>"
+      ========================================== </xsl:message>
   </xsl:template>
-  
-  
-  <xsl:output method="xml" name="indented-xml"
-    indent="yes"
-  />
-  
+
+
+  <xsl:output method="xml" name="indented-xml" indent="yes"/>
+
   <xsl:variable name="maxTocDepthInt" select="xs:integer($maxTocDepth)" as="xs:integer"/>
-  
-  
+
+
   <xsl:variable name="platform" as="xs:string"
     select="
     if (starts-with($rawPlatformString, 'Win') or 
         starts-with($rawPlatformString, 'Win'))
        then 'windows'
        else 'nx'
-    "
-  />
-  
+    "/>
+
   <xsl:variable name="debugBinary" select="$debug = 'true'" as="xs:boolean"/>
-  
+
   <xsl:variable name="topicsOutputPath">
-      <xsl:choose>
-        <xsl:when test="$topicsOutputDir != ''">
-          <xsl:sequence select="concat($outdir, $topicsOutputDir)"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:sequence select="$outdir"/>
-        </xsl:otherwise>
-      </xsl:choose>    
+    <xsl:choose>
+      <xsl:when test="$topicsOutputDir != ''">
+        <xsl:sequence select="concat($outdir, $topicsOutputDir)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="$outdir"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:variable>
 
   <xsl:variable name="imagesOutputPath">
-      <xsl:choose>
-        <xsl:when test="$imagesOutputDir != ''">
-          <xsl:sequence select="concat($outdir, 
+    <xsl:choose>
+      <xsl:when test="$imagesOutputDir != ''">
+        <xsl:sequence
+          select="concat($outdir, 
             if (ends-with($outdir, '/')) then '' else '/', 
-            $imagesOutputDir)"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:sequence select="$outdir"/>
-        </xsl:otherwise>
-      </xsl:choose>    
-  </xsl:variable>  
-  
+            $imagesOutputDir)"
+        />
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="$outdir"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
   <xsl:variable name="cssOutputPath">
-      <xsl:choose>
-        <xsl:when test="$cssOutputDir != ''">
-          <xsl:sequence select="concat($outdir, $cssOutputDir)"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:sequence select="$outdir"/>
-        </xsl:otherwise>
-      </xsl:choose>    
-</xsl:variable>  
-  
+    <xsl:choose>
+      <xsl:when test="$cssOutputDir != ''">
+        <xsl:sequence select="concat($outdir, $cssOutputDir)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="$outdir"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
   <xsl:template match="/">
-    <xsl:message> + [DEBUG] Root template in default mode. Root element is "<xsl:sequence select="name(/*[1])"/>", class="<xsl:sequence select="string(/*[1]/@class)"/>:</xsl:message>
+    <xsl:message> + [DEBUG] Root template in default mode. Root element is "<xsl:sequence
+        select="name(/*[1])"/>", class="<xsl:sequence select="string(/*[1]/@class)"/>:</xsl:message>
     <xsl:apply-templates/>
   </xsl:template>
-  
+
   <xsl:template match="/*[df:class(., 'map/map')]">
-    
+
     <xsl:variable name="effectiveCoverGraphicUri" as="xs:string">
       <xsl:apply-templates select="." mode="get-cover-graphic-uri"/>
     </xsl:variable>
 
     <xsl:call-template name="report-parameters">
-      <xsl:with-param name="effectiveCoverGraphicUri" select="$effectiveCoverGraphicUri" as="xs:string" tunnel="yes"/>
+      <xsl:with-param name="effectiveCoverGraphicUri" select="$effectiveCoverGraphicUri"
+        as="xs:string" tunnel="yes"/>
     </xsl:call-template>
-    
+
     <xsl:variable name="graphicMap" as="element()">
       <xsl:apply-templates select="." mode="generate-graphic-map">
-        <xsl:with-param name="effectiveCoverGraphicUri" select="$effectiveCoverGraphicUri" as="xs:string" tunnel="yes"/>        
+        <xsl:with-param name="effectiveCoverGraphicUri" select="$effectiveCoverGraphicUri"
+          as="xs:string" tunnel="yes"/>
       </xsl:apply-templates>
     </xsl:variable>
     <xsl:result-document href="{relpath:newFile($outdir, 'graphicMap.xml')}" format="graphic-map">
       <xsl:sequence select="$graphicMap"/>
-    </xsl:result-document>    
+    </xsl:result-document>
     <xsl:call-template name="make-meta-inf"/>
     <xsl:call-template name="make-mimetype"/>
-    
+
     <xsl:message> + [INFO] Gathering index terms...</xsl:message>
-    
+
     <!-- Gather all the index entries from the map and topic. 
     -->
     <xsl:variable name="index-terms" as="element()">
@@ -255,34 +255,43 @@
         </xsl:if>
       </index-terms>
     </xsl:variable>
-    
+
     <xsl:if test="true()">
       <xsl:result-document href="{relpath:newFile($outdir, 'index-terms.xml')}"
-        format="indented-xml"
-        >
+        format="indented-xml">
         <xsl:sequence select="$index-terms"/>
       </xsl:result-document>
     </xsl:if>
-    
+
     <xsl:apply-templates select="." mode="generate-content"/>
     <xsl:apply-templates select="." mode="generate-toc">
       <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
     </xsl:apply-templates>
+    <xsl:message>[INFO] "generate-toc" is complete....</xsl:message>
+    <!-- ======================================================= -->
+    <!-- ===================== adding html toc ================= -->
+    <xsl:apply-templates select="." mode="generate-html-toc">
+      <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
+    </xsl:apply-templates>
+    <xsl:message>[INFO] "generate-html-toc" is complete....</xsl:message>
+    <!-- ======================================================= -->    
     <xsl:apply-templates select="." mode="generate-index">
       <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
     </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-opf">
       <xsl:with-param name="graphicMap" as="element()" tunnel="yes" select="$graphicMap"/>
       <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
-      <xsl:with-param name="effectiveCoverGraphicUri" select="$effectiveCoverGraphicUri" as="xs:string" tunnel="yes"/>        
+      <xsl:with-param name="effectiveCoverGraphicUri" select="$effectiveCoverGraphicUri"
+        as="xs:string" tunnel="yes"/>
     </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-graphic-copy-ant-script">
       <xsl:with-param name="graphicMap" as="element()" tunnel="yes" select="$graphicMap"/>
     </xsl:apply-templates>
   </xsl:template>
-  
+
   <xsl:template name="make-meta-inf">
-    <xsl:result-document href="{relpath:newFile(relpath:newFile($outdir, 'META-INF'), 'container.xml')}">
+    <xsl:result-document
+      href="{relpath:newFile(relpath:newFile($outdir, 'META-INF'), 'container.xml')}">
       <container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">
         <rootfiles>
           <rootfile full-path="content.opf" media-type="application/oebps-package+xml"/>
@@ -290,13 +299,13 @@
       </container>
     </xsl:result-document>
   </xsl:template>
-  
+
   <xsl:template name="make-mimetype">
     <xsl:result-document href="{relpath:newFile($outdir, 'mimetype')}" method="text">
       <xsl:text>application/epub+zip</xsl:text>
     </xsl:result-document>
   </xsl:template>
-  
+
   <xsl:template match="/*[df:class(., 'map/map')]" mode="get-cover-graphic-uri">
     <!-- NOTE: override this template in order to implement different business logic
          for determining the cover graphic.
@@ -305,12 +314,14 @@
       <xsl:choose>
         <xsl:when test="//*[df:class(., 'pubmap-d/epub-cover-graphic')]">
           <xsl:variable name="targetUri" as="xs:string"
-            select="df:getEffectiveTopicUri((//*[df:class(., 'pubmap-d/epub-cover-graphic')])[1])"
-          />
+            select="df:getEffectiveTopicUri((//*[df:class(., 'pubmap-d/epub-cover-graphic')])[1])"/>
           <xsl:sequence select="$targetUri"/>
         </xsl:when>
-        <xsl:when test="*[df:class(., 'map/topicmeta')]//*[df:class(., 'topic/data') and @name = 'covergraphic']">
-          <xsl:variable name="elem" select="(*[df:class(., 'map/topicmeta')]//*[df:class(., 'topic/data') and @name = 'covergraphic'])[1]" as="element()"/>
+        <xsl:when
+          test="*[df:class(., 'map/topicmeta')]//*[df:class(., 'topic/data') and @name = 'covergraphic']">
+          <xsl:variable name="elem"
+            select="(*[df:class(., 'map/topicmeta')]//*[df:class(., 'topic/data') and @name = 'covergraphic'])[1]"
+            as="element()"/>
           <xsl:choose>
             <xsl:when test="$elem/@value">
               <xsl:sequence select="string($elem/@value)"/>
@@ -318,12 +329,12 @@
             <xsl:otherwise>
               <xsl:sequence select="string($elem)"/>
             </xsl:otherwise>
-          </xsl:choose>          
+          </xsl:choose>
         </xsl:when>
         <xsl:otherwise>
           <xsl:sequence select="$coverGraphicUri"/>
         </xsl:otherwise>
-      </xsl:choose>      
+      </xsl:choose>
     </xsl:variable>
     <xsl:variable name="docUri" select="relpath:toUrl(@xtrf)" as="xs:string"/>
     <xsl:variable name="finalUri" as="xs:string"
@@ -331,9 +342,8 @@
       if ($baseGraphicUri = '')
          then ''
          else relpath:newFile(relpath:getParent($docUri), $baseGraphicUri)
-      " 
-    />
+      "/>
     <xsl:sequence select="$finalUri"/>
-  </xsl:template>  
-  
+  </xsl:template>
+
 </xsl:stylesheet>

@@ -137,8 +137,9 @@
         
         <manifest xmlns:opf="http://www.idpf.org/2007/opf">
           <!-- all these opf prefixes must go to please kindlegen -->
-          <!--<opf:item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>-->
           <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+
+          <item id="html-toc" media-type="application/xhtml+xml" href="toc.html"/>
           <!-- List the XHTML files -->
           <xsl:apply-templates mode="manifest" select=".//*[df:isTopicRef(.) or df:isTopicHead(.)]"/>
           <!-- List the images -->
@@ -148,6 +149,7 @@
             -->
           <item id="commonltr.css" href="{$cssOutputDir}/commonltr.css" media-type="text/css"/>
           <item id="commonrtl.css" href="{$cssOutputDir}/commonrtl.css" media-type="text/css"/>
+          
           <xsl:if test="$CSS != ''">
             <item id="{$CSS}" href="{$cssOutputDir}/{$CSS}" media-type="text/css"/>
           </xsl:if>
@@ -157,8 +159,14 @@
         </manifest>
         
         <spine toc="ncx">
+          <itemref idref="html-toc"/>
           <xsl:apply-templates mode="spine" select=".//*[df:isTopicRef(.) or df:isTopicHead(.)]"/>
         </spine>
+        
+        <guide>
+          <reference type="toc" title="Table of Contents" href="toc.html"/>
+        </guide>
+
         
       </package>
     </xsl:result-document>  
