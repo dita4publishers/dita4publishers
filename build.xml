@@ -549,6 +549,20 @@
     </javac>    
   </target>
 	
+  <target name="jar-inx-util" depends="dist-init" description="Create jar for DITA2InDesign INX Utility library">
+    <jar jarfile="${dist}/dita2indesign-inx-util.jar" basedir="${build}" >
+    <manifest>
+      <attribute name="Class-Path" value=". 
+        lib/commons-logging.jar
+        lib/log4j.jar
+        lib/resolver.jar
+        lib/xercesImpl.jar
+            "
+      />
+    </manifest>
+    </jar>
+  </target>
+	
 	<target name="jar-tools" depends="init, init-target, compile, jar-api" 
 	  description="Create jar for tools and implementation components">
 		<jar destfile="${api-and-tools.target}/lib/dita4publishers-dita-impl.jar" basedir="${classes.home}">
@@ -649,23 +663,7 @@
       <include name="net/sourceforge/dita4publishers/api/**/**.*"/>
     </jar>
   </target>
-  
-  <target name="jar-inx-util" depends="dist-init">
-    <jar jarfile="${dist}/dita2indesign-inx-util.jar" basedir="${build}" >
-    <manifest>
-      <attribute name="Class-Path" value=". 
-        lib/commons-loggin.jar
-        lib/log4j.jar
-        lib/resolver.jar
-        lib/xercesImpl.jar
-            "
-      />
-    </manifest>
-    </jar>
-  </target>
-
-
-	
+  	
   <target name="package-rsuite-plugins" depends="init-target, clean">
     <!-- NOTE: The RSuite plugin only packages Web-accessible resources.
                It contains no Java code.
