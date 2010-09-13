@@ -402,7 +402,7 @@ import org.w3c.dom.ls.LSSerializer;
 		URL fileUrl;
 		String mimeType = "";
 		try {
-			fileUrl = memberFile.toURL();
+			fileUrl = memberFile.toURI().toURL();
 			URLConnection c = fileUrl.openConnection();
 			mimeType = c.getContentType();			
 		} catch (MalformedURLException e) {
