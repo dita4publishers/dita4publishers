@@ -8,6 +8,8 @@ package org.dita2indesign.indesign.inx.model;
  */
 public class InDesignDocumentException extends Exception {
 
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * @param string
 	 */
