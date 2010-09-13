@@ -46,7 +46,6 @@ public class Geometry {
 	}
 
 	protected void loadData(String rawIGeoValue) throws Exception {
-		List<InxValue> items = InxHelper.decodeRawValueToList(rawIGeoValue);
 		/* From the ww-inx-file-format document:
 		 
 		   IGeo="x_19_l_1_l_4_l_2_D_36_D_-360_l_2_D_36_D_-175.2_l_2_D_309.8181818181818_D_-175.2_l_2_D_309.8181818181818_D_-360_b_f_ D_36_D_360_D_309.8181818181818_D_-175.2_D_1_D_0_D_0_D_1_D_0_D_0"
