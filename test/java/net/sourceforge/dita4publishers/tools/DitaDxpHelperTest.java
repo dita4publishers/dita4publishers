@@ -12,25 +12,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import net.sourceforge.dita4publishers.api.bos.BosMember;
-import net.sourceforge.dita4publishers.api.bos.BosReportOptions;
-import net.sourceforge.dita4publishers.api.bos.DependencyType;
-import net.sourceforge.dita4publishers.api.ditabos.Constants;
-import net.sourceforge.dita4publishers.api.ditabos.DitaBosReporter;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
-import net.sourceforge.dita4publishers.impl.dita.DitavalSpecImpl;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelper;
 import net.sourceforge.dita4publishers.tools.dxp.DitaDxpHelper;
 import net.sourceforge.dita4publishers.tools.dxp.DitaDxpOptions;
-import net.sourceforge.dita4publishers.tools.mapreporter.TextDitaBosReporter;
 import net.sourceforge.dita4publishers.util.DomUtil;
 
 import org.apache.commons.logging.Log;
