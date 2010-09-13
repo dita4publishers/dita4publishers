@@ -5,14 +5,12 @@ package org.dita2indesign.indesign.inx.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor;
-import org.dita2indesign.util.DataUtil;
 import org.w3c.dom.Element;
 
 
