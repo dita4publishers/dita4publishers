@@ -24,9 +24,11 @@ package org.dita2indesign.util;
 
 public class DataUtilException extends Exception {
 
+	private static final long serialVersionUID = 1L;
 
 
-    public DataUtilException(Throwable e) {
+
+	public DataUtilException(Throwable e) {
 
     	super(e);
 
