@@ -205,10 +205,6 @@ public class InxHelper {
 			typeCode = typeCode.substring(1);
 		if (!"x".equals(typeCode) )
 			throw new InDesignDocumentException("Expected type of \"x\", got \"" + typeCode + "\"");
-		String countHex = parts[1];
-		
-		long pairCount = Integer.parseInt(countHex, 16);
-		
 
 		int i = 4; // Point tofirst token of first list
 		
@@ -217,9 +213,9 @@ public class InxHelper {
 		
 		while (i < (parts.length - 3)) {
 			// FIXME: Not bothering to sanity check the type codes at the moment. This is already a quick hack.
-			String tcKey = parts[i++];
+			//String tcKey = parts[i++];
 			String key = parts[i++];
-			String tcValue = parts[i++];
+			//String tcValue = parts[i++];
 			String value = parts[i++];
 			resultMap.put(key, value);
 			// Skip type code and length of next pair
