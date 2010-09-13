@@ -13,7 +13,6 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
-import javax.xml.transform.stream.StreamSource;
 
 import org.apache.log4j.Logger;
 import org.dita2indesign.indesign.inx.model.Link.LinkType;
@@ -67,8 +66,6 @@ public class InDesignDocument extends InDesignObject {
 
 	private Map<InDesignDocument, Map<String, InDesignObject>> clonedObjectMaps = 
 		new HashMap<InDesignDocument, Map<String, InDesignObject>>();
-
-	private Map<String, Link> linksById = new HashMap<String, Link>();
 
 	private List<Link> links = new ArrayList<Link>();
 
@@ -233,6 +230,14 @@ public class InDesignDocument extends InDesignObject {
 		load(source);
 	}
 	
+	/**
+	 * Gets the data source URL for the document, if any.
+	 * @return The URL of the data source from which the document was constructed. May be null.
+	 */
+	public URL getDataSourceUrl() {
+		return this.dataSourceUrl;
+	}
+	
 	public void load(InputSource source) throws Exception {
 		DocumentBuilder builder = DataUtil.constructNonValidatingDocumentBuilder();
 		Document dom = builder.parse(source);
@@ -274,7 +279,7 @@ public class InDesignDocument extends InDesignObject {
 				logger.debug(" + Creating new Spread...");
 				this.newSpread(child);
 			} else {
-				// logger.debug(" + Creating new unhandled child " + child.getNodeName() + "...");
+				logger.debug(" + Creating new unhandled child " + child.getNodeName() + "...");
 				InDesignComponent comp = this.newInDesignComponent(child);
 				this.addChild(comp);
 			}
@@ -350,7 +355,7 @@ public class InDesignDocument extends InDesignObject {
 	 * @return
 	 * @throws Exception 
 	 */
-	private Story newStory(Element child) throws Exception {
+	public Story newStory(Element child) throws Exception {
 		Story story = (Story) newObject(Story.class, child);
 		this.addChild(story);
 		this.stories.add(story);
@@ -459,6 +464,33 @@ public class InDesignDocument extends InDesignObject {
 		return newSpread;
 	}
 
+	/**
+     * @param masterSpreadName
+     * @return
+     * @throws Exception 
+     */
+    public Spread addSpread(String masterSpreadName) throws Exception {
+        Spread spread = new Spread();
+        assignIdAndRegister(spread);
+        spread.setParent(this);
+        
+        // Get the corresponding master spread, clone its data source,
+        // and use that to load the spread.
+        
+        MasterSpread  masterSpread = this.getMasterSpread(masterSpreadName);
+        Element spreadDataSource =this.dataSource.createElement("sprd");
+        spreadDataSource.setAttribute("Self", "rc_" + spread.getId());
+        spreadDataSource.setAttribute("pmas", "o_" + masterSpread.getId());
+        spreadDataSource.setAttribute("PagC", "l_" + masterSpread.getLongProperty("PagC"));
+        
+        this.spreads.add(spread);
+        spread.setDataSource(spreadDataSource);
+        spread.setMasterSpread(masterSpread);
+        this.addChild(spread);
+        
+        return spread;
+    }
+    
 	/**
 	 * @param newObject
 	 */
@@ -703,6 +735,19 @@ public class InDesignDocument extends InDesignObject {
 		this.newStory(frame, link);		
 		return frame;
 	}
+	
+	/**
+     * Create a new text frame. This results in a new story, which 
+     * the text frame is associated.
+     * @return
+     * @throws Exception 
+     */
+    public TextFrame newTextFrame() throws Exception {
+        TextFrame frame = new TextFrame();
+        assignIdAndRegister(frame);
+        this.newStory(frame);
+        return frame;
+    }
 
 	/**
 	 * Construct a new Story that is associated with the specified
@@ -723,6 +768,23 @@ public class InDesignDocument extends InDesignObject {
 		
 		return story;
 	}
+	
+	/**
+     * Construct a new Story that is associated with the specified
+     * text frame,
+     * @param frame Text frame to which the story is associated.
+     * @return
+     */
+    private Story newStory(TextFrame frame) {
+        Story story = new Story();
+        assignIdAndRegister(story);
+        this.addChild(story);
+        this.stories.add(story);
+        
+        frame.setParentStory(story);
+        
+        return story;
+    }
 
 	/**
 	 * @param link
