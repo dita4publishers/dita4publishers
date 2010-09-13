@@ -58,6 +58,15 @@ public class Spread extends InDesignRectangleContainingObject {
 	public Spread() {
 		super();
 	}
+	
+	/**
+	 * Gets the spread index for the spread.
+	 * @return The spread index. A value of -1 indicates the spread has not been
+	 * placed into a document (and therefore has no meaningful index).
+	 */
+	public int getSpreadIndex() {
+		return this.spreadIndex;
+	}
 
 	/**
 	 * @return

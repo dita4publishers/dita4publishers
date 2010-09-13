@@ -25,7 +25,6 @@ public class Path {
 	 * @param isOpen
 	 */
 	public Path(Double left, Double top, Double right, Double bottom, boolean isOpen) {
-		Point p;
 		this.points.add(new Point(left, top));
 		this.points.add(new Point(right, top));
 		this.points.add(new Point(right, bottom));
