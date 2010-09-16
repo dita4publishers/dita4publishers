@@ -1,8 +1,6 @@
 <ivy-module version="2.0">
   <info organisation="RSI" module="rsuite-admin-client"/>
   <dependencies>
-    <dependency org="rsi" name="rsi-inx-util" rev="20090615"/>
-    <dependency org="rsi" name="rsi-utils" rev="20090106"/>
     
     <dependency org="apache" name="ant" rev="1.7.1" />
     <dependency org="apache" name="commons-logging" rev="1.1"/>

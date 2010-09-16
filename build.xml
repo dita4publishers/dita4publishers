@@ -549,17 +549,10 @@
     </javac>    
   </target>
 	
-  <target name="jar-inx-util" depends="dist-init" description="Create jar for DITA2InDesign INX Utility library">
+  <target name="jar-inx-util" depends="dist-init,compile" description="Create jar for DITA2InDesign INX Utility library">
     <jar jarfile="${dist}/dita2indesign-inx-util.jar" basedir="${build}" >
-    <manifest>
-      <attribute name="Class-Path" value=". 
-        lib/commons-logging.jar
-        lib/log4j.jar
-        lib/resolver.jar
-        lib/xercesImpl.jar
-            "
-      />
-    </manifest>
+			<include name="org/dita2indesign/util/**/*"/>
+			<include name="org/dita2indesign/indesign/**/*"/>
     </jar>
   </target>
 	
