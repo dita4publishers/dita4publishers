@@ -8,9 +8,9 @@ import java.util.Iterator;
 import java.util.Map;
 
 import org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor;
+import org.dita2indesign.util.DataUtil;
 import org.w3c.dom.Element;
 
-import com.reallysi.util.DataUtil;
 
 /**
  * Abstract supertype for all InDesign objects

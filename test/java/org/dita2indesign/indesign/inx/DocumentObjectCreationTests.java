@@ -27,7 +27,7 @@ import org.dita2indesign.indesign.inx.model.Rectangle;
 import org.dita2indesign.indesign.inx.model.Spread;
 import org.dita2indesign.indesign.inx.model.TextWrapPreferences;
 import org.dita2indesign.indesign.inx.writers.InxWriter;
-import com.reallysi.util.DataUtil;
+import org.dita2indesign.util.DataUtil;
 
 /**
  *
