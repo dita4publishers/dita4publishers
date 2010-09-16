@@ -29,6 +29,7 @@
     <xsl:param name="cStyle" select="'[No character style]'" as="xs:string" tunnel="yes"/>
     <xsl:param name="txsrAtts" tunnel="yes" as="attribute()*"/>
     <xsl:param name="content" as="node()*"/>
+    <xsl:param name="markerType" as="xs:string" select="'para'"/>
         
     <xsl:variable name="pStyleObjId" select="incxgen:getObjectIdForParaStyle($pStyle)" as="xs:string"/>
     <xsl:variable name="cStyleObjId" select="incxgen:getObjectIdForCharacterStyle($cStyle)" as="xs:string"/>
@@ -45,10 +46,52 @@
     </xsl:variable>
     
     <xsl:sequence select="$pcntContent"/>
-    <txsr prst="o_{$pStyleObjId}" crst="o_{$cStyleObjId}">
-      <xsl:sequence select="$txsrAtts"/>
-      <pcnt>c_&#x2029;</pcnt><!-- Paragraph marker character -->
-    </txsr>
+    <xsl:choose>
+      <xsl:when test="$markerType = 'framebreak'">
+        <txsr prst="o_{$pStyleObjId}" crst="o_{$cStyleObjId}">
+          <xsl:sequence select="$txsrAtts"/>
+          <pcnt>e_SFrB</pcnt><!-- Frame break indicator -->
+        </txsr>
+      </xsl:when>
+      <xsl:when test="$markerType = 'columnbreak'">
+        <txsr prst="o_{$pStyleObjId}" crst="o_{$cStyleObjId}">
+          <xsl:sequence select="$txsrAtts"/>
+          <pcnt>e_SClB</pcnt><!-- Column break indicator -->
+        </txsr>
+      </xsl:when>
+      <xsl:when test="$markerType = 'linebreak'">
+        <txsr prst="o_{$pStyleObjId}" crst="o_{$cStyleObjId}">
+          <xsl:sequence select="$txsrAtts"/>
+          <pcnt>c_&#x2028;</pcnt><!-- Page break indicator -->
+        </txsr>
+      </xsl:when>
+      <xsl:when test="$markerType = 'pagebreak'">
+        <txsr prst="o_{$pStyleObjId}" crst="o_{$cStyleObjId}">
+          <xsl:sequence select="$txsrAtts"/>
+          <pcnt>e_SPgB</pcnt><!-- Page break indicator -->
+        </txsr>
+      </xsl:when>
+      <xsl:when test="$markerType = 'oddpagebreak'">
+        <txsr prst="o_{$pStyleObjId}" crst="o_{$cStyleObjId}">
+          <xsl:sequence select="$txsrAtts"/>
+          <pcnt>e_SOpB</pcnt><!-- Page break indicator -->
+        </txsr>
+      </xsl:when>
+      <xsl:when test="$markerType = 'evenpagebreak'">
+        <txsr prst="o_{$pStyleObjId}" crst="o_{$cStyleObjId}">
+          <xsl:sequence select="$txsrAtts"/>
+          <pcnt>e_SEpB</pcnt><!-- Page break indicator -->
+        </txsr>
+      </xsl:when>
+      <xsl:when test="$markerType = 'none'"/>
+      <xsl:otherwise>
+        <txsr prst="o_{$pStyleObjId}" crst="o_{$cStyleObjId}">
+          <xsl:sequence select="$txsrAtts"/>
+          <pcnt>c_&#x2029;</pcnt><!-- Paragraph marker character -->
+        </txsr>
+      </xsl:otherwise>
+    </xsl:choose>
+    
   </xsl:template>
   
   <xsl:template mode="generateStyles" match="idsc:cStyle">
