@@ -105,6 +105,20 @@
     </txsr><xsl:text>&#x0a;</xsl:text>
   </xsl:template>
   
+  <xsl:template name="makeFrameBreak">
+    <xsl:param name="pStyle" select="'[No paragraph style]'" as="xs:string" tunnel="yes"/>
+    <xsl:param name="cStyle" select="'[No character style]'" as="xs:string" tunnel="yes"/>
+    <xsl:param name="txsrAtts" tunnel="yes" as="attribute()*"/>
+    
+    <xsl:variable name="pStyleObjId" select="incxgen:getObjectIdForParaStyle($pStyle)" as="xs:string"/>
+    <xsl:variable name="cStyleObjId" select="incxgen:getObjectIdForCharacterStyle($cStyle)" as="xs:string"/>
+    <txsr prst="o_{$pStyleObjId}" crst="o_{$cStyleObjId}">
+      <xsl:sequence select="$txsrAtts"/>
+      <xsl:text>&#x0a;</xsl:text>
+      <pcnt>e_SFrB</pcnt><xsl:text>&#x0a;</xsl:text>
+    </txsr><xsl:text>&#x0a;</xsl:text>
+  </xsl:template>
+  
   <xsl:template mode="cont" match="*[df:class(., 'topic/ph')]">
     <!-- If we get here with a ph element, it must be a passthrough -->
     <xsl:apply-templates mode="#current"/>
