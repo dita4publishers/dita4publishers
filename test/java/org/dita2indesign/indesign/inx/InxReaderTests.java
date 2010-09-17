@@ -60,8 +60,8 @@ public class InxReaderTests extends InxReaderTestBase
 		assertTrue(iter.hasNext());
 		Story story = iter.next();
 		assertNotNull(story.getId());
-		assertEquals("uce", story.getId());
-		assertEquals(doc.getObject("uce"), story);
+		assertEquals("ud6", story.getId());
+		assertEquals(doc.getObject("ud6"), story);
 		Iterator<TextStyleRange> trIter = story.getTextRunIterator();
 		assertTrue(trIter.hasNext());
 		int cnt = 0;
@@ -153,7 +153,7 @@ public class InxReaderTests extends InxReaderTestBase
 		frames = page.getAllFrames();
 		assertNotNull("Got a null frame list from getAllFrames()", frames);
 		assertTrue("No frames in frame list", frames.size() > 0);
-		assertEquals("Expected 7 frames on page, found " + frames.size(), 5, frames.size());
+		assertEquals("Expected 5 frames on page, found " + frames.size(), 5, frames.size());
 		
 	}
 	
