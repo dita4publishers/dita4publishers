@@ -206,12 +206,12 @@ public class InxHelper {
 		if (!"x".equals(typeCode) )
 			throw new InDesignDocumentException("Expected type of \"x\", got \"" + typeCode + "\"");
 
-		int i = 4; // Point tofirst token of first list
 		
 		Map<String, String> resultMap = new HashMap<String, String>();
 		
+		int i = 5; // Point to first value of first list item
 		
-		while (i < (parts.length - 3)) {
+		while (i < (parts.length - 2)) {
 			// FIXME: Not bothering to sanity check the type codes at the moment. This is already a quick hack.
 			//String tcKey = parts[i++];
 			String key = parts[i++];
@@ -251,7 +251,7 @@ public class InxHelper {
 		values.add(new InxLong64(geometry.getPaths().size()));
 		for (Path path : geometry.getPaths()) {
 			values.add(new InxLong64(path.getPoints().size()));
-			for (Point point : path.getPoints()) {
+			for (PathPoint point : path.getPoints()) {
 				values.add(new InxLong64(2)); // Point type 2 is a corner point
 				values.add(new InxDouble(point.getX()));
 				values.add(new InxDouble(point.getY()));
