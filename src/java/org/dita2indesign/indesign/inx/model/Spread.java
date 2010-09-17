@@ -88,8 +88,22 @@ public class Spread extends InDesignRectangleContainingObject {
 		this.getDocument().registerObject(page);
 		this.pagesById.put(page.getId(), page);
 		this.pagesByName.put(page.getName(), page);
-		this.pages .add(page);
+		this.pages.add(page);
+		setPageSide(page);
 		return page;
+	}
+
+	/**
+	 * @param page
+	 */
+	private void setPageSide(Page page) {
+		if (getDocumentPreferences().isFacingPages()) {
+			if (this.pages.size() % 2 == 0) {
+				page.setPageSide(PageSideOption.LEFT_HAND);
+			} else {
+				page.setPageSide(PageSideOption.RIGHT_HAND);
+			}
+		}
 	}
 
 	/**
@@ -129,6 +143,7 @@ public class Spread extends InDesignRectangleContainingObject {
 					setPageBounds(page);
 					this.pages.add(page);
 					this.pagesById.put(page.getId(), page);
+					setPageSide(page);
 				}
 			}
 			if (this.pageCount != this.pagesById.size())
@@ -141,8 +156,6 @@ public class Spread extends InDesignRectangleContainingObject {
 			}
 			logger.debug("loadObject(): Spread name=\"" + this.getName() + "\"");
 			
-			// We have to have the pages loaded before we can calculate the transformation matrix
-			// because we use the pages to calculate the spread-to-spread offset.
 			logger.debug("loadObject(): Calling setTransformationMatrix...");
 			setTransformationMatrix(spreadIndex);
 				

@@ -122,6 +122,15 @@ public class Page extends InDesignRectangleContainingObject {
 			this.frames.put(rect.getId(), (TextFrame)rect);
 	}
 
+	/**
+	 * Sets the page side. Can only be determined in the context
+	 * of a sequence of pages within a spread.
+	 * @param pageSide
+	 */
+	public void setPageSide(PageSideOption pageSide) {
+		this.pageSide = pageSide;
+	}
+
 
 
 

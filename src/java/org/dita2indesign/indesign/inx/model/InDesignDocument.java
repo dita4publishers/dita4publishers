@@ -31,6 +31,16 @@ public class InDesignDocument extends InDesignObject {
 	/**
 	 * 
 	 */
+	public static final double SPREAD_TO_PAGE_PADDING = 144.0;
+
+	/**
+	 * 
+	 */
+	public static final double SPREAD_TO_SPREAD_GAP = 36.0;
+
+	/**
+	 * 
+	 */
 	public static final String CFLO_TAGNAME = "cflo";
 
 	/**
@@ -422,21 +432,21 @@ public class InDesignDocument extends InDesignObject {
 	}
 
 	/**
-	 * Calculates the vertical distance between spreads. This information is not in
-	 * the INX file (as far as I can tell), so it has to be calculated by getting pages
-	 * from two adjacent spreads and calculating the pasteboard-coordinate-space distance
-	 * between them.
+	 * 
 	 * @return
 	 */
 	public double getSpreadOffset() {
 		logger.debug("getSpreadOffset(): Starting, this.spreads.size=" + this.spreads.size());
-		if (this.spreads.size() < 2)
+		if (this.spreads.size() < 2) {
 			return 0.0;
-		Page page1 = getSpread(0).getFirstPage();
-		Page page2 = getSpread(1).getFirstPage();
-		double p1Top = page1.getBoundingBox().getTop();
-		double p2Top = page2.getBoundingBox().getTop();
-		double offset = p2Top - p1Top;
+		}
+		// Spread geometry is page-height + 144pt (72pt gap above and below page). 
+		// There is a 36pt gap between spreads.
+		double pageHeight = this.getDocumentPreferences().getPageHeight();
+		double spreadHeight = pageHeight + SPREAD_TO_PAGE_PADDING;
+		int spreadCount = this.spreads.size() - 1; // Offset for first spread is always 0
+		double offset = (spreadHeight * spreadCount) + (SPREAD_TO_SPREAD_GAP * spreadCount); 
+		logger.debug("getSpreadOffset(): Returning " + offset);
 		return offset;
 	}
 
