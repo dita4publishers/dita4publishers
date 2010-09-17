@@ -26,6 +26,7 @@ import org.dita2indesign.indesign.inx.model.MasterSpread;
 import org.dita2indesign.indesign.inx.model.Page;
 import org.dita2indesign.indesign.inx.model.Rectangle;
 import org.dita2indesign.indesign.inx.model.Spread;
+import org.dita2indesign.indesign.inx.model.TextFrame;
 import org.dita2indesign.indesign.inx.model.TextWrapPreferences;
 import org.dita2indesign.indesign.inx.writers.InxWriter;
 import org.dita2indesign.util.DataUtil;
@@ -96,8 +97,8 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		Rectangle rect;
 		
 		System.err.println("Objects in doc:" + doc.reportObjectsById());
-		rect = (Rectangle)doc.getObject("u73c1");
-		assertNotNull("Got null rectangle", rect);
+		rect = (Rectangle)doc.getObject("u1ae");
+		assertNotNull("Failed to find rectangle with ID \"u1ae\"", rect);
 		InDesignObject clonedObj = cloned.clone(rect);
 		assertNotNull("Got null clone", clonedObj);
 		Rectangle clonedRect = (Rectangle)clonedObj;
@@ -130,6 +131,19 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 	
 		assertTrue("Expected some frames", newSpread.getAllFrames().size() > 0);
 		
+		boolean foundThread = false;
+		for (TextFrame frame : newSpread.getAllFrames()) {
+			if ("Thread start".equals(frame.getLabel().trim())) {
+				foundThread = true;
+				TextFrame nextInThread = frame.getNextInThread();
+				assertNotNull(nextInThread);
+				assertNotNull(nextInThread.getMasterFrame());
+				assertEquals("Previous in thread did not return expected value",
+						frame,
+						nextInThread.getPreviousInThread());
+			}
+		}
+		assertTrue("Didn't find threaded frame with label 'Thread start'", foundThread);
 		assertTrue("Expected frames on the page", newPage.getAllFrames().size() > 0);
 	}
 	
@@ -145,7 +159,8 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 	
 		Rectangle rect;
 		
-		rect = (Rectangle)doc.getObject("u73c1");
+		rect = (Rectangle)doc.getObject("u1ae");
+		assertNotNull("Didn't find object with ID u1ae", rect);
 		InDesignObject clonedObj = cloned.clone(rect);
 		Rectangle clonedRect = (Rectangle)clonedObj;		
 		newSpread.addRectangle(clonedRect);
