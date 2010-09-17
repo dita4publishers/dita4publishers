@@ -10,9 +10,6 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 import org.apache.log4j.Logger;
-
-import org.dita2indesign.indesign.inx.InxReaderTestBase;
-import org.dita2indesign.indesign.inx.InxReaderTests;
 import org.dita2indesign.indesign.inx.model.Box;
 import org.dita2indesign.indesign.inx.model.DocumentPreferences;
 import org.dita2indesign.indesign.inx.model.Geometry;
@@ -23,7 +20,7 @@ import org.dita2indesign.indesign.inx.model.MasterSpread;
 import org.dita2indesign.indesign.inx.model.Page;
 import org.dita2indesign.indesign.inx.model.PageSideOption;
 import org.dita2indesign.indesign.inx.model.Path;
-import org.dita2indesign.indesign.inx.model.Point;
+import org.dita2indesign.indesign.inx.model.PathPoint;
 import org.dita2indesign.indesign.inx.model.Rectangle;
 import org.dita2indesign.indesign.inx.model.Spread;
 import org.dita2indesign.indesign.inx.model.Story;
@@ -244,11 +241,11 @@ public class InxReaderTests extends InxReaderTestBase
 		assertEquals(1, paths.size());
 		Path path = paths.get(0);
 		assertNotNull(path);
-		List<Point> points = path.getPoints();
+		List<PathPoint> points = path.getPoints();
 		assertNotNull(points);
 		assertEquals(4, points.size());
 		
-		Point point;
+		PathPoint point;
 		
 		// Data for four points:
 		// l_2_D_36_D_-360_l_2_D_36_D_-175.2_l_2_D_309.8181818181818_D_-175.2_l_2_D_309.8181818181818_D_-360

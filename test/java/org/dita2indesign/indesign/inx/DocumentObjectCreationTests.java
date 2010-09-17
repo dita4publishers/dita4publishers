@@ -16,6 +16,7 @@ import org.w3c.dom.Element;
 
 import org.dita2indesign.indesign.inx.DocumentObjectCreationTests;
 import org.dita2indesign.indesign.inx.InxReaderTestBase;
+import org.dita2indesign.indesign.inx.model.Geometry;
 import org.dita2indesign.indesign.inx.model.Image;
 import org.dita2indesign.indesign.inx.model.InDesignDocument;
 import org.dita2indesign.indesign.inx.model.InDesignObject;
@@ -106,6 +107,30 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		
 		assertTrue("Page does not contain rectangle", newPage.contains(clonedRect));
 		
+	}
+	
+	public void testOverrideMasterSpreadObjects() throws Exception {
+	
+		
+		Spread newSpread;
+		
+		String masterSpreadName = "RT-BB Right";
+		newSpread = cloned.newSpread(masterSpreadName);
+		newSpread.setTransformationMatrix(0);
+
+		MasterSpread master = cloned.getMasterSpread(masterSpreadName);
+		assertNotNull("Didn't get the master spread", master);
+		
+		Page newPage = newSpread.addPage(10);
+		assertNotNull("Got a null new page", newPage);
+		
+		assertEquals("Expected no frames in the spread", 0, newSpread.getAllFrames().size());
+		
+		newSpread.overrideMasterSpreadObjects();
+	
+		assertTrue("Expected some frames", newSpread.getAllFrames().size() > 0);
+		
+		assertTrue("Expected frames on the page", newPage.getAllFrames().size() > 0);
 	}
 	
 	public void testWriteInxFile() throws Exception {

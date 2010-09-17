@@ -16,6 +16,7 @@ import org.dita2indesign.indesign.inx.model.InxLong32;
 import org.dita2indesign.indesign.inx.model.InxRecordList;
 import org.dita2indesign.indesign.inx.model.InxValue;
 import org.dita2indesign.indesign.inx.model.InxValueList;
+import org.dita2indesign.indesign.inx.model.Path;
 
 
 /**
@@ -59,6 +60,17 @@ public class InxValueListTest extends TestCase
 		assertTrue("Expected InxBoolean, got " + value.getClass().getSimpleName(), value instanceof InxBoolean);
 		assertEquals(new Boolean(false), value.getValue());
 		
+	}
+	
+	public void testPathPointTypeSeven() throws Exception {
+		String rawIGeoValue  = "x_3e_l_1_l_7_l_0_D_-36.85400000000004_D_5.492999999999995_D_-36.85400000000004_D_5.492999999999995_D_-36.85400000000004_D_5.492999999999995_l_0_D_-35.14599999999996_D_-38.25_D_-35.14599999999996_D_-38.25_D_-35.14599999999996_D_-38.25_l_0_D_36.85400000000004_D_-38.25_D_36.85400000000004_D_-38.25_D_36.85400000000004_D_-38.25_l_0_D_36.85400000000004_D_6.75_D_36.85400000000004_D_6.75_D_36.85400000000004_D_6.75_l_0_D_0.8540000000000418_D_38.25_D_0.8540000000000418_D_38.25_D_0.8540000000000418_D_38.25_l_0_D_-36.85400000000004_D_5.492999999999995_D_-36.85400000000004_D_5.492999999999995_D_-36.85400000000004_D_5.492999999999995_l_0_D_-36.85400000000004_D_5.492999999999995_D_-36.85400000000004_D_5.492999999999995_D_-36.85400000000004_D_5.492999999999995_b_f_D_-36.85400000000004_D_-38.25_D_36.85400000000004_D_38.25_D_1_D_0_D_0_D_1_D_485.14599999999984_D_-317.25";
+		List<InxValue> values = InxHelper.decodeRawValueToList(rawIGeoValue);
+		int itemCursor = 1;
+		// Item 0: number of paths
+		// Item 1: Start of path, gives number of points in path
+		Path path = new Path();
+		itemCursor = path.loadData(values, itemCursor);
+
 	}
 	
 	public void testNestedLists() throws Exception {
