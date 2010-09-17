@@ -86,6 +86,8 @@ public class InxHelper {
 	 */
 	public static String decodeRawValueToSingleObjectId(String rawValue) throws Exception {
 		String[] values = getSingleValue(rawValue);
+		if (values[0].equals("o") && values[1].equals("n"))
+			return null; // Reference to a null object
 		String typeCode = "";
 		if (values[0].startsWith("r"))
 			typeCode = values[0].substring(1);

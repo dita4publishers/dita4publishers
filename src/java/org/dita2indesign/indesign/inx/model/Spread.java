@@ -339,13 +339,40 @@ public class Spread extends InDesignRectangleContainingObject {
 	 * @throws Exception 
 	 */
 	public void overrideMasterSpreadObjects() throws Exception {
+		InDesignDocument doc = (InDesignDocument)getParent();
+		
+		Map<TextFrame, TextFrame> masterToOverride = new HashMap<TextFrame, TextFrame>();
+		
 		for (InDesignComponent comp : this.masterSpread.getChildren()) {
 			if (comp.getBooleanProperty("ovbl")) {
-				if (comp instanceof Rectangle) {
-					this.addRectangle((Rectangle)comp);
+				if (comp instanceof InDesignObject) {
+					InDesignObject idObj = (InDesignObject)comp;
+					if (idObj instanceof TextFrame) {
+						TextFrame masterFrame = (TextFrame)idObj;
+						TextFrame overrideFrame = (TextFrame)doc.clone(masterFrame);
+						overrideFrame.setMasterFrame(masterFrame);
+						masterToOverride.put(masterFrame, overrideFrame);
+					} else if (idObj instanceof Rectangle) {					
+						this.addRectangle((Rectangle)(doc.clone(idObj)));
+					} else {
+						this.addChild(idObj);
+					}
 				} else {
 					this.addChild(comp);
 				}
+			}
+		}
+		
+		// Now rework any threading in the cloned frames:
+		for (TextFrame masterFrame : masterToOverride.keySet()) {
+			if (masterFrame.getNextInThread() == null) continue;
+			TextFrame override = masterToOverride.get(masterFrame);
+			TextFrame nextMaster = masterFrame.getNextInThread();
+			TextFrame nextOverride = masterToOverride.get(nextMaster);
+			if (this.frames.containsKey(nextOverride)) {
+				override.setNextInThread(nextOverride);
+			} else {
+				override.setNextInThread((TextFrame)null);
 			}
 		}
 		

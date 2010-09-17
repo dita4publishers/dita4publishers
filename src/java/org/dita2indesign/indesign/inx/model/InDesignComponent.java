@@ -183,13 +183,25 @@ public class InDesignComponent {
 	}
 
 	/**
-	 * @param propSelf
+	 * @param attName
 	 * @return
 	 * @throws Exception 
 	 */
 	protected String getStringProperty(String attName) throws Exception {
 		if (this.getDataSourceElement().hasAttribute(attName)) {
 			return InxHelper.decodeRawValueToSingleString(this.getDataSourceElement().getAttribute(attName));
+		}
+		return null;
+	}
+
+	/**
+	 * @param propSelf
+	 * @return
+	 * @throws Exception 
+	 */
+	protected String getObjectReferenceProperty(String attName) throws Exception {
+		if (this.getDataSourceElement().hasAttribute(attName)) {
+			return InxHelper.decodeRawValueToSingleObjectId(this.getDataSourceElement().getAttribute(attName));
 		}
 		return null;
 	}

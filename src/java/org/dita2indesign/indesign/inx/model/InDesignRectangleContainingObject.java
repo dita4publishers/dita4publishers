@@ -60,8 +60,12 @@ public abstract class InDesignRectangleContainingObject extends InDesignGeometry
 				this.setId(id);
 			// Now iterate over the children of the source object and load them:
 			for (InDesignComponent childObj : sourceObj.getChildren()) {
-				InDesignComponent newObj = this.getDocument().clone((InDesignObject)childObj);
-				this.addChild(newObj);
+				if (childObj instanceof InDesignObject) {
+					InDesignObject newObj = this.getDocument().clone((InDesignObject)childObj);
+					this.addChild(newObj);
+				} else {
+					this.addChild(childObj);
+				}
 			}
 		} else {
 			// Handle cloning of child components with no data source element.

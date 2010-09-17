@@ -14,6 +14,8 @@ public class TextFrame extends Rectangle {
 	
 	private String parentStoryId;
 	private Story parentStory;
+	private TextFrame nextFrameInThread = null;
+	private TextFrame masterFrame;
 
 	/**
 	 * @throws Exception
@@ -58,6 +60,46 @@ public class TextFrame extends Rectangle {
 	 */
 	public void accept(InDesignDocumentVisitor visitor) throws Exception {
 		visitor.visit(this);
+	}
+
+	/**
+	 * Get the frame to which this frame threads, if any.
+	 * @return Frame or null if there is no next thread.
+	 * @throws Exception 
+	 */
+	public TextFrame getNextInThread() throws Exception {
+		if (nextFrameInThread == null && hasProperty(InDesignDocument.PROP_NTXF)) {
+				String objectId = getObjectReferenceProperty(InDesignDocument.PROP_NTXF);
+				if (objectId != null) {
+					this.nextFrameInThread = (TextFrame)this.getDocument().getObject(objectId);
+				}
+		}
+		return this.nextFrameInThread;
+	}
+
+	/**
+	 * Sets the master frame for the frame, e.g., because the frame was
+	 * created as an override of a master frame.
+	 * @param masterFrame
+	 */
+	public void setMasterFrame(TextFrame masterFrame) {
+		this.masterFrame = masterFrame;
+	}
+	
+	/**
+	 * Gets the master frame associated with the frame, if any.
+	 * @return The master frame, or null if there is no associated master.
+	 * @throws Exception
+	 */
+	public TextFrame getMasterFrame() throws Exception {
+		return this.masterFrame;
+	}
+
+	/**
+	 * @param nextTextFrame
+	 */
+	public void setNextInThread(TextFrame nextTextFrame) {
+		this.nextFrameInThread = nextTextFrame;
 	}
 
 

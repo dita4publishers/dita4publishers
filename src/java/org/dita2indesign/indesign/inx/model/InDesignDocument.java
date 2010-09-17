@@ -79,6 +79,7 @@ public class InDesignDocument extends InDesignObject {
 
 	private List<Link> links = new ArrayList<Link>();
 
+
 	/**
 	 * 
 	 */
@@ -93,6 +94,11 @@ public class InDesignDocument extends InDesignObject {
 	 * 
 	 */
 	static final String PROP_SELF = "Self";
+
+	/**
+	 * 
+	 */
+	public static final String PROP_NTXF = "ntxf";
 
 	public static final String PROP_NMBS = "nmbs";
 
