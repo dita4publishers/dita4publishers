@@ -672,15 +672,17 @@ public class InDesignDocument extends InDesignObject {
 	public String reportChildObjects() {
 		StringBuilder report = new StringBuilder("Child Objects::\n");
 		for (InDesignComponent comp : this.getChildren()) {
-			// As far as I can tell the children of InDesignDocument are only objects. WEK
-			InDesignObject obj = (InDesignObject)comp;
-			Element dataSource = obj.getDataSourceElement();
+			Element dataSource = comp.getDataSourceElement();
 			String dsName = "{No data source element}";
 			if (dataSource != null)
 				dsName = dataSource.getNodeName();
-			report.append("[").append(obj.getId())
-			  .append("] ")
-			  .append(obj.getClass().getSimpleName())
+			if (comp instanceof InDesignObject) {
+				InDesignObject obj = (InDesignObject)comp;
+				report.append("[").append(obj.getId())
+				  .append("] ");
+			}
+			report
+			  .append(comp.getClass().getSimpleName())
 			  .append(", <")
 			  .append(dsName)
 			  .append(">")

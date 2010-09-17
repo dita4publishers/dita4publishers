@@ -14,8 +14,9 @@ public class TextFrame extends Rectangle {
 	
 	private String parentStoryId;
 	private Story parentStory;
-	private TextFrame nextFrameInThread = null;
+	private TextFrame nextInThread = null;
 	private TextFrame masterFrame;
+	private TextFrame previousInThread = null;
 
 	/**
 	 * @throws Exception
@@ -63,21 +64,6 @@ public class TextFrame extends Rectangle {
 	}
 
 	/**
-	 * Get the frame to which this frame threads, if any.
-	 * @return Frame or null if there is no next thread.
-	 * @throws Exception 
-	 */
-	public TextFrame getNextInThread() throws Exception {
-		if (nextFrameInThread == null && hasProperty(InDesignDocument.PROP_NTXF)) {
-				String objectId = getObjectReferenceProperty(InDesignDocument.PROP_NTXF);
-				if (objectId != null) {
-					this.nextFrameInThread = (TextFrame)this.getDocument().getObject(objectId);
-				}
-		}
-		return this.nextFrameInThread;
-	}
-
-	/**
 	 * Sets the master frame for the frame, e.g., because the frame was
 	 * created as an override of a master frame.
 	 * @param masterFrame
@@ -96,10 +82,52 @@ public class TextFrame extends Rectangle {
 	}
 
 	/**
-	 * @param nextTextFrame
+	 * Set the next frame in the thread. Automatically
+	 * sets this frame as the previous frame on 
+	 * the specified text frame.
+	 * @param nextTextFrame The frame to which this frame
+	 * is to be threaded.
 	 */
 	public void setNextInThread(TextFrame nextTextFrame) {
-		this.nextFrameInThread = nextTextFrame;
+		this.nextInThread = nextTextFrame;
+		if (nextTextFrame != null) {
+			nextTextFrame.setPreviousInThread(this);
+		}
+	}
+
+	/**
+	 * Sets the previous text frame in thread. Should only
+	 * be set as a side effect of having set this frame
+	 * as the next frame in thread on some other frame.
+	 * @param textFrame
+	 */
+	protected void setPreviousInThread(TextFrame textFrame) {
+		this.previousInThread = textFrame;
+	}
+
+	/**
+	 * Get the frame to which this frame threads, if any.
+	 * @return Frame or null if there is no next thread.
+	 * @throws Exception 
+	 */
+	public TextFrame getNextInThread() throws Exception {
+		if (nextInThread == null && hasProperty(InDesignDocument.PROP_NTXF)) {
+				String objectId = getObjectReferenceProperty(InDesignDocument.PROP_NTXF);
+				if (objectId != null) {
+					this.nextInThread = (TextFrame)this.getDocument().getObject(objectId);
+				}
+		}
+		return this.nextInThread;
+	}
+
+	/**
+	 * Get the text frame that is before this frame in the thread this
+	 * frame is part of.
+	 * @return The previous frame, or null if this is the first or only
+	 * frame in the thread.
+	 */
+	public TextFrame getPreviousInThread() {
+		return this.previousInThread;
 	}
 
 

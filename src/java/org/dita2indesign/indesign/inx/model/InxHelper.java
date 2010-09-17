@@ -88,7 +88,7 @@ public class InxHelper {
 		String[] values = getSingleValue(rawValue);
 		if (values[0].equals("o") && values[1].equals("n"))
 			return null; // Reference to a null object
-		String typeCode = "";
+		String typeCode = values[0].substring(0);
 		if (values[0].startsWith("r"))
 			typeCode = values[0].substring(1);
 		if ("c".equals(typeCode) | "o".equals(typeCode))
@@ -211,13 +211,13 @@ public class InxHelper {
 		
 		Map<String, String> resultMap = new HashMap<String, String>();
 		
-		int i = 5; // Point to first value of first list item
+		int i = 4; // Point to first value of first list item
 		
-		while (i < (parts.length - 2)) {
+		while (i < (parts.length - 3)) {
 			// FIXME: Not bothering to sanity check the type codes at the moment. This is already a quick hack.
-			//String tcKey = parts[i++];
+			String tcKey = parts[i++];
 			String key = parts[i++];
-			//String tcValue = parts[i++];
+			String tcValue = parts[i++];
 			String value = parts[i++];
 			resultMap.put(key, value);
 			// Skip type code and length of next pair

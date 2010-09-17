@@ -352,6 +352,7 @@ public class Spread extends InDesignRectangleContainingObject {
 						TextFrame overrideFrame = (TextFrame)doc.clone(masterFrame);
 						overrideFrame.setMasterFrame(masterFrame);
 						masterToOverride.put(masterFrame, overrideFrame);
+						this.addRectangle(overrideFrame);
 					} else if (idObj instanceof Rectangle) {					
 						this.addRectangle((Rectangle)(doc.clone(idObj)));
 					} else {
@@ -369,7 +370,7 @@ public class Spread extends InDesignRectangleContainingObject {
 			TextFrame override = masterToOverride.get(masterFrame);
 			TextFrame nextMaster = masterFrame.getNextInThread();
 			TextFrame nextOverride = masterToOverride.get(nextMaster);
-			if (this.frames.containsKey(nextOverride)) {
+			if (this.frames.containsKey(nextOverride.getId())) {
 				override.setNextInThread(nextOverride);
 			} else {
 				override.setNextInThread((TextFrame)null);
