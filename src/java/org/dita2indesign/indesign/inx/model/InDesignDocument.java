@@ -450,8 +450,9 @@ public class InDesignDocument extends InDesignObject {
 	/**
 	 * @param masterSpreadName
 	 * @return
+	 * @throws Exception 
 	 */
-	public Spread newSpread(String masterSpreadName) {
+	public Spread newSpread(String masterSpreadName) throws Exception {
 		Spread newSpread = new Spread();
 		assignIdAndRegister(newSpread);
 		newSpread.setParent(this);
@@ -485,6 +486,7 @@ public class InDesignDocument extends InDesignObject {
         
         this.spreads.add(spread);
         spread.setDataSource(spreadDataSource);
+        spread.setTransformationMatrix(this.spreads.size() - 1);
         spread.setMasterSpread(masterSpread);
         this.addChild(spread);
         
@@ -506,6 +508,14 @@ public class InDesignDocument extends InDesignObject {
 	 */
 	public Page newPage(Element dataSource) throws Exception {
 		return (Page)newObject(Page.class, dataSource);
+	}
+
+	/**
+	 * @return
+	 * @throws Exception 
+	 */
+	public Page newPage() throws Exception {
+		return (Page)newObject(Page.class, null);
 	}
 
 
@@ -802,8 +812,9 @@ public class InDesignDocument extends InDesignObject {
 
 	/**
 	 * @return
+	 * @throws Exception 
 	 */
-	public Image newImage() {
+	public Image newImage() throws Exception {
 		Image image = new Image();
 		assignIdAndRegister(image);
 		return image;

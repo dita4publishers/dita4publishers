@@ -19,7 +19,7 @@ public abstract class AbstractInDesignObject extends InDesignComponent {
 
 	private String id;
 	private String pnam = null;
-	private Map<String, String> tags = new HashMap<String, String>();
+	protected Map<String, String> tags = new HashMap<String, String>();
 
 	/**
 	 * 
@@ -56,7 +56,6 @@ public abstract class AbstractInDesignObject extends InDesignComponent {
 		this.tags  = getStringMapListProperty(InDesignDocument.PROP_PTAG);
 		// logger.debug(" + objectLoad(): Setting PName to \"" + this.pnam + "\"");
 		
-		
 	}
 
 	/**
@@ -89,6 +88,9 @@ public abstract class AbstractInDesignObject extends InDesignComponent {
 	 * @throws InDesignDocumentException 
 	 */
 	public void loadObject(Element dataSource) throws Exception {
+		if (dataSource == null) {
+			return;
+		}
 		// logger.debug("loadObject(): loading from data source element \"" + dataSource.getNodeName() + "\"");
 		this.setDataSource(dataSource);
 		Iterator<Element> elemIter = DataUtil.getElementChildrenIterator(dataSource);

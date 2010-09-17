@@ -28,9 +28,10 @@ public abstract class InDesignRectangleContainingObject extends InDesignGeometry
 	private List<Group> groups = new ArrayList<Group>();
 
 	/**
+	 * @throws Exception 
 	 * 
 	 */
-	public InDesignRectangleContainingObject() {
+	public InDesignRectangleContainingObject() throws Exception {
 		super();
 	}
 

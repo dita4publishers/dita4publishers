@@ -22,9 +22,10 @@ public class MasterSpread extends Spread {
 	String baseName;
 	String namePrefix;
 	/**
+	 * @throws Exception 
 	 * 
 	 */
-	public MasterSpread() {
+	public MasterSpread() throws Exception {
 		super();
 	}
 	

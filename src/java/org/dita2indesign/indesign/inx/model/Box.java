@@ -49,7 +49,6 @@ public class Box {
 		this.top = top;
 		this.right = right;
 		this.bottom = bottom;
-		constructRectangle2D();
 	}
 
 	/**
@@ -64,8 +63,6 @@ public class Box {
 		top = ((InxDouble)values.get(itemCursor++)).getValue().doubleValue();
 		right = ((InxDouble)values.get(itemCursor++)).getValue().doubleValue();
 		bottom = ((InxDouble)values.get(itemCursor++)).getValue().doubleValue();
-
-		constructRectangle2D();
 		
 		return itemCursor;
 	}
@@ -177,7 +174,7 @@ public class Box {
 		this.top = y1;
 		this.right = x2;
 		this.bottom = y2;
-		
+	    constructRectangle2D();
 	}
 
 	/**

@@ -53,9 +53,10 @@ public class Spread extends InDesignRectangleContainingObject {
 	private TransformationMatix transformationMatrix;
 
 	/**
+	 * @throws Exception 
 	 * 
 	 */
-	public Spread() {
+	public Spread() throws Exception {
 		super();
 	}
 	
@@ -80,14 +81,32 @@ public class Spread extends InDesignRectangleContainingObject {
 	 * @param spreadIndex 
 	 * @throws Exception 
 	 */
-	protected InDesignComponent newPage(Element dataSource) throws Exception {
+	protected Page newPage(Element dataSource) throws Exception {
 		Page page = this.getDocument().newPage(dataSource);
 		page.setParent(this);
+		setPageBounds(page);
 		this.getDocument().registerObject(page);
 		this.pagesById.put(page.getId(), page);
 		this.pagesByName.put(page.getName(), page);
 		this.pages .add(page);
 		return page;
+	}
+
+	/**
+	 * @param page
+	 */
+	protected void setPageBounds(Page page) {
+		DocumentPreferences docPrefs = getDocumentPreferences();
+		page.setWidth(docPrefs.getPageWidth());
+		page.setHeight(docPrefs.getPageHeight());
+		
+	}
+
+	/**
+	 * @return
+	 */
+	public DocumentPreferences getDocumentPreferences() {
+		return ((InDesignDocument)getParent()).getDocumentPreferences();
 	}
 
 	/* (non-Javadoc)
@@ -107,6 +126,7 @@ public class Spread extends InDesignRectangleContainingObject {
 			for (InDesignComponent child : this.getChildren()) {
 				if (child instanceof Page) {
 					Page page = (Page)child;
+					setPageBounds(page);
 					this.pages.add(page);
 					this.pagesById.put(page.getId(), page);
 				}
@@ -132,7 +152,7 @@ public class Spread extends InDesignRectangleContainingObject {
 			assignRectanglesToPages();
 		}
 
-	protected void setTransformationMatrix(int spreadIndex) {
+	public void setTransformationMatrix(int spreadIndex) {
 		logger.debug("setTransformationMatrix(): Starting, spreadIndex=" + spreadIndex);
 		double[] matrix = {1.0,0.0,0.0,1.0,0.0,0.0};
 		// The spread matrix translates spread coordinates to pasteboard
@@ -155,7 +175,7 @@ public class Spread extends InDesignRectangleContainingObject {
 	/**
 	 * @return
 	 */
-	Page getFirstPage() {
+	Page getFirstPage() {		
 		return this.pages.get(0);
 	}
 
@@ -263,10 +283,7 @@ public class Spread extends InDesignRectangleContainingObject {
 		String pageNumberStr = String.valueOf(pageNumber);
 		if (this.pagesByName.containsKey(pageNumberStr))
 			throw new RuntimeException("Page number \"" + pageNumber + "\" already exists in spread.");
-		Page page = new Page();
 		InDesignDocument doc = (InDesignDocument)this.getParent();
-		page.setId(doc.assignObjectId());
-		doc.registerObject(page);
 		
 		// Get the corresponding master page, clone its data source,
 		// and use that to load the page. Then adjust the bounding box
@@ -285,10 +302,8 @@ public class Spread extends InDesignRectangleContainingObject {
 			masterPage = getMasterSpread().getFirstPage();
 		}
 		Element pageDataSource = (Element) masterPage.getDataSourceElement().cloneNode(true);
-		page.loadObject(pageDataSource);
-		
-		// Now adjust the page's bounding box:
-		
+		Page page = newPage(pageDataSource);
+				
 		this.pagesById.put(page.getId(), page);
 		this.pagesByName.put(pageNumberStr, page);
 		// NOTE: this means that pages need to be added in an appropriate order:
@@ -304,6 +319,25 @@ public class Spread extends InDesignRectangleContainingObject {
 	 */
 	public void accept(InDesignDocumentVisitor visitor) throws Exception {
 		visitor.visit(this);
+	}
+
+	/**
+	 * Override any overrideable objects in the spread's master spread.
+	 * @throws Exception 
+	 */
+	public void overrideMasterSpreadObjects() throws Exception {
+		for (InDesignComponent comp : this.masterSpread.getChildren()) {
+			if (comp.getBooleanProperty("ovbl")) {
+				if (comp instanceof Rectangle) {
+					this.addRectangle((Rectangle)comp);
+				} else {
+					this.addChild(comp);
+				}
+			}
+		}
+		
+		logger.debug("loadObject(): Assigning rectangles to pages()");
+		assignRectanglesToPages();
 	}
 
 

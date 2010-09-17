@@ -19,7 +19,6 @@ public class Rectangle extends InDesignRectangleContainingObject {
 
 	public Rectangle() throws Exception {
 		super();
-		this.geometry = new Geometry(0.0, 0.0, 10.0, 10.0);
 	}
 	
 	/* (non-Javadoc)

@@ -14,7 +14,7 @@ import org.apache.log4j.Logger;
 public class Path {
 
 	Logger logger = Logger.getLogger(this.getClass());
-	private List<Point> points = new ArrayList<Point>();
+	private List<PathPoint> points = new ArrayList<PathPoint>();
 	private boolean isOpen = true;
 
 	/**
@@ -25,10 +25,10 @@ public class Path {
 	 * @param isOpen
 	 */
 	public Path(Double left, Double top, Double right, Double bottom, boolean isOpen) {
-		this.points.add(new Point(left, top));
-		this.points.add(new Point(right, top));
-		this.points.add(new Point(right, bottom));
-		this.points.add(new Point(left, bottom));
+		this.points.add(new PathPoint(left, top));
+		this.points.add(new PathPoint(right, top));
+		this.points.add(new PathPoint(right, bottom));
+		this.points.add(new PathPoint(left, bottom));
 		this.isOpen = isOpen;
 	}
 
@@ -46,33 +46,30 @@ public class Path {
 	public int loadData(List<InxValue> values, int itemCursor) {
 		// On exit, the itemCursor should point to the item after the last
 		// item consumed by the path.
+		InxValue value = values.get(itemCursor++);
 		
-		//FIXME: parse out the path points:
-		int pathType = ((InxLong32)values.get(itemCursor++)).getValue().intValue();
-		switch (pathType) {
-		case 4:
-			// Four-point path
-			for (int i = 0; i < 4; i++) {
-				Point point = new Point();
-				itemCursor = point.loadData(values, itemCursor);
-				this.points.add(point);
-			}
-			break;
-		default:
-			logger.debug("Unhandled path type: " + pathType);
+		int pointCount = ((InxLong32)value).getValue().intValue();
+		
+		// Iterate over path points until we get the boolean value
+		value = values.get(itemCursor);		
+		
+		while (!(value instanceof InxBoolean)) {
+			PathPoint pathPoint = new PathPoint();
+			itemCursor = pathPoint.loadData(values, itemCursor);
+			this.points.add(pathPoint);
+			value = values.get(itemCursor);
 		}
 		
 		// Last bit of path is open/closed indicator:
+		isOpen = ((InxBoolean)value).getValue();
 		
-		isOpen = ((InxBoolean)values.get(itemCursor++)).getValue().booleanValue();
-		
-		return itemCursor;
+		return ++itemCursor;
 	}
 
 	/**
 	 * @return
 	 */
-	public List<Point> getPoints() {
+	public List<PathPoint> getPoints() {
 		return this.points;
 	}
 
@@ -85,12 +82,9 @@ public class Path {
 	
 	public String toString() {
 		StringBuilder result = new StringBuilder(" Path: ");
-		for (Point point : this.getPoints()) {
-			result.append("[")
-			.append(point.getX())
-			.append(", ")
-			.append(point.getY())
-			.append("], ");
+		for (PathPoint point : this.getPoints()) {
+			result.append(point.toString())
+			.append(", ");
 		}
 		result.append(" isOpen=")
 		.append(this.isOpen);		

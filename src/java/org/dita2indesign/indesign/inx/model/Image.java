@@ -12,6 +12,13 @@ package org.dita2indesign.indesign.inx.model;
  */
 public class Image extends InDesignGeometryHavingObject {
 
+	/**
+	 * @throws Exception
+	 */
+	public Image() throws Exception {
+		super();
+	}
+
 	private Link itemLink = null;
 	private TextWrapPreferences textWrapPreferences = new TextWrapPreferences();
 

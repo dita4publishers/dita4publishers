@@ -20,8 +20,6 @@ public class TextFrame extends Rectangle {
 	 */
 	public TextFrame() throws Exception {
 		super();
-		// Just create a nominal geometry so the value isn't null:
-		this.setGeometry(new Geometry(0.0, -100.0, 200.0, 100.0));
 	}
 
 	/* (non-Javadoc)

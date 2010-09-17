@@ -11,6 +11,13 @@ import org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor;
 public class Group extends InDesignRectangleContainingObject {
 
 	/**
+	 * @throws Exception
+	 */
+	public Group() throws Exception {
+		super();
+	}
+
+	/**
 	 * @param visitor
 	 * @throws Exception 
 	 */

@@ -16,6 +16,8 @@ public class Point {
 
 	double x = 0.0;
 	double y = 0.0;
+
+	private int pointType;
 	
 	/**
 	 * @param left
@@ -45,6 +47,10 @@ public class Point {
 	public double getY() {
 		return this.y;
 	}
+	
+	public int getPointType() {
+		return this.pointType;
+	}
 
 	/**
 	 * @param values
@@ -52,16 +58,22 @@ public class Point {
 	 * @return
 	 */
 	public int loadData(List<InxValue> values, int itemCursor) {
-		int pointType = ((InxLong32)values.get(itemCursor++)).getValue().intValue();
+		this.pointType = ((InxLong32)values.get(itemCursor++)).getValue().intValue();
 		switch (pointType) {
 		case 2: // Corner point.
 			x = ((InxDouble)values.get(itemCursor++)).getValue().doubleValue();
 			y = ((InxDouble)values.get(itemCursor++)).getValue().doubleValue();
 			break;
 		default:
-			logger.debug("Unhandled point type " + pointType);
+			logger.error("Unhandled point type " + pointType);
+			throw new RuntimeException("Unhandled point type " + pointType);
 		}
 		return itemCursor;
 	}
+	
+	public String toString() {
+		return this.getX() + ", " + this.getY();
+	}
+
 
 }

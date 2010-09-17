@@ -17,10 +17,12 @@ public class InDesignGeometryHavingObject extends InDesignObject {
 	protected Geometry geometry;
 
 	/**
+	 * @throws Exception 
 	 * 
 	 */
-	public InDesignGeometryHavingObject() {
+	public InDesignGeometryHavingObject() throws Exception {
 		super();
+		this.geometry = new Geometry(0.0, 0.0, 10.0, 10.0);
 	}
 
 	/**
@@ -63,7 +65,12 @@ public class InDesignGeometryHavingObject extends InDesignObject {
 		// rectangle in the positive vertical direction, one spread
 		// depth for each preceding spread in the document.
 		Box spreadBox = bb.transform(this.getGeometry().getTransformationMatrix());
-		Box pbBox =  spreadBox.transform(((Spread)this.getParent()).getTransformationMatrix());
+		Spread parentSpread = (Spread)this.getParent();
+		TransformationMatix matrix = parentSpread.getTransformationMatrix();
+		if (matrix == null) {
+			throw new RuntimeException("Spread " + parentSpread.getId() + " has a null transformation matrix. This means its spread index has not been set.");
+		}
+		Box pbBox =  spreadBox.transform(matrix);
 		return pbBox;
 	}
 

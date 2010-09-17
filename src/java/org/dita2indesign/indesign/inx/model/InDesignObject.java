@@ -3,7 +3,6 @@
  */
 package org.dita2indesign.indesign.inx.model;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -20,7 +19,6 @@ import org.w3c.dom.Element;
 public class InDesignObject extends AbstractInDesignObject {
 
 	private static Logger logger = Logger.getLogger(InDesignObject.class);
-	private Map<String, String> labels = new HashMap<String, String>();
 
 	/**
 	 * 
@@ -62,7 +60,7 @@ public class InDesignObject extends AbstractInDesignObject {
 	 * @param value
 	 */
 	public void insertLabel(String label, String value) {
-		this.labels.put(label, value);
+		this.tags.put(label, value);
 		
 	}
 
@@ -71,8 +69,8 @@ public class InDesignObject extends AbstractInDesignObject {
 	 * @return
 	 */
 	public String extractLabel(String label) {
-		if (this.labels.containsKey(label)) {
-			return this.labels.get(label);
+		if (this.tags.containsKey(label)) {
+			return this.tags.get(label);
 		}
 		return null;
 	}
@@ -81,7 +79,7 @@ public class InDesignObject extends AbstractInDesignObject {
 	 * @return
 	 */
 	public Map<String, String> getLabels() {
-		return this.labels;
+		return this.tags;
 	}
 
 

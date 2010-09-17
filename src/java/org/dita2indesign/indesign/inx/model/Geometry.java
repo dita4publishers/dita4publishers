@@ -80,6 +80,7 @@ public class Geometry {
 			right, and bottom of the graphic bounding box.
 		 
 		 */
+		logger.info("loadData(): rawIGeoValue=" + rawIGeoValue);
 		List<InxValue> values = InxHelper.decodeRawValueToList(rawIGeoValue);
 		int itemCursor = 1;
 		// Item 0: number of paths
@@ -138,8 +139,8 @@ public class Geometry {
 	 */
 	public void setWidth(double width) {
 		Rectangle2D r = this.boundingBox.getRectangle2D();
-		this.boundingBox.getRectangle2D().
-		  setRect(r.getX(), r.getY(), width, r.getHeight());
+		this.boundingBox.setCorners(r.getX(), r.getY(), width, r.getHeight());
+		this.paths.clear();
 		this.paths.add(new Path(r.getX(), r.getY(), r.getX() + r.getWidth(), r.getY() - r.getHeight(), false));
 		
 	}
@@ -149,8 +150,9 @@ public class Geometry {
 	 */
 	public void setHeight(double height) {
 		Rectangle2D r = this.boundingBox.getRectangle2D();
-		this.boundingBox.getRectangle2D().
-		  setRect(r.getX(), r.getY(), r.getWidth(), height);
+		this.boundingBox.setCorners(r.getX(), r.getY(), r.getX() + r.getWidth(), height);
+		this.paths.clear();
+		this.paths.add(new Path(r.getX(), r.getY(), r.getX() + r.getWidth(), r.getY() - r.getHeight(), false));
 	}
 
 	/**

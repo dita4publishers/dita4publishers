@@ -19,25 +19,29 @@ import org.w3c.dom.Element;
  */
 public class Page extends InDesignRectangleContainingObject {
 	
+	/**
+	 * @throws Exception
+	 */
+	public Page() throws Exception {
+		super();
+	}
+
 	Logger logger = Logger.getLogger(this.getClass());
 
 	PageSideOption pageSide = PageSideOption.SINGLE_SIDED; // Nominal default;
 	
-	TransformationMatix transformMatrix = null; // Values determined by size of page bounding box.
-
-	Box boundingBox;
-
 	private String name;
 
 	public void loadObject(Element dataSource) throws Exception {
 		super.loadObject(dataSource);
+		// NOTE: The bounds of a page are determined by the page width and
+		// height set on the document properties held by the InDesignDocument object.
 		Iterator<Element> elemIter = DataUtil.getElementChildrenIterator(dataSource);
 		this.name = getStringProperty(InDesignDocument.PROP_PNAM);
 		PageSideOption tempPgSide = (PageSideOption)getEnumProperty(InDesignDocument.PROP_PGSD);
 		if (tempPgSide != null) { // If null, use default
 			pageSide = tempPgSide; 
 		}
-		setBounds();
 		
 		while (elemIter.hasNext()) {
 			Element child = elemIter.next();
@@ -54,23 +58,17 @@ public class Page extends InDesignRectangleContainingObject {
 		}
 
 	}
+	
+	public void setWidth(double width)  {
+		Double x1 = (this.pageSide.equals(PageSideOption.LEFT_HAND)? 0.0 - width : 0.0);
+		Double x2 = (this.pageSide.equals(PageSideOption.LEFT_HAND)? 0.0 : width);
+		Double y1 = this.getGeometry().getBoundingBox().getTop();
+		Double y2 = this.getGeometry().getBoundingBox().getBottom();
+		this.geometry.getBoundingBox().setCorners(x1, y1, x2, y2);
+	}
 
-	/**
-	 *  Set the page bounds as a Box. This is the position of box in in the
-	 *  pasteboard coordinate space.
-	 * @throws Exception 
-	 */
-	protected void setBounds() throws Exception {
-		List<InxValue> bounds = getValueListProperty(InDesignDocument.PROP_PBND);
-		// Bounds is list of four Units: y1,x1,y2,x2
-		boundingBox = new Box();
-		if (bounds == null) return;
-		double y1 = ((InxUnit)bounds.get(0)).getValue();
-		double x1 = ((InxUnit)bounds.get(1)).getValue();
-		double y2 = ((InxUnit)bounds.get(2)).getValue();
-		double x2 = ((InxUnit)bounds.get(3)).getValue();
-		boundingBox.setCorners(x1,y1,x2,y2);
-
+	public void setHeight(double height)  {
+		this.getGeometry().setHeight(height);
 	}
 
 	/**
@@ -98,7 +96,7 @@ public class Page extends InDesignRectangleContainingObject {
 	 * @return The bounding box for the page.
 	 */
 	public Box getBoundingBox() {
-		return this.boundingBox;
+		return this.getGeometry().getBoundingBox();
 	}
 
 	public String getName() {

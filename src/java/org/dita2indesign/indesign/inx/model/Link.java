@@ -3,6 +3,7 @@
  */
 package org.dita2indesign.indesign.inx.model;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -250,6 +251,9 @@ linkEdited:               b f
 	 * @return the date
 	 */
 	public Date getDate() {
+		if (date == null) {
+			date = Calendar.getInstance().getTime();
+		}
 		return this.date;
 	}
 
