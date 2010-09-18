@@ -149,10 +149,12 @@ public class Spread extends InDesignRectangleContainingObject {
 			if (this.pageCount != this.pagesById.size())
 				throw new InDesignDocumentException("Expected " + this.pageCount + " pages, but only loaded " + this.pagesById.size());
 			if (this.getName() == null) {
-				String spreadName = this.pages.get(0).getName();
-				if (this.pages.size() > 1)
-					spreadName += "-" + this.pages.get(this.pages.size() - 1).getName();
-				this.setPName(spreadName);
+				if (this.pages.size() > 0) {
+					String spreadName = this.pages.get(0).getName();
+					if (this.pages.size() > 1)
+						spreadName += "-" + this.pages.get(this.pages.size() - 1).getName();
+					this.setPName(spreadName);
+				}
 			}
 			logger.debug("loadObject(): Spread name=\"" + this.getName() + "\"");
 			
@@ -305,21 +307,24 @@ public class Spread extends InDesignRectangleContainingObject {
 		// is, spread coordinates and pasteboard coordinates are the same
 		// for the first spread.
 		
+		Page page = this.getDocument().newPage();
+		page.setPName(pageNumberStr);
 		Page masterPage;
 		if (doc.isFacingPages()) {
-			if (pageNumber % 2 == 0)
+			if (pageNumber % 2 == 0) {
 				masterPage = getMasterSpread().getEvenPage();
-			else
+				page.setPageSide(PageSideOption.LEFT_HAND);
+			} else {
 				masterPage = getMasterSpread().getOddPage();
+				page.setPageSide(PageSideOption.RIGHT_HAND);
+			}
 		} else {
 			masterPage = getMasterSpread().getFirstPage();
-		}
-		Element pageDataSource = (Element) masterPage.getDataSourceElement().cloneNode(true);
-		Page page = newPage(pageDataSource);
+			page.setPageSide(PageSideOption.SINGLE_SIDED);
+		}		
 				
 		this.pagesById.put(page.getId(), page);
-		this.pagesByName.put(pageNumberStr, page);
-		// NOTE: this means that pages need to be added in an appropriate order:
+		this.pagesByName.put(page.getPName(), page);
 		this.pages.add(page);
 		this.pageCount = this.pages.size();
 		return page;

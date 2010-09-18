@@ -88,9 +88,7 @@ public abstract class AbstractInDesignObject extends InDesignComponent {
 	 * @throws InDesignDocumentException 
 	 */
 	public void loadObject(Element dataSource) throws Exception {
-		if (dataSource == null) {
-			return;
-		}
+		if (dataSource == null) return;
 		// logger.debug("loadObject(): loading from data source element \"" + dataSource.getNodeName() + "\"");
 		this.setDataSource(dataSource);
 		Iterator<Element> elemIter = DataUtil.getElementChildrenIterator(dataSource);

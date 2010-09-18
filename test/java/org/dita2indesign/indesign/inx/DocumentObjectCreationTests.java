@@ -81,9 +81,17 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		String masterSpreadName = "RT-BB Right";
 		newSpread = cloned.newSpread(masterSpreadName);
 		assertNotNull("New spread is null", newSpread);
-		
+		assertNotNull("No tranformation matrix", newSpread.getTransformationMatrix());
 		assertEquals("No parent for spread", cloned, newSpread.getParent());
-		
+
+		newSpread = cloned.newSpread(masterSpreadName);
+		assertNotNull("New spread is null", newSpread);
+		assertNotNull("No tranformation matrix", newSpread.getTransformationMatrix());
+
+		newSpread = cloned.newSpread(masterSpreadName);
+		assertNotNull("New spread is null", newSpread);
+		assertNotNull("No tranformation matrix", newSpread.getTransformationMatrix());
+
 		MasterSpread master = cloned.getMasterSpread(masterSpreadName);
 		assertNotNull("Didn't get the master spread", master);
 		assertEquals("Masters aren't equal", master, newSpread.getMasterSpread());
@@ -137,7 +145,10 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 				foundThread = true;
 				TextFrame nextInThread = frame.getNextInThread();
 				assertNotNull(nextInThread);
-				assertNotNull(nextInThread.getMasterFrame());
+				TextFrame nextInThreadMaster = nextInThread.getMasterFrame();
+				assertNotNull(nextInThreadMaster);
+				assertNotSame(nextInThreadMaster, frame.getNextInThread());
+				assertNotSame(nextInThread.getPreviousInThread(), frame.getMasterFrame());
 				assertEquals("Previous in thread did not return expected value",
 						frame,
 						nextInThread.getPreviousInThread());
@@ -181,6 +192,12 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		Element docElem = inxDom.getDocumentElement();
 		assertNotNull("No document element", docElem);
 		assertEquals("Expected <docu>", "docu", docElem.getNodeName());
+		InDesignDocument newDoc = new InDesignDocument();
+		newDoc.load(docElem);
+		Spread spread = newDoc.getSpread(1);
+		assertNotNull("Expected a spread", spread);
+		Page page = spread.getPages().get(0);
+		assertNotNull("Expected a page", page);
 		
 	}
 	

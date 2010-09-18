@@ -3,6 +3,8 @@
  */
 package org.dita2indesign.indesign.inx.visitors;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
@@ -14,6 +16,8 @@ import org.dita2indesign.indesign.inx.model.InDesignDocument;
 import org.dita2indesign.indesign.inx.model.InDesignObject;
 import org.dita2indesign.indesign.inx.model.InDesignRectangleContainingObject;
 import org.dita2indesign.indesign.inx.model.InxHelper;
+import org.dita2indesign.indesign.inx.model.InxObjectRef;
+import org.dita2indesign.indesign.inx.model.InxValue;
 import org.dita2indesign.indesign.inx.model.Link;
 import org.dita2indesign.indesign.inx.model.MasterSpread;
 import org.dita2indesign.indesign.inx.model.Page;
@@ -179,11 +183,13 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 			elem = processInDesignObject(frame, dataSource);
 		} else {
 			elem = currentParentNode.getOwnerDocument().createElement(InDesignDocument.TXTF_TAGNAME);
+			elem = processInDesignObject(frame, elem);
 			setGeometryAttribute(frame, elem);
 			elem.setAttribute(InDesignDocument.PROP_STRP, constructObjectReference(frame.getParentStory()));
 			elem.setAttribute(InDesignDocument.PROP_FTXF, constructObjectReference(frame));
 			elem.setAttribute(InDesignDocument.PROP_LTXF, constructObjectReference(frame));
-			elem = processInDesignObject(frame, elem);
+			elem.setAttribute(InDesignDocument.PROP_NTXF, constructObjectReference(frame.getNextInThread()));
+			elem.setAttribute(InDesignDocument.PROP_PTXF, constructObjectReference(frame.getPreviousInThread()));
 		}
 		elem = (Element)currentParentNode.appendChild(elem);
 		currentParentNode = elem.getParentNode();
@@ -217,18 +223,27 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 			elem = processInDesignObject(spread, dataSource);
 		} else {
 			logger.debug("visit(Spread): No data source element.");
-			elem = this.currentParentNode.getOwnerDocument().createElement("sprd");
+			if (spread instanceof MasterSpread) {
+				elem = this.currentParentNode.getOwnerDocument().createElement(InDesignDocument.MSPR_TAGNAME);
+			} else {
+				elem = this.currentParentNode.getOwnerDocument().createElement(InDesignDocument.SPRD_TAGNAME);
+			}
+			elem = processInDesignObject(spread, elem);
+			// elem = (Element)currentParentNode.appendChild(elem);
+
 			elem.setAttribute("fsSo", "e_Dflt"); 
 			elem.setAttribute("smsi", "b_t"); 
 			elem.setAttribute("ilnd", "b_f"); 
-			elem.setAttribute("PagC", "l_1"); 
+			elem.setAttribute("PagC", InxHelper.encode32BitLong(spread.getPages().size())); 
 			elem.setAttribute("BnLc", "l_1"); 
 			elem.setAttribute("Shfl", "b_t"); 
 			elem.setAttribute("pmas", constructObjectReference(spread.getMasterSpread())); 
-			elem = processInDesignObject(spread, elem);
+			currentParentNode = elem;
+			for (Page page : spread.getPages()) {
+				page.accept(this);
+			}
+			currentParentNode = elem.getParentNode();
 		}
-		elem = (Element)currentParentNode.appendChild(elem);
-		currentParentNode = elem.getParentNode();
 		
 	}
 
@@ -269,7 +284,11 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 		String dataType = "o_"; // R/W object ref.
 		if (readOnly)
 			dataType = "ro_";
-		return dataType + comp.getId();
+		if (comp == null) {
+			return "o_n";
+		} else {
+			return dataType + comp.getId();
+		}
 	}
 
 	protected void setSelfAttribute(InDesignObject obj, Element elem) {
@@ -287,7 +306,28 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	 * @see org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor#visit(org.dita2indesign.indesign.inx.model.Page)
 	 */
 	public void visit(Page page)  throws Exception {
-		visit((InDesignRectangleContainingObject)page);
+		Element dataSource = page.getDataSourceElement();
+		if (dataSource != null) {
+			logger.debug("visit(InDesignComponent): dataSource=" + dataSource);
+			Element myElement = processInDesignObject(page, dataSource);
+			currentParentNode = myElement.getParentNode();
+
+		} else {
+			Element elem = this.currentParentNode.getOwnerDocument().createElement(InDesignDocument.PAGE_TAGNAME);
+			elem = processInDesignObject(page, elem);
+			List<InxValue> overrideList = new ArrayList<InxValue>();
+			for (TextFrame frame : page.getAllFrames()) {
+				TextFrame master = frame.getMasterFrame();
+				if (master != null) {
+					overrideList.add(new InxObjectRef(master.getId()));
+					overrideList.add(new InxObjectRef(frame.getId()));				
+				}			
+			}
+			if (overrideList.size() > 0) {
+				String propValue = InxHelper.encodeValueList(overrideList);
+				elem.setAttribute(InDesignDocument.PROP_OVRL, propValue);
+			}
+		}
 	}
 
 	/* (non-Javadoc)

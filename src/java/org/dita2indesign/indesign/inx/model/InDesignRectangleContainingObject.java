@@ -75,6 +75,8 @@ public abstract class InDesignRectangleContainingObject extends InDesignGeometry
 
 	public void loadObject(Element dataSource) throws Exception {
 		logger.debug("loadObject(): loading from data source element \"" + dataSource.getNodeName() + "\"");
+		if (dataSource == null) return;
+		
 		super.loadObject(dataSource);
 		for (InDesignComponent child : this.getChildren()) {
 			if (child instanceof TextFrame) {

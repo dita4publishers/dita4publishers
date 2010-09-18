@@ -33,6 +33,8 @@ public class Page extends InDesignRectangleContainingObject {
 	private String name;
 
 	public void loadObject(Element dataSource) throws Exception {
+		if (dataSource == null) return;
+
 		super.loadObject(dataSource);
 		// NOTE: The bounds of a page are determined by the page width and
 		// height set on the document properties held by the InDesignDocument object.

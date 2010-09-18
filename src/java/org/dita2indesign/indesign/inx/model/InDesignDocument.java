@@ -93,7 +93,7 @@ public class InDesignDocument extends InDesignObject {
 	/**
 	 * 
 	 */
-	static final String PROP_SELF = "Self";
+	public static final String PROP_SELF = "Self";
 
 	/**
 	 * 
@@ -138,9 +138,15 @@ public class InDesignDocument extends InDesignObject {
 
 	public static final String PROP_FTXF = "ftxf";
 
+	public static final String PROP_PTXF = "ptxf";
+
+	public static final String PROP_OVRL = "ovrl";
+
 	private static final Map<String, Class<? extends InDesignObject>> tagToObjectClassMap = new HashMap<String, Class<? extends InDesignObject>>();
 
 	private static final Map<String, Class<? extends InDesignComponent>> tagToComponentClassMap = new HashMap<String, Class<? extends InDesignComponent>>();
+
+
 
 	static {
 		// FIXME: Fill out this mapping
@@ -193,7 +199,7 @@ public class InDesignDocument extends InDesignObject {
 		// Now delete the components that hold actual content, namely spreads and stories:
 			for (Element spread : DataUtil.getElementChildren(clonedDataSource, null, SPRD_TAGNAME)) {
 				clonedDataSource.removeChild(spread);
-			}
+			}			
 			// FIXME: For stories, we only want to delete stories that are associated with frames on
 			// normal spreads, not master spreads. So for now just leaving them in.
 //			for (Element story : DataUtil.getElementChildren(clonedDataSource, null, CFLO_TAGNAME)) {
@@ -201,8 +207,10 @@ public class InDesignDocument extends InDesignObject {
 //			}
 		}
 		this.load(clonedDataSource);
+		this.spreads.clear(); // Just to make sure
 		// Now make sure there is a spread as a document must have at least one spread.
-		this.newSpread(this.getMasterSpreads().get(0).getName());
+		Spread spread = this.newSpread(this.getMasterSpreads().get(0).getName());
+		spread.addPage(1);
 	}
 
 	/**
@@ -409,6 +417,11 @@ public class InDesignDocument extends InDesignObject {
 	 * @param object
 	 */
 	public void registerObject(InDesignObject object) {
+		String id = object.getId();
+		if (id == null || this.objectsById.containsKey(id)) {
+			id = assignObjectId();
+			object.setId(id);
+		}
 		this.objectsById.put(object.getId(), object);
 		object.setDocument(this);
 	}
@@ -474,6 +487,7 @@ public class InDesignDocument extends InDesignObject {
 		newSpread.setParent(this);
 		MasterSpread masterSpread = this.getMasterSpread(masterSpreadName);
 		newSpread.setMasterSpread(masterSpread);
+		newSpread.setTransformationMatrix(this.spreads.size());
 		this.spreads.add(newSpread);
 		// It does not appear to matter where spreads are in the inx document.
 		// Or at least it seems to work if they are at the end of the INX document.
