@@ -18,8 +18,8 @@ import org.dita2indesign.indesign.inx.DocumentObjectCreationTests;
 import org.dita2indesign.indesign.inx.InxReaderTestBase;
 import org.dita2indesign.indesign.inx.model.Geometry;
 import org.dita2indesign.indesign.inx.model.Image;
+import org.dita2indesign.indesign.inx.model.InDesignComponent;
 import org.dita2indesign.indesign.inx.model.InDesignDocument;
-import org.dita2indesign.indesign.inx.model.InDesignObject;
 import org.dita2indesign.indesign.inx.model.InxUnit;
 import org.dita2indesign.indesign.inx.model.Link;
 import org.dita2indesign.indesign.inx.model.MasterSpread;
@@ -107,7 +107,7 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		System.err.println("Objects in doc:" + doc.reportObjectsById());
 		rect = (Rectangle)doc.getObject("u1ae");
 		assertNotNull("Failed to find rectangle with ID \"u1ae\"", rect);
-		InDesignObject clonedObj = cloned.clone(rect);
+		InDesignComponent clonedObj = cloned.clone(rect);
 		assertNotNull("Got null clone", clonedObj);
 		Rectangle clonedRect = (Rectangle)clonedObj;
 		assertTrue("IDs should not match", !rect.getId().equals(clonedRect.getId()));
@@ -145,7 +145,7 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 				foundThread = true;
 				TextFrame nextInThread = frame.getNextInThread();
 				assertNotNull(nextInThread);
-				TextFrame nextInThreadMaster = nextInThread.getMasterFrame();
+				InDesignComponent nextInThreadMaster = nextInThread.getMasterFrame();
 				assertNotNull(nextInThreadMaster);
 				assertNotSame(nextInThreadMaster, frame.getNextInThread());
 				assertNotSame(nextInThread.getPreviousInThread(), frame.getMasterFrame());
@@ -172,7 +172,7 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		
 		rect = (Rectangle)doc.getObject("u1ae");
 		assertNotNull("Didn't find object with ID u1ae", rect);
-		InDesignObject clonedObj = cloned.clone(rect);
+		InDesignComponent clonedObj = cloned.clone(rect);
 		Rectangle clonedRect = (Rectangle)clonedObj;		
 		newSpread.addRectangle(clonedRect);
 		

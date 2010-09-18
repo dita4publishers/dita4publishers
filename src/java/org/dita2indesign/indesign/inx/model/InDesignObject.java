@@ -83,6 +83,4 @@ public class InDesignObject extends AbstractInDesignObject {
 	}
 
 
-
-
 }

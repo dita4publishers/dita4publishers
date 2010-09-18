@@ -115,7 +115,6 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 			logger.debug("visit(InDesignComponent): dataSource=" + dataSource);
 			Element myElement = processInDesignComponent(comp, dataSource);
 			currentParentNode = myElement.getParentNode();
-
 		} else {
 			logger.debug("visit(InDesignComponent): No data source element.");
 			// Construct the result DOM node manually:
@@ -181,7 +180,8 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 		Element elem = null;
 		if (dataSource != null) {
 			elem = processInDesignObject(frame, dataSource);
-		} else {
+		} 
+		if (frame.isModified()) {
 			elem = currentParentNode.getOwnerDocument().createElement(InDesignDocument.TXTF_TAGNAME);
 			elem = processInDesignObject(frame, elem);
 			setGeometryAttribute(frame, elem);
@@ -237,7 +237,6 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 			elem.setAttribute("PagC", InxHelper.encode32BitLong(spread.getPages().size())); 
 			elem.setAttribute("BnLc", "l_1"); 
 			elem.setAttribute("Shfl", "b_t"); 
-			elem.setAttribute("pmas", constructObjectReference(spread.getMasterSpread())); 
 			currentParentNode = elem;
 			for (Page page : spread.getPages()) {
 				page.accept(this);
@@ -309,12 +308,14 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 		Element dataSource = page.getDataSourceElement();
 		if (dataSource != null) {
 			logger.debug("visit(InDesignComponent): dataSource=" + dataSource);
-			Element myElement = processInDesignObject(page, dataSource);
-			currentParentNode = myElement.getParentNode();
+			Element elem = processInDesignObject(page, dataSource);
+			currentParentNode.appendChild(elem);
 
 		} else {
 			Element elem = this.currentParentNode.getOwnerDocument().createElement(InDesignDocument.PAGE_TAGNAME);
+			currentParentNode.appendChild(elem);
 			elem = processInDesignObject(page, elem);
+			elem.setAttribute("pmas", constructObjectReference(page.getMasterSpread())); 
 			List<InxValue> overrideList = new ArrayList<InxValue>();
 			for (TextFrame frame : page.getAllFrames()) {
 				TextFrame master = frame.getMasterFrame();

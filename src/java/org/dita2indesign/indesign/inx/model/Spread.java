@@ -308,18 +308,15 @@ public class Spread extends InDesignRectangleContainingObject {
 		// for the first spread.
 		
 		Page page = this.getDocument().newPage();
+		page.setParent(this);
 		page.setPName(pageNumberStr);
-		Page masterPage;
 		if (doc.isFacingPages()) {
 			if (pageNumber % 2 == 0) {
-				masterPage = getMasterSpread().getEvenPage();
 				page.setPageSide(PageSideOption.LEFT_HAND);
 			} else {
-				masterPage = getMasterSpread().getOddPage();
 				page.setPageSide(PageSideOption.RIGHT_HAND);
 			}
 		} else {
-			masterPage = getMasterSpread().getFirstPage();
 			page.setPageSide(PageSideOption.SINGLE_SIDED);
 		}		
 				
@@ -373,7 +370,7 @@ public class Spread extends InDesignRectangleContainingObject {
 		for (TextFrame masterFrame : masterToOverride.keySet()) {
 			if (masterFrame.getNextInThread() == null) continue;
 			TextFrame override = masterToOverride.get(masterFrame);
-			TextFrame nextMaster = masterFrame.getNextInThread();
+			InDesignComponent nextMaster = masterFrame.getNextInThread();
 			TextFrame nextOverride = masterToOverride.get(nextMaster);
 			if (this.frames.containsKey(nextOverride.getId())) {
 				override.setNextInThread(nextOverride);

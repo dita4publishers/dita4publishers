@@ -61,7 +61,7 @@ public abstract class InDesignRectangleContainingObject extends InDesignGeometry
 			// Now iterate over the children of the source object and load them:
 			for (InDesignComponent childObj : sourceObj.getChildren()) {
 				if (childObj instanceof InDesignObject) {
-					InDesignObject newObj = this.getDocument().clone((InDesignObject)childObj);
+					InDesignComponent newObj = this.getDocument().clone((InDesignObject)childObj);
 					this.addChild(newObj);
 				} else {
 					this.addChild(childObj);
@@ -125,7 +125,7 @@ public abstract class InDesignRectangleContainingObject extends InDesignGeometry
 	 * @param dataSource
 	 * @throws Exception 
 	 */
-	public InDesignObject newFrame(Element dataSource) throws Exception {
+	public InDesignComponent newFrame(Element dataSource) throws Exception {
 		TextFrame frame = this.getDocument().newFrame(dataSource);
 		this.frames.put(frame.getId(), frame);
 		this.rectangles.put(frame.getId(), frame);

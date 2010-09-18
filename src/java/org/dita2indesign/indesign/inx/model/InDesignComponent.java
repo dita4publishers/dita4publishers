@@ -33,6 +33,8 @@ public class InDesignComponent {
 	private Map<String, Object> properties = new HashMap<String, Object>();
 	private InDesignDocument document;
 
+	private boolean isModified = false; // Indicates that an object has been modified since being loaded from original source.
+
 
 	/**
 	 * 
@@ -68,7 +70,9 @@ public class InDesignComponent {
 	 */
 	public void setDataSource(Element dataSource) throws Exception {
 		this.dataSourceElement = dataSource;
-		this.componentLoad();
+		if (dataSourceElement != null) {
+			this.componentLoad();
+		}
 	}
 	
 
@@ -266,5 +270,22 @@ public class InDesignComponent {
 		return this.childObjects;
 	}
 
+	/**
+	 * Indicates the object is either entirely new or has been modified since it
+	 * was loaded.
+	 */
+	public void markAsModified() {
+		this.isModified = true;
+	}
+
+	/**
+	 * Indicates whether or not the object has been modified since load, and therefore
+	 * whether or not a writer can just echo out the original datasource or must
+	 * reconstruct the object entirely.
+	 * @return
+	 */
+	public boolean isModified() {
+		return isModified;
+	}
 
 }

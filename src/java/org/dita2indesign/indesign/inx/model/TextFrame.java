@@ -49,9 +49,13 @@ public class TextFrame extends Rectangle {
 		return this.parentStory;
 	}
 	
-	public Story setParentStory(Story parentStory) {
+	public Story setParentStory(Story parentStory) throws Exception {
 		this.parentStory = parentStory;
 		this.parentStoryId = parentStory.getId();
+		TextFrame nextInThread = this.getNextInThread();
+		if (nextInThread != null) {
+			nextInThread.setParentStory(parentStory);
+		}
 		return parentStory;
 	}
 	

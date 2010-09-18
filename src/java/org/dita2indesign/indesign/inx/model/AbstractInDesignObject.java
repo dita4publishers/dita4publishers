@@ -77,6 +77,7 @@ public abstract class AbstractInDesignObject extends InDesignComponent {
 	 * @throws Exception 
 	 */
 	private String getSelfProperty(String attName) throws Exception {
+		
 		if (this.getDataSourceElement().hasAttribute(attName)) {
 			return InxHelper.decodeRawValueToSingleObjectId(this.getDataSourceElement().getAttribute(attName));
 		}
@@ -116,7 +117,7 @@ public abstract class AbstractInDesignObject extends InDesignComponent {
 	 * @return
 	 * @throws Exception 
 	 */
-	protected InDesignObject newObject(InDesignObject object, Element dataSource) throws Exception {
+	protected InDesignComponent newObject(InDesignObject object, Element dataSource) throws Exception {
 		addChild(object);
 		object.loadObject(dataSource);
 		return object;

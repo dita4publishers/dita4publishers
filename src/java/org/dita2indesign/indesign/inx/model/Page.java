@@ -133,6 +133,14 @@ public class Page extends InDesignRectangleContainingObject {
 		this.pageSide = pageSide;
 	}
 
+	/**
+	 * @return
+	 */
+	public MasterSpread getMasterSpread() {
+		MasterSpread masterSpread = ((Spread)this.getParent()).getMasterSpread();
+		return masterSpread;
+	}
+
 
 
 

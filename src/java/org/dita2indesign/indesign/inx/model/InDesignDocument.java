@@ -509,13 +509,8 @@ public class InDesignDocument extends InDesignObject {
         // and use that to load the spread.
         
         MasterSpread  masterSpread = this.getMasterSpread(masterSpreadName);
-        Element spreadDataSource =this.dataSource.createElement("sprd");
-        spreadDataSource.setAttribute("Self", "rc_" + spread.getId());
-        spreadDataSource.setAttribute("pmas", "o_" + masterSpread.getId());
-        spreadDataSource.setAttribute("PagC", "l_" + masterSpread.getLongProperty("PagC"));
         
         this.spreads.add(spread);
-        spread.setDataSource(spreadDataSource);
         spread.setTransformationMatrix(this.spreads.size() - 1);
         spread.setMasterSpread(masterSpread);
         this.addChild(spread);
@@ -581,7 +576,7 @@ public class InDesignDocument extends InDesignObject {
 	 * @return The clone of the object.
 	 * @throws Exception 
 	 */
-	public InDesignObject clone(InDesignObject sourceObj) throws Exception {
+	public InDesignComponent clone(InDesignObject sourceObj) throws Exception {
 		logger.debug("Cloning object " + sourceObj.getClass().getSimpleName() + " [" + sourceObj.getId() + "]...");
 		InDesignObject clone = sourceObj.getClass().newInstance();
 		assignIdAndRegister(clone);
@@ -590,6 +585,7 @@ public class InDesignDocument extends InDesignObject {
 		Map<String, InDesignObject> cloneMap = getCloneMapForDoc(sourceObj.getDocument());
 		cloneMap.put(sourceObj.getId(), clone);
 		clone.loadObject(sourceObj);
+		clone.markAsModified();
 		return clone;
 	}
 
@@ -648,7 +644,7 @@ public class InDesignDocument extends InDesignObject {
 	 * @throws Exception 
 	 * @throws InstantiationException 
 	 */
-	private InDesignObject newObject(Class<? extends AbstractInDesignObject> clazz, Element dataSource) throws Exception {
+	private InDesignComponent newObject(Class<? extends AbstractInDesignObject> clazz, Element dataSource) throws Exception {
 		InDesignObject obj = (InDesignObject) clazz.newInstance();
 		obj.setDocument(this);
 		obj.loadObject(dataSource);
@@ -712,7 +708,7 @@ public class InDesignDocument extends InDesignObject {
 	 * @return The clone of the source object.
 	 * @throws Exception 
 	 */
-	public InDesignObject cloneIfNew(InDesignObject sourceObj) throws Exception {
+	public InDesignComponent cloneIfNew(InDesignObject sourceObj) throws Exception {
 		return cloneIfNew(sourceObj, (InDesignComponent)null);
 	}
 
@@ -723,11 +719,11 @@ public class InDesignDocument extends InDesignObject {
 	 * @return The clone of the source object.
 	 * @throws Exception 
 	 */
-	public InDesignObject cloneIfNew(InDesignObject sourceObj, InDesignComponent targetParent) throws Exception {
+	public InDesignComponent cloneIfNew(InDesignObject sourceObj, InDesignComponent targetParent) throws Exception {
 		Map<String, InDesignObject> cloneMap = getCloneMapForDoc(sourceObj.getDocument());
 		if (cloneMap.containsKey(sourceObj.getId()))
 			return cloneMap.get(sourceObj.getId());
-		InDesignObject clone = this.clone(sourceObj);
+		InDesignComponent clone = this.clone(sourceObj);
 		if (targetParent != null)
 			targetParent.addChild(clone);
 		return clone;
@@ -784,7 +780,7 @@ public class InDesignDocument extends InDesignObject {
      * @return
      * @throws Exception 
      */
-    public TextFrame newTextFrame() throws Exception {
+    public InDesignComponent newTextFrame() throws Exception {
         TextFrame frame = new TextFrame();
         assignIdAndRegister(frame);
         this.newStory(frame);
@@ -798,8 +794,9 @@ public class InDesignDocument extends InDesignObject {
 	 * @param frame Text frame to which the story is associated.
 	 * @param link Link containing the content for the story.
 	 * @return
+	 * @throws Exception 
 	 */
-	private Story newStory(TextFrame frame, Link link) {
+	private Story newStory(TextFrame frame, Link link) throws Exception {
 		Story story = new Story();
 		assignIdAndRegister(story);
 		story.addChild(link);
@@ -816,8 +813,9 @@ public class InDesignDocument extends InDesignObject {
      * text frame,
      * @param frame Text frame to which the story is associated.
      * @return
+	 * @throws Exception 
      */
-    private Story newStory(TextFrame frame) {
+    private Story newStory(TextFrame frame) throws Exception {
         Story story = new Story();
         assignIdAndRegister(story);
         this.addChild(story);
