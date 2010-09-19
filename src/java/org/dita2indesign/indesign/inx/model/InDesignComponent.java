@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2007 Really Strategies, Inc.
+ * 
  */
 package org.dita2indesign.indesign.inx.model;
 
@@ -9,49 +9,34 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor;
 import org.dita2indesign.util.DataUtil;
+import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-
 
 /**
- * Base for all InDesign components. A component
- * is just a set of properties. InDesign objects,
- * which extend components, have unique IDs and may
- * be referenced by other objects or components.
+ * Base class for InDesign components.
  */
-public class InDesignComponent {
-
-	Logger logger = Logger.getLogger(this.getClass());
+public abstract class InDesignComponent {
 
 	private InDesignComponent parent;
-	private Element dataSourceElement;
 	private List<InDesignComponent> childObjects = new ArrayList<InDesignComponent>();
-	private Map<String, Object> properties = new HashMap<String, Object>();
+	private Map<String, InxValue> properties = new HashMap<String, InxValue>();
 	private InDesignDocument document;
+	private boolean isModified = false;
+	private String inxTagname = null;
 
-	private boolean isModified = false; // Indicates that an object has been modified since being loaded from original source.
-
-
-	/**
-	 * 
-	 */
-	public InDesignComponent() {
-	}
-	
 	/**
 	 * Load any subcomponents of the component.
 	 * @param dataSource
 	 * @throws Exception
 	 */
 	public void loadComponent(Element dataSource) throws Exception {
-		this.setDataSource(dataSource);
-		
+		loadPropertiesFromDataSource(dataSource);
 		Iterator<Element> elemIter = DataUtil.getElementChildrenIterator(dataSource);
-		// Process all child objects.
+		
+		// Process all child components.
 		// Subclasses that need to do additional things with children must
 		// iterate over their children and do whatever they need to do.
 		while (elemIter.hasNext()) {
@@ -65,16 +50,28 @@ public class InDesignComponent {
 
 	/**
 	 * @param dataSource
-	 * @throws InDesignDocumentException 
 	 * @throws Exception 
 	 */
-	public void setDataSource(Element dataSource) throws Exception {
-		this.dataSourceElement = dataSource;
-		if (dataSourceElement != null) {
-			this.componentLoad();
+	private void loadPropertiesFromDataSource(Element dataSource) throws Exception {
+		this.inxTagname = dataSource.getLocalName();
+		NamedNodeMap atts = dataSource.getAttributes();
+		for (int i = 0; i < atts.getLength(); i++) {
+			Attr att = (Attr)atts.item(i);
+			String rawValue = att.getNodeValue();
+			InxValue value = null;
+			try {
+				value = InxHelper.newValue(rawValue);
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw e;
+			}
+			this.properties.put(att.getNodeName(), value);			
 		}
 	}
 	
+	public void loadPropertiesFromComponent(InDesignComponent sourceComp) {
+		
+	}
 
 	/**
 	 * @param run
@@ -90,37 +87,6 @@ public class InDesignComponent {
 	protected void addChild(InDesignObject child) {
 		addChild((InDesignComponent)child);
 		child.setParent(this);
-	}
-
-
-	/**
-	 * Load the properties of the datasource element (but not any child elements)
-	 * @throws Exception 
-	 * 
-	 */
-	protected void componentLoad() throws Exception {
-		Element dataSource = this.getDataSourceElement();
-		NamedNodeMap atts = dataSource.getAttributes();
-		for (int i = 0; i < atts.getLength(); i++) {
-			Node node = atts.item(i);
-			String rawValue = node.getNodeValue();
-			InxValue value = null;
-			try {
-				value = InxHelper.newValue(rawValue);
-			} catch (Exception e) {
-				e.printStackTrace();
-				throw e;
-			}
-			this.properties.put(node.getNodeName(), value);
-		}
-
-	}
-
-	/**
-	 * @return
-	 */
-	public Element getDataSourceElement() {
-		return this.dataSourceElement;
 	}
 
 	/**
@@ -139,7 +105,6 @@ public class InDesignComponent {
 		return this.properties.containsKey(propName);
 	}
 
-	
 	/**
 	 * Returns the containing document for the component.
 	 * @return Containing document or null if the component is not associated with a document.
@@ -163,39 +128,72 @@ public class InDesignComponent {
 	}
 
 	/**
-	 * @param propPagc
+	 * 
+	 * @param propName
 	 * @return
 	 * @throws Exception 
 	 */
-	protected long getLongProperty(String attName) throws Exception {
-		long value = -1L;
-		if (this.getDataSourceElement().hasAttribute(attName)) 
-			value = InxHelper.decodeRawValueToSingleLong(this.getDataSourceElement().getAttribute(attName));
-		return value;
-	}
-
-	/**
-	 * @param propPagc
-	 * @return
-	 * @throws Exception 
-	 */
-	protected double getDoubleProperty(String attName) throws Exception {
-		double value = -1.0;
-		if (this.getDataSourceElement().hasAttribute(attName)) 
-			value = InxHelper.decodeRawValueToSingleDouble(this.getDataSourceElement().getAttribute(attName));
-		return value;
-	}
-
-	/**
-	 * @param attName
-	 * @return
-	 * @throws Exception 
-	 */
-	protected String getStringProperty(String attName) throws Exception {
-		if (this.getDataSourceElement().hasAttribute(attName)) {
-			return InxHelper.decodeRawValueToSingleString(this.getDataSourceElement().getAttribute(attName));
+	protected long getLongProperty(String propName) throws Exception {
+		InxValue valueObj = getValueObject(propName);
+		if (valueObj == null) return 0L;
+		if (valueObj instanceof InxLongBase) {
+			return ((InxLongBase)valueObj).getValue().longValue();
 		}
-		return null;
+		throw new Exception("Property named \"" + propName + "\" is not a long value");
+	}
+
+	/**
+	 * @param propName
+	 * @return
+	 */
+	public InxValue getValueObject(String propName) {
+		InxValue valueObj = null;
+		if (this.properties.containsKey(propName)) { 
+			 valueObj = this.properties.get(propName);
+		}
+		return valueObj;
+	}
+
+	/**
+	 * @param propPagc
+	 * @return
+	 * @throws Exception 
+	 */
+	public double getDoubleProperty(String propName) throws Exception {
+		InxValue valueObj = getValueObject(propName);
+		if (valueObj == null) return 0.0;
+		if (valueObj instanceof InxDouble) {
+			return ((InxDouble)valueObj).getValue().doubleValue();
+		}
+		throw new Exception("Property named \"" + propName + "\" is not a double value");
+	}
+
+	/**
+	 * @param propName
+	 * @return
+	 * @throws Exception 
+	 */
+	public String getStringProperty(String propName) throws Exception {
+		InxValue valueObj = getValueObject(propName);
+		if (valueObj == null) return null;
+		if (valueObj instanceof InxString) {
+			return ((InxString)valueObj).getValue();
+		}
+		throw new Exception("Property named \"" + propName + "\" is not a String value");
+	}
+
+	/**
+	 * @param propName
+	 * @return
+	 * @throws Exception 
+	 */
+	public Map<String, String> getStringMapListProperty(String propName) throws Exception {
+		InxValue valueObj = getValueObject(propName);
+		if (valueObj == null) return null;
+		if (valueObj instanceof InxStringMap) {
+			return ((InxStringMap)valueObj).getValue();
+		}
+		throw new Exception("Property named \"" + propName + "\" is not a string map value");
 	}
 
 	/**
@@ -203,11 +201,13 @@ public class InDesignComponent {
 	 * @return
 	 * @throws Exception 
 	 */
-	protected String getObjectReferenceProperty(String attName) throws Exception {
-		if (this.getDataSourceElement().hasAttribute(attName)) {
-			return InxHelper.decodeRawValueToSingleObjectId(this.getDataSourceElement().getAttribute(attName));
+	protected String getObjectReferenceProperty(String propName) throws Exception {
+		InxValue valueObj = getValueObject(propName);
+		if (valueObj == null) return null;
+		if (valueObj instanceof InxObjectRef) {
+			return ((InxObjectRef)valueObj).getValue();
 		}
-		return null;
+		throw new Exception("Property named \"" + propName + "\" is not an Object Reference value");
 	}
 
 	/**
@@ -218,29 +218,29 @@ public class InDesignComponent {
 	}
 
 	/**
-	 * @param attName
+	 * @param propName
 	 * @return
 	 * @throws Exception 
 	 */
 	@SuppressWarnings("unchecked")
-	public Enum getEnumProperty(String attName) throws Exception {
-		if (this.getDataSourceElement().hasAttribute(attName)) {
-			String rawValue = InxHelper.decodeRawValueToSingleString(this.getDataSourceElement().getAttribute(attName));
-			return InxEnums.getEnumForRawProperty(attName, rawValue);
+	public Enum getEnumProperty(String propName) throws Exception {
+		if (this.properties.containsKey(propName)) {
 		}
 		return null;
 	}
 
 	/**
-	 * @param attName
+	 * @param propName
 	 * @return
 	 * @throws Exception 
 	 */
-	protected List<InxValue> getValueListProperty(String attName) throws Exception {
-		if (this.getDataSourceElement().hasAttribute(attName)) {
-			return InxHelper.decodeRawValueToList(this.getDataSourceElement().getAttribute(attName));
+	protected List<? extends InxValue> getValueListProperty(String propName) throws Exception {
+		InxValue valueObj = getValueObject(propName);
+		if (valueObj == null) return null; // Should we return empty list?
+		if (valueObj instanceof InxValueList) {
+			return ((InxValueList)valueObj).getValue();
 		}
-		return null;
+		throw new Exception("Property named \"" + propName + "\" is not a value list");
 	}
 
 	/**
@@ -249,8 +249,8 @@ public class InDesignComponent {
 	 * @throws Exception 
 	 */
 	protected boolean getBooleanProperty(String attName) throws Exception {
-		if (this.getDataSourceElement().hasAttribute(attName)) {
-			return InxHelper.decodeRawValueToBoolean(this.getDataSourceElement().getAttribute(attName));
+		if (this.properties.containsKey(attName)) {
+			return ((InxBoolean)properties.get(attName)).getValue().booleanValue();
 		}
 		return false;
 	}
@@ -287,5 +287,108 @@ public class InDesignComponent {
 	public boolean isModified() {
 		return isModified;
 	}
+
+	public void setStringProperty(String propName, String value) {
+		InxString inxValue = new InxString(value);
+		this.properties.put(propName, inxValue);
+	}
+
+	/**
+	 * Gets full property map for this component.
+	 * @return The component's property map.
+	 */
+	public Map<String, InxValue> getPropertyMap() {
+		// updatePropertyMap();
+		return this.properties;
+	}
+
+	/**
+	 * Gets the Inx value of the specified property.
+	 * @param propName The property to get the value of.
+	 * @return InxValue object for the property, if it exists.
+	 */
+	public InxValue getPropertyValue(String propName) {
+		return this.properties.get(propName);
+	}
+
+	/**
+	 * Sets the specified property to the provided value.
+	 * @param propName Name of the property to set.
+	 * @param value The INX value to set.
+	 */
+	public void setProperty(String propName, InxValue value) {
+		this.properties.put(propName, value);
+	}
+
+	/**
+	 * @return
+	 */
+	public String getInxTagName() {
+		return inxTagname;
+	}
+
+	/**
+	 * Sets a property from raw INX value.
+	 * @param propName Property to be set.
+	 * @param rawValue Value to use.
+	 */
+	public void setPropertyFromRawValue(String propName, String rawValue)
+			throws Exception {
+				InxValue value = InxHelper.newValue(rawValue);
+				this.setProperty(propName, value);
+			}
+
+	/**
+	 * Updates the component's property map with any dynamic properties.
+	 * @throws Exception
+	 */
+	public abstract void updatePropertyMap() throws Exception;
+
+	/**
+	 * @param sourceObj
+	 */
+	protected void loadComponent(InDesignComponent sourceObj) {
+		if (sourceObj != null) {
+			for (String propName : sourceObj.getPropertyMap().keySet()) {
+				this.setProperty(propName, sourceObj.getPropertyValue(propName));
+			}
+		}
+	}
+
+	/**
+	 * @param propName
+	 * @param geometry
+	 */
+	public void setGeometryProperty(String propName, Geometry geometry) {
+		InxValue geometryValue = new InxGeometry(geometry);
+		this.setProperty(propName, geometryValue);
+		
+	}
+
+	/**
+	 * Sets the INX tagname to use for this component.
+	 * @param tagName The XML tag name to use.
+	 */
+	public void setInxTagName(String tagName) {
+		this.inxTagname = tagName;
+	}
+	
+	/**
+	 * Get the name of the object.
+	 * @return Name value, possibly null.
+	 * @throws Exception 
+	 */
+	public String getPName() throws Exception {
+		return this.getStringProperty(InDesignDocument.PROP_PNAM);
+	}
+
+	/**
+	 * @param name
+	 */
+	protected void setPName(String name) {
+		this.setStringProperty(InDesignDocument.PROP_PNAM, name);
+	}
+
+
 
 }

@@ -65,7 +65,7 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		logger.info("setUp(): Cloning InDesign document " + doc.getDataSource().getDocumentURI() + "...");
 		cloned = new InDesignDocument(doc, true);
 		logger.info("setUp(): Cloning complete.");
-		logger.info("setUp(): child objects of cloned document: " + cloned.reportChildObjects());
+//		logger.info("setUp(): child objects of cloned document: " + cloned.reportChildObjects());
 		logger.info("------------------------------------------------------------------");
 		assertEquals("Object IDs should be equal", doc.getId(), cloned.getId());
 		assertEquals("Expected two master spreads", 3, cloned.getMasterSpreads().size());
@@ -73,7 +73,7 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		
 	}
 	
-	public void testCreateSpreads() throws Exception {
+	public void xtestCreateSpreads() throws Exception {
 	
 		
 		Spread newSpread;
@@ -118,7 +118,7 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		
 	}
 	
-	public void testOverrideMasterSpreadObjects() throws Exception {
+	public void xtestOverrideMasterSpreadObjects() throws Exception {
 	
 		
 		Spread newSpread;
@@ -167,11 +167,15 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		newSpread = cloned.newSpread(masterSpreadName);
 		MasterSpread master = cloned.getMasterSpread(masterSpreadName);
 		Page newPage = newSpread.addPage(10);
+		Spread spread = cloned.getSpread(1);
+		assertNotNull(spread);
+		Page page = spread.getPages().get(0);
+		assertNotNull(page);
 	
 		Rectangle rect;
 		
-		rect = (Rectangle)doc.getObject("u1ae");
-		assertNotNull("Didn't find object with ID u1ae", rect);
+		rect = (Rectangle)doc.getObject("u23a");
+		assertNotNull("Didn't find object with ID u23a", rect);
 		InDesignComponent clonedObj = cloned.clone(rect);
 		Rectangle clonedRect = (Rectangle)clonedObj;		
 		newSpread.addRectangle(clonedRect);
@@ -179,14 +183,18 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		// Now serialize the cloned document to INX:
 		
 		File inxFile = File.createTempFile("testWriteInxFile_", ".inx");
+		System.err.println("Temp file: " + inxFile.getAbsolutePath());
 		
 		InxWriter writer = new InxWriter(inxFile);
 		writer.write(cloned);
 		assertTrue("File does not exist", inxFile.exists());
 		assertTrue("File has no data", inxFile.length() > 0);
 		String inxXml = readFileToString(inxFile);
-		logger.info("inxXML=" + inxXml);
+		// logger.info("inxXML=" + inxXml);
 		assertTrue("File is not long enough", inxFile.length() > 1000);
+		
+		// Now load the file we just wrote and check it:
+		
 		Document inxDom = DataUtil.constructNonValidatingDocumentBuilder().parse(inxFile);
 		assertNotNull("inxDom is null", inxDom);
 		Element docElem = inxDom.getDocumentElement();
@@ -194,14 +202,14 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		assertEquals("Expected <docu>", "docu", docElem.getNodeName());
 		InDesignDocument newDoc = new InDesignDocument();
 		newDoc.load(docElem);
-		Spread spread = newDoc.getSpread(1);
+		spread = newDoc.getSpread(1);
 		assertNotNull("Expected a spread", spread);
-		Page page = spread.getPages().get(0);
+		page = spread.getPages().get(0);
 		assertNotNull("Expected a page", page);
 		
 	}
 	
-	public void testCreateNewRectangle() throws Exception {
+	public void xtestCreateNewRectangle() throws Exception {
 		Rectangle rect;
 		
 		rect = cloned.newRectangle();
@@ -213,7 +221,7 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		
 	}
 	
-	public void testCreateNewImage() throws Exception {
+	public void xtestCreateNewImage() throws Exception {
 		Image image = doc.newImage();
 		assertNotNull("Got a null image", image);
 		Link link = doc.newLink();

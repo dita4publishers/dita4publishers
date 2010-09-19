@@ -29,19 +29,12 @@ public class Story extends InDesignObject {
 	}
 	
 	public void loadObject(Element dataSource) throws Exception {
-		this.setDataSource(dataSource);
 		super.loadObject(dataSource);
 		for (InDesignComponent child : this.getChildren()) {
 			if (child instanceof TextStyleRange) {
 				this.textRuns.add((TextStyleRange)child);
 			}
 		}
-		// Story has a property, TextContainers, which is an array of the text frames or text paths
-		// that "contain" (on spreads) the text of the story. It does not appear to be necessary
-		// to write this value to the INX data, so removing it from the data source so it won't
-		// cause confusion. Text frames point to their parent stories, so this value is merely a
-		// convenience.
-		dataSource.removeAttribute("stcs");
 	}
 
 	/**
@@ -57,6 +50,14 @@ public class Story extends InDesignObject {
 	 */
 	public void accept(InDesignDocumentVisitor visitor) throws Exception {
 		visitor.visit(this);
+	}
+
+	/* (non-Javadoc)
+	 * @see org.dita2indesign.indesign.inx.model.InDesignComponent#updatePropertyMap()
+	 */
+	@Override
+	public void updatePropertyMap() throws Exception {
+		// Nothing to do?
 	}
 
 

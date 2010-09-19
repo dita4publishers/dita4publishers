@@ -42,7 +42,8 @@ public class InxDate extends InxValue {
 	 */
 	@Override
 	public String toEncodedString() {
-		return "T_" + this.value.toString();
+		String formattedDate = format.format(this.value);
+		return "T_" + formattedDate;
 	}
 
 }

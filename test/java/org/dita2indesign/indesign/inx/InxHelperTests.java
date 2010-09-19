@@ -20,7 +20,9 @@ import org.dita2indesign.indesign.inx.model.InxFile;
 import org.dita2indesign.indesign.inx.model.InxHelper;
 import org.dita2indesign.indesign.inx.model.InxLong32;
 import org.dita2indesign.indesign.inx.model.InxLong64;
+import org.dita2indesign.indesign.inx.model.InxLongBase;
 import org.dita2indesign.indesign.inx.model.InxString;
+import org.dita2indesign.indesign.inx.model.InxStringMap;
 import org.dita2indesign.indesign.inx.model.InxValue;
 import org.dita2indesign.indesign.inx.model.InxValueList;
 
@@ -59,9 +61,9 @@ public class InxHelperTests extends TestCase
 	
 	public void testDecodeRawValueToStringMap() throws Throwable {
 		String mapData = "x_2_x_2_c_Key1_c_Value1_x_2_c_Key2_c_Value2";
-		Map<String, String> map;
-		
-		map = InxHelper.decodeRawValueToStringMap(mapData);
+		InxStringMap inxMap;
+		Map<String, String> map = null;
+		map = InxHelper.decodeRawValueToStringMap(mapData).getValue();
 		assertNotNull("Got a null result map", map);
 		assertEquals(("Expected 2 entries, got " + map.size()), 2, map.size());
 		
@@ -131,7 +133,7 @@ public class InxHelperTests extends TestCase
 	
 	public void testInxLong64() {
 		String rawValue = "7fffff00000000";
-		InxLong64 inxLong = new InxLong64(rawValue);
+		InxLongBase inxLong = new InxLong64(rawValue);
 		long value = ((Long)inxLong.getValue()).longValue();
 		long cand = Long.parseLong("7fffff00000000", 16);
 		assertEquals(cand, value);

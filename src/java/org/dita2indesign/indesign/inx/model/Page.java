@@ -24,6 +24,7 @@ public class Page extends InDesignRectangleContainingObject {
 	 */
 	public Page() throws Exception {
 		super();
+		setInxTagName("page");
 	}
 
 	Logger logger = Logger.getLogger(this.getClass());

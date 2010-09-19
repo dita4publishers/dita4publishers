@@ -29,8 +29,8 @@ public class TextFrame extends Rectangle {
 	 * @see org.dita2indesign.indesign.inx.model.AbstractInDesignObject#loadObject(org.dita2indesign.indesign.inx.model.InDesignObject)
 	 */
 	@Override
-	public void loadObject(InDesignObject sourceObj) throws Exception {
-		super.loadObject(sourceObj);
+	public void loadObject(InDesignObject sourceObj, String newObjectId) throws Exception {
+		super.loadObject(sourceObj, newObjectId);
 		TextFrame sourceFrame = (TextFrame)sourceObj;
 		Story sourceParentStory = sourceFrame.getParentStory();
 		Story myParentStory = (Story)this.getDocument().cloneIfNew(sourceParentStory, this.getDocument());

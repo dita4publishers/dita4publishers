@@ -19,7 +19,7 @@ public class Image extends InDesignGeometryHavingObject {
 		super();
 	}
 
-	private Link itemLink = null;
+	private InDesignComponent itemLink = null;
 	private TextWrapPreferences textWrapPreferences = new TextWrapPreferences();
 
 	/**
@@ -31,7 +31,7 @@ public class Image extends InDesignGeometryHavingObject {
 		
 	}
 	
-	public Link getItemLink() {
+	public InDesignComponent getItemLink() {
 		return this.itemLink;
 	}
 

@@ -274,33 +274,23 @@ public class InDesignDocument extends InDesignObject {
 		this.dataSource = dom;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dita2indesign.indesign.inx.model.AbstractInDesignObject#loadObject(org.dita2indesign.indesign.inx.model.InDesignObject)
-	 */
-	@Override
-	public void loadObject(InDesignObject sourceObj) throws Exception {
-		super.loadObject(sourceObj);
-		// FIXME: Handle case for documents with no XML data source. 
-	}
-
 	public void load(Element docElem) throws Exception {
-		this.setDataSource(docElem);
 		this.dataSource = docElem.getOwnerDocument();
 		Iterator<Element> elemIter = DataUtil.getElementChildrenIterator(docElem);
 		while (elemIter.hasNext()) {
 			Element child = elemIter.next();
-//			logger.debug(" + Element: " + child.getNodeName());
+			logger.debug("load(): Element: " + child.getNodeName());
 			if (child.getNodeName().equals(CFLO_TAGNAME)) {
-				logger.debug(" + Creating new Story...");
+				logger.debug("load(): Creating new Story...");
 				this.newStory(child);
 			} else if (child.getNodeName().equals(DOCP_TAGNAME)) {
-				logger.debug(" + Getting document preferences...");
+				logger.debug("load(): Getting document preferences...");
 				this.newDocumentPreferences(child);
 			} else if (child.getNodeName().equals(MSPR_TAGNAME)) {
-				logger.debug(" + Creating new Master Spread...");
+				logger.debug("load(): Creating new Master Spread...");
 				this.newMasterSpread(child);
 			} else if (child.getNodeName().equals(SPRD_TAGNAME)) {
-				logger.debug(" + Creating new Spread...");
+				logger.debug("load(): Creating new Spread...");
 				this.newSpread(child);
 			} else {
 				logger.debug(" + Creating new unhandled child " + child.getNodeName() + "...");
@@ -314,8 +304,16 @@ public class InDesignDocument extends InDesignObject {
 	 * @param child
 	 * @throws Exception 
 	 */
+	private void newSpread(Element child) throws Exception {
+		newSpread(Spread.class, child);
+	}
+
+	/**
+	 * @param child
+	 * @throws Exception 
+	 */
 	private DocumentPreferences newDocumentPreferences(Element child) throws Exception {
-		DocumentPreferences prefs = (DocumentPreferences) newObject(DocumentPreferences.class, child);
+		DocumentPreferences prefs = (DocumentPreferences) newComponent(DocumentPreferences.class, child);
 		this.addChild(prefs);
 		this.docPrefs = prefs;
 		return prefs;
@@ -327,10 +325,7 @@ public class InDesignDocument extends InDesignObject {
 	 * @throws Exception 
 	 */
 	private MasterSpread newMasterSpread(Element child) throws Exception {
-		MasterSpread obj = (MasterSpread) newObject(MasterSpread.class, child);
-		this.addChild(obj);
-		obj.loadObject(child, this.masterSpreads.size());
-		this.objectsById.put(obj.getId(), obj);
+		MasterSpread obj = (MasterSpread) newSpread(MasterSpread.class, child);
 		this.masterSpreads.put(obj.getPName(), obj);
 		return obj;
 	}
@@ -340,13 +335,14 @@ public class InDesignDocument extends InDesignObject {
 	 * @return
 	 * @throws Exception 
 	 */
-	private InDesignComponent newSpread(Element child) throws Exception {
-		Spread obj = (Spread) newObject(Spread.class, child);
+	private InDesignComponent newSpread(Class<? extends Spread> clazz, Element child) throws Exception {
+		Spread obj = (Spread) newObject(clazz, child);
 		this.addChild(obj);
-		this.spreads.add(obj);
 		// The spreadIndex parameter is zero-index 
 		// for spread in list of spreads.
-		obj.loadObject(child, this.spreads.size() - 1);
+		obj.setSpreadIndex(spreads.size());
+		this.spreads.add(obj);
+		obj.postLoad();
 		return obj;
 	}
 
@@ -357,16 +353,18 @@ public class InDesignDocument extends InDesignObject {
 	 * @throws Exception 
 	 */
 	public InDesignComponent newInDesignComponent(Element child) throws Exception {
-		// logger.debug("newInDesignObject(): Creating new object from <" + child.getNodeName() + ">...");
+		logger.debug("newInDesignObject(): Creating new object or component from <" + child.getNodeName() + ">...");
 		if (child.hasAttribute(PROP_SELF)) {
 			Class<? extends InDesignObject> objectClass = tagToObjectClassMap.get(child.getNodeName());
 			if (objectClass == null)
-				objectClass = InDesignObject.class;
-			return newObject(objectClass, child);
+				objectClass = InDesignObjectImpl.class;
+			InDesignObject newObject = (InDesignObject)newObject(objectClass, child);
+			logger.debug("newInDesignObject():   New object has ID [" + newObject.getId() + "]");
+			return newObject;
 		} else {
 			Class<? extends InDesignComponent> objectClass = tagToComponentClassMap.get(child.getNodeName());
 			if (objectClass == null)
-				objectClass = InDesignComponent.class;
+				objectClass = InDesignComponentImpl.class;
 			return newComponent(objectClass, child);
 			
 		}
@@ -453,8 +451,9 @@ public class InDesignDocument extends InDesignObject {
 	/**
 	 * 
 	 * @return
+	 * @throws Exception 
 	 */
-	public double getSpreadOffset() {
+	public double getSpreadOffset() throws Exception {
 		logger.debug("getSpreadOffset(): Starting, this.spreads.size=" + this.spreads.size());
 		if (this.spreads.size() < 2) {
 			return 0.0;
@@ -500,7 +499,7 @@ public class InDesignDocument extends InDesignObject {
      * @return
      * @throws Exception 
      */
-    public Spread addSpread(String masterSpreadName) throws Exception {
+    public InDesignComponent addSpread(String masterSpreadName) throws Exception {
         Spread spread = new Spread();
         assignIdAndRegister(spread);
         spread.setParent(this);
@@ -555,8 +554,9 @@ public class InDesignDocument extends InDesignObject {
 
 	/**
 	 * @return
+	 * @throws Exception 
 	 */
-	public boolean isFacingPages() {
+	public boolean isFacingPages() throws Exception {
 		return this.docPrefs.isFacingPages();
 	}
 
@@ -584,7 +584,7 @@ public class InDesignDocument extends InDesignObject {
 		// clone it again if we don't want to:
 		Map<String, InDesignObject> cloneMap = getCloneMapForDoc(sourceObj.getDocument());
 		cloneMap.put(sourceObj.getId(), clone);
-		clone.loadObject(sourceObj);
+		clone.loadObject(sourceObj, clone.getId());
 		clone.markAsModified();
 		return clone;
 	}
@@ -644,11 +644,19 @@ public class InDesignDocument extends InDesignObject {
 	 * @throws Exception 
 	 * @throws InstantiationException 
 	 */
-	private InDesignComponent newObject(Class<? extends AbstractInDesignObject> clazz, Element dataSource) throws Exception {
+	private InDesignComponent newObject(Class<? extends InDesignObject> clazz, Element dataSource) throws Exception {
+		logger.debug("newObject(): Creating new " + clazz.getSimpleName() + "...");
 		InDesignObject obj = (InDesignObject) clazz.newInstance();
 		obj.setDocument(this);
-		obj.loadObject(dataSource);
+		if (dataSource != null) {
+			logger.debug("newObject():   From element " + dataSource.getNodeName() + "...");
+			obj.loadObject(dataSource);
+			String selfValue = dataSource.getAttribute(PROP_SELF);
+			String id = InxHelper.decodeRawValueToSingleString(selfValue);
+			obj.setId(id);
+		}
 		this.registerObject(obj);
+		logger.debug("newObject(): New object has ID [" + obj.getId() + "]");
 		return obj;
 	}
 	
@@ -682,10 +690,7 @@ public class InDesignDocument extends InDesignObject {
 	public String reportChildObjects() {
 		StringBuilder report = new StringBuilder("Child Objects::\n");
 		for (InDesignComponent comp : this.getChildren()) {
-			Element dataSource = comp.getDataSourceElement();
-			String dsName = "{No data source element}";
-			if (dataSource != null)
-				dsName = dataSource.getNodeName();
+			String dsName = comp.getInxTagName();
 			if (comp instanceof InDesignObject) {
 				InDesignObject obj = (InDesignObject)comp;
 				report.append("[").append(obj.getId())
@@ -741,7 +746,7 @@ public class InDesignDocument extends InDesignObject {
 	 * @param link
 	 * @return the link that was added
 	 */
-	public Link addLink(Link link) {
+	public InDesignComponent addLink(Link link) {
 		this.links.add(link);
 		return link;
 	}
@@ -848,6 +853,14 @@ public class InDesignDocument extends InDesignObject {
 		Image image = new Image();
 		assignIdAndRegister(image);
 		return image;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.dita2indesign.indesign.inx.model.InDesignComponent#updatePropertyMap()
+	 */
+	@Override
+	public void updatePropertyMap() throws Exception {
+		// Anything to do?
 	}
 
 

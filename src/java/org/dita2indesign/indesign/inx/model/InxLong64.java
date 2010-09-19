@@ -6,9 +6,7 @@ package org.dita2indesign.indesign.inx.model;
 /**
  *
  */
-public class InxLong64 extends InxValue {
-
-	private long value;
+public class InxLong64 extends InxLongBase {
 
 	/**
 	 * @param rawValue
@@ -44,10 +42,6 @@ public class InxLong64 extends InxValue {
 	 */
 	public InxLong64(int value) {
 		this.value = value;
-	}
-
-	public Long getValue() {
-		return new Long(value);
 	}
 
 	/* (non-Javadoc)

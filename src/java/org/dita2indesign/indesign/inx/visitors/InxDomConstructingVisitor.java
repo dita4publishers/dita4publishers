@@ -13,6 +13,7 @@ import org.dita2indesign.indesign.inx.model.DocumentPreferences;
 import org.dita2indesign.indesign.inx.model.Image;
 import org.dita2indesign.indesign.inx.model.InDesignComponent;
 import org.dita2indesign.indesign.inx.model.InDesignDocument;
+import org.dita2indesign.indesign.inx.model.InDesignGeometryHavingObject;
 import org.dita2indesign.indesign.inx.model.InDesignObject;
 import org.dita2indesign.indesign.inx.model.InDesignRectangleContainingObject;
 import org.dita2indesign.indesign.inx.model.InxHelper;
@@ -34,8 +35,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.ProcessingInstruction;
-
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 
 /**
@@ -91,10 +90,8 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 			logger.debug("visit(InDesignDocument): iterating over children:");
 			for (InDesignComponent comp : doc.getChildren()) {
 				if (logger.isDebugEnabled()) {
-					Element compDataSource = comp.getDataSourceElement();
-					String dsName = "{No data source element}";
-					if (compDataSource != null)
-						dsName = "<" + compDataSource.getNodeName() + ">";
+					String dsName = comp.getInxTagName();
+					dsName = "<" + dsName + ">";
 					logger.debug("visit(InDesignDocument): child=" + comp.getClass().getSimpleName() + ", " + dsName);
 				}
 				comp.accept(this);
@@ -110,22 +107,21 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	 */
 	public void visit(InDesignComponent comp) throws Exception {
 		logger.debug("visit(InDesignComponent): Starting...");
-		Element dataSource = comp.getDataSourceElement();
-		if (dataSource != null) {
-			logger.debug("visit(InDesignComponent): dataSource=" + dataSource);
-			Element myElement = processInDesignComponent(comp, dataSource);
+			Element myElement = processInDesignComponent(comp);
 			currentParentNode = myElement.getParentNode();
-		} else {
-			logger.debug("visit(InDesignComponent): No data source element.");
-			// Construct the result DOM node manually:
-			throw new NotImplementedException();
-		}
-
 	}
 
-	private Element processInDesignComponent(InDesignComponent comp,
-			Element dataSource) throws Exception {
-		Element myElement = (Element)DataUtil.importNodeAsChild(this.currentParentNode, dataSource);
+	private Element processInDesignComponent(InDesignComponent comp) throws Exception {
+		String tagName = comp.getInxTagName();
+		if (tagName == null) {
+			throw new Exception("No INX tagname value for component " + comp);
+		}
+		Element myElement = this.currentParentNode.getOwnerDocument().createElement(tagName);
+		this.currentParentNode.appendChild(myElement);
+		for (String propName : comp.getPropertyMap().keySet()) {
+			InxValue value = comp.getValueObject(propName);
+			myElement.setAttribute(propName, value.toEncodedString());
+		}
 		Node origParent = currentParentNode;
 		currentParentNode = myElement;
 		for (InDesignComponent childComp : comp.getChildren()) {
@@ -139,22 +135,13 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	 * @see org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor#visit(org.dita2indesign.indesign.inx.model.InDesignObject)
 	 */
 	public void visit(InDesignObject obj) throws Exception {
-		Element dataSource = obj.getDataSourceElement();
-		if (dataSource != null) {
-			logger.debug("visit(InDesignComponent): dataSource=" + dataSource);
-			Element myElement = processInDesignObject(obj, dataSource);
+			Element myElement = processInDesignObject(obj);
 			currentParentNode = myElement.getParentNode();
-
-		} else {
-			logger.debug("visit(InDesignComponent): No data source element.");
-			// Construct the result DOM node manually:
-			throw new NotImplementedException();
-		}
 	}
 
-	private Element processInDesignObject(InDesignObject obj, Element dataSource)
+	private Element processInDesignObject(InDesignObject obj)
 			throws Exception {
-		Element myElement = processInDesignComponent(obj, dataSource);
+		Element myElement = processInDesignComponent(obj);
 		setSelfAttribute(obj, myElement);
 		setLabelAttribute(obj, myElement);
 		setPNameAttribute(obj, myElement);
@@ -164,8 +151,9 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	/**
 	 * @param obj
 	 * @param myElement
+	 * @throws Exception 
 	 */
-	private void setPNameAttribute(InDesignObject obj, Element myElement) {
+	private void setPNameAttribute(InDesignObject obj, Element myElement) throws Exception {
 		String pName = obj.getPName();
 		if (pName != null) {
 			myElement.setAttribute(InDesignDocument.PROP_PNAM, InxHelper.encodeString(pName));
@@ -176,14 +164,10 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	 * @see org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor#visit(org.dita2indesign.indesign.inx.model.TextFrame)
 	 */
 	public void visit(TextFrame frame)  throws Exception {
-		Element dataSource = frame.getDataSourceElement();
-		Element elem = null;
-		if (dataSource != null) {
-			elem = processInDesignObject(frame, dataSource);
-		} 
+		Element elem = processInDesignObject(frame);
 		if (frame.isModified()) {
 			elem = currentParentNode.getOwnerDocument().createElement(InDesignDocument.TXTF_TAGNAME);
-			elem = processInDesignObject(frame, elem);
+			elem = processInDesignObject(frame);
 			setGeometryAttribute(frame, elem);
 			elem.setAttribute(InDesignDocument.PROP_STRP, constructObjectReference(frame.getParentStory()));
 			elem.setAttribute(InDesignDocument.PROP_FTXF, constructObjectReference(frame));
@@ -199,7 +183,7 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	 * @param rect
 	 * @param elem
 	 */
-	private void setGeometryAttribute(Rectangle rect, Element elem) {
+	private void setGeometryAttribute(InDesignRectangleContainingObject rect, Element elem) {
 		String geoValue = InxHelper.encodeGeometry(rect.getGeometry());
 		elem.setAttribute(InDesignDocument.PROP_IGEO, geoValue);
 	}
@@ -216,33 +200,13 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	 */
 	public void visit(Spread spread) throws Exception {
 		logger.debug("visit(Spread): Starting...");
-		Element dataSource = spread.getDataSourceElement();
-		Element elem = null;
-		if (dataSource != null) {
-			logger.debug("visit(Spread): dataSource=" + dataSource);
-			elem = processInDesignObject(spread, dataSource);
-		} else {
-			logger.debug("visit(Spread): No data source element.");
-			if (spread instanceof MasterSpread) {
-				elem = this.currentParentNode.getOwnerDocument().createElement(InDesignDocument.MSPR_TAGNAME);
-			} else {
-				elem = this.currentParentNode.getOwnerDocument().createElement(InDesignDocument.SPRD_TAGNAME);
-			}
-			elem = processInDesignObject(spread, elem);
-			// elem = (Element)currentParentNode.appendChild(elem);
+		Element elem = processInDesignObject(spread);
 
-			elem.setAttribute("fsSo", "e_Dflt"); 
-			elem.setAttribute("smsi", "b_t"); 
-			elem.setAttribute("ilnd", "b_f"); 
-			elem.setAttribute("PagC", InxHelper.encode32BitLong(spread.getPages().size())); 
-			elem.setAttribute("BnLc", "l_1"); 
-			elem.setAttribute("Shfl", "b_t"); 
-			currentParentNode = elem;
-			for (Page page : spread.getPages()) {
-				page.accept(this);
-			}
-			currentParentNode = elem.getParentNode();
+		currentParentNode = elem;
+		for (Page page : spread.getPages()) {
+			page.accept(this);
 		}
+		currentParentNode = elem.getParentNode();
 		
 	}
 
@@ -305,29 +269,19 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	 * @see org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor#visit(org.dita2indesign.indesign.inx.model.Page)
 	 */
 	public void visit(Page page)  throws Exception {
-		Element dataSource = page.getDataSourceElement();
-		if (dataSource != null) {
-			logger.debug("visit(InDesignComponent): dataSource=" + dataSource);
-			Element elem = processInDesignObject(page, dataSource);
-			currentParentNode.appendChild(elem);
-
-		} else {
-			Element elem = this.currentParentNode.getOwnerDocument().createElement(InDesignDocument.PAGE_TAGNAME);
-			currentParentNode.appendChild(elem);
-			elem = processInDesignObject(page, elem);
-			elem.setAttribute("pmas", constructObjectReference(page.getMasterSpread())); 
-			List<InxValue> overrideList = new ArrayList<InxValue>();
-			for (TextFrame frame : page.getAllFrames()) {
-				TextFrame master = frame.getMasterFrame();
-				if (master != null) {
-					overrideList.add(new InxObjectRef(master.getId()));
-					overrideList.add(new InxObjectRef(frame.getId()));				
-				}			
-			}
-			if (overrideList.size() > 0) {
-				String propValue = InxHelper.encodeValueList(overrideList);
-				elem.setAttribute(InDesignDocument.PROP_OVRL, propValue);
-			}
+		Element elem = processInDesignObject(page);
+		elem.setAttribute("pmas", constructObjectReference(page.getMasterSpread())); 
+		List<InxValue> overrideList = new ArrayList<InxValue>();
+		for (TextFrame frame : page.getAllFrames()) {
+			TextFrame master = frame.getMasterFrame();
+			if (master != null) {
+				overrideList.add(new InxObjectRef(master.getId()));
+				overrideList.add(new InxObjectRef(frame.getId()));				
+			}			
+		}
+		if (overrideList.size() > 0) {
+			String propValue = InxHelper.encodeValueList(overrideList);
+			elem.setAttribute(InDesignDocument.PROP_OVRL, propValue);
 		}
 	}
 
@@ -335,14 +289,7 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	 * @see org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor#visit(org.dita2indesign.indesign.inx.model.Story)
 	 */
 	public void visit(Story story)  throws Exception {
-		Element dataSource = story.getDataSourceElement();
-		Element elem = null;
-		if (dataSource != null) {
-			elem = dataSource;
-		} else {
-			elem = currentParentNode.getOwnerDocument().createElement(InDesignDocument.CFLO_TAGNAME);
-		}
-		elem = processInDesignObject(story, elem);
+		Element elem = processInDesignObject(story);
 		currentParentNode = elem.getParentNode();
 	}
 
@@ -350,15 +297,7 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	 * @see org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor#visit(org.dita2indesign.indesign.inx.model.TextRun)
 	 */
 	public void visit(TextStyleRange comp)  throws Exception {
-		Element dataSource = comp.getDataSourceElement();
-		Element elem;
-		if (dataSource != null) {
-			elem = dataSource;
-		} else {
-			elem = currentParentNode.getOwnerDocument().createElement(InDesignDocument.TXSR_TAGNAME);
-			// FIXME: Need to get paragraph and character style properties.
-		}
-		elem = processInDesignComponent(comp, elem);
+		Element elem = processInDesignComponent(comp);
 		currentParentNode = elem.getParentNode();
 	}
 
@@ -374,17 +313,9 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	 */
 	public void visit(Link link) throws Exception {
 		logger.debug("visit(Link): Starting...");
-		Element dataSource = link.getDataSourceElement();
-		Element elem;
-		if (dataSource != null) {
-			logger.debug("visit(Link): dataSource=" + dataSource);
-			elem = dataSource;
-		} else {
-			logger.debug("visit(Link): No data source element.");
-			elem = currentParentNode.getOwnerDocument().createElement(InDesignDocument.CLNK_TAGNAME);
-		}
+		Element elem = currentParentNode.getOwnerDocument().createElement(InDesignDocument.CLNK_TAGNAME);
 		setLinkInfoAttribute(link, elem);
-		elem = processInDesignObject(link, elem);
+		elem = processInDesignObject(link);
 		currentParentNode = elem.getParentNode();
 		
 	}
@@ -460,45 +391,21 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	 */
 	public void visit(Image image) throws Exception {
 		logger.debug("visit(Image): Starting...");
-		Element dataSource = image.getDataSourceElement();
-		Element elem;
-		if (dataSource != null) {
-			logger.debug("visit(Image): dataSource=" + dataSource);
-			elem = dataSource;
-		} else {
-			logger.debug("visit(Image): No data source element.");
-			elem = currentParentNode.getOwnerDocument().createElement(InDesignDocument.IMAG_TAGNAME);
-		}
-		setImageProperties(image, elem);
-		elem = processInDesignObject(image, elem);
-		currentParentNode = elem.getParentNode();
-		
-	}
-
-	/**
-	 * @param image
-	 * @param elem
-	 */
-	private void setImageProperties(Image image, Element elem) {
-		String geoValue = InxHelper.encodeGeometry(image.getGeometry());
-		elem.setAttribute(InDesignDocument.PROP_IGEO, geoValue);
-		
-		
+		visit((InDesignGeometryHavingObject)image);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor#visit(org.dita2indesign.indesign.inx.model.ContourOption)
 	 */
 	public void visit(ContourOption contourOption) throws Exception {
-		// TODO Auto-generated method stub
-		
+		visit((InDesignComponent)contourOption);
 	}
 
 	/* (non-Javadoc)
 	 * @see org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor#visit(org.dita2indesign.indesign.inx.model.TextWrapPreferences)
 	 */
 	public void visit(TextWrapPreferences textWrapPrefs) throws Exception {
-		// TODO Auto-generated method stub
+		visit((InDesignComponent)textWrapPrefs);
 		
 	}
 

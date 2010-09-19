@@ -58,6 +58,13 @@ public class Spread extends InDesignRectangleContainingObject {
 	 */
 	public Spread() throws Exception {
 		super();
+		setInxTagName("sprd");
+		setPropertyFromRawValue("fsSo", "e_Dflt"); 
+		setPropertyFromRawValue("smsi", "b_t"); 
+		setPropertyFromRawValue("ilnd", "b_f"); 
+		setPropertyFromRawValue("BnLc", "l_1"); 
+		setPropertyFromRawValue("Shfl", "b_t"); 
+
 	}
 	
 	/**
@@ -95,8 +102,9 @@ public class Spread extends InDesignRectangleContainingObject {
 
 	/**
 	 * @param page
+	 * @throws Exception 
 	 */
-	private void setPageSide(Page page) {
+	private void setPageSide(Page page) throws Exception {
 		if (getDocumentPreferences().isFacingPages()) {
 			if (this.pages.size() % 2 == 0) {
 				page.setPageSide(PageSideOption.LEFT_HAND);
@@ -108,8 +116,9 @@ public class Spread extends InDesignRectangleContainingObject {
 
 	/**
 	 * @param page
+	 * @throws Exception 
 	 */
-	protected void setPageBounds(Page page) {
+	protected void setPageBounds(Page page) throws Exception {
 		DocumentPreferences docPrefs = getDocumentPreferences();
 		page.setWidth(docPrefs.getPageWidth());
 		page.setHeight(docPrefs.getPageHeight());
@@ -123,51 +132,53 @@ public class Spread extends InDesignRectangleContainingObject {
 		return ((InDesignDocument)getParent()).getDocumentPreferences();
 	}
 
-	/* (non-Javadoc)
-	 * @see org.dita2indesign.indesign.inx.model.AbstractInDesignObject#loadObject(org.dita2indesign.indesign.inx.model.InDesignObject)
-	 */
-	@Override
-	public void loadObject(InDesignObject sourceObj) throws Exception {
-		super.loadObject(sourceObj);
-		// FIXME: load additional properties.
+	public void loadObject(Element dataSource) throws Exception {
+			// logger.debug("loadObject(): spreadIndex=" + spreadIndex);
+		    super.loadObject(dataSource);
+		}
+	
+	public void postLoad() throws Exception {
+		for (InDesignComponent child : this.getChildren()) {
+			if (child instanceof Page) {
+				Page page = (Page)child;
+				setPageBounds(page);
+				this.pages.add(page);
+				this.pagesById.put(page.getId(), page);
+				setPageSide(page);
+			}
+		}
+		if (this.getName() == null) {
+			if (this.pages.size() > 0) {
+				String spreadName = this.pages.get(0).getName();
+				if (this.pages.size() > 1)
+					spreadName += "-" + this.pages.get(this.pages.size() - 1).getName();
+				this.setPName(spreadName);
+			}
+		}
+		logger.debug("loadObject(): Spread name=\"" + this.getName() + "\"");
+		
+
 	}
 	
-	public void loadObject(Element dataSource, int spreadIndex) throws Exception {
-			// logger.debug("loadObject(): spreadIndex=" + spreadIndex);
-			this.spreadIndex = spreadIndex;
-			this.pageCount = getLongProperty(InDesignDocument.PROP_PAGC);
-			// logger.debug(" + objectLoad(): Setting pageCount to \"" + this.pageCount + "\"");
-			for (InDesignComponent child : this.getChildren()) {
-				if (child instanceof Page) {
-					Page page = (Page)child;
-					setPageBounds(page);
-					this.pages.add(page);
-					this.pagesById.put(page.getId(), page);
-					setPageSide(page);
-				}
-			}
-			if (this.pageCount != this.pagesById.size())
-				throw new InDesignDocumentException("Expected " + this.pageCount + " pages, but only loaded " + this.pagesById.size());
-			if (this.getName() == null) {
-				if (this.pages.size() > 0) {
-					String spreadName = this.pages.get(0).getName();
-					if (this.pages.size() > 1)
-						spreadName += "-" + this.pages.get(this.pages.size() - 1).getName();
-					this.setPName(spreadName);
-				}
-			}
-			logger.debug("loadObject(): Spread name=\"" + this.getName() + "\"");
-			
-			logger.debug("loadObject(): Calling setTransformationMatrix...");
-			setTransformationMatrix(spreadIndex);
-				
-			// Pages do not literally contain frames but InDesign maintains a list of frames for each
-			// page.
-			logger.debug("loadObject(): Assigning rectangles to pages()");
-			assignRectanglesToPages();
-		}
 
-	public void setTransformationMatrix(int spreadIndex) {
+	/**
+	 * Set the spread index (the sequence number of the spread within the list of
+	 * spreads for a document. Must be called after initial object load or
+	 * on object creation.
+	 * @param spreadIndex
+	 * @throws Exception
+	 */
+	public void setSpreadIndex(int spreadIndex) throws Exception {
+		setTransformationMatrix(spreadIndex);
+		
+		// Pages do not literally contain frames but InDesign maintains a list of frames for each
+		// page.
+		logger.debug("loadObject(): Assigning rectangles to pages()");
+		assignRectanglesToPages();
+
+	}
+
+	public void setTransformationMatrix(int spreadIndex) throws Exception {
 		logger.debug("setTransformationMatrix(): Starting, spreadIndex=" + spreadIndex);
 		double[] matrix = {1.0,0.0,0.0,1.0,0.0,0.0};
 		// The spread matrix translates spread coordinates to pasteboard
@@ -197,8 +208,9 @@ public class Spread extends InDesignRectangleContainingObject {
 	/**
 	 * Populate each page's list of rectangles by comparing the geometry of the
 	 * page to the geometry of the rectangle.
+	 * @throws Exception 
 	 */
-	private void assignRectanglesToPages() {
+	private void assignRectanglesToPages() throws Exception {
 		logger.debug("assignRectanglesToPages(): Assigning rectangles to pages for spread " + this.getName() + "....");
 		
 		List<Rectangle> recs = new ArrayList<Rectangle>(this.getRectangles());
@@ -263,8 +275,9 @@ public class Spread extends InDesignRectangleContainingObject {
 
 	/**
 	 * @return
+	 * @throws Exception 
 	 */
-	public String getName() {
+	public String getName() throws Exception {
 		return this.getPName();
 	}
 

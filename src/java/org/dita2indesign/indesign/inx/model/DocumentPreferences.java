@@ -15,26 +15,11 @@ public class DocumentPreferences extends InDesignObject {
 	
 	private static Logger logger = Logger.getLogger(DocumentPreferences.class);
 
-	private double pageHeight;
-	private double pageWidth;
-	private boolean facingPages;
-	private double bleedTopOffset;
-	private double bleedBottomOffset;
-	private double bleedInsideOffset;
-	private double bleedOutsideOffset;
-	private boolean bleedUniformSize;
-	private double slugBottomOffset;
-	private double slugTopOffset;
-	private double slugInsideOffset;
-	private double slugOutsideOffset;
-	private boolean slugUniformSize;
-	private Enum<PageBindingOption> pageBinding;
 
 	/**
 	 * @param dataSource
 	 * @throws InDesignDocumentException 
 	 */
-	@SuppressWarnings("unchecked")
 	public void loadObject(Element dataSource) throws Exception {
 		super.loadObject(dataSource);
 		/*
@@ -43,20 +28,6 @@ public class DocumentPreferences extends InDesignObject {
 		 * slgt="U_0" slgb="U_0" slgi="U_0" slgo="U_0" slgu="b_f" PrSl="b_t" Shfl="b_t" 
 		 * oprb="b_t" pbin="e_ltrb" cold="e_horz" clok="b_t" MsTx="b_t" Self="rc_ddocp1"/>
 		 */
-		this.pageHeight = getDoubleProperty("phgt");
-		this.pageWidth = getDoubleProperty("pwdt");
-		this.bleedTopOffset = getDoubleProperty("bldt");
-		this.bleedBottomOffset = getDoubleProperty("bldb");
-		this.bleedInsideOffset = getDoubleProperty("bldi");
-		this.bleedOutsideOffset = getDoubleProperty("bldi");
-		this.facingPages = getBooleanProperty("ppsd");
-		this.bleedUniformSize = getBooleanProperty("bldu");
-		this.slugTopOffset = getDoubleProperty("slgt");
-		this.slugBottomOffset = getDoubleProperty("slgb");
-		this.slugInsideOffset = getDoubleProperty("slgi");
-		this.slugOutsideOffset = getDoubleProperty("slgi");
-		this.slugUniformSize = getBooleanProperty("slgu");
-		this.pageBinding = getEnumProperty("pbin");
 		// FIXME: Add remaining properties here.
 	}
 
@@ -64,9 +35,10 @@ public class DocumentPreferences extends InDesignObject {
 
 	/**
 	 * @return the pageHeight
+	 * @throws Exception 
 	 */
-	public double getPageHeight() {
-		return this.pageHeight;
+	public double getPageHeight() throws Exception {
+		return getDoubleProperty("phgt");
 	}
 
 
@@ -74,8 +46,8 @@ public class DocumentPreferences extends InDesignObject {
 	/**
 	 * @return the pageWidth
 	 */
-	public double getPageWidth() {
-		return this.pageWidth;
+	public double getPageWidth()  throws Exception {
+		return getDoubleProperty("pwdt");
 	}
 
 
@@ -83,8 +55,8 @@ public class DocumentPreferences extends InDesignObject {
 	/**
 	 * @return the facingPages
 	 */
-	public boolean isFacingPages() {
-		return this.facingPages;
+	public boolean isFacingPages()  throws Exception {
+		return getBooleanProperty("ppsd");
 	}
 
 
@@ -92,8 +64,8 @@ public class DocumentPreferences extends InDesignObject {
 	/**
 	 * @return the bleedTopOffset
 	 */
-	public double getBleedTopOffset() {
-		return this.bleedTopOffset;
+	public double getBleedTopOffset()  throws Exception {
+		return getDoubleProperty("bldt");
 	}
 
 
@@ -101,8 +73,9 @@ public class DocumentPreferences extends InDesignObject {
 	/**
 	 * @return the bleedBottomOffset
 	 */
-	public double getBleedBottomOffset() {
-		return this.bleedBottomOffset;
+	public double getBleedBottomOffset()  throws Exception {
+		return getDoubleProperty("bldb");
+		
 	}
 
 
@@ -110,8 +83,9 @@ public class DocumentPreferences extends InDesignObject {
 	/**
 	 * @return the bleedInsideOffset
 	 */
-	public double getBleedInsideOffset() {
-		return this.bleedInsideOffset;
+	public double getBleedInsideOffset()  throws Exception {
+		return getDoubleProperty("bldi");
+		
 	}
 
 
@@ -119,8 +93,9 @@ public class DocumentPreferences extends InDesignObject {
 	/**
 	 * @return the bleedOutsideOffset
 	 */
-	public double getBleedOutsideOffset() {
-		return this.bleedOutsideOffset;
+	public double getBleedOutsideOffset()  throws Exception {
+		return getDoubleProperty("bldi");
+		
 	}
 
 
@@ -128,8 +103,9 @@ public class DocumentPreferences extends InDesignObject {
 	/**
 	 * @return the bleedUniformSize
 	 */
-	public boolean isBleedUniformSize() {
-		return this.bleedUniformSize;
+	public boolean isBleedUniformSize()  throws Exception {
+		return getBooleanProperty("bldu");
+		
 	}
 
 
@@ -137,8 +113,9 @@ public class DocumentPreferences extends InDesignObject {
 	/**
 	 * @return the slugBottomOffset
 	 */
-	public double getSlugBottomOffset() {
-		return this.slugBottomOffset;
+	public double getSlugBottomOffset()  throws Exception {
+		return getDoubleProperty("slgb");
+		
 	}
 
 
@@ -146,8 +123,9 @@ public class DocumentPreferences extends InDesignObject {
 	/**
 	 * @return the slugTopOffset
 	 */
-	public double getSlugTopOffset() {
-		return this.slugTopOffset;
+	public double getSlugTopOffset()  throws Exception {
+		return getDoubleProperty("slgt");
+		
 	}
 
 
@@ -155,8 +133,9 @@ public class DocumentPreferences extends InDesignObject {
 	/**
 	 * @return the slugInsideOffset
 	 */
-	public double getSlugInsideOffset() {
-		return this.slugInsideOffset;
+	public double getSlugInsideOffset()  throws Exception {
+		return getDoubleProperty("slgi");
+		
 	}
 
 
@@ -164,8 +143,9 @@ public class DocumentPreferences extends InDesignObject {
 	/**
 	 * @return the slugOutsideOffset
 	 */
-	public double getSlugOutsideOffset() {
-		return this.slugOutsideOffset;
+	public double getSlugOutsideOffset()  throws Exception {
+		return getDoubleProperty("slgi");
+		
 	}
 
 
@@ -173,8 +153,9 @@ public class DocumentPreferences extends InDesignObject {
 	/**
 	 * @return the slugUniformSize
 	 */
-	public boolean isSlugUniformSize() {
-		return this.slugUniformSize;
+	public boolean isSlugUniformSize()  throws Exception {
+		return getBooleanProperty("slgu");
+		
 	}
 
 
@@ -182,8 +163,9 @@ public class DocumentPreferences extends InDesignObject {
 	/**
 	 * @return the pageBinding
 	 */
-	public Enum<PageBindingOption> getPageBinding() {
-		return this.pageBinding;
+	public Enum<PageBindingOption> getPageBinding()  throws Exception {
+		return getEnumProperty("pbin");
+		
 	}
 
 	/**
@@ -193,6 +175,16 @@ public class DocumentPreferences extends InDesignObject {
 	public void accept(InDesignDocumentVisitor visitor) throws Exception {
 		logger.debug("accept(): Accepting visitor " + visitor.getClass().getName());
 		visitor.visit(this);
+	}
+
+
+
+	/* (non-Javadoc)
+	 * @see org.dita2indesign.indesign.inx.model.InDesignComponent#updatePropertyMap()
+	 */
+	@Override
+	public void updatePropertyMap() throws Exception {
+		// Nothing to do.
 	}
 
 

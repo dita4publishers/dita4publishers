@@ -80,7 +80,7 @@ public class Geometry {
 			right, and bottom of the graphic bounding box.
 		 
 		 */
-		logger.info("loadData(): rawIGeoValue=" + rawIGeoValue);
+		logger.debug("loadData(): rawIGeoValue=" + rawIGeoValue);
 		List<InxValue> values = InxHelper.decodeRawValueToList(rawIGeoValue);
 		int itemCursor = 1;
 		// Item 0: number of paths

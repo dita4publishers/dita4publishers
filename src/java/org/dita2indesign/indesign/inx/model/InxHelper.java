@@ -6,9 +6,7 @@ package org.dita2indesign.indesign.inx.model;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.log4j.Logger;
 
@@ -192,7 +190,7 @@ public class InxHelper {
 	 * @return
 	 * @throws Exception 
 	 */
-	public static Map<String, String> decodeRawValueToStringMap(String rawValue) throws Exception {
+	public static InxStringMap decodeRawValueToStringMap(String rawValue) throws Exception {
 		// FIXME: For now just hacking this. Really need to implement value parsing so it's
 		//        completely generalized.
 		//
@@ -209,15 +207,15 @@ public class InxHelper {
 			throw new InDesignDocumentException("Expected type of \"x\", got \"" + typeCode + "\"");
 
 		
-		Map<String, String> resultMap = new HashMap<String, String>();
-		
+		InxStringMap resultMap = new InxStringMap();
+				
 		int i = 4; // Point to first value of first list item
 		
 		while (i < (parts.length - 3)) {
 			// FIXME: Not bothering to sanity check the type codes at the moment. This is already a quick hack.
-			String tcKey = parts[i++];
+			i++; // Type code
 			String key = parts[i++];
-			String tcValue = parts[i++];
+			i++; // Type code
 			String value = parts[i++];
 			resultMap.put(key, value);
 			// Skip type code and length of next pair

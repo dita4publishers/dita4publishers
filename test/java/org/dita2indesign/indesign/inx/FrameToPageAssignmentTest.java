@@ -46,6 +46,7 @@ public class FrameToPageAssignmentTest extends InxReaderTestBase {
 		
 		spread = doc.getSpreads().get(0);
 		assertNotNull(spread);
+		assertTrue("Expected some frames on spread", spread.getAllFrames().size() > 0);
 		page = spread.getOddPage();
 		assertNotNull("Didn't get an odd page", page);
 		rects = page.getRectangles();
@@ -73,7 +74,7 @@ public class FrameToPageAssignmentTest extends InxReaderTestBase {
 		Rectangle rect;
 		Page page;
 		
-		master = doc.getMasterSpread("LT-BB Left");
+		master = doc.getMasterSpread("LT-BB_Left");
 		assertNotNull(master);
 		page = master.getOddPage();
 		assertNotNull(page);

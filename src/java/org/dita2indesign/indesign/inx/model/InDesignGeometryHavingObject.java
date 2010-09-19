@@ -10,7 +10,7 @@ import org.w3c.dom.Element;
  * Superclass for types that have a geometry property, e.g., rectangles,
  * pages, images.
  */
-public class InDesignGeometryHavingObject extends InDesignObject {
+public abstract class InDesignGeometryHavingObject extends InDesignObject {
 	
 	static Logger logger = Logger.getLogger(InDesignGeometryHavingObject.class);
 
@@ -116,11 +116,11 @@ public class InDesignGeometryHavingObject extends InDesignObject {
 	 */
 	public void setGeometry(Geometry geometry) {
 		this.geometry = geometry;
-		if (this.getDataSourceElement() != null) {
-			String geoDataString = InxHelper.encodeGeometry(this.getGeometry());
-			logger.debug("geoDataString=\"" + geoDataString + "\"");
-			this.getDataSourceElement().setAttribute("IGeo", geoDataString);
-		}
+//		if (this.getDataSourceElement() != null) {
+//			String geoDataString = InxHelper.encodeGeometry(this.getGeometry());
+//			logger.debug("geoDataString=\"" + geoDataString + "\"");
+//			this.getDataSourceElement().setAttribute("IGeo", geoDataString);
+//		}
 	}
 
 	/**
@@ -145,6 +145,14 @@ public class InDesignGeometryHavingObject extends InDesignObject {
 	 */
 	public boolean contains(Rectangle rect) {
 		return this.getBoundingBox().contains(rect.getGeometry().getBoundingBox());
+	}
+	
+	/* (non-Javadoc)
+	 * @see org.dita2indesign.indesign.inx.model.InDesignComponent#updatePropertyMap()
+	 */
+	public void updatePropertyMap() throws Exception {
+		this.setGeometryProperty("IGeo", this.getGeometry());
+
 	}
 
 }

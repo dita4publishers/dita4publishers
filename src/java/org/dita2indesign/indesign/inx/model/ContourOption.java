@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Contour options;
  */
-public class ContourOption extends InDesignComponent {
+public class ContourOption extends InDesignComponentImpl {
 	
 	List<String> alphaChannelPathNames = new ArrayList<String>();
 	String contourPathName = null;

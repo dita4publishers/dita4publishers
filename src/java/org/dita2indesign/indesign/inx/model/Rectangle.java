@@ -19,14 +19,15 @@ public class Rectangle extends InDesignRectangleContainingObject {
 
 	public Rectangle() throws Exception {
 		super();
+		setInxTagName("crec");
 	}
 	
 	/* (non-Javadoc)
 	 * @see org.dita2indesign.indesign.inx.model.AbstractInDesignObject#loadObject(org.dita2indesign.indesign.inx.model.InDesignObject)
 	 */
 	@Override
-	public void loadObject(InDesignObject sourceObj) throws Exception {
-		super.loadObject(sourceObj);
+	public void loadObject(InDesignObject sourceObj, String newObjectId) throws Exception {
+		super.loadObject(sourceObj, newObjectId);
 		Rectangle sourceRect = (Rectangle)sourceObj;
 		this.geometry = sourceRect.getGeometry();
 	} 
@@ -57,6 +58,14 @@ public class Rectangle extends InDesignRectangleContainingObject {
 	 */
 	public void accept(InDesignDocumentVisitor visitor) throws Exception {
 		visitor.visit(this);
+	}
+
+	/* (non-Javadoc)
+	 * @see org.dita2indesign.indesign.inx.model.InDesignComponent#updatePropertyMap()
+	 */
+	@Override
+	public void updatePropertyMap() throws Exception {
+		super.updatePropertyMap();
 	}
 
 

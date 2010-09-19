@@ -6,9 +6,7 @@ package org.dita2indesign.indesign.inx.model;
 /**
  * 32-bit long integers.
  */
-public class InxLong32 extends InxValue {
-
-	private long value;
+public class InxLong32 extends InxLongBase {
 
 	/**
 	 * @param valueStr

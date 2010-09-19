@@ -25,6 +25,7 @@ import org.dita2indesign.indesign.inx.writers.InxWriter;
 public class LinkObjectTests extends InxReaderTestBase {
 	Logger logger = Logger.getLogger(LinkObjectTests.class);
 	private InDesignDocument doc;
+	
 
 	public static Test suite() {
 		TestSuite suite = new TestSuite(LinkObjectTests.class);

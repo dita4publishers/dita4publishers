@@ -8,25 +8,16 @@ import org.w3c.dom.Element;
 
 
 /**
- *
+ * Represents a range of text with specific formatting characteristics.
  */
-public class TextStyleRange extends InDesignComponent {
+public class TextStyleRange extends InDesignComponentImpl {
 
 	
 	
 	public TextStyleRange() throws Exception {
-		
+		super();
 	}
 
-	/**
-	 * @param child
-	 * @throws Exception 
-	 */
-	public TextStyleRange(Element dataSource) throws Exception {
-		super();
-		this.setDataSource(dataSource);
-	}
-	
 	/**
 	 * Gets XML-syntax string of text content. PIs are in PI syntax, CDATA is 
 	 * in CDATA marked section.

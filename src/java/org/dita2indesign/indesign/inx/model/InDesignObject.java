@@ -3,6 +3,7 @@
  */
 package org.dita2indesign.indesign.inx.model;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -16,9 +17,11 @@ import org.w3c.dom.Element;
  * 
  * Used for objects for which no more specific class is available.
  */
-public class InDesignObject extends AbstractInDesignObject {
+public abstract class InDesignObject extends InDesignComponent {
 
 	private static Logger logger = Logger.getLogger(InDesignObject.class);
+	private String id;
+	protected Map<String, String> tags = new HashMap<String, String>();
 
 	/**
 	 * 
@@ -32,27 +35,8 @@ public class InDesignObject extends AbstractInDesignObject {
 	 * @throws Exception 
 	 */
 	public InDesignObject(Element dataSource) throws Exception {
+		logger.debug("Constructing a new InDesignObject from data source " + dataSource.getNodeName() + "...");
 		this.loadObject(dataSource);
-	}
-
-	/* (non-Javadoc)
-	 * @see org.dita2indesign.indesign.inx.model.AbstractInDesignObject#loadObject(org.dita2indesign.indesign.inx.model.InDesignObject)
-	 */
-	@Override
-	public void loadObject(InDesignObject sourceObj) throws Exception {
-		String id = this.getId(); // If ID has been assigned, we don't want to inherent
-		this.setDataSource((Element)sourceObj.getDataSourceElement().cloneNode(true));
-		                          // the ID of our clone source.
-		logger.debug("loadObject(): id=" + id);
-		if (this.getDataSourceElement() != null) {
-			this.loadObject(this.getDataSourceElement());
-			if (id != null) {
-				logger.debug("loadObject(): setting ID to " + id);
-				this.setId(id); // Make sure we use any assigned object ID.
-			}
-		}
-		// If there is no datasource element, then it's the responsibility of subclasses to do the cloning
-		// appropriately.
 	}
 
 	/**
@@ -80,6 +64,42 @@ public class InDesignObject extends AbstractInDesignObject {
 	 */
 	public Map<String, String> getLabels() {
 		return this.tags;
+	}
+
+	/**
+	 * @return ID, if there is one, otherwise returns null. Not all objects have IDs.
+	 */
+	public String getId() {
+		return this.id;
+	}
+
+	/**
+	 * @param dataSource
+	 * @throws InDesignDocumentException 
+	 */
+	public void loadObject(Element dataSource) throws Exception {
+		if (dataSource == null) return;
+		super.loadComponent(dataSource);
+	}
+
+	public void loadObject(InDesignObject sourceObj, String newObjectId) throws Exception {
+		loadComponent((InDesignComponent)sourceObj);
+		this.setId(newObjectId);
+	}
+
+	/**
+	 * @return
+	 */
+	public String getLabel() {
+		return this.tags.get(InDesignDocument.TAG_KEY_LABEL);
+	}
+
+	/**
+	 * @param id
+	 */
+	public void setId(String id) {	
+		this.id = id;
+		this.setStringProperty(InDesignDocument.PROP_SELF, id);
 	}
 
 

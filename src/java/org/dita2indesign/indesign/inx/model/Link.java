@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor;
 import org.w3c.dom.Element;
 
@@ -17,6 +18,8 @@ import org.w3c.dom.Element;
  */
 public class Link extends InDesignObject {
 	
+	static Logger logger = Logger.getLogger(Link.class);
+
 	public static final class LinkStatus {
 		public static final int LINK_EMBEDDED = 1282237028;
 		public static final int LINK_MISSING = 1819109747;
@@ -106,6 +109,11 @@ linkEdited:               b f
 	private long editingState;
 	private boolean isLinkNeeded;
 	private boolean linkEdited;
+	
+	public Link() {
+		super();
+		this.setInxTagName("clnk");
+	}
 
 	public void loadObject(Element dataSource) throws Exception {
 		super.loadObject(dataSource);
@@ -312,6 +320,15 @@ linkEdited:               b f
 	 */
 	public void accept(InDesignDocumentVisitor visitor) throws Exception {
 		visitor.visit(this);
+	}
+
+	/* (non-Javadoc)
+	 * @see org.dita2indesign.indesign.inx.model.InDesignComponent#updatePropertyMap()
+	 */
+	@Override
+	public void updatePropertyMap() throws Exception {
+		// FIXME: Reconstruct the LNKI list from the link properties.
+		logger.warn("updatePropertyMap() not yet implemented.");
 	}
 
 

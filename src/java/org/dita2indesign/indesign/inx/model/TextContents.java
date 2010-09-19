@@ -19,7 +19,7 @@ import org.w3c.dom.NodeList;
  * PIs representing special characters. Maintains its content as a DOM
  * tree since that's as convenient as anything else.
  */
-public class TextContents extends InDesignComponent {
+public class TextContents extends InDesignComponentImpl {
 	
 	/**
 	 * Node list of Text and ProcessingInstruction nodes holding
@@ -29,25 +29,25 @@ public class TextContents extends InDesignComponent {
 	private String textContent;
 
 	public TextContents() {
-		
+		super();
 	}
 	
+	public void loadComponent(Element dataSource) throws Exception {
+		super.loadComponent(dataSource);
+		String rawContents = dataSource.getTextContent();
+		if (rawContents.startsWith("c_")) {
+			this.textContent = InxHelper.decodeRawValueToSingleString(rawContents);
+		} else {
+			this.textContent = rawContents;
+		}
+	}
+
 	/**
 	 * @param text
 	 */
 	public TextContents(String text) {
 		this.textContent = text;
 	}
-
-	/**
-	 * @throws InDesignDocumentException 
-	 * @override
-	 */
-	protected void componentLoad() throws Exception {
-		super.componentLoad();
-		contents = this.getDataSourceElement().getChildNodes();
-	}
-
 
 	/**
 	 * @return

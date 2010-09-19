@@ -19,22 +19,17 @@ import org.w3c.dom.Element;
 public class MasterSpread extends Spread {
 
 	Logger logger = Logger.getLogger(this.getClass());
-	String baseName;
-	String namePrefix;
 	/**
 	 * @throws Exception 
 	 * 
 	 */
 	public MasterSpread() throws Exception {
 		super();
+		setInxTagName("mspr");
 	}
 	
-	public void loadObject(Element dataSource, int spreadIndex) throws Exception {
-		super.loadObject(dataSource, spreadIndex);
-		this.baseName = getStringProperty(InDesignDocument.PROP_NMBS);
-		logger.debug(" + objectLoad(): Setting baseName to \"" + this.baseName + "\"");
-		this.namePrefix = getStringProperty(InDesignDocument.PROP_NPFX);
-		logger.debug(" + objectLoad(): Setting baseName to \"" + this.namePrefix + "\"");
+	public void loadObject(Element dataSource) throws Exception {
+		super.loadObject(dataSource);
 
 	}
 	

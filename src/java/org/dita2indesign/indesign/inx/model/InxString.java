@@ -33,5 +33,9 @@ public class InxString extends InxValue {
 	public String toEncodedString() {
 		return "c_" + this.value.replace("_", "~sep~");
 	}
+	
+	public String toString() {
+		return this.value;
+	}
 
 }

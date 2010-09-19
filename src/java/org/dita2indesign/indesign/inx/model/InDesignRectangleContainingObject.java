@@ -12,8 +12,6 @@ import org.apache.log4j.Logger;
 import org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor;
 import org.w3c.dom.Element;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 
 
 /**
@@ -42,35 +40,6 @@ public abstract class InDesignRectangleContainingObject extends InDesignGeometry
 	public InDesignRectangleContainingObject(Element dataSource) throws Exception {
 		super();
 		this.loadObject(dataSource);
-	}
-
-	/* (non-Javadoc)
-	 * @see org.dita2indesign.indesign.inx.model.AbstractInDesignObject#loadObject(org.dita2indesign.indesign.inx.model.InDesignObject)
-	 */
-	@Override
-	public void loadObject(InDesignObject sourceObj) throws Exception {
-		logger.debug("loadObject(): loading from source object " + sourceObj.getId() + ", type " + sourceObj.getClass().getSimpleName());
-		String id = this.getId(); // If ID has been assigned, we don't want to inherent
-		Element sourceElem = sourceObj.getDataSourceElement();
-		if (sourceElem != null) {
-			Element newDataSource = (Element) sourceElem.cloneNode(false); // Just get the node, not it's children
-			this.setDataSource(newDataSource);
-			// If we're a new clone, use already-assigned ID, not ID from data source.
-			if (id != null)
-				this.setId(id);
-			// Now iterate over the children of the source object and load them:
-			for (InDesignComponent childObj : sourceObj.getChildren()) {
-				if (childObj instanceof InDesignObject) {
-					InDesignComponent newObj = this.getDocument().clone((InDesignObject)childObj);
-					this.addChild(newObj);
-				} else {
-					this.addChild(childObj);
-				}
-			}
-		} else {
-			// Handle cloning of child components with no data source element.
-			throw new NotImplementedException();
-		}
 	}
 
 	public void loadObject(Element dataSource) throws Exception {
