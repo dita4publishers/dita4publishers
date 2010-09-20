@@ -9,6 +9,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 import org.apache.log4j.Logger;
+import org.dita2indesign.indesign.inx.model.InDesignComponent;
 import org.dita2indesign.indesign.inx.model.InDesignDocument;
 import org.dita2indesign.indesign.inx.model.InxHelper;
 import org.dita2indesign.indesign.inx.model.MasterSpread;
@@ -27,7 +28,6 @@ import org.w3c.dom.Element;
  */
 public class ComplexPageCreationTest extends InxReaderTestBase {
 	Logger logger = Logger.getLogger(ComplexPageCreationTest.class);
-	private InDesignDocument doc;
 	private InDesignDocument inDesignDoc;
 
 	public static Test suite() {
@@ -37,18 +37,9 @@ public class ComplexPageCreationTest extends InxReaderTestBase {
 	
 	public void setUp() throws Exception {
 		super.setUp();
-		doc = new InDesignDocument();
-		doc.load(ddgTemplate);
+		inDesignDoc = new InDesignDocument();
+		inDesignDoc.load(ddgTemplate);
 		
-		logger.info("------------------------------------------------------------------");
-		logger.info("setUp(): Cloning InDesign document " + doc.getDataSource().getDocumentURI() + "...");
-		inDesignDoc = new InDesignDocument(doc, true);
-		logger.info("setUp(): Cloning complete.");
-//		logger.info("setUp(): child objects of cloned document: " + cloned.reportChildObjects());
-		logger.info("------------------------------------------------------------------");
-		assertEquals("Object IDs should be equal", doc.getId(), inDesignDoc.getId());
-		assertEquals("Expected three master spreads", 4, inDesignDoc.getMasterSpreads().size());
-//		assertEquals("Expected zero body spreads", 0, cloned.getSpreads().size());
 		
 	}
 	
@@ -80,13 +71,23 @@ public class ComplexPageCreationTest extends InxReaderTestBase {
 		assertEquals("Frame count did not match", overrideableFrameCount, spread.getAllFrames().size());
 		assertEquals("Child count is wrong", overrideableFrameCount + spreadChildCount, spread.getChildren().size());
 		int originalChildCountAfterOverride = spread.getChildren().size();
-		
 	    
 	    // Now look for a text frame with the label "initialFrame" or
 	    // just get the first text frame in the list of frames.
 	    String targetLabel = INITIAL_FRAME_LABEL + (page.getPageSide().equals(PageSideOption.LEFT_HAND)? "Even" : "Odd");
 	    TextFrame frame = InxHelper.getFrameForLabel(spread, targetLabel);
 	    assertNotNull("Did not find frame with label \"" + INITIAL_FRAME_LABEL + "\"", frame);
+	    
+	    assertTrue("Expected some children", frame.getChildren().size() > 0);
+	    InDesignComponent wrapPrefs = null;
+	    for (InDesignComponent child : frame.getChildren()) {
+	    	if ("ctxw".equals(child.getInxTagName())) {
+	    		wrapPrefs = child;
+	    		break;
+	    	}
+	    }
+	    
+	    assertNotNull("Failed to find wrap preferences child.", wrapPrefs);
 
 	    // Make the story
 	    assertNotNull("Didn't get InCopy article resource", incopyArticle01);
