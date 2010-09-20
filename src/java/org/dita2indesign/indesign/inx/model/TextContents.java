@@ -67,7 +67,11 @@ public class TextContents extends DefaultInDesignComponent {
 			// will get parsed.
 			Document doc = builder.newDocument();
 			Element elem = doc.createElement(InDesignDocument.TXSR_TAGNAME);
-			elem.setTextContent(InxHelper.encodeString(textContent));
+			if (textContent.startsWith("e_")) { // Value is an enumeration, no need to encode it.
+				elem.setTextContent(textContent);
+			} else {
+				elem.setTextContent(InxHelper.encodeString(textContent));
+			}
 			return elem.getChildNodes();
 		}
 	}
