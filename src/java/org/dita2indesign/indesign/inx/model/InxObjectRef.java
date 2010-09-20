@@ -15,6 +15,13 @@ public class InxObjectRef extends InxString {
 		super(rawValue);
 	}
 
+	/**
+	 * @param obj
+	 */
+	public InxObjectRef(InDesignObject obj) {
+		super(obj.getId());
+	}
+
 	/* (non-Javadoc)
 	 * @see org.dita2indesign.indesign.inx.model.InxValue#toEncodedString()
 	 */

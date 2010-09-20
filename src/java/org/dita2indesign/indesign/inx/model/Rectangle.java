@@ -26,7 +26,7 @@ public class Rectangle extends InDesignRectangleContainingObject {
 	 * @see org.dita2indesign.indesign.inx.model.AbstractInDesignObject#loadObject(org.dita2indesign.indesign.inx.model.InDesignObject)
 	 */
 	@Override
-	public void loadObject(InDesignObject sourceObj, String newObjectId) throws Exception {
+	public void loadObject(InDesignComponent sourceObj, String newObjectId) throws Exception {
 		super.loadObject(sourceObj, newObjectId);
 		Rectangle sourceRect = (Rectangle)sourceObj;
 		this.geometry = sourceRect.getGeometry();

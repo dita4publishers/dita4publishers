@@ -3,9 +3,7 @@
  */
 package org.dita2indesign.indesign.inx;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -39,18 +37,6 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 	private InDesignDocument doc;
 	private InDesignDocument cloned;
 
-	public static String readFileToString(File inFile) throws Exception {
-	    BufferedReader reader = new BufferedReader(new FileReader(inFile));
-	    StringBuilder inString = new StringBuilder();
-	    String line = reader.readLine();
-	    while (line != null) {
-	    	inString.append(line);
-	    	line = reader.readLine();
-	    }
-	    String newXmlString = inString.toString();
-	    return newXmlString;
-	}
-
 	public static Test suite() {
 		TestSuite suite = new TestSuite(DocumentObjectCreationTests.class);
 		return suite;
@@ -73,12 +59,12 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		
 	}
 	
-	public void xtestCreateSpreads() throws Exception {
+	public void testCreateSpreads() throws Exception {
 	
 		
 		Spread newSpread;
 		
-		String masterSpreadName = "RT-BB Right";
+		String masterSpreadName = "RT-BB_Right";
 		newSpread = cloned.newSpread(masterSpreadName);
 		assertNotNull("New spread is null", newSpread);
 		assertNotNull("No tranformation matrix", newSpread.getTransformationMatrix());
@@ -118,12 +104,12 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		
 	}
 	
-	public void xtestOverrideMasterSpreadObjects() throws Exception {
+	public void testOverrideMasterSpreadObjects() throws Exception {
 	
 		
 		Spread newSpread;
 		
-		String masterSpreadName = "RT-BB Right";
+		String masterSpreadName = "RT-BB_Right";
 		newSpread = cloned.newSpread(masterSpreadName);
 		newSpread.setTransformationMatrix(0);
 
@@ -141,7 +127,8 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		
 		boolean foundThread = false;
 		for (TextFrame frame : newSpread.getAllFrames()) {
-			if ("Thread start".equals(frame.getLabel().trim())) {
+			String label = frame.getLabel().trim();
+			if ("Thread start".equals(label)) {
 				foundThread = true;
 				TextFrame nextInThread = frame.getNextInThread();
 				assertNotNull(nextInThread);
@@ -163,7 +150,7 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		// copied from the template document:
 		
 		Spread newSpread;		
-		String masterSpreadName = "RT-BB Right";
+		String masterSpreadName = "RT-BB_Right";
 		newSpread = cloned.newSpread(masterSpreadName);
 		MasterSpread master = cloned.getMasterSpread(masterSpreadName);
 		Page newPage = newSpread.addPage(10);
@@ -209,7 +196,7 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		
 	}
 	
-	public void xtestCreateNewRectangle() throws Exception {
+	public void testCreateNewRectangle() throws Exception {
 		Rectangle rect;
 		
 		rect = cloned.newRectangle();
@@ -221,7 +208,7 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		
 	}
 	
-	public void xtestCreateNewImage() throws Exception {
+	public void testCreateNewImage() throws Exception {
 		Image image = doc.newImage();
 		assertNotNull("Got a null image", image);
 		Link link = doc.newLink();

@@ -73,6 +73,7 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	 */
 	public void visit(InDesignDocument doc) throws Exception {
 		logger.debug("visit(): Starting...");
+		doc.updatePropertyMap();
 		if (doc.getDataSource() != null) {
 			logger.debug("visit(): Document has a data source...");
 			Element docElem = doc.getDataSource().getDocumentElement();
@@ -153,7 +154,7 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	 * @param myElement
 	 * @throws Exception 
 	 */
-	private void setPNameAttribute(InDesignObject obj, Element myElement) throws Exception {
+	private void setPNameAttribute(InDesignComponent obj, Element myElement) throws Exception {
 		String pName = obj.getPName();
 		if (pName != null) {
 			myElement.setAttribute(InDesignDocument.PROP_PNAM, InxHelper.encodeString(pName));
@@ -165,17 +166,12 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	 */
 	public void visit(TextFrame frame)  throws Exception {
 		Element elem = processInDesignObject(frame);
-		if (frame.isModified()) {
-			elem = currentParentNode.getOwnerDocument().createElement(InDesignDocument.TXTF_TAGNAME);
-			elem = processInDesignObject(frame);
-			setGeometryAttribute(frame, elem);
-			elem.setAttribute(InDesignDocument.PROP_STRP, constructObjectReference(frame.getParentStory()));
-			elem.setAttribute(InDesignDocument.PROP_FTXF, constructObjectReference(frame));
-			elem.setAttribute(InDesignDocument.PROP_LTXF, constructObjectReference(frame));
-			elem.setAttribute(InDesignDocument.PROP_NTXF, constructObjectReference(frame.getNextInThread()));
-			elem.setAttribute(InDesignDocument.PROP_PTXF, constructObjectReference(frame.getPreviousInThread()));
-		}
-		elem = (Element)currentParentNode.appendChild(elem);
+		setGeometryAttribute(frame, elem);
+		elem.setAttribute(InDesignDocument.PROP_STRP, constructObjectReference(frame.getParentStory()));
+		elem.setAttribute(InDesignDocument.PROP_FTXF, constructObjectReference(frame));
+		elem.setAttribute(InDesignDocument.PROP_LTXF, constructObjectReference(frame));
+		elem.setAttribute(InDesignDocument.PROP_NTXF, constructObjectReference(frame.getNextInThread()));
+		elem.setAttribute(InDesignDocument.PROP_PTXF, constructObjectReference(frame.getPreviousInThread()));
 		currentParentNode = elem.getParentNode();
 	}
 
@@ -202,10 +198,6 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 		logger.debug("visit(Spread): Starting...");
 		Element elem = processInDesignObject(spread);
 
-		currentParentNode = elem;
-		for (Page page : spread.getPages()) {
-			page.accept(this);
-		}
 		currentParentNode = elem.getParentNode();
 		
 	}
@@ -214,7 +206,7 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	 * @param obj
 	 * @param elem
 	 */
-	private void setLabelAttribute(InDesignObject obj, Element elem) {
+	private void setLabelAttribute(InDesignComponent obj, Element elem) {
 		int lblcnt = 0;
 		// FIXME: This encoding should really be handled more generically by the InxHelper
 		//        class.
@@ -305,7 +297,7 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	 * @see org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor#visit(org.dita2indesign.indesign.inx.model.DocumentPreferences)
 	 */
 	public void visit(DocumentPreferences prefs)  throws Exception {
-		visit((InDesignObject)prefs);
+		visit((InDesignComponent)prefs);
 	}
 
 	/* (non-Javadoc)

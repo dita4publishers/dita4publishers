@@ -21,6 +21,13 @@ public class InxInteger extends InxValue {
 		// this.value = Integer.parseInt(rawValue, 16);
 	}
 
+	/**
+	 * @param intValue
+	 */
+	public InxInteger(int intValue) {
+		this.value = intValue;
+	}
+
 	/* (non-Javadoc)
 	 * @see org.dita2indesign.indesign.inx.model.InxValue#getValue()
 	 */

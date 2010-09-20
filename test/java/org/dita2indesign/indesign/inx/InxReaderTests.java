@@ -15,7 +15,6 @@ import org.dita2indesign.indesign.inx.model.DocumentPreferences;
 import org.dita2indesign.indesign.inx.model.Geometry;
 import org.dita2indesign.indesign.inx.model.InDesignComponent;
 import org.dita2indesign.indesign.inx.model.InDesignDocument;
-import org.dita2indesign.indesign.inx.model.InDesignObject;
 import org.dita2indesign.indesign.inx.model.MasterSpread;
 import org.dita2indesign.indesign.inx.model.Page;
 import org.dita2indesign.indesign.inx.model.PageSideOption;
@@ -87,11 +86,11 @@ public class InxReaderTests extends InxReaderTestBase
 	 * masters.
 	 * @throws Throwable
 	 */
-	public void xtestFrameProperities() throws Throwable {
+	public void testFrameProperities() throws Throwable {
 		InDesignDocument doc = new InDesignDocument();
 		Spread spread;
 		List<TextFrame> frames;
-		InDesignObject frame;
+		InDesignComponent frame;
 
 		doc = new InDesignDocument();
 		doc.load(geoTest);
@@ -157,7 +156,7 @@ public class InxReaderTests extends InxReaderTestBase
 		
 	}
 	
-	public void xtestBoxOperations() throws Exception {
+	public void testBoxOperations() throws Exception {
 		
 		// Values are left, top, right bottom, defining
 		// the positions of the four sides.
@@ -198,7 +197,7 @@ public class InxReaderTests extends InxReaderTestBase
 	 * masters.
 	 * @throws Throwable
 	 */
-	public void xtestGetPageMasterFrames() throws Throwable {
+	public void testGetPageMasterFrames() throws Throwable {
 		InDesignDocument doc = new InDesignDocument();
 		doc.load(inxData2);
 		Set<String> masterNames = doc.getPageMasterNames();
@@ -233,7 +232,7 @@ public class InxReaderTests extends InxReaderTestBase
 
 	}
 	
-	public void xtestGeometry() throws Exception {
+	public void testGeometry() throws Exception {
 		Geometry geo = new Geometry(iGeo);
 		// Expect one path
 		List<Path> paths = geo.getPaths();

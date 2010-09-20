@@ -8,12 +8,12 @@ import org.w3c.dom.Element;
 /**
  * Generic object for which no special business logic is implemented.
  */
-public class InDesignObjectImpl extends InDesignObject {
+public class DefaultInDesignObject extends InDesignObject {
 
 	/**
 	 * 
 	 */
-	public InDesignObjectImpl() {
+	public DefaultInDesignObject() {
 		super();
 	}
 
@@ -21,7 +21,7 @@ public class InDesignObjectImpl extends InDesignObject {
 	 * @param dataSource
 	 * @throws Exception
 	 */
-	public InDesignObjectImpl(Element dataSource) throws Exception {
+	public DefaultInDesignObject(Element dataSource) throws Exception {
 		super(dataSource);
 	}
 
@@ -30,7 +30,7 @@ public class InDesignObjectImpl extends InDesignObject {
 	 */
 	@Override
 	public void updatePropertyMap() throws Exception {
-		// Nothing to do for generic objects.
+		super.updatePropertyMap();
 	}
 
 }

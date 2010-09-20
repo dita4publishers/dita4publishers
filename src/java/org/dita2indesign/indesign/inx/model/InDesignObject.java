@@ -3,8 +3,6 @@
  */
 package org.dita2indesign.indesign.inx.model;
 
-import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.w3c.dom.Element;
@@ -17,12 +15,10 @@ import org.w3c.dom.Element;
  * 
  * Used for objects for which no more specific class is available.
  */
-public abstract class InDesignObject extends InDesignComponent {
+public abstract class InDesignObject extends DefaultInDesignComponent {
 
 	private static Logger logger = Logger.getLogger(InDesignObject.class);
 	private String id;
-	protected Map<String, String> tags = new HashMap<String, String>();
-
 	/**
 	 * 
 	 */
@@ -37,33 +33,6 @@ public abstract class InDesignObject extends InDesignComponent {
 	public InDesignObject(Element dataSource) throws Exception {
 		logger.debug("Constructing a new InDesignObject from data source " + dataSource.getNodeName() + "...");
 		this.loadObject(dataSource);
-	}
-
-	/**
-	 * @param label
-	 * @param value
-	 */
-	public void insertLabel(String label, String value) {
-		this.tags.put(label, value);
-		
-	}
-
-	/**
-	 * @param label
-	 * @return
-	 */
-	public String extractLabel(String label) {
-		if (this.tags.containsKey(label)) {
-			return this.tags.get(label);
-		}
-		return null;
-	}
-
-	/**
-	 * @return
-	 */
-	public Map<String, String> getLabels() {
-		return this.tags;
 	}
 
 	/**
@@ -82,16 +51,16 @@ public abstract class InDesignObject extends InDesignComponent {
 		super.loadComponent(dataSource);
 	}
 
-	public void loadObject(InDesignObject sourceObj, String newObjectId) throws Exception {
-		loadComponent((InDesignComponent)sourceObj);
-		this.setId(newObjectId);
-	}
-
 	/**
-	 * @return
+	 * Load an object from an existing object, assigning the new object ID.
+	 * @param sourceObj
+	 * @param newObjectId
+	 * @throws Exception
 	 */
-	public String getLabel() {
-		return this.tags.get(InDesignDocument.TAG_KEY_LABEL);
+	public void loadObject(InDesignComponent sourceObj, String newObjectId) throws Exception {
+		loadComponent((InDesignComponent)sourceObj);
+		
+		this.setId(newObjectId);
 	}
 
 	/**

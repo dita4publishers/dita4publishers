@@ -15,6 +15,8 @@ public class Group extends InDesignRectangleContainingObject {
 	 */
 	public Group() throws Exception {
 		super();
+		this.setInxTagName("grop");
+
 	}
 
 	/**

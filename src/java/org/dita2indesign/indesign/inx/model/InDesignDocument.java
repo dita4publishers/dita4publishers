@@ -142,6 +142,8 @@ public class InDesignDocument extends InDesignObject {
 
 	public static final String PROP_OVRL = "ovrl";
 
+	public static final String PROP_PMAS = "pmas";
+
 	private static final Map<String, Class<? extends InDesignObject>> tagToObjectClassMap = new HashMap<String, Class<? extends InDesignObject>>();
 
 	private static final Map<String, Class<? extends InDesignComponent>> tagToComponentClassMap = new HashMap<String, Class<? extends InDesignComponent>>();
@@ -335,13 +337,15 @@ public class InDesignDocument extends InDesignObject {
 	 * @return
 	 * @throws Exception 
 	 */
-	private InDesignComponent newSpread(Class<? extends Spread> clazz, Element child) throws Exception {
+	private Spread newSpread(Class<? extends Spread> clazz, Element child) throws Exception {
 		Spread obj = (Spread) newObject(clazz, child);
 		this.addChild(obj);
 		// The spreadIndex parameter is zero-index 
 		// for spread in list of spreads.
 		obj.setSpreadIndex(spreads.size());
-		this.spreads.add(obj);
+		if (!(obj instanceof MasterSpread)) {
+			this.spreads.add(obj);
+		}
 		obj.postLoad();
 		return obj;
 	}
@@ -357,14 +361,14 @@ public class InDesignDocument extends InDesignObject {
 		if (child.hasAttribute(PROP_SELF)) {
 			Class<? extends InDesignObject> objectClass = tagToObjectClassMap.get(child.getNodeName());
 			if (objectClass == null)
-				objectClass = InDesignObjectImpl.class;
+				objectClass = DefaultInDesignObject.class;
 			InDesignObject newObject = (InDesignObject)newObject(objectClass, child);
 			logger.debug("newInDesignObject():   New object has ID [" + newObject.getId() + "]");
 			return newObject;
 		} else {
 			Class<? extends InDesignComponent> objectClass = tagToComponentClassMap.get(child.getNodeName());
 			if (objectClass == null)
-				objectClass = InDesignComponentImpl.class;
+				objectClass = DefaultInDesignComponent.class;
 			return newComponent(objectClass, child);
 			
 		}
@@ -485,6 +489,13 @@ public class InDesignDocument extends InDesignObject {
 		assignIdAndRegister(newSpread);
 		newSpread.setParent(this);
 		MasterSpread masterSpread = this.getMasterSpread(masterSpreadName);
+		if (masterSpread == null) {
+			logger.info("Master spread \"" + masterSpreadName + "\" not found. Master spreads: ");
+			for (String key : this.masterSpreads.keySet()) {
+				logger.info(" \"" + key + "\"");
+			}
+			throw new Exception("Failed to find master spread \"" + masterSpreadName + "\"");
+		}
 		newSpread.setMasterSpread(masterSpread);
 		newSpread.setTransformationMatrix(this.spreads.size());
 		this.spreads.add(newSpread);
@@ -499,7 +510,7 @@ public class InDesignDocument extends InDesignObject {
      * @return
      * @throws Exception 
      */
-    public InDesignComponent addSpread(String masterSpreadName) throws Exception {
+    public Spread addSpread(String masterSpreadName) throws Exception {
         Spread spread = new Spread();
         assignIdAndRegister(spread);
         spread.setParent(this);
@@ -576,6 +587,24 @@ public class InDesignDocument extends InDesignObject {
 	 * @return The clone of the object.
 	 * @throws Exception 
 	 */
+	public InDesignComponent clone(InDesignComponent sourceComp) throws Exception {
+		if (sourceComp instanceof InDesignObject) {
+			return clone((InDesignObject)sourceComp);
+		}
+
+		logger.debug("Cloning component " + sourceComp.getClass().getSimpleName());
+		InDesignComponent clone = sourceComp.getClass().newInstance();
+		clone.setDocument(this);
+		clone.loadComponent(sourceComp);
+		return clone;
+	}
+
+	/**
+	 * Unconditionally clone an InDesign Object.
+	 * @param sourceObj
+	 * @return The clone of the object.
+	 * @throws Exception 
+	 */
 	public InDesignComponent clone(InDesignObject sourceObj) throws Exception {
 		logger.debug("Cloning object " + sourceObj.getClass().getSimpleName() + " [" + sourceObj.getId() + "]...");
 		InDesignObject clone = sourceObj.getClass().newInstance();
@@ -585,7 +614,6 @@ public class InDesignDocument extends InDesignObject {
 		Map<String, InDesignObject> cloneMap = getCloneMapForDoc(sourceObj.getDocument());
 		cloneMap.put(sourceObj.getId(), clone);
 		clone.loadObject(sourceObj, clone.getId());
-		clone.markAsModified();
 		return clone;
 	}
 
@@ -652,10 +680,15 @@ public class InDesignDocument extends InDesignObject {
 			logger.debug("newObject():   From element " + dataSource.getNodeName() + "...");
 			obj.loadObject(dataSource);
 			String selfValue = dataSource.getAttribute(PROP_SELF);
-			String id = InxHelper.decodeRawValueToSingleString(selfValue);
-			obj.setId(id);
+			if (selfValue != null && !"".equals(selfValue.trim())) {
+				String id = InxHelper.decodeRawValueToSingleString(selfValue);
+				obj.setId(id);
+				this.registerObject(obj);
+			} else {
+				assignIdAndRegister(obj);
+			}
+			
 		}
-		this.registerObject(obj);
 		logger.debug("newObject(): New object has ID [" + obj.getId() + "]");
 		return obj;
 	}
@@ -785,7 +818,7 @@ public class InDesignDocument extends InDesignObject {
      * @return
      * @throws Exception 
      */
-    public InDesignComponent newTextFrame() throws Exception {
+    public TextFrame newTextFrame() throws Exception {
         TextFrame frame = new TextFrame();
         assignIdAndRegister(frame);
         this.newStory(frame);
@@ -860,7 +893,8 @@ public class InDesignDocument extends InDesignObject {
 	 */
 	@Override
 	public void updatePropertyMap() throws Exception {
-		// Anything to do?
+		InxObjectList storyList = new InxObjectList(this.stories);
+		this.setProperty("stls", storyList);
 	}
 
 

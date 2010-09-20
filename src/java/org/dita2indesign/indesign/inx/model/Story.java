@@ -26,6 +26,7 @@ public class Story extends InDesignObject {
 	 */
 	public Story() {
 		super();
+		this.setInxTagName("cflo");
 	}
 	
 	public void loadObject(Element dataSource) throws Exception {

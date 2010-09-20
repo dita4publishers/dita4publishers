@@ -24,8 +24,8 @@ public abstract class InDesignComponent {
 	private List<InDesignComponent> childObjects = new ArrayList<InDesignComponent>();
 	private Map<String, InxValue> properties = new HashMap<String, InxValue>();
 	private InDesignDocument document;
-	private boolean isModified = false;
 	private String inxTagname = null;
+	protected Map<String, String> tags = new HashMap<String, String>();
 
 	/**
 	 * Load any subcomponents of the component.
@@ -46,6 +46,25 @@ public abstract class InDesignComponent {
 			 this.addChild(obj);
 		}
 		
+		setTagsFromPtagProperty();
+		
+	}
+
+	/**
+	 * @throws Exception
+	 */
+	protected void setTagsFromPtagProperty() throws Exception {
+		// Value is a list of lists, each sublist being a key/value pair.
+		InxValueList propValue = (InxValueList)getPropertyValue(InDesignDocument.PROP_PTAG);
+		if (propValue != null) {
+			Iterator<InxValue> iter = ((InxValueList)propValue).getItems().iterator();
+			while (iter.hasNext()) {
+				InxValueList tag = (InxValueList)iter.next();
+				String label = tag.getItems().get(0).toString();
+				String value = tag.getItems().get(1).toString();
+				this.tags.put(label, value);
+			}
+		}
 	}
 
 	/**
@@ -53,7 +72,7 @@ public abstract class InDesignComponent {
 	 * @throws Exception 
 	 */
 	private void loadPropertiesFromDataSource(Element dataSource) throws Exception {
-		this.inxTagname = dataSource.getLocalName();
+		this.inxTagname = dataSource.getNodeName();
 		NamedNodeMap atts = dataSource.getAttributes();
 		for (int i = 0; i < atts.getLength(); i++) {
 			Attr att = (Attr)atts.item(i);
@@ -69,23 +88,11 @@ public abstract class InDesignComponent {
 		}
 	}
 	
-	public void loadPropertiesFromComponent(InDesignComponent sourceComp) {
-		
-	}
-
 	/**
 	 * @param run
 	 */
 	public void addChild(InDesignComponent child) {
 		this.childObjects.add(child);
-		child.setParent(this);
-	}
-
-	/**
-	 * @param run
-	 */
-	protected void addChild(InDesignObject child) {
-		addChild((InDesignComponent)child);
 		child.setParent(this);
 	}
 
@@ -270,24 +277,6 @@ public abstract class InDesignComponent {
 		return this.childObjects;
 	}
 
-	/**
-	 * Indicates the object is either entirely new or has been modified since it
-	 * was loaded.
-	 */
-	public void markAsModified() {
-		this.isModified = true;
-	}
-
-	/**
-	 * Indicates whether or not the object has been modified since load, and therefore
-	 * whether or not a writer can just echo out the original datasource or must
-	 * reconstruct the object entirely.
-	 * @return
-	 */
-	public boolean isModified() {
-		return isModified;
-	}
-
 	public void setStringProperty(String propName, String value) {
 		InxString inxValue = new InxString(value);
 		this.properties.put(propName, inxValue);
@@ -346,12 +335,17 @@ public abstract class InDesignComponent {
 
 	/**
 	 * @param sourceObj
+	 * @throws Exception 
 	 */
-	protected void loadComponent(InDesignComponent sourceObj) {
+	protected void loadComponent(InDesignComponent sourceObj) throws Exception {
 		if (sourceObj != null) {
 			for (String propName : sourceObj.getPropertyMap().keySet()) {
 				this.setProperty(propName, sourceObj.getPropertyValue(propName));
 			}
+		}
+		setTagsFromPtagProperty();
+		for (InDesignComponent child : sourceObj.getChildren()) {
+			InDesignComponent newChild = this.getDocument().clone(child);
 		}
 	}
 
@@ -387,6 +381,61 @@ public abstract class InDesignComponent {
 	 */
 	protected void setPName(String name) {
 		this.setStringProperty(InDesignDocument.PROP_PNAM, name);
+	}
+
+	/**
+	 * Set a property that is a reference to an object.
+	 * @param propName
+	 * @param targetObj
+	 */
+	public void setObjectReferenceProperty(String propName, InDesignObject targetObj) {		
+		InxValue objRef = new InxObjectRef((targetObj != null ? targetObj.getId() : "n"));
+		setProperty(propName, objRef);
+	}
+
+	/**
+	 * @param label
+	 * @param value
+	 */
+	public void insertLabel(String label, String value) {
+		this.tags.put(label, value);
+		
+	}
+
+	/**
+	 * @param label
+	 * @return
+	 */
+	public String extractLabel(String label) {
+		if (this.tags.containsKey(label)) {
+			return this.tags.get(label);
+		}
+		return null;
+	}
+
+	/**
+	 * @return
+	 */
+	public Map<String, String> getLabels() {
+		return this.tags;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getLabel() {
+		String label = this.tags.get(InDesignDocument.TAG_KEY_LABEL);
+		if (label == null) label = "";
+		return label;
+	}
+
+	/**
+	 * Returns true if the component is marked as overrideable.
+	 * @return True if component can be overridden.
+	 * @throws Exception 
+	 */
+	public boolean isOverrideable() throws Exception {
+		return getBooleanProperty("ovbl");
 	}
 
 

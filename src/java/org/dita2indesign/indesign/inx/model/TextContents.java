@@ -19,7 +19,7 @@ import org.w3c.dom.NodeList;
  * PIs representing special characters. Maintains its content as a DOM
  * tree since that's as convenient as anything else.
  */
-public class TextContents extends InDesignComponentImpl {
+public class TextContents extends DefaultInDesignComponent {
 	
 	/**
 	 * Node list of Text and ProcessingInstruction nodes holding

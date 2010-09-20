@@ -96,6 +96,7 @@ public class Spread extends InDesignRectangleContainingObject {
 		this.pagesById.put(page.getId(), page);
 		this.pagesByName.put(page.getName(), page);
 		this.pages.add(page);
+		this.addChild(page);
 		setPageSide(page);
 		return page;
 	}
@@ -336,6 +337,7 @@ public class Spread extends InDesignRectangleContainingObject {
 		this.pagesById.put(page.getId(), page);
 		this.pagesByName.put(page.getPName(), page);
 		this.pages.add(page);
+		this.addChild(page);
 		this.pageCount = this.pages.size();
 		return page;
 	}
@@ -359,14 +361,20 @@ public class Spread extends InDesignRectangleContainingObject {
 		Map<TextFrame, TextFrame> masterToOverride = new HashMap<TextFrame, TextFrame>();
 		
 		for (InDesignComponent comp : this.masterSpread.getChildren()) {
-			if (comp.getBooleanProperty("ovbl")) {
+			if (comp.isOverrideable()) {
 				if (comp instanceof InDesignObject) {
 					InDesignObject idObj = (InDesignObject)comp;
 					if (idObj instanceof TextFrame) {
 						TextFrame masterFrame = (TextFrame)idObj;
+						Story masterStory = masterFrame.getParentStory();
+						Story clonedStory = null;
+						if (masterStory != null) {
+							clonedStory = (Story)this.getDocument().clone(masterStory);
+						}
 						TextFrame overrideFrame = (TextFrame)doc.clone(masterFrame);
+						overrideFrame.setParentStory(clonedStory); 
 						overrideFrame.setMasterFrame(masterFrame);
-						masterToOverride.put(masterFrame, overrideFrame);
+						masterToOverride.put(masterFrame, overrideFrame);						
 						this.addRectangle(overrideFrame);
 					} else if (idObj instanceof Rectangle) {					
 						this.addRectangle((Rectangle)(doc.clone(idObj)));
@@ -395,6 +403,16 @@ public class Spread extends InDesignRectangleContainingObject {
 		logger.debug("loadObject(): Assigning rectangles to pages()");
 		assignRectanglesToPages();
 	}
+	
+	/* (non-Javadoc)
+	 * @see org.dita2indesign.indesign.inx.model.InDesignComponent#updatePropertyMap()
+	 */
+	@Override
+	public void updatePropertyMap() throws Exception {
+		super.updatePropertyMap();
+	}
+
+
 
 
 

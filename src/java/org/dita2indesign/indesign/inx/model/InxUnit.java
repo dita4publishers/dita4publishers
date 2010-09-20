@@ -3,6 +3,7 @@
  */
 package org.dita2indesign.indesign.inx.model;
 
+
 /**
  * A unit of measurement (points).
  */
@@ -22,5 +23,8 @@ public class InxUnit extends InxDouble {
 		super(d);
 	}
 
+	public String toEncodedString() {
+		return "U_" + Double.toString(this.getValue());
+	}
 
 }

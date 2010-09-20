@@ -4,7 +4,6 @@
 package org.dita2indesign.indesign.inx.model;
 
 import java.util.Iterator;
-import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor;
@@ -141,6 +140,16 @@ public class Page extends InDesignRectangleContainingObject {
 		MasterSpread masterSpread = ((Spread)this.getParent()).getMasterSpread();
 		return masterSpread;
 	}
+
+	/* (non-Javadoc)
+	 * @see org.dita2indesign.indesign.inx.model.InDesignComponent#updatePropertyMap()
+	 */
+	@Override
+	public void updatePropertyMap() throws Exception {
+		super.updatePropertyMap();
+		this.setObjectReferenceProperty(InDesignDocument.PROP_PMAS, getMasterSpread());
+	}
+
 
 
 

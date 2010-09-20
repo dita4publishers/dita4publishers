@@ -10,7 +10,7 @@ import java.util.List;
  * Contains the text wrapping preferences for things around which
  * text can wrap.
  */
-public class TextWrapPreferences extends InDesignComponentImpl {
+public class TextWrapPreferences extends DefaultInDesignComponent {
 	
 	boolean applyToMasterPageOnly = false;
 	ContourOption contourOption = new ContourOption();
@@ -24,6 +24,10 @@ public class TextWrapPreferences extends InDesignComponentImpl {
     	textWrapOffset.add(new InxUnit(0.0));
     }
 
+    public TextWrapPreferences() throws Exception {
+    	super();
+    	setInxTagName("ctxw");
+    }
 	/**
 	 * @return the applyToMasterPageOnly
 	 */

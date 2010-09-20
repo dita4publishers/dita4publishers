@@ -10,12 +10,13 @@ import org.w3c.dom.Element;
 /**
  * Represents a range of text with specific formatting characteristics.
  */
-public class TextStyleRange extends InDesignComponentImpl {
+public class TextStyleRange extends DefaultInDesignComponent {
 
 	
 	
 	public TextStyleRange() throws Exception {
 		super();
+		setInxTagName("txsr");
 	}
 
 	/**

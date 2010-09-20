@@ -17,6 +17,7 @@ public class Image extends InDesignGeometryHavingObject {
 	 */
 	public Image() throws Exception {
 		super();
+		setInxTagName("imag");
 	}
 
 	private InDesignComponent itemLink = null;

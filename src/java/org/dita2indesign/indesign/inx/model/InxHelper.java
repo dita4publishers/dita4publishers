@@ -3,12 +3,24 @@
  */
 package org.dita2indesign.indesign.inx.model;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.apache.log4j.Logger;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 /**
  * Provides utility methods for dealing with the messy details of INX markup.
@@ -381,5 +393,67 @@ public class InxHelper {
 		return "b_f";
 	}
 
+	/**
+	 * Finds the first text frame within a spread with the specified label.
+	 * @param spread Spread to look in for the text frame.
+	 * @param targetLabel The label to look for.
+	 * @return Text frame with the label, or null if the text frame is not found.
+	 */
+	public static TextFrame getFrameForLabel(Spread spread, String targetLabel) {
+		TextFrame frame = null;
+	    for (TextFrame candFrame : spread.getAllFrames()) {
+	    	String label = candFrame.getLabel();
+	    	if (targetLabel.equals(label)) {
+	    		frame = candFrame;
+	    		break;
+	    	}
+	    }
+		return frame;
+	}
+
+
+	/**
+	 * @param inDesignDoc
+	 * @param incxFile
+	 * @return
+	 * @throws ParserConfigurationException
+	 * @throws SAXException
+	 * @throws IOException
+	 * @throws Exception
+	 */
+	public static Story getStoryForIncxDoc(InDesignDocument inDesignDoc, File incxFile)
+			throws ParserConfigurationException, SAXException, IOException,
+			Exception {
+		return getStoryForIncxDoc(inDesignDoc, incxFile.toURI());
+	}
+
+
+	/**
+	 * Given the URI of an INCX (InCopy) article, parses it and returns the first story
+	 * in the document.
+	 * @param inDesignDoc
+	 * @param incxFile
+	 * @return
+	 * @throws ParserConfigurationException
+	 * @throws SAXException
+	 * @throws IOException
+	 * @throws Exception
+	 */
+	public static Story getStoryForIncxDoc(InDesignDocument inDesignDoc, URI incxResource)
+			throws ParserConfigurationException, SAXException, IOException,
+			Exception {
+		InputSource inputSource = new InputSource(incxResource.toURL().openStream());
+		inputSource.setSystemId(incxResource.toString());
+		
+		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+	    DocumentBuilder db = dbf.newDocumentBuilder();
+	    Document doc = db.parse(inputSource);
+	    NodeList cflos = doc.getElementsByTagName("cflo");
+	    Element cfloElem = (Element) cflos.item(0);
+	    cfloElem.removeAttribute(InDesignDocument.PROP_SELF); // Force assignment of new object ID.
+        Story incxStory = inDesignDoc.newStory(cfloElem);
+		return incxStory;
+	}
+	
 
 }

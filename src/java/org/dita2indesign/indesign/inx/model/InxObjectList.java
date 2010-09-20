@@ -3,6 +3,8 @@
  */
 package org.dita2indesign.indesign.inx.model;
 
+import java.util.List;
+
 /**
  * A list of object references.
  */
@@ -23,6 +25,16 @@ public class InxObjectList extends InxValueList {
 		super();
 	}
 	
+	/**
+	 * @param stories
+	 */
+	public InxObjectList(List<? extends InDesignObject> objects) {
+		for (InDesignObject obj : objects) {
+			InxObjectRef objRef = new InxObjectRef(obj);
+			this.add(objRef);
+		}
+	}
+
 	public String toEncodedString() {
 		String typeCode = "y";
 		return encodeListAsString(typeCode);

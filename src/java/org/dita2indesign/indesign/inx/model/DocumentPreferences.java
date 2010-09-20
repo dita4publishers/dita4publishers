@@ -11,26 +11,9 @@ import org.w3c.dom.Element;
 /**
  * Holds the document-level preferences, such as page size.
  */
-public class DocumentPreferences extends InDesignObject {
+public class DocumentPreferences extends DefaultInDesignComponent {
 	
 	private static Logger logger = Logger.getLogger(DocumentPreferences.class);
-
-
-	/**
-	 * @param dataSource
-	 * @throws InDesignDocumentException 
-	 */
-	public void loadObject(Element dataSource) throws Exception {
-		super.loadObject(dataSource);
-		/*
-		 * <docp phgt="U_2400" pwdt="U_1200" cclr="e_iVlt" mclr="e_iMgn" nump="l_1" 
-		 * ppsd="b_t" bldt="U_18" bldb="U_18" bldi="U_18" bldo="U_18" bldu="b_t" 
-		 * slgt="U_0" slgb="U_0" slgi="U_0" slgo="U_0" slgu="b_f" PrSl="b_t" Shfl="b_t" 
-		 * oprb="b_t" pbin="e_ltrb" cold="e_horz" clok="b_t" MsTx="b_t" Self="rc_ddocp1"/>
-		 */
-		// FIXME: Add remaining properties here.
-	}
-
 
 
 	/**

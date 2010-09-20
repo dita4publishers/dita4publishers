@@ -23,13 +23,15 @@ public class TextFrame extends Rectangle {
 	 */
 	public TextFrame() throws Exception {
 		super();
+		this.setInxTagName("txtf");
+
 	}
 
 	/* (non-Javadoc)
 	 * @see org.dita2indesign.indesign.inx.model.AbstractInDesignObject#loadObject(org.dita2indesign.indesign.inx.model.InDesignObject)
 	 */
 	@Override
-	public void loadObject(InDesignObject sourceObj, String newObjectId) throws Exception {
+	public void loadObject(InDesignComponent sourceObj, String newObjectId) throws Exception {
 		super.loadObject(sourceObj, newObjectId);
 		TextFrame sourceFrame = (TextFrame)sourceObj;
 		Story sourceParentStory = sourceFrame.getParentStory();
@@ -51,7 +53,11 @@ public class TextFrame extends Rectangle {
 	
 	public Story setParentStory(Story parentStory) throws Exception {
 		this.parentStory = parentStory;
-		this.parentStoryId = parentStory.getId();
+		if (parentStory != null) {
+			this.parentStoryId = parentStory.getId();
+		} else {
+			this.parentStoryId = null;
+		}
 		TextFrame nextInThread = this.getNextInThread();
 		if (nextInThread != null) {
 			nextInThread.setParentStory(parentStory);
@@ -134,6 +140,16 @@ public class TextFrame extends Rectangle {
 		return this.previousInThread;
 	}
 
+	/* (non-Javadoc)
+	 * @see org.dita2indesign.indesign.inx.model.InDesignComponent#updatePropertyMap()
+	 */
+	@Override
+	public void updatePropertyMap() throws Exception {
+		super.updatePropertyMap();
+		this.setObjectReferenceProperty(InDesignDocument.PROP_NTXF, this.nextInThread);
+		this.setObjectReferenceProperty(InDesignDocument.PROP_PTXF, this.previousInThread);
+		this.setObjectReferenceProperty(InDesignDocument.PROP_STRP, this.parentStory);
+	}
 
 
 

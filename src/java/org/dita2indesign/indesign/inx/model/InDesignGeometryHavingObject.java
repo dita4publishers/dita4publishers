@@ -10,7 +10,7 @@ import org.w3c.dom.Element;
  * Superclass for types that have a geometry property, e.g., rectangles,
  * pages, images.
  */
-public abstract class InDesignGeometryHavingObject extends InDesignObject {
+public abstract class InDesignGeometryHavingObject extends DefaultInDesignObject {
 	
 	static Logger logger = Logger.getLogger(InDesignGeometryHavingObject.class);
 
@@ -151,6 +151,7 @@ public abstract class InDesignGeometryHavingObject extends InDesignObject {
 	 * @see org.dita2indesign.indesign.inx.model.InDesignComponent#updatePropertyMap()
 	 */
 	public void updatePropertyMap() throws Exception {
+		super.updatePropertyMap();
 		this.setGeometryProperty("IGeo", this.getGeometry());
 
 	}
