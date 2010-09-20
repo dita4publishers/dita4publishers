@@ -163,7 +163,7 @@ public class InxHelper {
 		case 'c':
 		case 'k': // Enumeration value, but for our purposes, treat as a string.
 		case 'e': // Enumeration value, but for our purposes, treat as a string.
-			return new InxString(valueStr);
+			return new InxEnumeration(valueStr);
 		case 'T':
 			return new InxDate(valueStr);
 		case 'o':

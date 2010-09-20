@@ -338,6 +338,7 @@ public abstract class InDesignComponent {
 	 * @throws Exception 
 	 */
 	protected void loadComponent(InDesignComponent sourceObj) throws Exception {
+		this.inxTagname = sourceObj.getInxTagName();
 		if (sourceObj != null) {
 			for (String propName : sourceObj.getPropertyMap().keySet()) {
 				this.setProperty(propName, sourceObj.getPropertyValue(propName));
@@ -346,6 +347,7 @@ public abstract class InDesignComponent {
 		setTagsFromPtagProperty();
 		for (InDesignComponent child : sourceObj.getChildren()) {
 			InDesignComponent newChild = this.getDocument().clone(child);
+			this.childObjects.add(newChild);
 		}
 	}
 
