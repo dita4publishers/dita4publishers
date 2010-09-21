@@ -1,16 +1,19 @@
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/"
+
   xmlns:df="http://dita2indesign.org/dita/functions" xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:kindleutil="http://dita4publishers.org/functions/kindleutil"
   xmlns:index-terms="http://dita4publishers.org/index-terms"
-  xmlns="http://www.daisy.org/z3986/2005/ncx/" xmlns:local="urn:functions:local"
+
+  xmlns:local="urn:functions:local"
+  
+  xmlns="http://www.w3.org/1999/xhtml"
+  
   exclude-result-prefixes="local xs df xsl relpath kindleutil index-terms">
 
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   <xsl:import href="kindle-generation-utils.xsl"/>
-
 
   <xsl:output indent="yes" name="html" method="html"/>
 
@@ -31,10 +34,9 @@
     <xsl:message> + [INFO] Constructing effective ToC structure for HTML ToC...</xsl:message>
 
     <!-- Build the ToC tree so we can then calculate the playorder of the navitems. -->
+
     <xsl:variable name="navmap" as="element()">
-      <!-- kindlegen does not like the ncx prefix -->
-      <!--<ncx:navMap>-->
-      <!--<navMap>-->
+
         <div class="main">
         <xsl:choose>
           <xsl:when test="$pubTitle != ''">
@@ -57,44 +59,35 @@
         <xsl:if test="$index-terms/index-terms:index-term">
           <xsl:message> + [DEBUG] found index terms, adding navpoint to generated
             index...</xsl:message>
-          <!-- ================================= -->
-          <!-- adding div to see if it will work -->
-          <!-- commenting out navPoint to see if it breaks anything -->
-          <!-- I do not see this showing up in the html toc at all, because no evidence of the paragraphs below -->
-          <!--<navPoint id="{generate-id($index-terms)}">-->
           <div class="navPoint" id="{generate-id($index-terms)}">
-            <!--<p>This is contained in a div of class "navPoint" that used to be an NCX navPoint.</p>
-            <p>This contained index terms in generate id variable.</p>
-            <p>This is in &lt;xsl:template match="*[df:class(., 'map/map')]"
-              mode="generate-html-toc"&gt;</p>-->
-            <navLabel>
-              <text>Index</text>
-            </navLabel>
-            <content src="generated-index.html"/>
+            <a href="generated-index.html">Index</a>
           </div>
-          <!--</navPoint>-->
         </xsl:if>
         </div>
-      <!--</navMap>-->
     </xsl:variable>
 
-    <xsl:message> + [INFO] Generating HTML ToC file "<xsl:sequence select="$resultUri"
-      />"...</xsl:message>
+    <xsl:message> + [INFO] Generating HTML ToC file "<xsl:sequence select="$resultUri"/>"...</xsl:message>
 
-    <xsl:result-document href="{$resultUri}" format="html">
+    <xsl:result-document href="{$resultUri}" format="html" doctype-public="-//W3C//DTD XHTML 1.1//EN" doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
       <html>
         <head>
           <title>Table of Contents</title>
         </head>
         <body>
-          <xsl:apply-templates select="$navmap" mode="calc-play-order-html"/>
+          <xsl:apply-templates select="$navmap" mode="not-play-order"/>
         </body>
       </html>
     </xsl:result-document>
     <xsl:message> + [INFO] HTML ToC generation done.</xsl:message>
   </xsl:template>
-
-  <xsl:template mode="calc-play-order-html" match="ncx:navPoint">
+  
+<!-- ================================================================================== -->
+<!-- hacking the calc-play-order to do something else -->
+  
+<!-- what happens if we lose the following template?
+      It appears to do nothing but create a variable playOrder then apply the value to an attribute
+-->
+<!--  <xsl:template mode="not-play-order" match="ncx:navPoint">
     <xsl:variable name="playOrder">
       <xsl:number count="ncx:navPoint" level="any" format="1"/>
     </xsl:variable>
@@ -102,17 +95,19 @@
       <xsl:attribute name="playOrder" select="$playOrder"/>
       <xsl:apply-templates select="@*,*" mode="#current"/>
     </xsl:copy>
-  </xsl:template>
-
-  <xsl:template mode="calc-play-order-html" match="*" priority="-1">
+  </xsl:template>-->
+  
+  <!-- hacking the calc-play-order to do something else -->
+  <xsl:template mode="not-play-order" match="*" priority="-1">
     <xsl:copy>
       <xsl:apply-templates select="@*,node()" mode="#current"/>
     </xsl:copy>
   </xsl:template>
-
-  <xsl:template mode="calc-play-order-html" match="@*|text()" priority="-1">
+  <!-- hacking the calc-play-order to do something else -->
+  <xsl:template mode="not-play-order" match="@*|text()" priority="-1">
     <xsl:copy/>
   </xsl:template>
+<!-- ================================================================================== -->
 
   <!-- Convert each topicref to a navPoint. -->
   <xsl:template match="*[df:isTopicRef(.)]" mode="generate-html-toc">
@@ -159,7 +154,7 @@
                 />
               </a>
             </div>
-            <content src="{$relativeUri}"/>
+            <!--<content src="{$relativeUri}"/>-->
 
             <!-- Any subordinate topics in the currently-referenced topic are
               reflected in the ToC before any subordinate topicrefs.
@@ -192,8 +187,6 @@
       <xsl:choose>
         <xsl:when test="$navPointTitle != ''">
           <!-- ===================================================== -->
-          <!-- =========== adding div 7 21 pm ====================== -->
-          <!-- ===== commenting out navPoint 7 28 pm =============== -->
           <!--<navPoint id="{generate-id()}">-->
             <div class="navPoint" id="{generate-id()}">
             <p>This is in &lt;xsl:template match="*[df:isTopicGroup(.)]" priority="10"
@@ -292,7 +285,7 @@
           if ($topicsOutputDir != '') 
           then concat($topicsOutputDir, '/', $titleOnlyTopicFilename) 
           else $titleOnlyTopicFilename"/>
-        <content src="{$contentUri}"/>
+        <!--<content src="{$contentUri}"/>-->
         <a href="{$contentUri}">
           <xsl:value-of
             select="
