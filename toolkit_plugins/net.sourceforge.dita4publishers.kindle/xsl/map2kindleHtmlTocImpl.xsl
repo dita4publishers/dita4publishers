@@ -248,10 +248,6 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="*[df:isTopicGroup(.)]" mode="nav-point-title">
-    <!-- Per the 1.2 spec, topic group navtitles are always ignored -->
-  </xsl:template>
-
   <xsl:template mode="nav-point-title #default" match="*[df:class(., 'topic/fn')]" priority="10">
     <!-- Suppress footnotes in titles -->
   </xsl:template>
