@@ -59,7 +59,7 @@
         <xsl:if test="$index-terms/index-terms:index-term">
           <xsl:message> + [DEBUG] found index terms, adding navpoint to generated
             index...</xsl:message>
-          <div class="navPoint" id="{generate-id($index-terms)}">
+          <div class="navPoint-index" id="{generate-id($index-terms)}">
             <a href="generated-index.html">Index</a>
           </div>
         </xsl:if>
@@ -74,39 +74,23 @@
           <title>Table of Contents</title>
         </head>
         <body>
-          <xsl:apply-templates select="$navmap" mode="not-play-order"/>
+          <xsl:apply-templates select="$navmap" mode="html-toc"/>
         </body>
-      </html>
+     </html>
     </xsl:result-document>
     <xsl:message> + [INFO] HTML ToC generation done.</xsl:message>
   </xsl:template>
-  
-<!-- ================================================================================== -->
-<!-- hacking the calc-play-order to do something else -->
-  
-<!-- what happens if we lose the following template?
-      It appears to do nothing but create a variable playOrder then apply the value to an attribute
--->
-<!--  <xsl:template mode="not-play-order" match="ncx:navPoint">
-    <xsl:variable name="playOrder">
-      <xsl:number count="ncx:navPoint" level="any" format="1"/>
-    </xsl:variable>
-    <xsl:copy>
-      <xsl:attribute name="playOrder" select="$playOrder"/>
-      <xsl:apply-templates select="@*,*" mode="#current"/>
-    </xsl:copy>
-  </xsl:template>-->
-  
-  <!-- hacking the calc-play-order to do something else -->
-  <xsl:template mode="not-play-order" match="*" priority="-1">
+
+  <xsl:template mode="html-toc" match="*" priority="-1">
     <xsl:copy>
       <xsl:apply-templates select="@*,node()" mode="#current"/>
     </xsl:copy>
-  </xsl:template>
-  <!-- hacking the calc-play-order to do something else -->
-  <xsl:template mode="not-play-order" match="@*|text()" priority="-1">
+    </xsl:template>
+
+  <xsl:template mode="html-toc" match="@*|text()" priority="-1">
     <xsl:copy/>
   </xsl:template>
+  
 <!-- ================================================================================== -->
 
   <!-- Convert each topicref to a navPoint. -->
@@ -130,21 +114,12 @@
             select="kindleutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
           <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)"
             as="xs:string"/>
-          <!-- =============================================== -->
-          <!-- ============= adding div worked =============== -->
-          <!-- = commenting out navPoint to see if it breaks = -->
-          <!--<navPoint id="{generate-id()}">-->
-            <div class="navPoint" id="{generate-id()}">
-            <!--<p>This is in &lt;xsl:template match="*[df:isTopicRef(.)]"
-            mode="generate-html-toc"&gt;</p>
-              <p>Used to have a navPoint here.</p>-->
-            <div class="navLabel">
+          <div class="navPoint-{$tocDepth}" id="{generate-id()}">
+              <div class="navLabel-{$tocDepth}">
               <xsl:variable name="enumeration" as="xs:string?">
                 <xsl:apply-templates select="." mode="enumeration"/>
               </xsl:variable>
               <a href="{$relativeUri}">
-                <!-- the following value-of used to be the content of a "text" element for the NCX file
-                      now it supplies the text for an "a" element -->
                 <xsl:value-of
                   select="
                   if ($enumeration = '')
@@ -154,7 +129,6 @@
                 />
               </a>
             </div>
-            <!--<content src="{$relativeUri}"/>-->
 
             <!-- Any subordinate topics in the currently-referenced topic are
               reflected in the ToC before any subordinate topicrefs.
@@ -164,7 +138,6 @@
               <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes" select="$tocDepth + 1"/>
             </xsl:apply-templates>
               </div>
-          <!--</navPoint>-->
         </xsl:otherwise>
       </xsl:choose>
     </xsl:if>
@@ -183,15 +156,10 @@
       </xsl:variable>
       <xsl:variable name="navPointTitle"
         select="normalize-space(string-join($rawNavPointTitle, ' '))" as="xs:string"/>
-      <!--    <xsl:message> + [DEBUG] isTopicGroup(): navPointTitle="<xsl:sequence select="$navPointTitle"/>"</xsl:message>-->
       <xsl:choose>
         <xsl:when test="$navPointTitle != ''">
-          <!-- ===================================================== -->
-          <!--<navPoint id="{generate-id()}">-->
-            <div class="navPoint" id="{generate-id()}">
-            <p>This is in &lt;xsl:template match="*[df:isTopicGroup(.)]" priority="10"
-              mode="generate-html-toc"&gt;</p>
-            <div class="navLabel">
+          <div class="navPoint-{$tocDepth}" id="{generate-id()}">
+            <div class="navLabel-{$tocDepth}">
               <!-- FIXME: This is bogus, but we should never get here. -->
               <a href="topics/topicgroup_00000.html">
                 <xsl:sequence select="$navPointTitle"/>
@@ -202,7 +170,6 @@
               <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes" select="$tocDepth + 1"/>
             </xsl:apply-templates>
             </div>
-          <!--</navPoint>-->
         </xsl:when>
         <xsl:otherwise>
           <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
@@ -220,18 +187,12 @@
       </xsl:variable>
       <xsl:variable name="navPointTitle"
         select="normalize-space(string-join($rawNavPointTitle, ' '))" as="xs:string"/>
-      <!-- ====================================================== -->
-      <!-- 7 30 pm 9sept2010 adding div -->
-      <!-- 7 32 pm commenting out navPoint -->
-      <!-- 1 41 pm 10 sept, commenting out the navPoint to see if it breaks anything -->
-      <!--<navPoint id="{generate-id()}">-->
-        <div class="navPoint" id="{generate-id()}">
-        <!--<p>This is in &lt;xsl:template match="*[df:class(., 'topic/topic')]"
-        mode="generate-html-toc"&gt;</p>
-        <p>Should be a content and a text and a new a below.</p>-->
-        <div class="navLabel">
-          <p><xsl:sequence select="$navPointTitle"/></p>
-        </div>
+      <div class="navPoint-{$tocDepth}" id="{generate-id()}">
+        <div class="navLabel-{$tocDepth}">
+<!--      get rid of this and make the div wrap around link
+
+<p><xsl:sequence select="$navPointTitle"/></p>-->
+
         <xsl:variable name="targetUri"
           select="kindleutil:getTopicResultUrl($topicsOutputPath, root(.))" as="xs:string"/>
         <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)"
@@ -243,13 +204,12 @@
           <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes" select="$tocDepth + 1"/>
         </xsl:apply-templates>
         </div>
-      <!--</navPoint>-->
+        </div>
     </xsl:if>
   </xsl:template>
   <!-- ========================================================================== -->
   <xsl:template mode="#all"
     match="*[df:class(., 'map/topicref') and (@processing-role = 'resource-only')]" priority="20"/>
-
 
   <!-- topichead elements get a navPoint, but don't actually point to
        anything.  Same with topicref that has no @href. -->
@@ -261,31 +221,17 @@
       <xsl:variable name="rawNavPointTitle" as="xs:string*">
         <xsl:apply-templates select="." mode="nav-point-title"/>
       </xsl:variable>
-      <!--<navPoint id="{generate-id()}">-->
-      <div class="navPoint" id="{generate-id()}">
-        <!--<p>This is contained in a div of class "navPoint" that used to be an NCX navPoint.</p>
-        <p>This is in &lt;xsl:template match="*[df:isTopicHead(.)]"
-        mode="generate-html-toc"&gt;</p>
-        <p>This had blank text element below. Does uncommenting navPoint bring it back? Yes, it does.</p>-->
+      <div class="navPoint-{$tocDepth}" id="{generate-id()}">
 
           <xsl:variable name="enumeration" as="xs:string?">
             <xsl:apply-templates select="." mode="enumeration"/>
           </xsl:variable>
-<!--          <text>
-            <xsl:value-of select="
-            if ($enumeration = '')
-            then normalize-space($rawNavPointTitle)
-            else concat($enumeration, ' ', $rawNavPointTitle)
-            "
-            />
-          </text>-->
         
         <xsl:variable name="contentUri" as="xs:string"
           select="          
           if ($topicsOutputDir != '') 
           then concat($topicsOutputDir, '/', $titleOnlyTopicFilename) 
           else $titleOnlyTopicFilename"/>
-        <!--<content src="{$contentUri}"/>-->
         <a href="{$contentUri}">
           <xsl:value-of
             select="
@@ -299,7 +245,6 @@
           <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes" select="$tocDepth + 1"/>
         </xsl:apply-templates>
       </div>
-     <!-- </navPoint>-->
     </xsl:if>
   </xsl:template>
 
@@ -307,10 +252,6 @@
     <!-- Per the 1.2 spec, topic group navtitles are always ignored -->
   </xsl:template>
 
-  <!--  <xsl:template mode="nav-point-title" match="*[df:class(., 'topic/title')]" priority="10">
-    <xsl:apply-templates mode="#current"/>
-  </xsl:template>
--->
   <xsl:template mode="nav-point-title #default" match="*[df:class(., 'topic/fn')]" priority="10">
     <!-- Suppress footnotes in titles -->
   </xsl:template>
