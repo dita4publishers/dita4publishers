@@ -136,10 +136,7 @@
 	-->
 	<target name="kindlegen">
 		<echo message="+ [DEBUG] kindleGenExecutable property = '${kindleGenExecutable}'"/>
-    <basename property="dita.map.basename"
-      file="${dita.input.filename}"
-      suffix=".ditamap" />
-		<property name="kindle.result.filename" value="${dita.map.basename}.mobi"/>
+		<property name="kindle.result.filename" value="${dita.map.filename.root}.mobi"/>
 	  <exec executable="${kindleGenExecutable}" resultproperty="resultCode" failonerror="false">
 	    <arg file="${kindle.temp.dir}/content.opf"/>
 	  	<arg line="-o ${kindle.result.filename}"/>
