@@ -203,9 +203,7 @@
     </xsl:if>
   </xsl:template>
   <!-- ========================================================================== -->
-  <xsl:template mode="#all"
-    match="*[df:class(., 'map/topicref') and (@processing-role = 'resource-only')]" priority="20"/>
-
+ 
   <!-- topichead elements get a navPoint, but don't actually point to
        anything.  Same with topicref that has no @href. -->
   <xsl:template match="*[df:isTopicHead(.)]" mode="generate-html-toc">

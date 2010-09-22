@@ -8,7 +8,7 @@
 
   <!-- =============================================================
     
-       DITA Map to ePub Transformation
+       DITA Map to Kindle Transformation
        
        Copyright (c) 2010 DITA For Publishers
        
@@ -20,16 +20,16 @@
        
        This transform is the root transform and manages the generation
        of the following distinct artifacts that make up a complete
-       ePub publication:
+       Kindle publication:
        
-       1. content.opf file, which defines the contents and publication metadata for the ePub
-       2. toc.ncx, which defines the navigation table of contents for the ePub.
+       1. content.opf file, which defines the contents and publication metadata for the publicatio.
+       2. toc.ncx, which defines the navigation table of contents for the pub.
        3. The HTML content, generated from the map and topics referenced by the input map.
        4. An input-file-to-output-file map document that is used to copy referenced non-XML
           objects to the appropriate output location.
        
        This process flattens the resulting HTML such that file system organization of the 
-       input map does not matter as far as the ePub organization is concerned.
+       input map does not matter as far as the Kindle organization is concerned.
        
        The input to this transform is a fully-resolved map. All processing of maps
        and topics is driven by references from the map.
@@ -52,6 +52,7 @@
   <xsl:include href="map2kindleCommon.xsl"/>
   <xsl:include href="map2kindleOpfImpl.xsl"/>
   <xsl:include href="map2kindleContentImpl.xsl"/>
+  <xsl:include href="map2kindleSetCoverGraphic.xsl"/>
   <xsl:include href="map2kindleTocImpl.xsl"/>
   <!-- ======================================== -->
   <!-- ============= the html toc ============= -->
@@ -112,7 +113,14 @@
        For now default to no since index generation is still under development.
   -->
   <xsl:param name="generateIndex" as="xs:string" select="'no'"/>
-
+  
+  <!-- URI of the graphic to use in the case where there is no cover
+    graphic defined in the incoming DITA map or as a parameter
+    to this transform.
+  --> 
+  <xsl:param name="placeholderCoverGraphicUri" as="xs:string" 
+    select="'resources/placeholder-cover-graphic.jpg'"/>
+  
   <xsl:variable name="generateIndexBoolean"
     select="
     lower-case($generateIndex) = 'yes' or 
@@ -142,24 +150,39 @@
 
   <xsl:template name="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
-    <xsl:message> ========================================== Plugin version: ^version^ - build
-      ^buildnumber^ at ^timestamp^ Parameters: + coverGraphicUri = "<xsl:sequence
-        select="$coverGraphicUri"/>" + cssOutputDir = "<xsl:sequence select="$cssOutputDir"/>" +
-      generateIndex = "<xsl:sequence select="$generateIndex"/> + imagesOutputDir = "<xsl:sequence
-        select="$imagesOutputDir"/>" + outdir = "<xsl:sequence select="$outdir"/>" + tempdir =
-        "<xsl:sequence select="$tempdir"/>" + titleOnlyTopicClassSpec = "<xsl:sequence
-        select="$titleOnlyTopicClassSpec"/>" + titleOnlyTopicTitleClassSpec = "<xsl:sequence
-        select="$titleOnlyTopicTitleClassSpec"/>" + topicsOutputDir = "<xsl:sequence
-        select="$topicsOutputDir"/>" + DITAEXT = "<xsl:sequence select="$DITAEXT"/>" + WORKDIR =
-        "<xsl:sequence select="$WORKDIR"/>" + PATH2PROJ = "<xsl:sequence select="$PATH2PROJ"/>" +
-      KEYREF-FILE = "<xsl:sequence select="$KEYREF-FILE"/>" + CSS = "<xsl:sequence select="$CSS"/>"
-      + CSSPATH = "<xsl:sequence select="$CSSPATH"/>" + debug = "<xsl:sequence select="$debug"/>"
-      Global Variables: + cssOutputPath = "<xsl:sequence select="$cssOutputPath"/>" +
-      effectiveCoverGraphicUri = "<xsl:sequence select="$effectiveCoverGraphicUri"/>" +
-      topicsOutputPath = "<xsl:sequence select="$topicsOutputPath"/>" + imagesOutputPath =
-        "<xsl:sequence select="$imagesOutputPath"/>" + platform = "<xsl:sequence select="$platform"
-      />" + debugBoolean = "<xsl:sequence select="$debugBoolean"/>"
-      ========================================== </xsl:message>
+    <xsl:message> ========================================== 
+      Plugin version: ^version^ - build ^buildnumber^ at ^timestamp^ 
+      
+      Parameters: 
+      
+      + coverGraphicUri = "<xsl:sequence select="$coverGraphicUri"/>" 
+      + cssOutputDir = "<xsl:sequence select="$cssOutputDir"/>" 
+      + generateIndex = "<xsl:sequence select="$generateIndex"/> 
+      + imagesOutputDir = "<xsl:sequence select="$imagesOutputDir"/>" 
+      + outdir = "<xsl:sequence select="$outdir"/>" 
+      + tempdir = "<xsl:sequence select="$tempdir"/>" 
+      + titleOnlyTopicClassSpec = "<xsl:sequence select="$titleOnlyTopicClassSpec"/>" 
+      + titleOnlyTopicTitleClassSpec = "<xsl:sequence select="$titleOnlyTopicTitleClassSpec"/>" 
+      + topicsOutputDir = "<xsl:sequence select="$topicsOutputDir"/>" 
+      + DITAEXT = "<xsl:sequence select="$DITAEXT"/>" 
+      + WORKDIR = "<xsl:sequence select="$WORKDIR"/>" 
+      + PATH2PROJ = "<xsl:sequence select="$PATH2PROJ"/>" 
+      + KEYREF-FILE = "<xsl:sequence select="$KEYREF-FILE"/>" 
+      + CSS = "<xsl:sequence select="$CSS"/>"
+      + CSSPATH = "<xsl:sequence select="$CSSPATH"/>" 
+      + debug = "<xsl:sequence select="$debug"/>"
+      
+      Global Variables: 
+      
+      + cssOutputPath = "<xsl:sequence select="$cssOutputPath"/>" 
+      + effectiveCoverGraphicUri = "<xsl:sequence select="$effectiveCoverGraphicUri"/>" 
+      + topicsOutputPath = "<xsl:sequence select="$topicsOutputPath"/>" 
+      + imagesOutputPath = "<xsl:sequence select="$imagesOutputPath"/>" 
+      + platform = "<xsl:sequence select="$platform"/>" 
+      + debugBoolean = "<xsl:sequence select="$debugBoolean"/>"
+      
+      ========================================== 
+    </xsl:message>
   </xsl:template>
 
 
@@ -216,8 +239,10 @@
   </xsl:variable>
 
   <xsl:template match="/">
-    <xsl:message> + [DEBUG] Root template in default mode. Root element is "<xsl:sequence
-        select="name(/*[1])"/>", class="<xsl:sequence select="string(/*[1]/@class)"/>:</xsl:message>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] Root template in default mode. Root element is "<xsl:sequence
+            select="name(/*[1])"/>", class="<xsl:sequence select="string(/*[1]/@class)"/>:</xsl:message>
+    </xsl:if>
     <xsl:apply-templates/>
   </xsl:template>
 
@@ -288,7 +313,7 @@
       <xsl:with-param name="graphicMap" as="element()" tunnel="yes" select="$graphicMap"/>
     </xsl:apply-templates>
   </xsl:template>
-
+  
   <xsl:template name="make-meta-inf">
     <xsl:result-document
       href="{relpath:newFile(relpath:newFile($outdir, 'META-INF'), 'container.xml')}">

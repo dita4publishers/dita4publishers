@@ -55,4 +55,16 @@
     <xsl:variable name="result" select="concat('topichead_', generate-id($topichead), '.html')" as="xs:string"/>
     <xsl:sequence select="$result"/>
   </xsl:function>
+  
+  <xsl:function name="kindleutil:getKindleCoverGraphicFilename" as="xs:string">
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="sourceUri" select="kindleutil:getKindleCoverGraphicUri($context)" as="xs:string"/>
+    <xsl:variable name="result" select="relpath:getName($sourceUri)" as="xs:string"/>
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+  
+  <xsl:function name="kindleutil:getKindleCoverGraphicUri" as="xs:string">
+    <xsl:param name="context" as="element()"/>
+    <xsl:apply-templates select="$context" mode="get-cover-graphic-path"/>
+  </xsl:function>
 </xsl:stylesheet>

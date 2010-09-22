@@ -65,6 +65,11 @@
       select="relpath:newFile($outdir, 'content.opf')" 
       as="xs:string"/>
     
+    <xsl:variable name="coverImageFilename" as="xs:string"
+      select="kindleutil:getKindleCoverGraphicFilename(.)">
+    </xsl:variable>
+    
+    
     <xsl:message> + [INFO] Generating OPF file "<xsl:sequence select="$resultUri"/>"...</xsl:message>
     
     <xsl:result-document format="opf" href="{$resultUri}">
@@ -85,8 +90,10 @@
           <!-- kindlegen does not like the id attribute
                 also prefers string en-US to en_US as defined elsewhere
                 hardcoding that for now          -->
-          <!--<dc:language id="language"><xsl:sequence select="$lang"/></dc:language>-->
-          <dc:language>en-us</dc:language>
+          <xsl:variable name="langValue" as="xs:string"
+            select="translate($lang, '_', '-')"
+          />
+          <dc:language><xsl:sequence select="$langValue"/></dc:language>
           
           <dc:identifier id="bookid">
             <xsl:variable name="basePubId" as="xs:string*">
@@ -127,10 +134,10 @@
           
           <xsl:apply-templates select="*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/copyright')]" 
             mode="generate-opf"/>
-          
-          <xsl:if test="$effectiveCoverGraphicUri != ''">
-            <meta name="cover" content="{$coverImageId}"/>
-          </xsl:if>
+          <!-- Kindle requires a cover image. This is a reference to the manifest
+               entry generated below.
+            -->
+          <meta name="cover" content="coverimage"/>
           <xsl:apply-templates mode="generate-opf"
             select="*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/data') and @name = 'opf-metadata']"/>
         </metadata>
@@ -153,9 +160,8 @@
           <xsl:if test="$CSS != ''">
             <item id="{$CSS}" href="{$cssOutputDir}/{$CSS}" media-type="text/css"/>
           </xsl:if>
-          <!-- kindle requires a cover image
-               hard coding it for now          -->
-          <item id="coverimage" media-type="image/jpg" href="./images/1407-02.jpg"/>
+          <!-- kindle requires a cover image -->
+          <item id="coverimage" media-type="image/jpg" href="./images/{$coverImageFilename}"/>
         </manifest>
         
         <spine toc="ncx">
