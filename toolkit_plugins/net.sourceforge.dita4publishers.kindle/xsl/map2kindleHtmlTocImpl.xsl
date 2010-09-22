@@ -143,11 +143,6 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template mode="nav-point-title" match="*[df:isTopicRef(.)] | *[df:isTopicHead(.)]">
-    <xsl:variable name="navPointTitleString" select="df:getNavtitleForTopicref(.)"/>
-    <xsl:sequence select="$navPointTitleString"/>
-  </xsl:template>
-
   <xsl:template match="*[df:isTopicGroup(.)]" priority="10" mode="generate-html-toc">
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
     <xsl:if test="$tocDepth le $maxTocDepthInt">
