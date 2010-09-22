@@ -11,6 +11,10 @@
   
   <xsl:import href="lib/relpath_util.xsl"/>
   
+  <xsl:output name="ant" method="xml"
+    indent="yes"
+  />
+  
   <xsl:template match="/" mode="generate-graphic-copy-ant-script">
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
@@ -24,7 +28,7 @@
     
     <xsl:message> + [INFO] Generating Ant graphic copying script as file "<xsl:sequence select="$resultUri"/>"...</xsl:message>
     
-    <xsl:result-document format="opf" href="{$resultUri}">
+    <xsl:result-document format="ant" href="{$resultUri}">
       <xsl:apply-templates select="$graphicMap" mode="#current"/>
     </xsl:result-document>  
     <xsl:message> + [INFO] Ant graphic copying script generation done.</xsl:message>

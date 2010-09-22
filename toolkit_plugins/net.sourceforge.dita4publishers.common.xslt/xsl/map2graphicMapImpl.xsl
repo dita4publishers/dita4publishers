@@ -20,11 +20,7 @@
     <xsl:message> + [INFO] Generating graphic input-to-output map...</xsl:message>
     <xsl:variable name="graphicRefs" as="element()*">
       <xsl:apply-templates mode="get-graphic-refs" select=".//*[df:isTopicRef(.)]"/>
-      <xsl:if test="$effectiveCoverGraphicUri != ''">
-        <gmap:graphic-ref id="{$coverImageId}" 
-          href="{$effectiveCoverGraphicUri}" 
-          filename="{relpath:getName($effectiveCoverGraphicUri)}"/>
-      </xsl:if>
+      <xsl:apply-templates mode="additional-graphic-refs" select="."/>
     </xsl:variable>
     
     <xsl:message> + [INFO]   Found <xsl:sequence select="count($graphicRefs)"/> graphic references.</xsl:message>
@@ -67,6 +63,13 @@
     </gmap:graphic-map>
     <xsl:message> + [INFO] Graphic input-to-output map generated.</xsl:message>
   </xsl:template>  
+  
+  <xsl:template mode="additional-graphic-refs" match="*[df:class(., 'map/map')]">
+    <!-- Nothing to do by default. Override this template to do something special,
+         such as setting a default cover graphic or including branding components
+         or whatever.
+    -->
+  </xsl:template>
   
   <xsl:template match="*[df:isTopicRef(.)]" mode="generate-graphic-map get-graphic-refs">
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
