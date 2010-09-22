@@ -44,15 +44,7 @@
     depends="dita.map.kindle"/>
     
   <target name="dita.map.kindle.init"
-    description="Init properties for Epub">
-    <basename property="dita.map.toc.root"
-      file="${dita.input.filename}"
-      suffix=".ditamap" />
-    <condition property="args.kindle.toc" value="${dita.map.toc.root}">
-      <not>
-        <isset property="args.kindle.toc" />
-      </not>
-    </condition>
+    description="Init properties for Kindle">
     <condition property="out.ext" value=".html">
       <not>
         <isset property="out.ext" />
@@ -80,7 +72,7 @@
 
     <xslt processor="trax"
       basedir="${dita.temp.dir}"
-      destdir="${output.dir}"
+      destdir="${dita.temp.dir}"
       includesfile="${dita.temp.dir}${file.separator}fullditamap.list"
       classpathref="dost.class.path"
       style="${map2kindle.style}">
@@ -143,10 +135,23 @@
 	     filename is hardcoded here in arg
 	-->
 	<target name="kindlegen">
-	  <exec executable="${kindleGenExecutable}">
+		<echo message="+ [DEBUG] kindleGenExecutable property = '${kindleGenExecutable}'"/>
+    <basename property="dita.map.basename"
+      file="${dita.input.filename}"
+      suffix=".ditamap" />
+		<property name="kindle.result.filename" value="${dita.map.basename}.mobi"/>
+	  <exec executable="${kindleGenExecutable}" resultproperty="resultCode" failonerror="false">
 	    <arg file="${kindle.temp.dir}/content.opf"/>
+	  	<arg line="-o ${kindle.result.filename}"/>
+	  	<arg line="${kindlegenArgs}"/>
 	  </exec>
 		<echo message="After kindlegen, result code is '${resultCode}'"/>
+		<move todir="${output.dir}">
+			<fileset dir="${kindle.temp.dir}">
+				<include name="${kindle.result.filename}"/>
+			</fileset>
+		</move>
+		<echo message="Result Kindle file is ${output.dir}${file.separator}${kindle.result.filename}"/>
 	</target>
 
 </project>
