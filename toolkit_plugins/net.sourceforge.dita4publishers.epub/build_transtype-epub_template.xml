@@ -61,14 +61,6 @@
     
   <target name="dita.map.epub.init"
     description="Init properties for Epub">
-    <basename property="dita.map.toc.root"
-      file="${dita.input.filename}"
-      suffix=".ditamap" />
-    <condition property="args.epub.toc" value="${dita.map.toc.root}">
-      <not>
-        <isset property="args.epub.toc" />
-      </not>
-    </condition>
     <condition property="out.ext" value=".html">
       <not>
         <isset property="out.ext" />
@@ -94,9 +86,12 @@
 
   	<echo message="[DEBUG] input file='${dita.temp.dir}${file.separator}${user.input.file}'"/>
 
+  	<!-- NOTE: since we're not using the direct output of the base XSLT transform we just
+  	     set the output directory to the temp dir where it will be ignored.
+  	  -->
     <xslt processor="trax"
       basedir="${dita.temp.dir}"
-      destdir="${output.dir}"
+      destdir="${dita.temp.dir}"
       includesfile="${dita.temp.dir}${file.separator}fullditamap.list"
       classpathref="dost.class.path"
       style="${map2epub.style}">
