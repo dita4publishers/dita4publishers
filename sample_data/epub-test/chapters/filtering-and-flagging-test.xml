@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+  <topic id="topic-id">
+-->
 <!DOCTYPE chapter PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
 <chapter
   id="chapter-id">
   <title>Test of Filtering and Flagging</title>
   <body>
-    <p
+<!--    <p
       d4p_renditionTarget="epub">This is for EPUB only</p>
     <p
       d4p_renditionTarget="pdf">This is for PDF only.</p>
-    <p>This is unconditional content.</p>
+    <p
+      d4p_renditionTarget="html">This is for HTML only.</p>    
+-->    <p>This is unconditional content.</p>
+    <p
+      otherprops="d4p_renditionTarget(epub)">This is for EPUB only. (Using @otherprops)</p>
+    <p
+      otherprops="d4p_renditionTarget(pdf)">This is for PDF only. (Using @otherprops)</p>
+    <p
+      props="d4p_renditionTarget(epub)">This is for EPUB only (using @props).</p>
+    <p
+      props="d4p_renditionTarget(html)">This is for HTML only (using @props).</p>
+    <p
+      props="d4p_renditionTarget(pdf)">This is for PDF only (using @props).</p>
+    <p
+      props="d4p_renditionTarget(pdf) d4p_renditionTarget(epub)">This is for PDF and EPUB (using @props).</p>
   </body>
-</chapter>
+<!--</topic>-->
+  </chapter>

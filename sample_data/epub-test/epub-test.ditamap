@@ -34,7 +34,9 @@
     <covers>
       <epub-cover-graphic
         format="jpg"
-        href="covers/images/1407-02.jpg"/>
+        href="covers/images/cover-graphic.jpg"
+        processing-role="resource-only"
+        scope="local"/>
       <front-cover
         href="covers/epub-test-front-cover.xml"/>
     </covers>
@@ -48,6 +50,11 @@
       collection-type="sequence">
       <chapter
         href="chapters/element-test.xml"/>
+      <chapter
+        href="chapters/graphic-tests.xml">
+        <subsection
+          href="chapters/svg-graphic-tests.xml"/>
+      </chapter>
       <chapter
         href="chapters/title-only-topic-01.xml">
         <topicref
@@ -137,6 +144,28 @@
       <chapter
         href="chapters/chapter_4.xml"/>
     </pubbody>
+    <backmatter>
+      <glossary>
+        <topicmeta>
+          <navtitle>Glossary</navtitle>
+        </topicmeta>
+        <topicref
+          href="glossary/apple_fruit.xml"
+          keys="apple_fruit_gloss"/>
+        <topicref
+          href="glossary/berry_botanical.xml"
+          keys="berry_botanical_gloss"
+          toc="no"/>
+        <topicref
+          href="glossary/cherry_botanical.xml"
+          keys="cherry_botanical_gloss"
+          locktitle="yes">
+          <topicmeta>
+            <navtitle>Cherry Navtitle</navtitle>
+          </topicmeta>
+        </topicref>
+      </glossary>
+    </backmatter>
     <colophon
       href="backmatter/colophon.xml"/>
   </publication>
