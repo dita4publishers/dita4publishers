@@ -61,7 +61,7 @@ public class InxReaderTests extends InxReaderTestBase
 		assertNotNull(story.getId());
 		assertEquals("ud6", story.getId());
 		assertEquals(doc.getObject("ud6"), story);
-		Iterator<TextStyleRange> trIter = story.getTextRunIterator();
+		Iterator<TextStyleRange> trIter = story.getTextStyleRangeIterator();
 		assertTrue(trIter.hasNext());
 		int cnt = 0;
 		InDesignComponent comp;

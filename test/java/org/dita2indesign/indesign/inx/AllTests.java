@@ -36,6 +36,7 @@ public class AllTests extends TestSuite {
 		suite.addTest(InxHelperTests.suite());
 		suite.addTest(InxReaderTests.suite());
 		suite.addTest(FrameToPageAssignmentTest.suite());
+		suite.addTest(ComplexPageCreationTest.suite());
 		suite.addTest(DocumentObjectCreationTests.suite());
 		suite.addTest(LinkObjectTests.suite());
 		

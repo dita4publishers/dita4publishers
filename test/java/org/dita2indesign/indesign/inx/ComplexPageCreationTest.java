@@ -4,6 +4,7 @@
 package org.dita2indesign.indesign.inx;
 
 import java.io.File;
+import java.util.Iterator;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -18,6 +19,7 @@ import org.dita2indesign.indesign.inx.model.PageSideOption;
 import org.dita2indesign.indesign.inx.model.Spread;
 import org.dita2indesign.indesign.inx.model.Story;
 import org.dita2indesign.indesign.inx.model.TextFrame;
+import org.dita2indesign.indesign.inx.model.TextStyleRange;
 import org.dita2indesign.indesign.inx.writers.InxWriter;
 import org.dita2indesign.util.DataUtil;
 import org.w3c.dom.Document;
@@ -92,6 +94,13 @@ public class ComplexPageCreationTest extends InxReaderTestBase {
 	    // Make the story
 	    assertNotNull("Didn't get InCopy article resource", incopyArticle01);
 	    Story incxStory = InxHelper.getStoryForIncxDoc(inDesignDoc, incopyArticle01);
+	    int txsrCnt = 0;
+	    Iterator<TextStyleRange> iter = incxStory.getTextStyleRangeIterator();
+	    while (iter.hasNext()) {
+	    	iter.next();
+	    	txsrCnt++;	    	
+	    }
+	    assertTrue("Expected some text ranges", txsrCnt > 0);
 	    assertNotNull("Failed to get story from InCopy aricle", incxStory);
         frame.setParentStory(incxStory);
         assertEquals("Story doesn't match", incxStory, frame.getParentStory());

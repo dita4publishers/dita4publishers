@@ -154,7 +154,7 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		newSpread = cloned.newSpread(masterSpreadName);
 		MasterSpread master = cloned.getMasterSpread(masterSpreadName);
 		Page newPage = newSpread.addPage(10);
-		Spread spread = cloned.getSpread(1);
+		Spread spread = cloned.getSpread(0);
 		assertNotNull(spread);
 		Page page = spread.getPages().get(0);
 		assertNotNull(page);
