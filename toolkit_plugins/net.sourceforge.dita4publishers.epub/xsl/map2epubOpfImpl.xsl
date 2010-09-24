@@ -24,17 +24,6 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   <xsl:import href="epub-generation-utils.xsl"/>
   
-  <!-- See note about my-URI-stub in build_dita2epub.xml. Hopefully a
-       better URI will be passed to override this. -->
-  <xsl:param name="idURIStub" select="'http://my-URI-stub/'" as="xs:string"/>
-
-  <xsl:param name="tempFilesDir" select="'tempFilesDir value not passed'" as="xs:string"/>
-
-<!-- XSLT document function needs full URI for parameter, so this is
-     used for that. -->
-  <xsl:variable name="inputURLstub" as="xs:string" 
-    select="concat('file:///', translate($tempFilesDir,':\','|/'), '/')"/>
-
   <!-- Output format for the content.opf file -->
   <xsl:output name="opf"
     indent="yes"
@@ -44,7 +33,6 @@
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-opf">
     <xsl:param name="graphicMap" as="element()" tunnel="yes"/>
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
-    
     <xsl:message> + [INFO] Generating OPF manifest file...</xsl:message>
     
     <xsl:if test="not(@xml:lang)">
@@ -52,11 +40,6 @@
       </xsl:message>
     </xsl:if>
 
-    <xsl:if test="$idURIStub = 'http://my-URI-stub/'">
-      <xsl:message> - [WARNING] epub ID must be a URL; if you don't want it built on "http://my-URI-stub/" set the Ant property epub.pubid.uri.stub to the appropriate URL.
-      </xsl:message>
-    </xsl:if>
-    
     <xsl:variable name="lang" select="if (@xml:lang) then string(@xml:lang) else 'en-US'" as="xs:string"/>
     
     <xsl:variable name="resultUri" 
@@ -64,6 +47,8 @@
       as="xs:string"/>
     
     <xsl:message> + [INFO] Generating OPF file "<xsl:sequence select="$resultUri"/>"...</xsl:message>
+    
+    <xsl:variable name="uniqueTopicRefs" as="element()*" select="df:getUniqueTopicrefs(.)"/>
     
     <xsl:result-document format="opf" href="{$resultUri}">
       <package xmlns="http://www.idpf.org/2007/opf"
@@ -101,13 +86,16 @@
             </xsl:variable>
             
             <xsl:variable name="pubid" as="xs:string" select="normalize-space(string-join($basePubId,''))"/>
-            <xsl:variable name="bookid" select="string(resolve-uri($idURIStub, $pubid))" as="xs:string"/>
+            <xsl:variable name="bookid" select="string(resolve-uri($IdURIStub, $pubid))" as="xs:string"/>
             <!-- FIXME: Need to refine how EPUB ID is constructed. Not sure what shape this should take
                         given that you can have any number of pubid elements.
-              -->
-            <xsl:message> + [DEBUG] basePubId="<xsl:sequence select="$basePubId"/>"</xsl:message>
-            <xsl:message> + [DEBUG] pubid="<xsl:sequence select="$pubid"/>"</xsl:message>
-            <xsl:message> + [DEBUG] bookid="<xsl:sequence select="$bookid"/>"</xsl:message>
+            -->
+            
+            <xsl:if test="$debugBoolean">
+              <xsl:message> + [DEBUG] basePubId="<xsl:sequence select="$basePubId"/>"</xsl:message>
+              <xsl:message> + [DEBUG] pubid="<xsl:sequence select="$pubid"/>"</xsl:message>
+              <xsl:message> + [DEBUG] bookid="<xsl:sequence select="$bookid"/>"</xsl:message>
+            </xsl:if>            
             <xsl:sequence select="$bookid"/>
           </dc:identifier>
           
@@ -133,12 +121,10 @@
         <manifest xmlns:opf="http://www.idpf.org/2007/opf">
           <opf:item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
           <!-- List the XHTML files -->
-          <xsl:apply-templates mode="manifest" select=".//*[df:isTopicRef(.) or df:isTopicHead(.)]"/>
+          <xsl:apply-templates mode="manifest" select="$uniqueTopicRefs"/>
+          <xsl:apply-templates select=".//*[df:isTopicHead(.)]" mode="manifest"/>
           <!-- List the images -->
           <xsl:apply-templates mode="manifest" select="$graphicMap"/>
-          <!-- FIXME: Will need to provide parameters for constructing references
-               to user-specified CSS files.
-            -->
           <opf:item id="commonltr.css" href="{$cssOutputDir}/commonltr.css" media-type="text/css"/>
           <opf:item id="commonrtl.css" href="{$cssOutputDir}/commonrtl.css" media-type="text/css"/>
           <xsl:if test="$CSS != ''">
@@ -147,7 +133,7 @@
         </manifest>
         
         <spine toc="ncx">
-          <xsl:apply-templates mode="spine" select=".//*[df:isTopicRef(.) or df:isTopicHead(.)]"/>
+          <xsl:apply-templates mode="spine" select="($uniqueTopicRefs | .//*[df:isTopicHead(.)])"/>
         </spine>
         
       </package>

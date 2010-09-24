@@ -55,6 +55,7 @@
   <xsl:include href="map2epubCommon.xsl"/>
   <xsl:include href="map2epubOpfImpl.xsl"/>
   <xsl:include href="map2epubContentImpl.xsl"/>
+  <xsl:include href="map2epubSetCoverGraphic.xsl"/>
   <xsl:include href="map2epubTocImpl.xsl"/>
   <xsl:include href="map2epubIndexImpl.xsl"/>
   <xsl:include href="html2xhtmlImpl.xsl"/>
@@ -68,6 +69,14 @@
        owner.
     -->
   <xsl:param name="IdURIStub">http://example.org/dummy/URIstub/</xsl:param>
+  
+  <xsl:param name="tempFilesDir" select="'tempFilesDir value not passed'" as="xs:string"/>
+  
+  <!-- XSLT document function needs full URI for parameter, so this is
+    used for that. -->
+  <xsl:variable name="inputURLstub" as="xs:string" 
+    select="concat('file:///', translate($tempFilesDir,':\','|/'), '/')"/>
+  
   
   <!-- Directory into which the generated output is put.
 
@@ -220,7 +229,9 @@
 </xsl:variable>  
   
   <xsl:template match="/">
-    <xsl:message> + [DEBUG] Root template in default mode. Root element is "<xsl:sequence select="name(/*[1])"/>", class="<xsl:sequence select="string(/*[1]/@class)"/>:</xsl:message>
+    <xsl:if test="$debugBoolean">
+        <xsl:message> + [DEBUG] Root template in default mode. Root element is "<xsl:sequence select="name(/*[1])"/>", class="<xsl:sequence select="string(/*[1]/@class)"/>:</xsl:message>
+    </xsl:if>    
     <xsl:apply-templates/>
   </xsl:template>
   
@@ -298,43 +309,5 @@
     </xsl:result-document>
   </xsl:template>
   
-  <xsl:template match="/*[df:class(., 'map/map')]" mode="get-cover-graphic-uri">
-    <!-- NOTE: override this template in order to implement different business logic
-         for determining the cover graphic.
-    -->
-    <xsl:variable name="baseGraphicUri" as="xs:string">
-      <xsl:choose>
-        <xsl:when test="//*[df:class(., 'pubmap-d/epub-cover-graphic')]">
-          <xsl:variable name="targetUri" as="xs:string"
-            select="df:getEffectiveTopicUri((//*[df:class(., 'pubmap-d/epub-cover-graphic')])[1])"
-          />
-          <xsl:sequence select="$targetUri"/>
-        </xsl:when>
-        <xsl:when test="*[df:class(., 'map/topicmeta')]//*[df:class(., 'topic/data') and @name = 'covergraphic']">
-          <xsl:variable name="elem" select="(*[df:class(., 'map/topicmeta')]//*[df:class(., 'topic/data') and @name = 'covergraphic'])[1]" as="element()"/>
-          <xsl:choose>
-            <xsl:when test="$elem/@value">
-              <xsl:sequence select="string($elem/@value)"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:sequence select="string($elem)"/>
-            </xsl:otherwise>
-          </xsl:choose>          
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:sequence select="$coverGraphicUri"/>
-        </xsl:otherwise>
-      </xsl:choose>      
-    </xsl:variable>
-    <xsl:variable name="docUri" select="relpath:toUrl(@xtrf)" as="xs:string"/>
-    <xsl:variable name="finalUri" as="xs:string"
-      select="
-      if ($baseGraphicUri = '')
-         then ''
-         else relpath:newFile(relpath:getParent($docUri), $baseGraphicUri)
-      " 
-    />
-    <xsl:sequence select="$finalUri"/>
-  </xsl:template>  
   
 </xsl:stylesheet>
