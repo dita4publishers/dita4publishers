@@ -527,6 +527,27 @@
     <xsl:sequence select="string-join($att-strings, ' ')"/>
   </xsl:function>
   
+  <!-- Given a (resolved) map, constructs the sequence of references
+       to unique topics, that is, the set of topicsrefs that 
+       reflects the bounded object set of the map minus any
+       resource-only topicrefs.
+    -->       
+  <xsl:function name="df:getUniqueTopicrefs" as="element()*">
+    <xsl:param name="map" as="element()"/>
+    <xsl:variable name="result" as="element()*">
+      <xsl:for-each-group select="$map//*[df:isTopicRef(.) and not(@processing-role = 'resource-only')]"
+        group-by="generate-id(df:resolveTopicRef(.))"
+        >     
+        
+        <xsl:if test="false()">
+          <xsl:message> + [DEBUG] topicref: grouping-key="<xsl:sequence select="current-grouping-key()"/>", href="<xsl:sequence select="string(current-group()[1]/@href)"/>"
+          </xsl:message>
+        </xsl:if>
+        <xsl:sequence select="current-group()[1]"/>
+      </xsl:for-each-group>
+    </xsl:variable>
+    <xsl:sequence select="$result"/>
+  </xsl:function>
  
   <xsl:template match="*" priority="-1" mode="used-topics resolve-maprefs ">
     <!-- Copy elements that are unstyled or that do not establish paragraph contexts -->
