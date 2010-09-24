@@ -43,11 +43,16 @@
       <part
         href="d4p-users-guide/introduction-chapter.xml">
         <chapter
-          href="d4p-users-guide/tasks/plugin-installation.xml"/>
+          href="d4p-users-guide/tasks/plugin-installation.xml">
+          <subsection
+            href="d4p-users-guide/epub-plugin/setting-up-kindlegen.xml"/>
+        </chapter>
         <chapter
           href="d4p-users-guide/epub-plugin/generating-epubs.xml">
           <subsection
             href="d4p-users-guide/epub-plugin/generating-epubs-from-oxygen.xml"/>
+          <subsection
+            href="d4p-users-guide/epub-plugin/generating-kindle-books-from-oxygen.xml"/>
           <topicref
             href="d4p-users-guide/epub-plugin/using-custom-css.xml"/>
           <subsection
@@ -67,6 +72,8 @@
               href="d4p-users-guide/epub-plugin/reference/ant-parm-epubTempDir.xml"/>
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-imagesOutputDir.xml"/>
+            <subsection
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-kindleGenExecutable.xml"/>
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicClassSpec.xml"/>
             <topicref
