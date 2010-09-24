@@ -2,7 +2,9 @@
 <!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
 <pubmap
   xml:lang="en_US">
-  <pubtitle> <mainpubtitle>ePub Test Document</mainpubtitle> </pubtitle>
+  <pubtitle>
+    <mainpubtitle>EPUB Test Document</mainpubtitle>
+  </pubtitle>
   <pubmeta> <author><data
     name="file-as">McTesterson, Tester</data>Tester McTesterson</author>
     <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source> <critdates>
