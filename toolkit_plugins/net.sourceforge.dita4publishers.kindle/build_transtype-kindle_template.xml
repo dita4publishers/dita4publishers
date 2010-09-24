@@ -29,7 +29,7 @@
 	<!-- Leading portion of full EPUB publication ID to be appended to the publication ID -->
 	<property name="kindle.pubid.uri.stub" value="http://my-URI-stub/"/>
 	
-	<property name="kindleGenExecutable" value="kindlegen"/>
+	<property name="kindlegen.executable" value="kindlegen"/>
 	<property name="kindlegenArgs" value="-unicode"/>
 
 	<target name="dita2kindle"
@@ -135,9 +135,9 @@
 	     filename is hardcoded here in arg
 	-->
 	<target name="kindlegen">
-		<echo message="+ [DEBUG] kindleGenExecutable property = '${kindleGenExecutable}'"/>
+		<echo message="+ [DEBUG] kindlegen.executable property = '${kindlegen.executable}'"/>
 		<property name="kindle.result.filename" value="${dita.map.filename.root}.mobi"/>
-	  <exec executable="${kindleGenExecutable}" resultproperty="resultCode" failonerror="false">
+	  <exec executable="${kindlegen.executable}" resultproperty="resultCode" failonerror="false">
 	    <arg file="${kindle.temp.dir}/content.opf"/>
 	  	<arg line="-o ${kindle.result.filename}"/>
 	  	<arg line="${kindlegenArgs}"/>
