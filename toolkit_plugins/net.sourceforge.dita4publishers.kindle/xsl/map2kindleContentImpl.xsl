@@ -42,20 +42,9 @@
     indent="yes"
   />
   
-  
-  
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-content">
     <xsl:message> + [INFO] Generating content...</xsl:message>
-    <xsl:for-each-group select=".//*[df:isTopicRef(.) and not(@processing-role = 'resource-only')]"
-       group-by="generate-id(df:resolveTopicRef(.))"
-      >     
-     
-      <xsl:if test="false()">
-        <xsl:message> + [DEBUG] topicref: grouping-key="<xsl:sequence select="current-grouping-key()"/>", href="<xsl:sequence select="string(current-group()[1]/@href)"/>"
-        </xsl:message>
-      </xsl:if>
-      <xsl:apply-templates select="current-group()[1]" mode="generate-content"/>
-    </xsl:for-each-group>
+    <xsl:apply-templates select="df:getUniqueTopicrefs(.)" mode="generate-content"/>
     <xsl:message> + [INFO] Generating title-only topics for topicheads...</xsl:message>
     <xsl:apply-templates select=".//*[df:isTopicHead(.)]" mode="generate-content"/>
     <xsl:message> + [INFO] Content generated.</xsl:message>

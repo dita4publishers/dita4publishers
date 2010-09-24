@@ -69,6 +69,7 @@
       select="kindleutil:getKindleCoverGraphicFilename(.)">
     </xsl:variable>
     
+    <xsl:variable name="uniqueTopicRefs" as="element()*" select="df:getUniqueTopicrefs(.)"/>
     
     <xsl:message> + [INFO] Generating OPF file "<xsl:sequence select="$resultUri"/>"...</xsl:message>
     
@@ -148,7 +149,8 @@
 
           <item id="html-toc" media-type="application/xhtml+xml" href="toc.html"/>
           <!-- List the XHTML files -->
-          <xsl:apply-templates mode="manifest" select=".//*[df:isTopicRef(.) or df:isTopicHead(.)]"/>
+          <xsl:apply-templates mode="manifest" select="$uniqueTopicRefs"/>
+          <xsl:apply-templates select=".//*[df:isTopicHead(.)]" mode="manifest"/>
           <!-- List the images -->
           <xsl:apply-templates mode="manifest" select="$graphicMap"/>
           <!-- FIXME: Will need to provide parameters for constructing references
@@ -166,7 +168,7 @@
         
         <spine toc="ncx">
           <itemref idref="html-toc"/>
-          <xsl:apply-templates mode="spine" select=".//*[df:isTopicRef(.) or df:isTopicHead(.)]"/>
+          <xsl:apply-templates mode="spine" select="($uniqueTopicRefs | .//*[df:isTopicHead(.)])"/>
         </spine>
         
         <guide>
