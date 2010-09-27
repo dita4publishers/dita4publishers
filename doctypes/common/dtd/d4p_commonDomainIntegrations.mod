@@ -45,6 +45,12 @@
 >
 %d4p_pubcontent-d-def;
 
+<!ENTITY % d4p_ruby-d-def    PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_rubyDomain" 
+"d4p_rubyDomain.mod"                                                
+>
+%d4p_ruby-d-def;
+
 <!ENTITY % d4p_verse-d-def    PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_verseDomain" 
 "d4p_verseDomain.mod"                                                

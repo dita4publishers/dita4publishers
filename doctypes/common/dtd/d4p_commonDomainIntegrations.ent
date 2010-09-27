@@ -47,6 +47,12 @@
 >
 %d4p_pubcontent-d-dec;
 
+<!ENTITY % d4p_ruby-d-dec     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_rubyDomain:entities" 
+"d4p_rubyDomain.ent"                                                
+>
+%d4p_ruby-d-dec;
+
 <!ENTITY % d4p_verse-d-dec     PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_verseDomain:entities" 
 "d4p_verseDomain.ent"                                                

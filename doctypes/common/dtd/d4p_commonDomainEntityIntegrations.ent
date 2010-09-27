@@ -13,7 +13,8 @@
 <!ENTITY % ph
   "ph | 
    %hi-d-ph; |
-   %d4p_formatting-d-ph;
+   %d4p_formatting-d-ph; |
+   %d4p_ruby-d-ph;
   "
 >
 
@@ -63,6 +64,7 @@
     "&hi-d-att; 
      &indexing-d-att;
      &d4p_formatting-d-att;
+     &d4p_ruby-d-att;
      &d4p_classification-d-att;
      &d4p_renditionTargetAtt-d-att;
      &d4p_verse-d-att;
