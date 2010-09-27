@@ -16,7 +16,6 @@
  <!ENTITY % b-sc         "b-sc"                                         >
  <!ENTITY % eqn_inline    "eqn_inline" >
  <!ENTITY % eqn_block     "eqn_block" >
- <!ENTITY % enumerator    "enumerator" >
  <!ENTITY % frac          "frac" >
  <!ENTITY % inx_snippet   "inx_snippet" >
  <!ENTITY % linethrough   "linethrough" >
@@ -217,25 +216,6 @@
 <!ELEMENT inx_snippet %inx_snippet.content; >
 <!ATTLIST inx_snippet %inx_snippet.attributes; >
 
-<!ENTITY % enumerator.content 
- "(%ph.cnt;)*"
->
-<!ENTITY % enumerator.attributes 
- "
-  %id-atts;
-  %localization-atts;
-  base       
-    CDATA                            
-    #IMPLIED
-  %base-attribute-extensions;
-  outputclass 
-    CDATA                            
-    #IMPLIED    
- "
- >
-<!ELEMENT enumerator %enumerator.content; >
-<!ATTLIST enumerator %enumerator.attributes; >
-
 <!ENTITY % linethrough.content 
  "(%ph.cnt;)*"
 >
@@ -334,7 +314,6 @@
 <!ATTLIST b-i              %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/b-i "  >
 <!ATTLIST br               %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/br ">
 <!ATTLIST b-sc             %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/b-sc "  >
-<!ATTLIST enumerator       %global-atts;  class CDATA "+ topic/data  d4p-formatting-d/enumerator ">
 <!ATTLIST eqn_inline       %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/eqn_inline ">
 <!ATTLIST eqn_block        %global-atts;  class CDATA "+ topic/p     d4p-formatting-d/eqn_block ">
 <!ATTLIST frac             %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/frac ">
