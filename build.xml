@@ -13,6 +13,9 @@
 	  -->
 
   <property file="build.properties"/>
+  <property file="${user.home}/.build.properties"/>
+  <property file="${user.home}/build.properties"/>
+
 	<!-- NOTE: Update version.properties as needed to reflect new 
 	           versions of project components.
 	  -->
@@ -20,12 +23,12 @@
   <property file="${user.home}/.build.properties"/>
 	<property file="${user.home}/build.properties"/>
 
+  <property name="build" location="${basedir}/build"/>
   <property name="dist" location="${basedir}/dist"/>
   <property name="lib" location="${basedir}/lib"/>
   <property name="src" location="${basedir}/src/java"/>
   <property name="rsuite.src" location="${basedir}/rsuite/src/java"/>
   <property name="rsuiteSrc" location="${basedir}/rsuite"/>
-  <property name="build" location="${basedir}/build"/>
   <property name="temp" location="${basedir}/temp"/>
   <property name="epubTemp" location="${temp}/epub"/>
   <property name="epubBuild" location="${build}/epubs"/>
@@ -53,7 +56,7 @@
 	<property name="api-and-tools.dirname" value="d4p-api-and-tools"/>
 	<property name="api-and-tools.target" location="${target.home}/${api-and-tools.dirname}"/>
   <property name="api-and-tools.dist" location="${dist}/${api-and-tools.dirname}"/>
-
+	
 	<import file="${dita-ot-dir}${file.separator}integrator.xml" optional="yes"/>
   
 
@@ -111,7 +114,7 @@
     </delete>
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
-<!--				<exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/> -->
+				<exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/> 
 			</fileset>
 		</copy>
 		<replace file="${plugin.dist}/net.sourceforge.dita4publishers.epub/xsl/map2epubImpl.xsl"
@@ -124,6 +127,22 @@
 			<replacefilter
 				token="^version^"
 			  value="${epub_version}"
+			/>
+			<replacefilter
+				token="^timestamp^"
+			  value="${package.date}"
+			/>
+		</replace>
+		<replace file="${plugin.dist}/net.sourceforge.dita4publishers.kindle/xsl/map2kindleImpl.xsl"
+			propertyfile="${basedir}/build.number"
+			>
+			<replacefilter
+				token="^buildnumber^"
+				property="build.number"
+			/>
+			<replacefilter
+				token="^version^"
+			  value="${kindle_version}"
 			/>
 			<replacefilter
 				token="^timestamp^"
@@ -237,19 +256,30 @@
     </zip>    
   </target>
   
-	<target name="dist-epub-plugin">
+	<target name="dist-epub-plugin" depends="build-d4p-user-guide">
     <delete failonerror="true" includeemptydirs="true">
       <fileset dir="${plugin.dist}" includes="net.sourceforge.dita4publishers.epub/**"/>
     </delete>
     <copy todir="${plugin.dist}/net.sourceforge.dita4publishers.epub">
+      <fileset dir="${build}/docs">
+        <include name="*.epub"/>
+        <include name="*.mobi"/>
+        <include name="*.pdf"/>
+      </fileset>
       <fileset dir="${plugin.src}/net.sourceforge.dita4publishers.epub">
+        <include name="**/*"/>
+      </fileset>
+      <fileset dir="${plugin.src}/net.sourceforge.dita4publishers.common.xslt">
+        <include name="**/*"/>
+      </fileset>
+      <fileset dir="${plugin.src}/net.sourceforge.dita4publishers.kindle">
         <include name="**/*"/>
       </fileset>
     </copy>
 	</target>
 	
 	<target name="package-epub-plugin" depends="dist-epub-plugin">
-    <zip destfile="${dist}/dita4publishers-epub-plugin-${package.date}.zip">
+    <zip destfile="${dist}/dita4publishers-epub-plugin-${epub_version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="net.sourceforge.dita4publishers.epub/**"/>
       </fileset>
@@ -259,7 +289,7 @@
 	<target name="package-vocabulary-plugins" depends="dist-init, dist-toolkit-plugins"
 		description="Create distributable Zip packages of the different Toolkit plugins"
 		>
-    <zip destfile="${package.dist}/dita4publishers-vocabulary-plugins-${vocab_version}-${package.date}.zip">
+    <zip destfile="${package.dist}/dita4publishers-vocabulary-plugins-${vocab_version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="net.sourceforge.dita4publishers.doctypes/**"/>
       </fileset>
@@ -269,7 +299,7 @@
 	<target name="package-toolkit-plugins" depends="dist-init, dist-toolkit-plugins"
 		description="Create distributable Zip package of just the vocabulary modules."
 		>
-    <zip destfile="${package.dist}/dita4publishers-toolkit-plugins-${vocab_version}-${package.date}.zip">
+    <zip destfile="${package.dist}/dita4publishers-toolkit-plugins-${vocab_version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="net.sourceforge.dita4publishers.*/**"/>
         <!-- <exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/> -->
@@ -356,10 +386,123 @@
 		</scp>
 	</target>
 	
+	<target name="epub-d4p-user-guide">
+		<property name="pub.name" value="d4p-users-guide"/>
+		<property name="root.map" location="${docs.dir}/user_docs/${pub.name}.ditamap"/>
+		<property name="output.dir" location="${build}/docs"/>
+
+		<delete dir="${output.dir}" failonerror="false">
+			<include name="${pub.name}.epub"/>
+		</delete>
+
+		<ant antfile="${dita-ot-dir}/build.xml" 
+					dir="${dita-ot-dir}"
+					target="dita2epub"
+					
+					>
+			<property name="args.input" location="${root.map}"/>
+      <property name="transtype" value="epub"/>
+			<property name="args.outext" value="html"/>
+			<property name="dita.dir" location="${dita-ot-dir}"/>
+			<property name="dita.temp.dir" location="${basedir}/temp/${pub.name}/epub"/>
+			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
+			<property name="output.dir" location="${output.dir}"/>
+		</ant>		
+		
+		<antcall target="post-transform-cleanup-d4p-user-guide">
+			<param name="pub.name" value="${pub.name}"/>
+			<param name="output.dir" location="${output.dir}"/>
+    </antcall>
+	</target>
+	
+	<target name="post-transform-cleanup-d4p-user-guide">
+		<property name="pub.name" value="d4p-users-guide"/>
+		<property name="output.dir" location="${build}/docs"/>
+
+		<!-- Delete the directory the Toolkit creates with images -->
+		<delete dir="${output.dir}" includeEmptyDirs="true" failonerror="true">
+			<include name="${pub.name}/"/>
+			<include name="dita.list"/>
+			<include name="dita.xml.properties"/>
+		</delete>
+	</target>
+	
+	<target name="kindle-d4p-user-guide">
+		<property name="pub.name" value="d4p-users-guide.ditamap"/>
+		<property name="root.map" location="${docs.dir}/user_docs/${pub.name}"/>
+
+		<property name="output.dir" location="${build}/docs"/>
+
+		<delete failonerror="false">
+			<fileset dir="${output.dir}">
+				<include name="${pub.name}.mobi"/>
+			</fileset>
+		</delete>
+
+		<ant antfile="${dita-ot-dir}/build.xml"
+			dir="${dita-ot-dir}"
+			target="dita2kindle"
+			
+			>
+			<property name="args.input" location="${root.map}"/>
+      <property name="transtype" value="kindle"/>
+			<property name="args.outext" value="html"/>
+			<property name="dita.dir" location="${dita-ot-dir}"/>
+			<property name="dita.temp.dir" location="${basedir}/temp/${pub.name}/kindle"/>
+			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
+			<property name="output.dir" location="${output.dir}"/>
+			<property name="kindlegen.executable" location="${kindlegen.executable}"/>
+	  </ant>
+		
+		<antcall target="post-transform-cleanup-d4p-user-guide">
+			<param name="pub.name" value="${pub.name}"/>
+			<param name="output.dir" location="${output.dir}"/>
+	  </antcall>
+
+	</target>
+	
+	<target name="pdf-d4p-user-guide">
+		<property name="pub.name" value="d4p-users-guide.ditamap"/>
+		<property name="root.map" location="${docs.dir}/user_docs/${pub.name}"/>
+		<property name="output.dir" location="${build}/docs"/>
+
+		<delete failonerror="false">
+			<fileset dir="${output.dir}">
+				<include name="${pub.name}.pdf"/>
+			</fileset>
+		</delete>
+		<ant antfile="${dita-ot-dir}/build.xml"
+			target="dita2pdf"
+			>
+      <property name="args.input"  location="${root.map}"/>
+      <property name="args.draft" value="${draft}"/>
+      <property name="output.dir"  value="${output.dir}"/>
+      <property name="dita.temp.dir" value="${basedir}/temp/${pub.name}/pdf"/>
+      <property name="transtype"   value="pdf"/>
+      <property name="clean.temp" value="yes"/>
+		</ant>
+		
+		<antcall target="post-transform-cleanup-d4p-user-guide">
+			<param name="pub.name" value="${pub.name}"/>
+			<param name="output.dir" location="${output.dir}"/>
+	  </antcall>
+
+	</target>
+		
+	<target name="build-d4p-user-guide" description="Generates all the deliverable forms of the D4P User Guide">
+		<property name="pub.name" value="d4p-users-guide.ditamap"/>
+		<property name="root.map" location="${docs.dir}/user_docs/${pub.name}"/>
+
+		<antcall target="epub-d4p-user-guide"/>
+		<antcall target="kindle-d4p-user-guide"/>
+		<antcall target="pdf-d4p-user-guide"/>
+
+	</target>
+	
 	<target name="generate-epubs-for-samples" depends="integrate, epub-wizard-of-oz, epub-shakespear-plays"
 	  description="Generate ePUB versions of the publications in sample_data"
 	>
-	  </target>
+	</target>
 	  
   <target name="test-epub-shakespear-play" description="Test generation of epubs for shakespear plays">
 	    <property name="sampleRootDir" location="${shakespear-sample}/plays"/>
