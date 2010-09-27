@@ -38,7 +38,7 @@
 <!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
 <!-- ============================================================= -->
 
-<!ATTLIST d4pSimpleEnumerator         %global-atts;  class CDATA "+ topic/data  d4p_enumBase-d/d4pEnumeratorBase     d4p_enum-d/d4pSimpleEnumerator ">
+<!ATTLIST d4pSimpleEnumerator         %global-atts;  class CDATA "+ topic/data  d4p_enumBase-d/d4pEnumeratorBase     d4p_simplenum-d/d4pSimpleEnumerator ">
 
 
 <!-- ================== End D4P Enumeration Topic Domain ==================== -->
