@@ -73,7 +73,7 @@
   %base-attribute-extensions;
   outputclass 
     CDATA                            
-    'ruby'    
+    'rb'    
  "
 > 
 <!ELEMENT rb %rb.content; >
@@ -95,7 +95,7 @@
   %base-attribute-extensions;
   outputclass 
     CDATA                            
-    'ruby'    
+    'rp'    
  "
 > 
 <!ELEMENT rp %rp.content; >
@@ -117,7 +117,7 @@
   %base-attribute-extensions;
   outputclass 
     CDATA                            
-    'ruby'    
+    'rt'    
  "
 > 
 <!ELEMENT rt %rt.content; >
