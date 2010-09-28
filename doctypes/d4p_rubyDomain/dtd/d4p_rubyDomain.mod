@@ -26,12 +26,19 @@
 <!-- ============================================================= -->
 
 
+<!-- In order to support HTML5, which allows a mix of PCDATA, other phrase-
+     level elements, and <rt> and <rp>, the content model must allow
+     %ph;, which means that the DTD allows <ruby> within <ruby>. However,
+     <ruby> should *not* be used within <ruby>, per the HTML 
+     constraints on <ruby>. Likewise, if <rp> is used, it should be
+     used as <rp>(</rp><rt>...</rt><rp>)</rp> per the HTML5 spec.
+  -->
 <!ENTITY % ruby.content
 "
-  ((%rb;) |
-   (%rp;) |
-   (%rt;)
-  )*
+  (%ph.cnt; |
+   %rb; |
+   %rp; |
+   %rt;)*
   " 
 >
 <!ENTITY % ruby.attributes
