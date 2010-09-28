@@ -92,7 +92,7 @@
     <xslt processor="trax"
       basedir="${dita.temp.dir}"
       destdir="${dita.temp.dir}"
-      includesfile="${dita.temp.dir}${file.separator}fullditamap.list"
+      includesfile="${dita.temp.dir}${file.separator}user.input.file.list"
       classpathref="dost.class.path"
       style="${map2epub.style}">
      	<param name="cssOutputDir" expression="${css.output.dir}"/>
