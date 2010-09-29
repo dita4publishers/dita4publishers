@@ -443,17 +443,12 @@ public class InxHelper {
 	public static Story getStoryForIncxDoc(InDesignDocument inDesignDoc, URI incxResource)
 			throws ParserConfigurationException, SAXException, IOException,
 			Exception {
-		InputSource inputSource = new InputSource(incxResource.toURL().openStream());
-		inputSource.setSystemId(incxResource.toString());
-		
-		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-	    DocumentBuilder db = dbf.newDocumentBuilder();
-	    Document doc = db.parse(inputSource);
-	    NodeList cflos = doc.getElementsByTagName("cflo");
-	    Element cfloElem = (Element) cflos.item(0);
-	    cfloElem.removeAttribute(InDesignDocument.PROP_SELF); // Force assignment of new object ID.
-        Story incxStory = inDesignDoc.newStory(cfloElem);
-		return incxStory;
+		InputSource incxSource = new InputSource(incxResource.toURL().openStream());
+		incxSource.setSystemId(incxResource.toString());
+		InDesignDocument articleDoc = new InDesignDocument(incxSource);
+		Story incxStory = articleDoc.getStoryIterator().next();
+        Story importedStory = inDesignDoc.importStory(incxStory);
+		return importedStory;
 	}
 	
 

@@ -4,7 +4,6 @@
 package org.dita2indesign.indesign.inx.model;
 
 import org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor;
-import org.w3c.dom.Element;
 
 
 /**
@@ -42,7 +41,30 @@ public class TextStyleRange extends DefaultInDesignComponent {
 		visitor.visit(this);
 	}
 
+	/**
+	 * @return
+	 * @throws Exception 
+	 */
+	public ParagraphStyle getParagraphStyle() throws Exception {
+		String styleId = this.getObjectReferenceProperty(InDesignDocument.PROP_PRST);
+		ParagraphStyle style = null;
+		if (styleId != null) {
+			style = (ParagraphStyle)this.getDocument().getObject(styleId);
+		}
+		return style;
+	}
 
-
+	/**
+	 * @return
+	 * @throws Exception 
+	 */
+	public CharacterStyle getCharacterStyle() throws Exception {
+		String styleId = this.getObjectReferenceProperty(InDesignDocument.PROP_CRST);
+		CharacterStyle style = null;
+		if (styleId != null) {
+			style = (CharacterStyle)this.getDocument().getObject(styleId);
+		}
+		return style;
+	}
 
 }

@@ -25,8 +25,9 @@ public class Image extends InDesignGeometryHavingObject {
 
 	/**
 	 * @param link Link to the external object for the image (e.g., EPS file, etc.).
+	 * @throws Exception 
 	 */
-	public void setItemLink(Link link) {
+	public void setItemLink(Link link) throws Exception {
 		this.addChild(link);
 		this.itemLink = link;
 		

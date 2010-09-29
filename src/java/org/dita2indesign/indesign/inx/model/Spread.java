@@ -34,12 +34,6 @@ public class Spread extends InDesignRectangleContainingObject {
 	 * Pages indexed by object ID.
 	 */
 	protected Map<String, Page> pagesById = new HashMap<String, Page>();
-	/**
-	 * The page count specified as a property on the INX element.
-	 * This should of course match the number of actual page objects
-	 * read.
-	 */
-	protected long pageCount;
 
 	/**
 	 * Pages indexed page name (this assumes page names are unique within a spread)
@@ -338,7 +332,6 @@ public class Spread extends InDesignRectangleContainingObject {
 		this.pagesByName.put(page.getPName(), page);
 		this.pages.add(page);
 		this.addChild(page);
-		this.pageCount = this.pages.size();
 		return page;
 	}
 
@@ -410,6 +403,12 @@ public class Spread extends InDesignRectangleContainingObject {
 	@Override
 	public void updatePropertyMap() throws Exception {
 		super.updatePropertyMap();
+		setProperty(InDesignDocument.PROP_PAGC, new InxLong32(pages.size()));
+		if (pages.size() == 1) {
+			setProperty("BnLc", new InxLong32(0)); // Left side of first page (?)
+		} else {
+			setProperty("BnLc", new InxLong32(1)); // Right side of first page (?)
+		}
 	}
 
 

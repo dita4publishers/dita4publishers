@@ -113,4 +113,15 @@ public class TextContents extends DefaultInDesignComponent {
 	public void accept(InDesignDocumentVisitor visitor) throws Exception {
 		visitor.visit(this);
 	}
+	
+	/* (non-Javadoc)
+	 * @see org.dita2indesign.indesign.inx.model.InDesignComponent#loadComponent(org.dita2indesign.indesign.inx.model.InDesignComponent)
+	 */
+	protected void loadComponent(InDesignComponent sourceObj) throws Exception {
+		super.loadComponent(sourceObj);
+		this.textContent = ((TextContents)sourceObj).textContent;
+		
+	}
+
+
 }

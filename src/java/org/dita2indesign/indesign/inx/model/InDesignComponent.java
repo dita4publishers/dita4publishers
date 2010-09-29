@@ -90,8 +90,9 @@ public abstract class InDesignComponent {
 	
 	/**
 	 * @param run
+	 * @throws Exception 
 	 */
-	public void addChild(InDesignComponent child) {
+	public void addChild(InDesignComponent child) throws Exception {
 		this.childObjects.add(child);
 		child.setParent(this);
 	}
@@ -347,8 +348,8 @@ public abstract class InDesignComponent {
 		setTagsFromPtagProperty();
 		for (InDesignComponent child : sourceObj.getChildren()) {
 			InDesignComponent newChild = this.getDocument().clone(child);
-			this.childObjects.add(newChild);
-		}
+			addChild(newChild);
+		}		
 	}
 
 	/**

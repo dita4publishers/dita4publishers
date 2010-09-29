@@ -112,8 +112,9 @@ public abstract class InDesignRectangleContainingObject extends InDesignGeometry
 
 	/**
 	 * @param rect
+	 * @throws Exception 
 	 */
-	public void addRectangle(Rectangle rect) {
+	public void addRectangle(Rectangle rect) throws Exception {
 		logger.debug("addRectang(): rect=" + rect);
 		this.rectangles.put(rect.getId(), rect);
 		if (rect instanceof TextFrame)

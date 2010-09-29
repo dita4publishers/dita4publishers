@@ -31,17 +31,17 @@ public class Story extends InDesignObject {
 	
 	public void loadObject(Element dataSource) throws Exception {
 		super.loadObject(dataSource);
-		for (InDesignComponent child : this.getChildren()) {
-			if (child instanceof TextStyleRange) {
-				this.textRuns.add((TextStyleRange)child);
-			}
-		}
+//		for (InDesignComponent child : this.getChildren()) {
+//			if (child instanceof TextStyleRange) {
+//				this.textRuns.add((TextStyleRange)child);
+//			}
+//		}
 	}
 
 	/**
 	 * @return
 	 */
-	public Iterator<TextStyleRange> getTextRunIterator() {
+	public Iterator<TextStyleRange> getTextStyleRangeIterator() {
 		return this.textRuns .iterator();
 	}
 
@@ -60,6 +60,15 @@ public class Story extends InDesignObject {
 	public void updatePropertyMap() throws Exception {
 		// Nothing to do?
 	}
+	
+	public void addChild(InDesignComponent child) throws Exception {
+		super.addChild(child);
+		if (child instanceof TextStyleRange) {
+			this.textRuns.add((TextStyleRange)child);
+		}
+	}
+
+
 
 
 

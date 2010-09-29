@@ -79,6 +79,11 @@ public class InDesignDocument extends InDesignObject {
 
 	private List<Link> links = new ArrayList<Link>();
 
+	private Map<String, ParagraphStyle> pstylesByName = new HashMap<String, ParagraphStyle>();
+	private Map<String, CharacterStyle> cstylesByName = new HashMap<String, CharacterStyle>();
+//	private Map<String, InDesignObject> ostylesByName = new HashMap<String, InDesignObject>();
+//	private Map<String, InDesignObject> tstylesByName = new HashMap<String, InDesignObject>();
+
 
 	/**
 	 * 
@@ -148,16 +153,27 @@ public class InDesignDocument extends InDesignObject {
 
 	private static final Map<String, Class<? extends InDesignComponent>> tagToComponentClassMap = new HashMap<String, Class<? extends InDesignComponent>>();
 
+	public static final String PROP_PRST = "prst";
+
+	public static final String PROP_CRST = "crst";
+
+	public static final String PSTY_TAGNAME = "psty";
+
+	public static final String CSTY_TAGNAME = "csty";
+
 
 
 	static {
-		// FIXME: Fill out this mapping
+		// Tags to Objects:
 		tagToObjectClassMap.put(CLNK_TAGNAME, Link.class);
 		tagToObjectClassMap.put(CFLO_TAGNAME, Story.class);
 		tagToObjectClassMap.put(PAGE_TAGNAME, Page.class);
 		tagToObjectClassMap.put(CREC_TAGNAME, Rectangle.class);
 		tagToObjectClassMap.put(TXTF_TAGNAME, TextFrame.class);
+		tagToObjectClassMap.put(CSTY_TAGNAME, CharacterStyle.class);
+		tagToObjectClassMap.put(PSTY_TAGNAME, ParagraphStyle.class);
 		
+		// Tags to Components:
 		tagToComponentClassMap.put(TXSR_TAGNAME, TextStyleRange.class);
 		tagToComponentClassMap.put(PCNT_TAGNAME, TextContents.class);
 	}
@@ -230,6 +246,28 @@ public class InDesignDocument extends InDesignObject {
 	public InDesignDocument(InputSource inxSource) throws Exception {
 		this.load(inxSource);
 	}
+	
+	public void addChild(InDesignComponent comp) throws Exception {
+		super.addChild(comp);
+		if (comp instanceof Story) {
+			this.stories.add((Story)comp);
+			// FIXME: Need to do some more refactoring in order to be able to do 
+			// this processing at this point.
+//		} else if (comp instanceof MasterSpread) {
+//			MasterSpread masterSpread = (MasterSpread)comp;
+//			this.masterSpreads.put(masterSpread.getPName(), masterSpread);
+//		} else if (comp instanceof Spread) {
+//			this.spreads.add((Spread)comp);
+		} else if (comp instanceof ParagraphStyle) {
+			this.pstylesByName.put(comp.getPName(), (ParagraphStyle)comp);
+		} else if (comp instanceof CharacterStyle) {
+			this.cstylesByName.put(comp.getPName(), (CharacterStyle)comp);
+		} else if (comp instanceof DocumentPreferences) {
+			this.docPrefs = (DocumentPreferences)comp;
+
+		}
+	}
+
 
 	/**
 	 * @return
@@ -317,7 +355,7 @@ public class InDesignDocument extends InDesignObject {
 	private DocumentPreferences newDocumentPreferences(Element child) throws Exception {
 		DocumentPreferences prefs = (DocumentPreferences) newComponent(DocumentPreferences.class, child);
 		this.addChild(prefs);
-		this.docPrefs = prefs;
+		// this.docPrefs = prefs;
 		return prefs;
 	}
 
@@ -384,7 +422,6 @@ public class InDesignDocument extends InDesignObject {
 	public Story newStory(Element child) throws Exception {
 		Story story = (Story) newObject(Story.class, child);
 		this.addChild(story);
-		this.stories.add(story);
 		return story;
 	}
 
@@ -392,7 +429,7 @@ public class InDesignDocument extends InDesignObject {
 	 * @param string
 	 * @return
 	 */
-	public InDesignComponent getObject(String id) {
+	public InDesignObject getObject(String id) {
 		return this.objectsById.get(id);
 	}
 
@@ -488,6 +525,7 @@ public class InDesignDocument extends InDesignObject {
 		Spread newSpread = new Spread();
 		assignIdAndRegister(newSpread);
 		newSpread.setParent(this);
+		this.spreads.add(newSpread);
 		MasterSpread masterSpread = this.getMasterSpread(masterSpreadName);
 		if (masterSpread == null) {
 			logger.info("Master spread \"" + masterSpreadName + "\" not found. Master spreads: ");
@@ -498,9 +536,6 @@ public class InDesignDocument extends InDesignObject {
 		}
 		newSpread.setMasterSpread(masterSpread);
 		newSpread.setTransformationMatrix(this.spreads.size());
-		this.spreads.add(newSpread);
-		// It does not appear to matter where spreads are in the inx document.
-		// Or at least it seems to work if they are at the end of the INX document.
 		this.addChild(newSpread);
 		return newSpread;
 	}
@@ -520,8 +555,8 @@ public class InDesignDocument extends InDesignObject {
         
         MasterSpread  masterSpread = this.getMasterSpread(masterSpreadName);
         
+        spread.setTransformationMatrix(this.spreads.size());
         this.spreads.add(spread);
-        spread.setTransformationMatrix(this.spreads.size() - 1);
         spread.setMasterSpread(masterSpread);
         this.addChild(spread);
         
@@ -579,6 +614,16 @@ public class InDesignDocument extends InDesignObject {
 		Rectangle rect = new Rectangle();
 		assignIdAndRegister(rect);
 		return rect;
+	}
+
+	/**
+	 * @return New rectangle
+	 * @throws Exception 
+	 */
+	public ParagraphStyle newParagraphStyle() throws Exception {
+		ParagraphStyle obj = new ParagraphStyle();
+		assignIdAndRegister(obj);
+		return obj;
 	}
 
 	/**
@@ -688,6 +733,8 @@ public class InDesignDocument extends InDesignObject {
 				assignIdAndRegister(obj);
 			}
 			
+		} else {
+			assignIdAndRegister(obj);
 		}
 		logger.debug("newObject(): New object has ID [" + obj.getId() + "]");
 		return obj;
@@ -839,7 +886,6 @@ public class InDesignDocument extends InDesignObject {
 		assignIdAndRegister(story);
 		story.addChild(link);
 		this.addChild(story);
-		this.stories.add(story);
 		
 		frame.setParentStory(story);
 		
@@ -857,7 +903,6 @@ public class InDesignDocument extends InDesignObject {
         Story story = new Story();
         assignIdAndRegister(story);
         this.addChild(story);
-        this.stories.add(story);
         
         frame.setParentStory(story);
         
@@ -895,6 +940,102 @@ public class InDesignDocument extends InDesignObject {
 	public void updatePropertyMap() throws Exception {
 		InxObjectList storyList = new InxObjectList(this.stories);
 		this.setProperty("stls", storyList);
+	}
+
+	/**
+	 * Import a story from one document (e.g., an InCopy article) into this document,
+	 * updating style references as necessary.
+	 * @param incxStory The story to be imported.
+	 * @return The imported story object.
+	 * @throws Exception 
+	 */
+	public Story importStory(Story incxStory) throws Exception {
+		
+		Map<String, ParagraphStyle> paraStyleMap = new HashMap<String, ParagraphStyle>();
+		
+		Story newStory = new Story();
+		this.assignIdAndRegister(newStory);
+		
+		Iterator<TextStyleRange> iter = incxStory.getTextStyleRangeIterator();
+		
+		while (iter.hasNext()) {
+			TextStyleRange incomingTxsr = iter.next();
+			TextStyleRange txsr = (TextStyleRange)this.clone(incomingTxsr);
+
+			InDesignObject incomingStyle = incomingTxsr.getParagraphStyle(); 
+			if (incomingStyle == null) {
+				throw new Exception("Failed to get object for referenced paragraph style ID [" + txsr.getObjectReferenceProperty(PROP_PRST) + "]");
+			}
+			String styleName = incomingStyle.getPName();
+			ParagraphStyle targetPStyle = this.getParagraphStyle(styleName);
+			if (targetPStyle == null) {
+				targetPStyle = (ParagraphStyle)this.clone(incomingStyle);
+				this.addParagraphStyle(targetPStyle);
+			}
+			txsr.setObjectReferenceProperty(PROP_PRST, targetPStyle);
+
+			incomingStyle = incomingTxsr.getCharacterStyle(); 
+			if (incomingStyle == null) {
+				logger.warn("Failed to get object for referenced character style ID [" + txsr.getObjectReferenceProperty(PROP_PRST) + "]");
+			} else {
+				styleName = incomingStyle.getPName();
+				CharacterStyle targetCStyle = this.getCharacterStyle(styleName);
+				if (targetCStyle == null) {
+					targetCStyle = (CharacterStyle)this.clone(incomingStyle);
+					this.addCharacterStyle(targetCStyle);
+				}
+				txsr.setObjectReferenceProperty(PROP_CRST, targetCStyle);
+			}
+			
+			newStory.addChild(txsr);
+
+		}
+		this.addChild(newStory);
+		return newStory;
+	}
+
+	/**
+	 * Add a paragraph style to the document.
+	 * @param styleObject
+	 * @throws Exception 
+	 */
+	public ParagraphStyle addParagraphStyle(ParagraphStyle styleObject) throws Exception {
+		this.pstylesByName.put(styleObject.getPName(), styleObject);
+		return styleObject;
+	}
+
+	/**
+	 * Add a character style to the document.
+	 * @param styleObject
+	 * @throws Exception 
+	 */
+	public CharacterStyle addCharacterStyle(CharacterStyle styleObject) throws Exception {
+		this.cstylesByName.put(styleObject.getPName(), styleObject);
+		return styleObject;
+	}
+
+	/**
+	 * @param styleName
+	 * @return
+	 */
+	public ParagraphStyle getParagraphStyle(String styleName) throws Exception {
+		ParagraphStyle style = null;
+		if (this.pstylesByName.containsKey(styleName)) {
+			style = this.pstylesByName.get(styleName);
+		}
+		return style;
+	}
+
+	/**
+	 * @param styleName
+	 * @return
+	 */
+	public CharacterStyle getCharacterStyle(String styleName) throws Exception {
+		CharacterStyle style = null;
+		if (this.cstylesByName.containsKey(styleName)) {
+			style = this.cstylesByName.get(styleName);
+		}
+		return style;
 	}
 
 

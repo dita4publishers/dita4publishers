@@ -19,6 +19,13 @@ public class InxLong32 extends InxLongBase {
 		this.value = Long.parseLong(rawValue, 16);
 	}
 
+	/**
+	 * @param value
+	 */
+	public InxLong32(int value) {
+		this.value = value;
+	}
+
 	public Long getValue() {
 		return new Long(value);
 	}
