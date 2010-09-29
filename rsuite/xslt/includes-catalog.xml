@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE catalog PUBLIC "-//OASIS//DTD XML Catalogs V1.1//EN" "http://www.oasis-open.org/committees/entity/release/1.1/catalog.dtd">
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/word2dita/docx2dita.xsl" 
     uri="../../xslt/word2dita/docx2dita.xsl"/>
@@ -9,11 +8,11 @@
     uri="../../xslt/lib/relpath_util.xsl"/>
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/lib/dita-support-lib.xsl" 
     uri="../../xslt/lib/dita-support-lib.xsl"/>
-
-  <uri name="rsuite:/res/plugin/dita2indesign/xslt/dita2indesign/lib/incx_generation_util.xsl" 
+             
+  <uri name="rsuite:/res/plugin/dita4publishers/xslt/dita2indesign/lib/incx_generation_util.xsl" 
     uri="../../xslt/dita2indesign/lib/incx_generation_util.xsl"/>
-  <uri name="rsuite:/res/plugin/dita2indesign/xslt/dita2indesign/elem2styleMapper.xsl" 
+  <uri name="rsuite:/res/plugin/dita4publishers/xslt/dita2indesign/elem2styleMapper.xsl" 
     uri="../../xslt/dita2indesign/elem2styleMapper.xsl"/>
-  <uri name="rsuite:/res/plugin/dita2indesign/xslt/dita2indesign/topic2article.xsl" 
+  <uri name="rsuite:/res/plugin/dita4publishers/xslt/dita2indesign/topic2article.xsl" 
     uri="../../xslt/dita2indesign/topic2article.xsl"/>
 </catalog>
