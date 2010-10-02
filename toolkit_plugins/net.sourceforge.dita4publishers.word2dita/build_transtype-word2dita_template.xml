@@ -1,34 +1,33 @@
-<project name="dita2wordToDita" default="dita2wordToDita"
-  >
+<project name="dita2wordToDita" default="dita2word2dita">
+  <dirname property="dita2wordToDita.buildfile.dir" file="${ant.file}"/>
   
-  <!-- test to see where the plugin is located, plugins or demo -->
-  <dirname property="wordToDita.dir" file="${ant.file.dita2wordToDita}"/>
+  
+  <property name="wordToDita.dir" location="${dita2wordToDita.buildfile.dir}/plugins/net.sourceforge.dita4publishers.word2dita"/>
 	
-		<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
-	<property name="debug" value="false"/>
+		
+	<property name="debug" value="false"></property>
 	
-	<target name="dita2wordToDita"
-    xmlns:dita="http://dita-ot.sourceforge.net"
-		dita:depends="wordToDita"
-    dita:extension="depends org.dita.dost.platform.InsertDependsAction">
+	<target name="dita2word2dita" depends="wordToDita">
   </target>
   
-  <target name="d4p.wordToDita.init"
-    description="Init properties for wordToDita">
+  <target name="d4p.wordToDita.init" description="Init properties for wordToDita">
     <condition property="out.ext" value=".dita">
       <not>
-        <isset property="out.ext" />
+        <isset property="out.ext"></isset>
       </not>
     </condition>
     <condition property="noPlugin">
-      <equals arg1="${dita.wordToDita.plugin}" arg2="no" />
+      <equals arg1="${dita.wordToDita.plugin}" arg2="no"></equals>
     </condition>
   </target>
 
 	<target name="wordToDita">
-		<ant antfile="build-word2dita.xml" target="word2dita">
-			<property name="out.ext" value="${out.ext}"/>
+	  <echo message="[DEBUG] wordToDita.dir=${wordToDita.dir}"/>
+	  <ant antfile="${wordToDita.dir}/build-word2dita.xml" target="word2dita">
+	  	<!-- Translate OT properties to Word2DITA properties: -->
+	  	<property name="word.doc" value="${args.input}"/>
 			<property name="w2d.temp.dir" location="${dita.temp.dir}"/>
+	  	<property name="w2d.out.dir" location="${output.dir}"/>
 	  </ant>
   </target>
 

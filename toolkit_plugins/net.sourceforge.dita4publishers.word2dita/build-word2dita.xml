@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="DITA4Publishers word2dita" default="word2dita">
 	
-	<property name="w2d.base.dir" location="."/>
+	<dirname property="w2d.base.dir" file="${ant.file}"/>
 	
 	<property name="w2d.temp.dir" location="${basedir}/temp"/>
 	
 	<property name="w2d.out.dir" location="${w2d.temp.dir}/dita"/>
 
 	<property name="xsl.dir" location="${w2d.base.dir}/xsl"/>
+	
 	
 	<property name="word.doc" value="word.doc not set"/>
 	
@@ -63,6 +64,11 @@
   </target>
 	
 	<target name="transformWordToDita">
+		<echo message="[DEBUG] xsl.dir=${xsl.dir}"/>
+		<echo message="[DEBUG] w2d.style-to-tag-map=${w2d.style-to-tag-map}"/>
+		<echo message="[DEBUG] w2d.out.dir=${w2d.out.dir}"/>
+
+
 		<mkdir dir="${w2d.out.dir}"/>
 		
 		<makeurl property="styleMapUri.url" file="${w2d.style-to-tag-map}"/>

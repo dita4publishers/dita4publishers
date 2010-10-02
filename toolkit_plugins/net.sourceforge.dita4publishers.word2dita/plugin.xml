@@ -9,7 +9,15 @@
   XSLT.
   
   -->
-<plugin id="net.sourceforge.dita4publishers.ruby.html">
+<plugin id="net.sourceforge.dita4publishers.word2dita">
+  <!-- Requires the style2tagMap.xsd which is packaged as part of the
+       D4P document types.
+    -->
   <require plugin="net.sourceforge.dita4publishers.doctypes"/> 
-  <feature extension="dita.xsl.xhtml" value="xsl/rubyDomain2html.xsl" type="file"/>  
+
+  <template file="build_transtype-word2dita_template.xml"/>
+  <feature extension="dita.conductor.transtype.check" value="word2dita" type="txt"/>
+  <!-- Hook in an import of the bild_transtype-word2dita.xml file: -->
+  <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
+
 </plugin>
