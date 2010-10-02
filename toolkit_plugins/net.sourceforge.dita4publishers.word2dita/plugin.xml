@@ -1,0 +1,15 @@
+<!-- 
+  Plugin descriptor for the Word-to-DITA Plugin
+  
+  Copyright (c) 2010 DITA For Publishers
+    
+  This plug-in converts Microsoft Word DOCX documents
+  into DITA maps and topics using a style-to-tag
+  mapping document plug, as necessary, extension
+  XSLT.
+  
+  -->
+<plugin id="net.sourceforge.dita4publishers.ruby.html">
+  <require plugin="net.sourceforge.dita4publishers.doctypes"/> 
+  <feature extension="dita.xsl.xhtml" value="xsl/rubyDomain2html.xsl" type="file"/>  
+</plugin>
