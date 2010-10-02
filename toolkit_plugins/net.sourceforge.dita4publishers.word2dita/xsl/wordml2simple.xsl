@@ -43,7 +43,7 @@
       
       =========================================== -->
 
-  <xsl:import href="../lib/relpath_util.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   
   <xsl:param name="styleMapUri" as="xs:string"/>
   <xsl:param name="mediaDirUri" select="relpath:newFile($outputDir, 'topics/media')" as="xs:string"/>  

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style2tagmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap ../../doctypes/style2tagmap/xsd/style2tagmap.xsd"
+  xmlns="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap">
+  <title>Upper Room Article Manuscript Style-to-Tag Map</title>
+  <documentation>
+  </documentation>
+  <styles>
+    <output
+      name="bookmap"
+      doctype-system="bookmap.dtd"
+      doctype-public="-//OASIS//DTD DITA BookMap//EN"
+    />
+    
+    <output
+      name="concept"
+      doctype-system="concept.dtd"
+      doctype-public="-//OASIS//DTD DITA Concept//EN"
+    />
+    
+    <output
+      name="task"
+      doctype-system="task.dtd"
+      doctype-public="-//OASIS//DTD DITA Task//EN"
+    />
+    
+    <output
+      name="reference"
+      doctype-system="reference.dtd"
+      doctype-public="-//OASIS//DTD DITA Reference//EN"
+    />
+
+    <style styleId="Title"
+      level="0"
+      format="bookmap"
+      mapType="bookmap"
+      prologType="topicmeta"
+      structureType="mapTitle"
+      tagName="title"
+    />
+    
+
+    <style styleId="Heading1"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="concept"
+      bodyType="conbody"
+      format="concept"
+      topicrefType="chapter"
+      tagName="title"
+      topicZone="body"
+      level="1"
+    />    
+    
+    
+    
+  </styles>
+</style2tagmap>

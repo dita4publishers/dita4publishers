@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="DITA4Publishers word2dita" default="word2dita">
+	
+	<property name="w2d.base.dir" location="."/>
+	
+	<property name="w2d.temp.dir" location="${basedir}/temp"/>
+	
+	<property name="w2d.out.dir" location="${w2d.temp.dir}/dita"/>
+
+	<property name="xsl.dir" location="${w2d.base.dir}/xsl"/>
+	
+	<property name="word.doc" value="word.doc not set"/>
+	
+	<property name="w2d.style-to-tag-map" location="${xsl.dir}/word-builtin-styles-style2tagmap.xml"/>
+	
+	<property name="w2d.root.output.filename" value="map.ditamap"/>
+	
+	<property name="w2d.word2dita.xslt" location="${xsl.dir}/docx2dita.xsl"/>
+	
+	<tstamp/>
+	
+	<target name="checkWordDoc">
+	   <available property="have.word.doc" file="${word.doc}"/>
+	</target>
+
+	<target name="checkParameters" depends="checkWordDoc"
+		unless="have.word.doc"
+	   >
+		<echo message=" [ERROR] Could not find Word document '${word.doc}'"/>
+		<echo message=" [ERROR] You must specify the parameter 'word.doc' with the full path to the Word DOCX file to be converted."
+			level="error"			
+		/>
+	</target>
+	
+  <target name="word2dita" description="Converts a Word DOCX document to DITA maps and topics"
+  	 depends="checkParameters, doWord2Dita"
+		>
+		
+	</target>
+	
+	<target name="doWord2Dita"  if="have.word.doc">
+		<basename file="${word.doc}" property="doc.base.name" suffix=".docx"/>
+		<property name="word.document.xml.path" location="${w2d.temp.dir}/${doc.base.name}/word/document.xml"/>
+		<antcall target="clean.temp"/>
+		<antcall target="unzipWordDoc"/>
+		<antcall target="transformWordToDita">
+			<param name="word.document.xml.path" value="${word.document.xml.path}"/>
+		</antcall>
+	</target>
+	
+	<target name="clean.temp">
+		<delete dir="${w2d.temp.dir}" failonerror="true" includeemptydirs="true">
+			<include name="**/*"/>
+		</delete>
+		<mkdir dir="${w2d.temp.dir}"/>
+	</target>
+	
+	<target name="unzipWordDoc">
+		<unzip dest="${w2d.temp.dir}/${doc.base.name}" overwrite="yes"
+			src="${word.doc}"
+			>
+		</unzip>
+  </target>
+	
+	<target name="transformWordToDita">
+		<mkdir dir="${w2d.out.dir}"/>
+		
+		<makeurl property="styleMapUri.url" file="${w2d.style-to-tag-map}"/>
+		<makeurl property="outputDir.url" file="${w2d.out.dir}"/>
+		
+		<xslt style="${w2d.word2dita.xslt}"
+			in="${word.document.xml.path}"
+			out="${w2d.out.dir}/${w2d.root.output.filename}"
+			>
+			<param name="styleMapUri" expression="${styleMapUri.url}"/>
+			<param name="outputDir" expression="${outputDir.url}"/>
+		</xslt>
+	</target>
+</project>

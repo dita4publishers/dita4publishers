@@ -33,7 +33,7 @@
     
     =========================================== -->
   
-  <xsl:import href="../lib/relpath_util.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   
   <xsl:param name="rootMapName" as="xs:string" select="'rootmap'"/>
   <xsl:param name="submapNamePrefix" as="xs:string" select="'map'"/>

@@ -1,0 +1,35 @@
+<project name="dita2wordToDita" default="dita2wordToDita"
+  >
+  
+  <!-- test to see where the plugin is located, plugins or demo -->
+  <dirname property="wordToDita.dir" file="${ant.file.dita2wordToDita}"/>
+	
+		<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
+	<property name="debug" value="false"/>
+	
+	<target name="dita2wordToDita"
+    xmlns:dita="http://dita-ot.sourceforge.net"
+		dita:depends="wordToDita"
+    dita:extension="depends org.dita.dost.platform.InsertDependsAction">
+  </target>
+  
+  <target name="d4p.wordToDita.init"
+    description="Init properties for wordToDita">
+    <condition property="out.ext" value=".dita">
+      <not>
+        <isset property="out.ext" />
+      </not>
+    </condition>
+    <condition property="noPlugin">
+      <equals arg1="${dita.wordToDita.plugin}" arg2="no" />
+    </condition>
+  </target>
+
+	<target name="wordToDita">
+		<ant antfile="build-word2dita.xml" target="word2dita">
+			<property name="out.ext" value="${out.ext}"/>
+			<property name="w2d.temp.dir" location="${dita.temp.dir}"/>
+	  </ant>
+  </target>
+
+</project>
