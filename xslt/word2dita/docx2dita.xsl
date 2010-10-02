@@ -2,11 +2,12 @@
 <xsl:stylesheet
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:local="urn:local-functions"
   xmlns:rsiwp="http://reallysi.com/namespaces/generic-wordprocessing-xml"
   xmlns:stylemap="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap"
   xmlns:relpath="http://dita2indesign/functions/relpath"
-  exclude-result-prefixes="xs rsiwp stylemap local relpath"
+  exclude-result-prefixes="xs rsiwp stylemap local relpath xsi"
   version="2.0">
   <xd:doc
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
