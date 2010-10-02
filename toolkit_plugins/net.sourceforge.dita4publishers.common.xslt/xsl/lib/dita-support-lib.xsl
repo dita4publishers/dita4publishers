@@ -528,15 +528,14 @@
   </xsl:function>
   
   <!-- Given a (resolved) map, constructs the sequence of references
-       to unique topics, that is, the set of topicsrefs that 
-       reflects the bounded object set of the map minus any
-       resource-only topicrefs.
+       to unique documents (not necessarily unique topics since
+       multiple topics may be chunked into a single document).
     -->       
   <xsl:function name="df:getUniqueTopicrefs" as="element()*">
     <xsl:param name="map" as="element()"/>
     <xsl:variable name="result" as="element()*">
       <xsl:for-each-group select="$map//*[df:isTopicRef(.) and not(@processing-role = 'resource-only')]"
-        group-by="generate-id(df:resolveTopicRef(.))"
+        group-by="document-uri(root(df:resolveTopicRef(.)))"
         >     
         
         <xsl:if test="false()">
