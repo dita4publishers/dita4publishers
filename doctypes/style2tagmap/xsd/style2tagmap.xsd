@@ -39,7 +39,8 @@
       <xs:element
         ref="s2t:documentation"
         minOccurs="0"
-        maxOccurs="1"/>
+        maxOccurs="1">
+      </xs:element>
       <xs:element
         ref="s2t:styles"
         minOccurs="0"
@@ -64,7 +65,7 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:any
+        <xs:any processContents="skip"
           namespace="##other"
           minOccurs="0"
           maxOccurs="unbounded"/>
