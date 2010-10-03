@@ -9,6 +9,9 @@
 
 	<property name="xsl.dir" location="${w2d.base.dir}/xsl"/>
 	
+	<property name="w2d.debug.xslt" value="false"/><!-- Set to "true" to turn on XSLT debug messages -->
+	
+	<property name="w2d.clean.output.dir" value="false"/>
 	
 	<property name="word.doc" value="word.doc not set"/>
 	
@@ -18,8 +21,9 @@
 	
 	<property name="w2d.word2dita.xslt" location="${xsl.dir}/docx2dita.xsl"/>
 	
+	<!--
 	<tstamp/>
-	
+	-->
 	<target name="checkWordDoc">
 	   <available property="have.word.doc" file="${word.doc}"/>
 	</target>
@@ -39,7 +43,17 @@
 		
 	</target>
 	
-	<target name="doWord2Dita"  if="have.word.doc">
+	<target name="initProperties">
+		<condition property="w2p.do.clean.output.dir">
+			<or>
+				<equals arg1="${w2d.clean.output.dir}" arg2="true" casesensitive="false"/>
+				<equals arg1="${w2d.clean.output.dir}" arg2="yes" casesensitive="false"/>
+				<equals arg1="${w2d.clean.output.dir}" arg2="on" casesensitive="false"/>
+		  </or>
+		</condition>
+	</target>
+	
+	<target name="doWord2Dita"  if="have.word.doc" depends="initProperties">
 		<basename file="${word.doc}" property="doc.base.name" suffix=".docx"/>
 		<property name="word.document.xml.path" location="${w2d.temp.dir}/${doc.base.name}/word/document.xml"/>
 		<antcall target="clean.temp"/>
@@ -63,23 +77,35 @@
 		</unzip>
   </target>
 	
-	<target name="transformWordToDita">
+	<target name="cleanOutputDir" if="w2p.do.clean.output.dir">
+    <echo message="[INFO] Cleaning output directory ${w2d.out.dir}..."/>
+		
+		<delete dir="${w2d.out.dir}" failonerror="true" includeemptydirs="true">
+			<include name="**/*"/>
+		</delete>		
+	</target>
+	
+	<target name="transformWordToDita" depends="cleanOutputDir">
 		<echo message="[DEBUG] xsl.dir=${xsl.dir}"/>
 		<echo message="[DEBUG] w2d.style-to-tag-map=${w2d.style-to-tag-map}"/>
 		<echo message="[DEBUG] w2d.out.dir=${w2d.out.dir}"/>
 
+    <echo message="[INFO] Creating output directory ${w2d.out.dir}..."/>
 
 		<mkdir dir="${w2d.out.dir}"/>
 		
 		<makeurl property="styleMapUri.url" file="${w2d.style-to-tag-map}"/>
 		<makeurl property="outputDir.url" file="${w2d.out.dir}"/>
 		
+    <echo message="[INFO] Generating DITA documents from Word document in output directory ${w2d.out.dir}..."/>
+
 		<xslt style="${w2d.word2dita.xslt}"
 			in="${word.document.xml.path}"
 			out="${w2d.out.dir}/${w2d.root.output.filename}"
 			>
 			<param name="styleMapUri" expression="${styleMapUri.url}"/>
 			<param name="outputDir" expression="${outputDir.url}"/>
+			<param name="debug" expression="${w2d.debug.xslt}"/>
 		</xslt>
 	</target>
 </project>
