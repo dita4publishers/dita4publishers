@@ -13,7 +13,7 @@
   <!--==========================================
     Simple Word Processing Markup to DITA generic transformation
     
-    Copyright (c) 2009 DITA For Publishers, Inc.
+    Copyright (c) 2009, 2010 DITA For Publishers, Inc.
 
     Transforms a simple word processing document into a DITA topic using
     a style-to-tag mapping.
@@ -35,12 +35,6 @@
   
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   
-  <xsl:param name="rootMapName" as="xs:string" select="'rootmap'"/>
-  <xsl:param name="submapNamePrefix" as="xs:string" select="'map'"/>
-  
-  <xsl:param name="rootMapUrl" select="concat($rootMapName, '.ditamap')" as="xs:string"/>
-  <xsl:param name="topicExtension" select="'.dita'" as="xs:string"/><!-- Extension for generated topic files -->
-  <xsl:param name="fileNamePrefix" select="''" as="xs:string"/><!-- Prefix for genenerated file names -->
   
   <xsl:template match="rsiwp:document">
     <xsl:message> + [INFO] simple2dita: Processing rsiwp:document...</xsl:message>

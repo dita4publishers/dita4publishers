@@ -104,8 +104,10 @@
 			out="${w2d.out.dir}/${w2d.root.output.filename}"
 			>
 			<param name="styleMapUri" expression="${styleMapUri.url}"/>
+			<param name="rootMapUrl" expression="${w2d.root.output.filename}"/>			
 			<param name="outputDir" expression="${outputDir.url}"/>
 			<param name="debug" expression="${w2d.debug.xslt}"/>
+    	<param name="rawPlatformString" expression="${os.name}"/>
 		</xslt>
 	</target>
 </project>

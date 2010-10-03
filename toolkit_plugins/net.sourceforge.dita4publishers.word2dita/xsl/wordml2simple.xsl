@@ -31,7 +31,7 @@
       MS Office 2007 Office Open XML to generic
       XML transform.
       
-      Copyright (c) 2009 DITA For Publishers
+      Copyright (c) 2009, 2010 DITA For Publishers
       
       This transform is a generic transform that produces a simplified
       form of generic XML from Office Open XML.
@@ -44,11 +44,6 @@
       =========================================== -->
 
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  
-  <xsl:param name="styleMapUri" as="xs:string"/>
-  <xsl:param name="mediaDirUri" select="relpath:newFile($outputDir, 'topics/media')" as="xs:string"/>  
-  <xsl:param name="outputDir" as="xs:string"/>
-  
   
   <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
     <xd:desc>

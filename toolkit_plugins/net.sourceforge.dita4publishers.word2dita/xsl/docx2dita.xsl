@@ -14,7 +14,7 @@
     scope="stylesheet">
     <xd:desc>
       <xd:p>DOCX to DITA generic transformation</xd:p>
-      <xd:p>Copyright (c) 2009 DITA For Publishers, Inc.</xd:p>
+      <xd:p>Copyright (c) 2009, 2010 DITA For Publishers, Inc.</xd:p>
       <xd:p>Transforms a DOCX document.xml file into a DITA topic using a style-to-tag mapping. </xd:p>
       <xd:p>This transform is intended to be the base for more specialized transforms that provide
         style-specific overrides. The input to this transform is the document.xml file within a DOCX
@@ -25,7 +25,7 @@
   <!--==========================================
     DOCX to DITA generic transformation
     
-    Copyright (c) 2009 DITA For Publishers, Inc.
+    Copyright (c) 2009, 2010 DITA For Publishers, Inc.
 
     Transforms a DOCX document.xml file into a DITA topic using
     a style-to-tag mapping.
@@ -40,6 +40,28 @@
     Originally developed by Really Strategies, Inc.
     
     =========================================== -->
+  
+  <xsl:param name="styleMapUri" as="xs:string"/>
+  <xsl:param name="mediaDirUri" select="relpath:newFile($outputDir, 'topics/media')" as="xs:string"/>  
+  <xsl:param name="outputDir" as="xs:string"/>
+  <xsl:param name="rootMapName" as="xs:string" select="'rootmap'"/>
+  <xsl:param name="submapNamePrefix" as="xs:string" select="'map'"/>
+  
+  <xsl:param name="rootMapUrl" select="concat($rootMapName, '.ditamap')" as="xs:string"/>
+  <xsl:param name="topicExtension" select="'.dita'" as="xs:string"/><!-- Extension for generated topic files -->
+  <xsl:param name="fileNamePrefix" select="''" as="xs:string"/><!-- Prefix for genenerated file names -->
+  
+  <xsl:param name="rawPlatformString" select="'unknown'" as="xs:string"/>
+  
+  <xsl:variable name="platform" as="xs:string"
+    select="
+    if (starts-with($rawPlatformString, 'Win') or 
+    starts-with($rawPlatformString, 'Win'))
+    then 'windows'
+    else 'nx'
+    "
+  />
+  
   <xsl:include
     href="wordml2simple.xsl"/>
   <xsl:include
@@ -73,6 +95,7 @@
   <xsl:template
     match="/"
     priority="10">
+    <xsl:call-template name="report-parameters"/>
     <xsl:variable
       name="simpleWpDoc"
       as="element()">
@@ -100,4 +123,34 @@
     </xsl:apply-templates>
     <xsl:message> + [INFO] Done.</xsl:message>
   </xsl:template>
+  
+  <xsl:template name="report-parameters">
+    <xsl:message> 
+      ==========================================
+      DOCX 2 DITA
+      
+      Version: ^version^ - build ^buildnumber^ at ^timestamp^
+      
+      Parameters:
+      
+      + styleMapUri     = "<xsl:sequence select="$styleMapUri"/>"
+      + mediaDirUri     = "<xsl:sequence select="$mediaDirUri"/>"  
+      + rootMapName     = "<xsl:sequence select="$rootMapName"/>"
+      + submapNamePrefix= "<xsl:sequence select="$submapNamePrefix"/>"      
+      + rootMapUrl      = "<xsl:sequence select="$rootMapUrl"/>"
+      + topicExtension  = "<xsl:sequence select="$topicExtension"/>"
+      + fileNamePrefix  = "<xsl:sequence select="$fileNamePrefix"/>"      
+      + outputdir       = "<xsl:sequence select="$outputDir"/>"  
+      + debug           = "<xsl:sequence select="$debug"/>"
+      
+      Global Variables:
+      
+      + platform         = "<xsl:sequence select="$platform"/>"
+      + debugBoolean     = "<xsl:sequence select="$debugBoolean"/>"
+      
+      ==========================================
+    </xsl:message>
+  </xsl:template>
+  
+  
 </xsl:stylesheet>
