@@ -29,6 +29,8 @@
 			<!-- Specify output.dir to set to the output directory to contain the generated DITA files: -->
 			
 			<property name="output.dir" location="${myAntFile.dir}/../../temp/word2dita/dita"/>
+			<property name="w2d.clean.output.dir" value="true"/><!-- Clean output directory before doing generation -->
+			<property name="w2d.debug.xslt" value="true"/><!-- Turn XSLT debug messages on -->
 		</ant>
 	</target>	
 

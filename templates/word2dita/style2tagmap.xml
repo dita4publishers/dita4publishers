@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <style2tagmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap ../../doctypes/style2tagmap/xsd/style2tagmap.xsd"
-  xmlns="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap">
-  <title>Upper Room Article Manuscript Style-to-Tag Map</title>
-  <documentation>
+  xmlns="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap"
+  
+  >
+  <title>Default Word Styles to BookMap Style-to-Tag Map</title>
+  <documentation xmlns:html="http://www.w3.org/1999/xhtml">
+    <html:div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Defines a usable mapping from the built-in MS Word styles to
+      DITA markup. Generates a bookmap and topics from a single input document.</p>
+      <p>The First non-skipped paragraph in the document should styled as
+      "Title", which it mapped to &lt;title&gt; within &lt;bookmap&gt; and triggers
+      the generation of the root output map.</p>
+    </html:div>
   </documentation>
   <styles>
     <output
@@ -52,6 +61,138 @@
       level="1"
     />    
     
+    <style
+      styleId="Normal"
+      tagName="p"
+      topicZone="body"
+      level="1"/>
+    
+    <style
+      styleId="DefaultParagraphFont"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    
+    <style
+      styleId="CoverPageName"
+      tagName="p"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleId="CoverPageNameChar"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    
+    <style
+      styleId="Heading1Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleId="TitleChar"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    
+    <style
+      styleId="Heading2Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    
+    <style
+      styleId="TOC1"
+      structureType="skip"/>
+    <style
+      styleId="TOC2"
+      structureType="skip"/>
+    <style
+      styleId="TOC3"
+      structureType="skip"/>
+    <style
+      styleId="TOC4"
+      structureType="skip"/>
+    <style
+      styleId="TOC5"
+      structureType="skip"/>
+    <style
+      styleId="TOC6"
+      structureType="skip"/>
+    <style
+      styleId="TOC7"
+      structureType="skip"/>
+    <style
+      styleId="TOC8"
+      structureType="skip"/>
+    <style
+      styleId="TOC9"
+      structureType="skip"/>
+    
+    <style
+      styleId="Heading3Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleId="Heading4Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    
+    <style
+      styleId="ListBullet"
+      containerType="ul"
+      tagName="li"
+      level="1"
+      structureType="block"
+      topicZone="body"/>
+    <style
+      styleId="BodyTextIndent"
+      tagName="p"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleId="BodyTextIndentChar"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleId="ListBullet2"
+      containerType="ul"
+      tagName="li"
+      level="2"
+      structureType="block"
+      topicZone="body"/>
+    <style
+      styleId="BlockText"
+      tagName="p"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleId="BodyText"
+      tagName="p"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleId="BodyTextChar"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleId="ListNumber"
+      containerType="ol"
+      tagName="li"
+      level="1"
+      structureType="block"
+      topicZone="body"/>
+    <style
+      styleId="ListNumber2"
+      containerType="ol"
+      tagName="li"
+      level="2"
+      structureType="block"
+      topicZone="body"/>
     
     
   </styles>
