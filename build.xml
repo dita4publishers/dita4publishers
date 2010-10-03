@@ -115,6 +115,7 @@
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
 				<exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/> 
+				<exclude name="*.zip"/> 
 			</fileset>
 		</copy>
 		<replace file="${plugin.dist}/net.sourceforge.dita4publishers.epub/xsl/map2epubImpl.xsl"
@@ -143,6 +144,22 @@
 			<replacefilter
 				token="^version^"
 			  value="${kindle_version}"
+			/>
+			<replacefilter
+				token="^timestamp^"
+			  value="${package.date}"
+			/>
+		</replace>
+		<replace file="${plugin.dist}/net.sourceforge.dita4publishers.word2dita/xsl/docx2dita.xsl"
+			propertyfile="${basedir}/build.number"
+			>
+			<replacefilter
+				token="^buildnumber^"
+				property="build.number"
+			/>
+			<replacefilter
+				token="^version^"
+			  value="${word2dita_version}"
 			/>
 			<replacefilter
 				token="^timestamp^"
