@@ -150,11 +150,11 @@
         </xsl:otherwise>
       </xsl:choose>      
     </xsl:variable>
-    <xsl:if test="false() and $debugBoolean">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] match on w:p: structureType = "<xsl:sequence select="string($styleData/@structureType)"/>"</xsl:message>
     </xsl:if>
     <xsl:if test="string($styleData/@structureType) != 'skip'">
-      <xsl:if test="false() and $debugBoolean">
+      <xsl:if test="$debugBoolean">
         <xsl:message> + [DEBUG] match on w:p: Paragraph not skipped, calling handlePara. p=<xsl:sequence select="substring(string(./w:r[1]), 0, 40)"/></xsl:message>
       </xsl:if>
       <xsl:call-template name="handlePara">
@@ -171,7 +171,7 @@
       <xsl:for-each select="$styleData/@*">
         <xsl:copy/>
       </xsl:for-each>
-      <xsl:if test="false() and $debugBoolean">        
+      <xsl:if test="$debugBoolean">        
         <xsl:message> + [DEBUG] handlePara: p="<xsl:sequence select="substring(normalize-space(.), 1, 40)"/>"</xsl:message>
       </xsl:if>
       <!-- FIXME: This code is not doing anything specific with smartTag elements, just
@@ -199,7 +199,9 @@
             </xsl:for-each-group>            
           </xsl:when>
           <xsl:when test="current-group()[1][self::w:smartTag]">
-            <xsl:message> + [DEBUG] *** got a w:smartTag. current-group=<xsl:sequence select="current-group()"/></xsl:message>
+            <xsl:if test="$debugBoolean">
+              <xsl:message> + [DEBUG] *** got a w:smartTag. current-group=<xsl:sequence select="current-group()"/></xsl:message>
+            </xsl:if>     
             <xsl:for-each select="current-group()">
               <xsl:call-template name="handleRunSequence">
                 <xsl:with-param name="runSequence" select="w:r"/>

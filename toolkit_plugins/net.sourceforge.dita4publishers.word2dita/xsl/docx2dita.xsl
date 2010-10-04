@@ -74,7 +74,7 @@
   </xd:doc>
   <xsl:param
     name="debug"
-    select="'true'"
+    select="'false'"
     as="xs:string"/>
   <xd:doc
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
