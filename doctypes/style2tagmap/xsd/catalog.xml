@@ -4,6 +4,9 @@
   <public publicId="urn:public::dita4publishers.org:namespaces:word2dita:style2tagmap"
     uri="style2tagmap.xsd"
   />
+  <system systemId="urn:public::dita4publishers.org:namespaces:word2dita:style2tagmap"
+    uri="style2tagmap.xsd"
+  />
   <system systemId="urn:dita4publishers:doctypes:style2tagmap:xsd:style2tagmap.xsd"
     uri="style2tagmap.xsd"
   />
