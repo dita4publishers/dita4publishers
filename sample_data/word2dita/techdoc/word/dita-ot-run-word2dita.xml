@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Nancy's Word Sample" default="transformMyDoc">
+<project name="Single Word Doc to Map and Topics 01" default="transformMyDoc">
 	
   <property file="build.properties"/>
   <property file="${user.home}/.build.properties"/>
@@ -19,7 +19,7 @@
 		
 		<ant antfile="${dita-ot-dir}/build.xml" target="dita2word2dita">
 			<!-- Set this to the filename of the DOCX file to be transformed: -->
-			<property name="args.input" location="${myAntFile.dir}/for_word2dita_demo.docx"/>
+			<property name="args.input" location="${myAntFile.dir}/word2dita_single_doc_to_map_and_topics_01.docx"/>
 
 			<!-- Change w2d.style-to-tag-map to point to your style-to-tag map document: -->
 			<property name="w2d.style-to-tag-map" location="${myAntFile.dir}/style2tagmap.xml"/>
