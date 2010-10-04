@@ -349,14 +349,23 @@
         </xsl:if>
         
         <xsl:if test="$debugBoolean">        
+          <xsl:message> + [DEBUG] </xsl:message>
+          <xsl:message> + [DEBUG] +++++++++++++</xsl:message>
+          <xsl:message> + [DEBUG] </xsl:message>
           <xsl:message> + [DEBUG] makeMap: calling generateTopicrefs...</xsl:message>
         </xsl:if>
         <xsl:call-template name="generateTopicrefs">
-          <xsl:with-param name="content" select="$content[position() > 1]" as="node()*"/>
+          <xsl:with-param name="content" select="$content[position() > 1][(string(@structureType) = 'topicTitle' or 
+            string(@structureType) = 'map' or 
+            string(@structureType) = 'mapTitle' or
+            string(@structureType) = 'topicHead' or
+            string(@structureType) = 'topicGroup')]" as="node()*"/>
           <xsl:with-param name="level" select="$nextLevel" as="xs:integer"/>
         </xsl:call-template>
         <xsl:if test="$debugBoolean">        
-          <xsl:message> + [DEBUG] ***</xsl:message>
+          <xsl:message> + [DEBUG] </xsl:message>
+          <xsl:message> + [DEBUG] +++++++++++++</xsl:message>
+          <xsl:message> + [DEBUG] </xsl:message>
           <xsl:message> + [DEBUG] makeMap: Calling generateTopics...
             </xsl:message>
         </xsl:if>
@@ -390,7 +399,9 @@
     <xsl:param name="mapUrl" as="xs:string" tunnel="yes"/>
     
    <xsl:if test="$debugBoolean">
-     <xsl:message> + [DEBUG] *** generateTopicrefs: Starting</xsl:message>
+     <xsl:message> + [DEBUG] generateTopicrefs: Starting, content:
+<xsl:sequence select="local:reportParas($content)"/>
+     </xsl:message>
    </xsl:if>   
     <xsl:variable name="firstP" select="$content[1]" as="element()"/>
     
@@ -409,7 +420,7 @@
           <xsl:when test="$groupFirstP/@topicrefType != ''">
             <xsl:variable name="topicName" as="xs:string">
               <xsl:apply-templates mode="topic-name" select="($groupFirstP)">
-                <xsl:with-param name="treePos" select="($treePos, position())" as="xs:integer*" />
+                <xsl:with-param name="treePos" select="($treePos, position())" as="xs:integer*"/>
               </xsl:apply-templates>
             </xsl:variable>
             
@@ -426,17 +437,23 @@
               <xsl:call-template name="generateTopicrefAtts">
                 <xsl:with-param name="topicUrl" select="$topicUrl"/>
               </xsl:call-template>            
-              <xsl:call-template name="generateSubordinateTopicrefs">
-                <xsl:with-param name="content" select="current-group()"/>
-                <xsl:with-param name="level" select="$level + 1"/>
-              </xsl:call-template>    
+              <xsl:if test="count(current-group()) > 1">
+                <xsl:call-template name="generateTopicrefs">
+                  <xsl:with-param name="content" select="current-group()[position() > 1]"/>
+                  <xsl:with-param name="level" select="$level + 1"/>
+                  <xsl:with-param name="treePos" select="($treePos, position())"  tunnel="yes"/>
+                </xsl:call-template>    
+              </xsl:if>
             </xsl:element>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:call-template name="generateSubordinateTopicrefs">
-              <xsl:with-param name="content" select="current-group()"/>
-              <xsl:with-param name="level" select="$level + 1"/>
-            </xsl:call-template>    
+            <xsl:if test="count(current-group()) > 1">
+              <xsl:call-template name="generateTopicrefs">
+                <xsl:with-param name="content" select="current-group()[position() > 1]"/>
+                <xsl:with-param name="level" select="$level + 1"/>
+                <xsl:with-param name="treePos" select="($treePos, position())" tunnel="yes"/>
+              </xsl:call-template>    
+            </xsl:if>
           </xsl:otherwise>
         </xsl:choose>          
       </xsl:for-each-group>
@@ -814,12 +831,7 @@
         <xsl:if test="not($format)">
           <xsl:message terminate="yes"> + [ERROR] Failed to find output element with name "<xsl:sequence select="$formatName"/> specified for style <xsl:sequence select="string($firstP/@styleId)"/>.</xsl:message>
         </xsl:if>
-        
-        <xsl:if test="$debugBoolean">
-          <xsl:message> + [DEBUG] makeTopic: format="<xsl:sequence select="$format"/></xsl:message>
-        </xsl:if>
-        
-        
+                
         <xsl:variable name="schemaAtts" as="attribute()*">
           <xsl:if test="$format/@noNamespaceSchemalocation">
             <xsl:attribute name="xsi:noNamespaceSchemaLocation"
@@ -1743,6 +1755,14 @@
   <xsl:function name="local:debugMessage">
     <xsl:param name="msg" as="xs:string"/>
     <xsl:message> + [DEBUG] <xsl:sequence select="$msg"/></xsl:message>
+  </xsl:function>
+  
+  <xsl:function name="local:reportParas">
+    <xsl:param name="paras" as="element()*"/>
+    <xsl:for-each select="$paras">
+      <xsl:sequence select="local:reportPara(.)"/>
+      <xsl:text>&#x0a;</xsl:text>
+    </xsl:for-each>
   </xsl:function>
   
   <xsl:function name="local:reportPara">
