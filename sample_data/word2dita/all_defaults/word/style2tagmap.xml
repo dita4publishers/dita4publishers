@@ -178,16 +178,19 @@
     
     <style
       styleId="ListBullet"
+      
       containerType="ul"
       tagName="li"
       level="1"
       structureType="block"
       topicZone="body"/>
-    <style
-      styleId="BodyTextIndent"
-      tagName="p"
-      topicZone="body"
-      level="1"/>
+    <style styleId="BodyTextIndent" 
+      containerType="li" 
+      idGenerator="default" 
+      level="2" 
+      structureType="block" 
+      tagName="p" 
+      topicZone="body"/>
     <style
       styleId="BodyTextIndentChar"
       tagName="ph"
@@ -202,7 +205,7 @@
       topicZone="body"/>
     <style
       styleId="BlockText"
-      tagName="p"
+      tagName="longquote"
       topicZone="body"
       level="1"/>
     <style
