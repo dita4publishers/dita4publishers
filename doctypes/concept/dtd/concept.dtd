@@ -7,41 +7,26 @@
 <!-- ============================================================= -->
 
 
-<!ENTITY % ui-d-dec     PUBLIC 
-"-//OASIS//ENTITIES DITA User Interface Domain//EN" 
-"../dita-base/uiDomain.ent"                                                       >
-%ui-d-dec;
+<!ENTITY % commonDomainIntegrations-dec
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations:entities"
+         "d4p_commonDomainIntegrations.ent"
+>%commonDomainIntegrations-dec;
 
-<!ENTITY % hi-d-dec     PUBLIC 
-"-//OASIS//ENTITIES DITA Highlight Domain//EN" 
-"../dita-base/highlightDomain.ent"                                                >
-%hi-d-dec;
+<!ENTITY % pr-d-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Programming Domain//EN" 
+         "programmingDomain.ent"                                              
+>%pr-d-dec;
 
-<!ENTITY % pr-d-dec     PUBLIC 
-"-//OASIS//ENTITIES DITA Programming Domain//EN" 
-"../dita-base/programmingDomain.ent"                                              >
-%pr-d-dec;
+<!ENTITY % sw-d-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Software Domain//EN" 
+         "softwareDomain.ent"                                                 
+>%sw-d-dec;
 
-<!ENTITY % sw-d-dec     PUBLIC 
-"-//OASIS//ENTITIES DITA Software Domain//EN" 
-"../dita-base/softwareDomain.ent"                                                 >
-%sw-d-dec;
+<!ENTITY % ui-d-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 User Interface Domain//EN" 
+         "uiDomain.ent"                                                       
+>%ui-d-dec;
 
-<!ENTITY % ut-d-dec     PUBLIC 
-"-//OASIS//ENTITIES DITA Utilities Domain//EN" 
-"../dita-base/utilitiesDomain.ent"                                                >
-%ut-d-dec;
-
-<!ENTITY % indexing-d-dec     PUBLIC 
-"-//OASIS//ENTITIES DITA Indexing Domain//EN" 
-"../dita-base/indexingDomain.ent"                                                 >
-%indexing-d-dec;
-
-<!ENTITY % xml-d-dec     
-  PUBLIC "http://reallysi.com/doctypes/dita/modules/xml/entities" 
-         "xmlDomain.ent"                                                
->
-%xml-d-dec;
 
 
 <!-- ============================================================= -->
@@ -65,11 +50,27 @@
    %ui-d-keyword; |
    %xml-d-keyword;
 "                   >
-<!ENTITY % ph           "ph      | %pr-d-ph;      | %sw-d-ph;      | 
-                                    %hi-d-ph;     | %ui-d-ph;"       >
-<!ENTITY % fig          "fig     | %pr-d-fig;     | %ut-d-fig;"      >
+<!ENTITY % ph           
+  "ph | 
+   %pr-d-ph; | 
+   %sw-d-ph; | 
+   %hi-d-ph; | 
+   %ui-d-ph; |
+   %d4p_formatting-d-ph; |
+   %d4p_ruby-d-ph;
+"       >
+<!ENTITY % fig          "
+  fig     | 
+  %pr-d-fig;  "      
+>
 <!ENTITY % dl           "dl      | %pr-d-dl;"                        >
 <!ENTITY % index-base   "index-base | %indexing-d-index-base;"       >
+
+<!ENTITY % commonDomainEntityIntegrations-dec
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations:integrationEntities"
+         "d4p_commonDomainEntityIntegrations.ent"
+>%commonDomainEntityIntegrations-dec;
+
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
@@ -122,16 +123,15 @@
 <!--                    DOMAIN ELEMENT INTEGRATION                 -->
 <!-- ============================================================= -->
 
+<!ENTITY % commonDomainIntegrations
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations"
+         "d4pcommonDomainIntegration.mod"
+>%commonDomainIntegrations;
 
 <!ENTITY % ui-d-def     PUBLIC 
 "-//OASIS//ELEMENTS DITA User Interface Domain//EN" 
 "../dita-base/uiDomain.mod"                                                       >
 %ui-d-def;
-
-<!ENTITY % hi-d-def     PUBLIC 
-"-//OASIS//ELEMENTS DITA Highlight Domain//EN" 
-"../dita-base/highlightDomain.mod"                                                >
-%hi-d-def;
 
 <!ENTITY % pr-d-def     PUBLIC 
 "-//OASIS//ELEMENTS DITA Programming Domain//EN" 
@@ -143,21 +143,6 @@
 "../dita-base/softwareDomain.mod"                                                 >
 %sw-d-def;
 
-<!ENTITY % ut-d-def     PUBLIC 
-"-//OASIS//ELEMENTS DITA Utilities Domain//EN" 
-"../dita-base/utilitiesDomain.mod"                                                >
-%ut-d-def;
-
-<!ENTITY % indexing-d-def     PUBLIC 
-"-//OASIS//ELEMENTS DITA Indexing Domain//EN"
-"../dita-base/indexingDomain.mod"                                                 >
-%indexing-d-def;
-
-<!ENTITY % xml-d-def     
-  PUBLIC "http://reallysi.com/doctypes/dita/modules/xml/declarations" 
-         "xmlDomain.mod"                                                
->
-%xml-d-def;
 
 
 <!-- ================== End DITA Concept DTD  ==================== -->
