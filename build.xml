@@ -39,6 +39,7 @@
   <property name="website.source" location="${docs}/website"/>
   <property name="website.build" location="${build}/website"/>
 	<property name="sampledata" location="${basedir}/sample_data"/>
+  <property name="sampledata.dist" location="${dist}/sample_data"/>
 	<property name="plugin.dist" location="${dist}/plugins"/>
   <property name="package.dist" location="${dist}/dita4publishers"/>
 	<property name="package.zip.base" value="dita4publishers"/>
@@ -105,67 +106,93 @@
   <target name="clean">
   </target>
 	
+	<target name="add-version-info-to-files">
+    <replace file="${plugin.dist}/net.sourceforge.dita4publishers.epub/xsl/map2epubImpl.xsl"
+      propertyfile="${basedir}/build.number"
+      >
+      <replacefilter
+        token="^buildnumber^"
+        property="build.number"
+      />
+      <replacefilter
+        token="^version^"
+        value="${epub_version}"
+      />
+      <replacefilter
+        token="^timestamp^"
+        value="${package.date}"
+      />
+    </replace>
+    <replace file="${plugin.dist}/net.sourceforge.dita4publishers.kindle/xsl/map2kindleImpl.xsl"
+      propertyfile="${basedir}/build.number"
+      >
+      <replacefilter
+        token="^buildnumber^"
+        property="build.number"
+      />
+      <replacefilter
+        token="^version^"
+        value="${kindle_version}"
+      />
+      <replacefilter
+        token="^timestamp^"
+        value="${package.date}"
+      />
+    </replace>
+    <replace file="${plugin.dist}/net.sourceforge.dita4publishers.word2dita/xsl/docx2dita.xsl"
+      propertyfile="${basedir}/build.number"
+      >
+      <replacefilter
+        token="^buildnumber^"
+        property="build.number"
+      />
+      <replacefilter
+        token="^version^"
+        value="${word2dita_version}"
+      />
+      <replacefilter
+        token="^timestamp^"
+        value="${package.date}"
+      />
+    </replace>
+	</target>
+	
+	<target name="dist-sample-data" depends="dist-init">
+    <copy todir="${sampledata.dist}">
+      <fileset dir="${sampledata}">
+      	<exclude name="**/*.zip"/>
+        <exclude name="**/epub/"/>
+        <exclude name="**/out/"/>
+        <exclude name="**/output/"/>
+        <exclude name="**/temp/"/>
+        <include name="common/**"/>
+      	<include name="word2dita/**"/>
+        <include name="wizard-of-oz/**"/>
+        <include name="japanese/**"/>
+      </fileset>
+    </copy>
+	</target>
 	
 	<target name="dist-toolkit-plugins" description="Packages the DITA Open Toolkit plugins for deployment to a working Toolkit instance"
-		 depends="dist-init, dist-dita2indesign-toolkit-plugins"
+		 depends="dist-init, dist-sample-data, build-d4p-user-guide, dist-dita2indesign-toolkit-plugins"
 		>
     <delete includeEmptyDirs="true" failonerror="false">
       <fileset dir="${plugin.dist}"  includes="net.sourceforge.dita4publishers.*/**"/>
     </delete>
+		<copy todir="${plugin.dist}">			
+      <fileset dir="${build}/docs">
+        <include name="*.epub"/>
+        <include name="*.mobi"/>
+        <include name="*.pdf"/>
+      </fileset>
+	  </copy>
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
 				<exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/> 
+        <exclude name="net.sourceforge.dita4publishers.html2/**"/> 
 				<exclude name="*.zip"/> 
 			</fileset>
 		</copy>
-		<replace file="${plugin.dist}/net.sourceforge.dita4publishers.epub/xsl/map2epubImpl.xsl"
-			propertyfile="${basedir}/build.number"
-			>
-			<replacefilter
-				token="^buildnumber^"
-				property="build.number"
-			/>
-			<replacefilter
-				token="^version^"
-			  value="${epub_version}"
-			/>
-			<replacefilter
-				token="^timestamp^"
-			  value="${package.date}"
-			/>
-		</replace>
-		<replace file="${plugin.dist}/net.sourceforge.dita4publishers.kindle/xsl/map2kindleImpl.xsl"
-			propertyfile="${basedir}/build.number"
-			>
-			<replacefilter
-				token="^buildnumber^"
-				property="build.number"
-			/>
-			<replacefilter
-				token="^version^"
-			  value="${kindle_version}"
-			/>
-			<replacefilter
-				token="^timestamp^"
-			  value="${package.date}"
-			/>
-		</replace>
-		<replace file="${plugin.dist}/net.sourceforge.dita4publishers.word2dita/xsl/docx2dita.xsl"
-			propertyfile="${basedir}/build.number"
-			>
-			<replacefilter
-				token="^buildnumber^"
-				property="build.number"
-			/>
-			<replacefilter
-				token="^version^"
-			  value="${word2dita_version}"
-			/>
-			<replacefilter
-				token="^timestamp^"
-			  value="${package.date}"
-			/>
-		</replace>
     <copy todir="${plugin.dist}">
       <fileset dir="${plugin-shakespear-samples-src}">
       </fileset>
@@ -189,9 +216,25 @@
         <include name="*/**"/>
       </fileset>
     </copy>
-		<zip destfile="${plugin.dist}/dita4publishers-toolkit-plugins.zip">
+		
+    <antcall target="add-version-info-to-files"/>
+		
+		<property name="sample_data-zip.filename" value="dita4publishers-sample_data-${vocab_version}.zip"/>
+		<property name="sample_data-zip" location="${dist}/${sample_data-zip.filename}"/>
+    
+		<zip destfile="${sample_data-zip}">
+      <fileset dir="${dist}">
+        <include name="sample_data/**"/>
+      </fileset>
+    </zip>
+
+		<zip destfile="${plugin.dist}/dita4publishers-toolkit-plugins-${vocab_version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="net.sourceforge.dita4publishers.*/**"/>
+        <include name="d4p-users-guide*.*"/>
+      </fileset>
+      <fileset dir="${dist}">
+        <include name="${sample_data-zip.filename}"/>
       </fileset>
 		</zip>
   </target>
@@ -314,7 +357,7 @@
   </target>
 	
 	<target name="package-toolkit-plugins" depends="dist-init, dist-toolkit-plugins"
-		description="Create distributable Zip package of just the vocabulary modules."
+		description="Create distributable Zip package of the Toolkit plugins, including the vocabulary modules."
 		>
     <zip destfile="${package.dist}/dita4publishers-toolkit-plugins-${vocab_version}.zip">
       <fileset dir="${plugin.dist}">
