@@ -32,7 +32,7 @@ Build failed </codeblock></p>
             href="http://ant.apache.org"
             format="html"
             scope="external">ant.apache.org</xref>.</p>
-          <p>If you are using the full install of the DITA Open Toolkit then ant in is <filepath>tools/ant/bin</filepath> below the Toolkit's root directory.</p>
+          <p>If you are using the full install of the DITA Open Toolkit then ant is in <filepath>tools/ant/bin</filepath> below the Toolkit's root directory.</p>
           <p>If you have the OxygenXML editor installed then ant is in <filepath>tools/ant/bin</filepath> below Oxygen's installation directory (e.g., <filepath>c:\Program Files\Oxygen XML\tools\ant\bin</filepath> on Windows).</p>
           <p>Assuming you have ant in your Toolkit, you can run it like so:<ol>
             <li>Open a command window and navigate to the root of your Toolkit (for this example, installed in <filepath>c:\programs\DITA-OT</filepath>:<codeblock>c:\> cd c:\programs\DITA-OT

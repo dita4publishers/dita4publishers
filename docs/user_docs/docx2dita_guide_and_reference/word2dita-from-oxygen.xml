@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>Generating DITA From Within OxygenXML</title>
+ <shortdesc>You can transform Word documents from within OxygenXML without using the Open Toolkit</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>OxygenXML<indexterm>running Word-to-DITA transform with</indexterm></indexterm>
+        <indexterm>Word-to-DITA transform<indexterm>from OxygenXML</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>OxygenXML has two handy features that make transforming Word documents into DITA convenient, especially as you are defining the style-to-tag mapping or implementing custom XSLT extensions:<ul>
+      <li>OxygenXML can open Zip archives in its Archive Browser. As DOCX files are just Zip archives, it means you can open Word DOCX files in Oxygen and get to the individual files inside very easily.</li>
+      <li>OxygenXML can run XSLT transforms and, in particular, can run them against files within Zip packages.</li>
+      </ul></p>
+    <p>In addition, you can use Oxygen's built-in Open Toolkit to manage resolution of the XSD schema for style-to-tag mapping documents simply by deploying the DITA for Publisher's Toolkit plugins to Oxygen's Toolkit instance (</p>
+ </conbody>
+</concept>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>Getting Started With The Word2DITA Transform</title>
+ <shortdesc>How to set up an Ant task to convert a Word document to DITA using the Open Toolkit</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>The Word2DITA transform is packaged as an Open Toolkit plugin (see <xref
+      href="word-to-dita-plugin.xml#conceptId"
+      format="dita"/>). This makes it easy to apply the transform to Word documents using an existing Open Toolkit installation.</p>
+    <p>The basic steps to follow are:<ol
+      id="ol_9afef18a-a29f-4275-acee-d51a88dacadd">
+      <li>Deploy the DITA for Publishers Toolkit plugins to your Open Toolkit (see <xref
+        href="../tasks/plugin-installation.xml#taskId"
+        format="dita"/>).</li>
+      <li>Create a file named <filepath>build.properties</filepath> in your home directory (e.g., <filepath>/Users/ekimber</filepath>) and in that file put a line like this:<codeblock>dita-ot-dir=<b>c:/DITA-OT</b></codeblock><p>Where the part in bold reflects the location of the Toolkit on your machine.</p></li>
+      <li>Copy the <filepath>word2dita/all_defaults</filepath> directory to a convenient place. This will be the starting point for your word-to-DITA transformation configuration.</li>
+      <li>Edit the file <filepath>dita-ot-run-word2dita.xml</filepath> and change this line:<codeblock>&lt;property name="args.input" 
+  location="${myAntFile.dir}/<b>word2dita_single_doc_to_map_and_topics_01.docx</b>"
+/></codeblock><p>To reflect the filename of the Word document you want to convert.</p></li>
+      <li>Edit your Word document and make sure that the first paragraph in the document is styled with the "Title" paragraph style—you may need to add a new paragraph. This paragraph defines the map title and signals the generation of the root output map. This setup is required by the default style-to-tag mapping.</li>
+      <li>Run the <filepath>dita-ot-run-word2dita.xml</filepath> with Ant:<codeblock>ant -f dita-ot-run-word2dita.xml</codeblock><p>If you've set the <parmname>dita-ot-dir</parmname> Ant property correctly then it should run and you should get some output. You should get a map and some number of topics, one for each Heading 1, Heading 2, Heading 3, and Heading 4 paragraph in your Word document.</p></li>
+      </ol></p>
+    <p>The Toolkit log will include messages from the Word-to-DITA transform, which will report unmapped paragraph and character styles. By default, any unmappped paragraph style is mapped to <xmlelem>p</xmlelem>, so you will usually get valid, if not ideal, output from the default mapping.</p>
+    <p>Once you have verified that you can get <i>something</i> from the transform you are ready to start configuring the style-to-tag mapping to reflect your specific requirements and Word documents. You will likely find that you also need to refine how your documents are styled so that they map most effectively.</p>
+    <p>Finally, remember that the Word-to-DITA process is a work in progress and there is always room for improvement. Please report any bugs or feature requests to the DITA for Publishers bug tracker on SourceForge (<xref
+      href="https://sourceforge.net/tracker/?group_id=262530&amp;atid=1259341"
+      format="html"
+      scope="external">https://sourceforge.net/tracker/?group_id=262530&amp;atid=1259341</xref>). The Word to DITA transform has been used in production by several companies but for a relatively narrow set of requirements, so I cannot claim to have tested it broadly.</p>
+    <p>Remember too that the Word to DITA framework is open source, which means I welcome fixes and enhancements from the community.</p>
+ </conbody>
+</concept>

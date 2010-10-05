@@ -82,6 +82,8 @@
               href="d4p-users-guide/epub-plugin/reference/ant-parm-topicsOutputDir.xml"/>
           </subsection>
         </chapter>
+        <chapter
+          href="d4p-users-guide/word2dita/word-to-dita-plugin.xml"/>
       </part>
       <part
         href="d4p-users-guide/vocabulary-part/vocabulary-part.xml">
@@ -107,7 +109,15 @@
       <part
         href="d4p-users-guide/transform-frameworks-part/transform-frameworks-part.xml">
         <chapter
-          href="d4p-users-guide/transform-frameworks-part/word-to-dita-framework-chapter.xml"/>
+          href="d4p-users-guide/word2dita/word2dita-intro.xml">
+          <subsection
+            href="d4p-users-guide/word2dita/w2d-getting-started.xml"/>
+          <subsection
+            href="docx2dita_guide_and_reference/style-to-tag-map-overview.xml"
+            format="dita"
+            scope="local"
+            collection-type="sequence"/>
+        </chapter>
         <chapter
           href="d4p-users-guide/transform-frameworks-part/dita-to-indesign-framework-chapter.xml"/>
       </part>
