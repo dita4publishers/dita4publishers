@@ -28,6 +28,7 @@
   <property name="lib" location="${basedir}/lib"/>
   <property name="src" location="${basedir}/src/java"/>
   <property name="rsuite.src" location="${basedir}/rsuite/src/java"/>
+  <property name="toolkit.plugin.src" location="${basedir}/toolkit_plugins"/>
   <property name="rsuiteSrc" location="${basedir}/rsuite"/>
   <property name="temp" location="${basedir}/temp"/>
   <property name="epubTemp" location="${temp}/epub"/>
@@ -867,6 +868,14 @@
   	<copy file="${rsuite.src}/rsuite-plugin.xml" todir="${classes.home}"/>
     <copy todir="${classes.home}/WebContent/xslt">
       <fileset dir="${xslt.src}"/>
+    </copy>
+    <copy todir="${classes.home}/WebContent/xslt/word2dita">
+      <fileset dir="${toolkit.plugin.src}/net.sourceforge.dita4publishers.word2dita/xsl"/>
+    </copy>
+    <copy todir="${classes.home}/WebContent">
+      <fileset dir="${toolkit.plugin.src}">
+      	<include name="net.sourceforge.dita4publishers.common.xslt/**/*"/>
+    	</fileset>
     </copy>
     <jar destfile="${target.home}/${target.jar}" >
       <fileset dir="${classes.home}" >
