@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/topic" "topic.dtd">
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
 <topic
   id="topic-1">
   <title>DITA For Publishers</title>
@@ -8,86 +8,92 @@
       <created
         date="2009-05-20"/>
       <revised
-        modified="2009-05-28"/>
+        modified="2010-10-09"/>
     </critdates>
   </prolog>
   <body>
-    <p>The DITA for Publishers project is an open-source, community project to enable the quick and
-      productive use of DITA by Publishers. Enabling activities include:<ul>
-        <li>Providing generic DITA specializations for common publishing document components,
-          including publishing-specific map types ("pubmap"), topic types ("article", "chapter",
-          "subsection", "sidebar"), and domains ("formatting domain", "classification domain").</li>
-        <li>Providing DITA Open Toolkit plugins with basic HTML and PDF rendering support for the
-          specializations.</li>
-        <li>Providing tutorial and how-to guidance to Publishing users of DITA</li>
-        <li>Host additional DITA-related tools specific to or of significant value to publishers
-          when those tools need a home.</li>
-        <li>Provide an open forum for gathering Publishing-specific requirements for the DITA
-          standard and its supporting tools, in anticipating of the eventual formation of a
-          Publishing subcommittee within the DITA Technical Committee.</li>
-      </ul><table
-        frame="all">
-        <title>Project Quick Reference</title>
-        <tgroup
-          cols="2">
-          <colspec
-            colname="c1"
-            colnum="1"
-            colwidth="1*"/>
-          <colspec
-            colname="c2"
-            colnum="2"
-            colwidth="1*"/>
-          <tbody>
-            <row>
-              <entry>dita4publishers DITA materials (includes Open Toolkit plugins)</entry>
-              <entry><xref
-                  href="https://http://downloads.sourceforge.net/dita4publishers/dita4publishers-2009-05-28.zip   "
-                  scope="external">http://downloads.sourceforge.net/dita4publishers/dita4publishers-2009-05-28.zip
-                </xref></entry>
-            </row>
-            <row>
-              <entry>EPub generation Open Toolkit Plugin</entry>
-              <entry><xref
-                  href="http://downloads.sourceforge.net/dita4publishers/dita4publishers_epub_plugin-2009-05-28.zip"
+    <p>Updates for 9 Oct 2010:<ul
+      id="ul_e5a3356b-1f4e-4c6d-a24b-68eb7d56fed6">
+      <li>New Word-to-DITA Open Toolkit plugin released. See <i>DITA for Publishers User Guide</i> for details.</li>
+      <li>Version 0.9.6 of the EPUB and Kindle Toolkit Plugins.</li>
+      <li>Minor updates to the vocabulary modules.</li>
+      <li>DITA to InDesign source moved into the DITA for Publishers code repository.</li>
+      </ul></p>
+    <p>The DITA for Publishers project is an open-source, community project to enable the quick and productive use of DITA by Publishers. Enabling activities include:<ul
+      id="ul_05546f8a-88ba-476d-8d8b-352681eb9e67">
+      <li>Providing generic DITA specializations for common publishing document components, including publishing-specific map types and domains ("pubmap", publication map domain, publication metadata domain), topic types ("article", "chapter", "subsection", "sidebar", "part"), and domains ("formatting domain", "classification domain", etc.).</li>
+      <li>General-purpose Open Toolkit plugins for generating EPUB and Kindle electronic books from any DITA map.</li>
+      <li>Providing DITA Open Toolkit plugins with HTML, PDF, EPUB, and Kindle rendering support for the specializations.</li>
+      <li>Providing tutorial and how-to guidance to Publishing users of DITA</li>
+      <li>Host additional DITA-related tools specific to or of significant value to publishers when those tools need a home.</li>
+      <li>Provide an open forum for gathering Publishing-specific requirements for the DITA standard and its supporting tools, in anticipating of the eventual formation of a Publishing subcommittee within the DITA Technical Committee.</li>
+      </ul></p>
+    <p>See the <xref
+      href="../d4p-user-guide/index.html"
+      format="html"
+      scope="external"><i>DITA for Publishers User Guide</i></xref> for detailed information on how to use the DITA for Publishers components. <table
+      frame="all"
+      id="table_9dc28df4-6f84-406d-b6b7-7e2f777c7774">
+      <title>Project Quick Reference</title>
+      <tgroup
+        cols="2">
+        <colspec
+          colname="c1"
+          colnum="1"
+          colwidth="1*"/>
+        <colspec
+          colname="c2"
+          colnum="2"
+          colwidth="1*"/>
+        <tbody>
+          <row>
+            <entry>dita4publishers DITA materials (includes Open Toolkit plugins)</entry>
+            <entry><xref
+              format="html"
+              href="https://sourceforge.net/projects/dita4publishers/files/"
+              scope="external">https://sourceforge.net/projects/dita4publishers/files/</xref></entry>
+          </row>
+          <row>
+            <entry>dita4publishers user documentation</entry>
+            <entry><xref
+              href="how-to-use.xml#topic-id"
+              format="dita">How To Use the DITA For Publishers Materials</xref><p><xref
+              href="../d4p-user-guide/index.html"
+              format="html"
+              scope="external"><i>DITA for Publishers User Guide</i></xref></p></entry>
+          </row>
+          <row>
+            <entry>dita4publishers SourceForge project </entry>
+            <entry><xref
+              format="html"
+              href="https://sourceforge.net/projects/dita4publishers/"
+              scope="external">https://sourceforge.net/projects/dita4publishers/</xref></entry>
+          </row>
+          <row>
+            <entry>dita4publishers source code access (Subversion-based)</entry>
+            <entry><xref
+              format="html"
+              href="http://dita4publishers.svn.sourceforge.net/viewvc/dita4publishers/"
+              scope="external">http://dita4publishers.svn.sourceforge.net/viewvc/dita4publishers/</xref></entry>
+          </row>
+          <row>
+            <entry>EPubs (readable with EPub readers)</entry>
+            <entry>
+              <ul
+                id="ul_9615148a-627f-4bcb-b36e-b4170fe86747">
+                <li><xref
+                  href="http://downloads.sourceforge.net/dita4publishers/wizard-of-oz.epub"
                   format="html"
-                  scope="external">http://downloads.sourceforge.net/dita4publishers/dita4publishers_epub_plugin-2009-05-28.zip</xref></entry>
-            </row>
-            <row>
-              <entry>dita4publishers user documentation</entry>
-              <entry><xref
-                  href="how-to-use.xml#topic-id"
-                  format="dita">How To Use the DITA For Publishers Materials</xref></entry>
-            </row>
-            <row>
-              <entry>dita4publishers SourceForge project </entry>
-              <entry><xref
-                  href="https://sourceforge.net/projects/dita4publishers/"
-                  scope="external">https://sourceforge.net/projects/dita4publishers/</xref></entry>
-            </row>
-            <row>
-              <entry>dita4publishers source code access (Subversion-based)</entry>
-              <entry><xref
-                  href="http://dita4publishers.svn.sourceforge.net/viewvc/dita4publishers/"
-                  scope="external">http://dita4publishers.svn.sourceforge.net/viewvc/dita4publishers/</xref></entry>
-            </row>
-            <row>
-              <entry>EPubs (readable with EPub readers)</entry>
-              <entry>
-                <ul>
-                  <li><xref
-                      href="http://downloads.sourceforge.net/dita4publishers/wizard-of-oz.epub"
-                      format="html"
-                      scope="external">Wizard of Oz</xref></li>
-                  <li><xref
-                      href="shakespear-plays-epubs-catalog.xml#topic-1"
-                      format="dita">Shakespear Play EPub Catalog</xref></li>
-                </ul>
-              </entry>
-            </row>
-          </tbody>
-        </tgroup>
+                  scope="external">Wizard of Oz</xref></li>
+                <li><xref
+                  href="shakespear-plays-epubs-catalog.xml#topic-1"
+                  format="dita">Shakespear Play EPub Catalog</xref></li>
+              </ul>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
       </table></p>
-    <p>Last revised: 28 May 2009</p>
+    <p>Last revised: 9 October 2010</p>
   </body>
 </topic>

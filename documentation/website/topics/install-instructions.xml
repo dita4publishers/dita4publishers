@@ -5,10 +5,7 @@
   <title>Installing the DITA For Publishers Package</title>
   <taskbody>
     <context>
-      <p>The DITA For Publishers materials are provided as a single Zip package from the project's
-        download page: <xref/>. The Toolkit plugins should work with both the 1.4.3 and 1.5 versions
-        of the Open Toolkit. However, DITA 1.2-specific features (e.g., keyref), are only supported
-        by the 1.5 version of the Toolkit.</p>
+      <p>The DITA For Publishers materials are provided as a single Zip package from the project's download page: <xref/>. The Toolkit plugins are intended for use with the 1.5 version of the Open Toolkit but may work with the 1.4.3 version.</p>
     </context>
     <steps>
       <step>
@@ -52,13 +49,14 @@
           Open Toolkit's <filepath>plugins</filepath> directory so that each top-level directory in
           the Zip file is a direct child of <filepath>plugins</filepath>.</cmd>
         <stepresult>
-          <p>Your <filepath>plugins</filepath> directory should include these DITA for Publishers
-            plugin directories:<ul>
-              <li>net.sourceforge.dita4publishers.doctypes</li>
-              <li>net.sourceforge.dita4publishers.epub</li>
-              <li>net.sourceforge.dita4publishers.pubmap.html</li>
-              <li>net.sourceforge.dita4publishers.xmldomain.doctypes</li>
-              <li>net.sourceforge.dita4publishers.xmldomain.html</li>
+          <p>Your <filepath>plugins</filepath> directory should include a number of DITA for Publishers plugin directories, including:<ul>
+            <li>net.sourceforge.dita4publishers.doctypes</li>
+            <li>net.sourceforge.dita4publishers.epub</li>
+            <li>net.sourceforge.dita4publishers.kindle</li>
+            <li>net.sourceforge.dita4publishers.pubmap.html</li>
+            <li>net.sourceforge.dita4publishers.word2dita</li>
+            <li>net.sourceforge.dita4publishers.xmldomain.doctypes</li>
+            <li>net.sourceforge.dita4publishers.xmldomain.html</li>
             </ul></p>
         </stepresult>
       </step>

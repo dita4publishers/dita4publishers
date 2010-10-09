@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/topic" "topic.dtd">
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
 <topic
   id="topic-id">
   <title>DITA For Publishers Open Toolkit Plugins</title>
@@ -17,8 +17,6 @@
       types, topic types, or domains, there may be processing-specific plugins, e.g.,
       "net.sourceforge.dita4publishers.pubmap.html" provides HTML generation extensions and
       overrides for the pubmap map type.</p>
-    <p>The DITA For Publishers project also hosts the generic, but pubmap-supporting, EPub plugin
-      developed by Bob DuCharme and others. It is included in the main DITA For Publishers package
-      and also provided as a standalone package for download.</p>
+    <p>The DITA For Publishers project includes a Toolkit plugin for producing ePub-format electronic books.</p>
   </body>
 </topic>

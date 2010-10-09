@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/topic" "topic.dtd">
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
 <topic
   id="topic-id">
   <title>How To Use the DITA For Publishers Materials</title>
   <body>
     <p>You can use the DITA For Publishers materials in the following ways:<ul>
-        <li>Use the Toolkit plugins to process publication maps (or other maps)</li>
+        <li>Use the Toolkit plugins to process publication maps (or maps of any type)</li>
         <li>Use the sample data as examples of how to represent different types of publications
           using the Publishing specializations</li>
-        <li>Use the specialization modules as the base for your own Publishing-related
-          specializations.</li>
+        <li>Use the specialization modules as the base for your own Publishing-related specializations</li>
+      <li>Use the Word-to-DITA transformation framework to convert consistently-styled Word documents into DITA maps and topics.</li>
       </ul></p>
-    <p>As provided, the plugins and documents can be used immediately with the DITA Open Toolkit.
-      They should work with the 1.4.3 version of the Toolkit, but are intended to be used with the
-      1.5 version (which supports DITA 1.2 features).</p>
-    <p>You should be able to use the materials with any DITA-aware XML editor that uses the Open
-      Toolkit to resolve DTD references, such as OxygenXML. All the materials have been developed
-      and tested using OxygenXML primarily, but they not have any Oxygen-specific aspects or data
-      (nor anything specific to any other editor).</p>
-    <p>Note that currently there are only DTD versions of the specializations, so tools that require
-      XSD schemas will not be able to use them right now.</p>
+    <p>As provided, the plugins and documents can be used immediately with the DITA Open Toolkit. The Toolkit plugins have been tested with the 1.5 Open Toolkit. They may work with the 1.4.3 Toolkit but that use is not supported.</p>
+    <p>You should be able to use the materials with any DITA-aware XML editor that uses the Open Toolkit to resolve DTD references, such as OxygenXML. All the materials have been developed and tested using OxygenXML primarily, but they do not have any Oxygen-specific aspects or data (nor anything specific to any other editor).</p>
+    <p>Note that currently there are only DTD versions of the specializations, so tools that require XSD schemas will not be able to use them right now. XSD versions can be generated almost automatically using the trang DTD-to-XSD conversion tool (integrated with the OxygenXML editor). These XSD files will work but will not themselves be conforming DITA vocabulary modules.</p>
+    <p>See the <xref
+      href="../d4p-user-guide/index.html"
+      format="html"
+      scope="external"><i>DITA for Publishers User Guide</i></xref> for complete and most-up-to-date information on using the DITA for Publishers materials.</p>
   </body>
 </topic>
