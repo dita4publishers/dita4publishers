@@ -175,7 +175,7 @@
 	</target>
 	
 	<target name="dist-toolkit-plugins" description="Packages the DITA Open Toolkit plugins for deployment to a working Toolkit instance"
-		 depends="dist-init, dist-sample-data, build-d4p-user-guide, dist-dita2indesign-toolkit-plugins"
+		 depends="dist-init, dist-sample-data, dist-dita2indesign-toolkit-plugins"
 		>
     <delete includeEmptyDirs="true" failonerror="false">
       <fileset dir="${plugin.dist}"  includes="net.sourceforge.dita4publishers.*/**"/>
@@ -368,16 +368,11 @@
     </zip>
   </target>
 	
-	<target name="package-delivery" depends="dist-init, package-toolkit-plugins, package-epub-plugin, package-api-and-tools"
+	<target name="package-delivery" depends="dist-init, package-toolkit-plugins, package-api-and-tools, build-d4p-user-guide, dist-sample-data"
 		description="Create distributable package of all the deliverables"
 		>
     <copy todir="${package.dist}/xslt">
       <fileset dir="${xslt.src}">
-        <include name="*/**"/>
-      </fileset>
-    </copy>
-    <copy todir="${package.dist}/sample_data">
-      <fileset dir="${sampledata}">
         <include name="*/**"/>
       </fileset>
     </copy>
@@ -387,13 +382,14 @@
       </fileset>
     </copy>
 		
+		<!--
     <copy todir="${package.dist}/epubs">
       <fileset dir="${epubBuild}">
         <include name="**/*.epub"/>
       </fileset>
     </copy>
-    
-		<zip destfile="${dist}/${package.zip.base}-${package.date}.zip">
+    -->
+		<zip destfile="${dist}/${package.zip.base}-${package_version}.zip">
 			<fileset dir="${package.dist}" >
 			</fileset>
 		</zip>
@@ -424,6 +420,17 @@
 				<include name="**/*.epub"/>
 			</fileset>
 		</scp>
+	  </target>
+	  
+  <target name="upload-d4p-user-guide-html-sourceforge" depends="html-d4p-user-guide" description="Upload D4P User Guide HTML to sourceforge">
+    <scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs/d4p-user-guide"
+     password="${sourceforge.password}"    	
+      verbose="true"
+      >
+      <fileset dir="${build}/docs/html/d4p-users-guide">
+        <include name="**/*"/>
+      </fileset>
+    </scp>
   </target>
 	
 	<target name="upload-website-contents-to-sourceforge" depends="generate-web-site" description="Upload Web site contents to sourceforge">
@@ -435,15 +442,8 @@
 				<include name="index.html"/>
 			</fileset>
       <fileset dir="${website.build}">
-        <include name="*"/>
+        <include name="**/*"/>
       </fileset>
-		</scp>
-		<!-- NOTE: As far as I can tell, the target directory has to already exist -->
-		<scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs/topics"
-	     password="${sourceforge.password}"
-	      verbose="true"
-			>
-      <fileset dir="${website.build}/topics"/>
 		</scp>
 	</target>
 	
@@ -476,6 +476,38 @@
     </antcall>
 	</target>
 	
+  <target name="html-d4p-user-guide">
+    <property name="pub.name" value="d4p-users-guide"/>
+    <property name="root.map" location="${docs.dir}/user_docs/${pub.name}.ditamap"/>
+    <property name="output.dir" location="${build}/docs/html/${pub.name}"/>
+
+    <ant antfile="${dita-ot-dir}/build.xml" 
+          dir="${dita-ot-dir}"
+          target="dita2xhtml"
+          
+          >
+      <property name="args.input" location="${root.map}"/>
+      <property name="args.outext" value="html"/>
+      <property name="dita.dir" location="${dita-ot-dir}"/>
+      <property name="args.xhtml.toc" value="toc"/>
+      <property name="args.hdf" value="${docs.dir}/user_docs/${pub.name}/static-html/topic-header-html.html"/>
+      <property name="args.ftr" value="${docs.dir}/user_docs/${pub.name}/static-html/topic-footer-html.html"/>
+      <property name="dita.temp.dir" location="${basedir}/temp/${pub.name}/html"/>
+      <property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
+      <property name="output.dir" location="${output.dir}"/>
+    </ant>    
+  	
+    <copy todir="${output.dir}" >
+     <fileset dir="${docs.dir}/user_docs/${pub.name}/static-html">
+     	<include name="*.html"/>
+     </fileset>
+   </copy>
+
+  	
+  	<!-- FIXME: Add TOCJS generation here -->
+    
+  </target>
+  
 	<target name="post-transform-cleanup-d4p-user-guide">
 		<property name="pub.name" value="d4p-users-guide"/>
 		<property name="output.dir" location="${build}/docs"/>
@@ -533,8 +565,9 @@
 			</fileset>
 		</delete>
 		<ant antfile="${dita-ot-dir}/build.xml"
-			target="dita2pdf"
+			target="dita2pdf2"
 			>
+			<property name="pdf.formatter" value="ah"/>
       <property name="args.input"  location="${root.map}"/>
       <property name="args.draft" value="${draft}"/>
       <property name="output.dir"  value="${output.dir}"/>
