@@ -89,7 +89,7 @@ An epigraph is a brief quotation used to introduce a piece of writing
 
 <!ATTLIST epigram                %global-atts;  class CDATA "+ topic/p    d4p-pubcontent-d/epigram ">
 
-<!ATTLIST epigraph               %global-atts;  class CDATA "- topic/bodydiv d4p-pubcontent-d/epigraph ">
-<!ATTLIST epigraph-attribution   %global-atts;  class CDATA "- topic/p       d4p-pubcontent-d/epigraph-attribution ">
+<!ATTLIST epigraph               %global-atts;  class CDATA "+ topic/bodydiv d4p-pubcontent-d/epigraph ">
+<!ATTLIST epigraph-attribution   %global-atts;  class CDATA "+ topic/p       d4p-pubcontent-d/epigraph-attribution ">
 
 <!-- ================== End Content Domain ==================== -->
