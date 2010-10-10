@@ -8,30 +8,41 @@
       <created
         date="2009-05-20"/>
       <revised
-        modified="2010-10-09"/>
+        modified="2010-10-10"/>
     </critdates>
   </prolog>
   <body>
-    <p>Updates for 9 Oct 2010:<ul
+    <p>Updates for 10 Oct 2010:<ul
       id="ul_e5a3356b-1f4e-4c6d-a24b-68eb7d56fed6">
-      <li>New Word-to-DITA Open Toolkit plugin released. See <i>DITA for Publishers User Guide</i> for details.</li>
+      <li>New Word-to-DITA Open Toolkit plugin released. See <xref
+        href="../d4p-user-guide/index.html"
+        format="html"
+        scope="external"><i>DITA for Publishers User Guide</i></xref> for details.</li>
       <li>Version 0.9.6 of the EPUB and Kindle Toolkit Plugins.</li>
       <li>Minor updates to the vocabulary modules.</li>
       <li>DITA to InDesign source moved into the DITA for Publishers code repository.</li>
+      <li>DITA to InDesign Toolkit plugin included in the D4P distribution.</li>
+      <li>Distribution package updated.</li>
       </ul></p>
     <p>The DITA for Publishers project is an open-source, community project to enable the quick and productive use of DITA by Publishers. Enabling activities include:<ul
       id="ul_05546f8a-88ba-476d-8d8b-352681eb9e67">
       <li>Providing generic DITA specializations for common publishing document components, including publishing-specific map types and domains ("pubmap", publication map domain, publication metadata domain), topic types ("article", "chapter", "subsection", "sidebar", "part"), and domains ("formatting domain", "classification domain", etc.).</li>
       <li>General-purpose Open Toolkit plugins for generating EPUB and Kindle electronic books from any DITA map.</li>
-      <li>Providing DITA Open Toolkit plugins with HTML, PDF, EPUB, and Kindle rendering support for the specializations.</li>
-      <li>Providing tutorial and how-to guidance to Publishing users of DITA</li>
+      <li>Providing DITA Open Toolkit plugins with HTML, PDF, EPUB, and Kindle rendering support for the D4P specializations.</li>
+      <li>Providing tutorial and how-to guidance to Publishing users of DITA.</li>
+      <li>Providing a transformation framework and Open Toolkit plugin for converting styled Word documents to DITA.</li>
+      <li>Providing a transformation framework and Open Toolkit plugin for generating InCopy and InDesign documents from DITA content.</li>
       <li>Host additional DITA-related tools specific to or of significant value to publishers when those tools need a home.</li>
       <li>Provide an open forum for gathering Publishing-specific requirements for the DITA standard and its supporting tools, in anticipating of the eventual formation of a Publishing subcommittee within the DITA Technical Committee.</li>
       </ul></p>
     <p>See the <xref
       href="../d4p-user-guide/index.html"
       format="html"
-      scope="external"><i>DITA for Publishers User Guide</i></xref> for detailed information on how to use the DITA for Publishers components. <table
+      scope="external"><i>DITA for Publishers User Guide</i></xref> for detailed information on how to use the DITA for Publishers components.</p>
+    <p>Eliot Kimber's DITA specialization and configuration tutorials can be found at <xref
+      href="http://www.xiruss.org/tutorials/dita-specialization/"
+      format="html"
+      scope="external">http://www.xiruss.org/tutorials/dita-specialization/</xref>.<table
       frame="all"
       id="table_9dc28df4-6f84-406d-b6b7-7e2f777c7774">
       <title>Project Quick Reference</title>
@@ -77,7 +88,7 @@
               scope="external">http://dita4publishers.svn.sourceforge.net/viewvc/dita4publishers/</xref></entry>
           </row>
           <row>
-            <entry>EPubs (readable with EPub readers)</entry>
+            <entry>EPUBs (readable with EPUB readers)</entry>
             <entry>
               <ul
                 id="ul_9615148a-627f-4bcb-b36e-b4170fe86747">

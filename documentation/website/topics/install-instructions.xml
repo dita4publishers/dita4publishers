@@ -17,7 +17,7 @@
         <stepresult>
           <p>You should get these directories and zip files:<dl>
               <dlentry>
-                <dt><filepath>dita4publishers_toolkit_plugins.zip</filepath></dt>
+                <dt><filepath>dita4publishers_toolkit_plugins-<varname>version</varname>-<varname>release</varname>-<varname>modification</varname>.zip</filepath></dt>
                 <dd>Contains the DITA for Publishers Toolkit plugins. To be installed in your local
                   Open Toolkit's <filepath>plugins</filepath> directory.</dd>
               </dlentry>
@@ -25,15 +25,10 @@
                 <dt><filepath>documentation</filepath></dt>
                 <dd>Contains the project documentation (DITA format).</dd>
               </dlentry>
-              <dlentry>
-                <dt><filepath>epubs</filepath></dt>
-                <dd>Contains ePub electronic books generated from the sample publications in
-                    <filepath>sample_data</filepath></dd>
-              </dlentry>
+            <!--<dlentry><dt><filepath>epubs</filepath></dt><dd>Contains EPUB electronic books generated from the sample publications in <filepath>sample_data</filepath></dd></dlentry>-->
               <dlentry>
                 <dt><filepath>sample_data</filepath></dt>
-                <dd>Contains sample publications and related data that serve to demonstrate and test
-                  the Publishing specializations.</dd>
+                <dd>Contains sample publications and related data that serve to demonstrate and test the Publishing vocabulary modules.</dd>
               </dlentry>
               <dlentry>
                 <dt><filepath>xslt</filepath></dt>
