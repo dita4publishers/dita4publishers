@@ -2,25 +2,15 @@
 <!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
 <pubmap
   xml:lang="en_US">
-  <pubtitle>
-    <mainpubtitle>The Project Gutenberg Etext of The Wonderful Wizard of Oz</mainpubtitle>
-  </pubtitle>
-  <pubmeta>
-    <author>L. Frank Baum</author>
-    <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source>
-    <critdates>
-      <created
-        date="February, 1993"/>
-      <revised
-        modified="March 29, 2004"/>
-    </critdates>
-    <pubid>
-      <pubnumber>Ebook #55</pubnumber>
-    </pubid>
-    <pubrights>
-      <publicense>Project Gutenberg License.</publicense>
-    </pubrights>
-  </pubmeta>
+  <pubtitle> <mainpubtitle>The Project Gutenberg Etext of The Wonderful Wizard of Oz</mainpubtitle> </pubtitle>
+  <pubmeta> <author>L. Frank Baum</author>
+    <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source> <critdates>
+    <created
+      date="February, 1993"/>
+    <revised
+      modified="March 29, 2004"/>
+    </critdates> <pubid> <pubnumber>Ebook #55</pubnumber> </pubid> <pubrights>
+    <publicense>Project Gutenberg License.</publicense> </pubrights> </pubmeta>
   <keydefs>
     <topicmeta>
       <navtitle>Key Definitions</navtitle>
@@ -28,7 +18,10 @@
   </keydefs>
   <publication>
     <covers>
-      <epub-cover-graphic format="jpg" href="covers/images/woz-front-cover-epub.jpg"/>
+      <epub-cover-graphic
+        format="jpg"
+        href="covers/images/woz-front-cover-epub.jpg"
+        d4p_renditionTarget="epub"/>
       <front-cover
         href="covers/wizard-of-oz-front-cover.xml"/>
     </covers>
