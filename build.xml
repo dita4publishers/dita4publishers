@@ -27,7 +27,8 @@
   <property name="dist" location="${basedir}/dist"/>
   <property name="lib" location="${basedir}/lib"/>
   <property name="src" location="${basedir}/src/java"/>
-  <property name="rsuite.src" location="${basedir}/rsuite/src/java"/>
+	<property name="license.dir" location="${basedir}/license"/>
+	<property name="rsuite.src" location="${basedir}/rsuite/src/java"/>
   <property name="toolkit.plugin.src" location="${basedir}/toolkit_plugins"/>
   <property name="rsuiteSrc" location="${basedir}/rsuite"/>
   <property name="temp" location="${basedir}/temp"/>
@@ -158,6 +159,14 @@
     </replace>
 	</target>
 	
+	<target name="dist-license-info" depends="dist-init">
+		<copy todir="${package.dist}">
+			<fileset dir="${license.dir}">
+			  <include name="*"/>
+		  </fileset>
+		</copy>
+	</target>
+	
 	<target name="dist-sample-data" depends="dist-init">
     <copy todir="${sampledata.dist}">
       <fileset dir="${sampledata}">
@@ -175,11 +184,20 @@
 	</target>
 	
 	<target name="dist-toolkit-plugins" description="Packages the DITA Open Toolkit plugins for deployment to a working Toolkit instance"
-		 depends="dist-init, dist-sample-data, dist-dita2indesign-toolkit-plugins"
+		 depends="
+		dist-init, 
+		dist-sample-data, 
+		dist-dita2indesign-toolkit-plugins
+		"
 		>
     <delete includeEmptyDirs="true" failonerror="false">
       <fileset dir="${plugin.dist}"  includes="net.sourceforge.dita4publishers.*/**"/>
     </delete>
+    <copy todir="${plugin.dist}">
+      <fileset dir="${license.dir}">
+        <include name="*"/>
+      </fileset>
+    </copy>
 		<copy todir="${plugin.dist}">			
       <fileset dir="${build}/docs">
         <include name="*.epub"/>
@@ -248,6 +266,7 @@
     </delete>
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
+				<include name="org.dita2indesign.*/**/*"/>
 			</fileset>
 		</copy>
   	<copy todir="${plugin.dist}/org.dita2indesign.dita2indesign/xsl">
@@ -270,11 +289,16 @@
 			  value="${package.date}"
 			/>
 		</replace>
-		<zip destfile="${plugin.dist}/dita2indesign-toolkit-plugins-${dita2indesign_version}-${package.date}.zip">
-      <fileset dir="${plugin.dist}">
-        <include name="org.dita2indesign.*/**"/>
-      </fileset>
-		</zip>
+  </target>
+    
+  <target name="package-dita2indesign-toolkit-plugins" 
+      description="Creates a standalone delivery package of the DITA2InDesign Open Toolkit plugins" 
+      depends="dist-dita2indesign-toolkit-plugins">
+      <zip destfile="${plugin.dist}/dita2indesign-toolkit-plugins-${dita2indesign_version}.zip">
+        <fileset dir="${plugin.dist}">
+          <include name="org.dita2indesign.*/**"/>
+        </fileset>
+      </zip>
   </target>
 
 
@@ -339,6 +363,20 @@
     </copy>
 	</target>
 	
+	<target name="dist-documentation" depends="dist-init">
+    <copy todir="${package.dist}/documentation">
+      <fileset dir="${docs.dir}/user_docs">
+      	<exclude name="epub/"/>
+        <exclude name="kindle/"/>
+        <exclude name="out/"/>
+        <exclude name="docx2*/"/>
+        <exclude name="temp/"/>
+        <include name="*/**"/>
+      </fileset>
+    </copy>
+
+	</target>
+	
 	<target name="package-epub-plugin" depends="dist-epub-plugin">
     <zip destfile="${dist}/dita4publishers-epub-plugin-${epub_version}.zip">
       <fileset dir="${plugin.dist}">
@@ -368,16 +406,20 @@
     </zip>
   </target>
 	
-	<target name="package-delivery" depends="dist-init, package-toolkit-plugins, package-api-and-tools, build-d4p-user-guide, dist-sample-data"
+	<target name="package-delivery" 
+		depends="
+		dist-init, 
+		package-toolkit-plugins, 
+		package-api-and-tools, 
+		build-d4p-user-guide, 
+		dist-sample-data, 
+		dist-license-info,
+		dist-documentation
+		"
 		description="Create distributable package of all the deliverables"
 		>
     <copy todir="${package.dist}/xslt">
       <fileset dir="${xslt.src}">
-        <include name="*/**"/>
-      </fileset>
-    </copy>
-    <copy todir="${package.dist}/documentation">
-      <fileset dir="${docs}">
         <include name="*/**"/>
       </fileset>
     </copy>
@@ -391,6 +433,15 @@
     -->
 		<zip destfile="${dist}/${package.zip.base}-${package_version}.zip">
 			<fileset dir="${package.dist}" >
+			</fileset>
+      <fileset dir="${dist}" >
+      	<include name="sample_data/**/*"/>
+      </fileset>
+			<fileset dir="${build}/docs">
+				<include name="*.pdf"/>
+        <include name="*.epub"/>
+        <include name="*.mobi"/>
+        <include name="html/**/*"/>
 			</fileset>
 		</zip>
 	</target>
@@ -586,6 +637,20 @@
 	<target name="build-d4p-user-guide" description="Generates all the deliverable forms of the D4P User Guide">
 		<property name="pub.name" value="d4p-users-guide.ditamap"/>
 		<property name="root.map" location="${docs.dir}/user_docs/${pub.name}"/>
+		
+    <replace file="${docs.dir}/user_docs/d4p-users-guide.ditamap"
+      propertyfile="${basedir}/build.number"
+      >
+      <replacefilter
+        token="^buildnumber^"
+        property="build.number"
+      />
+      <replacefilter
+        token="^version^"
+        value="${package_version}"
+      />
+    </replace>
+
 
 		<antcall target="epub-d4p-user-guide"/>
 		<antcall target="kindle-d4p-user-guide"/>
