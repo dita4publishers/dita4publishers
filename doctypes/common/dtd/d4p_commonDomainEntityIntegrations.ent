@@ -18,6 +18,12 @@
   "
 >
 
+<!ENTITY % bodydiv        
+  "bodydiv     |
+   %d4p_pubcontent-d-bodydiv;  
+  "
+>
+
 <!ENTITY % p         
   "p     | 
    %d4p_formatting-d-p;     | 
