@@ -66,7 +66,7 @@
   	<makeurl file="${cover.graphic.file}" property="cover.graphic.uri" validate="false"/>
   	<echo message="[DEBUG] cover.graphic.uri=${cover.graphic.uri}"/>
   	
-  	<property name="map2kindle.style" location="${kindle.dir}/xsl/map2kindle.xsl"/>
+  	<property name="args.xsl" location="${kindle.dir}/xsl/map2kindle.xsl"/>
 
   	<echo message="[DEBUG] input file='${dita.temp.dir}${file.separator}${user.input.file}'"/>
 
@@ -75,7 +75,7 @@
       destdir="${dita.temp.dir}"
       includesfile="${dita.temp.dir}${file.separator}user.input.file.list"
       classpathref="dost.class.path"
-      style="${map2kindle.style}">
+      style="${args.xsl}">
      	<param name="cssOutputDir" expression="${css.output.dir}"/>
       <param name="debug" expression="${debug}"/>
     	<param name="coverGraphicUri" expression="cover.graphic.uri" if="cover.graphic.file"/>
