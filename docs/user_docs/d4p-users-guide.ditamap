@@ -9,8 +9,7 @@
     <prodname>DITA For Publishers</prodname>
     <vrmlist>
       <vrm
-        version="0.9.7"
-    />
+        version="0.9.7"/>
     </vrmlist>
     </prodinfo> <pubrights> <copyrfirst> <year>2010</year> </copyrfirst>
     <pubowner><organization>DITA For Publishers</organization></pubowner> </pubrights> </pubmeta>
@@ -58,6 +57,8 @@
             href="d4p-users-guide/epub-plugin/creating-cover-graphics.xml"/>
           <abbrevlist
             href="d4p-users-guide/epub-plugin/creating-opf-metadata.xml"/>
+          <subsection
+            href="d4p-users-guide/epub-plugin/overriding-base-processing.xml"/>
           <subsection
             href="d4p-users-guide/epub-plugin/epub-transtype-parameters-ref.xml">
             <topicref
