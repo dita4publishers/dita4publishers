@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/map.dtd">
+<map>
+  <title>Simple DITA-Based Web Site</title>
+  <topicmeta> <data
+    name="favicon"
+    value="images/favico.jpg"/> </topicmeta>
+  <topicref
+    href="pages/website-start.dita">
+    <topicref
+      href="pages/subpage-1.dita"/>
+    <topicref
+      href="pages/subpage-2.dita">
+      <topichead
+        navtitle="Topic Head 1">
+        <topicref
+          href="pages/subpage-3.dita"/>
+      </topichead>
+      <topicgroup>
+        <topicref
+          href="pages/subpage-3.dita"/>
+      </topicgroup>
+    </topicref>
+  </topicref>
+</map>

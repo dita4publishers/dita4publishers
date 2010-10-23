@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="topic-1">
+  <title>Subordinate Page 2</title>
+  <body>
+    <p>This is subordinate page 2.</p>
+    <fig>
+      <title>Punts on the Isis</title>
+      <data
+        name="copyright">2010 William E. Kimber</data>
+      <image
+        href="../images/travel/IMG_0439.JPG"
+        id="image_da543ab1-95ae-48b6-88e4-94066be407fe"
+        width="300px"/>
+    </fig>
+  </body>
+</topic>
