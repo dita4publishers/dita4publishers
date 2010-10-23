@@ -51,6 +51,7 @@
   
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMapImpl.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
   
   <xsl:include href="map2epubCommon.xsl"/>
   <xsl:include href="map2epubOpfImpl.xsl"/>
@@ -59,7 +60,6 @@
   <xsl:include href="map2epubTocImpl.xsl"/>
   <xsl:include href="map2epubIndexImpl.xsl"/>
   <xsl:include href="html2xhtmlImpl.xsl"/>
-  <xsl:include href="topicHrefFixup.xsl"/>
   <xsl:include href="epubHtmlOverrides.xsl"/>
 
   <xsl:include href="map2epubD4PImpl.xsl"/>

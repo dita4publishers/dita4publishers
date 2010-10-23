@@ -6,7 +6,6 @@
 	
 	<!-- The name of the directory, within the ePub package, to contain all images: -->
 	<property name="images.output.dir" value="images"/>
-	<property name="css.output.dir" value="topics"/>
 	<!-- The name of the directory, within the ePub package, to contain all topics: -->
 	<property name="topics.output.dir" value="topics"/>
 	<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
@@ -51,6 +50,14 @@
     </condition>
     <condition property="noPlugin">
       <equals arg1="${dita.html5.plugin}" arg2="no" />
+    </condition>
+    <condition property="css.output.dir" value="topics">
+      <not>
+        <isset property="args.css.output.dir" />
+      </not>
+    </condition>
+    <condition property="css.output.dir" value="${args.css.output.dir}">
+      <isset property="args.css.output.dir" />
     </condition>
   </target>
   

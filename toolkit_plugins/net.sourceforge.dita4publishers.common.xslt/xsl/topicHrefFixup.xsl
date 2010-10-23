@@ -2,15 +2,15 @@
 <xsl:stylesheet
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:epubutil="http://dita4publishers.org/functions/epubutil"
+  xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"
   xmlns:df="http://dita2indesign.org/dita/functions"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   
-  exclude-result-prefixes="xs epubutil df relpath"
+  exclude-result-prefixes="xs htmlutil df relpath"
   version="2.0">
 
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="epub-generation-utils.xsl"/>
+  <xsl:import href="lib/dita-support-lib.xsl"/>
+  <xsl:import href="lib/html-generation-utils.xsl"/>
   
   <xsl:template match="/" mode="href-fixup">
     <xsl:apply-templates mode="#current"/>
@@ -35,7 +35,7 @@
     <xsl:variable name="newHref" as="xs:string">
       <xsl:choose>
         <xsl:when test="$targetTopic">
-          <xsl:sequence select="epubutil:getXmlResultTopicFileName($targetTopic)"/>
+          <xsl:sequence select="htmlutil:getXmlResultTopicFileName($targetTopic)"/>
         </xsl:when>
         <xsl:otherwise>
           <xsl:message> + [WARN] Unable to resolve href '<xsl:sequence select="string(.)"/>' to a topic</xsl:message>

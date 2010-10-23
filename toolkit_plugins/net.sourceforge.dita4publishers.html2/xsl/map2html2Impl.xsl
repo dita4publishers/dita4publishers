@@ -44,14 +44,17 @@
 
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   
   <!-- Import the base HTML output generation transform. -->
   <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
   
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMapImpl.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
   
   <xsl:include href="map2html2ContentImpl.xsl"/>
+  <xsl:include href="map2html2StaticTocImpl.xsl"/>
   <xsl:include href="map2html2DynamicTocImpl.xsl"/>
   <xsl:include href="map2html2IndexImpl.xsl"/>
 
@@ -60,8 +63,6 @@
   
   <!-- Directory into which the generated output is put.
 
-       This should be the directory that will be zipped up to
-       produce the final ePub package.
        -->
   <xsl:param name="outdir" select="./html2"/>
   <xsl:param name="tempdir" select="./temp"/>
@@ -81,7 +82,7 @@
     to hold the CSS files in the HTML package. Should not have
     a leading "/". 
   -->  
-  <xsl:param name="cssOutputDir" select="'topics'" as="xs:string"/>
+  <xsl:param name="cssOutputDir" select="'css'" as="xs:string"/>
   
   <xsl:param name="debug" select="'false'" as="xs:string"/>
   
@@ -99,6 +100,11 @@
        For now default to no since index generation is still under development.
   -->  
   <xsl:param name="generateIndex" as="xs:string" select="'no'"/>
+  
+  <!-- value for @class on <body> of the generated static TOC HTML document -->
+  <xsl:param name="staticTocBodyOutputclass" select="''" as="xs:string"/>
+  
+  <xsl:param name="contenttarget" select="'contentwin'"/>
   
   <xsl:variable name="generateIndexBoolean" 
     select="
@@ -235,6 +241,11 @@
       </xsl:result-document>
     </xsl:if>
     
+    <!-- NOTE: By default, this mode puts it output in the main output file
+         produced by the transform.
+      -->
+    <xsl:apply-templates select="." mode="generate-static-toc"/>
+
     <xsl:apply-templates select="." mode="generate-content"/>
     <xsl:apply-templates select="." mode="generate-dynamic-toc">
       <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>

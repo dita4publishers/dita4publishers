@@ -2,13 +2,12 @@
 <xsl:stylesheet
   xmlns:df="http://dita2indesign.org/dita/functions"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:dc="http://purl.org/dc/elements/1.1/"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   
-  exclude-result-prefixes="df xs relpath dc xd htmlutil"
+  exclude-result-prefixes="df xs relpath htmlutil xd"
   version="2.0">
   <!-- =============================================================
     
@@ -20,8 +19,10 @@
     from the incoming map.
     
     Because all the HTML files are output to a single directory, this
-    process generates unique filenames for the result
-    HTML files.
+    process generates unique (and opaque) filenames for the result
+    HTML files. [It would be possible, given more effort, to generate
+    distinct names that reflected the original filenames but it doesn't
+    appear to be worth the effort.]
     
     The output generation template logs messages that show the
     source-to-result mapping to make it easier to debug issues
@@ -31,9 +32,8 @@
   
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  
   <xsl:import href="html-generation-utils.xsl"/>
-    
+  
   <xsl:output name="topic-html"
     method="xhtml"
     encoding="UTF-8"
@@ -42,23 +42,25 @@
   
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-content">
     <xsl:message> + [INFO] Generating content...</xsl:message>
-    <xsl:for-each-group select=".//*[df:isTopicRef(.) and not(@processing-role = 'resource-only')]"
-       group-by="generate-id(df:resolveTopicRef(.))"
-      >     
-     
-      <xsl:if test="false()">
-        <xsl:message> + [DEBUG] topicref: grouping-key="<xsl:sequence select="current-grouping-key()"/>", href="<xsl:sequence select="string(current-group()[1]/@href)"/>"
-        </xsl:message>
-      </xsl:if>
-      <xsl:apply-templates select="current-group()[1]" mode="generate-content"/>
-    </xsl:for-each-group>
+    <xsl:variable name="uniqueTopicRefs" as="element()*" select="df:getUniqueTopicrefs(.)"/>
+    
+    <xsl:if test="false() and $debugBoolean">    
+      <xsl:message> + [DEBUG] ------------------------------- 
+        + [DEBUG] Unique topics:      
+        <xsl:for-each select="$uniqueTopicRefs">
+          + [DEBUG] <xsl:sequence select="name(.)"/>: generated id="<xsl:sequence select="generate-id(.)"/>", URI=<xsl:sequence select="document-uri(root(.))"/>                
+        </xsl:for-each>
+        + [DEBUG] -------------------------------    
+      </xsl:message>
+    </xsl:if>    
+    <xsl:apply-templates select="$uniqueTopicRefs" mode="generate-content"/>
     <xsl:message> + [INFO] Generating title-only topics for topicheads...</xsl:message>
     <xsl:apply-templates select=".//*[df:isTopicHead(.)]" mode="generate-content"/>
     <xsl:message> + [INFO] Content generated.</xsl:message>
   </xsl:template>
   
   <xsl:template match="*[df:isTopicHead(.)]" mode="generate-content">
-    <xsl:if test="false()">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] Handling topichead "<xsl:sequence select="df:getNavtitleForTopicref(.)"/>" in mode generate-content</xsl:message>
     </xsl:if>
     <xsl:variable name="topicheadFilename" as="xs:string"
@@ -88,7 +90,7 @@
   </xsl:template>
   
   <xsl:template match="*[df:isTopicRef(.)]" mode="generate-content">
-    <xsl:if test="false()">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] Handling topicref to "<xsl:sequence select="string(@href)"/>" in mode generate-content</xsl:message>
     </xsl:if>
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
@@ -105,7 +107,7 @@
         <xsl:apply-templates select="$tempTopic" mode="#current">
           <xsl:with-param name="topicref" as="element()" select="." tunnel="yes"/>
           <xsl:with-param name="resultUri" select="htmlutil:getTopicResultUrl($topicsOutputPath, root($topic))"
-           tunnel="yes"/>
+            tunnel="yes"/>
         </xsl:apply-templates>
       </xsl:otherwise>
     </xsl:choose>    
@@ -118,7 +120,7 @@
   
   <xsl:template match="*[df:class(., 'topic/topic')]" mode="generate-content">
     <!-- This template generates the output file for a referenced topic.
-      -->
+    -->
     <!-- The topicref that referenced the topic -->
     <xsl:param name="topicref" as="element()?" tunnel="yes"/>    
     <!-- Result URI to which the document should be written. -->
@@ -130,10 +132,8 @@
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
       </xsl:apply-templates>      
     </xsl:variable>
-    <xsl:result-document format="topic-html" href="{$resultUri}">
-      <xsl:apply-templates select="$htmlNoNamespace" mode="html2xhtml">
-        <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>        
-      </xsl:apply-templates>
+    <xsl:result-document format="topic-html" href="{$resultUri}" >
+      <xsl:sequence select="$htmlNoNamespace"/>
     </xsl:result-document>
   </xsl:template>
   
@@ -158,9 +158,9 @@
   
   <xsl:template mode="topicref-driven-content" match="*[df:class(., 'map/topicref')]">
     <!-- Default topicref-driven content template. Simply applies normal processing
-    in the default context to the topic parameter. -->
+      in the default context to the topic parameter. -->
     <xsl:param name="topic" as="element()?"/>
-    <xsl:if test="false()">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] topicref-driven-content: topicref="<xsl:sequence select="name(.)"/>, class="<xsl:sequence select="string(@class)"/>"</xsl:message>
     </xsl:if>
     <xsl:variable name="topicref" select="." as="element()"/>
@@ -181,10 +181,10 @@
     *[df:class(., 'topic/body')]//*[df:class(., 'topic/indexterm')] |
     *[df:class(., 'topic/shortdesc')]//*[df:class(., 'topic/indexterm')] |
     *[df:class(., 'topic/abstract')]//*[df:class(., 'topic/indexterm')]
-     "
-     priority="10"
+    "
+    priority="10"
     >
-    <xsl:if test="false()">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] Found an index item in topic content: [<xsl:sequence select="string(.)"/>]</xsl:message>
     </xsl:if>
     <a id="{generate-id()}" class="indexterm-anchor"/>
@@ -211,7 +211,7 @@
   </xsl:template>
   
   <!-- Override of same template from base HTML so we can unset the 
-       topicref tunnelling parameter.
+    topicref tunnelling parameter.
   -->
   <xsl:template match="/dita | *[contains(@class,' topic/topic ')]">
     <xsl:choose>
@@ -230,7 +230,7 @@
   
   <!-- Enumeration mode manages generating numbers from topicrefs -->
   <xsl:template match="* | text()" mode="enumeration">
-    <xsl:if test="false()">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] enumeration: catch-all template. Element="<xsl:sequence select="name(.)"/></xsl:message>
     </xsl:if>
   </xsl:template>
