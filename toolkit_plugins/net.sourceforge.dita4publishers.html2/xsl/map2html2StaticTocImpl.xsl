@@ -16,11 +16,12 @@
   
 <xsl:template match="*[df:class(., 'map/map')]" mode="generate-static-toc">
   <html><xsl:sequence select="'&#x0a;'"/>
-    <head><xsl:sequence select="'&#x0a;'"/>
+    <head>
+      <xsl:call-template name="generateMapTitle"/>
+      <xsl:sequence select="'&#x0a;'"/>
       <xsl:if test="string-length($contenttarget)>0 and
         $contenttarget!='NONE'">
-        <base target="{$contenttarget}"/>
-        <xsl:sequence select="'&#x0a;'"/>
+        <base target="{$contenttarget}"/><xsl:sequence select="'&#x0a;'"/>
       </xsl:if>
       <!-- initial meta information -->
       
@@ -62,10 +63,10 @@
       </div><xsl:sequence select="'&#x0a;'"/>
       
       <!-- For dynamic ToC: -->
-      <script type="text/javascript" src="yahoo.js" ></script><xsl:sequence select="'&#x0a;'"/>
-      <script type="text/javascript" src="event.js"></script><xsl:sequence select="'&#x0a;'"/>
-      <script type="text/javascript" src="treeview.js" ></script><xsl:sequence select="'&#x0a;'"/>
-      <script type="text/javascript" src="toc.js"></script><xsl:sequence select="'&#x0a;'"/>
+      <script type="text/javascript" src="yahoo.js" >&#xa0;</script><xsl:sequence select="'&#x0a;'"/>
+      <script type="text/javascript" src="event.js">&#xa0;</script><xsl:sequence select="'&#x0a;'"/>
+      <script type="text/javascript" src="treeview.js" >&#xa0;</script><xsl:sequence select="'&#x0a;'"/>
+      <script type="text/javascript" src="toc.js">&#xa0;</script><xsl:sequence select="'&#x0a;'"/>
     </body><xsl:sequence select="'&#x0a;'"/>
   </html>  
 </xsl:template>
@@ -153,8 +154,6 @@
       </title><xsl:value-of select="$newline"/>
     </xsl:if>
   </xsl:template>
-  
-  
   
   
 </xsl:stylesheet>

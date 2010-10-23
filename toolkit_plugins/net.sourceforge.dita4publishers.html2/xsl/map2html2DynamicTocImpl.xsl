@@ -81,7 +81,7 @@ YAHOO.util.Event.addListener(window, "load", treeInit);
           </xsl:variable>
           <xsl:variable name="self" select="generate-id(.)" as="xs:string"/>
 
-          <xsl:sequence select="concat('var obj', $self, ' = {')"/>
+          <xsl:sequence select="concat('&#x0a;', 'var obj', $self, ' = {')"/>
           <xsl:text>
   label: "</xsl:text>
           <xsl:sequence select="
@@ -98,7 +98,7 @@ YAHOO.util.Event.addListener(window, "load", treeInit);
 </xsl:text>
           
           <xsl:call-template name="makeJsTextNode">
-           <xsl:with-param name="self" select="$self"/>
+           <xsl:with-param name="linkObjId" select="$self"/>
             <xsl:with-param name="parentId" select="$parentId" tunnel="yes"/>
           </xsl:call-template>
                    
@@ -118,18 +118,17 @@ YAHOO.util.Event.addListener(window, "load", treeInit);
   </xsl:template>
   
   <xsl:template name="makeJsTextNode">
-    <xsl:param name="self" as="xs:string"/>
+    <xsl:param name="linkObjId" as="xs:string"/>
     <xsl:param name="parentId" as="xs:string"  tunnel="yes"/>
     <xsl:message> + [DEBUG] makeJsTextNode: parentId="<xsl:sequence select="$parentId"/>"</xsl:message>
     
     <xsl:text>var </xsl:text>
-    <xsl:sequence select="$self"/>
+    <xsl:sequence select="$linkObjId"/>
     <xsl:text> = new YAHOO.widget.TextNode(</xsl:text>
-    <xsl:sequence select="concat('obj', $self)"/>
+    <xsl:sequence select="concat('obj', $linkObjId)"/>
     <xsl:text>, </xsl:text>
     <xsl:sequence select="$parentId"/>
-    <xsl:text>, false);
-</xsl:text>
+    <xsl:text>, false);&#x0a;</xsl:text>
 
   </xsl:template>
   
@@ -162,14 +161,20 @@ YAHOO.util.Event.addListener(window, "load", treeInit);
     <xsl:message> + [DEBUG] topichead: parentId="<xsl:sequence select="$parentId"/>"</xsl:message>
     
     <xsl:if test="$tocDepth le $maxTocDepthInt">
-      <xsl:call-template name="makeJsTextNode">
-        <xsl:with-param name="self" select="generate-id()" as="xs:string"/>
-        <xsl:with-param name="parentId" select="$parentId" as="xs:string" tunnel="yes"/>
-      </xsl:call-template>
+      <xsl:text>var </xsl:text>
+      <xsl:sequence select="generate-id(.)"/>
+      <xsl:text> = new YAHOO.widget.TextNode(</xsl:text>
+      <xsl:text>"</xsl:text>
+      <xsl:sequence select="df:getNavtitleForTopicref(.)"/>
+      <xsl:text>"</xsl:text>
+      <xsl:text>, </xsl:text>
+      <xsl:sequence select="$parentId"/>
+      <xsl:text>, false);&#x0a;</xsl:text>
       <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current">
           <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes"
             select="$tocDepth + 1"
           />        
+          <xsl:with-param name="parentId" as="xs:string" tunnel="yes" select="generate-id(.)"/>
       </xsl:apply-templates>
     </xsl:if>
   </xsl:template>
