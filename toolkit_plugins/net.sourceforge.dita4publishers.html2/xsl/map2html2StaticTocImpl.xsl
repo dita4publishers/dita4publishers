@@ -55,7 +55,7 @@
           </div><xsl:sequence select="'&#x0a;'"/>
         </div><xsl:sequence select="'&#x0a;'"/>        
       </div><xsl:sequence select="'&#x0a;'"/>
-      <div class="static-toc"><xsl:sequence select="'&#x0a;'"/>
+      <div class="static-toc" style="display: none;"><xsl:sequence select="'&#x0a;'"/>
         <xsl:sequence select="'&#x0a;'"/>
         <ul><xsl:sequence select="'&#x0a;'"/>        
           <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="generate-static-toc"/>
