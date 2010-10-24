@@ -84,6 +84,25 @@
         </chapter>
         <chapter
           href="d4p-users-guide/word2dita/word-to-dita-plugin.xml"/>
+        <chapter
+          href="d4p-users-guide/html2-plugin/html2-toolkit-plugin.xml">
+          <subsection
+            href="d4p-users-guide/html2-plugin/understanding-html2-transforms.xml">
+            <subsection
+              href="d4p-users-guide/html2-plugin/overall-process-flow.xml"/>
+            <subsection
+              href="d4p-users-guide/html2-plugin/customizing-enumeration.xml"/>
+          </subsection>
+          <subsection
+            href="d4p-users-guide/html2-plugin/html2-transtype-parameters-ref.xml">
+            <subsection
+              href="d4p-users-guide/html2-plugin/reference/ant-parm-generateDynamicToc.xml"/>
+            <subsection
+              href="d4p-users-guide/html2-plugin/reference/ant-parm-generateFrameset.xml"/>
+            <subsection
+              href="d4p-users-guide/html2-plugin/reference/ant-parm-generateStaticToc.xml"/>
+          </subsection>
+        </chapter>
       </part>
       <part
         href="d4p-users-guide/vocabulary-part/vocabulary-part.xml">
