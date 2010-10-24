@@ -133,8 +133,15 @@
       </xsl:apply-templates>      
     </xsl:variable>
     <xsl:result-document format="topic-html" href="{$resultUri}" >
-      <xsl:sequence select="$htmlNoNamespace"/>
+      <xsl:apply-templates select="$htmlNoNamespace" mode="no-namespace-html-post-process">
+        <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
+      </xsl:apply-templates>
     </xsl:result-document>
+  </xsl:template>
+  
+  <xsl:template mode="no-namespace-html-post-process" match="html">
+    <!-- Default post-processing for HTML: just copy input back to the output -->
+    <xsl:copy-of select="."/>
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/topic')]" priority="100" mode="map-driven-content-processing">

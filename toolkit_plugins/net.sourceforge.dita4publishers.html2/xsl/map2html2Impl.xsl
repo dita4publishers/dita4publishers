@@ -247,7 +247,7 @@
       </index-terms>
     </xsl:variable>
     
-    <xsl:if test="true()">
+    <xsl:if test="true() and $debugBoolean">
       <xsl:result-document href="{relpath:newFile($outdir, 'index-terms.xml')}"
         format="indented-xml"
         >

@@ -79,6 +79,9 @@
       style="${map2html2.style}">
      	<param name="cssOutputDir" expression="${css.output.dir}"/>
       <param name="debug" expression="${debug}"/>
+      <param name="generateDynamicToc" expression="${html2.generate.dynamic.toc}"/>
+      <param name="generateFrameset" expression="${html2.generate.frameset}"/>
+      <param name="generateStaticToc" expression="${html2.generate.static.toc}"/>
      	<param name="imagesOutputDir" expression="${images.output.dir}"/>
      	<param name="outdir" expression="${html2.xslt.outdir}"/>
      	<param name="tempdir" expression="${html2.xslt.tempdir}"/>
