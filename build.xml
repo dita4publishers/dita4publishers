@@ -141,6 +141,22 @@
         value="${package.date}"
       />
     </replace>
+    <replace file="${plugin.dist}/net.sourceforge.dita4publishers.html2/xsl/map2html2Impl.xsl"
+      propertyfile="${basedir}/build.number"
+      >
+      <replacefilter
+        token="^buildnumber^"
+        property="build.number"
+      />
+      <replacefilter
+        token="^version^"
+        value="${html2_version}"
+      />
+      <replacefilter
+        token="^timestamp^"
+        value="${package.date}"
+      />
+    </replace>
     <replace file="${plugin.dist}/net.sourceforge.dita4publishers.word2dita/xsl/docx2dita.xsl"
       propertyfile="${basedir}/build.number"
       >
@@ -198,17 +214,9 @@
         <include name="*"/>
       </fileset>
     </copy>
-		<copy todir="${plugin.dist}">			
-      <fileset dir="${build}/docs">
-        <include name="*.epub"/>
-        <include name="*.mobi"/>
-        <include name="*.pdf"/>
-      </fileset>
-	  </copy>
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
 				<exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/> 
-        <exclude name="net.sourceforge.dita4publishers.html2/**"/> 
 				<exclude name="*.zip"/> 
 			</fileset>
 		</copy>
@@ -319,7 +327,7 @@
 				-->
 			</fileset>
 		</copy>
-    <!-- Itegrate the deployed plugins: -->
+    <!-- Integrate the deployed plugins: -->
     <antcall target="integrate"/>
 
 	</target>
@@ -1011,5 +1019,4 @@
 	  <copy file="${target.home}/${target.jar}" 
 	      todir="${rsuite.plugins.dir}"/>
 	 </target>
-
 </project>
