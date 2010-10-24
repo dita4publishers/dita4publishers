@@ -50,16 +50,18 @@
   <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
   
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMapImpl.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMap.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
   
-  <xsl:include href="map2html2ContentImpl.xsl"/>
-  <xsl:include href="map2html2StaticTocImpl.xsl"/>
-  <xsl:include href="map2html2DynamicTocImpl.xsl"/>
-  <xsl:include href="map2html2IndexImpl.xsl"/>
+  <xsl:include href="map2html2Content.xsl"/>
+  <xsl:include href="map2html2RootPages.xsl"/>
+  <xsl:include href="map2html2DynamicToc.xsl"/>
+  <xsl:include href="map2html2StaticToc.xsl"/>
+  <xsl:include href="map2html2Frameset.xsl"/>
+  <xsl:include href="map2html2Index.xsl"/>
 
-  <xsl:include href="map2html2D4PImpl.xsl"/>
-  <xsl:include href="map2html2BookmapImpl.xsl"/>
+  <xsl:include href="map2html2D4P.xsl"/>
+  <xsl:include href="map2html2Bookmap.xsl"/>
   
   <!-- Directory into which the generated output is put.
 
@@ -100,18 +102,27 @@
        For now default to no since index generation is still under development.
   -->  
   <xsl:param name="generateIndex" as="xs:string" select="'no'"/>
-  
-  <!-- value for @class on <body> of the generated static TOC HTML document -->
-  <xsl:param name="staticTocBodyOutputclass" select="''" as="xs:string"/>
-  
-  <xsl:param name="contenttarget" select="'contentwin'"/>
-  
   <xsl:variable name="generateIndexBoolean" 
     select="
     lower-case($generateIndex) = 'yes' or 
     lower-case($generateIndex) = 'true' or
     lower-case($generateIndex) = 'on'
     "/>
+  
+  
+  <!-- value for @class on <body> of the generated static TOC HTML document -->
+  <xsl:param name="staticTocBodyOutputclass" select="''" as="xs:string"/>
+  
+  <xsl:param name="contenttarget" select="'contentwin'"/>
+  
+  <xsl:param name="generateDynamicToc" select="'true'"/>
+  <xsl:param name="generateDynamicTocBoolean" select="matches($generateDynamicToc, 'yes|true|or', 'i')"/>
+  
+  <xsl:param name="generateFrameset" select="'true'"/>
+  <xsl:param name="generateFramesetBoolean" select="matches($generateFrameset, 'yes|true|or', 'i')"/>
+  
+  <xsl:param name="generateStaticToc" select="'false'"/>
+  <xsl:param name="generateStaticTocBoolean" select="matches($generateDynamicToc, 'yes|true|or', 'i')"/>
   
   <xsl:template name="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
@@ -121,14 +132,17 @@
       
       Parameters:
       
-      + cssOutputDir    = "<xsl:sequence select="$cssOutputDir"/>"
-      + generateIndex   = "<xsl:sequence select="$generateIndex"/>
-      + imagesOutputDir = "<xsl:sequence select="$imagesOutputDir"/>"
-      + outdir          = "<xsl:sequence select="$outdir"/>"
-      + tempdir         = "<xsl:sequence select="$tempdir"/>"
+      + cssOutputDir       = "<xsl:sequence select="$cssOutputDir"/>"
+      + generateIndex      = "<xsl:sequence select="$generateIndex"/>
+      + imagesOutputDir    = "<xsl:sequence select="$imagesOutputDir"/>"
+      + generateDynamicToc = "<xsl:sequence select="$generateDynamicToc"/>"
+      + generateFrameset   = "<xsl:sequence select="$generateFrameset"/>"
+      + generateStaticToc  = "<xsl:sequence select="$generateStaticToc"/>"
+      + outdir             = "<xsl:sequence select="$outdir"/>"
+      + tempdir            = "<xsl:sequence select="$tempdir"/>"
       + titleOnlyTopicClassSpec = "<xsl:sequence select="$titleOnlyTopicClassSpec"/>"
       + titleOnlyTopicTitleClassSpec = "<xsl:sequence select="$titleOnlyTopicTitleClassSpec"/>"
-      + topicsOutputDir = "<xsl:sequence select="$topicsOutputDir"/>"
+      + topicsOutputDir    = "<xsl:sequence select="$topicsOutputDir"/>"
 
       + DITAEXT         = "<xsl:sequence select="$DITAEXT"/>"
       + WORKDIR         = "<xsl:sequence select="$WORKDIR"/>"
@@ -244,12 +258,10 @@
     <!-- NOTE: By default, this mode puts it output in the main output file
          produced by the transform.
       -->
-    <xsl:apply-templates select="." mode="generate-static-toc"/>
-
-    <xsl:apply-templates select="." mode="generate-content"/>
-    <xsl:apply-templates select="." mode="generate-dynamic-toc">
-      <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
+    <xsl:apply-templates select="." mode="generate-root-pages">
+      <xsl:with-param name="index-terms" as="element()" select="$index-terms" tunnel="yes"/>
     </xsl:apply-templates>
+    <xsl:apply-templates select="." mode="generate-content"/>
     <xsl:apply-templates select="." mode="generate-index">
       <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
     </xsl:apply-templates>
