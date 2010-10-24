@@ -45,7 +45,8 @@
   <xsl:import
     href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMapImpl.xsl"/>
-
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
+  
   <!-- Import the base HTML output generation transform. -->
   <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
 
@@ -60,7 +61,6 @@
   <!-- ======================================== -->
   <xsl:include href="map2kindleIndexImpl.xsl"/>
   <xsl:include href="html2xhtmlImpl.xsl"/>
-  <xsl:include href="topicHrefFixup.xsl"/>
   <xsl:include href="kindleHtmlOverrides.xsl"/>
 
   <xsl:include href="map2kindleD4PImpl.xsl"/>
