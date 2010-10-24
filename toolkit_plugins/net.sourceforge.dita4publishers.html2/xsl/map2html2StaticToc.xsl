@@ -9,6 +9,21 @@
   xmlns:local="urn:functions:local"
   exclude-result-prefixes="local xs df xsl relpath htmlutil index-terms"
   version="2.0">
+  <!-- =============================================================
+    
+    DITA Map to HTML Transformation
+    
+    Static ToC generation. This transform generates the HTML markup
+    for a static table of contents.
+    
+    Copyright (c) 2010 DITA For Publishers
+    
+    Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
+    The intent of this license is for this material to be licensed in a way that is
+    consistent with and compatible with the license of the DITA Open Toolkit.
+    
+    This transform requires XSLT 2.
+    ================================================================= -->    
   
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
