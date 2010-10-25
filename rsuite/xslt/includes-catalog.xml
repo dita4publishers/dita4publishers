@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/word2dita/docx2dita.xsl" 
-    uri="../../xslt/word2dita/docx2dita.xsl"/>
+    uri="../../toolkit_plugins/net.sourceforge.dita4publishers.word2dita/xsl/docx2dita.xsl"/>
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/word2dita/rewriteDocxGraphics.xsl" 
-    uri="../../xslt/word2dita/rewriteDocxGraphics.xsl"/>
+    uri="../../toolkit_plugins/net.sourceforge.dita4publishers.word2dita/xsl/rewriteDocxGraphics.xsl"/>
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/lib/relpath_util.xsl" 
-    uri="../../xslt/lib/relpath_util.xsl"/>
+    uri="../../toolkit_plugins/net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/lib/dita-support-lib.xsl" 
-    uri="../../xslt/lib/dita-support-lib.xsl"/>
+    uri="../../toolkit_plugins/net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
              
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/dita2indesign/lib/incx_generation_util.xsl" 
     uri="../../xslt/dita2indesign/lib/incx_generation_util.xsl"/>
