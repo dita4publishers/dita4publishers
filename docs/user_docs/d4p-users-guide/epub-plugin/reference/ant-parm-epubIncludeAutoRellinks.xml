@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/reference.dtd">
+<reference id="referenceId">
+  <title>epub.include.auto.rellinks Ant parameter</title>
+  <shortdesc>Turns on inclusion of auto-generated related links (as for normal HTML output)</shortdesc>
+  <refbody>
+    <section
+      spectitle="Value">
+      <p>Any value (e.g. "true") sets the property to true.</p>
+    </section>
+    <section
+      spectitle="Default">
+      <p>Not set (no related links are generated)</p>
+    </section>
+    <section
+      spectitle="XSLT Parameter">
+      <p>None. </p>
+    </section>
+    <section
+      spectitle="Notes">
+      <p>Controls base Toolkit processing by turning off the maplink-check and maplink targets, which has the effect of eliminating auto-generated related links. Note that explicitly-authored related links are not affected.</p>
+    </section>
+  </refbody>
+</reference>

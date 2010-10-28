@@ -67,6 +67,8 @@
               href="d4p-users-guide/epub-plugin/reference/ant-parm-cssOutputDir.xml"
               keys="css.output.dir_refentry"/>
             <topicref
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-epubIncludeAutoRellinks.xml"/>
+            <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-epubPubidUriStub.xml"/>
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-epubTempDir.xml"/>
