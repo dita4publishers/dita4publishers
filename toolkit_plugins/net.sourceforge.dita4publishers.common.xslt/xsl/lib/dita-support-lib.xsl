@@ -103,7 +103,7 @@
         </xsl:otherwise>
       </xsl:choose>          
     </xsl:variable>
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] df:getNavtitleForTopicref(): returning "<xsl:sequence select="$navTitle"/>"</xsl:message>
     </xsl:if>
     <xsl:sequence select="$navTitle"/>
@@ -117,18 +117,18 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="targetTopic" select="df:resolveTopicRef($topicref)"/>
-        <xsl:if test="$debugBoolean">
+        <xsl:if test="false() and $debugBoolean">
         <xsl:message> + [DEBUG] df:getNavtitleForTopicref(): targetTopic is <xsl:sequence select="concat(name($targetTopic), ': ', normalize-space($targetTopic/*[df:class(., 'topic/title')]))"/></xsl:message>
         </xsl:if>
         <xsl:choose>
           <xsl:when test="$targetTopic/*[df:class(., 'topic/titlealts')]/*[df:class(., 'topic/navtitle')]">
-            <xsl:if test="$debugBoolean">
+            <xsl:if test="false() and $debugBoolean">
             <xsl:message> + [DEBUG] df:getNavtitleForTopicref(): target topic has a titlealts/navtitle element</xsl:message>
             <xsl:message> +                                           value is: "<xsl:sequence select="normalize-space($targetTopic/*[df:class(., 'topic/titlealts')]/*[df:class(., 'topic/navtitle')])"/>"</xsl:message>
             </xsl:if>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:if test="$debugBoolean">
+            <xsl:if test="false() and $debugBoolean">
             <xsl:message> + [DEBUG] df:getNavtitleForTopicref(): target topic does not have a titlealts/navtitle element</xsl:message>
             <xsl:message> +                                    title is: "<xsl:sequence select="normalize-space($targetTopic/*[df:class(., 'topic/title')])"/>"</xsl:message>
             </xsl:if>
@@ -215,7 +215,7 @@
                   <xsl:message> + [DEBUG] df:resolveTopicRef(): target document is available.</xsl:message>
                 </xsl:if>
                 <xsl:variable name="topicDoc" select="document($topicUri, $context)"/>
-                <xsl:if test="$debugBoolean">
+                <xsl:if test="false() and $debugBoolean">
                   <xsl:message> + [DEBUG] df:resolveTopicRef(): target document resolved: <xsl:sequence select="count($topicDoc) > 0"/></xsl:message>
                 </xsl:if>
                 <xsl:choose>
@@ -568,7 +568,7 @@
     <xsl:text>&#x0a;</xsl:text>
     <xsl:apply-templates select="$topicref" mode="topicref-report"/>
   </xsl:function>
-  
+    
   <xsl:template mode="topicref-report" match="*[df:class(., 'map/topicref')]">
     <xsl:text>&#x0a;</xsl:text>
     <xsl:copy copy-namespaces="no">
