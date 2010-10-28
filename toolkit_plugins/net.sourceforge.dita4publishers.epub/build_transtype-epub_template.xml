@@ -28,6 +28,17 @@
 	<!-- Leading portion of full EPUB publication ID to be appended to the publication ID -->
 	<property name="epub.pubid.uri.stub" value="http://my-URI-stub/"/>
 
+  <condition property="preprocess.maplink.skip" value="true">
+    <not>
+      <isset property="epub.include.auto.rellinks" />
+    </not>
+  </condition>
+  <condition property="preprocess.move-links.skip" value="true">
+    <not>
+      <isset property="epub.include.auto.rellinks" />
+    </not>
+  </condition>
+
 	<target name="dita2epub"
     unless="noMap"
     xmlns:dita="http://dita-ot.sourceforge.net"
@@ -76,6 +87,9 @@
     <condition property="css.output.dir" value="${args.css.output.dir}">
       <isset property="args.css.output.dir" />
     </condition>
+  	
+  	<echo message="+++ Epub properties:"/>
+  	<echoproperties format="text" regex="^(epub|css|out\.)" taskname="echo"/>
   </target>
   
 
