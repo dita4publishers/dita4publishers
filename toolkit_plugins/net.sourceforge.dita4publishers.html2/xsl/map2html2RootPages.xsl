@@ -31,6 +31,8 @@
   <xsl:import href="html-generation-utils.xsl"/>
   
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-root-pages">
+    <xsl:param name="uniqueTopicRefs" as="element()*" tunnel="yes"/>
+
     <xsl:apply-templates select="." mode="generate-root-nav-page"/>
     <xsl:if test="$generateFramesetBoolean">
       <xsl:apply-templates select="." mode="generate-frameset"/>
@@ -42,12 +44,25 @@
        navigation elements. The direct output of this template goes to the
        default output target of the XSLT transform.
     -->
+  <xsl:param name="uniqueTopicRefs" as="element()*" tunnel="yes"/>
   <xsl:param name="index-terms" as="element()" tunnel="yes"/>
+  <xsl:param name="firstTopicUri" as="xs:string?" tunnel="yes"/>
+  
+  <xsl:variable name="initialTopicUri"
+    as="xs:string"
+    select="
+    if ($firstTopicUri != '') 
+       then $firstTopicUri
+       else htmlutil:getInitialTopicrefUri($uniqueTopicRefs, $topicsOutputPath, $outdir)
+       "
+  />
   
   <html><xsl:sequence select="'&#x0a;'"/>
     <head>
-      <xsl:call-template name="generateMapTitle"/>
-      <xsl:sequence select="'&#x0a;'"/>
+      <xsl:call-template name="generateMapTitle"/><xsl:sequence select="'&#x0a;'"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/><xsl:sequence select="'&#x0a;'"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><xsl:sequence select="'&#x0a;'"/>
+          
       <xsl:if test="string-length($contenttarget)>0 and
         $contenttarget!='NONE'">
         <base target="{$contenttarget}"/><xsl:sequence select="'&#x0a;'"/>
@@ -56,18 +71,25 @@
       
       <!-- Generate stuff for dynamic TOC. Need to parameterize/extensify this -->
       
-      <link rel="stylesheet" type="text/css" href="css/screen.css"/><xsl:sequence select="'&#x0a;'"/>
-      <link rel="stylesheet" type="text/css" href="css/local/tree.css"/><xsl:sequence select="'&#x0a;'"/>
+        <link rel="stylesheet" type="text/css" href="css/reset-html5.css"/><xsl:sequence select="'&#x0a;'"/>
+        <link rel="stylesheet" type="text/css" href="css/root-page.css"/><xsl:sequence select="'&#x0a;'"/>
+        <link rel="stylesheet" type="text/css" href="css/local/tree.css"/><xsl:sequence select="'&#x0a;'"/>
       
     </head><xsl:sequence select="'&#x0a;'"/>
     
     <body>
+      <header>
+        <xsl:apply-templates select="." mode="generate-root-page-header"/>
+      </header>
+      <nav>
         <xsl:apply-templates select="." mode="generate-dynamic-toc"/>
         <xsl:apply-templates select="." mode="generate-static-toc"/>
-      
-        <!-- Script includes comes at the end of the body for browser load efficiency:
-          -->
-        <xsl:apply-templates select="." mode="generate-dynamic-toc-script-includes"/>      
+      </nav>
+      <iframe class="contentwin" id="contentwin" src="{$initialTopicUri}"><xsl:text>&#xa0;</xsl:text></iframe>
+    
+      <!-- Script includes comes at the end of the body for browser load efficiency:
+        -->
+      <xsl:apply-templates select="." mode="generate-dynamic-toc-script-includes"/>      
     </body><xsl:sequence select="'&#x0a;'"/>
   </html>  
 </xsl:template>
@@ -96,5 +118,18 @@
     </xsl:if>
   </xsl:template>
   
+  <xsl:template mode="generate-root-page-header" match="*[df:class(., 'map/map')]">
+    <div class="publication-title">
+      <xsl:call-template name="gen-user-panel-title-pfx"/> <!-- hook for a user-XSL title prefix -->
+      <xsl:choose>
+        <xsl:when test="/*[contains(@class,' map/map ')]/*[contains(@class,' topic/title ')]">
+          <xsl:value-of select="normalize-space(/*[contains(@class,' map/map ')]/*[contains(@class,' topic/title ')])"/>
+        </xsl:when>
+        <xsl:when test="/*[contains(@class,' map/map ')]/@title">
+          <xsl:value-of select="/*[contains(@class,' map/map ')]/@title"/>
+        </xsl:when>
+      </xsl:choose>      
+    </div>
+  </xsl:template>
   
 </xsl:stylesheet>

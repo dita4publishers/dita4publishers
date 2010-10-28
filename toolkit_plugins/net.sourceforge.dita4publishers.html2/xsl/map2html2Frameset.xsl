@@ -38,15 +38,21 @@
 
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-frameset">
     <xsl:param name="index-terms" as="element()" tunnel="yes"/>
-    <!-- FIXME: Provide appropriate parameters and default behavior to find the first
-      topic reference in the doc and generate a reference to it. -->
     <xsl:param name="firstTopicUri" as="xs:string?" tunnel="yes"/>
+    <xsl:param name="uniqueTopicRefs" as="element()*" tunnel="yes"/>
     
-    
-    <xsl:variable name="effectiveFirstTopicUri" as="xs:string"
-      select="if ($firstTopicUri != '') then $firstTopicUri else 'topics/first-topic.html'"
+    <xsl:variable name="initialTopicUri"
+      as="xs:string"
+      select="
+      if ($firstTopicUri != '') 
+      then $firstTopicUri
+      else htmlutil:getInitialTopicrefUri($uniqueTopicRefs, $topicsOutputPath, $outdir)
+      "
     />
+    
     <xsl:variable name="framesetUri" select="'frameset.html'"/>
+    <xsl:variable name="framesetNavPageUri" select="'frameset-nav.html'"/>
+    <xsl:variable name="rootPage" select="concat(relpath:getNamePart($inputFileNameParam), '.html')" as="xs:string"/>
     
     <xsl:message> + [INFO] Generating frameset document <xsl:sequence select="$framesetUri"/>...</xsl:message>
     <xsl:result-document href="{$framesetUri}" format="frameset">
@@ -56,15 +62,48 @@
           <link rel="stylesheet" type="text/css" href="{relpath:newFile($cssOutputDir,'$csscommonltr.css')}"/>
         </head>
         <frameset cols="30%,*">
-          <frame name="tocwin" src="root-nav-page.html"/>
+          <frame name="tocwin" src="{$framesetNavPageUri}"/>
           <!-- Replace the src= with whatever topic you want to come up first -->
-          <frame name="contentwin" src="{$effectiveFirstTopicUri}"/>
+          <frame name="contentwin" src="{$initialTopicUri}"/>
         </frameset>
       </html>
     </xsl:result-document>
     <xsl:message> + [INFO] Frameset document generated.</xsl:message>
+    <xsl:message> + [INFO] Generating frameset navigation document <xsl:sequence select="$framesetNavPageUri"/>...</xsl:message>
+    <xsl:result-document href="{$framesetNavPageUri}">
+      <xsl:apply-templates mode="generate-frameset-nav-page" select="."/>
+    </xsl:result-document>
+    <xsl:message> + [INFO] Frameset navigation document generated.</xsl:message>
   </xsl:template>
   
-  
+  <xsl:template match="*[df:class(., 'map/map')]" mode="generate-frameset-nav-page">
+    
+    <html><xsl:sequence select="'&#x0a;'"/>
+      <head>
+        <xsl:call-template name="generateMapTitle"/><xsl:sequence select="'&#x0a;'"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/><xsl:sequence select="'&#x0a;'"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><xsl:sequence select="'&#x0a;'"/>
+        
+        <xsl:if test="string-length($contenttarget)>0 and
+          $contenttarget!='NONE'">
+          <base target="{$contenttarget}"/><xsl:sequence select="'&#x0a;'"/>
+        </xsl:if>
+        <!-- initial meta information -->
+        
+        <!-- Generate stuff for dynamic TOC. Need to parameterize/extensify this -->
+        
+        <link rel="stylesheet" type="text/css" href="css/reset-html5.css"/><xsl:sequence select="'&#x0a;'"/>
+        <link rel="stylesheet" type="text/css" href="css/root-page.css"/><xsl:sequence select="'&#x0a;'"/>
+        <link rel="stylesheet" type="text/css" href="css/local/tree.css"/><xsl:sequence select="'&#x0a;'"/>
+        
+      </head><xsl:sequence select="'&#x0a;'"/>
+      
+      <body>
+        <xsl:apply-templates select="." mode="generate-dynamic-toc-page-markup"/>
+        <xsl:apply-templates select="." mode="generate-static-toc"/>
+        <xsl:apply-templates select="." mode="generate-dynamic-toc-script-includes"/>      
+      </body>
+    </html>
+  </xsl:template>
 
 </xsl:stylesheet>

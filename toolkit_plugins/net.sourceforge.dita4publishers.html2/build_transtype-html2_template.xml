@@ -62,7 +62,7 @@
   
 
   
-  <target name="dita.map.html2" depends="dita.map.html2.init, html2-copy-css" 
+  <target name="dita.map.html2" depends="dita.map.html2.init, html2-copy-css, html2-copy-dyntoc-javascript" 
   	description="Generate all ePub components from input map and topics">
   	
   	<mkdir dir="${html2.temp.dir}"/>
@@ -76,12 +76,14 @@
       destdir="${output.dir}"
       includesfile="${dita.temp.dir}${file.separator}user.input.file.list"
       classpathref="dost.class.path"
-      style="${map2html2.style}">
+      style="${map2html2.style}"
+      filenameparameter="inputFileNameParam"
+    	>
      	<param name="cssOutputDir" expression="${css.output.dir}"/>
       <param name="debug" expression="${debug}"/>
-      <param name="generateDynamicToc" expression="${html2.generate.dynamic.toc}"/>
-      <param name="generateFrameset" expression="${html2.generate.frameset}"/>
-      <param name="generateStaticToc" expression="${html2.generate.static.toc}"/>
+      <param name="generateDynamicToc" expression="${html2.generate.dynamic.toc}" if="html2.generate.dynamic.toc"/>
+      <param name="generateFrameset" expression="${html2.generate.frameset}" if="html2.generate.frameset"/>
+      <param name="generateStaticToc" expression="${html2.generate.static.toc}" if="html2.generate.static.toc"/>
      	<param name="imagesOutputDir" expression="${images.output.dir}"/>
      	<param name="outdir" expression="${html2.xslt.outdir}"/>
      	<param name="tempdir" expression="${html2.xslt.tempdir}"/>
@@ -112,6 +114,17 @@
   	<ant antfile="${output.dir}/copy-graphics.xml"  		
   		>
   	</ant>
+    </target>
+    
+  <target name="html2-copy-dyntoc-javascript"  description="Copy JavaScript files" 
+  	depends="dita.map.html2.init" 
+  	if="html2.generate.dynamic.toc">
+  	<copy todir="${output.dir}">
+  		<fileset dir="${html2.dir}/dynamic-toc-support">
+  			<include name="**/*"/>
+  		</fileset>
+  	</copy>
+  	
 	</target>
 	
   <target name="html2-copy-css"  description="Copy CSS files" depends="dita.map.html2.init">    
@@ -124,6 +137,11 @@
     <copy todir="${user.csspath.real}">
       <fileset dir="${dita.resource.dir}" includes="*.css"/>
     </copy>    
+  	<copy todir="${user.csspath.real}">
+  		<fileset dir="${html2.dir}/css">
+  			<include name="**/*"/>
+  	  </fileset>		
+  	</copy>
     <!-- Copy user specify css file when required -->
     <antcall target="html2-copy-css-user"/>
   </target>

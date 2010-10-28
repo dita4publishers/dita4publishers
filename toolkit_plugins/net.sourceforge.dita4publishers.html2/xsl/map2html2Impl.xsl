@@ -63,6 +63,8 @@
   <xsl:include href="map2html2D4P.xsl"/>
   <xsl:include href="map2html2Bookmap.xsl"/>
   
+  <xsl:param name="inputFileNameParam"/>
+  
   <!-- Directory into which the generated output is put.
 
        -->
@@ -135,6 +137,7 @@
       + cssOutputDir       = "<xsl:sequence select="$cssOutputDir"/>"
       + generateIndex      = "<xsl:sequence select="$generateIndex"/>
       + imagesOutputDir    = "<xsl:sequence select="$imagesOutputDir"/>"
+      + inputFileNameParam = "<xsl:sequence select="$inputFileNameParam"/>"
       + generateDynamicToc = "<xsl:sequence select="$generateDynamicToc"/>"
       + generateFrameset   = "<xsl:sequence select="$generateFrameset"/>"
       + generateStaticToc  = "<xsl:sequence select="$generateStaticToc"/>"
@@ -227,6 +230,8 @@
     <xsl:call-template name="report-parameters">
     </xsl:call-template>
     
+    <xsl:variable name="uniqueTopicRefs" as="element()*" select="df:getUniqueTopicrefs(.)"/>
+
     <xsl:variable name="graphicMap" as="element()">
       <xsl:apply-templates select="." mode="generate-graphic-map">
       </xsl:apply-templates>
@@ -259,9 +264,12 @@
          produced by the transform.
       -->
     <xsl:apply-templates select="." mode="generate-root-pages">
+      <xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/>
       <xsl:with-param name="index-terms" as="element()" select="$index-terms" tunnel="yes"/>
     </xsl:apply-templates>
-    <xsl:apply-templates select="." mode="generate-content"/>
+    <xsl:apply-templates select="." mode="generate-content">
+      <xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/>      
+    </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-index">
       <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
     </xsl:apply-templates>

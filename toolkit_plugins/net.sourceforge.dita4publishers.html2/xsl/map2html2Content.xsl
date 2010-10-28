@@ -41,8 +41,8 @@
   />
   
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-content">
+    <xsl:param name="uniqueTopicRefs" as="element()*" tunnel="yes"/>
     <xsl:message> + [INFO] Generating content...</xsl:message>
-    <xsl:variable name="uniqueTopicRefs" as="element()*" select="df:getUniqueTopicrefs(.)"/>
     
     <xsl:if test="false() and $debugBoolean">    
       <xsl:message> + [DEBUG] ------------------------------- 

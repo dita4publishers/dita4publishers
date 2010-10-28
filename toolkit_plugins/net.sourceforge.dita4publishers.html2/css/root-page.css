@@ -1,0 +1,41 @@
+/**
+ * CSS Stylesheet for Root page of generated HTML. 
+ * 
+ * Copyright (c) 2010 DITA for Publishers
+ * 
+ * May be used without restriction.
+ */
+ 
+iframe, nav { 
+  overflow-y: scroll; 
+}
+ 
+ header {
+   display: block;
+   width: 100%;
+   height: 50px;
+   color: #444;
+   background-color: #66F6FF;
+   
+ }
+ 
+ nav, .static-toc {
+   display: block;
+   float: left;
+   width: 20%;
+  height: 600px;
+   color: #444;
+   background-color: #FFFFA6;
+ }
+ 
+.static-toc  {
+   display: none;   
+ }
+ 
+ 
+.contentwin {
+  display: block;
+  width: 80%;
+  height: 600px;
+  
+} 

@@ -142,7 +142,7 @@
                    )"/>
           <xsl:text>",
   href: "</xsl:text>
-          <xsl:sequence select="$targetUri"/>
+          <xsl:sequence select="$relativeUri"/>
           <xsl:text>", 
   target:"</xsl:text><xsl:value-of select="$contenttarget"/><xsl:text>"
 };
