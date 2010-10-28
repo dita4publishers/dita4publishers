@@ -159,9 +159,17 @@
     <xsl:attribute name="opf:file-as" select="normalize-space(.)"/>
   </xsl:template>
 
-  <xsl:template match="*[df:class(., 'map/map')]/*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/publisher')]" 
+  <xsl:template 
+    match="
+    *[df:class(., 'map/map')]/*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/publisher')]
+    " 
     mode="generate-opf"> 
     <dc:publisher><xsl:apply-templates/></dc:publisher>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/publisher')]/*">
+    <!-- Make sure that markup within publisher is handled (e.g., for bookmap). -->
+    <xsl:apply-templates/>
   </xsl:template>
 
   <xsl:template match="*[df:class(., 'map/map')]/*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/copyright')]" 
