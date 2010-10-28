@@ -26,7 +26,7 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   
-  <xsl:import href="html-generation-utils.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   
   <xsl:output indent="yes" name="javascript" method="text"/>
 
@@ -111,6 +111,7 @@
   <xsl:template match="*[df:isTopicRef(.)]" mode="generate-dynamic-toc">
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
     <xsl:param name="parentId" as="xs:string"  tunnel="yes"/>
+    <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
     
     <xsl:if test="$tocDepth le $maxTocDepthInt">
       <!-- For title that shows up in ncx:text, use the navtitle. If it's
@@ -125,7 +126,7 @@
           <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
+          <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($topicsOutputPath, root($topic), $rootMapDocUrl)" as="xs:string"/>
           <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
           <xsl:variable name="enumeration" as="xs:string?">
             <xsl:apply-templates select="." mode="enumeration"/>
@@ -199,7 +200,7 @@
     </xsl:if>
   </xsl:template>
   
-  <xsl:template mode="#all" match="*[df:class(., 'map/topicref') and (@processing-role = 'resource-only')]" priority="20"/>
+  <xsl:template mode="#all" match="*[df:class(., 'map/topicref') and (@processing-role = 'resource-only')]" priority="30"/>
 
 
   <!-- topichead elements get a navPoint, but don't actually point to

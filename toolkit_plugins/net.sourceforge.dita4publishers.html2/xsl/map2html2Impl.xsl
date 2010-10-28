@@ -69,6 +69,7 @@
 
        -->
   <xsl:param name="outdir" select="./html2"/>
+  <xsl:param name="outext" select="'.html'"/>
   <xsl:param name="tempdir" select="./temp"/>
   
  <!-- The path of the directory, relative the $outdir parameter,
@@ -95,6 +96,13 @@
   <xsl:param name="titleOnlyTopicClassSpec" select="'- topic/topic '" as="xs:string"/>
 
   <xsl:param name="titleOnlyTopicTitleClassSpec" select="'- topic/title '" as="xs:string"/>
+  
+  <!-- The strategy to use when constructing output files. Default is "as-authored", meaning
+       reflect the directory structure of the topics as authored relative to the root map,
+       possibly as reworked by earlier Toolkit steps.
+    -->       
+  <xsl:param name="fileOrganizationStrategy" as="xs:string" select="'as-authored'"/>
+  
   
   <!-- Maxminum depth of the generated ToC -->
   <xsl:param name="maxTocDepth" as="xs:string" select="'5'"/>
@@ -135,13 +143,15 @@
       Parameters:
       
       + cssOutputDir       = "<xsl:sequence select="$cssOutputDir"/>"
-      + generateIndex      = "<xsl:sequence select="$generateIndex"/>
-      + imagesOutputDir    = "<xsl:sequence select="$imagesOutputDir"/>"
-      + inputFileNameParam = "<xsl:sequence select="$inputFileNameParam"/>"
+      + fileOrganizationStrategy = "<xsl:sequence select="$fileOrganizationStrategy"/>      
       + generateDynamicToc = "<xsl:sequence select="$generateDynamicToc"/>"
       + generateFrameset   = "<xsl:sequence select="$generateFrameset"/>"
+      + generateIndex      = "<xsl:sequence select="$generateIndex"/>
       + generateStaticToc  = "<xsl:sequence select="$generateStaticToc"/>"
+      + imagesOutputDir    = "<xsl:sequence select="$imagesOutputDir"/>"
+      + inputFileNameParam = "<xsl:sequence select="$inputFileNameParam"/>"
       + outdir             = "<xsl:sequence select="$outdir"/>"
+      + outext             = "<xsl:sequence select="$outext"/>"
       + tempdir            = "<xsl:sequence select="$tempdir"/>"
       + titleOnlyTopicClassSpec = "<xsl:sequence select="$titleOnlyTopicClassSpec"/>"
       + titleOnlyTopicTitleClassSpec = "<xsl:sequence select="$titleOnlyTopicTitleClassSpec"/>"
@@ -222,14 +232,15 @@
   </xsl:variable>  
   
   <xsl:template match="/">
-    <xsl:apply-templates/>
+    <xsl:apply-templates>
+      <xsl:with-param name="rootMapDocUrl" select="document-uri(.)" as="xs:string" tunnel="yes"/>
+    </xsl:apply-templates>
   </xsl:template>
   
   <xsl:template match="/*[df:class(., 'map/map')]">
     
-    <xsl:call-template name="report-parameters">
-    </xsl:call-template>
-    
+    <xsl:call-template name="report-parameters"/>
+
     <xsl:variable name="uniqueTopicRefs" as="element()*" select="df:getUniqueTopicrefs(.)"/>
 
     <xsl:variable name="graphicMap" as="element()">

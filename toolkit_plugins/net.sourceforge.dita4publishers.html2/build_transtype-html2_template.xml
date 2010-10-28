@@ -86,6 +86,7 @@
       <param name="generateStaticToc" expression="${html2.generate.static.toc}" if="html2.generate.static.toc"/>
      	<param name="imagesOutputDir" expression="${images.output.dir}"/>
      	<param name="outdir" expression="${html2.xslt.outdir}"/>
+    	<param name="outext" expression="${out.ext}"/><!-- Extension to use for result files, e.g., ".html" -->
      	<param name="tempdir" expression="${html2.xslt.tempdir}"/>
     	<param name="rawPlatformString" expression="${os.name}"/>
     	<param name="titleOnlyTopicClassSpec" expression="${title.only.topic.class.spec}"/>

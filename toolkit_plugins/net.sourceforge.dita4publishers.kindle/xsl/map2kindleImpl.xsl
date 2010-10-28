@@ -108,6 +108,12 @@
   <!-- Maxminum depth of the generated ToC -->
   <xsl:param name="maxTocDepth" as="xs:string" select="'5'"/>
 
+  <!-- 
+    The strategy to use when constructing output files. Default is "single-dir", meaning
+    put all result topics in the same output directory (as specified by $topicsOutputDir)
+  -->         
+  <xsl:param name="fileOrganizationStrategy" as="xs:string" select="'single-dir'"/>
+
   <!-- Include back-of-the-book-index if any index entries in source 
   
        For now default to no since index generation is still under development.

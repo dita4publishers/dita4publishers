@@ -120,6 +120,12 @@
   -->  
   <xsl:param name="generateIndex" as="xs:string" select="'no'"/>
   
+  <!-- 
+    The strategy to use when constructing output files. Default is "single-dir", meaning
+    put all result topics in the same output directory (as specified by $topicsOutputDir)
+  -->         
+  <xsl:param name="fileOrganizationStrategy" as="xs:string" select="'single-dir'"/>
+  
   <xsl:variable name="generateIndexBoolean" 
     select="
     lower-case($generateIndex) = 'yes' or 

@@ -32,7 +32,7 @@
   
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="html-generation-utils.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   
   <xsl:output name="topic-html"
     method="xhtml"
@@ -42,6 +42,7 @@
   
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-content">
     <xsl:param name="uniqueTopicRefs" as="element()*" tunnel="yes"/>
+    <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
     <xsl:message> + [INFO] Generating content...</xsl:message>
     
     <xsl:if test="false() and $debugBoolean">    
@@ -90,6 +91,7 @@
   </xsl:template>
   
   <xsl:template match="*[df:isTopicRef(.)]" mode="generate-content">
+    <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
     <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] Handling topicref to "<xsl:sequence select="string(@href)"/>" in mode generate-content</xsl:message>
     </xsl:if>
@@ -106,7 +108,7 @@
         </xsl:variable>
         <xsl:apply-templates select="$tempTopic" mode="#current">
           <xsl:with-param name="topicref" as="element()" select="." tunnel="yes"/>
-          <xsl:with-param name="resultUri" select="htmlutil:getTopicResultUrl($topicsOutputPath, root($topic))"
+          <xsl:with-param name="resultUri" select="htmlutil:getTopicResultUrl($topicsOutputPath, root($topic), $rootMapDocUrl)"
             tunnel="yes"/>
         </xsl:apply-templates>
       </xsl:otherwise>
@@ -126,7 +128,8 @@
     <!-- Result URI to which the document should be written. -->
     <xsl:param name="resultUri" as="xs:string" tunnel="yes"/>
     
-    <xsl:message> + [INFO] Writing topic <xsl:sequence select="document-uri(root(.))"/> to HTML file "<xsl:sequence select="relpath:newFile($topicsOutputDir, relpath:getName($resultUri))"/>"...</xsl:message>
+    <xsl:message> + [INFO] Writing topic <xsl:sequence select="document-uri(root(.))"/> to HTML file "<xsl:sequence 
+      select="$resultUri"/>"...</xsl:message>
     <xsl:variable name="htmlNoNamespace" as="node()*">
       <xsl:apply-templates select="." mode="map-driven-content-processing">
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>

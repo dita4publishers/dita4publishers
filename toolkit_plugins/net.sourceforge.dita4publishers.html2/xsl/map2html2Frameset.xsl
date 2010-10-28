@@ -31,7 +31,7 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   
-  <xsl:import href="html-generation-utils.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   
   <xsl:output indent="yes" name="frameset" method="html"/>
   
@@ -40,13 +40,14 @@
     <xsl:param name="index-terms" as="element()" tunnel="yes"/>
     <xsl:param name="firstTopicUri" as="xs:string?" tunnel="yes"/>
     <xsl:param name="uniqueTopicRefs" as="element()*" tunnel="yes"/>
+    <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
     
     <xsl:variable name="initialTopicUri"
       as="xs:string"
       select="
       if ($firstTopicUri != '') 
       then $firstTopicUri
-      else htmlutil:getInitialTopicrefUri($uniqueTopicRefs, $topicsOutputPath, $outdir)
+      else htmlutil:getInitialTopicrefUri($uniqueTopicRefs, $topicsOutputPath, $outdir, $rootMapDocUrl)
       "
     />
     

@@ -27,7 +27,7 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   
-  <xsl:import href="html-generation-utils.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-static-toc">
     <xsl:param name="index-terms" as="element()" tunnel="yes"/>
@@ -50,6 +50,8 @@
   
   <xsl:template match="*[df:isTopicRef(.)][not(@toc = 'no')]" mode="generate-static-toc">
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
+    <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
+
     <xsl:if test="$tocDepth le $maxTocDepthInt">
       
       <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
@@ -59,7 +61,7 @@
           <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
+          <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($topicsOutputPath, root($topic), $rootMapDocUrl)" as="xs:string"/>
           <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
           <li id="{generate-id()}"
             ><a href="{$relativeUri}" target="{$contenttarget}"><xsl:apply-templates select="." mode="enumeration"/>
