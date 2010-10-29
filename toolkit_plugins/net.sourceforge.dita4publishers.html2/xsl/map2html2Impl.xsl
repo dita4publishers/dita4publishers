@@ -143,7 +143,7 @@
       Parameters:
       
       + cssOutputDir       = "<xsl:sequence select="$cssOutputDir"/>"
-      + fileOrganizationStrategy = "<xsl:sequence select="$fileOrganizationStrategy"/>      
+      + fileOrganizationStrategy = "<xsl:sequence select="$fileOrganizationStrategy"/>"  
       + generateDynamicToc = "<xsl:sequence select="$generateDynamicToc"/>"
       + generateFrameset   = "<xsl:sequence select="$generateFrameset"/>"
       + generateIndex      = "<xsl:sequence select="$generateIndex"/>

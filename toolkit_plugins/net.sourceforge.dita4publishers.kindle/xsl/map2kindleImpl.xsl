@@ -77,6 +77,7 @@
        produce the final ePub package.
        -->
   <xsl:param name="outdir" select="./kindle"/>
+  <xsl:param name="outext" select="'.html'"/>
   <xsl:param name="tempdir" select="./temp"/>
 
   <!-- The path of the directory, relative the $outdir parameter,
