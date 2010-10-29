@@ -81,6 +81,7 @@
     	>
      	<param name="cssOutputDir" expression="${css.output.dir}"/>
       <param name="debug" expression="${debug}"/>
+    	<param name="fileOrganizationStrategy" expression="${html2.file.organization.strategy}" if="html2.file.organization.strategy"/>
       <param name="generateDynamicToc" expression="${html2.generate.dynamic.toc}" if="html2.generate.dynamic.toc"/>
       <param name="generateFrameset" expression="${html2.generate.frameset}" if="html2.generate.frameset"/>
       <param name="generateStaticToc" expression="${html2.generate.static.toc}" if="html2.generate.static.toc"/>

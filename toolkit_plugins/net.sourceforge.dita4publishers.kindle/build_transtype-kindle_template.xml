@@ -101,6 +101,7 @@
     	<param name="idURIStub" expression="${kindle.pubid.uri.stub}"/>
      	<param name="imagesOutputDir" expression="${images.output.dir}"/>
      	<param name="outdir" expression="${kindle.xslt.outdir}"/>
+      <param name="outext" expression="${out.ext}"/><!-- Extension to use for result files, e.g., ".html" -->
      	<param name="tempdir" expression="${kindle.xslt.tempdir}"/>
     	<param name="rawPlatformString" expression="${os.name}"/>
     	<param name="titleOnlyTopicClassSpec" expression="${title.only.topic.class.spec}"/>
