@@ -6,10 +6,10 @@
   xmlns:dc="http://purl.org/dc/elements/1.1/"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:relpath="http://dita2indesign/functions/relpath"
-  xmlns:epubutil="http://dita4publishers.org/functions/epubutil"
+  xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   
-  exclude-result-prefixes="df xs relpath epubutil opf dc xd"
+  exclude-result-prefixes="df xs relpath htmlutil opf dc xd"
   version="2.0">
   <!-- =============================================================
     
@@ -34,8 +34,8 @@
   
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="epub-generation-utils.xsl"/>
-    
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
+  
   <xsl:output name="topic-html"
     method="xhtml"
     encoding="UTF-8"
@@ -45,6 +45,7 @@
   
   
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-content">
+    <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
     <xsl:message> + [INFO] Generating content...</xsl:message>
     <xsl:variable name="uniqueTopicRefs" as="element()*" select="df:getUniqueTopicrefs(.)"/>
     
@@ -68,7 +69,7 @@
       <xsl:message> + [DEBUG] Handling topichead "<xsl:sequence select="df:getNavtitleForTopicref(.)"/>" in mode generate-content</xsl:message>
     </xsl:if>
     <xsl:variable name="topicheadFilename" as="xs:string"
-      select="normalize-space(epubutil:getTopicheadHtmlResultTopicFilename(.))" />
+      select="normalize-space(htmlutil:getTopicheadHtmlResultTopicFilename(.))" />
     <xsl:variable name="generatedTopic" as="document-node()">
       <xsl:document>
         <topic id="{relpath:getNamePart($topicheadFilename)}"
@@ -94,6 +95,7 @@
   </xsl:template>
   
   <xsl:template match="*[df:isTopicRef(.)]" mode="generate-content">
+    <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
     <xsl:if test="false()">
       <xsl:message> + [DEBUG] Handling topicref to "<xsl:sequence select="string(@href)"/>" in mode generate-content</xsl:message>
     </xsl:if>
@@ -103,14 +105,21 @@
         <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
       </xsl:when>
       <xsl:otherwise>
+        <xsl:variable name="topicResultUri" 
+          select="htmlutil:getTopicResultUrl($topicsOutputPath, root($topic), $rootMapDocUrl)"
+          as="xs:string"
+        />
         <xsl:variable name="tempTopic" as="document-node()">
           <xsl:document>
-            <xsl:apply-templates select="$topic" mode="href-fixup"/>
+            <xsl:apply-templates select="$topic" mode="href-fixup">
+              <xsl:with-param name="topicResultUri" select="$topicResultUri"
+                tunnel="yes"/>                           
+            </xsl:apply-templates>
           </xsl:document>
         </xsl:variable>
         <xsl:apply-templates select="$tempTopic" mode="#current">
           <xsl:with-param name="topicref" as="element()" select="." tunnel="yes"/>
-          <xsl:with-param name="resultUri" select="epubutil:getTopicResultUrl($topicsOutputPath, root($topic))"
+          <xsl:with-param name="resultUri" select="$topicResultUri"
            tunnel="yes"/>
         </xsl:apply-templates>
       </xsl:otherwise>

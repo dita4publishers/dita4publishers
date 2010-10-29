@@ -17,8 +17,18 @@
   </xsl:template>
   
   <xsl:template mode="href-fixup" match="image/@href" priority="10">
+    <xsl:param name="topicResultUri" as="xs:string" tunnel="yes"/>
+    
     <xsl:variable name="origHref" select="." as="xs:string"/>
-    <xsl:variable name="newHref" select="concat('../images/', relpath:getName($origHref))" as="xs:string"/>
+    <xsl:variable name="effectiveImageUri" 
+      select="relpath:newFile(relpath:newFile($outdir, $imagesOutputDir), relpath:getName($origHref))" 
+      as="xs:string"/>
+    <xsl:variable name="topicParent" select="relpath:getParent($topicResultUri)" as="xs:string"/>
+    <xsl:variable name="imageParent" select="relpath:getParent($effectiveImageUri)" as="xs:string"/>
+    <xsl:variable name="relParent" 
+      select="relpath:getRelativePath($topicParent, $imageParent)" 
+      as="xs:string"/>
+    <xsl:variable name="newHref" select="relpath:newFile($relParent, relpath:getName($origHref))"/>
     <xsl:attribute name="href" select="$newHref"/>
   </xsl:template>
   

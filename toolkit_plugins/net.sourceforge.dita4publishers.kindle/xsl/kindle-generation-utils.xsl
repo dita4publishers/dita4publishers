@@ -10,52 +10,6 @@
   
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   
-  <xsl:function name="kindleutil:getTopicResultUrl" as="xs:string">
-    <xsl:param name="outdir" as="xs:string"/><!-- Output directory -->
-    <xsl:param name="topicDoc" as="document-node()"/>
-  
-    <xsl:variable name="topicHtmlFilename" 
-      select="kindleutil:constructHtmlResultTopicFilename($topicDoc)" 
-      as="xs:string"/>  
-    
-    <xsl:sequence select="relpath:newFile($outdir, $topicHtmlFilename)"/>
-  </xsl:function>
-  
-  <xsl:function name="kindleutil:constructHtmlResultTopicFilename" as="xs:string">
-    <xsl:param name="topic" as="document-node()"/>
-    <xsl:variable name="topicFilename" 
-      select="concat(kindleutil:getResultTopicBaseName($topic), '.html')" 
-      as="xs:string"/>
-    <xsl:sequence select="$topicFilename"/>    
-  </xsl:function>
-  
-  <!--
-    Construct a reliably-unique base name for result topics that can then be used to
-    construct full filenames of different types.
-    -->
-  <xsl:function name="kindleutil:getResultTopicBaseName" as="xs:string">
-    <xsl:param name="topicDoc" as="document-node()"/>
-    <xsl:variable name="topicUri" select="string(document-uri(root($topicDoc)))" as="xs:string"/>
-    <xsl:variable name="baseName" select="concat(relpath:getNamePart($topicUri), '_', generate-id($topicDoc))" as="xs:string"/>
-    <xsl:sequence select="$baseName"/>
-  </xsl:function>
-
-  <xsl:function name="kindleutil:getXmlResultTopicFileName" as="xs:string">
-    <xsl:param name="topicDoc" as="document-node()"/>
-    <xsl:variable name="topicUri" select="string(document-uri(root($topicDoc)))" as="xs:string"/>
-    <xsl:variable name="baseName" select="kindleutil:getResultTopicBaseName($topicDoc)" as="xs:string"/>
-    <xsl:variable name="ext" select="relpath:getExtension($topicUri)"/>
-    <xsl:variable name="fileName" select="concat($baseName, '.', $ext)" as="xs:string"/>
-    <xsl:sequence select="$fileName"/>
-  </xsl:function>
-  
-  <xsl:function name="kindleutil:getTopicheadHtmlResultTopicFilename" as="xs:string">
-    <xsl:param name="topichead" as="element()"/>
-    
-    <xsl:variable name="result" select="concat('topichead_', generate-id($topichead), '.html')" as="xs:string"/>
-    <xsl:sequence select="$result"/>
-  </xsl:function>
-  
   <xsl:function name="kindleutil:getKindleCoverGraphicFilename" as="xs:string">
     <xsl:param name="context" as="element()"/>
     <xsl:variable name="sourceUri" select="kindleutil:getKindleCoverGraphicUri($context)" as="xs:string"/>

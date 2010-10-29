@@ -4,13 +4,11 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:df="http://dita2indesign.org/dita/functions"
   xmlns:relpath="http://dita2indesign/functions/relpath"
-  xmlns:epubutil="http://dita4publishers.org/functions/epubutil"
-  exclude-result-prefixes="xs df relpath epubutil"
+  exclude-result-prefixes="xs df relpath"
   version="2.0">
     
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="epub-generation-utils.xsl"/>
   
   <!-- Extensions for DITA Bookmap map type modules in
   different contexts -->

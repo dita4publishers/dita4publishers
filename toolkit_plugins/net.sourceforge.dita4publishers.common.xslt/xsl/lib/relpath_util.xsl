@@ -152,10 +152,13 @@
           then substring($parentPath, 1, string-length($parentPath) - 1) 
           else $parentPath" />
         <xsl:variable name="parentTokens" select="tokenize($tempParentPath, '/')" as="xs:string*"/>
+        <xsl:variable name="firstToken" select="$parentTokens[1]" as="xs:string"/>
         <xsl:variable name="childTokens" select="tokenize($childFile, '/')" as="xs:string*"/>
         <xsl:variable name="tempPath" select="string-join(($parentTokens, $childTokens), '/')" as="xs:string"/>
         <xsl:variable name="result"
-        select="relpath:getAbsolutePath($tempPath)"/>
+          select="if ($firstToken = '..') 
+              then concat($firstToken, '/', relpath:getAbsolutePath($tempPath)) 
+              else relpath:getAbsolutePath($tempPath)"/>
         <xsl:value-of select="$result"/>
       </xsl:otherwise>
     </xsl:choose>

@@ -239,7 +239,9 @@
     <xsl:if test="$debugBoolean">
         <xsl:message> + [DEBUG] Root template in default mode. Root element is "<xsl:sequence select="name(/*[1])"/>", class="<xsl:sequence select="string(/*[1]/@class)"/>:</xsl:message>
     </xsl:if>    
-    <xsl:apply-templates/>
+    <xsl:apply-templates>
+      <xsl:with-param name="rootMapDocUrl" select="document-uri(.)" as="xs:string" tunnel="yes"/>      
+    </xsl:apply-templates>
   </xsl:template>
   
   <xsl:template match="/*[df:class(., 'map/map')]">

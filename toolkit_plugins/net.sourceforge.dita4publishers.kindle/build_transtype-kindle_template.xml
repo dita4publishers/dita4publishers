@@ -32,7 +32,10 @@
 	<property name="kindlegen.executable" value="kindlegen"/>
 	<property name="kindlegenArgs" value="-unicode"/>
 	
-  <condition property="preprocess.maplink.skip" value="true">
+  <!-- Turn off Toolkit's graphic copying -->
+  <property name="preprocess.copy-files.skip" value="true"/>
+
+	<condition property="preprocess.maplink.skip" value="true">
     <not>
       <isset property="epub.include.auto.rellinks" />
     </not>

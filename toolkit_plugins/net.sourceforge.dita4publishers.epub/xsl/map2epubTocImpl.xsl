@@ -4,17 +4,17 @@
                 xmlns:df="http://dita2indesign.org/dita/functions"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:relpath="http://dita2indesign/functions/relpath"
-                xmlns:epubutil="http://dita4publishers.org/functions/epubutil"
+                xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"
                 xmlns:index-terms="http://dita4publishers.org/index-terms"
                 xmlns="http://www.daisy.org/z3986/2005/ncx/"
                 xmlns:local="urn:functions:local"
-                exclude-result-prefixes="local xs df xsl relpath epubutil index-terms"
+                exclude-result-prefixes="local xs df xsl relpath htmlutil index-terms"
   >
   <!-- Convert a DITA map to an EPUB toc.ncx file. -->
   
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="epub-generation-utils.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   
 
   <xsl:output indent="yes" name="ncx" method="xml"/>
@@ -130,7 +130,7 @@
           <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:variable name="targetUri" select="epubutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
+          <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
           <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
           <navPoint id="{generate-id()}"
             > 
@@ -209,7 +209,7 @@
         <navLabel>
           <text><xsl:sequence select="$navPointTitle"/></text>
         </navLabel>
-        <xsl:variable name="targetUri" select="epubutil:getTopicResultUrl($topicsOutputPath, root(.))" as="xs:string"/>
+        <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($topicsOutputPath, root(.))" as="xs:string"/>
         <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
         <!-- FIXME: Likely need to map input IDs to output IDs. -->
         <xsl:variable name="fragId" as="xs:string"
@@ -234,7 +234,7 @@
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
     <xsl:if test="$tocDepth le $maxTocDepthInt">
       <xsl:variable name="titleOnlyTopicFilename" as="xs:string"
-        select="normalize-space(epubutil:getTopicheadHtmlResultTopicFilename(.))"
+        select="normalize-space(htmlutil:getTopicheadHtmlResultTopicFilename(.))"
       />
       <xsl:variable name="rawNavPointTitle" as="xs:string*">
         <xsl:apply-templates select="." mode="nav-point-title"/>

@@ -1,15 +1,15 @@
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:df="http://dita2indesign.org/dita/functions" xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:relpath="http://dita2indesign/functions/relpath"
-  xmlns:kindleutil="http://dita4publishers.org/functions/kindleutil"
+  xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"
   xmlns:index-terms="http://dita4publishers.org/index-terms" xmlns:local="urn:functions:local"
   xmlns="http://www.w3.org/1999/xhtml"
-  exclude-result-prefixes="local xs df xsl relpath kindleutil index-terms">
+  exclude-result-prefixes="local xs df xsl relpath htmlutil index-terms">
 
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="kindle-generation-utils.xsl"/>
-
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
+  
   <xsl:output indent="yes" name="html" method="html"/>
 
 
@@ -110,7 +110,7 @@
               <xsl:apply-templates select="." mode="enumeration"/>
             </xsl:variable>
             <xsl:variable name="targetUri"
-              select="kindleutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
+              select="htmlutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
             <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)"
               as="xs:string"/>
             <a href="{$relativeUri}">
@@ -161,7 +161,7 @@
         select="normalize-space(string-join($rawNavPointTitle, ' '))" as="xs:string"/>
       <blockquote>
         <xsl:variable name="targetUri"
-          select="kindleutil:getTopicResultUrl($topicsOutputPath, root(.))" as="xs:string"/>
+          select="htmlutil:getTopicResultUrl($topicsOutputPath, root(.))" as="xs:string"/>
         <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)"
           as="xs:string"/>
         <!-- FIXME: Likely need to map input IDs to output IDs. -->
@@ -181,7 +181,7 @@
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
     <xsl:if test="$tocDepth le $maxTocDepthInt">
       <xsl:variable name="titleOnlyTopicFilename" as="xs:string"
-        select="normalize-space(kindleutil:getTopicheadHtmlResultTopicFilename(.))"/>
+        select="normalize-space(htmlutil:getTopicheadHtmlResultTopicFilename(.))"/>
       <xsl:variable name="rawNavPointTitle" as="xs:string*">
         <xsl:apply-templates select="." mode="nav-point-title"/>
       </xsl:variable>

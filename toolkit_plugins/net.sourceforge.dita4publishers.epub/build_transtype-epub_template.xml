@@ -38,6 +38,9 @@
       <isset property="epub.include.auto.rellinks" />
     </not>
   </condition>
+	
+	<!-- Turn off copying of graphics files -->
+	<property name="preprocess.copy-files.skip" value="true"/>
 
 	<target name="dita2epub"
     unless="noMap"

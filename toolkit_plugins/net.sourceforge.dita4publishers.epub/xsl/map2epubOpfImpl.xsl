@@ -5,10 +5,10 @@
   xmlns:dc="http://purl.org/dc/elements/1.1/"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:relpath="http://dita2indesign/functions/relpath"
-  xmlns:epubutil="http://dita4publishers.org/functions/epubutil"
+  xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"
   xmlns:gmap="http://dita4publishers/namespaces/graphic-input-to-output-map"  
   xmlns="http://www.idpf.org/2007/opf"
-  exclude-result-prefixes="df xs relpath epubutil gmap"
+  exclude-result-prefixes="df xs relpath htmlutil gmap"
   >
 
   <!-- Convert a DITA map to an EPUB content.opf file. 
@@ -22,7 +22,7 @@
   
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="epub-generation-utils.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   
   <!-- Output format for the content.opf file -->
   <xsl:output name="opf"
@@ -185,7 +185,7 @@
         <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:variable name="targetUri" select="epubutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
+        <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
         <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
         <opf:item id="{generate-id()}" href="{$relativeUri}"
               media-type="application/xhtml+xml"/>
@@ -198,7 +198,7 @@
       <xsl:message> + [DEBUG] in mode manifest, handling topichead <xsl:sequence select="df:getNavtitleForTopicref(.)"/></xsl:message>
     </xsl:if>
     <xsl:variable name="titleOnlyTopicFilename" as="xs:string"
-      select="epubutil:getTopicheadHtmlResultTopicFilename(.)" />
+      select="htmlutil:getTopicheadHtmlResultTopicFilename(.)" />
     <xsl:variable name="targetUri" as="xs:string"
           select="        
        if ($topicsOutputDir != '') 

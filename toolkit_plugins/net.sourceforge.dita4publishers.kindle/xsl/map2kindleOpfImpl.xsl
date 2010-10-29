@@ -5,10 +5,11 @@
   xmlns:dc="http://purl.org/dc/elements/1.1/"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:relpath="http://dita2indesign/functions/relpath"
+  xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"
   xmlns:kindleutil="http://dita4publishers.org/functions/kindleutil"
   xmlns:gmap="http://dita4publishers/namespaces/graphic-input-to-output-map"  
   xmlns="http://www.idpf.org/2007/opf"
-  exclude-result-prefixes="df xs relpath kindleutil gmap"
+  exclude-result-prefixes="df xs relpath htmlutil kindleutil gmap"
   >
   
   <!-- removing all opf prefixes from elements, as kindlegen does not like them -->
@@ -24,6 +25,7 @@
   
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   <xsl:import href="kindle-generation-utils.xsl"/>
   
   <!-- See note about my-URI-stub in build_dita2epub.xml. Hopefully a
@@ -217,7 +219,7 @@
         <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:variable name="targetUri" select="kindleutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
+        <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
         <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
         <!-- losing the opf prefix to please kindlegen -->
         <!--<opf:item id="{generate-id()}" href="{$relativeUri}"
@@ -233,7 +235,7 @@
       <xsl:message> + [DEBUG] in mode manifest, handling topichead <xsl:sequence select="df:getNavtitleForTopicref(.)"/></xsl:message>
     </xsl:if>
     <xsl:variable name="titleOnlyTopicFilename" as="xs:string"
-      select="kindleutil:getTopicheadHtmlResultTopicFilename(.)" />
+      select="htmlutil:getTopicheadHtmlResultTopicFilename(.)" />
     <xsl:variable name="targetUri" as="xs:string"
           select="        
        if ($topicsOutputDir != '') 

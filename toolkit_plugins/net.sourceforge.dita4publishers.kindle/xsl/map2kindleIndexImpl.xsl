@@ -3,16 +3,16 @@
                 xmlns:df="http://dita2indesign.org/dita/functions"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:relpath="http://dita2indesign/functions/relpath"
-                xmlns:kindleutil="http://dita4publishers.org/functions/kindleutil"
+                xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"
                 xmlns:index-terms="http://dita4publishers.org/index-terms"
                 xmlns:local="urn:functions:local"
-                exclude-result-prefixes="local xs df xsl relpath kindleutil index-terms"
+                exclude-result-prefixes="local xs df xsl relpath htmlutil index-terms"
   >
   <!-- Generate a back-of-the-book index for inclusion in the EPUB. -->
   
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="kindle-generation-utils.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   
 
   <xsl:output indent="yes" name="ncx" method="xml"/>
@@ -112,7 +112,7 @@
           <!-- Do nothing. Unresolveable topics will already have been reported. -->
         </xsl:when>
         <xsl:otherwise>
-          <xsl:variable name="targetUri" select="kindleutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
+          <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
           <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
             <!-- Any subordinate topics in the currently-referenced topic are
               reflected in the ToC before any subordinate topicrefs.
