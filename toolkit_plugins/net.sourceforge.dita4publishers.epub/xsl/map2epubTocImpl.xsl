@@ -139,9 +139,9 @@
                 <xsl:apply-templates select="." mode="enumeration"/>
               </xsl:variable>
               <text><xsl:value-of select="
-                if ($enumeration = '')
-                   then normalize-space($navPointTitle)
-                   else concat($enumeration, ' ', $navPointTitle)
+                normalize-space(if ($enumeration = '')
+                   then $navPointTitle
+                   else concat($enumeration, ' ', $navPointTitle))
                    "/></text>
             </navLabel>
             <content src="{$relativeUri}"/>
