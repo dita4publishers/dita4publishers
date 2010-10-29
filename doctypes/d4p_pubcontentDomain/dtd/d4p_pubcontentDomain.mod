@@ -25,9 +25,11 @@ An epigraph is a brief quotation used to introduce a piece of writing
 <!-- ============================================================= -->
 
 
-<!ENTITY % epigram "epigram" >
+<!ENTITY % body-pullquote        "body-pullquote" >
+<!ENTITY % epigram               "epigram" >
 <!ENTITY % epigraph              "epigraph"                      >
 <!ENTITY % epigraph-attribution  "epigraph-attribution"          >
+<!ENTITY % section-pullquote     "section-pullquote" >
 
 
 <!-- ============================================================= -->
@@ -81,15 +83,51 @@ An epigraph is a brief quotation used to introduce a piece of writing
 <!ELEMENT epigraph-attribution    %epigraph-attribution.content;>
 <!ATTLIST epigraph-attribution    %epigraph-attribution.attributes;>
 
+<!ENTITY % body-pullquote.content
+  "(%bodydiv.cnt;)*"
+>
+<!ENTITY % body-pullquote.attributes
+             "%id-atts;
+              %localization-atts;
+              base 
+                        CDATA 
+                                  #IMPLIED
+              %base-attribute-extensions;
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT body-pullquote    %body-pullquote.content;>
+<!ATTLIST body-pullquote    %body-pullquote.attributes;>
+
+<!ENTITY % section-pullquote.content
+  "(%sectiondiv.cnt;)*"
+>
+<!ENTITY % section-pullquote.attributes
+             "%id-atts;
+              %localization-atts;
+              base 
+                        CDATA 
+                                  #IMPLIED
+              %base-attribute-extensions;
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT section-pullquote    %section-pullquote.content;>
+<!ATTLIST section-pullquote    %section-pullquote.attributes;>
+
 
 
 <!-- ============================================================= -->
 <!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
 <!-- ============================================================= -->
 
-<!ATTLIST epigram                %global-atts;  class CDATA "+ topic/p    d4p-pubcontent-d/epigram ">
+<!ATTLIST epigram                %global-atts;  class CDATA "+ topic/p          d4p-pubcontent-d/epigram ">
 
-<!ATTLIST epigraph               %global-atts;  class CDATA "+ topic/bodydiv d4p-pubcontent-d/epigraph ">
-<!ATTLIST epigraph-attribution   %global-atts;  class CDATA "+ topic/p       d4p-pubcontent-d/epigraph-attribution ">
+<!ATTLIST body-pullquote         %global-atts;  class CDATA "+ topic/bodydiv    d4p-pubcontent-d/body-pullquote ">
+<!ATTLIST section-pullquote      %global-atts;  class CDATA "+ topic/sectiondiv d4p-pubcontent-d/section-pullquote ">
+<!ATTLIST epigraph               %global-atts;  class CDATA "+ topic/bodydiv    d4p-pubcontent-d/epigraph ">
+<!ATTLIST epigraph-attribution   %global-atts;  class CDATA "+ topic/p          d4p-pubcontent-d/epigraph-attribution ">
 
 <!-- ================== End Content Domain ==================== -->

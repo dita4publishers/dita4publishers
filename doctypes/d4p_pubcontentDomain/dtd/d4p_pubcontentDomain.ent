@@ -22,7 +22,13 @@
 >
 
 <!ENTITY % d4p_pubcontent-d-bodydiv
-   "epigraph
+   "epigraph |
+    body-pullquote
+   "
+>
+
+<!ENTITY % d4p_pubcontent-d-sectiondiv
+   "section-pullquote
    "
 >
 

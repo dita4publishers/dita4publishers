@@ -24,6 +24,12 @@
   "
 >
 
+<!ENTITY % sectiondiv        
+  "sectiondiv     |
+   %d4p_pubcontent-d-sectiondiv;  
+  "
+>
+
 <!ENTITY % p         
   "p     | 
    %d4p_formatting-d-p;     | 
