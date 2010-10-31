@@ -138,10 +138,13 @@
     <xsl:message> + [INFO] Writing topic <xsl:sequence select="document-uri(root(.))"/> to HTML file "<xsl:sequence 
       select="$resultUri"/>"...</xsl:message>
     <xsl:variable name="htmlNoNamespace" as="node()*">
-      <xsl:apply-templates select="." mode="map-driven-content-processing">
+      <xsl:apply-templates select="." mode="map-driven-content-processing" >
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
       </xsl:apply-templates>      
     </xsl:variable>
+    <xsl:result-document href="{concat($outdir, '/', 'htmlNoNamespace/', relpath:getName($resultUri))}">
+      <xsl:sequence select="$htmlNoNamespace"/>
+    </xsl:result-document>
     <xsl:result-document format="topic-html" href="{$resultUri}" >
       <xsl:apply-templates select="$htmlNoNamespace" mode="no-namespace-html-post-process">
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
@@ -151,8 +154,9 @@
   
   <xsl:template mode="no-namespace-html-post-process" match="html">
     <!-- Default post-processing for HTML: just copy input back to the output -->
-    <xsl:copy-of select="."/>
+    <xsl:apply-templates select="." mode="html-identity-transform"/>
   </xsl:template>
+  
   
   <xsl:template match="*[df:class(., 'topic/topic')]" priority="100" mode="map-driven-content-processing">
     <!-- This template is a general dispatch template that applies

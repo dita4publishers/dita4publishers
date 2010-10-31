@@ -69,6 +69,11 @@
     <span class="underline" style="text-decoration: underline"><xsl:apply-templates mode="#current"/></span>
   </xsl:template>
   
+  <xsl:template match="span/p" priority="10" mode="html2xhtml">
+    <!-- Paragraphs not allowed within span -->
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+  
   <xsl:template match="p/div" priority="10" mode="html2xhtml">
     <span>
       <xsl:apply-templates select="@*,node()" mode="#current"

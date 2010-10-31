@@ -19,6 +19,28 @@
  
   <xsl:param name="fileOrganizationStrategy" as="xs:string" select="'as-authored'"/>
   
+  <!--Identity transform mode that unescapes escaped non-breaking spaces -->
+  
+  <xsl:template mode="html-identity-transform" match="*">
+    <xsl:copy>
+      <xsl:apply-templates select="@*,node()" mode="#current"/>
+    </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template mode="html-identity-transform html2xhtml" 
+    match="text()[matches(., '#xA0;', 'i')]" priority="10">
+    <xsl:sequence select="replace(., '&amp;#xA0;', '&#xA0;','i')"/>
+  </xsl:template>
+  
+  <xsl:template mode="html-identity-transform" match="text()|processing-instruction()">
+    <xsl:sequence select="."/>
+  </xsl:template>
+  
+  <xsl:template mode="html-identity-transform" match="@*">
+    <xsl:sequence select="."/>
+  </xsl:template>
+  
+  
   <xsl:function name="htmlutil:getTopicResultUrl" as="xs:string">
     <xsl:param name="outdir" as="xs:string"/><!-- Output directory -->
     <xsl:param name="topicDoc" as="document-node()"/>

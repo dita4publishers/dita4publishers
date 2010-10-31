@@ -32,6 +32,21 @@
     <xsl:attribute name="href" select="$newHref"/>
   </xsl:template>
   
+  <xsl:template mode="href-fixup" match="xref[@scope = 'external']/@href | 
+    link[@scope = 'external']/@href" priority="10">
+    <!-- Add missing http:// for URLs with no scheme -->
+    <xsl:choose>
+      <xsl:when test="matches(., '^[a-zA-Z]+:')">
+        <xsl:sequence select="."/><!-- Must have a scheme, don't change it -->
+      </xsl:when>
+      <xsl:otherwise>
+        <!-- Add http:// to make it a valid absolute URL -->
+        <xsl:attribute name="{name(.)}" select="concat('http://', .)"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    
+  </xsl:template>
+  
   <xsl:template mode="href-fixup" match="xref[not(@scope = 'external')]/@href | 
                       link[not(@scope = 'external')]/@href" priority="10">
     <xsl:if test="false()">
