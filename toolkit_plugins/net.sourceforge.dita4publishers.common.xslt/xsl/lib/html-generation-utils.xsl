@@ -52,7 +52,7 @@
     <xsl:param name="topicDoc" as="document-node()"/>
     <xsl:param name="rootMapDocUrl" as="xs:string"/>
     
-    <xsl:variable name="resultUrl" as="xs:string">
+    <xsl:variable name="resultUrl" as="xs:string?">
       <xsl:choose>
         <xsl:when test="$fileOrganizationStrategy = 'single-dir' or $rootMapDocUrl = ''">
           <xsl:for-each select="$topicDoc">
@@ -71,6 +71,7 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
+<!--    <xsl:message> + [DEBUG] getTopicResultUrl(): resultUrl="<xsl:sequence select="$resultUrl"/>"</xsl:message>-->
     <xsl:sequence select="$resultUrl"/>
   </xsl:function>
   
@@ -85,26 +86,45 @@
       select="htmlutil:constructHtmlResultTopicFilename(.)" 
       as="xs:string"/>  
     
-    <xsl:variable name="resultUrl" select="relpath:newFile($outdir, $topicHtmlFilename)" as="xs:string"/>
+    <xsl:variable name="resultUrl" select="relpath:newFile(relpath:newFile($outdir, $topicsOutputDir), $topicHtmlFilename)" as="xs:string"/>
     <xsl:sequence select="$resultUrl"/>
   </xsl:template>
   
-  <xsl:template mode="get-topic-result-url" match="/">
-    <!-- Default file organization strategy: as-authored -->
+  <xsl:template mode="get-topic-result-base-url" match="/">
+    <!-- Gets the result URL for the topic without any extension -->
     <xsl:param name="outdir" as="xs:string" tunnel="yes"/>
-    <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
-
-    <xsl:variable name="topicDocUri" select="string(document-uri(.))" as="xs:string"/>
-    <xsl:variable name="relSourcePath" select="relpath:getRelativePath($rootMapDocUrl, $topicDocUri)" as="xs:string"/>
-    <xsl:variable name="parentPath" select="relpath:getParent($relSourcePath)" as="xs:string"/>
-    <xsl:variable name="baseName" select="relpath:getNamePart(relpath:getName($relSourcePath))" as="xs:string"/>
-    <xsl:variable name="resultUrl" 
-      select="relpath:newFile(relpath:newFile($outdir, $parentPath), 
-                              concat($baseName,$outext))" 
-                              as="xs:string"/>
     
+    <xsl:choose>
+      <xsl:when test="$fileOrganizationStrategy = 'single-dir'">
+        <xsl:call-template name="get-result-topic-base-name-single-dir">
+          <xsl:with-param name="topicUri" select="document-uri(.)" as="xs:string"/>
+        </xsl:call-template>        
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="topicDocUri" select="string(document-uri(.))" as="xs:string"/>
+        <xsl:variable name="relSourcePath" select="relpath:getRelativePath($tempdir, $topicDocUri)" as="xs:string"/>
+        <!--<xsl:message> + [DEBUG] getopic-result-url: relSourcePath="<xsl:sequence select="$relSourcePath"/>"</xsl:message>-->
+        <xsl:variable name="parentPath" select="relpath:getParent($relSourcePath)" as="xs:string"/>
+        <!--    <xsl:message> + [DEBUG] getopic-result-url: parentPath="<xsl:sequence select="$parentPath"/>"</xsl:message>-->
+        <xsl:variable name="baseName" select="relpath:getNamePart(relpath:getName($relSourcePath))" as="xs:string"/>
+        <xsl:variable name="resultUrl" 
+          select="relpath:newFile(relpath:newFile($outdir, $parentPath), $baseName)" 
+          as="xs:string"/>
+        <!--    <xsl:message> + [DEBUG] getopic-result-url: resultUrl="<xsl:sequence select="$resultUrl"/>"</xsl:message>-->
+        
+        <xsl:sequence select="$resultUrl"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    
+    
+  </xsl:template>
+  
+  <xsl:template mode="get-topic-result-url" match="/">
+    <xsl:variable name="baseTopicResultUrl" as="xs:string">
+      <xsl:apply-templates select="." mode="get-topic-result-base-url"/>      
+    </xsl:variable>
+    <xsl:variable name="resultUrl" select="concat($baseTopicResultUrl, $outext)"/>
     <xsl:sequence select="$resultUrl"/>
-    
   </xsl:template>
   
   <xsl:function name="htmlutil:constructHtmlResultTopicFilename" as="xs:string">
@@ -121,10 +141,38 @@
     -->
   <xsl:function name="htmlutil:getResultTopicBaseName" as="xs:string">
     <xsl:param name="topicDoc" as="document-node()"/>
-    <xsl:variable name="topicUri" select="string(document-uri(root($topicDoc)))" as="xs:string"/>
-    <xsl:variable name="baseName" select="concat(relpath:getNamePart($topicUri), '_', generate-id($topicDoc))" as="xs:string"/>
+    <xsl:variable name="topicUri" select="string(document-uri(root($topicDoc)))" as="xs:string"/>    
+    <xsl:variable name="baseName" as="xs:string">
+      <xsl:choose>
+        <xsl:when test="$fileOrganizationStrategy = 'single-dir'">
+          <xsl:for-each select="$topicDoc">
+            <xsl:call-template name="get-result-topic-base-name-single-dir">
+              <xsl:with-param name="topicUri" select="$topicUri" as="xs:string"/>
+            </xsl:call-template>
+          </xsl:for-each>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates select="$topicDoc" mode="get-result-topic-base-name">
+            <xsl:with-param name="topicUri" select="$topicUri" as="xs:string"/>            
+          </xsl:apply-templates>
+        </xsl:otherwise>
+      </xsl:choose>      
+    </xsl:variable>
     <xsl:sequence select="$baseName"/>
   </xsl:function>
+  
+  <xsl:template name="get-result-topic-base-name-single-dir">
+    <xsl:param name="topicUri" as="xs:string"/>
+    <xsl:variable name="baseName" select="concat(relpath:getNamePart($topicUri), '_', generate-id(.))" as="xs:string"/>    
+    <xsl:sequence select="$baseName"/>
+  </xsl:template>
+
+  <xsl:template match="/" mode="get-result-topic-base-name">
+    <xsl:param name="topicUri" as="xs:string"/>
+    <!-- Default template for organizational strategies other than single-dir -->
+    <xsl:variable name="baseName" select="relpath:getNamePart($topicUri)" as="xs:string"/>
+    <xsl:sequence select="$baseName"/>    
+  </xsl:template>
 
   <xsl:function name="htmlutil:getXmlResultTopicFileName" as="xs:string">
     <xsl:param name="topicDoc" as="document-node()"/>
@@ -156,7 +204,7 @@
         <xsl:variable name="initialTopic" select="df:resolveTopicRef($initialTopicRef)" as="element()?"/>
         <xsl:choose>
           <xsl:when test="$initialTopic">
-            <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($topicsOutputPath, root($initialTopic), $rootMapDocUrl)"/>
+            <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, root($initialTopic), $rootMapDocUrl)"/>
             <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
             <xsl:sequence select="$relativeUri"/>
           </xsl:when>
