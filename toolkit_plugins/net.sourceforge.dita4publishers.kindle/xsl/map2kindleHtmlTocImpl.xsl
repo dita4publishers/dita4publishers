@@ -110,7 +110,7 @@
               <xsl:apply-templates select="." mode="enumeration"/>
             </xsl:variable>
             <xsl:variable name="targetUri"
-              select="htmlutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
+              select="htmlutil:getTopicResultUrl($outdir, root($topic))" as="xs:string"/>
             <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)"
               as="xs:string"/>
             <a href="{$relativeUri}">
@@ -161,7 +161,7 @@
         select="normalize-space(string-join($rawNavPointTitle, ' '))" as="xs:string"/>
       <blockquote>
         <xsl:variable name="targetUri"
-          select="htmlutil:getTopicResultUrl($topicsOutputPath, root(.))" as="xs:string"/>
+          select="htmlutil:getTopicResultUrl($outdir, root(.))" as="xs:string"/>
         <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)"
           as="xs:string"/>
         <!-- FIXME: Likely need to map input IDs to output IDs. -->

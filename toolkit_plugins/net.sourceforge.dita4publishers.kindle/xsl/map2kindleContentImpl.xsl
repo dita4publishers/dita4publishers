@@ -90,7 +90,7 @@
         <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:variable name="topicResultUri" select="htmlutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
+        <xsl:variable name="topicResultUri" select="htmlutil:getTopicResultUrl($outdir, root($topic))" as="xs:string"/>
         <xsl:variable name="tempTopic" as="document-node()">
           <xsl:document>
             <xsl:apply-templates select="$topic" mode="href-fixup">

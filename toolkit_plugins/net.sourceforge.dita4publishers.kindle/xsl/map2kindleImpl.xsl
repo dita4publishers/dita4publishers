@@ -158,7 +158,7 @@
   <xsl:template name="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
     <xsl:message> ========================================== 
-      Plugin version: 0.9.6 - build 604 at 2010-10-10 
+      Plugin version: ^version^ - build ^buildnumber^ at ^timestamp^ 
       
       Parameters: 
       
