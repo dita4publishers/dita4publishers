@@ -130,7 +130,7 @@
           <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($topicsOutputPath, root($topic))" as="xs:string"/>
+          <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, root($topic))" as="xs:string"/>
           <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
           <navPoint id="{generate-id()}"
             > 
@@ -209,7 +209,7 @@
         <navLabel>
           <text><xsl:sequence select="$navPointTitle"/></text>
         </navLabel>
-        <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($topicsOutputPath, root(.))" as="xs:string"/>
+        <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, root(.))" as="xs:string"/>
         <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
         <!-- FIXME: Likely need to map input IDs to output IDs. -->
         <xsl:variable name="fragId" as="xs:string"
