@@ -29,14 +29,10 @@
 	<property name="epub.pubid.uri.stub" value="http://my-URI-stub/"/>
 
   <condition property="preprocess.maplink.skip" value="true">
-    <not>
-      <isset property="epub.include.auto.rellinks" />
-    </not>
+    <isset property="epub.exclude.auto.rellinks" />
   </condition>
   <condition property="preprocess.move-links.skip" value="true">
-    <not>
-      <isset property="epub.include.auto.rellinks" />
-    </not>
+    <isset property="epub.exclude.auto.rellinks" />
   </condition>
 	
 	<!-- Turn off copying of graphics files -->
