@@ -217,6 +217,7 @@
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
 				<exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/> 
+        <exclude name="net.sourceforge.dita4publishers.html5/**"/> 
 				<exclude name="*.zip"/> 
 			</fileset>
 		</copy>
@@ -406,10 +407,11 @@
 	<target name="package-toolkit-plugins" depends="dist-init, dist-toolkit-plugins"
 		description="Create distributable Zip package of the Toolkit plugins, including the vocabulary modules."
 		>
-    <zip destfile="${package.dist}/dita4publishers-toolkit-plugins-${vocab_version}.zip">
+    <zip destfile="${package.dist}/dita4publishers-toolkit-plugins-${package_version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="net.sourceforge.dita4publishers.*/**"/>
-        <!-- <exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/> -->
+        <exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/>
+        <exclude name="net.sourceforge.dita4publishers.html5/**"/>
       </fileset>
     </zip>
   </target>
@@ -542,29 +544,21 @@
 
     <ant antfile="${dita-ot-dir}/build.xml" 
           dir="${dita-ot-dir}"
-          target="dita2xhtml"
+          target="dita2html2"
           
           >
       <property name="args.input" location="${root.map}"/>
       <property name="args.outext" value="html"/>
       <property name="dita.dir" location="${dita-ot-dir}"/>
-      <property name="args.xhtml.toc" value="toc"/>
+      <property name="args.xhtml.toc" value="index"/>
       <property name="args.hdf" value="${docs.dir}/user_docs/${pub.name}/static-html/topic-header-html.html"/>
       <property name="args.ftr" value="${docs.dir}/user_docs/${pub.name}/static-html/topic-footer-html.html"/>
       <property name="dita.temp.dir" location="${basedir}/temp/${pub.name}/html"/>
       <property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
       <property name="output.dir" location="${output.dir}"/>
+    	<property name="html2.generate.dynamic.toc" value="true"/>
     </ant>    
   	
-    <copy todir="${output.dir}" >
-     <fileset dir="${docs.dir}/user_docs/${pub.name}/static-html">
-     	<include name="*.html"/>
-     </fileset>
-   </copy>
-
-  	
-  	<!-- FIXME: Add TOCJS generation here -->
-    
   </target>
   
 	<target name="post-transform-cleanup-d4p-user-guide">
