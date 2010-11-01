@@ -32,6 +32,11 @@ iframe, nav {
    display: none;   
  }
  
+ .publication-title {
+   font-family: verdana, helvetica, sans-serif;
+   font-size: 14pt;
+   text-align: center;
+ }
  
 .contentwin {
   display: block;
