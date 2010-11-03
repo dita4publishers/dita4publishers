@@ -247,7 +247,7 @@
 		
     <antcall target="add-version-info-to-files"/>
 		
-		<property name="sample_data-zip.filename" value="dita4publishers-sample_data-${vocab_version}.zip"/>
+		<property name="sample_data-zip.filename" value="dita4publishers-sample_data-${package_version}.zip"/>
 		<property name="sample_data-zip" location="${dist}/${sample_data-zip.filename}"/>
     
 		<zip destfile="${sample_data-zip}">
@@ -256,7 +256,7 @@
       </fileset>
     </zip>
 
-		<zip destfile="${plugin.dist}/dita4publishers-toolkit-plugins-${vocab_version}.zip">
+		<zip destfile="${plugin.dist}/dita4publishers-toolkit-plugins-${package_version}.zip">
       <fileset dir="${plugin.dist}">
         <include name="net.sourceforge.dita4publishers.*/**"/>
         <include name="d4p-users-guide*.*"/>
