@@ -1,0 +1,14 @@
+<!-- 
+  Plugin descriptor for an example Word-to-DITA extension transform
+  
+  Use this as a sample for your own plugin.
+  
+  -->
+<plugin id="org.example.d4p.word2ditaextension">
+  <require plugin="net.sourceforge.dita4publishers.word2dita"/> 
+
+  <!-- This plugin just provides the transform in a reliable location
+       relative to the base transform. It doesn't define its own
+       transformation type.
+    -->
+</plugin>
