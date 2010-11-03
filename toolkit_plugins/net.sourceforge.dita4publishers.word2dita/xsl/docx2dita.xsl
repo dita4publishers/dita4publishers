@@ -46,6 +46,9 @@
   <xsl:param name="outputDir" as="xs:string"/>
   <xsl:param name="rootMapName" as="xs:string" select="'rootmap'"/>
   <xsl:param name="submapNamePrefix" as="xs:string" select="'map'"/>
+  <xsl:param name="filterBr" as="xs:string" select="'false'"/>
+  <xsl:param name="filterTabs" as="xs:string" select="'false'"/>
+  <xsl:param name="includeWordBackPointers" as="xs:string" select="'true'"/>
   
   <xsl:param name="rootMapUrl" select="concat($rootMapName, '.ditamap')" as="xs:string"/>
   <xsl:param name="topicExtension" select="'.dita'" as="xs:string"/><!-- Extension for generated topic files -->
@@ -61,6 +64,10 @@
     else 'nx'
     "
   />
+  
+  <xsl:variable name="filterTabsBoolean" as="xs:boolean" select="matches($filterTabs, 'yes|true|1', 'i')"/>
+  <xsl:variable name="filterBrBoolean" as="xs:boolean" select="matches($filterBr, 'yes|true|1', 'i')"/>
+  <xsl:variable name="includeWordBackPointersBoolean" as="xs:boolean" select="matches($includeWordBackPointers, 'yes|true|1', 'i')"/>
   
   <xsl:include
     href="wordml2simple.xsl"/>

@@ -134,7 +134,9 @@
           
         </xsl:variable>
         <xsl:element name="{$tagName}">  
-          <xsl:attribute name="xtrc" select="@wordLocation"/>
+          <xsl:if test="$includeWordBackPointersBoolean">
+            <xsl:attribute name="xtrc" select="@wordLocation"/>
+          </xsl:if>
           <xsl:sequence select="./@outputclass"/>
           <xsl:if test="./@dataName">
             <xsl:attribute name="name" select="./@dataName"/>
@@ -888,9 +890,8 @@
     </xsl:choose>
   </xsl:template>
 
-  <!-- ID fixup mode is an identity transform that should only modify ID attributes -->
-  
   <xsl:template mode="final-fixup" match="*">
+    <xsl:message> + [DEBUG] final-fixup: handling <xsl:sequence select="name(.)"/></xsl:message>
     <xsl:copy>
       <xsl:apply-templates select="@*,node()" mode="#current"/>
     </xsl:copy>

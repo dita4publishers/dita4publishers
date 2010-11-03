@@ -108,6 +108,9 @@
 			<param name="outputDir" expression="${outputDir.url}"/>
 			<param name="debug" expression="${w2d.debug.xslt}"/>
     	<param name="rawPlatformString" expression="${os.name}"/>
+      <param name="filterBr" expression="${w2d.filter.br}" if="w2d.filter.br"/>
+      <param name="filterTabs" expression="${w2d.filter.tabs}" if="w2d.filter.tabs"/>
+      <param name="includeWordBackPointers" expression="${w2d.include.word.backpointers}" if="w2d.include.word.backpointers"/>
 		</xslt>
 	</target>
 </project>

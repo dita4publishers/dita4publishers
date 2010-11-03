@@ -364,11 +364,15 @@
   </xsl:template>
   
   <xsl:template match="w:tab">
-    <tab/>
+    <xsl:if test="not($filterTabsBoolean)">
+      <tab/>
+    </xsl:if>
   </xsl:template>
   
   <xsl:template match="w:cr | w:br">
-    <break/>
+    <xsl:if test="not($filterBrBoolean)">
+      <break/>
+    </xsl:if>
   </xsl:template>
   
   <xsl:template match="w:fldSimple">
