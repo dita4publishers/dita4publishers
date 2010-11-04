@@ -27,6 +27,25 @@
     </xsl:copy>
   </xsl:template>
   
+  <xsl:template mode="html-identity-transform html2xhtml no-namespace-html-post-process" 
+    match="link[@rel = 'stylesheet']/@href" 
+    priority="10">
+    <xsl:param name="resultUri" as="xs:string" tunnel="yes"/>
+    <xsl:variable name="effectiveCssDirUri" 
+      select="relpath:newFile($outdir, $CSSPATH)" 
+      as="xs:string"/>
+    <xsl:message> + [DEBUG] href-fixup: effectiveCssDirUri="<xsl:sequence select="$effectiveCssDirUri"/>"</xsl:message>
+    <xsl:variable name="topicParent" select="relpath:getParent($resultUri)" as="xs:string"/>
+    <xsl:message> + [DEBUG] href-fixup: topicParent="<xsl:sequence select="$topicParent"/>"</xsl:message>
+    <xsl:variable name="relParent" 
+      select="relpath:getRelativePath($topicParent, $effectiveCssDirUri)" 
+      as="xs:string"/>
+    <xsl:message> + [DEBUG] html-identity-transform: relParent="<xsl:sequence select="$relParent"/>"</xsl:message>
+    <xsl:variable name="newHref" select="relpath:newFile($relParent, relpath:getName(.))"/>
+    <xsl:message> + [DEBUG] html-identity-transform: newHref="<xsl:sequence select="$newHref"/>"</xsl:message>
+    <xsl:attribute name="href" select="$newHref"/>
+  </xsl:template>
+  
   <xsl:template mode="html-identity-transform html2xhtml" 
     match="text()[matches(., '#xA0;', 'i')]" priority="10">
     <xsl:sequence select="replace(., '&amp;#xA0;', '&#xA0;','i')"/>

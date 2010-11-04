@@ -142,12 +142,15 @@
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
       </xsl:apply-templates>      
     </xsl:variable>
-    <xsl:result-document href="{concat($outdir, '/', 'htmlNoNamespace/', relpath:getName($resultUri))}">
-      <xsl:sequence select="$htmlNoNamespace"/>
-    </xsl:result-document>
+    <xsl:if test="false() and $debugBoolean">
+      <xsl:result-document href="{concat($outdir, '/', 'htmlNoNamespace/', relpath:getName($resultUri))}">
+        <xsl:sequence select="$htmlNoNamespace"/>
+      </xsl:result-document>
+    </xsl:if>
     <xsl:result-document format="topic-html" href="{$resultUri}" >
       <xsl:apply-templates select="$htmlNoNamespace" mode="no-namespace-html-post-process">
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
+        <xsl:with-param name="resultUri" select="$resultUri" as="xs:string" tunnel="yes"/>
       </xsl:apply-templates>
     </xsl:result-document>
   </xsl:template>
