@@ -5,5 +5,5 @@
   
   -->
 <plugin id="net.sourceforge.dita4publishers.xmldomain.doctypes">
-  <feature extension="dita.specialization.catalog" value="catalog.xml" type="file"/>
+  <feature extension="dita.specialization.catalog.relative" value="catalog.xml" type="file"/>
 </plugin>

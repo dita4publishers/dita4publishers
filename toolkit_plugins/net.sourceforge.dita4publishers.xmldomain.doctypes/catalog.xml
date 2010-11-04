@@ -6,6 +6,6 @@
              exist within the plug-in's directory.
     -->
   
-  <nextCatalog catalog="plugins/net.sourceforge.dita4publishers.xmldomain.doctypes/dtd/catalog.xml"/>
+  <nextCatalog catalog="dtd/catalog.xml"/>
   
 </catalog>

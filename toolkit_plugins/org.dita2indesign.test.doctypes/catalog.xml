@@ -6,7 +6,7 @@
              exist within the plug-in's directory.
     -->
   
-  <nextCatalog catalog="plugins/org.dita2indesign.test.doctypes/dtd/catalog.xml"/>
-  <nextCatalog catalog="plugins/org.dita2indesign.test.doctypes/schema/catalog.xml"/>
+  <nextCatalog catalog="dtd/catalog.xml"/>
+  <nextCatalog catalog="schema/catalog.xml"/>
   
 </catalog>
