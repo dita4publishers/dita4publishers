@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>Release Notes: Version 0.9.10</title>
+ <shortdesc>Version 0.9.10 released 5 Novemeber 2010</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>
+          <indexterm>release notes<indexterm>Version 0.9.10</indexterm></indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <section>
+      <title>EPUB, Kindle, and HTML2 Transformation Types</title>
+      <ul>
+        <li>Rewrite pointers to CSS style sheets in generated HTML files.</li>
+      </ul>
+    </section>
+    <section>
+      <title>Vocabulary</title>
+      <ul>
+        <li>Corrected all doctype Toolkit plugin descriptors and top-level catalog.xml files to use dita.specialization.catalog.relative rather than dita.specialization.catalog.</li>
+      </ul>
+    </section>
+  </conbody>
+</concept>

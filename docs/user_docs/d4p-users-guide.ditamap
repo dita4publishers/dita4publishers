@@ -9,7 +9,7 @@
     <prodname>DITA For Publishers</prodname>
     <vrmlist>
       <vrm
-        version="0.9.7"/>
+        version="0.9.19"/>
     </vrmlist>
     </prodinfo> <pubrights> <copyrfirst> <year>2010</year> </copyrfirst>
     <pubowner><organization>DITA For Publishers</organization></pubowner> </pubrights> </pubmeta>
@@ -35,6 +35,8 @@
         href="d4p-users-guide/topics/about-this-book.xml"/>
       <topicref
         href="d4p-users-guide/release-notes/release-notes.xml">
+        <subsection
+          href="d4p-users-guide/release-notes/release-notes-0.9.10"/>
         <topicref
           href="d4p-users-guide/release-notes/release-notes-0.9.9.xml"/>
       </topicref>
