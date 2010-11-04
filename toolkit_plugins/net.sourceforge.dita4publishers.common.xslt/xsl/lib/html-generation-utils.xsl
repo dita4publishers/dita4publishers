@@ -11,7 +11,7 @@
  
   <xsl:import href="dita-support-lib.xsl"/>
   <xsl:import href="relpath_util.xsl"/>
-  
+    
   <!-- The strategy to use when constructing output files. Default is "as-authored", meaning
     reflect the directory structure of the topics as authored relative to the root map,
     possibly as reworked by earlier Toolkit steps.
@@ -34,15 +34,11 @@
     <xsl:variable name="effectiveCssDirUri" 
       select="relpath:newFile($outdir, $CSSPATH)" 
       as="xs:string"/>
-    <xsl:message> + [DEBUG] href-fixup: effectiveCssDirUri="<xsl:sequence select="$effectiveCssDirUri"/>"</xsl:message>
     <xsl:variable name="topicParent" select="relpath:getParent($resultUri)" as="xs:string"/>
-    <xsl:message> + [DEBUG] href-fixup: topicParent="<xsl:sequence select="$topicParent"/>"</xsl:message>
     <xsl:variable name="relParent" 
       select="relpath:getRelativePath($topicParent, $effectiveCssDirUri)" 
       as="xs:string"/>
-    <xsl:message> + [DEBUG] html-identity-transform: relParent="<xsl:sequence select="$relParent"/>"</xsl:message>
     <xsl:variable name="newHref" select="relpath:newFile($relParent, relpath:getName(.))"/>
-    <xsl:message> + [DEBUG] html-identity-transform: newHref="<xsl:sequence select="$newHref"/>"</xsl:message>
     <xsl:attribute name="href" select="$newHref"/>
   </xsl:template>
   
