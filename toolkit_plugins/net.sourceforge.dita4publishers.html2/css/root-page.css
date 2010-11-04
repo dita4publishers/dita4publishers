@@ -23,7 +23,7 @@ iframe, nav {
    display: block;
    float: left;
    width: 20%;
-  height: 600px;
+  height: 800px;
    color: #CCC;
    background-color: #FFFFA6;
  }
@@ -41,6 +41,6 @@ iframe, nav {
 .contentwin {
   display: block;
   width: 80%;
-  height: 600px;
+  height: 800px;
   
 } 
