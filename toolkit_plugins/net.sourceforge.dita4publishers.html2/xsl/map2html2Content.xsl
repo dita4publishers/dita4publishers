@@ -37,7 +37,7 @@
   <xsl:output name="topic-html"
     method="xhtml"
     encoding="UTF-8"
-    indent="yes"
+    indent="no"
   />
   
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-content">
@@ -142,7 +142,7 @@
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
       </xsl:apply-templates>      
     </xsl:variable>
-    <xsl:if test="false() and $debugBoolean">
+    <xsl:if test="true() and $debugBoolean">
       <xsl:result-document href="{concat($outdir, '/', 'htmlNoNamespace/', relpath:getName($resultUri))}">
         <xsl:sequence select="$htmlNoNamespace"/>
       </xsl:result-document>
