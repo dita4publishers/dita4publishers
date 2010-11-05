@@ -141,7 +141,6 @@
               <xsl:message> - [WARNING: No style mapping for paragraph with style ID "<xsl:sequence select="$styleId"/>"</xsl:message>
             </xsl:otherwise>
           </xsl:choose>
-          
           <stylemap:style styleId="copy"
             structureType="block"
             tagName="p"
@@ -158,19 +157,22 @@
         <xsl:message> + [DEBUG] match on w:p: Paragraph not skipped, calling handlePara. p=<xsl:sequence select="substring(string(./w:r[1]), 0, 40)"/></xsl:message>
       </xsl:if>
       <xsl:call-template name="handlePara">
-        <xsl:with-param name="styleId" select="$styleId"/>
-        <xsl:with-param name="styleData" select="$styleData"/>
+        <xsl:with-param name="styleId" select="$styleId" as="xs:string"/>
+        <xsl:with-param name="styleData" select="$styleData" as="element()"/>
       </xsl:call-template>  
     </xsl:if>
   </xsl:template>
   
   <xsl:template name="handlePara">
-    <xsl:param name="styleId"/>
-    <xsl:param name="styleData"/>
+    <xsl:param name="styleId" as="xs:string"/>
+    <xsl:param name="styleData" as="element()"/>
     <p style="{$styleId}" wordLocation="{saxon:path()}">
       <xsl:for-each select="$styleData/@*">
         <xsl:copy/>
       </xsl:for-each>
+      <xsl:if test="not($styleData/@topicZone)">
+        <xsl:attribute name="topicZone" select="'body'"/>
+      </xsl:if>
       <xsl:if test="$debugBoolean">        
         <xsl:message> + [DEBUG] handlePara: p="<xsl:sequence select="substring(normalize-space(.), 1, 40)"/>"</xsl:message>
       </xsl:if>
