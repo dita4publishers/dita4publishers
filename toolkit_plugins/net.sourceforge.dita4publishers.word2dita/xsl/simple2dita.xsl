@@ -235,7 +235,9 @@
   
   <xsl:template match="rsiwp:td">
     <entry>
-      <xsl:apply-templates/>
+      <xsl:call-template name="handleBodyParas">
+        <xsl:with-param name="bodyParas" select="*"/>
+      </xsl:call-template>
     </entry>
   </xsl:template>
   
@@ -860,7 +862,9 @@
             <xsl:with-param name="schemaAtts" as="attribute()*" select="$schemaAtts"/>
           </xsl:call-template>
         </xsl:variable>
-        <xsl:message> + DEBUG: resultDoc=<xsl:sequence select="$resultDoc"/></xsl:message>
+        <xsl:if test="$debugBoolean">
+          <xsl:message> + DEBUG: resultDoc=<xsl:sequence select="$resultDoc"/></xsl:message>
+        </xsl:if>
         <!-- Now do ID fixup on the result document: -->
         <rsiwp:result-document href="{$resultUrl}"
             doctype-public="{$format/@doctype-public}"
@@ -891,7 +895,9 @@
   </xsl:template>
 
   <xsl:template mode="final-fixup" match="*">
-    <xsl:message> + [DEBUG] final-fixup: handling <xsl:sequence select="name(.)"/></xsl:message>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] final-fixup: handling <xsl:sequence select="name(.)"/></xsl:message>
+    </xsl:if>
     <xsl:copy>
       <xsl:apply-templates select="@*,node()" mode="#current"/>
     </xsl:copy>
@@ -902,7 +908,9 @@
     <xsl:variable name="idGenerator" select="string(../@idGenerator)" as="xs:string"/>
     <xsl:choose>
       <xsl:when test="$idGenerator = '' or $idGenerator = 'default'">
-        <xsl:message> + [DEBUG] final-fixup/@ID: Using default ID generator, returning "<xsl:sequence select="string(.)"/>"</xsl:message>
+        <xsl:if test="$debugBoolean">
+          <xsl:message> + [DEBUG] final-fixup/@ID: Using default ID generator, returning "<xsl:sequence select="string(.)"/>"</xsl:message>
+        </xsl:if>
         <xsl:copy/><!-- Use the base generated ID value. -->
       </xsl:when>
       <xsl:otherwise>
