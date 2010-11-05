@@ -630,7 +630,6 @@
       </xs:attribute>
       <xs:attribute
         name="topicZone"
-        type="xs:string"
         use="optional">
         <xs:annotation>
           <xs:documentation>
@@ -652,6 +651,16 @@
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="title"/>
+            <xs:enumeration value="titleAlts"/>
+            <xs:enumeration value="shortdesc"/>
+            <xs:enumeration value="topicmeta"/>
+            <xs:enumeration value="prolog"/>
+            <xs:enumeration value="body"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:attribute>
       <xs:attribute
         name="putValueIn"
