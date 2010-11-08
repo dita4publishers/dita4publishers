@@ -211,6 +211,10 @@
       <!-- FIXME: Need to account for table heads and table bodies -->
       <tgroup cols="{count(rsiwp:cols/rsiwp:col)}">
         <xsl:apply-templates select="rsiwp:cols"/>
+        <thead>
+          <xsl:apply-templates select="rsiwp:th"/>          
+        </thead>
+        
         <tbody>
           <xsl:apply-templates select="rsiwp:tr"/>
         </tbody>        
@@ -227,7 +231,7 @@
       colwidth="{concat(@width, '*')}"/>
   </xsl:template>
   
-  <xsl:template match="rsiwp:tr">
+  <xsl:template match="rsiwp:tr | rsiwp:th">
     <row>
       <xsl:apply-templates/>
     </row>

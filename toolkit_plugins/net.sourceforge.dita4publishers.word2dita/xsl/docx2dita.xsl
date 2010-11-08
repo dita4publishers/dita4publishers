@@ -115,7 +115,7 @@
       as="xs:string"/>
     <!-- NOTE: do not set this check to true(): it will fail when run within RSuite -->
     <xsl:if
-      test="$debugBoolean">
+      test="true() or $debugBoolean">
       <xsl:result-document
         href="{$tempDoc}">
         <xsl:message> + [DEBUG] Intermediate simple WP doc saved as <xsl:sequence

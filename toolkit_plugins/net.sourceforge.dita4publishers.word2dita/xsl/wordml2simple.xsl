@@ -350,10 +350,15 @@
   </xsl:template>
   
   <xsl:template match="w:tr">
-    <tr>
+    <xsl:variable name="tagName" as="xs:string"
+      select="
+      if (w:trPr/w:tblHeader) then 'th' else 'tr'
+      "
+    />
+    <xsl:element name="{$tagName}">
       <xsl:apply-templates select="w:trPr/*|w:tblPrEx/*"/>
       <xsl:apply-templates select="*[name()!='w:trPr' and name()!='w:tblPrEx']"/>
-    </tr>
+    </xsl:element>
   </xsl:template>
   
   <xsl:template match="w:tc">
@@ -442,6 +447,7 @@
   <xsl:template match="w:proofErr |
                        w:pPr |
                        w:rPr |
+                       w:cantSplit |
                        w:sectPr |
                        w:instrText |
                        w:softHyphen |
@@ -449,6 +455,10 @@
                        w:tblBorders |
                        w:tblLook |
                        w:tblGrid |
+                       w:tblInd |
+                       w:tblStyle |
+                       w:tblHeader |
+                       w:trHeight |
                        w:lastRenderedPageBreak |
                        w:fldChar |
                        v:shapetype
