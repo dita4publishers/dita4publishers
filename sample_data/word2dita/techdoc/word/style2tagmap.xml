@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <style2tagmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap style2tagmap.xsd"
+  xsi:schemaLocation="urn:public::dita4publishers.org:namespaces:word2dita:style2tagmap style2tagmap.xsd"
   xmlns="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap"
   
   >
@@ -15,6 +15,11 @@
     </html:div>
   </documentation>
   <styles>
+    <output
+      name="map"
+      doctype-system="map.dtd"
+      doctype-public="-//OASIS//DTD DITA Map//EN"
+    />
     <output
       name="bookmap"
       doctype-system="bookmap.dtd"
@@ -48,11 +53,7 @@
       tagName="title"
     />
     
-    
-    <style styleId="Contents"
-      structureType="skip"
-    />
-    
+
     <style styleId="Heading1"
       structureType="topicTitle"
       topicDoc="yes"
@@ -61,56 +62,7 @@
       format="concept"
       topicrefType="chapter"
       tagName="title"
-      topicZone="title"
       level="1"
-    />    
-    
-    <style styleId="AppendixHeading1"
-      structureType="topicTitle"
-      topicDoc="yes"
-      topicType="concept"
-      bodyType="conbody"
-      format="concept"
-      topicrefType="appendix"
-      tagName="title"
-      topicZone="title"
-      level="1"
-    />    
-    
-    <style styleId="Heading2"
-      structureType="topicTitle"
-      topicDoc="yes"
-      topicType="concept"
-      bodyType="conbody"
-      format="concept"
-      topicrefType="topicref"
-      tagName="title"
-      level="2"
-      topicZone="title"
-    />    
-    
-    <style styleId="Heading3"
-      structureType="topicTitle"
-      topicDoc="yes"
-      topicType="concept"
-      bodyType="conbody"
-      format="concept"
-      topicrefType="topicref"
-      tagName="title"
-      level="3"
-      topicZone="title"
-    />    
-    
-    <style styleId="Heading4"
-      structureType="topicTitle"
-      topicDoc="yes"
-      topicType="concept"
-      bodyType="conbody"
-      format="concept"
-      topicrefType="topicref"
-      tagName="title"
-      level="4"
-      topicZone="title"
     />    
     
     <style styleId="TaskTopic1"
@@ -122,7 +74,30 @@
       topicrefType="chapter"
       tagName="title"
       level="1"
-      topicZone="title"
+    />    
+    
+    <style styleId="AppendixHeading1"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="concept"
+      bodyType="conbody"
+      format="concept"
+      topicrefType="appendix"
+      tagName="title"
+      level="1"
+    />    
+    
+    
+    
+    <style styleId="Heading2"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="concept"
+      bodyType="conbody"
+      format="concept"
+      topicrefType="topicref"
+      tagName="title"
+      level="2"
     />    
     
     <style styleId="TaskTopic2"
@@ -134,7 +109,18 @@
       topicrefType="topicref"
       tagName="title"
       level="2"
-      topicZone="title"
+    />    
+    
+    
+      <style styleId="Heading3"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="concept"
+      bodyType="conbody"
+      format="concept"
+      topicrefType="topicref"
+      tagName="title"
+      level="3"
     />    
     
     <style styleId="TaskTopic3"
@@ -146,7 +132,6 @@
       topicrefType="topicref"
       tagName="title"
       level="3"
-      topicZone="title"
     />    
     
     <style styleId="TaskTopic4"
@@ -157,90 +142,92 @@
       format="task"
       topicrefType="topicref"
       tagName="title"
-      level="3"
-      topicZone="title"
+      level="4"
     />    
     
-    <style
-      styleId="BodyText"
-      tagName="p"
-      topicZone="body"
-      level="1"/>
-
-    <style
-      styleId="BodyTextContext"
-      tagName="p"
-      containerType="context"
-      topicZone="body"
-      level="1"/>
-
-    <style
-      styleId="Procedure"
-      tagName="p"
-      containerType="context"
-      topicZone="body"
-      outputclass="procedure"
-      level="1"/>
+    <style styleId="Heading4"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="concept"
+      bodyType="conbody"
+      format="concept"
+      topicrefType="topicref"
+      tagName="title"
+      level="4"
+    />    
     
-    <style styleId="TaskResultBullet"
-      structureType="dt"
-      containerType="result"
-      dlEntryType="ul"
-      tagName="li"
-      topicZone="body"
-      level="1"
+    <style styleId="Contents"
+      structureType="skip"
     />
     
     <style
       styleId="Normal"
       tagName="p"
       topicZone="body"
-      level="1"/>
+      level="1"
+    />
     
     <style
-      styleId="RemoveScreenCap"
-      tagName="alt"
-      containerType="image"
-      structureType="skip"
-      topicZone="body"
-      level="1"/>
-
-    <style
-      styleId="RemoveScreenCapIndent"
-      tagName="alt"
-      containerType="image"
-      structureType="skip"
-      topicZone="body"
-      level="2"/>
-    
-    <style
-      styleId="RemoveScreenCapIndent2"
-      tagName="alt"
-      containerType="image"
-      topicZone="body"
-      structureType="skip"
-      level="3"/>
-    
-    <style
-      styleId="Note"
-      tagName="note"      
-      level="1"/>
-    <style
-      styleId="NoTopicZone"
+      styleId="HeaderTable"
       tagName="p"
-      level="1"/>
+      topicZone="body"
+      level="1"
+    />
     
     <style
-      styleId="italic"
-      tagName="i"
+      styleId="BodyTextTable"
+      tagName="p"
       topicZone="body"
-      level="1"/>
+      level="1"
+    />
     
-    <style
-      styleId="cite"
-      tagName="cite"
+    <style styleId="List1"
+       tagName="cmd"
+       containerType="steps"
+       dlEntryType="step"
+       structureType="dt"
+       topicZone="body"
+       level="1"
+    />
+   
+    <style styleId="List2"
+       tagName="cmd"
+       containerType="substeps"
+       dlEntryType="substep"
+       structureType="dt"
+       topicZone="body"
+       level="2"
+    />
+    
+    <style styleId="Bullet2Step"
+      containerType="info"
+      dlEntryType="ul"
+      tagName="li"
+      structureType="dt"
       topicZone="body"
-      level="1"/>
+      level="2"
+    />  
+    <style styleId="Bullet3Step"
+      containerType="info"
+      dlEntryType="ul"
+      tagName="li"
+      structureType="dt"
+      topicZone="body"
+      level="3"
+    />  
+    <style styleId="RemoveScreenCapIndent2"
+      structureType="skip"
+    />  
+    <style styleId="RemoveScreenCapIndent"
+      structureType="skip"
+    />  
+    <style styleId="RemoveScreenCap"
+        tagName="p"
+        containerType="info"
+        level="2"
+        topicZone="body"
+        structureType="skip"
+    />
     
     <style
       styleId="DefaultParagraphFont"
@@ -277,7 +264,7 @@
       level="1"/>
     
     <style
-      styleId="TOC1"
+      styleId="TOC1"      
       structureType="skip"/>
     <style
       styleId="TOC2"
@@ -316,103 +303,98 @@
       level="1"/>
     
     <style
-      styleId="Bullet1"
-      containerType="ul"
-      tagName="li"
-      level="1"
-      structureType="block"
-      topicZone="body"
-    />
-    
-    <style
-      styleId="Bullet1Context"
-      containerType="context"
-      dlEntryType="ul"
-      tagName="li"
-      level="1"
-      structureType="dt"
-      topicZone="body"
-    />
-    
-    <style
       styleId="Tablebullet1"
       containerType="ul"
       tagName="li"
       level="1"
-      structureType="block"
-      topicZone="body"
-    />
+      topicZone="body"/>
+    
+    <style
+      styleId="Bullet1"
+      containerType="ul"
+      tagName="li"
+      level="1"
+      topicZone="body"/>
+
+    <style
+      styleId="Bullet2"
+      containerType="ul"
+      tagName="li"
+      level="2"
+      topicZone="body"/>
+    
+    <style
+      styleId="Bullet3"
+      containerType="ul"
+      tagName="li"
+      level="3"
+      topicZone="body"/>
     
     <style
       styleId="BodyIndent"
       containerType="li"
       tagName="p"
       level="2"
-      structureType="block"
-      topicZone="body"
-    />
-    <style
-      styleId="Bullet2"
-      containerType="ul"
-      tagName="li"
-      level="2"
-      structureType="block"
-      topicZone="body"/>
-    <style
-      styleId="Bullet2Step"
-      containerType="info"
-      dlEntryType="ul"
-      tagName="li"
-      level="2"
-      structureType="dt"
-      topicZone="body"/>
-    <style
-      styleId="Bullet3Step"
-      containerType="info"
-      dlEntryType="ul"
-      tagName="li"
-      level="3"
-      structureType="dt"
-      topicZone="body"/>
-    <style
-      styleId="Bullet3"
-      containerType="ul"
-      tagName="li"
-      level="3"
-      structureType="block"
       topicZone="body"/>
     
-    <style styleId="List1"
-      structureType="dt"
-      dlEntryType="step"
-      containerType="steps"
-      tagName="cmd"
+    <style
+      styleId="ListBullet"
+      containerType="ul"
+      tagName="li"
+      level="1"
+      topicZone="body"/>
+    
+    <style styleId="cite"
+        tagName="cite"
+    />
+    
+    <style styleId="Note"
+      tagName="note"
+      topicZone="body"
       level="1"
     />
     
-    <style styleId="List2"
-      structureType="dt"
-      dlEntryType="substep"
-      containerType="substeps"
-      tagName="cmd"
-      level="2"
+    <style styleId="BodyTextIndent" 
+      containerType="li" 
+      idGenerator="default" 
+      level="2" 
+      tagName="p" 
+      topicZone="body"/>
+    <style styleId="BodyTextContext" 
+      containerType="context" 
+      idGenerator="default" 
+      level="1" 
+      tagName="p" 
+      topicZone="body"
+    />
+    <style styleId="Procedure" 
+      containerType="context" 
+      idGenerator="default" 
+      level="1" 
+      tagName="p" 
+      topicZone="body"
+      outputclass="procedure"
+    />
+    <style styleId="Bullet1Context" 
+      containerType="context" 
+      level="1" 
+      tagName="li"
+      dlEntryType="ul"
+      structureType="dt"      
+      topicZone="body"
     />
     
-    <style
-      styleId="BodyTextIndent"
-      tagName="p"
+    <style styleId="TaskResultBullet" 
+      containerType="result" 
+      idGenerator="default"
+      dlEntryType="ul"      
+      level="1" 
+      tagName="li" 
       topicZone="body"
-      level="1"/>
-    <style
-      styleId="BodyTextTable"
-      tagName="p"
-      topicZone="body"
-      level="1"/>
-    <style
-      styleId="HeaderTable"
-      tagName="p"
-      topicZone="body"
-      level="1"/>
+      structureType="dt"
+      outputclass="procedure"
+    />
+    
     <style
       styleId="BodyTextIndentChar"
       tagName="ph"
@@ -423,11 +405,10 @@
       containerType="ul"
       tagName="li"
       level="2"
-      structureType="block"
       topicZone="body"/>
     <style
       styleId="BlockText"
-      tagName="p"
+      tagName="longquote"
       topicZone="body"
       level="1"/>
     <style
@@ -454,6 +435,50 @@
       level="2"
       structureType="block"
       topicZone="body"/>
+    
+    
+<style
+  styleId="DefTerm"
+  structureType="dt"
+  tagName="dt"
+  dlEntryType="dlentry"
+  containerType="dl"
+  topicZone="body"
+/>
+<style
+  styleId="DefDesc"
+  structureType="dd"
+  tagName="dd"
+  dlEntryType="dlentry"
+  containerType="dl"
+  topicZone="body"
+/>
+    
+<style 
+  styleId="MySectionTitle"
+  structureType="section" 
+  tagName="title"
+  sectionType="section"
+  topicZone="body"
+  useAsTitle="yes"  
+/>
+    
+<style 
+  styleId="LessonTitle"
+  structureType="topicTitle"
+  initialSectionType="lcIntro"
+  topicType="learningContent"
+  bodyType="learningContentbody"
+  level="1"
+/>    
+    
+<style styleId="section"
+  structureType="section"
+  tagName="p"
+  topicZone="body"
+  spectitle="#toColon"
+  
+/>
     
     
   </styles>

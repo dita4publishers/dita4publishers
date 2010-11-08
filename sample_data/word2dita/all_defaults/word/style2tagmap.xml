@@ -16,6 +16,11 @@
   </documentation>
   <styles>
     <output
+      name="map"
+      doctype-system="map.dtd"
+      doctype-public="-//OASIS//DTD DITA Map//EN"
+    />
+    <output
       name="bookmap"
       doctype-system="bookmap.dtd"
       doctype-public="-//OASIS//DTD DITA BookMap//EN"
@@ -57,7 +62,6 @@
       format="concept"
       topicrefType="chapter"
       tagName="title"
-      topicZone="body"
       level="1"
     />    
     <style styleId="Heading2"
@@ -68,7 +72,6 @@
       format="concept"
       topicrefType="topicref"
       tagName="title"
-      topicZone="body"
       level="2"
     />    
     
@@ -81,7 +84,6 @@
       format="concept"
       topicrefType="topicref"
       tagName="title"
-      topicZone="body"
       level="3"
     />    
     
@@ -93,15 +95,15 @@
       format="concept"
       topicrefType="topicref"
       tagName="title"
-      topicZone="body"
       level="4"
     />    
     
-    <style
-      styleId="Normal"
-      tagName="p"
-      topicZone="body"
-      level="1"/>
+<style
+  styleId="Normal"
+  tagName="p"
+  topicZone="body"
+  level="1"
+/>
     
     <style
       styleId="DefaultParagraphFont"
@@ -138,7 +140,7 @@
       level="1"/>
     
     <style
-      styleId="TOC1"
+      styleId="TOC1"      
       structureType="skip"/>
     <style
       styleId="TOC2"
@@ -178,17 +180,14 @@
     
     <style
       styleId="ListBullet"
-      
       containerType="ul"
       tagName="li"
       level="1"
-      structureType="block"
       topicZone="body"/>
     <style styleId="BodyTextIndent" 
       containerType="li" 
       idGenerator="default" 
       level="2" 
-      structureType="block" 
       tagName="p" 
       topicZone="body"/>
     <style
@@ -201,7 +200,6 @@
       containerType="ul"
       tagName="li"
       level="2"
-      structureType="block"
       topicZone="body"/>
     <style
       styleId="BlockText"
@@ -232,6 +230,50 @@
       level="2"
       structureType="block"
       topicZone="body"/>
+    
+    
+<style
+  styleId="DefTerm"
+  structureType="dt"
+  tagName="dt"
+  dlEntryType="dlentry"
+  containerType="dl"
+  topicZone="body"
+/>
+<style
+  styleId="DefDesc"
+  structureType="dd"
+  tagName="dd"
+  dlEntryType="dlentry"
+  containerType="dl"
+  topicZone="body"
+/>
+    
+<style 
+  styleId="MySectionTitle"
+  structureType="section" 
+  tagName="title"
+  sectionType="section"
+  topicZone="body"
+  useAsTitle="yes"  
+/>
+    
+<style 
+  styleId="LessonTitle"
+  structureType="topicTitle"
+  initialSectionType="lcIntro"
+  topicType="learningContent"
+  bodyType="learningContentbody"
+  level="1"
+/>    
+    
+<style styleId="section"
+  structureType="section"
+  tagName="p"
+  topicZone="body"
+  spectitle="#toColon"
+  
+/>
     
     
   </styles>
