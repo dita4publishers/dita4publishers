@@ -8,21 +8,18 @@
       <created
         date="2009-05-20"/>
       <revised
-        modified="2010-10-10"/>
+        modified="2010-11-08"/>
     </critdates>
   </prolog>
   <body>
-    <p>Updates for 10 Oct 2010:<ul
+    <p>Updates for 8 Nov 2010:<ul
       id="ul_e5a3356b-1f4e-4c6d-a24b-68eb7d56fed6">
-      <li>New Word-to-DITA Open Toolkit plugin released. See <xref
+      <li>Small enhancements to the Word-to-DITA transform. Video tutorial. See <xref
         href="../d4p-user-guide/index.html"
         format="html"
         scope="external"><i>DITA for Publishers User Guide</i></xref> for details.</li>
-      <li>Version 0.9.6 of the EPUB and Kindle Toolkit Plugins.</li>
+      <li>Version 0.9.10 of the EPUB, Kindle, and HTML2 Open Toolkit plugins.</li>
       <li>Minor updates to the vocabulary modules.</li>
-      <li>DITA to InDesign source moved into the DITA for Publishers code repository.</li>
-      <li>DITA to InDesign Toolkit plugin included in the D4P distribution.</li>
-      <li>Distribution package updated.</li>
       </ul></p>
     <p>The DITA for Publishers project is an open-source, community project to enable the quick and productive use of DITA by Publishers. Enabling activities include:<ul
       id="ul_05546f8a-88ba-476d-8d8b-352681eb9e67">

@@ -2,10 +2,9 @@
 <!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
 <topic
   id="topic-1">
-  <title>DITA for Publishers Specialization Modules Overview</title>
+  <title>DITA for Publishers Vocabulary Modules Overview</title>
   <body>
-    <p>The DITA for Publishers project provides map, topic, and domain specializations for
-      constructs needed by typical publishing documents.</p>
+    <p>The DITA for Publishers project provides map, topic, and domain specialization vocabulary modules for constructs needed by typical publishing documents.</p>
     <p>The map specializations are:<dl>
       <dlentry>
         <dt>publication map domain</dt>
