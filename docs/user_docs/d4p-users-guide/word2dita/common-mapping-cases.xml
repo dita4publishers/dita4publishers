@@ -13,11 +13,11 @@
  <conbody>
    <p>This section describes how to set up the mapping for different common cases.</p>
     <p>But first some general tips:<ul>
-      <li>For paragraphs that map to topic components you must specify the <xmlatt>topicZone</xmlatt> attribute as this attribute is used to group incoming paragraphs for further processing. If the <xmlatt>topicZone</xmlatt> attribute is not specified, the mapped paragraph will be ignored and will not appear in the resulting DITA document.</li>
+      <li>For paragraphs that map to topic components you must specify the <xmlatt>topicZone</xmlatt> attribute as this attribute is used to group incoming paragraphs for further processing. If the <xmlatt>topicZone</xmlatt> attribute is not specified a default of "body" is used. This is usually what you want but would be wrong if the paragraph should have gone in the map or topic prolog.</li>
       <li>Paragraphs that contribute to topic or map metadata can go anywhere in the Word document because they go into a separate topic zone and therefore get plucked out of the input and put in the right place regardless of where they occur.</li>
       <li>The <xmlatt>level</xmlatt> attribute is what determines the hierarchical relationship among elements within the same output context, such as within the topic body.</li>
       <li>The "style ID" for Word styles is not the same as the display name of the style, but it is usually very similar. In most cases the style ID is the display name with all spaces and special character removed, e.g., the style with the display name "Heading 1" has the style ID "Heading1". If you happen to define two style names that differ only in their use of spaces, e.g., "Heading 1" and "Heading1", then the style ID of the second style defined will be something like "Heading10" so that the style ID is unique within the Word document. If you're not sure what the style ID is you can open the document.xml file from the DOCX Zip package and look for <xmlelem>w:pStyle</xmlelem> elements—the value of the <xmlatt>w:val</xmlatt> attribute is the style ID.</li>
-      <li>The <xmlatt>tagName</xmlatt> attribute always specifies the name of the <i>primary</i> result element. The primary result may be surrounded by other elements as specified with other attributes, such as <xmlatt>containerType</xmlatt>. The element named by <xmlatt>tagName</xmlatt> is the element that will contain the text of the paragraph or character run being mapped, except in a few special cases, such as mapping to section elements.</li>
+      <li>The <xmlatt>tagName</xmlatt> attribute always specifies the name of the <i>primary</i> (most deeply nested) result element. The primary result may be surrounded by other elements as specified with other attributes, such as <xmlatt>containerType</xmlatt>. The element named by <xmlatt>tagName</xmlatt> is the element that will contain the text of the paragraph or character run being mapped, except in a few special cases, such as mapping to section elements.</li>
       </ul></p>
     <p>Finally, the design of the current style-to-tag mapping document evolved somewhat organically based on client requirements as they came up. There are aspects of it that are not necessarily logically consistent. I have started the process of designing a new style-to-tag mapping document type but it's on the back burner. But I would definitely welcome any suggestions for how to make the mapping markup clearer or easier to use.</p>
  </conbody>
@@ -111,10 +111,43 @@
     </conbody>
   </concept>
   <concept
+    id="mapping-procedures">
+    <title>Mapping Procedure Steps</title>
+    <conbody>
+      <p>Steps in procedures are similar to definition lists in that there are two layers of markup that wrap the paragraphs for a step: the <xmlelem>steps</xmlelem> element that contains each <xmlelem>step</xmlelem> and the <xmlelem>cmd</xmlelem> element that is the required first subelement of <xmlelem>step</xmlelem>.</p>
+      <p>Given a paragraph that is the first or only paragraph of a step, you can map it by treating it like a definition list, using a <xmlatt>structureType</xmlatt> of "dt":<codeblock>&lt;style styleId="List1"
+  structureType="dt"
+  dlEntryType="step"
+  containerType="steps"
+  tagName="cmd"
+  level="1"
+/></codeblock></p>
+      <p>Here the paragraph style "List1" is mapped to <xmlelem>cmd</xmlelem> within <xmlelem>step</xmlelem> within <xmlelem>steps</xmlelem>.</p>
+      <p>If you have follow-on paragraphs for the step they should go in an <xmlelem>info</xmlelem> element. For this case you would use normal mapping and specify level 2:<codeblock>&lt;style
+  styleId="BodyTextStep"
+  containerType="info"
+  tagName="p"
+  level="2"
+  structureType="block"
+  topicZone="body"
+/></codeblock></p>
+      <p>If you have list items that need to go in the <xmlelem>info</xmlelem> element then you use a definition list mapping like so:<codeblock>&lt;style
+  styleId="Bullet2Step"
+  containerType="info"
+  dlEntryType="ul"
+  tagName="li"
+  level="2"
+  structureType="dt"
+  topicZone="body"
+/></codeblock></p>
+      <p>Because the container type for both BodyTextStep and Bullet2Step is "info" in this example both paragraph types will end up contributing to the same info element in the output if they occur together.</p>
+    </conbody>
+  </concept>
+  <concept
     id="mapping-tables">
     <title>Mapping Tables</title>
     <conbody>
-      <p>Word tables are automatically converted to DITA tables. Character styles within table cells will be mapped as defined in the mapping but you don't have direct control over how the table elements map to DITA markup (but you can always post-process the initial DITA into whatever you want.</p>
+      <p>Word tables are automatically converted to DITA tables. Paragraph and character styles within table cells will be mapped as defined in the mapping but you don't have direct control over how the table elements map to DITA markup (but you can always post-process the initial DITA into whatever you want).</p>
     </conbody>
   </concept>
   <concept

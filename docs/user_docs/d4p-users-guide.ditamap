@@ -36,8 +36,8 @@
       <topicref
         href="d4p-users-guide/release-notes/release-notes.xml">
         <subsection
-          href="d4p-users-guide/release-notes/release-notes-0.9.10"/>
-        <topicref
+          href="d4p-users-guide/release-notes/release-notes-0.9.10.xml"/>
+        <subsection
           href="d4p-users-guide/release-notes/release-notes-0.9.9.xml"/>
       </topicref>
     </frontmatter>
@@ -156,6 +156,10 @@
             collection-type="sequence"/>
           <subsection
             href="d4p-users-guide/word2dita/common-mapping-cases.xml"/>
+          <subsection
+            href="d4p-users-guide/word2dita/troubleshooting-word2dita.xml"/>
+          <subsection
+            href="d4p-users-guide/word2dita/word2dita-video-tutorial-01.xml"/>
           <subsection
             href="d4p-users-guide/word2dita/customizing-the-transform.xml">
             <subsection
