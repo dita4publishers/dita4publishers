@@ -647,7 +647,9 @@
                   <dd>The prolog of a topic.</dd>
                   <dt>body</dt>
                   <dd>The body of a topic.</dd>
-                </dl></p>
+                <dt>inline</dt>
+                <dd>Within a block or similar.</dd>
+              </dl></p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
@@ -659,6 +661,7 @@
             <xs:enumeration value="topicmeta"/>
             <xs:enumeration value="prolog"/>
             <xs:enumeration value="body"/>
+            <xs:enumeration value="inline"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
