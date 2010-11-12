@@ -64,6 +64,12 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/map"
 >
 %d4p_simpleEnumeration-d-dec;
 
+<!ENTITY % d4p_variables-d-dec     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_variablesDomain:entities" 
+"d4p_variablesDomain.ent"                                                
+>
+%d4p_variables-d-dec;
+
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ATTRIBUTE DECLARATIONS              -->
@@ -97,8 +103,21 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/map"
                   ">
 
 <!ENTITY % data
-  "data | 
-   %d4p_simpleEnumeration-d-data;
+  "data |   
+   %d4p_simpleEnumeration-d-data; |
+   %d4p_variables-d-data;
+  "
+>
+
+<!ENTITY % keyword
+  "keyword |
+   %d4p_variables-d-keyword;
+  "
+>
+                      
+<!ENTITY % text
+  "text |
+   %d4p_variables-d-text;
   "
 >
 
@@ -120,6 +139,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/map"
                          &pubmeta-d-att;
                          &d4p_enumerationMap-d-att;
                          &d4p_simpleEnumerationMap-d-att;
+                         &d4p_variables-d-att;
                         ">
 
 <!-- ============================================================= -->
@@ -158,6 +178,12 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/map"
 "d4p_simpleEnumeration.mod"
 >
 %d4p_simpleEnumeration-d-def;
+
+<!ENTITY % d4p_variables-d-def    PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_variablesDomain" 
+"d4p_variablesDomain.mod"                                                
+>
+%d4p_variables-d-def;
 
 
 <!-- ============================================================= -->

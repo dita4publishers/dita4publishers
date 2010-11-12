@@ -76,6 +76,12 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap"
 >
 %d4p_simpleEnumeration-d-dec;
 
+<!ENTITY % d4p_variables-d-dec     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_variablesDomain:entities" 
+"d4p_variablesDomain.ent"                                                
+>
+%d4p_variables-d-dec;
+
 <!ENTITY % indexing-d-dec     PUBLIC 
 "-//OASIS//ENTITIES DITA Indexing Domain//EN" 
 "indexingDomain.ent"                                                 >
@@ -122,9 +128,23 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap"
 
 <!ENTITY % data
   "data | 
-   %d4p_simpleEnumeration-d-data;
+   %d4p_simpleEnumeration-d-data; |
+   %d4p_variables-d-data;
   "
 >
+
+<!ENTITY % keyword
+  "keyword |
+   %d4p_variables-d-keyword;
+  "
+>
+                      
+<!ENTITY % text
+  "text |
+   %d4p_variables-d-text;
+  "
+>
+                      
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
@@ -143,6 +163,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap"
                          &pubmapMapref-d-att;
                          &pubmeta-d-att;
                          &d4p_renditionTargetAtt-d-att;
+                         &d4p_variables-d-att;
                          &d4p_simpleEnumerationMap-d-att;
                         ">
 
@@ -188,6 +209,11 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap"
 >
 %d4p_simpleEnumeration-d-def;
 
+<!ENTITY % d4p_variables-d-def    PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_variablesDomain" 
+"d4p_variablesDomain.mod"                                                
+>
+%d4p_variables-d-def;
 
 <!ENTITY % pubmap-type PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmap" 

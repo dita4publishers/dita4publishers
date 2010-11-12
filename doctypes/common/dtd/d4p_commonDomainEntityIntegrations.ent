@@ -39,6 +39,7 @@
 <!ENTITY % data
   "data | 
    %d4p_enumerationTopic-d-data; | 
+   %d4p_variables-d-data; | 
    %d4p_simpleEnumeration-d-data;
   "
 >
@@ -55,7 +56,14 @@
 
 <!ENTITY % keyword
   "keyword |
+   %d4p_variables-d-keyword; |
    %xml-d-keyword;
+  "
+>
+                      
+<!ENTITY % text
+  "text |
+   %d4p_variables-d-text;
   "
 >
                       
@@ -79,6 +87,7 @@
      &d4p_ruby-d-att;
      &d4p_classification-d-att;
      &d4p_renditionTargetAtt-d-att;
+     &d4p_variables-d-att;
      &d4p_verse-d-att;
      &xml-d-att;
     "                
