@@ -15,6 +15,8 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
@@ -27,6 +29,7 @@ import net.sourceforge.dita4publishers.api.bos.BosMemberValidationException;
 import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 
 import org.apache.log4j.Logger;
+import org.apache.xerces.jaxp.DocumentBuilderFactoryImpl;
 import org.apache.xerces.parsers.DOMParser;
 import org.apache.xerces.parsers.XIncludeAwareParserConfiguration;
 import org.apache.xerces.util.XMLCatalogResolver;
@@ -306,37 +309,51 @@ public class DomUtil {
     	    
     	    ByteArrayOutputStream bos = new ByteArrayOutputStream();
     	    javax.xml.transform.Result rslt = new StreamResult(bos);
-    	    javax.xml.transform.Source src = new DOMSource(doc);
-    	    
-    	    try {
-    	      Transformer transformer = getTransformerFactory().newTransformer();
-    	      
-    	      transformer.setOutputProperty(OutputKeys.ENCODING, encoding);
-    	      
-    	      transformer.setOutputProperty
-    	        (OutputKeys.OMIT_XML_DECLARATION, "no");
-    	      
-    	      // Set a property on the transformer if the caller wants a doctype and
-    	      // the node's owning document has the information
-    	      if (doc.getDoctype() != null) 
-    	      {
-    	        DocumentType doctype = doc.getDoctype();
-    	        if (doctype.getPublicId() != null)
-    	          transformer.setOutputProperty
-    	            (OutputKeys.DOCTYPE_PUBLIC, doctype.getPublicId());
-    	        if (doctype.getSystemId() != null)
-    	          transformer.setOutputProperty
-    	            (OutputKeys.DOCTYPE_SYSTEM, doctype.getSystemId());
-    	      }
-    	  
-    	      transformer.transform(src, rslt);
-    	    } 
-    	    catch (TransformerException e) 
-    	    {
-    	      throw new RuntimeException("Cannot serialize document: ", e);
-    		}
+    	    serializeToResult(doc, encoding, rslt);
     	    return new ByteArrayInputStream(bos.toByteArray());
     }
+
+	/**
+	 * @param doc
+	 * @param encoding
+	 * @param bos
+	 * @param rslt
+	 * @return
+	 * @throws Exception
+	 */
+	public static void serializeToResult(Document doc, String encoding,
+			javax.xml.transform.Result rslt)
+			throws Exception {
+		javax.xml.transform.Source src = new DOMSource(doc);
+		
+		try {
+		  Transformer transformer = getTransformerFactory().newTransformer();
+		  
+		  transformer.setOutputProperty(OutputKeys.ENCODING, encoding);
+		  
+		  transformer.setOutputProperty
+		    (OutputKeys.OMIT_XML_DECLARATION, "no");
+		  
+		  // Set a property on the transformer if the caller wants a doctype and
+		  // the node's owning document has the information
+		  if (doc.getDoctype() != null) 
+		  {
+		    DocumentType doctype = doc.getDoctype();
+		    if (doctype.getPublicId() != null)
+		      transformer.setOutputProperty
+		        (OutputKeys.DOCTYPE_PUBLIC, doctype.getPublicId());
+		    if (doctype.getSystemId() != null)
+		      transformer.setOutputProperty
+		        (OutputKeys.DOCTYPE_SYSTEM, doctype.getSystemId());
+		  }
+  	  
+		  transformer.transform(src, rslt);
+		} 
+		catch (TransformerException e) 
+		{
+		  throw new RuntimeException("Cannot serialize document: ", e);
+		}
+	}
 
     /**
      * Gets a transformer factory using the default URI resolver.
@@ -369,4 +386,9 @@ public class DomUtil {
     }
 
 
+    public static Document getNewDom() throws ParserConfigurationException {
+    	DocumentBuilder builder = DocumentBuilderFactoryImpl.newInstance().newDocumentBuilder();
+    	return builder.newDocument();
+    }
+    
 }
