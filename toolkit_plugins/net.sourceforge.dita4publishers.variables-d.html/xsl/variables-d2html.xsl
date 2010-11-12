@@ -26,20 +26,19 @@
       <xsl:choose>
         <xsl:when test="count($localVarDef) = 0 and count($topicref) > 0">
           <!-- If we get here then it means the variable was not defined by the topicref
-               or the topic, so look in the map's metadata.
+               or the topic, so look up the map hierarchy until you find a definition:
           -->
-          <xsl:variable name="mapMetadata" as="element()?"
-            select="$topicref/ancestor::*[df:class(., 'map/map')]/*[df:class(., 'map/topicmeta')]"
+          <xsl:variable name="metadataAncestry" as="element()*"
+            select="reverse($topicref/ancestor::*[df:class(., 'map/topicref') or df:class(., 'map/map')]/*[df:class(., 'map/topicmeta')])"
           />
-          <xsl:choose>
-            <xsl:when test="$mapMetadata">
-              <xsl:sequence 
-                select="($mapMetadata//*[df:class(., 'd4p-variables-d/d4p-variable-definition')][@name = $variableName])[1]"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:sequence select="()"/><!-- Empty sequence -->
-            </xsl:otherwise>
-          </xsl:choose>          
+          <xsl:variable name="variableDefs" as="element()*"
+            select="
+            for $metadata in $metadataAncestry
+              return ($metadata//*[df:class(., 'd4p-variables-d/d4p-variable-definition')][@name = $variableName])[1]            
+            "
+          />
+          <xsl:sequence 
+            select="$variableDefs[1]"/>
         </xsl:when>        
         <xsl:otherwise>
           <xsl:sequence select="$localVarDef"/>
