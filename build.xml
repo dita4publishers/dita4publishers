@@ -38,6 +38,7 @@
   <property name="kindleBuild" location="${build}/kindle"/>
   <property name="docs.dir" location="${basedir}/docs"/>
   <property name="docs" location="${basedir}/documentation"/>
+  <property name="templates.dir" location="${basedir}/templates"/>
   <property name="website.source" location="${docs}/website"/>
   <property name="website.build" location="${build}/website"/>
 	<property name="sampledata" location="${basedir}/sample_data"/>
@@ -420,6 +421,7 @@
 		depends="
 		dist-init, 
 		package-toolkit-plugins, 
+    package-editing-templates, 
 		package-api-and-tools, 
 		build-d4p-user-guide, 
 		dist-sample-data, 
@@ -446,6 +448,7 @@
 			</fileset>
       <fileset dir="${dist}" >
       	<include name="sample_data/**/*"/>
+        <include name="templates/**/*"/>
       </fileset>
 			<fileset dir="${build}/docs">
 				<include name="*.pdf"/>
@@ -959,6 +962,20 @@
     <jar destfile="${api-and-tools.target}/lib/dita4publishers-dita-api.jar" basedir="${classes.home}">
       <include name="net/sourceforge/dita4publishers/api/**/**.*"/>
     </jar>
+    </target>
+      
+  <target name="package-editing-templates" depends="init-target, clean" 
+  	description="Packages the editing templates in their own Zip file.">
+  	<copy todir="${dist}/templates">
+  		<fileset dir="${templates.dir}">
+  			<include name="maps/**"/>
+        <include name="topics/**"/>
+        <include name="word2dita/**"/>
+  		</fileset>
+  	</copy>
+  	<zip destfile="${dist}/dita4publishers-templates.zip" basedir="${dist}">
+  		<include name="templates/*/**"/>
+  	</zip>
   </target>
   	
   <target name="package-rsuite-plugins" depends="init-target, clean">
