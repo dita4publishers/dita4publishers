@@ -7,9 +7,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URLEncoder;
 import java.util.Collection;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -24,6 +26,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.URIResolver;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPathFactory;
 
 import net.sourceforge.dita4publishers.api.bos.BosMemberValidationException;
 import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
@@ -44,7 +47,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-
 /**
  * Utilities for constructing W3C DOMs.
  */
@@ -61,14 +63,15 @@ public class DomUtil {
 	 * @throws DomException
 	 * @throws FileNotFoundException 
 	 * @throws BosMemberValidationException 
+	 * @throws UnsupportedEncodingException 
 	 */
-	public static Document getDomForDocument(File xmlFile, BosConstructionOptions domOptions, boolean throwExceptionIfInvalid) throws DomException, FileNotFoundException, BosMemberValidationException {
+	public static Document getDomForDocument(File xmlFile, BosConstructionOptions domOptions, boolean throwExceptionIfInvalid) throws DomException, FileNotFoundException, BosMemberValidationException, UnsupportedEncodingException {
 		InputSource source = new InputSource(new FileInputStream(xmlFile));
 		source.setSystemId(xmlFile.toURI().toString());
 		return getDomForSource(source, domOptions, throwExceptionIfInvalid);
 	}
 
-	public static Document getDomForDocument(File xmlFile, BosConstructionOptions domOptions) throws DomException, FileNotFoundException, BosMemberValidationException {
+	public static Document getDomForDocument(File xmlFile, BosConstructionOptions domOptions) throws DomException, FileNotFoundException, BosMemberValidationException, UnsupportedEncodingException {
 		return getDomForDocument(xmlFile, domOptions, false);
 	}
 
@@ -96,9 +99,23 @@ public class DomUtil {
 	 * @return The DOM Document object for the document.
 	 * @throws DomException
 	 * @throws BosMemberValidationException 
+	 * @throws UnsupportedEncodingException 
 	 */
-	public static Document getDomForStream(InputStream stream, BosConstructionOptions bosOptions) throws DomException, BosMemberValidationException {
-		return getDomForSource(new InputSource(stream), bosOptions, false);
+	public static Document getDomForStream(InputStream stream, BosConstructionOptions bosOptions) throws DomException, BosMemberValidationException, UnsupportedEncodingException {
+		return getDomForSource(new InputSource(stream), bosOptions, false, true);
+	}
+
+	/**
+	 * Constructs a DOM from the specified XML document file.
+	 * @param stream InputStream containing the document data to be parsed.
+	 * @param bosOptions
+	 * @return The DOM Document object for the document.
+	 * @throws DomException
+	 * @throws BosMemberValidationException 
+	 * @throws UnsupportedEncodingException 
+	 */
+	public static Document getDomForStream(InputStream stream, BosConstructionOptions bosOptions, boolean validate) throws DomException, BosMemberValidationException, UnsupportedEncodingException {
+		return getDomForSource(new InputSource(stream), bosOptions, false, validate);
 	}
 
 	/**
@@ -109,11 +126,29 @@ public class DomUtil {
 	 * @return The DOM Document object for the document.
 	 * @throws DomException
 	 * @throws BosMemberValidationException 
+	 * @throws UnsupportedEncodingException 
 	 */
-	public static Document getDomForSource(InputSource source, BosConstructionOptions bosOptions, boolean throwExceptionIfInvalid) throws DomException, BosMemberValidationException {
+	public static Document getDomForSource(InputSource source, BosConstructionOptions bosOptions, boolean throwExceptionIfInvalid) throws DomException, BosMemberValidationException, UnsupportedEncodingException {
+		return getDomForSource(source, bosOptions, throwExceptionIfInvalid, true);
+	}
+
+	/**
+	 * Constructs a DOM from the specified XML document file.
+	 * @param throwExceptionIfInvalid 
+	 * @param source InputSource containing the data to be parsed.
+	 * @param bosOptions
+	 * @return The DOM Document object for the document.
+	 * @throws DomException
+	 * @throws BosMemberValidationException 
+	 * @throws UnsupportedEncodingException 
+	 */
+	public static Document getDomForSource(InputSource source, BosConstructionOptions bosOptions, boolean throwExceptionIfInvalid, boolean validate) throws DomException, BosMemberValidationException, UnsupportedEncodingException {
 		URI docUri = null;
 		try {
-			docUri = new URI(source.getSystemId());
+			String sysId = source.getSystemId();
+			if (sysId != null) {
+				docUri = new URI(URLEncoder.encode(sysId, "utf-8"));
+			}
 		} catch (URISyntaxException e) {
 			throw new DomException("Exception constructing URI from system ID \"" + source.getSystemId() + "\" for document source: " + e.getMessage(), e);
 		}
@@ -155,7 +190,7 @@ public class DomUtil {
 			dp = new org.apache.xerces.parsers.DOMParser(config);
 			dp.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", true);
 			dp.setFeature("http://apache.org/xml/features/dom/defer-node-expansion", false);
-			dp.setFeature("http://xml.org/sax/features/validation", true);
+			dp.setFeature("http://xml.org/sax/features/validation", validate);
 			dp.setProperty("http://apache.org/xml/properties/internal/entity-resolver", resolver);
 			dp.parse(source);
 		} catch (Exception e) {
@@ -181,9 +216,12 @@ public class DomUtil {
 		}
 		
 		Document doc = dp.getDocument();
-		logger.debug("getDomForSource(): Adding document \"" + docUri.toString() + "\" to DOM cache.");
-		bosOptions.getDomCache().put(docUri, doc);
+		if (docUri != null) {
+			logger.debug("getDomForSource(): Adding document \"" + docUri.toString() + "\" to DOM cache.");
+			bosOptions.getDomCache().put(docUri, doc);
+		}
 		logger.debug("getDomForSource(): Returning DOM for document \"" + source.getSystemId() + "\"");
+			
 		return doc;
 	}
 	
@@ -389,6 +427,10 @@ public class DomUtil {
     public static Document getNewDom() throws ParserConfigurationException {
     	DocumentBuilder builder = DocumentBuilderFactoryImpl.newInstance().newDocumentBuilder();
     	return builder.newDocument();
+    }
+
+    public static XPathFactory getXPathFactory(){
+  	  return new net.sf.saxon.xpath.XPathFactoryImpl();
     }
     
 }
