@@ -136,6 +136,7 @@
         <xsl:element name="{$tagName}">  
           <xsl:if test="$includeWordBackPointersBoolean">
             <xsl:attribute name="xtrc" select="@wordLocation"/>
+            <xsl:attribute name="xtrf" select="ancestor::rsiwp:document[1]/@sourceDoc"/>
           </xsl:if>
           <xsl:sequence select="./@outputclass"/>
           <xsl:if test="./@dataName">
