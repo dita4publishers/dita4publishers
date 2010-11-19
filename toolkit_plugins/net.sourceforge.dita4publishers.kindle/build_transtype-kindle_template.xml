@@ -32,10 +32,7 @@
 	<property name="kindlegen.executable" value="kindlegen"/>
 	<property name="kindlegenArgs" value="-unicode"/>
 	
-  <!-- Turn off Toolkit's graphic copying -->
-  <property name="preprocess.copy-files.skip" value="true"/>
-
-	<condition property="preprocess.maplink.skip" value="true">
+  <condition property="preprocess.maplink.skip" value="true">
 	  <isset property="epub.exclude.auto.rellinks" />
   </condition>
   <condition property="preprocess.move-links.skip" value="true">
@@ -45,7 +42,7 @@
 	<target name="dita2kindle"
     unless="noMap"
     xmlns:dita="http://dita-ot.sourceforge.net"
-		dita:depends="build-init, preprocess,kindle"
+		dita:depends="d4p.map-driven-build-init, build-init, preprocess,kindle"
     dita:extension="depends org.dita.dost.platform.InsertDependsAction">
   </target>
 

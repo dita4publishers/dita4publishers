@@ -1,5 +1,6 @@
 <plugin id="net.sourceforge.dita4publishers.html2">
 
+  <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
   <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
 
   <template file="build_transtype-html2_template.xml"/>

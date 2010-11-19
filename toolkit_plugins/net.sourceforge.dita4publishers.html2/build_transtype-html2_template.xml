@@ -19,12 +19,10 @@
 	<!-- Defines the @class value to use for topic title elements generated for topicheads. -->
 	<property name="title.only.topic.title.class.spec" value="- topic/title "/>
 	
-	<property name="preprocess.copy-files.skip" value="true"/>
-	
 	<target name="dita2html2"
     unless="noMap"
     xmlns:dita="http://dita-ot.sourceforge.net"
-		dita:depends="build-init, preprocess,html2"
+		dita:depends="d4p.map-driven-build-init, build-init, preprocess,html2"
     dita:extension="depends org.dita.dost.platform.InsertDependsAction">
   </target>
   

@@ -35,13 +35,14 @@
     <isset property="epub.exclude.auto.rellinks" />
   </condition>
 	
-	<!-- Turn off copying of graphics files -->
-	<property name="preprocess.copy-files.skip" value="true"/>
+  <condition property="d4p.is.map.driven" value="true">
+  	<equals arg1="transtype" arg2="epub"/>
+  </condition>
 
 	<target name="dita2epub"
     unless="noMap"
     xmlns:dita="http://dita-ot.sourceforge.net"
-		dita:depends="build-init, preprocess,epub"
+		dita:depends="d4p.map-driven-build-init, build-init, preprocess, epub"
     dita:extension="depends org.dita.dost.platform.InsertDependsAction">
   </target>
   
