@@ -433,10 +433,18 @@
               </xsl:apply-templates>
             </xsl:variable>
             
+            <xsl:variable name="topicrefType" 
+              select="if (string($groupFirstP/@topicrefType) != '')
+              then string($groupFirstP/@topicrefType)
+              else 'topicref'
+              "
+              as="xs:string"
+            />
+            
             <xsl:variable name="topicUrl"
               as="xs:string"
               select="local:getResultUrlForTopic($groupFirstP, 
-              string($groupFirstP/@topicrefType), 
+              $topicrefType, 
               ($treePos, position()), 
               $mapUrl, 
               $topicName)"
@@ -507,9 +515,17 @@
       </xsl:apply-templates>
     </xsl:variable>
     
+    <xsl:variable name="topicrefType" 
+      select="if (string(@topicrefType) != '')
+      then string(@topicrefType)
+      else 'topicref'
+      "
+      as="xs:string"
+    />    
+    
     <xsl:variable name="topicUrl"
       as="xs:string"
-      select="local:getResultUrlForTopic($firstP, string(@topicrefType), ($treePos, 1), $mapUrl, $topicName)"
+      select="local:getResultUrlForTopic($firstP, $topicrefType, ($treePos, 1), $mapUrl, $topicName)"
     />
     
     <xsl:choose>
