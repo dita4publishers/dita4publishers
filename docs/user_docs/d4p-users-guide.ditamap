@@ -173,7 +173,17 @@
             href="d4p-users-guide/word2dita/word2dita-ant-parameters.xml"/>
         </chapter>
         <chapter
-          href="d4p-users-guide/transform-frameworks-part/dita-to-indesign-framework-chapter.xml"/>
+          href="d4p-users-guide/transform-frameworks-part/dita-to-indesign-framework-chapter.xml">
+          <subsection
+            href="d4p-users-guide/dita2indesign/indesign-product-overview.xml"/>
+          <subsection
+            href="d4p-users-guide/transform-frameworks-part/generating-incopy-articles.xml">
+            <subsection
+              href="d4p-users-guide/transform-frameworks-part/mapping-paragraphs-to-indesign-styles.xml"/>
+          </subsection>
+          <subsection
+            href="d4p-users-guide/dita2indesign/indesign-optimization.xml"/>
+        </chapter>
       </part>
     </pubbody>
     <appendixes>
