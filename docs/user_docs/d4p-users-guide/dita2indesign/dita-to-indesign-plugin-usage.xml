@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>Generating InDesign from DITA Using the Toolkit Plugin</title>
+ <shortdesc>How to use the DITA-to-InDesign Toolkit Plugin to generate inDesign and InCopy documents from DITA content.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>DITA-to-InDesign</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <p>To use the DITA-to-InDesign transform as a Toolkit plugin simply deploy the DITA for Publishers Toolkit plugins to your Open Toolkit directory. The DITA-to-InDesign transformation type is "indesign".</p>
+    <section>
+      <title>Required Parameters</title>
+      <p>None.</p>
+    </section>
+    <section>
+      <title>Optional Parameters</title>
+      <parml>
+        <plentry>
+          <pt><parmname>output.dir</parmname></pt>
+          <pd>Specifies the absolute path of of the directory to contain the generated output.</pd>
+        </plentry>
+      </parml>
+    </section>
+ </conbody>
+</concept>
