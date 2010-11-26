@@ -3,21 +3,22 @@
  */
 package net.sourceforge.dita4publishers.tools.dxp;
 
+
 import java.util.ArrayList;
 import java.util.List;
+
+import net.sourceforge.dita4publishers.tools.common.MapBosProcessorOptions;
 
 /**
  * Holds options that control the packing and unpacking of DXP packages.
  */
-public class DitaDxpOptions {
+public class DitaDxpOptions extends MapBosProcessorOptions {
 
 	/**
 	 * Unzip all entries in the DXP package.
 	 */
 	private boolean unzipAll = true;
 	private List<String> rootMaps = new ArrayList<String>();
-	private boolean quiet = false; // Log by default
-
 	/**
 	 * Indicates whether or not the entire DXP package should be unzipped.
 	 * @return if true, all members of the DXP package should be unzipped.
@@ -53,21 +54,5 @@ public class DitaDxpOptions {
 	 */
 	public void addMapId(String mapId) {
 		this.rootMaps.add(mapId);
-	}
-
-	/**
-	 * Sets the "quiet" option to true or false
-	 * @param b True means "be quiet" (no informative logging)
-	 */
-	public void setQuiet(boolean b) {
-		this.quiet = b;
-	}
-	
-	/**
-	 * Indicates whether or not the "quiet" option has been set.
-	 * @return True if quiet has been set to true.
-	 */
-	public boolean isQuiet() {
-		return this.quiet == true;
 	}
 }

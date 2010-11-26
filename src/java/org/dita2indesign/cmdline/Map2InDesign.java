@@ -191,9 +191,9 @@ public class Map2InDesign {
 	 * @throws Exception 
 	 */
 	private void generateInDesign(File mapFile, File resultInxFile,
-			Map2InDesignOptions options) throws Exception {
+		Map2InDesignOptions options) throws Exception {
 		InDesignFromDitaMapBuilder builder = new InDesignFromDitaMapBuilder();
-		InDesignDocument doc = builder.buildMapDocument(mapFile.toURL(), options);
+		InDesignDocument doc = builder.buildMapDocument(mapFile.toURI().toURL(), options);
 		InxWriter writer = new InxWriter(resultInxFile);
 		writer.write(doc);
 		

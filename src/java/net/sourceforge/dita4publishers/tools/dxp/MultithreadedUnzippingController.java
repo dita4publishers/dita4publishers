@@ -18,6 +18,8 @@ import java.util.concurrent.Future;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
+import net.sourceforge.dita4publishers.tools.common.MapBosProcessorOptions;
+
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -37,13 +39,13 @@ public class MultithreadedUnzippingController
 	private ZipFileFilter filter;
 	private int maxThreads = 0;
 
-	private DitaDxpOptions dxpOptions = new DitaDxpOptions();
+	private MapBosProcessorOptions dxpOptions = new DitaDxpOptions();
 	
 	/**
 	 * @param dxpOptions 
 	 * 
 	 */
-	public MultithreadedUnzippingController(DitaDxpOptions dxpOptions)
+	public MultithreadedUnzippingController(MapBosProcessorOptions dxpOptions)
 	{
 		this.dxpOptions = dxpOptions;
 	}

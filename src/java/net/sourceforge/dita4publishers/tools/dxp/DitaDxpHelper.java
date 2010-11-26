@@ -29,6 +29,7 @@ import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.dita.AddressingUtil;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelper;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelperException;
+import net.sourceforge.dita4publishers.tools.common.MapBosProcessorOptions;
 import net.sourceforge.dita4publishers.util.DomException;
 import net.sourceforge.dita4publishers.util.DomUtil;
 
@@ -54,7 +55,7 @@ public class DitaDxpHelper {
 	 * @throws IOException 
 	 * @throws BosException 
 	 */
-	public static void zipMapBos(DitaBoundedObjectSet mapBos, File outputZipFile, DitaDxpOptions options) throws BosException, IOException {
+	public static void zipMapBos(DitaBoundedObjectSet mapBos, File outputZipFile, MapBosProcessorOptions options) throws BosException, IOException {
 		/*
 		 *  Some potential complexities:
 		 *  
@@ -137,7 +138,7 @@ public class DitaDxpHelper {
 	 * @return
 	 * @throws DitaDxpException 
 	 */
-	public static ZipEntry getDxpPackageRootMap(ZipFile zipFile, DitaDxpOptions dxpOptions) throws DitaDxpException {
+	public static ZipEntry getDxpPackageRootMap(ZipFile zipFile, MapBosProcessorOptions dxpOptions) throws DitaDxpException {
 
 		List<ZipEntry> candidateRootEntries = new ArrayList<ZipEntry>();
 		List<ZipEntry> candidateDirs = new ArrayList<ZipEntry>();
@@ -280,7 +281,7 @@ public class DitaDxpHelper {
 	 * @throws BosException 
 	 */
 	private static void extractMap(ZipFile zipFile, ZipEntry mapEntry,
-			File outputDir, DitaDxpOptions dxpOptions) throws IOException, DomException, BosException, DitaBosHelperException {
+			File outputDir, MapBosProcessorOptions dxpOptions) throws IOException, DomException, BosException, DitaBosHelperException {
 		Map<URI, Document> domCache = new HashMap<URI, Document>();
 		
 		if (!dxpOptions.isQuiet())
@@ -292,7 +293,7 @@ public class DitaDxpHelper {
 		
 		File dxpFile = new File(zipFile.getName());
 		
-		URL baseUri = new URL("jar:" + dxpFile.toURL().toExternalForm() + "!/");
+		URL baseUri = new URL("jar:" + dxpFile.toURI().toURL().toExternalForm() + "!/");
 		URL mapUrl = new URL(baseUri, mapEntry.getName());
 		
 		source.setSystemId(mapUrl.toExternalForm());

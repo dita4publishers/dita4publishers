@@ -45,7 +45,7 @@ public class MapCopyingBosVisitor extends DitaBosVisitorBase {
 	 */
 	public MapCopyingBosVisitor(File outputDir) throws MalformedURLException {
 		super(log);
-		this.outputUrl = outputDir.toURL();
+		this.outputUrl = outputDir.toURI().toURL();
 	}
 
 	public void visit(BoundedObjectSet bos)

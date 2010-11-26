@@ -132,7 +132,7 @@ public class MapBosReporter extends MapBosProcessorBase {
 		
 		
 		try {
-			URL rootMapUrl = mapFile.toURL();
+			URL rootMapUrl = mapFile.toURI().toURL();
 			rootMap = DomUtil.getDomForUri(new URI(rootMapUrl.toExternalForm()), bosOptions);
 			Date startTime = TimingUtils.getNowTime();
 			DitaBoundedObjectSet mapBos = DitaBosHelper.calculateMapBos(bosOptions,log, rootMap);

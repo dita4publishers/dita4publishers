@@ -55,7 +55,7 @@ public class AddressingUtil {
         throws AddressingException {
         File resultFile = null;
         try {
-        	URL baseUrl = baseFile.toURL();
+        	URL baseUrl = baseFile.toURI().toURL();;
         	URL targetUrl = new URL(baseUrl, fileUrlStr);
         	resultFile = new File(targetUrl.getFile());
         } catch (Throwable e) {

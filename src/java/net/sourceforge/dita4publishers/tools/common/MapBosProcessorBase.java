@@ -4,13 +4,15 @@
 package net.sourceforge.dita4publishers.tools.common;
 
 import java.io.File;
+import java.net.URI;
+import java.util.HashMap;
 
 import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
-import net.sourceforge.dita4publishers.tools.dxp.DitaDxpOptions;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
+import org.w3c.dom.Document;
 
 /**
  * Base class for tools that operate on map bounded object sets.
@@ -67,10 +69,22 @@ public abstract class MapBosProcessorBase {
 		
 	}
 
-	protected void handleCommonDxpOptions(DitaDxpOptions options) {
+	protected void handleCommonBosProcessorOptions(MapBosProcessorOptions options) {
 		if (commandLine.hasOption(QUIET_OPTION_ONE_CHAR)) {
 			options.setQuiet(true);
 		}
+	}
+
+	/**
+	 * @param procOptions
+	 */
+	protected BosConstructionOptions setupBosOptions(MapBosProcessorOptions procOptions) {
+		BosConstructionOptions bosOptions = new BosConstructionOptions(procOptions.getLog(), new HashMap<URI, Document>());
+		bosOptions.setQuiet(procOptions.isQuiet());
+		boolean failOnAddressingFailure = (commandLine.hasOption(ADDRESSING_FAILURE_OPTION_ONE_CHAR) ? true : false);
+		bosOptions.setFailOnAddressResolutionFailure(failOnAddressingFailure); 
+		setupCatalogs(bosOptions);
+		return bosOptions;
 	}
 
 	protected static void checkExistsAndCanReadSystemExit(File file) {

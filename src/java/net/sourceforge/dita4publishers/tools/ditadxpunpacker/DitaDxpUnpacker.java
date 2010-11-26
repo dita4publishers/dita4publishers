@@ -93,7 +93,7 @@ public class DitaDxpUnpacker extends MapBosProcessorBase {
 	private void run() throws Exception {
 		
 		DitaDxpOptions dxpOptions = new DitaDxpOptions();		
-		handleCommonDxpOptions(dxpOptions);
+		handleCommonBosProcessorOptions(dxpOptions);
 
 		String dxpFilepath = commandLine.getOptionValue(INPUT_OPTION_ONE_CHAR);
 		File dxpFile = new File(dxpFilepath);

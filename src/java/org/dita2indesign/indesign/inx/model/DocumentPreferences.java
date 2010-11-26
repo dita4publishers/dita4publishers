@@ -147,7 +147,7 @@ public class DocumentPreferences extends DefaultInDesignComponent {
 	 * @return the pageBinding
 	 */
 	public Enum<PageBindingOption> getPageBinding()  throws Exception {
-		return getEnumProperty("pbin");
+		return (PageBindingOption)getEnumProperty("pbin");
 		
 	}
 
