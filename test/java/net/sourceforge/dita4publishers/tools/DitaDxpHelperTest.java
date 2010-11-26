@@ -21,6 +21,7 @@ import junit.framework.TestSuite;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelper;
+import net.sourceforge.dita4publishers.tools.common.MapBosProcessorOptions;
 import net.sourceforge.dita4publishers.tools.dxp.DitaDxpHelper;
 import net.sourceforge.dita4publishers.tools.dxp.DitaDxpOptions;
 import net.sourceforge.dita4publishers.util.DomUtil;
@@ -97,7 +98,7 @@ public class DitaDxpHelperTest
   }
   
   public void xtestZipMapBos() throws Exception {
-	  DitaDxpOptions options = new DitaDxpOptions();
+	  MapBosProcessorOptions options = new DitaDxpOptions();
 	  File outputZipFile = File.createTempFile("textZipMapBos", ".dxp");
 	  DitaDxpHelper.zipMapBos(mapBos, outputZipFile, options);
 	  assertTrue("DXP file doesn't exist", outputZipFile.exists());
