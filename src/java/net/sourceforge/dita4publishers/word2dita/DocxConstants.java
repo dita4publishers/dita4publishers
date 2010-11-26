@@ -56,4 +56,31 @@ public class DocxConstants {
 	 */
 	public static final String COMMENTS_XML_PATH = "word/comments.xml";
 
+	public static final String DOCX_EXTENSION = "docx";
+
+	/**
+	 * 
+	 */
+	public static final String COMMENTS_CONTENT_TYPE = "application/vnd.openxmlformats-officedocument.wordprocessingml.comments+xml";
+
+	/**
+	 * 
+	 */
+	public static final String COMMENTS_PARTNAME = "/word/comments.xml";
+
+	/**
+	 * 
+	 */
+	public static final String COMMENT_REL_TYPE = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/comments";
+
+	/**
+	 * 
+	 */
+	public static final String RELS_NS = "http://schemas.openxmlformats.org/package/2006/relationships";
+
+	/**
+	 * 
+	 */
+	public static final String DOCUMENT_XML_RELS_PATH = "/word/_rels/document.xml.rels";
+
 }

@@ -12,11 +12,14 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URI;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
+import java.util.zip.ZipOutputStream;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPath;
@@ -32,6 +35,8 @@ import net.sourceforge.dita4publishers.util.DomUtil;
 import net.sourceforge.dita4publishers.util.SaxUtil;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -47,6 +52,10 @@ import org.xml.sax.XMLReader;
 public class Word2DitaValidationHelper {
 	
     public static final String wNs = DocxConstants.nsByPrefix.get("w");
+
+	public static SimpleDateFormat timestampFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH':'mm':'ssZ");
+
+	public static final Log log = LogFactory.getLog(Word2DitaValidationHelper.class);
 
 
 	/**
@@ -109,7 +118,7 @@ public class Word2DitaValidationHelper {
 		Document commentsDom = null;
 		
 		Map<URI, Document> domCache = new HashMap<URI, Document>();
-		BosConstructionOptions bosOptions = new BosConstructionOptions(DocxUpdaterTest.log, domCache);
+		BosConstructionOptions bosOptions = new BosConstructionOptions(log, domCache);
 		bosOptions.setCatalogs(catalogs);
 		
 		ZipFile docxZip = new ZipFile(docxFile);
@@ -127,10 +136,6 @@ public class Word2DitaValidationHelper {
 		addMessagesToDocxXml(logDoc, documentDom, commentsDom, commentTemplate);
 		Word2DitaValidationHelper.saveDomToZipComponent(documentDom, documentXml);	
 		
-		ZipComponent comp = null;
-		comp = zipComponents.getEntry(DocxConstants.DOCUMENT_XML_PATH);
-		InputStream inStream = comp.getInputStream();
-		
 		ZipComponent comments = zipComponents.getEntry(DocxConstants.COMMENTS_XML_PATH);
 		if (comments == null) {
 			comments = zipComponents.createZipComponent(DocxConstants.COMMENTS_XML_PATH);
@@ -139,9 +144,9 @@ public class Word2DitaValidationHelper {
 		Word2DitaValidationHelper.saveDomToZipComponent(commentsDom, zipComponents.getEntry(DocxConstants.COMMENTS_XML_PATH));	
 		
 		Word2DitaValidationHelper.addCommentFileRelationship(zipComponents, bosOptions);
-		DocxUpdaterTest.addCommentFileContentType(zipComponents, bosOptions);
+		Word2DitaValidationHelper.addCommentFileContentType(zipComponents, bosOptions);
 		
-		DocxUpdaterTest.saveZipComponents(zipComponents, newDocxFile);
+		Word2DitaValidationHelper.saveZipComponents(zipComponents, newDocxFile);
 	}
 
 	/**
@@ -224,7 +229,7 @@ public class Word2DitaValidationHelper {
 		comment.setAttributeNS(wNs, "w:id", commentId);
 		comment.setAttributeNS(wNs, "w:author", "XML Validator");
 		comment.setAttributeNS(wNs, "w:initials", "XMLVal");
-		comment.setAttributeNS(wNs, "w:date", DocxUpdaterTest.timestampFormatter.format(Calendar.getInstance().getTime()));
+		comment.setAttributeNS(wNs, "w:date", timestampFormatter.format(Calendar.getInstance().getTime()));
 		Element elem = DataUtil.getElementNS(comment, wNs, "p");
 		NodeList nl = elem.getElementsByTagNameNS(wNs, "r");
 		elem = (Element)nl.item(nl.getLength() - 1);
@@ -274,12 +279,12 @@ public class Word2DitaValidationHelper {
 		Node node = getWordParaForXPath(documentDom, xpath);
 		
 		Element p = (Element)node;
-		Element commentRef = documentDom.createElementNS(DocxUpdaterTest.wNs, "w:r");
-		Element elem = (Element)commentRef.appendChild(documentDom.createElementNS(DocxUpdaterTest.wNs, "w:rPr"));
-		elem = (Element)elem.appendChild(documentDom.createElementNS(DocxUpdaterTest.wNs, "w:rStyle"));
-		elem.setAttributeNS(DocxUpdaterTest.wNs, "w:val", "CommentReference");
-		elem = (Element)commentRef.appendChild(documentDom.createElementNS(DocxUpdaterTest.wNs, "w:commentReference"));
-		elem.setAttributeNS(DocxUpdaterTest.wNs, "w:id", commentId);
+		Element commentRef = documentDom.createElementNS(wNs, "w:r");
+		Element elem = (Element)commentRef.appendChild(documentDom.createElementNS(wNs, "w:rPr"));
+		elem = (Element)elem.appendChild(documentDom.createElementNS(wNs, "w:rStyle"));
+		elem.setAttributeNS(wNs, "w:val", "CommentReference");
+		elem = (Element)commentRef.appendChild(documentDom.createElementNS(wNs, "w:commentReference"));
+		elem.setAttributeNS(wNs, "w:id", commentId);
 		p.appendChild(commentRef);
 	}
 
@@ -290,22 +295,22 @@ public class Word2DitaValidationHelper {
 	 */
 	static void addCommentFileRelationship(ZipComponents zipComponents,
 			BosConstructionOptions bosOptions) throws Exception {
-		ZipComponent comp = zipComponents.getEntry(DocxUpdaterTest.DOCUMENT_XML_RELS_PATH);
+		ZipComponent comp = zipComponents.getEntry(DocxConstants.DOCUMENT_XML_RELS_PATH);
 		Document doc = zipComponents.getDomForZipComponent(bosOptions, comp);
 		Element docElem = doc.getDocumentElement();
-		NodeList nl = docElem.getElementsByTagNameNS(DocxUpdaterTest.RELS_NS, "Relationship");
+		NodeList nl = docElem.getElementsByTagNameNS(DocxConstants.RELS_NS, "Relationship");
 		boolean foundCommentRel = false;
 		for (int i =0; i < nl.getLength(); i++) {
 			Element elem = (Element)nl.item(i);
 			String type = elem.getAttribute("Type");
-			if (DocxUpdaterTest.COMMENT_REL_TYPE.equals(type)) {
+			if (DocxConstants.COMMENT_REL_TYPE.equals(type)) {
 				foundCommentRel = true;
 				break;
 			}
 		}
 		if (!foundCommentRel) {
-			Element elem = doc.createElementNS(DocxUpdaterTest.RELS_NS, "Relationship");
-			elem.setAttribute("Type", DocxUpdaterTest.COMMENT_REL_TYPE);
+			Element elem = doc.createElementNS(DocxConstants.RELS_NS, "Relationship");
+			elem.setAttribute("Type", DocxConstants.COMMENT_REL_TYPE);
 			elem.setAttribute("Id", "rId" + (nl.getLength() + 1));
 			elem.setAttribute("Target", "comments.xml");
 			docElem.appendChild(elem);
@@ -336,13 +341,81 @@ public class Word2DitaValidationHelper {
 			SAXException, FileNotFoundException {
 		InputSource source = new InputSource(inputUrl.openStream());
 		Document logDoc = DomUtil.getNewDom();
-		XMLReader reader = SaxUtil.getXMLFormatLoggingXMLReader(DocxUpdaterTest.log, logDoc, true, catalogs);
+		XMLReader reader = SaxUtil.getXMLFormatLoggingXMLReader(log, logDoc, true, catalogs);
 		reader.parse(source);
 		InputStream logStream = DomUtil.serializeToInputStream(logDoc, "utf-8");
 		System.out.println("Creating message file \"" + messageFile.getAbsolutePath() + "\"...");
 		OutputStream fos = new FileOutputStream(messageFile);
 		IOUtils.copy(logStream, fos);
 		return logDoc;
+	}
+
+	/**
+	 * @param zipComponents
+	 * @param bosOptions
+	 * @throws Exception 
+	 */
+	public static void addCommentFileContentType(ZipComponents zipComponents,
+			BosConstructionOptions bosOptions) throws Exception {
+	
+		/*
+		 *   <Override
+	PartName="/word/comments.xml"
+	ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.comments+xml"/>
+	
+		 */
+		
+		ZipComponent comp = zipComponents.getEntry("[Content_Types].xml");
+		Document doc = zipComponents.getDomForZipComponent(bosOptions, comp);
+		Element docElem = doc.getDocumentElement();
+		String contentTypesNs = "http://schemas.openxmlformats.org/package/2006/content-types";
+		NodeList nl = docElem.getElementsByTagNameNS(contentTypesNs, "Override");
+		boolean foundCommentType = false;
+		for (int i =0; i < nl.getLength(); i++) {
+			Element elem = (Element)nl.item(i);
+			String partName = elem.getAttribute("PartName");
+			if (DocxConstants.COMMENTS_PARTNAME.equals(partName)) {
+				foundCommentType = true;
+				break;
+			}
+		}
+		if (!foundCommentType) {
+			Element elem = doc.createElementNS(contentTypesNs, "Override");
+			elem.setAttribute("PartName", DocxConstants.COMMENTS_PARTNAME);
+			elem.setAttribute("ContentType", DocxConstants.COMMENTS_CONTENT_TYPE);
+			docElem.appendChild(elem);
+	        comp.setDom(doc);
+		}
+	}
+
+	/**
+	 * @param documentDom
+	 * @param commentsDom
+	 * @param docxZip
+	 * @param zipFile
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 * @throws Exception
+	 */
+	public static void saveZipComponents(ZipComponents zipComponents, File zipFile) throws FileNotFoundException,
+			IOException, Exception {
+		ZipOutputStream zipOutStream = new ZipOutputStream(new FileOutputStream(zipFile));		
+		for (ZipComponent comp : zipComponents.getComponents()) {
+			ZipEntry newEntry = new ZipEntry(comp.getName());
+			zipOutStream.putNextEntry(newEntry);
+			if (comp.isDirectory()) {
+				// Nothing to do.
+			} else {
+				// System.out.println(" + [DEBUG] saving component \"" + comp.getName() + "\"");
+				if (comp.getName().endsWith("document.xml") || comp.getName().endsWith("document.xml.rels")) {
+					// System.out.println("Handling a file of interest.");
+				}
+				InputStream inputStream = comp.getInputStream();
+				IOUtils.copy(inputStream, zipOutStream);
+				inputStream.close();
+			}
+		}		
+		zipOutStream.close();
 	}
 
 }
