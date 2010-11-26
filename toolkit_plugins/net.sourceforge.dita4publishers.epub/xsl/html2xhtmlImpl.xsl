@@ -14,7 +14,15 @@
       -->
   
   <xsl:template match="html | HTML" mode="html2xhtml" priority="10">
+    <xsl:param name="topicref" as="element()?" tunnel="yes"/>
+    <xsl:variable name="lang" select="if ($topicref) then root($topicref)/*/@xml:lang else ''"/>
     <html>
+    <xsl:choose>
+      <xsl:when test="$lang != ''">
+        <xsl:attribute name="xml:lang" select="$lang"/>
+      </xsl:when>
+      <xsl:otherwise/><!-- No lang attribute -->
+    </xsl:choose>
       <xsl:apply-templates mode="#current"/>
     </html>
   </xsl:template>
