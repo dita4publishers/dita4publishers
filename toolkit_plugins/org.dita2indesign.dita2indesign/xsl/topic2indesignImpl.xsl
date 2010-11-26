@@ -21,10 +21,15 @@
        Copyright (c) 2009, 2010 DITA2InDesign Project
        
   -->
-  <xsl:import href="../lib/dita-support-lib.xsl"/>
-  <xsl:import href="../lib/relpath_util.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   <xsl:import href="lib/incx_generation_util.xsl"/>
-
+  
+  <xsl:import href="lib/incx_generation_util.xsl"/>
+  <xsl:import href="elem2styleMapper.xsl"/>
+  <xsl:include href="topic2inlineContentImpl.xsl"/>
+  <xsl:include href="calstbl2indesignImpl.xsl"/>
+  
   <!-- Directory, relative to result InDesign document, that
     contains linked articles:
   -->
@@ -139,6 +144,10 @@
       
     </SnippetRoot>    
     
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/related-links')]">
+    <!-- Suppress by default -->
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/table') or df:class(., 'topic/simpletable')]">

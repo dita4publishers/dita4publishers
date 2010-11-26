@@ -25,7 +25,8 @@
     'false' - Turns it off (the default)
     =====================================================================-->
   
-  <xsl:import href="../lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   
   <xsl:include href="topic2indesignImpl.xsl"/>
   
@@ -74,8 +75,7 @@
       
       + outdir          = "<xsl:sequence select="$outdir"/>"
       + tempdir         = "<xsl:sequence select="$tempdir"/>"
-      + titleOnlyTopicClassSpec = "<xsl:sequence select="$titleOnlyTopicClassSpec"/>"
-      + titleOnlyTopicTitleClassSpec = "<xsl:sequence select="$titleOnlyTopicTitleClassSpec"/>"
+      + linksPath       = "<xsl:sequence select="$linksPath"/>"
       
       + WORKDIR         = "<xsl:sequence select="$WORKDIR"/>"
       + PATH2PROJ       = "<xsl:sequence select="$PATH2PROJ"/>"

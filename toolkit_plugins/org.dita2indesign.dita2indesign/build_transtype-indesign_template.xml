@@ -97,8 +97,6 @@
      	<param name="outdir" expression="${indesign.xslt.outdir}"/>
      	<param name="tempdir" expression="${indesign.xslt.tempdir}"/>
     	<param name="rawPlatformString" expression="${os.name}"/>
-    	<param name="titleOnlyTopicClassSpec" expression="${title.only.topic.class.spec}"/>
-    	<param name="titleOnlyTopicTitleClassSpec" expression="${title.only.topic.title.class.spec}"/>
 
     	<!-- Parameters from dita2xhtml and similar transtypes: -->   
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
