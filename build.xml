@@ -257,15 +257,6 @@
       </fileset>
     </zip>
 
-		<zip destfile="${plugin.dist}/dita4publishers-toolkit-plugins-${package_version}.zip">
-      <fileset dir="${plugin.dist}">
-        <include name="net.sourceforge.dita4publishers.*/**"/>
-        <include name="d4p-users-guide*.*"/>
-      </fileset>
-      <fileset dir="${dist}">
-        <include name="${sample_data-zip.filename}"/>
-      </fileset>
-		</zip>
   </target>
 	
   <target name="dist-dita2indesign-toolkit-plugins" 
@@ -279,10 +270,6 @@
 				<include name="org.dita2indesign.*/**/*"/>
 			</fileset>
 		</copy>
-  	<copy todir="${plugin.dist}/org.dita2indesign.dita2indesign/xsl">
-  		<fileset dir="${xslt.src}/dita2indesign">
-  		</fileset>
-    </copy>
 		<replace file="${plugin.dist}/org.dita2indesign.dita2indesign/xsl/dita2indesignImpl.xsl"
 			propertyfile="${basedir}/build.number"
 			>
@@ -410,9 +397,11 @@
 		>
     <zip destfile="${package.dist}/dita4publishers-toolkit-plugins-${package_version}.zip">
       <fileset dir="${plugin.dist}">
-        <include name="net.sourceforge.dita4publishers.*/**"/>
+        <include name="*.txt"/>
+      	<include name="*/**"/>
         <exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/>
         <exclude name="net.sourceforge.dita4publishers.html5/**"/>
+        <exclude name="org.dita2indesign.test.*/**"/>
       </fileset>
     </zip>
   </target>
