@@ -3,6 +3,7 @@
  */
 package net.sourceforge.dita4publishers.api.bos;
 
+import java.io.File;
 import java.io.InputStream;
 import java.net.URI;
 import java.util.List;
@@ -87,15 +88,21 @@ public interface BosMember extends PropertyContainer {
 	 * Accepts a BOS visitor per the standard Visitor pattern. Applies
 	 * the visitor to the BOS member.
 	 * @param visitor
-	 * @throws BosException 
+	 * @throws Exception 
 	 */
-	public abstract void accept(BosVisitor visitor) throws BosException;
+	public abstract void accept(BosVisitor visitor) throws Exception;
 
 	/**
 	 * Gets the associated file name of the BOS member.
 	 * @return File name set for the BOS member.
 	 */
 	public abstract String getFileName();
+
+	/**
+	 * Gets the associated file for the BOS member.
+	 * @return File associated with the BOS member, or null if there is no associated file.
+	 */
+	public abstract File getFile();
 
 	/**
 	 * Gets an input stream for accessing the member's data content.
@@ -227,4 +234,17 @@ public interface BosMember extends PropertyContainer {
 	 */
 	public abstract void setEffectiveUri(URI uri);
 	
+	/**
+	 * Sets the file system directory that contains or should contain the member.
+	 * @param directory File system directory to use.
+	 */
+	public void setFileSystemDirectory(File directory);
+
+	/**
+	 * Gets the file system directory that contains or should contain the member.
+	 * May be null.
+	 * @return File system directory as a file or null if not set.
+	 */
+	public File getFileSystemDirectory();
+
 }

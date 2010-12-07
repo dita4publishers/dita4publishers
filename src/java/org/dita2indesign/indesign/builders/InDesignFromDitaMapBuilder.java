@@ -35,7 +35,6 @@ import net.sf.saxon.s9api.XsltTransformer;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.dita2indesign.indesign.inx.model.InDesignComponent;
 import org.dita2indesign.indesign.inx.model.InDesignDocument;
 import org.dita2indesign.indesign.inx.model.Link;
 import org.dita2indesign.indesign.inx.model.Page;

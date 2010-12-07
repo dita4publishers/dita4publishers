@@ -3,7 +3,6 @@
  */
 package net.sourceforge.dita4publishers.api.ditabos;
 
-import net.sourceforge.dita4publishers.api.bos.BosException;
 import net.sourceforge.dita4publishers.api.bos.BosVisitor;
 
 /**
@@ -12,24 +11,24 @@ import net.sourceforge.dita4publishers.api.bos.BosVisitor;
 public interface DitaBosVisitor extends BosVisitor {
 	/**
 	 * @param ditaBosMember
-	 * @throws BosException 
+	 * @throws Exception 
 	 * 
 	 */
-	void visit(DitaBosMember ditaBosMember) throws BosException;
+	void visit(DitaBosMember ditaBosMember) throws Exception;
 
 	/**
 	 * 
 	 * @param ditaMapBosMember
-	 * @throws BosException
+	 * @throws Exception
 	 */
-	void visit(DitaMapBosMember ditaMapBosMember) throws BosException;
+	void visit(DitaMapBosMember ditaMapBosMember) throws Exception;
 	
 	/**
 	 * 
 	 * @param ditaTopicBosMember
-	 * @throws BosException
+	 * @throws Exception
 	 */
-	void visit(DitaTopicBosMember ditaTopicBosMember) throws BosException;
+	void visit(DitaTopicBosMember ditaTopicBosMember) throws Exception;
 	
 
 }

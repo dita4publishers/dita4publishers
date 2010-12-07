@@ -22,10 +22,10 @@ public class DitaDomTreeWalker extends DitaTreeWalkerBase  {
 	 * @param log
 	 * @param keySpace
 	 * @param bosConstructionOptions
-	 * @throws BosException
+	 * @throws Exception
 	 */
 	public DitaDomTreeWalker(Log log,
-			DitaKeySpace keySpace, BosConstructionOptions bosConstructionOptions) throws BosException {
+			DitaKeySpace keySpace, BosConstructionOptions bosConstructionOptions) throws Exception {
 		super(log, keySpace, bosConstructionOptions);
 	}
 

@@ -34,7 +34,7 @@ public class DitaBosMemberImpl extends XmlBosMemberImpl implements DitaBosMember
 	 * @see net.sourceforge.dita4publishers.impl.ditabos.DitaBosMember#accept(net.sourceforge.dita4publishers.api.ditabos.BosVisitor)
 	 */
 	@Override
-	public void accept(BosVisitor visitor) throws BosException {
+	public void accept(BosVisitor visitor) throws Exception {
 		if (visitor instanceof DitaBosVisitor) {
 			((DitaBosVisitor)visitor).visit(this);
 		} else {

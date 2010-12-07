@@ -4,18 +4,14 @@
 package net.sourceforge.dita4publishers.word2dita;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.util.Date;
 
-import net.sourceforge.dita4publishers.api.bos.BosMemberValidationException;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelper;
 import net.sourceforge.dita4publishers.tools.common.MapBosProcessorBase;
 import net.sourceforge.dita4publishers.tools.common.MapBosProcessorOptions;
-import net.sourceforge.dita4publishers.util.DomException;
 import net.sourceforge.dita4publishers.util.DomUtil;
 import net.sourceforge.dita4publishers.util.TimingUtils;
 

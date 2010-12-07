@@ -14,7 +14,6 @@ import net.sourceforge.dita4publishers.api.bos.TreeWalker;
 import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 
 import org.apache.commons.logging.Log;
-import org.jbpm.graph.exe.ExecutionContext;
 import org.w3c.dom.Document;
 
 /**
@@ -24,7 +23,6 @@ public abstract class TreeWalkerBase implements TreeWalker {
 
 	protected XPathExpression allTopicrefs;
 	protected URIResolver uriResolver;
-	protected ExecutionContext context;
 	protected Log log;
 	protected boolean failOnAddressResolutionFailure;
 	protected Object rootObject;
@@ -36,7 +34,7 @@ public abstract class TreeWalkerBase implements TreeWalker {
 	 * @param bosConstructionOptions 
 	 * @throws BosException 
 	 */
-	public TreeWalkerBase(Log log, BosConstructionOptions bosConstructionOptions) throws BosException {
+	public TreeWalkerBase(Log log, BosConstructionOptions bosConstructionOptions) throws Exception {
 		this.log = log;
 		this.failOnAddressResolutionFailure = bosConstructionOptions.getFailOnAddressResolutionFailure();
 		this.bosConstructionOptions = bosConstructionOptions;

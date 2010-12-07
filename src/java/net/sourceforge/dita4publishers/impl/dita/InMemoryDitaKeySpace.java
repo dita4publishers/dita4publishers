@@ -73,12 +73,26 @@ public class InMemoryDitaKeySpace implements DitaKeySpace {
 	 * @throws Exception 
 	 */
 	public InMemoryDitaKeySpace(DitaKeyDefinitionContext keydefContext, Document rootMap, BosConstructionOptions bosOptions) throws DitaApiException {
-		this.keydefContext = keydefContext;
+		this(keydefContext, bosOptions);
 		this.rootMap = rootMap;
-		this.bosOptions = bosOptions;
 	}
 
+	/**
+	 * When constructing a new key space before the root map is known.
+	 * @param keydefContext
+	 * @param bosOptions
+	 */
+	public InMemoryDitaKeySpace(DitaKeyDefinitionContext keydefContext,
+			BosConstructionOptions bosOptions) {
+		this(bosOptions);
+		this.keydefContext = keydefContext;
+		this.rootMap = keydefContext.getRootMapDoc();
+	}
 
+	public InMemoryDitaKeySpace(BosConstructionOptions bosConstructionOptions) {
+		this.bosOptions = bosConstructionOptions;
+		// FIXME: Probably need a NullKeydefContext object or something.
+	}
 
 	/**
 	 * Processes a DITA map document to add any new keys to the key space

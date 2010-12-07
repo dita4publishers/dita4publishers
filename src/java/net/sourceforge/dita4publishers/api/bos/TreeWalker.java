@@ -21,23 +21,23 @@ public interface TreeWalker {
 	 * Sets the root object that the walker will walk. Implementations
 	 * must check the type of the root object.
 	 * @param rootObject
-	 * @throws BosException
+	 * @throws Exception
 	 */
-	public void setRootObject(Object rootObject) throws BosException;
+	public void setRootObject(Object rootObject) throws Exception;
 	
 	/**
 	 * Walk the previously-set root object and add the result to the 
 	 * specified Bounded Object Set.
 	 * @param bos Bounded Object Set to which members may be added as a result of walking the tree.
-	 * @throws BosException
+	 * @throws Exception 
 	 */
-	public void walk(BoundedObjectSet bos) throws BosException;
+	public void walk(BoundedObjectSet bos) throws Exception;
 	
 	/**
 	 * Gets the configured root object, or null if not set.
 	 * @return
-	 * @throws BosException
+	 * @throws Exception
 	 */
-	public Object getRootObject() throws BosException;
+	public Object getRootObject() throws Exception;
 
 }

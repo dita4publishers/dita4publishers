@@ -5,7 +5,6 @@ package net.sourceforge.dita4publishers.tools.dxp;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -28,9 +27,7 @@ import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.dita.AddressingUtil;
 import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelper;
-import net.sourceforge.dita4publishers.impl.ditabos.DitaBosHelperException;
 import net.sourceforge.dita4publishers.tools.common.MapBosProcessorOptions;
-import net.sourceforge.dita4publishers.util.DomException;
 import net.sourceforge.dita4publishers.util.DomUtil;
 
 import org.apache.commons.io.IOUtils;
@@ -52,10 +49,9 @@ public class DitaDxpHelper {
 	 * Given a DITA map bounded object set, zips it up into a DXP Zip package.
 	 * @param mapBos
 	 * @param outputZipFile
-	 * @throws IOException 
-	 * @throws BosException 
+	 * @throws Exception 
 	 */
-	public static void zipMapBos(DitaBoundedObjectSet mapBos, File outputZipFile, MapBosProcessorOptions options) throws BosException, IOException {
+	public static void zipMapBos(DitaBoundedObjectSet mapBos, File outputZipFile, MapBosProcessorOptions options) throws Exception {
 		/*
 		 *  Some potential complexities:
 		 *  
@@ -275,13 +271,10 @@ public class DitaDxpHelper {
 	 * @param mapEntry
 	 * @param outputDir
 	 * @param dxpOptions
-	 * @throws IOException 
-	 * @throws DomException 
-	 * @throws DitaBosHelperException 
-	 * @throws BosException 
+	 * @throws Exception 
 	 */
 	private static void extractMap(ZipFile zipFile, ZipEntry mapEntry,
-			File outputDir, MapBosProcessorOptions dxpOptions) throws IOException, DomException, BosException, DitaBosHelperException {
+			File outputDir, MapBosProcessorOptions dxpOptions) throws Exception {
 		Map<URI, Document> domCache = new HashMap<URI, Document>();
 		
 		if (!dxpOptions.isQuiet())

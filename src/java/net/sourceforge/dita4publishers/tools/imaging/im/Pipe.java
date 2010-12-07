@@ -1,8 +1,8 @@
 package net.sourceforge.dita4publishers.tools.imaging.im;
 
-import java.io.OutputStream;
-import java.io.InputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 /**
  * This class implements a pipe. Useful for piping input to a process or piping

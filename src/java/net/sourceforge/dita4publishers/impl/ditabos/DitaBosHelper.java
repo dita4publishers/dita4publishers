@@ -34,10 +34,10 @@ public class DitaBosHelper {
 	 * @param log 
 	 * @param rootMap
 	 * @return
-	 * @throws BosException 
+	 * @throws Exception 
 	 */
 	public static DitaBoundedObjectSet calculateMapBos(
-			BosConstructionOptions bosOptions, Log log, Document rootMap) throws DitaBosHelperException, BosException {
+			BosConstructionOptions bosOptions, Log log, Document rootMap) throws Exception {
 
 		Map<URI, Document> domCache = bosOptions.getDomCache();
 		
@@ -79,11 +79,10 @@ public class DitaBosHelper {
 	 * @param log
 	 * @param rootMap
 	 * @return
-	 * @throws DitaBosHelperException 
-	 * @throws BosException 
+	 * @throws Exception 
 	 */
 	public static DitaBoundedObjectSet calculateMapTree(
-			BosConstructionOptions bosOptions, Log log, Document rootMap) throws DitaBosHelperException, BosException {
+			BosConstructionOptions bosOptions, Log log, Document rootMap) throws Exception {
 		bosOptions.setMapTreeOnly(true);
 		DitaBoundedObjectSet bos = calculateMapBos(bosOptions, log, rootMap);
 		return bos;

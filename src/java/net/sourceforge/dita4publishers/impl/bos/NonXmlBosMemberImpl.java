@@ -27,7 +27,7 @@ public class NonXmlBosMemberImpl extends BosMemberBase implements NonXmlBosMembe
 	 * @see com.reallysi.tools.dita.BosMemberBase#accept(com.reallysi.tools.dita.BosVisitor)
 	 */
 	@Override
-	public void accept(BosVisitor visitor) throws BosException {
+	public void accept(BosVisitor visitor) throws Exception {
 		visitor.visit(this);
 	}
 

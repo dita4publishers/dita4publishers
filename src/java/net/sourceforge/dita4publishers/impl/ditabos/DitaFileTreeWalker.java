@@ -4,8 +4,8 @@
 package net.sourceforge.dita4publishers.impl.ditabos;
 
 import net.sourceforge.dita4publishers.api.bos.BosException;
+import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
 import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
-import net.sourceforge.dita4publishers.impl.dita.InMemoryDitaKeySpace;
 
 import org.apache.commons.logging.Log;
 import org.w3c.dom.Document;
@@ -20,10 +20,10 @@ public class DitaFileTreeWalker extends DitaTreeWalkerBase  {
 	 * @param keySpace
 	 * @param failOnAddressResolutionFailure
 	 * @param bosConstructionOptions
-	 * @throws BosException
+	 * @throws Exception
 	 */
 	public DitaFileTreeWalker(Log log,
-			InMemoryDitaKeySpace keySpace, boolean failOnAddressResolutionFailure, BosConstructionOptions bosConstructionOptions) throws BosException {
+			DitaKeySpace keySpace, boolean failOnAddressResolutionFailure, BosConstructionOptions bosConstructionOptions) throws Exception {
 		super(log, keySpace, bosConstructionOptions);
 	}
 

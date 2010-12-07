@@ -1,7 +1,7 @@
 package net.sourceforge.dita4publishers.tools.imaging.im;
 
-import java.io.InputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * This interface defines an ErrorConsumer. An ErrorConsumer reads

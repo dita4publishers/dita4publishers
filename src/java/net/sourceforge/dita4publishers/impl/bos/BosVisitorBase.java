@@ -10,7 +10,6 @@ import net.sourceforge.dita4publishers.api.bos.BoundedObjectSet;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.jbpm.graph.exe.ExecutionContext;
 
 /**
  * Base class for BosVisitor implementations. Provides default BOS visiting method
@@ -19,7 +18,6 @@ import org.jbpm.graph.exe.ExecutionContext;
 public abstract class BosVisitorBase implements BosVisitor {
 
 	protected Log log = LogFactory.getLog(BosVisitorBase.class);
-	protected ExecutionContext context;
 	protected BoundedObjectSet bos;
 	protected BosMember rootMember;
 
@@ -41,7 +39,7 @@ public abstract class BosVisitorBase implements BosVisitor {
 	}
 	
 
-	public void visit(BosMember member) throws BosException {
+	public void visit(BosMember member) throws BosException, Exception {
 		log.warn("Fell through to visit(BosMember) method in BosVisitorBase visiting " + member.getClass().getName());
 	}
 
@@ -50,7 +48,7 @@ public abstract class BosVisitorBase implements BosVisitor {
 	 * @see com.reallysi.tools.dita.BosVisitor#visit(com.reallysi.tools.dita.BoundedObjectSet)
 	 */
 	public void visit(BoundedObjectSet bos)
-			throws BosException {
+			throws Exception, BosException {
 		// By default, just iterate over the members as a flat list.
 		this.bos = bos;
 		this.rootMember = bos.getRoot();

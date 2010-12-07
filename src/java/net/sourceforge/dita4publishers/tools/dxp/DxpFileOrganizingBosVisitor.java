@@ -80,7 +80,7 @@ public class DxpFileOrganizingBosVisitor extends BosVisitorBase implements
 	 * @see com.reallysi.tools.dita.BosVisitor#visit(com.reallysi.tools.dita.BoundedObjectSet)
 	 */
 	public void visit(BoundedObjectSet bos)
-			throws BosException {
+			throws Exception {
 		// If there is a root map, then everything is
 		// handled relative to it and there may not be a need
 		// for a manifest, otherwise we need to generate 

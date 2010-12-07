@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import javax.xml.transform.Transformer;
 import javax.xml.transform.URIResolver;
 
 import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
@@ -35,6 +36,7 @@ public class BosConstructionOptions {
 	private KeyAccessOptions keyAccessOptions = new KeyAccessOptions();
 	private XMLGrammarPool grammarPool = GrammarPoolManager.getGrammarPool();
 	private boolean quiet = false;  // When true, suppresses info logging.
+	private Transformer reportSerializationTransform;
 
 	/**
 	 * @return the invalidDocs
@@ -199,5 +201,21 @@ public class BosConstructionOptions {
 	public void setQuiet(boolean b) {
 		this.quiet = b;
 	}
+
+	/**
+	 * @return
+	 */
+	public Transformer getReportSerializationTransform() {
+		return this.reportSerializationTransform;
+	}
+
+	/**
+	 * @param validationReportTransform
+	 */
+	public void setReportSerializationTransform(
+			Transformer validationReportTransform) {
+		this.reportSerializationTransform = validationReportTransform;
+	}
+
 
 }

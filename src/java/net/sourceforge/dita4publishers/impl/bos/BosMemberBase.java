@@ -33,6 +33,7 @@ public abstract class BosMemberBase implements BosMember {
 	protected Map<String, BosMember> dependencies = new HashMap<String, BosMember>();
 	protected File fileSystemDirectory;
 	protected String fileName;
+	protected File file = null;
 	protected List<BosMember> children = new ArrayList<BosMember>();
 	private List<BosMember> parents = new ArrayList<BosMember>();
 	protected String key;
@@ -135,7 +136,11 @@ public abstract class BosMemberBase implements BosMember {
 		return this.fileName;
 	}
 	
-	public abstract void accept(BosVisitor visitor) throws BosException;
+	public File getFile() {
+		return this.file;
+	}
+	
+	public abstract void accept(BosVisitor visitor) throws Exception;
 
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
@@ -274,5 +279,15 @@ public abstract class BosMemberBase implements BosMember {
 		return resultSet;
 	}
 
+	public void setFileSystemDirectory(File directory) {
+		this.fileSystemDirectory = directory;
+	}
+
+	/**
+	 * @return
+	 */
+	public File getFileSystemDirectory() {
+		return this.fileSystemDirectory;
+	}
 	
 }

@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -46,6 +47,9 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
+
+import com.sun.org.apache.xml.internal.serialize.OutputFormat;
+import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
 
 /**
  * Utilities for constructing W3C DOMs.
@@ -392,6 +396,37 @@ public class DomUtil {
 		  throw new RuntimeException("Cannot serialize document: ", e);
 		}
 	}
+	
+	/**
+	 * Serialize document to XML string.
+	 * @param doc			Document node.
+	 * @return	XML string.
+	 */
+	public static String serializeToString(
+			Document doc
+	) {
+		if (doc == null) {
+			return null;
+		}
+		else {
+			StringWriter stringOut = new StringWriter();        //Writer will be a String;
+			try {
+				OutputFormat    format  = new OutputFormat(doc);   //Serialize DOM
+				format.setOmitXMLDeclaration(false);
+				format.setOmitDocumentType(false);
+				format.setIndenting(false);
+				format.setPreserveSpace(true);
+				format.setEncoding("UTF-8");
+				XMLSerializer    serial = new XMLSerializer( stringOut, format );
+				serial.asDOMSerializer();                            // As a DOM Serializer
+				serial.serialize(doc);
+			}
+			catch (IOException e) {}
+			return stringOut.toString();
+		}
+	}
+
+
 
     /**
      * Gets a transformer factory using the default URI resolver.

@@ -11,14 +11,16 @@ public interface BosVisitor {
 	/**
 	 * @param boundedObjectSet
 	 * @throws BosException 
+	 * @throws Exception 
 	 */
-	void visit(BoundedObjectSet boundedObjectSet) throws BosException;
+	void visit(BoundedObjectSet boundedObjectSet) throws BosException, Exception;
 
 	/**
 	 * @param bosMember
 	 * @throws BosException 
+	 * @throws Exception 
 	 * 
 	 */
-	void visit(BosMember bosMember) throws BosException;
+	void visit(BosMember bosMember) throws BosException, Exception;
 
 }

@@ -3,6 +3,8 @@
  */
 package net.sourceforge.dita4publishers.api.dita;
 
+import org.w3c.dom.Document;
+
 
 /**
  * Represents a key definition context. This class
@@ -34,5 +36,11 @@ public interface DitaKeyDefinitionContext {
 	 * @param keyAccessOptions
 	 */
 	void setKeyAccessOptions(KeyAccessOptions keyAccessOptions);
+
+	/**
+	 * Gets the root map document that establishes the key space context.
+	 * @return Root map document or null if the map document has not been established.
+	 */
+	Document getRootMapDoc();
 
 }

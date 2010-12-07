@@ -3,7 +3,6 @@
  */
 package net.sourceforge.dita4publishers.impl.ditabos;
 
-import net.sourceforge.dita4publishers.api.bos.BosException;
 import net.sourceforge.dita4publishers.api.bos.BoundedObjectSet;
 import net.sourceforge.dita4publishers.api.ditabos.DitaMapBosMember;
 
@@ -17,10 +16,10 @@ public class DitaMapBosMemberImpl extends DitaBosMemberImpl implements DitaMapBo
 	/**
 	 * @param bos
 	 * @param doc
-	 * @throws BosException
+	 * @throws Exception
 	 */
 	public DitaMapBosMemberImpl(BoundedObjectSet bos, Document doc)
-			throws BosException {
+			throws Exception {
 		super(bos, doc);
 	}
 

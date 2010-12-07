@@ -17,12 +17,14 @@ public class KeyDefinitionContextImpl implements DitaKeyDefinitionContext {
 	private String rootMapId;
 	private boolean outOfDate = true; // Out of date until loaded.
 	private KeyAccessOptions keyAccessOptions = new KeyAccessOptions();
+	private Document rootMapDoc = null;
 
 	/**
 	 * @param rootMap
 	 */
 	public KeyDefinitionContextImpl(Document rootMap) throws DitaApiException {
 		this.rootMapId = rootMap.getDocumentURI();
+		this.rootMapDoc = rootMap;
 	}
 	
 	public String getRootMapId() throws DitaApiException {
@@ -64,6 +66,11 @@ public class KeyDefinitionContextImpl implements DitaKeyDefinitionContext {
 	 */
 	public void setKeyAccessOptions(KeyAccessOptions keyAccessOptions) {
 		this.keyAccessOptions = keyAccessOptions;
+	}
+
+	@Override
+	public Document getRootMapDoc() {
+		return this.rootMapDoc;
 	}
 
 }

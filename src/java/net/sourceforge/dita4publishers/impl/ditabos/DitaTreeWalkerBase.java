@@ -23,7 +23,7 @@ import net.sourceforge.dita4publishers.api.bos.NonXmlBosMember;
 import net.sourceforge.dita4publishers.api.bos.XmlBosMember;
 import net.sourceforge.dita4publishers.api.dita.DitaApiException;
 import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
-import net.sourceforge.dita4publishers.api.ditabos.ConrefDependency;
+import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
 import net.sourceforge.dita4publishers.api.ditabos.Constants;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
 import net.sourceforge.dita4publishers.api.ditabos.DitaTreeWalker;
@@ -50,15 +50,17 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	 * dependencies, so we don't walk the same member twice.
 	 */
 	private Set<BosMember> walkedMembers = new HashSet<BosMember>();
+	protected KeyAccessOptions keyAccessOptions;
 	/**
 	 * @param keySpace
 	 * @param bosConstructionOptions 
 	 * @throws BosException 
 	 */
 	public DitaTreeWalkerBase(Log log,
-			DitaKeySpace keySpace, BosConstructionOptions bosConstructionOptions) throws BosException {
+			DitaKeySpace keySpace, BosConstructionOptions bosConstructionOptions) throws Exception {
 		super(log, bosConstructionOptions);
 		this.keySpace = keySpace;		
+		this.keyAccessOptions = new KeyAccessOptions();
 	}
 
 	/**
@@ -74,9 +76,9 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	 * @param bos
 	 * @param xmlBosMember
 	 * @param level 
-	 * @throws BosException 
+	 * @throws Exception 
 	 */
-	protected void walkTopic(BoundedObjectSet bos, XmlBosMember xmlBosMember, int level) throws BosException {
+	protected void walkTopic(BoundedObjectSet bos, XmlBosMember xmlBosMember, int level) throws Exception {
 		try {
 			walkTopicGetDependencies(bos, xmlBosMember);
 		} catch (DitaApiException e) {
@@ -87,11 +89,10 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	/**
 	 * @param bos
 	 * @param member
-	 * @throws BosException 
-	 * @throws DitaApiException 
+	 * @throws Exception 
 	 */
 	protected void walkMapGetDependencies(BoundedObjectSet bos, DitaMapBosMemberImpl member)
-			throws BosException, DitaApiException {
+			throws Exception {
 				NodeList topicrefs;
 				try {
 					topicrefs = (NodeList)DitaUtil.allTopicrefs.evaluate(member.getElement(), XPathConstants.NODESET);
@@ -179,11 +180,10 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	/**
 	 * @param bos
 	 * @param member
-	 * @throws BosException 
-	 * @throws DitaApiException 
+	 * @throws Exception 
 	 */
 	protected void walkMemberGetDependencies(BoundedObjectSet bos, BosMember member)
-			throws BosException, DitaApiException {
+			throws Exception {
 				if (!(member instanceof XmlBosMember)) {
 					// Nothing to do for now. At some point should be able
 					// to delegate to walker for non-XML objects.
@@ -204,11 +204,10 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	/**
 	 * @param bos
 	 * @param member
-	 * @throws BosException 
-	 * @throws DitaApiException 
+	 * @throws Exception 
 	 */
 	private void walkTopicGetDependencies(BoundedObjectSet bos, XmlBosMember member)
-			throws BosException, DitaApiException {
+			throws Exception {
 				log.debug("walkTopicGetDependencies(): handling topic " + member + "...");
 				Set<BosMember> newMembers = new HashSet<BosMember>(); 
 				log.debug("walkTopicGetDependencies():   getting conref dependencies...");
@@ -290,11 +289,10 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	 * @param bos
 	 * @param member
 	 * @param newMembers
-	 * @throws BosException 
-	 * @throws DitaApiException 
+	 * @throws Exception 
 	 */
 	protected void findLinkDependencies(BoundedObjectSet bos, XmlBosMember member, Set<BosMember> newMembers)
-			throws BosException, DitaApiException {
+			throws Exception {
 				NodeList links;
 				try {
 					links = (NodeList)DitaUtil.allHrefsAndKeyrefs.evaluate(member.getElement(), XPathConstants.NODESET);
@@ -374,7 +372,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 
 
 	private void findConrefDependencies(BoundedObjectSet bos, XmlBosMember member, Set<BosMember> newMembers)
-			throws BosException, DitaApiException {
+			throws Exception {
 				NodeList conrefs;
 				try {
 					conrefs = (NodeList)DitaUtil.allConrefs.evaluate(member.getElement(), XPathConstants.NODESET);
@@ -457,11 +455,10 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	 * @param object
 	 * @param elem
 	 * @param level
-	 * @throws BosException 
-	 * @throws DitaApiException 
+	 * @throws Exception 
 	 */
 	protected void walkMapCalcMapTree(BoundedObjectSet bos, XmlBosMember currentMember, Document mapDoc,
-			int level) throws BosException, DitaApiException {
+			int level) throws Exception {
 				String levelSpacer = getLevelSpacer(level);
 				
 				log.debug("walkMap(): " + levelSpacer + "Walking map  " + mapDoc.getDocumentURI() + "...");
@@ -522,7 +519,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 			}
 
 
-	public void walk(DitaBoundedObjectSet bos, Document mapDoc) throws BosException, DitaApiException {
+	public void walk(DitaBoundedObjectSet bos, Document mapDoc) throws Exception {
 		URI mapUri;
 		try {
 			String mapUriStr = mapDoc.getDocumentURI();
@@ -583,13 +580,13 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 		
 	}
 
-	public void walk(DitaBoundedObjectSet bos) throws BosException, DitaApiException {
+	public void walk(DitaBoundedObjectSet bos) throws Exception {
 		if (this.getRootObject() == null)
 			throw new BosException("Root object no set, cannot continue.");
 		walk(bos, (Document) this.getRootObject());
 	}
 
-	public void walk(BoundedObjectSet bos) throws BosException {
+	public void walk(BoundedObjectSet bos) throws Exception {
 		if (this.getRootObject() == null)
 			throw new BosException("Root object no set, cannot continue.");
 		if (!(bos instanceof DitaBoundedObjectSet))

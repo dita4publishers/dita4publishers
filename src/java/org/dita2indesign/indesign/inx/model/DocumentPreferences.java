@@ -5,7 +5,6 @@ package org.dita2indesign.indesign.inx.model;
 
 import org.apache.log4j.Logger;
 import org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor;
-import org.w3c.dom.Element;
 
 
 /**

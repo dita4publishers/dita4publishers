@@ -104,7 +104,7 @@ public class DitaBoundedObjectSetImpl implements DitaBoundedObjectSet {
 	/* (non-Javadoc)
 	 * @see com.reallysi.tools.dita.BoundedObjectSet#accept(com.reallysi.tools.dita.BosVisitor)
 	 */
-	public void accept(BosVisitor visitor) throws BosException {
+	public void accept(BosVisitor visitor) throws Exception {
 		visitor.visit(this);
 		
 	}
@@ -120,7 +120,7 @@ public class DitaBoundedObjectSetImpl implements DitaBoundedObjectSet {
 	 * @see com.reallysi.tools.dita.BoundedObjectSet#constructBosMember(com.reallysi.tools.dita.BosMember, org.w3c.dom.Document)
 	 */
 	public XmlBosMember constructBosMember(BosMember parentMember,
-			Document doc) throws BosException {
+			Document doc) throws Exception {
 		XmlBosMember newMember = null;
 		Element elem =  doc.getDocumentElement();
 		String key = doc.getDocumentURI();

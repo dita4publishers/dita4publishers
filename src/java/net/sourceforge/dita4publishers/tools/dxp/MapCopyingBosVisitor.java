@@ -49,7 +49,7 @@ public class MapCopyingBosVisitor extends DitaBosVisitorBase {
 	}
 
 	public void visit(BoundedObjectSet bos)
-	throws BosException {
+	throws Exception {
 		this.bos = bos;
 		this.rootMember = bos.getRoot();
 		if (this.rootMember == null) {

@@ -52,9 +52,9 @@ public interface BoundedObjectSet {
 	/**
 	 * Accepts a BOS visitor and applies it to the BOS appropriately.
 	 * @param visitor
-	 * @throws BosException 
+	 * @throws Exception 
 	 */
-	public abstract void accept(BosVisitor visitor) throws BosException;
+	public abstract void accept(BosVisitor visitor) throws Exception;
 
 	/**
 	 * Gets the log associated with the BOS.
@@ -69,9 +69,10 @@ public interface BoundedObjectSet {
 	 * @return The BOS member. If a BOS member for specified document
 	 * already exists, that member is returned.
 	 * @throws BosException 
+	 * @throws Exception 
 	 */
 	public abstract XmlBosMember constructBosMember(BosMember parentMember,
-			Document document) throws BosException;
+			Document document) throws BosException, Exception;
 
 	/**
 	 * Create a BOS member whose data source is a URI. Implies that the
