@@ -4,14 +4,17 @@
 package net.sourceforge.dita4publishers.impl.ditabos;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
 import net.sourceforge.dita4publishers.api.bos.BosException;
 import net.sourceforge.dita4publishers.api.bos.BosMember;
 import net.sourceforge.dita4publishers.api.bos.BosVisitor;
+import net.sourceforge.dita4publishers.api.bos.DependencyType;
 import net.sourceforge.dita4publishers.api.bos.NonXmlBosMember;
 import net.sourceforge.dita4publishers.api.bos.XmlBosMember;
 import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
@@ -37,6 +40,9 @@ public class DitaBoundedObjectSetImpl implements DitaBoundedObjectSet {
 	private Log log;
 	private BosConstructionOptions bosOptions;
 	private DitaKeySpace keySpace;
+	// Indexed by member key, each entry is the list of members that have a dependency
+	// on the indexed member.
+	private Map<String, List<BosMember>> membersWhereUsed = new HashMap<String, List<BosMember>>();
 
 	/**
 	 * @param bosOptions
@@ -73,14 +79,9 @@ public class DitaBoundedObjectSetImpl implements DitaBoundedObjectSet {
 	 * @see com.reallysi.tools.dita.BoundedObjectSet#addMember(com.reallysi.tools.dita.BosMember, com.reallysi.tools.dita.BosMember)
 	 */
 	public BosMember addMember(BosMember parentMember, BosMember member) {
-		String memberKey = member.getKey();
-		if (!this.members .containsKey(memberKey)) {
-			this.members.put(memberKey, member);
-		} else {
-			member = getMember(member.getKey());		
-		}
+		addMember(member);
 		if (parentMember != null)
-			parentMember.addChild(member);
+			parentMember.addChild(member);		
 		return member;
 	}
 
@@ -88,7 +89,7 @@ public class DitaBoundedObjectSetImpl implements DitaBoundedObjectSet {
 	 * @param key
 	 * @return
 	 */
-	private BosMember getMember(String key) {
+	protected BosMember getMember(String key) {
 		return this.members.get(key);
 	}
 
@@ -186,6 +187,42 @@ public class DitaBoundedObjectSetImpl implements DitaBoundedObjectSet {
 	public void setKeySpace(
 			DitaKeySpace keySpace) {
 		this.keySpace = keySpace;
+	}
+
+	@Override
+	public BosMember addMember(BosMember member) {
+		String memberKey = member.getKey();
+		if (!this.members .containsKey(memberKey)) {
+			this.members.put(memberKey, member);
+		} else {
+			member = getMember(member.getKey());		
+		}
+		return member;
+	}
+
+	@Override
+	public void addMemberAsDependency(
+			String dependencyKey, 
+			DependencyType depType,
+			XmlBosMember usingMember, 
+			BosMember usedMember) {
+		addMember(usedMember);
+		usingMember.registerDependency(dependencyKey, usingMember, depType);
+		// Now add to the where-used table, which is indexed by used member key:
+		List<BosMember> usingMembers = this.getWhereUsed(usedMember);
+		if (!usingMembers.contains(usingMember)) {
+			usingMembers.add(usingMember);
+		}
+	}
+
+	@Override
+	public List<BosMember> getWhereUsed(BosMember usedMember) {
+		List<BosMember> usingMembers = this.membersWhereUsed.get(usedMember.getKey());
+		if (usingMembers == null) {
+			usingMembers = new ArrayList<BosMember>();
+			this.membersWhereUsed .put(usedMember.getKey(), usingMembers);
+		}
+		return usingMembers;
 	}
 
 }

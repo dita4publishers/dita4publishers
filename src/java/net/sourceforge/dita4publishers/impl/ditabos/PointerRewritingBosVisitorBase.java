@@ -8,6 +8,9 @@ import javax.xml.xpath.XPathExpressionException;
 
 import net.sourceforge.dita4publishers.api.bos.BosException;
 import net.sourceforge.dita4publishers.api.bos.BosMember;
+import net.sourceforge.dita4publishers.api.ditabos.DitaBosMember;
+import net.sourceforge.dita4publishers.api.ditabos.DitaMapBosMember;
+import net.sourceforge.dita4publishers.api.ditabos.DitaTopicBosMember;
 import net.sourceforge.dita4publishers.impl.dita.AddressingException;
 import net.sourceforge.dita4publishers.util.DitaUtil;
 
@@ -32,14 +35,14 @@ public abstract class PointerRewritingBosVisitorBase extends DitaBosVisitorBase 
 	/* (non-Javadoc)
 	 * @see com.reallysi.tools.dita.BosVisitor#visit(com.reallysi.tools.dita.DitaMapBosMember)
 	 */
-	public void visit(DitaMapBosMemberImpl bosMember) throws BosException {
+	public void visit(DitaMapBosMember bosMember) throws BosException {
 		visit((DitaBosMemberImpl)bosMember);
 	}
 
 	/* (non-Javadoc)
 	 * @see com.reallysi.tools.dita.BosVisitor#visit(com.reallysi.tools.dita.DitaTopicBosMember)
 	 */
-	public void visit(DitaTopicBosMemberImpl bosMember) throws BosException {
+	public void visit(DitaTopicBosMember bosMember) throws BosException {
 		visit((DitaBosMemberImpl)bosMember);
 	}
 
@@ -58,7 +61,7 @@ public abstract class PointerRewritingBosVisitorBase extends DitaBosVisitorBase 
 	 * peer resources, rewriting key references, updating content
 	 * in a CMS, etc.).
 	 */
-	public void visit(DitaBosMemberImpl bosMember) throws BosException {
+	public void visit(DitaBosMember bosMember) throws BosException {
 		try {
 			if (rewriteLocalUris(bosMember)) {						
 				// Do whatever needs to be done to react to pointer
@@ -74,7 +77,7 @@ public abstract class PointerRewritingBosVisitorBase extends DitaBosVisitorBase 
 	 * Iterates over all direct URI references to local-scope resources in the member and
 	 * rewrites them as necessary.
 	 */
-	public boolean rewriteLocalUris(DitaBosMemberImpl member) throws BosException, AddressingException {
+	public boolean rewriteLocalUris(DitaBosMember member) throws BosException, AddressingException {
 		// Find all pointers and then look up our dependencies by those values
 		log.debug("Rewriting local URIs for BOS member " + member + "...");
 		NodeList nl;
@@ -113,7 +116,7 @@ public abstract class PointerRewritingBosVisitorBase extends DitaBosVisitorBase 
 	 * @return
 	 * @throws AddressingException 
 	 */
-	protected abstract String constructNewHref(DitaBosMemberImpl member, BosMember depMember, Element ref) throws BosException, AddressingException;
+	protected abstract String constructNewHref(DitaBosMember member, BosMember depMember, Element ref) throws BosException, AddressingException;
 
 
 }

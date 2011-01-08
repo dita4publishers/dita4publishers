@@ -20,7 +20,7 @@ import net.sourceforge.dita4publishers.api.bos.BosMember;
 import net.sourceforge.dita4publishers.api.bos.BosVisitor;
 import net.sourceforge.dita4publishers.api.bos.BoundedObjectSet;
 import net.sourceforge.dita4publishers.api.bos.DependencyType;
-import net.sourceforge.dita4publishers.impl.ditabos.DitaBoundedObjectSetImpl;
+import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
 
 import org.apache.commons.io.FilenameUtils;
 
@@ -57,7 +57,7 @@ public abstract class BosMemberBase implements BosMember {
 	 * @param bos
 	 * @param dataSourceUri
 	 */
-	public BosMemberBase(DitaBoundedObjectSetImpl bos, URI dataSourceUri) {
+	public BosMemberBase(DitaBoundedObjectSet bos, URI dataSourceUri) {
 		this.bos = bos;
 		this.setDataSourceUri(dataSourceUri);
 		this.setEffectiveUri(dataSourceUri);

@@ -24,8 +24,11 @@ import net.sourceforge.dita4publishers.api.bos.XmlBosMember;
 import net.sourceforge.dita4publishers.api.dita.DitaApiException;
 import net.sourceforge.dita4publishers.api.dita.DitaKeySpace;
 import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
+import net.sourceforge.dita4publishers.api.ditabos.ConrefDependency;
 import net.sourceforge.dita4publishers.api.ditabos.Constants;
 import net.sourceforge.dita4publishers.api.ditabos.DitaBoundedObjectSet;
+import net.sourceforge.dita4publishers.api.ditabos.DitaMapBosMember;
+import net.sourceforge.dita4publishers.api.ditabos.DitaTopicBosMember;
 import net.sourceforge.dita4publishers.api.ditabos.DitaTreeWalker;
 import net.sourceforge.dita4publishers.impl.bos.BosConstructionOptions;
 import net.sourceforge.dita4publishers.impl.dita.AddressingException;
@@ -91,7 +94,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 	 * @param member
 	 * @throws Exception 
 	 */
-	protected void walkMapGetDependencies(BoundedObjectSet bos, DitaMapBosMemberImpl member)
+	protected void walkMapGetDependencies(BoundedObjectSet bos, DitaMapBosMember member)
 			throws Exception {
 				NodeList topicrefs;
 				try {
@@ -191,9 +194,9 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 					Element elem = ((XmlBosMember)member).getElement();
 					this.walkedMembers.add(member);
 					if (DitaUtil.isDitaMap(elem)) {
-						walkMapGetDependencies(bos, (DitaMapBosMemberImpl)member);
+						walkMapGetDependencies(bos, (DitaMapBosMember)member);
 					} else if (DitaUtil.isDitaTopic(elem) || DitaUtil.isDitaBase(elem)) {
-						walkTopicGetDependencies(bos, (DitaTopicBosMemberImpl)member);
+						walkTopicGetDependencies(bos, (DitaTopicBosMember)member);
 					} else {
 						log.warn("XML Managed object of type \"" + elem.getTagName() + "\" is not recognized as a map or topic. Not examining for dependencies");
 					}
@@ -355,17 +358,16 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 					if (targetDoc == null && targetUri == null || targetDoc == member.getDocument())
 						continue;
 
-					BosMember childMember = null;
+					BosMember depMember = null;
 					if (targetDoc != null) {		
 						log.debug("findLinkDependencies(): Got document \"" + targetDoc.getDocumentURI() + "\"");
-						childMember = bos.constructBosMember(member, targetDoc);
+						depMember = bos.constructBosMember(member, targetDoc);
 					} else if (targetUri != null) {
 						log.debug("findLinkDependencies(): Got URI \"" + targetUri.toString() + "\"");
-						childMember = bos.constructBosMember((BosMember)member, targetUri);
+						depMember = bos.constructBosMember((BosMember)member, targetUri);
 					}
-					newMembers.add(childMember);
-					// Key references don't need to be rewritten so we only care if an href was used to resolve the dependency
-					member.registerDependency(dependencyKey, childMember, depType);
+					newMembers.add(depMember);
+					bos.addMemberAsDependency(dependencyKey, depType, member, depMember);
 				}
 				
 			}
@@ -408,8 +410,9 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 						// bos.addMember(member, childMember);
 						newMembers.add(childMember);
 						if (href != null) {
-							member.registerDependency(href, childMember, Constants.CONREF_DEPENDENCY);
-							
+							bos.addMemberAsDependency(href, Constants.CONREF_DEPENDENCY, member, childMember);							
+						} else {
+							bos.addMember(childMember);
 						}
 					}
 				}
@@ -565,7 +568,7 @@ public abstract class DitaTreeWalkerBase extends TreeWalkerBase implements DitaT
 			Iterator<BosMember> iter = mapMembers.iterator();
 			while (iter.hasNext()) {
 				BosMember mapMember = iter.next();
-				walkMapGetDependencies(bos, (DitaMapBosMemberImpl)mapMember);
+				walkMapGetDependencies(bos, (DitaMapBosMember)mapMember);
 			}
 			log.debug("walk(): Map dependencies calculated.");
 			

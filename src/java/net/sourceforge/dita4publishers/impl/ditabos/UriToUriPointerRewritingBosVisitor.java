@@ -10,6 +10,7 @@ import java.net.URISyntaxException;
 
 import net.sourceforge.dita4publishers.api.bos.BosException;
 import net.sourceforge.dita4publishers.api.bos.BosMember;
+import net.sourceforge.dita4publishers.api.ditabos.DitaBosMember;
 import net.sourceforge.dita4publishers.impl.dita.AddressingException;
 import net.sourceforge.dita4publishers.impl.dita.AddressingUtil;
 
@@ -45,7 +46,7 @@ public class UriToUriPointerRewritingBosVisitor extends
 	 * @see net.sourceforge.dita4publishers.impl.ditabos.PointerRewritingBosVisitorBase#constructNewHref(net.sourceforge.dita4publishers.api.ditabos.XmlBosMember, org.w3c.dom.Element)
 	 */
 	@Override
-	protected String constructNewHref(DitaBosMemberImpl member, BosMember depMember, Element ref)
+	protected String constructNewHref(DitaBosMember member, BosMember depMember, Element ref)
 			throws BosException, AddressingException {
 		URI baseUri;
 		try {

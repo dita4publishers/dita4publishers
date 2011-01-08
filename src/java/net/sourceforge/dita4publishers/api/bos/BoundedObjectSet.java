@@ -5,6 +5,7 @@ package net.sourceforge.dita4publishers.api.bos;
 
 import java.net.URI;
 import java.util.Collection;
+import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.w3c.dom.Document;
@@ -100,6 +101,31 @@ public interface BoundedObjectSet {
 	 */
 	public abstract BosMember addMember(BosMember parentMember, BosMember member) throws BosException;
 
+	/**
+	 * Adds a new member.
+	 * @param member Member to add if it is not already a member, based on member key matching.
+	 * @return The BosMember added or the pre-existing member instance.
+	 */
+	public abstract BosMember addMember(BosMember member);
 
+	/**
+	 * Adds a member, if it is not already a member, and registers it as a dependency of the
+	 * the using member.
+	 * @param dependencyKey The key, whithin the scope of the using member, that distinguishes the
+	 * the dependency, such as an href or keyref value. 
+	 * @param depType The type of the dependency.
+	 * @param usingMember The member that has a dependency on the used member. 
+	 * @param usedMember The member to add and on which the using member has a dependency.
+	 */
+	public abstract void addMemberAsDependency(String dependencyKey, DependencyType depType, XmlBosMember usingMember,
+			BosMember usedMember);
+
+
+	/**
+	 * Returns the list, possibly empty, of BosMembers that use specified member.
+	 * @param usedMember Member to get the where-used list for.
+	 * @return List of using members, possibly empty.
+	 */
+	public abstract List<BosMember> getWhereUsed(BosMember usedMember);
 
 }
