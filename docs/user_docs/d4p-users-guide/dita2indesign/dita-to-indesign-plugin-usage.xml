@@ -21,7 +21,15 @@
       <parml>
         <plentry>
           <pt><parmname>output.dir</parmname></pt>
-          <pd>Specifies the absolute path of of the directory to contain the generated output.</pd>
+          <pd>Specifies the absolute path of the directory to contain the generated output.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>title.only.topic.class.spec</parmname></pt>
+          <pd>Specifies the <xmlatt>class</xmlatt> value to use for topics generated from topic heads.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>title.only.topic.title.class.spec</parmname></pt>
+          <pd>Specifies the <xmlatt>class</xmlatt> value to use for the titles of topics generated from topic heads.</pd>
         </plentry>
       </parml>
     </section>

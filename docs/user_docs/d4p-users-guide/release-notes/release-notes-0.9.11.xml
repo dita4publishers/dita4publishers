@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>Release Notes: Version 0.9.11</title>
+ <shortdesc>Version 0.9.11 released 9 January 2011</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>
+          <indexterm>release notes<indexterm>Version 0.9.10</indexterm></indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <section>
+      <title>General</title>
+      <ul>
+        <li>Fixed bug where plugins unconditionally turned off graphic copying for all transformation types.</li>
+      </ul>
+    </section>
+    <section>
+      <title>DITA to InDesign</title>
+      <ul
+        id="ul_c0f0cea1-860d-4c82-851a-514b46a8275c">
+        <li>Added new DITA-to-InDesign transformation type.<note>The transformation type works but is not fully realized or completely documented. </note></li>
+        <li>Added start of documentation for DITA-to-InDesign.</li>
+      </ul>
+    </section>
+    <section>
+      <title>Vocabulary</title>
+      <ul>
+        <li>Added new experimental "variables" (d4p_variables) domain that is an experiment in using map and topic metadata to define "variables" that can be defined within a specific map or topicref context.</li>
+      </ul>
+    </section>
+  </conbody>
+</concept>

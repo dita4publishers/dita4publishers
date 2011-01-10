@@ -6,9 +6,10 @@
 	
 	<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
 	<property name="debug" value="false"/>
-	
-	<property name="args.hide.parent.link" value="yes"/><!-- Turn off parent links in topics by default -->
 
+	<!--
+	<property name="args.hide.parent.link" value="yes"/>
+  -->
 	<property name="indesign.temp.dir" value="${dita.temp.dir}${file.separator}indesign_temp"/>
 	
 	<target name="dita2indesign"
