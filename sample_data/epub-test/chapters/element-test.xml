@@ -7,6 +7,7 @@
   <body>
     <p>The title of this chapter contains two <xmlelem>ph</xmlelem> elements with a literal space between them. The space should be preserved in the output ToC.</p>
   </body>
+  
   <subsection
     id="ss1">
     <title>Inline elements</title>
@@ -15,6 +16,12 @@
       <p>Italic: <i>italic text</i>.</p>
       <p>Bold italic: <b><i>bold italic</i></b>.</p>
       <p>Citation: <cite>citation text</cite>.</p>
+      <p>Footnote with no ID<fn>This is a footnote with no ID.</fn><fn
+        id="fn-01">This is a footnote with an ID.</fn></p>
+      <p>Xref to footnote<xref
+        href="#ss1/fn-01"
+        format="dita"
+        type="fn"/></p>
       <p>Index term: /<indexterm>index term</indexterm>/ (There should be no visible text between the "/" characters.)</p>
       <p>Keyword: <keyword>keyword value</keyword>.</p>
       <p>Line through (strikeout): <linethrough>line through text</linethrough>.</p>

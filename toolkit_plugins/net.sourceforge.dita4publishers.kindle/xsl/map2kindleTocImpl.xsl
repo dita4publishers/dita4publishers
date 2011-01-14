@@ -277,7 +277,9 @@
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
 -->  
-  <xsl:template mode="nav-point-title #default" match="*[df:class(., 'topic/fn')]" priority="10">
+<!--  WEK: included #default mode, which is bad. -->
+
+  <xsl:template mode="nav-point-title" match="*[df:class(., 'topic/fn')]" priority="10">
     <!-- Suppress footnotes in titles -->
   </xsl:template>
   

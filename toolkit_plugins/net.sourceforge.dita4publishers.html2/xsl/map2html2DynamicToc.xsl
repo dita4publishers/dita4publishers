@@ -114,12 +114,9 @@
     <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
     
     <xsl:if test="$tocDepth le $maxTocDepthInt">
-      <!-- For title that shows up in ncx:text, use the navtitle. If it's
-        not there, use the first title element in the referenced file. -->
       <xsl:variable name="navPointTitle">
         <xsl:apply-templates select="." mode="nav-point-title"/>      
       </xsl:variable>
-      
       <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
       <xsl:choose>
         <xsl:when test="not($topic)">
@@ -236,11 +233,13 @@
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
 -->  
-  <xsl:template mode="nav-point-title #default" match="*[df:class(., 'topic/fn')]" priority="10">
+<!--  WEK: included #default mode, which is bad. -->
+
+  <xsl:template mode="nav-point-title" match="*[df:class(., 'topic/fn')]" priority="10">
     <!-- Suppress footnotes in titles -->
   </xsl:template>
   
-  <xsl:template match="*[df:class(., 'topic/tm')]" mode="generate-dynamic-toc"> 
+  <xsl:template match="*[df:class(., 'topic/tm')]" mode="generate-dynamic-toc nav-point-title"> 
     <xsl:apply-templates mode="#current"/>
     <xsl:choose>
       <xsl:when test="@type = 'reg'">

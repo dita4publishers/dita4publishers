@@ -51,7 +51,10 @@
     <pubbody
       collection-type="sequence">
       <chapter
-        href="chapters/element-test.xml"/>
+        href="chapters/element-test.xml">
+        <subsection
+          href="chapters/title-with-footnote.xml"/>
+      </chapter>
       <chapter
         href="chapters/graphic-tests.xml">
         <subsection

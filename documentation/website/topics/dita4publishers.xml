@@ -8,15 +8,13 @@
       <created
         date="2009-05-20"/>
       <revised
-        modified="2011-01-09"/>
+        modified="2011-01-13"/>
     </critdates>
   </prolog>
   <body>
-    <p>Updates for 9 Jan 2011:<ul
+    <p>Updates for 13 Jan 2011:<ul
       id="ul_e5a3356b-1f4e-4c6d-a24b-68eb7d56fed6">
-      <li>Fixed bug in Ant build scripts for plugins that unconditionally turned off graphic copying for all transformation types.</li>
-      <li>Added new DITA-to-InDesign transformation type and supporting documentation. NOTE: This is still preliminary and is not fully realized or documented. It will produce usable output but it's not as generalized or parameterized as needs to be for general use.</li>
-      <li>Added new experimental "variables" (d4p_variables) domain that is an experiment in using map and topic metadata to define "variables" that can be defined within a specific map or topicref context.</li>
+      <li>Fixed bug in handling of footnotes that resulted in footnote callouts being suppressed in all HTML-based outputs (HTML2, EPUB, Kindle).</li>
       </ul></p>
     <p>The DITA for Publishers project is an open-source, community project to enable the quick and productive use of DITA by Publishers. Enabling activities include:<ul
       id="ul_05546f8a-88ba-476d-8d8b-352681eb9e67">
