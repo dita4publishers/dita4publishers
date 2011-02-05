@@ -86,7 +86,7 @@
             </xsl:variable>
             
             <xsl:variable name="pubid" as="xs:string" select="normalize-space(string-join($basePubId,''))"/>
-            <xsl:variable name="bookid" select="string(resolve-uri($IdURIStub, $pubid))" as="xs:string"/>
+            <xsl:variable name="bookid" select="string(resolve-uri($idURIStub, $pubid))" as="xs:string"/>
             <!-- FIXME: Need to refine how EPUB ID is constructed. Not sure what shape this should take
                         given that you can have any number of pubid elements.
             -->

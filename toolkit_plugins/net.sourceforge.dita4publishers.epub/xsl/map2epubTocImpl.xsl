@@ -80,7 +80,7 @@
       <ncx xmlns="http://www.daisy.org/z3986/2005/ncx/"
         version="2005-1" xml:lang="en">
         <head xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/">
-          <meta name="dtb:uid" content="{$IdURIStub}{@id}"/>
+          <meta name="dtb:uid" content="{$idURIStub}{@id}"/>
           <meta name="dtb:depth" content="1"/>
           <meta name="dtb:totalPageCount" content="0"/>
           <meta name="dtb:maxPageNumber" content="0"/>

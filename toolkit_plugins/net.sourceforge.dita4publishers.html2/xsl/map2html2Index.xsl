@@ -18,7 +18,7 @@
     
     NOTE: This functionality is not completely implemented.
     
-    Copyright (c) 2010 DITA For Publishers
+    Copyright (c) 2010, 2011 DITA For Publishers
     
     Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
     The intent of this license is for this material to be licensed in a way that is
@@ -60,14 +60,43 @@
                 group-by="local:construct-index-group-key(.)"
                 >
                 <xsl:sort select="local:construct-index-group-sort-key(.)"/>
-                <xsl:message> + [DEBUG] Index group "<xsl:sequence select="current-grouping-key()"/>"</xsl:message>
+                <xsl:message> + [DEBUG] Index group "<xsl:sequence select="local:construct-index-group-label(current-group()[1])"/>", grouping key: "<xsl:sequence select="current-grouping-key()"/>", sort key: "<xsl:sequence select="local:construct-index-group-sort-key(.)"/>"</xsl:message>
                 <div class="index-group">
                   <h2><xsl:sequence select="local:construct-index-group-label(current-group()[1])"/></h2>
+                  <!-- At this point, the current group is all entries within the group. 
+                    
+                       Now need to group entries by primary term.
+                    -->
                   <ul class="index-terms">
                     <xsl:for-each-group select="current-group()" 
-                      group-by="normalize-space(./index-terms:label)">
-                      <xsl:sort select="normalize-space(./index-terms:label)"/>
-                      <xsl:apply-templates select="current-group()" mode="generate-index"/>
+                      group-by="local:construct-index-term-grouping-key(./index-terms:label)">
+                      <xsl:sort select="local:construct-index-term-sorting-key(./index-terms:label)"/>
+                      <xsl:variable name="firstPrimaryTerm" select="current-group()[1]" as="element()"/>
+                      <li class="index-term"  xmlns="http://www.w3.org/1999/xhtml">
+                        <span class="label"><xsl:apply-templates select="$firstPrimaryTerm/index-terms:label"/></span>
+                        <ul class="index-terms">
+                          <xsl:for-each-group select="current-group()/index-terms:index-term"
+                            group-by="local:construct-index-term-grouping-key(./index-terms:label)">
+                            <xsl:sort select="local:construct-index-term-sorting-key(./index-terms:label)"/>               
+                            <xsl:variable name="firstSecondaryTerm" select="current-group()[1]" as="element()"/>
+                            <li class="index-term"  xmlns="http://www.w3.org/1999/xhtml">
+                              <span class="label"><xsl:apply-templates
+                                  select="$firstSecondaryTerm/index-terms:label"/></span>
+                              <ul class="index-terms">
+                                <xsl:for-each-group select="current-group()/index-terms:index-term"
+                                  group-by="local:construct-index-term-grouping-key(./index-terms:label)">
+                                  <xsl:sort select="local:construct-index-term-sorting-key(./index-terms:label)"/>               
+                                  <xsl:variable name="firstTertiaryTerm" select="current-group()[1]" as="element()"/>
+                                  <li class="index-term"  xmlns="http://www.w3.org/1999/xhtml">
+                                    <span class="label"><xsl:apply-templates
+                                      select="$firstTertiaryTerm/index-terms:label"/></span>
+                                  </li>
+                                </xsl:for-each-group>
+                              </ul>                              
+                            </li>
+                          </xsl:for-each-group>
+                        </ul>
+                      </li>
                     </xsl:for-each-group>
                   </ul>
                 </div>
@@ -103,20 +132,65 @@
   
   <xsl:template mode="gather-index-terms" 
     match="*[df:class(.,'map/topicmeta')] | *[df:class(., 'topic/topic')]">
-    <xsl:apply-templates select=".//*[df:class(.,'topic/indexterm')]" mode="generate-index"/>
+    <xsl:apply-templates 
+      select=".//*[df:class(.,'topic/indexterm')]" mode="generate-index"/>
   </xsl:template>
   
-  <xsl:template mode="gather-index-terms" match="*[df:class(.,'topic/topic')]//*[df:class(.,'topic/indexterm')]">
+  <xsl:template mode="gather-index-terms" 
+    match="*[df:class(.,'topic/indexterm')]"> 
     <xsl:param name="targetUri" as="xs:string" tunnel="yes"/>
-    <index-term xmlns="http://dita4publishers.org/index-terms">
-      <label><xsl:apply-templates select="*[not(df:class(., 'topic/indexterm'))]|text()"/></label>
-      <target>[URI of the thing the index entry should point to goes here]</target>
-      <item-id><xsl:sequence select="generate-id()"/></item-id>
-      <xsl:apply-templates select="*[df:class(., 'topic/indexterm')]" mode="gather-index-terms"/>
-    </index-term>
+    
+    <xsl:variable name="labelContent" as="node()*">
+      <xsl:apply-templates select="*[not(df:class(., 'topic/indexterm')) and 
+        not(df:class(., 'topic/index-see')) and 
+        not(df:class(., 'topic/index-seealso'))] | 
+        text()" mode="index-term-label"/>
+    </xsl:variable>
+    
+    <xsl:if test="normalize-space(string-join($labelContent, '')) = '' and ./*">
+    </xsl:if>
+    
+    <xsl:choose>
+      <xsl:when test="normalize-space(string-join($labelContent, '')) = '' and not(./*)">
+        <xsl:message> + [INFO] Skipping empty <xsl:sequence select="name(.)"/> element in <xsl:sequence select="string(@xtrf)"/>...</xsl:message>
+      </xsl:when>
+      <xsl:when test="normalize-space(string-join($labelContent, '')) = '' and ./*">
+        <xsl:message> - [WARN] Empty index entry label for index entry with child elements in <xsl:sequence select="string(@xtrf)"/></xsl:message>
+        <xsl:message> - [WARN]   Entry: <xsl:apply-templates mode="report-element" select="."/></xsl:message>
+        <xsl:apply-templates mode="#current"/>
+      </xsl:when>
+      <xsl:otherwise>        
+        <!--<xsl:message> - [DEBUG] Entry: <xsl:apply-templates mode="report-element" select="."/></xsl:message>-->
+        <index-term xmlns="http://dita4publishers.org/index-terms">
+          <label><xsl:sequence select="$labelContent"/></label>
+          <target><xsl:sequence select="$targetUri"/></target>
+          <item-id><xsl:sequence select="generate-id()"/></item-id>
+          <!--<xsl:message> + [DEBUG] Handling nested index terms...</xsl:message>-->
+          <xsl:apply-templates select="*[df:class(., 'topic/indexterm')]" mode="#current"/>
+          <!--<xsl:message> + [DEBUG] Nested index terms handled.</xsl:message>-->
+        </index-term>
+      </xsl:otherwise>
+    </xsl:choose>
+    
+    
   </xsl:template>
   
-  <xsl:template match="text()" mode="gather-index-terms" priority="-1"/>    
+  <xsl:template match="text()" mode="gather-index-terms generate-index" priority="-1"/>    
+
+  <xsl:template match="text()" mode="index-term-label"
+  >
+    <xsl:sequence select="."></xsl:sequence>
+    <!-- Keep text for labels -->
+  </xsl:template>    
+  
+  <xsl:template mode="index-term-label" 
+    match="*[not(df:class(., 'topic/indexterm')) and 
+    not(df:class(., 'topic/index-see'))and 
+    not(df:class(., 'topic/index-seealso'))
+    ]">
+    <!-- Delegate to default mode processing for elements within index terms -->
+    <xsl:apply-templates select="." mode="#default"/>
+  </xsl:template>
   
   <xsl:template match="*[df:isTopicRef(.)]" mode="gather-index-terms">
       <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
@@ -130,8 +204,11 @@
             <!-- Any subordinate topics in the currently-referenced topic are
               reflected in the ToC before any subordinate topicrefs.
             -->
+            <!--<xsl:message> + [DEBUG] gather-index-terms: applying templates to indexterms in referenced topic:
+              <xsl:apply-templates select="$topic//*[df:class(., 'topic/indexterm')][not(parent::*[df:class(., 'topic/indexterm')])]" mode="report-element"></xsl:apply-templates>
+            </xsl:message>-->
             <xsl:apply-templates mode="#current" 
-              select="$topic//*[df:class(., 'topic/indexterm')], *[df:class(., 'map/topicref')]">
+              select="$topic//*[df:class(., 'topic/indexterm')][not(parent::*[df:class(., 'topic/indexterm')])], *[df:class(., 'map/topicref')]">
               <xsl:with-param name="targetUri" as="xs:string" tunnel="yes"
                 select="$targetUri"
               />
@@ -208,6 +285,18 @@
     </xsl:variable>
     
     <xsl:sequence select="$groupLabel"/>
+  </xsl:function>
+  
+  <xsl:function name="local:construct-index-term-grouping-key" as="xs:string">
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="grouping-key" as="xs:string" select="normalize-space($context)"/>
+    <xsl:sequence select="$grouping-key"/>
+  </xsl:function>
+  
+  <xsl:function name="local:construct-index-term-sorting-key" as="xs:string">
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="grouping-key" as="xs:string" select="lower-case(normalize-space($context))"/>
+    <xsl:sequence select="$grouping-key"/>
   </xsl:function>
   
   

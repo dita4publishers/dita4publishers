@@ -46,23 +46,16 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   
-  <!-- Import the base HTML output generation transform. -->
-  <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
   
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMap.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
   
-  <xsl:include href="map2html2Content.xsl"/>
-  <xsl:include href="map2html2RootPages.xsl"/>
-  <xsl:include href="map2html2DynamicToc.xsl"/>
-  <xsl:include href="map2html2StaticToc.xsl"/>
-  <xsl:include href="map2html2Frameset.xsl"/>
   <xsl:include href="map2html2Index.xsl"/>
 
   <xsl:include href="map2html2D4P.xsl"/>
   <xsl:include href="map2html2Bookmap.xsl"/>
   
+  <xsl:output name="topic-html" 
+    method="xhtml"/>
   <xsl:param name="inputFileNameParam"/>
   
   <!-- Directory into which the generated output is put.
@@ -111,7 +104,7 @@
   
        For now default to no since index generation is still under development.
   -->  
-  <xsl:param name="generateIndex" as="xs:string" select="'no'"/>
+  <xsl:param name="generateIndex" as="xs:string" select="'yes'"/>
   <xsl:variable name="generateIndexBoolean" 
     select="
     lower-case($generateIndex) = 'yes' or 
@@ -133,6 +126,10 @@
   
   <xsl:param name="generateStaticToc" select="'false'"/>
   <xsl:param name="generateStaticTocBoolean" select="matches($generateDynamicToc, 'yes|true|or', 'i')"/>
+  
+  <xsl:param name="CSSPATH" select="''"/>
+  <xsl:param name="DITAEXT" select="'.dita'"/>
+  <xsl:param name="newline" select="'&#x0a;'"/>
   
   <xsl:template name="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
@@ -157,12 +154,6 @@
       + titleOnlyTopicTitleClassSpec = "<xsl:sequence select="$titleOnlyTopicTitleClassSpec"/>"
       + topicsOutputDir    = "<xsl:sequence select="$topicsOutputDir"/>"
 
-      + DITAEXT         = "<xsl:sequence select="$DITAEXT"/>"
-      + WORKDIR         = "<xsl:sequence select="$WORKDIR"/>"
-      + PATH2PROJ       = "<xsl:sequence select="$PATH2PROJ"/>"
-      + KEYREF-FILE     = "<xsl:sequence select="$KEYREF-FILE"/>"
-      + CSS             = "<xsl:sequence select="$CSS"/>"
-      + CSSPATH         = "<xsl:sequence select="$CSSPATH"/>"
       + debug           = "<xsl:sequence select="$debug"/>"
       
       Global Variables:
@@ -243,14 +234,6 @@
 
     <xsl:variable name="uniqueTopicRefs" as="element()*" select="df:getUniqueTopicrefs(.)"/>
 
-    <xsl:variable name="graphicMap" as="element()">
-      <xsl:apply-templates select="." mode="generate-graphic-map">
-      </xsl:apply-templates>
-    </xsl:variable>
-    <xsl:result-document href="{relpath:newFile($outdir, 'graphicMap.xml')}" format="graphic-map">
-      <xsl:sequence select="$graphicMap"/>
-    </xsl:result-document>    
-    
     <xsl:message> + [INFO] Gathering index terms...</xsl:message>
     
     <!-- Gather all the index entries from the map and topic. 
@@ -263,7 +246,7 @@
       </index-terms>
     </xsl:variable>
     
-    <xsl:if test="true() and $debugBoolean">
+    <xsl:if test="true()">
       <xsl:result-document href="{relpath:newFile($outdir, 'index-terms.xml')}"
         format="indented-xml"
         >
@@ -271,22 +254,19 @@
       </xsl:result-document>
     </xsl:if>
     
-    <!-- NOTE: By default, this mode puts it output in the main output file
-         produced by the transform.
-      -->
-    <xsl:apply-templates select="." mode="generate-root-pages">
-      <xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/>
-      <xsl:with-param name="index-terms" as="element()" select="$index-terms" tunnel="yes"/>
-    </xsl:apply-templates>
-    <xsl:apply-templates select="." mode="generate-content">
-      <xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/>      
-    </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-index">
       <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
     </xsl:apply-templates>
-    <xsl:apply-templates select="." mode="generate-graphic-copy-ant-script">
-      <xsl:with-param name="graphicMap" as="element()" tunnel="yes" select="$graphicMap"/>
-    </xsl:apply-templates>
   </xsl:template>
+  
+  <xsl:template mode="report-element" match="*">
+    <xsl:element name="{name(.)}"><!-- avoid namespace nodes -->
+      <!-- Reinstate this line if you want to get unambiguous identity indicator -->
+      <xsl:attribute name="id" select="if (@id) then @id else generate-id(.)"/>
+      <xsl:apply-templates mode="#current" select="@*,node()"/>
+    </xsl:element>
+  </xsl:template>
+  
+  <xsl:template mode="report-element" match="@*"/>
    
 </xsl:stylesheet>

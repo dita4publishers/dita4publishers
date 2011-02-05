@@ -5,6 +5,8 @@
   <shortdesc>Specifies the directory to hold the CSS style sheets included in the EPUB package.</shortdesc>
   <refbody>
     <section
+      spectitle="Notes">This parameter is set through the value of the base <parmname>args.css.output.dir</parmname> parameter, which the base Toolkit processing uses to put the CSS files in the specified location. </section>
+    <section
       spectitle="Value">
       <p>Any valid directory name.</p>
     </section>

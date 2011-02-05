@@ -28,10 +28,6 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   <xsl:import href="kindle-generation-utils.xsl"/>
   
-  <!-- See note about my-URI-stub in build_dita2epub.xml. Hopefully a
-       better URI will be passed to override this. -->
-  <xsl:param name="idURIStub" select="'http://my-URI-stub/'" as="xs:string"/>
-
   <xsl:param name="tempFilesDir" select="'tempFilesDir value not passed'" as="xs:string"/>
 
 <!-- XSLT document function needs full URI for parameter, so this is

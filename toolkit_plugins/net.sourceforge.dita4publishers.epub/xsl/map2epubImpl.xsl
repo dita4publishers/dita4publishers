@@ -68,7 +68,7 @@
   <!-- Initial part of ePUB ID URI. Should reflect the book's
        owner.
     -->
-  <xsl:param name="IdURIStub">http://example.org/dummy/URIstub/</xsl:param>
+  <xsl:param name="idURIStub">http://example.org/dummy/URIstub/</xsl:param>
   
   <xsl:param name="tempFilesDir" select="'tempFilesDir value not passed'" as="xs:string"/>
   

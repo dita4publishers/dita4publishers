@@ -3,13 +3,12 @@
 <pubmap>
   <pubtitle> <mainpubtitle>DITA For Publishers User Guide</mainpubtitle> </pubtitle>
   <pubmeta> <author>W. Eliot Kimber</author> <keywords>
-    <indexterm/>
     <indexterm>Word<index-see>MS Word</index-see></indexterm>
     </keywords> <prodinfo>
     <prodname>DITA For Publishers</prodname>
     <vrmlist>
       <vrm
-        version="0.9.11"/>
+        version="0.9.13"/>
     </vrmlist>
     </prodinfo> <pubrights> <copyrfirst> <year>2010</year> </copyrfirst> <copyrlast>
     <year>2011</year> </copyrlast>
@@ -36,6 +35,9 @@
         href="d4p-users-guide/topics/about-this-book.xml"/>
       <topicref
         href="d4p-users-guide/release-notes/release-notes.xml">
+        <subsection
+          href="d4p-users-guide/release-notes/release-notes-0.9.13.xml"
+          collection-type="sequence"/>
         <subsection
           href="d4p-users-guide/release-notes/release-notes-0.9.12.xml"
           collection-type="sequence"/>
@@ -76,9 +78,6 @@
             href="d4p-users-guide/epub-plugin/epub-transtype-parameters-ref.xml">
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-coverGraphicFile.xml"/>
-            <topicref
-              href="d4p-users-guide/epub-plugin/reference/ant-parm-cssOutputDir.xml"
-              keys="css.output.dir_refentry"/>
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-epubIncludeAutoRellinks.xml"/>
             <topicref
