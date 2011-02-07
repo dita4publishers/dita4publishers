@@ -37,7 +37,7 @@
   <property name="kindleTemp" location="${temp}/kindle"/>
   <property name="kindleBuild" location="${build}/kindle"/>
   <property name="docs.dir" location="${basedir}/docs"/>
-  <property name="docs" location="${basedir}/documentation"/>
+  <property name="docs" location="${basedir}/docs"/>
   <property name="templates.dir" location="${basedir}/templates"/>
   <property name="website.source" location="${docs}/website"/>
   <property name="website.build" location="${build}/website"/>
