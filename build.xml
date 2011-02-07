@@ -529,7 +529,7 @@
     </antcall>
 	</target>
 	
-  <target name="html-d4p-user-guide">
+  <target name="html-d4p-user-guide" description="Generate HTML for D4P User's Guide">
     <property name="pub.name" value="d4p-users-guide"/>
     <property name="root.map" location="${docs.dir}/user_docs/${pub.name}.ditamap"/>
     <property name="output.dir" location="${build}/docs/html/${pub.name}"/>
