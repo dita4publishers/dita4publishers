@@ -86,7 +86,7 @@
         <xsl:apply-templates select="." mode="generate-dynamic-toc"/>
         <xsl:apply-templates select="." mode="generate-static-toc"/>
       </nav>
-      <iframe class="contentwin" id="contentwin" src="{$initialTopicUri}"><xsl:text>&#xa0;</xsl:text></iframe>
+      <iframe class="contentwin" id="contentwin" name="contentwin" src="{$initialTopicUri}"><xsl:text>&#xa0;</xsl:text></iframe>
     
       <!-- Script includes comes at the end of the body for browser load efficiency:
         -->
