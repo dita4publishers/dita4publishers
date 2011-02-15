@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="12.0">
+<project version="12.1">
     <meta>
         <filters directoryPatterns="" filePatterns=""
             positiveFilePatterns="" showHiddenFiles="false"/>
         <options/>
     </meta>
     <projectTree name="dita4publishers.xpr">
+        <folder path="toolkit_plugins/"/>
         <file name="templates/maps/D4P%20Pubmap.ditamap"/>
         <file name="docs/user_docs/d4p-users-guide.ditamap"/>
-        <file name="documentation/website/dita4publishers.ditamap"/>
         <file name="sample_data/epub-test/epub-test.ditamap"/>
         <file
             name="toolkit_plugins/net.sourceforge.dita4publishers.epub/xsl/map2epubImpl.xsl"/>

@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:relpath="http://dita2indesign/functions/relpath"
-  exclude-result-prefixes="xs"
+  exclude-result-prefixes="xs relpath"
   >
   
   <xsl:include href="relpath_util.xsl"/>
@@ -13,17 +13,18 @@
     
   
   <xsl:template match="/">
-<!--    <xsl:call-template name="testEncodeUrl"/>
+    <xsl:call-template name="testEncodeUrl"/>
+    <xsl:call-template name="testUnencodeUrl"/>
     <xsl:call-template name="testGetAbsolutePath"/>
-    -->
+    
     <xsl:call-template name="testGetRelativePath"/>
-    <!--
+    
     <xsl:call-template name="testGetName"/>
     <xsl:call-template name="testGetParent"/>
     <xsl:call-template name="testNewFile"/>
     <xsl:call-template name="testGetNamePart"/>
     <xsl:call-template name="testGetExtension"/>
--->
+
     <xsl:call-template name="testUrlToFile"/>    
   </xsl:template>
   
@@ -46,6 +47,32 @@
       </test_data>
     </xsl:variable>
     <xsl:apply-templates select="$testData" mode="testEncodeUrl"/>
+  </xsl:template>
+  
+  <xsl:template name="testUnencodeUrl">
+    <xsl:variable name="testData" as="element()">
+      <test_data>
+        <title>UnencodeUrl() Tests</title>
+        <test>
+          <source>/</source>
+          <result>/</result>
+        </test>
+        <test>
+          <source>/A%20B/C</source>
+          <result>/A B/C</result>
+        </test>
+        <test>
+          <source>/A%5BB%5D/D/foo.bar#e</source>
+          <result>/A[B]/D/foo.bar#e</result>
+        </test>
+        
+        <test>
+          <source>file:/D:/projects/%C3%A9%20X%20m%20l/samples/dita/garage/sequence.ditamap</source>
+          <result>file:/D:/projects/é X m l/samples/dita/garage/sequence.ditamap</result>    
+        </test>    
+      </test_data>
+    </xsl:variable>
+    <xsl:apply-templates select="$testData" mode="testUnencodeUrl"/>
   </xsl:template>
   
   <xsl:template name="testGetAbsolutePath">
@@ -354,6 +381,11 @@
           <platform>nx</platform>
           <result>foo/bar</result>
         </test>
+        <test>
+          <url>file:/D:/projects/%C3%A9%20X%20m%20l/samples/dita/garage/sequence.ditamap</url>
+          <platform>windows</platform>
+          <result>D:\projects\é X m l\samples\dita\garage\sequence.ditamap</result>
+        </test>
       </test_data>
     </xsl:variable>
     <xsl:apply-templates select="$testData" mode="testUrlToFile"/>
@@ -449,6 +481,20 @@
     <xsl:text>      source: "</xsl:text><xsl:value-of select="source"/><xsl:text>"&#x0a;</xsl:text>
     <xsl:text>      target: "</xsl:text><xsl:value-of select="target"/><xsl:text>"&#x0a;</xsl:text>
     <xsl:variable name="cand" select="relpath:encodeUri(string(source))" as="xs:string"/>
+    <xsl:variable name="pass" select="$cand = string(result)" as="xs:boolean"/>
+    <xsl:text>      result: "</xsl:text><xsl:value-of select="$cand"/><xsl:text>", pass: </xsl:text><xsl:value-of select="$pass"/><xsl:text>&#x0a;</xsl:text>
+    <xsl:if test="not($pass)">
+      <xsl:text>      expected result: "</xsl:text><xsl:value-of select="result"/><xsl:text>"&#x0a;</xsl:text>
+    </xsl:if>
+    <xsl:copy-of select="comment"/>
+    <xsl:text>&#x0a;</xsl:text>
+  </xsl:template>
+  
+  <xsl:template match="test" mode="testUnencodeUrl">
+    <xsl:text>Test Case: </xsl:text><xsl:number count="test" format="[1]"/><xsl:text>&#x0a;</xsl:text>
+    <xsl:text>      source: "</xsl:text><xsl:value-of select="source"/><xsl:text>"&#x0a;</xsl:text>
+    <xsl:text>      target: "</xsl:text><xsl:value-of select="target"/><xsl:text>"&#x0a;</xsl:text>
+    <xsl:variable name="cand" select="relpath:unencodeUri(string(source))" as="xs:string"/>
     <xsl:variable name="pass" select="$cand = string(result)" as="xs:boolean"/>
     <xsl:text>      result: "</xsl:text><xsl:value-of select="$cand"/><xsl:text>", pass: </xsl:text><xsl:value-of select="$pass"/><xsl:text>&#x0a;</xsl:text>
     <xsl:if test="not($pass)">

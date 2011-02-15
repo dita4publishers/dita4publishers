@@ -28,26 +28,272 @@
   
   <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
     <xd:desc>
-      <xd:p>URL encodes a URL string to handle the characters: space, "[", and "]"</xd:p>
+      <xd:p>Encodes a URI string.</xd:p>
+    </xd:desc>
+    <xd:param name="inUriString"></xd:param>
+    <xd:return>Encoded URI</xd:return>
+  </xd:doc>
+  <xsl:function name="relpath:encodeUri" as="xs:string">
+    <xsl:param name="inUriString" as="xs:string"/>
+    <xsl:variable name="parts" select="tokenize($inUriString, '#')"/>
+    <xsl:variable name="pathTokens" as="xs:string*">
+      <xsl:for-each select="tokenize($parts[1], '/')">
+        <xsl:sequence select="encode-for-uri(.)"/>  
+      </xsl:for-each>      
+    </xsl:variable>
+    <xsl:variable name="escapedFragId" as="xs:string"
+      select="if ($parts[2]) then concat('#', encode-for-uri($parts[2])) else ''"
+    />
+    <xsl:variable name="result" as="xs:string"
+      select="concat(string-join($pathTokens, '/'), $escapedFragId)"
+    />
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+  
+  <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:desc>
+      <xd:p>Unecodes an encoded URI string encoded in UTF-8 encoding.</xd:p>
     </xd:desc>
     <xd:param name="inUriString"></xd:param>
     <xd:return></xd:return>
   </xd:doc>
-  <xsl:function name="relpath:encodeUri" as="xs:string">
+  <xsl:function name="relpath:unencodeUri" as="xs:string">
     <xsl:param name="inUriString" as="xs:string"/>
-    <xsl:variable name="temp1" as="xs:string"
-      select="replace($inUriString, ' ', '%20')"
+    <xsl:variable name="firstChar" select="substring($inUriString, 1, 1)" as="xs:string"/>
+    <xsl:variable name="outUriString" as="xs:string*">
+      <xsl:for-each select="tokenize($inUriString, '/')">
+        <xsl:variable name="pathComponent" select="." as="xs:string"/>
+        <xsl:variable name="unencodedComponent" select="relpath:unencodeString(.)" as="xs:string"/>
+        <xsl:sequence select="$unencodedComponent"/>
+      </xsl:for-each>
+    </xsl:variable>
+    <xsl:variable name="pathComponentsJoined" select="string-join($outUriString, '/')"/>
+    <xsl:sequence
+      select="$pathComponentsJoined"
     />
-    <xsl:variable name="temp2" as="xs:string"
-      select="replace($temp1, '\[', '%5B')"
+  </xsl:function>
+  
+  <xsl:function name="relpath:unencodeString" as="xs:string">
+    <xsl:param name="inString" as="xs:string"/>
+    <xsl:variable name="tokens" as="xs:string*">
+      <xsl:analyze-string select="$inString" regex="%[0-9A-Fa-f][0-9A-Fa-f]">
+        <xsl:matching-substring>
+          <xsl:sequence select="."/>
+        </xsl:matching-substring>
+        <xsl:non-matching-substring>
+          <xsl:sequence select="."/>
+        </xsl:non-matching-substring>
+      </xsl:analyze-string>
+    </xsl:variable>
+<!--    <xsl:message> + [DEBUG] unencodeString(): tokens=<xsl:sequence select="string-join($tokens, '|')"/></xsl:message>-->
+    <xsl:variable name="resultTokens" as="xs:string*"
+      select="relpath:unencodeStringTokens($tokens, ())"
     />
-    <xsl:variable name="temp3" as="xs:string"
-      select="replace($temp2, '\]', '%5D')"
+    <xsl:sequence select="string-join($resultTokens, '')"/>
+  </xsl:function>
+  
+  <xsl:function name="relpath:unencodeStringTokens" as="xs:string*">
+    <xsl:param name="tokens" as="xs:string*"/>
+    <xsl:param name="resultTokens" as="xs:string*"/> 
+    <xsl:choose>
+      <xsl:when test="count($tokens) = 0">
+        <xsl:sequence select="$resultTokens"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="token" select="$tokens[1]" as="xs:string"/>
+        <xsl:choose>
+          <xsl:when test="starts-with($token, '%')">
+            <xsl:sequence select="relpath:processEncodedChars($token, $tokens[position() > 1], $resultTokens)"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <!-- Reset character code and copy token to result token list: -->
+            <xsl:sequence select="relpath:unencodeStringTokens($tokens[position() > 1], ($resultTokens, $tokens[1]))"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:otherwise>
+    </xsl:choose>   
+  </xsl:function>
+  
+  <xsl:function name="relpath:processEncodedChars" as="xs:string*">
+    <xsl:param name="byte1Str" as="xs:string"/>
+    <xsl:param name="tokens" as="xs:string*"/>
+    <xsl:param name="resultTokens" as="xs:string*"/>
+     
+    <xsl:variable name="byte1" as="xs:integer"
+      select="relpath:hex-to-char($byte1Str)"
+    /> 
+    <!--<xsl:message> + [DEBUG] processEncodedChars(): byte1 is "<xsl:sequence select="$byte1"/>" (<xsl:sequence select="$byte1Str"/>)</xsl:message>-->
+    <xsl:choose>
+      <xsl:when test="$byte1 lt 128">
+        <!-- ASCII character -->
+        <xsl:variable name="char" 
+          select="codepoints-to-string($byte1)" as="xs:string"/>
+        <!--<xsl:message> + [DEBUG] processEncodedChars(): byte1 is ASCII character "<xsl:sequence select="$char"/>"</xsl:message>-->
+        <xsl:sequence select="relpath:unencodeStringTokens($tokens, ($resultTokens, $char))"/>
+      </xsl:when>
+      <xsl:when test="$byte1 gt 127 and $byte1 lt 192">
+        <xsl:message> + [ERROR] Invalid byte <xsl:sequence select="$byte1Str"/> in UTF-8 byte sequence.</xsl:message>
+        <xsl:sequence select="relpath:unencodeStringTokens($tokens, ($resultTokens, '&#xFFFD;'))"/>
+      </xsl:when>
+      <xsl:when test="count($tokens) = 0">
+        <xsl:message> + [ERROR] Expected more encoded bytes for initial byte <xsl:sequence select="$byte1Str"/></xsl:message>
+        <xsl:sequence select="relpath:unencodeStringTokens($tokens, ($resultTokens, '&#xFFFD;'))"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <!-- Must be start of multi-byte sequence -->
+        <!--<xsl:message> + [DEBUG] processEncodedChars(): Multi-byte sequence, processing second byte...</xsl:message>-->
+        <xsl:sequence
+          select="relpath:processSecondUtfByte($byte1, $tokens[1], $tokens[position() > 1], $resultTokens)"
+        />
+      </xsl:otherwise>
+    </xsl:choose>    
+  </xsl:function>
+  
+  <xsl:function name="relpath:processSecondUtfByte" as="xs:string*">
+    <xsl:param name="byte1" as="xs:integer"/>
+    <xsl:param name="byte2Str" as="xs:string"/>
+    <xsl:param name="tokens" as="xs:string*"/>
+    <xsl:param name="resultTokens" as="xs:string*"/>
+    
+    <xsl:variable name="byte2" as="xs:integer"
+      select="relpath:hex-to-char($byte2Str)"
+    /> 
+<!-- 
+  if (byte2 > 127 && byte2 < 192) {
+  decoded = decoded + String.fromCharCode(((byte1 & 0x1F) << 6) | (byte2 & 0x3F));
+  } else {
+  decoded = decoded + encoded.substr(i,6);
+  illegalencoding = illegalencoding + encoded.substr(i,6) + " ";
+  }
+-->
+    <!--<xsl:message> + [DEBUG] processSecondUtfByte(): processing byte2 <xsl:sequence select="$byte2"/> (<xsl:sequence select="$byte2Str"/>)</xsl:message>-->
+    <xsl:choose>
+      <xsl:when test="$byte2 gt 127 and $byte2 lt 192">
+        <!--<xsl:message> + [DEBUG] processSecondUtfByte(): byte is between 127 and 192 </xsl:message>-->
+        <xsl:variable name="shiftedByte1" as="xs:integer"
+          select="relpath:shiftLeft(relpath:bitwiseAnd($byte1, 31), 6)"
+        />
+        <!--<xsl:message> + [DEBUG] processSecondUtfByte(): shifted and anded byte1 = <xsl:sequence select="$shiftedByte1"/> </xsl:message>-->
+        <xsl:variable name="andedByte2" as="xs:integer"
+          select="(relpath:bitwiseAnd($byte2, 63))"
+        />
+        <!--<xsl:message> + [DEBUG] processSecondUtfByte(): anded byte2 = <xsl:sequence select="$andedByte2"/> </xsl:message>-->
+        
+        <xsl:variable name="codePoint" 
+          select="relpath:shiftLeft(relpath:bitwiseAnd($byte1, 31), 6) + (relpath:bitwiseAnd($byte2, 63)) "/>
+        <!--<xsl:message> + [DEBUG] processSecondUtfByte(): code Point = <xsl:sequence select="$codePoint"/> ("<xsl:sequence select="codepoints-to-string($codePoint)"/>")</xsl:message>-->
+        <xsl:variable name="char" select="codepoints-to-string($codePoint)" as="xs:string"/>
+        <!--<xsl:message> + [DEBUG] processSecondUtfByte(): char = "<xsl:sequence select="$char"/>"</xsl:message>-->
+        <xsl:sequence select="relpath:unencodeStringTokens($tokens, ($resultTokens, $char))"/>
+      </xsl:when>
+      <xsl:when test="count($tokens) = 0">
+        <xsl:message> + [ERROR] Expected more encoded bytes for initial byte <xsl:sequence select="$byte2Str"/></xsl:message>
+        <xsl:sequence select="relpath:unencodeStringTokens($tokens, ($resultTokens, '&#xFFFD;'))"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <!-- Must be 3+ byte sequence -->
+        <xsl:message> + [DEBUG] processSecondUtfByte(): 3+ byte sequence, processing third byte...</xsl:message>
+        <xsl:sequence
+          select="relpath:processThirdUtfByte($byte1, $byte2, $tokens[1], $tokens[position() > 1], $resultTokens)"
+        />
+      </xsl:otherwise>
+    </xsl:choose>        
+  </xsl:function>
+  
+  <xsl:function name="relpath:processThirdUtfByte" as="xs:string*">
+    <xsl:param name="byte1" as="xs:integer"/>
+    <xsl:param name="byte2" as="xs:integer"/>
+    <xsl:param name="byte3Str" as="xs:string"/>
+    <xsl:param name="tokens" as="xs:string*"/>
+    <xsl:param name="resultTokens" as="xs:string*"/>
+    
+    <xsl:variable name="byte3" as="xs:integer"
+      select="relpath:hex-to-char($byte3Str)"
+    /> 
+    <xsl:sequence select="$resultTokens"/>
+  </xsl:function>
+  
+  <xsl:function name="relpath:shiftLeft" as="xs:integer">
+    <xsl:param name="operand" as="xs:integer"/>
+    <xsl:param name="shiftSize" as="xs:integer"/>
+    <!--<xsl:message> + [DEBUG] shiftLeft(): operand=<xsl:sequence select="$operand"/></xsl:message>-->
+    <xsl:variable name="multiplier" select="(2,4,8,16,32,64,128,256)[$shiftSize]" as="xs:integer"/>
+    <!--<xsl:message> + [DEBUG] shiftLeft(): multipler=<xsl:sequence select="$multiplier"/></xsl:message>-->
+    <xsl:variable name="result" as="xs:integer"
+      select="$operand * $multiplier"
     />
-    <xsl:variable name="outUriString" as="xs:string"
-      select="$temp3"
+    <!--<xsl:message> + [DEBUG] shiftLeft(): $result=<xsl:sequence select="$result"/></xsl:message>-->
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+  
+  <xsl:function name="relpath:bitwiseAnd" as="xs:integer">
+    <xsl:param name="byte1" as="xs:integer"/>
+    <xsl:param name="byte2" as="xs:integer"/>
+    <!--<xsl:message> + [DEBUG] bitwiseAnd(): byte1 = <xsl:sequence select="$byte1"/></xsl:message>
+    <xsl:message> + [DEBUG] bitwiseAnd(): byte2 = <xsl:sequence select="$byte2"/></xsl:message>-->
+    <xsl:variable name="byte1Bit7" select="if (($byte1 mod 256) - ($byte1 mod 128) > 0) then 1 else 0" as="xs:integer"/>
+    <xsl:variable name="byte1Bit6" select="if (($byte1 mod 128) - ($byte1 mod 64) > 0) then 1 else 0" as="xs:integer"/>
+    <xsl:variable name="byte1Bit5" select="if (($byte1 mod 64)  - ($byte1 mod 32) > 0) then 1 else 0" as="xs:integer"/>
+    <xsl:variable name="byte1Bit4" select="if (($byte1 mod 32)  - ($byte1 mod 16) > 0) then 1 else 0" as="xs:integer"/>
+    <xsl:variable name="byte1Bit3" select="if (($byte1 mod 16)  - ($byte1 mod 8) > 0) then 1 else 0" as="xs:integer"/>
+    <xsl:variable name="byte1Bit2" select="if (($byte1 mod 8)   - ($byte1 mod 4) > 0) then 1 else 0" as="xs:integer"/>
+    <xsl:variable name="byte1Bit1" select="if (($byte1 mod 4)   - ($byte1 mod 2) > 0) then 1 else 0" as="xs:integer"/>
+    <xsl:variable name="byte1Bit0" select="if (($byte1 mod 2)  > 0) then 1 else 0" as="xs:integer"/>
+    
+    <xsl:variable name="byte2Bit7" select="if (($byte2 mod 256) - ($byte2 mod 128) > 0) then 1 else 0" as="xs:integer"/>
+    <xsl:variable name="byte2Bit6" select="if (($byte2 mod 128) - ($byte2 mod 64) > 0) then 1 else 0" as="xs:integer"/>
+    <xsl:variable name="byte2Bit5" select="if (($byte2 mod 64)  - ($byte2 mod 32) > 0) then 1 else 0" as="xs:integer"/>
+    <xsl:variable name="byte2Bit4" select="if (($byte2 mod 32)  - ($byte2 mod 16) > 0) then 1 else 0" as="xs:integer"/>
+    <xsl:variable name="byte2Bit3" select="if (($byte2 mod 16)  - ($byte2 mod 8) > 0) then 1 else 0" as="xs:integer"/>
+    <xsl:variable name="byte2Bit2" select="if (($byte2 mod 8)   - ($byte2 mod 4) > 0) then 1 else 0" as="xs:integer"/>
+    <xsl:variable name="byte2Bit1" select="if (($byte2 mod 4)   - ($byte2 mod 2) > 0) then 1 else 0" as="xs:integer"/>
+    <xsl:variable name="byte2Bit0" select="if (($byte2 mod 2)  > 0) then 1 else 0" as="xs:integer"/>
+    
+    <!--<xsl:message> + [DEBUG]: Byte1 <xsl:sequence select="if ($byte1Bit7) then 1 else 0"
+    />,<xsl:sequence select="$byte1Bit7"
+    />,<xsl:sequence select="$byte1Bit6"
+    />,<xsl:sequence select="$byte1Bit5"
+    />,<xsl:sequence select="$byte1Bit4"
+    />,<xsl:sequence select="$byte1Bit3"
+    />,<xsl:sequence select="$byte1Bit2"
+    />,<xsl:sequence select="$byte1Bit1"
+    />,<xsl:sequence select="$byte1Bit0"
+    /></xsl:message>
+    <xsl:message> + [DEBUG]: Byte2 <xsl:sequence select="$byte2Bit7"
+    />,<xsl:sequence select="$byte2Bit7"
+    />,<xsl:sequence select="$byte2Bit6"
+    />,<xsl:sequence select="$byte2Bit5"
+    />,<xsl:sequence select="$byte2Bit4"
+    />,<xsl:sequence select="$byte2Bit3"
+    />,<xsl:sequence select="$byte2Bit2"
+    />,<xsl:sequence select="$byte2Bit1"
+    />,<xsl:sequence select="$byte2Bit0"
+    /></xsl:message>-->
+    <xsl:variable name="result" as="xs:integer"
+      select="
+      (128 * $byte2Bit7 * $byte1Bit7) +
+      (64 * $byte2Bit6 * $byte1Bit6) +
+      (32 * $byte2Bit5 * $byte1Bit5) +
+      (16 * $byte2Bit4 * $byte1Bit4) +
+      (8* $byte2Bit3 * $byte1Bit3) +
+      (4 * $byte2Bit2 * $byte1Bit2) +
+      (2 * $byte2Bit1 * $byte1Bit1) +
+      (1 * $byte2Bit0 * $byte1Bit0)
+      "
     />
-    <xsl:sequence select="$outUriString"/>
+    <!--<xsl:message> + [DEBUG] bitwiseAnd(): result=<xsl:sequence select="$result"/></xsl:message>-->
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+  
+  <xsl:function name="relpath:unescapeUriCharacter" as="xs:string">
+    <xsl:param name="escapedCharStr" as="xs:string"/>
+    <xsl:variable name="cadr" select="substring($escapedCharStr, 2)"/>
+    <xsl:variable name="resultChar" as="xs:string">
+      <!-- cadr must be pair of hex digits -->
+      <xsl:variable name="codepoint" select="relpath:hex-to-char($cadr)" as="xs:integer"/>
+      <xsl:sequence select="codepoints-to-string($codepoint)"/>
+    </xsl:variable>
+    <xsl:sequence select="$resultChar"/>
   </xsl:function>
   
   <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
@@ -304,15 +550,17 @@
   <xsl:function name="relpath:toFile" as="xs:string">
     <xsl:param name="url" as="xs:string"/>
     <xsl:param name="platform" as="xs:string"/><!-- One of "windows", "nx" -->
+    <xsl:variable name="unescapedUrl" select="relpath:unencodeUri($url)" as="xs:string"/>
     <xsl:if test="false()">      
       <xsl:message> + [DEBUG] -------------</xsl:message>
-      <xsl:message> + [DEBUG] toFile(): url='<xsl:sequence select="$url"/>', platform='<xsl:sequence select="$platform"/>'</xsl:message>
+      <xsl:message> + [DEBUG] toFile(): url         ='<xsl:sequence select="$url"/>', platform='<xsl:sequence select="$platform"/>'</xsl:message>
+      <xsl:message> + [DEBUG] toFile(): unescapedUrl='<xsl:sequence select="$unescapedUrl"/>', platform='<xsl:sequence select="$platform"/>'</xsl:message>
     </xsl:if>
     <xsl:variable name="result" as="xs:string"
        select="
        if ($platform = 'windows')
-          then relpath:urlToWindowsFile($url)
-          else relpath:urlToNxFile($url)
+          then relpath:urlToWindowsFile($unescapedUrl)
+          else relpath:urlToNxFile($unescapedUrl)
        "
     />
     <xsl:if test="false()">      
@@ -422,5 +670,21 @@
         </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>    
+  </xsl:function>
+  
+  <xsl:function name="relpath:hex-to-char" as="xs:integer">
+    <xsl:param name="in" as="xs:string"/> <!-- e.g. 030C -->
+    <xsl:sequence select="
+      if (string-length($in) eq 1)
+      then relpath:hex-digit-to-integer($in)
+      else 16 * relpath:hex-to-char(substring($in, 1, string-length($in)-1)) +
+      relpath:hex-digit-to-integer(substring($in, string-length($in)))"/>
+  </xsl:function>
+  
+  <xsl:function name="relpath:hex-digit-to-integer" as="xs:integer">
+    <xsl:param name="char" as="xs:string"/>
+    <xsl:sequence 
+      select="string-length(substring-before('0123456789ABCDEF',
+      $char))"/>
   </xsl:function>
 </xsl:stylesheet>
