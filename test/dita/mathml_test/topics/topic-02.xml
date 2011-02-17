@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
+<chapter
+  id="chapter-id">
+  <title>Another Topic With MathML Content</title>
+  <body>
+    <p>This topic has MathML.</p>
+    <fig>
+      <title>Sample of MathML</title>
+      <eqn_block>
+        <d4pMathML><m:math xmlns="http://www.w3.org/1998/Math/MathML">
+          <m:apply>
+            <m:in/>
+            <m:cn type="complex-cartesian">17<m:sep/>29</m:cn>
+            <m:complexes/>
+          </m:apply>
+        </m:math></d4pMathML>
+      </eqn_block>
+    </fig>
+  </body>
+</chapter>

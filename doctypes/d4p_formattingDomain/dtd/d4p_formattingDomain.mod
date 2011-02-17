@@ -16,6 +16,7 @@
  <!ENTITY % b-sc         "b-sc"                                         >
  <!ENTITY % eqn_inline    "eqn_inline" >
  <!ENTITY % eqn_block     "eqn_block" >
+ <!ENTITY % d4pMathML     "d4pMathML" >
  <!ENTITY % frac          "frac" >
  <!ENTITY % inx_snippet   "inx_snippet" >
  <!ENTITY % linethrough   "linethrough" >
@@ -111,7 +112,7 @@
 <!ENTITY % eqn_inline.content 
 "
   (%inx_snippet; |
-   m:math |
+   %d4pMathML; |
    %art; |
    %data;)*
 ">
@@ -135,7 +136,7 @@
 <!ENTITY % eqn_block.content
 "
   (%inx_snippet; |
-   m:math |
+   %d4pMathML; |
    %art; |
    %data;)*
 "
@@ -155,7 +156,29 @@
  "
 > 
 <!ELEMENT eqn_block %eqn_block.content; >
+
 <!ATTLIST eqn_block %eqn_block.attributes; >
+<!ENTITY % d4pMathML.content
+"
+  (m:math)*
+"
+>
+<!ENTITY % d4pMathML.attributes
+ "
+   %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    #IMPLIED    
+
+ "
+> 
+<!ELEMENT d4pMathML %d4pMathML.content; >
+<!ATTLIST d4pMathML %d4pMathML.attributes; >
 
 <!ENTITY % art.content
 "
@@ -316,6 +339,7 @@
 <!ATTLIST b-sc             %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/b-sc "  >
 <!ATTLIST eqn_inline       %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/eqn_inline ">
 <!ATTLIST eqn_block        %global-atts;  class CDATA "+ topic/p     d4p-formatting-d/eqn_block ">
+<!ATTLIST d4pMathML        %global-atts;  class CDATA "+ topic/foreign d4p-formatting-d/d4pMathML ">
 <!ATTLIST frac             %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/frac ">
 <!ATTLIST inx_snippet      %global-atts;  class CDATA "+ topic/foreign d4p-formatting-d/inx_snippet ">
 <!ATTLIST linethrough      %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/linethrough ">
