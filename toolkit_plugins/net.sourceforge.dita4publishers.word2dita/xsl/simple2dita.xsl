@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
       xmlns:xs="http://www.w3.org/2001/XMLSchema"
       xmlns:local="urn:local-functions"
@@ -209,16 +209,26 @@
     />
     <xsl:element name="{$tagName}">  
       <xsl:attribute name="xtrc" select="@wordLocation"/>
-      <!-- FIXME: Need to account for table heads and table bodies -->
       <tgroup cols="{count(rsiwp:cols/rsiwp:col)}">
         <xsl:apply-templates select="rsiwp:cols"/>
-        <thead>
-          <xsl:apply-templates select="rsiwp:th"/>          
-        </thead>
-        
+        <xsl:if test="rsiwp:th">
+          <thead>
+            <xsl:apply-templates select="rsiwp:th"/>          
+          </thead>
+        </xsl:if>
         <tbody>
-          <xsl:apply-templates select="rsiwp:tr"/>
-        </tbody>        
+          <xsl:choose>
+            <xsl:when test="rsiwp:tr">
+              <xsl:apply-templates select="rsiwp:tr"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <row>
+                <entry>Generated row for table with only header rows. DITA requires a body which requires a row.</entry>
+              </row>
+            </xsl:otherwise>
+          </xsl:choose>
+          
+        </tbody>    
       </tgroup>
     </xsl:element>
   </xsl:template>
