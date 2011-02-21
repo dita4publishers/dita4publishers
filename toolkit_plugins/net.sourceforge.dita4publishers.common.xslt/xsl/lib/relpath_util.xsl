@@ -1,10 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:relpath="http://dita2indesign/functions/relpath"
-  exclude-result-prefixes="relpath xs"
+  xmlns:local="urn:localfunctions"
+  exclude-result-prefixes="relpath xs local"
   
   >
+  <xsl:variable name="allones" select="(1,1,1,1, 1,1,1,1)" as="xs:integer*"/>
+  <xsl:variable name="allzeros" select="(0,0,0,0, 0,0,0,0)" as="xs:integer*"/>
   
   <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
     <xd:desc>
@@ -122,166 +125,233 @@
     <xsl:variable name="byte1" as="xs:integer"
       select="relpath:hex-to-char($byte1Str)"
     /> 
-    <!--<xsl:message> + [DEBUG] processEncodedChars(): byte1 is "<xsl:sequence select="$byte1"/>" (<xsl:sequence select="$byte1Str"/>)</xsl:message>-->
-    <xsl:choose>
-      <xsl:when test="$byte1 lt 128">
-        <!-- ASCII character -->
-        <xsl:variable name="char" 
-          select="codepoints-to-string($byte1)" as="xs:string"/>
-        <!--<xsl:message> + [DEBUG] processEncodedChars(): byte1 is ASCII character "<xsl:sequence select="$char"/>"</xsl:message>-->
-        <xsl:sequence select="relpath:unencodeStringTokens($tokens, ($resultTokens, $char))"/>
-      </xsl:when>
-      <xsl:when test="$byte1 gt 127 and $byte1 lt 192">
-        <xsl:message> + [ERROR] Invalid byte <xsl:sequence select="$byte1Str"/> in UTF-8 byte sequence.</xsl:message>
-        <xsl:sequence select="relpath:unencodeStringTokens($tokens, ($resultTokens, '&#xFFFD;'))"/>
-      </xsl:when>
-      <xsl:when test="count($tokens) = 0">
-        <xsl:message> + [ERROR] Expected more encoded bytes for initial byte <xsl:sequence select="$byte1Str"/></xsl:message>
-        <xsl:sequence select="relpath:unencodeStringTokens($tokens, ($resultTokens, '&#xFFFD;'))"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <!-- Must be start of multi-byte sequence -->
-        <!--<xsl:message> + [DEBUG] processEncodedChars(): Multi-byte sequence, processing second byte...</xsl:message>-->
-        <xsl:sequence
-          select="relpath:processSecondUtfByte($byte1, $tokens[1], $tokens[position() > 1], $resultTokens)"
-        />
-      </xsl:otherwise>
-    </xsl:choose>    
-  </xsl:function>
-  
-  <xsl:function name="relpath:processSecondUtfByte" as="xs:string*">
-    <xsl:param name="byte1" as="xs:integer"/>
-    <xsl:param name="byte2Str" as="xs:string"/>
-    <xsl:param name="tokens" as="xs:string*"/>
-    <xsl:param name="resultTokens" as="xs:string*"/>
+    <xsl:variable name="sequenceLength" as="xs:integer"
+    >
+      <!-- The number of leading bits for the first byte
+           indicate the number of bytes for the encoded
+           character.
+        -->
+      <xsl:choose>
+        <xsl:when test="$byte1 ge 248">
+          <xsl:sequence select="5"/><!-- 11111xxx -->
+        </xsl:when>
+        <xsl:when test="$byte1 ge 240">
+          <xsl:sequence select="4"/><!-- 1111xxxx -->
+        </xsl:when>
+        <xsl:when test="$byte1 ge 224">
+          <xsl:sequence select="3"/><!-- 111xxxxx -->
+        </xsl:when>
+        <xsl:when test="$byte1 ge 192">
+          <xsl:sequence select="2"/><!-- 11xxxxxx -->
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:sequence select="1"/>
+        </xsl:otherwise>
+      </xsl:choose>      
+    </xsl:variable>
     
-    <xsl:variable name="byte2" as="xs:integer"
-      select="relpath:hex-to-char($byte2Str)"
-    /> 
-<!-- 
-  if (byte2 > 127 && byte2 < 192) {
-  decoded = decoded + String.fromCharCode(((byte1 & 0x1F) << 6) | (byte2 & 0x3F));
-  } else {
-  decoded = decoded + encoded.substr(i,6);
-  illegalencoding = illegalencoding + encoded.substr(i,6) + " ";
-  }
--->
-    <!--<xsl:message> + [DEBUG] processSecondUtfByte(): processing byte2 <xsl:sequence select="$byte2"/> (<xsl:sequence select="$byte2Str"/>)</xsl:message>-->
-    <xsl:choose>
-      <xsl:when test="$byte2 gt 127 and $byte2 lt 192">
-        <!--<xsl:message> + [DEBUG] processSecondUtfByte(): byte is between 127 and 192 </xsl:message>-->
-        <xsl:variable name="shiftedByte1" as="xs:integer"
-          select="relpath:shiftLeft(relpath:bitwiseAnd($byte1, 31), 6)"
-        />
-        <!--<xsl:message> + [DEBUG] processSecondUtfByte(): shifted and anded byte1 = <xsl:sequence select="$shiftedByte1"/> </xsl:message>-->
-        <xsl:variable name="andedByte2" as="xs:integer"
-          select="(relpath:bitwiseAnd($byte2, 63))"
-        />
-        <!--<xsl:message> + [DEBUG] processSecondUtfByte(): anded byte2 = <xsl:sequence select="$andedByte2"/> </xsl:message>-->
-        
-        <xsl:variable name="codePoint" 
-          select="relpath:shiftLeft(relpath:bitwiseAnd($byte1, 31), 6) + (relpath:bitwiseAnd($byte2, 63)) "/>
-        <!--<xsl:message> + [DEBUG] processSecondUtfByte(): code Point = <xsl:sequence select="$codePoint"/> ("<xsl:sequence select="codepoints-to-string($codePoint)"/>")</xsl:message>-->
-        <xsl:variable name="char" select="codepoints-to-string($codePoint)" as="xs:string"/>
-        <!--<xsl:message> + [DEBUG] processSecondUtfByte(): char = "<xsl:sequence select="$char"/>"</xsl:message>-->
-        <xsl:sequence select="relpath:unencodeStringTokens($tokens, ($resultTokens, $char))"/>
-      </xsl:when>
-      <xsl:when test="count($tokens) = 0">
-        <xsl:message> + [ERROR] Expected more encoded bytes for initial byte <xsl:sequence select="$byte2Str"/></xsl:message>
-        <xsl:sequence select="relpath:unencodeStringTokens($tokens, ($resultTokens, '&#xFFFD;'))"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <!-- Must be 3+ byte sequence -->
-        <xsl:message> + [DEBUG] processSecondUtfByte(): 3+ byte sequence, processing third byte...</xsl:message>
-        <xsl:sequence
-          select="relpath:processThirdUtfByte($byte1, $byte2, $tokens[1], $tokens[position() > 1], $resultTokens)"
-        />
-      </xsl:otherwise>
-    </xsl:choose>        
-  </xsl:function>
-  
-  <xsl:function name="relpath:processThirdUtfByte" as="xs:string*">
-    <xsl:param name="byte1" as="xs:integer"/>
-    <xsl:param name="byte2" as="xs:integer"/>
-    <xsl:param name="byte3Str" as="xs:string"/>
-    <xsl:param name="tokens" as="xs:string*"/>
-    <xsl:param name="resultTokens" as="xs:string*"/>
-    
-    <xsl:variable name="byte3" as="xs:integer"
-      select="relpath:hex-to-char($byte3Str)"
-    /> 
-    <xsl:sequence select="$resultTokens"/>
-  </xsl:function>
-  
-  <xsl:function name="relpath:shiftLeft" as="xs:integer">
-    <xsl:param name="operand" as="xs:integer"/>
-    <xsl:param name="shiftSize" as="xs:integer"/>
-    <!--<xsl:message> + [DEBUG] shiftLeft(): operand=<xsl:sequence select="$operand"/></xsl:message>-->
-    <xsl:variable name="multiplier" select="(2,4,8,16,32,64,128,256)[$shiftSize]" as="xs:integer"/>
-    <!--<xsl:message> + [DEBUG] shiftLeft(): multipler=<xsl:sequence select="$multiplier"/></xsl:message>-->
-    <xsl:variable name="result" as="xs:integer"
-      select="$operand * $multiplier"
+    <!-- Take byte1 and mask out leading bits that indicate sequence length -->
+    <xsl:variable name="byte1bits" as="xs:integer">
+      <xsl:choose>
+        <xsl:when test="$sequenceLength = 1">
+          <xsl:sequence select="$byte1"/>
+        </xsl:when>
+        <xsl:when test="$sequenceLength = 2">
+          <xsl:sequence select="$byte1 - 192"/>
+        </xsl:when>
+        <xsl:when test="$sequenceLength = 3">
+          <xsl:sequence select="$byte1 - 224"/>
+        </xsl:when>
+        <xsl:when test="$sequenceLength = 4">
+          <xsl:sequence select="$byte1 - 240"/>
+        </xsl:when>
+        <xsl:when test="$sequenceLength = 5">
+          <xsl:sequence select="$byte1 - 248"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:message terminate="yes"> + [ERROR] Sequence length <xsl:sequence select="$sequenceLength"/> is not a good value. Must be between 1 and 5.</xsl:message>
+        </xsl:otherwise>
+      </xsl:choose>      
+    </xsl:variable>
+    <xsl:variable name="bitmask" 
+      select="$allones[position() le $sequenceLength],
+              $allzeros[position() gt $sequenceLength]"></xsl:variable>
+    <!-- Shift byte1 bits to left -->
+    <xsl:variable name="byte1bits" 
+      select="relpath:getBits($byte1)" 
+      as="xs:integer*"/>
+    <xsl:variable name="accumulatedBits" select="relpath:bitwiseXor($byte1bits, $bitmask)"/>
+    <xsl:variable name="characterBits" as="xs:integer*"
+      select="relpath:decodeRemainingUtfBytes($tokens[position() lt $sequenceLength], $accumulatedBits)"
     />
-    <!--<xsl:message> + [DEBUG] shiftLeft(): $result=<xsl:sequence select="$result"/></xsl:message>-->
+    <xsl:variable name="char" select="codepoints-to-string(relpath:bits2int($characterBits))" as="xs:string"/>
+    <xsl:sequence select="relpath:unencodeStringTokens($tokens[position() ge $sequenceLength], ($resultTokens, $char))"/>
+  </xsl:function>
+
+  <xsl:function name="relpath:decodeRemainingUtfBytes" as="xs:integer*">
+    <xsl:param name="tokens" as="xs:string*"/>
+    <xsl:param name="accumulatedBits" as="xs:integer*"/>
+    <xsl:variable name="result" as="xs:integer*">
+      <xsl:choose>
+        <xsl:when test="count($tokens) = 0">
+          <xsl:sequence select="$accumulatedBits"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:variable name="byte" as="xs:integer" 
+            select="relpath:hex-to-char($tokens[1])"/>
+          <!-- Subsequence bytes are 10xxxxxx, so mask out leading bit -->
+          <xsl:variable name="bitList" as="xs:integer*"
+            select="relpath:getBits($byte - 128)[position() gt 2]"
+          />
+          <xsl:sequence 
+            select="relpath:decodeRemainingUtfBytes($tokens[position() gt 1], ($accumulatedBits, $bitList))"/>
+        </xsl:otherwise>
+      </xsl:choose>      
+    </xsl:variable>
     <xsl:sequence select="$result"/>
   </xsl:function>
   
-  <xsl:function name="relpath:bitwiseAnd" as="xs:integer">
-    <xsl:param name="byte1" as="xs:integer"/>
-    <xsl:param name="byte2" as="xs:integer"/>
-    <!--<xsl:message> + [DEBUG] bitwiseAnd(): byte1 = <xsl:sequence select="$byte1"/></xsl:message>
-    <xsl:message> + [DEBUG] bitwiseAnd(): byte2 = <xsl:sequence select="$byte2"/></xsl:message>-->
-    <xsl:variable name="byte1Bit7" select="if (($byte1 mod 256) - ($byte1 mod 128) > 0) then 1 else 0" as="xs:integer"/>
-    <xsl:variable name="byte1Bit6" select="if (($byte1 mod 128) - ($byte1 mod 64) > 0) then 1 else 0" as="xs:integer"/>
-    <xsl:variable name="byte1Bit5" select="if (($byte1 mod 64)  - ($byte1 mod 32) > 0) then 1 else 0" as="xs:integer"/>
-    <xsl:variable name="byte1Bit4" select="if (($byte1 mod 32)  - ($byte1 mod 16) > 0) then 1 else 0" as="xs:integer"/>
-    <xsl:variable name="byte1Bit3" select="if (($byte1 mod 16)  - ($byte1 mod 8) > 0) then 1 else 0" as="xs:integer"/>
-    <xsl:variable name="byte1Bit2" select="if (($byte1 mod 8)   - ($byte1 mod 4) > 0) then 1 else 0" as="xs:integer"/>
-    <xsl:variable name="byte1Bit1" select="if (($byte1 mod 4)   - ($byte1 mod 2) > 0) then 1 else 0" as="xs:integer"/>
-    <xsl:variable name="byte1Bit0" select="if (($byte1 mod 2)  > 0) then 1 else 0" as="xs:integer"/>
-    
-    <xsl:variable name="byte2Bit7" select="if (($byte2 mod 256) - ($byte2 mod 128) > 0) then 1 else 0" as="xs:integer"/>
-    <xsl:variable name="byte2Bit6" select="if (($byte2 mod 128) - ($byte2 mod 64) > 0) then 1 else 0" as="xs:integer"/>
-    <xsl:variable name="byte2Bit5" select="if (($byte2 mod 64)  - ($byte2 mod 32) > 0) then 1 else 0" as="xs:integer"/>
-    <xsl:variable name="byte2Bit4" select="if (($byte2 mod 32)  - ($byte2 mod 16) > 0) then 1 else 0" as="xs:integer"/>
-    <xsl:variable name="byte2Bit3" select="if (($byte2 mod 16)  - ($byte2 mod 8) > 0) then 1 else 0" as="xs:integer"/>
-    <xsl:variable name="byte2Bit2" select="if (($byte2 mod 8)   - ($byte2 mod 4) > 0) then 1 else 0" as="xs:integer"/>
-    <xsl:variable name="byte2Bit1" select="if (($byte2 mod 4)   - ($byte2 mod 2) > 0) then 1 else 0" as="xs:integer"/>
-    <xsl:variable name="byte2Bit0" select="if (($byte2 mod 2)  > 0) then 1 else 0" as="xs:integer"/>
-    
-    <!--<xsl:message> + [DEBUG]: Byte1 <xsl:sequence select="if ($byte1Bit7) then 1 else 0"
-    />,<xsl:sequence select="$byte1Bit7"
-    />,<xsl:sequence select="$byte1Bit6"
-    />,<xsl:sequence select="$byte1Bit5"
-    />,<xsl:sequence select="$byte1Bit4"
-    />,<xsl:sequence select="$byte1Bit3"
-    />,<xsl:sequence select="$byte1Bit2"
-    />,<xsl:sequence select="$byte1Bit1"
-    />,<xsl:sequence select="$byte1Bit0"
-    /></xsl:message>
-    <xsl:message> + [DEBUG]: Byte2 <xsl:sequence select="$byte2Bit7"
-    />,<xsl:sequence select="$byte2Bit7"
-    />,<xsl:sequence select="$byte2Bit6"
-    />,<xsl:sequence select="$byte2Bit5"
-    />,<xsl:sequence select="$byte2Bit4"
-    />,<xsl:sequence select="$byte2Bit3"
-    />,<xsl:sequence select="$byte2Bit2"
-    />,<xsl:sequence select="$byte2Bit1"
-    />,<xsl:sequence select="$byte2Bit0"
-    /></xsl:message>-->
-    <xsl:variable name="result" as="xs:integer"
-      select="
-      (128 * $byte2Bit7 * $byte1Bit7) +
-      (64 * $byte2Bit6 * $byte1Bit6) +
-      (32 * $byte2Bit5 * $byte1Bit5) +
-      (16 * $byte2Bit4 * $byte1Bit4) +
-      (8* $byte2Bit3 * $byte1Bit3) +
-      (4 * $byte2Bit2 * $byte1Bit2) +
-      (2 * $byte2Bit1 * $byte1Bit1) +
-      (1 * $byte2Bit0 * $byte1Bit0)
-      "
+  <xsl:function name="relpath:getBits" as="xs:integer*">
+    <xsl:param name="byte" as="xs:integer"/>
+    <xsl:variable name="bitSeq" as="xs:integer*">
+      <xsl:sequence select="local:doGetBits($byte, 7, ())"/>
+    </xsl:variable>
+    <xsl:sequence select="$bitSeq"/>
+  </xsl:function>
+  
+  <xsl:function name="local:doGetBits" as="xs:integer*">
+    <xsl:param name="startingValue" as="xs:integer"/>
+    <xsl:param name="bitpos" as="xs:integer"/>
+    <xsl:param name="bits" as="xs:integer*"/>
+    <xsl:variable name="powerOfTwo" as="xs:integer" 
+      select="relpath:exp(2, $bitpos)"/>
+    <xsl:variable name="testValue" as="xs:integer"
+      select="if ($powerOfTwo gt 0) 
+         then ($startingValue idiv $powerOfTwo) 
+         else $startingValue"
     />
-    <!--<xsl:message> + [DEBUG] bitwiseAnd(): result=<xsl:sequence select="$result"/></xsl:message>-->
+    <xsl:variable name="bit" as="xs:integer"
+      select="if ($testValue gt 0) then 1 else 0"
+    />
+    <xsl:choose>
+      <xsl:when test="$bitpos = 0">
+        <xsl:sequence select="$bits, $bit"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="remainingValue" as="xs:integer"
+          select="if ($startingValue ge $powerOfTwo) 
+                     then $startingValue - $powerOfTwo 
+                     else $startingValue"
+        />
+        <xsl:sequence 
+          select="local:doGetBits($remainingValue, $bitpos - 1, ($bits, $bit))"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    
+  </xsl:function>
+  
+  <xsl:function name="relpath:exp" as="xs:integer">
+    <xsl:param name="base" as="xs:integer"/>
+    <xsl:param name="exponent" as="xs:integer"/>
+    <xsl:variable name="result" as="xs:integer"
+      select="local:doExponentiation($base, $exponent, $base)"
+    />
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+  
+  <xsl:function name="local:doExponentiation" as="xs:integer">
+    <xsl:param name="base" as="xs:integer"/>
+    <xsl:param name="exponent" as="xs:integer"/>
+    <xsl:param name="accumulatedValue" as="xs:integer"/>
+    <xsl:choose>
+      <xsl:when test="$exponent = 0">
+        <xsl:sequence select="0"/>
+      </xsl:when>
+      <xsl:when test="$exponent = 1">
+        <xsl:sequence select="$accumulatedValue"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="local:doExponentiation($base, $exponent - 1, $accumulatedValue * $base)"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
+  
+  <xsl:function name="relpath:shiftLeft" as="xs:integer">
+    <xsl:param name="bits" as="xs:integer*"/>
+    <xsl:param name="shiftSize" as="xs:integer"/>
+    <xsl:variable name="bitValue" as="xs:integer"
+      select="relpath:bits2int($bits)"
+    />
+    <xsl:variable name="result" as="xs:integer"
+      select="$bitValue * relpath:exp(2, $shiftSize)"
+    />
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+  
+  <xsl:function name="relpath:bits2int" as="xs:integer">
+    <xsl:param name="bits" as="xs:integer*"/>
+    <xsl:variable name="result" as="xs:integer"
+         select="local:doBits2int($bits, 0)"
+    />
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+  
+  <xsl:function name="local:doBits2int" as="xs:integer">
+    <xsl:param name="bits" as="xs:integer*"/>
+    <xsl:param name="accumulatedValue" as="xs:integer"/>
+    <xsl:choose>
+      <xsl:when test="count($bits) = 0">
+        <xsl:sequence select="$accumulatedValue"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="bitValue" as="xs:integer">
+          <xsl:choose>
+            <xsl:when test="count($bits) gt 1">
+              <xsl:sequence select="$bits[1] * relpath:exp(2, count($bits) - 1)"/>    
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:sequence select="$bits[1]"/>
+            </xsl:otherwise>
+          </xsl:choose>          
+        </xsl:variable>
+        
+        <xsl:sequence select="local:doBits2int($bits[position() gt 1], $accumulatedValue + $bitValue)"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    
+  </xsl:function>
+  
+  <xsl:function name="relpath:bitwiseAnd" as="xs:integer*">
+    <xsl:param name="byte1" as="xs:integer*"/>
+    <xsl:param name="byte2" as="xs:integer*"/>
+    <xsl:if test="count($byte1) ne count($byte2)">
+      <xsl:message terminate="yes"> - [ERROR] relpath:bitwiseAnd(): Bit count not equal. Byte 1 is <xsl:sequence select="count($byte1)"/>, byte 2 is <xsl:sequence select="count($byte2)"/>.</xsl:message>
+    </xsl:if>
+   
+   <xsl:variable name="result" as="xs:integer*">
+     <xsl:for-each select="$byte1">
+       <xsl:variable name="bitPos" as="xs:integer" select="position()"/>
+       <!--<xsl:message> + [DEBUG] bitwiseAnd(): testValue=<xsl:sequence select="$testValue"/></xsl:message>-->
+       <xsl:sequence select="if ((. + $byte2[$bitPos]) gt 1) then 1 else 0"/>
+     </xsl:for-each>
+   </xsl:variable>
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+  
+  <xsl:function name="relpath:bitwiseXor" as="xs:integer*">
+    <xsl:param name="byte1" as="xs:integer*"/>
+    <xsl:param name="byte2" as="xs:integer*"/>
+    <xsl:if test="count($byte1) ne count($byte2)">
+      <xsl:message terminate="yes"> - [ERROR] relpath:bitwiseXor(): Bit count not equal. Byte 1 is <xsl:sequence select="count($byte1)"/>, byte 2 is <xsl:sequence select="count($byte2)"/>.</xsl:message>
+    </xsl:if>
+    
+    <xsl:variable name="result" as="xs:integer*">
+      <xsl:for-each select="$byte1">
+        <xsl:variable name="bitPos" as="xs:integer" select="position()"/>
+        <!--<xsl:message> + [DEBUG] bitwiseAnd(): testValue=<xsl:sequence select="$testValue"/></xsl:message>-->
+        <xsl:sequence select="if ((. + $byte2[$bitPos]) gt 1) then 0 else ."/>
+      </xsl:for-each>
+    </xsl:variable>
     <xsl:sequence select="$result"/>
   </xsl:function>
   

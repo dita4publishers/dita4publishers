@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:relpath="http://dita2indesign/functions/relpath"
@@ -13,8 +13,8 @@
     
   
   <xsl:template match="/">
-    <xsl:call-template name="testEncodeUrl"/>
     <xsl:call-template name="testUnencodeUrl"/>
+    <xsl:call-template name="testEncodeUrl"/>
     <xsl:call-template name="testGetAbsolutePath"/>
     
     <xsl:call-template name="testGetRelativePath"/>
@@ -53,11 +53,7 @@
     <xsl:variable name="testData" as="element()">
       <test_data>
         <title>UnencodeUrl() Tests</title>
-        <test>
-          <source>/</source>
-          <result>/</result>
-        </test>
-        <test>
+         <test>
           <source>/A%20B/C</source>
           <result>/A B/C</result>
         </test>
@@ -69,6 +65,10 @@
         <test>
           <source>file:/D:/projects/%C3%A9%20X%20m%20l/samples/dita/garage/sequence.ditamap</source>
           <result>file:/D:/projects/é X m l/samples/dita/garage/sequence.ditamap</result>    
+        </test>    
+        <test>
+          <source>/three/byte/unicode/%E6%97%A5/%E2%82%AC/%E6%97%A5%E6%9C%AC%E8%AA%9EAfter Unicode</source>
+          <result>/three/byte/unicode/日/€/日本語After Unicode</result>    
         </test>    
       </test_data>
     </xsl:variable>
