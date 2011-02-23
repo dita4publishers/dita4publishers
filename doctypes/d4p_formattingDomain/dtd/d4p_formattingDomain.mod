@@ -183,7 +183,9 @@
 <!ENTITY % art.content
 "
   ((%art_title;)?,
-   (%image;)*,
+   (%image; |
+    %object; |
+    %foreign;)*,
    (%data;)*)
 ">
 <!ENTITY % art.attributes
