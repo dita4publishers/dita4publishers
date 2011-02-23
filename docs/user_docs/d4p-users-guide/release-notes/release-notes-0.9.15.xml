@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>Release Notes: Version 0.9.15</title>
+ <shortdesc>Version 0.9.15 released 22 February 2011</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>
+          <indexterm>release notes<indexterm>Version 0.9.15</indexterm></indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <section>
+      <title>Common XSLT library</title>
+      <ul>
+        <li>Implemented decoding of escaped UTF-8 characters in URIs.</li>
+      </ul>
+    </section>
+    <section>
+      <title>Word to DITA</title>
+      <ul>
+        <li>Fixed issue 3186860, Tables with no header row emit empty thead. Tables with no header rows and tables with only header rows should now produce valid DITA topics.</li>
+      </ul>
+    </section>
+    <section>
+      <title>Vocabulary</title>
+      <ul
+        id="ul_cmr_vma_lb">
+        <li>Correct design problem with MathML integration. In order for the <xmlelem>eqn-block</xmlelem> and <xmlelem>eqn-inline</xmlelem> elements to be normal DITA elements, there must be another level of markup between those elements and the MathML <xmlelem>math</xmlelem> elements. I added a new container, specialized from <xmlelem>foreign</xmlelem>, named <xmlelem>d4pMathML</xmlelem>, that then contains the <xmlelem>math</xmlelem> element. This is the in d4pFormatting domain.</li>
+        <li>Added <xmlelem>object</xmlelem> and <xmlelem>foreign</xmlelem> to content of <xmlelem>art</xmlelem>. This allows <xmlelem>art</xmlelem> to used to bind metadata to any kind of media object or display.</li>
+      </ul>
+    </section>
+  </conbody>
+</concept>

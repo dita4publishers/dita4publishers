@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+﻿<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
 <topic
   id="topic-1">
@@ -8,13 +8,16 @@
       <created
         date="2009-05-20"/>
       <revised
-        modified="2011-02-07"/>
+        modified="2011-02-22"/>
     </critdates>
   </prolog>
   <body>
-    <p>Updates for 07 Feb 2011:<ul
+    <p>Updates for 22 Feb 2011:<ul
       id="ul_e5a3356b-1f4e-4c6d-a24b-68eb7d56fed6">
-      <li>Corrected bug in generation of index.html file to use name="contentwin" in addition to id="contentwin". This fixes an issue with handling of links from the dynamic ToC to the content topics displayed within the iframe.</li>
+      <li>Properly support UFIs with encoded UTF-8 characters in the relpath_utils library.</li>
+      <li>Fixed bug with handling tables with no header rows in Word-to-DITA</li>
+      <li>Fixed markup design bug with MathML integration.</li>
+      <li>Added <xmlelem>object</xmlelem> and <xmlelem>foreign</xmlelem> to <xmlelem>art</xmlelem> in formatting domain. </li>
       </ul></p>
     <p>The DITA for Publishers project is an open-source, community project to enable the quick and productive use of DITA by Publishers. Enabling activities include:<ul
       id="ul_05546f8a-88ba-476d-8d8b-352681eb9e67">

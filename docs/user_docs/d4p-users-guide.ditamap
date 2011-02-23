@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
 <pubmap>
   <pubtitle> <mainpubtitle>DITA For Publishers User Guide</mainpubtitle> </pubtitle>
@@ -35,6 +35,8 @@
         href="d4p-users-guide/topics/about-this-book.xml"/>
       <topicref
         href="d4p-users-guide/release-notes/release-notes.xml">
+        <subsection
+          href="d4p-users-guide/release-notes/release-notes-0.9.15.xml"/>
         <subsection
           href="d4p-users-guide/release-notes/release-notes-0.9.14.xml"/>
         <subsection
