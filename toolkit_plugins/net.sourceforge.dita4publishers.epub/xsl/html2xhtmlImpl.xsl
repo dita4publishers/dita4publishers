@@ -88,6 +88,11 @@
       /></span>
   </xsl:template>
   
+  <xsl:template  mode="html2xhtml" match="img/@width | img/@height" priority="100">
+    <!--  Suppress for now because of issue with ImgUtils not working and generating
+          bad values for height and width. -->
+  </xsl:template>
+  
   <xsl:template  mode="html2xhtml" match="
     @lang |
     @target |
