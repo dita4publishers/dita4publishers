@@ -15,4 +15,6 @@
     uri="../../xslt/dita2indesign/elem2styleMapper.xsl"/>
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/dita2indesign/topic2article.xsl" 
     uri="../../xslt/dita2indesign/topic2article.xsl"/>
+  <uri name="rsuite:/res/plugin/dita4publishers/xslt/lib/resolve-map.xsl" 
+    uri="../../xslt/lib/resolve-map.xsl"/>
 </catalog>
