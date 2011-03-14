@@ -18,7 +18,7 @@
           and desktop publishing to DITA markup. It is designed to enable a completely
           configuration-driven transform from flat sequences of paragraphs into arbitrary DITA
           markup, using any specialization. </p>
-        <p>Copyright (c) 2009 DITA For Publishers</p>
+        <p>Copyright (c) 2009, 2011 DITA For Publishers</p>
         <p>This material is free open source provided through an Apache license or similar.</p>
       </xhtml:div>
     </xs:documentation>
@@ -153,11 +153,33 @@
             <xhtml:div
               xmlns="http://www.w3.org/1999/xhtml">
               <h2>Style ID</h2>
-              <p>The format-specific "ID" for a style, that is, the internal identifier or name for
+              <p>The format-specific "ID" for a style, that is, the internal identifier for
                 a style by which it can be looked up or matched against the incoming data. For Word
-                XML, this is the style name with spaces and special characters omitted or
-                normalized. For InDesign and InCopy, this the style name. The style ID may not match
+                XML, this is the @w:val attribute of the
+                &lt;w:*Style&gt; element. For InDesign and InCopy, this the style name. The style ID may not match
                 the display name for the style.</p>
+              <p>If you specify @styleId you should not specify @styleName. When both are specified @styleName 
+              takes precedence.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="styleName"
+        type="xs:string"
+        default="block"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div
+              xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Style Name</h2>
+              <p>The format-specific "name" for a style, that is, the display name for
+                a style by which it can be looked up or matched against the incoming data. For Word
+                XML, this is the style name as displayed in the styles list and as in the &lt;w:style&gt;/&lt;w:name&gt;/@w:val attribute). For InDesign and InCopy, this the style name.
+              For Word, style names are not case sensitive (so "heading 1" and "Heading 1" name the same style).</p>
+              <p>If you specify @styleName you should not specify @styleId. When both are specified @styleName 
+                takes precedence.</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>

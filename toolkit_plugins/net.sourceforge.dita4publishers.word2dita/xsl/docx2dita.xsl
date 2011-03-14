@@ -103,11 +103,17 @@
     match="/"
     priority="10">
     <xsl:call-template name="report-parameters"/>
+    <xsl:variable name="stylesDoc" as="document-node()"
+      select="document('styles.xml', .)"
+    />      
     <xsl:variable
       name="simpleWpDoc"
       as="element()">
       <xsl:call-template
-        name="processDocumentXml"/>
+        name="processDocumentXml">
+        <xsl:with-param name="stylesDoc" as="document-node()" tunnel="yes"
+          select="$stylesDoc"/>
+      </xsl:call-template>
     </xsl:variable>
     <xsl:variable
       name="tempDoc"
@@ -115,7 +121,7 @@
       as="xs:string"/>
     <!-- NOTE: do not set this check to true(): it will fail when run within RSuite -->
     <xsl:if
-      test="true() or $debugBoolean">
+      test="false() or $debugBoolean">
       <xsl:result-document
         href="{$tempDoc}">
         <xsl:message> + [DEBUG] Intermediate simple WP doc saved as <xsl:sequence
@@ -149,6 +155,7 @@
       + fileNamePrefix  = "<xsl:sequence select="$fileNamePrefix"/>"      
       + outputdir       = "<xsl:sequence select="$outputDir"/>"  
       + debug           = "<xsl:sequence select="$debug"/>"
+      + includeWordBackPointers= "<xsl:sequence select="$includeWordBackPointersBoolean"/>"  
       
       Global Variables:
       

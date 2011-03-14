@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
       xmlns:xs="http://www.w3.org/2001/XMLSchema"
       xmlns:local="urn:local-functions"
@@ -46,7 +46,9 @@
     <xsl:if test="$firstP and not(local:isRootTopicTitle($firstP)) and not(local:isMap($firstP))">
       <xsl:message terminate="yes"> - [ERROR] The first block in the Word document must be mapped to the root map or topic title.
         First para is style <xsl:sequence select="string($firstP/@style)"/>, mapped as <xsl:sequence 
-          select="key('styleMaps', string($firstP/@style), $styleMapDoc)[1]"/> 
+          select="
+          (key('styleMapsByName', lower-case(string($firstP/@style)), $styleMapDoc)[1],
+          key('styleMapsById', string($firstP/@style), $styleMapDoc)[1])[1]"/> 
       </xsl:message>
     </xsl:if>
     <xsl:variable name="resultDocs" as="element()*">
@@ -1490,7 +1492,8 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="styleMap" as="element()?"
-          select="key('styleMaps', $styleName, $styleMapDoc)[1]"
+          select="(key('styleMapsByName', lower-case($styleName), $styleMapDoc)[1],
+          key('styleMapsById', $styleName, $styleMapDoc))[1]"
         />
         <xsl:sequence
           select="
@@ -1515,7 +1518,8 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="styleMap" as="element()?"
-          select="key('styleMaps', $styleName, $styleMapDoc)[1]"
+          select="(key('styleMapsByName', lower-case($styleName), $styleMapDoc)[1],
+          key('styleMapsById', $styleName, $styleMapDoc))[1]"
         />
         <xsl:sequence
           select="
@@ -1539,7 +1543,8 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="styleMap" as="element()?"
-          select="key('styleMaps', $styleName, $styleMapDoc)[1]"
+          select="(key('styleMapsByName', lower-case($styleName), $styleMapDoc)[1],
+          key('styleMapsById', $styleName, $styleMapDoc))[1]"
         />
         <xsl:sequence
           select="
@@ -1563,7 +1568,9 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="styleMap" as="element()?"
-          select="key('styleMaps', $styleName, $styleMapDoc)[1]"
+          select="
+          (key('styleMapsByName', lower-case($styleName), $styleMapDoc)[1],
+          key('styleMapsById', $styleName, $styleMapDoc))[1]"
         />
         <xsl:sequence
           select="
@@ -1588,7 +1595,9 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="styleMap" as="element()?"
-          select="key('styleMaps', $styleId, $styleMapDoc)[1]"
+          select="
+          (key('styleMapsByName', lower-case($styleId), $styleMapDoc)[1],
+          key('styleMapsById', $styleId, $styleMapDoc)[1])[1]"
         />
         <xsl:sequence
           select="
@@ -1615,7 +1624,8 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="styleMap" as="element()"
-          select="key('styleMaps', $styleId, $styleMapDoc)[1]"
+          select="(key('styleMapsByName', lower-case($styleId), $styleMapDoc)[1],
+          key('styleMapsById', $styleId, $styleMapDoc)[1])[1]"
         />
         <xsl:if test="$debugBoolean">
           <xsl:message> + [DEBUG] local:getTopicType(): styleMap="<xsl:sequence select="$styleMap"/>"</xsl:message>
@@ -1648,7 +1658,8 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="styleMap" as="element()"
-          select="key('styleMaps', $styleId, $styleMapDoc)[1]"
+          select="(key('styleMapsByName', lower-case($styleId), $styleMapDoc)[1],
+          key('styleMapsById', $styleId, $styleMapDoc)[1])[1]"
         />
         <xsl:sequence
           select="

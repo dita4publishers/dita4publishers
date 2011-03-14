@@ -38,14 +38,13 @@
           the same result element as determined by the <xmlatt>containerType</xmlatt> value.</li>
       </ul></p>
     <p>Each style mapping has the following required attributes:<dl>
+      <dlentry>
+        <dt><xmlatt>styleName</xmlatt></dt>
+        <dd>The Word style name. This is the value in the <xmlatt>w:val</xmlatt> attribute of the <xmlelem>w:style</xmlelem>/<xmlelem>w:name</xmlelem> element whose <xmlatt>w:styleId</xmlatt> value matches the style ID specified by a given paragraph, text run, list item, or table. This is the display name of the style as shown in the various style-related dialogs in Word. The style name is not case sensitive, so "Heading 1" and "heading 1" identify the same style. Note that styles may have associated aliases. Mapping to aliases is not supported as of version 0.9.16.<p>If you specify <xmlatt>styleName</xmlatt> you should not specify <xmlatt>styleId</xmlatt>. If you specify both then <xmlatt>styleName</xmlatt> is used.</p></dd>
+      </dlentry>
         <dlentry>
           <dt><xmlatt>styleId</xmlatt></dt>
-          <dd>The Word style ID. This is the value in the <xmlatt>w:val</xmlatt> attribute of the
-              <xmlelem>w:*Style</xmlelem> element associated with given paragraph, text run, list
-            item, or table. Note that this value is not the same as the display name of the style.
-            For example, spaces and underscores in style names are removed to form the style ID. In
-            general, you can construct the style ID for a given style by simply removing all spaces
-            from the style's display name.</dd>
+          <dd>The Word style ID. This is the value in the <xmlatt>w:val</xmlatt> attribute of the <xmlelem>w:*Style</xmlelem> element associated with given paragraph, text run, list item, or table. Note that this value is not the same as the display name of the style. For example, spaces and underscores in style names are removed to form the style ID. In general, you can construct the style ID for a given style by simply removing all spaces from the style's display name.<p>If you specify <xmlatt>styleId</xmlatt> you should not specify <xmlatt>styleName</xmlatt>. If both are specified, <xmlatt>styleName</xmlatt> is used.</p></dd>
         </dlentry>
         <dlentry>
           <dt><xmlatt>structureType</xmlatt></dt>

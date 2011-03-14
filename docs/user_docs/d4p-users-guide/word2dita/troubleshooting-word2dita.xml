@@ -37,7 +37,7 @@
       <p>This usually means creating the smallest test case that creates the problem. That makes it easier to work out what the problem is and provides a more convenient data set if you need to get outside help figuring out what the issue is.</p>
       <p>Verify that the files you think are involved really are. Usually the easiest way to do this is to introduce syntax errors into files and verify that stuff breaks. If it doesn't break then you know something's not hooked up right.</p>
       <p>Get a second pair of eyes. Often the most efficient way to spot an error is to explain the failure to someone else—you'll often realize the problem in the course of explaining it. If not, a fresh set of eyes will often spot something silly you've overlooked because you're too close to it.</p>
-      <p>Double check the style IDs. Style IDs are case sensitive and, as explained elsewhere, may not always match the display name for the style. A simple typo can throw things off and be hard to catch, especially if you've spent too long staring at your mapping specification.</p>
+      <p>Double check the style IDs. Style IDs are case sensitive and, as explained elsewhere, may not always match the display name for the style. A simple typo can throw things off and be hard to catch, especially if you've spent too long staring at your mapping specification. If you can, switch to using style names (new in version 0.9.16), which are not case sensitive and are easier to validate since the match what you see in Word itself.</p>
     </conbody>
   </concept>
   <concept
@@ -55,7 +55,7 @@
     <title>Generated Maps and Topics Do Not Match</title>
     <conbody>
       <p>As of version 0.9.10, there is an issue with paragraphs between the root title and the Word table of contents (that is, before the first generated topic) throwing off the map generation process so you get a reference to topic 1 but no topic 1 is generated.</p>
-      <p>The fix is to remove those paragraphs from the Word documet or map them to skip or to metadata of the root map.</p>
+      <p>The fix is to remove those paragraphs from the Word document or map them to skip or to metadata of the root map.</p>
     </conbody>
   </concept>
 </concept>

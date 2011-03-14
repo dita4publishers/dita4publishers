@@ -29,7 +29,7 @@
       <title>Vocabulary</title>
       <ul
         id="ul_cmr_vma_lb">
-        <li>Correct design problem with MathML integration. In order for the <xmlelem>eqn-block</xmlelem> and <xmlelem>eqn-inline</xmlelem> elements to be normal DITA elements, there must be another level of markup between those elements and the MathML <xmlelem>math</xmlelem> elements. I added a new container, specialized from <xmlelem>foreign</xmlelem>, named <xmlelem>d4pMathML</xmlelem>, that then contains the <xmlelem>math</xmlelem> element. This is the in d4pFormatting domain.</li>
+        <li>Corrected design problem with MathML integration. In order for the <xmlelem>eqn-block</xmlelem> and <xmlelem>eqn-inline</xmlelem> elements to be normal DITA elements, there must be another level of markup between those elements and the MathML <xmlelem>math</xmlelem> elements. I added a new container, specialized from <xmlelem>foreign</xmlelem>, named <xmlelem>d4pMathML</xmlelem>, that then contains the <xmlelem>math</xmlelem> element. This is the in d4pFormatting domain.</li>
         <li>Added <xmlelem>object</xmlelem> and <xmlelem>foreign</xmlelem> to content of <xmlelem>art</xmlelem>. This allows <xmlelem>art</xmlelem> to used to bind metadata to any kind of media object or display.</li>
       </ul>
     </section>

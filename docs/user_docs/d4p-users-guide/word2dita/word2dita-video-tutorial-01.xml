@@ -14,6 +14,7 @@
   </prolog>
   <conbody>
     <p>This video tutorials works through the start-to-finish process of creating a new style-to-tag mapping for a Word document that represents a typical technical document that becomes a tree of topics with concepts and tasks.</p>
+    <note>This video predates release 0.9.16 and so shows using <xmlatt>styleId</xmlatt> rather than <xmlatt>styleName</xmlatt>. You should prefer <xmlatt>styleName</xmlatt> rather than <xmlatt>styleId</xmlatt>.</note>
     <note>
       <p>The video is served from the Screencast.com site.</p>
     </note>

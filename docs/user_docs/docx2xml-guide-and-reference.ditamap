@@ -7,6 +7,7 @@
     <copyright>
       <copyryear
         year="2009"/>
+      <copyryear year="2011"/>
       <copyrholder>DITA For Publishers</copyrholder>
     </copyright>
     <prodinfo>
@@ -14,7 +15,9 @@
       <vrmlist>
         <vrm
           version="0"
-          release="8"/>
+          release="9"
+          
+         modification="16"/>
       </vrmlist>
     </prodinfo>
   </topicmeta>

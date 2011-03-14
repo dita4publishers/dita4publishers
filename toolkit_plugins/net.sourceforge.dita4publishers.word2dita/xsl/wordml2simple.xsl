@@ -55,8 +55,10 @@
   </xd:doc>
   
   <xsl:key name="formats" match="stylemap:output" use="@name"/>
-  <xsl:key name="styleMaps" match="stylemap:style" use="@styleId"/>
+  <xsl:key name="styleMapsById" match="stylemap:style" use="@styleId"/>
+  <xsl:key name="styleMapsByName" match="stylemap:style" use="lower-case(@styleName)"/>
   <xsl:key name="relsById" match="rels:Relationship" use="@Id"/>
+  <xsl:key name="stylesById" match="w:style" use="@w:styleId"/>
   
   <xsl:variable name="styleMapDoc" as="document-node()"
     select="document($styleMapUri)"
@@ -67,6 +69,8 @@
   />
   
   <xsl:template match="/" name="processDocumentXml">
+    <xsl:param name="stylesDoc" as="document-node()" tunnel="yes"/>
+
     <xsl:message> + [INFO] styleMap=<xsl:sequence select="document-uri($styleMapDoc)"/></xsl:message>
     <xsl:if test="not(/w:document)">
       <xsl:message terminate="yes"> - [ERROR] Input document must be a w:document document.</xsl:message>
@@ -97,6 +101,7 @@
   
   <xsl:template match="w:p">
     <xsl:param name="mapUnstyledParasTo" select="'p'" tunnel="yes"/>
+    <xsl:param name="stylesDoc" as="document-node()" tunnel="yes"/>
     
     <xsl:variable name="specifiedStyleId" as="xs:string"
       select="string(./w:pPr/w:pStyle/@w:val)"
@@ -105,13 +110,25 @@
     <xsl:variable name="styleId"
       as="xs:string"
       select="
-      local:getParaStyle(., $mapUnstyledParasTo)
+      local:getParaStyleId(., $mapUnstyledParasTo)
       "
     />
-    
-    <xsl:variable name="styleMap" as="element()?"
-      select="key('styleMaps', $styleId, $styleMapDoc)[1]"
+
+    <xsl:variable name="styleName" as="xs:string"
+      select="local:lookupStyleName(., $stylesDoc, $styleId)"
     />
+
+    <!-- Mapping by name takes precedence over mapping by ID -->
+    <xsl:variable name="styleMapByName" as="element()?"
+      select="key('styleMapsByName', lower-case($styleName), $styleMapDoc)[1]"
+    />
+    <xsl:variable name="styleMapById" as="element()?"
+      select="key('styleMapsById', $styleId, $styleMapDoc)[1]"
+    />
+    <xsl:variable name="styleMap" as="element()?"
+      select="($styleMapByName, $styleMapById)[1]"
+    />
+    
     <xsl:variable name="styleData" as="element()">
       <xsl:choose>
         <xsl:when test="$styleMap">          
@@ -138,7 +155,7 @@
               <xsl:message> - [WARNING: Unstyled non-empty paragraph with content "<xsl:sequence select="$contentString"/>"</xsl:message>              
             </xsl:when>
             <xsl:otherwise>
-              <xsl:message> - [WARNING: No style mapping for paragraph with style ID "<xsl:sequence select="$styleId"/>"</xsl:message>
+              <xsl:message> - [WARNING: No style mapping for paragraph with style "<xsl:sequence select="$styleName"/>" [<xsl:sequence select="$styleId"/>]</xsl:message>
             </xsl:otherwise>
           </xsl:choose>
           <stylemap:style styleId="copy"
@@ -157,7 +174,7 @@
         <xsl:message> + [DEBUG] match on w:p: Paragraph not skipped, calling handlePara. p=<xsl:sequence select="substring(string(./w:r[1]), 0, 40)"/></xsl:message>
       </xsl:if>
       <xsl:call-template name="handlePara">
-        <xsl:with-param name="styleId" select="$styleId" as="xs:string"/>
+        <xsl:with-param name="styleId" select="$styleName" as="xs:string"/>
         <xsl:with-param name="styleData" select="$styleData" as="element()"/>
       </xsl:call-template>  
     </xsl:if>
@@ -488,7 +505,7 @@
       "/>
   </xsl:function>
   
-  <xsl:function name="local:getParaStyle" as="xs:string">
+  <xsl:function name="local:getParaStyleId" as="xs:string">
     <xsl:param name="context" as="element()"/>
     <xsl:param name="mapUnstyledParasTo" as="xs:string"/>
     <xsl:sequence select="
@@ -496,6 +513,27 @@
          then string($context/w:pPr/w:pStyle/@w:val)
          else $mapUnstyledParasTo
       "/>
+  </xsl:function>
+  
+  <xsl:function name="local:lookupStyleName" as="xs:string">
+    <xsl:param name="context" as="element()"/>
+    <xsl:param name="stylesDoc" as="document-node()"/>
+    <xsl:param name="styleId" as="xs:string"/>
+    <xsl:variable name="styleElem" as="element()?"
+      select="key('stylesById', $styleId, $stylesDoc)[1]"
+    />
+    <xsl:choose>
+      <xsl:when test="$styleElem">
+         <xsl:variable name="styleName" as="xs:string"
+           select="$styleElem/w:name/@w:val"/>
+         <xsl:sequence select="$styleName"/>        
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:message> + [WARN] No style definition found for style ID "<xsl:sequence select="$styleId"/>", returning style ID.</xsl:message>
+        <xsl:sequence select="$styleId"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    
   </xsl:function>
   
   <xsl:template match="w:*" priority="-0.5">
