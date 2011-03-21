@@ -44,7 +44,7 @@
       doctype-public="-//OASIS//DTD DITA Reference//EN"
     />
 
-    <style styleName="Title"
+    <style styleId="Title"
       level="0"
       format="bookmap"
       mapType="bookmap"
@@ -53,7 +53,7 @@
       tagName="title"
     />
     
-    <style styleName="heading 1"
+    <style styleId="heading1"
       structureType="topicTitle"
       topicDoc="yes"
       topicType="concept"
@@ -63,7 +63,7 @@
       tagName="title"
       level="1"
     />    
-    <style styleName="heading 2"
+    <style styleId="heading2"
       structureType="topicTitle"
       topicDoc="yes"
       topicType="concept"
@@ -75,7 +75,7 @@
     />    
     
     
-      <style styleName="heading 3"
+      <style styleId="heading3"
       structureType="topicTitle"
       topicDoc="yes"
       topicType="concept"
@@ -86,7 +86,7 @@
       level="3"
     />    
     
-    <style styleName="heading 4"
+    <style styleId="heading4"
       structureType="topicTitle"
       topicDoc="yes"
       topicType="concept"
@@ -98,132 +98,132 @@
     />    
     
 <style
-  styleName="Normal"
+  styleId="Normal"
   tagName="p"
   topicZone="body"
   level="1"
 />
     
     <style
-      styleName="DefaultParagraph Font"
+      styleId="DefaultParagraphFont"
       tagName="ph"
       topicZone="body"
       level="1"/>
     
     <style
-      styleName="Cover Page Name"
+      styleId="CoverPageName"
       tagName="p"
       topicZone="body"
       level="1"/>
     <style
-      styleName="Cover Page Name Char"
+      styleId="CoverPageNameChar"
       tagName="ph"
       topicZone="body"
       level="1"/>
     
     <style
-      styleName="Heading 1 Char"
+      styleId="Heading1Char"
       tagName="ph"
       topicZone="body"
       level="1"/>
     <style
-      styleName="Title Char"
-      tagName="ph"
-      topicZone="body"
-      level="1"/>
-    
-    <style
-      styleName="Heading 2 Char"
+      styleId="TitleChar"
       tagName="ph"
       topicZone="body"
       level="1"/>
     
     <style
-      styleName="TOC 1"      
-      structureType="skip"/>
-    <style
-      styleName="TOC 2"
-      structureType="skip"/>
-    <style
-      styleName="TOC 3"
-      structureType="skip"/>
-    <style
-      styleName="TOC 4"
-      structureType="skip"/>
-    <style
-      styleName="TOC 5"
-      structureType="skip"/>
-    <style
-      styleName="TOC 6"
-      structureType="skip"/>
-    <style
-      styleName="TOC 7"
-      structureType="skip"/>
-    <style
-      styleName="TOC 8"
-      structureType="skip"/>
-    <style
-      styleName="TOC 9"
-      structureType="skip"/>
-    
-    <style
-      styleName="Heading 3 Char"
-      tagName="ph"
-      topicZone="body"
-      level="1"/>
-    <style
-      styleName="Heading 4 Char"
+      styleId="Heading2Char"
       tagName="ph"
       topicZone="body"
       level="1"/>
     
     <style
-      styleName="List Bullet"
+      styleId="TOC1"      
+      structureType="skip"/>
+    <style
+      styleId="TOC2"
+      structureType="skip"/>
+    <style
+      styleId="TOC3"
+      structureType="skip"/>
+    <style
+      styleId="TOC4"
+      structureType="skip"/>
+    <style
+      styleId="TOC5"
+      structureType="skip"/>
+    <style
+      styleId="TOC6"
+      structureType="skip"/>
+    <style
+      styleId="TOC7"
+      structureType="skip"/>
+    <style
+      styleId="TOC8"
+      structureType="skip"/>
+    <style
+      styleId="TOC9"
+      structureType="skip"/>
+    
+    <style
+      styleId="Heading3Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleId="Heading4Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    
+    <style
+      styleId="ListBullet"
       containerType="ul"
       tagName="li"
       level="1"
       topicZone="body"/>
-    <style styleName="Body Text Indent" 
+    <style styleId="BodyTextIndent" 
       containerType="li" 
       idGenerator="default" 
       level="2" 
       tagName="p" 
       topicZone="body"/>
     <style
-      styleName="Body Text Indent Char"
+      styleId="BodyTextIndentChar"
       tagName="ph"
       topicZone="body"
       level="1"/>
     <style
-      styleName="List Bullet 2"
+      styleId="ListBullet2"
       containerType="ul"
       tagName="li"
       level="2"
       topicZone="body"/>
     <style
-      styleName="Block Text"
+      styleId="BlockText"
       tagName="longquote"
       topicZone="body"
       level="1"/>
     <style
-      styleName="Body Text"
+      styleId="BodyText"
       tagName="p"
       topicZone="body"
       level="1"/>
     <style
-      styleName="BodyTextChar"
+      styleId="BodyTextChar"
       tagName="ph"
       topicZone="body"
       level="1"/>
     <style
-      styleName="List Number"
+      styleId="ListNumber"
       containerType="ol"
       tagName="li"
       level="1"
       structureType="block"
       topicZone="body"/>
     <style
-      styleName="List Number 2"
+      styleId="ListNumber2"
       containerType="ol"
       tagName="li"
       level="2"
@@ -232,7 +232,7 @@
     
     
 <style
-  styleName="DefTerm"
+  styleId="DefTerm"
   structureType="dt"
   tagName="dt"
   dlEntryType="dlentry"
@@ -240,7 +240,7 @@
   topicZone="body"
 />
 <style
-  styleName="DefDesc"
+  styleId="DefDesc"
   structureType="dd"
   tagName="dd"
   dlEntryType="dlentry"
@@ -249,7 +249,7 @@
 />
     
 <style 
-  styleName="My Section Title"
+  styleId="MySectionTitle"
   structureType="section" 
   tagName="title"
   sectionType="section"
@@ -258,7 +258,7 @@
 />
     
 <style 
-  styleName="Lesson Title"
+  styleId="LessonTitle"
   structureType="topicTitle"
   initialSectionType="lcIntro"
   topicType="learningContent"
@@ -266,7 +266,7 @@
   level="1"
 />    
     
-<style styleName="section"
+<style styleId="section"
   structureType="section"
   tagName="p"
   topicZone="body"
