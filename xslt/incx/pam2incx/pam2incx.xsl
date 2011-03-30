@@ -11,12 +11,10 @@
   xmlns:pim="http://prismstandard.org/namespaces/pim/1.2/"
   xmlns:dc="http://purl.org/dc/elements/1.1/"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
-  exclude-result-prefixes="RSUITE xs idsc local ditaarch xmp-x pam prism dc pim xhtml"
+  exclude-result-prefixes="xs idsc local ditaarch xmp-x pam prism dc pim xhtml"
   >
   <!-- =======================================================================
     
-       Platts Gas Daily Proof Of Concept
-       
        PAM 2 INCX Transform
        
        This transform takes PRISM/PAM XML and generates Adobe InCopy INCX
@@ -26,10 +24,6 @@
        There is an inverse to this transform that converts INCX XML into PRISM/PAM
        XML for storage in RSuite.
        
-       Copyright (c) 2008 Platts.
-       
-       $Revision: 1.20 $
-    
     ======================================================================= -->
   
   <xsl:output indent="no" 

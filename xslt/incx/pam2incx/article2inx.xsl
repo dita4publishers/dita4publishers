@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
-  xmlns:RSUITE="http://www.reallysi.com" 
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:idsc="http://www.reallysi.com/namespaces/indesign_style_catalog"
   xmlns:local="http://www.reallysi.com/functions/local"
   xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
   xmlns:saxon="http://saxon.sf.net/"
   xmlns:xmp-x="adobe:ns:meta/"
-  exclude-result-prefixes="RSUITE xs idsc local ditaarch saxon xmp-x"
+  exclude-result-prefixes="xs idsc local ditaarch saxon xmp-x"
   extension-element-prefixes="saxon">
 
   <!-- 
-      Transform to create InCopy articles (.incx) files from BW-articles
+      Transform to create InCopy articles (.incx) files from PAM-articles
       
-      Copyright (c) 2008 Really Strategies, Inc. All rights reserved.
   
   -->
   
