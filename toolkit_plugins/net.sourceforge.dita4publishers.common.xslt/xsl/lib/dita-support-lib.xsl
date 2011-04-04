@@ -568,6 +568,29 @@
     <xsl:text>&#x0a;</xsl:text>
     <xsl:apply-templates select="$topicref" mode="topicref-report"/>
   </xsl:function>
+  
+  <xsl:function name="df:generate-dita-id" as="xs:string">
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="resultId" as="xs:string">
+      <xsl:choose>
+        <xsl:when test="df:class(($context/ancestor-or-self::*)[last()], 'map/map')">
+          <xsl:sequence select="concat(name($context), '-', count($context/preceding::*) + 1)"/>
+        </xsl:when>
+        <xsl:when test="df:class($context, 'topic/topic')">
+          <xsl:sequence select="string($context/@id)"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <!-- Must be an element within a topic -->
+          <!-- FIXME: Could make the generated ID unique only within the scope of the
+               containing topic, e.g., concat the topic ID plus the number of preceding
+               nodes up to the parent topic. -->
+          <xsl:sequence select="concat(name($context), '-', 
+            count($context/preceding::*) + 1)"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:sequence select="$resultId"/>  
+  </xsl:function>
     
   <xsl:template mode="topicref-report" match="*[df:class(., 'map/topicref')]">
     <xsl:text>&#x0a;</xsl:text>
