@@ -4,5 +4,41 @@
   <title>A Chapter</title>
   <body>
     <p>Topic paragraph</p>
+    <table
+      frame="all"
+      id="table_mqo_ucw_sb">
+      <title>This is A Table</title>
+      <tgroup
+        cols="2">
+        <colspec
+          colname="c1"
+          colnum="1"
+          colwidth="1.0*"/>
+        <colspec
+          colname="c2"
+          colnum="2"
+          colwidth="1.0*"/>
+        <thead>
+          <row>
+            <entry>Header</entry>
+            <entry>Header</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>R1C1</entry>
+            <entry>R1C2</entry>
+          </row>
+          <row>
+            <entry>R2C1</entry>
+            <entry>R2C2</entry>
+          </row>
+          <row>
+            <entry>R3C1</entry>
+            <entry>R3C2</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
   </body>
 </topic>

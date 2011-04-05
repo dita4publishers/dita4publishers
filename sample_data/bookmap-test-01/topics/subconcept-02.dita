@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">
+<concept id="conceptId" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+ <title>Sub Concept 02</title>
+ <shortdesc></shortdesc>
+ <conbody>
+  <p>Here is a figure:<fig>
+      <title>Figure in Sub Concept 02</title>
+      <codeblock>This is in figure in sub concept 02.</codeblock>
+      </fig></p>
+    <fig>
+      <title>Second Figure in Sub Concept 02</title>
+      <codeblock>This is in second figure in sub concept 02.</codeblock>
+    </fig>
+ </conbody>
+</concept>
