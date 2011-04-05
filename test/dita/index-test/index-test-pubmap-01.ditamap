@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
+<pubmap>
+  <pubtitle> <mainpubtitle>Index Generation Test 01</mainpubtitle> </pubtitle>
+  <pubmeta>
+    <metadata>
+      <keywords>
+        <indexterm>apple</indexterm>
+        <indexterm>berry</indexterm>
+        <indexterm>Heading in the root map</indexterm>
+      </keywords>
+    </metadata>
+  </pubmeta>
+  <keydefs>
+    <topicmeta>
+      <navtitle>Key Definitions</navtitle>
+    </topicmeta>
+  </keydefs>
+  <publication>
+    <frontmatter/>
+    <pubbody>
+      <chapter
+        href="topics/index-test-topic-01.dita"/>
+      <chapter
+        href="topics/index-test-topic-02.dita"/>
+    </pubbody>
+    <backmatter/>
+    <indexlist/>
+  </publication>
+</pubmap>
