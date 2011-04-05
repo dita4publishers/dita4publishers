@@ -188,7 +188,7 @@
     </xsl:apply-templates>
   </xsl:template>  
   
-  <xsl:template match="index-terms:index-term[./index-terms:target = ''] | index-terms:index-group" 
+  <xsl:template match="index-terms:index-term[./index-terms:targets] | index-terms:index-group" 
     mode="generate-dynamic-toc">
     <xsl:param name="parentId" as="xs:string" tunnel="yes"/>
     <xsl:text>var </xsl:text>
@@ -206,7 +206,7 @@
     
   </xsl:template>  
   
-  <xsl:template match="index-terms:index-term[./index-terms:target != '']" mode="generate-dynamic-toc">
+  <xsl:template match="index-terms:index-term[not(index-terms:targets)]" mode="generate-dynamic-toc">
     <xsl:param name="parentId" as="xs:string" tunnel="yes"/>
     
     <xsl:variable name="targetUri" as="xs:string"

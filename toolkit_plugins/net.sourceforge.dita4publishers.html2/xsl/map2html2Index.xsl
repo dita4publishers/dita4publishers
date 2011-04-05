@@ -101,7 +101,7 @@
     <xsl:if test="preceding-sibling::*">
       <xsl:text>,</xsl:text>
     </xsl:if>
-    <a href="{string(.)}"> 
+    <a href="{string(@target-uri)}" target="${contentwin}"> 
       <xsl:text> [</xsl:text>
       <xsl:number count="index-terms:target" format="1"/>
       <xsl:text>] </xsl:text>

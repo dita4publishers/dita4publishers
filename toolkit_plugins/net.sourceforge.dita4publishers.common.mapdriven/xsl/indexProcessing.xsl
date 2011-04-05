@@ -41,14 +41,17 @@
          I18N library. 
       -->
     <xsl:for-each-group select="index-terms:index-term"
-      group-by="local:construct-index-group-key(.)"
+      group-by="./@grouping-key"
       >
-      <xsl:sort select="local:construct-index-group-sort-key(.)"/>
+      <xsl:sort select="./@sorting-key"/>
       <xsl:message> + [DEBUG] Index group "<xsl:sequence select="local:construct-index-group-label(current-group()[1])"
       />", grouping key: "<xsl:sequence select="current-grouping-key()"
       />", sort key: "<xsl:sequence select="local:construct-index-group-sort-key(.)"
       />"</xsl:message>
-      <index-terms:index-group>
+      <index-terms:index-group 
+        grouping-key="{current-grouping-key()}"
+        sorting-key="{@sorting-key}"
+        >
         <index-terms:label><xsl:sequence select="local:construct-index-group-label(current-group()[1])"/></index-terms:label>
         <!-- At this point, the current group is all entries within the group. 
           
@@ -70,19 +73,24 @@
     <xsl:param name="term-depth" as="xs:integer"/>
     
     <xsl:for-each-group select="$index-terms" 
-      group-by="local:construct-index-term-grouping-key(./index-terms:label)">
-      <xsl:sort select="local:construct-index-term-sorting-key(./index-terms:label)"/>
+      group-by="@grouping-key">
+      <xsl:sort select="@sorting-key"/>
       <!-- Each group is all the entries for a given term key -->
       <xsl:variable name="firstTerm" select="current-group()[1]" as="element()"/>
       <xsl:if test="$term-depth > 3">
         <xsl:message> - [WARNING] Index entry is more than 3 levels deep: <xsl:value-of select="index-terms:label"/></xsl:message>
       </xsl:if>
       <xsl:message> + [DEBUG] group-and-sort-index: index term level <xsl:sequence select="$term-depth"/>: "<xsl:value-of select="index-terms:label"/></xsl:message>
-      <index-terms:index-term>
+      <index-terms:index-term 
+        grouping-key="{@grouping-key}"
+        sorting-key="{@sorting-key}"
+        >
         <index-terms:label><xsl:apply-templates select="$firstTerm/index-terms:label" mode="#current"/></index-terms:label>
-        <index-terms:targets>
-          <xsl:sequence select="current-group()/index-terms:target"/>
-        </index-terms:targets>
+        <xsl:if test="current-group()/index-terms:target">
+          <index-terms:targets>
+            <xsl:sequence select="current-group()/index-terms:target"/>
+          </index-terms:targets>
+        </xsl:if>
         <index-terms:sub-terms>
           <xsl:call-template name="process-index-terms">
             <xsl:with-param name="index-terms" as="node()*" select="current-group()/index-terms:index-term"/>
@@ -114,9 +122,6 @@
         text()" mode="index-term-label"/>
     </xsl:variable>
     
-    <xsl:if test="normalize-space(string-join($labelContent, '')) = '' and ./*">
-    </xsl:if>
-    
     <xsl:choose>
       <xsl:when test="normalize-space(string-join($labelContent, '')) = '' and not(./*)">
         <xsl:message> + [INFO] Skipping empty <xsl:sequence select="name(.)"/> element in <xsl:sequence select="string(@xtrf)"/>...</xsl:message>
@@ -127,15 +132,28 @@
         <xsl:apply-templates mode="#current"/>
       </xsl:when>
       <xsl:otherwise>        
-        <!--<xsl:message> - [DEBUG] Entry: <xsl:apply-templates mode="report-element" select="."/></xsl:message>-->
-        <index-term xmlns="http://dita4publishers.org/index-terms">
-          <label><xsl:sequence select="$labelContent"/></label>
-          <target><xsl:sequence select="$targetUri"/></target>
-          <item-id><xsl:sequence select="generate-id()"/></item-id>
+        <xsl:variable name="grouping-key" 
+          select="if (parent::*[df:class(., 'topic/indexterm')]) 
+          then local:construct-index-term-grouping-key($labelContent)
+          else local:construct-index-group-key($labelContent)" as="xs:string"/>
+        <xsl:variable name="sorting-key" select="if (parent::*[df:class(., 'topic/indexterm')])
+          then local:construct-index-term-sorting-key($labelContent)
+          else local:construct-index-group-sort-key($labelContent)" as="xs:string"/>
+        <xsl:message> + [DEBUG] gather-index-terms: grouping-key="<xsl:sequence select="$grouping-key"/>"</xsl:message>        
+        <xsl:message> + [DEBUG] gather-index-terms: sorting-key= "<xsl:sequence select="$sorting-key"/>"</xsl:message>        
+        <index-terms:index-term
+          grouping-key="{$grouping-key}"
+          sorting-key="{$sorting-key}"
+          item-id="{generate-id()}"
+          >
+          <index-terms:label><xsl:sequence select="$labelContent"/></index-terms:label>
+          <index-terms:target target-uri="{$targetUri}">
+            <xsl:sequence select="."/><!-- Make the original index term available -->
+          </index-terms:target>
           <!--<xsl:message> + [DEBUG] Handling nested index terms...</xsl:message>-->
           <xsl:apply-templates select="*[df:class(., 'topic/indexterm')]" mode="#current"/>
           <!--<xsl:message> + [DEBUG] Nested index terms handled.</xsl:message>-->
-        </index-term>
+        </index-terms:index-term>
       </xsl:otherwise>
     </xsl:choose>
     
@@ -189,19 +207,19 @@
   </xsl:template>
   
   <xsl:function name="local:construct-index-group-key" as="xs:string">
-    <xsl:param name="index-term" as="element()"/>
+    <xsl:param name="label" as="node()*"/>
+    <xsl:variable name="labelStr" select="string($label)" as="xs:string"/>
     <!-- FIXME: This is a very quick-and-dirty grouping key implementation.
       
          A full implementation must be extensible and must be locale-specific.
       -->
-    <xsl:variable name="label" select="normalize-space($index-term/index-terms:label)" as="xs:string"/>
     <xsl:variable name="key" as="xs:string">
       <xsl:choose>
-        <xsl:when test="matches($label, '^[0-9]')">
+        <xsl:when test="matches($labelStr, '^[0-9]')">
           <xsl:sequence select="'#numeric'"/>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:sequence select="lower-case(substring($label,1,1))"/>
+          <xsl:sequence select="lower-case(substring($labelStr,1,1))"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
@@ -210,7 +228,9 @@
   </xsl:function>
 
   <xsl:function name="local:construct-index-group-sort-key" as="xs:string">
-    <xsl:param name="index-term" as="element()"/>
+    <xsl:param name="label" as="node()*"/>
+    <!-- This label-to-label string anticipates more sophisticated label construction -->
+    <xsl:variable name="labelStr" as="xs:string" select="string($label)"/>
     <!-- FIXME: This is a very quick-and-dirty sorting key implementation.
       
       A full implementation must be extensible and must be locale-specific.
@@ -218,14 +238,13 @@
       Need to control whether non-alpha items come first or last in collation
       order.
     -->
-    <xsl:variable name="label" select="normalize-space($index-term/index-terms:label)" as="xs:string"/>
     <xsl:variable name="key" as="xs:string">
       <xsl:choose>
-        <xsl:when test="matches($label, '^[0-9]')">
+        <xsl:when test="matches($labelStr, '^[0-9]')">
           <xsl:sequence select="'#numeric'"/>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:sequence select="lower-case(substring($label,1,1))"/>
+          <xsl:sequence select="lower-case(substring($labelStr,1,1))"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
@@ -258,13 +277,13 @@
   </xsl:function>
   
   <xsl:function name="local:construct-index-term-grouping-key" as="xs:string">
-    <xsl:param name="context" as="element()"/>
-    <xsl:variable name="grouping-key" as="xs:string" select="normalize-space($context)"/>
+    <xsl:param name="context" as="node()*"/>
+    <xsl:variable name="grouping-key" as="xs:string" select="normalize-space(string-join($context))"/>
     <xsl:sequence select="$grouping-key"/>
   </xsl:function>
   
   <xsl:function name="local:construct-index-term-sorting-key" as="xs:string">
-    <xsl:param name="context" as="element()"/>
+    <xsl:param name="context" as="node()*"/>
     <xsl:variable name="grouping-key" as="xs:string" select="lower-case(normalize-space($context))"/>
     <xsl:sequence select="$grouping-key"/>
   </xsl:function>
