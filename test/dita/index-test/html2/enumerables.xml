@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<enumerables xmlns="http://dita4publishers.org/enumerables"
+             xmlns:index-terms="http://dita4publishers.org/index-terms"
+             xmlns:enumerables="http://dita4publishers.org/enumerables">
+   <chapter sourceId="chapter-13" class="+ map/topicref pubmap-d/chapter "
+            topicClass="- topic/topic ">
+      <title>Index Test 01</title>
+      <fig sourceId="fig-28" id="fig-01" class="- topic/fig ">
+         <title>This is Figure 01</title>
+      </fig>
+   </chapter>
+   <chapter sourceId="chapter-17" class="+ map/topicref pubmap-d/chapter "
+            topicClass="- topic/topic ">
+      <title>Index Test Topic 02</title>
+   </chapter>
+</enumerables>

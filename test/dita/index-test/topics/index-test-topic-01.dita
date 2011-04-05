@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="topic-1">
+  <title>Index Test 01</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>apple</indexterm>
+        <indexterm>berry</indexterm>
+        <indexterm>cherry</indexterm>
+        <indexterm>fruit<indexterm>apple</indexterm></indexterm>
+        <indexterm>food<indexterm>cherries</indexterm><indexterm>berries (second subterm under heading "food")</indexterm></indexterm>
+        <indexterm>pie<index-see>pastry (index-see under pie)</index-see></indexterm>
+        <indexterm>pastry<index-see-also>pie (index-see-also under pastry)</index-see-also></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>This topic contains index entries only in the prolog.</p>
+    <p>Entries for this topic:<ul>
+      <li>apple</li>
+      <li>berry</li>
+      <li>cherry</li>
+      <li>fruit, apple</li>
+      <li>food, cherries</li>
+      <li>food, berries</li>
+      <li>pie</li>
+      <li>pastry</li>
+      </ul></p>
+    <fig
+      id="fig-01">
+      <title>This is Figure 01</title>
+      <p>Contents of figure 01.</p>
+    </fig>
+  </body>
+</topic>
