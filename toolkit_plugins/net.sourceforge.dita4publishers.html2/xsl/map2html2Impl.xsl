@@ -5,6 +5,7 @@
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:df="http://dita2indesign.org/dita/functions"  
   xmlns:index-terms="http://dita4publishers.org/index-terms"
+  xmlns:enumerables="http://dita4publishers.org/enumerables"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   exclude-result-prefixes="xs xd df relpath"
   version="2.0">
@@ -45,6 +46,7 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/indexProcessing.xsl"/>
   
   <!-- Import the base HTML output generation transform. -->
   <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
@@ -59,7 +61,8 @@
   <xsl:include href="map2html2StaticToc.xsl"/>
   <xsl:include href="map2html2Frameset.xsl"/>
   <xsl:include href="map2html2Index.xsl"/>
-
+  <xsl:include href="map2html2Enumeration.xsl"/>
+  
   <xsl:include href="map2html2D4P.xsl"/>
   <xsl:include href="map2html2Bookmap.xsl"/>
   
@@ -263,7 +266,8 @@
       </index-terms>
     </xsl:variable>
     
-    <xsl:if test="true() and $debugBoolean">
+    <xsl:if test="true() or $debugBoolean">
+      <xsl:message> + [DEBUG] Writing file <xsl:sequence select="relpath:newFile($outdir, 'index-terms.xml')"/>...</xsl:message>
       <xsl:result-document href="{relpath:newFile($outdir, 'index-terms.xml')}"
         format="indented-xml"
         >
@@ -271,18 +275,54 @@
       </xsl:result-document>
     </xsl:if>
     
-    <!-- NOTE: By default, this mode puts it output in the main output file
+    <xsl:message> + [INFO] Grouping and sorting index terms...</xsl:message>
+    <xsl:variable name="index-terms-grouped-and-sorted" as="element()">
+      <index-terms  xmlns="http://dita4publishers.org/index-terms">
+        <xsl:if test="$generateIndexBoolean">
+          <xsl:apply-templates mode="group-and-sort-index" select="$index-terms"/>
+        </xsl:if>
+      </index-terms>
+    </xsl:variable>
+
+    <xsl:if test="true() or $debugBoolean">
+      <xsl:message> + [DEBUG] Writing file <xsl:sequence select="relpath:newFile($outdir, 'index-terms-grouped-and-sorted.xml')"/>...</xsl:message>
+      <xsl:result-document href="{relpath:newFile($outdir, 'index-terms-grouped-and-sorted.xml')}"
+        format="indented-xml"
+        >
+        <xsl:sequence select="$index-terms-grouped-and-sorted"/>
+      </xsl:result-document>
+    </xsl:if>
+    
+    <xsl:variable name="enumberables" as="element()">
+      <enumerables xmlns="http://dita4publishers.org/enumerables">
+        <xsl:apply-templates mode="construct-enumerable-structure" select="."/>
+      </enumerables>
+    </xsl:variable>
+    
+    <xsl:if test="true()">
+      <xsl:message> + [DEBUG] Writing file <xsl:sequence select="relpath:newFile($outdir, 'enumerables.xml')"/>...</xsl:message>
+      <xsl:result-document href="{relpath:newFile($outdir, 'enumerables.xml')}"
+        format="indented-xml"
+        >
+        <xsl:sequence select="$enumberables"/>
+      </xsl:result-document>
+    </xsl:if>
+    
+    <!-- NOTE: By default, this mode puts its output in the main output file
          produced by the transform.
       -->
     <xsl:apply-templates select="." mode="generate-root-pages">
       <xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/>
-      <xsl:with-param name="index-terms" as="element()" select="$index-terms" tunnel="yes"/>
+      <xsl:with-param name="index-terms" as="element()" select="$index-terms-grouped-and-sorted" tunnel="yes"/>
+      <xsl:with-param name="enumerables" as="element()" select="$enumberables" tunnel="yes"/>
     </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-content">
+      <xsl:with-param name="index-terms" as="element()" select="$index-terms-grouped-and-sorted"/>
       <xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/>      
+      <xsl:with-param name="enumerables" as="element()" select="$enumberables" tunnel="yes"/>
     </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-index">
-      <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
+      <xsl:with-param name="index-terms" as="element()" select="$index-terms-grouped-and-sorted"/>
     </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-graphic-copy-ant-script">
       <xsl:with-param name="graphicMap" as="element()" tunnel="yes" select="$graphicMap"/>
