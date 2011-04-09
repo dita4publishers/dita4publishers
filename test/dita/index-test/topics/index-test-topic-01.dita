@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
 <topic id="topic-1">
-  <title>Index Test 01</title>
+  <title>Index Test Topic 01</title>
   <prolog>
     <metadata>
       <keywords>
@@ -12,10 +12,54 @@
         <indexterm>food<indexterm>cherries</indexterm><indexterm>berries (second subterm under heading "food")</indexterm></indexterm>
         <indexterm>pie<index-see>pastry (index-see under pie)</index-see></indexterm>
         <indexterm>pastry<index-see-also>pie (index-see-also under pastry)</index-see-also></indexterm>
+        <indexterm>text <keyword>keyword</keyword> text after keyword</indexterm>
+        <indexterm>&lt;non-alpha-first-charcter&gt;</indexterm>
+        <indexterm>42<indexterm>as answer to life, universe, and everything</indexterm></indexterm>
+        <indexterm><keyword>keyword as first child of indexterm</keyword> text after keyword</indexterm>
       </keywords>
     </metadata>
   </prolog>
   <body>
+    <table
+      frame="all"
+      id="table_ksh_fsa_yb">
+      <title>Test of Table ID Generation</title>
+      <tgroup
+        cols="2">
+        <colspec
+          colname="c1"
+          colnum="1"
+          colwidth="1.0*"/>
+        <colspec
+          colname="c2"
+          colnum="2"
+          colwidth="1.0*"/>
+        <thead>
+          <row>
+            <entry>Col 1</entry>
+            <entry>Col 2</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>R1C1</entry>
+            <entry>R1C2</entry>
+          </row>
+          <row>
+            <entry>R2C1</entry>
+            <entry>R2C2</entry>
+          </row>
+          <row>
+            <entry>R3C1</entry>
+            <entry>R3C2</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <fig>
+      <title>Test of ID generation topic 01</title>
+      <p>This is figure in topic 01</p>
+    </fig>    
     <p>This topic contains index entries only in the prolog.</p>
     <p>Entries for this topic:<ul>
       <li>apple</li>

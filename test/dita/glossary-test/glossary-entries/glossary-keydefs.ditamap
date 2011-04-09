@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/map.dtd">
+<map
+  title="Glossary Entry Keydefs">
+  <!-- NOTE: These are purposely not in alphabetical order in order to
+             ensure ordering in generated lists is not accidently correct.
+    -->
+  <keydef
+    href="gloss-blackberry-food.dita"
+    keys="gloss-blackberry-food"/>
+  <keydef
+    href="gloss-cherry-food.dita"
+    keys="gloss-cherry-food"/>
+  <keydef
+    href="gloss-apple-fruit.dita"
+    keys="gloss-apple-fruit"/>
+</map>

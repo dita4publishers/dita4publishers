@@ -7,10 +7,16 @@
       <keywords>
         <indexterm>berry<indexterm>pie</indexterm></indexterm>
         <indexterm>apple<indexterm>pie<indexterm>varieties of (tertiary entry under apple, pie)</indexterm></indexterm></indexterm>
+        <indexterm>universe<indexterm>answer to</indexterm></indexterm>
+        <indexterm>life<index-see>universe</index-see></indexterm>
       </keywords>
     </metadata>
   </prolog>
   <body>
+    <fig>
+      <title>Test of ID generation topic 02</title>
+      <p>This is figure in topic 02</p>
+    </fig>
     <p>This topic contains index entries n the prolog and inline.</p>
     <p>Everybody loves pie<indexterm>pie</indexterm> but even more generally, everybody loves pastry<indexterm>pastry</indexterm>.</p>
     <p>One of our favorite pies is the humble apple.<indexterm>pie<indexterm>apple</indexterm></indexterm><indexterm>apple<indexterm>pie</indexterm></indexterm>.</p>

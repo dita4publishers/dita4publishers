@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="topic-1">
+  <title>Glossary Test</title>
+  <body>
+    <p>This document is a test of glossary processing.</p>
+    <p>The main map includes a submap that defines a set of keydefs, one for each glossary entry.</p>
+    <p>The main map also includes a <codeph>&lt;glossarylist></codeph> element, which should trigger generation of the glossary.</p>
+  </body>
+</topic>
