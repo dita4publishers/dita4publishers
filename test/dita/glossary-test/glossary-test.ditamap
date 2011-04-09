@@ -11,6 +11,11 @@
   <chapter
     href="topics/overview.dita"/>
   <backmatter>
+    <topichead
+      navtitle="Explicitly-Referenced Glossary Entries">
+      <topicref
+        keyref="gloss-blackberry-food"/>
+    </topichead>
     <booklists>
       <glossarylist>
         <topicmeta>
