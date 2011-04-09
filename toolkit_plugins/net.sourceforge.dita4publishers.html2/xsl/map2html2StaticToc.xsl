@@ -30,7 +30,7 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-static-toc">
-    <xsl:param name="index-terms" as="element()" tunnel="yes"/>
+    <xsl:param name="collected-data" as="element()" tunnel="yes"/>
     <xsl:if test="$generateStaticTocBoolean">
       <xsl:message> + [INFO] Generating static table of contents...</xsl:message>
       <div class="static-toc" style="display: none;"><xsl:sequence select="'&#x0a;'"/>

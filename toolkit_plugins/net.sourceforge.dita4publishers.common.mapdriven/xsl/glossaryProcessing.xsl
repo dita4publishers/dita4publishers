@@ -3,22 +3,21 @@
                 xmlns:df="http://dita2indesign.org/dita/functions"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:relpath="http://dita2indesign/functions/relpath"
-                xmlns:index-terms="http://dita4publishers.org/index-terms"
+                xmlns:glossdata="http://dita4publishers.org/glossdata"
                 xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"                
                 xmlns:local="urn:functions:local"
-                exclude-result-prefixes="local xs df xsl relpath index-terms htmlutil"
+                exclude-result-prefixes="local xs df xsl relpath glossdata htmlutil"
   >
   <!-- =============================================================
     
     DITA Map to HTML Transformation
     
-    Back-of-the-book index generation. This transform generates the HTML markup
-    for a back-of-the-book index reflecting the index entries in the map and
-    topic set.
+    Glossary generation. This transform provides generic grouping and sorting
+    of glossary entries.
     
     NOTE: This functionality is not completely implemented.
     
-    Copyright (c) 2010, 2011 DITA For Publishers
+    Copyright (c) 2011 DITA For Publishers
     
     Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
     The intent of this license is for this material to be licensed in a way that is
@@ -32,47 +31,44 @@
   
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
 
-  <xsl:template match="/*[df:class(., 'map/map')]" mode="group-and-sort-index">
+  <xsl:template match="/*[df:class(., 'map/map')]" mode="group-and-sort-glossary">
     
-    <!-- Gather all the index entries from the map and topic. 
-    -->
-    <xsl:variable name="index-terms" as="element()">
-      <index-terms:index-terms>
+    <xsl:variable name="glossary-entries" as="element()">
+      <glossdata:glossary-entries>
         <xsl:if test="$generateIndexBoolean">
-          <xsl:apply-templates mode="gather-index-terms" select="."/>
+          <xsl:apply-templates mode="gather-glossary-terms" select="."/>
         </xsl:if>
-      </index-terms:index-terms>      
+      </glossdata:glossary-entries>      
     </xsl:variable>
-        
         
     <!-- Group first-level terms by index group -->
     <!-- FIXME: Implement usual index grouping localization and configuration per
          I18N library. 
       -->
-    <xsl:for-each-group select="$index-terms/index-terms:index-term"
+    <xsl:for-each-group select="$glossary-entries/glossdata:glossentry"
       group-by="./@grouping-key"
       >
       <xsl:sort select="./@sorting-key"/>
-      <!--<xsl:message> + [DEBUG] Index group "<xsl:sequence select="local:construct-index-group-label(current-group()[1])"
+      <!--<xsl:message> + [DEBUG] Glossary group "<xsl:sequence select="local:construct-glossary-group-label(current-group()[1])"
       />", grouping key: "<xsl:sequence select="current-grouping-key()"
-      />", sort key: "<xsl:sequence select="local:construct-index-group-sort-key(.)"
+      />", sort key: "<xsl:sequence select="local:construct-glossary-group-sort-key(.)"
       />"</xsl:message>-->
-      <index-terms:index-group 
+      <glossdata:index-group 
         grouping-key="{current-grouping-key()}"
         sorting-key="{@sorting-key}"
         >
-        <index-terms:label><xsl:sequence select="local:construct-index-group-label(current-group()[1])"/></index-terms:label>
+        <glossdata:label><xsl:sequence select="local:construct-glossary-group-label(current-group()[1])"/></glossdata:label>
         <!-- At this point, the current group is all entries within the group. 
           
           Now group entries by primary term.
         -->
-        <index-terms:sub-terms>
+        <glossdata:sub-terms>
           <xsl:call-template name="process-index-terms">
             <xsl:with-param name="index-terms" as="node()*" select="current-group()"/>
             <xsl:with-param name="term-depth" as="xs:integer" select="1"/>
           </xsl:call-template>
-        </index-terms:sub-terms>
-      </index-terms:index-group>
+        </glossdata:sub-terms>
+      </glossdata:index-group>
     </xsl:for-each-group>
   </xsl:template>
   
@@ -87,38 +83,38 @@
       <!-- Each group is all the entries for a given term key -->
       <xsl:variable name="firstTerm" select="current-group()[1]" as="element()"/>
       <xsl:if test="$term-depth > 3">
-        <xsl:message> - [WARNING] Index entry is more than 3 levels deep: "<xsl:value-of select="index-terms:label"/>"</xsl:message>
+        <xsl:message> - [WARNING] Index entry is more than 3 levels deep: "<xsl:value-of select="glossdata:label"/>"</xsl:message>
       </xsl:if>
       <xsl:if test="false()">
-        <xsl:message> + [DEBUG] group-and-sort-index: index term level <xsl:sequence select="$term-depth"/>: "<xsl:value-of select="index-terms:label"/></xsl:message>
+        <xsl:message> + [DEBUG] group-and-sort-index: index term level <xsl:sequence select="$term-depth"/>: "<xsl:value-of select="glossdata:label"/></xsl:message>
       </xsl:if>
-      <index-terms:index-term 
+      <glossdata:index-term 
         grouping-key="{@grouping-key}"
         sorting-key="{@sorting-key}"
         >
-        <index-terms:label><xsl:apply-templates select="$firstTerm/index-terms:label" mode="#current"/></index-terms:label>
-        <xsl:sequence select="index-terms:original-markup"/>        
-        <xsl:if test="not(current-group()/index-terms:index-term)">
+        <glossdata:label><xsl:apply-templates select="$firstTerm/glossdata:label" mode="#current"/></glossdata:label>
+        <xsl:sequence select="glossdata:original-markup"/>        
+        <xsl:if test="not(current-group()/glossdata:index-term)">
           <!-- Only put out targets for this term if there are no subterms -->
-          <index-terms:targets>
-            <xsl:sequence select="current-group()/index-terms:target[*[df:class(.,'topic/indexterm')][not(*[df:class(.,'topic/indexterm')])]]"/>
-          </index-terms:targets>
+          <glossdata:targets>
+            <xsl:sequence select="current-group()/glossdata:target[*[df:class(.,'topic/indexterm')][not(*[df:class(.,'topic/indexterm')])]]"/>
+          </glossdata:targets>
         </xsl:if>
-        <index-terms:sub-terms>
+        <glossdata:sub-terms>
           <xsl:call-template name="process-index-terms">
-            <xsl:with-param name="index-terms" as="node()*" select="current-group()/index-terms:index-term"/>
+            <xsl:with-param name="index-terms" as="node()*" select="current-group()/glossdata:index-term"/>
             <xsl:with-param name="term-depth" select="$term-depth + 1" as="xs:integer"/>
           </xsl:call-template>
-        </index-terms:sub-terms>
-      </index-terms:index-term>
+        </glossdata:sub-terms>
+      </glossdata:index-term>
     </xsl:for-each-group>    
   </xsl:template>
   
-  <xsl:template match="index-terms:orginal-markup" mode="group-and-sort-index">
+  <xsl:template match="glossdata:orginal-markup" mode="group-and-sort-index">
     <!-- Nothing to do. -->
   </xsl:template>
   
-  <xsl:template match="index-terms:label" mode="group-and-sort-index">
+  <xsl:template match="glossdata:label" mode="group-and-sort-index">
     <xsl:apply-templates mode="index-term-label"/>
   </xsl:template>
   
@@ -151,35 +147,35 @@
       <xsl:otherwise>        
         <xsl:variable name="grouping-key" 
           select="if (parent::*[df:class(., 'topic/indexterm')]) 
-          then local:construct-index-term-grouping-key($labelContent)
-          else local:construct-index-group-key($labelContent)" as="xs:string"/>
+          then local:construct-glossary-entry-grouping-key($labelContent)
+          else local:construct-glossary-group-key($labelContent)" as="xs:string"/>
         <xsl:variable name="sorting-key" select="if (parent::*[df:class(., 'topic/indexterm')])
-          then local:construct-index-term-sorting-key($labelContent)
-          else local:construct-index-group-sort-key($labelContent)" as="xs:string"/>
+          then local:construct-glossary-entry-sorting-key($labelContent)
+          else local:construct-glossary-group-sort-key($labelContent)" as="xs:string"/>
         
         <xsl:if test="false()">       
-          <xsl:message> + [DEBUG] gather-index-terms: grouping-key="<xsl:sequence select="$grouping-key"/>"</xsl:message>        
-          <xsl:message> + [DEBUG] gather-index-terms: sorting-key= "<xsl:sequence select="$sorting-key"/>"</xsl:message>        
+          <xsl:message> + [DEBUG] gather-glossdata: grouping-key="<xsl:sequence select="$grouping-key"/>"</xsl:message>        
+          <xsl:message> + [DEBUG] gather-glossdata: sorting-key= "<xsl:sequence select="$sorting-key"/>"</xsl:message>        
         </xsl:if>
-        <index-terms:index-term
+        <glossdata:index-term
           grouping-key="{$grouping-key}"
           sorting-key="{$sorting-key}"
           item-id="{generate-id()}"
           >
-          <index-terms:label><xsl:sequence select="$labelContent"/></index-terms:label>
-          <index-terms:original-markup>
+          <glossdata:label><xsl:sequence select="$labelContent"/></glossdata:label>
+          <glossdata:original-markup>
             <xsl:sequence select="."/><!-- Make the original index term available in all cases -->
-          </index-terms:original-markup>
+          </glossdata:original-markup>
           <xsl:if test="not(*[df:class(., 'topic/indexterm')])">
             <!-- Only output a target if it is a leaf index term. -->
-            <index-terms:target target-uri="{$targetUri}">
+            <glossdata:target target-uri="{$targetUri}">
               <xsl:sequence select=".[not(*[df:class(., 'topic/indexterm')])]"/>
-            </index-terms:target>
+            </glossdata:target>
           </xsl:if>
           <!--<xsl:message> + [DEBUG] Handling nested index terms...</xsl:message>-->
           <xsl:apply-templates select="*[df:class(., 'topic/indexterm')]" mode="#current"/>
           <!--<xsl:message> + [DEBUG] Nested index terms handled.</xsl:message>-->
-        </index-terms:index-term>
+        </glossdata:index-term>
       </xsl:otherwise>
     </xsl:choose>
     
@@ -222,7 +218,7 @@
             <!-- Any subordinate topics in the currently-referenced topic are
               reflected in the ToC before any subordinate topicrefs.
             -->
-            <!--<xsl:message> + [DEBUG] gather-index-terms: applying templates to indexterms in referenced topic:
+            <!--<xsl:message> + [DEBUG] gather-glossdata: applying templates to indexterms in referenced topic:
               <xsl:apply-templates select="$topic//*[df:class(., 'topic/indexterm')][not(parent::*[df:class(., 'topic/indexterm')])]" mode="report-element"></xsl:apply-templates>
             </xsl:message>-->
             <xsl:apply-templates mode="#current" 
@@ -236,7 +232,7 @@
         
   </xsl:template>
   
-  <xsl:function name="local:construct-index-group-key" as="xs:string">
+  <xsl:function name="local:construct-glossary-group-key" as="xs:string">
     <xsl:param name="label" as="node()*"/>
     <xsl:variable name="labelStr" as="xs:string">
       <xsl:value-of select="$label"/>      
@@ -259,7 +255,7 @@
     <xsl:sequence select="$key"/>
   </xsl:function>
 
-  <xsl:function name="local:construct-index-group-sort-key" as="xs:string">
+  <xsl:function name="local:construct-glossary-group-sort-key" as="xs:string">
     <xsl:param name="label" as="node()*"/>
     <!-- This label-to-label string anticipates more sophisticated label construction -->
     <xsl:variable name="labelStr" as="xs:string">
@@ -286,8 +282,8 @@
     <xsl:sequence select="$key"/>
   </xsl:function>
   
-  <xsl:function name="local:construct-index-group-label" as="xs:string">
-    <xsl:param name="index-term" as="element()"/>
+  <xsl:function name="local:construct-glossary-group-label" as="xs:string">
+    <xsl:param name="glossentry" as="element()"/>
     <!-- FIXME: This is a very quick-and-dirty label implementation.
       
       A full implementation must be extensible and must be locale-specific.
@@ -295,7 +291,7 @@
       Need to control whether non-alpha items come first or last in collation
       order.
     -->
-    <xsl:variable name="label" select="normalize-space($index-term/index-terms:label)" as="xs:string"/>
+    <xsl:variable name="label" select="normalize-space($glossentry/glossdata:label)" as="xs:string"/>
     <xsl:variable name="groupLabel" as="xs:string">
       <xsl:choose>
         <xsl:when test="matches($label, '^[0-9]')">
@@ -310,7 +306,7 @@
     <xsl:sequence select="$groupLabel"/>
   </xsl:function>
   
-  <xsl:function name="local:construct-index-term-grouping-key" as="xs:string">
+  <xsl:function name="local:construct-glossary-entry-grouping-key" as="xs:string">
     <xsl:param name="context" as="node()*"/>
     <xsl:variable name="rawContextString" as="xs:string">
       <xsl:value-of select="$context"/>
@@ -319,7 +315,7 @@
     <xsl:sequence select="$grouping-key"/>
   </xsl:function>
   
-  <xsl:function name="local:construct-index-term-sorting-key" as="xs:string">
+  <xsl:function name="local:construct-glossary-entry-sorting-key" as="xs:string">
     <xsl:param name="context" as="node()*"/>
     <xsl:variable name="rawContextString" as="xs:string">
       <xsl:value-of select="$context"/>

@@ -581,14 +581,20 @@
         </xsl:when>
         <xsl:otherwise>
           <!-- Must be an element within a topic -->
-          <!-- FIXME: Could make the generated ID unique only within the scope of the
-               containing topic, e.g., concat the topic ID plus the number of preceding
-               nodes up to the parent topic. -->
-          <xsl:sequence select="concat(name($context), '-', 
-            count($context/preceding::*) + 1)"/>
+          <xsl:sequence select="            
+            concat(
+              string-join($context/ancestor::*[df:class(.,'topic/topic')]/@id, '-'),
+              name($context), '-', 
+              count($context/preceding::*) + 1,
+              '-',
+              count($context/following::*),
+              '-',
+              string-length(string($context))
+            )"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
+    <xsl:message> + [DEBUG] generate-dita-id(): returning "<xsl:sequence select="$resultId"/>" for element <xsl:sequence select="name($context)"/></xsl:message>
     <xsl:sequence select="$resultId"/>  
   </xsl:function>
     

@@ -4,8 +4,10 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:df="http://dita2indesign.org/dita/functions"  
+  xmlns:html2="http://dita4publishers.org/html2"
   xmlns:index-terms="http://dita4publishers.org/index-terms"
-  xmlns:enumerables="http://dita4publishers.org/enumerables"
+  xmlns:enum="http://dita4publishers.org/enumerables"
+  xmlns:glossdata="http://dita4publishers.org/glossdata"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   exclude-result-prefixes="xs xd df relpath"
   version="2.0">
@@ -46,6 +48,7 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/glossaryProcessing.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/indexProcessing.xsl"/>
   
   <!-- Import the base HTML output generation transform. -->
@@ -60,6 +63,7 @@
   <xsl:include href="map2html2DynamicToc.xsl"/>
   <xsl:include href="map2html2StaticToc.xsl"/>
   <xsl:include href="map2html2Frameset.xsl"/>
+  <xsl:include href="map2html2Glossary.xsl"/>
   <xsl:include href="map2html2Index.xsl"/>
   <xsl:include href="map2html2Enumeration.xsl"/>
   
@@ -120,6 +124,17 @@
     lower-case($generateIndex) = 'yes' or 
     lower-case($generateIndex) = 'true' or
     lower-case($generateIndex) = 'on'
+    "/>
+  
+  <!-- Generate the glossary dynamically using all glossary entry
+       topics included in the map.
+    -->
+  <xsl:param name="generateGlossary" as="xs:string" select="'no'"/>
+  <xsl:variable name="generateGlossaryBoolean" 
+    select="
+    lower-case($generateGlossary) = 'yes' or 
+    lower-case($generateGlossary) = 'true' or
+    lower-case($generateGlossary) = 'on'
     "/>
   
   
@@ -256,55 +271,35 @@
     
     <xsl:message> + [INFO] Gathering index terms...</xsl:message>
     
-    <!-- Gather all the index entries from the map and topic. 
-    -->
-    <xsl:variable name="index-terms" as="element()">
-      <index-terms xmlns="http://dita4publishers.org/index-terms">
-        <xsl:if test="$generateIndexBoolean">
-          <xsl:apply-templates mode="gather-index-terms"/>
-        </xsl:if>
-      </index-terms>
+    <xsl:variable name="collected-data" as="element()">
+      <html2:collected-data>
+        <!-- Index Terms: -->
+        <xsl:message> + [INFO] Grouping and sorting index terms...</xsl:message>
+        <index-terms:index-terms>
+          <xsl:if test="$generateIndexBoolean">
+            <xsl:apply-templates mode="group-and-sort-index" select="."/>
+          </xsl:if>
+        </index-terms:index-terms>
+        <!-- Enumerated (countable) elements: -->
+        <enum:enumerables>
+          <xsl:apply-templates mode="construct-enumerable-structure" select="."/>
+        </enum:enumerables>
+        <!-- Glossary entries -->
+        <glossdata:glossary-entries>
+          <xsl:if test="$generateGlossaryBoolean">
+            <xsl:apply-templates mode="group-and-sort-glossary" select="."/>
+          </xsl:if>          
+        </glossdata:glossary-entries>
+        <xsl:apply-templates mode="data-collection-extensions"/>
+      </html2:collected-data>
     </xsl:variable>
     
     <xsl:if test="true() or $debugBoolean">
-      <xsl:message> + [DEBUG] Writing file <xsl:sequence select="relpath:newFile($outdir, 'index-terms.xml')"/>...</xsl:message>
-      <xsl:result-document href="{relpath:newFile($outdir, 'index-terms.xml')}"
+      <xsl:message> + [DEBUG] Writing file <xsl:sequence select="relpath:newFile($outdir, 'collected-data.xml')"/>...</xsl:message>
+      <xsl:result-document href="{relpath:newFile($outdir, 'collected-data.xml')}"
         format="indented-xml"
         >
-        <xsl:sequence select="$index-terms"/>
-      </xsl:result-document>
-    </xsl:if>
-    
-    <xsl:message> + [INFO] Grouping and sorting index terms...</xsl:message>
-    <xsl:variable name="index-terms-grouped-and-sorted" as="element()">
-      <index-terms  xmlns="http://dita4publishers.org/index-terms">
-        <xsl:if test="$generateIndexBoolean">
-          <xsl:apply-templates mode="group-and-sort-index" select="$index-terms"/>
-        </xsl:if>
-      </index-terms>
-    </xsl:variable>
-
-    <xsl:if test="true() or $debugBoolean">
-      <xsl:message> + [DEBUG] Writing file <xsl:sequence select="relpath:newFile($outdir, 'index-terms-grouped-and-sorted.xml')"/>...</xsl:message>
-      <xsl:result-document href="{relpath:newFile($outdir, 'index-terms-grouped-and-sorted.xml')}"
-        format="indented-xml"
-        >
-        <xsl:sequence select="$index-terms-grouped-and-sorted"/>
-      </xsl:result-document>
-    </xsl:if>
-    
-    <xsl:variable name="enumberables" as="element()">
-      <enumerables xmlns="http://dita4publishers.org/enumerables">
-        <xsl:apply-templates mode="construct-enumerable-structure" select="."/>
-      </enumerables>
-    </xsl:variable>
-    
-    <xsl:if test="true()">
-      <xsl:message> + [DEBUG] Writing file <xsl:sequence select="relpath:newFile($outdir, 'enumerables.xml')"/>...</xsl:message>
-      <xsl:result-document href="{relpath:newFile($outdir, 'enumerables.xml')}"
-        format="indented-xml"
-        >
-        <xsl:sequence select="$enumberables"/>
+        <xsl:sequence select="$collected-data"/>
       </xsl:result-document>
     </xsl:if>
     
@@ -313,20 +308,28 @@
       -->
     <xsl:apply-templates select="." mode="generate-root-pages">
       <xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/>
-      <xsl:with-param name="index-terms" as="element()" select="$index-terms-grouped-and-sorted" tunnel="yes"/>
-      <xsl:with-param name="enumerables" as="element()" select="$enumberables" tunnel="yes"/>
+      <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
     </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-content">
-      <xsl:with-param name="index-terms" as="element()" select="$index-terms-grouped-and-sorted"/>
+      <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
       <xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/>      
-      <xsl:with-param name="enumerables" as="element()" select="$enumberables" tunnel="yes"/>
     </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-index">
-      <xsl:with-param name="index-terms" as="element()" select="$index-terms-grouped-and-sorted"/>
+      <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
     </xsl:apply-templates>
-    <xsl:apply-templates select="." mode="generate-graphic-copy-ant-script">
+<!--    <xsl:apply-templates select="." mode="generate-glossary">
+      <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
+    </xsl:apply-templates>
+-->    <xsl:apply-templates select="." mode="generate-graphic-copy-ant-script">
       <xsl:with-param name="graphicMap" as="element()" tunnel="yes" select="$graphicMap"/>
     </xsl:apply-templates>
+  </xsl:template>
+  
+  <xsl:template mode="data-collection-extensions" match="*" priority="-1">
+    <!-- Do nothing by default. Implement templates in this
+         mode to construct whatever collected data structures
+         your extension code needs.
+      -->
   </xsl:template>
    
 </xsl:stylesheet>

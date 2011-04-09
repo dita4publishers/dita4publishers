@@ -92,7 +92,7 @@
   
   <xsl:template match="*[df:isTopicRef(.)]" mode="generate-content">
     <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
-    <xsl:param name="enumerables" as="element()" tunnel="yes"/>    
+    <xsl:param name="collected-data" as="element()" tunnel="yes"/>    
     
     <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] Handling topicref to "<xsl:sequence select="string(@href)"/>" in mode generate-content</xsl:message>
@@ -119,7 +119,7 @@
         </xsl:variable>
 -->        <xsl:apply-templates select="$topic" mode="#current">
           <xsl:with-param name="topicref" as="element()" select="." tunnel="yes"/>
-          <xsl:with-param name="enumerables" select="$enumerables" as="element()" tunnel="yes"/>    
+          <xsl:with-param name="collected-data" select="$collected-data" as="element()" tunnel="yes"/>    
           <xsl:with-param name="resultUri" select="$topicResultUri"
             tunnel="yes"/>
         </xsl:apply-templates>
@@ -138,7 +138,8 @@
     <!-- The topicref that referenced the topic -->
     <xsl:param name="topicref" as="element()?" tunnel="yes"/>    
     <!-- Enumerables structure: -->
-    <xsl:param name="enumerables" as="element()" tunnel="yes"/>    
+    <xsl:param name="collected-data" as="element()" tunnel="yes"/>    
+    
     <!-- Result URI to which the document should be written. -->
     <xsl:param name="resultUri" as="xs:string" tunnel="yes"/>
     
@@ -147,7 +148,7 @@
     <xsl:variable name="htmlNoNamespace" as="node()*">
       <xsl:apply-templates select="." mode="map-driven-content-processing" >
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
-        <xsl:with-param name="enumerables" select="$enumerables" as="element()" tunnel="yes"/>    
+        <xsl:with-param name="collected-data" select="$collected-data" as="element()" tunnel="yes"/>    
       </xsl:apply-templates>      
     </xsl:variable>
     <xsl:if test="true() and $debugBoolean">
@@ -158,7 +159,7 @@
     <xsl:result-document format="topic-html" href="{$resultUri}" >
       <xsl:apply-templates select="$htmlNoNamespace" mode="no-namespace-html-post-process">
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
-        <xsl:with-param name="enumerables" select="$enumerables" as="element()" tunnel="yes"/>    
+        <xsl:with-param name="collected-data" select="$collected-data" as="element()" tunnel="yes"/>    
         <xsl:with-param name="resultUri" select="$resultUri" as="xs:string" tunnel="yes"/>
       </xsl:apply-templates>
     </xsl:result-document>
@@ -176,7 +177,8 @@
       can do topic output processing based on the topicref context
       if the want. -->
     <xsl:param name="topicref" as="element()?" tunnel="yes"/>
-    <xsl:param name="enumerables" as="element()" tunnel="yes"/>    
+    <xsl:param name="collected-data" as="element()" tunnel="yes"/>    
+    
     <xsl:choose>
       <xsl:when test="$topicref">
         <xsl:apply-templates select="$topicref" mode="topicref-driven-content">
@@ -194,7 +196,8 @@
     <!-- Default topicref-driven content template. Simply applies normal processing
       in the default context to the topic parameter. -->
     <xsl:param name="topic" as="element()?"/>
-    <xsl:param name="enumerables" as="element()" tunnel="yes"/>    
+    <xsl:param name="collected-data" as="element()" tunnel="yes"/>    
+    
     <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] topicref-driven-content: topicref="<xsl:sequence select="name(.)"/>, class="<xsl:sequence select="string(@class)"/>"</xsl:message>
     </xsl:if>
@@ -208,7 +211,7 @@
       -->
       <xsl:apply-templates select=".">
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
-        <xsl:with-param name="enumerables" select="$enumerables" as="element()" tunnel="yes"/>    
+        <xsl:with-param name="collected-data" select="$collected-data" as="element()" tunnel="yes"/>    
       </xsl:apply-templates>
     </xsl:for-each>
   </xsl:template>
@@ -229,7 +232,8 @@
   <!-- NOTE: the body of this template is taken from the base dita2xhtmlImpl.xsl -->
   <xsl:template match="*[df:class(., 'topic/topic')]/*[df:class(., 'topic/title')]">
     <xsl:param name="topicref" select="()" as="element()?" tunnel="yes"/>
-    <xsl:param name="enumerables" as="element()" tunnel="yes"/>    
+    <xsl:param name="collected-data" as="element()" tunnel="yes"/>    
+    
     <xsl:param name="headinglevel">
       <xsl:choose>
         <xsl:when test="count(ancestor::*[contains(@class,' topic/topic ')]) > 6">6</xsl:when>

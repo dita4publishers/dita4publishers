@@ -32,7 +32,7 @@
 
 
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-dynamic-toc">
-    <xsl:param name="index-terms" as="element()" tunnel="yes"/>
+    <xsl:param name="collected-data" as="element()" tunnel="yes"/>
     
     <xsl:if test="$generateDynamicTocBoolean">
       
@@ -46,7 +46,7 @@
   </xsl:template>
   
   <xsl:template mode="generate-dynamic-toc-javascript" match="*[df:class(., 'map/map')]">
-    <xsl:param name="index-terms" as="element()" tunnel="yes"/>
+    <xsl:param name="collected-data" as="element()" tunnel="yes"/>
 
 
     <xsl:variable name="pubTitle" as="xs:string*">
@@ -72,7 +72,7 @@
         <xsl:with-param name="tocDepth" as="xs:integer" select="0" tunnel="yes"/>
       </xsl:apply-templates>
       <xsl:if test="$generateIndexBoolean">
-        <xsl:apply-templates mode="generate-dynamic-toc" select="$index-terms">
+        <xsl:apply-templates mode="generate-dynamic-toc" select="$collected-data">
           <xsl:with-param name="parentId" select="'root'" as="xs:string" tunnel="yes"/>
         </xsl:apply-templates>
       </xsl:if>
@@ -85,7 +85,7 @@
   </xsl:template>
   
   <xsl:template mode="generate-dynamic-toc-page-markup" match="*[df:class(., 'map/map')]">
-    <xsl:param name="index-terms" as="element()" tunnel="yes"/>
+    <xsl:param name="collected-data" as="element()" tunnel="yes"/>
 
     <xsl:message> + [INFO] Generating dynamic ToC HTML markup for root page...</xsl:message>
 
@@ -183,34 +183,41 @@
     <xsl:text>, </xsl:text>
     <xsl:sequence select="$parentId"/>
     <xsl:text>, false);&#x0a;</xsl:text>
-    <xsl:apply-templates select="index-terms:index-term | index-terms:index-group" mode="#current">
+    <xsl:apply-templates 
+      select="index-terms:index-term | 
+              index-terms:index-group |
+              index-terms:targets" 
+      mode="#current">
       <xsl:with-param name="parentId" as="xs:string" tunnel="yes" select="generate-id(.)"/>
     </xsl:apply-templates>
   </xsl:template>  
   
-  <xsl:template match="index-terms:index-term[./index-terms:targets] | index-terms:index-group" 
+  <xsl:template 
+    match="index-terms:index-group | 
+           index-terms:index-term" 
     mode="generate-dynamic-toc">
     <xsl:param name="parentId" as="xs:string" tunnel="yes"/>
-    <xsl:text>var </xsl:text>
-    <xsl:sequence select="generate-id(.)"/>
-    <xsl:text> = new YAHOO.widget.TextNode(</xsl:text>
-    <xsl:text>"</xsl:text>
-    <xsl:apply-templates select="index-terms:label" mode="#current"/>
-    <xsl:text>"</xsl:text>
-    <xsl:text>, </xsl:text>
-    <xsl:sequence select="$parentId"/>
-    <xsl:text>, false);&#x0a;</xsl:text>
-    <xsl:apply-templates select="index-terms:index-term" mode="#current">
-      <xsl:with-param name="parentId" as="xs:string" tunnel="yes" select="generate-id(.)"/>
+    <xsl:call-template name="construct-tree-item-for-group-or-term">
+       <xsl:with-param name="parentId" select="$parentId" as="xs:string"/>
+    </xsl:call-template>
+    <xsl:apply-templates select="index-terms:* except index-terms:label " mode="#current">
+      <xsl:with-param name="parentId" as="xs:string" tunnel="yes" select="generate-id(.)"/>      
     </xsl:apply-templates>
-    
   </xsl:template>  
   
-  <xsl:template match="index-terms:index-term[not(index-terms:targets)]" mode="generate-dynamic-toc">
+  <xsl:template match="index-terms:sub-terms" mode="generate-dynamic-toc">
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>  
+  
+  <xsl:template match="index-terms:target" 
+    mode="generate-dynamic-toc">
     <xsl:param name="parentId" as="xs:string" tunnel="yes"/>
-    
+    <xsl:call-template name="construct-tree-item-for-group-or-term">
+      <xsl:with-param name="parentId" select="$parentId" as="xs:string"/>
+    </xsl:call-template>
+
     <xsl:variable name="targetUri" as="xs:string"
-      select="string(index-terms:target)"
+      select="string(@target-uri)"
     />
     
     <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
@@ -222,10 +229,10 @@
     label: "</xsl:text>
     <xsl:apply-templates select="index-terms:label" mode="#current"/>
     <xsl:text>",
-  href: "</xsl:text>
+    href: "</xsl:text>
     <xsl:sequence select="$relativeUri"/>
     <xsl:text>", 
-  target:"</xsl:text><xsl:value-of select="$contenttarget"/><xsl:text>"
+    target:"</xsl:text><xsl:value-of select="$contenttarget"/><xsl:text>"
 };
 </xsl:text>
     
@@ -239,6 +246,8 @@
     </xsl:apply-templates>
   </xsl:template>  
   
+  <xsl:template mode="generate-dynamic-toc" match="index-terms:original-markup"/>
+  
   <xsl:template mode="generate-dynamic-toc" match="index-terms:label">
     <xsl:variable name="labelString">
       <xsl:apply-templates mode="dynamic-toc-index-term-label"/>
@@ -247,7 +256,24 @@
   </xsl:template>
   
   
-  
+  <xsl:template name="construct-tree-item-for-group-or-term" >
+    <xsl:param name="parentId" as="xs:string" tunnel="yes"/>
+    <xsl:param name="linkText">
+      <xsl:apply-templates select="index-terms:label" mode="generate-index-term-link-text"/>      
+    </xsl:param>
+    <xsl:message> + [DEBUG] for <xsl:sequence select="name(.)"/>, linkText="<xsl:sequence select="$linkText"/>"</xsl:message>
+    
+    <xsl:text>var </xsl:text>
+    <xsl:sequence select="generate-id(.)"/>
+    <xsl:text> = new YAHOO.widget.TextNode(</xsl:text>
+    <xsl:text>"</xsl:text>
+    <xsl:sequence select="$linkText"/>
+    <xsl:text>"</xsl:text>
+    <xsl:text>, </xsl:text>
+    <xsl:sequence select="$parentId"/>
+    <xsl:text>, false);&#x0a;</xsl:text>
+  </xsl:template>
+
   <xsl:template name="makeJsTextNode">
     <xsl:param name="linkObjId" as="xs:string"/>
     <xsl:param name="parentId" as="xs:string"  tunnel="yes"/>
@@ -396,7 +422,7 @@
   
   <xsl:function name="local:escapeStringforJavaScript" as="xs:string">
     <xsl:param name="s" as="xs:string"/>
-    <xsl:sequence
+    <xsl:variable name="escapedSingleQuote" as="xs:string"
       select="replace(
       replace(
       replace(
@@ -410,6 +436,10 @@
       '\n',
       '\\n'
       )"/>
+    <xsl:variable name="escapedDoubleQuote" as="xs:string"
+      select='replace($escapedSingleQuote, """", "\\""")'
+    />
+    <xsl:sequence select="$escapedDoubleQuote"/>
   </xsl:function>
 
 

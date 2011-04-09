@@ -33,7 +33,7 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
 
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-index">
-    <xsl:param name="index-terms" as="element()"/>
+    <xsl:param name="collected-data" as="element()" tunnel="yes"/>
 
     <xsl:if test="$generateIndexBoolean">
       
@@ -56,7 +56,7 @@
           <body>
             <h1>Index</h1>
             <div class="index-list">
-              <xsl:apply-templates select="$index-terms" mode="#current"/>
+              <xsl:apply-templates select="$collected-data/index-terms:index-terms" mode="#current"/>
             </div>
           </body>
         </html>
@@ -74,7 +74,6 @@
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:index-term">
-    <xsl:message> + [DEBUG] generate-index: index-term</xsl:message>
     <li class="index-term"  xmlns="http://www.w3.org/1999/xhtml">
       <span class="label"><xsl:apply-templates select="index-terms:label" mode="#current"/></span>
       <xsl:apply-templates select="index-terms:targets" mode="#current"/>
@@ -82,30 +81,37 @@
     </li>
   </xsl:template>
   
+  <xsl:template mode="generate-index" match="index-terms:original-markup">
+    <!-- nothing to do -->
+  </xsl:template>
+  
   <xsl:template mode="generate-index" match="index-terms:sub-terms">
-    <xsl:message> + [DEBUG] generate-index: index-term</xsl:message>
     <ul class="index-terms">
       <xsl:apply-templates mode="#current"/>      
     </ul>      
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:targets">
-    <xsl:message> + [DEBUG] generate-index: targets</xsl:message>
     <span class="index-term-targets">
       <xsl:apply-templates mode="#current"/>      
     </span>      
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:target">
-    <xsl:message> + [DEBUG] generate-index: target</xsl:message>
     <xsl:if test="preceding-sibling::*">
       <xsl:text>,</xsl:text>
     </xsl:if>
-    <a href="{string(@target-uri)}" target="${contentwin}"> 
+    <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, @target-uri)" as="xs:string"/>
+    
+    <a href="{$relativeUri}" target="{$contenttarget}"> 
       <xsl:text> [</xsl:text>
-      <xsl:number count="index-terms:target" format="1"/>
+      <xsl:apply-templates select="." mode="generate-index-term-link-text"/>
       <xsl:text>] </xsl:text>
     </a>
+  </xsl:template>
+  
+  <xsl:template mode="generate-index-term-link-text" match="index-terms:target">
+    <xsl:number count="index-terms:target" format="1"/>
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:index-terms">
