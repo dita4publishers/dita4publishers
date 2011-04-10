@@ -14,6 +14,23 @@
     </metadata>
   </prolog>
   <body>
-    <p>A topic with some index entries also in other topics.</p>
+    <p>A topic with some index entries also in other topics. This topic contains a subtopic that has index entries.</p>
   </body>
+  <topic
+    id="topic_03.01">
+    <title>Subtopic Topic-03.01</title>
+    <prolog>
+      <metadata>
+        <keywords>
+          <indexterm>
+            <indexterm>apple<indexterm>strudel</indexterm></indexterm>
+            <indexterm>strudel<indexterm>apple</indexterm></indexterm>
+          </indexterm>
+        </keywords>
+      </metadata>
+    </prolog>
+    <body>
+      <p>This topic talks about apple strudel.</p>
+    </body>
+  </topic>
 </topic>
