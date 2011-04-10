@@ -45,14 +45,14 @@
     </xsl:if>
   </xsl:template>
   
-  <xsl:template mode="generate-index" match="glossdata:glossary-group">
+  <xsl:template mode="generate-glossary" match="glossdata:glossary-group">
     <div class="glossary-group">
       <h2><xsl:apply-templates select="glossdata:label" mode="#current"/></h2>
       <xsl:apply-templates select="glossdata:sub-terms" mode="#current"/>
     </div>      
   </xsl:template>
   
-  <xsl:template match="text()" mode="generate-index" priority="-1"/>    
+  <xsl:template match="text()" mode="generate-glossary" priority="-1"/>    
 
   
 </xsl:stylesheet>

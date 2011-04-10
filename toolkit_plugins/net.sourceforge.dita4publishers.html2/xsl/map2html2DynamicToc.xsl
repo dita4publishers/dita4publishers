@@ -212,10 +212,6 @@
   <xsl:template match="index-terms:target" 
     mode="generate-dynamic-toc">
     <xsl:param name="parentId" as="xs:string" tunnel="yes"/>
-    <xsl:call-template name="construct-tree-item-for-group-or-term">
-      <xsl:with-param name="parentId" select="$parentId" as="xs:string"/>
-    </xsl:call-template>
-
     <xsl:variable name="targetUri" as="xs:string"
       select="string(@target-uri)"
     />
@@ -227,7 +223,9 @@
     <xsl:sequence select="concat('&#x0a;', 'var obj', $self, ' = {')"/>
     <xsl:text>
     label: "</xsl:text>
-    <xsl:apply-templates select="index-terms:label" mode="#current"/>
+    <xsl:text>[</xsl:text>
+    <xsl:apply-templates select="." mode="generate-index-term-link-text-dynamic-toc"/>
+    <xsl:text>]</xsl:text>
     <xsl:text>",
     href: "</xsl:text>
     <xsl:sequence select="$relativeUri"/>
@@ -245,6 +243,26 @@
       <xsl:with-param name="parentId" as="xs:string" tunnel="yes" select="generate-id(.)"/>
     </xsl:apply-templates>
   </xsl:template>  
+
+  <xsl:template mode="generate-index-term-link-text-dynamic-toc" match="index-terms:target">
+    <xsl:variable name="sourceUri" as="xs:string"
+      select="@source-uri"
+    />
+    <xsl:variable name="targetTopic" as="element()?"
+      select="df:resolveTopicUri(., $sourceUri)"
+    />
+    <xsl:message> + [DEBUG] generate-index-term-link-text-dynamic-toc: targetTopic="<xsl:sequence select="string($targetTopic/@id)"/></xsl:message>
+    
+    <xsl:choose>
+      <xsl:when test="$targetTopic">
+        <xsl:sequence select="df:getNavtitleForTopic($targetTopic)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:number count="index-terms:target" format="1"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    
+  </xsl:template>
   
   <xsl:template mode="generate-dynamic-toc" match="index-terms:original-markup"/>
   
@@ -252,7 +270,7 @@
     <xsl:variable name="labelString">
       <xsl:apply-templates mode="dynamic-toc-index-term-label"/>
     </xsl:variable>
-    <xsl:sequence select="local:escapeStringforJavaScript($labelString)"/>
+    <xsl:sequence select="$labelString"/>
   </xsl:template>
   
   
@@ -261,13 +279,15 @@
     <xsl:param name="linkText">
       <xsl:apply-templates select="index-terms:label" mode="generate-index-term-link-text"/>      
     </xsl:param>
-    <xsl:message> + [DEBUG] for <xsl:sequence select="name(.)"/>, linkText="<xsl:sequence select="$linkText"/>"</xsl:message>
+    <xsl:if test="false()">
+      <xsl:message> + [DEBUG] for <xsl:sequence select="name(.)"/>, linkText="<xsl:sequence select="$linkText"/>"</xsl:message>
+    </xsl:if>
     
     <xsl:text>var </xsl:text>
     <xsl:sequence select="generate-id(.)"/>
     <xsl:text> = new YAHOO.widget.TextNode(</xsl:text>
     <xsl:text>"</xsl:text>
-    <xsl:sequence select="$linkText"/>
+    <xsl:sequence select="local:escapeStringforJavaScript($linkText)"/>
     <xsl:text>"</xsl:text>
     <xsl:text>, </xsl:text>
     <xsl:sequence select="$parentId"/>
@@ -319,7 +339,7 @@
       <xsl:sequence select="generate-id(.)"/>
       <xsl:text> = new YAHOO.widget.TextNode(</xsl:text>
       <xsl:text>"</xsl:text>
-      <xsl:sequence select="df:getNavtitleForTopicref(.)"/>
+      <xsl:sequence select="local:escapeStringforJavaScript(df:getNavtitleForTopicref(.))"/>
       <xsl:text>"</xsl:text>
       <xsl:text>, </xsl:text>
       <xsl:sequence select="$parentId"/>
@@ -422,7 +442,7 @@
   
   <xsl:function name="local:escapeStringforJavaScript" as="xs:string">
     <xsl:param name="s" as="xs:string"/>
-    <xsl:variable name="escapedSingleQuote" as="xs:string"
+    <xsl:variable name="escapedString" as="xs:string"
       select="replace(
       replace(
       replace(
@@ -436,10 +456,7 @@
       '\n',
       '\\n'
       )"/>
-    <xsl:variable name="escapedDoubleQuote" as="xs:string"
-      select='replace($escapedSingleQuote, """", "\\""")'
-    />
-    <xsl:sequence select="$escapedDoubleQuote"/>
+    <xsl:sequence select="$escapedString"/>
   </xsl:function>
 
 

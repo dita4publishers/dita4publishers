@@ -166,13 +166,25 @@
           sorting-key="{$sorting-key}"
           item-id="{generate-id()}"
           >
+          <xsl:variable name="containingTopic" as="element()?"
+            select="df:getContainingTopic(.)"
+          />
+          <xsl:variable name="sourceUri" as="xs:string"
+            select="if ($containingTopic) 
+            then concat(document-uri(root($containingTopic)), '#', $containingTopic/@id)
+            else ''
+            "
+          />
           <index-terms:label><xsl:sequence select="$labelContent"/></index-terms:label>
           <index-terms:original-markup>
             <xsl:sequence select="."/><!-- Make the original index term available in all cases -->
           </index-terms:original-markup>
           <xsl:if test="not(*[df:class(., 'topic/indexterm')])">
             <!-- Only output a target if it is a leaf index term. -->
-            <index-terms:target target-uri="{$targetUri}">
+            <index-terms:target 
+              target-uri="{$targetUri}"
+              source-uri="{$sourceUri}"
+              >
               <xsl:sequence select=".[not(*[df:class(., 'topic/indexterm')])]"/>
             </index-terms:target>
           </xsl:if>
