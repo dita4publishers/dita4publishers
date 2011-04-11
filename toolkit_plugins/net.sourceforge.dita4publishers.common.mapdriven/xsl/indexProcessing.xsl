@@ -36,27 +36,35 @@
     
     <!-- Gather all the index entries from the map and topic. 
     -->
-    <xsl:variable name="index-terms" as="element()">
-      <index-terms:index-terms>
+    <xsl:variable name="index-terms-ungrouped" as="element()">
+      <index-terms:ungrouped>
         <xsl:if test="$generateIndexBoolean">
           <xsl:apply-templates mode="gather-index-terms" select="."/>
         </xsl:if>
-      </index-terms:index-terms>      
+      </index-terms:ungrouped>
     </xsl:variable>
-        
-        
+    
+    <index-terms:index-terms>
+      <xsl:sequence select="$index-terms-ungrouped"/>      
+      <index-terms:grouped-and-sorted>
+        <xsl:apply-templates select="$index-terms-ungrouped" mode="group-and-sort-index"/>    
+      </index-terms:grouped-and-sorted>
+    </index-terms:index-terms>      
+  </xsl:template>
+  
+  <xsl:template mode="group-and-sort-index" match="index-terms:ungrouped">
     <!-- Group first-level terms by index group -->
     <!-- FIXME: Implement usual index grouping localization and configuration per
-         I18N library. 
-      -->
-    <xsl:for-each-group select="$index-terms/index-terms:index-term"
+      I18N library. 
+    -->
+    <xsl:for-each-group select="index-terms:index-term"
       group-by="./@grouping-key"
       >
       <xsl:sort select="./@sorting-key"/>
       <!--<xsl:message> + [DEBUG] Index group "<xsl:sequence select="local:construct-index-group-label(current-group()[1])"
-      />", grouping key: "<xsl:sequence select="current-grouping-key()"
-      />", sort key: "<xsl:sequence select="local:construct-index-group-sort-key(.)"
-      />"</xsl:message>-->
+        />", grouping key: "<xsl:sequence select="current-grouping-key()"
+        />", sort key: "<xsl:sequence select="local:construct-index-group-sort-key(.)"
+        />"</xsl:message>-->
       <index-terms:index-group 
         grouping-key="{current-grouping-key()}"
         sorting-key="{@sorting-key}"
@@ -74,6 +82,7 @@
         </index-terms:sub-terms>
       </index-terms:index-group>
     </xsl:for-each-group>
+    
   </xsl:template>
   
   <xsl:template name="process-index-terms">
@@ -139,23 +148,31 @@
         text()" mode="index-term-label"/>
     </xsl:variable>
     
+    <xsl:variable name="labelString" as="xs:string" 
+      select="local:getLabelStringForIndexTerm(.)"/>
+    
     <xsl:choose>
-      <xsl:when test="normalize-space(string-join($labelContent, '')) = '' and not(./*)">
+      <xsl:when test="$labelString = '' and not(./*)">
         <xsl:message> + [INFO] Skipping empty <xsl:sequence select="name(.)"/> element in <xsl:sequence select="string(@xtrf)"/>...</xsl:message>
       </xsl:when>
-      <xsl:when test="normalize-space(string-join($labelContent, '')) = '' and ./*">
+      <xsl:when test="$labelString = '' and ./*">
         <xsl:message> - [WARN] Empty index entry label for index entry with child elements in <xsl:sequence select="string(@xtrf)"/></xsl:message>
         <xsl:message> - [WARN]   Entry: <xsl:apply-templates mode="report-element" select="."/></xsl:message>
         <xsl:apply-templates mode="#current"/>
       </xsl:when>
-      <xsl:otherwise>        
+      <xsl:otherwise>
+        <xsl:variable name="parentLabel" as="xs:string"
+          select="if (parent::*[df:class(., 'topic/indexterm')])
+          then local:getLabelStringForIndexTerm(parent::*)
+          else ''"
+        />
         <xsl:variable name="grouping-key" 
-          select="if (parent::*[df:class(., 'topic/indexterm')]) 
-          then local:construct-index-term-grouping-key($labelContent)
-          else local:construct-index-group-key($labelContent)" as="xs:string"/>
-        <xsl:variable name="sorting-key" select="if (parent::*[df:class(., 'topic/indexterm')])
-          then local:construct-index-term-sorting-key($labelContent)
-          else local:construct-index-group-sort-key($labelContent)" as="xs:string"/>
+          select="if ($parentLabel = '') 
+          then local:construct-index-group-key($labelContent)
+          else local:construct-index-term-grouping-key($labelContent)" as="xs:string"/>
+        <xsl:variable name="sorting-key" select="if ($parentLabel = '')
+          then local:construct-index-group-sort-key($labelContent)
+          else local:construct-index-term-sorting-key($labelContent)" as="xs:string"/>
         
         <xsl:if test="false()">       
           <xsl:message> + [DEBUG] gather-index-terms: grouping-key="<xsl:sequence select="$grouping-key"/>"</xsl:message>        
@@ -340,5 +357,19 @@
     <xsl:sequence select="$grouping-key"/>
   </xsl:function>
   
+  <xsl:function name="local:getLabelStringForIndexTerm" as="xs:string">
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="labelNodes" as="node()*">
+      <xsl:apply-templates select="$context/*[not(df:class(., 'topic/indexterm')) and 
+        not(df:class(., 'topic/index-see')) and 
+        not(df:class(., 'topic/index-seealso'))] | 
+        $context/text()" mode="index-term-label"/>
+    </xsl:variable>
+    <xsl:variable name="nodeValue" as="xs:string">
+      <xsl:value-of select="$labelNodes"/>
+    </xsl:variable>
+    <xsl:variable name="result" as="xs:string" select="normalize-space($nodeValue)"/>
+    <xsl:value-of select="$result"/>
+  </xsl:function>
   
 </xsl:stylesheet>

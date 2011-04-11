@@ -10,6 +10,10 @@
         <indexterm>turnovers</indexterm>
         <indexterm>turnover<indexterm>berry</indexterm></indexterm>
         <indexterm>kolaches<indexterm>fruit<indexterm>apple<indexterm>granny smith</indexterm></indexterm></indexterm></indexterm>
+        <indexterm>
+          <indexterm>date (top-level entry within indexterm tag with no label</indexterm>
+        </indexterm>
+        <indexterm>date (top-level entry) within keywords</indexterm>
       </keywords>
     </metadata>
   </prolog>
@@ -22,10 +26,8 @@
     <prolog>
       <metadata>
         <keywords>
-          <indexterm>
-            <indexterm>apple<indexterm>strudel</indexterm></indexterm>
-            <indexterm>strudel<indexterm>apple</indexterm></indexterm>
-          </indexterm>
+          <indexterm>apple<indexterm>strudel</indexterm></indexterm>
+          <indexterm>strudel<indexterm>apple</indexterm></indexterm>
         </keywords>
       </metadata>
     </prolog>

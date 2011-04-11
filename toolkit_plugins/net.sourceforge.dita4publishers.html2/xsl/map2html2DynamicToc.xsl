@@ -172,6 +172,10 @@
   </xsl:template>
   
   <xsl:template match="index-terms:index-terms" mode="generate-dynamic-toc">
+    <xsl:apply-templates select="index-terms:grouped-and-sorted" mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template match="index-terms:grouped-and-sorted" mode="generate-dynamic-toc">
     <xsl:param name="parentId" as="xs:string" tunnel="yes"/>
     
     <xsl:text>var </xsl:text>

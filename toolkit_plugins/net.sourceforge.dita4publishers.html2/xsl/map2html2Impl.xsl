@@ -274,12 +274,10 @@
     <xsl:variable name="collected-data" as="element()">
       <html2:collected-data>
         <!-- Index Terms: -->
-        <xsl:message> + [INFO] Grouping and sorting index terms...</xsl:message>
-        <index-terms:index-terms>
-          <xsl:if test="$generateIndexBoolean">
-            <xsl:apply-templates mode="group-and-sort-index" select="."/>
-          </xsl:if>
-        </index-terms:index-terms>
+        <xsl:if test="$generateIndexBoolean">
+          <xsl:message> + [INFO] Grouping and sorting index terms...</xsl:message>
+          <xsl:apply-templates mode="group-and-sort-index" select="."/>
+        </xsl:if>
         <!-- Enumerated (countable) elements: -->
         <enum:enumerables>
           <xsl:apply-templates mode="construct-enumerable-structure" select="."/>

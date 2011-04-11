@@ -56,7 +56,7 @@
           <body>
             <h1>Index</h1>
             <div class="index-list">
-              <xsl:apply-templates select="$collected-data/index-terms:index-terms" mode="#current"/>
+              <xsl:apply-templates select="$collected-data/index-terms:index-terms/index-terms:grouped-and-sorted" mode="#current"/>
             </div>
           </body>
         </html>
@@ -115,6 +115,10 @@
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:index-terms">
+    <xsl:apply-templates mode="#current"/>    
+  </xsl:template>
+  
+  <xsl:template mode="generate-index" match="index-terms:grouped-and-sorted">
     <xsl:apply-templates mode="#current"/>    
   </xsl:template>
   
