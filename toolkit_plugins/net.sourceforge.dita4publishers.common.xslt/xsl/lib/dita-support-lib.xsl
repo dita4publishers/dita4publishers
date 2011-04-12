@@ -233,7 +233,7 @@
     <xsl:param name="context" as="element()"/>
     <xsl:param name="topicUri" as="xs:string"/>
     
-    <xsl:if test="true() or $debugBoolean">
+    <xsl:if test="true() and $debugBoolean">
       <xsl:message> + [DEBUG] df:resolveTopicUri(): topicUri: <xsl:sequence select="$topicUri"/></xsl:message>
     </xsl:if>
 
@@ -244,7 +244,7 @@
     
     
     <xsl:variable name="topicDoc" select="document($topicResourcePart, $context)"/>
-    <xsl:if test="true() or $debugBoolean">
+    <xsl:if test="true() and $debugBoolean">
       <xsl:message> + [DEBUG] df:resolveTopicUri(): target document resolved: <xsl:sequence select="count($topicDoc) > 0"/></xsl:message>
     </xsl:if>
     <xsl:choose>
@@ -612,7 +612,9 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <xsl:message> + [DEBUG] generate-dita-id(): returning "<xsl:sequence select="$resultId"/>" for element <xsl:sequence select="name($context)"/></xsl:message>
+    <xsl:if test="false() and $debugBoolean">    
+      <xsl:message> + [DEBUG] generate-dita-id(): returning "<xsl:sequence select="$resultId"/>" for element <xsl:sequence select="name($context)"/></xsl:message>
+    </xsl:if>    
     <xsl:sequence select="$resultId"/>  
   </xsl:function>
   
