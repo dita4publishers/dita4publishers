@@ -18,6 +18,10 @@
         <indexterm>&lt;non-alpha-first-charcter&gt;</indexterm>
         <indexterm>42<indexterm>as answer to life, universe, and everything</indexterm></indexterm>
         <indexterm><keyword>keyword as first child of indexterm</keyword> text after keyword</indexterm>
+        <indexterm><index-sort-as>four</index-sort-as>4-cheese pizza<indexterm>recipe for</indexterm></indexterm>
+        <indexterm><indexterm>pizza</indexterm>pie (label text following subterm)</indexterm>
+        <indexterm>apricot<indexterm>fried pies</indexterm></indexterm>
+        <indexterm>pies<indexterm>fried</indexterm></indexterm>
       </keywords>
     </metadata>
   </prolog>
@@ -78,5 +82,8 @@
       <title>This is Figure 01</title>
       <p>Contents of figure 01.</p>
     </fig>
+    <p>Cross reference to a figure in another topic: <xref
+      href="index-test-topic-02.dita#topic-1/fig-02"
+      format="dita"/>.</p>
   </body>
 </topic>

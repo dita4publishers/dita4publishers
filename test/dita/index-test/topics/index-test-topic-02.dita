@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
 <topic id="topic-1">
-  <title>Index Test Topic 02</title>
+  <title>Index "Test" Topic 02</title>
   <prolog>
     <metadata>
       <keywords>
@@ -13,7 +13,7 @@
     </metadata>
   </prolog>
   <body>
-    <fig>
+    <fig id="fig-02">
       <title>Test of ID generation topic 02</title>
       <p>This is figure in topic 02</p>
     </fig>

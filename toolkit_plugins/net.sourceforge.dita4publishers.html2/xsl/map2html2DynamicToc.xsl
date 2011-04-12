@@ -259,7 +259,7 @@
     
     <xsl:choose>
       <xsl:when test="$targetTopic">
-        <xsl:sequence select="df:getNavtitleForTopic($targetTopic)"/>
+        <xsl:sequence select="local:escapeStringforJavaScript(df:getNavtitleForTopic($targetTopic))"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:number count="index-terms:target" format="1"/>

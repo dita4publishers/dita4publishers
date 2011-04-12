@@ -5,7 +5,7 @@
                       xmlns:index-terms="http://dita4publishers.org/index-terms">
    <index-terms:index-terms>
       <index-terms:ungrouped>
-         <index-terms:index-term grouping-key="b" sorting-key="b" item-id="d66e9">
+         <index-terms:index-term grouping-key="b" sorting-key="blackberry" item-id="d66e9">
             <index-terms:label>blackberry</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -33,7 +33,7 @@
                </index-terms:target>
             </index-terms:index-term>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="a" sorting-key="a" item-id="d66e13">
+         <index-terms:index-term grouping-key="a" sorting-key="apple" item-id="d66e13">
             <index-terms:label>apple</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -49,7 +49,7 @@
                           xtrc="indexterm:3">apple</indexterm>
             </index-terms:target>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="b" sorting-key="b" item-id="d66e15">
+         <index-terms:index-term grouping-key="b" sorting-key="berry" item-id="d66e15">
             <index-terms:label>berry</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -65,7 +65,7 @@
                           xtrc="indexterm:4">berry</indexterm>
             </index-terms:target>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="c" sorting-key="c" item-id="d66e17">
+         <index-terms:index-term grouping-key="c" sorting-key="cherry" item-id="d66e17">
             <index-terms:label>cherry</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -81,7 +81,7 @@
                           xtrc="indexterm:5">cherry</indexterm>
             </index-terms:target>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="f" sorting-key="f" item-id="d66e19">
+         <index-terms:index-term grouping-key="f" sorting-key="fruit" item-id="d66e19">
             <index-terms:label>fruit</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -109,7 +109,7 @@
                </index-terms:target>
             </index-terms:index-term>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="f" sorting-key="f" item-id="d66e23">
+         <index-terms:index-term grouping-key="f" sorting-key="food" item-id="d66e23">
             <index-terms:label>food</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -158,8 +158,8 @@
                </index-terms:target>
             </index-terms:index-term>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="p" sorting-key="p" item-id="d66e29">
-            <index-terms:label>piepastry (index-see under pie)</index-terms:label>
+         <index-terms:index-term grouping-key="p" sorting-key="pie" item-id="d66e29">
+            <index-terms:label>pie</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
                           class="- topic/indexterm "
@@ -180,8 +180,8 @@
                </indexterm>
             </index-terms:target>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="p" sorting-key="p" item-id="d66e33">
-            <index-terms:label>pastrypie (index-see-also under pastry)</index-terms:label>
+         <index-terms:index-term grouping-key="p" sorting-key="pastry" item-id="d66e33">
+            <index-terms:label>pastry</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
                           class="- topic/indexterm "
@@ -202,7 +202,7 @@
                </indexterm>
             </index-terms:target>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="t" sorting-key="t" item-id="d66e37">
+         <index-terms:index-term grouping-key="t" sorting-key="text keyword text after keyword" item-id="d66e37">
             <index-terms:label>text keyword text after keyword</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -222,7 +222,7 @@
                            xtrc="keyword:1">keyword</keyword> text after keyword</indexterm>
             </index-terms:target>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="&lt;" sorting-key="&lt;" item-id="d66e42">
+         <index-terms:index-term grouping-key="&lt;" sorting-key="&lt;non-alpha-first-charcter&gt;" item-id="d66e42">
             <index-terms:label>&lt;non-alpha-first-charcter&gt;</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -238,7 +238,7 @@
                           xtrc="indexterm:14">&lt;non-alpha-first-charcter&gt;</indexterm>
             </index-terms:target>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="#numeric" sorting-key="#numeric" item-id="d66e44">
+         <index-terms:index-term grouping-key="#numeric" sorting-key="42" item-id="d66e44">
             <index-terms:label>42</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -268,7 +268,9 @@
                </index-terms:target>
             </index-terms:index-term>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="k" sorting-key="k" item-id="d66e49">
+         <index-terms:index-term grouping-key="k"
+                                 sorting-key="keyword as first child of indexterm text after keyword"
+                                 item-id="d66e49">
             <index-terms:label>keyword as first child of indexterm text after keyword</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -290,7 +292,123 @@
                            xtrc="keyword:2">keyword as first child of indexterm</keyword> text after keyword</indexterm>
             </index-terms:target>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="b" sorting-key="b" item-id="d67e9">
+         <index-terms:index-term grouping-key="#numeric" sorting-key="4-cheese pizza" item-id="d66e53">
+            <index-terms:label>4-cheese pizza</index-terms:label>
+            <index-terms:original-markup>
+               <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                          class="- topic/indexterm "
+                          xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                          xtrc="indexterm:18">
+                  <index-sort-as class="+ topic/index-base indexing-d/index-sort-as "
+                                 xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                 xtrc="index-sort-as:1">four</index-sort-as>4-cheese pizza<indexterm class="- topic/indexterm "
+                             xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                             xtrc="indexterm:19">recipe for</indexterm>
+               </indexterm>
+            </index-terms:original-markup>
+            <index-terms:index-term grouping-key="recipe for" sorting-key="recipe for" item-id="d66e57">
+               <index-terms:label>recipe for</index-terms:label>
+               <index-terms:original-markup>
+                  <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                             class="- topic/indexterm "
+                             xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                             xtrc="indexterm:19">recipe for</indexterm>
+               </index-terms:original-markup>
+               <index-terms:target target-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/html2/topics/index-test-topic-01.html"
+                                   source-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/temp/topics/index-test-topic-01.xml#topic-1">
+                  <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                             class="- topic/indexterm "
+                             xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                             xtrc="indexterm:19">recipe for</indexterm>
+               </index-terms:target>
+            </index-terms:index-term>
+         </index-terms:index-term>
+         <index-terms:index-term grouping-key="p" sorting-key="pie (label text following subterm)"
+                                 item-id="d66e59">
+            <index-terms:label>pie (label text following subterm)</index-terms:label>
+            <index-terms:original-markup>
+               <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                          class="- topic/indexterm "
+                          xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                          xtrc="indexterm:20">
+                  <indexterm class="- topic/indexterm "
+                             xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                             xtrc="indexterm:21">pizza</indexterm>pie (label text following subterm)</indexterm>
+            </index-terms:original-markup>
+            <index-terms:index-term grouping-key="pizza" sorting-key="pizza" item-id="d66e60">
+               <index-terms:label>pizza</index-terms:label>
+               <index-terms:original-markup>
+                  <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                             class="- topic/indexterm "
+                             xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                             xtrc="indexterm:21">pizza</indexterm>
+               </index-terms:original-markup>
+               <index-terms:target target-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/html2/topics/index-test-topic-01.html"
+                                   source-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/temp/topics/index-test-topic-01.xml#topic-1">
+                  <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                             class="- topic/indexterm "
+                             xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                             xtrc="indexterm:21">pizza</indexterm>
+               </index-terms:target>
+            </index-terms:index-term>
+         </index-terms:index-term>
+         <index-terms:index-term grouping-key="a" sorting-key="apricot" item-id="d66e63">
+            <index-terms:label>apricot</index-terms:label>
+            <index-terms:original-markup>
+               <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                          class="- topic/indexterm "
+                          xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                          xtrc="indexterm:22">apricot<indexterm class="- topic/indexterm "
+                             xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                             xtrc="indexterm:23">fried pies</indexterm>
+               </indexterm>
+            </index-terms:original-markup>
+            <index-terms:index-term grouping-key="fried pies" sorting-key="fried pies" item-id="d66e65">
+               <index-terms:label>fried pies</index-terms:label>
+               <index-terms:original-markup>
+                  <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                             class="- topic/indexterm "
+                             xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                             xtrc="indexterm:23">fried pies</indexterm>
+               </index-terms:original-markup>
+               <index-terms:target target-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/html2/topics/index-test-topic-01.html"
+                                   source-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/temp/topics/index-test-topic-01.xml#topic-1">
+                  <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                             class="- topic/indexterm "
+                             xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                             xtrc="indexterm:23">fried pies</indexterm>
+               </index-terms:target>
+            </index-terms:index-term>
+         </index-terms:index-term>
+         <index-terms:index-term grouping-key="p" sorting-key="pies" item-id="d66e67">
+            <index-terms:label>pies</index-terms:label>
+            <index-terms:original-markup>
+               <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                          class="- topic/indexterm "
+                          xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                          xtrc="indexterm:24">pies<indexterm class="- topic/indexterm "
+                             xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                             xtrc="indexterm:25">fried</indexterm>
+               </indexterm>
+            </index-terms:original-markup>
+            <index-terms:index-term grouping-key="fried" sorting-key="fried" item-id="d66e69">
+               <index-terms:label>fried</index-terms:label>
+               <index-terms:original-markup>
+                  <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                             class="- topic/indexterm "
+                             xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                             xtrc="indexterm:25">fried</indexterm>
+               </index-terms:original-markup>
+               <index-terms:target target-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/html2/topics/index-test-topic-01.html"
+                                   source-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/temp/topics/index-test-topic-01.xml#topic-1">
+                  <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                             class="- topic/indexterm "
+                             xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                             xtrc="indexterm:25">fried</indexterm>
+               </index-terms:target>
+            </index-terms:index-term>
+         </index-terms:index-term>
+         <index-terms:index-term grouping-key="b" sorting-key="berry" item-id="d67e9">
             <index-terms:label>berry</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -318,7 +436,7 @@
                </index-terms:target>
             </index-terms:index-term>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="a" sorting-key="a" item-id="d67e13">
+         <index-terms:index-term grouping-key="a" sorting-key="apple" item-id="d67e13">
             <index-terms:label>apple</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -363,7 +481,7 @@
                </index-terms:index-term>
             </index-terms:index-term>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="u" sorting-key="u" item-id="d67e19">
+         <index-terms:index-term grouping-key="u" sorting-key="universe" item-id="d67e19">
             <index-terms:label>universe</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -391,8 +509,8 @@
                </index-terms:target>
             </index-terms:index-term>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="l" sorting-key="l" item-id="d67e23">
-            <index-terms:label>lifeuniverse</index-terms:label>
+         <index-terms:index-term grouping-key="l" sorting-key="life" item-id="d67e23">
+            <index-terms:label>life</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
                           class="- topic/indexterm "
@@ -413,7 +531,7 @@
                </indexterm>
             </index-terms:target>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="p" sorting-key="p" item-id="d67e37">
+         <index-terms:index-term grouping-key="p" sorting-key="pie" item-id="d67e37">
             <index-terms:label>pie</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -429,7 +547,7 @@
                           xtrc="indexterm:9">pie</indexterm>
             </index-terms:target>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="p" sorting-key="p" item-id="d67e40">
+         <index-terms:index-term grouping-key="p" sorting-key="pastry" item-id="d67e40">
             <index-terms:label>pastry</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -445,7 +563,7 @@
                           xtrc="indexterm:10">pastry</indexterm>
             </index-terms:target>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="p" sorting-key="p" item-id="d67e45">
+         <index-terms:index-term grouping-key="p" sorting-key="pie" item-id="d67e45">
             <index-terms:label>pie</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -473,7 +591,7 @@
                </index-terms:target>
             </index-terms:index-term>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="a" sorting-key="a" item-id="d67e49">
+         <index-terms:index-term grouping-key="a" sorting-key="apple" item-id="d67e49">
             <index-terms:label>apple</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -501,7 +619,7 @@
                </index-terms:target>
             </index-terms:index-term>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="b" sorting-key="b" item-id="d68e9">
+         <index-terms:index-term grouping-key="b" sorting-key="berry" item-id="d68e9">
             <index-terms:label>berry</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -548,7 +666,7 @@
                </index-terms:target>
             </index-terms:index-term>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="a" sorting-key="a" item-id="d68e15">
+         <index-terms:index-term grouping-key="a" sorting-key="apple" item-id="d68e15">
             <index-terms:label>apple</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -576,7 +694,7 @@
                </index-terms:target>
             </index-terms:index-term>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="t" sorting-key="t" item-id="d68e19">
+         <index-terms:index-term grouping-key="t" sorting-key="turnovers" item-id="d68e19">
             <index-terms:label>turnovers</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -592,7 +710,7 @@
                           xtrc="indexterm:6">turnovers</indexterm>
             </index-terms:target>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="t" sorting-key="t" item-id="d68e21">
+         <index-terms:index-term grouping-key="t" sorting-key="turnover" item-id="d68e21">
             <index-terms:label>turnover</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -620,7 +738,7 @@
                </index-terms:target>
             </index-terms:index-term>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="k" sorting-key="k" item-id="d68e25">
+         <index-terms:index-term grouping-key="k" sorting-key="kolaches" item-id="d68e25">
             <index-terms:label>kolaches</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -681,7 +799,9 @@
                </index-terms:index-term>
             </index-terms:index-term>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="d" sorting-key="d" item-id="d68e34">
+         <index-terms:index-term grouping-key="d"
+                                 sorting-key="date (top-level entry within indexterm tag with no label"
+                                 item-id="d68e34">
             <index-terms:label>date (top-level entry within indexterm tag with no label</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -697,7 +817,8 @@
                           xtrc="indexterm:14">date (top-level entry within indexterm tag with no label</indexterm>
             </index-terms:target>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="d" sorting-key="d" item-id="d68e36">
+         <index-terms:index-term grouping-key="d" sorting-key="date (top-level entry) within keywords"
+                                 item-id="d68e36">
             <index-terms:label>date (top-level entry) within keywords</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -713,7 +834,7 @@
                           xtrc="indexterm:15">date (top-level entry) within keywords</indexterm>
             </index-terms:target>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="a" sorting-key="a" item-id="d68e54">
+         <index-terms:index-term grouping-key="a" sorting-key="apple" item-id="d68e54">
             <index-terms:label>apple</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -741,7 +862,7 @@
                </index-terms:target>
             </index-terms:index-term>
          </index-terms:index-term>
-         <index-terms:index-term grouping-key="s" sorting-key="s" item-id="d68e58">
+         <index-terms:index-term grouping-key="s" sorting-key="strudel" item-id="d68e58">
             <index-terms:label>strudel</index-terms:label>
             <index-terms:original-markup>
                <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -771,10 +892,46 @@
          </index-terms:index-term>
       </index-terms:ungrouped>
       <index-terms:grouped-and-sorted>
-         <index-terms:index-group grouping-key="#numeric" sorting-key="#numeric">
+         <index-terms:index-group grouping-key="#numeric" sorting-key="42">
             <index-terms:label>Numeric</index-terms:label>
             <index-terms:sub-terms>
-               <index-terms:index-term grouping-key="#numeric" sorting-key="#numeric">
+               <index-terms:index-term grouping-key="#numeric" sorting-key="4-cheese pizza">
+                  <index-terms:label>4-cheese pizza</index-terms:label>
+                  <index-terms:original-markup>
+                     <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                class="- topic/indexterm "
+                                xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                xtrc="indexterm:18">
+                        <index-sort-as class="+ topic/index-base indexing-d/index-sort-as "
+                                       xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                       xtrc="index-sort-as:1">four</index-sort-as>4-cheese pizza<indexterm class="- topic/indexterm "
+                                   xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                   xtrc="indexterm:19">recipe for</indexterm>
+                     </indexterm>
+                  </index-terms:original-markup>
+                  <index-terms:sub-terms>
+                     <index-terms:index-term grouping-key="recipe for" sorting-key="recipe for">
+                        <index-terms:label>recipe for</index-terms:label>
+                        <index-terms:original-markup>
+                           <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                      class="- topic/indexterm "
+                                      xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                      xtrc="indexterm:19">recipe for</indexterm>
+                        </index-terms:original-markup>
+                        <index-terms:targets>
+                           <index-terms:target target-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/html2/topics/index-test-topic-01.html"
+                                               source-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/temp/topics/index-test-topic-01.xml#topic-1">
+                              <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                         class="- topic/indexterm "
+                                         xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                         xtrc="indexterm:19">recipe for</indexterm>
+                           </index-terms:target>
+                        </index-terms:targets>
+                        <index-terms:sub-terms/>
+                     </index-terms:index-term>
+                  </index-terms:sub-terms>
+               </index-terms:index-term>
+               <index-terms:index-term grouping-key="#numeric" sorting-key="42">
                   <index-terms:label>42</index-terms:label>
                   <index-terms:original-markup>
                      <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -810,10 +967,10 @@
                </index-terms:index-term>
             </index-terms:sub-terms>
          </index-terms:index-group>
-         <index-terms:index-group grouping-key="&lt;" sorting-key="&lt;">
+         <index-terms:index-group grouping-key="&lt;" sorting-key="&lt;non-alpha-first-charcter&gt;">
             <index-terms:label>&lt;</index-terms:label>
             <index-terms:sub-terms>
-               <index-terms:index-term grouping-key="&lt;" sorting-key="&lt;">
+               <index-terms:index-term grouping-key="&lt;" sorting-key="&lt;non-alpha-first-charcter&gt;">
                   <index-terms:label>&lt;non-alpha-first-charcter&gt;</index-terms:label>
                   <index-terms:original-markup>
                      <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -834,10 +991,10 @@
                </index-terms:index-term>
             </index-terms:sub-terms>
          </index-terms:index-group>
-         <index-terms:index-group grouping-key="a" sorting-key="a">
+         <index-terms:index-group grouping-key="a" sorting-key="apple">
             <index-terms:label>A</index-terms:label>
             <index-terms:sub-terms>
-               <index-terms:index-term grouping-key="a" sorting-key="a">
+               <index-terms:index-term grouping-key="a" sorting-key="apple">
                   <index-terms:label>apple</index-terms:label>
                   <index-terms:original-markup>
                      <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -901,30 +1058,25 @@
                      </index-terms:index-term>
                   </index-terms:sub-terms>
                </index-terms:index-term>
-            </index-terms:sub-terms>
-         </index-terms:index-group>
-         <index-terms:index-group grouping-key="b" sorting-key="b">
-            <index-terms:label>B</index-terms:label>
-            <index-terms:sub-terms>
-               <index-terms:index-term grouping-key="b" sorting-key="b">
-                  <index-terms:label>blackberry</index-terms:label>
+               <index-terms:index-term grouping-key="a" sorting-key="apricot">
+                  <index-terms:label>apricot</index-terms:label>
                   <index-terms:original-markup>
                      <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
                                 class="- topic/indexterm "
                                 xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
-                                xtrc="indexterm:1">blackberry<indexterm class="- topic/indexterm "
+                                xtrc="indexterm:22">apricot<indexterm class="- topic/indexterm "
                                    xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
-                                   xtrc="indexterm:2">pie</indexterm>
+                                   xtrc="indexterm:23">fried pies</indexterm>
                      </indexterm>
                   </index-terms:original-markup>
                   <index-terms:sub-terms>
-                     <index-terms:index-term grouping-key="pie" sorting-key="pie">
-                        <index-terms:label>pie</index-terms:label>
+                     <index-terms:index-term grouping-key="fried pies" sorting-key="fried pies">
+                        <index-terms:label>fried pies</index-terms:label>
                         <index-terms:original-markup>
                            <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
                                       class="- topic/indexterm "
                                       xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
-                                      xtrc="indexterm:2">pie</indexterm>
+                                      xtrc="indexterm:23">fried pies</indexterm>
                         </index-terms:original-markup>
                         <index-terms:targets>
                            <index-terms:target target-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/html2/topics/index-test-topic-01.html"
@@ -932,8 +1084,36 @@
                               <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
                                          class="- topic/indexterm "
                                          xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
-                                         xtrc="indexterm:2">pie</indexterm>
+                                         xtrc="indexterm:23">fried pies</indexterm>
                            </index-terms:target>
+                        </index-terms:targets>
+                        <index-terms:sub-terms/>
+                     </index-terms:index-term>
+                  </index-terms:sub-terms>
+               </index-terms:index-term>
+            </index-terms:sub-terms>
+         </index-terms:index-group>
+         <index-terms:index-group grouping-key="b" sorting-key="blackberry">
+            <index-terms:label>B</index-terms:label>
+            <index-terms:sub-terms>
+               <index-terms:index-term grouping-key="b" sorting-key="berry">
+                  <index-terms:label>berry</index-terms:label>
+                  <index-terms:original-markup>
+                     <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                class="- topic/indexterm "
+                                xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                xtrc="indexterm:4">berry</indexterm>
+                  </index-terms:original-markup>
+                  <index-terms:sub-terms>
+                     <index-terms:index-term grouping-key="pie" sorting-key="pie">
+                        <index-terms:label>pie</index-terms:label>
+                        <index-terms:original-markup>
+                           <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                      class="- topic/indexterm "
+                                      xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-02.dita"
+                                      xtrc="indexterm:2">pie</indexterm>
+                        </index-terms:original-markup>
+                        <index-terms:targets>
                            <index-terms:target target-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/html2/topics/index-test-topic-02.html"
                                                source-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/temp/topics/index-test-topic-02.xml#topic-1">
                               <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -972,12 +1152,45 @@
                      </index-terms:index-term>
                   </index-terms:sub-terms>
                </index-terms:index-term>
+               <index-terms:index-term grouping-key="b" sorting-key="blackberry">
+                  <index-terms:label>blackberry</index-terms:label>
+                  <index-terms:original-markup>
+                     <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                class="- topic/indexterm "
+                                xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                xtrc="indexterm:1">blackberry<indexterm class="- topic/indexterm "
+                                   xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                   xtrc="indexterm:2">pie</indexterm>
+                     </indexterm>
+                  </index-terms:original-markup>
+                  <index-terms:sub-terms>
+                     <index-terms:index-term grouping-key="pie" sorting-key="pie">
+                        <index-terms:label>pie</index-terms:label>
+                        <index-terms:original-markup>
+                           <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                      class="- topic/indexterm "
+                                      xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                      xtrc="indexterm:2">pie</indexterm>
+                        </index-terms:original-markup>
+                        <index-terms:targets>
+                           <index-terms:target target-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/html2/topics/index-test-topic-01.html"
+                                               source-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/temp/topics/index-test-topic-01.xml#topic-1">
+                              <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                         class="- topic/indexterm "
+                                         xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                         xtrc="indexterm:2">pie</indexterm>
+                           </index-terms:target>
+                        </index-terms:targets>
+                        <index-terms:sub-terms/>
+                     </index-terms:index-term>
+                  </index-terms:sub-terms>
+               </index-terms:index-term>
             </index-terms:sub-terms>
          </index-terms:index-group>
-         <index-terms:index-group grouping-key="c" sorting-key="c">
+         <index-terms:index-group grouping-key="c" sorting-key="cherry">
             <index-terms:label>C</index-terms:label>
             <index-terms:sub-terms>
-               <index-terms:index-term grouping-key="c" sorting-key="c">
+               <index-terms:index-term grouping-key="c" sorting-key="cherry">
                   <index-terms:label>cherry</index-terms:label>
                   <index-terms:original-markup>
                      <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -998,10 +1211,12 @@
                </index-terms:index-term>
             </index-terms:sub-terms>
          </index-terms:index-group>
-         <index-terms:index-group grouping-key="d" sorting-key="d">
+         <index-terms:index-group grouping-key="d"
+                                  sorting-key="date (top-level entry within indexterm tag with no label">
             <index-terms:label>D</index-terms:label>
             <index-terms:sub-terms>
-               <index-terms:index-term grouping-key="d" sorting-key="d">
+               <index-terms:index-term grouping-key="d"
+                                       sorting-key="date (top-level entry within indexterm tag with no label">
                   <index-terms:label>date (top-level entry within indexterm tag with no label</index-terms:label>
                   <index-terms:original-markup>
                      <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -1017,6 +1232,18 @@
                                    xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-03.dita"
                                    xtrc="indexterm:14">date (top-level entry within indexterm tag with no label</indexterm>
                      </index-terms:target>
+                  </index-terms:targets>
+                  <index-terms:sub-terms/>
+               </index-terms:index-term>
+               <index-terms:index-term grouping-key="d" sorting-key="date (top-level entry) within keywords">
+                  <index-terms:label>date (top-level entry) within keywords</index-terms:label>
+                  <index-terms:original-markup>
+                     <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                class="- topic/indexterm "
+                                xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-03.dita"
+                                xtrc="indexterm:15">date (top-level entry) within keywords</indexterm>
+                  </index-terms:original-markup>
+                  <index-terms:targets>
                      <index-terms:target target-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/html2/topics/index-test-topic-03.html"
                                          source-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/temp/topics/index-test-topic-03.xml#topic-1">
                         <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -1029,40 +1256,24 @@
                </index-terms:index-term>
             </index-terms:sub-terms>
          </index-terms:index-group>
-         <index-terms:index-group grouping-key="f" sorting-key="f">
+         <index-terms:index-group grouping-key="f" sorting-key="fruit">
             <index-terms:label>F</index-terms:label>
             <index-terms:sub-terms>
-               <index-terms:index-term grouping-key="f" sorting-key="f">
-                  <index-terms:label>fruit</index-terms:label>
+               <index-terms:index-term grouping-key="f" sorting-key="food">
+                  <index-terms:label>food</index-terms:label>
                   <index-terms:original-markup>
                      <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
                                 class="- topic/indexterm "
                                 xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
-                                xtrc="indexterm:6">fruit<indexterm class="- topic/indexterm "
+                                xtrc="indexterm:8">food<indexterm class="- topic/indexterm "
                                    xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
-                                   xtrc="indexterm:7">apple</indexterm>
+                                   xtrc="indexterm:9">cherries</indexterm>
+                        <indexterm class="- topic/indexterm "
+                                   xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                   xtrc="indexterm:10">berries (second subterm under heading "food")</indexterm>
                      </indexterm>
                   </index-terms:original-markup>
                   <index-terms:sub-terms>
-                     <index-terms:index-term grouping-key="apple" sorting-key="apple">
-                        <index-terms:label>apple</index-terms:label>
-                        <index-terms:original-markup>
-                           <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
-                                      class="- topic/indexterm "
-                                      xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
-                                      xtrc="indexterm:7">apple</indexterm>
-                        </index-terms:original-markup>
-                        <index-terms:targets>
-                           <index-terms:target target-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/html2/topics/index-test-topic-01.html"
-                                               source-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/temp/topics/index-test-topic-01.xml#topic-1">
-                              <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
-                                         class="- topic/indexterm "
-                                         xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
-                                         xtrc="indexterm:7">apple</indexterm>
-                           </index-terms:target>
-                        </index-terms:targets>
-                        <index-terms:sub-terms/>
-                     </index-terms:index-term>
                      <index-terms:index-term grouping-key="berries (second subterm under heading &#34;food&#34;)"
                                              sorting-key="berries (second subterm under heading &#34;food&#34;)">
                         <index-terms:label>berries (second subterm under heading "food")</index-terms:label>
@@ -1104,12 +1315,47 @@
                      </index-terms:index-term>
                   </index-terms:sub-terms>
                </index-terms:index-term>
+               <index-terms:index-term grouping-key="f" sorting-key="fruit">
+                  <index-terms:label>fruit</index-terms:label>
+                  <index-terms:original-markup>
+                     <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                class="- topic/indexterm "
+                                xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                xtrc="indexterm:6">fruit<indexterm class="- topic/indexterm "
+                                   xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                   xtrc="indexterm:7">apple</indexterm>
+                     </indexterm>
+                  </index-terms:original-markup>
+                  <index-terms:sub-terms>
+                     <index-terms:index-term grouping-key="apple" sorting-key="apple">
+                        <index-terms:label>apple</index-terms:label>
+                        <index-terms:original-markup>
+                           <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                      class="- topic/indexterm "
+                                      xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                      xtrc="indexterm:7">apple</indexterm>
+                        </index-terms:original-markup>
+                        <index-terms:targets>
+                           <index-terms:target target-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/html2/topics/index-test-topic-01.html"
+                                               source-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/temp/topics/index-test-topic-01.xml#topic-1">
+                              <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                         class="- topic/indexterm "
+                                         xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                         xtrc="indexterm:7">apple</indexterm>
+                           </index-terms:target>
+                        </index-terms:targets>
+                        <index-terms:sub-terms/>
+                     </index-terms:index-term>
+                  </index-terms:sub-terms>
+               </index-terms:index-term>
             </index-terms:sub-terms>
          </index-terms:index-group>
-         <index-terms:index-group grouping-key="k" sorting-key="k">
+         <index-terms:index-group grouping-key="k"
+                                  sorting-key="keyword as first child of indexterm text after keyword">
             <index-terms:label>K</index-terms:label>
             <index-terms:sub-terms>
-               <index-terms:index-term grouping-key="k" sorting-key="k">
+               <index-terms:index-term grouping-key="k"
+                                       sorting-key="keyword as first child of indexterm text after keyword">
                   <index-terms:label>keyword as first child of indexterm text after keyword</index-terms:label>
                   <index-terms:original-markup>
                      <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -1119,6 +1365,37 @@
                         <keyword class="- topic/keyword "
                                  xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
                                  xtrc="keyword:2">keyword as first child of indexterm</keyword> text after keyword</indexterm>
+                  </index-terms:original-markup>
+                  <index-terms:targets>
+                     <index-terms:target target-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/html2/topics/index-test-topic-01.html"
+                                         source-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/temp/topics/index-test-topic-01.xml#topic-1">
+                        <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                   class="- topic/indexterm "
+                                   xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                   xtrc="indexterm:17">
+                           <keyword class="- topic/keyword "
+                                    xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                    xtrc="keyword:2">keyword as first child of indexterm</keyword> text after keyword</indexterm>
+                     </index-terms:target>
+                  </index-terms:targets>
+                  <index-terms:sub-terms/>
+               </index-terms:index-term>
+               <index-terms:index-term grouping-key="k" sorting-key="kolaches">
+                  <index-terms:label>kolaches</index-terms:label>
+                  <index-terms:original-markup>
+                     <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                class="- topic/indexterm "
+                                xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-03.dita"
+                                xtrc="indexterm:9">kolaches<indexterm class="- topic/indexterm "
+                                   xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-03.dita"
+                                   xtrc="indexterm:10">fruit<indexterm class="- topic/indexterm "
+                                      xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-03.dita"
+                                      xtrc="indexterm:11">apple<indexterm class="- topic/indexterm "
+                                         xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-03.dita"
+                                         xtrc="indexterm:12">granny smith</indexterm>
+                           </indexterm>
+                        </indexterm>
+                     </indexterm>
                   </index-terms:original-markup>
                   <index-terms:sub-terms>
                      <index-terms:index-term grouping-key="fruit" sorting-key="fruit">
@@ -1175,11 +1452,11 @@
                </index-terms:index-term>
             </index-terms:sub-terms>
          </index-terms:index-group>
-         <index-terms:index-group grouping-key="l" sorting-key="l">
+         <index-terms:index-group grouping-key="l" sorting-key="life">
             <index-terms:label>L</index-terms:label>
             <index-terms:sub-terms>
-               <index-terms:index-term grouping-key="l" sorting-key="l">
-                  <index-terms:label>lifeuniverse</index-terms:label>
+               <index-terms:index-term grouping-key="l" sorting-key="life">
+                  <index-terms:label>life</index-terms:label>
                   <index-terms:original-markup>
                      <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
                                 class="- topic/indexterm "
@@ -1205,11 +1482,43 @@
                </index-terms:index-term>
             </index-terms:sub-terms>
          </index-terms:index-group>
-         <index-terms:index-group grouping-key="p" sorting-key="p">
+         <index-terms:index-group grouping-key="p" sorting-key="pie">
             <index-terms:label>P</index-terms:label>
             <index-terms:sub-terms>
-               <index-terms:index-term grouping-key="p" sorting-key="p">
-                  <index-terms:label>piepastry (index-see under pie)</index-terms:label>
+               <index-terms:index-term grouping-key="p" sorting-key="pastry">
+                  <index-terms:label>pastry</index-terms:label>
+                  <index-terms:original-markup>
+                     <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                class="- topic/indexterm "
+                                xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                xtrc="indexterm:12">pastry<index-see-also class="+ topic/index-base indexing-d/index-see-also "
+                                        xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                        xtrc="index-see-also:1">pie (index-see-also under pastry)</index-see-also>
+                     </indexterm>
+                  </index-terms:original-markup>
+                  <index-terms:targets>
+                     <index-terms:target target-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/html2/topics/index-test-topic-01.html"
+                                         source-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/temp/topics/index-test-topic-01.xml#topic-1">
+                        <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                   class="- topic/indexterm "
+                                   xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                   xtrc="indexterm:12">pastry<index-see-also class="+ topic/index-base indexing-d/index-see-also "
+                                           xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                           xtrc="index-see-also:1">pie (index-see-also under pastry)</index-see-also>
+                        </indexterm>
+                     </index-terms:target>
+                     <index-terms:target target-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/html2/topics/index-test-topic-02.html"
+                                         source-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/temp/topics/index-test-topic-02.xml#topic-1">
+                        <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                   class="- topic/indexterm "
+                                   xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-02.dita"
+                                   xtrc="indexterm:10">pastry</indexterm>
+                     </index-terms:target>
+                  </index-terms:targets>
+                  <index-terms:sub-terms/>
+               </index-terms:index-term>
+               <index-terms:index-term grouping-key="p" sorting-key="pie">
+                  <index-terms:label>pie</index-terms:label>
                   <index-terms:original-markup>
                      <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
                                 class="- topic/indexterm "
@@ -1241,12 +1550,78 @@
                      </index-terms:index-term>
                   </index-terms:sub-terms>
                </index-terms:index-term>
+               <index-terms:index-term grouping-key="p" sorting-key="pie (label text following subterm)">
+                  <index-terms:label>pie (label text following subterm)</index-terms:label>
+                  <index-terms:original-markup>
+                     <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                class="- topic/indexterm "
+                                xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                xtrc="indexterm:20">
+                        <indexterm class="- topic/indexterm "
+                                   xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                   xtrc="indexterm:21">pizza</indexterm>pie (label text following subterm)</indexterm>
+                  </index-terms:original-markup>
+                  <index-terms:sub-terms>
+                     <index-terms:index-term grouping-key="pizza" sorting-key="pizza">
+                        <index-terms:label>pizza</index-terms:label>
+                        <index-terms:original-markup>
+                           <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                      class="- topic/indexterm "
+                                      xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                      xtrc="indexterm:21">pizza</indexterm>
+                        </index-terms:original-markup>
+                        <index-terms:targets>
+                           <index-terms:target target-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/html2/topics/index-test-topic-01.html"
+                                               source-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/temp/topics/index-test-topic-01.xml#topic-1">
+                              <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                         class="- topic/indexterm "
+                                         xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                         xtrc="indexterm:21">pizza</indexterm>
+                           </index-terms:target>
+                        </index-terms:targets>
+                        <index-terms:sub-terms/>
+                     </index-terms:index-term>
+                  </index-terms:sub-terms>
+               </index-terms:index-term>
+               <index-terms:index-term grouping-key="p" sorting-key="pies">
+                  <index-terms:label>pies</index-terms:label>
+                  <index-terms:original-markup>
+                     <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                class="- topic/indexterm "
+                                xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                xtrc="indexterm:24">pies<indexterm class="- topic/indexterm "
+                                   xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                   xtrc="indexterm:25">fried</indexterm>
+                     </indexterm>
+                  </index-terms:original-markup>
+                  <index-terms:sub-terms>
+                     <index-terms:index-term grouping-key="fried" sorting-key="fried">
+                        <index-terms:label>fried</index-terms:label>
+                        <index-terms:original-markup>
+                           <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                      class="- topic/indexterm "
+                                      xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                      xtrc="indexterm:25">fried</indexterm>
+                        </index-terms:original-markup>
+                        <index-terms:targets>
+                           <index-terms:target target-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/html2/topics/index-test-topic-01.html"
+                                               source-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/temp/topics/index-test-topic-01.xml#topic-1">
+                              <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                         class="- topic/indexterm "
+                                         xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                         xtrc="indexterm:25">fried</indexterm>
+                           </index-terms:target>
+                        </index-terms:targets>
+                        <index-terms:sub-terms/>
+                     </index-terms:index-term>
+                  </index-terms:sub-terms>
+               </index-terms:index-term>
             </index-terms:sub-terms>
          </index-terms:index-group>
-         <index-terms:index-group grouping-key="s" sorting-key="s">
+         <index-terms:index-group grouping-key="s" sorting-key="strudel">
             <index-terms:label>S</index-terms:label>
             <index-terms:sub-terms>
-               <index-terms:index-term grouping-key="s" sorting-key="s">
+               <index-terms:index-term grouping-key="s" sorting-key="strudel">
                   <index-terms:label>strudel</index-terms:label>
                   <index-terms:original-markup>
                      <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -1281,10 +1656,10 @@
                </index-terms:index-term>
             </index-terms:sub-terms>
          </index-terms:index-group>
-         <index-terms:index-group grouping-key="t" sorting-key="t">
+         <index-terms:index-group grouping-key="t" sorting-key="text keyword text after keyword">
             <index-terms:label>T</index-terms:label>
             <index-terms:sub-terms>
-               <index-terms:index-term grouping-key="t" sorting-key="t">
+               <index-terms:index-term grouping-key="t" sorting-key="text keyword text after keyword">
                   <index-terms:label>text keyword text after keyword</index-terms:label>
                   <index-terms:original-markup>
                      <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -1293,6 +1668,30 @@
                                 xtrc="indexterm:13">text <keyword class="- topic/keyword "
                                  xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
                                  xtrc="keyword:1">keyword</keyword> text after keyword</indexterm>
+                  </index-terms:original-markup>
+                  <index-terms:targets>
+                     <index-terms:target target-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/html2/topics/index-test-topic-01.html"
+                                         source-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/temp/topics/index-test-topic-01.xml#topic-1">
+                        <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                   class="- topic/indexterm "
+                                   xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                   xtrc="indexterm:13">text <keyword class="- topic/keyword "
+                                    xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-01.dita"
+                                    xtrc="keyword:1">keyword</keyword> text after keyword</indexterm>
+                     </index-terms:target>
+                  </index-terms:targets>
+                  <index-terms:sub-terms/>
+               </index-terms:index-term>
+               <index-terms:index-term grouping-key="t" sorting-key="turnover">
+                  <index-terms:label>turnover</index-terms:label>
+                  <index-terms:original-markup>
+                     <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                class="- topic/indexterm "
+                                xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-03.dita"
+                                xtrc="indexterm:7">turnover<indexterm class="- topic/indexterm "
+                                   xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-03.dita"
+                                   xtrc="indexterm:8">berry</indexterm>
+                     </indexterm>
                   </index-terms:original-markup>
                   <index-terms:sub-terms>
                      <index-terms:index-term grouping-key="berry" sorting-key="berry">
@@ -1316,12 +1715,31 @@
                      </index-terms:index-term>
                   </index-terms:sub-terms>
                </index-terms:index-term>
+               <index-terms:index-term grouping-key="t" sorting-key="turnovers">
+                  <index-terms:label>turnovers</index-terms:label>
+                  <index-terms:original-markup>
+                     <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                class="- topic/indexterm "
+                                xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-03.dita"
+                                xtrc="indexterm:6">turnovers</indexterm>
+                  </index-terms:original-markup>
+                  <index-terms:targets>
+                     <index-terms:target target-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/html2/topics/index-test-topic-03.html"
+                                         source-uri="file:/Users/ekimber/workspace/dita4publishers/test/dita/index-test/temp/topics/index-test-topic-03.xml#topic-1">
+                        <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                   class="- topic/indexterm "
+                                   xtrf="/Users/ekimber/workspace/dita4publishers/test/dita/index-test/topics/index-test-topic-03.dita"
+                                   xtrc="indexterm:6">turnovers</indexterm>
+                     </index-terms:target>
+                  </index-terms:targets>
+                  <index-terms:sub-terms/>
+               </index-terms:index-term>
             </index-terms:sub-terms>
          </index-terms:index-group>
-         <index-terms:index-group grouping-key="u" sorting-key="u">
+         <index-terms:index-group grouping-key="u" sorting-key="universe">
             <index-terms:label>U</index-terms:label>
             <index-terms:sub-terms>
-               <index-terms:index-term grouping-key="u" sorting-key="u">
+               <index-terms:index-term grouping-key="u" sorting-key="universe">
                   <index-terms:label>universe</index-terms:label>
                   <index-terms:original-markup>
                      <indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
@@ -1363,14 +1781,14 @@
                class="+ map/topicref pubmap-d/chapter "
                topicClass="- topic/topic ">
          <title>Index Test Topic 01</title>
-         <table sourceId="topic-1table-26-21-61" frame="all" id="table_ksh_fsa_yb"
+         <table sourceId="topic-1table-35-23-61" frame="all" id="table_ksh_fsa_yb"
                 class="- topic/table ">
             <title>Test of Table ID Generation</title>
          </table>
-         <fig sourceId="topic-1fig-45-18-56" class="- topic/fig ">
+         <fig sourceId="topic-1fig-54-20-56" class="- topic/fig ">
             <title>Test of ID generation topic 01</title>
          </fig>
-         <fig sourceId="topic-1fig-59-4-39" id="fig-01" class="- topic/fig ">
+         <fig sourceId="topic-1fig-68-6-39" id="fig-01" class="- topic/fig ">
             <title>This is Figure 01</title>
          </fig>
       </chapter>
@@ -1378,7 +1796,7 @@
                class="+ map/topicref pubmap-d/chapter "
                topicClass="- topic/topic ">
          <title>Index Test Topic 02</title>
-         <fig sourceId="topic-1fig-14-21-56" class="- topic/fig ">
+         <fig sourceId="topic-1fig-14-21-56" id="fig-02" class="- topic/fig ">
             <title>Test of ID generation topic 02</title>
          </fig>
       </chapter>
