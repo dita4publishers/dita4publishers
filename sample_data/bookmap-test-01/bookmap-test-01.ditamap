@@ -14,6 +14,10 @@
       <topicmeta>
         <navtitle>This is the first chapter</navtitle>
       </topicmeta>
+      <topicref
+        href="topics/subconcept-01.xml"/>
+      <topicref
+        href="topics/subconcept-02.dita"/>
     </chapter>
     <chapter
       href="topics/chapter-02.xml">
@@ -42,8 +46,9 @@
   </part>
   <part>
     <topicmeta>
-      <navtitle>The Third Part (&lt;navtitle&gt;)</navtitle>   
+      <navtitle>The Third Part (&lt;navtitle&gt;)</navtitle>
     </topicmeta>
   </part>
-  <part navtitle="The Fourth Part (@navtite)"/>
+  <part
+    navtitle="The Fourth Part (@navtite)"/>
 </bookmap>
