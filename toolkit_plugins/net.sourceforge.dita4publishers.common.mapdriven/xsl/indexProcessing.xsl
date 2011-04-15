@@ -117,6 +117,14 @@
           <index-terms:targets>
             <xsl:sequence select="current-group()/index-terms:target[*[df:class(.,'topic/indexterm')][not(*[df:class(.,'topic/indexterm')])]]"/>
           </index-terms:targets>
+          <xsl:if test="current-group()/index-terms:see-also">
+            <index-terms:see-alsos>
+              <xsl:for-each select="current-group()/index-terms:see-also">
+                <xsl:sort select="@target-label"/>
+                <xsl:sequence select="."/>
+              </xsl:for-each>
+            </index-terms:see-alsos>
+          </xsl:if>
         </xsl:if>
         <index-terms:sub-terms>
           <xsl:call-template name="process-index-terms">
@@ -205,23 +213,59 @@
           <index-terms:original-markup>
             <xsl:sequence select="."/><!-- Make the original index term available in all cases -->
           </index-terms:original-markup>
-          <xsl:if test="not(*[df:class(., 'topic/indexterm')])">
-            <!-- Only output a target if it is a leaf index term. -->
-            <index-terms:target 
-              target-uri="{$targetUri}"
-              source-uri="{$sourceUri}"
-              >
-              <xsl:sequence select=".[not(*[df:class(., 'topic/indexterm')])]"/>
-            </index-terms:target>
+          <!-- Check rules for indexterm content: -->
+          <xsl:if test="*[df:class(., 'topic/indexterm')] and 
+            (*[df:class(., 'indexing-d/index-see')] or 
+            *[df:class(., 'indexing-d/index-see-also')])">
+            <xsl:message> - [WARN] Index term "<xsl:sequence select="$labelString"/>" contains both index-see or index-see-also and subordinate index terms. 
+the index-see and index-see-also elements will be ignored.</xsl:message>              
           </xsl:if>
-          <!--<xsl:message> + [DEBUG] Handling nested index terms...</xsl:message>-->
+          <xsl:if test="
+            *[df:class(., 'indexing-d/index-see')] and 
+            *[df:class(., 'indexing-d/index-see-also')]">
+            <xsl:message> - [ERROR] Index term "<xsl:sequence select="$labelString"/>" contains both index-see or index-see-also.</xsl:message>              
+          </xsl:if>
+          <!-- Generate target element: -->
+          <xsl:apply-templates mode="make-index-targets" select=".">
+            <xsl:with-param name="targetUri" select="$targetUri" as="xs:string"/>
+            <xsl:with-param name="sourceUri" select="$sourceUri" as="xs:string"/>
+          </xsl:apply-templates>
           <xsl:apply-templates select="*[df:class(., 'topic/indexterm')]" mode="#current"/>
           <!--<xsl:message> + [DEBUG] Nested index terms handled.</xsl:message>-->
         </index-terms:index-term>
       </xsl:otherwise>
     </xsl:choose>
+  </xsl:template>
+  
+  <xsl:template mode="make-index-targets" match="*[local:isPointReferenceIndexTerm(.)]">
+    <xsl:param name="targetUri" as="xs:string"/>
+    <xsl:param name="sourceUri" as="xs:string"/>
+    <index-terms:target 
+      target-uri="{$targetUri}"
+      source-uri="{$sourceUri}"
+      >
+      <xsl:copy>
+      <xsl:sequence select="@*, node() 
+        except (*[df:class(., 'indexing-d/index-see')] | 
+                *[df:class(., 'indexing-d/index-see-also')])"/>
+      </xsl:copy>
+    </index-terms:target>
+    <xsl:apply-templates select="*[df:class(., 'indexing-d/index-see-also')]" mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template mode="make-index-targets" match="*[df:class(., 'indexing-d/index-see-also')]">
+    <xsl:variable name="labelString" select="local:getLabelStringForIndexTerm(.)" as="xs:string"/>
+    <xsl:variable name="labelContent" as="node()*">
+      <xsl:apply-templates select="*[not(df:class(., 'topic/indexterm')) and 
+        not(df:class(., 'indexing-d/index-see')) and 
+        not(df:class(., 'indexing-d/index-see-also'))] | 
+        text()" mode="index-term-label"/>
+    </xsl:variable>
     
-    
+    <index-terms:see-also target-label="{$labelString}">
+      <index-terms:label><xsl:sequence select="$labelContent"/></index-terms:label>
+      <xsl:sequence select="."/>
+    </index-terms:see-also>
   </xsl:template>
   
   <xsl:template match="text()" mode="gather-index-terms" priority="-1"/>    
@@ -286,6 +330,23 @@
       </xsl:choose>    
         
   </xsl:template>
+  
+  <xsl:function name="local:isPointReferenceIndexTerm" as="xs:boolean">
+    <xsl:param name="index-term" as="element()"/>
+    <!-- A "point reference" is a leaf term that should result in a reference
+         to a specific point. That is, it has no child index terms and no
+         index-see children and does not specify @start or @end.
+      -->
+    <xsl:variable name="result"
+      select="
+      not($index-term/*[df:class(., 'topic/indexterm')]) and 
+      not($index-term/*[df:class(., 'indexing-d/index-see')]) and
+      not($index-term/@start) and
+      not($index-term/@end)
+              "
+    />
+    <xsl:sequence select="$result"/>
+  </xsl:function>
   
   <xsl:function name="local:reportIndexTerm" as="xs:string">
     <xsl:param name="index-term" as="element()"/>

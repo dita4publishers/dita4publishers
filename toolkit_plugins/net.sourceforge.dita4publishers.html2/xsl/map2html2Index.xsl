@@ -6,6 +6,7 @@
                 xmlns:index-terms="http://dita4publishers.org/index-terms"
                 xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"                
                 xmlns:local="urn:functions:local"
+                xmlns="http://www.w3.org/1999/xhtml"
                 exclude-result-prefixes="local xs df xsl relpath index-terms htmlutil"
   >
   <!-- =============================================================
@@ -49,7 +50,7 @@
       <xsl:result-document href="{$resultUri}" format="topic-html"
         exclude-result-prefixes="index-terms"
         >
-        <html xmlns="http://www.w3.org/1999/xhtml">
+        <html>
           <head>
             <title>Index</title>
           </head>
@@ -74,11 +75,27 @@
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:index-term">
-    <li class="index-term"  xmlns="http://www.w3.org/1999/xhtml">
+    <li class="index-term" >
       <span class="label"><xsl:apply-templates select="index-terms:label" mode="#current"/></span>
       <xsl:apply-templates select="index-terms:targets" mode="#current"/>
-      <xsl:apply-templates select="index-terms:sub-terms" mode="#current"/>
+      <xsl:apply-templates select="index-terms:sub-terms | index-terms:see-alsos" mode="#current"/>
     </li>
+  </xsl:template>
+  
+  <xsl:template match="index-terms:see-alsos" mode="generate-index">
+    <ul class="see-also">
+      <li class="see-also">
+        <span class="see-also-label">See also: </span>
+        <xsl:apply-templates mode="#current"/>
+      </li>
+    </ul>
+  </xsl:template>
+  
+  <xsl:template mode="generate-index" match="index-terms:see-also">
+    <xsl:if test="preceding-sibling::*">
+      <xsl:text>, </xsl:text>
+    </xsl:if>    
+    <xsl:apply-templates  select="index-terms:label" mode="#current"/>
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:original-markup">
@@ -99,7 +116,7 @@
   
   <xsl:template mode="generate-index" match="index-terms:target">
     <xsl:if test="preceding-sibling::*">
-      <xsl:text>,</xsl:text>
+      <xsl:text>, </xsl:text>
     </xsl:if>
     <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, @target-uri)" as="xs:string"/>
     
@@ -109,6 +126,7 @@
       <xsl:text>] </xsl:text>
     </a>
   </xsl:template>
+  
   
   <xsl:template mode="generate-index-term-link-text" match="index-terms:target">
     <xsl:number count="index-terms:target" format="1"/>

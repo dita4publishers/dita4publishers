@@ -190,7 +190,9 @@
     <xsl:apply-templates 
       select="index-terms:index-term | 
               index-terms:index-group |
-              index-terms:targets" 
+              index-terms:targets |
+              index-terms:see-alsos
+              " 
       mode="#current">
       <xsl:with-param name="parentId" as="xs:string" tunnel="yes" select="generate-id(.)"/>
     </xsl:apply-templates>
@@ -208,6 +210,20 @@
       <xsl:with-param name="parentId" as="xs:string" tunnel="yes" select="generate-id(.)"/>      
     </xsl:apply-templates>
   </xsl:template>  
+  
+  <xsl:template 
+    match="index-terms:see-also" 
+    mode="generate-dynamic-toc">
+    <xsl:param name="parentId" as="xs:string" tunnel="yes"/>
+    <xsl:call-template name="construct-tree-item-for-group-or-term">
+      <xsl:with-param name="parentId" select="$parentId" as="xs:string"/>
+    </xsl:call-template>
+  </xsl:template>  
+  
+  <xsl:template match="index-terms:see-also/index-terms:label" mode="generate-index-term-link-text-dynamic-toc">
+    <xsl:text>See also: </xsl:text>
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
   
   <xsl:template match="index-terms:sub-terms" mode="generate-dynamic-toc">
     <xsl:apply-templates mode="#current"/>
@@ -281,7 +297,7 @@
   <xsl:template name="construct-tree-item-for-group-or-term" >
     <xsl:param name="parentId" as="xs:string" tunnel="yes"/>
     <xsl:param name="linkText">
-      <xsl:apply-templates select="index-terms:label" mode="generate-index-term-link-text"/>      
+      <xsl:apply-templates select="index-terms:label" mode="generate-index-term-link-text-dynamic-toc"/>      
     </xsl:param>
     <xsl:if test="false()">
       <xsl:message> + [DEBUG] for <xsl:sequence select="name(.)"/>, linkText="<xsl:sequence select="$linkText"/>"</xsl:message>
