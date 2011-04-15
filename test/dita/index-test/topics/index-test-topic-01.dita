@@ -85,5 +85,8 @@
     <p>Cross reference to a figure in another topic: <xref
       href="index-test-topic-02.dita#topic-1/fig-02"
       format="dita"/>.</p>
+    <p>Cross reference to a figure in this topic: <xref
+      href="#topic-1/fig-01"
+      format="dita"/>.</p>
   </body>
 </topic>
