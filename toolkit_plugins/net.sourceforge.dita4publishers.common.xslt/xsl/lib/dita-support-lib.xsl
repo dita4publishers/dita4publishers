@@ -115,8 +115,9 @@
       <xsl:when test="$topicref/@navtitle != ''">
         <xsl:value-of select="$topicref/@navtitle"/>
       </xsl:when>
-      <xsl:when test="string($topicref/@format) != 'dita'">
+      <xsl:when test="$topicref/@format and not(starts-with(string($topicref/@format), 'dita'))">
         <!-- FIXME: This is a quick hack. Need to use the best mode for constructing the navtitle. -->
+        <xsl:message> + [DEBUG] getNavtitleForTopicref(): @format = "<xsl:sequence select="$topicref/@format"/>"</xsl:message>
         <xsl:variable name="text">
           <xsl:apply-templates select="$topicref/*[df:class(., 'map/topicmeta')]/*[df:class(., 'map/navtitle')]" mode="text-only"/>            </xsl:variable>
         <xsl:sequence select="normalize-space($text)"/>
