@@ -27,12 +27,18 @@
   
   <xsl:template mode="generate-nodes" match="*[df:isTopicHead(.)]">
     <xsl:variable name="label" select="df:getNavtitleForTopicref(.)" as="xs:string"/>    
+    
+    <xsl:message> + [INFO] generate-nodes: Topic head - <xsl:sequence select="$label"/></xsl:message>
+    
     <xsl:sequence select="gv:makeNodeDecl(., $label, ('color', 'green'))"/>
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
   <xsl:template mode="generate-nodes" match="*[df:isTopicRef(.)]">
     <xsl:variable name="label" select="df:getNavtitleForTopicref(.)" as="xs:string"/>    
+    
+    <xsl:message> + [INFO] generate-nodes: Topic ref - <xsl:sequence select="$label"/></xsl:message>
+    
     <xsl:sequence select="gv:makeNodeDecl(., $label, ('color', 'blue'))"/>
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
@@ -56,6 +62,7 @@
   
   <xsl:template mode="generate-edges" match="*[df:isTopicHead(.)] | *[df:isTopicRef(.)]" >
     <xsl:variable name="myNodeId" select="gv:getNodeId(.)"/>    
+    
     <xsl:sequence select="$myNodeId"/>
     <xsl:text> -> {      
     </xsl:text>

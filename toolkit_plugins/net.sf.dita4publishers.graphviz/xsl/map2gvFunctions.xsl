@@ -52,12 +52,16 @@
     <xsl:param name="context" as="element()"/>
     <xsl:param name="label"/>
     <xsl:param name="properties" as="xs:string*"/>
-    
+ 
+ 
+<xsl:if test="false()">    
+  <xsl:message> + [DEBUG] makeNodeDecl(): label="<xsl:sequence select="$label"/>"</xsl:message>
+</xsl:if>    
     <!-- properties parameter must be either an empty sequence or
          have an even number of items.
     -->
     <xsl:if test="count($properties) gt 0 and count($properties) mod 2 != 0">
-      <xsl:message terminate="yes"> - [ERROR]gv:makeNodeDecl(): Got an odd number of values in the 'properties' parameter.
+      <xsl:message terminate="yes"> - [ERROR] gv:makeNodeDecl(): Got an odd number of values in the 'properties' parameter.
       The value must be a sequence of name/value pair, e.g., ('color', 'blue', 'label', 'The label')</xsl:message>
     </xsl:if>
     
@@ -75,7 +79,7 @@
     <xsl:param name="properties" as="xs:string*"/>
 
     <xsl:if test="count($properties) gt 0 and count($properties) mod 2 != 0">
-      <xsl:message terminate="yes"> - [ERROR]gv:makeProperties(): Got an odd number of values in the 'properties' parameter.
+      <xsl:message terminate="yes"> - [ERROR] gv:makeProperties(): Got an odd number of values in the 'properties' parameter.
         The value must be a sequence of name/value pair, e.g., ('color', 'blue', 'label', 'The label')</xsl:message>
     </xsl:if>
 

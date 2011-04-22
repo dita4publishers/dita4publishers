@@ -25,6 +25,8 @@
     <xsl:variable name="mapTitle" as="node()*" select="df:getMapTitle(.)"/>
     <xsl:variable name="rootNodeId" as="xs:string" select="gv:getNodeId(.)"/>
 
+    <xsl:message> + [INFO] Generating navigation tree graph...</xsl:message>
+
     <xsl:text> 
     digraph map_navigation_tree {
     
@@ -32,8 +34,9 @@
     </xsl:text>
     
     <xsl:sequence select="gv:makeProperties(
-      ('rankdir','TB',
-       'size', '8.25,11'))"/>
+      (
+      'rankdir','TB'
+      ))"/>
     
     
     <xsl:sequence select="gv:makeProperty('label', ('Map navigation tree: ', $mapTitle))"/>
@@ -47,6 +50,8 @@
     <xsl:text>]
     </xsl:text>
     
+    <xsl:message> + [INFO] Generating graph node declarations...</xsl:message>
+
     <!-- Now process all the topicrefs to generate nodes -->
     <xsl:apply-templates mode="generate-nodes"/>
 
@@ -59,7 +64,9 @@
     <xsl:text> -> {      
 </xsl:text>    
 
-      <!-- Now process all the topicrefs to generate nodes -->
+    <xsl:message> + [INFO] Generating graph edge (link) declarations...</xsl:message>
+    
+    <!-- Now process all the topicrefs to generate edges (links) -->
     <xsl:apply-templates mode="link-one-level">
       <xsl:with-param name="start-node-id" select="'rootmap'" tunnel="yes"/>
     </xsl:apply-templates>
@@ -83,6 +90,10 @@
     <xsl:text>
 
 }</xsl:text>
+    
+    <xsl:message> + [INFO] Navigation tree graph generated.</xsl:message>
+    
+    
   </xsl:template>
   
   <xsl:template mode="generate-navigation-tree-graph generate-nodes generate-edges" 
