@@ -56,7 +56,7 @@
   	  --> 
   	<condition property="graphviz.output.format" value="pdf">
       <not>
-        <isset property="output.format" />
+        <isset property="graphviz.output.format" />
       </not>
    </condition>
   	
