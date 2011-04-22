@@ -115,6 +115,12 @@
       <xsl:when test="$topicref/@navtitle != ''">
         <xsl:value-of select="$topicref/@navtitle"/>
       </xsl:when>
+      <xsl:when test="string($topicref/@format) != 'dita'">
+        <!-- FIXME: This is a quick hack. Need to use the best mode for constructing the navtitle. -->
+        <xsl:variable name="text">
+          <xsl:apply-templates select="$topicref/*[df:class(., 'map/topicmeta')]/*[df:class(., 'map/navtitle')]" mode="text-only"/>            </xsl:variable>
+        <xsl:sequence select="normalize-space($text)"/>
+      </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="targetTopic" select="df:resolveTopicRef($topicref)"/>
         <xsl:if test="false() and $debugBoolean">
@@ -138,6 +144,10 @@
           <xsl:when test="$targetTopic">
             <xsl:sequence select="df:getNavtitleForTopic($targetTopic)"/>  
           </xsl:when>
+          <xsl:when test="$topicref/*[df:class(., 'map/topicmeta')]/*[df:class(., 'map/navtitle')]">
+            <!-- FIXME: This is a quick hack. Need to use the best mode for constructing the navtitle. -->
+            <xsl:apply-templates select="$topicref/*[df:class(., 'map/topicmeta')]/*[df:class(., 'map/navtitle')]" mode="text-only"/>
+          </xsl:when>          
           <xsl:otherwise>
             <xsl:sequence select="'{Failed to get navtitle for topicref}'"/>
           </xsl:otherwise>
