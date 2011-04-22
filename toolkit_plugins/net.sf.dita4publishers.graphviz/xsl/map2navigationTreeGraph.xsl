@@ -32,15 +32,15 @@
     
     // Graph properties:
     </xsl:text>
+
+    <!-- NOTE: In this context, each property is a separate statement, so no trailing
+         comma 
+    -->
     
-    <xsl:sequence select="gv:makeProperties(
-      (
-      'rankdir','TB'
-      ))"/>
+    <xsl:text>rankdir=TB;</xsl:text>
     
-    
-    <xsl:sequence select="gv:makeProperty('label', ('Map navigation tree: ', $mapTitle))"/>
-    <xsl:text>&#x0a;</xsl:text>
+    <xsl:text>label=</xsl:text><xsl:sequence select="gv:quoteString(string-join(('Map navigation tree: ', $mapTitle), ''))"/>
+    <xsl:text>;&#x0a;</xsl:text>
   
     node [shape="record"]
    
@@ -80,15 +80,20 @@
 // End of navigation hierarchy 
 </xsl:text>    
 
-    <xsl:sequence select="gv:makeNodeDecl(
-      .,
-      $mapTitle,
+<!-- Set the properties for just the root node: -->
+    
+    <xsl:sequence select="$rootNodeId"/>
+    <xsl:text> [
+    </xsl:text>
+    <xsl:sequence select="gv:makeProperties(
       ('shape', 'record', 
        'color', 'blue',
        'style', 'filled',
        'fillcolor', 'yellow'))"/>
-    <xsl:text>
+    <xsl:text> ]
+    </xsl:text>
 
+    <xsl:text>
 }</xsl:text>
     
     <xsl:message> + [INFO] Navigation tree graph generated.</xsl:message>

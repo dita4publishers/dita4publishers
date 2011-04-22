@@ -1,133 +1,133 @@
-<project name="dita2html5" default="dita2html5"
+<project name="dita2graphviz" default="dita2graphviz"
   >
   
   <!-- test to see where the plugin is located, plugins or demo -->
-  <dirname property="html5.dir" file="${ant.file.dita2html5}"/>
+  <dirname property="graphviz.dir" file="${ant.file.dita2graphviz}"/>
 	
-	<!-- The name of the directory, within the ePub package, to contain all images: -->
-	<property name="images.output.dir" value="images"/>
-	<!-- The name of the directory, within the ePub package, to contain all topics: -->
-	<property name="topics.output.dir" value="topics"/>
 	<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
 	<property name="debug" value="false"/>
 	
-	<property name="args.hide.parent.link" value="yes"/><!-- Turn off parent links in topics by default -->
+	<property name="graphviz.temp.dir" value="${dita.temp.dir}${file.separator}graphviz_temp"/>
+	<!-- This is the name of the graphviz "dot" program, which is used to generate
+	     graph pictures from DOT (.gv) files. If it is not in your system PATH then
+	     set this property to the absolute path to the executable.
+	  -->
+	<property name="graphviz.dot.executable" value="/usr/local/bin/dot"/>
+	<property name="graphvizArgs" value=""/>
 
-	<property name="html5.temp.dir" value="${dita.temp.dir}${file.separator}html5_temp"/>
-	
-	<!-- Defines the @class value to use for topic elements generated for topicheads. -->
-	<property name="title.only.topic.class.spec" value="- topic/topic "/>
-	
-	<!-- Defines the @class value to use for topic title elements generated for topicheads. -->
-	<property name="title.only.topic.title.class.spec" value="- topic/title "/>
-	
-	<target name="dita2html5"
+	<target name="dita2graphviz"
     unless="noMap"
     xmlns:dita="http://dita-ot.sourceforge.net"
-		dita:depends="build-init, preprocess,html5"
+		dita:depends="build-init, preprocess,graphviz"
     dita:extension="depends org.dita.dost.platform.InsertDependsAction">
   </target>
   
-  <target name="html5"
+  <target name="graphviz"
     unless="noMap"
-    depends="dita.map.html5"/>
+    depends="dita.map.graphviz"/>
 	  
     
-  <target name="dita.map.html5.init"
-    description="Init properties for Epub">
+  <target name="dita.map.graphviz.init"
+    description="Init properties for GraphViz">
     <basename property="dita.map.toc.root"
       file="${dita.input.filename}"
       suffix=".ditamap" />
-    <condition property="args.html5.toc" value="${dita.map.toc.root}">
+    <condition property="args.graphviz.toc" value="${dita.map.toc.root}">
       <not>
-        <isset property="args.html5.toc" />
+        <isset property="args.graphviz.toc" />
       </not>
     </condition>
-    <condition property="out.ext" value=".html">
+    <condition property="out.ext" value=".gv">
       <not>
         <isset property="out.ext" />
       </not>
     </condition>
     <condition property="noPlugin">
-      <equals arg1="${dita.html5.plugin}" arg2="no" />
+      <equals arg1="${dita.graphviz.plugin}" arg2="no" />
     </condition>
-    <condition property="css.output.dir" value="topics">
+  	<!-- The output format to use for the generated graph.
+  	
+  	     Allowed values include "pdf", "svg", "jpg", and 
+  	     "gv" (for DOT format normalized by the graphviz
+  	     programm.
+  	     
+  	     The complete set of output types is determined by
+  	     how your local graphviz installation is configured.
+  	  --> 
+  	<condition property="graphviz.output.format" value="pdf">
       <not>
-        <isset property="args.css.output.dir" />
+        <isset property="output.format" />
       </not>
-    </condition>
-    <condition property="css.output.dir" value="${args.css.output.dir}">
-      <isset property="args.css.output.dir" />
-    </condition>
+   </condition>
+  	
+
   </target>
   
 
   
-  <target name="dita.map.html5" depends="dita.map.html5.init, html5-copy-css" 
-  	description="Generate all ePub components from input map and topics">
+  <target name="dita.map.graphviz" depends="dita.map.graphviz.init" 
+  	description="Generate graphviz data files from the input map">
   	
-  	<mkdir dir="${html5.temp.dir}"/>
-  	<makeurl file="${html5.temp.dir}" property="html5.xslt.outdir"/>
-  	<makeurl file="${dita.temp.dir}" property="html5.xslt.tempdir"/>
-  	<makeurl file="${cover.graphic.file}" property="cover.graphic.uri" validate="false"/>
+  	<mkdir dir="${graphviz.temp.dir}"/>
+  	<makeurl file="${graphviz.temp.dir}" property="graphviz.xslt.outdir"/>
+  	<makeurl file="${dita.temp.dir}" property="graphviz.xslt.tempdir"/>
   	
-  	<property name="map2html5.style" location="${html5.dir}/xsl/map2html5.xsl"/>
+  	<property name="map2graphviz.style" location="${graphviz.dir}/xsl/map2graphviz.xsl"/>
+		<property name="graphviz.result.filename" value="${dita.map.filename.root}.${graphviz.output.format}"/>
 
     <xslt processor="trax"
       basedir="${dita.temp.dir}"
       destdir="${output.dir}"
       includesfile="${dita.temp.dir}${file.separator}fullditamap.list"
       classpathref="dost.class.path"
-      style="${map2html5.style}">
-     	<param name="cssOutputDir" expression="${css.output.dir}"/>
+      style="${map2graphviz.style}">
       <param name="debug" expression="${debug}"/>
-     	<param name="imagesOutputDir" expression="${images.output.dir}"/>
-     	<param name="outdir" expression="${html5.xslt.outdir}"/>
-     	<param name="tempdir" expression="${html5.xslt.tempdir}"/>
+     	<param name="tempdir" expression="${graphviz.xslt.tempdir}"/>
     	<param name="rawPlatformString" expression="${os.name}"/>
-    	<param name="titleOnlyTopicClassSpec" expression="${title.only.topic.class.spec}"/>
-    	<param name="titleOnlyTopicTitleClassSpec" expression="${title.only.topic.title.class.spec}"/>
-     	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
 
     	<!-- Parameters from dita2xhtml and similar transtypes: -->   
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
-      <param name="CSS" expression="${args.css.file}" if="args.css.file" />
-      <param name="CSSPATH" expression="${user.csspath}" if="user.csspath" />
       <param name="DRAFT" expression="${args.draft}" if="args.draft"></param>
       <param name="ARTLBL" expression="${args.artlbl}" if="args.artlbl"></param>
-      <param name="GENERATE-TASK-LABELS" expression="${args.gen.task.lbl}" if="args.gen.task.lbl"></param>
-      <param name="PRESERVE-DITA-CLASS" expression="${args.xhtml.classattr}" if="args.xhtml.classattr"></param>
-      <param name="NOPARENTLINK" expression="${args.hide.parent.link}" if="args.hide.parent.link"></param>
-      <param name="BREADCRUMBS" expression="${args.breadcrumbs}" if="args.breadcrumbs"></param>
-      <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
     </xslt>
-  	
-  	<antcall target="html5.copy.graphics"/>
-  	
+
+  	<!-- Try to run the graphviz "dot" command. Graphviz is a separately-installed
+  	     program. It is open source and available for all platforms. See graphvix.org.
+  	  -->
+	  <exec executable="${graphviz.dot.executable}" 
+	  	resultproperty="resultCode" 
+	  	failonerror="false">
+	  	<arg line="-O"/><!-- Generate appropriate output filename based on input file(s) -->
+	  	<arg line="-T${graphviz.output.format}"/>	  	
+	  	<arg line="${graphvizArgs}"/>
+	  	<arg line="${output.dir}/${dita.map.filename.root}.html"/>
+	  </exec>
+		<echo message="After graphviz processing, result code is '${resultCode}'"/>
+
   </target>
   
-  <target name="html5.copy.graphics" 
-	  description="Copies graphics from input to the ePub output directory based on the graphic map generated during html5 generation">
-  	<ant antfile="${html5.temp.dir}/copy-graphics.xml"  		
+  <target name="graphviz.copy.graphics" 
+	  description="Copies graphics from input to the ePub output directory based on the graphic map generated during graphviz generation">
+  	<ant antfile="${graphviz.temp.dir}/copy-graphics.xml"  		
   		>
   	</ant>
 	</target>
 	
-  <target name="html5-copy-css"  description="Copy CSS files">    
+  <target name="graphviz-copy-css"  description="Copy CSS files">    
     <condition property="user.copycss.yes">
       <isset property="args.css.present"/>
     </condition>
-    <property name="user.csspath.real" value="${html5.temp.dir}/${topics.output.dir}/${user.csspath}"/>
+    <property name="user.csspath.real" value="${graphviz.temp.dir}/${topics.output.dir}/${user.csspath}"/>
     <mkdir dir="${user.csspath.real}"/>    
     <!-- Always copy system default css files -->
     <copy todir="${user.csspath.real}">
       <fileset dir="${dita.resource.dir}" includes="*.css"/>
     </copy>    
     <!-- Copy user specify css file when required -->
-    <antcall target="html5-copy-css-user"/>
+    <antcall target="graphviz-copy-css-user"/>
   </target>
 
-  <target name="html5-copy-css-user" if="user.copycss.yes">
+  <target name="graphviz-copy-css-user" if="user.copycss.yes">
     <copy file="${args.css.real}" todir="${user.csspath.real}"/>
   </target>
 
