@@ -23,33 +23,70 @@
   
   <xsl:template mode="generate-navigation-tree-graph" match="*[df:class(., 'map/map')]">
     <xsl:variable name="mapTitle" as="node()*" select="df:getMapTitle(.)"/>
+    <xsl:variable name="rootNodeId" as="xs:string" select="gv:getNodeId(.)"/>
 
     <xsl:text> 
-    digraph map_navigation_tree {</xsl:text>
+    digraph map_navigation_tree {
+    
+    // Graph properties:
+    </xsl:text>
+    
+    <xsl:sequence select="gv:makeProperties(
+      ('rankdir','TB',
+       'size', '8.25,11'))"/>
+    
+    
     <xsl:sequence select="gv:makeProperty('label', ('Map navigation tree: ', $mapTitle))"/>
     <xsl:text>&#x0a;</xsl:text>
   
     node [shape="record"]
    
-    
-    <xsl:text>"rootmap" [</xsl:text>
+    <xsl:sequence select="$rootNodeId"/>
+    <xsl:text> [</xsl:text>
     <xsl:sequence select="gv:makeProperty('label', $mapTitle)"/>
-    <xsl:text>]</xsl:text>
-    <xsl:apply-templates mode="#current"/>
+    <xsl:text>]
+    </xsl:text>
     
+    <!-- Now process all the topicrefs to generate nodes -->
+    <xsl:apply-templates mode="generate-nodes"/>
+
     <xsl:text>
-    "rootmap" [
-    shape="circle", 
-    color="blue"
-    style="filled"
-    fillcolor="yellow"
-    ]
+// Start of navigation hierarchy:
+
+    </xsl:text>
+
+    <xsl:sequence select="$rootNodeId"/>
+    <xsl:text> -> {      
 </xsl:text>    
+
+      <!-- Now process all the topicrefs to generate nodes -->
+    <xsl:apply-templates mode="link-one-level">
+      <xsl:with-param name="start-node-id" select="'rootmap'" tunnel="yes"/>
+    </xsl:apply-templates>
+<xsl:text>
+ }
+</xsl:text>    
+    
+    <xsl:apply-templates mode="generate-edges"/>
+    
+<xsl:text>
+// End of navigation hierarchy 
+</xsl:text>    
+
+    <xsl:sequence select="gv:makeNodeDecl(
+      .,
+      $mapTitle,
+      ('shape', 'record', 
+       'color', 'blue',
+       'style', 'filled',
+       'fillcolor', 'yellow'))"/>
     <xsl:text>
+
 }</xsl:text>
   </xsl:template>
   
-  <xsl:template mode="generate-navigation-tree-graph" match="text()">
+  <xsl:template mode="generate-navigation-tree-graph generate-nodes generate-edges" 
+    match="text()">
     <!-- Suppress all text by default. -->
   </xsl:template>
 </xsl:stylesheet>

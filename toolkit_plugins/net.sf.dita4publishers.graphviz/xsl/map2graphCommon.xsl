@@ -7,8 +7,78 @@
   xmlns:enum="http://dita4publishers.org/enumerables"
   xmlns:glossdata="http://dita4publishers.org/glossdata"
   xmlns:relpath="http://dita2indesign/functions/relpath"
-  exclude-result-prefixes="xs xd df relpath index-terms"
+  xmlns:gv="http://dita4publishers.sf.net/functions/graphviz"
+  exclude-result-prefixes="xs xd df relpath index-terms gv"
   version="2.0">
+  
+  <!-- =============================
+    generate-nodes mode
+    
+    Generic code for constructing node
+    declarations from elements (e.g., topicrefs,
+    topics, etc.)
+    
+    Note that the general DOT organization approach
+    is to generate all the node declarations and
+    then to separately define the edges between nodes.
+
+    ============================= -->
+  
+  
+  <xsl:template mode="generate-nodes" match="*[df:isTopicHead(.)]">
+    <xsl:variable name="label" select="df:getNavtitleForTopicref(.)" as="xs:string"/>    
+    <xsl:sequence select="gv:makeNodeDecl(., $label, ('color', 'green'))"/>
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template mode="generate-nodes" match="*[df:isTopicRef(.)]">
+    <xsl:variable name="label" select="df:getNavtitleForTopicref(.)" as="xs:string"/>    
+    <xsl:sequence select="gv:makeNodeDecl(., $label, ('color', 'blue'))"/>
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+    
+  <xsl:template mode="generate-nodes" match="*" priority="0">
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+  
+  <!-- =============================
+    generate-edges mode
+    
+    Generic code for constructing edges (node-to-node
+    links) from elements (e.g., topicrefs,
+    topics, etc.)
+    
+    Note that the general DOT organization approach
+    is to generate all the node declarations and
+    then to separately define the edges between nodes.
+    
+    ============================= -->
+  
+  <xsl:template mode="generate-edges" match="*[df:isTopicHead(.)] | *[df:isTopicRef(.)]" >
+    <xsl:variable name="myNodeId" select="gv:getNodeId(.)"/>    
+    <xsl:sequence select="$myNodeId"/>
+    <xsl:text> -> {      
+    </xsl:text>
+    <xsl:apply-templates mode="link-one-level">
+      <xsl:with-param name="start-node-id" as="xs:string" tunnel="yes" select="$myNodeId"/>
+    </xsl:apply-templates>
+    <xsl:text>
+}      
+    </xsl:text>
+    
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+
+  <xsl:template mode="link-one-level" match="*[df:isTopicHead(.)] | *[df:isTopicRef(.)]" >
+    <xsl:param name="start-node-id" as="xs:string" tunnel="yes"/>
+    <xsl:sequence select="gv:getNodeId(.)"/>
+  </xsl:template>
+    
+  <xsl:template mode="link-one-level" match="text()"/>
+
+  <xsl:template mode="generate-edges link-one-level" match="*" priority="0">
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
   
   <!-- =============================
        Get map title mode
