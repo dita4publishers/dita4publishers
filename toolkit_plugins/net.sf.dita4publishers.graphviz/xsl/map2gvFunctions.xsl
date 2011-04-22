@@ -49,7 +49,7 @@
   </xsl:function>
     
   <xsl:function name="gv:makeNodeDecl" as="xs:string*">
-    <xsl:param name="context" as="element()"/>
+    <xsl:param name="nodeId" as="xs:string"/>
     <xsl:param name="label"/>
     <xsl:param name="properties" as="xs:string*"/>
  
@@ -65,7 +65,7 @@
       The value must be a sequence of name/value pair, e.g., ('color', 'blue', 'label', 'The label')</xsl:message>
     </xsl:if>
     
-    <xsl:sequence select="gv:getNodeId($context)"/> 
+    <xsl:sequence select="gv:quoteString($nodeId)"/> 
     <xsl:text>[
     </xsl:text>
     <xsl:sequence select="gv:makeProperties(('label', $label, $properties))"/>

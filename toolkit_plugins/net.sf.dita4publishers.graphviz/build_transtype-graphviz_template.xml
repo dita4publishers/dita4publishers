@@ -59,7 +59,13 @@
         <isset property="graphviz.output.format" />
       </not>
    </condition>
-  	
+
+  	<condition property="graphviz.graph.type" value="navigation-map">
+      <not>
+        <isset property="graphviz.graph.type" />
+      </not>
+   </condition>
+
 
   </target>
   
@@ -83,7 +89,9 @@
       style="${map2graphviz.style}">
       <param name="debug" expression="${debug}"/>
      	<param name="tempdir" expression="${graphviz.xslt.tempdir}"/>
+    	<param name="outdir" expression="${output.dir}"/>
     	<param name="rawPlatformString" expression="${os.name}"/>
+    	<param name="graphType" expression="${graphviz.graph.type}"/>
 
     	<!-- Parameters from dita2xhtml and similar transtypes: -->   
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>

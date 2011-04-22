@@ -30,7 +30,7 @@
     
     <xsl:message> + [INFO] generate-nodes: Topic head - <xsl:sequence select="$label"/></xsl:message>
     
-    <xsl:sequence select="gv:makeNodeDecl(., $label, ('color', 'green'))"/>
+    <xsl:sequence select="gv:makeNodeDecl(gv:getNodeId(.), $label, ('color', 'green'))"/>
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
@@ -39,11 +39,11 @@
     
     <xsl:message> + [INFO] generate-nodes: Topic ref - <xsl:sequence select="$label"/></xsl:message>
     
-    <xsl:sequence select="gv:makeNodeDecl(., $label, ('color', 'blue'))"/>
+    <xsl:sequence select="gv:makeNodeDecl(gv:getNodeId(.), $label, ('color', 'blue'))"/>
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
     
-  <xsl:template mode="generate-nodes" match="*" priority="0">
+  <xsl:template mode="generate-nodes" match="*" priority="-1">
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
@@ -81,9 +81,9 @@
     <xsl:sequence select="gv:getNodeId(.)"/>
   </xsl:template>
     
-  <xsl:template mode="link-one-level" match="text()"/>
-
-  <xsl:template mode="generate-edges link-one-level" match="*" priority="0">
+  <xsl:template mode="link-one-level generate-edges generate-nodes" match="text()"/>
+  
+  <xsl:template mode="generate-edges link-one-level" match="*" priority="-1">
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
@@ -111,7 +111,7 @@
     <xsl:copy><xsl:apply-templates mode="#current"/></xsl:copy>
   </xsl:template>
   
-  <xsl:template mode="getMapTitle" match="*" priority="0">
+  <xsl:template mode="getMapTitle" match="*" priority="-1">
     <!-- Suppress elements that are not the map title or a descendant of the map title. -->
   </xsl:template>
 

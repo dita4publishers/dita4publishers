@@ -101,7 +101,7 @@
     
   </xsl:template>
   
-  <xsl:template mode="generate-navigation-tree-graph generate-nodes generate-edges" 
+  <xsl:template mode="generate-navigation-tree-graph" 
     match="text()">
     <!-- Suppress all text by default. -->
   </xsl:template>

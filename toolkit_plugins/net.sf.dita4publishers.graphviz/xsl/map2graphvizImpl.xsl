@@ -33,16 +33,25 @@
 
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/indexProcessing.xsl"/>
+  
+  <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
+  
+  <xsl:param name="outdir" select="./gv"/>
+  <!-- NOTE: Case of OUTEXT parameter matches case used in base HTML
+    transformation type.
+  -->
+  <xsl:param name="OUTEXT" select="'.gv'"/>
+  <xsl:param name="tempdir" select="./temp"/>
+  <xsl:param name="CSSPATH" select="''"/>
+  <xsl:param name="DITAEXT" select="'.dita'"/>
+  <xsl:param name="topicsOutputDir" select="'topics'" as="xs:string"/>
   
   <xsl:param name="graphType" as="xs:string" select="'navigation-tree'"/>
   
   <xsl:param name="generateIndex" as="xs:string" select="'no'"/>
   <xsl:variable name="generateIndexBoolean" 
-    select="
-    lower-case($generateIndex) = 'yes' or 
-    lower-case($generateIndex) = 'true' or
-    lower-case($generateIndex) = 'on'
-    "/>
+    select="true()"/>
   
   <!-- Generate the glossary dynamically using all glossary entry
     topics included in the map.
@@ -58,13 +67,27 @@
   
   <!-- We're generating graphviz DOT files, which are plain text files -->
   <xsl:output method="text"/>
+  <xsl:output method="xml" name="indented-xml"
+    indent="yes"
+  />
+  
+  
   
   <xsl:include href="map2navigationTreeGraph.xsl"/>
+  <xsl:include href="map2indexTreeGraph.xsl"/>
   <xsl:include href="map2graphCommon.xsl"/>
   <xsl:include href="map2gvFunctions.xsl"/>
   
   <xsl:template match="/">
     
+    <xsl:call-template name="report-parameters"/>
+    
+    <xsl:apply-templates>
+      <xsl:with-param name="rootMapDocUrl" select="document-uri(.)" as="xs:string" tunnel="yes"/>
+    </xsl:apply-templates>
+ </xsl:template>   
+    
+ <xsl:template match="/*[df:class(., 'map/map')]">   
     <xsl:variable name="collected-data" as="element()">
       <html2:collected-data>
         <!-- Index Terms: -->
@@ -85,17 +108,55 @@
         <xsl:apply-templates mode="data-collection-extensions"/>
       </html2:collected-data>
     </xsl:variable>
+   
+   <xsl:if test="true() or $debugBoolean">
+     <xsl:message> + [DEBUG] Writing file <xsl:sequence select="relpath:newFile($outdir, 'collected-data.xml')"/>...</xsl:message>
+     <xsl:result-document href="{relpath:newFile($outdir, 'collected-data.xml')}"
+       format="indented-xml"
+       >
+       <xsl:sequence select="$collected-data"/>
+     </xsl:result-document>
+   </xsl:if>
+   
     
     <xsl:choose>
       <xsl:when test="$graphType = 'navigation-tree'">
-        <xsl:apply-templates select="." mode="generate-navigation-tree-graph"/>
+        <xsl:apply-templates select="." mode="generate-navigation-tree-graph">
+          <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
+        </xsl:apply-templates>
+      </xsl:when>
+      <xsl:when test="$graphType = 'index-tree'">
+        <xsl:apply-templates select="." mode="generate-index-tree-graph">
+          <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
+        </xsl:apply-templates>
       </xsl:when>
       <xsl:otherwise>
         <xsl:message> - [WARN] Unrecognized graphType value "<xsl:sequence select="$graphType"/>" Using "navigation-tree".</xsl:message>
-        <xsl:apply-templates select="." mode="generate-navigation-tree-graph"/>
+        <xsl:apply-templates select="." mode="generate-navigation-tree-graph">
+          <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
+        </xsl:apply-templates>
       </xsl:otherwise>
     </xsl:choose>
     
   </xsl:template>
    
+  <xsl:template name="report-parameters">
+    <xsl:message> 
+      ==========================================
+      Plugin version: ^version^ - build ^buildnumber^ at ^timestamp^
+      
+      Parameters:
+      
+      + generateIndex      = "<xsl:sequence select="$generateIndex"/>
+      + debug           = "<xsl:sequence select="$debug"/>"
+      
+      Global Variables:
+      
+      + debugBoolean     = "<xsl:sequence select="$debugBoolean"/>"
+      
+      ==========================================
+    </xsl:message>
+  </xsl:template>
+  
+  
 </xsl:stylesheet>
