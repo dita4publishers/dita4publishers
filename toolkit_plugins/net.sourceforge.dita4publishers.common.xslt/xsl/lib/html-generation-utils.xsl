@@ -138,14 +138,14 @@
     <xsl:variable name="baseTopicResultUrl" as="xs:string">
       <xsl:apply-templates select="." mode="get-topic-result-base-url"/>      
     </xsl:variable>
-    <xsl:variable name="resultUrl" select="concat($baseTopicResultUrl, $outext)"/>
+    <xsl:variable name="resultUrl" select="concat($baseTopicResultUrl, $OUTEXT)"/>
     <xsl:sequence select="$resultUrl"/>
   </xsl:template>
   
   <xsl:function name="htmlutil:constructHtmlResultTopicFilename" as="xs:string">
     <xsl:param name="topic" as="document-node()"/>
     <xsl:variable name="topicFilename" 
-      select="concat(htmlutil:getResultTopicBaseName($topic), '.html')" 
+      select="concat(htmlutil:getResultTopicBaseName($topic), $OUTEXT)" 
       as="xs:string"/>
     <xsl:sequence select="$topicFilename"/>    
   </xsl:function>
@@ -201,7 +201,7 @@
   <xsl:function name="htmlutil:getTopicheadHtmlResultTopicFilename" as="xs:string">
     <xsl:param name="topichead" as="element()"/>
     
-    <xsl:variable name="result" select="concat('topichead_', generate-id($topichead), '.html')" as="xs:string"/>
+    <xsl:variable name="result" select="concat('topichead_', generate-id($topichead), $OUTEXT)" as="xs:string"/>
     <xsl:sequence select="$result"/>
   </xsl:function>
   

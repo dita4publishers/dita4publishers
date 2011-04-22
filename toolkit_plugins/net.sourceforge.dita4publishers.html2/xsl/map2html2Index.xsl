@@ -42,7 +42,7 @@
         <xsl:apply-templates select="*[df:class(., 'topic/title')] | @title" mode="pubtitle"/>
       </xsl:variable>           
       <xsl:variable name="resultUri" 
-        select="relpath:newFile($outdir, 'generated-index.html')" 
+        select="relpath:newFile($outdir, concat('generated-index', $OUTEXT))" 
         as="xs:string"/>
 
       <xsl:message> + [INFO] Generating index file "<xsl:sequence select="$resultUri"/>"...</xsl:message>

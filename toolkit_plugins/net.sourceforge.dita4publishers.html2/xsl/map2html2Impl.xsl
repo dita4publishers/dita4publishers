@@ -76,7 +76,10 @@
 
        -->
   <xsl:param name="outdir" select="./html2"/>
-  <xsl:param name="outext" select="'.html'"/>
+  <!-- NOTE: Case of OUTEXT parameter matches case used in base HTML
+       transformation type.
+    -->
+  <xsl:param name="OUTEXT" select="'.html'"/>
   <xsl:param name="tempdir" select="./temp"/>
   
  <!-- The path of the directory, relative the $outdir parameter,
@@ -169,7 +172,7 @@
       + imagesOutputDir    = "<xsl:sequence select="$imagesOutputDir"/>"
       + inputFileNameParam = "<xsl:sequence select="$inputFileNameParam"/>"
       + outdir             = "<xsl:sequence select="$outdir"/>"
-      + outext             = "<xsl:sequence select="$outext"/>"
+      + OUTEXT             = "<xsl:sequence select="$OUTEXT"/>"
       + tempdir            = "<xsl:sequence select="$tempdir"/>"
       + titleOnlyTopicClassSpec = "<xsl:sequence select="$titleOnlyTopicClassSpec"/>"
       + titleOnlyTopicTitleClassSpec = "<xsl:sequence select="$titleOnlyTopicTitleClassSpec"/>"
@@ -260,6 +263,14 @@
     <xsl:call-template name="report-parameters"/>
 
     <xsl:variable name="uniqueTopicRefs" as="element()*" select="df:getUniqueTopicrefs(.)"/>
+    
+    <xsl:variable name="chunkRootTopicrefs" as="element()*"
+      select="//*[df:class(.,'map/topicref')][@processing-role = 'normal']"
+    />
+    
+    <xsl:message> + [DEBUG] chunkRootTopicrefs=
+<xsl:sequence select="$chunkRootTopicrefs"/>      
+    </xsl:message>
 
     <xsl:variable name="graphicMap" as="element()">
       <xsl:apply-templates select="." mode="generate-graphic-map">

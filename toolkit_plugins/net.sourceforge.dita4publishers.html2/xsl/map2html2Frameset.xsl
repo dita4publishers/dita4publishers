@@ -51,9 +51,9 @@
       "
     />
     
-    <xsl:variable name="framesetUri" select="'frameset.html'"/>
-    <xsl:variable name="framesetNavPageUri" select="'frameset-nav.html'"/>
-    <xsl:variable name="rootPage" select="concat(relpath:getNamePart($inputFileNameParam), '.html')" as="xs:string"/>
+    <xsl:variable name="framesetUri" select="concat('frameset', $OUTEXT)"/>
+    <xsl:variable name="framesetNavPageUri" select="concat('frameset-nav', $OUTEXT)"/>
+    <xsl:variable name="rootPage" select="concat(relpath:getNamePart($inputFileNameParam), $OUTEXT)" as="xs:string"/>
     
     <xsl:message> + [INFO] Generating frameset document <xsl:sequence select="$framesetUri"/>...</xsl:message>
     <xsl:result-document href="{$framesetUri}" format="frameset">
