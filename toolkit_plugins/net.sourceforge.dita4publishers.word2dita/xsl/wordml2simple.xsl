@@ -244,9 +244,16 @@
         <xsl:apply-templates select="$runSequence"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:variable name="runStyleMap" as="element()?"
-          select="key('styleMaps', $runStyle, $styleMapDoc)[1]"
+        <xsl:variable name="styleMapByName" as="element()?"
+          select="key('styleMapsByName', lower-case($runStyle), $styleMapDoc)[1]"
         />
+        <xsl:variable name="styleMapById" as="element()?"
+          select="key('styleMapsById', $runStyle, $styleMapDoc)[1]"
+        />
+        <xsl:variable name="runStyleMap" as="element()?"
+          select="($styleMapByName, $styleMapById)[1]"
+        />
+        
         <xsl:if test="not($runStyleMap)">
           <xsl:message> - [WARNING: No style mapping for character run with style ID "<xsl:sequence select="$runStyle"/>"</xsl:message>              
         </xsl:if>
