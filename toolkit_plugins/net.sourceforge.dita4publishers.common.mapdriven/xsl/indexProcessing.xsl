@@ -65,14 +65,14 @@
 -->    <xsl:for-each-group select="index-terms:index-term"
       group-by="./@grouping-key"
       >
-      <xsl:sort select="./@sorting-key"/>
-<!--      <xsl:message> + [DEBUG] Index group "<xsl:sequence select="local:construct-index-group-label(current-group()[1])"
+      <xsl:sort select="./@grouping-key"/>
+      <xsl:message> + [DEBUG] Index group "<xsl:sequence select="local:construct-index-group-label(current-group()[1])"
         />", grouping key: "<xsl:sequence select="current-grouping-key()"
         />", sort key: "<xsl:sequence select="local:construct-index-group-sort-key(current-group()[1])"
         />"</xsl:message>
--->      <index-terms:index-group 
+      <index-terms:index-group 
         grouping-key="{current-grouping-key()}"
-        sorting-key="{@sorting-key}"
+        sorting-key="{local:construct-index-group-sort-key(current-group()[1])}"
         >
         <index-terms:label><xsl:sequence select="local:construct-index-group-label(current-group()[1])"/></index-terms:label>
         <!-- At this point, the current group is all entries within the group. 
