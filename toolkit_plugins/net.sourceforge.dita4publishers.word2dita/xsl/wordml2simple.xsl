@@ -289,8 +289,14 @@
     <xsl:param name="relsDoc" as="document-node()?" tunnel="yes"/>
     
     <xsl:variable name="runStyle" select="local:getHyperlinkStyle(.)" as="xs:string"/>
+    <xsl:variable name="styleMapByName" as="element()?"
+      select="key('styleMapsByName', lower-case($runStyle), $styleMapDoc)[1]"
+    />
+    <xsl:variable name="styleMapById" as="element()?"
+      select="key('styleMapsById', $runStyle, $styleMapDoc)[1]"
+    />
     <xsl:variable name="runStyleMap" as="element()?"
-      select="key('styleMaps', $runStyle, $styleMapDoc)[1]"
+      select="($styleMapByName, $styleMapById)[1]"
     />
     <xsl:variable name="runStyleData" as="element()">
       <xsl:choose>
