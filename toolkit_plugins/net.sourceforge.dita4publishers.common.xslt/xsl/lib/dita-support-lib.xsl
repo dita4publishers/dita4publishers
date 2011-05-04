@@ -56,10 +56,10 @@
         </xsl:when>
         <xsl:when test="$topicDoc/*/*[df:class(., 'topic/topic')]">
           <xsl:sequence select="$topicDoc/*/*[df:class(., 'topic/topic')][1]"/>
-          <xsl:message> -     Info: Using first child topic <xsl:sequence select="$topicDoc/*/*[df:class(., 'topic/topic')][1]/@id"/> of document "<xsl:sequence select="$topicUri"/>".</xsl:message>
+          <xsl:message> + [INFO] Using first child topic <xsl:sequence select="string($topicDoc/*/*[df:class(., 'topic/topic')][1]/@id)"/> of document "<xsl:sequence select="$topicUri"/>".</xsl:message>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:message> -     Warning: document "<xsl:sequence select="$topicUri"/>" not a topic or does not contain a topic as its first child.</xsl:message>
+          <xsl:message> - [WARNING] Document "<xsl:sequence select="$topicUri"/>" not a topic or does not contain a topic as its first child.</xsl:message>
         </xsl:otherwise>
       </xsl:choose>    
     </xsl:variable>
@@ -275,7 +275,7 @@
               <xsl:message> + [DEBUG] df:resolveTopicUri(): child root of topicDoc is a topic, returning first child topic.</xsl:message>
             </xsl:if>
             <xsl:sequence select="$topicDoc/*/*[df:class(., 'topic/topic')][1]"/>
-            <xsl:message> -     Info: Using first child topic <xsl:sequence select="$topicDoc/*/*[df:class(., 'topic/topic')][1]/@id"/> of document "<xsl:sequence select="$topicUri"/>".</xsl:message>
+            <xsl:message> + [INFO] Using first child topic <xsl:sequence select="string($topicDoc/*/*[df:class(., 'topic/topic')][1]/@id)"/> of document "<xsl:sequence select="$topicUri"/>".</xsl:message>
           </xsl:when>
           <xsl:when test="$topicDoc/*[df:class(., 'map/map')]">
             <xsl:if test="false() and $debugBoolean">
@@ -284,7 +284,7 @@
             <xsl:sequence select="$topicDoc/*[1]"/>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:message> -     Warning: document "<xsl:sequence select="$topicUri"/>" not a topic or map or does not contain a topic as its first child.</xsl:message>
+            <xsl:message> - [WARNING] Document "<xsl:sequence select="$topicUri"/>" not a topic or map or does not contain a topic as its first child.</xsl:message>
             <xsl:sequence select="/.."/>
           </xsl:otherwise>
         </xsl:choose>    
@@ -297,11 +297,11 @@
         <xsl:variable name="topicsWithId" select="key('topicsById', $topicFragId, $topicDoc)"/>
         <xsl:choose>
           <xsl:when test="count($topicsWithId) = 0">
-            <xsl:message> - Error: df:resolveTopicUri(): Failed to find topic with fragment identifier "<xsl:sequence select="$topicFragId"/>" in topic document "<xsl:sequence select="base-uri($topicDoc)"/>"</xsl:message>
+            <xsl:message> - [ERROR] df:resolveTopicUri(): Failed to find topic with fragment identifier "<xsl:sequence select="$topicFragId"/>" in topic document "<xsl:sequence select="base-uri($topicDoc)"/>"</xsl:message>
             <xsl:sequence select="/.."/>
           </xsl:when>
           <xsl:when test="count($topicsWithId) > 1">
-            <xsl:message> - Warning: df:resolveTopicUri(): found multiple topics with fragment identifier "<xsl:sequence select="$topicFragId"/>", using first one found.</xsl:message>
+            <xsl:message> - [WARNING] df:resolveTopicUri(): found multiple topics with fragment identifier "<xsl:sequence select="$topicFragId"/>", using first one found.</xsl:message>
             <xsl:sequence select="$topicsWithId[1]"/>
           </xsl:when>
           <xsl:otherwise>
