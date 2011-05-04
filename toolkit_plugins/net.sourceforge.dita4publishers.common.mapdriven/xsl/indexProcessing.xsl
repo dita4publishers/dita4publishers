@@ -66,10 +66,12 @@
       group-by="./@grouping-key"
       >
       <xsl:sort select="./@grouping-key"/>
-      <xsl:message> + [DEBUG] Index group "<xsl:sequence select="local:construct-index-group-label(current-group()[1])"
+      <xsl:if test="false() and $debugBoolean">
+        <xsl:message> + [DEBUG] Index group "<xsl:sequence select="local:construct-index-group-label(current-group()[1])"
         />", grouping key: "<xsl:sequence select="current-grouping-key()"
         />", sort key: "<xsl:sequence select="local:construct-index-group-sort-key(current-group()[1])"
         />"</xsl:message>
+      </xsl:if>
       <index-terms:index-group 
         grouping-key="{current-grouping-key()}"
         sorting-key="{local:construct-index-group-sort-key(current-group()[1])}"
@@ -117,12 +119,19 @@
           <index-terms:targets>
             <xsl:sequence select="current-group()/index-terms:target[*[df:class(.,'topic/indexterm')][not(*[df:class(.,'topic/indexterm')])]]"/>
           </index-terms:targets>
-          <xsl:if test="current-group()/index-terms:see-also">
+          <xsl:if test="current-group()/index-terms:see">
+            <index-terms:sees>
+              <xsl:for-each-group select="current-group()/index-terms:see" group-by="index-terms:label">
+                <xsl:sequence select="."/>
+              </xsl:for-each-group>
+            </index-terms:sees>
+          </xsl:if>
+           <xsl:if test="current-group()/index-terms:see-also">
             <index-terms:see-alsos>
-              <xsl:for-each select="current-group()/index-terms:see-also">
+              <xsl:for-each-group select="current-group()/index-terms:see-also" group-by="@target-label">
                 <xsl:sort select="@target-label"/>
                 <xsl:sequence select="."/>
-              </xsl:for-each>
+              </xsl:for-each-group>
             </index-terms:see-alsos>
           </xsl:if>
         </xsl:if>
@@ -253,7 +262,7 @@ the index-see and index-see-also elements will be ignored.</xsl:message>
     <xsl:apply-templates select="*[df:class(., 'indexing-d/index-see-also')]" mode="#current"/>
   </xsl:template>
   
-  <xsl:template mode="make-index-targets" match="*[df:class(., 'indexing-d/index-see-also')]">
+  <xsl:template mode="make-index-targets" match="*[df:class(., 'indexing-d/index-see-also')]" priority="10">
     <xsl:variable name="labelString" select="local:getLabelStringForIndexTerm(.)" as="xs:string"/>
     <xsl:variable name="labelContent" as="node()*">
       <xsl:apply-templates select="*[not(df:class(., 'topic/indexterm')) and 
@@ -266,6 +275,21 @@ the index-see and index-see-also elements will be ignored.</xsl:message>
       <index-terms:label><xsl:sequence select="$labelContent"/></index-terms:label>
       <xsl:sequence select="."/>
     </index-terms:see-also>
+  </xsl:template>
+  
+  <xsl:template mode="make-index-targets" match="*[df:class(., 'indexing-d/index-see')]" priority="10">
+    <xsl:variable name="labelString" select="local:getLabelStringForIndexTerm(.)" as="xs:string"/>
+    <xsl:variable name="labelContent" as="node()*">
+      <xsl:apply-templates select="*[not(df:class(., 'topic/indexterm')) and 
+        not(df:class(., 'indexing-d/index-see')) and 
+        not(df:class(., 'indexing-d/index-see-also'))] | 
+        text()" mode="index-term-label"/>
+    </xsl:variable>
+    
+    <index-terms:see target-label="{$labelString}">
+      <index-terms:label><xsl:sequence select="$labelContent"/></index-terms:label>
+      <xsl:sequence select="."/>
+    </index-terms:see>
   </xsl:template>
   
   <xsl:template match="text()" mode="gather-index-terms" priority="-1"/>    

@@ -191,7 +191,8 @@
       select="index-terms:index-term | 
               index-terms:index-group |
               index-terms:targets |
-              index-terms:see-alsos
+              index-terms:see-alsos |
+              index-terms:sees
               " 
       mode="#current">
       <xsl:with-param name="parentId" as="xs:string" tunnel="yes" select="generate-id(.)"/>
@@ -222,6 +223,20 @@
   
   <xsl:template match="index-terms:see-also/index-terms:label" mode="generate-index-term-link-text-dynamic-toc">
     <xsl:text>See also: </xsl:text>
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template 
+    match="index-terms:see" 
+    mode="generate-dynamic-toc">
+    <xsl:param name="parentId" as="xs:string" tunnel="yes"/>
+    <xsl:call-template name="construct-tree-item-for-group-or-term">
+      <xsl:with-param name="parentId" select="$parentId" as="xs:string"/>
+    </xsl:call-template>
+  </xsl:template>  
+  
+  <xsl:template match="index-terms:see/index-terms:label" mode="generate-index-term-link-text-dynamic-toc">
+    <xsl:text>See: </xsl:text>
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
@@ -271,8 +286,9 @@
     <xsl:variable name="targetTopic" as="element()?"
       select="df:resolveTopicUri(., $sourceUri)"
     />
-    <xsl:message> + [DEBUG] generate-index-term-link-text-dynamic-toc: targetTopic="<xsl:sequence select="string($targetTopic/@id)"/></xsl:message>
-    
+    <xsl:if test="false() and $debugBoolean">
+      <xsl:message> + [DEBUG] generate-index-term-link-text-dynamic-toc: targetTopic="<xsl:sequence select="string($targetTopic/@id)"/></xsl:message>
+    </xsl:if>    
     <xsl:choose>
       <xsl:when test="$targetTopic">
         <xsl:sequence select="local:escapeStringforJavaScript(df:getNavtitleForTopic($targetTopic))"/>

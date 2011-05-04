@@ -78,7 +78,11 @@
     <li class="index-term" >
       <span class="label"><xsl:apply-templates select="index-terms:label" mode="#current"/></span>
       <xsl:apply-templates select="index-terms:targets" mode="#current"/>
-      <xsl:apply-templates select="index-terms:sub-terms | index-terms:see-alsos" mode="#current"/>
+      <xsl:apply-templates 
+        select="index-terms:sub-terms | 
+                index-terms:see-alsos | 
+                index-terms:sees" 
+        mode="#current"/>
     </li>
   </xsl:template>
   
@@ -91,10 +95,23 @@
     </ul>
   </xsl:template>
   
+  <xsl:template match="index-terms:sees" mode="generate-index">
+    <ul class="see">
+      <li class="see">
+        <span class="see-label">See: </span>
+        <xsl:apply-templates mode="#current"/>
+      </li>
+    </ul>
+  </xsl:template>
+  
   <xsl:template mode="generate-index" match="index-terms:see-also">
     <xsl:if test="preceding-sibling::*">
       <xsl:text>, </xsl:text>
     </xsl:if>    
+    <xsl:apply-templates  select="index-terms:label" mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template mode="generate-index" match="index-terms:see">
     <xsl:apply-templates  select="index-terms:label" mode="#current"/>
   </xsl:template>
   
