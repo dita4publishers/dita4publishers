@@ -20,11 +20,21 @@
     <frontmatter/>
     <pubbody>
       <chapter
-        href="topics/index-test-topic-01.dita"/>
+        href="topics/index-test-topic-01.dita"
+        chunk="to-content">
+        <topicref
+          href="topics/subtopic-01.dita"/>
+      </chapter>
       <chapter
-        href="topics/index-test-topic-02.dita"/>
-      <chapter
-        href="topics/index-test-topic-03.dita"/>
+        href="topics/index-test-topic-02.dita">
+        <topicref
+          href="topics/subtopic-02.dita"/>
+      </chapter>
+      <topichead
+        navtitle="This is a Topic Head">
+        <chapter
+          href="topics/index-test-topic-03.dita"/>
+      </topichead>
     </pubbody>
     <backmatter/>
     <indexlist/>
