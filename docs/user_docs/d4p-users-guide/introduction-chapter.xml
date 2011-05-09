@@ -6,8 +6,15 @@
   <body>
     <p>The DITA For Publishers (D4P) project provides a number of plugins for the DITA Open Toolkit. These plugins include:<ul>
       <li>A plugin with all the D4P vocabulary modules and sample document type shells (net.sourceforge.dita4publishers.doctypes) or simply "the doctypes plugin".</li>
-      <li>An EPUB generation plugin that allows generation of EPUBs from any DITA map (net.sourceforge.dita4publishers.epub)</li>
+      <li>An EPUB generation plugin that generates EPUBs from any DITA map (net.sourceforge.dita4publishers.epub)</li>
+      <li>A Kindle book generation plugin that generates Amazon Kindle books from any DITA map (requires the free-but-proprietary kindlegen tool provided by Amazon for final book compilation).</li>
       <li>Plugins that provide D4P-specific extensions to the other standard Toolkit plugins (HTML, PDF, etc.). These plugins are named by the map, topic, or domain type they support plus the transformation type they extend, e.g. "net.sourceforge.dita4publishers.formatting-d.fo".</li>
+      <li>A general map-driven XSLT processing framework that enables process of the entire map and all its topics in a single XSLT process, which in turn enables things like back-of-the-book index generation for any output type, arbitrary numbering, and so on.</li>
+      <li>An enhanced HTML-generation plugin, "HTML2", that uses the map-driven processing framework to generate enhanced HTML output.</li>
+      <li>A general node-and-arc graph visualization plugin (net.sf.dita4publishers.graphviz) that enables generating a wide variety of visualizations of DITA-based content, including graphical navigation trees and back-of-the-book index graphs. This plugin also serves as an example of using the map-driven framework for a specific purpose. Requires the open-source <xref
+        href="http://graphviz.org"
+        scope="external"
+        format="html">graphviz</xref> tool for rendering graphs.</li>
       </ul></p>
     <p>The D4P plugins are designed to themselves be extended using normal Toolkit extension mechanisms.</p>
     <p>The D4P doctypes plugin integrates the D4P vocabulary modules with the Open Toolkit and thereby makes them available to any tool that does or can use the Toolkit's entity resolution catalog. For example, if you deploy the D4P doctypes plugin to the Toolkit integrated with OxygenXML, you can immediately start editing D4P maps and topics.</p>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>The <xmlelem>enum:enumerables</xmlelem> collected data</title>
+ <shortdesc></shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>enum:enumerables</indexterm>
+        <indexterm>enumeration</indexterm>
+        <indexterm>counting<index-see>enumeration</index-see></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>The <xmlelem>enum:enumerables</xmlelem> element with the <xmlelem>mapdriven:collected-data</xmlelem> element contains a light-weight representation of the hierarchical structure of the publication as defined by the map and topic hierarchy, as well as representations of each countable thing in the publication. This structure can then be used to construct numbers using normal <xmlelem>xsl:number</xmlelem> instructions or using simple XPath expressions.</p>
+    <p>For each countable thing, the enumerables structure contains an element reflecting the tagname of the element to be counted and providing attributes that reflect the DITA class or classes involved, as well as providing a unique ID within the enumerables structure that allows source elements to be reliably matched to elements in the enumerables structure.</p>
+    <p>For topics, the elements in the enumerables structure reflect either the topicref tagname or the topic element name. When the topicref tagname is "topicref", then the topic's tagname is used, otherwise the topicref's tagname is used, on the assumption that specialized topicrefs reflect specific publication structures. In addition, the full DITA class of both the topicref and topic element are included as attributes on the element so that you can reliably match on either. For elements that have titles, a <xmlelem>title</xmlelem> element is included with the title text. This title is intended primarily for debugging and to make the structure easier to read by humans and not for presentation as the title may not include subelement markup in the real title.</p>
+    <p>Other elements simply reflect their tagname, DITA class, and title.</p>
+    <p>A typical enumerables structure would looke like:<codeblock>&lt;mapdriven:collected-data xmlns:enum="http://dita4publishers.org/enumerables"
+                      xmlns:glossdata="http://dita4publishers.org/glossdata"
+                      xmlns:html2="http://dita4publishers.org/html2"
+                      xmlns:index-terms="http://dita4publishers.org/index-terms">
+   ...
+   &lt;enum:enumerables>
+      &lt;front-cover xmlns="http://dita4publishers.org/enumerables" sourceId="front-cover-26-732-64"
+                   class="+ map/topicref pubmap-d/front-cover "
+                   topicClass="- topic/topic ">
+         &lt;title>DITA For Publishers User Guide&lt;/title>
+      &lt;/front-cover>
+      &lt;topic xmlns="http://dita4publishers.org/enumerables" sourceId="topicref-36-722-64"
+             class="- topic/topic "
+             topicClass="- topic/topic ">
+         &lt;title>About This Book&lt;/title>
+      &lt;/topic>
+      &lt;concept xmlns="http://dita4publishers.org/enumerables" sourceId="topicref-45-632-1149"
+               class="- topic/topic concept/concept "
+               topicClass="- topic/topic concept/concept ">
+         &lt;title>Release Notes&lt;/title>
+         &lt;subsection sourceId="subsection-54-702-129" class="+ map/topicref pubmap-d/subsection "
+                     topicClass="- topic/topic concept/concept ">
+    ...
+   &lt;/enum:enumerables>
+   ...
+&lt;/mapdriven:collected-data></codeblock></p>
+    <p>The <xmlatt>sourceId</xmlatt> attribute is populated using the function <apiname>df:generate-dita-id()</apiname>, from the <filepath>dita-support-utils.xsl</filepath> function library. This function generates a publication-unique ID for an element, similar to the built-in XSLT <apiname>generate-id()</apiname> function. You can compare input elements to elements in the enumerables structure by using <apiname>df:generate-dita-id()</apiname> on the input element and then comparing the result to the value of the <xmlatt>sourceId</xmlatt> attribute. </p>
+    <p>For example, in the processing of <xmlelem>fig</xmlelem> elements you can locate the representation of a given figure in the enumerables structure and then use <xmlelem>xsl:number</xmlelem> to get the number of the figure:<codeblock>&lt;xsl:variable name="fig-id" select="df:generate-dita-id(.)" as="xs:string"/>
+&lt;xsl:for-each select="($collected-data/enum:enumerables/*[@sourceId = $fig-id])[1]">
+  &lt;xsl:number format="Fig 1."/>
+&lt;/xsl:for-each></codeblock></p>
+    <p>The base enumerables processing includes all topicheads, topics, figures, tables, and examples in the enumerables structure. You can add other elements to the structure by implementing templates in the mode "construct-enumerable-structure". The base processing is implemented in the XSLT module <filepath>mapdrivenEnumeration.xsl</filepath>.</p>
+ </conbody>
+</concept>

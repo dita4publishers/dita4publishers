@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>The <varname>collected-data</varname> XSLT Variable</title>
+ <shortdesc>The <varname>collected-data</varname> XSLT variable holds a variety of data gathered from the publication as a whole for use by later stages in a transform.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>collected-data</indexterm>
+        <indexterm>XSLT variables<indexterm>collected-data</indexterm></indexterm>
+        <indexterm>numbering</indexterm>
+        <indexterm>index processing</indexterm>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>A general processing challenge when transforming a publication is getting access to details about different parts of the document. When you're processing a single document instance you can use XPath or <xmlelem>xsl:number</xmlelem> to find or count things anywhere in the document from the context of processing any other part of the document. However, because DITA content is spread across multiple documents it's not so simple to find things, even though everything is findable. But for example, you cannot use <xmlelem>xsl:number</xmlelem> to directly count figures across topics.</p>
+    <p>To address this aspect of DITA processing, the map-driven framework provides the <varname>collected-data</varname> variable, which serves to hold data collected from across the publication in a convenient and easy-to-process format that allows each counting and similar processing.</p>
+    <p>The value of the <varname>collected-data</varname> variable is an <xmlelem>mapdriven:collected-data</xmlelem> element (where the prefix "mapdriven" maps to the namespace name "http://dita4publishers.org/mapdriven"). The direct child elements of <xmlelem>mapdriven:collected-data</xmlelem> reflect data collected for different purposes. You can extend the data collection phase to add your own data to the <varname>collected-data</varname> variable by implementing templates in the mode "data-collection-extensions". You can extend or modify the built-in data collection by implementing templates in the appropriate mode.</p>
+    <p>The data collection is managed by the <filepath>dataCollection.xsl</filepath> module in the net.sourceforge.dita4publishers.common.mapdriven plugin. </p>
+ </conbody>
+</concept>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>Using and Extending Map-Driven Processing</title>
+ <shortdesc>The DITA for Publishers map-driven processing framework makes it as easy as possible to process maps and topics together in a single XSLT process stage.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>In most uses of DITA, a root DITA map represents a publication, that is, a single unit of publishing. This means it is often, if not always, required to be able to process the map and the topics it references as a single unit of processing with access to full knowledge of everything in the maps and the topics. That is, you want to be able process the topics in the context of the map that documents them as a single processing step within which you can do whatever you need to do. For example, you might want to be able to number figures and tables sequentially across the topics in the publication. You can only do that if you have knowledge of the relative positions of all the figures in all the topics relative to each other in the context of the navigation structures defined by the overall map.</p>
+    <p>The DITA Open Toolkit, as originally implemented, could not easily support this type of processing because of the limitations of XSLT 1. In XSLT 1 a single input document results in exactly one result document. In addition, XSLT 1 did not make it possible (or at least easy) to generate complex structures for use within the transform nor did it make it easy to make such structures available to templates. That is why the Open Toolkit includes a number of pre-processing steps that gather information from the publication as whole for later use in processing of topics and maps. It is also why each topic has to be processed in isolation for HTML output and why the PDF processor has to create the Frankenstein's monster that is the merged map and topics.</p>
+    <p>With XSLT 2 none of this is necessary.</p>
+    <p>XSLT 2 provides the following essential features:<ul>
+      <li>The ability to generate any number of result documents from a single input document. This means that a single XSLT transform instance can generate HTML for all the topics used by a map, for example. This is the "result document" feature of XSLT 2, exposed through the <xmlelem>xsl:result-document</xmlelem> instruction.</li>
+      <li>Ability to create variables that contain sequences of nodes, including sequences of nodes from input documents as well as node constructed by the transform itself. This allows a transform to perform any number of intermediate processing steps as part of a single transformation instance. For example, a transform can gather up all the index entries in a map and topic set and then group and sort them and then make that data available to other parts of the same transform.</li>
+      <li>"Tunnel parameters", which allow you to specify parameters when applying templates that are automatically propagated to all templates in the apply-templates tree. Any template that needs a particular parameter can get it and can in turn pass a new value for the parameter down to its descendant templates. For example, the topic reference for a given topic can be passed as a tunnel parameter to the templates applied to the topic, making the use context of the topic (the topicref as it exists in the map) available to any template involved in the processing of the topic.</li>
+      <li>Locally-defined functions. Functions make it possible to capture complex business logic and data processing into functions that can be used from XPath expressions and select expressions. This makes it each to both hide complexity from transform authors and make processing more convenient or more robust. Functions can be organized into re-usable libraries.</li>
+      </ul></p>
+    <p>The DITA for Publishers map-driven processing framework uses these features of XSLT 2 to provide general facilities for doing map-driven processing of DITA for any rendition purpose. The most complete example of using the framework is the HTML2 transformation type.</p>
+    <p>The map-driven framework provides the following general features:<ul>
+      <li>Collection of data from the entire publication needed to support the following general requirements:<ul>
+        <li>Publication-wide numbering ("enumeration"), such as numbering figures sequentially across the publication or numbering tables on a per-chapter basis.</li>
+        <li>Back-of-the-book index generation.</li>
+        <li>List generation, including figure lists, table lists, and so on.</li>
+        <li>Glossary list generation, grouping, sorting, and filtering.</li>
+        </ul><p>This feature is provided by the <varname>collected-data</varname> XSLT variable, which is constructed through extensible modes and then passed as a tunnel parameter to all processing stages.</p></li>
+      <li>Gathering of the set of unique topicrefs, meaning the set of topicrefs to distinct topics, omitting duplicate references to the same topic. This is provided through the <varname>unique-topicrefs</varname> XSLT variable.</li>
+      <li>Gathering of the set of topicrefs that address topics that are the roots of chunks. In maps that use the <xmlatt>chunk</xmlatt> attribute to merge physically-separate topics into single result chunks, topicrefs to the non-root topics are still in the map. In most uses of map-driven processing you only want to process the chunk-root topics, which means you need to know which topicrefs point to chunk roots and which do not.</li>
+      </ul></p>
+    <p>The map-driven framework itself depends on the more general DITA for Publishers DITA support function library (<filepath>dita-support-lib.xsl)</filepath> and the relative path manipulation library (<filepath>rel-path.xsl</filepath>), which are packaged in the net.sourceforge.dita4publishers.common.xslt Toolkit plugin.</p>
+    <p>All aspects of the general map-driven processing are themselves extensible by other plugins by implementing templates in the appropriate mode. For example, you can add your own contribution to the <varname>collected-data</varname> variable or add your own information to the enumeration structure in order to enable counting of whatever you need to count that isn't provided by default.</p>
+    <p>The general map-driven processing is packaged in the plugin "net.sourceforge.dita4publishers.common.mapdriven".</p>
+ </conbody>
+</concept>

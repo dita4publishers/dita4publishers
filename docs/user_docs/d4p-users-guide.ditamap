@@ -65,6 +65,8 @@
           href="d4p-users-guide/tasks/plugin-installation.xml">
           <subsection
             href="d4p-users-guide/epub-plugin/setting-up-kindlegen.xml"/>
+          <subsection
+            href="d4p-users-guide/graphviz/setting-up-graphviz-plugin.xml"/>
         </chapter>
         <chapter
           href="d4p-users-guide/epub-plugin/generating-epubs.xml">
@@ -125,6 +127,18 @@
         </chapter>
         <chapter
           href="d4p-users-guide/word2dita/word-to-dita-plugin.xml"/>
+        <chapter
+          href="d4p-users-guide/map-driven-processing/map-driven-processing.xml">
+          <subsection
+            href="d4p-users-guide/map-driven-processing/collected-data-variable.xml">
+            <subsection
+              href="d4p-users-guide/map-driven-processing/enumerables-data-structure.xml"/>
+            <subsection
+              href="d4p-users-guide/map-driven-processing/index-terms-collected-data.xml"/>
+          </subsection>
+        </chapter>
+        <chapter
+          href="d4p-users-guide/graphviz/graph-visualization.xml"/>
       </part>
       <part
         href="d4p-users-guide/vocabulary-part/vocabulary-part.xml">
