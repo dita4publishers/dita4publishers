@@ -33,6 +33,7 @@
 
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-dynamic-toc">
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>
+    <xsl:param name="rootMapDocUrl" tunnel="yes" as="xs:string"/>
     
     <xsl:if test="$generateDynamicTocBoolean">
       
@@ -247,9 +248,11 @@
   <xsl:template match="index-terms:target" 
     mode="generate-dynamic-toc">
     <xsl:param name="parentId" as="xs:string" tunnel="yes"/>
-    <xsl:variable name="targetUri" as="xs:string"
-      select="string(@target-uri)"
-    />
+    <xsl:param name="rootMapDocUrl" tunnel="yes" as="xs:string"/>
+    <xsl:message> + [DEBUG] index-terms:target: @source-uri="<xsl:sequence select="string(@source-uri)"/>"</xsl:message>
+    <xsl:variable name="topic" select="document(relpath:getResourcePartOfUri(@source-uri))" as="document-node()"/>
+    
+    <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, $topic, $rootMapDocUrl)" as="xs:string"/>
     
     <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
     

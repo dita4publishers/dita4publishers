@@ -480,6 +480,17 @@
     </xsl:choose>
   </xsl:function>
   
+  <xsl:function name="relpath:getResourcePartOfUri" as="xs:string">
+    <xsl:param name="uriString" as="xs:string"/>
+    <xsl:variable name="resourcePart" as="xs:string"
+      select="
+      if (contains($uriString, '#')) 
+      then substring-before($uriString, '#') 
+      else normalize-space($uriString)
+      "/>
+    <xsl:sequence select="$resourcePart"/>
+  </xsl:function>
+  
   <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
     <xd:desc>
       <xd:p>Given a path resolves any ".." or "." terms to produce an absolute path</xd:p>

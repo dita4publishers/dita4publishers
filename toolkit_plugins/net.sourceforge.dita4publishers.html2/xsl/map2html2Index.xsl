@@ -132,10 +132,15 @@
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:target">
+    <xsl:param name="rootMapDocUrl" tunnel="yes" as="xs:string"/>
+
     <xsl:if test="preceding-sibling::*">
       <xsl:text>, </xsl:text>
     </xsl:if>
-    <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, @target-uri)" as="xs:string"/>
+    <xsl:variable name="topic" select="document(relpath:getResourcePartOfUri(@source-uri))" as="document-node()"/>
+    <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, $topic, $rootMapDocUrl)"
+      as="xs:string"/>
+    <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
     
     <a href="{$relativeUri}" target="{$contenttarget}"> 
       <xsl:text> [</xsl:text>

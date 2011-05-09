@@ -4,9 +4,8 @@
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:relpath="http://dita2indesign/functions/relpath"
                 xmlns:index-terms="http://dita4publishers.org/index-terms"
-                xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"                
                 xmlns:local="urn:functions:local"
-                exclude-result-prefixes="local xs df xsl relpath index-terms htmlutil"
+                exclude-result-prefixes="local xs df xsl relpath index-terms"
   >
   <!-- =============================================================
     
@@ -161,7 +160,6 @@
   
   <xsl:template mode="gather-index-terms" 
     match="*[df:class(.,'topic/indexterm')]"> 
-    <xsl:param name="targetUri" as="xs:string" tunnel="yes"/>
     
     <xsl:variable name="labelContent" as="node()*">
       <xsl:apply-templates select="*[not(df:class(., 'topic/indexterm')) and 
@@ -236,7 +234,6 @@ the index-see and index-see-also elements will be ignored.</xsl:message>
           </xsl:if>
           <!-- Generate target element: -->
           <xsl:apply-templates mode="make-index-targets" select=".">
-            <xsl:with-param name="targetUri" select="$targetUri" as="xs:string"/>
             <xsl:with-param name="sourceUri" select="$sourceUri" as="xs:string"/>
           </xsl:apply-templates>
           <xsl:apply-templates select="*[df:class(., 'topic/indexterm')]" mode="#current"/>
@@ -247,10 +244,8 @@ the index-see and index-see-also elements will be ignored.</xsl:message>
   </xsl:template>
   
   <xsl:template mode="make-index-targets" match="*[local:isPointReferenceIndexTerm(.)]">
-    <xsl:param name="targetUri" as="xs:string"/>
     <xsl:param name="sourceUri" as="xs:string"/>
     <index-terms:target 
-      target-uri="{$targetUri}"
       source-uri="{$sourceUri}"
       >
       <xsl:copy>
@@ -336,8 +331,6 @@ the index-see and index-see-also elements will be ignored.</xsl:message>
           <!-- Do nothing. Unresolveable topics will already have been reported. -->
         </xsl:when>
         <xsl:otherwise>
-          <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, root($topic), $rootMapDocUrl)" as="xs:string"/>
-          <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
             <!-- Any subordinate topics in the currently-referenced topic are
               reflected in the ToC before any subordinate topicrefs.
             -->
@@ -346,9 +339,6 @@ the index-see and index-see-also elements will be ignored.</xsl:message>
             </xsl:message>-->
             <xsl:apply-templates mode="#current" 
               select="$topic//*[df:class(., 'topic/indexterm')][not(parent::*[df:class(., 'topic/indexterm')])], *[df:class(., 'map/topicref')]">
-              <xsl:with-param name="targetUri" as="xs:string" tunnel="yes"
-                select="$targetUri"
-              />
             </xsl:apply-templates>
         </xsl:otherwise>
       </xsl:choose>    

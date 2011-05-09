@@ -4,11 +4,11 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:df="http://dita2indesign.org/dita/functions"  
-  xmlns:html2="http://dita4publishers.org/html2"
   xmlns:index-terms="http://dita4publishers.org/index-terms"
   xmlns:enum="http://dita4publishers.org/enumerables"
   xmlns:glossdata="http://dita4publishers.org/glossdata"
   xmlns:relpath="http://dita2indesign/functions/relpath"
+  xmlns:mapdriven="http://dita4publishers.org/mapdriven"
   exclude-result-prefixes="xs xd df relpath"
   version="2.0">
   
@@ -48,8 +48,7 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/glossaryProcessing.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/indexProcessing.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/dataCollection.xsl"/>
   
   <!-- Import the base HTML output generation transform. -->
   <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
@@ -63,9 +62,7 @@
   <xsl:include href="map2html2DynamicToc.xsl"/>
   <xsl:include href="map2html2StaticToc.xsl"/>
   <xsl:include href="map2html2Frameset.xsl"/>
-  <xsl:include href="map2html2Glossary.xsl"/>
   <xsl:include href="map2html2Index.xsl"/>
-  <xsl:include href="map2html2Enumeration.xsl"/>
   
   <xsl:include href="map2html2D4P.xsl"/>
   <xsl:include href="map2html2Bookmap.xsl"/>
@@ -283,24 +280,7 @@
     <xsl:message> + [INFO] Gathering index terms...</xsl:message>
     
     <xsl:variable name="collected-data" as="element()">
-      <html2:collected-data>
-        <!-- Index Terms: -->
-        <xsl:if test="$generateIndexBoolean">
-          <xsl:message> + [INFO] Grouping and sorting index terms...</xsl:message>
-          <xsl:apply-templates mode="group-and-sort-index" select="."/>
-        </xsl:if>
-        <!-- Enumerated (countable) elements: -->
-        <enum:enumerables>
-          <xsl:apply-templates mode="construct-enumerable-structure" select="."/>
-        </enum:enumerables>
-        <!-- Glossary entries -->
-        <glossdata:glossary-entries>
-          <xsl:if test="$generateGlossaryBoolean">
-            <xsl:apply-templates mode="group-and-sort-glossary" select="."/>
-          </xsl:if>          
-        </glossdata:glossary-entries>
-        <xsl:apply-templates mode="data-collection-extensions"/>
-      </html2:collected-data>
+      <xsl:call-template name="mapdriven:collect-data"/>      
     </xsl:variable>
     
     <xsl:if test="true() or $debugBoolean">
@@ -334,11 +314,4 @@
     </xsl:apply-templates>
   </xsl:template>
   
-  <xsl:template mode="data-collection-extensions" match="*" priority="-1">
-    <!-- Do nothing by default. Implement templates in this
-         mode to construct whatever collected data structures
-         your extension code needs.
-      -->
-  </xsl:template>
-   
 </xsl:stylesheet>
