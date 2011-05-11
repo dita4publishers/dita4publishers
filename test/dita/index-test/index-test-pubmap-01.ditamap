@@ -28,7 +28,13 @@
       <chapter
         href="topics/index-test-topic-02.dita">
         <topicref
-          href="topics/subtopic-02.dita"/>
+          href="topics/subtopic-02.dita"
+          chunk="to-content">
+          <topicref
+            href="topics/index-test-topic-02-01.dita"/>
+          <topicref
+            href="topics/index-test-topic-02-02.dita"/>
+        </topicref>
       </chapter>
       <topichead
         navtitle="This is a Topic Head">
