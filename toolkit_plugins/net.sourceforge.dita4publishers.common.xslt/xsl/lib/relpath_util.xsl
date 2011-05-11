@@ -753,6 +753,25 @@
     </xsl:choose>    
   </xsl:function>
   
+  <xsl:function name="relpath:getFragmentId" as="xs:string">
+    <xsl:param name="uri" as="xs:string"/>
+    <!-- Returns either the empty string, if there is no fragment
+         identifier, or the string following the first "#" in the 
+         URI up to, but not including, any query component.
+      -->
+    <xsl:variable name="baseFragid" as="xs:string"
+      select="if (contains($uri, '#'))
+      then substring-after($uri, '#')
+      else ''"
+    />
+    <xsl:variable name="result" as="xs:string"
+      select="if (contains($baseFragid, '?')) 
+      then substring-before($baseFragid, '?') 
+      else $baseFragid"
+    />
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+  
   <xsl:function name="relpath:hex-to-char" as="xs:integer">
     <xsl:param name="in" as="xs:string"/> <!-- e.g. 030C -->
     <xsl:sequence select="
