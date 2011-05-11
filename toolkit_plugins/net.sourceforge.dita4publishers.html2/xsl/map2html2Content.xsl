@@ -109,7 +109,7 @@
         />
         <xsl:message> + [DEBUG] outdir="<xsl:sequence select="$outdir"/>", 
     topicResultUri="<xsl:sequence select="$topicResultUri"/></xsl:message>
-<!--        <xsl:variable name="tempTopic" as="document-node()">
+        <xsl:variable name="tempTopic" as="document-node()">
           <xsl:document>
             <xsl:apply-templates select="$topic" mode="href-fixup">
               <xsl:with-param name="topicResultUri" select="$topicResultUri"
@@ -117,7 +117,7 @@
             </xsl:apply-templates>
           </xsl:document>
         </xsl:variable>
--->        <xsl:apply-templates select="$topic" mode="#current">
+        <xsl:apply-templates select="$tempTopic" mode="#current">
           <xsl:with-param name="topicref" as="element()" select="." tunnel="yes"/>
           <xsl:with-param name="collected-data" select="$collected-data" as="element()" tunnel="yes"/>    
           <xsl:with-param name="resultUri" select="$topicResultUri"
