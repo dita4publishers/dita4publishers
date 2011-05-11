@@ -13,9 +13,9 @@
   </prolog>
  <conbody>
    <p>The GraphViz tool (<xref
-      href="http://graphviz.net"
+      href="http://graphviz.org"
       format="html"
-      scope="external">http://graphviz.net</xref>) is an open-source command-line tool that generates node-and-arc graphs from simple text data files.  The DITA for Publishers graph-generation plugin calls the graphviz command to create rendered graphs.</p>
+      scope="external">http://graphviz.org</xref>) is an open-source command-line tool that generates node-and-arc graphs from simple text data files.  The DITA for Publishers graph-generation plugin calls the graphviz command to create rendered graphs.</p>
     <p>To set up the GraphViz tool, download the package for your platform (GraphViz is available for most, if not all platforms) and install it normally.</p>
     <p>You can either add the location of the GraphViz "dot" command to your PATH environment variable or you can set the Ant property <codeph>graphviz.dot.executable</codeph> to the full path to the "dot" command (e.g., "/usr/local/bin/dot" or "c:/Program Files/GraphViz/bin/dot").</p>
  </conbody>
