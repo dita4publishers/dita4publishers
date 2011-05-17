@@ -30,7 +30,7 @@
 	<property name="kindle.pubid.uri.stub" value="http://my-URI-stub/"/>
 	
 	<property name="kindlegen.executable" value="kindlegen"/>
-	<property name="kindlegenArgs" value="-unicode"/>
+	<property name="kindlegenArgs" value=""/>
 	
   <condition property="preprocess.maplink.skip" value="true">
 	  <isset property="epub.exclude.auto.rellinks" />
