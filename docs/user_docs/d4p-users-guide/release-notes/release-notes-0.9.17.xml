@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>Release Notes: Version 0.9.17</title>
+ <shortdesc>Version 0.9.17 released ?? May 2011</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>
+          <indexterm>release notes<indexterm>Version 0.9.17</indexterm></indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <section>
+      <title>Kindle transformation type</title>
+      <ul>
+        <li>Fixed Bug 3284497: Removed use of "-unicode" command-line parameter, which is not supported in <cmdname>kindlegen</cmdname> 1.2.</li>
+      </ul>
+      <note>Amazon has updated the Kindlegen executable from version 1.1 to version 1.2 since the Kindle transformation type was originally released. You should upgrade your local Kindlegen installation to version 1.2.</note>
+    </section>
+    <section>
+      <title>Word to DITA</title>
+      <ul>
+        <li>Fixed bug in handling of footnotes and hyperlinks that was a side effect of new support for style-to-tag mapping using style names.</li>
+      </ul>
+    </section>
+    <section>
+      <title>HTML2 transformation type</title>
+      <ul>
+        <li>Implemented generation of back-of-the-book indexes both as part of the dynamic ToC and as a separate standalone HTML page.</li>
+        <li>Refactored to use new "collected-data" mechanism from the generic map-driven processing framework. This provides support for cross-publication numbering in addition to back-of-the-book index processing.</li>
+        <li>Fixed bug 3291423: .html hard coded in HTML2 </li>
+      </ul>
+    </section>
+    <section>
+      <title>Map-driven processing framework</title>
+      <ul>
+        <li>Implemented general back-of-the-book index processing. Generic code constructs a grouped and sorted index data structure that can then be used by any transformation type to generate renditions of the index.</li>
+        <li>Refactored code to move generic map-drive processing to the common.mapdriven Toolkit plugin.</li>
+        <li>Added documentation on how to use the map-driven framework for extensions and new transformation types.</li>
+      </ul>
+    </section>
+    <section>
+      <title>common.xslt Plugin</title>
+      <ul>
+        <li>relpath_utils.xsl: <ul>
+          <li>Added getFragmentId() function for getting the fragment ID part of a URI (the part that starts with "#" up to, but not including any query parameters (which start with "?").</li>
+          </ul></li>
+        <li>dita-support-lib.xsl: <ul>
+          <li>Fixed a couple of minor bugs. </li>
+          <li>Added support for using fragment identifiers to resolve topic references. </li>
+          </ul></li>
+      </ul>
+    </section>
+    <section>
+      <title>Graph Visualization toolkit plugin</title>
+      <ul>
+        <li>Added new plugin "net.sf.dita4publishers.graphviz" that demonstrates using the GraphViz tool to generate visualizations of different structures in DITA content, including map navigation trees and back-of-the-book index.</li>
+      </ul>
+    </section>
+  </conbody>
+</concept>
