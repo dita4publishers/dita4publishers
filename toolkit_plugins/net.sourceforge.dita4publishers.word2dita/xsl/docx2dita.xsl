@@ -25,7 +25,7 @@
   <!--==========================================
     DOCX to DITA generic transformation
     
-    Copyright (c) 2009, 2010 DITA For Publishers, Inc.
+    Copyright (c) 2009, 2011 DITA For Publishers, Inc.
 
     Transforms a DOCX document.xml file into a DITA topic using
     a style-to-tag mapping.
@@ -107,14 +107,14 @@
       select="document('styles.xml', .)"
     />      
     <xsl:variable
-      name="simpleWpDoc"
+      name="simpleWpDocBase"
       as="element()">
       <xsl:call-template
         name="processDocumentXml">
         <xsl:with-param name="stylesDoc" as="document-node()" tunnel="yes"
           select="$stylesDoc"/>
       </xsl:call-template>
-    </xsl:variable>
+    </xsl:variable>    
     <xsl:variable
       name="tempDoc"
       select="relpath:newFile($outputDir, 'simpleWpDoc.xml')"
@@ -127,14 +127,29 @@
         <xsl:message> + [DEBUG] Intermediate simple WP doc saved as <xsl:sequence
             select="$tempDoc"/></xsl:message>
         <xsl:sequence
-          select="$simpleWpDoc"/>
+          select="$simpleWpDocBase"/>
       </xsl:result-document>
     </xsl:if>
+    <xsl:variable name="simpleWpDoc"
+      as="element()"
+    >
+      <xsl:apply-templates select="$simpleWpDocBase" mode="simpleWpDoc-fixup"/>
+    </xsl:variable>
     <xsl:apply-templates
       select="$simpleWpDoc">
       <xsl:with-param name="resultUrl" select="relpath:newFile($outputDir, 'temp.output')" tunnel="yes"/>
     </xsl:apply-templates>
     <xsl:message> + [INFO] Done.</xsl:message>
+  </xsl:template>
+  
+  <xsl:template mode="simpleWpDoc-fixup" match="*">
+    <xsl:copy>
+      <xsl:apply-templates select="@*,node()" mode="#current"/>
+    </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template mode="simpleWpDoc-fixup" match="@* | text() | processing-instruction()">
+    <xsl:sequence select="."/>
   </xsl:template>
   
   <xsl:template name="report-parameters">
