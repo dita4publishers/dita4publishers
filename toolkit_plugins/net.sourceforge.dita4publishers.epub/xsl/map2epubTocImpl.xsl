@@ -124,6 +124,12 @@
         <xsl:when test="not($topic)">
           <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
         </xsl:when>
+        <xsl:when test="@toc = 'no'">
+            <xsl:apply-templates mode="#current" 
+              select="*[df:class(., 'map/topicref')]">
+              <!-- Don't change toc depth since we didn't generate a toc entry. -->
+            </xsl:apply-templates>
+        </xsl:when>
         <xsl:otherwise>
           <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, root($topic))" as="xs:string"/>
           <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
@@ -314,6 +320,9 @@
     <xsl:param name="context" as="element()"/>
     <xsl:choose>
       <xsl:when test="$context/@processing-role = 'resource-only'">
+        <xsl:sequence select="false()"/>
+      </xsl:when>
+      <xsl:when test="string($context/@toc) = 'no'"><!-- Issue 3331319: @toc not respected in EPUB ToC -->
         <xsl:sequence select="false()"/>
       </xsl:when>
       <xsl:when test="df:isTopicRef($context) or df:isTopicHead($context)">
