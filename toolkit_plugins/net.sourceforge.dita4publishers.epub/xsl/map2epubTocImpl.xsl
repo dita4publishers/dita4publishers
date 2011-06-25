@@ -150,7 +150,8 @@
               reflected in the ToC before any subordinate topicrefs.
             -->
             <xsl:apply-templates mode="#current" 
-              select="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]">
+              select="$topic/*[df:class(., 'topic/topic')], 
+                      *[df:class(., 'map/topicref') and not(ancestor::*[contains(@chunk, 'to-content')])]">
               <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes"
                 select="$tocDepth + 1"
               />
@@ -320,6 +321,10 @@
     <xsl:param name="context" as="element()"/>
     <xsl:choose>
       <xsl:when test="$context/@processing-role = 'resource-only'">
+        <xsl:sequence select="false()"/>
+      </xsl:when>
+      <xsl:when test="$context/ancestor::*[contains(@chunk, 'to-content')]">
+        <xsl:message> + [DEBUG] isNavPoint(): ancestor has @chunk with to-content.</xsl:message>
         <xsl:sequence select="false()"/>
       </xsl:when>
       <xsl:when test="string($context/@toc) = 'no'"><!-- Issue 3331319: @toc not respected in EPUB ToC -->
