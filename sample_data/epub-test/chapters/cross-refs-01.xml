@@ -18,6 +18,10 @@
       format="dita"/>.</p>
     <p>Here is a keyref xref to Wizard of OZ, Chapter 1: <xref
       keyref="the_cyclone"/>.</p>
+    <p>Keyref to a topic that is a part of a larger chunk: <xref
+      keyref="chuck-01-ss-02"/>.</p>
+    <p>Keyref to a topic that is a part of a larger chunk in a submap: <xref
+      keyref="chuck-02-ss-02"/>.</p>
     <!--<p>Here is a keyword keyref to Wizard of OZ, Chapter 1: A <keyword
       keyref="the_cyclone">cyclone</keyword> is also called a <keyword>tornado</keyword>.</p>-->
   </body>

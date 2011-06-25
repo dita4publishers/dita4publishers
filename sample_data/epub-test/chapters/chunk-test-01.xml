@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic-1">
+  <title>Chunk Test 01</title>
+  <body>
+    <p>This topic is the root of a chunk containing two subordinate topics. The topicref specifies <codeph>@chunk="to-content"</codeph>. It should result in a single result HTML file. </p>
+  </body>
+</topic>

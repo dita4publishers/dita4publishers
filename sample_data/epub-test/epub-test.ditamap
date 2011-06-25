@@ -122,6 +122,20 @@
         </topicgroup>
       </chapter>
       <chapter
+        href="chapters/chunk-test-01.xml"
+        chunk="to-content">
+        <subsection
+          href="chapters/chunk-test-01-ss-01.xml"/>
+        <subsection
+          href="chapters/chunk-test-01-ss-02.xml"
+          collection-type="sequence"
+          keys="chuck-01-ss-02"/>
+      </chapter>
+      <chapter
+        href="chunk-test-02.ditamap"
+        format="ditamap"
+        chunk="to-content"/>
+      <chapter
         href="chapters/cross-refs-01.xml"/>
       <chapter
         href="chapters/cross-ref-targets-01.xml"/>
