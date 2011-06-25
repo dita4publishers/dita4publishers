@@ -9,11 +9,12 @@
   exclude-result-prefixes="xs htmlutil df relpath"
   version="2.0">
 
+<!--
   <xsl:import href="lib/dita-support-lib.xsl"/>
   <xsl:import href="lib/relpath_util.xsl"/>
   <xsl:import href="lib/html-generation-utils.xsl"/>
-  
-  <xsl:template match="/" mode="href-fixup">
+  -->
+ <xsl:template match="/" mode="href-fixup">
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
