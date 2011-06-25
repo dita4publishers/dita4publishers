@@ -13,7 +13,11 @@
     
     =====================================================================-->
   
+<!-- Users of this module must also import this module:  
+  
   <xsl:import href="relpath_util.xsl"/>
+
+-->
   
   
   <xsl:key name="topicsById" match="*[df:class(., 'topic/topic')]" use="@id"/>
