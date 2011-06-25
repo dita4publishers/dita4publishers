@@ -9,8 +9,10 @@
   exclude-result-prefixes="xs htmlutil relpath df"  
   version="2.0">
  
+ <!-- 
   <xsl:import href="dita-support-lib.xsl"/>
   <xsl:import href="relpath_util.xsl"/>
+  -->
     
   <!-- The strategy to use when constructing output files. Default is "as-authored", meaning
     reflect the directory structure of the topics as authored relative to the root map,
