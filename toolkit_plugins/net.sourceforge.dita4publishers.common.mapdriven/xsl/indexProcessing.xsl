@@ -26,11 +26,12 @@
     This transform requires XSLT 2.
     ================================================================= -->    
   
+<!--  
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
-
+-->
   <xsl:template match="/*[df:class(., 'map/map')]" mode="group-and-sort-index">
     
     <!-- Gather all the index entries from the map and topic. 

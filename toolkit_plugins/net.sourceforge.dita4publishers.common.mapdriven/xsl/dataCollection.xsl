@@ -27,12 +27,13 @@
     This transform requires XSLT 2.
     ================================================================= -->    
   
+<!--  
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  
   <xsl:import href="mapdrivenEnumeration.xsl"/>
   <xsl:import href="glossaryProcessing.xsl"/>
   <xsl:import href="indexProcessing.xsl"/>
+-->  
   
   <xsl:template name="mapdriven:collect-data">
     <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
