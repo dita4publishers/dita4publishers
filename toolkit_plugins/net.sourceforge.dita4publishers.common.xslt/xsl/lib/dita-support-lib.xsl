@@ -566,7 +566,14 @@
   <xsl:function name="df:getUniqueTopicrefs" as="element()*">
     <xsl:param name="map" as="element()"/>
     <xsl:variable name="result" as="element()*">
-      <xsl:for-each-group select="$map//*[df:isTopicRef(.) and not(@processing-role = 'resource-only')]"
+      <!-- Exclude resource-only topicrefs and topicrefs
+           subordinate to topicrefs with @chunk='to-content'
+        -->
+      <xsl:for-each-group 
+        select="$map//*[df:isTopicRef(.) and 
+                        not(@processing-role = 'resource-only') and
+                        not(ancestor::*[contains(@chunk, 'to-content')])
+                        ]"
         group-by="document-uri(root(df:resolveTopicRef(.)))"
         >     
         
