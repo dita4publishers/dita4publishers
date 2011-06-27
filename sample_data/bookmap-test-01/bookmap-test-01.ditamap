@@ -4,13 +4,19 @@
   <booktitle>
     <mainbooktitle>Bookmap Test 01</mainbooktitle>
   </booktitle>
+  <frontmatter>
+    <booklists>
+      <toc/>
+    </booklists>
+  </frontmatter>
   <part
     href="topics/part-01.xml">
     <topicmeta>
       <navtitle>This is the first part</navtitle>
     </topicmeta>
     <chapter
-      href="topics/chapter-01.xml">
+      href="topics/chapter-01.xml"
+      chunk="to-content">
       <topicmeta>
         <navtitle>This is the first chapter</navtitle>
       </topicmeta>
@@ -43,6 +49,14 @@
         <navtitle>This is the fourth chapter</navtitle>
       </topicmeta>
     </chapter>
+<!--    <chapter
+      href="chapter-map-01.ditamap"
+      chunk="to-content"
+      format="ditamap"/> -->
+    <chapter
+      href="chapter-map-02.ditamap"
+      chunk="to-content"
+      format="ditamap"/>
   </part>
   <part>
     <topicmeta>
