@@ -142,6 +142,15 @@
       <chapter
         href="chapters/deeply-nested-chapter.xml"/>
       <chapter
+        href="chapters/toc-no-test-01.dita"
+        toc="no">
+        <subsection
+          href="chapters/toc-no-subtopic-01.dita"/>
+        <subsection
+          href="chapters/toc-no-subtopic-02.dita"
+          toc="yes"/>
+      </chapter>
+      <chapter
         href="chapters/keyref-tests.xml">
         <subsection
           keyref="keyed-topic-01"/>
