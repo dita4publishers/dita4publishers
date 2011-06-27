@@ -19,8 +19,6 @@
     NOTE: This material is intended to be donated to the RSI-sponsored
     DITA2InDesign open-source project.
   -->
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="lib/incx_generation_util.xsl"/>
   
   <xsl:template match="/*[df:class(., 'topic/topic')]/*[df:class(., 'topic/title')]" 
     mode="style-map-pstyle">
