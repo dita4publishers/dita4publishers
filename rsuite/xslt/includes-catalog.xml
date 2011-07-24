@@ -10,11 +10,12 @@
     uri="../../toolkit_plugins/net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
              
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/dita2indesign/lib/incx_generation_util.xsl" 
-    uri="../../xslt/dita2indesign/lib/incx_generation_util.xsl"/>
+    uri="../../toolkit_plugins/org.dita2indesign.dita2indesign/xsl/lib/incx_generation_util.xsl"/>
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/dita2indesign/elem2styleMapper.xsl" 
-    uri="../../xslt/dita2indesign/elem2styleMapper.xsl"/>
+    uri="../../toolkit_plugins/org.dita2indesign.dita2indesign/xsl/elem2styleMapper.xsl"/>
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/dita2indesign/topic2article.xsl" 
-    uri="../../xslt/dita2indesign/topic2article.xsl"/>
+    uri="../../toolkit_plugins/org.dita2indesign.dita2indesign/xsl/topic2article.xsl"/>
+  
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/lib/resolve-map.xsl" 
-    uri="../../xslt/lib/resolve-map.xsl"/>
+    uri="../../toolkit_plugins/lib/resolve-map.xsl"/>
 </catalog>
