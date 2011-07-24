@@ -71,8 +71,8 @@
 <!--                    ELEMENT DECLARATIONS                       -->
 <!-- ============================================================= -->
 
-<!ELEMENT article       
-  ((%title;), 
+<!ENTITY % article.content 
+ "((%title;), 
    (%titlealts;)?,
    (%abstract; | 
     %deck;)?, 
@@ -80,9 +80,10 @@
    (%body;)?, 
    (%related-links;)?,
    (%article-info-types;)* )                   
->
-<!ATTLIST article        
-  id         
+ "
+ >
+ <!ENTITY % article.attributes 
+ 'id         
     ID                               
     #REQUIRED
   conref     
@@ -97,15 +98,20 @@
   domains    
     CDATA                
     "&included-domains;"    
->
+ '>
+<!ELEMENT article  %article.content;  >
+<!ATTLIST article  %article.attributes;  >
 
-<!ELEMENT deck
- (%title.cnt; |
+<!ENTITY % deck.content 
+"(%title.cnt; |
   %draft-comment;)*
->
-<!ATTLIST deck
-  %univ-atts;
->
+
+">
+<!ENTITY % deck.attributes
+'%univ-atts;
+'>
+<!ELEMENT deck %deck.content; >
+<!ATTLIST deck %deck.attributes; >
 
 <!-- ============================================================= -->
 <!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->

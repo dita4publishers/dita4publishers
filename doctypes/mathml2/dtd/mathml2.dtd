@@ -37,8 +37,14 @@
 <!-- MathML Qualified Names module ............................... -->
 <!ENTITY % mathml-qname.module "INCLUDE" >
 <![%mathml-qname.module;[
+<!-- WEK: Removed use of public identifier here to ensure that we always
+          get this version of the mathml2-qname-1.mod and not one
+          from another source, especially in tools like OxygenXML
+          where there could be any number of copies of MathML
+          referenced from different catalogs.
+  -->
 <!ENTITY % mathml-qname.mod
-     PUBLIC "-//W3C//ENTITIES MathML 2.0 Qualified Names 1.0//EN"
+     SYSTEM
             "mathml2-qname-1.mod" >
 %mathml-qname.mod;]]>
 
