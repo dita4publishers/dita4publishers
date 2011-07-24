@@ -70,18 +70,18 @@
 <!--                    ELEMENT DECLARATIONS                       -->
 <!-- ============================================================= -->
 
-<!ELEMENT part       
-  ((%title;), 
+<!ENTITY % part.content 
+"((%title;), 
    (%titlealts;)?,
    (%abstract; | 
     %shortdesc;)?, 
    (%prolog;)?, 
    (%body;)?, 
    (%related-links;)?,
-   (%part-info-types;)* )                   
->
-<!ATTLIST part        
-  id         
+   (%part-info-types;)* )
+">
+<!ENTITY % part.attributes
+'id         
     ID                               
     #REQUIRED
   conref     
@@ -95,8 +95,10 @@
     #IMPLIED
   domains    
     CDATA                
-    "&included-domains;"    
->
+    "&included-domains;"
+'>
+<!ELEMENT part %part.content;                  >
+<!ATTLIST part %part.attributes;               >
 
 
 
