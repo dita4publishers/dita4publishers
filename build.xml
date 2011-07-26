@@ -28,9 +28,9 @@
   <property name="lib" location="${basedir}/lib"/>
   <property name="src" location="${basedir}/src/java"/>
 	<property name="license.dir" location="${basedir}/license"/>
-	<property name="rsuite.src" location="${basedir}/rsuite/src/java"/>
+	<property name="rsuite.dir" location="${basedir}/rsuite"/>
+	<property name="rsuite.src" location="${rsuite.dir}/src/java"/>
   <property name="toolkit.plugin.src" location="${basedir}/toolkit_plugins"/>
-  <property name="rsuiteSrc" location="${basedir}/rsuite"/>
   <property name="temp" location="${basedir}/temp"/>
   <property name="epubTemp" location="${temp}/epub"/>
   <property name="epubBuild" location="${build}/epubs"/>
@@ -404,7 +404,22 @@
         <exclude name="org.dita2indesign.test.*/**"/>
       </fileset>
     </zip>
-  </target>
+	  </target>
+		
+	<target name="package-rsuite-components" depends="dist-init, package-rsuite-plugins, package-toolkit-plugins"
+		description="Create a single package with all RSuite-specific components ready to use"
+		>
+    <zip destfile="${package.dist}/dita4publishers-rsuite-materials-${package_version}.zip">
+    	<!-- Include everything that isn't Java source code. -->
+      <fileset dir="${rsuite.dir}">
+      	<exclude name="src/**"/>
+      </fileset>
+      <fileset dir="${target.home}">
+      	<include name="${target.jar}"/>
+      </fileset>
+    </zip>
+		
+	</target>
 	
 	<target name="package-delivery" 
 		depends="
