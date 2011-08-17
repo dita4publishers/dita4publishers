@@ -1,0 +1,28 @@
+<!-- 
+  Plugin descriptor for the DITA4Publishers PDF2 transformation type
+  overrides and customizations.
+  
+  Copyright (c) 2011 DITA For Publishers
+  
+  This plugin provides extensive overrides of the PDF2 transformation
+  type in order to correct and extend the base design, as well as
+  customizations specific to the DITA for Publishers vocabulary.
+  
+  It defines a distinct transformation type so that it's deployment
+  does not affect the base PDF2 transformation type.
+  
+  Note that the topic domain-specific PDF2 extensions for the D4P 
+  vocabulary do directly extend the base PDF2 transformation type
+  and can be deployed separately from this plugin.
+  
+  -->
+<plugin id="net.sf.dita4publishers.pdf">
+
+  <require plugin="org.dita.pdf2"/>
+  
+  <template file="build_d4p-transtype-pdf_template.xml"/>
+
+  <feature extension="dita.conductor.transtype.check" value="pdf-d4p" type="txt"/>
+  <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
+      
+</plugin>
