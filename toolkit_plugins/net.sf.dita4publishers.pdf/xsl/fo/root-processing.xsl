@@ -14,16 +14,6 @@
 
   <!-- Override of templates from the base root-processing.xsl -->
   
-  <!-- NOTE: As of 1.5.4M2 there is no way to set arbitrary XSLT 
-             properties for a transform type that extends
-             the PDF2 transform type.
-    -->
-  <!-- URI of the graphic to use for the front cover. -->
-  <xsl:param name="d4pFrontCoverGraphicUri" as="xs:string" select="''"/>
-
-  <!-- URI of the graphic to use for the back cover. -->
-  <xsl:param name="d4pBackCoverGraphicUri" as="xs:string" select="''"/>
-
   <xsl:template
     name="rootTemplate">
     <xsl:call-template
@@ -81,28 +71,6 @@
     </xsl:call-template>    
   </xsl:template>
   
-  <xsl:template mode="getFrontCoverGraphicUri" match="/*">
-    <xsl:choose>
-      <xsl:when test="/*/opentopic:map/*[contains(@class, ' map/topicmeta ')]//*[contains(@class, ' topic/data ') and @name = 'd4pFrontCoverGraphic']">
-          <xsl:sequence select="string((/*/opentopic:map/*[contains(@class, ' map/topicmeta ')]//*[contains(@class, ' topic/data ') and @name = 'd4pFrontCoverGraphic'])[1]/@value)"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:sequence select="$d4pFrontCoverGraphicUri"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-
-  <xsl:template mode="getBackCoverGraphicUri" match="/*">
-    <xsl:choose>
-      <xsl:when test="/*/opentopic:map/*[contains(@class, ' map/topicmeta ')]//*[contains(@class, ' topic/data ') and @name = 'd4pBackCoverGraphic']">
-          <xsl:sequence select="string((/*/opentopic:map/*[contains(@class, ' map/topicmeta ')]//*[contains(@class, ' topic/data ') and @name = 'd4pBackCoverGraphic'])[1]/@value)"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:sequence select="$d4pBackCoverGraphicUri"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-
   <xsl:template name="createLastPages">
     <!-- Template to manage creation of trailing pages,
          such as the colophon, back covers, etc.
@@ -119,124 +87,5 @@
     
   </xsl:template>
   
-  <xsl:template name="createFrontCover">
-    <xsl:param name="frontCoverGraphicUri" as="xs:string"/>
-    <!-- Template to create the front cover. 
-    -->
-    <xsl:variable name="coverTopics">
-      <xsl:apply-templates select="/*/opentopic:map" mode="getFrontCoverTopics"/>
-    </xsl:variable>
-    <xsl:message>[DEBUG] $coverTopics="<xsl:sequence select="$coverTopics"/>"</xsl:message>
-    <xsl:choose>
-      <xsl:when test="$coverTopics != ''">
-        <xsl:apply-templates select="$coverTopics" mode="constructFrontCover"/>
-      </xsl:when>
-      <xsl:when test="$frontCoverGraphicUri != ''">
-        <xsl:call-template name="constructFrontCoverFromGraphic">
-          <xsl:with-param name="frontCoverGraphicUri" 
-            select="$frontCoverGraphicUri" 
-            as="xs:string"/>
-        </xsl:call-template>
-     </xsl:when>
-      <xsl:otherwise>
-        <!-- Construct the title from the publication metadata -->
-        <xsl:message>[DEBUG] No cover topics, calling createFrontMatter_1.0 template</xsl:message>
-        <xsl:call-template name="createFrontMatter_1.0"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-  
-  <xsl:template mode="getFrontCoverTopics getBackCoverTopics" match="text()"/>
-  
-  <xsl:template mode="getFrontCoverTopics" match="*[contains(@class, ' map/topicref ') and @outputclass = 'frontCover']">
-    <xsl:sequence select="(//*[@id = @id])[1]"/>
-  </xsl:template>
-  
-  <xsl:template mode="getBackCoverTopics" match="*[contains(@class, ' map/topicref ') and @outputclass = 'backCover']">
-    <xsl:sequence select="(//*[@id = @id])[1]"/>
-  </xsl:template>
-  
-  <xsl:template mode="constructFrontCover" match="*[contains(@class, ' topic/topic ')]">
-    <xsl:call-template name="makeFrontCoverPageSequence">
-      <xsl:with-param name="flowContent" as="node()*">
-        <xsl:apply-templates mode="#current" select="*[contains(@class, ' topic/body ')]"/>
-      </xsl:with-param>
-    </xsl:call-template>
-  </xsl:template>
-  
-  <xsl:template name="constructFrontCoverFromGraphic">
-    <xsl:param name="frontCoverGraphicUri" as="xs:string"/>
-    
-    <xsl:call-template name="makeFrontCoverPageSequence">
-      <xsl:with-param name="flowContent" as="node()*">
-        <fo:block>
-          <fo:external-graphic xsl:use-attribute-sets="front-cover-graphic"
-            src="url('{$d4pFrontCoverGraphicUri}')"
-          />
-        </fo:block>
-      </xsl:with-param>
-    </xsl:call-template>
-  </xsl:template>
-  
-  <xsl:template name="makeFrontCoverPageSequence">
-    <xsl:param name="flowContent" as="node()*"/>
-    <fo:page-sequence master-reference="front-cover" format="i" xsl:use-attribute-sets="__force__page__count">
-      <fo:flow flow-name="xsl-region-body">
-        <xsl:sequence select="$flowContent"/>
-      </fo:flow>
-    </fo:page-sequence>
-
-  </xsl:template>
-
-  <xsl:template mode="constructBackCover" match="*[contains(@class, ' topic/topic ')]">
-    <xsl:call-template name="makeBackCoverPageSequence">
-      <xsl:with-param name="flowContent" as="node()*">
-        <xsl:apply-templates mode="#current" select="*[contains(@class, ' topic/body ')]"/>
-      </xsl:with-param>
-    </xsl:call-template>
-  </xsl:template>
-
-  <xsl:template name="makeBackCoverPageSequence">
-    <xsl:param name="flowContent" as="node()*"/>
-    <fo:page-sequence master-reference="back-cover" xsl:use-attribute-sets="__force__page__count">
-      <fo:flow flow-name="xsl-region-body">
-        <xsl:sequence select="$flowContent"/>
-      </fo:flow>
-    </fo:page-sequence>
-
-  </xsl:template>
-
-  <xsl:template mode="constructFrontCover" match="*[contains(@class, ' topic/body ')]">
-    <xsl:apply-templates/>
-  </xsl:template>
-
-  <xsl:template mode="constructBackCover" match="*[contains(@class, ' topic/body ')]">
-    <xsl:apply-templates/>
-  </xsl:template>
-
-  <xsl:template name="createBackCover">
-    <xsl:param name="backCoverGraphicUri" as="xs:string"/>
-
-    <xsl:variable name="coverTopics">
-      <xsl:apply-templates select="/*/opentopic:map" mode="getBackCoverTopics"/>
-    </xsl:variable>
-    <xsl:message>[DEBUG] $coverTopics="<xsl:sequence select="$coverTopics"/>"</xsl:message>
-    <xsl:choose>
-      <xsl:when test="$coverTopics != ''">
-        <xsl:apply-templates select="$coverTopics" mode="constructFrontCover"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:call-template name="constructBackCover"/>
-      </xsl:otherwise>
-    </xsl:choose>
-
-  </xsl:template>
-
-  <xsl:template name="constructBackCover">
-    <xsl:apply-templates select="/*/opentopic:map" mode="constructBackCover"/>
-  </xsl:template>
-  
-  <xsl:template mode="constructBackCover" match="opentopic:map">
-  </xsl:template>
 
 </xsl:stylesheet>

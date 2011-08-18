@@ -16,6 +16,7 @@
   <xsl:import href="../cfg/fo/attrs/layout-masters-attr.xsl"/>
   
   <xsl:import href="fo/root-processing.xsl"/>
+  <xsl:import href="fo/covers.xsl"/>
   <xsl:import href="fo/layout-masters.xsl"/>
   
 </xsl:stylesheet>
