@@ -26,6 +26,7 @@
   <xsl:param name="d4pBackCoverGraphicUri" as="xs:string" select="''"/>
   
   <xsl:key name="topicsById" match="*[df:class(., 'topic/topic')]" use="@id"/>
+  <xsl:key name="topicRefsById" match="*[df:class(., 'map/topicref')]" use="@id"/>
 
   <xsl:template
     name="rootTemplate">
