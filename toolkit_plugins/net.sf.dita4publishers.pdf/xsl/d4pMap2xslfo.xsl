@@ -13,13 +13,20 @@
   -->
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+
   <xsl:import href="../../../demo/fo/xsl/fo/topic2fo_shell_1.0.xsl"/>
   
   <xsl:import href="../cfg/fo/attrs/covers-attr.xsl"/>
   <xsl:import href="../cfg/fo/attrs/layout-masters-attr.xsl"/>
+  <xsl:import href="../cfg/fo/attrs/page-break-control-attr.xsl"/>
   
   <xsl:import href="fo/root-processing.xsl"/>
   <xsl:import href="fo/commons.xsl"/>
+  <xsl:import href="fo/glossary.xsl"/>
+  <xsl:import href="fo/index.xsl"/>
+  <xsl:import href="fo/lot-lof.xsl"/>
+  <xsl:import href="fo/preface.xsl"/>
+  <xsl:import href="fo/toc.xsl"/>
   <xsl:import href="fo/page-sequences.xsl"/>
   <xsl:import href="fo/covers.xsl"/>
   <xsl:import href="fo/layout-masters.xsl"/>

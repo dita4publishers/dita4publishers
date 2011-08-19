@@ -155,9 +155,9 @@
   <!-- NOTE: the match is redundant but want to make it clear that the default pubRegion is body -->
   <xsl:template mode="constructPageSequence" match="dita-ot:pageSequence[@pubRegion = 'body'] | *">
     <fo:page-sequence master-reference="body-sequence" xsl:use-attribute-sets="__force__page__count">
+      <xsl:call-template name="startPageNumbering"/>
+      <xsl:call-template name="insertBodyStaticContents"/>
       <fo:flow flow-name="xsl-region-body">
-        <xsl:call-template name="startPageNumbering"/>
-        <xsl:call-template name="insertBodyStaticContents"/>
         <xsl:for-each select="*">
           <xsl:call-template name="processTopLevelTopic"/>
         </xsl:for-each>
