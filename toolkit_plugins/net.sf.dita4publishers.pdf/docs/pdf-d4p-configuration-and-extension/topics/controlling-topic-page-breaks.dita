@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="conceptId">
+ <title>Controlling Topic Page Breaks</title>
+ <shortdesc>When a topic is not the first topic in a page sequence it can start a new page by using the <codeph>@break-before</codeph> property on its first block. The PDF-D4P transform provides several ways to control this behavior.</shortdesc>
+ <conbody>
+  <p>Overall topic handling is managed by the named template <keyword>processTopLevelTopic</keyword>, which is called for topic within a page sequence.</p>
+ </conbody>
+</concept>

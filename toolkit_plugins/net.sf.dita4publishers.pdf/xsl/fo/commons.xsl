@@ -31,6 +31,8 @@
          
      -->
     
+    <xsl:message> + [DEBUG] processTopLevelTopic: tagname="<xsl:sequence select="name(.)"/>", id="<xsl:sequence select="string(@id)"/>", topicref-type="<xsl:sequence select="string(@topicref-type)"/>"</xsl:message>
+    
     <fo:block xsl:use-attribute-sets="topic">
         <xsl:call-template name="commonattributes"/>
         <xsl:if test="not(ancestor::*[contains(@class, ' topic/topic ')])">
@@ -82,7 +84,7 @@
        This override removes the generation of fo:page-sequence
        
   -->
-    <xsl:template match="*[contains(@class, ' topic/topic ')]">
+  <xsl:template match="*[contains(@class, ' topic/topic ')]">
       <xsl:variable name="topicType">
           <xsl:call-template name="determineTopicType"/>
       </xsl:variable>

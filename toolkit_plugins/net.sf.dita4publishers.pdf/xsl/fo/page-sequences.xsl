@@ -45,8 +45,9 @@
     </xsl:apply-templates>
   </xsl:template>
   
+  <xsl:template mode="constructNavTreePageSequences" match="text()"/>
 
-   <xsl:template mode="constructNavTreePageSequences" match="/">
+  <xsl:template mode="constructNavTreePageSequences" match="/">
     <xsl:param name="frontCoverTopics"  as="element()*" tunnel="yes"/>
     <xsl:param name="backCoverTopics"  as="element()*"  tunnel="yes"/>
      
@@ -145,24 +146,88 @@
        ==================================== -->
 
   <xsl:template mode="constructPageSequence" match="dita-ot:pageSequence[@pubRegion = 'frontmatter']" priority="10">
-    <fo:page-sequence master-reference="front-matter" xsl:use-attribute-sets="__force__page__count">
-      <fo:flow flow-name="xsl-region-body">
-        <xsl:apply-templates/><!-- Process the topics in normal mode. -->
-      </fo:flow>
-    </fo:page-sequence>
+    <xsl:call-template name="doPageSequenceConstruction">
+      <xsl:with-param name="pageSequenceMasterName" select="'front-matter-sequence'"/>
+    </xsl:call-template>
   </xsl:template>
   
-  <!-- NOTE: the match is redundant but want to make it clear that the default pubRegion is body -->
-  <xsl:template mode="constructPageSequence" match="dita-ot:pageSequence[@pubRegion = 'body'] | *">
-    <fo:page-sequence master-reference="body-sequence" xsl:use-attribute-sets="__force__page__count">
-      <xsl:call-template name="startPageNumbering"/>
-      <xsl:call-template name="insertBodyStaticContents"/>
+  <xsl:template name="doPageSequenceConstruction">
+    <xsl:param name="pageSequenceMasterName" as="xs:string"/>
+    <fo:page-sequence master-reference="{$pageSequenceMasterName}" 
+      xsl:use-attribute-sets="__force__page__count">
+      <xsl:apply-templates select="." mode="setInitialPageNumber"/>
+      <xsl:apply-templates select="." mode="constructStaticContent"/>
+      
       <fo:flow flow-name="xsl-region-body">
         <xsl:for-each select="*">
           <xsl:call-template name="processTopLevelTopic"/>
         </xsl:for-each>
       </fo:flow>
     </fo:page-sequence>
+    
+  </xsl:template>
+  
+  <xsl:template mode="constructStaticContent" match="*">
+      <xsl:call-template name="insertBodyStaticContents"/>    
+  </xsl:template>
+  
+  <xsl:template mode="setInitialPageNumber" match="*">
+    <!-- Override this mode to set the initial-page-number
+         attribute to the appropriate value for the page
+         sequence.
+         
+         By default, the first page sequence with the
+         pub region whose name starts with "body" resets
+         the initial page number to 1.
+         
+         You would need to override this behavior if you 
+         want the pages numbered sequentially from the first
+         physical page (no numbering reset) or to 
+         get folio-by-chapter numbering (reset with each
+         new chapter).ß
+      -->
+    <!-- 
+      <xsl:attribute name="initial-page-number"
+        select="1"
+      />
+    -->
+    
+  </xsl:template>
+  
+  <xsl:template mode="setInitialPageNumber" 
+    match="dita-ot:pageSequence[starts-with(@pubRegion, 'body')][1]">
+      <xsl:attribute name="initial-page-number"
+        select="1"
+      />
+  </xsl:template>
+  
+  <xsl:template mode="constructStaticContent" match="dita-ot:pageSequence[starts-with(@pubRegion, 'frontmatter')]">
+      <xsl:call-template name="insertFrontMatterStaticContents"/>    
+  </xsl:template>
+  
+  
+  <!-- ==========================================
+       Page sequence construction templates
+       
+       ========================================== -->
+  
+  <!-- NOTE: the match is redundant but want to make it clear that the default pubRegion is body -->
+  <xsl:template mode="constructPageSequence" match="dita-ot:pageSequence[starts-with(@pubRegion, 'body')] | *">
+    <xsl:call-template name="doPageSequenceConstruction">
+      <xsl:with-param name="pageSequenceMasterName" select="'body-sequence'"/>
+    </xsl:call-template>
+  </xsl:template>
+  
+  <xsl:template mode="constructPageSequence" match="dita-ot:pageSequence[@pubRegion = 'appendices']" priority="10">
+    <xsl:call-template name="doPageSequenceConstruction">
+      <xsl:with-param name="pageSequenceMasterName" select="'body-sequence'"/>
+    </xsl:call-template>
+  </xsl:template>
+  
+  <xsl:template mode="constructPageSequence" match="dita-ot:pageSequence[@pubRegion = 'glossary']" priority="10">
+    <xsl:call-template name="doPageSequenceConstruction">
+      <xsl:with-param name="pageSequenceMasterName" select="'body-sequence'"/>
+    </xsl:call-template>
   </xsl:template>
   
   <!-- ==========================================
@@ -259,7 +324,12 @@
   </xsl:template>
   
   <xsl:template mode="getPublicationRegion" match="*">
-    <xsl:sequence select="'body'"/>
+    <!-- Make each body topic a unique name starting with "body" so
+         each topic becomes a separate page sequence as in the base
+         PDF processing, but matches the default body template
+         for generating fo:page-sequence.
+      -->
+    <xsl:sequence select="concat('body', ':', string(count(preceding::*[df:class(., 'topic/topic')])))"/>
   </xsl:template>
   
   <!-- =========================================================

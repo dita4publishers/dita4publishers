@@ -17,12 +17,28 @@
       
       <xsl:call-template
         name="createDefaultLayoutMasters"/>
-      <xsl:call-template
-        name="createCustomLayoutMasters"/>
+       <xsl:apply-templates 
+         select="/" mode="createLayoutMasters"/>
 
-       <xsl:call-template name="createDefaultPageSequenceMasters"/>
-       <xsl:call-template name="createCustomPageSequenceMasters"/>
+       <xsl:call-template 
+         name="createDefaultPageSequenceMasters"/>
+       <xsl:apply-templates 
+         select="/" mode="createPageSequenceMasters"/>
     </fo:layout-master-set>
+  </xsl:template>
+  
+  <xsl:template mode="createLayoutMasters" match="*">
+    <!-- Implement templates in this mode to generate new layout
+         masters. You can either match on "/" or
+         match on specific topicref or topic elements if 
+      -->
+  </xsl:template>
+
+  <xsl:template mode="createPageSequenceMasters" match="*">
+    <!-- Implement templates in this mode to generate new page
+         sequence masters. You can either match on "/" or
+         match on specific topicref or topic elements if 
+      -->
   </xsl:template>
 
   <xsl:template
@@ -310,9 +326,6 @@
   </xsl:template>
 
   <xsl:template name="createCustomPageSequenceMasters">
-    <!-- Override to construct page sequence masters that use
-         any custom page masters.
-      -->
   </xsl:template>
 
   <xsl:template name="createDefaultPageSequenceMasters">
@@ -369,22 +382,10 @@
         name="generate-page-sequence-master">
         <xsl:with-param
           name="master-name"
-          select="'front-matter'"/>
+          select="'front-matter-sequence'"/>
         <xsl:with-param
           name="master-reference"
           select="'front-matter'"/>
-      </xsl:call-template>
-      <xsl:call-template
-        name="generate-page-sequence-master">
-        <xsl:with-param
-          name="master-name"
-          select="'glossary-sequence'"/>
-        <xsl:with-param
-          name="master-reference"
-          select="'glossary'"/>
-        <xsl:with-param
-          name="last"
-          select="false()"/>
       </xsl:call-template>
 
   </xsl:template>

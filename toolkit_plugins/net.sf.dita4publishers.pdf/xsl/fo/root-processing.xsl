@@ -81,8 +81,6 @@
     </fo:root>
   </xsl:template>
   
-  <xsl:template mode="constructNavTreePageSequences" match="text()"/>
-  
   <xsl:template name="createCoversAndInitialPages">
     <!-- Template to manage creation of covers and initial pages 
          up to the frontmatter and book lists (ToC, etc.).
