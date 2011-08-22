@@ -32,8 +32,9 @@
          page sequences.
          
      -->
-    
-    <xsl:message> + [DEBUG] processTopLevelTopic: tagname="<xsl:sequence select="name(.)"/>", id="<xsl:sequence select="string(@id)"/>", topicType="<xsl:sequence select="$topicType"/>", topicref-type="<xsl:sequence select="string(@topicref-type)"/>"</xsl:message>
+    <xsl:variable name="topicref" select="dita-ot:getTopicrefForTopic(.)" as="element()?"/>
+    <xsl:message> + [DEBUG] processTopLevelTopic: tagname="<xsl:sequence select="name(.)"/>", id="<xsl:sequence select="string(@id)"/>", topicType="<xsl:sequence select="$topicType"/>", topicrefType="<xsl:sequence 
+      select="if ($topicref) then name($topicref) else 'No topicref for topic'"/>"</xsl:message>
     
     <fo:block xsl:use-attribute-sets="topic">
       <xsl:call-template name="commonattributes"/>
@@ -117,8 +118,8 @@
         <xsl:call-template name="determineTopicType"/>
     </xsl:variable>
     
-    <xsl:message>+ [DEBUG] commons.xsl: topic/topic: ancestorTopicType="<xsl:sequence select="$ancestorTopicType"/>"</xsl:message>
-    <xsl:message>+ [DEBUG] commons.xsl: topic/topic:       myTopicType="<xsl:sequence select="$myTopicType"/>"</xsl:message>
+<!--    <xsl:message>+ [DEBUG] commons.xsl: topic/topic: ancestorTopicType="<xsl:sequence select="$ancestorTopicType"/>"</xsl:message>-->
+<!--    <xsl:message>+ [DEBUG] commons.xsl: topic/topic:       myTopicType="<xsl:sequence select="$myTopicType"/>"</xsl:message>-->
 
       <xsl:choose>
         <xsl:when test="$topicType = 'topicChapter'">
