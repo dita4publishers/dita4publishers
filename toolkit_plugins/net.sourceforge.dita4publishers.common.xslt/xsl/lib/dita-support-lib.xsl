@@ -478,33 +478,66 @@
   <xsl:function name="df:isTopicHead" as="xs:boolean">
     <!-- Returns true if the topicref has a navtitle but no href or keyref -->
     <xsl:param name="context" as="element()"/>
-    <xsl:sequence 
+
+<!--    <xsl:message>+ [DEBUG] isTopicHead(): @class=<xsl:sequence select="string($context/@class)"/></xsl:message>-->
+    <xsl:variable name="result"  as="xs:boolean"
       select="df:class($context, 'map/topicref') and 
               (not($context/@href) or $context/@href = '') and
               (not($context/@keyref) or $context/@keyref = '') and
               ($context/@navtitle != '' or 
-               $context/*[df:class($context, 'map/topicmeta')]/*[df:class(., 'topic/navtitle')])"/>
+               $context/*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/navtitle')])"/>
+<!--    <xsl:message>+ [DEBUG] isTopicHead(): returning <xsl:sequence select="$result"/></xsl:message>-->
+    <xsl:sequence select="$result"/>
   </xsl:function>
   
   <xsl:function name="df:isTopicGroup" as="xs:boolean">
     <!-- Returns true if the topicref has no navititle and no href or keyref -->
     <xsl:param name="context" as="element()"/>
-    <xsl:sequence 
-      select="df:class($context, 'mapgroup-d/topicgroup') or 
-      (df:class($context, 'map/topicref') and 
-       (not($context/@href) or $context/@href = '') and
-       (not($context/@keyref) or $context/@keyref = '') and
-       not($context/@navtitle != '' or 
-           $context/*[df:class($context, 'map/topicmeta')]/*[df:class(., 'topic/navtitle')]))"/>
+
+    <xsl:variable name="classIsTopicgroup" as="xs:boolean"
+      select="df:class($context, 'mapgroup-d/topicgroup')"
+    />
+    
+    <xsl:variable name="classIsTopicrefOrTopichead" as="xs:boolean"
+      select="df:class($context, 'map/topicref') or 
+              df:class($context, 'mapgroup-d/topichead')"
+    />
+    <xsl:variable name="noHrefOrKeyref" as="xs:boolean"
+      select="
+       ((not($context/@href) or 
+        ($context/@href = '')) and
+        (not($context/@keyref) or 
+         ($context/@keyref = '')))"
+    />
+    <xsl:variable name="noNavtitleAtt" as="xs:boolean"
+      select="($context/@navtitle = '') or not($context/@navtitle)"
+    />
+    <xsl:variable name="noNavtitleElem" as="xs:boolean" 
+      select="not($context/*[contains(@class, ' map/topicmeta ')]/*[contains(@class, ' topic/navtitle ')])"/>
+<!-- <xsl:message>+ [DEBUG]   isTopicGroup(): noNavtitleElem=<xsl:sequence select="$noNavtitleElem"/></xsl:message>-->
+   
+    <xsl:variable name="result" as="xs:boolean" 
+      select="$classIsTopicgroup or 
+      ($classIsTopicrefOrTopichead and 
+       $noHrefOrKeyref and
+       $noNavtitleAtt and 
+       $noNavtitleElem)"/>
+<!--    <xsl:message>+ [DEBUG]   isTopicGroup(): returning=<xsl:sequence select="$result"/></xsl:message>-->
+    <xsl:sequence select="$result"/>
   </xsl:function>
   
   <xsl:function name="df:isTopicRef" as="xs:boolean">
     <!-- Returns true if the topicref points to something -->
     <xsl:param name="context" as="element()"/>
-    <xsl:sequence 
+<!--    <xsl:message>+ [DEBUG] isTopicRef(): context=<xsl:sequence select="name($context), ', id=', string($context/@id)"/></xsl:message>-->
+    
+    <xsl:variable name="result" 
       select="df:class($context, 'map/topicref') and 
       (($context/@href and $context/@href != '') or
        ($context/@keyref and $context/@keyref != ''))"/>
+    
+<!--        <xsl:message>+ [DEBUG]   isTopicRef(): returning=<xsl:sequence select="$result"/></xsl:message>-->
+    <xsl:sequence select="$result"/>
   </xsl:function>
   
   <xsl:function name="df:getBaseClass" as="xs:string">
