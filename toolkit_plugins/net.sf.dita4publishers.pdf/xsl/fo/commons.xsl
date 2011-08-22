@@ -32,8 +32,10 @@
                   <number>
                       <xsl:variable name="id" select="string(@id)" as="xs:string"/>
                       <xsl:variable name="chapterNumber">
-                          <xsl:number format="1" value="count($map//*[contains(@class, ' bookmap/chapter ')]/*[@id = $id]/preceding-sibling::*) + 1"/>
+                          <xsl:number format="1" 
+                            value="count(key('topicsById', $id, root(.))/preceding::*[df:class(., 'topic/topic') and dita-ot-pdf:determineTopicType(.) = 'topicChapter']) + 1"/>
                       </xsl:variable>
+                    <xsl:message>+ [DEBUG] insertFirstPageStaticContent, topicChapter: chapterNumber=<xsl:sequence select="$chapterNumber"/></xsl:message>
                       <fo:block xsl:use-attribute-sets="__chapter__frontmatter__number__container">
                           <xsl:value-of select="$chapterNumber"/>
                       </fo:block>
@@ -126,6 +128,18 @@
     />
 <!--    <xsl:message>+ [DEBUG] dita-ot-pdf:getTopicrefForTopic(): topicref="<xsl:sequence select="name($topicref)"/></xsl:message>-->
     <xsl:sequence select="$topicref"/>
+  </xsl:function>
+
+  <xsl:function name="dita-ot-pdf:getTopicForId" as="element()?">
+    <xsl:param name="topicId" as="xs:string"/>
+    
+<!--    <xsl:message>+ [DEBUG] dita-ot-pdf:getTopicrefForTopic(): topicrefId="<xsl:sequence select="$topicrefId"/></xsl:message>-->
+    
+    <xsl:variable name="topic" as="element()?"
+      select="key('topicsById', $topicId, root($mergedDoc))"
+    />
+<!--    <xsl:message>+ [DEBUG] dita-ot-pdf:getTopicrefForTopic(): topicref="<xsl:sequence select="name($topicref)"/></xsl:message>-->
+    <xsl:sequence select="$topic"/>
   </xsl:function>
 
 </xsl:stylesheet>
