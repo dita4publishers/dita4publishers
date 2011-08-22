@@ -98,7 +98,21 @@
     </xsl:variable>
     <xsl:call-template name="createFrontCover">
       <xsl:with-param name="frontCoverGraphicUri" as="xs:string" select="$d4pFrontCoverGraphicUri"/>
-    </xsl:call-template>    
+    </xsl:call-template>
+   <!-- FIXME: this creation of a page sequence kind of breaks the general page sequence
+               construction model but not sure how to handle this.
+     -->
+    <fo:page-sequence master-reference="front-matter-sequence" 
+      format="i"
+      initial-page-number="auto-odd"
+      xsl:use-attribute-sets="__force__page__count">
+        <xsl:call-template name="insertFrontMatterStaticContents"/>
+        <fo:flow flow-name="xsl-region-body">
+          <xsl:call-template name="createTitlePage"/>
+          <!-- Normally the page on the back of the cover page (left-hand page). -->
+          <xsl:call-template name="createCopyrightPage"/>
+        </fo:flow>
+    </fo:page-sequence>
   </xsl:template>
   
   <xsl:template name="createLastPages">

@@ -61,12 +61,19 @@
 <!--    <xsl:message>+ [DEBUG] determineTopicType: topic=<xsl:sequence select="name(.)"/> id=<xsl:sequence select="string(@id)"/></xsl:message>-->
     <xsl:variable name="topicref" as="element()?"
       select="dita-ot-pdf:getTopicrefForTopic(.)"/>
-<!--    <xsl:message>+ [DEBUG] determineTopicType: topicref=<xsl:sequence select="name($topicref)"/></xsl:message>-->
+    <xsl:variable name="lastClassToken" as="xs:string?"
+      select="tokenize(normalize-space($topicref/@class), ' ')[last()]"
+    />
+    <xsl:variable name="topicrefTagname" as="xs:string?"
+      select="tokenize($lastClassToken, '/')[last()]"
+    />
+    
     <xsl:variable name="topicrefType" as="xs:string?" 
-      select="if (name($topicref) = ('topicref', 'topichead', 'topicgroup'))
+      select="if (not($topicrefTagname) or 
+                  $topicrefTagname = '' or 
+                  $topicrefTagname = ('topicref', 'topichead', 'topicgroup'))
       then 'simple'
-      else name($topicref)"/>
-<!--    <xsl:message>+ [DEBUG] determineTopicType:   topicrefType=<xsl:sequence select="$topicrefType"/></xsl:message>-->
+      else $topicrefTagname"/>
     <xsl:variable name="topicType" as="xs:string"
       select="if ($topicrefType != 'simple' and $topicrefType != '')
                  then $topicrefType

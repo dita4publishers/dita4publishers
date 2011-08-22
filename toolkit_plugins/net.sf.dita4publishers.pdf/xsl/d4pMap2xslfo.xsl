@@ -23,6 +23,7 @@
   <xsl:import href="fo/root-processing.xsl"/>
   <xsl:import href="fo/commons.xsl"/>
   <xsl:import href="fo/determine-topic-type.xsl"/>
+  <xsl:import href="fo/front-matter.xsl"/>
   <xsl:import href="fo/get-toplevel-topics.xsl"/>
   <xsl:import href="fo/glossary.xsl"/>
   <xsl:import href="fo/index.xsl"/>
