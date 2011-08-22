@@ -109,10 +109,10 @@
        <xsl:variable name="pubRegion" select="local:getPublicationRegion(.)"/>
 <!--       <xsl:message>+ [DEBUG]   pubRegion="<xsl:sequence select="$pubRegion"/></xsl:message>-->
        <xsl:variable name="pageSequenceGenerator">
-         <dita-ot-pdf:pageSequence pubRegion="{$pubRegion}">
-         </dita-ot-pdf:pageSequence>
+         <dita-ot-pdf:pageSequence pubRegion="{$pubRegion}"/>         
        </xsl:variable>       
        <xsl:apply-templates mode="constructPageSequence" select="$pageSequenceGenerator">
+         <xsl:with-param name="pubRegion" select="string(@pubRegion)" as="xs:string" tunnel="yes"/>
          <xsl:with-param name="topics" as="element()*" tunnel="yes">
            <xsl:sequence select="current-group()"/>
          </xsl:with-param>
@@ -138,7 +138,6 @@
   <xsl:template mode="constructPageSequence" match="dita-ot-pdf:pageSequence[@pubRegion = 'frontmatter']" priority="10">
     <xsl:call-template name="doPageSequenceConstruction">
       <xsl:with-param name="pageSequenceMasterName" select="'front-matter-sequence'"/>
-      <xsl:with-param name="pubRegion" select="string(@pubRegion)" as="xs:string" tunnel="yes"/>
     </xsl:call-template>
   </xsl:template>
   

@@ -35,7 +35,7 @@
                           <xsl:number format="1" 
                             value="count(key('topicsById', $id, root(.))/preceding::*[df:class(., 'topic/topic') and dita-ot-pdf:determineTopicType(.) = 'topicChapter']) + 1"/>
                       </xsl:variable>
-                    <xsl:message>+ [DEBUG] insertFirstPageStaticContent, topicChapter: chapterNumber=<xsl:sequence select="$chapterNumber"/></xsl:message>
+<!--                    <xsl:message>+ [DEBUG] insertFirstPageStaticContent, topicChapter: chapterNumber=<xsl:sequence select="$chapterNumber"/></xsl:message>-->
                       <fo:block xsl:use-attribute-sets="__chapter__frontmatter__number__container">
                           <xsl:value-of select="$chapterNumber"/>
                       </fo:block>

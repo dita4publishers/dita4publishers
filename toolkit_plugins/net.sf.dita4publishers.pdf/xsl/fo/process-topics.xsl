@@ -48,22 +48,35 @@
          
     -->
     
+    <!-- Capture the topic type so we don't have to recalculate it where it can be 
+         passed as a parameter.
+      -->
+    <xsl:variable name="topicType" select="dita-ot-pdf:determineTopicType(.)" as="xs:string"/>
+    
     <xsl:if test="true()">
       <xsl:variable name="topicref" select="dita-ot-pdf:getTopicrefForTopic(.)" as="element()?"/>
       
-      <xsl:message> + [DEBUG] processTopLevelTopic: tagname="<xsl:sequence select="name(.)"/>", id="<xsl:sequence select="string(@id)"/>", topicType="<xsl:sequence select="dita-ot-pdf:determineTopicType(.)"/>", topicrefType="<xsl:sequence 
+      <xsl:message> + [DEBUG] top-level topic processing: tagname="<xsl:sequence select="name(.)"/>", id="<xsl:sequence select="string(@id)"/>", topicType="<xsl:sequence select="$topicType"/>", topicrefType="<xsl:sequence 
         select="if ($topicref) then name($topicref) else 'No topicref for topic'"/>"</xsl:message>
     </xsl:if>
     
     <fo:block xsl:use-attribute-sets="topic">
       <xsl:call-template name="commonattributes"/>
-      <xsl:call-template name="setTopicPageBreak"/>
-      <xsl:apply-templates select="." mode="setTopicMarkers"/>
+      <xsl:call-template name="setTopicPageBreak">
+        <xsl:with-param name="topicType" as="xs:string" select="$topicType" tunnel="yes"/>
+      </xsl:call-template>
+      <xsl:apply-templates select="." mode="setTopicMarkers">
+        <xsl:with-param name="topicType" as="xs:string" select="$topicType" tunnel="yes"/>
+      </xsl:apply-templates>
 
-      <xsl:apply-templates select="*[contains(@class,' topic/prolog ')]"/>
+      <xsl:apply-templates select="*[contains(@class,' topic/prolog ')]">
+        <xsl:with-param name="topicType" as="xs:string" select="$topicType" tunnel="yes"/>
+      </xsl:apply-templates>
 
         <!-- Generate the chapter opener stuff: -->
-      <xsl:call-template name="insertChapterFirstpageStaticContent"/>
+      <xsl:call-template name="insertChapterFirstpageStaticContent">
+        <xsl:with-param name="topicType" as="xs:string" select="$topicType" tunnel="yes"/>
+      </xsl:call-template>
       
 
       <fo:block xsl:use-attribute-sets="topic.title">
@@ -72,7 +85,9 @@
           <!-- added by William on 2009-07-02 for indexterm bug:2815485 end-->
           
           <xsl:for-each select="child::*[contains(@class,' topic/title ')]">
-              <xsl:call-template name="getTitle"/>
+              <xsl:call-template name="getTitle">
+                <xsl:with-param name="topicType" as="xs:string" select="$topicType" tunnel="yes"/>
+              </xsl:call-template>
           </xsl:for-each>
       </fo:block>
 
@@ -81,20 +96,27 @@
             <fo:block>
               <xsl:apply-templates select="*[not(contains(@class, ' topic/topic ') or contains(@class, ' topic/title ') or
                                                  contains(@class, ' topic/prolog '))]"/>                
-              <xsl:call-template name="buildRelationships"/>
+              <xsl:call-template name="buildRelationships">
+                <xsl:with-param name="topicType" as="xs:string" select="$topicType" tunnel="yes"/>
+              </xsl:call-template>
             </fo:block>
         </xsl:when>
         <xsl:otherwise>
-            <xsl:call-template name="createMiniToc"/>
+          <xsl:call-template name="createMiniToc">
+             <xsl:with-param name="topicType" as="xs:string" select="$topicType" tunnel="yes"/>
+          </xsl:call-template>
         </xsl:otherwise>
       </xsl:choose>
 
-      <xsl:apply-templates select="*[contains(@class,' topic/topic ')]"/>
+      <xsl:apply-templates select="*[contains(@class,' topic/topic ')]">
+         <xsl:with-param name="topicType" as="xs:string" select="$topicType" tunnel="yes"/>
+      </xsl:apply-templates>
     </fo:block>
   </xsl:template>
   
   <xsl:template name="insertChapterFirstpageStaticContent">
-    <xsl:param name="type" select="'unusedparameter'"/>
+    <xsl:param name="type" required="no" select="'unused'"/>
+    <xsl:param name="topicType" tunnel="yes" as="xs:string"/>
     
     <xsl:if test="false()">
       <xsl:message>+ [DEBUG] insertChapterFirstpageStaticContent: context is <xsl:sequence 
@@ -125,12 +147,14 @@
   </xsl:template>
   
   <xsl:template mode="setTopicPageBreak" match="*[df:class(., 'topic/topic')]">
-    <xsl:param name="topicType" tunnel="yes"/>
-    <xsl:param name="pubRegion" tunnel="yes"/>
+    <xsl:param name="topicType" tunnel="yes" as="xs:string" 
+      select="dita-ot-pdf:determineTopicType(.)"
+    />
+    
     <xsl:choose>
-      <xsl:when test="contains($topicType, 'topicChapter') or
-        contains($topicType, 'topicPart') or
-        not(ancestor::*[df:class(., 'topic/topic')])
+      <xsl:when test="
+        ($topicType = ('topicChapter', 'topicPart', 'topicAppendix')) or
+         not(ancestor::*[df:class(., 'topic/topic')])
         ">
         <xsl:attribute name="break-before" select="'odd-page'"/>        
       </xsl:when>
