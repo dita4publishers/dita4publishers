@@ -12,7 +12,7 @@
   xmlns:dita-ot="http://net.sf.dita-ot"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:df="http://dita2indesign.org/dita/functions"
-  exclude-result-prefixes="opentopic-index opentopic opentopic-i18n opentopic-func xs xd relpath df local"
+  exclude-result-prefixes="opentopic-index opentopic opentopic-i18n opentopic-func xs xd relpath df local dita-ot"
   version="2.0">
 
   <!--================================
@@ -21,6 +21,8 @@
       
       ================================-->
   <xsl:template name="processTopLevelTopic">
+    <xsl:param name="topicType" as="xs:string" tunnel="yes"/>
+    
     <!-- Generate the FO within a page sequence
          for a top-level topic.
          
@@ -31,25 +33,18 @@
          
      -->
     
-    <xsl:message> + [DEBUG] processTopLevelTopic: tagname="<xsl:sequence select="name(.)"/>", id="<xsl:sequence select="string(@id)"/>", topicref-type="<xsl:sequence select="string(@topicref-type)"/>"</xsl:message>
+    <xsl:message> + [DEBUG] processTopLevelTopic: tagname="<xsl:sequence select="name(.)"/>", id="<xsl:sequence select="string(@id)"/>", topicType="<xsl:sequence select="$topicType"/>", topicref-type="<xsl:sequence select="string(@topicref-type)"/>"</xsl:message>
     
     <fo:block xsl:use-attribute-sets="topic">
-        <xsl:call-template name="commonattributes"/>
-        <xsl:if test="not(ancestor::*[contains(@class, ' topic/topic ')])">
-            <fo:marker marker-class-name="current-topic-number">
-                <xsl:number format="1"/>
-            </fo:marker>
-            <fo:marker marker-class-name="current-header">
-                <xsl:for-each select="child::*[contains(@class,' topic/title ')]">
-                    <xsl:call-template name="getTitle"/>
-                </xsl:for-each>
-            </fo:marker>
-        </xsl:if>
+      <xsl:call-template name="commonattributes"/>
+      <xsl:call-template name="setTopicPageBreak"/>
+      <xsl:apply-templates select="." mode="setTopicMarkers"/>
 
-        <xsl:apply-templates select="*[contains(@class,' topic/prolog ')]"/>
+      <xsl:apply-templates select="*[contains(@class,' topic/prolog ')]"/>
 
+        <!-- Generate the chapter opener stuff: -->
         <xsl:call-template name="insertChapterFirstpageStaticContent">
-            <xsl:with-param name="type" select="'chapter'"/>
+          <xsl:with-param name="type" select="'chapter'"/>
         </xsl:call-template>
 
         <fo:block xsl:use-attribute-sets="topic.title">
@@ -66,7 +61,7 @@
           <xsl:when test="$chapterLayout='BASIC'">
               <fo:block>
                 <xsl:apply-templates select="*[not(contains(@class, ' topic/topic ') or contains(@class, ' topic/title ') or
-                                                   contains(@class, ' topic/prolog '))]"/>
+                                                   contains(@class, ' topic/prolog '))]"/>                
                 <xsl:call-template name="buildRelationships"/>
               </fo:block>
           </xsl:when>
@@ -79,15 +74,51 @@
     </fo:block>
   </xsl:template>
   
+  <xsl:template mode="setTopicMarkers" match="*[df:class(., 'topic/topic')]">
+    <fo:marker marker-class-name="current-topic-number">
+      <xsl:number format="1"/>
+    </fo:marker>
+    <fo:marker marker-class-name="current-header">
+      <xsl:for-each select="child::*[contains(@class,' topic/title ')]">
+         <xsl:call-template name="getTitle"/>
+      </xsl:for-each>
+    </fo:marker>
+  </xsl:template>
+  
+  <xsl:template name="setTopicPageBreak">
+    <xsl:apply-templates mode="setTopicPageBreak" select="."/>
+  </xsl:template>
+  
+  <xsl:template mode="setTopicPageBreak" match="*[df:class(., 'topic/topic')]">
+    <xsl:param name="topicType" tunnel="yes"/>
+    <xsl:param name="pubRegion" tunnel="yes"/>
+    <xsl:choose>
+      <xsl:when test="contains($topicType, 'topicChapter') or
+        contains($topicType, 'topicPart') or
+        not(ancestor::*[df:class(., 'topic/topic')])
+        ">
+        <xsl:attribute name="break-before" select="'odd-page'"/>        
+      </xsl:when>
+      <xsl:otherwise>
+        <!-- No page break -->
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
   <!-- Override of same template from base commons.xsl.
     
        This override removes the generation of fo:page-sequence
        
   -->
   <xsl:template match="*[contains(@class, ' topic/topic ')]">
-      <xsl:variable name="topicType">
-          <xsl:call-template name="determineTopicType"/>
-      </xsl:variable>
+    <xsl:param name="topicType" as="xs:string" tunnel="yes"/>
+    <xsl:variable name="ancestorTopicType" select="$topicType"/>
+    <xsl:variable name="myTopicType">
+        <xsl:call-template name="determineTopicType"/>
+    </xsl:variable>
+    
+    <xsl:message>+ [DEBUG] commons.xsl: topic/topic: ancestorTopicType="<xsl:sequence select="$ancestorTopicType"/>"</xsl:message>
+    <xsl:message>+ [DEBUG] commons.xsl: topic/topic:       myTopicType="<xsl:sequence select="$myTopicType"/>"</xsl:message>
 
       <xsl:choose>
         <xsl:when test="$topicType = 'topicChapter'">
@@ -177,6 +208,7 @@
           </xsl:choose>
 
           <xsl:apply-templates select="*[contains(@class,' topic/topic ')]"/>
+          
       </fo:block>
     </xsl:template>
 
@@ -351,7 +383,25 @@
             <xsl:call-template name="processTopic"/>
         </xsl:otherwise>
     </xsl:choose>
-</xsl:template>
-
+  </xsl:template>
+  
+  <!--=================================================
+      Generic functions specific to the PDF processing
+      ================================================= -->
+  
+  <xsl:function name="dita-ot:getTopicrefForTopic" as="element()?">
+    <xsl:param name="topicElem" as="element()"/>
+    
+    <xsl:variable name="topicrefId" as="xs:string"
+      select="string($topicElem/@id)" 
+    />
+<!--    <xsl:message>+ [DEBUG] dita-ot:getTopicrefForTopic(): topicrefId="<xsl:sequence select="$topicrefId"/></xsl:message>-->
+    
+    <xsl:variable name="topicref" as="element()?"
+      select="key('topicRefsById', $topicrefId, root($mergedDoc))"
+    />
+<!--    <xsl:message>+ [DEBUG] dita-ot:getTopicrefForTopic(): topicref="<xsl:sequence select="name($topicref)"/></xsl:message>-->
+    <xsl:sequence select="$topicref"/>
+  </xsl:function>
 
 </xsl:stylesheet>

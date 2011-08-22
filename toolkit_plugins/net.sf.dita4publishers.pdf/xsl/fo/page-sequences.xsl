@@ -12,7 +12,7 @@
   xmlns:dita-ot="http://net.sf.dita-ot"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:df="http://dita2indesign.org/dita/functions"
-  exclude-result-prefixes="opentopic-index opentopic opentopic-i18n opentopic-func xs xd relpath df local"
+  exclude-result-prefixes="opentopic-index opentopic opentopic-i18n opentopic-func xs xd relpath df local dita-ot"
   version="2.0">
 
   <!--================================
@@ -51,22 +51,18 @@
     <xsl:param name="frontCoverTopics"  as="element()*" tunnel="yes"/>
     <xsl:param name="backCoverTopics"  as="element()*"  tunnel="yes"/>
      
-    <!-- Store the original context for use later as a convenience: -->
-    <xsl:variable name="mergedDoc" select="." as="node()"/>
-
-     
      <!-- FIXME: Need a general way to handle book lists or automatic
           generation of the book lists when not specified.
        -->
     
     <!-- Get a flat list of all the top-level topics or topicrefs: -->
-    <xsl:variable name="topLevelTopicsOrRefs" as="element()*">
-      <xsl:apply-templates mode="getTopLevelTopicsOrRefs" select="/*/opentopic:map/*[contains(@class, ' map/topicref ')]"/>
+    <xsl:variable name="topLevelTopics" as="element()*">
+      <xsl:apply-templates mode="getTopLevelTopics" select="/*/opentopic:map/*[contains(@class, ' map/topicref ')]"/>
     </xsl:variable>
      
-    <xsl:if test="false()">
-      <xsl:message>+ [DEBUG] constructNavTreePageSequences: topLevelTopicsOrRefs=<xsl:sequence 
-        select="for $e in $topLevelTopicsOrRefs return concat(name($e), ' [id=', $e/@id, ']')"/></xsl:message>
+    <xsl:if test="true()">
+      <xsl:message>+ [DEBUG] constructNavTreePageSequences: topLevelTopics=<xsl:sequence 
+        select="for $e in $topLevelTopics return concat('&#x0A;', name($e), ' [id=', $e/@id, ']')"/></xsl:message>
     </xsl:if>
      
     <!-- Construct an XML structure that maps each topic or topicref to its semantic topic
@@ -74,9 +70,18 @@
        -->
     <xsl:variable name="topicToTypeMap" as="element()*">
       <xsl:apply-templates mode="mapTopicsToType"
-        select="$topLevelTopicsOrRefs except $frontCoverTopics | $backCoverTopics" 
+        select="$topLevelTopics except $frontCoverTopics | $backCoverTopics" 
       />
     </xsl:variable>
+    
+    <xsl:if test="true()">
+      <xsl:message>+ [DEBUG] Topic to type map:</xsl:message>
+      <xsl:for-each select="$topicToTypeMap">
+        <xsl:message>+ [DEBUG]  <xsl:sequence select="concat('topicType=', @topicType, ', topicId=', @topicId)"/></xsl:message>
+      </xsl:for-each>
+      <xsl:message>+ [DEBUG] -----------------
+      </xsl:message>
+    </xsl:if>
      
     <!-- Now we know what the topic type is for each top-level topic or topicref. 
       
@@ -148,19 +153,28 @@
   <xsl:template mode="constructPageSequence" match="dita-ot:pageSequence[@pubRegion = 'frontmatter']" priority="10">
     <xsl:call-template name="doPageSequenceConstruction">
       <xsl:with-param name="pageSequenceMasterName" select="'front-matter-sequence'"/>
+      <xsl:with-param name="pubRegion" select="string(@pubRegion)" as="xs:string" tunnel="yes"/>
     </xsl:call-template>
   </xsl:template>
   
   <xsl:template name="doPageSequenceConstruction">
+    <!-- Context item is a dita-ot:pageSequence element -->
     <xsl:param name="pageSequenceMasterName" as="xs:string"/>
+
     <fo:page-sequence master-reference="{$pageSequenceMasterName}" 
       xsl:use-attribute-sets="__force__page__count">
-      <xsl:apply-templates select="." mode="setInitialPageNumber"/>
+      <xsl:apply-templates select="." mode="setInitialPageNumber"/>      
       <xsl:apply-templates select="." mode="constructStaticContent"/>
       
       <fo:flow flow-name="xsl-region-body">
+        <!-- Process each topic in the page sequence. -->
         <xsl:for-each select="*">
-          <xsl:call-template name="processTopLevelTopic"/>
+          <xsl:variable name="topicType">
+            <xsl:call-template name="determineTopicType"/>
+          </xsl:variable>
+          <xsl:call-template name="processTopLevelTopic">
+            <xsl:with-param name="topicType" select="$topicType" as="xs:string" tunnel="yes"/>
+          </xsl:call-template>
         </xsl:for-each>
       </fo:flow>
     </fo:page-sequence>
@@ -230,44 +244,6 @@
     </xsl:call-template>
   </xsl:template>
   
-  <!-- ==========================================
-       Topic type determining templates.
-       
-       ========================================== -->
-  
-  <xsl:template name="determineTopicType">
-    <xsl:apply-templates mode="determineTopicType"/>
-  </xsl:template>
-  
-  <xsl:template mode="mapTopicsToType" match="*[df:class(., 'topic/topic')]">
-    <xsl:variable name="topicType">
-      <!-- This template uses the mode determineTopicType to get the
-           topic type for the topic. Implement templates in this mode
-           to map topics to specific topic types.
-        -->
-      <xsl:call-template name="determineTopicType"/>
-    </xsl:variable>
-    <dita-ot:topicToTypeMapItem 
-      topicType="{normalize-space($topicType)}" 
-      topicId="{string(@id)}"
-    />
-  </xsl:template>
-  
-  <xsl:template match="*" mode="determineTopicType">
-    <!-- This is an override of the same template in
-          commons.xsl
-    -->
-    <xsl:variable name="topicrefType" as="xs:string?" select="@topicref-type"/>
-
-    <xsl:variable name="result" as="xs:string"
-      select="
-    if ($topicrefType != '')
-       then concat('topic', upper-case(substring($topicrefType, 1,1)), substring($topicrefType, 2))
-       else 'topicSimple'
-      "/>
-    <xsl:sequence select="$result"/>
-  </xsl:template>
-
   <xsl:template mode="constructNavTreePageSequences" match="*[df:class(., 'topic/topic')]">
     <xsl:apply-templates select="."/><!-- Apply normal mode processing -->
   </xsl:template>
@@ -276,77 +252,5 @@
     <!-- Do list generation here -->
   </xsl:template>
   
-  <!-- Bookmap list-generating topicrefs -->
-  <xsl:template mode="getTopLevelTopicsOrRefs" 
-    match="*[contains(@class, ' bookmap/toc ')] |
-           *[contains(@class, ' bookmap/figurelist ')] |
-           *[contains(@class, ' bookmap/tablelist ')] |
-           *[contains(@class, ' bookmap/glossarylist ')] |
-           *[contains(@class, ' bookmap/bibliolist ')] |
-           *[contains(@class, ' bookmap/indexlist ')]
-    " 
-    priority="10">
-    <xsl:sequence select="."/>
-  </xsl:template>
   
-  <xsl:template mode="getTopLevelTopicsOrRefs" match="*[df:isTopicGroup(.)]" priority="5">
-    <xsl:apply-templates mode="#current" select="*[contains(@class, ' map/topicref ')]"/>
-  </xsl:template>
-
-  <xsl:template mode="getTopLevelTopicsOrRefs" match="*[df:isTopicRef(.)]">
-    <xsl:variable name="topic" as="element()?"
-      select="key('topicsById', string(@id))[1]"
-    />
-    <xsl:sequence select="$topic"/>
-  </xsl:template>
-  
-  <!-- =========================================================
-       Get Publication Region templates
-       ========================================================= -->
-  
-  <xsl:template mode="getPublicationRegion" 
-    match="*[ancestor::*[df:class(., 'bookmap/frontmatter')]]" 
-    priority="10">
-    <xsl:sequence select="'frontmatter'"/>
-  </xsl:template>
-  
-  <xsl:template mode="getPublicationRegion" 
-    match="*[ancestor::*[df:class(., 'bookmap/backmatter')]]" 
-    priority="10">
-    <xsl:sequence select="'backmatter'"/>
-  </xsl:template>
-  
-  <xsl:template mode="getPublicationRegion" 
-    match="*[ancestor::*[df:class(., 'bookmap/appendices')]] |
-    *[df:class(., 'bookmap/appendix')]" 
-    priority="10">
-    <xsl:sequence select="'appendices'"/>
-  </xsl:template>
-  
-  <xsl:template mode="getPublicationRegion" match="*">
-    <!-- Make each body topic a unique name starting with "body" so
-         each topic becomes a separate page sequence as in the base
-         PDF processing, but matches the default body template
-         for generating fo:page-sequence.
-      -->
-    <xsl:sequence select="concat('body', ':', string(count(preceding::*[df:class(., 'topic/topic')])))"/>
-  </xsl:template>
-  
-  <!-- =========================================================
-       Local functions
-       ========================================================= -->
-  
-  <xsl:function name="local:getPublicationRegion" as="xs:string">
-    <xsl:param name="mergedDoc" as="node()"/>
-    <xsl:param name="topicToTypeMapItem" as="element()"/>
-
-    <xsl:variable name="elemToProcess" as="element()"
-      select="(key('topicRefsById', $topicToTypeMapItem/@topicId, $mergedDoc), 
-               key('topicsById', $topicToTypeMapItem/@topicId, $mergedDoc))[1]"
-    />
-    <xsl:variable name="result" as="xs:string">
-      <xsl:apply-templates select="$elemToProcess" mode="getPublicationRegion"/>
-    </xsl:variable>
-    <xsl:sequence select="$result"/>
-  </xsl:function>
 </xsl:stylesheet>

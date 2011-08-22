@@ -27,6 +27,5 @@
 
   <feature extension="dita.conductor.transtype.check" value="pdf-d4p" type="txt"/>
   <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
-  <feature extension="org.dita.pdf2.xsl.topicmerge" value="xsl/common/topicmerge_overrides.xsl" type="file"/>
       
 </plugin>

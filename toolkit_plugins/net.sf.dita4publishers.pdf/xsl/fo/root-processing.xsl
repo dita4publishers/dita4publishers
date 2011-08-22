@@ -25,6 +25,9 @@
   <!-- URI of the graphic to use for the back cover. -->
   <xsl:param name="d4pBackCoverGraphicUri" as="xs:string" select="''"/>
   
+  <!-- Store the original context for use later as a convenience: -->
+  <xsl:variable name="mergedDoc" select="/" as="node()"/>
+  
   <xsl:key name="topicsById" match="*[df:class(., 'topic/topic')]" use="@id"/>
   <xsl:key name="topicRefsById" match="*[df:class(., 'map/topicref')]" use="@id"/>
 
