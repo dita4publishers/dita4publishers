@@ -55,8 +55,15 @@
          each topic becomes a separate page sequence as in the base
          PDF processing, but matches the default body template
          for generating fo:page-sequence.
+         
+         Context element should be a topicref.
       -->
-    <xsl:sequence select="concat('body', ':', string(count(preceding::*[df:class(., 'topic/topic')])))"/>
+    <xsl:variable name="pubRegion" 
+      select="concat('body', ':', string(count(preceding::*[df:class(., 'map/topicref')])))"
+      as="xs:string"
+      />
+<!--    <xsl:message>+ [DEBUG] mode getPublicationRegion: default template, pubRegion=<xsl:sequence select="$pubRegion"/>"</xsl:message>-->
+    <xsl:sequence select="$pubRegion"/>
   </xsl:template>
   
   <!-- =========================================================

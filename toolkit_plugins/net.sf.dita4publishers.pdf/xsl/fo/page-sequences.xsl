@@ -12,7 +12,9 @@
   xmlns:dita-ot-pdf="http://net.sf.dita-ot/transforms/pdf"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:df="http://dita2indesign.org/dita/functions"
-  exclude-result-prefixes="opentopic-index opentopic opentopic-i18n opentopic-func xs xd relpath df local dita-ot-pdf"
+  xmlns:ot-placeholder="http://suite-sol.com/namespaces/ot-placeholder"
+  exclude-result-prefixes="opentopic-index opentopic opentopic-i18n 
+  opentopic-func xs xd relpath df local dita-ot-pdf ot-placeholder"
   version="2.0">
 
   <!--================================
@@ -102,8 +104,10 @@
          
     -->
      
+<!--     <xsl:message>+ [DEBUG] page-sequences: Generating page sequence constructors...</xsl:message>-->
      <xsl:for-each-group select="$topLevelTopics except $frontCoverTopics | $backCoverTopics" group-adjacent="local:getPublicationRegion(.)">
        <xsl:variable name="pubRegion" select="local:getPublicationRegion(.)"/>
+<!--       <xsl:message>+ [DEBUG]   pubRegion="<xsl:sequence select="$pubRegion"/></xsl:message>-->
        <xsl:variable name="pageSequenceGenerator">
          <dita-ot-pdf:pageSequence pubRegion="{$pubRegion}">
            <xsl:sequence select="current-group()"/>
@@ -226,9 +230,9 @@
     <xsl:apply-templates select="."/><!-- Apply normal mode processing -->
   </xsl:template>
   
-  <xsl:template mode="constructNavTreePageSequences" match="*[df:isTopicRef(.)]">
-    <!-- Do list generation here -->
+  <xsl:template mode="constructNavTreePageSequences" match="ot-placeholder:*">
+    <fo:block>Placeholder for generated stuff: <xsl:sequence select="name(.)"/>
+    </fo:block>
   </xsl:template>
-  
   
 </xsl:stylesheet>
