@@ -30,6 +30,7 @@
   <xsl:import href="fo/preface.xsl"/>
   <xsl:import href="fo/toc.xsl"/>
   <xsl:import href="fo/page-sequences.xsl"/>
+  <xsl:import href="fo/process-topics.xsl"/>
   <xsl:import href="fo/topic-to-pub-region-mappings.xsl"/>
   <xsl:import href="fo/covers.xsl"/>
   <xsl:import href="fo/layout-masters.xsl"/>

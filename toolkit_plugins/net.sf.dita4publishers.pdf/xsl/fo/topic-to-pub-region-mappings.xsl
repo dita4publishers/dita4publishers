@@ -9,10 +9,10 @@
   xmlns:opentopic-index="http://www.idiominc.com/opentopic/index"
   xmlns:opentopic="http://www.idiominc.com/opentopic"
   xmlns:opentopic-func="http://www.idiominc.com/opentopic/exsl/function"
-  xmlns:dita-ot="http://net.sf.dita-ot"
+  xmlns:dita-ot-pdf="http://net.sf.dita-ot"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:df="http://dita2indesign.org/dita/functions"
-  exclude-result-prefixes="opentopic-index opentopic opentopic-i18n opentopic-func xs xd relpath df local dita-ot"
+  exclude-result-prefixes="opentopic-index opentopic opentopic-i18n opentopic-func xs xd relpath df local dita-ot-pdf"
   version="2.0">
 
   <!--================================
@@ -64,15 +64,11 @@
        ========================================================= -->
   
   <xsl:function name="local:getPublicationRegion" as="xs:string">
-    <xsl:param name="mergedDoc" as="node()"/>
-    <xsl:param name="topicToTypeMapItem" as="element()"/>
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="topicref" select="dita-ot-pdf:getTopicrefForTopic($context)" as="element()?"/>
 
-    <xsl:variable name="elemToProcess" as="element()"
-      select="(key('topicRefsById', $topicToTypeMapItem/@topicId, $mergedDoc), 
-               key('topicsById', $topicToTypeMapItem/@topicId, $mergedDoc))[1]"
-    />
     <xsl:variable name="result" as="xs:string">
-      <xsl:apply-templates select="$elemToProcess" mode="getPublicationRegion"/>
+      <xsl:apply-templates select="$topicref" mode="getPublicationRegion"/>
     </xsl:variable>
     <xsl:sequence select="$result"/>
   </xsl:function>

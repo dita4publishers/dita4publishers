@@ -9,10 +9,10 @@
   xmlns:opentopic-index="http://www.idiominc.com/opentopic/index"
   xmlns:opentopic="http://www.idiominc.com/opentopic"
   xmlns:opentopic-func="http://www.idiominc.com/opentopic/exsl/function"
-  xmlns:dita-ot="http://net.sf.dita-ot"
+  xmlns:dita-ot-pdf="http://net.sf.dita-ot"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:df="http://dita2indesign.org/dita/functions"
-  exclude-result-prefixes="opentopic-index opentopic opentopic-i18n opentopic-func xs xd relpath df local dita-ot"
+  exclude-result-prefixes="opentopic-index opentopic opentopic-i18n opentopic-func xs xd relpath df local dita-ot-pdf"
   version="2.0">
 
   <!--================================
@@ -68,24 +68,8 @@
     <!-- Construct an XML structure that maps each topic or topicref to its semantic topic
          type. This map is then used to assign topics and topicrefs to specific page sequences. 
        -->
-    <xsl:variable name="topicToTypeMap" as="element()*">
-      <xsl:apply-templates mode="mapTopicsToType"
-        select="$topLevelTopics except $frontCoverTopics | $backCoverTopics" 
-      />
-    </xsl:variable>
-    
-    <xsl:if test="true()">
-      <xsl:message>+ [DEBUG] Topic to type map:</xsl:message>
-      <xsl:for-each select="$topicToTypeMap">
-        <xsl:message>+ [DEBUG]  <xsl:sequence select="concat('topicType=', @topicType, ', topicId=', @topicId)"/></xsl:message>
-      </xsl:for-each>
-      <xsl:message>+ [DEBUG] -----------------
-      </xsl:message>
-    </xsl:if>
      
-    <!-- Now we know what the topic type is for each top-level topic or topicref. 
-      
-         The challenge now is to group the topics into the major regions of the document:
+    <!-- The challenge now is to group the topics into the major regions of the document:
          
          - frontmatter  - everything between the cover and the first body topic)
          - body         - The main content topics
@@ -118,18 +102,12 @@
          
     -->
      
-     <xsl:for-each-group select="$topicToTypeMap" group-adjacent="local:getPublicationRegion($mergedDoc, .)">
-       <xsl:variable name="pubRegion" select="local:getPublicationRegion($mergedDoc, .)"/>
+     <xsl:for-each-group select="$topLevelTopics except $frontCoverTopics | $backCoverTopics" group-adjacent="local:getPublicationRegion(.)">
+       <xsl:variable name="pubRegion" select="local:getPublicationRegion(.)"/>
        <xsl:variable name="pageSequenceGenerator">
-          <dita-ot:pageSequence pubRegion="{$pubRegion}">
-           <xsl:for-each select="current-group()">
-             <xsl:variable name="topicRefId" select="@topicId" as="xs:string"/>
-             <xsl:variable name="topic" as="element()?"
-               select="key('topicsById', $topicRefId, $mergedDoc)[1]"
-             />
-             <xsl:sequence select="$topic"/>
-           </xsl:for-each>
-         </dita-ot:pageSequence>
+         <dita-ot-pdf:pageSequence pubRegion="{$pubRegion}">
+           <xsl:sequence select="current-group()"/>
+         </dita-ot-pdf:pageSequence>
        </xsl:variable>       
        <xsl:apply-templates mode="constructPageSequence" select="$pageSequenceGenerator"/>       
      </xsl:for-each-group>    
@@ -150,7 +128,7 @@
        otherwise customize how page sequences are constructed.
        ==================================== -->
 
-  <xsl:template mode="constructPageSequence" match="dita-ot:pageSequence[@pubRegion = 'frontmatter']" priority="10">
+  <xsl:template mode="constructPageSequence" match="dita-ot-pdf:pageSequence[@pubRegion = 'frontmatter']" priority="10">
     <xsl:call-template name="doPageSequenceConstruction">
       <xsl:with-param name="pageSequenceMasterName" select="'front-matter-sequence'"/>
       <xsl:with-param name="pubRegion" select="string(@pubRegion)" as="xs:string" tunnel="yes"/>
@@ -158,7 +136,7 @@
   </xsl:template>
   
   <xsl:template name="doPageSequenceConstruction">
-    <!-- Context item is a dita-ot:pageSequence element -->
+    <!-- Context item is a dita-ot-pdf:pageSequence element -->
     <xsl:param name="pageSequenceMasterName" as="xs:string"/>
 
     <fo:page-sequence master-reference="{$pageSequenceMasterName}" 
@@ -209,13 +187,13 @@
   </xsl:template>
   
   <xsl:template mode="setInitialPageNumber" 
-    match="dita-ot:pageSequence[starts-with(@pubRegion, 'body')][1]">
+    match="dita-ot-pdf:pageSequence[starts-with(@pubRegion, 'body')][1]">
       <xsl:attribute name="initial-page-number"
         select="1"
       />
   </xsl:template>
   
-  <xsl:template mode="constructStaticContent" match="dita-ot:pageSequence[starts-with(@pubRegion, 'frontmatter')]">
+  <xsl:template mode="constructStaticContent" match="dita-ot-pdf:pageSequence[starts-with(@pubRegion, 'frontmatter')]">
       <xsl:call-template name="insertFrontMatterStaticContents"/>    
   </xsl:template>
   
@@ -226,19 +204,19 @@
        ========================================== -->
   
   <!-- NOTE: the match is redundant but want to make it clear that the default pubRegion is body -->
-  <xsl:template mode="constructPageSequence" match="dita-ot:pageSequence[starts-with(@pubRegion, 'body')] | *">
+  <xsl:template mode="constructPageSequence" match="dita-ot-pdf:pageSequence[starts-with(@pubRegion, 'body')] | *">
     <xsl:call-template name="doPageSequenceConstruction">
       <xsl:with-param name="pageSequenceMasterName" select="'body-sequence'"/>
     </xsl:call-template>
   </xsl:template>
   
-  <xsl:template mode="constructPageSequence" match="dita-ot:pageSequence[@pubRegion = 'appendices']" priority="10">
+  <xsl:template mode="constructPageSequence" match="dita-ot-pdf:pageSequence[@pubRegion = 'appendices']" priority="10">
     <xsl:call-template name="doPageSequenceConstruction">
       <xsl:with-param name="pageSequenceMasterName" select="'body-sequence'"/>
     </xsl:call-template>
   </xsl:template>
   
-  <xsl:template mode="constructPageSequence" match="dita-ot:pageSequence[@pubRegion = 'glossary']" priority="10">
+  <xsl:template mode="constructPageSequence" match="dita-ot-pdf:pageSequence[@pubRegion = 'glossary']" priority="10">
     <xsl:call-template name="doPageSequenceConstruction">
       <xsl:with-param name="pageSequenceMasterName" select="'body-sequence'"/>
     </xsl:call-template>
