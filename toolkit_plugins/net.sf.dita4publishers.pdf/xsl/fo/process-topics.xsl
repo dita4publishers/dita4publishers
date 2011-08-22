@@ -22,9 +22,21 @@
       (Code taken from commons.xsl in the
       base PDF transform).
       
+      These templates do all handling of
+      topic elements. Selection of topics
+      that should act as top-level topics
+      (parts, chapters, appendixes, etc.)
+      is done using the dita-ot-pdf:determineTopicType()
+      function. Other topics are processed either
+      by topic type or by normal context-based
+      selection, either using ancestor topic
+      types or not.
+      
       ================================-->
-  <xsl:template name="processTopLevelTopic">
-    <xsl:param name="topicType" as="xs:string" tunnel="yes"/>
+  <xsl:template match="
+    *[df:class(., 'topic/topic') and
+      dita-ot-pdf:determineTopicType(.) = 
+             ('topicPart', 'topicChapter', 'topicAppendix', 'topicPreface', 'topicNotices')]">
     
     <!-- Generate the FO within a page sequence
          for a top-level topic.
@@ -34,10 +46,14 @@
          a one-to-one mappin from topics to
          page sequences.
          
-     -->
-    <xsl:variable name="topicref" select="dita-ot-pdf:getTopicrefForTopic(.)" as="element()?"/>
-    <xsl:message> + [DEBUG] processTopLevelTopic: tagname="<xsl:sequence select="name(.)"/>", id="<xsl:sequence select="string(@id)"/>", topicType="<xsl:sequence select="$topicType"/>", topicrefType="<xsl:sequence 
-      select="if ($topicref) then name($topicref) else 'No topicref for topic'"/>"</xsl:message>
+    -->
+    
+    <xsl:if test="true()">
+      <xsl:variable name="topicref" select="dita-ot-pdf:getTopicrefForTopic(.)" as="element()?"/>
+      
+      <xsl:message> + [DEBUG] processTopLevelTopic: tagname="<xsl:sequence select="name(.)"/>", id="<xsl:sequence select="string(@id)"/>", topicType="<xsl:sequence select="dita-ot-pdf:determineTopicType(.)"/>", topicrefType="<xsl:sequence 
+        select="if ($topicref) then name($topicref) else 'No topicref for topic'"/>"</xsl:message>
+    </xsl:if>
     
     <fo:block xsl:use-attribute-sets="topic">
       <xsl:call-template name="commonattributes"/>
@@ -47,34 +63,49 @@
       <xsl:apply-templates select="*[contains(@class,' topic/prolog ')]"/>
 
         <!-- Generate the chapter opener stuff: -->
-        <xsl:call-template name="insertChapterFirstpageStaticContent">
-          <xsl:with-param name="type" select="'chapter'"/>
-        </xsl:call-template>
+      <xsl:call-template name="insertChapterFirstpageStaticContent"/>
+      
 
-        <fo:block xsl:use-attribute-sets="topic.title">
-            <!-- added by William on 2009-07-02 for indexterm bug:2815485 start-->
-            <xsl:call-template name="pullPrologIndexTerms"/>
-            <!-- added by William on 2009-07-02 for indexterm bug:2815485 end-->
-            
-            <xsl:for-each select="child::*[contains(@class,' topic/title ')]">
-                <xsl:call-template name="getTitle"/>
-            </xsl:for-each>
-        </fo:block>
+      <fo:block xsl:use-attribute-sets="topic.title">
+          <!-- added by William on 2009-07-02 for indexterm bug:2815485 start-->
+          <xsl:call-template name="pullPrologIndexTerms"/>
+          <!-- added by William on 2009-07-02 for indexterm bug:2815485 end-->
+          
+          <xsl:for-each select="child::*[contains(@class,' topic/title ')]">
+              <xsl:call-template name="getTitle"/>
+          </xsl:for-each>
+      </fo:block>
 
-        <xsl:choose>
-          <xsl:when test="$chapterLayout='BASIC'">
-              <fo:block>
-                <xsl:apply-templates select="*[not(contains(@class, ' topic/topic ') or contains(@class, ' topic/title ') or
-                                                   contains(@class, ' topic/prolog '))]"/>                
-                <xsl:call-template name="buildRelationships"/>
-              </fo:block>
-          </xsl:when>
-          <xsl:otherwise>
-              <xsl:call-template name="createMiniToc"/>
-          </xsl:otherwise>
-        </xsl:choose>
+      <xsl:choose>
+        <xsl:when test="$chapterLayout='BASIC'">
+            <fo:block>
+              <xsl:apply-templates select="*[not(contains(@class, ' topic/topic ') or contains(@class, ' topic/title ') or
+                                                 contains(@class, ' topic/prolog '))]"/>                
+              <xsl:call-template name="buildRelationships"/>
+            </fo:block>
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:call-template name="createMiniToc"/>
+        </xsl:otherwise>
+      </xsl:choose>
 
-        <xsl:apply-templates select="*[contains(@class,' topic/topic ')]"/>
+      <xsl:apply-templates select="*[contains(@class,' topic/topic ')]"/>
+    </fo:block>
+  </xsl:template>
+  
+  <xsl:template name="insertChapterFirstpageStaticContent">
+    <xsl:param name="type" select="'unusedparameter'"/>
+    
+    <xsl:if test="false()">
+      <xsl:message>+ [DEBUG] insertChapterFirstpageStaticContent: context is <xsl:sequence 
+          select="concat(name(..), '/', name(.), ', id=', @id)"/></xsl:message>
+    </xsl:if>    
+    <fo:block>
+      <xsl:attribute name="id">
+        <xsl:call-template name="generate-toc-id"/>
+      </xsl:attribute>
+    
+      <xsl:apply-templates select="." mode="insertFirstPageStaticContent"/>
     </fo:block>
   </xsl:template>
   
@@ -114,281 +145,29 @@
        This override removes the generation of fo:page-sequence
        
   -->
-  <xsl:template match="*[contains(@class, ' topic/topic ')]">
-    <xsl:param name="topicType" as="xs:string" tunnel="yes"/>
-    <xsl:variable name="ancestorTopicType" select="$topicType"/>
-    <xsl:variable name="myTopicType">
-        <xsl:call-template name="determineTopicType"/>
-    </xsl:variable>
-    
-<!--    <xsl:message>+ [DEBUG] commons.xsl: topic/topic: ancestorTopicType="<xsl:sequence select="$ancestorTopicType"/>"</xsl:message>-->
-<!--    <xsl:message>+ [DEBUG] commons.xsl: topic/topic:       myTopicType="<xsl:sequence select="$myTopicType"/>"</xsl:message>-->
-
-      <xsl:choose>
-        <xsl:when test="$topicType = 'topicChapter'">
-          <xsl:call-template name="processTopicChapter"/>
-        </xsl:when>
-        <xsl:when test="$topicType = 'topicAppendix'">
-          <xsl:call-template name="processTopicAppendix"/>
-        </xsl:when>
-        <xsl:when test="$topicType = 'topicPart'">
-          <xsl:call-template name="processTopicPart"/>
-        </xsl:when>
-        <xsl:when test="$topicType = 'topicPreface'">
-          <xsl:call-template name="processTopicPreface"/>
-        </xsl:when>
-        <xsl:when test="$topicType = 'topicNotices'">
-          <!-- Suppressed in normal processing, since it goes at the beginning of the book. -->
-          <!-- <xsl:call-template name="processTopicNotices"/> -->
-        </xsl:when>
-        <xsl:when test="$topicType = 'topicSimple'">
-          <xsl:choose>
-            <xsl:when test="contains(@class,' concept/concept ')">
-              <xsl:call-template name="processConcept"/>
-            </xsl:when>
-            <xsl:when test="contains(@class,' task/task ')">
-              <xsl:call-template name="processTask"/>
-            </xsl:when>
-            <xsl:when test="contains(@class,' reference/reference ')">
-              <xsl:call-template name="processReference"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:call-template name="processTopic"/>                    
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:when>
-		<!--BS: skipp abstract (copyright) from usual content. It will be processed from the front-matter-->
-		    <xsl:when test="$topicType = 'topicAbstract'"/>
-        <xsl:otherwise>
-          <xsl:call-template name="processUnknowTopic">
-            <xsl:with-param name="topicType" select="$topicType"/>
-          </xsl:call-template>
-        </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-
-    <!--  Bookmap Chapter processing  -->
-    <xsl:template name="processTopicChapter">
-      <fo:block xsl:use-attribute-sets="topic">
-          <xsl:call-template name="commonattributes"/>
-          <xsl:if test="not(ancestor::*[contains(@class, ' topic/topic ')])">
-              <fo:marker marker-class-name="current-topic-number">
-                  <xsl:number format="1"/>
-              </fo:marker>
-              <fo:marker marker-class-name="current-header">
-                  <xsl:for-each select="child::*[contains(@class,' topic/title ')]">
-                      <xsl:call-template name="getTitle"/>
-                  </xsl:for-each>
-              </fo:marker>
-          </xsl:if>
-
-          <xsl:apply-templates select="*[contains(@class,' topic/prolog ')]"/>
-
-          <xsl:call-template name="insertChapterFirstpageStaticContent">
-              <xsl:with-param name="type" select="'chapter'"/>
-          </xsl:call-template>
-
-          <fo:block xsl:use-attribute-sets="topic.title">
-              <!-- added by William on 2009-07-02 for indexterm bug:2815485 start-->
-              <xsl:call-template name="pullPrologIndexTerms"/>
-              <!-- added by William on 2009-07-02 for indexterm bug:2815485 end-->
-              
-              <xsl:for-each select="child::*[contains(@class,' topic/title ')]">
-                  <xsl:call-template name="getTitle"/>
-              </xsl:for-each>
-          </fo:block>
-
-          <xsl:choose>
-            <xsl:when test="$chapterLayout='BASIC'">
-                <fo:block>
-                  <xsl:apply-templates select="*[not(contains(@class, ' topic/topic ') or contains(@class, ' topic/title ') or
-                                                     contains(@class, ' topic/prolog '))]"/>
-                  <xsl:call-template name="buildRelationships"/>
-                </fo:block>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:call-template name="createMiniToc"/>
-            </xsl:otherwise>
-          </xsl:choose>
-
-          <xsl:apply-templates select="*[contains(@class,' topic/topic ')]"/>
-          
-      </fo:block>
-    </xsl:template>
-
-    <!--  Bookmap Appendix processing  -->
-    <xsl:template name="processTopicAppendix">
-      <fo:block xsl:use-attribute-sets="topic">
-          <xsl:call-template name="commonattributes"/>
-          <xsl:if test="not(ancestor::*[contains(@class, ' topic/topic ')])">
-              <fo:marker marker-class-name="current-topic-number">
-                  <xsl:number format="1"/>
-              </fo:marker>
-              <fo:marker marker-class-name="current-header">
-                  <xsl:for-each select="child::*[contains(@class,' topic/title ')]">
-                      <xsl:call-template name="getTitle"/>
-                  </xsl:for-each>
-              </fo:marker>
-          </xsl:if>
-
-          <xsl:apply-templates select="*[contains(@class,' topic/prolog ')]"/>
-
-          <xsl:call-template name="insertChapterFirstpageStaticContent">
-              <xsl:with-param name="type" select="'appendix'"/>
-          </xsl:call-template>
-
-          <fo:block xsl:use-attribute-sets="topic.title">
-              <!-- added by William on 2009-07-02 for indexterm bug:2815485 start-->
-              <xsl:call-template name="pullPrologIndexTerms"/>
-              <!-- added by William on 2009-07-02 for indexterm bug:2815485 end-->
-              <xsl:for-each select="child::*[contains(@class,' topic/title ')]">
-                  <xsl:call-template name="getTitle"/>
-              </xsl:for-each>
-          </fo:block>
-
-          <xsl:choose>
-            <xsl:when test="$appendixLayout='BASIC'">
-                <fo:block>
-                  <xsl:apply-templates select="*[not(contains(@class, ' topic/topic ') or contains(@class, ' topic/title ') or
-                                                     contains(@class, ' topic/prolog '))]"/>
-                  <xsl:call-template name="buildRelationships"/>
-                </fo:block>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:call-template name="createMiniToc"/>
-            </xsl:otherwise>
-          </xsl:choose>
-
-          <xsl:apply-templates select="*[contains(@class,' topic/topic ')]"/>
-      </fo:block>
-    </xsl:template>
-
-    <!--  Bookmap Part processing  -->
-    <xsl:template name="processTopicPart">
-        <fo:block xsl:use-attribute-sets="topic">
-            <xsl:call-template name="commonattributes"/>
-            <xsl:if test="not(ancestor::*[contains(@class, ' topic/topic ')])">
-                <fo:marker marker-class-name="current-topic-number">
-                    <xsl:number format="I"/>
-                </fo:marker>
-                <fo:marker marker-class-name="current-header">
-                    <xsl:for-each select="child::*[contains(@class,' topic/title ')]">
-                        <xsl:call-template name="getTitle"/>
-                    </xsl:for-each>
-                </fo:marker>
-            </xsl:if>
-
-            <xsl:apply-templates select="*[contains(@class,' topic/prolog ')]"/>
-
-            <xsl:call-template name="insertChapterFirstpageStaticContent">
-                <xsl:with-param name="type" select="'part'"/>
-            </xsl:call-template>
-
-            <fo:block xsl:use-attribute-sets="topic.title">
-                <!-- added by William on 2009-07-02 for indexterm bug:2815485 start-->
-                <xsl:call-template name="pullPrologIndexTerms"/>
-                <!-- added by William on 2009-07-02 for indexterm bug:2815485 end-->
-                <xsl:for-each select="child::*[contains(@class,' topic/title ')]">
-                    <xsl:call-template name="getTitle"/>
-                </xsl:for-each>
-            </fo:block>
-
-            <xsl:choose>
-              <xsl:when test="$partLayout='BASIC'">
-                  <fo:block>
-                    <xsl:apply-templates select="*[not(contains(@class, ' topic/topic ') or contains(@class, ' topic/title ') or
-                                                       contains(@class, ' topic/prolog '))]"/>
-                    <xsl:call-template name="buildRelationships"/>
-                  </fo:block>
-              </xsl:when>
-              <xsl:otherwise>
-                  <xsl:call-template name="createMiniToc"/>
-              </xsl:otherwise>
-            </xsl:choose>
-
-<!--                    <xsl:apply-templates select="*[not(contains(@class, ' topic/topic '))]"/>-->
-
-            <xsl:for-each select="*[contains(@class,' topic/topic ')]">
-                <xsl:variable name="topicType">
-                    <xsl:call-template name="determineTopicType"/>
-                </xsl:variable>
-                <xsl:if test="$topicType = 'topicSimple'">
-                    <xsl:apply-templates select="."/>
-                </xsl:if>
-            </xsl:for-each>
-        </fo:block>
-        <xsl:for-each select="*[contains(@class,' topic/topic ')]">
-            <xsl:variable name="topicType">
-                <xsl:call-template name="determineTopicType"/>
-            </xsl:variable>
-            <xsl:if test="not($topicType = 'topicSimple')">
-                <xsl:apply-templates select="."/>
-            </xsl:if>
-        </xsl:for-each>
-  </xsl:template>
-
-  <xsl:template name="processTopicNotices">
-    <fo:block xsl:use-attribute-sets="topic">
-        <xsl:call-template name="commonattributes"/>
-        <xsl:if test="not(ancestor::*[contains(@class, ' topic/topic ')])">
-            <fo:marker marker-class-name="current-topic-number">
-                <xsl:number format="1"/>
-            </fo:marker>
-            <fo:marker marker-class-name="current-header">
-                <xsl:for-each select="child::*[contains(@class,' topic/title ')]">
-                    <xsl:call-template name="getTitle"/>
-                </xsl:for-each>
-            </fo:marker>
-        </xsl:if>
-    
-        <xsl:apply-templates select="*[contains(@class,' topic/prolog ')]"/>
-    
-        <xsl:call-template name="insertChapterFirstpageStaticContent">
-            <xsl:with-param name="type" select="'notices'"/>
-        </xsl:call-template>
-    
-        <fo:block xsl:use-attribute-sets="topic.title">
-            <!-- added by William on 2009-07-02 for indexterm bug:2815485 start-->
-            <xsl:call-template name="pullPrologIndexTerms"/>
-            <!-- added by William on 2009-07-02 for indexterm bug:2815485 end-->
-            <xsl:for-each select="child::*[contains(@class,' topic/title ')]">
-                <xsl:call-template name="getTitle"/>
-            </xsl:for-each>
-        </fo:block>
-    
-        <xsl:choose>
-          <xsl:when test="$noticesLayout='BASIC'">
-            <fo:block>
-              <xsl:apply-templates select="*[not(contains(@class, ' topic/topic ') or contains(@class, ' topic/title ') or
-                                                 contains(@class, ' topic/prolog '))]"/>
-              <xsl:call-template name="buildRelationships"/>
-            </fo:block>
-          </xsl:when>
-          <xsl:otherwise>
-              <xsl:call-template name="createMiniToc"/>
-          </xsl:otherwise>
-        </xsl:choose>
-    
-        <xsl:apply-templates select="*[contains(@class,' topic/topic ')]"/>
-    </fo:block>
+  <xsl:template match="*[contains(@class, ' topic/topic ')]" priority="0">
+    <xsl:message>+ [DEBUG] #default: default topic handling for topic <xsl:sequence select="concat(name(.), ', id=', @id, ', type=', dita-ot-pdf:determineTopicType(.))"/></xsl:message>
+     
+    <xsl:call-template name="processTopic"/>
+         
   </xsl:template>
   
-  <xsl:template match="*" mode="processUnknowTopic">
-    <!-- NOTE: this is an override from commons_1.0.xsl -->
-    <xsl:param name="topicType"/>
-    <xsl:choose>
-        <xsl:when test="$topicType = 'topicTocList'">
-            <xsl:call-template name="processTocList"/>
-        </xsl:when>
-        <xsl:when test="$topicType = 'topicIndexList'">
-            <xsl:call-template name="processIndexList"/>
-        </xsl:when>
-        <xsl:otherwise>
-            <xsl:call-template name="processTopic"/>
-        </xsl:otherwise>
-    </xsl:choose>
+  <xsl:template match="*[dita-ot-pdf:determineTopicType(.) = 'topicTocList']">
+    <xsl:call-template name="processTocList"/>    
   </xsl:template>
   
+  <xsl:template match="*[dita-ot-pdf:determineTopicType(.) = 'topicFigureList']">
+    <xsl:call-template name="processFigureList"/>    
+  </xsl:template>
+  
+  <xsl:template match="*[dita-ot-pdf:determineTopicType(.) = 'topicTableList']">
+    <xsl:call-template name="processTableList"/>    
+  </xsl:template>
+  
+  <xsl:template match="*[dita-ot-pdf:determineTopicType(.) = 'topicIndexList']">
+    <xsl:call-template name="processIndexList"/>    
+  </xsl:template>
+
 
 
 </xsl:stylesheet>

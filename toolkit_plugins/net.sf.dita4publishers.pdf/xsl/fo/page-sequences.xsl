@@ -64,7 +64,7 @@
      
     <xsl:if test="true()">
       <xsl:message>+ [DEBUG] constructNavTreePageSequences: topLevelTopics=<xsl:sequence 
-        select="for $e in $topLevelTopics return concat('&#x0A;', name($e), ' [id=', $e/@id, ']')"/></xsl:message>
+        select="for $e in $topLevelTopics return concat('&#x0A;', name($e), ' [id=', $e/@id, ', type=', dita-ot-pdf:determineTopicType($e), ']')"/></xsl:message>
     </xsl:if>
      
     <!-- Construct an XML structure that maps each topic or topicref to its semantic topic
@@ -110,10 +110,13 @@
 <!--       <xsl:message>+ [DEBUG]   pubRegion="<xsl:sequence select="$pubRegion"/></xsl:message>-->
        <xsl:variable name="pageSequenceGenerator">
          <dita-ot-pdf:pageSequence pubRegion="{$pubRegion}">
-           <xsl:sequence select="current-group()"/>
          </dita-ot-pdf:pageSequence>
        </xsl:variable>       
-       <xsl:apply-templates mode="constructPageSequence" select="$pageSequenceGenerator"/>       
+       <xsl:apply-templates mode="constructPageSequence" select="$pageSequenceGenerator">
+         <xsl:with-param name="topics" as="element()*" tunnel="yes">
+           <xsl:sequence select="current-group()"/>
+         </xsl:with-param>
+       </xsl:apply-templates>       
      </xsl:for-each-group>    
    </xsl:template>
   
@@ -142,6 +145,7 @@
   <xsl:template name="doPageSequenceConstruction">
     <!-- Context item is a dita-ot-pdf:pageSequence element -->
     <xsl:param name="pageSequenceMasterName" as="xs:string"/>
+    <xsl:param name="topics" as="element()*" tunnel="yes"/>
 
     <fo:page-sequence master-reference="{$pageSequenceMasterName}" 
       xsl:use-attribute-sets="__force__page__count">
@@ -150,13 +154,15 @@
       
       <fo:flow flow-name="xsl-region-body">
         <!-- Process each topic in the page sequence. -->
-        <xsl:for-each select="*">
-          <xsl:variable name="topicType">
-            <xsl:call-template name="determineTopicType"/>
-          </xsl:variable>
-          <xsl:call-template name="processTopLevelTopic">
-            <xsl:with-param name="topicType" select="$topicType" as="xs:string" tunnel="yes"/>
-          </xsl:call-template>
+        <xsl:for-each select="$topics">
+          <!-- Topic handling is done via match templates
+               that select on the value of determineTopicType()
+               so that any topic can act as a page-breaking topic
+               or not. No need to presume that the direct child
+               topics of the flow will act as "top-level"
+               topics, e.g., chapters.
+          -->
+          <xsl:apply-templates select="."/>
         </xsl:for-each>
       </fo:flow>
     </fo:page-sequence>

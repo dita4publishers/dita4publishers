@@ -14,6 +14,7 @@
   <!--   LOT   -->
   
   <xsl:template match="ot-placeholder:tablelist">
+    <xsl:message>+ [DEBUG] Handling ot-placeholder:tablelist</xsl:message>
     <xsl:if test="//*[contains(@class, ' topic/table ')]/*[contains(@class, ' topic/title ' )]">
       <!--exists tables with titles-->
           <fo:block start-indent="0in"
@@ -26,4 +27,15 @@
     </xsl:if>
   </xsl:template>
   
+  <xsl:template match="ot-placeholder:figurelist">
+    <xsl:message>+ [DEBUG] Handling ot-placeholder:figurelist</xsl:message>
+  </xsl:template>
+  
+  <xsl:template name="processFigureList">
+    <xsl:apply-templates select="."/>
+  </xsl:template>
+  
+  <xsl:template name="processTableList">
+    <xsl:apply-templates select="."/>
+  </xsl:template>
 </xsl:stylesheet>

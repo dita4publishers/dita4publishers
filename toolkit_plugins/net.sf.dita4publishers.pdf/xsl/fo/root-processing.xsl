@@ -118,5 +118,17 @@
     
   </xsl:template>
   
+  <!-- Fix bug that results in duplicated product names -->
+    <xsl:variable name="productName">
+      <xsl:variable name="variableProdname">
+        <xsl:call-template name="insertVariable">
+            <xsl:with-param name="theVariableID" select="'Product Name'"/>
+        </xsl:call-template>
+      </xsl:variable>
+      <xsl:sequence 
+        select="((/*/opentopic:map//*[contains(@class, ' topic/prodname ')])[1],
+                 (/*/*[contains(@class, ' bkinfo/bkinfo ')]//*[contains(@class, ' topic/prodname ')])[1],
+                 $variableProdname)[1]"/>
+    </xsl:variable>
 
 </xsl:stylesheet>
