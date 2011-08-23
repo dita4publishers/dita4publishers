@@ -12,7 +12,10 @@
   xmlns:dita-ot-pdf="http://net.sf.dita-ot/transforms/pdf"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:df="http://dita2indesign.org/dita/functions"
-  exclude-result-prefixes="opentopic-index opentopic opentopic-i18n opentopic-func xs xd relpath df local dita-ot-pdf"
+  xmlns:ot-placeholder="http://suite-sol.com/namespaces/ot-placeholder"
+  exclude-result-prefixes="
+      opentopic-index opentopic opentopic-i18n 
+      opentopic-func xs xd relpath df local dita-ot-pdf ot-placeholder"
   version="2.0">
 
   <!--================================
@@ -44,13 +47,53 @@
          Otherwise, implement templates in the mode
          determineTopicType to control the mapping
          for specific topics.
-      -->
+    -->
+<!--    <xsl:message>+ [DEBUG] determineTopicType: context="<xsl:sequence select="name(.)"/>"</xsl:message>-->
     <xsl:variable name="topicType">
       <xsl:apply-templates mode="determineTopicType" 
-        select="ancestor-or-self::*[df:class(., 'topic/topic')][1]"/>
+        select="(ancestor-or-self::ot-placeholder:*[1] |
+                 ancestor-or-self::*[df:class(., 'topic/topic')][1]
+                )[1] 
+                 "/>
     </xsl:variable>
     <xsl:sequence select="$topicType"/>
   </xsl:template>
+  
+    <xsl:template match="ot-placeholder:*" mode="determineTopicType" priority="0">
+      <xsl:sequence select="concat('topicUnknownPlaceholder', 
+        upper-case(substring(local-name(.), 1, 1)), substring(local-name(.), 2))"
+      />
+    </xsl:template>
+    <xsl:template match="ot-placeholder:toc" mode="determineTopicType">
+      <xsl:sequence select="'topicTocList'"/>
+    </xsl:template>
+    <xsl:template match="ot-placeholder:abbrevlist" mode="determineTopicType">
+        <xsl:sequence select="'topicAbbrevList'"/>
+    </xsl:template>
+    <xsl:template match="ot-placeholder:bibliolist" mode="determineTopicType">
+        <xsl:sequence select="'topicBiblioList'"/>
+    </xsl:template>
+    <xsl:template match="ot-placeholder:booklist" mode="determineTopicType">
+        <xsl:sequence select="'topicBookList'"/>
+    </xsl:template>
+    <xsl:template match="ot-placeholder:figurelist" mode="determineTopicType">
+        <xsl:sequence select="'topicFigureList'"/>
+    </xsl:template>
+    <xsl:template match="ot-placeholder:tablelist" mode="determineTopicType">
+        <xsl:sequence select="'topicTableList'"/>
+    </xsl:template>
+    <xsl:template match="ot-placeholder:indexlist" mode="determineTopicType">
+        <xsl:sequence select="'topicIndexList'"/>
+    </xsl:template>
+    <xsl:template match="ot-placeholder:toc" mode="determineTopicType">
+        <xsl:sequence select="'topicTocList'"/>
+    </xsl:template>
+    <xsl:template match="ot-placeholder:glossarylist" mode="determineTopicType">
+        <xsl:sequence select="'topicGlossaryList'"/>
+    </xsl:template>
+    <xsl:template match="ot-placeholder:trademarklist" mode="determineTopicType">
+        <xsl:sequence select="'topicTradeMarkList'"/>
+    </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/topic')]" mode="determineTopicType">
     <!-- This is an override of the same template in

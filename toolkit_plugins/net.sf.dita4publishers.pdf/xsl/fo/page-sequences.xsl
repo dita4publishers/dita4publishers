@@ -55,21 +55,19 @@
      
      <!-- FIXME: Need a general way to handle book lists or automatic
           generation of the book lists when not specified.
-       -->
+     -->
     
     <!-- Get a flat list of all the top-level topics or topicrefs: -->
-    <xsl:variable name="topLevelTopics" as="element()*">
-      <xsl:apply-templates mode="getTopLevelTopics" select="/*/opentopic:map/*[contains(@class, ' map/topicref ')]"/>
+    <xsl:variable name="topLevelTopics" as="element()*">      
+      <xsl:apply-templates mode="getTopLevelTopics" 
+        select="/*/opentopic:map/*[contains(@class, ' map/topicref ')] |
+                /*/ot-placeholder:*"/>
     </xsl:variable>
-     
+    
     <xsl:if test="true()">
       <xsl:message>+ [DEBUG] constructNavTreePageSequences: topLevelTopics=<xsl:sequence 
         select="for $e in $topLevelTopics return concat('&#x0A;', name($e), ' [id=', $e/@id, ', type=', dita-ot-pdf:determineTopicType($e), ']')"/></xsl:message>
     </xsl:if>
-     
-    <!-- Construct an XML structure that maps each topic or topicref to its semantic topic
-         type. This map is then used to assign topics and topicrefs to specific page sequences. 
-       -->
      
     <!-- The challenge now is to group the topics into the major regions of the document:
          
@@ -145,6 +143,8 @@
     <!-- Context item is a dita-ot-pdf:pageSequence element -->
     <xsl:param name="pageSequenceMasterName" as="xs:string"/>
     <xsl:param name="topics" as="element()*" tunnel="yes"/>
+    
+<!--    <xsl:message>+ [DEBUG] doPageSequenceConstruction: constructing page sequence for region <xsl:sequence select="string(@pubRegion)"/>, master <xsl:sequence select="$pageSequenceMasterName"/>...</xsl:message>-->
 
     <fo:page-sequence master-reference="{$pageSequenceMasterName}" 
       xsl:use-attribute-sets="__force__page__count">
@@ -161,7 +161,16 @@
                topics of the flow will act as "top-level"
                topics, e.g., chapters.
           -->
-          <xsl:apply-templates select="."/>
+          <xsl:choose>
+            <xsl:when test="self::ot-placeholder:figurelist | self::ot-placeholder:tablelist">
+              <xsl:message>+ [DEBUG]  Skipping placeholder <xsl:sequence select="name(.)"/></xsl:message>
+            </xsl:when>
+            <xsl:otherwise>
+<!--              <xsl:message>+ [DEBUG] doPageSequenceConstruction:   Applying templates to <xsl:sequence select="concat(name(..), '/', name(.))"/>.</xsl:message>-->
+                <xsl:apply-templates select="."/>              
+<!--              <xsl:message>+ [DEBUG] doPageSequenceConstruction:   Templates applied. </xsl:message>-->
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:for-each>
       </fo:flow>
     </fo:page-sequence>
@@ -236,6 +245,7 @@
   </xsl:template>
   
   <xsl:template mode="constructNavTreePageSequences" match="ot-placeholder:*">
+    <xsl:message>+ [WARNING] Matched on <xsl:sequence select="name(.)"/> in mode constructNavTreePageSequences</xsl:message>
     <fo:block>Placeholder for generated stuff: <xsl:sequence select="name(.)"/>
     </fo:block>
   </xsl:template>

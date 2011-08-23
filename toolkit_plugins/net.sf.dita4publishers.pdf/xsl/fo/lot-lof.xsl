@@ -28,7 +28,14 @@
   </xsl:template>
   
   <xsl:template match="ot-placeholder:figurelist">
-    <xsl:message>+ [DEBUG] Handling ot-placeholder:figurelist</xsl:message>
+    <xsl:message> + [DEBUG] #default: override lot-lof.xsl: figurelist</xsl:message>
+    <xsl:if test="//*[contains(@class, ' topic/fig ')]/*[contains(@class, ' topic/title ' )]">
+      <fo:block start-indent="0in">
+        <xsl:call-template name="createLOFHeader"/>
+
+        <xsl:apply-templates select="//*[contains (@class, ' topic/fig ')][*[contains(@class, ' topic/title ' )]]" mode="list.of.figures"/>
+      </fo:block>
+    </xsl:if>
   </xsl:template>
   
   <xsl:template name="processFigureList">

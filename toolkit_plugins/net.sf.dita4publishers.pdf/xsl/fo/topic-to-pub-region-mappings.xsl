@@ -12,7 +12,10 @@
   xmlns:dita-ot-pdf="http://net.sf.dita-ot/transforms/pdf"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:df="http://dita2indesign.org/dita/functions"
-  exclude-result-prefixes="opentopic-index opentopic opentopic-i18n opentopic-func xs xd relpath df local dita-ot-pdf"
+  xmlns:ot-placeholder="http://suite-sol.com/namespaces/ot-placeholder"
+  exclude-result-prefixes="
+    opentopic-index opentopic opentopic-i18n 
+    opentopic-func xs xd relpath df local dita-ot-pdf ot-placeholder"
   version="2.0">
 
   <!--================================
@@ -50,6 +53,15 @@
     <xsl:sequence select="'appendices'"/>
   </xsl:template>
   
+  <xsl:template mode="getPublicationRegion" match="ot-placeholder:*">
+    <!-- This will put adjacent generated lists together in the same
+         page sequence, which seems appropriate, especially if you
+         want the figurelist and table list to not start new pages,
+         for example.
+      -->
+    <xsl:sequence select="'booklists'"/>
+  </xsl:template>
+  
   <xsl:template mode="getPublicationRegion" match="*">
     <!-- Make each body topic a unique name starting with "body" so
          each topic becomes a separate page sequence as in the base
@@ -74,9 +86,14 @@
     <xsl:param name="context" as="element()"/>
     <xsl:variable name="topicref" select="dita-ot-pdf:getTopicrefForTopic($context)" as="element()?"/>
 
-    <xsl:variable name="result" as="xs:string">
-      <xsl:apply-templates select="$topicref" mode="getPublicationRegion"/>
+    <xsl:variable name="pubRegion" as="xs:string?">
+      <xsl:apply-templates select="($topicref, $context)[1]" mode="getPublicationRegion"/>
     </xsl:variable>
+    <xsl:variable name="result" as="xs:string"
+      select="if ($pubRegion) 
+         then $pubRegion 
+         else name($topicref)"
+    />
     <xsl:sequence select="$result"/>
   </xsl:function>
 </xsl:stylesheet>

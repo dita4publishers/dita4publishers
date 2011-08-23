@@ -3,13 +3,14 @@
     xmlns:fo="http://www.w3.org/1999/XSL/Format"
     xmlns:exsl="http://exslt.org/common"
     xmlns:opentopic="http://www.idiominc.com/opentopic"
+    xmlns:ot-placeholder="http://suite-sol.com/namespaces/ot-placeholder"
     extension-element-prefixes="exsl"
-    exclude-result-prefixes="opentopic"
+    exclude-result-prefixes="opentopic ot-placeholder"
     version="2.0">
   
   <!-- Override of base toc_1.0.xsl -->
 
-    <xsl:template name="createToc">
+    <xsl:template name="createToc" match="ot-placeholder:toc">
       <xsl:message>*** pdf-d4p: toc_1.0.xsl: createToc</xsl:message>
 
         <xsl:variable name="toc" as="node()*">
@@ -32,6 +33,7 @@
           <fo:block
             xsl:use-attribute-sets="topic-first-block-toc"
             >
+             <xsl:call-template name="createTocHeader"/>
              <xsl:sequence select="$toc"/>
           </fo:block>
         </xsl:if>

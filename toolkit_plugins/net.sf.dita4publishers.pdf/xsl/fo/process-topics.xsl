@@ -53,7 +53,7 @@
       -->
     <xsl:variable name="topicType" select="dita-ot-pdf:determineTopicType(.)" as="xs:string"/>
     
-    <xsl:if test="true()">
+    <xsl:if test="false()">
       <xsl:variable name="topicref" select="dita-ot-pdf:getTopicrefForTopic(.)" as="element()?"/>
       
       <xsl:message> + [DEBUG] top-level topic processing: tagname="<xsl:sequence select="name(.)"/>", id="<xsl:sequence select="string(@id)"/>", topicType="<xsl:sequence select="$topicType"/>", topicrefType="<xsl:sequence 
@@ -170,28 +170,10 @@
        
   -->
   <xsl:template match="*[contains(@class, ' topic/topic ')]" priority="0">
-    <xsl:message>+ [DEBUG] #default: default topic handling for topic <xsl:sequence select="concat(name(.), ', id=', @id, ', type=', dita-ot-pdf:determineTopicType(.))"/></xsl:message>
+<!--    <xsl:message>+ [DEBUG] #default: default topic handling for topic <xsl:sequence select="concat(name(.), ', id=', @id, ', type=', dita-ot-pdf:determineTopicType(.))"/></xsl:message>-->
      
     <xsl:call-template name="processTopic"/>
          
   </xsl:template>
-  
-  <xsl:template match="*[dita-ot-pdf:determineTopicType(.) = 'topicTocList']">
-    <xsl:call-template name="processTocList"/>    
-  </xsl:template>
-  
-  <xsl:template match="*[dita-ot-pdf:determineTopicType(.) = 'topicFigureList']">
-    <xsl:call-template name="processFigureList"/>    
-  </xsl:template>
-  
-  <xsl:template match="*[dita-ot-pdf:determineTopicType(.) = 'topicTableList']">
-    <xsl:call-template name="processTableList"/>    
-  </xsl:template>
-  
-  <xsl:template match="*[dita-ot-pdf:determineTopicType(.) = 'topicIndexList']">
-    <xsl:call-template name="processIndexList"/>    
-  </xsl:template>
-
-
 
 </xsl:stylesheet>
