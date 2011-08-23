@@ -58,8 +58,15 @@
          page sequence, which seems appropriate, especially if you
          want the figurelist and table list to not start new pages,
          for example.
-      -->
-    <xsl:sequence select="'booklists'"/>
+    -->
+    <xsl:choose>
+      <xsl:when test="following-sibling::*[starts-with(dita-ot-pdf:getPublicationRegion(.), 'body')]">
+        <xsl:sequence select="'frontmatter'"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="'backmatter'"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   
   <xsl:template mode="getPublicationRegion" match="*">
@@ -70,8 +77,16 @@
          
          Context element should be a topicref.
       -->
-    <xsl:variable name="pubRegion" 
+<!-- WEK: Not doing this for now because I need to figure out how to tell
+          that a given group is the first group for a given pub region
+          so I can control the setting of the initial page number.
+  
+  <xsl:variable name="pubRegion" 
       select="concat('body', ':', string(count(preceding::*[df:class(., 'map/topicref')])))"
+      as="xs:string"
+      />
+-->    <xsl:variable name="pubRegion" 
+      select="'body'"
       as="xs:string"
       />
 <!--    <xsl:message>+ [DEBUG] mode getPublicationRegion: default template, pubRegion=<xsl:sequence select="$pubRegion"/>"</xsl:message>-->
@@ -82,7 +97,7 @@
        Local functions
        ========================================================= -->
   
-  <xsl:function name="local:getPublicationRegion" as="xs:string">
+  <xsl:function name="dita-ot-pdf:getPublicationRegion" as="xs:string">
     <xsl:param name="context" as="element()"/>
     <xsl:variable name="topicref" select="dita-ot-pdf:getTopicrefForTopic($context)" as="element()?"/>
 

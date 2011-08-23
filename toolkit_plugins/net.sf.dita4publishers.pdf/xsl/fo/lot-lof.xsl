@@ -14,7 +14,7 @@
   <!--   LOT   -->
   
   <xsl:template match="ot-placeholder:tablelist">
-    <xsl:message>+ [DEBUG] Handling ot-placeholder:tablelist</xsl:message>
+<!--    <xsl:message>+ [DEBUG] Handling ot-placeholder:tablelist</xsl:message>-->
     <xsl:if test="//*[contains(@class, ' topic/table ')]/*[contains(@class, ' topic/title ' )]">
       <!--exists tables with titles-->
           <fo:block start-indent="0in"
@@ -28,7 +28,7 @@
   </xsl:template>
   
   <xsl:template match="ot-placeholder:figurelist">
-    <xsl:message> + [DEBUG] #default: override lot-lof.xsl: figurelist</xsl:message>
+<!--    <xsl:message> + [DEBUG] #default: override lot-lof.xsl: figurelist</xsl:message>-->
     <xsl:if test="//*[contains(@class, ' topic/fig ')]/*[contains(@class, ' topic/title ' )]">
       <fo:block start-indent="0in">
         <xsl:call-template name="createLOFHeader"/>
