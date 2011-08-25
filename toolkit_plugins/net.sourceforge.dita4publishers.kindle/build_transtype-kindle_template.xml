@@ -16,8 +16,6 @@
 	<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
 	<property name="debug" value="false"/>
 	
-	<property name="args.hide.parent.link" value="yes"/><!-- Turn off parent links in topics by default -->
-
 	<property name="kindle.temp.dir" value="${dita.temp.dir}${file.separator}kindle_temp"/>
 	
 	<!-- Defines the @class value to use for topic elements generated for topicheads. -->
@@ -68,6 +66,14 @@
     <condition property="css.output.dir" value="${args.css.output.dir}">
       <isset property="args.css.output.dir" />
     </condition>
+  	<condition property="epub.hide.parent.link" value="yes">
+  		<not>
+      	<isset property="args.hide.parent.link" />
+  		</not>
+  	</condition>
+  	<condition property="epub.hide.parent.link" value="${args.hide.parent.link}">
+    	<isset property="args.hide.parent.link" />
+  	</condition>
   </target>
   
 
@@ -112,7 +118,7 @@
       <param name="ARTLBL" expression="${args.artlbl}" if="args.artlbl"></param>
       <param name="GENERATE-TASK-LABELS" expression="${args.gen.task.lbl}" if="args.gen.task.lbl"></param>
       <param name="PRESERVE-DITA-CLASS" expression="${args.xhtml.classattr}" if="args.xhtml.classattr"></param>
-      <param name="NOPARENTLINK" expression="${args.hide.parent.link}" if="args.hide.parent.link"></param>
+      <param name="NOPARENTLINK" expression="${epub.hide.parent.link}"/>
       <param name="BREADCRUMBS" expression="${args.breadcrumbs}" if="args.breadcrumbs"></param>
       <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
     </xslt>
