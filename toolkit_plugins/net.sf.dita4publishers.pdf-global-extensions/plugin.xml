@@ -1,0 +1,21 @@
+<!-- 
+  Plugin descriptor for the DITA4Publishers PDF2 global
+  extensions
+  
+  Copyright (c) 2011 DITA For Publishers
+  
+  Provides general-use extensions to the PDF2 transformation
+  type to fix various problems or add additional 
+  functionality.  
+  -->
+<plugin id="net.sf.dita4publishers.pdf-global-extensions">
+
+  <require plugin="org.dita.pdf2"/>
+  
+
+  <feature extension="dita.xsl.xslfo"
+      value="xsl/spectitle2xslfo.xsl" type="file"/>
+  <feature extension="dita.xsl.xslfo"
+      value="xsl/prodnamefix.xsl" type="file"/>
+      
+</plugin>
