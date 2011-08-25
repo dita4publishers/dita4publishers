@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic-1">
+  <title>The First Appendix</title>
+  <body>
+    <p>This is the first appendix.</p>
+  </body>
+  <topic
+    id="topic_oeh_fux_jd">
+    <title>Subordinate appendix topic</title>
+    <body>
+      <p>Body content.</p>
+    </body>
+  </topic>
+</topic>
