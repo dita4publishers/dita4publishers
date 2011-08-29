@@ -12,14 +12,17 @@
     mode="dita2xslfo:section-heading">
     <fo:block xsl:use-attribute-sets="section.title">
       <xsl:call-template name="commonattributes"/>
-      <!-- FIXME: This should really be a lookup of a localized string keyed by the
-           @spectitle value.
-           
-        -->
       <xsl:variable name="spectitleValue" as="xs:string" select="string(@spectitle)"/>
-      <xsl:call-template name="insertVariable">
-        <xsl:with-param name="theVariableID" select="$spectitleValue"/>
-      </xsl:call-template>
+      <xsl:variable name="resolvedVariable">
+        <xsl:call-template name="insertVariable">
+          <xsl:with-param name="theVariableID" select="$spectitleValue"/>
+        </xsl:call-template>
+      </xsl:variable>
+      <xsl:sequence
+        select="if (not(normalize-space($resolvedVariable))) 
+        then $spectitleValue
+        else $resolvedVariable"
+      />
     </fo:block>
     
   </xsl:template>
