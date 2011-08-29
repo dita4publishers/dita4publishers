@@ -138,16 +138,4 @@
 <!--    <xsl:message>+ [DEBUG] determineTopicType:   result=<xsl:sequence select="$result"/></xsl:message>-->
     <xsl:sequence select="$result"/>
   </xsl:template>
-
-  <xsl:function name="dita-ot-pdf:determineTopicType" as="xs:string">
-    <!-- Convenience function that delegates to the determineTopicType named template. -->
-    <xsl:param name="context" as="element()"/>
-    
-    <xsl:variable name="topicType">
-      <xsl:for-each select="$context">
-        <xsl:call-template name="determineTopicType"/>
-      </xsl:for-each>
-    </xsl:variable>
-    <xsl:sequence select="$topicType"/>
-  </xsl:function>  
 </xsl:stylesheet>

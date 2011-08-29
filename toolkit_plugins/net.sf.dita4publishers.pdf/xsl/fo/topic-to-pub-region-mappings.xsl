@@ -35,19 +35,19 @@
        ========================================================= -->
   
   <xsl:template mode="getPublicationRegion" 
-    match="*[ancestor::*[df:class(., 'bookmap/frontmatter')]]" 
+    match="*[ancestor-or-self::*[df:class(., 'bookmap/frontmatter')]]" 
     priority="10">
     <xsl:sequence select="'frontmatter'"/>
   </xsl:template>
   
   <xsl:template mode="getPublicationRegion" 
-    match="*[ancestor::*[df:class(., 'bookmap/backmatter')]]" 
+    match="*[ancestor-or-self::*[df:class(., 'bookmap/backmatter')]]" 
     priority="10">
     <xsl:sequence select="'backmatter'"/>
   </xsl:template>
   
   <xsl:template mode="getPublicationRegion" 
-    match="*[ancestor::*[df:class(., 'bookmap/appendices')]] |
+    match="*[ancestor-or-self::*[df:class(., 'bookmap/appendices')]] |
     *[df:class(., 'bookmap/appendix')]" 
     priority="10">
     <xsl:sequence select="'appendices'"/>
@@ -89,26 +89,8 @@
       select="'body'"
       as="xs:string"
       />
-<!--    <xsl:message>+ [DEBUG] mode getPublicationRegion: default template, pubRegion=<xsl:sequence select="$pubRegion"/>"</xsl:message>-->
+<!--    <xsl:message>+ [DEBUG] mode getPublicationRegion: default template, id="<xsl:sequence select="string(@id)"/>", pubRegion=<xsl:sequence select="$pubRegion"/>"</xsl:message>-->
     <xsl:sequence select="$pubRegion"/>
   </xsl:template>
   
-  <!-- =========================================================
-       Local functions
-       ========================================================= -->
-  
-  <xsl:function name="dita-ot-pdf:getPublicationRegion" as="xs:string">
-    <xsl:param name="context" as="element()"/>
-    <xsl:variable name="topicref" select="dita-ot-pdf:getTopicrefForTopic($context)" as="element()?"/>
-
-    <xsl:variable name="pubRegion" as="xs:string?">
-      <xsl:apply-templates select="($topicref, $context)[1]" mode="getPublicationRegion"/>
-    </xsl:variable>
-    <xsl:variable name="result" as="xs:string"
-      select="if ($pubRegion) 
-         then $pubRegion 
-         else name($topicref)"
-    />
-    <xsl:sequence select="$result"/>
-  </xsl:function>
 </xsl:stylesheet>

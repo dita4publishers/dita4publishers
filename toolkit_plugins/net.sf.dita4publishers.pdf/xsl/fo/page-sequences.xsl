@@ -111,7 +111,7 @@
          />     
        </xsl:variable>       
        <xsl:apply-templates mode="constructPageSequence" select="$pageSequenceGenerator">
-         <xsl:with-param name="pubRegion" select="string(@pubRegion)" as="xs:string" tunnel="yes"/>
+         <xsl:with-param name="pubRegion" select="string($pubRegion)" as="xs:string" tunnel="yes"/>
          <xsl:with-param name="topics" as="element()*" tunnel="yes">
            <xsl:sequence select="current-group()"/>
          </xsl:with-param>

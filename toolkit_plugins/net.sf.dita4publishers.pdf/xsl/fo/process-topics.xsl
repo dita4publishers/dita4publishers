@@ -163,6 +163,7 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+
   
   <!-- Override of same template from base commons.xsl.
     
@@ -171,7 +172,7 @@
   -->
   <xsl:template match="*[contains(@class, ' topic/topic ')]" priority="0">
 <!--    <xsl:message>+ [DEBUG] #default: default topic handling for topic <xsl:sequence select="concat(name(.), ', id=', @id, ', type=', dita-ot-pdf:determineTopicType(.))"/></xsl:message>-->
-     
+    
     <xsl:call-template name="processTopic"/>
          
   </xsl:template>

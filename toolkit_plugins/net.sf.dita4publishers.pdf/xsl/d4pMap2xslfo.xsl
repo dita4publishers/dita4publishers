@@ -17,6 +17,7 @@
   <xsl:import href="../../../demo/fo/xsl/fo/topic2fo_shell_1.0.xsl"/>
   
   <xsl:import href="../cfg/fo/attrs/covers-attr.xsl"/>
+  <xsl:import href="../cfg/fo/attrs/enumeration-attr.xsl"/>
   <xsl:import href="../cfg/fo/attrs/layout-masters-attr.xsl"/>
   <xsl:import href="../cfg/fo/attrs/page-break-control-attr.xsl"/>
   
@@ -24,7 +25,9 @@
   <xsl:import href="fo/bookmarks_1.0.xsl"/>
   <xsl:import href="fo/commons.xsl"/>
   <xsl:import href="fo/determine-topic-type.xsl"/>
+  <xsl:import href="fo/enumeration.xsl"/>
   <xsl:import href="fo/front-matter.xsl"/>
+  <xsl:import href="fo/function-library.xsl"/>
   <xsl:import href="fo/get-toplevel-topics.xsl"/>
   <xsl:import href="fo/glossary.xsl"/>
   <xsl:import href="fo/index.xsl"/>
@@ -32,6 +35,7 @@
   <xsl:import href="fo/preface.xsl"/>
   <xsl:import href="fo/toc.xsl"/>
   <xsl:import href="fo/page-sequences.xsl"/>
+  <xsl:import href="fo/process-titles.xsl"/>
   <xsl:import href="fo/process-topics.xsl"/>
   <xsl:import href="fo/topic-to-pub-region-mappings.xsl"/>
   <xsl:import href="fo/covers.xsl"/>

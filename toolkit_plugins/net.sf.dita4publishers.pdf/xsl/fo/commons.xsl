@@ -111,35 +111,5 @@
       </fo:block>
     </xsl:template>
 
-  <!--=================================================
-      Generic functions specific to the PDF processing
-      ================================================= -->
-  
-  <xsl:function name="dita-ot-pdf:getTopicrefForTopic" as="element()?">
-    <xsl:param name="topicElem" as="element()"/>
-    
-    <xsl:variable name="topicrefId" as="xs:string"
-      select="string($topicElem/@id)" 
-    />
-<!--    <xsl:message>+ [DEBUG] dita-ot-pdf:getTopicrefForTopic(): topicrefId="<xsl:sequence select="$topicrefId"/></xsl:message>-->
-    
-    <xsl:variable name="topicref" as="element()?"
-      select="key('topicRefsById', $topicrefId, root($mergedDoc))"
-    />
-<!--    <xsl:message>+ [DEBUG] dita-ot-pdf:getTopicrefForTopic(): topicref="<xsl:sequence select="name($topicref)"/></xsl:message>-->
-    <xsl:sequence select="$topicref"/>
-  </xsl:function>
-
-  <xsl:function name="dita-ot-pdf:getTopicForId" as="element()?">
-    <xsl:param name="topicId" as="xs:string"/>
-    
-<!--    <xsl:message>+ [DEBUG] dita-ot-pdf:getTopicrefForTopic(): topicrefId="<xsl:sequence select="$topicrefId"/></xsl:message>-->
-    
-    <xsl:variable name="topic" as="element()?"
-      select="key('topicsById', $topicId, root($mergedDoc))"
-    />
-<!--    <xsl:message>+ [DEBUG] dita-ot-pdf:getTopicrefForTopic(): topicref="<xsl:sequence select="name($topicref)"/></xsl:message>-->
-    <xsl:sequence select="$topic"/>
-  </xsl:function>
 
 </xsl:stylesheet>
