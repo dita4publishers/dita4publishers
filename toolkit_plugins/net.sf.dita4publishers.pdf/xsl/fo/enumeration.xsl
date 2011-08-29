@@ -9,16 +9,25 @@
   exclude-result-prefixes="xs xd df dita-ot-pdf"
   version="2.0">
 
-  <!--  <xsl:variable name="d4pTopicEnumerationStyle" 
+<!--    <xsl:variable name="d4pTopicEnumerationStyle" 
     as="xs:string"
     select="'toplevel-only'" 
   />
+-->
+<!--  <xsl:variable
+    name="d4pTopicEnumerationStyle"
+    as="xs:string"
+    select="'military'"/>
+    <xsl:variable
+    name="d4pTopicEnumerationStyle"
+    as="xs:string"
+    select="'outline'"/>
 -->
   <xsl:variable
     name="d4pTopicEnumerationStyle"
     as="xs:string"
     select="'military'"/>
-
+  
   <!-- Templates for handling titles. 
     
        Overrides mode getTitle
@@ -34,35 +43,71 @@
   </xsl:template>
   
   <xsl:template
-    match="*[df:class(., 'topic/title')]
+    match="*[$d4pTopicEnumerationStyle != 'toplevel-only']
+             [df:class(., 'topic/title')]
              [not(dita-ot-pdf:determineTopicType(.) = 
-                    ('topicPart', 'topicChapter', 'topicAppendix'))]
-             [dita-ot-pdf:getPublicationRegion(..) = 'body']"
+                    ('topicPart', 'topicChapter',  'topicAppendix'))]
+             [dita-ot-pdf:getPublicationRegion(..) = ('body', 'appendices')]"
     priority="10"
     mode="enumeration">
     <xsl:param name="pubRegion" as="xs:string" tunnel="yes" select="'not-set'"/>
     
+    <xsl:variable name="numberSeparator">
+      <xsl:call-template name="titleNumberSeparator"/>              
+    </xsl:variable>
+    
+    <xsl:variable name="chapterNumberFormat" as="xs:string"
+      select="
+      if ($pubRegion = 'appendices')
+         then 'A'
+         else '1'
+      "
+    />
+    
+    <xsl:variable name="chapterNumber" as="xs:string">
+      <xsl:number select=".."
+        level="any"
+        count="*[df:class(., 'topic/topic')][dita-ot-pdf:determineTopicType(.) = 
+        ('topicChapter', 'topicAppendix')][dita-ot-pdf:getPublicationRegion(.) = $pubRegion]"
+        format="{$chapterNumberFormat}"
+      />
+    </xsl:variable>
+    
 <!--    <xsl:message>+ [DEBUG] Mode enumeration: pubRegion = body: <xsl:sequence select="string(../@id)"/></xsl:message>-->
 <!--    <xsl:message>+ [DEBUG] Mode enumeration: pubRegion=<xsl:sequence select="$pubRegion"/></xsl:message>-->
+    
+    <!-- NOTE: The numbering doesn't count part-topic ancestors. -->
+    
     <xsl:variable
       name="number"
       as="xs:string?">
       <xsl:choose>
         <xsl:when
           test="$d4pTopicEnumerationStyle = 'military'">
-          <xsl:number
-            level="multiple"
-            count="*[df:class(., 'topic/topic')][dita-ot-pdf:getPublicationRegion(.) = $pubRegion]"
-            select=".."
-            format="1.1.1.1"/>
+          <xsl:variable name="formatSpec" as="xs:string"
+            select="'.1.1.1'"
+          />
+          <xsl:variable name="nonChapterNumbers" as="xs:string">
+            <xsl:number
+              level="multiple"
+              count="*[df:class(., 'topic/topic')][not(dita-ot-pdf:determineTopicType(.) = 
+              ('topicPart', 'topicChapter', 'topicAppendix'))][dita-ot-pdf:getPublicationRegion(.) = $pubRegion]"
+              select=".."
+              format="{$formatSpec}"/>
+          </xsl:variable>
+          <xsl:sequence select="concat($chapterNumber, $nonChapterNumbers)"/>
         </xsl:when>
         <xsl:when
           test="$d4pTopicEnumerationStyle = 'outline'">
+          <xsl:variable name="formatSpec" as="xs:string"
+            select="'I.A.1.a.i.1'"
+          />
           <xsl:number
             level="multiple"
-            count="*[df:class(., 'topic/topic')][dita-ot-pdf:getPublicationRegion(.) =  $pubRegion]"
+            count="*[df:class(., 'topic/topic')][not(dita-ot-pdf:determineTopicType(.) = 
+            ('topicPart'))][dita-ot-pdf:getPublicationRegion(.) =  $pubRegion]"
             select=".."
-            format="I.A.i.a"/>
+            format="{$formatSpec}"/>
         </xsl:when>
         <xsl:when
           test="$d4pTopicEnumerationStyle = 'toplevel-only'">
@@ -79,68 +124,11 @@
       </xsl:choose>
     </xsl:variable>
     
-<!--   <xsl:message>+ [DEBUG] $number="<xsl:sequence select="$number"/>"</xsl:message>-->
+   <xsl:message>+ [DEBUG] $number="<xsl:sequence select="$number"/>"</xsl:message>
 
-    <xsl:if test="$number">
+    <xsl:if test="$number or $number != '.'">
       <fo:inline xsl:use-attribute-sets="topic-number-inline"
-        ><xsl:sequence select="$number"/>
-        <xsl:call-template name="titleNumberSeparator"/>        
-      </fo:inline>
-    </xsl:if>
-  </xsl:template>
-  
-  <xsl:template
-    match="*[df:class(., 'topic/title')]
-              [not(dita-ot-pdf:determineTopicType(.) = 
-                     ('topicPart', 'topicChapter', 'topicAppendix'))]
-              [dita-ot-pdf:getPublicationRegion(..) =  'appendices']"
-    priority="10"
-    mode="enumeration">
-    <xsl:param name="pubRegion" as="xs:string" tunnel="yes" select="'not-set'"/>
-<!--    <xsl:message>+ [DEBUG] Mode enumeration: matched pubRegion = appendices: <xsl:sequence select="string(../@id)"/></xsl:message>-->
-<!--    <xsl:message>+ [DEBUG] Mode enumeration: pubRegion=<xsl:sequence select="$pubRegion"/></xsl:message>-->
-    
-    <xsl:variable
-      name="number"
-      as="xs:string?">
-      <xsl:choose>
-        <xsl:when
-          test="$d4pTopicEnumerationStyle = 'military'">
-          <xsl:number
-            level="multiple"
-            count="*[df:class(., 'topic/topic')][dita-ot-pdf:getPublicationRegion(.) =  $pubRegion]"
-            select="."
-            format="A.1.1.1"/>
-        </xsl:when>
-        <xsl:when
-          test="$d4pTopicEnumerationStyle = 'outline'">
-          <xsl:number
-            level="multiple"
-            count="*[df:class(., 'topic/topic')][dita-ot-pdf:getPublicationRegion(.) =  $pubRegion]"
-            select="."
-            format="I.A.i.a"/>
-        </xsl:when>
-        <xsl:when
-          test="$d4pTopicEnumerationStyle = 'toplevel-only'">
-          <!-- Nothing to do as parts and chapter numbering is handled separately.
-          --> 
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:message>- [WARN] Mode
-            'enumeration': Unrecoganized
-            d4pTopicEnumerationStyle
-            value "<xsl:sequence
-              select="$d4pTopicEnumerationStyle"/>"</xsl:message>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-    
-<!--    <xsl:message>+ [DEBUG] $number="<xsl:sequence select="$number"/>"</xsl:message>-->
-    
-    <xsl:if test="$number">
-      <fo:inline xsl:use-attribute-sets="topic-number-inline"
-        ><xsl:sequence select="$number"/>
-        <xsl:call-template name="titleNumberSeparator"/>        
+        ><xsl:sequence select="concat($number, $numberSeparator)"/>
       </fo:inline>
     </xsl:if>
   </xsl:template>

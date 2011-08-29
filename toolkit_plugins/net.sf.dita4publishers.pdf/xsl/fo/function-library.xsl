@@ -27,6 +27,10 @@
       PDF transformation type.
       ================================-->
   
+  <!--=================================================
+    Generic functions specific to the PDF processing
+    ================================================= -->
+  
   <xsl:function name="dita-ot-pdf:determineTopicType" as="xs:string">
     <!-- Convenience function that delegates to the determineTopicType named template. -->
     <xsl:param name="context" as="element()"/>
@@ -38,10 +42,6 @@
     </xsl:variable>
     <xsl:sequence select="$topicType"/>
   </xsl:function>  
-
-  <!--=================================================
-    Generic functions specific to the PDF processing
-    ================================================= -->
   
   <xsl:function name="dita-ot-pdf:getTopicrefForTopic" as="element()?">
     <xsl:param name="topicElem" as="element()"/>
