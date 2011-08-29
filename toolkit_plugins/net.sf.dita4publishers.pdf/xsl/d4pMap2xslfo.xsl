@@ -21,6 +21,7 @@
   <xsl:import href="../cfg/fo/attrs/page-break-control-attr.xsl"/>
   
   <xsl:import href="fo/root-processing.xsl"/>
+  <xsl:import href="fo/bookmarks_1.0.xsl"/>
   <xsl:import href="fo/commons.xsl"/>
   <xsl:import href="fo/determine-topic-type.xsl"/>
   <xsl:import href="fo/front-matter.xsl"/>
