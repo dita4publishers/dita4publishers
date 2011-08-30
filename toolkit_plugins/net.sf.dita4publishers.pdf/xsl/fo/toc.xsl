@@ -11,18 +11,11 @@
   <!-- Override of base toc_1.0.xsl -->
 
     <xsl:template name="createToc" match="ot-placeholder:toc">
-      <xsl:message>*** pdf-d4p: toc_1.0.xsl: createToc</xsl:message>
-
+      <xsl:message>+ [DEBUG] pdf-d4p toc.xsl: createToc</xsl:message>
+      
         <xsl:variable name="toc" as="node()*">
             <xsl:choose>
                 <xsl:when test="($ditaVersion &gt;= 1.1) and $map//*[contains(@class,' bookmap/toc ')][@href]"/>
-                <xsl:when test="($ditaVersion &gt;= 1.1) and $map//*[contains(@class,' bookmap/toc ')]">
-                    <xsl:apply-templates select="/" mode="toc"/>
-                </xsl:when>
-                <xsl:when test="($ditaVersion &gt;= 1.1) and /*[contains(@class,' map/map ')][not(contains(@class,' bookmap/bookmap '))]">
-                    <xsl:apply-templates select="/" mode="toc"/>
-                </xsl:when>
-                <xsl:when test="$ditaVersion &gt;= 1.1"/>
                 <xsl:otherwise>
                     <xsl:apply-templates select="/" mode="toc"/>
                 </xsl:otherwise>
@@ -49,10 +42,13 @@
 
   <xsl:template match="*[contains(@class, ' topic/topic ') and not(contains(@class, ' bkinfo/bkinfo '))]" mode="toc">
     <xsl:param name="include"/>
-    <xsl:param name="pubRegion" as="xs:string" tunnel="yes" 
-      select="dita-ot-pdf:getPublicationRegion(.)"/>
+
+    <xsl:variable name="pubRegion" as="xs:string"
+      select="dita-ot-pdf:getPublicationRegion(.)
+      "
+    />
     
-    <xsl:message> + [DEBUG] Mode toc, topic/topic id=<xsl:sequence select="string(@id)"/>, pubRegion="<xsl:sequence select="$pubRegion"/>"</xsl:message>
+    <xsl:variable name="topicref" select="dita-ot-pdf:getNearestTopicrefForTopic(.)" as="element()"/>
     
     <xsl:variable name="topicLevel" select="count(ancestor-or-self::*[contains(@class, ' topic/topic ')])"/>
     <xsl:if test="$topicLevel &lt; $tocMaximumLevel">

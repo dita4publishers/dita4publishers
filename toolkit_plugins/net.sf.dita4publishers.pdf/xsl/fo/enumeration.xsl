@@ -26,7 +26,7 @@
   <xsl:variable
     name="d4pTopicEnumerationStyle"
     as="xs:string"
-    select="'military'"/>
+    select="'toplevel-only'"/>
   
   <!-- Templates for handling titles. 
     

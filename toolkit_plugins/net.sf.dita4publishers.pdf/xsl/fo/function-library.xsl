@@ -78,6 +78,9 @@
                         return dita-ot-pdf:getTopicrefForTopic($e)
             "
           />
+          <xsl:if test="false() and not($directTopicref)">
+            <xsl:message>+ [DEBUG] getNearestTopicrefForTopic(): topicrefs=<xsl:sequence select="for $e in $topicrefs return name($e)"></xsl:sequence></xsl:message>
+          </xsl:if>
           <xsl:sequence select="$topicrefs[last()]"></xsl:sequence>
         </xsl:otherwise>
       </xsl:choose>
