@@ -1,7 +1,7 @@
 <plugin id="net.sourceforge.dita4publishers.epub">
 
-  <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
-  <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
+  <require plugin="net.sf.dita4publishers.common.mapdriven"/> 
+  <require plugin="net.sf.dita4publishers.common.xslt"/> 
 
   <template file="build_transtype-epub_template.xml"/>
   

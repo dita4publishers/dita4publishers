@@ -387,7 +387,23 @@
           name="master-reference"
           select="'front-matter'"/>
       </xsl:call-template>
-
+    <!-- Generate the same page sequence with master name "front-matter" to
+         support base title page code, which hard-codes the name "front-matter"
+         rather than front-matter-sequence.
+         
+         Since there may be custom code that uses that same sequence master name
+         better to duplicate than fix the base code to use front-matter-sequence.
+      -->
+    <xsl:call-template
+      name="generate-page-sequence-master">
+      <xsl:with-param
+        name="master-name"
+        select="'front-matter'"/>
+      <xsl:with-param
+        name="master-reference"
+        select="'front-matter'"/>
+    </xsl:call-template>
+    
   </xsl:template>
 
 </xsl:stylesheet>

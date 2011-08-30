@@ -198,6 +198,31 @@
         <include name="japanese/**"/>
       </fileset>
     </copy>
+		</target>
+		
+		<target name="dist-d4p-pdf-toolkit-plugins" 
+			description="Packages the D4P DPF Toolkit plugins for deployment to a working Toolkit instance"
+			 depends="
+			dist-init
+			"
+			>
+	    <delete includeEmptyDirs="true" failonerror="false">
+	      <fileset dir="${plugin.dist}"  includes="net.sf.dita4publishers.common.*/**"/>
+	      <fileset dir="${plugin.dist}"  includes="net.sf.dita4publishers.pdf/**"/>
+	    </delete>
+	    <copy todir="${plugin.dist}">
+	      <fileset dir="${license.dir}">
+	        <include name="*"/>
+	      </fileset>
+	    </copy>
+			<copy todir="${plugin.dist}">
+				<fileset dir="${plugin.src}">
+					<include name="net.sf.dita4publishers.common.*/**"/> 
+	        <include name="net.sf.dita4publishers.pdf/**"/> 
+					<exclude name="*.zip"/> 
+				</fileset>
+			</copy>
+			 			
 	</target>
 	
 	<target name="dist-toolkit-plugins" description="Packages the DITA Open Toolkit plugins for deployment to a working Toolkit instance"
@@ -299,6 +324,26 @@
   </target>
 
 
+	<target name="deploy-d4p-pdf-toolkit-plugins" depends="dist-d4p-pdf-toolkit-plugins"
+		description="Deploys juse the D4P PDF plugins"
+	>
+		<delete failonerror="true" includeemptydirs="true">
+			<fileset dir="${plugin-deploy_target}" includes="net.sourceforge.dita4publishers.*/**">
+			</fileset>
+		</delete>
+		<mkdir dir="${plugin-deploy_target}"/>
+		<copy todir="${plugin-deploy_target}">
+			<fileset dir="${plugin.dist}">
+				<include name="**/*"/>
+        <exclude name="**/CVS"/>
+				<!--
+				<exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/>
+				-->
+			</fileset>
+		</copy>
+    <!-- Integrate the deployed plugins: -->
+    <antcall target="integrate"/>
+	</target>
 	
 	<target name="deploy-toolkit-plugins" depends="dist-toolkit-plugins"
 	  description="Deploy plugins to local DITA Open Toolkit">
@@ -1017,7 +1062,7 @@
     </copy>
     <copy todir="${classes.home}/WebContent">
       <fileset dir="${toolkit.plugin.src}">
-      	<include name="net.sourceforge.dita4publishers.common.xslt/**/*"/>
+      	<include name="net.sf.dita4publishers.common.xslt/**/*"/>
     	</fileset>
     </copy>
     <jar destfile="${target.home}/${target.jar}" >

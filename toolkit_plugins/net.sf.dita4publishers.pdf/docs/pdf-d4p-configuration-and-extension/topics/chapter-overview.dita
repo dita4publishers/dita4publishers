@@ -4,7 +4,19 @@
  <title>Overview of the PDF-D4P transformation type</title>
  <shortdesc>The PDF-D4P transformation type extends the base PDF transformation type in order to make configuration of the overall publication structure easier and more flexible.</shortdesc>
  <conbody>
-  <p>As of version 1.5.4M2 of the Open Toolkit, the PDF transformation type has a number of limitations that make it harder than it should be to do things like generate covers and customize the details of page geometry, the order of components, especially generated components like the ToC, and page breaks before specific topics or topic types.</p>
+  <p>As of version 1.5.4M3 of the Open
+      Toolkit, the PDF transformation
+      type has a number of limitations
+      that make it harder than it should
+      be to do things like generate
+      covers and customize the details
+      of page geometry, the order of
+      components, especially generated
+      components like the ToC, and page
+      breaks before specific topics or
+      topic types. It also provides no
+      easy way to control the numbering
+      of topic headings.</p>
     <p>The PDF-D4P transformation type is an experimental refactoring of the base PDF transformation type with the goal of making it easier to customize the overall look and feel of a publication.</p>
     <p>The transformation type provides the following new features:<ul
       id="ul_kdd_jab_jd">
@@ -15,6 +27,12 @@
       <li>Makes it possible to customize the details of page sequence generation.</li>
       <li>Enables (but doesn't implement) the ability to have a single topic result in multiple page sequences.</li>
       <li>Addresses a number of other convenience factors or missing features in the base PDF transform.</li>
+      <li>Provides an extension point
+        for numbering topics
+        ("enumeration") and provides
+        built-in options for "military"
+        and "outline" style
+        numbering.</li>
       </ul></p>
     <p>The PDF-D4P transformation type is implemented as a separate transformation type that overrides and extends the base PDF transformation type. You can use the same customization mechanism and global extension points for customizing the PDF-D4P transformation type as you use for the base PDF transformation type. In general, the PDF-D4P transformation type retains the original mechanisms (attribute sets, named templates, modes, etc.) except where needed to implement new features. This means that many customizations of the base PDF transforms should continue to work, especially those that only modify attribute sets or add overrides for existing templates not involved with handling of top-level topics. Customizations that override templates from <filepath>root-processing.xsl</filepath>, <filepath>commons.xsl</filepath>, or <filepath>layout-masters.xsl</filepath> will probably need to be reworked (and should become simpler or unneeded in many cases).</p>
  </conbody>

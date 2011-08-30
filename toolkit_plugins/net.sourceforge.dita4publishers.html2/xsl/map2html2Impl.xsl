@@ -45,17 +45,17 @@
        
        ============================================================== -->
 
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/dataCollection.xsl"/>
+  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
+  <xsl:import href="../../net.sf.dita4publishers.common.mapdriven/xsl/dataCollection.xsl"/>
   
   <!-- Import the base HTML output generation transform. -->
   <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
   
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMap.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
+  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
+  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/map2graphicMap.xsl"/>
+  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
   
   <xsl:include href="map2html2Content.xsl"/>
   <xsl:include href="map2html2RootPages.xsl"/>

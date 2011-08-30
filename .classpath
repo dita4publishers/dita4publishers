@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="lib" path="lib/xercesPatches.jar"/>
 	<classpathentry kind="src" path="src/java"/>
 	<classpathentry kind="src" path="rsuite/src/java"/>
 	<classpathentry kind="src" path="test/java"/>

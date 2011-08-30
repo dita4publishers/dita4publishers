@@ -21,7 +21,7 @@
   <require plugin="org.dita.pdf2"/>
   
   <!-- Provides the dita-support-lib.xsl and relpath_utils.xsl libraries: -->
-  <require plugin="net.sourceforge.dita4publishers.common.xslt"/>
+  <require plugin="net.sf.dita4publishers.common.xslt"/>
   
   <template file="build_d4p-transtype-pdf_template.xml"/>
 

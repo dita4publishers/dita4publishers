@@ -45,6 +45,9 @@
     <xsl:if test="true()">
       <xsl:message> + [DEBUG] topic2article.xsl: Processing root topic...</xsl:message>
     </xsl:if>
+    <xsl:if test="true() and $debugBoolean">
+            <xsl:message> + [DEBUG] topic2article.xsl: Style catalog = <xsl:sequence select="$styleCatalog"/></xsl:message>
+    </xsl:if>
     <!-- Create a new output InCopy article. 
       
       NOTE: This code assumes that all chunking has been performed

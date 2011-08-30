@@ -9,7 +9,7 @@
     
     ========================= -->
   
-  <property name="transtype" value="pdf-mypub"/>
+  <property name="transtype" value="pdf-d4p"/>
   
   <target name="dita2pdf-d4p"
     xmlns:dita="http://dita-ot.sourceforge.net"

@@ -18,6 +18,7 @@
     name="d4pTopicEnumerationStyle"
     as="xs:string"
     select="'military'"/>
+    
     <xsl:variable
     name="d4pTopicEnumerationStyle"
     as="xs:string"
@@ -26,7 +27,7 @@
   <xsl:variable
     name="d4pTopicEnumerationStyle"
     as="xs:string"
-    select="'toplevel-only'"/>
+    select="'military'"/>
   
   <!-- Templates for handling titles. 
     
@@ -126,7 +127,11 @@
     
    <xsl:message>+ [DEBUG] $number="<xsl:sequence select="$number"/>"</xsl:message>
 
-    <xsl:if test="$number or $number != '.'">
+   <!-- The numbering code can generate numbers of the form "..", so
+        easier to just suppress those then to try to fix the
+        number string generation.
+     -->
+    <xsl:if test="$number and not(matches($number, '\\.+'))">
       <fo:inline xsl:use-attribute-sets="topic-number-inline"
         ><xsl:sequence select="concat($number, $numberSeparator)"/>
       </fo:inline>

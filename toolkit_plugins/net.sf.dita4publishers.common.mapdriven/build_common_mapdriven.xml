@@ -1,0 +1,14 @@
+<project name="d4p.common.mapdriven"  >
+
+
+  <target name="d4p.map-driven-build-init"
+     description="Sets properties that should be set for map-driven transformation types."
+    >
+  	<echo message="Turning off copy-files preprocessing target" taskname="INFO"/>
+
+  	<property name="d4p.is.map.driven" value="true"/>
+    <property name="preprocess.copy-files.skip" value="true"/>
+    
+  </target>
+  
+</project>

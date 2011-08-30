@@ -13,7 +13,7 @@
     
        DITA Map to ePub Transformation
        
-       Copyright (c) 2010 DITA For Publishers
+       Copyright (c) 2010, 2011 DITA For Publishers
        
        Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
        The intent of this license is for this material to be licensed in a way that is
@@ -43,15 +43,17 @@
        instruction.
        ============================================================== -->
 
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   
   <!-- Import the base HTML output generation transform. -->
   <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
   
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMapImpl.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
+  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
+  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/map2graphicMapImpl.xsl"/>
+  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
+  <xsl:import href="../../net.sf.dita4publishers.common.mapdriven/xsl/map2tocTopic.xsl"/>
   
   <xsl:include href="map2epubCommon.xsl"/>
   <xsl:include href="map2epubOpfImpl.xsl"/>
@@ -87,6 +89,9 @@
   <xsl:param name="outext" select="'.html'"/>
   <xsl:param name="tempdir" select="./temp"/>
   
+  <!-- Used by the copied map2htmtoc.xsl: -->
+  <xsl:param name="FILEREF" select="'file://'"/>
+
  <!-- The path of the directory, relative the $outdir parameter,
     to hold the graphics in the EPub package. Should not have
     a leading "/". 
@@ -121,6 +126,12 @@
   -->  
   <xsl:param name="generateIndex" as="xs:string" select="'no'"/>
   
+  <!-- Include literal HTML ToC page as for normal HTML output -->
+  
+  <xsl:param name="generateHtmlToc" as="xs:string" select="'no'"/>
+  
+  <xsl:param name="html.toc.OUTPUTCLASS" as="xs:string" select="''"/>
+  
   <!-- 
     The strategy to use when constructing output files. Default is "single-dir", meaning
     put all result topics in the same output directory (as specified by $topicsOutputDir)
@@ -132,6 +143,13 @@
     lower-case($generateIndex) = 'yes' or 
     lower-case($generateIndex) = 'true' or
     lower-case($generateIndex) = 'on'
+    "/>
+  
+  <xsl:variable name="generateHtmlTocBoolean" 
+    select="
+    lower-case($generateHtmlToc) = 'yes' or 
+    lower-case($generateHtmlToc) = 'true' or
+    lower-case($generateHtmlToc) = 'on'
     "/>
   
   <!-- Absolute URI of the graphic to use for the cover. Specify
@@ -286,6 +304,7 @@
     </xsl:if>
     
     <xsl:apply-templates select="." mode="generate-content"/>
+    <!-- NOTE: The generate-toc mode is for the EPUB toc, not the HTML toc -->
     <xsl:apply-templates select="." mode="generate-toc">
       <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
     </xsl:apply-templates>

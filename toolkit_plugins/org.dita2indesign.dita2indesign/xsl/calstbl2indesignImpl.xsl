@@ -16,10 +16,6 @@
     Copyright (c) 2010 DITA2InDesign.org
     
   -->
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  
-  <xsl:import href="lib/incx_generation_util.xsl"/>
-  <xsl:import href="elem2styleMapper.xsl"/>
   
   <xsl:template match="*[df:class(.,'topic/table')]" mode="tables">
     <xsl:variable name="STof" select="concat('ro_',generate-id(), 'Anchor')"/>

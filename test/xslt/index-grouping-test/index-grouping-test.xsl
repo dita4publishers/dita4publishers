@@ -6,7 +6,7 @@
   exclude-result-prefixes="xs xd"
   version="2.0">
   
-  <xsl:import href="../../../toolkit_plugins/net.sourceforge.dita4publishers.common.mapdriven/xsl/indexProcessing.xsl"/>
+  <xsl:import href="../../../toolkit_plugins/net.sf.dita4publishers.common.mapdriven/xsl/indexProcessing.xsl"/>
   
   <xsl:param name="outdir" select="./html2"/>
   <xsl:param name="CSSPATH" select="./css"/>

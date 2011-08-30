@@ -45,12 +45,18 @@
   <xsl:param name="mediaDirUri" select="relpath:newFile($outputDir, 'topics/media')" as="xs:string"/>  
   <xsl:param name="outputDir" as="xs:string"/>
   <xsl:param name="rootMapName" as="xs:string" select="'rootmap'"/>
+  <xsl:param name="rootTopicName" as="xs:string?" select="()"/>
   <xsl:param name="submapNamePrefix" as="xs:string" select="'map'"/>
   <xsl:param name="filterBr" as="xs:string" select="'false'"/>
   <xsl:param name="filterTabs" as="xs:string" select="'false'"/>
   <xsl:param name="includeWordBackPointers" as="xs:string" select="'true'"/>
   
   <xsl:param name="rootMapUrl" select="concat($rootMapName, '.ditamap')" as="xs:string"/>
+  <xsl:param name="rootTopicUrl" 
+    as="xs:string?" 
+    select="if ($rootTopicName) 
+    then concat($rootTopicName, '.xml')
+    else ()"/>
   <xsl:param name="topicExtension" select="'.dita'" as="xs:string"/><!-- Extension for generated topic files -->
   <xsl:param name="fileNamePrefix" select="''" as="xs:string"/><!-- Prefix for genenerated file names -->
   
@@ -164,11 +170,13 @@
       + styleMapUri     = "<xsl:sequence select="$styleMapUri"/>"
       + mediaDirUri     = "<xsl:sequence select="$mediaDirUri"/>"  
       + rootMapName     = "<xsl:sequence select="$rootMapName"/>"
+      + rootTopicName   = "<xsl:sequence select="$rootTopicName"/>"
       + submapNamePrefix= "<xsl:sequence select="$submapNamePrefix"/>"      
       + rootMapUrl      = "<xsl:sequence select="$rootMapUrl"/>"
+      + rootTopicUrl    = "<xsl:sequence select="$rootTopicUrl"/>"
       + topicExtension  = "<xsl:sequence select="$topicExtension"/>"
       + fileNamePrefix  = "<xsl:sequence select="$fileNamePrefix"/>"      
-      + outputdir       = "<xsl:sequence select="$outputDir"/>"  
+      + outputDir       = "<xsl:sequence select="$outputDir"/>"  
       + debug           = "<xsl:sequence select="$debug"/>"
       + includeWordBackPointers= "<xsl:sequence select="$includeWordBackPointersBoolean"/>"  
       

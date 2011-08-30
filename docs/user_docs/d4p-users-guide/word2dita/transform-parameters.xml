@@ -62,6 +62,14 @@
           <pd>The full filename the root map. Constructed from the <parmname>rootMapName</parmname> parameter by default.</pd>
         </plentry>
         <plentry>
+          <pt>rootTopicName</pt>
+          <pd>The name (without extension) to use for the root topic. If specified, creates the root topic with this name, ignoring any result filename specified for the transform as a whole. If not specified, then for single-topic results, the normal transform result is used, otherwise the normal topic name generation rules are used. <p>Use this parameter when you want to generate a single root topic from a Word document and you are not generating a map and you want the style-to-tag mapping to determine the result document type declaration.</p></pd>
+        </plentry>
+        <plentry>
+          <pt>rootTopicUrl</pt>
+          <pd>The full filename of the root topic. Constructed from the <parmname>rootTopicName</parmname> parameter by default. Use this parameter if for some reason <parmname>rootTopicName</parmname> doesn't do what you want. Specifying this parameter overrides the <parmname>rootTopicName</parmname> parameter if it is also specified.</pd>
+        </plentry>
+        <plentry>
           <pt>submapNamePrefix</pt>
           <pd>The prefix to use for the filenames of generated submaps. Default is "map".</pd>
         </plentry>

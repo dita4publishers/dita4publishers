@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+   <message>
++ items=
+       <item1>
+         <child>
+            <subchild/>
+         </child>
+      </item1>
+      <item2>
+         <child>
+            <subchild/>
+         </child>    
+      </item2>
+      <item3/>
+      <item4/>
+      <item5>
+         <child>
+            <subchild/>
+         </child>    
+      </item5>
+      <item6/>
+   </message>
+   <message>
++ item3=
+        <item3/>
+   </message>
+   <message>
+        + indexOf3="3"
+      </message>
+   <message>
++ item before item 3=<item2>
+         <child>
+            <subchild/>
+         </child>    
+      </item2>
+   </message>
+</result>

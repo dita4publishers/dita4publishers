@@ -33,25 +33,145 @@
       <p>The named template <keyword>constructNavTreePageSequences</keyword> applies templates in the mode <keyword>constructNavTreePageSequences</keyword>. The default template for "/" in that mode then does the actual work of constructing the page sequences. This lets you override the default processing by providing a template that matches "/", although that shouldn't normally be necessary unless you want to change things in a radical way.</p>
       <p>The default page sequence construction process proceeds as follows:<ol
         id="ol_ggq_bkb_jd">
-        <li>The mode <keyword>getTopLevelTopicsOrRefs</keyword> is used to construct a list of the topics or topicrefs (when there is no corresponding topic) that are top-level topics, meaning they are candidates for starting new page sequences. Note that being a top-level topic does not <i>require</i> a topic or topicref to start a new page sequence, it only gives it the opportunity to do so.  You can have a single page sequence contain multiple top-level topics. By default, any topic whose topicref has no parent topicref or topichead is a top-level topics. Any topics identified as front or back cover topics are excluded from this set (see the discussion of cover generation).</li>
-        <li>The list of top-level topics is processed in the mode <keyword>mapTopicsToType</keyword> in order to create a map of topics to their "topic type", where the topic type is whatever you want it to be, but by default is either the topic tagname (e.g., "concept") or the topicref type (if specialized), given an initial capital and prepended with "topic", e.g. "topicChapter" or "topicConcept". You can implement templates in the <keyword>mapTopicsToType</keyword> mode in order to define the topic types yourself, for example, to reflect semantics of a custom map type.<p>This phase is necessary because the determination of topic type cannot be made during the merging phase because at merge time you don't yet know the topicref context of each topic, which you need in order to have topic type be determined by topicref type.</p><p>The result if this set is a sequence of <codeph>&lt;dita-ot:topicToTypeMapItem></codeph> elements. Each item specifies the topic type and the ID value of the topic it applies to.</p></li>
-        <li>The sequence of topicToTypeMapItem elements is in order to map items to "publication regions", where each publication region will get its own page sequence. Publication regions correspond to things like frontmatter, body, appendices, backmatter, etc. You can define your own publication regions and associate them by implementing templates in the mode <keyword>getPublicationRegion</keyword>. The templates in this mode simply return the string name of the publication region to use. All the adjacent elements with the same publication region will go in a single page sequence.<p>The result of this phase is a sequence of <codeph>&lt;dita-ot:pageSequence></codeph> elements, one for each distinct publication region group, each element containing the topics in the group. The <codeph>&lt;dita-ot:pageSequence></codeph>  elements have a <codeph>@pubRegion</codeph> attribute that specifies the publication region for that page sequence. The elements are "page sequence generators" as they directly drive the creation of the actual XSL-FO page sequence elements in the FO output.</p></li>
-        <li>The sequence of <codeph>&lt;dita-ot:pageSequence></codeph> elements is processed in the <keyword>constructPageSequence</keyword>. Templates in this mode use templates of the form:<codeblock>  &lt;xsl:template mode="constructPageSequence" match="dita-ot:pageSequence[@pubRegion = 'frontmatter']" priority="10">
+        <li>The mode
+          <keyword>getTopLevelTopics</keyword>
+          is used to construct a list of
+          the topics or generated list
+          placeholders that are
+          top-level topics, meaning they
+          are candidates for starting
+          new page sequences. Note that
+          being a top-level topic does
+          not <i>require</i> a topic or
+          topicref to start a new page
+          sequence, it only gives it the
+          opportunity to do so. You can
+          have a single page sequence
+          contain multiple top-level
+          topics. By default, any topic
+          whose topicref has no parent
+          topicref or topichead is a
+          top-level topic. Any topics
+          identified as front or back
+          cover topics are excluded from
+          this set (see the discussion
+          of cover generation).</li>
+        <li>The top-level topics are
+          grouped adjacently by
+          publication region, using the
+          dita-ot-pdf:getPublicationRegion()
+          function. <p>Publication
+          regions correspond to things
+          like frontmatter, body,
+          appendices, backmatter, etc.
+          You can define your own
+          publication regions and
+          associate them by implementing
+          templates in the mode
+          <keyword>getPublicationRegion</keyword>.
+          The function
+          dita-ot-pdf:getPublicationRegion()
+          returns the string name of the
+          publication region the topic
+          is assigned to.  All the
+          adjacent elements with the
+          same publication region will
+          go in a single page
+          sequence.</p><p>The result of
+          this phase is a sequence of
+          <codeph>&lt;dita-ot:pageSequence></codeph>
+          elements, one for each
+          distinct publication region
+          group. The
+          <codeph>&lt;dita-ot:pageSequence></codeph>
+          elements have a
+          <codeph>@pubRegion</codeph>
+          attribute that specifies the
+          publication region for that
+          page sequence. The elements
+          are "page sequence generators"
+          as they directly drive the
+          creation of the actual XSL-FO
+          page sequence elements in the
+          FO output.</p></li>
+        <li>The sequence of
+          <codeph>&lt;dita-ot:pageSequence></codeph>
+          elements is processed in the
+          <keyword>constructPageSequence</keyword>
+          and the  corresponding set of
+          top-level topics is passed as
+          a parameter for use by the
+          handling templates. Templates
+          in this mode use templates of
+          the
+          form:<codeblock>  &lt;xsl:template mode="constructPageSequence" match="dita-ot:pageSequence[@pubRegion = 'frontmatter']" priority="10">
     &lt;xsl:call-template name="doPageSequenceConstruction">
       &lt;xsl:with-param name="pageSequenceMasterName" select="'front-matter-sequence'"/>
     &lt;/xsl:call-template>
-  &lt;/xsl:template></codeblock><p>By default, otherwise unhandled publication regions use the body-sequence page sequence master. Any publication region name starting with "body" will be matched by the default "body" page sequence constructor. Thus you can generate names like "body:1", "body:2" and they will all use the body page sequence master but will generate separate page sequences (because the publication region names are different).</p><p>To map custom publication regions to XSL-FO page sequences or to override the default behavior, implement templates in the <keyword>constructPageSequence</keyword> mode.</p><p>The named template <keyword>doPageSequenceConstruction</keyword> processes the <codeph>&lt;dita-ot:pageSequence></codeph> element and takes as a parameter the name of the page sequence master to use.</p><p>The <keyword>doPageSequenceConstruction</keyword> then calls apply-templates on the <codeph>&lt;dita-ot:pageSequence></codeph>  element in the following modes:<dl>
+  &lt;/xsl:template></codeblock><p>By
+          default, otherwise unhandled
+          publication regions use the
+          body-sequence page sequence
+          master. Any publication region
+          name starting with "body" will
+          be matched by the default
+          "body" page sequence
+          constructor. </p><p>To map
+          custom publication regions to
+          XSL-FO page sequences or to
+          override the default behavior,
+          implement templates in the
+          <keyword>constructPageSequence</keyword>
+          mode.</p><p>The named template
+          <keyword>doPageSequenceConstruction</keyword>
+          processes the
+          <codeph>&lt;dita-ot:pageSequence></codeph>
+          element and takes as a
+          parameter the name of the page
+          sequence master to
+          use.</p><p>The
+          <keyword>doPageSequenceConstruction</keyword>
+          then calls apply-templates on
+          the
+          <codeph>&lt;dita-ot:pageSequence></codeph>
+          element in the following modes:<dl>
           <dlentry>
             <dt><keyword>setInitialPageNumber</keyword></dt>
-            <dd>Handles generation of the <codeph>@initial-page-number</codeph> attribute for the page sequence. By default, the first page sequence of the body sets the initial page number to "1", resetting page numbering for the body. You can override this mode if you need to change how page numbering is handled.</dd>
+            <dd>Handles generation of
+              the
+              <codeph>@initial-page-number</codeph>
+              attribute for the page
+              sequence. By default, the
+              first page sequence of the
+              body sets the initial page
+              number to "1", resetting
+              page numbering for the
+              body. You can override
+              this mode if you need to
+              change how page numbering
+              is handled.</dd>
           </dlentry>
           <dlentry>
             <dt><keyword>constructStaticContent</keyword></dt>
-            <dd>Handles generation of the static content for the page sequence. You can override this mode to change the set of static regions generated for a given page sequence. See <xref
+            <dd>Handles generation of
+              the static content for the
+              page sequence. You can
+              override this mode to
+              change the set of static
+              regions generated for a
+              given page sequence. See <xref
               href="#concept_hcj_xlg_jd"
-              format="dita"/> for more information.</dd>
+              format="dita"/> for more
+              information.</dd>
           </dlentry>
-          </dl></p><p>The <keyword>doPageSequenceConstruction</keyword> template then applies templates to all the top-level topics within the page sequence constructor in the mode <keyword>processTopLevelTopic</keyword>.</p></li>
+          </dl></p><p>The
+          <keyword>doPageSequenceConstruction</keyword>
+          template then applies
+          templates to all the top-level
+          topics within the page
+          sequence constructor in the
+          mode
+          <keyword>processTopLevelTopic</keyword>.</p></li>
         </ol></p>
       <p>If you map multiple topics to single page sequences, you may need to adjust the page break behavior for the topics.</p>
       <p>Given the above process, your configuration task depends on what you need to do:<ul

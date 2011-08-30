@@ -20,10 +20,6 @@
     
   -->
   
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
-  
   <!-- Output format for the content.opf file -->
   <xsl:output name="opf"
     indent="yes"
@@ -116,6 +112,7 @@
           </xsl:if>
           <xsl:apply-templates mode="generate-opf"
             select="*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/data') and @name = 'opf-metadata']"/>
+          
         </metadata>
         
         <manifest xmlns:opf="http://www.idpf.org/2007/opf">
@@ -123,6 +120,8 @@
           <!-- List the XHTML files -->
           <xsl:apply-templates mode="manifest" select="$uniqueTopicRefs"/>
           <xsl:apply-templates select=".//*[df:isTopicHead(.)]" mode="manifest"/>
+          <!-- Hook for extension points: -->
+          <xsl:apply-templates select="." mode="generate-opf-manifest-extensions"/>
           <!-- List the images -->
           <xsl:apply-templates mode="manifest" select="$graphicMap"/>
           <opf:item id="commonltr.css" href="{$cssOutputDir}/commonltr.css" media-type="text/css"/>
@@ -130,15 +129,39 @@
           <xsl:if test="$CSS != ''">
             <opf:item id="{$CSS}" href="{$cssOutputDir}/{$CSS}" media-type="text/css"/>
           </xsl:if>
+          <xsl:if test="$generateHtmlTocBoolean">
+            <xsl:variable name="tocId" select="concat('html-toc_', generate-id(.))" as="xs:string"/>
+            <xsl:variable name="htmlTocUrl" as="xs:string" 
+        select="relpath:newFile($topicsOutputPath, concat($tocId, $OUTEXT))"/>
+            <opf:item id="{$tocId}" href="{$htmlTocUrl}" media-type="text/html"/>
+          </xsl:if>
         </manifest>
         
         <spine toc="ncx">
+          <xsl:if test="$generateHtmlTocBoolean">
+            <xsl:variable name="tocId" select="concat('html-toc_', generate-id(.))" as="xs:string"/>
+            <xsl:variable name="htmlTocUrl" as="xs:string" 
+        select="relpath:newFile($topicsOutputPath, concat($tocId, $OUTEXT))"/>
+            <opf:itemref idref="{$tocId}"/>
+          </xsl:if>
+          
           <xsl:apply-templates mode="spine" select="($uniqueTopicRefs | .//*[df:isTopicHead(.)])"/>
+          
+          <!-- Hook for extension points: -->
+          <xsl:apply-templates select="." mode="spine-extensions"/>
         </spine>
         
       </package>
     </xsl:result-document>  
     <xsl:message> + [INFO] OPF file generation done.</xsl:message>
+  </xsl:template>
+  
+  <xsl:template mode="generate-opf-manifest-extensions" match="*[df:class(., 'map/map')]">
+    <!-- Default implementation. Override to add files to the OPF manifest. -->
+  </xsl:template>
+
+  <xsl:template mode="spine-extensions" match="*[df:class(., 'map/map')]">
+    <!-- Default implementation. Override to add files to the OPF spine. -->
   </xsl:template>
 
   <xsl:template match="*[df:class(., 'map/map')]/*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/author')]" 
