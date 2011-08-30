@@ -23,6 +23,7 @@
   
   <xsl:import href="fo/root-processing.xsl"/>
   <xsl:import href="fo/bookmarks_1.0.xsl"/>
+  <xsl:import href="fo/bookmarks.xsl"/>
   <xsl:import href="fo/commons.xsl"/>
   <xsl:import href="fo/determine-topic-type.xsl"/>
   <xsl:import href="fo/enumeration.xsl"/>

@@ -30,7 +30,25 @@
   
   <xsl:key name="topicsById" match="*[df:class(., 'topic/topic')]" use="@id"/>
   <xsl:key name="topicRefsById" match="*[df:class(., 'map/topicref')]" use="@id"/>
+  
+  <xsl:variable name="topicNumbers" as="element()*">
+    <xsl:apply-templates mode="topicNumbers"/>
+  </xsl:variable>
+  
+  <xsl:template match="*[contains(@class, ' topic/topic ')]" mode="topicNumbers">
+    <topic guid="{generate-id()}">
+      <xsl:call-template name="commonattributes"/>
+    </topic>
+    <xsl:apply-templates mode="#current"/>    
+  </xsl:template>  
 
+  <xsl:template match="*" mode="topicNumbers">
+    <xsl:apply-templates mode="#current"/>    
+  </xsl:template>  
+  
+  <xsl:template match="text()" mode="topicNumbers"/>
+    
+  
   <xsl:template
     name="rootTemplate">
     <xsl:call-template
