@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:fo="http://www.w3.org/1999/XSL/Format"
   xmlns:local="http://local/functions"
@@ -9,6 +8,7 @@
   xmlns:opentopic-index="http://www.idiominc.com/opentopic/index"
   xmlns:opentopic="http://www.idiominc.com/opentopic"
   xmlns:opentopic-func="http://www.idiominc.com/opentopic/exsl/function"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:dita-ot-pdf="http://net.sf.dita-ot/transforms/pdf"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:df="http://dita2indesign.org/dita/functions"

@@ -28,8 +28,14 @@
     <xsl:variable
       name="topicNumber"
       select="count($topicNumbers/topic[@id = $id][following-sibling::topic[@guid = $gid]]) + 1"/>
+    <xsl:variable name="topicType">
+      <xsl:value-of select="dita-ot-pdf:determineTopicType(.)"/>
+    </xsl:variable>
     <xsl:variable
       name="topicTitle">
+      <xsl:apply-templates select="$topicType" mode="toc-prefix-text">
+        <xsl:with-param name="id" select="@id"/>
+      </xsl:apply-templates>
       <xsl:call-template
         name="getNavTitle">
         <xsl:with-param
