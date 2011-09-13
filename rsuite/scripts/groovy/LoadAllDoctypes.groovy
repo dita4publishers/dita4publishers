@@ -104,8 +104,9 @@ topicTypes.each {
 }
 
 mapTypes.each {
+	// NOTE: The public IDs for topics and maps are inconsistent in their use of :dtd: after :doctypes
     loadAndConfigureMapDtd(new File(doctypesDir, it + "/dtd/" + it + ".dtd"), 
-            baseTopicTypeURI + it, 
+            baseTopicTypeURI + "dtd:" + it, 
             it, 
             previewXslFile,
             catalog);
