@@ -89,12 +89,12 @@
             select="'.1.1.1'"
           />
           <xsl:variable name="nonChapterNumbers" as="xs:string">
-            <xsl:number
-              level="multiple"
-              count="*[df:class(., 'topic/topic')][not(dita-ot-pdf:determineTopicType(.) = 
-              ('topicPart', 'topicChapter', 'topicAppendix'))][dita-ot-pdf:getPublicationRegion(.) = $pubRegion]"
-              select=".."
-              format="{$formatSpec}"/>
+<xsl:number
+  level="multiple"
+  count="*[df:class(., 'topic/topic')][not(dita-ot-pdf:determineTopicType(.) = 
+  ('topicPart', 'topicChapter', 'topicAppendix'))][dita-ot-pdf:getPublicationRegion(.) = $pubRegion]"
+  select=".."
+  format="{$formatSpec}"/>
           </xsl:variable>
           <xsl:sequence select="concat($chapterNumber, $nonChapterNumbers)"/>
         </xsl:when>
