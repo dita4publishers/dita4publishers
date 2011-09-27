@@ -2,6 +2,9 @@
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/concept.dtd">
 <concept id="conceptId">
  <title>Sub Concept 01</title>
+  <titlealts>
+    <navtitle>Sub Concept 01 Navtitle</navtitle>
+  </titlealts>
  <shortdesc></shortdesc>
  <conbody>
   <p>Here is a figure:<fig>
