@@ -53,7 +53,9 @@
               e.g., as for topicheads. This would be a good opportunity to generate a
               document cover, which should be defined as an extension point.
             -->
-            <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current">
+            <xsl:apply-templates 
+              select="*[df:class(., 'map/topicref')]"
+              mode="#current">
               <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes" select="1"/>              
             </xsl:apply-templates>
           </xsl:when>
@@ -150,12 +152,14 @@
             <!-- Any subordinate topics in the currently-referenced topic are
               reflected in the ToC before any subordinate topicrefs.
             -->
-            <xsl:apply-templates mode="#current" 
-              select="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]">
-              <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes"
-                select="$tocDepth + 1"
-              />
-            </xsl:apply-templates>
+            <xsl:if test="not(contains(@chunk, 'to-content'))">
+              <xsl:apply-templates mode="#current" 
+                select="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]">
+                <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes"
+                  select="$tocDepth + 1"
+                />
+              </xsl:apply-templates>
+            </xsl:if>
           </navPoint>
         </xsl:otherwise>
       </xsl:choose>    

@@ -67,6 +67,7 @@
       doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
       <html>
         <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />         
           <title>Table of Contents</title>
         </head>
         <body>
@@ -123,10 +124,17 @@
               />
             </a><br/>
             <xsl:apply-templates mode="#current"
-              select="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]">
+              select="$topic/*[df:class(., 'topic/topic')]">
               <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes" select="$tocDepth + 1"
               />
             </xsl:apply-templates>        
+            <xsl:if test="not(contains(@chunk, 'to-content'))">
+              <xsl:apply-templates mode="#current"
+                select="$topic/*[df:class(., 'map/topicref')]">
+                <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes" select="$tocDepth + 1"
+                />
+              </xsl:apply-templates>        
+            </xsl:if>
           </xsl:variable>
           <!-- no blockquote for top level toc elements -->
           <xsl:choose>
