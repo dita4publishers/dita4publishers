@@ -77,7 +77,7 @@
     <condition property="noPlugin">
       <equals arg1="${dita.epub.plugin}" arg2="no" />
     </condition>
-    <condition property="css.output.dir" value="topics">
+    <condition property="css.output.dir" value="${topics.output.dir}">
       <not>
         <isset property="args.css.output.dir" />
       </not>
