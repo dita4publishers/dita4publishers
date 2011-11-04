@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:act" "act.dtd">
+<act id="act-1">
+   <title>ACT I</title>
+   <scene id="act-1-scene-1">
+      <title>SCENE I.  KING JOHN'S palace.</title>
+      <scene-body>
+         <stagedir>Enter KING JOHN, QUEEN ELINOR, PEMBROKE, ESSEX,
+SALISBURY, and others, with CHATILLON</stagedir>
+         <speech>
+            <speaker>KING JOHN</speaker>
+            <line>Now, say, Chatillon, what would France with us?</line>
+         </speech>
+         <speech>
+            <speaker>CHATILLON</speaker>
+            <line>Thus, after greeting, speaks the King of France</line>
+            <line>In my behavior to the majesty,</line>
+            <line>The borrow'd majesty, of England here.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN ELINOR</speaker>
+            <line>A strange beginning: 'borrow'd majesty!'</line>
+         </speech>
+         <speech>
+            <speaker>KING JOHN</speaker>
+            <line>Silence, good mother; hear the embassy.</line>
+         </speech>
+         <speech>
+            <speaker>CHATILLON</speaker>
+            <line>Philip of France, in right and true behalf</line>
+            <line>Of thy deceased brother Geffrey's son,</line>
+            <line>Arthur Plantagenet, lays most lawful claim</line>
+            <line>To this fair island and the territories,</line>
+            <line>To Ireland, Poictiers, Anjou, Touraine, Maine,</line>
+            <line>Desiring thee to lay aside the sword</line>
+            <line>Which sways usurpingly these several titles,</line>
+            <line>And put these same into young Arthur's hand,</line>
+            <line>Thy nephew and right royal sovereign.</line>
+         </speech>
+         <speech>
+            <speaker>KING JOHN</speaker>
+            <line>What follows if we disallow of this?</line>
+         </speech>
+         <speech>
+            <speaker>CHATILLON</speaker>
+            <line>The proud control of fierce and bloody war,</line>
+            <line>To enforce these rights so forcibly withheld.</line>
+         </speech>
+         <speech>
+            <speaker>KING JOHN</speaker>
+            <line>Here have we war for war and blood for blood,</line>
+            <line>Controlment for controlment: so answer France.</line>
+         </speech>
+         <speech>
+            <speaker>CHATILLON</speaker>
+            <line>Then take my king's defiance from my mouth,</line>
+            <line>The farthest limit of my embassy.</line>
+         </speech>
+         <speech>
+            <speaker>KING JOHN</speaker>
+            <line>Bear mine to him, and so depart in peace:</line>
+            <line>Be thou as lightning in the eyes of France;</line>
+            <line>For ere thou canst report I will be there,</line>
+            <line>The thunder of my cannon shall be heard:</line>
+            <line>So hence! Be thou the trumpet of our wrath</line>
+            <line>And sullen presage of your own decay.</line>
+            <line>An honourable conduct let him have:</line>
+            <line>Pembroke, look to 't. Farewell, Chatillon.</line>
+         </speech>
+         <stagedir>Exeunt CHATILLON and PEMBROKE</stagedir>
+         <speech>
+            <speaker>QUEEN ELINOR</speaker>
+            <line>What now, my son! have I not ever said</line>
+            <line>How that ambitious Constance would not cease</line>
+            <line>Till she had kindled France and all the world,</line>
+            <line>Upon the right and party of her son?</line>
+            <line>This might have been prevented and made whole</line>
+            <line>With very easy arguments of love,</line>
+            <line>Which now the manage of two kingdoms must</line>
+            <line>With fearful bloody issue arbitrate.</line>
+         </speech>
+         <speech>
+            <speaker>KING JOHN</speaker>
+            <line>Our strong possession and our right for us.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN ELINOR</speaker>
+            <line>Your strong possession much more than your right,</line>
+            <line>Or else it must go wrong with you and me:</line>
+            <line>So much my conscience whispers in your ear,</line>
+            <line>Which none but heaven and you and I shall hear.</line>
+         </speech>
+         <stagedir>Enter a Sheriff</stagedir>
+         <speech>
+            <speaker>ESSEX</speaker>
+            <line>My liege, here is the strangest controversy</line>
+            <line>Come from country to be judged by you,</line>
+            <line>That e'er I heard: shall I produce the men?</line>
+         </speech>
+         <speech>
+            <speaker>KING JOHN</speaker>
+            <line>Let them approach.</line>
+            <line>Our abbeys and our priories shall pay</line>
+            <line>This expedition's charge.</line>
+            <stagedir>Enter ROBERT and the BASTARD</stagedir>
+            <line>What men are you?</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>Your faithful subject I, a gentleman</line>
+            <line>Born in Northamptonshire and eldest son,</line>
+            <line>As I suppose, to Robert Faulconbridge,</line>
+            <line>A soldier, by the honour-giving hand</line>
+            <line>Of Coeur-de-lion knighted in the field.</line>
+         </speech>
+         <speech>
+            <speaker>KING JOHN</speaker>
+            <line>What art thou?</line>
+         </speech>
+         <speech>
+            <speaker>ROBERT</speaker>
+            <line>The son and heir to that same Faulconbridge.</line>
+         </speech>
+         <speech>
+            <speaker>KING JOHN</speaker>
+            <line>Is that the elder, and art thou the heir?</line>
+            <line>You came not of one mother then, it seems.</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>Most certain of one mother, mighty king;</line>
+            <line>That is well known; and, as I think, one father:</line>
+            <line>But for the certain knowledge of that truth</line>
+            <line>I put you o'er to heaven and to my mother:</line>
+            <line>Of that I doubt, as all men's children may.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN ELINOR</speaker>
+            <line>Out on thee, rude man! thou dost shame thy mother</line>
+            <line>And wound her honour with this diffidence.</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>I, madam? no, I have no reason for it;</line>
+            <line>That is my brother's plea and none of mine;</line>
+            <line>The which if he can prove, a' pops me out</line>
+            <line>At least from fair five hundred pound a year:</line>
+            <line>Heaven guard my mother's honour and my land!</line>
+         </speech>
+         <speech>
+            <speaker>KING JOHN</speaker>
+            <line>A good blunt fellow. Why, being younger born,</line>
+            <line>Doth he lay claim to thine inheritance?</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>I know not why, except to get the land.</line>
+            <line>But once he slander'd me with bastardy:</line>
+            <line>But whether I be as true begot or no,</line>
+            <line>That still I lay upon my mother's head,</line>
+            <line>But that I am as well begot, my liege,--</line>
+            <line>Fair fall the bones that took the pains for me!--</line>
+            <line>Compare our faces and be judge yourself.</line>
+            <line>If old sir Robert did beget us both</line>
+            <line>And were our father and this son like him,</line>
+            <line>O old sir Robert, father, on my knee</line>
+            <line>I give heaven thanks I was not like to thee!</line>
+         </speech>
+         <speech>
+            <speaker>KING JOHN</speaker>
+            <line>Why, what a madcap hath heaven lent us here!</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN ELINOR</speaker>
+            <line>He hath a trick of Coeur-de-lion's face;</line>
+            <line>The accent of his tongue affecteth him.</line>
+            <line>Do you not read some tokens of my son</line>
+            <line>In the large composition of this man?</line>
+         </speech>
+         <speech>
+            <speaker>KING JOHN</speaker>
+            <line>Mine eye hath well examined his parts</line>
+            <line>And finds them perfect Richard. Sirrah, speak,</line>
+            <line>What doth move you to claim your brother's land?</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>Because he hath a half-face, like my father.</line>
+            <line>With half that face would he have all my land:</line>
+            <line>A half-faced groat five hundred pound a year!</line>
+         </speech>
+         <speech>
+            <speaker>ROBERT</speaker>
+            <line>My gracious liege, when that my father lived,</line>
+            <line>Your brother did employ my father much,--</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>Well, sir, by this you cannot get my land:</line>
+            <line>Your tale must be how he employ'd my mother.</line>
+         </speech>
+         <speech>
+            <speaker>ROBERT</speaker>
+            <line>And once dispatch'd him in an embassy</line>
+            <line>To Germany, there with the emperor</line>
+            <line>To treat of high affairs touching that time.</line>
+            <line>The advantage of his absence took the king</line>
+            <line>And in the mean time sojourn'd at my father's;</line>
+            <line>Where how he did prevail I shame to speak,</line>
+            <line>But truth is truth: large lengths of seas and shores</line>
+            <line>Between my father and my mother lay,</line>
+            <line>As I have heard my father speak himself,</line>
+            <line>When this same lusty gentleman was got.</line>
+            <line>Upon his death-bed he by will bequeath'd</line>
+            <line>His lands to me, and took it on his death</line>
+            <line>That this my mother's son was none of his;</line>
+            <line>And if he were, he came into the world</line>
+            <line>Full fourteen weeks before the course of time.</line>
+            <line>Then, good my liege, let me have what is mine,</line>
+            <line>My father's land, as was my father's will.</line>
+         </speech>
+         <speech>
+            <speaker>KING JOHN</speaker>
+            <line>Sirrah, your brother is legitimate;</line>
+            <line>Your father's wife did after wedlock bear him,</line>
+            <line>And if she did play false, the fault was hers;</line>
+            <line>Which fault lies on the hazards of all husbands</line>
+            <line>That marry wives. Tell me, how if my brother,</line>
+            <line>Who, as you say, took pains to get this son,</line>
+            <line>Had of your father claim'd this son for his?</line>
+            <line>In sooth, good friend, your father might have kept</line>
+            <line>This calf bred from his cow from all the world;</line>
+            <line>In sooth he might; then, if he were my brother's,</line>
+            <line>My brother might not claim him; nor your father,</line>
+            <line>Being none of his, refuse him: this concludes;</line>
+            <line>My mother's son did get your father's heir;</line>
+            <line>Your father's heir must have your father's land.</line>
+         </speech>
+         <speech>
+            <speaker>ROBERT</speaker>
+            <line>Shall then my father's will be of no force</line>
+            <line>To dispossess that child which is not his?</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>Of no more force to dispossess me, sir,</line>
+            <line>Than was his will to get me, as I think.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN ELINOR</speaker>
+            <line>Whether hadst thou rather be a Faulconbridge</line>
+            <line>And like thy brother, to enjoy thy land,</line>
+            <line>Or the reputed son of Coeur-de-lion,</line>
+            <line>Lord of thy presence and no land beside?</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>Madam, an if my brother had my shape,</line>
+            <line>And I had his, sir Robert's his, like him;</line>
+            <line>And if my legs were two such riding-rods,</line>
+            <line>My arms such eel-skins stuff'd, my face so thin</line>
+            <line>That in mine ear I durst not stick a rose</line>
+            <line>Lest men should say 'Look, where three-farthings goes!'</line>
+            <line>And, to his shape, were heir to all this land,</line>
+            <line>Would I might never stir from off this place,</line>
+            <line>I would give it every foot to have this face;</line>
+            <line>I would not be sir Nob in any case.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN ELINOR</speaker>
+            <line>I like thee well: wilt thou forsake thy fortune,</line>
+            <line>Bequeath thy land to him and follow me?</line>
+            <line>I am a soldier and now bound to France.</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>Brother, take you my land, I'll take my chance.</line>
+            <line>Your face hath got five hundred pound a year,</line>
+            <line>Yet sell your face for five pence and 'tis dear.</line>
+            <line>Madam, I'll follow you unto the death.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN ELINOR</speaker>
+            <line>Nay, I would have you go before me thither.</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>Our country manners give our betters way.</line>
+         </speech>
+         <speech>
+            <speaker>KING JOHN</speaker>
+            <line>What is thy name?</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>Philip, my liege, so is my name begun,</line>
+            <line>Philip, good old sir Robert's wife's eldest son.</line>
+         </speech>
+         <speech>
+            <speaker>KING JOHN</speaker>
+            <line>From henceforth bear his name whose form thou bear'st:</line>
+            <line>Kneel thou down Philip, but rise more great,</line>
+            <line>Arise sir Richard and Plantagenet.</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>Brother by the mother's side, give me your hand:</line>
+            <line>My father gave me honour, yours gave land.</line>
+            <line>Now blessed by the hour, by night or day,</line>
+            <line>When I was got, sir Robert was away!</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN ELINOR</speaker>
+            <line>The very spirit of Plantagenet!</line>
+            <line>I am thy grandam, Richard; call me so.</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>Madam, by chance but not by truth; what though?</line>
+            <line>Something about, a little from the right,</line>
+            <line>In at the window, or else o'er the hatch:</line>
+            <line>Who dares not stir by day must walk by night,</line>
+            <line>And have is have, however men do catch:</line>
+            <line>Near or far off, well won is still well shot,</line>
+            <line>And I am I, howe'er I was begot.</line>
+         </speech>
+         <speech>
+            <speaker>KING JOHN</speaker>
+            <line>Go, Faulconbridge: now hast thou thy desire;</line>
+            <line>A landless knight makes thee a landed squire.</line>
+            <line>Come, madam, and come, Richard, we must speed</line>
+            <line>For France, for France, for it is more than need.</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>Brother, adieu: good fortune come to thee!</line>
+            <line>For thou wast got i' the way of honesty.</line>
+            <stagedir>Exeunt all but BASTARD</stagedir>
+            <line>A foot of honour better than I was;</line>
+            <line>But many a many foot of land the worse.</line>
+            <line>Well, now can I make any Joan a lady.</line>
+            <line>'Good den, sir Richard!'--'God-a-mercy, fellow!'--</line>
+            <line>And if his name be George, I'll call him Peter;</line>
+            <line>For new-made honour doth forget men's names;</line>
+            <line>'Tis too respective and too sociable</line>
+            <line>For your conversion. Now your traveller,</line>
+            <line>He and his toothpick at my worship's mess,</line>
+            <line>And when my knightly stomach is sufficed,</line>
+            <line>Why then I suck my teeth and catechise</line>
+            <line>My picked man of countries: 'My dear sir,'</line>
+            <line>Thus, leaning on mine elbow, I begin,</line>
+            <line>'I shall beseech you'--that is question now;</line>
+            <line>And then comes answer like an Absey book:</line>
+            <line>'O sir,' says answer, 'at your best command;</line>
+            <line>At your employment; at your service, sir;'</line>
+            <line>'No, sir,' says question, 'I, sweet sir, at yours:'</line>
+            <line>And so, ere answer knows what question would,</line>
+            <line>Saving in dialogue of compliment,</line>
+            <line>And talking of the Alps and Apennines,</line>
+            <line>The Pyrenean and the river Po,</line>
+            <line>It draws toward supper in conclusion so.</line>
+            <line>But this is worshipful society</line>
+            <line>And fits the mounting spirit like myself,</line>
+            <line>For he is but a bastard to the time</line>
+            <line>That doth not smack of observation;</line>
+            <line>And so am I, whether I smack or no;</line>
+            <line>And not alone in habit and device,</line>
+            <line>Exterior form, outward accoutrement,</line>
+            <line>But from the inward motion to deliver</line>
+            <line>Sweet, sweet, sweet poison for the age's tooth:</line>
+            <line>Which, though I will not practise to deceive,</line>
+            <line>Yet, to avoid deceit, I mean to learn;</line>
+            <line>For it shall strew the footsteps of my rising.</line>
+            <line>But who comes in such haste in riding-robes?</line>
+            <line>What woman-post is this? hath she no husband</line>
+            <line>That will take pains to blow a horn before her?</line>
+            <stagedir>Enter LADY FAULCONBRIDGE and GURNEY</stagedir>
+            <line>O me! it is my mother. How now, good lady!</line>
+            <line>What brings you here to court so hastily?</line>
+         </speech>
+         <speech>
+            <speaker>LADY FAULCONBRIDGE</speaker>
+            <line>Where is that slave, thy brother? where is he,</line>
+            <line>That holds in chase mine honour up and down?</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>My brother Robert? old sir Robert's son?</line>
+            <line>Colbrand the giant, that same mighty man?</line>
+            <line>Is it sir Robert's son that you seek so?</line>
+         </speech>
+         <speech>
+            <speaker>LADY FAULCONBRIDGE</speaker>
+            <line>Sir Robert's son! Ay, thou unreverend boy,</line>
+            <line>Sir Robert's son: why scorn'st thou at sir Robert?</line>
+            <line>He is sir Robert's son, and so art thou.</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>James Gurney, wilt thou give us leave awhile?</line>
+         </speech>
+         <speech>
+            <speaker>GURNEY</speaker>
+            <line>Good leave, good Philip.</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>Philip! sparrow: James,</line>
+            <line>There's toys abroad: anon I'll tell thee more.</line>
+            <stagedir>Exit GURNEY</stagedir>
+            <line>Madam, I was not old sir Robert's son:</line>
+            <line>Sir Robert might have eat his part in me</line>
+            <line>Upon Good-Friday and ne'er broke his fast:</line>
+            <line>Sir Robert could do well: marry, to confess,</line>
+            <line>Could he get me? Sir Robert could not do it:</line>
+            <line>We know his handiwork: therefore, good mother,</line>
+            <line>To whom am I beholding for these limbs?</line>
+            <line>Sir Robert never holp to make this leg.</line>
+         </speech>
+         <speech>
+            <speaker>LADY FAULCONBRIDGE</speaker>
+            <line>Hast thou conspired with thy brother too,</line>
+            <line>That for thine own gain shouldst defend mine honour?</line>
+            <line>What means this scorn, thou most untoward knave?</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>Knight, knight, good mother, Basilisco-like.</line>
+            <line>What! I am dubb'd! I have it on my shoulder.</line>
+            <line>But, mother, I am not sir Robert's son;</line>
+            <line>I have disclaim'd sir Robert and my land;</line>
+            <line>Legitimation, name and all is gone:</line>
+            <line>Then, good my mother, let me know my father;</line>
+            <line>Some proper man, I hope: who was it, mother?</line>
+         </speech>
+         <speech>
+            <speaker>LADY FAULCONBRIDGE</speaker>
+            <line>Hast thou denied thyself a Faulconbridge?</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>As faithfully as I deny the devil.</line>
+         </speech>
+         <speech>
+            <speaker>LADY FAULCONBRIDGE</speaker>
+            <line>King Richard Coeur-de-lion was thy father:</line>
+            <line>By long and vehement suit I was seduced</line>
+            <line>To make room for him in my husband's bed:</line>
+            <line>Heaven lay not my transgression to my charge!</line>
+            <line>Thou art the issue of my dear offence,</line>
+            <line>Which was so strongly urged past my defence.</line>
+         </speech>
+         <speech>
+            <speaker>BASTARD</speaker>
+            <line>Now, by this light, were I to get again,</line>
+            <line>Madam, I would not wish a better father.</line>
+            <line>Some sins do bear their privilege on earth,</line>
+            <line>And so doth yours; your fault was not your folly:</line>
+            <line>Needs must you lay your heart at his dispose,</line>
+            <line>Subjected tribute to commanding love,</line>
+            <line>Against whose fury and unmatched force</line>
+            <line>The aweless lion could not wage the fight,</line>
+            <line>Nor keep his princely heart from Richard's hand.</line>
+            <line>He that perforce robs lions of their hearts</line>
+            <line>May easily win a woman's. Ay, my mother,</line>
+            <line>With all my heart I thank thee for my father!</line>
+            <line>Who lives and dares but say thou didst not well</line>
+            <line>When I was got, I'll send his soul to hell.</line>
+            <line>Come, lady, I will show thee to my kin;</line>
+            <line>And they shall say, when Richard me begot,</line>
+            <line>If thou hadst said him nay, it had been sin:</line>
+            <line>Who says it was, he lies; I say 'twas not.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+</act>

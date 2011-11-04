@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     DITA For Publishers Formatting Domain
+     
+     Defines specializations of p and ph for requesting specific
+     formatting effects.
+     
+     Copyright (c) 2009 DITA For Publishers
+     
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                   Formatting DOMAIN ENTITIES                  -->
+<!-- ============================================================= -->
+
+<!ENTITY % d4p_formatting-d-ph
+   "br |
+    b-i |
+    b-sc |
+    eqn_inline |
+    linethrough |
+    sc |
+    tab 
+   "
+>
+
+<!ENTITY % d4p_formatting-d-p
+   "eqn_block
+   "
+>
+
+<!ENTITY % d4p_formatting-d-image
+   "art
+   "
+>
+
+<!ENTITY % d4p_formatting-d-foreign
+   "inx_snippet
+   "
+>
+
+
+<!ENTITY   d4p_formatting-d-att     
+  "(topic d4p_formatting-d)"
+>
+
+
+<!-- ================== End DITA For Publishers Formatting Domain Entities ============ -->

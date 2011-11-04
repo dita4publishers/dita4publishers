@@ -1,0 +1,34 @@
+<project name="dita2wordToDita" default="dita2word2dita">
+  <dirname property="dita2wordToDita.buildfile.dir" file="${ant.file}"/>
+  
+  
+  <property name="wordToDita.dir" location="${dita2wordToDita.buildfile.dir}/plugins/net.sourceforge.dita4publishers.word2dita"/>
+	
+		
+	<property name="debug" value="false"></property>
+	
+	<target name="dita2word2dita" depends="wordToDita">
+  </target>
+  
+  <target name="d4p.wordToDita.init" description="Init properties for wordToDita">
+    <condition property="out.ext" value=".dita">
+      <not>
+        <isset property="out.ext"></isset>
+      </not>
+    </condition>
+    <condition property="noPlugin">
+      <equals arg1="${dita.wordToDita.plugin}" arg2="no"></equals>
+    </condition>
+  </target>
+
+	<target name="wordToDita">
+	  <echo message="[DEBUG] wordToDita.dir=${wordToDita.dir}"/>
+	  <ant antfile="${wordToDita.dir}/build-word2dita.xml" target="word2dita">
+	  	<!-- Translate OT properties to Word2DITA properties: -->
+	  	<property name="word.doc" value="${args.input}"/>
+			<property name="w2d.temp.dir" location="${dita.temp.dir}"/>
+	  	<property name="w2d.out.dir" location="${output.dir}"/>
+	  </ant>
+  </target>
+
+</project>

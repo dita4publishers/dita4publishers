@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
+<pubmap>
+  <pubtitle>
+    <mainpubtitle>Conversation and Community</mainpubtitle>
+    <subtitle>The Social Web for Documentation</subtitle>
+  </pubtitle>
+  <pubmeta>
+  </pubmeta>
+  <publication
+    href="covers/front-cover.dita"
+    >
+    <frontmatter>
+      <copyright-page
+        href="chapters/copyright-page.xml"/>
+      <forward
+        href="chapters/chapter_00.dita"/>
+      <preface
+        href="chapters/chapter_0.5.dita"/>
+      <toc/>
+      <figurelist/>
+    </frontmatter>
+    <pubbody>
+      <chapter
+        href="chapters/chapter_01.xml"/>
+      <chapter
+        href="chapters/chapter_02.xml"/>
+      <chapter
+        href="chapters/chapter_03.xml"/>
+      <chapter
+        href="chapters/chapter_04.xml"/>
+      <chapter
+        href="chapters/chapter_05.xml"/>
+      <chapter
+        href="chapters/chapter_06.xml"/>
+      <chapter
+        href="chapters/chapter_07.xml"/>
+    </pubbody>
+    <backmatter>
+      <glossary
+        href="chapters/chapter_08.xml"/>
+      <appendix
+        href="chapters/chapter_08RR.xml"/>
+      <appendix
+        href="chapters/chapter_08A.xml"/>
+      <appendix
+        href="chapters/chapter_08B.xml"/>
+    </backmatter>
+    <indexlist />
+  </publication>
+</pubmap>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
+<pubmap
+  xml:lang="en_US">
+  <pubtitle> <mainpubtitle>ePub Test Document</mainpubtitle> </pubtitle>
+  <pubmeta> <author><data
+    name="file-as">McTesterson, Tester</data>Tester McTesterson</author>
+    <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source> <critdates>
+    <created
+      date="February, 1993"/>
+    <revised
+      modified="March 29, 2004"/>
+    </critdates> <pubid> <pubnumber>Ebook #55</pubnumber> <data
+    name="epub-bookid">epubid-value</data> </pubid> <pubrights>
+    <publicense>Project Gutenberg License.</publicense> </pubrights> 
+    <data name="opf-metadata">
+      <data name="item-one" value="value one"/>
+    </data>
+  </pubmeta>
+  <keydefs>
+    <topicmeta>
+      <navtitle>Key Definitions</navtitle>
+    </topicmeta>
+    <keydef
+      keys="keyed-topic-01"
+      href="chapters/keyed-topic-one.dita"/>
+    <keydef
+      keys="the_rescue_of_the_tinman"
+      href="chapters/chapter_5.dita"/>
+    <keydef
+      href="chapters/chapter_1.dita"
+      keys="the_cyclone"/>
+  </keydefs>
+  <publication>
+    <covers>
+      <epub-cover-graphic format="jpg" href="covers/images/1407-02.jpg"/>
+      <front-cover
+        href="covers/epub-test-front-cover.dita"/>
+    </covers>
+    <frontmatter>
+      <page
+        href="frontmatter/about-project-gutenberg.dita"/>
+      <topicref
+        href="frontmatter/introduction.dita"/>
+    </frontmatter>
+    <pubbody
+      collection-type="sequence">
+      <topicref
+        href="chapters/element-test.dita"/>
+        <chapter
+        href="chapters/title-only-topic-01.dita">
+        <topicref
+          navtitle="Topic Head 1">
+          <topicref
+            href="chapters/chapter-04/topic-head-1/subtopic-03.dita"/>
+        </topicref>
+            <topichead
+          navtitle="Topic Head 2"
+          chunk="to-content"> </topichead>
+        <topicref
+          href="chapters/subtopic-02.dita"/>
+        <topicref
+          href="chapters/chapter-04/topic-head-2/subtopic-03.dita"
+          copy-to="subtopic-03-2nd-ref.dita"/>
+        <topicref
+          href="chapters/subtopic-04.dita"/>
+        <topicgroup>
+          <topicref
+            href="chapters/subtopic-02.dita"
+            copy-to="subtopic-02-2nd-ref.dita"/>
+        </topicgroup>
+            <topichead
+          navtitle="Deep Nesting Lvl 2">
+          <topichead
+            navtitle="Deep Nesting Lvl 3">
+            <topichead
+              navtitle="Deep Nesting Lvl 4">
+              <topichead
+                navtitle="Deep Nesting Lvl 5">
+                <topichead
+                  navtitle="Deep Nesting Lvl 6">
+                  <topichead
+                    navtitle="Deep Nesting Lvl 7"/>
+                </topichead>
+              </topichead>
+            </topichead>
+          </topichead>
+          <topichead
+            navtitle="2nd Deep Nesting Lvl 3">
+            <topichead
+              navtitle="Deep Nesting Lvl 4">
+              <topichead
+                navtitle="Deep Nesting Lvl 5">
+                <topichead
+                  navtitle="Deep Nesting Lvl 6">
+                  <topichead
+                    navtitle="Deep Nesting Lvl 7"/>
+                </topichead>
+              </topichead>
+            </topichead>
+          </topichead>
+        </topichead>
+      </chapter>
+      <topicref
+        href="chapters/cross-refs-01.dita"/>
+      <topicref
+        href="chapters/cross-ref-targets-01.dita"/>
+      <topicref
+        href="chapters/deeply-nested-chapter.dita"/>
+      <chapter
+      href="chapters/keyref-tests.dita">
+      <chapter
+        keyref="keyed-topic-01"/>
+      </chapter>
+        <chapter
+        href="chapters/chapter_1.dita"/>
+      <chapter
+        href="chapters/chapter_2.dita">
+        <topicmeta>
+          <navtitle>Chapter 2 navtitle in map</navtitle>
+        </topicmeta>
+        <topicref
+          href="chapters/subtopic-01.dita"/>
+      </chapter>
+      <chapter
+        href="chapters/chapter_3.dita"/>
+      <chapter
+        href="chapters/chapter_4.dita"/>
+    </pubbody>
+    <colophon
+      href="backmatter/colophon.dita"/>
+ </publication>
+</pubmap>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+  
+  <!-- domain modules -->
+  
+  
+  <!-- Topic types -->
+  <nextCatalog catalog="play-component/catalog.xml"/>
+  <nextCatalog catalog="act/catalog.xml"/>
+  <nextCatalog catalog="scene/catalog.xml"/>
+  <nextCatalog catalog="epilogue/catalog.xml"/>
+  <nextCatalog catalog="induct/catalog.xml"/>
+  <nextCatalog catalog="prologue/catalog.xml"/>
+  <nextCatalog catalog="personae/catalog.xml"/>
+  
+  <!-- Map types -->
+  
+  <nextCatalog catalog="playmap/catalog.xml"/>
+  
+  
+</catalog>

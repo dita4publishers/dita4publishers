@@ -1,0 +1,29 @@
+<!-- =============================================================
+     DITA For Publishers Enumeration Map Domain
+     
+     Defines specializations of data and topicref for defining and
+     specifying both literal (invariant) and automatic enumerators
+     for use in content, for example, to capture numbers from original
+     content or to provide author control over number of things
+     specific to a given publication.
+     
+     Copyright (c) 2010 DITA For Publishers
+     
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    Enumeration DOMAIN ENTITIES                -->
+<!-- ============================================================= -->
+
+<!ENTITY % d4p_enumerationMap-d-topicref
+   "d4pEnumeratorStreamDefinition
+   "
+>
+
+<!ENTITY   d4p_enumerationMap-d-att     
+  "(map d4p_enumerationMap-d)"
+>
+
+
+<!-- ================== End Enumeration Map Domain Entities ============ -->

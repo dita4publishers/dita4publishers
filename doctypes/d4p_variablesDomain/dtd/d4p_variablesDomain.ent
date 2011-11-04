@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     DITA For Publishers Variables Domain
+     
+     Defines elements for defining "variables" and variable references
+     that are metadata based.
+     
+     WARNING: This domain is entirely experimental. There is no guarantee
+     for ongoing support for this domain. The markup details may change
+     without warning.
+     
+     Copyright (c) 2010 DITA For Publishers
+     
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                   Ruby DOMAIN ENTITIES                  -->
+<!-- ============================================================= -->
+
+<!ENTITY % d4p_variables-d-data
+   " d4p-variable-definitions
+   "
+>
+
+<!ENTITY % d4p_variables-d-text
+   " d4p-variableref_text
+   "
+>
+
+<!ENTITY % d4p_variables-d-keyword
+   " d4p-variableref_keyword
+   "
+>
+
+
+
+<!ENTITY d4p_variables-d-att     
+  "(topic d4p_variables-d)"
+>
+
+
+<!-- ================== End DITA For Publishers Variables Domain Entities ============ -->

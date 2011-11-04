@@ -1,0 +1,13 @@
+<plugin id="net.sourceforge.dita4publishers.html2">
+
+  <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
+  <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
+
+  <template file="build_transtype-html2_template.xml"/>
+  
+  <template file="xsl/map2html2_template.xsl"/>
+
+  <feature extension="dita.conductor.transtype.check" value="html2" type="txt"/>
+  <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
+
+</plugin>

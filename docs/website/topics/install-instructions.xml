@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task
+  id="taskId">
+  <title>Installing the DITA For Publishers Package</title>
+  <taskbody>
+    <context>
+      <p>The DITA For Publishers materials are provided as a single Zip package from the project's download page: <xref/>. The Toolkit plugins are intended for use with the 1.5 version of the Open Toolkit but may work with the 1.4.3 version.</p>
+    </context>
+    <steps>
+      <step>
+        <cmd>Download the Zip package and unpack it wherever you like, e.g. <filepath
+            >c:\myprojects\dita4publishers</filepath>.</cmd>
+      </step>
+      <step>
+        <cmd>Unzip the package.</cmd>
+        <stepresult>
+          <p>You should get these directories and zip files:<dl>
+              <dlentry>
+                <dt><filepath>dita4publishers_toolkit_plugins-<varname>version</varname>-<varname>release</varname>-<varname>modification</varname>.zip</filepath></dt>
+                <dd>Contains the DITA for Publishers Toolkit plugins. To be installed in your local
+                  Open Toolkit's <filepath>plugins</filepath> directory.</dd>
+              </dlentry>
+              <dlentry>
+                <dt><filepath>documentation</filepath></dt>
+                <dd>Contains the project documentation (DITA format).</dd>
+              </dlentry>
+            <!--<dlentry><dt><filepath>epubs</filepath></dt><dd>Contains EPUB electronic books generated from the sample publications in <filepath>sample_data</filepath></dd></dlentry>-->
+              <dlentry>
+                <dt><filepath>sample_data</filepath></dt>
+                <dd>Contains sample publications and related data that serve to demonstrate and test the Publishing vocabulary modules.</dd>
+              </dlentry>
+              <dlentry>
+                <dt><filepath>xslt</filepath></dt>
+                <dd>Contains various XSLT transforms that might be useful, mostly used to convert
+                  Project Gutenberg sample data into publications (the XSLTs used by plugins are in
+                  the plugins as packaged).</dd>
+              </dlentry>
+            </dl></p>
+        </stepresult>
+      </step>
+      <step>
+        <cmd>Unzip the file <filepath>dita4publishers_toolkit_plugins</filepath> into your local
+          Open Toolkit's <filepath>plugins</filepath> directory so that each top-level directory in
+          the Zip file is a direct child of <filepath>plugins</filepath>.</cmd>
+        <stepresult>
+          <p>Your <filepath>plugins</filepath> directory should include a number of DITA for Publishers plugin directories, including:<ul>
+            <li>net.sourceforge.dita4publishers.doctypes</li>
+            <li>net.sourceforge.dita4publishers.epub</li>
+            <li>net.sourceforge.dita4publishers.kindle</li>
+            <li>net.sourceforge.dita4publishers.pubmap.html</li>
+            <li>net.sourceforge.dita4publishers.word2dita</li>
+            <li>net.sourceforge.dita4publishers.xmldomain.doctypes</li>
+            <li>net.sourceforge.dita4publishers.xmldomain.html</li>
+            </ul></p>
+        </stepresult>
+      </step>
+      <step>
+        <cmd>Run the Toolkit's integrate Ant target to integrate the new plugins into the
+          toolkit.</cmd>
+        <info>
+          <p>There are many ways to do this, but one way is to use a command window. Navigate to
+            your Open Toolkit's directory and then issue this command:</p>
+          <codeblock>tools/ant/bin/ant -f integrator.xml</codeblock>
+          <p>That should run and you should see some sort of happy message.</p>
+          <p>If you are using a Toolkit installed with an XML editor, running any Toolkit process
+            from the editor should automatically do the integration step.</p>
+        </info>
+      </step>
+      <step>
+        <cmd>Test the toolkit by running the epub generation on one of the sample
+          publications.</cmd>
+        <info>
+          <p>Using a command line from the DITA OT directory, this command should work:</p>
+          <codeblock>java -jar lib/dost.jar /i:/Users/myname/dita4publishers/sample_data/wizard-of-oz/wizard-of-oz.ditamap /transtype:epub</codeblock>
+          <p>Specifying the actual path to where you put the sample data.</p>
+        </info>
+      </step>
+    </steps>
+  </taskbody>
+</task>

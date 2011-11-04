@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter"
+    uri="chapter.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter.dtd"
+    uri="chapter.dtd"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:modules:chapter"
+    uri="chapter.mod"
+  />
+  <system systemId="urn:pubid::modules:chapter.mod"
+    uri="chapter.mod"
+  />
+  
+</catalog>  

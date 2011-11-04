@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
+<chapter
+  id="chapter-id">
+  <title>Graphic Tests</title>
+  <body>
+    <p>This chapter tests graphics.</p>
+    <fig>
+      <title>Graphic that's in the common/ directory, outside the scope of the main map's directory.</title>
+      <image
+        href="../../common/graphics/1407-02.jpg"
+        id="image_63494073-947f-492a-8d76-d4ca4dc198c5">
+        <alt>Graphic from the common/graphics directory</alt>
+      </image>
+    </fig>
+  </body>
+</chapter>

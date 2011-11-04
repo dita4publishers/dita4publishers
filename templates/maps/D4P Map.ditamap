@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:map" "map.dtd">
+<map>
+  <!-- Generic map with pubmap module integrated. -->
+  <topicgroup>
+    <topicmeta>
+      <navtitle>Navtitle Within Topic Group</navtitle>
+    </topicmeta>
+    <topichead>
+      <topicmeta>
+        <navtitle>Navtitle Within Topic Head w/in Topic Group</navtitle>
+      </topicmeta>
+    </topichead>
+  </topicgroup>
+</map>

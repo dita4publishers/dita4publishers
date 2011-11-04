@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>Generating DITA from Word Using the Toolkit Plugin</title>
+ <shortdesc>How to use the Word-to-DITA Toolkit Plugin to generate DITA content from Word documents.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <p>To use the transformation as a Toolkit plugin simply deploy the DITA for Publishers Toolkit plugins to your Open Toolkit directory. The Word-to-DITA transformation type is "word2dita".</p>
+    <section>
+      <title>Required Parameters</title>
+      <parml>
+        <plentry>
+          <pt><parmname>args.input</parmname></pt>
+          <pd>The absolute filename and path of the DOCX file to process.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.style-to-tag-map</parmname></pt>
+          <pd>The absolute filename and path of the style-to-tag mapping to use.</pd>
+        </plentry>
+      </parml>
+    </section>
+    <section>
+      <title>Optional Parameters</title>
+      <parml>
+        <plentry>
+          <pt><parmname>output.dir</parmname></pt>
+          <pd>Specifies the absolute path of of the directory to contain the generated output.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.clean.output.dir</parmname></pt>
+          <pd>When set to "true" deletes any files in the output directory before running the generation.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.filter.br</parmname></pt>
+          <pd>When set to any value (e.g., "true"), filters out literal break characters, which are otherwise preserved in the DITA output as <xmlelem>br</xmlelem> elements.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.filter.tabs</parmname></pt>
+          <pd>When set to any value (e.g. "true"), filters out literal tab characters, which are otherwise preserved in the DITA output as <xmlelem>tab</xmlelem> elements.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.root.output.filename</parmname></pt>
+          <pd>The filename to use for the root output file (the root map or root topic depending on how your mapping is set up), e.g. "rootmap.ditamap".</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.word2dita.xslt</parmname></pt>
+          <pd>Specifies the name of the XSLT transform to use to convert the DOCX file to DITA. Default is the <filepath>docx2dita.xsl</filepath> transform in the word2dita Toolkit plugin.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.debug.xslt</parmname></pt>
+          <pd>Turns on debugging of the XSLT transform. Default is "false".</pd>
+        </plentry>
+      </parml>
+    </section>
+ </conbody>
+</concept>

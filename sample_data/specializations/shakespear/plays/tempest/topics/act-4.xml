@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:act" "act.dtd">
+<act id="act-4">
+   <title>ACT IV</title>
+   <scene id="act-4-scene-1">
+      <title>SCENE I.  Before PROSPERO'S cell.</title>
+      <scene-body>
+         <stagedir>Enter PROSPERO, FERDINAND, and MIRANDA</stagedir>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>If I have too austerely punish'd you,</line>
+            <line>Your compensation makes amends, for I</line>
+            <line>Have given you here a third of mine own life,</line>
+            <line>Or that for which I live; who once again</line>
+            <line>I tender to thy hand: all thy vexations</line>
+            <line>Were but my trials of thy love and thou</line>
+            <line>Hast strangely stood the test here, afore Heaven,</line>
+            <line>I ratify this my rich gift. O Ferdinand,</line>
+            <line>Do not smile at me that I boast her off,</line>
+            <line>For thou shalt find she will outstrip all praise</line>
+            <line>And make it halt behind her.</line>
+         </speech>
+         <speech>
+            <speaker>FERDINAND</speaker>
+            <line>I do believe it</line>
+            <line>Against an oracle.</line>
+         </speech>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>Then, as my gift and thine own acquisition</line>
+            <line>Worthily purchased take my daughter: but</line>
+            <line>If thou dost break her virgin-knot before</line>
+            <line>All sanctimonious ceremonies may</line>
+            <line>With full and holy rite be minister'd,</line>
+            <line>No sweet aspersion shall the heavens let fall</line>
+            <line>To make this contract grow: but barren hate,</line>
+            <line>Sour-eyed disdain and discord shall bestrew</line>
+            <line>The union of your bed with weeds so loathly</line>
+            <line>That you shall hate it both: therefore take heed,</line>
+            <line>As Hymen's lamps shall light you.</line>
+         </speech>
+         <speech>
+            <speaker>FERDINAND</speaker>
+            <line>As I hope</line>
+            <line>For quiet days, fair issue and long life,</line>
+            <line>With such love as 'tis now, the murkiest den,</line>
+            <line>The most opportune place, the strong'st suggestion.</line>
+            <line>Our worser genius can, shall never melt</line>
+            <line>Mine honour into lust, to take away</line>
+            <line>The edge of that day's celebration</line>
+            <line>When I shall think: or Phoebus' steeds are founder'd,</line>
+            <line>Or Night kept chain'd below.</line>
+         </speech>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>Fairly spoke.</line>
+            <line>Sit then and talk with her; she is thine own.</line>
+            <line>What, Ariel! my industrious servant, Ariel!</line>
+         </speech>
+         <stagedir>Enter ARIEL</stagedir>
+         <speech>
+            <speaker>ARIEL</speaker>
+            <line>What would my potent master? here I am.</line>
+         </speech>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>Thou and thy meaner fellows your last service</line>
+            <line>Did worthily perform; and I must use you</line>
+            <line>In such another trick. Go bring the rabble,</line>
+            <line>O'er whom I give thee power, here to this place:</line>
+            <line>Incite them to quick motion; for I must</line>
+            <line>Bestow upon the eyes of this young couple</line>
+            <line>Some vanity of mine art: it is my promise,</line>
+            <line>And they expect it from me.</line>
+         </speech>
+         <speech>
+            <speaker>ARIEL</speaker>
+            <line>Presently?</line>
+         </speech>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>Ay, with a twink.</line>
+         </speech>
+         <speech>
+            <speaker>ARIEL</speaker>
+            <line>Before you can say 'come' and 'go,'</line>
+            <line>And breathe twice and cry 'so, so,'</line>
+            <line>Each one, tripping on his toe,</line>
+            <line>Will be here with mop and mow.</line>
+            <line>Do you love me, master? no?</line>
+         </speech>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>Dearly my delicate Ariel. Do not approach</line>
+            <line>Till thou dost hear me call.</line>
+         </speech>
+         <speech>
+            <speaker>ARIEL</speaker>
+            <line>Well, I conceive.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>Look thou be true; do not give dalliance</line>
+            <line>Too much the rein: the strongest oaths are straw</line>
+            <line>To the fire i' the blood: be more abstemious,</line>
+            <line>Or else, good night your vow!</line>
+         </speech>
+         <speech>
+            <speaker>FERDINAND</speaker>
+            <line>I warrant you sir;</line>
+            <line>The white cold virgin snow upon my heart</line>
+            <line>Abates the ardour of my liver.</line>
+         </speech>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>Well.</line>
+            <line>Now come, my Ariel! bring a corollary,</line>
+            <line>Rather than want a spirit: appear and pertly!</line>
+            <line>No tongue! all eyes! be silent.</line>
+         </speech>
+         <stagedir>Soft music</stagedir>
+         <stagedir>Enter IRIS</stagedir>
+         <speech>
+            <speaker>IRIS</speaker>
+            <line>Ceres, most bounteous lady, thy rich leas</line>
+            <line>Of wheat, rye, barley, vetches, oats and pease;</line>
+            <line>Thy turfy mountains, where live nibbling sheep,</line>
+            <line>And flat meads thatch'd with stover, them to keep;</line>
+            <line>Thy banks with pioned and twilled brims,</line>
+            <line>Which spongy April at thy hest betrims,</line>
+            <line>To make cold nymphs chaste crowns; and thy broom -groves,</line>
+            <line>Whose shadow the dismissed bachelor loves,</line>
+            <line>Being lass-lorn: thy pole-clipt vineyard;</line>
+            <line>And thy sea-marge, sterile and rocky-hard,</line>
+            <line>Where thou thyself dost air;--the queen o' the sky,</line>
+            <line>Whose watery arch and messenger am I,</line>
+            <line>Bids thee leave these, and with her sovereign grace,</line>
+            <line>Here on this grass-plot, in this very place,</line>
+            <line>To come and sport: her peacocks fly amain:</line>
+            <line>Approach, rich Ceres, her to entertain.</line>
+         </speech>
+         <stagedir>Enter CERES</stagedir>
+         <speech>
+            <speaker>CERES</speaker>
+            <line>Hail, many-colour'd messenger, that ne'er</line>
+            <line>Dost disobey the wife of Jupiter;</line>
+            <line>Who with thy saffron wings upon my flowers</line>
+            <line>Diffusest honey-drops, refreshing showers,</line>
+            <line>And with each end of thy blue bow dost crown</line>
+            <line>My bosky acres and my unshrubb'd down,</line>
+            <line>Rich scarf to my proud earth; why hath thy queen</line>
+            <line>Summon'd me hither, to this short-grass'd green?</line>
+         </speech>
+         <speech>
+            <speaker>IRIS</speaker>
+            <line>A contract of true love to celebrate;</line>
+            <line>And some donation freely to estate</line>
+            <line>On the blest lovers.</line>
+         </speech>
+         <speech>
+            <speaker>CERES</speaker>
+            <line>Tell me, heavenly bow,</line>
+            <line>If Venus or her son, as thou dost know,</line>
+            <line>Do now attend the queen? Since they did plot</line>
+            <line>The means that dusky Dis my daughter got,</line>
+            <line>Her and her blind boy's scandal'd company</line>
+            <line>I have forsworn.</line>
+         </speech>
+         <speech>
+            <speaker>IRIS</speaker>
+            <line>Of her society</line>
+            <line>Be not afraid: I met her deity</line>
+            <line>Cutting the clouds towards Paphos and her son</line>
+            <line>Dove-drawn with her. Here thought they to have done</line>
+            <line>Some wanton charm upon this man and maid,</line>
+            <line>Whose vows are, that no bed-right shall be paid</line>
+            <line>Till Hymen's torch be lighted: but vain;</line>
+            <line>Mars's hot minion is returned again;</line>
+            <line>Her waspish-headed son has broke his arrows,</line>
+            <line>Swears he will shoot no more but play with sparrows</line>
+            <line>And be a boy right out.</line>
+         </speech>
+         <speech>
+            <speaker>CERES</speaker>
+            <line>High'st queen of state,</line>
+            <line>Great Juno, comes; I know her by her gait.</line>
+         </speech>
+         <stagedir>Enter JUNO</stagedir>
+         <speech>
+            <speaker>JUNO</speaker>
+            <line>How does my bounteous sister? Go with me</line>
+            <line>To bless this twain, that they may prosperous be</line>
+            <line>And honour'd in their issue.</line>
+         </speech>
+         <stagedir>They sing:</stagedir>
+         <speech>
+            <speaker>JUNO</speaker>
+            <line>Honour, riches, marriage-blessing,</line>
+            <line>Long continuance, and increasing,</line>
+            <line>Hourly joys be still upon you!</line>
+            <line>Juno sings her blessings upon you.</line>
+         </speech>
+         <speech>
+            <speaker>CERES</speaker>
+            <line>Earth's increase, foison plenty,</line>
+            <line>Barns and garners never empty,</line>
+            <line>Vines and clustering bunches growing,</line>
+            <line>Plants with goodly burthen bowing;</line>
+            <line>Spring come to you at the farthest</line>
+            <line>In the very end of harvest!</line>
+            <line>Scarcity and want shall shun you;</line>
+            <line>Ceres' blessing so is on you.</line>
+         </speech>
+         <speech>
+            <speaker>FERDINAND</speaker>
+            <line>This is a most majestic vision, and</line>
+            <line>Harmoniously charmingly. May I be bold</line>
+            <line>To think these spirits?</line>
+         </speech>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>Spirits, which by mine art</line>
+            <line>I have from their confines call'd to enact</line>
+            <line>My present fancies.</line>
+         </speech>
+         <speech>
+            <speaker>FERDINAND</speaker>
+            <line>Let me live here ever;</line>
+            <line>So rare a wonder'd father and a wife</line>
+            <line>Makes this place Paradise.</line>
+         </speech>
+         <stagedir>Juno and Ceres whisper, and send Iris on
+employment</stagedir>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>Sweet, now, silence!</line>
+            <line>Juno and Ceres whisper seriously;</line>
+            <line>There's something else to do: hush, and be mute,</line>
+            <line>Or else our spell is marr'd.</line>
+         </speech>
+         <speech>
+            <speaker>IRIS</speaker>
+            <line>You nymphs, call'd Naiads, of the windring brooks,</line>
+            <line>With your sedged crowns and ever-harmless looks,</line>
+            <line>Leave your crisp channels and on this green land</line>
+            <line>Answer your summons; Juno does command:</line>
+            <line>Come, temperate nymphs, and help to celebrate</line>
+            <line>A contract of true love; be not too late.</line>
+            <stagedir>Enter certain Nymphs</stagedir>
+            <line>You sunburnt sicklemen, of August weary,</line>
+            <line>Come hither from the furrow and be merry:</line>
+            <line>Make holiday; your rye-straw hats put on</line>
+            <line>And these fresh nymphs encounter every one</line>
+            <line>In country footing.</line>
+         </speech>
+         <stagedir>Enter certain Reapers, properly habited: they
+join with the Nymphs in a graceful dance;
+towards the end whereof PROSPERO starts
+suddenly, and speaks; after which, to a
+strange, hollow, and confused noise, they
+heavily vanish</stagedir>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  I had forgot that foul conspiracy</line>
+            <line>Of the beast Caliban and his confederates</line>
+            <line>Against my life: the minute of their plot</line>
+            <line>Is almost come.</line>
+            <stagedir>To the Spirits</stagedir>
+            <line>Well done! avoid; no more!</line>
+         </speech>
+         <speech>
+            <speaker>FERDINAND</speaker>
+            <line>This is strange: your father's in some passion</line>
+            <line>That works him strongly.</line>
+         </speech>
+         <speech>
+            <speaker>MIRANDA</speaker>
+            <line>Never till this day</line>
+            <line>Saw I him touch'd with anger so distemper'd.</line>
+         </speech>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>You do look, my son, in a moved sort,</line>
+            <line>As if you were dismay'd: be cheerful, sir.</line>
+            <line>Our revels now are ended. These our actors,</line>
+            <line>As I foretold you, were all spirits and</line>
+            <line>Are melted into air, into thin air:</line>
+            <line>And, like the baseless fabric of this vision,</line>
+            <line>The cloud-capp'd towers, the gorgeous palaces,</line>
+            <line>The solemn temples, the great globe itself,</line>
+            <line>Ye all which it inherit, shall dissolve</line>
+            <line>And, like this insubstantial pageant faded,</line>
+            <line>Leave not a rack behind. We are such stuff</line>
+            <line>As dreams are made on, and our little life</line>
+            <line>Is rounded with a sleep. Sir, I am vex'd;</line>
+            <line>Bear with my weakness; my, brain is troubled:</line>
+            <line>Be not disturb'd with my infirmity:</line>
+            <line>If you be pleased, retire into my cell</line>
+            <line>And there repose: a turn or two I'll walk,</line>
+            <line>To still my beating mind.</line>
+         </speech>
+         <speech>
+            <speaker>FERDINAND</speaker>
+            <speaker>MIRANDA</speaker>
+            <line>We wish your peace.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>Come with a thought I thank thee, Ariel: come.</line>
+         </speech>
+         <stagedir>Enter ARIEL</stagedir>
+         <speech>
+            <speaker>ARIEL</speaker>
+            <line>Thy thoughts I cleave to. What's thy pleasure?</line>
+         </speech>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>Spirit,</line>
+            <line>We must prepare to meet with Caliban.</line>
+         </speech>
+         <speech>
+            <speaker>ARIEL</speaker>
+            <line>Ay, my commander: when I presented Ceres,</line>
+            <line>I thought to have told thee of it, but I fear'd</line>
+            <line>Lest I might anger thee.</line>
+         </speech>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>Say again, where didst thou leave these varlets?</line>
+         </speech>
+         <speech>
+            <speaker>ARIEL</speaker>
+            <line>I told you, sir, they were red-hot with drinking;</line>
+            <line>So fun of valour that they smote the air</line>
+            <line>For breathing in their faces; beat the ground</line>
+            <line>For kissing of their feet; yet always bending</line>
+            <line>Towards their project. Then I beat my tabour;</line>
+            <line>At which, like unback'd colts, they prick'd</line>
+            <line>their ears,</line>
+            <line>Advanced their eyelids, lifted up their noses</line>
+            <line>As they smelt music: so I charm'd their ears</line>
+            <line>That calf-like they my lowing follow'd through</line>
+            <line>Tooth'd briers, sharp furzes, pricking goss and thorns,</line>
+            <line>Which entered their frail shins: at last I left them</line>
+            <line>I' the filthy-mantled pool beyond your cell,</line>
+            <line>There dancing up to the chins, that the foul lake</line>
+            <line>O'erstunk their feet.</line>
+         </speech>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>This was well done, my bird.</line>
+            <line>Thy shape invisible retain thou still:</line>
+            <line>The trumpery in my house, go bring it hither,</line>
+            <line>For stale to catch these thieves.</line>
+         </speech>
+         <speech>
+            <speaker>ARIEL</speaker>
+            <line>I go, I go.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>A devil, a born devil, on whose nature</line>
+            <line>Nurture can never stick; on whom my pains,</line>
+            <line>Humanely taken, all, all lost, quite lost;</line>
+            <line>And as with age his body uglier grows,</line>
+            <line>So his mind cankers. I will plague them all,</line>
+            <line>Even to roaring.</line>
+            <stagedir>Re-enter ARIEL, loaden with glistering apparel, &amp;c</stagedir>
+            <line>Come, hang them on this line.</line>
+         </speech>
+         <stagedir>PROSPERO and ARIEL remain invisible. Enter
+CALIBAN, STEPHANO, and TRINCULO, all wet</stagedir>
+         <speech>
+            <speaker>CALIBAN</speaker>
+            <line>Pray you, tread softly, that the blind mole may not</line>
+            <line>Hear a foot fall: we now are near his cell.</line>
+         </speech>
+         <speech>
+            <speaker>STEPHANO</speaker>
+            <line>Monster, your fairy, which you say is</line>
+            <line>a harmless fairy, has done little better than</line>
+            <line>played the Jack with us.</line>
+         </speech>
+         <speech>
+            <speaker>TRINCULO</speaker>
+            <line>Monster, I do smell all horse-piss; at</line>
+            <line>which my nose is in great indignation.</line>
+         </speech>
+         <speech>
+            <speaker>STEPHANO</speaker>
+            <line>So is mine. Do you hear, monster? If I should take</line>
+            <line>a displeasure against you, look you,--</line>
+         </speech>
+         <speech>
+            <speaker>TRINCULO</speaker>
+            <line>Thou wert but a lost monster.</line>
+         </speech>
+         <speech>
+            <speaker>CALIBAN</speaker>
+            <line>Good my lord, give me thy favour still.</line>
+            <line>Be patient, for the prize I'll bring thee to</line>
+            <line>Shall hoodwink this mischance: therefore speak softly.</line>
+            <line>All's hush'd as midnight yet.</line>
+         </speech>
+         <speech>
+            <speaker>TRINCULO</speaker>
+            <line>Ay, but to lose our bottles in the pool,--</line>
+         </speech>
+         <speech>
+            <speaker>STEPHANO</speaker>
+            <line>There is not only disgrace and dishonour in that,</line>
+            <line>monster, but an infinite loss.</line>
+         </speech>
+         <speech>
+            <speaker>TRINCULO</speaker>
+            <line>That's more to me than my wetting: yet this is your</line>
+            <line>harmless fairy, monster.</line>
+         </speech>
+         <speech>
+            <speaker>STEPHANO</speaker>
+            <line>I will fetch off my bottle, though I be o'er ears</line>
+            <line>for my labour.</line>
+         </speech>
+         <speech>
+            <speaker>CALIBAN</speaker>
+            <line>Prithee, my king, be quiet. Seest thou here,</line>
+            <line>This is the mouth o' the cell: no noise, and enter.</line>
+            <line>Do that good mischief which may make this island</line>
+            <line>Thine own for ever, and I, thy Caliban,</line>
+            <line>For aye thy foot-licker.</line>
+         </speech>
+         <speech>
+            <speaker>STEPHANO</speaker>
+            <line>Give me thy hand. I do begin to have bloody thoughts.</line>
+         </speech>
+         <speech>
+            <speaker>TRINCULO</speaker>
+            <line>O king Stephano! O peer! O worthy Stephano! look</line>
+            <line>what a wardrobe here is for thee!</line>
+         </speech>
+         <speech>
+            <speaker>CALIBAN</speaker>
+            <line>Let it alone, thou fool; it is but trash.</line>
+         </speech>
+         <speech>
+            <speaker>TRINCULO</speaker>
+            <line>O, ho, monster! we know what belongs to a frippery.</line>
+            <line>O king Stephano!</line>
+         </speech>
+         <speech>
+            <speaker>STEPHANO</speaker>
+            <line>Put off that gown, Trinculo; by this hand, I'll have</line>
+            <line>that gown.</line>
+         </speech>
+         <speech>
+            <speaker>TRINCULO</speaker>
+            <line>Thy grace shall have it.</line>
+         </speech>
+         <speech>
+            <speaker>CALIBAN</speaker>
+            <line>The dropsy drown this fool I what do you mean</line>
+            <line>To dote thus on such luggage? Let's alone</line>
+            <line>And do the murder first: if he awake,</line>
+            <line>From toe to crown he'll fill our skins with pinches,</line>
+            <line>Make us strange stuff.</line>
+         </speech>
+         <speech>
+            <speaker>STEPHANO</speaker>
+            <line>Be you quiet, monster. Mistress line,</line>
+            <line>is not this my jerkin? Now is the jerkin under</line>
+            <line>the line: now, jerkin, you are like to lose your</line>
+            <line>hair and prove a bald jerkin.</line>
+         </speech>
+         <speech>
+            <speaker>TRINCULO</speaker>
+            <line>Do, do: we steal by line and level, an't like your grace.</line>
+         </speech>
+         <speech>
+            <speaker>STEPHANO</speaker>
+            <line>I thank thee for that jest; here's a garment for't:</line>
+            <line>wit shall not go unrewarded while I am king of this</line>
+            <line>country. 'Steal by line and level' is an excellent</line>
+            <line>pass of pate; there's another garment for't.</line>
+         </speech>
+         <speech>
+            <speaker>TRINCULO</speaker>
+            <line>Monster, come, put some lime upon your fingers, and</line>
+            <line>away with the rest.</line>
+         </speech>
+         <speech>
+            <speaker>CALIBAN</speaker>
+            <line>I will have none on't: we shall lose our time,</line>
+            <line>And all be turn'd to barnacles, or to apes</line>
+            <line>With foreheads villanous low.</line>
+         </speech>
+         <speech>
+            <speaker>STEPHANO</speaker>
+            <line>Monster, lay-to your fingers: help to bear this</line>
+            <line>away where my hogshead of wine is, or I'll turn you</line>
+            <line>out of my kingdom: go to, carry this.</line>
+         </speech>
+         <speech>
+            <speaker>TRINCULO</speaker>
+            <line>And this.</line>
+         </speech>
+         <speech>
+            <speaker>STEPHANO</speaker>
+            <line>Ay, and this.</line>
+         </speech>
+         <stagedir>A noise of hunters heard. Enter divers Spirits,
+in shape of dogs and hounds, and hunt them about,
+PROSPERO and ARIEL setting them on</stagedir>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>Hey, Mountain, hey!</line>
+         </speech>
+         <speech>
+            <speaker>ARIEL</speaker>
+            <line>Silver I there it goes, Silver!</line>
+         </speech>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>Fury, Fury! there, Tyrant, there! hark! hark!</line>
+            <stagedir>CALIBAN, STEPHANO, and TRINCULO, are
+driven out</stagedir>
+            <line>Go charge my goblins that they grind their joints</line>
+            <line>With dry convulsions, shorten up their sinews</line>
+            <line>With aged cramps, and more pinch-spotted make them</line>
+            <line>Than pard or cat o' mountain.</line>
+         </speech>
+         <speech>
+            <speaker>ARIEL</speaker>
+            <line>Hark, they roar!</line>
+         </speech>
+         <speech>
+            <speaker>PROSPERO</speaker>
+            <line>Let them be hunted soundly. At this hour</line>
+            <line>Lie at my mercy all mine enemies:</line>
+            <line>Shortly shall all my labours end, and thou</line>
+            <line>Shalt have the air at freedom: for a little</line>
+            <line>Follow, and do me service.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+</act>

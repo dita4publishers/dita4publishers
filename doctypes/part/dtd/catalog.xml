@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:part"
+    uri="part.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:part.dtd"
+    uri="part.dtd"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:modules:part"
+    uri="part.mod"
+  />
+  <system systemId="urn:pubid::modules:article.mod"
+    uri="part.mod"
+  />
+  
+</catalog>  

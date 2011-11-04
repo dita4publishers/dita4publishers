@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2007, v.4002-->
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN"
+ "map.dtd">
+<map title="DITA Map">
+<title>Sub Map 01</title>
+  <topichead navtitle="Topics from Subordinate Map">
+    <topicref href="topics/topic-03.xml" navtitle="Topic 03"/>    
+  </topichead>
+  <reltable>
+    <relrow>
+      <relcell>
+        <topicref href="topics/topic-01.xml" navtitle="Topic 01"/>  
+      </relcell>
+      <relcell>
+        <topicref href="topics/topic-02.xml" navtitle="Topic 02"/>
+      </relcell>
+    </relrow>
+  </reltable>
+  
+</map>
+<?Pub *0000000430 0?>

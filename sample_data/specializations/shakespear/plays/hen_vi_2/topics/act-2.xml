@@ -1,0 +1,1118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:act" "act.dtd">
+<act id="act-2">
+   <title>ACT II</title>
+   <scene id="act-2-scene-1">
+      <title>SCENE I.  Saint Alban's.</title>
+      <scene-body>
+         <stagedir>Enter KING HENRY VI, QUEEN MARGARET, GLOUCESTER,
+CARDINAL, and SUFFOLK, with Falconers halloing</stagedir>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>Believe me, lords, for flying at the brook,</line>
+            <line>I saw not better sport these seven years' day:</line>
+            <line>Yet, by your leave, the wind was very high;</line>
+            <line>And, ten to one, old Joan had not gone out.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>But what a point, my lord, your falcon made,</line>
+            <line>And what a pitch she flew above the rest!</line>
+            <line>To see how God in all his creatures works!</line>
+            <line>Yea, man and birds are fain of climbing high.</line>
+         </speech>
+         <speech>
+            <speaker>SUFFOLK</speaker>
+            <line>No marvel, an it like your majesty,</line>
+            <line>My lord protector's hawks do tower so well;</line>
+            <line>They know their master loves to be aloft,</line>
+            <line>And bears his thoughts above his falcon's pitch.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>My lord, 'tis but a base ignoble mind</line>
+            <line>That mounts no higher than a bird can soar.</line>
+         </speech>
+         <speech>
+            <speaker>CARDINAL</speaker>
+            <line>I thought as much; he would be above the clouds.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Ay, my lord cardinal? how think you by that?</line>
+            <line>Were it not good your grace could fly to heaven?</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>The treasury of everlasting joy.</line>
+         </speech>
+         <speech>
+            <speaker>CARDINAL</speaker>
+            <line>Thy heaven is on earth; thine eyes and thoughts</line>
+            <line>Beat on a crown, the treasure of thy heart;</line>
+            <line>Pernicious protector, dangerous peer,</line>
+            <line>That smooth'st it so with king and commonweal!</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>What, cardinal, is your priesthood grown peremptory?</line>
+            <line>Tantaene animis coelestibus irae?</line>
+            <line>Churchmen so hot? good uncle, hide such malice;</line>
+            <line>With such holiness can you do it?</line>
+         </speech>
+         <speech>
+            <speaker>SUFFOLK</speaker>
+            <line>No malice, sir; no more than well becomes</line>
+            <line>So good a quarrel and so bad a peer.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>As who, my lord?</line>
+         </speech>
+         <speech>
+            <speaker>SUFFOLK</speaker>
+            <line>Why, as you, my lord,</line>
+            <line>An't like your lordly lord-protectorship.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Why, Suffolk, England knows thine insolence.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>And thy ambition, Gloucester.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>I prithee, peace, good queen,</line>
+            <line>And whet not on these furious peers;</line>
+            <line>For blessed are the peacemakers on earth.</line>
+         </speech>
+         <speech>
+            <speaker>CARDINAL</speaker>
+            <line>Let me be blessed for the peace I make,</line>
+            <line>Against this proud protector, with my sword!</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>
+               <stagedir>Aside to CARDINAL</stagedir>  Faith, holy uncle, would</line>
+            <line>'twere come to that!</line>
+         </speech>
+         <speech>
+            <speaker>CARDINAL</speaker>
+            <line>
+               <stagedir>Aside to GLOUCESTER</stagedir>  Marry, when thou darest.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>
+               <stagedir>Aside to CARDINAL</stagedir>  Make up no factious</line>
+            <line>numbers for the matter;</line>
+            <line>In thine own person answer thy abuse.</line>
+         </speech>
+         <speech>
+            <speaker>CARDINAL</speaker>
+            <line>
+               <stagedir>Aside to GLOUCESTER</stagedir>  Ay, where thou darest</line>
+            <line>not peep: an if thou darest,</line>
+            <line>This evening, on the east side of the grove.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>How now, my lords!</line>
+         </speech>
+         <speech>
+            <speaker>CARDINAL</speaker>
+            <line>Believe me, cousin Gloucester,</line>
+            <line>Had not your man put up the fowl so suddenly,</line>
+            <line>We had had more sport.</line>
+            <stagedir>Aside to GLOUCESTER</stagedir>
+            <line>Come with thy two-hand sword.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>True, uncle.</line>
+         </speech>
+         <speech>
+            <speaker>CARDINAL</speaker>
+            <line>
+               <stagedir>Aside to GLOUCESTER</stagedir>  Are ye advised? the</line>
+            <line>east side of the grove?</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>
+               <stagedir>Aside to CARDINAL</stagedir>  Cardinal, I am with you.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>Why, how now, uncle Gloucester!</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Talking of hawking; nothing else, my lord.</line>
+            <stagedir>Aside to CARDINAL</stagedir>
+            <line>Now, by God's mother, priest, I'll shave your crown for this,</line>
+            <line>Or all my fence shall fail.</line>
+         </speech>
+         <speech>
+            <speaker>CARDINAL</speaker>
+            <line>
+               <stagedir>Aside to GLOUCESTER</stagedir>  Medice, teipsum--</line>
+            <line>Protector, see to't well, protect yourself.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>The winds grow high; so do your stomachs, lords.</line>
+            <line>How irksome is this music to my heart!</line>
+            <line>When such strings jar, what hope of harmony?</line>
+            <line>I pray, my lords, let me compound this strife.</line>
+         </speech>
+         <stagedir>Enter a Townsman of Saint Alban's, crying 'A miracle!'</stagedir>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>What means this noise?</line>
+            <line>Fellow, what miracle dost thou proclaim?</line>
+         </speech>
+         <speech>
+            <speaker>Townsman</speaker>
+            <line>A miracle! a miracle!</line>
+         </speech>
+         <speech>
+            <speaker>SUFFOLK</speaker>
+            <line>Come to the king and tell him what miracle.</line>
+         </speech>
+         <speech>
+            <speaker>Townsman</speaker>
+            <line>Forsooth, a blind man at Saint Alban's shrine,</line>
+            <line>Within this half-hour, hath received his sight;</line>
+            <line>A man that ne'er saw in his life before.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>Now, God be praised, that to believing souls</line>
+            <line>Gives light in darkness, comfort in despair!</line>
+         </speech>
+         <stagedir>Enter the Mayor of Saint Alban's and his
+brethren, bearing SIMPCOX, between two in a
+chair, SIMPCOX's Wife following</stagedir>
+         <speech>
+            <speaker>CARDINAL</speaker>
+            <line>Here comes the townsmen on procession,</line>
+            <line>To present your highness with the man.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>Great is his comfort in this earthly vale,</line>
+            <line>Although by his sight his sin be multiplied.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Stand by, my masters: bring him near the king;</line>
+            <line>His highness' pleasure is to talk with him.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>Good fellow, tell us here the circumstance,</line>
+            <line>That we for thee may glorify the Lord.</line>
+            <line>What, hast thou been long blind and now restored?</line>
+         </speech>
+         <speech>
+            <speaker>SIMPCOX</speaker>
+            <line>Born blind, an't please your grace.</line>
+         </speech>
+         <speech>
+            <speaker>Wife</speaker>
+            <line>Ay, indeed, was he.</line>
+         </speech>
+         <speech>
+            <speaker>SUFFOLK</speaker>
+            <line>What woman is this?</line>
+         </speech>
+         <speech>
+            <speaker>Wife</speaker>
+            <line>His wife, an't like your worship.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Hadst thou been his mother, thou couldst have</line>
+            <line>better told.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>Where wert thou born?</line>
+         </speech>
+         <speech>
+            <speaker>SIMPCOX</speaker>
+            <line>At Berwick in the north, an't like your grace.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>Poor soul, God's goodness hath been great to thee:</line>
+            <line>Let never day nor night unhallow'd pass,</line>
+            <line>But still remember what the Lord hath done.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>Tell me, good fellow, camest thou here by chance,</line>
+            <line>Or of devotion, to this holy shrine?</line>
+         </speech>
+         <speech>
+            <speaker>SIMPCOX</speaker>
+            <line>God knows, of pure devotion; being call'd</line>
+            <line>A hundred times and oftener, in my sleep,</line>
+            <line>By good Saint Alban; who said, 'Simpcox, come,</line>
+            <line>Come, offer at my shrine, and I will help thee.'</line>
+         </speech>
+         <speech>
+            <speaker>Wife</speaker>
+            <line>Most true, forsooth; and many time and oft</line>
+            <line>Myself have heard a voice to call him so.</line>
+         </speech>
+         <speech>
+            <speaker>CARDINAL</speaker>
+            <line>What, art thou lame?</line>
+         </speech>
+         <speech>
+            <speaker>SIMPCOX</speaker>
+            <line>Ay, God Almighty help me!</line>
+         </speech>
+         <speech>
+            <speaker>SUFFOLK</speaker>
+            <line>How camest thou so?</line>
+         </speech>
+         <speech>
+            <speaker>SIMPCOX</speaker>
+            <line>A fall off of a tree.</line>
+         </speech>
+         <speech>
+            <speaker>Wife</speaker>
+            <line>A plum-tree, master.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>How long hast thou been blind?</line>
+         </speech>
+         <speech>
+            <speaker>SIMPCOX</speaker>
+            <line>Born so, master.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>What, and wouldst climb a tree?</line>
+         </speech>
+         <speech>
+            <speaker>SIMPCOX</speaker>
+            <line>But that in all my life, when I was a youth.</line>
+         </speech>
+         <speech>
+            <speaker>Wife</speaker>
+            <line>Too true; and bought his climbing very dear.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Mass, thou lovedst plums well, that wouldst</line>
+            <line>venture so.</line>
+         </speech>
+         <speech>
+            <speaker>SIMPCOX</speaker>
+            <line>Alas, good master, my wife desired some damsons,</line>
+            <line>And made me climb, with danger of my life.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>A subtle knave! but yet it shall not serve.</line>
+            <line>Let me see thine eyes: wink now: now open them:</line>
+            <line>In my opinion yet thou seest not well.</line>
+         </speech>
+         <speech>
+            <speaker>SIMPCOX</speaker>
+            <line>Yes, master, clear as day, I thank God and</line>
+            <line>Saint Alban.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Say'st thou me so? What colour is this cloak of?</line>
+         </speech>
+         <speech>
+            <speaker>SIMPCOX</speaker>
+            <line>Red, master; red as blood.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Why, that's well said. What colour is my gown of?</line>
+         </speech>
+         <speech>
+            <speaker>SIMPCOX</speaker>
+            <line>Black, forsooth: coal-black as jet.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>Why, then, thou know'st what colour jet is of?</line>
+         </speech>
+         <speech>
+            <speaker>SUFFOLK</speaker>
+            <line>And yet, I think, jet did he never see.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>But cloaks and gowns, before this day, a many.</line>
+         </speech>
+         <speech>
+            <speaker>Wife</speaker>
+            <line>Never, before this day, in all his life.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Tell me, sirrah, what's my name?</line>
+         </speech>
+         <speech>
+            <speaker>SIMPCOX</speaker>
+            <line>Alas, master, I know not.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>What's his name?</line>
+         </speech>
+         <speech>
+            <speaker>SIMPCOX</speaker>
+            <line>I know not.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Nor his?</line>
+         </speech>
+         <speech>
+            <speaker>SIMPCOX</speaker>
+            <line>No, indeed, master.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>What's thine own name?</line>
+         </speech>
+         <speech>
+            <speaker>SIMPCOX</speaker>
+            <line>Saunder Simpcox, an if it please you, master.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Then, Saunder, sit there, the lyingest knave in</line>
+            <line>Christendom. If thou hadst been born blind, thou</line>
+            <line>mightest as well have known all our names as thus to</line>
+            <line>name the several colours we do wear. Sight may</line>
+            <line>distinguish of colours, but suddenly to nominate them</line>
+            <line>all, it is impossible. My lords, Saint Alban here</line>
+            <line>hath done a miracle; and would ye not think his</line>
+            <line>cunning to be great, that could restore this cripple</line>
+            <line>to his legs again?</line>
+         </speech>
+         <speech>
+            <speaker>SIMPCOX</speaker>
+            <line>O master, that you could!</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>My masters of Saint Alban's, have you not beadles in</line>
+            <line>your town, and things called whips?</line>
+         </speech>
+         <speech>
+            <speaker>Mayor</speaker>
+            <line>Yes, my lord, if it please your grace.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Then send for one presently.</line>
+         </speech>
+         <speech>
+            <speaker>Mayor</speaker>
+            <line>Sirrah, go fetch the beadle hither straight.</line>
+         </speech>
+         <stagedir>Exit an Attendant</stagedir>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Now fetch me a stool hither by and by. Now, sirrah,</line>
+            <line>if you mean to save yourself from whipping, leap me</line>
+            <line>over this stool and run away.</line>
+         </speech>
+         <speech>
+            <speaker>SIMPCOX</speaker>
+            <line>Alas, master, I am not able to stand alone:</line>
+            <line>You go about to torture me in vain.</line>
+         </speech>
+         <stagedir>Enter a Beadle with whips</stagedir>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Well, sir, we must have you find your legs. Sirrah</line>
+            <line>beadle, whip him till he leap over that same stool.</line>
+         </speech>
+         <speech>
+            <speaker>Beadle</speaker>
+            <line>I will, my lord. Come on, sirrah; off with your</line>
+            <line>doublet quickly.</line>
+         </speech>
+         <speech>
+            <speaker>SIMPCOX</speaker>
+            <line>Alas, master, what shall I do? I am not able to stand.</line>
+         </speech>
+         <stagedir>After the Beadle hath hit him once, he leaps over
+the stool and runs away; and they follow and cry, 'A miracle!'</stagedir>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>O God, seest Thou this, and bearest so long?</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>It made me laugh to see the villain run.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Follow the knave; and take this drab away.</line>
+         </speech>
+         <speech>
+            <speaker>Wife</speaker>
+            <line>Alas, sir, we did it for pure need.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Let them be whipped through every market-town, till</line>
+            <line>they come to Berwick, from whence they came.</line>
+         </speech>
+         <stagedir>Exeunt Wife, Beadle, Mayor, &amp;c</stagedir>
+         <speech>
+            <speaker>CARDINAL</speaker>
+            <line>Duke Humphrey has done a miracle to-day.</line>
+         </speech>
+         <speech>
+            <speaker>SUFFOLK</speaker>
+            <line>True; made the lame to leap and fly away.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>But you have done more miracles than I;</line>
+            <line>You made in a day, my lord, whole towns to fly.</line>
+         </speech>
+         <stagedir>Enter BUCKINGHAM</stagedir>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>What tidings with our cousin Buckingham?</line>
+         </speech>
+         <speech>
+            <speaker>BUCKINGHAM</speaker>
+            <line>Such as my heart doth tremble to unfold.</line>
+            <line>A sort of naughty persons, lewdly bent,</line>
+            <line>Under the countenance and confederacy</line>
+            <line>Of Lady Eleanor, the protector's wife,</line>
+            <line>The ringleader and head of all this rout,</line>
+            <line>Have practised dangerously against your state,</line>
+            <line>Dealing with witches and with conjurers:</line>
+            <line>Whom we have apprehended in the fact;</line>
+            <line>Raising up wicked spirits from under ground,</line>
+            <line>Demanding of King Henry's life and death,</line>
+            <line>And other of your highness' privy-council;</line>
+            <line>As more at large your grace shall understand.</line>
+         </speech>
+         <speech>
+            <speaker>CARDINAL</speaker>
+            <line>
+               <stagedir>Aside to GLOUCESTER</stagedir>  And so, my lord protector,</line>
+            <line>by this means</line>
+            <line>Your lady is forthcoming yet at London.</line>
+            <line>This news, I think, hath turn'd your weapon's edge;</line>
+            <line>'Tis like, my lord, you will not keep your hour.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Ambitious churchman, leave to afflict my heart:</line>
+            <line>Sorrow and grief have vanquish'd all my powers;</line>
+            <line>And, vanquish'd as I am, I yield to thee,</line>
+            <line>Or to the meanest groom.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>O God, what mischiefs work the wicked ones,</line>
+            <line>Heaping confusion on their own heads thereby!</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>Gloucester, see here the tainture of thy nest.</line>
+            <line>And look thyself be faultless, thou wert best.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Madam, for myself, to heaven I do appeal,</line>
+            <line>How I have loved my king and commonweal:</line>
+            <line>And, for my wife, I know not how it stands;</line>
+            <line>Sorry I am to hear what I have heard:</line>
+            <line>Noble she is, but if she have forgot</line>
+            <line>Honour and virtue and conversed with such</line>
+            <line>As, like to pitch, defile nobility,</line>
+            <line>I banish her my bed and company</line>
+            <line>And give her as a prey to law and shame,</line>
+            <line>That hath dishonour'd Gloucester's honest name.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>Well, for this night we will repose us here:</line>
+            <line>To-morrow toward London back again,</line>
+            <line>To look into this business thoroughly</line>
+            <line>And call these foul offenders to their answers</line>
+            <line>And poise the cause in justice' equal scales,</line>
+            <line>Whose beam stands sure, whose rightful cause prevails.</line>
+         </speech>
+         <stagedir>Flourish. Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-2">
+      <title>SCENE II.  London. YORK'S garden.</title>
+      <scene-body>
+         <stagedir>Enter YORK, SALISBURY, and WARWICK</stagedir>
+         <speech>
+            <speaker>YORK</speaker>
+            <line>Now, my good Lords of Salisbury and Warwick,</line>
+            <line>Our simple supper ended, give me leave</line>
+            <line>In this close walk to satisfy myself,</line>
+            <line>In craving your opinion of my title,</line>
+            <line>Which is infallible, to England's crown.</line>
+         </speech>
+         <speech>
+            <speaker>SALISBURY</speaker>
+            <line>My lord, I long to hear it at full.</line>
+         </speech>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>Sweet York, begin: and if thy claim be good,</line>
+            <line>The Nevils are thy subjects to command.</line>
+         </speech>
+         <speech>
+            <speaker>YORK</speaker>
+            <line>Then thus:</line>
+            <line>Edward the Third, my lords, had seven sons:</line>
+            <line>The first, Edward the Black Prince, Prince of Wales;</line>
+            <line>The second, William of Hatfield, and the third,</line>
+            <line>Lionel Duke of Clarence: next to whom</line>
+            <line>Was John of Gaunt, the Duke of Lancaster;</line>
+            <line>The fifth was Edmund Langley, Duke of York;</line>
+            <line>The sixth was Thomas of Woodstock, Duke of Gloucester;</line>
+            <line>William of Windsor was the seventh and last.</line>
+            <line>Edward the Black Prince died before his father</line>
+            <line>And left behind him Richard, his only son,</line>
+            <line>Who after Edward the Third's death reign'd as king;</line>
+            <line>Till Henry Bolingbroke, Duke of Lancaster,</line>
+            <line>The eldest son and heir of John of Gaunt,</line>
+            <line>Crown'd by the name of Henry the Fourth,</line>
+            <line>Seized on the realm, deposed the rightful king,</line>
+            <line>Sent his poor queen to France, from whence she came,</line>
+            <line>And him to Pomfret; where, as all you know,</line>
+            <line>Harmless Richard was murder'd traitorously.</line>
+         </speech>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>Father, the duke hath told the truth:</line>
+            <line>Thus got the house of Lancaster the crown.</line>
+         </speech>
+         <speech>
+            <speaker>YORK</speaker>
+            <line>Which now they hold by force and not by right;</line>
+            <line>For Richard, the first son's heir, being dead,</line>
+            <line>The issue of the next son should have reign'd.</line>
+         </speech>
+         <speech>
+            <speaker>SALISBURY</speaker>
+            <line>But William of Hatfield died without an heir.</line>
+         </speech>
+         <speech>
+            <speaker>YORK</speaker>
+            <line>The third son, Duke of Clarence, from whose line</line>
+            <line>I claimed the crown, had issue, Philippe, a daughter,</line>
+            <line>Who married Edmund Mortimer, Earl of March:</line>
+            <line>Edmund had issue, Roger Earl of March;</line>
+            <line>Roger had issue, Edmund, Anne and Eleanor.</line>
+         </speech>
+         <speech>
+            <speaker>SALISBURY</speaker>
+            <line>This Edmund, in the reign of Bolingbroke,</line>
+            <line>As I have read, laid claim unto the crown;</line>
+            <line>And, but for Owen Glendower, had been king,</line>
+            <line>Who kept him in captivity till he died.</line>
+            <line>But to the rest.</line>
+         </speech>
+         <speech>
+            <speaker>YORK</speaker>
+            <line>His eldest sister, Anne,</line>
+            <line>My mother, being heir unto the crown</line>
+            <line>Married Richard Earl of Cambridge; who was son</line>
+            <line>To Edmund Langley, Edward the Third's fifth son.</line>
+            <line>By her I claim the kingdom: she was heir</line>
+            <line>To Roger Earl of March, who was the son</line>
+            <line>Of Edmund Mortimer, who married Philippe,</line>
+            <line>Sole daughter unto Lionel Duke of Clarence:</line>
+            <line>So, if the issue of the elder son</line>
+            <line>Succeed before the younger, I am king.</line>
+         </speech>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>What plain proceeding is more plain than this?</line>
+            <line>Henry doth claim the crown from John of Gaunt,</line>
+            <line>The fourth son; York claims it from the third.</line>
+            <line>Till Lionel's issue fails, his should not reign:</line>
+            <line>It fails not yet, but flourishes in thee</line>
+            <line>And in thy sons, fair slips of such a stock.</line>
+            <line>Then, father Salisbury, kneel we together;</line>
+            <line>And in this private plot be we the first</line>
+            <line>That shall salute our rightful sovereign</line>
+            <line>With honour of his birthright to the crown.</line>
+         </speech>
+         <speech>
+            <speaker>BOTH</speaker>
+            <line>Long live our sovereign Richard, England's king!</line>
+         </speech>
+         <speech>
+            <speaker>YORK</speaker>
+            <line>We thank you, lords. But I am not your king</line>
+            <line>Till I be crown'd and that my sword be stain'd</line>
+            <line>With heart-blood of the house of Lancaster;</line>
+            <line>And that's not suddenly to be perform'd,</line>
+            <line>But with advice and silent secrecy.</line>
+            <line>Do you as I do in these dangerous days:</line>
+            <line>Wink at the Duke of Suffolk's insolence,</line>
+            <line>At Beaufort's pride, at Somerset's ambition,</line>
+            <line>At Buckingham and all the crew of them,</line>
+            <line>Till they have snared the shepherd of the flock,</line>
+            <line>That virtuous prince, the good Duke Humphrey:</line>
+            <line>'Tis that they seek, and they in seeking that</line>
+            <line>Shall find their deaths, if York can prophesy.</line>
+         </speech>
+         <speech>
+            <speaker>SALISBURY</speaker>
+            <line>My lord, break we off; we know your mind at full.</line>
+         </speech>
+         <speech>
+            <speaker>WARWICK</speaker>
+            <line>My heart assures me that the Earl of Warwick</line>
+            <line>Shall one day make the Duke of York a king.</line>
+         </speech>
+         <speech>
+            <speaker>YORK</speaker>
+            <line>And, Nevil, this I do assure myself:</line>
+            <line>Richard shall live to make the Earl of Warwick</line>
+            <line>The greatest man in England but the king.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-3">
+      <title>SCENE III.  A hall of justice.</title>
+      <scene-body>
+         <stagedir>Sound trumpets. Enter KING HENRY VI, QUEEN
+MARGARET, GLOUCESTER, YORK, SUFFOLK, and SALISBURY;
+the DUCHESS, MARGARET JOURDAIN, SOUTHWELL, HUME,
+and BOLINGBROKE, under guard</stagedir>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>Stand forth, Dame Eleanor Cobham, Gloucester's wife:</line>
+            <line>In sight of God and us, your guilt is great:</line>
+            <line>Receive the sentence of the law for sins</line>
+            <line>Such as by God's book are adjudged to death.</line>
+            <line>You four, from hence to prison back again;</line>
+            <line>From thence unto the place of execution:</line>
+            <line>The witch in Smithfield shall be burn'd to ashes,</line>
+            <line>And you three shall be strangled on the gallows.</line>
+            <line>You, madam, for you are more nobly born,</line>
+            <line>Despoiled of your honour in your life,</line>
+            <line>Shall, after three days' open penance done,</line>
+            <line>Live in your country here in banishment,</line>
+            <line>With Sir John Stanley, in the Isle of Man.</line>
+         </speech>
+         <speech>
+            <speaker>DUCHESS</speaker>
+            <line>Welcome is banishment; welcome were my death.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Eleanor, the law, thou see'st, hath judged thee:</line>
+            <line>I cannot justify whom the law condemns.</line>
+            <stagedir>Exeunt DUCHESS and other prisoners, guarded</stagedir>
+            <line>Mine eyes are full of tears, my heart of grief.</line>
+            <line>Ah, Humphrey, this dishonour in thine age</line>
+            <line>Will bring thy head with sorrow to the ground!</line>
+            <line>I beseech your majesty, give me leave to go;</line>
+            <line>Sorrow would solace and mine age would ease.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>Stay, Humphrey Duke of Gloucester: ere thou go,</line>
+            <line>Give up thy staff: Henry will to himself</line>
+            <line>Protector be; and God shall be my hope,</line>
+            <line>My stay, my guide and lantern to my feet:</line>
+            <line>And go in peace, Humphrey, no less beloved</line>
+            <line>Than when thou wert protector to thy King.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>I see no reason why a king of years</line>
+            <line>Should be to be protected like a child.</line>
+            <line>God and King Henry govern England's realm.</line>
+            <line>Give up your staff, sir, and the king his realm.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>My staff? here, noble Henry, is my staff:</line>
+            <line>As willingly do I the same resign</line>
+            <line>As e'er thy father Henry made it mine;</line>
+            <line>And even as willingly at thy feet I leave it</line>
+            <line>As others would ambitiously receive it.</line>
+            <line>Farewell, good king: when I am dead and gone,</line>
+            <line>May honourable peace attend thy throne!</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>Why, now is Henry king, and Margaret queen;</line>
+            <line>And Humphrey Duke of Gloucester scarce himself,</line>
+            <line>That bears so shrewd a maim; two pulls at once;</line>
+            <line>His lady banish'd, and a limb lopp'd off.</line>
+            <line>This staff of honour raught, there let it stand</line>
+            <line>Where it best fits to be, in Henry's hand.</line>
+         </speech>
+         <speech>
+            <speaker>SUFFOLK</speaker>
+            <line>Thus droops this lofty pine and hangs his sprays;</line>
+            <line>Thus Eleanor's pride dies in her youngest days.</line>
+         </speech>
+         <speech>
+            <speaker>YORK</speaker>
+            <line>Lords, let him go. Please it your majesty,</line>
+            <line>This is the day appointed for the combat;</line>
+            <line>And ready are the appellant and defendant,</line>
+            <line>The armourer and his man, to enter the lists,</line>
+            <line>So please your highness to behold the fight.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN MARGARET</speaker>
+            <line>Ay, good my lord; for purposely therefore</line>
+            <line>Left I the court, to see this quarrel tried.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>O God's name, see the lists and all things fit:</line>
+            <line>Here let them end it; and God defend the right!</line>
+         </speech>
+         <speech>
+            <speaker>YORK</speaker>
+            <line>I never saw a fellow worse bested,</line>
+            <line>Or more afraid to fight, than is the appellant,</line>
+            <line>The servant of this armourer, my lords.</line>
+         </speech>
+         <stagedir>Enter at one door, HORNER, the Armourer, and his
+Neighbours, drinking to him so much that he is drunk;
+and he enters with a drum before him and his staff
+with a sand-bag fastened to it; and at the other
+door PETER, his man, with a drum and sand-bag, and
+'Prentices drinking to him</stagedir>
+         <speech>
+            <speaker>First Neighbour</speaker>
+            <line>Here, neighbour Horner, I drink to you in a cup of</line>
+            <line>sack: and fear not, neighbour, you shall do well enough.</line>
+         </speech>
+         <speech>
+            <speaker>Second Neighbour</speaker>
+            <line>And here, neighbour, here's a cup of charneco.</line>
+         </speech>
+         <speech>
+            <speaker>Third Neighbour</speaker>
+            <line>And here's a pot of good double beer, neighbour:</line>
+            <line>drink, and fear not your man.</line>
+         </speech>
+         <speech>
+            <speaker>HORNER</speaker>
+            <line>Let it come, i' faith, and I'll pledge you all; and</line>
+            <line>a fig for Peter!</line>
+         </speech>
+         <speech>
+            <speaker>First 'Prentice</speaker>
+            <line>Here, Peter, I drink to thee: and be not afraid.</line>
+         </speech>
+         <speech>
+            <speaker>Second 'Prentice</speaker>
+            <line>Be merry, Peter, and fear not thy master: fight</line>
+            <line>for credit of the 'prentices.</line>
+         </speech>
+         <speech>
+            <speaker>PETER</speaker>
+            <line>I thank you all: drink, and pray for me, I pray</line>
+            <line>you; for I think I have taken my last draught in</line>
+            <line>this world. Here, Robin, an if I die, I give thee</line>
+            <line>my apron: and, Will, thou shalt have my hammer:</line>
+            <line>and here, Tom, take all the money that I have. O</line>
+            <line>Lord bless me! I pray God! for I am never able to</line>
+            <line>deal with my master, he hath learnt me so much fence already.</line>
+         </speech>
+         <speech>
+            <speaker>SALISBURY</speaker>
+            <line>Come, leave your drinking, and fall to blows.</line>
+            <line>Sirrah, what's thy name?</line>
+         </speech>
+         <speech>
+            <speaker>PETER</speaker>
+            <line>Peter, forsooth.</line>
+         </speech>
+         <speech>
+            <speaker>SALISBURY</speaker>
+            <line>Peter! what more?</line>
+         </speech>
+         <speech>
+            <speaker>PETER</speaker>
+            <line>Thump.</line>
+         </speech>
+         <speech>
+            <speaker>SALISBURY</speaker>
+            <line>Thump! then see thou thump thy master well.</line>
+         </speech>
+         <speech>
+            <speaker>HORNER</speaker>
+            <line>Masters, I am come hither, as it were, upon my man's</line>
+            <line>instigation, to prove him a knave and myself an</line>
+            <line>honest man: and touching the Duke of York, I will</line>
+            <line>take my death, I never meant him any ill, nor the</line>
+            <line>king, nor the queen: and therefore, Peter, have at</line>
+            <line>thee with a downright blow!</line>
+         </speech>
+         <speech>
+            <speaker>YORK</speaker>
+            <line>Dispatch: this knave's tongue begins to double.</line>
+            <line>Sound, trumpets, alarum to the combatants!</line>
+         </speech>
+         <stagedir>Alarum. They fight, and PETER strikes him down</stagedir>
+         <speech>
+            <speaker>HORNER</speaker>
+            <line>Hold, Peter, hold! I confess, I confess treason.</line>
+         </speech>
+         <stagedir>Dies</stagedir>
+         <speech>
+            <speaker>YORK</speaker>
+            <line>Take away his weapon. Fellow, thank God, and the</line>
+            <line>good wine in thy master's way.</line>
+         </speech>
+         <speech>
+            <speaker>PETER</speaker>
+            <line>O God, have I overcome mine enemy in this presence?</line>
+            <line>O Peter, thou hast prevailed in right!</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY VI</speaker>
+            <line>Go, take hence that traitor from our sight;</line>
+            <line>For his death we do perceive his guilt:</line>
+            <line>And God in justice hath revealed to us</line>
+            <line>The truth and innocence of this poor fellow,</line>
+            <line>Which he had thought to have murder'd wrongfully.</line>
+            <line>Come, fellow, follow us for thy reward.</line>
+         </speech>
+         <stagedir>Sound a flourish. Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-4">
+      <title>SCENE IV.  A street.</title>
+      <scene-body>
+         <stagedir>Enter GLOUCESTER and his Servingmen, in
+mourning cloaks</stagedir>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Thus sometimes hath the brightest day a cloud;</line>
+            <line>And after summer evermore succeeds</line>
+            <line>Barren winter, with his wrathful nipping cold:</line>
+            <line>So cares and joys abound, as seasons fleet.</line>
+            <line>Sirs, what's o'clock?</line>
+         </speech>
+         <speech>
+            <speaker>Servants</speaker>
+            <line>Ten, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Ten is the hour that was appointed me</line>
+            <line>To watch the coming of my punish'd duchess:</line>
+            <line>Uneath may she endure the flinty streets,</line>
+            <line>To tread them with her tender-feeling feet.</line>
+            <line>Sweet Nell, ill can thy noble mind abrook</line>
+            <line>The abject people gazing on thy face,</line>
+            <line>With envious looks, laughing at thy shame,</line>
+            <line>That erst did follow thy proud chariot-wheels</line>
+            <line>When thou didst ride in triumph through the streets.</line>
+            <line>But, soft! I think she comes; and I'll prepare</line>
+            <line>My tear-stain'd eyes to see her miseries.</line>
+         </speech>
+         <stagedir>Enter the DUCHESS in a white sheet, and a taper
+burning in her hand; with STANLEY, the Sheriff,
+and Officers</stagedir>
+         <speech>
+            <speaker>Servant</speaker>
+            <line>So please your grace, we'll take her from the sheriff.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>No, stir not, for your lives; let her pass by.</line>
+         </speech>
+         <speech>
+            <speaker>DUCHESS</speaker>
+            <line>Come you, my lord, to see my open shame?</line>
+            <line>Now thou dost penance too. Look how they gaze!</line>
+            <line>See how the giddy multitude do point,</line>
+            <line>And nod their heads, and throw their eyes on thee!</line>
+            <line>Ah, Gloucester, hide thee from their hateful looks,</line>
+            <line>And, in thy closet pent up, rue my shame,</line>
+            <line>And ban thine enemies, both mine and thine!</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Be patient, gentle Nell; forget this grief.</line>
+         </speech>
+         <speech>
+            <speaker>DUCHESS</speaker>
+            <line>Ah, Gloucester, teach me to forget myself!</line>
+            <line>For whilst I think I am thy married wife</line>
+            <line>And thou a prince, protector of this land,</line>
+            <line>Methinks I should not thus be led along,</line>
+            <line>Mail'd up in shame, with papers on my back,</line>
+            <line>And followed with a rabble that rejoice</line>
+            <line>To see my tears and hear my deep-fet groans.</line>
+            <line>The ruthless flint doth cut my tender feet,</line>
+            <line>And when I start, the envious people laugh</line>
+            <line>And bid me be advised how I tread.</line>
+            <line>Ah, Humphrey, can I bear this shameful yoke?</line>
+            <line>Trow'st thou that e'er I'll look upon the world,</line>
+            <line>Or count them happy that enjoy the sun?</line>
+            <line>No; dark shall be my light and night my day;</line>
+            <line>To think upon my pomp shall be my hell.</line>
+            <line>Sometime I'll say, I am Duke Humphrey's wife,</line>
+            <line>And he a prince and ruler of the land:</line>
+            <line>Yet so he ruled and such a prince he was</line>
+            <line>As he stood by whilst I, his forlorn duchess,</line>
+            <line>Was made a wonder and a pointing-stock</line>
+            <line>To every idle rascal follower.</line>
+            <line>But be thou mild and blush not at my shame,</line>
+            <line>Nor stir at nothing till the axe of death</line>
+            <line>Hang over thee, as, sure, it shortly will;</line>
+            <line>For Suffolk, he that can do all in all</line>
+            <line>With her that hateth thee and hates us all,</line>
+            <line>And York and impious Beaufort, that false priest,</line>
+            <line>Have all limed bushes to betray thy wings,</line>
+            <line>And, fly thou how thou canst, they'll tangle thee:</line>
+            <line>But fear not thou, until thy foot be snared,</line>
+            <line>Nor never seek prevention of thy foes.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Ah, Nell, forbear! thou aimest all awry;</line>
+            <line>I must offend before I be attainted;</line>
+            <line>And had I twenty times so many foes,</line>
+            <line>And each of them had twenty times their power,</line>
+            <line>All these could not procure me any scathe,</line>
+            <line>So long as I am loyal, true and crimeless.</line>
+            <line>Wouldst have me rescue thee from this reproach?</line>
+            <line>Why, yet thy scandal were not wiped away</line>
+            <line>But I in danger for the breach of law.</line>
+            <line>Thy greatest help is quiet, gentle Nell:</line>
+            <line>I pray thee, sort thy heart to patience;</line>
+            <line>These few days' wonder will be quickly worn.</line>
+         </speech>
+         <stagedir>Enter a Herald</stagedir>
+         <speech>
+            <speaker>Herald</speaker>
+            <line>I summon your grace to his majesty's parliament,</line>
+            <line>Holden at Bury the first of this next month.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>And my consent ne'er ask'd herein before!</line>
+            <line>This is close dealing. Well, I will be there.</line>
+            <stagedir>Exit Herald</stagedir>
+            <line>My Nell, I take my leave: and, master sheriff,</line>
+            <line>Let not her penance exceed the king's commission.</line>
+         </speech>
+         <speech>
+            <speaker>Sheriff</speaker>
+            <line>An't please your grace, here my commission stays,</line>
+            <line>And Sir John Stanley is appointed now</line>
+            <line>To take her with him to the Isle of Man.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Must you, Sir John, protect my lady here?</line>
+         </speech>
+         <speech>
+            <speaker>STANLEY</speaker>
+            <line>So am I given in charge, may't please your grace.</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Entreat her not the worse in that I pray</line>
+            <line>You use her well: the world may laugh again;</line>
+            <line>And I may live to do you kindness if</line>
+            <line>You do it her: and so, Sir John, farewell!</line>
+         </speech>
+         <speech>
+            <speaker>DUCHESS</speaker>
+            <line>What, gone, my lord, and bid me not farewell!</line>
+         </speech>
+         <speech>
+            <speaker>GLOUCESTER</speaker>
+            <line>Witness my tears, I cannot stay to speak.</line>
+         </speech>
+         <stagedir>Exeunt GLOUCESTER and Servingmen</stagedir>
+         <speech>
+            <speaker>DUCHESS</speaker>
+            <line>Art thou gone too? all comfort go with thee!</line>
+            <line>For none abides with me: my joy is death;</line>
+            <line>Death, at whose name I oft have been afear'd,</line>
+            <line>Because I wish'd this world's eternity.</line>
+            <line>Stanley, I prithee, go, and take me hence;</line>
+            <line>I care not whither, for I beg no favour,</line>
+            <line>Only convey me where thou art commanded.</line>
+         </speech>
+         <speech>
+            <speaker>STANLEY</speaker>
+            <line>Why, madam, that is to the Isle of Man;</line>
+            <line>There to be used according to your state.</line>
+         </speech>
+         <speech>
+            <speaker>DUCHESS</speaker>
+            <line>That's bad enough, for I am but reproach:</line>
+            <line>And shall I then be used reproachfully?</line>
+         </speech>
+         <speech>
+            <speaker>STANLEY</speaker>
+            <line>Like to a duchess, and Duke Humphrey's lady;</line>
+            <line>According to that state you shall be used.</line>
+         </speech>
+         <speech>
+            <speaker>DUCHESS</speaker>
+            <line>Sheriff, farewell, and better than I fare,</line>
+            <line>Although thou hast been conduct of my shame.</line>
+         </speech>
+         <speech>
+            <speaker>Sheriff</speaker>
+            <line>It is my office; and, madam, pardon me.</line>
+         </speech>
+         <speech>
+            <speaker>DUCHESS</speaker>
+            <line>Ay, ay, farewell; thy office is discharged.</line>
+            <line>Come, Stanley, shall we go?</line>
+         </speech>
+         <speech>
+            <speaker>STANLEY</speaker>
+            <line>Madam, your penance done, throw off this sheet,</line>
+            <line>And go we to attire you for our journey.</line>
+         </speech>
+         <speech>
+            <speaker>DUCHESS</speaker>
+            <line>My shame will not be shifted with my sheet:</line>
+            <line>No, it will hang upon my richest robes</line>
+            <line>And show itself, attire me how I can.</line>
+            <line>Go, lead the way; I long to see my prison.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+</act>

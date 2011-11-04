@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:personae"
+    uri="personae.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:personae.dtd"
+          uri="personae.dtd"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:personae"
+    uri="personae.mod"
+  />
+  <system systemId="urn:pubid:modules:shakespear:personae.mod"
+    uri="personae.mod"
+  />
+  
+</catalog>  

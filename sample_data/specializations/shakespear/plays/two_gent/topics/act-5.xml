@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:act" "act.dtd">
+<act id="act-5">
+   <title>ACT V</title>
+   <scene id="act-5-scene-1">
+      <title>SCENE I.  Milan. An abbey.</title>
+      <scene-body>
+         <stagedir>Enter EGLAMOUR</stagedir>
+         <speech>
+            <speaker>EGLAMOUR</speaker>
+            <line>The sun begins to gild the western sky;</line>
+            <line>And now it is about the very hour</line>
+            <line>That Silvia, at Friar Patrick's cell, should meet me.</line>
+            <line>She will not fail, for lovers break not hours,</line>
+            <line>Unless it be to come before their time;</line>
+            <line>So much they spur their expedition.</line>
+            <line>See where she comes.</line>
+            <stagedir>Enter SILVIA</stagedir>
+            <line>Lady, a happy evening!</line>
+         </speech>
+         <speech>
+            <speaker>SILVIA</speaker>
+            <line>Amen, amen! Go on, good Eglamour,</line>
+            <line>Out at the postern by the abbey-wall:</line>
+            <line>I fear I am attended by some spies.</line>
+         </speech>
+         <speech>
+            <speaker>EGLAMOUR</speaker>
+            <line>Fear not: the forest is not three leagues off;</line>
+            <line>If we recover that, we are sure enough.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-2">
+      <title>SCENE II.  The same. The DUKE's palace.</title>
+      <scene-body>
+         <stagedir>Enter THURIO, PROTEUS, and JULIA</stagedir>
+         <speech>
+            <speaker>THURIO</speaker>
+            <line>Sir Proteus, what says Silvia to my suit?</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>O, sir, I find her milder than she was;</line>
+            <line>And yet she takes exceptions at your person.</line>
+         </speech>
+         <speech>
+            <speaker>THURIO</speaker>
+            <line>What, that my leg is too long?</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>No; that it is too little.</line>
+         </speech>
+         <speech>
+            <speaker>THURIO</speaker>
+            <line>I'll wear a boot, to make it somewhat rounder.</line>
+         </speech>
+         <speech>
+            <speaker>JULIA</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  But love will not be spurr'd to what</line>
+            <line>it loathes.</line>
+         </speech>
+         <speech>
+            <speaker>THURIO</speaker>
+            <line>What says she to my face?</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>She says it is a fair one.</line>
+         </speech>
+         <speech>
+            <speaker>THURIO</speaker>
+            <line>Nay then, the wanton lies; my face is black.</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>But pearls are fair; and the old saying is,</line>
+            <line>Black men are pearls in beauteous ladies' eyes.</line>
+         </speech>
+         <speech>
+            <speaker>JULIA</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  'Tis true; such pearls as put out</line>
+            <line>ladies' eyes;</line>
+            <line>For I had rather wink than look on them.</line>
+         </speech>
+         <speech>
+            <speaker>THURIO</speaker>
+            <line>How likes she my discourse?</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>Ill, when you talk of war.</line>
+         </speech>
+         <speech>
+            <speaker>THURIO</speaker>
+            <line>But well, when I discourse of love and peace?</line>
+         </speech>
+         <speech>
+            <speaker>JULIA</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  But better, indeed, when you hold your peace.</line>
+         </speech>
+         <speech>
+            <speaker>THURIO</speaker>
+            <line>What says she to my valour?</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>O, sir, she makes no doubt of that.</line>
+         </speech>
+         <speech>
+            <speaker>JULIA</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  She needs not, when she knows it cowardice.</line>
+         </speech>
+         <speech>
+            <speaker>THURIO</speaker>
+            <line>What says she to my birth?</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>That you are well derived.</line>
+         </speech>
+         <speech>
+            <speaker>JULIA</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  True; from a gentleman to a fool.</line>
+         </speech>
+         <speech>
+            <speaker>THURIO</speaker>
+            <line>Considers she my possessions?</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>O, ay; and pities them.</line>
+         </speech>
+         <speech>
+            <speaker>THURIO</speaker>
+            <line>Wherefore?</line>
+         </speech>
+         <speech>
+            <speaker>JULIA</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  That such an ass should owe them.</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>That they are out by lease.</line>
+         </speech>
+         <speech>
+            <speaker>JULIA</speaker>
+            <line>Here comes the duke.</line>
+         </speech>
+         <stagedir>Enter DUKE</stagedir>
+         <speech>
+            <speaker>DUKE</speaker>
+            <line>How now, Sir Proteus! how now, Thurio!</line>
+            <line>Which of you saw Sir Eglamour of late?</line>
+         </speech>
+         <speech>
+            <speaker>THURIO</speaker>
+            <line>Not I.</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>Nor I.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE</speaker>
+            <line>Saw you my daughter?</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>Neither.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE</speaker>
+            <line>Why then,</line>
+            <line>She's fled unto that peasant Valentine;</line>
+            <line>And Eglamour is in her company.</line>
+            <line>'Tis true; for Friar Laurence met them both,</line>
+            <line>As he in penance wander'd through the forest;</line>
+            <line>Him he knew well, and guess'd that it was she,</line>
+            <line>But, being mask'd, he was not sure of it;</line>
+            <line>Besides, she did intend confession</line>
+            <line>At Patrick's cell this even; and there she was not;</line>
+            <line>These likelihoods confirm her flight from hence.</line>
+            <line>Therefore, I pray you, stand not to discourse,</line>
+            <line>But mount you presently and meet with me</line>
+            <line>Upon the rising of the mountain-foot</line>
+            <line>That leads towards Mantua, whither they are fled:</line>
+            <line>Dispatch, sweet gentlemen, and follow me.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>THURIO</speaker>
+            <line>Why, this it is to be a peevish girl,</line>
+            <line>That flies her fortune when it follows her.</line>
+            <line>I'll after, more to be revenged on Eglamour</line>
+            <line>Than for the love of reckless Silvia.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>And I will follow, more for Silvia's love</line>
+            <line>Than hate of Eglamour that goes with her.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>JULIA</speaker>
+            <line>And I will follow, more to cross that love</line>
+            <line>Than hate for Silvia that is gone for love.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-3">
+      <title>SCENE III.  The frontiers of Mantua. The forest.</title>
+      <scene-body>
+         <stagedir>Enter Outlaws with SILVIA</stagedir>
+         <speech>
+            <speaker>First Outlaw</speaker>
+            <line>Come, come,</line>
+            <line>Be patient; we must bring you to our captain.</line>
+         </speech>
+         <speech>
+            <speaker>SILVIA</speaker>
+            <line>A thousand more mischances than this one</line>
+            <line>Have learn'd me how to brook this patiently.</line>
+         </speech>
+         <speech>
+            <speaker>Second Outlaw</speaker>
+            <line>Come, bring her away.</line>
+         </speech>
+         <speech>
+            <speaker>First Outlaw</speaker>
+            <line>Where is the gentleman that was with her?</line>
+         </speech>
+         <speech>
+            <speaker>Third Outlaw</speaker>
+            <line>Being nimble-footed, he hath outrun us,</line>
+            <line>But Moyses and Valerius follow him.</line>
+            <line>Go thou with her to the west end of the wood;</line>
+            <line>There is our captain: we'll follow him that's fled;</line>
+            <line>The thicket is beset; he cannot 'scape.</line>
+         </speech>
+         <speech>
+            <speaker>First Outlaw</speaker>
+            <line>Come, I must bring you to our captain's cave:</line>
+            <line>Fear not; he bears an honourable mind,</line>
+            <line>And will not use a woman lawlessly.</line>
+         </speech>
+         <speech>
+            <speaker>SILVIA</speaker>
+            <line>O Valentine, this I endure for thee!</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-4">
+      <title>SCENE IV.  Another part of the forest.</title>
+      <scene-body>
+         <stagedir>Enter VALENTINE</stagedir>
+         <speech>
+            <speaker>VALENTINE</speaker>
+            <line>How use doth breed a habit in a man!</line>
+            <line>This shadowy desert, unfrequented woods,</line>
+            <line>I better brook than flourishing peopled towns:</line>
+            <line>Here can I sit alone, unseen of any,</line>
+            <line>And to the nightingale's complaining notes</line>
+            <line>Tune my distresses and record my woes.</line>
+            <line>O thou that dost inhabit in my breast,</line>
+            <line>Leave not the mansion so long tenantless,</line>
+            <line>Lest, growing ruinous, the building fall</line>
+            <line>And leave no memory of what it was!</line>
+            <line>Repair me with thy presence, Silvia;</line>
+            <line>Thou gentle nymph, cherish thy forlorn swain!</line>
+            <line>What halloing and what stir is this to-day?</line>
+            <line>These are my mates, that make their wills their law,</line>
+            <line>Have some unhappy passenger in chase.</line>
+            <line>They love me well; yet I have much to do</line>
+            <line>To keep them from uncivil outrages.</line>
+            <line>Withdraw thee, Valentine: who's this comes here?</line>
+         </speech>
+         <stagedir>Enter PROTEUS, SILVIA, and JULIA</stagedir>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>Madam, this service I have done for you,</line>
+            <line>Though you respect not aught your servant doth,</line>
+            <line>To hazard life and rescue you from him</line>
+            <line>That would have forced your honour and your love;</line>
+            <line>Vouchsafe me, for my meed, but one fair look;</line>
+            <line>A smaller boon than this I cannot beg</line>
+            <line>And less than this, I am sure, you cannot give.</line>
+         </speech>
+         <speech>
+            <speaker>VALENTINE</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  How like a dream is this I see and hear!</line>
+            <line>Love, lend me patience to forbear awhile.</line>
+         </speech>
+         <speech>
+            <speaker>SILVIA</speaker>
+            <line>O miserable, unhappy that I am!</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>Unhappy were you, madam, ere I came;</line>
+            <line>But by my coming I have made you happy.</line>
+         </speech>
+         <speech>
+            <speaker>SILVIA</speaker>
+            <line>By thy approach thou makest me most unhappy.</line>
+         </speech>
+         <speech>
+            <speaker>JULIA</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  And me, when he approacheth to your presence.</line>
+         </speech>
+         <speech>
+            <speaker>SILVIA</speaker>
+            <line>Had I been seized by a hungry lion,</line>
+            <line>I would have been a breakfast to the beast,</line>
+            <line>Rather than have false Proteus rescue me.</line>
+            <line>O, Heaven be judge how I love Valentine,</line>
+            <line>Whose life's as tender to me as my soul!</line>
+            <line>And full as much, for more there cannot be,</line>
+            <line>I do detest false perjured Proteus.</line>
+            <line>Therefore be gone; solicit me no more.</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>What dangerous action, stood it next to death,</line>
+            <line>Would I not undergo for one calm look!</line>
+            <line>O, 'tis the curse in love, and still approved,</line>
+            <line>When women cannot love where they're beloved!</line>
+         </speech>
+         <speech>
+            <speaker>SILVIA</speaker>
+            <line>When Proteus cannot love where he's beloved.</line>
+            <line>Read over Julia's heart, thy first best love,</line>
+            <line>For whose dear sake thou didst then rend thy faith</line>
+            <line>Into a thousand oaths; and all those oaths</line>
+            <line>Descended into perjury, to love me.</line>
+            <line>Thou hast no faith left now, unless thou'dst two;</line>
+            <line>And that's far worse than none; better have none</line>
+            <line>Than plural faith which is too much by one:</line>
+            <line>Thou counterfeit to thy true friend!</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>In love</line>
+            <line>Who respects friend?</line>
+         </speech>
+         <speech>
+            <speaker>SILVIA</speaker>
+            <line>All men but Proteus.</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>Nay, if the gentle spirit of moving words</line>
+            <line>Can no way change you to a milder form,</line>
+            <line>I'll woo you like a soldier, at arms' end,</line>
+            <line>And love you 'gainst the nature of love,--force ye.</line>
+         </speech>
+         <speech>
+            <speaker>SILVIA</speaker>
+            <line>O heaven!</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>I'll force thee yield to my desire.</line>
+         </speech>
+         <speech>
+            <speaker>VALENTINE</speaker>
+            <line>Ruffian, let go that rude uncivil touch,</line>
+            <line>Thou friend of an ill fashion!</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>Valentine!</line>
+         </speech>
+         <speech>
+            <speaker>VALENTINE</speaker>
+            <line>Thou common friend, that's without faith or love,</line>
+            <line>For such is a friend now; treacherous man!</line>
+            <line>Thou hast beguiled my hopes; nought but mine eye</line>
+            <line>Could have persuaded me: now I dare not say</line>
+            <line>I have one friend alive; thou wouldst disprove me.</line>
+            <line>Who should be trusted, when one's own right hand</line>
+            <line>Is perjured to the bosom? Proteus,</line>
+            <line>I am sorry I must never trust thee more,</line>
+            <line>But count the world a stranger for thy sake.</line>
+            <line>The private wound is deepest: O time most accurst,</line>
+            <line>'Mongst all foes that a friend should be the worst!</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>My shame and guilt confounds me.</line>
+            <line>Forgive me, Valentine: if hearty sorrow</line>
+            <line>Be a sufficient ransom for offence,</line>
+            <line>I tender 't here; I do as truly suffer</line>
+            <line>As e'er I did commit.</line>
+         </speech>
+         <speech>
+            <speaker>VALENTINE</speaker>
+            <line>Then I am paid;</line>
+            <line>And once again I do receive thee honest.</line>
+            <line>Who by repentance is not satisfied</line>
+            <line>Is nor of heaven nor earth, for these are pleased.</line>
+            <line>By penitence the Eternal's wrath's appeased:</line>
+            <line>And, that my love may appear plain and free,</line>
+            <line>All that was mine in Silvia I give thee.</line>
+         </speech>
+         <speech>
+            <speaker>JULIA</speaker>
+            <line>O me unhappy!</line>
+         </speech>
+         <stagedir>Swoons</stagedir>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>Look to the boy.</line>
+         </speech>
+         <speech>
+            <speaker>VALENTINE</speaker>
+            <line>Why, boy! why, wag! how now! what's the matter?</line>
+            <line>Look up; speak.</line>
+         </speech>
+         <speech>
+            <speaker>JULIA</speaker>
+            <line>O good sir, my master charged me to deliver a ring</line>
+            <line>to Madam Silvia, which, out of my neglect, was never done.</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>Where is that ring, boy?</line>
+         </speech>
+         <speech>
+            <speaker>JULIA</speaker>
+            <line>Here 'tis; this is it.</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>How! let me see:</line>
+            <line>Why, this is the ring I gave to Julia.</line>
+         </speech>
+         <speech>
+            <speaker>JULIA</speaker>
+            <line>O, cry you mercy, sir, I have mistook:</line>
+            <line>This is the ring you sent to Silvia.</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>But how camest thou by this ring? At my depart</line>
+            <line>I gave this unto Julia.</line>
+         </speech>
+         <speech>
+            <speaker>JULIA</speaker>
+            <line>And Julia herself did give it me;</line>
+            <line>And Julia herself hath brought it hither.</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>How! Julia!</line>
+         </speech>
+         <speech>
+            <speaker>JULIA</speaker>
+            <line>Behold her that gave aim to all thy oaths,</line>
+            <line>And entertain'd 'em deeply in her heart.</line>
+            <line>How oft hast thou with perjury cleft the root!</line>
+            <line>O Proteus, let this habit make thee blush!</line>
+            <line>Be thou ashamed that I have took upon me</line>
+            <line>Such an immodest raiment, if shame live</line>
+            <line>In a disguise of love:</line>
+            <line>It is the lesser blot, modesty finds,</line>
+            <line>Women to change their shapes than men their minds.</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>Than men their minds! 'tis true.</line>
+            <line>O heaven! were man</line>
+            <line>But constant, he were perfect. That one error</line>
+            <line>Fills him with faults; makes him run through all the sins:</line>
+            <line>Inconstancy falls off ere it begins.</line>
+            <line>What is in Silvia's face, but I may spy</line>
+            <line>More fresh in Julia's with a constant eye?</line>
+         </speech>
+         <speech>
+            <speaker>VALENTINE</speaker>
+            <line>Come, come, a hand from either:</line>
+            <line>Let me be blest to make this happy close;</line>
+            <line>'Twere pity two such friends should be long foes.</line>
+         </speech>
+         <speech>
+            <speaker>PROTEUS</speaker>
+            <line>Bear witness, Heaven, I have my wish for ever.</line>
+         </speech>
+         <speech>
+            <speaker>JULIA</speaker>
+            <line>And I mine.</line>
+         </speech>
+         <stagedir>Enter Outlaws, with DUKE and THURIO</stagedir>
+         <speech>
+            <speaker>Outlaws</speaker>
+            <line>A prize, a prize, a prize!</line>
+         </speech>
+         <speech>
+            <speaker>VALENTINE</speaker>
+            <line>Forbear, forbear, I say! it is my lord the duke.</line>
+            <line>Your grace is welcome to a man disgraced,</line>
+            <line>Banished Valentine.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE</speaker>
+            <line>Sir Valentine!</line>
+         </speech>
+         <speech>
+            <speaker>THURIO</speaker>
+            <line>Yonder is Silvia; and Silvia's mine.</line>
+         </speech>
+         <speech>
+            <speaker>VALENTINE</speaker>
+            <line>Thurio, give back, or else embrace thy death;</line>
+            <line>Come not within the measure of my wrath;</line>
+            <line>Do not name Silvia thine; if once again,</line>
+            <line>Verona shall not hold thee. Here she stands;</line>
+            <line>Take but possession of her with a touch:</line>
+            <line>I dare thee but to breathe upon my love.</line>
+         </speech>
+         <speech>
+            <speaker>THURIO</speaker>
+            <line>Sir Valentine, I care not for her, I;</line>
+            <line>I hold him but a fool that will endanger</line>
+            <line>His body for a girl that loves him not:</line>
+            <line>I claim her not, and therefore she is thine.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE</speaker>
+            <line>The more degenerate and base art thou,</line>
+            <line>To make such means for her as thou hast done</line>
+            <line>And leave her on such slight conditions.</line>
+            <line>Now, by the honour of my ancestry,</line>
+            <line>I do applaud thy spirit, Valentine,</line>
+            <line>And think thee worthy of an empress' love:</line>
+            <line>Know then, I here forget all former griefs,</line>
+            <line>Cancel all grudge, repeal thee home again,</line>
+            <line>Plead a new state in thy unrivall'd merit,</line>
+            <line>To which I thus subscribe: Sir Valentine,</line>
+            <line>Thou art a gentleman and well derived;</line>
+            <line>Take thou thy Silvia, for thou hast deserved her.</line>
+         </speech>
+         <speech>
+            <speaker>VALENTINE</speaker>
+            <line>I thank your grace; the gift hath made me happy.</line>
+            <line>I now beseech you, for your daughter's sake,</line>
+            <line>To grant one boom that I shall ask of you.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE</speaker>
+            <line>I grant it, for thine own, whate'er it be.</line>
+         </speech>
+         <speech>
+            <speaker>VALENTINE</speaker>
+            <line>These banish'd men that I have kept withal</line>
+            <line>Are men endued with worthy qualities:</line>
+            <line>Forgive them what they have committed here</line>
+            <line>And let them be recall'd from their exile:</line>
+            <line>They are reformed, civil, full of good</line>
+            <line>And fit for great employment, worthy lord.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE</speaker>
+            <line>Thou hast prevail'd; I pardon them and thee:</line>
+            <line>Dispose of them as thou know'st their deserts.</line>
+            <line>Come, let us go: we will include all jars</line>
+            <line>With triumphs, mirth and rare solemnity.</line>
+         </speech>
+         <speech>
+            <speaker>VALENTINE</speaker>
+            <line>And, as we walk along, I dare be bold</line>
+            <line>With our discourse to make your grace to smile.</line>
+            <line>What think you of this page, my lord?</line>
+         </speech>
+         <speech>
+            <speaker>DUKE</speaker>
+            <line>I think the boy hath grace in him; he blushes.</line>
+         </speech>
+         <speech>
+            <speaker>VALENTINE</speaker>
+            <line>I warrant you, my lord, more grace than boy.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE</speaker>
+            <line>What mean you by that saying?</line>
+         </speech>
+         <speech>
+            <speaker>VALENTINE</speaker>
+            <line>Please you, I'll tell you as we pass along,</line>
+            <line>That you will wonder what hath fortuned.</line>
+            <line>Come, Proteus; 'tis your penance but to hear</line>
+            <line>The story of your loves discovered:</line>
+            <line>That done, our day of marriage shall be yours;</line>
+            <line>One feast, one house, one mutual happiness.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+</act>

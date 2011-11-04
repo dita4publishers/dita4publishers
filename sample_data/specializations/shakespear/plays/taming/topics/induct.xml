@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE induct
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:induct" "induct.dtd">
+<induct id="induct">
+   <title>INDUCTION</title>
+   <induct-body/>
+   <scene id="scene-1">
+      <title>SCENE I.  Before an alehouse on a heath.</title>
+      <scene-body>
+         <stagedir>Enter Hostess and SLY</stagedir>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>I'll pheeze you, in faith.</line>
+         </speech>
+         <speech>
+            <speaker>Hostess</speaker>
+            <line>A pair of stocks, you rogue!</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>Ye are a baggage: the Slys are no rogues; look in</line>
+            <line>the chronicles; we came in with Richard Conqueror.</line>
+            <line>Therefore paucas pallabris; let the world slide: sessa!</line>
+         </speech>
+         <speech>
+            <speaker>Hostess</speaker>
+            <line>You will not pay for the glasses you have burst?</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>No, not a denier. Go by, Jeronimy: go to thy cold</line>
+            <line>bed, and warm thee.</line>
+         </speech>
+         <speech>
+            <speaker>Hostess</speaker>
+            <line>I know my remedy; I must go fetch the</line>
+            <line>third--borough.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>Third, or fourth, or fifth borough, I'll answer him</line>
+            <line>by law: I'll not budge an inch, boy: let him come,</line>
+            <line>and kindly.</line>
+         </speech>
+         <stagedir>Falls asleep</stagedir>
+         <stagedir>Horns winded. Enter a Lord from hunting, with his train</stagedir>
+         <speech>
+            <speaker>Lord</speaker>
+            <line>Huntsman, I charge thee, tender well my hounds:</line>
+            <line>Brach Merriman, the poor cur is emboss'd;</line>
+            <line>And couple Clowder with the deep--mouth'd brach.</line>
+            <line>Saw'st thou not, boy, how Silver made it good</line>
+            <line>At the hedge-corner, in the coldest fault?</line>
+            <line>I would not lose the dog for twenty pound.</line>
+         </speech>
+         <speech>
+            <speaker>First Huntsman</speaker>
+            <line>Why, Belman is as good as he, my lord;</line>
+            <line>He cried upon it at the merest loss</line>
+            <line>And twice to-day pick'd out the dullest scent:</line>
+            <line>Trust me, I take him for the better dog.</line>
+         </speech>
+         <speech>
+            <speaker>Lord</speaker>
+            <line>Thou art a fool: if Echo were as fleet,</line>
+            <line>I would esteem him worth a dozen such.</line>
+            <line>But sup them well and look unto them all:</line>
+            <line>To-morrow I intend to hunt again.</line>
+         </speech>
+         <speech>
+            <speaker>First Huntsman</speaker>
+            <line>I will, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>Lord</speaker>
+            <line>What's here? one dead, or drunk? See, doth he breathe?</line>
+         </speech>
+         <speech>
+            <speaker>Second Huntsman</speaker>
+            <line>He breathes, my lord. Were he not warm'd with ale,</line>
+            <line>This were a bed but cold to sleep so soundly.</line>
+         </speech>
+         <speech>
+            <speaker>Lord</speaker>
+            <line>O monstrous beast! how like a swine he lies!</line>
+            <line>Grim death, how foul and loathsome is thine image!</line>
+            <line>Sirs, I will practise on this drunken man.</line>
+            <line>What think you, if he were convey'd to bed,</line>
+            <line>Wrapp'd in sweet clothes, rings put upon his fingers,</line>
+            <line>A most delicious banquet by his bed,</line>
+            <line>And brave attendants near him when he wakes,</line>
+            <line>Would not the beggar then forget himself?</line>
+         </speech>
+         <speech>
+            <speaker>First Huntsman</speaker>
+            <line>Believe me, lord, I think he cannot choose.</line>
+         </speech>
+         <speech>
+            <speaker>Second Huntsman</speaker>
+            <line>It would seem strange unto him when he waked.</line>
+         </speech>
+         <speech>
+            <speaker>Lord</speaker>
+            <line>Even as a flattering dream or worthless fancy.</line>
+            <line>Then take him up and manage well the jest:</line>
+            <line>Carry him gently to my fairest chamber</line>
+            <line>And hang it round with all my wanton pictures:</line>
+            <line>Balm his foul head in warm distilled waters</line>
+            <line>And burn sweet wood to make the lodging sweet:</line>
+            <line>Procure me music ready when he wakes,</line>
+            <line>To make a dulcet and a heavenly sound;</line>
+            <line>And if he chance to speak, be ready straight</line>
+            <line>And with a low submissive reverence</line>
+            <line>Say 'What is it your honour will command?'</line>
+            <line>Let one attend him with a silver basin</line>
+            <line>Full of rose-water and bestrew'd with flowers,</line>
+            <line>Another bear the ewer, the third a diaper,</line>
+            <line>And say 'Will't please your lordship cool your hands?'</line>
+            <line>Some one be ready with a costly suit</line>
+            <line>And ask him what apparel he will wear;</line>
+            <line>Another tell him of his hounds and horse,</line>
+            <line>And that his lady mourns at his disease:</line>
+            <line>Persuade him that he hath been lunatic;</line>
+            <line>And when he says he is, say that he dreams,</line>
+            <line>For he is nothing but a mighty lord.</line>
+            <line>This do and do it kindly, gentle sirs:</line>
+            <line>It will be pastime passing excellent,</line>
+            <line>If it be husbanded with modesty.</line>
+         </speech>
+         <speech>
+            <speaker>First Huntsman</speaker>
+            <line>My lord, I warrant you we will play our part,</line>
+            <line>As he shall think by our true diligence</line>
+            <line>He is no less than what we say he is.</line>
+         </speech>
+         <speech>
+            <speaker>Lord</speaker>
+            <line>Take him up gently and to bed with him;</line>
+            <line>And each one to his office when he wakes.</line>
+            <stagedir>Some bear out SLY. A trumpet sounds</stagedir>
+            <line>Sirrah, go see what trumpet 'tis that sounds:</line>
+            <stagedir>Exit Servingman</stagedir>
+            <line>Belike, some noble gentleman that means,</line>
+            <line>Travelling some journey, to repose him here.</line>
+            <stagedir>Re-enter Servingman</stagedir>
+            <line>How now! who is it?</line>
+         </speech>
+         <speech>
+            <speaker>Servant</speaker>
+            <line>An't please your honour, players</line>
+            <line>That offer service to your lordship.</line>
+         </speech>
+         <speech>
+            <speaker>Lord</speaker>
+            <line>Bid them come near.</line>
+            <stagedir>Enter Players</stagedir>
+            <line>Now, fellows, you are welcome.</line>
+         </speech>
+         <speech>
+            <speaker>Players</speaker>
+            <line>We thank your honour.</line>
+         </speech>
+         <speech>
+            <speaker>Lord</speaker>
+            <line>Do you intend to stay with me tonight?</line>
+         </speech>
+         <speech>
+            <speaker>A Player</speaker>
+            <line>So please your lordship to accept our duty.</line>
+         </speech>
+         <speech>
+            <speaker>Lord</speaker>
+            <line>With all my heart. This fellow I remember,</line>
+            <line>Since once he play'd a farmer's eldest son:</line>
+            <line>'Twas where you woo'd the gentlewoman so well:</line>
+            <line>I have forgot your name; but, sure, that part</line>
+            <line>Was aptly fitted and naturally perform'd.</line>
+         </speech>
+         <speech>
+            <speaker>A Player</speaker>
+            <line>I think 'twas Soto that your honour means.</line>
+         </speech>
+         <speech>
+            <speaker>Lord</speaker>
+            <line>'Tis very true: thou didst it excellent.</line>
+            <line>Well, you are come to me in a happy time;</line>
+            <line>The rather for I have some sport in hand</line>
+            <line>Wherein your cunning can assist me much.</line>
+            <line>There is a lord will hear you play to-night:</line>
+            <line>But I am doubtful of your modesties;</line>
+            <line>Lest over-eyeing of his odd behavior,--</line>
+            <line>For yet his honour never heard a play--</line>
+            <line>You break into some merry passion</line>
+            <line>And so offend him; for I tell you, sirs,</line>
+            <line>If you should smile he grows impatient.</line>
+         </speech>
+         <speech>
+            <speaker>A Player</speaker>
+            <line>Fear not, my lord: we can contain ourselves,</line>
+            <line>Were he the veriest antic in the world.</line>
+         </speech>
+         <speech>
+            <speaker>Lord</speaker>
+            <line>Go, sirrah, take them to the buttery,</line>
+            <line>And give them friendly welcome every one:</line>
+            <line>Let them want nothing that my house affords.</line>
+            <stagedir>Exit one with the Players</stagedir>
+            <line>Sirrah, go you to Barthol'mew my page,</line>
+            <line>And see him dress'd in all suits like a lady:</line>
+            <line>That done, conduct him to the drunkard's chamber;</line>
+            <line>And call him 'madam,' do him obeisance.</line>
+            <line>Tell him from me, as he will win my love,</line>
+            <line>He bear himself with honourable action,</line>
+            <line>Such as he hath observed in noble ladies</line>
+            <line>Unto their lords, by them accomplished:</line>
+            <line>Such duty to the drunkard let him do</line>
+            <line>With soft low tongue and lowly courtesy,</line>
+            <line>And say 'What is't your honour will command,</line>
+            <line>Wherein your lady and your humble wife</line>
+            <line>May show her duty and make known her love?'</line>
+            <line>And then with kind embracements, tempting kisses,</line>
+            <line>And with declining head into his bosom,</line>
+            <line>Bid him shed tears, as being overjoy'd</line>
+            <line>To see her noble lord restored to health,</line>
+            <line>Who for this seven years hath esteem'd him</line>
+            <line>No better than a poor and loathsome beggar:</line>
+            <line>And if the boy have not a woman's gift</line>
+            <line>To rain a shower of commanded tears,</line>
+            <line>An onion will do well for such a shift,</line>
+            <line>Which in a napkin being close convey'd</line>
+            <line>Shall in despite enforce a watery eye.</line>
+            <line>See this dispatch'd with all the haste thou canst:</line>
+            <line>Anon I'll give thee more instructions.</line>
+            <stagedir>Exit a Servingman</stagedir>
+            <line>I know the boy will well usurp the grace,</line>
+            <line>Voice, gait and action of a gentlewoman:</line>
+            <line>I long to hear him call the drunkard husband,</line>
+            <line>And how my men will stay themselves from laughter</line>
+            <line>When they do homage to this simple peasant.</line>
+            <line>I'll in to counsel them; haply my presence</line>
+            <line>May well abate the over-merry spleen</line>
+            <line>Which otherwise would grow into extremes.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="scene-2">
+      <title>SCENE II.  A bedchamber in the Lord's house.</title>
+      <scene-body>
+         <stagedir>Enter aloft SLY, with Attendants; some with apparel,
+others with basin and ewer and appurtenances; and Lord</stagedir>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>For God's sake, a pot of small ale.</line>
+         </speech>
+         <speech>
+            <speaker>First Servant</speaker>
+            <line>Will't please your lordship drink a cup of sack?</line>
+         </speech>
+         <speech>
+            <speaker>Second Servant</speaker>
+            <line>Will't please your honour taste of these conserves?</line>
+         </speech>
+         <speech>
+            <speaker>Third Servant</speaker>
+            <line>What raiment will your honour wear to-day?</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>I am Christophero Sly; call not me 'honour' nor</line>
+            <line>'lordship:' I ne'er drank sack in my life; and if</line>
+            <line>you give me any conserves, give me conserves of</line>
+            <line>beef: ne'er ask me what raiment I'll wear; for I</line>
+            <line>have no more doublets than backs, no more stockings</line>
+            <line>than legs, nor no more shoes than feet; nay,</line>
+            <line>sometimes more feet than shoes, or such shoes as my</line>
+            <line>toes look through the over-leather.</line>
+         </speech>
+         <speech>
+            <speaker>Lord</speaker>
+            <line>Heaven cease this idle humour in your honour!</line>
+            <line>O, that a mighty man of such descent,</line>
+            <line>Of such possessions and so high esteem,</line>
+            <line>Should be infused with so foul a spirit!</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>What, would you make me mad? Am not I Christopher</line>
+            <line>Sly, old Sly's son of Burtonheath, by birth a</line>
+            <line>pedlar, by education a cardmaker, by transmutation a</line>
+            <line>bear-herd, and now by present profession a tinker?</line>
+            <line>Ask Marian Hacket, the fat ale-wife of Wincot, if</line>
+            <line>she know me not: if she say I am not fourteen pence</line>
+            <line>on the score for sheer ale, score me up for the</line>
+            <line>lyingest knave in Christendom. What! I am not</line>
+            <line>bestraught: here's--</line>
+         </speech>
+         <speech>
+            <speaker>Third Servant</speaker>
+            <line>O, this it is that makes your lady mourn!</line>
+         </speech>
+         <speech>
+            <speaker>Second Servant</speaker>
+            <line>O, this is it that makes your servants droop!</line>
+         </speech>
+         <speech>
+            <speaker>Lord</speaker>
+            <line>Hence comes it that your kindred shuns your house,</line>
+            <line>As beaten hence by your strange lunacy.</line>
+            <line>O noble lord, bethink thee of thy birth,</line>
+            <line>Call home thy ancient thoughts from banishment</line>
+            <line>And banish hence these abject lowly dreams.</line>
+            <line>Look how thy servants do attend on thee,</line>
+            <line>Each in his office ready at thy beck.</line>
+            <line>Wilt thou have music? hark! Apollo plays,</line>
+            <stagedir>Music</stagedir>
+            <line>And twenty caged nightingales do sing:</line>
+            <line>Or wilt thou sleep? we'll have thee to a couch</line>
+            <line>Softer and sweeter than the lustful bed</line>
+            <line>On purpose trimm'd up for Semiramis.</line>
+            <line>Say thou wilt walk; we will bestrew the ground:</line>
+            <line>Or wilt thou ride? thy horses shall be trapp'd,</line>
+            <line>Their harness studded all with gold and pearl.</line>
+            <line>Dost thou love hawking? thou hast hawks will soar</line>
+            <line>Above the morning lark or wilt thou hunt?</line>
+            <line>Thy hounds shall make the welkin answer them</line>
+            <line>And fetch shrill echoes from the hollow earth.</line>
+         </speech>
+         <speech>
+            <speaker>First Servant</speaker>
+            <line>Say thou wilt course; thy greyhounds are as swift</line>
+            <line>As breathed stags, ay, fleeter than the roe.</line>
+         </speech>
+         <speech>
+            <speaker>Second Servant</speaker>
+            <line>Dost thou love pictures? we will fetch thee straight</line>
+            <line>Adonis painted by a running brook,</line>
+            <line>And Cytherea all in sedges hid,</line>
+            <line>Which seem to move and wanton with her breath,</line>
+            <line>Even as the waving sedges play with wind.</line>
+         </speech>
+         <speech>
+            <speaker>Lord</speaker>
+            <line>We'll show thee Io as she was a maid,</line>
+            <line>And how she was beguiled and surprised,</line>
+            <line>As lively painted as the deed was done.</line>
+         </speech>
+         <speech>
+            <speaker>Third Servant</speaker>
+            <line>Or Daphne roaming through a thorny wood,</line>
+            <line>Scratching her legs that one shall swear she bleeds,</line>
+            <line>And at that sight shall sad Apollo weep,</line>
+            <line>So workmanly the blood and tears are drawn.</line>
+         </speech>
+         <speech>
+            <speaker>Lord</speaker>
+            <line>Thou art a lord, and nothing but a lord:</line>
+            <line>Thou hast a lady far more beautiful</line>
+            <line>Than any woman in this waning age.</line>
+         </speech>
+         <speech>
+            <speaker>First Servant</speaker>
+            <line>And till the tears that she hath shed for thee</line>
+            <line>Like envious floods o'er-run her lovely face,</line>
+            <line>She was the fairest creature in the world;</line>
+            <line>And yet she is inferior to none.</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>Am I a lord? and have I such a lady?</line>
+            <line>Or do I dream? or have I dream'd till now?</line>
+            <line>I do not sleep: I see, I hear, I speak;</line>
+            <line>I smell sweet savours and I feel soft things:</line>
+            <line>Upon my life, I am a lord indeed</line>
+            <line>And not a tinker nor Christophero Sly.</line>
+            <line>Well, bring our lady hither to our sight;</line>
+            <line>And once again, a pot o' the smallest ale.</line>
+         </speech>
+         <speech>
+            <speaker>Second Servant</speaker>
+            <line>Will't please your mightiness to wash your hands?</line>
+            <line>O, how we joy to see your wit restored!</line>
+            <line>O, that once more you knew but what you are!</line>
+            <line>These fifteen years you have been in a dream;</line>
+            <line>Or when you waked, so waked as if you slept.</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>These fifteen years! by my fay, a goodly nap.</line>
+            <line>But did I never speak of all that time?</line>
+         </speech>
+         <speech>
+            <speaker>First Servant</speaker>
+            <line>O, yes, my lord, but very idle words:</line>
+            <line>For though you lay here in this goodly chamber,</line>
+            <line>Yet would you say ye were beaten out of door;</line>
+            <line>And rail upon the hostess of the house;</line>
+            <line>And say you would present her at the leet,</line>
+            <line>Because she brought stone jugs and no seal'd quarts:</line>
+            <line>Sometimes you would call out for Cicely Hacket.</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>Ay, the woman's maid of the house.</line>
+         </speech>
+         <speech>
+            <speaker>Third Servant</speaker>
+            <line>Why, sir, you know no house nor no such maid,</line>
+            <line>Nor no such men as you have reckon'd up,</line>
+            <line>As Stephen Sly and did John Naps of Greece</line>
+            <line>And Peter Turph and Henry Pimpernell</line>
+            <line>And twenty more such names and men as these</line>
+            <line>Which never were nor no man ever saw.</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>Now Lord be thanked for my good amends!</line>
+         </speech>
+         <speech>
+            <speaker>ALL</speaker>
+            <line>Amen.</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>I thank thee: thou shalt not lose by it.</line>
+         </speech>
+         <stagedir>Enter the Page as a lady, with attendants</stagedir>
+         <speech>
+            <speaker>Page</speaker>
+            <line>How fares my noble lord?</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>Marry, I fare well for here is cheer enough.</line>
+            <line>Where is my wife?</line>
+         </speech>
+         <speech>
+            <speaker>Page</speaker>
+            <line>Here, noble lord: what is thy will with her?</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>Are you my wife and will not call me husband?</line>
+            <line>My men should call me 'lord:' I am your goodman.</line>
+         </speech>
+         <speech>
+            <speaker>Page</speaker>
+            <line>My husband and my lord, my lord and husband;</line>
+            <line>I am your wife in all obedience.</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>I know it well. What must I call her?</line>
+         </speech>
+         <speech>
+            <speaker>Lord</speaker>
+            <line>Madam.</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>Al'ce madam, or Joan madam?</line>
+         </speech>
+         <speech>
+            <speaker>Lord</speaker>
+            <line>'Madam,' and nothing else: so lords</line>
+            <line>call ladies.</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>Madam wife, they say that I have dream'd</line>
+            <line>And slept above some fifteen year or more.</line>
+         </speech>
+         <speech>
+            <speaker>Page</speaker>
+            <line>Ay, and the time seems thirty unto me,</line>
+            <line>Being all this time abandon'd from your bed.</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>'Tis much. Servants, leave me and her alone.</line>
+            <line>Madam, undress you and come now to bed.</line>
+         </speech>
+         <speech>
+            <speaker>Page</speaker>
+            <line>Thrice noble lord, let me entreat of you</line>
+            <line>To pardon me yet for a night or two,</line>
+            <line>Or, if not so, until the sun be set:</line>
+            <line>For your physicians have expressly charged,</line>
+            <line>In peril to incur your former malady,</line>
+            <line>That I should yet absent me from your bed:</line>
+            <line>I hope this reason stands for my excuse.</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>Ay, it stands so that I may hardly</line>
+            <line>tarry so long. But I would be loath to fall into</line>
+            <line>my dreams again: I will therefore tarry in</line>
+            <line>despite of the flesh and the blood.</line>
+         </speech>
+         <stagedir>Enter a Messenger</stagedir>
+         <speech>
+            <speaker>Messenger</speaker>
+            <line>Your honour's players, heating your amendment,</line>
+            <line>Are come to play a pleasant comedy;</line>
+            <line>For so your doctors hold it very meet,</line>
+            <line>Seeing too much sadness hath congeal'd your blood,</line>
+            <line>And melancholy is the nurse of frenzy:</line>
+            <line>Therefore they thought it good you hear a play</line>
+            <line>And frame your mind to mirth and merriment,</line>
+            <line>Which bars a thousand harms and lengthens life.</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>Marry, I will, let them play it. Is not a</line>
+            <line>comondy a Christmas gambold or a tumbling-trick?</line>
+         </speech>
+         <speech>
+            <speaker>Page</speaker>
+            <line>No, my good lord; it is more pleasing stuff.</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>What, household stuff?</line>
+         </speech>
+         <speech>
+            <speaker>Page</speaker>
+            <line>It is a kind of history.</line>
+         </speech>
+         <speech>
+            <speaker>SLY</speaker>
+            <line>Well, well see't. Come, madam wife, sit by my side</line>
+            <line>and let the world slip: we shall ne'er be younger.</line>
+         </speech>
+         <stagedir>Flourish</stagedir>
+      </scene-body>
+   </scene>
+</induct>

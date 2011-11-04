@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC001_004">
+   <title>1.4 Rounding decimals</title>
+   <learningContentbody>
+      <section>
+          
+          
+          <fig>
+            <title/>
+            <image href="../../media/math12.jpg"/>
+            <p/>
+         </fig>
+          <p>Using a calculator often gives a long string of digits. For example, 1 ÷ 3
+            might give .333333333. But very often, for practical purposes, this level of accuracy is
+            too precise to be useful. You try measuring .33333333 metres!</p>
+          <p>Decimal numbers can be rounded just like whole numbers. For example, 0.33333333
+            is nearer to 0.3 than to 0.4 and rounding 0.33333333 m to 0.3 m makes it easy to
+            measure. Here the number has been rounded so that it contains one decimal digit; it has
+            been <i>rounded to one decimal place</i>. (We often write ‘d.p.’ for ‘decimal
+            place’.)</p>
+          <p>Often it is more sensible to measure to the nearest centimetre (0.01 m), in
+            which case 0.3333333 m rounds to 0.33 m. Here the number contains two decimal digits; it
+            has been <i>rounded to two decimal places</i>.</p>
+          <p>The rule for rounding applies just as well to decimal places as
+            hundreds.</p>
+          <p>The number of decimal places given, however, indicates the accuracy. So 0.30
+            indicates accuracy to the nearest 0.01 (two decimal places) whereas 0.3 indicates
+            accuracy to the nearest 0.1 (one decimal place).</p>
+          <p/>
+          <p>The general rule for rounding to a number of decimal places is to look at the
+            digit one place to the right of the number of digits you want to round to, and round up
+            or down depending on whether this digit is ‘5 or more’ or ‘4 or less’.</p>
+          <sectiondiv outputclass="Example">
+            <p outputclass="Heading">
+               <b>Example 2</b>
+            </p>
+            <ul>
+              <li>
+                  <p>(a) In a diary, the following conversion statements were given.
+                  Round all the numbers to one decimal place (1 d.p.) in order to give a handy
+                  measure to remember when travelling abroad:</p>
+                  <ul>
+                     <li>
+                        <p>converting miles to kilometres multiply by 1.6093;</p>
+                     </li>
+                     <li>
+                        <p>converting feet to metres multiply by 0.3048.</p>
+                     </li>
+                  </ul>
+               </li>
+              <li>
+                  <p>(b) Round these values so that they are correct to two decimal places (2
+                  d.p.).</p>
+              </li>
+            </ul>
+            <sectiondiv outputclass="Answer">
+               <p outputclass="SubHeading">
+                  <b>Solution</b>
+               </p>
+              <ul>
+                  <li>
+                     <p>(a) The answer must contain one decimal digit, so look at the
+                    second decimal digit and round up or down accordingly.</p>
+                     <ul>
+                        <li>
+                           <p>miles to kilometres: the second decimal digit is 0 so round down,
+                        thus the conversion factor is 1.6 (to 1 d.p.).</p>
+                        </li>
+                        <li>
+                           <p>feet to metres: the second decimal digit is 0 so round down, thus
+                        the conversion factor is 0.3 (to 1 d. p.).</p>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>
+                     <p>(b) To round to 2 decimal places look at the third decimal
+                    digit:</p>
+                     <ul>
+                        <li>
+                           <p>miles to kilometres: the third decimal digit is 9, so round up.
+                        Thus the conversion factor is 1.61 (2 d.p.).</p>
+                        </li>
+                        <li>
+                           <p>feet to metres: the third decimal digit is 4 so round down. Thus to
+                        convert feet to metres multiply by 0.30 (2 d.p.).</p>
+                        </li>
+                     </ul>
+                  </li>
+              </ul>
+              <p>Note the use of a zero in the second decimal place. This is necessary to
+                indicate that the value has been rounded to <i>two</i> decimal places.</p>
+            </sectiondiv>
+         </sectiondiv>
+          
+        </section>
+   </learningContentbody>
+</learningContent>

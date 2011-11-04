@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:act" "act.dtd">
+<act id="act-5">
+   <title>ACT V</title>
+   <scene id="act-5-scene-1">
+      <title>SCENE I.  Belmont. Avenue to PORTIA'S house.</title>
+      <scene-body>
+         <stagedir>Enter LORENZO and JESSICA</stagedir>
+         <speech>
+            <speaker>LORENZO</speaker>
+            <line>The moon shines bright: in such a night as this,</line>
+            <line>When the sweet wind did gently kiss the trees</line>
+            <line>And they did make no noise, in such a night</line>
+            <line>Troilus methinks mounted the Troyan walls</line>
+            <line>And sigh'd his soul toward the Grecian tents,</line>
+            <line>Where Cressid lay that night.</line>
+         </speech>
+         <speech>
+            <speaker>JESSICA</speaker>
+            <line>In such a night</line>
+            <line>Did Thisbe fearfully o'ertrip the dew</line>
+            <line>And saw the lion's shadow ere himself</line>
+            <line>And ran dismay'd away.</line>
+         </speech>
+         <speech>
+            <speaker>LORENZO</speaker>
+            <line>In such a night</line>
+            <line>Stood Dido with a willow in her hand</line>
+            <line>Upon the wild sea banks and waft her love</line>
+            <line>To come again to Carthage.</line>
+         </speech>
+         <speech>
+            <speaker>JESSICA</speaker>
+            <line>In such a night</line>
+            <line>Medea gather'd the enchanted herbs</line>
+            <line>That did renew old AEson.</line>
+         </speech>
+         <speech>
+            <speaker>LORENZO</speaker>
+            <line>In such a night</line>
+            <line>Did Jessica steal from the wealthy Jew</line>
+            <line>And with an unthrift love did run from Venice</line>
+            <line>As far as Belmont.</line>
+         </speech>
+         <speech>
+            <speaker>JESSICA</speaker>
+            <line>In such a night</line>
+            <line>Did young Lorenzo swear he loved her well,</line>
+            <line>Stealing her soul with many vows of faith</line>
+            <line>And ne'er a true one.</line>
+         </speech>
+         <speech>
+            <speaker>LORENZO</speaker>
+            <line>In such a night</line>
+            <line>Did pretty Jessica, like a little shrew,</line>
+            <line>Slander her love, and he forgave it her.</line>
+         </speech>
+         <speech>
+            <speaker>JESSICA</speaker>
+            <line>I would out-night you, did no body come;</line>
+            <line>But, hark, I hear the footing of a man.</line>
+         </speech>
+         <stagedir>Enter STEPHANO</stagedir>
+         <speech>
+            <speaker>LORENZO</speaker>
+            <line>Who comes so fast in silence of the night?</line>
+         </speech>
+         <speech>
+            <speaker>STEPHANO</speaker>
+            <line>A friend.</line>
+         </speech>
+         <speech>
+            <speaker>LORENZO</speaker>
+            <line>A friend! what friend? your name, I pray you, friend?</line>
+         </speech>
+         <speech>
+            <speaker>STEPHANO</speaker>
+            <line>Stephano is my name; and I bring word</line>
+            <line>My mistress will before the break of day</line>
+            <line>Be here at Belmont; she doth stray about</line>
+            <line>By holy crosses, where she kneels and prays</line>
+            <line>For happy wedlock hours.</line>
+         </speech>
+         <speech>
+            <speaker>LORENZO</speaker>
+            <line>Who comes with her?</line>
+         </speech>
+         <speech>
+            <speaker>STEPHANO</speaker>
+            <line>None but a holy hermit and her maid.</line>
+            <line>I pray you, is my master yet return'd?</line>
+         </speech>
+         <speech>
+            <speaker>LORENZO</speaker>
+            <line>He is not, nor we have not heard from him.</line>
+            <line>But go we in, I pray thee, Jessica,</line>
+            <line>And ceremoniously let us prepare</line>
+            <line>Some welcome for the mistress of the house.</line>
+         </speech>
+         <stagedir>Enter LAUNCELOT</stagedir>
+         <speech>
+            <speaker>LAUNCELOT</speaker>
+            <line>Sola, sola! wo ha, ho! sola, sola!</line>
+         </speech>
+         <speech>
+            <speaker>LORENZO</speaker>
+            <line>Who calls?</line>
+         </speech>
+         <speech>
+            <speaker>LAUNCELOT</speaker>
+            <line>Sola! did you see Master Lorenzo?</line>
+            <line>Master Lorenzo, sola, sola!</line>
+         </speech>
+         <speech>
+            <speaker>LORENZO</speaker>
+            <line>Leave hollaing, man: here.</line>
+         </speech>
+         <speech>
+            <speaker>LAUNCELOT</speaker>
+            <line>Sola! where? where?</line>
+         </speech>
+         <speech>
+            <speaker>LORENZO</speaker>
+            <line>Here.</line>
+         </speech>
+         <speech>
+            <speaker>LAUNCELOT</speaker>
+            <line>Tell him there's a post come from my master, with</line>
+            <line>his horn full of good news: my master will be here</line>
+            <line>ere morning.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>LORENZO</speaker>
+            <line>Sweet soul, let's in, and there expect their coming.</line>
+            <line>And yet no matter: why should we go in?</line>
+            <line>My friend Stephano, signify, I pray you,</line>
+            <line>Within the house, your mistress is at hand;</line>
+            <line>And bring your music forth into the air.</line>
+            <stagedir>Exit Stephano</stagedir>
+            <line>How sweet the moonlight sleeps upon this bank!</line>
+            <line>Here will we sit and let the sounds of music</line>
+            <line>Creep in our ears: soft stillness and the night</line>
+            <line>Become the touches of sweet harmony.</line>
+            <line>Sit, Jessica. Look how the floor of heaven</line>
+            <line>Is thick inlaid with patines of bright gold:</line>
+            <line>There's not the smallest orb which thou behold'st</line>
+            <line>But in his motion like an angel sings,</line>
+            <line>Still quiring to the young-eyed cherubins;</line>
+            <line>Such harmony is in immortal souls;</line>
+            <line>But whilst this muddy vesture of decay</line>
+            <line>Doth grossly close it in, we cannot hear it.</line>
+            <stagedir>Enter Musicians</stagedir>
+            <line>Come, ho! and wake Diana with a hymn!</line>
+            <line>With sweetest touches pierce your mistress' ear,</line>
+            <line>And draw her home with music.</line>
+         </speech>
+         <stagedir>Music</stagedir>
+         <speech>
+            <speaker>JESSICA</speaker>
+            <line>I am never merry when I hear sweet music.</line>
+         </speech>
+         <speech>
+            <speaker>LORENZO</speaker>
+            <line>The reason is, your spirits are attentive:</line>
+            <line>For do but note a wild and wanton herd,</line>
+            <line>Or race of youthful and unhandled colts,</line>
+            <line>Fetching mad bounds, bellowing and neighing loud,</line>
+            <line>Which is the hot condition of their blood;</line>
+            <line>If they but hear perchance a trumpet sound,</line>
+            <line>Or any air of music touch their ears,</line>
+            <line>You shall perceive them make a mutual stand,</line>
+            <line>Their savage eyes turn'd to a modest gaze</line>
+            <line>By the sweet power of music: therefore the poet</line>
+            <line>Did feign that Orpheus drew trees, stones and floods;</line>
+            <line>Since nought so stockish, hard and full of rage,</line>
+            <line>But music for the time doth change his nature.</line>
+            <line>The man that hath no music in himself,</line>
+            <line>Nor is not moved with concord of sweet sounds,</line>
+            <line>Is fit for treasons, stratagems and spoils;</line>
+            <line>The motions of his spirit are dull as night</line>
+            <line>And his affections dark as Erebus:</line>
+            <line>Let no such man be trusted. Mark the music.</line>
+         </speech>
+         <stagedir>Enter PORTIA and NERISSA</stagedir>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>That light we see is burning in my hall.</line>
+            <line>How far that little candle throws his beams!</line>
+            <line>So shines a good deed in a naughty world.</line>
+         </speech>
+         <speech>
+            <speaker>NERISSA</speaker>
+            <line>When the moon shone, we did not see the candle.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>So doth the greater glory dim the less:</line>
+            <line>A substitute shines brightly as a king</line>
+            <line>Unto the king be by, and then his state</line>
+            <line>Empties itself, as doth an inland brook</line>
+            <line>Into the main of waters. Music! hark!</line>
+         </speech>
+         <speech>
+            <speaker>NERISSA</speaker>
+            <line>It is your music, madam, of the house.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Nothing is good, I see, without respect:</line>
+            <line>Methinks it sounds much sweeter than by day.</line>
+         </speech>
+         <speech>
+            <speaker>NERISSA</speaker>
+            <line>Silence bestows that virtue on it, madam.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>The crow doth sing as sweetly as the lark,</line>
+            <line>When neither is attended, and I think</line>
+            <line>The nightingale, if she should sing by day,</line>
+            <line>When every goose is cackling, would be thought</line>
+            <line>No better a musician than the wren.</line>
+            <line>How many things by season season'd are</line>
+            <line>To their right praise and true perfection!</line>
+            <line>Peace, ho! the moon sleeps with Endymion</line>
+            <line>And would not be awaked.</line>
+         </speech>
+         <stagedir>Music ceases</stagedir>
+         <speech>
+            <speaker>LORENZO</speaker>
+            <line>That is the voice,</line>
+            <line>Or I am much deceived, of Portia.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>He knows me as the blind man knows the cuckoo,</line>
+            <line>By the bad voice.</line>
+         </speech>
+         <speech>
+            <speaker>LORENZO</speaker>
+            <line>Dear lady, welcome home.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>We have been praying for our husbands' healths,</line>
+            <line>Which speed, we hope, the better for our words.</line>
+            <line>Are they return'd?</line>
+         </speech>
+         <speech>
+            <speaker>LORENZO</speaker>
+            <line>Madam, they are not yet;</line>
+            <line>But there is come a messenger before,</line>
+            <line>To signify their coming.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Go in, Nerissa;</line>
+            <line>Give order to my servants that they take</line>
+            <line>No note at all of our being absent hence;</line>
+            <line>Nor you, Lorenzo; Jessica, nor you.</line>
+         </speech>
+         <stagedir>A tucket sounds</stagedir>
+         <speech>
+            <speaker>LORENZO</speaker>
+            <line>Your husband is at hand; I hear his trumpet:</line>
+            <line>We are no tell-tales, madam; fear you not.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>This night methinks is but the daylight sick;</line>
+            <line>It looks a little paler: 'tis a day,</line>
+            <line>Such as the day is when the sun is hid.</line>
+         </speech>
+         <stagedir>Enter BASSANIO, ANTONIO, GRATIANO, and
+their followers</stagedir>
+         <speech>
+            <speaker>BASSANIO</speaker>
+            <line>We should hold day with the Antipodes,</line>
+            <line>If you would walk in absence of the sun.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Let me give light, but let me not be light;</line>
+            <line>For a light wife doth make a heavy husband,</line>
+            <line>And never be Bassanio so for me:</line>
+            <line>But God sort all! You are welcome home, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>BASSANIO</speaker>
+            <line>I thank you, madam. Give welcome to my friend.</line>
+            <line>This is the man, this is Antonio,</line>
+            <line>To whom I am so infinitely bound.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>You should in all sense be much bound to him.</line>
+            <line>For, as I hear, he was much bound for you.</line>
+         </speech>
+         <speech>
+            <speaker>ANTONIO</speaker>
+            <line>No more than I am well acquitted of.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Sir, you are very welcome to our house:</line>
+            <line>It must appear in other ways than words,</line>
+            <line>Therefore I scant this breathing courtesy.</line>
+         </speech>
+         <speech>
+            <speaker>GRATIANO</speaker>
+            <line>
+               <stagedir>To NERISSA</stagedir>  By yonder moon I swear you do me wrong;</line>
+            <line>In faith, I gave it to the judge's clerk:</line>
+            <line>Would he were gelt that had it, for my part,</line>
+            <line>Since you do take it, love, so much at heart.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>A quarrel, ho, already! what's the matter?</line>
+         </speech>
+         <speech>
+            <speaker>GRATIANO</speaker>
+            <line>About a hoop of gold, a paltry ring</line>
+            <line>That she did give me, whose posy was</line>
+            <line>For all the world like cutler's poetry</line>
+            <line>Upon a knife, 'Love me, and leave me not.'</line>
+         </speech>
+         <speech>
+            <speaker>NERISSA</speaker>
+            <line>What talk you of the posy or the value?</line>
+            <line>You swore to me, when I did give it you,</line>
+            <line>That you would wear it till your hour of death</line>
+            <line>And that it should lie with you in your grave:</line>
+            <line>Though not for me, yet for your vehement oaths,</line>
+            <line>You should have been respective and have kept it.</line>
+            <line>Gave it a judge's clerk! no, God's my judge,</line>
+            <line>The clerk will ne'er wear hair on's face that had it.</line>
+         </speech>
+         <speech>
+            <speaker>GRATIANO</speaker>
+            <line>He will, an if he live to be a man.</line>
+         </speech>
+         <speech>
+            <speaker>NERISSA</speaker>
+            <line>Ay, if a woman live to be a man.</line>
+         </speech>
+         <speech>
+            <speaker>GRATIANO</speaker>
+            <line>Now, by this hand, I gave it to a youth,</line>
+            <line>A kind of boy, a little scrubbed boy,</line>
+            <line>No higher than thyself; the judge's clerk,</line>
+            <line>A prating boy, that begg'd it as a fee:</line>
+            <line>I could not for my heart deny it him.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>You were to blame, I must be plain with you,</line>
+            <line>To part so slightly with your wife's first gift:</line>
+            <line>A thing stuck on with oaths upon your finger</line>
+            <line>And so riveted with faith unto your flesh.</line>
+            <line>I gave my love a ring and made him swear</line>
+            <line>Never to part with it; and here he stands;</line>
+            <line>I dare be sworn for him he would not leave it</line>
+            <line>Nor pluck it from his finger, for the wealth</line>
+            <line>That the world masters. Now, in faith, Gratiano,</line>
+            <line>You give your wife too unkind a cause of grief:</line>
+            <line>An 'twere to me, I should be mad at it.</line>
+         </speech>
+         <speech>
+            <speaker>BASSANIO</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  Why, I were best to cut my left hand off</line>
+            <line>And swear I lost the ring defending it.</line>
+         </speech>
+         <speech>
+            <speaker>GRATIANO</speaker>
+            <line>My Lord Bassanio gave his ring away</line>
+            <line>Unto the judge that begg'd it and indeed</line>
+            <line>Deserved it too; and then the boy, his clerk,</line>
+            <line>That took some pains in writing, he begg'd mine;</line>
+            <line>And neither man nor master would take aught</line>
+            <line>But the two rings.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>What ring gave you my lord?</line>
+            <line>Not that, I hope, which you received of me.</line>
+         </speech>
+         <speech>
+            <speaker>BASSANIO</speaker>
+            <line>If I could add a lie unto a fault,</line>
+            <line>I would deny it; but you see my finger</line>
+            <line>Hath not the ring upon it; it is gone.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Even so void is your false heart of truth.</line>
+            <line>By heaven, I will ne'er come in your bed</line>
+            <line>Until I see the ring.</line>
+         </speech>
+         <speech>
+            <speaker>NERISSA</speaker>
+            <line>Nor I in yours</line>
+            <line>Till I again see mine.</line>
+         </speech>
+         <speech>
+            <speaker>BASSANIO</speaker>
+            <line>Sweet Portia,</line>
+            <line>If you did know to whom I gave the ring,</line>
+            <line>If you did know for whom I gave the ring</line>
+            <line>And would conceive for what I gave the ring</line>
+            <line>And how unwillingly I left the ring,</line>
+            <line>When nought would be accepted but the ring,</line>
+            <line>You would abate the strength of your displeasure.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>If you had known the virtue of the ring,</line>
+            <line>Or half her worthiness that gave the ring,</line>
+            <line>Or your own honour to contain the ring,</line>
+            <line>You would not then have parted with the ring.</line>
+            <line>What man is there so much unreasonable,</line>
+            <line>If you had pleased to have defended it</line>
+            <line>With any terms of zeal, wanted the modesty</line>
+            <line>To urge the thing held as a ceremony?</line>
+            <line>Nerissa teaches me what to believe:</line>
+            <line>I'll die for't but some woman had the ring.</line>
+         </speech>
+         <speech>
+            <speaker>BASSANIO</speaker>
+            <line>No, by my honour, madam, by my soul,</line>
+            <line>No woman had it, but a civil doctor,</line>
+            <line>Which did refuse three thousand ducats of me</line>
+            <line>And begg'd the ring; the which I did deny him</line>
+            <line>And suffer'd him to go displeased away;</line>
+            <line>Even he that did uphold the very life</line>
+            <line>Of my dear friend. What should I say, sweet lady?</line>
+            <line>I was enforced to send it after him;</line>
+            <line>I was beset with shame and courtesy;</line>
+            <line>My honour would not let ingratitude</line>
+            <line>So much besmear it. Pardon me, good lady;</line>
+            <line>For, by these blessed candles of the night,</line>
+            <line>Had you been there, I think you would have begg'd</line>
+            <line>The ring of me to give the worthy doctor.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Let not that doctor e'er come near my house:</line>
+            <line>Since he hath got the jewel that I loved,</line>
+            <line>And that which you did swear to keep for me,</line>
+            <line>I will become as liberal as you;</line>
+            <line>I'll not deny him any thing I have,</line>
+            <line>No, not my body nor my husband's bed:</line>
+            <line>Know him I shall, I am well sure of it:</line>
+            <line>Lie not a night from home; watch me like Argus:</line>
+            <line>If you do not, if I be left alone,</line>
+            <line>Now, by mine honour, which is yet mine own,</line>
+            <line>I'll have that doctor for my bedfellow.</line>
+         </speech>
+         <speech>
+            <speaker>NERISSA</speaker>
+            <line>And I his clerk; therefore be well advised</line>
+            <line>How you do leave me to mine own protection.</line>
+         </speech>
+         <speech>
+            <speaker>GRATIANO</speaker>
+            <line>Well, do you so; let not me take him, then;</line>
+            <line>For if I do, I'll mar the young clerk's pen.</line>
+         </speech>
+         <speech>
+            <speaker>ANTONIO</speaker>
+            <line>I am the unhappy subject of these quarrels.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Sir, grieve not you; you are welcome notwithstanding.</line>
+         </speech>
+         <speech>
+            <speaker>BASSANIO</speaker>
+            <line>Portia, forgive me this enforced wrong;</line>
+            <line>And, in the hearing of these many friends,</line>
+            <line>I swear to thee, even by thine own fair eyes,</line>
+            <line>Wherein I see myself--</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Mark you but that!</line>
+            <line>In both my eyes he doubly sees himself;</line>
+            <line>In each eye, one: swear by your double self,</line>
+            <line>And there's an oath of credit.</line>
+         </speech>
+         <speech>
+            <speaker>BASSANIO</speaker>
+            <line>Nay, but hear me:</line>
+            <line>Pardon this fault, and by my soul I swear</line>
+            <line>I never more will break an oath with thee.</line>
+         </speech>
+         <speech>
+            <speaker>ANTONIO</speaker>
+            <line>I once did lend my body for his wealth;</line>
+            <line>Which, but for him that had your husband's ring,</line>
+            <line>Had quite miscarried: I dare be bound again,</line>
+            <line>My soul upon the forfeit, that your lord</line>
+            <line>Will never more break faith advisedly.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Then you shall be his surety. Give him this</line>
+            <line>And bid him keep it better than the other.</line>
+         </speech>
+         <speech>
+            <speaker>ANTONIO</speaker>
+            <line>Here, Lord Bassanio; swear to keep this ring.</line>
+         </speech>
+         <speech>
+            <speaker>BASSANIO</speaker>
+            <line>By heaven, it is the same I gave the doctor!</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>I had it of him: pardon me, Bassanio;</line>
+            <line>For, by this ring, the doctor lay with me.</line>
+         </speech>
+         <speech>
+            <speaker>NERISSA</speaker>
+            <line>And pardon me, my gentle Gratiano;</line>
+            <line>For that same scrubbed boy, the doctor's clerk,</line>
+            <line>In lieu of this last night did lie with me.</line>
+         </speech>
+         <speech>
+            <speaker>GRATIANO</speaker>
+            <line>Why, this is like the mending of highways</line>
+            <line>In summer, where the ways are fair enough:</line>
+            <line>What, are we cuckolds ere we have deserved it?</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Speak not so grossly. You are all amazed:</line>
+            <line>Here is a letter; read it at your leisure;</line>
+            <line>It comes from Padua, from Bellario:</line>
+            <line>There you shall find that Portia was the doctor,</line>
+            <line>Nerissa there her clerk: Lorenzo here</line>
+            <line>Shall witness I set forth as soon as you</line>
+            <line>And even but now return'd; I have not yet</line>
+            <line>Enter'd my house. Antonio, you are welcome;</line>
+            <line>And I have better news in store for you</line>
+            <line>Than you expect: unseal this letter soon;</line>
+            <line>There you shall find three of your argosies</line>
+            <line>Are richly come to harbour suddenly:</line>
+            <line>You shall not know by what strange accident</line>
+            <line>I chanced on this letter.</line>
+         </speech>
+         <speech>
+            <speaker>ANTONIO</speaker>
+            <line>I am dumb.</line>
+         </speech>
+         <speech>
+            <speaker>BASSANIO</speaker>
+            <line>Were you the doctor and I knew you not?</line>
+         </speech>
+         <speech>
+            <speaker>GRATIANO</speaker>
+            <line>Were you the clerk that is to make me cuckold?</line>
+         </speech>
+         <speech>
+            <speaker>NERISSA</speaker>
+            <line>Ay, but the clerk that never means to do it,</line>
+            <line>Unless he live until he be a man.</line>
+         </speech>
+         <speech>
+            <speaker>BASSANIO</speaker>
+            <line>Sweet doctor, you shall be my bed-fellow:</line>
+            <line>When I am absent, then lie with my wife.</line>
+         </speech>
+         <speech>
+            <speaker>ANTONIO</speaker>
+            <line>Sweet lady, you have given me life and living;</line>
+            <line>For here I read for certain that my ships</line>
+            <line>Are safely come to road.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>How now, Lorenzo!</line>
+            <line>My clerk hath some good comforts too for you.</line>
+         </speech>
+         <speech>
+            <speaker>NERISSA</speaker>
+            <line>Ay, and I'll give them him without a fee.</line>
+            <line>There do I give to you and Jessica,</line>
+            <line>From the rich Jew, a special deed of gift,</line>
+            <line>After his death, of all he dies possess'd of.</line>
+         </speech>
+         <speech>
+            <speaker>LORENZO</speaker>
+            <line>Fair ladies, you drop manna in the way</line>
+            <line>Of starved people.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>It is almost morning,</line>
+            <line>And yet I am sure you are not satisfied</line>
+            <line>Of these events at full. Let us go in;</line>
+            <line>And charge us there upon inter'gatories,</line>
+            <line>And we will answer all things faithfully.</line>
+         </speech>
+         <speech>
+            <speaker>GRATIANO</speaker>
+            <line>Let it be so: the first inter'gatory</line>
+            <line>That my Nerissa shall be sworn on is,</line>
+            <line>Whether till the next night she had rather stay,</line>
+            <line>Or go to bed now, being two hours to day:</line>
+            <line>But were the day come, I should wish it dark,</line>
+            <line>That I were couching with the doctor's clerk.</line>
+            <line>Well, while I live I'll fear no other thing</line>
+            <line>So sore as keeping safe Nerissa's ring.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+</act>

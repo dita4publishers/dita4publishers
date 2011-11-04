@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!--  MODULE:    DITA PubMap Mapref Domain Entity                  -->
+<!--  VERSION:   0.9                                               -->
+<!--  DATE:      July 2010                                         -->
+<!--                                                               -->
+<!-- ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    Declaring the domain entities for publication     -->
+<!--             maps mapref domain.                               -->
+<!--                                                               -->
+<!--                                                               -->
+<!--  UPDATES:                                                     -->
+<!-- ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    PUBMAP MAPREF ENTITIES                     -->
+<!-- ============================================================= -->
+
+<!ENTITY % pubmapMapref-d-topicref 
+                        "
+appendix-mapref |
+appendixes-mapref |
+article-mapref |
+backmatter-mapref |
+chapter-mapref |
+covers-mapref  |
+department-mapref |
+glossary-mapref |
+keydef-group-mapref |
+part-mapref    |
+pubbody-mapref |
+publication-mapref |
+subsection-mapref |
+sidebar-mapref |
+wrap-cover-mapref    
+"
+>
+
+<!ENTITY % pubmapMapref-d-appendix
+ "appendix-mapref"
+>
+<!ENTITY % pubmapMapref-d-appendixes
+ "appendixes-mapref"
+>
+<!ENTITY % pubmapMapref-d-article
+ "article-mapref"
+>
+<!ENTITY % pubmapMapref-d-backmatter
+ "backmatter-mapref"
+>
+<!ENTITY % pubmapMapref-d-chapter
+ "chapter-mapref"
+>
+<!ENTITY % pubmapMapref-d-covers 
+ "covers-mapref "
+>
+<!ENTITY % pubmapMapref-d-department
+ "department-mapref"
+>
+<!ENTITY % pubmapMapref-d-glossary
+ "glossary-mapref"
+>
+<!ENTITY % pubmapMapref-d-keydef-group
+ "keydef-group-mapref"
+>
+<!ENTITY % pubmapMapref-d-part   
+ "part-mapref   "
+>
+<!ENTITY % pubmapMapref-d-pubbody
+ "pubbody-mapref"
+>
+<!ENTITY % pubmapMapref-d-publication
+ "publication-mapref"
+>
+<!ENTITY % pubmapMapref-d-subsection
+ "subsection-mapref"
+>
+<!ENTITY % pubmapMapref-d-sidebar
+ "sidebar-mapref"
+>
+<!ENTITY % pubmapMapref-d-wrap-cover   
+ "wrap-cover-mapref   "
+>
+
+<!ENTITY pubmapMapref-d-att "(map pubmap-d pubmapMapref-d)">
+
+
+<!-- ================== End Pubmap Mapref Domain Entities ===================== -->

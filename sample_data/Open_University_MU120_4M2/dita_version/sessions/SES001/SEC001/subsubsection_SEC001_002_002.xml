@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC001_002_002">
+   <title>Rounding to the nearest ten</title>
+   <learningContentbody>
+      <section>
+            
+            <p>The blouse in the figure above was £19 and you may well have thought of it as
+              roughly £20. In this case you would be <i>rounding to the nearest ten</i>
+              (pounds).</p>
+            <p>The rule for rounding to the nearest hundred can be adapted easily to
+              rounding to the nearest ten. Instead of looking at the tens digit look at the units
+              digit.</p>
+            <p>So £23 is rounded down (to £20) and £36 is rounded up (to £40).</p>
+            <sectiondiv outputclass="Example">
+              <p outputclass="Heading">
+               <b>Example 1</b>
+            </p>
+              <p>The distance from London to Newcastle is 282 miles. Round this distance to
+                the nearest 10 miles and the nearest hundred miles.</p>
+              <sectiondiv outputclass="Answer">
+               <p outputclass="SubHeading">
+                  <b>Solution</b>
+               </p>
+                <p>To round to the nearest 10, look at the units digit. This is a 2, so
+                  round down to 280 miles.</p>
+                <p>To round to the nearest 100, look at the tens digit. This is 8, so round
+                  up to 300 miles.</p>
+                <p>Therefore the distance from London to Newcastle is 280 miles, to the
+                  nearest ten miles, and 300 miles, to the nearest hundred miles.</p>
+              </sectiondiv>
+         </sectiondiv>
+          </section>
+   </learningContentbody>
+</learningContent>

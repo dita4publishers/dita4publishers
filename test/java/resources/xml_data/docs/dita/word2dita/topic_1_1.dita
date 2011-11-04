@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept
+  PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept
+  id="topic_1_1"
+  xtrc="/w:document/w:body[1]/w:p[36]"
+  >
+  <title
+    xtrc="/w:document/w:body[1]/w:p[36]"
+    xtrf="zip:file:/Users/ekimber/workspace/dita4publishers/sample_data/word2dita/techdoc/word/word2dita_single_doc_to_map_and_topics_01.docx!/word/document.xml">Terminology</title>
+  <section>This is invalid</section>
+  <conbody
+    xtrc="">
+    <conbodydiv><p>this is invalid</p></conbodydiv>
+    <table
+      xtrc="">
+      <tgroup
+        cols="2">
+        <colspec
+          colname="1"
+          colwidth="1798*"/>
+        <colspec
+          colname="2"
+          colwidth="5632*"/>
+        <thead>
+          <row>
+            <entry><p
+              xtrc="/w:document/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[1]/w:p[1]"
+              xtrf="zip:file:/Users/ekimber/workspace/dita4publishers/sample_data/word2dita/techdoc/word/word2dita_single_doc_to_map_and_topics_01.docx!/word/document.xml"><frog/>Term</p></entry>
+            <entry><p
+              xtrc="/w:document/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[2]/w:p[1]"
+              xtrf="zip:file:/Users/ekimber/workspace/dita4publishers/sample_data/word2dita/techdoc/word/word2dita_single_doc_to_map_and_topics_01.docx!/word/document.xml">Definition</p></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><p
+              xtrc="/w:document/w:body[1]/w:tbl[1]/w:tr[2]/w:tc[1]/w:p[1]"
+              xtrf="zip:file:/Users/ekimber/workspace/dita4publishers/sample_data/word2dita/techdoc/word/word2dita_single_doc_to_map_and_topics_01.docx!/word/document.xml">Blahblah</p></entry>
+            <entry><p
+              xtrc="/w:document/w:body[1]/w:tbl[1]/w:tr[2]/w:tc[2]/w:p[1]"
+              xtrf="zip:file:/Users/ekimber/workspace/dita4publishers/sample_data/word2dita/techdoc/word/word2dita_single_doc_to_map_and_topics_01.docx!/word/document.xml">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></entry>
+          </row>
+          <row>
+            <entry><p
+              xtrc="/w:document/w:body[1]/w:tbl[1]/w:tr[3]/w:tc[1]/w:p[1]"
+              xtrf="zip:file:/Users/ekimber/workspace/dita4publishers/sample_data/word2dita/techdoc/word/word2dita_single_doc_to_map_and_topics_01.docx!/word/document.xml">Blablah</p></entry>
+            <entry><p
+              xtrc="/w:document/w:body[1]/w:tbl[1]/w:tr[3]/w:tc[2]/w:p[1]"
+              xtrf="zip:file:/Users/ekimber/workspace/dita4publishers/sample_data/word2dita/techdoc/word/word2dita_single_doc_to_map_and_topics_01.docx!/word/document.xml">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></entry>
+          </row>
+          <row>
+            <entry><p
+              xtrc="/w:document/w:body[1]/w:tbl[1]/w:tr[4]/w:tc[1]/w:p[1]"
+              xtrf="zip:file:/Users/ekimber/workspace/dita4publishers/sample_data/word2dita/techdoc/word/word2dita_single_doc_to_map_and_topics_01.docx!/word/document.xml">Blahblah</p></entry>
+            <entry><p
+              xtrc="/w:document/w:body[1]/w:tbl[1]/w:tr[4]/w:tc[2]/w:p[1]"
+              xtrf="zip:file:/Users/ekimber/workspace/dita4publishers/sample_data/word2dita/techdoc/word/word2dita_single_doc_to_map_and_topics_01.docx!/word/document.xml">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></entry>
+          </row>
+          <row>
+            <entry><p
+              xtrc="/w:document/w:body[1]/w:tbl[1]/w:tr[5]/w:tc[1]/w:p[1]"
+              xtrf="zip:file:/Users/ekimber/workspace/dita4publishers/sample_data/word2dita/techdoc/word/word2dita_single_doc_to_map_and_topics_01.docx!/word/document.xml">Blahblah</p></entry>
+            <entry><p
+              xtrc="/w:document/w:body[1]/w:tbl[1]/w:tr[5]/w:tc[2]/w:p[1]"
+              xtrf="zip:file:/Users/ekimber/workspace/dita4publishers/sample_data/word2dita/techdoc/word/word2dita_single_doc_to_map_and_topics_01.docx!/word/document.xml">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation </p><ul
+              xtrc="/w:document/w:body[1]/w:tbl[1]/w:tr[5]/w:tc[2]/w:p[2]">
+              <li
+                xtrc="/w:document/w:body[1]/w:tbl[1]/w:tr[5]/w:tc[2]/w:p[2]"
+                xtrf="">ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat </li>
+              <li
+                xtrc="/w:document/w:body[1]/w:tbl[1]/w:tr[5]/w:tc[2]/w:p[3]"
+                xtrf="">cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+              </ul></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </conbody>
+</concept>

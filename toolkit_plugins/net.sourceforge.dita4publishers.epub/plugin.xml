@@ -1,0 +1,13 @@
+<plugin id="net.sourceforge.dita4publishers.epub">
+
+  <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
+  <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
+
+  <template file="build_transtype-epub_template.xml"/>
+  
+  <template file="xsl/map2epub_template.xsl"/>
+
+  <feature extension="dita.conductor.transtype.check" value="epub" type="txt"/>
+  <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
+
+</plugin>

@@ -1,0 +1,8 @@
+<!-- 
+  
+  
+  Copyright (C) 2008 dita2indesign.org
+  -->
+<plugin id="org.dita2indesign.test.doctypes">
+  <feature extension="dita.specialization.catalog.relative" value="catalog.xml" type="file"/>
+</plugin>

@@ -1,0 +1,23 @@
+<!-- 
+  Plugin descriptor for the Word-to-DITA Plugin
+  
+  Copyright (c) 2010 DITA For Publishers
+    
+  This plug-in converts Microsoft Word DOCX documents
+  into DITA maps and topics using a style-to-tag
+  mapping document plug, as necessary, extension
+  XSLT.
+  
+  -->
+<plugin id="net.sourceforge.dita4publishers.word2dita">
+  <!-- Requires the style2tagMap.xsd which is packaged as part of the
+       D4P document types.
+    -->
+  <require plugin="net.sourceforge.dita4publishers.doctypes"/> 
+
+  <template file="build_transtype-word2dita_template.xml"/>
+  <feature extension="dita.conductor.transtype.check" value="word2dita" type="txt"/>
+  <!-- Hook in an import of the bild_transtype-word2dita.xml file: -->
+  <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
+
+</plugin>

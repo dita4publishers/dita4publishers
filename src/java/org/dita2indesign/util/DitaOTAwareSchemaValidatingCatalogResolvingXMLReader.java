@@ -1,0 +1,49 @@
+/**
+ * Copyright 2009 DITA2InDesign project (dita2indesign.sourceforge.net)  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at     http://www.apache.org/licenses/LICENSE-2.0  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.  n nLicensed under the Apache License, Version 2.0 (the "License"); nyou may not use this file except in compliance with the License. nYou may obtain a copy of the License at n n   http://www.apache.org/licenses/LICENSE-2.0 n nUnless required by applicable law or agreed to in writing, software ndistributed under the License is distributed on an "AS IS" BASIS, nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. nSee the License for the specific language governing permissions and nlimitations under the License.   Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at     http://www.apache.org/licenses/LICENSE-2.0  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+ */
+package org.dita2indesign.util;
+
+import org.apache.xml.resolver.CatalogManager;
+import org.apache.xml.resolver.tools.ResolvingXMLReader;
+import org.xml.sax.SAXNotRecognizedException;
+
+
+/**
+ *
+ */
+public class DitaOTAwareSchemaValidatingCatalogResolvingXMLReader extends
+		ResolvingXMLReader {
+
+	/**
+	 * @throws Throwable 
+	 * @throws SAXNotRecognizedException 
+	 * 
+	 */
+	public DitaOTAwareSchemaValidatingCatalogResolvingXMLReader() throws SAXNotRecognizedException, Throwable {
+		super(new DitaOTAwareCatalogManager());
+		init();
+	}
+
+	/**
+	 * @throws Throwable 
+	 * @throws SAXNotRecognizedException 
+	 * 
+	 */
+	private void init() throws SAXNotRecognizedException, Throwable {
+		// System.err.println(" + INFO: Using " + this.getClass().getName());
+		this.setFeature("http://xml.org/sax/features/validation", false);
+		this.setFeature("http://apache.org/xml/features/validation/schema", true);
+		this.setFeature("http://apache.org/xml/features/validation/dynamic", true);
+	}
+
+	/**
+	 * @param catalogManager
+	 * @throws Throwable 
+	 * @throws SAXNotRecognizedException 
+	 */
+	public DitaOTAwareSchemaValidatingCatalogResolvingXMLReader(CatalogManager catalogManager) throws SAXNotRecognizedException, Throwable {
+		super(catalogManager);
+		init();
+	}
+
+}

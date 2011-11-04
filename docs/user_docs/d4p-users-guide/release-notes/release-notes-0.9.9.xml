@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>Release Notes: Version 0.9.9</title>
+ <shortdesc>Version 0.9.9 released 31 October 2010</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>
+          <indexterm>release notes<indexterm>Version 0.9.9</indexterm></indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <section>
+      <title>EPUB, Kindle, and HTML2 Transformation Types</title>
+      <ul>
+        <li>Added support for different file organization strategies, with built-in strategies "single-dir" and "as-authored". Allows customization of organization and naming of output files through new mode "get-topic-result-url".</li>
+        <li>Fixed bug with incorrect graphic reference URLs when topics are output into in directory under root directory or graphics not in directory named "images"</li>
+        <li>Fixed bug with literal "&amp;#xA0;" in empty table cells</li>
+        <li>Handle paragraphs within span for table descriptions</li>
+        <li>Eliminated Toolkit graphic copying during preprocessing</li>
+      </ul>
+    </section>
+    <section>
+      <title>EPUB and Kindle Transformation Types</title>
+      <ul>
+        <li>Added new parameter <parmname>epub.exclude.auto.rellinks</parmname> that turns off auto-generated related links.</li>
+      </ul>
+    </section>
+    <section>
+      <title>HTML2 Transformation Type</title>
+      <ul>
+        <li>Allow user to specify name of root output file (defaults to "index.html" as for HTML1 transform type)</li>
+        <li>Use first navigation topic reference as initial file for root file and frameset</li>
+        <li>Refined default CSS for root page</li>
+      </ul>
+    </section>
+    <section>
+      <title>Vocabulary</title>
+      <ul>
+        <li>Added <xmlelem>body-pullquote</xmlelem> and <xmlelem>section-pullquote</xmlelem> to publication content domain. These elements specialize <xmlelem>bodydiv</xmlelem> and <xmlelem>sectiondiv</xmlelem> respectively.</li>
+      </ul>
+    </section>
+  </conbody>
+</concept>

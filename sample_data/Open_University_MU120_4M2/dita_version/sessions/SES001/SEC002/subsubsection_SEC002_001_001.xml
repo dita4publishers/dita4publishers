@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC002_001_001">
+   <title>Try some yourself</title>
+   <learningContentbody>
+      <section>
+            
+            <sectiondiv outputclass="Activity">
+              <sectiondiv outputclass="activity.question">
+                <p>
+                  <b>1</b> Measurement of a ceiling gives a length of 6.28 m and a width of
+                  3.91 m.</p>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(a)</b> Make a rough estimate of the area of the ceiling (the
+                      length times the width).</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(b)</b> If one litre of paint covers roughly 11 square metres,
+                      roughly how much paint will you need to cover the ceiling?</p>
+                  </li>
+                </ul>
+              </sectiondiv>
+              <sectiondiv outputclass="Answer">
+                <ul>
+                  <li>
+                    <p>
+                        <b>(a)</b> Rounding to the nearest metre gives 6 m × 4 m, so the area
+                      is about 24 square metres.</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(b)</b> Divide by the area covered by each litre (11 square
+                      metres). Rounding this to 10 square metres means that about <ph outputclass="InlineEquation">
+                           <image href="../../media/MU120_A_I173e.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> = 2.4 litres are needed.
+                      So two and a half litres is a good estimate.</p>
+                  </li>
+                </ul>
+              </sectiondiv>
+            </sectiondiv>
+            <sectiondiv outputclass="Activity">
+              <sectiondiv outputclass="activity.question">
+                <p>
+                  <b>2</b> Supposing a calculator was used to determine the area of the
+                  ceiling and the amount of paint needed in Question 1, and gave the
+                  answers:</p>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(a)</b> 24.5548 square metres;</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(b)</b> 270.1028 litres.</p>
+                  </li>
+                </ul>
+                <p>Do the answers agree with your rough estimates? Do the answers seem
+                  reasonable? If not, can you see what has gone wrong?</p>
+              </sectiondiv>
+              <sectiondiv outputclass="Answer">
+                <p>The first answer agrees with the rough estimate of 24 square metres. But
+                  the 270.1028 litres does not. Try to imagine 270 litres. It is an enormous
+                  quantity of paint. What has happened is that the area was multiplied by 11,
+                  instead of divided by 11.</p>
+              </sectiondiv>
+            </sectiondiv>
+            <sectiondiv outputclass="Activity">
+              <sectiondiv outputclass="activity.question">
+                <p>
+                  <b>3</b> During the summer season various music festivals are held.
+                  Glastonbury rock music and Cambridge folk are two of the larger events. Such
+                  large-scale events have planning implications for the organisers in respect of
+                  catering facilities, waste disposal and toilet/shower facilities.</p>
+                <p>Suppose that you are an organiser of the camping arrangements at such an
+                  event and you have sold 56 432 tickets in advance. So you know that a large crowd
+                  of people will be on location at your festival for at least three days. You will
+                  need to estimate how much field space you require and how many toilet/shower units
+                  you should hire.</p>
+                <p>This is a planning problem and sensible estimates are necessary in order
+                  to provide suitable facilities. A list of the assumptions that you may need to
+                  consider whilst solving this problem is given below.</p>
+                <ul>
+                  <li>
+                    <p>Most tent accommodation is shared by two people.</p>
+                  </li>
+                  <li>
+                    <p>A typical tent measures 3 metres by 2.5 metres and 2.2 metres
+                      high.</p>
+                  </li>
+                  <li>
+                    <p>Each tent requires a boundary of about 1 metre spacing surrounding
+                      it, to allow for tent pegs etc.</p>
+                  </li>
+                  <li>
+                    <p>Roughly one-fifth of the people will use the shower facilities in the
+                      peak demand time, between 7 am and 10 am.</p>
+                  </li>
+                  <li>
+                    <p>Each shower takes 5 minutes.</p>
+                  </li>
+                  <li>
+                    <p>On average people make about four visits per day to the toilet,
+                      spread evenly throughout day and night.</p>
+                  </li>
+                  <li>
+                    <p>Each toilet visit lasts roughly 2 minutes.</p>
+                  </li>
+                </ul>
+                <p>Make the following estimates:</p>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(a)</b> Round the number of advanced ticket sales to one
+                      significant figure. Hence estimate the number of tents.</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(b)</b> What area does each tent require in the field? So what is
+                      the area of field required?</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(c)</b> Estimate the number of minutes of showering which are
+                      likely between 7 am and 10 am. How many minutes are there between 7 am and 10
+                      am? About how many shower cubicles are needed?</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(d)</b> How many toilet visits are there per 24 hours? How long is
+                      spent in total? So estimate how many toilet cubicles are required.</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(e)</b> Consider the catering requirements. How many meals and
+                      cans of drink might be needed?</p>
+                  </li>
+                </ul>
+              </sectiondiv>
+              <sectiondiv outputclass="Answer">
+                <ul>
+                  <li>
+                    <p>
+                        <b>(a)</b> 56 432 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 60 000 (1
+                      s.f.).</p>
+                  </li>
+                  <li>
+                    <p>If 2 people share a tent then an estimate of the number of tents
+                      is</p>
+                  </li>
+                  <li>
+                    <p>60 000 ÷ 2 = 30 000 tents.</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(b)</b>
+                     </p>
+                  </li>
+                </ul>
+                <fig>
+                  <image href="../../media/MU120_4M2_001i.jpg"/>
+                  <p/>
+               </fig>
+                <ul>
+                  <li>
+                    <p>Area required by each tent with boundary is</p>
+                  </li>
+                  <li>
+                    <p>Area = length × breadth</p>
+                  </li>
+                  <li>
+                    <p>   = 5 m × 4.5 m</p>
+                  </li>
+                  <li>
+                    <p>   = 22.5 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 20 square
+                      metres.</p>
+                  </li>
+                  <li>
+                    <p>So area required is  30 000 × 20 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 600 000 square
+                      metres.</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(c)</b> One fifth of people will use the shower, i.e. 60 0000 ×
+                      1/5
+                      = 12 000 people.</p>
+                  </li>
+                  <li>
+                    <p>Each shower takes 5 minutes, hence the number of showering minutes
+                      is</p>
+                  </li>
+                  <li>
+                    <p>12 000 × 5 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 60 000
+                      minutes.</p>
+                  </li>
+                  <li>
+                    <p>Number of minutes between 7 am and 10 am = 3 × 60 = 180 minutes <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 200
+                      minutes.</p>
+                  </li>
+                  <li>
+                    <p>Number of shower cubicles needed <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 60 000 ÷ 200 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 300
+                      cubicles.</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(d)</b> Number of toilet visits is number of people times number
+                      of visits per day</p>
+                  </li>
+                  <li>
+                    <p>
+                        <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 60 000 × 4 = 240
+                      000 units.</p>
+                  </li>
+                  <li>
+                    <p>Number of toilet minutes <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 240 000 × 2 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 480 000
+                      minutes.</p>
+                  </li>
+                  <li>
+                    <p>Number of minutes in 24 hrs <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 24 × 60 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 1440 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 1500
+                      minutes.</p>
+                  </li>
+                  <li>
+                    <p>Number of toilet cubicles needed is</p>
+                  </li>
+                  <li>
+                    <p>480 000 ÷ 1500 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 320 toilet
+                      cubicles.</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(e)</b> You need to estimate here how many meals per day and how
+                      many cans of drink each person may require, e.g. 3 meals and 6
+                      drinks.</p>
+                  </li>
+                  <li>
+                    <p>So number of meals <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 60 000 × 3 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 180 000 but
+                      since some people may not eat 3 meals per day you might order only 150 000
+                      meals.</p>
+                  </li>
+                  <li>
+                    <p>Number of drinks <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 60 000 × 6 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 360 000 but if
+                      you want to offer a choice of drinks you might order more, especially if you
+                      expect the weather to be very hot so people are very thirsty …</p>
+                  </li>
+                </ul>
+              </sectiondiv>
+            </sectiondiv>
+            <sectiondiv outputclass="Activity">
+              <sectiondiv outputclass="activity.question">
+                <p>
+                  <b>4</b> Answer the following questions:</p>
+                <ul>
+                  <li>
+                     <p>
+                        <b>(a)</b> For each of the following, make a rough estimate
+                      first; then find the answer using your calculator.</p>
+                    <ul>
+                        <li>
+                           <p>
+                              <b>(i)</b> 75 450 − 27 654</p>
+                        </li>
+                        <li>
+                           <p>
+                              <b>(ii)</b> 676 295 + 984 122</p>
+                        </li>
+                        <li>
+                           <p>
+                              <b>(iii)</b> 16.859 × 4.962</p>
+                        </li>
+                        <li>
+                           <p>
+                              <b>(iv)</b> 3.512 ÷ 720.5</p>
+                        </li>
+                    </ul>
+                  </li>
+                  <li>
+                     <p>
+                        <b>(b)</b> Some of the following answers are wrong, as the
+                      result of mistakes in keying the calculations into the calculator. Find which
+                      are the wrong ones, without using your calculator.</p>
+                    <ul>
+                        <li>
+                           <p>
+                              <b>(i)</b> 631 − 529 = 6102</p>
+                        </li>
+                        <li>
+                           <p>
+                              <b>(ii)</b> 13 726 + 4317 = 18 043</p>
+                        </li>
+                        <li>
+                           <p>
+                              <b>(iii)</b> 1066 × 45 = 7470</p>
+                        </li>
+                        <li>
+                           <p>
+                              <b>(iv)</b> 1066 ÷ 0.45 = 23.688 889 (rounded to six decimal
+                          places)</p>
+                        </li>
+                     </ul>
+                  </li>
+                </ul>
+              </sectiondiv>
+              <sectiondiv outputclass="Answer">
+                <ul>
+                  <li>
+                    <p>
+                        <b>(a)(i)</b> Rough estimate: rounding to the nearest
+                      thousand:</p>
+                  </li>
+                  <li>
+                    <p> 75 450 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 75 000,   27 654 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 28
+                      000.</p>
+                  </li>
+                  <li>
+                    <p>So 75 450 − 27 654 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 75 000 − 28 000
+                      = 47 000.</p>
+                  </li>
+                  <li>
+                    <p>Or you may have rounded to the nearest 10 000, to give</p>
+                  </li>
+                  <li>
+                    <p> 80 000 − 30 000 = 50 000.</p>
+                  </li>
+                  <li>
+                    <p>The exact value is 47 796.</p>
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(a)(ii)</b> Rough estimate: rounding to one significant figure
+                      (i.e. to the nearest 100 000):</p>
+                  </li>
+                  <li>
+                    <p> 676 295 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 700 000, 984 122 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 1000
+                      000</p>
+                  </li>
+                  <li>
+                    <p>So 676 295 + 984 122 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 700 000 + 1000
+                      000 = 1700 000.</p>
+                  </li>
+                  <li>
+                    <p>The exact value is 1660 417.</p>
+                  </li>
+               </ul>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(a)(iii)</b> 16.859 × 4.962 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 17 × 5 =
+                      85.</p>
+                  </li>
+                  <li>
+                    <p>The exact value is 83.654 358.</p>
+                  </li>
+               </ul>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(a)(iv)</b> 3.512 ÷ 720.5 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 4 ÷ 700. This
+                      may not be very helpful. Another approach is to spot that, if you round 3.512
+                      to 3.5, you can divide top and bottom by 7:</p>
+                  </li>
+                  <li>
+                     <fig outputclass="Equation">
+                        <image href="../../media/MU120_A_SU001e.gif"/>
+                        <p outputclass="equation-description"/>
+                    </fig>
+                  </li>
+                  <li>
+                    <p>(Don’t worry if you didn’t spot this. It doesn’t matter as long as
+                      you found a rough estimate by some means.)</p>
+                  </li>
+                  <li>
+                    <p>The calculator gives 0.004 874 3928 (to eight significant
+                      figures).</p>
+                  </li>
+                  <li>
+                    <p>
+                    </p>
+                  </li>
+               </ul>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(b)(i)</b> Wrong.</p>
+                  </li>
+                  <li>
+                    <p>631 − 529 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 600 − 500 = 100,
+                      not 6000.</p>
+                  </li>
+               </ul>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(b)(ii)</b> Right.</p>
+                  </li>
+                  <li>
+                    <p>13 726 + 4317 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 14 000 + 4000 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 18 000, so it
+                      could be right.</p>
+                  </li>
+               </ul>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(b)(iii)</b> Wrong.</p>
+                  </li>
+                  <li>
+                    <p>1066 × 45 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 1000 × 50 = 50
+                      000, not 7000.</p>
+                  </li>
+               </ul>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(b)(iv)</b> Wrong.</p>
+                  </li>
+                  <li>
+                    <p>1066 ÷ 0.5 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph>
+                        <ph outputclass="InlineEquation">
+                           <image href="../../media/MU120_A_SI067e.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> = 2000, not
+                      20.</p>
+                  </li>
+                  <li>
+                    <p>One way of noticing there must be a mistake is to notice that
+                      dividing by a decimal number between 0 and 1 always gives an answer
+                        <i>larger</i> than the original number.</p>
+                  </li>
+               </ul>
+              </sectiondiv>
+            </sectiondiv>
+            <sectiondiv outputclass="Activity">
+              <sectiondiv outputclass="activity.question">
+                <p>
+                  <b>5</b> Find a rough estimate for each of the following and then
+                  evaluate on your calculator. In each case round your answer to two significant
+                  figures.</p>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(a)</b> 0.086 + 219.2</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(b)</b> 0.050 − 0.048</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(c)</b> 457.3 − 64.5 + 302.4</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(d)</b> 441.7 × 5.2</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(e)</b> 53.4 × 70.9 ÷ 22.2</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(f)</b> 217.5 + 60.3 × 17.7</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(g)</b> (1285 − 329) × 0.023</p>
+                  </li>
+                </ul>
+            </sectiondiv>
+              <sectiondiv outputclass="Answer">
+                <ul>
+                  <li>
+                    <p>
+                        <b>(a) </b>Estimate: 0.086 + 219.2 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 0 + 220 = 220.
+                      The calculator gives 219.286.</p>
+                  </li>
+               </ul>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(b)</b> 0.050 − 0.048 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 0.05 − 0.05 = 0.
+                      This is not good enough – all significant figures are lost! You cannot
+                      estimate this roughly – use all the given figures: 0.050 − 0.048 = 0.002.
+                      There is only one significant figure in the answer, so you cannot round it to
+                      two significant figures.</p>
+                  </li>
+               </ul>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(c) </b>457.3 − 64.5 + 302.4 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 460 − 60 +
+                      300</p>
+                  </li>
+                  <li>
+                    <p>   = 400 + 300 = 700.</p>
+                  </li>
+                  <li>
+                    <p>The calculator gives 695.2 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 700, to 2
+                      s.f.</p>
+                  </li>
+                  <li>
+                    <p>(Notice that, although there only appears to be one significant
+                      figure here, the answer was rounded to <i>two</i>; both the 7 and the first 0
+                      are significant.)</p>
+                  </li>
+               </ul>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(d) </b>441.7 × 5.2 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 400 × 5 =
+                      2000.</p>
+                  </li>
+                  <li>
+                    <p>The calculator gives 2296.84 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 2300, to 2
+                      s.f.</p>
+                  </li>
+               </ul>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(e)</b>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                        <ph outputclass="InlineEquation">
+                           <image href="../../media/MU120_A_SI068e.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph>
+                     </p>
+                  </li>
+                  <li>
+                    <p>The calculator gives 170.543 2432 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph>170, to 2
+                      s.f.</p>
+                  </li>
+               </ul>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(f)</b> 217.5 + 60.3 × 17.7 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 200 + 60 ×
+                      20</p>
+                  </li>
+                  <li>
+                    <p>= 200 + 1200 = 1400.</p>
+                  </li>
+                  <li>
+                    <p>The calculator gives 1284.81 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 1300, to 2
+                      s.f.</p>
+                  </li>
+               </ul>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(g)</b> (1285 − 329) × 0.023</p>
+                  </li>
+                  <li>
+                    <p>
+                        <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> (1300 − 300) ×
+                      0.02 = 1000 × 0.02</p>
+                  </li>
+                  <li>
+                    <p> = 1000 × <ph outputclass="InlineEquation">
+                           <image href="../../media/MU120_A_SI069e.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> = 20.</p>
+                  </li>
+                  <li>
+                    <p>The calculator gives 21.988 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 22, to 2
+                      s.f.</p>
+                  </li>
+                </ul>
+              </sectiondiv>
+            </sectiondiv>
+          </section>
+   </learningContentbody>
+</learningContent>

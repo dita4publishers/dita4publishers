@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE personae
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:personae" "personae.dtd">
+<personae id="personae">
+   <title>Dramatis Personae</title>
+   <personae-body>
+      <persona>KING OF FRANCE</persona>
+      <persona>DUKE OF FLORENCE</persona>
+      <persona>BERTRAM, Count of Rousillon.</persona>
+      <persona>LAFEU, an old lord.</persona>
+      <persona>PAROLLES, a follower of Bertram.</persona>
+      <pgroup>
+         <persona>Steward</persona>
+         <persona>Clown</persona>
+         <grpdescr>servants to the Countess of Rousillon.</grpdescr>
+      </pgroup>
+      <persona>A Page. </persona>
+      <persona>COUNTESS OF ROUSILLON, mother to Bertram. </persona>
+      <persona>HELENA, a gentlewoman protected by the Countess.</persona>
+      <persona>An old Widow of Florence. </persona>
+      <persona>DIANA, daughter to the Widow.</persona>
+      <pgroup>
+         <persona>VIOLENTA</persona>
+         <persona>MARIANA</persona>
+         <grpdescr>neighbours and friends to the Widow.</grpdescr>
+      </pgroup>
+      <persona>Lords, Officers, Soldiers, &amp;c., French and Florentine.</persona>
+   </personae-body>
+</personae>

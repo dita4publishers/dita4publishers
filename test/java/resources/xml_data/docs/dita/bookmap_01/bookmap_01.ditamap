@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+  <title>
+    Main book title
+  </title>
+  <topicref
+    href="file:/Users/ekimber/workspace/dita4publishers/test/java/resources/xml_data/docs/dita/bookmap_01/topics/topic-01.xml"/>
+  <topicref
+    href="file:///Users/ekimber/workspace/dita4publishers/test/java/resources/xml_data/docs/dita/bookmap_01/topics/topic-01.xml"/>
+</map>

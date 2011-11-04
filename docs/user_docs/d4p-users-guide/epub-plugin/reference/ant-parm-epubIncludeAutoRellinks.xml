@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/reference.dtd">
+<reference id="referenceId">
+  <title>epub.exclude.auto.rellinks Ant parameter</title>
+  <shortdesc>Turns on exclusion of auto-generated related links (as for normal HTML output)</shortdesc>
+  <refbody>
+    <section
+      spectitle="Value">
+      <p>Any value (e.g. "true") sets the property to true.</p>
+    </section>
+    <section
+      spectitle="Default">
+      <p>Not set (related links are generated)</p>
+    </section>
+    <section
+      spectitle="XSLT Parameter">
+      <p>None. </p>
+    </section>
+    <section
+      spectitle="Notes">
+      <p>Controls base Toolkit processing by turning off the maplink-check and maplink targets, which has the effect of eliminating auto-generated related links. Note that explicitly-authored related links are not affected. This property cannot be set to true by default because it is a global property that affects all transformation types. You must set this property explicitly in order to suppress related links in the output.</p>
+    </section>
+  </refbody>
+</reference>

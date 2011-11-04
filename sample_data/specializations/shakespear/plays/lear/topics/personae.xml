@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE personae
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:personae" "personae.dtd">
+<personae id="personae">
+   <title>Dramatis Personae</title>
+   <personae-body>
+      <persona>LEAR, king of Britain  </persona>
+      <persona>KING OF FRANCE</persona>
+      <persona>DUKE OF BURGUNDY</persona>
+      <persona>DUKE OF CORNWALL</persona>
+      <persona>DUKE OF ALBANY</persona>
+      <persona>EARL OF KENT</persona>
+      <persona>EARL OF GLOUCESTER</persona>
+      <persona>EDGAR, son to Gloucester.</persona>
+      <persona>EDMUND, bastard son to Gloucester.</persona>
+      <persona>CURAN, a courtier.</persona>
+      <persona>Old Man, tenant to Gloucester.</persona>
+      <persona>Doctor</persona>
+      <persona>Fool</persona>
+      <persona>OSWALD, steward to Goneril.</persona>
+      <persona>A Captain employed by Edmund. </persona>
+      <persona>Gentleman attendant on Cordelia. </persona>
+      <persona>A Herald.</persona>
+      <persona>Servants to Cornwall.</persona>
+      <pgroup>
+         <persona>GONERIL</persona>
+         <persona>REGAN</persona>
+         <persona>CORDELIA</persona>
+         <grpdescr>daughters to Lear.</grpdescr>
+      </pgroup>
+      <persona>Knights of Lear's train, Captains, Messengers, Soldiers, and Attendants</persona>
+   </personae-body>
+</personae>

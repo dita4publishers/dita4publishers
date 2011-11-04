@@ -1,0 +1,134 @@
+<project name="dita2html5" default="dita2html5"
+  >
+  
+  <!-- test to see where the plugin is located, plugins or demo -->
+  <dirname property="html5.dir" file="${ant.file.dita2html5}"/>
+	
+	<!-- The name of the directory, within the ePub package, to contain all images: -->
+	<property name="images.output.dir" value="images"/>
+	<!-- The name of the directory, within the ePub package, to contain all topics: -->
+	<property name="topics.output.dir" value="topics"/>
+	<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
+	<property name="debug" value="false"/>
+	
+	<property name="args.hide.parent.link" value="yes"/><!-- Turn off parent links in topics by default -->
+
+	<property name="html5.temp.dir" value="${dita.temp.dir}${file.separator}html5_temp"/>
+	
+	<!-- Defines the @class value to use for topic elements generated for topicheads. -->
+	<property name="title.only.topic.class.spec" value="- topic/topic "/>
+	
+	<!-- Defines the @class value to use for topic title elements generated for topicheads. -->
+	<property name="title.only.topic.title.class.spec" value="- topic/title "/>
+	
+	<target name="dita2html5"
+    unless="noMap"
+    xmlns:dita="http://dita-ot.sourceforge.net"
+		dita:depends="build-init, preprocess,html5"
+    dita:extension="depends org.dita.dost.platform.InsertDependsAction">
+  </target>
+  
+  <target name="html5"
+    unless="noMap"
+    depends="dita.map.html5"/>
+	  
+    
+  <target name="dita.map.html5.init"
+    description="Init properties for Epub">
+    <basename property="dita.map.toc.root"
+      file="${dita.input.filename}"
+      suffix=".ditamap" />
+    <condition property="args.html5.toc" value="${dita.map.toc.root}">
+      <not>
+        <isset property="args.html5.toc" />
+      </not>
+    </condition>
+    <condition property="out.ext" value=".html">
+      <not>
+        <isset property="out.ext" />
+      </not>
+    </condition>
+    <condition property="noPlugin">
+      <equals arg1="${dita.html5.plugin}" arg2="no" />
+    </condition>
+    <condition property="css.output.dir" value="topics">
+      <not>
+        <isset property="args.css.output.dir" />
+      </not>
+    </condition>
+    <condition property="css.output.dir" value="${args.css.output.dir}">
+      <isset property="args.css.output.dir" />
+    </condition>
+  </target>
+  
+
+  
+  <target name="dita.map.html5" depends="dita.map.html5.init, html5-copy-css" 
+  	description="Generate all ePub components from input map and topics">
+  	
+  	<mkdir dir="${html5.temp.dir}"/>
+  	<makeurl file="${html5.temp.dir}" property="html5.xslt.outdir"/>
+  	<makeurl file="${dita.temp.dir}" property="html5.xslt.tempdir"/>
+  	<makeurl file="${cover.graphic.file}" property="cover.graphic.uri" validate="false"/>
+  	
+  	<property name="map2html5.style" location="${html5.dir}/xsl/map2html5.xsl"/>
+
+    <xslt processor="trax"
+      basedir="${dita.temp.dir}"
+      destdir="${output.dir}"
+      includesfile="${dita.temp.dir}${file.separator}fullditamap.list"
+      classpathref="dost.class.path"
+      style="${map2html5.style}">
+     	<param name="cssOutputDir" expression="${css.output.dir}"/>
+      <param name="debug" expression="${debug}"/>
+     	<param name="imagesOutputDir" expression="${images.output.dir}"/>
+     	<param name="outdir" expression="${html5.xslt.outdir}"/>
+     	<param name="tempdir" expression="${html5.xslt.tempdir}"/>
+    	<param name="rawPlatformString" expression="${os.name}"/>
+    	<param name="titleOnlyTopicClassSpec" expression="${title.only.topic.class.spec}"/>
+    	<param name="titleOnlyTopicTitleClassSpec" expression="${title.only.topic.title.class.spec}"/>
+     	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
+
+    	<!-- Parameters from dita2xhtml and similar transtypes: -->   
+      <param name="WORKDIR" expression="${workdir}" if="workdir"/>
+      <param name="CSS" expression="${args.css.file}" if="args.css.file" />
+      <param name="CSSPATH" expression="${user.csspath}" if="user.csspath" />
+      <param name="DRAFT" expression="${args.draft}" if="args.draft"></param>
+      <param name="ARTLBL" expression="${args.artlbl}" if="args.artlbl"></param>
+      <param name="GENERATE-TASK-LABELS" expression="${args.gen.task.lbl}" if="args.gen.task.lbl"></param>
+      <param name="PRESERVE-DITA-CLASS" expression="${args.xhtml.classattr}" if="args.xhtml.classattr"></param>
+      <param name="NOPARENTLINK" expression="${args.hide.parent.link}" if="args.hide.parent.link"></param>
+      <param name="BREADCRUMBS" expression="${args.breadcrumbs}" if="args.breadcrumbs"></param>
+      <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
+    </xslt>
+  	
+  	<antcall target="html5.copy.graphics"/>
+  	
+  </target>
+  
+  <target name="html5.copy.graphics" 
+	  description="Copies graphics from input to the ePub output directory based on the graphic map generated during html5 generation">
+  	<ant antfile="${html5.temp.dir}/copy-graphics.xml"  		
+  		>
+  	</ant>
+	</target>
+	
+  <target name="html5-copy-css"  description="Copy CSS files">    
+    <condition property="user.copycss.yes">
+      <isset property="args.css.present"/>
+    </condition>
+    <property name="user.csspath.real" value="${html5.temp.dir}/${topics.output.dir}/${user.csspath}"/>
+    <mkdir dir="${user.csspath.real}"/>    
+    <!-- Always copy system default css files -->
+    <copy todir="${user.csspath.real}">
+      <fileset dir="${dita.resource.dir}" includes="*.css"/>
+    </copy>    
+    <!-- Copy user specify css file when required -->
+    <antcall target="html5-copy-css-user"/>
+  </target>
+
+  <target name="html5-copy-css-user" if="user.copycss.yes">
+    <copy file="${args.css.real}" todir="${user.csspath.real}"/>
+  </target>
+
+</project>

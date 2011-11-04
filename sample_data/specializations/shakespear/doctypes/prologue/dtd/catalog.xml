@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:prologue"
+    uri="prologue.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:prologue.dtd"
+          uri="prologue.dtd"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:prologue"
+    uri="prologue.mod"
+  />
+  <system systemId="urn:pubid:modules:shakespear:prologue.mod"
+    uri="prologue.mod"
+  />
+  
+</catalog>  

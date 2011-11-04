@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC001_002_001">
+   <title>Rounding to the nearest hundred</title>
+   <learningContentbody>
+      <section>
+            
+            <p>You will probably think to yourself that the coat shown costs about £300.
+              £290 is considerably closer to £300 than it is to £200, so £300 is a reasonable
+              approximation. In this case, 290 has been rounded up to 300. Similarly, 208 would be
+              rounded down to 200 because it is closer to 200 than it is to 300. Both numbers have
+              been <i>rounded to the nearest hundred pounds</i>.</p>
+            <p>When <i>rounding to the nearest hundred</i>, anything below fifty rounds
+              down. So 248 rounds to 200. Anything over fifty rounds up. So 253 rounds to 300.
+              Technically there is a problem with fifty itself as it is equidistant from the hundred
+              above and the hundred below. Usually fifty is rounded up, so that a simple rule can be
+              applied:</p>
+            <p>When <i>rounding to the nearest hundred</i> look at the tens
+              digit:</p>
+            <ul>
+              <li>
+                <p>if the tens digit is 0, 1, 2, 3, 4 round down;</p>
+              </li>
+              <li>
+                <p>if the tens digit is 5, 6, 7, 8, 9 round up.</p>
+              </li>
+            </ul>
+            <p>So £284 rounds up (to £300) and £233 rounds down (to £200).</p>
+          </section>
+   </learningContentbody>
+</learningContent>

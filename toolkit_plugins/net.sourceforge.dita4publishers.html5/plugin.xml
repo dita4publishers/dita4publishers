@@ -1,0 +1,11 @@
+<plugin id="net.sourceforge.dita4publishers.html5">
+
+  <require plugin="net.sourceforge.dita4publishers.html2"/> 
+  <template file="build_transtype-html5_template.xml"/>
+  
+  <template file="xsl/map2html5_template.xsl"/>
+
+  <feature extension="dita.conductor.transtype.check" value="html5" type="txt"/>
+  <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
+
+</plugin>

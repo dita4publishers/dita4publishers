@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>Word-to-DITA Ant Parameters</title>
+ <shortdesc>Ant parameters for the Word-to-DITA transformation type</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>To run the Word-to-DITA transformation using the Open Toolkit plugin, specify the following Ant parameters.</p>
+    <section>
+      <title>Required Parameters</title>
+      <parml>
+        <plentry>
+          <pt>args.input</pt>
+          <pd>The absolute filename and path of the DOCX file to process.</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.style-to-tag-map</pt>
+          <pd>The absolute filename and path of the style-to-tag mapping to use.</pd>
+        </plentry>
+      </parml>
+    </section>
+    <section>
+      <title>Optional Parameters</title>
+      <parml>
+        <plentry>
+          <pt>output.dir</pt>
+          <pd>Specifies the absolute path of of the directory to contain the generated output.</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.include.word.backpointers</pt>
+          <pd>Set to "false" to turn off inclusion of <xmlatt>xtrc</xmlatt> attributes in the generated DITA files that point back to the original paragraphs in the Word document. Default is "true" (<xmlatt>xtrc</xmlatt> attributes are generated).</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.word2dita.xslt</pt>
+          <pd>Specifies the name of the XSLT transform to use to convert the DOCX file to DITA. Default is the <filepath>docx2dita.xsl</filepath> transform in the word2dita Toolkit plugin.</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.debug.xslt</pt>
+          <pd>Turns on debugging of the XSLT transform. Default is "false".</pd>
+        </plentry>
+      </parml>
+    </section>
+ </conbody>
+</concept>

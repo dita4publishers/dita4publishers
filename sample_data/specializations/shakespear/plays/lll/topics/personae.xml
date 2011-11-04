@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE personae
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:personae" "personae.dtd">
+<personae id="personae">
+   <title>Dramatis Personae</title>
+   <personae-body>
+      <persona>FERDINAND, king of Navarre.</persona>
+      <pgroup>
+         <persona>BIRON</persona>
+         <persona>LONGAVILLE</persona>
+         <persona>DUMAIN</persona>
+         <grpdescr>lords attending on the King.</grpdescr>
+      </pgroup>
+      <pgroup>
+         <persona>BOYET</persona>
+         <persona>MERCADE</persona>
+         <grpdescr>lords attending on the Princess of France.</grpdescr>
+      </pgroup>
+      <persona>DON ADRIANO DE ARMADO, a fantastical Spaniard.</persona>
+      <persona>SIR NATHANIEL, a curate.</persona>
+      <persona>HOLOFERNES, a schoolmaster.</persona>
+      <persona>DULL, a constable.</persona>
+      <persona>COSTARD, a clown.</persona>
+      <persona>MOTH, page to Armado.</persona>
+      <persona>A Forester.</persona>
+      <persona>The PRINCESS of France.</persona>
+      <pgroup>
+         <persona>ROSALINE</persona>
+         <persona>MARIA</persona>
+         <persona>KATHARINE</persona>
+         <grpdescr>ladies attending on the Princess.</grpdescr>
+      </pgroup>
+      <persona>JAQUENETTA, a country wench.</persona>
+      <persona>Lords, Attendants, &amp;c.</persona>
+   </personae-body>
+</personae>

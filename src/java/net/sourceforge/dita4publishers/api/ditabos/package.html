@@ -1,0 +1,42 @@
+<body>
+<p>Extends the base BOS model to accommodate DITA-specific bounded object
+sets. Adds types and methods that reflect the abstract DITA data model 
+(maps, topics, etc.).
+</p>
+<p>
+Because DITA's map mechanism is specifically about defining collections
+of resources via sets of links, it follows that all DITA bounded object sets
+are determined either by literal maps or, having been established in some
+non-map-based way, can be expressed as maps.</p>
+<p>The DITA-specific BOS objects add knowledge of the specific DITA resource
+types of map and topic as well as a DITA bounded object set that always
+has a root map member.</p>
+<p>Note that a DITA bounded object set does not reflect the <i>navigation</i>
+hierarchy of the maps, only the map-to-map hierarchy. In addition, BOS members
+represent <i>storage objects</i>, not topic elements. Thus, there may be a
+significant difference between the logical structure of topics as represented
+by the navigation hierarchy in a map and the storage-object-to-storage-object
+relationships implicit in the links contained by maps and topics. In addition,
+because there is no link-based mechanism for one topic to point to another
+topic as a <i>child</i>, topic BOS members never have children, only
+dependencies.</p>
+<p>The DITA-specific dependency types reflect the different types of link
+relationship DITA defines: link, xref, topicref, image, object, navref, etc.
+These dependency types serve to characterize individual dependencies and allow
+grouping, sorting, and filtering by dependency type using the BOS alone.
+Note that at the BOS level, dependencies don't reflect every link instance, 
+only the fact that two BOS members have a dependency of a certain type.
+For example, a topic that has both a conref and an xref to another topic
+in a different document establishes a single "is dependent on" relationship
+but two distinct dependency types (conref and xref). That is, for the 
+purposes of determining the BOS it is sufficient to know that there is *at least one*
+dependency of one member on another member, since that is all that is needed
+to include the dependency in the BOS, but it might also be useful to know *why*, in a 
+general way, one member is dependent on another. Note that managing knowledge
+of all the links between two dependent members is the job of a link management
+service, not the job of the BOS constructor. Thus while BOS construction operates
+on the link, the resulting BOS, by itself, does not maintain knowledge of all
+the links.
+</p>
+</body>
+

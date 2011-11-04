@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic
+  id="topic-id">
+  <title>DITA For Publishers Java API and Tools</title>
+  <shortdesc>The DITA for Publishers (D4P) Java API and tools provide a general-purpose API for DITA
+    link management, as well as various utilities for working with collections of DITA documents.
+    These APIs are intended to be a public and open API suitable for use by a variety of tools and
+    applications, including DITA-aware editors, content management systems, and processors. The
+    tools are intended to serve as both tests and demonstrations of the APIs as well as useful
+    utilities.</shortdesc>
+  <prolog>
+    <copyright><copyryear
+        year="2010"/><copyrholder>DITA for Publishers</copyrholder></copyright>
+  </prolog>
+  <body>
+    <p>The D4P API (dita4publishers-dita-api.jar) provides the following general services and
+        classes:<ul
+        id="ul_cbd397b2-99c7-4ca3-a212-6b6924e8b449">
+        <li>DITA Link Management service, which provides general facilities for working with
+          DITA-defined links and addresses, especially the management of DITA key spaces and
+          resolution of key references.</li>
+        <li>DITA key space classes and APIs</li>
+        <li>Conditional processing (filtering) services</li>
+        <li>DITA "bounded object set" (BOS) management. A DITA bounded object set is the set of
+          resources (DITA documents and non-DITA resources) used in the context maps and topics
+          ultimately used from a given root map.</li>
+      </ul></p>
+    <p>The D4P Tools (dita4publishers-dita-impl.jar) provides the following tools and services:<ul
+        id="ul_a57be980-b4bc-4516-988b-52d410609f04">
+        <li>MapBosReporter—command-line application for constructing a DITA bounded object set and
+          then reporting the BOS members, their dependencies, and any keys defined by the BOS's map
+          tree.</li>
+        <li>DITA BOS classes and utilities for constructing DITA bounded object sets.</li>
+        <li>An in-memory DITA Link Management Service, which implements the link management API
+          using a single in-memory implementation.</li>
+        <li>An in-memory DITA key space implementation (used by the link management service)</li>
+        <li>A general DITA utility class for working with DITA documents.</li>
+      </ul></p>
+    <p>See the Javadocs for the API and implementation classes for details. These topics provide a
+      general conceptual and design overview for the API and tools.</p>
+  </body>
+</topic>

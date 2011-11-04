@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
+<topic id="topic-1">
+  <title>Units of Measure</title>
+  <body>
+    <table>
+      <tgroup cols="1">
+        <colspec colname="c1"/>
+        <colspec colname="c2"/>
+        <tbody>
+        <row>
+        <entry><b>cable length</b></entry>
+        <entry>In Verne's context, 600 feet</entry>
+      </row>
+      <row>
+        <entry><b>centigrade</b></entry>
+        <entry>
+          <dl>
+            <dlentry>
+              <dt>0° centigrade</dt>
+              <dd>= freezing water</dd>
+            </dlentry>
+            <dlentry>
+              <dt>37° centigrade</dt>
+              <dd>= human body temperature</dd>
+            </dlentry>
+            <dlentry>
+              <dt>100° centigrade</dt>
+              <dd>= boiling water</dd>
+            </dlentry>
+          </dl>
+        </entry>
+      </row>
+      <row>
+        <entry><b>fathom</b></entry>
+        <entry>6 feet</entry>
+      </row>
+      <row>
+        <entry><b>gram</b></entry>
+        <entry>Roughly 1/28 of an ounce</entry>
+      </row>
+      <row>
+        <entry><b>milligram</b></entry>
+        <entry>Roughly 1/28,000 of an ounce</entry>
+      </row>
+      <row>
+        <entry><b>kilogram (kilo)</b></entry>
+        <entry>Roughly 2.2 pounds</entry>
+      </row>
+      <row>
+        <entry><b>hectare</b></entry>
+        <entry>Roughly 2.5 acres</entry>
+      </row>
+      <row>
+        <entry><b>knot</b></entry>
+        <entry>1.15 miles per hour</entry>
+      </row>
+      <row>
+        <entry><b>league</b></entry>
+        <entry>In Verne's context, 2.16 miles</entry>
+      </row>
+      <row>
+        <entry><b>liter</b></entry>
+        <entry>Roughly 1 quart</entry>
+      </row>
+      <row>
+        <entry><b>meter</b></entry>
+        <entry>Roughly 1 yard, 3 inches</entry>
+      </row>
+      <row>
+        <entry><b>millimeter</b></entry>
+        <entry>Roughly 1/25 of an inch</entry>
+      </row>
+      <row>
+        <entry><b>centimeter</b></entry>
+        <entry>Roughly 2/5 of an inch</entry>
+      </row>
+      <row>
+        <entry><b>decimeter</b></entry>
+        <entry>Roughly 4 inches</entry>
+      </row>
+      <row>
+        <entry><b>kilometer</b></entry>
+        <entry>Roughly 6/10 of a mile</entry>
+      </row>
+      <row>
+        <entry><b>myriameter</b></entry>
+        <entry>Roughly 6.2 miles</entry>
+      </row>
+      <row>
+        <entry><b>ton, metric</b></entry>
+        <entry>Roughly 2,200 pounds</entry>
+      </row>
+        </tbody>
+        </tgroup>
+    </table>
+  </body>
+</topic>

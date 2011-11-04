@@ -1,0 +1,1041 @@
+<project name="DITA For Publishers" basedir="."
+  xmlns:ivy="antlib:org.apache.ivy.ant"
+	>
+	
+	<!-- NOTE: This script requires that the DITA Open Toolkit
+	           libraries be included in the Java classpath
+	           used to run Ant itself. See the project
+	           documentation for setup instructions. For 
+	           Eclipse, you need to add the jars in the
+	           Toolkit lib/ and lib/saxon/ directories
+	           to the Ant jars configured in the Eclipse
+	           Ant/runtime preferences.
+	  -->
+
+  <property file="build.properties"/>
+  <property file="${user.home}/.build.properties"/>
+  <property file="${user.home}/build.properties"/>
+
+	<!-- NOTE: Update version.properties as needed to reflect new 
+	           versions of project components.
+	  -->
+  <property file="version.properties"/>
+  <property file="${user.home}/.build.properties"/>
+	<property file="${user.home}/build.properties"/>
+
+  <property name="build" location="${basedir}/build"/>
+  <property name="dist" location="${basedir}/dist"/>
+  <property name="lib" location="${basedir}/lib"/>
+  <property name="src" location="${basedir}/src/java"/>
+	<property name="license.dir" location="${basedir}/license"/>
+	<property name="rsuite.src" location="${basedir}/rsuite/src/java"/>
+  <property name="toolkit.plugin.src" location="${basedir}/toolkit_plugins"/>
+  <property name="rsuiteSrc" location="${basedir}/rsuite"/>
+  <property name="temp" location="${basedir}/temp"/>
+  <property name="epubTemp" location="${temp}/epub"/>
+  <property name="epubBuild" location="${build}/epubs"/>
+  <property name="kindleTemp" location="${temp}/kindle"/>
+  <property name="kindleBuild" location="${build}/kindle"/>
+  <property name="docs.dir" location="${basedir}/docs"/>
+  <property name="docs" location="${basedir}/docs"/>
+  <property name="templates.dir" location="${basedir}/templates"/>
+  <property name="website.source" location="${docs}/website"/>
+  <property name="website.build" location="${build}/website"/>
+	<property name="sampledata" location="${basedir}/sample_data"/>
+  <property name="sampledata.dist" location="${dist}/sample_data"/>
+	<property name="plugin.dist" location="${dist}/plugins"/>
+  <property name="package.dist" location="${dist}/dita4publishers"/>
+	<property name="package.zip.base" value="dita4publishers"/>
+  <property name="dita-ot-dir" location="c:\DITA-OT1.5"/>
+  <property name="plugin.src" location="${basedir}/toolkit_plugins"/>
+	<property name="shakespear-sample" location="${basedir}/sample_data/specializations/shakespear"/>
+  <property name="plugin-shakespear-samples-src" value="${shakespear-sample}/toolkit_plugins"/>
+  <property name="plugin-deploy_target" location="${dita-ot-dir}/plugins"/>
+  <property name="doctypes.plugin-dist" location="${plugin.dist}/net.sourceforge.dita4publishers.doctypes"/>
+  <property name="doctypes.plugin-shakespear-dist" value="${plugin.dist}/net.sourceforge.dita4publishers.shakespear.doctypes"/>
+  <property name="doctypes.src" location="${basedir}/doctypes"/>
+  <property name="doctypes-skakespear-samples.src" value="${shakespear-sample}/doctypes"/>
+  <property name="xslt.src" location="${basedir}/xslt"/>
+	<property name="target.home" location="${basedir}/target"/>
+	<property name="api-and-tools.dirname" value="d4p-api-and-tools"/>
+	<property name="api-and-tools.target" location="${target.home}/${api-and-tools.dirname}"/>
+  <property name="api-and-tools.dist" location="${dist}/${api-and-tools.dirname}"/>
+	
+	<import file="${dita-ot-dir}${file.separator}integrator.xml" optional="yes"/>
+  
+
+  <property name="lib.home" value="${lib}" />
+  <property name="src.home" value="${basedir}/src" />
+  <property name="src.java.home" value="${src.home}/java" />
+
+  <property name="resources.home" value="${src.home}/resources" />
+  <property name="classes.home" value="${target.home}/classes"/>
+
+	<property name="rsuite-plugin.name"  value="dita4publishers" />
+
+  <property name="target.home"         value="target"/>
+  <property name="target.jar"          value="${rsuite-plugin.name}-rsuite-plugin.jar"/>
+	
+	
+
+	<path id="dita-classpath"
+		>
+		<fileset dir="${dita-ot-dir}/lib">
+		  <include name="**/*.jar"/>
+		</fileset>
+	</path>
+	
+  <path id="classpath.base">
+    <pathelement path="${classes.home}"/>
+    <fileset dir="${lib}">
+        <include name="*.jar"/>
+    </fileset>
+  </path>
+
+  <target name="resolve" description="Retrieve dependencies with ivy" depends="init">
+      <ivy:retrieve pattern="${ivy.lib.dir}/[artifact].[ext]" />
+  </target>
+
+	<target name="init">
+		<buildnumber/>
+    <tstamp/>
+  </target>
+
+  <tstamp>
+		<format property="package.date" pattern="yyyy-MM-dd"/>
+	</tstamp>
+  
+
+  <target name="clean">
+  </target>
+	
+	<target name="add-version-info-to-files">
+    <replace file="${plugin.dist}/net.sourceforge.dita4publishers.epub/xsl/map2epubImpl.xsl"
+      propertyfile="${basedir}/build.number"
+      >
+      <replacefilter
+        token="^buildnumber^"
+        property="build.number"
+      />
+      <replacefilter
+        token="^version^"
+        value="${epub_version}"
+      />
+      <replacefilter
+        token="^timestamp^"
+        value="${package.date}"
+      />
+    </replace>
+    <replace file="${plugin.dist}/net.sourceforge.dita4publishers.kindle/xsl/map2kindleImpl.xsl"
+      propertyfile="${basedir}/build.number"
+      >
+      <replacefilter
+        token="^buildnumber^"
+        property="build.number"
+      />
+      <replacefilter
+        token="^version^"
+        value="${kindle_version}"
+      />
+      <replacefilter
+        token="^timestamp^"
+        value="${package.date}"
+      />
+    </replace>
+    <replace file="${plugin.dist}/net.sourceforge.dita4publishers.html2/xsl/map2html2Impl.xsl"
+      propertyfile="${basedir}/build.number"
+      >
+      <replacefilter
+        token="^buildnumber^"
+        property="build.number"
+      />
+      <replacefilter
+        token="^version^"
+        value="${html2_version}"
+      />
+      <replacefilter
+        token="^timestamp^"
+        value="${package.date}"
+      />
+    </replace>
+    <replace file="${plugin.dist}/net.sourceforge.dita4publishers.word2dita/xsl/docx2dita.xsl"
+      propertyfile="${basedir}/build.number"
+      >
+      <replacefilter
+        token="^buildnumber^"
+        property="build.number"
+      />
+      <replacefilter
+        token="^version^"
+        value="${word2dita_version}"
+      />
+      <replacefilter
+        token="^timestamp^"
+        value="${package.date}"
+      />
+    </replace>
+	</target>
+	
+	<target name="dist-license-info" depends="dist-init">
+		<copy todir="${package.dist}">
+			<fileset dir="${license.dir}">
+			  <include name="*"/>
+		  </fileset>
+		</copy>
+	</target>
+	
+	<target name="dist-sample-data" depends="dist-init">
+    <copy todir="${sampledata.dist}">
+      <fileset dir="${sampledata}">
+      	<exclude name="**/*.zip"/>
+        <exclude name="**/epub/"/>
+        <exclude name="**/out/"/>
+        <exclude name="**/output/"/>
+        <exclude name="**/temp/"/>
+        <include name="common/**"/>
+      	<include name="word2dita/**"/>
+        <include name="wizard-of-oz/**"/>
+        <include name="japanese/**"/>
+      </fileset>
+    </copy>
+	</target>
+	
+	<target name="dist-toolkit-plugins" description="Packages the DITA Open Toolkit plugins for deployment to a working Toolkit instance"
+		 depends="
+		dist-init, 
+		dist-sample-data, 
+		dist-dita2indesign-toolkit-plugins
+		"
+		>
+    <delete includeEmptyDirs="true" failonerror="false">
+      <fileset dir="${plugin.dist}"  includes="net.sourceforge.dita4publishers.*/**"/>
+    </delete>
+    <copy todir="${plugin.dist}">
+      <fileset dir="${license.dir}">
+        <include name="*"/>
+      </fileset>
+    </copy>
+		<copy todir="${plugin.dist}">
+			<fileset dir="${plugin.src}">
+				<exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/> 
+        <exclude name="net.sourceforge.dita4publishers.html5/**"/> 
+				<exclude name="*.zip"/> 
+			</fileset>
+		</copy>
+    <copy todir="${plugin.dist}">
+      <fileset dir="${plugin-shakespear-samples-src}">
+      </fileset>
+    </copy>
+    <copy todir="${doctypes.plugin-dist}/doctypes">
+      <fileset dir="${doctypes.src}">
+        <exclude name="xmlDomain/**"/>
+      </fileset>
+    </copy>
+    <copy todir="${doctypes.plugin-shakespear-dist}/doctypes">
+      <fileset dir="${doctypes-skakespear-samples.src}">
+      </fileset>
+    </copy>
+    <copy todir="${doctypes.plugin-dist}/doctypes">
+      <fileset dir="${doctypes.src}">
+        <exclude name="xmlDomain/**"/>
+      </fileset>
+    </copy>
+    <copy todir="${plugin.dist}/net.sourceforge.dita4publishers.xmldomain.doctypes">
+      <fileset dir="${doctypes.src}/xmldomain">
+        <include name="*/**"/>
+      </fileset>
+    </copy>
+		
+    <antcall target="add-version-info-to-files"/>
+		
+		<property name="sample_data-zip.filename" value="dita4publishers-sample_data-${package_version}.zip"/>
+		<property name="sample_data-zip" location="${dist}/${sample_data-zip.filename}"/>
+    
+		<zip destfile="${sample_data-zip}">
+      <fileset dir="${dist}">
+        <include name="sample_data/**"/>
+      </fileset>
+    </zip>
+
+  </target>
+	
+  <target name="dist-dita2indesign-toolkit-plugins" 
+  	description="Creates a standalone distribution of the DITA2InDesign Open Toolkit plug-ins" 
+  	depends="dist-init">
+    <delete includeEmptyDirs="true" failonerror="false">
+      <fileset dir="${plugin.dist}"  includes="org.dita2indesign.*/**"/>
+    </delete>
+		<copy todir="${plugin.dist}">
+			<fileset dir="${plugin.src}">
+				<include name="org.dita2indesign.*/**/*"/>
+			</fileset>
+		</copy>
+		<replace file="${plugin.dist}/org.dita2indesign.dita2indesign/xsl/dita2indesignImpl.xsl"
+			propertyfile="${basedir}/build.number"
+			>
+			<replacefilter
+				token="^buildnumber^"
+				property="build.number"
+			/>
+			<replacefilter
+				token="^version^"
+			  value="${dita2indesign_version}"
+			/>
+			<replacefilter
+				token="^timestamp^"
+			  value="${package.date}"
+			/>
+		</replace>
+  </target>
+    
+  <target name="package-dita2indesign-toolkit-plugins" 
+      description="Creates a standalone delivery package of the DITA2InDesign Open Toolkit plugins" 
+      depends="dist-dita2indesign-toolkit-plugins">
+      <zip destfile="${plugin.dist}/dita2indesign-toolkit-plugins-${dita2indesign_version}.zip">
+        <fileset dir="${plugin.dist}">
+          <include name="org.dita2indesign.*/**"/>
+        </fileset>
+      </zip>
+  </target>
+
+
+	
+	<target name="deploy-toolkit-plugins" depends="dist-toolkit-plugins"
+	  description="Deploy plugins to local DITA Open Toolkit">
+		<delete failonerror="true" includeemptydirs="true">
+			<fileset dir="${plugin-deploy_target}" includes="net.sourceforge.dita4publishers.*/**">
+			</fileset>
+		</delete>
+		<mkdir dir="${plugin-deploy_target}"/>
+		<copy todir="${plugin-deploy_target}">
+			<fileset dir="${plugin.dist}">
+				<include name="**/*"/>
+        <exclude name="**/CVS"/>
+				<!--
+				<exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/>
+				-->
+			</fileset>
+		</copy>
+    <!-- Integrate the deployed plugins: -->
+    <antcall target="integrate"/>
+
+	</target>
+	
+	<target name="dist-init" depends="init">
+		<delete failonerror="false" includeemptydirs="true">
+			<fileset dir="${dist}" includes="*/**"/>
+  	</delete>
+		<mkdir dir="${dist}"/>
+		<mkdir dir="${package.dist}"/>
+  </target>
+	
+  <target name="dist-api-and-tools" description="Create distribution package for API and tools materials."
+  	depends="package-api-and-tools">
+    <zip destfile="${dist}/${api-and-tools.dirname}-${package.date}.zip">
+      <fileset dir="${api-and-tools.target}">
+      	<include name="**/*"/>
+      </fileset>
+    </zip>    
+  </target>
+  
+	<target name="dist-epub-plugin" depends="build-d4p-user-guide">
+    <delete failonerror="true" includeemptydirs="true">
+      <fileset dir="${plugin.dist}" includes="net.sourceforge.dita4publishers.epub/**"/>
+    </delete>
+    <copy todir="${plugin.dist}/net.sourceforge.dita4publishers.epub">
+      <fileset dir="${build}/docs">
+        <include name="*.epub"/>
+        <include name="*.mobi"/>
+        <include name="*.pdf"/>
+      </fileset>
+      <fileset dir="${plugin.src}/net.sourceforge.dita4publishers.epub">
+        <include name="**/*"/>
+      </fileset>
+      <fileset dir="${plugin.src}/net.sourceforge.dita4publishers.common.xslt">
+        <include name="**/*"/>
+      </fileset>
+      <fileset dir="${plugin.src}/net.sourceforge.dita4publishers.kindle">
+        <include name="**/*"/>
+      </fileset>
+    </copy>
+	</target>
+	
+	<target name="dist-documentation" depends="dist-init">
+    <copy todir="${package.dist}/documentation">
+      <fileset dir="${docs.dir}/user_docs">
+      	<exclude name="epub/"/>
+        <exclude name="kindle/"/>
+        <exclude name="out/"/>
+        <exclude name="docx2*/"/>
+        <exclude name="temp/"/>
+        <include name="*/**"/>
+      </fileset>
+    </copy>
+
+	</target>
+	
+	<target name="package-epub-plugin" depends="dist-epub-plugin">
+    <zip destfile="${dist}/dita4publishers-epub-plugin-${epub_version}.zip">
+      <fileset dir="${plugin.dist}">
+        <include name="net.sourceforge.dita4publishers.epub/**"/>
+      </fileset>
+    </zip>		
+	</target>
+	
+	<target name="package-vocabulary-plugins" depends="dist-init, dist-toolkit-plugins"
+		description="Create distributable Zip packages of the different Toolkit plugins"
+		>
+    <zip destfile="${package.dist}/dita4publishers-vocabulary-plugins-${vocab_version}.zip">
+      <fileset dir="${plugin.dist}">
+        <include name="net.sourceforge.dita4publishers.doctypes/**"/>
+      </fileset>
+    </zip>
+  </target>
+	
+	<target name="package-toolkit-plugins" depends="dist-init, dist-toolkit-plugins"
+		description="Create distributable Zip package of the Toolkit plugins, including the vocabulary modules."
+		>
+    <zip destfile="${package.dist}/dita4publishers-toolkit-plugins-${package_version}.zip">
+      <fileset dir="${plugin.dist}">
+        <include name="*.txt"/>
+      	<include name="*/**"/>
+        <exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/>
+        <exclude name="net.sourceforge.dita4publishers.html5/**"/>
+        <exclude name="org.dita2indesign.test.*/**"/>
+      </fileset>
+    </zip>
+  </target>
+	
+	<target name="package-delivery" 
+		depends="
+		dist-init, 
+		package-toolkit-plugins, 
+    package-editing-templates, 
+		package-api-and-tools, 
+		build-d4p-user-guide, 
+		dist-sample-data, 
+		dist-license-info,
+		dist-documentation
+		"
+		description="Create distributable package of all the deliverables"
+		>
+    <copy todir="${package.dist}/xslt">
+      <fileset dir="${xslt.src}">
+        <include name="*/**"/>
+      </fileset>
+    </copy>
+		
+		<!--
+    <copy todir="${package.dist}/epubs">
+      <fileset dir="${epubBuild}">
+        <include name="**/*.epub"/>
+      </fileset>
+    </copy>
+    -->
+		<zip destfile="${dist}/${package.zip.base}-${package_version}.zip">
+			<fileset dir="${package.dist}" >
+			</fileset>
+      <fileset dir="${dist}" >
+      	<include name="sample_data/**/*"/>
+        <include name="templates/**/*"/>
+      </fileset>
+			<fileset dir="${build}/docs">
+				<include name="*.pdf"/>
+        <include name="*.epub"/>
+        <include name="*.mobi"/>
+        <include name="html/**/*"/>
+			</fileset>
+		</zip>
+	</target>
+	
+	<target name="upload-packages-to-sourceforge" depends="package-delivery, package-epub-plugin, upload-epubs-to-sourceforge"
+		description="Uploads the delivery packages to SourceForge in order to enable a new file release"
+		>
+		<scp todir="${sourceforge.username}@frs.sourceforge.net:uploads" password="${sourceforge.password}"
+			verbose="true"
+			>
+      <fileset dir="${dist}">
+        <include name="*.zip"/>
+      </fileset>
+		</scp>
+	  </target>
+		
+	<target name="upload-epubs-to-sourceforge" depends="generate-epubs-for-samples, do-upload-epubs-to-sourceforge">
+  </target>
+	
+	<target name="do-upload-epubs-to-sourceforge" 
+		>
+		<scp todir="${sourceforge.username}@frs.sourceforge.net:/home/frs/project/d/di/dita4publishers/epubs/" 
+			password="${sourceforge.password}"
+			verbose="true"
+			>
+			<fileset dir="${dist}/dita4publishers/epubs">
+				<include name="**/*.epub"/>
+			</fileset>
+		</scp>
+	  </target>
+	  
+  <target name="upload-d4p-user-guide-html-sourceforge" depends="html-d4p-user-guide" description="Upload D4P User Guide HTML to sourceforge">
+    <scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs/d4p-user-guide"
+     password="${sourceforge.password}"    	
+      verbose="true"
+      >
+      <fileset dir="${build}/docs/html/d4p-users-guide">
+        <include name="**/*"/>
+      </fileset>
+    </scp>
+  </target>
+	
+	<target name="upload-website-contents-to-sourceforge" depends="generate-web-site" description="Upload Web site contents to sourceforge">
+		<scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs"
+		 password="${sourceforge.password}"
+			verbose="true"
+			>
+			<fileset dir="${website.source}/static-html">
+				<include name="index.html"/>
+			</fileset>
+      <fileset dir="${website.build}">
+        <include name="**/*"/>
+      </fileset>
+		</scp>
+	</target>
+	
+	<target name="epub-d4p-user-guide">
+		<property name="pub.name" value="d4p-users-guide"/>
+		<property name="root.map" location="${docs.dir}/user_docs/${pub.name}.ditamap"/>
+		<property name="output.dir" location="${build}/docs"/>
+
+		<delete dir="${output.dir}" failonerror="false">
+			<include name="${pub.name}.epub"/>
+		</delete>
+
+		<ant antfile="${dita-ot-dir}/build.xml" 
+					dir="${dita-ot-dir}"
+					target="dita2epub"
+					
+					>
+			<property name="args.input" location="${root.map}"/>
+      <property name="transtype" value="epub"/>
+			<property name="args.outext" value="html"/>
+			<property name="dita.dir" location="${dita-ot-dir}"/>
+			<property name="dita.temp.dir" location="${basedir}/temp/${pub.name}/epub"/>
+			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
+			<property name="output.dir" location="${output.dir}"/>
+		</ant>		
+		
+		<antcall target="post-transform-cleanup-d4p-user-guide">
+			<param name="pub.name" value="${pub.name}"/>
+			<param name="output.dir" location="${output.dir}"/>
+    </antcall>
+	</target>
+	
+  <target name="html-d4p-user-guide" description="Generate HTML for D4P User's Guide">
+    <property name="pub.name" value="d4p-users-guide"/>
+    <property name="root.map" location="${docs.dir}/user_docs/${pub.name}.ditamap"/>
+    <property name="output.dir" location="${build}/docs/html/${pub.name}"/>
+
+    <ant antfile="${dita-ot-dir}/build.xml" 
+          dir="${dita-ot-dir}"
+          target="dita2html2"
+          
+          >
+      <property name="args.input" location="${root.map}"/>
+      <property name="args.outext" value="html"/>
+      <property name="dita.dir" location="${dita-ot-dir}"/>
+      <property name="args.xhtml.toc" value="index"/>
+      <property name="args.hdf" value="${docs.dir}/user_docs/${pub.name}/static-html/topic-header-html.html"/>
+      <property name="args.ftr" value="${docs.dir}/user_docs/${pub.name}/static-html/topic-footer-html.html"/>
+      <property name="dita.temp.dir" location="${basedir}/temp/${pub.name}/html"/>
+      <property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
+      <property name="output.dir" location="${output.dir}"/>
+    	<property name="html2.generate.dynamic.toc" value="true"/>
+    </ant>    
+  	
+  </target>
+  
+	<target name="post-transform-cleanup-d4p-user-guide">
+		<property name="pub.name" value="d4p-users-guide"/>
+		<property name="output.dir" location="${build}/docs"/>
+
+		<!-- Delete the directory the Toolkit creates with images -->
+		<delete dir="${output.dir}" includeEmptyDirs="true" failonerror="true">
+			<include name="${pub.name}/"/>
+			<include name="dita.list"/>
+			<include name="dita.xml.properties"/>
+		</delete>
+	</target>
+	
+	<target name="kindle-d4p-user-guide">
+		<property name="pub.name" value="d4p-users-guide.ditamap"/>
+		<property name="root.map" location="${docs.dir}/user_docs/${pub.name}"/>
+
+		<property name="output.dir" location="${build}/docs"/>
+
+		<delete failonerror="false">
+			<fileset dir="${output.dir}">
+				<include name="${pub.name}.mobi"/>
+			</fileset>
+		</delete>
+
+		<ant antfile="${dita-ot-dir}/build.xml"
+			dir="${dita-ot-dir}"
+			target="dita2kindle"
+			
+			>
+			<property name="args.input" location="${root.map}"/>
+      <property name="transtype" value="kindle"/>
+			<property name="args.outext" value="html"/>
+			<property name="dita.dir" location="${dita-ot-dir}"/>
+			<property name="dita.temp.dir" location="${basedir}/temp/${pub.name}/kindle"/>
+			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
+			<property name="output.dir" location="${output.dir}"/>
+			<property name="kindlegen.executable" location="${kindlegen.executable}"/>
+	  </ant>
+		
+		<antcall target="post-transform-cleanup-d4p-user-guide">
+			<param name="pub.name" value="${pub.name}"/>
+			<param name="output.dir" location="${output.dir}"/>
+	  </antcall>
+
+	</target>
+	
+	<target name="pdf-d4p-user-guide">
+		<property name="pub.name" value="d4p-users-guide.ditamap"/>
+		<property name="root.map" location="${docs.dir}/user_docs/${pub.name}"/>
+		<property name="output.dir" location="${build}/docs"/>
+
+		<delete failonerror="false">
+			<fileset dir="${output.dir}">
+				<include name="${pub.name}.pdf"/>
+			</fileset>
+		</delete>
+		<ant antfile="${dita-ot-dir}/build.xml"
+			target="dita2pdf2"
+			>
+			<property name="pdf.formatter" value="ah"/>
+      <property name="args.input"  location="${root.map}"/>
+      <property name="args.draft" value="${draft}"/>
+      <property name="output.dir"  value="${output.dir}"/>
+      <property name="dita.temp.dir" value="${basedir}/temp/${pub.name}/pdf"/>
+      <property name="transtype"   value="pdf"/>
+      <property name="clean.temp" value="yes"/>
+		</ant>
+		
+		<antcall target="post-transform-cleanup-d4p-user-guide">
+			<param name="pub.name" value="${pub.name}"/>
+			<param name="output.dir" location="${output.dir}"/>
+	  </antcall>
+
+	</target>
+		
+	<target name="indesign-d4p-user-guide">
+		<property name="pub.name" value="d4p-users-guide.ditamap"/>
+		<property name="root.map" location="${docs.dir}/user_docs/${pub.name}"/>
+		<property name="output.dir" location="${build}/docs/indesign"/>
+
+		<ant antfile="${dita-ot-dir}/build.xml"
+			target="dita2indesign"
+			>
+      <property name="args.input"  location="${root.map}"/>
+      <property name="args.draft" value="${draft}"/>
+      <property name="output.dir"  value="${output.dir}"/>
+      <property name="dita.temp.dir" value="${basedir}/temp/${pub.name}/indesign"/>
+      <property name="transtype"   value="indesign"/>
+      <property name="clean.temp" value="yes"/>
+		</ant>
+		
+	</target>
+		
+	<target name="build-d4p-user-guide" description="Generates all the deliverable forms of the D4P User Guide">
+		<property name="pub.name" value="d4p-users-guide.ditamap"/>
+		<property name="root.map" location="${docs.dir}/user_docs/${pub.name}"/>
+		
+    <replace file="${docs.dir}/user_docs/d4p-users-guide.ditamap"
+      propertyfile="${basedir}/build.number"
+      >
+      <replacefilter
+        token="^buildnumber^"
+        property="build.number"
+      />
+      <replacefilter
+        token="^version^"
+        value="${package_version}"
+      />
+    </replace>
+
+
+		<antcall target="epub-d4p-user-guide"/>
+		<antcall target="kindle-d4p-user-guide"/>
+		<antcall target="pdf-d4p-user-guide"/>
+		<antcall target="indesign-d4p-user-guide"/>
+
+	</target>
+	
+	<target name="generate-epubs-for-samples" depends="integrate, epub-wizard-of-oz, epub-shakespear-plays"
+	  description="Generate ePUB versions of the publications in sample_data"
+	>
+	</target>
+	  
+  <target name="test-epub-shakespear-play" description="Test generation of epubs for shakespear plays">
+	    <property name="sampleRootDir" location="${shakespear-sample}/plays"/>
+	    <antcall target="epub-map"><param name="mapname" value="hen_viii"/></antcall>
+  </target>
+	
+	<target name="epub-shakespear-plays" description="Generate epubs for each of the shakespear plays">
+		<property name="sampleRootDir" location="${shakespear-sample}/plays"/>
+		<antcall target="epub-map"><param name="mapname" value="a_and_c"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="all_well"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="as_you"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="com_err"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="coriolan"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="cymbelin"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="dream"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="hamlet"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="hen_iv_1"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="hen_iv_2"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="hen_v"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="hen_vi_1"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="hen_vi_2"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="hen_vi_3"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="hen_viii"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="j_caesar"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="john"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="lear"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="lll"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="m_for_m"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="m_wives"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="macbeth"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="merchant"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="much_ado"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="othello"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="pericles"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="r_and_j"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="rich_ii"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="rich_iii"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="t_night"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="taming"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="tempest"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="timon"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="titus"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="troilus"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="two_gent"/></antcall>
+		<antcall target="epub-map"><param name="mapname" value="win_tale"/></antcall>
+	</target>
+	
+	<target name="epub-wizard-of-oz" description="Generate epub for the Wizard of Oz">
+		<antcall target="epub-map">
+			<param name="mapname" value="wizard-of-oz"/>
+			<param name="sampleRootDir" location="${sampledata}"/>
+		</antcall>
+	</target>
+  
+  <!-- this builds wizard of oz with only three chapters to save processing time -->
+  <target name="epub-epub-test" description="Generate epub for EPUB test document">
+    <antcall target="epub-map">
+      <param name="mapname" value="epub-test"/>
+      <param name="sampleRootDir" location="${sampledata}"/>
+    </antcall>
+  </target>
+  
+  <!-- this builds kindle version of epub-test -->
+  <target name="kindle-epub-test" description="Generate kindle for an excerpt of the EPUB Test document">
+    <antcall target="kindle-map">
+      <param name="mapname" value="epub-test"/>
+      <param name="sampleRootDir" location="${sampledata}"/>
+    </antcall>
+  </target>
+	  
+	<target name="html-api-and-tools-docs" description="Generate HTML for API and tools documentation">
+    <ant antfile="${dita-ot-dir}${file.separator}build.xml"
+      dir="${dita-ot-dir}"
+      target="dita2xhtml"      
+      >
+      <property name="args.input" location="${docs.dir}/user_docs/dita-api-and-tools.ditamap"/>
+      <property name="transtype" value="xhtml"/>
+      <property name="args.outext" value="html"/>
+      <property name="args.xhtml.toc" value="index"/>
+      <property name="dita.dir" location="${dita-ot-dir}"/>
+      <property name="dita.temp.dir" location="${temp}/dita-temp"/>
+      <property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
+      <property name="output.dir" location="${website.build}/api-and-tools"/>
+    </ant>
+	</target>
+	
+	<target name="epub-map">
+		<echo message="mapname='${mapname}'"/>
+		
+		<!-- The epub process doesn't clean out the output directory, so
+		     we have to do it.
+		  -->
+    <delete includeEmptyDirs="true" failonerror="false">
+      <fileset dir="${epubTemp}"  includes="*/**"/>
+    </delete>
+
+		<ant antfile="${dita-ot-dir}/build.xml"
+			dir="${dita-ot-dir}"
+			target="dita2epub"
+			
+			>
+			<property name="args.input" location="${sampleRootDir}/${mapname}/${mapname}.ditamap"/>
+      <property name="transtype" value="dita2epub"/>
+			<property name="args.outext" value="html"/>
+			<property name="args.xhtml.toc" value="index"/>
+			<property name="dita.dir" location="${dita-ot-dir}"/>
+			<property name="dita.temp.dir" location="${temp}/dita-temp"/>
+			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
+			<property name="output.dir" location="${epubBuild}"/>
+	  </ant>
+
+	</target>
+
+	<target name="kindle-map">
+		<echo message="mapname='${mapname}'"/>
+		
+		<!-- The kindle process doesn't clean out the output directory, so
+		     we have to do it.
+		  -->
+    <delete includeEmptyDirs="true" failonerror="false">
+      <fileset dir="${kindleTemp}"  includes="*/**"/>
+    </delete>
+
+		<ant antfile="${dita-ot-dir}/build.xml"
+			dir="${dita-ot-dir}"
+			target="dita2kindle"
+			
+			>
+			<property name="args.input" location="${sampleRootDir}/${mapname}/${mapname}.ditamap"/>
+      <property name="transtype" value="dita2kindle"/>
+			<property name="args.outext" value="html"/>
+			<property name="args.xhtml.toc" value="index"/>
+			<property name="dita.dir" location="${dita-ot-dir}"/>
+			<property name="dita.temp.dir" location="${temp}/dita-temp"/>
+			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
+			<property name="output.dir" location="${kindleBuild}"/>
+	  </ant>
+
+	</target>
+
+	 <target name="init-web-site">
+	    <delete includeEmptyDirs="true" failonerror="false">
+	      <fileset dir="${website.build}"  includes="*/**"/>
+	    </delete>
+	</target>
+
+	 <target name="generate-web-site" depends="init-web-site, html-api-and-tools-docs" description="Generate Web site HTML">
+ 	
+    <ant antfile="${dita-ot-dir}/build.xml"
+      dir="${dita-ot-dir}"
+      target="dita2xhtml"
+      
+      >
+      <property name="args.input" location="${docs}/website/dita4publishers.ditamap"/>
+      <property name="transtype" value="dita2xhtml"/>
+      <property name="args.outext" value="html"/>
+      <property name="args.xhtml.toc" value="toc"/>
+      <property name="dita.dir" location="${dita-ot-dir}"/>
+      <property name="dita.temp.dir" location="${temp}/dita-temp"/>
+      <property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
+      <property name="output.dir" location="${website.build}"/>
+    </ant>
+ 	
+ 	  <copy todir="${website.build}" >
+ 	  	<fileset dir="${docs}/website/static-html" includes="index.html"/>
+ 	  </copy>
+  </target>
+	
+	<target name="init-target">
+    <delete dir="${target.home}" failonerror="false"/>
+    <mkdir dir="${target.home}"/>
+		<mkdir dir="${api-and-tools.target}"/>
+    <mkdir dir="${api-and-tools.target}/lib"/>
+  </target>
+	
+  <target name="compile" depends="init">
+    
+    <delete dir="${classes.home}" />
+    
+    <mkdir dir="${classes.home}"/>
+    <javac       
+      srcdir="${src.java.home}"
+      destdir="${classes.home}"
+      debug="on"
+      deprecation="on">
+      <classpath refid="classpath.base"/>
+    </javac>    
+  </target>
+	
+  <target name="jar-inx-util" depends="dist-init,compile" description="Create jar for DITA2InDesign INX Utility library">
+    <jar jarfile="${dist}/dita2indesign-inx-util.jar" basedir="${build}" >
+			<include name="org/dita2indesign/util/**/*"/>
+			<include name="org/dita2indesign/indesign/**/*"/>
+    </jar>
+  </target>
+	
+	<target name="jar-tools" depends="init, init-target, compile, jar-api" 
+	  description="Create jar for tools and implementation components">
+		<jar destfile="${api-and-tools.target}/lib/dita4publishers-dita-impl.jar" basedir="${classes.home}">
+			<include name="net/sourceforge/dita4publishers/impl/**/**.*"/>
+      <include name="net/sourceforge/dita4publishers/tools/common/**.*"/>
+      <include name="net/sourceforge/dita4publishers/tools/dxp/**.*"/>
+      <include name="net/sourceforge/dita4publishers/util/**/**.*"/>
+		</jar>
+    <jar destfile="${api-and-tools.target}/dita4publishers-mapbosreporter.jar" basedir="${classes.home}">
+      <include name="net/sourceforge/dita4publishers/tools/mapreporter/**/**.*"/>
+      <manifest>
+        <attribute name="Main-Class" value="net.sourceforge.dita4publishers.tools.mapreporter.MapBosReporter"/>
+        <attribute name="Class-Path" value=". 
+          lib/.
+          lib/dita4publishers-dita-api.jar
+          lib/dita4publishers-dita-impl.jar
+          lib/commons-logging.jar
+          lib/commons-cli.jar
+          lib/commons-io.jar
+          lib/log4j.jar
+          lib/resolver.jar
+          lib/xml-apis.jar
+          lib/xercesImpl.jar
+          lib/saxon9.jar
+          lib/saxon9-dom.jar
+          lib/saxon9-s9api.jar
+          lib/saxon9-xpath.jar
+              "
+        />
+      </manifest>
+    </jar>
+    <jar destfile="${api-and-tools.target}/dita4publishers-dxppackager.jar" basedir="${classes.home}">
+      <include name="net/sourceforge/dita4publishers/tools/ditadxpmappackager/**/**.*"/>
+      <manifest>
+        <attribute name="Main-Class" value="net.sourceforge.dita4publishers.tools.ditadxpmappackager.DitaDxpMapPackager"/>
+        <attribute name="Class-Path" value=". 
+          lib/.
+          lib/dita4publishers-dita-api.jar
+          lib/dita4publishers-dita-impl.jar
+          lib/commons-logging.jar
+          lib/commons-cli.jar
+          lib/commons-io.jar
+          lib/log4j.jar
+          lib/resolver.jar
+          lib/xml-apis.jar
+          lib/xercesImpl.jar
+          lib/saxon9.jar
+          lib/saxon9-dom.jar
+          lib/saxon9-s9api.jar
+          lib/saxon9-xpath.jar
+              "
+        />
+      </manifest>
+    </jar>
+    <jar destfile="${api-and-tools.target}/dita4publishers-dxpunpacker.jar" basedir="${classes.home}">
+      <include name="net/sourceforge/dita4publishers/tools/ditadxpunpacker/**/**.*"/>
+      <manifest>
+        <attribute name="Main-Class" value="net.sourceforge.dita4publishers.tools.ditadxpunpacker.DitaDxpUnpacker"/>
+        <attribute name="Class-Path" value=". 
+          lib/.
+          lib/dita4publishers-dita-api.jar
+          lib/dita4publishers-dita-impl.jar
+          lib/commons-logging.jar
+          lib/commons-cli.jar
+          lib/commons-io.jar
+          lib/log4j.jar
+          lib/resolver.jar
+          lib/xml-apis.jar
+          lib/xercesImpl.jar
+          lib/saxon9.jar
+          lib/saxon9-dom.jar
+          lib/saxon9-s9api.jar
+          lib/saxon9-xpath.jar
+              "
+        />
+      </manifest>
+    </jar>
+	  </target>
+	  
+	<target name="javadoc-api-and-tools" depends="init, init-target, compile" 
+	    description="Generate Javadoc for API and">
+		<javadoc
+			access="public"
+			destdir="${api-and-tools.target}/docs/javadoc"
+		  classpathref="classpath.base"
+			overview="${src}/net/sourceforge/dita4publishers/overview.html"
+			>
+			<fileset dir="${src}">
+				<include name="net/sourceforge/dita4publishers/**/*.java"/>
+			</fileset>
+		</javadoc>
+	</target>
+  
+  <target name="jar-api" depends="init, init-target, compile" 
+    description="Create jar for API components">
+  	<mkdir dir="${api-and-tools.target}/lib"/>
+    <jar destfile="${api-and-tools.target}/lib/dita4publishers-dita-api.jar" basedir="${classes.home}">
+      <include name="net/sourceforge/dita4publishers/api/**/**.*"/>
+    </jar>
+    </target>
+      
+  <target name="package-editing-templates" depends="init-target, clean" 
+  	description="Packages the editing templates in their own Zip file.">
+  	<copy todir="${dist}/templates">
+  		<fileset dir="${templates.dir}">
+  			<include name="maps/**"/>
+        <include name="topics/**"/>
+        <include name="word2dita/**"/>
+  		</fileset>
+  	</copy>
+  	<zip destfile="${dist}/dita4publishers-templates.zip" basedir="${dist}">
+  		<include name="templates/*/**"/>
+  	</zip>
+  </target>
+  	
+  <target name="package-rsuite-plugins" depends="init-target, clean">
+    <!-- NOTE: The RSuite plugin only packages Web-accessible resources.
+               It contains no Java code.
+      -->
+  	<copy file="${rsuite.src}/rsuite-plugin.xml" todir="${classes.home}"/>
+    <copy todir="${classes.home}/WebContent/xslt">
+      <fileset dir="${xslt.src}"/>
+    </copy>
+    <copy todir="${classes.home}/WebContent/xslt/word2dita">
+      <fileset dir="${toolkit.plugin.src}/net.sourceforge.dita4publishers.word2dita/xsl"/>
+    </copy>
+    <copy todir="${classes.home}/WebContent">
+      <fileset dir="${toolkit.plugin.src}">
+      	<include name="net.sourceforge.dita4publishers.common.xslt/**/*"/>
+    	</fileset>
+    </copy>
+    <jar destfile="${target.home}/${target.jar}" >
+      <fileset dir="${classes.home}" >
+        <include name="**.*" />
+        <include name="**/**.*" />
+        <exclude name="**/log4j.properties"/>
+      </fileset>
+    </jar>
+  </target>
+	
+  <target name="package-api-and-tools" depends="init-target, jar-api, jar-tools, javadoc-api-and-tools">
+  	<mkdir dir="${target.home}/d4p-api-and-tools"/>
+  	<copy todir="${api-and-tools.target}/lib">
+  		<fileset dir="${lib}">
+        <include name="log4j.properties"/>
+        <include name="dita4publishers-dita-api.jar"/>
+    		<include name="commons-logging.jar"/>
+    		<include name="commons-cli.jar"/>
+    		<include name="commons-io.jar"/>
+    		<include name="log4j.jar"/>
+    		<include name="resolver.jar"/>
+    		<include name="xml-apis.jar"/>
+    		<include name="xercesImpl.jar"/>
+    		<include name="saxon9.jar"/>
+    		<include name="saxon9-dom.jar"/>
+    		<include name="saxon9-s9api.jar"/>
+    		<include name="saxon9-xpath.jar"/>
+  	  </fileset>
+  	</copy>
+  </target>
+  
+	<target name="deploy-rsuite-plugins-locally" description="Deploy the plugin to a local server's plugin directory"
+	  depends="package-rsuite-plugins"
+	  >
+	  <copy file="${target.home}/${target.jar}" 
+	      todir="${rsuite.plugins.dir}"/>
+	 </target>
+</project>

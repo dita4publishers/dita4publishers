@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">
+
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:style2tagmap"
+    uri="style2tagmap.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:style2tagmap:style2tagmap.dtd"
+    uri="style2tagmap.dtd"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:modules:dtd:style2tagmap"
+    uri="style2tagmap.mod"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:modules:dtd:style2tagmap:style2tagmap.mod"
+    uri="style2tagmap.mod"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:entities:dtd:style2tagmap"
+    uri="style2tagmap.ent"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:entities:dtd:style2tagmap:style2tagmap.mod"
+    uri="style2tagmap.ent"
+  />
+  
+</catalog>

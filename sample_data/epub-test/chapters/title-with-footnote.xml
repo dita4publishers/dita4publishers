@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subsection PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:subsection" "subsection.dtd">
+<subsection
+  id="subsection_pam_pwa_ab">
+  <title>Title With Footnote<ph>
+    <fn>This is a footnote within a title.</fn>
+  </ph></title>
+  <body>
+    <p>This subsection's title has a footnote in it (within <xmlelem>ph</xmlelem>). It should be rendered in the main page for the topic but not in ToCs or other navigation displays of the title.</p>
+  </body>
+</subsection>

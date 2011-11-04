@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     DITA For Publishers Personae Topic Type
+     
+     Represents the personae section within a Shakespear play.
+     
+     Specializes from play-component
+     
+     Copyright (c) 2009 DITA For Publishers
+
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ENTITY DECLARATIONS                 -->
+<!-- ============================================================= -->
+
+<!ENTITY % hi-d-dec     PUBLIC 
+"-//OASIS//ENTITIES DITA Highlight Domain//EN" 
+"highlightDomain.ent"                                                
+>
+%hi-d-dec;
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE DECLARATIONS              -->
+<!-- ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN EXTENSIONS                          -->
+<!-- ============================================================= -->
+<!--                    One for each extended base element, with
+                        the name of the domain(s) in which the
+                        extension was declared                     -->
+                        
+<!ENTITY % ph
+  "ph |
+   %hi-d-ph;"
+>                        
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
+<!-- ============================================================= -->
+<!ENTITY % props-attribute-extensions  ""                            >
+<!ENTITY % base-attribute-extensions   ""                            >
+
+
+<!-- ============================================================= -->
+<!--                    TOPIC NESTING OVERRIDE                     -->
+<!-- ============================================================= -->
+
+<!--                    Redefine the infotype entity to exclude 
+                        other topic types and disallow nesting     -->
+<!ENTITY % personae-info-types 
+  "no-topic-nesting
+  "
+>
+
+<!ENTITY % info-types
+  "%personae-info-types;
+  "
+>
+
+<!-- ============================================================= -->
+<!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
+<!-- ============================================================= -->
+<!--                    Must be declared ahead of the DTDs, which
+                        puts @domains first in order               -->
+
+<!ENTITY included-domains 
+    "&hi-d-att; 
+    "                
+ >
+
+<!-- ============================================================= -->
+<!--                    TOPIC ELEMENT INTEGRATION                  -->
+<!-- ============================================================= -->
+
+<!--                    Embed topic to get generic elements        -->
+<!ENTITY % topic-type   PUBLIC 
+"-//OASIS//ELEMENTS DITA Topic//EN" 
+"topic.mod"                                                          >
+%topic-type;
+
+<!ENTITY % play-component-typemod 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:play-component" 
+"play-component.mod"
+>                                                     
+%play-component-typemod;
+
+<!ENTITY % personae-typemod 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:personae" 
+"personae.mod"                                                        
+>                                                     
+%personae-typemod;
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ELEMENT INTEGRATION                 -->
+<!-- ============================================================= -->
+
+<!ENTITY % hi-d-def     PUBLIC 
+"-//OASIS//ELEMENTS DITA Highlight Domain//EN" 
+"highlightDomain.mod"                                                >
+%hi-d-def;
+
+
+
+<!-- ================== End act DTD  ==================== -->

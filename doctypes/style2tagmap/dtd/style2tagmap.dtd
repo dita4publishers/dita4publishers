@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =============================================================
+
+     Style to Tag Mapping 
+     
+     Describes documents that define a mapping from word processing
+     styles to DITA result markup.
+     
+     Copyright (c) 2009 DITA For Publishers
+     ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    MAP ENTITY DECLARATIONS                    -->
+<!-- ============================================================= -->
+
+<!ENTITY % style2tagmap-dec     
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:entities:dtd:style2tagmap" 
+         "style2tagmap.ent"
+>%style2tagmap-dec;
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ENTITY DECLARATIONS                 -->
+<!-- ============================================================= -->
+
+<!ENTITY % mapgroup-d-dec 
+                        PUBLIC 
+"-//OASIS//ENTITIES DITA 1.2 Map Group Domain//EN" 
+"mapGroup.ent"                                                 >
+%mapgroup-d-dec;
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE DECLARATIONS              -->
+<!-- ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN EXTENSIONS                          -->
+<!-- ============================================================= -->
+<!--                    One for each extended base element, with
+                        the name of the domain(s) in which the
+                        extension was declared                     -->
+
+<!ENTITY % topicref     "topicref |
+                         %mapgroup-d-topicref;
+                        ">
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
+<!-- ============================================================= -->
+<!ENTITY % props-attribute-extensions  ""                            >
+<!ENTITY % base-attribute-extensions   ""                            >
+
+<!-- ============================================================= -->
+<!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
+<!-- ============================================================= -->
+<!--                    Must be declared ahead of the DTDs, which
+                        puts @domains first in order               -->
+<!ENTITY included-domains 
+                        "&style2tagmap-att;
+                         &mapgroup-d-att;
+                        ">
+
+<!-- ============================================================= -->
+<!--                    MAP ELEMENT INTEGRATION                    -->
+<!-- ============================================================= -->
+
+<!ENTITY % map-type PUBLIC 
+"-//OASIS//ELEMENTS DITA 1.2 Map//EN" 
+"map.mod"                                                      >
+%map-type;
+
+<!ENTITY % mapgroup-d-def  
+                        PUBLIC 
+"-//OASIS//ELEMENTS DITA 1.2 Map Group Domain//EN" 
+"mapGroup.mod"                                                 >
+%mapgroup-d-def;
+
+<!ENTITY % style2tagmap-type PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dtd:style2tagmap" 
+"style2tagmap.mod"                                                        >
+%style2tagmap-type;
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ELEMENT INTEGRATION                 -->
+<!-- ============================================================= -->
+
+
+<!-- ================== End style2tagmap DTD  ==================== -->

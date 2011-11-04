@@ -1,0 +1,981 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
+<chapter
+  id="d5e2">
+  <title>Defining a Writer’s Role with the Social Web</title>
+  <prolog/>
+  <body>
+    <p><image
+        href="images/chapter03.png"
+        id="image_823f7b05-472d-40c7-ae9f-53e455580483"
+        width="5in"/></p>
+    <epigram>The more original a discovery, <br/>the more obvious it seems afterwards.<br/>—Arthur
+      Koestler</epigram>
+    <p>As a writer, you need to find the correct value proposition for your work and determine
+      whether your role is an enabler of conversation or an instigator of conversation. In a world
+      of rock star coders, you want to find out whether you are a sage on stage or a stage hand. Or
+      perhaps your evaluation will determine that no social media action is the correct action.</p>
+    <p>You might already be aware of the challenges of introducing Web 2.0 or community-driven
+      content in an enterprise environment. Many people are skeptics, asking for proof of the
+      efficacy of the methods. This chapter discusses strategies for determining your role and
+      offers strategies for a phased approach to integrating the social web in your writing. </p>
+  </body>
+  <subsection
+    id="d5e10">
+    <title>Challenges and opportunities</title>
+    <body>
+      <p>Once you get enthusiastic about a particular social networking tool or medium, you may find
+        that you spend an inordinate amount of time on the site or reviewing the tools used for the
+        site. Be aware of your priorities, and be cautious of portraying a tool as a time-wasting,
+        productivity-sucking black hole before others can give it a chance. Remember that your
+        online <indexterm>presence, online</indexterm>presence records the amount of time and the
+        time of day that you work with a tool. You can avoid too much of a good thing if you’re
+        smart about your time allocation. You might need to participate in an online community after
+        normal business hours to ensure that the community trusts you to do your “real” job first
+        and experimentation second.</p>
+      <p>It’s important to find a balance between allowing an individual’s authentic voice to speak
+        on behalf of an organization and the requirements of institutional messaging and <indexterm
+            >brands<indexterm>preserving</indexterm></indexterm>brand preservation. Be sure to
+        follow all related corporate <indexterm>policies, social computing<indexterm
+            >following</indexterm></indexterm>policies and study the messaging that your company
+        prefers to maintain. </p>
+      <p>It’s also possible that you are ahead of the curve and need to help others see ways to
+        apply social technologies for the company. You could get involved in a community related to
+        personal interests outside of work to understand how social technologies can be applied
+        before attempting to apply what you’ve learned at work. This approach works well especially
+        if your organization is extra-conservative or if there is no demand for content with social
+        connections yet for your company.</p>
+      <p>What about the ubiquitous argument, “Sorry, but we just don’t have the resources for this
+        type of project”? You might need to barter for resources or entice someone’s time and skills
+        off the clock. Think of the reasons that people are motivated to contribute to a project,
+        such as recognition or respect, and see what you can offer in return. Also realize that if
+        the resources truly are not available but you think you can save time and money with social
+        or community content<indexterm>community-generated content<indexterm>contributions
+            to</indexterm></indexterm>, you need to have a strategy and be able to prove return on
+        the investment in time and money. </p>
+      <p>Return on <indexterm>return on investment (ROI)<indexterm
+          >proving</indexterm></indexterm>investment<indexterm>return on investment (ROI)<indexterm
+            >measuring</indexterm></indexterm><indexterm>return on investment (ROI)<indexterm
+            >content development</indexterm></indexterm> is notoriously hard to measure because of
+        the difficulty in determining what to measure and how to measure. </p>
+    </body>
+    <subsection
+      id="d5e54">
+      <title>Taking stock of current communities and conversations</title>
+      <body>
+        <p>Before you jump in and risk embarrassing yourself or your team or, worse yet, angering
+          customers or internal departments, with the absolute worst risk of being fired, you need
+          to analyze and understand the <indexterm>communities<indexterm>writer's role
+              in</indexterm></indexterm><indexterm>communities<indexterm>existing</indexterm></indexterm>communities
+          that already exist within your company or externally and learn how to interact or stand
+          back. As writers, we need to figure out whether we would be welcomed as members of the
+          community or whether we should instead try to enable the conversation through our
+          deliverables. Based on the size of your particular community base, you may decide to
+          immerse yourself in the <indexterm>communities<indexterm>participation
+            in</indexterm></indexterm>community, to become a part of the conversation, and make your
+          customers feel like you are helping them solve problems. </p>
+        <p>Realize that there are <indexterm>grassroots communities for
+            products</indexterm>grassroots<indexterm>grassroots efforts</indexterm>
+          <indexterm>communities<indexterm>grassroots</indexterm></indexterm>communities related to
+          commercial products. For example, the XMFan site<fn>
+            <p> http://xmfan.com/</p>
+          </fn> was started by regular people who are fans of XM Radio. Another example is the
+            IKEAFans<fn>
+            <p> http://ikeafans.com/</p>
+          </fn> site offers support help and an “IKEApedia” area with assembly manuals included.
+          When approaching a <indexterm>conversations<indexterm
+          >enabling</indexterm></indexterm>community started outside of the company, though, be
+          cautious of whether you would be considered an intruder or outsider. </p>
+        <p>An excellent example of a writer offering their community involvement back with
+          improvements to content is the lead writer for Adobe InDesign and InCopy products, Bob
+            <indexterm>Bringhurst, Bob</indexterm>Bringhurst. He writes a blog at
+          blogs.adobe.com/indesigndocs/ with announcements, buried treasures, and bonus
+          documentation, to name a few categories. He is active on the user forums and uses his blog
+          to talk to community members and link to others’ blogs, such as this InDesign link round
+          up entry.<fn>
+            <p> http://blogs.adobe.com/indesigndocs/2009/05/best_indesign_links_of_may.html</p>
+          </fn></p>
+        <p>You could follow different models for participation in communities—use the technical
+          writer as personality and deliverer of content, a “sage on stage” model where the writer
+          instigates participation opportunities, or involve the technical writer as a bystander of
+          the conversation. In the second model, the writer is more like a stage hand who needs to
+          understand the inner workings of the community theater to put on a good show. We can
+          enable conversation through our user assistance without being the star of the show. A
+          third model of participation is to listen to many communities and learn from the
+          interactions of others, bringing that knowledge back into the technical documentation or
+          passing it to the appropriate groups at your company. </p>
+        <p>Anne Zelenka<indexterm>Zelenka, Anne</indexterm> has written about the <i>information
+            age</i> versus the <indexterm>connectivity age</indexterm><i>connectivity age</i> on the
+          Web Worker Daily<indexterm>Web Worker Daily</indexterm> web site.<fn>
+            <p> http://gigaom.com/2007/10/06/from-the-information-age-to-the-connected-age/</p>
+          </fn> I believe this distinction is an important one for the participation models that
+          writers can choose. Are you an information worker or a connection worker, and does your
+          corporate culture support you more in one model or another? Anne likens the building of
+            Microsoft<indexterm>Microsoft<indexterm>"information age"
+            example</indexterm></indexterm> as an example of the information age. The currency is
+          always monetary, and the information that Microsoft created begat monolithic software.
+          Google, on the other hand, has built a <indexterm>Google<indexterm>business
+              model</indexterm></indexterm>business model based on human behavior to make products
+          that use attention, such as Adwords, turn into monetized goods. If you can find a way to
+          turn attention to your online help with <indexterm>conversations<indexterm
+              >locating</indexterm></indexterm>conversation or community inclusion, you have moved
+          your user assistance into the connected age. Take note of where your company already
+          exhibits movement towards the connected age. </p>
+        <p>If you have observed that most user <indexterm>communities<indexterm>content contributed
+              by</indexterm></indexterm>communities do not publish comprehensive tomes, you are
+          correct. As Andy Oram<indexterm>Oram, Andy</indexterm> of O’Reilly Media says, people who
+          respond to email <indexterm>mailing lists<indexterm>community-based
+            content</indexterm></indexterm>lists do not even think that they are writing
+            documentation.<fn>
+            <p> http://www.oreillynet.com/onlamp/blog/2007/01/why_do_you_contribute_to_commu.html
+            </p>
+          </fn> However, because a search can find the information, and the information can answer
+          someone’s question later, it actually is documentation. As Darren Barefoot<indexterm
+            >Barefoot, Darren</indexterm> said in his talk “Everyone’s a technical writer” at
+            <indexterm>DocTrain West conference</indexterm>DocTrain West in spring 2008, the “people
+          formerly known as the audience” are already documenting your products in ways you could
+          never hope to cover yourself with a team of technical writers.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e173">
+      <title>Instigator or enabler of conversation</title>
+      <body>
+        <p>An <indexterm>technical documentation<indexterm>integrating with community-based
+              content</indexterm></indexterm>instigator provides a starting point for a <indexterm
+              >conversations<indexterm>instigating</indexterm></indexterm><indexterm
+              >conversations<indexterm>enabling</indexterm></indexterm>conversation, perhaps by
+          communicating a controversial decision or a highly debated strategic choice. A writer in
+          an instigator role should know customers’ business needs and be well-connected with those
+          he or she plans to talk to online. </p>
+        <p>An enabler of conversation understands the underlying concepts of a product or service
+          well enough to help others understand those concepts as well. An enabler gives a community
+          the authority to make decisions or provides patterns that help a community develop and
+          grow. </p>
+        <p>Whether you’re an instigator or enabler, you can repeatedly gather knowledge from
+            <indexterm>technical documentation<indexterm>benefiting from
+            conversation</indexterm></indexterm>communities and conversation, then bring it back and
+          incorporate what you’ve learned into the documentation. Ideally you’ll “give back” to the
+            <indexterm>content<indexterm>community-generated</indexterm></indexterm>communities that
+          provided the knowledge to you by continually improving the content offerings. </p>
+        <p>It may seem that an extrovert would be the instigator of conversations in documentation,
+          and an introvert would be the enabler of the conversations. Introversion and extroversion
+          refer to how a person draws energy—either from an external source such as interaction with
+          other people, or from an internal source, such as their own thoughts and imagination.
+          However, in the realm of social media, introverts often find online social networking
+          provides the right balance of encouragement to reach out along with the ability to turn
+          off the stream of constant communication and regroup for a period of time. Therefore, the
+          role of an instigator does not need to be reserved for an extrovert. An extroverted
+          instigator may not be a good blogger, for example, because good writing often requires
+          introspection and reflection. But either personality type can take on either role and do
+          the tasks within each role. </p>
+      </body>
+    </subsection>
+  </subsection>
+  <subsection
+    id="d5e208">
+    <title>Building a strategic plan for conversation and community integration</title>
+    <body>
+      <p>As with all technical documentation projects, you should plan before implementing any
+        changes to your documentation or approach. However, when trying out social media tools, you
+        need to be willing to spend time experimenting. Grassroots<indexterm>grassroots
+          efforts</indexterm> efforts that fly under management<indexterm>management
+          buy-in</indexterm>’s radar for a while might give you the biggest payback. </p>
+      <p>Beth Kanter<indexterm>Kanter, Beth</indexterm>, a social media consultant to non-profits,
+        describes participation in social media as having five <indexterm>social media<indexterm
+            >phases for implementing</indexterm></indexterm>phases: listen, participate, generate
+        buzz, share content, and create community.<fn>
+          <p> http://beth.typepad.com/beths_blog/2008/10/how-much-time-d.html</p>
+        </fn> A simplification for our approach involves four phases: </p>
+      <ul>
+        <li>First, listen. </li>
+        <li>Second, participate in the conversations (and continue to listen). </li>
+        <li>Third, share content.</li>
+        <li>Fourth, lead the way by offering a platform for conversations to occur.</li>
+      </ul>
+      <p>A conversation enabler will work best in the first two phases. A conversation instigator
+        can work in all the phases. I believe this phased approach yields better results than
+        jumping straight to offering a platform. You may notice that I skipped over <indexterm
+          >Kanter, Beth</indexterm>Beth Kanter’s third phase where she suggests that you should
+        generate buzz. I don’t think that generating buzz or media attention is necessarily the
+        realm of <indexterm>technical documentation<indexterm>integrating with community-based
+            content</indexterm></indexterm>technical documentation, though it might be if you’re a
+        lone writer bridging the gap in technical marketing documentation. </p>
+    </body>
+    <subsection
+      id="d5e250">
+      <title>Listening phase</title>
+      <body>
+        <p>In their ebook, <indexterm>Social Media Marketing Playbook (Getting to First Base)
+            ebook</indexterm>Social Media Marketing Playbook, Darren Barefoot and Julie <indexterm
+            >Szabo, Julie</indexterm>Szabo believe that technical writers are excellent blog
+          monitors and can easily handle multiple notifications from reading multiple news feeds or
+          RSS subscriptions. If the technical writer is also maintaining a blog and online presence,
+            <indexterm>communities<indexterm>listening to conversations
+          in</indexterm></indexterm>commenting on others’ blogs in the field is a great way to join
+          the <indexterm>conversations<indexterm>listening to</indexterm></indexterm><indexterm
+              >conversations<indexterm>following through
+          syndication</indexterm></indexterm>conversation, but <indexterm>blogs<indexterm>commenting
+              on</indexterm></indexterm>commenting on blogs moves into the participation phase. </p>
+        <p>Tools for listening are subscription tools such as RSS feed readers, <indexterm
+              >Google<indexterm>Alerts</indexterm></indexterm>Google Alerts, <indexterm
+              >search<indexterm>in Twitter</indexterm></indexterm>search.twitter.com, <indexterm
+            >Technorati</indexterm>Technorati, and Yahoo Pipes.</p>
+        <p>Another way to listen is to spend a day with technical support listening to their calls.
+          This literal listening exercise can be eye opening if you’ve never spent a day on the
+          customer line before.</p>
+        <p>If your product is sold on a website like amazon.com, you can also find conversations in
+          the reviews, review comments, and blog entries.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e299">
+      <title>Participation phase</title>
+      <body>
+        <p>In this phase, you can blog and<indexterm>comments<indexterm>on blog
+            posts</indexterm></indexterm>
+          <indexterm>conversations<indexterm>joining</indexterm></indexterm><indexterm>blogging<indexterm>commenting</indexterm></indexterm>comment
+          on blogs. The authors of the book <i>Groundswell</i>, Charlene <indexterm>Li,
+            Charlene</indexterm>Li and Josh <indexterm>Bernoff, Josh</indexterm>Bernoff, suggest
+          that you write five entries to see if you have the ability to stick with regular
+            <indexterm>blogging<indexterm>regularly</indexterm></indexterm>blogging. Internal
+          blogging is also a good starting point, where the blog can only be read behind a corporate
+          firewall. Other participation ideas include:</p>
+        <ul>
+          <li>Find a wiki and contribute. Start with small tasks such as editing or tagging. </li>
+          <li>Offer a comment mechanism built into your <indexterm>help, online<indexterm
+                >conversation-based tools in</indexterm></indexterm><indexterm>help,
+                online<indexterm>comments in</indexterm></indexterm>help system.</li>
+          <li>Offer a <indexterm>help, online<indexterm>surveys in</indexterm></indexterm>survey on
+            your help system. </li>
+          <li>Start tagging sites relevant to your product on delicious.com, reddit.com, or
+            stumbleupon.com.</li>
+          <li>Offer a live chat or take a turn staffing the live chat if you have the
+            knowledge.</li>
+          <li>Consider joining or <indexterm>moderation<indexterm
+            >forums</indexterm></indexterm>moderating a <indexterm>communities<indexterm
+                >participation in</indexterm></indexterm>customer forum or <indexterm
+                >boards<indexterm>message</indexterm></indexterm>board that has private messaging
+            where one-on-one conversations can occur. </li>
+        </ul>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e373">
+      <title>Content sharing phase</title>
+      <body>
+        <p>The content sharing phase may be as simple to implement as adding a <indexterm>Creative
+            Commons license</indexterm>Creative Commons <indexterm>content<indexterm
+              >licensing</indexterm></indexterm>license to your content to allow for share and share
+          alike. Licensing your content with a Creating Commons license declares that your content
+          is reusable and describes the conditions and circumstances for that reuse. There are
+          different licenses available for you (or your legal department at your company) to review.
+          Instead of reserving all rights to your documentation, you reserve some rights, but also
+          free the content to be used by others. For example, the Adobe help content offered with
+          the Technical Communication Suite has a Creative Commons license, Attribution
+          Non-Commercial Share Alike, as indicated by this icon:</p>
+        <p>On the creativecommons.org web site, you can answer straight forward questions to
+          determine the license you want for your content, such as do you want to allow commercial
+          uses of your work, do you want to allow modifications of your work (with or without others
+          share alike on content created from your work), and the jurisdiction of your license.
+          Licensing your content lets you share your content. </p>
+        <p>Another way to share your content is to offer an RSS feed that someone could embed in a
+          sidebar or another location in a web page. A web service like dapper.net can help you make
+          RSS feeds from any web page. </p>
+        <p>You can share content by uploading photos or screenshots to a <indexterm
+            >photos</indexterm>photo sharing site such as Flickr, or you could upload videos or
+            <indexterm>screencasts</indexterm>screencasts to You Tube or Vimeo. Beyond photos and
+          videos, a great example of sharing content is the Autodesk Civil Engineering Community.<fn>
+            <p> http://civilcommunity.autodesk.com/content/</p>
+          </fn> Users can join the community and download templates, styles or shapes. </p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e403">
+      <title>Platform or stage phase</title>
+      <body>
+        <p>If the first three phases yielded <indexterm>content<indexterm>platforms
+            for</indexterm></indexterm>connections and a sense of community that you could tap for
+          growing community-based documentation, your final phase might be to create a <indexterm
+              >communities<indexterm>wikis supporting</indexterm></indexterm>wiki for your product,
+          either as a supplement to your documentation or as the new home of your entire user
+          assistance content. </p>
+        <p>Alternatively, if users and customers have enough to say about your product that you
+          think it would be helpful to the community to host a blog, the result of the first two
+          phases might be to offer a blogging platform. </p>
+        <p>You might find that a forum becomes a platform for developers to collaborate with each
+          other on projects. The <indexterm>communities<indexterm
+            >EMC</indexterm></indexterm><indexterm>communities<indexterm>examples of
+              online</indexterm></indexterm>EMC Community offers blogs, forums, and social media
+          opportunities on platforms such as Facebook and Flickr in one community site at
+          emc.com/community. </p>
+        <p>Another example of a social media plaat sun.com/communities. Two writers, Gail <indexterm
+            >Chappell, Gail</indexterm>Chappell and Cindy <indexterm>Church,
+          Cindy</indexterm>Church, presented their experience with Sun at the 2008 <indexterm>STC
+            Summit</indexterm>STC Summit. Both their product and their <indexterm>social
+              media<indexterm>audience analysis</indexterm></indexterm>audience were a good match
+          for providing a platform for documentation through a wiki. Their audience was college-age
+          developers in school plus industry-savvy developers in the workforce, both busily coding
+          enterprise applications using <indexterm>open source<indexterm>NetBeans
+            Ruby</indexterm></indexterm><indexterm>NetBeans Ruby</indexterm>NetBeans Ruby. It’s a
+          free, open-source software tool for creating Ruby language programs and part of the
+          NetBeans integrated development environment. </p>
+        <p>For their case study, contributions from the community were welcomed, both for the
+          product and the documentation. The wiki did not take off as a platform for
+          community-generated content as you might think, though. They used the <indexterm>open
+              source<indexterm>wikis for</indexterm></indexterm>wiki for providing drafts of
+          documentation and delivering info quickly. Content on the wiki did not need to be perfect
+          or in a strict template. Once a draft was posted to the wiki, writers then posted a
+          message to the user forum to let them know they could review it. Once the content was
+          reviewed and vetted, writers transferred it to the main website instead of the wiki. One
+          lesson to learn from their experience is that even though the writers provided a platform
+          for community content, the model that was most valuable was using the wiki for drafting
+          content then transferring the content to a non-platform-based deliverable.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e461">
+      <title>Putting it all together</title>
+      <body>
+        <p>During any phase you can consider the level of your content itself. Any one of these
+          levels may fit your business needs, but you can use the following table as a roadmap
+          towards using social documentation to further more and more business needs.</p>
+      </body>
+    </subsection>
+  </subsection>
+  <subsection
+    id="d5e466">
+    <title>The documentation environment</title>
+    <body>
+      <p>What is the lifecycle of the products that you document? If your company releases products
+        often, your users may expect documentation updates every release. A wiki may be the best way
+        to fulfill this expectation. If the product releases only once every other year, you can
+        invest in conversations during those longer release cycles by using a different format, such
+        as customer <indexterm>discussions about content<indexterm>in
+        forums</indexterm></indexterm>forums, blogs, or podcasts.</p>
+      <p>What are the current technical publications deliverables? If your team still relies heavily
+        on printed documentation, you might not have an efficient method for getting feedback from
+        or conversing with customers. If you continue to deliver printed documentation, you will
+        want to find online methods for enabling conversation and community. If you do not already
+        have a method for gathering feedback on printed documentation, investigate the costs and
+        returns of sending printed-format surveys or questionnaires.</p>
+    </body>
+    <subsection
+      id="d5e477">
+      <title>Documentation survey to analyze audiences </title>
+      <prolog>
+        <metadata>
+          <keywords>
+            <indexterm>audience analysis</indexterm>
+            <indexterm>surveys</indexterm>
+          </keywords>
+        </metadata>
+      </prolog>
+      <body>
+        <p>Surveys are yet <indexterm>technical documentation<indexterm>getting
+            feedback</indexterm></indexterm>another conversation point with your audience,
+          especially if you have an integrated survey system tied into your <indexterm>help,
+              online<indexterm>surveys in</indexterm></indexterm>help system, such as a rating
+          system or comment system. Collecting and analyzing <indexterm>social media<indexterm
+              >surveys of use</indexterm></indexterm>survey data is a proven method for discovering
+          the communities your readers already use to find answers. You can survey your <indexterm
+            >technical documentation<indexterm>analyzing audiences</indexterm></indexterm>audience
+          in several ways, even inexpensively using services like surveymonkey.com. <indexterm
+              >Google<indexterm>Forms</indexterm></indexterm>Google Forms are easy to design, and
+          when someone fills out the form, the data automatically goes into a Google Spreadsheet as
+          it is collected so you can see partial results before the survey is closed. If you do not
+          want to expend resources sending out your own survey, find ways to add a question or two
+          to surveys that are already sent to your customers.</p>
+        <p>Go beyond a documentation survey into a social media usage survey as described in the
+          next section. </p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e514">
+      <title>Determining if your customers would like a conversation </title>
+      <body>
+        <p>Look at the specific problems that your technical publications group is trying to solve
+          or has had feedback about, and analyze whether applying some of the <indexterm>social
+              networking<indexterm>integrating with documentation</indexterm></indexterm>social
+          networking or notifications technology would help solve those problems. Customers cannot
+          always articulate their needs in specific requests for a certain deliverable like a wiki.
+          Keep in mind that the terms “RSS feeds” and “wiki” may not be familiar to your customers.
+          If you asked them, “Would you like to know when new items are added to the help system?”,
+          they would probably respond positively. Also consider the prospect who is not yet a
+          customer. What conversation or community techniques can build relationships that help with
+          converting a prospect to a customer?</p>
+        <p>Analyze your audience to determine their pain points. Ask questions or conduct a survey,
+          and be sure to understand the demographic information. While gender and age are not always
+          good indicators of an individual’s behavior online, research indicates that men use
+          certain social media tools like <indexterm>Twitter<indexterm>user
+            demographics</indexterm></indexterm>Twitter differently than women do.<fn>
+            <p>
+              http://www.iq.harvard.edu/blog/netgov/2009/06/hbs_research_twitter_oligarchy.html</p>
+          </fn> Different age groups might have different answers for your survey, or not. A
+            <indexterm>surveys</indexterm>survey run by two technical writers at Sun had an audience
+            of<indexterm>Sun Microsystems<indexterm>survey for shifting
+            priorities</indexterm></indexterm> programmers, most of whom were male. The writers
+          wondered if age differences would result in a different “wish list” for video or
+            screencasts<indexterm>screencasts</indexterm>. They found that no matter the age, all of
+          the programmers wanted pretty much the same thing—examples and a web celebrity of sorts to
+          listen to and learn from. Using the information they gained from the survey, the writers
+          could provide a business case for shifting their priorities in a release from traditional
+          online help to videos and screencasts.</p>
+        <p>The book <i>Groundswell</i><indexterm>Groundswell</indexterm> offers a Social <indexterm
+            >Groundswell Social Technographics tool</indexterm>Technographics tool.<fn>
+            <p> http://www.forrester.com/Groundswell/profile_tool.html</p>
+          </fn> is an <indexterm>communities<indexterm>demographics</indexterm></indexterm>example
+          of the results for U.S.-based women aged 35-44.</p>
+        <p>Data from Forrester Research Technographics surveys<indexterm>surveys</indexterm></p>
+        <p>Creators are at the top of the ladder because they create content such as blog entries or
+          videos. Critics are most likely to respond to others on email <indexterm>mailing
+              lists<indexterm>contributions to</indexterm></indexterm>lists or <indexterm
+              >forums<indexterm>contributions to</indexterm></indexterm>forums. At the bottom of the
+          ladder are Inactives, those who do not create or consume social content. If your study
+          shows that many of your customers are Inactives, you may not need <indexterm>social
+              media<indexterm>surveys of use</indexterm></indexterm>social media integration to
+          serve your customer’s information needs.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e586">
+      <title>Determining your role in the conversation</title>
+      <body>
+        <p>You can ask several questions to help discover if you are an enabler of conversation, an
+          instigator, or both. Depending on the number of users of the products that you document,
+          there may be a place for the technical writer in the <indexterm>communities<indexterm
+              >participation in</indexterm></indexterm>community. For wiki documentation especially,
+          it is important that you become a conversation starter, unless there’s a large community
+          base already. Several factors influence<indexterm>influence, measuring</indexterm> this
+          determination: </p>
+        <ul>
+          <li>Is the <indexterm>communities<indexterm>writer's role
+            in</indexterm></indexterm>community small, and if so, can you easily become like the
+            community members? Or is there a conflict of interest that might prevent you from direct
+            communications? </li>
+          <li>What <indexterm>communities<indexterm>motivations of</indexterm></indexterm>motivates
+            the community to use your product? If community members are passionate about your
+            product because they selected it, the conversation may be easy to start and continue. If
+            the product was purchased by upper management and implemented by community members, you
+            might be more effective as a conversation enabler than a starter/joiner. </li>
+          <li>Is the community getting paid to implement the product? If so, will they view your
+              presence<indexterm>presence, online</indexterm> as competition? In this type of
+            situation, it might be better to enable conversation.</li>
+          <li>Has another department in your company started a <indexterm>conversations<indexterm
+                >instigating</indexterm></indexterm>conversation? If other departments internally
+            are in fact responsible for responding, be careful about how your involvement might be
+            interpreted. Talk to others internally before inserting yourself as a community member
+            or you may appear to be strong-arming others. A slow, easy beginning is best, and
+            practice and hands-on experience are your most valuable assets. </li>
+        </ul>
+        <p>Whether you’re enabling a conversation or are part of the conversation, it’s important to
+          be professional but also personable and genuine. </p>
+        <p>Also expect to face the inevitable negativity or conflict that can occur within a
+          community. You should face it, communicate openly, overcome the negative discussions, and
+          do not purposely avoid negative situations. </p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e629">
+      <title>Corporate policies for social sites</title>
+      <body>
+        <p>Read your corporate blogging<indexterm>blogging<indexterm>policy</indexterm></indexterm>
+          policy or public discourse policy or <indexterm>social networking<indexterm
+              >policies</indexterm></indexterm><indexterm>social media<indexterm
+              >policies</indexterm></indexterm>social networking policy. If your company does not
+          have such policies, thoroughly research the examples from IBM and <indexterm>policies,
+            social computing<indexterm>Sun Microsystems</indexterm></indexterm>Sun<indexterm>Sun
+              Microsystems<indexterm>social computing policy</indexterm></indexterm>, and consider
+          whether they fit your corporate culture and how you might adjust them as needed. </p>
+        <p><indexterm>IBM<indexterm>social computing policy</indexterm></indexterm>IBM has a
+            <indexterm>policies, social computing<indexterm
+            >following</indexterm></indexterm><indexterm>policies, social computing<indexterm
+              >IBM</indexterm></indexterm>policy<fn>
+            <p> http://www.ibm.com/blogs/zz/en/guidelines.html</p>
+          </fn> that is considered to be the “gold standard” for these types of guidelines for
+          employees. Sun is a known leader in this area and their policy<fn>
+            <p> http://www.sun.com/aboutsun/media/blogs/policy.html</p>
+          </fn> has been adapted and referenced for years. For non-profit organizations, Appendix B
+          contains the policy for online discussion from Easter Seals which encompasses many
+          different types of online publishing areas.<fn>
+            <p> http://beth.typepad.com/beths_blog/2008/04/nonprofit-blogg.html</p>
+          </fn></p>
+        <p>These policies have many commonalities for trust-worthy, valuable online representation.
+          The policies give you advice like: be genuine, always identify yourself and the company
+          you represent, be professional, talk about what you know, cite sources and acknowledge
+          others’ contributions, obey copyright laws, offer value, don’t pick fights, and respect
+          your audience. All of these policies ask that the person abide by the policy and use good
+          judgement in all their online interactions. </p>
+        <p>Additionally, study your corporate culture to determine how much openness and
+          transparency already exist. Look for areas where transparency and openness are rewarded
+          and not feared. Find ways to mitigate the risks that you may take by attempting
+          transparency in your communications.</p>
+        <p>Do not contribute if your contribution could be interpreted as interrupting “real” work
+          (such as posting long responses during work hours). </p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e690">
+      <title>Analyzing benefits from social media methods</title>
+      <body>
+        <p>User expectations and corporate culture play an important role in <indexterm
+              >evaluation<indexterm>of feasibility of using social
+          media</indexterm></indexterm>evaluating whether your products and documentation set could
+            <indexterm>social media<indexterm>benefits of using</indexterm></indexterm>benefit from
+          social networking and conversation either with staff members or with customers. Products
+          that contain elements of <indexterm>open source<indexterm>wikis
+            for</indexterm></indexterm><indexterm>open source<indexterm>documentation
+              expectations</indexterm></indexterm>open source, which gives the user access to the
+          source code, will have expectations of open documentation that come with source files that
+          customers can edit or remix themselves. If products are not open source, but users are
+          accustomed to early revisions of the documentation, they may have their expectations for
+          content already set. A writer in an enabler role would do well to keep up with user
+          expectations and analyze the conversations occurring about the social media tools in
+          use.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e713">
+      <title>Defining business objectives </title>
+      <body>
+        <p>The book <i>Groundswell</i> discusses a four-step approach to getting corporations into
+            <indexterm>conversations<indexterm>business objectives
+          of</indexterm></indexterm>conversations: People, Objectives, Strategy, and Technology. I
+          believe this approach can apply for technical publications and <indexterm>social
+              media<indexterm>alignment with business objectives</indexterm></indexterm>social media
+          as well. The business objectives that your department typically aligns with are your
+          objectives for any social web exploration as well. I especially appreciate that the
+          technology research and decision is the last one in their approach.</p>
+        <p>Before you attempt direct conversation with customers or try to enable more
+          customer-to-customer interaction, ask yourself what you hope to achieve. Articulate the
+          business goals so that you can communicate them to your manager and others. Also, examine
+          how realistic your goals are given the time and resources that you have available. Keep in
+          mind that you may have to use your own time and resources initially to prove the value of
+          your proposal before you can gain the confidence of those who measure business value and
+          make decisions. Many of the Groundswell case studies involved a couple of guys and an
+          under-the-radar server installation.</p>
+        <p>To discover where you might gain business perspectives in different areas, such as
+          Operations or Finance, look at the metrics in . </p>
+        <p>Leave flex room in your social media business strategies for unintended consequences,
+          where a group of users may not want “how to” information coming from a social deliverable,
+          perhaps they want reference information that they can add to instead. Or perhaps your
+          users are not interested in status updates that answer “What are you doing,” but instead
+          want to know “Where are you?”</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e737">
+      <title>Agile product development and the agile writer</title>
+      <prolog>
+        <metadata>
+          <keywords>
+            <indexterm>Agile development</indexterm>
+          </keywords>
+        </metadata>
+      </prolog>
+      <body>
+        <p>What development method does your team use? Agile development refers to a group of
+          software development methods that incorporate user involvement into development. On an
+          Agile team you use time-boxed iterations to deliver small features of potentially
+          shippable software at the end of each iteration. Central to many Agile shops are Scrum
+          project management and self-organizing teams with cross-functional team members, including
+          technical writers embedded on development teams. The way software is developed usually
+            influence<indexterm>influence, measuring</indexterm>s the way that the technical
+          publications team works, and Agile methods may lead to bigger changes than most. If you
+          work in an Agile development environment, however, your team has probably already had to
+          adjust the publication release cycles, information development methods, and the amount of
+          documentation that is promised with each release, depending on the staffing challenges
+          that you face because of Agile adaptations. </p>
+        <p>Sarah <indexterm>Maddox, Sarah</indexterm>Maddox has two wonderful blog posts in which
+          she discusses her typical day as a technical writer working on an Agile
+            development<indexterm>development</indexterm> team.<fn>
+            <p> http://ffeathers.wordpress.com/2008/01/20/the-agile-technical-writer/,
+              http://ffeathers.wordpress.com/2008/01/26/the-agile-technical-writer-ii/</p>
+          </fn> Much of her work involves IM<indexterm>IM (Instant Messaging)</indexterm>
+          conversations and editing in a wiki<indexterm>wikis<indexterm>in Agile development
+              process</indexterm></indexterm> environment, using the wiki product that she documents
+          as the documentation deliverable. </p>
+        <p>Mike <indexterm>Wethington, Mike</indexterm>Wethington, a technical publications manager
+          and scrum master at Troux Technologies, says that the days are gone of introverted
+          technical writers expecting to be handed specifications and isolate themselves while they
+          write the documentation. Agile methods require internal team communication that resembles
+          a conversation, with daily team standup meetings and collaboration with team members on
+          writing tasks. The tools of the social web are critical to the speed, efficiency, and
+          focus that a disciplined Agile team must have in order to succeed.</p>
+      </body>
+    </subsection>
+  </subsection>
+  <subsection
+    id="d5e772">
+    <title>Identifying key communicating team members</title>
+    <body>
+      <p>For those who are interested in being a representative voice for your department, for the
+        technical documentation, or for the product itself, determine the methods that team members
+        can use to begin <indexterm>conversations<indexterm
+        >joining</indexterm></indexterm>conversations. Each team member should have a consistent,
+        professional, and approachable online persona. Search for your first and last name on Google
+        and other search engines and try to envision what you represent to customers, both internal
+        and external to your company.</p>
+      <p>Examine existing community starting points for your customer base. Begin the conversations
+        in a non-intimidating manner, such as commenting on blog posts. Always represent yourself
+        honestly, and determine your standard disclaimer and when you will apply a disclaimer. For
+        example, you need to identify yourself as a corporate representative when the blog post
+        addresses a topic specific to your company.</p>
+      <p>For some team members, nothing could be more terrifying than losing anonymity while writing
+        technical documentation. Because identifying oneself online can have negative consequences,
+        do not require this type of involvement as a term of employment for existing employees.
+        Writers may want to maintain two personas online, a personal one and a professional one.
+        Behind-the-scenes and connector roles do not require the loss of anonymity or privacy. And
+        rather than being directly involved in the conversations, writers can facilitate
+        conversations and community by incorporating them into the documentation system. </p>
+    </body>
+    <subsection
+      id="d5e786">
+      <title>Piloting and testing internal solution first</title>
+      <body>
+        <p>It is very easy to stumble while practicing the art of conversation and community, so you
+          might want to try internal conversations first. For example, start an internal
+            wiki<indexterm>wikis<indexterm>collaboration in</indexterm></indexterm> so that you and
+          your team can become accustomed to the new way of working and communicating. </p>
+        <p>Stewart Mader, author of <i>Wikipatterns </i>touts the value and necessity of using a
+          pilot project to start wikis, and I believe this approach would work best for implementing
+          any type of social media. This technology is still relatively experimental, and you should
+          allow your team to experiment to find the strengths and weaknesses of a new delivery
+          mechanism or community system.</p>
+      </body>
+    </subsection>
+  </subsection>
+  <subsection
+    id="d5e800">
+    <title>Managing these conversational, connective, community methods</title>
+    <body>
+      <p>As with the introduction of any new technology, you should ask yourself whether it is
+        necessary? What criteria make this conversation-based implementation important at this point
+        in the product’s lifecycle? How can you make it a priority? You need to be able to write a
+        business case for the cost savings or time savings that could occur based on the
+        conversation-based implementation that you are considering. Find out what business areas
+        need the most work right now. Understand your department’s place in the organization—are you
+        more helpful to marketing and pre-sales efforts or to technical support? Does your audience
+        consist mostly of internal consultants, and if so, what are their biggest hurdles? How could
+        conversation-based or community-based content help them meet their goals?</p>
+      <p>Also consider that your manager has access to more information than you do and may
+        understand the current customer climate and community better than you do. Without the
+        necessary tools and information, you cannot easily build relationships, and relationship
+        building should probably start with your team’s and manager’s buy-in. </p>
+    </body>
+    <subsection
+      id="d5e806">
+      <title>What if your manager doesn’t see any value in social media for tech pubs?</title>
+      <body>
+        <p>If your <indexterm>management buy-in</indexterm>manager does not see any value in
+            implementing<indexterm>social media<indexterm>proving
+            effectiveness</indexterm></indexterm> social media, continue to try to show the value of
+          it with examples from other companies or other areas of your own company until you can
+          make a business case that speaks to your manager. If you strongly believe that a
+          conversational approach is the right direction for your documentation, try some
+            grassroots<indexterm>grassroots efforts</indexterm> efforts yourself until you can prove
+          its worth and value, either with a few great anecdotes or hard numbers that prove the
+          return on the time invested. Also realize that <i>ROI </i>can stand for <indexterm>risk of
+            inaction (ROI)</indexterm>Risk Of Inaction. If <i>not</i> starting a conversation is
+          more risky than starting one, that perception may sway your manager to try out a pilot
+          project and experiment with social bookmarking<indexterm>social bookmarking</indexterm>,
+            <indexterm>forums<indexterm>moderating</indexterm></indexterm>forum moderation,
+          screencasting, or other areas that make sense in your business environment.</p>
+        <p>Part of implementing your chosen solution for integrating conversation or community into
+          your user assistance is also recording lessons learned (what worked well, what did not
+          succeed) and analyzing what you might adjust. Be sure to present metrics for measuring the
+          success of your implementation. </p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e841">
+      <title>Time to allocate for these efforts</title>
+      <body>
+        <p>All questions about using <indexterm>social media<indexterm>time
+            commitment</indexterm></indexterm>social media technologies distill to the single
+          question, “How much time does all this take?” Beth Kanter has some ideas. She says that
+          each rung of the ladder involves more and more time. Expect to allocate 5 hours a week to
+          listen, 10 hours a week to participate, and 20 hours a week to provide a platform for
+          sharing content. For community <indexterm>communities<indexterm
+            >growing</indexterm></indexterm><indexterm>communities<indexterm>building</indexterm></indexterm>building,
+          expect the tasks to consume at least 25 hours of a team’s work week. You likely don’t need
+          to add the listening hours to the participating hours once you are building a community,
+          though if each of those tasks remains important and gives good return on the time spent,
+          then the time adds up to sixty hours a week. These time estimates may add up so that you
+          realize you need more than one person assigned to this type of effort. In short, these
+          tasks can easily become a full time job. The size and growth rate of the community will
+          also dictate the number of hours needed to address their needs. Compare the time needed to
+          welcome two or three people to an online community per day to welcoming over one hundred
+          new members each day. </p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e860">
+      <title>Measuring conversation effectiveness</title>
+      <body>
+        <p><indexterm>metrics<indexterm>social media
+            implementation</indexterm></indexterm><indexterm>metrics<indexterm>blogging
+              influence</indexterm></indexterm>Metrics and <indexterm>social media<indexterm>proving
+              effectiveness</indexterm></indexterm>social media mix like oil and water with
+          interesting lava-lamp-like configurations as a result. In a corporate environment, someone
+          has to pay the blogger’s bills or the podcaster’s bandwidth, and more importantly, decide
+          that the <indexterm>conversations<indexterm>cost of</indexterm></indexterm>cost of the
+          hours spent working on social media efforts is worth giving up other deliverables. So
+          effectiveness, return on investment<indexterm>return on investment (ROI)<indexterm
+              >measuring</indexterm></indexterm>, and metrics all come up continually.</p>
+        <p>When you are trying to <indexterm>blogs<indexterm>measuring effectiveness
+            of</indexterm></indexterm>measure effectiveness, be sure that you are using the right
+            <indexterm>metrics<indexterm>Reach and Influence</indexterm></indexterm>metric. For
+          example, instead of measuring the <indexterm>return on investment (ROI)<indexterm
+              >blogging</indexterm></indexterm>Return on Investment of <indexterm
+              >evaluation<indexterm>of blog effectiveness</indexterm></indexterm>blogging<indexterm
+              >blogging<indexterm>Reach and Influence</indexterm></indexterm>, try to gauge the
+            <indexterm>reach and influence (R and I)</indexterm>Reach and Influence (R and I) of
+          blogging. Influence rather than Investment offers measurable analytics to use when
+          investigating a blog’s contribution to the bottom line. If you are seeking an independent
+          blogger to sponsor or give ads to, you may use these measures. Also, when you analyze your
+          corporate blog site and measure effectiveness of corporate bloggers, use these same
+          principles. An article on the Marketing Sherpa site<fn>
+            <p> http://www.marketingsherpa.com/article.html?ident=30044</p>
+          </fn> provides the following factors to use when evaluating and measuring the <indexterm
+              >metrics<indexterm>conversation effectiveness</indexterm></indexterm>effectiveness of
+          a blogger’s <indexterm>blogs<indexterm>influence of</indexterm></indexterm>influence:</p>
+        <ul>
+          <li><indexterm>metrics<indexterm>traffic, blog</indexterm></indexterm>Traffic: Visitors
+            and page hits, but don’t trust it alone.</li>
+          <li><indexterm>metrics<indexterm>RSS feed
+              subscriptions</indexterm></indexterm>RSS<indexterm>RSS (Really Simple
+                Syndication)<indexterm>measuring reader loyalty</indexterm></indexterm> feed
+            subscriptions: Subscribers measure return visits and may indicate loyalty to the
+            blog.</li>
+          <li>Inbound links: <indexterm>metrics<indexterm>inbound links</indexterm></indexterm>How
+            often do other bloggers or other websites link to this blog?</li>
+          <li><indexterm>search<indexterm>measure of blog
+              effectiveness</indexterm></indexterm><indexterm>search<indexterm
+              >rankings</indexterm></indexterm><indexterm>metrics<indexterm>search
+                position</indexterm></indexterm>Search position, part one: Keywords for company
+            brand and keywords.</li>
+          <li>Search position, part two: Keywords for the blogger’s <indexterm>brands<indexterm>in
+                search, as a measure of blog influence</indexterm></indexterm>brand (fame
+            level).</li>
+          <li>Voice: <indexterm>metrics<indexterm>voice</indexterm></indexterm>Does the person
+              blogging<indexterm>blogging<indexterm>Reach and Influence</indexterm></indexterm>
+            represent the promise of an online experience that you can “hear” and appreciate?</li>
+        </ul>
+        <p>To these factors, I would add the number and frequency of <indexterm>comments<indexterm
+              >on blog posts</indexterm></indexterm><indexterm>comments<indexterm>on blog
+              posts</indexterm></indexterm><indexterm>blogs<indexterm>commenting
+            on</indexterm></indexterm>comments on posts. Plus, the variety of the commenters’ voices
+          can show the type of audience the blogger has gained. When you measure these factors,
+          rephrase the Return on Investment (ROI) question as an investment in Influence. In your
+          environment, how can you prove that Influence is worth investing in?</p>
+        <p>After you have determined that time and resources should be invested in order to increase
+          influence, how do you find the time for this “extra” work? Is it really extra? You can
+          shape your role by studying the desired outcome and the values you place on influence. You
+          may find a role as enabler or <indexterm>content<indexterm>curators
+            of</indexterm></indexterm>curator yields better results than a role of content
+          contributor.</p>
+        <p>If your measurements are proving the value, showing time or <indexterm>return on
+            investment (ROI)<indexterm>proving</indexterm></indexterm>costs savings should be
+          straightforward. Look for real sales or connections made as a result of a blog entry or a
+            <indexterm>wikis<indexterm>measuring effectiveness</indexterm></indexterm>wiki article
+          or a customer support forum post. For example, compare money spent on a marketing and
+          public relations campaign with the cost of a few hours of a technical writer’s time
+          writing a blog entry.</p>
+        <p>And how about the opposite question: if everyone else writes the content, which should
+          save writers <indexterm>social media<indexterm>time
+          commitment</indexterm></indexterm>time, what do they do with the time saved to continue to
+          add value? Edit like a magazine publisher? Become a curator of content? Or a <indexterm
+            >manager, community</indexterm><indexterm>community manager</indexterm><indexterm
+              >communities<indexterm>managing</indexterm></indexterm>community manager? <indexterm
+            >Bailie, Rahel</indexterm>Rahel Bailie, content strategist and founder of Intentional
+          Design, believes this is the new role for technical writers, saying “To be able to
+          leverage User Generated Content, an organization needs to have a community from which to
+          draw information and opinions, and those communities need <indexterm>moderation<indexterm
+              >community</indexterm></indexterm>moderators. Community management, a relatively new
+          career track, seems to be a logical next step for content developers.”<fn>
+            <p> http://www.enewsbuilder.net/techcommanager/e_article001389770.cfm?x=b11,0,w</p>
+          </fn></p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e1053">
+      <title>Measuring whether a documentation conversation works </title>
+      <body>
+        <p>This question, “But does documentation as conversation work?” stems from the <indexterm
+              >metrics<indexterm>social media implementation</indexterm></indexterm>measurability
+          equation. Those who are interested in website metrics and analytics often want some fancy
+          tool to take care of the measurements for them. But, in reality, it is extremely difficult
+          to know what measuring stick you can use on a blog entry, for example, or the value of a
+          well-stocked wiki. Measuring community involvement is often discussed in fuzzy vague terms
+          and not hard numbers. So, if you apply conversation or community methods to <indexterm
+            >technical documentation<indexterm>measuring effectiveness
+          of</indexterm></indexterm>documentation, how do you prove it is working? And how do you
+          prove the level to which it’s working and whether it outpaces conventional user assistance
+          methods? </p>
+        <p>Website analytical tools like <indexterm>metrics<indexterm>Google
+            Analytics</indexterm></indexterm><indexterm>Google<indexterm>Analytics</indexterm></indexterm>Google
+          Analytics help you count numbers of visitors, and the tools are getting more sophisticated
+          about measuring how long each visitor stays. Also, they are better able to track the path
+          that users take through a help system, which can help you measure their effectiveness.
+          Plus, Google’s <indexterm>help, online<indexterm>tracking
+            keywords</indexterm></indexterm><indexterm>help, online<indexterm
+            >finding</indexterm></indexterm><indexterm>Google<indexterm>keyword
+            tracking</indexterm></indexterm>keyword tracking is extremely helpful for indicating
+          which <indexterm>search<indexterm>keywords</indexterm></indexterm>keywords are most
+          searched for and may help you analyze which <indexterm>metrics<indexterm
+              >keywords</indexterm></indexterm>keywords are most efficient for letting a user figure
+          out the answer and move on. Time spent on a page may or may not be a good measurement for
+          effectiveness of a help system, but findability<indexterm>findability</indexterm> of your
+          help system is measurable. You can also ask your audience if their participation in
+          conversation or community has prevented them from leaving a company or abandoning a
+          product from a particular company. Often we don’t measure in the sense of preventing a
+          negative result.</p>
+        <p><indexterm>community equity</indexterm>Community equity is an emerging research area that
+          measures the value that an individual brings as a member of an online community. Peter
+          Reiser at Sun Microsystems has developed a method and algorithm for calculating a member’s
+          community equity based on information offerings and personal interactions with others. His
+          team also created widgets that help people see other members equity ratings and central
+          areas of expertise. By reading, rating, contributing, tagging, and editing, a person
+          increases their <indexterm>information equity</indexterm>information equity. Personal
+          equity is calculated based on connections, reputation, and collaborative efforts. The
+          values “age” and decrease to zero over time so there is a “freshness” to the values. Peter
+          Reiser’s project is now available as an <indexterm>open source<indexterm>community equity
+              project</indexterm></indexterm>open source project.<fn>
+            <p> http://kenai.com/projects/community-equity</p>
+          </fn> These individual visual measures of a community member’s contributions may help you
+          measure the overall value of a community.</p>
+        <p>In the SXSW Interactive panel presentation titled “Social Media Metrics: Where are
+            they?”<fn>
+            <p>
+              http://2008.sxsw.com/interactive/programming/panels_schedule/?action=show&amp;id=IAP060474</p>
+          </fn> the producer for talk.bmc.com community content<indexterm>community-generated
+              content<indexterm>developing</indexterm></indexterm>, Ynema <indexterm>Mangum,
+            Ynema</indexterm>Mangum, noted a <indexterm>metrics<indexterm>case
+            study</indexterm></indexterm><indexterm>help, online<indexterm
+            >measuring</indexterm></indexterm>measurement case study of a single blog entry written
+          by <indexterm>Hurley, William (whurley)</indexterm>William Hurley (known as Whurley)
+          titled “20 Reasons Why Microsoft Loves Open Source.” Whurley’s blog entry it was intended
+          to draw attention and managed to get on the front page of active online communities such
+          as Slashdot and Digg. It could cost $800,000 dollars to gain similar media coverage. That
+          is one method to measure conversations, though <indexterm>whurley (William
+            Hurley)</indexterm>Whurley’s use of conflict journalism and sensationalist shots at
+          competitors does not fit nicely into our usual methods of delivering quality information
+          in a timely manner. </p>
+        <p>So, how could you measure whether a technical publication-based conversation is working?
+          My first suggestion is to go to the usual metrics that technical publication uses to
+          provide value—for example, lowered support costs. Or, perhaps it is not Return on
+          Investment you need to measure but <indexterm>risk of inaction (ROI)</indexterm><indexterm
+              >metrics<indexterm>risk of inaction</indexterm></indexterm>Risk of Inaction. If your
+          competitors all use wikis or <indexterm>help, online<indexterm>conversation-based tools
+              in</indexterm></indexterm><indexterm>help, online<indexterm>comments
+            in</indexterm></indexterm>help systems with <indexterm>comments<indexterm>on blog
+              posts</indexterm></indexterm>comments and other conversation-based, community-based
+          user assistance tools, your team should evaluate their use for your deliverables as well.
+          Just as competing products need to keep up with each other’s features, I think that we
+          need to keep an eye on competitor’s conversations and determine if there’s a perceived
+          value your company should match.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e1174">
+      <title>Determining fit in the organization and community</title>
+      <prolog>
+        <metadata>
+          <keywords>
+            <indexterm>communities<indexterm>content contributed by</indexterm></indexterm>
+            <indexterm>content contributed by</indexterm>
+          </keywords>
+        </metadata>
+      </prolog>
+      <body>
+        <p>You should try to match your contribution with your role in your company. For example, if
+          you generally add value by decreasing customer support calls, then look to the support
+          communities for ideas. If you assist the services or field personnel in getting their jobs
+          done, find a way to tap into that community base. If your documentation is a sales-winning
+          essential part of the product, get yourself close to the sales and marketing department’s
+          conversations with customers. </p>
+        <p><indexterm>conversations<indexterm>joining</indexterm></indexterm>Matching up your
+          strengths and experience to the conversations helps you avoid stepping on toes or
+          stumbling into conversations where you do not have the tools, background, or correct
+          messaging to deal with the situation correctly. Other departments may be able to help if a
+          customer becomes angry or you witness an outburst between two community members. Clay
+            <indexterm>Shirky, Clay</indexterm>Shirky has an excellent essay titled “Group as User:
+          Flaming and the Design of Social Software” that describes cooling-off techniques, rating,
+          karma, and ways to harness the “performance” effect for good purposes instead of only
+          negative distractions. But brand protection, public relations, and crisis communications
+          are likely better left to a professional trained in those areas, and you should find
+          someone at your company who can help in those areas. You should also be ready to escalate
+          the information to the right group when you observe a conversation that another
+          organization within your company should handle.</p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e1192">
+      <title>Grassroots efforts</title>
+      <body>
+        <p>Grassroots efforts are defined by an unofficial group starting a project without
+          authority or hierarchy but with organic growth and natural networking tendencies. When a
+          few friends or coworkers who share a common vision or goal start on an effort that grows
+          beyond their expectations, that would be a grassroots<indexterm>grassroots
+            efforts</indexterm> effort. </p>
+        <p>Another term that is used rather than grassroots<indexterm>grassroots efforts</indexterm>
+          is <indexterm>groundswell</indexterm>groundswell, from the book by the same name. In this
+          context, a groundswell is “a social trend in which people use technologies to get the
+          things they need from each other rather than from traditional institutions like
+          corporations.” It is also described more simply as a change in public opinion that is
+          broad and far-reaching. Writers can build a groundswell because they know the product
+          well, can help people make connections with each other with social technologies, and can
+          write well enough to convince others of the basic value of the product. Writers may also
+          already know community members who might be willing to help with a few tasks, or at least
+          be willing to review write-ups. With a publishing platform like a blog or a wiki, writers
+          enable conversations to take place that may not have had a place to occur.</p>
+        <p>Writers at a mobile phone designer and manufacturer who wanted to experiment with a wiki
+          decided to go through the correct channels for a legal disclaimer by simply requesting
+          revisions to the legal verbiage in their existing online help disclaimer. They were
+          pleasantly surprised when their legal department was helpful and encouraged their
+          experiment. Then the writers created a <indexterm>MediaWiki<indexterm>at mobile phone
+              manufacturer</indexterm></indexterm>MediaWiki installation, pre-seeded it with content
+          from their user guide, and waited to see if users would find it and edit it. </p>
+        <p>Interestingly, a few years after this experimental wiki, it turns out, another wiki built
+          by end-users of the cell phone they intended to document and build a community around,
+          became “the” source for information and user-to-user communication about the phone and
+          tips and tricks. In that case, while the company wiki was helpful, the external community
+          wiki was more visited and edited. I think their experiment showed their relative naivete
+          about the power of community building rather than web page building.</p>
+        <p>Another term related to grassroots is astroturf, which is a group that wants to be known
+          as grassroots but is conceived, created, and sometimes funded by a corporation or lobby.
+          Full disclosure of the backing behind your efforts is the best course of action to avoid
+          distrust or suspicion later when someone reveals the origin of the group and the
+          underlying motivations. </p>
+      </body>
+    </subsection>
+    <subsection
+      id="d5e1218">
+      <title>Recruiting others by proving the value</title>
+      <body>
+        <p>Once you have a few success stories to tell, share them with anyone who shows an
+          interest. This <indexterm>storytelling</indexterm>storytelling is at the heart of a
+          grassroots movement. These blog entries and interviews with wiki maintainers are examples
+          of storytelling that you can do within your organization.</p>
+        <p>At the “Social Media Metrics, Where are they?” panel discussion at SXSW Interactive in
+          March 2008, Ynema Mangum presented a chart showing the CXO “X-factor” for influential
+            <indexterm>metrics<indexterm>influential for business</indexterm></indexterm>metrics for
+          each area of a large business, where the X might be replaced by Operations (COO),
+          Technology (CTO), Finance (CFO), and so forth. The X-factor is their business area of
+          expertise and indicates their role in the company.</p>
+        <p>Once you have determined what you’d like to achieve, consider the direction of the
+          conversation and how many participants it will have. Sarah <indexterm>O’Keefe,
+            Sarah</indexterm>O’Keefe at Scriptorium Publishing has an excellent white paper titled
+          “Friend or Foe? Web 2.0 in Technical Communication”<fn>
+            <p> http://www.scriptorium.com/whitepapers/web2/</p>
+          </fn> that describes the one-to-one, one-to-many, many-to-many, and many-to-one
+          directional communication occurring today.</p>
+        <p>If you want to encourage generated content, start slowly. You might seek business
+          objectives at different levels, depending on your goals and the business areas you aim to
+          influence.</p>
+      </body>
+    </subsection>
+  </subsection>
+</chapter>

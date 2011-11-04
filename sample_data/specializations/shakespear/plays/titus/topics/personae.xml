@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE personae
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:personae" "personae.dtd">
+<personae id="personae">
+   <title>Dramatis Personae</title>
+   <personae-body>
+      <persona>SATURNINUS, son to the late Emperor of Rome, and afterwards declared Emperor.</persona>
+      <persona>BASSIANUS, brother to Saturninus; in love with Lavinia.</persona>
+      <persona>TITUS ANDRONICUS, a noble Roman, general against the Goths.</persona>
+      <persona>MARCUS ANDRONICUS, tribune of the people, and brother to Titus.</persona>
+      <pgroup>
+         <persona>LUCIUS</persona>
+         <persona>QUINTUS</persona>
+         <persona>MARTIUS</persona>
+         <persona>MUTIUS</persona>
+         <grpdescr>sons to Titus Andronicus.</grpdescr>
+      </pgroup>
+      <persona>Young LUCIUS, a boy, son to Lucius.</persona>
+      <persona>PUBLIUS, son to Marcus the Tribune.</persona>
+      <pgroup>
+         <persona>SEMPRONIUS</persona>
+         <persona>CAIUS</persona>
+         <persona>VALENTINE</persona>
+         <grpdescr>kinsmen to Titus.</grpdescr>
+      </pgroup>
+      <persona>AEMILIUS, a noble Roman.</persona>
+      <pgroup>
+         <persona>ALARBUS</persona>
+         <persona>DEMETRIUS</persona>
+         <persona>CHIRON</persona>
+         <grpdescr>sons to Tamora.</grpdescr>
+      </pgroup>
+      <persona>AARON, a Moor, beloved by Tamora.</persona>
+      <persona>A Captain, Tribune, Messenger, and Clown; Romans.</persona>
+      <persona>Goths and Romans.</persona>
+      <persona>TAMORA, Queen of the Goths.</persona>
+      <persona>LAVINIA, daughter of Titus Andronicus.</persona>
+      <persona>A Nurse. </persona>
+      <persona>Senators, Tribunes, Officers, Soldiers, anAttendants.</persona>
+   </personae-body>
+</personae>

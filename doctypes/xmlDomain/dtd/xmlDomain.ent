@@ -1,0 +1,32 @@
+<!-- =============================================================
+
+     XML construct domain
+     
+     Provides phrase-level elements for identifying mentions of
+     XML constructs: element types, attributes, etc.
+     
+     Copyright (c) 2009 DITA For Publishers
+     
+     This domain module may be used by anyone without restriction.
+     
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    XML DOMAIN ENTITIES                        -->
+<!-- ============================================================= -->
+
+<!ENTITY % xml-d-keyword
+  "xmlelem | 
+   xmlatt | 
+   textent | 
+   parment |
+   numcharref
+  "                 
+  >
+
+<!ENTITY   xml-d-att     "(topic xml-d)"
+>
+
+
+<!-- ================== End XML Domain Entities ============ -->

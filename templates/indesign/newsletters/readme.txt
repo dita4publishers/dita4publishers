@@ -1,0 +1,1 @@
+Templates for newsletters and similar publications.

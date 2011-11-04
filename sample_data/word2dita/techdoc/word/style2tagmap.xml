@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style2tagmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="urn:public::dita4publishers.org:namespaces:word2dita:style2tagmap style2tagmap.xsd"
+  xmlns="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap"
+  
+  >
+  <title>Default Word Styles to BookMap Style-to-Tag Map</title>
+  <documentation xmlns:html="http://www.w3.org/1999/xhtml">
+    <html:div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Defines a usable mapping from the built-in MS Word styles to
+      DITA markup. Generates a bookmap and topics from a single input document.</p>
+      <p>The First non-skipped paragraph in the document should styled as
+      "Title", which it mapped to &lt;title&gt; within &lt;bookmap&gt; and triggers
+      the generation of the root output map.</p>
+    </html:div>
+  </documentation>
+  <styles>
+    <output
+      name="map"
+      doctype-system="map.dtd"
+      doctype-public="-//OASIS//DTD DITA Map//EN"
+    />
+    <output
+      name="bookmap"
+      doctype-system="bookmap.dtd"
+      doctype-public="-//OASIS//DTD DITA BookMap//EN"
+    />
+    
+    <output
+      name="concept"
+      doctype-system="concept.dtd"
+      doctype-public="-//OASIS//DTD DITA Concept//EN"
+    />
+    
+    <output
+      name="task"
+      doctype-system="task.dtd"
+      doctype-public="-//OASIS//DTD DITA Task//EN"
+    />
+    
+    <output
+      name="reference"
+      doctype-system="reference.dtd"
+      doctype-public="-//OASIS//DTD DITA Reference//EN"
+    />
+
+    <style styleId="Title"
+      level="0"
+      format="bookmap"
+      mapType="bookmap"
+      prologType="topicmeta"
+      structureType="mapTitle"
+      tagName="title"
+    />
+    
+
+    <style styleId="Heading1"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="concept"
+      bodyType="conbody"
+      format="concept"
+      topicrefType="chapter"
+      tagName="title"
+      level="1"
+    />    
+    
+    <style styleId="TaskTopic1"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="task"
+      bodyType="taskbody"
+      format="task"
+      topicrefType="chapter"
+      tagName="title"
+      level="1"
+    />    
+    
+    <style styleId="AppendixHeading1"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="concept"
+      bodyType="conbody"
+      format="concept"
+      topicrefType="appendix"
+      tagName="title"
+      level="1"
+    />    
+    
+    
+    
+    <style styleId="Heading2"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="concept"
+      bodyType="conbody"
+      format="concept"
+      topicrefType="topicref"
+      tagName="title"
+      level="2"
+    />    
+    
+    <style styleId="TaskTopic2"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="task"
+      bodyType="taskbody"
+      format="task"
+      topicrefType="topicref"
+      tagName="title"
+      level="2"
+    />    
+    
+    
+      <style styleId="Heading3"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="concept"
+      bodyType="conbody"
+      format="concept"
+      topicrefType="topicref"
+      tagName="title"
+      level="3"
+    />    
+    
+    <style styleId="TaskTopic3"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="task"
+      bodyType="taskbody"
+      format="task"
+      topicrefType="topicref"
+      tagName="title"
+      level="3"
+    />    
+    
+    <style styleId="TaskTopic4"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="task"
+      bodyType="taskbody"
+      format="task"
+      topicrefType="topicref"
+      tagName="title"
+      level="4"
+    />    
+    
+    <style styleId="Heading4"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="concept"
+      bodyType="conbody"
+      format="concept"
+      topicrefType="topicref"
+      tagName="title"
+      level="4"
+    />    
+    
+    <style styleId="Contents"
+      structureType="skip"
+    />
+    
+    <style
+      styleId="Normal"
+      tagName="p"
+      topicZone="body"
+      level="1"
+    />
+    
+    <style
+      styleId="HeaderTable"
+      tagName="p"
+      topicZone="body"
+      level="1"
+    />
+    
+    <style
+      styleId="BodyTextTable"
+      tagName="p"
+      topicZone="body"
+      level="1"
+    />
+    
+    <style styleId="List1"
+       tagName="cmd"
+       containerType="steps"
+       dlEntryType="step"
+       structureType="dt"
+       topicZone="body"
+       level="1"
+    />
+   
+    <style styleId="List2"
+       tagName="cmd"
+       containerType="substeps"
+       dlEntryType="substep"
+       structureType="dt"
+       topicZone="body"
+       level="2"
+    />
+    
+    <style styleId="Bullet2Step"
+      containerType="info"
+      dlEntryType="ul"
+      tagName="li"
+      structureType="dt"
+      topicZone="body"
+      level="2"
+    />  
+    <style styleId="Bullet3Step"
+      containerType="info"
+      dlEntryType="ul"
+      tagName="li"
+      structureType="dt"
+      topicZone="body"
+      level="3"
+    />  
+    <style styleId="RemoveScreenCapIndent2"
+      structureType="skip"
+    />  
+    <style styleId="RemoveScreenCapIndent"
+      structureType="skip"
+    />  
+    <style styleId="RemoveScreenCap"
+        tagName="p"
+        containerType="info"
+        level="2"
+        topicZone="body"
+        structureType="skip"
+    />
+    
+    <style
+      styleId="DefaultParagraphFont"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    
+    <style
+      styleId="CoverPageName"
+      tagName="p"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleId="CoverPageNameChar"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    
+    <style
+      styleId="Heading1Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleId="TitleChar"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    
+    <style
+      styleId="Heading2Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    
+    <style
+      styleId="TOC1"      
+      structureType="skip"/>
+    <style
+      styleId="TOC2"
+      structureType="skip"/>
+    <style
+      styleId="TOC3"
+      structureType="skip"/>
+    <style
+      styleId="TOC4"
+      structureType="skip"/>
+    <style
+      styleId="TOC5"
+      structureType="skip"/>
+    <style
+      styleId="TOC6"
+      structureType="skip"/>
+    <style
+      styleId="TOC7"
+      structureType="skip"/>
+    <style
+      styleId="TOC8"
+      structureType="skip"/>
+    <style
+      styleId="TOC9"
+      structureType="skip"/>
+    
+    <style
+      styleId="Heading3Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleId="Heading4Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    
+    <style
+      styleId="Tablebullet1"
+      containerType="ul"
+      tagName="li"
+      level="1"
+      topicZone="body"/>
+    
+    <style
+      styleId="Bullet1"
+      containerType="ul"
+      tagName="li"
+      level="1"
+      topicZone="body"/>
+
+    <style
+      styleId="Bullet2"
+      containerType="ul"
+      tagName="li"
+      level="2"
+      topicZone="body"/>
+    
+    <style
+      styleId="Bullet3"
+      containerType="ul"
+      tagName="li"
+      level="3"
+      topicZone="body"/>
+    
+    <style
+      styleId="BodyIndent"
+      containerType="li"
+      tagName="p"
+      level="2"
+      topicZone="body"/>
+    
+    <style
+      styleId="ListBullet"
+      containerType="ul"
+      tagName="li"
+      level="1"
+      topicZone="body"/>
+    
+    <style styleId="cite"
+        tagName="cite"
+    />
+    
+    <style styleId="Note"
+      tagName="note"
+      topicZone="body"
+      level="1"
+    />
+    
+    <style styleId="BodyTextIndent" 
+      containerType="li" 
+      idGenerator="default" 
+      level="2" 
+      tagName="p" 
+      topicZone="body"/>
+    <style styleId="BodyTextContext" 
+      containerType="context" 
+      idGenerator="default" 
+      level="1" 
+      tagName="p" 
+      topicZone="body"
+    />
+    <style styleId="Procedure" 
+      containerType="context" 
+      idGenerator="default" 
+      level="1" 
+      tagName="p" 
+      topicZone="body"
+      outputclass="procedure"
+    />
+    <style styleId="Bullet1Context" 
+      containerType="context" 
+      level="1" 
+      tagName="li"
+      dlEntryType="ul"
+      structureType="dt"      
+      topicZone="body"
+    />
+    
+    <style styleId="TaskResultBullet" 
+      containerType="result" 
+      idGenerator="default"
+      dlEntryType="ul"      
+      level="1" 
+      tagName="li" 
+      topicZone="body"
+      structureType="dt"
+      outputclass="procedure"
+    />
+    
+    <style
+      styleId="BodyTextIndentChar"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleId="ListBullet2"
+      containerType="ul"
+      tagName="li"
+      level="2"
+      topicZone="body"/>
+    <style
+      styleId="BlockText"
+      tagName="longquote"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleId="BodyText"
+      tagName="p"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleId="BodyTextChar"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleId="ListNumber"
+      containerType="ol"
+      tagName="li"
+      level="1"
+      structureType="block"
+      topicZone="body"/>
+    <style
+      styleId="ListNumber2"
+      containerType="ol"
+      tagName="li"
+      level="2"
+      structureType="block"
+      topicZone="body"/>
+    
+    
+<style
+  styleId="DefTerm"
+  structureType="dt"
+  tagName="dt"
+  dlEntryType="dlentry"
+  containerType="dl"
+  topicZone="body"
+/>
+<style
+  styleId="DefDesc"
+  structureType="dd"
+  tagName="dd"
+  dlEntryType="dlentry"
+  containerType="dl"
+  topicZone="body"
+/>
+    
+<style 
+  styleId="MySectionTitle"
+  structureType="section" 
+  tagName="title"
+  sectionType="section"
+  topicZone="body"
+  useAsTitle="yes"  
+/>
+    
+<style 
+  styleId="LessonTitle"
+  structureType="topicTitle"
+  initialSectionType="lcIntro"
+  topicType="learningContent"
+  bodyType="learningContentbody"
+  level="1"
+/>    
+    
+<style styleId="section"
+  structureType="section"
+  tagName="p"
+  topicZone="body"
+  spectitle="#toColon"
+  
+/>
+    
+    
+  </styles>
+</style2tagmap>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/task.dtd">
+<task
+  id="taskId">
+  <title>Setting Up Eclipse to Run Toolkit Ant Tasks</title>
+  <taskbody>
+    <context>
+      <p>The DITA For Publisher materials are optimized for development using the <xref
+          href="http://www.eclipse.org"
+          format="html"
+          scope="external">Eclipse</xref> development environment. In order to run DITA Open Toolkit
+        against DITA For Publishers materials from Eclipse, you must modify Eclipse's Ant
+        configuration to include the Toolkit-specific JAR files. The DITA For Publishers <filepath
+          >build.xml</filepath> file includes a property that points to your local Toolkit
+        installation. You need to also set that property to reflect your local installation. These
+        instructions assume that you already have Eclipse installed and running. The DITA For
+        Publishers source code includes an Eclipse <filepath>.project</filepath> file.</p>
+    </context>
+    <steps>
+      <step>
+        <cmd>Open the Eclipse Preferences dialog.</cmd>
+      </step>
+      <step>
+        <cmd>Navigate to Ant/Runtime and select the "Classpath" tab.</cmd>
+      </step>
+      <step>
+        <cmd>Select the "Global Entries" item in the Classpath pane and then select "Add External
+          JARs...".</cmd>
+      </step>
+      <step>
+        <cmd>Navigate to your Toolkit's <filepath>lib/</filepath> directory and select all the
+            <filepath>.jar</filepath> files.</cmd>
+      </step>
+      <step>
+        <cmd>If you have a Toolkit that includes Saxon (which you should), repeat Step 4 and select
+          all the jars in <filepath>lib/saxon</filepath>.</cmd>
+      </step>
+    </steps>
+    <result>
+      <p>You should now be able to run the project's Toolkit-using targets, e.g. "epub-wizard-of-oz"
+        from within Eclipse.</p>
+    </result>
+  </taskbody>
+</task>

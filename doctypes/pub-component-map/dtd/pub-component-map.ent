@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= 
+
+     DITA For Publishers
+     
+     Publication Component Map
+     
+     Copyright (c) 2010 DITA For Publishers
+
+     ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+<!--                    TYPICAL INVOCATION                         -->
+<!--                                                               -->
+<!--  Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pub-component-map"
+      Delivered as file "pub-component-map.ent"                               -->
+
+
+<!-- ============================================================= -->
+<!--                    Pub Component Map ENTITIES                 -->
+<!-- ============================================================= -->
+
+<!ENTITY pub-component-map-att     
+  "(map pub-component-map)"
+>
+
+
+<!-- ================== End Publication Component Map Entities ===================== -->

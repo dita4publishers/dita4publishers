@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic
+  id="topic-id">
+  <title>Common Topic</title>
+  <shortdesc>Outside the tree for the input map</shortdesc>
+  <body>
+    <p>This topic is in the common/topics directory, which puts it outside the direct folder structure of any other map in the sample_data set.</p>
+  </body>
+</topic>

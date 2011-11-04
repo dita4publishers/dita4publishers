@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE personae
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:personae" "personae.dtd">
+<personae id="personae">
+   <title>Dramatis Personae</title>
+   <personae-body>
+      <persona>CLAUDIUS, king of Denmark. </persona>
+      <persona>HAMLET, son to the late, and nephew to the present king.</persona>
+      <persona>POLONIUS, lord chamberlain. </persona>
+      <persona>HORATIO, friend to Hamlet.</persona>
+      <persona>LAERTES, son to Polonius.</persona>
+      <persona>LUCIANUS, nephew to the king.</persona>
+      <pgroup>
+         <persona>VOLTIMAND</persona>
+         <persona>CORNELIUS</persona>
+         <persona>ROSENCRANTZ</persona>
+         <persona>GUILDENSTERN</persona>
+         <persona>OSRIC</persona>
+         <grpdescr>courtiers.</grpdescr>
+      </pgroup>
+      <persona>A Gentleman</persona>
+      <persona>A Priest. </persona>
+      <pgroup>
+         <persona>MARCELLUS</persona>
+         <persona>BERNARDO</persona>
+         <grpdescr>officers.</grpdescr>
+      </pgroup>
+      <persona>FRANCISCO, a soldier.</persona>
+      <persona>REYNALDO, servant to Polonius.</persona>
+      <persona>Players.</persona>
+      <persona>Two Clowns, grave-diggers.</persona>
+      <persona>FORTINBRAS, prince of Norway. </persona>
+      <persona>A Captain.</persona>
+      <persona>English Ambassadors. </persona>
+      <persona>GERTRUDE, queen of Denmark, and mother to Hamlet. </persona>
+      <persona>OPHELIA, daughter to Polonius.</persona>
+      <persona>Lords, Ladies, Officers, Soldiers, Sailors, Messengers, and other Attendants.</persona>
+      <persona>Ghost of Hamlet's Father. </persona>
+   </personae-body>
+</personae>

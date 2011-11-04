@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:act"
+    uri="act.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:act.dtd"
+          uri="act.dtd"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:act"
+    uri="act.mod"
+  />
+  <system systemId="urn:pubid:modules:shakespear:act.mod"
+    uri="act.mod"
+  />
+  
+</catalog>  

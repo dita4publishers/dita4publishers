@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="topic-01">
+  <title>Topic 01</title>
+  <body>
+    <p>This is Topic 01.</p>
+    <p>This map tests the processing of relationship tables in combination of systems of maps and
+      submaps.</p>
+    <p>Topic 01 and Topic 02 are included by the top-level map. Topics 03 and 04 are included by
+      submap-01 and submap-02 respectively. Topic 03 is related to Topic 01 and Topic 04 by a
+      reltable in the top-level map. Topics and 01 and 02 are related by a reltable in submap-01.</p>
+    <note>You should never use a relatable in one map to relate topics that are not known to that
+      map or to maps subordinate to it, not because it's a processing problem, but because there is
+      presumption that maps and submaps represent a hierarchy of dependencies such that subordinate
+      maps should not have dependencies on maps or topics that are not subordinate to them.</note>
+  </body>
+</topic>

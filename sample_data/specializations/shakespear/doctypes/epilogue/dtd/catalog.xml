@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:epilogue"
+    uri="epilogue.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:epilogue.dtd"
+          uri="epilogue.dtd"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:epilogue"
+    uri="epilogue.mod"
+  />
+  <system systemId="urn:pubid:modules:shakespear:epilogue.mod"
+    uri="epilogue.mod"
+  />
+  
+</catalog>  

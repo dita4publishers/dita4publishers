@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:entities:dtd:dita:d4p_enumerationTopicDomain:entities"
+    uri="d4p_enumerationTopicDomain.ent"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pubmap:dita:d4p_enumerationTopicDomain.ent"
+    uri="d4p_enumerationTopicDomain.ent"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:modules:dita:modules:d4p_enumerationTopicDomain"
+    uri="d4p_enumerationTopicDomain.mod"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmap:dita:d4p_enumerationTopicDomain.mod"
+    uri="d4p_enumerationTopicDomain.mod"
+  />
+  
+</catalog>

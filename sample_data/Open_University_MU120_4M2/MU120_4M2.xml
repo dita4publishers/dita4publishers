@@ -1,0 +1,1801 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="../Open_University_S357_1/ou-xml.css" title="OU Authoring" alternate="no"?>
+<Item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" SchemaVersion="1.2" TextType="CompleteItem" xsi:noNamespaceSchemaLocation="OUGeneric_v1.2.xsd">
+<CourseCode>MU120</CourseCode>
+<CourseTitle>Open mathematics</CourseTitle>
+<ItemID/><ItemTitle/>
+		<FrontMatter>
+		<Imprint>
+			<Standard>
+				<GeneralInfo>
+					<Paragraph>For information on Open University courses and study packs write to </Paragraph>
+				</GeneralInfo>
+				<Address>
+					<AddressLine>The Open University, Walton Hall, Milton Keynes, MK7 6AA</AddressLine>
+				</Address>
+				<FirstPublished><Paragraph/></FirstPublished>
+<Copyright><Paragraph>Original Copyright © 2003 The Open University. Now made available within the Creative Commons framework under the CC Attribution – Non-commercial licence (see http://creativecommons.org/by-nc-sa/2.0/uk/).</Paragraph></Copyright>
+				<Rights>
+					<Paragraph/>
+				</Rights>
+				<Edited><Paragraph>Designed and edited by The Open University</Paragraph></Edited>
+				<Typeset><Paragraph>The Open University</Paragraph></Typeset>
+				<Printed><Paragraph/></Printed>
+				<ISBN/>
+				<Edition/>
+			</Standard>
+		</Imprint>
+<Preface>
+		<Figure id="FIG_FRONT">
+			<Image src="MU120_4M2_front.jpg"/>
+				<Description/>
+		</Figure>
+			<Heading/>
+	</Preface>
+	<Introduction>
+			<Title>Introduction</Title>
+				<Paragraph>For many  calculations you use a calculator. The main aim of this unit is to help you to do this in a sensible and fruitful way. Using a calculation to solve a problem involves four main stages:</Paragraph>
+				<UnNumberedList>
+<ListItem><Paragraph>Stage 1: working out what calculation you want to do;</Paragraph></ListItem>
+<ListItem><Paragraph>Stage 2: working out roughly what size of answer to expect from your calculation;</Paragraph></ListItem>
+<ListItem><Paragraph>Stage 3: carrying out the calculation;</Paragraph></ListItem>
+<ListItem><Paragraph>Stage 4: interpreting the answer – Does it agree with the rough estimate? Does it make sense in terms of the original problem?</Paragraph></ListItem>
+</UnNumberedList>
+<Paragraph>This unit focuses on Stages 2 and 4<!--, in preparation for using your calculator-->.</Paragraph>
+		</Introduction>
+		<LearningOutcomes>
+			<Paragraph>By the end of this unit you should be able to:</Paragraph>
+			<LearningOutcome>round a given whole number to the nearest 10, 100, 1000 and so on;</LearningOutcome>
+			<LearningOutcome>round a decimal number to a given number of decimal places or significant figures;</LearningOutcome>
+			<LearningOutcome>use rounded numbers to find rough estimates for calculations;</LearningOutcome>
+			<LearningOutcome>use the course calculator for decimal calculations involving +, −, × and ÷, giving your answer to a specified accuracy (e.g. decimal places or significant figures) and checking your answer by finding a rough estimate;</LearningOutcome>
+			<LearningOutcome>check your answers to calculations by ensuring that the correct calculation has been done, in the correct order;</LearningOutcome>
+			<LearningOutcome>check your answers by checking that the units are consistent;</LearningOutcome>
+			<LearningOutcome>check your answers by checking the result against a rough estimate;</LearningOutcome>
+			<LearningOutcome>check your answers by checking that the answer makes sense in the context of the problem.</LearningOutcome>
+		</LearningOutcomes>
+	</FrontMatter>
+<Unit>
+<UnitID>MU120_4M2</UnitID>
+<UnitTitle>Rounding and estimation</UnitTitle>
+<Session id="SES001">
+<Title>Rounding and estimation</Title>
+<Section id="SEC001">
+<Title>1 Rounding</Title>
+<SubSection id="SEC001_001">
+	<Title>1.1 Rounding in daily life</Title>
+<Paragraph>The English mathematician Charles Babbage, father of modern computing, once wrote to Tennyson regarding one of his poems:</Paragraph>
+<Paragraph>‘In your otherwise beautiful poem,’ Babbage wrote, ‘one verse reads,</Paragraph>
+<Verse>
+	<Paragraph>Every moment dies a man,</Paragraph>
+	<Paragraph>Every moment one is born.</Paragraph>
+</Verse>
+<Paragraph>‘If this were true, the population of the world would be at a standstill. In truth, the rate of birth is slightly in excess of that of death. I would suggest:</Paragraph>
+<Verse>
+	<Paragraph>Every moment dies a man,</Paragraph>
+	<Paragraph>Every moment 1 <InlineEquation shiftby="-4"><Image src="MU120_4M2_001ie.gif"/><Description/></InlineEquation><!--!nsert equation 1 1/16--> is born</Paragraph>
+</Verse>
+<Paragraph>‘Strictly speaking,’ Babbage added, ‘the actual figure is so long I cannot get it into a line, but I believe the figure 1 <InlineEquation shiftby="-4"><Image src="MU120_4M2_001ie.gif"/><Description/></InlineEquation><!--!nsert equation 1 1/16--> will be sufficiently accurate for poetry.’</Paragraph>
+<Paragraph>Newspapers, magazines and television often provide numerical information such as that below.</Paragraph>
+<Figure id="FIGI044"><Image id="FIGI044" src="MU120_A_I044i.jpg"/><Description/></Figure>
+<Paragraph>How do you interpret the figures in the headlines above?</Paragraph>
+<Paragraph>It is unlikely that the monthly balance of payments deficit, for example, would be exactly £25 000 000. (Remember 25,000,000 means the same as 25 000 000.) It's more likely to be a number fairly close to £25 000 00: a number like £24 695 481 or £25 332 206. From the reader's point of view, £25 000 000 gives an idea of the size of the deficit; it's a <i>good approximation</i>. Large numbers in particular are often approximated in this way. This process is called <b>rounding</b>.</Paragraph>
+<Paragraph>When you use your calculator, you will need to interpret the results. Part of this interpretation is rounding the answer appropriately.</Paragraph>
+
+</SubSection>
+
+<SubSection id="SEC001_002">
+<Title>1.2 Rounding whole numbers</Title>
+<Figure id="FIGI045"><Image id="FIGI045" src="MU120_A_I045i.jpg"/><Description/></Figure>
+<SubSubSection id="SEC001_002_001">
+<Heading>Rounding to the nearest hundred</Heading>
+<Paragraph>You will probably think to yourself that the coat shown costs about £300. £290 is considerably closer to £300 than it is to £200, so £300 is a reasonable approximation. In this case, 290 has been rounded up to 300. Similarly, 208 would be rounded down to 200 because it is closer to 200 than it is to 300. Both numbers have been <i>rounded to the nearest hundred pounds</i>.</Paragraph>
+<Paragraph>When <i>rounding to the nearest hundred</i>, anything below fifty rounds down. So 248 rounds to 200. Anything over fifty rounds up. So 253 rounds to 300. Technically there is a problem with fifty itself as it is equidistant from the hundred above and the hundred below. Usually fifty is rounded up, so that a simple rule can be applied:</Paragraph>
+
+<Paragraph>When <i>rounding to the nearest hundred</i> look at the tens digit:</Paragraph>
+<BulletedList>
+<ListItem><Paragraph>if the tens digit is 0, 1, 2, 3, 4 round down;</Paragraph></ListItem>
+<ListItem><Paragraph>if the tens digit is 5, 6, 7, 8, 9 round up.</Paragraph></ListItem>
+</BulletedList>
+<Paragraph>So £284 rounds up (to £300) and £233 rounds down (to £200).</Paragraph>
+</SubSubSection>
+<SubSubSection id="SEC001_002_002">
+<Heading>Rounding to the nearest ten</Heading>
+<Paragraph>The blouse in the figure above was £19 and you may well have thought of it as roughly £20. In this case you would be <i>rounding to the nearest ten</i> (pounds).</Paragraph>
+<Paragraph>The rule for rounding to the nearest hundred can be adapted easily to rounding to the nearest ten. Instead of looking at the tens digit look at the units digit.</Paragraph>
+<Paragraph>So £23 is rounded down (to £20) and £36 is rounded up (to £40).</Paragraph>
+<Example id="EXA001">
+<Heading>Example 1</Heading>
+<Paragraph>The distance from London to Newcastle is 282 miles. Round this distance to the nearest 10 miles and the nearest hundred miles.</Paragraph>
+<Answer><SubHeading>Solution</SubHeading>
+<Paragraph>To round to the nearest 10, look at the units digit. This is a 2, so round down to 280 miles.</Paragraph>
+<Paragraph>To round to the nearest 100, look at the tens digit. This is 8, so round up to 300 miles.</Paragraph>
+<Paragraph>Therefore the distance from London to Newcastle is 280 miles, to the nearest ten miles, and 300 miles, to the nearest hundred miles.</Paragraph>
+</Answer></Example>
+</SubSubSection>
+</SubSection>
+
+<SubSection id="SEC001_003">
+	<Title>1.3 Rounding in general</Title>
+<Paragraph>Numbers are often approximated to make them easier to handle, but sometimes it doesn’t help very much to round to the nearest 10 or the nearest 100 if the number is very large. For example, suppose the monthly balance of payments deficit was actually £24 695 481. Rounded to the nearest 10, it's £24 695 480; and to the nearest 100, it's £24 695 500. But £24 695 500 is still a complicated number to deal with in your head. That's why it was rounded to £25 000 000 in the newspaper headline. In fact numbers can be rounded to any level of accuracy – to the nearest 1000, or the nearest 10 000 or even to the nearest million (as in the newspaper headline).</Paragraph>
+<Figure id="FIGI046"><Image id="FIGI046" src="MU120_A_I046i.jpg"/><Description>Text</Description></Figure>
+<Paragraph>The rule for rounding can be generalised as follows.</Paragraph>
+<Box id="BOX001_001">
+<Heading>Rounding to the nearest….</Heading>
+<Paragraph>Look at the digit to the right of the one you are rounding to:</Paragraph>
+<BulletedList>
+<ListItem><Paragraph>if the digit is 0, 1, 2, 3, 4 round down;</Paragraph></ListItem>
+<ListItem><Paragraph>if the digit is 5, 6, 7, 8, 9 round up.</Paragraph></ListItem>
+</BulletedList></Box>
+<Paragraph>Notice that this general rule agrees with rounding to the nearest hundred (the digit to the right of the hundreds digit is the tens digit) and rounding to the nearest ten (the digit to the right of the tens digit is the units digit).</Paragraph>
+<Paragraph>Thus, £24 695 481 rounded to the nearest 1000 is £24 695 000 and rounded to the nearest million, or 1000 000 is £25 000 000.</Paragraph>
+<SubSubSection id="SEC001_003_001">
+<Heading>Try some yourself</Heading>
+<Activity id="ACT001">
+	<Question>
+		<Paragraph><b>1</b> Round the numbers below:</Paragraph>
+		<UnNumberedList>
+			<ListItem><Paragraph><b>(a)</b> to the nearest 10.</Paragraph></ListItem>
+			<ListItem><Paragraph><b>(b)</b> to the nearest 100.</Paragraph></ListItem>
+			<ListItem><Paragraph><b>(c)</b> to the nearest 1000.</Paragraph></ListItem>
+		</UnNumberedList>
+		<Paragraph>  325 089,  45 982,  11 985</Paragraph>
+	</Question>
+	<Answer>
+		<UnNumberedList>
+			<ListItem><Paragraph><b>(a)</b>   325 090,  45 980,  11 990</Paragraph></ListItem>
+			<ListItem><Paragraph><b>(b)</b>   325 100,  46 000,  12 000</Paragraph></ListItem>
+			<ListItem><Paragraph><b>(c) </b>  325 000,  46 000,  12 000</Paragraph></ListItem>
+		</UnNumberedList>
+	</Answer>
+</Activity>
+<Activity id="ACT002">
+<Question>
+<Paragraph>
+<b>2</b> Some of the entries in the following table are incorrect. Identify the errors and 
+<!--correct them-->write down the correct rounding.</Paragraph>
+<Table id="UTAB003">
+<TableHead/>
+<TableBody><table>
+<tr>
+<th class="ColumnLeft"/>
+<th colspan="3" class="ColumnCentered">Rounded to nearest</th>
+</tr>
+<tr>
+<th class="ColumnCentered">Number</th>
+<th class="ColumnCentered">10</th>
+<th class="ColumnCentered">100</th>
+<th class="ColumnCentered">1000</th>
+</tr>
+<tr>
+<td class="TableCentered">254 987</td>
+<td class="TableCentered">254 980</td>
+<td class="TableCentered">254 990</td>
+<td class="TableCentered">255 087</td>
+</tr>
+<tr>
+<td class="TableCentered">12 345</td>
+<td class="TableCentered">12 350</td>
+<td class="TableCentered">12 400</td>
+<td class="TableCentered">12 000</td>
+</tr>
+<tr>
+<td class="TableCentered">963</td>
+<td class="TableCentered">960</td>
+<td class="TableCentered">1 000</td>
+<td class="TableCentered">1 060</td>
+</tr>
+</table></TableBody>
+<SourceReference/>
+</Table>
+</Question>
+<Answer>
+<!--<Table id="UTAB004">
+<TableHead/>
+<TableBody>
+<table>
+<tr>
+<th class="TableLeft"/>
+<th colspan="3" class="TableCentered">Rounded to nearest</th>
+</tr>
+<tr>
+<th class="TableCentered">Number</th>
+<th class="TableCentered">10</th>
+<th class="TableCentered">100</th>
+<th class="TableCentered">1000</th>
+</tr>
+<tr>
+<td class="TableCentered">325 089</td>
+<td class="TableCentered">325 090</td>
+<td class="TableCentered">325 100</td>
+<td class="TableCentered">325 000</td>
+</tr>
+<tr>
+<td class="TableCentered">45 982</td>
+<td class="TableCentered">45 980</td>
+<td class="TableCentered">46 000</td>
+<td class="TableCentered">46 000</td>
+</tr>
+<tr>
+<td class="TableCentered">11 985</td>
+<td class="TableCentered">11 990</td>
+<td class="TableCentered">12 000</td>
+<td class="TableCentered">12 000</td>
+</tr>
+</table>
+</TableBody>
+<SourceReference/>
+</Table>-->
+<Paragraph>The corrected entries are in bold.</Paragraph>
+<Table id="UTAB005">
+<TableHead/>
+<TableBody><table>
+<tr>
+<th class="ColumnLeft"/>
+<th colspan="3" class="ColumnCentered">Rounded to nearest</th>
+</tr>
+<tr>
+<th class="ColumnCentered">Number</th>
+<th class="ColumnCentered">10</th>
+<th class="ColumnCentered">100</th>
+<th class="ColumnCentered">1000</th>
+</tr>
+<tr>
+<td class="TableCentered">254 987</td>
+<td class="TableCentered"><b>254 990</b></td>
+<td class="TableCentered"><b>255 000</b></td>
+<td class="TableCentered"><b>255 000</b></td>
+</tr>
+<tr>
+<td class="TableCentered">12 345</td>
+<td class="TableCentered">12 350</td>
+<td class="TableCentered"><b>12 300</b></td>
+<td class="TableCentered">12 000</td>
+</tr>
+<tr>
+<td class="TableCentered">963</td>
+<td class="TableCentered">960</td>
+<td class="TableCentered">1 000</td>
+<td class="TableCentered"><b>1 000</b></td>
+</tr>
+</table></TableBody>
+<SourceReference/>
+</Table>
+</Answer>
+</Activity>
+<Activity id="ACT003">
+	<Question>
+		<Paragraph><b>3</b> The population of London in 1984 was 6696 000 (to the nearest thousand). Round this to the nearest million.</Paragraph>
+	</Question>
+	<Answer>
+		<Paragraph>7000 000</Paragraph>
+	</Answer>
+</Activity>
+<Activity id="ACT004">
+	<Question>
+		<Paragraph><b>4</b> Suppose a friend's heart rate is 68 beats per minute. Use sensible rounding and answer these questions.</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> How many heart beats per day?</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> How many heart beats per week, month, year?</Paragraph></ListItem>
+<ListItem><Paragraph><b>(c)</b> How many beats per lifetime?</Paragraph></ListItem>
+</UnNumberedList>
+<Paragraph>Interpret your results as if to your friend.</Paragraph>
+	</Question>
+	<Answer>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> Day: 68 × 60 × 24 = 97 920, i.e. about 100 000 beats per day (rounded to the nearest hundred thousand).</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> Week: 97 920 × 7 = 685 440, i.e. about 700 000 beats per week (rounded to the nearest hundred thousand).</Paragraph></ListItem>
+<ListItem>
+<Paragraph>Month: 97 920 × 30 = 2737 600, i.e. about 3 000 000 to nearest million.</Paragraph></ListItem>
+<ListItem><Paragraph>Year: because the numbers now are so big it would be appropriate to use numbers that are approximations, e.g.</Paragraph></ListItem>
+<ListItem><Paragraph>3 million × 12 = 36 million <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 40 million.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(c)</b> Lifetime: A lifetime could last from a very short time to over a hundred years, so an assumption must be made. Supposing it to be 80 years gives</Paragraph></ListItem>
+<ListItem><Paragraph>40 000 000 × 80 = 3 200 000 000, i.e. approximately 3 billion.</Paragraph></ListItem>
+<ListItem><Paragraph>Your interpretation as if to your friend might be something like:</Paragraph>
+<UnNumberedSubsidiaryList>
+<SubListItem><Paragraph>Well Chris, if your heart beats at about 70 beats per minute, this means that it beats about a hundred thousand times a day, about seven hundred thousand times a week, about three million a month and about thirty-six million a year. So if you live to be 80 you would expect your heart to beat about three billion times. No wonder we should be looking after our hearts!</Paragraph></SubListItem></UnNumberedSubsidiaryList></ListItem>
+</UnNumberedList>
+	</Answer>
+</Activity>
+</SubSubSection>
+</SubSection>
+<SubSection id="SEC001_004">
+<Title>1.4 Rounding decimals</Title>
+<!--Insert cartoon math12.gif-->
+<Figure id="FIG400">
+<Image id="FIG400" src="math12.jpg"/>
+<Caption/>
+<Description/>
+</Figure>
+<Paragraph>Using a calculator often gives a long string of digits. For example, 1 ÷ 3 might give .333333333. But very often, for practical purposes, this level of accuracy is too precise to be useful. You try measuring .33333333 metres!</Paragraph>
+<Paragraph>Decimal numbers can be rounded just like whole numbers. For example, 0.33333333 is nearer to 0.3 than to 0.4 and rounding 0.33333333 m to 0.3 m makes it easy to measure. Here the number has been rounded so that it contains one decimal digit; it has been <i>rounded to one decimal place</i>. (We often write ‘d.p.’ for ‘decimal place’.)</Paragraph>
+<Paragraph>Often it is more sensible to measure to the nearest centimetre (0.01 m), in which case 0.3333333 m rounds to 0.33 m. Here the number contains two decimal digits; it has been <i>rounded to two decimal places</i>.</Paragraph>
+<Paragraph>The rule for rounding applies just as well to decimal places as hundreds.</Paragraph>
+<Paragraph>The number of decimal places given, however, indicates the accuracy. So 0.30 indicates accuracy to the nearest 0.01 (two decimal places) whereas 0.3 indicates accuracy to the nearest 0.1 (one decimal place).</Paragraph>
+<Paragraph/>
+<Paragraph>The general rule for rounding to a number of decimal places is to look at the digit one place to the right of the number of digits you want to round to, and round up or down depending on whether this digit is ‘5 or more’ or ‘4 or less’.</Paragraph>
+<Example id="EXA002">
+<Heading>Example 2</Heading>
+<UnNumberedList>
+<ListItem><Paragraph>(a) In a diary, the following conversion statements were given. Round all the numbers to one decimal place (1 d.p.) in order to give a handy measure to remember when travelling abroad:</Paragraph>
+<BulletedSubsidiaryList><SubListItem><Paragraph>converting miles to kilometres multiply by 1.6093;</Paragraph></SubListItem>
+<SubListItem><Paragraph>converting feet to metres multiply by 0.3048.</Paragraph></SubListItem></BulletedSubsidiaryList></ListItem>
+<ListItem><Paragraph>(b) Round these values so that they are correct to two decimal places (2 d.p.).</Paragraph></ListItem>
+</UnNumberedList>
+<Answer><SubHeading>Solution</SubHeading>
+<UnNumberedList>
+<ListItem><Paragraph>(a) The answer must contain one decimal digit, so look at the second decimal digit and round up or down accordingly.</Paragraph>
+<BulletedSubsidiaryList>
+<SubListItem><Paragraph>miles to kilometres: the second decimal digit is 0 so round down, thus the conversion factor is 1.6 (to 1 d.p.).</Paragraph></SubListItem>
+<SubListItem><Paragraph>feet to metres: the second decimal digit is 0 so round down, thus the conversion factor is 0.3 (to 1 d. p.).</Paragraph></SubListItem></BulletedSubsidiaryList></ListItem>
+<ListItem><Paragraph>(b) To round to 2 decimal places look at the third decimal digit:</Paragraph>
+<BulletedSubsidiaryList>
+<SubListItem><Paragraph>miles to kilometres: the third decimal digit is 9, so round up. Thus the conversion factor is 1.61 (2 d.p.).</Paragraph></SubListItem>
+<SubListItem><Paragraph>feet to metres: the third decimal digit is 4 so round down. Thus to convert feet to metres multiply by 0.30 (2 d.p.).</Paragraph></SubListItem></BulletedSubsidiaryList></ListItem>
+</UnNumberedList>
+<Paragraph>Note the use of a zero in the second decimal place. This is necessary to indicate that the value has been rounded to <i>two</i> decimal places.</Paragraph>
+</Answer></Example>
+<SubSubSection id="SEC001_004_001">
+<Heading>Try some yourself</Heading>
+<Activity id="ACT005">
+<Question>
+<Paragraph><b>1</b> Round a measurement of 1.059 metres:</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph>(a) to the nearest whole number of metres;</Paragraph></ListItem>
+<ListItem><Paragraph>(b) to two decimal places;</Paragraph></ListItem>
+<!--<ListItem><Paragraph>(c) to two significant figures.</Paragraph></ListItem>-->
+</UnNumberedList></Question>
+<Answer>
+<UnNumberedList>
+<ListItem><Paragraph>(a) 1.059 m rounded to the nearest whole number of metres is 1 m.</Paragraph></ListItem>
+<ListItem><Paragraph>(b) 1.059 m rounded to two decimal places is 1.06 m.</Paragraph></ListItem>
+<!--<ListItem><Paragraph>(c) 1.059 rounded to two significant figures is 1.1 m.</Paragraph></ListItem>-->
+</UnNumberedList>
+</Answer>
+</Activity>
+<Activity id="ACT006">
+	<Question>
+		<Paragraph><b>2</b> Round each of the numbers below to:</Paragraph>
+		<UnNumberedList>
+			<ListItem><Paragraph>(a) to 1 d.p.</Paragraph></ListItem>
+			<ListItem><Paragraph>(b) to 2 d.p.</Paragraph></ListItem>
+			<ListItem><Paragraph>(c) to 3 d.p.</Paragraph></ListItem>
+		</UnNumberedList>
+		<Paragraph>  0.472 65,  13.959 943,  56.098 27</Paragraph>
+	</Question>
+	<Answer>
+		<UnNumberedList>
+			<ListItem><Paragraph>(a) 0.5,  14.0,  56.1</Paragraph></ListItem>
+			<ListItem><Paragraph>(b) 0.47,  13.96,  56.10</Paragraph></ListItem>
+			<ListItem><Paragraph>(c) 0.473,  13.960,  56.098</Paragraph></ListItem>
+		</UnNumberedList>
+	</Answer>
+</Activity>
+<Activity id="ACT007">
+<Question>
+<Paragraph><b>3</b> The table below contains some errors. Identify them and <!--correct them-->write down the correct rounding.</Paragraph>
+<Table id="UTAB007">
+<TableHead/>
+<TableBody><table>
+<tr>
+<th class="ColumnLeft"/>
+<th colspan="3" class="ColumnCentered">Rounded to</th>
+</tr>
+<tr>
+<th class="ColumnCentered">Number</th>
+<th class="ColumnCentered">1 d.p.</th>
+<th class="ColumnCentered">2 d.p.</th>
+<th class="ColumnCentered">3 d.p.</th>
+</tr>
+<tr>
+<td class="TableCentered">3.141 592 6</td>
+<td class="TableRight">3.10</td>
+<td class="TableRight">3.14</td>
+<td class="TableRight">3.150</td>
+</tr>
+<tr>
+<td class="TableCentered">22/7</td>
+<td class="TableRight">3.1</td>
+<td class="TableRight">3.04</td>
+<td class="TableRight">3.142</td>
+</tr>
+<tr>
+<td class="TableCentered">0.019 999</td>
+<td class="TableRight">0.0</td>
+<td class="TableRight">0.19</td>
+<td class="TableRight">0.200</td>
+</tr>
+</table></TableBody>
+<SourceReference/>
+</Table>
+</Question>
+<Answer>
+<Paragraph>The corrected entries are in bold.</Paragraph>
+<Table id="UTAB009">
+<TableHead/>
+<TableBody><table>
+<tr>
+<th class="ColumnLeft"/>
+<th colspan="3" class="ColumnCentered">Rounded to</th>
+</tr>
+<tr>
+<th class="ColumnCentered">Number</th>
+<th class="ColumnCentered">1 d.p.</th>
+<th class="ColumnCentered">2 d.p.</th>
+<th class="ColumnCentered">3 d.p.</th>
+</tr>
+<tr>
+<td class="TableCentered">3.141 592 6</td>
+<td class="TableRight"><b>3.1</b></td>
+<td class="TableRight">3.14</td>
+<td class="TableRight"><b>3.142</b></td>
+</tr>
+<tr>
+<td class="TableCentered">22/7</td>
+<td class="TableRight">3.1</td>
+<td class="TableRight"><b>3.14</b></td>
+<td class="TableRight"><b>3.143</b></td>
+</tr>
+<tr>
+<td class="TableCentered">0.019 999</td>
+<td class="TableRight">0.0</td>
+<td class="TableRight"><b>0.02</b></td>
+<td class="TableRight"><b>0.020</b></td>
+</tr>
+</table></TableBody>
+<SourceReference/>
+</Table>
+</Answer>
+</Activity>
+<Activity id="ACT008">
+	<Question>
+		<Paragraph><b>4</b> Imagine you are alone on an island and that your only source of drinking water is a wrecked ship's full water tank. It measures 4 metres long by 3.45 metres wide and is 2.84 metres high. Use reasonable rounded values to make an estimate (without using your calculator) of how long you can survive until it rains, assuming that you need 2 litres per day and that the water remains perfectly fresh. You may need the conversion 1 cubic metre contains 1000 litres. (Note that volume = length × width × height.)</Paragraph>
+	</Question>
+	<Answer>
+<Figure id="FIGSI003"><Image id="FIGSI003" src="MU120_A_SI003i.jpg"/><Description/></Figure>
+<Paragraph>Rounding to approximate accuracy and then calculating the volume of the tank by using the formula length × width × height gives a volume of approximately 4 × 3 × 3 = 36 cubic metres. 1 cubic metre contains 1000 litres, so 36 cubic metres contains 36 × 1000 = 36 000 litres.</Paragraph>
+<Paragraph>If you need 2 litres per day of water then you can survive 36 000 ÷ 2 = 18 000 days before it rains. This is about 20 000 days and taking a year to be about 400 days means that you can survive about 20 000 ÷ 400 = 50 years.</Paragraph>
+<Paragraph>The accurate answer would give 53.69 years (to 2 d.p.). You might not be too concerned to be told that you had only 50 years rather than 53.69 years to live on your deserted island if it did not rain!</Paragraph>
+	</Answer>
+</Activity>
+</SubSubSection>
+</SubSection>
+<SubSection id="SEC001_005">
+<Title>1.5 Significant figures</Title>
+<Paragraph>Sometimes it doesn’t make sense to round to a specific number of decimal places. If, say, you were calculating the cost of fencing at £10.65 per metre, for a garden boundary, the length of which had been given to you as 185 feet, then you would want to multiply 10.65 × 185 × 0.3048. (Conversion of feet to metres was given in <CrossRef idref="EXA002">Example 2</CrossRef>.) To do the calculation quickly, you might round this to 10 × 200 × 0.3 = 600 and thus estimate the cost as about £600. (You might use this figure as a check on the exact calculation, done on a calculator.)</Paragraph>
+<!--Insert cartoon math03[1].gif-->
+<Figure id="FIG500">
+<Image id="FIG500" src="math03.jpg"/>
+<Caption/>
+<Description/>
+</Figure>
+<Paragraph/>
+<Paragraph>What has been done is round each of 10.65, 185, 0.3048 to <i>one significant figure</i>. (We often write ‘s.f.’ for ‘significant figures’.) Thus 10.65 is rounded to 10 (the 1 is the significant figure); 185 has been rounded to 200 (the 2 is the significant figure); and 0.3048 has been rounded to 0.3 (the 3 is the significant figure). All of these numbers contained zeros, but they were not deemed significant so far as the accuracy of the estimation was concerned. In the £600 answer, only the 6 is significant. You would expect the answer to be about six hundreds but not zero tens and zero units.</Paragraph>
+<Box id="BOX001_002">
+<Paragraph>The first non zero digit (from the left) in a number is the first significant figure. To round to a given number of significant figures, first count from the first significant digit to the number required (including zeros). If the next digit is 5, 6, 7, 8 or 9 round up, otherwise round down.</Paragraph></Box>
+<Example id="EXA003">
+<Heading>Example 3</Heading>
+<Paragraph>A particular mobile phone allows you to check the free space available in the memory. Suppose the display shows 2354 856 bytes. Express this available memory space correct to:</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph>(a) One significant figure (1 s.f.), which might be appropriate if comparing it to another phone.</Paragraph></ListItem>
+<ListItem><Paragraph>(b) Two significant figures (2 s.f.), which might be appropriate if working out if there is enough memory for <!--several large data sets-->a large picture file.</Paragraph></ListItem>
+</UnNumberedList>
+<Answer><SubHeading>Solution</SubHeading>
+<UnNumberedList>
+<ListItem><Paragraph>(a) One significant figure: the first digit (from the left) is the 2. The next significant digit is the 3, and since this is less than 5 round down. Thus the available memory space in the phone is about 2000 000 bytes (1 s.f.).</Paragraph></ListItem>
+<ListItem><Paragraph>(b) Two significant figures: the third significant digit is the 5, so round up. Thus the available memory space in the phone is about 2400 000 bytes (to 2 s.f.).</Paragraph></ListItem>
+</UnNumberedList></Answer></Example>
+<SubSubSection id="SEC001_006_001">
+<Heading>Try some yourself</Heading>
+<Activity id="ACT009">
+	<Question>
+		<Paragraph><b>1</b> Round 2098 765</Paragraph>
+		<UnNumberedList>
+			<ListItem><Paragraph>(a) to 1 s.f.</Paragraph></ListItem>
+			<ListItem><Paragraph>(b) to 2 s.f.</Paragraph></ListItem>
+			<ListItem><Paragraph>(c) to 3 s.f.</Paragraph></ListItem>
+			<ListItem><Paragraph>(d) to 4 s.f.</Paragraph></ListItem>
+		</UnNumberedList>
+	</Question>
+	<Answer>
+		<UnNumberedList>
+			<ListItem><Paragraph>(a) 2 000 000</Paragraph></ListItem>
+			<ListItem><Paragraph>(b) 2 100 000</Paragraph></ListItem>
+			<ListItem><Paragraph>(c) 2 100 000</Paragraph></ListItem>
+			<ListItem><Paragraph>(d) 2 099 000</Paragraph></ListItem>
+		</UnNumberedList>
+	</Answer>
+</Activity>
+<Activity id="ACT010">
+	<Question>
+		<Paragraph><b>2</b> Has it ever occured to you how far planet Earth has travelled through the solar system during the last year, relative to the Sun, and how fast we earthlings are travelling?</Paragraph>
+<Paragraph>In order to estimate this it is necessary to make some assumptions:</Paragraph>
+<BulletedList>
+<ListItem><Paragraph>assume that the path of the Earth's orbit around the Sun is circular;</Paragraph></ListItem>
+<ListItem><Paragraph>the distance between the Earth and the Sun is approximately 92 860 000 miles, which is the radius of the orbit;</Paragraph></ListItem>
+<ListItem><Paragraph>distance travelled in one year is one orbit of the Sun;</Paragraph></ListItem>
+<ListItem><Paragraph>the distance travelled along a circular path is determined by working out the circumference of a circle. The relationship between circumference and radius is: circumference = 2<InlineEquation><Image src="pi.gif"/><Description/></InlineEquation> × radius.</Paragraph></ListItem>
+</BulletedList>
+<UnNumberedList><ListItem><Paragraph>So</Paragraph></ListItem>
+<ListItem><Paragraph>   distance travelled around Sun = 2<InlineEquation><Image src="pi.gif"/><Description/></InlineEquation> × 92 860 000 miles.</Paragraph></ListItem>
+<ListItem><Paragraph>Using a calculator <InlineEquation><Image src="pi.gif"/><Description/></InlineEquation> button gives</Paragraph></ListItem>
+<ListItem><Paragraph>   distance = 583 456 587.6 miles.</Paragraph></ListItem>
+</UnNumberedList>
+<UnNumberedList>
+<ListItem><Paragraph>(a) For convenience round this to two significant figures and write this in words.</Paragraph></ListItem>
+<ListItem><Paragraph>(b) Given that the average speed is found by dividing the distance travelled by the time taken, estimate roughly how fast the Earth is travelling along its orbit around the Sun in miles per hour. (N.B. 1 year = 8760 hours.)</Paragraph></ListItem>
+</UnNumberedList>
+	</Question>
+	<Answer>
+<UnNumberedList>
+<ListItem><Paragraph>(a) 580 000 000 (to 2 s.f.), which is five hundred and eighty million miles.</Paragraph></ListItem>
+<ListItem><Paragraph>(b) 580 000 000 miles in 8760 hours is 580 000 000 ÷ 8760 = 66 000 mph (to 2 s.f.)</Paragraph></ListItem>
+</UnNumberedList>
+	</Answer>
+</Activity>
+</SubSubSection>
+</SubSection>
+<SubSection id="SEC001_006">
+	<Title>1.6 Significant figures for numbers less than one</Title>
+<Paragraph>You can use the same procedure for numbers less than one.</Paragraph>
+<Example id="EXA004">
+<Heading>Example 4</Heading>
+<Paragraph>In scientific work people deal with very small units of measurement. Suppose you read that the spacing between adjacent atoms in a solid was 0.000 002 456 84 metres. You could make the number more memorable by using two significant figure accuracy.</Paragraph>
+<Answer><SubHeading>Solution</SubHeading>
+<Paragraph>To find 0.000 002 456 84 metres correct to two significant figures, count from the first non-zero digit on the left. The first significant digit in this number is the 2. The zeros to the left of this digit are not significant but they maintain the place value of the other digits. The second significant digit is the 4 and to the right of this digit is a 5 which means round up to give 0.000 0025 metres (2 s.f.).</Paragraph>
+</Answer>
+</Example>
+<Paragraph>You may have noticed that the word ‘significant’ has a more precise meaning in mathematics than when used in everyday language and that sometimes zeros are not counted as significant figures, even though they are obviously important in specifying the place value of a digit.</Paragraph>
+<Paragraph>At the beginning of <CrossRef idref="SEC001_005">Section 1.5</CrossRef> there was a £600 estimate for the cost of fencing. The zeros are necessary to indicate that the 6 represents six hundreds, rather than six tens or six units, but the fact that they are zeros (rather than another digit) is not significant (in the exact cost, it is unlikely that both would be zero). However if an exact calculation gives a cost of £609, then the zero is significant. (To tell you it is six hundred, zero tens and nine units.) This is a price quoted to three significant figures.</Paragraph>
+<Paragraph>For decimal numbers like 0.060 09 metres, the zeros to the left of the 6 are not considered significant (although they are important to indicate the place value), but those to the right are significant.</Paragraph>
+<SubSubSection>
+<Heading>Try some yourself</Heading>
+<Activity id="ACT011">
+	<Question>
+		<Paragraph><b>1</b> Round the numbers below:</Paragraph>
+		<UnNumberedList>
+			<ListItem><Paragraph>(a) to 1 s.f.</Paragraph></ListItem>
+			<ListItem><Paragraph>(b) to 2 s.f.</Paragraph></ListItem>
+			<ListItem><Paragraph>(c) to 3 s.f.</Paragraph></ListItem>
+			<ListItem><Paragraph>(d) to 4 s.f.</Paragraph></ListItem>
+		</UnNumberedList>
+		<Paragraph>  0.042 6395,  0.000 289 99</Paragraph>
+		
+	</Question>
+	<Answer>
+		<UnNumberedList>
+			<ListItem><Paragraph>(a) 0.04,  0.000 3 to 1 s.f.</Paragraph></ListItem>
+			<ListItem><Paragraph>(b) 0.043,  0.000 29 to 2 s.f.</Paragraph></ListItem>
+			<ListItem><Paragraph>(c) 0.0426,  0.000 290 to 3 s.f.</Paragraph></ListItem>
+			<ListItem><Paragraph>(d) 0.042 64,  0.000 2900 to 4 s.f.</Paragraph></ListItem>
+		</UnNumberedList>
+	</Answer>
+</Activity>
+<Activity id="A CT012">
+	<Question>
+		<Paragraph><b>2</b> Round the numbers below:</Paragraph>
+		<UnNumberedList>
+			<ListItem><Paragraph>(a) to the nearest whole number</Paragraph></ListItem>
+			<ListItem><Paragraph>(b) to 1 d.p.</Paragraph></ListItem>
+			<ListItem><Paragraph>(c) to 1 s.f.</Paragraph></ListItem>
+			<ListItem><Paragraph>(d) to 3 s.f.</Paragraph></ListItem>
+		</UnNumberedList>
+		<Paragraph>  238.483,  0.763 48,  0.088 8456</Paragraph>
+	</Question>
+	<Answer>
+		<UnNumberedList>
+			<ListItem><Paragraph>(a) 238,  1,  0</Paragraph></ListItem>
+			<ListItem><Paragraph>(b) 238.5,  0.8,  0.1</Paragraph></ListItem>
+			<ListItem><Paragraph>(c) 200,  0.8,  0.09</Paragraph></ListItem>
+			<ListItem><Paragraph>(d) 238  0.763,  0.0888</Paragraph></ListItem>
+		</UnNumberedList>
+	</Answer>
+</Activity>
+
+<Activity id="ACT013">
+<Question>
+<Paragraph><b>3</b> On holiday it is often useful to do rough conversions into one's own currency to get a feel for how expensive an item is.</Paragraph>
+<Paragraph>Suppose a Mexican Peso is £0.048 654. Convert this to (a) one significant figure, (b) two significant figures, and in each case estimate the cost, in pounds, of an item costing 278 Mexican Pesos.</Paragraph>
+
+</Question>
+<Answer>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> £0.048 654 is £0.05, to 1 s.f.</Paragraph>
+<Paragraph>So an item costing 278 Mexican Pesos will be about 278 × 0.05 = £13.90, or about £14.</Paragraph>
+<Paragraph>If you rounded the cost to 1 s.f. too, you would have estimated 300 × 0.05 = £15.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> £0.048 654 is £0.049, to 2 s.f.</Paragraph>
+<Paragraph>So an item costing 278 Mexican Pesos will be about 278 × 0.049 = £13.62 (to 2 d.p.).</Paragraph>
+<Paragraph>If you rounded the cost to 2 s.f. too, you would have estimated 280 × 0.049 = £13.72.</Paragraph></ListItem>
+</UnNumberedList>
+</Answer>
+</Activity>
+</SubSubSection>
+</SubSection>
+</Section>
+<Section id="SEC002">
+<Title>2 Estimation</Title>
+<SubSection id="SEC002_001">
+	<Title>2.1 Using estimations</Title>
+
+<!--Insert cartoon nova[1].jpg-->
+<Figure id="FIG600">
+<Image id="FIG600" src="nova.jpg"/>
+<Caption/>
+<Description/>
+</Figure>
+<Paragraph>Approximations are most useful when it comes to making rough estimates – like adding up a bill quickly to see if it is about right or checking a calculation. When using a calculator it is very important that you have an independent means (by estimation) of judging whether your answer is correct, or at least plausible. To make a rough estimate the numbers must be easy to work with, so being able to round numbers is an extremely useful skill.</Paragraph>
+<Paragraph>For different purposes different degrees of approximation may be appropriate. Be careful about the level of accuracy of an estimate.</Paragraph>
+
+<Example id="EXA005">
+<Heading>Example 5</Heading>
+<Paragraph>Dave and Sally are planning to travel from Newcastle to London, then to Gloucester, then to Liverpool and finally home to Newcastle.</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph>Newcastle to London 282</Paragraph></ListItem>
+<ListItem><Paragraph>London to Gloucester 104</Paragraph></ListItem>
+<ListItem><Paragraph>Gloucester to Liverpool 146</Paragraph></ListItem>
+<ListItem><Paragraph>Liverpool to Newcastle 170</Paragraph></ListItem>
+</UnNumberedList>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> Make a rough estimate of the total distance travelled.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> Petrol is estimated at £1 a litre. Their car does about 8 miles to the litre. Estimate their total petrol costs.</Paragraph></ListItem>
+</UnNumberedList>
+<Answer>
+<SubHeading>Solution</SubHeading>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> Get a rough estimate by rounding to the nearest 10.</Paragraph>
+<UnNumberedSubsidiaryList>
+<SubListItem><Paragraph>Newcastle − London is about 280 miles.</Paragraph></SubListItem>
+<SubListItem><Paragraph>London − Gloucester is about 100 miles.</Paragraph></SubListItem>
+<SubListItem><Paragraph>Gloucester − Liverpool is about 150 miles.</Paragraph></SubListItem>
+<SubListItem><Paragraph>Liverpool − Newcastle is about 170 miles.</Paragraph></SubListItem>
+</UnNumberedSubsidiaryList>
+<Paragraph>So the total distance is about 700 miles. The sign <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> means ‘is approximately equal to’, so this can be written as</Paragraph>
+<Paragraph>total distance <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 700 miles.</Paragraph>
+<Paragraph>(The same estimate, 700 miles, is also attained by rounding each figure to the nearest 100 in the first place! There are a number of ways of making rough estimates.)</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> To estimate the petrol costs, take the fuel consumption to be 10 miles per litre (as it is easier to divide by 10 than by 8). This gives the number of litres needed as about 700/10 = 70 litres. At £1 per litre the cost is about £70.</Paragraph>
+<Paragraph>Since some information is given only to one or two significant figures, the estimate cannot be more accurate.</Paragraph></ListItem>
+</UnNumberedList>
+</Answer></Example>
+<Example id="EXA006">
+<Heading>Example 6</Heading>
+<Paragraph>A rectangular lawn measures 33 m by 18 m. Make a rough estimate of its area. The lawn fertilizer to be used on it is suitable (when diluted) for about 100 square metres for each packet of fertilizer. How many packets are needed?</Paragraph>
+<Figure id="FIGI048"><Image id="FIGI048" src="MU120_A_I048i.jpg"/><Description/></Figure>
+<Answer>
+<SubHeading>Solution</SubHeading>
+<Paragraph>You get a rough estimate by rounding to the nearest 10:</Paragraph>
+<Paragraph>   33 rounds down to 30;</Paragraph>
+<Paragraph>   18 rounds up to 20.</Paragraph>
+<Paragraph>So</Paragraph>
+<Paragraph>   area <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 30 m × 20 m</Paragraph>
+<Paragraph>       <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 600 square metres.</Paragraph>
+
+<Paragraph>One packet of fertilizer covers about 100 square metres. So six packets will probably be needed.</Paragraph>
+<Paragraph>(Area of a rectangle is length × breadth. Area is measured in <i>square</i> metres, <i>square</i> feet, etc.)</Paragraph>
+</Answer></Example>
+<Paragraph>These examples illustrate that a rough estimate can give a reasonable idea of the result.</Paragraph>
+<Paragraph>An important use of estimation is as a check for calculator work.</Paragraph>
+
+<Example id="EXA007">
+<Heading>Example 7</Heading>
+<Paragraph>Estimate 563.3 × (6.891 + 44.34) as a check on the result you get by using your calculator to do the calculation.</Paragraph>
+<Answer>
+<SubHeading>Solution</SubHeading>
+<Paragraph>This is a calculation you would be unlikely to undertake by hand. But, before you reach for your calculator, you should estimate your answer.</Paragraph>
+<Paragraph>Round to the nearest whole number (evaluate the brackets first):</Paragraph>
+<Paragraph>   6.891 + 44.34 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 7 + 44 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 50</Paragraph>
+<Paragraph>   563.3 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 600.</Paragraph>
+
+<Paragraph>So the estimate of the calculation is</Paragraph>
+<Paragraph>   600 × 50 = 30 000.</Paragraph>
+<Paragraph>So a rough estimate for the answer is 30 000.</Paragraph>
+<Paragraph>You can use your calculator to find the answer exactly (using brackets). It comes to 28 858.4223, close to your estimate of 30 000.</Paragraph>
+<Paragraph>lf you got a very different answer, you would be suspicious and should look for an error.</Paragraph></Answer></Example>
+<SubSubSection id="SEC002_001_001">
+<Heading>Try some yourself</Heading>
+<Activity id="ACT014">
+	<Question>
+		<Paragraph><b>1</b> Measurement of a ceiling gives a length of 6.28 m and a width of 3.91 m.</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> Make a rough estimate of the area of the ceiling (the length times the width).</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> If one litre of paint covers roughly 11 square metres, roughly how much paint will you need to cover the ceiling?</Paragraph></ListItem>
+</UnNumberedList>
+	</Question>
+	<Answer>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> Rounding to the nearest metre gives 6 m × 4 m, so the area is about 24 square metres.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> Divide by the area covered by each litre (11 square metres). Rounding this to 10 square metres means that about <InlineEquation shiftby="-4"><Image src="MU120_A_I173e.gif" width="col_100"/><Description/></InlineEquation> = 2.4 litres are needed. So two and a half litres is a good estimate.</Paragraph></ListItem>
+</UnNumberedList>
+	</Answer>
+</Activity>
+<Activity id="ACT015">
+	<Question>
+		<Paragraph><b>2</b> Supposing a calculator was used to determine the area of the ceiling and the amount of paint needed in Question 1, and gave the answers:</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> 24.5548 square metres;</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> 270.1028 litres.</Paragraph></ListItem>
+</UnNumberedList>
+<Paragraph>Do the answers agree with your rough estimates? Do the answers seem reasonable? If not, can you see what has gone wrong?</Paragraph>
+	</Question>
+	<Answer>
+		<Paragraph>The first answer agrees with the rough estimate of 24 square metres. But the 270.1028 litres does not. Try to imagine 270 litres. It is an enormous quantity of paint. What has happened is that the area was multiplied by 11, instead of divided by 11.</Paragraph>
+	</Answer>
+</Activity>
+
+<Activity id="ACT016">
+	<Question>
+		<Paragraph><b>3</b> During the summer season various music festivals are held. Glastonbury rock music and Cambridge folk are two of the larger events. Such large-scale events have planning implications for the organisers in respect of catering facilities, waste disposal and toilet/shower facilities.</Paragraph>
+<Paragraph>Suppose that you are an organiser of the camping arrangements at such an event and you have sold 56 432 tickets in advance. So you know that a large crowd of people will be on location at your festival for at least three days. You will need to estimate how much field space you require and how many toilet/shower units you should hire.</Paragraph>
+<Paragraph>This is a planning problem and sensible estimates are necessary in order to provide suitable facilities. A list of the assumptions that you may need to consider whilst solving this problem is given below.</Paragraph>
+<BulletedList>
+<ListItem><Paragraph>Most tent accommodation is shared by two people.</Paragraph></ListItem>
+<ListItem><Paragraph>A typical tent measures 3 metres by 2.5 metres and 2.2 metres high.</Paragraph></ListItem>
+<ListItem><Paragraph>Each tent requires a boundary of about 1 metre spacing surrounding it, to allow for tent pegs etc.</Paragraph></ListItem>
+<ListItem><Paragraph>Roughly one-fifth of the people will use the shower facilities in the peak demand time, between 7 am and 10 am.</Paragraph></ListItem>
+<ListItem><Paragraph>Each shower takes 5 minutes.</Paragraph></ListItem>
+<ListItem><Paragraph>On average people make about four visits per day to the toilet, spread evenly throughout day and night.</Paragraph></ListItem>
+<ListItem><Paragraph>Each toilet visit lasts roughly 2 minutes.</Paragraph></ListItem>
+</BulletedList>
+<Paragraph>Make the following estimates:</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> Round the number of advanced ticket sales to one significant figure. Hence estimate the number of tents.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> What area does each tent require in the field? So what is the area of field required?</Paragraph></ListItem>
+<ListItem><Paragraph><b>(c)</b> Estimate the number of minutes of showering which are likely between 7 am and 10 am. How many minutes are there between 7 am and 10 am? About how many shower cubicles are needed?</Paragraph></ListItem>
+<ListItem><Paragraph><b>(d)</b> How many toilet visits are there per 24 hours? How long is spent in total? So estimate how many toilet cubicles are required.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(e)</b> Consider the catering requirements. How many meals and cans of drink might be needed?</Paragraph></ListItem>
+</UnNumberedList>
+	</Question>
+	<Answer>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> 56 432 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 60 000 (1 s.f.).</Paragraph></ListItem>
+<ListItem>
+<Paragraph>If 2 people share a tent then an estimate of the number of tents is</Paragraph></ListItem>
+<ListItem>
+<Paragraph>60 000 ÷ 2 = 30 000 tents.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b></Paragraph></ListItem>
+</UnNumberedList>
+<Figure id="FIGSI004"><Image id="FIGSI004" src="MU120_4M2_001i.jpg"/><Description/></Figure>
+
+<UnNumberedList>
+<ListItem><Paragraph>Area required by each tent with boundary is</Paragraph></ListItem>
+<ListItem>
+<Paragraph>Area = length × breadth</Paragraph></ListItem>
+<ListItem>
+<Paragraph>   = 5 m × 4.5 m</Paragraph></ListItem>
+<ListItem>
+<Paragraph>   = 22.5 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 20 square metres.</Paragraph></ListItem>
+<ListItem>
+<Paragraph>So area required is  30 000 × 20 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 600 000 square metres.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(c)</b> One fifth of people will use the shower, i.e. 60 0000 × <!--<InlineEquation><Image src="MU120_A_SI066e.gif" width="col_100"/><Description/></InlineEquation>-->1/5 = 12 000 people.</Paragraph></ListItem>
+<ListItem>
+<Paragraph>Each shower takes 5 minutes, hence the number of showering minutes is</Paragraph></ListItem>
+<ListItem>
+<Paragraph>12 000 × 5 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 60 000 minutes.</Paragraph></ListItem>
+<ListItem>
+<Paragraph>Number of minutes between 7 am and 10 am = 3 × 60 = 180 minutes <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 200 minutes.</Paragraph></ListItem>
+<ListItem>
+<Paragraph>Number of shower cubicles needed <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 60 000 ÷ 200 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 300 cubicles.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(d)</b> Number of toilet visits is number of people times number of visits per day</Paragraph></ListItem>
+<ListItem>
+<Paragraph> <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 60 000 × 4 = 240 000 units.</Paragraph></ListItem>
+<ListItem>
+<Paragraph>Number of toilet minutes <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 240 000 × 2 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 480 000 minutes.</Paragraph></ListItem>
+<ListItem>
+<Paragraph>Number of minutes in 24 hrs <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 24 × 60 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 1440 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 1500 minutes.</Paragraph></ListItem>
+<ListItem>
+<Paragraph>Number of toilet cubicles needed is</Paragraph></ListItem>
+<ListItem>
+<Paragraph>480 000 ÷ 1500 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 320 toilet cubicles.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(e)</b> You need to estimate here how many meals per day and how many cans of drink each person may require, e.g. 3 meals and 6 drinks.</Paragraph></ListItem>
+<ListItem>
+<Paragraph>So number of meals <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 60 000 × 3 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 180 000 but since some people may not eat 3 meals per day you might order only 150 000 meals.<!--<InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation>--></Paragraph></ListItem>
+<ListItem>
+<Paragraph>Number of drinks <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 60 000 × 6 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 360 000 but if you want to offer a choice of drinks you might order more, especially if you expect the weather to be very hot so people are very thirsty …</Paragraph></ListItem>
+</UnNumberedList>
+	</Answer>
+</Activity>
+<Activity id="ACT017">
+	<Question>
+		<Paragraph><b>4</b> Answer the following questions:</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> For each of the following, make a rough estimate first; then find the answer using your calculator.</Paragraph>
+<UnNumberedSubsidiaryList>
+<SubListItem><Paragraph><b>(i)</b> 75 450 − 27 654</Paragraph></SubListItem>
+<SubListItem><Paragraph><b>(ii)</b> 676 295 + 984 122</Paragraph></SubListItem>
+<SubListItem><Paragraph><b>(iii)</b> 16.859 × 4.962</Paragraph></SubListItem>
+<SubListItem><Paragraph><b>(iv)</b> 3.512 ÷ 720.5</Paragraph></SubListItem>
+</UnNumberedSubsidiaryList></ListItem>
+<ListItem><Paragraph><b>(b)</b> Some of the following answers are wrong, as the result of mistakes in keying the calculations into the calculator. Find which are the wrong ones, without using your calculator.</Paragraph>
+<UnNumberedSubsidiaryList>
+<SubListItem><Paragraph><b>(i)</b> 631 − 529 = 6102</Paragraph></SubListItem>
+<SubListItem><Paragraph><b>(ii)</b> 13 726 + 4317 = 18 043</Paragraph></SubListItem>
+<SubListItem><Paragraph><b>(iii)</b> 1066 × 45 = 7470</Paragraph></SubListItem>
+<SubListItem><Paragraph><b>(iv)</b> 1066 ÷ 0.45 = 23.688 889 (rounded to six decimal places)</Paragraph></SubListItem></UnNumberedSubsidiaryList></ListItem>
+</UnNumberedList>
+	</Question>
+<Answer>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)(i)</b> Rough estimate: rounding to the nearest thousand:</Paragraph></ListItem>
+<ListItem><Paragraph>    75 450 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 75 000,   27 654 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 28 000.</Paragraph></ListItem>
+	<ListItem><Paragraph>So 75 450 − 27 654 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 75 000 − 28 000 = 47 000.</Paragraph></ListItem>
+	<ListItem><Paragraph>Or you may have rounded to the nearest 10 000, to give</Paragraph></ListItem>
+	<ListItem><Paragraph>    80 000 − 30 000 = 50 000.</Paragraph></ListItem>
+	<ListItem><Paragraph>The exact value is 47 796.</Paragraph></ListItem>
+	</UnNumberedList>
+<UnNumberedList><ListItem><Paragraph><b>(a)(ii)</b> Rough estimate: rounding to one significant figure (i.e. to the nearest 100 000):</Paragraph></ListItem>
+<ListItem><Paragraph>    676 295 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 700 000, 984 122 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 1000 000</Paragraph></ListItem>
+	<ListItem><Paragraph>So 676 295 + 984 122 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 700 000 + 1000 000 = 1700 000.</Paragraph></ListItem>
+	<ListItem><Paragraph>The exact value is 1660 417.</Paragraph></ListItem></UnNumberedList>
+<UnNumberedList><ListItem><Paragraph><b>(a)(iii)</b> 16.859 × 4.962 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 17 × 5 = 85.</Paragraph></ListItem>
+<ListItem><Paragraph>The exact value is 83.654 358.</Paragraph></ListItem></UnNumberedList>
+<UnNumberedList><ListItem><Paragraph><b>(a)(iv)</b> 3.512 ÷ 720.5 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 4 ÷ 700. This may not be very helpful. Another approach is to spot that, if you round 3.512 to 3.5, you can divide top and bottom by 7:</Paragraph></ListItem>
+<ListItem><Equation id="EQN004a">
+	<Image src="MU120_A_SU001e.gif"/>
+	<Description/>
+</Equation></ListItem>
+<ListItem><Paragraph>(Don’t worry if you didn’t spot this. It doesn’t matter as long as you found a rough estimate by some means.)</Paragraph></ListItem>
+<ListItem><Paragraph>The calculator gives 0.004 874 3928 (to eight significant figures).</Paragraph></ListItem>
+<ListItem><Paragraph> </Paragraph></ListItem></UnNumberedList>
+<UnNumberedList><ListItem><Paragraph><b>(b)(i)</b> Wrong.</Paragraph></ListItem>
+<ListItem><Paragraph>631 − 529 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 600 − 500 = 100, not 6000.</Paragraph></ListItem></UnNumberedList>
+<UnNumberedList><ListItem><Paragraph><b>(b)(ii)</b> Right.</Paragraph></ListItem>
+<ListItem><Paragraph>13 726 + 4317 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 14 000 + 4000 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 18 000, so it could be right.</Paragraph></ListItem></UnNumberedList>
+<UnNumberedList><ListItem><Paragraph><b>(b)(iii)</b> Wrong.</Paragraph></ListItem>
+<ListItem><Paragraph>1066 × 45 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 1000 × 50 = 50 000, not 7000.</Paragraph></ListItem></UnNumberedList>
+<UnNumberedList><ListItem><Paragraph><b>(b)(iv)</b> Wrong.</Paragraph></ListItem>
+<ListItem><Paragraph>1066 ÷ 0.5 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> <InlineEquation shiftby="-4"><Image src="MU120_A_SI067e.gif" width="col_100"/><Description/></InlineEquation> = 2000, not 20.</Paragraph></ListItem>
+<ListItem><Paragraph>One way of noticing there must be a mistake is to notice that dividing by a decimal number between 0 and 1 always gives an answer <i>larger</i> than the original number.</Paragraph></ListItem></UnNumberedList>
+	</Answer>
+</Activity>
+
+<Activity id="ACT018">
+<Question>
+<Paragraph><b>5</b> Find a rough estimate for each of the following and then evaluate on your calculator. In each case round your answer to two significant figures.</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> 0.086 + 219.2</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> 0.050 − 0.048</Paragraph></ListItem>
+<ListItem><Paragraph><b>(c)</b> 457.3 − 64.5 + 302.4</Paragraph></ListItem>
+<ListItem><Paragraph><b>(d)</b> 441.7 × 5.2</Paragraph></ListItem>
+<ListItem><Paragraph><b>(e)</b> 53.4 × 70.9 ÷ 22.2</Paragraph></ListItem>
+<ListItem><Paragraph><b>(f)</b> 217.5 + 60.3 × 17.7</Paragraph></ListItem>
+<ListItem><Paragraph><b>(g)</b> (1285 − 329) × 0.023</Paragraph></ListItem>
+</UnNumberedList></Question>
+<Answer>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a) </b>Estimate: 0.086 + 219.2 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 0 + 220 = 220. The calculator gives 219.286.</Paragraph></ListItem></UnNumberedList>
+<UnNumberedList><ListItem><Paragraph><b>(b)</b> 0.050 − 0.048 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 0.05 − 0.05 = 0. This is not good enough – all significant figures are lost! You cannot estimate this roughly – use all the given figures: 0.050 − 0.048 = 0.002. There is only one significant figure in the answer, so you cannot round it to two significant figures.</Paragraph></ListItem></UnNumberedList>
+<UnNumberedList><ListItem><Paragraph><b>(c) </b>457.3 − 64.5 + 302.4 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 460 − 60 + 300</Paragraph></ListItem>
+<ListItem><Paragraph>   = 400 + 300 = 700.</Paragraph></ListItem>
+<ListItem><Paragraph>The calculator gives 695.2 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 700, to 2 s.f.</Paragraph></ListItem> 
+<ListItem><Paragraph>(Notice that, although there only appears to be one significant figure here, the answer was rounded to <i>two</i>; both the 7 and the first 0 are significant.)</Paragraph></ListItem></UnNumberedList>
+<UnNumberedList><ListItem><Paragraph><b>(d) </b>441.7 × 5.2 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 400 × 5 = 2000.</Paragraph></ListItem>
+<ListItem><Paragraph>The calculator gives 2296.84 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 2300, to 2 s.f.</Paragraph></ListItem></UnNumberedList>
+<UnNumberedList><ListItem><Paragraph><b>(e)</b> </Paragraph></ListItem>
+<ListItem><Paragraph><InlineEquation><Image src="MU120_A_SI068e.gif" width="col_100"/><Description/></InlineEquation></Paragraph></ListItem>
+<ListItem><Paragraph>The calculator gives 170.543 2432 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation>170, to 2 s.f.</Paragraph></ListItem></UnNumberedList>
+<UnNumberedList><ListItem><Paragraph><b>(f)</b> 217.5 + 60.3 × 17.7 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 200 + 60 × 20</Paragraph></ListItem>
+<ListItem><Paragraph>= 200 + 1200 = 1400.</Paragraph></ListItem>
+<ListItem><Paragraph>The calculator gives 1284.81 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 1300, to 2 s.f.</Paragraph></ListItem></UnNumberedList>
+<UnNumberedList><ListItem><Paragraph><b>(g)</b> (1285 − 329) × 0.023</Paragraph></ListItem>
+<ListItem><Paragraph><InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> (1300 − 300) × 0.02 = 1000 × 0.02</Paragraph></ListItem>
+<ListItem><Paragraph> = 1000 × <InlineEquation shiftby="-4"><Image src="MU120_A_SI069e.gif" width="col_100"/><Description/></InlineEquation> = 20.</Paragraph></ListItem>
+<ListItem><Paragraph>The calculator gives 21.988 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 22, to 2 s.f.</Paragraph></ListItem>
+</UnNumberedList>
+</Answer>
+</Activity>
+</SubSubSection>
+</SubSection>
+</Section>
+
+<Section id="SEC003">
+<Title>3 Checking your answers</Title>
+<SubSection id="SEC003_001">
+<Title>3.1 Have I done the right calculation?</Title>
+<Paragraph>Once you have done a calculation, with or without the aid of a calculator, it is important that you pause for a moment to check your calculation.</Paragraph>
+<Paragraph>You need to ask yourself some questions.</Paragraph>
+<NumberedList>
+<ListItem><Paragraph>Have I done the right calculation in the right order?</Paragraph></ListItem>
+<ListItem><Paragraph>Have I given due consideration to units of measurement?</Paragraph></ListItem>
+<ListItem><Paragraph>Is my answer reasonable?</Paragraph></ListItem>
+<ListItem><Paragraph>Did I make a rough estimate to act as a check?</Paragraph></ListItem>
+</NumberedList>
+<Paragraph>Your calculation will probably involve a mixture of operations, like addition, subtraction, multiplication and division. You should check that you have used the right operations in the correct order.</Paragraph>
+<Example id="EXA008">
+<Heading>Example 8</Heading>
+<Paragraph>Suppose you are one of five people going out for a meal and sharing the total bill. Your friend Val has done the accounts and shows you her calculation to check. Is she correct?</Paragraph>
+<Table id="UTAB015">
+<TableHead/>
+<TableBody><table>
+<tr>
+<td class="TableLeft"/>
+<td class="TableCentered"><u>  £  </u></td>
+</tr>
+<tr>
+<td class="TableLeft">Float from last outing</td>
+<td class="TableRight">+ 0.40</td>
+</tr>
+<tr>
+<td class="TableLeft">Discount voucher for restaurant</td>
+<td class="TableRight">+ 5.00</td>
+</tr>
+<tr>
+<td class="TableLeft">Contribution from Ali (who left early)</td>
+<td class="TableRight">+ 8.00</td>
+</tr>
+<tr>
+<td class="TableLeft">Food</td>
+<td class="TableRight"><sup>−</sup> 36.98</td>
+</tr>
+<tr>
+<td class="TableLeft">Drinks beforehand</td>
+<td class="TableRight"><sup>−</sup> 5.10</td>
+</tr>
+<tr>
+<td class="TableLeft">Taxi</td>
+<td class="TableRight"><sup>−</sup> 3.50</td>
+</tr>
+<tr>
+<td class="TableLeft">Tip</td>
+<td class="TableRight"><u><sup>−</sup> 3.00</u></td>
+</tr>
+<tr>
+<td class="TableLeft">Total</td>
+<td class="TableRight"><sup>−</sup> 35.18</td>
+</tr>
+<tr>
+<td class="TableLeft">Share among the remaining four of us</td>
+<td class="TableRight"><u>÷ 4</u></td>
+</tr>
+<tr>
+<td class="TableLeft"/>
+<td class="TableRight"><sup>−</sup> 8.795</td>
+</tr>
+<tr>
+<td class="TableLeft">Round up to nearest 10p</td>
+<td class="TableRight"><sup>−</sup> 8.80</td>
+</tr>
+<tr>
+<td class="TableLeft">Everybody owes £8.80.</td>
+<td class="TableLeft"/>
+</tr>
+</table></TableBody>
+<SourceReference/>
+</Table>
+<Answer><SubHeading>Solution</SubHeading>
+<Paragraph>Yes, she is correct.</Paragraph>
+<Paragraph>Note that Val has used positive numbers to represent money in hand and negative numbers to represent debts or payments due, but she could have done the reverse. Sharing among four people, she has used division by four. It is important that the total was calculated before the division by four.</Paragraph>
+</Answer></Example>
+<Example id="EXA009">
+<Heading>Example 9</Heading>
+<UnNumberedList>
+<ListItem><Paragraph>(a) Suppose somebody in the party queries the fact that Ali paid 80p less than everybody else, saying that everybody should pay the same. Somebody else suggests the order of the calculation needs to be changed as shown. Is this correct?</Paragraph></ListItem>
+</UnNumberedList>
+<Table id="UTAB016">
+<TableHead/>
+<TableBody><table>
+<tr>
+<td class="TableLeft"/>
+<td class="TableCentered"><u>  £  </u></td>
+</tr>
+<tr>
+<td class="TableLeft">Float from the last outing</td>
+<td class="TableRight">+ 0.40</td>
+</tr>
+<tr>
+<td class="TableLeft">Discount voucher for restaurant</td>
+<td class="TableRight">+ 5.00</td>
+</tr>
+<tr>
+<td class="TableLeft">Food</td>
+<td class="TableRight"><sup>−</sup> 36.98</td>
+</tr>
+<tr>
+<td class="TableLeft">Drinks beforehand</td>
+<td class="TableRight"><sup>−</sup> 5.10</td>
+</tr>
+<tr>
+<td class="TableLeft">Taxi</td>
+<td class="TableRight"><sup>−</sup> 3.50</td>
+</tr>
+<tr>
+<td class="TableLeft">Tip</td>
+<td class="TableRight"><u><sup>−</sup> 3.00</u></td>
+</tr>
+<tr>
+<td class="TableLeft">Total</td>
+<td class="TableRight"><sup>−</sup> 43.18</td>
+</tr>
+<tr>
+<td class="TableLeft">Share among the remaining four of us</td>
+<td class="TableRight"><u>÷ 4</u></td>
+</tr>
+<tr>
+<td class="TableLeft"/>
+<td class="TableRight"><sup>−</sup> 10.795</td>
+</tr>
+<tr>
+<td class="TableLeft">Round up to nearest £0.10</td>
+<td class="TableRight"><sup>−</sup> 10.80</td>
+</tr>
+<tr>
+<td class="TableLeft">Everybody owes £10.80</td>
+<td class="TableLeft"/>
+</tr>
+<tr>
+<td class="TableLeft">Contribution from Ali (left early)</td>
+<td class="TableRight"><u>+ 8.00</u></td>
+</tr>
+<tr>
+<td class="TableLeft">Ali still owes £2.80</td>
+<td class="TableRight"><sup>−</sup> 2.80</td>
+</tr>
+</table></TableBody>
+<SourceReference/>
+</Table>
+<UnNumberedList>
+<ListItem><Paragraph>(b) Someone else, Paul, says, ‘No, this is not right! Rather than redo the calculation, it would be simpler for Ali to share the 80 p which he underpaid among the rest of us, so he owes us 20p each.’ Is this a better solution?</Paragraph></ListItem>
+</UnNumberedList>
+<Answer><SubHeading>Solution</SubHeading>
+<UnNumberedList>
+<ListItem><Paragraph>(a) There is something wrong here! The number of people sharing is now five not four and so you need to divide by five instead of four.</Paragraph></ListItem>
+</UnNumberedList>
+<Table id="UTAB017">
+<TableHead/>
+<TableBody><table>
+<tr>
+<td class="TableLeft"/>
+<td class="TableCentered"><u>  £  </u></td>
+</tr>
+<tr>
+<td class="TableLeft">Float from last outing</td>
+<td class="TableRight">+ 0.40</td>
+</tr>
+<tr>
+<td class="TableLeft">Discount voucher for restaurant</td>
+<td class="TableRight">+ 5.00</td>
+</tr>
+<tr>
+<td class="TableLeft">Food</td>
+<td class="TableRight"><sup>−</sup> 36.98</td>
+</tr>
+<tr>
+<td class="TableLeft">Drinks beforehand</td>
+<td class="TableRight"><sup>−</sup> 5.10</td>
+</tr>
+<tr>
+<td class="TableLeft">Taxi</td>
+<td class="TableRight"><sup>−</sup> 3.50</td>
+</tr>
+<tr>
+<td class="TableLeft">Tip</td>
+<td class="TableRight"><u><sup>−</sup> 3.00</u></td>
+</tr>
+<tr>
+<td class="TableLeft">Total</td>
+<td class="TableRight"><sup>−</sup> 43.18</td>
+</tr>
+<tr>
+<td class="TableLeft">Share among all five of us</td>
+<td class="TableRight"><u>÷ 5</u></td>
+</tr>
+<tr>
+<td class="TableLeft"/>
+<td class="TableRight"><sup>−</sup> 8.636</td>
+</tr>
+<tr>
+<td class="TableLeft">Round up to the nearest 10p</td>
+<td class="TableRight"><sup>−</sup> 8.70</td>
+</tr>
+<tr>
+<td class="TableLeft">Everybody owes £8.70</td>
+<td class="TableLeft"/>
+</tr>
+<tr>
+<td class="TableLeft">Contribution from Ali (left early)</td>
+<td class="TableRight"><u>+ 8.00</u></td>
+</tr>
+<tr>
+<td class="TableLeft">Ali still owes 70p</td>
+<td class="TableRight"><sup>−</sup> 0.70</td>
+</tr>
+</table></TableBody>
+<SourceReference/>
+</Table>
+<UnNumberedList>
+<ListItem><Paragraph>(b) Paul's solution is unfair to Ali. The result of that redistribution would be that everyone would have paid £8.80 − 20p = £8.60, except for Ali who would have paid £8 + 4 × 20p = £8.80.</Paragraph></ListItem>
+</UnNumberedList></Answer>
+</Example>
+<SubSubSection id="SEC003_001_001">
+<Heading>Try some yourself</Heading>
+
+<Activity id="ACT019">
+	<Question>
+		<Paragraph><b>1</b> In a supermarket the bill comes to £8.70, and you have discount coupons worth £3.50. The assistant says ‘that will be £12.20 please’. Is she right?</Paragraph>
+	</Question>
+	<Answer>
+		<Paragraph>No. You owe £8.70, but the coupons have paid £3.50, so you owe £8.70 − £3.50 = £5.20. The assistant wrongly added instead of subtracting.</Paragraph>
+	</Answer>
+</Activity>
+<Activity id="ACT020">
+<Question>
+<Paragraph><b>2</b> Suppose a young friend, Tom, has run some errands for you, for which you have given him £20 plus some discount coupons for the supermarket. He presents you with your shopping, the following calculation and £1 change.</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph>received from you £20.00</Paragraph></ListItem>
+<ListItem><Paragraph>stamps from post office £5.00, leaves £15.00</Paragraph></ListItem>
+<ListItem><Paragraph>supermarket bill £12.50, leaves £2.50</Paragraph></ListItem>
+<ListItem><Paragraph>discount coupons £1.50, leaves £1.00</Paragraph></ListItem>
+</UnNumberedList>
+<Paragraph>Has Tom done the right calculation?</Paragraph></Question>
+<Answer>
+<Paragraph>No. Tom should have added not subtracted the value of the discount coupons, since they are the equivalent of money received, not spent. Alternatively he could have subtracted them from the supermarket bill before subtracting this: 15 − (12.50 − 1.50) is the same as 15 − 12.50 + 1.50.</Paragraph>
+</Answer>
+</Activity>
+</SubSubSection>
+</SubSection>
+<SubSection id="SEC003_002">
+<Title>3.2 Have I used the correct order for my calculation?</Title>
+<Paragraph>When calculating an answer it is important that you give careful consideration to the order of operations used in the calculation. If you are using a mixture of operations remember that certain operations take priority in a calculation. Consider the following, apparently, simple sum.</Paragraph>
+<Paragraph>   1 + 2 × 3 = ?</Paragraph>
+<Paragraph>What answer would you give?</Paragraph>
+<Paragraph>Did you give 7 as your response, or 9?</Paragraph>
+<Paragraph>The correct answer is 7 but can you explain why?</Paragraph>
+<Paragraph>If you have a calculator handy, check that it follows the correct order. Some <!--cheap-->basic calculators do not, but scientific calculators should do so.</Paragraph>
+<Paragraph><!--As explained in Section 1.3, -->Brackets come first, then powers, and then multiplication and division (working from left to right), and finally addition and subtraction (working from left to right).</Paragraph>
+<Paragraph>Consider this sum:</Paragraph>
+<Paragraph>   10 − 5 + 3 = ?</Paragraph>
+<Paragraph>What answer would you give?</Paragraph>
+<Paragraph>Did you provide 2 as your response, or 8?</Paragraph>
+<Paragraph>The correct answer is 8 but can you explain why?</Paragraph>
+<Paragraph>The operations of addition and subtraction belong to the same group, and so you perform the calculation from left to right. Addition does not have priority over subtraction.</Paragraph>
+<Paragraph>Consider these calculations:</Paragraph>
+<Paragraph>   (1 + 2) × 3 = ?</Paragraph>
+<Paragraph>   10 − (5 + 3) = ?</Paragraph>
+<Paragraph>These calculations are similar to earlier ones but this time involve the use of brackets, which take priority over the other operations. The correct answers here are 9 and 2 respectively.</Paragraph>
+<SubSubSection id="SEC003_002_001">
+<Heading>Try some yourself</Heading>
+<Activity id="ACT021">
+<Question>
+<Paragraph><b>1</b> Without using your calculator solve the following calculations.</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a) </b>3 + 5 × 2 = ?</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> 12 − 6 + 6 = ?</Paragraph></ListItem>
+<ListItem><Paragraph><b>(c) </b>6 + (5 + 4) × 3 = ?</Paragraph></ListItem>
+<ListItem><Paragraph><b>(d)</b> (3 + 5) ÷ 2 = ?</Paragraph></ListItem>
+<ListItem><Paragraph><b>(e)</b> 12 − (6 + 6) = ?</Paragraph></ListItem>
+<ListItem><Paragraph><b>(f)</b> 6 + 5 + 4 × 3 ÷ 2 = ?</Paragraph></ListItem>
+</UnNumberedList>
+<Paragraph>Check your answers using a scientific calculator.</Paragraph></Question>
+<Answer>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> 5 × 2 = 10</Paragraph></ListItem>
+<ListItem><Paragraph>     3 + 10 = 13.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> 12 − 6 = 6</Paragraph></ListItem>
+<ListItem><Paragraph>     6 + 6 = 12.</Paragraph></ListItem>
+<ListItem><Paragraph>     Remember that addition and subtraction belong to the same group and so the calculation is done from left to right.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(c)</b> 6 + (5 + 4) × 3 = 6 + 9 × 3</Paragraph></ListItem>
+<ListItem><Paragraph>     9 × 3 = 27</Paragraph></ListItem>
+<ListItem><Paragraph>     6 + 27 = 33.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(d)</b> (3 + 5) ÷ 2</Paragraph></ListItem>
+<ListItem><Paragraph>     8 ÷ 2 = 4.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(e)</b> 12 − (6 + 6) = 12 − 12 = 0.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(f)</b> 6 + 5 + 4 × 3 ÷ 2 = 6 + 5 + 6 = 17.</Paragraph></ListItem>
+</UnNumberedList></Answer>
+</Activity>
+</SubSubSection>
+</SubSection>
+<SubSection id="SEC003_003">
+<Title>3.3 Have I given due consideration to units of measurement?</Title>
+<Paragraph>Many mathematical problems include units of measurement<!--, as explained in Section 1.2-->. The measurement may be of length, weight, time, temperature or currency. The UK uses both metric and imperial units.</Paragraph>
+
+<Paragraph>The table below gives the units of length that are in everyday use in the UK, but you may know some others.</Paragraph>
+<Table id="UTAB018">
+<TableHead/>
+<TableBody><table>
+<tr>
+<td class="TableCentered"><i>Metric</i></td>
+<td class="TableCentered"><i>Imperial</i></td>
+</tr>
+<tr>
+<td class="TableCentered">millimeter</td>
+<td class="TableCentered">inches</td>
+</tr>
+<tr>
+<td class="TableCentered">centimetre</td>
+<td class="TableCentered">feet</td>
+</tr>
+<tr>
+<td class="TableCentered">metre</td>
+<td class="TableCentered">yards</td>
+</tr>
+<tr>
+<td class="TableCentered">kilometre</td>
+<td class="TableCentered">miles</td>
+</tr>
+</table></TableBody>
+<SourceReference/>
+</Table>
+<Paragraph>There is a great variety of measurement units in use. Their incorrect use leads to errors which can sometimes be costly.</Paragraph>
+<Paragraph>On 23 September 1999, NASA lost a $125 million Mars orbiter. This was because an engineering team used imperial units of measurement while NASA's team used the metric system for a key spacecraft operation.</Paragraph>
+<!--Insert  orbiter[1].jpg here-->
+<Figure id="FIG100">
+<Image id="FIG100" src="orbiter.jpg"/>
+<Caption/>
+<Description/>
+</Figure>
+<Example id="EXA010">
+<Heading>Example 10</Heading>
+<Figure id="FIGI050"><Image id="FIGI050" src="MU120_A_I050i.jpg"/><Description/></Figure>
+<Paragraph>Suppose that you want to buy a carpet, priced at £16.00 per square metre, for the room shown above and you calculate the area as follows.</Paragraph>
+<Paragraph>Area = 5 × 450 = 2250</Paragraph>
+<Paragraph>Cost of carpet = 16 × 2250 = £3600</Paragraph>
+<Paragraph>An expensive carpet! What is wrong?</Paragraph>
+<Answer><SubHeading>Solution</SubHeading>
+<Paragraph>There is a mixture of units: metres and centimetres.</Paragraph>
+<Paragraph>If a problem has a mixture of measurement units, it is usually a good idea to convert all measures to the same units. Here the carpet is sold in units of ‘square metres’, therefore ensure all the measurements are in metres.</Paragraph>
+<Paragraph>Hence area required = 5 × 4.50.</Paragraph>
+<Paragraph>Area = 22.5 square metres.</Paragraph>
+<Paragraph>Cost of carpet = £16 × 22.5 = £360.</Paragraph>
+</Answer></Example>
+<SubSubSection id="SEC003_003_001">
+<Heading>Try some yourself</Heading>
+<Activity id="ACT022">
+	<Question>
+		<Paragraph><b>1</b> A friend has been quoted a price of £25.50 per square yard for tarmac surfacing of his yard. The yard measures 6 yards by 10 feet. Here is his calculation of the total cost. What is wrong with it?</Paragraph>
+<!--<Equation id="UEQN023"><Image src="MU120_A_U023e.jpg" width="col_100"></Image><Description></Description></Equation>-->
+<Paragraph>cost = £25.50 × 6 × 10 = £1530</Paragraph>
+	</Question>
+	<Answer>
+		<Paragraph>He has not used the same units. The figure 10 he used refers to feet, so in a calculation using yards he needs <!--<InlineEquation shiftby="-4"><Image src="MU120_A_SI070e.gif" width="col_100"/><Description/></InlineEquation>-->10/3 (3 feet = 1 yard). The cost should be</Paragraph>
+<Equation id="SUEQN002"><Image src="MU120_A_SU002e.gif" width="col_100"/><Description/></Equation>
+	</Answer>
+</Activity>
+<Activity id="ACT023">
+<Question>
+<Paragraph><b>2</b> Another friend, Kim, wishes to reproof her tent. A litre tin of ‘proofing agent’ states that the coverage is roughly 5 square metres per litre. The manufacturer's measurements of the tent, which is a ridge tent, are: height 2 m, length 3 m. However, Kim realises that she needs the other measurements. Here is her diagram and calculation.</Paragraph>
+<Figure id="FIGI051"><Image id="FIGI051" src="MU120_A_I051i.jpg"/><Description/></Figure>
+<Paragraph>The problem: how many litres of proofing agent to buy to cover the tent?</Paragraph>
+<Paragraph>    Area of 2 side panels 2 × 3 × 250 = 1500</Paragraph>
+<Paragraph>    Area of end door panels together 2 × 150 + 150 = 450</Paragraph>
+<Paragraph>    Total area = 1950</Paragraph>
+<Paragraph>    Number of litres = 1950 ÷ 5 = 390</Paragraph>
+<Paragraph>Kim thinks this is rather a lot and asks you to help. Find her errors.</Paragraph>
+</Question>
+<Answer>
+<Paragraph>The errors are</Paragraph>
+<NumberedList>
+<ListItem><Paragraph>Not converting the centimetres to metres.</Paragraph></ListItem>
+<ListItem><Paragraph>The order of operations for calculating the end door panels.</Paragraph></ListItem>
+</NumberedList>
+<Paragraph>Correct answer should be</Paragraph>
+<Paragraph>Areas are:</Paragraph>
+<Paragraph><i>sides</i> 2 × 3 × 2.5 = 15 metres squared</Paragraph>
+<Paragraph><i>doors</i> 2 × (1.5 + 1.5) = 6 metres squared</Paragraph>
+<Paragraph>Total area = 21 metres squared</Paragraph>
+<Paragraph>Number of litres = 21 ÷ 5 = 4.2 litres</Paragraph>
+<Paragraph>Therefore Kim needs to buy 5 litres of proofing agent.</Paragraph>
+</Answer>
+</Activity>
+</SubSubSection>
+</SubSection>
+<SubSection id="SEC003_004">
+<Title>3.4 Did I make a rough estimate to act as a check?</Title>
+<!--Insert dro0797l[1].jpg here-->
+<Figure id="FIG200">
+<Image id="FIG200" src="dro0797l.jpg"/>
+<Caption/>
+<Description/>
+</Figure>
+<Paragraph>When using a calculator many people have ‘blind faith’ in its capacity to provide the correct result.</Paragraph>
+<Paragraph>Calculators invariably provide the correct result for the information they are given; any errors are due to the operator.</Paragraph>
+<Paragraph>To help guard against errors, always give a ‘ball-park’ estimate for a problem, using rounded values and easy calculations.</Paragraph>
+<Paragraph>For example, make a rough estimate of the calculation below to act as a check upon the actual calculation using the calculator.</Paragraph>
+<Paragraph>3.421 + 5.986 + 12.009 87 = ?</Paragraph>
+<!--<Equation id="UEQN024"><Image src="MU120_A_U024e.jpg" width="col_100"></Image><Description></Description></Equation>-->
+<Paragraph>Rough check: 3 + 6 + 12 = 21</Paragraph>
+<Paragraph>Calculator answer: 21.416 87</Paragraph>
+<Paragraph>The two answers are within the same ‘ball-park’ so you should be happy with the calculator's answer. Had you got an answer of 3438.995 87, say, you should be suspicious and checking would reveal you had missed out a decimal point.</Paragraph>
+<Paragraph>It is helpful to adopt this checking strategy for all your calculations since it is so easy to press the wrong key inadvertently, or double press a key when working at speed on a calculator.</Paragraph>
+<Paragraph>Often it is useful to have both an underestimate and an overestimate.</Paragraph>
+<Figure id="FIGI052"><Image id="FIGI052" src="MU120_A_I052i.jpg"/><Description/></Figure>
+<Example id="EXA011">
+<Heading>Example 11</Heading>
+<Paragraph>Look back at <CrossRef idref="EXA009">Example 9</CrossRef>, which gave an incorrect answer. How could you have spotted this without doing the whole calculation?</Paragraph>
+<Answer><SubHeading>Solution</SubHeading>
+<Paragraph>First do an overestimate, then an underestimate, per person.</Paragraph>
+<Paragraph>In an overestimate, ignore the float and round the food up to £40, drinks to £6, taxi £4, tip £3 minus £5 discount gives £48 this is less than £50. Divide by 5 people means the maximum share for each person is £10. Hence £10.80 is too much.</Paragraph>
+<Paragraph>An underestimate would be £35 for food, £5 for drinks, £3 for taxi and £3 for tip, less £5 for the voucher and £1 float. This gives £40, divided by 5, which means minimum of £8 each.</Paragraph>
+<Paragraph>Hence you would expect an answer between £8 and £10.</Paragraph>
+</Answer></Example>
+<Paragraph>One common error when using a calculator is to forget that the calculator does not total everything as it goes along. So, for example, in the case of the bill for a night out, you must total everything before you divide by the number of people who are sharing the bill.</Paragraph>
+<Example id="EXA012">
+<Heading>Example 12</Heading>
+<Paragraph>Look back at <CrossRef idref="EXA008">Example 8</CrossRef> and suppose that the calculation was put into a scientific calculator, in the following form:</Paragraph>
+<Paragraph>0.04 + 5.00 + 8.00 − 36.98 − 5.10 − 3.50 − 3.00 ÷ 4 = ?</Paragraph>
+<!--<Equation id="UEQN025"><Image src="MU120_A_U025e.jpg" width="col_100"></Image><Description></Description></Equation>-->
+<Paragraph>Would this give the right answer?</Paragraph>
+<Answer><SubHeading>Solution</SubHeading>
+<Paragraph>No, it would not give the right answer. The calculator will do the division first, i.e. 3.00 ÷ 4, and then all the additions and subtractions, to give the answer <sup>−</sup>32.93. And £32.93 is clearly too much for each person's share of the bill.</Paragraph>
+<Paragraph>In order to make it do the calculation correctly, you can either total after the 3.00, by using the ‘=’ (or ‘ENTER’) button, or use brackets.</Paragraph>
+<Paragraph>(0.40 + 5.00 + 8.00 − 36.98 − 5.10 − 3.50 − 3.00) ÷ 4</Paragraph>
+<!--<Equation id="UEQN026"><Image src="MU120_A_U026e.jpg" width="col_100"></Image><Description>1.1</Description></Equation>-->
+</Answer></Example>
+<SubSubSection id="SEC003_004_001">
+<Heading>Try some yourself</Heading>
+<Activity id="ACT024">
+	<Question>
+		<Paragraph><b>1</b> For each of the following calculations make suitable rough estimates before doing the calculation on your calculator and check the result.</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> 22.12 ÷ 4.12</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> 0.897 × 10.00345</Paragraph></ListItem>
+<ListItem><Paragraph><b>(c)</b> 1009 × 23.789 × 278.98</Paragraph></ListItem>
+<ListItem><Paragraph><b>(d) </b>(12.98 + 14.87 + 63.098) ÷ 12.54</Paragraph></ListItem>
+</UnNumberedList>
+	</Question>
+	<Answer>
+		<Paragraph>You may have worked out a ball-park figure rather than under and over estimates or you may have used different estimates. This does not matter as long as you can check on whether your calculator answer is what you would expect.</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> Overestimate: 24 ÷ 4 = 6</Paragraph></ListItem>
+<ListItem><Paragraph>     Underestimate: 20 ÷ 5 = 4.</Paragraph></ListItem>
+<ListItem><Paragraph>     Answer = 5.368932039.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b) </b>Overestimate: 1 × 11 = 11</Paragraph></ListItem>
+<ListItem><Paragraph>     Underestimate: 0.8 × 10 = 8.</Paragraph></ListItem>
+<ListItem><Paragraph>     Answer = 8.97309465.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(c) </b>Overestimate: 1010 × 24 × 300 = 1010 × 7200 = 7272 000</Paragraph></ListItem>
+<ListItem><Paragraph>     Underestimate: 1000 × 20 × 270 = 5400 000</Paragraph></ListItem>
+<ListItem><Paragraph>     Answer = 6696 385.117</Paragraph></ListItem>
+<ListItem><Paragraph><b>(d)</b> Overestimate: (13 + 15 + 64) ÷ 10 = 9.2</Paragraph></ListItem>
+<ListItem><Paragraph>     Underestimate: (12 + 14 + 63) ÷ 13 = 89÷ 13 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 7</Paragraph></ListItem>
+<ListItem><Paragraph>     Answer = 7.252631579.</Paragraph></ListItem>
+</UnNumberedList>
+	</Answer>
+</Activity>
+<Activity>
+	<Question id="ACT025">
+		<Paragraph><b>2</b> You are helping a friend, Al, who is preparing a base for a new garage. He needs to purchase ready-made concrete from a local supplier. The concrete is sold in units of cubic metres so he needs to calculate how much to order.</Paragraph>
+<Figure id="FIGI053"><Image id="FIGI053" src="MU120_A_I053i.jpg"/><Description/></Figure>
+<Paragraph>The plan of the proposed garage is shown in the diagram above. Following advice from a builder the base is to have a thickness of 200 mm. Al's estimate for concrete required is given below.</Paragraph>
+<Paragraph>volume = length × width × thickness</Paragraph>
+<Paragraph>volume = 6.56 × 4.68 × 2.00</Paragraph>
+<Paragraph>volume = 61.4016 cubic metres</Paragraph>
+<Paragraph>Hence volume of concrete needed is 61 cubic metres, to 2 s.f.</Paragraph>
+<Paragraph>Make a rough estimate of what you would expect the answer to be. Are you happy with Al's calculation?</Paragraph>
+	</Question>
+	<Answer>
+		<Paragraph>Rough estimate = 7 × 5 × 0.2 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 7 cubic metres.</Paragraph>
+<Paragraph>Al's estimate = 61 cubic metres which seems rather large, by a factor of about ten, so you should not be happy with his estimate.</Paragraph>
+<Paragraph>He has said that 200 mm = 2 m whereas he should have used 0.2 m: he should have divided 200 by 1000 rather than 100. (There are 1000 mm in 1 m.)</Paragraph>
+	</Answer>
+</Activity>
+
+</SubSubSection>
+<Activity id="ACT026">
+<Question>
+<Paragraph><b>3</b> Suppose a friend has worked out the price of carpeting some stairs with carpet which costs £4.50 per square metre.</Paragraph>
+<Figure id="FIGI054"><Image id="FIGI054" src="MU120_A_I054i.jpg"/><Description>Text</Description></Figure>
+<Paragraph>The stairs are in three flights of ten, and each step requires 25 cm for the tread and 17 cm for the rise. The stair width is nearly one metre. There are also landings to be carpeted of length 1.2 m and 5.4 m, both one metre wide. By estimating what the answer should be, and then working through what he has done, check the calculation below for your friend.</Paragraph>
+<Paragraph>Each stair 25 + 17 = 42</Paragraph>
+<Paragraph>Ten stairs 42 × 10 = 420</Paragraph>
+<Paragraph>Three flights of stairs 420 × 3 = 1260</Paragraph>
+<Paragraph>Landings 1.2 + 5.4 = 6.6</Paragraph>
+<Paragraph>Total length 6.6 + 1260 = 1266.6</Paragraph>
+<Paragraph>Cost £4.50 × 1266.6 = £5699.7</Paragraph></Question>
+<Answer>
+<Paragraph>£5699.7 seems a lot for a stair carpet.</Paragraph>
+<Paragraph>Estimate of answer: Length needed for one step <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 0.2 + 0.2 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation>0.4m.</Paragraph>
+<Paragraph>Length needed for 10 stairs <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 10 × 0.4 = 4 m</Paragraph>
+<Paragraph>So length needed for 30 stairs <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 4 × 3 = 12 m.</Paragraph>
+<Paragraph>Landings need <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation>1 + 6 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 7m</Paragraph>
+<Paragraph>So total length needed = 12 + 7 = 19 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 20 m.</Paragraph>
+<Paragraph>So cost would be about 20 × 5 = £100 which is a lot less than £5699.70.</Paragraph>
+<Paragraph>The stairs are measured in cms and the landings are measured in metres. So in calculating ‘total length’ your friend has added numbers of different units. The cost of the carpet is in pounds per metre, so it is sensible to convert centimetres to metres for the calculation. Measuring in metres gives 6.6 + <InlineEquation shiftby="-4"><Image src="MU120_A_SI071e.gif"/><Description/></InlineEquation> = 19.2 metres. Your friend might need a safety margin so he should buy 20 metres at a cost of 20 × £4.50 = £90.</Paragraph>
+</Answer>
+</Activity>
+</SubSection>
+<SubSection id="SEC003_005">
+<Title>3.5 Does the answer make sense in the real world?</Title>
+<!--Insert carton5[1].gif here-->
+<Figure id="FIG300">
+<Image id="FIG300" src="cartoon5.jpg"/>
+<Caption/>
+<Description/>
+</Figure>
+<Paragraph>Having completed a calculation it is important to check whether your answer makes sense. British money for example can only be issued to the nearest penny. If you share a bill for £20 among three people, your calculator would give an answer of £6.666 666 667. So how much should be paid by each person?</Paragraph>
+<Paragraph>You would probably round up to £6.67 or £6.70 and put the extra pence in a charity tin.</Paragraph>
+<Paragraph>It is important, when performing a calculation, to consider the context of the problem you are solving. The final answers should take the context of the problem into account. This means using appropriate rounding in order to give sensible answers.</Paragraph>
+<Paragraph>Suppose you were intending to buy sand to make a foundation for a path of slabs and the sand came in pre-packaged bags of 20 kg. If your calculations showed that, theoretically, you need 69 kg of sand, you would still have to buy four bags of sand, since three bags would be insufficient.</Paragraph>
+<Paragraph>You might be able to break a biscuit into halves, but it is difficult to give six children 4.833 3333 biscuits each. Similarly, an answer which suggests you can afford to take 10.134 people on an outing is not very sensible.</Paragraph>
+<Paragraph>When you get a mathematical answer, you need to interpret the answer within the context of the original problem and round your answer appropriately for the situation. So if you could afford to take 10.134 people on the trip, you would probably interpret this as ten people. As for 4.833 3333 biscuits, you would need to round down rather than up otherwise there would not be enough biscuits: four or four and a half might be all right, depending upon whether you could break them in half easily.</Paragraph>
+<Example id="EXA013">
+<Heading>Example 13</Heading>
+<Paragraph>Interpret the answers to the following sensibly.</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> Five people share a total bill for a night out of £56.66. They perform the calculation 56.66 ÷ 5 = 11.332.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> A children's charity has raised £1546.60 to pay for deprived children to go on holiday. Twelve children are selected to go. The calculation 1546.60 ÷ 12 = 128.883 3333 is performed to see how much is available for each child.</Paragraph></ListItem>
+</UnNumberedList>
+<Answer><SubHeading>Solution</SubHeading>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a) </b>To make sure that the bill is covered, the 11.332 needs to be rounded up so that each person pays £11.34. (The extra 4p collected could be added to the tip.)</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> This needs to be rounded down in order not to exceed the budget (unless further funds are available), and so something like £125 each (plus a contingency fund of £46.60) might be suitable.</Paragraph></ListItem>
+</UnNumberedList></Answer>
+</Example>
+<Paragraph>The decision to make when giving a rounded answer to a problem is difficult to quantify and is often dependent upon previous knowledge or experience. Despite this difficulty it is always necessary to be conscious of the context of the problem you are solving and to give appropriate answers.</Paragraph>
+<SubSubSection id="SEC003_005_001">
+<Heading>Try some yourself</Heading>
+<Activity id="ACT027">
+	<Question>
+		<Paragraph><b>1</b> <!--Complete the following table by rounding the given values appropriately-->Give the appropriate rounding for each of the values below:</Paragraph>
+		<UnNumberedList>
+			<ListItem><Paragraph>(a) Carpet floor area = 26.456 sq metres</Paragraph></ListItem>
+			<ListItem><Paragraph>(b) Interest earned = £109.876 5439</Paragraph></ListItem>
+			<ListItem><Paragraph>(c) Bill for £84.90 shared by 7 people</Paragraph></ListItem>
+			<ListItem><Paragraph>(d) Length of room = 5.387 6956 m</Paragraph></ListItem>
+			<ListItem><Paragraph>(e) Estimated attendance = 24.678</Paragraph></ListItem>
+			<ListItem><Paragraph>(f) Thickness of paper = 0.0543 mm</Paragraph></ListItem>
+		</UnNumberedList>
+		</Question>
+<!--<Table id="UTAB019">
+<TableHead/>
+<TableBody>
+<table>
+<tr>
+<td class="TableCentered">Context</td>
+<td class="TableCentered">Appropriate rounding</td>
+</tr>
+<tr>
+<td class="TableLeft">(a) Carpet floor area = 26.456 sq metres</td>
+<td class="TableLeft"/>
+</tr>
+<tr>
+<td class="TableLeft">(b) Interest earned = £109.876 5439</td>
+<td class="TableLeft"/>
+</tr>
+<tr>
+<td class="TableLeft">(c) Bill for £84.90 shared by 7 people</td>
+<td class="TableLeft"/>
+</tr>
+<tr>
+<td class="TableLeft">(d) Length of room = 5.387 6956 m</td>
+<td class="TableLeft"/>
+</tr>
+<tr>
+<td class="TableLeft">(e) Estimated attendance = 24.678</td>
+<td class="TableLeft"/>
+</tr>
+<tr>
+<td class="TableLeft">(f) Thickness of paper = 0.0543 mm</td>
+<td class="TableLeft"/>
+</tr>
+</table>
+</TableBody>
+<SourceReference/>
+</Table>
+	</Question>
+	<Answer>
+		<Table id="UTAB019a">
+<TableHead/>
+<TableBody>
+<table>
+<tr>
+<td class="TableCentered">Context</td>
+<td class="TableCentered">Appropriate rounding</td>
+</tr>
+<tr>
+<td class="TableLeft">(a) Carpet floor area = 26.456 sq metres</td>
+<td class="TableLeft"> 27 sq metres (Round up if you are buying carpet)</td>
+</tr>
+<tr>
+<td class="TableLeft">(b) Interest earned = £109.876 5439</td>
+<td class="TableLeft">£109.88 (Money is given to 2 d.p.)</td>
+</tr>
+<tr>
+<td class="TableLeft">(c) Bill for £84.90 shared by 7 people</td>
+<td class="TableLeft">£12.13 (Round up to have enough money)</td>
+</tr>
+<tr>
+<td class="TableLeft">(d) Length of room = 5.387 6956 m</td>
+<td class="TableLeft">5.39 m (Round to the nearest cm – depends on context)</td>
+</tr>
+<tr>
+<td class="TableLeft">(e) Estimated attendance = 24.678</td>
+<td class="TableLeft">25 (Cannot have part of a person)</td>
+</tr>
+<tr>
+<td class="TableLeft">(f) Thickness of paper = 0.0543 mm</td>
+<td class="TableLeft">0.05 mm (Cannot visualise more accuracy)</td>
+</tr>
+</table>
+</TableBody>
+<SourceReference/>
+</Table>-->
+<Answer>
+	<UnNumberedList>
+			<ListItem><Paragraph>(a) 27 sq metres (Round up if you are buying carpet)</Paragraph></ListItem>
+			<ListItem><Paragraph>(b) £109.88 (Money is given to 2 d.p.)</Paragraph></ListItem>
+			<ListItem><Paragraph>(c) £12.13 (Round up to have enough money)</Paragraph></ListItem>
+			<ListItem><Paragraph>(d) 5.39 m (Round to the nearest cm – depends on context)</Paragraph></ListItem>
+			<ListItem><Paragraph>(e) 25 (Cannot have part of a person)</Paragraph></ListItem>
+			<ListItem><Paragraph>(f) 0.05 mm (Cannot visualise more accuracy)</Paragraph></ListItem>
+		</UnNumberedList>
+		</Answer>
+</Activity>
+<Activity id="ACT028">
+	<Question>
+		<Paragraph><b>2</b> A coach costs £85 to hire for a journey. There are six of you to share the cost. How much should you each pay?</Paragraph>
+<Paragraph>85 ÷ 6 = 14.166 6667</Paragraph>
+	</Question>
+	<Answer>
+		<Paragraph>You need to round up to cover the cost of the coach, and you need to round to the nearest penny at least. So £85 ÷ 6 <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> £14.17 or even £15 (including a tip for the driver).</Paragraph>
+	</Answer>
+</Activity>
+<Activity id="ACT029">
+	<Question>
+		<Paragraph><b>3</b> Suppose somebody baked two dozen fruit cakes for a charity sale and you want to charge a reasonable price for them. The cost of the ingredients, £40.86, is to be refunded to the cook. The organiser has suggested selling at a profit of about double this. What is a sensible selling price?</Paragraph>
+<Paragraph>40.86 × 3 ÷ 24 = 5.1075.</Paragraph>
+	</Question>
+	<Answer>
+		<Paragraph>You will probably want to charge a price that can easily be handled by buyers and sellers at the sale, and so rounding to the nearest pound or ten pence would be sensible, giving £5.00 or £5.10. However, a reduction to £4.99 might attract more buyers.</Paragraph>
+	</Answer>
+</Activity>
+<Activity id="ACT030">
+	<Question>
+		<Paragraph><b>4</b> Suppose that a friend has asked you to check the following calculations he has made for material for new curtains. Is anything wrong?</Paragraph>
+<!--<Paragraph>&#x000A0;&#x000A0;window 1: 2 curtains length 670 mm &#x0003D; 1340 mm</Paragraph>
+<Paragraph>&#x000A0;&#x000A0;window 2: 4 curtains length 1 m 76 mm &#x0003D; 7.04 m</Paragraph>
+<Paragraph>&#x000A0;&#x000A0;window 3: 3 curtains length 536 mm &#x0003D; <u>1608 mm</u></Paragraph>
+<Paragraph>&#x000A0;&#x000A0;&#x000A0;total length &#x0003D; 3652 mm &#x0003D; 3.652 m</Paragraph>-->
+<Paragraph><InlineEquation><Image src="equation_question.gif"/><Description/></InlineEquation></Paragraph>
+<Paragraph>Cost at £3 per metre (length) is £10.956, i.e. approximately £11.</Paragraph>
+	</Question>
+	<Answer>
+		<Paragraph>Your friend would have been better converting all the lengths to metres first, as there is an error in the total. You might have spotted this since 7.04 m plus two other lengths must give more than 3.652 m. There is also another error:  1 m 76 mm is 1.076 m; and 4 times this is 4.304 m.</Paragraph>
+		<Paragraph>An estimate of the total lengths would have suggested something was wrong. Nine curtains at between half a metre and a metre in length will need between 4<InlineEquation shiftby="-4"><Image src="half.gif"/><Description/></InlineEquation><!--insert half gif--> and 9 metres. At £3 per metre this is well over £11.</Paragraph>
+		<Paragraph>Your friend also needs to round up the lengths of material to allow for hemming.</Paragraph>
+		<Paragraph>So the corrected calculation would be like the on below:</Paragraph>
+		<!--Insert calculation see sticker on book in folder-->
+		<Paragraph><InlineEquation><Image src="equation_answer.gif"/><Description/></InlineEquation></Paragraph>
+		<Paragraph>Round up the length to 7.5 or 8 m to allow for hems, etc.</Paragraph>
+		<Paragraph>Cost at £3 per metre:</Paragraph>
+		<Paragraph>  7.5 m costs £22.20;    8 m costs £24.00.</Paragraph>
+		<Paragraph>(You might also have queried his measurements, since some of the windows seem very small. Might he have confused centimetres with inches? For example should the first length really be 67 in?)</Paragraph>
+	</Answer>
+</Activity>
+<Activity id="ACT031">
+<Question>
+<Paragraph><b>5</b> Suppose you are in charge of dealing the cards in a game for large numbers of people. You have a pack of 200 cards and 35 players. The instructions say: ‘Deal as many cards as possible so that the players have the same number of cards each.’ Somebody says you should give each player five cards. Is this correct?</Paragraph>
+</Question>
+<Answer>
+<Paragraph>200 ÷ 35 = 5.714 285 14.</Paragraph>
+<Paragraph>Round down to the nearest whole card, so that there are sufficient cards to go round. So deal 5 cards each.</Paragraph>
+</Answer>
+</Activity>
+<Activity id="ACT032">
+<Question>
+<Paragraph><b>6</b> Use your estimating skills and common sense to check the following calculation, line by line, for the cost of papering an irregularly shaped room with simple non-patterned wallpaper.</Paragraph>
+<Paragraph>   Height of walls = 275 cm</Paragraph>
+<Paragraph>   Width of walls = 512 + 346 + 234 + 748 × 2 = 2588 cm</Paragraph>
+<Paragraph>   Width of wallpaper = 50 cm</Paragraph>
+<Paragraph>   Number of pieces of wallpaper needed = 2588 ÷ 50 = 51.76</Paragraph>
+<Paragraph>   Total length of wallpaper needed = 51.76 × 275 = 14 234 cm</Paragraph>
+<Paragraph>   Length of one roll = 10 m</Paragraph>
+<Paragraph>   Cost of one roll = £4.00</Paragraph>
+<Paragraph>   Number of rolls = 14 234 ÷ 10</Paragraph>
+<Paragraph>   Total cost = £4.00 × <InlineEquation shiftby="-4"><Image src="MU120_A_I177e.gif"/><Description/></InlineEquation> = £5693.60</Paragraph></Question>
+<Answer>
+
+<Paragraph>The calculator calculations themselves are correct, but the total cost of over £5000 should suggest that something has gone wrong. The problem is that the length of a wallpaper roll is in metres (m) but the height of the room is in centimetres (cm). Hence the answer is out by a factor of 100. The correct answer for the total cost is therefore £5693.6 ÷ 100 = £56.94 (to the nearest penny).</Paragraph>
+<Paragraph>Also, the number of pieces probably needs to be a whole number, as does the number of rolls. So these answers need to be rounded up:</Paragraph>
+<Paragraph>   number of pieces = 52</Paragraph>
+<Paragraph>   number of rolls =  <InlineEquation shiftby="-4"><Image src="MU120_A_I178e.gif"/><Description/></InlineEquation>  = 14.3, rounded up to 15 rolls.</Paragraph>
+<Paragraph>Therefore the total cost is £4.00 × 15 = £60 (rather than nearly £5000).</Paragraph>
+</Answer></Activity>
+</SubSubSection>
+</SubSection>
+<SubSection id="SEC003_006">
+	<Title>3.6 Additional practice</Title>
+	<Paragraph>Here is a mixed bag of exercises, in case you feel that you need more pratice. Do the exercises which you feel will help you.</Paragraph>
+	<SubSubSection id="SEC003_006_001">
+	<Heading>Try some yourself</Heading>
+	<Activity id="ACT033">
+	<Question>
+		<Paragraph><b>1</b> The population of a village is 5481. Round this:</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> to the nearest thousand people;</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> to the nearest hundred people.</Paragraph></ListItem>
+</UnNumberedList>
+	</Question>
+	<Answer>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> 5481 rounded to the nearest thousand people is 5000 people.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> 5481 rounded to the nearest hundred people is 5500 people.</Paragraph></ListItem>
+</UnNumberedList>
+	</Answer>
+</Activity>
+<Activity id="ACT034">
+	<Question>
+		<Paragraph><b>2</b> Suppose you went shopping with £30 cash and discount coupons to the value of £3.60 for various items that you intended to buy (such as £1 off a giant tin of biscuits). You did a rough estimate of your shopping bill by adding up the items you were buying (without taking the coupons into account) and it came to £25. Roughly how much cash would you expect to have left after paying the bill?</Paragraph>
+	</Question>
+	<Answer>
+		<Paragraph>The amount of cash in pounds you will have left is roughly 30 + 3.60 − 25, or equivalently 30 − 25 + 3.60, i.e. about £8.60, or £9 (more roughly).</Paragraph>
+	</Answer>
+</Activity>
+<Activity id="ACT035">
+	<Question>
+		<Paragraph><b>3</b> Suppose you are one of four people buying some joint presents for a family of five. The presents cost £2.15, £3.02, £2.99 and two at £2.50. Estimate your share of this cost.</Paragraph>
+<Paragraph>However, when you used your calculator to calculate your share:</Paragraph>
+<Paragraph/>
+<Equation id="UEQN022"><Image src="MU120_A_U022e.gif" width="col_100"/><Description/></Equation>
+<Paragraph>using the calculator you got the answer £9.41. Why doesn’t this answer make sense? Investigate what you might have done wrong.</Paragraph>
+	</Question>
+	<Answer>
+		<Paragraph>The cost of the presents is roughly £2 + £3 + £3 + £5 (= 2 × £2.50), which is £13. So your share is roughly <!--<InlineEquation shiftby="-4"><Image src="MU120_A_I174e.gif"/><Description/></InlineEquation>-->13/4 = £3.25. Another way of estimating is to notice that all the five presents cost two or three pounds, so the total cost will not exceed about 5 × £3 = £15. Therefore each of the four people's share of the cost must be less than £4 (since 4 × £4 = £16). In any event, £9.41 is clearly wrong.</Paragraph>
+<Paragraph>What you have done is to calculate 2.15 + 3.02 + 2.99 + 2 × 2.50 ÷ 4, which your calculator interprets as 2.15 + 3.02 + 2.99 + (2 × 2.50 ÷ 4). You need to work out 2.15 + 3.02 + 2.99 + 2 × 2.50 first and then divide this total by 4. This can be achieved using brackets: (2.15 + 3.02 + 2.99 + 2 × 2.50) ÷ 4. (The exact answer is £3.29.)</Paragraph>
+	</Answer>
+</Activity>
+<Activity id="ACT036">
+	<Question>
+		<Paragraph><b>4</b> Suppose you were sharing 28 biscuits among 5 children and you did the calculation 28 ÷ 5 = 5.6. How many biscuits would you give each child?</Paragraph>
+	</Question>
+	<Answer>
+		<Paragraph>If you rounded 5.6 up to 6 and gave the answer as 6, you would not have enough biscuits, since 6 × 5 = 30 and you only have 28 biscuits.</Paragraph>
+<Paragraph>If you rounded down and gave 5 biscuits each, you would have three over, since 5 × 5 = 25. (You might eat these yourself or keep them to give as rewards later.)</Paragraph>
+<Paragraph>You might be able to break a biscuit into two and so answer <InlineEquation shiftby="-4"><Image src="MU120_A_I175e.gif"/><Description/></InlineEquation>, which gives <InlineEquation shiftby="-4"><Image src="MU120_A_I176e.gif"/><Description/></InlineEquation>, leaving half a biscuit for you.</Paragraph>
+<Paragraph>Whatever answer you gave, it must make sense in the context of sharing biscuits.</Paragraph>
+	</Answer>
+</Activity>
+<Activity id="ACT037">
+	<Question>
+		<Paragraph><b>5</b> Suppose you were considering purchasing a patterned carpet, priced at £15.75 per square metre, for the room shown in the diagram below which a friend has measured for you. It might be appropriate to use rounded values.</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> What degree of accuracy do you think would be most appropriate?</Paragraph></ListItem>
+</UnNumberedList>
+<Figure id="FIGI047"><Image id="FIGI047" src="MU120_A_I047i.jpg"/><Description/></Figure>
+<UnNumberedList>
+<ListItem><Paragraph><b>(b)</b> Estimate of the cost of the carpet.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(c)</b> Would your estimate alter if the required carpet is from a roll 4 metres wide?</Paragraph></ListItem>
+</UnNumberedList>
+	</Question>
+	<Answer>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a) </b>The measurement should be rounded up for practical purposes, since otherwise the carpet may be too small for the room. An accuracy to the nearest 0.1 metre would be sufficient. Then the length of the room would be rounded to 3.6 metres and the width to 2.8 metres. (If the room is not exactly rectangular you might add on more for safety.)</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> To estimate the area and hence the price, you might round even more to 3.5 × 3. These values give an area of 10.5 square metres. So round to 10. Round the price to £16 per square metre. So the estimate is £160.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(c)</b> If the carpet has a roll-width of 4 metres you have two options, depending upon whether the direction of the pattern on the carpet is important to you. This means you may need (approximately) either a 3 metre length (12 sq metres) or a length of 3.5 metres (14.5 sq metres). So you will need another 2 or 4 sq metres. This adds on about £30 or £60 giving an estimate of £190 or £220 respectively.</Paragraph></ListItem>
+</UnNumberedList>
+	</Answer>
+</Activity>
+<Activity id="ACT038">
+<Question>
+<Paragraph><b>6</b> Find a rough estimate for each of the following calculations and then evaluate them on your calculator.</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> 0.91 + 2.8956</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> 0.6841 + 0.3692 + 0.2381</Paragraph></ListItem>
+<ListItem><Paragraph><b>(c)</b> 40.89 × 5.28</Paragraph></ListItem>
+<ListItem><Paragraph><b>(d)</b> 58.98 × 82.93 ÷ 4.89</Paragraph></ListItem>
+<ListItem><Paragraph><b>(e)</b> (4839 − 876) × 0.0891</Paragraph></ListItem>
+</UnNumberedList></Question>
+<Answer>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> Estimate: 1 + 3 = 4. Calculation 3.8056.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> Estimate: 0.7 + 0.4 + 0.2 = 1.3. Calculation 1.2914.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(c)</b> Estimate: 40 × 5 = 200. Calculation 215.8992.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(d) </b>Estimate: 60 × 80 ÷ 5 = 960. Calculation 1000.247 73.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(e)</b> Estimate: 4000 × 0.1 = 400. Calculation 353.1033.</Paragraph></ListItem>
+</UnNumberedList>
+</Answer>
+</Activity>
+<Activity id="ACT039">
+	<Question>
+		<Paragraph><b>7</b> Answer the following questions:</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> Estimate a rough total for the supermarket bill below.</Paragraph></ListItem>
+</UnNumberedList>
+<Table id="UTAB014">
+<TableHead/>
+<TableBody><table>
+<tr>
+<td class="TableLeft">margarine</td>
+<td class="TableLeft">69p</td>
+</tr>
+<tr>
+<td class="TableLeft">milk</td>
+<td class="TableLeft">22p</td>
+</tr>
+<tr>
+<td class="TableLeft">sugar</td>
+<td class="TableLeft">49p</td>
+</tr>
+<tr>
+<td class="TableLeft">sausages</td>
+<td class="TableLeft">92p</td>
+</tr>
+<tr>
+<td class="TableLeft">eggs</td>
+<td class="TableLeft">87p</td>
+</tr>
+<tr>
+<td class="TableLeft">bread rolls</td>
+<td class="TableLeft">97p</td>
+</tr>
+</table></TableBody>
+<SourceReference/>
+</Table>
+<UnNumberedList>
+<ListItem><Paragraph><b>(b)</b> Dave earns £784 per month. Make a rough estimate of how much he earns per year.</Paragraph></ListItem>
+</UnNumberedList>
+	</Question>
+	<Answer>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> Round the numbers to 70 + 20 + 50 + 90 + 90 + 100 = 420 pence or £4.20. So the bill should be a bit more than £4. (In fact the exact total is £4.16.)</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> 784 rounds to 800. So in a year Dave earns about £800 × 12, which is £9600. (In fact he earns exactly £9408 a year.)</Paragraph></ListItem>
+</UnNumberedList>
+	</Answer>
+</Activity>
+<Activity id="ACT040">
+	<Question>
+		<Paragraph><b>8</b> Answer the following questions:</Paragraph>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> Estimate the area of a strip of earth measuring 27 m by 3 m, which is to be grassed, in order to order the turf.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> Make a rough estimate of the area of carpet tiles needed for the rectangular hall illustrated below.</Paragraph></ListItem>
+</UnNumberedList>
+<Figure id="FIGI049"><Image id="FIGI049" src="MU120_A_I049i.jpg"/><Description/></Figure>
+	</Question>
+	<Answer>
+<UnNumberedList>
+<ListItem><Paragraph><b>(a)</b> Round 27 up to get 30. So the area <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 30 × 3 = 90 square metres.</Paragraph></ListItem>
+<ListItem><Paragraph><b>(b)</b> Round the numbers to get 20 × 10. So the area <InlineEquation shiftby="1"><Image src="asymptotically.gif"/><Description/></InlineEquation> 20 × 10 = 200 square metres. (Since the exact answer is 19 × 11 = 209 square metres, you’d be in a bit of a mess here if you just bought 200 square metres. This example illustrates that in many practical situations it is safer to overestimate than underestimate.)</Paragraph></ListItem>
+</UnNumberedList>
+	</Answer>
+</Activity>
+	</SubSubSection>
+	<Paragraph>Now try the quiz linked below and see if there are any areas you need to work on.</Paragraph>
+	<Paragraph><a href="https://students.open.ac.uk/openmark/mu120.module2/" target="_blank">https://students.open.ac.uk/openmark/mu120.module2/</a></Paragraph>
+<!-- link to openmark quiz-->	
+<Box id="BOX00A">
+  <Heading>Do this</Heading> 
+  <Paragraph>Now you have completed this unit, you might like to:</Paragraph> 
+<BulletedList>
+<ListItem>
+  <Paragraph>Post a message to the unit forum.</Paragraph> 
+  </ListItem>
+<ListItem>
+  <Paragraph>Review or add to your Learning Journal.</Paragraph> 
+  </ListItem>
+<ListItem>
+  <Paragraph>Rate this unit.</Paragraph> 
+  </ListItem>
+  </BulletedList>
+  </Box>
+<Box id="BOX00B">
+  <Heading>Try this</Heading> 
+  <Paragraph>You might also like to:</Paragraph> 
+<BulletedList>
+<ListItem>
+<Paragraph>Find out more about the related <a href="http://www3.open.ac.uk/courses/bin/p12.dll?C01MU120" target="_blank">Open University course</a>.</Paragraph>
+  </ListItem>
+<ListItem>
+  <Paragraph>Book a FlashMeeting to talk live with other learners.</Paragraph> 
+  </ListItem>
+<ListItem>
+  <Paragraph>Create a Knowledge Map to summarise this topic.</Paragraph> 
+  </ListItem>
+  </BulletedList>
+  </Box>
+</SubSection>
+</Section>
+</Session>
+<BackMatter/></Unit>
+<BackMatter>
+<Acknowledgements>
+  <Heading>Acknowledgements</Heading>
+    <Paragraph>The content acknowledged below is Proprietary <a href="http://openlearn.open.ac.uk/mod/resource/view.php?id=15" target="_blank">(see terms and conditions)</a> and is used under licence (not subject to Creative Commons licence).</Paragraph>
+    <Paragraph>Grateful acknowledgement is made to the following sources for permission to reproduce material in this unit:</Paragraph>
+    <!--<Paragraph>The content acknowledged below is Proprietary and is used under licence.</Paragraph>
+  <Heading>Text</Heading>
+    <Paragraph/>-->
+  <Heading>Figures</Heading>
+     <Paragraph><b><i>Cartoons (Sections 1.4, 1.5, 2.1 and 3.5)</i></b>: copyright © S. Harris</Paragraph>
+     <Paragraph><b><i>Cartoon (Section 3.4)</i></b>: CartoonStock.com © Dan Rosandich</Paragraph>
+     <Paragraph><b><i>Mars orbiter</i></b>: NASA</Paragraph>
+     <Paragraph/>
+<Paragraph>All other written material contained within this unit originated at the Open University</Paragraph>
+</Acknowledgements>
+</BackMatter>
+</Item>
