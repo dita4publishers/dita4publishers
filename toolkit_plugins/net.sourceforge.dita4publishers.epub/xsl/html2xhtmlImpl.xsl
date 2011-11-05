@@ -91,6 +91,22 @@
   <xsl:template  mode="html2xhtml" match="img/@width | img/@height" priority="100">
     <!--  Suppress for now because of issue with ImgUtils not working and generating
           bad values for height and width. -->
+    <xsl:variable name="length" as="xs:string" select="."/>
+    <xsl:choose>
+      <xsl:when test="starts-with($length, '-')">
+        <xsl:message> + [WARN] Value "<xsl:sequence select="$length"/>" for <xsl:sequence select="name(..)"/>/@<xsl:sequence select="name(.)"/> is negative. This reflects a bug in the Open Toolkit.</xsl:message>
+        <xsl:message> + [WARN]   Suppressing attribute in HTML output.</xsl:message>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="effectiveLength" as="xs:string"
+          select="if (matches($length, '[0-9]+'))
+          then concat($length, 'px')
+          else $length
+          "
+        />
+        <xsl:attribute name="{name(.)}" select="$effectiveLength"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   
   <xsl:template  mode="html2xhtml" match="
