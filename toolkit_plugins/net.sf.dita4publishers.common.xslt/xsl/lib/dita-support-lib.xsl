@@ -9,7 +9,7 @@
   <!-- =====================================================================
     DITA2InDesign: Map 2 Importable XML for InDesign
     
-    Copyright (c) 2008, 2009 DITA2InDesign Project
+    Copyright (c) 2008, 2011 DITA2InDesign Project
     
     =====================================================================-->
   
@@ -148,9 +148,9 @@
           <xsl:when test="$targetTopic">
             <xsl:sequence select="df:getNavtitleForTopic($targetTopic)"/>  
           </xsl:when>
-          <xsl:when test="$topicref/*[df:class(., 'map/topicmeta')]/*[df:class(., 'map/navtitle')]">
+          <xsl:when test="$topicref/*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/navtitle')]">
             <!-- FIXME: This is a quick hack. Need to use the best mode for constructing the navtitle. -->
-            <xsl:apply-templates select="$topicref/*[df:class(., 'map/topicmeta')]/*[df:class(., 'map/navtitle')]" mode="text-only"/>
+            <xsl:apply-templates select="$topicref/*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/navtitle')]" mode="text-only"/>
           </xsl:when>          
           <xsl:otherwise>
             <xsl:sequence select="'{Failed to get navtitle for topicref}'"/>
