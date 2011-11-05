@@ -32,8 +32,10 @@
     Originally developed by Really Strategies, Inc.
     
     =========================================== -->
-  
+
+<!-- 
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+ -->  
   
   
   <xsl:template match="rsiwp:document">
@@ -54,8 +56,8 @@
     <xsl:variable name="resultDocs" as="element()*">
       <xsl:choose>
         <xsl:when test="local:isRootTopicTitle($firstP)">
-          <xsl:if test="$debugBoolean">        
-            <xsl:message> + [DEBUG] firstP is root topic title, calling makeTopic...</xsl:message>
+          <xsl:if test="$debugBoolean or true()">        
+            <xsl:message> + [DEBUG] rsiwp:document: firstP is root topic title, calling makeTopic...</xsl:message>
           </xsl:if>
           <xsl:call-template name="makeTopic">
             <xsl:with-param name="content" select="rsiwp:body/(rsiwp:p|rsiwp:table)" as="node()*"/>
@@ -65,7 +67,7 @@
         </xsl:when>
         <xsl:when test="local:isMap($firstP)">
           <xsl:if test="$debugBoolean">        
-            <xsl:message> + [DEBUG] firstP is root map, calling makeMap...</xsl:message>
+            <xsl:message> + [DEBUG] rsiwp:document: firstP is root map, calling makeMap...</xsl:message>
           </xsl:if>
           <xsl:call-template name="makeMap">
             <xsl:with-param name="content" select="rsiwp:body/(rsiwp:p|rsiwp:table)" as="node()*"/>
@@ -75,6 +77,11 @@
             <xsl:with-param name="mapUrl" select="relpath:newFile($outputDir, 'garbage.ditamap')" tunnel="yes" as="xs:string"/>
           </xsl:call-template>
         </xsl:when>
+        <xsl:otherwise>
+          <xsl:if test="$debugBoolean or true()">        
+            <xsl:message> + [DEBUG] rsiwp:document: firstP is neither root topic nor root map</xsl:message>
+          </xsl:if>
+        </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <xsl:apply-templates select="$resultDocs" mode="generate-result-docs"/>
@@ -829,17 +836,25 @@
     
     <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] makeTopic: treePos=<xsl:sequence select="$treePos"/></xsl:message>
+      <xsl:message> + [DEBUG] makeTopic: level=<xsl:sequence select="$level"/></xsl:message>
+      <xsl:message> + [DEBUG] makeTopic: rootTopicUrl=<xsl:sequence select="$rootTopicUrl"/></xsl:message>
     </xsl:if>
 
     <xsl:variable name="firstP" select="$content[1]"/>
 
     <xsl:if test="$debugBoolean">
-      <xsl:message> + [DEBUG] makeMap: firstP=<xsl:value-of select="$firstP"/></xsl:message>
+      <xsl:message> + [DEBUG] makeTopic: firstP=<xsl:sequence select="$firstP"/></xsl:message>
     </xsl:if>
     
     <xsl:variable name="topicFileName" select="substring-before($firstP,' ')"/>
-    <xsl:variable name="makeDoc" select="string($firstP/@topicDoc) = 'yes'" as="xs:boolean"/>
-    
+    <xsl:variable name="makeDoc" 
+      select="string($firstP/@topicDoc) = 'yes' or 
+      (($level = 0) and $rootTopicUrl)" as="xs:boolean"/>
+
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] makeTopic: makeDoc=<xsl:value-of select="$makeDoc"/></xsl:message>
+    </xsl:if>
+
     <xsl:choose>
       <xsl:when test="$makeDoc">
         <xsl:variable name="topicName" as="xs:string">
@@ -850,7 +865,10 @@
         
         <xsl:variable name="topicUrl"
            as="xs:string"
-           select="local:getResultUrlForTopic($firstP, $topicrefType, $treePos, $mapUrl, $topicName)"
+           select="
+           if (($level = 0) and $rootTopicUrl)
+              then $rootTopicUrl
+              else local:getResultUrlForTopic($firstP, $topicrefType, $treePos, $mapUrl, $topicName)"
         />
         
         <xsl:variable name="resultUrl" as="xs:string"
@@ -864,9 +882,16 @@
           <xsl:message terminate="yes"> + [ERROR] No topicType= attribute for paragraph style <xsl:sequence select="string($firstP/@styleId)"/>, when topicDoc="yes".</xsl:message>
         </xsl:if>
         
+        <xsl:if test="$debugBoolean">
+          <xsl:message> + [DEBUG] makeTopic: formatName="<xsl:sequence select="$formatName"/>"</xsl:message>
+        </xsl:if>
+        
         <xsl:variable name="format" select="key('formats', $formatName, $styleMapDoc)[1]" as="element()?"/>
         <xsl:if test="not($format)">
           <xsl:message terminate="yes"> + [ERROR] Failed to find output element with name "<xsl:sequence select="$formatName"/> specified for style <xsl:sequence select="string($firstP/@styleId)"/>.</xsl:message>
+        </xsl:if>
+        <xsl:if test="$debugBoolean">
+          <xsl:message> + [DEBUG] makeTopic: format="<xsl:sequence select="$format"/>"</xsl:message>
         </xsl:if>
                 
         <xsl:variable name="schemaAtts" as="attribute()*">
@@ -896,7 +921,7 @@
           </xsl:call-template>
         </xsl:variable>
         <xsl:if test="$debugBoolean">
-          <xsl:message> + DEBUG: resultDoc=<xsl:sequence select="$resultDoc"/></xsl:message>
+          <xsl:message> + DEBUG: $format=<xsl:sequence select="$format"/></xsl:message>
         </xsl:if>
         <!-- Now do ID fixup on the result document: -->
         <rsiwp:result-document href="{$resultUrl}"
@@ -1675,7 +1700,7 @@
   
   <xsl:function name="local:getResultUrlForTopic" as="xs:string">
     <xsl:param name="context" as="element()"/>
-    <xsl:param name="topicrefType" as="xs:string"/>
+    <xsl:param name="topicrefType" as="xs:string?"/>
     <xsl:param name="treePos" as="xs:integer+"/>
     <xsl:param name="mapUrl" as="xs:string"/>
     <xsl:param name="topicName" as="xs:string"/>
@@ -1685,7 +1710,7 @@
     </xsl:if>
     <xsl:variable name="topicRelativeUri" as="xs:string+">
       <xsl:apply-templates mode="topic-url" select="$context">
-        <xsl:with-param name="topicrefType" as="xs:string" select="$topicrefType"/>
+        <xsl:with-param name="topicrefType" as="xs:string?" select="$topicrefType"/>
         <xsl:with-param name="treePos" as="xs:integer+" select="$treePos"/>   
         <xsl:with-param name="topicName" as="xs:string" select="$topicName"/>   
       </xsl:apply-templates>

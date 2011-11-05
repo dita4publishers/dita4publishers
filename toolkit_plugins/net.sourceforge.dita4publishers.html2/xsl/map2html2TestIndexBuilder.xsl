@@ -62,7 +62,7 @@
 
        -->
   <xsl:param name="outdir" select="./html2"/>
-  <xsl:param name="outext" select="'.html'"/>
+  <xsl:param name="OUTEXT" select="'.html'"/>
   <xsl:param name="tempdir" select="./temp"/>
   
  <!-- The path of the directory, relative the $outdir parameter,
@@ -148,7 +148,7 @@
       + imagesOutputDir    = "<xsl:sequence select="$imagesOutputDir"/>"
       + inputFileNameParam = "<xsl:sequence select="$inputFileNameParam"/>"
       + outdir             = "<xsl:sequence select="$outdir"/>"
-      + outext             = "<xsl:sequence select="$outext"/>"
+      + OUTEXT             = "<xsl:sequence select="$OUTEXT"/>"
       + tempdir            = "<xsl:sequence select="$tempdir"/>"
       + titleOnlyTopicClassSpec = "<xsl:sequence select="$titleOnlyTopicClassSpec"/>"
       + titleOnlyTopicTitleClassSpec = "<xsl:sequence select="$titleOnlyTopicTitleClassSpec"/>"

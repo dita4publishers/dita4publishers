@@ -9,7 +9,7 @@
   exclude-result-prefixes="xd df xs relpath gmap"
   version="2.0">
   
-  <xsl:import href="lib/relpath_util.xsl"/>
+<!--  <xsl:import href="lib/relpath_util.xsl"/>-->
   
   <xsl:output name="ant" method="xml"
     indent="yes"

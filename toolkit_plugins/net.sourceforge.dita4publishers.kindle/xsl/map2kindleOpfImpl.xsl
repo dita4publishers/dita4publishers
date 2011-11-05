@@ -94,34 +94,8 @@
           />
           <dc:language><xsl:sequence select="$langValue"/></dc:language>
           
-          <dc:identifier id="bookid">
-            <xsl:variable name="basePubId" as="xs:string*">
-              <xsl:choose>
-                <xsl:when test="*[df:class(., 'pubmeta-d/pubmeta')]/*[df:class(., 'pubmeta-d/pubid')]">
-                  <xsl:apply-templates select="*[df:class(., 'pubmeta-d/pubmeta')]/*[df:class(., 'pubmeta-d/pubid')]"
-                    mode="bookid"
-                  />
-                </xsl:when>
-                <xsl:when test="@id">
-                  <xsl:sequence select="string(@id)"/>
-                </xsl:when>
-                <xsl:otherwise>
-                  <xsl:sequence select="'no-pubid-value'"/>
-                </xsl:otherwise>
-              </xsl:choose>
-            </xsl:variable>
-            
-            <xsl:variable name="pubid" as="xs:string" select="normalize-space(string-join($basePubId,''))"/>
-            <xsl:variable name="bookid" select="string(resolve-uri($idURIStub, $pubid))" as="xs:string"/>
-            <!-- FIXME: Need to refine how EPUB ID is constructed. Not sure what shape this should take
-                        given that you can have any number of pubid elements.
-              -->
-            <xsl:message> + [DEBUG] basePubId="<xsl:sequence select="$basePubId"/>"</xsl:message>
-            <xsl:message> + [DEBUG] pubid="<xsl:sequence select="$pubid"/>"</xsl:message>
-            <xsl:message> + [DEBUG] bookid="<xsl:sequence select="$bookid"/>"</xsl:message>
-            <xsl:sequence select="$bookid"/>
-          </dc:identifier>
-          
+          <xsl:apply-templates select="*[df:class(., 'map/topicmeta')]" mode="bookid"/>
+
           <!-- Remaining metadata fields optional, so 
             their tags only get output if values exist. -->
           
@@ -131,8 +105,16 @@
           <xsl:apply-templates select="*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/publisher')]" 
             mode="generate-opf"/>
           
-          <xsl:apply-templates select="*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/copyright')]" 
+          <xsl:apply-templates 
+            select="*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/copyright')] |
+            *[df:class(., 'map/topicmeta')]/*[df:class(., 'pubmeta-d/pubrights')]
+            " 
             mode="generate-opf"/>
+          
+          <xsl:apply-templates mode="generate-opf"
+            select="*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/keywords')]"
+          />
+          
           <!-- Kindle requires a cover image. This is a reference to the manifest
                entry generated below.
             -->
@@ -181,7 +163,10 @@
 
   <xsl:template match="*[df:class(., 'map/map')]/*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/author')]" 
     mode="generate-opf">  
-    <dc:creator opf:role="aut"
+    <xsl:variable name="role" as="xs:string"
+      select="if (@type) then string(@type) else 'aut'"
+    />
+    <dc:creator opf:role="{$role}"
       ><xsl:apply-templates select=".//*[df:class(., 'topic/data')]" mode="data-to-atts"
       /><xsl:apply-templates
     /></dc:creator>
@@ -208,6 +193,57 @@
     <dc:rights>Copyright <xsl:value-of select="*[df:class(., 'topic/copyryear')]/@year"/><xsl:text> </xsl:text><xsl:value-of select="*[df:class(., 'topic/copyrholder')]"/></dc:rights>
   </xsl:template>
 
+  <xsl:template match="*[df:class(., 'pubmeta-d/pubrights')]" 
+    mode="generate-opf"> 
+    <dc:rights>
+      <xsl:apply-templates mode="#current" select="*[df:class(., 'pubmeta-d/copyrfirst')]"/>
+      <xsl:text> </xsl:text>
+      <xsl:apply-templates mode="generate-opf" select="* except *[df:class(., 'pubmeta-d/copyrfirst')]"/>
+    </dc:rights>
+  </xsl:template>
+  
+  <xsl:template mode="generate-opf" match="*[df:class(., 'pubmeta-d/copyrfirst')]">
+    Copyright <xsl:value-of select="normalize-space(.)"/>
+    <xsl:if test="../*[df:class(., 'pubmeta-d/copyrlast')]">
+      <xsl:text>, </xsl:text>
+      <xsl:sequence select="normalize-space(../*[df:class(., 'pubmeta-d/copyrlast')])"/>
+    </xsl:if>
+  </xsl:template>
+  
+  <xsl:template mode="generate-opf" match="*[df:class(., 'pubmeta-d/copyrlast')]">
+    <!-- Handled in processing of copyrfirst -->
+  </xsl:template>
+  
+  <xsl:template mode="generate-opf" match="*[df:class(., 'pubmeta-d/pubowner')]">
+    <xsl:variable name="pubOwners" as="element()*">
+      <xsl:sequence select="*"/>
+    </xsl:variable>
+    
+    <xsl:choose>
+      <xsl:when test="count($pubOwners) le 1">
+        <xsl:apply-templates select="$pubOwners" mode="pubOwner"/>
+      </xsl:when>
+      <xsl:when test="count($pubOwners) = 2">
+        <xsl:apply-templates select="$pubOwners[1]" mode="pubOwner"/>
+        <xsl:text> and </xsl:text>
+        <xsl:apply-templates select="$pubOwners[2]" mode="pubOwner"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates select="$pubOwners[1]" mode="pubOwner"/>
+        <xsl:for-each select="$pubOwners[2, last() - 1]">
+          <xsl:text>, </xsl:text>
+          <xsl:apply-templates select="." mode="pubOwner"/>
+        </xsl:for-each>
+        <xsl:text> and </xsl:text>
+        <xsl:apply-templates select="$pubOwners[last()]" mode="pubOwner"/>        
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
+  <xsl:template mode="pubOwner" match="*">
+    <xsl:apply-templates/>
+  </xsl:template>
+  
   <xsl:template match="*[df:isTopicRef(.)]" mode="manifest">
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
     <xsl:choose>
@@ -246,6 +282,88 @@
     <itemref idref="{generate-id()}"/>
   </xsl:template>
   
+  <xsl:template mode="bookid" match="*[df:class(., 'map/topicmeta')]">
+    <!-- OPF requires one dc:identifier, which must have an ID. There may
+      be other book identifiers.
+      
+      DITA provides a number of ways, none mandatory, to specify book
+      identifiers. So there's a bit of a challenge here.
+      
+      Bookmap and pubmap-d both provide elements for ISBNs, book numbers,
+      etc.
+      
+      The approach here is to get a sequence of book-identifying elements
+      and then process them, using the first one in the sequence as
+      the "bookid" as referenced from the OPF manifest.
+      
+    -->
+    
+    <xsl:variable name="bookids" as="element()*">
+      <xsl:apply-templates mode="list-bookids"/>
+    </xsl:variable>
+    
+    <xsl:choose>
+      <xsl:when test="count($bookids) = 0">
+        <dc:identifier id="bookid">no-bookid-value</dc:identifier>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="constructDcIdentifiers">
+          <xsl:with-param name="bookids" select="$bookids" as="element()+"/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
+    
+  </xsl:template>
+  <xsl:template name="constructDcIdentifiers">
+    <xsl:param name="bookids" as="element()+"/>
+    
+    <!-- $bookids is a list of elements that are specializations of 
+      <data> and that represent some form of book ID.
+    -->
+    
+    <xsl:apply-templates select="$bookids[1]" mode="bookid">
+      <xsl:with-param name="id" select="'bookid'"/>
+    </xsl:apply-templates>
+    
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'bookmap/bookid')] | *[df:class(., 'pubmeta-d/pubid ')]" 
+    mode="list-bookids">
+    <!-- Assume that all topic/data children of bookid or pubid are identifiers. -->
+    <xsl:sequence select="*[df:class(., 'topic/data')]"/>
+  </xsl:template>
+  
+  <xsl:template match="text()" mode="list-bookids"/> 
+  
+  <xsl:template match="*[df:class(., 'bookmap/bookid')] | *[df:class(., 'pubmeta-d/pubid ')]" 
+    mode="bookid">
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/data')]" 
+    mode="bookid">
+    <xsl:param name="id" as="xs:string?" required="no"/>
+    
+    <xsl:variable name="schemeBase" as="xs:string"
+      select="if (@name) then string(@name) else name(.)"
+    />
+    
+    <xsl:variable name="scheme" as="xs:string"
+      select="if (starts-with(lower-case($schemeBase), 'isbn')) then 'isbn' else $schemeBase"
+    />
+    <dc:identifier opf:scheme="{$scheme}">
+      <xsl:if test="$id">
+        <xsl:attribute name="id" select="$id"/>
+      </xsl:if>
+      <xsl:sequence select="string(@value)"/>
+      <xsl:apply-templates/>
+    </dc:identifier>
+  </xsl:template>
+  
+  <xsl:template match="*" mode="bookid" priority="-1">
+    <!-- Do nothing by default -->
+  </xsl:template>
+  
   <xsl:template match="*[df:class(., 'pubmap/pubid')]" mode="bookid">
     <xsl:choose>
       <xsl:when test=".//*[df:class(., 'topic/data') and @name = 'epub-bookid']">
@@ -282,6 +400,14 @@
     
   </xsl:template>
 
+  <xsl:template match="*[df:class(., 'topic/keywords')]" mode="generate-opf">
+    <xsl:apply-templates select="*[df:class(., 'topic/keyword')]" mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/keyword')]" mode="generate-opf">
+    <dc:subject><xsl:apply-templates/></dc:subject>
+  </xsl:template>
+  
   <xsl:template match="*[df:class(., 'topic/data') and @name = 'opf-metadata']" mode="generate-opf">
     <xsl:apply-templates select="*[df:class(., 'topic/data')]" mode="generate-opf-metadata"/>
   </xsl:template>

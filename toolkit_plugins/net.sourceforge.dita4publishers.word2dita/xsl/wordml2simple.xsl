@@ -42,8 +42,9 @@
       Originally developed by Really Strategies, Inc.
       
       =========================================== -->
-
+<!-- 
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+ -->
   
   <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
     <xd:desc>
@@ -198,6 +199,9 @@
                   would require additional logic.
         -->
       <xsl:for-each-group select="w:r | w:hyperlink | w:smartTag/w:r" group-adjacent="name(.)">
+        <xsl:if test="$debugBoolean">
+          <xsl:message> + [DEBUG] handlePara: current-group()[1]=<xsl:sequence select="current-group()[1]"/></xsl:message>
+        </xsl:if>
         <xsl:choose>
           <xsl:when test="current-group()[1][self::w:hyperlink]">
             <!-- FIXME: This is a hack. Correct processing of hyperlinks needs to be
@@ -210,6 +214,22 @@
               </xsl:call-template>              
             </xsl:for-each>
           </xsl:when>
+          <xsl:when test="current-group()[1][self::w:r/w:endnoteReference]">
+            <xsl:if test="$debugBoolean">
+              <xsl:message> + [DEBUG] handlePara: handling w:r/w:endnoteReference</xsl:message>
+            </xsl:if>
+            <xsl:call-template name="handleEndNoteRef">
+                <xsl:with-param name="runSequence" select="current-group()"/>
+            </xsl:call-template>
+          </xsl:when>
+          <xsl:when test="current-group()[1][self::w:r[w:footnoteReference]]">
+            <xsl:if test="$debugBoolean">
+              <xsl:message> + [DEBUG] handlePara: handling w:r/w:footnoteReference</xsl:message>
+            </xsl:if>
+            <xsl:call-template name="handleFootNoteRef">
+                <xsl:with-param name="runSequence" select="current-group()"/>
+            </xsl:call-template>
+          </xsl:when>
           <xsl:when test="current-group()[1][self::w:r]">
             <xsl:for-each-group select="current-group()" group-adjacent="local:getRunStyle(.)">
               <xsl:call-template name="handleRunSequence">
@@ -219,7 +239,7 @@
           </xsl:when>
           <xsl:when test="current-group()[1][self::w:smartTag]">
             <xsl:if test="$debugBoolean">
-              <xsl:message> + [DEBUG] *** got a w:smartTag. current-group=<xsl:sequence select="current-group()"/></xsl:message>
+              <xsl:message> + [DEBUG] handlePara: *** got a w:smartTag. current-group=<xsl:sequence select="current-group()"/></xsl:message>
             </xsl:if>     
             <xsl:for-each select="current-group()">
               <xsl:call-template name="handleRunSequence">
@@ -236,6 +256,7 @@
     </p>
     
   </xsl:template>
+  
   <xsl:template name="handleRunSequence">
     <xsl:param name="runSequence" as="element()*"/>
     <xsl:variable name="runStyle" select="local:getRunStyle($runSequence[1])" as="xs:string"/>
@@ -244,9 +265,16 @@
         <xsl:apply-templates select="$runSequence"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:variable name="runStyleMap" as="element()?"
-          select="key('styleMaps', $runStyle, $styleMapDoc)[1]"
+        <xsl:variable name="styleMapByName" as="element()?"
+          select="key('styleMapsByName', lower-case($runStyle), $styleMapDoc)[1]"
         />
+        <xsl:variable name="styleMapById" as="element()?"
+          select="key('styleMapsById', $runStyle, $styleMapDoc)[1]"
+        />
+        <xsl:variable name="runStyleMap" as="element()?"
+          select="($styleMapByName, $styleMapById)[1]"
+        />
+        
         <xsl:if test="not($runStyleMap)">
           <xsl:message> - [WARNING: No style mapping for character run with style ID "<xsl:sequence select="$runStyle"/>"</xsl:message>              
         </xsl:if>
@@ -270,6 +298,84 @@
     
   </xsl:template>
   
+  <xsl:template name="handleFootNoteRef">
+    <xsl:param name="runSequence" as="element()*"/>
+    <!-- Get the footnote ID, try to find it in the footnotes.xml document,
+         and generate a footnote element.
+    -->
+    <xsl:apply-templates select="$runSequence//w:footnoteReference"/>
+  </xsl:template>
+  
+  <xsl:template name="handleEndNoteRef">
+    <xsl:param name="runSequence" as="element()*"/>
+    <!-- Get the footnote ID, try to find it in the footnotes.xml document,
+         and generate a footnote element.
+    -->
+    <xsl:apply-templates select="$runSequence//w:endnoteReference"/>
+  </xsl:template>
+  
+  <!-- Suppress runs that contain w:footnoteRef.
+    
+       These occur within footnotes and are not
+       relevant to the DITA output.
+    -->
+  <xsl:template match="r:w[w:footnoteRef]"/>
+  
+  <!-- Suppress runs that contain w:endnoteRef.
+    
+       These occur within endnotes and are not
+       relevant to the DITA output.
+    -->
+  <xsl:template match="r:w[w:endnoteRef]"/>
+  
+  
+  <xsl:template match="w:footnoteReference">
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] Handling w:footnoteReference...</xsl:message>
+    </xsl:if>
+    <xsl:variable name="footnotesDoc" as="document-node()?"
+      select="document('footnotes.xml', .)"
+    />
+    <xsl:choose>
+      <xsl:when test="not($footnotesDoc)">
+        <xsl:message> + [WARN] Failed to find footnotes.xml file at </xsl:message>
+        <fn>{Failed to find footnotes.xml file}</fn>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="targetId" as="xs:string"
+          select="@w:id"
+        />
+        <fn><xsl:apply-templates
+          select="$footnotesDoc/*/w:footnote[@w:id = $targetId]"
+        /></fn>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
+  <xsl:template match="w:endnoteReference">
+    <xsl:variable name="endnotesDoc" as="document-node()?"
+      select="document('endnotes.xml', .)"
+    />
+    <xsl:choose>
+      <xsl:when test="not($endnotesDoc)">
+        <xsl:message> + [WARN] Failed to find endnotes.xml file.</xsl:message>
+        <fn>{Failed to find endnotes.xml file}</fn>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="targetId" as="xs:string"
+          select="@w:id"
+        />
+        <fn><xsl:apply-templates
+          select="$endnotesDoc/*/w:endnote[@w:id = $targetId]"
+        /></fn>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
+  <xsl:template match="w:footnote | w:endnote">
+    <xsl:apply-templates/><!-- FIXME: May need to be more selective here. -->
+  </xsl:template>
+  
   <xsl:template match="w:r">
     <xsl:apply-templates/>
   </xsl:template>
@@ -282,8 +388,14 @@
     <xsl:param name="relsDoc" as="document-node()?" tunnel="yes"/>
     
     <xsl:variable name="runStyle" select="local:getHyperlinkStyle(.)" as="xs:string"/>
+    <xsl:variable name="styleMapByName" as="element()?"
+      select="key('styleMapsByName', lower-case($runStyle), $styleMapDoc)[1]"
+    />
+    <xsl:variable name="styleMapById" as="element()?"
+      select="key('styleMapsById', $runStyle, $styleMapDoc)[1]"
+    />
     <xsl:variable name="runStyleMap" as="element()?"
-      select="key('styleMaps', $runStyle, $styleMapDoc)[1]"
+      select="($styleMapByName, $styleMapById)[1]"
     />
     <xsl:variable name="runStyleData" as="element()">
       <xsl:choose>

@@ -80,17 +80,10 @@ def loadAndConfigureDtd(dtdFile, dtdPublicId, moDefList, previewXslFile, catalog
                     ]
 
 if (true) {	
-def topicTypes = ['article', 
-                  'chapter', 
-                  'part', 
-                  'sidebar', 
-                  'subsection', 
-                  'topic', 
+def topicTypes = ['topic', 
                   ]
 	
-def mapTypes = ['pubmap',
-                'learningMap', 
-                ]	
+def mapTypes = []	
 	
 	
 topicTypes.each {
@@ -104,9 +97,8 @@ topicTypes.each {
 }
 
 mapTypes.each {
-	// NOTE: The public IDs for topics and maps are inconsistent in their use of :dtd: after :doctypes
     loadAndConfigureMapDtd(new File(doctypesDir, it + "/dtd/" + it + ".dtd"), 
-            baseTopicTypeURI + "dtd:" + it, 
+            baseTopicTypeURI + it, 
             it, 
             previewXslFile,
             catalog);
@@ -117,7 +109,7 @@ mapTypes.each {
 
 //Special cases:
 
-if (true) {
+if (false) {
 println "Importing style2tagmap.xsd"
 def schemaFile = new File(doctypesDir, "style2tagmap/xsd/style2tagmap.xsd") 
 def importer = importerFactory.generateImporter("XMLSchema", new SchemaInputSource(schemaFile));
@@ -134,7 +126,7 @@ rsuite.setManagedObjectDefinitions(uuid, false, moDefList)
 	
 	
 	
-if (true) {
+if (false) {
 baseTopicTypeURI = "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:";
 baseMapTypeURI =   "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:";
 

@@ -30,7 +30,7 @@
 	<property name="kindle.pubid.uri.stub" value="http://my-URI-stub/"/>
 	
 	<property name="kindlegen.executable" value="kindlegen"/>
-	<property name="kindlegenArgs" value="-unicode"/>
+	<property name="kindlegenArgs" value=""/>
 	
   <condition property="preprocess.maplink.skip" value="true">
 	  <isset property="epub.exclude.auto.rellinks" />
@@ -60,7 +60,7 @@
     <condition property="noPlugin">
       <equals arg1="${dita.kindle.plugin}" arg2="no" />
     </condition>
-    <condition property="css.output.dir" value="topics">
+    <condition property="css.output.dir" value="${topics.output.dir}">
       <not>
         <isset property="args.css.output.dir" />
       </not>
@@ -68,6 +68,14 @@
     <condition property="css.output.dir" value="${args.css.output.dir}">
       <isset property="args.css.output.dir" />
     </condition>
+  	<condition property="epub.hide.parent.link" value="yes">
+  		<not>
+      	<isset property="args.hide.parent.link" />
+  		</not>
+  	</condition>
+  	<condition property="epub.hide.parent.link" value="${args.hide.parent.link}">
+    	<isset property="args.hide.parent.link" />
+  	</condition>
   </target>
   
 
@@ -112,7 +120,7 @@
       <param name="ARTLBL" expression="${args.artlbl}" if="args.artlbl"></param>
       <param name="GENERATE-TASK-LABELS" expression="${args.gen.task.lbl}" if="args.gen.task.lbl"></param>
       <param name="PRESERVE-DITA-CLASS" expression="${args.xhtml.classattr}" if="args.xhtml.classattr"></param>
-      <param name="NOPARENTLINK" expression="${args.hide.parent.link}" if="args.hide.parent.link"></param>
+      <param name="NOPARENTLINK" expression="${epub.hide.parent.link}"/>
       <param name="BREADCRUMBS" expression="${args.breadcrumbs}" if="args.breadcrumbs"></param>
       <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
     </xslt>
@@ -134,7 +142,7 @@
     <condition property="user.copycss.yes">
       <isset property="args.css.present"/>
     </condition>
-    <property name="user.csspath.real" value="${kindle.temp.dir}/${topics.output.dir}/${user.csspath}"/>
+    <property name="user.csspath.real" value="${css.output.dir}"/>
     <mkdir dir="${user.csspath.real}"/>    
     <!-- Always copy system default css files -->
     <copy todir="${user.csspath.real}">

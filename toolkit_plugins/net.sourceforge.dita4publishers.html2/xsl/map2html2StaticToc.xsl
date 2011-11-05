@@ -61,8 +61,16 @@
           <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
         </xsl:when>
         <xsl:otherwise>
+          <xsl:variable name="fragId" as="xs:string" 
+            select="relpath:getFragmentId(string(@href))"
+          />
           <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, root($topic), $rootMapDocUrl)" as="xs:string"/>
-          <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
+          <xsl:variable name="relativeUri" 
+            select="concat(
+            relpath:getRelativePath($outdir, $targetUri), 
+            if ($fragId != '') 
+               then concat('#', $fragId) 
+               else '')" as="xs:string"/>
           <li id="{generate-id()}"
             ><a href="{$relativeUri}" target="{$contenttarget}"><xsl:apply-templates select="." mode="enumeration"/>
               <xsl:apply-templates select="." mode="toc-title"/></a>              
@@ -103,6 +111,14 @@
         </xsl:if>
       </li><xsl:sequence select="'&#x0a;'"/>
     </xsl:if>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/topic')]" mode="generate-static-toc">
+    <xsl:variable name="navTitle" select="df:getNavtitleForTopic(.)" as="xs:string"/>
+    <li><a href="{df:getEffectiveTopicUri(.)}"><xsl:sequence select="$navTitle"/></a>
+      <!-- NOTE: This enforces non-inclusion of section elements within TOC. -->
+      <xsl:apply-templates select="*[df:class(., 'topic/topic')]" mode="#current"/>
+    </li>
   </xsl:template>
   
 </xsl:stylesheet>

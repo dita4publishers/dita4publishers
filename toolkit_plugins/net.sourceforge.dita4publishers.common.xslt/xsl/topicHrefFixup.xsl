@@ -9,10 +9,12 @@
   exclude-result-prefixes="xs htmlutil df relpath"
   version="2.0">
 
+<!--
   <xsl:import href="lib/dita-support-lib.xsl"/>
   <xsl:import href="lib/relpath_util.xsl"/>
   <xsl:import href="lib/html-generation-utils.xsl"/>
   
+-->
   <xsl:template match="/" mode="href-fixup">
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
@@ -61,6 +63,23 @@
     <xsl:variable name="targetTopic" as="document-node()?"
       select="df:getDocumentThatContainsRefTarget(..)"    
     />
+    
+    <xsl:variable name="origHref" as="xs:string" 
+      select="."/>
+    
+    <xsl:variable name="fragmentId" as="xs:string"
+      select="if (contains($origHref, '#')) 
+      then concat('#', substring-after($origHref, '#'))
+      else ''
+      "
+    />
+    
+    <xsl:variable name="query" as="xs:string"
+      select="if (contains($origHref, '?'))
+        then concat('?', substring-after($origHref, '?'))
+        else ''
+      "
+    />
 
     <xsl:variable name="newHref" as="xs:string">
       <xsl:choose>
@@ -88,10 +107,10 @@
       </xsl:choose>      
     </xsl:variable>
     
-    <xsl:if test="false() or $debugBoolean">
+    <xsl:if test="true() or $debugBoolean">
       <xsl:message> + [DEBUG] href-fixup, newHref='<xsl:sequence select="$newHref"/>'</xsl:message>
     </xsl:if>
-    <xsl:attribute name="href" select="$newHref"/>
+    <xsl:attribute name="href" select="concat($newHref, $fragmentId, $query)"/>
   </xsl:template>
   
   <xsl:template mode="href-fixup" match="*">

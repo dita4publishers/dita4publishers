@@ -12,11 +12,6 @@
   >
   <!-- Convert a DITA map to an EPUB toc.ncx file. -->
   
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
-  
-
   <xsl:output indent="yes" name="ncx" method="xml"/>
 
 
@@ -129,9 +124,20 @@
         <xsl:when test="not($topic)">
           <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
         </xsl:when>
+        <xsl:when test="@toc = 'no'">
+            <xsl:apply-templates mode="#current" 
+              select="*[df:class(., 'map/topicref')]">
+              <!-- Don't change toc depth since we didn't generate a toc entry. -->
+            </xsl:apply-templates>
+        </xsl:when>
         <xsl:otherwise>
           <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, root($topic))" as="xs:string"/>
           <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
+          <xsl:if test="false()"> 
+            <xsl:message> + [DEBUG] map2epubTocImpl: outdir="<xsl:sequence select="$outdir"/>"</xsl:message>
+            <xsl:message> + [DEBUG] map2epubTocImpl: targetUri="<xsl:sequence select="$targetUri"/>"</xsl:message>
+            <xsl:message> + [DEBUG] map2epubTocImpl: relativeUri="<xsl:sequence select="$relativeUri"/>"</xsl:message>
+          </xsl:if>
           <navPoint id="{generate-id()}"
             > 
             <navLabel>
@@ -149,7 +155,8 @@
               reflected in the ToC before any subordinate topicrefs.
             -->
             <xsl:apply-templates mode="#current" 
-              select="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]">
+              select="$topic/*[df:class(., 'topic/topic')], 
+                      *[df:class(., 'map/topicref') and not(ancestor::*[contains(@chunk, 'to-content')])]">
               <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes"
                 select="$tocDepth + 1"
               />
@@ -211,6 +218,11 @@
         </navLabel>
         <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, root(.))" as="xs:string"/>
         <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
+        <xsl:if test="false()">          
+          <xsl:message> + [DEBUG] map2epubTocImpl: generate-toc: outdir="<xsl:sequence select="$outdir"/>"</xsl:message>
+          <xsl:message> + [DEBUG] map2epubTocImpl: generate-toc: targetUri="<xsl:sequence select="$targetUri"/>"</xsl:message>
+          <xsl:message> + [DEBUG] map2epubTocImpl: generate-toc: relativeUri="<xsl:sequence select="$relativeUri"/>"</xsl:message>
+        </xsl:if>
         <!-- FIXME: Likely need to map input IDs to output IDs. -->
         <xsl:variable name="fragId" as="xs:string"
           select="string(@id)"
@@ -319,6 +331,13 @@
     <xsl:param name="context" as="element()"/>
     <xsl:choose>
       <xsl:when test="$context/@processing-role = 'resource-only'">
+        <xsl:sequence select="false()"/>
+      </xsl:when>
+      <xsl:when test="$context/ancestor::*[contains(@chunk, 'to-content')]">
+        <xsl:message> + [DEBUG] isNavPoint(): ancestor has @chunk with to-content.</xsl:message>
+        <xsl:sequence select="false()"/>
+      </xsl:when>
+      <xsl:when test="string($context/@toc) = 'no'"><!-- Issue 3331319: @toc not respected in EPUB ToC -->
         <xsl:sequence select="false()"/>
       </xsl:when>
       <xsl:when test="df:isTopicRef($context) or df:isTopicHead($context)">

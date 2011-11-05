@@ -25,7 +25,7 @@
   <!--==========================================
     DOCX to DITA generic transformation
     
-    Copyright (c) 2009, 2010 DITA For Publishers, Inc.
+    Copyright (c) 2009, 2011 DITA For Publishers, Inc.
 
     Transforms a DOCX document.xml file into a DITA topic using
     a style-to-tag mapping.
@@ -45,12 +45,18 @@
   <xsl:param name="mediaDirUri" select="relpath:newFile($outputDir, 'topics/media')" as="xs:string"/>  
   <xsl:param name="outputDir" as="xs:string"/>
   <xsl:param name="rootMapName" as="xs:string" select="'rootmap'"/>
+  <xsl:param name="rootTopicName" as="xs:string?" select="()"/>
   <xsl:param name="submapNamePrefix" as="xs:string" select="'map'"/>
   <xsl:param name="filterBr" as="xs:string" select="'false'"/>
   <xsl:param name="filterTabs" as="xs:string" select="'false'"/>
   <xsl:param name="includeWordBackPointers" as="xs:string" select="'true'"/>
   
   <xsl:param name="rootMapUrl" select="concat($rootMapName, '.ditamap')" as="xs:string"/>
+  <xsl:param name="rootTopicUrl" 
+    as="xs:string?" 
+    select="if ($rootTopicName) 
+    then concat($rootTopicName, '.xml')
+    else ()"/>
   <xsl:param name="topicExtension" select="'.dita'" as="xs:string"/><!-- Extension for generated topic files -->
   <xsl:param name="fileNamePrefix" select="''" as="xs:string"/><!-- Prefix for genenerated file names -->
   
@@ -107,14 +113,14 @@
       select="document('styles.xml', .)"
     />      
     <xsl:variable
-      name="simpleWpDoc"
+      name="simpleWpDocBase"
       as="element()">
       <xsl:call-template
         name="processDocumentXml">
         <xsl:with-param name="stylesDoc" as="document-node()" tunnel="yes"
           select="$stylesDoc"/>
       </xsl:call-template>
-    </xsl:variable>
+    </xsl:variable>    
     <xsl:variable
       name="tempDoc"
       select="relpath:newFile($outputDir, 'simpleWpDoc.xml')"
@@ -127,14 +133,29 @@
         <xsl:message> + [DEBUG] Intermediate simple WP doc saved as <xsl:sequence
             select="$tempDoc"/></xsl:message>
         <xsl:sequence
-          select="$simpleWpDoc"/>
+          select="$simpleWpDocBase"/>
       </xsl:result-document>
     </xsl:if>
+    <xsl:variable name="simpleWpDoc"
+      as="element()"
+    >
+      <xsl:apply-templates select="$simpleWpDocBase" mode="simpleWpDoc-fixup"/>
+    </xsl:variable>
     <xsl:apply-templates
       select="$simpleWpDoc">
       <xsl:with-param name="resultUrl" select="relpath:newFile($outputDir, 'temp.output')" tunnel="yes"/>
     </xsl:apply-templates>
     <xsl:message> + [INFO] Done.</xsl:message>
+  </xsl:template>
+  
+  <xsl:template mode="simpleWpDoc-fixup" match="*">
+    <xsl:copy>
+      <xsl:apply-templates select="@*,node()" mode="#current"/>
+    </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template mode="simpleWpDoc-fixup" match="@* | text() | processing-instruction()">
+    <xsl:sequence select="."/>
   </xsl:template>
   
   <xsl:template name="report-parameters">
@@ -149,11 +170,13 @@
       + styleMapUri     = "<xsl:sequence select="$styleMapUri"/>"
       + mediaDirUri     = "<xsl:sequence select="$mediaDirUri"/>"  
       + rootMapName     = "<xsl:sequence select="$rootMapName"/>"
+      + rootTopicName   = "<xsl:sequence select="$rootTopicName"/>"
       + submapNamePrefix= "<xsl:sequence select="$submapNamePrefix"/>"      
       + rootMapUrl      = "<xsl:sequence select="$rootMapUrl"/>"
+      + rootTopicUrl    = "<xsl:sequence select="$rootTopicUrl"/>"
       + topicExtension  = "<xsl:sequence select="$topicExtension"/>"
       + fileNamePrefix  = "<xsl:sequence select="$fileNamePrefix"/>"      
-      + outputdir       = "<xsl:sequence select="$outputDir"/>"  
+      + outputDir       = "<xsl:sequence select="$outputDir"/>"  
       + debug           = "<xsl:sequence select="$debug"/>"
       + includeWordBackPointers= "<xsl:sequence select="$includeWordBackPointersBoolean"/>"  
       

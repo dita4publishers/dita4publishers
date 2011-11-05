@@ -8,10 +8,10 @@
   xmlns:relpath="http://dita2indesign/functions/relpath"
   exclude-result-prefixes="xs htmlutil relpath df"  
   version="2.0">
- 
+<!-- 
   <xsl:import href="dita-support-lib.xsl"/>
   <xsl:import href="relpath_util.xsl"/>
-    
+-->    
   <!-- The strategy to use when constructing output files. Default is "as-authored", meaning
     reflect the directory structure of the topics as authored relative to the root map,
     possibly as reworked by earlier Toolkit steps.
@@ -138,14 +138,14 @@
     <xsl:variable name="baseTopicResultUrl" as="xs:string">
       <xsl:apply-templates select="." mode="get-topic-result-base-url"/>      
     </xsl:variable>
-    <xsl:variable name="resultUrl" select="concat($baseTopicResultUrl, $outext)"/>
+    <xsl:variable name="resultUrl" select="concat($baseTopicResultUrl, $OUTEXT)"/>
     <xsl:sequence select="$resultUrl"/>
   </xsl:template>
   
   <xsl:function name="htmlutil:constructHtmlResultTopicFilename" as="xs:string">
     <xsl:param name="topic" as="document-node()"/>
     <xsl:variable name="topicFilename" 
-      select="concat(htmlutil:getResultTopicBaseName($topic), '.html')" 
+      select="concat(htmlutil:getResultTopicBaseName($topic), $OUTEXT)" 
       as="xs:string"/>
     <xsl:sequence select="$topicFilename"/>    
   </xsl:function>

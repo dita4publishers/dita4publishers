@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:relpath="http://dita2indesign/functions/relpath"
@@ -480,6 +480,17 @@
     </xsl:choose>
   </xsl:function>
   
+  <xsl:function name="relpath:getResourcePartOfUri" as="xs:string">
+    <xsl:param name="uriString" as="xs:string"/>
+    <xsl:variable name="resourcePart" as="xs:string"
+      select="
+      if (contains($uriString, '#')) 
+      then substring-before($uriString, '#') 
+      else normalize-space($uriString)
+      "/>
+    <xsl:sequence select="$resourcePart"/>
+  </xsl:function>
+  
   <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
     <xd:desc>
       <xd:p>Given a path resolves any ".." or "." terms to produce an absolute path</xd:p>
@@ -592,7 +603,10 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="resultTokens" 
-          select="relpath:analyzePathTokens($sourceTokens, $targetTokens, ())" as="xs:string*"/>              
+          select="relpath:analyzePathTokens($sourceTokens, $targetTokens, ())" as="xs:string*"/>      
+        <xsl:if test="false()">
+          <xsl:message> + [DEBUG] relpath:getRelativePath(): resultTokens="<xsl:sequence select="$resultTokens"/>"</xsl:message>
+        </xsl:if>
         <xsl:variable name="result" select="string-join($resultTokens, '/')" as="xs:string"/>
         <xsl:value-of select="$result"/>
       </xsl:otherwise>
@@ -730,6 +744,7 @@
           <xsl:otherwise>
             <!-- Paths must diverge at this point. Append one ".." for each token
             left in the source: -->
+            <xsl:message> + [DEBUG] constructing goUps: $sourceTokens=<xsl:sequence select="$sourceTokens"/></xsl:message>
             <xsl:variable name="goUps" as="xs:string*">
               <xsl:for-each select="$sourceTokens">
                 <xsl:sequence select="'..'"/>
@@ -740,6 +755,25 @@
         </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>    
+  </xsl:function>
+  
+  <xsl:function name="relpath:getFragmentId" as="xs:string">
+    <xsl:param name="uri" as="xs:string"/>
+    <!-- Returns either the empty string, if there is no fragment
+         identifier, or the string following the first "#" in the 
+         URI up to, but not including, any query component.
+      -->
+    <xsl:variable name="baseFragid" as="xs:string"
+      select="if (contains($uri, '#'))
+      then substring-after($uri, '#')
+      else ''"
+    />
+    <xsl:variable name="result" as="xs:string"
+      select="if (contains($baseFragid, '?')) 
+      then substring-before($baseFragid, '?') 
+      else $baseFragid"
+    />
+    <xsl:sequence select="$result"/>
   </xsl:function>
   
   <xsl:function name="relpath:hex-to-char" as="xs:integer">

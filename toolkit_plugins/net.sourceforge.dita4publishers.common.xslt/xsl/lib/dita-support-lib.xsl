@@ -9,11 +9,15 @@
   <!-- =====================================================================
     DITA2InDesign: Map 2 Importable XML for InDesign
     
-    Copyright (c) 2008, 2009 DITA2InDesign Project
+    Copyright (c) 2008, 2011 DITA2InDesign Project
     
     =====================================================================-->
   
+<!-- Users of this module must also import this module:  
+  
   <xsl:import href="relpath_util.xsl"/>
+
+-->
   
   
   <xsl:key name="topicsById" match="*[df:class(., 'topic/topic')]" use="@id"/>
@@ -56,10 +60,10 @@
         </xsl:when>
         <xsl:when test="$topicDoc/*/*[df:class(., 'topic/topic')]">
           <xsl:sequence select="$topicDoc/*/*[df:class(., 'topic/topic')][1]"/>
-          <xsl:message> -     Info: Using first child topic <xsl:sequence select="$topicDoc/*/*[df:class(., 'topic/topic')][1]/@id"/> of document "<xsl:sequence select="$topicUri"/>".</xsl:message>
+          <xsl:message> + [INFO] Using first child topic <xsl:sequence select="string($topicDoc/*/*[df:class(., 'topic/topic')][1]/@id)"/> of document "<xsl:sequence select="$topicUri"/>".</xsl:message>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:message> -     Warning: document "<xsl:sequence select="$topicUri"/>" not a topic or does not contain a topic as its first child.</xsl:message>
+          <xsl:message> - [WARNING] Document "<xsl:sequence select="$topicUri"/>" not a topic or does not contain a topic as its first child.</xsl:message>
         </xsl:otherwise>
       </xsl:choose>    
     </xsl:variable>
@@ -115,6 +119,12 @@
       <xsl:when test="$topicref/@navtitle != ''">
         <xsl:value-of select="$topicref/@navtitle"/>
       </xsl:when>
+      <xsl:when test="$topicref/@format and not(starts-with(string($topicref/@format), 'dita'))">
+        <!-- FIXME: This is a quick hack. Need to use the best mode for constructing the navtitle. -->
+        <xsl:variable name="text">
+          <xsl:apply-templates select="$topicref/*[df:class(., 'map/topicmeta')]/*[df:class(., 'map/navtitle')]" mode="text-only"/>            </xsl:variable>
+        <xsl:sequence select="normalize-space($text)"/>
+      </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="targetTopic" select="df:resolveTopicRef($topicref)"/>
         <xsl:if test="false() and $debugBoolean">
@@ -138,6 +148,10 @@
           <xsl:when test="$targetTopic">
             <xsl:sequence select="df:getNavtitleForTopic($targetTopic)"/>  
           </xsl:when>
+          <xsl:when test="$topicref/*[df:class(., 'map/topicmeta')]/*[df:class(., 'map/navtitle')]">
+            <!-- FIXME: This is a quick hack. Need to use the best mode for constructing the navtitle. -->
+            <xsl:apply-templates select="$topicref/*[df:class(., 'map/topicmeta')]/*[df:class(., 'map/navtitle')]" mode="text-only"/>
+          </xsl:when>          
           <xsl:otherwise>
             <xsl:sequence select="'{Failed to get navtitle for topicref}'"/>
           </xsl:otherwise>
@@ -184,28 +198,28 @@
         <xsl:sequence select="/.."/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:if test="false() and $debugBoolean">
+        <xsl:if test="true() and $debugBoolean">
         <xsl:message> + [DEBUG] df:resolveTopicRef(): context is a topicref.</xsl:message>
         </xsl:if>
         <xsl:variable name="topicUri" as="xs:string" 
           select="df:getEffectiveTopicUri($context)"/>
-        <xsl:if test="false() and $debugBoolean">
+        <xsl:if test="true() and $debugBoolean">
         <xsl:message> + [DEBUG] df:resolveTopicRef(): topicUri="<xsl:sequence select="$topicUri"/>"</xsl:message>
         </xsl:if>
         <xsl:variable name="topicFragId" as="xs:string" 
            select="if (contains($context/@href, '#')) then substring-after($context/@href, '#') else ''"/>
-        <xsl:if test="false() and $debugBoolean">
+        <xsl:if test="true() and $debugBoolean">
         <xsl:message> + [DEBUG] df:resolveTopicRef(): topicFragId="<xsl:sequence select="$topicFragId"/>"</xsl:message>
         </xsl:if>
         <xsl:choose>
-          <xsl:when test="$topicUri = ''">
-            <xsl:if test="false() and $debugBoolean">
+          <xsl:when test="$topicUri = '' and $topicFragId = ''">
+            <xsl:if test="true() and $debugBoolean">
             <xsl:message> + [DEBUG] df:resolveTopicRef(): topicUri is '', return empty list.</xsl:message>
             </xsl:if>
             <xsl:sequence select="/.."/>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:if test="false() and $debugBoolean">
+            <xsl:if test="true() and $debugBoolean">
             <xsl:message> + [DEBUG] df:resolveTopicRef(): topicUri is a string, trying to resolve...</xsl:message>
             </xsl:if>
             <xsl:choose>
@@ -214,63 +228,7 @@
                 <xsl:if test="false() and $debugBoolean">
                   <xsl:message> + [DEBUG] df:resolveTopicRef(): target document is available.</xsl:message>
                 </xsl:if>
-                <xsl:variable name="topicDoc" select="document($topicUri, $context)"/>
-                <xsl:if test="false() and $debugBoolean">
-                  <xsl:message> + [DEBUG] df:resolveTopicRef(): target document resolved: <xsl:sequence select="count($topicDoc) > 0"/></xsl:message>
-                </xsl:if>
-                <xsl:choose>
-                  <xsl:when test="$topicFragId = ''">
-                    <xsl:if test="false() and $debugBoolean">
-                    <xsl:message> + [DEBUG] df:resolveTopicRef(): No explicit fragment identifier, select first topic in document in document order</xsl:message>
-                    </xsl:if>
-                    <!-- No explicit fragment identifier, select first topic in document in document order -->
-                    <xsl:choose>
-                      <xsl:when test="$topicDoc/*[df:class(., 'topic/topic')]">
-                        <xsl:if test="false() and $debugBoolean">
-                          <xsl:message> + [DEBUG] df:resolveTopicRef(): root of topicDoc is a topic, returning root element.</xsl:message>
-                        </xsl:if>
-                        <xsl:sequence select="$topicDoc/*[1]"/>
-                      </xsl:when>
-                      <xsl:when test="$topicDoc/*/*[df:class(., 'topic/topic')]">
-                        <xsl:if test="false() and $debugBoolean">
-                        <xsl:message> + [DEBUG] df:resolveTopicRef(): child root of topicDoc is a topic, returning first child topic.</xsl:message>
-                        </xsl:if>
-                        <xsl:sequence select="$topicDoc/*/*[df:class(., 'topic/topic')][1]"/>
-                        <xsl:message> -     Info: Using first child topic <xsl:sequence select="$topicDoc/*/*[df:class(., 'topic/topic')][1]/@id"/> of document "<xsl:sequence select="$topicUri"/>".</xsl:message>
-                      </xsl:when>
-                      <xsl:when test="$topicDoc/*[df:class(., 'map/map')]">
-                        <xsl:if test="false() and $debugBoolean">
-                          <xsl:message> + [DEBUG] df:resolveTopicRef(): root of topicDoc is a map, returning root element.</xsl:message>
-                        </xsl:if>
-                        <xsl:sequence select="$topicDoc/*[1]"/>
-                      </xsl:when>
-                      <xsl:otherwise>
-                        <xsl:message> -     Warning: document "<xsl:sequence select="$topicUri"/>" not a topic or map or does not contain a topic as its first child.</xsl:message>
-                        <xsl:sequence select="/.."/>
-                      </xsl:otherwise>
-                    </xsl:choose>    
-                  </xsl:when>
-                  <xsl:otherwise>
-                    <!-- Explicit fragment ID, try to resolve it -->
-                    <xsl:if test="false() and $debugBoolean">
-                    <xsl:message> + [DEBUG] df:resolveTopicRef(): Explicit fragment identifier, resolving it.</xsl:message>
-                    </xsl:if>
-                    <xsl:variable name="topicsWithId" select="key('topicsById', $topicFragId, $topicDoc)"/>
-                    <xsl:choose>
-                      <xsl:when test="count($topicsWithId) = 0">
-                        <xsl:message> - Error: df:resolveTopicRef(): Failed to find topic with fragment identifier "<xsl:sequence select="$topicFragId"/>" in topic document "<xsl:sequence select="base-uri($topicDoc)"/>"</xsl:message>
-                        <xsl:sequence select="/.."/>
-                      </xsl:when>
-                      <xsl:when test="count($topicsWithId) > 1">
-                        <xsl:message> - Warning: df:resolveTopicRef(): found multiple topics with fragment identifier "<xsl:sequence select="$topicFragId"/>", using first one found.</xsl:message>
-                        <xsl:sequence select="$topicsWithId[1]"/>
-                      </xsl:when>
-                      <xsl:otherwise>
-                        <xsl:sequence select="$topicsWithId[1]"/>
-                      </xsl:otherwise>
-                    </xsl:choose>                    
-                  </xsl:otherwise>
-                </xsl:choose>                
+                <xsl:sequence select="df:resolveTopicUri($context, $topicUri)"/>
               </xsl:when>
               <xsl:otherwise>
                 <xsl:if test="$debugBoolean">
@@ -283,6 +241,82 @@
         </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>
+  </xsl:function>
+  
+  <xsl:function name="df:resolveTopicUri" as="element()?">
+    <xsl:param name="context" as="element()"/>
+    <xsl:param name="topicUri" as="xs:string"/>
+    
+    <xsl:if test="true() and $debugBoolean">
+      <xsl:message> + [DEBUG] df:resolveTopicUri(): topicUri: <xsl:sequence select="$topicUri"/></xsl:message>
+    </xsl:if>
+
+    <xsl:variable name="topicResourcePart" as="xs:string" 
+      select="if (contains($topicUri, '#')) then substring-before($topicUri, '#') else $topicUri"/>
+    <xsl:variable name="topicFragId" as="xs:string" 
+      select="if (contains($topicUri, '#')) then substring-after($topicUri, '#') else ''"/>
+    
+    <xsl:variable name="topicDoc" 
+      select="if ($topicResourcePart != '') 
+      then document($topicResourcePart, $context) 
+      else root($context)"/>
+    <xsl:if test="true() and $debugBoolean">
+      <xsl:message> + [DEBUG] df:resolveTopicUri(): target document resolved: <xsl:sequence select="count($topicDoc) > 0"/></xsl:message>
+    </xsl:if>
+    <xsl:choose>
+      <xsl:when test="$topicFragId = ''">
+        <xsl:if test="false() and $debugBoolean">
+          <xsl:message> + [DEBUG] df:resolveTopicUri(): No explicit fragment identifier, select first topic in document in document order</xsl:message>
+        </xsl:if>
+        <!-- No explicit fragment identifier, select first topic in document in document order -->
+        <xsl:choose>
+          <xsl:when test="$topicDoc/*[df:class(., 'topic/topic')]">
+            <xsl:if test="false() and $debugBoolean">
+              <xsl:message> + [DEBUG] df:resolveTopicUri(): root of topicDoc is a topic, returning root element.</xsl:message>
+            </xsl:if>
+            <xsl:sequence select="$topicDoc/*[1]"/>
+          </xsl:when>
+          <xsl:when test="$topicDoc/*/*[df:class(., 'topic/topic')]">
+            <xsl:if test="false() and $debugBoolean">
+              <xsl:message> + [DEBUG] df:resolveTopicUri(): child root of topicDoc is a topic, returning first child topic.</xsl:message>
+            </xsl:if>
+            <xsl:sequence select="$topicDoc/*/*[df:class(., 'topic/topic')][1]"/>
+            <xsl:message> + [INFO] Using first child topic <xsl:sequence select="string($topicDoc/*/*[df:class(., 'topic/topic')][1]/@id)"/> of document "<xsl:sequence select="$topicUri"/>".</xsl:message>
+          </xsl:when>
+          <xsl:when test="$topicDoc/*[df:class(., 'map/map')]">
+            <xsl:if test="false() and $debugBoolean">
+              <xsl:message> + [DEBUG] df:resolveTopicUri(): root of topicDoc is a map, returning root element.</xsl:message>
+            </xsl:if>
+            <xsl:sequence select="$topicDoc/*[1]"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:message> - [WARNING] Document "<xsl:sequence select="$topicUri"/>" not a topic or map or does not contain a topic as its first child.</xsl:message>
+            <xsl:sequence select="/.."/>
+          </xsl:otherwise>
+        </xsl:choose>    
+      </xsl:when>
+      <xsl:otherwise>
+        <!-- Explicit fragment ID, try to resolve it -->
+        <xsl:if test="true() or $debugBoolean">
+          <xsl:message> + [DEBUG] df:resolveTopicUri(): Explicit fragment identifier, resolving it.</xsl:message>
+        </xsl:if>
+        <xsl:variable name="topicsWithId" select="key('topicsById', $topicFragId, $topicDoc)"/>
+        <xsl:choose>
+          <xsl:when test="count($topicsWithId) = 0">
+            <xsl:message> - [ERROR] df:resolveTopicUri(): Failed to find topic with fragment identifier "<xsl:sequence select="$topicFragId"/>" in topic document "<xsl:sequence select="base-uri($topicDoc)"/>"</xsl:message>
+            <xsl:sequence select="/.."/>
+          </xsl:when>
+          <xsl:when test="count($topicsWithId) > 1">
+            <xsl:message> - [WARNING] df:resolveTopicUri(): found multiple topics with fragment identifier "<xsl:sequence select="$topicFragId"/>", using first one found.</xsl:message>
+            <xsl:sequence select="$topicsWithId[1]"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:sequence select="$topicsWithId[1]"/>
+          </xsl:otherwise>
+        </xsl:choose>                    
+      </xsl:otherwise>
+    </xsl:choose>                
+    
   </xsl:function>
   
   <xsl:function name="df:resolveTopicElementRef">
@@ -444,33 +478,66 @@
   <xsl:function name="df:isTopicHead" as="xs:boolean">
     <!-- Returns true if the topicref has a navtitle but no href or keyref -->
     <xsl:param name="context" as="element()"/>
-    <xsl:sequence 
+
+<!--    <xsl:message>+ [DEBUG] isTopicHead(): @class=<xsl:sequence select="string($context/@class)"/></xsl:message>-->
+    <xsl:variable name="result"  as="xs:boolean"
       select="df:class($context, 'map/topicref') and 
               (not($context/@href) or $context/@href = '') and
               (not($context/@keyref) or $context/@keyref = '') and
               ($context/@navtitle != '' or 
-               $context/*[df:class($context, 'map/topicmeta')]/*[df:class(., 'topic/navtitle')])"/>
+               $context/*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/navtitle')])"/>
+<!--    <xsl:message>+ [DEBUG] isTopicHead(): returning <xsl:sequence select="$result"/></xsl:message>-->
+    <xsl:sequence select="$result"/>
   </xsl:function>
   
   <xsl:function name="df:isTopicGroup" as="xs:boolean">
     <!-- Returns true if the topicref has no navititle and no href or keyref -->
     <xsl:param name="context" as="element()"/>
-    <xsl:sequence 
-      select="df:class($context, 'mapgroup-d/topicgroup') or 
-      (df:class($context, 'map/topicref') and 
-       (not($context/@href) or $context/@href = '') and
-       (not($context/@keyref) or $context/@keyref = '') and
-       not($context/@navtitle != '' or 
-           $context/*[df:class($context, 'map/topicmeta')]/*[df:class(., 'topic/navtitle')]))"/>
+
+    <xsl:variable name="classIsTopicgroup" as="xs:boolean"
+      select="df:class($context, 'mapgroup-d/topicgroup')"
+    />
+    
+    <xsl:variable name="classIsTopicrefOrTopichead" as="xs:boolean"
+      select="df:class($context, 'map/topicref') or 
+              df:class($context, 'mapgroup-d/topichead')"
+    />
+    <xsl:variable name="noHrefOrKeyref" as="xs:boolean"
+      select="
+       ((not($context/@href) or 
+        ($context/@href = '')) and
+        (not($context/@keyref) or 
+         ($context/@keyref = '')))"
+    />
+    <xsl:variable name="noNavtitleAtt" as="xs:boolean"
+      select="($context/@navtitle = '') or not($context/@navtitle)"
+    />
+    <xsl:variable name="noNavtitleElem" as="xs:boolean" 
+      select="not($context/*[contains(@class, ' map/topicmeta ')]/*[contains(@class, ' topic/navtitle ')])"/>
+<!-- <xsl:message>+ [DEBUG]   isTopicGroup(): noNavtitleElem=<xsl:sequence select="$noNavtitleElem"/></xsl:message>-->
+   
+    <xsl:variable name="result" as="xs:boolean" 
+      select="$classIsTopicgroup or 
+      ($classIsTopicrefOrTopichead and 
+       $noHrefOrKeyref and
+       $noNavtitleAtt and 
+       $noNavtitleElem)"/>
+<!--    <xsl:message>+ [DEBUG]   isTopicGroup(): returning=<xsl:sequence select="$result"/></xsl:message>-->
+    <xsl:sequence select="$result"/>
   </xsl:function>
   
   <xsl:function name="df:isTopicRef" as="xs:boolean">
     <!-- Returns true if the topicref points to something -->
     <xsl:param name="context" as="element()"/>
-    <xsl:sequence 
+<!--    <xsl:message>+ [DEBUG] isTopicRef(): context=<xsl:sequence select="name($context), ', id=', string($context/@id)"/></xsl:message>-->
+    
+    <xsl:variable name="result" 
       select="df:class($context, 'map/topicref') and 
       (($context/@href and $context/@href != '') or
        ($context/@keyref and $context/@keyref != ''))"/>
+    
+<!--        <xsl:message>+ [DEBUG]   isTopicRef(): returning=<xsl:sequence select="$result"/></xsl:message>-->
+    <xsl:sequence select="$result"/>
   </xsl:function>
   
   <xsl:function name="df:getBaseClass" as="xs:string">
@@ -534,7 +601,14 @@
   <xsl:function name="df:getUniqueTopicrefs" as="element()*">
     <xsl:param name="map" as="element()"/>
     <xsl:variable name="result" as="element()*">
-      <xsl:for-each-group select="$map//*[df:isTopicRef(.) and not(@processing-role = 'resource-only')]"
+      <!-- Exclude resource-only topicrefs and topicrefs
+           subordinate to topicrefs with @chunk='to-content'
+        -->
+      <xsl:for-each-group 
+        select="$map//*[df:isTopicRef(.) and 
+                        not(@processing-role = 'resource-only') and
+                        not(ancestor::*[contains(@chunk, 'to-content')])
+                        ]"
         group-by="document-uri(root(df:resolveTopicRef(.)))"
         >     
         
@@ -567,6 +641,49 @@
     <xsl:param name="topicref" as="element()*"/>
     <xsl:text>&#x0a;</xsl:text>
     <xsl:apply-templates select="$topicref" mode="topicref-report"/>
+  </xsl:function>
+  
+  <xsl:function name="df:generate-dita-id" as="xs:string">
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="resultId" as="xs:string">
+      <xsl:choose>
+        <xsl:when test="df:class(($context/ancestor-or-self::*)[last()], 'map/map')">
+          <xsl:sequence select="concat(name($context), '-', count($context/preceding::*) + 1)"/>
+        </xsl:when>
+        <xsl:when test="df:class($context, 'topic/topic')">
+          <xsl:sequence select="string($context/@id)"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <!-- Must be an element within a topic -->
+          <xsl:sequence select="            
+            concat(
+              string-join($context/ancestor::*[df:class(.,'topic/topic')]/@id, '-'),
+              name($context), '-', 
+              count($context/preceding::*) + 1,
+              '-',
+              count($context/following::*),
+              '-',
+              string-length(string($context))
+            )"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:if test="false() and $debugBoolean">    
+      <xsl:message> + [DEBUG] generate-dita-id(): returning "<xsl:sequence select="$resultId"/>" for element <xsl:sequence select="name($context)"/></xsl:message>
+    </xsl:if>    
+    <xsl:sequence select="$resultId"/>  
+  </xsl:function>
+  
+  <xsl:function name="df:getContainingTopic" as="element()?">
+    <xsl:param name="context" as="element()"/>
+    <!-- Given an element, returns the topic element that contains it, if any.
+      If the element is a topic element, returns its parent topic or nothing
+      if the element is a root topic. -->
+    <xsl:variable name="result" as="element()?"
+      select="$context/ancestor::*[df:class(., 'topic/topic')][1]"
+    />
+    
+    <xsl:sequence select="$result"/>
   </xsl:function>
     
   <xsl:template mode="topicref-report" match="*[df:class(., 'map/topicref')]">

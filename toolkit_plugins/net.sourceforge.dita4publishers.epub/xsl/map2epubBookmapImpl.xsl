@@ -7,9 +7,6 @@
   exclude-result-prefixes="xs df relpath"
   version="2.0">
     
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  
   <!-- Extensions for DITA Bookmap map type modules in
   different contexts -->
   

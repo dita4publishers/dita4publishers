@@ -12,9 +12,6 @@
   
   exclude-result-prefixes="local xs df xsl relpath kindleutil index-terms gmap">
 
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-
   <xsl:template match="*[df:class(., 'map/map')]" mode="additional-graphic-refs" priority="10">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
     <xsl:if test="$effectiveCoverGraphicUri != ''">

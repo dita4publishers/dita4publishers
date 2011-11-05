@@ -15,8 +15,6 @@
 	<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
 	<property name="debug" value="false"/>
 	
-	<property name="args.hide.parent.link" value="yes"/><!-- Turn off parent links in topics by default -->
-
 	<property name="epub.temp.dir" value="${dita.temp.dir}${file.separator}epub_temp"/>
 	
 	<!-- Defines the @class value to use for topic elements generated for topicheads. -->
@@ -79,7 +77,7 @@
     <condition property="noPlugin">
       <equals arg1="${dita.epub.plugin}" arg2="no" />
     </condition>
-    <condition property="css.output.dir" value="topics">
+    <condition property="css.output.dir" value="${topics.output.dir}">
       <not>
         <isset property="args.css.output.dir" />
       </not>
@@ -87,6 +85,14 @@
     <condition property="css.output.dir" value="${args.css.output.dir}">
       <isset property="args.css.output.dir" />
     </condition>
+  	<condition property="epub.hide.parent.link" value="yes">
+  		<not>
+      	<isset property="args.hide.parent.link" />
+  		</not>
+  	</condition>
+  	<condition property="epub.hide.parent.link" value="${args.hide.parent.link}">
+    	<isset property="args.hide.parent.link" />
+  	</condition>
   	
   	<echo message="+++ Epub properties:"/>
   	<echoproperties format="text" regex="^(epub|css|out\.)" taskname="echo"/>
@@ -128,6 +134,8 @@
     	<param name="titleOnlyTopicClassSpec" expression="${title.only.topic.class.spec}"/>
     	<param name="titleOnlyTopicTitleClassSpec" expression="${title.only.topic.title.class.spec}"/>
      	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
+    	<param name="generateHtmlToc" expression="${epub.generate.html.toc}" if="epub.generate.html.toc"/>
+      <param name="html.toc.OUTPUTCLASS" expression="${args.xhtml.toc.class}" if="args.xhtml.toc.class" />
 
     	<!-- Parameters from dita2xhtml and similar transtypes: -->   
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
@@ -137,7 +145,7 @@
       <param name="ARTLBL" expression="${args.artlbl}" if="args.artlbl"></param>
       <param name="GENERATE-TASK-LABELS" expression="${args.gen.task.lbl}" if="args.gen.task.lbl"></param>
       <param name="PRESERVE-DITA-CLASS" expression="${args.xhtml.classattr}" if="args.xhtml.classattr"></param>
-      <param name="NOPARENTLINK" expression="${args.hide.parent.link}" if="args.hide.parent.link"></param>
+      <param name="NOPARENTLINK" expression="${epub.hide.parent.link}" />
       <param name="BREADCRUMBS" expression="${args.breadcrumbs}" if="args.breadcrumbs"></param>
       <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
     </xslt>
@@ -157,7 +165,8 @@
     <condition property="user.copycss.yes">
       <isset property="args.css.present"/>
     </condition>
-    <property name="user.csspath.real" value="${epub.temp.dir}/${topics.output.dir}/${user.csspath}"/>
+    <property name="user.csspath.real" value="${epub.temp.dir}/${css.output.dir}"/>
+  	<echo message="Copying css files to '${user.csspath.real}"/>
     <mkdir dir="${user.csspath.real}"/>    
     <!-- Always copy system default css files -->
     <copy todir="${user.csspath.real}">

@@ -92,6 +92,8 @@
   
   <xsl:template match="*[df:isTopicRef(.)]" mode="generate-content">
     <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
+    <xsl:param name="collected-data" as="element()" tunnel="yes"/>    
+    
     <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] Handling topicref to "<xsl:sequence select="string(@href)"/>" in mode generate-content</xsl:message>
     </xsl:if>

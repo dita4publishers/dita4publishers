@@ -41,6 +41,15 @@
     </a>
   </xsl:template>
   
+  <xsl:template match="body" priority="20" mode="html2xhtml">
+    <body>
+      <!-- For Kindle, an ID on <body> doesn't resolve, but it does on <div> -->
+      <div>
+        <xsl:apply-templates select="@*,node()" mode="#current"/>        
+      </div>
+    </body>
+  </xsl:template>
+  
   <xsl:template match="blockquote" priority="20" mode="html2xhtml">
     <blockquote>
       <xsl:apply-templates select="@*" mode="#current"/>

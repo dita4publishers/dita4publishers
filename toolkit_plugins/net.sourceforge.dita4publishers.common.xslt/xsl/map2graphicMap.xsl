@@ -9,9 +9,10 @@
   exclude-result-prefixes="xs df relpath"
   version="2.0">
   
+<!--  
   <xsl:import href="lib/dita-support-lib.xsl"/>
   <xsl:import href="lib/relpath_util.xsl"/>
-  
+-->  
   <xsl:output name="graphic-map" method="xml" indent="yes" />
   <xsl:output name="ant" method="xml" indent="yes" />
   
