@@ -47,6 +47,8 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMapImpl.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
   
+  <xsl:import href="../../net.sourceforge.dita4publishers.epub/xsl/html2xhtmlImpl.xsl"/>
+
   <!-- Import the base HTML output generation transform. -->
   <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
 

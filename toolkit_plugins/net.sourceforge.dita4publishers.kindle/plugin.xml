@@ -2,7 +2,8 @@
 
   <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
   <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
- 
+  <require plugin="net.sourceforge.dita4publishers.epub"/> 
+  
   <template file="build_transtype-kindle_template.xml"/>
   
   <template file="xsl/map2kindle_template.xsl"/>
