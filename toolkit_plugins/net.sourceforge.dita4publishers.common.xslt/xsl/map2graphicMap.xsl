@@ -87,7 +87,7 @@
   <xsl:template match="*[df:class(.,'topic/image')]" mode="get-graphic-refs">
     <xsl:variable name="docUri" select="relpath:toUrl(@xtrf)" as="xs:string"/>
     <xsl:variable name="parentPath" select="relpath:getParent($docUri)" as="xs:string"/>
-    <xsl:variable name="graphicPath" select="@href" as="xs:string"/>
+    <xsl:variable name="graphicPath" select="@href" as="xs:string?"/>
     <xsl:variable name="rawUrl" select="concat($parentPath, '/', $graphicPath)" as="xs:string"/>
     <xsl:variable name="absoluteUrl" select="relpath:getAbsolutePath($rawUrl)"/>
     <xsl:if test="$debugBoolean">    
@@ -99,8 +99,23 @@
           rawUrl="<xsl:sequence select="$rawUrl"/>"
           absoluteUrl="<xsl:sequence select="$absoluteUrl"/>"      
         </xsl:message>
-     </xsl:if>   
-    <gmap:graphic-ref href="{$absoluteUrl}" filename="{relpath:getName($absoluteUrl)}"/>
+    </xsl:if>   
+    <xsl:choose>
+      <xsl:when test="not($graphicPath)">
+        <xsl:variable name="topic" as="element()?"
+          select="(ancestor-or-self::*[df:class(., 'topic/topic')])[1]"
+        />
+        <xsl:variable name="contextString" as="xs:string"
+          select="if ($topic) 
+          then concat('Topic ', df:getNavtitleForTopic($topic))
+          else name(..)"
+        />
+        <xsl:message> + [WARN] Image element with no @href or @keyref attribute in <xsl:sequence select="$contextString"/></xsl:message>
+      </xsl:when>
+      <xsl:otherwise>
+        <gmap:graphic-ref href="{$absoluteUrl}" filename="{relpath:getName($absoluteUrl)}"/>
+      </xsl:otherwise>
+    </xsl:choose>
     
   </xsl:template>
   
