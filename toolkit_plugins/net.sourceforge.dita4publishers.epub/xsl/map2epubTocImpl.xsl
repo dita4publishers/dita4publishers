@@ -279,7 +279,7 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="*[df:isTopicGroup(.)]" mode="nav-point-title">
+  <xsl:template match="*[df:isTopicGroup(.)]" mode="nav-point-title" priority="10">
     <!-- Per the 1.2 spec, topic group navtitles are always ignored -->
   </xsl:template>
   
