@@ -2,20 +2,43 @@
 <!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
 <pubmap
   xml:lang="en_US">
-  <pubtitle> <mainpubtitle>EPUB Test Document</mainpubtitle> </pubtitle>
-  <pubmeta> <author><data
-    name="file-as">McTesterson, Tester</data>Tester McTesterson</author>
-    <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source> <critdates>
-    <created
-      date="February, 1993"/>
-    <revised
-      modified="March 29, 2004"/>
-    </critdates> <pubid> <pubnumber>Ebook #55</pubnumber> <data
-    name="epub-bookid">epubid-value</data> </pubid> <pubrights>
-    <publicense>Project Gutenberg License.</publicense> </pubrights> <data
-    name="opf-metadata"> <data
-    name="item-one"
-    value="value one"/> </data> </pubmeta>
+  <pubtitle>
+    <mainpubtitle>EPUB Test Document</mainpubtitle>
+  </pubtitle>
+  <pubmeta>
+    <author type="aut"><data
+      name="file-as">McTesterson, Tester</data>Tester McTesterson</author>
+    <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source>
+    <critdates>
+      <created
+        date="February, 1993"/>
+      <revised
+        modified="March 29, 2004"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>subject in metadata/keywords/keyword</keyword>
+      </keywords>
+    </metadata>
+    <keywords>
+      <keyword>subject in pubmeta/keywords/keyword</keyword>
+    </keywords>
+    <pubid>
+      <isbn>in isbn</isbn>
+      <isbn-10>isbn-10</isbn-10>
+      <isbn-13>isbn-13</isbn-13>
+      <pubnumber>Ebook #55</pubnumber>
+      <data
+        name="epub-bookid">epubid-value</data>     
+    </pubid>
+    <pubrights>
+      <publicense>Project Gutenberg License.</publicense>
+    </pubrights>
+    <data
+      name="opf-metadata"> <data
+      name="item-one"
+      value="value one"/> </data>
+  </pubmeta>
   <keydefs>
     <topicmeta>
       <navtitle>Key Definitions</navtitle>
@@ -29,14 +52,19 @@
     <keydef
       href="chapters/chapter_1.xml"
       keys="the_cyclone"/>
+    <keydef
+      href="chapters/images/1407-04.jpg"
+      format="jpg"
+      keys="graphic-1407-04"/>
   </keydefs>
   <publication>
     <covers>
-      <epub-cover-graphic
+      <!--      <epub-cover-graphic
         format="jpg"
         href="covers/images/cover-graphic.jpg"
         processing-role="resource-only"
         scope="local"/>
+-->
       <front-cover
         href="covers/epub-test-front-cover.xml"/>
     </covers>
@@ -115,7 +143,8 @@
         </topichead>
         <topicgroup>
           <topicmeta>
-            <navtitle>Navtitle for Topic Group. Should be completely ignored for output purposes.</navtitle>
+            <navtitle>Navtitle for Topic Group. Should be completely ignored for
+              output purposes.</navtitle>
           </topicmeta>
           <topichead
             navtitle="Topic Head Within Topic Group With Navtitle"/>
