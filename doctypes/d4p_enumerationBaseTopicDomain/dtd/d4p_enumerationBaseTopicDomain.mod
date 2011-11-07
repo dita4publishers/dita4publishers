@@ -14,7 +14,7 @@
 <!-- ============================================================= -->
 
 <!ENTITY % d4pEnumeratorBase      "d4pEnumeratorBase" >
-<!ENTITY % dp4EnumeratorProperty  "dp4EnumeratorProperty" >
+<!ENTITY % d4pEnumeratorProperty  "d4pEnumeratorProperty" >
 
 
 <!-- ============================================================= -->
@@ -23,7 +23,7 @@
 
 <!ENTITY % d4pEnumeratorBase.content
 "
-  ((%dp4EnumeratorProperty;)*,
+  ((%d4pEnumeratorProperty;)*,
    (%data;)*
   )
 ">
@@ -38,7 +38,7 @@
 
 <!ENTITY % d4pEnumeratorProperty.content
 "
-  ((%dp4EnumeratorProperty;)*,
+  ((%d4pEnumeratorProperty;)*,
    (%data;)*
   )
 ">
