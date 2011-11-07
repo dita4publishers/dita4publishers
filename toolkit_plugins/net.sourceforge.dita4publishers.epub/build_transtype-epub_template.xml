@@ -3,40 +3,17 @@
   
   <!-- test to see where the plugin is located, plugins or demo -->
   <dirname property="epub.dir" file="${ant.file.dita2epub}"/>
-	
-	<!-- Set this property to set the ePub URI stub to a useful value. -->
-	<property name="idURIStub"
-	  value="http://my-URI-stub/"/>
 
-	<!-- The name of the directory, within the ePub package, to contain all images: -->
-	<property name="images.output.dir" value="images"/>
-	<!-- The name of the directory, within the ePub package, to contain all topics: -->
-	<property name="topics.output.dir" value="topics"/>
-	<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
-	<property name="debug" value="false"/>
+	<!-- Global properties that affect the base Toolkit processing: -->
 	
-	<property name="epub.temp.dir" value="${dita.temp.dir}${file.separator}epub_temp"/>
-	
-	<!-- Defines the @class value to use for topic elements generated for topicheads. -->
-	<property name="title.only.topic.class.spec" value="- topic/topic "/>
-	
-	<!-- Defines the @class value to use for topic title elements generated for topicheads. -->
-	<property name="title.only.topic.title.class.spec" value="- topic/title "/>
-	
-	<!-- Leading portion of full EPUB publication ID to be appended to the publication ID -->
-	<property name="epub.pubid.uri.stub" value="http://my-URI-stub/"/>
-
   <condition property="preprocess.maplink.skip" value="true">
     <isset property="epub.exclude.auto.rellinks" />
   </condition>
   <condition property="preprocess.move-links.skip" value="true">
     <isset property="epub.exclude.auto.rellinks" />
-  </condition>
-	
-  <condition property="d4p.is.map.driven" value="true">
-  	<equals arg1="transtype" arg2="epub"/>
-  </condition>
+  </condition>  	
 
+	
 	<target name="dita2epub"
     unless="noMap"
     xmlns:dita="http://dita-ot.sourceforge.net"
@@ -69,14 +46,31 @@
     
   <target name="dita.map.epub.init"
     description="Init properties for Epub">
+  	
+  	<property name="epub.temp.dir" value="${dita.temp.dir}${file.separator}epub_temp"/>
+  	
+    <property name="d4p.is.map.driven" value="true"/>
+
+  	<condition property="topics.output.dir" value="topics">
+  		<not>
+  			<isset property="topics.output.dir"/>
+  	  </not>
+  	</condition>
+
+  	<!-- The name of the directory, within the ePub package, to contain all images: -->
+  		
+    <condition property="images.output.dir" value="images">
+  		<not>
+    	  <isset property="images.output.dir" />
+  		</not>
+    </condition>
+  	
     <condition property="out.ext" value=".html">
       <not>
         <isset property="out.ext" />
       </not>
     </condition>
-    <condition property="noPlugin">
-      <equals arg1="${dita.epub.plugin}" arg2="no" />
-    </condition>
+  	
     <condition property="css.output.dir" value="${topics.output.dir}">
       <not>
         <isset property="args.css.output.dir" />
@@ -85,6 +79,7 @@
     <condition property="css.output.dir" value="${args.css.output.dir}">
       <isset property="args.css.output.dir" />
     </condition>
+  	
   	<condition property="epub.hide.parent.link" value="yes">
   		<not>
       	<isset property="args.hide.parent.link" />
@@ -94,8 +89,42 @@
     	<isset property="args.hide.parent.link" />
   	</condition>
   	
-  	<echo message="+++ Epub properties:"/>
-  	<echoproperties format="text" regex="^(epub|css|out\.)" taskname="echo"/>
+  	<!-- Defines the @class value to use for topic elements generated for topicheads. -->
+  	<condition property="title.only.topic.class.spec" value="- topic/topic ">
+  		<not>
+    	  <isset property="title.only.topic.class.spec" />
+  		</not>
+  	</condition>
+  	
+  	<!-- Defines the @class value to use for topic title elements generated for topicheads. -->
+  	<condition property="title.only.topic.title.class.spec" value="- topic/title ">
+  		<not>
+    	  <isset property="title.only.topic.title.class.spec" />
+  		</not>
+  	</condition>
+    	  	
+  	<!-- Set this property to set the ePub URI stub to a useful value. -->
+  	<condition property="idURIStub"
+  	  value="http://my-URI-stub/">
+  		<not>
+    	  <isset property="idURIStub" />
+  		</not>
+    </condition>
+
+  	<!-- Leading portion of full EPUB publication ID to be appended to the publication ID -->
+  	<condition property="epub.pubid.uri.stub" value="http://my-URI-stub/">
+  		<not>
+    	  <isset property="epub.pubid.uri.stub" />
+  		</not>
+  	</condition>
+  	
+    <condition property="noPlugin">
+      <equals arg1="${dita.epub.plugin}" arg2="no" />
+    </condition>
+  	
+  	
+  	<echo message="+++ epub-specific properties:"/>
+  	<echoproperties format="text" regex="^(epub|css|out\.|preprocess)" taskname="echo"/>
   </target>
   
 
@@ -107,7 +136,6 @@
   	<makeurl file="${epub.temp.dir}" property="epub.xslt.outdir"/>
   	<makeurl file="${dita.temp.dir}" property="epub.xslt.tempdir"/>
   	<makeurl file="${cover.graphic.file}" property="cover.graphic.uri" validate="false"/>
-  	<echo message="[DEBUG] cover.graphic.uri=${cover.graphic.uri}"/>
   	
   	<property name="args.xsl" location="${epub.dir}/xsl/map2epub.xsl"/>
   	

@@ -1,17 +1,6 @@
 <project name="dita2indesign" default="dita2indesign"
   >
   
-  <!-- test to see where the plugin is located, plugins or demo -->
-  <dirname property="indesign.dir" file="${ant.file.dita2indesign}"/>
-	
-	<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
-	<property name="debug" value="false"/>
-
-	<!--
-	<property name="args.hide.parent.link" value="yes"/>
-  -->
-	<property name="indesign.temp.dir" value="${dita.temp.dir}${file.separator}indesign_temp"/>
-	
 	<target name="dita2indesign"
     unless="noMap"
     xmlns:dita="http://dita-ot.sourceforge.net"
@@ -30,6 +19,14 @@
   
   <target name="dita.map.indesign.plugin.init"
     description="Init properties for InDesign">
+    <!-- test to see where the plugin is located, plugins or demo -->
+    <dirname property="indesign.dir" file="${ant.file.dita2indesign}"/>
+  	
+  	<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
+  	<property name="debug" value="false"/>
+
+  	<property name="indesign.temp.dir" value="${dita.temp.dir}${file.separator}indesign_temp"/>
+  	
     <basename property="dita.map.toc.root"
       file="${dita.input.filename}"
       suffix=".ditamap" />

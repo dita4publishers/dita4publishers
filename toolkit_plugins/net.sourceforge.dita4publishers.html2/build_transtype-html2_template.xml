@@ -4,20 +4,8 @@
   <!-- test to see where the plugin is located, plugins or demo -->
   <dirname property="html2.dir" file="${ant.file.dita2html2}"/>
 	
-	<!-- The name of the directory, within the ePub package, to contain all images: -->
-	<property name="images.output.dir" value="images"/>
-	<!-- The name of the directory, within the ePub package, to contain all topics: -->
-	<property name="topics.output.dir" value=""/>
 	<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
 	<property name="debug" value="false"/>
-	
-	<property name="html2.temp.dir" value="${dita.temp.dir}${file.separator}html2_temp"/>
-	
-	<!-- Defines the @class value to use for topic elements generated for topicheads. -->
-	<property name="title.only.topic.class.spec" value="- topic/topic "/>
-	
-	<!-- Defines the @class value to use for topic title elements generated for topicheads. -->
-	<property name="title.only.topic.title.class.spec" value="- topic/title "/>
 	
 	<target name="dita2html2"
     unless="noMap"
@@ -32,7 +20,40 @@
 	  
     
   <target name="dita.map.html2.init"
-    description="Init properties for Epub">
+    description="Init properties for HTML2">
+
+    <property name="d4p.is.map.driven" value="true"/>
+
+    <condition property="topics.output.dir" value="topics">
+  		<not>
+  			<isset property="topics.output.dir"/>
+  	  </not>
+  	</condition>
+
+  	<!-- The name of the directory, within the output package, to contain all images: -->
+  		
+    <condition property="images.output.dir" value="images">
+  		<not>
+    	  <isset property="images.output.dir" />
+  		</not>
+    </condition>
+  	
+  	<property name="html2.temp.dir" value="${dita.temp.dir}${file.separator}html2_temp"/>
+  	
+  	<!-- Defines the @class value to use for topic elements generated for topicheads. -->
+  	<condition property="title.only.topic.class.spec" value="- topic/topic ">
+  		<not>
+    	  <isset property="title.only.topic.class.spec" />
+  		</not>
+  	</condition>
+  	
+  	<!-- Defines the @class value to use for topic title elements generated for topicheads. -->
+  	<condition property="title.only.topic.title.class.spec" value="- topic/title ">
+  		<not>
+    	  <isset property="title.only.topic.title.class.spec" />
+  		</not>
+  	</condition>
+    	  	
     <basename property="dita.map.toc.root"
       file="${dita.input.filename}"
       suffix=".ditamap" />
@@ -57,7 +78,8 @@
     <condition property="css.output.dir" value="${args.css.output.dir}">
       <isset property="args.css.output.dir" />
     </condition>
-  	<echo message="css.output.dir='${css.output.dir}'"/>
+  	<echo message="+++ html2-specific properties:"/>
+  	<echoproperties format="text" regex="^(hml2|css|out\.)" taskname="echo"/>
   </target>
   
   <target name="dita.map.html2" depends="dita.map.html2.init, html2-copy-css, html2-copy-dyntoc-javascript" 

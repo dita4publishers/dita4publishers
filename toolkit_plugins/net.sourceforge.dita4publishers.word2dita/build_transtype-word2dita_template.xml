@@ -2,16 +2,16 @@
   <dirname property="dita2wordToDita.buildfile.dir" file="${ant.file}"/>
   
   
-  <property name="wordToDita.dir" location="${dita2wordToDita.buildfile.dir}/plugins/net.sourceforge.dita4publishers.word2dita"/>
-	
-		
-	<property name="debug" value="false"></property>
 	
 	<target name="dita2word2dita" depends="wordToDita">
   </target>
   
   <target name="d4p.wordToDita.init" description="Init properties for wordToDita">
-    <condition property="out.ext" value=".dita">
+  	<property name="debug" value="false"></property>
+
+    <property name="wordToDita.dir" location="${dita2wordToDita.buildfile.dir}/plugins/net.sourceforge.dita4publishers.word2dita"/>
+  		
+  	<condition property="out.ext" value=".dita">
       <not>
         <isset property="out.ext"></isset>
       </not>
