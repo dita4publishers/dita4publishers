@@ -17,7 +17,7 @@
 
 <!ENTITY % commonDomainIntegrations-dec
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations:entities"
-         "../../common/dtd/d4p_commonDomainIntegrations.ent"
+         "d4p_commonDomainIntegrations.ent"
 >%commonDomainIntegrations-dec;
 
 
@@ -36,7 +36,7 @@
                         
 <!ENTITY % commonDomainEntityIntegrations-dec
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations:integrationEntities"
-         "../../common/dtd/d4p_commonDomainEntityIntegrations.ent"
+         "d4p_commonDomainEntityIntegrations.ent"
 >%commonDomainEntityIntegrations-dec;
 
 
