@@ -20,10 +20,10 @@
     
     This transform requires XSLT 2.
     ================================================================= -->    
-  
+<!--  
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  
+  -->
   <!-- Extensions for DITA for Publishers vocabulary modules in
   different contexts -->
   
