@@ -14,7 +14,7 @@
 <!-- ============================================================= -->
 
 <!ENTITY % d4pEnumerator             "d4pEnumerator" >
-<!ENTITY % dp4EnumeratorStream       "dp4EnumeratorStream" >
+<!ENTITY % d4pEnumeratorStream       "d4pEnumeratorStream" >
 <!ENTITY % d4pEnumeratorOrdinalValue "d4pEnumeratorOrdinalValue" >
 <!ENTITY % d4pEnumeratorDisplayValue "d4pEnumeratorDisplayValue" >
 <!ENTITY % d4pEnumeratorFormat       "d4pEnumeratorFormat" >
@@ -26,7 +26,7 @@
 
 <!ENTITY % d4pEnumerator.content
 "
-  (dp4EnumeratorStream,
+  (d4pEnumeratorStream,
    d4pEnumeratorOrdinalValue?,
    d4pEnumeratorDisplayValue?,
    d4pEnumeratorFormat?
@@ -41,21 +41,21 @@
 <!ELEMENT d4pEnumerator %d4pEnumerator.content; >
 <!ATTLIST d4pEnumerator %d4pEnumerator.attributes; >
 
-<!ENTITY % dp4EnumeratorStream.content
+<!ENTITY % d4pEnumeratorStream.content
 "
   EMPTY
 ">
-<!ENTITY % dp4EnumeratorStream.attributes
+<!ENTITY % d4pEnumeratorStream.attributes
 "
   name
     NMTOKEN
-    'dp4EnumeratorStream'
+    'd4pEnumeratorStream'
   value
     CDATA
     #REQUIRED
 ">
-<!ELEMENT dp4EnumeratorStream %dp4EnumeratorStream.content; >
-<!ATTLIST dp4EnumeratorStream %dp4EnumeratorStream.attributes; >
+<!ELEMENT d4pEnumeratorStream %d4pEnumeratorStream.content; >
+<!ATTLIST d4pEnumeratorStream %d4pEnumeratorStream.attributes; >
 
 <!ENTITY % d4pEnumeratorOrdinalValue.content
 "
@@ -111,10 +111,10 @@
 <!-- ============================================================= -->
 
 <!ATTLIST d4pEnumerator               %global-atts;  class CDATA "+ topic/data  d4p_enumBase-d/d4pEnumeratorBase     d4p_enum-d/d4pEnumerator ">
-<!ATTLIST dp4EnumeratorStream         %global-atts;  class CDATA "+ topic/data  d4p_enumBase-d/dp4EnumeratorProperty d4p_enum-d/dp4EnumeratorStream ">
-<!ATTLIST d4pEnumeratorOrdinalValue   %global-atts;  class CDATA "+ topic/data  d4p_enumBase-d/dp4EnumeratorProperty d4p_enum-d/d4pEnumeratorOrdinalValue ">
-<!ATTLIST d4pEnumeratorDisplayValue   %global-atts;  class CDATA "+ topic/data  d4p_enumBase-d/dp4EnumeratorProperty d4p_enum-d/d4pEnumeratorDisplayValue ">
-<!ATTLIST d4pEnumeratorFormat         %global-atts;  class CDATA "+ topic/data  d4p_enumBase-d/dp4EnumeratorProperty d4p_enum-d/d4pEnumeratorFormat ">
+<!ATTLIST d4pEnumeratorStream         %global-atts;  class CDATA "+ topic/data  d4p_enumBase-d/d4pEnumeratorProperty d4p_enum-d/d4pEnumeratorStream ">
+<!ATTLIST d4pEnumeratorOrdinalValue   %global-atts;  class CDATA "+ topic/data  d4p_enumBase-d/d4pEnumeratorProperty d4p_enum-d/d4pEnumeratorOrdinalValue ">
+<!ATTLIST d4pEnumeratorDisplayValue   %global-atts;  class CDATA "+ topic/data  d4p_enumBase-d/d4pEnumeratorProperty d4p_enum-d/d4pEnumeratorDisplayValue ">
+<!ATTLIST d4pEnumeratorFormat         %global-atts;  class CDATA "+ topic/data  d4p_enumBase-d/d4pEnumeratorProperty d4p_enum-d/d4pEnumeratorFormat ">
 
 
 <!-- ================== End D4P Enumeration Topic Domain ==================== -->
