@@ -78,8 +78,20 @@
     <condition property="css.output.dir" value="${args.css.output.dir}">
       <isset property="args.css.output.dir" />
     </condition>
+  	
+    <condition property="html2.doDynTocFileCopy">
+    	<or>
+    		<not>
+    		  <isset property="html2.generate.dynamic.toc"/><!-- Default is true for dyntoc. -->
+    		</not>
+  	  	<equals arg1="${html2.generate.dynamic.toc}" arg2="true"/>
+  	  	<equals arg1="${html2.generate.dynamic.toc}" arg2="yes"/>
+  	  	<equals arg1="${html2.generate.dynamic.toc}" arg2="1"/>
+    	</or>
+   </condition>
+  	
   	<echo message="+++ html2-specific properties:"/>
-  	<echoproperties format="text" regex="^(hml2|css|out\.)" taskname="echo"/>
+  	<echoproperties format="text" regex="^(html2|css|out\.)" taskname="echo"/>
   </target>
   
   <target name="dita.map.html2" depends="dita.map.html2.init, html2-copy-css, html2-copy-dyntoc-javascript" 
@@ -147,7 +159,7 @@
     
   <target name="html2-copy-dyntoc-javascript"  description="Copy JavaScript files" 
   	depends="dita.map.html2.init" 
-  	if="html2.generate.dynamic.toc">
+  	if="html2.doDynTocFileCopy">
   	<copy todir="${output.dir}">
   		<fileset dir="${html2.dir}/dynamic-toc-support">
   			<include name="**/*"/>
