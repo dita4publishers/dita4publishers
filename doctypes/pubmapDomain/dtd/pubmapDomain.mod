@@ -88,7 +88,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 
 <!-- title types: -->
 
-<!ENTITY %  pubtitle  "pubtitle" >
+<!ENTITY % pubtitle  "pubtitle" >
 
 <!-- ph types: -->
 

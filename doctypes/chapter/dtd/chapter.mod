@@ -70,18 +70,18 @@
 <!--                    ELEMENT DECLARATIONS                       -->
 <!-- ============================================================= -->
 
-<!ELEMENT chapter       
-  ((%title;), 
+<!ENTITY % chapter.content 
+"((%title;), 
    (%titlealts;)?,
    (%abstract; | 
     %shortdesc;)?, 
    (%prolog;)?, 
    (%body;)?, 
    (%related-links;)?,
-   (%chapter-info-types;)* )                   
->
-<!ATTLIST chapter        
-  id         
+   (%chapter-info-types;)* )
+">
+<!ENTITY % chapter.attributes 
+'id         
     ID                               
     #REQUIRED
   conref     
@@ -96,7 +96,10 @@
   domains    
     CDATA                
     "&included-domains;"    
->
+
+'>
+<!ELEMENT chapter %chapter.content; >
+<!ATTLIST chapter %chapter.attributes; >
 
 
 

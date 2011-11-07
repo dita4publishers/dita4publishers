@@ -10,6 +10,14 @@
     uri="pubmap.dtd"
   />
   
+  <!--  Versions without :dtd for consistency with topic public IDs.Doh! -->
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:pubmap"
+    uri="pubmap.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:pubmap:pubmap.dtd"
+    uri="pubmap.dtd"
+  />
+  
   <public publicId="urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmap"
     uri="pubmap.mod"
   />
