@@ -8,13 +8,16 @@
   xmlns:stylemap="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   exclude-result-prefixes="xs rsiwp stylemap local relpath xsi"
-  version="2.0">
+version="2.0">
+
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  
   <xd:doc
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
     scope="stylesheet">
     <xd:desc>
       <xd:p>DOCX to DITA generic transformation</xd:p>
-      <xd:p>Copyright (c) 2009, 2010 DITA For Publishers, Inc.</xd:p>
+      <xd:p>Copyright (c) 2009, 2011 DITA For Publishers, Inc.</xd:p>
       <xd:p>Transforms a DOCX document.xml file into a DITA topic using a style-to-tag mapping. </xd:p>
       <xd:p>This transform is intended to be the base for more specialized transforms that provide
         style-specific overrides. The input to this transform is the document.xml file within a DOCX
@@ -40,6 +43,7 @@
     Originally developed by Really Strategies, Inc.
     
     =========================================== -->
+  
   
   <xsl:param name="styleMapUri" as="xs:string"/>
   <xsl:param name="mediaDirUri" select="relpath:newFile($outputDir, 'topics/media')" as="xs:string"/>  
