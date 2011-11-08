@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="DITA4Publishers word2dita" default="word2dita">
 	
-	<dirname property="w2d.base.dir" file="${ant.file}"/>
-	
-	<property name="w2d.temp.dir" location="${basedir}/temp"/>
-	
-	<property name="w2d.out.dir" location="${w2d.temp.dir}/dita"/>
-
-	<property name="xsl.dir" location="${w2d.base.dir}/xsl"/>
-	
-	<property name="w2d.debug.xslt" value="false"/><!-- Set to "true" to turn on XSLT debug messages -->
-	
-	<property name="w2d.clean.output.dir" value="false"/>
-	
-	<property name="word.doc" value="word.doc not set"/>
-	
-	<property name="w2d.style-to-tag-map" location="${xsl.dir}/word-builtin-styles-style2tagmap.xml"/>
-	
-	<property name="w2d.root.output.filename" value="map.ditamap"/>
-	
-	<property name="w2d.word2dita.xslt" location="${xsl.dir}/docx2dita.xsl"/>
 	
 	<!--
 	<tstamp/>
@@ -44,6 +25,79 @@
 	</target>
 	
 	<target name="initProperties">
+		<dirname property="w2d.base.dir" file="${ant.file}"/>
+		
+		<property name="w2d.temp.dir" location="${basedir}/temp"/>
+		
+		<property name="w2d.out.dir" location="${w2d.temp.dir}/dita"/>
+
+		<property name="xsl.dir" location="${w2d.base.dir}/xsl"/>
+		
+		<property name="w2d.debug.xslt" value="false"/><!-- Set to "true" to turn on XSLT debug messages -->
+		
+		<property name="w2d.clean.output.dir" value="false"/>
+		
+		<property name="word.doc" value="word.doc not set"/>
+		
+		<basename 
+			property="word.doc.basename"  
+			file="${word.doc}" 
+			suffix=".docx"
+		/>
+		
+		<property name="w2d.style-to-tag-map" location="${xsl.dir}/word-builtin-styles-style2tagmap.xml"/>
+		
+		<condition property="w2d.topic.extension" value=".dita">
+			<not>
+			 <isset property="w2d.topic.extension"/>
+			</not>
+		</condition>
+		
+		<condition property="w2d.root.map.name" value="${word.doc.basename}">
+			<and>
+				<not>
+				  <isset property="w2d.root.topic.name"/>
+				</not>
+				<not>
+				  <isset property="w2d.root.map.name"/>
+				</not>
+			</and>
+		</condition>
+
+		<condition property="w2d.root.topic.name" value="${word.doc.basename}" >
+			<and>
+				<not>
+				  <isset property="w2d.root.topic.name"/>
+				</not>
+				<not>
+				  <isset property="w2d.root.map.name"/>
+				</not>
+			</and>
+		</condition>
+
+		<condition property="w2d.root.output.filename" value="${w2d.root.topic.name}${w2d.topic.extension}">
+			<and>
+			  <isset property="w2d.root.topic.name"/>
+				<not>
+				  <isset property="w2d.root.output.filename"/>
+				</not>
+				<not>
+				  <isset property="w2d.root.map.name"/>
+				</not>
+			</and>
+	  </condition>
+
+		<condition property="w2d.root.output.filename" value="delete.me">
+			<and>
+			  <isset property="w2d.root.map.name"/>
+				<not>
+				  <isset property="w2d.root.output.filename"/>
+				</not>
+			</and>
+	  </condition>
+
+		<property name="w2d.word2dita.xslt" location="${xsl.dir}/docx2dita.xsl"/>
+
 		<condition property="w2p.do.clean.output.dir">
 			<or>
 				<equals arg1="${w2d.clean.output.dir}" arg2="true" casesensitive="false"/>
@@ -51,11 +105,14 @@
 				<equals arg1="${w2d.clean.output.dir}" arg2="on" casesensitive="false"/>
 		  </or>
 		</condition>
+		
+  	<echo message="+++ word2dita-specific properties:"/>
+  	<echoproperties format="text" regex="^(w2d*)" taskname="echo"/>
+
 	</target>
 	
 	<target name="doWord2Dita"  if="have.word.doc" depends="initProperties">
-		<basename file="${word.doc}" property="doc.base.name" suffix=".docx"/>
-		<property name="word.document.xml.path" location="${w2d.temp.dir}/${doc.base.name}/word/document.xml"/>
+		<property name="word.document.xml.path" location="${w2d.temp.dir}/${word.doc.basename}/word/document.xml"/>
 		<antcall target="clean.temp"/>
 		<antcall target="unzipWordDoc"/>
 		<antcall target="transformWordToDita">
@@ -71,7 +128,7 @@
 	</target>
 	
 	<target name="unzipWordDoc">
-		<unzip dest="${w2d.temp.dir}/${doc.base.name}" overwrite="yes"
+		<unzip dest="${w2d.temp.dir}/${word.doc.basename}" overwrite="yes"
 			src="${word.doc}"
 			>
 		</unzip>
@@ -86,9 +143,6 @@
 	</target>
 	
 	<target name="transformWordToDita" depends="cleanOutputDir">
-		<echo message="[DEBUG] xsl.dir=${xsl.dir}"/>
-		<echo message="[DEBUG] w2d.style-to-tag-map=${w2d.style-to-tag-map}"/>
-		<echo message="[DEBUG] w2d.out.dir=${w2d.out.dir}"/>
 
     <echo message="[INFO] Creating output directory ${w2d.out.dir}..."/>
 
@@ -96,21 +150,28 @@
 		
 		<makeurl property="styleMapUri.url" file="${w2d.style-to-tag-map}"/>
 		<makeurl property="outputDir.url" file="${w2d.out.dir}"/>
+		<makeurl property="mediaDirUri.url" file="${w2d.media.dir}" validate="false"/>
 		
     <echo message="[INFO] Generating DITA documents from Word document in output directory ${w2d.out.dir}..."/>
+    <echo message="[INFO]   Using XSLT ${w2d.word2dita.xslt}..."/>
 
 		<xslt style="${w2d.word2dita.xslt}"
 			in="${word.document.xml.path}"
 			out="${w2d.out.dir}/${w2d.root.output.filename}"
 			>
 			<param name="styleMapUri" expression="${styleMapUri.url}"/>
-			<param name="rootMapUrl" expression="${w2d.root.output.filename}"/>			
+			<param name="mediaDirUri" expression="${mediaDirUri.url}" if="w2d.media.dir"/>
+			<param name="rootMapName" expression="${w2d.root.map.name}" if="w2d.root.map.name"/>			
+			<param name="rootTopicName" expression="${w2d.root.topic.name}" if="w2d.root.topic.name"/>			
+			<param name="submapNamePrefix" expression="${w2d.submap.name.prefix}" if="w2d.submap.name.prefix"/>			
 			<param name="outputDir" expression="${outputDir.url}"/>
 			<param name="debug" expression="${w2d.debug.xslt}"/>
     	<param name="rawPlatformString" expression="${os.name}"/>
       <param name="filterBr" expression="${w2d.filter.br}" if="w2d.filter.br"/>
       <param name="filterTabs" expression="${w2d.filter.tabs}" if="w2d.filter.tabs"/>
       <param name="includeWordBackPointers" expression="${w2d.include.word.backpointers}" if="w2d.include.word.backpointers"/>
+      <param name="topicExtension" expression="${w2d.topic.extension}" if="w2d.topic.extension"/>
+      <param name="fileNamePrefix" expression="${w2d.filename.prefix}" if="w2d.filename.prefix"/>
 		</xslt>
 	</target>
 </project>

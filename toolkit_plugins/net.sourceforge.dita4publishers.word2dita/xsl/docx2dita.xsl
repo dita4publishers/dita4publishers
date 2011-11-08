@@ -55,17 +55,17 @@ version="2.0">
   <xsl:param name="filterTabs" as="xs:string" select="'false'"/>
   <xsl:param name="includeWordBackPointers" as="xs:string" select="'true'"/>
   
-  <xsl:param name="rootMapUrl" select="concat($rootMapName, '.ditamap')" as="xs:string"/>
-  <xsl:param name="rootTopicUrl" 
-    as="xs:string?" 
-    select="if ($rootTopicName) 
-    then concat($rootTopicName, '.xml')
-    else ()"/>
   <xsl:param name="topicExtension" select="'.dita'" as="xs:string"/><!-- Extension for generated topic files -->
   <xsl:param name="fileNamePrefix" select="''" as="xs:string"/><!-- Prefix for genenerated file names -->
   
   <xsl:param name="rawPlatformString" select="'unknown'" as="xs:string"/>
   
+  <xsl:variable name="rootMapUrl" select="concat($rootMapName, '.ditamap')" as="xs:string"/>
+  <xsl:variable name="rootTopicUrl" 
+    as="xs:string?" 
+    select="if ($rootTopicName) 
+    then concat($rootTopicName, '.xml')
+    else ()"/>
   <xsl:variable name="platform" as="xs:string"
     select="
     if (starts-with($rawPlatformString, 'Win') or 
