@@ -7,7 +7,7 @@
   </target>
   
   <target name="d4p.wordToDita.init" description="Init properties for wordToDita">
-  	<property name="debug" value="false"></property>
+  	<property name="debug" value="false"/>
 
     <property name="wordToDita.dir" location="${dita2wordToDita.buildfile.dir}/plugins/net.sourceforge.dita4publishers.word2dita"/>
   		
@@ -17,11 +17,11 @@
       </not>
     </condition>
     <condition property="noPlugin">
-      <equals arg1="${dita.wordToDita.plugin}" arg2="no"></equals>
+      <equals arg1="${dita.wordToDita.plugin}" arg2="no"/>
     </condition>
   </target>
 
-	<target name="wordToDita">
+	<target name="wordToDita" depends="d4p.wordToDita.init">
 	  <echo message="[DEBUG] wordToDita.dir=${wordToDita.dir}"/>
 	  <ant antfile="${wordToDita.dir}/build-word2dita.xml" target="word2dita">
 	  	<!-- Translate OT properties to Word2DITA properties: -->
