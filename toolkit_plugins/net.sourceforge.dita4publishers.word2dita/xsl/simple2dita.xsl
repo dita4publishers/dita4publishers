@@ -1648,7 +1648,7 @@
         <xsl:sequence select="'unknown-topic-type'"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:variable name="styleMap" as="element()"
+        <xsl:variable name="styleMap" as="element()?"
           select="(key('styleMapsByName', lower-case($styleId), $styleMapDoc)[1],
           key('styleMapsById', $styleId, $styleMapDoc)[1])[1]"
         />
@@ -1682,7 +1682,7 @@
         <xsl:sequence select="'unknown-map-type'"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:variable name="styleMap" as="element()"
+        <xsl:variable name="styleMap" as="element()?"
           select="(key('styleMapsByName', lower-case($styleId), $styleMapDoc)[1],
           key('styleMapsById', $styleId, $styleMapDoc)[1])[1]"
         />
