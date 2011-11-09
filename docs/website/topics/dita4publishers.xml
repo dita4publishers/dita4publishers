@@ -8,14 +8,19 @@
       <created
         date="2009-05-20"/>
       <revised
-        modified="2011-03-21"/>
+        modified="2011-11-11"/>
     </critdates>
   </prolog>
   <body>
-    <p>Updates for 21 March 2011:<ul
+    <p>Updates for 11 November 2011:<ul
       id="ul_e5a3356b-1f4e-4c6d-a24b-68eb7d56fed6">
-      <li>Corrected order of extension imports and base includes in all *_template.xsl files for extensible transformation types (HTML2, EPUB, etc.).</li>
-      <li>Added ability to do Word-to-DITA style mappings using styles names rather than style IDs, using new <xmlatt>styleName</xmlatt> attribute of <xmlelem>style</xmlelem> element in style-to-tag mapping documents.</li>
+      <li>Fixed a number of small but serious bugs in the Word-to-DITA tranform.
+        See release notes in the User Guide.</li>
+      <li>Fixed small bugs and made small enhancements to the EPUB and Kindle
+        transform types.</li>
+      <li>Fixed lingering issues with the Toolkit plugin Ant scripts setting
+        global values inappropriately.</li>
+      <li>Minor enhancements to the documentation.</li>
       </ul></p>
     <p>The DITA for Publishers project is an open-source, community project to enable the quick and productive use of DITA by Publishers. Enabling activities include:<ul
       id="ul_05546f8a-88ba-476d-8d8b-352681eb9e67">
@@ -98,6 +103,6 @@
         </tbody>
       </tgroup>
       </table></p>
-    <p>Last revised: 9 October 2010</p>
+    <p>Last revised: 11 November 2011</p>
   </body>
 </topic>
