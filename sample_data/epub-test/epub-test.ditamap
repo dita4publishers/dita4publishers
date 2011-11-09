@@ -2,43 +2,28 @@
 <!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
 <pubmap
   xml:lang="en_US">
-  <pubtitle>
-    <mainpubtitle>EPUB Test Document</mainpubtitle>
-  </pubtitle>
-  <pubmeta>
-    <author type="aut"><data
-      name="file-as">McTesterson, Tester</data>Tester McTesterson</author>
-    <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source>
-    <critdates>
-      <created
-        date="February, 1993"/>
-      <revised
-        modified="March 29, 2004"/>
-    </critdates>
-    <metadata>
-      <keywords>
-        <keyword>subject in metadata/keywords/keyword</keyword>
-      </keywords>
-    </metadata>
+  <pubtitle> <mainpubtitle>EPUB Test Document</mainpubtitle> </pubtitle>
+  <pubmeta> <author
+    type="aut"><data
+    name="file-as">McTesterson, Tester</data>Tester McTesterson</author>
+    <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source> <critdates>
+    <created
+      date="February, 1993"/>
+    <revised
+      modified="March 29, 2004"/>
+    </critdates> <metadata>
     <keywords>
-      <keyword>subject in pubmeta/keywords/keyword</keyword>
+      <keyword>subject in metadata/keywords/keyword</keyword>
     </keywords>
-    <pubid>
-      <isbn>in isbn</isbn>
-      <isbn-10>isbn-10</isbn-10>
-      <isbn-13>isbn-13</isbn-13>
-      <pubnumber>Ebook #55</pubnumber>
-      <data
-        name="epub-bookid">epubid-value</data>     
-    </pubid>
-    <pubrights>
-      <publicense>Project Gutenberg License.</publicense>
-    </pubrights>
-    <data
-      name="opf-metadata"> <data
-      name="item-one"
-      value="value one"/> </data>
-  </pubmeta>
+    </metadata> <keywords>
+    <keyword>subject in pubmeta/keywords/keyword</keyword>
+    </keywords> <pubid> <isbn>in isbn</isbn> <isbn-10>isbn-10</isbn-10>
+    <isbn-13>isbn-13</isbn-13> <pubnumber>Ebook #55</pubnumber> <data
+    name="epub-bookid">epubid-value</data> </pubid> <pubrights>
+    <publicense>Project Gutenberg License.</publicense> </pubrights> <data
+    name="opf-metadata"> <data
+    name="item-one"
+    value="value one"/> </data> </pubmeta>
   <keydefs>
     <topicmeta>
       <navtitle>Key Definitions</navtitle>
@@ -199,6 +184,7 @@
           </topicmeta>
         </topicref>
       </glossary>
+      <indexlist/>
     </backmatter>
     <colophon
       href="backmatter/colophon.xml"/>
