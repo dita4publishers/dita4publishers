@@ -8,6 +8,7 @@
   
   -->
 <plugin id="net.sourceforge.dita4publishers.enumeration-d.html">
+  <require plugin="net.sourceforge.dita4publishers.common.html"/> 
   <require plugin="net.sourceforge.dita4publishers.doctypes"/> 
   <feature extension="dita.xsl.xhtml" value="xsl/enumerationDomain2html.xsl" type="file"/>  
 </plugin>

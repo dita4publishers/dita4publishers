@@ -7,7 +7,6 @@
   >
   <!-- variables domain elements to HTML -->
 
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   
   <xsl:template 
     match="*[df:class(., 'd4p-variables-d/d4p-variableref_text')] |

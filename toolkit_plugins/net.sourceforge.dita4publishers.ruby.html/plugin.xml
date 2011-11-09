@@ -8,6 +8,7 @@
   
   -->
 <plugin id="net.sourceforge.dita4publishers.ruby.html">
+  <require plugin="net.sourceforge.dita4publishers.common.html"/> 
   <require plugin="net.sourceforge.dita4publishers.doctypes"/> 
   <feature extension="dita.xsl.xhtml" value="xsl/rubyDomain2html.xsl" type="file"/>  
 </plugin>
