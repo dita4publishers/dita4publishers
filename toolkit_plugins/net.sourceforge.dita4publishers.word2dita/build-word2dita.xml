@@ -6,11 +6,11 @@
 	<tstamp/>
 	-->
 	<target name="checkWordDoc">
-	   <available property="have.word.doc" file="${word.doc}"/>
+	   <available property="w2d.have.word.doc" file="${word.doc}"/>
 	</target>
 
 	<target name="checkParameters" depends="checkWordDoc"
-		unless="have.word.doc"
+		unless="w2d.have.word.doc"
 	   >
 		<echo message=" [ERROR] Could not find Word document '${word.doc}'"/>
 		<echo message=" [ERROR] You must specify the parameter 'word.doc' with the full path to the Word DOCX file to be converted."
@@ -37,6 +37,24 @@
 		
 		<property name="w2d.clean.output.dir" value="false"/>
 		
+		<condition property="clean.temp.dir" value="true">
+			<not>
+			  <isset property="w2d.clean.temp.dir"/>
+			</not>
+		</condition>
+
+		<condition property="clean.temp.dir" value="${w2d.clean.temp.dir}">
+			<isset property="w2d.clean.temp.dir"/>
+		</condition>
+		
+		<condition property="doCleanTempDir" value="true">
+			<or>
+				<equals arg1="clean.temp.dir" arg2="true"/>
+				<equals arg1="clean.temp.dir" arg2="yes"/>
+				<equals arg1="clean.temp.dir" arg2="on"/>
+		  </or>
+		</condition>
+
 		<property name="word.doc" value="word.doc not set"/>
 		
 		<basename 
@@ -111,20 +129,21 @@
 
 	</target>
 	
-	<target name="doWord2Dita"  if="have.word.doc" depends="initProperties">
+	<target name="doWord2Dita" depends="initProperties">
+		<mkdir dir="${w2d.temp.dir}"/>
+
 		<property name="word.document.xml.path" location="${w2d.temp.dir}/${word.doc.basename}/word/document.xml"/>
-		<antcall target="clean.temp"/>
 		<antcall target="unzipWordDoc"/>
 		<antcall target="transformWordToDita">
 			<param name="word.document.xml.path" value="${word.document.xml.path}"/>
 		</antcall>
+		<antcall target="clean.temp"/>
 	</target>
 	
-	<target name="clean.temp">
+	<target name="clean.temp" if="doCleanTempDir">
 		<delete dir="${w2d.temp.dir}" failonerror="true" includeemptydirs="true">
 			<include name="**/*"/>
 		</delete>
-		<mkdir dir="${w2d.temp.dir}"/>
 	</target>
 	
 	<target name="unzipWordDoc">
@@ -173,5 +192,6 @@
       <param name="topicExtension" expression="${w2d.topic.extension}" if="w2d.topic.extension"/>
       <param name="fileNamePrefix" expression="${w2d.filename.prefix}" if="w2d.filename.prefix"/>
 		</xslt>
+		<echo>[INFO] Transform complete</echo>
 	</target>
 </project>
