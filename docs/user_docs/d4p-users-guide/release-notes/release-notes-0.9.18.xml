@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>Release Notes: Version 0.9.18</title>
+ <shortdesc>Version 0.9.18 released 11 Nov 2011</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>
+          <indexterm>release notes<indexterm>Version
+            0.9.18</indexterm></indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <section>
+      <title>All transformation types (HTML2, EPUB, etc.)</title>
+      <ul>
+        <li>Removed duplicate XSLT imports</li>
+        <li>Created common.html plugin to provide single import point for all
+          extensions to the HTML transformation type</li>
+      </ul>
+    </section>
+    <section>
+      <title>Word to DITA</title>
+      <ul>
+        <li>Fixed the following logged bugs:<dl>
+          <dlentry>
+            <dt> 3435135: Misnumbered topics</dt>
+            <dd>Added check for non-topic paragraphs between root-map-generating
+              paragraph and first map- or topic-generating paragraph. This
+              avoids the problem where content paragraphs immediately after map
+              root cause misnumbering of generated topic filenames.</dd>
+          </dlentry>
+          <dlentry>
+            <dt> 3435133: Use DOCX filename for name of result file </dt>
+            <dd>Updated the plugin Ant script to use the DOCX filename as the
+              base name for the root topic or map by default. </dd>
+          </dlentry>
+          <dlentry>
+            <dt> 3434693: An empty sequence is not allowed as the value of
+              variable $styleMap</dt>
+            <dd>Fixed the code so the variable allows an empty sequence.</dd>
+          </dlentry>
+          </dl></li>
+        <li>Other fixes:<ul
+          id="ul_sqz_431_g2">
+          <li>Use configured topic extension for root topic output.</li>
+          <li>Use style name "Normal" for unmapped paragraphs. This lets you
+            explicitly map unstyled paragraphs rather than depending on the
+            built-in default mapping to <xmlelem>p</xmlelem>.</li>
+          <li>Updated built-in default style-to-tag map to include Heading 2,
+            Heading 3, and Normal.</li>
+          <li>Refined the Ant script make properties appropriately conditional
+            and to avoid setting any unnecessary global properties.</li>
+          <li>Added start of an automated regression test suite in the project's
+            test/ area in the source tree. These tests also serve as examples of
+            how to use Ant to call the Toolkit transform.</li>
+          </ul></li>
+      </ul>
+    </section>
+    <section>
+      <title>EPUB and Kindle</title>
+      <ul
+        id="ul_dcy_dj1_g2">
+        <li>Fixed the following logged bugs:<dl>
+          <dlentry>
+            <dt>3434065: Empty sequence not allowed for $graphicPath </dt>
+            <dd>Fixed the bug so <xmlelem>image</xmlelem> with no
+              <xmlatt>href</xmlatt> or <xmlatt>keyref</xmlatt> is ignored when
+              building the graphic map but is reported as a warning.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>3433937: Include keywords as dc:subject in EPUB/Kindle books </dt>
+            <dd>Keywords within metadata/keywords become
+              <xmlelem>dc:subject</xmlelem> elements in the EPUB and Kindle
+              metadata.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>3433935: Include authors in EPUB/Kindle metadata</dt>
+            <dd>All authors in the publication metadata are included with
+              appropriate roles.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>3433934: Include ISBN and other bookid in EPUB/Kindle</dt>
+            <dd>ISBN numbers and other bookid content is be included in the EPUB
+              and Kindle metadata appropriately.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>3411763: Warnings received when an image has the @scale
+              attribute set </dt>
+            <dd>Check for values with a leading "-" and suppress them and report
+              them. If the value is positive, then use it. If it is a bare
+              number, append "px" to the value. </dd>
+          </dlentry>
+          <dlentry>
+            <dt>3331319: @toc = no not respected for EPUB ToC </dt>
+            <dd>Topics with toc="no" should not be reflected in the EPUB
+              ToC.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>3317385: Chunked topics produce bad EPUB toc </dt>
+            <dd>Topics chucked to content should produce correct results in the
+              ToC.</dd>
+          </dlentry>
+          <dlentry>
+            <dt>3312288: Problem with default parameter values </dt>
+            <dd>All D4P plugin Ant build files have been reworked to avoid
+              setting any global parameters inappropriately.</dd>
+          </dlentry>
+          </dl></li>
+        <li>Other fixes/enhancements:<ul
+          id="ul_1rl_3l1_g2">
+          <li>Factored out some common code between EPUB and Kindle
+            transforms.</li>
+          </ul></li>
+      </ul>
+    </section>
+    <section>
+      <title>Vocabulary Modules</title>
+      <ul
+        id="ul_5v1_zm1_g2">
+        <li>Fixed the following logged bugs:<dl>
+          <dlentry>
+            <dt>3371240: Inconsistencies in SYSTEM name in topic.dtd</dt>
+            <dd>Corrected "dp4" to "d4p" throughout. Corrected "d4pcommon" to
+              "d4p_common".</dd>
+          </dlentry>
+          </dl></li>
+      </ul>
+    </section>
+    <section>
+      <title>Documentation</title>
+      <ul
+        id="ul_mqp_vq1_g2">
+        <li>Added missing documentation for word2dita Ant parameters.</li>
+        <li>Added vocabulary topics from the website content into the User
+          Guide</li>
+      </ul>
+    </section>
+  </conbody>
+</concept>

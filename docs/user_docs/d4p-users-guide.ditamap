@@ -10,9 +10,9 @@
       <vrm
         version="0.9.16"/>
     </vrmlist>
-    </prodinfo> <pubrights> <copyrfirst> <year>2010</year> </copyrfirst> <copyrlast>
-    <year>2011</year> </copyrlast>
-    <pubowner><organization>DITA For Publishers</organization></pubowner> </pubrights> </pubmeta>
+    </prodinfo> <pubrights> <copyrfirst> <year>2010</year> </copyrfirst>
+    <copyrlast> <year>2011</year> </copyrlast> <pubowner><organization>DITA For
+    Publishers</organization></pubowner> </pubrights> </pubmeta>
   <keydefs>
     <topicmeta>
       <navtitle>Key Definitions</navtitle>
@@ -35,6 +35,8 @@
         href="d4p-users-guide/topics/about-this-book.xml"/>
       <topicref
         href="d4p-users-guide/release-notes/release-notes.xml">
+        <topicref
+          href="d4p-users-guide/release-notes/release-notes-0.9.18.xml"/>
         <subsection
           href="d4p-users-guide/release-notes/release-notes-0.9.16.xml"/>
         <subsection
@@ -129,15 +131,38 @@
       <part
         href="d4p-users-guide/vocabulary-part/vocabulary-part.xml">
         <chapter
-          href="d4p-users-guide/vocabulary-part/d4p-vocabulary-concepts.xml"/>
-        <chapter
-          href="d4p-users-guide/vocabulary-part/domain-modules-overview.xml">
-          <subsection
-            href="d4p-users-guide/vocabulary-part/map-domains-overview.xml"/>
-          <subsection
-            href="d4p-users-guide/vocabulary-part/topic-domains-overview.xml"/>
-          <subsection
-            href="d4p-users-guide/vocabulary-part/rendition-target-att.xml"/>
+          href="d4p-users-guide/vocabulary-part/d4p-vocabulary-concepts.xml">
+          <topicref
+            href="../website/topics/specialization-modules-overview.xml">
+            <topicref
+              href="../website/topics/d4p-topic-types.xml"/>
+            <topicref
+              href="../website/topics/pubmap-domain.xml"/>
+            <topicref
+              href="d4p-users-guide/vocabulary-part/domain-modules-overview.xml"
+              collection-type="sequence">
+              <subsection
+                href="d4p-users-guide/vocabulary-part/map-domains-overview.xml"/>
+              <subsection
+                href="d4p-users-guide/vocabulary-part/topic-domains-overview.xml"/>
+              <topicref
+                href="../website/topics/classification-domain.xml"/>
+              <topicref
+                href="../website/topics/enumeration-domains.xml"/>
+              <topicref
+                href="../website/topics/formatting-domain.xml"/>
+              <topicref
+                href="../website/topics/pubcontent-domain.xml"/>
+              <subsection
+                href="d4p-users-guide/vocabulary-part/rendition-target-att.xml"/>
+              <topicref
+                href="../website/topics/ruby-domain.xml"/>
+              <topicref
+                href="../website/topics/versie-domain.xml"/>
+              <topicref
+                href="../website/topics/xml-domain.xml"/>
+            </topicref>
+          </topicref>
         </chapter>
         <chapter
           href="d4p-users-guide/vocabulary-part/integrating-modules.xml">
