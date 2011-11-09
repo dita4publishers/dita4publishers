@@ -65,13 +65,12 @@
 		
 		<property name="w2d.defaultStyleToTagMap" 
 			location="${xsl.dir}/word-builtin-styles-style2tagmap.xml"/>
-		<echo message="Before condition, w2d.style-to-tag-map='${w2d.style-to-tag-map}'"/>
+
 		<condition property="w2d.style-to-tag-map" value="${w2d.defaultStyleToTagMap}">
 			<not>
 			  <isset property="w2d.style-to-tag-map"/>
 			 </not>
 		</condition>
-		<echo message="After condition, w2d.style-to-tag-map='${w2d.style-to-tag-map}'"/>
 		
 		<condition property="w2d.topic.extension" value=".dita">
 			<not>
@@ -201,6 +200,7 @@
       <param name="includeWordBackPointers" expression="${w2d.include.word.backpointers}" if="w2d.include.word.backpointers"/>
       <param name="topicExtension" expression="${w2d.topic.extension}" if="w2d.topic.extension"/>
       <param name="fileNamePrefix" expression="${w2d.filename.prefix}" if="w2d.filename.prefix"/>
+      <param name="submapNamePrefix" expression="${w2d.submap.name.prefix}" if="w2d.submap.name.prefix"/>
 		</xslt>
 		<echo>[INFO] Transform complete</echo>
 	</target>
