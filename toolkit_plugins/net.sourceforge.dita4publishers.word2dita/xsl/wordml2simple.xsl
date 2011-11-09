@@ -72,6 +72,7 @@
   <xsl:template match="/" name="processDocumentXml">
     <xsl:param name="stylesDoc" as="document-node()" tunnel="yes"/>
 
+    <xsl:message> + [INFO] wordml2simple: Processing DOCX document.xml file to generate intermediate simpleML XML...</xsl:message>
     <xsl:message> + [INFO] styleMap=<xsl:sequence select="document-uri($styleMapDoc)"/></xsl:message>
     <xsl:if test="not(/w:document)">
       <xsl:message terminate="yes"> - [ERROR] Input document must be a w:document document.</xsl:message>
@@ -88,6 +89,7 @@
         <xsl:with-param name="relsDoc" select="$relsDoc" tunnel="yes" as="document-node()?"/>
       </xsl:apply-templates>
     </document>
+    <xsl:message> + [INFO] wordml2simple: Intermediate simpleML document generated.</xsl:message>
   </xsl:template>
   
   <xsl:template match="w:document">
@@ -101,7 +103,7 @@
   </xsl:template>
   
   <xsl:template match="w:p">
-    <xsl:param name="mapUnstyledParasTo" select="'p'" tunnel="yes"/>
+    <xsl:param name="mapUnstyledParasTo" select="'Normal'" tunnel="yes"/>
     <xsl:param name="stylesDoc" as="document-node()" tunnel="yes"/>
     
     <xsl:variable name="specifiedStyleId" as="xs:string"
@@ -118,7 +120,9 @@
     <xsl:variable name="styleName" as="xs:string"
       select="local:lookupStyleName(., $stylesDoc, $styleId)"
     />
-
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] w:p: styleName="<xsl:sequence select="$styleName"/>"</xsl:message>
+    </xsl:if>
     <!-- Mapping by name takes precedence over mapping by ID -->
     <xsl:variable name="styleMapByName" as="element()?"
       select="key('styleMapsByName', lower-case($styleName), $styleMapDoc)[1]"
@@ -641,7 +645,7 @@
          <xsl:sequence select="$styleName"/>        
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message> + [WARN] No style definition found for style ID "<xsl:sequence select="$styleId"/>", returning style ID.</xsl:message>
+        <xsl:message> + [WARN] lookupStyleName(): No style definition found for style ID "<xsl:sequence select="$styleId"/>", returning style ID.</xsl:message>
         <xsl:sequence select="$styleId"/>
       </xsl:otherwise>
     </xsl:choose>
@@ -655,5 +659,5 @@
   <xsl:template match="*" priority="-1">
     <xsl:message> - [WARNING] wordml2simple: Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/></xsl:message>
   </xsl:template>
-
+  
 </xsl:stylesheet>

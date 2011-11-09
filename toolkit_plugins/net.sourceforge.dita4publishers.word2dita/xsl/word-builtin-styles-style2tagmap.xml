@@ -3,7 +3,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap ../../doctypes/style2tagmap/xsd/style2tagmap.xsd"
   xmlns="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap">
-  <title>Upper Room Article Manuscript Style-to-Tag Map</title>
+  <title>Word Default Styles Style-to-Tag Map</title>
   <documentation> </documentation>
   <styles>
     <output
@@ -27,7 +27,7 @@
       doctype-public="-//OASIS//DTD DITA Reference//EN"/>
 
     <style
-      styleId="Title"
+      styleName="Title"
       level="0"
       format="bookmap"
       mapType="bookmap"
@@ -37,7 +37,7 @@
 
 
     <style
-      styleId="Heading1"
+      styleName="Heading 1"
       structureType="topicTitle"
       topicDoc="yes"
       topicType="concept"
@@ -49,132 +49,162 @@
       level="1"/>
 
     <style
-      styleId="Normal"
+      styleName="Heading 2"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="concept"
+      bodyType="conbody"
+      format="concept"
+      topicrefType="topicref"
+      tagName="title"
+      topicZone="body"
+      level="2"/>
+    
+    <style
+      styleName="Heading 3"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="concept"
+      bodyType="conbody"
+      format="concept"
+      topicrefType="topicref"
+      tagName="title"
+      topicZone="body"
+      level="3"/>
+    
+    <style
+      styleName="Normal"
       tagName="p"
       topicZone="body"
       level="1"/>
 
     <style
-      styleId="DefaultParagraphFont"
+      styleName="Default Paragraph Font"
       tagName="ph"
       topicZone="body"
       level="1"/>
 
     <style
-      styleId="CoverPageName"
+      styleName="Cover Page Name"
       tagName="p"
       topicZone="body"
       level="1"/>
     <style
-      styleId="CoverPageNameChar"
+      styleName="Cover Page Name Char"
       tagName="ph"
       topicZone="body"
       level="1"/>
 
     <style
-      styleId="Heading1Char"
+      styleName="Heading1Char"
       tagName="ph"
       topicZone="body"
       level="1"/>
     <style
-      styleId="TitleChar"
-      tagName="ph"
-      topicZone="body"
-      level="1"/>
-
-    <style
-      styleId="Heading2Char"
+      styleName="TitleChar"
       tagName="ph"
       topicZone="body"
       level="1"/>
 
     <style
-      styleId="TOC1"
-      structureType="skip"/>
-    <style
-      styleId="TOC2"
-      structureType="skip"/>
-    <style
-      styleId="TOC3"
-      structureType="skip"/>
-    <style
-      styleId="TOC4"
-      structureType="skip"/>
-    <style
-      styleId="TOC5"
-      structureType="skip"/>
-    <style
-      styleId="TOC6"
-      structureType="skip"/>
-    <style
-      styleId="TOC7"
-      structureType="skip"/>
-    <style
-      styleId="TOC8"
-      structureType="skip"/>
-    <style
-      styleId="TOC9"
-      structureType="skip"/>
-
-    <style
-      styleId="Heading3Char"
-      tagName="ph"
-      topicZone="body"
-      level="1"/>
-    <style
-      styleId="Heading4Char"
+      styleName="Heading2Char"
       tagName="ph"
       topicZone="body"
       level="1"/>
 
     <style
-      styleId="ListBullet"
+      styleName="TOC 1"
+      structureType="skip"/>
+    <style
+      styleName="TOC 2"
+      structureType="skip"/>
+    <style
+      styleName="TOC 3"
+      structureType="skip"/>
+    <style
+      styleName="TOC 4"
+      structureType="skip"/>
+    <style
+      styleName="TOC 5"
+      structureType="skip"/>
+    <style
+      styleName="TOC 6"
+      structureType="skip"/>
+    <style
+      styleName="TOC 7"
+      structureType="skip"/>
+    <style
+      styleName="TOC 8"
+      structureType="skip"/>
+    <style
+      styleName="TOC 9"
+      structureType="skip"/>
+
+    <style
+      styleName="Heading3Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleName="Heading4Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+
+    <style
+      styleName="List Bullet"
       containerType="ul"
       tagName="li"
       level="1"
       structureType="block"
       topicZone="body"/>
     <style
-      styleId="BodyTextIndent"
+      styleName="Body Text Indent"
       tagName="p"
       topicZone="body"
       level="1"/>
     <style
-      styleId="BodyTextIndentChar"
+      styleName="BodyTextIndentChar"
       tagName="ph"
       topicZone="body"
       level="1"/>
     <style
-      styleId="ListBullet2"
+      styleName="List Bullet 2"
       containerType="ul"
       tagName="li"
       level="2"
       structureType="block"
       topicZone="body"/>
     <style
-      styleId="BlockText"
+      styleName="Block Text"
+      tagName="p"
+      topicZone="body"
+      outputclass="boxed"
+      level="1"/>
+    <style
+      styleName="Body Text"
       tagName="p"
       topicZone="body"
       level="1"/>
     <style
-      styleId="BodyText"
+      styleName="Normal"
       tagName="p"
       topicZone="body"
       level="1"/>
     <style
-      styleId="BodyTextChar"
+      styleName="BodyTextChar"
       tagName="ph"
       topicZone="body"
       level="1"/>
     <style
-      styleId="ListNumber"
+      styleName="List Number"
       containerType="ol"
       tagName="li"
       level="1"
       structureType="block"
       topicZone="body"/>
     <style
-      styleId="ListNumber2"
+      styleName="List Number 2"
       containerType="ol"
       tagName="li"
       level="2"
