@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." name="w2d-test-init">
+  
+  <!-- Pull in user-specific properties settings.
+    
+    In particular, we need to the location of the DITA Open Toolkit
+    so we can call the base D4P word2dita transformation script.
+    
+  -->
+  
+  <property file="build.properties"/>
+  <property file="${user.home}/.build.properties"/>
+  <property file="${user.home}/build.properties"/>
+	
+	<condition property="debug.xslt" value="false">
+		<isfalse value="${debug.xslt}"/>
+  </condition>
+
+	<target name="check-for-toolkit">
+    
+    <fail message="Required property dita-ot-dir is not set.">
+      <condition>
+        <not>
+          <isset property="dita-ot-dir"/>
+        </not>
+      </condition>
+    </fail>
+
+    <available property="haveToolkit"
+      file="${dita-ot-dir}/build.xml" />
+    
+  	<fail message="Cannot find build.xml for Open Toolkit at configured location '${dita-ot-dir}'">
+  		<condition>
+  			<isfalse value="${haveToolkit}"/>
+  	  </condition>
+  	</fail>
+  </target>
+  
+</project>
