@@ -13,6 +13,9 @@
  	<property name="rootDitaFile" 
  		location="${ditaOutputDir}/w2d_test-default-styles-to-maps-and-topics.ditamap"
  	/>
+ 	<property name="expectedDitaFile" 
+ 		location="${ditaOutputDir}/topics/topic_1_1_1.dita"
+ 	/>
  	<property name="expectedHtmlFile" 
  		location="${htmlOutputDir}/topics/topic_1_1_1.html"
  	/>
@@ -49,6 +52,16 @@
  			<not>
 	 		 	<available 
 	 		 		file="${rootDitaFile}"
+	 		 	/>
+ 			</not>
+ 		</condition>
+  </fail>
+ 	
+ 	<fail message="Did not find expected DITA file '${expectedDitaFile}'">
+ 		<condition>
+ 			<not>
+	 		 	<available 
+	 		 		file="${expectedDitaFile}"
 	 		 	/>
  			</not>
  		</condition>
