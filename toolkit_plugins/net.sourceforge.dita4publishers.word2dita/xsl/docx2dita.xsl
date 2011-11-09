@@ -64,7 +64,7 @@ version="2.0">
   <xsl:variable name="rootTopicUrl" 
     as="xs:string?" 
     select="if ($rootTopicName) 
-    then concat($rootTopicName, '.xml')
+    then concat($rootTopicName, $topicExtension)
     else ()"/>
   <xsl:variable name="platform" as="xs:string"
     select="
