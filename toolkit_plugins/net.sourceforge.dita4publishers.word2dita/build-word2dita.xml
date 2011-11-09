@@ -63,7 +63,15 @@
 			suffix=".docx"
 		/>
 		
-		<property name="w2d.style-to-tag-map" location="${xsl.dir}/word-builtin-styles-style2tagmap.xml"/>
+		<property name="w2d.defaultStyleToTagMap" 
+			location="${xsl.dir}/word-builtin-styles-style2tagmap.xml"/>
+		<echo message="Before condition, w2d.style-to-tag-map='${w2d.style-to-tag-map}'"/>
+		<condition property="w2d.style-to-tag-map" value="${w2d.defaultStyleToTagMap}">
+			<not>
+			  <isset property="w2d.style-to-tag-map"/>
+			 </not>
+		</condition>
+		<echo message="After condition, w2d.style-to-tag-map='${w2d.style-to-tag-map}'"/>
 		
 		<condition property="w2d.topic.extension" value=".dita">
 			<not>
@@ -134,6 +142,7 @@
 
 		<property name="word.document.xml.path" location="${w2d.temp.dir}/${word.doc.basename}/word/document.xml"/>
 		<antcall target="unzipWordDoc"/>
+		<echo message="w2d.style-to-tag-map='${w2d.style-to-tag-map}'"/>
 		<antcall target="transformWordToDita">
 			<param name="word.document.xml.path" value="${word.document.xml.path}"/>
 		</antcall>
@@ -164,6 +173,7 @@
 	<target name="transformWordToDita" depends="cleanOutputDir">
 
     <echo message="[INFO] Creating output directory ${w2d.out.dir}..."/>
+    <echo message="[INFO] Creating output file ${w2d.root.output.filename}..."/>
 
 		<mkdir dir="${w2d.out.dir}"/>
 		
