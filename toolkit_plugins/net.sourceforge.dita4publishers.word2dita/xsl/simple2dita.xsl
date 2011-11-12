@@ -1257,7 +1257,7 @@
         <xsl:when test="@containerType">
           <xsl:choose>
             <xsl:when test="@containerOutputclass">
-              <xsl:for-each-group select="current-group()" group-adjacent="@containerOutputclass">
+              <xsl:for-each-group select="current-group()" group-adjacent="string(@containerOutputclass)|'noContainerOutputclass'">
                 <xsl:variable name="containerGroup" as="element()">
                   <containerGroup containerType="{@containerType}" containerOutputclass="{@containerOutputclass}">
                     <xsl:sequence select="current-group()"/>
