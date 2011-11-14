@@ -1255,26 +1255,11 @@
     <xsl:for-each-group select="$bodyParas" group-adjacent="boolean(@containerType)">
       <xsl:choose>
         <xsl:when test="@containerType">
-          <xsl:choose>
-            <xsl:when test="@containerOutputclass">
-              <xsl:for-each-group select="current-group()" group-adjacent="string(@containerOutputclass)|'noContainerOutputclass'">
-                <xsl:variable name="containerGroup" as="element()">
-                  <containerGroup containerType="{@containerType}" containerOutputclass="{@containerOutputclass}">
-                    <xsl:sequence select="current-group()"/>
-                  </containerGroup>
-                </xsl:variable>
-                <xsl:apply-templates select="$containerGroup"/>
-              </xsl:for-each-group>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:variable name="containerGroup" as="element()">
-                <containerGroup containerType="{@containerType}">
-                  <xsl:sequence select="current-group()"/>
-                </containerGroup>
-              </xsl:variable>
-              <xsl:apply-templates select="$containerGroup"/>
-            </xsl:otherwise>
-          </xsl:choose>
+          <xsl:variable name="containerGroup" as="element()">
+            <containerGroup containerType="{@containerType}">
+              <xsl:sequence select="current-group()"/>
+            </containerGroup>
+          </xsl:variable>
         </xsl:when>
         <xsl:otherwise>
           <xsl:apply-templates select="current-group()"/>
