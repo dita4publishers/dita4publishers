@@ -1000,6 +1000,7 @@
     <copy todir="${classes.home}/WebContent">
       <fileset dir="${toolkit.plugin.src}">
       	<include name="net.sourceforge.dita4publishers.common.xslt/**/*"/>
+      	<include name="org.dita2indesign.dita2indesign/**/*"/>
     	</fileset>
     </copy>
     <jar destfile="${target.home}/${target.jar}" >
