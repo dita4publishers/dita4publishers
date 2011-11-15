@@ -99,10 +99,14 @@ public class TextFrame extends Rectangle {
 	 * is to be threaded.
 	 */
 	public void setNextInThread(TextFrame nextTextFrame) {
-		this.nextInThread = nextTextFrame;
-		if (nextTextFrame != null) {
+		if (nextTextFrame == null) {
+			if (this.nextInThread != null) {
+				this.nextInThread.setPreviousInThread(null);
+			}
+		} else {
 			nextTextFrame.setPreviousInThread(this);
 		}
+		this.nextInThread = nextTextFrame;
 	}
 
 	/**

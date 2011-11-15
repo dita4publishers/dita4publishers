@@ -15,7 +15,8 @@ import org.w3c.dom.Element;
 
 
 /**
- * A set of one or more pages.
+ * A set of one or more pages. A spread always has at least 
+ * one page.
  */
 public class Spread extends InDesignRectangleContainingObject {
 
@@ -165,6 +166,7 @@ public class Spread extends InDesignRectangleContainingObject {
 	 */
 	public void setSpreadIndex(int spreadIndex) throws Exception {
 		setTransformationMatrix(spreadIndex);
+		this.spreadIndex = spreadIndex;
 		
 		// Pages do not literally contain frames but InDesign maintains a list of frames for each
 		// page.
@@ -409,6 +411,24 @@ public class Spread extends InDesignRectangleContainingObject {
 		} else {
 			setProperty("BnLc", new InxLong32(1)); // Right side of first page (?)
 		}
+		if (pages.size() > 0) {
+			setProperty("PagC", new InxInteger(pages.size()));
+		}
+		if (!hasProperty("smsi")) {
+			setProperty("smsi", new InxBoolean(true));
+		}
+		
+		// Possible additional properties to handl:
+		// ITra -- item transform", Description = Stores the item's inner to parent transformation matrix
+		// 
+	}
+
+	public void removePage(Page page) {
+		if (this.pages.contains(page)) {
+			this.pages.remove(page);
+		}
+		this.pagesById.remove(page.getId());
+		this.pagesByName.remove(page.getName());		
 	}
 
 

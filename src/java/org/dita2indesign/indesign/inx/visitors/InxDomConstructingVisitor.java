@@ -113,6 +113,7 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	}
 
 	private Element processInDesignComponent(InDesignComponent comp) throws Exception {
+		comp.updatePropertyMap(); // Give the object a chance to update it's property map
 		String tagName = comp.getInxTagName();
 		if (tagName == null) {
 			throw new Exception("No INX tagname value for component " + comp);

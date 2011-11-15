@@ -525,6 +525,7 @@ public class InDesignDocument extends InDesignObject {
 		Spread newSpread = new Spread();
 		assignIdAndRegister(newSpread);
 		newSpread.setParent(this);
+		newSpread.setSpreadIndex(this.spreads.size());
 		this.spreads.add(newSpread);
 		MasterSpread masterSpread = this.getMasterSpread(masterSpreadName);
 		if (masterSpread == null) {
@@ -546,7 +547,7 @@ public class InDesignDocument extends InDesignObject {
      * @throws Exception 
      */
     public Spread addSpread(String masterSpreadName) throws Exception {
-        Spread spread = new Spread();
+    	Spread spread = newSpread(masterSpreadName);
         assignIdAndRegister(spread);
         spread.setParent(this);
         

@@ -63,8 +63,24 @@ public class ComplexPageCreationTest extends InxReaderTestBase {
 	    
         spread = inDesignDoc.getSpread(0);
         spread.setMasterSpread(masterSpread);
+        assertEquals(0, spread.getSpreadIndex());
     	page = spread.getOddPage();
     	assertNotNull("Didn't get a page", page);
+    	
+    	// See if we can delete the first page:
+    	
+    	assertEquals("Expected 1 pages", 1, spread.getPages().size());
+    	spread.addPage(2);
+    	assertEquals("Expected 2 pages", 2, spread.getPages().size());
+    	page = spread.getEvenPage();
+    	assertNotNull("Expected an even page", page);
+    	spread.removePage(page);
+    	assertEquals("Expected only 1 page", 1, spread.getPages().size());
+    	page = spread.getEvenPage();
+    	assertNull("Expected no even page", page);
+    	page = spread.getOddPage();
+    	assertNotNull("Expected an odd page");
+    	
     	
     	int spreadChildCount = spread.getChildren().size();
 	    
