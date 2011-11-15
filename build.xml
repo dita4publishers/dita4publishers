@@ -29,6 +29,7 @@
   <property name="src" location="${basedir}/src/java"/>
 	<property name="license.dir" location="${basedir}/license"/>
 	<property name="rsuite.src" location="${basedir}/rsuite/src/java"/>
+	<property name="rsuite.xslt" location="${basedir}/rsuite/xslt"/>
   <property name="toolkit.plugin.src" location="${basedir}/toolkit_plugins"/>
   <property name="rsuiteSrc" location="${basedir}/rsuite"/>
   <property name="temp" location="${basedir}/temp"/>
@@ -990,17 +991,22 @@
     <!-- NOTE: The RSuite plugin only packages Web-accessible resources.
                It contains no Java code.
       -->
+  	<copy file="${rsuite.xslt}/includes-catalog.xml" todir="${classes.home}"/>
   	<copy file="${rsuite.src}/rsuite-plugin.xml" todir="${classes.home}"/>
     <copy todir="${classes.home}/WebContent/xslt">
       <fileset dir="${xslt.src}"/>
     </copy>
     <copy todir="${classes.home}/WebContent/xslt/word2dita">
+    	<!-- This location for the word2dita stuff is retained for older
+    	     code that reflects the old location.
+    	  -->
       <fileset dir="${toolkit.plugin.src}/net.sourceforge.dita4publishers.word2dita/xsl"/>
     </copy>
     <copy todir="${classes.home}/WebContent">
       <fileset dir="${toolkit.plugin.src}">
       	<include name="net.sourceforge.dita4publishers.common.xslt/**/*"/>
       	<include name="org.dita2indesign.dita2indesign/**/*"/>
+        <include name="net.sourceforge.dita4publishers.word2dita/**/*"/>
     	</fileset>
     </copy>
     <jar destfile="${target.home}/${target.jar}" >

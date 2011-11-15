@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/word2dita/docx2dita.xsl" 
-    uri="../../toolkit_plugins/net.sourceforge.dita4publishers.word2dita/xsl/docx2dita.xsl"/>
+    uri="WebContent/net.sourceforge.dita4publishers.word2dita/xsl/docx2dita.xsl"/>
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/word2dita/rewriteDocxGraphics.xsl" 
-    uri="../../toolkit_plugins/net.sourceforge.dita4publishers.word2dita/xsl/rewriteDocxGraphics.xsl"/>
-  <uri name="rsuite:/res/plugin/dita4publishers/xslt/lib/relpath_util.xsl" 
-    uri="../../toolkit_plugins/net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <uri name="rsuite:/res/plugin/dita4publishers/xslt/lib/dita-support-lib.xsl" 
-    uri="../../toolkit_plugins/net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+    uri="WebContent/net.sourceforge.dita4publishers.word2dita/xsl/rewriteDocxGraphics.xsl"/>
+  <uri name="rsuite:/res/plugin/dita4publishers/net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl" 
+    uri="WebContent/net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <uri name="rsuite:/res/plugin/dita4publishers/net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl" 
+    uri="WebContent/net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
              
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/dita2indesign/lib/incx_generation_util.xsl" 
-    uri="../../toolkit_plugins/org.dita2indesign.dita2indesign/xsl/lib/incx_generation_util.xsl"/>
+    uri="WebContent/org.dita2indesign.dita2indesign/xsl/lib/incx_generation_util.xsl"/>
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/dita2indesign/elem2styleMapper.xsl" 
-    uri="../../toolkit_plugins/org.dita2indesign.dita2indesign/xsl/elem2styleMapper.xsl"/>
-  <uri name="rsuite:/res/plugin/dita4publishers/xslt/dita2indesign/topic2article.xsl" 
-    uri="../../toolkit_plugins/org.dita2indesign.dita2indesign/xsl/topic2article.xsl"/>
+    uri="WebContent/org.dita2indesign.dita2indesign/xsl/elem2styleMapper.xsl"/>
+  <uri name="rsuite:/res/plugin/dita4publishers/org.dita2indesign.dita2indesign/xsl/topic2article.xsl" 
+    uri="WebContent/org.dita2indesign.dita2indesign/xsl/topic2article.xsl"/>
   
 <!--  <uri name="rsuite:/res/plugin/dita4publishers/xslt/lib/resolve-map.xsl" 
-    uri="../../toolkit_plugins/lib/resolve-map.xsl"/>
+    uri="WebContent/lib/resolve-map.xsl"/>
 --></catalog>
