@@ -548,8 +548,6 @@ public class InDesignDocument extends InDesignObject {
      */
     public Spread addSpread(String masterSpreadName) throws Exception {
     	Spread spread = newSpread(masterSpreadName);
-        assignIdAndRegister(spread);
-        spread.setParent(this);
         
         // Get the corresponding master spread, clone its data source,
         // and use that to load the spread.
@@ -557,9 +555,7 @@ public class InDesignDocument extends InDesignObject {
         MasterSpread  masterSpread = this.getMasterSpread(masterSpreadName);
         
         spread.setTransformationMatrix(this.spreads.size());
-        this.spreads.add(spread);
         spread.setMasterSpread(masterSpread);
-        this.addChild(spread);
         
         return spread;
     }
