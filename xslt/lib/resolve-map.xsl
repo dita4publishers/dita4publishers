@@ -33,9 +33,10 @@
         www.reallysi.com
         ==================================================== -->
  
+<!--
   <xsl:import href="dita-support-lib.xsl"/>
   <xsl:import href="relpath_util.xsl"/>
-
+-->
  <xsl:template match="/*" mode="resolve-map">
    <xsl:message> + [INFO] Root element in mode resolve-map was not a map, got <xsl:sequence select="name(.)"/>[class=<xsl:sequence select="string(@class)"/></xsl:message>
    <map class="- map/map "> 
