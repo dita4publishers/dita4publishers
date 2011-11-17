@@ -18,7 +18,8 @@
     
        =============================================================== -->
   
-  <xsl:import href="../lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../toolkit_plugins/net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../toolkit_plugins/net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   <xsl:import href="../lib/resolve-map.xsl"/>
   <xsl:import href="dita-topicPreview.xsl"/>
   <xsl:import href="dita-tocModePreview.xsl"/>

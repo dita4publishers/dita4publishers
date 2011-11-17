@@ -13,8 +13,8 @@
     
        =============================================================== -->
   
-  <xsl:import href="../lib/dita-support-lib.xsl"/>
-
+<!--  <xsl:import href="../lib/dita-support-lib.xsl"/>
+-->
   <xsl:template match="*[df:class(., 'xml-d/xmlelem')]">
     <code class="{df:getHtmlClass(.)}"><xsl:text>&lt;</xsl:text><xsl:apply-templates/><xsl:text>&gt;</xsl:text></code>
   </xsl:template>

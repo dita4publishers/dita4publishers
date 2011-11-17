@@ -11,8 +11,8 @@
     
        =============================================================== -->
   
-  <xsl:import href="../lib/dita-support-lib.xsl"/>
-
+<!--  <xsl:import href="../lib/dita-support-lib.xsl"/>
+-->
   <xsl:template match="*[df:class(., 'sw-d/filepath')]">
     <code class="{df:getHtmlClass(.)}"><xsl:apply-templates/></code>
   </xsl:template>

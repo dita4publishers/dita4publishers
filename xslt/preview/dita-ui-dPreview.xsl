@@ -11,8 +11,8 @@
     
        =============================================================== -->
   
-  <xsl:import href="../lib/dita-support-lib.xsl"/>
-
+<!--  <xsl:import href="../lib/dita-support-lib.xsl"/>
+-->
 <xsl:template match="*[df:class(., 'ui-d/uicontrol')]"><xsl:next-match/></xsl:template>
 <xsl:template match="*[df:class(., 'ui-d/wintitle')]"><xsl:next-match/></xsl:template>
 <xsl:template match="*[df:class(., 'ui-d/menucascade')]"><xsl:next-match/></xsl:template>

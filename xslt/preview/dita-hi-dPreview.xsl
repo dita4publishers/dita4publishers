@@ -18,8 +18,8 @@
     
        =============================================================== -->
   
-  <xsl:import href="../lib/dita-support-lib.xsl"/>
-
+<!--  <xsl:import href="../lib/dita-support-lib.xsl"/>
+-->
   <xsl:template match="*[df:class(., 'hi-d/i')]">
     <i class="{df:getHtmlClass(.)}"><xsl:apply-templates/></i>
   </xsl:template>

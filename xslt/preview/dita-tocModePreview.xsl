@@ -11,8 +11,8 @@
     
        =============================================================== -->
   
-  <xsl:import href="../lib/dita-support-lib.xsl"/>
-  
+<!--  <xsl:import href="../lib/dita-support-lib.xsl"/>
+-->  
   <xsl:template match="*[df:class(., 'map/map')]" mode="toc">
     <xsl:message> + [INFO] Generating ToC...</xsl:message>
     <div class="table-of-contents">

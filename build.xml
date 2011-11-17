@@ -866,7 +866,7 @@
   </target>
 	
   <target name="jar-inx-util" depends="dist-init,compile" description="Create jar for DITA2InDesign INX Utility library">
-    <jar jarfile="${dist}/dita2indesign-inx-util.jar" basedir="${build}" >
+    <jar jarfile="${dist}/dita2indesign-inx-util.jar" basedir="${classes.home}" >
 			<include name="org/dita2indesign/util/**/*"/>
 			<include name="org/dita2indesign/indesign/**/*"/>
     </jar>
@@ -1002,7 +1002,7 @@
     	  -->
       <fileset dir="${toolkit.plugin.src}/net.sourceforge.dita4publishers.word2dita/xsl"/>
     </copy>
-    <copy todir="${classes.home}/WebContent">
+    <copy todir="${classes.home}/WebContent/toolkit_plugins">
       <fileset dir="${toolkit.plugin.src}">
       	<include name="net.sourceforge.dita4publishers.common.xslt/**/*"/>
       	<include name="org.dita2indesign.dita2indesign/**/*"/>

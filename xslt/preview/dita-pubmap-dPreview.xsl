@@ -12,8 +12,8 @@
        
        =============================================================== -->
   
-  <xsl:import href="../lib/dita-support-lib.xsl"/>
-
+<!--  <xsl:import href="../lib/dita-support-lib.xsl"/>
+-->
 
   <xsl:template match="*[df:class(., 'pubmap-d/pubtitle')]">
     <div class="{df:getHtmlClass(.)}" 

@@ -18,9 +18,10 @@
     
        =============================================================== -->
   
+<!--
   <xsl:import href="../lib/dita-support-lib.xsl"/>
   <xsl:import href="../lib/resolve-map.xsl"/>
-  
+-->  
   <xsl:param name="rsuite.sessionkey" as="xs:string" select="'unset'"/>
   <xsl:param name="rsuite.serverurl" as="xs:string" select="'urn:unset:/dev/null'"/>
   

@@ -11,8 +11,8 @@
     
        =============================================================== -->
   
-  <xsl:import href="../lib/dita-support-lib.xsl"/>
-
+<!--  <xsl:import href="../lib/dita-support-lib.xsl"/>
+-->
 <xsl:template match="*[df:class(., 'pr-d/apiname')]"><xsl:next-match/></xsl:template>
 <xsl:template match="*[df:class(., 'pr-d/codeblock')]"><xsl:next-match/></xsl:template>
 <xsl:template match="*[df:class(., 'pr-d/codeph')]"><xsl:next-match/></xsl:template>
