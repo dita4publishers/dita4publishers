@@ -139,8 +139,15 @@ public class TextFrame extends Rectangle {
 	 * frame is part of.
 	 * @return The previous frame, or null if this is the first or only
 	 * frame in the thread.
+	 * @throws Exception 
 	 */
-	public TextFrame getPreviousInThread() {
+	public TextFrame getPreviousInThread() throws Exception {
+		if (previousInThread == null && hasProperty(InDesignDocument.PROP_PTXF)) {
+			String objectId = getObjectReferenceProperty(InDesignDocument.PROP_PTXF);
+			if (objectId != null) {
+				this.previousInThread = (TextFrame)this.getDocument().getObject(objectId);
+			}
+	}
 		return this.previousInThread;
 	}
 
@@ -150,9 +157,31 @@ public class TextFrame extends Rectangle {
 	@Override
 	public void updatePropertyMap() throws Exception {
 		super.updatePropertyMap();
-		this.setObjectReferenceProperty(InDesignDocument.PROP_NTXF, this.nextInThread);
+		this.setObjectReferenceProperty(InDesignDocument.PROP_FTXF, this.getFirstFrameInThread());
 		this.setObjectReferenceProperty(InDesignDocument.PROP_PTXF, this.previousInThread);
+		this.setObjectReferenceProperty(InDesignDocument.PROP_NTXF, this.nextInThread);
+		this.setObjectReferenceProperty(InDesignDocument.PROP_LTXF, this.getLastFrameInThread());
 		this.setObjectReferenceProperty(InDesignDocument.PROP_STRP, this.parentStory);
+	}
+
+	public TextFrame getFirstFrameInThread() throws Exception {
+		TextFrame first = this;
+		TextFrame cand = this.getPreviousInThread();
+		while (cand != null) {
+			first = cand;
+			cand = first.getPreviousInThread();
+		}
+		return first;
+	}
+
+	public TextFrame getLastFrameInThread() throws Exception {
+		TextFrame last = this;
+		TextFrame cand = this.getNextInThread();
+		while (cand != null) {
+			last = cand;
+			cand = last.getNextInThread();
+		}
+		return last;
 	}
 
 

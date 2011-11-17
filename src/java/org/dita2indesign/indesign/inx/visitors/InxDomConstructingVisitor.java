@@ -168,11 +168,6 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	public void visit(TextFrame frame)  throws Exception {
 		Element elem = processInDesignObject(frame);
 		setGeometryAttribute(frame, elem);
-		elem.setAttribute(InDesignDocument.PROP_STRP, constructObjectReference(frame.getParentStory()));
-		elem.setAttribute(InDesignDocument.PROP_FTXF, constructObjectReference(frame));
-		elem.setAttribute(InDesignDocument.PROP_LTXF, constructObjectReference(frame));
-		elem.setAttribute(InDesignDocument.PROP_NTXF, constructObjectReference(frame.getNextInThread()));
-		elem.setAttribute(InDesignDocument.PROP_PTXF, constructObjectReference(frame.getPreviousInThread()));
 		currentParentNode = elem.getParentNode();
 	}
 
