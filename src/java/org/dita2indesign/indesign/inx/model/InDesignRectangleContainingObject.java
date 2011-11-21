@@ -85,8 +85,9 @@ public abstract class InDesignRectangleContainingObject extends InDesignGeometry
 
 	/**
 	 * @return All rectangles (including text frames)
+	 * @throws Exception 
 	 */
-	public List<Rectangle> getRectangles() {
+	public List<Rectangle> getRectangles() throws Exception {
 		return new ArrayList<Rectangle>(this.rectangles.values());
 	}
 

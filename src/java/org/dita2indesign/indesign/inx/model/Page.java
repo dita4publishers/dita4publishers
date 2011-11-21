@@ -3,7 +3,10 @@
  */
 package org.dita2indesign.indesign.inx.model;
 
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.dita2indesign.indesign.inx.visitors.InDesignDocumentVisitor;
@@ -17,6 +20,8 @@ import org.w3c.dom.Element;
  * Represents a single page.
  */
 public class Page extends InDesignRectangleContainingObject {
+	
+	private static Logger log = Logger.getLogger(Page.class);
 	
 	/**
 	 * @throws Exception
@@ -32,6 +37,10 @@ public class Page extends InDesignRectangleContainingObject {
 	
 	private String name;
 
+	private Spread spread;
+
+	private MasterSpread appliedMaster;
+
 	public void loadObject(Element dataSource) throws Exception {
 		if (dataSource == null) return;
 
@@ -43,6 +52,7 @@ public class Page extends InDesignRectangleContainingObject {
 		PageSideOption tempPgSide = (PageSideOption)getEnumProperty(InDesignDocument.PROP_PGSD);
 		if (tempPgSide != null) { // If null, use default
 			pageSide = tempPgSide; 
+		} else {
 		}
 		
 		while (elemIter.hasNext()) {
@@ -58,13 +68,67 @@ public class Page extends InDesignRectangleContainingObject {
 //				this.addChild(obj);
 			}
 		}
+		
 
 	}
 	
+	@Override
+	public void postLoad() throws Exception {
+		
+		InxObjectRef masterRef = (InxObjectRef)getPropertyValue(InDesignDocument.PROP_PMAS);
+		if (masterRef != null) {
+			String masterId = masterRef.getValue();
+			MasterSpread master = (MasterSpread)this.getDocument().getObject(masterId);
+			if (master != null) {
+				this.setAppliedMaster(master);
+			}
+		}
+		
+
+	}
+	
+	/**
+	 * Set the master applied to this page.
+	 * <p>NOTE: All the pages for a given spread should/must have
+	 * the same master spread.
+	 * @param master
+	 * @throws Exception
+	 */
+	public void setAppliedMaster(MasterSpread master) throws Exception {
+		this.appliedMaster = master;
+	}
+	
+	public MasterSpread getAppliedMaster() throws Exception {
+		return this.appliedMaster;
+	}
+	
+	/**
+	 * @return
+	 * @throws Exception 
+	 */
+	public MasterSpread getMasterSpread() throws Exception {
+		return this.getAppliedMaster();
+	}
+
+
+
+	@Override
+	public void setParent(InDesignComponent parent) {
+		super.setParent(parent);
+		// Pages are only ever children of spreads.
+		this.spread = (Spread)parent;
+	}
+	
+	public Spread getSpread() throws Exception {
+		return this.spread;
+	}
+
+
 	public void setWidth(double width)  {
-		Double x1 = (this.pageSide.equals(PageSideOption.LEFT_HAND)? 0.0 - width : 0.0);
-		Double x2 = (this.pageSide.equals(PageSideOption.LEFT_HAND)? 0.0 : width);
-		Double y1 = this.getGeometry().getBoundingBox().getTop();
+		// Page's coordinate space has the origin at upper-left corner.
+		Double x1 = 0.0;
+		Double x2 = width;
+		Double y1 = 0.0;
 		Double y2 = this.getGeometry().getBoundingBox().getBottom();
 		this.geometry.getBoundingBox().setCorners(x1, y1, x2, y2);
 	}
@@ -131,14 +195,20 @@ public class Page extends InDesignRectangleContainingObject {
 	 */
 	public void setPageSide(PageSideOption pageSide) {
 		this.pageSide = pageSide;
-	}
-
-	/**
-	 * @return
-	 */
-	public MasterSpread getMasterSpread() {
-		MasterSpread masterSpread = ((Spread)this.getParent()).getMasterSpread();
-		return masterSpread;
+		// Changing the page side can affect the position
+		// of the page within the spread:
+		TransformationMatix matrix = this.getTransformationMatrix();
+		if (pageSide.equals(PageSideOption.LEFT_HAND)) {
+			// Translation is the negative page width.
+			matrix.setXTranslation(0.0 - getWidth());
+			this.setTransformationMatrix(matrix);
+		} else {
+			// Right-hand pages have their left-edge coincident
+			// with the spread's origin, which is the middle
+			// of the spread.
+			matrix.setXTranslation(0.0);
+			this.setTransformationMatrix(matrix);
+		}
 	}
 
 	/* (non-Javadoc)
@@ -151,6 +221,78 @@ public class Page extends InDesignRectangleContainingObject {
 	}
 
 
+	/**
+	 * Override any overrideable page master items that apply to this
+	 * page. Does not modify text threads. Use this form for adding
+	 * multiple pages to a spread.
+	 * @param masterToOverride Map to hold mapping from master items to overrides for 
+	 * post-override thread fixup. 
+	 * @throws Exception
+	 */
+	public void overrideMasterSpreadObjects(Map<Rectangle, Rectangle> masterToOverride) throws Exception {
+		InDesignDocument doc = (InDesignDocument)getParent().getParent();
+	
+		// Need to correlate this page to the corresponding master
+		// page, which is by index within the list of pages for the
+		// spreads.
+		
+		int myIndex = spread.getPages().indexOf(this);
+		MasterSpread masterSpread = this.getMasterSpread();
+		if (masterSpread == null) {
+			log.warn("overrideMasterSpreadObjects(): No master spread for spread " + spread.getSpreadIndex() + " [" + spread.getId() + "]");
+			return;
+		}
+		Page masterPage = this.getMasterSpread().getPages().get(myIndex);
+						
+		for (Rectangle rect : masterPage.getRectangles()) {
+			if (rect.isOverrideable()) {
+				Rectangle clone = (Rectangle)doc.clone(rect);
+				clone.setParent(this.getParent()); // Rectangles are held by the spread, not the page.
+				if (rect instanceof TextFrame) {
+					TextFrame masterFrame = (TextFrame)rect;
+					Story masterStory = masterFrame.getParentStory();
+					Story clonedStory = null;
+					if (masterStory != null) {
+						clonedStory = (Story)this.getDocument().clone(masterStory);
+					}
+					TextFrame overrideFrame = (TextFrame)clone;					
+					overrideFrame.setMasterFrame(masterFrame);
+					this.addRectangle(overrideFrame);
+				}
+				this.addRectangle(clone);
+				masterToOverride.put(rect, clone);						
+			}
+		}
+		
+	}
+
+
+	/**
+	 * Override any overrideable page master items that apply to this
+	 * page. Use this form when adding a single page to a spread.
+	 * @throws Exception
+	 */
+	public void overrideMasterSpreadObjects() throws Exception {
+	
+		// Need to correlate this page to the corresponding master
+		// page, which is by index within the list of pages for the
+		// spreads.
+		
+		MasterSpread masterSpread = this.getMasterSpread();
+		if (masterSpread == null) {
+			log.warn("overrideMasterSpreadObjects(): No master spread for spread " + spread.getSpreadIndex() + " [" + spread.getId() + "]");
+			return;
+		}
+		int myIndex = spread.getPages().indexOf(this);
+		Page masterPage = this.getMasterSpread().getPages().get(myIndex);
+		
+		Map<Rectangle, Rectangle> masterToOverride = new HashMap<Rectangle, Rectangle>();
+		
+		overrideMasterSpreadObjects(masterToOverride);
+				
+		InDesignDocument.updateThreadsForOverriddenFrames(masterPage, masterToOverride);
+				
+	}
 
 
 

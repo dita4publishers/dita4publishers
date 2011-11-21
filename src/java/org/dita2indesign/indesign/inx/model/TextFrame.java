@@ -39,7 +39,6 @@ public class TextFrame extends Rectangle {
 		this.setParentStory(myParentStory);
 	}
 
-
 	public void loadObject(Element dataSource) throws Exception {
 		super.loadObject(dataSource);
 		parentStoryId = InxHelper.decodeRawValueToSingleObjectId(dataSource.getAttribute("strp"));
@@ -58,6 +57,9 @@ public class TextFrame extends Rectangle {
 		} else {
 			this.parentStoryId = null;
 		}
+		// FIXME: Need to go to first in thread and set the parent 
+		// story on the whole thread. This code assumes we're on the
+		// first in the thread.
 		TextFrame nextInThread = this.getNextInThread();
 		if (nextInThread != null) {
 			nextInThread.setParentStory(parentStory);
@@ -126,10 +128,11 @@ public class TextFrame extends Rectangle {
 	 */
 	public TextFrame getNextInThread() throws Exception {
 		if (nextInThread == null && hasProperty(InDesignDocument.PROP_NTXF)) {
-				String objectId = getObjectReferenceProperty(InDesignDocument.PROP_NTXF);
-				if (objectId != null) {
-					this.nextInThread = (TextFrame)this.getDocument().getObject(objectId);
-				}
+			String nextId = getObjectReferenceProperty(InDesignDocument.PROP_NTXF);
+			if (nextId != null && nextInThread == null) {
+				TextFrame next = (TextFrame)this.getDocument().getObject(nextId);
+				this.setNextInThread(next);
+			}
 		}
 		return this.nextInThread;
 	}
@@ -143,11 +146,12 @@ public class TextFrame extends Rectangle {
 	 */
 	public TextFrame getPreviousInThread() throws Exception {
 		if (previousInThread == null && hasProperty(InDesignDocument.PROP_PTXF)) {
-			String objectId = getObjectReferenceProperty(InDesignDocument.PROP_PTXF);
-			if (objectId != null) {
-				this.previousInThread = (TextFrame)this.getDocument().getObject(objectId);
+			String prevId = getObjectReferenceProperty(InDesignDocument.PROP_PTXF);
+			if (prevId != null && previousInThread == null) {
+				TextFrame prev = (TextFrame)this.getDocument().getObject(prevId);
+				this.setPreviousInThread(prev);
 			}
-	}
+		}
 		return this.previousInThread;
 	}
 

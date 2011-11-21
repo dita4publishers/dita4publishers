@@ -189,5 +189,14 @@ public class Geometry {
 		return str.toString();
 	}
 
+	/**
+	 * Set the transformation matrix that defines the transformation from
+	 * this geometry's coordinates to its parent coordinate space.
+	 * @param matrix
+	 */
+	public void setTransformationMatrix(TransformationMatix matrix) {
+		this.transformMatrix = matrix;
+	}
+
 
 }

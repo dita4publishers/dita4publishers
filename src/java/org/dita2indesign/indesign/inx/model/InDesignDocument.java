@@ -366,6 +366,7 @@ public class InDesignDocument extends InDesignObject {
 	 */
 	private MasterSpread newMasterSpread(Element child) throws Exception {
 		MasterSpread obj = (MasterSpread) newSpread(MasterSpread.class, child);
+		obj.postLoad();
 		this.masterSpreads.put(obj.getPName(), obj);
 		return obj;
 	}
@@ -535,13 +536,18 @@ public class InDesignDocument extends InDesignObject {
 			}
 			throw new Exception("Failed to find master spread \"" + masterSpreadName + "\"");
 		}
-		newSpread.setMasterSpread(masterSpread);
 		newSpread.setTransformationMatrix(this.spreads.size());
+		// Note that masters apply to pages, not spreads.
+		for (Page page : newSpread.getPages()) {
+			page.setAppliedMaster(masterSpread);
+		}
+		
 		this.addChild(newSpread);
 		return newSpread;
 	}
 
 	/**
+	 * Create a new spread that reflects the 
      * @param masterSpreadName
      * @return
      * @throws Exception 
@@ -555,7 +561,6 @@ public class InDesignDocument extends InDesignObject {
         MasterSpread  masterSpread = this.getMasterSpread(masterSpreadName);
         
         spread.setTransformationMatrix(this.spreads.size());
-        spread.setMasterSpread(masterSpread);
         
         return spread;
     }
@@ -574,7 +579,9 @@ public class InDesignDocument extends InDesignObject {
 	 * @throws Exception 
 	 */
 	public Page newPage(Element dataSource) throws Exception {
-		return (Page)newObject(Page.class, dataSource);
+		Page page = (Page)newObject(Page.class, dataSource);
+		page.postLoad();
+		return page;
 	}
 
 	/**
@@ -1033,6 +1040,50 @@ public class InDesignDocument extends InDesignObject {
 			style = this.cstylesByName.get(styleName);
 		}
 		return style;
+	}
+
+	public static void updateThreadsForOverriddenFrames(
+			Page masterPage,
+			Map<Rectangle, Rectangle> masterToOverride) 
+					throws Exception,
+			InDesignDocumentException {
+		
+		List<TextFrame> firstThreadFrames = new ArrayList<TextFrame>();
+		for (Rectangle masterRect : masterToOverride.keySet()) {
+			if (masterRect instanceof TextFrame) {
+				TextFrame masterFrame = (TextFrame)masterRect;
+				masterFrame = masterFrame.getFirstFrameInThread();
+				if (masterFrame != null) {
+					if (!firstThreadFrames.contains(masterFrame)) {
+						firstThreadFrames.add(masterFrame);
+					}
+				}
+			}
+		}
+		
+		// Now we have a list of the first frames of all the threads
+		// in the master that have been overridden.
+		
+		// Now rework any threading in the cloned frames:
+		
+		for (TextFrame firstMaster : firstThreadFrames) {
+			TextFrame nextMaster = firstMaster.getNextInThread();
+			TextFrame nextOverride = null;
+			TextFrame prevOverride = (TextFrame)masterToOverride.get(firstMaster);
+			if (prevOverride == null) {
+				throw new InDesignDocumentException("First thread in page master \"" + ((MasterSpread)firstMaster.getParent()).getName() + "\" was not overridden.");
+			}
+			while (nextMaster != null) {
+				nextOverride = (TextFrame)masterToOverride.get(nextMaster);
+				if (nextOverride == null) {
+					throw new InDesignDocumentException("Frame [" + nextMaster.getId() + "] in thread in page master \"" + ((MasterSpread)firstMaster.getParent()).getName() + "\" was not overridden.");
+				}
+				prevOverride.setNextInThread(nextOverride);
+				prevOverride = nextOverride;
+				nextMaster = nextMaster.getNextInThread();
+			}
+			prevOverride.setNextInThread(null); // Make sure we end the thread.
+		}
 	}
 
 

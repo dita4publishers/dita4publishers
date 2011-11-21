@@ -5,6 +5,7 @@ package org.dita2indesign.indesign.inx;
 
 import java.io.File;
 import java.util.Iterator;
+import java.util.List;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -16,6 +17,7 @@ import org.dita2indesign.indesign.inx.model.InxHelper;
 import org.dita2indesign.indesign.inx.model.MasterSpread;
 import org.dita2indesign.indesign.inx.model.Page;
 import org.dita2indesign.indesign.inx.model.PageSideOption;
+import org.dita2indesign.indesign.inx.model.Rectangle;
 import org.dita2indesign.indesign.inx.model.Spread;
 import org.dita2indesign.indesign.inx.model.Story;
 import org.dita2indesign.indesign.inx.model.TextFrame;
@@ -56,16 +58,16 @@ public class ComplexPageCreationTest extends InxReaderTestBase {
 	    for (TextFrame frame : masterSpread.getAllFrames()) {
 	    	if (frame.isOverrideable()) overrideableFrameCount++;
 	    }
-	    // System.out.println("Overrideable frame count; " + overrideableFrameCount);
+	    System.out.println("Overrideable frame count; " + overrideableFrameCount);
 	    
 	    Spread spread = null;
 	    Page page = null;
 	    
         spread = inDesignDoc.getSpread(0);
-        spread.setMasterSpread(masterSpread);
-        assertEquals(0, spread.getSpreadIndex());
     	page = spread.getOddPage();
     	assertNotNull("Didn't get a page", page);
+    	
+    	assertEquals(spread, page.getSpread());
     	
     	// See if we can delete the first page:
     	
@@ -81,15 +83,46 @@ public class ComplexPageCreationTest extends InxReaderTestBase {
     	page = spread.getOddPage();
     	assertNotNull("Expected an odd page");
     	
-    	
-    	int spreadChildCount = spread.getChildren().size();
-	    
-	    // Override the overrideable items from the master page:
-		spread.overrideMasterSpreadObjects();
-		assertEquals("Frame count did not match", overrideableFrameCount, spread.getAllFrames().size());
-		assertEquals("Child count is wrong", overrideableFrameCount + spreadChildCount, spread.getChildren().size());
-		int originalChildCountAfterOverride = spread.getChildren().size();
-	    
+		List<Page> pages = spread.getPages();
+		int pageIndex = pages.indexOf(page);
+		
+		assertEquals(0,pageIndex);
+		
+		for (Page page2 : pages) {
+			page2.setAppliedMaster(masterSpread);
+			page2.overrideMasterSpreadObjects();
+		}
+
+		// Verify that overridden threaded frames do not still have the master spread as their 
+		// parent spread:
+		
+		for (Page page2 : pages) {
+			Spread master = page2.getAppliedMaster();
+			if (master == null)
+				continue;
+			Spread mySpread = page2.getSpread();
+			for (TextFrame frame : page2.getAllFrames()) {
+				TextFrame next = frame.getNextInThread();
+
+				while (next != null) {
+					assertSame(mySpread, (Spread)next.getParent());
+					assertNotSame(master, (Spread)next.getParent());
+					TextFrame prev = frame.getPreviousInThread();
+					assertSame(mySpread, (Spread)prev.getParent());
+					assertNotSame(master, (Spread)prev.getParent());
+					TextFrame first = frame.getFirstFrameInThread();
+					assertSame(mySpread, (Spread)first.getParent());
+					assertNotSame(master, (Spread)first.getParent());
+					TextFrame last = frame.getLastFrameInThread();
+					assertSame(mySpread, (Spread)last.getParent());
+					assertNotSame(master, (Spread)last.getParent());
+
+					next = next.getNextInThread();
+				}
+			}
+		}
+		
+		
 	    // Now look for a text frame with the label "initialFrame" or
 	    // just get the first text frame in the list of frames.
 	    String targetLabel = INITIAL_FRAME_LABEL + (page.getPageSide().equals(PageSideOption.LEFT_HAND)? "Even" : "Odd");
@@ -143,14 +176,18 @@ public class ComplexPageCreationTest extends InxReaderTestBase {
 		newDoc.load(docElem);
 		
 		assertEquals("Expected one spread", 1, newDoc.getSpreads().size());
-		
-		spread = newDoc.getSpread(0);
+		int originalChildCount = spread.getRectangles().size();
+ 		spread = newDoc.getSpread(0);
 		assertNotNull("Expected a spread", spread);
-		assertEquals("Child count does not match original", originalChildCountAfterOverride, spread.getChildren().size());
+		assertEquals("Child count does not match original", originalChildCount, spread.getChildren().size());
 		assertEquals("Frame count did not match", overrideableFrameCount, spread.getAllFrames().size());
 
 		page = spread.getOddPage();
 		assertNotNull("Expected a page", page);
+		page.overrideMasterSpreadObjects();
+		List<Rectangle> rects = page.getRectangles();
+		assertNotNull(rects);
+		assertEquals("Overridden frames doesn't match expected count", overrideableFrameCount, rects.size());
 
 
 	}

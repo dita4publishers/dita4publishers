@@ -20,16 +20,13 @@ import org.w3c.dom.Element;
  */
 public class Spread extends InDesignRectangleContainingObject {
 
-	private static Logger logger = Logger.getLogger(Spread.class);
+	private static Logger log = Logger.getLogger(Spread.class);
 
 	/**
 	 * The index of this spread within the list of spreads
 	 * or master spreads.
 	 */
 	private int spreadIndex = -1;
-
-	private MasterSpread masterSpread;
-
 
 	/**
 	 * Pages indexed by object ID.
@@ -43,7 +40,7 @@ public class Spread extends InDesignRectangleContainingObject {
 	/**
 	 * Pages in document order.
 	 */
-	private List<Page> pages = new ArrayList<Page>();
+	List<Page> pages = new ArrayList<Page>();
 
 	private TransformationMatix transformationMatrix;
 
@@ -100,13 +97,23 @@ public class Spread extends InDesignRectangleContainingObject {
 	 * @param page
 	 * @throws Exception 
 	 */
-	private void setPageSide(Page page) throws Exception {
+	protected void setPageSide(Page page) throws Exception {
 		if (getDocumentPreferences().isFacingPages()) {
-			if (this.pages.size() % 2 == 0) {
-				page.setPageSide(PageSideOption.LEFT_HAND);
+			int inx = this.pages.indexOf(page);
+			// If a page 
+			if (this.getSpreadIndex() == 0) {
+				// The first spread should have exactly one page, which will
+				// always be a right-hand page
+				page.setPageSide(PageSideOption.RIGHT_HAND);				
 			} else {
-				page.setPageSide(PageSideOption.RIGHT_HAND);
-			}
+				// Otherwise, first page will be left-hand (even numbered)
+				// subsequent pages will be right hand.
+				if (inx == 0) {
+					page.setPageSide(PageSideOption.LEFT_HAND);
+				} else {
+					page.setPageSide(PageSideOption.RIGHT_HAND);
+				}
+			} 
 		}
 	}
 
@@ -118,6 +125,14 @@ public class Spread extends InDesignRectangleContainingObject {
 		DocumentPreferences docPrefs = getDocumentPreferences();
 		page.setWidth(docPrefs.getPageWidth());
 		page.setHeight(docPrefs.getPageHeight());
+		TransformationMatix matrix = page.getTransformationMatrix();
+		// Origin of each spread is the middle of the spread,
+		// so the translation from page coords to page coords
+		// is a downward translation  of 1/2 page height:
+		
+		double yTrans = 0 - (page.getWidth() / 2);
+		matrix.setYTranslation(yTrans);
+		page.setTransformationMatrix(matrix);
 		
 	}
 
@@ -130,9 +145,10 @@ public class Spread extends InDesignRectangleContainingObject {
 
 	public void loadObject(Element dataSource) throws Exception {
 			// logger.debug("loadObject(): spreadIndex=" + spreadIndex);
-		    super.loadObject(dataSource);
+		    super.loadObject(dataSource); // Handle master spread association
 		}
 	
+	@Override
 	public void postLoad() throws Exception {
 		for (InDesignComponent child : this.getChildren()) {
 			if (child instanceof Page) {
@@ -140,7 +156,8 @@ public class Spread extends InDesignRectangleContainingObject {
 				setPageBounds(page);
 				this.pages.add(page);
 				this.pagesById.put(page.getId(), page);
-				setPageSide(page);
+				this.pagesByName.put(page.getName(), page);
+				setPageSide(page);				
 			}
 		}
 		if (this.getName() == null) {
@@ -151,7 +168,9 @@ public class Spread extends InDesignRectangleContainingObject {
 				this.setPName(spreadName);
 			}
 		}
-		logger.debug("loadObject(): Spread name=\"" + this.getName() + "\"");
+		
+		this.assignRectanglesToPages();
+		log.debug("loadObject(): Spread name=\"" + this.getName() + "\"");
 		
 
 	}
@@ -170,29 +189,29 @@ public class Spread extends InDesignRectangleContainingObject {
 		
 		// Pages do not literally contain frames but InDesign maintains a list of frames for each
 		// page.
-		logger.debug("loadObject(): Assigning rectangles to pages()");
+		log.debug("loadObject(): Assigning rectangles to pages()");
 		assignRectanglesToPages();
 
 	}
 
 	public void setTransformationMatrix(int spreadIndex) throws Exception {
-		logger.debug("setTransformationMatrix(): Starting, spreadIndex=" + spreadIndex);
-		double[] matrix = {1.0,0.0,0.0,1.0,0.0,0.0};
+		log.debug("setTransformationMatrix(): Starting, spreadIndex=" + spreadIndex);
+		double[] matrix = {1.0, 0.0, 0.0, 1.0, 0.0, 0.0};
 		// The spread matrix translates spread coordinates to pasteboard
 		// coordinates. The horizontal coordinates are invariant, but the
 		// vertical dimension is translated in the positive direction for
 		// each spread
 		
 		if (spreadIndex > 0) {
-			logger.debug("setTransformationMatrix(): spreadIndex=" + spreadIndex);
+			log.debug("setTransformationMatrix(): spreadIndex=" + spreadIndex);
 			InDesignDocument doc = (InDesignDocument)this.getParent();
 			double offset = doc.getSpreadOffset();
-			logger.debug("setTransformationMatrix(): offset=" + offset);
+			log.debug("setTransformationMatrix(): offset=" + offset);
 			matrix[5] = offset * spreadIndex;
 		}
 		
 		this.transformationMatrix = new TransformationMatix(matrix);
-		logger.debug("setTransformationMatrix(): Matrix=" + this.getTransformationMatrix());
+		log.debug("setTransformationMatrix(): Matrix=" + this.getTransformationMatrix());
 	}
 
 	/**
@@ -207,14 +226,14 @@ public class Spread extends InDesignRectangleContainingObject {
 	 * page to the geometry of the rectangle.
 	 * @throws Exception 
 	 */
-	private void assignRectanglesToPages() throws Exception {
-		logger.debug("assignRectanglesToPages(): Assigning rectangles to pages for spread " + this.getName() + "....");
+	public void assignRectanglesToPages() throws Exception {
+		log.debug("assignRectanglesToPages(): Assigning rectangles to pages for spread " + this.getName() + "....");
 		
 		List<Rectangle> recs = new ArrayList<Rectangle>(this.getRectangles());
-		logger.debug("assignRectanglesToPages(): got " + recs.size() + " rectangles for spread");
-		logger.debug("assignRectanglesToPages(): got " + pagesById.size() + " pages for spread");
+		log.debug("assignRectanglesToPages(): got " + recs.size() + " rectangles for spread");
+		log.debug("assignRectanglesToPages(): got " + pagesById.size() + " pages for spread");
 		for (Page page : this.getPages()) {
-			logger.debug("assignRectanglesToPages(): Processing page " + page.getName() + " with bounding box " + page.getBoundingBox());
+			log.debug("assignRectanglesToPages(): Processing page " + page.getName() + " with bounding box " + page.getBoundingBox());
 			ListIterator<Rectangle> iter = recs.listIterator();
 			while (iter.hasNext()) {
 				Rectangle rect = iter.next();
@@ -226,18 +245,18 @@ public class Spread extends InDesignRectangleContainingObject {
 					label = " [" + lbl + "]"; 
 				} else
 					label = "";
-				logger.debug("assignRectanglesToPages(): " + rect.getClass().getSimpleName() + ": " + label + rect + "...");
+				log.debug("assignRectanglesToPages(): " + rect.getClass().getSimpleName() + ": " + label + rect + "...");
 				if (page.intersects(rect)) {
-					logger.debug("assignRectanglesToPages():   rect intersects page, adding to page's rect list");
+					log.debug("assignRectanglesToPages():   rect intersects page, adding to page's rect list");
 					page.addRectangle(rect);
 					if (page.contains(rect))
-						logger.debug("assignRectanglesToPages():   Page contains rectangle, removing from master list of rectagles.");
+						log.debug("assignRectanglesToPages():   Page contains rectangle, removing from master list of rectagles.");
 						iter.remove();
 				}
 			}
-			logger.debug("assignRectanglesToPages(): Assigned " + page.getRectangles().size() + " to page " + page.getName());
+			log.debug("assignRectanglesToPages(): Assigned " + page.getRectangles().size() + " to page " + page.getName());
 		}
-		logger.debug("assignRectanglesToPages(): Done.");
+		log.debug("assignRectanglesToPages(): Done.");
 		
 		
 	}
@@ -286,20 +305,6 @@ public class Spread extends InDesignRectangleContainingObject {
 	}
 	
 	/**
-	 * @return
-	 */
-	public MasterSpread getMasterSpread() {
-		return this.masterSpread;
-	}
-
-	/**
-	 * @param masterSpread
-	 */
-	public void setMasterSpread(MasterSpread masterSpread) {
-		this.masterSpread = masterSpread;
-	}
-
-	/**
 	 * @param pageNumber
 	 * @return
 	 * @throws Exception 
@@ -336,6 +341,8 @@ public class Spread extends InDesignRectangleContainingObject {
 		this.addChild(page);
 		return page;
 	}
+	
+	
 
 
 	/**
@@ -346,59 +353,6 @@ public class Spread extends InDesignRectangleContainingObject {
 		visitor.visit(this);
 	}
 
-	/**
-	 * Override any overrideable objects in the spread's master spread.
-	 * @throws Exception 
-	 */
-	public void overrideMasterSpreadObjects() throws Exception {
-		InDesignDocument doc = (InDesignDocument)getParent();
-		
-		Map<TextFrame, TextFrame> masterToOverride = new HashMap<TextFrame, TextFrame>();
-		
-		for (InDesignComponent comp : this.masterSpread.getChildren()) {
-			if (comp.isOverrideable()) {
-				if (comp instanceof InDesignObject) {
-					InDesignObject idObj = (InDesignObject)comp;
-					if (idObj instanceof TextFrame) {
-						TextFrame masterFrame = (TextFrame)idObj;
-						Story masterStory = masterFrame.getParentStory();
-						Story clonedStory = null;
-						if (masterStory != null) {
-							clonedStory = (Story)this.getDocument().clone(masterStory);
-						}
-						TextFrame overrideFrame = (TextFrame)doc.clone(masterFrame);
-						overrideFrame.setParentStory(clonedStory); 
-						overrideFrame.setMasterFrame(masterFrame);
-						masterToOverride.put(masterFrame, overrideFrame);						
-						this.addRectangle(overrideFrame);
-					} else if (idObj instanceof Rectangle) {					
-						this.addRectangle((Rectangle)(doc.clone(idObj)));
-					} else {
-						this.addChild(idObj);
-					}
-				} else {
-					this.addChild(comp);
-				}
-			}
-		}
-		
-		// Now rework any threading in the cloned frames:
-		for (TextFrame masterFrame : masterToOverride.keySet()) {
-			if (masterFrame.getNextInThread() == null) continue;
-			TextFrame override = masterToOverride.get(masterFrame);
-			InDesignComponent nextMaster = masterFrame.getNextInThread();
-			TextFrame nextOverride = masterToOverride.get(nextMaster);
-			if (this.frames.containsKey(nextOverride.getId())) {
-				override.setNextInThread(nextOverride);
-			} else {
-				override.setNextInThread((TextFrame)null);
-			}
-		}
-		
-		logger.debug("loadObject(): Assigning rectangles to pages()");
-		assignRectanglesToPages();
-	}
-	
 	/* (non-Javadoc)
 	 * @see org.dita2indesign.indesign.inx.model.InDesignComponent#updatePropertyMap()
 	 */
@@ -429,6 +383,23 @@ public class Spread extends InDesignRectangleContainingObject {
 		}
 		this.pagesById.remove(page.getId());
 		this.pagesByName.remove(page.getName());		
+	}
+
+	/**
+	 * Add new pages to the spread.
+	 * 
+	 * @param initialPageNumber
+	 * @param pagesToAdd
+	 * @param master
+	 * @throws Exception
+	 */
+	public List<Page> addPages(int initialPageNumber, int pagesToAdd) throws Exception {
+		List<Page> pages = new ArrayList<Page>();
+		for (int i = 0; i < pagesToAdd; i++) {
+			Page page = addPage(i + initialPageNumber);
+			pages.add(page);
+		}
+		return pages;
 	}
 
 

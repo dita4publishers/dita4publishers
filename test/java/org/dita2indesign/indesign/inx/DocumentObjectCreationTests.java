@@ -80,7 +80,6 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 
 		MasterSpread master = cloned.getMasterSpread(masterSpreadName);
 		assertNotNull("Didn't get the master spread", master);
-		assertEquals("Masters aren't equal", master, newSpread.getMasterSpread());
 		assertEquals("Expected 1 page in master spread", 1, master.getPages().size());
 		
 		assertEquals("Expected no pages in new spread", 0, newSpread.getPages().size());
@@ -121,7 +120,8 @@ public class DocumentObjectCreationTests extends InxReaderTestBase {
 		
 		assertEquals("Expected no frames in the spread", 0, newSpread.getAllFrames().size());
 		
-		newSpread.overrideMasterSpreadObjects();
+		newPage.overrideMasterSpreadObjects();
+		//newSpread.overrideMasterSpreadObjects();
 	
 		assertTrue("Expected some frames", newSpread.getAllFrames().size() > 0);
 		

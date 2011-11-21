@@ -4,6 +4,7 @@
 package org.dita2indesign.indesign.inx;
 
 import java.util.Collection;
+import java.util.List;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
@@ -12,10 +13,12 @@ import org.apache.log4j.Logger;
 
 import org.dita2indesign.indesign.inx.FrameToPageAssignmentTest;
 import org.dita2indesign.indesign.inx.InxReaderTestBase;
+import org.dita2indesign.indesign.inx.model.Geometry;
 import org.dita2indesign.indesign.inx.model.InDesignDocument;
 import org.dita2indesign.indesign.inx.model.Page;
 import org.dita2indesign.indesign.inx.model.Rectangle;
 import org.dita2indesign.indesign.inx.model.Spread;
+import org.dita2indesign.indesign.inx.model.TextFrame;
 
 /**
  *
@@ -36,7 +39,7 @@ public class FrameToPageAssignmentTest extends InxReaderTestBase {
 	 * Tests the correct assignment of frames to pages within a main body spread.
 	 * @throws Throwable
 	 */
-	public void testAssignFramesToPages() throws Throwable {
+	public void xtestAssignFramesToPages() throws Throwable {
 		InDesignDocument doc = new InDesignDocument();
 		doc.load(geoTest);
 		Spread spread;
@@ -69,17 +72,25 @@ public class FrameToPageAssignmentTest extends InxReaderTestBase {
 	 */
 	public void testAssignFramesToMasterPages() throws Throwable {
 		InDesignDocument doc = new InDesignDocument();
-		doc.load(inxData2);
+		doc.load(page2FrameTest);
 		Spread master;
 		Rectangle rect;
 		Page page;
 		
-		master = doc.getMasterSpread("LT-BB_Left");
+		
+		master = doc.getMasterSpread("A-Master");
 		assertNotNull(master);
-		page = master.getOddPage();
+		page = master.getEvenPage();
 		assertNotNull(page);
-		Collection<Rectangle> rects = page.getRectangles();
-		assertEquals("Wrong number of frames on page", 12, rects.size());
+
+		System.out.println(" ++++++ ");
+		
+		System.out.println("Master Spread geometry:");
+		System.out.println(master.getGeometry());
+		
+		List<Rectangle> rects = page.getRectangles();
+		
+		assertEquals("Wrong number of frames on page", 4, rects.size());
 		
 
 	}

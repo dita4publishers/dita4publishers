@@ -14,6 +14,11 @@ import org.apache.log4j.Logger;
  * Holds the six values of an InDesign transformation matrix and
  * provides utility methods for applying transformation matrices to
  * boxes.
+ * <p>The matrix [1,0,0,1,0,0] is the identity matrix.</p>
+ * <p>See the Adobe PDF manual (http://www.adobe.com/devnet/pdf/pdf_reference.html)
+ * for a general explanation of transformation matrixes and operations on them.
+ * </p>
+ * 
  */
 public class TransformationMatix {
 
@@ -23,8 +28,8 @@ public class TransformationMatix {
 	private double b = 0; // Rotation 
 	private double c = 0; // Rotation
 	private double d = 1; // Scale Y. Default for translation
-	private double e = 1; // X translation
-	private double f = 1; // Y translation
+	private double e = 0; // X translation
+	private double f = 0; // Y translation
 
 	/**
 	 * @param values
@@ -105,6 +110,15 @@ public class TransformationMatix {
 	public void setXTranslation(double e) {
 		this.e = e;
 		
+	}
+
+	public PathPoint transform(PathPoint point) {
+		double x = point.getX();
+		double y = point.getY();
+		double newX = (a*x) + (c*y) + e;
+		double newY = (b*x) + (d*y) + f;
+		PathPoint newPoint = new PathPoint(newX, newY);
+		return newPoint;
 	}
 
 
