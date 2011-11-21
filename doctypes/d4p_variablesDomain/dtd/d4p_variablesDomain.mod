@@ -110,7 +110,7 @@
      The content of the element is the name of the variable.
      
      Note: Because <text> and <keyword> are not in all contexts, there are
-     three variants of this element one from <keyword> and one 
+     two variants of this element one from <keyword> and one 
      from <text>. Their semantics and behavior are identical.
      
   -->
