@@ -558,8 +558,6 @@ public class InDesignDocument extends InDesignObject {
         // Get the corresponding master spread, clone its data source,
         // and use that to load the spread.
         
-        MasterSpread  masterSpread = this.getMasterSpread(masterSpreadName);
-        
         spread.setTransformationMatrix(this.spreads.size());
         
         return spread;
@@ -1048,43 +1046,22 @@ public class InDesignDocument extends InDesignObject {
 					throws Exception,
 			InDesignDocumentException {
 		
-		List<TextFrame> firstThreadFrames = new ArrayList<TextFrame>();
-		for (Rectangle masterRect : masterToOverride.keySet()) {
-			if (masterRect instanceof TextFrame) {
-				TextFrame masterFrame = (TextFrame)masterRect;
-				masterFrame = masterFrame.getFirstFrameInThread();
-				if (masterFrame != null) {
-					if (!firstThreadFrames.contains(masterFrame)) {
-						firstThreadFrames.add(masterFrame);
-					}
-				}
+		for (Rectangle rect : masterToOverride.keySet()) {
+			if (!(rect instanceof TextFrame)) continue;
+			TextFrame master = (TextFrame)rect;
+			TextFrame clone = (TextFrame)masterToOverride.get(master);
+			TextFrame prev = clone.getPreviousInThread();
+			if (prev != null) {
+				TextFrame prevClone = (TextFrame)masterToOverride.get(prev);
+				clone.setPreviousInThread(prevClone);
+			}
+			TextFrame next = clone.getNextInThread();
+			if (next != null) {
+				TextFrame nextClone = (TextFrame)masterToOverride.get(next);
+				clone.setNextInThread(nextClone);
 			}
 		}
 		
-		// Now we have a list of the first frames of all the threads
-		// in the master that have been overridden.
-		
-		// Now rework any threading in the cloned frames:
-		
-		for (TextFrame firstMaster : firstThreadFrames) {
-			TextFrame nextMaster = firstMaster.getNextInThread();
-			TextFrame nextOverride = null;
-			TextFrame prevOverride = (TextFrame)masterToOverride.get(firstMaster);
-			if (prevOverride == null) {
-				throw new InDesignDocumentException("First thread in page master \"" + ((MasterSpread)firstMaster.getParent()).getName() + "\" was not overridden.");
-			}
-			while (nextMaster != null) {
-				nextOverride = (TextFrame)masterToOverride.get(nextMaster);
-				if (nextOverride == null) {
-					throw new InDesignDocumentException("Frame [" + nextMaster.getId() + "] in thread in page master \"" + ((MasterSpread)firstMaster.getParent()).getName() + "\" was not overridden.");
-				}
-				prevOverride.setNextInThread(nextOverride);
-				nextOverride.setPreviousInThread(prevOverride);
-				prevOverride = nextOverride;
-				nextMaster = nextMaster.getNextInThread();
-			}
-			prevOverride.setNextInThread(null); // Make sure we end the thread.
-		}
 	}
 
 
