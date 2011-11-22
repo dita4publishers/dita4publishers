@@ -15,7 +15,8 @@
 <!-- ============================================================= -->
 
 <!ENTITY % d4p_formatting-d-ph
-   "br |
+   "art-ph |
+    br |
     b-i |
     b-sc |
     eqn_inline |
@@ -26,7 +27,8 @@
 >
 
 <!ENTITY % d4p_formatting-d-p
-   "eqn_block
+   "eqn_block |
+    art
    "
 >
 

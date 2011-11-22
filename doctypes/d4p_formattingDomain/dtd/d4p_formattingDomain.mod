@@ -9,19 +9,20 @@
      
      ============================================================= -->
      
+ <!ENTITY % art-ph        "art-ph" >
  <!ENTITY % art           "art" >
  <!ENTITY % art_title     "art_title" >
- <!ENTITY % b-i          "b-i"                                      >
+ <!ENTITY % b-i           "b-i">
  <!ENTITY % br            "br" >
- <!ENTITY % b-sc         "b-sc"                                         >
+ <!ENTITY % b-sc          "b-sc">
  <!ENTITY % eqn_inline    "eqn_inline" >
  <!ENTITY % eqn_block     "eqn_block" >
  <!ENTITY % d4pMathML     "d4pMathML" >
  <!ENTITY % frac          "frac" >
  <!ENTITY % inx_snippet   "inx_snippet" >
  <!ENTITY % linethrough   "linethrough" >
- <!ENTITY % roman        "roman"                                      >
- <!ENTITY % sc           "sc"                                         >
+ <!ENTITY % roman         "roman">
+ <!ENTITY % sc            "sc">
  <!ENTITY % tab           "tab" >
      
 
@@ -203,6 +204,29 @@
 <!ELEMENT art %art.content; >
 <!ATTLIST art %art.attributes; >
 
+<!ENTITY % art-ph.content
+"
+  ((%art_title;)?,
+   (%image; |
+    %object; |
+    %foreign;)*,
+   (%data;)*)
+">
+<!ENTITY % art-ph.attributes
+"
+  %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    #IMPLIED    
+">
+<!ELEMENT art-ph %art-ph.content; >
+<!ATTLIST art-ph %art-ph.attributes; >
+
 <!ENTITY % art_title.content
 "
   (%ph.cnt;)*
@@ -333,7 +357,8 @@
 <!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
 <!-- ============================================================= -->
 
-<!ATTLIST art              %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/art ">
+<!ATTLIST art-ph           %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/art-ph ">
+<!ATTLIST art              %global-atts;  class CDATA "+ topic/p     d4p-formatting-d/art ">
 <!ATTLIST art_title        %global-atts;  class CDATA "+ topic/data  d4p-formatting-d/art_title ">
 
 <!ATTLIST b-i              %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/b-i "  >
