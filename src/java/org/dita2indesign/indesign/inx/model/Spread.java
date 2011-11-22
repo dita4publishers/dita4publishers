@@ -130,7 +130,7 @@ public class Spread extends InDesignRectangleContainingObject {
 		// so the translation from page coords to page coords
 		// is a downward translation  of 1/2 page height:
 		
-		double yTrans = 0 - (page.getWidth() / 2);
+		double yTrans = 0 - (page.getHeight() / 2);
 		matrix.setYTranslation(yTrans);
 		page.setTransformationMatrix(matrix);
 		

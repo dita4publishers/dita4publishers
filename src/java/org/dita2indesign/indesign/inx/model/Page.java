@@ -5,7 +5,6 @@ package org.dita2indesign.indesign.inx.model;
 
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -237,27 +236,32 @@ public class Page extends InDesignRectangleContainingObject {
 		// spreads.
 		
 		int myIndex = spread.getPages().indexOf(this);
+		if (spread.getSpreadIndex() == 0 && this.getPageSide().equals(PageSideOption.RIGHT_HAND)) {
+			myIndex = 1; // Get the right-hand page from the spread.
+		}
 		MasterSpread masterSpread = this.getMasterSpread();
 		if (masterSpread == null) {
 			log.warn("overrideMasterSpreadObjects(): No master spread for spread " + spread.getSpreadIndex() + " [" + spread.getId() + "]");
 			return;
 		}
-		Page masterPage = this.getMasterSpread().getPages().get(myIndex);
-						
+		// Handle the case where a master only has 1 page
+		// but we've asked for a right-hand page.
+		if (masterSpread.getPages().size() <= myIndex) {
+			myIndex = masterSpread.getPages().size() - 1;
+		}
+		Page masterPage = masterSpread.getPages().get(myIndex);
+				
 		for (Rectangle rect : masterPage.getRectangles()) {
 			if (rect.isOverrideable()) {
 				Rectangle clone = (Rectangle)doc.clone(rect);
-				clone.setParent(this.getParent()); // Rectangles are held by the spread, not the page.
+				spread.addRectangle(clone);
 				if (rect instanceof TextFrame) {
 					TextFrame masterFrame = (TextFrame)rect;
-					Story masterStory = masterFrame.getParentStory();
-					Story clonedStory = null;
-					if (masterStory != null) {
-						clonedStory = (Story)this.getDocument().clone(masterStory);
-					}
 					TextFrame overrideFrame = (TextFrame)clone;					
 					overrideFrame.setMasterFrame(masterFrame);
 					this.addRectangle(overrideFrame);
+					// FIXME: May need to clone or remove any story.
+					// May need to do that after updating threads.
 				}
 				this.addRectangle(clone);
 				masterToOverride.put(rect, clone);						

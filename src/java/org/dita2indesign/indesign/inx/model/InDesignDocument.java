@@ -1079,6 +1079,7 @@ public class InDesignDocument extends InDesignObject {
 					throw new InDesignDocumentException("Frame [" + nextMaster.getId() + "] in thread in page master \"" + ((MasterSpread)firstMaster.getParent()).getName() + "\" was not overridden.");
 				}
 				prevOverride.setNextInThread(nextOverride);
+				nextOverride.setPreviousInThread(prevOverride);
 				prevOverride = nextOverride;
 				nextMaster = nextMaster.getNextInThread();
 			}

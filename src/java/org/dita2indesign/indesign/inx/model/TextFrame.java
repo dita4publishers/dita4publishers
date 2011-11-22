@@ -94,20 +94,15 @@ public class TextFrame extends Rectangle {
 	}
 
 	/**
-	 * Set the next frame in the thread. Automatically
-	 * sets this frame as the previous frame on 
-	 * the specified text frame.
+	 * Set the next frame in the thread. Note that
+	 * the caller must also update the previous
+	 * in thread to keep things in sync. Because of cloning
+	 * operations, this method cannot reliably update
+	 * the next frame's previous pointer.
 	 * @param nextTextFrame The frame to which this frame
 	 * is to be threaded.
 	 */
 	public void setNextInThread(TextFrame nextTextFrame) {
-		if (nextTextFrame == null) {
-			if (this.nextInThread != null) {
-				this.nextInThread.setPreviousInThread(null);
-			}
-		} else {
-			nextTextFrame.setPreviousInThread(this);
-		}
 		this.nextInThread = nextTextFrame;
 	}
 
