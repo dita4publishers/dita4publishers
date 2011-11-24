@@ -441,6 +441,15 @@ public abstract class InDesignComponent {
 		return getBooleanProperty("ovbl");
 	}
 
+	/**
+	 * Removes the specified property from the component's
+	 * property map if the property exists.
+	 * @param propName The name of the property to remove.
+	 */
+	public void removeProperty(String propName) {
+		this.properties.remove(propName);
+	}
+
 
 
 }

@@ -57,13 +57,6 @@ public class TextFrame extends Rectangle {
 		} else {
 			this.parentStoryId = null;
 		}
-		// FIXME: Need to go to first in thread and set the parent 
-		// story on the whole thread. This code assumes we're on the
-		// first in the thread.
-		TextFrame nextInThread = this.getNextInThread();
-		if (nextInThread != null) {
-			nextInThread.setParentStory(parentStory);
-		}
 		return parentStory;
 	}
 	
@@ -104,6 +97,9 @@ public class TextFrame extends Rectangle {
 	 */
 	public void setNextInThread(TextFrame nextTextFrame) {
 		this.nextInThread = nextTextFrame;
+		this.removeProperty(InDesignDocument.PROP_NTXF);
+		this.removeProperty(InDesignDocument.PROP_FTXF);
+		this.removeProperty(InDesignDocument.PROP_LTXF);
 	}
 
 	/**
@@ -112,8 +108,11 @@ public class TextFrame extends Rectangle {
 	 * as the next frame in thread on some other frame.
 	 * @param textFrame
 	 */
-	protected void setPreviousInThread(TextFrame textFrame) {
+	public void setPreviousInThread(TextFrame textFrame) {
 		this.previousInThread = textFrame;
+		this.removeProperty(InDesignDocument.PROP_PTXF);
+		this.removeProperty(InDesignDocument.PROP_FTXF);
+		this.removeProperty(InDesignDocument.PROP_LTXF);
 	}
 
 	/**
@@ -170,6 +169,10 @@ public class TextFrame extends Rectangle {
 			first = cand;
 			cand = first.getPreviousInThread();
 		}
+		// Not sure this can ever happen but...
+		if (this.equals(first) && this.getNextInThread() == null) {
+			return null;
+		}
 		return first;
 	}
 
@@ -179,6 +182,10 @@ public class TextFrame extends Rectangle {
 		while (cand != null) {
 			last = cand;
 			cand = last.getNextInThread();
+		}
+		// Not sure this can ever happen but...
+		if (this.equals(last) && this.getPreviousInThread() == null) {
+			return null;
 		}
 		return last;
 	}

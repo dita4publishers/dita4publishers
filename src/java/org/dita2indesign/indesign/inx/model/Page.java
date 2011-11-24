@@ -260,13 +260,14 @@ public class Page extends InDesignRectangleContainingObject {
 					TextFrame overrideFrame = (TextFrame)clone;					
 					overrideFrame.setMasterFrame(masterFrame);
 					this.addRectangle(overrideFrame);
-					// FIXME: May need to clone or remove any story.
-					// May need to do that after updating threads.
 				}
 				this.addRectangle(clone);
 				masterToOverride.put(rect, clone);						
 			}
 		}
+		
+		updateThreadsForOverriddenFrames(masterPage, masterToOverride);
+
 		
 	}
 
@@ -278,25 +279,37 @@ public class Page extends InDesignRectangleContainingObject {
 	 */
 	public void overrideMasterSpreadObjects() throws Exception {
 	
-		// Need to correlate this page to the corresponding master
-		// page, which is by index within the list of pages for the
-		// spreads.
-		
-		MasterSpread masterSpread = this.getMasterSpread();
-		if (masterSpread == null) {
-			log.warn("overrideMasterSpreadObjects(): No master spread for spread " + spread.getSpreadIndex() + " [" + spread.getId() + "]");
-			return;
-		}
-		int myIndex = spread.getPages().indexOf(this);
-		Page masterPage = this.getMasterSpread().getPages().get(myIndex);
-		
 		Map<Rectangle, Rectangle> masterToOverride = new HashMap<Rectangle, Rectangle>();
 		
 		overrideMasterSpreadObjects(masterToOverride);
 				
-		InDesignDocument.updateThreadsForOverriddenFrames(masterPage, masterToOverride);
 				
 	}
+	
+	private void updateThreadsForOverriddenFrames(
+			Page masterPage,
+			Map<Rectangle, Rectangle> masterToOverride) 
+					throws Exception,
+			InDesignDocumentException {
+		
+		for (Rectangle rect : masterToOverride.keySet()) {
+			if (!(rect instanceof TextFrame)) continue;
+			TextFrame master = (TextFrame)rect;
+			TextFrame clone = (TextFrame)masterToOverride.get(master);
+			TextFrame prev = clone.getPreviousInThread();
+			if (prev != null) {
+				TextFrame prevClone = (TextFrame)masterToOverride.get(prev);
+				clone.setPreviousInThread(prevClone);
+			}
+			TextFrame next = clone.getNextInThread();
+			if (next != null) {
+				TextFrame nextClone = (TextFrame)masterToOverride.get(next);
+				clone.setNextInThread(nextClone);
+			}
+		}
+		
+	}
+
 
 
 
