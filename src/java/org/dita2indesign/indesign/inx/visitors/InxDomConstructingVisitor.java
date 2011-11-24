@@ -4,6 +4,7 @@
 package org.dita2indesign.indesign.inx.visitors;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
@@ -89,14 +90,29 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 			// Now visit the result of the document components:
 			this.currentParentNode = newDocElem;
 			logger.debug("visit(InDesignDocument): iterating over children:");
+			// It appears that stories (cflo) must be output after any spreads
 			for (InDesignComponent comp : doc.getChildren()) {
 				if (logger.isDebugEnabled()) {
 					String dsName = comp.getInxTagName();
 					dsName = "<" + dsName + ">";
 					logger.debug("visit(InDesignDocument): child=" + comp.getClass().getSimpleName() + ", " + dsName);
 				}
-				comp.accept(this);
+				if (!(comp instanceof Story)) {
+					comp.accept(this);
+				}				
 			}
+			Iterator<Story> storyIter = doc.getStoryIterator();
+			while (storyIter.hasNext()) {
+				Story story = storyIter.next();
+				if (logger.isDebugEnabled()) {
+					String dsName = story.getInxTagName();
+					dsName = "<" + dsName + ">";
+					logger.debug("visit(InDesignDocument): child=" + story.getClass().getSimpleName() + ", " + dsName);
+				}
+				story.accept(this);
+			}
+			
+			
 		} else {
 			logger.debug("visit(): Document does not have a data source.");
 			
