@@ -366,7 +366,6 @@ public class InDesignDocument extends InDesignObject {
 	 */
 	private MasterSpread newMasterSpread(Element child) throws Exception {
 		MasterSpread obj = (MasterSpread) newSpread(MasterSpread.class, child);
-		obj.postLoad();
 		this.masterSpreads.put(obj.getPName(), obj);
 		return obj;
 	}
