@@ -156,10 +156,10 @@ public class TextFrame extends Rectangle {
 	public void updatePropertyMap() throws Exception {
 		super.updatePropertyMap();
 		this.setObjectReferenceProperty(InDesignDocument.PROP_FTXF, this.getFirstFrameInThread());
-		this.setObjectReferenceProperty(InDesignDocument.PROP_PTXF, this.previousInThread);
-		this.setObjectReferenceProperty(InDesignDocument.PROP_NTXF, this.nextInThread);
+		this.setObjectReferenceProperty(InDesignDocument.PROP_PTXF, this.getPreviousInThread());
+		this.setObjectReferenceProperty(InDesignDocument.PROP_NTXF, this.getNextInThread());
 		this.setObjectReferenceProperty(InDesignDocument.PROP_LTXF, this.getLastFrameInThread());
-		this.setObjectReferenceProperty(InDesignDocument.PROP_STRP, this.parentStory);
+		this.setObjectReferenceProperty(InDesignDocument.PROP_STRP, this.getParentStory());
 	}
 
 	public TextFrame getFirstFrameInThread() throws Exception {
