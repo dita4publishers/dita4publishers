@@ -359,7 +359,6 @@ public class Spread extends InDesignRectangleContainingObject {
 	@Override
 	public void updatePropertyMap() throws Exception {
 		super.updatePropertyMap();
-		setProperty(InDesignDocument.PROP_PAGC, new InxLong32(pages.size()));
 		if (pages.size() == 1) {
 			setProperty("BnLc", new InxLong32(0)); // Left side of first page (?)
 		} else {
