@@ -44,12 +44,6 @@
   "
 >
 
-<!ENTITY % image
-  "image |
-   %d4p_formatting-d-image;
-  "
->
-
 <!ENTITY % index-base   "index-base | 
                          %indexing-d-index-base;
                         ">
