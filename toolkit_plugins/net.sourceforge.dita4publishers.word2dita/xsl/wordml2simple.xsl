@@ -645,7 +645,7 @@
          <xsl:sequence select="$styleName"/>        
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message> + [WARN] lookupStyleName(): No style definition found for style ID "<xsl:sequence select="$styleId"/>", returning style ID.</xsl:message>
+        <xsl:message> + [WARN] lookupStyleName(): No style definition found for style name "<xsl:sequence select="$styleId"/>", returning style ID "<xsl:sequence select="$styleId"/>"</xsl:message>
         <xsl:sequence select="$styleId"/>
       </xsl:otherwise>
     </xsl:choose>

@@ -867,6 +867,7 @@
 	
   <target name="jar-inx-util" depends="dist-init,compile" description="Create jar for DITA2InDesign INX Utility library">
     <jar jarfile="${dist}/dita2indesign-inx-util.jar" basedir="${classes.home}" >
+			<include name="net/sourceforge/dita4publishers/util/conversion/**/*"/>
 			<include name="org/dita2indesign/util/**/*"/>
 			<include name="org/dita2indesign/indesign/**/*"/>
     </jar>

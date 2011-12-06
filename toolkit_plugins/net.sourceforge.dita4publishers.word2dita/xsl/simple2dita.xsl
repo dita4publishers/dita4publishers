@@ -969,17 +969,11 @@
             <xsl:with-param name="treePos" select="$treePos" as="xs:integer+"/>
           </xsl:apply-templates>
         </xsl:variable>
-        <xsl:variable name="resultDoc" as="node()*">
-          <xsl:call-template name="constructTopic">
-            <xsl:with-param name="content" select="$content" as="node()*"/>
-            <xsl:with-param name="level" select="$level" as="xs:integer"/>
-            <xsl:with-param name="topicName" as="xs:string" tunnel="yes" select="$topicName"/>
-          </xsl:call-template>
-        </xsl:variable>
-        <xsl:variable name="fixedUpDoc" as="node()*">
-          <xsl:apply-templates select="$resultDoc" mode="final-fixup"/>
-        </xsl:variable>
-        <xsl:sequence select="$fixedUpDoc"/>
+        <xsl:call-template name="constructTopic">
+          <xsl:with-param name="content" select="$content" as="node()*"/>
+          <xsl:with-param name="level" select="$level" as="xs:integer"/>
+          <xsl:with-param name="topicName" as="xs:string" tunnel="yes" select="$topicName"/>
+        </xsl:call-template>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>

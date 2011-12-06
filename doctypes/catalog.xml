@@ -23,6 +23,7 @@
   
   <nextCatalog catalog="article/catalog.xml"/>
   <nextCatalog catalog="chapter/catalog.xml"/>
+  <nextCatalog catalog="conversion_configuration/catalog.xml"/>
   <nextCatalog catalog="d4pCover/catalog.xml"/>
   <nextCatalog catalog="part/catalog.xml"/>
   <nextCatalog catalog="sidebar/catalog.xml"/>
