@@ -170,6 +170,9 @@ public class InDesignDocumentBuilder {
 	    				CONFIG_PARAM_FIRST_MASTER,
 	    				value);
 	    	    
+	    // FIXME: Allow each topic type to configure whether or not it starts
+	    // a new page sequence.
+	    pageCreationOptions.setStartNewMainThread(true); 
 	    List<TextFrame> frames = addPagesForPageMaster(inDesignDoc, pageCreationOptions);
 	    TextFrame firstFrame = frames.get(0);
 	    TextFrame lastFrame = frames.get(frames.size() - 1);
