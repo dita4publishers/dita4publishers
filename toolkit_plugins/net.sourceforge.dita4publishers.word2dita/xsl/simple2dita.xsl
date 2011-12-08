@@ -336,7 +336,7 @@
     
     <xsl:variable name="format" select="key('formats', $formatName, $styleMapDoc)[1]" as="element()?"/>
     <xsl:if test="not($format)">
-      <xsl:message terminate="yes"> + [ERROR] makeMap: Failed to find &lt;output:gt; element for @format value "<xsl:sequence select="$formatName"/>" specified for style "<xsl:sequence select="concat(string($firstP/@styleName),string($firstP/@styleId))"/>". Check your style-to-tag mapping.</xsl:message>
+      <xsl:message terminate="yes"> + [ERROR] makeMap: Failed to find &lt;output&gt; element for @format value "<xsl:sequence select="$formatName"/>" specified for style "<xsl:sequence select="string($firstP/@styleName)"/>" <xsl:sequence select="concat(' [', string($firstP/@styleId), ']')"/>. Check your style-to-tag mapping.</xsl:message>
     </xsl:if>
     
     <xsl:variable name="schemaAtts" as="attribute()*">
@@ -920,7 +920,7 @@
         
         <xsl:variable name="format" select="key('formats', $formatName, $styleMapDoc)[1]" as="element()?"/>
         <xsl:if test="not($format)">
-          <xsl:message terminate="yes"> + [ERROR] Failed to find output element with name "<xsl:sequence select="$formatName"/> specified for style <xsl:sequence select="string($firstP/@styleId)"/>.</xsl:message>
+          <xsl:message terminate="yes"> + [ERROR] makeMap: Failed to find &lt;output&gt; element for @format value "<xsl:sequence select="$formatName"/>" specified for style "<xsl:sequence select="string($firstP/@styleName)"/>" <xsl:sequence select="concat(' [', string($firstP/@styleId), ']')"/>. Check your style-to-tag mapping.</xsl:message>
         </xsl:if>
         <xsl:if test="$debugBoolean">
           <xsl:message> + [DEBUG] makeTopic: format="<xsl:sequence select="$format"/>"</xsl:message>
