@@ -18,21 +18,10 @@
     
        =============================================================== -->
   
-  <xsl:import href="../../toolkit_plugins/net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../toolkit_plugins/net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../lib/resolve-map.xsl"/>
-  <xsl:import href="dita-topicPreview.xsl"/>
-  <xsl:import href="dita-tocModePreview.xsl"/>
-  <xsl:import href="dita-hi-dPreview.xsl"/>
-  <xsl:import href="dita-sw-dPreview.xsl"/>
-  <xsl:import href="dita-pr-dPreview.xsl"/>
-  <xsl:import href="dita-ui-dPreview.xsl"/>
-  <xsl:import href="dita-xml-dPreview.xsl"/>
-  <xsl:import href="dita-pubmap-dPreview.xsl"/>
-  <xsl:import href="dita-rsuiteMetadataPreview.xsl"/>
-  
-  <xsl:param name="debug" select="'false'"/>
-  <xsl:variable name="debugBoolean" select="if ($debug = 'true') then true() else false()" as="xs:boolean"/>
+  <!--  Redirecting to the RSI-managed version of this since it's completely
+        RSuite-specific 
+   -->
+  <xsl:import href="rsuite:/res/plugin/rsuite-dita-support/preview/dita-previewImpl.xsl"/>
   
 
 </xsl:stylesheet>
