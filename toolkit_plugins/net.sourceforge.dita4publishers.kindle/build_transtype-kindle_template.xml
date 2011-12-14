@@ -186,7 +186,8 @@
     <condition property="user.copycss.yes">
       <isset property="args.css.present"/>
     </condition>
-    <property name="user.csspath.real" value="${css.output.dir}"/>
+    <property name="user.csspath.real" value="${kindle.temp.dir}/${css.output.dir}"/>
+  	<echo message="Copying css files to '${user.csspath.real}"/>
     <mkdir dir="${user.csspath.real}"/>    
     <!-- Always copy system default css files -->
     <copy todir="${user.csspath.real}">
