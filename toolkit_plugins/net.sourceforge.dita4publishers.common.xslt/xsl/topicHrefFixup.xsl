@@ -4,6 +4,7 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"
   xmlns:df="http://dita2indesign.org/dita/functions"
+  xmlns:m="http://www.w3.org/1998/Math/MathML"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   
   exclude-result-prefixes="xs htmlutil df relpath"
