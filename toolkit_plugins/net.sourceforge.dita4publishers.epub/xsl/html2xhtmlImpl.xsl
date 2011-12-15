@@ -5,7 +5,8 @@
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:local="urn:functions:local"
   xmlns="http://www.w3.org/1999/xhtml"
-  exclude-result-prefixes="xs xd local"
+  xmlns:m="http://www.w3.org/1998/Math/MathML"
+  exclude-result-prefixes="xs xd local m"
   version="2.0">
   <!-- Transform unnamespaced HTML docs into namespaced XHTML docs are required by the epub spec. 
   
@@ -34,6 +35,12 @@
     </xsl:element>
   </xsl:template>
 
+  <xsl:template mode="html2xhtml" match="math | m:math" xmlns="http://www.w3.org/1998/Math/MathML">
+    <xsl:element name="{name(.)}">
+      <xsl:apply-templates select="@*,node()" mode="#current"/>
+    </xsl:element>
+  </xsl:template>
+  
   <!-- <a> elements used for IDs are not used in XHTML -->
   <xsl:template match="a[@name and not(@href)]" priority="10" mode="html2xhtml"/>
   
