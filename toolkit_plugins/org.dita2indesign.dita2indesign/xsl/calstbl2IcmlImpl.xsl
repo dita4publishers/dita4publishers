@@ -22,7 +22,7 @@
   <xsl:import href="lib/icml_generation_util.xsl"/>
   <xsl:import href="elem2styleMapper.xsl"/>
   -->
-  <xsl:template match="*[df:class(.,'topic/table')]">
+  <xsl:template match="*[df:class(.,'topic/table')]" priority="20">
     <xsl:variable name="colCounts" select="ctbl:calcRowCounts(.)" as="xs:integer*"/>
     <xsl:variable name="numRows" select="count(.//*[df:class(., 'topic/row')])" as="xs:integer"/>
     <xsl:variable name="numCols" select="max($colCounts)" as="xs:integer"/>

@@ -151,12 +151,6 @@
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/image')]">
-    <xsl:message> + [DEBUG] (default mode): handling topic/image</xsl:message>
-    <xsl:processing-instruction name="aid">Char="fffc" Self="rc_<xsl:value-of select="generate-id(.)"/>Anchor"</xsl:processing-instruction>  
-  </xsl:template>
-  
-  <xsl:template match="*[df:class(., 'topic/image')]">
-    <xsl:message> + [DEBUG] : handling topic/image</xsl:message>
     <xsl:variable name="linkUri"
       select="
       if (starts-with(@href, 'file:') or starts-with(@href, 'http:'))
@@ -166,27 +160,43 @@
       as="xs:string"
     />
     <xsl:message> + [DEBUG] (mode images): linkUri="<xsl:sequence select="$linkUri"/>"</xsl:message>
-    <!-- NOTE: This geometry is totally bogus: it's just copied from a sample
-      that worked. Probably not worth trying to generate usable
-      geometry at this point.
-    -->
-    <crec sTtl="k_" 
-      IGeo="x_19_l_1_l_4_l_2_D_-71.52_D_-108_l_2_D_-71.52_D_108_l_2_D_71.52_D_108_l_2_D_71.52_D_-108_b_f_D_-71.52_D_-108_D_71.52_D_108_D_1_D_0_D_0_D_1_D_71.52_D_-108" 
-      cntt="e_grpt" 
-      STof="ro_{concat(generate-id(), 'Anchor')}" 
-      Self="rc_{generate-id()}">
-      <imag IGeo="x_f_l_0_D_0_D_0_D_143.04_D_216_D_1_D_0_D_0_D_1_D_-71.52_D_-108_D_0_D_0_D_143.04_D_216" 
+    <Rectangle 
+      Self="{generate-id()}">
+      <Properties>
+        <!-- NOTE: This geometry is totally bogus: it's just copied from a sample
+          that worked. Probably not worth trying to generate usable
+          geometry at this point.
+        -->
+        <PathGeometry>
+          <GeometryPathType PathOpen="false">
+            <PathPointArray>
+              <PathPointType Anchor="-72.0 -47.0" LeftDirection="-72.0 -47.0" RightDirection="-72.0 -47.0"/>
+              <PathPointType Anchor="-72.0 47.0" LeftDirection="-72.0 47.0" RightDirection="-72.0 47.0"/>
+              <PathPointType Anchor="72.0 47.0" LeftDirection="72.0 47.0" RightDirection="72.0 47.0"/>
+              <PathPointType Anchor="72.0 -47.0" LeftDirection="72.0 -47.0" RightDirection="72.0 -47.0"/>
+            </PathPointArray>
+          </GeometryPathType>
+        </PathGeometry>
+      </Properties>
+      <Image 
+        ImageRenderingIntent="UseColorSettings" 
+        AppliedObjectStyle="ObjectStyle/$ID/[None]" 
+        Visible="true" 
+        Name="$ID/"
         Self="rc_{concat(generate-id(),'Image')}">
         <!-- NOTE: The LnkI= attribute is required in order to create a working link but generating
                    that value is pretty much beyond the ability of XSLT. Need to look at the 
                    link generation code in the RSI INX Utils library to see how best to do this.
                    It may require integrating that library with XSLT.
-          -->
-        <clnk 
-          lURI="rc_{replace($linkUri, '_','~sep~')}" 
-          Self="rc_{concat(generate-id(),'Link')}"/>
-      </imag>
-    </crec>
+        -->
+        <Link 
+          Self="{concat(generate-id(),'Link')}" 
+          AssetURL="$ID/" 
+          AssetID="$ID/" 
+          LinkResourceURI="{$linkUri}" 
+        />
+      </Image>
+    </Rectangle>
   </xsl:template>
   
   <xsl:template match="text() | *" mode="XMP"/><!-- Suppress everything by default in XMP mode -->

@@ -37,7 +37,7 @@
     <xsl:param name="content" as="node()*"/>
     <xsl:param name="markerType" as="xs:string" select="'para'"/>
     
-    <xsl:message> + [DEBUG] makeBlock-cont: pStyle="<xsl:sequence select="$pStyle"/>", cStyle="<xsl:sequence select="$cStyle"/>"</xsl:message>
+<!--    <xsl:message> + [DEBUG] makeBlock-cont: pStyle="<xsl:sequence select="$pStyle"/>", cStyle="<xsl:sequence select="$cStyle"/>"</xsl:message>-->
     
     <xsl:variable name="pcntContent" as="node()*">
       <xsl:choose>
