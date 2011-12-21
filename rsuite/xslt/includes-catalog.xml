@@ -22,6 +22,9 @@
   <uri name="rsuite:/res/plugin/dita4publishers/toolkit_plugins/org.dita2indesign.dita2indesign/xsl/topic2article.xsl" 
     uri="WebContent/toolkit_plugins/org.dita2indesign.dita2indesign/xsl/topic2article.xsl"/>
   
+  <uri name="rsuite:/res/plugin/dita4publishers/toolkit_plugins/org.dita2indesign.dita2indesign/xsl/topic2articleIcml.xsl" 
+    uri="WebContent/toolkit_plugins/org.dita2indesign.dita2indesign/xsl/topic2articleIcml.xsl"/>
+  
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/lib/resolve-map.xsl" 
     uri="WebContent/xslt/lib/resolve-map.xsl"/>
 
