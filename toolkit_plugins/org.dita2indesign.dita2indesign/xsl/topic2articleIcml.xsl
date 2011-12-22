@@ -64,7 +64,6 @@
       specific topic types or output classes.
     -->
    <xsl:call-template name="makeInCopyArticle">
-     <xsl:with-param name="styleCatalog" select="$styleCatalog"/>    
      <xsl:with-param name="articleType" select="name(.)" tunnel="yes"/>     
    </xsl:call-template> 
   </xsl:template>

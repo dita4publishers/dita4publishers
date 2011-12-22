@@ -27,6 +27,9 @@
   <xsl:template 
     match="
     *[df:class(., 'topic/ph')] |
+    *[df:class(., 'topic/term')] |
+    *[df:class(., 'topic/keyword')] |
+    *[df:class(., 'topic/text')] |
     *[df:class(., 'topic/entry')] |
     *[df:class(., 'topic/cite')]
     " 
@@ -55,7 +58,11 @@
     match="
     *[df:class(., 'topic/bodydiv')] |
     *[df:class(., 'topic/sectiondiv')] |
-    *[df:class(., 'topic/p')] 
+    *[df:class(., 'topic/p')] |
+    *[df:class(., 'topic/dl')] |
+    *[df:class(., 'topic/ol')] |
+    *[df:class(., 'topic/sl')] |
+    *[df:class(., 'topic/ul')] 
     " 
     mode="block-children">
     <xsl:apply-templates mode="block-children"/>
@@ -75,9 +82,11 @@
 
   <xsl:template match="*[df:class(., 'topic/image')]" mode="block-children cont">
     <xsl:if test="$debugBoolean">
-      <xsl:message> + [DEBUG] (block-children/cont mode): handling topic/image</xsl:message>      
+      <xsl:message> + [DEBUG] (block-children/cont mode): handling topic/image</xsl:message>            
     </xsl:if>
-    <xsl:processing-instruction name="aid">Char="fffc" Self="rc_<xsl:value-of select="generate-id(.)"/>Anchor"</xsl:processing-instruction>  
+    <!-- Note sure what the right thing to do here is. Possbly nothing since anchored
+         frames don't really work in InDesign.
+      -->
   </xsl:template>
   
   <xsl:template match="processing-instruction(aid)" mode="cont">
@@ -100,10 +109,9 @@
     
 <!--    <xsl:message> + [DEBUG] block-children/cont: text(): pStyle="<xsl:sequence select="$pStyle"/>", cStyle="<xsl:sequence select="$cStyle"/>"</xsl:message>-->
     
-    <xsl:variable name="cStyleObjId" select="incxgen:getObjectIdForCharacterStyle($cStyle)" as="xs:string"/>
     <ParagraphStyleRange
       AppliedParagraphStyle="ParagraphStyle/{$pStyle}"><xsl:text>&#x0a;</xsl:text>
-      <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/{$cStyle}" ParagraphBreakType="NextFrame"
+      <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/{$cStyle}"
         >
         <Content><xsl:value-of select="incxgen:normalizeText($textValue)"
       /></Content></CharacterStyleRange><xsl:text>&#x0a;</xsl:text>

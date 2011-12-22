@@ -75,14 +75,12 @@
     
     <xsl:result-document href="{$articlePath}" format="incx">
       <xsl:call-template name="makeInCopyArticle">
-        <xsl:with-param name="styleCatalog" select="$styleCatalog"/>
         <xsl:with-param name="articleType" select="$effectiveArticleType" as="xs:string" tunnel="yes"/>
       </xsl:call-template>
     </xsl:result-document>    
   </xsl:template>
   
   <xsl:template name="makeInCopyArticle">
-    <xsl:param name="styleCatalog"/>
     <xsl:param name="content" as="node()*"/>
     <xsl:param name="leadingParagraphs" as="node()*"/>
     <xsl:param name="trailingParagraphs" as="node()*"/>
@@ -99,6 +97,20 @@
         else ./node()
       "
     />
+    
+    <!-- Get the generated paragraphs as a variable so we can
+         then construct a set of stub style definitions for them.
+      -->
+    <xsl:variable name="articleContents" as="node()*">
+      <xsl:sequence select="$leadingParagraphs"/>
+      <xsl:apply-templates select="$effectiveContents"/>
+      <xsl:sequence select="$trailingParagraphs"/>      
+    </xsl:variable>
+    
+    <xsl:variable name="effectiveStyleCatalog" as="node()*"
+      select="local:generateStyleCatalog($articleContents)"
+      />
+    
     <xsl:processing-instruction name="aid">
       style="50" type="snippet" readerVersion="6.0" featureSet="257" product="7.5(142)"
     </xsl:processing-instruction>
@@ -109,8 +121,8 @@
       <!-- FIXME: It may be sufficient to simply generate no-property style
            definitions for each style name or it may be possible to omit
            the styles entirely.
-        -->
-      <xsl:apply-templates select="$styleCatalog" mode="generate-styles"/>
+      -->
+      <xsl:sequence select="$effectiveStyleCatalog"/>
       <!-- Create the "story" for the topic contents: -->
       <Story 
         Self="{generate-id(.)}" 
@@ -134,11 +146,36 @@
           </Properties>
         </MetadataPacketPreference>
         <!-- Core content elements go here -->
-        <xsl:sequence select="$leadingParagraphs"/>
-        <xsl:apply-templates select="$effectiveContents"/>
-        <xsl:sequence select="$trailingParagraphs"/>
+        <xsl:sequence select="$articleContents"/>
       </Story><xsl:text>&#x0a;</xsl:text>      
     </Document>        
+  </xsl:template>
+  
+  
+  <xsl:template match="
+    *[df:class(., 'topic/p')][*[df:isBlock(.)]]
+    ">
+    <!-- Correctly handle paragraphs that contain mixed content with block-creating elements.
+      -->
+    <xsl:param name="articleType" as="xs:string" tunnel="yes"/>
+    
+    <xsl:variable name="pStyle" select="e2s:getPStyleForElement(., $articleType)" as="xs:string"/>
+    <xsl:variable name="cStyle" select="e2s:getCStyleForElement(.)" as="xs:string"/>
+    <xsl:for-each-group select="* | text()"
+      group-adjacent="if (self::*) then if (df:isBlock(.)) then 'block' else 'text' else 'text'">
+      <xsl:choose>
+        <xsl:when test="self::* and df:isBlock(.)">
+          <xsl:apply-templates select="current-group()"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:call-template name="makeBlock-cont">
+            <xsl:with-param name="pStyle" select="$pStyle" as="xs:string" tunnel="yes"/>
+            <xsl:with-param name="cStyle" select="$cStyle" as="xs:string" tunnel="yes"/>
+            <xsl:with-param name="content" as="node()*" select="current-group()"/>          
+          </xsl:call-template>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:for-each-group>
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/related-links')]">
@@ -338,6 +375,54 @@
 -->  
     <xsl:variable name="articleUrl" select="concat($topicFilename, '.incx')" as="xs:string"/>
     <xsl:sequence select="$articleUrl"/>
+  </xsl:function>
+  
+  <xsl:function name="local:generateStyleCatalog" as="node()*">
+    <xsl:param name="icmlParas" as="node()*"/>
+    <xsl:variable name="pStyleNames"
+      select="distinct-values($icmlParas//ancestor-or-self::ParagraphStyleRange/@AppliedParagraphStyle)"
+    />
+<!--    <xsl:message> + [DEBUG] generateStyleCatalog: pStyleName=<xsl:sequence select="$pStyleNames"/></xsl:message>-->
+    <xsl:variable name="cStyleNames"
+      select="distinct-values($icmlParas//CharacterStyleRange/@AppliedCharacterStyle)"
+    />
+<!--    <xsl:message> + [DEBUG] generateStyleCatalog: cStyleName=<xsl:sequence select="$pStyleNames"/></xsl:message>-->
+    <xsl:variable name="styleCatalog" as="node()*">
+      <RootCharacterStyleGroup Self="rootCharacterStyleGroup">
+        <xsl:for-each select="$cStyleNames">
+          <xsl:variable name="name" 
+            as="xs:string"
+            select="substring-after(., 'CharacterStyle/')" 
+          />
+          <CharacterStyle 
+            Self="CharacterStyle/{$name}" 
+            Name="{$name}" >
+            <Properties>
+              <BasedOn type="string">$ID/[No character style]</BasedOn>
+            </Properties>
+          </CharacterStyle>
+        </xsl:for-each>
+      </RootCharacterStyleGroup>  
+      <RootParagraphStyleGroup Self="rootParagraphStyleGroup">
+        <xsl:for-each select="$pStyleNames">
+          <xsl:variable name="name" 
+            as="xs:string"
+            select="substring-after(., 'ParagraphStyle/')" 
+          />
+          <!-- It appears that "$ID/" is part of the name -->
+          <ParagraphStyle 
+            Self="ParagraphStyle/{$name}" 
+            Name="{$name}" 
+            >
+            <Properties>
+              <BasedOn type="string">$ID/[No paragraph style]</BasedOn>
+            </Properties>
+          </ParagraphStyle>      
+        </xsl:for-each>
+      </RootParagraphStyleGroup>
+    </xsl:variable>
+    
+    <xsl:sequence select="$styleCatalog"/>
   </xsl:function>
   
 </xsl:stylesheet>
