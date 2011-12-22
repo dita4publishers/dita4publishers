@@ -76,6 +76,7 @@
     <xsl:result-document href="{$articlePath}" format="incx">
       <xsl:call-template name="makeInCopyArticle">
         <xsl:with-param name="articleType" select="$effectiveArticleType" as="xs:string" tunnel="yes"/>
+        <xsl:with-param name="styleCatalog" select="$styleCatalog" as="node()*"/>
       </xsl:call-template>
     </xsl:result-document>    
   </xsl:template>
@@ -85,6 +86,7 @@
     <xsl:param name="leadingParagraphs" as="node()*"/>
     <xsl:param name="trailingParagraphs" as="node()*"/>
     <xsl:param name="articleType" as="xs:string" tunnel="yes"/>
+    <xsl:param name="styleCatalog" as="node()*"/>
     
     <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] makeInCopyArticle: Article type is "<xsl:sequence select="$articleType"/>"</xsl:message>
@@ -108,7 +110,7 @@
     </xsl:variable>
     
     <xsl:variable name="effectiveStyleCatalog" as="node()*"
-      select="local:generateStyleCatalog($articleContents)"
+      select="local:generateStyleCatalog($articleContents, $styleCatalog)"
       />
     
     <xsl:processing-instruction name="aid">
@@ -379,6 +381,8 @@
   
   <xsl:function name="local:generateStyleCatalog" as="node()*">
     <xsl:param name="icmlParas" as="node()*"/>
+    <xsl:param name="baseStyleCatalog" as="node()*"/>
+    
     <xsl:variable name="pStyleNames"
       select="distinct-values($icmlParas//ancestor-or-self::ParagraphStyleRange/@AppliedParagraphStyle)"
     />
@@ -390,34 +394,57 @@
     <xsl:variable name="styleCatalog" as="node()*">
       <RootCharacterStyleGroup Self="rootCharacterStyleGroup">
         <xsl:for-each select="$cStyleNames">
+          <xsl:variable name="styleId" select="." as="xs:string"/>
           <xsl:variable name="name" 
             as="xs:string"
             select="substring-after(., 'CharacterStyle/')" 
           />
-          <CharacterStyle 
-            Self="CharacterStyle/{$name}" 
-            Name="{$name}" >
-            <Properties>
-              <BasedOn type="string">$ID/[No character style]</BasedOn>
-            </Properties>
-          </CharacterStyle>
+          <xsl:variable name="baseStyle" select="$styleCatalog//CharacterStyle[@Self = $styleId]" as="node()*"/>
+          <xsl:choose>
+            <xsl:when test="$baseStyle">
+              <xsl:sequence select="$baseStyle"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:if test="$baseStyleCatalog">
+                <xsl:message> + [WARN] Character style "<xsl:sequence select="$name"/>" not in style catalog. Generating stub style definition.</xsl:message>
+              </xsl:if>
+              <CharacterStyle 
+                Self="CharacterStyle/{$name}" 
+                Name="{$name}" >
+                <Properties>
+                  <BasedOn type="string">$ID/[No character style]</BasedOn>
+                </Properties>
+              </CharacterStyle>
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:for-each>
       </RootCharacterStyleGroup>  
       <RootParagraphStyleGroup Self="rootParagraphStyleGroup">
         <xsl:for-each select="$pStyleNames">
+          <xsl:variable name="styleId" select="." as="xs:string"/>
           <xsl:variable name="name" 
             as="xs:string"
             select="substring-after(., 'ParagraphStyle/')" 
           />
-          <!-- It appears that "$ID/" is part of the name -->
-          <ParagraphStyle 
-            Self="ParagraphStyle/{$name}" 
-            Name="{$name}" 
-            >
-            <Properties>
-              <BasedOn type="string">$ID/[No paragraph style]</BasedOn>
-            </Properties>
-          </ParagraphStyle>      
+          <xsl:variable name="baseStyle" select="$styleCatalog//ParagraphStyle[@Self = $styleId]" as="node()*"/>
+          <xsl:choose>
+            <xsl:when test="$baseStyle">
+              <xsl:sequence select="$baseStyle"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:if test="$baseStyleCatalog">
+                <xsl:message> + [WARN] Paragraph style "<xsl:sequence select="$name"/>" not in style catalog. Generating stub style definition.</xsl:message>
+              </xsl:if>
+              <ParagraphStyle 
+                Self="ParagraphStyle/{$name}" 
+                Name="{$name}" 
+                >
+                <Properties>
+                  <BasedOn type="string">$ID/[No paragraph style]</BasedOn>
+                </Properties>
+              </ParagraphStyle>      
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:for-each>
       </RootParagraphStyleGroup>
     </xsl:variable>
