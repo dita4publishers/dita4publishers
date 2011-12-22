@@ -94,8 +94,8 @@
   </xsl:template>
   
   <xsl:template match="text()" mode="block-children cont" name="makeTxsr">
-    <xsl:param name="pStyle" select="'[No paragraph style]'" as="xs:string" tunnel="yes"/>
-    <xsl:param name="cStyle" select="'[No character style]'" as="xs:string" tunnel="yes"/>
+    <xsl:param name="pStyle" select="'$ID/[No paragraph style]'" as="xs:string" tunnel="yes"/>
+    <xsl:param name="cStyle" select="'$ID/[No character style]'" as="xs:string" tunnel="yes"/>
     <xsl:param name="txsrAtts" tunnel="yes" as="attribute()*"/>
     <xsl:param name="text" as="xs:string" select="''"/>
     
@@ -111,7 +111,7 @@
     
     <ParagraphStyleRange
       AppliedParagraphStyle="ParagraphStyle/{$pStyle}"><xsl:text>&#x0a;</xsl:text>
-      <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/{$cStyle}"
+      <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/{$cStyle}"
         >
         <Content><xsl:value-of select="incxgen:normalizeText($textValue)"
       /></Content></CharacterStyleRange><xsl:text>&#x0a;</xsl:text>

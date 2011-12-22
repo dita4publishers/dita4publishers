@@ -31,8 +31,8 @@
   />
 
   <xsl:template name="makeBlock-cont">
-    <xsl:param name="pStyle" select="'[No paragraph style]'" as="xs:string" tunnel="yes"/>
-    <xsl:param name="cStyle" select="'[No character style]'" as="xs:string" tunnel="yes"/>
+    <xsl:param name="pStyle" select="'ID$/[No paragraph style]'" as="xs:string" tunnel="yes"/>
+    <xsl:param name="cStyle" select="'ID$/[No character style]'" as="xs:string" tunnel="yes"/>
     <xsl:param name="txsrAtts" tunnel="yes" as="attribute()*"/>
     <xsl:param name="content" as="node()*"/>
     <xsl:param name="markerType" as="xs:string" select="'para'"/>

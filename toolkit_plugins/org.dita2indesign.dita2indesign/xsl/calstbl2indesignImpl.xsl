@@ -122,7 +122,7 @@
           </xsl:otherwise>
         </xsl:choose>
       </xsl:variable>
-      <xsl:variable name="cStyle" select="'[No character style]'" as="xs:string"/>
+      <xsl:variable name="cStyle" select="'$ID/[No character style]'" as="xs:string"/>
       <xsl:variable name="pStyleObjId" select="incxgen:getObjectIdForParaStyle($pStyle)" as="xs:string"/>
       <xsl:variable name="cStyleObjId" select="incxgen:getObjectIdForCharacterStyle($cStyle)" as="xs:string"/>
       <xsl:choose>
@@ -142,7 +142,7 @@
   <xsl:template name="makeTableCaption">
     <xsl:param name="caption" as="node()*"/>
     <xsl:variable name="pStyle" select="'tableCaption'" as="xs:string"/>
-    <xsl:variable name="cStyle" select="'[No character style]'" as="xs:string"/>
+    <xsl:variable name="cStyle" select="'$ID/[No character style]'" as="xs:string"/>
     <xsl:variable name="pStyleObjId" select="incxgen:getObjectIdForParaStyle($pStyle)" as="xs:string"/>
     <xsl:variable name="cStyleObjId" select="incxgen:getObjectIdForCharacterStyle($cStyle)" as="xs:string"/>
     <txsr prst="o_{$pStyleObjId}" crst="o_{$cStyleObjId}">

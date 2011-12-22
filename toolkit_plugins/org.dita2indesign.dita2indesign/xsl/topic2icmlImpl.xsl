@@ -86,6 +86,7 @@
     <xsl:param name="leadingParagraphs" as="node()*"/>
     <xsl:param name="trailingParagraphs" as="node()*"/>
     <xsl:param name="articleType" as="xs:string" tunnel="yes"/>
+    <!-- The style catalog can be the styles.xml file from an IDML package -->
     <xsl:param name="styleCatalog" as="node()*"/>
     
     <xsl:if test="$debugBoolean">

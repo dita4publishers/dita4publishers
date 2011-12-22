@@ -65,6 +65,7 @@
     -->
    <xsl:call-template name="makeInCopyArticle">
      <xsl:with-param name="articleType" select="name(.)" tunnel="yes"/>     
+     <xsl:with-param name="styleCatalog" select="$styleCatalog"/>
    </xsl:call-template> 
   </xsl:template>
   

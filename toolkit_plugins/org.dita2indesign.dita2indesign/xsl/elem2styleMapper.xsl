@@ -116,7 +116,7 @@
   
   <xsl:template match="*[df:class(., 'topic/ph')]" 
     mode="style-map-cstyle" priority="0.75">
-    <xsl:sequence select="'[No character style]'"/>
+    <xsl:sequence select="'$ID/[No character style]'"/>
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/cite')]" 
