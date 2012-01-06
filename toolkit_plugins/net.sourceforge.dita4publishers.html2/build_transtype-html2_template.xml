@@ -141,6 +141,8 @@
       <param name="NOPARENTLINK" expression="${args.hide.parent.link}" if="args.hide.parent.link"></param>
       <param name="BREADCRUMBS" expression="${args.breadcrumbs}" if="args.breadcrumbs"></param>
       <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
+    	<param name="OUTPUTDIR" expression="${output.dir}"/>
+    	<param name="FILEDIR" expression="."/>
       <mapper type="glob"
               from="${user.input.file}"
               to="${args.xhtml.toc}${out.ext}" />

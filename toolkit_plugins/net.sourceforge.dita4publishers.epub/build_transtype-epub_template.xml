@@ -177,6 +177,7 @@
       <param name="BREADCRUMBS" expression="${args.breadcrumbs}" if="args.breadcrumbs"></param>
       <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
     	<param name="OUTPUTDIR" expression="${epub.temp.dir}"/>
+    	<param name="FILEDIR" expression="."/>
     </xslt>
   	
   	<antcall target="epub.copy.graphics"/>

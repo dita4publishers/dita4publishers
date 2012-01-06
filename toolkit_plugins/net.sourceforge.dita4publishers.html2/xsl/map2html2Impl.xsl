@@ -140,7 +140,7 @@
       ==========================================
       Plugin version: ^version^ - build ^buildnumber^ at ^timestamp^
       
-      Parameters:
+      HTML2 Parameters:
       
       + cssOutputDir       = "<xsl:sequence select="$cssOutputDir"/>"
       + fileOrganizationStrategy = "<xsl:sequence select="$fileOrganizationStrategy"/>"  
@@ -157,14 +157,19 @@
       + titleOnlyTopicTitleClassSpec = "<xsl:sequence select="$titleOnlyTopicTitleClassSpec"/>"
       + topicsOutputDir    = "<xsl:sequence select="$topicsOutputDir"/>"
 
-      + DITAEXT         = "<xsl:sequence select="$DITAEXT"/>"
-      + WORKDIR         = "<xsl:sequence select="$WORKDIR"/>"
-      + PATH2PROJ       = "<xsl:sequence select="$PATH2PROJ"/>"
-      + KEYREF-FILE     = "<xsl:sequence select="$KEYREF-FILE"/>"
+      DITA2HTML parameters:
+      
       + CSS             = "<xsl:sequence select="$CSS"/>"
       + CSSPATH         = "<xsl:sequence select="$CSSPATH"/>"
-      + debug           = "<xsl:sequence select="$debug"/>"
+      + DITAEXT         = "<xsl:sequence select="$DITAEXT"/>"
+      + FILEDIR         = "<xsl:sequence select="$FILEDIR"/>"
+      + KEYREF-FILE     = "<xsl:sequence select="$KEYREF-FILE"/>"
+      + OUTPUTDIR       = "<xsl:sequence select="$OUTPUTDIR"/>"
+      + PATH2PROJ       = "<xsl:sequence select="$PATH2PROJ"/>"
+      + WORKDIR         = "<xsl:sequence select="$WORKDIR"/>"
       
+      + debug           = "<xsl:sequence select="$debug"/>"
+
       Global Variables:
       
       + cssOutputPath    = "<xsl:sequence select="$cssOutputPath"/>"
