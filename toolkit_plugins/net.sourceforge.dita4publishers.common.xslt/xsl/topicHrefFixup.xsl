@@ -38,6 +38,7 @@
     <xsl:variable name="newHref" select="relpath:newFile($relParent, relpath:getName($origHref))"/>
 <!--    <xsl:message> + [DEBUG] href-fixup: newHref="<xsl:sequence select="$newHref"/>"</xsl:message>-->
     <xsl:attribute name="href" select="$newHref"/>
+    <xsl:attribute name="origHref" select="$origHref"/>
   </xsl:template>
   
   <xsl:template mode="href-fixup" match="xref[@scope = 'external']/@href | 
@@ -112,6 +113,7 @@
       <xsl:message> + [DEBUG] href-fixup, newHref='<xsl:sequence select="$newHref"/>'</xsl:message>
     </xsl:if>
     <xsl:attribute name="href" select="concat($newHref, $fragmentId, $query)"/>
+    <xsl:attribute name="origHref" select="$origHref"/>
   </xsl:template>
   
   <xsl:template mode="href-fixup" match="*">

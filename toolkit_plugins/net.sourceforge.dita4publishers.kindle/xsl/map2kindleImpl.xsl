@@ -52,6 +52,7 @@
   <!-- Import the base HTML output generation transform. -->
   <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
 
+  <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlOverrides.xsl"/>
   <xsl:include href="map2kindleCommon.xsl"/>
   <xsl:include href="map2kindleOpfImpl.xsl"/>
   <xsl:include href="map2kindleContentImpl.xsl"/>

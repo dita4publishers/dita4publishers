@@ -89,7 +89,14 @@
   	  	<equals arg1="${html2.generate.dynamic.toc}" arg2="1"/>
     	</or>
    </condition>
-  	
+
+    <condition property="html2.do.copy.graphics" value="true">
+  		<not>
+  			<isset property="html2.do.copy.graphics"/>
+  	  </not>
+  	</condition>
+
+
   	<echo message="+++ html2-specific properties:"/>
   	<echoproperties format="text" regex="^(html2|css|out\.)" taskname="echo"/>
   </target>
@@ -148,11 +155,16 @@
               to="${args.xhtml.toc}${out.ext}" />
     </xslt>
   	
-  	<antcall target="html2.copy.graphics"/>
-  	
+  	<condition property="skip.copy.graphics" value="${local.skip.copy.graphics}">
+  		<isset property="local.skip.copy.graphics"/>
+  	</condition>
+  			
+  	<antcall target="html2.copy.graphics">
+  		<param name="do.copy.graphics"  value="${local.skip.copy.graphics}"/>
+  	</antcall>
   </target>
   
-  <target name="html2.copy.graphics" 
+  <target name="html2.copy.graphics" unless="skip.copy.graphics" 
 	  description="Copies graphics from input to the output directory based on the graphic map generated during html2 generation">
   	<ant antfile="${output.dir}/copy-graphics.xml"  		
   		>
