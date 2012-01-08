@@ -54,6 +54,7 @@ version="2.0">
   <xsl:param name="filterBr" as="xs:string" select="'false'"/>
   <xsl:param name="filterTabs" as="xs:string" select="'false'"/>
   <xsl:param name="includeWordBackPointers" as="xs:string" select="'true'"/>
+  <xsl:param name="language" as="xs:string" select="'en-US'"/>
   
   <xsl:param name="topicExtension" select="'.dita'" as="xs:string"/><!-- Extension for generated topic files -->
   <xsl:param name="fileNamePrefix" select="''" as="xs:string"/><!-- Prefix for genenerated file names -->
@@ -180,6 +181,7 @@ version="2.0">
       + rootTopicUrl    = "<xsl:sequence select="$rootTopicUrl"/>"
       + topicExtension  = "<xsl:sequence select="$topicExtension"/>"
       + fileNamePrefix  = "<xsl:sequence select="$fileNamePrefix"/>"      
+      + language        = "<xsl:sequence select="$language"/>"      
       + outputDir       = "<xsl:sequence select="$outputDir"/>"  
       + debug           = "<xsl:sequence select="$debug"/>"
       + includeWordBackPointers= "<xsl:sequence select="$includeWordBackPointersBoolean"/>"  

@@ -375,7 +375,9 @@
       <xsl:element name="{$firstP/@mapType}">
         <xsl:sequence select="$schemaAtts"/>
         <xsl:attribute name="xtrc" select="$firstP/@wordLocation"/>
-          <!-- The first paragraph can simply trigger a (possibly) untitled map, or
+        <xsl:attribute name="xml:lang" select="$language"/>
+        
+        <!-- The first paragraph can simply trigger a (possibly) untitled map, or
           it can also be the map title. If it's the map title, generate it.
           First paragraph can also generate a root topicref and/or a topicref
           to a topic in addition to the map.
@@ -1076,6 +1078,7 @@
     <xsl:element name="{$topicType}">
       <xsl:attribute name="id" select="$topicName"/>
       <xsl:attribute name="xtrc" select="$firstP/@wordLocation"/>
+      <xsl:attribute name="xml:lang" select="$language"/>
       <xsl:sequence select="$schemaAtts"/>
       <xsl:if test="$firstP/@topicOutputclass">
         <xsl:attribute name="outputclass" select="$firstP/@topicOutputclass"/>
