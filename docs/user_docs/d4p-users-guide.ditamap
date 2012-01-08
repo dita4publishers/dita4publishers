@@ -85,6 +85,10 @@
           <subsection
             href="d4p-users-guide/epub-plugin/epub-transtype-parameters-ref.xml">
             <topicref
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-argsCssOutputDir.xml"
+              keys="args.css.output.dir.refentry"
+              collection-type="sequence"/>
+            <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-coverGraphicFile.xml"/>
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-epubIncludeAutoRellinks.xml"/>
