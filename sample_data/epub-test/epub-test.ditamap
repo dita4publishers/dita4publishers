@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
 <pubmap
-  xml:lang="en_US">
+  xml:lang="en-US">
   <pubtitle> <mainpubtitle>EPUB Test Document</mainpubtitle> </pubtitle>
   <pubmeta> <author
     type="aut"><data
@@ -189,4 +189,22 @@
     <colophon
       href="backmatter/colophon.xml"/>
   </publication>
+  <reltable>
+    <relheader>
+      <relcolspec type="chapter"/>
+      <relcolspec type="glossentry"/>
+      <relcolspec format="html" scope="external"/>
+    </relheader>
+    <relrow>
+      <relcell>
+        <topicref href="chapters/cross-refs-01.xml"/>
+      </relcell>
+      <relcell>
+        <topicref href="glossary/apple_fruit.xml"/>
+      </relcell>
+      <relcell>
+        <topicref href="http://www.apple.com"/>
+      </relcell>
+    </relrow>
+  </reltable>
 </pubmap>
