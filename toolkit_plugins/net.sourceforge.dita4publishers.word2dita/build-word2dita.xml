@@ -201,6 +201,7 @@
       <param name="topicExtension" expression="${w2d.topic.extension}" if="w2d.topic.extension"/>
       <param name="fileNamePrefix" expression="${w2d.filename.prefix}" if="w2d.filename.prefix"/>
       <param name="submapNamePrefix" expression="${w2d.submap.name.prefix}" if="w2d.submap.name.prefix"/>
+			<param name="language" expression="${w2d.language}" if="w2d.language"/>
 		</xslt>
 		<echo>[INFO] Transform complete</echo>
 	</target>

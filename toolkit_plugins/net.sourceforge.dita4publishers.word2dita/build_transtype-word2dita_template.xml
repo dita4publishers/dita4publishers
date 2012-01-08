@@ -28,6 +28,7 @@
 	  	<property name="word.doc" value="${args.input}"/>
 			<property name="w2d.temp.dir" location="${dita.temp.dir}"/>
 	  	<property name="w2d.out.dir" location="${output.dir}"/>
+	  	<property name="w2d.language" value="${w2d.language}"/>
 	  </ant>
   </target>
 
