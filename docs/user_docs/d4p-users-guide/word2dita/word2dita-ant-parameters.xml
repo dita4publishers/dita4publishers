@@ -19,6 +19,10 @@
           <pt>args.input</pt>
           <pd>The absolute filename and path of the DOCX file to process.</pd>
         </plentry>
+        <plentry>
+          <pt>word.doc</pt>
+          <pd>The path and filename of the Word DOCX file to process.</pd>
+        </plentry>
       </parml>
     </section>
     <section>
@@ -111,6 +115,11 @@
           <pt>w2d.submap.name.prefix</pt>
           <pd>The prefix to use for generated submaps. The default is
             "map".</pd>
+        </plentry>
+        <plentry>
+          <pt>w2d.temp.dir</pt>
+          <pd>The temporary directory to use for word2dita process. Default is
+            ${basedir}/temp.</pd>
         </plentry>
         <plentry>
           <pt>w2d.topic.extension</pt>

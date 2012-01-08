@@ -46,6 +46,12 @@
           <pd>When set to "true", the resulting DITA files include <xmlatt>xtrc</xmlatt> attributes that contain XPath expressions that locate the Word paragraph element from which the DITA element was generated. Set to "false" to turn this off. Default is "true" (<xmlatt>xtrc</xmlatt> attributes are generated).</pd>
         </plentry>
         <plentry>
+          <pt>language</pt>
+          <pd>Specifies the value to use for the <xmlatt>xml:lang</xmlatt>
+            attribute, e.g. "ja-JP". If not specified, the value "en-US" is
+            used.</pd>
+        </plentry>
+        <plentry>
           <pt>mediaDirUri</pt>
           <pd>The URI of the folder to put graphics in (determines the value of <xmlatt>src</xmlatt> and <xmlatt>href</xmlatt> attributes for generated graphic references). Default is "topics/media" under the main output directory.</pd>
         </plentry>
@@ -60,6 +66,11 @@
         <plentry>
           <pt>rootMapUrl</pt>
           <pd>The full filename the root map. Constructed from the <parmname>rootMapName</parmname> parameter by default.</pd>
+        </plentry>
+        <plentry>
+          <pt>rootTopicName</pt>
+          <pd>The name (without extension) to use for the root topic. Default is
+            the base name of the input DOCX file.</pd>
         </plentry>
         <plentry>
           <pt>submapNamePrefix</pt>

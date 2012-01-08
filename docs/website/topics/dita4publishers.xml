@@ -8,14 +8,18 @@
       <created
         date="2009-05-20"/>
       <revised
-        modified="2011-11-11"/>
+        modified="2012-01-08"/>
     </critdates>
   </prolog>
   <body>
-    <p>Updates for 11 November 2011:<ul
+    <p>Updates for 8 January 2012:<ul
       id="ul_e5a3356b-1f4e-4c6d-a24b-68eb7d56fed6">
-      <li>Fixed a number of small but serious bugs in the Word-to-DITA tranform.
-        See release notes in the User Guide.</li>
+      <li>Fixed a number of small but serious bugs in the Word-to-DITA
+        transform. Added feature for setting the <xmlatt>xml:lang</xmlatt>
+        attribute. See release notes in the User Guide.</li>
+      <li>Fixed handling of <xmlatt>scale</xmlatt> attribute on
+        <xmlelem>image</xmlelem> for HTML2, EPUB, and Kindle transformation
+        types.</li>
       <li>Fixed small bugs and made small enhancements to the EPUB and Kindle
         transform types.</li>
       <li>Fixed lingering issues with the Toolkit plugin Ant scripts setting
@@ -103,6 +107,6 @@
         </tbody>
       </tgroup>
       </table></p>
-    <p>Last revised: 11 November 2011</p>
+    <p>Last revised: 8 January 2012</p>
   </body>
 </topic>
