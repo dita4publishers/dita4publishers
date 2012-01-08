@@ -5,6 +5,7 @@
         <options/>
     </meta>
     <projectTree name="dita4publishers.xpr">
+        <folder path="docs/"/>
         <folder path="sample_data/"/>
         <folder path="toolkit_plugins/"/>
         <file name="templates/maps/D4P%20Pubmap.ditamap"/>

@@ -81,6 +81,9 @@
 
 	<path id="dita-classpath"
 		>
+		<fileset dir="${dita-ot-dir}">
+			<include name="lib"/><!-- Added for 1.5.4 -->
+		</fileset>
 		<fileset dir="${dita-ot-dir}/lib">
 		  <include name="**/*.jar"/>
 		</fileset>
@@ -600,7 +603,7 @@
 
 	</target>
 	
-	<target name="pdf-d4p-user-guide">
+	<target name="pdf-d4p-user-guide" description="Build the PDF for the D4P user's guide">
 		<property name="pub.name" value="d4p-users-guide.ditamap"/>
 		<property name="root.map" location="${docs.dir}/user_docs/${pub.name}"/>
 		<property name="output.dir" location="${build}/docs"/>
