@@ -151,6 +151,20 @@
       </ul>
     </section>
     <section>
+      <title>DITA to InDesign</title>
+      <ul
+        id="ul_bcv_wvs_w2">
+        <li>Enhancements and bug fixes to the Java INX support library. Can now
+          generate multi-spread page sequences as configured in a separate
+          configuration file. Corrects bugs with correlation of frames to
+          pages.</li>
+        <li>Added support for parsing and accessing conversion configurations
+          defined using the new conversion_config topic type.</li>
+        <li>Added XSLT support for generating CS 4/5 ICML InCopy articles from
+          DITA content.</li>
+      </ul>
+    </section>
+    <section>
       <title>Vocabulary Modules</title>
       <ul
         id="ul_5v1_zm1_g2">
@@ -166,6 +180,9 @@
         <li>Added new <xmlelem>art-ph</xmlelem> element. Specialize
           <xmlelem>art</xmlelem> from topic/p so it can go in
           <xmlelem>fig</xmlelem> directly.</li>
+        <li>Added new topic type "conversion_configuration", used to configure
+          Word2DITA and DITA2InDesign transforms, especially the
+          DITA-to-InDesign Java processing.</li>
       </ul>
     </section>
     <section>
