@@ -34,7 +34,7 @@
     	compress="true"
       includes="META-INF${file.separator}container.xml,toc.ncx,
       content.opf,container.opf,**/*.html,**/*.css,**/*.HTML,**/*.CSS,
-      **/*.jpg,**/*.gif,**/*.png,**/*.svg,**/*.JPG,**/*.GIF,**/*.PNG,**/*.SVG"/>
+      **/*.jpg,**/*.jpeg,**/*.gif,**/*.png,**/*.svg,**/*.JPG,**/*.JPEG,**/*.GIF,**/*.PNG,**/*.SVG"/>
     <zip destfile="${output.dir}${file.separator}${dita.map.filename.root}.epub"
       basedir="${epub.temp.dir}"
       includes="mimetype"

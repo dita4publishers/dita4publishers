@@ -143,7 +143,7 @@
             <item id="{$CSS}" href="{$cssOutputDir}/{$CSS}" media-type="text/css"/>
           </xsl:if>
           <!-- kindle requires a cover image -->
-          <item id="coverimage" media-type="image/jpg" href="./images/{$coverImageFilename}"/>
+          <item id="coverimage" media-type="image/jpeg" href="./images/{$coverImageFilename}"/>
         </manifest>
         
         <spine toc="ncx">
@@ -444,6 +444,7 @@
       <xsl:attribute name="media-type">
         <xsl:choose>
           <xsl:when test="$imageExtension = 'jpg'"><xsl:sequence select="'image/jpeg'"/></xsl:when>
+          <xsl:when test="$imageExtension = 'jpeg'"><xsl:sequence select="'image/jpeg'"/></xsl:when>
           <xsl:when test="$imageExtension = 'gif'"><xsl:sequence select="'image/gif'"/></xsl:when>
           <xsl:when test="$imageExtension = 'png'"><xsl:sequence select="'image/png'"/></xsl:when>
           <xsl:otherwise>
