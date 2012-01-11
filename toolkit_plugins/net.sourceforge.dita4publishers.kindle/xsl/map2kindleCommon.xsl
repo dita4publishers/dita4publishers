@@ -39,9 +39,5 @@
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
-  <xsl:template match="*[df:class(., 'topic/data')]" mode="#all" priority="-1">
-    <!-- Suppress <data> by default. -->
-  </xsl:template>
-  
   
 </xsl:stylesheet>
