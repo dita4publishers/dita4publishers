@@ -476,7 +476,7 @@
   </xsl:template>  
   
   <xsl:template match="*[df:class(., 'topic/table')]">
-    <table class="{df:getHtmlClass(.)}">
+    <table class="{df:getHtmlClass(.)}" border="1">
       <xsl:apply-templates/>
     </table>
   </xsl:template> 
@@ -532,7 +532,7 @@
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/simpletable')]">
-    <table class="{df:getHtmlClass(.)}">
+    <table class="{df:getHtmlClass(.)}" border="1">
       <tbody>
         <xsl:apply-templates/>
       </tbody>      
