@@ -74,6 +74,8 @@
           href="chapters/svg-graphic-tests.xml"/>
       </chapter>
       <chapter
+        href="chapters/d4p-vocabulary.xml"/>
+      <chapter
         href="chapters/title-only-topic-01.xml">
         <topicref
           navtitle="Topic Head 1">
@@ -191,19 +193,26 @@
   </publication>
   <reltable>
     <relheader>
-      <relcolspec type="chapter"/>
-      <relcolspec type="glossentry"/>
-      <relcolspec format="html" scope="external"/>
+      <relcolspec
+        type="chapter"/>
+      <relcolspec
+        type="glossentry"/>
+      <relcolspec
+        format="html"
+        scope="external"/>
     </relheader>
     <relrow>
       <relcell>
-        <topicref href="chapters/cross-refs-01.xml"/>
+        <topicref
+          href="chapters/cross-refs-01.xml"/>
       </relcell>
       <relcell>
-        <topicref href="glossary/apple_fruit.xml"/>
+        <topicref
+          href="glossary/apple_fruit.xml"/>
       </relcell>
       <relcell>
-        <topicref href="http://www.apple.com"/>
+        <topicref
+          href="http://www.apple.com"/>
       </relcell>
     </relrow>
   </reltable>
