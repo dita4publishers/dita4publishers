@@ -13,7 +13,7 @@
     
        DITA Map to ePub Transformation
        
-       Copyright (c) 2010, 2011 DITA For Publishers
+       Copyright (c) 2010, 2012 DITA For Publishers
        
        Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
        The intent of this license is for this material to be licensed in a way that is
@@ -54,11 +54,13 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMapImpl.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
   
+  
   <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlOverrides.xsl"/>
   <xsl:include href="map2epubCommon.xsl"/>
   <xsl:include href="map2epubOpfImpl.xsl"/>
   <xsl:include href="map2epubContentImpl.xsl"/>
   <xsl:include href="map2epubSetCoverGraphic.xsl"/>
+  <xsl:include href="map2epubHtmlTocImpl.xsl"/>
   <xsl:include href="map2epubTocImpl.xsl"/>
   <xsl:include href="map2epubIndexImpl.xsl"/>
   <xsl:include href="html2xhtmlImpl.xsl"/>
@@ -126,7 +128,8 @@
   -->  
   <xsl:param name="generateIndex" as="xs:string" select="'no'"/>
   
-  <!-- Include literal HTML ToC page as for normal HTML output -->
+  <!-- Include literal HTML ToC page as for normal HTML output. 
+  -->
   
   <xsl:param name="generateHtmlToc" as="xs:string" select="'no'"/>
   
@@ -170,6 +173,7 @@
       
       + coverGraphicUri = "<xsl:sequence select="$coverGraphicUri"/>"
       + cssOutputDir    = "<xsl:sequence select="$cssOutputDir"/>"
+      + generateHtmlToc = "<xsl:sequence select="$generateHtmlToc"/>
       + generateIndex   = "<xsl:sequence select="$generateIndex"/>
       + imagesOutputDir = "<xsl:sequence select="$imagesOutputDir"/>"
       + outdir          = "<xsl:sequence select="$outdir"/>"
@@ -267,6 +271,12 @@
     <xsl:variable name="effectiveCoverGraphicUri" as="xs:string">
       <xsl:apply-templates select="." mode="get-cover-graphic-uri"/>
     </xsl:variable>
+    
+    <!-- FIXME: Add mode to get effective front cover topic URI so we
+         can generate <guide> entry for the cover page. Also provides
+         extension point for synthesizing the cover if it's not 
+         explicit in the map.
+    -->
 
     <xsl:call-template name="report-parameters">
       <xsl:with-param name="effectiveCoverGraphicUri" select="$effectiveCoverGraphicUri" as="xs:string" tunnel="yes"/>
@@ -286,11 +296,14 @@
     <xsl:message> + [INFO] Gathering index terms...</xsl:message>
     
     <!-- Gather all the index entries from the map and topic. 
+      
+         FIXME: Replace this with the more-complete data gathering
+         approach from 0.9.17.
     -->
     <xsl:variable name="index-terms" as="element()">
       <index-terms xmlns="http://dita4publishers.org/index-terms">
         <xsl:if test="$generateIndexBoolean">
-          <xsl:apply-templates mode="gather-index-terms"/>
+          <xsl:apply-templates select="." mode="gather-index-terms"/>
         </xsl:if>
       </index-terms>
     </xsl:variable>
@@ -307,6 +320,9 @@
     <!-- NOTE: The generate-toc mode is for the EPUB toc, not the HTML toc -->
     <xsl:apply-templates select="." mode="generate-toc">
       <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
+    </xsl:apply-templates>
+    <xsl:apply-templates select="." mode="generate-book-lists">
+      <xsl:with-param name="index-terms" as="element()" select="$index-terms" tunnel="yes"/>
     </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-index">
       <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>

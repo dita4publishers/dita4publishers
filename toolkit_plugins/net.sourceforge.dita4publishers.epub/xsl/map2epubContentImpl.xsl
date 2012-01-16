@@ -45,31 +45,6 @@
     <xsl:message> + [INFO] Generating content...</xsl:message>
     <xsl:variable name="uniqueTopicRefs" as="element()*" select="df:getUniqueTopicrefs(.)"/>
     
-    <xsl:if test="$generateHtmlTocBoolean">
-      <xsl:variable name="tocTopicFilename" as="xs:string"
-        select="'_generated-toc'"
-      />
-      <xsl:variable name="tocTopicUri" 
-          select="relpath:newFile($topicsOutputPath, concat($tocTopicFilename, '.dita'))" 
-          as="xs:string" 
-      />
-
-      <xsl:message> + [INFO] Generating table of contents as file "<xsl:sequence select="$tocTopicUri"/>"...</xsl:message>
-
-      <xsl:variable name="tocTopic" as="document-node()">
-        <xsl:apply-templates select="." mode="generate-toc-topic">
-          <xsl:with-param name="tocTopicUri" select="$tocTopicUri" as="xs:string"/>
-        </xsl:apply-templates>
-      </xsl:variable>
-
-      <xsl:variable name="resultUri" as="xs:string"
-        select="relpath:newFile($topicsOutputPath, concat($tocTopicFilename, $outext))"
-      />
-
-      <xsl:apply-templates select="$tocTopic" mode="generate-content">
-        <xsl:with-param name="resultUri" as="xs:string" select="$resultUri" tunnel="yes"/>
-      </xsl:apply-templates>
-    </xsl:if>
     
 <xsl:if test="$debugBoolean">    
   <xsl:message> + [DEBUG] ------------------------------- 

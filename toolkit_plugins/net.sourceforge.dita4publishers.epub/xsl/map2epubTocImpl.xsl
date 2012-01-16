@@ -46,6 +46,9 @@
               e.g., as for topicheads. This would be a good opportunity to generate a
               document cover, which should be defined as an extension point.
             -->
+            <!-- FIXME: This is a hack to get the generated HTML ToC in the nav map.
+                 This really needs to be optionally driven by the map structure.
+            -->
             <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current">
               <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes" select="1"/>              
             </xsl:apply-templates>
@@ -347,7 +350,7 @@
         <xsl:variable name="navPointTitle" as="xs:string*">
           <xsl:apply-templates select="$context" mode="nav-point-title"/>
         </xsl:variable>
-        <!-- If topic head has a title (e.g., a generated title), then it 
+        <!-- If topic group has a title (e.g., a generated title), then it 
              acts as a navigation point.
           -->
         <xsl:sequence
@@ -360,6 +363,10 @@
     </xsl:choose>
     
   </xsl:function>
+  
+  <xsl:template mode="is-nav-point" match="*">
+    <xsl:sequence select="false()"/>
+  </xsl:template>
 
 
 </xsl:stylesheet>

@@ -4,7 +4,10 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:df="http://dita2indesign.org/dita/functions"
   xmlns:relpath="http://dita2indesign/functions/relpath"
-  exclude-result-prefixes="xs df relpath"
+  xmlns:opf="http://www.idpf.org/2007/opf"
+  xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"
+  xmlns="http://www.idpf.org/2007/opf"
+  exclude-result-prefixes="xs df relpath htmlutil"
   version="2.0">
     
   <!-- Extensions for DITA for Publishers vocabulary modules in
@@ -65,5 +68,77 @@
   <!-- TOC (.ncx) generation context -->
   
   <!-- OPF (.opf) generation context -->
+  
+  <xsl:template mode="include-topicref-in-spine include-topicref-in-manifest" 
+    match="*[df:class(., 'pubmap-d/toc')]" priority="10">
+    <xsl:sequence select="true()"/>    
+  </xsl:template>
+  
+  <xsl:template mode="manifest" match="*[df:class(., 'pubmap-d/toc')]">
+    <xsl:variable name="targetUri" as="xs:string"
+        select="concat('toc_', generate-id(.), '.html')"
+     />
+    <opf:item id="{generate-id()}" href="{$targetUri}"
+      media-type="application/xhtml+xml"/>    
+  </xsl:template>
+  
+  <xsl:template mode="spine" match="*[df:class(., 'pubmap-d/toc')][not(@href)]" priority="10">
+    <opf:itemref idref="{generate-id()}"/>    
+  </xsl:template>
+  
+  <xsl:template mode="guide" match="*[df:class(., 'pubmap-d/front-cover')]" priority="10">
+    <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
+    <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, root($topic))" as="xs:string"/>
+    <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
+    <opf:reference type="cover"  href="{$relativeUri}"/>    
+  </xsl:template>
+  
+  <xsl:template mode="guide" match="*[df:class(., 'pubmap-d/toc')][not(@href)]" priority="10">
+    <xsl:variable name="targetUri" as="xs:string"
+      select="concat('toc_', generate-id(.), '.html')"
+    />
+    <opf:reference type="toc"  href="{$targetUri}"/>    
+  </xsl:template>
+ 
+  <xsl:template mode="generate-book-lists" match="*[df:class(., 'pubmap-d/toc')][not(@href)]" priority="10">
+    <xsl:variable name="htmlFilename" as="xs:string"
+      select="concat('toc_', generate-id(.), '.html')"
+    />
+    <xsl:variable name="resultUri" as="xs:string"
+      select="relpath:newFile($outdir, $htmlFilename)"
+    />
+    <xsl:apply-templates mode="generate-html-toc"
+      select="ancestor::*[df:class(., 'map/map')]"
+      >
+      <xsl:with-param name="resultUri" select="$resultUri"/>
+    </xsl:apply-templates>
+  </xsl:template>
+  
+  <xsl:template mode="nav-point-title" match="*[df:class(., 'pubmap-d/toc')]" priority="20">
+    <!-- FIXME: Localize this string. -->
+    <xsl:sequence select="'Table of Contents'"/>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'pubmap-d/toc')]" priority="20" mode="generate-toc">
+    <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
+    <xsl:if test="$tocDepth le $maxTocDepthInt">
+      <xsl:variable name="rawNavPointTitle" as="xs:string*">
+        <xsl:apply-templates select="." mode="nav-point-title"/>
+      </xsl:variable>
+      <xsl:variable name="navPointTitle" select="normalize-space(string-join($rawNavPointTitle, ' '))" as="xs:string"/>
+      <xsl:variable name="targetUri" as="xs:string"
+        select="concat('toc_', generate-id(.), '.html')"
+      />
+      <navPoint id="{generate-id()}" xmlns="http://www.daisy.org/z3986/2005/ncx/"
+        > 
+        <navLabel>
+          <text><xsl:sequence select="$navPointTitle"/></text>
+        </navLabel>
+        <content src="{$targetUri}"/>          
+      </navPoint>
+    </xsl:if>    
+  </xsl:template>
+  
+  
   
 </xsl:stylesheet>
