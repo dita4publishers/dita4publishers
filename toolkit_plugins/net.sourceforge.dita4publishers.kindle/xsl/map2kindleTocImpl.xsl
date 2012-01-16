@@ -12,11 +12,6 @@
   >
   <!-- Convert a DITA map to an EPUB toc.ncx file. -->
   
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
-  
-
   <xsl:output indent="yes" name="ncx" method="xml"/>
 
 
