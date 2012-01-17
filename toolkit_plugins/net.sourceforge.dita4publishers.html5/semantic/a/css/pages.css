@@ -1,0 +1,30 @@
+#pages-container {
+
+}
+#pages {
+  margin: 0 0 2em 0;
+}
+.page {
+  display:block;
+  width:430px;
+  position:relative;
+  text-align: justify;
+  float:left;
+}
+
+.page.verso, .page.recto {
+	margin-left:495px;
+}
+.page.verso {
+	display:none;
+}
+
+.two-sides .page.recto {
+	margin-left:50px;
+}
+.two-sides .page.verso {
+	display:block;
+	margin-left:15px;
+}
+
+

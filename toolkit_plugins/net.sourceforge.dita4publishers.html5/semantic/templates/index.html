@@ -29,7 +29,7 @@
 		need to identify a framework
 		is GPL or MIT license Ok ?
 	-->
-	<script src="a/css/script.min.js"></script>
+	<script src="a/js/script.min.js"></script>
 
 	<!--
 		Unobstructive javascript,
@@ -37,8 +37,10 @@
 		like transtype
 	-->
 	<script type="text/javascript">
-		$("#book").html5book({
-			transtype: "transtypevalue"
+		$(function() {
+			$("#book").html5book({
+				transtype: "transtypevalue"
+			});
 		});
 	</script>
 
