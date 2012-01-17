@@ -79,7 +79,10 @@
         <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:apply-templates select="$topic//*[df:class(.,'topic/image')]" mode="#current"/>
+        <xsl:apply-templates 
+          select="$topic//*[df:class(.,'topic/image')] | 
+                  $topic//*[df:class(.,'topic/object')]" 
+          mode="#current"/>
       </xsl:otherwise>
     </xsl:choose>    
   </xsl:template>
@@ -126,10 +129,124 @@
     <xsl:variable name="rawUrl" select="concat($parentPath, '/', $graphicPath)" as="xs:string"/>
     <xsl:variable name="absoluteUrl" select="relpath:getAbsolutePath($rawUrl)"/>
     
-    <gmap:graphic-map-item
-      input-url="{$absoluteUrl}"
-      output-url="{relpath:newFile($imagesOutputPath, relpath:getName($absoluteUrl))}"
-    />        
+    <xsl:if test="$graphicPath">
+      <gmap:graphic-map-item
+        input-url="{$absoluteUrl}"
+        output-url="{relpath:newFile($imagesOutputPath, relpath:getName($absoluteUrl))}"
+      />        
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="*[df:class(.,'topic/object')]" mode="get-graphic-refs">
+    <!-- NOTE: For object elements, the @data attribute points at the main
+               object data object, but its location may be relative to @codebase.
+               It's a bit ambiguous in practice whether the @data object will
+               be managed with the source, and therefore needs to be copied,
+               or will be managed separately, when @codebase is specified.
+               This code assumes that if @codebase is specified, @data should
+               be ignored. Override this template to change this behavior to
+               match what you actually do, if necessary.
+      -->
+               
+    <xsl:variable name="docUri" select="relpath:toUrl(@xtrf)" as="xs:string"/>
+    <xsl:variable name="parentPath" select="relpath:getParent($docUri)" as="xs:string"/>
+    <xsl:variable name="dataPath" select="@data" as="xs:string?"/>
+    <xsl:variable name="codeBase" select="@codebase" as="xs:string?"/>    
+    <xsl:if test="true() or $debugBoolean">    
+      <xsl:message> + [DEBUG] get-graphic-refs for object:
+        
+        docUri="<xsl:sequence select="$docUri"/>"
+        parentPath="<xsl:sequence select="$parentPath"/>"
+        dataPath="<xsl:sequence select="$dataPath"/>"
+        codeBase="<xsl:sequence select="$codeBase"/>"
+      </xsl:message>
+    </xsl:if>   
+    <xsl:if test="$dataPath != ''">
+      <xsl:variable name="rawUrl" 
+        select="if (@codeBase != '') 
+        then relpath:newFile($codeBase, $dataPath)
+        else relpath:newFile($parentPath, $dataPath)" 
+        as="xs:string"/>
+      <xsl:variable name="absoluteUrl" select="relpath:getAbsolutePath($rawUrl)"/>
+      <xsl:if test="$debugBoolean">    
+        <xsl:message>
+          rawUrl="<xsl:sequence select="$rawUrl"/>"
+          absoluteUrl="<xsl:sequence select="$absoluteUrl"/>"      
+        </xsl:message>
+      </xsl:if>   
+      <xsl:if test="$dataPath and not($codeBase = '')">
+        <gmap:graphic-ref href="{$absoluteUrl}" filename="{relpath:getName($absoluteUrl)}"/>
+      </xsl:if>
+    </xsl:if>
+    <xsl:apply-templates mode="#current"/>    
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(.,'topic/object')]" mode="generate-graphic-map">
+    <xsl:variable name="docUri" select="relpath:toUrl(@xtrf)" as="xs:string"/>
+    <xsl:variable name="parentPath" select="relpath:getParent($docUri)" as="xs:string"/>
+    <xsl:variable name="dataPath" select="@data" as="xs:string?"/>
+    <xsl:variable name="codeBase" select="@codebase" as="xs:string?"/>    
+    <xsl:variable name="rawUrl" 
+      select="if (@codeBase != '') 
+      then relpath:newFile($codeBase, $dataPath)
+      else relpath:newFile($parentPath, $dataPath)" 
+      as="xs:string"/>
+    <xsl:variable name="absoluteUrl" select="relpath:getAbsolutePath($rawUrl)"/>
+    
+    <xsl:if test="$dataPath and not($codeBase = '')">
+      <gmap:graphic-map-item
+        input-url="{$absoluteUrl}"
+        output-url="{relpath:newFile($imagesOutputPath, relpath:getName($absoluteUrl))}"
+      />
+    </xsl:if>
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(.,'topic/param')][@valuetype = 'ref']" mode="get-graphic-refs">
+    <xsl:variable name="docUri" select="relpath:toUrl(@xtrf)" as="xs:string"/>
+    <xsl:variable name="parentPath" select="relpath:getParent($docUri)" as="xs:string"/>
+    <xsl:variable name="valuePath" select="@value" as="xs:string?"/>
+    <xsl:variable name="rawUrl" select="concat($parentPath, '/', $valuePath)" as="xs:string"/>
+    <xsl:variable name="absoluteUrl" select="relpath:getAbsolutePath($rawUrl)"/>
+    <xsl:if test="true() or $debugBoolean">    
+      <xsl:message> + [DEBUG] get-graphic-refs for param:
+        
+        docUri="<xsl:sequence select="$docUri"/>"
+        parentPath="<xsl:sequence select="$parentPath"/>"
+        valuePath="<xsl:sequence select="$valuePath"/>"
+      </xsl:message>
+    </xsl:if>   
+    <xsl:choose>
+      <xsl:when test="not($valuePath)">
+        <xsl:variable name="topic" as="element()?"
+          select="(ancestor-or-self::*[df:class(., 'topic/topic')])[1]"
+        />
+        <xsl:variable name="contextString" as="xs:string"
+          select="if ($topic) 
+          then concat('Topic ', df:getNavtitleForTopic($topic))
+          else name(..)"
+        />
+        <xsl:message> + [WARN] param element with @valuetype of 'ref' but no @value attribute in <xsl:sequence select="$contextString"/></xsl:message>        
+      </xsl:when>
+      <xsl:otherwise>
+        <gmap:graphic-ref href="{$absoluteUrl}" filename="{relpath:getName($absoluteUrl)}"/>
+      </xsl:otherwise>
+    </xsl:choose>    
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(.,'topic/param')][@valuetype = 'ref']" mode="generate-graphic-map">
+    <xsl:variable name="docUri" select="relpath:toUrl(@xtrf)" as="xs:string"/>
+    <xsl:variable name="parentPath" select="relpath:getParent($docUri)" as="xs:string"/>
+    <xsl:variable name="valuePath" select="@value" as="xs:string?"/>
+    <xsl:variable name="rawUrl" select="concat($parentPath, '/', $valuePath)" as="xs:string"/>
+    <xsl:variable name="absoluteUrl" select="relpath:getAbsolutePath($rawUrl)"/>
+    
+    <xsl:if test="$valuePath">
+      <gmap:graphic-map-item
+        input-url="{$absoluteUrl}"
+        output-url="{relpath:newFile($imagesOutputPath, relpath:getName($absoluteUrl))}"
+      />
+    </xsl:if>
   </xsl:template>
   
 
