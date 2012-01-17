@@ -33,6 +33,12 @@
 >
 %d4p_formatting-d-def;
 
+<!ENTITY % d4p_media-d-def     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_mediaDomain" 
+"d4p_mediaDomain.mod"
+>
+%d4p_media-d-def;
+
 <!ENTITY % d4p_classification-d-def     PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_classificationDomain" 
 "d4p_classificationDomain.mod"

@@ -67,6 +67,12 @@
   "
 >
                       
+<!ENTITY % object
+  "object |
+   %d4p_media-d-object;
+  "
+>
+                      
 
 <!-- ============================================================= -->
 <!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
