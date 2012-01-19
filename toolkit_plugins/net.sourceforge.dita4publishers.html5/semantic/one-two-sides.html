@@ -46,7 +46,10 @@
 		$("#switchDropCaps").click(function(){
 			$("body").toggleClass("drop-caps");
 		});
-	});
+
+       var canvas = document.getElementById("pageFlip");
+       var ctx = canvas.getContext('2d');
+    });
 
 	</script>
 
@@ -156,6 +159,7 @@ Ex. :
 
 			</footer>
 		</div>
+		<canvas id="pageFlip"></canvas>
 	</div>
 
 </div>

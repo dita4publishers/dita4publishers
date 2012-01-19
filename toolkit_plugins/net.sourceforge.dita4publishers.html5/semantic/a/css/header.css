@@ -1,5 +1,5 @@
 header {
-	margin:0 0 2em 0;
+	margin:25px 0 2em 0;
 	position:relative;
 }
 header h1 {
@@ -7,11 +7,11 @@ header h1 {
 	color:#666;
 	text-align: left;
 	width:430px;
-	margin-left:495px;
+	margin-left:125px;
 }
 .two-sides header h1 {
   display:block;
-  width:430px;
+  width:500px;
   margin-left:0;
-  	text-align: center;
+  text-align: center;
 }
