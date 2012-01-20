@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
+<pubmap>
+  <pubtitle> <mainpubtitle>Video Example</mainpubtitle> </pubtitle>
+  <pubmeta>
+    <metadata>
+      <keywords>
+        <indexterm/>
+      </keywords>
+    </metadata>
+  </pubmeta>
+  <keydefs>
+    <topicmeta>
+      <navtitle>Key Definitions</navtitle>
+    </topicmeta>
+  </keydefs>
+  <publication>
+    <covers/>
+    <frontmatter/>
+    <pubbody>
+      <chapter
+        href="topics/video-example.xml"/>
+    </pubbody>
+    <backmatter/>
+  </publication>
+</pubmap>
