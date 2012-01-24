@@ -18,7 +18,7 @@
     phase of map-driven processing. It can be extended through plugins to collect
     additional data or modify or extend the built-in data collection.
     
-    Copyright (c) 2011 DITA For Publishers
+    Copyright (c) 2011, 2012 DITA For Publishers
     
     Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
     The intent of this license is for this material to be licensed in a way that is
@@ -28,6 +28,9 @@
     ================================================================= -->    
   
 <!--  
+  
+  Users of this module must provide the following imports:
+  
   <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   <xsl:import href="mapdrivenEnumeration.xsl"/>
@@ -66,7 +69,8 @@
   <xsl:template mode="data-collection-extensions" match="*" priority="-1">
     <!-- Do nothing by default. Implement templates in this
       mode to construct whatever collected data structures
-      your extension code needs.
+      your extension code needs beyond the enumerables, index entries,
+      and glossary entries.
     -->
   </xsl:template>
   
