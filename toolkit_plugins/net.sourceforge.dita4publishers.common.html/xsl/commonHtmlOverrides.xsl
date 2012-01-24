@@ -53,5 +53,13 @@
     </xsl:if>
   </xsl:template>
   
+    <!-- Add for bodydiv  and sectiondiv-->
+  <xsl:template match="*[contains(@class,' topic/bodydiv ') or contains(@class, ' topic/sectiondiv ')]">
+    <div>
+      <xsl:apply-templates select="." mode="set-output-class"/>
+      <xsl:apply-templates/>
+    </div>
+  </xsl:template>
+  
   
 </xsl:stylesheet>

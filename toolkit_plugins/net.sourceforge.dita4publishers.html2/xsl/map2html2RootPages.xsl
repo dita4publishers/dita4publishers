@@ -46,7 +46,7 @@
        default output target of the XSLT transform.
     -->
   <xsl:param name="uniqueTopicRefs" as="element()*" tunnel="yes"/>
-  <xsl:param name="index-terms" as="element()" tunnel="yes"/>
+  <xsl:param name="collected-data" as="element()" tunnel="yes"/>
   <xsl:param name="firstTopicUri" as="xs:string?" tunnel="yes"/>
   <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
   

@@ -897,6 +897,17 @@
           </xsl:apply-templates>
         </xsl:variable>
         
+        <xsl:choose>
+          <xsl:when test="($level = 0) and $rootTopicUrl">
+            <!-- As it should be -->
+          </xsl:when>
+          <xsl:when test="not(($level = 0) and $rootTopicUrl) and not($mapUrl)">
+            <xsl:message terminate="yes"
+> + [ERROR] Style "<xsl:sequence select="$firstP/@styleName"/>" has @topicDoc = 'yes' but there is no corresponding map URL. If the style is the root style and you are not generating a map, do not
+specify @topicDoc="yes".</xsl:message>
+          </xsl:when>
+        </xsl:choose>
+        
         <xsl:variable name="topicUrl"
            as="xs:string"
            select="

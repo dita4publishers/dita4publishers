@@ -5,7 +5,10 @@
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:df="http://dita2indesign.org/dita/functions"  
   xmlns:index-terms="http://dita4publishers.org/index-terms"
+  xmlns:enum="http://dita4publishers.org/enumerables"
+  xmlns:glossdata="http://dita4publishers.org/glossdata"
   xmlns:relpath="http://dita2indesign/functions/relpath"
+  xmlns:mapdriven="http://dita4publishers.org/mapdriven"
   exclude-result-prefixes="xs xd df relpath"
   version="2.0">
   
@@ -45,7 +48,7 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
-  
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/dataCollection.xsl"/>
   <!-- Import the base HTML output generation transform. -->
   <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
   
@@ -70,7 +73,10 @@
 
        -->
   <xsl:param name="outdir" select="./html2"/>
-  <xsl:param name="outext" select="'.html'"/>
+  <!-- NOTE: Case of OUTEXT parameter matches case used in base HTML
+       transformation type.
+    -->
+  <xsl:param name="OUTEXT" select="'.html'"/>
   <xsl:param name="tempdir" select="./temp"/>
   
  <!-- The path of the directory, relative the $outdir parameter,
@@ -120,6 +126,17 @@
     lower-case($generateIndex) = 'on'
     "/>
   
+  <!-- Generate the glossary dynamically using all glossary entry
+       topics included in the map.
+    -->
+  <xsl:param name="generateGlossary" as="xs:string" select="'no'"/>
+  <xsl:variable name="generateGlossaryBoolean" 
+    select="
+    lower-case($generateGlossary) = 'yes' or 
+    lower-case($generateGlossary) = 'true' or
+    lower-case($generateGlossary) = 'on'
+    "/>
+  
   
   <!-- value for @class on <body> of the generated static TOC HTML document -->
   <xsl:param name="staticTocBodyOutputclass" select="''" as="xs:string"/>
@@ -152,7 +169,7 @@
       + imagesOutputDir    = "<xsl:sequence select="$imagesOutputDir"/>"
       + inputFileNameParam = "<xsl:sequence select="$inputFileNameParam"/>"
       + outdir             = "<xsl:sequence select="$outdir"/>"
-      + outext             = "<xsl:sequence select="$outext"/>"
+      + OUTEXT             = "<xsl:sequence select="$OUTEXT"/>"
       + tempdir            = "<xsl:sequence select="$tempdir"/>"
       + titleOnlyTopicClassSpec = "<xsl:sequence select="$titleOnlyTopicClassSpec"/>"
       + titleOnlyTopicTitleClassSpec = "<xsl:sequence select="$titleOnlyTopicTitleClassSpec"/>"
@@ -248,6 +265,14 @@
     <xsl:call-template name="report-parameters"/>
 
     <xsl:variable name="uniqueTopicRefs" as="element()*" select="df:getUniqueTopicrefs(.)"/>
+    
+    <xsl:variable name="chunkRootTopicrefs" as="element()*"
+      select="//*[df:class(.,'map/topicref')][@processing-role = 'normal']"
+    />
+    
+    <xsl:message> + [DEBUG] chunkRootTopicrefs=
+<xsl:sequence select="$chunkRootTopicrefs"/>      
+    </xsl:message>
 
     <xsl:variable name="graphicMap" as="element()">
       <xsl:apply-templates select="." mode="generate-graphic-map">
@@ -259,38 +284,37 @@
     
     <xsl:message> + [INFO] Gathering index terms...</xsl:message>
     
-    <!-- Gather all the index entries from the map and topic. 
-    -->
-    <xsl:variable name="index-terms" as="element()">
-      <index-terms xmlns="http://dita4publishers.org/index-terms">
-        <xsl:if test="$generateIndexBoolean">
-          <xsl:apply-templates mode="gather-index-terms"/>
-        </xsl:if>
-      </index-terms>
+    <xsl:variable name="collected-data" as="element()">
+      <xsl:call-template name="mapdriven:collect-data"/>      
     </xsl:variable>
     
-    <xsl:if test="true() and $debugBoolean">
-      <xsl:result-document href="{relpath:newFile($outdir, 'index-terms.xml')}"
+    <xsl:if test="true() or $debugBoolean">
+      <xsl:message> + [DEBUG] Writing file <xsl:sequence select="relpath:newFile($outdir, 'collected-data.xml')"/>...</xsl:message>
+      <xsl:result-document href="{relpath:newFile($outdir, 'collected-data.xml')}"
         format="indented-xml"
         >
-        <xsl:sequence select="$index-terms"/>
+        <xsl:sequence select="$collected-data"/>
       </xsl:result-document>
     </xsl:if>
     
-    <!-- NOTE: By default, this mode puts it output in the main output file
+    <!-- NOTE: By default, this mode puts its output in the main output file
          produced by the transform.
       -->
     <xsl:apply-templates select="." mode="generate-root-pages">
       <xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/>
-      <xsl:with-param name="index-terms" as="element()" select="$index-terms" tunnel="yes"/>
+      <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
     </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-content">
+      <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
       <xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/>      
     </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-index">
-      <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
+      <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
     </xsl:apply-templates>
-    <xsl:apply-templates select="." mode="generate-graphic-copy-ant-script">
+<!--    <xsl:apply-templates select="." mode="generate-glossary">
+      <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
+    </xsl:apply-templates>
+-->    <xsl:apply-templates select="." mode="generate-graphic-copy-ant-script">
       <xsl:with-param name="graphicMap" as="element()" tunnel="yes" select="$graphicMap"/>
     </xsl:apply-templates>
   </xsl:template>
