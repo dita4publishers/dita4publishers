@@ -123,22 +123,16 @@
   -->  
   <xsl:param name="generateIndex" as="xs:string" select="'no'"/>
   <xsl:variable name="generateIndexBoolean" 
-    select="
-    lower-case($generateIndex) = 'yes' or 
-    lower-case($generateIndex) = 'true' or
-    lower-case($generateIndex) = 'on'
-    "/>
+    select="matches($generateIndex, 'yes|true|on|1', 'i')"
+  />
   
   <!-- Generate the glossary dynamically using all glossary entry
        topics included in the map.
     -->
   <xsl:param name="generateGlossary" as="xs:string" select="'no'"/>
   <xsl:variable name="generateGlossaryBoolean" 
-    select="
-    lower-case($generateGlossary) = 'yes' or 
-    lower-case($generateGlossary) = 'true' or
-    lower-case($generateGlossary) = 'on'
-    "/>
+    select="matches($generateGlossary, 'yes|true|on|1', 'i')"
+  />
   
   
   <!-- value for @class on <body> of the generated static TOC HTML document -->
@@ -147,13 +141,13 @@
   <xsl:param name="contenttarget" select="'contentwin'"/>
   
   <xsl:param name="generateDynamicToc" select="'true'"/>
-  <xsl:param name="generateDynamicTocBoolean" select="matches($generateDynamicToc, 'yes|true|or', 'i')"/>
+  <xsl:param name="generateDynamicTocBoolean" select="matches($generateDynamicToc, 'yes|true|on|1', 'i')"/>
   
   <xsl:param name="generateFrameset" select="'true'"/>
-  <xsl:param name="generateFramesetBoolean" select="matches($generateFrameset, 'yes|true|or', 'i')"/>
+  <xsl:param name="generateFramesetBoolean" select="matches($generateFrameset, 'yes|true|on|1', 'i')"/>
   
   <xsl:param name="generateStaticToc" select="'false'"/>
-  <xsl:param name="generateStaticTocBoolean" select="matches($generateDynamicToc, 'yes|true|or', 'i')"/>
+  <xsl:param name="generateStaticTocBoolean" select="matches($generateStaticToc, 'yes|true|on|1', 'i')"/>
   
   <xsl:template name="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
@@ -166,6 +160,7 @@
       + cssOutputDir       = "<xsl:sequence select="$cssOutputDir"/>"
       + fileOrganizationStrategy = "<xsl:sequence select="$fileOrganizationStrategy"/>"  
       + generateDynamicToc = "<xsl:sequence select="$generateDynamicToc"/>"
+      + generateGlossary   = "<xsl:sequence select="$generateGlossary"/>"
       + generateFrameset   = "<xsl:sequence select="$generateFrameset"/>"
       + generateIndex      = "<xsl:sequence select="$generateIndex"/>
       + generateStaticToc  = "<xsl:sequence select="$generateStaticToc"/>"

@@ -35,7 +35,7 @@
     
     <xsl:variable name="glossary-entries" as="element()">
       <glossdata:glossary-entries>
-        <xsl:if test="$generateIndexBoolean">
+        <xsl:if test="$generateGlossaryBoolean">
           <xsl:apply-templates mode="gather-glossary-terms" select="."/>
         </xsl:if>
       </glossdata:glossary-entries>      

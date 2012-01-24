@@ -5,6 +5,9 @@
                 xmlns:relpath="http://dita2indesign/functions/relpath"
                 xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"
                 xmlns:index-terms="http://dita4publishers.org/index-terms"
+                xmlns:glossdata="http://dita4publishers.org/glossdata"
+                xmlns:mapdriven="http://dita4publishers.org/mapdriven"
+                xmlns:enum="http://dita4publishers.org/enumerables"
                 xmlns:local="urn:functions:local"
                 exclude-result-prefixes="local xs df xsl relpath htmlutil index-terms"
   >
@@ -170,6 +173,18 @@
         </xsl:otherwise>
       </xsl:choose>    
     </xsl:if>    
+  </xsl:template>
+  
+  <xsl:template match="mapdriven:collected-data" mode="generate-dynamic-toc">
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template match="enum:enumerables" mode="generate-dynamic-toc">
+    <!-- Nothing to do with enumerables in this context -->
+  </xsl:template>
+  
+  <xsl:template match="glossdata:glossary-entries" mode="generate-dynamic-toc">
+    <xsl:message> + [INFO] dynamic ToC generation: glossary entry processing not yet implemented.</xsl:message>
   </xsl:template>
   
   <xsl:template match="index-terms:index-terms" mode="generate-dynamic-toc">
