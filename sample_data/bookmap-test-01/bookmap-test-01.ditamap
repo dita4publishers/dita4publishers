@@ -4,6 +4,11 @@
   <booktitle>
     <mainbooktitle>Bookmap Test 01</mainbooktitle>
   </booktitle>
+  <frontmatter>
+    <booklists>
+      <toc/>
+    </booklists>
+  </frontmatter>
   <part
     href="topics/part-01.xml">
     <topicmeta>
