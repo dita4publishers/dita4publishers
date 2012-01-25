@@ -280,7 +280,7 @@
       <xsl:sequence select="$graphicMap"/>
     </xsl:result-document>    
     
-    <xsl:message> + [INFO] Gathering index terms...</xsl:message>
+    <xsl:message> + [INFO] Collecting data for index generation, enumeration, etc....</xsl:message>
     
     <xsl:variable name="collected-data" as="element()">
       <xsl:call-template name="mapdriven:collect-data"/>      

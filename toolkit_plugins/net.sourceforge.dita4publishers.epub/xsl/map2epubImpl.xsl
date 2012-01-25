@@ -5,7 +5,10 @@
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:df="http://dita2indesign.org/dita/functions"  
   xmlns:index-terms="http://dita4publishers.org/index-terms"
+  xmlns:enum="http://dita4publishers.org/enumerables"
+  xmlns:glossdata="http://dita4publishers.org/glossdata"
   xmlns:relpath="http://dita2indesign/functions/relpath"
+  xmlns:mapdriven="http://dita4publishers.org/mapdriven"
   exclude-result-prefixes="xs xd df relpath"
   version="2.0">
   
@@ -53,6 +56,10 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMapImpl.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/dataCollection.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/glossaryProcessing.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/indexProcessing.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/mapdrivenEnumeration.xsl"/>
   
   
   <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlOverrides.xsl"/>
@@ -62,9 +69,12 @@
   <xsl:include href="map2epubSetCoverGraphic.xsl"/>
   <xsl:include href="map2epubHtmlTocImpl.xsl"/>
   <xsl:include href="map2epubTocImpl.xsl"/>
-  <xsl:include href="map2epubIndexImpl.xsl"/>
+<!--  <xsl:include href="map2epubIndexImpl.xsl"/>-->
   <xsl:include href="html2xhtmlImpl.xsl"/>
   <xsl:include href="epubHtmlOverrides.xsl"/>
+  
+  <xsl:include href="../../net.sourceforge.dita4publishers.html2/xsl/map2html2Index.xsl"/>
+  
 
   <xsl:include href="map2epubD4PImpl.xsl"/>
   <xsl:include href="map2epubBookmapImpl.xsl"/>
@@ -122,16 +132,13 @@
   <!-- Maxminum depth of the generated ToC -->
   <xsl:param name="maxTocDepth" as="xs:string" select="'5'"/>
   
-  <!-- Include back-of-the-book-index if any index entries in source 
-  
-       For now default to no since index generation is still under development.
-  -->  
-  <xsl:param name="generateIndex" as="xs:string" select="'no'"/>
-  
   <!-- Include literal HTML ToC page as for normal HTML output. 
   -->
   
   <xsl:param name="generateHtmlToc" as="xs:string" select="'no'"/>
+  <xsl:variable name="generateHtmlTocBoolean" 
+    select="matches($generateHtmlToc, 'yes|true|on|1', 'i')"
+  />
   
   <xsl:param name="html.toc.OUTPUTCLASS" as="xs:string" select="''"/>
   
@@ -141,19 +148,18 @@
   -->         
   <xsl:param name="fileOrganizationStrategy" as="xs:string" select="'single-dir'"/>
   
+  <xsl:param name="generateIndex" as="xs:string" select="'no'"/>
   <xsl:variable name="generateIndexBoolean" 
-    select="
-    lower-case($generateIndex) = 'yes' or 
-    lower-case($generateIndex) = 'true' or
-    lower-case($generateIndex) = 'on'
-    "/>
+    select="matches($generateIndex, 'yes|true|on|1', 'i')"
+  />
   
-  <xsl:variable name="generateHtmlTocBoolean" 
-    select="
-    lower-case($generateHtmlToc) = 'yes' or 
-    lower-case($generateHtmlToc) = 'true' or
-    lower-case($generateHtmlToc) = 'on'
-    "/>
+  <!-- Generate the glossary dynamically using all glossary entry
+    topics included in the map.
+  -->
+  <xsl:param name="generateGlossary" as="xs:string" select="'no'"/>
+  <xsl:variable name="generateGlossaryBoolean" 
+    select="matches($generateGlossary, 'yes|true|on|1', 'i')"
+  />
   
   <!-- Absolute URI of the graphic to use for the cover. Specify
        when the source markup does not enable determination
@@ -162,6 +168,11 @@
   <xsl:param name="coverGraphicUri" as="xs:string" select="''" />
   
   <xsl:variable name="coverImageId" select="'coverimage'" as="xs:string"/>
+  
+  <!-- Used by some HTML output stuff. For EPUB, don't want links to
+       go to a new window.
+    -->
+  <xsl:variable name="contenttarget" as="xs:string" select="''"/>
   
   <xsl:template name="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
@@ -173,6 +184,7 @@
       
       + coverGraphicUri = "<xsl:sequence select="$coverGraphicUri"/>"
       + cssOutputDir    = "<xsl:sequence select="$cssOutputDir"/>"
+      + generateGlossary= "<xsl:sequence select="$generateGlossary"/>
       + generateHtmlToc = "<xsl:sequence select="$generateHtmlToc"/>
       + generateIndex   = "<xsl:sequence select="$generateIndex"/>
       + imagesOutputDir = "<xsl:sequence select="$imagesOutputDir"/>"
@@ -287,6 +299,22 @@
         <xsl:with-param name="effectiveCoverGraphicUri" select="$effectiveCoverGraphicUri" as="xs:string" tunnel="yes"/>        
       </xsl:apply-templates>
     </xsl:variable>
+    
+    <xsl:message> + [INFO] Collecting data for index generation, enumeration, etc....</xsl:message>
+    
+    <xsl:variable name="collected-data" as="element()">
+      <xsl:call-template name="mapdriven:collect-data"/>      
+    </xsl:variable>
+    
+    <xsl:if test="true() or $debugBoolean">
+      <xsl:message> + [DEBUG] Writing file <xsl:sequence select="relpath:newFile($outdir, 'collected-data.xml')"/>...</xsl:message>
+      <xsl:result-document href="{relpath:newFile($outdir, 'collected-data.xml')}"
+        format="indented-xml"
+        >
+        <xsl:sequence select="$collected-data"/>
+      </xsl:result-document>
+    </xsl:if>
+        
     <xsl:result-document href="{relpath:newFile($outdir, 'graphicMap.xml')}" format="graphic-map">
       <xsl:sequence select="$graphicMap"/>
     </xsl:result-document>    
@@ -295,41 +323,20 @@
     
     <xsl:message> + [INFO] Gathering index terms...</xsl:message>
     
-    <!-- Gather all the index entries from the map and topic. 
-      
-         FIXME: Replace this with the more-complete data gathering
-         approach from 0.9.17.
-    -->
-    <xsl:variable name="index-terms" as="element()">
-      <index-terms xmlns="http://dita4publishers.org/index-terms">
-        <xsl:if test="$generateIndexBoolean">
-          <xsl:apply-templates select="." mode="gather-index-terms"/>
-        </xsl:if>
-      </index-terms>
-    </xsl:variable>
-    
-    <xsl:if test="true()">
-      <xsl:result-document href="{relpath:newFile($outdir, 'index-terms.xml')}"
-        format="indented-xml"
-        >
-        <xsl:sequence select="$index-terms"/>
-      </xsl:result-document>
-    </xsl:if>
-    
     <xsl:apply-templates select="." mode="generate-content"/>
     <!-- NOTE: The generate-toc mode is for the EPUB toc, not the HTML toc -->
     <xsl:apply-templates select="." mode="generate-toc">
-      <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
+      <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
     </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-book-lists">
-      <xsl:with-param name="index-terms" as="element()" select="$index-terms" tunnel="yes"/>
+      <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
     </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-index">
-      <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
+      <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
     </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-opf">
       <xsl:with-param name="graphicMap" as="element()" tunnel="yes" select="$graphicMap"/>
-      <xsl:with-param name="index-terms" as="element()" select="$index-terms"/>
+      <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
       <xsl:with-param name="effectiveCoverGraphicUri" select="$effectiveCoverGraphicUri" as="xs:string" tunnel="yes"/>        
     </xsl:apply-templates>
     <xsl:apply-templates select="." mode="generate-graphic-copy-ant-script">

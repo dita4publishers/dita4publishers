@@ -15,7 +15,7 @@
     
     DITA Map to ePub Transformation: Content Generation Module
     
-    Copyright (c) 2010, 2011 DITA For Publishers
+    Copyright (c) 2010, 2012 DITA For Publishers
     
     This module generates output HTML files for each topic referenced
     from the incoming map.

@@ -16,7 +16,7 @@
 
 
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-toc">
-    <xsl:param name="index-terms" as="element()"/>
+    <xsl:param name="collected-data" as="element()" tunnel="yes"/>
     <xsl:variable name="pubTitle" as="xs:string*">
       <xsl:apply-templates select="*[df:class(., 'topic/title')] | @title" mode="pubtitle"/>
     </xsl:variable>           
@@ -59,9 +59,9 @@
             </xsl:apply-templates>
           </xsl:otherwise>
         </xsl:choose>        
-        <xsl:if test="$index-terms/index-terms:index-term">
+        <xsl:if test="$generateIndexBoolean">
           <xsl:message> + [DEBUG] found index terms, adding navpoint to generated index...</xsl:message>
-          <navPoint id="{generate-id($index-terms)}"
+          <navPoint id="generated-index"
             > 
             <navLabel>
               <text>Index</text>

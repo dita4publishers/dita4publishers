@@ -162,7 +162,9 @@
     	<param name="titleOnlyTopicClassSpec" expression="${title.only.topic.class.spec}"/>
     	<param name="titleOnlyTopicTitleClassSpec" expression="${title.only.topic.title.class.spec}"/>
      	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
+    	<param name="generateGlossary" expression="${html2.generate.glossary}" if="html2.generate.glossary"/>
     	<param name="generateHtmlToc" expression="${epub.generate.html.toc}" if="epub.generate.html.toc"/>
+    	<param name="generateIndex" expression="${html2.generate.index}" if="html2.generate.index"/>
       <param name="html.toc.OUTPUTCLASS" expression="${args.xhtml.toc.class}" if="args.xhtml.toc.class" />
 
     	<!-- Parameters from dita2xhtml and similar transtypes: -->   

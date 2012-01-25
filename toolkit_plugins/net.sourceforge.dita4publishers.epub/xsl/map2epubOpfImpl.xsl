@@ -109,7 +109,9 @@
           <xsl:if test="$CSS != ''">
             <opf:item id="{$CSS}" href="{$cssOutputDir}/{$CSS}" media-type="text/css"/>
           </xsl:if>
-          <!-- FIXME: Provide for back-of-the-book index -->
+          <xsl:if test="$generateIndexBoolean">
+            <opf:item id="generated-index" href="generated-index.html" media-type="application/xhtml+xml"/>
+          </xsl:if>
         </manifest>
         
         <spine toc="ncx">
@@ -119,6 +121,9 @@
             .//*[df:isTopicHead(.)]) | 
             .//*[local:includeTopicrefInSpine(.)]"
           />
+          <xsl:if test="$generateIndexBoolean">
+            <opf:itemref idref="generated-index"/>
+          </xsl:if>
           
         </spine>
         
