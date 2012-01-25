@@ -3,6 +3,15 @@
 <chapter
   id="chapter-id">
   <title>Graphic Tests</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>graphics<indexterm>tests for</indexterm><indexterm>.jpeg
+          extension</indexterm></indexterm>
+        <indexterm>tests<indexterm>of graphics</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
   <body>
     <p>This chapter tests graphics.</p>
     <fig>
@@ -18,7 +27,7 @@
       <image
         keyref="graphic-1407-04"
         id="image_ccs_s4b_f2">
-        <alt>Grahpic referenced by key. Dorothy admonishing the Cowardly
+        <alt>Graphic referenced by key. Dorothy admonishing the Cowardly
           Lion.</alt>
       </image>
     </fig>
