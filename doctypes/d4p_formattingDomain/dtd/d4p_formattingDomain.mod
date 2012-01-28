@@ -27,10 +27,15 @@
      
 
 <!ENTITY % MATHML.prefixed "INCLUDE">
+<!--
+  NOTE: As of version 0.9.19, the mathML DTD is included
+        by the D4P Math domain. 
+        
 
 <!ENTITY % mathml2.dtd 
   SYSTEM "../../mathml2/dtd/mathml2.dtd"
 >%mathml2.dtd;
+-->
 
 <!-- ============================================================= -->
 <!--                   ELEMENT NAME ENTITIES                       -->

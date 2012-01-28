@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     DITA For Publishers Math Domain
+     
+     Defines specializations for the inclusion of MathML in DITA
+     content. Also provides elements for representing equations
+     in various ways.
+     
+     Copyright (c) 2012 DITA For Publishers
+     
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                   Formatting DOMAIN ENTITIES                  -->
+<!-- ============================================================= -->
+
+<!ENTITY % d4p_math-d-ph
+   "d4p_eqn_inline    
+   "
+>
+
+<!ENTITY % d4p_math-d-p
+   "d4p_eqn_block
+   "
+>
+
+<!ENTITY % d4p_math-d-fig
+   "d4p_display-equation
+   "
+>
+
+<!ENTITY % d4p_math-d-foreign
+   "d4p_MathML
+   "
+>
+
+
+
+<!ENTITY   d4p_math-d-att     
+  "(topic d4p_math-d)"
+>
+
+
+<!-- ================== End DITA For Publishers Math Domain Entities ============ -->

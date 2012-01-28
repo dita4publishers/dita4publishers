@@ -77,14 +77,7 @@
 <!--                    Must be declared ahead of the DTDs, which
                         puts @domains first in order               -->
 
-<!ENTITY included-domains 
-    "&hi-d-att; 
-     &ut-d-att;
-     &formatting-d-att;
-     &xml-d-att;
-    "                
- >
-
+<!-- NOTE: These are provided in the common domain entity integrations module. -->
 
 <!-- ============================================================= -->
 <!--                    TOPIC ELEMENT INTEGRATION                  -->

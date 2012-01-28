@@ -6,7 +6,8 @@
 
 
 <!ENTITY % fig          
-  "fig
+  "fig |
+   %d4p_math-d-fig;
   "      
 >
 
@@ -14,6 +15,7 @@
   "ph | 
    %hi-d-ph; |
    %d4p_formatting-d-ph; |
+   %d4p_math-d-ph; |
    %d4p_ruby-d-ph;
   "
 >
@@ -33,6 +35,7 @@
 <!ENTITY % p         
   "p     | 
    %d4p_formatting-d-p;     | 
+   %d4p_math-d-p; |
    %d4p_pubcontent-d-p;
   "      
 >
@@ -73,6 +76,12 @@
   "
 >
                       
+<!ENTITY % foreign
+  "foreign |
+   %d4p_math-d-foreign;
+  "
+>
+
 
 <!-- ============================================================= -->
 <!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
@@ -85,8 +94,9 @@
      &indexing-d-att;
      &d4p_formatting-d-att;
      &d4p_ruby-d-att;
-     &d4p_classification-d-att;
      &d4p_renditionTargetAtt-d-att;
+     &d4p_classification-d-att;
+     &d4p_math-d-att;
      &d4p_variables-d-att;
      &d4p_verse-d-att;
      &xml-d-att;

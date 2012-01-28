@@ -23,6 +23,12 @@
 >
 %d4p_formatting-d-dec;
 
+<!ENTITY % d4p_math-d-dec     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_mathDomain:entities" 
+"d4p_mathDomain.ent"                                                
+>
+%d4p_math-d-dec;
+
 <!ENTITY % d4p_media-d-dec     PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_mediaDomain:entities" 
 "d4p_mediaDomain.ent"                                                
