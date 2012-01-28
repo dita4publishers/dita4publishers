@@ -11,7 +11,9 @@
   
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-html-toc">
     <xsl:param name="resultUri" as="xs:string"/>
-    <xsl:param name="index-terms" as="element()" tunnel="yes"/>
+    <xsl:param name="collected-data" as="element()" tunnel="yes"/>
+    
+    <xsl:variable name="index-terms" as="element()?" select="$collected-data/index-terms:index-terms"/>
     <xsl:variable name="pubTitle" as="xs:string*">
       <xsl:apply-templates select="*[df:class(., 'topic/title')] | @title" mode="pubtitle"/>
     </xsl:variable>

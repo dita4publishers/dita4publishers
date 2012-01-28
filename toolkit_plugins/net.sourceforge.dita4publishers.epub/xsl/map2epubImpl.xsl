@@ -167,6 +167,18 @@
     -->
   <xsl:param name="coverGraphicUri" as="xs:string" select="''" />
   
+  <!-- NOTE: These parameters are used by the math-d2html XSLT code -->
+  
+  <xsl:param name="mathJaxInclude" select="'false'"/>
+  <xsl:param name="mathJaxIncludeBoolean" select="matches($mathJaxInclude, 'yes|true|on|1', 'i')"/>
+
+  <xsl:param name="mathJaxUseCDNLinkBoolean" select="false()"/><!-- For EPUB, can't use remote version -->
+  
+  <xsl:param name="mathJaxUseLocalLinkBoolean" select="$mathJaxInclude"/>
+  
+  <!-- FIXME: Parameterize the location of the JavaScript directory -->
+  <xsl:param name="mathJaxLocalJavascriptUri" select="'js/mathjax/MathJax.js'"/>
+  
   <xsl:variable name="coverImageId" select="'coverimage'" as="xs:string"/>
   
   <!-- Used by some HTML output stuff. For EPUB, don't want links to
@@ -188,6 +200,9 @@
       + generateHtmlToc = "<xsl:sequence select="$generateHtmlToc"/>
       + generateIndex   = "<xsl:sequence select="$generateIndex"/>
       + imagesOutputDir = "<xsl:sequence select="$imagesOutputDir"/>"
+      + mathJaxInclude  = "<xsl:sequence select="$mathJaxInclude"/>"
+      + mathJaxConfigParam = "<xsl:sequence select="$mathJaxConfigParam"/>"
+      + mathJaxLocalJavascriptUri= "<xsl:sequence select="$mathJaxLocalJavascriptUri"/>"
       + outdir          = "<xsl:sequence select="$outdir"/>"
       + tempdir         = "<xsl:sequence select="$tempdir"/>"
       + titleOnlyTopicClassSpec = "<xsl:sequence select="$titleOnlyTopicClassSpec"/>"

@@ -148,6 +148,8 @@
   
   <xsl:param name="generateStaticToc" select="'false'"/>
   <xsl:param name="generateStaticTocBoolean" select="matches($generateStaticToc, 'yes|true|on|1', 'i')"/>
+
+  <!-- NOTE: MathJax parameters are defined in the math-d2html.xsl module. -->
   
   <xsl:template name="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
@@ -166,6 +168,10 @@
       + generateStaticToc  = "<xsl:sequence select="$generateStaticToc"/>"
       + imagesOutputDir    = "<xsl:sequence select="$imagesOutputDir"/>"
       + inputFileNameParam = "<xsl:sequence select="$inputFileNameParam"/>"
+      + mathJaxUseCDNLink  = "<xsl:sequence select="$mathJaxUseCDNLink"/>"
+      + mathJaxUseLocalLink= "<xsl:sequence select="$mathJaxUseLocalLink"/>"
+      + mathJaxLocalJavascriptUri= "<xsl:sequence select="$mathJaxLocalJavascriptUri"/>"
+      + mathJaxConfigParam = "<xsl:sequence select="$mathJaxConfigParam"/>"
       + outdir             = "<xsl:sequence select="$outdir"/>"
       + OUTEXT             = "<xsl:sequence select="$OUTEXT"/>"
       + tempdir            = "<xsl:sequence select="$tempdir"/>"
