@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e56"><title>6.7 Philosophic Implications</title><body><p>
+The discussion above in two dimensions demonstrates an important fact about derivatives which is responsible both for the usefulness of calculus and our ability to compute derivatives of all the standard functions, and others as well.
+</p><p>
+<b>The fact is: in the linear approximation, which is the realm 
+  of differentials and derivatives, changes in a differentiable function from 
+  two different causes, such as from the change in
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> and the change in
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>y</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>, do not interact, they simply add on to one another as described in <ph outputclass="a">equation 
+  (A)</ph> above.</b>
+</p><p>
+One implication of this fact is that in computing derivatives you can analyze the function into simple parts, compute the derivative resulting from the change in each part, and from every cause, and sum to get the derivative of the whole function.
+</p><p>
+For example the identity function 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ obviously obeys 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>d</m:mi><m:mi>f</m:mi><m:mo>=</m:mo><m:mi>d</m:mi><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mfrac><m:mrow><m:mi>d</m:mi><m:mi>f</m:mi></m:mrow><m:mrow><m:mi>d</m:mi><m:mi>x</m:mi></m:mrow></m:mfrac><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, and if 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>c</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is a constant and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo>=</m:mo><m:mi>c</m:mi><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ we have 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>d</m:mi><m:mi>f</m:mi><m:mo>=</m:mo><m:mi>c</m:mi><m:mi>d</m:mi><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo>'</m:mo><m:mo>=</m:mo><m:mi>c</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+: the factor 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>c</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is the slope of the tangent line which in this case is 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ itself.
+</p><p>
+In other words, when acting on 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ or 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>c</m:mi><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, the action of taking the derivative is to replace the factor 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ by 1.
+</p><p>
+Suppose now we consider 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo>=</m:mo><m:msup><m:mi>x</m:mi><m:mi>n</m:mi></m:msup></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ for some positive integer 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>n</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. This is the product of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>n</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ factors each of which is 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. The effect of taking the derivative with respect to any one factor, leaving the others fixed is to replace that factor by 1. The sum obtained by doing this to each factor is by our fact, the derivative of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ with respect to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. We get
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mfrac><m:mrow><m:mi>d</m:mi><m:msup><m:mi>x</m:mi><m:mi>n</m:mi></m:msup></m:mrow><m:mrow><m:mi>d</m:mi><m:mi>x</m:mi></m:mrow></m:mfrac><m:mo>=</m:mo><m:mfrac><m:mrow><m:mi>n</m:mi><m:msup><m:mi>x</m:mi><m:mi>n</m:mi></m:msup></m:mrow><m:mi>x</m:mi></m:mfrac><m:mo>=</m:mo><m:mi>n</m:mi><m:msup><m:mi>x</m:mi><m:mrow><m:mi>n</m:mi><m:mo>−</m:mo><m:mn>1</m:mn></m:mrow></m:msup><m:mo>=</m:mo><m:mi>n</m:mi><m:mfrac><m:mi>f</m:mi><m:mi>x</m:mi></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><p>
+The 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>n</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ comes from replacing an 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ by a 1 for each of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>n</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ different factors.
+</p><p>
+As a second example, suppose 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo>=</m:mo><m:mi>g</m:mi><m:mo>*</m:mo><m:mi>h</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, the function 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is the product of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>g</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>h</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+Then the differential change in 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ caused by a change in 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>g</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ alone will be 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>d</m:mi><m:mi>f</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mrow><m:mi>h</m:mi><m:mtext>fixed</m:mtext></m:mrow></m:msub><m:mo>=</m:mo><m:mo stretchy="false">(</m:mo><m:mi>d</m:mi><m:mi>g</m:mi><m:mo stretchy="false">)</m:mo><m:mo>*</m:mo><m:mi>h</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, and that caused by a change in 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>h</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ alone will be 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>d</m:mi><m:mi>f</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mrow><m:mi>g</m:mi><m:mtext>fixed</m:mtext></m:mrow></m:msub><m:mo>=</m:mo><m:mi>g</m:mi><m:mo>*</m:mo><m:mi>d</m:mi><m:mi>h</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. We can conclude here that the change in 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ in general will be the sum of these: 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>d</m:mi><m:mi>f</m:mi><m:mo>=</m:mo><m:mi>d</m:mi><m:mi>g</m:mi><m:mo>*</m:mo><m:mi>h</m:mi><m:mo>+</m:mo><m:mi>g</m:mi><m:mo>*</m:mo><m:mi>d</m:mi><m:mi>h</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ which implies 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo>'</m:mo><m:mo>=</m:mo><m:mi>g</m:mi><m:mo>'</m:mo><m:mi>h</m:mi><m:mo>+</m:mo><m:mi>g</m:mi><m:mi>h</m:mi><m:mo>'</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+Another important implication of this same fact is that when you are confronted with an unknown function which depends on many parameters, you can, in examining the derivative of the function with respect to anything,
+<b>model 
+  the change in the function with respect to each parameter separately,</b>
+and thus get a relatively simple model of how the function changes under differential changes in any of its variables.
+</p><p>
+You can then hope to discover the actual behavior of the function under real changes in the parameters,
+<b>by "integrating" the differential 
+  changes</b>
+which you have modeled.
+</p><p>
+The alternative to this approach, modeling the effects of real changes in the parameters directly, is far more difficult. It is complicated by the fact that changes from different sources interact and can become very hard to model.
+</p><p>
+Though we study the derivatives of known functions to develop an understanding of the subject, the profound uses of calculus are in helping us determine unknown functions through this "analytic" process: modeling their differential changes and then "integrating" them.
+</p><p>
+Newton invented calculus to do this in studying the motion of planets and moving bodies subject to various forces, with incredible success.
+<br/>
+</p><p>
+<b>Exercises:</b>
+</p><p>
+<b>6.1 The derivative applet exhibits the derivative of any function you can 
+  enter.<br/>
+</b>
+<b>Enter the function
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mn>2</m:mn></m:msup></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> between -4 and 4 and see if you 
+can locate the points at which its derivative is</b>
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mfrac><m:mn>1</m:mn><m:mn>2</m:mn></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+<b>6.2 What derivative do you find at
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>? Where is the derivative 0? </b>
+</p><p>
+<b>6.3 Does the fact that a function of two variables has partial derivatives 
+  with respect to
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>y</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> at a point imply that it is differentiable there? </b>
+</p><p>
+<b>6.4 Does the fact that a function has directional derivatives in all directions 
+  at a point imply that is is differentiable there?<br/> 
+  (Hint: consider
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo>=</m:mo><m:mfrac><m:mrow><m:mi>x</m:mi><m:mi>y</m:mi></m:mrow><m:mrow><m:msup><m:mi>x</m:mi><m:mn>2</m:mn></m:msup><m:mo>+</m:mo><m:msup><m:mi>y</m:mi><m:mn>2</m:mn></m:msup></m:mrow></m:mfrac></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> at
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mo>=</m:mo><m:mi>y</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>.)</b>
+</p><p>
+<b>6.5 Given that
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo><m:mo>'</m:mo><m:mo>=</m:mo><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>, what can we define
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mfrac><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow><m:mi>x</m:mi></m:mfrac></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> to be at
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>? How about
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mfrac><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow><m:mrow><m:msup><m:mi>x</m:mi><m:mn>2</m:mn></m:msup></m:mrow></m:mfrac></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> at
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>?</b>
+</p><p>
+<b>6.6 What is the gradient of the function
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:msup><m:mi>x</m:mi><m:mn>2</m:mn></m:msup><m:mo>+</m:mo><m:msup><m:mi>y</m:mi><m:mn>2</m:mn></m:msup><m:mo stretchy="false">)</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>? What is its directional derivative </b>
+<b>in the direction of the vector
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mn>1</m:mn><m:mo>,</m:mo><m:mn>1</m:mn><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> at the point
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>,</m:mo><m:mi>y</m:mi><m:mo>=</m:mo><m:mn>2</m:mn></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>?</b>
+</p></body></topic>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e59"><title>Exercise 2.13</title><body><p>
+<b>Deduce them, that is, deduce:
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>a</m:mi><m:mi>b</m:mi><m:mo>=</m:mo><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>a</m:mi><m:mo>+</m:mo><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>b</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>,</b>
+<b> and</b>
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:msub><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo></m:mrow><m:mi>a</m:mi></m:msub><m:mi>b</m:mi><m:mo stretchy="false">)</m:mo><m:mo>*</m:mo><m:mo stretchy="false">(</m:mo><m:msub><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo></m:mrow><m:mi>b</m:mi></m:msub><m:mi>c</m:mi><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:msub><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo></m:mrow><m:mi>a</m:mi></m:msub><m:mi>c</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+Solution:
+</p><p>
+The natural logarithm function 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is inverse to the exponential function. If in the first equation we take the exponential function of both sides we get 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>a</m:mi><m:mi>b</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ on the left, which is 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>a</m:mi><m:mi>b</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>a</m:mi><m:mo>+</m:mo><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>b</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ on the right.
+</p><p>
+Using the identity 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>s</m:mi><m:mo>+</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:mo stretchy="false">(</m:mo><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>s</m:mi><m:mo stretchy="false">)</m:mo><m:mo>*</m:mo><m:mo stretchy="false">(</m:mo><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ the right hand side becomes 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>a</m:mi><m:mi>b</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ as well.
+</p><p>
+The identity 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>s</m:mi><m:mi>t</m:mi><m:mo>=</m:mo><m:msup><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>s</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mi>t</m:mi></m:msup></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ implies the second identity in the case 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>a</m:mi><m:mo>=</m:mo><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mn>1</m:mn></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ by the following argument:
+<br/>
+in that case 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo></m:mrow><m:mi>a</m:mi></m:msub><m:mi>b</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is ln b and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo></m:mrow><m:mi>a</m:mi></m:msub><m:mi>c</m:mi><m:mo>=</m:mo><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>c</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+<br/>
+We can then apply the exponential function to both sides of the equation we want to prove and we get
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mo stretchy="false">(</m:mo><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>b</m:mi><m:mo stretchy="false">)</m:mo><m:mo>*</m:mo><m:mo stretchy="false">(</m:mo><m:msub><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo></m:mrow><m:mi>b</m:mi></m:msub><m:mi>c</m:mi><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>c</m:mi><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:mi>c</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><p>
+By the identity the left hand side here becomes 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>b</m:mi><m:mo stretchy="false">)</m:mo><m:mo>^</m:mo><m:msub><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo></m:mrow><m:mi>b</m:mi></m:msub><m:mi>c</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, or 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>b</m:mi><m:mo>^</m:mo><m:msub><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo></m:mrow><m:mi>b</m:mi></m:msub><m:mi>c</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ which is again 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>c</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+But this tells us that in general
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:msub><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo></m:mrow><m:mi>b</m:mi></m:msub><m:mi>c</m:mi><m:mo>=</m:mo><m:mfrac><m:mrow><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>c</m:mi></m:mrow><m:mrow><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>b</m:mi></m:mrow></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><p>
+and the general claim, 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:msub><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo></m:mrow><m:mi>a</m:mi></m:msub><m:mi>b</m:mi><m:mo stretchy="false">)</m:mo><m:mo>*</m:mo><m:mo stretchy="false">(</m:mo><m:msub><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo></m:mrow><m:mi>b</m:mi></m:msub><m:mi>c</m:mi><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:msub><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo></m:mrow><m:mi>a</m:mi></m:msub><m:mi>c</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ follows immediately from this fact, by substitution.
+</p></body></topic>

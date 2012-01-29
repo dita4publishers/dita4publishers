@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e56"><title>6.3 Examples of non Differentiable Behavior</title><body><p>
+A function which jumps is not differentiable at the jump nor is one which has a cusp, like 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mrow><m:mo>|</m:mo><m:mi>x</m:mi><m:mo>|</m:mo></m:mrow></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ has at 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+Generally the most common forms of non-differentiable behavior involve a function going to infinity at 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, or having a jump or cusp at 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+There are however stranger things. The function 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mrow><m:mo>(</m:mo><m:mrow><m:mfrac><m:mn>1</m:mn><m:mi>x</m:mi></m:mfrac></m:mrow><m:mo>)</m:mo></m:mrow></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, for example is singular at 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ even though it always lies between -1 and 1. Its hard to say what it does right near 0 but it sure doesn't look like a straight line.
+</p><p>
+If the function 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ has the form 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo>=</m:mo><m:mfrac><m:mi>g</m:mi><m:mi>h</m:mi></m:mfrac><m:mo>,</m:mo><m:mi>f</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ will usually be singular at argument 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ if 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>h</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ vanishes there, 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>h</m:mi><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. However if 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>g</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ vanishes at 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ as well, then 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ will usually be well behaved near 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, though strictly speaking it is undefined there.
+</p><p>
+We usually define 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ at 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ under such circumstances to be the ratio of the linear approximation at 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to g to that to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>h</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ very near 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, which means we define 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to be 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo>=</m:mo><m:mfrac><m:mrow><m:mi>g</m:mi><m:mo>'</m:mo><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mrow><m:mi>h</m:mi><m:mo>'</m:mo><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, when, of course the denominator here does not vanish. (If the denominator does vanish and the numerator vanishes as well, you can try to define 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ similarly as the ratio of the derivatives of these derivatives, etc.)
+</p><p>
+This kind of thing, an isolated point at which a function is not defined, is called a "removable singularity" and the procedure for removing it just discussed is called
+<b>"l' Hospital's rule"</b>
+.
+</p><p>
+An example is 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mfrac><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow><m:mi>x</m:mi></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ at 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+<image href="images/removable.gif" width="300" height="300"><alt>figure</alt></image>
+                         
+<image href="images/jump.gif" width="300" height="300"><alt>figure</alt></image>
+</p><p>
+<image href="images/infinite.gif" width="300" height="300"><alt>figure</alt></image>
+                         
+<image href="images/hole.gif" width="300" height="300"><alt>figure</alt></image>
+</p><p>
+<image href="images/essential.gif" width="300" height="300"><alt>figure</alt></image>
+</p><p>
+ 
+</p><p>
+<b>Continuous but non differentiable functions</b>
+</p><p>
+ 
+</p><p>
+<image href="images/abs.gif" width="300" height="300"><alt>figure</alt></image>
+                         
+<image href="images/sqrt.gif" width="300" height="300"><alt>figure</alt></image>
+</p><p>
+<image href="images/cubic_root.gif" width="300" height="300"><alt>figure</alt></image>
+</p></body></topic>

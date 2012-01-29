@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e56"><title>4.3 Evaluating the Determinant by Gaussian Elimination and 
+  by Row or Column Expansion</title><body><p>
+This section is extremely sketchy. For further discussion see
+<ph outputclass="a">
+  <b>Chapter 
+  32</b>
+</ph>
+.
+</p><p>
+<b>Evaluating a Determinant by Gaussian elimination:</b>
+to do this you add multiples of one row to another until all entries below the main diagonal are 0. The determinant (which is unchanged by these actions) is then the product of the diagonal entries. Machines can do such things for 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>n</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ by 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>n</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ matrices with 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>n</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ in the hundreds or thousands, but people find the exercise a bit dull.
+</p><p>
+<b>Expansion of a determinant in a row or column:</b>
+let the matrix 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ have elements 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mi>m</m:mi><m:mrow><m:mi>i</m:mi><m:mi>j</m:mi></m:mrow></m:msub></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. The first index describes the row number, the second the column number.
+</p><p>
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ 's determinant is a sum of the elements of any single row each multiplied by a factor. What factor?
+</p><p>
+For the j-th element of the i-th row it is the determinant of the matrix obtained by removing that row and column, multiplied by a sign factor of -1 to the sum of the indices of the element, 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>i</m:mi><m:mo>+</m:mo><m:mi>j</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+</p><p> <d4p_eqn_inline>
+      <d4p_MathML>
+        <m:math
+          xmlns:m="http://www.w3.org/1998/Math/MathML"
+          display="inline"
+          overflow="scroll">
+          <m:mrow>
+            <m:mi>det</m:mi>
+            <m:mo>⁡</m:mo>
+            <m:msub>
+              <m:mi>m</m:mi>
+              <m:mrow>
+                <m:mi>i</m:mi>
+                <m:mi>j</m:mi>
+              </m:mrow>
+            </m:msub>
+            <m:mo>=</m:mo>
+            <m:mstyle
+              displaystyle="true">
+              <m:munder>
+                <m:mo
+                  maxsize="3">∑</m:mo>
+                <m:mi>j</m:mi>
+              </m:munder>
+            </m:mstyle>
+            <m:mrow>
+              <m:msub>
+                <m:mi>m</m:mi>
+                <m:mrow>
+                  <m:mi>i</m:mi>
+                  <m:mi>j</m:mi>
+                </m:mrow>
+              </m:msub>
+              <m:msup>
+                <m:mrow>
+                  <m:mo
+                    stretchy="false">(</m:mo>
+                  <m:mo>−</m:mo>
+                  <m:mn>1</m:mn>
+                  <m:mo
+                    stretchy="false">)</m:mo>
+                </m:mrow>
+                <m:mrow>
+                  <m:mi>i</m:mi>
+                  <m:mo>+</m:mo>
+                  <m:mi>j</m:mi>
+                </m:mrow>
+              </m:msup>
+            </m:mrow>
+            <m:msub>
+              <m:mi>M</m:mi>
+              <m:mrow>
+                <m:mi>i</m:mi>
+                <m:mi>j</m:mi>
+              </m:mrow>
+            </m:msub>
+          </m:mrow>
+        </m:math>
+      </d4p_MathML>
+      </d4p_eqn_inline>(A)  </p><p>
+where 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mi>M</m:mi><m:mrow><m:mi>i</m:mi><m:mi>j</m:mi></m:mrow></m:msub></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+<b> is the determinant of the matrix obtained from
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> by eliminating its i-th row and j-th column and closing the rest up into a square array.</b>
+</p><p>
+<b>Why is this so?</b>
+</p><p>
+The factor multiplying 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mi>m</m:mi><m:mrow><m:mi>i</m:mi><m:mi>j</m:mi></m:mrow></m:msub></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ must be linear in the other rows and be 0 if two of them are identical, so it must be proportional to their determinant, 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mi>M</m:mi><m:mrow><m:mi>i</m:mi><m:mi>j</m:mi></m:mrow></m:msub></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. (Also since the determinant is linear in the j-th column this term can have no factor other than 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mi>m</m:mi><m:mrow><m:mi>i</m:mi><m:mi>j</m:mi></m:mrow></m:msub></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ from that column.)
+</p><p>
+<b>The only question left, then, is: why the sign factor?</b>
+</p><p>
+You can interchange two rows or columns of a matrix which have the same parity (which means that both have even indices or both odd indices) with an even number of single row or column interchanges, while you need an odd number of interchanges when they have opposite parity, Each interchange requires a sign change, so there must be a sign change if the parity of the row and column indices are different, to make the computation for different indices consistent.
+</p><p>
+Notice that we also have
+</p><p>
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mn>0</m:mn><m:mo>=</m:mo><m:mstyle displaystyle="true"><m:munder><m:mo maxsize="3">∑</m:mo><m:mi>j</m:mi></m:munder></m:mstyle><m:mrow><m:msub><m:mi>m</m:mi><m:mrow><m:mi>k</m:mi><m:mi>j</m:mi></m:mrow></m:msub><m:msup><m:mrow><m:mo stretchy="false">(</m:mo><m:mo>−</m:mo><m:mn>1</m:mn><m:mo stretchy="false">)</m:mo></m:mrow><m:mrow><m:mi>i</m:mi><m:mo>+</m:mo><m:mi>j</m:mi></m:mrow></m:msup><m:msub><m:mi>M</m:mi><m:mrow><m:mi>i</m:mi><m:mi>j</m:mi></m:mrow></m:msub></m:mrow></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ for 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>k</m:mi><m:mo>≠</m:mo><m:mi>i</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+<b>(B)</b>
+</p><p>
+since by equation (A) this is the determinant of a matrix with two of its rows, the i-th and the k-th, equal to the k-th row of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, and a matrix with two identical rows has 0 determinant.
+</p><p>
+The formula (A) is called the expansion of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>det</m:mi><m:mo>⁡</m:mo><m:mi>M</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ in the i-th row. The same thing can be done for a column, and even for several rows or columns together.
+</p><p>
+The expression 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mrow><m:mo stretchy="false">(</m:mo><m:mo>−</m:mo><m:mn>1</m:mn><m:mo stretchy="false">)</m:mo></m:mrow><m:mrow><m:mi>i</m:mi><m:mo>+</m:mo><m:mi>j</m:mi></m:mrow></m:msup><m:msub><m:mi>M</m:mi><m:mrow><m:mi>i</m:mi><m:mi>j</m:mi></m:mrow></m:msub></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is called the ij-th
+<b>cofactor</b>
+of the matrix 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. The statement (A) can then be phrased as:
+<b>the dot product of any row of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> with the vector of cofactors of the entries in that row is the determinant of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>.</b>
+The same statement holds with the word "row" replaced by "column".
+</p><p>
+<b>Exercises:</b>
+</p><p>
+<b>4.5. Evaluate the determinant of the matrix whose rows are, in order,
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mn>1</m:mn><m:mo>,</m:mo><m:mn>2</m:mn><m:mo>,</m:mo><m:mn>5</m:mn><m:mo stretchy="false">)</m:mo><m:mo>,</m:mo><m:mo stretchy="false">(</m:mo><m:mn>3</m:mn><m:mo>,</m:mo><m:mn>1</m:mn><m:mo>,</m:mo><m:mo>−</m:mo><m:mn>2</m:mn><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mn>4</m:mn><m:mo>,</m:mo><m:mo>−</m:mo><m:mn>2</m:mn><m:mo>,</m:mo><m:mn>7</m:mn><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> be each of the methods described above. Which do you find faster?</b>
+</p><p>
+<b>4.6. Do the same for a random but non-trivial 4 by 4 matrix. Which is faster?</b>
+</p></body></topic>

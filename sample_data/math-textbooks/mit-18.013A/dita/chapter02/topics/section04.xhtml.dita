@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e56"><title>2.4 The Logarithm</title><body><p>
+The natural logarithm, denoted as 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, is the inverse of the exponential function 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+It actually comes up on its own in many contexts. It has two important properties, which can be deduced from the two fundamental properties of the exponent.
+</p><p>
+The definition of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ can be phrased this way: it is the power that you must raise 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>e</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to in order to get 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+: 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>e</m:mi><m:mo>^</m:mo><m:mo stretchy="false">(</m:mo><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:mi>x</m:mi><m:mo>=</m:mo><m:msup><m:mi>e</m:mi><m:mrow><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:msup></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+We often raise other numbers, in particular 2 and 10 to powers and
+<b>can ask 
+  in general: what power must you raise
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>z</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> to in order to get
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>? </b>
+The answer is called the logarithm of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to base 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>z</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and is written as 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo></m:mrow><m:mi>z</m:mi></m:msub><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. It is the inverse function to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>z</m:mi><m:mo>^</m:mo><m:mi>x</m:mi><m:mo>=</m:mo><m:msup><m:mi>z</m:mi><m:mi>x</m:mi></m:msup></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+The two important properties alluded to above can be written as
+</p><p>
+and
+</p><p>
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo></m:mrow><m:mi>a</m:mi></m:msub><m:mi>b</m:mi><m:mo>*</m:mo><m:msub><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo></m:mrow><m:mi>b</m:mi></m:msub><m:mi>c</m:mi><m:mo>=</m:mo><m:msub><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo></m:mrow><m:mi>a</m:mi></m:msub><m:mi>c</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+<b> for any
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>a</m:mi><m:mo>,</m:mo><m:mi>b</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>c</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>
+</b>
+</p><p>
+ 
+</p><p>
+<image href="images/ln.gif" width="300" height="300"><alt>figure</alt></image>
+</p><p>
+<b>Exercises:</b>
+</p><p>
+<b>2.13 Deduce them. (I must confess that I always get confused in doing so 
+  by poor notation, but I am sure you, being younger and smarter, can do it.) 
+  <ph outputclass="a">Solution</ph>
+</b>
+</p><p>
+<b>2.14 Deduce from these two equations that for log to any base we have
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo><m:mi>a</m:mi><m:mi>b</m:mi><m:mo>=</m:mo><m:mi>log</m:mi><m:mo>⁡</m:mo><m:mi>a</m:mi><m:mo>+</m:mo><m:mi>log</m:mi><m:mo>⁡</m:mo><m:mi>b</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>. <ph outputclass="a">Solution</ph>
+</b>
+</p><p>
+<br/>
+The first property or rather the result in exercise 2.13 implies that we can perform the multiplication 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>a</m:mi><m:mi>b</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ by taking the logarithms of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>a</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>b</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, adding them and then retrieving 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>a</m:mi><m:mi>b</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ from its logarithm. Thus multiplication could be reduced to addition and taking logarithms and "antilogarithms".
+</p><p>
+Before the advent of calculators, with which addition and multiplication are equally difficult, this was an important use for logarithms, and I recall as a high school student being forced to drill doing this with log tables and antilog tables and of course having to interpolate between values in those tables. It is hard to imagine anything mathematical more tedious than this, you lucky dogs!
+</p></body></topic>

@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e56"><title>4.1 Area, Volume and the Determinant in Two and Three Dimensions</title><body><p>
+In two dimensional space there is a simple formula for the area of a parallelogram bounded by vectors 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ with 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>=</m:mo><m:mo stretchy="false">(</m:mo><m:mi>a</m:mi><m:mo>,</m:mo><m:mi>b</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>=</m:mo><m:mo stretchy="false">(</m:mo><m:mi>c</m:mi><m:mo>,</m:mo><m:mi>d</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+: namely 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mrow><m:mo>|</m:mo><m:mrow><m:mi>a</m:mi><m:mi>d</m:mi><m:mo>−</m:mo><m:mi>b</m:mi><m:mi>c</m:mi></m:mrow><m:mo>|</m:mo></m:mrow></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+</p><p>
+<b>Why is this so?</b>
+</p><p>
+1. The statement that the area of a parallelogram with sides given by the vectors 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>a</m:mi><m:mo>,</m:mo><m:mi>b</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>c</m:mi><m:mo>,</m:mo><m:mi>d</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mrow><m:mo>|</m:mo><m:mrow><m:mi>a</m:mi><m:mi>d</m:mi><m:mo>−</m:mo><m:mi>b</m:mi><m:mi>c</m:mi></m:mrow><m:mo>|</m:mo></m:mrow></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is obviously true if 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>b</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>c</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ are 0, since the parallelogram is then a rectangle with sides 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo>|</m:mo><m:mi>a</m:mi><m:mo>|</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo>|</m:mo><m:mi>d</m:mi><m:mo>|</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, whose area is 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo>|</m:mo><m:mi>a</m:mi><m:mi>d</m:mi><m:mo>|</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+2.
+<b>Neither the area nor
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mrow><m:mo>|</m:mo><m:mrow><m:mi>a</m:mi><m:mi>d</m:mi><m:mo>−</m:mo><m:mi>b</m:mi><m:mi>c</m:mi></m:mrow><m:mo>|</m:mo></m:mrow></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> changes if we add a multiple of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>a</m:mi><m:mo>,</m:mo><m:mi>b</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> to
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>c</m:mi><m:mo>,</m:mo><m:mi>d</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> or vice versa.</b>
+The parallelogram merely tilts, and its base and altitude remain the same. If we for example, add 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>a</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>c</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, we get a change of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>a</m:mi><m:mi>d</m:mi><m:mo>−</m:mo><m:mi>b</m:mi><m:mi>c</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>a</m:mi><m:mi>d</m:mi><m:mo>−</m:mo><m:mi>b</m:mi><m:mo stretchy="false">(</m:mo><m:mi>c</m:mi><m:mo>+</m:mo><m:mi>a</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ so of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo>−</m:mo><m:mi>b</m:mi><m:mi>a</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+; but adding 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>b</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>d</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ produces a compensating change of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>a</m:mi><m:mi>b</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to it; 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>a</m:mi><m:mo stretchy="false">(</m:mo><m:mi>b</m:mi><m:mo>+</m:mo><m:mi>d</m:mi><m:mo stretchy="false">)</m:mo><m:mo>−</m:mo><m:mi>b</m:mi><m:mo stretchy="false">(</m:mo><m:mi>c</m:mi><m:mo>+</m:mo><m:mi>a</m:mi><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:mi>a</m:mi><m:mi>d</m:mi><m:mo>−</m:mo><m:mi>b</m:mi><m:mi>c</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and the net change is 0.
+</p><p>
+3. Starting with any a, b, c and d,
+<b>by repeatedly adding multiples of one row to another we can force
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>b</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>c</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> to be 0,</b>
+after which we are in the case considered in the first paragraph and we know that the area is 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mrow><m:mo>|</m:mo><m:mrow><m:mi>a</m:mi><m:mi>d</m:mi><m:mo>−</m:mo><m:mi>b</m:mi><m:mi>c</m:mi></m:mrow><m:mo>|</m:mo></m:mrow></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+4. Since these addings didn't change the area and didn't change 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mrow><m:mo>|</m:mo><m:mrow><m:mi>a</m:mi><m:mi>d</m:mi><m:mo>−</m:mo><m:mi>b</m:mi><m:mi>c</m:mi></m:mrow><m:mo>|</m:mo></m:mrow></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, these must have been the same from the start.
+</p><p>
+The combination 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>a</m:mi><m:mi>d</m:mi><m:mo>−</m:mo><m:mi>b</m:mi><m:mi>c</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is called the
+<b>determinant</b>
+of the
+<b>matrix whose rows are
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>a</m:mi><m:mo>,</m:mo><m:mi>b</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>c</m:mi><m:mo>,</m:mo><m:mi>d</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>.</b>
+It is often written as
+<br/>
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mrow><m:mo>|</m:mo><m:mrow><m:mtable><m:mtr><m:mtd><m:mi>a</m:mi></m:mtd><m:mtd><m:mi>b</m:mi></m:mtd></m:mtr><m:mtr><m:mtd><m:mi>c</m:mi></m:mtd><m:mtd><m:mi>d</m:mi></m:mtd></m:mtr></m:mtable></m:mrow><m:mo>|</m:mo></m:mrow></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><p>
+Given
+<b>three</b>
+vectors in three dimensions we can form a 3 by 3 matrix of their components, and we will see that
+<b>the absolute value 
+  of the determinant of that matrix is the volume of the parallelepiped whose 
+  edges are determined by the three vectors.</b>
+</p><p>
+In fact an analogous results holds for 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>k</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ k-vectors:
+<b>the absolute value of the determinant of the matrix of their components is the k-volume of the figure 
+  they bound.</b>
+</p><p>
+<b>What then is the determinant of a matrix?</b>
+</p><p>
+<b>In any dimension, it is defined as follows:</b>
+</p><p>
+<b>1. A determinant is linear in the elements of any row (or column) 
+  so that multiplying everything in that row by
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>z</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> multiplies the determinant by
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>z</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>, and the determinant with row
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>+</m:mo><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> is the sum of the determinants otherwise identical with that row being
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and that row being
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>.</b>
+</p><p>
+<b>2. It changes sign if two of its rows are interchanged (</b>
+an equivalent condition is that
+<b> it is 0 if two rows are identical).</b>
+</p><p>
+<b>3. The matrix with 1's on the diagonal and 0's
+    elsewhere has  determinant 1.</b>
+</p><p>
+The determinant is generally written as 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>det</m:mi><m:mo>⁡</m:mo><m:mi>M</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ or as 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo>|</m:mo><m:mi>M</m:mi><m:mo>|</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ or sometimes 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo>|</m:mo><m:mo>|</m:mo><m:mi>M</m:mi><m:mo>|</m:mo><m:mo>|</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+If 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ are two rows of the matrix 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ we can deduce from the first two conditions that adding a multiple of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ does not change the determinant of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+The
+<b>volume of a parallelepiped</b>
+bounded by edges whose directions and lengths are that of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>u</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>,</m:mo><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is almost linear in 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>u</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>,</m:mo><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+; it differs from linearity only in that it is always positive, like length in one dimension is.
+</p><p>
+This volume is 1 if the vectors have unit length and are mutually perpendicular, and does not change if one side is added to another; (that just tilts the parallelepiped without changing its volume.) The absolute value of the determinant of the matrix formed by the components of the three vectors obeys exactly the same conditions and is therefore the same thing.
+</p><p>
+<b>In higher dimensions the analog of volume is called hyper-volume and the 
+  same conclusion can be drawn by the same argument: the hyper-volume of the parallel 
+  sided region determined by
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>k</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> vectors in
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>k</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> dimensions is the absolute value of the determinant whose entries are their components in the directions of the 
+  (orthonormal) basis vectors.</b>
+</p><p>
+<b>In fact, the determinant can be considered a linear and signed version of 
+  hyper-volume.</b>
+</p><p>
+Consider the hyper-volume of a parallel-sided region with sides 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>,</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>,</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, as a function of the variable 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. It is linear in 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ for positive or negative 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, but it is always positive, and its graph looks like a 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>V</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, taking the value 0 for 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+The determinant is the same as the hyper-volume for positive or negative 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and minus the hyper-volume for the other, and is linear as a function of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. Its
+<b>sign</b>
+is determined by the convention that it is positive for the
+<b>"identity matrix"</b>
+which has
+<b>1's on the main diagonal and 
+  0's elsewhere. This identity matrix is usually written as
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>I</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>.</b>
+</p><p>
+<b>Exercises:</b>
+</p><p>
+<b>4.0 Prove the statement above: the condition on the determinant that it 
+  change sign if two rows are interchanged is equivalent to the alternative condition 
+  that the determinant is 0 if two rows are identical (given its linearity in 
+  rows).</b>
+</p><p>
+<b> 4.1 Suppose
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>,</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> are three vectors in the plane. Consider three triangles with sides
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>,
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>, and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>+</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>, respectively. What relation holds between their areas? (If you don't
+see it, try some simple examples and  generalize. The relation sought here is
+an either or statement.) What is the 
+  analogous statement about the determinants whose rows are the components of
+ the given vectors
+(<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and 
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> ),
+(<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> ) and
+(<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>+</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> )?</b>
+</p><p>
+In the following applet you can enter three 3-vectors, see them and the parallelepiped they define, and the value of the determinant whose absolute value is its volume. We will soon see how to compute the determinant. Also shown are the vector (or cross) products of pairs of these vectors which will be defined in
+<ph outputclass="a">
+  <b>section 
+  4.5</b>
+</ph>
+.
+</p><p>
+ 
+</p><p>
+<ph outputclass="a"/>
+<object classid="java:DeterminantVectorProducts.class" width="760" height="450">
+  <param name="archive" value="determinantVectorProducts.jar, go.jar, goText.jar, mk_lib.jar, parser_math.jar, jcbwt363.jar" valuetype="data"/>
+  <param name="codebase" value="../applets/" valuetype="data"/>
+</object>
+</p></body></topic>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e56"><title>3.6 Polar Coordinates</title><body><p>
+<b>A 2-vector
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo>,</m:mo><m:mi>y</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> can be described by two numbers that are not coefficients 
+  in a sum: its length, and the angle its vector makes with the
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> axis.<br/>
+The first of these is usually written as
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>r</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>, the second as
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>θ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>.</b>
+</p><p>
+<b>These parameters obey
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mi>r</m:mi><m:mn>2</m:mn></m:msup><m:mo>=</m:mo><m:msup><m:mi>x</m:mi><m:mn>2</m:mn></m:msup><m:mo>+</m:mo><m:msup><m:mi>y</m:mi><m:mn>2</m:mn></m:msup></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>tan</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi><m:mo>=</m:mo><m:mfrac><m:mi>y</m:mi><m:mi>x</m:mi></m:mfrac></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>;<br/>
+the inverse relations are
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mo>=</m:mo><m:mi>r</m:mi><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi><m:mo>,</m:mo><m:mi>y</m:mi><m:mo>=</m:mo><m:mi>r</m:mi><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>.<br/>
+  <d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>r</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>θ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> are called polar coordinates.</b>
+</p><p>
+Calculating the angle 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>θ</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ in polar coordinates is a bit tricky; the obvious thing to try is 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>atan</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>y</m:mi><m:mo>,</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ but that is defined only between 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo>−</m:mo><m:mfrac><m:mi>π</m:mi><m:mn>2</m:mn></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mfrac><m:mi>π</m:mi><m:mn>2</m:mn></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, while 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>θ</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ has a domain of size 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mn>2</m:mn><m:mi>π</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+Here is something that works: 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>acos</m:mi><m:mo>⁡</m:mo><m:mrow><m:mo>(</m:mo><m:mrow><m:mfrac><m:mi>x</m:mi><m:mrow><m:msqrt><m:mrow><m:msup><m:mi>x</m:mi><m:mn>2</m:mn></m:msup><m:mo>+</m:mo><m:msup><m:mi>y</m:mi><m:mn>2</m:mn></m:msup></m:mrow></m:msqrt></m:mrow></m:mfrac></m:mrow><m:mo>)</m:mo></m:mrow><m:mo>*</m:mo><m:mtext>if</m:mtext><m:mo stretchy="false">(</m:mo><m:mi>y</m:mi><m:mo>&lt;</m:mo><m:mn>0</m:mn><m:mo>,</m:mo><m:mo>−</m:mo><m:mn>1</m:mn><m:mo>,</m:mo><m:mn>1</m:mn><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+This gives theta in the range 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo>−</m:mo><m:mi>π</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>π</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. If you want it to have range 0 to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mn>2</m:mn><m:mi>π</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ you can add 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mtext>if</m:mtext><m:mo stretchy="false">(</m:mo><m:mi>y</m:mi><m:mo>&lt;</m:mo><m:mn>0</m:mn><m:mo>,</m:mo><m:mn>8</m:mn><m:mo>*</m:mo><m:mi>atan</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mn>1</m:mn><m:mo stretchy="false">)</m:mo><m:mo>,</m:mo><m:mn>0</m:mn><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to it.
+</p><p>
+<image href="images/polar_coords.gif" width="300" height="300"><alt>figure</alt></image>
+</p></body></topic>
