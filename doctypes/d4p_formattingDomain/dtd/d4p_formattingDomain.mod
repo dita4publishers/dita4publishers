@@ -15,6 +15,7 @@
  <!ENTITY % b-i           "b-i">
  <!ENTITY % br            "br" >
  <!ENTITY % b-sc          "b-sc">
+ <!ENTITY % dropcap       "dropcap" >
  <!ENTITY % eqn_inline    "eqn_inline" >
  <!ENTITY % eqn_block     "eqn_block" >
  <!ENTITY % d4pMathML     "d4pMathML" >
@@ -323,6 +324,22 @@
 <!ELEMENT sc    %sc.content;>
 <!ATTLIST sc    %sc.attributes;>
 
+<!--                    LONG NAME: Drop Cap                     -->
+<!ENTITY % dropcap.content
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %foreign.unknown.incl;)*"
+>
+<!ENTITY % dropcap.attributes
+             "%univ-atts; 
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT dropcap    %dropcap.content;>
+<!ATTLIST dropcap    %dropcap.attributes;>
+
 
 <!--                    LONG NAME: Bold Italic                     -->
 <!ENTITY % b-i.content
@@ -372,6 +389,7 @@
 <!ATTLIST eqn_inline       %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/eqn_inline ">
 <!ATTLIST eqn_block        %global-atts;  class CDATA "+ topic/p     d4p-formatting-d/eqn_block ">
 <!ATTLIST d4pMathML        %global-atts;  class CDATA "+ topic/foreign d4p-formatting-d/d4pMathML ">
+<!ATTLIST dropcap          %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/dropcap "  >
 <!ATTLIST frac             %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/frac ">
 <!ATTLIST inx_snippet      %global-atts;  class CDATA "+ topic/foreign d4p-formatting-d/inx_snippet ">
 <!ATTLIST linethrough      %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/linethrough ">
