@@ -276,6 +276,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % keydefs.content
  "((%topicmeta;)?,
    ((%keydef;) |
+    (%mapref;) |
     (%keydef-group;))*)"
 >
 <!ENTITY % keydefs.attributes
