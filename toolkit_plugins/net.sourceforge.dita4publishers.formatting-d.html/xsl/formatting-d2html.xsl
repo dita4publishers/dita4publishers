@@ -4,7 +4,7 @@
   xmlns:m="http://www.w3.org/1998/Math/MathML"
   exclude-result-prefixes="xs m"
   >
-  <!-- Formatting domain elements to XSL-FO -->
+  <!-- Formatting domain elements to HTML output -->
   
   <!-- Default width to use for tabs -->
   <xsl:param name="tabWidth" select="'1pc'" as="xs:string"/>
@@ -17,8 +17,39 @@
   
   <xsl:template match="*[contains(@class, ' d4p-formatting-d/tab ')]" priority="10"
     mode="#default getTitle">
-    <span class="tab">&#x09;</span>
+    <span class="tab {@outputclass}">&#x09;</span>
   </xsl:template>
+
+  <xsl:template match="*[contains(@class, ' d4p-formatting-d/dropcap ')]" priority="10"
+    mode="#default getTitle">
+    <span class="dropcap {@outputclass}"><xsl:apply-templates/></span>
+  </xsl:template>
+
+  <xsl:template match="*[contains(@class, ' d4p-formatting-d/sc ')]" priority="10"
+    mode="#default getTitle">
+    <span class="sc {@outputclass}"><xsl:apply-templates/></span>
+  </xsl:template>
+
+  <xsl:template match="*[contains(@class, ' d4p-formatting-d/b-i ')]" priority="10"
+    mode="#default getTitle">
+    <b><span class="sc {@outputclass}"><xsl:apply-templates/></span></b>
+  </xsl:template>
+
+  <xsl:template match="*[contains(@class, ' d4p-formatting-d/b-sc ')]" priority="10"
+    mode="#default getTitle">
+    <b><i><xsl:apply-templates/></i></b>
+  </xsl:template>
+
+  <xsl:template match="*[contains(@class, ' d4p-formatting-d/line-through ')]" priority="10"
+    mode="#default getTitle">
+    <span style="text-decoration: line-through;" {@outputclass}"><xsl:apply-templates/></span>
+  </xsl:template>
+  
+  <xsl:template match="*[contains(@class, ' d4p-formatting-d/roman ')]" priority="10"
+    mode="#default getTitle">
+    <span style="font-weight: normal; font-style: normal;" class="roman {@outputclass}"><xsl:apply-templates/></span>
+  </xsl:template>
+  
 
   <xsl:template match="*[contains(@class, ' d4p-formatting-d/art ')]" priority="10"
     mode="#default getTitle">
