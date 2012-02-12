@@ -27,6 +27,18 @@
 >
 %d4p_enumerationTopic-d-def;
 
+<!ENTITY % d4p_bibbase-d-def     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_bibbaseDomain" 
+"d4p_bibbaseDomain.mod"
+>
+%d4p_bibbase-d-def;
+
+<!ENTITY % d4p_simpleBib-d-def     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_simplebib" 
+"d4p_simplebibDomain.mod"
+>
+%d4p_simpleBib-d-def;
+
 <!ENTITY % d4p_formatting-d-def     PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_formattingDomain" 
 "d4p_formattingDomain.mod"

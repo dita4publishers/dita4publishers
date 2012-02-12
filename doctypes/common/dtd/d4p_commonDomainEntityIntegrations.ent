@@ -36,6 +36,7 @@
   "p     | 
    %d4p_formatting-d-p;     | 
    %d4p_math-d-p; |
+   %d4p_simplebib-d-p; |
    %d4p_pubcontent-d-p;
   "      
 >
@@ -97,6 +98,7 @@
      &d4p_renditionTargetAtt-d-att;
      &d4p_classification-d-att;
      &d4p_math-d-att;
+     &d4p_simplebib-d-att;
      &d4p_variables-d-att;
      &d4p_verse-d-att;
      &xml-d-att;

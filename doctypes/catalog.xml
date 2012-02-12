@@ -4,6 +4,7 @@
   <!-- domain modules -->
   
   <nextCatalog catalog="common/catalog.xml"/>
+  <nextCatalog catalog="d4p_bibbaseDomain/catalog.xml"/>
   <nextCatalog catalog="d4p_classificationDomain/catalog.xml"/>
   <nextCatalog catalog="d4p_enumerationBaseTopicDomain/catalog.xml"/>
   <nextCatalog catalog="d4p_enumerationTopicDomain/catalog.xml"/>
@@ -14,6 +15,7 @@
   <nextCatalog catalog="d4p_pubcontentDomain/catalog.xml"/>
   <nextCatalog catalog="d4p_renditionTargetAttDomain/catalog.xml"/>
   <nextCatalog catalog="d4p_rubyDomain/catalog.xml"/>
+  <nextCatalog catalog="d4p_simplebibDomain/catalog.xml"/>
   <nextCatalog catalog="d4p_simpleEnumerationDomain/catalog.xml"/>
   <nextCatalog catalog="d4p_textbookDomain/catalog.xml"/>
   <nextCatalog catalog="d4p_variablesDomain/catalog.xml"/>
