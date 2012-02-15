@@ -12,7 +12,7 @@
        Book lists may include a ToC, list of figures, list of tables, etc.
        
        Different map types (bookmap, pubmap, etc.) may have different conventions
-       or business rules for signalling the generation of specific book lists.
+       or business rules for signaling the generation of specific book lists.
        
        Note that these templates only manage the generation of the lists. For each
        list there must also be an entry in the OPF manifest, OPF spine, and, optionally,
