@@ -53,7 +53,8 @@
 <!--                    Redefine the infotype entity to exclude 
                         other topic types and disallow nesting     -->
 <!ENTITY % subsection-info-types 
-  "subsection |
+  "division |
+   subsection |
    sidebar
   "
 >
@@ -76,6 +77,13 @@
 "-//OASIS//ELEMENTS DITA Topic//EN" 
 "topic.mod"                                                          >
 %topic-type;
+
+<!ENTITY % division-typemod 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:division" 
+"division.mod"                                                        
+>                                                     
+%division-typemod;
 
 
 <!ENTITY % subsection-typemod 
