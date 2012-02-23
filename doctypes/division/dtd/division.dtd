@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- =============================================================
-     DITA For Publishers Chapter Topic Type
+     DITA For Publishers Division Topic Type
      
-     Represents a chapter within a publication. May contain nested
-     subsection and sidebar topics.
+     Represents a Division within a publication. May contain nested
+     division, subsection, and sidebar topics.
      
      Specializes from topic
      
-     Copyright (c) 2009 DITA For Publishers
+     Copyright (c) 2012 DITA For Publishers
 
      ============================================================= -->
 
@@ -54,20 +54,27 @@
 
 <!--                    Redefine the infotype entity to exclude 
                         other topic types and disallow nesting     -->
-<!ENTITY % chapter-info-types 
-  "subsection |
+<!ENTITY % division-info-types 
+  "division |
+   subsection |
    sidebar
   "
 >
 
 <!ENTITY % subsection-info-types 
-  "subsection |
+  "division |
+   subsection |
    sidebar
   "
 >
 
+<!ENTITY % sidebar-info-types 
+  "division
+  "
+>
+
 <!ENTITY % info-types
-  "%chapter-info-types;
+  "%division-info-types;
   "
 >
 
@@ -90,11 +97,11 @@
 %topic-type;
 
 
-<!ENTITY % chapter-typemod 
+<!ENTITY % division-typemod 
                         PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net:modules:chapter" 
-"chapter.mod"                                                        >                                                     
-%chapter-typemod;
+"urn:pubid:dita4publishers.sourceforge.net:modules:division" 
+"division.mod"                                                        >                                                     
+%division-typemod;
 
 <!ENTITY % subsection-typemod 
                         PUBLIC 
@@ -120,4 +127,4 @@
          "d4p_commonDomainIntegration.mod"
 >%commonDomainIntegrations;
 
-<!-- ================== End Chapter DTD  ==================== -->
+<!-- ================== End Division DTD  ==================== -->
