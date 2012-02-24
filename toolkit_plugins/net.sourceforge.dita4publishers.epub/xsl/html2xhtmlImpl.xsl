@@ -116,6 +116,14 @@
     </xsl:choose>
   </xsl:template>
   
+  <xsl:template  mode="html2xhtml" match="video/@width" priority="20">
+    <xsl:copy/>  
+  </xsl:template>
+  
+  <xsl:template  mode="html2xhtml" match="script/@type" priority="30">
+  	<xsl:copy/>
+  </xsl:template>
+  
   <xsl:template  mode="html2xhtml" match="
     @lang |
     @target |
