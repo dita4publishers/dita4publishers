@@ -15,6 +15,7 @@
  <!ENTITY % b-i           "b-i">
  <!ENTITY % br            "br" >
  <!ENTITY % b-sc          "b-sc">
+ <!ENTITY % d4p_sidebar-anchor "d4p_sidebar-anchor" >
  <!ENTITY % dropcap       "dropcap" >
  <!ENTITY % eqn_inline    "eqn_inline" >
  <!ENTITY % eqn_block     "eqn_block" >
@@ -374,6 +375,15 @@
 <!ELEMENT b-sc    %b-sc.content;>
 <!ATTLIST b-sc    %b-sc.attributes;>
 
+<!ENTITY % d4p_sidebar-anchor.content
+                       "(%data.elements.incl;)*"
+>
+<!ENTITY % d4p_sidebar-anchor.attributes
+  "%xref.attributes;"
+>
+<!ELEMENT d4p_sidebar-anchor    %d4p_sidebar-anchor.content;>
+<!ATTLIST d4p_sidebar-anchor    %d4p_sidebar-anchor.attributes;>
+
 
 <!-- ============================================================= -->
 <!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
@@ -388,6 +398,7 @@
 <!ATTLIST b-sc             %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/b-sc "  >
 <!ATTLIST eqn_inline       %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/eqn_inline ">
 <!ATTLIST eqn_block        %global-atts;  class CDATA "+ topic/p     d4p-formatting-d/eqn_block ">
+<!ATTLIST d4p_sidebar-anchor %global-atts;  class CDATA "+ topic/xref d4p-formatting-d/d4p_sidebar-anchor ">
 <!ATTLIST d4pMathML        %global-atts;  class CDATA "+ topic/foreign d4p-formatting-d/d4pMathML ">
 <!ATTLIST dropcap          %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/dropcap "  >
 <!ATTLIST frac             %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/frac ">

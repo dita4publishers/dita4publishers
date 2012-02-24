@@ -2,10 +2,10 @@
 <!-- =============================================================
      DITA For Publishers Formatting Domain
      
-     Defines specializations of p and ph for requesting specific
+     Defines specializations for requesting specific
      formatting effects.
      
-     Copyright (c) 2009 DITA For Publishers
+     Copyright (c) 2009, 2012 DITA For Publishers
      
      ============================================================= -->
 
@@ -37,6 +37,11 @@
    "inx_snippet
    "
 >
+<!ENTITY % d4p_formatting-d-xref
+   "d4p_sidebar-anchor
+   "
+>
+    
 
 
 <!ENTITY   d4p_formatting-d-att     

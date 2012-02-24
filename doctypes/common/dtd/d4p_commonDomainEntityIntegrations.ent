@@ -83,6 +83,12 @@
   "
 >
 
+<!ENTITY % xref
+  "xref |
+   %d4p_formatting-d-xref;
+  "
+>
+
 
 <!-- ============================================================= -->
 <!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
