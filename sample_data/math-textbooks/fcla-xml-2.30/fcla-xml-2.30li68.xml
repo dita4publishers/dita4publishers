@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" > 
+<?xml-stylesheet type="text/css" href="fcla-xml-2.30.css"?> 
+<html  
+xmlns="http://www.w3.org/1999/xhtml"  
+><head><title>Appendix P  Preliminaries</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- html,xhtml,mozilla,3 --> 
+<meta name="src" content="fcla-xml-2.30.tex" /> 
+<meta name="date" content="2011-12-23 18:20:00" /> 
+<link rel="stylesheet" type="text/css" href="fcla-xml-2.30.css" /> 
+</head><body 
+>
+   <!--l. 502--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li72.xml" >next</a>] [<a 
+href="fcla-xml-2.30li63.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li63.xml#tailfcla-xml-2.30li63.xml" >prev-tail</a>] [<a 
+href="#tailfcla-xml-2.30li68.xml">tail</a>] [<a 
+href="fcla-xml-2.30li14.xml#fcla-xml-2.30li68.xml" >up</a>] </p></div>
+   <h2 class="likechapterHead"><a 
+ id="x69-352000"></a>Appendix P&#x00A0;&#x00A0;Preliminaries</h2>
+<!--l. 502--><p class="noindent" ><a 
+ id="appendix.P"></a> <a 
+ id="x69-352000doc"></a><a 
+ id="dx69-352001"></a>
+</p><!--l. 10--><p class="indent" >   This appendix contains important ideas about complex numbers, sets, and
+the logic and techniques of forming proofs. It is not meant to be read
+straight through, but you should head here when you need to review these
+ideas.
+</p><!--l. 12--><p class="indent" >   We choose to expand the set of scalars from the real numbers,
+<!--l. 12--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>&#x211D;</mi></mrow><mrow 
+></mrow></msup 
+></math>, to the set of
+complex numbers, <!--l. 12--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>&#x2102;</mi></mrow><mrow 
+></mrow></msup 
+></math>.
+So basic operations with complex numbers (like addition and division) will be
+necessary. This can be safely postponed until your arrival in <a 
+href="fcla-xml-2.30li28.xml#section.O">Section&#x00A0;O</a>, and a
+refresher before <a 
+href="fcla-xml-2.30li46.xml#chapter.E">Chapter&#x00A0;E</a> would be a good idea as well.
+</p><!--l. 14--><p class="indent" >   Sets are extremely important in all of mathematics, but maybe you have not
+had much exposure to the basic operations. Check out <a 
+href="fcla-xml-2.30li70.xml#section.SET">Section&#x00A0;SET</a>. The text will
+send you here frequently as well. Visit often.
+</p><!--l. 18--><p class="indent" >   This book is as much about <span 
+class="cmti-12">doing </span>mathematics as it is about linear algebra.
+The &#x201C;Proof Techniques&#x201D; are vignettes about logic, types of theorems, structure
+of proofs, or just plain old-fashioned advice about how to <span 
+class="cmti-12">do </span>advanced
+mathematics. The text will frequently point to one of these techniques
+in advance of their first use, and for specific instructions there will be
+additional references. If you find constructing proofs difficult (we all did once),
+then head back here and browse through the advice for second or third
+readings.
+</p>
+   <div class="likesectionTOCS">
+   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li69.xml#x70-353000">Section CNO Complex Number Operations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li69.xml#x70-354000" id="QQ2-70-354">Subsection CNA: Arithmetic with complex numbers</a></span>
+                                                                          
+
+                                                                          
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li69.xml#x70-355000" id="QQ2-70-355">Subsection CCN: Conjugates of Complex Numbers</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li69.xml#x70-356000" id="QQ2-70-356">Subsection MCN: Modulus of a Complex Number</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li70.xml#x71-357000">Section SET Sets</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li70.xml#x71-358000" id="QQ2-71-358">Subsection SC: Set Cardinality</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li70.xml#x71-359000" id="QQ2-71-359">Subsection SO: Set Operations</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li71.xml#x72-360000">Section PT Proof Techniques</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li71.xml#x72-361000" id="QQ2-72-361">Proof Technique D: Definitions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li71.xml#x72-362000" id="QQ2-72-362">Proof Technique T: Theorems</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li71.xml#x72-363000" id="QQ2-72-363">Proof Technique L: Language</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li71.xml#x72-364000" id="QQ2-72-364">Proof Technique GS: Getting Started</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li71.xml#x72-365000" id="QQ2-72-365">Proof Technique C: Constructive Proofs</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li71.xml#x72-366000" id="QQ2-72-366">Proof Technique E: Equivalences</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li71.xml#x72-367000" id="QQ2-72-367">Proof Technique N: Negation</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li71.xml#x72-368000" id="QQ2-72-368">Proof Technique CP: Contrapositives</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li71.xml#x72-369000" id="QQ2-72-369">Proof Technique CV: Converses</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li71.xml#x72-370000" id="QQ2-72-370">Proof Technique CD: Contradiction</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li71.xml#x72-371000" id="QQ2-72-371">Proof Technique U: Uniqueness</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li71.xml#x72-372000" id="QQ2-72-372">Proof Technique ME: Multiple Equivalences</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li71.xml#x72-373000" id="QQ2-72-373">Proof Technique PI: Proving Identities</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li71.xml#x72-374000" id="QQ2-72-374">Proof Technique DC: Decompositions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li71.xml#x72-375000" id="QQ2-72-375">Proof Technique I: Induction</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li71.xml#x72-376000" id="QQ2-72-376">Proof Technique P: Practice</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li71.xml#x72-377000" id="QQ2-72-377">Proof Technique LC: Lemmas and Corollaries</a></span>
+   </div>
+
+
+                                                                          
+
+                                                                          
+   <!--l. 518--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li72.xml" >next</a>] [<a 
+href="fcla-xml-2.30li63.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li63.xml#tailfcla-xml-2.30li63.xml" >prev-tail</a>] [<a 
+href="fcla-xml-2.30li68.xml" >front</a>] [<a 
+href="fcla-xml-2.30li14.xml#fcla-xml-2.30li68.xml" >up</a>] </p></div>
+<!--l. 518--><p class="indent" >   <a 
+ id="tailfcla-xml-2.30li68.xml"></a> </p> 
+</body> 
+</html> 

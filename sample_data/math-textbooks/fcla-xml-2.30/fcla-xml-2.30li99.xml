@@ -1,0 +1,2737 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" > 
+<?xml-stylesheet type="text/css" href="fcla-xml-2.30.css"?> 
+<html  
+xmlns="http://www.w3.org/1999/xhtml"  
+><head><title>Section F  Fields</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- html,xhtml,mozilla,3 --> 
+<meta name="src" content="fcla-xml-2.30.tex" /> 
+<meta name="date" content="2011-12-23 18:20:00" /> 
+<link rel="stylesheet" type="text/css" href="fcla-xml-2.30.css" /> 
+</head><body 
+>
+   <!--l. 547--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li100.xml" >next</a>] [<a 
+href="#tailfcla-xml-2.30li99.xml">tail</a>] [<a 
+href="fcla-xml-2.30li98.xml#fcla-xml-2.30li99.xml" >up</a>] </p></div>
+   <h3 class="likesectionHead"><a 
+ id="x100-429000"></a>Section F&#x00A0;&#x00A0;Fields</h3>
+<!--l. 547--><p class="noindent" ><a 
+ id="section.F"></a> From <a 
+href="http://linear.ups.edu/" ><span 
+class="cmti-12">A First Course in Linear Algebra</span></a><br 
+class="newline" />Version 2.30<br 
+class="newline" /><span 
+class="cmsy-10x-x-120">&#x00A9;</span>&#x00A0;2004.<br 
+class="newline" />Licensed under the <a 
+href="http://www.gnu.org/licenses/fdl.html" >GNU Free Documentation License</a>.<br 
+class="newline" /><a 
+href="http://linear.ups.edu/" class="url" ><span 
+class="cmtt-12">http://linear.ups.edu/</span></a><br 
+class="newline" /><br 
+class="newline" /><a 
+ id="x100-429000doc"></a> <a 
+ id="dx100-429001"></a> <span 
+class="cmcsc-10x-x-144">D<span 
+class="small-caps">r</span><span 
+class="small-caps">a</span><span 
+class="small-caps">f</span><span 
+class="small-caps">t</span>: T<span 
+class="small-caps">h</span><span 
+class="small-caps">i</span><span 
+class="small-caps">s</span> S<span 
+class="small-caps">e</span><span 
+class="small-caps">c</span><span 
+class="small-caps">t</span><span 
+class="small-caps">i</span><span 
+class="small-caps">o</span><span 
+class="small-caps">n</span> C<span 
+class="small-caps">o</span><span 
+class="small-caps">m</span><span 
+class="small-caps">p</span><span 
+class="small-caps">l</span><span 
+class="small-caps">e</span><span 
+class="small-caps">t</span><span 
+class="small-caps">e</span>, B<span 
+class="small-caps">u</span><span 
+class="small-caps">t</span> S<span 
+class="small-caps">u</span><span 
+class="small-caps">b</span><span 
+class="small-caps">j</span><span 
+class="small-caps">e</span><span 
+class="small-caps">c</span><span 
+class="small-caps">t</span> T<span 
+class="small-caps">o</span></span>
+<span 
+class="cmcsc-10x-x-144">C<span 
+class="small-caps">h</span><span 
+class="small-caps">a</span><span 
+class="small-caps">n</span><span 
+class="small-caps">g</span><span 
+class="small-caps">e</span></span>
+</p><!--l. 20--><p class="indent" >   We have chosen to present introductory linear algebra in the
+Core (<a 
+href="fcla-xml-2.30li14.xml#part.C">Part&#x00A0;C</a>) using scalars from the set of complex numbers,
+<!--l. 20--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x2102;</mi></math>. We
+                                                                          
+
+                                                                          
+could have instead chosen to use scalars from the set of real numbers,
+<!--l. 20--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>&#x211D;</mi></mrow><mrow 
+></mrow></msup 
+></math>. This
+would have presented certain difficulties when we encountered characteristic
+polynomials with complex roots (<a 
+href="fcla-xml-2.30li47.xml#definition.CP">Definition&#x00A0;CP</a>) or when we needed to be sure
+every matrix had at least one eigenvalue (<a 
+href="fcla-xml-2.30li47.xml#theorem.EMHE">Theorem&#x00A0;EMHE</a>). However, much of
+the basics would be unchanged. The definition of a vector space would not change,
+nor would the ideas of linear independence, spanning, or bases. Linear
+transformations would still behave the same and we would still obtain matrix
+representations, though our ideas about canonical forms would have to be
+adjusted slightly.
+</p><!--l. 22--><p class="indent" >   The real numbers and the complex numbers are both examples of what are
+called fields, and we can &#x201C;do&#x201D; linear algebra in just a bit more generality by
+letting our scalars take values from some unspecified field. So in this section we
+will describe exactly what constitutes a field, give some finite examples, and
+discuss another connection between fields and vector spaces. Vector spaces over
+finite fields are very important in certain applications, so this is partially
+background for other topics. As such, we will not prove every claim we
+make.
+</p>
+   <h4 class="likesubsectionHead"><a 
+ id="x100-430000"></a>Subsection F: Fields</h4>
+<!--l. 24--><p class="noindent" ><a 
+ id="subsection.F.F"></a> <a 
+ id="x100-430000doc"></a><a 
+ id="dx100-430001"></a>  Like a vector space, a field is a set along with two binary operations. The
+distinction is that both operations accept two elements of the set, and then
+produce a new element of the set. In a vector space we have two sets &#x2014; the
+vectors and the scalars, and scalar multiplication mixes one of each to produce a
+vector. Here is the careful definition of a field.
+</p><!--l. 28--><p class="noindent" ><span 
+class="cmbx-12">Definition</span><span 
+class="cmbx-12">&#x00A0;F</span><br 
+class="newline" /><a 
+ id="definition.F"><span 
+class="cmbx-12">Field</span></a><a 
+ id="dx100-430002"></a><a 
+ id="dx100-430003"></a><a 
+ id="dx100-430004"></a><br 
+class="newline" /> Suppose that <!--l. 30--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>
+is a set upon which we have defined two operations: (1) <span 
+class="cmbx-12">addition</span>, which combines two
+elements of <!--l. 30--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>
+and is denoted by &#x201C;+&#x201D;, and (2) <span 
+class="cmbx-12">multiplication</span>, which combines two elements of
+<!--l. 30--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math> and is denoted by
+juxtaposition. Then <!--l. 30--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>,
+along with the two operations, is a <span 
+class="cmbx-12">field </span>if the following properties hold.
+</p>
+                                                                          
+
+                                                                          
+     <ul class="itemize1">
+     <li class="itemize"><a 
+ id="dx100-430005"></a><a 
+ id="dx100-430006"></a><a 
+ id="dx100-430007"></a><a 
+ id="property.ACF"><span 
+class="cmbx-12">ACF</span></a>   <span 
+class="cmbx-12">Additive Closure, Field</span><br 
+class="newline" />If <!--l. 35--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>F</mi></math>,
+     then <!--l. 35--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>F</mi></math>.
+     </li>
+     <li class="itemize"><a 
+ id="dx100-430008"></a><a 
+ id="dx100-430009"></a><a 
+ id="dx100-430010"></a><a 
+ id="property.MCF"><span 
+class="cmbx-12">MCF</span></a>   <span 
+class="cmbx-12">Multiplicative Closure, Field</span><br 
+class="newline" />If <!--l. 38--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>F</mi></math>,
+     then <!--l. 38--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>F</mi></math>.
+     </li>
+     <li class="itemize"><a 
+ id="dx100-430011"></a><a 
+ id="dx100-430012"></a><a 
+ id="dx100-430013"></a><a 
+ id="property.CAF"><span 
+class="cmbx-12">CAF</span></a>   <span 
+class="cmbx-12">Commutativity of Addition, Field</span><br 
+class="newline" />If <!--l. 41--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>F</mi></math>,
+     then <!--l. 41--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B1;</mi></math>.
+     </li>
+     <li class="itemize"><a 
+ id="dx100-430014"></a><a 
+ id="dx100-430015"></a><a 
+ id="dx100-430016"></a><a 
+ id="property.CMF"><span 
+class="cmbx-12">CMF</span></a>   <span 
+class="cmbx-12">Commutativity of Multiplication, Field</span><br 
+class="newline" />If <!--l. 44--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>F</mi></math>,
+     then <!--l. 44--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&#x03B2;</mi><mi 
+>&#x03B1;</mi></math>.
+     </li>
+     <li class="itemize"><a 
+ id="dx100-430017"></a><a 
+ id="dx100-430018"></a><a 
+ id="dx100-430019"></a><a 
+ id="property.AAF"><span 
+class="cmbx-12">AAF</span></a>   <span 
+class="cmbx-12">Additive Associativity, Field</span><br 
+class="newline" />If <!--l. 47--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>&#x03B2;</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>&#x03B3;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>F</mi></math>,
+     then <!--l. 47--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-bin">+</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B3;</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B2;</mi></mrow></mfenced> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B3;</mi></math>.
+     </li>
+     <li class="itemize"><a 
+ id="dx100-430020"></a><a 
+ id="dx100-430021"></a><a 
+ id="dx100-430022"></a><a 
+ id="property.MAF"><span 
+class="cmbx-12">MAF</span></a>   <span 
+class="cmbx-12">Multiplicative Associativity, Field</span><br 
+class="newline" />If <!--l. 50--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>&#x03B2;</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>&#x03B3;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>F</mi></math>,
+     then <!--l. 50--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>&#x03B2;</mi><mi 
+>&#x03B3;</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>&#x03B1;</mi><mi 
+>&#x03B2;</mi></mrow></mfenced><mi 
+>&#x03B3;</mi></math>.
+     </li>
+     <li class="itemize"><a 
+ id="dx100-430023"></a><a 
+ id="dx100-430024"></a><a 
+ id="dx100-430025"></a><a 
+ id="property.DF"><span 
+class="cmbx-12">DF</span></a>   <span 
+class="cmbx-12">Distributivity, Field</span><br 
+class="newline" />If <!--l. 53--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>&#x03B2;</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>&#x03B3;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>F</mi></math>
+     , then <!--l. 53--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B3;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&#x03B1;</mi><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B1;</mi><mi 
+>&#x03B3;</mi></math>.
+     </li>
+     <li class="itemize"><a 
+ id="dx100-430026"></a><a 
+ id="dx100-430027"></a><a 
+ id="dx100-430028"></a><a 
+ id="property.ZF"><span 
+class="cmbx-12">ZF</span></a>   <span 
+class="cmbx-12">Zero, Field</span><br 
+class="newline" />There is an element, <!--l. 56--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>0</mn> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>F</mi></math>,
+     called <span 
+class="cmbx-12">zero</span>, such that <!--l. 56--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-bin">+</mo> <mn>0</mn> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&#x03B1;</mi></math>
+     for all <!--l. 56--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>F</mi></math>.
+                                                                          
+
+                                                                          
+     </li>
+     <li class="itemize"><a 
+ id="dx100-430029"></a><a 
+ id="dx100-430030"></a><a 
+ id="dx100-430031"></a><a 
+ id="property.OF"><span 
+class="cmbx-12">OF</span></a>   <span 
+class="cmbx-12">One, Field</span><br 
+class="newline" />There is an element, <!--l. 59--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>1</mn> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>F</mi></math>,
+     called <span 
+class="cmbx-12">one</span>, such that <!--l. 59--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&#x03B1;</mi></math>
+     for all <!--l. 59--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>F</mi></math>.
+     </li>
+     <li class="itemize"><a 
+ id="dx100-430032"></a><a 
+ id="dx100-430033"></a><a 
+ id="dx100-430034"></a><a 
+ id="property.AIF"><span 
+class="cmbx-12">AIF</span></a>   <span 
+class="cmbx-12">Additive Inverse, Field</span><br 
+class="newline" />If <!--l. 62--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>F</mi></math>,
+     then there exists <!--l. 62--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" > <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>F</mi></math>
+     so that <!--l. 62--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mi 
+>&#x03B1;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn></math>.
+     </li>
+     <li class="itemize"><a 
+ id="dx100-430035"></a><a 
+ id="dx100-430036"></a><a 
+ id="dx100-430037"></a><a 
+ id="property.MIF"><span 
+class="cmbx-12">MIF</span></a>   <span 
+class="cmbx-12">Multiplicative Inverse, Field</span><br 
+class="newline" />If <!--l. 65--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>F</mi></math>,
+     <!--l. 65--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mo 
+class="MathClass-rel">&#x2260;</mo><mn>0</mn></math>,
+     then there exists <!--l. 65--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mfrac><mrow 
+><mn>1</mn></mrow>
+<mrow 
+><mi 
+>&#x03B1;</mi></mrow></mfrac> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>F</mi></math>
+     so that <!--l. 65--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mfrac><mrow 
+><mn>1</mn></mrow>
+<mrow 
+><mi 
+>&#x03B1;</mi></mrow></mfrac></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn></math>.</li></ul>
+<!--l. 69--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-bin">&#x25B3;</mo></math>
+<!--l. 71--><p class="indent" >   Mostly this definition says that all the good things you might expect, really
+do happen in a field. The one technicality is that the special element,
+<!--l. 71--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>0</mn></math>, the
+additive identity element, does not have a multiplicative inverse. In other words,
+no dividing by zero.
+</p><!--l. 73--><p class="indent" >   This definition should remind you of <a 
+href="fcla-xml-2.30li69.xml#theorem.PCNA">Theorem&#x00A0;PCNA</a>, and indeed,
+<a 
+href="fcla-xml-2.30li69.xml#theorem.PCNA">Theorem&#x00A0;PCNA</a> provides the justification for the statement that the
+complex numbers form a field. Another example of field is the set of rational
+numbers
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 77--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                     <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>&#x211A;</mi> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="{"  close="}" ><mrow><mfenced separators="" 
+open=""  close="|" ><mrow><mfrac><mrow 
+><mi 
+>p</mi></mrow>
+<mrow 
+><mi 
+>q</mi></mrow></mfrac></mrow></mfenced><mi 
+>p</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>q</mi><!--mstyle 
+class="text"--><mtext  >&#x00A0;&#x00A0;are&#x00A0;integers,&#x00A0;</mtext><!--/mstyle--><mi 
+>q</mi><mo 
+class="MathClass-rel">&#x2260;</mo><mn>0</mn></mrow></mfenced> </mtd>                     <mtd 
+class="align-even"><mspace width="2em"/></mtd>                     <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 79--><p class="noindent" >Of course, the real numbers, <!--l. 79--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>&#x211D;</mi></mrow><mrow 
+></mrow></msup 
+></math>,
+also form a field. It is this field that you probably studied for many years. You
+began studying the integers (&#x201C;counting&#x201D;), then the rationals (&#x201C;fractions&#x201D;), then
+the reals (&#x201C;algebra&#x201D;), along with some excursions in the complex numbers
+(&#x201C;imaginary numbers&#x201D;). So you should have seen three fields already in your
+previous studies.
+</p><!--l. 81--><p class="indent" >   Our first observation about fields is that we can go back to our
+definition of a vector space (<a 
+href="fcla-xml-2.30li37.xml#definition.VS">Definition&#x00A0;VS</a>) and replace every occurrence of
+<!--l. 81--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x2102;</mi></math> by some general,
+unspecified field, <!--l. 81--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>,
+and all our subsequent definitions and theorems are still true, so long as we
+avoid roots of polynomials (or equivalently, factoring polynomials). So
+if you consult more advanced texts on linear algebra, you will see
+this sort of approach. You might study some of the first theorems we
+proved about vector spaces in <a 
+href="fcla-xml-2.30li37.xml#subsection.VS.VSP">Subsection&#x00A0;VS.VSP</a> and work through
+their proofs in the more general setting of an arbitrary field. This
+exercise should convince you that very little changes when we move from
+<!--l. 81--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x2102;</mi></math> to an
+arbitrary field <!--l. 81--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>.
+(See <a 
+href="#exercise.F.T10">Exercise&#x00A0;F.T10</a>.)
+</p>
+   <h4 class="likesubsectionHead"><a 
+ id="x100-431000"></a>Subsection FF: Finite Fields</h4>
+<!--l. 83--><p class="noindent" ><a 
+ id="subsection.F.FF"></a> <a 
+ id="x100-431000doc"></a><a 
+ id="dx100-431001"></a>  It may sound odd at first, but there exist finite fields, and even finite vector
+spaces. We will find certain of these important in subsequent applications, so we
+collect some ideas and properties here.
+</p><!--l. 87--><p class="noindent" ><span 
+class="cmbx-12">Definition</span><span 
+class="cmbx-12">&#x00A0;IMP</span><br 
+class="newline" /><a 
+ id="definition.IMP"><span 
+class="cmbx-12">Integers Modulo a Prime</span></a><a 
+ id="dx100-431002"></a><a 
+ id="dx100-431003"></a><a 
+ id="dx100-431004"></a><br 
+class="newline" /> Suppose that <!--l. 88--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>p</mi></math> is a prime
+                                                                          
+
+                                                                          
+number. Let <!--l. 88--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mi 
+>p</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="{"  close="}" ><mrow><mn>0</mn><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mn>1</mn><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mn>2</mn><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mo 
+class="MathClass-op">&#x2026;</mo><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>p</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>1</mn></mrow></mfenced></math>. Add and
+multiply elements of <!--l. 88--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mi 
+>p</mi></mrow></msub 
+></math>
+as integers, but whenever a result lies outside of the set
+<!--l. 88--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mi 
+>p</mi></mrow></msub 
+></math>, find its remainder after
+division by <!--l. 88--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>p</mi></math> and replace the
+result by this remainder. <!--l. 89--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-bin">&#x25B3;</mo></math>
+</p><!--l. 91--><p class="indent" >   We have defined a set, and two binary operations. The result is a
+field.
+</p><!--l. 93--><p class="noindent" ><span 
+class="cmbx-12">Theorem</span><span 
+class="cmbx-12">&#x00A0;FIMP</span><br 
+class="newline" /><a 
+ id="theorem.FIMP"><span 
+class="cmbx-12">Field of Integers Modulo a Prime</span></a><a 
+ id="dx100-431005"></a><a 
+ id="dx100-431006"></a><a 
+ id="dx100-431007"></a><br 
+class="newline" /> The set of integers modulo a prime <!--l. 94--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>p</mi></math>,
+<!--l. 94--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mi 
+>p</mi></mrow></msub 
+></math>, is a
+field. <!--l. 95--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-ord">&#x25A1;</mo></math>
+</p><!--l. 98--><p class="noindent" ><span 
+class="cmbx-12">Example</span><span 
+class="cmbx-12">&#x00A0;IM11</span><br 
+class="newline" /><a 
+ id="example.IM11"><span 
+class="cmbx-12">Integers mod 11</span></a><a 
+ id="dx100-431008"></a><a 
+ id="dx100-431009"></a><a 
+ id="dx100-431010"></a><br 
+class="newline" /> <!--l. 99--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>1</mn><mn>1</mn></mrow></msub 
+></math> is a
+field by <a 
+href="#theorem.FIMP">Theorem&#x00A0;FIMP</a>. Here we provide some sample calculations.
+</p><!--tex4ht:inline--><!--l. 105--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+           <mtr><mtd 
+columnalign="right" class="align-odd"><mn>8</mn> <mo 
+class="MathClass-bin">+</mo> <mn>5</mn></mtd>           <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>2</mn><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-odd"> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>8</mn></mtd>           <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>3</mn><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-odd"><mn>5</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>9</mn></mtd>           <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>7</mn><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-label"></mtd>           <mtd 
+class="align-label"><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-label"></mtd>           <mtd 
+class="align-label"><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-label"></mtd>           <mtd 
+class="align-label">
+           <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"><mn>5</mn><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>7</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mtd>            <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>2</mn><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-odd"><mfrac><mrow 
+><mn>1</mn></mrow>
+<mrow 
+><mn>7</mn></mrow></mfrac></mtd>              <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>8</mn><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-odd"><mfrac><mrow 
+><mn>6</mn></mrow>
+<mrow 
+><mn>5</mn></mrow></mfrac></mtd>               <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn><mn>0</mn><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-label"></mtd>           <mtd 
+class="align-label"><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-label"></mtd>           <mtd 
+class="align-label"><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-label"></mtd>           <mtd 
+class="align-label">
+           <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"><msup><mrow 
+><mn>2</mn></mrow><mrow 
+><mn>5</mn></mrow></msup 
+></mtd>              <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn><mn>0</mn><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-odd"> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>1</mn></mtd>           <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn><mn>0</mn><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-odd"><mfrac><mrow 
+><mn>1</mn></mrow>
+<mrow 
+><mn>0</mn></mrow></mfrac></mtd>               <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <!--mstyle 
+class="text"--><mtext  >&#x00A0;?</mtext><!--/mstyle--><mspace width="2em"/></mtd>            <mtd 
+columnalign="right" class="align-label"></mtd>           <mtd 
+class="align-label"><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-label"></mtd>           <mtd 
+class="align-label"><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-label"></mtd>           <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+   <!--l. 107--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-bin">&#x22A0;</mo></math>
+<!--l. 109--><p class="indent" >   We can now &#x201C;do&#x201D; linear algebra using scalars from a finite field.
+                                                                          
+
+                                                                          
+</p><!--l. 111--><p class="noindent" ><span 
+class="cmbx-12">Example</span><span 
+class="cmbx-12">&#x00A0;VSIM5</span><br 
+class="newline" /><a 
+ id="example.VSIM5"><span 
+class="cmbx-12">Vector space over integers mod 5</span></a><a 
+ id="dx100-431011"></a><a 
+ id="dx100-431012"></a><a 
+ id="dx100-431013"></a><br 
+class="newline" /> Let <!--l. 112--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>5</mn></mrow></msub 
+></mrow></mfenced> </mrow><mrow 
+><mn>3</mn></mrow></msup 
+></math> be the set of all
+column vectors of length <!--l. 112--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>3</mn></math>
+with entries from <!--l. 112--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>5</mn></mrow></msub 
+></math>.
+Use <!--l. 112--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>5</mn></mrow></msub 
+></math>
+as the set of scalars. Define addition and multiplication the usual way. We exhibit
+a few sample calculations.
+</p><!--tex4ht:inline--><!--l. 118--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+              <mtr><mtd 
+columnalign="right" class="align-odd"> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>2</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>4</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mo 
+class="MathClass-bin">+</mo> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>4</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> </mtd>              <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo>  <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>4</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>2</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mspace width="2em"/></mtd>              <mtd 
+columnalign="right" class="align-odd"><mn>3</mn> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>2</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>4</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> </mtd>              <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo>  <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>2</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mspace width="2em"/></mtd>              <mtd 
+columnalign="right" class="align-label"></mtd>              <mtd 
+class="align-label"><mspace width="2em"/></mtd>              <mtd 
+columnalign="right" class="align-label"></mtd>              <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 120--><p class="noindent" >We can, of course, build linear combinations, such as
+</p><!--tex4ht:inline--><!--l. 124--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                       <mtr><mtd 
+columnalign="right" class="align-odd"><mn>2</mn> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>4</mn> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>2</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mo 
+class="MathClass-bin">+</mo> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>2</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>4</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> </mtd>                       <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo>  <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>4</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mspace width="2em"/></mtd>                       <mtd 
+columnalign="right" class="align-label"></mtd>                       <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 126--><p class="noindent" >which almost looks like a relation of linear dependence. The set
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 133--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                              <mtr><mtd 
+columnalign="right" class="align-odd"> <mfenced separators="" 
+open="{"  close="}" ><mrow> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>2</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>2</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> </mrow></mfenced> </mtd>                              <mtd 
+class="align-even"><mspace width="2em"/></mtd>                              <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 135--><p class="noindent" >is linearly independent, while the set
+</p><!--tex4ht:inline--><!--l. 143--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                           <mtr><mtd 
+columnalign="right" class="align-odd"> <mfenced separators="" 
+open="{"  close="}" ><mrow> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>2</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>2</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>4</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>2</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> </mrow></mfenced> </mtd>                           <mtd 
+class="align-even"><mspace width="2em"/></mtd>                           <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 145--><p class="noindent" >is linearly dependent, as can be seen from the relation of linear dependence formed by
+the scalars <!--l. 145--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>2</mn></math>,
+<!--l. 145--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn></math> and
+<!--l. 145--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mn>3</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>4</mn></math>. To
+find these scalars, one would take the same approach as <a 
+href="fcla-xml-2.30li26.xml#example.LDS">Example&#x00A0;LDS</a>, but in
+performing row operations to solve a homogeneous system, you would
+need to take care that all scalar (field) operations are performed over
+<!--l. 145--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>5</mn></mrow></msub 
+></math>,
+especially when multiplying a row by a scalar to make a leading entry equal to 1.
+One more observation about this example &#x2014; the set
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 153--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                           <mtr><mtd 
+columnalign="right" class="align-odd"> <mfenced separators="" 
+open="{"  close="}" ><mrow> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> </mrow></mfenced> </mtd>                           <mtd 
+class="align-even"><mspace width="2em"/></mtd>                           <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 155--><p class="noindent" >is a basis for <!--l. 155--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>5</mn></mrow></msub 
+></mrow></mfenced> </mrow><mrow 
+><mn>3</mn></mrow></msup 
+></math>,
+since it is both linearly independent and spans
+<!--l. 155--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>5</mn></mrow></msub 
+></mrow></mfenced> </mrow><mrow 
+><mn>3</mn></mrow></msup 
+></math>.
+<!--l. 157--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-bin">&#x22A0;</mo></math>
+</p><!--l. 159--><p class="indent" >   In applications to computer science or electrical engineering,
+<!--l. 159--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></math>
+is the most important field, since it can be used to describe the
+binary nature of logic, circuitry, communications and their intertwined
+relationships. The vector space of column vectors with entries from
+<!--l. 159--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></math>,
+<!--l. 159--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mrow></mfenced> </mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+></math>, with scalars
+taken from <!--l. 159--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></math>
+is the natural extension of this idea. Notice that
+<!--l. 159--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></math> has
+the minimum number of elements to be a field, since any field must contain a zero
+and a one (<a 
+href="#property.ZF">Property&#x00A0;ZF</a>, <a 
+href="#property.OF">Property&#x00A0;OF</a>).
+</p><!--l. 162--><p class="noindent" ><span 
+class="cmbx-12">Example</span><span 
+class="cmbx-12">&#x00A0;SM2Z7</span><br 
+class="newline" /><a 
+ id="example.SM2Z7"><span 
+class="cmbx-12">Symmetric matrices of size 2 over</span>
+<!--l. 162--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>7</mn></mrow></msub 
+></math></a><a 
+ id="dx100-431014"></a><a 
+ id="dx100-431015"></a><a 
+ id="dx100-431016"></a><br 
+class="newline" /> We can employ the field of integers modulo a prime to build other examples of
+vector spaces with novel fields of scalars. Define
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 169--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                     <mtr><mtd 
+columnalign="right" class="align-odd"><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mn>2</mn><mn>2</mn></mrow></msub 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>7</mn></mrow></msub 
+></mrow></mfenced></mtd>                     <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="{"  close="}" ><mrow><mfenced separators="" 
+open=""  close="|" ><mrow> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mi 
+>a</mi></mtd><mtd 
+class="array"  columnalign="center"><mi 
+>b</mi></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mi 
+>b</mi> </mtd> <mtd 
+class="array"  columnalign="center"><mi 
+>c</mi></mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                </mrow></mfenced></mrow></mfenced><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>b</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>c</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>7</mn></mrow></msub 
+></mrow></mfenced> <mspace width="2em"/></mtd>                     <mtd 
+columnalign="right" class="align-label"></mtd>                     <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 171--><p class="noindent" >which is the set of all <!--l. 171--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>2</mn> <mo 
+class="MathClass-bin">&#x00D7;</mo> <mn>2</mn></math> symmetric
+matrices with entries from <!--l. 171--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>7</mn></mrow></msub 
+></math>.
+Use the field <!--l. 171--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>7</mn></mrow></msub 
+></math>
+as the set of scalars, and define vector addition and scalar multiplication in the
+natural way. The result will be a vector space.
+</p><!--l. 173--><p class="indent" >   Notice that the field of scalars is finite, as is the vector space, since there are
+<!--l. 173--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mn>7</mn></mrow><mrow 
+><mn>3</mn></mrow></msup 
+> <mo 
+class="MathClass-rel">=</mo> <mn>3</mn><mn>4</mn><mn>3</mn></math> matrices
+in <!--l. 173--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mn>2</mn><mn>2</mn></mrow></msub 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>7</mn></mrow></msub 
+></mrow></mfenced></math>.
+The set
+</p><!--tex4ht:inline--><!--l. 183--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                        <mtr><mtd 
+columnalign="right" class="align-odd"> <mfenced separators="" 
+open="{"  close="}" ><mrow> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd> <mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn> </mtd> <mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd> <mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> </mrow></mfenced> </mtd>                        <mtd 
+class="align-even"><mspace width="2em"/></mtd>                        <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 185--><p class="noindent" >is a basis, so <!--l. 185--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo class="qopname"> dim</mo><!--nolimits--> <mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mn>2</mn><mn>2</mn></mrow></msub 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>7</mn></mrow></msub 
+></mrow></mfenced></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mn>3</mn></math>.
+<!--l. 187--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-bin">&#x22A0;</mo></math>
+</p><!--l. 189--><p class="indent" >   In a more advanced algebra course it is possible to prove
+                                                                          
+
+                                                                          
+that the number of elements in a finite field must be of the form
+<!--l. 189--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>p</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+></math>, where
+<!--l. 189--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>p</mi></math> is a
+prime. We can&#x2019;t go so far afield as to prove this here, but we can demonstrate an
+example.
+</p><!--l. 191--><p class="noindent" ><span 
+class="cmbx-12">Example</span><span 
+class="cmbx-12">&#x00A0;FF8</span><br 
+class="newline" /><a 
+ id="example.FF8"><span 
+class="cmbx-12">Finite field of size 8</span></a><a 
+ id="dx100-431017"></a><a 
+ id="dx100-431018"></a><a 
+ id="dx100-431019"></a><br 
+class="newline" /> Define the set <!--l. 192--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>
+as <!--l. 192--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="{"  close="}" ><mrow><mfenced separators="" 
+open=""  close="|" ><mrow><mi 
+>a</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>b</mi><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>c</mi><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></mfenced> <mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>b</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>c</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+>
+<mn>2</mn></mrow></msub 
+></mrow></mfenced></math>.
+Add and multiply these quantities as polynomials in the variable
+<!--l. 192--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi></math>, but replace any
+occurrence of <!--l. 192--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>3</mn></mrow></msup 
+></math>
+by <!--l. 192--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></math>.
+</p><!--l. 194--><p class="indent" >   This defines a set, and the two operations on elements of that set. Do not be concerned
+with what <!--l. 194--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi></math> &#x201C;is,&#x201D;
+because it isn&#x2019;t. <!--l. 194--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi></math>
+is just a handy device that makes the example a field. We&#x2019;ll say a bit more about
+<!--l. 194--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi></math>
+when we finish. But first, some examples. Remember that
+<!--l. 194--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn></math> in
+<!--l. 194--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></math>.
+Addition is quite simple, for example,
+</p><!--tex4ht:inline--><!--l. 198--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+         <mtr><mtd 
+columnalign="right" class="align-odd"> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></mfenced> <mo 
+class="MathClass-bin">+</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></mfenced></mtd>         <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mn>0</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>t</mi><mspace width="2em"/></mtd>         <mtd 
+columnalign="right" class="align-label"></mtd>         <mtd 
+class="align-label">
+         <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                            <mtd 
+class="align-even"><mspace width="2em"/></mtd>                                            <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+                                                                          
+
+                                                                          
+<!--l. 200--><p class="noindent" >Multiplication gets more involved, for example,
+</p><!--tex4ht:inline--><!--l. 210--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+            <mtr><mtd 
+columnalign="right" class="align-odd"> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></mfenced> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></mfenced></mtd>            <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>3</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>4</mn></mrow></msup 
+><mspace width="2em"/></mtd>                <mtd 
+columnalign="right" class="align-label"></mtd>            <mtd 
+class="align-label">
+            <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                             <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>3</mn></mrow></msup 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi></mrow></mfenced><mspace width="2em"/></mtd>            <mtd 
+columnalign="right" class="align-label"></mtd>            <mtd 
+class="align-label">
+            <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                             <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi></mrow></mfenced> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi></mrow></mfenced><mspace width="2em"/></mtd>                    <mtd 
+columnalign="right" class="align-label"></mtd>            <mtd 
+class="align-label">
+            <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                             <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mspace width="2em"/></mtd>                  <mtd 
+columnalign="right" class="align-label"></mtd>            <mtd 
+class="align-label">
+            <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                             <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-label"></mtd>            <mtd 
+class="align-label">
+            <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                             <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mspace width="2em"/></mtd>                                 <mtd 
+columnalign="right" class="align-label"></mtd>            <mtd 
+class="align-label">
+            <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                             <mtd 
+class="align-even"><mspace width="2em"/></mtd>                                         <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 212--><p class="noindent" >Every element has a multiplicative inverse (<a 
+href="#property.MIF">Property&#x00A0;MIF</a>). What is the inverse of
+<!--l. 212--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></math>?
+Check that
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 221--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                  <mtr><mtd 
+columnalign="right" class="align-odd"> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></mfenced> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi></mrow></mfenced></mtd>                  <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>3</mn></mrow></msup 
+><mspace width="2em"/></mtd>                        <mtd 
+columnalign="right" class="align-label"></mtd>                  <mtd 
+class="align-label">
+                  <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                              <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi></mrow></mfenced><mspace width="2em"/></mtd>                  <mtd 
+columnalign="right" class="align-label"></mtd>                  <mtd 
+class="align-label">
+                  <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                              <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi><mspace width="2em"/></mtd>                              <mtd 
+columnalign="right" class="align-label"></mtd>                  <mtd 
+class="align-label">
+                  <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                              <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>t</mi><mspace width="2em"/></mtd>                          <mtd 
+columnalign="right" class="align-label"></mtd>                  <mtd 
+class="align-label">
+                  <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                              <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn><mspace width="2em"/></mtd>                                     <mtd 
+columnalign="right" class="align-label"></mtd>                  <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 223--><p class="noindent" >So we can write <!--l. 223--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" >  <mfrac><mrow 
+><mn>1</mn></mrow>
+<mrow 
+><mi 
+>t</mi><mo 
+class="MathClass-bin">+</mo><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></mfrac>  <mo 
+class="MathClass-rel">=</mo> <mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi></math>.
+So that you may experiment, we give you the complete addition and multiplication
+tables for this field. Addition is simple, while multiplication is more interesting, so
+verify a few entries of each table. Because of the commutativity of addition and
+multiplication (<a 
+href="#property.CAF">Property&#x00A0;CAF</a>, <a 
+href="#property.CMF">Property&#x00A0;CMF</a>), we have just listed half of each
+table.
+<!--tex4ht:inline--></p><!--l. 225--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" >
+ <mtable  style="text-align:axis;"  
+equalrows="false" columnlines="solid none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="left"><mo 
+class="MathClass-bin">+</mo>         </mtd><mtd 
+class="array"  columnalign="left"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="left"><mn>1</mn></mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi>    </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+>       </mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>      </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi>    </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>     </mtd>
+</mtr><mtr 
+class="hline"><mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> </mtr><mtr><mtd 
+class="array"  columnalign="left"><mn>0</mn>           </mtd><mtd 
+class="array"  columnalign="left"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="left"><mn>1</mn></mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi>    </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+>       </mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>      </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi>    </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>     </mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="left"><mn>1</mn>           </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi>         </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi>    </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+>              </mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi>         </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left"><mn>0</mn>     </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi></mtd><mtd 
+class="array"  columnalign="left"><mn>1</mn>           </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+>              </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>     </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+>              </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left">     </mtd><mtd 
+class="array"  columnalign="left"><mn>0</mn>      </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi>         </mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>      </mtd><mtd 
+class="array"  columnalign="left"><mn>1</mn>           </mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>      </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left">     </mtd><mtd 
+class="array"  columnalign="left">      </mtd><mtd 
+class="array"  columnalign="left"><mn>0</mn>           </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>     </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+>              </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi>    </mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi>    </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left">     </mtd><mtd 
+class="array"  columnalign="left">      </mtd><mtd 
+class="array"  columnalign="left">         </mtd><mtd 
+class="array"  columnalign="left"><mn>0</mn>           </mtd><mtd 
+class="array"  columnalign="left"><mn>1</mn>           </mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>      </mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left">     </mtd><mtd 
+class="array"  columnalign="left">      </mtd><mtd 
+class="array"  columnalign="left">         </mtd><mtd 
+class="array"  columnalign="left">         </mtd><mtd 
+class="array"  columnalign="left"><mn>0</mn>           </mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi>         </mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>     </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left">     </mtd><mtd 
+class="array"  columnalign="left">      </mtd><mtd 
+class="array"  columnalign="left">         </mtd><mtd 
+class="array"  columnalign="left">         </mtd><mtd 
+class="array"  columnalign="left">         </mtd><mtd 
+class="array"  columnalign="left"><mn>0</mn>           </mtd></mtr><!--l|llllllll--></mtable>
+</math>
+<!--l. 237--><p class="nopar" >
+                                                                          
+
+                                                                          
+<!--tex4ht:inline--></p><!--l. 239--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" >
+ <mtable  style="text-align:axis;"  
+equalrows="false" columnlines="solid none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="left"><mo 
+class="MathClass-bin">&#x22C5;</mo>    </mtd><mtd 
+class="array"  columnalign="left"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="left"><mn>1</mn></mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi> </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+>       </mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>      </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi>    </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>     </mtd>
+</mtr><mtr 
+class="hline"><mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> </mtr><mtr><mtd 
+class="array"  columnalign="left"><mn>0</mn>           </mtd><mtd 
+class="array"  columnalign="left"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="left"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="left"><mn>0</mn> </mtd><mtd 
+class="array"  columnalign="left"><mn>0</mn>      </mtd><mtd 
+class="array"  columnalign="left"><mn>0</mn>           </mtd><mtd 
+class="array"  columnalign="left"><mn>0</mn>           </mtd><mtd 
+class="array"  columnalign="left"><mn>0</mn>           </mtd><mtd 
+class="array"  columnalign="left"><mn>0</mn>           </mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="left"><mn>1</mn>           </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left"><mn>1</mn></mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi> </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+>       </mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>      </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi>    </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>     </mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi>         </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn> </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi>    </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>     </mtd><mtd 
+class="array"  columnalign="left"><mn>1</mn>           </mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+>              </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left">  </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi></mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>     </mtd><mtd 
+class="array"  columnalign="left"><mn>1</mn>           </mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi>         </mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>      </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left">  </mtd><mtd 
+class="array"  columnalign="left">     </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>     </mtd><mtd 
+class="array"  columnalign="left"><mn>1</mn>           </mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi>         </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+>              </mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi>    </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left">  </mtd><mtd 
+class="array"  columnalign="left">     </mtd><mtd 
+class="array"  columnalign="left">         </mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi>         </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+>              </mtd><mtd 
+class="array"  columnalign="left"><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>      </mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left">  </mtd><mtd 
+class="array"  columnalign="left">     </mtd><mtd 
+class="array"  columnalign="left">         </mtd><mtd 
+class="array"  columnalign="left">         </mtd><mtd 
+class="array"  columnalign="left"><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi>     </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi>    </mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn>     </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left"> </mtd><mtd 
+class="array"  columnalign="left">  </mtd><mtd 
+class="array"  columnalign="left">     </mtd><mtd 
+class="array"  columnalign="left">         </mtd><mtd 
+class="array"  columnalign="left">         </mtd><mtd 
+class="array"  columnalign="left">         </mtd><mtd 
+class="array"  columnalign="left"><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mtd></mtr><!--l|llllllll--></mtable>
+</math>
+<!--l. 251--><p class="nopar" > Note that every element of <!--l. 253--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>
+is a linear combination (with scalars from
+<!--l. 253--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></math>) of the
+polynomials <!--l. 253--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>1</mn></math>,
+<!--l. 253--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi></math>,
+<!--l. 253--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></math>. So
+<!--l. 253--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>B</mi> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="{"  close="}" ><mrow><mn>1</mn><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>t</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></mfenced></math> is a spanning
+set for <!--l. 253--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>.
+Further, <!--l. 253--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>B</mi></math>
+is linearly independent since there is no nontrivial relation of linear dependence, and
+<!--l. 253--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>B</mi></math> is a basis. So
+<!--l. 253--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo class="qopname"> dim</mo><!--nolimits--> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>F</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mn>3</mn></math>. Of course, this paragraph
+presumes that <!--l. 253--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math> is also
+a vector space over <!--l. 253--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></math>
+(which it is). <!--l. 255--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-bin">&#x22A0;</mo></math>
+</p><!--l. 257--><p class="indent" >   The defining relation for <!--l. 257--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi></math>
+(<!--l. 257--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>3</mn></mrow></msup 
+> <mo 
+class="MathClass-rel">=</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></math>) in <a 
+href="#example.FF8">Example&#x00A0;FF8</a> arises
+from the polynomial <!--l. 257--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>3</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></math>,
+which has no factorization with coefficients from
+<!--l. 257--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></math>. This
+is an example of an <span 
+class="cmbx-12">irreducible polynomial</span>, which involves considerable theory
+to fully understand. In the exercises, we provide you with a few more irreducible
+polynomials to experiment with. See the suggested readings if you would like to
+learn more.
+                                                                          
+
+                                                                          
+</p><!--l. 259--><p class="indent" >   Trivially, every field (finite or otherwise) is a vector space. Suppose we begin with a
+field <!--l. 259--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>. From
+this we know <!--l. 259--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>
+has two binary operations defined on it. We need to somehow create a vector space
+from <!--l. 259--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>,
+in a general way. First we need a set of vectors. That&#x2019;ll be
+<!--l. 259--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>. We also need a set
+of scalars. That&#x2019;ll be <!--l. 259--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>
+as well. How do we define the addition of two vectors? By the
+same rule that we use to add them when they are in the field. How
+do we define scalar multiplication? Since a scalar is an element of
+<!--l. 259--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>, and a vector is
+an element of <!--l. 259--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>,
+we can define scalar multiplication to be the same rule that we use to
+multiply the two elements as members of the field. With these definitions,
+<!--l. 259--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math> will
+be a vector space (<a 
+href="#exercise.F.T20">Exercise&#x00A0;F.T20</a>). This is something of a trivial situation, since
+the set of vectors and the set of scalars are identical. In particular, do not confuse
+this with <a 
+href="#example.FF8">Example&#x00A0;FF8</a> where the set of vectors has eight elements, and the set of
+scalars has just two elements.
+</p>
+<!--l. 261--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x100-432000"></a><span 
+class="cmbx-12">Further Reading</span></span>
+   &#x00A0;<br 
+class="newline" />Robert J.&#x00A0;McEliece, Finite Fields for Scientists and Engineers. Kluwer Academic
+Publishers, 1987.
+</p><!--l. 265--><p class="indent" >   Rudolpf Lidl, Harald Niederreiter, Introduction to Finite Fields and Their
+Applications, Revised Edition. Cambridge University Press, 1994.
+                                                                          
+
+                                                                          
+</p>
+   <h4 class="likesubsectionHead"><a 
+ id="x100-433000"></a>Subsection EXC: Exercises</h4>
+<!--l. 547--><p class="noindent" ><a 
+ id="subsection.F.EXC"></a> <a 
+ id="x100-433000doc"></a><a 
+ id="dx100-433001"></a>  <a 
+ id="exercise.F.C60"><span 
+class="cmbx-12">C60</span></a>   Consider the vector space <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>5</mn></mrow></msub 
+></mrow></mfenced> </mrow><mrow 
+><mn>4</mn></mrow></msup 
+></math>
+composed of column vectors of size 4 with entries from
+<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>5</mn></mrow></msub 
+></math>. The
+matrix <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>
+is a square matrix composed of four such column vectors.
+</p><!--tex4ht:inline--><!--l. 21--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                            <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>A</mi></mtd>                            <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo>  <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>3</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>3</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>3</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn> </mtd> <mtd 
+class="array"  columnalign="center"><mn>2</mn></mtd> <mtd 
+class="array"  columnalign="center"><mn>3</mn></mtd> <mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn> </mtd><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>2</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>4</mn> </mtd> <mtd 
+class="array"  columnalign="center"><mn>2</mn></mtd> <mtd 
+class="array"  columnalign="center"><mn>2</mn></mtd> <mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                           </mrow></mfenced> <mspace width="2em"/></mtd>                            <mtd 
+columnalign="right" class="align-label"></mtd>                            <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 23--><p class="noindent" >Find the inverse of <!--l. 23--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>. Use
+this to find a solution to <!--l. 23--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+mathvariant="bold-script">&#x2112;</mi><mi 
+mathvariant="bold-script">S</mi><mspace width="0.3em" class="thinspace"/><mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>b</mi></mrow></mfenced></math>
+when
+</p><!--tex4ht:inline--><!--l. 27--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                                 <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>b</mi></mtd>                                 <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo>  <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>3</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>2</mn> </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn></mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mspace width="2em"/></mtd>                                 <mtd 
+columnalign="right" class="align-label"></mtd>                                 <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+                                                                          
+
+                                                                          
+<!--l. 10--><p class="noindent" >&#x00A0;<br 
+class="newline" /> Contributed&#x00A0;by&#x00A0;<a 
+href="fcla-xml-2.30li6.xml#BeezerRobert">Robert&#x00A0;Beezer</a>    <a 
+href="#solution.F.C60">Solution</a>&#x00A0;[<a 
+href="#x100-434000doc">2346<!--tex4ht:ref: solution.F.C60 --></a>]
+</p><!--l. 12--><p class="noindent" ><a 
+ id="exercise.F.M10"><span 
+class="cmbx-12">M10</span></a>   Suppose we relax the restriction in <a 
+href="#definition.IMP">Definition&#x00A0;IMP</a> to allow
+<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>p</mi></math>
+to not be a prime. Will the construction given still be a field? Is
+<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>6</mn></mrow></msub 
+></math> a
+field? Can you generalize? &#x00A0;<br 
+class="newline" /> Contributed&#x00A0;by&#x00A0;<a 
+href="fcla-xml-2.30li6.xml#BeezerRobert">Robert&#x00A0;Beezer</a>
+</p><!--l. 13--><p class="noindent" ><a 
+ id="exercise.F.M40"><span 
+class="cmbx-12">M40</span></a>   Construct a finite field with 9 elements using the set
+</p><!--tex4ht:inline--><!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                          <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>F</mi></mtd>                          <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="{"  close="}" ><mrow><mfenced separators="" 
+open=""  close="|" ><mrow><mi 
+>a</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>b</mi><mi 
+>t</mi></mrow></mfenced><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>b</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>3</mn></mrow></msub 
+></mrow></mfenced> <mspace width="2em"/></mtd>                          <mtd 
+columnalign="right" class="align-label"></mtd>                          <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 16--><p class="noindent" >where <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></math> is consistently
+replaced by <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>2</mn><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></math>
+in any intermediate results obtained with polynomial multiplication. Compute the first nine
+powers of <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi></math>
+(<!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msup 
+></math> through
+<!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>8</mn></mrow></msup 
+></math>).
+Use this information to aid you in the construction of the
+multiplication table for this field. What is the multiplicative inverse of
+<!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>2</mn><mi 
+>t</mi></math>?
+&#x00A0;<br 
+class="newline" /> Contributed&#x00A0;by&#x00A0;<a 
+href="fcla-xml-2.30li6.xml#BeezerRobert">Robert&#x00A0;Beezer</a>
+</p><!--l. 14--><p class="noindent" ><a 
+ id="exercise.F.M45"><span 
+class="cmbx-12">M45</span></a>   Construct a finite field with 25 elements using the set
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                          <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>F</mi></mtd>                          <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="{"  close="}" ><mrow><mfenced separators="" 
+open=""  close="|" ><mrow><mi 
+>a</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>b</mi><mi 
+>t</mi></mrow></mfenced><mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>b</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>5</mn></mrow></msub 
+></mrow></mfenced> <mspace width="2em"/></mtd>                          <mtd 
+columnalign="right" class="align-label"></mtd>                          <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 16--><p class="noindent" >where <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></math> is consistently
+replaced by <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>3</mn></math>
+in any intermediate results obtained with polynomial multiplication. Compute the first 25
+powers of <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi></math>
+(<!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msup 
+></math> through
+<!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn><mn>4</mn></mrow></msup 
+></math>). Use this
+information to aid you in computing in this field. What is the multiplicative inverse of
+<!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>2</mn><mi 
+>t</mi></math>? What is the multiplicative
+inverse of <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>4</mn></math>? What is the
+multiplicative inverse of <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mn>4</mn><mi 
+>t</mi></math>?
+</p><!--l. 18--><p class="indent" >   Find a basis for <!--l. 18--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math> as
+a vector space with <!--l. 18--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>5</mn></mrow></msub 
+></math>
+used as the set of scalars. &#x00A0;<br 
+class="newline" /> Contributed&#x00A0;by&#x00A0;<a 
+href="fcla-xml-2.30li6.xml#BeezerRobert">Robert&#x00A0;Beezer</a>
+</p><!--l. 15--><p class="noindent" ><a 
+ id="exercise.F.M50"><span 
+class="cmbx-12">M50</span></a>   Construct a finite field with 16 elements using the set
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                  <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>F</mi></mtd>                  <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="{"  close="}" ><mrow><mfenced separators="" 
+open=""  close="|" ><mrow><mi 
+>a</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>b</mi><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>c</mi><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mi 
+>d</mi><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>3</mn></mrow></msup 
+></mrow></mfenced> <mi 
+>a</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>b</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>c</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>d</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+>
+<mn>2</mn></mrow></msub 
+></mrow></mfenced> <mspace width="2em"/></mtd>                  <mtd 
+columnalign="right" class="align-label"></mtd>                  <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 16--><p class="noindent" >where <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>4</mn></mrow></msup 
+></math> is consistently
+replaced by <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></math>
+in any intermediate results obtained with polynomial multiplication. Compute the first 16
+powers of <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi></math>
+(<!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>0</mn></mrow></msup 
+></math> through
+<!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>1</mn><mn>5</mn></mrow></msup 
+></math>). Consider
+the set <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>G</mi> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="{"  close="}" ><mrow><mn>0</mn><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mn>1</mn><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>5</mn></mrow></msup 
+><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><msup><mrow 
+><mi 
+>t</mi></mrow><mrow 
+><mn>1</mn><mn>0</mn></mrow></msup 
+></mrow></mfenced></math>. Then
+<!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>G</mi></math> will also be a finite
+field, a subfield of <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>.
+Construct the addition and multiplication tables for
+<!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>G</mi></math>. Notice that
+since both <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>G</mi></math> and
+<!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math> are vector
+spaces over <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x2124;</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></math>,
+and <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>G</mi> <mo 
+class="MathClass-rel">&#x2286;</mo> <mi 
+>F</mi></math>, by
+<a 
+href="fcla-xml-2.30li38.xml#definition.S">Definition&#x00A0;S</a>, <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>G</mi></math> is
+a subspace of <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>.
+&#x00A0;<br 
+class="newline" /> Contributed&#x00A0;by&#x00A0;<a 
+href="fcla-xml-2.30li6.xml#BeezerRobert">Robert&#x00A0;Beezer</a>
+</p><!--l. 17--><p class="noindent" ><a 
+ id="exercise.F.T10"><span 
+class="cmbx-12">T10</span></a>   Give a new proof of <a 
+href="fcla-xml-2.30li37.xml#theorem.ZVSM">Theorem&#x00A0;ZVSM</a> for a vector space whose scalars come from an
+arbitrary field <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>.
+&#x00A0;<br 
+class="newline" /> Contributed&#x00A0;by&#x00A0;<a 
+href="fcla-xml-2.30li6.xml#BeezerRobert">Robert&#x00A0;Beezer</a>
+</p><!--l. 18--><p class="noindent" ><a 
+ id="exercise.F.T20"><span 
+class="cmbx-12">T20</span></a>   By applying <a 
+href="fcla-xml-2.30li37.xml#definition.VS">Definition&#x00A0;VS</a>, prove that every field is also a vector space.
+(See the construction at the end of this section.) &#x00A0;<br 
+class="newline" /> Contributed&#x00A0;by&#x00A0;<a 
+href="fcla-xml-2.30li6.xml#BeezerRobert">Robert&#x00A0;Beezer</a>
+                                                                          
+
+                                                                          
+</p>
+   <h4 class="likesubsectionHead"><a 
+ id="x100-434000"></a>Subsection SOL: Solutions</h4>
+<!--l. 547--><p class="noindent" ><a 
+ id="subsection.F.SOL"></a> <a 
+ id="x100-434000doc"></a><a 
+ id="dx100-434001"></a> <a 
+ id="solution.F.C60"><span 
+class="cmbx-12">C60</span></a>   Contributed&#x00A0;by&#x00A0;<a 
+href="fcla-xml-2.30li6.xml#BeezerRobert">Robert&#x00A0;Beezer</a>    <a 
+href="#exercise.F.C60">Statement</a>&#x00A0;[<a 
+href="#x100-433000doc">2342<!--tex4ht:ref: exercise.F.C60 --></a>]<br 
+class="newline" />Remember that every computation must be done with arithmetic
+in the field, reducing any intermediate number outside of
+<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" > <mfenced separators="" 
+open="{"  close="}" ><mrow><mn>0</mn><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mn>1</mn><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mn>2</mn><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mn>3</mn><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mn>4</mn></mrow></mfenced></math> to its
+remainder after division by 5.
+</p><!--l. 12--><p class="indent" >   The matrix inverse can be found with <a 
+href="fcla-xml-2.30li32.xml#theorem.CINM">Theorem&#x00A0;CINM</a> (and we discover along the
+way that <!--l. 12--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>
+is nonsingular). The inverse is
+</p><!--tex4ht:inline--><!--l. 22--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                           <mtr><mtd 
+columnalign="right" class="align-odd"><msup><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+></mtd>                           <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo>  <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>3</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn> </mtd> <mtd 
+class="array"  columnalign="center"><mn>4</mn></mtd> <mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd> <mtd 
+class="array"  columnalign="center"><mn>4</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn> </mtd><mtd 
+class="array"  columnalign="center"><mn>4</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>2</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn> </mtd> <mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd> <mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd> <mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                           </mrow></mfenced> <mspace width="2em"/></mtd>                           <mtd 
+columnalign="right" class="align-label"></mtd>                           <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 24--><p class="noindent" >Then by an application of <a 
+href="fcla-xml-2.30li33.xml#theorem.SNCM">Theorem&#x00A0;SNCM</a> the (unique) solution to the system
+will be
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 38--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+              <mtr><mtd 
+columnalign="right" class="align-odd"><msup><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><mi 
+>b</mi></mtd>              <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo>  <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>3</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn> </mtd> <mtd 
+class="array"  columnalign="center"><mn>4</mn></mtd> <mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd> <mtd 
+class="array"  columnalign="center"><mn>4</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn> </mtd><mtd 
+class="array"  columnalign="center"><mn>4</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>2</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn> </mtd> <mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd> <mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd> <mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                           </mrow></mfenced> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>3</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>2</mn> </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn></mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mspace width="2em"/></mtd>              <mtd 
+columnalign="right" class="align-odd"> <mo 
+class="MathClass-rel">=</mo>  <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>2</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn></mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> </mtd>              <mtd 
+class="align-even"><mspace width="2em"/></mtd>              <mtd 
+columnalign="right" class="align-label"></mtd>              <mtd 
+class="align-label"><mspace width="2em"/></mtd>              <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+                                                                          
+
+                                                                          
+<!--l. 547--><p class="indent" >
+                                                                          
+
+                                                                          
+                                                                          
+
+                                                                          
+</p>
+   <!--l. 548--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li100.xml" >next</a>] [<a 
+href="fcla-xml-2.30li99.xml" >front</a>] [<a 
+href="fcla-xml-2.30li98.xml#fcla-xml-2.30li99.xml" >up</a>] </p></div>
+<!--l. 548--><p class="indent" >   <a 
+ id="tailfcla-xml-2.30li99.xml"></a>  </p> 
+</body> 
+</html> 

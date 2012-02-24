@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" > 
+<?xml-stylesheet type="text/css" href="fcla-xml-2.30.css"?> 
+<html  
+xmlns="http://www.w3.org/1999/xhtml"  
+><head><title>Archetype G   </title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- html,xhtml,mozilla,3 --> 
+<meta name="src" content="fcla-xml-2.30.tex" /> 
+<meta name="date" content="2011-12-23 18:20:00" /> 
+<link rel="stylesheet" type="text/css" href="fcla-xml-2.30.css" /> 
+</head><body 
+>
+   <!--l. 483--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li80.xml" >next</a>] [<a 
+href="fcla-xml-2.30li78.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li78.xml#tailfcla-xml-2.30li78.xml" >prev-tail</a>] [<a 
+href="#tailfcla-xml-2.30li79.xml">tail</a>] [<a 
+href="fcla-xml-2.30li72.xml#fcla-xml-2.30li79.xml" >up</a>] </p></div>
+   <h3 class="likesectionHead"><a 
+ id="x80-391000"></a>Archetype G&#x00A0;&#x00A0;&#x00A0;</h3>
+<!--l. 483--><p class="noindent" ><a 
+ id="archetype.G"></a> From <a 
+href="http://linear.ups.edu/" ><span 
+class="cmti-12">A First Course in Linear Algebra</span></a><br 
+class="newline" />Version 2.30<br 
+class="newline" /><span 
+class="cmsy-10x-x-120">&#x00A9;</span>&#x00A0;2004.<br 
+class="newline" />Licensed under the <a 
+href="http://www.gnu.org/licenses/fdl.html" >GNU Free Documentation License</a>.<br 
+class="newline" /><a 
+href="http://linear.ups.edu/" class="url" ><span 
+class="cmtt-12">http://linear.ups.edu/</span></a><br 
+class="newline" /><br 
+class="newline" /><a 
+ id="x80-391000doc"></a> <a 
+ id="dx80-391001"></a>
+</p>
+<!--l. 485--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x80-392000"></a><span 
+class="cmbx-12">Summary</span></span>
+   &#x00A0;System with five equations, two variables. Consistent. Null space of coefficient
+matrix has dimension 0. Coefficient matrix identical to that of Archetype H,
+constant vector is different.
+</p><!--l. 487--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  A system of linear equations (<a 
+href="fcla-xml-2.30li17.xml#definition.SLE">Definition&#x00A0;SLE</a>):
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                            <mtr><mtd 
+columnalign="right" class="align-odd"><mn>2</mn><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <mn>3</mn><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mtd>                              <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>6</mn><mspace width="2em"/></mtd>                               <mtd 
+columnalign="right" class="align-label"></mtd>                            <mtd 
+class="align-label">
+                            <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"> <mo 
+class="MathClass-bin">&#x2212;</mo> <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <mn>4</mn><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mtd>                            <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn><mn>4</mn><mspace width="2em"/></mtd>                            <mtd 
+columnalign="right" class="align-label"></mtd>                            <mtd 
+class="align-label">
+                            <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"><mn>3</mn><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn><mn>0</mn><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mtd>                             <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mo 
+class="MathClass-bin">&#x2212;</mo><mn>2</mn><mspace width="2em"/></mtd>                              <mtd 
+columnalign="right" class="align-label"></mtd>                            <mtd 
+class="align-label">
+                            <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"><mn>3</mn><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">&#x2212;</mo> <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mtd>                               <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>2</mn><mn>0</mn><mspace width="2em"/></mtd>                              <mtd 
+columnalign="right" class="align-label"></mtd>                            <mtd 
+class="align-label">
+                            <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"><mn>6</mn><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <mn>9</mn><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mtd>                              <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn><mn>8</mn><mspace width="2em"/></mtd>                              <mtd 
+columnalign="right" class="align-label"></mtd>                            <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 491--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  Some solutions to the system of linear equations (not necessarily exhaustive):<br 
+class="newline" /> <!--l. 491--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>6</mn><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mo 
+class="MathClass-bin">&#x2212;</mo><mn>2</mn></math>
+</p><!--l. 493--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  Augmented matrix of the linear system of equations (<a 
+href="fcla-xml-2.30li18.xml#definition.AM">Definition&#x00A0;AM</a>):
+</p><!--tex4ht:inline--><!--l. 493--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="flalign-star">
+<mtr><mtd 
+columnalign="right" class="align-odd"> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>2</mn> </mtd><mtd 
+class="array"  columnalign="center"> <mn>3</mn> </mtd><mtd 
+class="array"  columnalign="center">  <mn>6</mn>  </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mtd> <mtd 
+class="array"  columnalign="center"> <mn>4</mn> </mtd> <mtd 
+class="array"  columnalign="center"><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn><mn>4</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn> </mtd><mtd 
+class="array"  columnalign="center"><mn>1</mn><mn>0</mn></mtd><mtd 
+class="array"  columnalign="center"> <mo 
+class="MathClass-bin">&#x2212;</mo><mn>2</mn> </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn> </mtd> <mtd 
+class="array"  columnalign="center"><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mtd> <mtd 
+class="array"  columnalign="center"> <mn>2</mn><mn>0</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>6</mn> </mtd><mtd 
+class="array"  columnalign="center"> <mn>9</mn> </mtd><mtd 
+class="array"  columnalign="center"> <mn>1</mn><mn>8</mn> </mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                     </mrow></mfenced> </mtd><mtd 
+class="align-even"><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-odd"></mtd><mtd 
+class="align-even"><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label"><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 495--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  Matrix in reduced row-echelon form, row-equivalent to augmented matrix:
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 495--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="flalign-star">
+<mtr><mtd 
+columnalign="right" class="align-odd"> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><!--mstyle 
+class="fbox"--><mtext  >1</mtext><!--/mstyle--></mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="center"> <mn>6</mn> </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd> <mtd 
+class="array"  columnalign="center"><!--mstyle 
+class="fbox"--><mtext  >1&#x00A0;</mtext><!--/mstyle--></mtd> <mtd 
+class="array"  columnalign="center"><mo 
+class="MathClass-bin">&#x2212;</mo><mn>2</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd> <mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd> <mtd 
+class="array"  columnalign="center"> <mn>0</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                          </mrow></mfenced> </mtd><mtd 
+class="align-even"><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-odd"></mtd><mtd 
+class="align-even"><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label"><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 497--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  Analysis of the augmented matrix (<a 
+href="fcla-xml-2.30li18.xml#notation.RREFA">Notation&#x00A0;RREFA</a>):
+</p><!--tex4ht:inline--><!--l. 497--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+             <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>r</mi> <mo 
+class="MathClass-rel">=</mo> <mn>2</mn></mtd>             <mtd 
+class="align-even"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-odd"><mi 
+>D</mi> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="{"  close="}" ><mrow><mn>1</mn><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mn>2</mn></mrow></mfenced></mtd>             <mtd 
+class="align-even"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-odd"><mi 
+>F</mi> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="{"  close="}" ><mrow><mn>3</mn></mrow></mfenced> </mtd>             <mtd 
+class="align-even"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-label"></mtd>             <mtd 
+class="align-label"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-label"></mtd>             <mtd 
+class="align-label"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 501--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  Vector form of the solution set to the system of equations (<a 
+href="fcla-xml-2.30li24.xml#theorem.VFSLS">Theorem&#x00A0;VFSLS</a>).
+Notice the relationship between the free variables and the set
+<!--l. 501--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math> above. Also,
+notice the pattern of 0&#x2019;s and 1&#x2019;s in the entries of the vectors corresponding to elements
+of the set <!--l. 501--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>F</mi></math>
+for the larger examples.<br 
+class="newline" /> <!--l. 501--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" > <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+> </mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                                                                  </mrow></mfenced>  <mo 
+class="MathClass-rel">=</mo>  <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>6</mn> </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"><mo 
+class="MathClass-bin">&#x2212;</mo><mn>2</mn></mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> </math>
+</p><!--l. 503--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  Given a system of equations we can always build a new, related, homogeneous
+system (<a 
+href="fcla-xml-2.30li20.xml#definition.HS">Definition&#x00A0;HS</a>) by converting the constant terms to zeros and retaining
+the coefficients of the variables. Properties of this new system will have precise
+relationships with various properties of the original system.
+</p><!--tex4ht:inline--><!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                              <mtr><mtd 
+columnalign="right" class="align-odd"><mn>2</mn><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <mn>3</mn><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mtd>                                <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn><mspace width="2em"/></mtd>                              <mtd 
+columnalign="right" class="align-label"></mtd>                              <mtd 
+class="align-label">
+                              <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"> <mo 
+class="MathClass-bin">&#x2212;</mo> <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <mn>4</mn><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mtd>                              <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn><mspace width="2em"/></mtd>                              <mtd 
+columnalign="right" class="align-label"></mtd>                              <mtd 
+class="align-label">
+                              <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"><mn>3</mn><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn><mn>0</mn><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mtd>                              <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn><mspace width="2em"/></mtd>                              <mtd 
+columnalign="right" class="align-label"></mtd>                              <mtd 
+class="align-label">
+                              <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"><mn>3</mn><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">&#x2212;</mo> <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mtd>                                 <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn><mspace width="2em"/></mtd>                              <mtd 
+columnalign="right" class="align-label"></mtd>                              <mtd 
+class="align-label">
+                              <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"><mn>6</mn><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <mn>9</mn><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mtd>                                <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn><mspace width="2em"/></mtd>                              <mtd 
+columnalign="right" class="align-label"></mtd>                              <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 507--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  Some solutions to the associated homogenous system of linear equations (not
+necessarily exhaustive):<br 
+class="newline" /><!--l. 507--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn><mo 
+class="MathClass-punc">,</mo><mspace width="1em" class="quad"/><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn></math>
+</p><!--l. 509--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  Form the augmented matrix of the homogenous linear system, and use row
+operations to convert to reduced row-echelon form. Notice how the entries of the
+final column remain zeros:
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 509--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="flalign-star">
+<mtr><mtd 
+columnalign="right" class="align-odd"> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><!--mstyle 
+class="fbox"--><mtext  >1</mtext><!--/mstyle--></mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd> <mtd 
+class="array"  columnalign="center"><!--mstyle 
+class="fbox"--><mtext  >1&#x00A0;</mtext><!--/mstyle--></mtd> <mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd> <mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd> <mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                             </mrow></mfenced> </mtd><mtd 
+class="align-even"><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-odd"></mtd><mtd 
+class="align-even"><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label"><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 511--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  Analysis of the augmented matrix for the homogenous system (<a 
+href="fcla-xml-2.30li18.xml#notation.RREFA">Notation&#x00A0;RREFA</a>).
+Notice the slight variation for the same analysis of the original system only when
+the original system was consistent:
+</p><!--tex4ht:inline--><!--l. 511--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+             <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>r</mi> <mo 
+class="MathClass-rel">=</mo> <mn>2</mn></mtd>             <mtd 
+class="align-even"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-odd"><mi 
+>D</mi> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="{"  close="}" ><mrow><mn>1</mn><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mn>2</mn></mrow></mfenced></mtd>             <mtd 
+class="align-even"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-odd"><mi 
+>F</mi> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="{"  close="}" ><mrow><mn>3</mn></mrow></mfenced> </mtd>             <mtd 
+class="align-even"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-label"></mtd>             <mtd 
+class="align-label"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-label"></mtd>             <mtd 
+class="align-label"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 513--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  Coefficient matrix of original system of equations, and of associated
+homogenous system. This matrix will be the subject of further analysis, rather
+than the systems of equations.
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 513--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="flalign-star">
+<mtr><mtd 
+columnalign="right" class="align-odd"> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>2</mn> </mtd><mtd 
+class="array"  columnalign="center"> <mn>3</mn> </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mtd> <mtd 
+class="array"  columnalign="center"> <mn>4</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn> </mtd><mtd 
+class="array"  columnalign="center"><mn>1</mn><mn>0</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn> </mtd> <mtd 
+class="array"  columnalign="center"><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>6</mn> </mtd><mtd 
+class="array"  columnalign="center"> <mn>9</mn> </mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                           </mrow></mfenced> </mtd><mtd 
+class="align-even"><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-odd"></mtd><mtd 
+class="align-even"><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label"><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 515--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  Matrix brought to reduced row-echelon form:
+</p><!--tex4ht:inline--><!--l. 515--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="flalign-star">
+<mtr><mtd 
+columnalign="right" class="align-odd"> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><!--mstyle 
+class="fbox"--><mtext  >1</mtext><!--/mstyle--></mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd> <mtd 
+class="array"  columnalign="center"><!--mstyle 
+class="fbox"--><mtext  >1</mtext><!--/mstyle--></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd> <mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> </mtd><mtd 
+class="align-even"><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-odd"></mtd><mtd 
+class="align-even"><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label"><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 517--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  Analysis of the row-reduced matrix (<a 
+href="fcla-xml-2.30li18.xml#notation.RREFA">Notation&#x00A0;RREFA</a>):
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 517--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+             <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>r</mi> <mo 
+class="MathClass-rel">=</mo> <mn>2</mn></mtd>             <mtd 
+class="align-even"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-odd"><mi 
+>D</mi> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="{"  close="}" ><mrow><mn>1</mn><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mn>2</mn></mrow></mfenced></mtd>             <mtd 
+class="align-even"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-odd"><mi 
+>F</mi> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="{"  close="}" ><mrow><mspace width="1em" class="nbsp" /></mrow></mfenced> </mtd>             <mtd 
+class="align-even"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-label"></mtd>             <mtd 
+class="align-label"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-label"></mtd>             <mtd 
+class="align-label"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 521--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  This is the null space of the matrix. The set of vectors used in the
+span construction is a linearly independent set of column vectors that
+spans the null space of the matrix (<a 
+href="fcla-xml-2.30li25.xml#theorem.SSNS">Theorem&#x00A0;SSNS</a>, <a 
+href="fcla-xml-2.30li26.xml#theorem.BNS">Theorem&#x00A0;BNS</a>). Solve
+the homogenous system with this matrix as the coefficient matrix and
+write the solutions in vector form (<a 
+href="fcla-xml-2.30li24.xml#theorem.VFSLS">Theorem&#x00A0;VFSLS</a>) to see these vectors
+arise.<br 
+class="newline" /><!--l. 521--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" > <mfenced separators="" 
+open="&#x2329;"  close="&#x232A;" ><mrow> <mfenced separators="" 
+open="{"  close="}" ><mrow><mspace width="1em" class="nbsp" /></mrow></mfenced></mrow></mfenced></math>
+</p><!--l. 523--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  Column space of the matrix, expressed as the span of a set of linearly independent
+vectors that are also columns of the matrix. These columns have indices that form
+the set <!--l. 523--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>D</mi></math>
+above. (<a 
+href="fcla-xml-2.30li34.xml#theorem.BCS">Theorem&#x00A0;BCS</a>)<br 
+class="newline" /><!--l. 523--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" > <mfenced separators="" 
+open="&#x2329;"  close="&#x232A;" ><mrow> <mfenced separators="" 
+open="{"  close="}" ><mrow> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>2</mn> </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn> </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>6</mn> </mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>3</mn> </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>4</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn><mn>0</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>9</mn> </mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> </mrow></mfenced></mrow></mfenced></math>
+</p><!--l. 525--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  The column space of the matrix, as it arises from the extended echelon form of the matrix.
+The matrix <!--l. 525--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>L</mi></math>
+is computed as described in <a 
+href="fcla-xml-2.30li35.xml#definition.EEF">Definition&#x00A0;EEF</a>. This is followed by the column space
+described by a set of linearly independent vectors that span the null space of
+<!--l. 525--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>L</mi></math>,
+computed as according to <a 
+href="fcla-xml-2.30li35.xml#theorem.FS">Theorem&#x00A0;FS</a> and <a 
+href="fcla-xml-2.30li26.xml#theorem.BNS">Theorem&#x00A0;BNS</a>. When
+<!--l. 525--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>r</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>m</mi></math>, the matrix
+<!--l. 525--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>L</mi></math> has no rows and the
+column space is all of <!--l. 525--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>&#x2102;</mi></mrow><mrow 
+><mi 
+>m</mi></mrow></msup 
+></math>.<br 
+class="newline" /><!--l. 525--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>L</mi> <mo 
+class="MathClass-rel">=</mo>  <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="center">   <mn>0</mn>   </mtd><mtd 
+class="array"  columnalign="center"><mo 
+class="MathClass-bin">&#x2212;</mo><mfrac><mrow 
+><mn>1</mn></mrow>
+<mrow 
+><mn>3</mn></mrow></mfrac></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>1</mn> <mo 
+class="MathClass-bin">&#x2212;</mo><mfrac><mrow 
+><mn>1</mn></mrow> 
+<mrow 
+><mn>3</mn></mrow></mfrac></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd><mtd 
+class="array"  columnalign="center">   <mn>1</mn>   </mtd><mtd 
+class="array"  columnalign="center"><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                  </mrow></mfenced> </math><br 
+class="newline" /><!--l. 525--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" > <mfenced separators="" 
+open="&#x2329;"  close="&#x232A;" ><mrow> <mfenced separators="" 
+open="{"  close="}" ><mrow> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mfrac><mrow 
+><mn>1</mn></mrow>
+<mrow 
+><mn>3</mn></mrow></mfrac></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mfrac> <mrow 
+> <mn>1</mn></mrow> 
+<mrow 
+><mn>3</mn></mrow></mfrac> </mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn> </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>0</mn> </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> </mrow></mfenced></mrow></mfenced></math>
+</p><!--l. 527--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  Column space of the matrix, expressed as the span of a set of linearly
+independent vectors. These vectors are computed by row-reducing the
+transpose of the matrix into reduced row-echelon form, tossing out the
+zero rows, and writing the remaining nonzero rows as column vectors. By
+<a 
+href="fcla-xml-2.30li34.xml#theorem.CSRST">Theorem&#x00A0;CSRST</a> and <a 
+href="fcla-xml-2.30li34.xml#theorem.BRS">Theorem&#x00A0;BRS</a>, and in the style of <a 
+href="fcla-xml-2.30li34.xml#example.CSROI">Example&#x00A0;CSROI</a>,
+this yields a linearly independent set of vectors that span the column
+space.<br 
+class="newline" /><!--l. 527--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" > <mfenced separators="" 
+open="&#x2329;"  close="&#x232A;" ><mrow> <mfenced separators="" 
+open="{"  close="}" ><mrow> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>2</mn> </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn> </mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>0</mn> </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn> </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn> </mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> </mrow></mfenced></mrow></mfenced></math>
+</p><!--l. 529--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  Row space of the matrix, expressed as a span of a set of linearly independent
+vectors, obtained from the nonzero rows of the equivalent matrix in reduced
+row-echelon form. (<a 
+href="fcla-xml-2.30li34.xml#theorem.BRS">Theorem&#x00A0;BRS</a>)<br 
+class="newline" /><!--l. 529--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" > <mfenced separators="" 
+open="&#x2329;"  close="&#x232A;" ><mrow> <mfenced separators="" 
+open="{"  close="}" ><mrow> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>0</mn></mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> <mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/> <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>1</mn></mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced> </mrow></mfenced></mrow></mfenced></math>
+</p><!--l. 533--><p class="noindent" ><span class="framebox-c" 
+style="width:0.68em;"></span>  Subspace dimensions associated with the matrix. (<a 
+href="fcla-xml-2.30li41.xml#definition.NOM">Definition&#x00A0;NOM</a>,
+<a 
+href="fcla-xml-2.30li41.xml#definition.ROM">Definition&#x00A0;ROM</a>) Verify <a 
+href="fcla-xml-2.30li41.xml#theorem.RPNC">Theorem&#x00A0;RPNC</a>
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 533--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+         <mtr><mtd 
+columnalign="right" class="align-odd"><!--mstyle 
+class="text"--><mtext  >&#x00A0;Matrix&#x00A0;columns:&#x00A0;&#x00A0;</mtext><!--/mstyle--><mn>2</mn></mtd>         <mtd 
+class="align-even"><mspace width="2em"/></mtd>         <mtd 
+columnalign="right" class="align-odd"><!--mstyle 
+class="text"--><mtext  >&#x00A0;Rank:&#x00A0;&#x00A0;</mtext><!--/mstyle--><mn>2</mn></mtd>         <mtd 
+class="align-even"><mspace width="2em"/></mtd>         <mtd 
+columnalign="right" class="align-odd"><!--mstyle 
+class="text"--><mtext  >&#x00A0;Nullity:&#x00A0;&#x00A0;</mtext><!--/mstyle--><mn>0</mn></mtd>         <mtd 
+class="align-even"><mspace width="2em"/></mtd>         <mtd 
+columnalign="right" class="align-label"></mtd>         <mtd 
+class="align-label"><mspace width="2em"/></mtd>         <mtd 
+columnalign="right" class="align-label"></mtd>         <mtd 
+class="align-label"><mspace width="2em"/></mtd>         <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 537--><p class="noindent" >
+                                                                          
+
+                                                                          
+                                                                          
+
+                                                                          
+</p>
+   <!--l. 545--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li80.xml" >next</a>] [<a 
+href="fcla-xml-2.30li78.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li78.xml#tailfcla-xml-2.30li78.xml" >prev-tail</a>] [<a 
+href="fcla-xml-2.30li79.xml" >front</a>] [<a 
+href="fcla-xml-2.30li72.xml#fcla-xml-2.30li79.xml" >up</a>] </p></div>
+<!--l. 545--><p class="indent" >   <a 
+ id="tailfcla-xml-2.30li79.xml"></a>  </p> 
+</body> 
+</html> 

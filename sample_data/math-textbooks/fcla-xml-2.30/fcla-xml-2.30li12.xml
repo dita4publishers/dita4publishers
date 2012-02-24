@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" > 
+<?xml-stylesheet type="text/css" href="fcla-xml-2.30.css"?> 
+<html  
+xmlns="http://www.w3.org/1999/xhtml"  
+><head><title>Preface</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- html,xhtml,mozilla,3 --> 
+<meta name="src" content="fcla-xml-2.30.tex" /> 
+<meta name="date" content="2011-12-23 18:20:00" /> 
+<link rel="stylesheet" type="text/css" href="fcla-xml-2.30.css" /> 
+</head><body 
+>
+   <!--l. 324--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li13.xml" >next</a>] [<a 
+href="fcla-xml-2.30li11.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li11.xml#tailfcla-xml-2.30li11.xml" >prev-tail</a>] [<a 
+href="#tailfcla-xml-2.30li12.xml">tail</a>] [<a 
+href="fcla-xml-2.30.xml#fcla-xml-2.30li12.xml" >up</a>] </p></div>
+   <h2 class="likechapterHead"><a 
+ id="x13-12000"></a>Preface</h2>
+<!--l. 11--><p class="noindent" >This textbook is designed to teach the university mathematics student the basics
+of linear algebra and the techniques of formal mathematics. There are no
+prerequisites other than ordinary algebra, but it is probably best used by a
+student who has the &#x201C;mathematical maturity&#x201D; of a sophomore or junior. The text
+has two goals: to teach the fundamental concepts and techniques of matrix
+algebra and abstract vector spaces, and to teach the techniques associated with
+understanding the definitions and theorems forming a coherent area of
+mathematics. So there is an emphasis on worked examples of nontrivial size and
+on proving theorems carefully.
+</p><!--l. 13--><p class="indent" >   This book is copyrighted. This means that governments have granted the
+author a monopoly &#x2014; the exclusive right to control the making of copies
+and derivative works for many years (too many years in some cases). It
+also gives others limited rights, generally referred to as &#x201C;fair use,&#x201D; such
+as the right to quote sections in a review without seeking permission.
+However, the author licenses this book to anyone under the terms of the
+GNU Free Documentation License (GFDL), which gives you more rights
+than most copyrights (see <a 
+href="fcla-xml-2.30li97.xml#appendix.GFDL">Appendix&#x00A0;GFDL</a>). Loosely speaking, you may
+make as many copies as you like at no cost, and you may distribute these
+unmodified copies if you please. You may modify the book for your own
+use. The catch is that if you make modifications and you distribute the
+modified version, or make use of portions in excess of fair use in another
+work, then you must also license the new work with the GFDL. So the
+book has lots of inherent freedom, and no one is allowed to distribute a
+derivative work that restricts these freedoms. (See the license itself in
+the appendix for the exact details of the additional rights you have been
+given.)
+</p><!--l. 15--><p class="indent" >   Notice that initially most people are struck by the notion that this book is
+                                                                          
+
+                                                                          
+<span 
+class="cmbx-12">free </span>(the French would say <span 
+class="cmti-12">gratuit</span>, at no cost). And it is. However, it is more
+important that the book has <span 
+class="cmbx-12">freedom </span>(the French would say <span 
+class="cmti-12">libert</span><span 
+class="cmti-12">&#x00E9;</span>, liberty). It
+will never go &#x201C;out of print&#x201D; nor will there ever be trivial updates designed only to
+frustrate the used book market. Those considering teaching a course with this
+book can examine it thoroughly in advance. Adding new exercises or new sections
+has been purposely made very easy, and the hope is that others will contribute
+these modifications back for incorporation into the book, for the benefit of
+all.
+</p><!--l. 18--><p class="indent" >   Depending on how you received your copy, you may want to check for the
+latest version (and other news) at <a 
+href="http://linear.ups.edu/" class="url" ><span 
+class="cmtt-12">http://linear.ups.edu/</span></a>.
+</p>
+   <div class="paragraphTOCS">
+   </div>
+<!--l. 20--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x13-13000"></a><span 
+class="cmbx-12">Topics</span></span>
+   The first half of this text (through <a 
+href="fcla-xml-2.30li29.xml#chapter.M">Chapter&#x00A0;M</a>) is basically a course in matrix
+algebra, though the foundation of some more advanced ideas is also being formed
+in these early sections. Vectors are presented exclusively as column vectors
+(since we also have the typographic freedom to avoid writing a column
+vector inline as the transpose of a row vector), and linear combinations are
+presented very early. Spans, null spaces, column spaces and row spaces are
+also presented early, simply as sets, saving most of their vector space
+properties for later, so they are familiar objects before being scrutinized
+carefully.
+</p><!--l. 24--><p class="indent" >   You cannot do <span 
+class="cmti-12">everything </span>early, so in particular matrix multiplication comes
+later than usual. However, with a definition built on linear combinations of
+column vectors, it should seem more natural than the more frequent definition
+using dot products of rows with columns. And this delay emphasizes that linear
+algebra is built upon vector addition and scalar multiplication. Of course, matrix
+inverses must wait for matrix multiplication, but this does not prevent
+nonsingular matrices from occurring sooner. Vector space properties are hinted at
+when vector and matrix operations are first defined, but the notion of a vector
+space is saved for a more axiomatic treatment later (<a 
+href="fcla-xml-2.30li36.xml#chapter.VS">Chapter&#x00A0;VS</a>). Once bases
+and dimension have been explored in the context of vector spaces, linear
+transformations and their matrix representation follow. The goal of the book is to
+go as far as Jordan canonical form in the Core (<a 
+href="fcla-xml-2.30li14.xml#part.C">Part&#x00A0;C</a>), with less central topics
+collected in the Topics (<a 
+href="fcla-xml-2.30li98.xml#part.T">Part&#x00A0;T</a>). A third part contains contributed applications
+(<a 
+href="fcla-xml-2.30li110.xml#part.A">Part&#x00A0;A</a>), with notation and theorems integrated with the earlier two
+parts.
+                                                                          
+
+                                                                          
+</p><!--l. 26--><p class="indent" >   Linear algebra is an ideal subject for the novice mathematics student to learn
+how to develop a topic precisely, with all the rigor mathematics requires.
+Unfortunately, much of this rigor seems to have escaped the standard calculus
+curriculum, so for many university students this is their first exposure
+to careful definitions and theorems, and the expectation that they fully
+understand them, to say nothing of the expectation that they become
+proficient in formulating their own proofs. We have tried to make this
+text as helpful as possible with this transition. Every definition is stated
+carefully, set apart from the text. Likewise, every theorem is carefully stated,
+and almost every one has a complete proof. Theorems usually have just
+one conclusion, so they can be referenced precisely later. Definitions and
+theorems are cataloged in order of their appearance in the front of the book
+(<a 
+href="#definition">Definitions</a>, <a 
+href="#theorem">Theorems</a>), and alphabetical order in the index at the back. Along
+the way, there are discussions of some more important ideas relating to
+formulating proofs (<a 
+href="fcla-xml-2.30li71.xml#technique">Proof Techniques</a>), which is part advice and part
+logic.
+</p>
+<!--l. 28--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x13-14000"></a><span 
+class="cmbx-12">Origin and History</span></span>
+   This book is the result of the confluence of several related events and trends.
+</p>
+     <ul class="itemize1">
+     <li class="itemize">At the University of Puget Sound we teach a one-semester, post-calculus
+     linear algebra course to students majoring in mathematics, computer
+     science, physics, chemistry and economics. Between January 1986 and
+     June 2002, I taught this course seventeen times. For the Spring 2003
+     semester, I elected to convert my course notes to an electronic form so
+     that it would be easier to incorporate the inevitable and nearly-constant
+     revisions. Central to my new notes was a collection of stock examples
+     that would be used repeatedly to illustrate new concepts. (These would
+     become the Archetypes, <a 
+href="fcla-xml-2.30li72.xml#appendix.A">Appendix&#x00A0;A</a>.) It was only a short leap to then
+     decide to distribute copies of these notes and examples to the students
+     in the two sections of this course. As the semester wore on, the notes
+     began to look less like notes and more like a textbook.
+     </li>
+                                                                          
+
+                                                                          
+     <li class="itemize">I used the notes again in the Fall 2003 semester for a single section of
+     the course. Simultaneously, the textbook I was using came out in a fifth
+     edition. A new chapter was added toward the start of the book, and a
+     few additional exercises were added in other chapters. This demanded
+     the annoyance of reworking my notes and list of suggested exercises to
+     conform with the changed numbering of the chapters and exercises. I
+     had an almost identical experience with the third course I was teaching
+     that semester. I also learned that in the next academic year I would be
+     teaching a course where my textbook of choice had gone out of print. I
+     felt there had to be a better alternative to having the organization of my
+     courses buffeted by the economics of traditional textbook publishing.
+     </li>
+     <li class="itemize">I had used <span class="TEX">T<span 
+class="E">E</span>X</span>&#x00A0;and the Internet for many years, so there was little
+     to  stand  in  the  way  of  typesetting,  distributing  and  &#x201C;marketing&#x201D;  a
+     free  book.  With  recreational  and  professional  interests  in  software
+     development, I had long been fascinated by the open-source software
+     movement, as exemplified by the success of GNU and Linux, though
+     public-domain <span class="TEX">T<span 
+class="E">E</span>X</span>&#x00A0;might also deserve mention. Obviously, this book
+     is an attempt to carry over that model of creative endeavor to textbook
+     publishing.
+     </li>
+     <li class="itemize">As a sabbatical project during the Spring 2004 semester, I embarked
+     on the current project of creating a freely-distributable linear algebra
+     textbook.  (Notice  the  implied  financial  support  of  the  University  of
+     Puget Sound to this project.) Most of the material was written from
+     scratch since changes in notation and approach made much of my notes
+     of little use. By August 2004 I had written half the material necessary
+     for our Math 232 course. The remaining half was written during the Fall
+     2004 semester as I taught another two sections of Math 232.
+     </li>
+     <li class="itemize">While in early 2005 the book was complete enough to build a course
+     around and Version 1.0 was released. Work has continued since, filling
+     out the narrative, exercises and supplements.</li></ul>
+<!--l. 46--><p class="noindent" >However, much of my motivation for writing this book is captured by the
+sentiments expressed by H.M.&#x00A0;Cundy and A.P.&#x00A0;Rollet in their Preface to
+                                                                          
+
+                                                                          
+the First Edition of <span 
+class="cmsl-12">Mathematical Models </span>(1952), especially the final
+sentence,
+     </p><div class="quote">
+     <!--l. 50--><p class="noindent" >This  book  was  born  in  the  classroom,  and  arose  from  the
+     spontaneous interest of a Mathematical Sixth in the construction
+     of  simple  models.  A  desire  to  show  that  even  in  mathematics
+     one  could  have  fun  led  to  an  exhibition  of  the  results  and
+     attracted considerable attention throughout the school. Since then
+     the Sherborne collection has grown, ideas have come from many
+     sources, and widespread interest has been shown. It seems therefore
+     desirable to give permanent form to the lessons of experience so
+     that others can benefit by them and be encouraged to undertake
+     similar work.</p></div>
+<!--l. 53--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x13-15000"></a><span 
+class="cmbx-12">How To Use This Book</span></span>
+   Chapters, Theorems, etc.&#x00A0;are not numbered in this book, but are instead
+referenced by acronyms. This means that Theorem&#x00A0;XYZ will always be
+Theorem&#x00A0;XYZ, no matter if new sections are added, or if an individual decides to
+remove certain other sections. Within sections, the subsections are acronyms that
+begin with the acronym of the section. So Subsection&#x00A0;XYZ.AB is the subsection
+AB in Section&#x00A0;XYZ. Acronyms are unique within their type, so for example there
+is just one <a 
+href="fcla-xml-2.30li40.xml#definition.B">Definition&#x00A0;B</a>, but there is also a <a 
+href="fcla-xml-2.30li40.xml#section.B">Section&#x00A0;B</a>. At first, all the
+letters flying around may be confusing, but with time, you will begin to
+recognize the more important ones on sight. Furthermore, there are lists of
+theorems, examples, etc.&#x00A0;in the front of the book, and an index that
+contains every acronym. If you are reading this in an electronic version
+(PDF or XML), you will see that all of the cross-references are hyperlinks,
+allowing you to click to a definition or example, and then use the back
+button to return. In printed versions, you must rely on the page numbers.
+However, note that page numbers are not permanent! Different editions,
+different margins, or different sized paper will affect what content is on
+each page. And in time, the addition of new material will affect the page
+numbering.
+</p><!--l. 57--><p class="indent" >   Chapter divisions are not critical to the organization of the book, as Sections
+are the main organizational unit. Sections are designed to be the subject of
+                                                                          
+
+                                                                          
+a single lecture or classroom session, though there is frequently more
+material than can be discussed and illustrated in a fifty-minute session.
+Consequently, the instructor will need to be selective about which topics to
+illustrate with other examples and which topics to leave to the student&#x2019;s
+reading. Many of the examples are meant to be large, such as using five or
+six variables in a system of equations, so the instructor may just want
+to &#x201C;walk&#x201D; a class through these examples. The book has been written
+with the idea that some may work through it independently, so the hope
+is that students can learn some of the more mechanical ideas on their
+own.
+</p><!--l. 59--><p class="indent" >   The highest level division of the book is the three Parts: Core, Topics,
+Applications (<a 
+href="fcla-xml-2.30li14.xml#part.C">Part&#x00A0;C</a>, <a 
+href="fcla-xml-2.30li98.xml#part.T">Part&#x00A0;T</a>, <a 
+href="fcla-xml-2.30li110.xml#part.A">Part&#x00A0;A</a>). The Core is meant to carefully describe
+the basic ideas required of a first exposure to linear algebra. In the final sections
+of the Core, one should ask the question: which previous Sections could be
+removed without destroying the logical development of the subject? Hopefully, the
+answer is &#x201C;none.&#x201D; The goal of the book is to finish the Core with a very general
+representation of a linear transformation (Jordan canonical form, <a 
+href="fcla-xml-2.30li62.xml#section.JCF">Section&#x00A0;JCF</a>).
+Of course, there will not be universal agreement on what should, or should
+not, constitute the Core, but the main idea is to limit it to about forty
+sections. Topics (<a 
+href="fcla-xml-2.30li98.xml#part.T">Part&#x00A0;T</a>) is meant to contain those subjects that are
+important in linear algebra, and which would make profitable detours from the
+Core for those interested in pursuing them. Applications (<a 
+href="fcla-xml-2.30li110.xml#part.A">Part&#x00A0;A</a>) should
+illustrate the power and widespread applicability of linear algebra to as
+many fields as possible. The Archetypes (<a 
+href="fcla-xml-2.30li72.xml#appendix.A">Appendix&#x00A0;A</a>) cover many of the
+computational aspects of systems of linear equations, matrices and linear
+transformations. The student should consult them often, and this is encouraged
+by exercises that simply suggest the right properties to examine at the
+right time. But what is more important, this a repository that contains
+enough variety to provide abundant examples of key theorems, while
+also providing counterexamples to hypotheses or converses of theorems.
+The summary table at the start of this appendix should be especially
+useful.
+</p><!--l. 63--><p class="indent" >   I require my students to read each Section <span 
+class="cmti-12">prior </span>to the day&#x2019;s discussion on
+that section. For some students this is a novel idea, but at the end of the semester
+a few always report on the benefits, both for this course and other courses where
+they have adopted the habit. To make good on this requirement, each section
+contains three Reading Questions. These sometimes only require parroting back a
+key definition or theorem, or they require performing a small example of a key
+                                                                          
+
+                                                                          
+computation, or they ask for musings on key ideas or new relationships
+between old ideas. Answers are emailed to me the evening before the lecture.
+Given the flavor and purpose of these questions, including solutions seems
+foolish.
+</p><!--l. 65--><p class="indent" >   Every chapter of <a 
+href="fcla-xml-2.30li14.xml#part.C">Part&#x00A0;C</a> ends with &#x201C;Annotated Acronyms&#x201D;, a short list of
+critical theorems or definitions from that chapter. There are a variety of
+reasons for any one of these to have been chosen, and reading the short
+paragraphs after some of these might provide insight into the possibilities. An
+end-of-chapter review might usefully incorporate a close reading of these
+lists.
+</p><!--l. 67--><p class="indent" >   Formulating interesting and effective exercises is as difficult, or more so, than
+building a narrative. But it is the place where a student really learns the material.
+As such, for the student&#x2019;s benefit, complete solutions should be given. As the list
+of exercises expands, the amount with solutions should similarly expand. Exercises
+and their solutions are referenced with a section name, followed by a dot, then a
+letter (C,M, or T) and a number. The letter &#x2018;C&#x2019; indicates a problem that is mostly
+computational in nature, while the letter &#x2018;T&#x2019; indicates a problem that is more
+theoretical in nature. A problem with a letter &#x2018;M&#x2019; is somewhere in between
+(middle, mid-level, median, middling), probably a mix of computation and
+applications of theorems. So <a 
+href="fcla-xml-2.30li30.xml#solution.MO.T13">Solution&#x00A0;MO.T13</a> is a solution to an exercise in
+<a 
+href="fcla-xml-2.30li30.xml#section.MO">Section&#x00A0;MO</a> that is theoretical in nature. The number &#x2018;13&#x2019; has no intrinsic
+meaning.
+</p>
+<!--l. 69--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x13-16000"></a><span 
+class="cmbx-12">More on Freedom</span></span>
+   This book is freely-distributable under the terms of the GFDL, along with the
+underlying <span class="TEX">T<span 
+class="E">E</span>X</span>&#x00A0;code from which the book is built. This arrangement provides
+many benefits unavailable with traditional texts. </p>
+     <ul class="itemize1">
+     <li class="itemize">No cost, or low cost, to students. With no physical vessel (i.e.&#x00A0;paper,
+     binding), no transportation costs (Internet bandwidth being a negligible
+     cost) and no marketing costs (evaluation and desk copies are free to all),
+     anyone with an Internet connection can obtain it, and a teacher could
+     make available paper copies in sufficient quantities for a class. The cost
+     to print a copy is not insignificant, but is just a fraction of the cost of
+     a traditional textbook when printing is handled by a print-on-demand
+                                                                          
+
+                                                                          
+     service over the Internet. Students will not feel the need to sell back
+     their book (nor should there be much of a market for used copies), and
+     in future years can even pick up a newer edition freely.
+     </li>
+     <li class="itemize">Electronic versions of the book contain extensive hyperlinks. Specifically,
+     most logical steps in proofs and examples include links back to the
+     previous definitions or theorems that support that step. With whatever
+     viewer you might be using (web browser, PDF reader) the &#x201C;back&#x201D; button
+     can then return you to the middle of the proof you were studying. So
+     even if you are reading a physical copy of this book, you can benefit
+     from also working with an electronic version.
+     <!--l. 79--><p class="noindent" >A traditional book, which the publisher is unwilling to distribute in an
+     easily-copied electronic form, cannot offer this very intuitive and flexible
+     approach to learning mathematics.
+     </p></li>
+     <li class="itemize">The  book  will  not  go  out  of  print.  No  matter  what,  a  teacher  can
+     maintain their own copy and use the book for as many years as they
+     desire. Further, the naming schemes for chapters, sections, theorems,
+     etc.&#x00A0;is designed so that the addition of new material will not break any
+     course syllabi or assignment list.
+     </li>
+     <li class="itemize">With many eyes reading the book and with frequent postings of updates,
+     the reliability should become very high. Please report any errors you
+     find that persist into the latest version.
+     </li>
+     <li class="itemize">For those with a working installation of the popular typesetting program
+     <span class="TEX">T<span 
+class="E">E</span>X</span>, the book has been designed so that it can be customized. Page
+     layouts, presence of exercises, solutions, sections or chapters can all be
+     easily controlled. Furthermore, many variants of mathematical notation
+     are achieved via <span class="TEX">T<span 
+class="E">E</span>X</span>&#x00A0;macros. So by changing a single macro, one&#x2019;s
+     favorite notation can be reflected throughout the text. For example,
+     every transpose of a matrix is coded in the source as <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">&#x005C;transpose{A}</span></span></span>,
+     which when printed will yield <!--l. 85--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msup 
+></math>.
+     However by changing the definition of <span class="obeylines-h"><span class="verb"><span 
+class="cmtt-12">&#x005C;transpose{</span><span 
+class="cmtt-12">&#x00A0;}</span></span></span>, any desired alternative
+     notation (superscript t, superscript T, superscript prime) will then appear
+                                                                          
+
+                                                                          
+     throughout the text instead.
+     </li>
+     <li class="itemize">The book has also been designed to make it easy for others to contribute
+     material. Would you like to see a section on symmetric bilinear forms?
+     Consider writing one and contributing it to one of the Topics chapters.
+     Should there be more exercises about the null space of a matrix? Send
+     me some. Historical Notes? Contact me, and we will see about adding
+     those in also.
+     </li>
+     <li class="itemize">You have no legal obligation to pay for this book. It has been licensed with
+     no expectation that you pay for it. You do not even have a moral obligation
+     to pay for the book. Thomas Jefferson (1743 &#x2013; 1826), the author of the
+     United States Declaration of Independence, wrote,
+         <div class="quote">
+         <!--l. 92--><p class="noindent" >If nature has made any one thing less susceptible than all others of
+         exclusive property, it is the action of the thinking power called an
+         idea, which an individual may exclusively possess as long as he keeps
+         it to himself; but the moment it is divulged, it forces itself into the
+         possession of every one, and the receiver cannot dispossess himself
+         of it. Its peculiar character, too, is that no one possesses
+         the less, because every other possesses the whole of it. He
+         who receives an idea from me, receives instruction himself
+         without lessening mine; as he who lights his taper at mine,
+         receives light without darkening me. That ideas should freely
+         spread from one to another over the globe, for the moral and
+         mutual instruction of man, and improvement of his condition,
+         seems to have been peculiarly and benevolently designed by
+         nature, when she made them, like fire, expansible over all
+         space, without lessening their density in any point, and like
+         the air in which we breathe, move, and have our physical
+         being, incapable of confinement or exclusive appropriation.
+         </p>
+                                                                      <div class="flushright" 
+>
+<!--l. 93--><p class="noindent" >
+                                                                          
+
+                                                                          
+ Letter to Isaac McPherson<br />
+August 13, 1813</p></div>
+         </div>
+     <!--l. 100--><p class="noindent" >However, if you feel a royalty is due the author, or if you would like to
+     encourage the author, or if you wish to show others that this approach to
+     textbook publishing can also bring financial compensation, then donations
+     are gratefully received. Moreover, non-financial forms of help can often be
+     even more valuable. A simple note of encouragement, submitting a report of
+     an error, or contributing some exercises or perhaps an entire section for the
+     Topics or Applications are all important ways you can acknowledge the
+     freedoms accorded to this work by the copyright holder and other
+     contributors.</p></li></ul>
+<!--l. 104--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x13-17000"></a><span 
+class="cmbx-12">Conclusion</span></span>
+   Foremost, I hope that students find their time spent with this book profitable.
+I hope that instructors find it flexible enough to fit the needs of their course. And
+I hope that everyone will send me their comments and suggestions, and also
+consider the myriad ways they can help (as listed on the book&#x2019;s website at
+<a 
+href="http://linear.ups.edu" class="url" ><span 
+class="cmtt-12">http://linear.ups.edu</span></a>). </p>
+                                                                          <div class="flushright" 
+>
+<!--l. 108--><p class="noindent" >
+ Robert A.&#x00A0;Beezer<br />
+Tacoma, Washington<br />
+July 2008</p></div>
+<!--l. 324--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li13.xml" >next</a>] [<a 
+href="fcla-xml-2.30li11.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li11.xml#tailfcla-xml-2.30li11.xml" >prev-tail</a>] [<a 
+href="fcla-xml-2.30li12.xml" >front</a>] [<a 
+href="fcla-xml-2.30.xml#fcla-xml-2.30li12.xml" >up</a>] </p></div>
+<!--l. 324--><p class="indent" >   <a 
+ id="tailfcla-xml-2.30li12.xml"></a>  </p> 
+</body> 
+</html> 

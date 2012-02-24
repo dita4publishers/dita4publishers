@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" > 
+<?xml-stylesheet type="text/css" href="fcla-xml-2.30.css"?> 
+<html  
+xmlns="http://www.w3.org/1999/xhtml"  
+><head><title>Chapter LT  Linear Transformations</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- html,xhtml,mozilla,3 --> 
+<meta name="src" content="fcla-xml-2.30.tex" /> 
+<meta name="date" content="2011-12-23 18:20:00" /> 
+<link rel="stylesheet" type="text/css" href="fcla-xml-2.30.css" /> 
+</head><body 
+>
+   <!--l. 451--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li55.xml" >next</a>] [<a 
+href="fcla-xml-2.30li46.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li46.xml#tailfcla-xml-2.30li46.xml" >prev-tail</a>] [<a 
+href="#tailfcla-xml-2.30li50.xml">tail</a>] [<a 
+href="fcla-xml-2.30li14.xml#fcla-xml-2.30li50.xml" >up</a>] </p></div>
+   <h2 class="likechapterHead"><a 
+ id="x51-241000"></a>Chapter LT&#x00A0;&#x00A0;Linear Transformations</h2>
+<!--l. 451--><p class="noindent" ><a 
+ id="chapter.LT"></a> <a 
+ id="x51-241000doc"></a><a 
+ id="dx51-241001"></a>
+</p><!--l. 10--><p class="indent" >   In the next linear algebra course you take, the first lecture might be a
+reminder about what a vector space is (<a 
+href="fcla-xml-2.30li37.xml#definition.VS">Definition&#x00A0;VS</a>), their ten properties, basic
+theorems and then some examples. The second lecture would likely be all about
+linear transformations. While it may seem we have waited a long time to present
+what must be a central topic, in truth we have already been working with linear
+transformations for some time.
+</p><!--l. 12--><p class="indent" >   Functions are important objects in the study of calculus, but have been absent
+from this course until now (well, not really, it just seems that way). In your study
+of more advanced mathematics it is nearly impossible to escape the use of
+functions &#x2014; they are as fundamental as sets are.
+</p>
+   <div class="likesectionTOCS">
+   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li51.xml#x52-242000">Section LT Linear Transformations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li51.xml#x52-243000" id="QQ2-52-243">Subsection LT: Linear Transformations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li51.xml#x52-244000" id="QQ2-52-244">Subsection LTC: Linear Transformation Cartoons</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li51.xml#x52-245000" id="QQ2-52-245">Subsection MLT: Matrices and Linear Transformations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li51.xml#x52-246000" id="QQ2-52-246">Subsection LTLC: Linear Transformations and Linear Combinations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li51.xml#x52-247000" id="QQ2-52-247">Subsection PI: Pre-Images</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li51.xml#x52-248000" id="QQ2-52-248">Subsection NLTFO: New Linear Transformations From Old</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li51.xml#x52-249000" id="QQ2-52-249">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li51.xml#x52-250000" id="QQ2-52-250">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li51.xml#x52-251000" id="QQ2-52-251">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li52.xml#x53-252000">Section ILT Injective Linear Transformations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li52.xml#x53-253000" id="QQ2-53-253">Subsection EILT: Examples of Injective Linear Transformations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li52.xml#x53-254000" id="QQ2-53-254">Subsection KLT: Kernel of a Linear Transformation</a></span>
+                                                                          
+
+                                                                          
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li52.xml#x53-255000" id="QQ2-53-255">Subsection ILTLI: Injective Linear Transformations and Linear
+Independence</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li52.xml#x53-256000" id="QQ2-53-256">Subsection ILTD: Injective Linear Transformations and Dimension</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li52.xml#x53-257000" id="QQ2-53-257">Subsection CILT: Composition of Injective Linear Transformations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li52.xml#x53-258000" id="QQ2-53-258">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li52.xml#x53-259000" id="QQ2-53-259">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li52.xml#x53-260000" id="QQ2-53-260">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li53.xml#x54-261000">Section SLT Surjective Linear Transformations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li53.xml#x54-262000" id="QQ2-54-262">Subsection ESLT: Examples of Surjective Linear Transformations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li53.xml#x54-263000" id="QQ2-54-263">Subsection RLT: Range of a Linear Transformation</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li53.xml#x54-264000" id="QQ2-54-264">Subsection SSSLT: Spanning Sets and Surjective Linear Transformations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li53.xml#x54-265000" id="QQ2-54-265">Subsection SLTD: Surjective Linear Transformations and Dimension</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li53.xml#x54-266000" id="QQ2-54-266">Subsection CSLT: Composition of Surjective Linear Transformations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li53.xml#x54-267000" id="QQ2-54-267">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li53.xml#x54-268000" id="QQ2-54-268">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li53.xml#x54-269000" id="QQ2-54-269">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li54.xml#x55-270000">Section IVLT Invertible Linear Transformations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li54.xml#x55-271000" id="QQ2-55-271">Subsection IVLT: Invertible Linear Transformations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li54.xml#x55-272000" id="QQ2-55-272">Subsection IV: Invertibility</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li54.xml#x55-273000" id="QQ2-55-273">Subsection SI: Structure and Isomorphism</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li54.xml#x55-274000" id="QQ2-55-274">Subsection RNLT: Rank and Nullity of a Linear Transformation</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li54.xml#x55-275000" id="QQ2-55-275">Subsection SLELT: Systems of Linear Equations and Linear
+Transformations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li54.xml#x55-276000" id="QQ2-55-276">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li54.xml#x55-277000" id="QQ2-55-277">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li54.xml#x55-278000" id="QQ2-55-278">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li54.xml#x55-279000" id="QQ2-55-279">Annotated Acronyms LT: Linear Transformations</a></span>
+   </div>
+
+
+
+                                                                          
+
+                                                                          
+   <!--l. 467--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li55.xml" >next</a>] [<a 
+href="fcla-xml-2.30li46.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li46.xml#tailfcla-xml-2.30li46.xml" >prev-tail</a>] [<a 
+href="fcla-xml-2.30li50.xml" >front</a>] [<a 
+href="fcla-xml-2.30li14.xml#fcla-xml-2.30li50.xml" >up</a>] </p></div>
+<!--l. 467--><p class="indent" >   <a 
+ id="tailfcla-xml-2.30li50.xml"></a> </p> 
+</body> 
+</html> 
