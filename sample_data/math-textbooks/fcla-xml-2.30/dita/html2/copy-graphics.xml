@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project name="graphics-copy" default="copy-graphics">
-   <target name="copy-graphics">
-      <echo message="Doing copy graphics..."/>
-   </target>
-</project>
