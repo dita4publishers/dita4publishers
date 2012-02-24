@@ -192,26 +192,32 @@
   </xsl:function>
   
   <xsl:function name="df:resolveTopicRef" as="element()?">
-    <!-- Resolves a topicref to its target topic element, if it can be resolved -->
+    <!-- Resolves a topicref to its target topic or map element, if it can be resolved -->
     <xsl:param name="context" as="element()"/><!-- Topicref element -->
-    <xsl:choose>
+    <xsl:choose>      
       <xsl:when test="not(df:class($context, 'map/topicref'))">
         <xsl:message> - [ERROR] df:resolveTopicRef(): context element is not of class 'map/topicref', class is <xsl:sequence select="$context/@class"/></xsl:message>
         <xsl:sequence select="/.."/>
       </xsl:when>
+      <xsl:when test="$context/@format and not($context/@format = 'dita') and not($context/@format = 'ditamap')">
+        <xsl:if test="true() and $debugBoolean">
+          <xsl:message> + [DEBUG] df:resolveTopicRef(): Format is <xsl:value-of select="$context/@format"/>, skipping.</xsl:message>
+        </xsl:if>
+        <xsl:sequence select="()"/>
+      </xsl:when>
       <xsl:otherwise>
         <xsl:if test="true() and $debugBoolean">
-        <xsl:message> + [DEBUG] df:resolveTopicRef(): context is a topicref.</xsl:message>
+          <xsl:message> + [DEBUG] df:resolveTopicRef(): context is a topicref.</xsl:message>
         </xsl:if>
         <xsl:variable name="topicUri" as="xs:string" 
           select="df:getEffectiveTopicUri($context)"/>
         <xsl:if test="true() and $debugBoolean">
-        <xsl:message> + [DEBUG] df:resolveTopicRef(): topicUri="<xsl:sequence select="$topicUri"/>"</xsl:message>
+          <xsl:message> + [DEBUG] df:resolveTopicRef(): topicUri="<xsl:sequence select="$topicUri"/>"</xsl:message>
         </xsl:if>
         <xsl:variable name="topicFragId" as="xs:string" 
            select="if (contains($context/@href, '#')) then substring-after($context/@href, '#') else ''"/>
         <xsl:if test="true() and $debugBoolean">
-        <xsl:message> + [DEBUG] df:resolveTopicRef(): topicFragId="<xsl:sequence select="$topicFragId"/>"</xsl:message>
+          <xsl:message> + [DEBUG] df:resolveTopicRef(): topicFragId="<xsl:sequence select="$topicFragId"/>"</xsl:message>
         </xsl:if>
         <xsl:choose>
           <xsl:when test="$topicUri = '' and $topicFragId = ''">
