@@ -45,6 +45,7 @@
   <nextCatalog catalog="map/catalog.xml"/>
   <nextCatalog catalog="pubmap/catalog.xml"/>
   <nextCatalog catalog="pub-component-map/catalog.xml"/>
+  <nextCatalog catalog="report/catalog.xml"/>
   <nextCatalog catalog="learningMap/catalog.xml"/>
 
   <!-- Non-DITA types -->

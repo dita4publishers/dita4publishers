@@ -34,11 +34,28 @@
 <!ELEMENT d4pSimpleEnumerator %d4pSimpleEnumerator.content; >
 <!ATTLIST d4pSimpleEnumerator %d4pSimpleEnumerator.attributes; >
 
+<!-- Simple Enumerator: Holds a page number value. Primarily intended for
+     capturing page numbers during legacy conversion or for identifying
+     literal page number references in legacy content. -->
+<!ENTITY % d4pPageNumber.content
+"
+  (#PCDATA | %text;)*
+">
+<!ENTITY % d4pPageNumber.attributes
+"
+  name
+    NMTOKEN
+    'd4pSimpleEnumerator'
+">
+<!ELEMENT d4pPageNumber %d4pPageNumber.content; >
+<!ATTLIST d4pPageNumber %d4pPageNumber.attributes; >
+
 <!-- ============================================================= -->
 <!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
 <!-- ============================================================= -->
 
-<!ATTLIST d4pSimpleEnumerator         %global-atts;  class CDATA "+ topic/data  d4p_enumBase-d/d4pEnumeratorBase     d4p_simplenum-d/d4pSimpleEnumerator ">
+<!ATTLIST d4pSimpleEnumerator   %global-atts;  class CDATA "+ topic/data  d4p_enumBase-d/d4pEnumeratorBase     d4p_simplenum-d/d4pSimpleEnumerator ">
+<!ATTLIST d4pPageNumber         %global-atts;  class CDATA "+ topic/data  d4p_enumBase-d/d4pEnumeratorBase     d4p_simplenum-d/d4pPageNumber ">
 
 
-<!-- ================== End D4P Enumeration Topic Domain ==================== -->
+<!-- ================== End D4P Simple Enumeration Topic Domain ==================== -->
