@@ -201,6 +201,17 @@
           <xs:restriction
             base="xs:NMTOKEN">
             <xs:enumeration
+              value="map">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The paragraph maps to a map but not a map title.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
               value="mapTitle">
               <xs:annotation>
                 <xs:documentation>

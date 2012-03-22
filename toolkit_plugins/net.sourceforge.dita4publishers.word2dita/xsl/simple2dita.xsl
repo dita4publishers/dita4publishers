@@ -59,18 +59,8 @@
     <xsl:message> + [INFO] Determining result documents...</xsl:message>
     <xsl:variable name="resultDocs" as="element()*">
       <xsl:choose>
-        <xsl:when test="local:isRootTopicTitle($firstP)">
-          <xsl:if test="$debugBoolean or true()">        
-            <xsl:message> + [DEBUG] rsiwp:document: firstP is root topic title, calling makeTopic...</xsl:message>
-          </xsl:if>
-          <xsl:call-template name="makeTopic">
-            <xsl:with-param name="content" select="rsiwp:body/(rsiwp:p|rsiwp:table)" as="node()*"/>
-            <xsl:with-param name="level" select="0" as="xs:integer"/>
-            <xsl:with-param name="treePos" select="(0)" as="xs:integer+" tunnel="yes"/>
-          </xsl:call-template>
-        </xsl:when>
-        <xsl:when test="local:isMap($firstP)">
-          <xsl:if test="$debugBoolean">        
+        <xsl:when test="local:isMap($firstP) or local:isMapTitle($firstP)">
+          <xsl:if test="true() or $debugBoolean">        
             <xsl:message> + [DEBUG] rsiwp:document: firstP is root map, calling makeMap...</xsl:message>
           </xsl:if>
           <xsl:call-template name="makeMap">
@@ -79,6 +69,16 @@
             <xsl:with-param name="newMapUrl" select="$rootMapUrl" as="xs:string"/>
             <xsl:with-param name="topicrefType" select="'mapref'"/><!-- shouldn't be necessary, but it is -->
             <xsl:with-param name="mapUrl" select="relpath:newFile($outputDir, 'garbage.ditamap')" tunnel="yes" as="xs:string"/>
+          </xsl:call-template>
+        </xsl:when>
+        <xsl:when test="local:isRootTopicTitle($firstP)">
+          <xsl:if test="$debugBoolean or true()">        
+            <xsl:message> + [DEBUG] rsiwp:document: firstP is root topic title, calling makeTopic...</xsl:message>
+          </xsl:if>
+          <xsl:call-template name="makeTopic">
+            <xsl:with-param name="content" select="rsiwp:body/(rsiwp:p|rsiwp:table)" as="node()*"/>
+            <xsl:with-param name="level" select="0" as="xs:integer"/>
+            <xsl:with-param name="treePos" select="(0)" as="xs:integer+" tunnel="yes"/>
           </xsl:call-template>
         </xsl:when>
         <xsl:otherwise>
@@ -383,7 +383,9 @@
           to a topic in addition to the map.
         -->
         <xsl:if test="local:isMapTitle($firstP)">
-          <xsl:apply-templates select="$firstP"/>
+          <xsl:apply-templates select="$firstP">
+            <xsl:with-param name="mapUrl" select="$resultUrl" as="xs:string" tunnel="yes"/>
+          </xsl:apply-templates>
         </xsl:if>
         <xsl:if test="$content[string(@topicZone) = 'topicmeta' and string(@containingTopic) = 'root']">
           <xsl:variable name="prologParas" select="$content[string(@topicZone) = 'topicmeta' and string(@containingTopic) = 'root']" as="node()*"/>
@@ -403,12 +405,18 @@
           <xsl:message> + [DEBUG] makeMap: calling generateTopicrefs...</xsl:message>
         </xsl:if>
         <xsl:call-template name="generateTopicrefs">
-          <xsl:with-param name="content" select="$content[position() > 1][(string(@structureType) = 'topicTitle' or 
+          <xsl:with-param name="content" 
+            select="
+            
+            (if (string($firstP/@secondStructureType) = 'topicTitle')
+              then $content
+              else $content[position() > 1])[(string(@structureType) = 'topicTitle' or 
             string(@structureType) = 'map' or 
             string(@structureType) = 'mapTitle' or
             string(@structureType) = 'topicHead' or
             string(@structureType) = 'topicGroup')]" as="node()*"/>
           <xsl:with-param name="level" select="$nextLevel" as="xs:integer"/>
+          <xsl:with-param name="mapUrl" select="$resultUrl" as="xs:string" tunnel="yes"/>
         </xsl:call-template>
         <xsl:if test="false() or $debugBoolean">        
           <xsl:message> + [DEBUG] </xsl:message>
@@ -418,10 +426,14 @@
             </xsl:message>
         </xsl:if>
         <xsl:call-template name="generateTopics">
-          <xsl:with-param name="content" select="$content[position() > 1]" as="node()*"/>
+          <xsl:with-param name="content" 
+            select="
+            if (string($firstP/@secondStructureType) = 'topicTitle') 
+               then $content
+               else $content[position() > 1]" as="node()*"/>
           <xsl:with-param name="level" select="$nextLevel" as="xs:integer"/>
+          <xsl:with-param name="mapUrl" select="$resultUrl" as="xs:string" tunnel="yes"/>
         </xsl:call-template>        
-
       </xsl:element>
     </rsiwp:result-document>
     <xsl:if test="false() or $debugBoolean">        
