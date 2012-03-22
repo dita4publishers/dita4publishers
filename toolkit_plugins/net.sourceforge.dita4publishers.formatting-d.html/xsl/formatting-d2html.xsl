@@ -42,7 +42,7 @@
 
   <xsl:template match="*[contains(@class, ' d4p-formatting-d/line-through ')]" priority="10"
     mode="#default getTitle">
-    <span style="text-decoration: line-through;" {@outputclass}"><xsl:apply-templates/></span>
+    <span style="text-decoration: line-through; {@outputclass}"><xsl:apply-templates/></span>
   </xsl:template>
   
   <xsl:template match="*[contains(@class, ' d4p-formatting-d/roman ')]" priority="10"
