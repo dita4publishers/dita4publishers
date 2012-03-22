@@ -8,7 +8,7 @@
       exclude-result-prefixes="xs df local relpath e2s"
       version="2.0">
   
-  <!-- Transform to generate an InCopy article (.incx) from a DITA topic
+  <!-- Transform to generate an InCopy article (.icml) from a DITA topic
        
        The mapping of elements to InDesign styles is managed through a separate
        mapping file, which overrides default style names used in a "standard"

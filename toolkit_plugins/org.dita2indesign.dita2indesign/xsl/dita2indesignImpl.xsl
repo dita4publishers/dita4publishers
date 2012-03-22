@@ -12,7 +12,7 @@
        Generates InCopy articles (.incx) and/or InDesign INX files from 
        an input map or a single topic.
     
-       Copyright (c) 2008, 2010 DITA2InDesign project
+       Copyright (c) 2008, 2012 DITA2InDesign project
     
     Parameters:
     

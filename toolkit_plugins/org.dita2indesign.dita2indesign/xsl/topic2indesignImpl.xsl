@@ -18,14 +18,14 @@
        Specialization modules should add their own
        XSL modules as necessary.
        
-       Copyright (c) 2009, 2010 DITA2InDesign Project
+       Copyright (c) 2009, 2012 DITA2InDesign Project
        
   -->
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+<!--  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+-->  
   <xsl:import href="lib/incx_generation_util.xsl"/>
   
-  <xsl:import href="lib/incx_generation_util.xsl"/>
   <xsl:import href="elem2styleMapper.xsl"/>
   <xsl:include href="topic2inlineContentImpl.xsl"/>
   <xsl:include href="calstbl2indesignImpl.xsl"/>
@@ -46,7 +46,11 @@
     indent="no" 
     cdata-section-elements="GrPr" />
   
-  <xsl:template match="/*[df:class(., 'topic/topic')]" priority="5">
+  <xsl:template match="dita">
+    <xsl:apply-templates/>
+  </xsl:template>
+  
+  <xsl:template match="/*[df:class(., 'topic/topic')] | /dita/*[df:class(., 'topic/topic')]" priority="5">
     <!-- The topicref that points to this topic -->
     <xsl:param name="topicref" as="element()?" tunnel="yes"/>
     <xsl:param name="articleType" as="xs:string" tunnel="yes"/>
