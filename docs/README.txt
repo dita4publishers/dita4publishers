@@ -1,4 +1,27 @@
-Release 0.9.19RC02 25 Jan 2012 Release Notes
+Release Notes:
+
+Release 0.9.19RC03 26 Jan 2012 
+
+1. Added new vocabulary module d4p_mathDomain, which adds more general versions
+of the existing formatting-domain elements for MathML and equations. Adds new d4p_display-equation
+specialization of <fig>
+
+2. Implemented generation of MathML output with optional use of the MathJax package. New Ant parameters are:
+
+html2.mathjax.use.cdn.link
+  When set to true, generates reference to MathJax library as served from the public MathJax site. This
+  removes the need for any local MathJax installation.
+  
+html2.mathjax.use.local.link
+  When set to true, generates a reference to a local (to the generated HTML pages) installation of MathJax.
+  If html2.mathjax.use.cdn.link is also specified, this parameter is ignored.
+  
+html2.mathjax.local.javascript.uri
+  Specifies the relative URI to use for the MathJax.js file.    
+  
+  
+
+Release 0.9.19RC02 25 Jan 2012
 
 This release candidate adds the following:
 
