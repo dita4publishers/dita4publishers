@@ -82,8 +82,10 @@
             " 
             mode="generate-opf"/>
           
+          <xsl:message> + [DEBUG] Applying templates to *[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/keywords')]</xsl:message>
+          <!-- NOTE: keywords can be directly in topicmeta or in metadata under topicmeta -->
           <xsl:apply-templates mode="generate-opf"
-            select="*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/keywords')]"
+            select="*[df:class(., 'map/topicmeta')]//*[df:class(., 'topic/keywords')]"
           />
           
           <xsl:if test="$effectiveCoverGraphicUri != ''">
@@ -413,10 +415,12 @@
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/keywords')]" mode="generate-opf">
+    <xsl:message> + [DEBUG] generate-opf: handling topic/keywords</xsl:message>
     <xsl:apply-templates select="*[df:class(., 'topic/keyword')]" mode="#current"/>
   </xsl:template>
 
   <xsl:template match="*[df:class(., 'topic/keyword')]" mode="generate-opf">
+    <xsl:message> + [DEBUG] generate-opf: handling topic/keyword</xsl:message>
     <dc:subject><xsl:apply-templates/></dc:subject>
   </xsl:template>
   
