@@ -161,7 +161,7 @@
         codeBase="<xsl:sequence select="$codeBase"/>"
       </xsl:message>
     </xsl:if>   
-    <xsl:if test="$dataPath != ''">
+    <xsl:if test="$dataPath != '' and not(starts-with($dataPath, 'http:'))">
       <xsl:variable name="rawUrl" 
         select="if (@codeBase != '') 
         then relpath:newFile($codeBase, $dataPath)
@@ -193,7 +193,7 @@
       as="xs:string"/>
     <xsl:variable name="absoluteUrl" select="relpath:getAbsolutePath($rawUrl)"/>
     
-    <xsl:if test="$dataPath and not($codeBase = '')">
+    <xsl:if test="$dataPath and not($codeBase = '') and not(starts-with($dataPath, 'http:'))">
       <gmap:graphic-map-item
         input-url="{$absoluteUrl}"
         output-url="{relpath:newFile($imagesOutputPath, relpath:getName($absoluteUrl))}"
