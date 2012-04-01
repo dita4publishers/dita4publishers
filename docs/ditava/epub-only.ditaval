@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<val>
+  <prop action="exclude" att="d4p_renditionTarget"/>
+  <prop action="include" att="d4p_renditionTarget" val="epub"/>
+</val>
