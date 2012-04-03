@@ -13,7 +13,7 @@
   <!--==========================================
     Simple Word Processing Markup to DITA generic transformation
     
-    Copyright (c) 2009, 2011 DITA For Publishers, Inc.
+    Copyright (c) 2009, 2012 DITA For Publishers, Inc.
 
     Transforms a simple word processing document into a DITA topic using
     a style-to-tag mapping.
@@ -404,6 +404,7 @@
           <xsl:message> + [DEBUG] </xsl:message>
           <xsl:message> + [DEBUG] makeMap: calling generateTopicrefs...</xsl:message>
         </xsl:if>
+        <xsl:message> + [DEBUG] makeMap: $nextLevel="<xsl:sequence select="$nextLevel"/>"</xsl:message>
         <xsl:call-template name="generateTopicrefs">
           <xsl:with-param name="content" 
             select="
@@ -415,7 +416,11 @@
             string(@structureType) = 'mapTitle' or
             string(@structureType) = 'topicHead' or
             string(@structureType) = 'topicGroup')]" as="node()*"/>
-          <xsl:with-param name="level" select="$nextLevel" as="xs:integer"/>
+          <xsl:with-param name="level" 
+            select="if ((string($firstP/@secondStructureType) = 'topicTitle')) 
+               then $level else $nextLevel" 
+               as="xs:integer"
+          />
           <xsl:with-param name="mapUrl" select="$resultUrl" as="xs:string" tunnel="yes"/>
         </xsl:call-template>
         <xsl:if test="false() or $debugBoolean">        
@@ -431,7 +436,10 @@
             if (string($firstP/@secondStructureType) = 'topicTitle') 
                then $content
                else $content[position() > 1]" as="node()*"/>
-          <xsl:with-param name="level" select="$nextLevel" as="xs:integer"/>
+          <xsl:with-param name="level" 
+            select="if ((string($firstP/@secondStructureType) = 'topicTitle')) 
+            then $level else $nextLevel" 
+            as="xs:integer"/>
           <xsl:with-param name="mapUrl" select="$resultUrl" as="xs:string" tunnel="yes"/>
         </xsl:call-template>        
       </xsl:element>
@@ -458,6 +466,7 @@
     <xsl:param name="treePos" as="xs:integer*" tunnel="yes"/>
     <xsl:param name="mapUrl" as="xs:string" tunnel="yes"/>
     
+    <xsl:message> + [DEBUG] generateTopicrefs: Starting, level=<xsl:sequence select="$level"/></xsl:message>
    <xsl:if test="$debugBoolean">
      <xsl:message> + [DEBUG] generateTopicrefs: Starting, content:
 <xsl:sequence select="local:reportParas($content)"/>
@@ -615,7 +624,7 @@
         </xsl:element>
       </xsl:when>
       <xsl:when test="$firstP/@topicrefType">
-        <xsl:if test="$debugBoolean">                  
+        <xsl:if test="$debugBoolean and true()">                  
           <xsl:message> + [DEBUG] generateTopicrefs(): First para specifies topicrefType but not rootTopicrefType</xsl:message>
         </xsl:if>
         <xsl:element name="{$firstP/@topicrefType}">
@@ -629,6 +638,9 @@
         </xsl:element>
       </xsl:when>
       <xsl:otherwise>
+        <xsl:if test="$debugBoolean and true()">                  
+          <xsl:message> + [DEBUG] generateTopicrefs(): First para does not specify topicrefType</xsl:message>
+        </xsl:if>
         <xsl:call-template name="generateSubordinateTopicrefs">
           <xsl:with-param name="content" select="$content"/>
           <xsl:with-param name="level" select="$level"/>
@@ -1071,7 +1083,8 @@ specify @topicDoc="yes".</xsl:message>
     
     <xsl:variable name="prologType" as="xs:string"
       select="
-      if ($firstP/@prologType and $firstP/@prologType != '')
+      if ($firstP/@prologType and $firstP/@prologType != '' and 
+          not(@secondStructureType = 'topicTitle'))
       then $firstP/@prologType
       else 'prolog'
       "
