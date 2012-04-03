@@ -31,7 +31,7 @@
       MS Office 2007 Office Open XML to generic
       XML transform.
       
-      Copyright (c) 2009, 2010 DITA For Publishers
+      Copyright (c) 2009, 2012 DITA For Publishers
       
       This transform is a generic transform that produces a simplified
       form of generic XML from Office Open XML.
