@@ -1,5 +1,6 @@
 <plugin id="net.sourceforge.dita4publishers.epub">
 
+  <require plugin="org.dita.xhtml"/>
   <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
   <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
 
@@ -8,6 +9,6 @@
   <template file="xsl/map2epub_template.xsl"/>
 
   <feature extension="dita.conductor.transtype.check" value="epub" type="txt"/>
-  <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
+  <feature extension="dita.conductor.target.relative" file="build.xml"/>
 
 </plugin>

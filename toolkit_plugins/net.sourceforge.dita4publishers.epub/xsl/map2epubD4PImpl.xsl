@@ -88,9 +88,11 @@
   
   <xsl:template mode="guide" match="*[df:class(., 'pubmap-d/front-cover')]" priority="10">
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
-    <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, root($topic))" as="xs:string"/>
-    <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
-    <opf:reference type="cover"  href="{$relativeUri}"/>    
+    <xsl:if test="$topic">
+      <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, root($topic))" as="xs:string"/>
+      <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
+      <opf:reference type="cover"  href="{$relativeUri}"/>    
+    </xsl:if>
   </xsl:template>
   
   <xsl:template mode="guide" match="*[df:class(., 'pubmap-d/toc')][not(@href)]" priority="10">
