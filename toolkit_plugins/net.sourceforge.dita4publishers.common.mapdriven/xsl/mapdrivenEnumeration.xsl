@@ -54,7 +54,7 @@
     </xsl:element>
   </xsl:template>
   
-  <xsl:template mode="construct-enumerable-structure" match="*[df:isTopicGroup(.)]">
+  <xsl:template mode="construct-enumerable-structure" match="*[df:isTopicGroup(.)]" priority="10">
     <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicref')]"/>
   </xsl:template>
 
