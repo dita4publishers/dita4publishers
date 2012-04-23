@@ -75,6 +75,13 @@
     <condition property="css.output.dir" value="${args.css.output.dir}">
       <isset property="args.css.output.dir" />
     </condition>
+
+    <condition property="html5.doJavaScriptFileCopy">
+      <!-- For now, just set it on. Work out controls later -->
+      <equals arg1="true" arg2="true"/>
+    </condition>
+    <echo message="+++ html5-specific properties:"/>
+    <echoproperties format="text" regex="^(html5|html2|css|out\.)" taskname="echo"/>
   </target>
   
 
@@ -98,7 +105,7 @@
      	<param name="cssOutputDir" expression="${css.output.dir}"/>
       <param name="debug" expression="${debug}"/>
      	<param name="imagesOutputDir" expression="${images.output.dir}"/>
-     	<param name="outdir" expression="${html5.xslt.outdir}"/>
+     	<param name="outdir" expression="${output.dir}"/>
      	<param name="tempdir" expression="${html5.xslt.tempdir}"/>
     	<param name="rawPlatformString" expression="${os.name}"/>
     	<param name="titleOnlyTopicClassSpec" expression="${title.only.topic.class.spec}"/>
@@ -124,7 +131,7 @@
   
   <target name="html5.copy.graphics" 
 	  description="Copies graphics from input to the ePub output directory based on the graphic map generated during html5 generation">
-  	<ant antfile="${html5.temp.dir}/copy-graphics.xml"  		
+  	<ant antfile="${output.dir}/copy-graphics.xml"  		
   		>
   	</ant>
 	</target>
@@ -139,7 +146,7 @@
     <copy todir="${user.csspath.real}">
       <fileset dir="${dita.resource.dir}" includes="*.css"/>
     </copy>    
-    <!-- Copy user specify css file when required -->
+    <!-- Copy user specified css file when required -->
     <antcall target="html5-copy-css-user"/>
   </target>
 
@@ -147,4 +154,18 @@
     <copy file="${args.css.real}" todir="${user.csspath.real}"/>
   </target>
 
+  <target name="html2-copy-javascript"  description="Copy JavaScript files" 
+    depends="dita.map.html5.init" 
+    if="html5.doJavaScriptFileCopy">
+    <!-- FIXME: Parameterize the location of the JavaScript files -->
+    <mkdir dir="${output.dir}/js"/>
+    <copy todir="${output.dir}/js">
+      <fileset dir="${html5.dir}/js">
+        <include name="**/*"/>
+      </fileset>
+    </copy>
+    
+  </target>
+  
+  
 </project>
