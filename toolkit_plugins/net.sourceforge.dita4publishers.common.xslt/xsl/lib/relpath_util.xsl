@@ -744,7 +744,9 @@
           <xsl:otherwise>
             <!-- Paths must diverge at this point. Append one ".." for each token
             left in the source: -->
-            <xsl:message> + [DEBUG] constructing goUps: $sourceTokens=<xsl:sequence select="$sourceTokens"/></xsl:message>
+            <xsl:if test="false()">
+              <xsl:message> + [DEBUG] constructing goUps: $sourceTokens=<xsl:sequence select="$sourceTokens"/></xsl:message>
+            </xsl:if>
             <xsl:variable name="goUps" as="xs:string*">
               <xsl:for-each select="$sourceTokens">
                 <xsl:sequence select="'..'"/>
