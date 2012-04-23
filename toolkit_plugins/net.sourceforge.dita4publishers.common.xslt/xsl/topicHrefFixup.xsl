@@ -109,7 +109,7 @@
       </xsl:choose>      
     </xsl:variable>
     
-    <xsl:if test="true() or $debugBoolean">
+    <xsl:if test="false()">
       <xsl:message> + [DEBUG] href-fixup, newHref='<xsl:sequence select="$newHref"/>'</xsl:message>
     </xsl:if>
     <xsl:attribute name="href" select="concat($newHref, $fragmentId, $query)"/>
