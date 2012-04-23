@@ -9,7 +9,7 @@
   xmlns:glossdata="http://dita4publishers.org/glossdata"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:mapdriven="http://dita4publishers.org/mapdriven"
-  exclude-result-prefixes="xs xd df relpath"
+  exclude-result-prefixes="xs xd df relpath mapdriven"
   version="2.0">
   
   <!-- =============================================================
