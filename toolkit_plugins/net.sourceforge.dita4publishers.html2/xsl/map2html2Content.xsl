@@ -173,7 +173,7 @@
     <!-- This template is a general dispatch template that applies
       templates to the topicref in a distinct mode so processors
       can do topic output processing based on the topicref context
-      if the want. -->
+      if they want to. -->
     <xsl:param name="topicref" as="element()?" tunnel="yes"/>
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>    
     
