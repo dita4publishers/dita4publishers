@@ -72,7 +72,6 @@
       
         <link rel="stylesheet" type="text/css" href="css/reset-html5.css"/><xsl:sequence select="'&#x0a;'"/>
         <link rel="stylesheet" type="text/css" href="css/root-page.css"/><xsl:sequence select="'&#x0a;'"/>
-        <link rel="stylesheet" type="text/css" href="css/local/tree.css"/><xsl:sequence select="'&#x0a;'"/>
       
     </head><xsl:sequence select="'&#x0a;'"/>
     
@@ -80,10 +79,12 @@
       <header>
         <xsl:apply-templates select="." mode="generate-root-page-header"/>
       </header>
-      <nav>
-        <xsl:apply-templates select="." mode="generate-dynamic-toc"/>
-      </nav>
-      <iframe class="contentwin" id="contentwin" name="contentwin" src="{$initialTopicUri}"><xsl:text>&#xa0;</xsl:text></iframe>
+      <!-- This mode generates the navigation structure (ToC) on the
+           index.html page, that is, the main navigation structure.
+        -->
+      <xsl:apply-templates select="." mode="generate-html5-nav-page-markup"/>
+      <iframe class="contentwin" id="contentwin" name="contentwin"
+        src="{$initialTopicUri}"><xsl:text>&#xa0;</xsl:text></iframe>
     
       <!-- Script includes comes at the end of the body for browser load efficiency:
         -->
@@ -132,8 +133,8 @@
   </xsl:template>
   
   <xsl:template match="*" mode="generate-javascript-includes">
-    <!-- FIXME:Replace this with real script references -->
-    <script src="html5stuff.js" type="text/javascript">&#xa0;</script><xsl:sequence select="'&#x0a;'"/>
+    <!-- FIXME: Parameterize the location of the JavaScript -->
+    <script src="js/html5stuff.js" type="text/javascript">&#xa0;</script><xsl:sequence select="'&#x0a;'"/>
   </xsl:template>
   
 </xsl:stylesheet>

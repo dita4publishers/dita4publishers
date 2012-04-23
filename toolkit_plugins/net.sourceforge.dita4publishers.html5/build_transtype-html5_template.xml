@@ -194,6 +194,7 @@
   	</copy>
     <!-- Copy user specify css file when required -->
     <antcall target="html5-copy-css-user"/>
+    <antcall target="html5-copy-javascript"/>
   </target>
 
   <target name="html5-copy-css-user" if="user.copycss.yes">
