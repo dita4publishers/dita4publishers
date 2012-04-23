@@ -55,7 +55,11 @@
        else htmlutil:getInitialTopicrefUri($uniqueTopicRefs, $topicsOutputPath, $outdir, $rootMapDocUrl)
        "
   />
+
+  <xsl:variable name="indexUri" select="concat('index', $OUTEXT)"/>
   
+  <xsl:message> + [INFO] Generating index document <xsl:sequence select="$indexUri"/>...</xsl:message>
+  <xsl:result-document href="{$indexUri}" format="indented-xml">    
   <html><xsl:sequence select="'&#x0a;'"/>
     <head>
       <xsl:call-template name="generateMapTitle"/><xsl:sequence select="'&#x0a;'"/>
@@ -78,7 +82,6 @@
       </header>
       <nav>
         <xsl:apply-templates select="." mode="generate-dynamic-toc"/>
-        <xsl:apply-templates select="." mode="generate-static-toc"/>
       </nav>
       <iframe class="contentwin" id="contentwin" name="contentwin" src="{$initialTopicUri}"><xsl:text>&#xa0;</xsl:text></iframe>
     
@@ -87,6 +90,7 @@
       <xsl:apply-templates select="." mode="generate-javascript-includes"/>      
     </body><xsl:sequence select="'&#x0a;'"/>
   </html>  
+  </xsl:result-document>
 </xsl:template>
   
   <xsl:template mode="toc-title" match="*[df:isTopicRef(.)] | *[df:isTopicHead(.)]">
