@@ -187,6 +187,9 @@
     <copy todir="${user.csspath.real}">
       <fileset dir="${dita.resource.dir}" includes="*.css"/>
     </copy>    
+    <copy todir="${output.dir}">
+      <fileset dir="${dita.resource.dir}" includes="*.css"/>
+    </copy>    
   	<copy todir="${user.csspath.real}">
   		<fileset dir="${html5.dir}/css">
   			<include name="**/*"/>

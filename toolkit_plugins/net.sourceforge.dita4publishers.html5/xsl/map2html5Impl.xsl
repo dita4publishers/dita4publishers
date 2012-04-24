@@ -31,6 +31,8 @@
   <xsl:include href="map2Html5Content.xsl"/>
   <xsl:include href="map2Html5RootPages.xsl"/>
   
+  <xsl:param name="dita-css" select="'css/topic-html5.css'" as="xs:string"/>
+  
   
   <xsl:template name="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
