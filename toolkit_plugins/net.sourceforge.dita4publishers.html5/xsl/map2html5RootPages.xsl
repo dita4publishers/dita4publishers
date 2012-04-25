@@ -113,8 +113,13 @@
      	 <xsl:apply-templates select="." mode="generate-html5-nav-page-markup"/>
 
       	<div id="main-content" role="main">
-        	<xsl:attribute name="class">grid_18</xsl:attribute>
-        	<xsl:text>&#xa0;</xsl:text>
+        	<xsl:attribute name="class">
+        		grid_18
+        		<xsl:sequence select="'&#160;'"/>
+        		push_1
+        	</xsl:attribute>
+
+
         </div>
 
 				<div class="clear" /><xsl:sequence select="'&#x0a;'"/>

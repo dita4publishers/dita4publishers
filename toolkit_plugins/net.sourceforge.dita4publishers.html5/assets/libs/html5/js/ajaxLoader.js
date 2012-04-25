@@ -36,13 +36,38 @@ $(function() {
   // cached content or fetch new content to be displayed.
   $(window).bind( 'hashchange', function(e) {
 
-    url = $.bbq.getState( $(this).attr( 'id' ) ) || '';
+    htmlurl = $.bbq.getState( $(this).attr( 'id' ) ) || '';
+		rscript = '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi';
+    if( htmlurl != '') {
 
-    if(url != '') {
-      $('#main-content').load(url);
+     $.ajax( {
+				type: 'GET',
+				url: htmlurl,
+				dataType: 'html',
+				complete: function( jqXHR, status, responseText ) {
+          // Store the response as specified by the jqXHR object
+          responseText = jqXHR.responseText;
+
+          // If successful, inject the HTML into all the matched elements
+          if ( jqXHR.isResolved() ) {
+            // #4825: Get the actual response in case
+            // a dataFilter is present in ajaxSettings
+            jqXHR.done(function( r ) {
+              responseText = r;
+            });
+
+            var content = $("<div>").append(responseText.replace(rscript, "")).find("section").html();
+
+             $("#main-content").html(content);
+          }
+
+        }
+      });
+
     }
 
   })
+
 
   // Since the event is only triggered when the hash changes, we need to trigger
   // the event now, to handle the hash the page may have loaded with.
