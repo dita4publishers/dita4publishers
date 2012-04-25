@@ -112,10 +112,10 @@
         -->
      	 <xsl:apply-templates select="." mode="generate-html5-nav-page-markup"/>
 
-      	<iframe class="contentwin" id="contentwin" name="contentwin"
-        src="{$initialTopicUri}" role="main">
+      	<div id="main-content" role="main">
         	<xsl:attribute name="class">grid_18</xsl:attribute>
-        	<xsl:text>&#xa0;</xsl:text></iframe>
+        	<xsl:text>&#xa0;</xsl:text>
+        </div>
 
 				<div class="clear" /><xsl:sequence select="'&#x0a;'"/>
 
