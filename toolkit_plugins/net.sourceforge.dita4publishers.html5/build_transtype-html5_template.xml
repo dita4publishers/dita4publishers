@@ -1,22 +1,22 @@
 <project name="dita2html5" default="dita2html5"
   >
-  
+
   <!-- test to see where the plugin is located, plugins or demo -->
   <dirname property="html5.dir" file="${ant.file.dita2html5}"/>
-	
-	
+
+
 	<target name="dita2html5"
     unless="noMap"
     xmlns:dita="http://dita-ot.sourceforge.net"
 		dita:depends="d4p.map-driven-build-init, build-init, preprocess, html5"
     dita:extension="depends org.dita.dost.platform.InsertDependsAction">
   </target>
-  
+
   <target name="html5"
     unless="noMap"
     depends="dita.map.html5"/>
-	  
-    
+
+
   <target name="dita.map.html5.init"
     description="Init properties for HTML5">
 
@@ -29,54 +29,71 @@
   	</condition>
 
   	<!-- The name of the directory, within the output package, to contain all images: -->
-  		
+
     <condition property="images.output.dir" value="images">
   		<not>
     	  <isset property="images.output.dir" />
   		</not>
     </condition>
-  	
+
   	<property name="html5.temp.dir" value="${dita.temp.dir}${file.separator}html5_temp"/>
-  	
+
   	<!-- Defines the @class value to use for topic elements generated for topicheads. -->
   	<condition property="title.only.topic.class.spec" value="- topic/topic ">
   		<not>
     	  <isset property="title.only.topic.class.spec" />
   		</not>
   	</condition>
-  	
+
   	<!-- Defines the @class value to use for topic title elements generated for topicheads. -->
   	<condition property="title.only.topic.title.class.spec" value="- topic/title ">
   		<not>
     	  <isset property="title.only.topic.title.class.spec" />
   		</not>
   	</condition>
-    	  	
+
     <basename property="dita.map.toc.root"
       file="${dita.input.filename}"
       suffix=".ditamap" />
+
     <condition property="args.html5.toc" value="${dita.map.toc.root}">
       <not>
         <isset property="args.html5.toc" />
       </not>
     </condition>
+
     <condition property="out.ext" value=".html">
       <not>
         <isset property="out.ext" />
       </not>
     </condition>
+
     <condition property="noPlugin">
       <equals arg1="${dita.html5.plugin}" arg2="no" />
     </condition>
+
+		<condition property="siteTheme" value="theme-01">
+		  <not>
+        <isset property="siteTheme" />
+      </not>
+		</condition>
+
     <condition property="css.output.dir" value="css">
       <not>
         <isset property="args.css.output.dir" />
       </not>
     </condition>
+
+    <condition property="assets.output.dir" value="assets">
+      <not>
+        <isset property="assets.output.dir" />
+      </not>
+    </condition>
+
     <condition property="css.output.dir" value="${args.css.output.dir}">
       <isset property="args.css.output.dir" />
     </condition>
-  	
+
     <condition property="html5.doJavaScriptFileCopy">
     	<!-- For now just always do it. -->
   	  	<equals arg1="true" arg2="true"/>
@@ -92,17 +109,17 @@
   	<echo message="+++ html5-specific properties:"/>
   	<echoproperties format="text" regex="^(html5|html2|css|user|out\.)" taskname="echo"/>
   </target>
-  
-  <target name="dita.map.html5" depends="dita.map.html5.init, html5-copy-css, html5-copy-dyntoc-javascript" 
+
+  <target name="dita.map.html5" depends="dita.map.html5.init, html5.compress.assets, html5-copy-assets, html5-copy-dyntoc-javascript"
   	description="Generate all ePub components from input map and topics">
-  	
+
   	<mkdir dir="${html5.temp.dir}"/>
   	<makeurl file="${output.dir}" property="html5.xslt.outdir"/>
   	<makeurl file="${dita.temp.dir}" property="html5.xslt.tempdir"/>
-  	
+
   	<property name="map2html5.style" location="${html5.dir}/xsl/map2html5.xsl"/>
   	<property name="args.xhtml.toc" value="index"/>
-  	
+
     <xslt processor="trax"
       basedir="${dita.temp.dir}"
       destdir="${output.dir}"
@@ -110,8 +127,9 @@
       classpathref="dost.class.path"
       style="${map2html5.style}"
       filenameparameter="inputFileNameParam"
-    	
+
     	>
+      <param name="siteTheme" expression="${siteTheme}"/>
      	<param name="cssOutputDir" expression="${css.output.dir}"/>
       <param name="debug" expression="${debug}"/>
     	<param name="fileOrganizationStrategy" expression="${html2.file.organization.strategy}" if="html2.file.organization.strategy"/>
@@ -122,7 +140,7 @@
       <param name="mathJaxUseCDNLink" expression="${html2.mathjax.use.cdn.link}" if="html2.mathjax.use.cdn.link"/>
       <param name="mathJaxUseLocalLink" expression="${html2.mathjax.use.local.link}" if="html2.mathjax.use.local.link"/>
       <param name="mathJaxLocalJavascriptUri" expression="${html2.mathjax.local.javascript.uri}" if="html2.mathjax.local.javascript.uri"/>
-      <param name="imagesOutputDir" expression="${images.output.dir}"/>    	
+      <param name="imagesOutputDir" expression="${images.output.dir}"/>
      	<param name="outdir" expression="${html5.xslt.outdir}"/>
     	<!-- NOTE: Case of OUTEXT matches parameter used in base HTML transform type -->
     	<param name="OUTEXT" expression="${out.ext}"/><!-- Extension to use for result files, e.g., ".html" -->
@@ -132,7 +150,7 @@
     	<param name="titleOnlyTopicTitleClassSpec" expression="${title.only.topic.title.class.spec}"/>
      	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
 
-    	<!-- Parameters from dita2xhtml and similar transtypes: -->   
+    	<!-- Parameters from dita2xhtml and similar transtypes: -->
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
       <param name="CSS" expression="${args.css.file}" if="args.css.file" />
       <param name="CSSPATH" expression="${user.csspath}" if="user.csspath" />
@@ -149,55 +167,78 @@
               from="${user.input.file}"
               to="${args.xhtml.toc}${out.ext}" />
     </xslt>
-  	
+
   	<condition property="skip.copy.graphics" value="${local.skip.copy.graphics}">
   		<isset property="local.skip.copy.graphics"/>
   	</condition>
-  			
+
   	<antcall target="html5.copy.graphics">
   		<param name="do.copy.graphics"  value="${local.skip.copy.graphics}"/>
   	</antcall>
   </target>
-  
-  <target name="html5.copy.graphics" unless="skip.copy.graphics" 
+
+  <target name="html5.copy.graphics" unless="skip.copy.graphics"
 	  description="Copies graphics from input to the output directory based on the graphic map generated during html5 generation">
-  	<ant antfile="${output.dir}/copy-graphics.xml"  		
+  	<ant antfile="${output.dir}/copy-graphics.xml"
   		>
   	</ant>
     </target>
-    
-  <target name="html5-copy-dyntoc-javascript"  description="Copy JavaScript files" 
-  	depends="dita.map.html5.init" 
+
+  <target name="html5-copy-dyntoc-javascript"  description="Copy JavaScript files"
+  	depends="dita.map.html5.init"
   	if="html5.doDynTocFileCopy">
   	<copy todir="${output.dir}">
   		<fileset dir="${html5.dir}/dynamic-toc-support">
   			<include name="**/*"/>
   		</fileset>
   	</copy>
-  	
+
 	</target>
-	
-  <target name="html5-copy-css"  description="Copy CSS files" depends="dita.map.html5.init">    
+
+  <target name="html5-copy-css"  description="Copy CSS files" depends="dita.map.html5.init">
     <condition property="user.copycss.yes">
       <isset property="args.css.present"/>
     </condition>
     <property name="user.csspath.real" value="${output.dir}${file.separator}${css.output.dir}"/>
-    <mkdir dir="${user.csspath.real}"/>    
+    <mkdir dir="${user.csspath.real}"/>
     <!-- Always copy system default css files -->
     <copy todir="${user.csspath.real}">
       <fileset dir="${dita.resource.dir}" includes="*.css"/>
-    </copy>    
+    </copy>
     <copy todir="${output.dir}">
       <fileset dir="${dita.resource.dir}" includes="*.css"/>
-    </copy>    
+    </copy>
   	<copy todir="${user.csspath.real}">
   		<fileset dir="${html5.dir}/css">
   			<include name="**/*"/>
-  	  </fileset>		
+  	  </fileset>
   	</copy>
     <!-- Copy user specify css file when required -->
     <antcall target="html5-copy-css-user"/>
     <antcall target="html5-copy-javascript"/>
+  </target>
+
+	<target name="html5.compress.assets">
+		<ant antfile="${html5.dir}/assets/build.xml" dir="${html5.dir}/assets">
+
+		</ant>
+	</target>
+
+  <target name="html5-copy-assets"  description="Copy assets files" depends="dita.map.html5.init">
+
+    <property name="user.assetspath.real" value="${output.dir}${file.separator}${assets.output.dir}"/>
+
+    <mkdir dir="${user.assetspath.real}"/>
+
+    <!-- Always copy system default css files -->
+    <copy todir="${user.assetspath.real}">
+      <fileset dir="${html5.dir}/assets/css"/>
+    </copy>
+
+    <!-- Always copy system default js files -->
+    <copy todir="${user.assetspath.real}">
+      <fileset dir="${html5.dir}/assets/js"/>
+    </copy>
   </target>
 
   <target name="html5-copy-css-user" if="user.copycss.yes">
@@ -205,8 +246,8 @@
   </target>
 
 
-  <target name="html5-copy-javascript"  description="Copy JavaScript files" 
-    depends="dita.map.html5.init" 
+  <target name="html5-copy-javascript"  description="Copy JavaScript files"
+    depends="dita.map.html5.init"
     if="html5.doJavaScriptFileCopy">
     <!-- FIXME: Parameterize the location of the JavaScript files -->
     <mkdir dir="${output.dir}/js"/>
@@ -215,8 +256,8 @@
         <include name="**/*"/>
       </fileset>
     </copy>
-    
+
   </target>
-  
-  
+
+
 </project>

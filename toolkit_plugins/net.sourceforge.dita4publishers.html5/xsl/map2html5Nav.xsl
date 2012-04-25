@@ -12,70 +12,71 @@
                 exclude-result-prefixes="local xs df xsl relpath htmlutil index-terms mapdriven glossdata enum"
   >
   <!-- =============================================================
-    
+
     DITA Map to HTML5 Transformation
-    
+
     HTML5 navigation structure generation.
-    
+
     Copyright (c) 2012 DITA For Publishers
-    
+
     Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
     The intent of this license is for this material to be licensed in a way that is
     consistent with and compatible with the license of the DITA Open Toolkit.
-    
+
     This transform requires XSLT 2.
-    ================================================================= -->    
+    ================================================================= -->
 <!--
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  
+
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
--->  
+-->
   <xsl:output indent="yes" name="javascript" method="text"/>
 
 
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-html5-nav">
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>
-    
-      
+
+
       <xsl:message> + [INFO] Generating HTML5 navigation structure...</xsl:message>
-      
+
       <xsl:apply-templates mode="generate-html5-nav"/>
-      
+
       <xsl:message> + [INFO] HTML5 navigation generation done.</xsl:message>
   </xsl:template>
-  
+
   <xsl:template mode="generate-html5-nav-page-markup" match="*[df:class(., 'map/map')]">
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>
-    <div id="leftbar">
-      <nav id="tocpane" class="tocpane">
+
+      <nav id="left-navigation" role="navigation" aria-label="Main navigation">
+      	<xsl:attribute name="class">grid_6</xsl:attribute>
         <div class="nav-pub-title"><xsl:apply-templates select="*[df:class(., 'topic/title')]" mode="generate-html5-nav-page-markup"/></div>
         <ul>
           <xsl:apply-templates mode="generate-html5-nav"
-            select=". 
+            select=".
             except (
-            *[df:class(., 'topic/title')], 
+            *[df:class(., 'topic/title')],
             *[df:class(., 'map/topicmeta')],
             *[df:class(., 'map/reltable')]
             )"
           />
         </ul>
       </nav>
-    </div>
+
 
   </xsl:template>
-  
+
   <xsl:template mode="generate-html5-nav-page-markup" match="*[df:class(., 'topic/title')]">
     <p class="nav-pub-title"><xsl:apply-templates/></p>
   </xsl:template>
-  
+
   <xsl:template mode="generate-html5-nav" match="*[df:class(., 'topic/title')]"/>
-  
+
   <!-- Convert each topicref to a ToC entry. -->
   <xsl:template match="*[df:isTopicRef(.)]" mode="generate-html5-nav">
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
     <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
-    
+
     <xsl:if test="$tocDepth le $maxTocDepthInt">
       <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
       <xsl:choose>
@@ -89,11 +90,11 @@
             <xsl:apply-templates select="." mode="enumeration"/>
           </xsl:variable>
           <xsl:variable name="self" select="generate-id(.)" as="xs:string"/>
-          
+
           <!-- Use UL for navigation structure -->
-          
-          <li><a 
-            href="{$relativeUri}" 
+
+          <li><a
+            href="{$relativeUri}"
             target="{$contenttarget}">
             <xsl:if test="$enumeration and $enumeration != ''">
               <span class="enumeration enumeration{$tocDepth}"><xsl:sequence select="$enumeration"/></span>
@@ -104,44 +105,44 @@
               <!-- Any subordinate topics in the currently-referenced topic are
               reflected in the ToC before any subordinate topicrefs.
             -->
-              <xsl:apply-templates mode="#current" 
+              <xsl:apply-templates mode="#current"
                 select="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]">
                 <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes"
                   select="$tocDepth + 1"
                 />
               </xsl:apply-templates>
             </ul>
-          </xsl:if>                   
+          </xsl:if>
         </xsl:otherwise>
-      </xsl:choose>    
-    </xsl:if>    
+      </xsl:choose>
+    </xsl:if>
   </xsl:template>
-  
+
   <xsl:template match="mapdriven:collected-data" mode="generate-html5-nav">
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
-  
+
   <xsl:template match="enum:enumerables" mode="generate-html5-nav">
     <!-- Nothing to do with enumerables in this context -->
   </xsl:template>
-  
+
   <xsl:template match="glossdata:glossary-entries" mode="generate-html5-nav">
     <xsl:message> + [INFO] dynamic ToC generation: glossary entry processing not yet implemented.</xsl:message>
   </xsl:template>
-  
+
   <xsl:template match="index-terms:index-terms" mode="generate-html5-nav">
     <xsl:apply-templates select="index-terms:grouped-and-sorted" mode="#current"/>
   </xsl:template>
-  
+
   <xsl:template mode="nav-point-title" match="*[df:isTopicRef(.)] | *[df:isTopicHead(.)]">
     <xsl:variable name="navPointTitleString" select="df:getNavtitleForTopicref(.)"/>
-    <xsl:sequence select="$navPointTitleString"/>    
+    <xsl:sequence select="$navPointTitleString"/>
   </xsl:template>
-    
+
   <xsl:template match="*[df:isTopicGroup(.)]" priority="20" mode="generate-html5-nav">
     <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
   </xsl:template>
-  
+
   <xsl:template match="*[df:class(., 'topic/topic')]" mode="generate-html5-nav">
     <!-- Non-root topics generate ToC entries if they are within the ToC depth -->
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
@@ -149,7 +150,7 @@
       <!-- FIXME: Handle nested topics here. -->
     </xsl:if>
   </xsl:template>
-  
+
   <xsl:template mode="#all" match="*[df:class(., 'map/topicref') and (@processing-role = 'resource-only')]" priority="30"/>
 
 
@@ -157,9 +158,9 @@
        anything.  Same with topicref that has no @href. -->
   <xsl:template match="*[df:isTopicHead(.)]" mode="generate-html5-nav">
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
-    
+
     <xsl:if test="$tocDepth le $maxTocDepthInt">
-      <xsl:variable name="navPointId" as="xs:string" 
+      <xsl:variable name="navPointId" as="xs:string"
         select="generate-id(.)"/>
       <li id="{$navPointId}">
         <xsl:sequence select="df:getNavtitleForTopicref(.)"/>
@@ -167,7 +168,7 @@
           <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current">
             <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes"
               select="$tocDepth + 1"
-            />        
+            />
           </xsl:apply-templates>
         </ul>
       </li>
@@ -177,17 +178,17 @@
   <xsl:template match="*[df:isTopicGroup(.)]" mode="nav-point-title">
     <!-- Per the 1.2 spec, topic group navtitles are always ignored -->
   </xsl:template>
-  
+
 <!--  <xsl:template mode="nav-point-title" match="*[df:class(., 'topic/title')]" priority="10">
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
--->  
+-->
 
   <xsl:template mode="nav-point-title" match="*[df:class(., 'topic/fn')]" priority="10">
     <!-- Suppress footnotes in titles -->
   </xsl:template>
-  
-  <xsl:template match="*[df:class(., 'topic/tm')]" mode="generate-html5-nav nav-point-title"> 
+
+  <xsl:template match="*[df:class(., 'topic/tm')]" mode="generate-html5-nav nav-point-title">
     <xsl:apply-templates mode="#current"/>
     <xsl:choose>
       <xsl:when test="@type = 'reg'">
@@ -200,12 +201,12 @@
         <xsl:text>[tm]</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
-    
+
   </xsl:template>
-  
+
   <xsl:template match="
-    *[df:class(., 'topic/topicmeta')] | 
-    *[df:class(., 'map/navtitle')] | 
+    *[df:class(., 'topic/topicmeta')] |
+    *[df:class(., 'map/navtitle')] |
     *[df:class(., 'topic/ph')] |
     *[df:class(., 'topic/cite')] |
     *[df:class(., 'topic/image')] |
@@ -218,14 +219,14 @@
   <xsl:template match="*[df:class(., 'topic/title')]//text()" mode="generate-html5-nav">
     <xsl:copy/>
   </xsl:template>
-  
+
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-html5-nav-script-includes">
       <!-- FIXME: Put includes of supporting javascript here. -->
       <script type="text/javascript" src="xxxx.js" >&#xa0;</script><xsl:sequence select="'&#x0a;'"/>
   </xsl:template>
-  
+
   <xsl:template match="text()" mode="generate-html5-nav"/>
-  
+
   <xsl:function name="local:isNavPoint" as="xs:boolean">
     <!-- FIXME: Factor this out to a common function library. It's also
          in HTML2 and EPUB code.
@@ -242,7 +243,7 @@
         <xsl:variable name="navPointTitle" as="xs:string*">
           <xsl:apply-templates select="$context" mode="nav-point-title"/>
         </xsl:variable>
-        <!-- If topic head has a title (e.g., a generated title), then it 
+        <!-- If topic head has a title (e.g., a generated title), then it
              acts as a navigation point.
           -->
         <xsl:sequence
@@ -253,8 +254,8 @@
         <xsl:sequence select="false()"/>
       </xsl:otherwise>
     </xsl:choose>
-    
+
   </xsl:function>
-  
+
 
 </xsl:stylesheet>
