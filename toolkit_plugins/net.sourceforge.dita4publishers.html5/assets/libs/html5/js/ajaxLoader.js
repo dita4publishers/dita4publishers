@@ -8,21 +8,21 @@ $(function() {
     $(this).attr('href', '#'+href);
 
     if ($(this).attr('id') == "" || $(this).attr('id') == undefined) {
-			$(this).attr('id', "link"+idc);
-			idc++;
+      $(this).attr('id', "link"+idc);
+      idc++;
     }
 
 
-	  // For all links push the appropriate state onto the history when clicked.
-    $(this).live( 'click', function(e){
+    // For all links push the appropriate state onto the history when clicked.
+    $(this).live( 'click', function(e) {
       var state = {};
 
       // Get the id of this .bbq widget.
-      id = $(this).attr( 'id' );
-
+      id = 'nav';
+      console.log($(this).attr( 'href' ));
       // Set the state!
-      state[ id ] = href;
-      $('body').bbq.pushState( state );
+      state[ id ] = $(this).attr( 'href' ).replace( /^#/, '' );
+      $.bbq.pushState( state );
 
       // And finally, prevent the default link click behavior by returning false.
       return false;
@@ -36,14 +36,16 @@ $(function() {
   // cached content or fetch new content to be displayed.
   $(window).bind( 'hashchange', function(e) {
 
-		$('#main-content').load(location.hash.replace( /^#/, '' ));
+    url = $.bbq.getState( $(this).attr( 'id' ) ) || '';
+
+    if(url != '') {
+      $('#main-content').load(url);
+    }
 
   })
 
   // Since the event is only triggered when the hash changes, we need to trigger
   // the event now, to handle the hash the page may have loaded with.
   $(window).trigger( 'hashchange' );
-
-
 
 });

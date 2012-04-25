@@ -32,7 +32,7 @@
 	<target name="jscrib.concat.js">
 		<property name="product.concat" value="${product.uncompressed.name}"/>
 		<concat destfile="${build.dir}/${src.dir.js}/script.js">
-			<filelist dir="${src.dir.libs}" files="${js.list}"/>
+			<filelist dir="${src.dir.libs}" files="jQuery/jquery-1.7.1.min.js,modernizr/modernizr.dev.2.0.6.js,cowboy-jquery-bbq-8e0064b/jquery.ba-bbq.min.js,html5/js/ajaxLoader.js"/>
 		</concat>
 	</target>
 	<target name="jscrib.concat.css">
