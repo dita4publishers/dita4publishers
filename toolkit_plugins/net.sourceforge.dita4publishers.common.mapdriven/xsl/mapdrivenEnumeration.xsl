@@ -44,15 +44,36 @@
   </xsl:template>
   
   <xsl:template mode="construct-enumerable-structure" match="*[df:isTopicHead(.)]">
+    <xsl:call-template name="construct-enumerated-element"/>
+  </xsl:template>
+  
+  <xsl:template name="construct-enumerated-element">
+    <xsl:param name="content" as="node()*"/>
+    <xsl:param name="additional-attributes" as="attribute()*"/>
+    
     <xsl:element name="{name(.)}" namespace="http://dita4publishers.org/enumerables">
       <xsl:sequence select="@class"/>
-      <!-- @sourceId correlates the element in the enumerable structure to the input element 
-           it corresponds to.
-        -->
       <xsl:attribute name="sourceId" select="df:generate-dita-id(.)"/>
-      <xsl:apply-templates mode="#current"/>
+      <xsl:if test="./@id">
+        <xsl:attribute name="origId" select="@id"/>
+      </xsl:if>
+      <xsl:if test="./@xtrc">
+        <xsl:attribute name="xtrc" select="@xtrc"/>
+      </xsl:if>
+      <xsl:attribute name="docUri" select="document-uri(root(.))"/>
+      <xsl:sequence select="$additional-attributes"/>
+      <xsl:choose>
+        <xsl:when test="$content">
+          <xsl:sequence select="$content"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates select="node()" mode="#current"/>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:element>
   </xsl:template>
+  
+  
   
   <xsl:template mode="construct-enumerable-structure" match="*[df:isTopicGroup(.)]" priority="10">
     <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicref')]"/>
@@ -75,20 +96,20 @@
         <xsl:variable name="class" as="xs:string"
           select="if (name(.) = 'topicref') then string($topic/@class) else string(@class)"
         />
-        <xsl:element name="{$tagname}" namespace="http://dita4publishers.org/enumerables">
-          <xsl:attribute name="sourceId" select="df:generate-dita-id(.)"/>
-          <xsl:attribute name="class" select="$class"/>
-          <xsl:attribute name="topicClass" select="string($topic/@class)"/>
-          <xsl:if test="$topic/@outputclass">
-            <xsl:attribute name="topicOutputClass" select="string($topic/@outputclass)"/>
-          </xsl:if>
-          <!-- Process the topic, then process any subordinate topicrefs: -->
-          <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicmeta')]"/>          
-          <xsl:apply-templates mode="#current" select="$topic">
-            <xsl:with-param name="topicref" as="element()" select="." tunnel="yes"/>
-          </xsl:apply-templates>
-          <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicref')]"/>          
-        </xsl:element>
+        <xsl:call-template name="construct-enumerated-element">
+          <xsl:with-param name="additional-attributes" as="attribute()*">
+            <xsl:if test="$topic/@outputclass">
+              <xsl:attribute name="topicOutputClass" select="string($topic/@outputclass)"/>
+            </xsl:if>
+          </xsl:with-param>
+          <xsl:with-param name="content" as="node()*">
+            <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicmeta')]"/>          
+            <xsl:apply-templates mode="#current" select="$topic">
+              <xsl:with-param name="topicref" as="element()" select="." tunnel="yes"/>
+            </xsl:apply-templates>
+            <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicref')]"/>                      
+          </xsl:with-param>
+        </xsl:call-template>
       </xsl:otherwise>
     </xsl:choose>        
   </xsl:template>
@@ -112,13 +133,20 @@
       mode="#current"/>
   </xsl:template>
   
-  <xsl:template mode="construct-enumerable-structure" match="*[df:class(., 'topic/topic')]/*[df:class(., 'topic/topic')]">
-    <xsl:element name="{name(.)}" namespace="http://dita4publishers.org/enumerables">
-      <xsl:attribute name="sourceId" select="df:generate-dita-id(.)"/>
-      <xsl:apply-templates mode="#current"
-      select="@*,*[df:class(., 'topic/title')], *[df:class(., 'topic/body')], *[df:class(., 'topic/topic')]"
-      />
-    </xsl:element>
+  <xsl:template mode="construct-enumerable-structure" 
+    match="*[df:class(., 'topic/topic')]/*[df:class(., 'topic/topic')]">
+    <xsl:call-template name="construct-enumerated-element">
+      <xsl:with-param name="content" as="node()*">
+        <xsl:apply-templates mode="#current"
+          select="*[df:class(., 'topic/title')], 
+                  *[df:class(., 'topic/body')], 
+                  *[df:class(., 'topic/topic')]"
+        />
+      </xsl:with-param>
+      <xsl:with-param name="additional-attributes" as="attribute()*">
+        <xsl:apply-templates mode="#current" select="@*"/>
+      </xsl:with-param>
+    </xsl:call-template>
   </xsl:template>
   
   <xsl:template mode="construct-enumerable-structure" priority="10"
@@ -129,12 +157,13 @@
     *[df:class(., 'topic/note')] | 
     *[df:class(., 'topic/bodydiv')] | 
     *[df:class(., 'topic/sectiondiv')]
-           "
+    "
     >
-    <xsl:element name="{name(.)}" namespace="http://dita4publishers.org/enumerables">
-      <xsl:attribute name="sourceId" select="df:generate-dita-id(.)"/>
-      <xsl:apply-templates select="@*, *" mode="#current"/>
-    </xsl:element>
+    <xsl:call-template name="construct-enumerated-element">
+        <xsl:with-param name="content" as="node()*">
+          <xsl:apply-templates mode="#current" select="*[df:class(., 'topic/title')]"/>          
+        </xsl:with-param>        
+    </xsl:call-template>
   </xsl:template>
   
   <xsl:template mode="construct-enumerable-structure" priority="10"
