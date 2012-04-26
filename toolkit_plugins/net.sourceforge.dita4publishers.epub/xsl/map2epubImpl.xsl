@@ -68,6 +68,7 @@
   <xsl:include href="map2epubContentImpl.xsl"/>
   <xsl:include href="map2epubSetCoverGraphic.xsl"/>
   <xsl:include href="map2epubHtmlTocImpl.xsl"/>
+  <xsl:include href="map2epubListOfFigures.xsl"/>
   <xsl:include href="map2epubTocImpl.xsl"/>
 <!--  <xsl:include href="map2epubIndexImpl.xsl"/>-->
   <xsl:include href="html2xhtmlImpl.xsl"/>
@@ -338,7 +339,9 @@
     
     <xsl:message> + [INFO] Gathering index terms...</xsl:message>
     
-    <xsl:apply-templates select="." mode="generate-content"/>
+    <xsl:apply-templates select="." mode="generate-content">
+      <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>     
+    </xsl:apply-templates>
     <!-- NOTE: The generate-toc mode is for the EPUB toc, not the HTML toc -->
     <xsl:apply-templates select="." mode="generate-toc">
       <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>

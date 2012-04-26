@@ -171,6 +171,67 @@
     <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
   </xsl:template>
   
+  <xsl:template match="*[contains(@class, '/figurelist')]" priority="20" mode="generate-html-toc">
+    <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
+    <xsl:if test="$tocDepth le $maxTocDepthInt">
+      <xsl:variable name="targetUri"
+        select="relpath:newFile($outdir, concat('list-of-figures_', generate-id(.), '.html'))" 
+        as="xs:string"
+      />
+      <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)"
+        as="xs:string"/>
+      <xsl:variable name="lof-title" as="node()*">
+        <xsl:text>List of Figures</xsl:text><!-- FIXME: Get this string from string config -->
+      </xsl:variable>
+      <xsl:message> + [INFO] Generating figure list HTML page as "<xsl:sequence select="$relativeUri"/>"...</xsl:message>
+      <xsl:result-document href="{$targetUri}"
+        format="html"
+        doctype-public="-//W3C//DTD XHTML 1.1//EN"
+        doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+        <html>
+          <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />         
+            <title><xsl:sequence select="$lof-title"/></title>
+          </head>
+          <body>
+            <h2 class="toc-title"><xsl:sequence select="$lof-title"/></h2>
+            <ul  class="html-toc html-toc_{$tocDepth + 1} list-of-figures">
+              <xsl:message> + [DEBUG] LOF generation: Applying templates to root(.) in mode generate-list-of-figures-html-toc...</xsl:message>
+              <xsl:apply-templates select="root(.)" mode="generate-list-of-figures-html-toc"/>
+              <xsl:message> + [DEBUG] After LOF apply-templates </xsl:message>
+            </ul>
+          </body>
+        </html>
+      </xsl:result-document>
+      
+      <li class="html-toc-entry html-toc-entry_{$tocDepth}">
+        <span class="html-toc-entry-text html-toc-entry-text_{$tocDepth}"
+          ><a href="{$relativeUri}">
+            <xsl:sequence select="$lof-title"/>
+        </a></span>
+      </li>
+    </xsl:if>
+  </xsl:template>
+  
+  <xsl:template match="*[contains(@class, '/tablelist')]" priority="20" mode="generate-html-toc">
+    <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
+    <xsl:if test="$tocDepth le $maxTocDepthInt">
+      <xsl:variable name="targetUri"
+        select="relpath:newFile($outdir, concat('list-of-tables_', generate-id(.), '.html'))" 
+        as="xs:string"
+      />
+      <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)"
+        as="xs:string"/>
+      
+      <li class="html-toc-entry html-toc-entry_{$tocDepth}">
+        <span class="html-toc-entry-text html-toc-entry-text_{$tocDepth}"
+          ><a href="{$relativeUri}">
+            <xsl:sequence select="'List of Tables'"/><!-- FIXME: Get this string from string config -->
+          </a></span>
+      </li>
+    </xsl:if>
+  </xsl:template>
+  
   <xsl:template match="*[df:class(., 'topic/topic')]" mode="generate-html-toc">
     <!-- Non-root topics generate ToC entries if they are within the ToC depth -->
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
