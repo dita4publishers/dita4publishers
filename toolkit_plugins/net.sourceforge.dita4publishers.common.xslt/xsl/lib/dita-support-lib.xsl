@@ -668,6 +668,9 @@
           <xsl:sequence select="            
             concat(
               string-join($context/ancestor::*[df:class(.,'topic/topic')]/@id, '-'),
+              if ($context/@id) then concat('-',string($context/@id))
+              else
+              '-',
               name($context), '-', 
               count($context/preceding::*) + 1,
               '-',
