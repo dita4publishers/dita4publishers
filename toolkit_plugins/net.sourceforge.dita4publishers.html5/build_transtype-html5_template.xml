@@ -110,7 +110,7 @@
   	<echoproperties format="text" regex="^(html5|html2|css|user|out\.)" taskname="echo"/>
   </target>
 
-  <target name="dita.map.html5" depends="dita.map.html5.init, html5.compress.assets, html5-copy-assets, html5-copy-dyntoc-javascript"
+  <target name="dita.map.html5" depends="dita.map.html5.init, html5-copy-assets, html5-copy-dyntoc-javascript"
   	description="Generate all ePub components from input map and topics">
 
   	<mkdir dir="${html5.temp.dir}"/>
@@ -217,12 +217,6 @@
     <antcall target="html5-copy-css-user"/>
     <antcall target="html5-copy-javascript"/>
   </target>
-
-	<target name="html5.compress.assets">
-		<ant antfile="${html5.dir}/assets/build.xml" dir="${html5.dir}/assets">
-
-		</ant>
-	</target>
 
   <target name="html5-copy-assets"  description="Copy assets files" depends="dita.map.html5.init">
 

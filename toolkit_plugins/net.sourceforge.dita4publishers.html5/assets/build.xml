@@ -40,9 +40,19 @@
 	</target>
 
 	<target name="jscrib.concat.css">
-		<property name="product.concat" value="${product.uncompressed.name}"/>
-		<concat destfile="${build.dir}/${src.dir.css}/style.css">
-			<filelist dir="${src.dir.libs}" files = "nathansmith-960-Grid-System-b0c5b98/code/css/reset.css,nathansmith-960-Grid-System-b0c5b98/code/css/960_24_col.css,nathansmith-960-Grid-System-b0c5b98/code/css/text.css,html5/css/default/layout.css" />
-		</concat>
+
+		<apply executable="java" parallel="false" dest="${build.dir}/css">
+			<fileset dir="${src.dir.libs}/nathansmith-960-Grid-System-b0c5b98/code/css" includes="reset.css"/>
+			<fileset dir="${src.dir.libs}/nathansmith-960-Grid-System-b0c5b98/code/css" includes="960_24_col.css"/>
+			<fileset dir="${src.dir.libs}/nathansmith-960-Grid-System-b0c5b98/code/css" includes="text.css"/>
+			<fileset dir="${src.dir.libs}/html5/css/default/" includes="layout.css"/>
+			<arg line="-jar"/>
+			<arg path="${yui-compressor.jar}"/>
+			<arg value="type=css" />
+			<srcfile/>
+			<arg line="-o"/>
+			<targetfile/>
+		</apply>
+
 	</target>
 </project>
