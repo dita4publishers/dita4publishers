@@ -1,3 +1,20 @@
 /**
  * theme-01
  **/
+
+@font-face {
+	font-family: "Vegur Regular";
+    src: url("../../fonts/vegur/Vegur-R-0.602.otf");
+}
+@font-face {
+	font-family: "Vegur Bold";
+    src: url("../../fonts/Vegur/Vegur-B-0.602.otf");
+}
+@font-face {
+	font-family: "Vegur Medium";
+    src: url("../../fonts/Vegur/Vegur-M-0.602.otf");
+}
+@font-face {
+	font-family: "Vegur Light";
+    src: url("../../fonts/Vegur/Vegur-L-0.602.otf");
+}
