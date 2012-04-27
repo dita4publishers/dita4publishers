@@ -242,6 +242,10 @@
       <fileset dir="${html5.dir}/assets/libs/html5/css"/>
     </copy>
 
+    <copy todir="${user.assetspath.real}">
+      <fileset dir="${html5.dir}/assets/libs/html5/fonts"/>
+    </copy>
+
   </target>
 
   <target name="html5-copy-css-user" if="user.copycss.yes">
