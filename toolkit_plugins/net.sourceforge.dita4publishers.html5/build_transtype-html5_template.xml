@@ -72,9 +72,9 @@
       <equals arg1="${dita.html5.plugin}" arg2="no" />
     </condition>
 
-		<condition property="siteTheme" value="theme-01">
+		<condition property="site.theme" value="theme-01">
 		  <not>
-        <isset property="siteTheme" />
+        <isset property="site.theme" />
       </not>
 		</condition>
 
@@ -129,7 +129,7 @@
       filenameparameter="inputFileNameParam"
 
     	>
-      <param name="siteTheme" expression="${siteTheme}"/>
+      <param name="siteTheme" expression="${site.theme}"/>
      	<param name="cssOutputDir" expression="${css.output.dir}"/>
       <param name="debug" expression="${debug}"/>
     	<param name="fileOrganizationStrategy" expression="${html2.file.organization.strategy}" if="html2.file.organization.strategy"/>
@@ -230,15 +230,18 @@
 
     <mkdir dir="${user.assetspath.real}"/>
 
-    <!-- Always copy system default css files -->
     <copy todir="${user.assetspath.real}">
       <fileset dir="${html5.dir}/assets/css"/>
     </copy>
 
-    <!-- Always copy system default js files -->
     <copy todir="${user.assetspath.real}">
       <fileset dir="${html5.dir}/assets/js"/>
     </copy>
+
+    <copy todir="${user.assetspath.real}">
+      <fileset dir="${html5.dir}/assets/libs/html5/css"/>
+    </copy>
+
   </target>
 
   <target name="html5-copy-css-user" if="user.copycss.yes">

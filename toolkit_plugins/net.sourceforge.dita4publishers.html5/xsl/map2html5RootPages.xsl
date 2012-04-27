@@ -83,8 +83,7 @@
       	     others CSS. It becomes easier to compress all css afterward with a css compressor such as http://developer.yahoo.com/yui/compressor/
       	     which works well with ant
       	-->
-        <link rel="stylesheet" type="text/css" href="assets/style.css"/><xsl:sequence select="'&#x0a;'"/>
-        <link rel="stylesheet" type="text/css" href="assets/themes/01/style.css"/><xsl:sequence select="'&#x0a;'"/>
+				<xsl:apply-templates select="." mode="generate-css-includes"/>
 
         <xsl:apply-templates select="." mode="generate-javascript-includes"/>
 
@@ -179,5 +178,18 @@
     <!-- FIXME: Parameterize the location of the JavaScript -->
     <script src="assets/script.js" type="text/javascript">&#xa0;</script><xsl:sequence select="'&#x0a;'"/>
   </xsl:template>
+
+  <xsl:template match="*" mode="generate-css-includes">
+    <!-- FIXME: Parameterize the location of the css -->
+		<link rel="stylesheet" type="text/css" href="assets/style.css"/><xsl:sequence select="'&#x0a;'"/>
+    <link rel="stylesheet" type="text/css" >
+    	<xsl:attribute name = "href">
+    	 	<xsl:apply-templates select="." mode="get-css-theme-path"/>
+    	</xsl:attribute>
+    </link>
+    <xsl:sequence select="'&#x0a;'"/>
+  </xsl:template>
+
+  <xsl:template match="*" mode="get-css-theme-path">assets/<xsl:value-of select="$siteTheme" />/style.css</xsl:template>
 
 </xsl:stylesheet>
