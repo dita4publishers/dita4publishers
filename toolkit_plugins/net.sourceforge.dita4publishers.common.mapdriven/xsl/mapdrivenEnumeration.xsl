@@ -3,13 +3,13 @@
                 xmlns:df="http://dita2indesign.org/dita/functions"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:relpath="http://dita2indesign/functions/relpath"
-                xmlns:enumerables="http://dita4publishers.org/enumerables"
+                xmlns:enum="http://dita4publishers.org/enumerables"
                 xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"                
                 xmlns:local="urn:functions:local"
                 xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
                 xmlns:index-terms="http://dita4publishers.org/index-terms"
                 xmlns="http://dita4publishers.org/enumerables"                
-                exclude-result-prefixes="local xs df xsl relpath enumerables htmlutil ditaarch index-terms"
+                exclude-result-prefixes="local xs df xsl relpath enum htmlutil ditaarch index-terms"
   >
   <!-- =============================================================
     

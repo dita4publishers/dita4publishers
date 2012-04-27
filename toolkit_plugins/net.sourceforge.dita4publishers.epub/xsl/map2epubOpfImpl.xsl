@@ -82,7 +82,6 @@
             " 
             mode="generate-opf"/>
           
-          <xsl:message> + [DEBUG] Applying templates to *[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/keywords')]</xsl:message>
           <!-- NOTE: keywords can be directly in topicmeta or in metadata under topicmeta -->
           <xsl:apply-templates mode="generate-opf"
             select="*[df:class(., 'map/topicmeta')]//*[df:class(., 'topic/keywords')]"

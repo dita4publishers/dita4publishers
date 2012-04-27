@@ -8,20 +8,22 @@
   xmlns:enum="http://dita4publishers.org/enumerables"
   exclude-result-prefixes="local xs df xsl relpath htmlutil index-terms enum"
   version="2.0">
-    
-  <xsl:template match="/" mode="generate-list-of-figures-html-toc">
+  
+  <xsl:template match="/" mode="generate-list-of-tables-html-toc">
     <xsl:apply-templates mode="#current"/>
   </xsl:template> 
   
   <xsl:template match="*[df:class(., 'map/map')]" 
-    mode="generate-list-of-figures-html-toc">
+    mode="generate-list-of-tables-html-toc">
     <xsl:param name="collected-data" as="element()*" tunnel="yes"/>
+    <xsl:for-each select="$collected-data/enum:enumerables//*[df:class(., 'topic/table')][enum:title]">
+    </xsl:for-each>
     <xsl:apply-templates mode="#current"
-      select="$collected-data/enum:enumerables//*[df:class(., 'topic/fig')][enum:title]"/>
+      select="$collected-data/enum:enumerables//*[df:class(., 'topic/table')][enum:title]"/>
   </xsl:template>
   
-  <xsl:template mode="generate-list-of-figures-html-toc" 
-                match="*[df:class(., 'topic/fig')]">
+  <xsl:template mode="generate-list-of-tables-html-toc" 
+                match="*[df:class(., 'topic/table')]">
     <xsl:variable name="sourceUri" as="xs:string" select="@docUri"/>
     <xsl:variable name="rootTopic" select="document($sourceUri)" as="document-node()?"/>
     <xsl:variable name="targetUri"
@@ -54,13 +56,16 @@
   </xsl:template>
   
   
-  <xsl:template match="*" mode="generate-list-of-figures-html-toc" priority="-1">
+  <xsl:template match="*" mode="generate-list-of-tables-html-toc" priority="-1">
+    <xsl:if test="false()">
+      <xsl:message> + [DEBUG] Fallback in mode generate-list-of-tables-html-toc: <xsl:sequence select="concat(name(..), '/', @class)"/> in mode generate-list-of-tables-html-toc</xsl:message>
+    </xsl:if>
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
-  <xsl:template mode="generate-list-of-figures-html-toc" match="text()"/>
+  <xsl:template mode="generate-list-of-tables-html-toc" match="text()"/>
   
-  <xsl:template mode="generate-list-of-figures-html-toc" match="*[df:class(., 'topic/title')]">
+  <xsl:template mode="generate-list-of-tables-html-toc" match="*[df:class(., 'topic/title')]">
     <xsl:apply-templates/>
   </xsl:template>
   

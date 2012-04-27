@@ -60,15 +60,18 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/glossaryProcessing.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/indexProcessing.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/mapdrivenEnumeration.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/mapdrivenEnumerationD4P.xsl"/>
   
   
   <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlOverrides.xsl"/>
+  <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlEnumeration.xsl"/>
   <xsl:include href="map2epubCommon.xsl"/>
   <xsl:include href="map2epubOpfImpl.xsl"/>
   <xsl:include href="map2epubContentImpl.xsl"/>
   <xsl:include href="map2epubSetCoverGraphic.xsl"/>
   <xsl:include href="map2epubHtmlTocImpl.xsl"/>
   <xsl:include href="map2epubListOfFigures.xsl"/>
+  <xsl:include href="map2epubListOfTables.xsl"/>
   <xsl:include href="map2epubTocImpl.xsl"/>
 <!--  <xsl:include href="map2epubIndexImpl.xsl"/>-->
   <xsl:include href="html2xhtmlImpl.xsl"/>
@@ -186,6 +189,9 @@
        go to a new window.
     -->
   <xsl:variable name="contenttarget" as="xs:string" select="''"/>
+  
+  <xsl:key name="elementsById" match="*[@id]" use="@id"/>
+  <xsl:key name="elementsByXtrc" match="*[@xtrc]" use="@xtrc"/>
   
   <xsl:template name="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>

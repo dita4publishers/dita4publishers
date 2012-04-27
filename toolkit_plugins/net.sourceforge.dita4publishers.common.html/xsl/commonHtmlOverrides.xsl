@@ -6,7 +6,8 @@
   xmlns:java="org.dita.dost.util.ImgUtils"
   xmlns:dita2html="http://dita-ot.sourceforge.net/ns/200801/dita2html"  
   xmlns:df="http://dita2indesign.org/dita/functions"
-  exclude-result-prefixes="xs xd relpath java dita2html df"
+  xmlns:enum="http://dita4publishers.org/enumerables"
+  exclude-result-prefixes="xs xd relpath java dita2html df enum"
   version="2.0">
   
   <!-- Common overrides to the base HTML transforms. Used by HTML2, EPUB
@@ -109,6 +110,84 @@
     <xsl:value-of select="$newline"/>
   </xsl:template>
   
+  <xsl:template name="place-fig-lbl">
+    <xsl:param name="stringName"/>
+    <xsl:param name="collected-data" as="element()*" tunnel="yes"/>
+    
+    <!-- FIXME: This override uses the D4P enumeration mode to generate
+      the figure label. Need to hook in the localization logic from
+      the base version.
+      -->
+    <!-- Number of fig/title's including this one -->
+    <xsl:variable name="ancestorlang">
+      <xsl:call-template name="getLowerCaseLang"/>
+    </xsl:variable>
+    <xsl:choose>
+      <!-- title -or- title & desc -->
+      <xsl:when test="*[contains(@class,' topic/title ')]">
+        <xsl:variable name="sourceId" select="df:generate-dita-id(.)" as="xs:string"/>
+        <span class="figcap">
+          <xsl:apply-templates select="$collected-data/enum:enumerables//*[@sourceId = $sourceId]"
+            mode="enumeration"/>
+          <xsl:apply-templates select="*[contains(@class,' topic/title ')]" mode="figtitle"/>
+        </span>
+        <xsl:if test="*[contains(@class,' topic/desc ')]">
+          <xsl:text>. </xsl:text>
+          <span class="figdesc">
+            <xsl:for-each select="*[contains(@class,' topic/desc ')]"><xsl:call-template name="commonattributes"/></xsl:for-each>
+            <xsl:apply-templates select="*[contains(@class,' topic/desc ')]" mode="figdesc"/>
+          </span>
+        </xsl:if>
+      </xsl:when>
+      <!-- desc -->
+      <xsl:when test="*[contains(@class, ' topic/desc ')]">
+        <span class="figdesc">
+          <xsl:for-each select="*[contains(@class,' topic/desc ')]"><xsl:call-template name="commonattributes"/></xsl:for-each>
+          <xsl:apply-templates select="*[contains(@class,' topic/desc ')]" mode="figdesc"/>
+        </span>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:template>
+  
+  <xsl:template name="place-tbl-lbl">
+    <xsl:param name="stringName"/>
+    <xsl:param name="collected-data" as="element()*" tunnel="yes"/>
+    
+    <!-- normally: "Table 1. " -->
+    <xsl:variable name="ancestorlang">
+      <xsl:call-template name="getLowerCaseLang"/>
+    </xsl:variable>
+    
+    <xsl:choose>
+      <!-- title -or- title & desc -->
+      <xsl:when test="*[contains(@class,' topic/title ')]">
+        <caption>
+          <span class="tablecap">
+            <xsl:variable name="sourceId" select="df:generate-dita-id(.)" as="xs:string"/>
+            <span class="tablecap">
+              <xsl:apply-templates select="$collected-data/enum:enumerables//*[@sourceId = $sourceId]"
+                mode="enumeration"/>
+              <xsl:apply-templates select="*[contains(@class,' topic/title ')]" mode="tabletitle"/>         
+            </span>
+          </span>
+          <xsl:if test="*[contains(@class,' topic/desc ')]"> 
+            <xsl:text>. </xsl:text>
+            <span class="tabledesc">
+              <xsl:for-each select="*[contains(@class,' topic/desc ')]"><xsl:call-template name="commonattributes"/></xsl:for-each>
+              <xsl:apply-templates select="*[contains(@class,' topic/desc ')]" mode="tabledesc"/>
+            </span>
+          </xsl:if>
+        </caption>
+      </xsl:when>
+      <!-- desc -->
+      <xsl:when test="*[contains(@class,' topic/desc ')]">
+        <span class="tabledesc">
+          <xsl:for-each select="*[contains(@class,' topic/desc ')]"><xsl:call-template name="commonattributes"/></xsl:for-each>
+          <xsl:apply-templates select="*[contains(@class,' topic/desc ')]" mode="tabledesc"/>
+        </span>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:template>
   
   
   

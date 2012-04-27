@@ -70,7 +70,10 @@
   <!-- OPF (.opf) generation context -->
   
   <xsl:template mode="include-topicref-in-spine include-topicref-in-manifest" 
-    match="*[df:class(., 'pubmap-d/toc')]" priority="10">
+    match="*[df:class(., 'pubmap-d/toc')] | 
+    *[df:class(., 'pubmap-d/figurelist')] | 
+    *[df:class(., 'pubmap-d/tablelist')]" 
+    priority="10">
     <xsl:sequence select="true()"/>    
   </xsl:template>
   
@@ -82,7 +85,27 @@
       media-type="application/xhtml+xml"/>    
   </xsl:template>
   
-  <xsl:template mode="spine" match="*[df:class(., 'pubmap-d/toc')][not(@href)]" priority="10">
+  <xsl:template mode="manifest" match="*[df:class(., 'pubmap-d/figurelist')]">
+    <xsl:variable name="targetUri" as="xs:string"
+      select="concat('list-of-figures_', generate-id(.), '.html')"
+    />
+    <opf:item id="{generate-id()}" href="{$targetUri}"
+      media-type="application/xhtml+xml"/>    
+  </xsl:template>
+  
+  <xsl:template mode="manifest" match="*[df:class(., 'pubmap-d/tablelist')]">
+    <xsl:variable name="targetUri" as="xs:string"
+      select="concat('list-of-tables_', generate-id(.), '.html')"
+    />
+    <opf:item id="{generate-id()}" href="{$targetUri}"
+      media-type="application/xhtml+xml"/>    
+  </xsl:template>
+  
+  <xsl:template mode="spine" 
+    match="*[df:class(., 'pubmap-d/toc')][not(@href)] |
+    *[df:class(., 'pubmap-d/figurelist')] |
+    *[df:class(., 'pubmap-d/tablelist')]" 
+    priority="10">
     <opf:itemref idref="{generate-id()}"/>    
   </xsl:template>
   
@@ -114,31 +137,6 @@
       >
       <xsl:with-param name="resultUri" select="$resultUri"/>
     </xsl:apply-templates>
-  </xsl:template>
-  
-  <xsl:template mode="nav-point-title" match="*[df:class(., 'pubmap-d/toc')]" priority="20">
-    <!-- FIXME: Localize this string. -->
-    <xsl:sequence select="'Table of Contents'"/>
-  </xsl:template>
-  
-  <xsl:template match="*[df:class(., 'pubmap-d/toc')]" priority="20" mode="generate-toc">
-    <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
-    <xsl:if test="$tocDepth le $maxTocDepthInt">
-      <xsl:variable name="rawNavPointTitle" as="xs:string*">
-        <xsl:apply-templates select="." mode="nav-point-title"/>
-      </xsl:variable>
-      <xsl:variable name="navPointTitle" select="normalize-space(string-join($rawNavPointTitle, ' '))" as="xs:string"/>
-      <xsl:variable name="targetUri" as="xs:string"
-        select="concat('toc_', generate-id(.), '.html')"
-      />
-      <navPoint id="{generate-id()}" xmlns="http://www.daisy.org/z3986/2005/ncx/"
-        > 
-        <navLabel>
-          <text><xsl:sequence select="$navPointTitle"/></text>
-        </navLabel>
-        <content src="{$targetUri}"/>          
-      </navPoint>
-    </xsl:if>    
   </xsl:template>
   
   

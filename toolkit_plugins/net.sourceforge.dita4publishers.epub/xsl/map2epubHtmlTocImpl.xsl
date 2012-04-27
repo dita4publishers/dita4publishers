@@ -196,9 +196,7 @@
           <body>
             <h2 class="toc-title"><xsl:sequence select="$lof-title"/></h2>
             <ul  class="html-toc html-toc_{$tocDepth + 1} list-of-figures">
-              <xsl:message> + [DEBUG] LOF generation: Applying templates to root(.) in mode generate-list-of-figures-html-toc...</xsl:message>
               <xsl:apply-templates select="root(.)" mode="generate-list-of-figures-html-toc"/>
-              <xsl:message> + [DEBUG] After LOF apply-templates </xsl:message>
             </ul>
           </body>
         </html>
@@ -222,11 +220,32 @@
       />
       <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)"
         as="xs:string"/>
+      <xsl:variable name="lot-title" as="node()*">
+        <xsl:text>List of Tables</xsl:text><!-- FIXME: Get this string from string config -->
+      </xsl:variable>
+      <xsl:message> + [INFO] Generating table list HTML page as "<xsl:sequence select="$relativeUri"/>"...</xsl:message>
+      <xsl:result-document href="{$targetUri}"
+        format="html"
+        doctype-public="-//W3C//DTD XHTML 1.1//EN"
+        doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+        <html>
+          <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />         
+            <title><xsl:sequence select="$lot-title"/></title>
+          </head>
+          <body>
+            <h2 class="toc-title"><xsl:sequence select="$lot-title"/></h2>
+            <ul  class="html-toc html-toc_{$tocDepth + 1} list-of-tables">
+              <xsl:apply-templates select="root(.)" mode="generate-list-of-tables-html-toc"/>
+            </ul>
+          </body>
+        </html>
+      </xsl:result-document>
       
       <li class="html-toc-entry html-toc-entry_{$tocDepth}">
         <span class="html-toc-entry-text html-toc-entry-text_{$tocDepth}"
           ><a href="{$relativeUri}">
-            <xsl:sequence select="'List of Tables'"/><!-- FIXME: Get this string from string config -->
+            <xsl:sequence select="$lot-title"/>
           </a></span>
       </li>
     </xsl:if>

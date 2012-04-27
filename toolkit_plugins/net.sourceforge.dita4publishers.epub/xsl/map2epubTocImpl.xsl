@@ -174,14 +174,31 @@
     <xsl:variable name="navPointTitleString" select="df:getNavtitleForTopicref(.)"/>
     <xsl:sequence select="$navPointTitleString"/>    
   </xsl:template>
-    
+  
+  <xsl:template mode="nav-point-title" match="*[contains(@class, '/figurelist ')]" priority="20">
+    <!-- FIXME: Get title from variables -->
+    <xsl:variable name="navPointTitleString" select="'List of Figures'" as="xs:string"/>
+    <xsl:sequence select="$navPointTitleString"/>    
+  </xsl:template>
+  
+  <xsl:template mode="nav-point-title" match="*[contains(@class, '/tablelist ')]" priority="20">
+    <!-- FIXME: Get title from variables -->
+    <xsl:variable name="navPointTitleString" select="'List of Tables'"/>
+    <xsl:sequence select="$navPointTitleString"/>    
+  </xsl:template>
+  
   <xsl:template match="*[df:isTopicGroup(.)]" priority="10" mode="generate-toc">
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
     <xsl:if test="$tocDepth le $maxTocDepthInt">
       <xsl:variable name="rawNavPointTitle" as="xs:string*">
         <xsl:apply-templates select="." mode="nav-point-title"/>
       </xsl:variable>
-      <xsl:variable name="navPointTitle" select="normalize-space(string-join($rawNavPointTitle, ' '))" as="xs:string"/>
+      <!-- FIXME: I think this is now bogus. TC ruled that topic groups never
+           contribute to the nav tree even if they have a nav title.
+        -->
+      <xsl:variable name="navPointTitle" 
+        select="normalize-space(string-join($rawNavPointTitle, ' '))" 
+        as="xs:string"/>
   <!--    <xsl:message> + [DEBUG] isTopicGroup(): navPointTitle="<xsl:sequence select="$navPointTitle"/>"</xsl:message>-->
       <xsl:choose>
         <xsl:when test="$navPointTitle != ''">
@@ -323,12 +340,78 @@
     " mode="generate-toc">
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
-
+  
   <xsl:template match="*[df:class(., 'topic/title')]//text()" mode="generate-toc">
     <xsl:copy/>
   </xsl:template>
   
   <xsl:template match="text()" mode="generate-toc"/>
+  
+  <xsl:template mode="nav-point-title" match="*[df:class(., 'pubmap-d/toc')]" priority="20">
+    <!-- FIXME: Localize this string. -->
+    <xsl:sequence select="'Table of Contents'"/>
+  </xsl:template>
+  
+  <xsl:template 
+    mode="generate-toc"
+    match="*[df:class(., 'pubmap-d/toc')]" 
+    priority="20" 
+    >
+    <xsl:call-template name="construct_navpoint">
+      <xsl:with-param name="targetUri" as="xs:string"
+        select="concat('toc_', generate-id(.), '.html')"
+      />
+    </xsl:call-template>    
+  </xsl:template>
+
+  <xsl:template 
+    mode="generate-toc"
+    match=" 
+    *[contains(@class, '/figurelist ')]" 
+    priority="20" 
+    >
+    <xsl:call-template name="construct_navpoint">
+      <xsl:with-param name="targetUri" as="xs:string"
+        select="concat('list-of-figures_', generate-id(.), '.html')"
+      />
+    </xsl:call-template>    
+  </xsl:template>
+  
+  <xsl:template 
+    mode="generate-toc"
+    match="*[contains(@class, '/tablelist ')]" 
+    priority="20" 
+    >
+    <xsl:call-template name="construct_navpoint">
+      <xsl:with-param name="targetUri" as="xs:string"
+        select="concat('list-of-tables_', generate-id(.), '.html')"
+      />
+    </xsl:call-template>    
+  </xsl:template>
+  
+  <xsl:template name="construct_navpoint">
+    <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
+    <xsl:param name="targetUri" as="xs:string"/> 
+    
+    <xsl:if test="$tocDepth le $maxTocDepthInt">
+      <xsl:variable name="rawNavPointTitle" as="xs:string*">
+        <xsl:apply-templates select="." mode="nav-point-title"/>
+      </xsl:variable>
+      <xsl:variable name="navPointTitle" 
+        as="xs:string"
+        select="normalize-space(string-join($rawNavPointTitle, ' '))"
+      />
+      <navPoint id="{generate-id()}" xmlns="http://www.daisy.org/z3986/2005/ncx/"
+        > 
+        <navLabel>
+          <text><xsl:sequence select="$navPointTitle"/></text>
+        </navLabel>
+        <content src="{$targetUri}"/>          
+      </navPoint>
+    </xsl:if>
+  </xsl:template>
+  
+  
   
   <xsl:function name="local:isNavPoint" as="xs:boolean">
     <xsl:param name="context" as="element()"/>
@@ -344,6 +427,12 @@
         <xsl:sequence select="false()"/>
       </xsl:when>
       <xsl:when test="df:isTopicRef($context) or df:isTopicHead($context)">
+        <xsl:sequence select="true()"/>
+      </xsl:when>
+      <xsl:when test="contains($context/@class, '/figurelist ')">
+        <xsl:sequence select="true()"/>
+      </xsl:when>
+      <xsl:when test="contains($context/@class, '/tablelist ')">
         <xsl:sequence select="true()"/>
       </xsl:when>
       <xsl:when test="df:isTopicGroup($context)">
