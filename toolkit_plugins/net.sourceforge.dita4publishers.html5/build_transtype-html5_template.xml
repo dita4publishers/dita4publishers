@@ -236,7 +236,8 @@
       <fileset dir="${html5.dir}/assets/libs/html5/css"/>
     </copy>
 
-    <copy todir="${user.assetspath.real}">
+		<mkdir dir="${user.assetspath.real}/fonts" />
+    <copy todir="${user.assetspath.real}/fonts">
       <fileset dir="${html5.dir}/assets/libs/html5/fonts"/>
     </copy>
 
