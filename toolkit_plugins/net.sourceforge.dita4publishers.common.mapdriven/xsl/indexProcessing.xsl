@@ -17,7 +17,7 @@
     
     NOTE: This functionality is not completely implemented.
     
-    Copyright (c) 2010, 2011 DITA For Publishers
+    Copyright (c) 2010, 2012 DITA For Publishers
     
     Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
     The intent of this license is for this material to be licensed in a way that is
@@ -65,7 +65,7 @@
 -->    <xsl:for-each-group select="index-terms:index-term"
       group-by="./@grouping-key"
       >
-      <xsl:sort select="./@grouping-key"/>
+      <xsl:sort select="./@grouping-key" case-order="lower-first"/>
       <xsl:if test="false() and $debugBoolean">
         <xsl:message> + [DEBUG] Index group "<xsl:sequence select="local:construct-index-group-label(current-group()[1])"
         />", grouping key: "<xsl:sequence select="current-grouping-key()"
@@ -99,7 +99,7 @@
     
     <xsl:for-each-group select="$index-terms" 
       group-by="index-terms:label">
-      <xsl:sort select="@sorting-key"/>
+      <xsl:sort select="@sorting-key" case-order="lower-first" />
       <!-- Each group is all the entries for a given term key -->
       <xsl:variable name="firstTerm" select="current-group()[1]" as="element()"/>
       <xsl:if test="$term-depth > 3">
