@@ -1,52 +1,69 @@
-$(function() {
-  var idc = 0;
 
-  // add a hash element to all href
-  $('#left-navigation a').each(function(index) {
+(function( $, window, document, undefined ) {
 
-    var href = $(this).attr('href');
-    $(this).attr('href', '#'+href);
+// jQuery.mobile configurable options
+	$.html5plugin = $.extend( {}, {
 
-    if ($(this).attr('id') == "" || $(this).attr('id') == undefined) {
-      $(this).attr('id', "link"+idc);
-      idc++;
-    }
+  	// toc url
+  	toc: '',
+
+  	// hash
+		hash: {
+		current: '',
+		previous: '',
+		id: 'q'
+	},
+
+	// from jQuery
+	// use a modified version of the $.load function
+	// for specific purpose
+	rscript: '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi',
+
+	init: function ( options ) {
+		console.log('init');
+		// navigation: prefix all href with #
+		$('#left-navigation a').each(function(index) {
+
+			$(this).attr('href', '#'+$(this).attr('href'));
 
 
-    // For all links push the appropriate state onto the history when clicked.
-    $(this).live( 'click', function(e) {
-      var state = {};
+			// push the appropriate state onto the history when clicked.
+			$(this).live( 'click', function(e) {
+					console.log('live');
+				var state = {};
 
-      // Get the id of this .bbq widget.
-      id = 'nav';
-      console.log($(this).attr( 'href' ));
-      // Set the state!
-      state[ id ] = $(this).attr( 'href' ).replace( /^#/, '' );
-      $.bbq.pushState( state );
+				// Set the state!
+				state[ $.html5plugin.hash.id ] = $(this).attr( 'href' ).replace( /^#/, '' );
 
-			$('#left-navigation a').removeClass('active');
-      $(this).addClass('active');
+				$.bbq.pushState( state );
 
-      // And finally, prevent the default link click behavior by returning false.
-      return false;
-    });
+				$('#left-navigation a').removeClass('active');
+				$(this).addClass('active');
 
-  });
+				// And finally, prevent the default link click behavior by returning false.
+				return false;
+			});
 
-  // Bind an event to window.onhashchange that, when the history state changes,
-  // iterates over all .bbq widgets, getting their appropriate url from the
-  // current state. If that .bbq widget's url has changed, display either our
-  // cached content or fetch new content to be displayed.
-  $(window).bind( 'hashchange', function(e) {
+		});
 
-    htmlurl = $.bbq.getState( $(this).attr( 'id' ) ) || '';
-		rscript = '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi';
+		// Bind an event to window.onhashchange that, when the history state changes,
+		// iterates over all .bbq widgets, getting their appropriate url from the
+		// current state. If that .bbq widget's url has changed, display either our
+		// cached content or fetch new content to be displayed.
+		$(window).bind( 'hashchange', function(e) {
+      console.log('hashchange');
+			state = $.bbq.getState( $(this).attr( 'id' ) ) || '';
+      uri = state[$.html5plugin.hash.id];
 
-    if( htmlurl != '') {
+			console.log(uri);
 
-     $.ajax( {
+			if( uri === '') { return; }
+
+			// this is a modified version of the load function in jquery
+			// I kept comments for reference
+			$.ajax( {
 				type: 'GET',
-				url: htmlurl,
+				url: uri,
 				dataType: 'html',
 				complete: function( jqXHR, status, responseText ) {
           // Store the response as specified by the jqXHR object
@@ -61,60 +78,55 @@ $(function() {
             });
 
 
- 						var html = $("<div>").append(responseText.replace(rscript, ""));
+ 						var html = $("<div>").append(responseText.replace($.html5plugin.rscript, ""));
+
 
             var content = html.find("section");
-            var title = html.find("title");
 
+            // set page title
+            var title = html.find("title");
             $('title').html(title.html());
 
             content.find("a").each(function(index) {
             	//var uriInfo = parseURL($(this).attr('href'));
             	// @todo leave pdf and external intact
-            	var path = htmlurl.substring(0,  htmlurl.lastIndexOf("/"));
+            	var path = uri.substring(0,  uri.lastIndexOf("/"));
               $(this).attr('href', "#" + path + "/" + $(this).attr('href'));
 
             	$(this).live( 'click', function(e) {
-     					var state = {};
+     						var state = {};
 
-      				// Get the id of this .bbq widget.
-      				id = 'nav';
+     						// Set the state!
+      					state[ $.html5plugin.hash.id ] = $(this).attr( 'href' ).replace( /^#/, '' );
 
-     					// Set the state!
-      				state[ id ] = $(this).attr( 'href' ).replace( /^#/, '' );
-      				$.bbq.pushState( state );
+      					$.bbq.pushState( state );
 
-      				// And finally, prevent the default link click behavior by returning false.
-     				 return false;
-    				});
-				});
+      					// And finally, prevent the default link click behavior by returning false.
+     				 	return false;
+    					});
+						});
 
-
-    				 content.find("img").each(function(index) {
-            	//var uriInfo = parseURL($(this).attr('href'));
-            	// @todo leave pdf and external intact
-            	var path = htmlurl.substring(0,  htmlurl.lastIndexOf("/")) + "/" +   $(this).attr('src');
-              $(this).attr('src',  path);
-
-
-
-
-
+						content.find("img").each(function(index) {
+              $(this).attr('src',  uri.substring(0,  uri.lastIndexOf("/")) + "/" + $(this).attr('src'));
             });
 
-             $("#main-content").html(content);
-          }
+            $("#main-content").html(content);
 
-        }
-      });
+					}
+				}
+			});
+		});
 
-    }
+		return;
 
-  })
+	}
 
+	});
 
-  // Since the event is only triggered when the hash changes, we need to trigger
-  // the event now, to handle the hash the page may have loaded with.
-  $(window).trigger( 'hashchange' );
+})( jQuery, window, document );
 
+// initialize
+$(function() {
+	$.html5plugin.init();
+	//$(window).trigger( 'hashchange' );
 });
