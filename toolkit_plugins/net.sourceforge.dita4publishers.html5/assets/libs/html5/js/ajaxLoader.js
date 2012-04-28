@@ -110,6 +110,13 @@
 
 	},
 
+	setInitialContent : function () {
+		if($("#main-content").length == 1 ) {
+			this.loadHTML ($("#left-navigation a:first-child").attr('href').replace( /^#/, '' ));
+		}
+
+	},
+
 	init: function ( options ) {
 
  		this.parseNavigation ();
@@ -128,6 +135,8 @@
 			$.html5plugin.loadHTML ( uri );
 
 		});
+
+		$.html5plugin.setInitialContent ( );
 
 		return;
 
