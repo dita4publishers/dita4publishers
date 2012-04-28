@@ -1134,55 +1134,64 @@ window.Modernizr = (function( window, document, undefined ) {
  * Dual licensed under the MIT and GPL licenses.
  * http://benalman.com/about/license/
  */
-(function($,e,b){var c="hashchange",h=document,f,g=$.event.special,i=h.documentMode,d="on"+c in e&&(i===b||i>7);function a(j){j=j||location.href;return"#"+j.replace(/^[^#]*#?(.*)$/,"$1")}$.fn[c]=function(j){return j?this.bind(c,j):this.trigger(c)};$.fn[c].delay=50;g[c]=$.extend(g[c],{setup:function(){if(d){return false}$(f.start)},teardown:function(){if(d){return false}$(f.stop)}});f=(function(){var j={},p,m=a(),k=function(q){return q},l=k,o=k;j.start=function(){p||n()};j.stop=function(){p&&clearTimeout(p);p=b};function n(){var r=a(),q=o(m);if(r!==m){l(m=r,q);$(e).trigger(c)}else{if(q!==m){location.href=location.href.replace(/#.*/,"")+q}}p=setTimeout(n,$.fn[c].delay)}$.browser.msie&&!d&&(function(){var q,r;j.start=function(){if(!q){r=$.fn[c].src;r=r&&r+a();q=$('<iframe tabindex="-1" title="empty"/>').hide().one("load",function(){r||l(a());n()}).attr("src",r||"javascript:0").insertAfter("body")[0].contentWindow;h.onpropertychange=function(){try{if(event.propertyName==="title"){q.document.title=h.title}}catch(s){}}}};j.stop=k;o=function(){return a(q.location.href)};l=function(v,s){var u=q.document,t=$.fn[c].domain;if(v!==s){u.title=h.title;u.open();t&&u.write('<script>document.domain="'+t+'"<\/script>');u.close();q.location.hash=v}}})();return j})()})(jQuery,this);$(function() {
-  var idc = 0;
+(function($,e,b){var c="hashchange",h=document,f,g=$.event.special,i=h.documentMode,d="on"+c in e&&(i===b||i>7);function a(j){j=j||location.href;return"#"+j.replace(/^[^#]*#?(.*)$/,"$1")}$.fn[c]=function(j){return j?this.bind(c,j):this.trigger(c)};$.fn[c].delay=50;g[c]=$.extend(g[c],{setup:function(){if(d){return false}$(f.start)},teardown:function(){if(d){return false}$(f.stop)}});f=(function(){var j={},p,m=a(),k=function(q){return q},l=k,o=k;j.start=function(){p||n()};j.stop=function(){p&&clearTimeout(p);p=b};function n(){var r=a(),q=o(m);if(r!==m){l(m=r,q);$(e).trigger(c)}else{if(q!==m){location.href=location.href.replace(/#.*/,"")+q}}p=setTimeout(n,$.fn[c].delay)}$.browser.msie&&!d&&(function(){var q,r;j.start=function(){if(!q){r=$.fn[c].src;r=r&&r+a();q=$('<iframe tabindex="-1" title="empty"/>').hide().one("load",function(){r||l(a());n()}).attr("src",r||"javascript:0").insertAfter("body")[0].contentWindow;h.onpropertychange=function(){try{if(event.propertyName==="title"){q.document.title=h.title}}catch(s){}}}};j.stop=k;o=function(){return a(q.location.href)};l=function(v,s){var u=q.document,t=$.fn[c].domain;if(v!==s){u.title=h.title;u.open();t&&u.write('<script>document.domain="'+t+'"<\/script>');u.close();q.location.hash=v}}})();return j})()})(jQuery,this);
+(function( $, window, document, undefined ) {
 
-  // add a hash element to all href
-  $('#left-navigation a').each(function(index) {
+// jQuery.mobile configurable options
+	$.html5plugin = $.extend( {}, {
 
-    var href = $(this).attr('href');
-    $(this).attr('href', '#'+href);
+  	// toc url
+  	toc: '',
 
-    if ($(this).attr('id') == "" || $(this).attr('id') == undefined) {
-      $(this).attr('id', "link"+idc);
-      idc++;
-    }
+  	// hash
+		hash: {
+		current: '',
+		previous: '',
+		id: 'q'
+	},
 
+	// from jQuery
+	// use a modified version of the $.load function
+	// for specific purpose
+	rscript: '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi',
 
-    // For all links push the appropriate state onto the history when clicked.
-    $(this).live( 'click', function(e) {
-      var state = {};
+  // parse navigation
+  // replace href by # + href
+  // add click event and push state in the history
+  // using bbq
+	parseNavigation: function ( ) {
+	  // navigation: prefix all href with #
+		$('#left-navigation a').each(function(index) {
 
-      // Get the id of this .bbq widget.
-      id = 'nav';
-      console.log($(this).attr( 'href' ));
-      // Set the state!
-      state[ id ] = $(this).attr( 'href' ).replace( /^#/, '' );
-      $.bbq.pushState( state );
+			$(this).attr('href', '#'+$(this).attr('href'));
 
-			$('#left-navigation a').removeClass('active');
-      $(this).addClass('active');
+			// push the appropriate state onto the history when clicked.
+			$(this).live( 'click', function(e) {
+					console.log('live');
+				var state = {};
 
-      // And finally, prevent the default link click behavior by returning false.
-      return false;
-    });
+				// Set the state!
+				state[ $.html5plugin.hash.id ] = $(this).attr( 'href' ).replace( /^#/, '' );
 
-  });
+				$.bbq.pushState( state );
 
-  // Bind an event to window.onhashchange that, when the history state changes,
-  // iterates over all .bbq widgets, getting their appropriate url from the
-  // current state. If that .bbq widget's url has changed, display either our
-  // cached content or fetch new content to be displayed.
-  $(window).bind( 'hashchange', function(e) {
+				$('#left-navigation a').removeClass('active');
+				$(this).addClass('active');
 
-    htmlurl = $.bbq.getState( $(this).attr( 'id' ) ) || '';
-		rscript = '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi';
+				// And finally, prevent the default link click behavior by returning false.
+				return false;
+			});
 
-    if( htmlurl != '') {
+		});
+	},
 
-     $.ajax( {
+	// this is a modified version of the load function in jquery
+	// I kept comments for reference
+	// @todo: see if it is neccessary to implement cache here
+	loadHTML: function ( uri ) {
+		$.ajax( {
 				type: 'GET',
-				url: htmlurl,
+				url: uri,
 				dataType: 'html',
 				complete: function( jqXHR, status, responseText ) {
           // Store the response as specified by the jqXHR object
@@ -1197,60 +1206,75 @@ window.Modernizr = (function( window, document, undefined ) {
             });
 
 
- 						var html = $("<div>").append(responseText.replace(rscript, ""));
+ 						var html = $("<div>").append(responseText.replace($.html5plugin.rscript, ""));
+
 
             var content = html.find("section");
-            var title = html.find("title");
 
+            // set page title
+            var title = html.find("title");
             $('title').html(title.html());
 
             content.find("a").each(function(index) {
             	//var uriInfo = parseURL($(this).attr('href'));
             	// @todo leave pdf and external intact
-            	var path = htmlurl.substring(0,  htmlurl.lastIndexOf("/"));
+            	var path = uri.substring(0,  uri.lastIndexOf("/"));
               $(this).attr('href', "#" + path + "/" + $(this).attr('href'));
 
             	$(this).live( 'click', function(e) {
-     					var state = {};
+     						var state = {};
 
-      				// Get the id of this .bbq widget.
-      				id = 'nav';
+     						// Set the state!
+      					state[ $.html5plugin.hash.id ] = $(this).attr( 'href' ).replace( /^#/, '' );
 
-     					// Set the state!
-      				state[ id ] = $(this).attr( 'href' ).replace( /^#/, '' );
-      				$.bbq.pushState( state );
+      					$.bbq.pushState( state );
 
-      				// And finally, prevent the default link click behavior by returning false.
-     				 return false;
-    				});
-				});
+      					// And finally, prevent the default link click behavior by returning false.
+     				 	return false;
+    					});
+						});
 
-
-    				 content.find("img").each(function(index) {
-            	//var uriInfo = parseURL($(this).attr('href'));
-            	// @todo leave pdf and external intact
-            	var path = htmlurl.substring(0,  htmlurl.lastIndexOf("/")) + "/" +   $(this).attr('src');
-              $(this).attr('src',  path);
-
-
-
-
-
+						content.find("*[src]").each(function(index) {
+              $(this).attr('src',  uri.substring(0,  uri.lastIndexOf("/")) + "/" + $(this).attr('src'));
             });
 
-             $("#main-content").html(content);
-          }
+            $("#main-content").html(content);
 
-        }
-      });
+					}
+				}
+			});
 
-    }
+	},
 
-  })
+	init: function ( options ) {
 
+ 		this.parseNavigation ();
 
-  // Since the event is only triggered when the hash changes, we need to trigger
-  // the event now, to handle the hash the page may have loaded with.
-  $(window).trigger( 'hashchange' );
+		// Bind an event to window.onhashchange that, when the history state changes,
+		// iterates over all .bbq widgets, getting their appropriate url from the
+		// current state. If that .bbq widget's url has changed, display either our
+		// cached content or fetch new content to be displayed.
+		$(window).bind( 'hashchange', function(e) {
 
+			state = $.bbq.getState( $(this).attr( 'id' ) ) || '';
+      uri = state[$.html5plugin.hash.id];
+
+			if( uri === '') { return; }
+
+			$.html5plugin.loadHTML ( uri );
+
+		});
+
+		return;
+
+	}
+
+	});
+
+})( jQuery, window, document );
+
+// initialize
+$(function() {
+	$.html5plugin.init();
+	//$(window).trigger( 'hashchange' );
 });

@@ -19,13 +19,15 @@
 	// for specific purpose
 	rscript: '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi',
 
-	init: function ( options ) {
-		console.log('init');
-		// navigation: prefix all href with #
+  // parse navigation
+  // replace href by # + href
+  // add click event and push state in the history
+  // using bbq
+	parseNavigation: function ( ) {
+	  // navigation: prefix all href with #
 		$('#left-navigation a').each(function(index) {
 
 			$(this).attr('href', '#'+$(this).attr('href'));
-
 
 			// push the appropriate state onto the history when clicked.
 			$(this).live( 'click', function(e) {
@@ -45,23 +47,13 @@
 			});
 
 		});
+	},
 
-		// Bind an event to window.onhashchange that, when the history state changes,
-		// iterates over all .bbq widgets, getting their appropriate url from the
-		// current state. If that .bbq widget's url has changed, display either our
-		// cached content or fetch new content to be displayed.
-		$(window).bind( 'hashchange', function(e) {
-      console.log('hashchange');
-			state = $.bbq.getState( $(this).attr( 'id' ) ) || '';
-      uri = state[$.html5plugin.hash.id];
-
-			console.log(uri);
-
-			if( uri === '') { return; }
-
-			// this is a modified version of the load function in jquery
-			// I kept comments for reference
-			$.ajax( {
+	// this is a modified version of the load function in jquery
+	// I kept comments for reference
+	// @todo: see if it is neccessary to implement cache here
+	loadHTML: function ( uri ) {
+		$.ajax( {
 				type: 'GET',
 				url: uri,
 				dataType: 'html',
@@ -106,7 +98,7 @@
     					});
 						});
 
-						content.find("img").each(function(index) {
+						content.find("*[src]").each(function(index) {
               $(this).attr('src',  uri.substring(0,  uri.lastIndexOf("/")) + "/" + $(this).attr('src'));
             });
 
@@ -115,6 +107,26 @@
 					}
 				}
 			});
+
+	},
+
+	init: function ( options ) {
+
+ 		this.parseNavigation ();
+
+		// Bind an event to window.onhashchange that, when the history state changes,
+		// iterates over all .bbq widgets, getting their appropriate url from the
+		// current state. If that .bbq widget's url has changed, display either our
+		// cached content or fetch new content to be displayed.
+		$(window).bind( 'hashchange', function(e) {
+
+			state = $.bbq.getState( $(this).attr( 'id' ) ) || '';
+      uri = state[$.html5plugin.hash.id];
+
+			if( uri === '') { return; }
+
+			$.html5plugin.loadHTML ( uri );
+
 		});
 
 		return;
