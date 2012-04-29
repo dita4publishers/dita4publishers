@@ -99,7 +99,7 @@
             <xsl:if test="$enumeration and $enumeration != ''">
               <span class="enumeration enumeration{$tocDepth}"><xsl:sequence select="$enumeration"/></span>
             </xsl:if>
-            <xsl:apply-templates select="." mode="nav-point-title"/></a></li>
+            <xsl:apply-templates select="." mode="nav-point-title"/></a>
           <xsl:if test="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]">
             <ul>
               <!-- Any subordinate topics in the currently-referenced topic are
@@ -113,6 +113,7 @@
               </xsl:apply-templates>
             </ul>
           </xsl:if>
+          </li>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:if>
