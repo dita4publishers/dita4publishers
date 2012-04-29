@@ -51,7 +51,7 @@
   	
     <property name="d4p.is.map.driven" value="true"/>
 
-  	<condition property="topics.output.dir" value="topics">
+    <condition property="topics.output.dir" value="topics">
   		<not>
   			<isset property="topics.output.dir"/>
   	  </not>
@@ -166,6 +166,8 @@
     	<param name="generateHtmlToc" expression="${epub.generate.html.toc}" if="epub.generate.html.toc"/>
     	<param name="generateIndex" expression="${html2.generate.index}" if="html2.generate.index"/>
       <param name="html.toc.OUTPUTCLASS" expression="${args.xhtml.toc.class}" if="args.xhtml.toc.class" />
+      <param name="maxTocDepth" expression="${d4p.max.toc.depth}" if="d4p.max.toc.depth"/>
+      <param name="maxNavDepth" expression="${d4p.max.nav.depth}" if="d4p.max.nav.depth"/>
 
     	<!-- Parameters from dita2xhtml and similar transtypes: -->   
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
