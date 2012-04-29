@@ -27,8 +27,6 @@
     <xsl:variable name="xtrf" as="xs:string" select="../@xtrf"/>
     <xsl:variable name="baseUri" as="xs:string" 
       select="relpath:getParent($xtrf)"/>
-    <xsl:message> + [DEBUG] topic/image/@scale: baseUri="<xsl:sequence select="$baseUri"/>"</xsl:message>
-    <xsl:message> + [DEBUG] topic/image/@scale: @href="<xsl:sequence select="../@origHref"/>"</xsl:message>
     
     <xsl:variable name="width">
       <xsl:choose>
@@ -84,7 +82,6 @@
       <xsl:call-template name="commonattributes">
         <xsl:with-param name="default-output-class" select="$default-fig-class"/>
       </xsl:call-template>
-      <xsl:message> + [DEBUG] topic/fig override: @id="<xsl:sequence select="@id"/>"</xsl:message>
       <xsl:if test="not(@id)">
         <xsl:attribute name="id" select="df:generate-dita-id(.)"/>
       </xsl:if>
