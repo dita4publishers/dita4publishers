@@ -119,7 +119,6 @@
   
   <xsl:template match="*[df:isTopicRef(.)]" mode="generate-html-toc">
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
-    <xsl:message> + [DEBUG] generate-html-toc: *[df:isTopicRef(.)]: tocDepth=<xsl:sequence select="$tocDepth"/></xsl:message>
     <xsl:if test="$tocDepth le $maxTocDepthInt">
       <!-- For title that shows up in link text, use the navtitle. If it's
         not there, use the first title element in the referenced file. -->

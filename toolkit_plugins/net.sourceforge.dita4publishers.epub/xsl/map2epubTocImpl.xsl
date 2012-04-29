@@ -115,7 +115,7 @@
   <!-- Convert each topicref to a navPoint. -->
   <xsl:template match="*[df:isTopicRef(.)]" mode="generate-toc">
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
-    <xsl:if test="$tocDepth le $maxTocDepthInt">
+    <xsl:if test="$tocDepth le $maxNavDepthInt">
       <!-- For title that shows up in ncx:text, use the navtitle. If it's
         not there, use the first title element in the referenced file. -->
       <xsl:variable name="navPointTitle">
@@ -189,7 +189,7 @@
   
   <xsl:template match="*[df:isTopicGroup(.)]" priority="10" mode="generate-toc">
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
-    <xsl:if test="$tocDepth le $maxTocDepthInt">
+    <xsl:if test="$tocDepth le $maxNavDepthInt">
       <xsl:variable name="rawNavPointTitle" as="xs:string*">
         <xsl:apply-templates select="." mode="nav-point-title"/>
       </xsl:variable>
@@ -226,7 +226,7 @@
   <xsl:template match="*[df:class(., 'topic/topic')]" mode="generate-toc">
     <!-- Non-root topics generate ToC entries if they are within the ToC depth -->
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
-    <xsl:if test="$tocDepth le $maxTocDepthInt">
+    <xsl:if test="$tocDepth le $maxNavDepthInt">
       <xsl:variable name="rawNavPointTitle" as="xs:string*">
         <xsl:apply-templates select="*[df:class(., 'topic/title')]" mode="nav-point-title"/>
       </xsl:variable>
@@ -264,7 +264,7 @@
        anything.  Same with topicref that has no @href. -->
   <xsl:template match="*[df:isTopicHead(.)]" mode="generate-toc">
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
-    <xsl:if test="$tocDepth le $maxTocDepthInt">
+    <xsl:if test="$tocDepth le $maxNavDepthInt">
       <xsl:variable name="titleOnlyTopicFilename" as="xs:string"
         select="normalize-space(htmlutil:getTopicheadHtmlResultTopicFilename(.))"
       />
@@ -393,7 +393,7 @@
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
     <xsl:param name="targetUri" as="xs:string"/> 
     
-    <xsl:if test="$tocDepth le $maxTocDepthInt">
+    <xsl:if test="$tocDepth le $maxNavDepthInt">
       <xsl:variable name="rawNavPointTitle" as="xs:string*">
         <xsl:apply-templates select="." mode="nav-point-title"/>
       </xsl:variable>
