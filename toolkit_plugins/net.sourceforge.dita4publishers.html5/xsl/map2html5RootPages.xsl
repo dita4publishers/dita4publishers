@@ -91,11 +91,7 @@
 
     <body>
 
-    	<xsl:attribute name = "class">
-    		<xsl:call-template name="getLowerCaseLang"/>
-				<xsl:sequence select="'&#160;'"/>
-    		<xsl:value-of select="$siteTheme" />
-    	</xsl:attribute>
+    <xsl:apply-templates select="." mode="set-body-class-attr" />
 
 
     	<xsl:sequence select="'&#x0a;'"/>
@@ -200,5 +196,17 @@
   </xsl:template>
 
   <xsl:template match="*" mode="get-css-theme-path">assets/<xsl:value-of select="$siteTheme" />/style.css</xsl:template>
+
+  <xsl:template match="*" mode="set-body-class-attr">
+  	<xsl:attribute name = "class">
+    		<xsl:call-template name="getLowerCaseLang"/>
+				<xsl:sequence select="'&#160;'"/>
+    		<xsl:value-of select="$siteTheme" />
+    		<xsl:sequence select="'&#160;'"/>
+				<xsl:value-of select="$bodyClass" />
+    	</xsl:attribute>
+  </xsl:template>
+
+
 
 </xsl:stylesheet>

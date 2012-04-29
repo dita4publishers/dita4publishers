@@ -78,6 +78,12 @@
       </not>
 		</condition>
 
+		<condition property="bodyClass" value="centered img-with-shadow">
+		  <not>
+        <isset property="bodyClass" />
+      </not>
+		</condition>
+
     <condition property="css.output.dir" value="css">
       <not>
         <isset property="args.css.output.dir" />
@@ -129,8 +135,10 @@
       filenameparameter="inputFileNameParam"
 
     	>
+
       <param name="siteTheme" expression="${site.theme}"/>
-     	<param name="cssOutputDir" expression="${css.output.dir}"/>
+      <param name="bodyClass" expression="${bodyClass}"/>
+      <param name="cssOutputDir" expression="${css.output.dir}"/>
       <param name="debug" expression="${debug}"/>
     	<param name="fileOrganizationStrategy" expression="${html2.file.organization.strategy}" if="html2.file.organization.strategy"/>
       <param name="generateDynamicToc" expression="${html5.generate.dynamic.toc}" if="html5.generate.dynamic.toc"/>

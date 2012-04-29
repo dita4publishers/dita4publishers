@@ -34,7 +34,7 @@
   <xsl:param name="dita-css" select="'css/topic-html5.css'" as="xs:string"/>
 
   <xsl:param name="siteTheme" select="'theme-01'" />
-
+  <xsl:param name="bodyClass" select="''" />
 
   <xsl:template name="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
