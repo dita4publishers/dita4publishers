@@ -28,7 +28,9 @@ h1#publication-title {
 	color:#FFF;
 }
 
-
+section h1 {
+	margin:2em 0;
+}
 
 header {
 	background: #999;
