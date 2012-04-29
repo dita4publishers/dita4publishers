@@ -97,13 +97,14 @@
     		<xsl:value-of select="$siteTheme" />
     	</xsl:attribute>
 
-			<div class="container_24">
-    		<xsl:sequence select="'&#x0a;'"/>
 
-      	<header role = "banner" aria-labelledby="publication-title">
+    	<xsl:sequence select="'&#x0a;'"/>
+
+      <header role = "banner" aria-labelledby="publication-title">
        	 <xsl:apply-templates select="." mode="generate-root-page-header"/>
-     		</header>
+     	</header>
 
+			<div class="container_24">
 
 
       	<!-- This mode generates the navigation structure (ToC) on the
@@ -172,6 +173,19 @@
   <xsl:template match="*" mode="generate-javascript-includes">
     <!-- FIXME: Parameterize the location of the JavaScript -->
     <script src="assets/script.js" type="text/javascript">&#xa0;</script><xsl:sequence select="'&#x0a;'"/>
+
+    <script type="text/javascript">
+
+   	<xsl:comment>
+			$(function() {
+				$.html5plugin.init();
+			});
+		</xsl:comment>
+
+    </script><xsl:sequence select="'&#x0a;'"/>
+
+
+
   </xsl:template>
 
   <xsl:template match="*" mode="generate-css-includes">

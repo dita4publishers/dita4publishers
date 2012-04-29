@@ -2,17 +2,18 @@
 (function( $, window, document, undefined ) {
 
 // jQuery.mobile configurable options
-	$.html5plugin = $.extend( {}, {
+$.html5plugin = $.extend( {}, {
 
-  	// toc url
-  	toc: '',
+  // toc url
+  toc: '',
 
-  	// hash
-		hash: {
+  // hash
+	hash: {
 		current: '',
 		previous: '',
 		id: 'q'
 	},
+
 
 	// from jQuery
 	// use a modified version of the $.load function
@@ -145,9 +146,3 @@
 	});
 
 })( jQuery, window, document );
-
-// initialize
-$(function() {
-	$.html5plugin.init();
-	//$(window).trigger( 'hashchange' );
-});

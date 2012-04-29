@@ -21,5 +21,20 @@
 .fontface h1, .fontface  h2, .fontface  h3, .fontface  h4,.fontface  h5,.fontface  h6
 {
 	font-family: "Vegur Regular", sans-serif;
-	color: #333;
+}
+
+
+h1#publication-title {
+	color:#FFF;
+}
+
+
+
+header {
+	background: #999;
+	border-bottom:1px solid #ccc;
+}
+
+#left-navigation {
+	background: #EEE;
 }
