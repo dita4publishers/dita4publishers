@@ -133,8 +133,11 @@
 
   <xsl:param name="titleOnlyTopicTitleClassSpec" select="'- topic/title '" as="xs:string"/>
   
-  <!-- Maxminum depth of the generated ToC -->
+  <!-- Maxminum depth of the generated HTML ToC -->
   <xsl:param name="maxTocDepth" as="xs:string" select="'5'"/>
+  
+  <!-- Maxminum depth of the generated navigation ToC -->
+  <xsl:param name="maxNavDepth" as="xs:string" select="$maxTocDepth"/>
   
   <!-- Include literal HTML ToC page as for normal HTML output. 
   -->
@@ -203,9 +206,11 @@
       
       + coverGraphicUri = "<xsl:sequence select="$coverGraphicUri"/>"
       + cssOutputDir    = "<xsl:sequence select="$cssOutputDir"/>"
-      + generateGlossary= "<xsl:sequence select="$generateGlossary"/>
-      + generateHtmlToc = "<xsl:sequence select="$generateHtmlToc"/>
-      + generateIndex   = "<xsl:sequence select="$generateIndex"/>
+      + generateGlossary= "<xsl:sequence select="$generateGlossary"/>"
+      + generateHtmlToc = "<xsl:sequence select="$generateHtmlToc"/>"
+      + maxTocDepth     = "<xsl:sequence select="$maxTocDepth"/>"
+      + maxNavDepth     = "<xsl:sequence select="$maxNavDepth"/>"
+      + generateIndex   = "<xsl:sequence select="$generateIndex"/>"
       + imagesOutputDir = "<xsl:sequence select="$imagesOutputDir"/>"
       + mathJaxInclude  = "<xsl:sequence select="$mathJaxInclude"/>"
       + mathJaxConfigParam = "<xsl:sequence select="$mathJaxConfigParam"/>"
@@ -243,6 +248,7 @@
   />
   
   <xsl:variable name="maxTocDepthInt" select="xs:integer($maxTocDepth)" as="xs:integer"/>
+  <xsl:variable name="maxNavDepthInt" select="xs:integer($maxNavDepth)" as="xs:integer"/>
   
   
   <xsl:variable name="platform" as="xs:string"

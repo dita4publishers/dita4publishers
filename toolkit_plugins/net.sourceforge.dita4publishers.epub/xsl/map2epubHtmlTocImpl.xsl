@@ -62,38 +62,47 @@
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />         
           <title>Table of Contents</title>
-          <style type="text/css">
-.html-toc {
-  list-style-type: none;
-
-}
-
-.html-toc-entry_1 {
-   margin-top: 10px;
-}
-
-.html-toc_2 {
-   margin-top: 10px;
-}
-
-
-.html-toc-entry-text_1 {
-  font-weight: bold;
-}
-
-.html-toc-entry-text_3 {
-  font-style: italic;
-}
-          </style>
+          <xsl:call-template name="constructToCStyle"/>
         </head>
-        <body>
+        <body class="toc-list-of-tables html-toc">
           <!-- FIXME: localize and parameterize the ToC page title. -->
-          <h2 class="toc-title">Contents</h2>   
-          <xsl:apply-templates select="$navmap" mode="html-toc"/>
+          <h2 class="toc-title">Contents</h2>
+          <div class="html-toc toc-entries">
+            <xsl:apply-templates select="$navmap" mode="html-toc"/>
+          </div>
         </body>
       </html>
     </xsl:result-document>
     <xsl:message> + [INFO] HTML ToC generation done.</xsl:message>
+  </xsl:template>
+  
+  <xsl:template name="constructToCStyle">
+    <!-- FIXME: This template is a short-term fix for the fact that the 
+         TOC files are not output in the same location as the topics,
+         so a reference to the base CSS file is wrong with the
+         current code.
+      -->
+    <style type="text/css">
+      .html-toc {
+      font-family: Myriad, Verdana, sans-serif;
+      }
+      .html-toc-entry_1 {
+      margin-top: 10px;
+      }
+      
+      .html-toc_2 {
+      margin-top: 10px;
+      }
+      
+      
+      .html-toc-entry-text_1 {
+      font-weight: bold;
+      }
+      
+      .html-toc-entry-text_3 {
+      font-style: italic;
+      }
+    </style>
   </xsl:template>
   
   <!-- ================================================================================== -->
@@ -110,6 +119,7 @@
   
   <xsl:template match="*[df:isTopicRef(.)]" mode="generate-html-toc">
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
+    <xsl:message> + [DEBUG] generate-html-toc: *[df:isTopicRef(.)]: tocDepth=<xsl:sequence select="$tocDepth"/></xsl:message>
     <xsl:if test="$tocDepth le $maxTocDepthInt">
       <!-- For title that shows up in link text, use the navtitle. If it's
         not there, use the first title element in the referenced file. -->
@@ -149,7 +159,7 @@
                 </xsl:apply-templates>        
                 <xsl:if test="not(contains(@chunk, 'to-content'))">
                   <xsl:apply-templates mode="#current"
-                    select="$topic/*[df:class(., 'map/topicref')]">
+                    select="*[df:class(., 'map/topicref')]">
                     <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes" select="$tocDepth + 1"
                     />
                   </xsl:apply-templates>        
@@ -192,8 +202,9 @@
           <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />         
             <title><xsl:sequence select="$lof-title"/></title>
+            <xsl:call-template name="constructToCStyle"/>
           </head>
-          <body>
+          <body class="toc-list-of-figures html-toc">
             <h2 class="toc-title"><xsl:sequence select="$lof-title"/></h2>
             <ul  class="html-toc html-toc_{$tocDepth + 1} list-of-figures">
               <xsl:apply-templates select="root(.)" mode="generate-list-of-figures-html-toc"/>
@@ -232,8 +243,9 @@
           <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />         
             <title><xsl:sequence select="$lot-title"/></title>
+            <xsl:call-template name="constructToCStyle"/>
           </head>
-          <body>
+          <body class="toc-list-of-tables html-toc">
             <h2 class="toc-title"><xsl:sequence select="$lot-title"/></h2>
             <ul  class="html-toc html-toc_{$tocDepth + 1} list-of-tables">
               <xsl:apply-templates select="root(.)" mode="generate-list-of-tables-html-toc"/>
@@ -363,13 +375,10 @@
         <xsl:sequence select="true()"/>
       </xsl:when>
       <xsl:when test="df:isTopicGroup($context)">
-        <xsl:variable name="navPointTitle" as="xs:string*">
-          <xsl:apply-templates select="$context" mode="nav-point-title"/>
-        </xsl:variable>
-        <!-- If topic head has a title (e.g., a generated title), then it 
-          acts as a navigation point.
-        -->
-        <xsl:sequence select="normalize-space(string-join($navPointTitle, ' ')) != ''"/>
+        <!-- Topic groups never contribute to navigation tree even if they
+             have titles.
+          -->
+        <xsl:sequence select="false()"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:sequence select="false()"/>
