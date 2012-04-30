@@ -1134,21 +1134,38 @@ window.Modernizr = (function( window, document, undefined ) {
  * Dual licensed under the MIT and GPL licenses.
  * http://benalman.com/about/license/
  */
-(function($,e,b){var c="hashchange",h=document,f,g=$.event.special,i=h.documentMode,d="on"+c in e&&(i===b||i>7);function a(j){j=j||location.href;return"#"+j.replace(/^[^#]*#?(.*)$/,"$1")}$.fn[c]=function(j){return j?this.bind(c,j):this.trigger(c)};$.fn[c].delay=50;g[c]=$.extend(g[c],{setup:function(){if(d){return false}$(f.start)},teardown:function(){if(d){return false}$(f.stop)}});f=(function(){var j={},p,m=a(),k=function(q){return q},l=k,o=k;j.start=function(){p||n()};j.stop=function(){p&&clearTimeout(p);p=b};function n(){var r=a(),q=o(m);if(r!==m){l(m=r,q);$(e).trigger(c)}else{if(q!==m){location.href=location.href.replace(/#.*/,"")+q}}p=setTimeout(n,$.fn[c].delay)}$.browser.msie&&!d&&(function(){var q,r;j.start=function(){if(!q){r=$.fn[c].src;r=r&&r+a();q=$('<iframe tabindex="-1" title="empty"/>').hide().one("load",function(){r||l(a());n()}).attr("src",r||"javascript:0").insertAfter("body")[0].contentWindow;h.onpropertychange=function(){try{if(event.propertyName==="title"){q.document.title=h.title}}catch(s){}}}};j.stop=k;o=function(){return a(q.location.href)};l=function(v,s){var u=q.document,t=$.fn[c].domain;if(v!==s){u.title=h.title;u.open();t&&u.write('<script>document.domain="'+t+'"<\/script>');u.close();q.location.hash=v}}})();return j})()})(jQuery,this);
-(function( $, window, document, undefined ) {
+(function($,e,b){var c="hashchange",h=document,f,g=$.event.special,i=h.documentMode,d="on"+c in e&&(i===b||i>7);function a(j){j=j||location.href;return"#"+j.replace(/^[^#]*#?(.*)$/,"$1")}$.fn[c]=function(j){return j?this.bind(c,j):this.trigger(c)};$.fn[c].delay=50;g[c]=$.extend(g[c],{setup:function(){if(d){return false}$(f.start)},teardown:function(){if(d){return false}$(f.stop)}});f=(function(){var j={},p,m=a(),k=function(q){return q},l=k,o=k;j.start=function(){p||n()};j.stop=function(){p&&clearTimeout(p);p=b};function n(){var r=a(),q=o(m);if(r!==m){l(m=r,q);$(e).trigger(c)}else{if(q!==m){location.href=location.href.replace(/#.*/,"")+q}}p=setTimeout(n,$.fn[c].delay)}$.browser.msie&&!d&&(function(){var q,r;j.start=function(){if(!q){r=$.fn[c].src;r=r&&r+a();q=$('<iframe tabindex="-1" title="empty"/>').hide().one("load",function(){r||l(a());n()}).attr("src",r||"javascript:0").insertAfter("body")[0].contentWindow;h.onpropertychange=function(){try{if(event.propertyName==="title"){q.document.title=h.title}}catch(s){}}}};j.stop=k;o=function(){return a(q.location.href)};l=function(v,s){var u=q.document,t=$.fn[c].domain;if(v!==s){u.title=h.title;u.open();t&&u.write('<script>document.domain="'+t+'"<\/script>');u.close();q.location.hash=v}}})();return j})()})(jQuery,this);(function( $, window, document, undefined ) {
 
 // jQuery.mobile configurable options
 $.html5plugin = $.extend( {}, {
 
-  // toc url
+  // toc url - to be implemented
+  // the idea is to have the reference to the toc on every page.
+  // if someone come on a specific page trough a search engine
+  // the code will load the toc parent and render the page properly.
   toc: '',
 
-  // hash
+	// store navigation key:href, value:id
+  navigation: [],
+
+  // hash (for later)
 	hash: {
 		current: '',
 		previous: '',
 		id: 'q'
 	},
+
+	// used to attribute and id to the navigation tree
+	ids: {
+		n: 0,
+		prefix: 'html5plugin-nav-item-'
+	},
+
+	// store current content
+	title: '',
+	content: '',
+
+	protocols: ['file', 'ftp', 'http', 'https', 'mailto'],
 
 
 	// from jQuery
@@ -1164,21 +1181,32 @@ $.html5plugin = $.extend( {}, {
 	  // navigation: prefix all href with #
 		$('#left-navigation a').each(function(index) {
 
-			$(this).attr('href', '#'+$(this).attr('href'));
+      var id = $(this).attr('id');
+
+			// attribute an ID for future reference if not set
+			if(id === '' || id == undefined) {
+				id = $.html5plugin.ids.prefix + $.html5plugin.ids.n;
+				$.html5plugin.ids.n++;
+				$(this).attr('id', id);
+			}
+
+			// replace href
+      var href = '#'+$(this).attr('href');
+			$(this).attr('href', href);
+
+			// keep information in memory when link is triggered on page
+			$.html5plugin.navigation[href] = id;
 
 			// push the appropriate state onto the history when clicked.
 			$(this).live( 'click', function(e) {
-					console.log('live');
+
 				var state = {};
 
 				// Set the state!
 				state[ $.html5plugin.hash.id ] = $(this).attr( 'href' ).replace( /^#/, '' );
-
 				$.bbq.pushState( state );
 
-				$('#left-navigation a').removeClass('active');
-				$(this).addClass('active');
-
+				$.html5plugin.setNavItemActive($(this).attr('id'));
 				// And finally, prevent the default link click behavior by returning false.
 				return false;
 			});
@@ -1186,10 +1214,27 @@ $.html5plugin = $.extend( {}, {
 		});
 	},
 
+	// activate navigation item
+	// add/remove required navigation item
+	setNavItemActive: function (id) {
+		console.log(id);
+		// remove previous class
+		$('#left-navigation li').removeClass('selected');
+		$('#left-navigation li').removeClass('active');
+
+		// add selected class on the li parent element
+		$('#'+id).parents().addClass('selected');
+
+		// set all the parent trail active
+		$('#'+id).parent('li').addClass('active');
+	},
+
 	// this is a modified version of the load function in jquery
 	// I kept comments for reference
 	// @todo: see if it is neccessary to implement cache here
+	// @todo: implement beforeSend, error callback
 	loadHTML: function ( uri ) {
+	 	$.html5plugin.hash.current = uri;
 		$.ajax( {
 				type: 'GET',
 				url: uri,
@@ -1206,40 +1251,14 @@ $.html5plugin = $.extend( {}, {
               responseText = r;
             });
 
-
  						var html = $("<div>").append(responseText.replace($.html5plugin.rscript, ""));
 
-
-            var content = html.find("section");
-
-            // set page title
-            var title = html.find("title");
-            $('title').html(title.html());
-
-            content.find("a").each(function(index) {
-            	//var uriInfo = parseURL($(this).attr('href'));
-            	// @todo leave pdf and external intact
-            	var path = uri.substring(0,  uri.lastIndexOf("/"));
-              $(this).attr('href', "#" + path + "/" + $(this).attr('href'));
-
-            	$(this).live( 'click', function(e) {
-     						var state = {};
-
-     						// Set the state!
-      					state[ $.html5plugin.hash.id ] = $(this).attr( 'href' ).replace( /^#/, '' );
-
-      					$.bbq.pushState( state );
-
-      					// And finally, prevent the default link click behavior by returning false.
-     				 	return false;
-    					});
-						});
-
-						content.find("*[src]").each(function(index) {
-              $(this).attr('src',  uri.substring(0,  uri.lastIndexOf("/")) + "/" + $(this).attr('src'));
-            });
-
-            $("#main-content").html(content);
+            $.html5plugin.content = html.find("section");
+						$.html5plugin.title = html.find("title").html();
+						$.html5plugin.rewriteAttrHref();
+						$.html5plugin.rewriteAttrSrc();
+						$.html5plugin.setTitle();
+						$.html5plugin.setMainContent();
 
 					}
 				}
@@ -1247,9 +1266,70 @@ $.html5plugin = $.extend( {}, {
 
 	},
 
+	setTitle: function() {
+		$('title').html($.html5plugin.title);
+	},
+
+	setMainContent: function() {
+		 $("#main-content").html($.html5plugin.content);
+	},
+
+	// Rewrite each src in the document
+	// because there is no real path with AJAX call
+	rewriteAttrSrc: function() {
+		$.html5plugin.content.find("*[src]").each(function(index) {
+  		$(this).attr('src',  uri.substring(0,  uri.lastIndexOf("/")) + "/" + $(this).attr('src'));
+   });
+	},
+
+	// Rewrite each href in the document
+	// because there is no real path with AJAX call
+	rewriteAttrHref: function ( ) {
+		$.html5plugin.content.find("*[href]").each(function(index) {
+			var uri = $.html5plugin.hash.current;
+    	var dir = uri.substring(0,  uri.lastIndexOf("/"));
+    	var base = dir.split("/");
+    	var parts = $(this).attr('href').split("/");
+
+    	// prevent external to be rewrited
+    	if ($.inArray (parts[0], $.html5plugin.protocols) !=  -1) {
+      	return true;
+    	}
+
+    	var pathC = base.concat(parts);
+
+    	for ( var i=0, len=pathC.length; i<len; ++i ){
+ 				if (pathC[i] === '..') {
+ 					pathC.splice(i, 1);
+        	pathC.splice(i - 1, 1);
+    		}
+			}
+
+    	$(this).attr('href', "#" + pathC.join("/"));
+
+    	$(this).live( 'click', function(e) {
+
+    		var state = {};
+
+    		// Set the state!
+      	state[ $.html5plugin.hash.id ] = $(this).attr( 'href' ).replace( /^#/, '' );
+
+      	$.bbq.pushState( state );
+
+      	$.html5plugin.setNavItemActive($.html5plugin.navigation[$(this).attr('href')]);
+
+      	// And finally, prevent the default link click behavior by returning false.
+     		return false;
+    	});
+
+		});
+	},
+
+	// load initial content to avoid a blank page
 	setInitialContent : function () {
 		if($("#main-content").length == 1 ) {
 			this.loadHTML ($("#left-navigation a:first-child").attr('href').replace( /^#/, '' ));
+			$("#left-navigation li:first-child").addClass("active selected");
 		}
 
 	},

@@ -109,8 +109,12 @@
      	 <xsl:apply-templates select="." mode="generate-html5-nav-page-markup"/>
 
       	<div id="main-content" role="main">
-        	<xsl:attribute name="class"><xsl:text>grid_18 push_1</xsl:text></xsl:attribute>
+
+        	<xsl:attribute name="class" select="'grid_18 push_7'" />
         	<xsl:sequence select="'&#x0a;'"/>
+
+        	<xsl:apply-templates select="." mode="set-initial-content"/>
+
         </div>
 
 				<div class="clear" /><xsl:sequence select="'&#x0a;'"/>
@@ -207,6 +211,15 @@
     	</xsl:attribute>
   </xsl:template>
 
+
+  <xsl:template match="*" mode="set-initial-content">
+		<noscript>
+			<p>
+				<xsl:text>
+			To read this documentation, you must turn on JavaScript.</xsl:text>
+			</p>
+		</noscript>
+  </xsl:template>
 
 
 </xsl:stylesheet>

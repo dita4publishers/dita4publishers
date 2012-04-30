@@ -39,4 +39,11 @@ header {
 
 #left-navigation {
 	background: #EEE;
+	border-right:1px solid #999;
+
+}
+
+#left-navigation a, #left-navigation a:link {
+	color:#333;
+	opacity: 1;
 }
