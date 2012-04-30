@@ -93,7 +93,14 @@
               keys="args.css.output.dir.refentry"
               collection-type="sequence"/>
             <topicref
-              href="d4p-users-guide/epub-plugin/reference/ant-parm-coverGraphicFile.xml"/>
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-coverGraphicFile.xml"
+              keys="ant-param_cover.graphic.file"/>
+            <topicref
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-d4pMaxNavDepth.xml"
+              keys="ant-param_d4p.max.nav.depth"/>
+            <topicref
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-d4pMaxTocDepth.xml"
+              keys="ant-param_d4p.max.toc-depth"/>
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-epubIncludeAutoRellinks.xml"/>
             <topicref
