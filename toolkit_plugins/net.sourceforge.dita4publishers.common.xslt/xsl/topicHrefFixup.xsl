@@ -64,7 +64,7 @@
     </xsl:if>
     <xsl:variable name="parentElem" select=".." as="element()"/>
     <xsl:variable name="targetTopic" as="document-node()?"
-      select="if (not($parentElem/@format) or $parentElem/@format = 'topic' or $parentElem/@format = '') 
+      select="if (not($parentElem/@format) or $parentElem/@format = 'dita' or $parentElem/@format = '') 
       then df:getDocumentThatContainsRefTarget(..)
       else ()"    
     />
