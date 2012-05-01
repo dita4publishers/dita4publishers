@@ -67,6 +67,7 @@
   <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlEnumeration.xsl"/>
   <xsl:include href="map2epubCommon.xsl"/>
   <xsl:include href="map2epubOpfImpl.xsl"/>
+  <xsl:include href="map2epubBookLists.xsl"/>
   <xsl:include href="map2epubContentImpl.xsl"/>
   <xsl:include href="map2epubSetCoverGraphic.xsl"/>
   <xsl:include href="map2epubHtmlTocImpl.xsl"/>
@@ -359,14 +360,14 @@
       <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
     </xsl:apply-templates>
     <xsl:message> + [DEBUG] after generate-toc</xsl:message>
-    <xsl:apply-templates select="." mode="generate-book-lists">
-      <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
-    </xsl:apply-templates>
-    <xsl:message> + [DEBUG] after generate-book-lists</xsl:message>
     <xsl:apply-templates select="." mode="generate-index">
       <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
     </xsl:apply-templates>
     <xsl:message> + [DEBUG] after generate-index</xsl:message>
+    <xsl:apply-templates select="." mode="generate-book-lists">
+      <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
+    </xsl:apply-templates>
+    <xsl:message> + [DEBUG] after generate-book-lists</xsl:message>
     <xsl:apply-templates select="." mode="generate-opf">
       <xsl:with-param name="graphicMap" as="element()" tunnel="yes" select="$graphicMap"/>
       <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>

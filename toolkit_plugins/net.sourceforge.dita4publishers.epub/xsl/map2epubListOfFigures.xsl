@@ -64,4 +64,44 @@
     <xsl:apply-templates/>
   </xsl:template>
   
+  <xsl:template name="generate-figure-list-html-doc">
+    <xsl:param name="collected-data" as="element()*"/>
+    <xsl:variable name="targetUri"
+      select="relpath:newFile($outdir, concat('list-of-figures_', generate-id(.), '.html'))" 
+      as="xs:string"
+    />
+    <xsl:variable name="lof-title" as="node()*">
+      <xsl:text>List of Figures</xsl:text><!-- FIXME: Get this string from string config -->
+    </xsl:variable>
+    
+    <xsl:message> + [INFO] Generating list of figures as "<xsl:sequence select="$targetUri"/>"</xsl:message>
+    
+    <xsl:result-document href="{$targetUri}"
+      format="html"
+      doctype-public="-//W3C//DTD XHTML 1.1//EN"
+      doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+      <html>
+        <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />         
+          <title><xsl:sequence select="$lof-title"/></title>
+          <xsl:call-template name="constructToCStyle"/>
+        </head>
+        <body class="toc-list-of-figures html-toc">
+          <h2 class="toc-title"><xsl:sequence select="$lof-title"/></h2>
+          <ul  class="html-toc html-toc_1 list-of-figures">
+            <xsl:apply-templates select="root(.)" mode="generate-list-of-figures-html-toc">
+              <xsl:with-param 
+                name="collected-data" 
+                select="$collected-data" 
+                tunnel="yes" 
+                as="element()"
+              />              
+            </xsl:apply-templates>
+          </ul>
+        </body>
+      </html>
+    </xsl:result-document>
+    
+  </xsl:template>
+  
 </xsl:stylesheet>

@@ -21,11 +21,10 @@
          to enum:title with no @class attribute.
     -->
     <span class="enumeration fig-enumeration">
-      <xsl:text>Figure </xsl:text>
+      <xsl:text>Figure </xsl:text>      
       <xsl:number count="*[df:class(., 'topic/fig')][enum:title]"
         level="any"
         format="1."
-        from="*[df:class(., 'pubmap-d/body')]"
       />
       <xsl:text>&#xa0;</xsl:text>
     </span>
@@ -42,7 +41,6 @@
       <xsl:number count="*[df:class(., 'topic/table')][enum:title]"
         level="any"
         format="1."
-        from="*[df:class(., 'pubmap-d/body')]"
       />
       <xsl:text>&#xa0;</xsl:text>
     </span>

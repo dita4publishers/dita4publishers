@@ -62,8 +62,11 @@
       <xsl:message> + [DEBUG] href-fixup 
         <xsl:sequence select="name(..)"/>/@href att..., value="<xsl:sequence select="string(.)"/>"</xsl:message>
     </xsl:if>
+    <xsl:variable name="parentElem" select=".." as="element()"/>
     <xsl:variable name="targetTopic" as="document-node()?"
-      select="df:getDocumentThatContainsRefTarget(..)"    
+      select="if (not($parentElem/@format) or $parentElem/@format = 'topic' or $parentElem/@format = '') 
+      then df:getDocumentThatContainsRefTarget(..)
+      else ()"    
     />
     
     <xsl:variable name="origHref" as="xs:string" 
@@ -102,6 +105,12 @@
                                             relpath:getParent($targetXmlTopicBaseUrl))"/>
           <xsl:sequence select="concat(relpath:newFile($relPathToTarget, $baseTargetFilename), $DITAEXT)"/>
         </xsl:when>
+        <xsl:when test="$parentElem/@format and 
+                        $parentElem/@format != '' and 
+                        $parentElem/@format != 'dita'">
+          <xsl:message> + [DEBUG] non-topic href, url="<xsl:sequence select="string(@href)"/>" format="<xsl:sequence select="string($parentElem/@format)"/>"</xsl:message>
+          <xsl:sequence select="''"/>
+        </xsl:when>
         <xsl:otherwise>
           <xsl:message> + [WARN] Unable to resolve href '<xsl:sequence select="string(.)"/>' to a topic</xsl:message>
           <xsl:sequence select="concat('unresolvable-reference', $DITAEXT)"/>
@@ -109,10 +118,17 @@
       </xsl:choose>      
     </xsl:variable>
     
-    <xsl:if test="false()">
+    <xsl:if test="true()">
       <xsl:message> + [DEBUG] href-fixup, newHref='<xsl:sequence select="$newHref"/>'</xsl:message>
     </xsl:if>
-    <xsl:attribute name="href" select="concat($newHref, $fragmentId, $query)"/>
+    <xsl:choose>
+      <xsl:when test="$newHref != ''">
+        <xsl:attribute name="href" select="concat($newHref, $fragmentId, $query)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="."/>
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:attribute name="origHref" select="$origHref"/>
   </xsl:template>
   

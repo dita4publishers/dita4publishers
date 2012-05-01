@@ -101,6 +101,20 @@
       media-type="application/xhtml+xml"/>    
   </xsl:template>
   
+  <xsl:template mode="generate-book-lists" match="*[df:class(., 'pubmap-d/figurelist')]" priority="10">
+    <xsl:param name="collected-data" as="element()*" tunnel="yes"/>
+    <xsl:call-template name="generate-figure-list-html-doc">
+      <xsl:with-param name="collected-data" select="$collected-data" as="element()"/>
+    </xsl:call-template>
+  </xsl:template>
+  
+  <xsl:template mode="generate-book-lists" match="*[df:class(., 'pubmap-d/tablelist')]" priority="10">
+    <xsl:param name="collected-data" as="element()*" tunnel="yes"/>
+    <xsl:call-template name="generate-table-list-html-doc">
+      <xsl:with-param name="collected-data" select="$collected-data" as="element()"/>      
+    </xsl:call-template>        
+  </xsl:template>
+  
   <xsl:template mode="spine" 
     match="*[df:class(., 'pubmap-d/toc')][not(@href)] |
     *[df:class(., 'pubmap-d/figurelist')] |
@@ -126,6 +140,7 @@
   </xsl:template>
  
   <xsl:template mode="generate-book-lists" match="*[df:class(., 'pubmap-d/toc')][not(@href)]" priority="10">
+    <xsl:message> + [DEBUG] generate-book-lists: pubmap-d/toc</xsl:message>
     <xsl:variable name="htmlFilename" as="xs:string"
       select="concat('toc_', generate-id(.), '.html')"
     />

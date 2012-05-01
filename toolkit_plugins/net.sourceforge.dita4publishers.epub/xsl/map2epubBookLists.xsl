@@ -32,6 +32,10 @@
     />
   </xsl:template>
   
+  <xsl:template mode="generate-book-lists" match="*" priority="-1">
+<!--    <xsl:message> + [DEBUG] generate-book-lists: catch-all: <xsl:sequence select="concat(name(..), '/', name(.))"/></xsl:message>-->
+  </xsl:template>
+  
   <xsl:template mode="generate-book-lists" match="text()"/>
   
 </xsl:stylesheet>

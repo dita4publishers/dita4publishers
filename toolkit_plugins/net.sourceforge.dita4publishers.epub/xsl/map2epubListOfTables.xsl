@@ -17,10 +17,51 @@
     mode="generate-list-of-tables-html-toc">
     <xsl:param name="collected-data" as="element()*" tunnel="yes"/>
     <xsl:for-each select="$collected-data/enum:enumerables//*[df:class(., 'topic/table')][enum:title]">
+      <xsl:apply-templates mode="#current"
+        select="$collected-data/enum:enumerables//*[df:class(., 'topic/table')][enum:title]"/>
     </xsl:for-each>
-    <xsl:apply-templates mode="#current"
-      select="$collected-data/enum:enumerables//*[df:class(., 'topic/table')][enum:title]"/>
   </xsl:template>
+  
+  <xsl:template name="generate-table-list-html-doc">
+    <xsl:param name="collected-data" as="element()*"/>
+
+    <xsl:variable name="targetUri"
+      select="relpath:newFile($outdir, concat('list-of-tables_', generate-id(.), '.html'))" 
+      as="xs:string"
+    />
+    <xsl:variable name="lot-title" as="node()*">
+      <xsl:text>List of Tables</xsl:text><!-- FIXME: Get this string from string config -->
+    </xsl:variable>
+    <xsl:message> + [INFO] Generating list of tables as "<xsl:sequence select="$targetUri"/>"</xsl:message>
+    <xsl:result-document href="{$targetUri}"
+      format="html"
+      doctype-public="-//W3C//DTD XHTML 1.1//EN"
+      doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+      <html>
+        <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />         
+          <title><xsl:sequence select="$lot-title"/></title>
+          <xsl:call-template name="constructToCStyle"/>
+        </head>
+        <body class="toc-list-of-tables html-toc">
+          <h2 class="toc-title"><xsl:sequence select="$lot-title"/></h2>
+          <ul  class="html-toc html-toc_1 list-of-tables">
+            <xsl:apply-templates select="root(.)" mode="generate-list-of-tables-html-toc">
+              <xsl:with-param 
+                name="collected-data" 
+                select="$collected-data" 
+                tunnel="yes" 
+                as="element()"
+              />
+            </xsl:apply-templates>
+          </ul>
+        </body>
+      </html>
+    </xsl:result-document>
+    
+  </xsl:template>
+  
+  
   
   <xsl:template mode="generate-list-of-tables-html-toc" 
                 match="*[df:class(., 'topic/table')]">

@@ -6,9 +6,10 @@
   xmlns="http://www.w3.org/1999/xhtml"
   exclude-result-prefixes="local xs df xsl relpath htmlutil index-terms">
   
-  <xsl:output indent="yes" name="html" method="html"/>
-  
-  
+  <xsl:output indent="yes" name="html" method="html"
+    doctype-public="-//W3C//DTD XHTML 1.1//EN"
+    doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"
+  />
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-html-toc">
     <xsl:param name="resultUri" as="xs:string"/>
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>
@@ -55,9 +56,7 @@
     <xsl:message> + [INFO] Generating HTML ToC file "<xsl:sequence select="$resultUri"
     />"...</xsl:message>
     
-    <xsl:result-document href="{$resultUri}" format="html"
-      doctype-public="-//W3C//DTD XHTML 1.1//EN"
-      doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+    <xsl:result-document href="{$resultUri}" format="html">
       <html>
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />         
@@ -192,25 +191,6 @@
       <xsl:variable name="lof-title" as="node()*">
         <xsl:text>List of Figures</xsl:text><!-- FIXME: Get this string from string config -->
       </xsl:variable>
-      <xsl:message> + [INFO] Generating figure list HTML page as "<xsl:sequence select="$relativeUri"/>"...</xsl:message>
-      <xsl:result-document href="{$targetUri}"
-        format="html"
-        doctype-public="-//W3C//DTD XHTML 1.1//EN"
-        doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-        <html>
-          <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />         
-            <title><xsl:sequence select="$lof-title"/></title>
-            <xsl:call-template name="constructToCStyle"/>
-          </head>
-          <body class="toc-list-of-figures html-toc">
-            <h2 class="toc-title"><xsl:sequence select="$lof-title"/></h2>
-            <ul  class="html-toc html-toc_{$tocDepth + 1} list-of-figures">
-              <xsl:apply-templates select="root(.)" mode="generate-list-of-figures-html-toc"/>
-            </ul>
-          </body>
-        </html>
-      </xsl:result-document>
       
       <li class="html-toc-entry html-toc-entry_{$tocDepth}">
         <span class="html-toc-entry-text html-toc-entry-text_{$tocDepth}"
@@ -233,26 +213,6 @@
       <xsl:variable name="lot-title" as="node()*">
         <xsl:text>List of Tables</xsl:text><!-- FIXME: Get this string from string config -->
       </xsl:variable>
-      <xsl:message> + [INFO] Generating table list HTML page as "<xsl:sequence select="$relativeUri"/>"...</xsl:message>
-      <xsl:result-document href="{$targetUri}"
-        format="html"
-        doctype-public="-//W3C//DTD XHTML 1.1//EN"
-        doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-        <html>
-          <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />         
-            <title><xsl:sequence select="$lot-title"/></title>
-            <xsl:call-template name="constructToCStyle"/>
-          </head>
-          <body class="toc-list-of-tables html-toc">
-            <h2 class="toc-title"><xsl:sequence select="$lot-title"/></h2>
-            <ul  class="html-toc html-toc_{$tocDepth + 1} list-of-tables">
-              <xsl:apply-templates select="root(.)" mode="generate-list-of-tables-html-toc"/>
-            </ul>
-          </body>
-        </html>
-      </xsl:result-document>
-      
       <li class="html-toc-entry html-toc-entry_{$tocDepth}">
         <span class="html-toc-entry-text html-toc-entry-text_{$tocDepth}"
           ><a href="{$relativeUri}">
@@ -328,7 +288,7 @@
             <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes" select="$tocDepth + 1"/>
           </xsl:apply-templates>
         </xsl:variable>
-        <xsl:if test="count($subentries) > 0 and normalize-space($subentries) != ''">
+        <xsl:if test="count($subentries) > 0">
           <ul class="html-toc html-toc__{$tocDepth}">
             <xsl:sequence select="$subentries"/>
           </ul>
