@@ -981,8 +981,8 @@ nav#left-navigation ul li, nav#left-navigation ul li ul li {
 	padding-top:7px;
 }**/
 
-#left-navigation ul li.collapsible.collapsed {
-	display:none;
+#left-navigation ul li.collapsible.collapsed ul {
+	 display:none;
 }
 
 #left-navigation ul li.active ul {
