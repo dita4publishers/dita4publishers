@@ -347,23 +347,6 @@
   
   <xsl:template match="text()" mode="generate-toc"/>
   
-  <xsl:template mode="nav-point-title" match="*[df:class(., 'pubmap-d/toc')]" priority="20">
-    <!-- FIXME: Localize this string. -->
-    <xsl:sequence select="'Table of Contents'"/>
-  </xsl:template>
-  
-  <xsl:template 
-    mode="generate-toc"
-    match="*[df:class(., 'pubmap-d/toc')]" 
-    priority="20" 
-    >
-    <xsl:call-template name="construct_navpoint">
-      <xsl:with-param name="targetUri" as="xs:string"
-        select="concat('toc_', generate-id(.), '.html')"
-      />
-    </xsl:call-template>    
-  </xsl:template>
-
   <xsl:template 
     mode="generate-toc"
     match=" 
