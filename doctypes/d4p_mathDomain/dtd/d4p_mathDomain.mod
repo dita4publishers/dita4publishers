@@ -16,7 +16,7 @@
 <!ENTITY % MATHML.prefixed "INCLUDE">
 
 <!ENTITY % mathml2.dtd 
-  SYSTEM "../../mathml2/dtd/mathml2.dtd"
+  SYSTEM "../../mathml3/dtd/mathml3.dtd"
 >%mathml2.dtd;
 
 <!-- ============================================================= -->
