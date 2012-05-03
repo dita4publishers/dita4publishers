@@ -935,18 +935,27 @@ header {
 header h1 {
 	padding-left:25px;
 	font-weight:100;
-	font-size:1.5em;
+	font-size:1.8em;
+	line-height: 35px;
 }
 
 noscript {
 	font-size:18px;
 	padding:25px;
-}#left-navigation {
+}
+
+body.centered #main-container {
+	display:block;
+	width:980px;
+	margin:0 auto;
+}
+#left-navigation {
 	margin-left:0px;
-	padding-left:5px;
+	padding:20px 0px 20px 20px;
 	display:block;
 	position:absolute;
 	height:100%;
+	width:210px
 }
 
 #left-navigation ul {
@@ -955,34 +964,54 @@ noscript {
 	padding:0;
 }
 
-#left-navigation ul li {
+#left-navigation ul {
 	list-style-type: none;
 	margin:0;
-	padding:0;
 }
 
-#left-navigation ul li ul {
+nav#left-navigation ul li, nav#left-navigation ul li ul li {
+	margin:0;
+	padding-top:3px;
+	padding-right:0;
+	padding-bottom:2px;
+	padding-left:15px;
+}
+
+/**nav#left-navigation ul li:first-child {
+	padding-top:7px;
+}**/
+
+#left-navigation ul li.collapsible.collapsed {
 	display:none;
 }
 
-#left-navigation ul li.selected ul {
+#left-navigation ul li.active ul {
 	display:block;
 }
 
-#left-navigation li.active a {
+#left-navigation li.selected a {
 	font-weight: bold;
 }
 
-#left-navigation li.active ul li a {
+#left-navigation li.selected ul li a {
 	font-weight: normal;
 }
 
 #left-navigation ul li a, #left-navigation ul li a:link {
 	text-decoration: none;
+	padding-right:15px;
 }
 
-#left-navigation ul li ul li a, #left-navigation ul li ul li a:link {
-	margin-left:15px;
+#left-navigation ul li ul li {
+	padding-left:12px;
+}
+
+#left-navigation ul li ul li ul li {
+	padding-left:30px;
+}
+
+#left-navigation ul li ul li ul li ul li a{
+	font-style: italic;
 }
 
 #left-navigation ul li a:hover {

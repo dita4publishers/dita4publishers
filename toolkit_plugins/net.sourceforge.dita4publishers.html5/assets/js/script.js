@@ -1134,16 +1134,29 @@ window.Modernizr = (function( window, document, undefined ) {
  * Dual licensed under the MIT and GPL licenses.
  * http://benalman.com/about/license/
  */
-(function($,e,b){var c="hashchange",h=document,f,g=$.event.special,i=h.documentMode,d="on"+c in e&&(i===b||i>7);function a(j){j=j||location.href;return"#"+j.replace(/^[^#]*#?(.*)$/,"$1")}$.fn[c]=function(j){return j?this.bind(c,j):this.trigger(c)};$.fn[c].delay=50;g[c]=$.extend(g[c],{setup:function(){if(d){return false}$(f.start)},teardown:function(){if(d){return false}$(f.stop)}});f=(function(){var j={},p,m=a(),k=function(q){return q},l=k,o=k;j.start=function(){p||n()};j.stop=function(){p&&clearTimeout(p);p=b};function n(){var r=a(),q=o(m);if(r!==m){l(m=r,q);$(e).trigger(c)}else{if(q!==m){location.href=location.href.replace(/#.*/,"")+q}}p=setTimeout(n,$.fn[c].delay)}$.browser.msie&&!d&&(function(){var q,r;j.start=function(){if(!q){r=$.fn[c].src;r=r&&r+a();q=$('<iframe tabindex="-1" title="empty"/>').hide().one("load",function(){r||l(a());n()}).attr("src",r||"javascript:0").insertAfter("body")[0].contentWindow;h.onpropertychange=function(){try{if(event.propertyName==="title"){q.document.title=h.title}}catch(s){}}}};j.stop=k;o=function(){return a(q.location.href)};l=function(v,s){var u=q.document,t=$.fn[c].domain;if(v!==s){u.title=h.title;u.open();t&&u.write('<script>document.domain="'+t+'"<\/script>');u.close();q.location.hash=v}}})();return j})()})(jQuery,this);(function( $, window, document, undefined ) {
+(function($,e,b){var c="hashchange",h=document,f,g=$.event.special,i=h.documentMode,d="on"+c in e&&(i===b||i>7);function a(j){j=j||location.href;return"#"+j.replace(/^[^#]*#?(.*)$/,"$1")}$.fn[c]=function(j){return j?this.bind(c,j):this.trigger(c)};$.fn[c].delay=50;g[c]=$.extend(g[c],{setup:function(){if(d){return false}$(f.start)},teardown:function(){if(d){return false}$(f.stop)}});f=(function(){var j={},p,m=a(),k=function(q){return q},l=k,o=k;j.start=function(){p||n()};j.stop=function(){p&&clearTimeout(p);p=b};function n(){var r=a(),q=o(m);if(r!==m){l(m=r,q);$(e).trigger(c)}else{if(q!==m){location.href=location.href.replace(/#.*/,"")+q}}p=setTimeout(n,$.fn[c].delay)}$.browser.msie&&!d&&(function(){var q,r;j.start=function(){if(!q){r=$.fn[c].src;r=r&&r+a();q=$('<iframe tabindex="-1" title="empty"/>').hide().one("load",function(){r||l(a());n()}).attr("src",r||"javascript:0").insertAfter("body")[0].contentWindow;h.onpropertychange=function(){try{if(event.propertyName==="title"){q.document.title=h.title}}catch(s){}}}};j.stop=k;o=function(){return a(q.location.href)};l=function(v,s){var u=q.document,t=$.fn[c].domain;if(v!==s){u.title=h.title;u.open();t&&u.write('<script>document.domain="'+t+'"<\/script>');u.close();q.location.hash=v}}})();return j})()})(jQuery,this);(function( $, undefined ) {
+
+
+$.dita4html5 = $.dita4html5  || {};
 
 // jQuery.mobile configurable options
-$.html5plugin = $.extend( {}, {
+$.extend( $.dita4html5, {
 
+	version: '0.1a',
   // toc url - to be implemented
   // the idea is to have the reference to the toc on every page.
   // if someone come on a specific page trough a search engine
   // the code will load the toc parent and render the page properly.
   toc: '',
+
+  // selector for the element which contain the content
+	outputSelector: '#main-content',
+
+	// navigationSelector
+	navigationSelector: '#left-navigation',
+
+	// load first page of the documentation if no content on the page
+	setInitialContent: true,
 
 	// store navigation key:href, value:id
   navigation: [],
@@ -1171,7 +1184,11 @@ $.html5plugin = $.extend( {}, {
 	// from jQuery
 	// use a modified version of the $.load function
 	// for specific purpose
-	rscript: '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi',
+	rscript: '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi'
+
+	});
+
+	$.extend( $.dita4html5, {
 
   // parse navigation
   // replace href by # + href
@@ -1179,14 +1196,14 @@ $.html5plugin = $.extend( {}, {
   // using bbq
 	parseNavigation: function ( ) {
 	  // navigation: prefix all href with #
-		$('#left-navigation a').each(function(index) {
+		$($.dita4html5.navigationSelector + ' a').each(function(index) {
 
       var id = $(this).attr('id');
 
 			// attribute an ID for future reference if not set
 			if(id === '' || id == undefined) {
-				id = $.html5plugin.ids.prefix + $.html5plugin.ids.n;
-				$.html5plugin.ids.n++;
+				id = $.dita4html5.ids.prefix + $.dita4html5.ids.n;
+				$.dita4html5.ids.n++;
 				$(this).attr('id', id);
 			}
 
@@ -1195,7 +1212,12 @@ $.html5plugin = $.extend( {}, {
 			$(this).attr('href', href);
 
 			// keep information in memory when link is triggered on page
-			$.html5plugin.navigation[href] = id;
+			$.dita4html5.navigation[href] = id;
+
+			// if parent li as ul children add class collapsible
+			if($(this).parent().children('ul').length == 1) {
+				$(this).parent().addClass('collapsible collapsed');
+			}
 
 			// push the appropriate state onto the history when clicked.
 			$(this).live( 'click', function(e) {
@@ -1203,10 +1225,10 @@ $.html5plugin = $.extend( {}, {
 				var state = {};
 
 				// Set the state!
-				state[ $.html5plugin.hash.id ] = $(this).attr( 'href' ).replace( /^#/, '' );
+				state[ $.dita4html5.hash.id ] = $(this).attr( 'href' ).replace( /^#/, '' );
 				$.bbq.pushState( state );
 
-				$.html5plugin.setNavItemActive($(this).attr('id'));
+				$.dita4html5.setNavItemActive($(this).attr('id'));
 				// And finally, prevent the default link click behavior by returning false.
 				return false;
 			});
@@ -1217,16 +1239,17 @@ $.html5plugin = $.extend( {}, {
 	// activate navigation item
 	// add/remove required navigation item
 	setNavItemActive: function (id) {
-		console.log(id);
+
 		// remove previous class
-		$('#left-navigation li').removeClass('selected');
-		$('#left-navigation li').removeClass('active');
+		$($.dita4html5.navigationSelector + ' li').removeClass('selected');
+		$($.dita4html5.navigationSelector + ' li').removeClass('active').addClass('collapsed');
 
 		// add selected class on the li parent element
-		$('#'+id).parents().addClass('selected');
+		$('#'+id).parentsUntil($.dita4html5.navigationSelector).addClass('active').removeClass('collapsed');;
 
 		// set all the parent trail active
-		$('#'+id).parent('li').addClass('active');
+		$('#'+id).parent('li').addClass('selected');
+
 	},
 
 	// this is a modified version of the load function in jquery
@@ -1234,7 +1257,7 @@ $.html5plugin = $.extend( {}, {
 	// @todo: see if it is neccessary to implement cache here
 	// @todo: implement beforeSend, error callback
 	loadHTML: function ( uri ) {
-	 	$.html5plugin.hash.current = uri;
+	 	$.dita4html5.hash.current = uri;
 		$.ajax( {
 				type: 'GET',
 				url: uri,
@@ -1251,14 +1274,14 @@ $.html5plugin = $.extend( {}, {
               responseText = r;
             });
 
- 						var html = $("<div>").append(responseText.replace($.html5plugin.rscript, ""));
+ 						var html = $("<div>").append(responseText.replace($.dita4html5.rscript, ""));
 
-            $.html5plugin.content = html.find("section");
-						$.html5plugin.title = html.find("title").html();
-						$.html5plugin.rewriteAttrHref();
-						$.html5plugin.rewriteAttrSrc();
-						$.html5plugin.setTitle();
-						$.html5plugin.setMainContent();
+            $.dita4html5.content = html.find("section");
+						$.dita4html5.title = html.find("title").html();
+						$.dita4html5.rewriteAttrHref();
+						$.dita4html5.rewriteAttrSrc();
+						$.dita4html5.setTitle();
+						$.dita4html5.setMainContent();
 
 					}
 				}
@@ -1267,32 +1290,34 @@ $.html5plugin = $.extend( {}, {
 	},
 
 	setTitle: function() {
-		$('title').html($.html5plugin.title);
+		$('title').html($.dita4html5.title);
 	},
 
 	setMainContent: function() {
-		 $("#main-content").html($.html5plugin.content);
+		 $($.dita4html5.outputSelector).html($.dita4html5.content);
 	},
 
 	// Rewrite each src in the document
 	// because there is no real path with AJAX call
 	rewriteAttrSrc: function() {
-		$.html5plugin.content.find("*[src]").each(function(index) {
+		$.dita4html5.content.find("*[src]").each(function(index) {
   		$(this).attr('src',  uri.substring(0,  uri.lastIndexOf("/")) + "/" + $(this).attr('src'));
    });
 	},
 
 	// Rewrite each href in the document
 	// because there is no real path with AJAX call
+	//
 	rewriteAttrHref: function ( ) {
-		$.html5plugin.content.find("*[href]").each(function(index) {
-			var uri = $.html5plugin.hash.current;
+		$.dita4html5.content.find("*[href]").each(function(index) {
+			var uri = $.dita4html5.hash.current;
     	var dir = uri.substring(0,  uri.lastIndexOf("/"));
     	var base = dir.split("/");
-    	var parts = $(this).attr('href').split("/");
+    	var href = $(this).attr('href');
+    	var parts = href.split("/");
 
-    	// prevent external to be rewrited
-    	if ($.inArray (parts[0], $.html5plugin.protocols) !=  -1) {
+    	// prevent external and absolute to be rewrited
+    	if ($.inArray (parts[0], $.dita4html5.protocols) !=  -1 ) {
       	return true;
     	}
 
@@ -1312,11 +1337,10 @@ $.html5plugin = $.extend( {}, {
     		var state = {};
 
     		// Set the state!
-      	state[ $.html5plugin.hash.id ] = $(this).attr( 'href' ).replace( /^#/, '' );
+      	state[ $.dita4html5.hash.id ] = $(this).attr( 'href' ).replace( /^#/, '' );
 
       	$.bbq.pushState( state );
-
-      	$.html5plugin.setNavItemActive($.html5plugin.navigation[$(this).attr('href')]);
+     		$.dita4html5.setNavItemActive($.dita4html5.navigation[$(this).attr('href')]);
 
       	// And finally, prevent the default link click behavior by returning false.
      		return false;
@@ -1326,10 +1350,10 @@ $.html5plugin = $.extend( {}, {
 	},
 
 	// load initial content to avoid a blank page
-	setInitialContent : function () {
-		if($("#main-content").length == 1 ) {
-			this.loadHTML ($("#left-navigation a:first-child").attr('href').replace( /^#/, '' ));
-			$("#left-navigation li:first-child").addClass("active selected");
+	getInitialContent : function () {
+		if($($.dita4html5.outputSelector).length == 1 && $.dita4html5.setInitialContent) {
+			this.loadHTML ($($.dita4html5.navigationSelector + ' a:first-child').attr('href').replace( /^#/, '' ));
+			$($.dita4html5.navigationSelector + " li:first-child").addClass("active selected").removeClass('collapsed');
 		}
 
 	},
@@ -1345,15 +1369,15 @@ $.html5plugin = $.extend( {}, {
 		$(window).bind( 'hashchange', function(e) {
 
 			state = $.bbq.getState( $(this).attr( 'id' ) ) || '';
-      uri = state[$.html5plugin.hash.id];
+      uri = state[$.dita4html5.hash.id];
 
 			if( uri === '') { return; }
 
-			$.html5plugin.loadHTML ( uri );
+			$.dita4html5.loadHTML ( uri );
 
 		});
 
-		$.html5plugin.setInitialContent ( );
+		$.dita4html5.getInitialContent ( );
 
 		return;
 
@@ -1361,4 +1385,4 @@ $.html5plugin = $.extend( {}, {
 
 	});
 
-})( jQuery, window, document );
+})( jQuery );

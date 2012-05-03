@@ -49,7 +49,6 @@
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>
 
       <nav id="left-navigation" role="navigation" aria-label="Main navigation">
-      	<xsl:attribute name="class" select="'grid_6'" />
         <div class="nav-pub-title"><xsl:apply-templates select="*[df:class(., 'topic/title')]" mode="generate-html5-nav-page-markup"/></div>
         <ul>
           <xsl:apply-templates mode="generate-html5-nav"

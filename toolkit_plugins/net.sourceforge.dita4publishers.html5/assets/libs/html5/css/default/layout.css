@@ -21,10 +21,17 @@ header {
 header h1 {
 	padding-left:25px;
 	font-weight:100;
-	font-size:1.5em;
+	font-size:1.8em;
+	line-height: 35px;
 }
 
 noscript {
 	font-size:18px;
 	padding:25px;
+}
+
+body.centered #main-container {
+	display:block;
+	width:980px;
+	margin:0 auto;
 }

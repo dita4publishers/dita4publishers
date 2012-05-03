@@ -3,19 +3,19 @@
  **/
 @font-face {
 	font-family: "Vegur Regular";
-    src: url("../../fonts/vegur/Vegur-R-0.602.otf");
+    src: url("../fonts/vegur/Vegur-R-0.602.otf");
 }
 @font-face {
 	font-family: "Vegur Bold";
-    src: url("../../fonts/Vegur/Vegur-B-0.602.otf");
+    src: url("../fonts/Vegur/Vegur-B-0.602.otf");
 }
 @font-face {
 	font-family: "Vegur Medium";
-    src: url("../../fonts/Vegur/Vegur-M-0.602.otf");
+    src: url("../fonts/Vegur/Vegur-M-0.602.otf");
 }
 @font-face {
 	font-family: "Vegur Light";
-    src: url("../../fonts/Vegur/Vegur-L-0.602.otf");
+    src: url("../fonts/Vegur/Vegur-L-0.602.otf");
 }
 
 .fontface h1, .fontface  h2, .fontface  h3, .fontface  h4,.fontface  h5,.fontface  h6
@@ -46,4 +46,12 @@ header {
 #left-navigation a, #left-navigation a:link {
 	color:#333;
 	opacity: 1;
+}
+
+nav#left-navigation li.collapsible.collapsed {
+	background: url("../img/arrow.png") no-repeat 0 7px;
+}
+
+nav#left-navigation li.collapsible.active {
+	background: url("../img/arrow-down.png") no-repeat 0 7px;
 }

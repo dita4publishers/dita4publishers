@@ -93,6 +93,7 @@
 
     <xsl:apply-templates select="." mode="set-body-class-attr" />
 
+		<div id="main-container"><xsl:sequence select="'&#x0a;'"/>
 
     	<xsl:sequence select="'&#x0a;'"/>
 
@@ -100,8 +101,7 @@
        	 <xsl:apply-templates select="." mode="generate-root-page-header"/>
      	</header>
 
-			<div class="container_24">
-
+			<div id = "section-container" class="container_24">
 
       	<!-- This mode generates the navigation structure (ToC) on the
            index.html page, that is, the main navigation structure.
@@ -127,6 +127,7 @@
 				</footer><xsl:sequence select="'&#x0a;'"/>
 
 			</div>
+		</div>
     </body><xsl:sequence select="'&#x0a;'"/>
   </html>
   </xsl:result-document>
@@ -178,7 +179,7 @@
 
    	<xsl:comment>
 			$(function() {
-				$.html5plugin.init();
+				$.dita4html5.init();
 			});
 		</xsl:comment>
 
