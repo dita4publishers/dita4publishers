@@ -62,6 +62,8 @@ def loadAndConfigureMapDtd(dtdFile, dtdPublicId, mapType, previewXslFile, catalo
 
 def loadAndConfigureDtd(dtdFile, dtdPublicId, moDefList, previewXslFile, catalog)
 	{
+		
+	println "\n\n**************\n";
     println " + [INFO] Importing DTD " + dtdFile.name + ", public ID \"" + dtdPublicId + "\"...";
     importer = importerFactory.generateImporter("DTD", new SchemaInputSource(dtdFile, dtdFile.name, dtdPublicId));
     importer.setCatalogNames((String[])[catalog])
@@ -69,7 +71,14 @@ def loadAndConfigureDtd(dtdFile, dtdPublicId, moDefList, previewXslFile, catalog
     
 	rsuite.setManagedObjectDefinitions(uuid, false, moDefList)
 	if (previewXslFile != null && previewXslFile.exists()) {
+		println " + [INFO] Using preview stylesheet \"${previewXslFile}\"";
 		rsuite.loadStylesheetForSchema(uuid, previewXslFile)
+	} else {
+	    if (previewXslFile != null) {
+		   println " + [INFO] Couldn't find preview stylesheet \"${previewXslFile}\"";
+	    } else {
+		   println " + [INFO] Preview stylesheet is null.";
+	    }
 	}
 }
 
@@ -82,6 +91,7 @@ def loadAndConfigureDtd(dtdFile, dtdPublicId, moDefList, previewXslFile, catalog
 if (true) {	
 def topicTypes = ['article', 
                   'chapter', 
+                  'division', 
                   'part', 
                   'sidebar', 
                   'subsection', 
