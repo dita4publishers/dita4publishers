@@ -205,9 +205,9 @@
   <xsl:template match="*" mode="set-body-class-attr">
   	<xsl:attribute name = "class">
     		<xsl:call-template name="getLowerCaseLang"/>
-				<xsl:sequence select="'&#160;'"/>
+				<xsl:sequence select="' '"/>
     		<xsl:value-of select="$siteTheme" />
-    		<xsl:sequence select="'&#160;'"/>
+    		<xsl:sequence select="' '"/>
 				<xsl:value-of select="$bodyClass" />
     	</xsl:attribute>
   </xsl:template>
