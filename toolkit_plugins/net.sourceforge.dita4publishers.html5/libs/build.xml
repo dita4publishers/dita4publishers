@@ -46,9 +46,16 @@
 	</target>
 
 	<target name="package.copy.assets">
+
 		<copy todir="${build.dir}/">
       <fileset dir="${lib.html5.dir.theme}"/>
     </copy>
+
+		<mkdir dir="${build.dir}/${build.img.dir}"/>
+		<copy todir="${build.dir}/${build.img.dir}/">
+      <fileset dir="${lib.html5.dir.img}"/>
+    </copy>
+
 	</target>
 
 </project>
