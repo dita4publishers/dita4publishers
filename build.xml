@@ -222,7 +222,6 @@
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
 				<exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/> 
-        <exclude name="net.sourceforge.dita4publishers.html5/**"/> 
 				<exclude name="*.zip"/> 
 			</fileset>
 		</copy>
@@ -235,6 +234,14 @@
         <exclude name="xmlDomain/**"/>
       </fileset>
     </copy>
+		<!-- Standalone Math plugin -->
+	    <copy todir="${plugin.dist}/net.sourceforge.dita4publishers.math/doctypes">
+	      <fileset dir="${doctypes.src}">
+	        <include name="d4p_mathDomain/**"/>
+	        <include name="mathml2/**"/>
+	        <include name="mathml3/**"/>
+	      </fileset>
+	    </copy>
     <copy todir="${doctypes.plugin-shakespear-dist}/doctypes">
       <fileset dir="${doctypes-skakespear-samples.src}">
       </fileset>
