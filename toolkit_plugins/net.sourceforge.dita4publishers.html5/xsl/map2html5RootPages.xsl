@@ -173,7 +173,7 @@
 
   <xsl:template match="*" mode="generate-javascript-includes">
     <!-- FIXME: Parameterize the location of the JavaScript -->
-    <script src="assets/script.js" type="text/javascript">&#xa0;</script><xsl:sequence select="'&#x0a;'"/>
+    <script src="assets/js/script.js" type="text/javascript">&#xa0;</script><xsl:sequence select="'&#x0a;'"/>
 
     <script type="text/javascript">
 
@@ -191,7 +191,7 @@
 
   <xsl:template match="*" mode="generate-css-includes">
     <!-- FIXME: Parameterize the location of the css -->
-		<link rel="stylesheet" type="text/css" href="assets/style.css"/><xsl:sequence select="'&#x0a;'"/>
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css"/><xsl:sequence select="'&#x0a;'"/>
     <link rel="stylesheet" type="text/css" >
     	<xsl:attribute name = "href">
     	 	<xsl:apply-templates select="." mode="get-css-theme-path"/>

@@ -230,28 +230,10 @@
 
     <property name="user.assetspath.real" value="${output.dir}${file.separator}${assets.output.dir}"/>
 
-    <mkdir dir="${user.assetspath.real}"/>
+    <mkdir dir="${user.assetspath.real}/assets"/>
 
     <copy todir="${user.assetspath.real}">
-      <fileset dir="${html5.dir}/assets/css"/>
-    </copy>
-
-    <copy todir="${user.assetspath.real}">
-      <fileset dir="${html5.dir}/assets/js"/>
-    </copy>
-
-    <copy todir="${user.assetspath.real}">
-      <fileset dir="${html5.dir}/assets/libs/html5/css"/>
-    </copy>
-
-		<mkdir dir="${user.assetspath.real}/img" />
-    <copy todir="${user.assetspath.real}/img">
-      <fileset dir="${html5.dir}/assets/libs/html5/img"/>
-    </copy>
-
-		<mkdir dir="${user.assetspath.real}/fonts" />
-    <copy todir="${user.assetspath.real}/fonts">
-      <fileset dir="${html5.dir}/assets/libs/html5/fonts"/>
+      <fileset dir="${html5.dir}/assets"/>
     </copy>
 
   </target>

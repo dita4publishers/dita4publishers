@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="YUI Compressor" default="jscrib.compress" basedir=".">
+<project name="YUI Compressor" default="package.compress" basedir=".">
 	<property name="yui-compressor.jar" location="${yui.path}"/>
-	<target name="clean" depends="load.properties">
-		<delete dir="${build.dir}" quiet="true"/>
-	</target>
+
 	<target name="load.properties">
 		<loadproperties srcFile="ant.properties"/>
 		<echo>
-      src.dir = ${src.dir}
-			lib.dir = ${lib.dir}
+
+			yui.path = ${yui.path}
+      src.dir.css = ${src.dir.css}
+      src.dir.js = ${src.dir.js}
+			src.dir.libs = ${src.dir.libs}
 			build.dir = ${build.dir}
-			product.name = ${product.name}
-			version.number = ${version.number}
-			product.package.name: ${product.package.name}
+
 		</echo>
 	</target>
 
@@ -20,7 +19,7 @@
 		<mkdir dir="${build.dir}"/>
 	</target>
 
-	<target name="jscrib.compress" depends="init, jscrib.concat.js,  jscrib.concat.css">
+	<target name="package.compress" depends="init, package.concat.js,  package.concat.css, package.copy.assets">
 		<apply executable="java" parallel="false" dest="${build.dir}">
 			<fileset dir="${build.dir}" includes="${product.concat}.js"/>
 			<arg line="-jar"/>
@@ -32,17 +31,24 @@
 		</apply>
 	</target>
 
-	<target name="jscrib.concat.js">
+	<target name="package.concat.js">
 		<property name="product.concat" value="${product.uncompressed.name}"/>
 		<concat destfile="${build.dir}/${src.dir.js}/script.js">
 			<filelist dir="${src.dir.libs}" files = "jQuery/jquery-1.7.1.min.js,modernizr/modernizr.dev.2.0.6.js,cowboy-jquery-bbq-8e0064b/jquery.ba-bbq.min.js,html5/js/ajaxLoader.js" />
 		</concat>
 	</target>
 
-	<target name="jscrib.concat.css">
+	<target name="package.concat.css">
 		<property name="product.concat" value="${product.uncompressed.name}"/>
 		<concat destfile="${build.dir}/${src.dir.css}/style.css">
 			<filelist dir="${src.dir.libs}" files = "nathansmith-960-Grid-System-b0c5b98/code/css/reset.css,nathansmith-960-Grid-System-b0c5b98/code/css/960_24_col.css,nathansmith-960-Grid-System-b0c5b98/code/css/text.css,html5/css/default/layout.css,html5/css/default/navigation.css" />
 		</concat>
 	</target>
+
+	<target name="package.copy.assets">
+		<copy todir="${build.dir}/">
+      <fileset dir="${lib.html5.dir.theme}"/>
+    </copy>
+	</target>
+
 </project>
