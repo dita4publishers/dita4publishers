@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     Local shell for generic topic.
+     
+     Copyright (c) 2009 dita4publishers.sourceforge.net
+     ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ENTITY DECLARATIONS                 -->
+<!-- ============================================================= -->
+
+<!ENTITY % hi-d-dec     PUBLIC 
+"-//OASIS//ENTITIES DITA Highlight Domain//EN" 
+"highlightDomain.ent"                                                
+>
+%hi-d-dec;
+
+<!ENTITY % indexing-d-dec     PUBLIC 
+"-//OASIS//ENTITIES DITA Indexing Domain//EN" 
+"indexingDomain.ent"                                                 >
+%indexing-d-dec;
+
+
+<!ENTITY % d4p_math-d-dec     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_mathDomain:entities" 
+"d4p_mathDomain.ent"                                                
+>
+%d4p_math-d-dec;
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE DECLARATIONS              -->
+<!-- ============================================================= -->
+
+<!ENTITY included-domains 
+    "&hi-d-att; 
+     &indexing-d-att;
+     &d4p_math-d-att;
+    "                
+ >
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN EXTENSIONS                          -->
+<!-- ============================================================= -->
+<!--                    One for each extended base element, with
+                        the name of the domain(s) in which the
+                        extension was declared                     -->
+                        
+<!ENTITY % fig          
+  "fig |
+   %d4p_math-d-fig;
+  "      
+>
+
+<!ENTITY % ph
+  "ph | 
+   %hi-d-ph; |
+   %d4p_math-d-ph;
+  "
+>
+
+<!ENTITY % p         
+  "p     | 
+   %d4p_math-d-p;
+  "      
+>
+
+<!ENTITY % foreign
+  "foreign |
+   %d4p_math-d-foreign;
+  "
+>
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
+<!-- ============================================================= -->
+<!ENTITY % props-attribute-extensions  ""                            >
+<!ENTITY % base-attribute-extensions   ""                            >
+
+
+<!-- ============================================================= -->
+<!--                    TOPIC NESTING OVERRIDE                     -->
+<!-- ============================================================= -->
+
+<!--                    Redefine the infotype entity to exclude 
+                        other topic types and disallow nesting     -->
+<!ENTITY % topic-info-types 
+                        "topic"                                      >
+
+
+<!-- ============================================================= -->
+<!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
+<!-- ============================================================= -->
+<!--                    Must be declared ahead of the DTDs, which
+                        puts @domains first in order               -->
+
+
+
+<!-- ============================================================= -->
+<!--                    TOPIC ELEMENT INTEGRATION                  -->
+<!-- ============================================================= -->
+
+<!--                    Embed topic to get generic elements        -->
+<!ENTITY % topic-type   PUBLIC 
+"-//OASIS//ELEMENTS DITA Topic//EN" 
+"topic.mod"                                                          >
+%topic-type;
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ELEMENT INTEGRATION                 -->
+<!-- ============================================================= -->
+
+
+<!ENTITY % hi-d-def     PUBLIC 
+"-//OASIS//ELEMENTS DITA Highlight Domain//EN" 
+"highlightDomain.mod"                                                >
+%hi-d-def;
+
+<!ENTITY % indexing-d-def     
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Indexing Domain//EN" 
+         "indexingDomain.mod"
+>%indexing-d-def;
+
+<!ENTITY % d4p_math-d-def     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_mathDomain" 
+"d4p_mathDomain.mod"
+>
+%d4p_math-d-def;
+
+
+
+<!-- ================== End DITA Topic DTD  ====================== -->

@@ -35,6 +35,7 @@
   <nextCatalog catalog="sidebar/catalog.xml"/>
   <nextCatalog catalog="subsection/catalog.xml"/>
   <nextCatalog catalog="topic/catalog.xml"/>
+  <nextCatalog catalog="topic_mathonly/catalog.xml"/>
   
   <nextCatalog catalog="concept/catalog.xml"/>
   <nextCatalog catalog="reference/catalog.xml"/>
