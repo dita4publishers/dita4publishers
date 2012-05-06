@@ -63,7 +63,12 @@
   
   <xsl:template name="handle-h3-group">
     <xsl:param name="group" as="node()*"/>
-    <topic id="{generate-id($group[1])}">
+    <xsl:variable 
+      name="topicid" 
+      select="generate-id($group[1])" 
+      as="xs:string"
+    />
+    <topic id="{$topicid}">
       <xsl:apply-templates select="$group[1]"/>
       <xsl:for-each-group select="$group[position() > 1]" group-starting-with="html:h4">
         <xsl:choose>
@@ -74,7 +79,13 @@
           </xsl:when>
           <xsl:otherwise>
             <body>
-              <xsl:apply-templates select="current-group()"/>
+              <xsl:apply-templates select="current-group()">
+                <xsl:with-param 
+                  name="topicid" 
+                  tunnel="yes" 
+                  select="$topicid" 
+                  as="xs:string"/>
+              </xsl:apply-templates>
             </body>
           </xsl:otherwise>
         </xsl:choose>
@@ -101,11 +112,31 @@
   <xsl:template match="html:a[string(.) = '']"/>
   
   <xsl:template match="html:a[string(.) != ''][@href]">
-    <xref href="{@href}">
-      <xsl:if test="starts-with(@href, 'http:')">
-        <xsl:attribute name="scope" select="'external'"/>
-        <xsl:attribute name="format" select="'html'"/>
-      </xsl:if>
+    <xsl:param 
+      name="topicid" 
+      tunnel="yes" 
+      as="xs:string"/>
+    
+    
+    <xsl:variable name="keyref" select="substring-before(@href, '.xml')" as="xs:string"/>
+    
+    <xref>
+      <xsl:choose>
+        <xsl:when test="starts-with(@href, 'http:')">
+          <xsl:attribute name="scope" select="'external'"/>
+          <xsl:attribute name="format" select="'html'"/>
+        </xsl:when>
+        <xsl:when test="starts-with(@href, '#')">
+          <xsl:attribute name="href" 
+            select="concat('#', $topicid, '/', substring-after(@href, '#'))"
+          />          
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:attribute name="keyref" 
+            select="concat($keyref, '/', substring-after(@href, '#'))"
+          />
+        </xsl:otherwise>
+      </xsl:choose>
       <xsl:apply-templates/></xref>
   </xsl:template>
   
