@@ -955,7 +955,7 @@ body.centered #main-container {
 	display:block;
 	position:absolute;
 	height:100%;
-	width:210px
+	width:270px
 }
 
 #left-navigation ul {
@@ -969,17 +969,20 @@ body.centered #main-container {
 	margin:0;
 }
 
-nav#left-navigation ul li, nav#left-navigation ul li ul li {
+nav#left-navigation ul li {
 	margin:0;
 	padding-top:3px;
 	padding-right:0;
 	padding-bottom:2px;
-	padding-left:15px;
+	padding-left:0px;
 }
-
-/**nav#left-navigation ul li:first-child {
-	padding-top:7px;
-}**/
+nav#left-navigation ul li ul li {
+	margin:0;
+	padding-top:3px;
+	padding-right:0;
+	padding-bottom:2px;
+	padding-left:12px;
+}
 
 #left-navigation ul li.collapsible.collapsed ul {
 	 display:none;
@@ -1000,19 +1003,14 @@ nav#left-navigation ul li, nav#left-navigation ul li ul li {
 #left-navigation ul li a, #left-navigation ul li a:link {
 	text-decoration: none;
 	padding-right:15px;
+	display:block;
+	padding-left:15px;
 }
 
 #left-navigation ul li ul li {
 	padding-left:12px;
 }
 
-#left-navigation ul li ul li ul li {
-	padding-left:30px;
-}
-
-#left-navigation ul li ul li ul li ul li a{
-	font-style: italic;
-}
 
 #left-navigation ul li a:hover {
 	text-decoration: underline;
@@ -1020,5 +1018,12 @@ nav#left-navigation ul li, nav#left-navigation ul li ul li {
 
 #left-navigation ul li a:visited, #left-navigation ul li a:active {
 	text-decoration: none;
+}
 
+nav#left-navigation span {
+	display:block;
+	float:left;
+	width:12px;
+	height:12px;
+	margin-right: 2px;
 }

@@ -110,7 +110,7 @@
 
       	<div id="main-content" role="main">
 
-        	<xsl:attribute name="class" select="'grid_18 push_7'" />
+        	<xsl:attribute name="class" select="'grid_16 push_9'" />
         	<xsl:sequence select="'&#x0a;'"/>
 
         	<xsl:apply-templates select="." mode="set-initial-content"/>
@@ -177,11 +177,15 @@
 
     <script type="text/javascript">
 
-   	<xsl:comment>
+   	<xsl:text>
 			$(function() {
-				$.dita4html5.init();
+				$.dita4html5.init({
+		</xsl:text>
+		<xsl:value-of select="$jsoptions" />
+		<xsl:text>
+				});
 			});
-		</xsl:comment>
+		</xsl:text>
 
     </script><xsl:sequence select="'&#x0a;'"/>
 

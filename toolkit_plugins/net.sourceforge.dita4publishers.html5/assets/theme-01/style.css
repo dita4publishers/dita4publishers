@@ -48,10 +48,10 @@ header {
 	opacity: 1;
 }
 
-nav#left-navigation li.collapsible.collapsed {
-	background: url("../img/arrow.png") no-repeat 0 7px;
+nav#left-navigation li.collapsible.collapsed > span.ico {
+	background: url("../img/arrow.png") no-repeat 0 0px;
 }
 
-nav#left-navigation li.collapsible.active {
-	background: url("../img/arrow-down.png") no-repeat 0 7px;
+nav#left-navigation li.collapsible.active > span.ico {
+	background: url("../img/arrow-down.png") no-repeat 0 0px;
 }

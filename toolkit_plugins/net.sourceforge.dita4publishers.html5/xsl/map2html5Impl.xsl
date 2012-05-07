@@ -35,6 +35,8 @@
 
   <xsl:param name="siteTheme" select="'theme-01'" />
   <xsl:param name="bodyClass" select="''" />
+  <xsl:param name="jsoptions" select="''" />
+
 
   <xsl:template name="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>

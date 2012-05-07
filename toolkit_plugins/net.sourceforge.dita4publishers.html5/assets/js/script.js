@@ -1155,11 +1155,13 @@ $.extend( $.dita4html5, {
 	// navigationSelector
 	navigationSelector: '#left-navigation',
 
-	// load first page of the documentation if no content on the page
-	setInitialContent: true,
+	externalContentElement: 'section',
+
+	// is initial content should be loaded after init()
+	loadInitialContent: true,
 
 	// store navigation key:href, value:id
-  navigation: [],
+  nav: [],
 
   // hash (for later)
 	hash: {
@@ -1171,7 +1173,7 @@ $.extend( $.dita4html5, {
 	// used to attribute and id to the navigation tree
 	ids: {
 		n: 0,
-		prefix: 'html5plugin-nav-item-'
+		prefix: 'page-'
 	},
 
 	// store current content
@@ -1179,26 +1181,74 @@ $.extend( $.dita4html5, {
 	content: '',
 
 	protocols: ['file', 'ftp', 'http', 'https', 'mailto'],
-
+	extension: ['html'],
 
 	// from jQuery
 	// use a modified version of the $.load function
 	// for specific purpose
-	rscript: '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi'
+	rscript: '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi',
 
-	});
+	init: function ( options ) {
 
-	$.extend( $.dita4html5, {
+		$.extend (true, this, options);
+
+ 		// register callbacks for page
+ 		this.ajax.ready(this.ajax.rewriteAttrHref);
+		this.ajax.ready(this.ajax.rewriteAttrSrc);
+		this.ajax.ready(this.ajax.setTitle);
+		this.ajax.ready(this.ajax.setMainContent);
+
+		// initialize ajax callback
+		this.ajax.init ();
+
+		// initialize navigation
+		this.navigation.init();
+
+		// Bind an event to window.onhashchange that, when the history state changes,
+		// iterates over all .bbq widgets, getting their appropriate url from the
+		// current state. If that .bbq widget's url has changed, display either our
+		// cached content or fetch new content to be displayed.
+		$(window).bind( 'hashchange', function(e) {
+
+			state = $.bbq.getState( $(this).attr( 'id' ) ) || '';
+      uri = state[$.dita4html5.hash.id];
+
+			if( uri === '') { return; }
+
+			$.dita4html5.ajax.loadHTML ( uri );
+			$.dita4html5.navigation.select ( uri );
+
+		});
+
+		// load initial content
+		this.ajax.getInitialContent ( );
+
+		return;
+
+	}
+
+}
+
+);$.extend( $.dita4html5, { ajax: {
+
+	ajaxReady: [],
+
+	// allow to register callback once the page is loaded by AJAX
+	ready: function (fn) {
+		this.ajaxReady.push(fn);
+	},
 
   // parse navigation
   // replace href by # + href
   // add click event and push state in the history
   // using bbq
-	parseNavigation: function ( ) {
+	traverse: function ( ) {
 	  // navigation: prefix all href with #
 		$($.dita4html5.navigationSelector + ' a').each(function(index) {
 
       var id = $(this).attr('id');
+			var href = $(this).attr('href');
+
 
 			// attribute an ID for future reference if not set
 			if(id === '' || id == undefined) {
@@ -1207,49 +1257,16 @@ $.extend( $.dita4html5, {
 				$(this).attr('id', id);
 			}
 
-			// replace href
-      var href = '#'+$(this).attr('href');
-			$(this).attr('href', href);
-
 			// keep information in memory when link is triggered on page
-			$.dita4html5.navigation[href] = id;
+			$.dita4html5.nav[href] = id;
 
-			// if parent li as ul children add class collapsible
-			if($(this).parent().children('ul').length == 1) {
-				$(this).parent().addClass('collapsible collapsed');
-			}
+			// replace href
+			$(this).attr('href', '#'+href);
 
 			// push the appropriate state onto the history when clicked.
-			$(this).live( 'click', function(e) {
-
-				var state = {};
-
-				// Set the state!
-				state[ $.dita4html5.hash.id ] = $(this).attr( 'href' ).replace( /^#/, '' );
-				$.bbq.pushState( state );
-
-				$.dita4html5.setNavItemActive($(this).attr('id'));
-				// And finally, prevent the default link click behavior by returning false.
-				return false;
-			});
+			$.dita4html5.ajax.live ($(this));
 
 		});
-	},
-
-	// activate navigation item
-	// add/remove required navigation item
-	setNavItemActive: function (id) {
-
-		// remove previous class
-		$($.dita4html5.navigationSelector + ' li').removeClass('selected');
-		$($.dita4html5.navigationSelector + ' li').removeClass('active').addClass('collapsed');
-
-		// add selected class on the li parent element
-		$('#'+id).parentsUntil($.dita4html5.navigationSelector).addClass('active').removeClass('collapsed');;
-
-		// set all the parent trail active
-		$('#'+id).parent('li').addClass('selected');
-
 	},
 
 	// this is a modified version of the load function in jquery
@@ -1262,6 +1279,9 @@ $.extend( $.dita4html5, {
 				type: 'GET',
 				url: uri,
 				dataType: 'html',
+				beforeSend: function () {
+
+				},
 				complete: function( jqXHR, status, responseText ) {
           // Store the response as specified by the jqXHR object
           responseText = jqXHR.responseText;
@@ -1274,15 +1294,14 @@ $.extend( $.dita4html5, {
               responseText = r;
             });
 
- 						var html = $("<div>").append(responseText.replace($.dita4html5.rscript, ""));
+ 						var html = $("<div>").attr('id', $.dita4html5.hash.current).append(responseText.replace($.dita4html5.rscript, ""));
 
-            $.dita4html5.content = html.find("section");
+            $.dita4html5.content = html.find($.dita4html5.externalContentElement);
 						$.dita4html5.title = html.find("title").html();
-						$.dita4html5.rewriteAttrHref();
-						$.dita4html5.rewriteAttrSrc();
-						$.dita4html5.setTitle();
-						$.dita4html5.setMainContent();
 
+						for (fn in $.dita4html5.ajax.ajaxReady) {
+							$.dita4html5.ajax.ajaxReady[fn].call($.dita4html5.content);
+						}
 					}
 				}
 			});
@@ -1300,6 +1319,7 @@ $.extend( $.dita4html5, {
 	// Rewrite each src in the document
 	// because there is no real path with AJAX call
 	rewriteAttrSrc: function() {
+		var uri = $.dita4html5.hash.current;
 		$.dita4html5.content.find("*[src]").each(function(index) {
   		$(this).attr('src',  uri.substring(0,  uri.lastIndexOf("/")) + "/" + $(this).attr('src'));
    });
@@ -1332,7 +1352,16 @@ $.extend( $.dita4html5, {
 
     	$(this).attr('href', "#" + pathC.join("/"));
 
-    	$(this).live( 'click', function(e) {
+			$.dita4html5.ajax.live ($(this));
+
+		});
+		return;
+	},
+
+	// set AJAX callback on the specified link obj.
+  live: function ( obj ){
+
+    obj.live( 'click', function(e) {
 
     		var state = {};
 
@@ -1340,49 +1369,86 @@ $.extend( $.dita4html5, {
       	state[ $.dita4html5.hash.id ] = $(this).attr( 'href' ).replace( /^#/, '' );
 
       	$.bbq.pushState( state );
-     		$.dita4html5.setNavItemActive($.dita4html5.navigation[$(this).attr('href')]);
 
       	// And finally, prevent the default link click behavior by returning false.
      		return false;
     	});
-
-		});
-	},
+  },
 
 	// load initial content to avoid a blank page
 	getInitialContent : function () {
-		if($($.dita4html5.outputSelector).length == 1 && $.dita4html5.setInitialContent) {
+		if($($.dita4html5.outputSelector).length == 1 && $.dita4html5.loadInitialContent) {
 			this.loadHTML ($($.dita4html5.navigationSelector + ' a:first-child').attr('href').replace( /^#/, '' ));
-			$($.dita4html5.navigationSelector + " li:first-child").addClass("active selected").removeClass('collapsed');
 		}
-
 	},
 
-	init: function ( options ) {
-
- 		this.parseNavigation ();
-
-		// Bind an event to window.onhashchange that, when the history state changes,
-		// iterates over all .bbq widgets, getting their appropriate url from the
-		// current state. If that .bbq widget's url has changed, display either our
-		// cached content or fetch new content to be displayed.
-		$(window).bind( 'hashchange', function(e) {
-
-			state = $.bbq.getState( $(this).attr( 'id' ) ) || '';
-      uri = state[$.dita4html5.hash.id];
-
-			if( uri === '') { return; }
-
-			$.dita4html5.loadHTML ( uri );
-
-		});
-
-		$.dita4html5.getInitialContent ( );
-
-		return;
+	// init ajax plugin
+	init: function () {
+		this.traverse();
+	}
 
 	}
 
 	});
 
-})( jQuery );
+})( jQuery );$.extend( $.dita4html5, {
+	navigation: {
+		maxLevel: 3,
+		maxLevelTransition: 'slideUp',
+		autoCollapse: false,
+
+		init: function(){
+			this.traverse();
+		},
+
+		select: function ( uri ) {
+			var id = $.dita4html5.nav[uri];
+			$($.dita4html5.navigationSelector + ' li').removeClass('selected');
+			$('#'+id).parent('li').addClass('selected');
+		},
+
+
+		traverse: function () {
+			// navigation: prefix all href with #
+			$($.dita4html5.navigationSelector + ' a').each(function(index) {
+
+				//if parent li has ul children add class collapsible
+				if($(this).parent().children('ul').length == 1) {
+
+					// create span
+					var span = $("<span/>");
+					span.addClass("ico");
+
+					// add click handler to span
+					span.click(function(){
+
+						if($.dita4html5.navigation.autoCollapse) {
+							$($.dita4html5.navigationSelector + ' li.active').removeClass('active').addClass('collapsed');
+						}
+
+						$(this).parent('li').toggleClass('active', '');
+						$(this).parent('li').toggleClass('collapsed', '');
+
+					});
+
+					// add class
+					$(this).parent().prepend(span).addClass('collapsible collapsed');
+
+					// click handler
+					$(this).click(function(){
+						// remove previous class
+						$($.dita4html5.navigationSelector + ' li').removeClass('selected');
+						$($.dita4html5.navigationSelector + ' li').removeClass('active').addClass('collapsed');
+
+						// add selected class on the li parent element
+						$(this).parentsUntil($.dita4html5.navigationSelector).addClass('active').removeClass('collapsed');
+
+						// set all the parent trail active
+						$(this).parent('li').addClass('selected');
+
+					});
+				}
+			});
+		}
+	}
+});

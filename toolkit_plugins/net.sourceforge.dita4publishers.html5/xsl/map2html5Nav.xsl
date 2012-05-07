@@ -66,7 +66,7 @@
   </xsl:template>
 
   <xsl:template mode="generate-html5-nav-page-markup" match="*[df:class(., 'topic/title')]">
-    <p class="nav-pub-title"><xsl:apply-templates/></p>
+    <h2 class="nav-pub-title"><xsl:apply-templates/></h2>
   </xsl:template>
 
   <xsl:template mode="generate-html5-nav" match="*[df:class(., 'topic/title')]"/>

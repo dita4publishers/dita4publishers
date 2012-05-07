@@ -84,6 +84,12 @@
       </not>
 		</condition>
 
+		<condition property="js.options" value="navigation:{autoCollapse:false}">
+		  <not>
+        <isset property="js.options" />
+      </not>
+		</condition>
+
     <condition property="css.output.dir" value="css">
       <not>
         <isset property="args.css.output.dir" />
@@ -138,6 +144,7 @@
 
       <param name="siteTheme" expression="${site.theme}"/>
       <param name="bodyClass" expression="${bodyClass}"/>
+      <param name="jsoptions" expression="${js.options}"/>
       <param name="cssOutputDir" expression="${css.output.dir}"/>
       <param name="debug" expression="${debug}"/>
     	<param name="fileOrganizationStrategy" expression="${html2.file.organization.strategy}" if="html2.file.organization.strategy"/>
