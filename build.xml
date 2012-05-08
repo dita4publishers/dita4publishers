@@ -234,6 +234,23 @@
         <exclude name="xmlDomain/**"/>
       </fileset>
     </copy>
+    <!-- FIX a bug/unfortunate potential parameter entity name clash with the MathML3 DTD -->
+    <replace dir="${doctypes.plugin-dist}/doctypes/mathml3/dtd">
+      <!-- 
+      <!ENTITY % character "CDATA"> to <!ENTITY % mll3_character "CDATA" >
+      -->
+      <include name="*.dtd"/>
+      <replacetoken><![CDATA[<!ENTITY % character ]]></replacetoken>
+      <replacevalue><![CDATA[<!ENTITY % mml_character ]]></replacevalue>
+    </replace>
+    <replace dir="${doctypes.plugin-dist}/doctypes/mathml3/dtd">
+      <!-- 
+      %character; to %mml3_character;
+      -->
+      <include name="*.dtd"/>
+      <replacetoken><![CDATA[%character;]]></replacetoken>
+      <replacevalue><![CDATA[%mml_character;]]></replacevalue>
+    </replace>
 		<!-- Standalone Math plugin -->
 	    <copy todir="${plugin.dist}/net.sourceforge.dita4publishers.math/doctypes">
 	      <fileset dir="${doctypes.src}">
@@ -242,6 +259,23 @@
 	        <include name="mathml3/**"/>
 	      </fileset>
 	    </copy>
+		<!-- FIX a bug/unfortunate potential parameter entity name clash with the MathML3 DTD -->
+		<replace dir="${plugin.dist}/net.sourceforge.dita4publishers.math/doctypes/mathml3/dtd">
+			<!-- 
+			<!ENTITY % character "CDATA"> to <!ENTITY % mll3_character "CDATA" >
+			-->
+			<include name="*.dtd"/>
+			<replacetoken><![CDATA[<!ENTITY % character ]]></replacetoken>
+			<replacevalue><![CDATA[<!ENTITY % mml_character ]]></replacevalue>
+		</replace>
+    <replace dir="${plugin.dist}/net.sourceforge.dita4publishers.math/doctypes/mathml3/dtd">
+      <!-- 
+      %character; to %mll3_character;
+      -->
+      <include name="*.dtd"/>
+      <replacetoken><![CDATA[%character;]]></replacetoken>
+      <replacevalue><![CDATA[%mml_character;]]></replacevalue>
+    </replace>
     <copy todir="${doctypes.plugin-shakespear-dist}/doctypes">
       <fileset dir="${doctypes-skakespear-samples.src}">
       </fileset>
