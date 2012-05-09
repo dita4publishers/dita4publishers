@@ -30,8 +30,30 @@ noscript {
 	padding:25px;
 }
 
+h2.nav-pub-title {
+	font-size:1.1em;
+}
+
 body.centered #main-container {
 	display:block;
 	width:980px;
 	margin:0 auto;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	margin-bottom:30px;
+}
+
+#main-content {
+	margin-bottom:30px;
+}
+footer {
+	width: 100%;
+	border-top:1px solid #ccc;
 }

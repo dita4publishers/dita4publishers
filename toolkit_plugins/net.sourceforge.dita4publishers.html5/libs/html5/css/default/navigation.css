@@ -1,10 +1,7 @@
 #left-navigation {
 	margin-left:0px;
 	padding:20px 0px 20px 20px;
-	display:block;
-	position:absolute;
-	height:100%;
-	width:270px
+	outline:none;
 }
 
 #left-navigation ul {
@@ -24,6 +21,7 @@ nav#left-navigation ul li {
 	padding-right:0;
 	padding-bottom:2px;
 	padding-left:0px;
+	outline:none;
 }
 nav#left-navigation ul li ul li {
 	margin:0;
@@ -43,6 +41,7 @@ nav#left-navigation ul li ul li {
 
 #left-navigation li.selected a {
 	font-weight: bold;
+	outline:none;
 }
 
 #left-navigation li.selected ul li a {
@@ -51,7 +50,7 @@ nav#left-navigation ul li ul li {
 
 #left-navigation ul li a, #left-navigation ul li a:link {
 	text-decoration: none;
-	padding-right:15px;
+	padding-right:20px;
 	display:block;
 	padding-left:15px;
 }
@@ -75,4 +74,7 @@ nav#left-navigation span {
 	width:12px;
 	height:12px;
 	margin-right: 2px;
+}
+nav#left-navigation span:hover {
+	cursor:pointer;
 }

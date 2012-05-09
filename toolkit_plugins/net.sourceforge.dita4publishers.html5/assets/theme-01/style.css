@@ -23,6 +23,14 @@
 	font-family: "Vegur Regular", sans-serif;
 }
 
+body {
+	background: #FFFFFF;
+}
+
+footer {
+	background: #F6F6F6;
+	clear:both;
+}
 
 h1#publication-title {
 	color:#FFF;
@@ -37,10 +45,12 @@ header {
 	border-bottom:1px solid #ccc;
 }
 
-#left-navigation {
-	background: #EEE;
-	border-right:1px solid #999;
+#section-container {
+	background: url("../img/nav-background.png") repeat-y;
+}
 
+#left-navigation {
+	/*border-right:1px solid #999;*/
 }
 
 #left-navigation a, #left-navigation a:link {

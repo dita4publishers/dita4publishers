@@ -48,7 +48,7 @@
   <xsl:template mode="generate-html5-nav-page-markup" match="*[df:class(., 'map/map')]">
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>
 
-      <nav id="left-navigation" role="navigation" aria-label="Main navigation">
+      <nav id="left-navigation" role="navigation" class="grid_6" aria-label="Main navigation">
         <div class="nav-pub-title"><xsl:apply-templates select="*[df:class(., 'topic/title')]" mode="generate-html5-nav-page-markup"/></div>
         <ul>
           <xsl:apply-templates mode="generate-html5-nav"

@@ -110,23 +110,21 @@
 
       	<div id="main-content" role="main">
 
-        	<xsl:attribute name="class" select="'grid_16 push_9'" />
+        	<xsl:attribute name="class" select="'grid_15 push_1'" />
         	<xsl:sequence select="'&#x0a;'"/>
 
         	<xsl:apply-templates select="." mode="set-initial-content"/>
 
+        	<div class="clear" /><xsl:sequence select="'&#x0a;'"/>
+
         </div>
 
-				<div class="clear" /><xsl:sequence select="'&#x0a;'"/>
-
-				<footer role="contentinfo">
-
-					<!-- Examples of information included in this region of the page are copyrights and links to privacy statements.-->
-
-
-				</footer><xsl:sequence select="'&#x0a;'"/>
-
 			</div>
+
+			<footer>
+				<xsl:sequence select="'&#xA9;'"/>
+			</footer><xsl:sequence select="'&#x0a;'"/>
+
 		</div>
     </body><xsl:sequence select="'&#x0a;'"/>
   </html>
