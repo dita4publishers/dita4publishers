@@ -60,6 +60,9 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
   
   <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlOverrides.xsl"/>
+  <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlEnumeration.xsl"/>
+  <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlBookmapEnumeration.xsl"/>
+  
   <xsl:include href="map2html2Content.xsl"/>
   <xsl:include href="map2html2RootPages.xsl"/>
   <xsl:include href="map2html2DynamicToc.xsl"/>
