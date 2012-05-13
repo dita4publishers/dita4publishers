@@ -135,19 +135,98 @@ in <d4p_eqn_inline><d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/Math
                                                                           
 
                                                                           
-</p><p><ph outputclass="cmbx-12">Example</ph><ph outputclass="cmbx-12"> SS6W</ph><br/><ph outputclass="cmbx-12">Sharing a secret 6 ways</ph><br/> Let’s return to the CEO and his six Vice-Presidents. Suppose the
-password for the company’s accounts is a sequence of 5 two-digit
-numbers, which we will concatenate into a 10-digit number, in this case
-<d4p_eqn_inline><d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>S</m:mi><m:mo class="MathClass-rel">=</m:mo><m:mn>0</m:mn><m:mn>6</m:mn><m:mn>0</m:mn><m:mn>3</m:mn><m:mn>7</m:mn><m:mn>2</m:mn><m:mn>5</m:mn><m:mn>9</m:mn><m:mn>6</m:mn><m:mn>2</m:mn></m:math></d4p_MathML></d4p_eqn_inline>. For a prime
-<d4p_eqn_inline><d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>p</m:mi></m:math></d4p_MathML></d4p_eqn_inline> we choose the 11-digit
-prime number <d4p_eqn_inline><d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>p</m:mi><m:mo class="MathClass-rel">=</m:mo><m:mn>2</m:mn><m:mn>2</m:mn><m:mn>8</m:mn><m:mn>0</m:mn><m:mn>1</m:mn><m:mn>7</m:mn><m:mn>6</m:mn><m:mn>1</m:mn><m:mn>3</m:mn><m:mn>7</m:mn><m:mn>9</m:mn></m:math></d4p_MathML></d4p_eqn_inline>. From
-the requirement that <d4p_eqn_inline><d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>m</m:mi><m:mo class="MathClass-rel">=</m:mo><m:mn>3</m:mn></m:math></d4p_MathML></d4p_eqn_inline>
-Vice-Presidents are needed to recover the secret, we need a second-degree polynomial
-and so need two more coefficients, which we will construct at random between
-<d4p_eqn_inline><d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mn>1</m:mn></m:math></d4p_MathML></d4p_eqn_inline> and
-<d4p_eqn_inline><d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>p</m:mi></m:math></d4p_MathML></d4p_eqn_inline>. The
-resulting polynomial is
-</p><d4p_eqn_block><d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mtable columnalign="left" class="align-star"><m:mtr><m:mtd columnalign="right" class="align-odd"><m:mi>r</m:mi><m:mrow><m:mo class="MathClass-open">(</m:mo><m:mrow><m:mi>x</m:mi></m:mrow><m:mo class="MathClass-close">)</m:mo></m:mrow><m:mo class="MathClass-rel">=</m:mo><m:mn>6</m:mn><m:mn>0</m:mn><m:mn>3</m:mn><m:mn>7</m:mn><m:mn>2</m:mn><m:mn>5</m:mn><m:mn>9</m:mn><m:mn>6</m:mn><m:mn>2</m:mn><m:mo class="MathClass-bin">+</m:mo><m:mn>2</m:mn><m:mn>2</m:mn><m:mn>5</m:mn><m:mn>6</m:mn><m:mn>1</m:mn><m:mn>9</m:mn><m:mn>8</m:mn><m:mn>2</m:mn><m:mn>9</m:mn><m:mn>1</m:mn><m:mn>9</m:mn><m:mi>x</m:mi><m:mo class="MathClass-bin">+</m:mo><m:mn>8</m:mn><m:mn>8</m:mn><m:mn>4</m:mn><m:mn>4</m:mn><m:mn>0</m:mn><m:mn>8</m:mn><m:mn>8</m:mn><m:mn>3</m:mn><m:mn>3</m:mn><m:mn>8</m:mn><m:msup><m:mrow><m:mi>x</m:mi></m:mrow><m:mrow><m:mn>2</m:mn></m:mrow></m:msup></m:mtd><m:mtd class="align-even"><m:mspace width="2em"/></m:mtd><m:mtd columnalign="right" class="align-label"/></m:mtr></m:mtable></m:math></d4p_MathML></d4p_eqn_block><p>We will now build six pairs of inputs and outputs, where we will choose the inputs
+</p><p
+      id="example.SS6W"><ph
+      outputclass="cmbx-12">Example</ph><ph
+      outputclass="cmbx-12"> SS6W</ph><br/><ph
+      outputclass="cmbx-12">Sharing a secret 6 ways</ph><br/> Let’s return to
+      the CEO and his six Vice-Presidents. Suppose the password for the
+      company’s accounts is a sequence of 5 two-digit numbers, which we will
+      concatenate into a 10-digit number, in this case <d4p_eqn_inline>
+      <d4p_MathML>
+        <m:math
+          xmlns:m="http://www.w3.org/1998/Math/MathML"
+          display="inline"
+          overflow="scroll">
+          <m:mi>S</m:mi>
+          <m:mo
+            class="MathClass-rel">=</m:mo>
+          <m:mn>0</m:mn>
+          <m:mn>6</m:mn>
+          <m:mn>0</m:mn>
+          <m:mn>3</m:mn>
+          <m:mn>7</m:mn>
+          <m:mn>2</m:mn>
+          <m:mn>5</m:mn>
+          <m:mn>9</m:mn>
+          <m:mn>6</m:mn>
+          <m:mn>2</m:mn>
+        </m:math>
+      </d4p_MathML>
+      </d4p_eqn_inline>. For a prime <d4p_eqn_inline>
+      <d4p_MathML>
+        <m:math
+          xmlns:m="http://www.w3.org/1998/Math/MathML"
+          display="inline"
+          overflow="scroll">
+          <m:mi>p</m:mi>
+        </m:math>
+      </d4p_MathML>
+      </d4p_eqn_inline> we choose the 11-digit prime number <d4p_eqn_inline>
+      <d4p_MathML>
+        <m:math
+          xmlns:m="http://www.w3.org/1998/Math/MathML"
+          display="inline"
+          overflow="scroll">
+          <m:mi>p</m:mi>
+          <m:mo
+            class="MathClass-rel">=</m:mo>
+          <m:mn>2</m:mn>
+          <m:mn>2</m:mn>
+          <m:mn>8</m:mn>
+          <m:mn>0</m:mn>
+          <m:mn>1</m:mn>
+          <m:mn>7</m:mn>
+          <m:mn>6</m:mn>
+          <m:mn>1</m:mn>
+          <m:mn>3</m:mn>
+          <m:mn>7</m:mn>
+          <m:mn>9</m:mn>
+        </m:math>
+      </d4p_MathML>
+      </d4p_eqn_inline>. From the requirement that <d4p_eqn_inline>
+      <d4p_MathML>
+        <m:math
+          xmlns:m="http://www.w3.org/1998/Math/MathML"
+          display="inline"
+          overflow="scroll">
+          <m:mi>m</m:mi>
+          <m:mo
+            class="MathClass-rel">=</m:mo>
+          <m:mn>3</m:mn>
+        </m:math>
+      </d4p_MathML>
+      </d4p_eqn_inline> Vice-Presidents are needed to recover the secret, we
+      need a second-degree polynomial and so need two more coefficients, which
+      we will construct at random between <d4p_eqn_inline>
+      <d4p_MathML>
+        <m:math
+          xmlns:m="http://www.w3.org/1998/Math/MathML"
+          display="inline"
+          overflow="scroll">
+          <m:mn>1</m:mn>
+        </m:math>
+      </d4p_MathML>
+      </d4p_eqn_inline> and <d4p_eqn_inline>
+      <d4p_MathML>
+        <m:math
+          xmlns:m="http://www.w3.org/1998/Math/MathML"
+          display="inline"
+          overflow="scroll">
+          <m:mi>p</m:mi>
+        </m:math>
+      </d4p_MathML>
+      </d4p_eqn_inline>. The resulting polynomial is </p><d4p_eqn_block><d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mtable columnalign="left" class="align-star"><m:mtr><m:mtd columnalign="right" class="align-odd"><m:mi>r</m:mi><m:mrow><m:mo class="MathClass-open">(</m:mo><m:mrow><m:mi>x</m:mi></m:mrow><m:mo class="MathClass-close">)</m:mo></m:mrow><m:mo class="MathClass-rel">=</m:mo><m:mn>6</m:mn><m:mn>0</m:mn><m:mn>3</m:mn><m:mn>7</m:mn><m:mn>2</m:mn><m:mn>5</m:mn><m:mn>9</m:mn><m:mn>6</m:mn><m:mn>2</m:mn><m:mo class="MathClass-bin">+</m:mo><m:mn>2</m:mn><m:mn>2</m:mn><m:mn>5</m:mn><m:mn>6</m:mn><m:mn>1</m:mn><m:mn>9</m:mn><m:mn>8</m:mn><m:mn>2</m:mn><m:mn>9</m:mn><m:mn>1</m:mn><m:mn>9</m:mn><m:mi>x</m:mi><m:mo class="MathClass-bin">+</m:mo><m:mn>8</m:mn><m:mn>8</m:mn><m:mn>4</m:mn><m:mn>4</m:mn><m:mn>0</m:mn><m:mn>8</m:mn><m:mn>8</m:mn><m:mn>3</m:mn><m:mn>3</m:mn><m:mn>8</m:mn><m:msup><m:mrow><m:mi>x</m:mi></m:mrow><m:mrow><m:mn>2</m:mn></m:mrow></m:msup></m:mtd><m:mtd class="align-even"><m:mspace width="2em"/></m:mtd><m:mtd columnalign="right" class="align-label"/></m:mtr></m:mtable></m:math></d4p_MathML></d4p_eqn_block><p>We will now build six pairs of inputs and outputs, where we will choose the inputs
 at random (not allowing duplicates) and we do all our arithmetic modulo
 <d4p_eqn_inline><d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>p</m:mi></m:math></d4p_MathML></d4p_eqn_inline>,
 </p><p>The two numbers of each row of the table are then given to the indicated

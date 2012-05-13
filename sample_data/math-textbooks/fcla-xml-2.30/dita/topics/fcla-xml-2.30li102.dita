@@ -29,7 +29,7 @@ that <d4p_eqn_inline><d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/Ma
 instead appear more often in proofs and applications where the scalars
 <d4p_eqn_inline><d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:msub><m:mrow><m:mi>x</m:mi></m:mrow><m:mrow><m:mi>i</m:mi></m:mrow></m:msub></m:math></d4p_MathML></d4p_eqn_inline> are
 carried as symbols. Two such applications are in the sections on secret-sharing
-(<xref keyref="fcla-xml-2.30li112/section.SAS">Section SAS</xref>) and curve-fitting (<xref keyref="fcla-xml-2.30li111/section.CF">Section CF</xref>). Principally, we would like to know
+(<xref keyref="fcla-xml-2.30li112">Section SAS</xref>) and curve-fitting (<xref keyref="fcla-xml-2.30li111/section.CF">Section CF</xref>). Principally, we would like to know
 when Vandermonde matrices are nonsingular, and the most convenient way to
 check this is by determining when the determinant is nonzero (<xref keyref="fcla-xml-2.30li45/theorem.SMZD">Theorem SMZD</xref>).
 As a bonus, the determinant of a Vandermonde matrix has an especially pleasing
