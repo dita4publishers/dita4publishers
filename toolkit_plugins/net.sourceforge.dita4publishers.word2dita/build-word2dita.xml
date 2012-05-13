@@ -72,7 +72,13 @@
 			 </not>
 		</condition>
 		
-		<condition property="w2d.topic.extension" value=".dita">
+	  <condition property="w2d.language" value="en-US">
+	    <not>
+	      <isset property="w2d.language"/>
+	    </not>
+	  </condition>
+	  
+	  <condition property="w2d.topic.extension" value=".dita">
 			<not>
 			 <isset property="w2d.topic.extension"/>
 			</not>
