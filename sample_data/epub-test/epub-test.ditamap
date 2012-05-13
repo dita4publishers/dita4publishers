@@ -60,6 +60,9 @@
         href="frontmatter/introduction.xml"/>
       <forward
         href="../common/topics/common-topic-01.xml"/>
+      <toc/>
+      <figurelist/>
+      <tablelist/>
     </frontmatter>
     <pubbody
       collection-type="sequence">
@@ -167,6 +170,7 @@
       <chapter
         href="chapters/chapter_4.xml"/>
     </pubbody>
+    <appendixes/>
     <backmatter>
       <glossary>
         <topicmeta>
