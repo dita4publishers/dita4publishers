@@ -73,8 +73,9 @@
   </xsl:template>
   
   <xsl:template mode="enumeration" 
-    match="*[df:class(., 'pubmap-d/frontmatter')]//*[df:class(., 'pubmap-d/chapter')]">
-    <!-- Frontmatter chapters are not enumerated -->
+    match="*[df:class(., 'pubmap-d/frontmatter')]//*[df:class(., 'pubmap-d/chapter')] |
+           *[df:class(., 'pubmap-d/backmatter')]//*[df:class(., 'pubmap-d/chapter')]">
+    <!-- Frontmatter and backmatter chapters are not enumerated -->
   </xsl:template>
   
   <xsl:template mode="enumeration" 
