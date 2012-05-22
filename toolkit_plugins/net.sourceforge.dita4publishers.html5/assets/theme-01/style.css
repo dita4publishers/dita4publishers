@@ -21,8 +21,17 @@
 .fontface h1, .fontface  h2, .fontface  h3, .fontface  h4,.fontface  h5,.fontface  h6
 {
 	font-family: "Vegur Regular", sans-serif;
+	
 }
-
+body.centered #main-container {
+	-moz-box-shadow: 3px 3px 4px #999;
+	-webkit-box-shadow: 3px 3px 4px #999;
+	box-shadow: 3px 3px 4px #999;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999');
+}
 body {
 	background: #FFFFFF;
 }
@@ -41,7 +50,7 @@ section h1 {
 }
 
 header {
-	background: #999;
+	background: #333;
 	border-bottom:1px solid #ccc;
 }
 
@@ -64,4 +73,22 @@ nav#left-navigation li.collapsible.collapsed > span.ico {
 
 nav#left-navigation li.collapsible.active > span.ico {
 	background: url("../img/arrow-down.png") no-repeat 0 0px;
+}
+
+#main-content a, #main-content a:link {
+    color:#3887b0;
+    text-decoration:underline;
+}
+
+#main-content a:hover {
+    text-decoration:none;
+}
+
+#main-content a:visited {
+    color:#88b7d0;
+    text-decoration: underline;
+}
+
+#main-content a:active {
+    color:red;
 }

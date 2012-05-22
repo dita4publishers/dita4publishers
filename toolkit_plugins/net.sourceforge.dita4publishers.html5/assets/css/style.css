@@ -921,22 +921,20 @@ body {
     color: #333333;
     font: 12px "Lucida Grande",Geneva,Arial,Verdana,sans-serif;
 }
+
 header {
-	display:block;
-	height:20px
-	background: #CCC;
-}
-header {
-	display: block;
-	width:100%;
-	height:35px;
+  display: block;
+  height: 61px;
+  left: -1px;
+  position: relative;
+  width: 982px;
 }
 
 header h1 {
-	padding-left:25px;
-	font-weight:100;
-	font-size:1.8em;
-	line-height: 35px;
+    font-size: 2.8em;
+    font-weight: 100;
+    line-height: 62px;
+    padding-left: 25px;
 }
 
 noscript {
@@ -954,7 +952,6 @@ body.centered #main-container {
 	margin:0 auto;
 	border-left:1px solid #ccc;
 	border-right:1px solid #ccc;
-	border-bottom:1px solid #ccc;
 	-webkit-border-bottom-right-radius: 5px;
 	-webkit-border-bottom-left-radius: 5px;
 	-moz-border-radius-bottomright: 5px;
@@ -966,10 +963,23 @@ body.centered #main-container {
 
 #main-content {
 	margin-bottom:30px;
+	min-height: 500px;
 }
+
 footer {
-	width: 100%;
-	border-top:1px solid #ccc;
+    border: 1px solid #CCCCCC;
+    display: block;
+    height: 5px;
+    left: -1px;
+    padding: 20px;
+    position: relative;
+    width: 940px;
+    -webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
 }
 #left-navigation {
 	margin-left:0px;
@@ -996,16 +1006,24 @@ nav#left-navigation ul li {
 	padding-left:0px;
 	outline:none;
 }
+
+nav#left-navigation ul li.no-child {
+    padding-left:15px;
+}
+
 nav#left-navigation ul li ul li {
 	margin:0;
 	padding-top:3px;
 	padding-right:0;
 	padding-bottom:2px;
-	padding-left:12px;
+	padding-left:15px;
 }
 
 #left-navigation ul li.collapsible.collapsed ul {
 	 display:none;
+}
+#left-navigation ul li.collapsible {
+    cursor: pointer;
 }
 
 #left-navigation ul li.active ul {
@@ -1025,7 +1043,7 @@ nav#left-navigation ul li ul li {
 	text-decoration: none;
 	padding-right:20px;
 	display:block;
-	padding-left:15px;
+	padding-left:0px;
 }
 
 #left-navigation ul li ul li {

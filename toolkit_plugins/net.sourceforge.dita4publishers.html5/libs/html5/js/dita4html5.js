@@ -61,6 +61,7 @@ $.extend( $.dita4html5, {
 		this.ajax.ready(this.ajax.rewriteAttrSrc);
 		this.ajax.ready(this.ajax.setTitle);
 		this.ajax.ready(this.ajax.setMainContent);
+		this.ajax.ready(this.navigation.selectFromHash);
 
 		// initialize ajax callback
 		this.ajax.init ();

@@ -1197,6 +1197,7 @@ $.extend( $.dita4html5, {
 		this.ajax.ready(this.ajax.rewriteAttrSrc);
 		this.ajax.ready(this.ajax.setTitle);
 		this.ajax.ready(this.ajax.setMainContent);
+		this.ajax.ready(this.navigation.selectFromHash);
 
 		// initialize ajax callback
 		this.ajax.init ();
@@ -1246,7 +1247,7 @@ $.extend( $.dita4html5, {
 	  // navigation: prefix all href with #
 		$($.dita4html5.navigationSelector + ' a').each(function(index) {
 
-      var id = $(this).attr('id');
+            var id = $(this).attr('id');
 			var href = $(this).attr('href');
 
 
@@ -1266,6 +1267,17 @@ $.extend( $.dita4html5, {
 			// push the appropriate state onto the history when clicked.
 			$.dita4html5.ajax.live ($(this));
 
+		});
+		
+		$($.dita4html5.navigationSelector + ' li').each(function(index) {
+		    if($(this).children('a').length == 0) {
+		        var l = $(this).find('ul li a:first-child');
+		        if(l.length == 1) {
+		            $(this).click(function(){		        
+		                $.dita4html5.ajax.loadHTML(l.attr('href').replace( /^#/, '' ));
+		            });
+		        }
+		    }
 		});
 	},
 
@@ -1407,35 +1419,43 @@ $.extend( $.dita4html5, {
 			$('#'+id).parent('li').addClass('selected');
 		},
 
+        selectFromHash: function () {
+            $.dita4html5.navigation.select($.dita4html5.hash.current.replace( /^#/, '' ));
+        },
 
 		traverse: function () {
 			// navigation: prefix all href with #
-			$($.dita4html5.navigationSelector + ' a').each(function(index) {
+			$($.dita4html5.navigationSelector + ' li').each(function(index) {
 
-				//if parent li has ul children add class collapsible
-				if($(this).parent().children('ul').length == 1) {
+              	//if li has ul children add class collapsible
+				if($(this).children('ul').length == 1) {
 
 					// create span
 					var span = $("<span/>");
 					span.addClass("ico");
 
-					// add click handler to span
-					span.click(function(){
+					// li click handler
+					$(this).click(function(){
 
-						if($.dita4html5.navigation.autoCollapse) {
-							$($.dita4html5.navigationSelector + ' li.active').removeClass('active').addClass('collapsed');
-						}
+						$(this).toggleClass('active', '');
+						$(this).toggleClass('collapsed', '');
+						
+					});
+					
+					$(this).children('a').click(function(){
 
-						$(this).parent('li').toggleClass('active', '');
-						$(this).parent('li').toggleClass('collapsed', '');
+						$(this).parent().toggleClass('active', '');
+						$(this).parent().toggleClass('collapsed', '');				
 
 					});
+					
 
 					// add class
-					$(this).parent().prepend(span).addClass('collapsible collapsed');
+					$(this).prepend(span).addClass('collapsible collapsed');
 
-					// click handler
-					$(this).click(function(){
+
+					// link click handler
+					$(this).children('a:first-child').click(function(){
 						// remove previous class
 						$($.dita4html5.navigationSelector + ' li').removeClass('selected');
 						$($.dita4html5.navigationSelector + ' li').removeClass('active').addClass('collapsed');
@@ -1447,6 +1467,8 @@ $.extend( $.dita4html5, {
 						$(this).parent('li').addClass('selected');
 
 					});
+				} else {
+				    $(this).addClass('no-child');
 				}
 			});
 		}

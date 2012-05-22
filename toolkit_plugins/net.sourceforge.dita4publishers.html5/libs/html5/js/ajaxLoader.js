@@ -15,7 +15,7 @@ $.extend( $.dita4html5, { ajax: {
 	  // navigation: prefix all href with #
 		$($.dita4html5.navigationSelector + ' a').each(function(index) {
 
-      var id = $(this).attr('id');
+            var id = $(this).attr('id');
 			var href = $(this).attr('href');
 
 
@@ -35,6 +35,17 @@ $.extend( $.dita4html5, { ajax: {
 			// push the appropriate state onto the history when clicked.
 			$.dita4html5.ajax.live ($(this));
 
+		});
+		
+		$($.dita4html5.navigationSelector + ' li').each(function(index) {
+		    if($(this).children('a').length == 0) {
+		        var l = $(this).find('ul li a:first-child');
+		        if(l.length == 1) {
+		            $(this).click(function(){		        
+		                $.dita4html5.ajax.loadHTML(l.attr('href').replace( /^#/, '' ));
+		            });
+		        }
+		    }
 		});
 	},
 

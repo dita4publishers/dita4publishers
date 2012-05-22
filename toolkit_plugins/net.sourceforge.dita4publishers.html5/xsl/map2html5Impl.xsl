@@ -28,8 +28,8 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.html2/xsl/map2html2Impl.xsl"/>
 
   <xsl:include href="map2html5Nav.xsl"/>
-  <xsl:include href="map2Html5Content.xsl"/>
-  <xsl:include href="map2Html5RootPages.xsl"/>
+  <xsl:include href="map2html5Content.xsl"/>
+  <xsl:include href="map2html5RootPages.xsl"/>
   
   <xsl:param name="dita-css" select="'css/topic-html5.css'" as="xs:string"/>
 
