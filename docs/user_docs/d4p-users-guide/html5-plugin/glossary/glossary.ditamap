@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+    <topichead>
+        <topicmeta>
+            <navtitle>Definitions</navtitle>
+        </topicmeta>
+        <glossref keys="def-css" href="css.dita" outputclass="ui-dialog"/>
+        <glossref href="DOM.dita" keys="def-DOM" outputclass="ui-dialog"/>
+        <glossref href="w3c.dita" keys="def-w3c" outputclass="ui-dialog"/>
+        <glossref href="AJAX.dita" keys="def-AJAX"/>
+    </topichead>
+</map>

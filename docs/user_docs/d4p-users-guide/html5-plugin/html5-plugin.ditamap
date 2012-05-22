@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+    <title>HTML5 Plugin</title>
+    <mapref href="keys-external.ditamap" format="ditamap"/>
+    <topicref href="general/introduction.dita"/>
+    <topicref href="features/features.ditamap" format="ditamap"/>
+    <mapref href="glossary/glossary.ditamap" toc="yes"/>
+</map>
