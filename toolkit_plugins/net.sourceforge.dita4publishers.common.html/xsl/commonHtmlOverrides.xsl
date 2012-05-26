@@ -186,6 +186,13 @@
     </xsl:choose>
   </xsl:template>
   
-  
+  <xsl:template match="*[df:class(., 'topic/xref')]" mode="get-output-class">
+    <!-- Add the link scope to the @class value -->
+    <xsl:variable name="classValue"
+      select="
+      string(@scope)"
+    />
+    <xsl:sequence select="$classValue"/>
+  </xsl:template>
   
 </xsl:stylesheet>
