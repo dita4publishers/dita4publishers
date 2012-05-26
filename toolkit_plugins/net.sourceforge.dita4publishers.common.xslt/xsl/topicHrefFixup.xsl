@@ -59,8 +59,8 @@
   <xsl:template mode="href-fixup" match="xref[not(@scope = 'external')]/@href | 
                       link[not(@scope = 'external')]/@href" priority="10">
     <xsl:if test="false() or $debugBoolean">
-      <xsl:message> + [DEBUG] href-fixup 
-        <xsl:sequence select="name(..)"/>/@href att..., value="<xsl:sequence select="string(.)"/>"</xsl:message>
+<!--      <xsl:message> + [DEBUG] href-fixup 
+        <xsl:sequence select="name(..)"/>/@href att..., value="<xsl:sequence select="string(.)"/>"</xsl:message> -->
     </xsl:if>
     <xsl:variable name="parentElem" select=".." as="element()"/>
     <xsl:variable name="targetTopic" as="document-node()?"
@@ -108,7 +108,7 @@
         <xsl:when test="$parentElem/@format and 
                         $parentElem/@format != '' and 
                         $parentElem/@format != 'dita'">
-          <xsl:message> + [DEBUG] non-topic href, url="<xsl:sequence select="string(@href)"/>" format="<xsl:sequence select="string($parentElem/@format)"/>"</xsl:message>
+          <!--<xsl:message> + [DEBUG] non-topic href, url="<xsl:sequence select="string(@href)"/>" format="<xsl:sequence select="string($parentElem/@format)"/>"</xsl:message>-->
           <xsl:sequence select="''"/>
         </xsl:when>
         <xsl:otherwise>
@@ -118,7 +118,7 @@
       </xsl:choose>      
     </xsl:variable>
     
-    <xsl:if test="true()">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] href-fixup, newHref='<xsl:sequence select="$newHref"/>'</xsl:message>
     </xsl:if>
     <xsl:choose>
