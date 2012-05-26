@@ -50,7 +50,7 @@
 
       <nav id="left-navigation" role="navigation" class="grid_6" aria-label="Main navigation">
         <div class="nav-pub-title"><xsl:apply-templates select="*[df:class(., 'topic/title')]" mode="generate-html5-nav-page-markup"/></div>
-        <ul>
+        <xsl:variable name="listItems" as="node()*">
           <xsl:apply-templates mode="generate-html5-nav"
             select=".
             except (
@@ -59,7 +59,12 @@
             *[df:class(., 'map/reltable')]
             )"
           />
-        </ul>
+        </xsl:variable>
+        <xsl:if test="$listItems">
+          <ul>
+            <xsl:sequence select="$listItems"/>
+          </ul>
+        </xsl:if>
       </nav>
 
 
@@ -104,7 +109,7 @@
             </xsl:if>
             <xsl:apply-templates select="." mode="nav-point-title"/></a>
           <xsl:if test="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]">
-            <ul>
+            <xsl:variable name="listItems" as="node()*">
               <!-- Any subordinate topics in the currently-referenced topic are
               reflected in the ToC before any subordinate topicrefs.
             -->
@@ -114,7 +119,12 @@
                   select="$tocDepth + 1"
                 />
               </xsl:apply-templates>
-            </ul>
+            </xsl:variable>
+            <xsl:if test="$listItems">
+              <ul>
+                <xsl:sequence select="$listItems"/>
+              </ul>
+            </xsl:if>
           </xsl:if>
           </li>
         </xsl:otherwise>
@@ -168,13 +178,18 @@
         select="generate-id(.)"/>
       <li id="{$navPointId}">
         <xsl:sequence select="df:getNavtitleForTopicref(.)"/>
-        <ul>
+        <xsl:variable name="listItems" as="node()*">
           <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current">
             <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes"
               select="$tocDepth + 1"
             />
           </xsl:apply-templates>
-        </ul>
+        </xsl:variable>
+        <xsl:if test="$listItems">
+          <ul>
+            <xsl:sequence select="$listItems"/>
+          </ul>
+        </xsl:if>
       </li>
     </xsl:if>
   </xsl:template>
