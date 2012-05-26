@@ -1059,14 +1059,14 @@ nav#left-navigation ul li ul li {
 	text-decoration: none;
 }
 
-nav#left-navigation span {
+nav#left-navigation span.ico {
 	display:block;
 	float:left;
 	width:12px;
 	height:12px;
 	margin-right: 2px;
 }
-nav#left-navigation span:hover {
+nav#left-navigation span.ico:hover {
 	cursor:pointer;
 }/**
  * css for images

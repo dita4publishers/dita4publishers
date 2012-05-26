@@ -37,11 +37,14 @@ $.extend( $.dita4html5, { ajax: {
 
 		});
 		
-		$($.dita4html5.navigationSelector + ' li').each(function(index) {
+		$($.dita4html5.navigationSelector).find('li').each(function(index) {
 		    if($(this).children('a').length == 0) {
-		        var l = $(this).find('ul li a:first-child');
+		    console.log($(this));
+		        var l = $(this).find('ul li a:first');
+		        console.log(l);
 		        if(l.length == 1) {
-		            $(this).click(function(){		        
+		            $(this).children('span.navtitle').click(function(){
+		                console.log("loading first child");
 		                $.dita4html5.ajax.loadHTML(l.attr('href').replace( /^#/, '' ));
 		            });
 		        }

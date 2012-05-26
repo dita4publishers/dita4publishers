@@ -1198,12 +1198,14 @@ $.extend( $.dita4html5, {
 		this.ajax.ready(this.ajax.setTitle);
 		this.ajax.ready(this.ajax.setMainContent);
 		this.ajax.ready(this.navigation.selectFromHash);
-
+	    
+	    // initialize navigation
+		this.navigation.init();
+		
 		// initialize ajax callback
 		this.ajax.init ();
 
-		// initialize navigation
-		this.navigation.init();
+	
 
 		// Bind an event to window.onhashchange that, when the history state changes,
 		// iterates over all .bbq widgets, getting their appropriate url from the
@@ -1269,11 +1271,14 @@ $.extend( $.dita4html5, {
 
 		});
 		
-		$($.dita4html5.navigationSelector + ' li').each(function(index) {
+		$($.dita4html5.navigationSelector).find('li').each(function(index) {
 		    if($(this).children('a').length == 0) {
-		        var l = $(this).find('ul li a:first-child');
+		    console.log($(this));
+		        var l = $(this).find('ul li a:first');
+		        console.log(l);
 		        if(l.length == 1) {
-		            $(this).click(function(){		        
+		            $(this).children('span.navtitle').click(function(){
+		                console.log("loading first child");
 		                $.dita4html5.ajax.loadHTML(l.attr('href').replace( /^#/, '' ));
 		            });
 		        }
@@ -1430,32 +1435,44 @@ $.extend( $.dita4html5, {
               	//if li has ul children add class collapsible
 				if($(this).children('ul').length == 1) {
 
-					// create span
+					// create span for icone
 					var span = $("<span/>");
 					span.addClass("ico");
-
-					// li click handler
-					$(this).click(function(){
-
-						$(this).toggleClass('active', '');
-						$(this).toggleClass('collapsed', '');
+					
+					span.click(function(){
+                        console.log('click on icon');
+						$(this).parent().toggleClass('active', '');
+						$(this).parent().toggleClass('collapsed', '');
 						
 					});
 					
-					$(this).children('a').click(function(){
-
-						$(this).parent().toggleClass('active', '');
-						$(this).parent().toggleClass('collapsed', '');				
-
-					});
+					// wrap text node with a span if exists
+					$(this).contents().each(function () {
 					
+					    if (this.nodeType == 3) { // Text only
+					        var span2 = $("<span />");
+					        span2.addClass("navtitle");
+					        // li click handler
+					        span2.click(function(){
+                                console.log('click on span (topichead)');
+						        $(this).parent().toggleClass('active', '');
+						        $(this).parent().toggleClass('collapsed', '');
+						
+					        });
+					        
+                            $(this).wrap(span2);
+                                                     
+                        }
+                    });
+                    
 
 					// add class
 					$(this).prepend(span).addClass('collapsible collapsed');
 
 
 					// link click handler
-					$(this).children('a:first-child').click(function(){
+					$(this).find('a').click(function(){
+					    console.log('click on link');
 						// remove previous class
 						$($.dita4html5.navigationSelector + ' li').removeClass('selected');
 						$($.dita4html5.navigationSelector + ' li').removeClass('active').addClass('collapsed');

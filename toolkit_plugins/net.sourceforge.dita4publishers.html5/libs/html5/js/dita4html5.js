@@ -62,12 +62,14 @@ $.extend( $.dita4html5, {
 		this.ajax.ready(this.ajax.setTitle);
 		this.ajax.ready(this.ajax.setMainContent);
 		this.ajax.ready(this.navigation.selectFromHash);
-
+	    
+	    // initialize navigation
+		this.navigation.init();
+		
 		// initialize ajax callback
 		this.ajax.init ();
 
-		// initialize navigation
-		this.navigation.init();
+	
 
 		// Bind an event to window.onhashchange that, when the history state changes,
 		// iterates over all .bbq widgets, getting their appropriate url from the
