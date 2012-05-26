@@ -5,7 +5,7 @@
   <body>
     <p>Contains xrefs.</p>
     <p>XRef to a topic in the same topic document: <xref
-      href="#topic_98167a29-7b15-4844-80ed-c8fb81447f44"
+      href="#topic_98167a29-7b15-4844-80ed-c8fb81447f44" outputclass="xref-outputclass-value"
       format="dita">Subtopic 1</xref>.</p>
     <p>XRef to a different top-level topic: <xref
       href="chapter_1.xml#chapterid"
@@ -18,6 +18,10 @@
       format="dita"/>.</p>
     <p>Here is a keyref xref to Wizard of OZ, Chapter 1: <xref
       keyref="the_cyclone"/>.</p>
+    <p>An external scope xref: <xref
+      href="http://dita4publishers.sourceforge.net"
+      format="html"
+      scope="external">DITA for Publishers</xref>.</p>
     <!--<p>Here is a keyword keyref to Wizard of OZ, Chapter 1: A <keyword
       keyref="the_cyclone">cyclone</keyword> is also called a <keyword>tornado</keyword>.</p>-->
   </body>
