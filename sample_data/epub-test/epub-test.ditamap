@@ -60,6 +60,8 @@
         href="frontmatter/introduction.xml"/>
       <forward
         href="../common/topics/common-topic-01.xml"/>
+      <chapter
+        href="frontmatter/frontmatter-topic.xml"/>
       <toc/>
       <figurelist/>
       <tablelist/>
