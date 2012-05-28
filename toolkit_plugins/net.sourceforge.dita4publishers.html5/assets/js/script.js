@@ -1222,9 +1222,6 @@ $.extend( $.dita4html5, {
 
 		});
 
-		// load initial content
-		this.ajax.getInitialContent ( );
-
 		return;
 
 	}
@@ -1301,7 +1298,28 @@ $.extend( $.dita4html5, {
         $.dita4html5.ajax.loader.hide();
         $($.dita4html5.outputSelector).css('opacity', 1);
     },
-
+	
+    // add loader (spinner on the page)
+    // @todo: add support for localization
+    addLoader: function () {
+        var title = $("<h2>content is loading</h2>").addClass('hidden');
+        var loader = $("<div />").attr("id", "loader").append(title);
+        $('body').append(loader);
+    },
+    
+    // called before the ajax request is send
+    // used to output a 'loader' on the page  
+    contentIsLoading: function () {
+        $("#loader").show();
+        $($.dita4html5.outputSelector).css('opacity', $.dita4html5.transition.opacity); 
+    },
+    
+    // called at the end of the ajax call
+    contentIsLoaded: function () {
+        $("#loader").hide();
+        $($.dita4html5.outputSelector).css('opacity', 1);
+    },
+    
     // this is a modified version of the load function in jquery
     // I kept comments for reference
     // @todo: see if it is neccessary to implement cache here

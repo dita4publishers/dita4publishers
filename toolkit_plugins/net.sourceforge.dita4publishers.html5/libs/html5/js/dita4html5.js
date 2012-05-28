@@ -86,9 +86,6 @@ $.extend( $.dita4html5, {
 
 		});
 
-		// load initial content
-		this.ajax.getInitialContent ( );
-
 		return;
 
 	}
