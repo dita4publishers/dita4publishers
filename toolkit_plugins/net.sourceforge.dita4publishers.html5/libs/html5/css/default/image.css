@@ -7,6 +7,7 @@
  * if body.img-with-shadow is not set
  * shadow could be manually added using outputclass=with-shadow
  */
+
 .img-with-shadow img, img.with-shadow
 {
 	-moz-box-shadow: 3px 3px 4px #333;

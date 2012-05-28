@@ -7,14 +7,14 @@ $.dita4html5 = $.dita4html5  || {};
 $.extend( $.dita4html5, {
 
 	version: '0.1a',
-  // toc url - to be implemented
-  // the idea is to have the reference to the toc on every page.
-  // if someone come on a specific page trough a search engine
-  // the code will load the toc parent and render the page properly.
-  toc: '',
+    // toc url - to be implemented
+    // the idea is to have the reference to the toc on every page.
+    // if someone come on a specific page trough a search engine
+    // the code will load the toc parent and render the page properly.
+    toc: '',
 
-  // selector for the element which contain the content
-	outputSelector: '#main-content',
+    // selector for the element which contain the content
+    outputSelector: '#main-content',
 
 	// navigationSelector
 	navigationSelector: '#left-navigation',
@@ -25,9 +25,9 @@ $.extend( $.dita4html5, {
 	loadInitialContent: true,
 
 	// store navigation key:href, value:id
-  nav: [],
+    nav: [],
 
-  // hash (for later)
+    // hash (for later)
 	hash: {
 		current: '',
 		previous: '',
@@ -43,9 +43,10 @@ $.extend( $.dita4html5, {
 	// store current content
 	title: '',
 	content: '',
-
-	protocols: ['file', 'ftp', 'http', 'https', 'mailto'],
-	extension: ['html'],
+	
+	transition: {
+		opacity: 0.5
+	},
 
 	// from jQuery
 	// use a modified version of the $.load function
@@ -63,13 +64,11 @@ $.extend( $.dita4html5, {
 		this.ajax.ready(this.ajax.setMainContent);
 		this.ajax.ready(this.navigation.selectFromHash);
 	    
-	    // initialize navigation
+	    // initialize navigation first !important
 		this.navigation.init();
 		
 		// initialize ajax callback
 		this.ajax.init ();
-
-	
 
 		// Bind an event to window.onhashchange that, when the history state changes,
 		// iterates over all .bbq widgets, getting their appropriate url from the
