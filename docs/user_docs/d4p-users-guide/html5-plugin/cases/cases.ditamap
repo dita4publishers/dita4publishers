@@ -2,9 +2,7 @@
 <!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
 <map>
     <title>DITA Topic Map</title>
-    <topichead navtitle="Features">
-        <topicref href="layout.dita"/>
-        <topicref href="muti-columns.dita"/>
-        <topicref href="css-grid.dita"/>
+    <topichead navtitle="Cases">
+        <topicref href="long-title.dira.dita"/>
     </topichead>
 </map>

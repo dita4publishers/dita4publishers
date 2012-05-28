@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_2gn_hfy_jg">
+ <title>Very long title, expected to break into multiple lines</title>
+ <shortdesc></shortdesc>
+ <conbody>
+  <p>This has been added to highlight how a title is formatted in the navigation</p>
+ </conbody>
+</concept>
