@@ -1142,7 +1142,7 @@ $.dita4html5 = $.dita4html5  || {};
 // jQuery.mobile configurable options
 $.extend( $.dita4html5, {
 
-	version: '0.1a',
+    version: '0.1a',
     // toc url - to be implemented
     // the idea is to have the reference to the toc on every page.
     // if someone come on a specific page trough a search engine
@@ -1152,79 +1152,94 @@ $.extend( $.dita4html5, {
     // selector for the element which contain the content
     outputSelector: '#main-content',
 
-	// navigationSelector
-	navigationSelector: '#left-navigation',
+    // navigationSelector
+    navigationSelector: '#left-navigation',
 
-	externalContentElement: 'section',
+    externalContentElement: 'section',
 
-	// is initial content should be loaded after init()
-	loadInitialContent: true,
+    // is initial content should be loaded after init()
+    loadInitialContent: true,
 
-	// store navigation key:href, value:id
+    // store navigation key:href, value:id
     nav: [],
 
     // hash (for later)
-	hash: {
-		current: '',
-		previous: '',
-		id: 'q'
-	},
+    hash: {
+        current: '',
+        previous: '',
+        id: 'q'
+    },
 
-	// used to attribute and id to the navigation tree
-	ids: {
-		n: 0,
-		prefix: 'page-'
-	},
+    // used to attribute and id to the navigation tree
+    ids: {
+        n: 0,
+        prefix: 'page-'
+    },
 
-	// store current content
-	title: '',
-	content: '',
-	
-	transition: {
-		opacity: 0.5
-	},
+    // store current content
+    title: '',
+    content: '',
+    
+    transition: {
+        opacity: 0.5
+    },
 
-	// from jQuery
-	// use a modified version of the $.load function
-	// for specific purpose
-	rscript: '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi',
+    // from jQuery
+    // use a modified version of the $.load function
+    // for specific purpose
+    rscript: '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi',
+    
+    // This function add a 1 px margin-right
+    // to the body in case the browser window
+    // is an odd number width
+    // If the width is odd, the window can not be centered properly
+    windowResize : function () {
+        var w = $(window).width();
+        var r = (w - 982) % 2;
+        var m = r != 0 && w > 982 ? 1 : 0;
+        $('body').css('margin-right', m);
+    },
 
-	init: function ( options ) {
+    init: function ( options ) {
 
-		$.extend (true, this, options);
+        $.extend (true, this, options);
 
- 		// register callbacks for page
- 		this.ajax.ready(this.ajax.rewriteAttrHref);
-		this.ajax.ready(this.ajax.rewriteAttrSrc);
-		this.ajax.ready(this.ajax.setTitle);
-		this.ajax.ready(this.ajax.setMainContent);
-		this.ajax.ready(this.navigation.selectFromHash);
-	    
-	    // initialize navigation first !important
-		this.navigation.init();
-		
-		// initialize ajax callback
-		this.ajax.init ();
+        // register callbacks for page
+        this.ajax.ready(this.ajax.rewriteAttrHref);
+        this.ajax.ready(this.ajax.rewriteAttrSrc);
+        this.ajax.ready(this.ajax.setTitle);
+        this.ajax.ready(this.ajax.setMainContent);
+        this.ajax.ready(this.navigation.selectFromHash);
+        
+        // initialize navigation first !important
+        this.navigation.init();
+        
+        // initialize ajax callback
+        this.ajax.init ();
+        
+        // smooth transition on resize
+        this.windowResize();
+        $(window).resize($.dita4html5.windowResize);
+        
+        // Bind an event to window.onhashchange that, when the history state changes,
+        // iterates over all .bbq widgets, getting their appropriate url from the
+        // current state. If that .bbq widget's url has changed, display either our
+        // cached content or fetch new content to be displayed.
+        $(window).bind( 'hashchange', function(e) {
 
-		// Bind an event to window.onhashchange that, when the history state changes,
-		// iterates over all .bbq widgets, getting their appropriate url from the
-		// current state. If that .bbq widget's url has changed, display either our
-		// cached content or fetch new content to be displayed.
-		$(window).bind( 'hashchange', function(e) {
+            state = $.bbq.getState( $(this).attr( 'id' ) ) || '';
+            uri = state[$.dita4html5.hash.id];
 
-			state = $.bbq.getState( $(this).attr( 'id' ) ) || '';
-      		uri = state[$.dita4html5.hash.id];
+            if( uri === '') { return; }
 
-			if( uri === '') { return; }
+            $.dita4html5.ajax.loadHTML ( uri );
+            $.dita4html5.navigation.select ( uri );
 
-			$.dita4html5.ajax.loadHTML ( uri );
-			$.dita4html5.navigation.select ( uri );
+        });
 
-		});
+        return true;
 
-		return;
-
-	}
+    }
 
 }
 
@@ -1298,7 +1313,7 @@ $.extend( $.dita4html5, {
         $.dita4html5.ajax.loader.hide();
         $($.dita4html5.outputSelector).css('opacity', 1);
     },
-	
+
     // add loader (spinner on the page)
     // @todo: add support for localization
     addLoader: function () {
@@ -1362,7 +1377,7 @@ $.extend( $.dita4html5, {
                     
                     $.dita4html5.ajax.contentIsLoaded ();
                 }
-             }
+            }
         });
     },
 
@@ -1371,7 +1386,7 @@ $.extend( $.dita4html5, {
     },
 
     setMainContent: function() {
-         $($.dita4html5.outputSelector).html($.dita4html5.content);
+        $($.dita4html5.outputSelector).html($.dita4html5.content);
     },
 
     // Rewrite each src in the document
@@ -1402,8 +1417,8 @@ $.extend( $.dita4html5, {
             var pathC = base.concat(parts);
 
             for ( var i=0, len=pathC.length; i<len; ++i ){
-                 if (pathC[i] === '..') {
-                     pathC.splice(i, 1);
+                if (pathC[i] === '..') {
+                    pathC.splice(i, 1);
                     pathC.splice(i - 1, 1);
                 }
             }
@@ -1413,7 +1428,7 @@ $.extend( $.dita4html5, {
             $.dita4html5.ajax.live ($(this));
 
         });
-  
+
     },
 
     // set AJAX callback on the specified link obj.
@@ -1428,20 +1443,23 @@ $.extend( $.dita4html5, {
             $.bbq.pushState( state );
 
             // And finally, prevent the default link click behavior by returning false.
-             return false;
+            return false;
         });
-  },
+    },
 
     // load initial content to avoid a blank page
     getInitialContent : function () {
         if($($.dita4html5.outputSelector).length == 1 && $.dita4html5.loadInitialContent) {
-            var url = '';
-            if(document.location.hash != undefined){
-                url = document.location.hash;
-            }else {
-                url = $($.dita4html5.navigationSelector + ' a:first-child').attr('href');
-            }
-            this.loadHTML(url.replace( /^#q=/, '' ));
+         var url = "";
+           if(window.location.hash !== '') {
+                url = window.location.hash.replace( /^#/, '' );
+                url = url.replace( /^q=/, '' );
+                this.loadHTML(url);
+            } else {           
+                url = $($.dita4html5.navigationSelector + ' a:first-child').attr('href').replace( /^#/, '' );
+                window.location.hash = "q=" + url;
+            }            
+            $.dita4html5.loadInitialContent = false;
         }
     },
 
@@ -1449,91 +1467,92 @@ $.extend( $.dita4html5, {
     init: function () {
         this.traverse();
         this.addLoader();
+        this.getInitialContent();
     }
 
-	
+
 }});
 
 })( jQuery );$.extend( $.dita4html5, {
-	navigation: {
-		maxLevel: 3,
-		maxLevelTransition: 'slideUp',
-		autoCollapse: false,
+    navigation: {
+        maxLevel: 3, // for later
+        maxLevelTransition: 'slideUp', // for later
+        autoCollapse: false,
 
-		init: function(){
-			this.traverse();
-		},
+        init: function(){
+            this.traverse();
+        },
 
-		select: function ( uri ) {
-			var id = $.dita4html5.nav[uri];
-			$($.dita4html5.navigationSelector + ' li').removeClass('selected');
-			$('#'+id).parent('li').addClass('selected');
-		},
+        select: function ( uri ) {
+            var id = $.dita4html5.nav[uri];
+            $($.dita4html5.navigationSelector + ' li').removeClass('selected');
+            $('#'+id).parent('li').addClass('selected');
+        },
 
         selectFromHash: function () {
             $.dita4html5.navigation.select($.dita4html5.hash.current.replace( /^#/, '' ));
         },
 
-		traverse: function () {
-			// navigation: prefix all href with #
-			$($.dita4html5.navigationSelector + ' li').each(function(index) {
+        traverse: function () {
+            // navigation: prefix all href with #
+            $($.dita4html5.navigationSelector + ' li').each(function(index) {
 
-              	//if li has ul children add class collapsible
-				if($(this).children('ul').length == 1) {
+                  //if li has ul children add class collapsible
+                if($(this).children('ul').length == 1) {
 
-					// create span for icone
-					var span = $("<span/>");
-					span.addClass("ico");
-					
-					span.click(function(){
-                        console.log('click on icon');
-						$(this).parent().toggleClass('active', '');
-						$(this).parent().toggleClass('collapsed', '');
-						
-					});
-					
-					// wrap text node with a span if exists
-					$(this).contents().each(function () {
-					
-					    if (this.nodeType == 3) { // Text only
-					        var span2 = $("<span />");
-					        span2.addClass("navtitle");
-					        // li click handler
-					        span2.click(function(){
-                                console.log('click on span (topichead)');
-						        $(this).parent().toggleClass('active', '');
-						        $(this).parent().toggleClass('collapsed', '');
-						
-					        });
-					        
+                    // create span for icone
+                    var span = $("<span/>");
+                    span.addClass("ico");
+                    
+                    span.click(function(){
+                        $(this).parent().toggleClass('active', '');
+                        $(this).parent().toggleClass('collapsed', '');
+                        
+                    });
+                    
+                    // wrap text node with a span if exists
+                    $(this).contents().each(function () {
+                    
+                        if (this.nodeType == 3) { // Text only
+                            var span2 = $("<span />");
+                            span2.addClass("navtitle");
+                            
+                            // li click handler
+                            span2.click(function(){
+                                $(this).parent().toggleClass('active', '');
+                                $(this).parent().toggleClass('collapsed', '');
+                        
+                            });
+                            
                             $(this).wrap(span2);
                                                      
                         }
                     });
                     
 
-					// add class
-					$(this).prepend(span).addClass('collapsible collapsed');
+                    // add class
+                    $(this).prepend(span).addClass('collapsible collapsed');
 
 
-					// link click handler
-					$(this).find('a').click(function(){
-					    console.log('click on link');
-						// remove previous class
-						$($.dita4html5.navigationSelector + ' li').removeClass('selected');
-						$($.dita4html5.navigationSelector + ' li').removeClass('active').addClass('collapsed');
+                    // link click handler
+                    $(this).find('a').click(function(){
+                        // remove previous class
+                        $($.dita4html5.navigationSelector + ' li').removeClass('selected');
+                        $($.dita4html5.navigationSelector + ' li').removeClass('active').addClass('collapsed');
 
-						// add selected class on the li parent element
-						$(this).parentsUntil($.dita4html5.navigationSelector).addClass('active').removeClass('collapsed');
+                        // add selected class on the li parent element
+                        $(this).parentsUntil($.dita4html5.navigationSelector).addClass('active').removeClass('collapsed');
 
-						// set all the parent trail active
-						$(this).parent('li').addClass('selected');
-
-					});
-				} else {
-				    $(this).addClass('no-child');
-				}
-			});
-		}
-	}
+                        // set all the parent trail active
+                        $(this).parent('li').addClass('selected')
+                    });
+                    
+                } else {
+                
+                    $(this).addClass('no-child');
+                    
+                }
+            });
+        }
+    }
 });

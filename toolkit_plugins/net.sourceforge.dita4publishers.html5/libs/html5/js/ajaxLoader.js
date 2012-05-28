@@ -68,7 +68,7 @@ $.extend( $.dita4html5, { ajax: {
         $.dita4html5.ajax.loader.hide();
         $($.dita4html5.outputSelector).css('opacity', 1);
     },
-	
+
     // add loader (spinner on the page)
     // @todo: add support for localization
     addLoader: function () {
@@ -132,7 +132,7 @@ $.extend( $.dita4html5, { ajax: {
                     
                     $.dita4html5.ajax.contentIsLoaded ();
                 }
-             }
+            }
         });
     },
 
@@ -141,7 +141,7 @@ $.extend( $.dita4html5, { ajax: {
     },
 
     setMainContent: function() {
-         $($.dita4html5.outputSelector).html($.dita4html5.content);
+        $($.dita4html5.outputSelector).html($.dita4html5.content);
     },
 
     // Rewrite each src in the document
@@ -172,8 +172,8 @@ $.extend( $.dita4html5, { ajax: {
             var pathC = base.concat(parts);
 
             for ( var i=0, len=pathC.length; i<len; ++i ){
-                 if (pathC[i] === '..') {
-                     pathC.splice(i, 1);
+                if (pathC[i] === '..') {
+                    pathC.splice(i, 1);
                     pathC.splice(i - 1, 1);
                 }
             }
@@ -183,7 +183,7 @@ $.extend( $.dita4html5, { ajax: {
             $.dita4html5.ajax.live ($(this));
 
         });
-  
+
     },
 
     // set AJAX callback on the specified link obj.
@@ -198,20 +198,23 @@ $.extend( $.dita4html5, { ajax: {
             $.bbq.pushState( state );
 
             // And finally, prevent the default link click behavior by returning false.
-             return false;
+            return false;
         });
-  },
+    },
 
     // load initial content to avoid a blank page
     getInitialContent : function () {
         if($($.dita4html5.outputSelector).length == 1 && $.dita4html5.loadInitialContent) {
-            var url = '';
-            if(document.location.hash != undefined){
-                url = document.location.hash;
-            }else {
-                url = $($.dita4html5.navigationSelector + ' a:first-child').attr('href');
-            }
-            this.loadHTML(url.replace( /^#q=/, '' ));
+         var url = "";
+           if(window.location.hash !== '') {
+                url = window.location.hash.replace( /^#/, '' );
+                url = url.replace( /^q=/, '' );
+                this.loadHTML(url);
+            } else {           
+                url = $($.dita4html5.navigationSelector + ' a:first-child').attr('href').replace( /^#/, '' );
+                window.location.hash = "q=" + url;
+            }            
+            $.dita4html5.loadInitialContent = false;
         }
     },
 
@@ -219,9 +222,10 @@ $.extend( $.dita4html5, { ajax: {
     init: function () {
         this.traverse();
         this.addLoader();
+        this.getInitialContent();
     }
 
-	
+
 }});
 
 })( jQuery );
