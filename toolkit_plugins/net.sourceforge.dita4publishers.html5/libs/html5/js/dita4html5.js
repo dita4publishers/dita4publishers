@@ -78,7 +78,7 @@ $.extend( $.dita4html5, {
 		$(window).bind( 'hashchange', function(e) {
 
 			state = $.bbq.getState( $(this).attr( 'id' ) ) || '';
-      uri = state[$.dita4html5.hash.id];
+      		uri = state[$.dita4html5.hash.id];
 
 			if( uri === '') { return; }
 

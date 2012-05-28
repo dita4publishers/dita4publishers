@@ -86,3 +86,13 @@ nav#left-navigation span.ico {
 nav#left-navigation span.ico:hover {
 	cursor:pointer;
 }
+
+nav#left-navigation span.navtitle {
+   display: block;
+   margin-left: 15px;
+   position: relative;
+}
+
+nav#left-navigation .collapsible.active span.navtitle { 
+	margin-bottom:3px;
+}

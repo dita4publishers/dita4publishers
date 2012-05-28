@@ -114,26 +114,26 @@ $.extend( $.dita4html5, { ajax: {
 	rewriteAttrHref: function ( ) {
 		$.dita4html5.content.find("*[href]").each(function(index) {
 			var uri = $.dita4html5.hash.current;
-    	var dir = uri.substring(0,  uri.lastIndexOf("/"));
-    	var base = dir.split("/");
-    	var href = $(this).attr('href');
-    	var parts = href.split("/");
+    		var dir = uri.substring(0,  uri.lastIndexOf("/"));
+    		var base = dir.split("/");
+    		var href = $(this).attr('href');
+    		var parts = href.split("/");
 
-    	// prevent external and absolute to be rewrited
-    	if ($.inArray (parts[0], $.dita4html5.protocols) !=  -1 ) {
-      	return true;
-    	}
+    		// prevent external and absolute to be rewrited
+    		if ($(this).hasClass("external")) {
+      			return true;
+    		}
 
-    	var pathC = base.concat(parts);
+    		var pathC = base.concat(parts);
 
-    	for ( var i=0, len=pathC.length; i<len; ++i ){
+    		for ( var i=0, len=pathC.length; i<len; ++i ){
  				if (pathC[i] === '..') {
  					pathC.splice(i, 1);
-        	pathC.splice(i - 1, 1);
-    		}
+        			pathC.splice(i - 1, 1);
+    			}
 			}
 
-    	$(this).attr('href', "#" + pathC.join("/"));
+    		$(this).attr('href', "#" + pathC.join("/"));
 
 			$.dita4html5.ajax.live ($(this));
 
@@ -161,7 +161,13 @@ $.extend( $.dita4html5, { ajax: {
 	// load initial content to avoid a blank page
 	getInitialContent : function () {
 		if($($.dita4html5.outputSelector).length == 1 && $.dita4html5.loadInitialContent) {
-			this.loadHTML ($($.dita4html5.navigationSelector + ' a:first-child').attr('href').replace( /^#/, '' ));
+		  var url = '';
+		  if(document.location.hash != undefined){
+		  	url = document.location.hash;
+		  }else {
+			url = $($.dita4html5.navigationSelector + ' a:first-child').attr('href');
+		  }
+		  this.loadHTML(url.replace( /^#q=/, '' ));
 		}
 	},
 

@@ -916,72 +916,119 @@ figure {
  * @file layout css for html5 plugin
  */
 
-body {
-	margin:0;
-    color: #333333;
-    font: 12px "Lucida Grande",Geneva,Arial,Verdana,sans-serif;
+body
+{
+	margin: 0;
+	color: #333333;
+	font: 12px "Lucida Grande",Geneva,Arial,Verdana,sans-serif;
 }
 
-header {
-  display: block;
-  height: 61px;
-  left: -1px;
-  position: relative;
-  width: 982px;
+header
+{
+	display: block;
+	height: 61px;
+	left: -1px;
+	position: relative;
+	width: 982px;
 }
 
-header h1 {
-    font-size: 2.8em;
-    font-weight: 100;
-    line-height: 62px;
-    padding-left: 25px;
+header h1
+{
+	font-size: 2.8em;
+	font-weight: 100;
+	line-height: 62px;
+	padding-left: 25px;
 }
 
-noscript {
-	font-size:18px;
-	padding:25px;
+noscript
+{
+	font-size: 18px;
+	padding: 25px;
 }
 
-h2.nav-pub-title {
-	font-size:1.1em;
-}
+h2.nav-pub-title { font-size: 1.1em; }
 
-body.centered #main-container {
-	display:block;
-	width:980px;
-	margin:0 auto;
-	border-left:1px solid #ccc;
-	border-right:1px solid #ccc;
+body.centered #main-container
+{
+	display: block;
+	width: 980px;
+	margin: 0 auto;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
 	-webkit-border-bottom-right-radius: 5px;
 	-webkit-border-bottom-left-radius: 5px;
 	-moz-border-radius-bottomright: 5px;
 	-moz-border-radius-bottomleft: 5px;
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
-	margin-bottom:30px;
+	margin-bottom: 30px;
 }
 
-#main-content {
-	margin-bottom:30px;
+#main-content
+{
+	margin-bottom: 30px;
 	min-height: 500px;
 }
 
-footer {
-    border: 1px solid #CCCCCC;
-    display: block;
-    height: 5px;
-    left: -1px;
-    padding: 20px;
-    position: relative;
-    width: 940px;
-    -webkit-border-bottom-right-radius: 5px;
+footer
+{
+	border: 1px solid #CCCCCC;
+	display: block;
+	height: 5px;
+	left: -1px;
+	padding: 20px;
+	position: relative;
+	width: 940px;
+	-webkit-border-bottom-right-radius: 5px;
 	-webkit-border-bottom-left-radius: 5px;
 	-moz-border-radius-bottomright: 5px;
 	-moz-border-radius-bottomleft: 5px;
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
 }
-#left-navigation {
+
+/** css3 columns layout **/
+.two-columns
+{
+	-moz-column-count: 2;
+	-moz-column-gap: 2.5em;
+	-moz-column-rule: 1px solid #ccc;
+	-webkit-column-count: 2;
+	-webkit-column-gap: 2.5em;
+	-webkit-column-rule: 1px solid #ccc;
+}
+
+.three-columns 
+{
+	-moz-column-count: 3;
+	-moz-column-gap: 2em;
+	-moz-column-rule: 1px solid #ccc;
+	-webkit-column-count: 3;
+	-webkit-column-gap: 2em;
+	-webkit-column-rule: 1px solid #ccc;
+}
+
+.four-columns
+{
+	-moz-column-count: 4;
+	-moz-column-gap: 2em;
+	-moz-column-rule: 1px solid #ccc;
+	-webkit-column-count: 4;
+	-webkit-column-gap: 2em;
+	-webkit-column-rule: 1px solid #ccc;
+}
+
+/** space and line after **/
+
+.space-after {
+	margin-bottom: 3em;
+}
+
+.line-after {
+	padding-bottom:2em;
+	border-bottom:1px solid #ccc;
+	margin-bottom:2em;
+}#left-navigation {
 	margin-left:0px;
 	padding:20px 0px 20px 20px;
 	outline:none;
@@ -1068,6 +1115,16 @@ nav#left-navigation span.ico {
 }
 nav#left-navigation span.ico:hover {
 	cursor:pointer;
+}
+
+nav#left-navigation span.navtitle {
+   display: block;
+   margin-left: 15px;
+   position: relative;
+}
+
+nav#left-navigation .collapsible.active span.navtitle { 
+	margin-bottom:3px;
 }/**
  * css for images
  *
