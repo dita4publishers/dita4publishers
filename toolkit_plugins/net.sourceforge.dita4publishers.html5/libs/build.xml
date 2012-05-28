@@ -38,6 +38,7 @@
 		</concat>
 	</target>
 
+	<!-- concatenate css -->
 	<target name="package.concat.css">
 		<property name="product.concat" value="${product.uncompressed.name}"/>
 		<concat destfile="${build.dir}/${src.dir.css}/style.css">
