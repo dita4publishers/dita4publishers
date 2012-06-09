@@ -45,8 +45,13 @@
        
        ============================================================== -->
 
+<!--  These two imports are provided by the commonHtmlExtensionSupport.xsl module from the common.html
+       plugin. These imports are integrated into the dita2html-base.xsl in the base Toolkit transform:
+       
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+-->  
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/reportParametersBase.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/dataCollection.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/glossaryProcessing.xsl"/>
@@ -154,7 +159,7 @@
 
   <!-- NOTE: MathJax parameters are defined in the math-d2html.xsl module. -->
   
-  <xsl:template name="report-parameters">
+  <xsl:template name="report-parameters" match="*" mode="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
     <xsl:message> 
       ==========================================
@@ -171,10 +176,6 @@
       + generateStaticToc  = "<xsl:sequence select="$generateStaticToc"/>"
       + imagesOutputDir    = "<xsl:sequence select="$imagesOutputDir"/>"
       + inputFileNameParam = "<xsl:sequence select="$inputFileNameParam"/>"
-      + mathJaxUseCDNLink  = "<xsl:sequence select="$mathJaxUseCDNLink"/>"
-      + mathJaxUseLocalLink= "<xsl:sequence select="$mathJaxUseLocalLink"/>"
-      + mathJaxLocalJavascriptUri= "<xsl:sequence select="$mathJaxLocalJavascriptUri"/>"
-      + mathJaxConfigParam = "<xsl:sequence select="$mathJaxConfigParam"/>"
       + outdir             = "<xsl:sequence select="$outdir"/>"
       + OUTEXT             = "<xsl:sequence select="$OUTEXT"/>"
       + tempdir            = "<xsl:sequence select="$tempdir"/>"
@@ -202,10 +203,14 @@
       + imagesOutputPath = "<xsl:sequence select="$imagesOutputPath"/>"
       + platform         = "<xsl:sequence select="$platform"/>"
       + debugBoolean     = "<xsl:sequence select="$debugBoolean"/>"
-      
+    </xsl:message>      
+    <xsl:next-match />  
+    <xsl:message>  
       ==========================================
     </xsl:message>
   </xsl:template>
+  
+  <xsl:template mode="report-parameters" match="text()"/><!-- Suppress text in this mode -->
   
   
   <xsl:output method="xml" name="indented-xml"
@@ -269,7 +274,7 @@
   
   <xsl:template match="/*[df:class(., 'map/map')]">
     
-    <xsl:call-template name="report-parameters"/>
+    <xsl:apply-templates select="." mode="report-parameters"/>
 
     <xsl:variable name="uniqueTopicRefs" as="element()*" select="df:getUniqueTopicrefs(.)"/>
     

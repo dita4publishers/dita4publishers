@@ -59,13 +59,13 @@
   />
   
   <xsl:template match="/">
-    <xsl:call-template name="report-parameters"/>
+    <xsl:apply-templates select="." mode="report-parameters"/>
     <xsl:apply-templates>
       <xsl:with-param name="articleType" select="'topic'" as="xs:string" tunnel="yes"/>
     </xsl:apply-templates>
   </xsl:template>
   
-  <xsl:template name="report-parameters">
+  <xsl:template name="report-parameters" match="*" mode="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
     <xsl:message> 
       ==========================================

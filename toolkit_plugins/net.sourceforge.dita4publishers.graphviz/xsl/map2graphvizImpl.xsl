@@ -80,7 +80,7 @@
   
   <xsl:template match="/">
     
-    <xsl:call-template name="report-parameters"/>
+    <xsl:apply-templates select="." mode="report-parameters"/>
     
     <xsl:apply-templates>
       <xsl:with-param name="rootMapDocUrl" select="document-uri(.)" as="xs:string" tunnel="yes"/>
@@ -140,7 +140,7 @@
     
   </xsl:template>
    
-  <xsl:template name="report-parameters">
+  <xsl:template name="report-parameters" match="*" mode="report-parameters">
     <xsl:message> 
       ==========================================
       Plugin version: ^version^ - build ^buildnumber^ at ^timestamp^

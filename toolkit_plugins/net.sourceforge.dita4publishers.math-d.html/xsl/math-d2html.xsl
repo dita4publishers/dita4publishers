@@ -16,6 +16,18 @@
   
   <xsl:param name="mathJaxConfigParam" select="'config=TeX-AMS-MML_HTMLorMML'"/>
   
+  <xsl:template name="report-parameters" match="*" mode="report-parameters">
+    <xsl:message>
+
+      Math Domain parameters:
+      
+      + mathJaxUseCDNLink  = "<xsl:sequence select="$mathJaxUseCDNLink"/>"
+      + mathJaxUseLocalLink= "<xsl:sequence select="$mathJaxUseLocalLink"/>"
+      + mathJaxLocalJavascriptUri= "<xsl:sequence select="$mathJaxLocalJavascriptUri"/>"
+      + mathJaxConfigParam = "<xsl:sequence select="$mathJaxConfigParam"/>"
+      
+    </xsl:message>
+  </xsl:template>
   
   <xsl:template mode="gen-user-scripts" match="*[contains(@class, ' topic/topic ')]">
     <xsl:choose>

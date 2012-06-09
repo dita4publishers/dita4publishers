@@ -113,7 +113,7 @@ version="2.0">
   <xsl:template
     match="/"
     priority="10">
-    <xsl:call-template name="report-parameters"/>
+    <xsl:apply-templates select="." mode="report-parameters"/>
     <xsl:variable name="stylesDoc" as="document-node()"
       select="document('styles.xml', .)"
     />      
@@ -163,7 +163,7 @@ version="2.0">
     <xsl:sequence select="."/>
   </xsl:template>
   
-  <xsl:template name="report-parameters">
+  <xsl:template name="report-parameters" match="*" mode="report-parameters">
     <xsl:message> 
       ==========================================
       DOCX 2 DITA

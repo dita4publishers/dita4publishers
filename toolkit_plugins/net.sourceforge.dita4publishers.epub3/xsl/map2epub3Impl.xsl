@@ -49,6 +49,36 @@
        Most of the parameters and global variables are defined there.
        
        It also uses templates from the HTML5 transformation type.
+       
+       EPUB3 Differences from EPUB2:
+       
+       - NCX replaced with HTML5 navigation structures (NCX may be included for
+         backward compatibility with EPUB2-only readers)
+       - Changes to publication metadata
+       - No guide structure
+       - No tours element
+       - Video and audio may be remote (not included in the EPUB Zip package)
+       - New link element for package documents for binding metadata
+       - Can use SMIL for media overlays (synchronization of text and audio)
+       - Can embed OpenType and WOFF fonts
+       - Fonts may be obfuscated to prevent general use of embedded fonts
+       - Can use subset of CSS3
+       - Alternate style tags for selection of different style sets
+       - New trigger element for activating video and audio playback without scripting
+       - Can use JavaScript with EPUB-specific constraints
+       - New EPUB-specific fragment identifier syntax.
+       - Simplified content switching (<switch>)
+       - Native MathML support
+       - SVG allowed as top-level content objects
+       - HTML5 for content
+       - Pronunciation lexicons for text-to-speach
+       - Inline SMLL phonemes
+       - CSS3 speach features from
+       - @epub:type attribute, corresponds to HTML @role (namespace http://www.idpf.org/2007/ops)
+       - Multiple root documents (e.g., fixed-layout and dynamic layout
+         versions of the same content)
+       - Use .xhtml for XHTML content files.
+       
        ============================================================== -->
 
   <xsl:import href="../../net.sourceforge.dita4publishers.epub/dita2epubImpl.xsl"/>
@@ -57,7 +87,7 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.html5/xsl/map2html5Content.xsl"/>
   
   
-  <xsl:template name="report-parameters">
+  <xsl:template name="report-parameters" match="*" mode="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
     <xsl:message> 
       ==========================================
@@ -116,9 +146,9 @@
          explicit in the map.
     -->
 
-    <xsl:call-template name="report-parameters">
+    <xsl:apply-templates select="." mode="report-parameters">
       <xsl:with-param name="effectiveCoverGraphicUri" select="$effectiveCoverGraphicUri" as="xs:string" tunnel="yes"/>
-    </xsl:call-template>
+    </xsl:apply-templates>
     
     <xsl:variable name="graphicMap" as="element()">
       <xsl:apply-templates select="." mode="generate-graphic-map">

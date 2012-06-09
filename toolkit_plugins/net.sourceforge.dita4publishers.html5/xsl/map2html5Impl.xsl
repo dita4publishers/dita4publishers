@@ -38,7 +38,7 @@
   <xsl:param name="jsoptions" select="''" />
 
 
-  <xsl:template name="report-parameters">
+  <xsl:template name="report-parameters" match="*" mode="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
     <xsl:message>
       ==========================================
@@ -105,7 +105,7 @@
 
   <xsl:template match="/*[df:class(., 'map/map')]">
 
-    <xsl:call-template name="report-parameters"/>
+    <xsl:apply-templates select="." mode="report-parameters"/>
 
     <xsl:variable name="uniqueTopicRefs" as="element()*" select="df:getUniqueTopicrefs(.)"/>
 

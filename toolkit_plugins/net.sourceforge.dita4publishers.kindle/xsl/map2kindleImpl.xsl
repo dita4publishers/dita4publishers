@@ -161,7 +161,7 @@
 
   <xsl:variable name="coverImageId" select="'coverimage'" as="xs:string"/>
 
-  <xsl:template name="report-parameters">
+  <xsl:template name="report-parameters" match="*" mode="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
     <xsl:message> ========================================== 
       Plugin version: ^version^ - build ^buildnumber^ at ^timestamp^ 
@@ -265,10 +265,10 @@
       <xsl:apply-templates select="." mode="get-cover-graphic-uri"/>
     </xsl:variable>
 
-    <xsl:call-template name="report-parameters">
+    <xsl:apply-templates select="." mode="report-parameters">
       <xsl:with-param name="effectiveCoverGraphicUri" select="$effectiveCoverGraphicUri"
         as="xs:string" tunnel="yes"/>
-    </xsl:call-template>
+    </xsl:>
 
     <xsl:variable name="graphicMap" as="element()">
       <xsl:apply-templates select="." mode="generate-graphic-map">
