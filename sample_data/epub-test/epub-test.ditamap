@@ -17,7 +17,9 @@
     </keywords>
     </metadata> <keywords>
     <keyword>subject in pubmeta/keywords/keyword</keyword>
-    </keywords> <pubid> <isbn>in isbn</isbn> <isbn-10>isbn-10</isbn-10>
+    </keywords> <pubid> <isbn
+    d4p_renditionTarget="pdf">isbn for print</isbn> <isbn
+    d4p_renditionTarget="epub">isbn for epub</isbn> <isbn-10>isbn-10</isbn-10>
     <isbn-13>isbn-13</isbn-13> <pubnumber>Ebook #55</pubnumber> <data
     name="epub-bookid">epubid-value</data> </pubid> <pubrights>
     <publicense>Project Gutenberg License.</publicense> </pubrights> <data
@@ -79,6 +81,8 @@
         href="chapters/graphic-tests.xml">
         <subsection
           href="chapters/svg-graphic-tests.xml"/>
+        <subsection
+          href="chapters/mathml-tests.xml"/>
       </chapter>
       <chapter
         href="chapters/d4p-vocabulary.xml"/>
