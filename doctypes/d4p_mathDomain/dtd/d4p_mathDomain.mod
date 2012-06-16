@@ -28,11 +28,12 @@
 <!--                    ELEMENT DECLARATIONS                       -->
 <!-- ============================================================= -->
 
-
+<!-- 
+   %div; |
+-->
 <!ENTITY % d4p_eqn_inline.content 
 "
-  (%d4p_MathML; |
-   %sectiondiv; |
+  (%foreign; |
    %ph; |
    %keyword; |
    %term; |
