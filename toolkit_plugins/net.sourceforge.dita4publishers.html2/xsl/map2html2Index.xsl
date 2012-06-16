@@ -121,9 +121,11 @@
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:sub-terms">
-    <ul class="index-terms">
-      <xsl:apply-templates mode="#current"/>      
-    </ul>      
+    <xsl:if test="./*">
+      <ul class="index-terms">
+        <xsl:apply-templates mode="#current"/>      
+      </ul>      
+    </xsl:if>
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:targets">
@@ -143,7 +145,10 @@
       as="xs:string"/>
     <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
     
-    <a href="{$relativeUri}" target="{$contenttarget}"> 
+    <a href="{$relativeUri}">
+      <xsl:if test="$contenttarget != ''">
+        <xsl:attribute name="target" select="$contenttarget"/>
+      </xsl:if>
       <xsl:text> [</xsl:text>
       <xsl:apply-templates select="." mode="generate-index-term-link-text"/>
       <xsl:text>] </xsl:text>
