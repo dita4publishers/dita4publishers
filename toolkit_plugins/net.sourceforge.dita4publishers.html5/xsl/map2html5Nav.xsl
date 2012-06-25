@@ -70,14 +70,14 @@
 
   </xsl:template>
 
-  <xsl:template mode="generate-html5-nav-page-markup" match="*[df:class(., 'topic/title')]">
+  <xsl:template mode="generate-html5-nav-page-markup" match="*[df:class(., 'topic/title')][not(@toc = 'no')]">
     <h2 class="nav-pub-title"><xsl:apply-templates/></h2>
   </xsl:template>
 
-  <xsl:template mode="generate-html5-nav" match="*[df:class(., 'topic/title')]"/>
+  <xsl:template mode="generate-html5-nav" match="*[df:class(., 'topic/title')][not(@toc = 'no')]"/>
 
   <!-- Convert each topicref to a ToC entry. -->
-  <xsl:template match="*[df:isTopicRef(.)]" mode="generate-html5-nav">
+  <xsl:template match="*[df:isTopicRef(.)][not(@toc = 'no')]" mode="generate-html5-nav">
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
     <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
 
@@ -170,7 +170,7 @@
 
   <!-- topichead elements get a navPoint, but don't actually point to
        anything.  Same with topicref that has no @href. -->
-  <xsl:template match="*[df:isTopicHead(.)]" mode="generate-html5-nav">
+  <xsl:template match="*[df:isTopicHead(.)][not(@toc = 'no')]" mode="generate-html5-nav">
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
 
     <xsl:if test="$tocDepth le $maxTocDepthInt">
