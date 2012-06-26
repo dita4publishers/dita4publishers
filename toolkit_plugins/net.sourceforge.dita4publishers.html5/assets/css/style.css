@@ -1529,13 +1529,33 @@ dt.prereq { margin-left : 20px;}/** used for accessibility **/
     -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-     
+    -webkit-border-radius: 5px;     
     background:#eee;
 }
 
 #dita4html5-message p {
 	padding:15px;
     margin:13px;
-    color:#666; 
+    color:#333; 
+}
+/**
+ * Table style
+ */
+table { 
+	width: 100%; 
+	border-collapse: collapse; 
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+	background: #eee; 
+}
+th { 
+	background: #333; 
+	color: white; 
+	font-weight: bold; 
+}
+td, th { 
+	padding: 6px; 
+	border: 1px solid #ccc; 
+	text-align: left; 
 }

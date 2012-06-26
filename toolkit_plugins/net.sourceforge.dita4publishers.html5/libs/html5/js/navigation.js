@@ -13,6 +13,7 @@ window.dita4html5.navigation = {
         var id = dita4html5.nav[uri];
         $(dita4html5.navigationSelector + ' li').removeClass('selected');
         $('#' + id).parent('li').addClass('selected');
+        $('#' + id).parentsUntil(dita4html5.navigationSelector).addClass('active').removeClass('collapsed');
     },
 
     selectFromHash: function () {
@@ -67,7 +68,7 @@ window.dita4html5.navigation = {
                     $(dita4html5.navigationSelector + ' li').removeClass('active').addClass('collapsed');
 
                     // add selected class on the li parent element
-                    $(this).parentsUntil(dita4html5.navigationSelector).addClass('active').removeClass('collapsed');
+                                       $(this).parentsUntil(dita4html5.navigationSelector).addClass('active').removeClass('collapsed');
 
                     // set all the parent trail active
                     $(this).parent('li').addClass('selected')

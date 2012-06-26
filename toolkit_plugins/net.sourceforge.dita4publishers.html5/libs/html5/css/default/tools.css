@@ -38,13 +38,12 @@
     -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-     
+    -webkit-border-radius: 5px;     
     background:#eee;
 }
 
 #dita4html5-message p {
 	padding:15px;
     margin:13px;
-    color:#999; 
+    color:#333; 
 }

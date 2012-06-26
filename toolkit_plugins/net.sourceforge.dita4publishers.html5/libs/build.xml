@@ -42,7 +42,7 @@
 	<target name="package.concat.css">
 		<property name="product.concat" value="${product.uncompressed.name}"/>
 		<concat destfile="${build.dir}/${src.dir.css}/style.css">
-			<filelist dir="${src.dir.libs}" files = "nathansmith-960-Grid-System-b0c5b98/code/css/reset.css,nathansmith-960-Grid-System-b0c5b98/code/css/960_24_col.css,nathansmith-960-Grid-System-b0c5b98/code/css/text.css,html5/css/default/layout.css,html5/css/default/navigation.css,html5/css/default/image.css,html5/css/default/dita.ltr.css,html5/css/default/links.css,html5/css/default/tools.css" />
+			<filelist dir="${src.dir.libs}" files = "nathansmith-960-Grid-System-b0c5b98/code/css/reset.css,nathansmith-960-Grid-System-b0c5b98/code/css/960_24_col.css,nathansmith-960-Grid-System-b0c5b98/code/css/text.css,html5/css/default/layout.css,html5/css/default/navigation.css,html5/css/default/image.css,html5/css/default/dita.ltr.css,html5/css/default/links.css,html5/css/default/tools.css,html5/css/default/table.css" />
 		</concat>
 	</target>
 
