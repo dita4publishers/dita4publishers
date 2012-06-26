@@ -1,6 +1,6 @@
-window.dita4html5.message = {
+window.d4h5.message = {
 	// id of the div element to be created
-    id: 'dita4html5-message',
+    id: 'd4h5-message',
     
     timeout: 3000,
     

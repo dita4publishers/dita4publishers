@@ -1,4 +1,4 @@
-window.dita4html5.navigation = {
+window.d4h5.navigation = {
     maxLevel: 3,
     // for later
     maxLevelTransition: 'slideUp',
@@ -10,19 +10,19 @@ window.dita4html5.navigation = {
     },
 
     select: function (uri) {
-        var id = dita4html5.nav[uri];
-        $(dita4html5.navigationSelector + ' li').removeClass('selected');
+        var id = d4h5.nav[uri];
+        $(d4h5.navigationSelector + ' li').removeClass('selected');
         $('#' + id).parent('li').addClass('selected');
-        $('#' + id).parentsUntil(dita4html5.navigationSelector).addClass('active').removeClass('collapsed');
+        $('#' + id).parentsUntil(d4h5.navigationSelector).addClass('active').removeClass('collapsed');
     },
 
     selectFromHash: function () {
-        dita4html5.navigation.select(dita4html5.hash.current.replace(/^#/, ''));
+        d4h5.navigation.select(d4h5.hash.current.replace(/^#/, ''));
     },
 
     traverse: function () {
         // navigation: prefix all href with #
-        $(dita4html5.navigationSelector + ' li').each(function (index) {
+        $(d4h5.navigationSelector + ' li').each(function (index) {
 
             //if li has ul children add class collapsible
             if ($(this).children('ul').length == 1) {
@@ -64,11 +64,11 @@ window.dita4html5.navigation = {
                 // link click handler
                 $(this).find('a').click(function () {
                     // remove previous class
-                    $(dita4html5.navigationSelector + ' li').removeClass('selected');
-                    $(dita4html5.navigationSelector + ' li').removeClass('active').addClass('collapsed');
+                    $(d4h5.navigationSelector + ' li').removeClass('selected');
+                    $(d4h5.navigationSelector + ' li').removeClass('active').addClass('collapsed');
 
                     // add selected class on the li parent element
-                                       $(this).parentsUntil(dita4html5.navigationSelector).addClass('active').removeClass('collapsed');
+                    $(this).parentsUntil(d4h5.navigationSelector).addClass('active').removeClass('collapsed');
 
                     // set all the parent trail active
                     $(this).parent('li').addClass('selected')

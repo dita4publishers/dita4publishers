@@ -1,4 +1,4 @@
-var dita4html5 = {
+var d4h5 = {
 
     version: '0.1a',
     // toc url - to be implemented
@@ -59,10 +59,11 @@ var dita4html5 = {
         this.ajax.ready(this.ajax.setMainContent);
         this.ajax.ready(this.navigation.selectFromHash);
 
-		this.message.init();
-		
+	
         // initialize navigation first !important
         this.navigation.init();
+        
+        this.message.init();
 
         // initialize ajax callback
         this.ajax.init();
@@ -74,14 +75,14 @@ var dita4html5 = {
         $(window).bind('hashchange', function (e) {
 
             state = $.bbq.getState($(this).attr('id')) || '';
-            uri = state[dita4html5.hash.id];
+            uri = state[d4h5.hash.id];
 
             if (uri === '') {
                 return;
             }
 
-            dita4html5.ajax.loadHTML(uri);
-            dita4html5.navigation.select(uri);
+            d4h5.ajax.loadHTML(uri);
+            d4h5.navigation.select(uri);
 
         });
 

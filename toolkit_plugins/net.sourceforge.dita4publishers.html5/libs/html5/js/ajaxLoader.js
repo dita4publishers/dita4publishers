@@ -1,4 +1,4 @@
-window.dita4html5.ajax = {
+window.d4h5.ajax = {
 
     ajaxReady: [],
     
@@ -13,7 +13,7 @@ window.dita4html5.ajax = {
     // using bbq
     traverse: function () {
         // navigation: prefix all href with #
-        $(dita4html5.navigationSelector + ' a').each(function (index) {
+        $(d4h5.navigationSelector + ' a').each(function (index) {
 
             var id = $(this).attr('id');
             var href = $(this).attr('href');
@@ -21,28 +21,28 @@ window.dita4html5.ajax = {
 
             // attribute an ID for future reference if not set
             if (id === '' || id == undefined) {
-                id = dita4html5.ids.prefix + dita4html5.ids.n;
-                dita4html5.ids.n++;
+                id = d4h5.ids.prefix + d4h5.ids.n;
+                d4h5.ids.n++;
                 $(this).attr('id', id);
             }
 
             // keep information in memory when link is triggered on page
-            dita4html5.nav[href] = id;
+            d4h5.nav[href] = id;
 
             // replace href
             $(this).attr('href', '#' + href);
 
             // push the appropriate state onto the history when clicked.
-            dita4html5.ajax.live($(this));
+            d4h5.ajax.live($(this));
 
         });
 
-        $(dita4html5.navigationSelector).find('li').each(function (index) {
+        $(d4h5.navigationSelector).find('li').each(function (index) {
             if ($(this).children('a').length === 0) {
                 var l = $(this).find('ul li a:first');
                 if (l.length == 1) {
                     $(this).children('span.navtitle').click(function () {
-                        dita4html5.ajax.loadHTML(l.attr('href').replace(/^#/, ''));
+                        d4h5.ajax.loadHTML(l.attr('href').replace(/^#/, ''));
                     });
                 }
             }
@@ -53,21 +53,21 @@ window.dita4html5.ajax = {
     // @todo: add support for localization
     addLoader: function () {
         var title = $("<h2>content is loading</h2>").addClass('hidden');
-        var loader = $("<div />").attr("id", "dita4html5-loader").append(title);
+        var loader = $("<div />").attr("id", "d4h5-loader").append(title);
         $('body').append(loader);
     },
 
     // called before the ajax request is send
     // used to output a 'loader' on the page  
     contentIsLoading: function () {
-        $("#dita4html5-loader").show();
-        $(dita4html5.outputSelector).css('opacity', dita4html5.transition.opacity);
+        $("#d4h5-loader").show();
+        $(d4h5.outputSelector).css('opacity', d4h5.transition.opacity);
     },
 
     // called at the end of the ajax call
     contentIsLoaded: function () {
-        $("#dita4html5-loader").hide();
-        $(dita4html5.outputSelector).css('opacity', 1);
+        $("#d4h5-loader").hide();
+        $(d4h5.outputSelector).css('opacity', 1);
     },
 
     // this is a modified version of the load function in jquery
@@ -75,7 +75,7 @@ window.dita4html5.ajax = {
     // @todo: see if it is neccessary to implement cache here
     // @todo: implement beforeSend, error callback
     loadHTML: function (uri) {
-        dita4html5.hash.current = uri;
+        d4h5.hash.current = uri;
         $.ajax({
             type: 'GET',
 
@@ -84,15 +84,15 @@ window.dita4html5.ajax = {
             dataType: 'html',
 
             beforeSend: function (jqXHR) {
-                dita4html5.ajax.contentIsLoading();
+                d4h5.ajax.contentIsLoading();
             },
 
             complete: function (jqXHR, status, responseText) {
             
                 // is status is an error, return an error dialog
                 if(status === 'error'){
-                    dita4html5.message.alert('Sorry, the content could not be loaded', 'error');
-                    dita4html5.ajax.contentIsLoaded();
+                    d4h5.message.alert('Sorry, the content could not be loaded', 'error');
+                    d4h5.ajax.contentIsLoaded();
                     return false;
                 }
                 
@@ -108,35 +108,35 @@ window.dita4html5.ajax = {
                         responseText = r;
                     });
 
-                    var html = $("<div>").attr('id', dita4html5.hash.current).append(responseText.replace(dita4html5.rscript, ""));
+                    var html = $("<div>").attr('id', d4h5.hash.current).append(responseText.replace(d4h5.rscript, ""));
 
-                    dita4html5.content = html.find(dita4html5.externalContentElement);
+                    d4h5.content = html.find(d4h5.externalContentElement);
 
-                    dita4html5.title = html.find("title").html();
+                    d4h5.title = html.find("title").html();
 
-                    for (fn in dita4html5.ajax.ajaxReady) {
-                        dita4html5.ajax.ajaxReady[fn].call(dita4html5.content);
+                    for (fn in d4h5.ajax.ajaxReady) {
+                        d4h5.ajax.ajaxReady[fn].call(d4h5.content);
                     }
 
-                    dita4html5.ajax.contentIsLoaded();
+                    d4h5.ajax.contentIsLoaded();
                 }
             }
         });
     },
 
     setTitle: function () {
-        $('title').html(dita4html5.title);
+        $('title').html(d4h5.title);
     },
 
     setMainContent: function () {
-        $(dita4html5.outputSelector).html(dita4html5.content);
+        $(d4h5.outputSelector).html(d4h5.content);
     },
 
     // Rewrite each src in the document
     // because there is no real path with AJAX call
     rewriteAttrSrc: function () {
-        var uri = dita4html5.hash.current;
-        dita4html5.content.find("*[src]").each(function (index) {
+        var uri = d4h5.hash.current;
+        d4h5.content.find("*[src]").each(function (index) {
             $(this).attr('src', uri.substring(0, uri.lastIndexOf("/")) + "/" + $(this).attr('src'));
         });
     },
@@ -145,8 +145,8 @@ window.dita4html5.ajax = {
     // because there is no real path with AJAX call
     //
     rewriteAttrHref: function () {
-        dita4html5.content.find("*[href]").each(function (index) {
-            var uri = dita4html5.hash.current;
+        d4h5.content.find("*[href]").each(function (index) {
+            var uri = d4h5.hash.current;
             var dir = uri.substring(0, uri.lastIndexOf("/"));
             var base = dir.split("/");
             var href = $(this).attr('href');
@@ -156,8 +156,8 @@ window.dita4html5.ajax = {
             if ($(this).hasClass("external") || $(this).attr('target') == "_blank") {
                 return true;
             }
-
-            var pathC = base.concat(parts);
+			
+            var pathC = dir != "" ? base.concat(parts) : Array.concat(parts);
 
             for (var i = 0, len = pathC.length; i < len; ++i) {
                 if (pathC[i] === '..') {
@@ -168,7 +168,7 @@ window.dita4html5.ajax = {
 
             $(this).attr('href', "#" + pathC.join("/"));
 
-            dita4html5.ajax.live($(this));
+            d4h5.ajax.live($(this));
 
         });
 
@@ -181,7 +181,7 @@ window.dita4html5.ajax = {
             var state = {};
 
             // Set the state!
-            state[dita4html5.hash.id] = $(this).attr('href').replace(/^#/, '');
+            state[d4h5.hash.id] = $(this).attr('href').replace(/^#/, '');
 
             $.bbq.pushState(state);
 
@@ -192,17 +192,17 @@ window.dita4html5.ajax = {
 
     // load initial content to avoid a blank page
     getInitialContent: function () {
-        if ($(dita4html5.outputSelector).length == 1 && dita4html5.loadInitialContent) {
+        if ($(d4h5.outputSelector).length == 1 && d4h5.loadInitialContent) {
             var url = "";
             if (window.location.hash !== '') {
                 url = window.location.hash.replace(/^#/, '');
                 url = url.replace(/^q=/, '');
                 this.loadHTML(url);
             } else {
-                url = $(dita4html5.navigationSelector + ' a:first-child').attr('href').replace(/^#/, '');
+                url = $(d4h5.navigationSelector + ' a:first-child').attr('href').replace(/^#/, '');
                 window.location.hash = "q=" + url;
             }
-            dita4html5.loadInitialContent = false;
+            d4h5.loadInitialContent = false;
         }
     },
 

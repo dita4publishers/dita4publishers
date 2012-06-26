@@ -1500,7 +1500,7 @@ dt.prereq { margin-left : 20px;}/** used for accessibility **/
 }
 
 /** Loader (a spinner) **/
-#dita4html5-loader {
+#d4h5-loader {
 	display:none;
 	position: fixed;
 	width:100%;
@@ -1510,7 +1510,7 @@ dt.prereq { margin-left : 20px;}/** used for accessibility **/
 }
 
 /** Message **/
-#dita4html5-message {
+#d4h5-message {
     position: absolute;
     left: 0px;
     top: 0px;
@@ -1520,7 +1520,7 @@ dt.prereq { margin-left : 20px;}/** used for accessibility **/
     z-index: 1000;
 }
 
-#dita4html5-message div {
+#d4h5-message div {
 	position: fixed;
  	top:50%;
     left:50%;
@@ -1533,7 +1533,7 @@ dt.prereq { margin-left : 20px;}/** used for accessibility **/
     background:#eee;
 }
 
-#dita4html5-message p {
+#d4h5-message p {
 	padding:15px;
     margin:13px;
     color:#333; 
