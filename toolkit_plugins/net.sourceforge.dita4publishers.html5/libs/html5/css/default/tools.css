@@ -8,13 +8,43 @@
 	overflow:hidden;
 }
 
-
 /** Loader (a spinner) **/
-#loader {
+#dita4html5-loader {
 	display:none;
 	position: fixed;
 	width:100%;
 	height: 80%;
 	background: transparent url('../img/ajax-loader.gif') no-repeat center center;
 	top:0px;
+}
+
+/** Message **/
+#dita4html5-message {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width:100%;
+    height:100%;
+    text-align:center;
+    z-index: 1000;
+}
+
+#dita4html5-message div {
+	position: fixed;
+ 	top:50%;
+    left:50%;
+    margin-top: -50px;
+  	margin-left: -100px;
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+     
+    background:#eee;
+}
+
+#dita4html5-message p {
+	padding:15px;
+    margin:13px;
+    color:#999; 
 }

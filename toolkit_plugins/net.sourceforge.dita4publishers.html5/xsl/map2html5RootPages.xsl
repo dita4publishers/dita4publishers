@@ -177,7 +177,7 @@
 
    	<xsl:text>
 			$(function() {
-				$.dita4html5.init({
+				window.dita4html5.init({
 		</xsl:text>
 		<xsl:value-of select="$jsoptions" />
 		<xsl:text>

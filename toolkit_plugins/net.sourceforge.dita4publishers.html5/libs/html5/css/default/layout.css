@@ -34,6 +34,12 @@ noscript
 
 h2.nav-pub-title { font-size: 1.1em; }
 
+.rounded  {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
 body.centered #main-container
 {
 	display: block;

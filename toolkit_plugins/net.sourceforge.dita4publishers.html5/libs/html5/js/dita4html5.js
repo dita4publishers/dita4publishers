@@ -1,10 +1,4 @@
-(function( $, undefined ) {
-
-
-$.dita4html5 = $.dita4html5  || {};
-
-// jQuery.mobile configurable options
-$.extend( $.dita4html5, {
+var dita4html5 = {
 
     version: '0.1a',
     // toc url - to be implemented
@@ -19,6 +13,7 @@ $.extend( $.dita4html5, {
     // navigationSelector
     navigationSelector: '#left-navigation',
 
+	// element which contains the content to show after the AJAX call
     externalContentElement: 'section',
 
     // is initial content should be loaded after init()
@@ -43,7 +38,7 @@ $.extend( $.dita4html5, {
     // store current content
     title: '',
     content: '',
-    
+
     transition: {
         opacity: 0.5
     },
@@ -52,21 +47,10 @@ $.extend( $.dita4html5, {
     // use a modified version of the $.load function
     // for specific purpose
     rscript: '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi',
-    
-    // This function add a 1 px margin-right
-    // to the body in case the browser window
-    // is an odd number width
-    // If the width is odd, the window can not be centered properly
-    windowResize : function () {
-        var w = $(window).width();
-        var r = (w - 982) % 2;
-        var m = r != 0 && w > 982 ? 1 : 0;
-        $('body').css('margin-right', m);
-    },
 
-    init: function ( options ) {
+    init: function (options) {
 
-        $.extend (true, this, options);
+        $.extend(true, this, options);
 
         // register callbacks for page
         this.ajax.ready(this.ajax.rewriteAttrHref);
@@ -74,30 +58,30 @@ $.extend( $.dita4html5, {
         this.ajax.ready(this.ajax.setTitle);
         this.ajax.ready(this.ajax.setMainContent);
         this.ajax.ready(this.navigation.selectFromHash);
-        
+
+		this.message.init();
+		
         // initialize navigation first !important
         this.navigation.init();
-        
+
         // initialize ajax callback
-        this.ajax.init ();
-        
-        // smooth transition on resize
-        this.windowResize();
-        $(window).resize($.dita4html5.windowResize);
-        
+        this.ajax.init();
+
         // Bind an event to window.onhashchange that, when the history state changes,
         // iterates over all .bbq widgets, getting their appropriate url from the
         // current state. If that .bbq widget's url has changed, display either our
         // cached content or fetch new content to be displayed.
-        $(window).bind( 'hashchange', function(e) {
+        $(window).bind('hashchange', function (e) {
 
-            state = $.bbq.getState( $(this).attr( 'id' ) ) || '';
-            uri = state[$.dita4html5.hash.id];
+            state = $.bbq.getState($(this).attr('id')) || '';
+            uri = state[dita4html5.hash.id];
 
-            if( uri === '') { return; }
+            if (uri === '') {
+                return;
+            }
 
-            $.dita4html5.ajax.loadHTML ( uri );
-            $.dita4html5.navigation.select ( uri );
+            dita4html5.ajax.loadHTML(uri);
+            dita4html5.navigation.select(uri);
 
         });
 
@@ -105,6 +89,4 @@ $.extend( $.dita4html5, {
 
     }
 
-}
-
-);
+};
