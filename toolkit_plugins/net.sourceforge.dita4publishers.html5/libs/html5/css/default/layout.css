@@ -16,6 +16,7 @@ header
 	left: -1px;
 	position: relative;
 	width: 982px;
+	overflow: hidden;
 }
 
 header h1

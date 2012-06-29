@@ -1134,424 +1134,457 @@ window.Modernizr = (function( window, document, undefined ) {
  * Dual licensed under the MIT and GPL licenses.
  * http://benalman.com/about/license/
  */
-(function($,e,b){var c="hashchange",h=document,f,g=$.event.special,i=h.documentMode,d="on"+c in e&&(i===b||i>7);function a(j){j=j||location.href;return"#"+j.replace(/^[^#]*#?(.*)$/,"$1")}$.fn[c]=function(j){return j?this.bind(c,j):this.trigger(c)};$.fn[c].delay=50;g[c]=$.extend(g[c],{setup:function(){if(d){return false}$(f.start)},teardown:function(){if(d){return false}$(f.stop)}});f=(function(){var j={},p,m=a(),k=function(q){return q},l=k,o=k;j.start=function(){p||n()};j.stop=function(){p&&clearTimeout(p);p=b};function n(){var r=a(),q=o(m);if(r!==m){l(m=r,q);$(e).trigger(c)}else{if(q!==m){location.href=location.href.replace(/#.*/,"")+q}}p=setTimeout(n,$.fn[c].delay)}$.browser.msie&&!d&&(function(){var q,r;j.start=function(){if(!q){r=$.fn[c].src;r=r&&r+a();q=$('<iframe tabindex="-1" title="empty"/>').hide().one("load",function(){r||l(a());n()}).attr("src",r||"javascript:0").insertAfter("body")[0].contentWindow;h.onpropertychange=function(){try{if(event.propertyName==="title"){q.document.title=h.title}}catch(s){}}}};j.stop=k;o=function(){return a(q.location.href)};l=function(v,s){var u=q.document,t=$.fn[c].domain;if(v!==s){u.title=h.title;u.open();t&&u.write('<script>document.domain="'+t+'"<\/script>');u.close();q.location.hash=v}}})();return j})()})(jQuery,this);var d4h5 = {
+(function($,e,b){var c="hashchange",h=document,f,g=$.event.special,i=h.documentMode,d="on"+c in e&&(i===b||i>7);function a(j){j=j||location.href;return"#"+j.replace(/^[^#]*#?(.*)$/,"$1")}$.fn[c]=function(j){return j?this.bind(c,j):this.trigger(c)};$.fn[c].delay=50;g[c]=$.extend(g[c],{setup:function(){if(d){return false}$(f.start)},teardown:function(){if(d){return false}$(f.stop)}});f=(function(){var j={},p,m=a(),k=function(q){return q},l=k,o=k;j.start=function(){p||n()};j.stop=function(){p&&clearTimeout(p);p=b};function n(){var r=a(),q=o(m);if(r!==m){l(m=r,q);$(e).trigger(c)}else{if(q!==m){location.href=location.href.replace(/#.*/,"")+q}}p=setTimeout(n,$.fn[c].delay)}$.browser.msie&&!d&&(function(){var q,r;j.start=function(){if(!q){r=$.fn[c].src;r=r&&r+a();q=$('<iframe tabindex="-1" title="empty"/>').hide().one("load",function(){r||l(a());n()}).attr("src",r||"javascript:0").insertAfter("body")[0].contentWindow;h.onpropertychange=function(){try{if(event.propertyName==="title"){q.document.title=h.title}}catch(s){}}}};j.stop=k;o=function(){return a(q.location.href)};l=function(v,s){var u=q.document,t=$.fn[c].domain;if(v!==s){u.title=h.title;u.open();t&&u.write('<script>document.domain="'+t+'"<\/script>');u.close();q.location.hash=v}}})();return j})()})(jQuery,this);(function (window) {
+    var d4h5 = {
 
-    version: '0.1a',
-    // toc url - to be implemented
-    // the idea is to have the reference to the toc on every page.
-    // if someone come on a specific page trough a search engine
-    // the code will load the toc parent and render the page properly.
-    toc: '',
+        version: '0.1a',
+        // toc url - to be implemented
+        // the idea is to have the reference to the toc on every page.
+        // if someone come on a specific page trough a search engine
+        // the code will load the toc parent and render the page properly.
+        toc: '',
 
-    // selector for the element which contain the content
-    outputSelector: '#main-content',
+        // selector for the element which contain the content
+        outputSelector: '#main-content',
 
-    // navigationSelector
-    navigationSelector: '#left-navigation',
+        // navigationSelector
+        navigationSelector: '#left-navigation',
 
-	// element which contains the content to show after the AJAX call
-    externalContentElement: 'section',
+        // element which contains the content to show after the AJAX call
+        externalContentElement: 'section',
 
-    // is initial content should be loaded after init()
-    loadInitialContent: true,
+        // is initial content should be loaded after init()
+        loadInitialContent: true,
 
-    // store navigation key:href, value:id
-    nav: [],
+        // store navigation key:href, value:id
+        nav: [],
 
-    // hash (for later)
-    hash: {
-        current: '',
-        previous: '',
-        id: 'q'
-    },
+        // hash (for later)
+        hash: {
+            current: '',
+            previous: '',
+            id: 'q'
+        },
 
-    // used to attribute and id to the navigation tree
-    ids: {
-        n: 0,
-        prefix: 'page-'
-    },
+        // used to attribute and id to the navigation tree
+        ids: {
+            n: 0,
+            prefix: 'page-'
+        },
 
-    // store current content
-    title: '',
-    content: '',
+        // store current content
+        title: '',
+        content: '',
 
-    transition: {
-        opacity: 0.5
-    },
+        transition: {
+            opacity: 0.5
+        },
+		
+		// registered modules
+        mod: [],
 
-    // from jQuery
-    // use a modified version of the $.load function
-    // for specific purpose
-    rscript: '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi',
+        // from jQuery
+        // use a modified version of the $.load function
+        // for specific purpose
+        rscript: '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi',
 
-    init: function (options) {
+        register: function (id) {
+            this.mod.push(id);
+        },
 
-        $.extend(true, this, options);
+        init: function (options) {
 
-        // register callbacks for page
-        this.ajax.ready(this.ajax.rewriteAttrHref);
-        this.ajax.ready(this.ajax.rewriteAttrSrc);
-        this.ajax.ready(this.ajax.setTitle);
-        this.ajax.ready(this.ajax.setMainContent);
-        this.ajax.ready(this.navigation.selectFromHash);
-
-	
-        // initialize navigation first !important
-        this.navigation.init();
-        
-        this.message.init();
-
-        // initialize ajax callback
-        this.ajax.init();
-
-        // Bind an event to window.onhashchange that, when the history state changes,
-        // iterates over all .bbq widgets, getting their appropriate url from the
-        // current state. If that .bbq widget's url has changed, display either our
-        // cached content or fetch new content to be displayed.
-        $(window).bind('hashchange', function (e) {
-
-            state = $.bbq.getState($(this).attr('id')) || '';
-            uri = state[d4h5.hash.id];
-
-            if (uri === '') {
-                return;
+            $.extend(true, this, options);
+			
+			// initialize
+            for (i in this.mod) {
+                var fn = this.mod[i];
+                this[fn].init.call();
             }
 
-            d4h5.ajax.loadHTML(uri);
-            d4h5.navigation.select(uri);
+            // register callbacks for page
 
-        });
 
-        return true;
+            // Bind an event to window.onhashchange that, when the history state changes,
+            // iterates over all .bbq widgets, getting their appropriate url from the
+            // current state. If that .bbq widget's url has changed, display either our
+            // cached content or fetch new content to be displayed.
+            $(window).bind('hashchange', function (e) {
 
-    }
+                state = $.bbq.getState($(this).attr('id')) || '';
+                uri = state[d4h5.hash.id];
 
-};window.d4h5.navigation = {
-    maxLevel: 3,
-    // for later
-    maxLevelTransition: 'slideUp',
-    // for later
-    autoCollapse: false,
+                if (uri === '') {
+                    return;
+                }
 
-    init: function () {
-        this.traverse();
-    },
+                d4h5.ajax.loadHTML(uri);
+                d4h5.navigation.select(uri);
 
-    select: function (uri) {
-        var id = d4h5.nav[uri];
-        $(d4h5.navigationSelector + ' li').removeClass('selected');
-        $('#' + id).parent('li').addClass('selected');
-        $('#' + id).parentsUntil(d4h5.navigationSelector).addClass('active').removeClass('collapsed');
-    },
+            });
 
-    selectFromHash: function () {
-        d4h5.navigation.select(d4h5.hash.current.replace(/^#/, ''));
-    },
+            return true;
 
-    traverse: function () {
-        // navigation: prefix all href with #
-        $(d4h5.navigationSelector + ' li').each(function (index) {
+        }
 
-            //if li has ul children add class collapsible
-            if ($(this).children('ul').length == 1) {
+    };
 
-                // create span for icone
-                var span = $("<span/>");
-                span.addClass("ico");
+    window.d4h5 = d4h5;
 
-                span.click(function () {
-                    $(this).parent().toggleClass('active', '');
-                    $(this).parent().toggleClass('collapsed', '');
+})(window);(function (window) {
 
-                });
+    var navigation = {
+        maxLevel: 3,
+        // for later
+        maxLevelTransition: 'slideUp',
+        // for later
+        autoCollapse: false,
 
-                // wrap text node with a span if exists
-                $(this).contents().each(function () {
+        init: function () {
+            d4h5.ajax.ready(d4h5.navigation.selectFromHash);
+            d4h5.navigation.traverse();
+        },
 
-                    if (this.nodeType == 3) { // Text only
-                        var span2 = $("<span />");
-                        span2.addClass("navtitle");
+        select: function (uri) {
+            var id = d4h5.nav[uri];
+            $(d4h5.navigationSelector + ' li').removeClass('selected');
+            $('#' + id).parent('li').addClass('selected');
+            $('#' + id).parentsUntil(d4h5.navigationSelector).addClass('active').removeClass('collapsed');
+        },
 
-                        // li click handler
-                        span2.click(function () {
-                            $(this).parent().toggleClass('active', '');
-                            $(this).parent().toggleClass('collapsed', '');
+        selectFromHash: function () {
+            d4h5.navigation.select(d4h5.hash.current.replace(/^#/, ''));
+        },
 
+        traverse: function () {
+            // navigation: prefix all href with #
+            $(d4h5.navigationSelector + ' li').each(function (index) {
+
+                //if li has ul children add class collapsible
+                if ($(this).children('ul').length == 1) {
+
+                    // create span for icone
+                    var span = $("<span/>");
+                    span.addClass("ico");
+
+                    span.click(function () {
+                        $(this).parent().toggleClass('active', '');
+                        $(this).parent().toggleClass('collapsed', '');
+
+                    });
+
+                    // wrap text node with a span if exists
+                    $(this).contents().each(function () {
+
+                        if (this.nodeType == 3) { // Text only
+                            var span2 = $("<span />");
+                            span2.addClass("navtitle");
+
+                            // li click handler
+                            span2.click(function () {
+                                $(this).parent().toggleClass('active', '');
+                                $(this).parent().toggleClass('collapsed', '');
+
+                            });
+
+                            $(this).wrap(span2);
+
+                        }
+                    });
+
+
+                    // add class
+                    $(this).prepend(span).addClass('collapsible collapsed');
+
+
+                    // link click handler
+                    $(this).find('a').click(function () {
+                        // remove previous class
+                        $(d4h5.navigationSelector + ' li').removeClass('selected');
+                        $(d4h5.navigationSelector + ' li').removeClass('active').addClass('collapsed');
+
+                        // add selected class on the li parent element
+                        $(this).parentsUntil(d4h5.navigationSelector).addClass('active').removeClass('collapsed');
+
+                        // set all the parent trail active
+                        $(this).parent('li').addClass('selected')
+                    });
+
+                } else {
+
+                    $(this).addClass('no-child');
+
+                }
+            });
+        }
+    };
+
+    window.d4h5.register('navigation');
+    window.d4h5.navigation = navigation;
+
+})(window);(function (window) {
+
+    var message = {
+        // id of the div element to be created
+        id: 'd4h5-message',
+
+        timeout: 3000,
+
+        // message type
+        create: function () {
+            var msgBox = $("<div />").attr('id', this.id).addClass('rounded').hide();
+            var div = msgBox.append($("<div />"));
+            $('body').append(msgBox);
+        },
+
+        // create message container    
+        init: function () {
+            d4h5.message.create();
+        },
+
+        show: function () {
+            $("#" + this.id).show().delay(this.timeout).fadeOut();
+        },
+
+        alert: function (msg, type) {
+            type = type == undefined ? '' : type;
+            var p = $("<p />").addClass(type).text(msg);
+            $("#" + this.id + " > div").html(p);
+            this.show();
+        }
+    };
+
+    window.d4h5.register('message');
+    window.d4h5.message = message;
+
+})(window);(function (window) {
+
+    var ajax = {
+
+        ajaxReady: [],
+
+        // allow to register callback once the page is loaded by AJAX
+        ready: function (fn) {
+            this.ajaxReady.push(fn);
+        },
+
+        // parse navigation
+        // replace href by # + href
+        // add click event and push state in the history
+        // using bbq
+        traverse: function () {
+            // navigation: prefix all href with #
+            $(d4h5.navigationSelector + ' a').each(function (index) {
+
+                var id = $(this).attr('id');
+                var href = $(this).attr('href');
+
+
+                // attribute an ID for future reference if not set
+                if (id === '' || id == undefined) {
+                    id = d4h5.ids.prefix + d4h5.ids.n;
+                    d4h5.ids.n++;
+                    $(this).attr('id', id);
+                }
+
+                // keep information in memory when link is triggered on page
+                d4h5.nav[href] = id;
+
+                // replace href
+                $(this).attr('href', '#' + href);
+
+                // push the appropriate state onto the history when clicked.
+                d4h5.ajax.live($(this));
+
+            });
+
+            $(d4h5.navigationSelector).find('li').each(function (index) {
+                if ($(this).children('a').length === 0) {
+                    var l = $(this).find('ul li a:first');
+                    if (l.length == 1) {
+                        $(this).children('span.navtitle').click(function () {
+                            d4h5.ajax.loadHTML(l.attr('href').replace(/^#/, ''));
+                        });
+                    }
+                }
+            });
+        },
+
+        // add loader (spinner on the page)
+        // @todo: add support for localization
+        addLoader: function () {
+            var title = $("<h2>content is loading</h2>").addClass('hidden');
+            var loader = $("<div />").attr("id", "d4h5-loader").append(title);
+            $('body').append(loader);
+        },
+
+        // called before the ajax request is send
+        // used to output a 'loader' on the page  
+        contentIsLoading: function () {
+            $("#d4h5-loader").show();
+            $(d4h5.outputSelector).css('opacity', d4h5.transition.opacity);
+        },
+
+        // called at the end of the ajax call
+        contentIsLoaded: function () {
+            $("#d4h5-loader").hide();
+            $(d4h5.outputSelector).css('opacity', 1);
+        },
+
+        // this is a modified version of the load function in jquery
+        // I kept comments for reference
+        // @todo: see if it is neccessary to implement cache here
+        // @todo: implement beforeSend, error callback
+        loadHTML: function (uri) {
+            d4h5.hash.current = uri;
+            $.ajax({
+                type: 'GET',
+
+                url: uri,
+
+                dataType: 'html',
+
+                beforeSend: function (jqXHR) {
+                    d4h5.ajax.contentIsLoading();
+                },
+
+                complete: function (jqXHR, status, responseText) {
+
+                    // is status is an error, return an error dialog
+                    if (status === 'error') {
+                        d4h5.message.alert('Sorry, the content could not be loaded', 'error');
+                        d4h5.ajax.contentIsLoaded();
+                        return false;
+                    }
+
+                    // Store the response as specified by the jqXHR object
+                    responseText = jqXHR.responseText;
+
+                    // If successful, inject the HTML into all the matched elements
+                    if (jqXHR.isResolved()) {
+
+                        // From jquery: #4825: Get the actual response in case
+                        // a dataFilter is present in ajaxSettings
+                        jqXHR.done(function (r) {
+                            responseText = r;
                         });
 
-                        $(this).wrap(span2);
+                        var html = $("<div>").attr('id', d4h5.hash.current).append(responseText.replace(d4h5.rscript, ""));
 
+                        d4h5.content = html.find(d4h5.externalContentElement);
+
+                        d4h5.title = html.find("title").html();
+
+                        for (fn in d4h5.ajax.ajaxReady) {
+                            d4h5.ajax.ajaxReady[fn].call(d4h5.content);
+                        }
+
+                        d4h5.ajax.contentIsLoaded();
                     }
-                });
-
-
-                // add class
-                $(this).prepend(span).addClass('collapsible collapsed');
-
-
-                // link click handler
-                $(this).find('a').click(function () {
-                    // remove previous class
-                    $(d4h5.navigationSelector + ' li').removeClass('selected');
-                    $(d4h5.navigationSelector + ' li').removeClass('active').addClass('collapsed');
-
-                    // add selected class on the li parent element
-                    $(this).parentsUntil(d4h5.navigationSelector).addClass('active').removeClass('collapsed');
-
-                    // set all the parent trail active
-                    $(this).parent('li').addClass('selected')
-                });
-
-            } else {
-
-                $(this).addClass('no-child');
-
-            }
-        });
-    }
-};window.d4h5.ajax = {
-
-    ajaxReady: [],
-    
-    // allow to register callback once the page is loaded by AJAX
-    ready: function (fn) {
-        this.ajaxReady.push(fn);
-    },
-
-    // parse navigation
-    // replace href by # + href
-    // add click event and push state in the history
-    // using bbq
-    traverse: function () {
-        // navigation: prefix all href with #
-        $(d4h5.navigationSelector + ' a').each(function (index) {
-
-            var id = $(this).attr('id');
-            var href = $(this).attr('href');
-
-
-            // attribute an ID for future reference if not set
-            if (id === '' || id == undefined) {
-                id = d4h5.ids.prefix + d4h5.ids.n;
-                d4h5.ids.n++;
-                $(this).attr('id', id);
-            }
-
-            // keep information in memory when link is triggered on page
-            d4h5.nav[href] = id;
-
-            // replace href
-            $(this).attr('href', '#' + href);
-
-            // push the appropriate state onto the history when clicked.
-            d4h5.ajax.live($(this));
-
-        });
-
-        $(d4h5.navigationSelector).find('li').each(function (index) {
-            if ($(this).children('a').length === 0) {
-                var l = $(this).find('ul li a:first');
-                if (l.length == 1) {
-                    $(this).children('span.navtitle').click(function () {
-                        d4h5.ajax.loadHTML(l.attr('href').replace(/^#/, ''));
-                    });
                 }
-            }
-        });
-    },
+            });
+        },
 
-    // add loader (spinner on the page)
-    // @todo: add support for localization
-    addLoader: function () {
-        var title = $("<h2>content is loading</h2>").addClass('hidden');
-        var loader = $("<div />").attr("id", "d4h5-loader").append(title);
-        $('body').append(loader);
-    },
+        setTitle: function () {
+            $('title').html(d4h5.title);
+        },
 
-    // called before the ajax request is send
-    // used to output a 'loader' on the page  
-    contentIsLoading: function () {
-        $("#d4h5-loader").show();
-        $(d4h5.outputSelector).css('opacity', d4h5.transition.opacity);
-    },
+        setMainContent: function () {
+            $(d4h5.outputSelector).html(d4h5.content);
+        },
 
-    // called at the end of the ajax call
-    contentIsLoaded: function () {
-        $("#d4h5-loader").hide();
-        $(d4h5.outputSelector).css('opacity', 1);
-    },
-
-    // this is a modified version of the load function in jquery
-    // I kept comments for reference
-    // @todo: see if it is neccessary to implement cache here
-    // @todo: implement beforeSend, error callback
-    loadHTML: function (uri) {
-        d4h5.hash.current = uri;
-        $.ajax({
-            type: 'GET',
-
-            url: uri,
-
-            dataType: 'html',
-
-            beforeSend: function (jqXHR) {
-                d4h5.ajax.contentIsLoading();
-            },
-
-            complete: function (jqXHR, status, responseText) {
-            
-                // is status is an error, return an error dialog
-                if(status === 'error'){
-                    d4h5.message.alert('Sorry, the content could not be loaded', 'error');
-                    d4h5.ajax.contentIsLoaded();
-                    return false;
-                }
-                
-                // Store the response as specified by the jqXHR object
-                responseText = jqXHR.responseText;
-
-                // If successful, inject the HTML into all the matched elements
-                if (jqXHR.isResolved()) {
-
-                    // From jquery: #4825: Get the actual response in case
-                    // a dataFilter is present in ajaxSettings
-                    jqXHR.done(function (r) {
-                        responseText = r;
-                    });
-
-                    var html = $("<div>").attr('id', d4h5.hash.current).append(responseText.replace(d4h5.rscript, ""));
-
-                    d4h5.content = html.find(d4h5.externalContentElement);
-
-                    d4h5.title = html.find("title").html();
-
-                    for (fn in d4h5.ajax.ajaxReady) {
-                        d4h5.ajax.ajaxReady[fn].call(d4h5.content);
-                    }
-
-                    d4h5.ajax.contentIsLoaded();
-                }
-            }
-        });
-    },
-
-    setTitle: function () {
-        $('title').html(d4h5.title);
-    },
-
-    setMainContent: function () {
-        $(d4h5.outputSelector).html(d4h5.content);
-    },
-
-    // Rewrite each src in the document
-    // because there is no real path with AJAX call
-    rewriteAttrSrc: function () {
-        var uri = d4h5.hash.current;
-        d4h5.content.find("*[src]").each(function (index) {
-            $(this).attr('src', uri.substring(0, uri.lastIndexOf("/")) + "/" + $(this).attr('src'));
-        });
-    },
-
-    // Rewrite each href in the document
-    // because there is no real path with AJAX call
-    //
-    rewriteAttrHref: function () {
-        d4h5.content.find("*[href]").each(function (index) {
+        // Rewrite each src in the document
+        // because there is no real path with AJAX call
+        rewriteAttrSrc: function () {
             var uri = d4h5.hash.current;
-            var dir = uri.substring(0, uri.lastIndexOf("/"));
-            var base = dir.split("/");
-            var href = $(this).attr('href');
-            var parts = href.split("/");
+            d4h5.content.find("*[src]").each(function (index) {
+                $(this).attr('src', uri.substring(0, uri.lastIndexOf("/")) + "/" + $(this).attr('src'));
+            });
+        },
 
-            // prevent external to be rewritten           
-            if ($(this).hasClass("external") || $(this).attr('target') == "_blank") {
-                return true;
-            }
-			
-            var pathC = dir != "" ? base.concat(parts) : Array.concat(parts);
+        // Rewrite each href in the document
+        // because there is no real path with AJAX call
+        //
+        rewriteAttrHref: function () {
+            d4h5.content.find("*[href]").each(function (index) {
+                var uri = d4h5.hash.current;
+                var dir = uri.substring(0, uri.lastIndexOf("/"));
+                var base = dir.split("/");
+                var href = $(this).attr('href');
+                var parts = href.split("/");
 
-            for (var i = 0, len = pathC.length; i < len; ++i) {
-                if (pathC[i] === '..') {
-                    pathC.splice(i, 1);
-                    pathC.splice(i - 1, 1);
+                // prevent external to be rewritten           
+                if ($(this).hasClass("external") || $(this).attr('target') == "_blank") {
+                    return true;
                 }
+
+                var pathC = dir != "" ? base.concat(parts) : Array.concat(parts);
+
+                for (var i = 0, len = pathC.length; i < len; ++i) {
+                    if (pathC[i] === '..') {
+                        pathC.splice(i, 1);
+                        pathC.splice(i - 1, 1);
+                    }
+                }
+
+                $(this).attr('href', "#" + pathC.join("/"));
+
+                d4h5.ajax.live($(this));
+
+            });
+
+        },
+
+        // set AJAX callback on the specified link obj.
+        live: function (obj) {
+            obj.live('click', function (e) {
+
+                var state = {};
+
+                // Set the state!
+                state[d4h5.hash.id] = $(this).attr('href').replace(/^#/, '');
+
+                $.bbq.pushState(state);
+
+                // And finally, prevent the default link click behavior by returning false.
+                return false;
+            });
+        },
+
+        // load initial content to avoid a blank page
+        getInitialContent: function () {
+            if ($(d4h5.outputSelector).length == 1 && d4h5.loadInitialContent) {
+                var url = "";
+                if (window.location.hash !== '') {
+                    url = window.location.hash.replace(/^#/, '');
+                    url = url.replace(/^q=/, '');
+                    d4h5.ajax.loadHTML(url);
+                } else {
+                    url = $(d4h5.navigationSelector + ' a:first-child').attr('href').replace(/^#/, '');
+                    window.location.hash = "q=" + url;
+                }
+                d4h5.loadInitialContent = false;
             }
+        },
 
-            $(this).attr('href', "#" + pathC.join("/"));
-
-            d4h5.ajax.live($(this));
-
-        });
-
-    },
-
-    // set AJAX callback on the specified link obj.
-    live: function (obj) {
-        obj.live('click', function (e) {
-
-            var state = {};
-
-            // Set the state!
-            state[d4h5.hash.id] = $(this).attr('href').replace(/^#/, '');
-
-            $.bbq.pushState(state);
-
-            // And finally, prevent the default link click behavior by returning false.
-            return false;
-        });
-    },
-
-    // load initial content to avoid a blank page
-    getInitialContent: function () {
-        if ($(d4h5.outputSelector).length == 1 && d4h5.loadInitialContent) {
-            var url = "";
-            if (window.location.hash !== '') {
-                url = window.location.hash.replace(/^#/, '');
-                url = url.replace(/^q=/, '');
-                this.loadHTML(url);
-            } else {
-                url = $(d4h5.navigationSelector + ' a:first-child').attr('href').replace(/^#/, '');
-                window.location.hash = "q=" + url;
-            }
-            d4h5.loadInitialContent = false;
+        // init ajax plugin
+        init: function () {
+        
+            d4h5.ajax.ready(d4h5.ajax.rewriteAttrHref);
+            d4h5.ajax.ready(d4h5.ajax.rewriteAttrSrc);
+            d4h5.ajax.ready(d4h5.ajax.setTitle);
+            d4h5.ajax.ready(d4h5.ajax.setMainContent);
+            
+            d4h5.ajax.traverse();
+            d4h5.ajax.addLoader();
+            d4h5.ajax.getInitialContent();
         }
-    },
-
-    // init ajax plugin
-    init: function () {
-        this.traverse();
-        this.addLoader();
-        this.getInitialContent();
-    }
 
 
-};window.d4h5.message = {
-	// id of the div element to be created
-    id: 'd4h5-message',
-    
-    timeout: 3000,
-    
-    // message type
-    create: function() {
-    	var msgBox = $("<div />").attr('id', this.id).addClass('rounded').hide();
-    	var div = msgBox.append($("<div />"));
-    	$('body').append(msgBox);
-    },
-    
-    // create message container    
-    init: function() {
-    	this.create();
-    },
-    
-    show: function() {
-    	$("#"+this.id).show().delay(this.timeout).fadeOut();
-    },
-    
-    alert: function (msg, type) {    
-        type = type == undefined ? '' : type;    	
-    	var p = $("<p />").addClass(type).text(msg);    	
-        $("#"+this.id+" > div").html(p);
-        this.show();  
-    }    
-    
-};
+    };
+
+    window.d4h5.register('ajax');
+    window.d4h5.ajax = ajax;
+
+
+})(window);
