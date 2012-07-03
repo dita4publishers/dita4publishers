@@ -84,7 +84,7 @@
       </not>
 		</condition>
 
-		<condition property="js.options" value="navigation:{autoCollapse:false}">
+		<condition property="js.options" value="">
 		  <not>
         <isset property="js.options" />
       </not>

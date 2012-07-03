@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="YUI Compressor" default="package.compress" basedir=".">
 	<property name="yui-compressor.jar" location="${yui.path}"/>
+	
+	<target name="set.properties">
+		<condition property="properties" value="ant.properties">
+    		<not>
+      			<isset property="properties"/>
+    		</not>
+  		</condition>
+		<mkdir dir="${build.dir}"/>
+	</target>
 
-	<target name="load.properties">
-		<loadproperties srcFile="ant.properties"/>
+
+	<target name="load.properties" depends="set.properties">
+		<loadproperties srcFile="${properties}"/>
 		<echo>
 
 			yui.path = ${yui.path}
-      src.dir.css = ${src.dir.css}
-      src.dir.js = ${src.dir.js}
+      		src.dir.css = ${src.dir.css}
+      		src.dir.js = ${src.dir.js}
 			src.dir.libs = ${src.dir.libs}
 			build.dir = ${build.dir}
 

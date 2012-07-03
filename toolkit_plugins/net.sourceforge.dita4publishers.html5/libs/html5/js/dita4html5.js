@@ -2,12 +2,7 @@
     var d4h5 = {
 
         version: '0.1a',
-        // toc url - to be implemented
-        // the idea is to have the reference to the toc on every page.
-        // if someone come on a specific page trough a search engine
-        // the code will load the toc parent and render the page properly.
-        toc: '',
-
+        
         // selector for the element which contain the content
         outputSelector: '#main-content',
 
@@ -46,14 +41,26 @@
 		
 		// registered modules
         mod: [],
+        
+        // hash change functions
+        _hashChange: [],
 
         // from jQuery
         // use a modified version of the $.load function
         // for specific purpose
         rscript: '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi',
 
+		// register a module init function will be called
+		// once document is loaded.
+		// I added this feature to allow user to set options
+		// before their module are called.
         register: function (id) {
             this.mod.push(id);
+        },
+        
+        // register a hashChange callback
+        hashChange: function (fn) {
+            this._hashChange.push(fn);
         },
 
         init: function (options) {
@@ -65,9 +72,6 @@
                 var fn = this.mod[i];
                 this[fn].init.call();
             }
-
-            // register callbacks for page
-
 
             // Bind an event to window.onhashchange that, when the history state changes,
             // iterates over all .bbq widgets, getting their appropriate url from the
@@ -81,9 +85,11 @@
                 if (uri === '') {
                     return;
                 }
-
-                d4h5.ajax.loadHTML(uri);
-                d4h5.navigation.select(uri);
+                
+                for (i in d4h5._hashChange) {
+                	var fn = d4h5._hashChange[i];
+                	fn.call(this, uri);
+            	}
 
             });
 

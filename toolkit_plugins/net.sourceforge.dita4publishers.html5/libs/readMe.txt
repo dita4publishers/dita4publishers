@@ -47,7 +47,7 @@ The build.xml file contains information to assemble all the javascripts and css 
 - js/script.js: concatenated and compressed javascripts
 
 
-1. Download and unpack in the assets directory
+1. Download and unpack in the libs directory
    a version of Yahoo YUI compressor
 
    http://developer.yahoo.com/yui/compressor/

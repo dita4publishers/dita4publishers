@@ -1182,6 +1182,9 @@ window.Modernizr = (function( window, document, undefined ) {
 		
 		// registered modules
         mod: [],
+        
+        // hash change functions
+        _hashChange: [],
 
         // from jQuery
         // use a modified version of the $.load function
@@ -1190,6 +1193,10 @@ window.Modernizr = (function( window, document, undefined ) {
 
         register: function (id) {
             this.mod.push(id);
+        },
+        
+        hashChange: function (fn) {
+            this._hashChange.push(fn);
         },
 
         init: function (options) {
@@ -1201,9 +1208,6 @@ window.Modernizr = (function( window, document, undefined ) {
                 var fn = this.mod[i];
                 this[fn].init.call();
             }
-
-            // register callbacks for page
-
 
             // Bind an event to window.onhashchange that, when the history state changes,
             // iterates over all .bbq widgets, getting their appropriate url from the
@@ -1217,9 +1221,14 @@ window.Modernizr = (function( window, document, undefined ) {
                 if (uri === '') {
                     return;
                 }
+                
+                for (i in d4h5._hashChange) {
+                	var fn = d4h5._hashChange[i];
+                	fn.call(this, uri);
+            	}
 
-                d4h5.ajax.loadHTML(uri);
-                d4h5.navigation.select(uri);
+               // d4h5.ajax.loadHTML(uri);
+               // d4h5.navigation.select(uri);
 
             });
 
@@ -1231,7 +1240,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     window.d4h5 = d4h5;
 
-})(window);(function (window) {
+})(window);(function (d4h5) {
 
     var navigation = {
         maxLevel: 3,
@@ -1239,12 +1248,8 @@ window.Modernizr = (function( window, document, undefined ) {
         maxLevelTransition: 'slideUp',
         // for later
         autoCollapse: false,
-
-        init: function () {
-            d4h5.ajax.ready(d4h5.navigation.selectFromHash);
-            d4h5.navigation.traverse();
-        },
-
+		
+		// select the right entry in the navigation
         select: function (uri) {
             var id = d4h5.nav[uri];
             $(d4h5.navigationSelector + ' li').removeClass('selected');
@@ -1316,13 +1321,19 @@ window.Modernizr = (function( window, document, undefined ) {
 
                 }
             });
+        },
+        
+        init: function () {
+        	d4h5.ajax.ready(d4h5.navigation.selectFromHash);
+        	d4h5.hashChange(d4h5.navigation.select);
+            d4h5.navigation.traverse();
         }
     };
+    
+    d4h5.register('navigation');
+    d4h5.navigation = navigation;
 
-    window.d4h5.register('navigation');
-    window.d4h5.navigation = navigation;
-
-})(window);(function (window) {
+})(d4h5);(function (d4h5) {
 
     var message = {
         // id of the div element to be created
@@ -1354,10 +1365,10 @@ window.Modernizr = (function( window, document, undefined ) {
         }
     };
 
-    window.d4h5.register('message');
-    window.d4h5.message = message;
+    d4h5.register('message');
+    d4h5.message = message;
 
-})(window);(function (window) {
+})(d4h5);(function (d4h5) {
 
     var ajax = {
 
@@ -1569,11 +1580,13 @@ window.Modernizr = (function( window, document, undefined ) {
 
         // init ajax plugin
         init: function () {
-        
+         
             d4h5.ajax.ready(d4h5.ajax.rewriteAttrHref);
             d4h5.ajax.ready(d4h5.ajax.rewriteAttrSrc);
             d4h5.ajax.ready(d4h5.ajax.setTitle);
             d4h5.ajax.ready(d4h5.ajax.setMainContent);
+            
+            d4h5.hashChange(d4h5.ajax.loadHTML);
             
             d4h5.ajax.traverse();
             d4h5.ajax.addLoader();
@@ -1583,8 +1596,8 @@ window.Modernizr = (function( window, document, undefined ) {
 
     };
 
-    window.d4h5.register('ajax');
-    window.d4h5.ajax = ajax;
+    d4h5.register('ajax');
+    d4h5.ajax = ajax;
 
 
-})(window);
+})(d4h5);

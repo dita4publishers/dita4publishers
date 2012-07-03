@@ -1,4 +1,6 @@
-(function (window) {
+(function (d4h5) {
+
+    // use ui-dialog instead ?
 
     var message = {
         // id of the div element to be created
@@ -30,7 +32,7 @@
         }
     };
 
-    window.d4h5.register('message');
-    window.d4h5.message = message;
+    d4h5.register('message');
+    d4h5.message = message;
 
-})(window);
+})(d4h5);

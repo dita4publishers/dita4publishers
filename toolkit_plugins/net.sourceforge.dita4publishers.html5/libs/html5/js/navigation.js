@@ -1,4 +1,4 @@
-(function (window) {
+(function (d4h5) {
 
     var navigation = {
         maxLevel: 3,
@@ -6,12 +6,8 @@
         maxLevelTransition: 'slideUp',
         // for later
         autoCollapse: false,
-
-        init: function () {
-            d4h5.ajax.ready(d4h5.navigation.selectFromHash);
-            d4h5.navigation.traverse();
-        },
-
+		
+		// select the right entry in the navigation
         select: function (uri) {
             var id = d4h5.nav[uri];
             $(d4h5.navigationSelector + ' li').removeClass('selected');
@@ -83,10 +79,16 @@
 
                 }
             });
+        },
+        
+        init: function () {
+        	d4h5.ajax.ready(d4h5.navigation.selectFromHash);
+        	d4h5.hashChange(d4h5.navigation.select);
+            d4h5.navigation.traverse();
         }
     };
+    
+    d4h5.register('navigation');
+    d4h5.navigation = navigation;
 
-    window.d4h5.register('navigation');
-    window.d4h5.navigation = navigation;
-
-})(window);
+})(d4h5);

@@ -1,4 +1,4 @@
-(function (window) {
+(function (d4h5) {
 
     var ajax = {
 
@@ -210,11 +210,13 @@
 
         // init ajax plugin
         init: function () {
-        
+         
             d4h5.ajax.ready(d4h5.ajax.rewriteAttrHref);
             d4h5.ajax.ready(d4h5.ajax.rewriteAttrSrc);
             d4h5.ajax.ready(d4h5.ajax.setTitle);
             d4h5.ajax.ready(d4h5.ajax.setMainContent);
+            
+            d4h5.hashChange(d4h5.ajax.loadHTML);
             
             d4h5.ajax.traverse();
             d4h5.ajax.addLoader();
@@ -224,8 +226,8 @@
 
     };
 
-    window.d4h5.register('ajax');
-    window.d4h5.ajax = ajax;
+    d4h5.register('ajax');
+    d4h5.ajax = ajax;
 
 
-})(window);
+})(d4h5);
