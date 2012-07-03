@@ -1138,12 +1138,7 @@ window.Modernizr = (function( window, document, undefined ) {
     var d4h5 = {
 
         version: '0.1a',
-        // toc url - to be implemented
-        // the idea is to have the reference to the toc on every page.
-        // if someone come on a specific page trough a search engine
-        // the code will load the toc parent and render the page properly.
-        toc: '',
-
+        
         // selector for the element which contain the content
         outputSelector: '#main-content',
 
@@ -1191,10 +1186,15 @@ window.Modernizr = (function( window, document, undefined ) {
         // for specific purpose
         rscript: '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi',
 
+		// register a module init function will be called
+		// once document is loaded.
+		// I added this feature to allow user to set options
+		// before their module are called.
         register: function (id) {
             this.mod.push(id);
         },
         
+        // register a hashChange callback
         hashChange: function (fn) {
             this._hashChange.push(fn);
         },
@@ -1226,9 +1226,6 @@ window.Modernizr = (function( window, document, undefined ) {
                 	var fn = d4h5._hashChange[i];
                 	fn.call(this, uri);
             	}
-
-               // d4h5.ajax.loadHTML(uri);
-               // d4h5.navigation.select(uri);
 
             });
 
@@ -1334,6 +1331,8 @@ window.Modernizr = (function( window, document, undefined ) {
     d4h5.navigation = navigation;
 
 })(d4h5);(function (d4h5) {
+
+    // use ui-dialog instead ?
 
     var message = {
         // id of the div element to be created

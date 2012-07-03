@@ -8,20 +8,20 @@
       			<isset property="properties"/>
     		</not>
   		</condition>
-		<mkdir dir="${build.dir}"/>
 	</target>
-
 
 	<target name="load.properties" depends="set.properties">
 		<loadproperties srcFile="${properties}"/>
 		<echo>
 
 			yui.path = ${yui.path}
-      		src.dir.css = ${src.dir.css}
-      		src.dir.js = ${src.dir.js}
-			src.dir.libs = ${src.dir.libs}
+      		dir.css = ${dir.css}
+      		dir.js = ${dir.js}
+			dir.libs = ${dir.libs}
 			build.dir = ${build.dir}
-
+			src.css = ${src.css}
+			src.js = ${src.js}
+			
 		</echo>
 	</target>
 
@@ -43,16 +43,16 @@
 
 	<target name="package.concat.js">
 		<property name="product.concat" value="${product.uncompressed.name}"/>
-		<concat destfile="${build.dir}/${src.dir.js}/script.js">
-			<filelist dir="${src.dir.libs}" files = "jQuery/jquery-1.7.1.min.js,modernizr/modernizr.dev.2.0.6.js,cowboy-jquery-bbq-8e0064b/jquery.ba-bbq.min.js,html5/js/dita4html5.js,html5/js/navigation.js,html5/js/message.js,html5/js/ajaxLoader.js" />
+		<concat destfile="${build.dir}/${dir.js}/script.js">
+			<filelist dir="${dir.libs}" files = "${src.js}" />
 		</concat>
 	</target>
 
 	<!-- concatenate css -->
 	<target name="package.concat.css">
 		<property name="product.concat" value="${product.uncompressed.name}"/>
-		<concat destfile="${build.dir}/${src.dir.css}/style.css">
-			<filelist dir="${src.dir.libs}" files = "nathansmith-960-Grid-System-b0c5b98/code/css/reset.css,nathansmith-960-Grid-System-b0c5b98/code/css/960_24_col.css,nathansmith-960-Grid-System-b0c5b98/code/css/text.css,html5/css/default/layout.css,html5/css/default/navigation.css,html5/css/default/image.css,html5/css/default/dita.ltr.css,html5/css/default/links.css,html5/css/default/tools.css,html5/css/default/table.css" />
+		<concat destfile="${build.dir}/${dir.css}/style.css">
+			<filelist dir="${dir.libs}" files = "${src.css}" />
 		</concat>
 	</target>
 
