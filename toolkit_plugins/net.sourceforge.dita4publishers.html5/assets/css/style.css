@@ -925,21 +925,31 @@ body
 
 header
 {
+	border:none;
 	display: block;
 	height: 61px;
-	left: -1px;
-	position: relative;
-	width: 982px;
 	overflow: hidden;
 }
 
 header h1
 {
 	font-size: 2.8em;
-	font-weight: 100;
-	line-height: 62px;
-	padding-left: 25px;
 }
+
+header, footer 
+{
+	display: block;
+	overflow: hidden;
+	position:relative;
+	width:100%;
+}
+
+#section-container
+{
+	display: block;
+	width: 980px;	
+}
+
 
 noscript
 {
@@ -949,26 +959,9 @@ noscript
 
 h2.nav-pub-title { font-size: 1.1em; }
 
-.rounded  {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-}
 
-body.centered #main-container
-{
-	display: block;
-	width: 980px;
-	margin: 0 auto;
-	border-left: 1px solid #ccc;
-	border-right: 1px solid #ccc;
-	-webkit-border-bottom-right-radius: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-moz-border-radius-bottomleft: 5px;
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
-	margin-bottom: 30px;
+#main-container {
+	overflow:hidden;
 }
 
 #main-content
@@ -977,22 +970,6 @@ body.centered #main-container
 	min-height: 500px;
 }
 
-footer
-{
-	border: 1px solid #CCCCCC;
-	display: block;
-	height: 5px;
-	left: -1px;
-	padding: 20px;
-	position: relative;
-	width: 940px;
-	-webkit-border-bottom-right-radius: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-moz-border-radius-bottomleft: 5px;
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
-}
 
 /** css3 columns layout **/
 .two-columns

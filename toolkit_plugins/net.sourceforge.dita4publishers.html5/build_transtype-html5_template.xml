@@ -78,7 +78,7 @@
       </not>
 		</condition>
 
-		<condition property="bodyClass" value="centered img-with-shadow">
+		<condition property="bodyClass" value="centered paged img-with-shadow">
 		  <not>
         <isset property="bodyClass" />
       </not>

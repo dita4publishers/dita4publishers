@@ -49,7 +49,11 @@
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>
 
       <nav id="left-navigation" role="navigation" class="grid_6" aria-label="Main navigation">
-        <div class="nav-pub-title"><xsl:apply-templates select="*[df:class(., 'topic/title')]" mode="generate-html5-nav-page-markup"/></div>
+        <div class="nav-pub-title">
+        	<xsl:apply-templates select="*[df:class(., 'topic/title')]" mode="generate-html5-nav-page-markup"/>
+        	<xsl:sequence select="'&#x0a;'"/>
+        </div>
+        
         <xsl:variable name="listItems" as="node()*">
           <xsl:apply-templates mode="generate-html5-nav"
             select=".
@@ -60,6 +64,7 @@
             )"
           />
         </xsl:variable>
+        
         <xsl:if test="$listItems">
           <ul>
             <xsl:sequence select="$listItems"/>

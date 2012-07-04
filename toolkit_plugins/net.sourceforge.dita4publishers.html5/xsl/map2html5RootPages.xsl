@@ -95,35 +95,36 @@
 
 		<div id="main-container"><xsl:sequence select="'&#x0a;'"/>
 
-    	<xsl:sequence select="'&#x0a;'"/>
+    		<xsl:sequence select="'&#x0a;'"/>
 
-      <header role = "banner" aria-labelledby="publication-title">
-       	 <xsl:apply-templates select="." mode="generate-root-page-header"/>
-     	</header>
+        	<header role = "banner" aria-labelledby="publication-title">
+       			<xsl:apply-templates select="." mode="generate-root-page-header"/>
+     		</header>
 
-			<div id = "section-container" class="container_24">
+	    	<div id = "section-container" class="container_24">
 
-      	<!-- This mode generates the navigation structure (ToC) on the
-           index.html page, that is, the main navigation structure.
-        -->
-     	 <xsl:apply-templates select="." mode="generate-html5-nav-page-markup"/>
+      		<!-- This mode generates the navigation structure (ToC) on the
+           		index.html page, that is, the main navigation structure.
+        	-->
+     		<xsl:apply-templates select="." mode="generate-html5-nav-page-markup"/>
 
-      	<div id="main-content" role="main">
+      			<div id="main-content" role="main">
 
-        	<xsl:attribute name="class" select="'grid_15 push_1'" />
-        	<xsl:sequence select="'&#x0a;'"/>
+        			<xsl:attribute name="class" select="'grid_15 push_1'" />
+        			<xsl:sequence select="'&#x0a;'"/>
 
-        	<xsl:apply-templates select="." mode="set-initial-content"/>
+        			<xsl:apply-templates select="." mode="set-initial-content"/>
 
-        	<div class="clear" /><xsl:sequence select="'&#x0a;'"/>
+        			<div class="clear" ><xsl:sequence select="'&#x0a;'"/></div>
 
-        </div>
+        		</div>
 
 			</div>
-
-			<footer>
-				<xsl:sequence select="'&#xA9;'"/>
-			</footer><xsl:sequence select="'&#x0a;'"/>
+		 <div id="footer-container" class="container_24">
+				<xsl:call-template name="gen-user-footer"/>
+				<xsl:call-template name="processFTR"/>
+		 <xsl:sequence select="'&#x0a;'"/>
+		</div>
 
 		</div>
     </body><xsl:sequence select="'&#x0a;'"/>
@@ -175,7 +176,7 @@
 
     <script type="text/javascript">
 
-   	<xsl:text>
+   		<xsl:text>
 			$(function() {
 				d4h5.init({
 		</xsl:text>
@@ -218,8 +219,7 @@
   <xsl:template match="*" mode="set-initial-content">
 		<noscript>
 			<p>
-				<xsl:text>
-			To read this documentation, you must turn on JavaScript.</xsl:text>
+				<xsl:text>To read this documentation, you must turn on JavaScript.</xsl:text>
 			</p>
 		</noscript>
   </xsl:template>

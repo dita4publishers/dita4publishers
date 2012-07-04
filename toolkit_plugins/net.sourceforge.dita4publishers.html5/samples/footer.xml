@@ -1,0 +1,31 @@
+<div>
+      <footer>
+         	<div class="grid_4 push_1">
+         	<address>
+				<strong>The Dummy company</strong> 
+				Box 564, Disneyland<br />
+				USA
+				</address>
+         	</div>
+            <div class="grid_4 push_3">
+            	<h2>Lorem Ipsum</h2>
+            	<ul>
+            		<li><a href="#">Link 2</a></li>
+            		<li><a href="#">Link 3</a></li>
+            		<li><a href="#">Link 4</a></li>
+            	</ul>
+            
+            </div>
+            <div class="grid_4 push_3">
+            	<h2>Lorem Ipsum</h2>
+            	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            
+            </div>
+            
+            <div class="grid_4 push_4">
+            	<h2>Lorem Ipsum</h2>
+            	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            
+            </div>
+         </footer>
+</div>

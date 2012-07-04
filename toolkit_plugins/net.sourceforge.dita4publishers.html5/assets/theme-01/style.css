@@ -1,6 +1,7 @@
 /**
  * theme-01
  **/
+
 @font-face {
 	font-family: "Vegur Regular";
     src: url("../fonts/vegur/Vegur-R-0.602.otf");
@@ -18,77 +19,159 @@
     src: url("../fonts/Vegur/Vegur-L-0.602.otf");
 }
 
-.fontface h1, .fontface  h2, .fontface  h3, .fontface  h4,.fontface  h5,.fontface  h6
-{
+.fontface #main-content h1, .fontface header h1, .fontface #main-content h2, .fontface #main-content  h3, #main-content  .fontface  h4, .fontface #main-content h5, .fontface #main-content  h6 {
 	font-family: "Vegur Regular", sans-serif;
-	
 }
-body.centered #main-container {
-	-moz-box-shadow: 3px 3px 4px #999;
-	-webkit-box-shadow: 3px 3px 4px #999;
-	box-shadow: 3px 3px 4px #999;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999');
-}
+
 body {
 	background: #FFFFFF;
 }
 
-footer {
-	background: #F6F6F6;
-	clear:both;
-}
-
-h1#publication-title {
-	color:#FFF;
-}
-
-section h1 {
-	margin:2em 0;
+header h1 {
+	font-size: 2.8em;
+	font-weight: 100;
+	line-height: 62px;
+	padding-left: 25px;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	text-shadow: rgba(0,0,0,0.5) 0px 3px 3px;
 }
 
 header {
-	background: #333;
-	border-bottom:1px solid #ccc;
+	background: #262626;
+	border-bottom: 1px solid #ccc;
+	-moz-box-shadow: 3px 3px 4px #ccc;
+	-webkit-box-shadow: 3px 3px 4px #ccc;
+	box-shadow: 3px 3px 4px #ccc;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ccc')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ccc');
 }
 
-#section-container {
-	background: url("../img/nav-background.png") repeat-y;
+#footer-container {
+	background: #F6F6F6;
+	width: 100%;
+	min-height: 210px;
+	clear: both;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-top: 5px solid #ccc;
+}
+
+footer {
+	width: 960px;
+	position: relative;
+	margin: 0 auto;
+	padding-top: 25px;
+}
+
+footer h2, address strong {
+	font-size: 1.1em;
+	font-weight: 700;
+	margin-bottom: 1em;
+}
+
+#publication-title {
+	color: #FFF;
+}
+
+section h1 {
+	margin: 0 0 1.5em 0;
+}
+
+/** centered layout **/
+body.centered header h1 {
+	display: block;
+	width: 980px;
+	margin: 0 auto;
+}
+
+body.centered #section-container {
+	margin: 0 auto;
+}
+
+body.centered.paged #main-container {
+	margin: 0 auto;
+}
+
+/** paged layout **/
+body.paged header {
+	width: 100%;
+}
+
+body.paged #section-container {
+	width: 980px;
+}
+
+/**/
+#left-navigation {
+	margin-left: 0px;
+	padding: 20px 0px 20px 20px;
+	outline: none;
+	-moz-box-shadow: 3px 3px 4px #ccc;
+	-webkit-box-shadow: 3px 3px 4px #ccc;
+	box-shadow: 3px 3px 4px #ccc;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ccc')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ccc');
+}
+
+}
+
+#main-container #section-container {
+	margin-top: 50px;
+}
+
+#main-content, #left-navigation {
+	margin-top: 50px;
+}
+
+#main-content h1 {
+	margin-top: 0px;
 }
 
 #left-navigation {
-	/*border-right:1px solid #999;*/
+	background-color: #F6F6F6;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
 #left-navigation a, #left-navigation a:link {
-	color:#333;
+	color: #333;
 	opacity: 1;
 }
 
 nav#left-navigation li.collapsible.collapsed > span.ico {
-	background: url("../img/arrow.png") no-repeat 0 0px;
+	background: url("../img/arrow.png") no-repeat 0 1px;
 }
 
 nav#left-navigation li.collapsible.active > span.ico {
-	background: url("../img/arrow-down.png") no-repeat 0 0px;
+	background: url("../img/arrow-down.png") no-repeat 0 3px;
 }
 
-#main-content a, #main-content a:link {
-    color:#3887b0;
-    text-decoration:underline;
+#main-container a, #main-container a:link {
+	color: #3887b0;
+	text-decoration: underline;
 }
 
-#main-content a:hover {
-    text-decoration:none;
+#main-container a:hover {
+	text-decoration: none;
 }
 
-#main-content a:visited {
-    color:#88b7d0;
-    text-decoration: underline;
+#main-container a:visited {
+	color: #88b7d0;
+	text-decoration: underline;
 }
 
-#main-content a:active {
-    color:red;
+#main-container a:active {
+	color: red;
 }
