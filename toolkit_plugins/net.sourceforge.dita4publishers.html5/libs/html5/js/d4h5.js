@@ -1,3 +1,4 @@
+/*! d4h5 DITA 4 HTML5 !*/
 (function (window) {
     var d4h5 = {
 

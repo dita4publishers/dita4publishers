@@ -89,6 +89,25 @@
         <isset property="js.options" />
       </not>
 		</condition>
+		
+	<condition property="args.css.theme" value="assets/themes/theme-01/style-min.css">
+      <not>
+        <isset property="args.css.theme" />
+      </not>
+    </condition>
+    
+		
+	<condition property="args.css.file" value="assets/css/style-min.css">
+      <not>
+        <isset property="args.css.file" />
+      </not>
+    </condition>
+    
+	<condition property="args.js.file" value="assets/js/script-min.js">
+      <not>
+        <isset property="args.js.file" />
+      </not>
+    </condition>    
 
     <condition property="css.output.dir" value="css">
       <not>
@@ -168,6 +187,8 @@
     	<!-- Parameters from dita2xhtml and similar transtypes: -->
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
       <param name="CSS" expression="${args.css.file}" if="args.css.file" />
+      <param name="CSSTHEME" expression="${args.css.theme}" if="args.css.theme" />
+      <param name="JS" expression="${args.js.file}" if="args.js.file" />
       <param name="CSSPATH" expression="${user.csspath}" if="user.csspath" />
       <param name="DRAFT" expression="${args.draft}" if="args.draft"></param>
       <param name="ARTLBL" expression="${args.artlbl}" if="args.artlbl"></param>

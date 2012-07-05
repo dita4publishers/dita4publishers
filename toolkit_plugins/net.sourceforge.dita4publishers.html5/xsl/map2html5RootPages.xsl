@@ -172,7 +172,9 @@
 
   <xsl:template match="*" mode="generate-javascript-includes">
     <!-- FIXME: Parameterize the location of the JavaScript -->
-    <script src="assets/js/script.js" type="text/javascript">&#xa0;</script><xsl:sequence select="'&#x0a;'"/>
+    <script type="text/javascript">
+    <xsl:attribute name = "src" select="$JS" /> &#xa0;</script>
+    <xsl:sequence select="'&#x0a;'"/>
 
     <script type="text/javascript">
 
@@ -194,16 +196,16 @@
 
   <xsl:template match="*" mode="generate-css-includes">
     <!-- FIXME: Parameterize the location of the css -->
-		<link rel="stylesheet" type="text/css" href="assets/css/style.css"/><xsl:sequence select="'&#x0a;'"/>
+		<link rel="stylesheet" type="text/css">
+			<xsl:attribute name = "href" select="$CSS" />
+		</link>
+		<xsl:sequence select="'&#x0a;'"/>
     <link rel="stylesheet" type="text/css" >
-    	<xsl:attribute name = "href">
-    	 	<xsl:apply-templates select="." mode="get-css-theme-path"/>
-    	</xsl:attribute>
+    	<xsl:attribute name = "href" select="$CSSTHEME" />
     </link>
     <xsl:sequence select="'&#x0a;'"/>
   </xsl:template>
 
-  <xsl:template match="*" mode="get-css-theme-path">assets/<xsl:value-of select="$siteTheme" />/style.css</xsl:template>
 
   <xsl:template match="*" mode="set-body-class-attr">
   	<xsl:attribute name = "class">

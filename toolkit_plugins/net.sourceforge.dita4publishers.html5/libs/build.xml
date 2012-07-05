@@ -26,23 +26,34 @@
 	</target>
 
 	<target name="init" depends="load.properties">
+		<delete dir="${build.dir}"/>
 		<mkdir dir="${build.dir}"/>
 	</target>
 
-	<target name="package.compress" depends="init, package.concat.js,  package.concat.css, package.copy.assets">
-		<apply executable="java" parallel="false" dest="${build.dir}">
-			<fileset dir="${build.dir}" includes="${product.concat}.js"/>
+	<target name="package.compress" depends="init, package.concat.js,package.concat.css, package.copy.assets">
+		<apply executable="java" parallel="false" dest="${build.dir}/${dir.js}">
+			<fileset dir="${build.dir}/${dir.js}" includes="*"/>
 			<arg line="-jar"/>
-			<arg path="${yui-compressor.jar}"/>
+			<arg path="${yui.path}"/>
 			<srcfile/>
 			<arg line="-o"/>
 			<mapper type="glob" from="*.js" to="*-min.js"/>
 			<targetfile/>
 		</apply>
+		<apply executable="java" parallel="false" dest="${build.dir}">
+			<fileset dir="${build.dir}">
+				<include name="**/**"/>
+			</fileset>
+			<arg line="-jar"/>
+			<arg path="${yui.path}"/>
+			<srcfile/>
+			<arg line="-o"/>
+			<mapper type="glob" from="*.css" to="*-min.css"/>
+			<targetfile/>
+		</apply>
 	</target>
 
 	<target name="package.concat.js">
-		<property name="product.concat" value="${product.uncompressed.name}"/>
 		<concat destfile="${build.dir}/${dir.js}/script.js">
 			<filelist dir="${dir.libs}" files = "${src.js}" />
 		</concat>
@@ -50,7 +61,6 @@
 
 	<!-- concatenate css -->
 	<target name="package.concat.css">
-		<property name="product.concat" value="${product.uncompressed.name}"/>
 		<concat destfile="${build.dir}/${dir.css}/style.css">
 			<filelist dir="${dir.libs}" files = "${src.css}" />
 		</concat>
@@ -58,8 +68,12 @@
 
 	<target name="package.copy.assets">
 
-		<copy todir="${build.dir}/">
+		<copy todir="${build.dir}/${themes.dir}">
       <fileset dir="${lib.html5.dir.theme}"/>
+    </copy>
+    
+    	<copy todir="${build.dir}/${fonts.dir}">
+      <fileset dir="${lib.html5.dir.fonts}"/>
     </copy>
 
 		<mkdir dir="${build.dir}/${build.img.dir}"/>
