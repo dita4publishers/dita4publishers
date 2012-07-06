@@ -67,6 +67,7 @@ RewriteCond %{REQUEST_URI} !=/favicon.ico
 RewriteCond %{REQUEST_FILENAME} !.*\.(css|jpg|jpeg|gif|zip|js|png|otf|ttf)
 RewriteCond %{QUERY_STRING} !ajax
 RewriteCond %{QUERY_STRING} !r
+RewriteCond %{REQUEST_FILENAME} !assets.*$
 RewriteCond %{REQUEST_FILENAME} !index\.html$
 
 RewriteRule ^(.*)$ index.html?r=$1 [R]
