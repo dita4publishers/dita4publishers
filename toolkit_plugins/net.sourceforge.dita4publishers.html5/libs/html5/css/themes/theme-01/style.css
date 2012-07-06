@@ -4,19 +4,19 @@
 
 @font-face {
 	font-family: "Vegur Regular";
-    src: url("../../fonts/vegur/Vegur-R-0.602.otf");
+    src: url("../../fonts/vegur/Vegur-R.otf");
 }
 @font-face {
 	font-family: "Vegur Bold";
-    src: url("../../fonts/Vegur/Vegur-B-0.602.otf");
+    src: url("../../fonts/Vegur/Vegur-B.otf");
 }
 @font-face {
 	font-family: "Vegur Medium";
-    src: url("../../fonts/Vegur/Vegur-M-0.602.otf");
+    src: url("../../fonts/Vegur/Vegur-M.otf");
 }
 @font-face {
 	font-family: "Vegur Light";
-    src: url("../../fonts/Vegur/Vegur-L-0.602.otf");
+    src: url("../../fonts/Vegur/Vegur-L.otf");
 }
 
 .fontface #main-content h1, .fontface header h1, .fontface #main-content h2, .fontface #main-content  h3, #main-content  .fontface  h4, .fontface #main-content h5, .fontface #main-content  h6 {

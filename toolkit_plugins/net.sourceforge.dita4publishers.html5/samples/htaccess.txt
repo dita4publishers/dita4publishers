@@ -18,9 +18,9 @@ BrowserMatch ^Mozilla/4\.0[678] no-gzip
 # workaround to get the desired effect:
 BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
 
-# Don't compress images
+# Don't compress images and fonts
 SetEnvIfNoCase Request_URI \
-\.(?:gif|jpe?g|png)$ no-gzip dont-vary
+\.(?:gif|jpe?g|png|otf|ttf)$ no-gzip dont-vary
 
 # Make sure proxies don't deliver the wrong content
 Header append Vary User-Agent env=!dont-vary
@@ -60,11 +60,11 @@ AddDefaultCharset utf-8
 
 RewriteEngine on
 
-RewriteBase /test
+RewriteBase /
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !=/favicon.ico
-RewriteCond %{REQUEST_FILENAME} !.*\.(css|jpg|gif|zip|js|png|otf|ttf)
+RewriteCond %{REQUEST_FILENAME} !.*\.(css|jpg|jpeg|gif|zip|js|png|otf|ttf)
 RewriteCond %{QUERY_STRING} !ajax
 RewriteCond %{QUERY_STRING} !r
 RewriteCond %{REQUEST_FILENAME} !index\.html$
