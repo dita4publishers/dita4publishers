@@ -1454,6 +1454,8 @@ window.Modernizr = (function( window, document, undefined ) {
                 url: uri,
 
                 dataType: 'html',
+                
+                data: { ajax: "true" },
 
                 beforeSend: function (jqXHR) {
                     d4h5.ajax.contentIsLoading();

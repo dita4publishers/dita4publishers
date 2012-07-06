@@ -24,7 +24,6 @@
 
 
        ============================================================== -->
-
   <xsl:import href="../../net.sourceforge.dita4publishers.html2/xsl/map2html2Impl.xsl"/>
 
   <xsl:include href="map2html5Nav.xsl"/>

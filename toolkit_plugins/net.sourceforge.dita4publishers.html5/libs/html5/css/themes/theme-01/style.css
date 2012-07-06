@@ -143,6 +143,10 @@ body.paged #section-container {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+	width: 230px;
+	display: inline;
+    float: left;
+    margin-right: 5px;
 }
 
 #left-navigation a, #left-navigation a:link {
@@ -174,4 +178,10 @@ nav#left-navigation li.collapsible.active > span.ico {
 
 #main-container a:active {
 	color: red;
+}
+
+.rounded {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }

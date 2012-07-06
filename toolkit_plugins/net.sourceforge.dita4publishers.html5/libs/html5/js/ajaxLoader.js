@@ -84,6 +84,8 @@
                 url: uri,
 
                 dataType: 'html',
+                
+                data: { ajax: "true" },
 
                 beforeSend: function (jqXHR) {
                     d4h5.ajax.contentIsLoading();
