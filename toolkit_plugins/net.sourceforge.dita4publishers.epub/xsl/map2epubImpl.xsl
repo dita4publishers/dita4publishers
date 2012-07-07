@@ -46,12 +46,15 @@
        instruction.
        ============================================================== -->
 
+<!-- These two libraries end up getting imported via the dita2xhtml.xsl from the main toolkit
+     because the base XSL support lib is integrated into that file. So these inclusions are redundant.
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  -->
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   
   <!-- Import the base HTML output generation transform. -->
-  <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
+  <xsl:import href="plugin:org.dita.xhtml:xsl/dita2xhtml.xsl"/>
   
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMapImpl.xsl"/>
