@@ -20,6 +20,8 @@
       <equals arg1="${dita.wordToDita.plugin}" arg2="no"/>
     </condition>
   </target>
+  
+  <property name="w2d.language" value="en-US"/>
 
 	<target name="wordToDita" depends="d4p.wordToDita.init">
 	  <echo message="[DEBUG] wordToDita.dir=${wordToDita.dir}"/>
