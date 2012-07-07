@@ -24,6 +24,12 @@
 
 
        ============================================================== -->
+  <!-- These two libraries end up getting imported via the dita2xhtml.xsl from the main toolkit
+     because the base XSL support lib is integrated into that file. So these inclusions are redundant.
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  -->
+  
   <xsl:import href="../../net.sourceforge.dita4publishers.html2/xsl/map2html2Impl.xsl"/>
 
   <xsl:include href="map2html5Nav.xsl"/>
@@ -37,6 +43,22 @@
   <xsl:param name="jsoptions" select="''" />
   <xsl:param name="JS" select="''" />
   <xsl:param name="CSSTHEME" select="''" />
+  
+  <xsl:param name="mathJaxInclude" select="'false'"/>
+  <xsl:param name="mathJaxIncludeBoolean" 
+    select="matches($mathJaxInclude, 'yes|true|on|1', 'i')"
+    as="xs:boolean"
+  />
+  
+  <xsl:param name="mathJaxUseCDNLinkBoolean" select="false()" as="xs:boolean"/><!-- For EPUB, can't use remote version -->
+  
+  <xsl:param name="mathJaxUseLocalLinkBoolean" 
+    select="$mathJaxIncludeBoolean"  
+    as="xs:boolean"
+  />
+  
+  <!-- FIXME: Parameterize the location of the JavaScript directory -->
+  <xsl:param name="mathJaxLocalJavascriptUri" select="'js/mathjax/MathJax.js'"/>
   
   <xsl:template name="report-parameters" match="*" mode="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
@@ -88,6 +110,7 @@
 
       ==========================================
     </xsl:message>
+    <xsl:apply-imports/>
   </xsl:template>
 
 
