@@ -182,11 +182,17 @@
   <!-- NOTE: These parameters are used by the math-d2html XSLT code -->
   
   <xsl:param name="mathJaxInclude" select="'false'"/>
-  <xsl:param name="mathJaxIncludeBoolean" select="matches($mathJaxInclude, 'yes|true|on|1', 'i')"/>
+  <xsl:param name="mathJaxIncludeBoolean" 
+    select="matches($mathJaxInclude, 'yes|true|on|1', 'i')"
+    as="xs:boolean"
+  />
 
-  <xsl:param name="mathJaxUseCDNLinkBoolean" select="false()"/><!-- For EPUB, can't use remote version -->
+  <xsl:param name="mathJaxUseCDNLinkBoolean" select="false()" as="xs:boolean"/><!-- For EPUB, can't use remote version -->
   
-  <xsl:param name="mathJaxUseLocalLinkBoolean" select="$mathJaxInclude"/>
+  <xsl:param name="mathJaxUseLocalLinkBoolean" 
+    select="$mathJaxIncludeBoolean"  
+    as="xs:boolean"
+  />
   
   <!-- FIXME: Parameterize the location of the JavaScript directory -->
   <xsl:param name="mathJaxLocalJavascriptUri" select="'js/mathjax/MathJax.js'"/>
@@ -245,6 +251,7 @@
       
       ==========================================
     </xsl:message>
+    <xsl:apply-imports/>
   </xsl:template>
   
   

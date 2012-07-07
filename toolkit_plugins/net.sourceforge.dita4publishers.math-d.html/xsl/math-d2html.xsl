@@ -7,10 +7,16 @@
   <!-- Math domain elements to HTML -->
   
   <xsl:param name="mathJaxUseCDNLink" select="'false'"/>
-  <xsl:param name="mathJaxUseCDNLinkBoolean" select="matches($mathJaxUseCDNLink, 'yes|true|on|1', 'i')"/>
+  <xsl:param name="mathJaxUseCDNLinkBoolean" 
+    select="matches($mathJaxUseCDNLink, 'yes|true|on|1', 'i')"
+    as="xs:boolean"
+  />
   
   <xsl:param name="mathJaxUseLocalLink" select="'false'"/>
-  <xsl:param name="mathJaxUseLocalLinkBoolean" select="matches($mathJaxUseLocalLink, 'yes|true|on|1', 'i')"/>
+  <xsl:param name="mathJaxUseLocalLinkBoolean" 
+    select="matches($mathJaxUseLocalLink, 'yes|true|on|1', 'i')"
+    as="xs:boolean"
+  />
   
   <xsl:param name="mathJaxLocalJavascriptUri" select="''"/>
   
@@ -21,8 +27,9 @@
 
       Math Domain parameters:
       
-      + mathJaxUseCDNLink  = "<xsl:sequence select="$mathJaxUseCDNLink"/>"
-      + mathJaxUseLocalLink= "<xsl:sequence select="$mathJaxUseLocalLink"/>"
+      + mathJaxInclude  = "<xsl:sequence select="$mathJaxIncludeBoolean"/>"
+      + mathJaxUseCDNLink  = "<xsl:sequence select="$mathJaxUseCDNLinkBoolean"/>"
+      + mathJaxUseLocalLink= "<xsl:sequence select="$mathJaxUseLocalLinkBoolean"/>"
       + mathJaxLocalJavascriptUri= "<xsl:sequence select="$mathJaxLocalJavascriptUri"/>"
       + mathJaxConfigParam = "<xsl:sequence select="$mathJaxConfigParam"/>"
       
