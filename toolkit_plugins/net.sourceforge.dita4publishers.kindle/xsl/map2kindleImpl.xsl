@@ -39,9 +39,15 @@
        may inadvertently output data outside the scope of a containing xsl:result-document
        instruction.
        ============================================================== -->
-
+  
+  <!-- These two libraries end up getting imported via the dita2xhtml.xsl from the main toolkit
+     because the base XSL support lib is integrated into that file. So these inclusions are redundant.
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  -->
+  
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
+  
   <xsl:import
     href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMapImpl.xsl"/>
@@ -50,8 +56,9 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.epub/xsl/html2xhtmlImpl.xsl"/>
 
   <!-- Import the base HTML output generation transform. -->
-  <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
-
+  <xsl:import href="plugin:org.dita.xhtml:xsl/dita2xhtml.xsl"/>
+  <xsl:import href="kindle-generation-utils.xsl"/>
+  
   <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlOverrides.xsl"/>
   <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlEnumeration.xsl"/>
   <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlBookmapEnumeration.xsl"/>
@@ -66,7 +73,6 @@
   <xsl:include href="map2kindleHtmlTocImpl.xsl"/>
   <!-- ======================================== -->
   <xsl:include href="map2kindleIndexImpl.xsl"/>
-  <xsl:include href="html2xhtmlImpl.xsl"/>
   <xsl:include href="kindleHtmlOverrides.xsl"/>
 
   <xsl:include href="map2kindleD4PImpl.xsl"/>
@@ -161,6 +167,25 @@
 
   <xsl:variable name="coverImageId" select="'coverimage'" as="xs:string"/>
 
+  <!-- NOTE: These parameters are used by the math-d2html XSLT code -->
+  
+  <xsl:param name="mathJaxInclude" select="'false'"/>
+  <xsl:param name="mathJaxIncludeBoolean" 
+    select="matches($mathJaxInclude, 'yes|true|on|1', 'i')"
+    as="xs:boolean"
+  />
+  
+  <xsl:param name="mathJaxUseCDNLinkBoolean" select="false()" as="xs:boolean"/><!-- For EPUB, can't use remote version -->
+  
+  <xsl:param name="mathJaxUseLocalLinkBoolean" 
+    select="$mathJaxIncludeBoolean"  
+    as="xs:boolean"
+  />
+  
+  <!-- FIXME: Parameterize the location of the JavaScript directory -->
+  <xsl:param name="mathJaxLocalJavascriptUri" select="'js/mathjax/MathJax.js'"/>
+  
+  
   <xsl:template name="report-parameters" match="*" mode="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
     <xsl:message> ========================================== 
@@ -196,6 +221,7 @@
       
       ========================================== 
     </xsl:message>
+    <xsl:apply-imports/>
   </xsl:template>
 
 
@@ -268,7 +294,7 @@
     <xsl:apply-templates select="." mode="report-parameters">
       <xsl:with-param name="effectiveCoverGraphicUri" select="$effectiveCoverGraphicUri"
         as="xs:string" tunnel="yes"/>
-    </xsl:>
+    </xsl:apply-templates>
 
     <xsl:variable name="graphicMap" as="element()">
       <xsl:apply-templates select="." mode="generate-graphic-map">

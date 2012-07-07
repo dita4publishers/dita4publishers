@@ -6,8 +6,6 @@
   
   exclude-result-prefixes="xs df"
   version="2.0">
-
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   
   <!-- Pub Title mode: -->
 

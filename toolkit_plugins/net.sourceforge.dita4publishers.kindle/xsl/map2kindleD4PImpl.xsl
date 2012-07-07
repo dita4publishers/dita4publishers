@@ -8,10 +8,6 @@
   exclude-result-prefixes="xs df relpath kindleutil"
   version="2.0">
     
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="kindle-generation-utils.xsl"/>
-  
   <!-- Extensions for DITA for Publishers vocabulary modules in
   different contexts -->
   
