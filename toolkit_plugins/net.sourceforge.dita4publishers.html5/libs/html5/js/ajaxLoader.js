@@ -145,15 +145,36 @@
             });
         },
 
-        // Rewrite each href in the document
+// Rewrite each href in the document
         // because there is no real path with AJAX call
         //
         rewriteAttrHref: function () {
+        	
             d4h5.content.find("*[href]").each(function (index) {
+            	var scrollElem = d4h5.ajax.scrollableElement('html', 'body');
                 var uri = d4h5.hash.current;
                 var dir = uri.substring(0, uri.lastIndexOf("/"));
                 var base = dir.split("/");
+                
                 var href = $(this).attr('href');
+                
+                var idx = href.indexOf(uri);
+                
+                // anchors on the same page
+                if (idx == 0) {
+                	
+        			$(this).click(function(event) {
+        			    var targetOffset = $(this.hash).offset().top;
+          				event.preventDefault();        				
+          				$(scrollElem).animate(
+          					{scrollTop: targetOffset}, 
+          					400
+          				);
+        			}); 
+
+        			return true;          
+               	}
+                                
                 var parts = href.split("/");
 
                 // prevent external to be rewritten           
@@ -176,6 +197,26 @@
 
             });
 
+        },
+        
+        scrollableElement: function (els) {
+            for (var i = 0, argLength = arguments.length; i <argLength; i++) {
+                var el = arguments[i],
+                $scrollElement = $(el);
+              
+                if ($scrollElement.scrollTop()> 0) {
+                    return el;
+                } else {
+                    $scrollElement.scrollTop(1);
+                    var isScrollable = $scrollElement.scrollTop()> 0;
+                    $scrollElement.scrollTop(0);
+                
+                    if (isScrollable) {
+                        return el;
+                    }
+                }
+            }
+            return [];
         },
 
         // set AJAX callback on the specified link obj.

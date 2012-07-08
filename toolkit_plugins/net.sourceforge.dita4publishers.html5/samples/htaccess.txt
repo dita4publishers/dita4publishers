@@ -69,6 +69,7 @@ RewriteCond %{QUERY_STRING} !ajax
 RewriteCond %{QUERY_STRING} !r
 RewriteCond %{REQUEST_FILENAME} !assets.*$
 RewriteCond %{REQUEST_FILENAME} !index\.html$
+RewriteCond %{HTTP_USER_AGENT} .*(opera|aol|msie|firefox|chrome|konqueror|safari|netscape|navigator|mosaic|lynx|amaya|omniweb|avant|camino|flock|seamonkey|mozilla|gecko).*
 
 RewriteRule ^(.*)$ index.html?r=$1 [R]
 
