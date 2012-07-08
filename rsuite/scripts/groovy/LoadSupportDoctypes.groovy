@@ -73,6 +73,21 @@ def loadAndConfigureDtd(dtdFile, dtdPublicId, moDefList, previewXslFile, catalog
 	}
 }
 
+	def otherMoTypes = [];
+	
+	def topicTypes = ['conversion_configuration',
+		]
+
+
+topicTypes.each {
+loadAndConfigureTopicDtd(new File(doctypesDir, it + "/dtd/" + it + ".dtd"),
+  baseTopicTypeURI + it,
+  topicTypes,
+  otherMoTypes,
+  previewXslFile,
+  catalog);
+
+}
 
 
 //Special cases:
