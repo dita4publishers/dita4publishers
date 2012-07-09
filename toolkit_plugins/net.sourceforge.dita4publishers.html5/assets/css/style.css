@@ -1014,24 +1014,24 @@ h2.nav-pub-title { font-size: 1.1em; }
 	margin-bottom:2em;
 }
 
-#left-navigation {
+#local-navigation.left {
 	margin-left:0px;
 	padding:20px 0px 20px 20px;
 	outline:none;
 }
 
-#left-navigation ul {
+#local-navigation.left ul {
 	list-style-type: none;
 	margin:0;
 	padding:0;
 }
 
-#left-navigation ul {
+#local-navigation.left ul {
 	list-style-type: none;
 	margin:0;
 }
 
-nav#left-navigation ul li {
+nav#local-navigation.left ul li {
 	margin:0;
 	padding-top:3px;
 	padding-right:0;
@@ -1040,11 +1040,11 @@ nav#left-navigation ul li {
 	outline:none;
 }
 
-nav#left-navigation ul li.no-child {
+nav#local-navigation.left ul li.no-child {
     padding-left:15px;
 }
 
-nav#left-navigation ul li ul li {
+nav#local-navigation.left ul li ul li {
 	margin:0;
 	padding-top:3px;
 	padding-right:0;
@@ -1052,64 +1052,63 @@ nav#left-navigation ul li ul li {
 	padding-left:15px;
 }
 
-#left-navigation ul li.collapsible.collapsed ul {
+#local-navigation.left ul li.collapsible.collapsed ul {
 	 display:none;
 }
-#left-navigation ul li.collapsible {
+#local-navigation.left ul li.collapsible {
     cursor: pointer;
 }
 
-#left-navigation ul li.active ul {
+#local-navigation.left ul li.active ul {
 	display:block;
 }
 
-#left-navigation li.selected a {
+#local-navigation.left li.selected a {
 	font-weight: bold;
 	outline:none;
 }
 
-#left-navigation li.selected ul li a {
+#local-navigation.left li.selected ul li a {
 	font-weight: normal;
 }
 
-#left-navigation ul li a, #left-navigation ul li a:link {
+#local-navigation.left ul li a, #local-navigation.left ul li a:link {
 	text-decoration: none;
 	padding-right:20px;
 	display:block;
 	padding-left:0px;
 }
 
-#left-navigation ul li ul li {
+#local-navigation.left ul li ul li {
 	padding-left:12px;
 }
 
-
-#left-navigation ul li a:hover {
+#local-navigation.left ul li a:hover {
 	text-decoration: underline;
 }
 
-#left-navigation ul li a:visited, #left-navigation ul li a:active {
+#local-navigation.left ul li a:visited, #local-navigation.left ul li a:active {
 	text-decoration: none;
 }
 
-nav#left-navigation span.ico {
+nav#local-navigation.left span.ico {
 	display:block;
 	float:left;
 	width:12px;
 	height:12px;
 	margin-right: 2px;
 }
-nav#left-navigation span.ico:hover {
+nav#local-navigation.left span.ico:hover {
 	cursor:pointer;
 }
 
-nav#left-navigation span.navtitle {
+nav#local-navigation.left span.navtitle {
    display: block;
    margin-left: 15px;
    position: relative;
 }
 
-nav#left-navigation .collapsible.active span.navtitle { 
+nav#local-navigation.left .collapsible.active span.navtitle { 
 	margin-bottom:3px;
 }/**
  * css for images
@@ -1468,7 +1467,7 @@ span.filepath { font-family: monospace; }
 .relinfo { margin-top: 1em; margin-bottom: 1em }
 .breadcrumb { font-size : smaller; margin-bottom: 1em }
 dt.prereq { margin-left : 20px;}/** used for accessibility **/
-.hidden {
+.hidden, #page-links {
 	position:absolute; 
 	left:-10000px; 
 	top:auto; 

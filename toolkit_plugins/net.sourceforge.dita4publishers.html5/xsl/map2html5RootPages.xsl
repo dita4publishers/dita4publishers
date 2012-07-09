@@ -90,8 +90,12 @@
     </head><xsl:sequence select="'&#x0a;'"/>
 
     <body>
-
     <xsl:apply-templates select="." mode="set-body-class-attr" />
+	<ul id="page-links">
+		<li><a id="skip-to-content" href="#main-content">Skip to content</a></li>
+		<li><a id="skip-to-localnav" href="#local-navigation">Skip to menu</a></li>
+    </ul>
+    
 
 		<div id="main-container"><xsl:sequence select="'&#x0a;'"/>
 

@@ -1144,7 +1144,7 @@ window.Modernizr = (function( window, document, undefined ) {
         outputSelector: '#main-content',
 
         // navigationSelector
-        navigationSelector: '#left-navigation',
+        navigationSelector: '#local-navigation',
 
         // element which contains the content to show after the AJAX call
         externalContentElement: 'section',

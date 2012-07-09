@@ -40,6 +40,7 @@
 
   <xsl:param name="siteTheme" select="'theme-01'" />
   <xsl:param name="bodyClass" select="''" />
+  <xsl:param name="navigationClass" select="'left'" />
   <xsl:param name="jsoptions" select="''" />
   <xsl:param name="JS" select="''" />
   <xsl:param name="CSSTHEME" select="''" />

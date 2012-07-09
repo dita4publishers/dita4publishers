@@ -1,5 +1,5 @@
 /** used for accessibility **/
-.hidden {
+.hidden, #page-links {
 	position:absolute; 
 	left:-10000px; 
 	top:auto; 

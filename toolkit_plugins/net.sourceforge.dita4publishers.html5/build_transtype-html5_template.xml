@@ -83,6 +83,12 @@
         <isset property="bodyClass" />
       </not>
 		</condition>
+		
+	 <condition property="navigationClass" value="left">
+		  <not>
+        <isset property="navigationClass" />
+      </not>
+		</condition>
 
 		<condition property="js.options" value="">
 		  <not>
@@ -188,6 +194,7 @@
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
       <param name="CSS" expression="${args.css.file}" if="args.css.file" />
       <param name="CSSTHEME" expression="${args.css.theme}" if="args.css.theme" />
+      <param name="navigationClass" expression="${navigationClass}" if="navigationClass" />     
       <param name="JS" expression="${args.js.file}" if="args.js.file" />
       <param name="CSSPATH" expression="${user.csspath}" if="user.csspath" />
       <param name="DRAFT" expression="${args.draft}" if="args.draft"></param>
