@@ -54,8 +54,7 @@
         // add loader (spinner on the page)
         // @todo: add support for localization
         addLoader: function () {
-            var title = $("<h2>content is loading</h2>").addClass('hidden');
-            var loader = $("<div />").attr("id", "d4h5-loader").append(title);
+            var loader = $("<div />").attr("id", "d4h5-loader");
             $('body').append(loader);
         },
 
@@ -76,8 +75,11 @@
         // I kept comments for reference
         // @todo: see if it is neccessary to implement cache here
         // @todo: implement beforeSend, error callback
-        loadHTML: function (uri) {
+        loadHTML: function (uri, hash) {
             d4h5.hash.current = uri;
+            
+            $(d4h5.outputSelector).attr('aria-busy', 'true');
+            
             $.ajax({
                 type: 'GET',
 
@@ -123,6 +125,10 @@
                         }
 
                         d4h5.ajax.contentIsLoaded();
+                        
+                        $(d4h5.outputSelector).attr('aria-busy', 'false');
+                        
+                        d4h5.scrollToHash (hash);
                     }
                 }
             });
@@ -151,10 +157,10 @@
         rewriteAttrHref: function () {
         	
             d4h5.content.find("*[href]").each(function (index) {
-            	var scrollElem = d4h5.ajax.scrollableElement('html', 'body');
                 var uri = d4h5.hash.current;
                 var dir = uri.substring(0, uri.lastIndexOf("/"));
                 var base = dir.split("/");
+                var arr = [];
                 
                 var href = $(this).attr('href');
                 
@@ -164,12 +170,8 @@
                 if (idx == 0) {
                 	
         			$(this).click(function(event) {
-        			    var targetOffset = $(this.hash).offset().top;
-          				event.preventDefault();        				
-          				$(scrollElem).animate(
-          					{scrollTop: targetOffset}, 
-          					400
-          				);
+        				event.preventDefault();
+        			    d4h5.scrollToHash (this.hash);
         			}); 
 
         			return true;          
@@ -182,7 +184,7 @@
                     return true;
                 }
 
-                var pathC = dir != "" ? base.concat(parts) : Array.concat(parts);
+                var pathC = dir != "" ? base.concat(parts) : arr.concat(parts);
 
                 for (var i = 0, len = pathC.length; i < len; ++i) {
                     if (pathC[i] === '..') {
@@ -199,26 +201,6 @@
 
         },
         
-        scrollableElement: function (els) {
-            for (var i = 0, argLength = arguments.length; i <argLength; i++) {
-                var el = arguments[i],
-                $scrollElement = $(el);
-              
-                if ($scrollElement.scrollTop()> 0) {
-                    return el;
-                } else {
-                    $scrollElement.scrollTop(1);
-                    var isScrollable = $scrollElement.scrollTop()> 0;
-                    $scrollElement.scrollTop(0);
-                
-                    if (isScrollable) {
-                        return el;
-                    }
-                }
-            }
-            return [];
-        },
-
         // set AJAX callback on the specified link obj.
         live: function (obj) {
             obj.live('click', function (e) {

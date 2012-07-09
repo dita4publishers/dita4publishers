@@ -10,7 +10,7 @@
 
         // message type
         create: function () {
-            var msgBox = $("<div />").attr('id', this.id).addClass('rounded').hide();
+            var msgBox = $("<div />").attr('id', this.id).attr('role', 'alertdialog').attr('aria-hidden', 'true').attr('aria-label', 'Message').addClass('rounded').hide();
             var div = msgBox.append($("<div />"));
             $('body').append(msgBox);
         },
@@ -21,7 +21,7 @@
         },
 
         show: function () {
-            $("#" + this.id).show().delay(this.timeout).fadeOut();
+            $("#" + this.id).show().attr('aria-hidden', 'false').delay(this.timeout).fadeOut().attr('aria-hidden', 'true');
         },
 
         alert: function (msg, type) {

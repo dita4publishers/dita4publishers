@@ -97,7 +97,7 @@
     </ul>
     
 
-		<div id="main-container"><xsl:sequence select="'&#x0a;'"/>
+		<div id="main-container" role="application"><xsl:sequence select="'&#x0a;'"/>
 
     		<xsl:sequence select="'&#x0a;'"/>
 
@@ -105,16 +105,14 @@
        			<xsl:apply-templates select="." mode="generate-root-page-header"/>
      		</header>
 
-	    	<div id = "section-container" class="container_24">
-
+	    	<div id = "section-container">
+			<xsl:attribute name="class" select="concat($navigationClass, ' ', 'container_24')" />
       		<!-- This mode generates the navigation structure (ToC) on the
            		index.html page, that is, the main navigation structure.
         	-->
      		<xsl:apply-templates select="." mode="generate-html5-nav-page-markup"/>
 
-      			<div id="main-content" role="main">
-
-        			<xsl:attribute name="class" select="'grid_15 push_1'" />
+      			<div id="main-content" role="main" aria-atomic="true" aria-live="polite" aria-relevant="all">
         			<xsl:sequence select="'&#x0a;'"/>
 
         			<xsl:apply-templates select="." mode="set-initial-content"/>

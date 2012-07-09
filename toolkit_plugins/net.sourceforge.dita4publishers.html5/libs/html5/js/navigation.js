@@ -1,27 +1,24 @@
 (function (d4h5) {
 
     var navigation = {
-        maxLevel: 3,
-        // for later
-        maxLevelTransition: 'slideUp',
-        // for later
-        autoCollapse: false,
-		
 		// select the right entry in the navigation
         select: function (uri) {
             var id = d4h5.nav[uri];
-            $(d4h5.navigationSelector + ' li').removeClass('selected');
-            $('#' + id).parent('li').addClass('selected');
+            $(d4h5.navigationSelector + ' li').removeClass('selected').removeAttr('aria-expanded');
+
+            $('#' + id).parent('li').attr('aria-expanded', 'true').addClass('selected');
             $('#' + id).parentsUntil(d4h5.navigationSelector).addClass('active').removeClass('collapsed');
         },
 
         selectFromHash: function () {
             d4h5.navigation.select(d4h5.hash.current.replace(/^#/, ''));
         },
+        
 
         traverse: function () {
-            // navigation: prefix all href with #
             $(d4h5.navigationSelector + ' li').each(function (index) {
+            
+            	$(this).attr('role', 'treeitem');
 
                 //if li has ul children add class collapsible
                 if ($(this).children('ul').length == 1) {
@@ -31,8 +28,7 @@
                     span.addClass("ico");
 
                     span.click(function () {
-                        $(this).parent().toggleClass('active', '');
-                        $(this).parent().toggleClass('collapsed', '');
+                        $(this).parent().toggleClass('active', '').toggleClass('collapsed', '').attr('aria-expanded', $(this).parent().hasClass('active'));
 
                     });
 
@@ -82,6 +78,8 @@
         },
         
         init: function () {
+       		$(d4h5.navigationSelector + " > ul").attr('role', 'tree');
+       		$(d4h5.navigationSelector + " li ul").attr('role', 'group');
         	d4h5.ajax.ready(d4h5.navigation.selectFromHash);
         	d4h5.hashChange(d4h5.navigation.select);
             d4h5.navigation.traverse();

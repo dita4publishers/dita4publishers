@@ -84,13 +84,13 @@
       </not>
 		</condition>
 		
-	 <condition property="navigationClass" value="left">
+	 <condition property="navigationClass" value="nav-left">
 		  <not>
         <isset property="navigationClass" />
       </not>
 		</condition>
 
-		<condition property="js.options" value="">
+		<condition property="js.options" value="navigation : { type : '${navigationClass}' }">
 		  <not>
         <isset property="js.options" />
       </not>
@@ -114,7 +114,7 @@
         <isset property="args.js.file" />
       </not>
     </condition>    
-
+    
     <condition property="css.output.dir" value="css">
       <not>
         <isset property="args.css.output.dir" />

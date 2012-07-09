@@ -100,3 +100,12 @@ h2.nav-pub-title { font-size: 1.1em; }
 	margin-bottom:2em;
 }
 
+.nav-left #main-content {
+    left: 40px;
+    width: 590px;
+    position: relative;
+    display: inline;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+}

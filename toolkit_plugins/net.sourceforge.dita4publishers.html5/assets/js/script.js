@@ -1165,7 +1165,7 @@ window.Modernizr = (function( window, document, undefined ) {
         // used to attribute and id to the navigation tree
         ids: {
             n: 0,
-            prefix: 'page-'
+            prefix: 'd4h5-page-'
         },
 
         // store current content
@@ -1181,6 +1181,12 @@ window.Modernizr = (function( window, document, undefined ) {
         
         // hash change functions
         _hashChange: [],
+        
+        // scrollElement
+        scrollElem: {},
+        
+        //scroll duration in ms
+        scrollDuration: 400,
 
         // from jQuery
         // use a modified version of the $.load function
@@ -1199,10 +1205,45 @@ window.Modernizr = (function( window, document, undefined ) {
         hashChange: function (fn) {
             this._hashChange.push(fn);
         },
+        
+        // find if an element is scrollable
+        scrollableElement: function (els) {
+            for (var i = 0, argLength = arguments.length; i <argLength; i++) {
+                var el = arguments[i],
+                $scrollElement = $(el);
+              
+                if ($scrollElement.scrollTop()> 0) {
+                    return el;
+                } else {
+                    $scrollElement.scrollTop(1);
+                    var isScrollable = $scrollElement.scrollTop()> 0;
+                    $scrollElement.scrollTop(0);
+                
+                    if (isScrollable) {
+                        return el;
+                    }
+                }
+            }
+            return [];
+        },
+        
+        scrollToHash: function (hash) {
+            if(hash != "") {
+                var targetOffset = $(hash).offset().top;
+                $(d4h5.scrollElem).animate(
+          	        {scrollTop: targetOffset}, 
+          	        d4h5.scrollDuration
+          	    );
+          	}
+        },
 
         init: function (options) {
-
+			
+			// extend options
             $.extend(true, this, options);
+            
+            //
+            this.scrollElem = this.scrollableElement('html', 'body');
 			
 			// initialize
             for (i in this.mod) {
@@ -1223,9 +1264,12 @@ window.Modernizr = (function( window, document, undefined ) {
                     return;
                 }
                 
+                var idx = uri.indexOf('#');
+                var hash = idx != -1 ? uri.substring(idx) : "";
+                
                 for (i in d4h5._hashChange) {
                 	var fn = d4h5._hashChange[i];
-                	fn.call(this, uri);
+                	fn.call(this, uri, hash);
             	}
 
             });
@@ -1241,27 +1285,24 @@ window.Modernizr = (function( window, document, undefined ) {
 })(window);(function (d4h5) {
 
     var navigation = {
-        maxLevel: 3,
-        // for later
-        maxLevelTransition: 'slideUp',
-        // for later
-        autoCollapse: false,
-		
 		// select the right entry in the navigation
         select: function (uri) {
             var id = d4h5.nav[uri];
-            $(d4h5.navigationSelector + ' li').removeClass('selected');
-            $('#' + id).parent('li').addClass('selected');
+            $(d4h5.navigationSelector + ' li').removeClass('selected').removeAttr('aria-expanded');
+
+            $('#' + id).parent('li').attr('aria-expanded', 'true').addClass('selected');
             $('#' + id).parentsUntil(d4h5.navigationSelector).addClass('active').removeClass('collapsed');
         },
 
         selectFromHash: function () {
             d4h5.navigation.select(d4h5.hash.current.replace(/^#/, ''));
         },
+        
 
         traverse: function () {
-            // navigation: prefix all href with #
             $(d4h5.navigationSelector + ' li').each(function (index) {
+            
+            	$(this).attr('role', 'treeitem');
 
                 //if li has ul children add class collapsible
                 if ($(this).children('ul').length == 1) {
@@ -1271,8 +1312,7 @@ window.Modernizr = (function( window, document, undefined ) {
                     span.addClass("ico");
 
                     span.click(function () {
-                        $(this).parent().toggleClass('active', '');
-                        $(this).parent().toggleClass('collapsed', '');
+                        $(this).parent().toggleClass('active', '').toggleClass('collapsed', '').attr('aria-expanded', $(this).parent().hasClass('active'));
 
                     });
 
@@ -1322,6 +1362,8 @@ window.Modernizr = (function( window, document, undefined ) {
         },
         
         init: function () {
+       		$(d4h5.navigationSelector + " > ul").attr('role', 'tree');
+       		$(d4h5.navigationSelector + " li ul").attr('role', 'group');
         	d4h5.ajax.ready(d4h5.navigation.selectFromHash);
         	d4h5.hashChange(d4h5.navigation.select);
             d4h5.navigation.traverse();
@@ -1343,7 +1385,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
         // message type
         create: function () {
-            var msgBox = $("<div />").attr('id', this.id).addClass('rounded').hide();
+            var msgBox = $("<div />").attr('id', this.id).attr('role', 'alertdialog').attr('aria-hidden', 'true').attr('aria-label', 'Message').addClass('rounded').hide();
             var div = msgBox.append($("<div />"));
             $('body').append(msgBox);
         },
@@ -1354,7 +1396,7 @@ window.Modernizr = (function( window, document, undefined ) {
         },
 
         show: function () {
-            $("#" + this.id).show().delay(this.timeout).fadeOut();
+            $("#" + this.id).show().attr('aria-hidden', 'false').delay(this.timeout).fadeOut().attr('aria-hidden', 'true');
         },
 
         alert: function (msg, type) {
@@ -1424,8 +1466,7 @@ window.Modernizr = (function( window, document, undefined ) {
         // add loader (spinner on the page)
         // @todo: add support for localization
         addLoader: function () {
-            var title = $("<h2>content is loading</h2>").addClass('hidden');
-            var loader = $("<div />").attr("id", "d4h5-loader").append(title);
+            var loader = $("<div />").attr("id", "d4h5-loader");
             $('body').append(loader);
         },
 
@@ -1446,8 +1487,11 @@ window.Modernizr = (function( window, document, undefined ) {
         // I kept comments for reference
         // @todo: see if it is neccessary to implement cache here
         // @todo: implement beforeSend, error callback
-        loadHTML: function (uri) {
+        loadHTML: function (uri, hash) {
             d4h5.hash.current = uri;
+            
+            $(d4h5.outputSelector).attr('aria-busy', 'true');
+            
             $.ajax({
                 type: 'GET',
 
@@ -1493,6 +1537,10 @@ window.Modernizr = (function( window, document, undefined ) {
                         }
 
                         d4h5.ajax.contentIsLoaded();
+                        
+                        $(d4h5.outputSelector).attr('aria-busy', 'false');
+                        
+                        d4h5.scrollToHash (hash);
                     }
                 }
             });
@@ -1521,10 +1569,10 @@ window.Modernizr = (function( window, document, undefined ) {
         rewriteAttrHref: function () {
         	
             d4h5.content.find("*[href]").each(function (index) {
-            	var scrollElem = d4h5.ajax.scrollableElement('html', 'body');
                 var uri = d4h5.hash.current;
                 var dir = uri.substring(0, uri.lastIndexOf("/"));
                 var base = dir.split("/");
+                var arr = [];
                 
                 var href = $(this).attr('href');
                 
@@ -1534,12 +1582,8 @@ window.Modernizr = (function( window, document, undefined ) {
                 if (idx == 0) {
                 	
         			$(this).click(function(event) {
-        			    var targetOffset = $(this.hash).offset().top;
-          				event.preventDefault();        				
-          				$(scrollElem).animate(
-          					{scrollTop: targetOffset}, 
-          					400
-          				);
+        				event.preventDefault();
+        			    d4h5.scrollToHash (this.hash);
         			}); 
 
         			return true;          
@@ -1552,7 +1596,7 @@ window.Modernizr = (function( window, document, undefined ) {
                     return true;
                 }
 
-                var pathC = dir != "" ? base.concat(parts) : Array.concat(parts);
+                var pathC = dir != "" ? base.concat(parts) : arr.concat(parts);
 
                 for (var i = 0, len = pathC.length; i < len; ++i) {
                     if (pathC[i] === '..') {
@@ -1569,26 +1613,6 @@ window.Modernizr = (function( window, document, undefined ) {
 
         },
         
-        scrollableElement: function (els) {
-            for (var i = 0, argLength = arguments.length; i <argLength; i++) {
-                var el = arguments[i],
-                $scrollElement = $(el);
-              
-                if ($scrollElement.scrollTop()> 0) {
-                    return el;
-                } else {
-                    $scrollElement.scrollTop(1);
-                    var isScrollable = $scrollElement.scrollTop()> 0;
-                    $scrollElement.scrollTop(0);
-                
-                    if (isScrollable) {
-                        return el;
-                    }
-                }
-            }
-            return [];
-        },
-
         // set AJAX callback on the specified link obj.
         live: function (obj) {
             obj.live('click', function (e) {

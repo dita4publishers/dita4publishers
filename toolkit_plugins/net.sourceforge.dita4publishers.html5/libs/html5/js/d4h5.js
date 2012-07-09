@@ -29,7 +29,7 @@
         // used to attribute and id to the navigation tree
         ids: {
             n: 0,
-            prefix: 'page-'
+            prefix: 'd4h5-page-'
         },
 
         // store current content
@@ -45,6 +45,12 @@
         
         // hash change functions
         _hashChange: [],
+        
+        // scrollElement
+        scrollElem: {},
+        
+        //scroll duration in ms
+        scrollDuration: 400,
 
         // from jQuery
         // use a modified version of the $.load function
@@ -63,10 +69,45 @@
         hashChange: function (fn) {
             this._hashChange.push(fn);
         },
+        
+        // find if an element is scrollable
+        scrollableElement: function (els) {
+            for (var i = 0, argLength = arguments.length; i <argLength; i++) {
+                var el = arguments[i],
+                $scrollElement = $(el);
+              
+                if ($scrollElement.scrollTop()> 0) {
+                    return el;
+                } else {
+                    $scrollElement.scrollTop(1);
+                    var isScrollable = $scrollElement.scrollTop()> 0;
+                    $scrollElement.scrollTop(0);
+                
+                    if (isScrollable) {
+                        return el;
+                    }
+                }
+            }
+            return [];
+        },
+        
+        scrollToHash: function (hash) {
+            if(hash != "") {
+                var targetOffset = $(hash).offset().top;
+                $(d4h5.scrollElem).animate(
+          	        {scrollTop: targetOffset}, 
+          	        d4h5.scrollDuration
+          	    );
+          	}
+        },
 
         init: function (options) {
-
+			
+			// extend options
             $.extend(true, this, options);
+            
+            //
+            this.scrollElem = this.scrollableElement('html', 'body');
 			
 			// initialize
             for (i in this.mod) {
@@ -87,9 +128,12 @@
                     return;
                 }
                 
+                var idx = uri.indexOf('#');
+                var hash = idx != -1 ? uri.substring(idx) : "";
+                
                 for (i in d4h5._hashChange) {
                 	var fn = d4h5._hashChange[i];
-                	fn.call(this, uri);
+                	fn.call(this, uri, hash);
             	}
 
             });

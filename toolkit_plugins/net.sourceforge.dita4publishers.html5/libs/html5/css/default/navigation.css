@@ -1,21 +1,21 @@
-#local-navigation.left {
+#local-navigation.nav-left {
 	margin-left:0px;
 	padding:20px 0px 20px 20px;
 	outline:none;
 }
 
-#local-navigation.left ul {
+#local-navigation.nav-left ul {
 	list-style-type: none;
 	margin:0;
 	padding:0;
 }
 
-#local-navigation.left ul {
+#local-navigation.nav-left ul {
 	list-style-type: none;
 	margin:0;
 }
 
-nav#local-navigation.left ul li {
+nav#local-navigation.nav-left ul li {
 	margin:0;
 	padding-top:3px;
 	padding-right:0;
@@ -24,11 +24,11 @@ nav#local-navigation.left ul li {
 	outline:none;
 }
 
-nav#local-navigation.left ul li.no-child {
+nav#local-navigation.nav-left ul li.no-child {
     padding-left:15px;
 }
 
-nav#local-navigation.left ul li ul li {
+nav#local-navigation.nav-left ul li ul li {
 	margin:0;
 	padding-top:3px;
 	padding-right:0;
@@ -36,62 +36,62 @@ nav#local-navigation.left ul li ul li {
 	padding-left:15px;
 }
 
-#local-navigation.left ul li.collapsible.collapsed ul {
+#local-navigation.nav-left ul li.collapsible.collapsed ul {
 	 display:none;
 }
-#local-navigation.left ul li.collapsible {
+#local-navigation.nav-left ul li.collapsible {
     cursor: pointer;
 }
 
-#local-navigation.left ul li.active ul {
+#local-navigation.nav-left ul li.active ul {
 	display:block;
 }
 
-#local-navigation.left li.selected a {
+#local-navigation.nav-left li.selected a {
 	font-weight: bold;
 	outline:none;
 }
 
-#local-navigation.left li.selected ul li a {
+#local-navigation.nav-left li.selected ul li a {
 	font-weight: normal;
 }
 
-#local-navigation.left ul li a, #local-navigation.left ul li a:link {
+#local-navigation.nav-left ul li a, #local-navigation.nav-left ul li a:link {
 	text-decoration: none;
 	padding-right:20px;
 	display:block;
 	padding-left:0px;
 }
 
-#local-navigation.left ul li ul li {
+#local-navigation.nav-left ul li ul li {
 	padding-left:12px;
 }
 
-#local-navigation.left ul li a:hover {
+#local-navigation.nav-left ul li a:hover {
 	text-decoration: underline;
 }
 
-#local-navigation.left ul li a:visited, #local-navigation.left ul li a:active {
+#local-navigation.nav-left ul li a:visited, #local-navigation.nav-left ul li a:active {
 	text-decoration: none;
 }
 
-nav#local-navigation.left span.ico {
+nav#local-navigation.nav-left span.ico {
 	display:block;
 	float:left;
 	width:12px;
 	height:12px;
 	margin-right: 2px;
 }
-nav#local-navigation.left span.ico:hover {
+nav#local-navigation.nav-left span.ico:hover {
 	cursor:pointer;
 }
 
-nav#local-navigation.left span.navtitle {
+nav#local-navigation.nav-left span.navtitle {
    display: block;
    margin-left: 15px;
    position: relative;
 }
 
-nav#local-navigation.left .collapsible.active span.navtitle { 
+nav#local-navigation.nav-left .collapsible.active span.navtitle { 
 	margin-bottom:3px;
 }

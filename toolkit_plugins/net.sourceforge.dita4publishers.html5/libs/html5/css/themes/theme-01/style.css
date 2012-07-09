@@ -111,7 +111,7 @@ body.paged #section-container {
 }
 
 /**/
-#local-navigation.left {
+#local-navigation.nav-left {
 	margin-left: 0px;
 	padding: 20px 0px 20px 20px;
 	outline: none;
@@ -130,7 +130,7 @@ body.paged #section-container {
 	margin-top: 50px;
 }
 
-#main-content, #local-navigation.left {
+#main-content, #local-navigation.nav-left {
 	margin-top: 50px;
 }
 
@@ -138,32 +138,36 @@ body.paged #section-container {
 	margin-top: 0px;
 }
 
-#local-navigation.left {
+#local-navigation.nav-left {
 	background-color: #F6F6F6;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	width: 230px;
 	display: inline;
-    float: left;
-    margin-right: 5px;
+	float: left;
+	margin-right: 5px;
 }
 
-#local-navigation.left a, #local-navigation.left a:link {
+#local-navigation.nav-left a, #local-navigation.nav-left a:link {
 	opacity: 1;
 }
 
-nav#local-navigation.left li.collapsible.collapsed > span.ico {
+nav#local-navigation.nav-left li.collapsible.collapsed > span.ico {
 	background: url("../../img/arrow.png") no-repeat 0 1px;
 }
 
-nav#local-navigation.left li.collapsible.active > span.ico {
+nav#local-navigation.nav-left li.collapsible.active > span.ico {
 	background: url("../../img/arrow-down.png") no-repeat 0 3px;
 }
 
 #main-container a, #main-container a:link {
 	color: #3887b0;
 	text-decoration: underline;
+}
+
+span.navtitle, li.collapsible a:link {
+	color: #3887b0;
 }
 
 #main-container a:hover {
@@ -173,6 +177,10 @@ nav#local-navigation.left li.collapsible.active > span.ico {
 #main-container a:visited {
 	color: #88b7d0;
 	text-decoration: underline;
+}
+
+#main-container nav#local-navigation a:visited {
+	color: #3887b0;
 }
 
 #main-container a:active {
