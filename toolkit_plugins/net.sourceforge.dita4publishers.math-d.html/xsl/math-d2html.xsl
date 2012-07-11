@@ -6,6 +6,14 @@
   >
   <!-- Math domain elements to HTML -->
   
+  <xsl:param name="mathJaxInclude" as="xs:string"
+    select="'false'" 
+  />
+  
+  <xsl:param name="mathJaxIncludeBoolean" as="xs:boolean"
+    select="matches($mathJaxInclude, 'yes|true|on|1', 'i')" 
+  />
+  
   <xsl:param name="mathJaxUseCDNLink" select="'false'"/>
   <xsl:param name="mathJaxUseCDNLinkBoolean" 
     select="matches($mathJaxUseCDNLink, 'yes|true|on|1', 'i')"
