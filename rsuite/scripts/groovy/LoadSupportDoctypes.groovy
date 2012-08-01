@@ -21,8 +21,8 @@ def doctypesDir = new File(projectDir, "doctypes");
 def File xsltDir = new File(projectDir, "/xslt");
 def File previewXslFile = new File(xsltDir, "preview/dita-preview.xsl");
 
-def baseTopicTypeURI = "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/";
-def baseMapTypeURI = "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/";
+def baseTopicTypeURI = "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:";
+def baseMapTypeURI = "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:";
 
 
 def loadAndConfigureTopicDtd(dtdFile, dtdPublicId, topicTypes, otherMoTypes, previewXslFile, catalog)
