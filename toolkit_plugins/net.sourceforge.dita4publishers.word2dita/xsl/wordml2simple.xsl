@@ -235,7 +235,7 @@
             </xsl:call-template>
           </xsl:when>
           <xsl:when test="current-group()[1][self::w:r]">
-            <xsl:for-each-group select="current-group()" group-adjacent="local:getRunStyle(.)">
+            <xsl:for-each-group select="current-group()" group-adjacent="local:getRunStyleId(.)">
               <xsl:call-template name="handleRunSequence">
                 <xsl:with-param name="runSequence" select="current-group()"/>
               </xsl:call-template>
@@ -263,24 +263,29 @@
   
   <xsl:template name="handleRunSequence">
     <xsl:param name="runSequence" as="element()*"/>
-    <xsl:variable name="runStyle" select="local:getRunStyle($runSequence[1])" as="xs:string"/>
+    <xsl:param name="stylesDoc" as="document-node()" tunnel="yes"/>
+
+    <xsl:variable name="styleId" select="local:getRunStyleId($runSequence[1])" as="xs:string"/>
     <xsl:choose>
-      <xsl:when test="$runStyle = ''">
+      <xsl:when test="$styleId = ''">
         <xsl:apply-templates select="$runSequence"/>
       </xsl:when>
       <xsl:otherwise>
+        <xsl:variable name="styleName" as="xs:string"
+          select="local:lookupStyleName(., $stylesDoc, $styleId)"
+        />
         <xsl:variable name="styleMapByName" as="element()?"
-          select="key('styleMapsByName', lower-case($runStyle), $styleMapDoc)[1]"
+          select="key('styleMapsByName', lower-case($styleName), $styleMapDoc)[1]"
         />
         <xsl:variable name="styleMapById" as="element()?"
-          select="key('styleMapsById', $runStyle, $styleMapDoc)[1]"
+          select="key('styleMapsById', $styleId, $styleMapDoc)[1]"
         />
         <xsl:variable name="runStyleMap" as="element()?"
           select="($styleMapByName, $styleMapById)[1]"
         />
         
         <xsl:if test="not($runStyleMap)">
-          <xsl:message> - [WARNING: No style mapping for character run with style ID "<xsl:sequence select="$runStyle"/>"</xsl:message>              
+          <xsl:message> - [WARNING: No style mapping for character run with style "<xsl:sequence select="$styleName"/>" [<xsl:sequence select="$styleId"/>]</xsl:message>
         </xsl:if>
         <xsl:variable name="runTagName"
           as="xs:string"
@@ -290,7 +295,7 @@
           "
         />
         <xsl:element name="{$runTagName}">
-          <xsl:attribute name="style" select="$runStyle"/>
+          <xsl:attribute name="style" select="$styleId"/>
           <xsl:if test="$runStyleMap">
             <xsl:for-each select="$runStyleMap/@*">
               <xsl:copy/>
@@ -598,7 +603,7 @@
                        "
   />
   
-  <xsl:function name="local:getRunStyle" as="xs:string">
+  <xsl:function name="local:getRunStyleId" as="xs:string">
     <xsl:param name="context" as="element()"/>
     <xsl:sequence select="
       if ($context/w:rPr/w:rStyle) 
@@ -645,7 +650,7 @@
          <xsl:sequence select="$styleName"/>        
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message> + [WARN] lookupStyleName(): No style definition found for style name "<xsl:sequence select="$styleId"/>", returning style ID "<xsl:sequence select="$styleId"/>"</xsl:message>
+        <xsl:message> + [WARN] lookupStyleName(): No style definition found for style ID "<xsl:sequence select="$styleId"/>", returning style ID "<xsl:sequence select="$styleId"/>"</xsl:message>
         <xsl:sequence select="$styleId"/>
       </xsl:otherwise>
     </xsl:choose>
