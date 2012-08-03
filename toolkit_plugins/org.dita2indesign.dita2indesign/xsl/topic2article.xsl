@@ -50,20 +50,10 @@
     <xsl:if test="true()">
       <xsl:message> + [DEBUG] topic2article.xsl: Processing root topic...</xsl:message>
     </xsl:if>
-    <!-- Create a new output InCopy article. 
-      
-      NOTE: This code assumes that all chunking has been performed
-      so that each document-root topic maps to one result
-      InCopy article and all nested topics are output as
-      part of the same story. This behavior can be
-      overridden by providing templates that match on
-      specific topic types or output classes.
-    -->
    <xsl:call-template name="makeInCopyArticle">
      <xsl:with-param name="styleCatalog" select="$styleCatalog"/>    
      <xsl:with-param name="articleType" select="name(.)" tunnel="yes"/>     
    </xsl:call-template> 
   </xsl:template>
-  
   
 </xsl:stylesheet>
