@@ -536,6 +536,15 @@
     <xsl:apply-templates/>
   </xsl:template>
   
+  <xsl:template match="w:sym">
+    <xsl:message> + [DEBUG] w:sym: <xsl:sequence select="."/></xsl:message>
+    <xsl:variable name="charCode" select="@w:char" as="xs:string"/>
+    <xsl:variable name="character" select="codepoints-to-string(local:hex-to-char($charCode))" as="xs:string"/>
+    <xsl:message> + [DEBUG] w:sym: char="<xsl:sequence select="$character"/>"</xsl:message>
+    <rsiwp:symbol font="{@w:font}"
+      ><xsl:sequence select="$character"/></rsiwp:symbol>
+  </xsl:template>
+  
   <xsl:template match="v:shape">
     <xsl:apply-templates/>
   </xsl:template>
@@ -655,6 +664,22 @@
       </xsl:otherwise>
     </xsl:choose>
     
+  </xsl:function>
+  
+  <xsl:function name="local:hex-to-char" as="xs:integer">
+    <xsl:param name="in"/> <!-- e.g. 030C -->
+    <xsl:sequence select="
+      if (string-length($in) eq 1)
+      then local:hex-digit-to-integer($in)
+      else 16*local:hex-to-char(substring($in, 1, string-length($in)-1)) +
+      local:hex-digit-to-integer(substring($in, string-length($in)))"/>
+  </xsl:function>
+  
+  <xsl:function name="local:hex-digit-to-integer" as="xs:integer">
+    <xsl:param name="char"/>
+    <xsl:sequence 
+      select="string-length(substring-before('0123456789ABCDEF',
+      $char))"/>
   </xsl:function>
   
   <xsl:template match="w:*" priority="-0.5">

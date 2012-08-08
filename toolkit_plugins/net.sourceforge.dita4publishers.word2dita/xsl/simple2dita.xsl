@@ -307,6 +307,15 @@
     <xsl:copy/>
   </xsl:template>
   
+  <xsl:template match="rsiwp:symbol" mode="p-content">
+    <ph outputclass="symbol"
+      ><data name="font" value="{@font}"
+      /><xsl:apply-templates mode="#current"
+      /></ph>
+  </xsl:template>
+  
+  
+  
   <xsl:template name="makeMap">
     <xsl:param name="content" as="element()+"/>
     <xsl:param name="level"  as="xs:integer"/><!-- Level of this topic -->
@@ -1848,7 +1857,6 @@ specify @topicDoc="yes".</xsl:message>
     <xsl:sequence select="$result"/>
   </xsl:template>
   
-  
   <xsl:template match="rsiwp:*" mode="topic-url">
     <xsl:message> - [WARNING] Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/> in mode 'topic-url'</xsl:message>
     <xsl:variable name="topicTitleFragment">
@@ -1878,6 +1886,7 @@ specify @topicDoc="yes".</xsl:message>
     </xsl:variable>
     <xsl:sequence select="concat('topics/topic_', $mapTitleFragment, '_', generate-id(.), $topicExtension)"/>
   </xsl:template>
+  
   
   <xsl:function name="local:debugMessage">
     <xsl:param name="msg" as="xs:string"/>
