@@ -181,6 +181,8 @@ version="2.0">
       + rootTopicUrl    = "<xsl:sequence select="$rootTopicUrl"/>"
       + topicExtension  = "<xsl:sequence select="$topicExtension"/>"
       + fileNamePrefix  = "<xsl:sequence select="$fileNamePrefix"/>"      
+      + filterBr        = "<xsl:sequence select="$filterBr"/>"      
+      + filterTabs      = "<xsl:sequence select="$filterTabs"/>"      
       + language        = "<xsl:sequence select="$language"/>"      
       + outputDir       = "<xsl:sequence select="$outputDir"/>"  
       + debug           = "<xsl:sequence select="$debug"/>"
