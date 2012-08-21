@@ -43,7 +43,7 @@
     <xsl:message> + [INFO] Enumerables structure constructed.</xsl:message>
   </xsl:template>
   
-  <xsl:template mode="construct-enumerable-structure" match="*[df:isTopicHead(.)]">
+  <xsl:template mode="construct-enumerable-structure" match="*[df:isTopicHead(.)][not(@processing-role = 'resource-only')]">
     <xsl:call-template name="construct-enumerated-element"/>
   </xsl:template>
   
@@ -79,7 +79,7 @@
     <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicref')]"/>
   </xsl:template>
 
-  <xsl:template mode="construct-enumerable-structure" match="*[df:isTopicRef(.)]">
+  <xsl:template mode="construct-enumerable-structure" match="*[df:isTopicRef(.)][not(@processing-role = 'resource-only')]">
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
     <xsl:choose>
       <xsl:when test="not($topic)">
@@ -114,7 +114,7 @@
     </xsl:choose>        
   </xsl:template>
   
-  <xsl:template mode="construct-enumerable-structure" match="*[df:isTopicHead(.)]/*[df:class(., 'map/topicmeta')]">
+  <xsl:template mode="construct-enumerable-structure" match="*[df:isTopicHead(.)][not(@processing-role = 'resource-only')]/*[df:class(., 'map/topicmeta')]">
     <xsl:apply-templates mode="#current" select="*[df:class(., 'topic/navtitle')]"/>
   </xsl:template>
 
