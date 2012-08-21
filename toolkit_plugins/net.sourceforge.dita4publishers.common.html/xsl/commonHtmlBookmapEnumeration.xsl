@@ -29,18 +29,30 @@
   
   <xsl:template mode="enumeration" match="*[df:class(., 'bookmap/part')]" 
     priority="10">
-    <span class='enumeration_part'>
+    <!-- NOTE: The not(df:isResourceOnly()) predicate is a workaround for a bug in the
+               OT whereby it applies the wrong @class value to topicrefs pulled from
+               submaps, for example, turning keyrefs into "map/topicref bookmap/chapter"
+               
+               Once that bug is fixed the check should be unnecessary.
+      -->
+    <span class='enumeration_part'>      
       <xsl:text>Part </xsl:text><!-- FIXME: Enable localization of the string. -->
-      <xsl:number count="*[df:class(., 'bookmap/part')]" format="I" level="single"/>
+      <xsl:number count="*[df:class(., 'bookmap/part')][not(df:isResourceOnly(.))]" format="I" level="single"/>
       <xsl:text>. </xsl:text>
     </span>
   </xsl:template>
   
   <xsl:template mode="enumeration" match="*[df:class(., 'bookmap/chapter')]">
+    <!-- NOTE: The not(df:isResourceOnly()) predicate is a workaround for a bug in the
+               OT whereby it applies the wrong @class value to topicrefs pulled from
+               submaps, for example, turning keyrefs into "map/topicref bookmap/chapter"
+               
+               Once that bug is fixed the check should be unnecessary.
+      -->
     <span class='enumeration_chapter'>
       <xsl:text>Chapter </xsl:text><!-- FIXME: Enable localization of the string. -->
       <xsl:number 
-        count="*[df:class(., 'bookmap/chapter')]" 
+        count="*[df:class(., 'bookmap/chapter')][not(df:isResourceOnly(.))]" 
         format="1." 
         level="any"/>
       <xsl:text> </xsl:text>
