@@ -698,6 +698,14 @@
     
     <xsl:sequence select="$result"/>
   </xsl:function>
+  
+  <xsl:function name="df:isResourceOnly" as="xs:boolean">
+    <xsl:param name="topicrefElem" as="element()"/>
+    <!-- Returns true() if the element is a resource-only topicref -->
+    <xsl:variable name="result" select="$topicrefElem/@processing-role = 'resource-only'" as="xs:boolean"/>
+    <xsl:message> + [DEBUG] df:isResourceOnly(): &lt;<xsl:sequence select="name($topicrefElem)"/> processing-role=<xsl:sequence select="string($topicrefElem/@processing-role)"/>&gt;</xsl:message>
+    <xsl:sequence select="$result"/>
+  </xsl:function>
     
   <xsl:template mode="topicref-report" match="*[df:class(., 'map/topicref')]">
     <xsl:text>&#x0a;</xsl:text>
