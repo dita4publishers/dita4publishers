@@ -6,7 +6,7 @@
      publication components that are semantic and not strictly
      formatting.
      
-     Copyright (c) 2009 DITA For Publishers
+     Copyright (c) 2009, 2012 DITA For Publishers
      
      ============================================================= -->
 
@@ -30,6 +30,9 @@ An epigraph is a brief quotation used to introduce a piece of writing
 <!ENTITY % epigraph              "epigraph"                      >
 <!ENTITY % epigraph-attribution  "epigraph-attribution"          >
 <!ENTITY % section-pullquote     "section-pullquote" >
+<!ENTITY % d4pAttributedQuote    "d4pAttributedQuote" >
+<!ENTITY % d4pQuoteAttribution   "d4pQuoteAttribution" >
+<!ENTITY % d4pAssetSource        "d4pAssetSource" >
 
 
 <!-- ============================================================= -->
@@ -48,9 +51,11 @@ An epigraph is a brief quotation used to introduce a piece of writing
 <!ELEMENT epigram %epigram.content; >
 <!ATTLIST epigram %epigram.attributes; >
 
+<!-- An epigram is a pithy saying, usually humorous. -->
 <!ENTITY % epigraph.content
   "((%body.cnt;)+,
-    (%epigraph-attribution;)?)"
+    (%epigraph-attribution; |
+     %d4pQuoteAttribution;)?)"
 >
 <!ENTITY % epigraph.attributes
              "%id-atts;
@@ -117,7 +122,71 @@ An epigraph is a brief quotation used to introduce a piece of writing
 <!ELEMENT section-pullquote    %section-pullquote.content;>
 <!ATTLIST section-pullquote    %section-pullquote.attributes;>
 
+<!-- A long quote that has an attribution. -->
+<!-- NOTE Content model copies definition from %longquote.cnt;.
 
+     For reasons I haven't yet determined, referencing %longquote.cnt;
+     here does not work. Must be an issue with order of inclusion or
+     reference or a non-obvious coding error on my part.
+
+-->
+<!ENTITY % d4pAttributedQuote.content 
+  "((p|
+     ul|
+     ol
+     )+,
+    (%d4pQuoteAttribution;))
+  "
+>
+<!ENTITY % d4pAttributedQuote.attributes
+             "%id-atts;
+              %localization-atts;
+              base 
+                        CDATA 
+                                  #IMPLIED
+              %base-attribute-extensions;
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT d4pAttributedQuote    %d4pAttributedQuote.content;>
+<!ATTLIST d4pAttributedQuote    %d4pAttributedQuote.attributes;>
+
+<!ENTITY % d4pQuoteAttribution.content
+  "(%para.cnt;)*"
+>
+<!ENTITY % d4pQuoteAttribution.attributes
+             "%id-atts;
+              %localization-atts;
+              base 
+                        CDATA 
+                                  #IMPLIED
+              %base-attribute-extensions;
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT d4pQuoteAttribution    %d4pQuoteAttribution.content;>
+<!ATTLIST d4pQuoteAttribution    %d4pQuoteAttribution.attributes;>
+
+<!-- Describes the source of an asset (quote, graphic, photo,
+     media object, etc.) -->
+<!ENTITY % d4pAssetSource.content
+  "(%para.cnt;)*"
+>
+<!ENTITY % d4pAssetSource.attributes
+             "%id-atts;
+              %localization-atts;
+              base 
+                        CDATA 
+                                  #IMPLIED
+              %base-attribute-extensions;
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT d4pAssetSource    %d4pAssetSource.content;>
+<!ATTLIST d4pAssetSource    %d4pAssetSource.attributes;>
 
 <!-- ============================================================= -->
 <!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
@@ -129,5 +198,12 @@ An epigraph is a brief quotation used to introduce a piece of writing
 <!ATTLIST section-pullquote      %global-atts;  class CDATA "+ topic/sectiondiv d4p-pubcontent-d/section-pullquote ">
 <!ATTLIST epigraph               %global-atts;  class CDATA "+ topic/bodydiv    d4p-pubcontent-d/epigraph ">
 <!ATTLIST epigraph-attribution   %global-atts;  class CDATA "+ topic/p          d4p-pubcontent-d/epigraph-attribution ">
+
+<!ATTLIST epigraph               %global-atts;  class CDATA "+ topic/bodydiv    d4p-pubcontent-d/epigraph ">
+<!ATTLIST epigraph-attribution   %global-atts;  class CDATA "+ topic/p          d4p-pubcontent-d/epigraph-attribution ">
+
+<!ATTLIST d4pAttributedQuote     %global-atts;  class CDATA "+ topic/lq         d4p-pubcontent-d/d4pAttributedQuote ">
+<!ATTLIST d4pQuoteAttribution    %global-atts;  class CDATA "+ topic/p          d4p-pubcontent-d/d4pQuoteAttribution ">
+<!ATTLIST d4pAssetSource         %global-atts;  class CDATA "+ topic/p          d4p-pubcontent-d/d4pAssetSource ">
 
 <!-- ================== End Content Domain ==================== -->
