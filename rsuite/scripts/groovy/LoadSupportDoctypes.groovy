@@ -98,9 +98,13 @@ def importer = importerFactory.generateImporter("XMLSchema", new SchemaInputSour
 uuid = importer.execute()   
 def moDefList = [];
 
-def namespaceDecls = (String[])[ "s2t=" + "urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap"];
+def namespaceDecls = (String[])[ "s2t=" + "urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap"];
 
-moDefList.add(new ManagedObjectDefinition(['name' : '{urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap}:style2tagmap', 
+moDefList.add(new ManagedObjectDefinition(['name' : '{urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap}:style2tagmap', 
+                                           'displayNameXPath': "s2t:title", 
+                                           'versionable': 'true', 
+                                           'reusable': 'true']))
+moDefList.add(new ManagedObjectDefinition(['name' : 'style2tagmap', 
                                            'displayNameXPath': "s2t:title", 
                                            'versionable': 'true', 
                                            'reusable': 'true']))
