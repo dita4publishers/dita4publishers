@@ -63,7 +63,9 @@
         group-adjacent="local:getBlockOrInlineGroupingKey(.)">
         <xsl:choose>
           <xsl:when test="current-grouping-key() = 'inline'">
-            <p><xsl:apply-templates select="current-group()" mode="#current"/></p>
+            <xsl:if test="normalize-space(.) != '' and normalize-space(.) != ' '">
+              <p><xsl:apply-templates select="current-group()" mode="#current"/></p>
+            </xsl:if>
           </xsl:when>
           <xsl:otherwise>
             <xsl:apply-templates select="current-group()" mode="#current"/>
