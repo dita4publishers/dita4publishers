@@ -47,7 +47,11 @@
    %d4p_simpleEnumeration-d-data;
   "
 >
-
+<!ENTITY % lq
+  "lq | 
+   %d4p_pubcontent-d-lq;
+  "
+>
 <!ENTITY % index-base   "index-base | 
                          %indexing-d-index-base;
                         ">
