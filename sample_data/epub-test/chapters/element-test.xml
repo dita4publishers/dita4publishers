@@ -178,6 +178,8 @@ In this case it is &lt;lines>.</lines>
       <p>This is a properly-tagged paragraph</p>
         More unwrapped text after the paragraph.
       </lq>
+      <p>A long quote with a single paragraph:</p>
+      <lq><p>Single paragraph in a long quote.</p></lq>
     </body>
   </subsection>
 
