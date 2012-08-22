@@ -5,7 +5,7 @@
      Defines specializations of p and ph for requesting specific
      formatting effects.
      
-     Copyright (c) 2009, 2010 DITA For Publishers
+     Copyright (c) 2009, 2012 DITA For Publishers
      
      ============================================================= -->
      
@@ -15,7 +15,9 @@
  <!ENTITY % b-i           "b-i">
  <!ENTITY % br            "br" >
  <!ENTITY % b-sc          "b-sc">
+ <!-- d4pSidebarAnchor is the preferred spelling. -->
  <!ENTITY % d4p_sidebar-anchor "d4p_sidebar-anchor" >
+ <!ENTITY % d4pSidebarAnchor "d4pSidebarAnchor" >
  <!ENTITY % dropcap       "dropcap" >
  <!ENTITY % eqn_inline    "eqn_inline" >
  <!ENTITY % eqn_block     "eqn_block" >
@@ -384,6 +386,15 @@
 <!ELEMENT d4p_sidebar-anchor    %d4p_sidebar-anchor.content;>
 <!ATTLIST d4p_sidebar-anchor    %d4p_sidebar-anchor.attributes;>
 
+<!ENTITY % d4pSidebarAnchor.content
+                       "(%data.elements.incl;)*"
+>
+<!ENTITY % d4pSidebarAnchor.attributes
+  "%xref.attributes;"
+>
+<!ELEMENT d4pSidebarAnchor    %d4pSidebarAnchor.content;>
+<!ATTLIST d4pSidebarAnchor    %d4pSidebarAnchor.attributes;>
+
 
 <!-- ============================================================= -->
 <!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
@@ -399,6 +410,7 @@
 <!ATTLIST eqn_inline       %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/eqn_inline ">
 <!ATTLIST eqn_block        %global-atts;  class CDATA "+ topic/p     d4p-formatting-d/eqn_block ">
 <!ATTLIST d4p_sidebar-anchor %global-atts;  class CDATA "+ topic/xref d4p-formatting-d/d4p_sidebar-anchor ">
+<!ATTLIST d4pSidebarAnchor %global-atts;  class CDATA "+ topic/xref d4p-formatting-d/d4pSidebarAnchor ">
 <!ATTLIST d4pMathML        %global-atts;  class CDATA "+ topic/foreign d4p-formatting-d/d4pMathML ">
 <!ATTLIST dropcap          %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/dropcap "  >
 <!ATTLIST frac             %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/frac ">
