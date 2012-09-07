@@ -5,7 +5,7 @@
         version: '0.1a',
         
         // selector for the element which contain the content
-        outputSelector: '#main-content',
+        outputSelector: '#d4h5-main-content',
 
         // navigationSelector
         navigationSelector: '#local-navigation',

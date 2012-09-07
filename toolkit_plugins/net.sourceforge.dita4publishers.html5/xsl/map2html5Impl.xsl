@@ -45,6 +45,10 @@
   <xsl:param name="JS" select="''" />
   <xsl:param name="CSSTHEME" select="''" />
   
+  <xsl:param name="IDMAINCONTAINER" select="'d4h5-main-container'" />
+  <xsl:param name="IDSECTIONCONTAINER" select="'d4h5-section-container'" />
+  <xsl:param name="IDMAINCONTENT" select="'d4h5-main-content'" />      
+      
   <xsl:param name="mathJaxInclude" select="'false'"/>
   <xsl:param name="mathJaxIncludeBoolean" 
     select="matches($mathJaxInclude, 'yes|true|on|1', 'i')"

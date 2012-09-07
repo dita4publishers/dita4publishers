@@ -19,7 +19,7 @@
     src: url("../../fonts/vegur/Vegur-L.otf");
 }
 
-.fontface #main-content h1, .fontface header h1, .fontface #main-content h2, .fontface #main-content  h3, #main-content  .fontface  h4, .fontface #main-content h5, .fontface #main-content  h6 {
+.fontface #d4h5-main-content h1, .fontface header h1, .fontface #d4h5-main-content h2, .fontface #d4h5-main-content  h3, #d4h5-main-content  .fontface  h4, .fontface #d4h5-main-content h5, .fontface #d4h5-main-content  h6 {
 	font-family: "Vegur Regular", sans-serif;
 }
 
@@ -93,11 +93,11 @@ body.centered header h1 {
 	margin: 0 auto;
 }
 
-body.centered #section-container {
+body.centered #d4h5-section-container {
 	margin: 0 auto;
 }
 
-body.centered.paged #main-container {
+body.centered.paged #d4h5-main-container {
 	margin: 0 auto;
 }
 
@@ -106,7 +106,7 @@ body.paged header {
 	width: 100%;
 }
 
-body.paged #section-container {
+body.paged #d4h5-section-container {
 	width: 980px;
 }
 
@@ -126,15 +126,15 @@ body.paged #section-container {
 
 }
 
-#main-container #section-container {
+#d4h5-main-container #d4h5-section-container {
 	margin-top: 50px;
 }
 
-#main-content, #local-navigation.nav-left {
+#d4h5-main-content, #local-navigation.nav-left {
 	margin-top: 50px;
 }
 
-#main-content h1 {
+#d4h5-main-content h1 {
 	margin-top: 0px;
 }
 
@@ -161,7 +161,7 @@ nav#local-navigation.nav-left li.collapsible.active > span.ico {
 	background: url("../../img/arrow-down.png") no-repeat 0 3px;
 }
 
-#main-container a, #main-container a:link {
+#d4h5-main-container a, #d4h5-main-container a:link {
 	color: #3887b0;
 	text-decoration: underline;
 }
@@ -170,20 +170,20 @@ span.navtitle, li.collapsible a:link {
 	color: #3887b0;
 }
 
-#main-container a:hover {
+#d4h5-main-container a:hover {
 	text-decoration: none;
 }
 
-#main-container a:visited {
+#d4h5-main-container a:visited {
 	color: #88b7d0;
 	text-decoration: underline;
 }
 
-#main-container nav#local-navigation a:visited {
+#d4h5-main-container nav#local-navigation a:visited {
 	color: #3887b0;
 }
 
-#main-container a:active {
+#d4h5-main-container a:active {
 	color: red;
 }
 

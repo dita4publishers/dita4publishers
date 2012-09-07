@@ -31,6 +31,8 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
 -->
+<xsl:output name="indented-xml" method="html" indent="yes" omit-xml-declaration="yes"/>
+
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-root-pages">
     <xsl:param name="uniqueTopicRefs" as="element()*" tunnel="yes"/>
 
@@ -65,74 +67,15 @@
   <html>
   <xsl:attribute name = "lang"><xsl:call-template name="getLowerCaseLang"/></xsl:attribute>
   <xsl:sequence select="'&#x0a;'"/>
-    <head>
+  
+     <xsl:apply-templates select="." mode="generate-head"/>
+     
+    <xsl:apply-templates select="." mode="generate-body"/>
 
-      <xsl:call-template name="generateMapTitle"/><xsl:sequence select="'&#x0a;'"/>
-
-      <meta charset="utf-8" /><xsl:sequence select="'&#x0a;'"/>
-
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/><xsl:sequence select="'&#x0a;'"/>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><xsl:sequence select="'&#x0a;'"/>
-
-      <!-- initial meta information -->
-
-      <!-- Generate stuff for dynamic TOC. Need to parameterize/extensify this -->
-
-      	<!--
-      		Add a single style css and use  @import to load
-      	     others CSS. It becomes easier to compress all css afterward with a css compressor such as http://developer.yahoo.com/yui/compressor/
-      	     which works well with ant
-      	-->
-				<xsl:apply-templates select="." mode="generate-css-includes"/>
-
-        <xsl:apply-templates select="." mode="generate-javascript-includes"/>
-
-    </head><xsl:sequence select="'&#x0a;'"/>
-
-    <body>
-    <xsl:apply-templates select="." mode="set-body-class-attr" />
-	<ul id="page-links">
-		<li><a id="skip-to-content" href="#main-content">Skip to content</a></li>
-		<li><a id="skip-to-localnav" href="#local-navigation">Skip to menu</a></li>
-    </ul>
-    
-
-		<div id="main-container" role="application"><xsl:sequence select="'&#x0a;'"/>
-
-    		<xsl:sequence select="'&#x0a;'"/>
-
-        	<header role = "banner" aria-labelledby="publication-title">
-       			<xsl:apply-templates select="." mode="generate-root-page-header"/>
-     		</header>
-
-	    	<div id = "section-container">
-			<xsl:attribute name="class" select="concat($navigationClass, ' ', 'container_24')" />
-      		<!-- This mode generates the navigation structure (ToC) on the
-           		index.html page, that is, the main navigation structure.
-        	-->
-     		<xsl:apply-templates select="." mode="generate-html5-nav-page-markup"/>
-
-      			<div id="main-content" role="main" aria-atomic="true" aria-live="polite" aria-relevant="all">
-        			<xsl:sequence select="'&#x0a;'"/>
-
-        			<xsl:apply-templates select="." mode="set-initial-content"/>
-
-        			<div class="clear" ><xsl:sequence select="'&#x0a;'"/></div>
-
-        		</div>
-
-			</div>
-		 <div id="footer-container" class="container_24">
-				<xsl:call-template name="gen-user-footer"/>
-				<xsl:call-template name="processFTR"/>
-		 <xsl:sequence select="'&#x0a;'"/>
-		</div>
-
-		</div>
-    </body><xsl:sequence select="'&#x0a;'"/>
   </html>
   </xsl:result-document>
 </xsl:template>
+
 
   <xsl:template mode="toc-title" match="*[df:isTopicRef(.)] | *[df:isTopicHead(.)]">
     <xsl:variable name="titleValue" select="df:getNavtitleForTopicref(.)"/>
@@ -171,7 +114,9 @@
       </xsl:choose>
     </h1>
   </xsl:template>
-
+  
+  
+  <!-- used to generate the js links -->
   <xsl:template match="*" mode="generate-javascript-includes">
     <!-- FIXME: Parameterize the location of the JavaScript -->
     <script type="text/javascript">
@@ -192,34 +137,47 @@
 
     </script><xsl:sequence select="'&#x0a;'"/>
 
-
-
   </xsl:template>
 
+  <!-- used to generate the css links -->
+  <!-- FIXME: Parameterize the location of the css -->
   <xsl:template match="*" mode="generate-css-includes">
-    <!-- FIXME: Parameterize the location of the css -->
-		<link rel="stylesheet" type="text/css">
-			<xsl:attribute name = "href" select="$CSS" />
-		</link>
-		<xsl:sequence select="'&#x0a;'"/>
+    <link rel="stylesheet" type="text/css">
+      <xsl:attribute name = "href" select="$CSS" />
+    </link>
+    
+    <xsl:sequence select="'&#x0a;'"/>
+    
     <link rel="stylesheet" type="text/css" >
     	<xsl:attribute name = "href" select="$CSSTHEME" />
     </link>
+    
     <xsl:sequence select="'&#x0a;'"/>
+    
+  </xsl:template>
+  
+
+  <!-- page links are intented to be used for screen reader -->
+  <xsl:template name="gen-page-links">
+     <ul id="page-links">
+		<li><a id="skip-to-content" href="#main-content">Skip to content</a></li>
+		<li><a id="skip-to-localnav" href="#local-navigation">Skip to menu</a></li>
+     </ul>
   </xsl:template>
 
-
+  <!-- define class attribute -->
   <xsl:template match="*" mode="set-body-class-attr">
-  	<xsl:attribute name = "class">
-    		<xsl:call-template name="getLowerCaseLang"/>
-				<xsl:sequence select="' '"/>
-    		<xsl:value-of select="$siteTheme" />
-    		<xsl:sequence select="' '"/>
-				<xsl:value-of select="$bodyClass" />
-    	</xsl:attribute>
+    <xsl:attribute name = "class">
+      <xsl:call-template name="getLowerCaseLang"/>
+        <xsl:sequence select="' '"/>
+        <xsl:value-of select="$siteTheme" />
+        <xsl:sequence select="' '"/>
+        <xsl:value-of select="$bodyClass" />
+        <xsl:apply-templates select="." mode="gen-user-body-class"/>
+    </xsl:attribute>
   </xsl:template>
 
-
+  <!-- used to defined initial content if javascript is off -->
   <xsl:template match="*" mode="set-initial-content">
 		<noscript>
 			<p>
@@ -227,6 +185,152 @@
 			</p>
 		</noscript>
   </xsl:template>
+  
+  <!-- used to output the html5 header -->
+  <xsl:template match="*" mode="generate-header">
+    <header role = "banner" aria-labelledby="publication-title">
+       <xsl:apply-templates select="." mode="generate-root-page-header"/>
+    </header>
+  </xsl:template>
+  
+  <!-- used to output the head -->  
+    <xsl:template match="*" mode="generate-head">
+      <head>
 
+      <xsl:call-template name="generateMapTitle"/>
+      <xsl:sequence select="'&#x0a;'"/>
+
+	  <xsl:apply-templates select="." mode="gen-user-top-head" />
+	  
+      <meta charset="utf-8" />
+      <xsl:sequence select="'&#x0a;'"/>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <xsl:sequence select="'&#x0a;'"/>
+      
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+      <xsl:sequence select="'&#x0a;'"/>
+
+      <!-- initial meta information -->
+
+      <!-- Generate stuff for dynamic TOC. Need to parameterize/extensify this -->
+
+      	<!--
+      		Add a single style css and use  @import to load
+      	     others CSS. It becomes easier to compress all css afterward with a css compressor such as http://developer.yahoo.com/yui/compressor/
+      	     which works well with ant
+      	-->
+		<xsl:apply-templates select="." mode="generate-css-includes"/>
+						 
+        <xsl:apply-templates select="." mode="generate-javascript-includes"/>
+        
+	    <xsl:apply-templates select="." mode="gen-user-bottom-head" />
+	    
+    </head>
+    <xsl:sequence select="'&#x0a;'"/>
+  </xsl:template>
+  
+  <!-- generate body -->
+  <xsl:template match="*" mode="generate-body">
+    
+    <body>
+
+      <xsl:apply-templates select="." mode="set-body-class-attr" />
+    
+      <xsl:apply-templates select="." mode="gen-user-body-top" />
+             
+      <xsl:apply-templates select="." mode="generate-main-container"/>
+	
+	  <xsl:apply-templates select="." mode="gen-user-body-bottom" />
+	  
+    </body>
+    
+    <xsl:sequence select="'&#x0a;'"/>
+    
+  </xsl:template>
+    
+  <!-- generate main container -->
+  <xsl:template match="*" mode="generate-main-container">
+    <div role="application">
+      <xsl:attribute name="id" select="$IDMAINCONTAINER" />
+      <xsl:sequence select="'&#x0a;'"/>
+      
+      <xsl:call-template name="gen-page-links" />
+    		
+      <xsl:apply-templates select="." mode="generate-header"/>
+      
+      <xsl:apply-templates select="." mode="generate-section-container"/>
+      
+      <xsl:apply-templates select="." mode="generate-footer"/>
+      
+    </div>
+  </xsl:template>
+  
+  <!-- generate section container -->
+   <xsl:template match="*" mode="generate-section-container">
+     <div>
+     	<xsl:attribute name="id" select="$IDSECTIONCONTAINER" />
+        <xsl:attribute name="class" select="concat($navigationClass, ' ', 'container_24')" />
+        <!-- This mode generates the navigation structure (ToC) on the
+              index.html page, that is, the main navigation structure.
+        -->
+
+        <xsl:apply-templates select="." mode="generate-html5-nav-page-markup"/>
+
+        <xsl:apply-templates select="." mode="generate-main-content"/>
+        
+      </div>
+   </xsl:template>
+   
+   <!-- generate html5 footer -->
+  <xsl:template match="*" mode="generate-main-content">  	
+    <div role="main" aria-atomic="true" aria-live="polite" aria-relevant="all">
+    <xsl:attribute name="id" select="$IDMAINCONTENT" />
+    <xsl:sequence select="'&#x0a;'"/>
+
+      <xsl:apply-templates select="." mode="set-initial-content"/>
+
+      <div class="clear" /><xsl:sequence select="'&#x0a;'"/>
+      
+    </div>
+  </xsl:template>
+  
+  <!-- generate html5 footer -->
+  <xsl:template match="*" mode="generate-footer">  	
+    <div id="footer-container" class="container_24">
+		<xsl:call-template name="gen-user-footer"/>
+		<xsl:call-template name="processFTR"/>
+		<xsl:sequence select="'&#x0a;'"/>
+	</div>
+  </xsl:template>
+  		
+  <!-- 
+      template declared for extention point purpose 
+   -->
+  <xsl:template match="*" mode="gen-user-top-head">
+    <!-- to allow insertion into the head -->
+  </xsl:template>
+  
+  <xsl:template match="*" mode="gen-user-bottom-head">
+    <!-- to allow insertion into the head -->
+  </xsl:template>
+  
+  <xsl:template match="*" mode="gen-user-body-class">
+    <!-- to to append class class to the body element 
+         to override class use xsl:template match="*" mode="set-body-class-attr"
+    -->
+  </xsl:template>
+  
+  <xsl:template match="*" mode="gen-user-body-top">
+    <!-- to to append class class to the body element 
+         to override class use xsl:template match="*" mode="set-body-class-attr"
+    -->
+  </xsl:template>
+  
+  <xsl:template match="*" mode="gen-user-body-bottom">
+    <!-- to to append class class to the body element 
+         to override class use xsl:template match="*" mode="set-body-class-attr"
+    -->
+  </xsl:template>
 
 </xsl:stylesheet>

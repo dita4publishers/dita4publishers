@@ -142,6 +142,23 @@
   	  </not>
   	</condition>
 
+    <condition property="id.main.container" value="d4h5-main-container">
+  		<not>
+  			<isset property="id.main.container"/>
+  	  </not>
+  	</condition>
+  	
+  	<condition property="id.section.container" value="d4h5-section-container">
+  		<not>
+  			<isset property="id.section.container"/>
+  	  </not>
+  	</condition>
+  	  	
+  	<condition property="id.main.content" value="d4h5-main-content">
+  		<not>
+  			<isset property="id.main.content"/>
+  	  </not>
+  	</condition>
 
   	<echo message="+++ html5-specific properties:"/>
   	<echoproperties format="text" regex="^(html5|html2|css|user|out\.)" taskname="echo"/>
@@ -194,6 +211,11 @@
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
       <param name="CSS" expression="${args.css.file}" if="args.css.file" />
       <param name="CSSTHEME" expression="${args.css.theme}" if="args.css.theme" />
+
+  	<param name="IDMAINCONTAINER" expression="${id.main.container}" if="id.main.container" />
+	<param name="IDSECTIONCONTAINER" expression="${id.section.container}" if="id.section.container" />  
+	<param name="IDMAINCONTENT" expression="${id.main.content}" if="id.main.content" />
+      
       <param name="navigationClass" expression="${navigationClass}" if="navigationClass" />     
       <param name="JS" expression="${args.js.file}" if="args.js.file" />
       <param name="CSSPATH" expression="${user.csspath}" if="user.csspath" />

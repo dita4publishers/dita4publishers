@@ -944,7 +944,7 @@ header, footer
 	width:100%;
 }
 
-#section-container
+#d4h5-section-container
 {
 	display: block;
 	width: 980px;	
@@ -960,11 +960,11 @@ noscript
 h2.nav-pub-title { font-size: 1.1em; }
 
 
-#main-container {
+#d4h5-main-container {
 	overflow:hidden;
 }
 
-#main-content
+#d4h5-main-content
 {
 	margin-bottom: 30px;
 	min-height: 500px;
@@ -1014,7 +1014,7 @@ h2.nav-pub-title { font-size: 1.1em; }
 	margin-bottom:2em;
 }
 
-.nav-left #main-content {
+.nav-left #d4h5-main-content {
     left: 40px;
     width: 590px;
     position: relative;
