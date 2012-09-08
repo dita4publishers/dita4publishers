@@ -49,7 +49,7 @@
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>
 
       <nav id="local-navigation" role="navigation" aria-label="Main navigation">
-      <xsl:attribute name="class" select="$navigationClass" />
+      <xsl:attribute name="class" select="$CLASSNAVIGATION" />
         <div class="nav-pub-title">
         	<xsl:apply-templates select="*[df:class(., 'topic/title')]" mode="generate-html5-nav-page-markup"/>
         	<xsl:sequence select="'&#x0a;'"/>
@@ -108,8 +108,8 @@
           <!-- Use UL for navigation structure -->
 
           <li><a
-            href="{$relativeUri}"
-            target="{$contenttarget}">
+            href="{$relativeUri}">
+           <!-- target="{$contenttarget}" -->
             <xsl:if test="$enumeration and $enumeration != ''">
               <span class="enumeration enumeration{$tocDepth}"><xsl:sequence select="$enumeration"/></span>
             </xsl:if>

@@ -6,8 +6,8 @@
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
-
-  exclude-result-prefixes="df xs relpath htmlutil xd"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  exclude-result-prefixes="df xs relpath htmlutil xd dc"
   version="2.0">
   <!-- =============================================================
 
@@ -31,14 +31,16 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
 -->
-<xsl:output name="indented-xml" method="html" indent="yes" omit-xml-declaration="yes"/>
+  <xsl:output name="indented-xml" method="html" indent="yes" omit-xml-declaration="yes"/>
 
+  
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-root-pages">
     <xsl:param name="uniqueTopicRefs" as="element()*" tunnel="yes"/>
 
     <xsl:apply-templates select="." mode="generate-root-nav-page"/>
   </xsl:template>
 
+  <!-- generate root pages -->
 <xsl:template match="*[df:class(., 'map/map')]" mode="generate-root-nav-page">
   <!-- Generate the root output page. By default this page contains the root
        navigation elements. The direct output of this template goes to the
@@ -251,8 +253,8 @@
     
   <!-- generate main container -->
   <xsl:template match="*" mode="generate-main-container">
-    <div role="application">
-      <xsl:attribute name="id" select="$IDMAINCONTAINER" />
+    <div id="{$IDMAINCONTAINER}" role="application">
+    
       <xsl:sequence select="'&#x0a;'"/>
       
       <xsl:call-template name="gen-page-links" />
@@ -268,31 +270,48 @@
   
   <!-- generate section container -->
    <xsl:template match="*" mode="generate-section-container">
-     <div>
-     	<xsl:attribute name="id" select="$IDSECTIONCONTAINER" />
-        <xsl:attribute name="class" select="concat($navigationClass, ' ', 'container_24')" />
-        <!-- This mode generates the navigation structure (ToC) on the
-              index.html page, that is, the main navigation structure.
-        -->
+     <div id="{$IDSECTIONCONTAINER}" class="{$CLASSNAVIGATION}">
 
-        <xsl:apply-templates select="." mode="generate-html5-nav-page-markup"/>
+        <xsl:apply-templates select="." mode="choose-html5-nav-markup"/>
 
         <xsl:apply-templates select="." mode="generate-main-content"/>
         
       </div>
    </xsl:template>
    
-   <!-- generate html5 footer -->
-  <xsl:template match="*" mode="generate-main-content">  	
-    <div role="main" aria-atomic="true" aria-live="polite" aria-relevant="all">
-    <xsl:attribute name="id" select="$IDMAINCONTENT" />
-    <xsl:sequence select="'&#x0a;'"/>
+   
+  
+  
+   <!-- generate main content -->
+  <xsl:template match="*" mode="generate-main-content"> 
+   	
+    <div id="{$IDMAINCONTENT}" class="{$CLASSMAINCONTENT}" role="main" aria-atomic="true" aria-live="polite" aria-relevant="all">    
+         
+      <xsl:sequence select="'&#x0a;'"/>
 
       <xsl:apply-templates select="." mode="set-initial-content"/>
 
       <div class="clear" /><xsl:sequence select="'&#x0a;'"/>
       
     </div>
+  </xsl:template>
+  
+  <!-- choose navigation markup type 
+        will be used later to offer alternate markup for navigation
+   -->
+
+   <xsl:template match="*" mode="choose-html5-nav-markup">
+   <xsl:choose>
+          <xsl:when test="$NAVIGATIONMARKUP='default'">
+            <xsl:apply-templates select="." mode="generate-html5-nav-page-markup"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <!-- This mode generates the navigation structure (ToC) on the
+                index.html page, that is, the main navigation structure.
+             -->
+            <xsl:apply-templates select="." mode="generate-html5-nav-page-markup"/>
+          </xsl:otherwise>
+        </xsl:choose>
   </xsl:template>
   
   <!-- generate html5 footer -->
@@ -332,5 +351,7 @@
          to override class use xsl:template match="*" mode="set-body-class-attr"
     -->
   </xsl:template>
+  
+  
 
 </xsl:stylesheet>

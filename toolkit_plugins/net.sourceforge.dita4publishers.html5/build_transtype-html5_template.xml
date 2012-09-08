@@ -83,18 +83,9 @@
         <isset property="bodyClass" />
       </not>
 		</condition>
-		
-	 <condition property="navigationClass" value="nav-left">
-		  <not>
-        <isset property="navigationClass" />
-      </not>
-		</condition>
+	
 
-		<condition property="js.options" value="navigation : { type : '${navigationClass}' }">
-		  <not>
-        <isset property="js.options" />
-      </not>
-		</condition>
+
 		
 	<condition property="args.css.theme" value="assets/themes/theme-01/style-min.css">
       <not>
@@ -141,6 +132,12 @@
   			<isset property="html5.do.copy.graphics"/>
   	  </not>
   	</condition>
+  	
+  	 <condition property="navigation.markup" value="default">
+  		<not>
+  			<isset property="navigation.markup"/>
+  	  </not>
+  	</condition>
 
     <condition property="id.main.container" value="d4h5-main-container">
   		<not>
@@ -159,7 +156,25 @@
   			<isset property="id.main.content"/>
   	  </not>
   	</condition>
+  	
+  	<condition property="class.main.content" value="span">
+  		<not>
+  			<isset property="class.main.content"/>
+  	  </not>
+  	</condition>
+  	
+  	<condition property="class.navigation" value="nav-left container_24">
+		  <not>
+        <isset property="class.navigation" />
+      </not>
+	</condition>
 
+	<condition property="js.options" value="navigation : { type : '${class.navigation}' }">
+		  <not>
+        <isset property="js.options" />
+      </not>
+	</condition>
+		
   	<echo message="+++ html5-specific properties:"/>
   	<echoproperties format="text" regex="^(html5|html2|css|user|out\.)" taskname="echo"/>
   </target>
@@ -211,12 +226,14 @@
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
       <param name="CSS" expression="${args.css.file}" if="args.css.file" />
       <param name="CSSTHEME" expression="${args.css.theme}" if="args.css.theme" />
+      <param name="NAVIGATIONMARKUP" expression="${navigation.markup}" if="navigation.markup" />
 
   	<param name="IDMAINCONTAINER" expression="${id.main.container}" if="id.main.container" />
 	<param name="IDSECTIONCONTAINER" expression="${id.section.container}" if="id.section.container" />  
 	<param name="IDMAINCONTENT" expression="${id.main.content}" if="id.main.content" />
-      
-      <param name="navigationClass" expression="${navigationClass}" if="navigationClass" />     
+	<param name="CLASSMAINCONTENT" expression="${class.main.content}" if="class.main.content" />
+	
+      <param name="CLASSNAVIGATION" expression="${class.navigation}" if="class.navigation" />     
       <param name="JS" expression="${args.js.file}" if="args.js.file" />
       <param name="CSSPATH" expression="${user.csspath}" if="user.csspath" />
       <param name="DRAFT" expression="${args.draft}" if="args.draft"></param>

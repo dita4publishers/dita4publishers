@@ -40,12 +40,14 @@
 
   <xsl:param name="siteTheme" select="'theme-01'" />
   <xsl:param name="bodyClass" select="''" />
-  <xsl:param name="navigationClass" select="'left'" />
+  <xsl:param name="CLASSNAVIGATION" select="'left'" />
   <xsl:param name="jsoptions" select="''" />
   <xsl:param name="JS" select="''" />
   <xsl:param name="CSSTHEME" select="''" />
+  <xsl:param name="NAVIGATIONMARKUP" select="'default'" />
   
   <xsl:param name="IDMAINCONTAINER" select="'d4h5-main-container'" />
+  <xsl:param name="CLASSMAINCONTENT" select="''" />
   <xsl:param name="IDSECTIONCONTAINER" select="'d4h5-section-container'" />
   <xsl:param name="IDMAINCONTENT" select="'d4h5-main-content'" />      
       
