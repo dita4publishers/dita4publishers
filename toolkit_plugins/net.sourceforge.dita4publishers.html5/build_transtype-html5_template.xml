@@ -72,35 +72,32 @@
       <equals arg1="${dita.html5.plugin}" arg2="no" />
     </condition>
 
-		<condition property="site.theme" value="theme-01">
+		<condition property="site.theme" value="default">
 		  <not>
         <isset property="site.theme" />
       </not>
 		</condition>
 
-		<condition property="bodyClass" value="centered paged img-with-shadow">
+		<condition property="bodyClass" value="centered paged img-with-shadow navigation-large">
 		  <not>
         <isset property="bodyClass" />
       </not>
 		</condition>
-	
-
-
-		
-	<condition property="args.css.theme" value="assets/themes/theme-01/style-min.css">
-      <not>
-        <isset property="args.css.theme" />
-      </not>
-    </condition>
     
 		
-	<condition property="args.css.file" value="assets/css/style-min.css">
+	<condition property="args.css.file" value="">
       <not>
         <isset property="args.css.file" />
       </not>
     </condition>
     
-	<condition property="args.js.file" value="assets/js/script-min.js">
+    <condition property="args.theme.file" value="themes/${site.theme}/css/style-min.css">
+      <not>
+        <isset property="args.theme.file" />
+      </not>
+    </condition>
+    
+	<condition property="args.js.file" value="themes/${site.theme}/js/script-min.js">
       <not>
         <isset property="args.js.file" />
       </not>
@@ -112,9 +109,10 @@
       </not>
     </condition>
 
-    <condition property="assets.output.dir" value="assets">
+    
+     <condition property="themes.output.dir" value="themes">
       <not>
-        <isset property="assets.output.dir" />
+        <isset property="themes.output.dir" />
       </not>
     </condition>
 
@@ -225,7 +223,8 @@
     	<!-- Parameters from dita2xhtml and similar transtypes: -->
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
       <param name="CSS" expression="${args.css.file}" if="args.css.file" />
-      <param name="CSSTHEME" expression="${args.css.theme}" if="args.css.theme" />
+      <param name="CSSTHEME" expression="${args.theme.file}" if="args.theme.file" />
+      
       <param name="NAVIGATIONMARKUP" expression="${navigation.markup}" if="navigation.markup" />
 
   	<param name="IDMAINCONTAINER" expression="${id.main.container}" if="id.main.container" />
@@ -302,12 +301,10 @@
 
   <target name="html5-copy-assets"  description="Copy assets files" depends="dita.map.html5.init">
 
-    <property name="user.assetspath.real" value="${output.dir}${file.separator}${assets.output.dir}"/>
-
-    <mkdir dir="${user.assetspath.real}/assets"/>
-
-    <copy todir="${user.assetspath.real}">
-      <fileset dir="${html5.dir}/assets"/>
+    <mkdir dir="${output.dir}/${themes.output.dir}/${site.theme}"/>
+    
+    <copy todir="${output.dir}/themes/${site.theme}">
+      <fileset dir="${html5.dir}/themes/${site.theme}"/>
     </copy>
 
   </target>

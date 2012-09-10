@@ -78,6 +78,8 @@ div.imagejustify { text-align: justify; }
 	border-color: Silver;
 }
 
+img + p { margin-top: 3em; } 
+
 /* Default of italics to set apart figure captions */
 .figcap { font-style: italic; }
 .figdesc { font-style: normal; }

@@ -66,15 +66,9 @@
   <xsl:result-document href="{$indexUri}" format="indented-xml">
   	<!-- I added the right doctype here -->
     <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
-  <html>
-  <xsl:attribute name = "lang"><xsl:call-template name="getLowerCaseLang"/></xsl:attribute>
-  <xsl:sequence select="'&#x0a;'"/>
   
-     <xsl:apply-templates select="." mode="generate-head"/>
-     
-    <xsl:apply-templates select="." mode="generate-body"/>
-
-  </html>
+      <xsl:apply-templates select="." mode="generate-html"/>
+  
   </xsl:result-document>
 </xsl:template>
 
@@ -117,6 +111,17 @@
     </h1>
   </xsl:template>
   
+  <xsl:template match="*" mode="generate-html">
+    <html>
+      <xsl:attribute name = "lang"><xsl:call-template name="getLowerCaseLang"/></xsl:attribute>
+      <xsl:sequence select="'&#x0a;'"/>
+  
+      <xsl:apply-templates select="." mode="generate-head"/>
+     
+      <xsl:apply-templates select="." mode="generate-body"/>
+
+    </html>
+  </xsl:template>  
   
   <!-- used to generate the js links -->
   <xsl:template match="*" mode="generate-javascript-includes">
@@ -144,9 +149,12 @@
   <!-- used to generate the css links -->
   <!-- FIXME: Parameterize the location of the css -->
   <xsl:template match="*" mode="generate-css-includes">
-    <link rel="stylesheet" type="text/css">
-      <xsl:attribute name = "href" select="$CSS" />
-    </link>
+  
+  	<xsl:if test="$CSS!=''">
+     <link rel="stylesheet" type="text/css">
+        <xsl:attribute name = "href" select="$CSS" />
+      </link>
+    </xsl:if>
     
     <xsl:sequence select="'&#x0a;'"/>
     
@@ -190,7 +198,7 @@
   
   <!-- used to output the html5 header -->
   <xsl:template match="*" mode="generate-header">
-    <header role = "banner" aria-labelledby="publication-title">
+    <header role="banner" aria-labelledby="publication-title">
        <xsl:apply-templates select="." mode="generate-root-page-header"/>
     </header>
   </xsl:template>
@@ -285,7 +293,7 @@
    <!-- generate main content -->
   <xsl:template match="*" mode="generate-main-content"> 
    	
-    <div id="{$IDMAINCONTENT}" class="{$CLASSMAINCONTENT}" role="main" aria-atomic="true" aria-live="polite" aria-relevant="all">    
+    <div id="{$IDMAINCONTENT}" class="{$CLASSMAINCONTENT}">    
          
       <xsl:sequence select="'&#x0a;'"/>
 

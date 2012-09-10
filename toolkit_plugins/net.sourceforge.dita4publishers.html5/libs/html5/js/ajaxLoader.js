@@ -57,6 +57,11 @@
             var loader = $("<div />").attr("id", "d4h5-loader");
             $('body').append(loader);
         },
+        
+        setAriaAttr: function () {
+          $(d4h5.outputSelector).attr('role', 'main').attr('aria-atomic', 'true').attr('aria-live', 'polite').attr('aria-relevant', 'all');
+        
+        },
 
         // called before the ajax request is send
         // used to output a 'loader' on the page  
@@ -235,7 +240,7 @@
 
         // init ajax plugin
         init: function () {
-         
+         	d4h5.ajax.ready(d4h5.ajax.setAriaAttr);
             d4h5.ajax.ready(d4h5.ajax.rewriteAttrHref);
             d4h5.ajax.ready(d4h5.ajax.rewriteAttrSrc);
             d4h5.ajax.ready(d4h5.ajax.setTitle);

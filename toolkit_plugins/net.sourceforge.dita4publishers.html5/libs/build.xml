@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="YUI Compressor" default="package.compress" basedir=".">
+
 	<property name="yui-compressor.jar" location="${yui.path}"/>
 	
 	<target name="set.properties">
-		<condition property="properties" value="ant.properties">
+	
+		<loadproperties srcFile="shared.properties"/>
+	
+		<condition property="properties" value="default">
     		<not>
       			<isset property="properties"/>
     		</not>
   		</condition>
+  		
+		<property name="build.dir" value="${theme.dir}/${properties}" />
+		
 	</target>
 
 	<target name="load.properties" depends="set.properties">
-		<loadproperties srcFile="${properties}"/>
+		<loadproperties srcFile="${properties}.properties"/>
 		<echo>
 
 			yui.path = ${yui.path}
@@ -30,7 +37,7 @@
 		<mkdir dir="${build.dir}"/>
 	</target>
 
-	<target name="package.compress" depends="init, package.concat.js,package.concat.css, package.copy.assets">
+	<target name="package.compress" depends="init, package.concat.js, package.concat.css, package.copy.assets">
 		<apply executable="java" parallel="false" dest="${build.dir}/${dir.js}">
 			<fileset dir="${build.dir}/${dir.js}" includes="*"/>
 			<arg line="-jar"/>
@@ -67,10 +74,6 @@
 	</target>
 
 	<target name="package.copy.assets">
-
-		<copy todir="${build.dir}/${themes.dir}">
-      <fileset dir="${lib.html5.dir.theme}"/>
-    </copy>
     
     	<copy todir="${build.dir}/${fonts.dir}">
       <fileset dir="${lib.html5.dir.fonts}"/>
