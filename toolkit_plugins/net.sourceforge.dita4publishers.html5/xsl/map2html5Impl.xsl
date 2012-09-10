@@ -35,6 +35,7 @@
   <xsl:include href="map2html5Nav.xsl"/>
   <xsl:include href="map2html5Content.xsl"/>
   <xsl:include href="map2html5RootPages.xsl"/>
+  <xsl:include href="map2html5Collection.xsl"/>
   
   <xsl:param name="dita-css" select="'css/topic-html5.css'" as="xs:string"/>
 
