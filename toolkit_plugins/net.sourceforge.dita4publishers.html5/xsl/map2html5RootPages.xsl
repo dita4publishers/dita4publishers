@@ -113,7 +113,9 @@
   
   <xsl:template match="*" mode="generate-html">
     <html>
+    
       <xsl:attribute name = "lang"><xsl:call-template name="getLowerCaseLang"/></xsl:attribute>
+      
       <xsl:sequence select="'&#x0a;'"/>
   
       <xsl:apply-templates select="." mode="generate-head"/>
@@ -123,9 +125,15 @@
     </html>
   </xsl:template>  
   
-  <!-- used to generate the js links -->
+  <!-- 
+    used to generate the js links 
+    FIXME: find a way to translate javascript variables.
+    ex: d4h5.locale: {
+      'property': 'value',
+      'property2': 'value2',    
+    }
+  -->
   <xsl:template match="*" mode="generate-javascript-includes">
-    <!-- FIXME: Parameterize the location of the JavaScript -->
     <script type="text/javascript">
     <xsl:attribute name = "src" select="$JS" /> &#xa0;</script>
     <xsl:sequence select="'&#x0a;'"/>
@@ -147,7 +155,6 @@
   </xsl:template>
 
   <!-- used to generate the css links -->
-  <!-- FIXME: Parameterize the location of the css -->
   <xsl:template match="*" mode="generate-css-includes">
   
   	<xsl:if test="$CSS!=''">
@@ -170,8 +177,12 @@
   <!-- page links are intented to be used for screen reader -->
   <xsl:template name="gen-page-links">
      <ul id="page-links">
-		<li><a id="skip-to-content" href="#main-content">Skip to content</a></li>
-		<li><a id="skip-to-localnav" href="#local-navigation">Skip to menu</a></li>
+		<li><a id="skip-to-content" href="#{$IDMAINCONTENT}"><xsl:call-template name="getString">
+                    <xsl:with-param name="stringName" select="'SkipToContent'"/>
+                </xsl:call-template></a></li>
+		<li><a id="skip-to-localnav" href="#local-navigation"><xsl:call-template name="getString">
+                    <xsl:with-param name="stringName" select="'SkipToContent'"/>
+                </xsl:call-template></a></li>
      </ul>
   </xsl:template>
 
@@ -191,7 +202,9 @@
   <xsl:template match="*" mode="set-initial-content">
 		<noscript>
 			<p>
-				<xsl:text>To read this documentation, you must turn on JavaScript.</xsl:text>
+				<xsl:text><xsl:call-template name="getString">
+                    <xsl:with-param name="stringName" select="'turnJavascriptOn'"/>
+                </xsl:call-template></xsl:text>
 			</p>
 		</noscript>
   </xsl:template>
