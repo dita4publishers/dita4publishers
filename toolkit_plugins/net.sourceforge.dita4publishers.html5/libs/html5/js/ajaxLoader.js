@@ -231,6 +231,10 @@
                     url = url.replace(/^q=/, '');
                     d4h5.ajax.loadHTML(url);
                 } else {
+                	var el = $(d4h5.navigationSelector + ' a:first-child');
+                	if(el.attr('href') == undefined) {
+                		return false;
+                	}
                     url = $(d4h5.navigationSelector + ' a:first-child').attr('href').replace(/^#/, '');
                     window.location.hash = "q=" + url;
                 }

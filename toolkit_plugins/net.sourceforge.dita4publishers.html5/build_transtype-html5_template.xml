@@ -19,6 +19,12 @@
 
   <target name="dita.map.html5.init"
     description="Init properties for HTML5">
+    
+    <condition property="site.theme" value="default">
+		  <not>
+        <isset property="site.theme" />
+      </not>
+	</condition>
 
     <property name="d4p.is.map.driven" value="true"/>
 
@@ -71,18 +77,6 @@
     <condition property="noPlugin">
       <equals arg1="${dita.html5.plugin}" arg2="no" />
     </condition>
-
-		<condition property="site.theme" value="default">
-		  <not>
-        <isset property="site.theme" />
-      </not>
-		</condition>
-
-		<condition property="bodyClass" value="centered paged img-with-shadow navigation-large">
-		  <not>
-        <isset property="bodyClass" />
-      </not>
-		</condition>
     
 		
 	<condition property="args.css.file" value="">
@@ -131,7 +125,14 @@
   	  </not>
   	</condition>
   	
-  	 <condition property="navigation.markup" value="default">
+  	<!-- 
+  	    output navigation in different ways
+  	    - navigation-default: a standard navigation (for left or right size)
+  	    - navigation-tabbed:  a tabbed navigation
+  	               You need a limited number of items 
+  	              at the first level for this !important
+  	-->
+  	 <condition property="navigation.markup" value="navigation-default">
   		<not>
   			<isset property="navigation.markup"/>
   	  </not>
@@ -161,7 +162,7 @@
   	  </not>
   	</condition>
   	
-  	<condition property="class.navigation" value="nav-left container_24">
+  	<condition property="class.navigation" value="nav-left">
 		  <not>
         <isset property="class.navigation" />
       </not>
@@ -170,6 +171,12 @@
 	<condition property="js.options" value="navigation : { type : '${class.navigation}' }">
 		  <not>
         <isset property="js.options" />
+      </not>
+	</condition>
+	
+	<condition property="bodyClass" value="centered paged img-with-shadow navigation-large ${navigation.markup}">
+		  <not>
+        <isset property="bodyClass" />
       </not>
 	</condition>
 		
@@ -219,7 +226,7 @@
     	<param name="titleOnlyTopicClassSpec" expression="${title.only.topic.class.spec}"/>
     	<param name="titleOnlyTopicTitleClassSpec" expression="${title.only.topic.title.class.spec}"/>
      	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
-
+		<param name="TRANSTYPE" expression="${transtype}" if="{transtype"/>
     	<!-- Parameters from dita2xhtml and similar transtypes: -->
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
       <param name="CSS" expression="${args.css.file}" if="args.css.file" />

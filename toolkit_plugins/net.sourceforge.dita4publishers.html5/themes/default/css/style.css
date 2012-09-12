@@ -1024,13 +1024,17 @@ h2.nav-pub-title { font-size: 1.1em; }
     margin-right: 5px;
 }
 
- #d4h5-main-content {
-     width: 590px;
- }
+#d4h5-main-content {
+	width:100%;
+}
+
+.navigation-default #d4h5-main-content {
+    width: 590px;
+}
  
- .navigation-large #d4h5-main-content {
-     width: 520px;
- }#local-navigation {
+.navigation-default.navigation-large #d4h5-main-content {
+    width: 520px;
+}#local-navigation {
 	width: 230px;
 }
 
@@ -1758,4 +1762,5 @@ span.navtitle, li.collapsible a:link {
 }
 li {
 	margin:1.7em 0;
+	list-style-position: inside;
 }

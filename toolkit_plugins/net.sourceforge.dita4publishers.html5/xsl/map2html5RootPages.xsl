@@ -201,10 +201,9 @@
   <!-- used to defined initial content if javascript is off -->
   <xsl:template match="*" mode="set-initial-content">
 		<noscript>
-			<p>
-				<xsl:text><xsl:call-template name="getString">
+			<p><xsl:call-template name="getString">
                     <xsl:with-param name="stringName" select="'turnJavascriptOn'"/>
-                </xsl:call-template></xsl:text>
+                </xsl:call-template>
 			</p>
 		</noscript>
   </xsl:template>
@@ -322,10 +321,16 @@
    -->
 
    <xsl:template match="*" mode="choose-html5-nav-markup">
+    <xsl:message> + [INFO] Generating HTML5 <xsl:value-of select="$NAVIGATIONMARKUP" />navigation ...</xsl:message>
    <xsl:choose>
-          <xsl:when test="$NAVIGATIONMARKUP='default'">
-            <xsl:apply-templates select="." mode="generate-html5-nav-page-markup"/>
+        <!-- 
+        	Experimental
+        -->
+          <xsl:when test="$NAVIGATIONMARKUP='navigation-tabbed'">
+          	<xsl:message> + [WARNING] This code is experimental !</xsl:message>
+            <xsl:apply-templates select="." mode="generate-html5-nav-tabbed-markup"/>
           </xsl:when>
+          
           <xsl:otherwise>
             <!-- This mode generates the navigation structure (ToC) on the
                 index.html page, that is, the main navigation structure.

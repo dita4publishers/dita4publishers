@@ -33,12 +33,13 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.html2/xsl/map2html2Impl.xsl"/>
 
   <xsl:include href="map2html5Nav.xsl"/>
+  <xsl:include href="map2html5NavTabbed.xsl"/>
   <xsl:include href="map2html5Content.xsl"/>
   <xsl:include href="map2html5RootPages.xsl"/>
   <xsl:include href="map2html5Collection.xsl"/>
   
   <xsl:param name="dita-css" select="'css/topic-html5.css'" as="xs:string"/>
-
+  <xsl:param name="TRANSTYPE" select="'html5'" />
   <xsl:param name="siteTheme" select="'theme-01'" />
   <xsl:param name="bodyClass" select="''" />
   <xsl:param name="CLASSNAVIGATION" select="'left'" />
@@ -46,7 +47,7 @@
   <xsl:param name="JS" select="''" />
   <xsl:param name="CSSTHEME" select="''" />
   <xsl:param name="NAVIGATIONMARKUP" select="'default'" />
-  
+
   <xsl:param name="IDMAINCONTAINER" select="'d4h5-main-container'" />
   <xsl:param name="CLASSMAINCONTENT" select="''" />
   <xsl:param name="IDSECTIONCONTAINER" select="'d4h5-section-container'" />

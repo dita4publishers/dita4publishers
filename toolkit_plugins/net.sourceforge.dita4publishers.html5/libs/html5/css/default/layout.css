@@ -110,10 +110,14 @@ h2.nav-pub-title { font-size: 1.1em; }
     margin-right: 5px;
 }
 
- #d4h5-main-content {
-     width: 590px;
- }
+#d4h5-main-content {
+	width:100%;
+}
+
+.navigation-default #d4h5-main-content {
+    width: 590px;
+}
  
- .navigation-large #d4h5-main-content {
-     width: 520px;
- }
+.navigation-default.navigation-large #d4h5-main-content {
+    width: 520px;
+}
