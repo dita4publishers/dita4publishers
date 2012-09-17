@@ -137,9 +137,14 @@
     <script type="text/javascript">
     <xsl:attribute name = "src" select="$JS" /> &#xa0;</script>
     <xsl:sequence select="'&#x0a;'"/>
+    
+    <xsl:variable name="json" as="xs:string" select="unparsed-text($JSONVARFILE, 'UTF-8')"/>
 
     <script type="text/javascript">
-
+   		<xsl:sequence select="'&#x0a;'"/>
+		<xsl:value-of select="$json" /><xsl:text>;</xsl:text>
+		<xsl:sequence select="'&#x0a;'"/>
+		
    		<xsl:text>
 			$(function() {
 				d4h5.init({

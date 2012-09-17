@@ -47,6 +47,7 @@
   <xsl:param name="JS" select="''" />
   <xsl:param name="CSSTHEME" select="''" />
   <xsl:param name="NAVIGATIONMARKUP" select="'default'" />
+  <xsl:param name="JSONVARFILE" select="''" />
 
   <xsl:param name="IDMAINCONTAINER" select="'d4h5-main-container'" />
   <xsl:param name="CLASSMAINCONTENT" select="''" />

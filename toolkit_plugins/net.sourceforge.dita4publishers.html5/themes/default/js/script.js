@@ -1139,15 +1139,6 @@ window.Modernizr = (function( window, document, undefined ) {
     var d4h5 = {
 
         version: '0.1a',
-        
-        // selector for the element which contain the content
-        outputSelector: '#d4h5-main-content',
-
-        // navigationSelector
-        navigationSelector: '#local-navigation',
-
-        // element which contains the content to show after the AJAX call
-        externalContentElement: 'section',
 
         // is initial content should be loaded after init()
         loadInitialContent: true,
@@ -1236,7 +1227,12 @@ window.Modernizr = (function( window, document, undefined ) {
           	    );
           	}
         },
-
+		
+		setProps: function (options) {
+			// extend options
+            $.extend(true, this, options);
+		},
+		
         init: function (options) {
 			
 			// extend options

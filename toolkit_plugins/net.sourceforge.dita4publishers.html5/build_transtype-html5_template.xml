@@ -179,13 +179,20 @@
         <isset property="bodyClass" />
       </not>
 	</condition>
+	
+	<condition property="json.vars.file" value="${dita.temp.dir}/json/vars.json">
+		  <not>
+        <isset property="json.vars.file" />
+      </not>
+	</condition>
+	
 		
   	<echo message="+++ html5-specific properties:"/>
   	<echoproperties format="text" regex="^(html5|html2|css|user|out\.)" taskname="echo"/>
   </target>
 
-  <target name="dita.map.html5" depends="dita.map.html5.init, html5-copy-assets, html5-copy-dyntoc-javascript"
-  	description="Generate all ePub components from input map and topics">
+  <target name="dita.map.html5" depends="dita.map.html5.init, html5-copy-assets, xmltojsonvars"
+  	description="Generate html5 components from input map and topics">
 
   	<mkdir dir="${html5.temp.dir}"/>
   	<makeurl file="${output.dir}" property="html5.xslt.outdir"/>
@@ -230,8 +237,8 @@
     	<!-- Parameters from dita2xhtml and similar transtypes: -->
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
       <param name="CSS" expression="${args.css.file}" if="args.css.file" />
-      <param name="CSSTHEME" expression="${args.theme.file}" if="args.theme.file" />
-      
+      <param name="CSSTHEME" expression="${args.theme.file}" if="args.theme.file" /> 
+      <param name="JSONVARFILE" expression="${json.vars.file}" if="json.vars.file" />
       <param name="NAVIGATIONMARKUP" expression="${navigation.markup}" if="navigation.markup" />
 
   	<param name="IDMAINCONTAINER" expression="${id.main.container}" if="id.main.container" />
@@ -333,6 +340,25 @@
     </copy>
 
   </target>
+  
+  
+  <target name="xmltojsonvars" description="Convert XML variables to a json feed">
+  
+	<property name="xml2json.style" location="${html5.dir}/xml2json/xml-to-json.xsl"/>
+	
+	<mkdir dir="${json.vars.dir}" />
+		
+	<xslt processor="trax"
+      in="${html5.dir}/js/vars.xml"
+      out="${json.vars.file}"
+      extension=".json"
+      style="${xml2json.style}">
+       <param name="jsonp" expression="d4h5.setProps"/>
+       
+      
+	</xslt>
 
+  </target>
 
+  
 </project>
