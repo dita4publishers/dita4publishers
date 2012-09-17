@@ -600,18 +600,51 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
 })(d4h5);(function (d4h5) {
 
     // use only if you want tabbed navigation
+    // experimental UI
     var tabNavigation = {
+    
+    	// tab selector
+    	tabSelector: '#tabs-navigation',
     
         // id of the div element to be created
         tabContainerSelector: '#tab-container',
         
+        // tab selector
+    	tooboxSelector: '#tab-tools',
+        
+        // duration
+        duration: 'slow',
+        
         // create message container    
         init: function () {
-            d4h5.ajax.ready(d4h5.tabNavigation.slideToggle);
+            d4h5.tabNavigation.addTabUI();
+            d4h5.tabNavigation.addToolBar();
+            d4h5.ajax.ready(d4h5.tabNavigation.slideUp);           
         },
         
-        slideToggle: function () {
-        	$(d4h5.tabNavigation.tabContainerSelector).slideToggle('slow');
+        slideUp: function () {
+            $(d4h5.tabNavigation.tabContainerSelector).slideUp(d4h5.tabNavigation.duration, function(){
+            	$(d4h5.outputSelector).show();           
+            });
+            
+        },
+        
+        slideDown: function () {
+        	$(d4h5.tabNavigation.tabContainerSelector).slideDown(d4h5.tabNavigation.duration, function(){
+            	$(d4h5.outputSelector).hide();           
+            });
+        },
+        
+        addTabUI: function () {
+			$( d4h5.tabNavigation.tabSelector ).tabs({
+   		        select: function(event, ui) {
+   				    d4h5.tabNavigation.slideDown();
+   			    }
+			});
+        },
+        
+        addToolBar: function () {
+        	$(d4h5.tabNavigation.tabContainerSelector).before($("<div />").attr('id', d4h5.tabNavigation.tooboxSelector.substring(1)));
         }
     };
 
@@ -619,3 +652,4 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
     d4h5.tabNavigation = tabNavigation;
 
 })(d4h5);
+

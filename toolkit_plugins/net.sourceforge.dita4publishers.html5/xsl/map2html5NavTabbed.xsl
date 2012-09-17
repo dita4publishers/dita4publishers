@@ -25,30 +25,8 @@
 
     This transform requires XSLT 2.
     ================================================================= -->
-<!--
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
 
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
--->
 
-<!--
-
-<div id="tabs">
-	<ul>
-		<li><a href="#tabs-1">Nunc tincidunt</a></li>
-		<li><a href="#tabs-2">Proin dolor</a></li>
-	</ul>
-	<div id="tabs-1">
-		<p> content of tab 1</p>
-	</div>
-	<div id="tabs-2">
-		<p> content of tab 2</p>
-	</div>
-
-</div>
-
--->
 	<xsl:variable name="maxTocDepth"  as="xs:integer" select="3" />
 
 	<xsl:template mode="generate-html5-nav-tabbed-markup" match="*[df:class(., 'map/map')]">
@@ -85,136 +63,144 @@
          <div id="tab-container">
          	<xsl:sequence select="$listItemsContent"/>
          </div>
-    </div>
-    
-    <script>
-    	<xsl:text>
-		$(function() {
-			$( "#tabs-navigation" ).tabs();
-		});
-		</xsl:text>
-	</script>
-	
+    </div>	
   	</xsl:template>
   	
  	
 	<xsl:template match="*" mode="jquery-tab-head">
 		<li><a href="#tab-{count(preceding-sibling::*) + 1}"><xsl:apply-templates select="." mode="nav-point-title"/></a></li>
   	</xsl:template>
-   
-   	<xsl:template match="*" mode="jquery-tab-content">
-		<div id="tab-{count(preceding-sibling::*) + 1}">
-			<xsl:apply-templates select="." mode="jquery-tab-content-item"/>
+  	
+  	<xsl:template match="*" mode="html5-block">
+  		<xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
+  	 	<xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
+		<div>
+			<xsl:attribute name="class" select="@outputclass" />
+			<h2><xsl:apply-templates select="." mode="nav-point-title"/></h2>
+			
+			<!-- output children -->
+			<xsl:if test="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]">
+            	<xsl:variable name="listItems" as="node()*">
+              		<!-- Any subordinate topics in the currently-referenced topic are
+              		 	reflected in the ToC before any subordinate topicrefs.
+            		-->
+              		<xsl:apply-templates mode="html5-list-items"
+                select="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]">
+                <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes"
+                  select="$tocDepth + 1"
+                />
+              </xsl:apply-templates>
+            </xsl:variable>
+            <xsl:if test="$listItems">
+              <ul>
+                <xsl:sequence select="$listItems"/>
+              </ul>
+            </xsl:if>
+          </xsl:if>		
+			
 		</div>
   	</xsl:template>
   	
-  	<xsl:template match="*" mode="jquery-tab-content-item">
-		<ul>
-			<xsl:apply-templates select="." mode="jquery-tab-content-navigation"/>
-		</ul>
-	</xsl:template>
-  	
-  	<xsl:template match="*" mode="jquery-tab-content-navigation">
-  	
-  		<xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
-   		<xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>		
-        <xsl:variable name="self" select="generate-id(.)" as="xs:string"/>
-		<xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
-		<xsl:variable name="targetUri" as="xs:string">
-			<xsl:choose>
-				<xsl:when test="root($topic)!=''">		
-					<xsl:value-of 
+  	  	<xsl:template match="*" mode="html5-list-item">
+  	 		<xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
+    		<xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
+
+   			<xsl:if test="$tocDepth le $maxTocDepthInt">
+      			<xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
+      			
+      			<xsl:choose>
+        			
+        			<xsl:when test="not($topic)">
+          				<xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
+        			</xsl:when>
+        		
+        			<xsl:otherwise>
+          				
+          				<xsl:variable name="targetUri" 
             select="htmlutil:getTopicResultUrl($outdir, root($topic), $rootMapDocUrl)" 
-             />
-        		
-        		</xsl:when>
-        	
-        	<xsl:otherwise>
-        	
-     			<xsl:value-of 
-            select="''" 
-             />
-        	</xsl:otherwise>        	
-        	
-        </xsl:choose>
-		</xsl:variable>
-		
-		<xsl:variable name="relativeUri" as="xs:string">
-			<xsl:choose>
-				<xsl:when test="root($topic)!=''">		
-					<xsl:value-of 
+            as="xs:string"/>
+          				<xsl:variable name="relativeUri" 
             select="relpath:getRelativePath($outdir, $targetUri)" 
-             />
-        		
-        		</xsl:when>
-        	
-        	<xsl:otherwise>
-        	
-     			<xsl:value-of 
-            select="''" 
-             />
-        	</xsl:otherwise>        	
-        	
-        </xsl:choose>
-		</xsl:variable>
-		
-			<xsl:if test="$tocDepth le $maxTocDepthInt">
-				<li 
-					id="{$self}"
-					class="{@outputclass}"
-				>
+            as="xs:string"/>
+          				
+          				<xsl:variable name="enumeration" as="xs:string?">
+            				<xsl:apply-templates select="." mode="enumeration"/>
+          				</xsl:variable>
+          				
+          				<xsl:variable name="self" select="generate-id(.)" as="xs:string"/>
 
-				<xsl:choose>
-					<!-- is there a link availaible -->
-					<xsl:when test="$relativeUri!=''">           
-						<a href="{$relativeUri}">
-							<xsl:call-template name="nav-enumeration">
-					 			<xsl:with-param name="tocDepth" select="$tocDepth" tunnel="yes" />
-							</xsl:call-template>
-							<xsl:apply-templates select="." mode="nav-point-title"/>
-						</a>
-					</xsl:when>
-					
-					<xsl:otherwise>
-						<xsl:apply-templates select="." mode="nav-point-title"/>
-					</xsl:otherwise>	
-												
-				</xsl:choose>
-          	
-            	<xsl:call-template name="navigation-children">
-            		<xsl:with-param name="tocDepth"  select="$tocDepth" tunnel="yes" />
-            		<xsl:with-param name="topic"  select="$topic" />
-				</xsl:call-template>
+          				<!-- Use UL for navigation structure -->
+
+          				<li><a
+            href="{$relativeUri}">
+           <!-- target="{$contenttarget}" -->
+            <xsl:if test="$enumeration and $enumeration != ''">
+              <span class="enumeration enumeration{$tocDepth}"><xsl:sequence select="$enumeration"/></span>
+            </xsl:if>
+            
+            <xsl:apply-templates select="." mode="nav-point-title"/></a>
+            
+          <!--xsl:if test="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]">
+            <xsl:variable name="listItems" as="node()*">
+              <xsl:apply-templates mode="html5-list-item"
+                select="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]">
+                <xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes"
+                  select="$tocDepth + 1"
+                />
+              </xsl:apply-templates>
+            </xsl:variable>
+            <xsl:if test="$listItems">
+              <ul>
+                <xsl:sequence select="$listItems"/>
+              </ul>
+            </xsl:if>
+          </xsl:if-->
           </li>
-        </xsl:if>
-
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:if>
   	</xsl:template>
   	
-  	<xsl:template name="navigation-children">
-  		<xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
-  		<xsl:param name="topic" />
-  		
-  	   	<xsl:variable name="isTopicRef" select="not(df:class(., 'map/topicref'))" />
- 		<xsl:variable name="listItems" as="node()*">
+  
+  	
+
+   
+   	<xsl:template match="*" mode="jquery-tab-content">
+   		<xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
+		<xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
+		<xsl:variable name="listItems" as="node()*">
         <!-- Any subordinate topics in the currently-referenced topic are
               reflected in the ToC before any subordinate topicrefs.
-        -->
-              
+        -->              
         	<xsl:apply-templates 
-        		mode="generate-html5-tabbed-nav-content"
+        		mode="html5-blocks"
             	select="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]">
                 
             	<xsl:with-param name="tocDepth" as="xs:integer" tunnel="yes" select="$tocDepth + 1" />
         	</xsl:apply-templates>
         </xsl:variable>
-            	
-        <xsl:if test="$listItems">
-            <ul>
-                <xsl:sequence select="$listItems"/>
-              </ul>
-        </xsl:if>
+        
+        
+		<div id="tab-{count(preceding-sibling::*) + 1}">
+			<xsl:if test="$listItems">
+            	<xsl:sequence select="$listItems"/>
+        	</xsl:if>
+		</div>
+		
   	</xsl:template>
   	
+    	
+  	<xsl:template name="html5-tab-content-block">
+  		<xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>
+  		<xsl:param name="id" as="xs:string" tunnel="yes" select="''"/>
+  		<xsl:param name="relativeUri" as="xs:string" tunnel="yes" select="''"/>
+  			<xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
+  		
+ 		<h2><xsl:apply-templates select="." mode="nav-point-title"/></h2>
+ 		
+  	</xsl:template>
+  	
+  	  	
   	<xsl:template name="nav-enumeration">
   		<xsl:param name="tocDepth" as="xs:integer"  select="1" />
 		<xsl:variable name="enumeration" as="xs:string?">
@@ -233,7 +219,8 @@
 
 
   	 	
-  	<!-- templates for tab headers -->
+  	<!-- 
+  		Templates for tab headers -->
     <xsl:template mode="generate-html5-tabbed-nav" match="*[df:class(., 'topic/title')][not(@toc = 'no')]">
 		<!--xsl:apply-templates select="." mode="jquery-tab-head"/-->    
     </xsl:template>
@@ -243,26 +230,26 @@
 	</xsl:template>
 	  	  
   	<xsl:template mode="generate-html5-tabbed-nav" match="mapdriven:collected-data">
-  		<xsl:apply-templates select="." mode="jquery-tab-head"/>
+  		
   	</xsl:template>
   
     <xsl:template mode="generate-html5-tabbed-nav" match="enum:enumerables">
-  		<xsl:apply-templates select="." mode="jquery-tab-head"/>
+
     </xsl:template>
   
 	<xsl:template mode="generate-html5-tabbed-nav" match="glossdata:glossary-entries" >    						
-		<xsl:apply-templates select="." mode="jquery-tab-head"/>
+		
     </xsl:template>
   
     <xsl:template mode="generate-html5-tabbed-nav" match="index-terms:index-terms" >    			
-    	<xsl:apply-templates select="." mode="jquery-tab-head"/>
+    	
     </xsl:template>
       
     <xsl:template mode="generate-html5-tabbed-nav" match="*[df:isTopicGroup(.)]" priority="20" >    			
     	<xsl:apply-templates select="." mode="jquery-tab-head"/>
     </xsl:template>
   
-  <xsl:template mode="generate-html5-tabbed-nav" match="*[df:class(., 'topic/topic')]">  
+  <xsl:template mode="generate-html5-tabbed-nav" match="*[df:class(., 'topic/topic')][not(@toc = 'no')]">  
   		<xsl:apply-templates select="." mode="jquery-tab-head"/>
     </xsl:template>
    
@@ -270,6 +257,10 @@
        anything.  Same with topicref that has no @href. -->
   <xsl:template mode="generate-html5-tabbed-nav" match="*[df:isTopicHead(.)][not(@toc = 'no')]">
   		<xsl:apply-templates select="." mode="jquery-tab-head"/>
+  </xsl:template>
+  
+  <xsl:template mode="generate-html5-tabbed-nav" match="*[df:isTopicHead(.)][@toc = 'no']">
+  	
   </xsl:template>
   
   <!-- 
@@ -292,11 +283,11 @@
     </xsl:template>
   
 	<xsl:template mode="generate-html5-tabbed-nav-content" match="glossdata:glossary-entries" >    						
-		<!--xsl:apply-templates select="." mode="jquery-tab-content"/-->
+
     </xsl:template>
   
     <xsl:template mode="generate-html5-tabbed-nav-content" match="index-terms:index-terms" >    			
-    	<!--xsl:apply-templates select="." mode="jquery-tab-content"/-->
+
     </xsl:template>
       
     <xsl:template mode="generate-html5-tabbed-nav-content" match="*[df:isTopicGroup(.)]" priority="20" >    			
@@ -307,10 +298,101 @@
   		<!--xsl:apply-templates select="." mode="jquery-tab-content"/-->
     </xsl:template>
   
-  <!-- topichead elements get a navPoint, but don't actually point to
-       anything.-->
+  <!-- topichead elements get a navPoint, but don't actually point to anything.-->
   <xsl:template mode="generate-html5-tabbed-nav-content" match="*[df:isTopicHead(.)][not(@toc = 'no')]" >
   		<xsl:apply-templates select="." mode="jquery-tab-content"/>
   </xsl:template>
+  
+    <xsl:template mode="generate-html5-tabbed-nav-content" match="*[df:isTopicHead(.)][@toc = 'no']" >
+  		
+  </xsl:template>
+  
+  
+  <!-- templates for tab block -->
+    <xsl:template mode="html5-blocks" match="*[df:class(., 'topic/title')][not(@toc = 'no')]">
+		<!--xsl:apply-templates select="." mode="html5-block"/-->    
+    </xsl:template>
+    
+	<xsl:template mode="html5-blocks" match="*[df:isTopicRef(.)][not(@toc = 'no')]" >
+		<xsl:apply-templates select="." mode="html5-block"/>
+	</xsl:template>
+	  	  
+  	<xsl:template mode="html5-blocks" match="mapdriven:collected-data">
+  		<xsl:apply-templates select="." mode="html5-block"/>
+  	</xsl:template>
+  
+    <xsl:template mode="html5-blocks" match="enum:enumerables">
+  		<xsl:apply-templates select="." mode="html5-block"/>
+    </xsl:template>
+  
+	<xsl:template mode="html5-blocks" match="glossdata:glossary-entries" >    						
 
+    </xsl:template>
+  
+    <xsl:template mode="html5-blocks" match="index-terms:index-terms" >    			
+   
+    </xsl:template>
+      
+    <xsl:template mode="html5-blocks" match="*[df:isTopicGroup(.)]" priority="20" >    			
+    	<xsl:apply-templates select="." mode="html5-block"/>
+    </xsl:template>
+  
+  <xsl:template mode="html5-blocks" match="*[df:class(., 'topic/topic')]">  
+  		<xsl:apply-templates select="." mode="html5-block"/>
+    </xsl:template>
+   
+  <!-- topichead elements get a navPoint, but don't actually point to
+       anything.  Same with topicref that has no @href. -->
+  <xsl:template mode="html5-blocks" match="*[df:isTopicHead(.)][not(@toc = 'no')]">
+  		<xsl:apply-templates select="." mode="html5-block"/>
+  </xsl:template>
+  
+    <xsl:template mode="html5-blocks" match="*[df:isTopicHead(.)][@toc = 'no']">
+
+  </xsl:template>
+
+
+
+  <!-- templates for html5 list item -->
+    <xsl:template mode="html5-list-items" match="*[df:class(., 'topic/title')][not(@toc = 'no')]">
+		<!--xsl:apply-templates select="." mode="html5-block"/-->    
+    </xsl:template>
+    
+	<xsl:template mode="html5-list-items" match="*[df:isTopicRef(.)][not(@toc = 'no')]" >
+		<xsl:apply-templates select="." mode="html5-list-item"/>
+	</xsl:template>
+	  	  
+  	<xsl:template mode="html5-list-items" match="mapdriven:collected-data">
+  		<xsl:apply-templates select="." mode="html5-list-item"/>
+  	</xsl:template>
+  
+    <xsl:template mode="html5-list-items" match="enum:enumerables">
+  		<xsl:apply-templates select="." mode="html5-list-item"/>
+    </xsl:template>
+  
+	<xsl:template mode="html5-list-items" match="glossdata:glossary-entries" >    						
+		
+    </xsl:template>
+  
+    <xsl:template mode="html5-list-items" match="index-terms:index-terms" >    			
+    	
+    </xsl:template>
+      
+    <xsl:template mode="html5-list-items" match="*[df:isTopicGroup(.)]" priority="20" >    			
+    	<xsl:apply-templates select="." mode="html5-list-item"/>
+    </xsl:template>
+  
+  <xsl:template mode="html5-list-items" match="*[df:class(., 'topic/topic')]">  
+  		<xsl:apply-templates select="." mode="html5-list-item"/>
+    </xsl:template>
+   
+  <!-- topichead elements get a navPoint, but don't actually point to
+       anything.  Same with topicref that has no @href. -->
+  <xsl:template mode="html5-list-items" match="*[df:isTopicHead(.)][not(@toc = 'no')]">
+  		<xsl:apply-templates select="." mode="html5-block"/>
+  </xsl:template>
+  
+    <xsl:template mode="html5-list-items" match="*[df:isTopicHead(.)][@toc = 'no']">
+  </xsl:template>
+  
 </xsl:stylesheet>
