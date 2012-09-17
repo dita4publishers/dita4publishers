@@ -18,7 +18,7 @@
 	</target>
 
 	<target name="load.properties" depends="set.properties">
-		<loadproperties srcFile="sites/${properties}.properties"/>
+		<loadproperties srcFile="../sites/${properties}/${properties}.properties"/>
 		<echo>
 
 			yui.path = ${yui.path}

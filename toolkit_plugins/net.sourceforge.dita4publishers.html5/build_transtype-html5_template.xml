@@ -25,6 +25,12 @@
         <isset property="site.theme" />
       </not>
 	</condition>
+	
+	<condition property="site.js.vars" value="${html5.dir}/sites/${site.theme}/vars.xml">
+		  <not>
+        <isset property="site.js.vars" />
+      </not>
+	</condition>
 
     <property name="d4p.is.map.driven" value="true"/>
 
@@ -349,7 +355,7 @@
 	<mkdir dir="${json.vars.dir}" />
 		
 	<xslt processor="trax"
-      in="${html5.dir}/js/vars.xml"
+      in="${site.js.vars}"
       out="${json.vars.file}"
       extension=".json"
       style="${xml2json.style}">
