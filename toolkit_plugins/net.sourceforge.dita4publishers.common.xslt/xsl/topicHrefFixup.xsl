@@ -43,17 +43,23 @@
   
   <xsl:template mode="href-fixup" match="xref[@scope = 'external']/@href | 
     link[@scope = 'external']/@href" priority="10">
+	<xsl:message>href-fixup<xsl:value-of select="." /></xsl:message>
     <!-- Add missing http:// for URLs with no scheme -->
     <xsl:choose>
+     <!-- try to fix a bug when url are http:/www -->
+       <xsl:when test="matches(., '^http:/[A-Za-z_0-9].*')">
+        <xsl:attribute name="{name(.)}" select="concat('http://', substring(.,7))"/>    
+      </xsl:when>
       <xsl:when test="matches(., '^[a-zA-Z]+:')">
         <xsl:sequence select="."/><!-- Must have a scheme, don't change it -->
       </xsl:when>
+       
       <xsl:otherwise>
         <!-- Add http:// to make it a valid absolute URL -->
         <xsl:attribute name="{name(.)}" select="concat('http://', .)"/>
       </xsl:otherwise>
+              
     </xsl:choose>
-    
   </xsl:template>
   
   <xsl:template mode="href-fixup" match="xref[not(@scope = 'external')]/@href | 
