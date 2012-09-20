@@ -246,7 +246,25 @@
     id="mapping-metadata">
     <title>Mapping Metadata</title>
     <conbody>
-      <p>TBD</p>
+      <p>To map paragraphs to <xmlelem>data</xmlelem> elements within the root
+        topic prolog, you must specify:<ul
+        id="ul_egh_k3v_3h">
+        <li><xmlatt>topicZone</xmlatt> as "prolog"</li>
+        <li><xmlatt>baseClass</xmlatt> as "- topic/data " (note the trailing
+          blank) </li>
+        <li><xmlatt>containingTopic</xmlatt> as "root" </li>
+        <li><xmlatt>level</xmlatt> as "0"</li>
+        </ul></p>
+      <p>To map to unspecialized <xmlelem>data</xmlelem> you would specify
+        <xmlatt>tagName</xmlatt> as "data". You can put the paragraph content
+        either into the content of the <xmlelem>data</xmlelem> element or into
+        the <xmlatt>value</xmlatt> attribute. To put it in content, set
+        <xmlatt>putValueIn</xmlatt> to "content", otherwise set it to
+        "value".</p>
+      <p>Because the DITA content model for <xmlelem>prolog</xmlelem> is a bit
+        fiddly, with a required sequence of element types, you may need to apply
+        post-processing in the "final-fixup" mode to make sure the resulting
+        prolog content is valid.</p>
     </conbody>
   </concept>
 </concept>
