@@ -1256,7 +1256,7 @@ window.Modernizr = (function( window, document, undefined ) {
                 state = $.bbq.getState($(this).attr('id')) || '';
                 uri = state[d4h5.hash.id];
 
-                if (uri === '') {
+                if (uri === '' || uri == undefined) {
                     return;
                 }
                 
@@ -1410,13 +1410,27 @@ window.Modernizr = (function( window, document, undefined ) {
 
     var ajax = {
 
+        ajaxBefore: [],
+        
         ajaxReady: [],
-
+        
+        ajaxFailed: [],
+        
+        // allow to register callback before is loaded by AJAX
+        before: function (fn) {
+            this.ajaxBefore.push(fn);
+        },
+        
         // allow to register callback once the page is loaded by AJAX
         ready: function (fn) {
             this.ajaxReady.push(fn);
         },
-
+        
+        // allow to register callback once the page is loaded by AJAX
+        failed: function (fn) {
+            this.ajaxFailed.push(fn);
+        },
+        
         // parse navigation
         // replace href by # + href
         // add click event and push state in the history
@@ -1463,7 +1477,7 @@ window.Modernizr = (function( window, document, undefined ) {
         // @todo: add support for localization
         addLoader: function () {
             var loader = $("<div />").attr("id", "d4h5-loader");
-            $('body').append(loader);
+            $(d4h5.ajax.loaderParentElement).append(loader);
         },
         
         setAriaAttr: function () {
@@ -1489,6 +1503,11 @@ window.Modernizr = (function( window, document, undefined ) {
         // @todo: see if it is neccessary to implement cache here
         // @todo: implement beforeSend, error callback
         loadHTML: function (uri, hash) {
+        
+          	for (fn in d4h5.ajax.ajaxBefore) {
+                  d4h5.ajax.ajaxBefore[fn].call(d4h5.content);
+            }
+            
             d4h5.hash.current = uri;
             
             $(d4h5.outputSelector).attr('aria-busy', 'true');
@@ -1512,6 +1531,12 @@ window.Modernizr = (function( window, document, undefined ) {
                     if (status === 'error') {
                         d4h5.message.alert('Sorry, the content could not be loaded', 'error');
                         d4h5.ajax.contentIsLoaded();
+                        
+                        document.location.hash="";
+                        
+                        for (fn in d4h5.ajax.ajaxFailed) {
+                  			d4h5.ajax.ajaxFailed[fn].call(d4h5.content);
+            			}
                         return false;
                     }
 

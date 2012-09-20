@@ -2,4 +2,7 @@
 	<outputSelector>#d4h5-main-content</outputSelector>
     <navigationSelector>#local-navigation</navigationSelector>
     <externalContentElement>section</externalContentElement>
+    <ajax>
+    	<loaderParentElement>body</loaderParentElement>   
+    </ajax>
 </d4h5>

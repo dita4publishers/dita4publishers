@@ -258,4 +258,12 @@ pre.screen
 	white-space: pre;
 }
 
+pre.codeblock {
+    background-color: #FBF9EA;
+    border: 1px solid #E2E1D5;
+    border-radius: 2px 2px 2px 2px;
+    margin: 1em 0;
+    padding: 10px;
+}
+
 span.filepath { font-family: monospace; }

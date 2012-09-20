@@ -120,7 +120,7 @@
                 state = $.bbq.getState($(this).attr('id')) || '';
                 uri = state[d4h5.hash.id];
 
-                if (uri === '') {
+                if (uri === '' || uri == undefined) {
                     return;
                 }
                 

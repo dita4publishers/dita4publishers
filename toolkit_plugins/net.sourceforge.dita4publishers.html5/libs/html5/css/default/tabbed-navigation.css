@@ -1,10 +1,29 @@
 /**
- * toolbox
+ * Toolbox for tabbed navigation
  */
 #tab-tools {
 	display:block;
+	position:absolute;
 	width:100%;
-	margin:0;
-	padding:0;
-	height: 30px;
+	border-bottom:1px dashed #ccc;
+	height: 22px;
+    padding-top: 12px;
+}
+
+#tab-tools:hover {
+	cursor:pointer;
+}
+
+#tab-tools h2, #tab-tools span {
+	float:left;
+	position:relative;
+}
+
+#tab-tools span.ico.grip {
+	margin:0 5px;
+}
+
+#tab-tools h2 {
+	font-size:1em;
+	font-weight: bold;
 }

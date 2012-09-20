@@ -1483,6 +1483,14 @@ pre.screen
 	white-space: pre;
 }
 
+pre.codeblock {
+    background-color: #FBF9EA;
+    border: 1px solid #E2E1D5;
+    border-radius: 2px 2px 2px 2px;
+    margin: 1em 0;
+    padding: 10px;
+}
+
 span.filepath { font-family: monospace; }
 /* Most link groups are created with <div>. Ensure they have space before and after. */
 .ullinks { list-style-type: none }
@@ -1763,4 +1771,8 @@ span.navtitle, li.collapsible a:link {
 li {
 	margin:1.7em 0;
 	list-style-position: inside;
+}
+
+li p:first-child {
+	display:inline;
 }

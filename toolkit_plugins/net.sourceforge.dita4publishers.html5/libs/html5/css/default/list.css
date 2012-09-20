@@ -2,3 +2,7 @@ li {
 	margin:1.7em 0;
 	list-style-position: inside;
 }
+
+li p:first-child {
+	display:inline;
+}
