@@ -187,7 +187,8 @@
       </not>
 	</condition>
 
-	<condition property="js.options" value="navigation : { type : '${class.navigation}' }">
+	<!-- used to pass parameter to the javascript d4h5 obj -->
+	<condition property="js.options" value="">
 		  <not>
         <isset property="js.options" />
       </not>
