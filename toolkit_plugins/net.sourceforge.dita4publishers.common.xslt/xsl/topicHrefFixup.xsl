@@ -43,7 +43,6 @@
   
   <xsl:template mode="href-fixup" match="xref[@scope = 'external']/@href | 
     link[@scope = 'external']/@href" priority="10">
-	<xsl:message>href-fixup<xsl:value-of select="." /></xsl:message>
     <!-- Add missing http:// for URLs with no scheme -->
     <xsl:choose>
      <!-- try to fix a bug when url are http:/www -->
