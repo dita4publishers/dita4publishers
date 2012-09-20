@@ -2,14 +2,22 @@
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
 <concept id="concept_tyl_xvz_jg">
  <title>CSS grid</title>
- <shortdesc>The html5 plugin use the 960.js css grid, which allows technical writters to use the
+ <shortdesc>The html5 plugin use the 960 Grid System, which allows technical writters to use the
   attribute outputclass to positions their elements on the grid.</shortdesc>
  <conbody>
+  <p>The following code</p>
+  <codeblock>
+&lt;p outputclass="grid_3"&gt;...&lt;/p&gt;
+&lt;p outputclass="grid_5"&gt;...&lt;/p&gt;
+&lt;p outputclass="grid_6"&gt;...&lt;/p&gt;
+&lt;p outputclass="clear-before"&gt;Always clear after&lt;/p&gt;</codeblock>
+  <p>will output content:</p>
   <p outputclass="grid_3">This paragraph should have 3 columns width and should be parrallel to the
    next paragraph. </p>
   <p outputclass="grid_5">This paragraph (5 columns) is on the right side of the previous one. The
    difference with the css columns layout feature is that theses 2 paragrahs does not flow
    automatically one in the other,</p>
   <p outputclass="grid_6">The latests paragraph (6 columns) is the largest one.</p>
+  <p outputclass="clear-before">Please see the <xref keyref="grid-960-js">960 Grid System</xref> documentation to see the availaible class.</p>
  </conbody>
 </concept>
