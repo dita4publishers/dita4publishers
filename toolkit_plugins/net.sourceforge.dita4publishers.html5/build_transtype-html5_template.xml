@@ -279,6 +279,9 @@
       <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
     	<param name="OUTPUTDIR" expression="${output.dir}"/>
     	<param name="FILEDIR" expression="."/>
+    	
+    	<dita:extension id="dita.html5.map" behavior="org.dita.dost.platform.InsertAction" xmlns:dita="http://dita-ot.sourceforge.net"/>
+    	
       <mapper type="glob"
               from="${user.input.file}"
               to="${args.xhtml.toc}${out.ext}" />
