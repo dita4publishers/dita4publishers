@@ -50,9 +50,13 @@
   <xsl:param name="JSONVARFILE" select="''" />
 
   <xsl:param name="IDMAINCONTAINER" select="'d4h5-main-container'" />
+  <xsl:param name="CLASSMAINCONTAINER" select="''" />
+  
+  <xsl:param name="IDMAINCONTENT" select="'d4h5-main-content'" />   
   <xsl:param name="CLASSMAINCONTENT" select="''" />
+  
   <xsl:param name="IDSECTIONCONTAINER" select="'d4h5-section-container'" />
-  <xsl:param name="IDMAINCONTENT" select="'d4h5-main-content'" />      
+  <xsl:param name="CLASSSECTIONCONTAINER" select="''" />     
       
   <xsl:param name="mathJaxInclude" select="'false'"/>
   <xsl:param name="mathJaxIncludeBoolean" 

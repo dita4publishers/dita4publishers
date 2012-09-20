@@ -155,20 +155,33 @@
   			<isset property="id.section.container"/>
   	  </not>
   	</condition>
-  	  	
+  	
+  	 <condition property="class.section.container" value="container_24">
+  		<not>
+  			<isset property="class.section.container"/>
+  	  </not>
+  	</condition>
+  	  
   	<condition property="id.main.content" value="d4h5-main-content">
   		<not>
   			<isset property="id.main.content"/>
   	  </not>
   	</condition>
   	
-  	<condition property="class.main.content" value="span">
+  	<condition property="class.main.content" value="prefix_1 grid_16">
   		<not>
   			<isset property="class.main.content"/>
   	  </not>
   	</condition>
   	
-  	<condition property="class.navigation" value="nav-left">
+  	<condition property="class.main.container" value="">
+  		<not>
+  			<isset property="class.main.container"/>
+  	  </not>
+  	</condition>
+  	
+  	
+  	<condition property="class.navigation" value="nav-left grid_7">
 		  <not>
         <isset property="class.navigation" />
       </not>
@@ -180,7 +193,7 @@
       </not>
 	</condition>
 	
-	<condition property="bodyClass" value="centered paged img-with-shadow navigation-large ${navigation.markup}">
+	<condition property="bodyClass" value="centered paged img-with-shadow  ${navigation.markup}">
 		  <not>
         <isset property="bodyClass" />
       </not>
@@ -251,7 +264,9 @@
 	<param name="IDSECTIONCONTAINER" expression="${id.section.container}" if="id.section.container" />  
 	<param name="IDMAINCONTENT" expression="${id.main.content}" if="id.main.content" />
 	<param name="CLASSMAINCONTENT" expression="${class.main.content}" if="class.main.content" />
-	
+	<param name="CLASSMAINCONTAINER" expression="${class.main.container}" if="class.main.container" />
+	<param name="CLASSSECTIONCONTAINER" expression="${class.section.container}" if="class.main.container" />
+		
       <param name="CLASSNAVIGATION" expression="${class.navigation}" if="class.navigation" />     
       <param name="JS" expression="${args.js.file}" if="args.js.file" />
       <param name="CSSPATH" expression="${user.csspath}" if="user.csspath" />

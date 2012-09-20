@@ -100,24 +100,7 @@ h2.nav-pub-title { font-size: 1.1em; }
 	margin-bottom:2em;
 }
 
-.nav-left #d4h5-main-content {
-    left: 40px;
-    width: 590px;
-    position: relative;
-    display: inline;
-    float: left;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-#d4h5-main-content {
-	width:100%;
-}
-
-.navigation-default #d4h5-main-content {
-    width: 590px;
-}
- 
-.navigation-default.navigation-large #d4h5-main-content {
-    width: 520px;
+/** **/
+.clear-before {
+	clear:both;
 }

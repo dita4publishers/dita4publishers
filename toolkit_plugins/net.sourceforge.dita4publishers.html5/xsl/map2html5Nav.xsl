@@ -50,6 +50,7 @@
 
       <nav id="local-navigation" role="navigation" aria-label="Main navigation">
       <xsl:attribute name="class" select="$CLASSNAVIGATION" />
+      	<div class="nav-content">
         <div class="nav-pub-title">
         	<xsl:apply-templates select="*[df:class(., 'topic/title')]" mode="generate-html5-nav-page-markup"/>
         	<xsl:sequence select="'&#x0a;'"/>
@@ -71,6 +72,8 @@
             <xsl:sequence select="$listItems"/>
           </ul>
         </xsl:if>
+        
+        </div>
       </nav>
 
 

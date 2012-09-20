@@ -1,12 +1,12 @@
-#local-navigation {
+/**#local-navigation {
 	width: 230px;
 }
 
 .navigation-large #local-navigation {
 	width: 280px;
-}
+}**/
 
-#local-navigation.nav-left {
+#nav-content {
 	margin-left:0px;
 	padding:20px 0px 20px 20px;
 	outline:none;

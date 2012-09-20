@@ -1219,7 +1219,7 @@ window.Modernizr = (function( window, document, undefined ) {
         },
         
         scrollToHash: function (hash) {
-            if(hash != "") {
+            if(hash != "" && hash != undefined) {
                 var targetOffset = $(hash).offset().top;
                 $(d4h5.scrollElem).animate(
           	        {scrollTop: targetOffset}, 
