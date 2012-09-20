@@ -25,23 +25,17 @@
 
 nav#local-navigation.nav-left ul li {
 	margin:0;
-	padding-top:3px;
-	padding-right:0;
-	padding-bottom:2px;
-	padding-left:0px;
+	padding: 3px 0 2px 0px;
 	outline:none;
 }
 
-nav#local-navigation.nav-left ul li.no-child {
+/*nav#local-navigation.nav-left ul li.no-child {
     padding-left:15px;
-}
+}*/
 
 nav#local-navigation.nav-left ul li ul li {
 	margin:0;
-	padding-top:3px;
-	padding-right:0;
-	padding-bottom:2px;
-	padding-left:15px;
+	padding: 3px 0 2px 20px;
 }
 
 #local-navigation.nav-left ul li.collapsible.collapsed ul {
@@ -53,6 +47,8 @@ nav#local-navigation.nav-left ul li ul li {
 
 #local-navigation.nav-left ul li.active ul {
 	display:block;
+	left: -10px;
+    position: relative;
 }
 
 #local-navigation.nav-left li.selected a {
@@ -68,11 +64,11 @@ nav#local-navigation.nav-left ul li ul li {
 	text-decoration: none;
 	padding-right:20px;
 	display:block;
-	padding-left:0px;
+	padding-left:16px;
 }
 
 #local-navigation.nav-left ul li ul li {
-	padding-left:12px;
+	padding-left:15px;
 }
 
 #local-navigation.nav-left ul li a:hover {
