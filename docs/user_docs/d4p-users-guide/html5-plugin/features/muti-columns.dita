@@ -1,38 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
 <concept id="concept_nxl_srz_jg">
- <title>Mulitple columns layout</title>
- <shortdesc>The html5plugin can allows you to use the latest multi-columns layout</shortdesc>
- <conbody>
-  <section outputclass="space-after">
-      <title>2 columns layout</title>
-      <p outputclass="two-columns " platform="">Lorem Ipsum is simply dummy text of the printing and
-        typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the
-        1500s, when an unknown printer took a galley of type and scrambled it to make a type
-        specimen book. It has survived not only five centuries, but also the leap into electronic
-        typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-        release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-        publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-    </section>
-  <section outputclass="line-after">
-      <title>3 columns layout</title>
-      <p outputclass="three-columns "> Lorem Ipsum is simply dummy text of the printing and
-        typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the
-        1500s, when an unknown printer took a galley of type and scrambled it to make a type
-        specimen book. It has survived not only five centuries, but also the leap into electronic
-        typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-        release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-        publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-    </section>
-  <section>
-      <title>4 columns layout</title>
-      <p outputclass="four-columns">Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
-        an unknown printer took a galley of type and scrambled it to make a type specimen book. It
-        has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with the release of
-        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-        software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-    </section>
- </conbody>
+    <title>Mulitple columns layout</title>
+    <shortdesc>The html5plugin can allows you to use the latest CSS multi-columns layout for the browsers that support
+        it.</shortdesc>
+    <conbody>
+        <section outputclass="space-after">
+            <title>2 columns layout</title>
+            <p>With:<codeblock>@outputclass = two-columns</codeblock> the following content is displayed in 2 columns. </p>
+            <p outputclass="two-columns">Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                printer took a galley of type and scrambled it to make a type specimen book. It has survived not only
+                five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </section>
+        <section outputclass="line-after">
+            <title>3 columns layout</title>
+            <p>With: <codeblock>@outputclass = three-columns</codeblock> the following content is displayed in 3 columns.  </p>
+            <p outputclass="three-columns ">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                took a galley of type and scrambled it to make a type specimen book. It has survived not only five
+                centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </section>
+        <section>
+            <title>4 columns layout</title>
+            <p>With: <codeblock>@outputclass = four-columns</codeblock> the following content is displayed in 4 columns.  </p>
+            <p outputclass="four-columns">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+                took a galley of type and scrambled it to make a type specimen book. It has survived not only five
+                centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </section>
+    </conbody>
 </concept>

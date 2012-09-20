@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_j5b_lsd_qh">
+ <title>License</title>
+ <shortdesc></shortdesc>
+ <conbody>
+  <p>The DITA4publishers is released under the <xref keyref="APACHE2">Apache License V2.0</xref></p>
+  <p>However the html5 plugins used different libraries that are released in both <xref keyref="GPL">GPL</xref> and <xref keyref="MIT">MIT</xref> licenses.</p>
+  <p>If you want to not use certain library or replace others, the architecture of the plugin allows you to do it easely. Please see the developper section for this purpose</p>
+  <section><title>jQuery</title>
+   <p><xref keyref="jquery">jQuery</xref> is released under the <xref keyref="MIT">MIT</xref> license.</p>
+  </section>
+  
+   <section><title>jQuery UI</title>
+    <p>The <xref keyref="jquery-ui">jQuery UI</xref> library is currently available for use in all personal or commercial projects under both <xref keyref="MIT">MIT</xref> and <xref keyref="GPL">GPL</xref> licenses. </p>
+  </section>
+   
+   <section><title>960 Grid System</title>
+    <p>The <xref keyref="grid-960-js">960 Grid System</xref> is released both under <xref keyref="GPL">GPL</xref> and <xref keyref="MIT">MIT</xref>.</p>
+     
+   </section> 
+   
+   <section><title>jQuery BBQ: Back Button &amp; Query Library</title>
+    <p>The <xref keyref="jquery-bbq">jQuery BBQ: Back Button &amp; Query Library</xref> is released under <xref keyref="GPL">GPL</xref> and <xref keyref="MIT">MIT</xref> licenses.</p>
+     
+   </section> 
+   
+   <section><title>Modernizr</title>
+    <p><xref keyref="modernizr"> Modernizr</xref> is available under the <xref keyref="MIT">MIT</xref> license.</p>
+     
+   </section> 
+
+ </conbody>
+</concept>
