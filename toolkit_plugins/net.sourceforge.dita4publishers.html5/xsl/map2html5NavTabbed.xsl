@@ -76,8 +76,9 @@
   	 	<xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
 		<div>
 			<xsl:attribute name="class" select="@outputclass" />
-			<h2><xsl:apply-templates select="." mode="nav-point-title"/></h2>
-			
+			<xsl:element name="{concat('h', $tocDepth+1 )}">
+				<xsl:apply-templates select="." mode="nav-point-title"/>
+			</xsl:element>
 			<!-- output children -->
 			<xsl:if test="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]">
             	<xsl:variable name="listItems" as="node()*">
@@ -289,6 +290,7 @@
     <xsl:template mode="generate-html5-tabbed-nav-content" match="index-terms:index-terms" >    			
 
     </xsl:template>
+
       
     <xsl:template mode="generate-html5-tabbed-nav-content" match="*[df:isTopicGroup(.)]" priority="20" >    			
     	<!--xsl:apply-templates select="." mode="jquery-tab-content"/-->
@@ -351,6 +353,28 @@
 
   </xsl:template>
 
+    <xsl:template mode="html5-blocks" match="*[df:class(., 'map/topicref')][contains(@chunk, 'to-toc')]" priority="20" >    			
+    	<!--xsl:apply-templates select="." mode="jquery-tab-content"/-->
+    	<xsl:message> + [INFO] MERGING TOPIC INTO CONTENT</xsl:message>
+    	
+    	<xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
+    	
+    	<xsl:apply-templates mode="#default" select="$topic"/>
+    	
+    	
+  </xsl:template>
+  
+  <xsl:template match="
+    *[df:class(., 'topic/body')]//*[df:class(., 'topic/indexterm')] |
+    *[df:class(., 'topic/shortdesc')]//*[df:class(., 'topic/indexterm')] |
+    *[df:class(., 'topic/abstract')]//*[df:class(., 'topic/indexterm')]
+     "
+     priority="10"
+    >
+      
+   		<!--xsl:sequence select="$content" /-->
+    	 
+    </xsl:template>
 
 
   <!-- templates for html5 list item -->
@@ -394,5 +418,18 @@
   
     <xsl:template mode="html5-list-items" match="*[df:isTopicHead(.)][@toc = 'no']">
   </xsl:template>
+  
+      <xsl:template mode="html5-list-items" match="*[df:class(., 'map/topicref')][contains(@chunk, 'to-toc')]" priority="20" >    			
+    	<!--xsl:apply-templates select="." mode="jquery-tab-content"/-->
+    	<xsl:message> + [INFO] MERGING TOPIC INTO CONTENT</xsl:message>
+   	
+    	<xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
+    	
+    	<xsl:apply-templates mode="#default" select="$topic"/>
+
+    	
+    	
+  </xsl:template>
+  
   
 </xsl:stylesheet>
