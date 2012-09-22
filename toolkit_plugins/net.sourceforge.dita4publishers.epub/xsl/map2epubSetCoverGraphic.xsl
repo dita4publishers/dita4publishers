@@ -32,6 +32,7 @@
           <xsl:variable name="targetUri" as="xs:string"
             select="df:getEffectiveTopicUri((//*[df:class(., 'pubmap-d/epub-cover-graphic')])[1])"
           />
+          <xsl:message> + [DEBUG] found pubmap-d/epub-cover-graphic, targetUri="<xsl:sequence select="$targetUri"/>"</xsl:message>
           <xsl:sequence select="$targetUri"/>
         </xsl:when>
         <xsl:when test="*[df:class(., 'map/topicmeta')]//*[df:class(., 'topic/data') and @name = 'covergraphic']">

@@ -572,11 +572,24 @@
   
   <xsl:function name="df:getEffectiveTopicUri">
     <xsl:param name="context" as="element()"/>
+    <xsl:sequence 
+      select="df:getEffectiveTopicUri(root($context)/*, $context)"/>
+  </xsl:function>
+  
+  <xsl:function name="df:getEffectiveTopicUri">
+    <xsl:param name="rootmap" as="element()"/>
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="effectiveUri" as="xs:string"
+      select="if ($context/@keyref != '')
+      then df:getEffectiveUriForKeyref($rootmap, $context)
+      else string($context/@href)
+      "
+    />
     <xsl:variable name="baseUri" as="xs:string"
        select="
-    if (contains($context/@href, '#')) 
-       then substring-before($context/@href, '#') 
-       else normalize-space($context/@href)
+    if (contains($effectiveUri, '#')) 
+        then substring-before($effectiveUri, '#') 
+        else normalize-space($effectiveUri)
     "/>    
     <xsl:variable name="result" as="xs:string">
       <xsl:choose>
@@ -592,6 +605,53 @@
       
     </xsl:variable>
     <xsl:sequence select="$result"/>
+  </xsl:function>
+  
+  <xsl:function name="df:getEffectiveUriForKeyref" as="xs:string">
+    <!-- Given an element with a @keyref attribute, returns
+         the URI of the ultimate resource bound to the referenced
+         key, as defined in the specified root map (note, the map
+         needs to be a resolved map).
+      -->
+    <xsl:param name="rootmap" as="element()"/>
+    <xsl:param name="context" as="element()"/>
+    
+    <xsl:variable name="keyref" 
+      select="string($context/@keyref)" 
+      as="xs:string"/>
+    <!-- A keyref may be keyref="keyname" or keyref="keyname/elementId" -->
+    <xsl:variable name="keyname" as="xs:string"
+      select="if (contains($keyref, '/')) 
+      then tokenize($keyref, '/')[1]
+      else $keyref"
+    />
+    
+    <!-- Now lookup key definition in the map -->
+    <xsl:variable name="keyMatchRegex" as="xs:string"
+        select="concat('^', $keyname, '$', '|', '^', $keyname, ' ', '|', ' ', $keyname, '$')"
+    />
+    <!-- First definition in map wins -->
+    <xsl:variable name="keydef" as="element()?"
+      select="($rootmap//*[df:class(., 'map/topicref')][matches(@keys, $keyMatchRegex)])[1]"
+    />
+    <xsl:choose>
+      <xsl:when test="$keydef">
+        <xsl:choose>
+          <xsl:when test="$keydef/@keyref != ''">
+            <xsl:sequence select="df:getEffectiveUriForKeyref($rootmap, $keydef)"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:sequence select="string($keydef/@href)"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+        <!-- If there's no keydef for the key, return the @href value, if any.
+          -->
+        <xsl:sequence select="string($context/@href)"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    
   </xsl:function>
   
   <xsl:function name="df:format-atts" as="xs:string">
@@ -703,7 +763,9 @@
     <xsl:param name="topicrefElem" as="element()"/>
     <!-- Returns true() if the element is a resource-only topicref -->
     <xsl:variable name="result" select="$topicrefElem/@processing-role = 'resource-only'" as="xs:boolean"/>
-    <xsl:message> + [DEBUG] df:isResourceOnly(): &lt;<xsl:sequence select="name($topicrefElem)"/> processing-role=<xsl:sequence select="string($topicrefElem/@processing-role)"/>&gt;</xsl:message>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] df:isResourceOnly(): &lt;<xsl:sequence select="name($topicrefElem)"/> processing-role=<xsl:sequence select="string($topicrefElem/@processing-role)"/>&gt;</xsl:message>
+    </xsl:if>
     <xsl:sequence select="$result"/>
   </xsl:function>
     
