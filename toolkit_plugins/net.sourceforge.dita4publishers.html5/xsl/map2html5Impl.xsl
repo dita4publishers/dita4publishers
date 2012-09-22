@@ -64,8 +64,10 @@
     as="xs:boolean"
   />
   
+  <xsl:param name="mathJaxUseCDNLink" select="'false'"/>
   <xsl:param name="mathJaxUseCDNLinkBoolean" select="false()" as="xs:boolean"/><!-- For EPUB, can't use remote version -->
   
+  <xsl:param name="mathJaxUseLocalLink" select="'false'"/>
   <xsl:param name="mathJaxUseLocalLinkBoolean" 
     select="$mathJaxIncludeBoolean"  
     as="xs:boolean"
