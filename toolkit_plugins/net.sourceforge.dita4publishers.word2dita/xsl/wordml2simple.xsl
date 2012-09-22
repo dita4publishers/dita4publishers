@@ -265,7 +265,7 @@
     <xsl:param name="runSequence" as="element()*"/>
     <xsl:param name="stylesDoc" as="document-node()" tunnel="yes"/>
 
-    <xsl:variable name="styleId" select="local:getRunStyleId($runSequence[1])" as="xs:string"/>
+    <xsl:variable name="styleId" select="if ($runSequence[1]) then local:getRunStyleId($runSequence[1]) else ''" as="xs:string"/>
     <xsl:choose>
       <xsl:when test="$styleId = ''">
         <xsl:apply-templates select="$runSequence"/>
@@ -335,7 +335,7 @@
        These occur within endnotes and are not
        relevant to the DITA output.
     -->
-  <xsl:template match="r:w[w:endnoteRef]"/>
+  <xsl:template match="r:w[w:endnoteRef]" priority="5"/>
   
   
   <xsl:template match="w:footnoteReference">
@@ -537,10 +537,14 @@
   </xsl:template>
   
   <xsl:template match="w:sym">
-    <xsl:message> + [DEBUG] w:sym: <xsl:sequence select="."/></xsl:message>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] w:sym: <xsl:sequence select="."/></xsl:message>
+    </xsl:if>
     <xsl:variable name="charCode" select="@w:char" as="xs:string"/>
     <xsl:variable name="character" select="codepoints-to-string(local:hex-to-char($charCode))" as="xs:string"/>
-    <xsl:message> + [DEBUG] w:sym: char="<xsl:sequence select="$character"/>"</xsl:message>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] w:sym: char="<xsl:sequence select="$character"/>"</xsl:message>
+    </xsl:if>
     <rsiwp:symbol font="{@w:font}"
       ><xsl:sequence select="$character"/></rsiwp:symbol>
   </xsl:template>
