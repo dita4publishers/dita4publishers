@@ -112,7 +112,7 @@
       			<xsl:choose>
         			
         			<xsl:when test="not($topic)">
-          				<xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
+        			  <xsl:message> + [WARNING] html5-list-item: Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
         			</xsl:when>
         		
         			<xsl:otherwise>

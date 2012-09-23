@@ -72,11 +72,12 @@
     -->
   </xsl:template>
   
-  <xsl:template match="*[df:isTopicRef(.)]" mode="generate-graphic-map get-graphic-refs">
+  <xsl:template match="*[df:isTopicRef(.)][not(@scope = 'external') and not(@scope = 'peer')]"
+                mode="generate-graphic-map get-graphic-refs">
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
     <xsl:choose>
       <xsl:when test="not($topic)">
-        <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
+        <xsl:message> + [WARNING] generate-graphic-map, get-graphic-refs: Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
       </xsl:when>
       <xsl:otherwise>
         <xsl:apply-templates 

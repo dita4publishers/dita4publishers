@@ -286,10 +286,17 @@
       select="//*[df:class(.,'map/topicref')][@processing-role = 'normal']"
     />
     
-    <xsl:message> + [DEBUG] chunkRootTopicrefs=
+    <xsl:message> + [INFO] Collecting data for index generation, enumeration, etc....</xsl:message>
+    
+    <xsl:variable name="collected-data" as="element()">
+      <xsl:call-template name="mapdriven:collect-data"/>      
+    </xsl:variable>
+    
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] chunkRootTopicrefs=
 <xsl:sequence select="$chunkRootTopicrefs"/>      
-    </xsl:message>
-
+       </xsl:message>
+    </xsl:if>
     <xsl:variable name="graphicMap" as="element()">
       <xsl:apply-templates select="." mode="generate-graphic-map">
       </xsl:apply-templates>
@@ -297,12 +304,6 @@
     <xsl:result-document href="{relpath:newFile($outdir, 'graphicMap.xml')}" format="graphic-map">
       <xsl:sequence select="$graphicMap"/>
     </xsl:result-document>    
-    
-    <xsl:message> + [INFO] Collecting data for index generation, enumeration, etc....</xsl:message>
-    
-    <xsl:variable name="collected-data" as="element()">
-      <xsl:call-template name="mapdriven:collect-data"/>      
-    </xsl:variable>
     
     <xsl:if test="true() or $debugBoolean">
       <xsl:message> + [DEBUG] Writing file <xsl:sequence select="relpath:newFile($outdir, 'collected-data.xml')"/>...</xsl:message>
