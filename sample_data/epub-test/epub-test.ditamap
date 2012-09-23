@@ -2,7 +2,8 @@
 <!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
 <pubmap
   xml:lang="en-US">
-  <pubtitle> <mainpubtitle>EPUB Test Document</mainpubtitle> </pubtitle>
+  <pubtitle> <mainpubtitle>Before keyword-with-keyref, <keyword
+    keyref="d4p-full-name"/>, EPUB Test Document</mainpubtitle> </pubtitle>
   <pubmeta> <author
     type="aut"><data
     name="file-as">McTesterson, Tester</data>Tester McTesterson</author>
@@ -28,7 +29,9 @@
     value="value one"/> </data> </pubmeta>
   <keydefs>
     <topicmeta>
-      <navtitle>Key Definitions</navtitle>
+      <keywords>
+        <keyword>Key Definitions</keyword>
+      </keywords>
     </topicmeta>
     <keydef
       keys="keyed-topic-01"
@@ -43,6 +46,14 @@
       href="chapters/images/1407-04.jpg"
       format="jpg"
       keys="graphic-1407-04"/>
+    <keydef
+      keys="d4p-full-name">
+      <topicmeta>
+        <keywords>
+          <keyword>DITA for Publishers</keyword>
+        </keywords>
+      </topicmeta>
+    </keydef>
   </keydefs>
   <publication>
     <covers>
@@ -76,6 +87,8 @@
           href="chapters/title-with-footnote.xml"/>
         <subsection
           href="chapters/index-item-tests.xml"/>
+        <subsection
+          href="chapters/title-with-keyref.xml"/>
       </chapter>
       <chapter
         href="chapters/graphic-tests.xml">
@@ -224,7 +237,9 @@
       </relcell>
       <relcell>
         <topicref
-          href="http://www.apple.com" format="html" scope="external"/>
+          href="http://www.apple.com"
+          format="html"
+          scope="external"/>
       </relcell>
     </relrow>
   </reltable>
