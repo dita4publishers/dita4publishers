@@ -124,7 +124,8 @@
       <xsl:when test="$topicref/@format and not(starts-with(string($topicref/@format), 'dita'))">
         <!-- FIXME: This is a quick hack. Need to use the best mode for constructing the navtitle. -->
         <xsl:variable name="text">
-          <xsl:apply-templates select="$topicref/*[df:class(., 'map/topicmeta')]/*[df:class(., 'map/navtitle')]" mode="text-only"/>            </xsl:variable>
+          <xsl:apply-templates select="$topicref/*[df:class(., 'map/topicmeta')]/*[df:class(., 'map/navtitle')]" mode="text-only"/>            
+        </xsl:variable>
         <xsl:sequence select="normalize-space($text)"/>
       </xsl:when>
       <xsl:otherwise>
@@ -152,7 +153,10 @@
           </xsl:when>
           <xsl:when test="$topicref/*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/navtitle')]">
             <!-- FIXME: This is a quick hack. Need to use the best mode for constructing the navtitle. -->
-            <xsl:apply-templates select="$topicref/*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/navtitle')]" mode="text-only"/>
+            <xsl:variable name="text">
+              <xsl:apply-templates select="$topicref/*[df:class(., 'map/topicmeta')]/*[df:class(., 'topic/navtitle')]" mode="text-only"/>
+            </xsl:variable>
+            <xsl:sequence select="normalize-space($text)"/>
           </xsl:when>          
           <xsl:otherwise>
             <xsl:sequence select="'{Failed to get navtitle for topicref}'"/>
