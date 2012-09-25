@@ -200,9 +200,9 @@
       </not>
 	</condition>
 	
-	<condition property="json.vars.file" value="${dita.temp.dir}/json/vars.json">
+	<condition property="d4p.html5.json.vars.file" value="${dita.temp.dir}/json/vars.json">
 		  <not>
-        <isset property="json.vars.file" />
+		    <isset property="d4p.html5.json.vars.file" />
       </not>
 	</condition>
 	
@@ -217,7 +217,10 @@
   	<mkdir dir="${html5.temp.dir}"/>
   	<makeurl file="${output.dir}" property="html5.xslt.outdir"/>
   	<makeurl file="${dita.temp.dir}" property="html5.xslt.tempdir"/>
-
+    <makeurl file="${d4p.html5.json.vars.file}" property="d4p.html5.json.vars.file.url"/>
+    <echo message="d4p.html5.json.vars.file=${d4p.html5.json.vars.file}"/>
+    <echo message="d4p.html5.json.vars.file.url=${d4p.html5.json.vars.file.url}"/>
+    
   	<property name="map2html5.style" location="${html5.dir}/xsl/map2html5.xsl"/>
   	<property name="args.xhtml.toc" value="index"/>
 
@@ -253,20 +256,20 @@
     	<param name="titleOnlyTopicClassSpec" expression="${title.only.topic.class.spec}"/>
     	<param name="titleOnlyTopicTitleClassSpec" expression="${title.only.topic.title.class.spec}"/>
      	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
-		<param name="TRANSTYPE" expression="${transtype}" if="{transtype"/>
+		  <param name="TRANSTYPE" expression="${transtype}" if="{transtype"/>
     	<!-- Parameters from dita2xhtml and similar transtypes: -->
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
       <param name="CSS" expression="${args.css.file}" if="args.css.file" />
       <param name="CSSTHEME" expression="${args.theme.file}" if="args.theme.file" /> 
-      <param name="JSONVARFILE" expression="${json.vars.file}" if="json.vars.file" />
+      <param name="JSONVARFILE" expression="${d4p.html5.json.vars.file.url}" if="d4p.html5.json.vars.file" />
       <param name="NAVIGATIONMARKUP" expression="${navigation.markup}" if="navigation.markup" />
 
-  	<param name="IDMAINCONTAINER" expression="${id.main.container}" if="id.main.container" />
-	<param name="IDSECTIONCONTAINER" expression="${id.section.container}" if="id.section.container" />  
-	<param name="IDMAINCONTENT" expression="${id.main.content}" if="id.main.content" />
-	<param name="CLASSMAINCONTENT" expression="${class.main.content}" if="class.main.content" />
-	<param name="CLASSMAINCONTAINER" expression="${class.main.container}" if="class.main.container" />
-	<param name="CLASSSECTIONCONTAINER" expression="${class.section.container}" if="class.main.container" />
+      <param name="IDMAINCONTAINER" expression="${id.main.container}" if="id.main.container" />
+    	<param name="IDSECTIONCONTAINER" expression="${id.section.container}" if="id.section.container" />  
+    	<param name="IDMAINCONTENT" expression="${id.main.content}" if="id.main.content" />
+    	<param name="CLASSMAINCONTENT" expression="${class.main.content}" if="class.main.content" />
+    	<param name="CLASSMAINCONTAINER" expression="${class.main.container}" if="class.main.container" />
+    	<param name="CLASSSECTIONCONTAINER" expression="${class.section.container}" if="class.main.container" />
 		
       <param name="CLASSNAVIGATION" expression="${class.navigation}" if="class.navigation" />     
       <param name="JS" expression="${args.js.file}" if="args.js.file" />
@@ -375,7 +378,7 @@
 		
 	<xslt processor="trax"
       in="${site.js.vars}"
-      out="${json.vars.file}"
+      out="${d4p.html5.json.vars.file}"
       extension=".json"
       style="${xml2json.style}">
        <param name="jsonp" expression="d4h5.setProps"/>

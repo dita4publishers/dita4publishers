@@ -84,6 +84,15 @@
 
       HTML5 Parameters:
 
+      + CLASSMAINCONTAINER = "<xsl:sequence select="$CLASSMAINCONTAINER"/>"
+      + CLASSNAVIGATION    = "<xsl:sequence select="$CLASSNAVIGATION"/>"
+      + CLASSSECTIONCONTAINER= "<xsl:sequence select="$CLASSSECTIONCONTAINER"/>"
+      + CSSTHEME           = "<xsl:sequence select="$CSSTHEME"/>"
+      + IDMAINCONTAINER    = "<xsl:sequence select="$IDMAINCONTAINER"/>"
+      + IDSECTIONCONTAINER = "<xsl:sequence select="$IDSECTIONCONTAINER"/>"
+      + jsoptions          = "<xsl:sequence select="$jsoptions"/>"
+      + JS                 = "<xsl:sequence select="$JS"/>"
+      + JSONVARFILE        = "<xsl:sequence select="$JSONVARFILE"/>"
       + cssOutputDir       = "<xsl:sequence select="$cssOutputDir"/>"
       + fileOrganizationStrategy = "<xsl:sequence select="$fileOrganizationStrategy"/>"
       + generateGlossary   = "<xsl:sequence select="$generateGlossary"/>"
@@ -96,6 +105,7 @@
       + mathJaxUseLocalLink= "<xsl:sequence select="$mathJaxUseLocalLink"/>"
       + mathJaxLocalJavascriptUri= "<xsl:sequence select="$mathJaxLocalJavascriptUri"/>"
       + mathJaxConfigParam = "<xsl:sequence select="$mathJaxConfigParam"/>"
+      + NAVIGATIONMARKUP   = "<xsl:sequence select="$NAVIGATIONMARKUP"/>"
       + outdir             = "<xsl:sequence select="$outdir"/>"
       + OUTEXT             = "<xsl:sequence select="$OUTEXT"/>"
       + tempdir            = "<xsl:sequence select="$tempdir"/>"
