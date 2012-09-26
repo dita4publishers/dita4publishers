@@ -108,6 +108,8 @@
                 type: 'GET',
 
                 url: uri,
+                
+                cache: true,
 
                 dataType: 'html',
                 
