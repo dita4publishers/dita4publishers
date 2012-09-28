@@ -147,7 +147,7 @@
 		
    		<xsl:text>
 			$(function() {
-				d4h5.init({
+				d4p.init({
 		</xsl:text>
 		<xsl:value-of select="$jsoptions" />
 		<xsl:text>

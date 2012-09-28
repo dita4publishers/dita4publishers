@@ -291,14 +291,12 @@
   <xsl:template mode="merge-content" match="*">
      	 <xsl:message> + [INFO] MERGING TOPIC INTO CONTENT</xsl:message>
   	  	<xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
-  	  	<xsl:message><xsl:sequence select="$topic" /></xsl:message>
     	<xsl:apply-templates mode="#default" select="$topic"/>
   </xsl:template>
   
    <xsl:template mode="merge-content" match="*[df:isTopicHead(.)][not(@toc = 'no')]">
     	<xsl:param name="depth" as="xs:integer" tunnel="yes" select="1" />
     	<xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
-     	<xsl:message> + [INFO] MERGING TOPIC INTO CONTENT</xsl:message>
   	  	<xsl:if test="$depth le $maxTocDepthInt">
 			<xsl:element name="{concat('h', $depth)}">
 				<xsl:apply-templates select="." mode="nav-point-title"/>
