@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_5dp_fc4_sh">
+  <title>Images support</title>
+  <shortdesc>The plugin offers the different options for images.</shortdesc>
+  <conbody>
+    <section>
+      <title>Standard images</title>
+    <p>The attribute @class of body element controls general layout of the page. If the @class contains the value
+        <option>img-with-shadow</option>, then all images will have a drop shadow by default.</p>
+    <p>
+      <codeblock>&lt;image keyref="img-dita" align="left" /&gt;</codeblock>
+      <image keyref="img-dita" align="left" />
+    </p>
+    <p>
+      <codeblock>&lt;image keyref="img-dita" align="center" /&gt;</codeblock>
+      <image keyref="img-dita" align="center"/>
+    </p>
+    <p>
+      <codeblock>&lt;image keyref="img-dita" align="right" /&gt;</codeblock>
+      <image keyref="img-dita" align="right"/>
+    </p>
+    </section>
+    
+    <section>
+      <title>SVG support</title>
+      <p>It use the object element to be output.</p>
+    <p>
+      <codeblock>&lt;image keyref="img-dita-svg" align="right" /&gt;</codeblock>
+      <image keyref="img-dita-svg" align="center"/>
+    </p>
+    </section>
+  </conbody>
+</concept>
