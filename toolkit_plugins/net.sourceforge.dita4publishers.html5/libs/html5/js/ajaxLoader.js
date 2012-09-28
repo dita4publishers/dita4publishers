@@ -39,8 +39,7 @@
     d4p.ajaxLoader.prototype.addLoader = function () {
         var node = $("<div />")
             .attr("id", "d4p-loader");
-        $(d4p.loaderParentElement)
-            .append(node);
+        $(d4p.loaderParentElement).append(node);
     };
 
     // set ARIA attributes on the ajax container
@@ -141,8 +140,7 @@
                 }
             }
 
-            $(this)
-                .attr('href', "#" + pathC.join("/"));
+            $(this).attr('href', "#" + pathC.join("/"));
 
             d4p.live($(this));
 

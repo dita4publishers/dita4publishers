@@ -21,16 +21,14 @@
                 if (id === '' || id == undefined) {
                     id = d4p.ids.prefix + d4p.ids.n;
                     d4p.ids.n++;
-                    $(this)
-                        .attr('id', id);
+                    $(this).attr('id', id);
                 }
 
                 // keep information in memory when link is triggered on page
                 d4p.nav[href] = id;
 
                 // replace href
-                $(this)
-                    .attr('href', '#' + href);
+                $(this).attr('href', '#' + href);
 
                 // push the appropriate state onto the history when clicked.
                 d4p.live($(this));

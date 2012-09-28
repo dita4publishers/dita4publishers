@@ -381,7 +381,7 @@
       out="${d4p.html5.json.vars.file}"
       extension=".json"
       style="${xml2json.style}">
-       <param name="jsonp" expression="d4h5.setProps"/>
+      <param name="jsonp" expression="d4p.setProps"/>
        
       
 	</xslt>

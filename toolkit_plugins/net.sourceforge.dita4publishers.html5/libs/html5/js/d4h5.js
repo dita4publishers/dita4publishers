@@ -135,9 +135,9 @@
                 .length == 1 && d4p.loadInitialContent) {
                 var url = "";
                 if (window.location.hash !== '') {
-                    url = window.location.hash.replace(/^#/, '');
-                    url = url.replace(/^q=/, '');
-                    d4p.core.ajax.load(url);
+                    uri = window.location.hash.replace(/^#/, '');
+                    uri = uri.replace(/^q=/, '');
+                    d4p.uriChanged (uri, '');
                 } else {
                     var el = $(d4p.navigationSelector + ' a:first-child');
                     if (el.attr('href') == undefined) {
@@ -149,6 +149,13 @@
                     window.location.hash = "q=" + url;
                 }
                 d4p.loadInitialContent = false;
+            }
+        },
+        
+        uriChanged: function (uri, hash) {
+         	for (i in d4p._uriChange) {
+                var fn = d4p._uriChange[i];
+                d4p[fn.name][fn.fn].call(d4p[fn.name], uri, hash);
             }
         },
 
@@ -184,10 +191,7 @@
                 var idx = uri.indexOf('#');
                 var hash = idx != -1 ? uri.substring(idx) : "";
 
-                for (i in d4p._uriChange) {
-                    var fn = d4p._uriChange[i];
-                    d4p[fn.name][fn.fn].call(d4p[fn.name], uri, hash);
-                }
+               	d4p.uriChanged (uri, hash);
 
             });
 
