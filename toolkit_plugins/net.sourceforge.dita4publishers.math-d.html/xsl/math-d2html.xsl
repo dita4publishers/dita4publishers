@@ -80,6 +80,10 @@
     <xsl:apply-templates/>
   </xsl:template>
   
+  <xsl:template match="*[contains(@class, ' mathml-d/mathml_container ')]">
+    <xsl:apply-templates/>
+  </xsl:template>
+  
   <xsl:template match="*[contains(@class, ' d4p-math-d/d4p_display-equation ')]/*[contains(@class, ' d4p-math-d/d4p_MathML ')]"
     priority="10"
     >
