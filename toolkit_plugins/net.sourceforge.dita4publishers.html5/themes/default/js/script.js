@@ -3150,7 +3150,8 @@ $.extend( $.ui.accordion, {
 	
 	d4p.ui.accordion = function (obj) {
 		obj.accordion({
-			header: '> div.section > h2'
+			header: '> div.section > h2',
+			autoHeight: false // required for Safari
 		});		
 	};
 

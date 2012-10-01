@@ -1,0 +1,8 @@
+/** 
+ * Ui implementation
+ */
+body .d4p-ui-cycle {
+	display:block;
+	position:relative;
+	min-height:150px;
+}
