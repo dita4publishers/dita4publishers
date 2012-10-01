@@ -8,6 +8,7 @@
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:mapdriven="http://dita4publishers.org/mapdriven"
   exclude-result-prefixes="xs xd df relpath mapdriven"
+    xmlns:java="org.dita.dost.util.ImgUtils"
   version="2.0">
 
   <!-- =============================================================
@@ -213,5 +214,43 @@
     </xsl:apply-templates>
   </xsl:template>
 
+  <!-- This is an override of the same template from dita2htmlmpl.xsl. It 
+       uses xtrf rather than $OUTPUTDIR to provide the location of the
+       graphic as authored, not as output.
+    -->
+  <xsl:template match="*[contains(@class,' topic/image ')]/@scale">
+    
+    <xsl:variable name="xtrf" as="xs:string" select="../@xtrf"/>
+    <xsl:variable name="baseUri" as="xs:string" 
+      select="relpath:getParent($xtrf)"/>
+    
+    <xsl:variable name="width">
+      <xsl:choose>
+        <xsl:when test="not(contains(../@href,'://'))">
+          <xsl:value-of select="java:getWidth($baseUri, string(../@origHref))"/>
+        </xsl:when>
+        <xsl:otherwise/>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="height">
+      <xsl:choose>
+        <xsl:when test="not(contains(../@href,'://'))">
+          <xsl:value-of select="java:getHeight($baseUri, string(../@origHref))"/>
+        </xsl:when>
+        <xsl:otherwise/>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:if test="not(../@width) and not(../@height)">
+      <xsl:attribute name="height">
+        <xsl:value-of select="floor(number($height) * number(.) div 100)"/>
+      </xsl:attribute>
+      <xsl:attribute name="width">
+        <xsl:value-of select="floor(number($width) * number(.) div 100)"/>
+      </xsl:attribute>
+    </xsl:if>
+     <xsl:attribute name="class" select="@align" />
+  </xsl:template>
+  
+ 
 
 </xsl:stylesheet>

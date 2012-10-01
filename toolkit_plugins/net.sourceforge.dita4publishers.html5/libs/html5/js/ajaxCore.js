@@ -2,7 +2,7 @@
  * Module object
  */ (function (window, d4p) {
 
-    var core = new d4p.module('core', {
+    var ajaxnav = new d4p.module('ajaxnav', {
 
         ajax: new d4p.ajaxLoader(d4p.outputSelector),
 
@@ -47,7 +47,7 @@
                         $(this)
                             .children('span.navtitle')
                             .click(function () {
-                            loader.loadHTML(l.attr('href')
+                            d4p.ajaxnav.ajax.load(l.attr('href')
                                 .replace(/^#/, ''));
                         });
                     }
@@ -68,4 +68,4 @@
         }
     });
 
-})(window, d4p)
+})(window, d4p);

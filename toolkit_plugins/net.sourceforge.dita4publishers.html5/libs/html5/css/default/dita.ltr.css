@@ -267,3 +267,5 @@ pre.codeblock {
 }
 
 span.filepath { font-family: monospace; }
+
+var.keyword {padding:0 0.5em; 0 0}

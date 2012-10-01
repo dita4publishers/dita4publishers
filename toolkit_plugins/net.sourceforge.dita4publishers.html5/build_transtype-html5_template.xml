@@ -116,9 +116,9 @@
       </not>
     </condition>
 
-    <condition property="css.output.dir" value="${args.css.output.dir}">
+    <!--condition property="css.output.dir" value="${args.css.output.dir}">
       <isset property="args.css.output.dir" />
-    </condition>
+    </condition-->
 
     <condition property="html5.doJavaScriptFileCopy">
     	<!-- For now just always do it. -->
@@ -156,6 +156,12 @@
   	  </not>
   	</condition>
   	
+  	<condition property="class.main.container" value="">
+  		<not>
+  			<isset property="class.main.container"/>
+  	  </not>
+  	</condition>
+  	
   	 <condition property="class.section.container" value="container_24">
   		<not>
   			<isset property="class.section.container"/>
@@ -174,11 +180,7 @@
   	  </not>
   	</condition>
   	
-  	<condition property="class.main.container" value="">
-  		<not>
-  			<isset property="class.main.container"/>
-  	  </not>
-  	</condition>
+  
   	
   	
   	<condition property="class.navigation" value="nav-left grid_7">
@@ -187,14 +189,14 @@
       </not>
 	</condition>
 
-	<!-- used to pass parameter to the javascript d4h5 obj -->
+	<!-- used to pass parameter to the javascript d4p obj -->
 	<condition property="js.options" value="">
 		  <not>
         <isset property="js.options" />
       </not>
 	</condition>
 	
-	<condition property="bodyClass" value="centered paged img-with-shadow  ${navigation.markup}">
+	<condition property="bodyClass" value="centered img-with-shadow  ${navigation.markup}">
 		  <not>
         <isset property="bodyClass" />
       </not>
