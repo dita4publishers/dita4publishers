@@ -11,17 +11,19 @@
         <topicref href="general/downloading.dita" type="concept"/>
         <topicref href="general/running.dita" type="concept"/>
         <topicref href="general/licence.dita" type="concept"/>
+        
     </topichead>
     <mapref href="features/features.ditamap"/>
     <topichead>
         <topicmeta>
-            <navtitle>Developper</navtitle>
+            <navtitle>Development</navtitle>
         </topicmeta>
-        <topicref href="dev/intro.dita" type="concept">
-            <topicref href="dev/directory-structure.dita" type="concept" toc="no"/>
-        </topicref>
+        <topicref href="dev/intro.dita" type="concept"/>
+        <topicref href="dev/directory-structure.dita" type="concept"/>
         <topicref href="dev/before.dita" type="task"/>
+        <topicref href="dev/theme-development.dita" type="concept"> </topicref>
         <topicref href="references/ant-properties.dita" type="reference"/>
+
     </topichead>
     <mapref href="glossary/glossary.ditamap"/>
     <mapref href="cases/cases.ditamap"/>

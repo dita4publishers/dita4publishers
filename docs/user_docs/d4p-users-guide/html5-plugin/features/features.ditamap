@@ -7,5 +7,9 @@
         <topicref href="muti-columns.dita"/>
         <topicref href="css-grid.dita"/>
         <topicref href="images.dita"/>
+        <topicref href="ui-intro.dita" type="concept">
+            <topicref href="accordion.dita" type="concept" />
+            <topicref href="ui-images.dita" type="concept"  />
+        </topicref>
     </topichead>
 </map>

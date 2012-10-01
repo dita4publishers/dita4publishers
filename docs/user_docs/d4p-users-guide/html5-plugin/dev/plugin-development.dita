@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_2ld_3pp_sh">
+ <title>Create a customization plugin</title>
+ <shortdesc>The first step is to create a customization plugin or a plugin that fully reuse the html5
+  plugin.</shortdesc>
+ <conbody>
+  <p>A customization plugin is a plugin which allows you to alter all html5 transform. This way, all your transformation
+   will include your change in the semantic.</p>
+  <p>A plugin that reuse the html5 plugin, is a plugin, fully independant which import the xsl and override them. This
+   way, you can create multiple plugins, with different semantic from the same plugin. Here we will see the plugin that
+   reuse the html5 plugin.</p>
+ </conbody>
+</concept>

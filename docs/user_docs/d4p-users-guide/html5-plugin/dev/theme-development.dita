@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_bnb_x4p_sh">
+ <title>Development of a new theme</title>
+ <shortdesc/>
+ <conbody>
+  <p>In order to adapt your current theme or developped a new one within the plugin, you should first have html static
+   file, with all your css in it and eventually javascript.</p>
+ </conbody>
+</concept>

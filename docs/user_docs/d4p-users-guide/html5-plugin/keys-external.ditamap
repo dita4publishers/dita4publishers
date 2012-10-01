@@ -6,6 +6,16 @@
             <linktext>DITA</linktext>
         </topicmeta>
     </keydef>
+    <keydef keys="img-dita-2" href="assets/img/DITA_finch_2.jpg" format="jpg">
+        <topicmeta>
+            <linktext>DITA</linktext>
+        </topicmeta>
+    </keydef>
+    <keydef keys="img-dita-3" href="assets/img/DITA_finch_3.jpg" format="jpg">
+        <topicmeta>
+            <linktext>DITA</linktext>
+        </topicmeta>
+    </keydef>
     <keydef keys="img-dita-svg" href="assets/img/DITA_finch.svg" format="jpg">
         <topicmeta>
             <linktext>DITA</linktext>
@@ -36,6 +46,13 @@
             <linktext>YUI compressor</linktext>
         </topicmeta>
     </keydef>
+    
+    <keydef href="http://jquery.malsup.com/cycle/" keys="jquery-cycle" scope="external">
+        <topicmeta>
+            <linktext>jQuery Cycle</linktext>
+        </topicmeta>
+    </keydef>
+
 
 
 </map>

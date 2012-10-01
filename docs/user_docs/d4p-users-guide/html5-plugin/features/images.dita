@@ -1,34 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
 <concept id="concept_5dp_fc4_sh">
-  <title>Images support</title>
+  <title>Better Image support</title>
   <shortdesc>The plugin offers the different options for images.</shortdesc>
   <conbody>
     <section>
       <title>Standard images</title>
-    <p>The attribute @class of body element controls general layout of the page. If the @class contains the value
-        <option>img-with-shadow</option>, then all images will have a drop shadow by default.</p>
-    <p>
-      <codeblock>&lt;image keyref="img-dita" align="left" /&gt;</codeblock>
-      <image keyref="img-dita" align="left" />
-    </p>
-    <p>
-      <codeblock>&lt;image keyref="img-dita" align="center" /&gt;</codeblock>
-      <image keyref="img-dita" align="center"/>
-    </p>
-    <p>
-      <codeblock>&lt;image keyref="img-dita" align="right" /&gt;</codeblock>
-      <image keyref="img-dita" align="right"/>
-    </p>
+      <p>The attribute @class of body element controls general layout of the page. If the @class contains the value
+          <option>img-with-shadow</option>, then all images will have a drop shadow by default.</p>
+      <p>
+        <codeblock>&lt;image keyref="img-dita" align="left" /&gt;</codeblock>
+        <image keyref="img-dita" align="left"/>
+      </p>
+      <p>
+        <codeblock>&lt;image keyref="img-dita" align="center" /&gt;</codeblock>
+        <image keyref="img-dita" align="center"/>
+      </p>
+      <p>
+        <codeblock>&lt;image keyref="img-dita" align="right" /&gt;</codeblock>
+        <image keyref="img-dita" align="right"/>
+      </p>
     </section>
-    
+
     <section>
       <title>SVG support</title>
-      <p>It use the object element to be output.</p>
-    <p>
-      <codeblock>&lt;image keyref="img-dita-svg" align="right" /&gt;</codeblock>
-      <image keyref="img-dita-svg" align="center"/>
-    </p>
+      <p>It use the object element to be output. This example use the <xref keyref="jquery-cycle"/> under the <xref
+          keyref="MIT"> license as an example.</xref></p>
+      <p>
+        <codeblock>&lt;image keyref="img-dita-svg" align="right" /&gt;</codeblock>
+        <image keyref="img-dita-svg" align="center"/>
+      </p>
+    </section>
+
+    <section>
+      <title>Cycle</title>
+      <sectiondiv id="image-cycle">
+        <p>Please look at the image below for few seconds.</p>
+        <codeblock>
+&lt;sectiondiv outputclass="d4p-ui-cycle"&gt;
+    &lt;image keyref="img-dita-3" align="left"/&gt;
+    &lt;image keyref="img-dita-2" align="left"/&gt;
+    &lt;image keyref="img-dita" align="left"/&gt;
+&lt;/sectiondiv&gt;
+      </codeblock>
+        <sectiondiv outputclass="d4p-ui-cycle">
+          <image keyref="img-dita-3" align="left"/>
+          <image keyref="img-dita-2" align="left"/>
+          <image keyref="img-dita" align="left"/>
+        </sectiondiv>
+      </sectiondiv>
     </section>
   </conbody>
 </concept>
