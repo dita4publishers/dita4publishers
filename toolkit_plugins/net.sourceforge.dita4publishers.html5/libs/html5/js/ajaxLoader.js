@@ -37,8 +37,7 @@
 
     // add loader (spinner on the page)
     d4p.ajaxLoader.prototype.addLoader = function () {
-        var node = $("<div />")
-            .attr("id", "d4p-loader");
+        var node = $("<div />").attr("id", "d4p-loader");
         $(d4p.loaderParentElement).append(node);
     };
 
@@ -55,18 +54,14 @@
     // called before the ajax request is send
     // used to output a 'loader' on the page  
     d4p.ajaxLoader.prototype.contentIsLoading = function () {
-        $("#d4p-loader")
-            .show();
-        $(this.outputSelector)
-            .css('opacity', d4p.transition.opacity);
+        $("#d4p-loader").show();
+        $(this.outputSelector).css('opacity', d4p.transition.opacity);
     };
 
     // called at the end of the ajax call
     d4p.ajaxLoader.prototype.contentIsLoaded = function () {
-        $("#d4p-loader")
-            .hide();
-        $(this.outputSelector)
-            .css('opacity', 1);
+        $("#d4p-loader").hide();
+        $(this.outputSelector).css('opacity', 1);
     };
 
     // Set title of the page
@@ -77,8 +72,7 @@
 
     // set content of the page
     d4p.ajaxLoader.prototype.setMainContent = function () {
-        $(this.outputSelector)
-            .html(this.content);
+        $(this.outputSelector).html(this.content);
     },
 
     // Rewrite each src in the document
@@ -225,8 +219,6 @@
                         this[fn].call(this, d4p.content);
                     }
 
-                    this.setTitle();
-
                     this.setMainContent();
 
                     this.contentIsLoaded();
@@ -239,7 +231,5 @@
             }
         });
     };
-
-
-
+    
 })(window, d4p);

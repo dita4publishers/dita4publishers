@@ -2,9 +2,8 @@
  * Module object
  */ (function (window, d4p) {
 
-    var ajaxnav = new d4p.module('ajaxnav', {
 
-        ajax: new d4p.ajaxLoader(d4p.outputSelector),
+    var ajaxnav = new d4p.module('ajaxnav', {
 
         traverse: function () {
             // navigation: prefix all href with #
@@ -35,19 +34,12 @@
 
             });
 
-            $(d4p.navigationSelector)
-                .find('li')
-                .each(function (index) {
-                if ($(this)
-                    .children('a')
-                    .length === 0) {
-                    var l = $(this)
-                        .find('ul li a:first');
+            $(d4p.navigationSelector).find('li').each(function (index) {
+                if ($(this).children('a').length === 0) {
+                    var l = $(this).find('ul li a:first');
                     if (l.length == 1) {
-                        $(this)
-                            .children('span.navtitle')
-                            .click(function () {
-                            d4p.ajaxnav.ajax.load(l.attr('href')
+                        $(this).children('span.navtitle').click(function () {
+                            d4p.ajax.load(l.attr('href')
                                 .replace(/^#/, ''));
                         });
                     }
@@ -56,13 +48,17 @@
         },
 
         load: function (uri) {
-            this.ajax.load(uri);
+            d4p.ajax.load(uri);
         },
 
         init: function () {
-            this.ajax.addLoader();
-            this.ajax.ready('rewriteAttrHref');
-            this.ajax.ready('rewriteAttrSrc');
+        
+        	d4p.ajax = new d4p.ajaxLoader(d4p.outputSelector);
+            d4p.ajax.addLoader();
+            d4p.ajax.ready('rewriteAttrHref');
+            d4p.ajax.ready('rewriteAttrSrc');
+            d4p.ajax.ready('setTitle');
+            
             this.traverse();
             this.uriChange('load');
         }

@@ -1615,8 +1615,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     // add loader (spinner on the page)
     d4p.ajaxLoader.prototype.addLoader = function () {
-        var node = $("<div />")
-            .attr("id", "d4p-loader");
+        var node = $("<div />").attr("id", "d4p-loader");
         $(d4p.loaderParentElement).append(node);
     };
 
@@ -1633,18 +1632,14 @@ window.Modernizr = (function( window, document, undefined ) {
     // called before the ajax request is send
     // used to output a 'loader' on the page  
     d4p.ajaxLoader.prototype.contentIsLoading = function () {
-        $("#d4p-loader")
-            .show();
-        $(this.outputSelector)
-            .css('opacity', d4p.transition.opacity);
+        $("#d4p-loader").show();
+        $(this.outputSelector).css('opacity', d4p.transition.opacity);
     };
 
     // called at the end of the ajax call
     d4p.ajaxLoader.prototype.contentIsLoaded = function () {
-        $("#d4p-loader")
-            .hide();
-        $(this.outputSelector)
-            .css('opacity', 1);
+        $("#d4p-loader").hide();
+        $(this.outputSelector).css('opacity', 1);
     };
 
     // Set title of the page
@@ -1655,8 +1650,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     // set content of the page
     d4p.ajaxLoader.prototype.setMainContent = function () {
-        $(this.outputSelector)
-            .html(this.content);
+        $(this.outputSelector).html(this.content);
     },
 
     // Rewrite each src in the document
@@ -1803,8 +1797,6 @@ window.Modernizr = (function( window, document, undefined ) {
                         this[fn].call(this, d4p.content);
                     }
 
-                    this.setTitle();
-
                     this.setMainContent();
 
                     this.contentIsLoaded();
@@ -1817,17 +1809,14 @@ window.Modernizr = (function( window, document, undefined ) {
             }
         });
     };
-
-
-
+    
 })(window, d4p);
 /**
  * Module object
  */ (function (window, d4p) {
 
-    var ajaxnav = new d4p.module('ajaxnav', {
 
-        ajax: new d4p.ajaxLoader(d4p.outputSelector),
+    var ajaxnav = new d4p.module('ajaxnav', {
 
         traverse: function () {
             // navigation: prefix all href with #
@@ -1858,19 +1847,12 @@ window.Modernizr = (function( window, document, undefined ) {
 
             });
 
-            $(d4p.navigationSelector)
-                .find('li')
-                .each(function (index) {
-                if ($(this)
-                    .children('a')
-                    .length === 0) {
-                    var l = $(this)
-                        .find('ul li a:first');
+            $(d4p.navigationSelector).find('li').each(function (index) {
+                if ($(this).children('a').length === 0) {
+                    var l = $(this).find('ul li a:first');
                     if (l.length == 1) {
-                        $(this)
-                            .children('span.navtitle')
-                            .click(function () {
-                            d4p.ajaxnav.ajax.load(l.attr('href')
+                        $(this).children('span.navtitle').click(function () {
+                            d4p.ajax.load(l.attr('href')
                                 .replace(/^#/, ''));
                         });
                     }
@@ -1879,13 +1861,17 @@ window.Modernizr = (function( window, document, undefined ) {
         },
 
         load: function (uri) {
-            this.ajax.load(uri);
+            d4p.ajax.load(uri);
         },
 
         init: function () {
-            this.ajax.addLoader();
-            this.ajax.ready('rewriteAttrHref');
-            this.ajax.ready('rewriteAttrSrc');
+        
+        	d4p.ajax = new d4p.ajaxLoader(d4p.outputSelector);
+            d4p.ajax.addLoader();
+            d4p.ajax.ready('rewriteAttrHref');
+            d4p.ajax.ready('rewriteAttrSrc');
+            d4p.ajax.ready('setTitle');
+            
             this.traverse();
             this.uriChange('load');
         }
@@ -1931,7 +1917,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
         //    
         init: function () {
-        	d4p.ajaxnav.ajax.ready('addWidgets');
+        	d4p.ajax.ready('addWidgets');
         }        
     });
 })(d4p);
