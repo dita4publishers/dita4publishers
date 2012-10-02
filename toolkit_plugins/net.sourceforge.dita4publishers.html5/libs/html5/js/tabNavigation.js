@@ -1,8 +1,25 @@
-(function (d4h5) {
+(function (d4p) {
+
+	d4p.ajaxLoader.prototype.prepare = function () {
+        $(d4p.outputSelector).hide();
+        $(d4p.tabnav.tabContainerSelector).hide();
+        $(d4p.tabnav.tooboxSelector).hide();  
+    };
+    
+    d4p.ajaxLoader.prototype.show = function () {
+        $(d4p.tabnav.tabContainerSelector).hide();
+        $(d4p.tabnav.tooboxSelector).show();  
+        $(d4p.outputSelector).show();         
+    };
+      
+    d4p.ajaxLoader.prototype.failed = function () {
+        $(d4p.tabnav.tabContainerSelector).show();
+    };
+        
 
     // use only if you want tabbed navigation
     // experimental UI
-    var tabnav = {
+    var ajaxnav = new d4p.module('tabnav', {
     
     	// tab selector
     	tabSelector: '#tabs-navigation',
@@ -18,50 +35,35 @@
         
         // create message container    
         init: function () {
-            d4h5.tabnav.addTabUI();
-            d4h5.tabnav.addToolBar();
-            d4h5.ajax.before(d4h5.tabnav.prepare);  
-            d4h5.ajax.ready(d4h5.tabnav.show);
-            d4h5.ajax.failed(d4h5.tabnav.failed);         
+            this.addTabUI();
+            this.addToolBar();
+            d4p.ajax.before('prepare');  
+            d4p.ajax.ready('show');
+            d4p.ajax.failed('failed');         
         },
-        
-        prepare: function () {
-        	$(d4h5.outputSelector).hide();
-        	$(d4h5.tabnav.tabContainerSelector).hide();
-        	$(d4h5.tabnav.tooboxSelector).hide();  
-        },
-        
-        failed: function () {
-        	$(d4h5.tabnav.tabContainerSelector).show();
-        },
-        
-        show: function () {
-            $(d4h5.tabnav.tabContainerSelector).hide();
-            $(d4h5.tabnav.tooboxSelector).show();  
-            $(d4h5.outputSelector).show();         
-        },
+    
         
         hide: function () {
-       		$(d4h5.outputSelector).hide();   
-        	$(d4h5.tabnav.tabContainerSelector).show();
+       		$(d4p.outputSelector).hide();   
+        	$(d4p.tabnav.tabContainerSelector).show();
         },
         
         addTabUI: function () {
-			$( d4h5.tabnav.tabSelector ).tabs({
+			$( d4p.tabnav.tabSelector ).tabs({
    		        select: function(event, ui) { 
-					d4h5.tabnav.hide();
-					$(d4h5.tabnav.tooboxSelector).hide();		
-					d4h5.tabnav.positionMenu(ui.index);				
+					d4p.tabnav.hide();
+					$(d4p.tabnav.tooboxSelector).hide();		
+					d4p.tabnav.positionMenu(ui.index);				
    			    }
 			});
-			d4h5.tabnav.positionMenu(-1);    
+			d4p.tabnav.positionMenu(-1);    
         },
         
         positionMenu: function ( index ) {
-        	var tabs = $(d4h5.tabnav.tabSelector).tabs();
+        	var tabs = $(d4p.tabnav.tabSelector).tabs();
 			var index = index == -1 ? tabs.tabs('option', 'selected') : index;
 			console.log(index);
-			var parent = $(d4h5.tabnav.tabSelector + " ul>li:nth-child(" + (index + 1) + ")");
+			var parent = $(d4p.tabnav.tabSelector + " ul>li:nth-child(" + (index + 1) + ")");
    		     	        
 			var parentLeft = parent.position().left;
 			var parentWidth = parent.outerWidth();
@@ -77,7 +79,7 @@
         
         addToolBar: function () {
         	
-        	var toolBar = $("<div />").attr('id', d4h5.tabnav.tooboxSelector.substring(1));
+        	var toolBar = $("<div />").attr('id', d4p.tabnav.tooboxSelector.substring(1));
         	
         	var menu = $("<h2 />").attr("id", "menu-label");
         	
@@ -91,20 +93,17 @@
             
             toolBar.append(menu);
             
-        	$(d4h5.tabnav.tabContainerSelector).before(toolBar);    	    	
+        	$(d4p.tabnav.tabContainerSelector).before(toolBar);    	    	
         	
-        	$(d4h5.tabnav.tooboxSelector).click(function(){
-        	   d4h5.tabnav.hide();
-        	   $(d4h5.tabnav.tooboxSelector).hide();
+        	$(d4p.tabnav.tooboxSelector).click(function(){
+        	   d4p.tabnav.hide();
+        	   $(d4p.tabnav.tooboxSelector).hide();
         	   document.location.hash = "";
         	});
         	
-        	$(d4h5.tabnav.tooboxSelector).hide();
+        	$(d4p.tabnav.tooboxSelector).hide();
         	
         }
-    };
+    });
 
-    d4h5.register('tabnav');
-    d4h5.tabnav = tabnav;
-
-})(d4h5);
+})(d4p);

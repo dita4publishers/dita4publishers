@@ -2,7 +2,7 @@
 
     // new prototype
      // register a hashChange callback
-    d4p.ajaxLoader.prototype.addWidgets = function () {
+   d4p.ajaxLoader.prototype.addWidgets = function () {
             this.content.find("*[class]").each(function (index) {
                 var classes = $(this)
                     .attr('class')
@@ -18,13 +18,14 @@
                 		
                     	var ui = cs.substring(l);
 
-                    	if (d4p.ui[ui] != undefined) {
-                        	d4p.ui[ui].call(this.ui, $(this));
+                    	if (d4p.ui[ui]['init'] != undefined) {
+                        	d4p.ui[ui]['init'].call(d4p.ui[ui], $(this));
                     	}
                		}
                	}
             });
         };
+
 
     var ui = new d4p.module('ui', {
 

@@ -8,21 +8,24 @@
         this.content = '';
         this.externalContentElement = d4p.externalContentElement;
         this.setAriaAttr();
+        this.timeout = d4p.timeout;
+        this.ajaxBefore = [];
+        this.ajaxReady = [];
+        this.ajaxFailed = [];
     };
-
-    // Store events to be called before the AJAX request is executed
-    d4p.ajaxLoader.prototype.ajaxBefore = [];
-
-    // Store Events to be called once the AJAX succeed
-    // used to add function to alter the content
-    d4p.ajaxLoader.prototype.ajaxReady = [];
-
-    // Store events to be called if the ajax request failed
-    d4p.ajaxLoader.prototype.ajaxFailed = [];
-
+    
+    // Set outputSelector
+    d4p.ajaxLoader.prototype.setOutputSelector = function ( selector ) {
+       	this.outputSelector = selector;
+    },
     // allow to register callback before is loaded by AJAX
     d4p.ajaxLoader.prototype.before = function (fname) {
         this.ajaxBefore.push(fname);
+    };
+    
+    // allows to set the timeout
+    d4p.ajaxLoader.prototype.setTimeout = function (ms) {
+    	this.timeout = ms;
     };
 
     // allow to register callback once the page is loaded by AJAX
@@ -148,8 +151,9 @@
     // @todo: implement beforeSend, error callback
     d4p.ajaxLoader.prototype.load = function (uri, hash) {
 
-        for (fn in this.ajaxBefore) {
-            this.ajaxBefore[fn].call(this, d4p.content);
+        for (i in this.ajaxBefore) {
+            var fn = this.ajaxBefore[i];
+            this[fn].call(this);
         }
 
         d4p.hash.current = uri;
@@ -164,6 +168,8 @@
             context: this,
 
             cache: true,
+            
+            timeout: this.timeout,
 
             url: uri,
 
@@ -180,8 +186,10 @@
             complete: function (jqXHR, status, responseText) {
 
                 // is status is an error, return an error dialog
-                if (status === 'error') {
-                    d4p.message.alert('Sorry, the content could not be loaded', 'error');
+                if (status === 'error' || status === 'timeout') {
+                
+                	var msg = status === 'timeout' ? 'Sorry, the content could not be loaded' : 'Sorry, the server does not respond.';
+                    d4p.msg.alert(msg, 'error');
                     this.contentIsLoaded();
 
                     document.location.hash = "";
@@ -191,7 +199,7 @@
                     }
 
                     return false;
-                }
+                } 
 
                 // Store the response as specified by the jqXHR object
                 responseText = jqXHR.responseText;

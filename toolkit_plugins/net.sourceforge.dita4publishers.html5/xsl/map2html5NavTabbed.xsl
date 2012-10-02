@@ -33,7 +33,7 @@
             except (
             *[df:class(., 'topic/title')],
             *[df:class(., 'map/topicmeta')],
-            *[df:class(., 'map/reltable')]
+            *[df:class(., 'map/reltable')]    
             )"
       />
     </xsl:variable>
@@ -140,9 +140,10 @@
 
   <!-- 
   		Templates for tab headers -->
-  <xsl:template mode="generate-html5-tabbed-nav" match="*[df:class(., 'topic/title')][not(@toc = 'no')]">
-    <!--xsl:apply-templates select="." mode="jquery-tab-head"/-->
-  </xsl:template>
+  <xsl:template mode="generate-html5-tabbed-nav" match="*[df:class(., 'topic/title')][not(@toc = 'no')]"> </xsl:template>
+  
+    <xsl:template mode="generate-html5-tabbed-nav" match="*[df:class(., 'topic/meta')]" />
+
 
   <xsl:template mode="generate-html5-tabbed-nav" match="*[df:isTopicRef(.)][not(@toc = 'no')]">
     <xsl:apply-templates select="." mode="jquery-tab-head"/>
@@ -194,6 +195,8 @@
   <xsl:template mode="generate-html5-tabbed-nav-content" match="glossdata:glossary-entries"> </xsl:template>
 
   <xsl:template mode="generate-html5-tabbed-nav-content" match="index-terms:index-terms"> </xsl:template>
+  
+  
 
 
   <xsl:template mode="generate-html5-tabbed-nav-content" match="*[df:isTopicGroup(.)]" priority="20">
@@ -218,6 +221,8 @@
   <xsl:template mode="html5-blocks" match="*[df:class(., 'topic/title')][not(@toc = 'no')]"></xsl:template>
   
   <xsl:template mode="html5-blocks" match="*[df:isTopicRef(.)][@toc = 'no']"></xsl:template>
+  
+  <xsl:template mode="html5-blocks" match="*[df:class(., 'topic/meta')]"></xsl:template>
 
   <xsl:template mode="html5-blocks" match="mapdriven:collected-data"></xsl:template>
 

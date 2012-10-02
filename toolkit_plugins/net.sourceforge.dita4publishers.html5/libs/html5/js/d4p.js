@@ -8,13 +8,15 @@
 
         // store navigation key:href, value:id
         nav: [],
-
+        
         // hash (for later)
         hash: {
             current: '',
             previous: '',
             id: 'q'
         },
+        
+        timeout: 3000,
 
         // selectors
         outputSelector: "#d4h5-main-content",

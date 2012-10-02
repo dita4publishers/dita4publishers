@@ -1,112 +1,103 @@
 (function (d4p) {
 
-cUri: '',
+ 	// Remove links on dialogs
+    d4p.ajaxLoader.prototype.removeLinks = function () {
+        var uri = d4p.hash.current;
+        this.content.find("a").each(function (index) {
+            $(this).replaceWith(this.childNodes);
+        });
+    };
+    
+    d4p.ui.dialog = {
+    
+    	ids: 0,
+    	
+    	
+    	
+    	done: {},
+    
+    	init: function (obj) {  	
+    	   	
+    		var uri = obj.attr('href').substring(1);
+    		var id = this.getId();
+    		
+    		// keep track of every external dialog loaded
+        	if (this.done[uri] == undefined) {
+            	this.done[uri] = {
+                	'id': id,
+                	'uri': obj.attr('href').substring(1),
+                	'done': false
+            	};
+        	}
+        	
+        	if(this.checkDialog (obj, uri)) {
+        		this.dialog(obj, uri);
+        	}
+        	
+        	     	
+    	
+    	},
+    	
+    	getId: function () {
+    		this.ids++;
+    		return this.ids;
+    	},
 
-        ids: 0,
+		checkDialog: function (obj, uri) {
 
-        getDialogId: function () {
-            this.ids++;
-            return this.ids;
+       	 	// avoid processing url twice
+       	 	if (this.done[uri].done == true) {
+            	
+            	if (uri != "") {
+                	// remove href
+                	obj.attr('href', "");
+                	obj.attr('target', "#dialog-" + this.done[uri].id);
+
+                	// add click handler
+                	obj.click(function () {
+                   		$($(this).attr('target')).dialog('open');
+                	});
+            	}
+            	return false;
+        	} else {
+        		return true;
+        	}
         },
 
-        dialog: function (obj) {
-
-            var uri = obj.attr('href')
-                .substring(1);
-            var id = d4p.ui.getDialogId();
-
-            // keep track of every external dialog loaded
-            if (d4p.ui.processed[uri] == undefined) {
-                d4p.ui.processed[uri] = {
-                    'id': id,
-                    'uri': obj.attr('href')
-                        .substring(1),
-                    'done': false
-                };
-            }
-
-            // avoid processing url twice
-            if (d4p.ui.processed[uri].done == true) {
-                var href = obj.attr('href');
-                if (obj.attr('href') != "") {
-                    var rid = d4p.ui.processed[uri].id;
-                    // remove href
-                    obj.attr('href', "");
-                    obj.attr('target', "#dialog-" + rid);
-
-                    // add click handler
-                    obj.click(function () {
-                        $($(this)
-                            .attr('target'))
-                            .dialog('open');
-                    });
-                }
-                return true;
-            }
-
-            // add dialog
-            var dialog = $("<div />")
-                .attr("id", "dialog-" + id);
-
-            $(d4p.ajax.loaderParentElement)
-                .append(dialog);
-            dialog.dialog({
-                autoOpen: false,
-                minWidth: d4p.ui.dialogMinWidth
-            });
-            dialog.dialog('close');
-
-            // remove href
-            obj.attr('href', "");
-            obj.attr('target', "#dialog-" + id);
-
-            // add click handler
-            obj.click(function () {
-                $($(this)
-                    .attr('target'))
-                    .dialog('open');
-            });
-
-            $.ajax({
-                url: uri,
-                complete: function (jqXHR, status, responseText) {
-                    // Store the response as specified by the jqXHR object
-                    responseText = jqXHR.responseText;
-
-                    // If successful, inject the HTML into all the matched elements
-                    if (jqXHR.isResolved()) {
-
-                        // From jquery: #4825: Get the actual response in case
-                        // a dataFilter is present in ajaxSettings
-                        jqXHR.done(function (r) {
-                            responseText = r;
-                        });
-
-                        var html = $("<div>")
-                            .append(responseText.replace(d4p.rscript, ""));
-
-                        var content = html.find(d4p.externalContentElement);
-                        // remove links from content because it is weird to jump
-                        // from a dialog to a page
-                        content.find("a")
-                            .each(function (index) {
-                            $(this)
-                                .replaceWith(this.childNodes);
-                        });
-                        var title = html.find("title")
-                            .html();
-
-                        // update dialog
-                        var id = d4p.ui.processed[uri].id;
-                        var dialog = $("#dialog-" + id);
-                        dialog.attr("title", title);
-                        dialog.append($("<p />")
-                            .html(content));
-
-                    }
-                }
-            });
-
-            d4p.ui.processed[uri].done = true;
-        },
+		dialog: function (obj, uri) {
+			// add dialog
+			var ajax = new d4p.ajaxLoader();
+    		ajax.ready('rewriteAttrHref');
+            ajax.ready('rewriteAttrSrc');
+    	   	ajax.ready('removeLinks');
+    	   	
+			var id = this.done[uri].id;
+        	var dialog = $("<div />").attr("id", "dialog-" + id);
+        	
+			$(d4p.ajax.loaderParentElement).append(dialog);
+			
+        	ajax.setOutputSelector("#dialog-" + id);
+        	ajax.load(uri);
+        	
+        	        	dialog.dialog({
+          	  autoOpen: false,
+            	minWidth: d4p.ui.dialogMinWidth
+        	});
         
+        	dialog.dialog('close');
+
+        	// remove href
+        	obj.attr('href', "");
+        	obj.attr('target', "#dialog-" + id);
+
+        	// add click handler
+        	obj.click(function () {
+            	$($(this).attr('target')).dialog('open');
+        	});
+
+        	this.done[uri].done = true;
+		}
+    };
+
+
+})(d4p);
