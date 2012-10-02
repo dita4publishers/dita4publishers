@@ -14,7 +14,10 @@
     <section>
       <title>Description</title>
       <p>Allows to specify the element selector in which the main content will be displayed.</p>
-      <p><note importance="high">Be aware that an ant property exists also to control the id of the element in the xsl. Please change value at both place if you need to change them.</note></p>
+      <p>
+        <note id="js-ant-prop" importance="high">Be aware that an ant property exists also to control the id of the element in the xsl.
+          Please change value at both place if you need to change them.</note>
+      </p>
     </section>
   </refbody>
 </reference>
