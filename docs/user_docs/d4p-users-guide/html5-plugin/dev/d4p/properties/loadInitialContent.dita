@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="reference_5dn_m3n_th">
+  <title>d4p.loadInitialContent</title>
+  <shortdesc>Control if the initial content should be loaded if no content is specified in the url.</shortdesc>
+  <refbody>
+    <refsyn>
+      <synph>
+        <var>d4p</var>
+        <delim>.</delim>
+        <kwd>loadInitialContent</kwd>
+        <delim> = </delim> boolean (true or false) </synph>
+    </refsyn>
+    <section>
+      <title>Description</title>
+      <p>Control if the first link in the navigation should be loaded by d4p once the page load or not. Most situations
+        will require this property to be set to true.</p>
+      <p>In the situation where you need a custom first page based on DITA semantic (meta, authors or whatever), you
+        would be abble to diseable this javascript feature by setting up the value to false.</p>
+    </section>
+  </refbody>
+</reference>

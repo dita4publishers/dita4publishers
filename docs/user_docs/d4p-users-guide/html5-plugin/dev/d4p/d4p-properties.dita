@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="reference_kvp_ygn_th">
+  <title>The d4p properties</title>
+  <shortdesc>Properties availaible in the d4p object.</shortdesc>
+  <refbody>
+    <properties>
+      <property>
+        <proptype>d4p.version </proptype>
+        <propvalue rev="0.2a">0.2a</propvalue>
+        <propdesc>Version of the object</propdesc>
+      </property>
+      <property>
+        <proptype>d4p.loadInitialContent</proptype>
+        <propvalue rev="0.2a">true</propvalue>
+        <propdesc>Control if the first link in the navigation should be loaded once the page load or not. Most situations will require this property to be true, but in some situations, if you need a custom first page based on DITA semantic, you would be abble to diseable this javascript feature.</propdesc>
+      </property>
+      <property>
+        <proptype>d4p.hash.current</proptype>
+        <propvalue></propvalue>
+      </property>
+    </properties>
+  </refbody>
+</reference>
