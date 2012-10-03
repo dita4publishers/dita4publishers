@@ -16,7 +16,11 @@
     	
     	done: {},
     
-    	init: function (obj) {  	
+    	init: function (obj) {
+    	
+    		if(obj[0].tagName.toUpperCase() === "DFN") {
+    			obj = obj.parent();
+    		}
     	   	
     		var uri = obj.attr('href').substring(1);
     		var id = this.getId();

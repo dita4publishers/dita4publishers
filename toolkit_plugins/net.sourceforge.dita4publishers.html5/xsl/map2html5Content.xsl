@@ -54,7 +54,8 @@
       <xsl:call-template name="gen-user-sidetoc"/>
       <!-- WEK: Added wrapper <section> element around the body content -->
       <section>
-         <xsl:apply-templates/> <!-- this will include all things within topic; therefore, -->        
+      <div class="{concat(@outputclass, ' ', name(.))}">
+         <xsl:apply-templates/> <!-- this will include all things within topic; therefore, -->   </div>   
       </section>
       <!-- title content will appear here by fall-through -->
       <!-- followed by prolog (but no fall-through is permitted for it) -->

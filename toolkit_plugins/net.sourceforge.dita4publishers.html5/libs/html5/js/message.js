@@ -25,6 +25,14 @@
         // create message container    
         init: function () {
             this.create();
+            
+            $(document).mouseup(function (e) {
+   				var container = $(this.id);
+
+    			if (container.has(e.target).length === 0){
+        			container.hide();
+    			}
+			});
         },
 
         show: function () {

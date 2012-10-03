@@ -17,6 +17,10 @@
                 	if (idx >= 0) {
                 		
                     	var ui = cs.substring(l);
+                    	
+                    	if(d4p.ui[ui] == undefined) {
+                    		return true;
+                    	}
 
                     	if (d4p.ui[ui]['init'] != undefined) {
                         	d4p.ui[ui]['init'].call(d4p.ui[ui], $(this));

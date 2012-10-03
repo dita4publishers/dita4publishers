@@ -3,13 +3,17 @@
 	d4p.ajaxLoader.prototype.prepare = function () {
         $(d4p.outputSelector).hide();
         $(d4p.tabnav.tabContainerSelector).hide();
-        $(d4p.tabnav.tooboxSelector).hide();  
+        //$(d4p.tabnav.tooboxSelector).hide();  
     };
     
     d4p.ajaxLoader.prototype.show = function () {
         $(d4p.tabnav.tabContainerSelector).hide();
-        $(d4p.tabnav.tooboxSelector).show();  
-        $(d4p.outputSelector).show();         
+        //$(d4p.tabnav.tooboxSelector).show();  
+        $(d4p.outputSelector).show(); 
+        $(d4p.tabnav.tabSelector).tabs( 'selected' , -1 );
+         $(".ui-tabs-selected")
+         .removeClass("ui-state-active")
+         .removeClass("ui-tabs-selected");        
     };
       
     d4p.ajaxLoader.prototype.failed = function () {
@@ -36,7 +40,7 @@
         // create message container    
         init: function () {
             this.addTabUI();
-            this.addToolBar();
+           // this.addToolBar();
             d4p.ajax.before('prepare');  
             d4p.ajax.ready('show');
             d4p.ajax.failed('failed');         
@@ -53,7 +57,8 @@
    		        select: function(event, ui) { 
 					d4p.tabnav.hide();
 					$(d4p.tabnav.tooboxSelector).hide();		
-					d4p.tabnav.positionMenu(ui.index);				
+					d4p.tabnav.positionMenu(ui.index);
+					document.location.hash = ui.tab.hash;						
    			    }
 			});
 			d4p.tabnav.positionMenu(-1);    
