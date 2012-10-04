@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="reference_5dn_m3n_th">
+  <title>d4p.navigationSelector:</title>
+  <shortdesc>jQuery selector of the element containing the navigation.</shortdesc>
+  <refbody>
+    <refsyn>
+      <synph>
+        <var>d4p</var>
+        <delim>.</delim>
+        <kwd>navigationSelector:</kwd>
+        <delim> = </delim> string (default: &quot;#local-navigation&quot;) </synph>
+    </refsyn>
+    <section>
+      <title>Description</title>
+      <p>This selector is used to parse the navigation to make it dynamic and to register events on each links to
+        perform the ajax calls.</p>
+      <p>
+        <note conref="outputSelector.dita#reference_5dn_m3n_th/js-ant-prop"/>
+      </p>
+    </section>
+  </refbody>
+</reference>

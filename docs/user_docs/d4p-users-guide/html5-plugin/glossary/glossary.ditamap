@@ -3,11 +3,11 @@
 <map>
     <topichead>
         <topicmeta>
-            <navtitle>Definitions</navtitle>
+            <navtitle>Glossary</navtitle>
         </topicmeta>
         <glossref keys="def-css" href="css.dita" outputclass="d4p-ui-dialog"/>
         <glossref href="DOM.dita" keys="def-DOM" outputclass="d4p-ui-dialog"/>
         <glossref href="w3c.dita" keys="def-w3c" outputclass="d4p-ui-dialog"/>
-        <glossref href="AJAX.dita" keys="def-AJAX"/>
+        <glossref href="AJAX.dita" keys="def-AJAX" outputclass="d4p-ui-dialog"/>
     </topichead>
 </map>

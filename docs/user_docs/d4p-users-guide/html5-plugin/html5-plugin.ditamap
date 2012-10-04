@@ -25,12 +25,22 @@
             <topicref href="dev/theme-development.dita" type="concept"/>
         </topicref>
         <topicref href="dev/d4p/d4p.dita" type="concept">
-            <topicref href="dev/d4p/properties/version.dita" type="reference"/>
-            <topicref href="dev/d4p/properties/loadInitialContent.dita" type="reference"/>
-            <topicref href="dev/d4p/properties/hash.dita" type="reference"/>
-            <topicref href="dev/d4p/properties/outputSelector.dita" type="reference"/>
-            <topicref href="dev/d4p/properties/navigationSelector.dita" type="reference"/>
-            <topicref href="dev/d4p/properties/externalContentElement.dita" type="reference"/>
+            <topicref href="dev/d4p/d4p-properties.dita" type="concept">
+                <topicref href="dev/d4p/properties/version.dita" type="reference"/>
+                <topicref href="dev/d4p/properties/loadInitialContent.dita" type="reference"/>
+                <topicref href="dev/d4p/properties/hash.dita" type="reference"/>
+                <topicref href="dev/d4p/properties/outputSelector.dita" type="reference"/>
+                <topicref href="dev/d4p/properties/navigationSelector.dita" type="reference"/>
+                <topicref href="dev/d4p/properties/externalContentElement.dita" type="reference"/>
+            </topicref>
+            <topicref href="dev/d4p/ajaxLoader/ajaxLoader.dita">
+       
+                    <topicref href="dev/d4p/ajaxLoader/methods/methods.dita" type="concept">
+                        <topicref href="dev/d4p/ajaxLoader/methods/setOutputSelectors.dita"  type="concept"/>
+                        
+                    </topicref>
+                
+                </topicref>
         </topicref>
         <topicref href="references/ant-properties.dita" type="reference"/>
 
