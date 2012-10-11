@@ -78,10 +78,10 @@
 
    	<item>
    		<title><xsl:apply-templates select="." mode="nav-point-title"/></title>
-        <link><xsl:value-of select="concat($RSSLINK, $relativeUri)" /></link>
+        <link><xsl:value-of select="concat($RSSLINK, $RSSDIR, $relativeUri)" /></link>
         <description><xsl:value-of select="$topic/shortdesc" /></description>
         <!--pubDate>Tue, 03 Jun 2003 09:39:21 GMT</pubDate-->
-        <guid><xsl:value-of select="concat($RSSLINK, $relativeUri)" /></guid>
+        <guid><xsl:value-of select="concat($RSSLINK, $RSSDIR, $relativeUri)" /></guid>
    	</item>
    	
    	</xsl:otherwise>

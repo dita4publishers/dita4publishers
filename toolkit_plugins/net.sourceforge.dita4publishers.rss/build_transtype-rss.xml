@@ -102,6 +102,12 @@
   	  </not>
   	</condition>
   	
+  	<condition property="rss.doc.dir" value="my/dir/">
+  		<not>
+  			<isset property="rss.doc.dir"></isset>
+  	  </not>
+  	</condition>
+  	
   	<condition property="rss.filename" value="feed">
   		<not>
   			<isset property="rss.filename"></isset>
@@ -164,6 +170,7 @@
     	<param name="FILEDIR" expression="."></param>
     	<param name="PUBDATE" expression="${rss.pubdate}"></param>
     	<param name="RSSLINK" expression="${rss.link}"></param>
+    	<param name="RSSDIR" expression="${rss.doc.dir}"></param>
     	<param name="TTL" expression="${rss.ttl}"></param>
     	<param name="MANAGINGEDITOR" expression="${rss.managingEditor}"></param>
     	<param name="WEBMASTER" expression="${rss.webmaster}"></param>
