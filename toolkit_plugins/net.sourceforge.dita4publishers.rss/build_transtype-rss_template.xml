@@ -118,7 +118,7 @@
   	  </not>
   	</condition>
   	
-  	 <condition property="rss.ext" value=".rss">
+  	 <condition property="rss.ext" value=".xml">
   		<not>
   			<isset property="rss.ext"/>
   	  </not>
