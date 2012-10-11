@@ -60,7 +60,7 @@
        "
   />
 
-  <xsl:variable name="indexUri" select="concat($FILENAME, $OUTEXT)"/>
+  <xsl:variable name="indexUri" select="concat($FILENAME, $RSSEXT)"/>
 
   <xsl:message> + [INFO] Generating index document <xsl:sequence select="$indexUri"/>...</xsl:message>
   

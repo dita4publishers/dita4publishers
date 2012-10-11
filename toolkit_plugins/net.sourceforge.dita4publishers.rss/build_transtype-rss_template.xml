@@ -61,7 +61,7 @@
       </not>
     </condition>
 
-    <condition property="out.ext" value=".rss">
+    <condition property="out.ext" value=".html">
       <not>
         <isset property="out.ext" />
       </not>
@@ -117,6 +117,12 @@
   			<isset property="rss.filename"/>
   	  </not>
   	</condition>
+  	
+  	 <condition property="rss.ext" value=".rss">
+  		<not>
+  			<isset property="rss.ext"/>
+  	  </not>
+  	</condition>
 		
   	<echo message="+++ rss-specific properties:"/>
   	<echoproperties format="text" regex="^(rss|html2|css|user|out\.)" taskname="echo"/>
@@ -152,6 +158,7 @@
       <param name="imagesOutputDir" expression="${images.output.dir}"/>
      	<param name="outdir" expression="${rss.xslt.outdir}"/>
     	<!-- NOTE: Case of OUTEXT matches parameter used in base HTML transform type -->
+    	<param name="RSSEXT" expression="${rss.ext}"/>
     	<param name="OUTEXT" expression="${out.ext}"/><!-- Extension to use for result files, e.g., ".html" -->
      	<param name="tempdir" expression="${rss.xslt.tempdir}"/>
     	<param name="rawPlatformString" expression="${os.name}"/>
@@ -183,7 +190,6 @@
     </xslt>
     
     <delete file="${output.dir}/empty.xml" />
-
 
   </target>
 

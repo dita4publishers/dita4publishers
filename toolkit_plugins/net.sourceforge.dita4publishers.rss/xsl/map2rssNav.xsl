@@ -80,7 +80,7 @@
    		<title><xsl:apply-templates select="." mode="nav-point-title"/></title>
         <link><xsl:value-of select="concat($RSSLINK, $relativeUri)" /></link>
         <description><xsl:value-of select="$topic/shortdesc" /></description>
-        <pubDate>Tue, 03 Jun 2003 09:39:21 GMT</pubDate>
+        <!--pubDate>Tue, 03 Jun 2003 09:39:21 GMT</pubDate-->
         <guid><xsl:value-of select="concat($RSSLINK, $relativeUri)" /></guid>
    	</item>
    	
@@ -104,16 +104,21 @@
         <xsl:message> + [INFO] RSS generation: glossary entry processing not included.</xsl:message>
   </xsl:template>
 
-  <!--xsl:template mode="nav-point-title" match="*[df:isTopicRef(.)] | *[df:isTopicHead(.)]">
+  <xsl:template mode="nav-point-title" match="*[df:isTopicRef(.)] | *[df:isTopicHead(.)]">
     <xsl:variable name="navPointTitleString" select="df:getNavtitleForTopicref(.)"/>
     <xsl:sequence select="$navPointTitleString"/>
-  </xsl:template-->
+  </xsl:template>
 
   <xsl:template match="*[df:isTopicGroup(.)]" priority="20" mode="generate-rss-nav">
   	 <xsl:apply-templates select="*" mode="#current" />
   </xsl:template>
 
 
+
+<xsl:template match="*[df:class(., 'map/linktext')]" mode="generate-rss-nav">
+
+  </xsl:template>
+  
   <xsl:template match="*[df:class(., 'topic/topic')]" mode="generate-rss-nav">
     <!-- Non-root topics generate ToC entries if they are within the ToC depth -->
     <xsl:param name="tocDepth" as="xs:integer" tunnel="yes" select="0"/>

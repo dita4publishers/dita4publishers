@@ -66,6 +66,7 @@
        transformation type.
     -->
   <xsl:param name="OUTEXT" select="'.html'"/>
+   <xsl:param name="RSSEXT" select="'.xml'"/>
   <xsl:param name="tempdir" select="./temp"/>
   <xsl:param name="FILENAME" select="'feed'"/>
   
