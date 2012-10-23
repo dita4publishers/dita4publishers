@@ -197,18 +197,30 @@
     <!-- NOTE: By default, this mode puts its output in the main output file
          produced by the transform.
       -->
+      <xsl:variable name="navigation" as="element()">
+      	<xsl:apply-templates select="." mode="choose-html5-nav-markup" >
+      	 	<xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
+      		<xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/>
+      	</xsl:apply-templates>
+      </xsl:variable>
+    
 
     <xsl:apply-templates select="." mode="generate-root-pages">
       <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
       <xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/>
+      <xsl:with-param name="navigation" as="element()*" select="$navigation" tunnel="yes"/>
     </xsl:apply-templates>
+    
     <xsl:apply-templates select="." mode="generate-content">
       <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
       <xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/>
+     
     </xsl:apply-templates>
+    
     <xsl:apply-templates select="." mode="generate-index">
       <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
       <xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/>
+      
     </xsl:apply-templates>
     <!--    <xsl:apply-templates select="." mode="generate-glossary">
       <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>

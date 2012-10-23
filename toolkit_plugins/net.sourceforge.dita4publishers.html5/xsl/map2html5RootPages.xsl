@@ -282,6 +282,7 @@
     
   <!-- generate main container -->
   <xsl:template match="*" mode="generate-main-container">
+
     <div id="{$IDMAINCONTAINER}" class="{$CLASSMAINCONTAINER}" role="application">
     
       <xsl:sequence select="'&#x0a;'"/>
@@ -299,9 +300,11 @@
   
   <!-- generate section container -->
    <xsl:template match="*" mode="generate-section-container">
+   <xsl:param name="navigation" as="element()*"  tunnel="yes" />
      <div id="{$IDSECTIONCONTAINER}" class="{$CLASSSECTIONCONTAINER}">
 
-        <xsl:apply-templates select="." mode="choose-html5-nav-markup"/>
+        <!--xsl:apply-templates select="." mode="choose-html5-nav-markup"/-->
+        <xsl:sequence select="$navigation"/>
 
         <xsl:apply-templates select="." mode="generate-main-content"/>
         
