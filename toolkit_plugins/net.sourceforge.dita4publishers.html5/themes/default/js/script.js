@@ -1134,817 +1134,898 @@ window.Modernizr = (function( window, document, undefined ) {
  * Dual licensed under the MIT and GPL licenses.
  * http://benalman.com/about/license/
  */
-(function($,e,b){var c="hashchange",h=document,f,g=$.event.special,i=h.documentMode,d="on"+c in e&&(i===b||i>7);function a(j){j=j||location.href;return"#"+j.replace(/^[^#]*#?(.*)$/,"$1")}$.fn[c]=function(j){return j?this.bind(c,j):this.trigger(c)};$.fn[c].delay=50;g[c]=$.extend(g[c],{setup:function(){if(d){return false}$(f.start)},teardown:function(){if(d){return false}$(f.stop)}});f=(function(){var j={},p,m=a(),k=function(q){return q},l=k,o=k;j.start=function(){p||n()};j.stop=function(){p&&clearTimeout(p);p=b};function n(){var r=a(),q=o(m);if(r!==m){l(m=r,q);$(e).trigger(c)}else{if(q!==m){location.href=location.href.replace(/#.*/,"")+q}}p=setTimeout(n,$.fn[c].delay)}$.browser.msie&&!d&&(function(){var q,r;j.start=function(){if(!q){r=$.fn[c].src;r=r&&r+a();q=$('<iframe tabindex="-1" title="empty"/>').hide().one("load",function(){r||l(a());n()}).attr("src",r||"javascript:0").insertAfter("body")[0].contentWindow;h.onpropertychange=function(){try{if(event.propertyName==="title"){q.document.title=h.title}}catch(s){}}}};j.stop=k;o=function(){return a(q.location.href)};l=function(v,s){var u=q.document,t=$.fn[c].domain;if(v!==s){u.title=h.title;u.open();t&&u.write('<script>document.domain="'+t+'"<\/script>');u.close();q.location.hash=v}}})();return j})()})(jQuery,this);(function (window) {
-    var d4p = {
+(function($,e,b){var c="hashchange",h=document,f,g=$.event.special,i=h.documentMode,d="on"+c in e&&(i===b||i>7);function a(j){j=j||location.href;return"#"+j.replace(/^[^#]*#?(.*)$/,"$1")}$.fn[c]=function(j){return j?this.bind(c,j):this.trigger(c)};$.fn[c].delay=50;g[c]=$.extend(g[c],{setup:function(){if(d){return false}$(f.start)},teardown:function(){if(d){return false}$(f.stop)}});f=(function(){var j={},p,m=a(),k=function(q){return q},l=k,o=k;j.start=function(){p||n()};j.stop=function(){p&&clearTimeout(p);p=b};function n(){var r=a(),q=o(m);if(r!==m){l(m=r,q);$(e).trigger(c)}else{if(q!==m){location.href=location.href.replace(/#.*/,"")+q}}p=setTimeout(n,$.fn[c].delay)}$.browser.msie&&!d&&(function(){var q,r;j.start=function(){if(!q){r=$.fn[c].src;r=r&&r+a();q=$('<iframe tabindex="-1" title="empty"/>').hide().one("load",function(){r||l(a());n()}).attr("src",r||"javascript:0").insertAfter("body")[0].contentWindow;h.onpropertychange=function(){try{if(event.propertyName==="title"){q.document.title=h.title}}catch(s){}}}};j.stop=k;o=function(){return a(q.location.href)};l=function(v,s){var u=q.document,t=$.fn[c].domain;if(v!==s){u.title=h.title;u.open();t&&u.write('<script>document.domain="'+t+'"<\/script>');u.close();q.location.hash=v}}})();return j})()})(jQuery,this);/**
+ * d4p object
+ */
+(function (window) {
+  var d4p = {
 
-        version: '0.2a',
+    version: '0.2a',
 
-        // is initial content should be loaded after init()
-        loadInitialContent: true,
+    // is initial content should be loaded after init()
+    loadInitialContent: true,
 
-        // store navigation key:href, value:id
-        nav: [],
-        
-        // hash (for later)
-        hash: {
-            current: '',
-            previous: '',
-            id: 'q'
-        },
-        
-        timeout: 3000,
+    // hash
+    hash: {
+      current: '',
+      previous: ''
+    },
 
-        // selectors
-        outputSelector: "#d4h5-main-content",
+    ext: '.html',
 
-        navigationSelector: "#local-navigation",
+    timeout: 3000,
 
-        externalContentElement: "section",
+    // main output selectors
+    outputSelector: "#d4h5-main-content",
 
-        loaderParentElement: "body",
+    // local navigation selector
+    navigationSelector: "#local-navigation",
 
-        // used to attribute and id to the navigation tree
-        ids: {
-            n: 0,
-            prefix: 'd4p-page-'
-        },
+    // external content element
+    externalContentElement: "section",
 
-        // active content
-        uri: '',
+    //
+    loaderParentElement: "body",
 
-        title: '',
+    // used to attribute and id to the navigation tree
+    // if none are specified, this should make jQuery selection faster
+    ids: {
+      n: 0,
+      prefix: 'd4p-page',
+      prefixLink: 'd4p-link'
+    },
 
-        content: '',
+    // default values for transitions
+    transition: {
+      speed: 'slow',
+      opacity: 0.5
+    },
 
-        transition: {
-            speed: 'slow',
-            opacity: 0.5
-        },
+    // registered modules
+    mod: [],
 
-        // registered modules
-        mod: [],
+    // uri change functions
+    _uriChange: [],
 
-        // uri change functions
-        _uriChange: [],
+    // scrollElement
+    scrollElem: {},
 
-        // scrollElement
-        scrollElem: {},
+    //scroll duration in ms
+    scrollDuration: 400,
 
-        //scroll duration in ms
-        scrollDuration: 400,
+    // from jQuery
+    rscript: '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi',
 
-        // from jQuery
-        rscript: '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi',
+    // register a module init function will be called
+    // once document is loaded.
+    // I added this feature to allow user to set options
+    // before their module are called.
+    _docReady: [],
 
-        // register a module init function will be called
-        // once document is loaded.
-        // I added this feature to allow user to set options
-        // before their module are called.
+    docIsReady: function () {
+      for (i in this._docIsReady) {
+        var fn = d4p._docIsReady[i];
+        fn.call(this, this.uri, this.hash.current);
+      }
+    },
 
-        _docReady: [],
+    // l current hash and return the uri + the hash
+    l: function () {
+      var r = document.location.hash.substring(1);
+      if (r != '') {
+        var s = r.split('#');
+        return {
+          'uri': s[0],
+          'hash': s[1] != undefined ? s[1] : ''
+        };
+      } else {
+        return {
+          'uri': '',
+          'hash': ''
+        };
+      }
+    },
 
-        docIsReady: function () {
-            for (i in this._docIsReady) {
-                var fn = d4p._docIsReady[i];
-                fn.call(this, this.uri, this.hash.current);
-            }
-        },
+    // find if an element is scrollable
+    // from http://css-tricks.com/snippets/jquery/smooth-scrolling/
+    scrollableElement: function (els) {
+      for (var i = 0, argLength = arguments.length; i < argLength; i++) {
+        var el = arguments[i],
+          $scrollElement = $(el);
 
-        // find if an element is scrollable
-        scrollableElement: function (els) {
-            for (var i = 0, argLength = arguments.length; i < argLength; i++) {
-                var el = arguments[i],
-                    $scrollElement = $(el);
+        if ($scrollElement.scrollTop() > 0) {
+          return el;
+        } else {
+          $scrollElement.scrollTop(1);
+          var isScrollable = $scrollElement.scrollTop() > 0;
+          $scrollElement.scrollTop(0);
 
-                if ($scrollElement.scrollTop() > 0) {
-                    return el;
-                } else {
-                    $scrollElement.scrollTop(1);
-                    var isScrollable = $scrollElement.scrollTop() > 0;
-                    $scrollElement.scrollTop(0);
-
-                    if (isScrollable) {
-                        return el;
-                    }
-                }
-            }
-            return [];
-        },
-
-        scrollToHash: function (hash) {
-            if (hash != "" && hash != undefined) {
-                var targetOffset = $(hash)
-                    .offset()
-                    .top;
-                $(d4p.scrollElem)
-                    .animate({
-                    scrollTop: targetOffset
-                },
-                d4p.scrollDuration);
-            }
-        },
-
-        setProps: function (options) {
-            // extend options
-            $.extend(true, this, options);
-        },
-
-        // set AJAX callback on the specified link obj.
-        live: function (obj) {
-            obj.live('click', function (e) {
-
-                var state = {};
-
-                // Set the state!
-                state[d4p.hash.id] = $(this)
-                    .attr('href')
-                    .replace(/^#/, '');
-
-                $.bbq.pushState(state);
-
-                // And finally, prevent the default link click behavior by returning false.
-                return false;
-            });
-        },
-        
-        // load initial content to avoid a blank page
-        getInitialContent: function () {
-            if ($(d4p.outputSelector)
-                .length == 1 && d4p.loadInitialContent) {
-                var url = "";
-                if (window.location.hash !== '') {
-                    uri = window.location.hash.replace(/^#/, '');
-                    uri = uri.replace(/^q=/, '');
-                    d4p.uriChanged (uri, '');
-                } else {
-                    var el = $(d4p.navigationSelector + ' a:first-child');
-                    if (el.attr('href') == undefined) {
-                        return false;
-                    }
-                    url = $(d4p.navigationSelector + ' a:first-child')
-                        .attr('href')
-                        .replace(/^#/, '');
-                    window.location.hash = "q=" + url;
-                }
-                d4p.loadInitialContent = false;
-            }
-        },
-        
-        uriChanged: function (uri, hash) {
-         	for (i in d4p._uriChange) {
-                var fn = d4p._uriChange[i];
-                d4p[fn.name][fn.fn].call(d4p[fn.name], uri, hash);
-            }
-        },
-
-        init: function (options) {
-
-            // extend options
-            $.extend(true, this, options);
-
-            //
-            this.scrollElem = this.scrollableElement('html', 'body');
-
-            // initialize
-            for (i in this.mod) {
-                var fn = this.mod[i];
-                this[fn].init.call(this[fn]);
-            }
-
-            // Bind an event to window.onhashchange that, when the history state changes,
-            // iterates over all .bbq widgets, getting their appropriate url from the
-            // current state. If that .bbq widget's url has changed, display either our
-            // cached content or fetch new content to be displayed.
-            $(window)
-                .bind('hashchange', function (e) {
-
-                state = $.bbq.getState($(this)
-                    .attr('id')) || '';
-                uri = state[d4p.hash.id];
-
-                if (uri === '' || uri == undefined) {
-                    return;
-                }
-
-                var idx = uri.indexOf('#');
-                var hash = idx != -1 ? uri.substring(idx) : "";
-
-               	d4p.uriChanged (uri, hash);
-
-            });
-
-            this.getInitialContent();
-
-            return true;
-
+          if (isScrollable) {
+            return el;
+          }
         }
+      }
+      return [];
+    },
 
-    };
+    // scroll to hash
+    scrollToHash: function (hash) {
+      if (hash != "" && hash != undefined && hash != null && hash != '#') {
+        var targetOffset = $(hash)
+          .offset()
+          .top;
+        $(d4p.scrollElem)
+          .animate({
+          scrollTop: targetOffset
+        },
+        d4p.scrollDuration);
+      }
+    },
 
-    window.d4p = d4p;
+    // extend the d4p objects
+    setProps: function (options) {
+      // extend options
+      $.extend(true, this, options);
+    },
+
+    // check if a jQuery object has an id or create one
+    getIds: function (obj) {
+      var id = obj.attr('id');
+      var href = obj.attr('href');
+      var hrefID = href.substring(0, href.length - d4p.ext.length);
+      var attrs = {};
+
+      // create an ID for future reference if not set
+      if (id === '' || id == undefined) {
+        id = d4p.ids.prefixLink + d4p.ids.n;
+        d4p.ids.n++;
+      };
+
+      return {
+        linkID: id,
+        hrefID: hrefID
+      };
+
+    },
+
+    // set AJAX callback on the specified link obj.
+    live: function (obj) {
+      /*     obj.live('click', function (e) {
+
+               var state = {};
+
+               // Set the state!
+             //  state[d4p.hash.id] = $(this)
+             //      .attr('href')
+              //     .replace(/^#/, '');
+
+            //   $.bbq.pushState(state);
+
+               // And finally, prevent the default link click behavior by returning false.
+               return false;
+           });*/
+    },
+
+    // load initial content to avoid a blank page
+    getInitialContent: function () {
+      if ($(d4p.outputSelector).length == 1 && d4p.loadInitialContent) {
+        var l = d4p.l();
+        if (l.hash !== '') {         
+          d4p.uriChanged(l.uri, l.hash);
+        } else {
+          var el = $(d4p.navigationSelector + ' a:first-child');
+          if (el.attr('href') == undefined) {
+            return false;
+          }
+          url = $(d4p.navigationSelector + ' a:first-child')
+            .attr('href')
+            .replace(/^#/, '');
+          window.location.hash = url;
+        }
+        d4p.loadInitialContent = false;
+      }
+    },
+
+    // execute callbacks function on uri changed
+    uriChanged: function (uri, hash) {
+      var l = d4p.l();
+      for (i in d4p._uriChange) {
+        var fn = d4p._uriChange[i];
+        d4p[fn.name][fn.fn].call(d4p[fn.name], l.uri, l.hash);
+      }
+      d4p.hash.previous = hash;
+    },
+
+    // init d4p objects and all modules
+    init: function (options) {
+
+      // extend options
+      $.extend(true, this, options);
+
+      //
+      this.scrollElem = this.scrollableElement('html', 'body');
+
+      // initialize
+      for (i in this.mod) {
+        var fn = this.mod[i];
+        this[fn].init.call(this[fn]);
+      }
+
+      // Bind an event to window.onhashchange that, when the history state changes
+      $(window).bind('hashchange', function (e) {
+        d4p.uriChanged();
+      });
+
+      this.getInitialContent();
+
+      return true;
+
+    }
+
+  };
+
+  window.d4p = d4p;
 
 })(window);
 
 /**
  * Module object
- */ (function (window, d4p) {
-
-    d4p.module = function (name, obj) {
-
-        this.name = name;
-
-        // set option
-        for (i in obj) {
-            if (this[i] == undefined) {
-                this[i] = obj[i];
-            }
-        }
-
-        // register component in d4p	
-        if (this.init != undefined) {
-            d4p.mod.push(name);
-        }
-
-        d4p[name] = this;
-
-    };
-
-    d4p.module.prototype.hashVal = function () {
-        this.hash.current.replace(/^#/, '');
-    };
-
-    d4p.module.prototype.docReady = function (fname) {
-        d4p._docReady.push({
-            name: this.name,
-            fn: fname
-        });
-    };
-
-    // register a hashChange callback
-    d4p.module.prototype.uriChange = function (fname) {
-        d4p._uriChange.push({
-            name: this.name,
-            fn: fname
-        });
-    };
-
-
-})(window, d4p);
-
-
-
+ */
 (function (window, d4p) {
 
-    var nav = new d4p.module('nav', {
+  d4p.module = function (name, obj) {
 
-        // select the right entry in the navigation
-        select: function (uri) {
+    this.name = name;
 
-            var id = d4p.nav[uri];
+    // set option
+    for (i in obj) {
+      if (this[i] == undefined) {
+        this[i] = obj[i];
+      }
+    }
 
-            $(d4p.navigationSelector + ' li')
-                .removeClass('selected')
-                .removeAttr('aria-expanded');
+    // register component in d4p	
+    if (this.init != undefined) {
+      d4p.mod.push(name);
+    }
 
-            $('#' + id)
-                .parent('li')
-                .attr('aria-expanded', 'true')
-                .addClass('selected');
+    d4p[name] = this;
 
-            $('#' + id)
-                .parentsUntil(d4p.navigationSelector)
-                .addClass('active')
-                .removeClass('collapsed');
-        },
+  };
 
-        selectFromHash: function () {
-            this.select(this.hashVal());
-        },
+  d4p.module.prototype.hash = function () {
+    return document.location.hash.substring(1);
+  };
 
-        traverse: function () {
-            $(d4p.navigationSelector + ' li')
-                .each(function (index) {
+  // register document ready function
+  d4p.module.prototype.docReady = function (fname) {
+    d4p._docReady.push({
+      name: this.name,
+      fn: fname
+    });
+  };
 
-                $(this)
-                    .attr('role', 'treeitem');
-
-                //if li has ul children add class collapsible
-                if ($(this)
-                    .children('ul')
-                    .length == 1) {
-
-                    // create span for icone
-                    var span = $("<span/>");
-                    span.addClass("ico");
-
-                    span.click(function () {
-                        $(this)
-                            .parent()
-                            .toggleClass('active', '')
-                            .toggleClass('collapsed', '')
-                            .attr('aria-expanded', $(this)
-                            .parent()
-                            .hasClass('active'));
-
-                    });
-
-                    // wrap text node with a span if exists
-                    $(this)
-                        .contents()
-                        .each(function () {
-
-                        if (this.nodeType == 3) { // Text only
-                            var span2 = $("<span />");
-                            span2.addClass("navtitle");
-
-                            // li click handler
-                            span2.click(function () {
-                                $(this)
-                                    .parent()
-                                    .toggleClass('active', '');
-                                $(this)
-                                    .parent()
-                                    .toggleClass('collapsed', '');
-                            });
-
-                            $(this)
-                                .wrap(span2);
-
-                        }
-                    });
+  // register a hashChange callback
+  d4p.module.prototype.uriChange = function (fname) {
+    d4p._uriChange.push({
+      name: this.name,
+      fn: fname
+    });
+  };
 
 
-                    // add class
-                    $(this)
-                        .prepend(span)
-                        .addClass('collapsible collapsed');
+})(window, d4p);(function (d4p) {
+
+  // use ui-dialog instead ?
+
+  var message = new d4p.module('msg', {
+    // id of the div element to be created
+    id: 'd4p-message',
+
+    timeout: 3000,
+
+    // message type
+    create: function () {
+      var msgBox = $("<div />")
+        .attr('id', this.id)
+        .attr('role', 'alertdialog')
+        .attr('aria-hidden', 'true')
+        .attr('aria-label', 'Message')
+        .addClass('rounded')
+        .hide();
+      var div = msgBox.append($("<div />"));
+      $('body')
+        .append(msgBox);
+    },
+
+    // create message container    
+    init: function () {
+      this.create();
+
+      $(document).mouseup(function (e) {
+        var container = $(this.id);
+
+        if (container.has(e.target).length === 0) {
+          container.hide();
+        }
+      });
+    },
+
+    show: function () {
+      $("#" + this.id)
+        .show()
+        .attr('aria-hidden', 'false')
+        .delay(this.timeout)
+        .fadeOut()
+        .attr('aria-hidden', 'true');
+    },
+
+    alert: function (msg, type) {
+      type = type == undefined ? '' : type;
+      var p = $("<p />")
+        .addClass(type)
+        .text(msg);
+      $("#" + this.id + " > div")
+        .html(p);
+      this.show();
+    }
+  });
+
+})(d4p);(function (window, d4p) {
+
+  /**
+   * d4p.ajax constructor
+   * multiple instance of this object are possible
+   */
+  d4p.ajaxLoader = function (opts) {
+
+    this.outputSelector = d4p.outputSelector;
+    this.title = '';
+    this.content = '';
+    this.externalContentElement = d4p.externalContentElement;
+    this.setAriaAttr();
+    this.timeout = d4p.timeout;
+    this.ajaxBefore = [];
+    this.ajaxReady = [];
+    this.ajaxFailed = [];
+
+    // store references
+    this.collection = {
+      ids: [],
+      href: []
+    },
+
+    /**
+     * ajax mode
+     * - replace
+     * - appends
+     */
+    this.ajaxMode = 'replace';
+
+    $.extend(true, this, opts);
+  };
+
+  // Set outputSelector
+  d4p.ajaxLoader.prototype.setOutputSelector = function (selector) {
+    this.outputSelector = selector;
+  },
+  // allow to register callback before is loaded by AJAX
+  d4p.ajaxLoader.prototype.before = function (fname) {
+    this.ajaxBefore.push(fname);
+  };
+
+  // allows to set the timeout
+  d4p.ajaxLoader.prototype.setTimeout = function (ms) {
+    this.timeout = ms;
+  };
+
+  // allow to register callback once the page is loaded by AJAX
+  d4p.ajaxLoader.prototype.ready = function (fname) {
+    this.ajaxReady.push(fname);
+  },
+
+  // allow to register callback once the page is loaded by AJAX
+  d4p.ajaxLoader.prototype.failed = function (fname) {
+    this.ajaxFailed.push(fname);
+  };
+
+  // add loader (spinner on the page)
+  d4p.ajaxLoader.prototype.addLoader = function () {
+    var node = $("<div />").attr("id", "d4p-loader");
+    $(d4p.loaderParentElement).append(node);
+  };
+
+  // set ARIA attributes on the ajax container
+  // for accessibility purpose
+  d4p.ajaxLoader.prototype.setAriaAttr = function () {
+    $(this.outputSelector).attr('role', 'main')
+      .attr('aria-atomic', 'true')
+      .attr('aria-live', 'polite')
+      .attr('aria-relevant', 'all');
+  };
+
+  // called before the ajax request is send
+  // used to output a 'loader' on the page  
+  d4p.ajaxLoader.prototype.contentIsLoading = function () {
+    $("#d4p-loader").show();
+    $(this.outputSelector).css('opacity', d4p.transition.opacity);
+  };
+
+  // called at the end of the ajax call
+  d4p.ajaxLoader.prototype.contentIsLoaded = function () {
+    $("#d4p-loader").hide();
+    $(this.outputSelector).css('opacity', 1);
+  };
+
+  // Add entry into the collection
+  d4p.ajaxLoader.prototype.collectionSet = function (uri, optID) {
+    this.collection[uri] = {
+      'cache': false,
+      'id': optID
+    };
+  };
+
+  // Add entry into the collection
+  d4p.ajaxLoader.prototype.cached = function (uri) {
+    this.collection[uri].cache = true;
+  };
+
+  // Add entry into the collection
+  d4p.ajaxLoader.prototype.inCollection = function (uri) {
+    return this.collection[uri];
+  };
+
+  // Set title of the page
+  d4p.ajaxLoader.prototype.setTitle = function () {
+    $('title').html(this.title);
+    this.collection[this.id]['title'] = this.title;
+  },
+  
+  // set content of the page
+  // this function use the hash value as an ID
+  d4p.ajaxLoader.prototype.setMainContent = function () {
+    if (this.ajaxMode == 'append') {
+      $(this.outputSelector).append($("<div />").attr('id', this.id).attr('class', 'content-chunk').html(this.content));
+      // keep information in memory when link is triggered on page
+      this.cached(this.uri);
+    } else {
+      $(this.outputSelector).html(this.content);
+    }
+  },
+
+  // Rewrite each src in the document
+  // because there is no real path with AJAX call
+  d4p.ajaxLoader.prototype.rewriteAttrSrc = function () {
+    var l = d4p.l();
+    this.content.find("*[src]").each(function (index) {
+      $(this).attr('src', l.uri.substring(0, l.uri.lastIndexOf("/")) + "/" + $(this).attr('src'));
+    });
+  },
 
 
-                    // link click handler
-                    $(this)
-                        .find('a')
-                        .click(function () {
-                        // remove previous class
-                        $(d4p.navigationSelector + ' li')
-                            .removeClass('selected');
-                        $(d4p.navigationSelector + ' li')
-                            .removeClass('active')
-                            .addClass('collapsed');
+  // Rewrite each href in the document
+  // because real path won't works with AJAX call
+  // if there are not from the first level
+  d4p.ajaxLoader.prototype.rewriteAttrHref = function () {
 
-                        // add selected class on the li parent element
-                        $(this)
-                            .parentsUntil(d4p.navigationSelector)
-                            .addClass('active')
-                            .removeClass('collapsed');
+    this.content.find("*[href]").each(function (index) {
+      var l = d4p.l();
 
-                        // set all the parent trail active
-                        $(this)
-                            .parent('li')
-                            .addClass('selected')
-                    });
+      var dir = l.uri.substring(0, l.uri.lastIndexOf("/"));
+      var base = dir.split("/");
+      var arr = [];
 
-                } else {
+      // href
+      var href = $(this).attr('href');
+      href = href.replace(d4p.ext, '');
 
-                    $(this)
-                        .addClass('no-child');
+      // prevent hash to be rewritten
+      if (href.substring(0, 1) == "#") {
+        return true;
+      }
 
-                }
-            });
-        },
+      var idx = href.indexOf(l.uri);
 
-        init: function (fn) {
+      // anchors on the same page
+      if (idx == 0) {
 
-            $(d4p.navigationSelector + " > ul")
-                .attr('role', 'tree');
-            $(d4p.navigationSelector + " li ul")
-                .attr('role', 'group');
+        $(this).attr('href', href.substring(l.uri.length - 1));
 
-            this.docReady('selectFromHash');
-            this.uriChange('select');
-            this.traverse();
+        //  event.preventDefault() is necessary to avoid the AJAC call
+        $(this).click(function (event) {
+          event.preventDefault();
+          d4p.scrollToHash(this.hash);
+        });
+
+        return true;
+      }
+
+      var parts = href.split("/");
+
+      // prevent external to be rewritten           
+      if ($(this)
+        .hasClass("external") || $(this).attr('target') == "_blank") {
+        return true;
+      }
+
+
+      var pathC = dir != "" ? base.concat(parts) : arr.concat(parts);
+
+      for (var i = 0, len = pathC.length; i < len; ++i) {
+        if (pathC[i] === '..') {
+          pathC.splice(i, 1);
+          pathC.splice(i - 1, 1);
+        }
+      }
+
+      d4p.ajax.collectionSet(pathC.join("/"), '');
+
+      $(this).attr('href', '#' + pathC.join("/"));
+
+      d4p.live($(this));
+
+    });
+
+  };
+
+  /**
+   * this is a based from the load function of jquery
+   *
+   * @param uri: the uri to load
+   * @paran hash: the hash to scroll to after the load
+   * @todo: see if it is neccessary to implement cache here
+   * @todo: implement beforeSend, error callback
+   */
+  d4p.ajaxLoader.prototype.load = function (uri, hash) {
+ 	
+    this.id = uri.replace(d4p.ext, '');
+    this.uri = uri;
+    this.hash = hash;
+    
+    // todo: implement cache method
+   
+    // call ajax before callbacks
+    for (i in this.ajaxBefore) {
+      var fn = this.ajaxBefore[i];
+      this[fn].call(this, uri, hash);
+    }  
+
+    // set aria status
+    $(this.outputSelector).attr('aria-busy', 'true');
+
+    $.ajax({
+
+      type: 'GET',
+
+      context: this,
+
+      cache: true,
+
+      timeout: this.timeout,
+
+      url: uri,
+
+      dataType: 'html',
+
+      data: {
+        ajax: "true"
+      },
+
+      beforeSend: function (jqXHR) {
+        this.contentIsLoading();
+      },
+
+      complete: function (jqXHR, status, responseText) {
+
+        // is status is an error, return an error dialog
+        if (status === 'error' || status === 'timeout') {
+
+          var msg = status === 'timeout' ? 'Sorry, the content could not be loaded' : 'Sorry, the server does not respond.';
+          d4p.msg.alert(msg, 'error');
+
+          this.contentIsLoaded();
+
+          document.location.hash = d4p.hash.previous;
+
+          // ajax failed callback
+          for (fn in this.ajaxFailed) {
+            this.ajaxFailed[fn].call(d4p.content);
+          }
+
+          return false;
+        }
+
+        // Store the response as specified by the jqXHR object
+        responseText = jqXHR.responseText;
+
+        // If successful, inject the HTML into all the matched elements
+        if (jqXHR.isResolved()) {
+
+          // From jquery: #4825: Get the actual response in case
+          // a dataFilter is present in ajaxSettings
+          jqXHR.done(function (r) {
+            responseText = r;
+          });
+
+          var html = $("<div>")
+            .attr('id', this.uri + "-temp")
+            .append(responseText.replace(d4p.rscript, ""));
+
+          this.content = html.find(this.externalContentElement);
+		  
+          this.title = html.find("title").html();
+
+          // execute ajaxReady
+          for (i in this.ajaxReady) {
+            var fn = this.ajaxReady[i];
+            this[fn].call(this, d4p.content);
+          }
+
+          this.setMainContent();
+
+          this.contentIsLoaded();
+
+          $(this.outputSelector).attr('aria-busy', 'false');
+
+          d4p.scrollToHash('#' + hash);
+
+        }
+      }
+    });
+  };
+
+})(window, d4p);(function (window, d4p) {
+
+  /**
+   * This is the core of the main ajax navigation
+   */
+  var ajaxnav = new d4p.module('ajaxnav', {
+
+    traverse: function () {
+      // navigation: prefix all href with #
+      $(d4p.navigationSelector + ' a').each(function (index) {
+
+        var href = $(this).attr('href');
+
+        // ids.linkID;
+        // ids.hrefID;
+        var ids = d4p.getIds($(this));
+
+        // attribute an ID for future reference if not set
+        $(this).attr('id', ids.linkID);
+
+        // do not rewrite anchors and absolute uri
+        // @todo check for absolute uri
+        if (href.substring(0, 1) != '#') {
+
+          // add it in the collection
+          d4p.ajax.collectionSet(ids.hrefID, ids.linkID);
+          $(this).attr('href', '#' + ids.hrefID);
 
         }
 
-    });
+        // push the appropriate state onto the history when clicked.
+        d4p.live($(this));
+
+      });
+
+      /** span.navtitle **/
+      $(d4p.navigationSelector).find('li').each(function (index) {
+        if ($(this).children('a').length === 0) {
+          var l = $(this).find('ul li a:first');
+          if (l.length == 1) {
+            $(this).children('span.navtitle').click(function () {
+              d4p.ajax.load(l.attr('href').replace(/^#/, ''));
+            });
+          }
+        }
+      });
+    },
+
+    load: function () {
+
+      var l = d4p.l();
+      if (d4p.ajax.inCollection(l.uri) != undefined && !d4p.ajax.inCollection(l.uri).cached) {
+        d4p.ajax.load(l.uri + d4p.ext, l.hash);
+      }
+    },
+
+    init: function () {
+
+      d4p.ajax = new d4p.ajaxLoader();
+      d4p.ajax.addLoader();
+      d4p.ajax.ready('rewriteAttrHref');
+      d4p.ajax.ready('rewriteAttrSrc');
+      d4p.ajax.ready('setTitle');
+
+      this.traverse();
+      this.uriChange('load');
+      this.load();
+    }
+  });
+
+})(window, d4p);(function (window, d4p) {
+
+   var navigation = new d4p.module('dnav', {
+
+       // select the right entry in the navigation
+       select: function (uri) {
+
+            var id = d4p.ajax.collection[uri].id;
+
+           $(d4p.navigationSelector + ' li')
+               .removeClass('selected')
+               .removeAttr('aria-expanded');
+
+           $('#' + id)
+               .parent('li')
+               .attr('aria-expanded', 'true')
+               .addClass('selected');
+
+           $('#' + id)
+               .parentsUntil(d4p.navigationSelector)
+               .addClass('active')
+               .removeClass('collapsed');
+       },
+
+       selectFromHash: function () {
+           this.select(this.hashVal());
+       },
+
+       traverse: function () {
+           $(d4p.navigationSelector + ' li')
+               .each(function (index) {
+
+               $(this)
+                   .attr('role', 'treeitem');
+
+               //if li has ul children add class collapsible
+               if ($(this)
+                   .children('ul')
+                   .length == 1) {
+
+                   // create span for icone
+                   var span = $("<span/>");
+                   span.addClass("ico");
+
+                   span.click(function () {
+                       $(this)
+                           .parent()
+                           .toggleClass('active', '')
+                           .toggleClass('collapsed', '')
+                           .attr('aria-expanded', $(this)
+                           .parent()
+                           .hasClass('active'));
+
+                   });
+
+                   // wrap text node with a span if exists
+                   $(this)
+                       .contents()
+                       .each(function () {
+
+                       if (this.nodeType == 3) { // Text only
+                           var span2 = $("<span />");
+                           span2.addClass("navtitle");
+
+                           // li click handler
+                           span2.click(function () {
+                               $(this)
+                                   .parent()
+                                   .toggleClass('active', '');
+                               $(this)
+                                   .parent()
+                                   .toggleClass('collapsed', '');
+                           });
+
+                           $(this)
+                               .wrap(span2);
+
+                       }
+                   });
+
+
+                   // add class
+                   $(this)
+                       .prepend(span)
+                       .addClass('collapsible collapsed');
+
+
+                   // link click handler
+                   $(this)
+                       .find('a')
+                       .click(function () {
+                       // remove previous class
+                       $(d4p.navigationSelector + ' li')
+                           .removeClass('selected');
+                       $(d4p.navigationSelector + ' li')
+                           .removeClass('active')
+                           .addClass('collapsed');
+
+                       // add selected class on the li parent element
+                       $(this)
+                           .parentsUntil(d4p.navigationSelector)
+                           .addClass('active')
+                           .removeClass('collapsed');
+
+                       // set all the parent trail active
+                       $(this)
+                           .parent('li')
+                           .addClass('selected')
+                   });
+
+               } else {
+
+                   $(this).addClass('no-child');
+
+               }
+           });
+       },
+
+       init: function (fn) {
+
+           $(d4p.navigationSelector + " > ul")
+               .attr('role', 'tree');
+           $(d4p.navigationSelector + " li ul")
+               .attr('role', 'group');
+
+           this.docReady('selectFromHash');
+           this.uriChange('select');
+           this.traverse();
+
+       }
+
+   });
 
 })(window, d4p);
 (function (d4p) {
 
-    // use ui-dialog instead ?
+  // new prototype
+  // register a hashChange callback
+  d4p.ajaxLoader.prototype.addWidgets = function () {
+    this.content.find("*[class]").each(function (index) {
+      var classes = $(this)
+        .attr('class')
+        .split(" ");
 
-    var message = new d4p.module('msg', {
-        // id of the div element to be created
-        id: 'd4p-message',
+      for (var i = 0, len = classes.length; i < len; i++) {
 
-        timeout: 3000,
+        var cs = classes[i];
+        var idx = cs.indexOf(d4p.ui.prefix);
+        var l = d4p.ui.prefix.length;
 
-        // message type
-        create: function () {
-            var msgBox = $("<div />")
-                .attr('id', this.id)
-                .attr('role', 'alertdialog')
-                .attr('aria-hidden', 'true')
-                .attr('aria-label', 'Message')
-                .addClass('rounded')
-                .hide();
-            var div = msgBox.append($("<div />"));
-            $('body')
-                .append(msgBox);
-        },
+        if (idx >= 0) {
 
-        // create message container    
-        init: function () {
-            this.create();
-            
-            $(document).mouseup(function (e) {
-   				var container = $(this.id);
+          var ui = cs.substring(l);
 
-    			if (container.has(e.target).length === 0){
-        			container.hide();
-    			}
-			});
-        },
+          if (d4p.ui[ui] == undefined) {
+            return true;
+          }
 
-        show: function () {
-            $("#" + this.id)
-                .show()
-                .attr('aria-hidden', 'false')
-                .delay(this.timeout)
-                .fadeOut()
-                .attr('aria-hidden', 'true');
-        },
-
-        alert: function (msg, type) {
-            type = type == undefined ? '' : type;
-            var p = $("<p />")
-                .addClass(type)
-                .text(msg);
-            $("#" + this.id + " > div")
-                .html(p);
-            this.show();
+          if (d4p.ui[ui]['init'] != undefined) {
+            d4p.ui[ui]['init'].call(d4p.ui[ui], $(this));
+          }
         }
+      }
     });
+  };
 
-})(d4p);
 
-(function (window, d4p) {
+  var ui = new d4p.module('ui', {
 
-    // constructor
-    d4p.ajaxLoader = function (selector) {
-        this.outputSelector = selector;
-        this.title = '';
-        this.content = '';
-        this.externalContentElement = d4p.externalContentElement;
-        this.setAriaAttr();
-        this.timeout = d4p.timeout;
-        this.ajaxBefore = [];
-        this.ajaxReady = [];
-        this.ajaxFailed = [];
-    };
-    
-    // Set outputSelector
-    d4p.ajaxLoader.prototype.setOutputSelector = function ( selector ) {
-       	this.outputSelector = selector;
-    },
-    // allow to register callback before is loaded by AJAX
-    d4p.ajaxLoader.prototype.before = function (fname) {
-        this.ajaxBefore.push(fname);
-    };
-    
-    // allows to set the timeout
-    d4p.ajaxLoader.prototype.setTimeout = function (ms) {
-    	this.timeout = ms;
-    };
+    // prefix
+    prefix: "d4p-ui-",
 
-    // allow to register callback once the page is loaded by AJAX
-    d4p.ajaxLoader.prototype.ready = function (fname) {
-        this.ajaxReady.push(fname);
-    },
+    dialogMinWidth: 600,
 
-    // allow to register callback once the page is loaded by AJAX
-    d4p.ajaxLoader.prototype.failed = function (fname) {
-        this.ajaxFailed.push(fname);
-    };
+    processed: [],
 
-    // add loader (spinner on the page)
-    d4p.ajaxLoader.prototype.addLoader = function () {
-        var node = $("<div />").attr("id", "d4p-loader");
-        $(d4p.loaderParentElement).append(node);
-    };
-
-    // set ARIA attributes on the ajax container
-    // for accessibility purpose
-    d4p.ajaxLoader.prototype.setAriaAttr = function () {
-        $(this.outputSelector)
-            .attr('role', 'main')
-            .attr('aria-atomic', 'true')
-            .attr('aria-live', 'polite')
-            .attr('aria-relevant', 'all');
-    };
-
-    // called before the ajax request is send
-    // used to output a 'loader' on the page  
-    d4p.ajaxLoader.prototype.contentIsLoading = function () {
-        $("#d4p-loader").show();
-        $(this.outputSelector).css('opacity', d4p.transition.opacity);
-    };
-
-    // called at the end of the ajax call
-    d4p.ajaxLoader.prototype.contentIsLoaded = function () {
-        $("#d4p-loader").hide();
-        $(this.outputSelector).css('opacity', 1);
-    };
-
-    // Set title of the page
-    d4p.ajaxLoader.prototype.setTitle = function () {
-        $('title')
-            .html(this.title);
-    },
-
-    // set content of the page
-    d4p.ajaxLoader.prototype.setMainContent = function () {
-        $(this.outputSelector).html(this.content);
-    },
-
-    // Rewrite each src in the document
-    // because there is no real path with AJAX call
-    d4p.ajaxLoader.prototype.rewriteAttrSrc = function () {
-        var uri = d4p.hash.current;
-        this.content.find("*[src]")
-            .each(function (index) {
-            $(this)
-                .attr('src', uri.substring(0, uri.lastIndexOf("/")) + "/" + $(this)
-                .attr('src'));
-        });
-    },
-
-    // Rewrite each href in the document
-    // because real path won't works with AJAX call
-    // if there are not from the first level
-    d4p.ajaxLoader.prototype.rewriteAttrHref = function () {
-
-        this.content.find("*[href]")
-            .each(function (index) {
-            var uri = d4p.hash.current;
-            var dir = uri.substring(0, uri.lastIndexOf("/"));
-            var base = dir.split("/");
-            var arr = [];
-
-            var href = $(this)
-                .attr('href');
-
-            var idx = href.indexOf(uri);
-
-            // anchors on the same page
-            if (idx == 0) {
-
-                $(this)
-                    .click(function (event) {
-                    event.preventDefault();
-                    d4p.scrollToHash(this.hash);
-                });
-
-                return true;
-            }
-
-            var parts = href.split("/");
-
-            // prevent external to be rewritten           
-            if ($(this)
-                .hasClass("external") || $(this)
-                .attr('target') == "_blank") {
-                return true;
-            }
-
-            var pathC = dir != "" ? base.concat(parts) : arr.concat(parts);
-
-            for (var i = 0, len = pathC.length; i < len; ++i) {
-                if (pathC[i] === '..') {
-                    pathC.splice(i, 1);
-                    pathC.splice(i - 1, 1);
-                }
-            }
-
-            $(this).attr('href', "#" + pathC.join("/"));
-
-            d4p.live($(this));
-
-        });
-
-    };
-
-    // this is a modified version of the load function in jquery
-    // I kept comments for reference
-    // @todo: see if it is neccessary to implement cache here
-    // @todo: implement beforeSend, error callback
-    d4p.ajaxLoader.prototype.load = function (uri, hash) {
-
-        for (i in this.ajaxBefore) {
-            var fn = this.ajaxBefore[i];
-            this[fn].call(this);
-        }
-
-        d4p.hash.current = uri;
-
-        $(this.outputSelector)
-            .attr('aria-busy', 'true');
-
-        $.ajax({
-
-            type: 'GET',
-
-            context: this,
-
-            cache: true,
-            
-            timeout: this.timeout,
-
-            url: uri,
-
-            dataType: 'html',
-
-            data: {
-                ajax: "true"
-            },
-
-            beforeSend: function (jqXHR) {
-                this.contentIsLoading();
-            },
-
-            complete: function (jqXHR, status, responseText) {
-
-                // is status is an error, return an error dialog
-                if (status === 'error' || status === 'timeout') {
-                
-                	var msg = status === 'timeout' ? 'Sorry, the content could not be loaded' : 'Sorry, the server does not respond.';
-                    d4p.msg.alert(msg, 'error');
-                    this.contentIsLoaded();
-
-                    document.location.hash = "";
-
-                    for (fn in this.ajaxFailed) {
-                        this.ajaxFailed[fn].call(d4p.content);
-                    }
-
-                    return false;
-                } 
-
-                // Store the response as specified by the jqXHR object
-                responseText = jqXHR.responseText;
-
-                // If successful, inject the HTML into all the matched elements
-                if (jqXHR.isResolved()) {
-
-                    // From jquery: #4825: Get the actual response in case
-                    // a dataFilter is present in ajaxSettings
-                    jqXHR.done(function (r) {
-                        responseText = r;
-                    });
-
-                    var html = $("<div>")
-                        .attr('id', d4p.hash.current)
-                        .append(responseText.replace(d4p.rscript, ""));
-
-                    this.content = html.find(this.externalContentElement);
-
-                    this.title = html.find("title")
-                        .html();
-
-                    for (i in this.ajaxReady) {
-                        var fn = this.ajaxReady[i];
-                        this[fn].call(this, d4p.content);
-                    }
-
-                    this.setMainContent();
-
-                    this.contentIsLoaded();
-
-                    $(this.outputSelector)
-                        .attr('aria-busy', 'false');
-
-                    d4p.scrollToHash(hash);
-                }
-            }
-        });
-    };
-    
-})(window, d4p);
-/**
- * Module object
- */ (function (window, d4p) {
-
-
-    var ajaxnav = new d4p.module('ajaxnav', {
-
-        traverse: function () {
-            // navigation: prefix all href with #
-            $(d4p.navigationSelector + ' a')
-                .each(function (index) {
-
-                var id = $(this)
-                    .attr('id');
-                var href = $(this)
-                    .attr('href');
-
-
-                // attribute an ID for future reference if not set
-                if (id === '' || id == undefined) {
-                    id = d4p.ids.prefix + d4p.ids.n;
-                    d4p.ids.n++;
-                    $(this).attr('id', id);
-                }
-
-                // keep information in memory when link is triggered on page
-                d4p.nav[href] = id;
-
-                // replace href
-                $(this).attr('href', '#' + href);
-
-                // push the appropriate state onto the history when clicked.
-                d4p.live($(this));
-
-            });
-
-            $(d4p.navigationSelector).find('li').each(function (index) {
-                if ($(this).children('a').length === 0) {
-                    var l = $(this).find('ul li a:first');
-                    if (l.length == 1) {
-                        $(this).children('span.navtitle').click(function () {
-                            d4p.ajax.load(l.attr('href')
-                                .replace(/^#/, ''));
-                        });
-                    }
-                }
-            });
-        },
-
-        load: function (uri) {
-            d4p.ajax.load(uri);
-        },
-
-        init: function () {
-        
-        	d4p.ajax = new d4p.ajaxLoader(d4p.outputSelector);
-            d4p.ajax.addLoader();
-            d4p.ajax.ready('rewriteAttrHref');
-            d4p.ajax.ready('rewriteAttrSrc');
-            d4p.ajax.ready('setTitle');
-            
-            this.traverse();
-            this.uriChange('load');
-        }
-    });
-
-})(window, d4p);
-(function (d4p) {
-
-    // new prototype
-     // register a hashChange callback
-   d4p.ajaxLoader.prototype.addWidgets = function () {
-            this.content.find("*[class]").each(function (index) {
-                var classes = $(this)
-                    .attr('class')
-                    .split(" ");
-                    	
-                for (var i = 0, len = classes.length; i < len; i++) {
-        		
-                	var cs = classes[i];
-                	var idx = cs.indexOf(d4p.ui.prefix);
-                	var l = d4p.ui.prefix.length;
-
-                	if (idx >= 0) {
-                		
-                    	var ui = cs.substring(l);
-                    	
-                    	if(d4p.ui[ui] == undefined) {
-                    		return true;
-                    	}
-
-                    	if (d4p.ui[ui]['init'] != undefined) {
-                        	d4p.ui[ui]['init'].call(d4p.ui[ui], $(this));
-                    	}
-               		}
-               	}
-            });
-        };
-
-
-    var ui = new d4p.module('ui', {
-
-        // prefix
-        prefix: "d4p-ui-",
-        
-        dialogMinWidth: 600,
-        
-        processed: [],
-
-        //    
-        init: function () {
-        	d4p.ajax.ready('addWidgets');
-        }        
-    });
-})(d4p);
-/*!
+    //    
+    init: function () {
+      d4p.ajax.ready('addWidgets');
+    }
+  });
+})(d4p);/*!
  * jQuery UI 1.8.21
  *
  * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
@@ -3156,24 +3237,24 @@ $.extend( $.ui.accordion, {
  * Requires: jQuery v1.2.6 or later
  */
 (function($){var ver="2.88";if($.support==undefined){$.support={opacity:!($.browser.msie)};}function debug(s){if($.fn.cycle.debug){log(s);}}function log(){if(window.console&&window.console.log){window.console.log("[cycle] "+Array.prototype.join.call(arguments," "));}}$.fn.cycle=function(options,arg2){var o={s:this.selector,c:this.context};if(this.length===0&&options!="stop"){if(!$.isReady&&o.s){log("DOM not ready, queuing slideshow");$(function(){$(o.s,o.c).cycle(options,arg2);});return this;}log("terminating; zero elements found by selector"+($.isReady?"":" (DOM not ready)"));return this;}return this.each(function(){var opts=handleArguments(this,options,arg2);if(opts===false){return;}opts.updateActivePagerLink=opts.updateActivePagerLink||$.fn.cycle.updateActivePagerLink;if(this.cycleTimeout){clearTimeout(this.cycleTimeout);}this.cycleTimeout=this.cyclePause=0;var $cont=$(this);var $slides=opts.slideExpr?$(opts.slideExpr,this):$cont.children();var els=$slides.get();if(els.length<2){log("terminating; too few slides: "+els.length);return;}var opts2=buildOptions($cont,$slides,els,opts,o);if(opts2===false){return;}var startTime=opts2.continuous?10:getTimeout(els[opts2.currSlide],els[opts2.nextSlide],opts2,!opts2.rev);if(startTime){startTime+=(opts2.delay||0);if(startTime<10){startTime=10;}debug("first timeout: "+startTime);this.cycleTimeout=setTimeout(function(){go(els,opts2,0,(!opts2.rev&&!opts.backwards));},startTime);}});};function handleArguments(cont,options,arg2){if(cont.cycleStop==undefined){cont.cycleStop=0;}if(options===undefined||options===null){options={};}if(options.constructor==String){switch(options){case"destroy":case"stop":var opts=$(cont).data("cycle.opts");if(!opts){return false;}cont.cycleStop++;if(cont.cycleTimeout){clearTimeout(cont.cycleTimeout);}cont.cycleTimeout=0;$(cont).removeData("cycle.opts");if(options=="destroy"){destroy(opts);}return false;case"toggle":cont.cyclePause=(cont.cyclePause===1)?0:1;checkInstantResume(cont.cyclePause,arg2,cont);return false;case"pause":cont.cyclePause=1;return false;case"resume":cont.cyclePause=0;checkInstantResume(false,arg2,cont);return false;case"prev":case"next":var opts=$(cont).data("cycle.opts");if(!opts){log('options not found, "prev/next" ignored');return false;}$.fn.cycle[options](opts);return false;default:options={fx:options};}return options;}else{if(options.constructor==Number){var num=options;options=$(cont).data("cycle.opts");if(!options){log("options not found, can not advance slide");return false;}if(num<0||num>=options.elements.length){log("invalid slide index: "+num);return false;}options.nextSlide=num;if(cont.cycleTimeout){clearTimeout(cont.cycleTimeout);cont.cycleTimeout=0;}if(typeof arg2=="string"){options.oneTimeFx=arg2;}go(options.elements,options,1,num>=options.currSlide);return false;}}return options;function checkInstantResume(isPaused,arg2,cont){if(!isPaused&&arg2===true){var options=$(cont).data("cycle.opts");if(!options){log("options not found, can not resume");return false;}if(cont.cycleTimeout){clearTimeout(cont.cycleTimeout);cont.cycleTimeout=0;}go(options.elements,options,1,(!opts.rev&&!opts.backwards));}}}function removeFilter(el,opts){if(!$.support.opacity&&opts.cleartype&&el.style.filter){try{el.style.removeAttribute("filter");}catch(smother){}}}function destroy(opts){if(opts.next){$(opts.next).unbind(opts.prevNextEvent);}if(opts.prev){$(opts.prev).unbind(opts.prevNextEvent);}if(opts.pager||opts.pagerAnchorBuilder){$.each(opts.pagerAnchors||[],function(){this.unbind().remove();});}opts.pagerAnchors=null;if(opts.destroy){opts.destroy(opts);}}function buildOptions($cont,$slides,els,options,o){var opts=$.extend({},$.fn.cycle.defaults,options||{},$.metadata?$cont.metadata():$.meta?$cont.data():{});if(opts.autostop){opts.countdown=opts.autostopCount||els.length;}var cont=$cont[0];$cont.data("cycle.opts",opts);opts.$cont=$cont;opts.stopCount=cont.cycleStop;opts.elements=els;opts.before=opts.before?[opts.before]:[];opts.after=opts.after?[opts.after]:[];opts.after.unshift(function(){opts.busy=0;});if(!$.support.opacity&&opts.cleartype){opts.after.push(function(){removeFilter(this,opts);});}if(opts.continuous){opts.after.push(function(){go(els,opts,0,(!opts.rev&&!opts.backwards));});}saveOriginalOpts(opts);if(!$.support.opacity&&opts.cleartype&&!opts.cleartypeNoBg){clearTypeFix($slides);}if($cont.css("position")=="static"){$cont.css("position","relative");}if(opts.width){$cont.width(opts.width);}if(opts.height&&opts.height!="auto"){$cont.height(opts.height);}if(opts.startingSlide){opts.startingSlide=parseInt(opts.startingSlide);}else{if(opts.backwards){opts.startingSlide=els.length-1;}}if(opts.random){opts.randomMap=[];for(var i=0;i<els.length;i++){opts.randomMap.push(i);}opts.randomMap.sort(function(a,b){return Math.random()-0.5;});opts.randomIndex=1;opts.startingSlide=opts.randomMap[1];}else{if(opts.startingSlide>=els.length){opts.startingSlide=0;}}opts.currSlide=opts.startingSlide||0;var first=opts.startingSlide;$slides.css({position:"absolute",top:0,left:0}).hide().each(function(i){var z;if(opts.backwards){z=first?i<=first?els.length+(i-first):first-i:els.length-i;}else{z=first?i>=first?els.length-(i-first):first-i:els.length-i;}$(this).css("z-index",z);});$(els[first]).css("opacity",1).show();removeFilter(els[first],opts);if(opts.fit&&opts.width){$slides.width(opts.width);}if(opts.fit&&opts.height&&opts.height!="auto"){$slides.height(opts.height);}var reshape=opts.containerResize&&!$cont.innerHeight();if(reshape){var maxw=0,maxh=0;for(var j=0;j<els.length;j++){var $e=$(els[j]),e=$e[0],w=$e.outerWidth(),h=$e.outerHeight();if(!w){w=e.offsetWidth||e.width||$e.attr("width");}if(!h){h=e.offsetHeight||e.height||$e.attr("height");}maxw=w>maxw?w:maxw;maxh=h>maxh?h:maxh;}if(maxw>0&&maxh>0){$cont.css({width:maxw+"px",height:maxh+"px"});}}if(opts.pause){$cont.hover(function(){this.cyclePause++;},function(){this.cyclePause--;});}if(supportMultiTransitions(opts)===false){return false;}var requeue=false;options.requeueAttempts=options.requeueAttempts||0;$slides.each(function(){var $el=$(this);this.cycleH=(opts.fit&&opts.height)?opts.height:($el.height()||this.offsetHeight||this.height||$el.attr("height")||0);this.cycleW=(opts.fit&&opts.width)?opts.width:($el.width()||this.offsetWidth||this.width||$el.attr("width")||0);if($el.is("img")){var loadingIE=($.browser.msie&&this.cycleW==28&&this.cycleH==30&&!this.complete);var loadingFF=($.browser.mozilla&&this.cycleW==34&&this.cycleH==19&&!this.complete);var loadingOp=($.browser.opera&&((this.cycleW==42&&this.cycleH==19)||(this.cycleW==37&&this.cycleH==17))&&!this.complete);var loadingOther=(this.cycleH==0&&this.cycleW==0&&!this.complete);if(loadingIE||loadingFF||loadingOp||loadingOther){if(o.s&&opts.requeueOnImageNotLoaded&&++options.requeueAttempts<100){log(options.requeueAttempts," - img slide not loaded, requeuing slideshow: ",this.src,this.cycleW,this.cycleH);setTimeout(function(){$(o.s,o.c).cycle(options);},opts.requeueTimeout);requeue=true;return false;}else{log("could not determine size of image: "+this.src,this.cycleW,this.cycleH);}}}return true;});if(requeue){return false;}opts.cssBefore=opts.cssBefore||{};opts.animIn=opts.animIn||{};opts.animOut=opts.animOut||{};$slides.not(":eq("+first+")").css(opts.cssBefore);if(opts.cssFirst){$($slides[first]).css(opts.cssFirst);}if(opts.timeout){opts.timeout=parseInt(opts.timeout);if(opts.speed.constructor==String){opts.speed=$.fx.speeds[opts.speed]||parseInt(opts.speed);}if(!opts.sync){opts.speed=opts.speed/2;}var buffer=opts.fx=="shuffle"?500:250;while((opts.timeout-opts.speed)<buffer){opts.timeout+=opts.speed;}}if(opts.easing){opts.easeIn=opts.easeOut=opts.easing;}if(!opts.speedIn){opts.speedIn=opts.speed;}if(!opts.speedOut){opts.speedOut=opts.speed;}opts.slideCount=els.length;opts.currSlide=opts.lastSlide=first;if(opts.random){if(++opts.randomIndex==els.length){opts.randomIndex=0;}opts.nextSlide=opts.randomMap[opts.randomIndex];}else{if(opts.backwards){opts.nextSlide=opts.startingSlide==0?(els.length-1):opts.startingSlide-1;}else{opts.nextSlide=opts.startingSlide>=(els.length-1)?0:opts.startingSlide+1;}}if(!opts.multiFx){var init=$.fn.cycle.transitions[opts.fx];if($.isFunction(init)){init($cont,$slides,opts);}else{if(opts.fx!="custom"&&!opts.multiFx){log("unknown transition: "+opts.fx,"; slideshow terminating");return false;}}}var e0=$slides[first];if(opts.before.length){opts.before[0].apply(e0,[e0,e0,opts,true]);}if(opts.after.length>1){opts.after[1].apply(e0,[e0,e0,opts,true]);}if(opts.next){$(opts.next).bind(opts.prevNextEvent,function(){return advance(opts,opts.rev?-1:1);});}if(opts.prev){$(opts.prev).bind(opts.prevNextEvent,function(){return advance(opts,opts.rev?1:-1);});}if(opts.pager||opts.pagerAnchorBuilder){buildPager(els,opts);}exposeAddSlide(opts,els);return opts;}function saveOriginalOpts(opts){opts.original={before:[],after:[]};opts.original.cssBefore=$.extend({},opts.cssBefore);opts.original.cssAfter=$.extend({},opts.cssAfter);opts.original.animIn=$.extend({},opts.animIn);opts.original.animOut=$.extend({},opts.animOut);$.each(opts.before,function(){opts.original.before.push(this);});$.each(opts.after,function(){opts.original.after.push(this);});}function supportMultiTransitions(opts){var i,tx,txs=$.fn.cycle.transitions;if(opts.fx.indexOf(",")>0){opts.multiFx=true;opts.fxs=opts.fx.replace(/\s*/g,"").split(",");for(i=0;i<opts.fxs.length;i++){var fx=opts.fxs[i];tx=txs[fx];if(!tx||!txs.hasOwnProperty(fx)||!$.isFunction(tx)){log("discarding unknown transition: ",fx);opts.fxs.splice(i,1);i--;}}if(!opts.fxs.length){log("No valid transitions named; slideshow terminating.");return false;}}else{if(opts.fx=="all"){opts.multiFx=true;opts.fxs=[];for(p in txs){tx=txs[p];if(txs.hasOwnProperty(p)&&$.isFunction(tx)){opts.fxs.push(p);}}}}if(opts.multiFx&&opts.randomizeEffects){var r1=Math.floor(Math.random()*20)+30;for(i=0;i<r1;i++){var r2=Math.floor(Math.random()*opts.fxs.length);opts.fxs.push(opts.fxs.splice(r2,1)[0]);}debug("randomized fx sequence: ",opts.fxs);}return true;}function exposeAddSlide(opts,els){opts.addSlide=function(newSlide,prepend){var $s=$(newSlide),s=$s[0];if(!opts.autostopCount){opts.countdown++;}els[prepend?"unshift":"push"](s);if(opts.els){opts.els[prepend?"unshift":"push"](s);}opts.slideCount=els.length;$s.css("position","absolute");$s[prepend?"prependTo":"appendTo"](opts.$cont);if(prepend){opts.currSlide++;opts.nextSlide++;}if(!$.support.opacity&&opts.cleartype&&!opts.cleartypeNoBg){clearTypeFix($s);}if(opts.fit&&opts.width){$s.width(opts.width);}if(opts.fit&&opts.height&&opts.height!="auto"){$slides.height(opts.height);}s.cycleH=(opts.fit&&opts.height)?opts.height:$s.height();s.cycleW=(opts.fit&&opts.width)?opts.width:$s.width();$s.css(opts.cssBefore);if(opts.pager||opts.pagerAnchorBuilder){$.fn.cycle.createPagerAnchor(els.length-1,s,$(opts.pager),els,opts);}if($.isFunction(opts.onAddSlide)){opts.onAddSlide($s);}else{$s.hide();}};}$.fn.cycle.resetState=function(opts,fx){fx=fx||opts.fx;opts.before=[];opts.after=[];opts.cssBefore=$.extend({},opts.original.cssBefore);opts.cssAfter=$.extend({},opts.original.cssAfter);opts.animIn=$.extend({},opts.original.animIn);opts.animOut=$.extend({},opts.original.animOut);opts.fxFn=null;$.each(opts.original.before,function(){opts.before.push(this);});$.each(opts.original.after,function(){opts.after.push(this);});var init=$.fn.cycle.transitions[fx];if($.isFunction(init)){init(opts.$cont,$(opts.elements),opts);}};function go(els,opts,manual,fwd){if(manual&&opts.busy&&opts.manualTrump){debug("manualTrump in go(), stopping active transition");$(els).stop(true,true);opts.busy=false;}if(opts.busy){debug("transition active, ignoring new tx request");return;}var p=opts.$cont[0],curr=els[opts.currSlide],next=els[opts.nextSlide];if(p.cycleStop!=opts.stopCount||p.cycleTimeout===0&&!manual){return;}if(!manual&&!p.cyclePause&&!opts.bounce&&((opts.autostop&&(--opts.countdown<=0))||(opts.nowrap&&!opts.random&&opts.nextSlide<opts.currSlide))){if(opts.end){opts.end(opts);}return;}var changed=false;if((manual||!p.cyclePause)&&(opts.nextSlide!=opts.currSlide)){changed=true;var fx=opts.fx;curr.cycleH=curr.cycleH||$(curr).height();curr.cycleW=curr.cycleW||$(curr).width();next.cycleH=next.cycleH||$(next).height();next.cycleW=next.cycleW||$(next).width();if(opts.multiFx){if(opts.lastFx==undefined||++opts.lastFx>=opts.fxs.length){opts.lastFx=0;}fx=opts.fxs[opts.lastFx];opts.currFx=fx;}if(opts.oneTimeFx){fx=opts.oneTimeFx;opts.oneTimeFx=null;}$.fn.cycle.resetState(opts,fx);if(opts.before.length){$.each(opts.before,function(i,o){if(p.cycleStop!=opts.stopCount){return;}o.apply(next,[curr,next,opts,fwd]);});}var after=function(){$.each(opts.after,function(i,o){if(p.cycleStop!=opts.stopCount){return;}o.apply(next,[curr,next,opts,fwd]);});};debug("tx firing; currSlide: "+opts.currSlide+"; nextSlide: "+opts.nextSlide);opts.busy=1;if(opts.fxFn){opts.fxFn(curr,next,opts,after,fwd,manual&&opts.fastOnEvent);}else{if($.isFunction($.fn.cycle[opts.fx])){$.fn.cycle[opts.fx](curr,next,opts,after,fwd,manual&&opts.fastOnEvent);}else{$.fn.cycle.custom(curr,next,opts,after,fwd,manual&&opts.fastOnEvent);}}}if(changed||opts.nextSlide==opts.currSlide){opts.lastSlide=opts.currSlide;if(opts.random){opts.currSlide=opts.nextSlide;if(++opts.randomIndex==els.length){opts.randomIndex=0;}opts.nextSlide=opts.randomMap[opts.randomIndex];if(opts.nextSlide==opts.currSlide){opts.nextSlide=(opts.currSlide==opts.slideCount-1)?0:opts.currSlide+1;}}else{if(opts.backwards){var roll=(opts.nextSlide-1)<0;if(roll&&opts.bounce){opts.backwards=!opts.backwards;opts.nextSlide=1;opts.currSlide=0;}else{opts.nextSlide=roll?(els.length-1):opts.nextSlide-1;opts.currSlide=roll?0:opts.nextSlide+1;}}else{var roll=(opts.nextSlide+1)==els.length;if(roll&&opts.bounce){opts.backwards=!opts.backwards;opts.nextSlide=els.length-2;opts.currSlide=els.length-1;}else{opts.nextSlide=roll?0:opts.nextSlide+1;opts.currSlide=roll?els.length-1:opts.nextSlide-1;}}}}if(changed&&opts.pager){opts.updateActivePagerLink(opts.pager,opts.currSlide,opts.activePagerClass);}var ms=0;if(opts.timeout&&!opts.continuous){ms=getTimeout(els[opts.currSlide],els[opts.nextSlide],opts,fwd);}else{if(opts.continuous&&p.cyclePause){ms=10;}}if(ms>0){p.cycleTimeout=setTimeout(function(){go(els,opts,0,(!opts.rev&&!opts.backwards));},ms);}}$.fn.cycle.updateActivePagerLink=function(pager,currSlide,clsName){$(pager).each(function(){$(this).children().removeClass(clsName).eq(currSlide).addClass(clsName);});};function getTimeout(curr,next,opts,fwd){if(opts.timeoutFn){var t=opts.timeoutFn.call(curr,curr,next,opts,fwd);while((t-opts.speed)<250){t+=opts.speed;}debug("calculated timeout: "+t+"; speed: "+opts.speed);if(t!==false){return t;}}return opts.timeout;}$.fn.cycle.next=function(opts){advance(opts,opts.rev?-1:1);};$.fn.cycle.prev=function(opts){advance(opts,opts.rev?1:-1);};function advance(opts,val){var els=opts.elements;var p=opts.$cont[0],timeout=p.cycleTimeout;if(timeout){clearTimeout(timeout);p.cycleTimeout=0;}if(opts.random&&val<0){opts.randomIndex--;if(--opts.randomIndex==-2){opts.randomIndex=els.length-2;}else{if(opts.randomIndex==-1){opts.randomIndex=els.length-1;}}opts.nextSlide=opts.randomMap[opts.randomIndex];}else{if(opts.random){opts.nextSlide=opts.randomMap[opts.randomIndex];}else{opts.nextSlide=opts.currSlide+val;if(opts.nextSlide<0){if(opts.nowrap){return false;}opts.nextSlide=els.length-1;}else{if(opts.nextSlide>=els.length){if(opts.nowrap){return false;}opts.nextSlide=0;}}}}var cb=opts.onPrevNextEvent||opts.prevNextClick;if($.isFunction(cb)){cb(val>0,opts.nextSlide,els[opts.nextSlide]);}go(els,opts,1,val>=0);return false;}function buildPager(els,opts){var $p=$(opts.pager);$.each(els,function(i,o){$.fn.cycle.createPagerAnchor(i,o,$p,els,opts);});opts.updateActivePagerLink(opts.pager,opts.startingSlide,opts.activePagerClass);}$.fn.cycle.createPagerAnchor=function(i,el,$p,els,opts){var a;if($.isFunction(opts.pagerAnchorBuilder)){a=opts.pagerAnchorBuilder(i,el);debug("pagerAnchorBuilder("+i+", el) returned: "+a);}else{a='<a href="#">'+(i+1)+"</a>";}if(!a){return;}var $a=$(a);if($a.parents("body").length===0){var arr=[];if($p.length>1){$p.each(function(){var $clone=$a.clone(true);$(this).append($clone);arr.push($clone[0]);});$a=$(arr);}else{$a.appendTo($p);}}opts.pagerAnchors=opts.pagerAnchors||[];opts.pagerAnchors.push($a);$a.bind(opts.pagerEvent,function(e){e.preventDefault();opts.nextSlide=i;var p=opts.$cont[0],timeout=p.cycleTimeout;if(timeout){clearTimeout(timeout);p.cycleTimeout=0;}var cb=opts.onPagerEvent||opts.pagerClick;if($.isFunction(cb)){cb(opts.nextSlide,els[opts.nextSlide]);}go(els,opts,1,opts.currSlide<i);});if(!/^click/.test(opts.pagerEvent)&&!opts.allowPagerClickBubble){$a.bind("click.cycle",function(){return false;});}if(opts.pauseOnPagerHover){$a.hover(function(){opts.$cont[0].cyclePause++;},function(){opts.$cont[0].cyclePause--;});}};$.fn.cycle.hopsFromLast=function(opts,fwd){var hops,l=opts.lastSlide,c=opts.currSlide;if(fwd){hops=c>l?c-l:opts.slideCount-l;}else{hops=c<l?l-c:l+opts.slideCount-c;}return hops;};function clearTypeFix($slides){debug("applying clearType background-color hack");function hex(s){s=parseInt(s).toString(16);return s.length<2?"0"+s:s;}function getBg(e){for(;e&&e.nodeName.toLowerCase()!="html";e=e.parentNode){var v=$.css(e,"background-color");if(v.indexOf("rgb")>=0){var rgb=v.match(/\d+/g);return"#"+hex(rgb[0])+hex(rgb[1])+hex(rgb[2]);}if(v&&v!="transparent"){return v;}}return"#ffffff";}$slides.each(function(){$(this).css("background-color",getBg(this));});}$.fn.cycle.commonReset=function(curr,next,opts,w,h,rev){$(opts.elements).not(curr).hide();opts.cssBefore.opacity=1;opts.cssBefore.display="block";if(w!==false&&next.cycleW>0){opts.cssBefore.width=next.cycleW;}if(h!==false&&next.cycleH>0){opts.cssBefore.height=next.cycleH;}opts.cssAfter=opts.cssAfter||{};opts.cssAfter.display="none";$(curr).css("zIndex",opts.slideCount+(rev===true?1:0));$(next).css("zIndex",opts.slideCount+(rev===true?0:1));};$.fn.cycle.custom=function(curr,next,opts,cb,fwd,speedOverride){var $l=$(curr),$n=$(next);var speedIn=opts.speedIn,speedOut=opts.speedOut,easeIn=opts.easeIn,easeOut=opts.easeOut;$n.css(opts.cssBefore);if(speedOverride){if(typeof speedOverride=="number"){speedIn=speedOut=speedOverride;}else{speedIn=speedOut=1;}easeIn=easeOut=null;}var fn=function(){$n.animate(opts.animIn,speedIn,easeIn,cb);};$l.animate(opts.animOut,speedOut,easeOut,function(){if(opts.cssAfter){$l.css(opts.cssAfter);}if(!opts.sync){fn();}});if(opts.sync){fn();}};$.fn.cycle.transitions={fade:function($cont,$slides,opts){$slides.not(":eq("+opts.currSlide+")").css("opacity",0);opts.before.push(function(curr,next,opts){$.fn.cycle.commonReset(curr,next,opts);opts.cssBefore.opacity=0;});opts.animIn={opacity:1};opts.animOut={opacity:0};opts.cssBefore={top:0,left:0};}};$.fn.cycle.ver=function(){return ver;};$.fn.cycle.defaults={fx:"fade",timeout:4000,timeoutFn:null,continuous:0,speed:1000,speedIn:null,speedOut:null,next:null,prev:null,onPrevNextEvent:null,prevNextEvent:"click.cycle",pager:null,onPagerEvent:null,pagerEvent:"click.cycle",allowPagerClickBubble:false,pagerAnchorBuilder:null,before:null,after:null,end:null,easing:null,easeIn:null,easeOut:null,shuffle:null,animIn:null,animOut:null,cssBefore:null,cssAfter:null,fxFn:null,height:"auto",startingSlide:0,sync:1,random:0,fit:0,containerResize:1,pause:0,pauseOnPagerHover:0,autostop:0,autostopCount:0,delay:0,slideExpr:null,cleartype:!$.support.opacity,cleartypeNoBg:false,nowrap:0,fastOnEvent:0,randomizeEffects:1,rev:0,manualTrump:true,requeueOnImageNotLoaded:true,requeueTimeout:250,activePagerClass:"activeSlide",updateActivePagerLink:null,backwards:false};})(jQuery);(function (d4p) {
-	
-	d4p.ui.accordion = {
 
-		init: function (obj) {
-		    var cs = '';
-		    if (obj.hasClass('concept')) {
-		    	cs = '> div.topic > h2';
-		    }else {
-		    	cs = '> div.section > h2';
-		    }
-			obj.accordion({
-				header: cs,
-				autoHeight: false, // required for Safari
-				active: false,
-				collapsible: true
-			});
-		}	
-	};
+  d4p.ui.accordion = {
+
+    init: function (obj) {
+      var cs = '';
+      if (obj.hasClass('concept')) {
+        cs = '> div.topic > h2';
+      } else {
+        cs = '> div.section > h2';
+      }
+      obj.accordion({
+        header: cs,
+        autoHeight: false, // required for Safari
+        active: false,
+        collapsible: true
+      });
+    }
+  };
 
 })(d4p);(function (d4p) {
 	

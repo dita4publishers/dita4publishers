@@ -62,8 +62,9 @@
 
   <!-- Tabs header -->
   <xsl:template match="*" mode="jquery-tab-head">
+  <xsl:variable name="count" as="xs:integer"><xsl:number count="topichead"/></xsl:variable>
     <li>
-      <a href="#tab-{count(preceding-sibling::*) + 1}">
+      <a href="{concat('#tab-', $count)}">
         <xsl:apply-templates select="." mode="nav-point-title"/>
       </a>
     </li>
@@ -85,24 +86,23 @@
         <xsl:with-param name="depth" as="xs:integer" tunnel="yes" select="$depth + 1"/>
       </xsl:apply-templates>
     </xsl:variable>
-       
-    <div id="tab-{count(preceding-sibling::*) + 1}">
+        <xsl:variable name="count" as="xs:integer"><xsl:number count="topichead"/></xsl:variable>
+
+    <div id="{concat('tab-', $count)}" class="content-chunk">
       <xsl:if test="$items">
+      	<div class="toolbar">
+      		<a class="BackToTop" href="{concat('#', $IDLOCALNAV)}"><xsl:call-template name="getString">
+                    <xsl:with-param name="stringName" select="'BackToTop'"/>
+                </xsl:call-template></a>
+      		<h2><a class="BackToTop" href="{concat('#', 'tab-', $count)}"><xsl:apply-templates select="." mode="nav-point-title"/></a></h2>
+      	</div>
         <xsl:sequence select="$items"/>
+        <div class="clear"/>
+        
       </xsl:if>
     </div>
     
   </xsl:template>
-  
-
- 
-
- 
-
-
-
-
-
   
 
   <xsl:template name="html5-tab-content-block">
@@ -111,9 +111,9 @@
     <xsl:param name="relativeUri" as="xs:string" tunnel="yes" select="''"/>
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
 
-    <h2>
+    <h3>
       <xsl:apply-templates select="." mode="nav-point-title"/>
-    </h2>
+    </h3>
 
   </xsl:template>
 
@@ -296,14 +296,17 @@
   <xsl:template mode="merge-content" match="*">
      	 <xsl:message> + [INFO] MERGING TOPIC INTO CONTENT</xsl:message>
   	  	<xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
-    	<xsl:apply-templates mode="#default" select="$topic"/>
+    	<xsl:apply-templates mode="child.topic" select="$topic">
+    		<xsl:with-param name="nestlevel" select="3" />
+    		<xsl:with-param name="headinglevel" select="3" />
+    	</xsl:apply-templates>
   </xsl:template>
   
    <xsl:template mode="merge-content" match="*[df:isTopicHead(.)][not(@toc = 'no')]">
     	<xsl:param name="depth" as="xs:integer" tunnel="yes" select="1" />
     	<xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
   	  	<xsl:if test="$depth le $maxTocDepthInt">
-			<xsl:element name="{concat('h', $depth)}">
+			<xsl:element name="{concat('h', $depth + 1)}">
 				<xsl:apply-templates select="." mode="nav-point-title"/>
 			</xsl:element>
       
@@ -380,7 +383,7 @@
 		<xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
       
 		<xsl:if test="$depth le $maxTocDepthInt">
-			<xsl:element name="{concat('h', $depth)}">
+			<xsl:element name="{concat('h', $depth + 1)}">
 				<xsl:apply-templates select="." mode="nav-point-title"/>
 			</xsl:element>
       

@@ -100,15 +100,19 @@
   <xsl:template mode="generate-root-page-header" match="*[df:class(., 'map/map')]">
     <h1 id="publication-title">
       <xsl:call-template name="gen-user-panel-title-pfx"/> <!-- hook for a user-XSL title prefix -->
-      <xsl:choose>
+      <xsl:call-template name="map-title" />
+    </h1>
+  </xsl:template>
+  
+  <xsl:template name="map-title">
+  	<xsl:choose>
         <xsl:when test="/*[contains(@class,' map/map ')]/*[contains(@class,' topic/title ')]">
           <xsl:value-of select="normalize-space(/*[contains(@class,' map/map ')]/*[contains(@class,' topic/title ')])"/>
         </xsl:when>
         <xsl:when test="/*[contains(@class,' map/map ')]/@title">
           <xsl:value-of select="/*[contains(@class,' map/map ')]/@title"/>
         </xsl:when>
-      </xsl:choose>
-    </h1>
+    </xsl:choose>
   </xsl:template>
   
   <xsl:template match="*" mode="generate-html">
@@ -334,6 +338,11 @@
           <xsl:when test="$NAVIGATIONMARKUP='navigation-tabbed'">
           	<xsl:message> + [WARNING] This code is experimental !</xsl:message>
             <xsl:apply-templates select="." mode="generate-html5-nav-tabbed-markup"/>
+          </xsl:when>
+          
+          <xsl:when test="$NAVIGATIONMARKUP='navigation-ico'">
+          	<xsl:message> + [WARNING] This code is experimental !</xsl:message>
+            <xsl:apply-templates select="." mode="generate-html5-nav-ico-markup"/>
           </xsl:when>
           
           <xsl:otherwise>

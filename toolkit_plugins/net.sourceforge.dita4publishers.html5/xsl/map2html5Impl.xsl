@@ -35,6 +35,7 @@
 
   <xsl:include href="map2html5Nav.xsl"/>
   <xsl:include href="map2html5NavTabbed.xsl"/>
+  <xsl:include href="map2html5NavIco.xsl"/>
   <xsl:include href="map2html5Content.xsl"/>
   <xsl:include href="map2html5RootPages.xsl"/>
   <xsl:include href="map2html5Collection.xsl"/>
@@ -58,6 +59,9 @@
   
   <xsl:param name="IDSECTIONCONTAINER" select="'d4h5-section-container'" />
   <xsl:param name="CLASSSECTIONCONTAINER" select="''" />     
+  
+  
+  <xsl:param name="IDLOCALNAV" select="'local-navigation'" />
       
   <xsl:param name="mathJaxInclude" select="'false'"/>
   <xsl:param name="mathJaxIncludeBoolean" 
