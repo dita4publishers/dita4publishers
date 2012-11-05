@@ -86,10 +86,10 @@
     </xsl:choose>    
   </xsl:template>
   
-  <xsl:template match="*" mode="generate-content" priority="-1">
+  <!--xsl:template match="*" mode="generate-content" priority="-1">
     <xsl:message> + [DEBUG] In catchall for generate-content, got 
       <xsl:sequence select="."/></xsl:message>
-  </xsl:template>
+  </xsl:template-->
   
   <xsl:template match="*[df:class(., 'topic/topic')]" mode="generate-content">
     <!-- This template generates the output file for a referenced topic.

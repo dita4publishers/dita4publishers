@@ -72,7 +72,6 @@
       this.traverse();
 
       this.uriChange('load');
-      this.load();
     }
   });
 

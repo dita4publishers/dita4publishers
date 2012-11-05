@@ -1540,7 +1540,7 @@ window.Modernizr = (function( window, document, undefined ) {
      * - replace
      * - appends
      */
-    this.mode = 'append';
+    this.mode = 'replace';
 
     $.extend(true, this, opts);
 
@@ -1895,11 +1895,9 @@ window.Modernizr = (function( window, document, undefined ) {
     },
 
     load: function () {
-      $(".content-chunk").hide();
       var l = d4p.l();
       if (d4p.ajax.inCollection(l.uri) != undefined) {
         d4p.ajax.load(l.uri + d4p.ext, l.hash);
-        $("#" + l.id).show();
       }
     },
 
@@ -1914,7 +1912,6 @@ window.Modernizr = (function( window, document, undefined ) {
       this.traverse();
 
       this.uriChange('load');
-      this.load();
     }
   });
 

@@ -382,7 +382,6 @@
     <xsl:template match="@href" mode="fix-navigation-href">
 
     	<xsl:param name="relativePath" as="xs:string" select="''" tunnel="yes" />
-    	    <xsl:message><xsl:value-of select="." /></xsl:message>
 		<xsl:attribute name="href" select="concat($relativePath, .)"/>
     </xsl:template>
     
