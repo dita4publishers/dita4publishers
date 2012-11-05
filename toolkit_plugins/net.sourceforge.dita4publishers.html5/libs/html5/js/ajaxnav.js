@@ -1,3 +1,9 @@
+/**
+ * ajaxnav module
+ * 
+ * This module parse the main navigation and replace the default link behavior by 
+ * an ajax call.
+ */
 (function (window, d4p) {
 
   /**
@@ -23,17 +29,19 @@
         if (href.substring(0, 1) != '#') {
 
           // add it in the collection
-          d4p.ajax.collectionSet(ids.hrefID, ids.linkID);
+          d4p.ajax.collectionSet(ids.hrefID, ids.linkID, $(this).html());
           $(this).attr('href', '#' + ids.hrefID);
 
         }
 
-        // push the appropriate state onto the history when clicked.
         d4p.live($(this));
 
       });
 
-      /** span.navtitle **/
+
+      //span.navtitle 
+      // note sure that theses lines belongs to this modules
+
       $(d4p.navigationSelector).find('li').each(function (index) {
         if ($(this).children('a').length === 0) {
           var l = $(this).find('ul li a:first');
@@ -47,9 +55,8 @@
     },
 
     load: function () {
-
       var l = d4p.l();
-      if (d4p.ajax.inCollection(l.uri) != undefined && !d4p.ajax.inCollection(l.uri).cached) {
+      if (d4p.ajax.inCollection(l.uri) != undefined) {
         d4p.ajax.load(l.uri + d4p.ext, l.hash);
       }
     },
@@ -63,6 +70,7 @@
       d4p.ajax.ready('setTitle');
 
       this.traverse();
+
       this.uriChange('load');
       this.load();
     }

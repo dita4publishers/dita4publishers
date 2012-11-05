@@ -1,3 +1,8 @@
+/**
+ * d4p.ui.accordion
+ *
+ * Interface with jQuery UI Accordion feature
+ */ 
 (function (d4p) {
 
   d4p.ui.accordion = {

@@ -1,0 +1,9 @@
+/** Loader (a spinner) **/
+#d4p-loader {
+	display:none;
+	position: fixed;
+	width:100%;
+	height:80%;
+	background: transparent url('../img/ajax-loader.gif') no-repeat center center;
+	top:0px;
+}

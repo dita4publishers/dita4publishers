@@ -86,19 +86,16 @@
         <xsl:with-param name="depth" as="xs:integer" tunnel="yes" select="$depth + 1"/>
       </xsl:apply-templates>
     </xsl:variable>
-        <xsl:variable name="count" as="xs:integer"><xsl:number count="topichead"/></xsl:variable>
+          <xsl:variable name="count" as="xs:integer"><xsl:number count="topichead"/></xsl:variable>
+        <xsl:variable name="countItems" select="count($items)"/>
 
     <div id="{concat('tab-', $count)}" class="content-chunk">
       <xsl:if test="$items">
-      	<div class="toolbar">
-      		<a class="BackToTop" href="{concat('#', $IDLOCALNAV)}"><xsl:call-template name="getString">
-                    <xsl:with-param name="stringName" select="'BackToTop'"/>
-                </xsl:call-template></a>
-      		<h2><a class="BackToTop" href="{concat('#', 'tab-', $count)}"><xsl:apply-templates select="." mode="nav-point-title"/></a></h2>
-      	</div>
+      	<h2><xsl:apply-templates select="." mode="nav-point-title"/></h2>
+      	<div class="{concat('section-content', ' ', 'items-', $countItems)}">
         <xsl:sequence select="$items"/>
-        <div class="clear"/>
-        
+        </div>
+        <div class="clear"/>      
       </xsl:if>
     </div>
     
@@ -239,9 +236,9 @@
   <xsl:template mode="html5-blocks" match="*[df:class(., 'topic/title')]"></xsl:template>
   
     <xsl:template mode="html5-blocks" match="*[df:isTopicRef(.)][not(@toc = 'no')]">
-      <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes" />
-    <xsl:param name="depth" as="xs:integer" tunnel="yes" select="1" />
-    <xsl:param name="topicElement" as="xs:string" tunnel="yes" select="'p'" />
+   		<xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes" />
+    	<xsl:param name="depth" as="xs:integer" tunnel="yes" select="1" />
+    	<xsl:param name="topicElement" as="xs:string" tunnel="yes" select="'p'" />
       
      <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
       <xsl:if test="$depth le $maxTocDepthInt">
@@ -271,12 +268,21 @@
      </xsl:if>
   </xsl:template>
   
+  <xsl:template mode="html5-blocks" match="*[df:isTopicRef(.)][contains(@chunk, 'to-toc')]" priority="20">
+   <xsl:param name="depth" as="xs:integer" tunnel="yes" select="1" />
+  <xsl:message> + [INFO] TOPICREF TO MERGE DETECTED</xsl:message>
+  	<xsl:apply-templates mode="merge-content" select=".">  
+        		<xsl:with-param name="depth" as="xs:integer" tunnel="yes" select="$depth" />
+        	</xsl:apply-templates>
+  </xsl:template>
+  
   <xsl:template mode="html5-blocks" match="*[df:isTopicGroup(.)][contains(@chunk, 'to-toc')]" priority="20">
     <xsl:param name="depth" as="xs:integer" tunnel="yes" select="1" />
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
 
     <xsl:if test="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]">
-    	<xsl:message> + [INFO] TOPIC TO MERGE DETECTED</xsl:message>
+    	<xsl:message> + [INFO] TOPICGROUP TO MERGE DETECTED</xsl:message>
+    	<!--xsl:message><xsl:sequence select="."/></xsl:message-->
     	<xsl:variable name="items" as="node()*">
 
         	<xsl:apply-templates mode="merge-content" select="$topic/*[df:class(., 'topic/topic')], *[df:class(., 'map/topicref')]">  
@@ -293,8 +299,9 @@
     </xsl:if>
   </xsl:template>
   
+  
   <xsl:template mode="merge-content" match="*">
-     	 <xsl:message> + [INFO] MERGING TOPIC INTO CONTENT</xsl:message>
+     	 <xsl:message> + [INFO] MERGING TOPIC <xsl:value-of select="@href" /> INTO CONTENT</xsl:message>
   	  	<xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
     	<xsl:apply-templates mode="child.topic" select="$topic">
     		<xsl:with-param name="nestlevel" select="3" />
@@ -347,7 +354,7 @@
     <xsl:variable name="name">
     	<xsl:choose>
     		<xsl:when test="contains(@outputclass, 'ul-list')">ul</xsl:when>
-    	    <xsl:when test="contains(@outputclass, 'ol-list')">ul</xsl:when>
+    	    <xsl:when test="contains(@outputclass, 'ol-list')">ol</xsl:when>
     		<xsl:otherwise>div</xsl:otherwise>
     	</xsl:choose>  
     </xsl:variable>

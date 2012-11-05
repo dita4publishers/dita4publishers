@@ -13,7 +13,7 @@ header
 {
 	border:none;
 	display: block;
-	height: 61px;
+	height: 80px;
 	overflow: hidden;
 }
 
@@ -54,53 +54,10 @@ h2.nav-pub-title { font-size: 1.1em; }
 {
 	margin-bottom: 30px;
 	min-height: 500px;
+	padding-left:40px;
 }
 
-
-/** css3 columns layout **/
-.two-columns
-{
-	-moz-column-count: 2;
-	-moz-column-gap: 2.5em;
-	-moz-column-rule: 1px solid #ccc;
-	-webkit-column-count: 2;
-	-webkit-column-gap: 2.5em;
-	-webkit-column-rule: 1px solid #ccc;
+#footer-container {
+	margin-top:20px;
 }
 
-.three-columns 
-{
-	-moz-column-count: 3;
-	-moz-column-gap: 2em;
-	-moz-column-rule: 1px solid #ccc;
-	-webkit-column-count: 3;
-	-webkit-column-gap: 2em;
-	-webkit-column-rule: 1px solid #ccc;
-}
-
-.four-columns
-{
-	-moz-column-count: 4;
-	-moz-column-gap: 2em;
-	-moz-column-rule: 1px solid #ccc;
-	-webkit-column-count: 4;
-	-webkit-column-gap: 2em;
-	-webkit-column-rule: 1px solid #ccc;
-}
-
-/** space and line after **/
-
-.space-after {
-	margin-bottom: 3em;
-}
-
-.line-after {
-	padding-bottom:2em;
-	border-bottom:1px solid #ccc;
-	margin-bottom:2em;
-}
-
-/** **/
-.clear-before {
-	clear:both;
-}

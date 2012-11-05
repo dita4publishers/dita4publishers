@@ -1,0 +1,6 @@
+#local-navigation ul li.collapsible.collapsed ul {
+	 display:none;
+}
+#local-navigation ul li.collapsible {
+    cursor: pointer;
+}

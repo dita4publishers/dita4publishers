@@ -26,13 +26,8 @@
 
     This transform requires XSLT 2.
     ================================================================= -->
-<!--
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
--->
-  <xsl:output name="indented-xml" method="html" indent="yes" omit-xml-declaration="yes"/>
 
+  <xsl:output name="indented-xml" method="html" indent="yes" omit-xml-declaration="yes"/>
   
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-root-pages">
     <xsl:param name="uniqueTopicRefs" as="element()*" tunnel="yes"/>
@@ -67,7 +62,7 @@
   	<!-- I added the right doctype here -->
     <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
   
-      <xsl:apply-templates select="." mode="generate-html"/>
+      <xsl:apply-templates select="." mode="generate-html5-page"/>
   
   </xsl:result-document>
 </xsl:template>
@@ -78,44 +73,27 @@
     <xsl:sequence select="$titleValue"/>
   </xsl:template>
 
-
-  <xsl:template name="generateMapTitle">
-    <!-- FIXME: Replace this with a separate mode that will handle markup within titles -->
-    <!-- Title processing - special handling for short descriptions -->
-    <xsl:if test="/*[contains(@class,' map/map ')]/*[contains(@class,' topic/title ')] or /*[contains(@class,' map/map ')]/@title">
-      <title>
-        <xsl:call-template name="gen-user-panel-title-pfx"/> <!-- hook for a user-XSL title prefix -->
-        <xsl:choose>
-          <xsl:when test="/*[contains(@class,' map/map ')]/*[contains(@class,' topic/title ')]">
-            <xsl:value-of select="normalize-space(/*[contains(@class,' map/map ')]/*[contains(@class,' topic/title ')])"/>
-          </xsl:when>
-          <xsl:when test="/*[contains(@class,' map/map ')]/@title">
-            <xsl:value-of select="/*[contains(@class,' map/map ')]/@title"/>
-          </xsl:when>
-        </xsl:choose>
-      </title><xsl:value-of select="$newline"/>
-    </xsl:if>
+  <!-- FIXME: Replace this with a separate mode that will handle markup within titles -->
+  <xsl:template mode="gen-head-title" match="*">
+  	<xsl:param name="documentation-title" as="xs:string" select="''" tunnel="yes" />
+  	<xsl:param name="topic-title" as="xs:string" select="''" tunnel="yes" />
+  	
+  	<xsl:variable name="title">
+  		<xsl:choose>
+  			<xsl:when test="$topic-title != ''">
+  				<xsl:value-of select="concat($documentation-title, ' - ', $topic-title)" />
+  			</xsl:when> 
+  			<xsl:otherwise>
+  				<xsl:value-of select="$documentation-title" />
+  			</xsl:otherwise>  
+  		</xsl:choose>
+  	</xsl:variable>
+  	
+    <title><xsl:value-of select="normalize-space($title)" /></title>
   </xsl:template>
 
-  <xsl:template mode="generate-root-page-header" match="*[df:class(., 'map/map')]">
-    <h1 id="publication-title">
-      <xsl:call-template name="gen-user-panel-title-pfx"/> <!-- hook for a user-XSL title prefix -->
-      <xsl:call-template name="map-title" />
-    </h1>
-  </xsl:template>
   
-  <xsl:template name="map-title">
-  	<xsl:choose>
-        <xsl:when test="/*[contains(@class,' map/map ')]/*[contains(@class,' topic/title ')]">
-          <xsl:value-of select="normalize-space(/*[contains(@class,' map/map ')]/*[contains(@class,' topic/title ')])"/>
-        </xsl:when>
-        <xsl:when test="/*[contains(@class,' map/map ')]/@title">
-          <xsl:value-of select="/*[contains(@class,' map/map ')]/@title"/>
-        </xsl:when>
-    </xsl:choose>
-  </xsl:template>
-  
-  <xsl:template match="*" mode="generate-html">
+  <xsl:template match="*" mode="generate-html5-page">
     <html>
     
       <xsl:attribute name = "lang"><xsl:call-template name="getLowerCaseLang"/></xsl:attribute>
@@ -138,8 +116,10 @@
     }
   -->
   <xsl:template match="*" mode="generate-javascript-includes">
-    <script type="text/javascript">
-    <xsl:attribute name = "src" select="$JS" /> &#xa0;</script>
+  	<xsl:param name="relativePath" as="xs:string" select="''" tunnel="yes" />
+    <script type="text/javascript" src="{concat($relativePath, $JS)}">
+  		<xsl:sequence select="'&#x0a;'"/>
+  	</script>
     <xsl:sequence select="'&#x0a;'"/>
     
     <xsl:variable name="json" as="xs:string" select="unparsed-text($JSONVARFILE, 'UTF-8')"/>
@@ -148,37 +128,25 @@
    		<xsl:sequence select="'&#x0a;'"/>
 		<xsl:value-of select="$json" /><xsl:text>;</xsl:text>
 		<xsl:sequence select="'&#x0a;'"/>
-		
-   		<xsl:text>
-			$(function() {
-				d4p.init({
-		</xsl:text>
+		<xsl:text>d4p.relativePath='</xsl:text><xsl:value-of select="$relativePath"/><xsl:text>';</xsl:text>
+   		<xsl:text>$(function(){d4p.init({</xsl:text>
 		<xsl:value-of select="$jsoptions" />
-		<xsl:text>
-				});
-			});
-		</xsl:text>
-
-    </script><xsl:sequence select="'&#x0a;'"/>
+		<xsl:text>});});</xsl:text>
+	</script><xsl:sequence select="'&#x0a;'"/>
 
   </xsl:template>
 
   <!-- used to generate the css links -->
   <xsl:template match="*" mode="generate-css-includes">
-  
+  	<xsl:param name="relativePath" as="xs:string" select="''" tunnel="yes" />
   	<xsl:if test="$CSS!=''">
-     <link rel="stylesheet" type="text/css">
-        <xsl:attribute name = "href" select="$CSS" />
-      </link>
+     	<link rel="stylesheet" type="text/css" href="{concat($relativePath, $CSS)}" />
     </xsl:if>
     
     <xsl:sequence select="'&#x0a;'"/>
     
-    <link rel="stylesheet" type="text/css" >
-    	<xsl:attribute name = "href" select="$CSSTHEME" />
-    </link>
-    
-    <xsl:sequence select="'&#x0a;'"/>
+    <link rel="stylesheet" type="text/css" href="{concat($relativePath, $CSSTHEME)}" />
+    	<xsl:sequence select="'&#x0a;'"/>
     
   </xsl:template>
   
@@ -190,7 +158,7 @@
                     <xsl:with-param name="stringName" select="'SkipToContent'"/>
                 </xsl:call-template></a></li>
 		<li><a id="skip-to-localnav" href="#local-navigation"><xsl:call-template name="getString">
-                    <xsl:with-param name="stringName" select="'SkipToContent'"/>
+                    <xsl:with-param name="stringName" select="'SkipToLocalNav'"/>
                 </xsl:call-template></a></li>
      </ul>
   </xsl:template>
@@ -202,7 +170,7 @@
         <xsl:sequence select="' '"/>
         <xsl:value-of select="$siteTheme" />
         <xsl:sequence select="' '"/>
-        <xsl:value-of select="$bodyClass" />
+        <xsl:value-of select="$BODYCLASS" />
         <xsl:apply-templates select="." mode="gen-user-body-class"/>
     </xsl:attribute>
   </xsl:template>
@@ -219,8 +187,11 @@
   
   <!-- used to output the html5 header -->
   <xsl:template match="*" mode="generate-header">
+  	<xsl:param name="documentation-title" as="xs:string" select="''" tunnel="yes" />
     <header role="banner" aria-labelledby="publication-title">
-       <xsl:apply-templates select="." mode="generate-root-page-header"/>
+     	<h1 id="publication-title">
+    		<xsl:value-of select="$documentation-title"/>
+    	</h1>
     </header>
   </xsl:template>
   
@@ -228,7 +199,8 @@
     <xsl:template match="*" mode="generate-head">
       <head>
 
-      <xsl:call-template name="generateMapTitle"/>
+      <xsl:apply-templates select="." mode="gen-head-title" />
+       
       <xsl:sequence select="'&#x0a;'"/>
 
 	  <xsl:apply-templates select="." mode="gen-user-top-head" />
@@ -243,14 +215,10 @@
       <xsl:sequence select="'&#x0a;'"/>
 
       <!-- initial meta information -->
+      <xsl:call-template name="getMeta"/>
+      
+      <xsl:call-template name="copyright"/>   
 
-      <!-- Generate stuff for dynamic TOC. Need to parameterize/extensify this -->
-
-      	<!--
-      		Add a single style css and use  @import to load
-      	     others CSS. It becomes easier to compress all css afterward with a css compressor such as http://developer.yahoo.com/yui/compressor/
-      	     which works well with ant
-      	-->
 		<xsl:apply-templates select="." mode="generate-css-includes"/>
 						 
         <xsl:apply-templates select="." mode="generate-javascript-includes"/>
@@ -300,11 +268,26 @@
   
   <!-- generate section container -->
    <xsl:template match="*" mode="generate-section-container">
-   <xsl:param name="navigation" as="element()*"  tunnel="yes" />
+   		<xsl:param name="navigation" as="element()*"  tunnel="yes" />
+   		<xsl:param name="is-root" as="xs:boolean"  tunnel="yes" select="false" />
+   
+   
      <div id="{$IDSECTIONCONTAINER}" class="{$CLASSSECTIONCONTAINER}">
 
-        <!--xsl:apply-templates select="." mode="choose-html5-nav-markup"/-->
-        <xsl:sequence select="$navigation"/>
+        <xsl:choose>
+        	<xsl:when test="$is-root">
+        		<xsl:sequence select="$navigation"/>
+        	</xsl:when>
+        	<xsl:otherwise>
+        		<xsl:variable name="navigation-fixed">
+         			<xsl:apply-templates select="$navigation" mode="fix-navigation-href"/>
+         		</xsl:variable>
+         
+         		<xsl:sequence select="$navigation-fixed"/>
+        	</xsl:otherwise>
+        
+        </xsl:choose>
+        
 
         <xsl:apply-templates select="." mode="generate-main-content"/>
         
@@ -316,12 +299,27 @@
   
    <!-- generate main content -->
   <xsl:template match="*" mode="generate-main-content"> 
+   	<xsl:param name="is-root" as="xs:boolean"  tunnel="yes" select="false" />
+   	<xsl:param name="content" tunnel="yes" as="node()*" />
    	
     <div id="{$IDMAINCONTENT}" class="{$CLASSMAINCONTENT}">    
          
-      <xsl:sequence select="'&#x0a;'"/>
-
-      <xsl:apply-templates select="." mode="set-initial-content"/>
+      <xsl:choose>
+      
+        	<xsl:when test="$is-root">
+        		<xsl:apply-templates select="." mode="set-initial-content"/>
+        	</xsl:when>
+        	<xsl:otherwise>
+        		<!-- !important
+        		     if you remove section, you will need to change
+        		     the d4p.property externalContentElement
+        		-->
+        		<section>
+        			<xsl:sequence select="$content"/>
+        		</section>
+        	</xsl:otherwise>
+        
+        </xsl:choose>      
 
       <div class="clear" /><xsl:sequence select="'&#x0a;'"/>
       
@@ -348,6 +346,11 @@
             <xsl:apply-templates select="." mode="generate-html5-nav-ico-markup"/>
           </xsl:when>
           
+           <xsl:when test="$NAVIGATIONMARKUP='navigation-whole-page'">
+          	<xsl:message> + [WARNING] This code is experimental !</xsl:message>
+            <xsl:apply-templates select="." mode="generate-html5-nav-whole-page"/>
+          </xsl:when>
+          
           <xsl:otherwise>
             <!-- This mode generates the navigation structure (ToC) on the
                 index.html page, that is, the main navigation structure.
@@ -365,6 +368,25 @@
 		<xsl:sequence select="'&#x0a;'"/>
 	</div>
   </xsl:template>
+  
+  <!--
+  
+  -->
+   
+ 	<xsl:template match="@*|node()" mode="fix-navigation-href">
+		<xsl:copy>
+			<xsl:apply-templates select="@*|node()" mode="fix-navigation-href"/>
+		</xsl:copy>
+    </xsl:template>
+    
+    <xsl:template match="@href" mode="fix-navigation-href">
+
+    	<xsl:param name="relativePath" as="xs:string" select="''" tunnel="yes" />
+    	    <xsl:message><xsl:value-of select="." /></xsl:message>
+		<xsl:attribute name="href" select="concat($relativePath, .)"/>
+    </xsl:template>
+    
+
   		
   <!-- 
       template declared for extention point purpose 
@@ -394,7 +416,6 @@
          to override class use xsl:template match="*" mode="set-body-class-attr"
     -->
   </xsl:template>
-  
-  
+
 
 </xsl:stylesheet>

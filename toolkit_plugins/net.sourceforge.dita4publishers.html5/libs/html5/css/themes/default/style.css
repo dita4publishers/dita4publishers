@@ -2,18 +2,22 @@
  * theme-01
  **/
 
+/** Font face **/
 @font-face {
 	font-family: "Vegur Regular";
     src: url("../fonts/vegur/Vegur-R.otf");
 }
+
 @font-face {
 	font-family: "Vegur Bold";
     src: url("../fonts/vegur/Vegur-B.otf");
 }
+
 @font-face {
 	font-family: "Vegur Medium";
     src: url("../fonts/vegur/Vegur-M.otf");
 }
+
 @font-face {
 	font-family: "Vegur Light";
     src: url("../fonts/vegur/Vegur-L.otf");
@@ -24,31 +28,24 @@
 }
 
 body {
-	background: #FFFFFF;
+	background: #EFEFEF url(../img/subtle-patterns/subtle-pattern-1.jpg) repeat;
 }
 
 header h1 {
+	color: #504F4F;
 	font-size: 2.8em;
 	font-weight: 100;
 	line-height: 62px;
-	padding-left: 25px;
-	-webkit-background-clip: text;
-	-moz-background-clip: text;
-	background-clip: text;
-	color: transparent;
-	text-shadow: rgba(0,0,0,0.5) 0px 3px 3px;
+	padding-left: 12px;
+	padding-top: 20px;
+	text-shadow: 0 2px 1px #BBBABA;
 }
 
 header {
-	background: #262626;
-	border-bottom: 1px solid #ccc;
-	-moz-box-shadow: 3px 3px 4px #ccc;
-	-webkit-box-shadow: 3px 3px 4px #ccc;
-	box-shadow: 3px 3px 4px #ccc;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ccc')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ccc');
+}
+
+.paged #d4h5-section-container {
+	background-color: #FFFFFF;
 }
 
 #footer-container {
@@ -78,10 +75,6 @@ footer h2, address strong {
 	margin-bottom: 1em;
 }
 
-#publication-title {
-	color: #FFF;
-}
-
 section h1 {
 	margin: 0 0 1.5em 0;
 }
@@ -106,12 +99,17 @@ body.paged header {
 	width: 100%;
 }
 
-body.paged #d4h5-section-container {
+body #d4h5-section-container {
+	width: 90%;
+	margin: 10px;
+}
+
+body.centered #d4h5-section-container {
 	width: 980px;
 }
 
 /**/
-#local-navigation.nav-left {
+#local-navigation {
 	margin-left: 0px;
 	padding: 20px 0px 20px 20px;
 	outline: none;
@@ -124,30 +122,44 @@ body.paged #d4h5-section-container {
 	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ccc');
 }
 
-}
 
-#d4h5-main-container #d4h5-section-container {
-	margin-top: 50px;
-}
-
-#d4h5-main-content, #local-navigation.nav-left {
-	margin-top: 50px;
-}
 
 #d4h5-main-content h1 {
 	margin-top: 0px;
 }
 
-
-#local-navigation.nav-left {
-	background-color: #F6F6F6;
+#local-navigation {
+	background-color: #FFFFFF;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-
 	display: inline;
 	float: left;
 	margin-right: 5px;
+}
+
+
+.paged #d4h5-section-container {
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 3px 3px 3px 3px #CCCCCC;
+    display: block;
+    padding: 15px;
+}
+
+#d4h5-main-content {
+	background-color: #FFFFFF;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 3px 3px 3px 3px #CCCCCC;
+    	padding-top:20px;
+}
+
+.paged #d4h5-main-content {
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+.paged #local-navigation {
+	background-color: #F6F6F6;
 }
 
 #local-navigation.nav-left a, #local-navigation.nav-left a:link {
@@ -192,4 +204,28 @@ span.navtitle, li.collapsible a:link {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+}
+
+li {
+	margin: 1.7em 0;
+	list-style-position: inside;
+}
+
+li p:first-child {
+	display: inline;
+}
+
+/** 
+ * Ui implementation
+ */
+
+body .d4p-ui-cycle {
+	display: block;
+	position: relative;
+	min-height: 150px;
+}
+
+nav#local-navigation.nav-left ul li ul li {
+	margin: 0;
+	padding: 3px 0 2px 20px;
 }

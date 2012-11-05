@@ -1,101 +1,25 @@
-/**#local-navigation {
-	width: 230px;
-}
-
-.navigation-large #local-navigation {
-	width: 280px;
-}**/
-
-#nav-content {
-	margin-left:0px;
-	padding:20px 0px 20px 20px;
-	outline:none;
-}
-
-#local-navigation.nav-left ul {
+/**
+ * navigation.css
+ */
+#local-navigation ul {
 	list-style-type: none;
 	margin:0;
 	padding:0;
-}
+} 
 
-#local-navigation.nav-left ul {
-	list-style-type: none;
+#local-navigation ul li {
 	margin:0;
+	padding:0
 }
 
-nav#local-navigation.nav-left ul li {
-	margin:0;
-	padding: 3px 0 2px 0px;
-	outline:none;
+#local-navigation ul li ul li {
+	margin:0 0 0 15px;
 }
 
-/*nav#local-navigation.nav-left ul li.no-child {
-    padding-left:15px;
-}*/
-
-nav#local-navigation.nav-left ul li ul li {
-	margin:0;
-	padding: 3px 0 2px 20px;
+body.navigation-right #local-navigation, body.navigation-right #d4h5-main-content {
+	float:right;
 }
 
-#local-navigation.nav-left ul li.collapsible.collapsed ul {
-	 display:none;
-}
-#local-navigation.nav-left ul li.collapsible {
-    cursor: pointer;
-}
-
-#local-navigation.nav-left ul li.active ul {
-	display:block;
-	left: -10px;
-    position: relative;
-}
-
-#local-navigation.nav-left li.selected a {
-	font-weight: bold;
-	outline:none;
-}
-
-#local-navigation.nav-left li.selected ul li a {
-	font-weight: normal;
-}
-
-#local-navigation.nav-left ul li a, #local-navigation.nav-left ul li a:link {
-	text-decoration: none;
-	padding-right:20px;
-	display:block;
-	padding-left:16px;
-}
-
-#local-navigation.nav-left ul li ul li {
-	padding-left:15px;
-}
-
-#local-navigation.nav-left ul li a:hover {
-	text-decoration: underline;
-}
-
-#local-navigation.nav-left ul li a:visited, #local-navigation.nav-left ul li a:active {
-	text-decoration: none;
-}
-
-nav#local-navigation.nav-left span.ico {
-	display:block;
-	float:left;
-	width:12px;
-	height:12px;
-	margin-right: 2px;
-}
-nav#local-navigation.nav-left span.ico:hover {
-	cursor:pointer;
-}
-
-nav#local-navigation.nav-left span.navtitle {
-   display: block;
-   margin-left: 15px;
-   position: relative;
-}
-
-nav#local-navigation.nav-left .collapsible.active span.navtitle { 
-	margin-bottom:3px;
-}
+body.navigation-right #d4h5-main-content {
+ 	padding:0 -1px 0 0;
+ }

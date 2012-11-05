@@ -1,3 +1,9 @@
+/**
+ * d4p.ajaxLoader object
+ *
+ * This object is used to perform ajax call on page
+ * d4p.ajaxLoader could be instantiated and use differently the contect
+ */
 (function (window, d4p) {
 
   /**
@@ -15,21 +21,20 @@
     this.ajaxBefore = [];
     this.ajaxReady = [];
     this.ajaxFailed = [];
+    this.modified = true;
 
     // store references
-    this.collection = {
-      ids: [],
-      href: []
-    },
+    this.collection = [],
 
     /**
      * ajax mode
      * - replace
      * - appends
      */
-    this.ajaxMode = 'replace';
+    this.mode = 'replace';
 
     $.extend(true, this, opts);
+
   };
 
   // Set outputSelector
@@ -85,36 +90,46 @@
   };
 
   // Add entry into the collection
-  d4p.ajaxLoader.prototype.collectionSet = function (uri, optID) {
-    this.collection[uri] = {
-      'cache': false,
-      'id': optID
-    };
+  d4p.ajaxLoader.prototype.collectionSet = function (id, uri, title) {
+    if (this.collection[id] == undefined) {
+      this.collection[id] = {
+        'cache': false,
+          'uri': uri,
+          'id': uri.replace(/\//g, '__'),
+          'title': title
+      };
+    }
   };
 
   // Add entry into the collection
-  d4p.ajaxLoader.prototype.cached = function (uri) {
-    this.collection[uri].cache = true;
+  d4p.ajaxLoader.prototype.setCacheStatus = function (id) {
+    this.collection[id].cache = true;
+  };
+
+  // tell if id is cached
+  d4p.ajaxLoader.prototype.isCached = function (id) {
+    return this.collection[id] != undefined ? this.collection[id].cache : false;
   };
 
   // Add entry into the collection
-  d4p.ajaxLoader.prototype.inCollection = function (uri) {
-    return this.collection[uri];
+  d4p.ajaxLoader.prototype.inCollection = function (id) {
+    return this.collection[id];
   };
 
   // Set title of the page
   d4p.ajaxLoader.prototype.setTitle = function () {
     $('title').html(this.title);
+    // replace title in collection, may be more accurate
     this.collection[this.id]['title'] = this.title;
   },
-  
+
   // set content of the page
   // this function use the hash value as an ID
   d4p.ajaxLoader.prototype.setMainContent = function () {
-    if (this.ajaxMode == 'append') {
-      $(this.outputSelector).append($("<div />").attr('id', this.id).attr('class', 'content-chunk').html(this.content));
+    if (this.mode == 'append') {
+      $(this.outputSelector).append($("<div />").attr('id', this.id.replace(/\//g, '__')).attr('class', 'content-chunk').html(this.content));
       // keep information in memory when link is triggered on page
-      this.cached(this.uri);
+      this.setCacheStatus(this.id);
     } else {
       $(this.outputSelector).html(this.content);
     }
@@ -134,7 +149,7 @@
   // because real path won't works with AJAX call
   // if there are not from the first level
   d4p.ajaxLoader.prototype.rewriteAttrHref = function () {
-
+    var o = this;
     this.content.find("*[href]").each(function (index) {
       var l = d4p.l();
 
@@ -170,8 +185,7 @@
       var parts = href.split("/");
 
       // prevent external to be rewritten           
-      if ($(this)
-        .hasClass("external") || $(this).attr('target') == "_blank") {
+      if ($(this).hasClass("external") || $(this).attr('target') == "_blank") {
         return true;
       }
 
@@ -185,7 +199,14 @@
         }
       }
 
-      d4p.ajax.collectionSet(pathC.join("/"), '');
+      /**
+       * links have not necessarily
+       * a link in the navigation.
+       * In this case we use the parent page ID
+       */
+      var l = d4p.l();
+      var pId = o.collection[l.uri].id;
+      o.collectionSet(pathC.join("/"), pId, ($(this).html()));
 
       $(this).attr('href', '#' + pathC.join("/"));
 
@@ -204,18 +225,21 @@
    * @todo: implement beforeSend, error callback
    */
   d4p.ajaxLoader.prototype.load = function (uri, hash) {
- 	
+
     this.id = uri.replace(d4p.ext, '');
     this.uri = uri;
     this.hash = hash;
-    
+
     // todo: implement cache method
-   
+    if (this.isCached(this.id)) {
+      return true;
+    }
+
     // call ajax before callbacks
     for (i in this.ajaxBefore) {
       var fn = this.ajaxBefore[i];
       this[fn].call(this, uri, hash);
-    }  
+    }
 
     // set aria status
     $(this.outputSelector).attr('aria-busy', 'true');
@@ -227,6 +251,8 @@
       context: this,
 
       cache: true,
+
+      ifModified: this.modified,
 
       timeout: this.timeout,
 
@@ -279,7 +305,7 @@
             .append(responseText.replace(d4p.rscript, ""));
 
           this.content = html.find(this.externalContentElement);
-		  
+
           this.title = html.find("title").html();
 
           // execute ajaxReady
@@ -294,7 +320,9 @@
 
           $(this.outputSelector).attr('aria-busy', 'false');
 
-          d4p.scrollToHash('#' + hash);
+          if (hash != undefined) {
+            d4p.scrollToHash('#' + hash);
+          }
 
         }
       }

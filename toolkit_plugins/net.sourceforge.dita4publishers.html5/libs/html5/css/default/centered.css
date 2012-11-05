@@ -1,0 +1,16 @@
+/** 
+ * centered layout 
+ **/
+body.centered header h1 {
+	display: block;
+	width: 980px;
+	margin: 0 auto;
+}
+
+body.centered #d4h5-section-container {
+	margin: 0 auto;
+}
+
+body.centered.paged #d4h5-main-container {
+	margin: 0 auto;
+}

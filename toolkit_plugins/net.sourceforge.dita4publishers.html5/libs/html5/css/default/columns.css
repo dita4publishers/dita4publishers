@@ -1,0 +1,30 @@
+/** css3 columns layout **/
+.two-columns
+{
+	-moz-column-count: 2;
+	-moz-column-gap: 2.5em;
+	-moz-column-rule: 1px solid #ccc;
+	-webkit-column-count: 2;
+	-webkit-column-gap: 2.5em;
+	-webkit-column-rule: 1px solid #ccc;
+}
+
+.three-columns 
+{
+	-moz-column-count: 3;
+	-moz-column-gap: 2em;
+	-moz-column-rule: 1px solid #ccc;
+	-webkit-column-count: 3;
+	-webkit-column-gap: 2em;
+	-webkit-column-rule: 1px solid #ccc;
+}
+
+.four-columns
+{
+	-moz-column-count: 4;
+	-moz-column-gap: 2em;
+	-moz-column-rule: 1px solid #ccc;
+	-webkit-column-count: 4;
+	-webkit-column-gap: 2em;
+	-webkit-column-rule: 1px solid #ccc;
+}

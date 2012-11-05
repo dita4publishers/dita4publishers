@@ -7,7 +7,7 @@
   xmlns:index-terms="http://dita4publishers.org/index-terms"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:mapdriven="http://dita4publishers.org/mapdriven"
-  exclude-result-prefixes="xs xd df relpath mapdriven"
+  exclude-result-prefixes="xs xd df relpath mapdriven index-terms java xsl mapdriven"
     xmlns:java="org.dita.dost.util.ImgUtils"
   version="2.0">
 
@@ -37,13 +37,14 @@
   <xsl:include href="map2html5NavTabbed.xsl"/>
   <xsl:include href="map2html5NavIco.xsl"/>
   <xsl:include href="map2html5Content.xsl"/>
-  <xsl:include href="map2html5RootPages.xsl"/>
   <xsl:include href="map2html5Collection.xsl"/>
+  <xsl:include href="map2html5Template.xsl"/>
+  
   
   <xsl:param name="dita-css" select="'css/topic-html5.css'" as="xs:string"/>
   <xsl:param name="TRANSTYPE" select="'html5'" />
   <xsl:param name="siteTheme" select="'theme-01'" />
-  <xsl:param name="bodyClass" select="''" />
+  <xsl:param name="BODYCLASS" select="''" />
   <xsl:param name="CLASSNAVIGATION" select="'left'" />
   <xsl:param name="jsoptions" select="''" />
   <xsl:param name="JS" select="''" />
@@ -61,7 +62,10 @@
   <xsl:param name="CLASSSECTIONCONTAINER" select="''" />     
   
   
-  <xsl:param name="IDLOCALNAV" select="'local-navigation'" />
+  <xsl:param name="IDLOCALNAV" select="'home'" />
+  
+  <xsl:param name="GRIDPREFIX" select="'grid_'" />
+
       
   <xsl:param name="mathJaxInclude" select="'false'"/>
   <xsl:param name="mathJaxIncludeBoolean" 
@@ -146,7 +150,7 @@
 
 
 
-	<xsl:output method="html" encoding="utf-8" indent="yes" omit-xml-declaration="yes"/>
+	<xsl:output name="html5" method="html" encoding="utf-8" omit-xml-declaration="yes"/>
 
 
   <xsl:template match="/">
@@ -171,6 +175,7 @@
       <xsl:sequence select="$chunkRootTopicrefs"/>
     </xsl:message>
 
+	<!-- graphic map -->
     <xsl:variable name="graphicMap" as="element()">
       <xsl:apply-templates select="." mode="generate-graphic-map">
       </xsl:apply-templates>
@@ -181,6 +186,7 @@
 
     <xsl:message> + [INFO] Collecting data for index generation, enumeration, etc....</xsl:message>
 
+	<!-- collected data -->
     <xsl:variable name="collected-data" as="element()">
       <xsl:call-template name="mapdriven:collect-data"/>
     </xsl:variable>
@@ -197,30 +203,43 @@
     <!-- NOTE: By default, this mode puts its output in the main output file
          produced by the transform.
       -->
-      <xsl:variable name="navigation" as="element()">
+      <xsl:variable name="navigation" as="element()*">
       	<xsl:apply-templates select="." mode="choose-html5-nav-markup" >
       	 	<xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
       		<xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/>
       	</xsl:apply-templates>
       </xsl:variable>
-    
+      
+      <xsl:variable name="documentation-title" as="xs:string">
+      	<xsl:apply-templates select="." mode="generate-root-page-header" />
+      </xsl:variable>
+
 
     <xsl:apply-templates select="." mode="generate-root-pages">
       <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
       <xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/>
       <xsl:with-param name="navigation" as="element()*" select="$navigation" tunnel="yes"/>
+      <xsl:with-param name="documentation-title" as="xs:string" select="$documentation-title" tunnel="yes"/>
+      <xsl:with-param name="is-root" as="xs:boolean" select="true()" tunnel="yes"/>
     </xsl:apply-templates>
     
     <xsl:apply-templates select="." mode="generate-content">
       <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
       <xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/>
-     
+       <xsl:with-param name="navigation" as="element()*" select="$navigation" tunnel="yes"/>
+       <xsl:with-param name="baseUri" as="xs:string" select="@xtrf" tunnel="yes"/>
+       <xsl:with-param name="documentation-title" as="xs:string" select="$documentation-title" tunnel="yes"/>
+        <xsl:with-param name="is-root" as="xs:boolean" select="false()" tunnel="yes"/>
     </xsl:apply-templates>
+    
     
     <xsl:apply-templates select="." mode="generate-index">
       <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
       <xsl:with-param name="uniqueTopicRefs" as="element()*" select="$uniqueTopicRefs" tunnel="yes"/>
-      
+      <xsl:with-param name="navigation" as="element()*" select="$navigation" tunnel="yes"/>
+       <xsl:with-param name="baseUri" as="xs:string" select="@xtrf" tunnel="yes"/>
+       <xsl:with-param name="documentation-title" as="xs:string" select="$documentation-title" tunnel="yes"/>
+         <xsl:with-param name="is-root" as="xs:boolean" select="false()" tunnel="yes"/>
     </xsl:apply-templates>
     <!--    <xsl:apply-templates select="." mode="generate-glossary">
       <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>
@@ -267,6 +286,23 @@
      <xsl:attribute name="class" select="@align" />
   </xsl:template>
   
+  
+    <xsl:template mode="generate-root-page-header" match="*[df:class(., 'map/map')]">
+  	  <!-- hook for a user-XSL title prefix -->
+      <xsl:call-template name="gen-user-panel-title-pfx"/> 
+      <xsl:call-template name="map-title" />
+  </xsl:template>
+  
+  <xsl:template name="map-title">
+  	<xsl:choose>
+        <xsl:when test="/*[contains(@class,' map/map ')]/*[contains(@class,' topic/title ')]">
+          <xsl:value-of select="normalize-space(/*[contains(@class,' map/map ')]/*[contains(@class,' topic/title ')])"/>
+        </xsl:when>
+        <xsl:when test="/*[contains(@class,' map/map ')]/@title">
+          <xsl:value-of select="/*[contains(@class,' map/map ')]/@title"/>
+        </xsl:when>
+    </xsl:choose>
+  </xsl:template>
  
 
 </xsl:stylesheet>

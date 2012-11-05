@@ -1,3 +1,8 @@
+/**
+ * Message module
+ * small module to send message to the user
+ * Will have another implementation with jquwery ui dialog within the next months
+ */
 (function (d4p) {
 
   // use ui-dialog instead ?

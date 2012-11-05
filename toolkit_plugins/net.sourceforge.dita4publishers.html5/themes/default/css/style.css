@@ -912,877 +912,6 @@ address,
 fieldset,
 figure {
   margin-bottom: 20px;
-}/**
- * @file layout css for html5 plugin
- */
-
-body
-{
-	margin: 0;
-	color: #333333;
-	font: 12px "Lucida Grande",Geneva,Arial,Verdana,sans-serif;
-}
-
-header
-{
-	border:none;
-	display: block;
-	height: 61px;
-	overflow: hidden;
-}
-
-header h1
-{
-	font-size: 2.8em;
-}
-
-header, footer 
-{
-	display: block;
-	overflow: hidden;
-	position:relative;
-	width:100%;
-}
-
-#d4h5-section-container
-{
-	display: block;
-	width: 980px;	
-}
-
-
-noscript
-{
-	font-size: 18px;
-	padding: 25px;
-}
-
-h2.nav-pub-title { font-size: 1.1em; }
-
-
-#d4h5-main-container {
-	overflow:hidden;
-}
-
-#d4h5-main-content
-{
-	margin-bottom: 30px;
-	min-height: 500px;
-}
-
-
-/** css3 columns layout **/
-.two-columns
-{
-	-moz-column-count: 2;
-	-moz-column-gap: 2.5em;
-	-moz-column-rule: 1px solid #ccc;
-	-webkit-column-count: 2;
-	-webkit-column-gap: 2.5em;
-	-webkit-column-rule: 1px solid #ccc;
-}
-
-.three-columns 
-{
-	-moz-column-count: 3;
-	-moz-column-gap: 2em;
-	-moz-column-rule: 1px solid #ccc;
-	-webkit-column-count: 3;
-	-webkit-column-gap: 2em;
-	-webkit-column-rule: 1px solid #ccc;
-}
-
-.four-columns
-{
-	-moz-column-count: 4;
-	-moz-column-gap: 2em;
-	-moz-column-rule: 1px solid #ccc;
-	-webkit-column-count: 4;
-	-webkit-column-gap: 2em;
-	-webkit-column-rule: 1px solid #ccc;
-}
-
-/** space and line after **/
-
-.space-after {
-	margin-bottom: 3em;
-}
-
-.line-after {
-	padding-bottom:2em;
-	border-bottom:1px solid #ccc;
-	margin-bottom:2em;
-}
-
-/** **/
-.clear-before {
-	clear:both;
-}/**#local-navigation {
-	width: 230px;
-}
-
-.navigation-large #local-navigation {
-	width: 280px;
-}**/
-
-#nav-content {
-	margin-left:0px;
-	padding:20px 0px 20px 20px;
-	outline:none;
-}
-
-#local-navigation.nav-left ul {
-	list-style-type: none;
-	margin:0;
-	padding:0;
-}
-
-#local-navigation.nav-left ul {
-	list-style-type: none;
-	margin:0;
-}
-
-nav#local-navigation.nav-left ul li {
-	margin:0;
-	padding: 3px 0 2px 0px;
-	outline:none;
-}
-
-/*nav#local-navigation.nav-left ul li.no-child {
-    padding-left:15px;
-}*/
-
-nav#local-navigation.nav-left ul li ul li {
-	margin:0;
-	padding: 3px 0 2px 20px;
-}
-
-#local-navigation.nav-left ul li.collapsible.collapsed ul {
-	 display:none;
-}
-#local-navigation.nav-left ul li.collapsible {
-    cursor: pointer;
-}
-
-#local-navigation.nav-left ul li.active ul {
-	display:block;
-	left: -10px;
-    position: relative;
-}
-
-#local-navigation.nav-left li.selected a {
-	font-weight: bold;
-	outline:none;
-}
-
-#local-navigation.nav-left li.selected ul li a {
-	font-weight: normal;
-}
-
-#local-navigation.nav-left ul li a, #local-navigation.nav-left ul li a:link {
-	text-decoration: none;
-	padding-right:20px;
-	display:block;
-	padding-left:16px;
-}
-
-#local-navigation.nav-left ul li ul li {
-	padding-left:15px;
-}
-
-#local-navigation.nav-left ul li a:hover {
-	text-decoration: underline;
-}
-
-#local-navigation.nav-left ul li a:visited, #local-navigation.nav-left ul li a:active {
-	text-decoration: none;
-}
-
-nav#local-navigation.nav-left span.ico {
-	display:block;
-	float:left;
-	width:12px;
-	height:12px;
-	margin-right: 2px;
-}
-nav#local-navigation.nav-left span.ico:hover {
-	cursor:pointer;
-}
-
-nav#local-navigation.nav-left span.navtitle {
-   display: block;
-   margin-left: 15px;
-   position: relative;
-}
-
-nav#local-navigation.nav-left .collapsible.active span.navtitle { 
-	margin-bottom:3px;
-}/**
- * css for images
- *
- * body.img-with-shadow add box shadow on every images
- * in this case, using @outputclass=no.shadow
- * should remove the shadow
- * if body.img-with-shadow is not set
- * shadow could be manually added using outputclass=with-shadow
- */
-
-.img-with-shadow img, img.with-shadow {
-	-moz-box-shadow: 3px 3px 4px #333;
-	-webkit-box-shadow: 3px 3px 4px #333;
-	box-shadow: 3px 3px 4px #333;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#333333')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#333333');
-}
-
-img.no-shadow {
-	-moz-box-shadow: none;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(enabled = false)";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(enabled = false);
-}
-
-/* From DITA-OT: Align images based on @align on topic/image */
-div.imageleft {
-	text-align: left;
-}
-
-div.imagecenter {
-	text-align: center;
-}
-
-div.imageright {
-	text-align: right;
-}
-
-div.imagejustify {
-	text-align: justify;
-}
-
-/* Use @frame to create frames on figures */
-.figborder {
-	border-style: solid;
-	padding-left: 3px;
-	border-width: 2px;
-	padding-right: 3px;
-	margin-top: 1em;
-	border-color: Silver;
-}
-
-.figsides {
-	border-left: 2px solid;
-	padding-left: 3px;
-	border-right: 2px solid;
-	padding-right: 3px;
-	margin-top: 1em;
-	border-color: Silver;
-}
-
-.figtop {
-	border-top: 2px solid;
-	margin-top: 1em;
-	border-color: Silver;
-}
-
-.figbottom {
-	border-bottom: 2px solid;
-	border-color: Silver;
-}
-
-.figtopbot {
-	border-top: 2px solid;
-	border-bottom: 2px solid;
-	margin-top: 1em;
-	border-color: Silver;
-}
-
-img + p {
-	margin-top: 3em;
-}
-
-/* Default of italics to set apart figure captions */
-.figcap {
-	font-style: italic;
-}
-
-.figdesc {
-	font-style: normal;
-}
-
-span.figcap {
-	display: block;
-	text-align: center;
-	width: 100%;
-	font-weight: bold;
-	margin: 0.8em 0 2em 0;
-}
-/**
- * copy of the commonltr with modifications
- */
-
-.unresolved { background-color: skyblue; }
-.noTemplate { background-color: yellow; }
-
-/* div with class=p is used for paragraphs that contain blocks, to keep the XHTML valid */
-.p { margin-top: 1em; }
-
-/* Set heading sizes, getting smaller for deeper nesting */
-.topictitle3 { font-weight: bold; }
-.topictitle4 { font-weight: bold; }
-.topictitle5 { font-weight: bold; }
-.topictitle6 { font-style: italic; }
-
-.sectiontitle
-{
-	margin-top: 1em;
-	margin-bottom: 0em;
-	color: black;
-	font-size: 1.17em;
-	font-weight: bold;
-}
-
-.section
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.example
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-div.tasklabel
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-h2.tasklabel, h3.tasklabel, h4.tasklabel, h5.tasklabel, h6.tasklabel { font-size: 100%; }
-
-/* All note formats have the same default presentation */
-.note
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.notetitle { font-weight: bold; }
-.notelisttitle { font-weight: bold; }
-
-.tip
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.tiptitle { font-weight: bold; }
-
-.fastpath
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.fastpathtitle { font-weight: bold; }
-
-.important
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.importanttitle { font-weight: bold; }
-
-.remember
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.remembertitle { font-weight: bold; }
-
-.restriction
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.restrictiontitle { font-weight: bold; }
-
-.attention
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.attentiontitle { font-weight: bold; }
-.dangertitle { font-weight: bold; }
-
-.danger
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.cautiontitle { font-weight: bold; }
-
-.caution
-{
-	font-weight: bold;
-	margin-bottom: 1em;
-}
-
-.warning
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.warningtitle { font-weight: bold; }
-
-/* Simple lists do not get a bullet */
-ul.simple { list-style-type: none; }
-
-/* Used on the first column of a table, when rowheader="firstcol" is used */
-.firstcol { font-weight: bold; }
-
-/* Various basic phrase styles */
-.bold { font-weight: bold; }
-
-.boldItalic
-{
-	font-weight: bold;
-	font-style: italic;
-}
-
-.italic { font-style: italic; }
-.underlined { text-decoration: underline; }
-.uicontrol { font-weight: bold; }
-.parmname { font-weight: bold; }
-.kwd { font-weight: bold; }
-
-.defkwd
-{
-	font-weight: bold;
-	text-decoration: underline;
-}
-
-.var { font-style: italic; }
-.shortcut { text-decoration: underline; }
-
-/* Default of bold for definition list terms */
-.dlterm { font-weight: bold; }
-
-/* Use CSS to expand lists with @compact="no" */
-.dltermexpand
-{
-	font-weight: bold;
-	margin-top: 1em;
-}
-
-*[compact="yes"]>li { margin-top: 0em; }
-*[compact="no"]>li { margin-top: .53em; }
-
-.liexpand
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.sliexpand
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.dlexpand
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.ddexpand
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.stepexpand
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.substepexpand
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-/* Align images based on @align on topic/image */
-div.imageleft { text-align: left; }
-div.imagecenter { text-align: center; }
-div.imageright { text-align: right; }
-div.imagejustify { text-align: justify; }
-
-/* The cell border can be turned on with
-   {border-right:solid}
-   This value creates a very thick border in Firefox (does not match other tables)
-
-   Firefox works with
-   {border-right:solid 1pt}
-   but this causes a barely visible line in IE */
-
-.cellrowborder
-{
-	border-left: none;
-	border-top: none;
-	border-right: solid 1px;
-	border-bottom: solid 1px;
-}
-
-.row-nocellborder
-{
-	border-left: none;
-	border-top: none;
-	border-right: hidden;
-	border-bottom: solid 1px;
-}
-
-.cell-norowborder
-{
-	border-top: none;
-	border-left: none;
-	border-bottom: hidden;
-	border-right: solid 1px;
-}
-
-.nocellnorowborder
-{
-	border: none;
-	border-right: hidden;
-	border-bottom: hidden;
-}
-
-pre.screen
-{
-	padding: 5px 5px 5px 5px;
-	border: outset;
-	background-color: #CCCCCC;
-	margin-top: 2px;
-	margin-bottom: 2px;
-	white-space: pre;
-}
-
-pre.codeblock {
-    background-color: #FBF9EA;
-    border: 1px solid #E2E1D5;
-    border-radius: 2px 2px 2px 2px;
-    margin: 1em 0;
-    padding: 10px;
-}
-
-span.filepath { font-family: monospace; }
-
-var.keyword {padding:0 0.5em; 0 0}/* Most link groups are created with <div>. Ensure they have space before and after. */
-.ullinks { list-style-type: none }
-.ulchildlink { margin-top: 1em; margin-bottom: 1em }
-.olchildlink { margin-top: 1em; margin-bottom: 1em }
-.linklist { margin-bottom: 1em }
-.linklistwithchild { margin-left: 1.5em; margin-bottom: 1em  }
-.sublinklist { margin-left: 1.5em; margin-bottom: 1em  }
-.relconcepts { margin-top: 1em; margin-bottom: 1em }
-.reltasks { margin-top: 1em; margin-bottom: 1em }
-.relref { margin-top: 1em; margin-bottom: 1em }
-.relinfo { margin-top: 1em; margin-bottom: 1em }
-.breadcrumb { font-size : smaller; margin-bottom: 1em }
-dt.prereq { margin-left : 20px;}/** used for accessibility **/
-.hidden, #page-links {
-	position:absolute; 
-	left:-10000px; 
-	top:auto; 
-	width:1px; 
-	height:1px; 
-	overflow:hidden;
-}
-
-/** Loader (a spinner) **/
-#d4p-loader {
-	display:none;
-	position: fixed;
-	width:100%;
-	height:80%;
-	background: transparent url('../img/ajax-loader.gif') no-repeat center center;
-	top:0px;
-}
-
-/** Message **/
-#d4p-message {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width:100%;
-    height:100%;
-    text-align:center;
-    z-index: 1000;
-}
-
-#d4p-message div {
-	position: fixed;
- 	top:50%;
-    left:50%;
-    margin-top: -50px;
-  	margin-left: -100px;
-    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;     
-    background:#eee;
-}
-
-#d4p-message p {
-	padding:15px;
-    margin:13px;
-    color:#333; 
-}
-/**
- * Table style
- */
-table { 
-	width: 100%; 
-	border-collapse: collapse; 
-}
-/* Zebra striping */
-tr:nth-of-type(odd) { 
-	background: #eee; 
-}
-th { 
-	background: #333; 
-	color: white; 
-	font-weight: bold; 
-}
-td, th { 
-	padding: 6px; 
-	border: 1px solid #ccc; 
-	text-align: left; 
-}/**
- * theme-01
- **/
-
-@font-face {
-	font-family: "Vegur Regular";
-    src: url("../fonts/vegur/Vegur-R.otf");
-}
-@font-face {
-	font-family: "Vegur Bold";
-    src: url("../fonts/vegur/Vegur-B.otf");
-}
-@font-face {
-	font-family: "Vegur Medium";
-    src: url("../fonts/vegur/Vegur-M.otf");
-}
-@font-face {
-	font-family: "Vegur Light";
-    src: url("../fonts/vegur/Vegur-L.otf");
-}
-
-.fontface #d4h5-main-content h1, .fontface header h1, .fontface #d4h5-main-content h2, .fontface #d4h5-main-content  h3, #d4h5-main-content  .fontface  h4, .fontface #d4h5-main-content h5, .fontface #d4h5-main-content  h6 {
-	font-family: "Vegur Regular", sans-serif;
-}
-
-body {
-	background: #FFFFFF;
-}
-
-header h1 {
-	font-size: 2.8em;
-	font-weight: 100;
-	line-height: 62px;
-	padding-left: 25px;
-	-webkit-background-clip: text;
-	-moz-background-clip: text;
-	background-clip: text;
-	color: transparent;
-	text-shadow: rgba(0,0,0,0.5) 0px 3px 3px;
-}
-
-header {
-	background: #262626;
-	border-bottom: 1px solid #ccc;
-	-moz-box-shadow: 3px 3px 4px #ccc;
-	-webkit-box-shadow: 3px 3px 4px #ccc;
-	box-shadow: 3px 3px 4px #ccc;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ccc')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ccc');
-}
-
-#footer-container {
-	background: #F6F6F6;
-	width: 100%;
-	min-height: 210px;
-	clear: both;
-	-webkit-border-bottom-right-radius: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-moz-border-radius-bottomleft: 5px;
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
-	border-top: 5px solid #ccc;
-}
-
-footer {
-	width: 960px;
-	position: relative;
-	margin: 0 auto;
-	padding-top: 25px;
-}
-
-footer h2, address strong {
-	font-size: 1.1em;
-	font-weight: 700;
-	margin-bottom: 1em;
-}
-
-#publication-title {
-	color: #FFF;
-}
-
-section h1 {
-	margin: 0 0 1.5em 0;
-}
-
-/** centered layout **/
-body.centered header h1 {
-	display: block;
-	width: 980px;
-	margin: 0 auto;
-}
-
-body.centered #d4h5-section-container {
-	margin: 0 auto;
-}
-
-body.centered.paged #d4h5-main-container {
-	margin: 0 auto;
-}
-
-/** paged layout **/
-body.paged header {
-	width: 100%;
-}
-
-body.paged #d4h5-section-container {
-	width: 980px;
-}
-
-/**/
-#local-navigation.nav-left {
-	margin-left: 0px;
-	padding: 20px 0px 20px 20px;
-	outline: none;
-	-moz-box-shadow: 3px 3px 4px #ccc;
-	-webkit-box-shadow: 3px 3px 4px #ccc;
-	box-shadow: 3px 3px 4px #ccc;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ccc')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ccc');
-}
-
-}
-
-#d4h5-main-container #d4h5-section-container {
-	margin-top: 50px;
-}
-
-#d4h5-main-content, #local-navigation.nav-left {
-	margin-top: 50px;
-}
-
-#d4h5-main-content h1 {
-	margin-top: 0px;
-}
-
-
-#local-navigation.nav-left {
-	background-color: #F6F6F6;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-
-	display: inline;
-	float: left;
-	margin-right: 5px;
-}
-
-#local-navigation.nav-left a, #local-navigation.nav-left a:link {
-	opacity: 1;
-}
-
-nav#local-navigation.nav-left li.collapsible.collapsed > span.ico {
-	background: url("../img/arrow.png") no-repeat 0 1px;
-}
-
-nav#local-navigation.nav-left li.collapsible.active > span.ico {
-	background: url("../img/arrow-down.png") no-repeat 0 3px;
-}
-
-#d4h5-main-container a, #d4h5-main-container a:link {
-	color: #3887b0;
-	text-decoration: underline;
-}
-
-span.navtitle, li.collapsible a:link {
-	color: #3887b0;
-}
-
-#d4h5-main-container a:hover {
-	text-decoration: none;
-}
-
-#d4h5-main-container a:visited {
-	color: #88b7d0;
-	text-decoration: underline;
-}
-
-#d4h5-main-container nav#local-navigation a:visited {
-	color: #3887b0;
-}
-
-#d4h5-main-container a:active {
-	color: red;
-}
-
-.rounded {
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-}
-li {
-	margin:1.7em 0;
-	list-style-position: inside;
-}
-
-li p:first-child {
-	display:inline;
-}
-
-/** 
- * Ui implementation
- */
-body .d4p-ui-cycle {
-	display:block;
-	position:relative;
-	min-height:150px;
 }/*!
  * jQuery UI CSS Framework 1.8.21
  *
@@ -2750,3 +1879,869 @@ body .d4p-ui-cycle {
 .ui-accordion .ui-accordion-header .ui-icon { position: absolute; left: .5em; top: 50%; margin-top: -8px; }
 .ui-accordion .ui-accordion-content { padding: 1.5em 2.2em; border-top: 0; position: relative; top: 1px; margin-bottom: 2px; overflow: auto; display: none; zoom: 1; }
 .ui-accordion .ui-accordion-content-active { display: block; }
+/**
+ * @file layout css for html5 plugin
+ */
+
+body
+{
+	margin: 0;
+	color: #333333;
+	font: 12px "Lucida Grande",Geneva,Arial,Verdana,sans-serif;
+}
+
+header
+{
+	border:none;
+	display: block;
+	height: 80px;
+	overflow: hidden;
+}
+
+header h1
+{
+	font-size: 2.8em;
+}
+
+header, footer 
+{
+	display: block;
+	overflow: hidden;
+	position:relative;
+	width:100%;
+}
+
+#d4h5-section-container
+{
+	display: block;
+	width: 980px;	
+}
+
+
+noscript
+{
+	font-size: 18px;
+	padding: 25px;
+}
+
+h2.nav-pub-title { font-size: 1.1em; }
+
+
+#d4h5-main-container {
+	overflow:hidden;
+}
+
+#d4h5-main-content
+{
+	margin-bottom: 30px;
+	min-height: 500px;
+	padding-left:40px;
+}
+
+#footer-container {
+	margin-top:20px;
+}
+
+/**
+ * navigation.css
+ */
+#local-navigation ul {
+	list-style-type: none;
+	margin:0;
+	padding:0;
+} 
+
+#local-navigation ul li {
+	margin:0;
+	padding:0
+}
+
+#local-navigation ul li ul li {
+	margin:0 0 0 15px;
+}
+
+body.navigation-right #local-navigation, body.navigation-right #d4h5-main-content {
+	float:right;
+}
+
+body.navigation-right #d4h5-main-content {
+ 	padding:0 -1px 0 0;
+ }#local-navigation ul li.collapsible.collapsed ul {
+	 display:none;
+}
+#local-navigation ul li.collapsible {
+    cursor: pointer;
+}/** 
+ * centered layout 
+ **/
+body.centered header h1 {
+	display: block;
+	width: 980px;
+	margin: 0 auto;
+}
+
+body.centered #d4h5-section-container {
+	margin: 0 auto;
+}
+
+body.centered.paged #d4h5-main-container {
+	margin: 0 auto;
+}/** css3 columns layout **/
+.two-columns
+{
+	-moz-column-count: 2;
+	-moz-column-gap: 2.5em;
+	-moz-column-rule: 1px solid #ccc;
+	-webkit-column-count: 2;
+	-webkit-column-gap: 2.5em;
+	-webkit-column-rule: 1px solid #ccc;
+}
+
+.three-columns 
+{
+	-moz-column-count: 3;
+	-moz-column-gap: 2em;
+	-moz-column-rule: 1px solid #ccc;
+	-webkit-column-count: 3;
+	-webkit-column-gap: 2em;
+	-webkit-column-rule: 1px solid #ccc;
+}
+
+.four-columns
+{
+	-moz-column-count: 4;
+	-moz-column-gap: 2em;
+	-moz-column-rule: 1px solid #ccc;
+	-webkit-column-count: 4;
+	-webkit-column-gap: 2em;
+	-webkit-column-rule: 1px solid #ccc;
+}
+
+/** space and line after **/
+
+.space-after {
+	margin-bottom: 3em;
+}
+
+.line-after {
+	padding-bottom:2em;
+	border-bottom:1px solid #ccc;
+	margin-bottom:2em;
+}
+
+/** **/
+.clear-before {
+	clear:both;
+}/**#local-navigation {
+	width: 230px;
+}
+
+.navigation-large #local-navigation {
+	width: 280px;
+}**/
+/**
+ * css for images
+ *
+ * body.img-with-shadow add box shadow on every images
+ * in this case, using @outputclass=no.shadow
+ * should remove the shadow
+ * if body.img-with-shadow is not set
+ * shadow could be manually added using outputclass=with-shadow
+ */
+
+.img-with-shadow img, img.with-shadow {
+	-moz-box-shadow: 3px 3px 4px #333;
+	-webkit-box-shadow: 3px 3px 4px #333;
+	box-shadow: 3px 3px 4px #333;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#333333')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#333333');
+}
+
+img.no-shadow {
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(enabled = false)";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(enabled = false);
+}
+
+/* From DITA-OT: Align images based on @align on topic/image */
+div.imageleft {
+	text-align: left;
+}
+
+div.imagecenter {
+	text-align: center;
+}
+
+div.imageright {
+	text-align: right;
+}
+
+div.imagejustify {
+	text-align: justify;
+}
+
+/* Use @frame to create frames on figures */
+.figborder {
+	border-style: solid;
+	padding-left: 3px;
+	border-width: 2px;
+	padding-right: 3px;
+	margin-top: 1em;
+	border-color: Silver;
+}
+
+.figsides {
+	border-left: 2px solid;
+	padding-left: 3px;
+	border-right: 2px solid;
+	padding-right: 3px;
+	margin-top: 1em;
+	border-color: Silver;
+}
+
+.figtop {
+	border-top: 2px solid;
+	margin-top: 1em;
+	border-color: Silver;
+}
+
+.figbottom {
+	border-bottom: 2px solid;
+	border-color: Silver;
+}
+
+.figtopbot {
+	border-top: 2px solid;
+	border-bottom: 2px solid;
+	margin-top: 1em;
+	border-color: Silver;
+}
+
+img + p {
+	margin-top: 3em;
+}
+
+/* Default of italics to set apart figure captions */
+.figcap {
+	font-style: italic;
+}
+
+.figdesc {
+	font-style: normal;
+}
+
+span.figcap {
+	display: block;
+	text-align: center;
+	width: 100%;
+	font-weight: bold;
+	margin: 0.8em 0 2em 0;
+}
+
+.d4p-ui-cycle img {
+	display:block;
+}
+/**
+ * copy of the commonltr with modifications
+ */
+
+.unresolved { background-color: skyblue; }
+.noTemplate { background-color: yellow; }
+
+/* div with class=p is used for paragraphs that contain blocks, to keep the XHTML valid */
+.p { margin-top: 1em; }
+
+/* Set heading sizes, getting smaller for deeper nesting */
+.topictitle3 { font-weight: bold; }
+.topictitle4 { font-weight: bold; }
+.topictitle5 { font-weight: bold; }
+.topictitle6 { font-style: italic; }
+
+.sectiontitle
+{
+	margin-top: 1em;
+	margin-bottom: 0em;
+	color: black;
+	font-size: 1.17em;
+	font-weight: bold;
+}
+
+.section
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.example
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+div.tasklabel
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+h2.tasklabel, h3.tasklabel, h4.tasklabel, h5.tasklabel, h6.tasklabel { font-size: 100%; }
+
+/* All note formats have the same default presentation */
+.note
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.notetitle { font-weight: bold; }
+.notelisttitle { font-weight: bold; }
+
+.tip
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.tiptitle { font-weight: bold; }
+
+.fastpath
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.fastpathtitle { font-weight: bold; }
+
+.important
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.importanttitle { font-weight: bold; }
+
+.remember
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.remembertitle { font-weight: bold; }
+
+.restriction
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.restrictiontitle { font-weight: bold; }
+
+.attention
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.attentiontitle { font-weight: bold; }
+.dangertitle { font-weight: bold; }
+
+.danger
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.cautiontitle { font-weight: bold; }
+
+.caution
+{
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+
+.warning
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.warningtitle { font-weight: bold; }
+
+/* Simple lists do not get a bullet */
+ul.simple { list-style-type: none; }
+
+/* Used on the first column of a table, when rowheader="firstcol" is used */
+.firstcol { font-weight: bold; }
+
+/* Various basic phrase styles */
+.bold { font-weight: bold; }
+
+.boldItalic
+{
+	font-weight: bold;
+	font-style: italic;
+}
+
+.italic { font-style: italic; }
+.underlined { text-decoration: underline; }
+.uicontrol { font-weight: bold; }
+.parmname { font-weight: bold; }
+.kwd { font-weight: bold; }
+
+.defkwd
+{
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.var { font-style: italic; }
+.shortcut { text-decoration: underline; }
+
+/* Default of bold for definition list terms */
+.dlterm { font-weight: bold; }
+
+/* Use CSS to expand lists with @compact="no" */
+.dltermexpand
+{
+	font-weight: bold;
+	margin-top: 1em;
+}
+
+*[compact="yes"]>li { margin-top: 0em; }
+*[compact="no"]>li { margin-top: .53em; }
+
+.liexpand
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.sliexpand
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.dlexpand
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.ddexpand
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.stepexpand
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.substepexpand
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+/* Align images based on @align on topic/image */
+div.imageleft { text-align: left; }
+div.imagecenter { text-align: center; }
+div.imageright { text-align: right; }
+div.imagejustify { text-align: justify; }
+
+/* The cell border can be turned on with
+   {border-right:solid}
+   This value creates a very thick border in Firefox (does not match other tables)
+
+   Firefox works with
+   {border-right:solid 1pt}
+   but this causes a barely visible line in IE */
+
+.cellrowborder
+{
+	border-left: none;
+	border-top: none;
+	border-right: solid 1px;
+	border-bottom: solid 1px;
+}
+
+.row-nocellborder
+{
+	border-left: none;
+	border-top: none;
+	border-right: hidden;
+	border-bottom: solid 1px;
+}
+
+.cell-norowborder
+{
+	border-top: none;
+	border-left: none;
+	border-bottom: hidden;
+	border-right: solid 1px;
+}
+
+.nocellnorowborder
+{
+	border: none;
+	border-right: hidden;
+	border-bottom: hidden;
+}
+
+pre.screen
+{
+	padding: 5px 5px 5px 5px;
+	border: outset;
+	background-color: #CCCCCC;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	white-space: pre;
+}
+
+pre.codeblock {
+    background-color: #FBF9EA;
+    border: 1px solid #E2E1D5;
+    border-radius: 2px 2px 2px 2px;
+    margin: 1em 0;
+    padding: 10px;
+}
+
+span.filepath { font-family: monospace; }
+
+var.keyword {padding:0 0.5em; 0 0}/* Most link groups are created with <div>. Ensure they have space before and after. */
+.ullinks { list-style-type: none }
+.ulchildlink { margin-top: 1em; margin-bottom: 1em }
+.olchildlink { margin-top: 1em; margin-bottom: 1em }
+.linklist { margin-bottom: 1em }
+.linklistwithchild { margin-left: 1.5em; margin-bottom: 1em  }
+.sublinklist { margin-left: 1.5em; margin-bottom: 1em  }
+.relconcepts { margin-top: 1em; margin-bottom: 1em }
+.reltasks { margin-top: 1em; margin-bottom: 1em }
+.relref { margin-top: 1em; margin-bottom: 1em }
+.relinfo { margin-top: 1em; margin-bottom: 1em }
+.breadcrumb { font-size : smaller; margin-bottom: 1em }
+dt.prereq { margin-left : 20px;}/** used for accessibility **/
+.hidden, #page-links {
+	position:absolute; 
+	left:-10000px; 
+	top:auto; 
+	width:1px; 
+	height:1px; 
+	overflow:hidden;
+}
+/** Loader (a spinner) **/
+#d4p-loader {
+	display:none;
+	position: fixed;
+	width:100%;
+	height:80%;
+	background: transparent url('../img/ajax-loader.gif') no-repeat center center;
+	top:0px;
+}
+/**
+ * Table style
+ */
+table { 
+	width: 100%; 
+	border-collapse: collapse; 
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+	background: #eee; 
+}
+th { 
+	background: #333; 
+	color: white; 
+	font-weight: bold; 
+}
+td, th { 
+	padding: 6px; 
+	border: 1px solid #ccc; 
+	text-align: left; 
+}li {
+	margin:1.7em 0;
+	list-style-position: inside;
+}
+
+li p:first-child {
+	display:inline;
+}
+
+/** 
+ * Ui implementation
+ */
+body .d4p-ui-cycle {
+	display:block;
+	position:relative;
+	min-height:150px;
+}
+/** Message **/
+#d4p-message {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width:100%;
+    height:100%;
+    text-align:center;
+    z-index: 1000;
+}
+
+#d4p-message div {
+	position: fixed;
+ 	top:50%;
+    left:50%;
+    margin-top: -50px;
+  	margin-left: -100px;
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;     
+    background:#eee;
+}
+
+#d4p-message p {
+	padding:15px;
+    margin:13px;
+    color:#333; 
+}button {
+	margin:0em 0 2em 0;
+}/**
+ * theme-01
+ **/
+
+/** Font face **/
+@font-face {
+	font-family: "Vegur Regular";
+    src: url("../fonts/vegur/Vegur-R.otf");
+}
+
+@font-face {
+	font-family: "Vegur Bold";
+    src: url("../fonts/vegur/Vegur-B.otf");
+}
+
+@font-face {
+	font-family: "Vegur Medium";
+    src: url("../fonts/vegur/Vegur-M.otf");
+}
+
+@font-face {
+	font-family: "Vegur Light";
+    src: url("../fonts/vegur/Vegur-L.otf");
+}
+
+.fontface #d4h5-main-content h1, .fontface header h1, .fontface #d4h5-main-content h2, .fontface #d4h5-main-content  h3, #d4h5-main-content  .fontface  h4, .fontface #d4h5-main-content h5, .fontface #d4h5-main-content  h6 {
+	font-family: "Vegur Regular", sans-serif;
+}
+
+body {
+	background: #EFEFEF url(../img/subtle-patterns/subtle-pattern-1.jpg) repeat;
+}
+
+header h1 {
+	color: #504F4F;
+	font-size: 2.8em;
+	font-weight: 100;
+	line-height: 62px;
+	padding-left: 12px;
+	padding-top: 20px;
+	text-shadow: 0 2px 1px #BBBABA;
+}
+
+header {
+}
+
+.paged #d4h5-section-container {
+	background-color: #FFFFFF;
+}
+
+#footer-container {
+	background: #F6F6F6;
+	width: 100%;
+	min-height: 210px;
+	clear: both;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-top: 5px solid #ccc;
+}
+
+footer {
+	width: 960px;
+	position: relative;
+	margin: 0 auto;
+	padding-top: 25px;
+}
+
+footer h2, address strong {
+	font-size: 1.1em;
+	font-weight: 700;
+	margin-bottom: 1em;
+}
+
+section h1 {
+	margin: 0 0 1.5em 0;
+}
+
+/** centered layout **/
+body.centered header h1 {
+	display: block;
+	width: 980px;
+	margin: 0 auto;
+}
+
+body.centered #d4h5-section-container {
+	margin: 0 auto;
+}
+
+body.centered.paged #d4h5-main-container {
+	margin: 0 auto;
+}
+
+/** paged layout **/
+body.paged header {
+	width: 100%;
+}
+
+body #d4h5-section-container {
+	width: 90%;
+	margin: 10px;
+}
+
+body.centered #d4h5-section-container {
+	width: 980px;
+}
+
+/**/
+#local-navigation {
+	margin-left: 0px;
+	padding: 20px 0px 20px 20px;
+	outline: none;
+	-moz-box-shadow: 3px 3px 4px #ccc;
+	-webkit-box-shadow: 3px 3px 4px #ccc;
+	box-shadow: 3px 3px 4px #ccc;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ccc')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ccc');
+}
+
+
+
+#d4h5-main-content h1 {
+	margin-top: 0px;
+}
+
+#local-navigation {
+	background-color: #FFFFFF;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	display: inline;
+	float: left;
+	margin-right: 5px;
+}
+
+
+.paged #d4h5-section-container {
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 3px 3px 3px 3px #CCCCCC;
+    display: block;
+    padding: 15px;
+}
+
+#d4h5-main-content {
+	background-color: #FFFFFF;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 3px 3px 3px 3px #CCCCCC;
+    	padding-top:20px;
+}
+
+.paged #d4h5-main-content {
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+.paged #local-navigation {
+	background-color: #F6F6F6;
+}
+
+#local-navigation.nav-left a, #local-navigation.nav-left a:link {
+	opacity: 1;
+}
+
+nav#local-navigation.nav-left li.collapsible.collapsed > span.ico {
+	background: url("../img/arrow.png") no-repeat 0 1px;
+}
+
+nav#local-navigation.nav-left li.collapsible.active > span.ico {
+	background: url("../img/arrow-down.png") no-repeat 0 3px;
+}
+
+#d4h5-main-container a, #d4h5-main-container a:link {
+	color: #3887b0;
+	text-decoration: underline;
+}
+
+span.navtitle, li.collapsible a:link {
+	color: #3887b0;
+}
+
+#d4h5-main-container a:hover {
+	text-decoration: none;
+}
+
+#d4h5-main-container a:visited {
+	color: #88b7d0;
+	text-decoration: underline;
+}
+
+#d4h5-main-container nav#local-navigation a:visited {
+	color: #3887b0;
+}
+
+#d4h5-main-container a:active {
+	color: red;
+}
+
+.rounded {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+li {
+	margin: 1.7em 0;
+	list-style-position: inside;
+}
+
+li p:first-child {
+	display: inline;
+}
+
+/** 
+ * Ui implementation
+ */
+
+body .d4p-ui-cycle {
+	display: block;
+	position: relative;
+	min-height: 150px;
+}
+
+nav#local-navigation.nav-left ul li ul li {
+	margin: 0;
+	padding: 3px 0 2px 20px;
+}

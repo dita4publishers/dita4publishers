@@ -1,4 +1,8 @@
-
+/**
+ * d4p.ajaxLoader.prototype.addWidgets
+ * 
+ * allows addition of widgets on the page
+ */
 (function (d4p) {
 
   // new prototype
@@ -30,7 +34,13 @@
       }
     });
   };
+  
+})(d4p);
 
+/**
+ * interface with ui
+ */ 
+(function (d4p) {
 
   var ui = new d4p.module('ui', {
 

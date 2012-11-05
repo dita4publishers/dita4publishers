@@ -20,15 +20,15 @@
   <target name="dita.map.html5.init"
     description="Init properties for HTML5">
     
-    <condition property="site.theme" value="default">
+    <condition property="html5.site.theme" value="default">
 		  <not>
-        <isset property="site.theme" />
+        <isset property="html5.site.theme" />
       </not>
 	</condition>
 	
-	<condition property="site.js.vars" value="${html5.dir}/sites/${site.theme}/vars.xml">
+	<condition property="html5.site.js.vars" value="${html5.dir}/sites/${html5.site.theme}/vars.xml">
 		  <not>
-        <isset property="site.js.vars" />
+        <isset property="html5.site.js.vars" />
       </not>
 	</condition>
 
@@ -37,6 +37,12 @@
     <condition property="topics.output.dir" value="topics">
   		<not>
   			<isset property="topics.output.dir"/>
+  	  </not>
+  	</condition>
+  	
+  	<condition property="html5.grid.prefix" value="grid_">
+  		<not>
+  			<isset property="html5.grid.prefix"/>
   	  </not>
   	</condition>
 
@@ -91,13 +97,13 @@
       </not>
     </condition>
     
-    <condition property="args.theme.file" value="themes/${site.theme}/css/style-min.css">
+    <condition property="html5.args.theme.file" value="themes/${html5.site.theme}/css/style-min.css">
       <not>
-        <isset property="args.theme.file" />
+        <isset property="html5.args.theme.file" />
       </not>
     </condition>
     
-	<condition property="args.js.file" value="themes/${site.theme}/js/script-min.js">
+	<condition property="args.js.file" value="themes/${html5.site.theme}/js/script-min.js">
       <not>
         <isset property="args.js.file" />
       </not>
@@ -110,9 +116,9 @@
     </condition>
 
     
-     <condition property="themes.output.dir" value="themes">
+     <condition property="html5.themes.output.dir" value="themes">
       <not>
-        <isset property="themes.output.dir" />
+        <isset property="html5.themes.output.dir" />
       </not>
     </condition>
 
@@ -138,67 +144,70 @@
   	               You need a limited number of items 
   	              at the first level for this !important
   	-->
-  	 <condition property="navigation.markup" value="navigation-default">
+  	 <condition property="html5.navigation.markup" value="navigation-default">
   		<not>
-  			<isset property="navigation.markup"/>
+  			<isset property="html5.navigation.markup"/>
   	  </not>
   	</condition>
 
-    <condition property="id.main.container" value="d4h5-main-container">
+    <condition property="html5.id.main.container" value="d4h5-main-container">
   		<not>
-  			<isset property="id.main.container"/>
+  			<isset property="html5.id.main.container"/>
   	  </not>
   	</condition>
   	
-  	<condition property="id.section.container" value="d4h5-section-container">
+  	<condition property="html5.id.section.container" value="d4h5-section-container">
   		<not>
-  			<isset property="id.section.container"/>
+  			<isset property="html5.id.section.container"/>
   	  </not>
   	</condition>
   	
-  	<condition property="class.main.container" value="">
+  	<condition property="html5.class.main.container" value="">
   		<not>
-  			<isset property="class.main.container"/>
+  			<isset property="html5.class.main.container"/>
   	  </not>
   	</condition>
   	
-  	 <condition property="class.section.container" value="container_24">
+  	 <condition property="html5.class.section.container" value="container_24">
   		<not>
-  			<isset property="class.section.container"/>
+  			<isset property="html5.class.section.container"/>
   	  </not>
   	</condition>
   	  
-  	<condition property="id.main.content" value="d4h5-main-content">
+  	<condition property="html5.id.main.content" value="d4h5-main-content">
   		<not>
-  			<isset property="id.main.content"/>
+  			<isset property="html5.id.main.content"/>
   	  </not>
   	</condition>
   	
-  	<condition property="class.main.content" value="prefix_1 grid_16">
+  	<condition property="html5.id.navigation" value="local-navigation">
   		<not>
-  			<isset property="class.main.content"/>
+  			<isset property="html5.id.navigation"/>
   	  </not>
   	</condition>
   	
-  
+  	<condition property="html5.class.main.content" value="grid_16">
+  		<not>
+  			<isset property="html5.class.main.content"/>
+  	  </not>
+  	</condition>  	
   	
-  	
-  	<condition property="class.navigation" value="nav-left grid_7">
+  	<condition property="html5.class.navigation" value="grid_7">
 		  <not>
-        <isset property="class.navigation" />
+        <isset property="html5.class.navigation" />
       </not>
 	</condition>
 
 	<!-- used to pass parameter to the javascript d4p obj -->
-	<condition property="js.options" value="">
+	<condition property="html5.js.options" value="">
 		  <not>
-        <isset property="js.options" />
+        <isset property="html5.js.options" />
       </not>
 	</condition>
 	
-	<condition property="bodyClass" value="centered img-with-shadow  ${navigation.markup}">
+	<condition property="html5.class.body" value="centered img-with-shadow paged  ${html5.navigation.markup}">
 		  <not>
-        <isset property="bodyClass" />
+        <isset property="html5.class.body" />
       </not>
 	</condition>
 	
@@ -236,9 +245,9 @@
 
     	>
 
-      <param name="siteTheme" expression="${site.theme}"/>
-      <param name="bodyClass" expression="${bodyClass}"/>
-      <param name="jsoptions" expression="${js.options}"/>
+      <param name="siteTheme" expression="${html5.site.theme}"/>
+      <param name="BODYCLASS" expression="${html5.class.body}"/>
+      <param name="jsoptions" expression="${html5.js.options}"/>
       <param name="cssOutputDir" expression="${css.output.dir}"/>
       <param name="debug" expression="${debug}"/>
     	<param name="fileOrganizationStrategy" expression="${html2.file.organization.strategy}" if="html2.file.organization.strategy"/>
@@ -262,18 +271,20 @@
     	<!-- Parameters from dita2xhtml and similar transtypes: -->
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
       <param name="CSS" expression="${args.css.file}" if="args.css.file" />
-      <param name="CSSTHEME" expression="${args.theme.file}" if="args.theme.file" /> 
+      <param name="CSSTHEME" expression="${html5.args.theme.file}" if="html5.args.theme.file" /> 
       <param name="JSONVARFILE" expression="${d4p.html5.json.vars.file.url}" if="d4p.html5.json.vars.file" />
-      <param name="NAVIGATIONMARKUP" expression="${navigation.markup}" if="navigation.markup" />
+      <param name="NAVIGATIONMARKUP" expression="${html5.navigation.markup}" if="html5.navigation.markup" />
 
-      <param name="IDMAINCONTAINER" expression="${id.main.container}" if="id.main.container" />
-    	<param name="IDSECTIONCONTAINER" expression="${id.section.container}" if="id.section.container" />  
-    	<param name="IDMAINCONTENT" expression="${id.main.content}" if="id.main.content" />
-    	<param name="CLASSMAINCONTENT" expression="${class.main.content}" if="class.main.content" />
-    	<param name="CLASSMAINCONTAINER" expression="${class.main.container}" if="class.main.container" />
-    	<param name="CLASSSECTIONCONTAINER" expression="${class.section.container}" if="class.main.container" />
+      <param name="IDMAINCONTAINER" expression="${html5.id.main.container}" if="html5.id.main.container" />
+    	<param name="IDSECTIONCONTAINER" expression="${html5.id.section.container}" if="html5.id.section.container" />  
+    	<param name="IDMAINCONTENT" expression="${html5.id.main.content}" if="html5.id.main.content" />
+    	<param name="CLASSMAINCONTENT" expression="${html5.class.main.content}" if="html5.class.main.content" />
+    	<param name="CLASSMAINCONTAINER" expression="${html5.class.main.container}" if="html5.class.main.container" />
+    	<param name="CLASSSECTIONCONTAINER" expression="${html5.class.section.container}" if="html5.class.main.container" />
 		
-      <param name="CLASSNAVIGATION" expression="${class.navigation}" if="class.navigation" />     
+      <param name="CLASSNAVIGATION" expression="${html5.class.navigation}" if="html5.class.navigation" />     
+      <param name="IDLOCALNAV" expression="${html5.id.navigation}" if="html5.id.navigation" />    
+      <param name="GRIDPREFIX" expression="${html5.grid.prefix}" if="html5.grid.prefix" />
       <param name="JS" expression="${args.js.file}" if="args.js.file" />
       <param name="CSSPATH" expression="${user.csspath}" if="user.csspath" />
       <param name="DRAFT" expression="${args.draft}" if="args.draft"></param>
@@ -345,10 +356,10 @@
 
   <target name="html5-copy-assets"  description="Copy assets files" depends="dita.map.html5.init">
 
-    <mkdir dir="${output.dir}/${themes.output.dir}/${site.theme}"/>
+    <mkdir dir="${output.dir}/${html5.themes.output.dir}/${html5.site.theme}"/>
     
-    <copy todir="${output.dir}/themes/${site.theme}">
-      <fileset dir="${html5.dir}/themes/${site.theme}"/>
+    <copy todir="${output.dir}/themes/${html5.site.theme}">
+      <fileset dir="${html5.dir}/themes/${html5.site.theme}"/>
     </copy>
 
   </target>
@@ -379,7 +390,7 @@
 	<mkdir dir="${json.vars.dir}" />
 		
 	<xslt processor="trax"
-      in="${site.js.vars}"
+      in="${html5.site.js.vars}"
       out="${d4p.html5.json.vars.file}"
       extension=".json"
       style="${xml2json.style}">

@@ -20,7 +20,30 @@
     This transform requires XSLT 2.
     ================================================================= -->
 
+ <xsl:template mode="generate-html5-nav-whole-page" match="*[df:class(., 'map/map')]">
 
+    <xsl:param name="collected-data" as="element()" tunnel="yes"/>
+
+    <xsl:variable name="listItemsContent" as="node()*">
+      <xsl:apply-templates mode="generate-html5-tabbed-nav-content"
+        select=".
+            except (
+            *[df:class(., 'topic/title')],
+            *[df:class(., 'map/topicmeta')],
+            *[df:class(., 'map/relicole')]
+            )"
+      />
+    </xsl:variable>
+
+
+    <div id="doc-content" class="{concat($GRIDPREFIX, '23 prepend-1 last')}">
+     	<div id="content-container">
+        	<xsl:sequence select="$listItemsContent"/>
+     	</div>
+    </div>
+    <div class="clear"/>
+  </xsl:template>
+  
   <xsl:template mode="generate-html5-nav-ico-markup" match="*[df:class(., 'map/map')]">
 
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>
@@ -48,8 +71,8 @@
     </xsl:variable>
 
 
-    <div id="doc-content" class="span-23 prepend-1 last">
-     	<div id="local-navigation">
+    <div id="doc-content" class="{concat($GRIDPREFIX, '23 prepend-1 last')}">
+     	<div id="{$IDLOCALNAV}">
      		<h1><xsl:call-template name="map-title" /></h1>
         	<xsl:sequence select="'&#x0a;'"/>
         	<xsl:sequence select="$listItems"/>
@@ -88,7 +111,7 @@
   			</xsl:choose>
   		</xsl:variable>
   		
-      	<div id="{$id}" class="{concat('box box-ico square span-3', $isLast)}">
+      	<div id="{$id}" class="{concat('box box-ico square ', $GRIDPREFIX, '3', $isLast)}">
       	
       	<!-- {count(preceding-sibling::*) + 1} -->
       		<a href="{concat('#tab-', $count)}">
