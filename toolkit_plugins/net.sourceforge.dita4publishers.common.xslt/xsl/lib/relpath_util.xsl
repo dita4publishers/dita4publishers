@@ -793,4 +793,55 @@
       select="string-length(substring-before('0123456789ABCDEF',
       $char))"/>
   </xsl:function>
+  
+   <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:desc>
+      <xd:p>Prefix non-aboslute path with $relativePath</xd:p>
+      <xd:pre>
+        Given:
+        
+        [1]  
+        relativePath: ../../
+        filePath: A/B/C/X
+        
+        Return: "../../A/B/C/X"
+        
+         
+        [2]  
+        relativePath: ../../
+        filePath: /A/B/C/X
+        
+        Return: "/A/B/C/X"
+       
+      </xd:pre>
+    </xd:desc>
+    <xd:param name="relativePath">
+    	<xd:p>A relative path prefix. Example: ../</xd:p>
+    </xd:param>
+    <xd:param name="filePath">
+    	<xd:p>a file path</xd:p>
+    </xd:param>
+    <xd:return></xd:return>
+  </xd:doc>
+    <xsl:function name="relpath:fixRelativePath" as="xs:string*">
+    	<xsl:param name="relativePath" as="xs:string*"/>
+    	<xsl:param name="filePath" as="xs:string*"/>
+  		
+     	<xsl:variable name="prefix">
+  	    	<xsl:choose>
+  	    		<xsl:when test="substring($filePath, 1, 1) = '/'">
+  	    			<xsl:value-of select="''" />
+  	    		</xsl:when>
+  	    		<xsl:otherwise>
+  	    			<xsl:value-of select="$relativePath" />
+  	    		</xsl:otherwise>
+  	    	    	
+  	    	</xsl:choose>   		
+    	</xsl:variable>
+    	
+    	<xsl:value-of select="concat($prefix, $filePath)" />
+    	
+    	
+  </xsl:function>
+  
 </xsl:stylesheet>
