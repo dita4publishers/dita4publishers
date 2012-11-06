@@ -45,8 +45,8 @@
       </xsl:message>
     </xsl:if>    
     <xsl:apply-templates select="$uniqueTopicRefs" mode="generate-content"/>
-    <xsl:message> + [INFO] Generating title-only topics for topicheads...</xsl:message>
-    <xsl:apply-templates select=".//*[df:isTopicHead(.)]" mode="generate-content"/>
+    <!--xsl:message> + [INFO] Generating title-only topics for topicheads...</xsl:message-->
+    <!--xsl:apply-templates select=".//*[df:isTopicHead(.)]" mode="generate-content"/-->
     <xsl:message> + [INFO] Content generated.</xsl:message>
   </xsl:template>
   
@@ -104,17 +104,20 @@
     <!-- Result URI to which the document should be written. -->
     <xsl:param name="resultUri" as="xs:string" tunnel="yes"/>
     <xsl:variable name="docUri" select="relpath:toUrl(@xtrf)" as="xs:string"/>
-    <xsl:variable name="parentDocUri" select="relpath:getParent($docUri)" as="xs:string"/>
-    <xsl:variable name="parentPath" select="relpath:getParent($baseUri)" as="xs:string"/>
-    <xsl:variable name="relativePath" select="concat(relpath:getRelativePath($parentDocUri, $parentPath), '/')" as="xs:string"/>
+    <xsl:variable name="parentDocUri" select="relpath:getParent($resultUri)" as="xs:string"/>
+   
+    <xsl:variable name="parentPath" select="$outdir" as="xs:string"/>
+    <!--xsl:variable name="parentPath" select="relpath:getParent($baseUri)" as="xs:string"/-->
+    <xsl:variable name="relativePath" select="concat(relpath:getRelativePath($parentDocUri, $parentPath), '')" as="xs:string"/>
     <xsl:variable name="topic-title"><xsl:apply-templates select="." mode="nav-point-title"/></xsl:variable>
    
-	 <xsl:if test="true() and $debugBoolean">
-    	<xsl:message>docUri is: <xsl:value-of select="$docUri"/></xsl:message>
+
+    	<!--xsl:message>docUri is: <xsl:value-of select="$docUri"/></xsl:message>
+    	<xsl:message>resultUri is: <xsl:value-of select="$resultUri"/></xsl:message>
      	<xsl:message>map:  <xsl:value-of select="$baseUri"/></xsl:message>
     	<xsl:message>parentPath is: <xsl:value-of select="$parentPath"/></xsl:message>
     	<xsl:message>relativePath is: <xsl:value-of select="$relativePath"/></xsl:message>
-   	</xsl:if>
+		<xsl:message>topic-title is: <xsl:value-of select="$topic-title"/></xsl:message-->
    	
     <xsl:message> + [INFO] Writing topic <xsl:sequence select="document-uri(root(.))"/> to HTML file "<xsl:sequence 
       select="$resultUri"/>"...</xsl:message>

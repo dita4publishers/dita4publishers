@@ -117,7 +117,8 @@
   -->
   <xsl:template match="*" mode="generate-javascript-includes">
   	<xsl:param name="relativePath" as="xs:string" select="''" tunnel="yes" />
-    <script type="text/javascript" src="{concat($relativePath, $JS)}">
+  	
+    <script type="text/javascript" src="{relpath:fixRelativePath($relativePath, $JS)}">
   		<xsl:sequence select="'&#x0a;'"/>
   	</script>
     <xsl:sequence select="'&#x0a;'"/>
@@ -127,10 +128,13 @@
     <script type="text/javascript">
    		<xsl:sequence select="'&#x0a;'"/>
 		<xsl:value-of select="$json" /><xsl:text>;</xsl:text>
-		<xsl:sequence select="'&#x0a;'"/>
-		<xsl:text>d4p.relativePath='</xsl:text><xsl:value-of select="$relativePath"/><xsl:text>';</xsl:text>
+		<xsl:sequence select="'&#x0a;'"/>		
    		<xsl:text>$(function(){d4p.init({</xsl:text>
-		<xsl:value-of select="$jsoptions" />
+   		<xsl:text>relativePath:'</xsl:text><xsl:value-of select="$relativePath"/><xsl:text>'</xsl:text>
+   		<xsl:if test="$jsoptions != ''">
+   			<xsl:text>, </xsl:text>
+			<xsl:value-of select="$jsoptions" />
+		</xsl:if>
 		<xsl:text>});});</xsl:text>
 	</script><xsl:sequence select="'&#x0a;'"/>
 
@@ -138,14 +142,16 @@
 
   <!-- used to generate the css links -->
   <xsl:template match="*" mode="generate-css-includes">
+  <!-- prevent aboslute path to be rewritten -->
   	<xsl:param name="relativePath" as="xs:string" select="''" tunnel="yes" />
+    	
   	<xsl:if test="$CSS!=''">
-     	<link rel="stylesheet" type="text/css" href="{concat($relativePath, $CSS)}" />
+     	<link rel="stylesheet" type="text/css" href="{relpath:fixRelativePath($relativePath, $CSS)}" />
     </xsl:if>
     
     <xsl:sequence select="'&#x0a;'"/>
     
-    <link rel="stylesheet" type="text/css" href="{concat($relativePath, $CSSTHEME)}" />
+    <link rel="stylesheet" type="text/css" href="{relpath:fixRelativePath($relativePath, $CSSTHEME)}" />
     	<xsl:sequence select="'&#x0a;'"/>
     
   </xsl:template>
@@ -382,7 +388,23 @@
     <xsl:template match="@href" mode="fix-navigation-href">
 
     	<xsl:param name="relativePath" as="xs:string" select="''" tunnel="yes" />
-		<xsl:attribute name="href" select="concat($relativePath, .)"/>
+    	<xsl:variable name="prefix">
+  	    	<xsl:choose>
+  	    		<xsl:when test="substring(., 1, 1) = '#'">
+  	    			<xsl:value-of select="''" />
+  	    		</xsl:when>
+  	    		<xsl:when test="substring(., 1, 1) = '/'">
+  	    			<xsl:value-of select="''" />
+  	    		</xsl:when>
+  	    		<xsl:otherwise>
+  	    			<xsl:value-of select="$relativePath" />
+  	    		</xsl:otherwise>
+  	    	    	
+  	    	</xsl:choose>
+  	    	</xsl:variable>
+    		
+    		
+		<xsl:attribute name="href" select="concat($prefix, .)"/>
     </xsl:template>
     
 

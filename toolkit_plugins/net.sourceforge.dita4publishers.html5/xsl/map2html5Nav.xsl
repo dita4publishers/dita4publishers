@@ -157,10 +157,7 @@
     <xsl:apply-templates select="index-terms:grouped-and-sorted" mode="#current"/>
   </xsl:template>
 
-  <xsl:template mode="nav-point-title" match="*[df:isTopicRef(.)] | *[df:isTopicHead(.)]">
-    <xsl:variable name="navPointTitleString" select="df:getNavtitleForTopicref(.)"/>
-    <xsl:sequence select="$navPointTitleString"/>
-  </xsl:template>
+
 
   <xsl:template match="*[df:isTopicGroup(.)]" priority="20" mode="generate-html5-nav">
     <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
@@ -203,20 +200,11 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="*[df:isTopicGroup(.)]" mode="nav-point-title">
-    <!-- Per the 1.2 spec, topic group navtitles are always ignored -->
-  </xsl:template>
 
-<!--  <xsl:template mode="nav-point-title" match="*[df:class(., 'topic/title')]" priority="10">
-    <xsl:apply-templates mode="#current"/>
-  </xsl:template>
--->
 
-  <xsl:template mode="nav-point-title" match="*[df:class(., 'topic/fn')]" priority="10">
-    <!-- Suppress footnotes in titles -->
-  </xsl:template>
 
-  <xsl:template match="*[df:class(., 'topic/tm')]" mode="generate-html5-nav nav-point-title">
+
+  <xsl:template match="*[df:class(., 'topic/tm')]" mode="generate-html5-nav">
     <xsl:apply-templates mode="#current"/>
     <xsl:choose>
       <xsl:when test="@type = 'reg'">

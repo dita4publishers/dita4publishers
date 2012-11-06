@@ -129,11 +129,6 @@
   </xsl:template>
 
 
-  <xsl:template mode="nav-point-title" match="*[df:class(., 'topic/body')]" priority="10">
-    <!-- Suppress body from output -->
-  </xsl:template>
-
-
 
   <!-- 
   		Templates for tab headers -->
