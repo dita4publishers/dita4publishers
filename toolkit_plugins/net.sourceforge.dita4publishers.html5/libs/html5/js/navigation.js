@@ -6,20 +6,39 @@
 (function (window, d4p) {
 
   var navigation = new d4p.module('navigation', {
+  
+  	icon:'ui-icon',
+  
+  	leaf:'ui-icon-triangle-1-e',
+  	
+  	leafActive:'ui-icon-triangle-1-s',
+  	
+  	toolbar: {
+  	  id:'navToolBar',
+  	  position:'top'
+  	},
+  	
+  	buttons: false,
 
     // select the right entry in the navigation
-    select: function (uri) {
-
-      var id = d4p.ajax.collection[uri].id;
+    select: function () {
+      var o = this;
+      var l = d4p.l();
+      var id = d4p.ajax.collection[l.uri].id;
 
       $(d4p.navigationSelector + ' li')
         .removeClass('selected')
         .removeAttr('aria-expanded');
+        
+      $("span."+o.icon).removeClass(o.leafActive).addClass(o.leaf);  
 
-      $('#' + id)
-        .parent('li')
-        .attr('aria-expanded', 'true')
-        .addClass('selected');
+      $('#' + id).parent('li').attr('aria-expanded', 'true').addClass('selected');
+      
+      $('#' + id).parents('li').each(function(){
+        $(this).children("span."+o.icon)
+          .removeClass(o.leaf)
+          .addClass(o.leafActive);      
+      });
 
       $('#' + id)
         .parentsUntil(d4p.navigationSelector)
@@ -32,6 +51,9 @@
     },
 
     traverse: function () {
+    
+      var o = this;
+      
       $(d4p.navigationSelector + ' li')
         .each(function (index) {
 
@@ -45,7 +67,7 @@
 
           // create span for icone
           var span = $("<span/>");
-          span.addClass("ico");
+          span.addClass(o.icon + " " + o.leaf);
 
           span.click(function () {
             $(this)
@@ -55,7 +77,7 @@
               .attr('aria-expanded', $(this)
               .parent()
               .hasClass('active'));
-
+			$(this).toggleClass(o.leaf).toggleClass(o.leafActive);
           });
 
           // wrap text node with a span if exists
@@ -75,6 +97,10 @@
                 $(this)
                   .parent()
                   .toggleClass('collapsed', '');
+                $(this)
+                  .prev()
+                  .toggleClass(o.leaf)
+                  .toggleClass(o.leafActive);
               });
 
               $(this)
@@ -110,7 +136,13 @@
             // set all the parent trail active
             $(this)
               .parent('li')
-              .addClass('selected')
+              .addClass('selected');
+              
+            $(this)
+               .parent('li')
+               .children(".span."+o.icon)
+               .toggleClass(o.leaf)
+               .toggleClass(o.leafActive);
           });
 
         } else {
@@ -119,6 +151,39 @@
 
         }
       });
+    },
+    
+    addToolbar: function () {
+      if(this.toolbar.position == 'top') {
+         $(d4p.navigationSelector).prepend($("<div />").attr('id', this.toolbar.id).attr('class', 'toolbar top'));
+      } else {
+        $(d4p.navigationSelector).append($("<div />").attr('id', this.toolbar.id).attr('class', 'toolbar bottom'));
+      }  	
+    },
+    
+    addButtons: function () {
+      var o = this;
+      var buttonExpand = $("<button/>").html("Expand All").click(function(){
+      	$(d4p.navigationSelector + ' li')
+      	  .addClass('selected')
+      	  .removeClass('collapsed')
+          .attr('aria-expanded', 'true');
+        
+           $("span."+o.icon).addClass(o.leafActive).removeClass(o.leaf);  
+
+        });
+      var buttonCollapse = $("<button/>").html("Collapse All").click(function(){
+        o.select();
+      	$(d4p.navigationSelector + ' li')
+          .removeClass('selected')
+          .addClass('collapsed')
+          .removeAttr('aria-expanded');
+        
+           $("span."+o.icon).removeClass(o.leafActive).addClass(o.leaf); 
+           o.select();
+      });
+      $('#'+this.toolbar.id).append(buttonExpand);
+      $('#'+this.toolbar.id).append(buttonCollapse);
     },
 
     init: function (fn) {
@@ -131,6 +196,11 @@
       this.docReady('selectFromHash');
       this.uriChange('select');
       this.traverse();
+      
+      if(this.buttons) {
+      	this.addToolbar();
+      	this.addButtons();
+      }
 
     }
 

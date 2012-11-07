@@ -1183,9 +1183,6 @@ window.Modernizr = (function( window, document, undefined ) {
     // index filename
     indexFilename: "index.html",
 
-    // from jQuery
-    rscript: '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi',
-
     // register a module init function will be called
     // once document is loaded.
     // I added this feature to allow user to set options
@@ -1809,9 +1806,12 @@ window.Modernizr = (function( window, document, undefined ) {
             responseText = r;
           });
 
+		  // remove scripts from the ajax calls unless they will be loaded
+		  var myHTML = $(responseText).not('script');
+		  
           var html = $("<div>")
             .attr('id', this.uri + "-temp")
-            .append(responseText.replace(d4p.rscript, ""));
+            .append(myHTML);
 
           this.content = html.find(this.externalContentElement);
 
@@ -1923,20 +1923,39 @@ window.Modernizr = (function( window, document, undefined ) {
 (function (window, d4p) {
 
   var navigation = new d4p.module('navigation', {
+  
+  	icon:'ui-icon',
+  
+  	leaf:'ui-icon-triangle-1-e',
+  	
+  	leafActive:'ui-icon-triangle-1-s',
+  	
+  	toolbar: {
+  	  id:'navToolBar',
+  	  position:'top'
+  	},
+  	
+  	buttons: false,
 
     // select the right entry in the navigation
-    select: function (uri) {
-
-      var id = d4p.ajax.collection[uri].id;
+    select: function () {
+      var o = this;
+      var l = d4p.l();
+      var id = d4p.ajax.collection[l.uri].id;
 
       $(d4p.navigationSelector + ' li')
         .removeClass('selected')
         .removeAttr('aria-expanded');
+        
+      $("span."+o.icon).removeClass(o.leafActive).addClass(o.leaf);  
 
-      $('#' + id)
-        .parent('li')
-        .attr('aria-expanded', 'true')
-        .addClass('selected');
+      $('#' + id).parent('li').attr('aria-expanded', 'true').addClass('selected');
+      
+      $('#' + id).parents('li').each(function(){
+        $(this).children("span."+o.icon)
+          .removeClass(o.leaf)
+          .addClass(o.leafActive);      
+      });
 
       $('#' + id)
         .parentsUntil(d4p.navigationSelector)
@@ -1949,6 +1968,9 @@ window.Modernizr = (function( window, document, undefined ) {
     },
 
     traverse: function () {
+    
+      var o = this;
+      
       $(d4p.navigationSelector + ' li')
         .each(function (index) {
 
@@ -1962,7 +1984,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
           // create span for icone
           var span = $("<span/>");
-          span.addClass("ico");
+          span.addClass(o.icon + " " + o.leaf);
 
           span.click(function () {
             $(this)
@@ -1972,7 +1994,7 @@ window.Modernizr = (function( window, document, undefined ) {
               .attr('aria-expanded', $(this)
               .parent()
               .hasClass('active'));
-
+			$(this).toggleClass(o.leaf).toggleClass(o.leafActive);
           });
 
           // wrap text node with a span if exists
@@ -1992,6 +2014,10 @@ window.Modernizr = (function( window, document, undefined ) {
                 $(this)
                   .parent()
                   .toggleClass('collapsed', '');
+                $(this)
+                  .prev()
+                  .toggleClass(o.leaf)
+                  .toggleClass(o.leafActive);
               });
 
               $(this)
@@ -2027,7 +2053,13 @@ window.Modernizr = (function( window, document, undefined ) {
             // set all the parent trail active
             $(this)
               .parent('li')
-              .addClass('selected')
+              .addClass('selected');
+              
+            $(this)
+               .parent('li')
+               .children(".span."+o.icon)
+               .toggleClass(o.leaf)
+               .toggleClass(o.leafActive);
           });
 
         } else {
@@ -2036,6 +2068,39 @@ window.Modernizr = (function( window, document, undefined ) {
 
         }
       });
+    },
+    
+    addToolbar: function () {
+      if(this.toolbar.position == 'top') {
+         $(d4p.navigationSelector).prepend($("<div />").attr('id', this.toolbar.id).attr('class', 'toolbar top'));
+      } else {
+        $(d4p.navigationSelector).append($("<div />").attr('id', this.toolbar.id).attr('class', 'toolbar bottom'));
+      }  	
+    },
+    
+    addButtons: function () {
+      var o = this;
+      var buttonExpand = $("<button/>").html("Expand All").click(function(){
+      	$(d4p.navigationSelector + ' li')
+      	  .addClass('selected')
+      	  .removeClass('collapsed')
+          .attr('aria-expanded', 'true');
+        
+           $("span."+o.icon).addClass(o.leafActive).removeClass(o.leaf);  
+
+        });
+      var buttonCollapse = $("<button/>").html("Collapse All").click(function(){
+        o.select();
+      	$(d4p.navigationSelector + ' li')
+          .removeClass('selected')
+          .addClass('collapsed')
+          .removeAttr('aria-expanded');
+        
+           $("span."+o.icon).removeClass(o.leafActive).addClass(o.leaf); 
+           o.select();
+      });
+      $('#'+this.toolbar.id).append(buttonExpand);
+      $('#'+this.toolbar.id).append(buttonCollapse);
     },
 
     init: function (fn) {
@@ -2048,13 +2113,17 @@ window.Modernizr = (function( window, document, undefined ) {
       this.docReady('selectFromHash');
       this.uriChange('select');
       this.traverse();
+      
+      if(this.buttons) {
+      	this.addToolbar();
+      	this.addButtons();
+      }
 
     }
 
   });
 
-})(window, d4p);
-/**
+})(window, d4p);/**
  * d4p.ajaxLoader.prototype.addWidgets
  * 
  * allows addition of widgets on the page

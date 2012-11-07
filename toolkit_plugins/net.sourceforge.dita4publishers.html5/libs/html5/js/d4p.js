@@ -64,9 +64,6 @@
     // index filename
     indexFilename: "index.html",
 
-    // from jQuery
-    rscript: '/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi',
-
     // register a module init function will be called
     // once document is loaded.
     // I added this feature to allow user to set options

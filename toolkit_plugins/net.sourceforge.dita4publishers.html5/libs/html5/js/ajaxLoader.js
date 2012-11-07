@@ -300,9 +300,12 @@
             responseText = r;
           });
 
+		  // remove scripts from the ajax calls unless they will be loaded
+		  var myHTML = $(responseText).not('script');
+		  
           var html = $("<div>")
             .attr('id', this.uri + "-temp")
-            .append(responseText.replace(d4p.rscript, ""));
+            .append(myHTML);
 
           this.content = html.find(this.externalContentElement);
 
