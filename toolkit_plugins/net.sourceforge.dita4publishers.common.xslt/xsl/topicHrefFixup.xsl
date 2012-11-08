@@ -27,16 +27,17 @@
     <xsl:variable name="effectiveImageUri" 
       select="relpath:newFile(relpath:newFile($outdir, $imagesOutputDir), relpath:getName($origHref))" 
       as="xs:string"/>
+    <!--<xsl:message> + [DEBUG] href-fixup: href="<xsl:sequence select="$origHref"/>"</xsl:message>-->
     <xsl:variable name="topicParent" select="relpath:getParent($topicResultUri)" as="xs:string"/>
-<!--    <xsl:message> + [DEBUG] href-fixup: topicParent="<xsl:sequence select="$topicParent"/>"</xsl:message>-->
+   <!-- <xsl:message> + [DEBUG] href-fixup: topicParent="<xsl:sequence select="$topicParent"/>"</xsl:message> -->
     <xsl:variable name="imageParent" select="relpath:getParent($effectiveImageUri)" as="xs:string"/>
-<!--    <xsl:message> + [DEBUG] href-fixup: imageParent="<xsl:sequence select="$imageParent"/>"</xsl:message>-->
+  <!-- <xsl:message> + [DEBUG] href-fixup: imageParent="<xsl:sequence select="$imageParent"/>"</xsl:message>-->
     <xsl:variable name="relParent" 
       select="relpath:getRelativePath($topicParent, $imageParent)" 
       as="xs:string"/>
-<!--    <xsl:message> + [DEBUG] href-fixup: relParent="<xsl:sequence select="$relParent"/>"</xsl:message>-->
+  <!-- <xsl:message> + [DEBUG] href-fixup: relParent="<xsl:sequence select="$relParent"/>"</xsl:message> -->
     <xsl:variable name="newHref" select="relpath:newFile($relParent, relpath:getName($origHref))"/>
-<!--    <xsl:message> + [DEBUG] href-fixup: newHref="<xsl:sequence select="$newHref"/>"</xsl:message>-->
+ <!--  <xsl:message> + [DEBUG] href-fixup: newHref="<xsl:sequence select="$newHref"/>"</xsl:message> -->
     <xsl:attribute name="href" select="$newHref"/>
     <xsl:attribute name="origHref" select="$origHref"/>
   </xsl:template>
