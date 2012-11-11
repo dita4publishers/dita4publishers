@@ -1,22 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
 <pubmap>
-  <pubtitle> <mainpubtitle>DITA For Publishers User Guide</mainpubtitle> </pubtitle>
-  <pubmeta> <author>W. Eliot Kimber</author> <keywords>
-    <keyword>Computers &amp; Internet</keyword>
-    <keyword>DITA</keyword>
-    <keyword>DITA for Publishers</keyword>
-    <keyword>Publishing</keyword>
-    <indexterm>Word<index-see>MS Word</index-see></indexterm>
-    </keywords> <prodinfo>
-    <prodname>DITA For Publishers</prodname>
-    <vrmlist>
-      <vrm
-        version="0.9.19RC05"/>
-    </vrmlist>
-    </prodinfo> <pubrights> <copyrfirst> <year>2010</year> </copyrfirst>
-    <copyrlast> <year>2012</year> </copyrlast> <pubowner><organization>DITA For
-    Publishers</organization></pubowner> </pubrights> </pubmeta>
+  <pubtitle>
+    <mainpubtitle>DITA For Publishers User Guide</mainpubtitle>
+  </pubtitle>
+  <pubmeta>
+    <author>W. Eliot Kimber</author>
+    <keywords>
+      <keyword>Computers &amp; Internet</keyword>
+      <keyword>DITA</keyword>
+      <keyword>DITA for Publishers</keyword>
+      <keyword>Publishing</keyword>
+      <indexterm>Word<index-see>MS Word</index-see></indexterm>
+    </keywords>
+    <prodinfo>
+      <prodname>DITA For Publishers</prodname>
+      <vrmlist>
+        <vrm
+          version="0.9.19RC05"/>
+      </vrmlist>
+    </prodinfo>
+    <pubrights>
+      <copyrfirst>
+        <year>2010</year>
+      </copyrfirst>
+      <copyrlast>
+        <year>2012</year>
+      </copyrlast>
+      <pubowner>
+        <organization>DITA For Publishers</organization>
+      </pubowner>
+    </pubrights>
+  </pubmeta>
   <keydefs>
     <topicmeta>
       <navtitle>Key Definitions</navtitle>
@@ -149,6 +164,9 @@
               href="d4p-users-guide/html2-plugin/reference/ant-parm-generateStaticToc.xml"/>
           </subsection>
         </chapter>
+        <topicref
+          href="d4p-users-guide/html5-plugin/html5-plugin.ditamap"
+          format="ditamap"/>
         <chapter
           href="d4p-users-guide/word2dita/word-to-dita-plugin.xml"/>
       </part>
