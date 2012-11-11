@@ -1,4 +1,17 @@
 Release Notes:
+Release 0.9.19RC05 26 Jan 2012 
+
+1. Many refinements.
+
+2. Correctly handle key ref for EPUB cover graphic
+
+3. Ensure return value from df:getNavigationTitleForTopicref() is a single string
+
+4. Return multiple files from XML-to-InCopy transform
+
+5. HTML5 transform alpha version available.
+
+
 
 Release 0.9.19RC03 26 Jan 2012 
 
