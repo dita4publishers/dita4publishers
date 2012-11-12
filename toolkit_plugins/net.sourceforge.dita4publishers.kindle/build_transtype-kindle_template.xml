@@ -13,8 +13,12 @@
   <condition property="preprocess.move-links.skip" value="true">
     <isset property="epub.exclude.auto.rellinks" />
   </condition>
+  
+  <condition property="kindlegen.executable" value="kindlegen">
+    <not><isset property="kindlegen.executable" /></not>
+  </condition>
 	
-	<target name="dita2kindle"
+  <target name="dita2kindle"
     unless="noMap"
     xmlns:dita="http://dita-ot.sourceforge.net"
 		dita:depends="d4p.map-driven-build-init, build-init, preprocess,kindle"
@@ -33,7 +37,7 @@
   	<!-- Leading portion of full EPUB publication ID to be appended to the publication ID -->
   	<property name="kindle.pubid.uri.stub" value="http://my-URI-stub/"/>
   	
-  	<property name="kindlegen.executable" value="kindlegen"/>
+    <property name="kindlegen.executable" value="${kindlegen.executable}"/>
   	<property name="kindlegenArgs" value=""/>
     	
 
