@@ -62,12 +62,17 @@
 
   <!-- Tabs header -->
   <xsl:template match="*" mode="jquery-tab-head">
-  <xsl:variable name="count" as="xs:integer"><xsl:number count="topichead"/></xsl:variable>
-    <li>
-      <a href="{concat('#tab-', $count)}">
-        <xsl:apply-templates select="." mode="nav-point-title"/>
-      </a>
-    </li>
+    <xsl:variable name="rawCount" as="xs:string">
+      <xsl:number count="topichead"/>
+    </xsl:variable>
+    <xsl:if test="$rawCount != ''">
+      <xsl:variable name="count" select="$rawCount"/>
+      <li>
+        <a href="{concat('#tab-', $count)}">
+          <xsl:apply-templates select="." mode="nav-point-title"/>
+        </a>
+      </li>
+    </xsl:if>
   </xsl:template>
   
   
