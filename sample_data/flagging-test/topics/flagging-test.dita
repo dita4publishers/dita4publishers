@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_nyl_pf4_g3">
+  <title>Flagging Test</title>
+  <body>
+    <p>This document tests flagging processing. Flagging happens at both the
+      topic level and at the body element elements.</p>
+    <p>For this test, the elements use the @platform attribute to be either
+      windows or OSX for graphic flagging, and @audience of either beginner or
+      expert for text flagging. The DITAVAL file
+      is:<codeblock><coderef href="../ditavals/flagging.ditaval"/></codeblock></p>
+    <section>
+      <title>Body Elements</title>
+      <p
+        audience="beginner">Paragraph for beginners.</p>
+      <p>Unconditional</p>
+      <p
+        audience="expert">Paragraph for experts</p>
+      <p>Unconditional</p>
+      <p
+        platform="windows">Paragraph for Windows</p>
+      <p
+        platform="osx">Paragraph for OSX.</p>
+      <fig
+        platform="windows">
+        <title>Figure for Windows</title>
+        <image
+          href="../ditavals/graphics/windows-icon.jpg"
+          id="image_xmq_jk4_g3"/>
+      </fig>
+      <fig
+        audience="expert">
+        <title>Figure for Experts</title>
+        <p>This is for experts</p>
+      </fig>
+    </section>
+    <section>
+      <title>Inline Elements</title>
+      <p>Here is a paragraph. <ph
+        platform="windows">This is for Windows.</ph> <ph>This is for
+        everything</ph> <ph
+        platform="osx">This is for OSX.</ph> This for everything.</p>
+    </section>
+  </body>
+  <topic
+    id="topic_fhx_2l4_g3"
+    platform="windows">
+    <title>Subordinate Topic for Windows</title>
+    <body>
+      <p>This topic is for windows only. The condition is on the &lt;topic>
+        element.</p>
+    </body>
+  </topic>
+</topic>

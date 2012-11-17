@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="" 
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" 
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns="http://relaxng.org/ns/structure/1.0" 
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start combine="choice">
+    <ref name="chapter.element"/>
+  </start>
+  
+  <!-- The DITA domains attribute -->
+  <define name="domains-atts" combine="interleave">
+    <optional>
+      <attribute name="domains"
+        a:defaultValue="(topic hi-d) (topic ut-d) (topic indexing-d) (topic hazard-d)"/>
+    </optional>
+  </define>
+  
+  <!-- Include modules -->
+  <include href="urn:dita-ng:dita:rng:topic.mod.rng"/>
+  <include href="chapter.mod.rng"/>
+  <include href="urn:dita-ng:dita:rng:highlightDomain.mod.rng"/>
+  <include href="urn:dita-ng:dita:rng:indexingDomain.mod.rng"/>
+  <include href="urn:dita-ng:dita:rng:utilitiesDomain.mod.rng"/>
+  <include href="urn:dita-ng:dita:rng:hazardstatementDomain.mod.rng"/>
+  
+  <!-- Define the any pattern to exclude elements with ID attributes
+    from the wildcard and refer them expliceitely  -->
+  <define name="any">
+    <zeroOrMore>
+      <choice>
+        <ref name="chapter.element"/>
+        <ref name="topic.element"/>
+        <element>
+          <anyName>
+            <except>
+              <!-- Exclude elements here that also define @id.
+                   These elements must be explicitly allowed as shown
+                   above.
+                -->
+              <name>chapter</name>
+              <name>topic</name>
+            </except>
+          </anyName>
+          <zeroOrMore>
+            <attribute>
+              <anyName/>
+            </attribute>
+          </zeroOrMore>
+          <ref name="any"/>
+        </element>
+        <text/>
+      </choice>
+    </zeroOrMore>
+  </define>
+</grammar>
