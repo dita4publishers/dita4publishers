@@ -211,6 +211,9 @@
 		dist-dita2indesign-toolkit-plugins
 		"
 		>
+    <delete includeEmptyDirs="true" failonerror="false">
+      <fileset dir="${plugin.dist}"  includes="net.sourceforge.dita4publishers.*/**"/>
+    </delete>
     <copy todir="${plugin.dist}">
       <fileset dir="${license.dir}">
         <include name="*"/>
@@ -442,7 +445,7 @@
         <include name="*.txt"/>
       	<include name="*/**"/>
         <exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/>
-        <exclude name="net.sourceforge.dita4publishers.html5/**"/>
+        <!-- <exclude name="net.sourceforge.dita4publishers.html5/**"/> -->
         <exclude name="org.dita2indesign.test.*/**"/>
       </fileset>
     </zip>
@@ -538,6 +541,23 @@
 			</fileset>
       <fileset dir="${website.build}">
         <include name="**/*"/>
+      </fileset>
+		</scp>
+	</target>
+	
+	<target name="upload-userguide-html5-contents-to-sourceforge" description="Upload HTML5 version of UG contents to sourceforge">
+		<property name="pub.name" value="d4p-users-guide"></property>
+		<scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs/d4p-user-guide-html5"
+		 password="${sourceforge.password}"
+			verbose="true"
+			>
+			<fileset dir="${docs.dir}/user_docs/html5">
+        <include name="**/*"/>
+				<exclude name="collected-data.xml"/>
+				<exclude name="copy-graphics.xml"/>
+				<exclude name="dita.list"/>
+				<exclude name="dita.xml.properties"/>
+				<exclude name="graphicMap.xml"/>
       </fileset>
 		</scp>
 	</target>
