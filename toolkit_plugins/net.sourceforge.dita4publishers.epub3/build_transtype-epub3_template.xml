@@ -25,7 +25,8 @@
   	<makeurl file="${epub.temp.dir}" property="epub.xslt.outdir"/>
   	<makeurl file="${dita.temp.dir}" property="epub.xslt.tempdir"/>
   	<makeurl file="${cover.graphic.file}" property="cover.graphic.uri" validate="false"/>
-  	
+    <makeurl file="${dita.input.valfile}" property="dita.input.valfile.url" validate="no"></makeurl>    
+    
   	<property name="args.xsl" location="${epub3.dir}/xsl/map2epub3.xsl"/>
   	
   	<!-- NOTE: since we're not using the direct output of the base XSLT transform we just
@@ -58,6 +59,7 @@
 
     	<!-- Parameters from dita2xhtml and similar transtypes: -->   
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
+      <param name="BASEDIR" expression="${basedir}"></param>
       <param name="CSS" expression="${args.css.file}" if="args.css.file" />
       <param name="CSSPATH" expression="${user.csspath}" if="user.csspath" />
       <param name="DRAFT" expression="${args.draft}" if="args.draft"></param>
@@ -69,6 +71,8 @@
       <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
     	<param name="OUTPUTDIR" expression="${epub.temp.dir}"/>
     	<param name="FILEDIR" expression="."/>
+      <param name="FILTERFILE" expression="${dita.input.valfile.url}" if="dita.input.valfile"></param>
+      <param name="DBG" expression="${args.debug}" if="args.debug"></param>
     </xslt>
   	
   	<antcall target="epub.copy.graphics"/>

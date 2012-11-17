@@ -134,7 +134,8 @@
   	<makeurl file="${kindle.temp.dir}" property="kindle.xslt.outdir"/>
   	<makeurl file="${dita.temp.dir}" property="kindle.xslt.tempdir"/>
   	<makeurl file="${cover.graphic.file}" property="cover.graphic.uri" validate="false"/>
-  	
+    <makeurl file="${dita.input.valfile}" property="dita.input.valfile.url" validate="no"></makeurl>    
+    
   	<property name="args.xsl" location="${kindle.dir}/xsl/map2kindle.xsl"/>
 
   	<echo message="[DEBUG] input file='${dita.temp.dir}${file.separator}${user.input.file}'"/>
@@ -160,6 +161,7 @@
 
     	<!-- Parameters from dita2xhtml and similar transtypes: -->   
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
+      <param name="BASEDIR" expression="${basedir}"></param>
       <param name="CSS" expression="${args.css.file}" if="args.css.file" />
       <param name="CSSPATH" expression="${user.csspath}" if="user.csspath" />
       <param name="DRAFT" expression="${args.draft}" if="args.draft"></param>
@@ -171,7 +173,9 @@
       <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
     	<param name="OUTPUTDIR" expression="${kindle.xslt.outdir}"/>
     	<param name="FILEDIR" expression="."/>
-
+      <param name="FILTERFILE" expression="${dita.input.valfile.url}" if="dita.input.valfile"></param>
+      <param name="DBG" expression="${args.debug}" if="args.debug"></param>
+      
     </xslt>
   	
   	<antcall target="kindle.copy.graphics"/>

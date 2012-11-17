@@ -110,6 +110,7 @@
   	
   	<property name="map2html2.style" location="${html2.dir}/xsl/map2html2.xsl"/>
   	<property name="args.xhtml.toc" value="index"/>
+    <makeurl file="${dita.input.valfile}" property="dita.input.valfile.url" validate="no"></makeurl>    
   	
     <xslt processor="trax"
       basedir="${dita.temp.dir}"
@@ -143,6 +144,7 @@
 
     	<!-- Parameters from dita2xhtml and similar transtypes: -->   
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
+      <param name="BASEDIR" expression="${basedir}"></param>
       <param name="CSS" expression="${args.css.file}" if="args.css.file" />
       <param name="CSSPATH" expression="${user.csspath}" if="user.csspath" />
       <param name="DRAFT" expression="${args.draft}" if="args.draft"></param>
@@ -154,6 +156,9 @@
       <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
     	<param name="OUTPUTDIR" expression="${output.dir}"/>
     	<param name="FILEDIR" expression="."/>
+      <param name="FILTERFILE" expression="${dita.input.valfile.url}" if="dita.input.valfile"></param>
+      <param name="DBG" expression="${args.debug}" if="args.debug"></param>
+      
       <mapper type="glob"
               from="${user.input.file}"
               to="${args.xhtml.toc}${out.ext}" />

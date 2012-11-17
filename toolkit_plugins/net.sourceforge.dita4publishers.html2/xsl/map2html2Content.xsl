@@ -149,7 +149,7 @@
         <xsl:with-param name="collected-data" select="$collected-data" as="element()" tunnel="yes"/>    
       </xsl:apply-templates>      
     </xsl:variable>
-    <xsl:if test="true() and $debugBoolean">
+    <xsl:if test="true() or $debugBoolean">
       <xsl:result-document href="{concat($outdir, '/', 'htmlNoNamespace/', relpath:getName($resultUri))}">
         <xsl:sequence select="$htmlNoNamespace"/>
       </xsl:result-document>
@@ -196,7 +196,7 @@
     <xsl:param name="topic" as="element()?"/>
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>    
     
-    <xsl:if test="false() and $debugBoolean">
+    <xsl:if test="true() or $debugBoolean">
       <xsl:message> + [DEBUG] topicref-driven-content: topicref="<xsl:sequence select="name(.)"/>, class="<xsl:sequence select="string(@class)"/>"</xsl:message>
     </xsl:if>
     <xsl:variable name="topicref" select="." as="element()"/>
@@ -207,7 +207,10 @@
         By providing the topicref as a tunneled parameter it makes it available
         to custom extensions to the base Toolkit processing.
       -->
-      <xsl:apply-templates select=".">
+      <xsl:message> + [DEBUG] topicref-driven-content: topic=
+<xsl:sequence select="$topic"/>        
+</xsl:message>
+      <xsl:apply-templates select="." >
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
         <xsl:with-param name="collected-data" select="$collected-data" as="element()" tunnel="yes"/>    
       </xsl:apply-templates>

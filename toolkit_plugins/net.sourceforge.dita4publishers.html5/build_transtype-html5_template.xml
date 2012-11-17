@@ -229,6 +229,8 @@
   	<makeurl file="${output.dir}" property="html5.xslt.outdir"/>
   	<makeurl file="${dita.temp.dir}" property="html5.xslt.tempdir"/>
     <makeurl file="${d4p.html5.json.vars.file}" property="d4p.html5.json.vars.file.url"/>
+    <makeurl file="${dita.input.valfile}" property="dita.input.valfile.url" validate="no"></makeurl>    
+
     <echo message="d4p.html5.json.vars.file=${d4p.html5.json.vars.file}"/>
     <echo message="d4p.html5.json.vars.file.url=${d4p.html5.json.vars.file.url}"/>
     
@@ -296,7 +298,10 @@
       <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
     	<param name="OUTPUTDIR" expression="${output.dir}"/>
     	<param name="FILEDIR" expression="."/>
-    	
+      <param name="BASEDIR" expression="${basedir}"></param>
+      <param name="FILTERFILE" expression="${dita.input.valfile.url}" if="dita.input.valfile"></param>
+      <param name="DBG" expression="${args.debug}" if="args.debug"></param>
+      
     	<dita:extension id="dita.html5.map" behavior="org.dita.dost.platform.InsertAction" xmlns:dita="http://dita-ot.sourceforge.net"/>
     	
       <mapper type="glob"
