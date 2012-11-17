@@ -2,31 +2,50 @@
 <!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
 <pubmap
   xml:lang="en-US">
-  <pubtitle> <mainpubtitle>Before keyword-with-keyref, <keyword
-    keyref="d4p-full-name"/>, EPUB Test Document</mainpubtitle> </pubtitle>
-  <pubmeta> <author
-    type="aut"><data
-    name="file-as">McTesterson, Tester</data>Tester McTesterson</author>
-    <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source> <critdates>
-    <created
-      date="February, 1993"/>
-    <revised
-      modified="March 29, 2004"/>
-    </critdates> <metadata>
+  <pubtitle>
+    <mainpubtitle>Before keyword-with-keyref, <keyword
+      keyref="d4p-full-name"/>, EPUB Test Document</mainpubtitle>
+  </pubtitle>
+  <pubmeta>
+    <author
+      type="aut"><data
+      name="file-as">McTesterson, Tester</data>Tester McTesterson</author>
+    <source>http://www.gutenberg.org/files/55/55-h/55-h.htm</source>
+    <critdates>
+      <created
+        date="February, 1993"/>
+      <revised
+        modified="March 29, 2004"/>
+    </critdates>
+    <metadata>
+      <keywords>
+        <keyword>subject in metadata/keywords/keyword</keyword>
+      </keywords>
+    </metadata>
     <keywords>
-      <keyword>subject in metadata/keywords/keyword</keyword>
+      <keyword>subject in pubmeta/keywords/keyword</keyword>
     </keywords>
-    </metadata> <keywords>
-    <keyword>subject in pubmeta/keywords/keyword</keyword>
-    </keywords> <pubid> <isbn
-    d4p_renditionTarget="pdf">isbn for print</isbn> <isbn
-    d4p_renditionTarget="epub">isbn for epub</isbn> <isbn-10>isbn-10</isbn-10>
-    <isbn-13>isbn-13</isbn-13> <pubnumber>Ebook #55</pubnumber> <data
-    name="epub-bookid">epubid-value</data> </pubid> <pubrights>
-    <publicense>Project Gutenberg License.</publicense> </pubrights> <data
-    name="opf-metadata"> <data
-    name="item-one"
-    value="value one"/> </data> </pubmeta>
+    <pubid>
+      <isbn
+        d4p_renditionTarget="pdf">isbn for print</isbn>
+      <isbn
+        d4p_renditionTarget="epub">isbn for epub</isbn>
+      <isbn-10>isbn-10</isbn-10>
+      <isbn-13>isbn-13</isbn-13>
+      <pubnumber>Ebook #55</pubnumber>
+      <data
+        name="epub-bookid">epubid-value</data>
+    </pubid>
+    <pubrights>
+      <publicense>Project Gutenberg License.</publicense>
+    </pubrights>
+    <data
+      name="opf-metadata">
+      <data
+        name="item-one"
+        value="value one"/>
+    </data>
+  </pubmeta>
   <keydefs>
     <topicmeta>
       <keywords>
@@ -82,6 +101,33 @@
     <pubbody
       collection-type="sequence">
       <chapter
+        href="chapters/copy-to-tests.xml">
+        <subsection
+          href="chapters/copy-to-parent-topic.xml"
+          copy-to="copyied-to-01.dita">
+          <subsection
+            href="chapters/copy-to-test-image-ref.xml"/>
+        </subsection>
+<!--        <subsection
+          href="chapters/copy-to-parent-topic.xml"
+          collection-type="sequence"
+          navtitle="Copy-To Test, No Copy-To"
+          locktitle="yes">
+          <subsection
+            href="chapters/copy-to-test-image-ref.xml"/>
+        </subsection>
+-->   <!--     <subsection
+          href="chapters/copy-to-parent-topic.xml"
+          collection-type="sequence"
+          navtitle="Copy-To Test, Copy-To, Chunk-to-content"
+          copy-to="copyied-to-02.dita"
+          locktitle="yes"
+          chunk="to-content">
+          <subsection
+            href="chapters/copy-to-test-image-ref.xml"/>
+        </subsection>
+   -->   </chapter>
+      <chapter
         href="chapters/element-test.xml">
         <subsection
           href="chapters/title-with-footnote.xml"/>
@@ -108,7 +154,7 @@
         </topicref>
         <topichead
           navtitle="Topic Head 2"
-          chunk="to-content"> </topichead>
+          chunk="to-content"/>
         <topicref
           href="chapters/subtopic-02.xml"/>
         <topicref
