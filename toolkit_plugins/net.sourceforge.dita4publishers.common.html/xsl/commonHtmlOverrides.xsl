@@ -196,5 +196,42 @@
     <xsl:sequence select="$classValue"/>
   </xsl:template>
   
+  <xsl:template mode="get-output-class" match="*" priority="100">
+    <xsl:apply-templates select="@*" mode="#current"/>
+    <xsl:apply-imports/>
+  </xsl:template>
+  
+  <xsl:template mode="get-output-class" name="get-output-class-for-simple-select-att"
+    match="@audience | @platform | @product | @status | @otherprops"
+    >
+    <!-- Construct values of the form 'props_{propname}_{propvalue}' -->
+    <xsl:sequence 
+      select="for $token in tokenize(., ' ') return concat('props_', name(.), '_', $token, ' ')"
+    />
+  </xsl:template>
+  
+  <xsl:template mode="get-output-class" 
+    match="@props"
+    >
+    <xsl:choose>
+      <xsl:when test="not(contains(., '('))">
+        <xsl:call-template name="get-output-class-for-simple-select-att"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:analyze-string select="normalize-space(.)" regex="\((\w+) (\w+)\)\s*">
+          <xsl:matching-substring>
+            
+            <xsl:variable name="propname" select="regex-group(1)" as="xs:string"/>
+            <xsl:variable name="propvalue" select="regex-group(2)" as="xs:string"/>
+            <xsl:sequence select="concat('props_', $propname, '_', $propvalue, ' ')"/>
+          </xsl:matching-substring>
+          <xsl:non-matching-substring>
+            <!-- ignore it -->
+          </xsl:non-matching-substring>
+        </xsl:analyze-string>
+      </xsl:otherwise>
+    </xsl:choose>
+    
+  </xsl:template>
   
 </xsl:stylesheet>
