@@ -32,12 +32,9 @@
   -->
   
   <!--xsl:import href="../../net.sourceforge.dita4publishers.html2/xsl/map2html2Impl.xsl"/-->
-   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/reportParametersBase.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/reportParametersBase.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/dataCollection.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/glossaryProcessing.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/indexProcessing.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/mapdrivenEnumeration.xsl"/>
   <!-- Import the base HTML output generation transform. -->
   <xsl:import href="plugin:org.dita.xhtml:xsl/dita2xhtml.xsl"/>
   

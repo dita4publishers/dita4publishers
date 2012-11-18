@@ -283,7 +283,7 @@
         <xsl:value-of select="floor(number($width) * number(.) div 100)"/>
       </xsl:attribute>
     </xsl:if>
-     <xsl:attribute name="class" select="@align" />
+     <xsl:attribute name="class" select="../@align" />
   </xsl:template>
   
   

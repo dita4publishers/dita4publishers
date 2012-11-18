@@ -81,7 +81,7 @@
        
        ============================================================== -->
 
-  <xsl:import href="../../net.sourceforge.dita4publishers.epub/dita2epubImpl.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.epub/xsl/map2epubImpl.xsl"/>
   
   <xsl:import href="../../net.sourceforge.dita4publishers.html5/xsl/map2html5Nav.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.html5/xsl/map2html5Content.xsl"/>
