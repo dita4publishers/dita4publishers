@@ -210,8 +210,14 @@
         <isset property="html5.class.body" />
       </not>
 	</condition>
+    
+    <condition property="d4p.html5.json.vars.dir" value="${dita.temp.dir}/json">
+      <not>
+        <isset property="d4p.html5.json.vars.dir" />
+      </not>
+    </condition>
 	
-	<condition property="d4p.html5.json.vars.file" value="${dita.temp.dir}/json/vars.json">
+    <condition property="d4p.html5.json.vars.file" value="${d4p.html5.json.vars.dir}/vars.json">
 		  <not>
 		    <isset property="d4p.html5.json.vars.file" />
       </not>
@@ -392,7 +398,7 @@
   
 	<property name="xml2json.style" location="${html5.dir}/xml2json/xml-to-json.xsl"/>
 	
-	<mkdir dir="${json.vars.dir}" />
+    <mkdir dir="${d4p.html5.json.vars.dir}" />
 		
 	<xslt processor="trax"
       in="${html5.site.js.vars}"
