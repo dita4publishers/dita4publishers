@@ -275,7 +275,7 @@
   <!-- generate section container -->
    <xsl:template match="*" mode="generate-section-container">
    		<xsl:param name="navigation" as="element()*"  tunnel="yes" />
-   		<xsl:param name="is-root" as="xs:boolean"  tunnel="yes" select="false" />
+   		<xsl:param name="is-root" as="xs:boolean"  tunnel="yes" select="false()" />
    
    
      <div id="{$IDSECTIONCONTAINER}" class="{$CLASSSECTIONCONTAINER}">
@@ -305,7 +305,7 @@
   
    <!-- generate main content -->
   <xsl:template match="*" mode="generate-main-content"> 
-   	<xsl:param name="is-root" as="xs:boolean"  tunnel="yes" select="false" />
+   	<xsl:param name="is-root" as="xs:boolean"  tunnel="yes" select="false()" />
    	<xsl:param name="content" tunnel="yes" as="node()*" />
    	
     <div id="{$IDMAINCONTENT}" class="{$CLASSMAINCONTENT}">    
