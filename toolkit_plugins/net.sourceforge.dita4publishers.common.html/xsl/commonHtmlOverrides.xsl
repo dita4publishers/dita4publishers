@@ -234,4 +234,8 @@
     
   </xsl:template>
   
+  <xsl:template mode="get-output-class" 
+    match="@*" priority="-1"
+    />
+  
 </xsl:stylesheet>
