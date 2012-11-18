@@ -4,6 +4,7 @@
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:relpath="http://dita2indesign/functions/relpath"
                 xmlns:glossdata="http://dita4publishers.org/glossdata"
+                xmlns:applicability="http://dita4publishers.org/applicability"
                 xmlns:mapdriven="http://dita4publishers.org/mapdriven"
                 xmlns:local="urn:functions:local"
                 xmlns:index-terms="http://dita4publishers.org/index-terms"
@@ -33,10 +34,12 @@
   
   <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+-->  
   <xsl:import href="mapdrivenEnumeration.xsl"/>
   <xsl:import href="glossaryProcessing.xsl"/>
   <xsl:import href="indexProcessing.xsl"/>
--->  
+  <xsl:import href="applicabilityDataCollection.xsl"/>
+  <xsl:import href="mapdrivenEnumerationD4P.xsl"/>
   
   <xsl:template name="mapdriven:collect-data">
     <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
@@ -62,7 +65,10 @@
           <xsl:apply-templates mode="group-and-sort-glossary" select="."/>
         </xsl:if>          
       </glossdata:glossary-entries>
-      <xsl:apply-templates mode="data-collection-extensions"/>
+      <applicability:conditions>
+        <xsl:apply-templates mode="collect-applicability-data" select="."/>
+      </applicability:conditions>
+      <xsl:apply-templates mode="data-collection-extensions" select="."/>
     </mapdriven:collected-data>
   </xsl:template>
   
