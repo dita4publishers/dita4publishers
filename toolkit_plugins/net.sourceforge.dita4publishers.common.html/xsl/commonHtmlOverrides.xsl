@@ -202,7 +202,7 @@
   </xsl:template>
   
   <xsl:template mode="get-output-class" name="get-output-class-for-simple-select-att"
-    match="@audience | @platform | @product | @status | @otherprops"
+    match="@audience | @platform | @product | @status | @otherprops | @rev"
     >
     <!-- Construct values of the form 'props_{propname}_{propvalue}' -->
     <xsl:sequence 
