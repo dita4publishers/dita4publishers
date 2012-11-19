@@ -21,14 +21,13 @@
       <xsl:apply-templates mode="get-graphic-refs" select=".//*[df:isTopicRef(.)]">
         <xsl:with-param name="docMapUri" select="$docMapUri" tunnel="yes"/>
       </xsl:apply-templates>
+      <xsl:if test="$FILTERDOC">
+        <xsl:apply-templates mode="get-graphic-refs" select="$FILTERDOC/*"/>        
+      </xsl:if>
       <xsl:apply-templates mode="additional-graphic-refs" select=".">
         <xsl:with-param name="docMapUri" select="$docMapUri" tunnel="yes"/>
       </xsl:apply-templates>
     </xsl:variable>
-
-    <xsl:message>
-      <xsl:sequence select="$graphicRefs"/>
-    </xsl:message>
 
     <xsl:message> + [INFO] Found <xsl:sequence select="count($graphicRefs)"/> graphic references.</xsl:message>
     <xsl:variable name="uniqueRefs" as="element()">
@@ -276,8 +275,24 @@
         output-url="{relpath:newFile($imagesOutputPath, relpath:getName($absoluteUrl))}"/>
     </xsl:if>
   </xsl:template>
+  
+  <xsl:template match="val | val/prop | val/revprop" mode="get-graphic-refs">
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
 
-
+  <xsl:template match="startflag[@imageref] | endflag[@imageref]" mode="get-graphic-refs">
+    <xsl:variable name="docUri" select="string(document-uri(root(.)))" as="xs:string"/>
+    <xsl:variable name="parentPath" select="relpath:getParent($docUri)" as="xs:string"/>
+    <xsl:variable name="graphicPath" select="@imageref" as="xs:string"/>
+    <xsl:variable name="rawUrl" select="concat($parentPath, '/', $graphicPath)" as="xs:string"/>
+    <xsl:variable name="absoluteUrl" select="relpath:getAbsolutePath($rawUrl)"/>
+    
+    <xsl:if test="$graphicPath">
+      <gmap:graphic-ref href="{$absoluteUrl}" filename="{relpath:getName($absoluteUrl)}"/>
+    </xsl:if>
+  </xsl:template>
+  
+  
 
   <xsl:template match="text()" mode="generate-graphic-map get-graphic-refs"/>
 

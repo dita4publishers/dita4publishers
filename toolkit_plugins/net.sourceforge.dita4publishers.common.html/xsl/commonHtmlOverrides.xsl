@@ -18,6 +18,9 @@
        plugins, it is not directly integrated into the base transforms as
        it would disturb normal HTML transformation processing.
   -->
+  
+  <xsl:include href="flaggingOverrides.xsl"/>
+ 
 
   <!-- This is an override of the same template from dita2htmlmpl.xsl. It 
        uses xtrf rather than $OUTPUTDIR to provide the location of the
@@ -237,5 +240,7 @@
   <xsl:template mode="get-output-class" 
     match="@*" priority="-1"
     />
+  
+  
   
 </xsl:stylesheet>
