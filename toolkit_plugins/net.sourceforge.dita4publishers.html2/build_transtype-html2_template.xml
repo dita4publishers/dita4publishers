@@ -141,7 +141,7 @@
     	<param name="titleOnlyTopicClassSpec" expression="${title.only.topic.class.spec}"/>
     	<param name="titleOnlyTopicTitleClassSpec" expression="${title.only.topic.title.class.spec}"/>
      	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
-
+		<param name="TRANSTYPE" expression="${transtype}"/>
     	<!-- Parameters from dita2xhtml and similar transtypes: -->   
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
       <param name="BASEDIR" expression="${basedir}"></param>
