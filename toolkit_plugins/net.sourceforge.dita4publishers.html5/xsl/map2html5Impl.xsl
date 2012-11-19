@@ -128,6 +128,7 @@
       + CSSPATH         = "<xsl:sequence select="$CSSPATH"/>"
       + DITAEXT         = "<xsl:sequence select="$DITAEXT"/>"
       + FILEDIR         = "<xsl:sequence select="$FILEDIR"/>"
+      + FILTERFILE      = "<xsl:sequence select="$FILTERFILE"/>"
       + KEYREF-FILE     = "<xsl:sequence select="$KEYREF-FILE"/>"
       + OUTPUTDIR       = "<xsl:sequence select="$OUTPUTDIR"/>"
       + PATH2PROJ       = "<xsl:sequence select="$PATH2PROJ"/>"
