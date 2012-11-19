@@ -5,10 +5,13 @@
       <alt-text>[Windows]</alt-text>
     </startflag>
   </prop>
-  <prop action="flag" att="platform" val="osx">
+  <prop action="flag" att="platform" val="osx">    
     <startflag imageref="graphics/osx-icon.jpg">
       <alt-text>[OSX]</alt-text>
     </startflag>
+    <endflag imageref="graphics/osx-icon.jpg">
+      <alt-text>[/OSX]</alt-text>
+    </endflag>    
   </prop>
   <prop action="flag" att="audience" val="beginner">
     <startflag>
@@ -20,4 +23,6 @@
       <alt-text>For Experts: </alt-text>
     </startflag>
   </prop>
+  <revprop action="passthrough">
+  </revprop>
 </val>

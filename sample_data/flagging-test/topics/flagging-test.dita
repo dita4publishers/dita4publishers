@@ -13,6 +13,10 @@
       <title>Body Elements</title>
       <p
         audience="beginner">Paragraph for beginners.</p>
+      <p
+        props="(audience beginner)">Paragraph for beginners, using @props="(audience beginner)"</p>
+      <p
+        otherprops="someotherprop">Paragraph for someotherprop, using @otherprops="someotherprop"</p>
       <p>Unconditional</p>
       <p
         audience="expert">Paragraph for experts</p>
@@ -21,6 +25,8 @@
         platform="windows">Paragraph for Windows</p>
       <p
         platform="osx">Paragraph for OSX.</p>
+      <p
+        rev="1.2">Paragraph for rev 1.2</p>
       <fig
         platform="windows">
         <title>Figure for Windows</title>
