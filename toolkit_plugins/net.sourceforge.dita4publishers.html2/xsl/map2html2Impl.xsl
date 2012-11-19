@@ -55,7 +55,7 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/dataCollection.xsl"/>
   <!-- Import the base HTML output generation transform. -->
-  <xsl:import href="plugin:org.dita.xhtml:xsl/dita2xhtml.xsl"/>
+  <xsl:import href="plugin:org.dita.base:xsl/dita2xhtml.xsl"/>
   
   
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
@@ -69,7 +69,7 @@
        
         see https://github.com/dita-ot/dita-ot/issues/1405       
     -->
-  <xsl:import href="../../../xsl/common/dita-utilities.xsl"/>
+  <xsl:import href="plugin:base-xsl:common/dita-utilities.xsl"/>
   
   <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlOverrides.xsl"/>
   <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlEnumeration.xsl"/>
