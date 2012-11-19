@@ -69,7 +69,7 @@
        
         see https://github.com/dita-ot/dita-ot/issues/1405       
     -->
-  <xsl:import href="plugin:base-xsl:common/dita-utilities.xsl"/>
+  <xsl:import href="../../../xsl/common/dita-utilities.xsl"/>
   
   <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlOverrides.xsl"/>
   <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlEnumeration.xsl"/>
