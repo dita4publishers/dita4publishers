@@ -392,9 +392,23 @@
           to a topic in addition to the map.
         -->
         <xsl:if test="local:isMapTitle($firstP)">
-          <xsl:apply-templates select="$firstP">
-            <xsl:with-param name="mapUrl" select="$resultUrl" as="xs:string" tunnel="yes"/>
-          </xsl:apply-templates>
+          <xsl:choose>
+            <xsl:when test="$firstP/@containerType">              
+              <!-- First N paras should be of the same container type. Process them
+                   as a unit.
+                -->
+              <xsl:element name="{$firstP/@containerType}">
+                <xsl:apply-templates select="local:getContainerTypeSiblings($firstP)">
+                  <xsl:with-param name="mapUrl" select="$resultUrl" as="xs:string" tunnel="yes"/>
+                </xsl:apply-templates>                  
+              </xsl:element>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:apply-templates select="$firstP">
+                <xsl:with-param name="mapUrl" select="$resultUrl" as="xs:string" tunnel="yes"/>
+              </xsl:apply-templates>              
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:if>
         <xsl:if test="$content[string(@topicZone) = 'topicmeta' and string(@containingTopic) = 'root']">
           <xsl:variable name="prologParas" select="$content[string(@topicZone) = 'topicmeta' and string(@containingTopic) = 'root']" as="node()*"/>
@@ -1959,6 +1973,21 @@ specify @topicDoc="yes".</xsl:message>
       </xsl:choose>
       <xsl:sequence select="$context/* | $context/text()[count(preceding-sibling::*) gt 0]"/>
     </xsl:element>
+  </xsl:function>
+  
+  <xsl:function name="local:getContainerTypeSiblings" as="node()*">
+    <xsl:param name="sibs" as="element()*"/>
+    <xsl:variable name="lastSib" select="$sibs[last()]" as="element()"/>
+    <xsl:variable name="nextSib" select="$lastSib/following-sibling::*[1]" as="element()?"/>
+    <xsl:variable name="containerType" select="$lastSib/@containerType" as="xs:string"/>
+    <xsl:choose>
+      <xsl:when test="$nextSib[@containerType = $containerType]">
+        <xsl:sequence select="local:getContainerTypeSiblings(($sibs, $nextSib))"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="$sibs"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:function>
   
   <xsl:template match="rsiwp:*" priority="-0.5" mode="p-content">
