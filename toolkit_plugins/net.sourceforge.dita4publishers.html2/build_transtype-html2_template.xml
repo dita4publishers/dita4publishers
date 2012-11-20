@@ -37,9 +37,7 @@
     	  <isset property="images.output.dir" />
   		</not>
     </condition>
-  	
-  	<property name="html2.temp.dir" value="${dita.temp.dir}${file.separator}html2_temp"/>
-  	
+  	  	
   	<!-- Defines the @class value to use for topic elements generated for topicheads. -->
   	<condition property="title.only.topic.class.spec" value="- topic/topic ">
   		<not>
@@ -98,15 +96,13 @@
 
 
   	<echo message="+++ html2-specific properties:"/>
-  	<echoproperties format="text" regex="^(html2|css|out\.)" taskname="echo"/>
+  	<echoproperties format="text" regex="^(html2|css|out\.|d4p|args\.html2)" taskname="echo"/>
   </target>
   
   <target name="dita.map.html2" depends="dita.map.html2.init, html2-copy-css, html2-copy-dyntoc-javascript" 
   	description="Generate all ePub components from input map and topics">
   	
-  	<mkdir dir="${html2.temp.dir}"/>
   	<makeurl file="${output.dir}" property="html2.xslt.outdir"/>
-  	<makeurl file="${dita.temp.dir}" property="html2.xslt.tempdir"/>
   	
   	<property name="map2html2.style" location="${html2.dir}/xsl/map2html2.xsl"/>
   	<property name="args.xhtml.toc" value="index"/>
