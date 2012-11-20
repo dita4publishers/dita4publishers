@@ -4,10 +4,12 @@
   xmlns:s2t="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
   xmlns:RSUITE="http://www.reallysi.com"
+
   targetNamespace="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap">
   
   <xs:import namespace="http://www.reallysi.com"
     schemaLocation="rsuite_metadata.xsd" />
+  
   
   <xs:annotation>
     <xs:documentation>
@@ -34,7 +36,6 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element ref="RSUITE:METADATA" minOccurs="0"/>
       <xs:element ref="s2t:title" minOccurs="0"/>
       <xs:element
         ref="s2t:documentation"
