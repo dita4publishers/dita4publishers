@@ -7,6 +7,12 @@
   xmlns:r="http://www.rsuitecms.com/rsuite/ns/metadata"
   targetNamespace="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap">
   
+  <!-- This version of the schema is for use within the RSuite CMS product.
+       It adds the RSuite-specific r:rsuiteId attribute to the root element.
+    -->
+    <xs:import namespace="http://www.rsuitecms.com/rsuite/ns/metadata" 
+    schemaLocation="urn:www.rsuite.com:domains:rsuiteIdAtt"/>
+  
   
   <xs:annotation>
     <xs:documentation>
@@ -44,6 +50,7 @@
         minOccurs="0"
         maxOccurs="1"/>
     </xs:sequence>
+    <xs:attributeGroup ref="r:rsuiteid"/>
   </xs:complexType>
   
   <xs:element name="title">
