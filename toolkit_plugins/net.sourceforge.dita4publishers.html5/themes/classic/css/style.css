@@ -1942,6 +1942,10 @@ h2.nav-pub-title { font-size: 1.1em; }
 	margin-top:20px;
 }
 
+section, article {
+	margin:15px;
+}
+
 /**
  * navigation.css
  */
@@ -2069,22 +2073,31 @@ img.no-shadow {
 	filter: progid:DXImageTransform.Microsoft.Shadow(enabled = false);
 }
 
-/* From DITA-OT: Align images based on @align on topic/image */
-div.imageleft {
-	text-align: left;
+/** placement break **/
+.block.wide {
+	width: 100%;
 }
 
-div.imagecenter {
-	text-align: center;
+img {
+	display:block;
+}
+.block.wide img {float:none; } 
+.block.wide img.right {
+	margin-left:auto;
 }
 
-div.imageright {
-	text-align: right;
+.block.wide img.center {
+	margin:0 auto;
 }
 
-div.imagejustify {
-	text-align: justify;
+img.right {float:right; 
+	margin:0 0 0 10px;
 }
+img.left {
+	float:left;
+	margin:0 10px 10px 0;
+}
+
 
 /* Use @frame to create frames on figures */
 .figborder {

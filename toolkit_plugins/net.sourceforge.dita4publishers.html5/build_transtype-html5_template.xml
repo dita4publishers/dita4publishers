@@ -1,5 +1,7 @@
 <project name="dita2html5" default="dita2html5"
   >
+  
+  <import file="libs/build.xml" />
 
   <!-- test to see where the plugin is located, plugins or demo -->
   <dirname property="html5.dir" file="${ant.file.dita2html5}"/>
@@ -16,8 +18,12 @@
     unless="noMap"
     depends="dita.map.html5"/>
 
+  <target name="html5.theme.build" if="html5.theme.compile"
+    description="Compile HTML5 theme">
+    
+  </target>
 
-  <target name="dita.map.html5.init"
+  <target name="dita.map.html5.init" depends="html5.theme.build"
     description="Init properties for HTML5">
     
     <condition property="html5.site.theme" value="default">

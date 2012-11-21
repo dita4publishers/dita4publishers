@@ -1,0 +1,248 @@
+/**
+ * theme-01
+ **/
+
+/** Font face **/
+@font-face {
+	font-family: "Vegur Regular";
+    src: url("../fonts/vegur/Vegur-R.otf");
+}
+
+@font-face {
+	font-family: "Vegur Bold";
+    src: url("../fonts/vegur/Vegur-B.otf");
+}
+
+@font-face {
+	font-family: "Vegur Medium";
+    src: url("../fonts/vegur/Vegur-M.otf");
+}
+
+@font-face {
+	font-family: "Vegur Light";
+    src: url("../fonts/vegur/Vegur-L.otf");
+}
+
+.fontface #d4h5-main-content h1, .fontface header h1, .fontface #d4h5-main-content h2, .fontface #d4h5-main-content  h3, #d4h5-main-content  .fontface  h4, .fontface #d4h5-main-content h5, .fontface #d4h5-main-content  h6 {
+	font-family: "Vegur Regular", sans-serif;
+}
+
+body {
+	background: #EFEFEF url(../img/subtle-patterns/subtle-pattern-1.jpg) repeat;
+}
+
+header h1 {
+	color: #504F4F;
+	font-size: 2.8em;
+	font-weight: 100;
+	line-height: 62px;
+	padding-left: 12px;
+	padding-top: 20px;
+	text-shadow: 0 2px 1px #BBBABA;
+}
+
+header {
+}
+
+.paged #d4h5-section-container {
+	background-color: #FFFFFF;
+}
+
+#footer-container {
+	background: #F6F6F6;
+	width: 100%;
+	min-height: 210px;
+	clear: both;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-top: 5px solid #ccc;
+}
+
+footer {
+	width: 960px;
+	position: relative;
+	margin: 0 auto;
+	padding-top: 25px;
+}
+
+footer h2, address strong {
+	font-size: 1.1em;
+	font-weight: 700;
+	margin-bottom: 1em;
+}
+
+section h1 {
+	margin: 0 0 1.5em 0;
+}
+
+/** centered layout **/
+body.centered header h1 {
+	display: block;
+	width: 980px;
+	margin: 0 auto;
+}
+
+body.centered #d4h5-section-container {
+	margin: 0 auto;
+}
+
+body.centered.paged #d4h5-main-container {
+	margin: 0 auto;
+}
+
+/** paged layout **/
+body.paged header {
+	width: 100%;
+}
+
+body #d4h5-section-container {
+	width:980px;
+	margin: 10px;
+}
+
+
+/**/
+#local-navigation {
+	margin-left: 0px;
+	padding: 20px 0px 20px 20px;
+	outline: none;
+	-moz-box-shadow: 3px 3px 4px #ccc;
+	-webkit-box-shadow: 3px 3px 4px #ccc;
+	box-shadow: 3px 3px 4px #ccc;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ccc')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ccc');
+	float:left;
+	min-height: 480px;
+}
+
+#d4h5-main-content {
+
+}
+
+#d4h5-main-content h1 {
+	margin-top: 0px;
+}
+#local-navigation .toolbar {
+	display:block;
+	width:100%;
+}
+#local-navigation .toolbar.bottom {
+	margin:2em 0;
+}
+#local-navigation ul li {
+	position:relative;
+}
+#local-navigation li.selected a {
+	font-weight: bold;
+}
+#local-navigation li.selected li a {
+	font-weight: normal;
+}
+#local-navigation {
+	background-color: #FFFFFF;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	display: inline;
+	float: left;
+	margin-right: 5px;
+}
+
+#local-navigation  .ui-icon {
+    display: block;
+    left: -18px;
+    position: absolute;
+    top: -1px;
+}
+.paged #d4h5-section-container {
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 3px 3px 3px 3px #CCCCCC;
+    display: block;
+    padding: 15px;
+}
+
+#d4h5-main-content {
+	background-color: #FFFFFF;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 3px 3px 3px 3px #CCCCCC;
+    	padding-top:20px;
+}
+
+.paged #d4h5-main-content {
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+.paged #local-navigation {
+	background-color: #F6F6F6;
+}
+
+#local-navigation a, #local-navigation a:link {
+	text-decoration:none;
+	opacity: 1;
+}
+
+nav#local-navigation li.collapsible.collapsed > span.ico {
+	background: url("../img/arrow.png") no-repeat 0 1px;
+}
+
+nav#local-navigation li.collapsible.active > span.ico {
+	background: url("../img/arrow-down.png") no-repeat 0 3px;
+}
+
+a, a:link {
+	color: #3887b0;
+	text-decoration: underline;
+}
+
+span.navtitle, li.collapsible a:link {
+	color: #3887b0;
+}
+
+#d4h5-main-container a:hover {
+	text-decoration: none;
+}
+
+#d4h5-main-container a:visited {
+	color: #88b7d0;
+	text-decoration: underline;
+}
+
+#d4h5-main-container nav#local-navigation a:visited {
+	color: #3887b0;
+}
+
+#d4h5-main-container a:active {
+	color: red;
+}
+
+.rounded {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+li {
+	margin: 1.7em 0;
+	list-style-position: inside;
+}
+
+li p:first-child {
+	display: inline;
+}
+
+/** 
+ * Ui implementation
+ */
+
+body .d4p-ui-cycle {
+	display: block;
+	position: relative;
+	min-height: 150px;
+}

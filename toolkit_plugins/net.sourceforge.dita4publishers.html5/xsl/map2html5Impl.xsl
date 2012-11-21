@@ -40,6 +40,7 @@
   <xsl:include href="map2html5Collection.xsl"/>
   <xsl:include href="map2html5Template.xsl"/>
   <xsl:include href="nav-point-title.xsl"/>
+  <xsl:include href="commonHtmlExtensionSupport.xsl"/>  
   
   <xsl:param name="dita-css" select="'css/topic-html5.css'" as="xs:string"/>
   <xsl:param name="TRANSTYPE" select="'html5'" />
@@ -250,42 +251,6 @@
     </xsl:apply-templates>
   </xsl:template>
 
-  <!-- This is an override of the same template from dita2htmlmpl.xsl. It 
-       uses xtrf rather than $OUTPUTDIR to provide the location of the
-       graphic as authored, not as output.
-    -->
-  <xsl:template match="*[contains(@class,' topic/image ')]/@scale">
-    
-    <xsl:variable name="xtrf" as="xs:string" select="../@xtrf"/>
-    <xsl:variable name="baseUri" as="xs:string" 
-      select="relpath:getParent($xtrf)"/>
-    
-    <xsl:variable name="width">
-      <xsl:choose>
-        <xsl:when test="not(contains(../@href,'://'))">
-          <xsl:value-of select="java:getWidth($baseUri, string(../@origHref))"/>
-        </xsl:when>
-        <xsl:otherwise/>
-      </xsl:choose>
-    </xsl:variable>
-    <xsl:variable name="height">
-      <xsl:choose>
-        <xsl:when test="not(contains(../@href,'://'))">
-          <xsl:value-of select="java:getHeight($baseUri, string(../@origHref))"/>
-        </xsl:when>
-        <xsl:otherwise/>
-      </xsl:choose>
-    </xsl:variable>
-    <xsl:if test="not(../@width) and not(../@height)">
-      <xsl:attribute name="height">
-        <xsl:value-of select="floor(number($height) * number(.) div 100)"/>
-      </xsl:attribute>
-      <xsl:attribute name="width">
-        <xsl:value-of select="floor(number($width) * number(.) div 100)"/>
-      </xsl:attribute>
-    </xsl:if>
-     <xsl:attribute name="class" select="../@align" />
-  </xsl:template>
   
   
   
