@@ -8,5 +8,7 @@
   <feature extension="dita.conductor.transtype.check" value="html5" type="txt"/>
   <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
   <feature extension="dita.xsl.xhtml" file="xsl/map2html5flagging.xsl"/>
-  <feature extension="dita.xsl.strings" value="strings/strings.xml" type="file"/> 
+  <feature extension="dita.xsl.strings" value="strings/strings.xml" type="file"/>
+  <feature extension="dita.xsl.xhtml" value="xsl/commonHtmlExtensionSupport.xsl"  type="file"
+  /> 
 </plugin>

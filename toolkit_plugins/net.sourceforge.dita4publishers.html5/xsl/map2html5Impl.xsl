@@ -288,6 +288,7 @@
   </xsl:template>
   
   
+  
     <xsl:template mode="generate-root-page-header" match="*[df:class(., 'map/map')]">
   	  <!-- hook for a user-XSL title prefix -->
       <xsl:call-template name="gen-user-panel-title-pfx"/> 

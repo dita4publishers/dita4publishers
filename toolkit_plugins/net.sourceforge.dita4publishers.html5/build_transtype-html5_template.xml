@@ -26,6 +26,8 @@
       </not>
 	</condition>
 	
+	<loadproperties srcFile="${html5.dir}/sites/${html5.site.theme}/${html5.site.theme}.properties"/>
+	
 	<condition property="html5.site.js.vars" value="${html5.dir}/sites/${html5.site.theme}/vars.xml">
 		  <not>
         <isset property="html5.site.js.vars" />
@@ -235,6 +237,7 @@
   	<makeurl file="${output.dir}" property="html5.xslt.outdir"/>
   	<makeurl file="${dita.temp.dir}" property="html5.xslt.tempdir"/>
     <makeurl file="${d4p.html5.json.vars.file}" property="d4p.html5.json.vars.file.url"/>
+    
     <makeurl file="${dita.input.valfile}" property="dita.input.valfile.url" validate="no"></makeurl>    
 
     <echo message="d4p.html5.json.vars.file=${d4p.html5.json.vars.file}"/>
@@ -313,6 +316,8 @@
       <mapper type="glob"
               from="${user.input.file}"
               to="${args.xhtml.toc}${out.ext}" />
+              
+              
     </xslt>
 
   	<condition property="skip.copy.graphics" value="${local.skip.copy.graphics}">

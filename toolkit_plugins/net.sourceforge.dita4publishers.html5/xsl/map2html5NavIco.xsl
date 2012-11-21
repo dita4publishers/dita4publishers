@@ -111,9 +111,7 @@
   			</xsl:choose>
   		</xsl:variable>
   		
-      	<div id="{$id}" class="{concat('box box-ico square ', $GRIDPREFIX, '3', $isLast)}">
-      	
-      	<!-- {count(preceding-sibling::*) + 1} -->
+      	<div id="{$id}" class="{concat('box box-ico square ', $GRIDPREFIX, '3', $isLast)}"><span class="ico"> </span>
       		<a href="{concat('#tab-', $count)}">
         		<xsl:apply-templates select="." mode="nav-point-title"/>
         	</a>

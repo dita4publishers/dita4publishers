@@ -139,7 +139,17 @@
     // extend the d4p objects
     setProps: function (options) {
       // extend options
-      $.extend(true, this, options);
+      for (var key in options) {
+   		var val = options[key];
+   		  if(typeof(val) != 'object') {
+   		    d4p[key] = val;
+   		  } else {
+   		  	for (var kl2 in val) {
+   		  	  var val2 = val[kl2];
+   		  	  d4p[key][kl2] = val2;
+   		  	}
+   		  }
+	  }
     },
 
     // check if a jQuery object has an id or create one
@@ -207,17 +217,19 @@
 
     // init d4p objects and all modules
     init: function (options) {
-
+ 	   
+ 	  var l = this.l();
+ 	   
       //prevent double initialization
       if (this._init) {
         return false;
       }
 
       // extend options
-      $.extend(true, this, options);
+     this.setProps(options);
 
       // redirect if not on the index page
-      if (d4p.relativePath != "") {
+      if (d4p.relativePath != "" && l.uri.indexOf(d4p.indexFilename) != 0) {
         var redirect = d4p.resolveRoot();
         document.location = redirect;
         return true;
