@@ -30,7 +30,10 @@
   <xsl:include href="topic2icmlImpl.xsl"/>
   
   <!-- 
-       If the value is "", then the primary result document is an InCopy article.
+    The base part of the result filename, e.g. "myarticlefile".
+    
+    If not specified, then the name of the input topic is used for
+    the article filename base.
     -->
   <xsl:param name="articleFilenameBase" as="xs:string" select="''"/>
   
