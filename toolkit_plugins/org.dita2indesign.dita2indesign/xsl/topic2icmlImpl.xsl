@@ -4,11 +4,10 @@
       xmlns:local="urn:local-functions"
       xmlns:df="http://dita2indesign.org/dita/functions"
       xmlns:relpath="http://dita2indesign/functions/relpath"
-      xmlns:incxgen="http//dita2indesign.org/functions/incx-generation"
       xmlns:e2s="http//dita2indesign.org/functions/element-to-style-mapping"
       xmlns:RSUITE="http://www.reallysi.com"
       xmlns:idsc="http://www.reallysi.com/namespaces/indesign_style_catalog"
-      exclude-result-prefixes="xs local df relpath incxgen e2s RSUITE idsc"
+      exclude-result-prefixes="xs local df relpath e2s RSUITE idsc"
       version="2.0">
   
   <!-- Topic to ICML Transformation.
@@ -43,7 +42,7 @@
   
   <xsl:strip-space elements="*"/>
   
-  <xsl:output name="incx" 
+  <xsl:output name="icml" 
     indent="no" 
     cdata-section-elements="GrPr" />
   
@@ -86,7 +85,7 @@
     
     <xsl:message> + [INFO] topic2icmlImpl.xsl: Generating InCopy article "<xsl:sequence select="$articlePath"/>"...</xsl:message>
     <!-- Now generate the result document for the root topic -->
-    <xsl:result-document href="{$articlePath}" format="incx">
+    <xsl:result-document href="{$articlePath}" format="icml">
       <xsl:call-template name="makeInCopyArticle">
         <xsl:with-param name="articleType" select="$effectiveArticleType" as="xs:string" tunnel="yes"/>
         <xsl:with-param name="styleCatalog" select="$styleCatalog" as="node()*"/>
@@ -397,9 +396,7 @@
     
     <xsl:variable name="topicFilename" 
       select="relpath:getNamePart(document-uri(root($context)))" as="xs:string"/>
-<!--    <xsl:variable name="articleUrl" select="concat($linksPath, '/', $topicFilename, '.incx')" as="xs:string"/>
--->  
-    <xsl:variable name="articleUrl" select="concat($topicFilename, '.incx')" as="xs:string"/>
+    <xsl:variable name="articleUrl" select="concat($topicFilename, '.icml')" as="xs:string"/>
     <xsl:sequence select="$articleUrl"/>
   </xsl:function>
   
