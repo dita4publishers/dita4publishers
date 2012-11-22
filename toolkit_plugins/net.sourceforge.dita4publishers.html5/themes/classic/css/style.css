@@ -1943,7 +1943,7 @@ h2.nav-pub-title { font-size: 1.1em; }
 }
 
 section, article {
-	margin:15px;
+	margin:0 25px 25px 0;
 }
 
 /**
