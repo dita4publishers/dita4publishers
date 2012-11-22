@@ -36,8 +36,21 @@
     <xsl:variable name="flagrules">
       <xsl:call-template name="getrules"/>
     </xsl:variable>
+    <!-- note, attention, caution, fastpath, important, notice, remember, restriction, tip, warning, other -->
+    <xsl:variable name="html5NoteElement">
+    	<xsl:choose>
+    		<xsl:when test="@importance='low' or @importance='obsolete'">
+    			<xsl:value-of select="'details'" />
+    		</xsl:when>
+    		<xsl:otherwise>
+    		  <xsl:value-of select="'aside'" />
+    		</xsl:otherwise>
+    	</xsl:choose>
+    </xsl:variable>
+    
 
-    <aside class="{concat($type, ' ', $importance)}">
+    <xsl:element name="{$html5NoteElement}"> 
+    <xsl:attribute name="class" select="concat($type, ' ', $importance)"/>
       <!--xsl:call-template name="commonattributes">
         <xsl:with-param name="default-output-class" select="$type"/>
       </xsl:call-template-->
@@ -48,7 +61,7 @@
       <xsl:call-template name="start-flagit">
         <xsl:with-param name="flagrules" select="$flagrules"/>
       </xsl:call-template>
-      <span class="{$type}title">
+      <span class="title">
         <xsl:value-of select="$title"/>
         <xsl:call-template name="getString">
           <xsl:with-param name="stringName" select="'ColonSymbol'"/>
@@ -61,7 +74,7 @@
       <xsl:call-template name="end-flagit">
         <xsl:with-param name="flagrules" select="$flagrules"/>
       </xsl:call-template>
-    </aside>
+    </xsl:element>
   </xsl:template>
   
   

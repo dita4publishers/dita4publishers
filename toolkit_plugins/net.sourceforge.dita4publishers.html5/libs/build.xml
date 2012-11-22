@@ -58,6 +58,7 @@
 			<mapper type="glob" from="*.css" to="*-min.css"/>
 			<targetfile/>
 		</apply>
+		<echo>+++ packaged compressed</echo>
 	</target>
 
 	<target name="package.concat.js">

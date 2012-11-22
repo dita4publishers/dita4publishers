@@ -100,7 +100,34 @@
     <condition property="noPlugin">
       <equals arg1="${dita.html5.plugin}" arg2="no" />
     </condition>
+
+    <condition property="args.compression.suffix" value="-min">
+      <not>
+        <isset property="args.debug" />
+      </not>
+    </condition>
     
+    <condition property="args.compression.suffix" value="">
+        <isset property="args.debug" />
+    </condition>       
+    
+    <condition property="args.css.filename" value="style">
+      <not>
+        <isset property="args.css.filename" />
+      </not>
+    </condition>
+ 
+    <condition property="args.css.extension" value=".css">
+      <not>
+        <isset property="args.css.extension" />
+      </not>
+    </condition> 
+    
+    <condition property="args.js.extension" value=".js">
+      <not>
+        <isset property="args.js.extension" />
+      </not>
+    </condition>   
 		
 	<condition property="args.css.file" value="">
       <not>
@@ -108,13 +135,19 @@
       </not>
     </condition>
     
-    <condition property="html5.args.theme.file" value="themes/${html5.site.theme}/css/style-min.css">
+     <condition property="args.js.filename" value="script">
+      <not>
+        <isset property="args.js.filename" />
+      </not>
+    </condition>
+    
+    <condition property="html5.args.theme.file" value="themes/${html5.site.theme}/css/${args.css.filename}${args.compression.suffix}${args.css.extension}">
       <not>
         <isset property="html5.args.theme.file" />
       </not>
     </condition>
     
-	<condition property="args.js.file" value="themes/${html5.site.theme}/js/script-min.js">
+	<condition property="args.js.file" value="themes/${html5.site.theme}/js/${args.js.filename}${args.compression.suffix}${args.js.extension}">
       <not>
         <isset property="args.js.file" />
       </not>

@@ -1,0 +1,40 @@
+/** 
+ * notes
+ */
+aside.normal, aside.low {
+	border-left:9px solid #ccc;
+	padding:9px 0px 9px 9px;
+}
+
+
+aside.low {
+	color:#bbb;
+}
+
+.obsolete {
+	text-decoration: line-through;
+}
+
+.obsolete .title  {
+	text-decoration: none !important;
+}
+
+aside.high {
+	border: 1px dashed  #cd0a0a;
+	border:1px solid #ccc;
+	background-color:#EEE;
+	padding:9px;
+	font-size:1.2em;
+}
+aside.high .title {
+	color:#CC0000;
+}
+aside .title {
+	display:block;
+	padding-bottom:9px;
+}
+
+details.low, details.obsolete {
+	color:#999;
+}
+
