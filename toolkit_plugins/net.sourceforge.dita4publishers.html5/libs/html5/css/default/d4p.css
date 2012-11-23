@@ -1,0 +1,12 @@
+/**
+ * Class specific to the plugin
+ */
+
+.d4p-hidden {
+  display:none;
+}
+
+.d4p-cover-page {
+	padding:0 !important;
+	margin:0 !important;
+}

@@ -52,16 +52,14 @@ h2.nav-pub-title { font-size: 1.1em; }
 
 #d4h5-main-content
 {
-	margin-bottom: 30px;
 	min-height: 500px;
-	padding-left:40px;
 }
 
 #footer-container {
 	margin-top:20px;
 }
 
-section, article {
-	margin:0 25px 25px 0;
+.topic {
+	padding:25px;
 }
 

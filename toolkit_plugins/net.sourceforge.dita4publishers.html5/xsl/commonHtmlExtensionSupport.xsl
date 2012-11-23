@@ -142,6 +142,15 @@
       <xsl:with-param name="with" select="'.svgz'"/>
     </xsl:call-template>
   </xsl:variable>
+  
+  <xsl:variable name="scale-to-fit">
+	<xsl:choose>
+		<xsl:when test="@scalefit='yes'">
+			<xsl:value-of select="'d4p-ui-scale2fit'" />
+		</xsl:when>
+	</xsl:choose>
+  </xsl:variable>
+  
   <xsl:variable name="isSVG" select="$ends-with-svg = 'true' or $ends-with-svgz = 'false'"/>
 <!--xsl:choose>
       <xsl:when test="$isSVG">
@@ -150,7 +159,7 @@
 <xsl:otherwise-->
   <img>
     <xsl:attribute name="class">
-		<xsl:value-of select="concat(@placement, ' ', @align)" />
+		<xsl:value-of select="concat(@placement, ' ', @align, ' ', $scale-to-fit)" />
     </xsl:attribute>
     
     <xsl:call-template name="setid"/>

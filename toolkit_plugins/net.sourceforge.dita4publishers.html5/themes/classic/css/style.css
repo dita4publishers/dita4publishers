@@ -1933,17 +1933,15 @@ h2.nav-pub-title { font-size: 1.1em; }
 
 #d4h5-main-content
 {
-	margin-bottom: 30px;
 	min-height: 500px;
-	padding-left:40px;
 }
 
 #footer-container {
 	margin-top:20px;
 }
 
-section, article {
-	margin:0 25px 25px 0;
+.topic {
+	padding:25px;
 }
 
 /**
@@ -1967,10 +1965,7 @@ section, article {
 body.navigation-right #local-navigation, body.navigation-right #d4h5-main-content {
 	float:right;
 }
-
-body.navigation-right #d4h5-main-content {
- 	padding:0 -1px 0 0;
- }#local-navigation ul li.collapsible.collapsed ul {
+#local-navigation ul li.collapsible.collapsed ul {
 	 display:none;
 }
 #local-navigation ul li.collapsible {
@@ -2568,6 +2563,17 @@ details.low, details.obsolete {
 button {
 	margin:0em 0 2em 0;
 }/**
+ * Class specific to the plugin
+ */
+
+.d4p-hidden {
+  display:none;
+}
+
+.d4p-cover-page {
+	padding:0 !important;
+	margin:0 !important;
+}/**
  * theme-01
  **/
 
@@ -2740,7 +2746,6 @@ body #d4h5-section-container {
 	background-color: #FFFFFF;
     border-radius: 3px 3px 3px 3px;
     box-shadow: 3px 3px 3px 3px #CCCCCC;
-    	padding-top:20px;
 }
 
 .paged #d4h5-main-content {

@@ -19,7 +19,3 @@
 body.navigation-right #local-navigation, body.navigation-right #d4h5-main-content {
 	float:right;
 }
-
-body.navigation-right #d4h5-main-content {
- 	padding:0 -1px 0 0;
- }

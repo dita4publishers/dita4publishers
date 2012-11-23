@@ -18,7 +18,7 @@
     depends="dita.map.html5"/>
     
   <target name="html5.theme.init" description="Init HTML5 theme properties">
-     <condition property="html5.site.theme" value="default">
+     <condition property="html5.site.theme" value="classic">
 		  <not>
         <isset property="html5.site.theme" />
       </not>

@@ -269,6 +269,9 @@
         <xsl:when test="/*[contains(@class,' map/map ')]/@title">
           <xsl:value-of select="/*[contains(@class,' map/map ')]/@title"/>
         </xsl:when>
+        <xsl:otherwise>
+        	<xsl:value-of select="''" />
+        </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
  
