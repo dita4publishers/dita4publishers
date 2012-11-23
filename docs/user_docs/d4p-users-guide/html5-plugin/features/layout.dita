@@ -10,6 +10,7 @@
     <li>centered layout, the page should have a drop shadow to mimics a page. </li>
    </ul>
   </p>
+  <p id="layout-switcher"/>
   <p>In both cases, the navigation appears on the continuous block on the left of the page.</p>
   <p>The layout is control by the <xref keyref="grid-960-js">960 Grid System</xref>. The size of the navigation block
    and the main content is fully adjustable via the ant properties. The information is described in the developper
