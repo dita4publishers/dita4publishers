@@ -177,7 +177,7 @@
     <!--xsl:apply-templates select="." mode="jquery-tab-content"/-->
   </xsl:template>
 
-  <xsl:template mode="generate-html5-tabbed-nav-content" match="*[df:isTopicRef(.)][not(@toc = 'no')]">
+  <xsl:template mode="generate-html5-tabbed-nav-content" match="*[df:isTopicRef(.)][not(@toc = 'no')][not(ancestor::*[df:class(., 'map/topicref')][@copy-to])]">
     <xsl:apply-templates select="." mode="jquery-tab-content"/>
   </xsl:template>
 
@@ -303,10 +303,12 @@
   <xsl:template mode="merge-content" match="*">
      	 <xsl:message> + [INFO] MERGING TOPIC <xsl:value-of select="@href" /> INTO CONTENT</xsl:message>
   	  	<xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
-    	<xsl:apply-templates mode="child.topic" select="$topic">
-    		<xsl:with-param name="nestlevel" select="3" />
-    		<xsl:with-param name="headinglevel" select="3" />
-    	</xsl:apply-templates>
+  	  	
+    		<xsl:apply-templates mode="child.topic" select="$topic">
+    			<xsl:with-param name="nestlevel" select="3" />
+    			<xsl:with-param name="headinglevel" select="3" />
+    		</xsl:apply-templates>
+    
   </xsl:template>
   
    <xsl:template mode="merge-content" match="*[df:isTopicHead(.)][not(@toc = 'no')]">

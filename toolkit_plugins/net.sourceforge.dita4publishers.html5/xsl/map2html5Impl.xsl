@@ -40,7 +40,8 @@
   <xsl:include href="map2html5Collection.xsl"/>
   <xsl:include href="map2html5Template.xsl"/>
   <xsl:include href="nav-point-title.xsl"/>
-  <xsl:include href="commonHtmlExtensionSupport.xsl"/>  
+  <xsl:include href="commonHtmlExtensionSupport.xsl"/>     
+  
   
   <xsl:param name="dita-css" select="'css/topic-html5.css'" as="xs:string"/>
   <xsl:param name="TRANSTYPE" select="'html5'" />
