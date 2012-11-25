@@ -1,0 +1,14 @@
+.scalable {
+	position:absolute;
+}
+
+.scale-button {
+	background-color: transparent;
+	border: none;
+	position:absolute;
+	right:0;
+}
+
+.scale-button:hover {
+	cursor:pointer;
+}

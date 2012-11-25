@@ -2820,3 +2820,17 @@ body .d4p-ui-cycle {
 	position: relative;
 	min-height: 150px;
 }
+.scalable {
+	position:absolute;
+}
+
+.scale-button {
+	background-color: transparent;
+	border: none;
+	position:absolute;
+	right:0;
+}
+
+.scale-button:hover {
+	cursor:pointer;
+}

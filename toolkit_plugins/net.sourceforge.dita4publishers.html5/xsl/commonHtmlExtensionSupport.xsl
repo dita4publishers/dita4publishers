@@ -225,7 +225,6 @@
     </xsl:if>
      <xsl:attribute name="class" select="../@align" />
   </xsl:template>
-  
 
 
 </xsl:stylesheet>

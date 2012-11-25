@@ -177,7 +177,7 @@
     <!--xsl:apply-templates select="." mode="jquery-tab-content"/-->
   </xsl:template>
 
-  <xsl:template mode="generate-html5-tabbed-nav-content" match="*[df:isTopicRef(.)][not(@toc = 'no')][not(ancestor::*[df:class(., 'map/topicref')][@copy-to])]">
+  <xsl:template mode="generate-html5-tabbed-nav-content" match="*[df:isTopicRef(.)][not(@toc = 'no')][not(ancestor::*[df:class(., 'map/topicref')][contains('chunk-to', 'to-content')])]">
     <xsl:apply-templates select="." mode="jquery-tab-content"/>
   </xsl:template>
 
