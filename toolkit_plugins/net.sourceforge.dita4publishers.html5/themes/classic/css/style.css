@@ -2697,7 +2697,7 @@ body #d4h5-section-container {
 }
 
 #d4h5-main-content {
-
+	position:relative;
 }
 
 #d4h5-main-content h1 {
@@ -2833,4 +2833,48 @@ body .d4p-ui-cycle {
 
 .scale-button:hover {
 	cursor:pointer;
+}
+/** 
+ * familily links 
+ **/
+#familylinks {
+	display: block;
+	height: 32px;
+	position: relative;
+}
+
+#familylinks  .link {
+	position: absolute;
+	display: block;
+	width: 50px;
+	height: 12px;
+}
+
+#familylinks  .link a, #familylinks  .link a:link {
+	display: block;
+	height: 40px;
+	left: -40px;
+	position: relative;
+	text-indent: -10000px;
+	top: -35px;
+	width: 100px;
+}
+
+#familylinks #rel-previous {
+	margin-left: 20px;
+}
+
+#familylinks #rel-previous .ui-icon {
+	position: relative;
+	left: -25px;
+	top: 20px;
+}
+
+#rel-next {
+	margin-left: 100%;
+}
+
+#rel-parent {
+	text-align: center;
+	margin: 0 48%;
 }

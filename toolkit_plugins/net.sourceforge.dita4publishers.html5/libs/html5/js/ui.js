@@ -8,7 +8,7 @@
   // new prototype
   // register a hashChange callback
   d4p.ajaxLoader.prototype.addWidgets = function () {
-    this.content.find("*[class]").each(function (index) {
+    $("*[class]").each(function (index) {
       var classes = $(this)
         .attr('class')
         .split(" ");
@@ -53,7 +53,7 @@
 
     //    
     init: function () {
-      d4p.ajax.ready('addWidgets');
+      d4p.ajax.live('addWidgets');
     }
   });
 })(d4p);

@@ -20,6 +20,7 @@
     this.timeout = d4p.timeout;
     this.ajaxBefore = [];
     this.ajaxReady = [];
+    this.ajaxLive = [];
     this.ajaxFailed = [];
     this.modified = true;
 
@@ -54,6 +55,11 @@
   // allow to register callback once the page is loaded by AJAX
   d4p.ajaxLoader.prototype.ready = function (fname) {
     this.ajaxReady.push(fname);
+  },
+  
+  // allow to register callback once the page is live
+  d4p.ajaxLoader.prototype.live = function (fname) {
+    this.ajaxLive.push(fname);
   },
 
   // allow to register callback once the page is loaded by AJAX
@@ -126,13 +132,28 @@
   // set content of the page
   // this function use the hash value as an ID
   d4p.ajaxLoader.prototype.setMainContent = function () {
+    var id = this.id.replace(/\//g, '__');
+   var div = $("<div />").attr('id', id).attr('class', 'content-chunk').css('visibility', 'hidden').html(this.content);
+    
     if (this.mode == 'append') {
-      $(this.outputSelector).append($("<div />").attr('id', this.id.replace(/\//g, '__')).attr('class', 'content-chunk').html(this.content));
+      // append new div, but hide it
+      $(this.outputSelector).append();          
       // keep information in memory when link is triggered on page
       this.setCacheStatus(this.id);
     } else {
-      $(this.outputSelector).html(this.content);
+      $(this.outputSelector).html(div);
     }
+    
+    // execute ajaxLive
+    // perform all tasks which may require
+    // content to be inserted in the DOM
+    for (i in this.ajaxLive) {
+      var fn = this.ajaxLive[i];
+      this[fn].call(this, d4p.content);
+    }
+      
+    // show content 
+    $('#'+id).css('visibility', 'visible');
   },
 
   // Rewrite each src in the document

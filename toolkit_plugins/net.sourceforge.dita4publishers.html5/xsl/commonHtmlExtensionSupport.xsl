@@ -13,7 +13,7 @@
   xmlns:mapdriven="http://dita4publishers.org/mapdriven"
   exclude-result-prefixes="xs xd df relpath mapdriven index-terms java xsl mapdriven"
     xmlns:java="org.dita.dost.util.ImgUtils"
-  version="2.0">
+  version="1.0">
 
   <xsl:template match="*" mode="process.note.common-processing">
     
@@ -225,6 +225,52 @@
     </xsl:if>
      <xsl:attribute name="class" select="../@align" />
   </xsl:template>
+  
+  <xsl:template name="next-prev-parent-links">
+     <xsl:for-each select="descendant::*
+     [contains(@class, ' topic/link ')]
+     [(@role='parent' and
+          generate-id(.)=generate-id(key('link',concat(ancestor::*[contains(@class, ' topic/related-links ')]/parent::*[contains(@class, ' topic/topic ')]/@id, ' ', @href,@type,@role,@platform,@audience,@importance,@outputclass,@keyref,@scope,@format,@otherrole,@product,@otherprops,@rev,@class,child::*))[1])
+     ) or (@role='next' and
+          generate-id(.)=generate-id(key('link',concat(ancestor::*[contains(@class, ' topic/related-links ')]/parent::*[contains(@class, ' topic/topic ')]/@id, ' ', @href,@type,@role,@platform,@audience,@importance,@outputclass,@keyref,@scope,@format,@otherrole,@product,@otherprops,@rev,@class,child::*))[1])
+     ) or (@role='previous' and
+          generate-id(.)=generate-id(key('link',concat(ancestor::*[contains(@class, ' topic/related-links ')]/parent::*[contains(@class, ' topic/topic ')]/@id, ' ', @href,@type,@role,@platform,@audience,@importance,@outputclass,@keyref,@scope,@format,@otherrole,@product,@otherprops,@rev,@class,child::*))[1])
+     )]/parent::*">
+     <xsl:value-of select="$newline"/>
+     
+     <div id="familylinks"><xsl:value-of select="$newline"/>
+  <!-- previous -->
+  <xsl:if test="contains($include.roles, ' previous ')">
+     <xsl:for-each select="*[@href][@role='previous']">
+          <div id="rel-previous" class="link"><span class="ui-icon ui-icon-circle-triangle-w"></span><xsl:apply-templates select="."/></div><xsl:value-of select="$newline"/>
+     </xsl:for-each>
+  </xsl:if>
+  
+  <!-- parent -->
+    <xsl:if test="$NOPARENTLINK='no' and contains($include.roles, ' parent ')">
+     <xsl:choose>
+       <xsl:when test="*[@href][@role='parent']">
+         <xsl:for-each select="*[@href][@role='parent']">
+          <div id="rel-parent" class="link"><span class="ui-icon"></span><xsl:apply-templates select="."/></div><xsl:value-of select="$newline"/>
+         </xsl:for-each>
+       </xsl:when>
+       <xsl:otherwise>
+          <xsl:for-each select="*[@href][@role='ancestor'][last()]">
+          <div id="rel-parent" class="link"><span class="ui-icon ui-icon-circle-triangle-n"></span><xsl:call-template name="parentlink"/></div><xsl:value-of select="$newline"/>
+          </xsl:for-each>
+       </xsl:otherwise>
+     </xsl:choose>
+    </xsl:if>
+
+<!-- next -->
+  <xsl:if test="contains($include.roles, ' next ')">
+     <xsl:for-each select="*[@href][@role='next']">
+          <div id="rel-next" class="link"><span class="ui-icon ui-icon-circle-triangle-e"></span><xsl:apply-templates select="."/></div><xsl:value-of select="$newline"/>
+     </xsl:for-each>
+  </xsl:if>
+       </div><xsl:value-of select="$newline"/>
+     </xsl:for-each>
+</xsl:template>
 
 
 </xsl:stylesheet>
