@@ -930,7 +930,9 @@
     <xsl:variable name="topicFileName" select="substring-before($firstP,' ')"/>
     <xsl:variable name="makeDoc" 
       select="string($firstP/@topicDoc) = 'yes' or 
-      (($level = 0) and $rootTopicUrl)" as="xs:boolean"/>
+      (($level = 0) and $rootTopicUrl)" 
+      as="xs:boolean"
+    />
 
     <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] makeTopic: makeDoc=<xsl:value-of select="$makeDoc"/></xsl:message>
@@ -1016,12 +1018,14 @@ specify @topicDoc="yes".</xsl:message>
           <xsl:message> + DEBUG: $format=<xsl:sequence select="$format"/></xsl:message>
         </xsl:if>
         <!-- Now do ID fixup on the result document: -->
+        <xsl:message> + [INFO] Applying final-fixup mode to <xsl:sequence select="$resultUrl"/>...</xsl:message>
         <rsiwp:result-document href="{$resultUrl}"
             doctype-public="{$format/@doctype-public}"
             doctype-system="{$format/@doctype-system}"
             >
           <xsl:apply-templates select="$resultDoc" mode="final-fixup"/>
         </rsiwp:result-document>
+        <xsl:message> + [INFO] final-fixup mode applied.</xsl:message>
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="topicName" as="xs:string">
@@ -1029,11 +1033,27 @@ specify @topicDoc="yes".</xsl:message>
             <xsl:with-param name="treePos" select="$treePos" as="xs:integer+"/>
           </xsl:apply-templates>
         </xsl:variable>
-        <xsl:call-template name="constructTopic">
-          <xsl:with-param name="content" select="$content" as="node()*"/>
-          <xsl:with-param name="level" select="$level" as="xs:integer"/>
-          <xsl:with-param name="topicName" as="xs:string" tunnel="yes" select="$topicName"/>
-        </xsl:call-template>
+        <xsl:choose>
+          <xsl:when test="$level = 0">
+            <xsl:variable name="initialDitaContent" as="node()*">
+              <xsl:call-template name="constructTopic">
+                <xsl:with-param name="content" select="$content" as="node()*"/>
+                <xsl:with-param name="level" select="$level" as="xs:integer"/>
+                <xsl:with-param name="topicName" as="xs:string" tunnel="yes" select="$topicName"/>
+              </xsl:call-template>              
+            </xsl:variable>
+            <xsl:message> + [INFO] Applying final-fixup mode to main result topic...</xsl:message>
+            <xsl:apply-templates select="$initialDitaContent" mode="final-fixup"/>
+            <xsl:message> + [INFO] final-fixup mode applied.</xsl:message>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:call-template name="constructTopic">
+              <xsl:with-param name="content" select="$content" as="node()*"/>
+              <xsl:with-param name="level" select="$level" as="xs:integer"/>
+              <xsl:with-param name="topicName" as="xs:string" tunnel="yes" select="$topicName"/>
+            </xsl:call-template>            
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
