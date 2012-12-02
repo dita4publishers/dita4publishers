@@ -93,8 +93,19 @@
     </xsl:variable>
           <xsl:variable name="count" as="xs:integer"><xsl:number count="topichead"/></xsl:variable>
         <xsl:variable name="countItems" select="count($items)"/>
+        
+        <xsl:variable name="tabId">
+  			<xsl:choose>
+  				<xsl:when test="@id!=''">
+  					<xsl:value-of select="@id"/>
+  				</xsl:when>
+  				<xsl:otherwise>
+  					<xsl:value-of select="concat('#tab-', $count)"/>
+  				</xsl:otherwise>
+  			</xsl:choose>
+  		</xsl:variable>
 
-    <div id="{concat('tab-', $count)}" class="content-chunk">
+    <div id="{$tabId}" class="content-chunk">
       <xsl:if test="$items">
       	<h2><xsl:apply-templates select="." mode="nav-point-title"/></h2>
       	<div class="{concat('section-content', ' ', 'items-', $countItems)}">
@@ -301,13 +312,28 @@
   
   
   <xsl:template mode="merge-content" match="*">
-     	 <xsl:message> + [INFO] MERGING TOPIC <xsl:value-of select="@href" /> INTO CONTENT</xsl:message>
+   <xsl:param name="result-uri" tunnel="yes"/>
+    <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
+     	 <xsl:message> + [INFO] MERGING TOPIC <xsl:value-of select="@href" /> INTO CONTENT with result uri <xsl:value-of select="$result-uri" /></xsl:message>
+     	 
   	  	<xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
-  	  	
-    		<xsl:apply-templates mode="child.topic" select="$topic">
+  	  	 <xsl:variable name="topicResultUri" select="htmlutil:getTopicResultUrl($outdir, root($topic), $rootMapDocUrl)"
+          as="xs:string"/>
+		
+  	  	<xsl:variable name="fixedTopic">
+    		<xsl:apply-templates select="$topic" mode="href-fixup">
+            <xsl:with-param name="topicResultUri" select="$topicResultUri" tunnel="yes"/>
+    	</xsl:apply-templates>
+    	</xsl:variable>
+    	
+    	<xsl:apply-templates mode="child.topic" select="$fixedTopic">
     			<xsl:with-param name="nestlevel" select="3" />
     			<xsl:with-param name="headinglevel" select="3" />
     		</xsl:apply-templates>
+    	
+    	
+		
+    	
     
   </xsl:template>
   

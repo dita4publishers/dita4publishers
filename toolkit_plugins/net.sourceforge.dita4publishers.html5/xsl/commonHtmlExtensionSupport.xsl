@@ -128,14 +128,16 @@
   <xsl:if test="$ARTLBL='yes'"> [<xsl:value-of select="@href"/>] </xsl:if>
 </xsl:template>
 
-
+<!-- @see https://bugzilla.mozilla.org/show_bug.cgi?id=276431-->
 <xsl:template name="topic-image">
+
   <xsl:variable name="ends-with-svg">
     <xsl:call-template name="ends-with">
       <xsl:with-param name="text" select="@href"/>
       <xsl:with-param name="with" select="'.svg'"/>
     </xsl:call-template>
   </xsl:variable>
+  
   <xsl:variable name="ends-with-svgz">
     <xsl:call-template name="ends-with">
       <xsl:with-param name="text" select="@href"/>
@@ -151,12 +153,30 @@
 	</xsl:choose>
   </xsl:variable>
   
-  <xsl:variable name="isSVG" select="$ends-with-svg = 'true' or $ends-with-svgz = 'false'"/>
-<!--xsl:choose>
-      <xsl:when test="$isSVG">
-		<xsl:sequence select="document(@href)" />      
+  <xsl:variable name="isSVG" select="$ends-with-svg = 'true' or $ends-with-svgz = 'true'"/>
+  
+<xsl:choose>
+ <xsl:when test="$isSVG">
+        <!-- @see article
+            http://e.metaclarity.org/52/cross-browser-svg-issues/ 
+        -->
+        <object type="image/svg+xml" data="{@href}">
+			<xsl:call-template name="commonattributes">
+            <xsl:with-param name="default-output-class">
+              <xsl:if test="@placement='break'">
+                <!--Align only works for break-->
+                <xsl:choose>
+                  <xsl:when test="@align='left'">imageleft</xsl:when>
+                  <xsl:when test="@align='right'">imageright</xsl:when>
+                  <xsl:when test="@align='center'">imagecenter</xsl:when>
+                </xsl:choose>
+              </xsl:if>
+            </xsl:with-param>
+          </xsl:call-template>
+           <xsl:apply-templates select="@height|@width"/>
+		</object>
       </xsl:when>
-<xsl:otherwise-->
+<xsl:otherwise>
   <img>
     <xsl:attribute name="class">
 		<xsl:value-of select="concat(@placement, ' ', @align, ' ', $scale-to-fit)" />
@@ -185,8 +205,8 @@
       </xsl:when>
     </xsl:choose>
   </img>
-<!--/xsl:otherwise>
-</xsl:choose-->
+</xsl:otherwise>
+</xsl:choose>
 </xsl:template>
 
 <!-- This is an override of the same template from dita2htmlmpl.xsl. It 

@@ -53,6 +53,8 @@
 
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
 
+
+
     <xsl:choose>
       <xsl:when test="not($topic)">
         <xsl:message> + [WARNING] generate-content: Failed to resolve topic reference to href "<xsl:sequence
@@ -60,6 +62,8 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="topicResultUri" select="htmlutil:getTopicResultUrl($outdir, root($topic), $rootMapDocUrl)"
+          as="xs:string"/>
+        <xsl:variable name="topicRelativeUri" select="htmlutil:getTopicResultUrl('', root($topic), $rootMapDocUrl)"
           as="xs:string"/>
 
         <xsl:variable name="tempTopic" as="document-node()">
@@ -76,6 +80,7 @@
           <xsl:with-param name="topicref" as="element()*" select="." tunnel="yes"/>
           <xsl:with-param name="collected-data" select="$collected-data" as="element()" tunnel="yes"/>
           <xsl:with-param name="resultUri" select="$topicResultUri" tunnel="yes"/>
+          <xsl:with-param name="topicRelativeUri" select="$topicRelativeUri" tunnel="yes"/>
         </xsl:apply-templates>
       </xsl:otherwise>
     </xsl:choose>
@@ -98,7 +103,6 @@
     <xsl:param name="baseUri" as="xs:string" tunnel="yes"/>
     <!-- Result URI to which the document should be written. -->
     <xsl:param name="resultUri" as="xs:string" tunnel="yes"/>
-
 
     <xsl:variable name="docUri" select="relpath:toUrl(@xtrf)" as="xs:string"/>
     <xsl:variable name="parentDocUri" select="relpath:getParent($resultUri)" as="xs:string"/>

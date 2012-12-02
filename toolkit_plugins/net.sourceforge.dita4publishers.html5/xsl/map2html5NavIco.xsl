@@ -111,8 +111,19 @@
   			</xsl:choose>
   		</xsl:variable>
   		
-      	<div id="{$id}" class="{concat('box box-ico square ', $GRIDPREFIX, '3', $isLast)}"><span class="ico"> </span>
-      		<a href="{concat('#tab-', $count)}">
+  		<xsl:variable name="tabId">
+  			<xsl:choose>
+  				<xsl:when test="@id!=''">
+  					<xsl:value-of select="@id"/>
+  				</xsl:when>
+  				<xsl:otherwise>
+  					<xsl:value-of select="concat('#tab-', $count)"/>
+  				</xsl:otherwise>
+  			</xsl:choose>
+  		</xsl:variable>
+  		
+      	<div id="{concat('ico-', $id)}" class="{concat('box box-ico square ', $GRIDPREFIX, '3', $isLast)}"><span class="ico"> </span>
+      		<a href="{concat('#', $tabId)}">
         		<xsl:apply-templates select="." mode="nav-point-title"/>
         	</a>
         </div>

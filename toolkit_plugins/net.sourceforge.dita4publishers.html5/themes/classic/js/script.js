@@ -3573,6 +3573,7 @@ $.extend( $.ui.accordion, {
 		div.append(b1);
 		div.append(obj2);
 		obj.replaceWith(div);
+		console.log("image Replaced");
 		
 		
 		
