@@ -1,4 +1,6 @@
-/** centered layout **/
+/** 
+ * centered layout 
+ **/
 body.centered header h1 {
 	display: block;
 	width: 980px;

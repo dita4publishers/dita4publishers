@@ -1,3 +1,8 @@
+/**
+ * links css
+ * from DITA-OT
+ */
+
 /* Most link groups are created with <div>. Ensure they have space before and after. */
 .ullinks { list-style-type: none }
 .ulchildlink { margin-top: 1em; margin-bottom: 1em }

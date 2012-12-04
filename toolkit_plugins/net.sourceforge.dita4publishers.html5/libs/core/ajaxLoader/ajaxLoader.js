@@ -133,7 +133,15 @@
   // this function use the hash value as an ID
   d4p.ajaxLoader.prototype.setMainContent = function () {
     var id = this.id.replace(/\//g, '__');
-   var div = $("<div />").attr('id', id).attr('class', 'content-chunk').css('visibility', 'hidden').html(this.content);
+   var div = $("<div />").attr('id', id).attr('class', 'content-chunk').html(this.content);
+   
+    // execute ajaxLive
+    // perform all tasks which may require
+    // content to be inserted in the DOM
+    for (i in this.ajaxLive) {
+      var fn = this.ajaxLive[i];
+      this[fn].call(this, d4p.content);
+    }
     
     if (this.mode == 'append') {
       // append new div, but hide it
@@ -143,17 +151,7 @@
     } else {
       $(this.outputSelector).html(div);
     }
-    
-    // execute ajaxLive
-    // perform all tasks which may require
-    // content to be inserted in the DOM
-    for (i in this.ajaxLive) {
-      var fn = this.ajaxLive[i];
-      this[fn].call(this, d4p.content);
-    }
-      
-    // show content 
-    $('#'+id).css('visibility', 'visible');
+
   },
 
   // Rewrite each src in the document

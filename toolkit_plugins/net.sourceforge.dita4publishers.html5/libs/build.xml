@@ -1,35 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="YUI Compressor" default="package.compress" basedir=".">
 
-	<property name="yui-compressor.jar" location="${yui.path}"/>
+	<loadproperties srcFile="shared.properties"/>
 	
-	<target name="set.properties">
-	
-		<loadproperties srcFile="shared.properties"/>
-	
-		<condition property="properties" value="default">
-    		<not>
-      			<isset property="properties"/>
-    		</not>
-  		</condition>
+	<condition property="properties" value="classic">
+    	<not>
+      		<isset property="properties"/>
+    	</not>
+  	</condition>
   		
-		<property name="build.dir" value="${theme.dir}/${properties}" />
-		
-	</target>
-
-	<target name="load.properties" depends="set.properties">
-		<loadproperties srcFile="../sites/${properties}/${properties}.properties"/>
-		<echo>
-
-			yui.path = ${yui.path}
-      		dir.css = ${dir.css}
-      		dir.js = ${dir.js}
-			dir.libs = ${dir.libs}
-			build.dir = ${build.dir}
-			src.css = ${src.css}
-			src.js = ${src.js}
-			
-		</echo>
+	<property name="build.dir" value="${theme.dir}/${properties}" />
+	
+	
+	<target name="load.properties" description="load theme properties if not already loaded" unless="html5.style">
+		<xmlproperty file="themes/${properties}/config.xml" collapseAttributes="true" semanticAttributes="true" prefix="libs/"/>
+		<echoproperties>
+    		<propertyset>
+      			<propertyref prefix="html5."/>
+    		</propertyset>
+  		</echoproperties>
 	</target>
 
 	<target name="init" depends="load.properties">
@@ -63,14 +52,14 @@
 
 	<target name="package.concat.js">
 		<concat destfile="${build.dir}/${dir.js}/script.js">
-			<filelist dir="${dir.libs}" files = "${src.js}" />
+			<filelist dir="${dir.libs}" files = "${html5.script}" />
 		</concat>
 	</target>
 
 	<!-- concatenate css -->
 	<target name="package.concat.css">
 		<concat destfile="${build.dir}/${dir.css}/style.css">
-			<filelist dir="${dir.libs}" files = "${src.css}" />
+			<filelist dir="${dir.libs}" files = "${html5.style}" />
 		</concat>
 	</target>
 

@@ -24,7 +24,13 @@
       </not>
 	</condition>
 	
-	<loadproperties srcFile="${html5.dir}/sites/${html5.site.theme}/${html5.site.theme}.properties"/>
+		<xmlproperty file="${html5.dir}/libs/themes/${html5.site.theme}/config.xml" collapseAttributes="true" semanticAttributes="true"/>
+		
+		<echoproperties>
+    		<propertyset>
+      			<propertyref prefix="html5."/>
+    		</propertyset>
+  		</echoproperties>
   </target>
 
   <target name="html5.theme.build" if="html5.theme.compile" depends="html5.theme.init"
@@ -37,7 +43,7 @@
   <target name="dita.map.html5.init" depends="html5.theme.build"
     description="Init properties for HTML5">
 	
-	<condition property="html5.site.js.vars" value="${html5.dir}/sites/${html5.site.theme}/vars.xml">
+	<condition property="html5.site.js.vars" value="${html5.dir}/libs/themes/${html5.site.theme}/vars.xml">
 		  <not>
         <isset property="html5.site.js.vars" />
       </not>
@@ -443,7 +449,7 @@
   
   <target name="xmltojsonvars" description="Convert XML variables to a json feed">
   
-	<property name="xml2json.style" location="${html5.dir}/xml2json/xml-to-json.xsl"/>
+	<property name="xml2json.style" location="${html5.dir}/xsl/xml2json/xml-to-json.xsl"/>
 	
     <mkdir dir="${d4p.html5.json.vars.dir}" />
 		

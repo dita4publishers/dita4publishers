@@ -912,7 +912,490 @@ address,
 fieldset,
 figure {
   margin-bottom: 20px;
+}/**
+ * d4p Class specific to the plugin
+ */
+
+.d4p-hidden {
+  display:none;
+}
+
+.d4p-cover-page {
+	padding:0 !important;
+	margin:0 !important;
+}/**
+ * d4p layout.css
+ */
+
+body
+{
+	margin: 0;
+	color: #333333;
+	font: 12px "Lucida Grande",Geneva,Arial,Verdana,sans-serif;
+}
+
+header
+{
+	border:none;
+	display: block;
+	height: 80px;
+	overflow: hidden;
+}
+
+header h1
+{
+	font-size: 2.8em;
+}
+
+header, footer 
+{
+	display: block;
+	overflow: hidden;
+	position:relative;
+	width:100%;
+}
+
+#d4h5-section-container
+{
+	display: block;
+	width: 980px;	
+}
+
+
+noscript
+{
+	font-size: 18px;
+	padding: 25px;
+}
+
+h2.nav-pub-title { font-size: 1.1em; }
+
+
+#d4h5-main-container {
+	overflow:hidden;
+}
+
+#d4h5-main-content
+{
+	min-height: 500px;
+}
+
+#footer-container {
+	margin-top:20px;
+}
+
+.topic {
+	padding:25px;
+}
+
+/** 
+ * some tools
+ **/ 
+
+.space-after {
+	margin-bottom: 3em;
+}
+
+.line-after {
+	padding-bottom:2em;
+	border-bottom:1px solid #ccc;
+	margin-bottom:2em;
+}
+
+/** **/
+.clear-before {
+	clear:both;
+}/**#local-navigation {
+	width: 230px;
+}
+
+.navigation-large #local-navigation {
+	width: 280px;
+}**/
+/**
+ * dita css
+ * should be progressively moved to modules
+ */
+
+.unresolved { background-color: skyblue; }
+.noTemplate { background-color: yellow; }
+
+/* div with class=p is used for paragraphs that contain blocks, to keep the XHTML valid */
+.p { margin-top: 1em; }
+
+/* Set heading sizes, getting smaller for deeper nesting */
+.topictitle3 { font-weight: bold; }
+.topictitle4 { font-weight: bold; }
+.topictitle5 { font-weight: bold; }
+.topictitle6 { font-style: italic; }
+
+.sectiontitle
+{
+	margin-top: 1em;
+	margin-bottom: 0em;
+	color: black;
+	font-size: 1.17em;
+	font-weight: bold;
+}
+
+.section
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.example
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+div.tasklabel
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+h2.tasklabel, h3.tasklabel, h4.tasklabel, h5.tasklabel, h6.tasklabel { font-size: 100%; }
+
+/* All note formats have the same default presentation */
+.note
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.notetitle { font-weight: bold; }
+.notelisttitle { font-weight: bold; }
+
+.tip
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.tiptitle { font-weight: bold; }
+
+.fastpath
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.fastpathtitle { font-weight: bold; }
+
+.important
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.importanttitle { font-weight: bold; }
+
+.remember
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.remembertitle { font-weight: bold; }
+
+.restriction
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.restrictiontitle { font-weight: bold; }
+
+.attention
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.attentiontitle { font-weight: bold; }
+.dangertitle { font-weight: bold; }
+
+.danger
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.cautiontitle { font-weight: bold; }
+
+.caution
+{
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+
+.warning
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.warningtitle { font-weight: bold; }
+
+/* Simple lists do not get a bullet */
+ul.simple { list-style-type: none; }
+
+/* Used on the first column of a table, when rowheader="firstcol" is used */
+.firstcol { font-weight: bold; }
+
+/* Various basic phrase styles */
+.bold { font-weight: bold; }
+
+.boldItalic
+{
+	font-weight: bold;
+	font-style: italic;
+}
+
+.italic { font-style: italic; }
+.underlined { text-decoration: underline; }
+.uicontrol { font-weight: bold; }
+.parmname { font-weight: bold; }
+.kwd { font-weight: bold; }
+
+.defkwd
+{
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.var { font-style: italic; }
+.shortcut { text-decoration: underline; }
+
+/* Default of bold for definition list terms */
+.dlterm { font-weight: bold; }
+
+/* Use CSS to expand lists with @compact="no" */
+.dltermexpand
+{
+	font-weight: bold;
+	margin-top: 1em;
+}
+
+*[compact="yes"]>li { margin-top: 0em; }
+*[compact="no"]>li { margin-top: .53em; }
+
+.liexpand
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.sliexpand
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.dlexpand
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.ddexpand
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.stepexpand
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.substepexpand
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+/* Align images based on @align on topic/image */
+div.imageleft { text-align: left; }
+div.imagecenter { text-align: center; }
+div.imageright { text-align: right; }
+div.imagejustify { text-align: justify; }
+
+/* The cell border can be turned on with
+   {border-right:solid}
+   This value creates a very thick border in Firefox (does not match other tables)
+
+   Firefox works with
+   {border-right:solid 1pt}
+   but this causes a barely visible line in IE */
+
+.cellrowborder
+{
+	border-left: none;
+	border-top: none;
+	border-right: solid 1px;
+	border-bottom: solid 1px;
+}
+
+.row-nocellborder
+{
+	border-left: none;
+	border-top: none;
+	border-right: hidden;
+	border-bottom: solid 1px;
+}
+
+.cell-norowborder
+{
+	border-top: none;
+	border-left: none;
+	border-bottom: hidden;
+	border-right: solid 1px;
+}
+
+.nocellnorowborder
+{
+	border: none;
+	border-right: hidden;
+	border-bottom: hidden;
+}
+
+pre.screen
+{
+	padding: 5px 5px 5px 5px;
+	border: outset;
+	background-color: #CCCCCC;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	white-space: pre;
+}
+
+pre.codeblock {
+    background-color: #FBF9EA;
+    border: 1px solid #E2E1D5;
+    border-radius: 2px 2px 2px 2px;
+    margin: 1em 0;
+    padding: 10px;
+}
+
+span.filepath { font-family: monospace; }
+
+var.keyword {padding:0 0.5em; 0 0}/* Most link groups are created with <div>. Ensure they have space before and after. */
+.ullinks { list-style-type: none }
+.ulchildlink { margin-top: 1em; margin-bottom: 1em }
+.olchildlink { margin-top: 1em; margin-bottom: 1em }
+.linklist { margin-bottom: 1em }
+.linklistwithchild { margin-left: 1.5em; margin-bottom: 1em  }
+.sublinklist { margin-left: 1.5em; margin-bottom: 1em  }
+.relconcepts { margin-top: 1em; margin-bottom: 1em }
+.reltasks { margin-top: 1em; margin-bottom: 1em }
+.relref { margin-top: 1em; margin-bottom: 1em }
+.relinfo { margin-top: 1em; margin-bottom: 1em }
+.breadcrumb { font-size : smaller; margin-bottom: 1em }
+dt.prereq { margin-left : 20px;}/** used for accessibility **/
+.hidden, #page-links {
+	position:absolute; 
+	left:-10000px; 
+	top:auto; 
+	width:1px; 
+	height:1px; 
+	overflow:hidden;
+}
+/**
+ * Table style
+ */
+table { 
+	width: 100%; 
+	border-collapse: collapse; 
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+	background: #eee; 
+}
+th { 
+	background: #333; 
+	color: white; 
+	font-weight: bold; 
+}
+td, th { 
+	padding: 6px; 
+	border: 1px solid #ccc; 
+	text-align: left; 
+}/**
+ * list
+ */
+li {
+	margin:1.7em 0;
+	list-style-position: inside;
+}
+
+li p:first-child {
+	display:inline;
+}
+
+/** 
+ * d4p loader (a spinner) 
+ **/
+#d4p-loader {
+	display:none;
+	position: fixed;
+	width:100%;
+	height:80%;
+	background: transparent url('../img/ajax-loader.gif') no-repeat center center;
+	top:0px;
+}
+
+/** Message **/
+#d4p-message {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width:100%;
+    height:100%;
+    text-align:center;
+    z-index: 1000;
+}
+
+#d4p-message div {
+	position: fixed;
+ 	top:50%;
+    left:50%;
+    margin-top: -50px;
+  	margin-left: -100px;
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;     
+    background:#eee;
+}
+
+#d4p-message p {
+	padding:15px;
+    margin:13px;
+    color:#333; 
 }/*!
+ * jQuery UI Accordion 1.8.21
+ *
+ * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Accordion#theming
+ */
+/* IE/Win - Fix animation bug - #4615 */
+.ui-accordion { width: 100%; }
+.ui-accordion .ui-accordion-header { cursor: pointer; position: relative; margin-top: 1px; zoom: 1; color: #3887b0; font-weight: bold;    padding: 2px 0 0 2em;}
+.ui-accordion .ui-accordion-li-fix { display: inline; }
+.ui-accordion .ui-accordion-header-active { border-bottom: 0 !important; }
+.ui-accordion .ui-accordion-header a { display: block; font-size: 1em; padding: .5em .5em .5em .7em; }
+.ui-accordion-icons .ui-accordion-header a { padding-left: 2.2em; }
+.ui-accordion .ui-accordion-header .ui-icon { position: absolute; left: .5em; top: 50%; margin-top: -8px; }
+.ui-accordion .ui-accordion-content { padding: 1.5em 2.2em; border-top: 0; position: relative; top: 1px; margin-bottom: 2px; overflow: auto; display: none; zoom: 1; }
+.ui-accordion .ui-accordion-content-active { display: block; }
+/*!
  * jQuery UI CSS Framework 1.8.21
  *
  * Copyright 2012, AUTHORS.txt (http://jqueryui.com/about)
@@ -1879,72 +2362,14 @@ figure {
 .ui-accordion .ui-accordion-header .ui-icon { position: absolute; left: .5em; top: 50%; margin-top: -8px; }
 .ui-accordion .ui-accordion-content { padding: 1.5em 2.2em; border-top: 0; position: relative; top: 1px; margin-bottom: 2px; overflow: auto; display: none; zoom: 1; }
 .ui-accordion .ui-accordion-content-active { display: block; }
-/**
- * @file layout css for html5 plugin
+/** 
+ * Ui implementation
  */
-
-body
-{
-	margin: 0;
-	color: #333333;
-	font: 12px "Lucida Grande",Geneva,Arial,Verdana,sans-serif;
-}
-
-header
-{
-	border:none;
-	display: block;
-	height: 80px;
-	overflow: hidden;
-}
-
-header h1
-{
-	font-size: 2.8em;
-}
-
-header, footer 
-{
-	display: block;
-	overflow: hidden;
+body .d4p-ui-cycle {
+	display:block;
 	position:relative;
-	width:100%;
-}
-
-#d4h5-section-container
-{
-	display: block;
-	width: 980px;	
-}
-
-
-noscript
-{
-	font-size: 18px;
-	padding: 25px;
-}
-
-h2.nav-pub-title { font-size: 1.1em; }
-
-
-#d4h5-main-container {
-	overflow:hidden;
-}
-
-#d4h5-main-content
-{
-	min-height: 500px;
-}
-
-#footer-container {
-	margin-top:20px;
-}
-
-.topic {
-	padding:25px;
-}
-
-/**
+	min-height:150px;
+}/**
  * navigation.css
  */
 #local-navigation ul {
@@ -1970,21 +2395,6 @@ body.navigation-right #local-navigation, body.navigation-right #d4h5-main-conten
 }
 #local-navigation ul li.collapsible {
     cursor: pointer;
-}/** 
- * centered layout 
- **/
-body.centered header h1 {
-	display: block;
-	width: 980px;
-	margin: 0 auto;
-}
-
-body.centered #d4h5-section-container {
-	margin: 0 auto;
-}
-
-body.centered.paged #d4h5-main-container {
-	margin: 0 auto;
 }/** css3 columns layout **/
 .two-columns
 {
@@ -2015,29 +2425,6 @@ body.centered.paged #d4h5-main-container {
 	-webkit-column-gap: 2em;
 	-webkit-column-rule: 1px solid #ccc;
 }
-
-/** space and line after **/
-
-.space-after {
-	margin-bottom: 3em;
-}
-
-.line-after {
-	padding-bottom:2em;
-	border-bottom:1px solid #ccc;
-	margin-bottom:2em;
-}
-
-/** **/
-.clear-before {
-	clear:both;
-}/**#local-navigation {
-	width: 230px;
-}
-
-.navigation-large #local-navigation {
-	width: 280px;
-}**/
 /**
  * css for images
  *
@@ -2154,372 +2541,6 @@ span.figcap {
 
 .d4p-ui-cycle img {
 	display:block;
-}
-/**
- * copy of the commonltr with modifications
- */
-
-.unresolved { background-color: skyblue; }
-.noTemplate { background-color: yellow; }
-
-/* div with class=p is used for paragraphs that contain blocks, to keep the XHTML valid */
-.p { margin-top: 1em; }
-
-/* Set heading sizes, getting smaller for deeper nesting */
-.topictitle3 { font-weight: bold; }
-.topictitle4 { font-weight: bold; }
-.topictitle5 { font-weight: bold; }
-.topictitle6 { font-style: italic; }
-
-.sectiontitle
-{
-	margin-top: 1em;
-	margin-bottom: 0em;
-	color: black;
-	font-size: 1.17em;
-	font-weight: bold;
-}
-
-.section
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.example
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-div.tasklabel
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-h2.tasklabel, h3.tasklabel, h4.tasklabel, h5.tasklabel, h6.tasklabel { font-size: 100%; }
-
-/* All note formats have the same default presentation */
-.note
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.notetitle { font-weight: bold; }
-.notelisttitle { font-weight: bold; }
-
-.tip
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.tiptitle { font-weight: bold; }
-
-.fastpath
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.fastpathtitle { font-weight: bold; }
-
-.important
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.importanttitle { font-weight: bold; }
-
-.remember
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.remembertitle { font-weight: bold; }
-
-.restriction
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.restrictiontitle { font-weight: bold; }
-
-.attention
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.attentiontitle { font-weight: bold; }
-.dangertitle { font-weight: bold; }
-
-.danger
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.cautiontitle { font-weight: bold; }
-
-.caution
-{
-	font-weight: bold;
-	margin-bottom: 1em;
-}
-
-.warning
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.warningtitle { font-weight: bold; }
-
-/* Simple lists do not get a bullet */
-ul.simple { list-style-type: none; }
-
-/* Used on the first column of a table, when rowheader="firstcol" is used */
-.firstcol { font-weight: bold; }
-
-/* Various basic phrase styles */
-.bold { font-weight: bold; }
-
-.boldItalic
-{
-	font-weight: bold;
-	font-style: italic;
-}
-
-.italic { font-style: italic; }
-.underlined { text-decoration: underline; }
-.uicontrol { font-weight: bold; }
-.parmname { font-weight: bold; }
-.kwd { font-weight: bold; }
-
-.defkwd
-{
-	font-weight: bold;
-	text-decoration: underline;
-}
-
-.var { font-style: italic; }
-.shortcut { text-decoration: underline; }
-
-/* Default of bold for definition list terms */
-.dlterm { font-weight: bold; }
-
-/* Use CSS to expand lists with @compact="no" */
-.dltermexpand
-{
-	font-weight: bold;
-	margin-top: 1em;
-}
-
-*[compact="yes"]>li { margin-top: 0em; }
-*[compact="no"]>li { margin-top: .53em; }
-
-.liexpand
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.sliexpand
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.dlexpand
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.ddexpand
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.stepexpand
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-.substepexpand
-{
-	margin-top: 1em;
-	margin-bottom: 1em;
-}
-
-/* Align images based on @align on topic/image */
-div.imageleft { text-align: left; }
-div.imagecenter { text-align: center; }
-div.imageright { text-align: right; }
-div.imagejustify { text-align: justify; }
-
-/* The cell border can be turned on with
-   {border-right:solid}
-   This value creates a very thick border in Firefox (does not match other tables)
-
-   Firefox works with
-   {border-right:solid 1pt}
-   but this causes a barely visible line in IE */
-
-.cellrowborder
-{
-	border-left: none;
-	border-top: none;
-	border-right: solid 1px;
-	border-bottom: solid 1px;
-}
-
-.row-nocellborder
-{
-	border-left: none;
-	border-top: none;
-	border-right: hidden;
-	border-bottom: solid 1px;
-}
-
-.cell-norowborder
-{
-	border-top: none;
-	border-left: none;
-	border-bottom: hidden;
-	border-right: solid 1px;
-}
-
-.nocellnorowborder
-{
-	border: none;
-	border-right: hidden;
-	border-bottom: hidden;
-}
-
-pre.screen
-{
-	padding: 5px 5px 5px 5px;
-	border: outset;
-	background-color: #CCCCCC;
-	margin-top: 2px;
-	margin-bottom: 2px;
-	white-space: pre;
-}
-
-pre.codeblock {
-    background-color: #FBF9EA;
-    border: 1px solid #E2E1D5;
-    border-radius: 2px 2px 2px 2px;
-    margin: 1em 0;
-    padding: 10px;
-}
-
-span.filepath { font-family: monospace; }
-
-var.keyword {padding:0 0.5em; 0 0}/* Most link groups are created with <div>. Ensure they have space before and after. */
-.ullinks { list-style-type: none }
-.ulchildlink { margin-top: 1em; margin-bottom: 1em }
-.olchildlink { margin-top: 1em; margin-bottom: 1em }
-.linklist { margin-bottom: 1em }
-.linklistwithchild { margin-left: 1.5em; margin-bottom: 1em  }
-.sublinklist { margin-left: 1.5em; margin-bottom: 1em  }
-.relconcepts { margin-top: 1em; margin-bottom: 1em }
-.reltasks { margin-top: 1em; margin-bottom: 1em }
-.relref { margin-top: 1em; margin-bottom: 1em }
-.relinfo { margin-top: 1em; margin-bottom: 1em }
-.breadcrumb { font-size : smaller; margin-bottom: 1em }
-dt.prereq { margin-left : 20px;}/** used for accessibility **/
-.hidden, #page-links {
-	position:absolute; 
-	left:-10000px; 
-	top:auto; 
-	width:1px; 
-	height:1px; 
-	overflow:hidden;
-}
-/** Loader (a spinner) **/
-#d4p-loader {
-	display:none;
-	position: fixed;
-	width:100%;
-	height:80%;
-	background: transparent url('../img/ajax-loader.gif') no-repeat center center;
-	top:0px;
-}
-/**
- * Table style
- */
-table { 
-	width: 100%; 
-	border-collapse: collapse; 
-}
-/* Zebra striping */
-tr:nth-of-type(odd) { 
-	background: #eee; 
-}
-th { 
-	background: #333; 
-	color: white; 
-	font-weight: bold; 
-}
-td, th { 
-	padding: 6px; 
-	border: 1px solid #ccc; 
-	text-align: left; 
-}li {
-	margin:1.7em 0;
-	list-style-position: inside;
-}
-
-li p:first-child {
-	display:inline;
-}
-
-/** 
- * Ui implementation
- */
-body .d4p-ui-cycle {
-	display:block;
-	position:relative;
-	min-height:150px;
-}
-/** Message **/
-#d4p-message {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width:100%;
-    height:100%;
-    text-align:center;
-    z-index: 1000;
-}
-
-#d4p-message div {
-	position: fixed;
- 	top:50%;
-    left:50%;
-    margin-top: -50px;
-  	margin-left: -100px;
-    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;     
-    background:#eee;
-}
-
-#d4p-message p {
-	padding:15px;
-    margin:13px;
-    color:#333; 
 }/** 
  * notes
  */
@@ -2562,18 +2583,65 @@ details.low, details.obsolete {
 
 button {
 	margin:0em 0 2em 0;
-}/**
- * Class specific to the plugin
- */
-
-.d4p-hidden {
-  display:none;
+}.scalable {
+	position:absolute;
 }
 
-.d4p-cover-page {
-	padding:0 !important;
-	margin:0 !important;
-}/**
+.scale-button {
+	background-color: transparent;
+	border: none;
+	position:absolute;
+	right:0;
+}
+
+.scale-button:hover {
+	cursor:pointer;
+}
+/** 
+ * familily links 
+ **/
+#familylinks {
+	display: block;
+	height: 32px;
+	position: relative;
+}
+
+#familylinks  .link {
+	position: absolute;
+	display: block;
+	width: 50px;
+	height: 12px;
+}
+
+#familylinks  .link a, #familylinks  .link a:link {
+	display: block;
+	height: 40px;
+	left: -40px;
+	position: relative;
+	text-indent: -10000px;
+	top: -35px;
+	width: 100px;
+}
+
+#familylinks #rel-previous {
+	margin-left: 20px;
+}
+
+#familylinks #rel-previous .ui-icon {
+	position: relative;
+	left: -25px;
+	top: 20px;
+}
+
+#rel-next {
+	margin-left: 100%;
+}
+
+#rel-parent {
+	text-align: center;
+	margin: 0 48%;
+}
+/**
  * theme-01
  **/
 
@@ -2819,62 +2887,4 @@ body .d4p-ui-cycle {
 	display: block;
 	position: relative;
 	min-height: 150px;
-}
-.scalable {
-	position:absolute;
-}
-
-.scale-button {
-	background-color: transparent;
-	border: none;
-	position:absolute;
-	right:0;
-}
-
-.scale-button:hover {
-	cursor:pointer;
-}
-/** 
- * familily links 
- **/
-#familylinks {
-	display: block;
-	height: 32px;
-	position: relative;
-}
-
-#familylinks  .link {
-	position: absolute;
-	display: block;
-	width: 50px;
-	height: 12px;
-}
-
-#familylinks  .link a, #familylinks  .link a:link {
-	display: block;
-	height: 40px;
-	left: -40px;
-	position: relative;
-	text-indent: -10000px;
-	top: -35px;
-	width: 100px;
-}
-
-#familylinks #rel-previous {
-	margin-left: 20px;
-}
-
-#familylinks #rel-previous .ui-icon {
-	position: relative;
-	left: -25px;
-	top: 20px;
-}
-
-#rel-next {
-	margin-left: 100%;
-}
-
-#rel-parent {
-	text-align: center;
-	margin: 0 48%;
 }
