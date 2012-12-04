@@ -10,3 +10,12 @@ li p:first-child {
 	display:inline;
 }
 
+dt {margin-top:1.5em}
+
+dd {margin-top:0.3em}
+
+
+li dl {
+    position:relative;
+	left:12px
+}
