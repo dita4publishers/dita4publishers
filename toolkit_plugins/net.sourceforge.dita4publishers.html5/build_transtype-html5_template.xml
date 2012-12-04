@@ -422,8 +422,8 @@
 
     <mkdir dir="${output.dir}/${html5.themes.output.dir}/${html5.site.theme}"/>
     
-    <copy todir="${output.dir}/themes/${html5.site.theme}">
-      <fileset dir="${html5.dir}/themes/${html5.site.theme}"/>
+    <copy todir="${output.dir}/${html5.themes.output.dir}/${html5.site.theme}">
+      <fileset dir="${html5.dir}/${html5.themes.output.dir}/${html5.site.theme}"/>
     </copy>
 
   </target>

@@ -22,11 +22,15 @@
 	</target>
 
 	<target name="init" depends="load.properties">
+		<echo>Prepare ${build.dir}</echo>
 		<delete dir="${build.dir}"/>
 		<mkdir dir="${build.dir}"/>
 	</target>
 
-	<target name="package.compress" depends="init, package.concat.js, package.concat.css, package.copy.assets">
+	<target name="package.compress" depends="init, package.concat.js, package.concat.css, package.compress.css, package.compress.js, package.copy.assets" />
+
+	
+	<target name="package.compress.js" if="html5.script">
 		<apply executable="java" parallel="false" dest="${build.dir}/${dir.js}">
 			<fileset dir="${build.dir}/${dir.js}" includes="*"/>
 			<arg line="-jar"/>
@@ -36,6 +40,10 @@
 			<mapper type="glob" from="*.js" to="*-min.js"/>
 			<targetfile/>
 		</apply>
+		<echo>+++ js packaged compressed</echo>
+	</target>
+	
+	<target name="package.compress.css" if="html5.style">
 		<apply executable="java" parallel="false" dest="${build.dir}">
 			<fileset dir="${build.dir}">
 				<include name="**/**"/>
@@ -47,17 +55,17 @@
 			<mapper type="glob" from="*.css" to="*-min.css"/>
 			<targetfile/>
 		</apply>
-		<echo>+++ packaged compressed</echo>
+		<echo>+++ css packaged compressed</echo>
 	</target>
 
-	<target name="package.concat.js">
+	<target name="package.concat.js" if="html5.script">
 		<concat destfile="${build.dir}/${dir.js}/script.js">
 			<filelist dir="${dir.libs}" files = "${html5.script}" />
 		</concat>
 	</target>
 
 	<!-- concatenate css -->
-	<target name="package.concat.css">
+	<target name="package.concat.css" if="html5.style">
 		<concat destfile="${build.dir}/${dir.css}/style.css">
 			<filelist dir="${dir.libs}" files = "${html5.style}" />
 		</concat>
