@@ -167,6 +167,9 @@
   <xsl:template match="/*[df:class(., 'map/map')]">
 
     <xsl:apply-templates select="." mode="report-parameters"/>
+    
+    <!-- this is intended to allow developper to add custom hook -->
+    <xsl:apply-templates select="." mode="html5-impl" />
 
     <xsl:variable name="uniqueTopicRefs" as="element()*" select="df:getUniqueTopicrefs(.)"/>
 

@@ -98,6 +98,8 @@
     
       <xsl:attribute name = "lang"><xsl:call-template name="getLowerCaseLang"/></xsl:attribute>
       
+    <xsl:attribute name = "xml:lang"><xsl:call-template name="getLowerCaseLang"/></xsl:attribute>
+      
       <xsl:sequence select="'&#x0a;'"/>
   
       <xsl:apply-templates select="." mode="generate-head"/>
