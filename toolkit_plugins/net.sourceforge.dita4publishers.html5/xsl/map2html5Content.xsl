@@ -145,7 +145,7 @@
       </xsl:apply-templates>
     </xsl:variable>
 
-    <xsl:result-document format="topic-html" href="{$resultUri}">
+    <xsl:result-document format="html5" href="{$resultUri}">
       <xsl:apply-templates mode="generate-html5-page" select=".">
         <xsl:with-param name="relativePath" select="$relativePath" as="xs:string" tunnel="yes"/>
         <xsl:with-param name="content" select="$topic-content" tunnel="yes"/>

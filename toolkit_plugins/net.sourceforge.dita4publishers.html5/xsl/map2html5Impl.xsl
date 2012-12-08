@@ -153,7 +153,7 @@
 
 
 
-	<xsl:output name="html5" method="html" encoding="utf-8" omit-xml-declaration="yes"/>
+	<xsl:output name="html5" method="html" indent="yes" encoding="utf-8" omit-xml-declaration="yes"/>
 
 
   <xsl:template match="/">
@@ -276,6 +276,10 @@
         	<xsl:value-of select="''" />
         </xsl:otherwise>
     </xsl:choose>
+  </xsl:template>
+  
+    <xsl:template mode="html5-impl" match="*">
+  
   </xsl:template>
  
 
