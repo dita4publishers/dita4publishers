@@ -9,24 +9,24 @@
   <style path="core/d4p/tools.css" />  
   <style path="core/d4p/dita.css" />
   <style path="core/d4p/table.css" />
-  <style path="core/d4p/list.css" />    
+  <style path="core/d4p/list.css" />  
+  <style path="core/d4p/images.css" />  
   <style path="core/ajaxLoader/loader.css" />  
-  <style path="core/message/message.css" />   
+  <style path="core/message/message.css" />
+  <style path="core/d4p/buttons.css" />    
   
   <style path="modules/ui/jQuery-ui/jQuery-ui/themes/d4p-default/jquery.ui.accordion.css" />     
   <style path="modules/ui/jQuery-ui/jQuery-ui/themes/d4p-default/jquery.ui.core.css" />
   <style path="modules/ui/jQuery-ui/jQuery-ui/themes/d4p-default/jquery.ui.theme.css" />
   <style path="modules/ui/jQuery-ui/jQuery-ui/themes/d4p-default/jquery.ui.accordion.css" />
-  <style path="modules/ui/jQuery-ui/adapter/ui.css" />
  
   <style path="modules/navigation/classic/navigation.css" />
-  <style path="modules/navigation/classic/navigation-left.css" />
   <style path="modules/navigation/classic/collapsible-navigation.css" />
 
   <style path="modules/columns/columns.css" />
-  <style path="modules/images/images.css" />
+
   <style path="modules/notes/notes.css" /> 
-  <style path="modules/buttons/buttons.css" /> 
+
   <style path="modules/ui/jQuery-ui/scale2fit/scale2fit.css" /> 
   <style path="modules/reltable/reltable.css" /> 
   
@@ -37,8 +37,12 @@
   <script path="core/d4p/d4p.js" />
   <script path="core/module-prototype/module.js" />
   <script path="core/message/message.js" />
+  
+  <!-- carefull in this order -->
   <script path="core/ajaxLoader/ajaxLoader.js" />
   <script path="core/ajaxLoader/ajaxnav.js" />  
+  
+  
   <script path="modules/navigation/classic/navigation.js" />  
   <script path="modules/ui/jQuery-ui/adapter/ui.js" />
   <script path="modules/ui/jQuery-ui/jQuery-ui/ui/jquery.ui.core.js" />

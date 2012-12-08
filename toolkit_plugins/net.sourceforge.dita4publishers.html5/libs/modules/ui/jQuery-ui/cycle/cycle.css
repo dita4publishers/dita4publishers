@@ -1,7 +1,5 @@
 /**
- *  @file d4p.css
- *
- *  d4p class to be used with dita
+ *  @file cycle.css
  *
  *  Copyright 2012 DITA For Publishers  
  * 
@@ -18,11 +16,8 @@
  *  limitations under the License.
  *
  */ 
-.d4p-hidden {
-  display:none;
-}
-
-.d4p-cover-page {
-	padding:0 !important;
-	margin:0 !important;
+body .d4p-ui-cycle {
+	display:block;
+	position:relative;
+	min-height:150px;
 }

@@ -913,9 +913,25 @@ fieldset,
 figure {
   margin-bottom: 20px;
 }/**
- * d4p Class specific to the plugin
- */
-
+ *  @file d4p.css
+ *
+ *  d4p class to be used with dita
+ *
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */ 
 .d4p-hidden {
   display:none;
 }
@@ -924,8 +940,25 @@ figure {
 	padding:0 !important;
 	margin:0 !important;
 }/**
- * d4p layout.css
- */
+ *  @file layout.css
+ *
+ *  default layout
+ *
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */ 
 
 body
 {
@@ -971,10 +1004,6 @@ noscript
 h2.nav-pub-title { font-size: 1.1em; }
 
 
-#d4h5-main-container {
-	overflow:hidden;
-}
-
 #d4h5-main-content
 {
 	min-height: 500px;
@@ -988,10 +1017,26 @@ h2.nav-pub-title { font-size: 1.1em; }
 	padding:25px;
 }
 
-/** 
- * some tools
- **/ 
-
+/**
+ *  @file tools.css
+ *
+ *  allow centered layout 960 px
+ *
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */ 
 .space-after {
 	margin-bottom: 3em;
 }
@@ -1002,21 +1047,28 @@ h2.nav-pub-title { font-size: 1.1em; }
 	margin-bottom:2em;
 }
 
-/** **/
 .clear-before {
 	clear:both;
-}/**#local-navigation {
-	width: 230px;
-}
-
-.navigation-large #local-navigation {
-	width: 280px;
-}**/
-/**
- * dita css
- * should be progressively moved to modules
+}/**
+ *  @file dita.css
+ *
+ *  From DITA-OT, should be progressively moved to modules
+ *
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
  */
-
 .unresolved { background-color: skyblue; }
 .noTemplate { background-color: yellow; }
 
@@ -1305,8 +1357,25 @@ dt.prereq { margin-left : 20px;}/** used for accessibility **/
 	overflow:hidden;
 }
 /**
- * Table style
- */
+ *  @file  table.css
+ *
+ *  <description>
+ *
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */ 
 table { 
 	width: 100%; 
 	border-collapse: collapse; 
@@ -1325,20 +1394,190 @@ td, th {
 	border: 1px solid #ccc; 
 	text-align: left; 
 }/**
- * list
- */
+ *  @file list.css
+ *
+ *  Manage default list, definition...
+ *
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */ 
 li {
-	margin:1.7em 0;
-	list-style-position: inside;
+	margin:1.7em 0 1.7em 12px;
+	list-style-position: outside;
 }
 
 li p:first-child {
 	display:inline;
 }
 
-/** 
- * d4p loader (a spinner) 
- **/
+dt {margin-top:1.5em}
+
+dd {margin-top:0.3em}
+
+
+li dl {
+    position:relative;
+	left:12px
+}/**
+ *  @file images.css
+ *
+ * body.img-with-shadow add box shadow on every images
+ * in this case, using @outputclass=no.shadow
+ * should remove the shadow
+ * if body.img-with-shadow is not set
+ * shadow could be manually added using outputclass=with-shadow
+ *
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */
+.img-with-shadow img, img.with-shadow {
+	-moz-box-shadow: 3px 3px 4px #333;
+	-webkit-box-shadow: 3px 3px 4px #333;
+	box-shadow: 3px 3px 4px #333;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#333333')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#333333');
+}
+
+img.no-shadow {
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(enabled = false)";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(enabled = false);
+}
+
+/** placement break **/
+.block.wide {
+	width: 100%;
+}
+
+img {
+	display:block;
+}
+.block.wide img {float:none; } 
+.block.wide img.right {
+	margin-left:auto;
+}
+
+.block.wide img.center {
+	margin:0 auto;
+}
+
+img.right {float:right; 
+	margin:0 0 0 10px;
+}
+img.left {
+	float:left;
+	margin:0 10px 10px 0;
+}
+
+
+/* Use @frame to create frames on figures */
+.figborder {
+	border-style: solid;
+	padding-left: 3px;
+	border-width: 2px;
+	padding-right: 3px;
+	margin-top: 1em;
+	border-color: Silver;
+}
+
+.figsides {
+	border-left: 2px solid;
+	padding-left: 3px;
+	border-right: 2px solid;
+	padding-right: 3px;
+	margin-top: 1em;
+	border-color: Silver;
+}
+
+.figtop {
+	border-top: 2px solid;
+	margin-top: 1em;
+	border-color: Silver;
+}
+
+.figbottom {
+	border-bottom: 2px solid;
+	border-color: Silver;
+}
+
+.figtopbot {
+	border-top: 2px solid;
+	border-bottom: 2px solid;
+	margin-top: 1em;
+	border-color: Silver;
+}
+
+img + p {
+	margin-top: 3em;
+}
+
+/* Default of italics to set apart figure captions */
+.figcap {
+	font-style: italic;
+}
+
+.figdesc {
+	font-style: normal;
+}
+
+span.figcap {
+	display: block;
+	text-align: center;
+	width: 100%;
+	font-weight: bold;
+	margin: 0.8em 0 2em 0;
+}
+
+/**
+ *  @file loader.css
+ *
+ *  Render spinner / loader on the page when client need to wait
+ *
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */ 
 #d4p-loader {
 	display:none;
 	position: fixed;
@@ -1347,8 +1586,24 @@ li p:first-child {
 	background: transparent url('../img/ajax-loader.gif') no-repeat center center;
 	top:0px;
 }
-
-/** Message **/
+/**
+ *  @file message.css
+ *
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */ 
 #d4p-message {
     position: absolute;
     left: 0px;
@@ -1376,6 +1631,30 @@ li p:first-child {
 	padding:15px;
     margin:13px;
     color:#333; 
+}/**
+ *  @file <filename>
+ *
+ *  <description>
+ *
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */ 
+
+/** will be improved later **/
+ button {
+	margin:0em 0 2em 0;
 }/*!
  * jQuery UI Accordion 1.8.21
  *
@@ -2362,16 +2641,24 @@ li p:first-child {
 .ui-accordion .ui-accordion-header .ui-icon { position: absolute; left: .5em; top: 50%; margin-top: -8px; }
 .ui-accordion .ui-accordion-content { padding: 1.5em 2.2em; border-top: 0; position: relative; top: 1px; margin-bottom: 2px; overflow: auto; display: none; zoom: 1; }
 .ui-accordion .ui-accordion-content-active { display: block; }
-/** 
- * Ui implementation
- */
-body .d4p-ui-cycle {
-	display:block;
-	position:relative;
-	min-height:150px;
-}/**
- * navigation.css
- */
+/**
+ *  @file navigation.css
+ *
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */ 
 #local-navigation ul {
 	list-style-type: none;
 	margin:0;
@@ -2390,12 +2677,51 @@ body .d4p-ui-cycle {
 body.navigation-right #local-navigation, body.navigation-right #d4h5-main-content {
 	float:right;
 }
-#local-navigation ul li.collapsible.collapsed ul {
+/**
+ *  @file collapsible-navigation.css
+ *
+ *  <description>
+ *
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */ 
+ #local-navigation ul li.collapsible.collapsed ul {
 	 display:none;
 }
 #local-navigation ul li.collapsible {
     cursor: pointer;
-}/** css3 columns layout **/
+}/**
+ *  @file columns.css
+ *
+ *  css3 columns layout
+ *
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */
 .two-columns
 {
 	-moz-column-count: 2;
@@ -2426,124 +2752,23 @@ body.navigation-right #local-navigation, body.navigation-right #d4h5-main-conten
 	-webkit-column-rule: 1px solid #ccc;
 }
 /**
- * css for images
+ *  @file notes.css
  *
- * body.img-with-shadow add box shadow on every images
- * in this case, using @outputclass=no.shadow
- * should remove the shadow
- * if body.img-with-shadow is not set
- * shadow could be manually added using outputclass=with-shadow
- */
-
-.img-with-shadow img, img.with-shadow {
-	-moz-box-shadow: 3px 3px 4px #333;
-	-webkit-box-shadow: 3px 3px 4px #333;
-	box-shadow: 3px 3px 4px #333;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#333333')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#333333');
-}
-
-img.no-shadow {
-	-moz-box-shadow: none;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(enabled = false)";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(enabled = false);
-}
-
-/** placement break **/
-.block.wide {
-	width: 100%;
-}
-
-img {
-	display:block;
-}
-.block.wide img {float:none; } 
-.block.wide img.right {
-	margin-left:auto;
-}
-
-.block.wide img.center {
-	margin:0 auto;
-}
-
-img.right {float:right; 
-	margin:0 0 0 10px;
-}
-img.left {
-	float:left;
-	margin:0 10px 10px 0;
-}
-
-
-/* Use @frame to create frames on figures */
-.figborder {
-	border-style: solid;
-	padding-left: 3px;
-	border-width: 2px;
-	padding-right: 3px;
-	margin-top: 1em;
-	border-color: Silver;
-}
-
-.figsides {
-	border-left: 2px solid;
-	padding-left: 3px;
-	border-right: 2px solid;
-	padding-right: 3px;
-	margin-top: 1em;
-	border-color: Silver;
-}
-
-.figtop {
-	border-top: 2px solid;
-	margin-top: 1em;
-	border-color: Silver;
-}
-
-.figbottom {
-	border-bottom: 2px solid;
-	border-color: Silver;
-}
-
-.figtopbot {
-	border-top: 2px solid;
-	border-bottom: 2px solid;
-	margin-top: 1em;
-	border-color: Silver;
-}
-
-img + p {
-	margin-top: 3em;
-}
-
-/* Default of italics to set apart figure captions */
-.figcap {
-	font-style: italic;
-}
-
-.figdesc {
-	font-style: normal;
-}
-
-span.figcap {
-	display: block;
-	text-align: center;
-	width: 100%;
-	font-weight: bold;
-	margin: 0.8em 0 2em 0;
-}
-
-.d4p-ui-cycle img {
-	display:block;
-}/** 
- * notes
- */
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */ 
 aside.normal, aside.low {
 	border-left:9px solid #ccc;
 	padding:9px 0px 9px 9px;
@@ -2581,9 +2806,27 @@ details.low, details.obsolete {
 	color:#999;
 }
 
-button {
-	margin:0em 0 2em 0;
-}.scalable {
+/**
+ *  @file scale2fit.css
+ *
+ *  expriemental feature to scale image
+ *
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */ 
+.scalable {
 	position:absolute;
 }
 
@@ -2597,9 +2840,24 @@ button {
 .scale-button:hover {
 	cursor:pointer;
 }
-/** 
- * familily links 
- **/
+/**
+ *  @file reltable.css
+ *
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */ 
 #familylinks {
 	display: block;
 	height: 32px;
@@ -2870,21 +3128,8 @@ span.navtitle, li.collapsible a:link {
 	border-radius: 5px;
 }
 
-li {
-	margin: 1.7em 0;
-	list-style-position: inside;
-}
 
-li p:first-child {
-	display: inline;
-}
 
-/** 
- * Ui implementation
- */
-
-body .d4p-ui-cycle {
-	display: block;
-	position: relative;
-	min-height: 150px;
+img {
+	max-width: 628px;
 }

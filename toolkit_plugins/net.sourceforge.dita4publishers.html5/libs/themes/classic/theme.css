@@ -227,21 +227,8 @@ span.navtitle, li.collapsible a:link {
 	border-radius: 5px;
 }
 
-li {
-	margin: 1.7em 0;
-	list-style-position: inside;
-}
 
-li p:first-child {
-	display: inline;
-}
 
-/** 
- * Ui implementation
- */
-
-body .d4p-ui-cycle {
-	display: block;
-	position: relative;
-	min-height: 150px;
+img {
+	max-width: 628px;
 }

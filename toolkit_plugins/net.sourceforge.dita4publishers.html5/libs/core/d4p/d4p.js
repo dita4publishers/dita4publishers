@@ -1,5 +1,22 @@
 /**
- * d4p object
+ *  @file d4p
+ *
+ *  Allow to set global properties and methods for the d4p project
+ *
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
  */ 
 (function (window) {
   var d4p = {
@@ -32,6 +49,12 @@
 
     //
     loaderParentElement: "body",
+    
+    protocols: ['http:', 'https:', 'file:', 'ftp:'],
+    
+    // senbox, use to add elements in the domManip
+    // making them invisible to the client
+    sendbox: 'd4p-sendbox',
 
     // used to attribute and id to the navigation tree
     // if none are specified, this should make jQuery selection faster
@@ -137,6 +160,7 @@
     },
 
     // extend the d4p objects
+    // need to rewrite
     setProps: function (options) {
       // extend options
       for (var key in options) {
@@ -214,7 +238,7 @@
       }
       d4p.hash.previous = hash;
     },
-
+    
     // init d4p objects and all modules
     init: function (options) {
  	   
@@ -227,7 +251,7 @@
 
       // extend options
      this.setProps(options);
-
+     
       // redirect if not on the index page
       if (d4p.relativePath != "" && l.uri.indexOf(d4p.indexFilename) != 0) {
         var redirect = d4p.resolveRoot();

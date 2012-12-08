@@ -1,9 +1,24 @@
 /**
- * d4p.ajaxLoader object
+ *  @file d4p.ajaxLoader
  *
- * This object is used to perform ajax call on page
- * d4p.ajaxLoader could be instantiated and use differently the contect
- */
+ *  This object is used to perform ajax call on page
+ *  Could be instantiated and act uppon context
+ *
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */ 
 (function (window, d4p) {
 
   /**
@@ -16,13 +31,15 @@
     this.title = '';
     this.content = '';
     this.externalContentElement = d4p.externalContentElement;
-    this.setAriaAttr();
-    this.timeout = d4p.timeout;
-    this.ajaxBefore = [];
-    this.ajaxReady = [];
-    this.ajaxLive = [];
-    this.ajaxFailed = [];
+    this.timeout = d4p.timeout; 
     this.modified = true;
+    
+    // events    
+    this._filter = [];
+    this._before = [];
+    this._ready = [];
+    this._live = [];
+    this._failed = [];
 
     // store references
     this.collection = [],
@@ -35,6 +52,7 @@
     this.mode = 'replace';
 
     $.extend(true, this, opts);
+    this.setAriaAttr();
 
   };
 
@@ -52,20 +70,11 @@
     this.timeout = ms;
   };
 
-  // allow to register callback once the page is loaded by AJAX
-  d4p.ajaxLoader.prototype.ready = function (fname) {
-    this.ajaxReady.push(fname);
+  // allow to bond event
+  // live, ready, failed, filter
+  d4p.ajaxLoader.prototype.bind = function (key, fname) {
+    this['_'+key].push(fname);
   },
-  
-  // allow to register callback once the page is live
-  d4p.ajaxLoader.prototype.live = function (fname) {
-    this.ajaxLive.push(fname);
-  },
-
-  // allow to register callback once the page is loaded by AJAX
-  d4p.ajaxLoader.prototype.failed = function (fname) {
-    this.ajaxFailed.push(fname);
-  };
 
   // add loader (spinner on the page)
   d4p.ajaxLoader.prototype.addLoader = function () {
@@ -132,108 +141,87 @@
   // set content of the page
   // this function use the hash value as an ID
   d4p.ajaxLoader.prototype.setMainContent = function () {
-    var id = this.id.replace(/\//g, '__');
-   var div = $("<div />").attr('id', id).attr('class', 'content-chunk').html(this.content);
-   
+    var id = this.id.replace(/\//g, '__');    
+    var div = $("<div />").attr('id', id).attr('class', 'content-chunk').html(this.content);
+    
     // execute ajaxLive
     // perform all tasks which may require
     // content to be inserted in the DOM
-    for (i in this.ajaxLive) {
-      var fn = this.ajaxLive[i];
+    for (i in this._live) {
+      var fn = this._live[i];
       this[fn].call(this, d4p.content);
     }
     
     if (this.mode == 'append') {
       // append new div, but hide it
-      $(this.outputSelector).append();          
-      // keep information in memory when link is triggered on page
+      $(this.outputSelector).append(div);         
       this.setCacheStatus(this.id);
     } else {
-      $(this.outputSelector).html(div);
+       $(this.outputSelector).html(div.html());
     }
-
+      
   },
 
   // Rewrite each src in the document
   // because there is no real path with AJAX call
+  // from http://ejohn.org/blog/search-and-dont-replace/
   d4p.ajaxLoader.prototype.rewriteAttrSrc = function () {
     var l = d4p.l();
-    this.content.find("*[src]").each(function (index) {
-      $(this).attr('src', l.uri.substring(0, l.uri.lastIndexOf("/")) + "/" + $(this).attr('src'));
+    this.responseText = this.responseText.replace(/(src)\s*=\s*"([^<"]*)"/g, function(match, attr, src){ 
+      	return attr+'="'+l.uri.substring(0, l.uri.lastIndexOf("/")) + "/" + src + '"';
     });
   },
-
-
-  // Rewrite each href in the document
-  // because real path won't works with AJAX call
-  // if there are not from the first level
+  
+   // Rewrite each src in the document
+  // because there is no real path with AJAX call
+  // from http://ejohn.org/blog/search-and-dont-replace/
   d4p.ajaxLoader.prototype.rewriteAttrHref = function () {
+    var l = d4p.l();
     var o = this;
-    this.content.find("*[href]").each(function (index) {
-      var l = d4p.l();
+    this.responseText = this.responseText.replace(/(href)\s*=\s*"([^<"]*)"/g, function(match, attr, href){
+    
+    	var newHref='';
+    	var list = href.split("/");
+    	
+    	// rewrite anchors #abc => #/abc
+    	if(href.substring(0, 1) == '#') {
+    	  newHref='#/'+href;    	  
+    	  // rewrite external href => #/abc
+    	} else if (d4p.protocols.indexOf(list[0]) != -1) {
+    	  newHref=href;
+    	} else {
+    	  var dir = l.uri.substring(0, l.uri.lastIndexOf("/"));
+    	  var idx = href.indexOf(l.uri);
+          var base = dir.split("/");
+          var arr = [];
+  
+          href = href.replace(d4p.ext, '');
+          
 
-      var dir = l.uri.substring(0, l.uri.lastIndexOf("/"));
-      var base = dir.split("/");
-      var arr = [];
-
-      // href
-      var href = $(this).attr('href');
-      href = href.replace(d4p.ext, '');
-
-      // prevent hash to be rewritten
-      if (href.substring(0, 1) == "#") {
-        return true;
-      }
-
-      var idx = href.indexOf(l.uri);
-
-      // anchors on the same page
-      if (idx == 0) {
-
-        $(this).attr('href', href.substring(l.uri.length - 1));
-
-        //  event.preventDefault() is necessary to avoid the AJAC call
-        $(this).click(function (event) {
-          event.preventDefault();
-          d4p.scrollToHash(this.hash);
-        });
-
-        return true;
-      }
-
-      var parts = href.split("/");
-
-      // prevent external to be rewritten           
-      if ($(this).hasClass("external") || $(this).attr('target') == "_blank") {
-        return true;
-      }
-
-
-      var pathC = dir != "" ? base.concat(parts) : arr.concat(parts);
-
-      for (var i = 0, len = pathC.length; i < len; ++i) {
-        if (pathC[i] === '..') {
-          pathC.splice(i, 1);
-          pathC.splice(i - 1, 1);
+        // anchors on the same page
+        if (idx == 0) {
+          newHref = href.substring(l.uri.length - 1);
+          return attr + '="' + newHref + '"';
         }
+
+        var parts = href.split("/");        
+        var pathC = dir != "" ? base.concat(parts) : arr.concat(parts);
+
+        for (var i = 0, len = pathC.length; i < len; ++i) {
+          if (pathC[i] === '..') {
+            pathC.splice(i, 1);
+            pathC.splice(i - 1, 1);
+          }
+        }
+  
+        var pId = o.collection[l.uri].id;
+        o.collectionSet(newHref, pId, o.title);
+	    newHref='#' + pathC.join("/");
       }
-
-      /**
-       * links have not necessarily
-       * a link in the navigation.
-       * In this case we use the parent page ID
-       */
-      var l = d4p.l();
-      var pId = o.collection[l.uri].id;
-      o.collectionSet(pathC.join("/"), pId, ($(this).html()));
-
-      $(this).attr('href', '#' + pathC.join("/"));
-
-      d4p.live($(this));
-
+    	 	   	
+     return attr + '="' + newHref + '"';
     });
-
-  };
+  },
 
   /**
    * this is a based from the load function of jquery
@@ -255,8 +243,8 @@
     }
 
     // call ajax before callbacks
-    for (i in this.ajaxBefore) {
-      var fn = this.ajaxBefore[i];
+    for (i in this._before) {
+      var fn = this._before[i];
       this[fn].call(this, uri, hash);
     }
 
@@ -300,8 +288,8 @@
           document.location.hash = d4p.hash.previous;
 
           // ajax failed callback
-          for (fn in this.ajaxFailed) {
-            this.ajaxFailed[fn].call(d4p.content);
+          for (fn in this._failed) {
+            this._failed[fn].call(d4p.content);
           }
 
           return false;
@@ -316,27 +304,29 @@
           // From jquery: #4825: Get the actual response in case
           // a dataFilter is present in ajaxSettings
           jqXHR.done(function (r) {
-            responseText = r;
+            this.responseText = r;
           });
-
-		  // remove scripts from the ajax calls unless they will be loaded
-		  var myHTML = $(responseText).not('script');
+                    
+ 		  // execute filter on response before adding it to a DOM object
+          for (i in this._filter) {
+            var fn = this._filter[i];
+            this[fn].call(this, this.responseText);
+          }
 		  
-          var html = $("<div>")
-            .attr('id', this.uri + "-temp")
-            .append(myHTML);
+		  // remove scripts from the ajax calls unless they will be loaded
+		  var html = $(this.responseText).not('script');
 
           this.content = html.find(this.externalContentElement);
 
           this.title = html.find("title").html();
 
-          // execute ajaxReady
-          for (i in this.ajaxReady) {
-            var fn = this.ajaxReady[i];
-            this[fn].call(this, d4p.content);
-          }
-
           this.setMainContent();
+          
+           // execute ajaxReady
+          for (i in this._ready) {
+            var fn = this._ready[i];
+            this[fn].call(this, this.content);
+          }
 
           this.contentIsLoaded();
 
