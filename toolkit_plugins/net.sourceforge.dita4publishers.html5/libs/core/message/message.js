@@ -25,9 +25,9 @@
 
   var message = new d4p.module('msg', {
     // id of the div element to be created
-    id: 'd4p-message',
+    'id': 'd4p-message',
 
-    timeout: 3000,
+    'timeout': 3000,
 
     // message type
     create: function () {
@@ -37,8 +37,8 @@
         .attr('aria-hidden', 'true')
         .attr('aria-label', 'Message')
         .addClass('rounded')
-        .hide();
-      var div = msgBox.append($("<div />"));
+        .hide(), 
+      div = msgBox.append($("<div />"));
       $('body')
         .append(msgBox);
     },
@@ -66,8 +66,9 @@
     },
 
     alert: function (msg, type) {
+      var p = {};
       type = type == undefined ? '' : type;
-      var p = $("<p />")
+      p = $("<p />")
         .addClass(type)
         .text(msg);
       $("#" + this.id + " > div")

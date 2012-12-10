@@ -1,7 +1,7 @@
 /**
- *  @file scale2fit.css
+ *  @file <filename>
  *
- *  expriemental feature to scale image
+ *  <description>
  *
  *  Copyright 2012 DITA For Publishers  
  * 
@@ -17,18 +17,16 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  *
- */ 
-.scalable {
-
-}
-
-.scale-button {
-	background-color: transparent;
-	border: none;
-	position:absolute;
-	right:0;
-}
-
-.scale-button:hover {
-	cursor:pointer;
-}
+ */
+Array.prototype.clean = function (s) {
+    var i = 0;
+    for (var i = 0; i < this.length; i++) {
+        if (this.hasOwnProperty(i)) {
+            if (this[i] == s) {
+                this.splice(i, 1);
+                i = i-1;
+            }
+        }
+    }
+    return this;
+};

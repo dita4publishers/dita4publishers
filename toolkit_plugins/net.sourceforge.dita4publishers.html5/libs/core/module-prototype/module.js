@@ -22,7 +22,8 @@
 (function (window, d4p) {
 
   d4p.module = function (name, obj) {
-
+    
+    var i = 0;
     this.name = name;
 
     // set option
@@ -49,7 +50,7 @@
   // register document ready function
   // possible key: uriChange, docChange
   d4p.module.prototype.bind = function (key, fname) {
-    d4p['_'+key].push({
+    d4p['e'+key].push({
       name: this.name,  // module name
       fn: fname         // function name to call
     });

@@ -30,18 +30,19 @@
       // navigation: prefix all href with #
       $(d4p.navigationSelector + ' a').each(function (index) {
 
-        var href = $(this).attr('href');
-
+        var href = $(this).attr('href'), 
+        list = href.split("/"),
+        
         // ids.linkID;
         // ids.hrefID;
-        var ids = d4p.getIds($(this));
+        ids = d4p.getIds($(this));
 
         // attribute an ID for future reference if not set
         $(this).attr('id', ids.linkID);
 
         // do not rewrite anchors and absolute uri
         // @todo check for absolute uri
-        if (href.substring(0, 1) != '#') {
+        if (href.substring(0, 1) != '#' && d4p.protocols.indexOf(list[0]) == -1) {
 
           // add it in the collection
           d4p.ajax.collectionSet(ids.hrefID, ids.linkID, $(this).html());
@@ -58,8 +59,9 @@
       // note sure that theses lines belongs to this modules
 
       $(d4p.navigationSelector).find('li').each(function (index) {
+          var l = '';
         if ($(this).children('a').length === 0) {
-          var l = $(this).find('ul li a:first');
+          l = $(this).find('ul li a:first');
           if (l.length == 1) {
             $(this).children('span.navtitle').click(function () {
               d4p.ajax.load(l.attr('href').replace(/^#/, ''));

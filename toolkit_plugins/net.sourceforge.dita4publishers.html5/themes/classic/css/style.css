@@ -2827,7 +2827,7 @@ details.low, details.obsolete {
  *
  */ 
 .scalable {
-	position:absolute;
+
 }
 
 .scale-button {
@@ -3009,7 +3009,6 @@ body #d4h5-section-container {
 /**/
 #local-navigation {
 	margin-left: 0px;
-	padding: 20px 0px 20px 20px;
 	outline: none;
 	-moz-box-shadow: 3px 3px 4px #ccc;
 	-webkit-box-shadow: 3px 3px 4px #ccc;
@@ -3128,7 +3127,9 @@ span.navtitle, li.collapsible a:link {
 	border-radius: 5px;
 }
 
-
+.nav-content {
+	padding:18px;
+}
 
 img {
 	max-width: 628px;

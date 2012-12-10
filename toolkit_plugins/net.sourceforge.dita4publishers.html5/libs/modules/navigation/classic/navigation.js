@@ -23,24 +23,24 @@
 
   var navigation = new d4p.module('navigation', {
   
-  	icon:'ui-icon',
+  	'icon': 'ui-icon',
   
-  	leaf:'ui-icon-triangle-1-e',
+  	'leaf': 'ui-icon-triangle-1-e',
   	
-  	leafActive:'ui-icon-triangle-1-s',
+  	'leafActive': 'ui-icon-triangle-1-s',
   	
-  	toolbar: {
-  	  id:'navToolBar',
-  	  position:'top'
+  	'toolbar': {
+  	  'id':'navToolBar',
+  	  'position':'top'
   	},
   	
-  	buttons: false,
+  	'buttons': false,
 
     // select the right entry in the navigation
     select: function () {
-      var o = this;
-      var l = d4p.l();
-      var id = d4p.ajax.collection[l.uri].id;
+      var o = this, 
+      l = d4p.l(),
+      id = d4p.ajax.collection[l.uri].id;
 
       $(d4p.navigationSelector + ' li')
         .removeClass('selected')
@@ -72,6 +72,8 @@
       
       $(d4p.navigationSelector + ' li')
         .each(function (index) {
+        
+            var span = {}, span2 = {};
 
         $(this)
           .attr('role', 'treeitem');
@@ -82,7 +84,7 @@
           .length == 1) {
 
           // create span for icone
-          var span = $("<span/>");
+          span = $("<span/>");
           span.addClass(o.icon + " " + o.leaf);
 
           span.click(function () {
@@ -102,7 +104,7 @@
             .each(function () {
 
             if (this.nodeType == 3) { // Text only
-              var span2 = $("<span />");
+              span2 = $("<span />");
               span2.addClass("navtitle");
 
               // li click handler
@@ -178,8 +180,8 @@
     },
     
     addButtons: function () {
-      var o = this;
-      var buttonExpand = $("<button/>").html("Expand All").click(function(){
+      var o = this,
+      buttonExpand = $("<button/>").html("Expand All").click(function(){
       	$(d4p.navigationSelector + ' li')
       	  .addClass('selected')
       	  .removeClass('collapsed')
@@ -187,8 +189,8 @@
         
            $("span."+o.icon).addClass(o.leafActive).removeClass(o.leaf);  
 
-        });
-      var buttonCollapse = $("<button/>").html("Collapse All").click(function(){
+        }),
+      buttonCollapse = $("<button/>").html("Collapse All").click(function(){
         o.select();
       	$(d4p.navigationSelector + ' li')
           .removeClass('selected')

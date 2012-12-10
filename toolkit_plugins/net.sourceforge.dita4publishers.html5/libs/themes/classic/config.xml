@@ -34,7 +34,9 @@
 
   <script path="core/modernizr/modernizr.dev.2.0.6.js" /> 
   <script path="core/jQuery/jquery-1.7.1.min.js" />
+  <script path="core/d4p/array.prototype.js" />
   <script path="core/d4p/d4p.js" />
+  
   <script path="core/module-prototype/module.js" />
   <script path="core/message/message.js" />
   
