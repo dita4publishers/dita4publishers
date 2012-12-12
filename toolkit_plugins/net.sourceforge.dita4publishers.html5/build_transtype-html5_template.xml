@@ -4,7 +4,10 @@
 
   <!-- test to see where the plugin is located, plugins or demo -->
   <dirname property="html5.dir" file="${ant.file.dita2html5}"/>
-
+  
+  <property name="default.settings" value="${html5.dir}/setting.properties" />
+  
+  <available file="${default.settings}" property="setting.present"/>
 
 	<target name="dita2html5"
     unless="noMap"
@@ -17,7 +20,12 @@
     unless="noMap"
     depends="dita.map.html5"/>
     
-  <target name="html5.theme.init" description="Init HTML5 theme properties">
+    <target name="load.settings" description="Load theme settings if exists" if="setting.present" unless="html5.site.theme">
+    	<echo>Loading html5.site.theme from settings</echo>
+    	<loadproperties srcFile="${default.settings}"/>
+    </target>
+    
+  <target name="html5.theme.init" depends="load.settings" description="Init HTML5 theme properties">
      <condition property="html5.site.theme" value="classic">
 		  <not>
         <isset property="html5.site.theme" />

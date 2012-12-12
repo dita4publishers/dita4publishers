@@ -166,7 +166,13 @@
     d4p.ajaxLoader.prototype.rewriteAttrSrc = function () {
         var l = d4p.l();
         this.responseText = this.responseText.replace(/(src)\s*=\s*"([^<"]*)"/g, function (match, attr, src) {
-            return attr + '="' + l.uri.substring(0, l.uri.lastIndexOf("/")) + "/" + src + '"';
+            var parts = src.split("/"), nhref = '';
+            if(d4p.protocols.indexOf(parts[0]) !== -1) {
+                nhref = src;
+            } else {
+                nhref = l.uri.substring(0, l.uri.lastIndexOf("/")) + "/" + src;   
+            }
+            return attr + '="' + nhref + '"';
         });
     },
 
@@ -176,7 +182,7 @@
     d4p.ajaxLoader.prototype.rewriteAttrHref = function () {
         var o = this;
         this.responseText = this.responseText.replace(/(href)\s*=\s*"([^<"]*)"/g, function (match, attr, href) {
-
+			console.log(href);
             var l = d4p.l(),
                 newHref = '',
                 list = href.split("/"),
@@ -185,6 +191,7 @@
                 base = dir.split("/"),
                 i = 0,
                 parts = '',
+                Array = [],
                 pathC = [],
                 nPath = [],
                 pId = '';
@@ -192,20 +199,19 @@
             base.clean("");
 
             // rewrite anchors #abc => #/abc
-            if (href.substring(0, 1) == '#') {
-                newHref = '#/' + href;
-
-                // do not rewrite external 
-            } else if (d4p.protocols.indexOf(list[0]) != -1) {
+            // do not rewrite external or absolute
+            if (href.substring(0, 1) == '#' || d4p.protocols.indexOf(list[0]) != -1 || href.substring(0, 1) == '/') {
+            
                 newHref = href;
 
+                 
             } else {
 
                 href = href.replace(d4p.ext, '');
 
                 // anchors on the same page
                 if (idx == 0) {
-                    newHref = href.substring(l.uri.length - 1);
+                    newHref = href.substring(l.uri.length);
                 } else {
 
                     parts = href.split('/');
@@ -221,8 +227,8 @@
                         
                     }
                     
-                    nPath.clean("");
-                    base.clean("");
+                    nPath.clean('');
+                    base.clean('');
 
                     pathC = dir != '' ? base.concat(nPath) : Array.concat(nPath);
                     pId = o.collection[l.uri].id;
@@ -230,7 +236,7 @@
                     newHref = '#' + pathC.join('/');
                 }
             }
-
+			console.log(attr + " " + newHref);
             return attr + '="' + newHref + '"';
         });
     },

@@ -29,6 +29,8 @@
 
 body {
 	background: #EFEFEF url(../img/subtle-patterns/subtle-pattern-1.jpg) repeat;
+	font-size:13px;
+	line-height: 1.4;
 }
 
 header h1 {

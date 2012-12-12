@@ -23,20 +23,19 @@
 }
 
 #familylinks  .link {
-	position: absolute;
 	display: block;
 	width: 50px;
 	height: 12px;
+	position:relative;	
 }
 
 #familylinks  .link a, #familylinks  .link a:link {
 	display: block;
 	height: 40px;
-	left: -40px;
 	position: relative;
 	text-indent: -10000px;
 	top: -35px;
-	width: 100px;
+	width: 50px;
 }
 
 #familylinks #rel-previous {
@@ -50,10 +49,16 @@
 }
 
 #rel-next {
-	margin-left: 100%;
+	right:25px;
 }
 
 #rel-parent {
-	text-align: center;
-	margin: 0 48%;
+    position:relative;
+	margin: 0 auto;
+	text-align:center;
+}
+
+#rel-parent .ui-icon {
+	position:relative;
+	margin:0 auto;
 }

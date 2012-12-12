@@ -2865,20 +2865,19 @@ details.low, details.obsolete {
 }
 
 #familylinks  .link {
-	position: absolute;
 	display: block;
 	width: 50px;
 	height: 12px;
+	position:relative;	
 }
 
 #familylinks  .link a, #familylinks  .link a:link {
 	display: block;
 	height: 40px;
-	left: -40px;
 	position: relative;
 	text-indent: -10000px;
 	top: -35px;
-	width: 100px;
+	width: 50px;
 }
 
 #familylinks #rel-previous {
@@ -2892,12 +2891,18 @@ details.low, details.obsolete {
 }
 
 #rel-next {
-	margin-left: 100%;
+	right:25px;
 }
 
 #rel-parent {
-	text-align: center;
-	margin: 0 48%;
+    position:relative;
+	margin: 0 auto;
+	text-align:center;
+}
+
+#rel-parent .ui-icon {
+	position:relative;
+	margin:0 auto;
 }
 /**
  * theme-01
@@ -2930,6 +2935,8 @@ details.low, details.obsolete {
 
 body {
 	background: #EFEFEF url(../img/subtle-patterns/subtle-pattern-1.jpg) repeat;
+	font-size:13px;
+	line-height: 1.4;
 }
 
 header h1 {

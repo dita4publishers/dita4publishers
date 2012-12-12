@@ -222,7 +222,12 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
       <xsl:sequence select="'&#x0a;'"/>
 
-      <!-- initial meta information -->
+      <!-- Dublin core metadata -->
+      <!-- Provide schema -->
+      <link rel="schema.DC" href="http://purl.org/dc/terms/" />
+      
+      <!-- add meta schema -->
+      <!-- to do: fix it for html5 -->
       <xsl:call-template name="getMeta"/>
       
       <xsl:call-template name="copyright"/>   
