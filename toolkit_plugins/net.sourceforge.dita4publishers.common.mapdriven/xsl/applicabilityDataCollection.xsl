@@ -27,13 +27,13 @@
     ================================================================= -->    
   
   <xsl:template match="*[df:class(., 'map/map')]" mode="collect-applicability-data">
-    <!-- At some future time, interpret D4P enumeration metadata to configure enumerable
-         processing.
-    -->
     <xsl:message> + [INFO] map/map Constructing applicability structure...</xsl:message>
     <xsl:variable name="conditions" as="node()*">
       <conditions>
+    <!--  WEK: Commenting this out for now as it can add 10x performance cost.
+    Need to diagnose and improve.
         <xsl:apply-templates mode="gather-applicability-usage"/>
+        -->
       </conditions>
     </xsl:variable>
 <!--    <xsl:message> + [DEBUG] conditions=
