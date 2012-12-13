@@ -87,6 +87,9 @@
   <!-- FIXME: Parameterize the location of the JavaScript directory -->
   <xsl:param name="mathJaxLocalJavascriptUri" select="'js/mathjax/MathJax.js'"/>
   
+  <!-- Parameter used in commonHtmlExtensionSupport.xsl -->
+  <xsl:param name="include.roles" as="xs:string" select="''"/>
+  
   <xsl:template name="report-parameters" match="*" mode="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
     <xsl:message>
