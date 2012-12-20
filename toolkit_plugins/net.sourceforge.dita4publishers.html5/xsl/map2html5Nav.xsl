@@ -33,7 +33,40 @@
 -->
   <xsl:output indent="yes" name="javascript" method="text"/>
 
+ <!-- choose navigation markup type 
+        will be used later to offer alternate markup for navigation
+   -->
 
+   <xsl:template match="*" mode="choose-html5-nav-markup">
+    <xsl:message> + [INFO] Generating HTML5 <xsl:value-of select="$NAVIGATIONMARKUP" />navigation ...</xsl:message>
+   <xsl:choose>
+        <!-- 
+        	Experimental
+        -->
+          <xsl:when test="$NAVIGATIONMARKUP='navigation-tabbed'">
+          	<xsl:message> + [WARNING] This code is experimental !</xsl:message>
+            <xsl:apply-templates select="." mode="generate-html5-nav-tabbed-markup"/>
+          </xsl:when>
+          
+          <xsl:when test="$NAVIGATIONMARKUP='navigation-ico'">
+          	<xsl:message> + [WARNING] This code is experimental !</xsl:message>
+            <xsl:apply-templates select="." mode="generate-html5-nav-ico-markup"/>
+          </xsl:when>
+          
+           <xsl:when test="$NAVIGATIONMARKUP='navigation-whole-page'">
+          	<xsl:message> + [WARNING] This code is experimental !</xsl:message>
+            <xsl:apply-templates select="." mode="generate-html5-nav-whole-page"/>
+          </xsl:when>
+          
+          <xsl:otherwise>
+            <!-- This mode generates the navigation structure (ToC) on the
+                index.html page, that is, the main navigation structure.
+             -->
+            <xsl:apply-templates select="." mode="generate-html5-nav-page-markup"/>
+          </xsl:otherwise>
+        </xsl:choose>
+  </xsl:template>
+  
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-html5-nav">
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>
 
@@ -242,6 +275,39 @@
   </xsl:template>
 
   <xsl:template match="text()" mode="generate-html5-nav"/>
+  
+  
+    <!--
+  
+  -->
+   
+ 	<xsl:template match="@*|node()" mode="fix-navigation-href">
+		<xsl:copy>
+			<xsl:apply-templates select="@*|node()" mode="fix-navigation-href"/>
+		</xsl:copy>
+    </xsl:template>
+    
+    <xsl:template match="@href" mode="fix-navigation-href">
+
+    	<xsl:param name="relativePath" as="xs:string" select="''" tunnel="yes" />
+    	<xsl:variable name="prefix">
+  	    	<xsl:choose>
+  	    		<xsl:when test="substring(., 1, 1) = '#'">
+  	    			<xsl:value-of select="''" />
+  	    		</xsl:when>
+  	    		<xsl:when test="substring(., 1, 1) = '/'">
+  	    			<xsl:value-of select="''" />
+  	    		</xsl:when>
+  	    		<xsl:otherwise>
+  	    			<xsl:value-of select="$relativePath" />
+  	    		</xsl:otherwise>
+  	    	    	
+  	    	</xsl:choose>
+  	    	</xsl:variable>
+    		
+    		
+		<xsl:attribute name="href" select="concat($prefix, .)"/>
+    </xsl:template>
 
   <xsl:function name="local:isNavPoint" as="xs:boolean">
     <!-- FIXME: Factor this out to a common function library. It's also

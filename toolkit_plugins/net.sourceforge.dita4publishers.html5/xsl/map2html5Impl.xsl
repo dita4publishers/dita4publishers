@@ -41,7 +41,9 @@
   <xsl:include href="map2html5Template.xsl"/>
   <xsl:include href="nav-point-title.xsl"/>
   <xsl:include href="commonHtmlExtensionSupport.xsl"/>     
-  
+  <xsl:include href="javascripts.xsl"/>
+  <xsl:include href="css.xsl"/>    
+  <xsl:include href="i18n.xsl"/>  
   
   <xsl:param name="dita-css" select="'css/topic-html5.css'" as="xs:string"/>
   <xsl:param name="TRANSTYPE" select="'html5'" />
@@ -53,6 +55,10 @@
   <xsl:param name="CSSTHEME" select="''" />
   <xsl:param name="NAVIGATIONMARKUP" select="'default'" />
   <xsl:param name="JSONVARFILE" select="''" />
+  
+  <xsl:param name="HTML5THEMEDIR" select="'themes'" />
+  <xsl:param name="HTML5THEMECONFIG" select="''" />
+  <xsl:param name="HTML5THEMECONFIGDOCUMENT" select="document($HTML5THEMECONFIG)" /> 
 
   <xsl:param name="IDMAINCONTAINER" select="'d4h5-main-container'" />
   <xsl:param name="CLASSMAINCONTAINER" select="''" />

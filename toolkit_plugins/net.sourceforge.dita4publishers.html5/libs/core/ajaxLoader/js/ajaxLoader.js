@@ -182,7 +182,7 @@
     d4p.ajaxLoader.prototype.rewriteAttrHref = function () {
         var o = this;
         this.responseText = this.responseText.replace(/(href)\s*=\s*"([^<"]*)"/g, function (match, attr, href) {
-			console.log(href);
+			
             var l = d4p.l(),
                 newHref = '',
                 list = href.split("/"),
@@ -236,7 +236,7 @@
                     newHref = '#' + pathC.join('/');
                 }
             }
-			console.log(attr + " " + newHref);
+			
             return attr + '="' + newHref + '"';
         });
     },

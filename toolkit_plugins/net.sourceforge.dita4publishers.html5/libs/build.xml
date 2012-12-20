@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="YUI Compressor" default="package.compress" basedir=".">
+<project name="html5compressor" default="package.compress" basedir=".">
 
 	<loadproperties srcFile="shared.properties"/>
+	
+	<dirname property="html5compressor.dir" file="${ant.file.html5compressor}"/>
 	
 	<condition property="properties" value="classic">
     	<not>
@@ -71,17 +73,67 @@
 		</concat>
 	</target>
 
-	<target name="package.copy.assets">
+	<target name="package.copy.assets" unless="package.copy.assets.done">
     
-    	<copy todir="${build.dir}/${fonts.dir}">
+    <echo> 
+    [info] Copy fonts </echo>
+    <copy todir="${build.dir}/${fonts.dir}">
       <fileset dir="${lib.html5.dir.fonts}"/>
     </copy>
+    
+    <echo>      
+      [info] Copy images   
+      </echo>
 
-		<mkdir dir="${build.dir}/${build.img.dir}"/>
-		<copy todir="${build.dir}/${build.img.dir}/">
-      <fileset dir="${lib.html5.dir.img}"/>
+	<mkdir dir="${build.dir}/${build.img.dir}"/>
+	<mkdir dir="${build.dir}/${build.fonts.dir}"/>
+	
+	<filelist id="html5.style.css.path"
+        dir="."
+        files="${html5.style}"/> 
+        
+    <pathconvert property="path.converted" pathsep="," refid="html5.style.css.path">
+      <mapper type="regexp" from="^${html5compressor.dir}/(.*)/.*.css"  to="\1/img/"/>
+    </pathconvert>
+    
+     <pathconvert property="font.path.converted" pathsep="," refid="html5.style.css.path">
+      <mapper type="regexp" from="^${html5compressor.dir}/(.*)/.*.css"  to="\1/fonts/"/>
+    </pathconvert>
+    
+    
+	<echo message="path.converted is ${path.converted}" />
+	    	
+	<fileset id="html5.style.path" dir=".">
+		<patternset includes="${path.converted}">
+			<exclude name="*.css" />
+			<exclude name="*.js" />			
+		</patternset>
+	</fileset>
+	
+	<fileset id="html5.fonts.path" dir=".">
+		<type type="file"/>
+		<patternset includes="${font.path.converted}">		
+			<exclude name="*.css" />
+			<exclude name="*.js" />	
+			<include name="**/**.otf" />
+			<include name="**/**.woff" />
+			<include name="**/**.ttf" />		
+		</patternset>
+	</fileset>
+	
+	<echo message="My build-path is ${toString:html5.style.path}" />          
+    
+    <copy todir="${build.dir}/${build.img.dir}" failonerror="false" force="true" flatten="true">
+ 		<fileset refid="html5.style.path" />
+    </copy>
+    
+     <copy todir="${build.dir}/${build.fonts.dir}" failonerror="false" force="true" flatten="true">
+ 		<fileset refid="html5.fonts.path" />
     </copy>
 
+	<property name="package.copy.assets" value="true" />
+
 	</target>
+	
 	
 </project>

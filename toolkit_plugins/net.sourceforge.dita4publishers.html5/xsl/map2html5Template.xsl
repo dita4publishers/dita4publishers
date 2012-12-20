@@ -58,12 +58,10 @@
   <xsl:variable name="indexUri" select="concat('index', $OUTEXT)"/>
 
   <xsl:message> + [INFO] Generating index document <xsl:sequence select="$indexUri"/>...</xsl:message>
+  
   <xsl:result-document href="{$indexUri}" format="indented-xml">
-
-    <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>
-  
-      <xsl:apply-templates select="." mode="generate-html5-page"/>
-  
+      <xsl:text disable-output-escaping="yes">&lt;!DOCTYPE html&gt;</xsl:text>  
+      <xsl:apply-templates select="." mode="generate-html5-page"/> 
   </xsl:result-document>
 </xsl:template>
 
@@ -97,66 +95,17 @@
     <html>
     
       <xsl:attribute name = "lang"><xsl:call-template name="getLowerCaseLang"/></xsl:attribute>
-      
-    <xsl:attribute name = "xml:lang"><xsl:call-template name="getLowerCaseLang"/></xsl:attribute>
-      
+      <xsl:attribute name = "xml:lang"><xsl:call-template name="getLowerCaseLang"/></xsl:attribute>      
       <xsl:sequence select="'&#x0a;'"/>
   
-      <xsl:apply-templates select="." mode="generate-head"/>
-     
+      <xsl:apply-templates select="." mode="generate-head"/>     
       <xsl:apply-templates select="." mode="generate-body"/>
 
     </html>
   </xsl:template>  
-  
-  <!-- 
-    used to generate the js links 
-    FIXME: find a way to translate javascript variables.
-    ex: d4h5.locale: {
-      'property': 'value',
-      'property2': 'value2',    
-    }
-  -->
-  <xsl:template match="*" mode="generate-javascript-includes">
-  	<xsl:param name="relativePath" as="xs:string" select="''" tunnel="yes" />
-  	
-    <script type="text/javascript" src="{relpath:fixRelativePath($relativePath, $JS)}">
-  		<xsl:sequence select="'&#x0a;'"/>
-  	</script>
-    <xsl:sequence select="'&#x0a;'"/>
-    
-    <xsl:variable name="json" as="xs:string" select="unparsed-text($JSONVARFILE, 'UTF-8')"/>
+   
 
-    <script type="text/javascript">
-   		<xsl:sequence select="'&#x0a;'"/>
-		<xsl:value-of select="$json" /><xsl:text>;</xsl:text>
-		<xsl:sequence select="'&#x0a;'"/>		
-   		<xsl:text>$(function(){d4p.init({</xsl:text>
-   		<xsl:text>relativePath:'</xsl:text><xsl:value-of select="$relativePath"/><xsl:text>'</xsl:text>
-   		<xsl:if test="$jsoptions != ''">
-   			<xsl:text>, </xsl:text>
-			<xsl:value-of select="$jsoptions" />
-		</xsl:if>
-		<xsl:text>});});</xsl:text>
-	</script><xsl:sequence select="'&#x0a;'"/>
 
-  </xsl:template>
-
-  <!-- used to generate the css links -->
-  <xsl:template match="*" mode="generate-css-includes">
-  <!-- prevent aboslute path to be rewritten -->
-  	<xsl:param name="relativePath" as="xs:string" select="''" tunnel="yes" />
-    	
-  	<xsl:if test="$CSS!=''">
-     	<link rel="stylesheet" type="text/css" href="{relpath:fixRelativePath($relativePath, $CSS)}" />
-    </xsl:if>
-    
-    <xsl:sequence select="'&#x0a;'"/>
-    
-    <link rel="stylesheet" type="text/css" href="{relpath:fixRelativePath($relativePath, $CSSTHEME)}" />
-    	<xsl:sequence select="'&#x0a;'"/>
-    
-  </xsl:template>
   
 
   <!-- page links are intented to be used for screen reader -->
@@ -339,39 +288,7 @@
     </div>
   </xsl:template>
   
-  <!-- choose navigation markup type 
-        will be used later to offer alternate markup for navigation
-   -->
-
-   <xsl:template match="*" mode="choose-html5-nav-markup">
-    <xsl:message> + [INFO] Generating HTML5 <xsl:value-of select="$NAVIGATIONMARKUP" />navigation ...</xsl:message>
-   <xsl:choose>
-        <!-- 
-        	Experimental
-        -->
-          <xsl:when test="$NAVIGATIONMARKUP='navigation-tabbed'">
-          	<xsl:message> + [WARNING] This code is experimental !</xsl:message>
-            <xsl:apply-templates select="." mode="generate-html5-nav-tabbed-markup"/>
-          </xsl:when>
-          
-          <xsl:when test="$NAVIGATIONMARKUP='navigation-ico'">
-          	<xsl:message> + [WARNING] This code is experimental !</xsl:message>
-            <xsl:apply-templates select="." mode="generate-html5-nav-ico-markup"/>
-          </xsl:when>
-          
-           <xsl:when test="$NAVIGATIONMARKUP='navigation-whole-page'">
-          	<xsl:message> + [WARNING] This code is experimental !</xsl:message>
-            <xsl:apply-templates select="." mode="generate-html5-nav-whole-page"/>
-          </xsl:when>
-          
-          <xsl:otherwise>
-            <!-- This mode generates the navigation structure (ToC) on the
-                index.html page, that is, the main navigation structure.
-             -->
-            <xsl:apply-templates select="." mode="generate-html5-nav-page-markup"/>
-          </xsl:otherwise>
-        </xsl:choose>
-  </xsl:template>
+ 
   
   <!-- generate html5 footer -->
   <xsl:template match="*" mode="generate-footer">  	
@@ -380,40 +297,7 @@
 		<xsl:call-template name="processFTR"/>
 		<xsl:sequence select="'&#x0a;'"/>
 	</div>
-  </xsl:template>
-  
-  <!--
-  
-  -->
-   
- 	<xsl:template match="@*|node()" mode="fix-navigation-href">
-		<xsl:copy>
-			<xsl:apply-templates select="@*|node()" mode="fix-navigation-href"/>
-		</xsl:copy>
-    </xsl:template>
-    
-    <xsl:template match="@href" mode="fix-navigation-href">
-
-    	<xsl:param name="relativePath" as="xs:string" select="''" tunnel="yes" />
-    	<xsl:variable name="prefix">
-  	    	<xsl:choose>
-  	    		<xsl:when test="substring(., 1, 1) = '#'">
-  	    			<xsl:value-of select="''" />
-  	    		</xsl:when>
-  	    		<xsl:when test="substring(., 1, 1) = '/'">
-  	    			<xsl:value-of select="''" />
-  	    		</xsl:when>
-  	    		<xsl:otherwise>
-  	    			<xsl:value-of select="$relativePath" />
-  	    		</xsl:otherwise>
-  	    	    	
-  	    	</xsl:choose>
-  	    	</xsl:variable>
-    		
-    		
-		<xsl:attribute name="href" select="concat($prefix, .)"/>
-    </xsl:template>
-    
+  </xsl:template>    
 
   		
   <!-- 

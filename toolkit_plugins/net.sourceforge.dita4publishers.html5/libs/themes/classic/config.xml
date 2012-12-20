@@ -3,67 +3,70 @@
   <style path="modules/960js/code/css/reset.css" />
   <style path="modules/960js/code/css/960_24_col.css" />
   <style path="modules/960js/code/css/text.css" />
+  
+  <style path="misc/fonts/vegur/css/vegur.css" /> 
     
-  <style path="core/d4p/d4p.css" />
-  <style path="core/d4p/layout.css" />  
-  <style path="core/d4p/tools.css" />  
-  <style path="core/d4p/dita.css" />
-  <style path="core/d4p/table.css" />
-  <style path="core/d4p/list.css" />  
-  <style path="core/d4p/images.css" />  
-  <style path="core/ajaxLoader/loader.css" />  
-  <style path="core/message/message.css" />
-  <style path="core/d4p/buttons.css" />    
+  <style path="core/d4p/css/d4p.css" />
+  <style path="core/d4p/css/tools.css" />  
+  <style path="core/d4p/css/dita.css" />
+  <style path="core/d4p/css/table.css" />
+  <style path="core/d4p/css/list.css" />  
+  <style path="core/d4p/css/images.css" />  
+  <style path="core/ajaxLoader/css/loader.css" />  
+  <style path="core/message/css/message.css" />
+  <style path="core/d4p/css/buttons.css" />  
+  
+  <style path="core/layout/css/layout.css" />    
   
   <style path="modules/ui/jQuery-ui/jQuery-ui/themes/d4p-default/jquery.ui.accordion.css" />     
   <style path="modules/ui/jQuery-ui/jQuery-ui/themes/d4p-default/jquery.ui.core.css" />
   <style path="modules/ui/jQuery-ui/jQuery-ui/themes/d4p-default/jquery.ui.theme.css" />
   <style path="modules/ui/jQuery-ui/jQuery-ui/themes/d4p-default/jquery.ui.accordion.css" />
  
-  <style path="modules/navigation/classic/navigation.css" />
-  <style path="modules/navigation/classic/collapsible-navigation.css" />
+  <style path="modules/navigation/classic/css/navigation.css" />
+  <style path="modules/navigation/classic/css/collapsible-navigation.css" />
 
-  <style path="modules/columns/columns.css" />
+  <style path="modules/columns/css/columns.css" />
 
-  <style path="modules/notes/notes.css" /> 
+  <style path="modules/notes/css/notes.css" /> 
 
-  <style path="modules/ui/jQuery-ui/scale2fit/scale2fit.css" /> 
-  <style path="modules/reltable/reltable.css" /> 
+  <style path="modules/ui/jQuery-ui/scale2fit/css/scale2fit.css" /> 
+  <style path="modules/reltable/css/reltable.css" /> 
   
-  <style path="themes/classic/theme.css" /> 
+  <style path="themes/classic/css/theme.css" /> 
 
   <script path="core/modernizr/modernizr.dev.2.0.6.js" /> 
   <script path="core/jQuery/jquery-1.7.1.min.js" />
-  <script path="core/d4p/array.prototype.js" />
-  <script path="core/d4p/d4p.js" />
+  <script path="core/d4p/js/array.prototype.js" />
+  <script path="core/d4p/js/d4p.js" />
   
-  <script path="core/module-prototype/module.js" />
-  <script path="core/message/message.js" />
+  <script path="core/module-prototype/js/module.js" />
+  <script path="core/message/js/message.js" />
   
   <!-- carefull in this order -->
-  <script path="core/ajaxLoader/ajaxLoader.js" />
-  <script path="core/ajaxLoader/ajaxnav.js" />  
+  <script path="core/ajaxLoader/js/ajaxLoader.js" />
+  <script path="core/ajaxLoader/js/ajaxnav.js" />  
   
   
-  <script path="modules/navigation/classic/navigation.js" />  
-  <script path="modules/ui/jQuery-ui/adapter/ui.js" />
+  <script path="modules/navigation/classic/js/navigation.js" />  
+  <script path="modules/ui/jQuery-ui/adapter/js/ui.js" />
   <script path="modules/ui/jQuery-ui/jQuery-ui/ui/jquery.ui.core.js" />
   <script path="modules/ui/jQuery-ui/jQuery-ui/ui/jquery.ui.widget.js" />
   
-  <script path="modules/ui/jQuery-ui/accordion/accordion.js" /> 
+  <script path="modules/ui/jQuery-ui/accordion/js/accordion.js" /> 
   <script path="modules/ui/jQuery-ui/jQuery-ui/ui/jquery.ui.accordion.js" /> 
   
-  <script path="modules/ui/jQuery-ui/cycle/cycle.js" /> 
-  <script path="modules/ui/jQuery-ui/cycle/jquery.cycle.js" /> 
+  <script path="modules/ui/jQuery-ui/cycle/js/cycle.js" /> 
+  <script path="modules/ui/jQuery-ui/cycle/js/jquery.cycle.js" /> 
 
-  <script path="modules/ui/jQuery-ui/scale2fit/scale2fit.js" /> 
+  <script path="modules/ui/jQuery-ui/scale2fit/js/scale2fit.js" /> 
 
   <class>
   	<body>img-with-shadow marginalia</body>
   	<navigation>grid_8</navigation>
   </class>
   
-  <!--theme>
+  <theme>
   	<compile>true</compile>
-  </theme-->
+  </theme>
 </html5>
