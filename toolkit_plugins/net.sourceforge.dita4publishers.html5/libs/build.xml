@@ -73,17 +73,8 @@
 		</concat>
 	</target>
 
-	<target name="package.copy.assets" unless="package.copy.assets.done">
+	<target name="package.copy.assets" description="List and copy all assets to copy (images, fonts) into the compressed theme directory" unless="package.copy.assets.done">
     
-    <echo> 
-    [info] Copy fonts </echo>
-    <copy todir="${build.dir}/${fonts.dir}">
-      <fileset dir="${lib.html5.dir.fonts}"/>
-    </copy>
-    
-    <echo>      
-      [info] Copy images   
-      </echo>
 
 	<mkdir dir="${build.dir}/${build.img.dir}"/>
 	<mkdir dir="${build.dir}/${build.fonts.dir}"/>
@@ -92,39 +83,45 @@
         dir="."
         files="${html5.style}"/> 
         
-    <pathconvert property="path.converted" pathsep="," refid="html5.style.css.path">
-      <mapper type="regexp" from="^${html5compressor.dir}/(.*)/.*.css"  to="\1/img/"/>
+    <pathconvert property="img.path.converted" pathsep="," refid="html5.style.css.path">
+      <mapper type="regexp" from="^${html5compressor.dir}/(.*)/(.*)/.*.css"  to="\1/\2/img/"/>
     </pathconvert>
     
+    <echo>path.converted: ${img.path.converted}</echo>
+
      <pathconvert property="font.path.converted" pathsep="," refid="html5.style.css.path">
-      <mapper type="regexp" from="^${html5compressor.dir}/(.*)/.*.css"  to="\1/fonts/"/>
+      <mapper type="regexp" from="^${html5compressor.dir}/(.*)/(.*)/css/.*.css"  to="\1/\2/fonts/"/>
     </pathconvert>
     
-    
-	<echo message="path.converted is ${path.converted}" />
+      <echo>path.converted: ${font.path.converted}</echo>
+
 	    	
-	<fileset id="html5.style.path" dir=".">
-		<patternset includes="${path.converted}">
+	<fileset id="html5.imgs.path" dir=".">
+		<patternset includes="${img.path.converted}">
 			<exclude name="*.css" />
 			<exclude name="*.js" />			
 		</patternset>
 	</fileset>
+	
+		<echo>Img path</echo>
+	<echo message="Img path is ${toString:html5.imgs.path}" />    
 	
 	<fileset id="html5.fonts.path" dir=".">
 		<type type="file"/>
 		<patternset includes="${font.path.converted}">		
 			<exclude name="*.css" />
 			<exclude name="*.js" />	
-			<include name="**/**.otf" />
-			<include name="**/**.woff" />
-			<include name="**/**.ttf" />		
+			<include name="*.otf" />
+			<include name="*.woff" />
+			<include name="*.ttf" />		
 		</patternset>
 	</fileset>
 	
-	<echo message="My build-path is ${toString:html5.style.path}" />          
+	<echo>Font path</echo>
+	<echo message="Font path is ${toString:html5.fonts.path}" />          
     
     <copy todir="${build.dir}/${build.img.dir}" failonerror="false" force="true" flatten="true">
- 		<fileset refid="html5.style.path" />
+ 		<fileset refid="html5.imgs.path" />
     </copy>
     
      <copy todir="${build.dir}/${build.fonts.dir}" failonerror="false" force="true" flatten="true">

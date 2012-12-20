@@ -1,0 +1,24 @@
+/** Font face **/
+@font-face {
+	font-family: "Vegur Regular";
+    src: url("../fonts/Vegur-R.otf");
+}
+
+@font-face {
+	font-family: "Vegur Bold";
+    src: url("../fonts/Vegur-B.otf");
+}
+
+@font-face {
+	font-family: "Vegur Medium";
+    src: url("../fonts/Vegur-M.otf");
+}
+
+@font-face {
+	font-family: "Vegur Light";
+    src: url("../fonts/Vegur-L.otf");
+}
+
+.fontface #d4h5-main-content h1, .fontface header h1, .fontface #d4h5-main-content h2, .fontface #d4h5-main-content  h3, #d4h5-main-content  .fontface  h4, .fontface #d4h5-main-content h5, .fontface #d4h5-main-content  h6 {
+	font-family: "Vegur Regular", sans-serif;
+}
