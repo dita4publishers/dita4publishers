@@ -84,7 +84,7 @@
         files="${html5.style}"/> 
         
     <pathconvert property="img.path.converted" pathsep="," refid="html5.style.css.path">
-      <mapper type="regexp" from="^${html5compressor.dir}/(.*)/(.*)/.*.css"  to="\1/\2/img/"/>
+      <mapper type="regexp" from="^${html5compressor.dir}/(.*)/(.*)/css/.*.css"  to="\1/\2/img/"/>
     </pathconvert>
     
     <echo>path.converted: ${img.path.converted}</echo>
