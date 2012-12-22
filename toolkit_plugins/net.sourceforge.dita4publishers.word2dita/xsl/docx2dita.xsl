@@ -142,13 +142,20 @@ version="2.0">
       </xsl:result-document>
     </xsl:if>
     <xsl:variable name="simpleWpDoc"
-      as="element()"
+      as="document-node()"
     >
-      <xsl:apply-templates select="$simpleWpDocBase" mode="simpleWpDoc-fixup"/>
+      <xsl:document>
+        <xsl:apply-templates select="$simpleWpDocBase" mode="simpleWpDoc-fixup"/>
+      </xsl:document>
     </xsl:variable>
     <xsl:apply-templates
-      select="$simpleWpDoc">
-      <xsl:with-param name="resultUrl" select="relpath:newFile($outputDir, 'temp.output')" tunnel="yes"/>
+      select="$simpleWpDoc/*"
+      >
+      <xsl:with-param 
+        name="resultUrl" 
+        select="relpath:newFile($outputDir, 'temp.output')" 
+        tunnel="yes"        
+      />
     </xsl:apply-templates>
     <xsl:message> + [INFO] Done.</xsl:message>
   </xsl:template>

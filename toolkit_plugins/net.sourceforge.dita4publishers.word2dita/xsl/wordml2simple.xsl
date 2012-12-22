@@ -201,23 +201,20 @@
       <!-- FIXME: This code is not doing anything specific with smartTag elements, just
                   processing their children. Doing something intelligent with smartTags
                   would require additional logic.
+                  
+                  WEK: Not sure why I've used this for-each-group logic, but I think it's because Word
+                  doesn't require the elements specific to a given kind of thing to occur in sequence.
+                  
+                  But it seems like it ought to be possible to handle these elements using normal
+                  apply-templates.
         -->
-      <xsl:for-each-group select="w:r | w:hyperlink | w:smartTag/w:r" group-adjacent="name(.)">
+      <xsl:for-each-group 
+        select="*" 
+        group-adjacent="name(.)">
         <xsl:if test="$debugBoolean">
           <xsl:message> + [DEBUG] handlePara: current-group()[1]=<xsl:sequence select="current-group()[1]"/></xsl:message>
         </xsl:if>
         <xsl:choose>
-          <xsl:when test="current-group()[1][self::w:hyperlink]">
-            <!-- FIXME: This is a hack. Correct processing of hyperlinks needs to be
-              much more sophisticated. This code is essentially ignoring the link aspect
-              of the hyperlink.
-            -->
-            <xsl:for-each select="current-group()">
-              <xsl:call-template name="handleRunSequence">
-                <xsl:with-param name="runSequence" select="w:r"/>
-              </xsl:call-template>              
-            </xsl:for-each>
-          </xsl:when>
           <xsl:when test="current-group()[1][self::w:r/w:endnoteReference]">
             <xsl:if test="$debugBoolean">
               <xsl:message> + [DEBUG] handlePara: handling w:r/w:endnoteReference</xsl:message>
@@ -252,7 +249,7 @@
             </xsl:for-each>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:message terminate="yes"> - [ERROR] handlePara(): Unhandled element type <xsl:sequence select="name(.)"/></xsl:message>
+            <xsl:apply-templates select="current-group()"/><!-- default, just handle normally -->
           </xsl:otherwise>
         </xsl:choose>
         
@@ -393,9 +390,24 @@
     <xsl:apply-templates/>
   </xsl:template>
   
+  <xsl:template match="w:bookmarkStart">
+    <bookmarkStart 
+      name="{@w:name}" 
+      id="{@w:id}"
+    />
+  </xsl:template>
+
+  <xsl:template match="w:bookmarkEnd">
+    <bookmarkEnd 
+      name="{@w:id}"
+    />
+  </xsl:template>
+  
+  
   <xsl:template match="w:hyperlink">
     <xsl:param name="relsDoc" as="document-node()?" tunnel="yes"/>
     
+    <xsl:message> + [DEBUG] w:hyperlink</xsl:message>
     <xsl:variable name="runStyle" select="local:getHyperlinkStyle(.)" as="xs:string"/>
     <xsl:variable name="styleMapByName" as="element()?"
       select="key('styleMapsByName', lower-case($runStyle), $styleMapDoc)[1]"
@@ -424,23 +436,21 @@
     <xsl:variable name="rel" as="element()?"
       select="key('relsById', @r:id, $relsDoc)"
     />
-    <xsl:if test="not($rel)"></xsl:if>
+    <!-- if there is to @Target, then the
+         hyperlink is either to an external URI or
+         to an internal bookmark
+      -->
     <xsl:variable name="href" as="xs:string"
       select="
          if ($rel)
          then string($rel/@Target)
-         else 'urn:unknown-target'
+         else
+          if (matches(@href, '^\w+:'))
+             then @href
+             else string(@w:anchor)
       "  
     />
-    <xsl:variable name="scope" as="xs:string"
-      select="
-        if ($rel/@TargetMode)
-        then lower-case($rel/@TargetMode)
-        else 'external'
-      "
-    />
-    
-    <hyperlink href="{$href}" scope="{$scope}"
+    <hyperlink href="{$href}"
       >
       <xsl:for-each select="$runStyleData/@*">
         <xsl:copy/>
