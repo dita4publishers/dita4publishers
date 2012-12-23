@@ -49,7 +49,7 @@
   <xsl:template match="*" mode="generate-d4p-uncompressed-javascript">
     <xsl:param name="relativePath" as="xs:string" select="''" tunnel="yes" />
   	<xsl:message> + [INFO] Debug mode on, render individual script link </xsl:message>
-    <xsl:for-each select="$HTML5THEMECONFIGDOCUMENT/html5/script">
+    <xsl:for-each select="$HTML5THEMECONFIGDOC/html5/script">
     	<xsl:message><xsl:sequence select="." /></xsl:message>
     	<script type="text/javascript" charset="utf-8" src="{relpath:fixRelativePath($relativePath, concat($HTML5THEMEDIR, '/', @path))}"></script><xsl:sequence select="'&#x0a;'"/>
     </xsl:for-each>
@@ -80,21 +80,34 @@
   
  <xsl:template match="*" mode="generate-d4p-javascript-initializer">
    <xsl:param name="relativePath" as="xs:string" select="''" tunnel="yes" />
-   <xsl:variable name="json" as="xs:string" select="unparsed-text($JSONVARFILE, 'UTF-8')"/>
+   <xsl:variable name="json" as="xs:string">
+   
+   
+   	<xsl:choose>
+   		<xsl:when test="$JSONVARFILE!=''">
+   			<xsl:value-of select="unparsed-text($JSONVARFILE, 'UTF-8')" />
+   		</xsl:when>
+   		<xsl:otherwise><xsl:value-of select="''" /></xsl:otherwise>
+   	</xsl:choose>
+   </xsl:variable>
+   
+	<xsl:if test="$HTML5THEMECONFIGDOC/html5/d4p/init">
+    	<script type="text/javascript"><xsl:sequence select="'&#x0a;'"/>
+   		  		
+   		<xsl:if test="$json != ''">
+			<xsl:value-of select="$json" /><xsl:text>;</xsl:text>
+			<xsl:sequence select="'&#x0a;'"/>
+		</xsl:if>	
 
-    <script type="text/javascript">
-   		<xsl:sequence select="'&#x0a;'"/>
-		<xsl:value-of select="$json" /><xsl:text>;</xsl:text>
-		<xsl:sequence select="'&#x0a;'"/>		
    		<xsl:text>$(function(){d4p.init({</xsl:text>
    		<xsl:text>relativePath:'</xsl:text><xsl:value-of select="$relativePath"/><xsl:text>'</xsl:text>
-   		<xsl:if test="$jsoptions != ''">
+   	
    			<xsl:text>, </xsl:text>
 			<xsl:value-of select="$jsoptions" />
-		</xsl:if>
+	
 		<xsl:text>});});</xsl:text>
-	</script><xsl:sequence select="'&#x0a;'"/>
- 
+		</script><xsl:sequence select="'&#x0a;'"/>
+ 	</xsl:if>
  </xsl:template>
  
 </xsl:stylesheet>

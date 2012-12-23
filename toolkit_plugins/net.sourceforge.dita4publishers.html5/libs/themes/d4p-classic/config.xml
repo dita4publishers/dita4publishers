@@ -17,8 +17,8 @@
   <style path="core/d4p/css/buttons.css" />  
   
   <style path="core/layout/css/layout.css" />    
-  <style path="core/layout/css/ui-icons.css" />    
-   
+  <style path="core/layout/css/ui-icons.css" />  
+  
   <style path="modules/ui/jQuery-ui/jQuery-ui/themes/d4p-default/jquery.ui.accordion.css" />     
   <style path="modules/ui/jQuery-ui/jQuery-ui/themes/d4p-default/jquery.ui.core.css" />
   <style path="modules/ui/jQuery-ui/jQuery-ui/themes/d4p-default/jquery.ui.theme.css" />
@@ -34,7 +34,7 @@
   <style path="modules/ui/jQuery-ui/scale2fit/css/scale2fit.css" /> 
   <style path="modules/reltable/css/reltable.css" /> 
   
-  <style path="themes/classic/css/theme.css" /> 
+  <style path="themes/d4p-classic/css/theme.css" /> 
 
   <script path="core/modernizr/modernizr.dev.2.0.6.js" /> 
   <script path="core/jQuery/jquery-1.7.1.min.js" />
@@ -61,12 +61,16 @@
   <script path="modules/ui/jQuery-ui/cycle/js/jquery.cycle.js" /> 
 
   <script path="modules/ui/jQuery-ui/scale2fit/js/scale2fit.js" /> 
+  
+  <d4p>
+  	<init>true</init>
+  </d4p>
 
   <class>
   	<body>img-with-shadow marginalia</body>
   	<navigation>grid_8</navigation>
   </class>
-  
+    
   <theme>
   	<compile>true</compile>
   </theme>

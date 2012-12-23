@@ -26,7 +26,7 @@
     </target>
     
   <target name="html5.theme.init" depends="load.settings" description="Init HTML5 theme properties">
-     <condition property="html5.site.theme" value="classic">
+     <condition property="html5.site.theme" value="d4p-classic">
 		  <not>
         <isset property="html5.site.theme" />
       </not>
@@ -69,6 +69,9 @@
         <isset property="html5.site.js.vars" />
       </not>
 	</condition>
+	
+	
+    <available file="${html5.site.js.vars}" property="html5.site.js.vars.exists"/>
 	
 	<condition property="html5.themes.output.dir" value="themes">
 	  <not>
@@ -315,20 +318,33 @@
   	<echo message="+++ html5-specific properties:"/>
   	<echoproperties format="text" regex="^(html5|html2|css|user|out\.)" taskname="echo"/>
   </target>
+  
+  <target name="check-html5-json-vars-urls" if="html5.site.js.vars.exists">
+  
+      <makeurl file="${d4p.html5.json.vars.file}" property="d4p.html5.json.vars.file.url"/>
+      
+  </target>
 
-  <target name="dita.map.html5" depends="dita.map.html5.init, html5-copy-assets, html5-copy-libs, xmltojsonvars"
+  <target name="dita.map.html5" depends="dita.map.html5.init, html5-copy-assets, html5-copy-libs, xmltojsonvars, check-html5-json-vars-urls"
   	description="Generate html5 components from input map and topics">
 
   	<mkdir dir="${html5.temp.dir}"/>
   	<makeurl file="${output.dir}" property="html5.xslt.outdir"/>
   	<makeurl file="${dita.temp.dir}" property="html5.xslt.tempdir"/>
-    <makeurl file="${d4p.html5.json.vars.file}" property="d4p.html5.json.vars.file.url"/>
-    <makeurl file="${html5.site.config}" property="html5.xml.theme.config"/>
-    
-    
+    <makeurl file="${html5.site.config}" property="html5.xml.theme.config"/>    
     <makeurl file="${dita.input.valfile}" property="dita.input.valfile.url" validate="no"></makeurl>    
+    
+     <condition property="d4p.html5.json.vars.file.url" value="">
+		  <not>
+        <isset property="d4p.html5.json.vars.file.url" />
+      </not>
+	</condition>
+	
+    
+    
 
     <echo message="d4p.html5.json.vars.file=${d4p.html5.json.vars.file}"/>
+    
     <echo message="d4p.html5.json.vars.file.url=${d4p.html5.json.vars.file.url}"/>
     
   	<property name="map2html5.style" location="${html5.dir}/xsl/map2html5.xsl"/>
@@ -376,7 +392,8 @@
       <param name="CSS" expression="${args.css.file}" if="args.css.file" />     
        <param name="HTML5THEMEDIR" expression="${html5.themes.output.dir}" if="html5.args.theme.file" /> 
       <param name="CSSTHEME" expression="${html5.args.theme.file}" if="html5.args.theme.file" /> 
-      <param name="JSONVARFILE" expression="${d4p.html5.json.vars.file.url}" if="d4p.html5.json.vars.file" />
+       <param name="HTML5D4PINIT" expression="$html5.d4p.init}" />
+      <param name="JSONVARFILE" expression="${d4p.html5.json.vars.file.url}" if="d4p.html5.json.vars.file.url" />
       <param name="NAVIGATIONMARKUP" expression="${html5.navigation.markup}" if="html5.navigation.markup" />
 
       <param name="IDMAINCONTAINER" expression="${html5.id.main.container}" if="html5.id.main.container" />
@@ -513,7 +530,7 @@
   </target>
   
   
-  <target name="xmltojsonvars" description="Convert XML variables to a json feed">
+  <target name="xmltojsonvars" description="Convert XML variables to a json feed" if="html5.site.js.vars.exists">
   
 	<property name="xml2json.style" location="${html5.dir}/xsl/xml2json/xml-to-json.xsl"/>
 	

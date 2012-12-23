@@ -55,10 +55,12 @@
   <xsl:param name="CSSTHEME" select="''" />
   <xsl:param name="NAVIGATIONMARKUP" select="'default'" />
   <xsl:param name="JSONVARFILE" select="''" />
+  <xsl:param name="HTML5D4PINIT" select="''" />
+  
   
   <xsl:param name="HTML5THEMEDIR" select="'themes'" />
   <xsl:param name="HTML5THEMECONFIG" select="''" />
-  <xsl:param name="HTML5THEMECONFIGDOCUMENT" select="document($HTML5THEMECONFIG)" /> 
+  
 
   <xsl:param name="IDMAINCONTAINER" select="'d4h5-main-container'" />
   <xsl:param name="CLASSMAINCONTAINER" select="''" />
@@ -95,6 +97,9 @@
   
   <!-- Parameter used in commonHtmlExtensionSupport.xsl -->
   <xsl:param name="include.roles" as="xs:string" select="''"/>
+  
+  
+  <xsl:variable name="HTML5THEMECONFIGDOC" select="document($HTML5THEMECONFIG)" /> 
   
   <xsl:template name="report-parameters" match="*" mode="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>

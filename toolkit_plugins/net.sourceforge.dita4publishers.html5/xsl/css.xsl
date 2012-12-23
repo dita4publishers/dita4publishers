@@ -49,7 +49,7 @@
   <xsl:template match="*" mode="generate-d4p-uncompressed-css">
     <xsl:param name="relativePath" as="xs:string" select="''" tunnel="yes" />
   	<xsl:message> + [INFO] Debug mode on, render individual script link </xsl:message>
-    <xsl:for-each select="$HTML5THEMECONFIGDOCUMENT/html5/style">
+    <xsl:for-each select="$HTML5THEMECONFIGDOC/html5/style">
     	<link rel="stylesheet" type="text/css" href="{relpath:fixRelativePath($relativePath, concat($HTML5THEMEDIR, '/', @path))}" />
     	<xsl:sequence select="'&#x0a;'"/>
     </xsl:for-each>
