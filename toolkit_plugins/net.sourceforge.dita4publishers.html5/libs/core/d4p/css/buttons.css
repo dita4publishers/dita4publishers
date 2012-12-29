@@ -20,6 +20,21 @@
  */ 
 
 /** will be improved later **/
- button {
+button {
+ 	display:block;
 	margin:0em 0 2em 0;
+}
+
+.toolbar button {
+		
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	padding:0;
+	margin:0;
+}
+
+.toolbar button span.ui-icon {
+	position:relative;
+	left:0px;
 }

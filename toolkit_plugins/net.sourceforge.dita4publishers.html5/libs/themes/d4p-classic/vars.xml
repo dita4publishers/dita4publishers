@@ -1,6 +1,6 @@
 <d4p>
 	<outputSelector>#d4h5-main-content</outputSelector>
-	<navigationSelector>#local-navigation</navigationSelector>
+	<navigationSelector>#nav-content</navigationSelector>
 	<externalContentElement>section</externalContentElement>
 	<loaderParentElement>body</loaderParentElement>
 	<navigation>

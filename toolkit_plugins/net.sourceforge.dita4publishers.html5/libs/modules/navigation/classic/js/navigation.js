@@ -30,8 +30,8 @@
   	'leafActive': 'ui-icon-triangle-1-s',
   	
   	'toolbar': {
-  	  'id':'navToolBar',
-  	  'position':'top'
+  	  'id': 'navToolBar',
+  	  'position': 'top'
   	},
   	
   	'buttons': false,
@@ -43,10 +43,10 @@
       id = d4p.ajax.collection[l.uri].id;
 
       $(d4p.navigationSelector + ' li')
-        .removeClass('selected')
-        .removeAttr('aria-expanded');
+      .removeClass('selected')
+      .removeAttr('aria-expanded');
         
-      $("span."+o.icon).removeClass(o.leafActive).addClass(o.leaf);  
+      $("d4p.navigationSelector span."+o.icon).removeClass(o.leafActive).addClass(o.leaf);  
 
       $('#' + id).parent('li').attr('aria-expanded', 'true').addClass('selected');
       
@@ -127,12 +127,10 @@
             }
           });
 
-
           // add class
           $(this)
             .prepend(span)
             .addClass('collapsible collapsed');
-
 
           // link click handler
           $(this)
@@ -173,46 +171,52 @@
     
     addToolbar: function () {
       if(this.toolbar.position == 'top') {
-         $(d4p.navigationSelector).prepend($("<div />").attr('id', this.toolbar.id).attr('class', 'toolbar top'));
+         $(d4p.navigationSelector).parent().prepend($("<div />").attr('id', this.toolbar.id).attr('class', 'toolbar top'));
       } else {
-        $(d4p.navigationSelector).append($("<div />").attr('id', this.toolbar.id).attr('class', 'toolbar bottom'));
+        $(d4p.navigationSelector).parent().append($("<div />").attr('id', this.toolbar.id).attr('class', 'toolbar bottom'));
       }  	
     },
     
     addButtons: function () {
       var o = this,
-      buttonExpand = $("<button/>").html("Expand All").click(function(){
+      expandIco = $("<span/>").attr("class", "ui-icon ui-icon-carat-2-n-s"),
+      collapseIco = $("<span/>").attr("class", "ui-icon ui-icon-carat-2-n"),
+      expand = $("<span/>").attr("class", "hidden").html("Expand All"),
+      collapse = $("<span/>").attr("class", "hidden").html("Collapse All"),
+      btnExpand = $("<button/>").attr('id', 'expandBtn').attr('class', 'ui-state-default').append(expandIco).append(expand).click(function(){
       	$(d4p.navigationSelector + ' li')
       	  .addClass('selected')
       	  .removeClass('collapsed')
           .attr('aria-expanded', 'true');
-        
-           $("span."+o.icon).addClass(o.leafActive).removeClass(o.leaf);  
+               
+           $(this).hide(); 
+           $('#collapseBtn').show();
 
         }),
-      buttonCollapse = $("<button/>").html("Collapse All").click(function(){
+      btnCollapse = $("<button/>").attr('id', 'collapseBtn').attr('class', 'ui-state-default').append(collapseIco).append(collapse).hide().click(function(){
         o.select();
       	$(d4p.navigationSelector + ' li')
           .removeClass('selected')
           .addClass('collapsed')
           .removeAttr('aria-expanded');
-        
-           $("span."+o.icon).removeClass(o.leafActive).addClass(o.leaf); 
+          
            o.select();
+           $(this).hide(); 
+           $('#expandBtn').show();
       });
-      $('#'+this.toolbar.id).append(buttonExpand);
-      $('#'+this.toolbar.id).append(buttonCollapse);
+      
+      $('#'+this.toolbar.id).append(btnExpand);
+      $('#'+this.toolbar.id).append(btnCollapse);
     },
 
     init: function (fn) {
 
-      $(d4p.navigationSelector + " > ul")
-        .attr('role', 'tree');
-      $(d4p.navigationSelector + " li ul")
-        .attr('role', 'group');
+      $(d4p.navigationSelector + " > ul").attr('role', 'tree');
+      $(d4p.navigationSelector + " li ul").attr('role', 'group');
 
       this.bind('docReady', 'selectFromHash');
       this.bind('uriChange', 'select');
+      
       this.traverse();
       
       if(this.buttons) {

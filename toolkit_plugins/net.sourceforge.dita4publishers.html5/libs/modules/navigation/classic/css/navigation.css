@@ -30,7 +30,3 @@
 #local-navigation ul li ul li {
 	margin:0 0 0 15px;
 }
-
-body.navigation-right #local-navigation, body.navigation-right #d4h5-main-content {
-	float:right;
-}

@@ -83,7 +83,7 @@
 
       <nav id="{$IDLOCALNAV}" role="navigation" aria-label="Main navigation">
       <xsl:attribute name="class" select="$CLASSNAVIGATION" />
-      	<div class="nav-content">
+      	<div id="nav-content">
         <div class="nav-pub-title">
         	<xsl:apply-templates select="*[df:class(., 'topic/title')]" mode="generate-html5-nav-page-markup"/>
         	<xsl:sequence select="'&#x0a;'"/>

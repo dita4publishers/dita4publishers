@@ -18,6 +18,10 @@
  *  limitations under the License.
  *
  */ 
+ 
+ol, ul {
+	margin-left:10px;
+}
 li {
 	margin:1.7em 0 1.7em 12px;
 	list-style-position: outside;
