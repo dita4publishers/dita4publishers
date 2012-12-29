@@ -67,11 +67,12 @@
   </d4p>
 
   <class>
-  	<body>img-with-shadow marginalia</body>
+  	<body>img-with-shadow</body>
   	<navigation>grid_8</navigation>
   </class>
-    
-  <theme>
+
+  <!-- uncomment the following line to build the theme at each time -->
+  <!--theme>
   	<compile>true</compile>
-  </theme>
+  </theme-->
 </html5>

@@ -1740,11 +1740,6 @@ h2.nav-pub-title { font-size: 1.1em; }
 button.ui-icon {
     height: 24px;
     width: 24px;
-    position:relative;
-    left:0;
-    right:
-    top:0;
-    bottom:0;
 }
 /*!
  * jQuery UI Accordion 1.8.21
@@ -2879,11 +2874,9 @@ details.low, details.obsolete {
  *  limitations under the License.
  *
  */ 
-.scalable {
-
-}
-
-.scale-button {
+.scalable button{
+	right:0px;
+	top:0px;
 	background-color: transparent;
 	border: none;
 	position:absolute;
@@ -2975,24 +2968,34 @@ header h1 {
 	padding-left: 12px;
 	padding-top: 20px;
 	text-shadow: 0 2px 1px #BBBABA;
+
 }
 
 header {
 	background: #EFEFEF url(../img/subtle-pattern-1.jpg) repeat;
+		border-bottom: 1px solid #ccc;
 }
 
 /** section container **/
 body #d4h5-section-container {
 	display: block;
-	width: 100%;
-	border-top: 1px solid #ccc;
+
+}
+
+.d4p-cover-page {
+	display:block;
+	position:relative;
+	width:70%;
+	height: 70%;
+	left:10%;
+	top:30px;
 }
 
 /** local navigation **/
 #local-navigation {
 	display:block;
 	float: left;
-	margin: 20px 0 10px 10px;
+	margin: 30px 0 10px 10px;
 	outline: none;
 	
 	border:1px solid #ccc;

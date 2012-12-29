@@ -3742,8 +3742,9 @@ $.extend( $.ui.accordion, {
 
                     if (Modernizr.csstransforms) {
 
-                        var div = $("<div />").attr('class', 'scalable');
-                        var b1 = $("<button />").attr('class', 'scale-button ui-icon ui-icon-arrowthick-2-ne-sw').html("Scale Up");
+                        var div = $("<div/>").attr('class', 'scalable'),
+                        span = $("<span/>").attr('class', 'ui-icon ui-icon ui-icon-arrowthick-2-ne-sw').html("Scale Up"),
+                        b1 = $("<button/>").attr('class', 'scale-button ').append(span);
 
                         b1.click(function () {
                             obj.trigger('dblclick');

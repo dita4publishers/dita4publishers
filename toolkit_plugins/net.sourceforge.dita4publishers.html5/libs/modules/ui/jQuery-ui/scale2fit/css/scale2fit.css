@@ -18,11 +18,9 @@
  *  limitations under the License.
  *
  */ 
-.scalable {
-
-}
-
-.scale-button {
+.scalable button{
+	right:0px;
+	top:0px;
 	background-color: transparent;
 	border: none;
 	position:absolute;
