@@ -125,15 +125,23 @@
     <xsl:variable name="docUri">
       <xsl:choose>
         <xsl:when test="$copyto != ''">
-          <xsl:message> + [DEBUG] xtrf is not the source</xsl:message>
-          <xsl:message> @copy-to :<xsl:value-of select="$copyto"/></xsl:message>
-          <xsl:message> Document root is :<xsl:value-of select="$docMapUri"/></xsl:message>
-
+          <xsl:if test="$debugBoolean">
+            <xsl:message> + [DEBUG] xtrf is not the source</xsl:message>
+            <xsl:message> @copy-to :<xsl:value-of select="$copyto"/></xsl:message>
+            <xsl:message> Document root is :<xsl:value-of select="$docMapUri"/></xsl:message>
+          </xsl:if>
           <xsl:value-of select="relpath:toUrl(concat($docMapUri, $copyto))"/>
           
         </xsl:when>
         <xsl:otherwise>
-          <xsl:value-of select="relpath:toUrl(@xtrf)"/>
+          <!-- NOTE: following conref resolution, the @xtrf attributes on conreffed
+               elements are not rewritten to reflect their location as used, so
+               the @xtrf value is not reliable. I think the only solution is to use
+               the @xtrf value on the root element, which would not normally be the
+               itself the result of a conref (that is, it would be very rare to
+               have a topic that then conrefs to a different topic)
+            -->
+          <xsl:value-of select="relpath:toUrl(root(.)/*[1]/@xtrf)"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
@@ -146,8 +154,10 @@
 
     <xsl:if test="$debugBoolean">
     <xsl:message> + [DEBUG] get-graphic-refs for image: docUri="<xsl:sequence select="$docUri"/>"
-        parentPath="<xsl:sequence select="$parentPath"/>" graphicPath="<xsl:sequence select="$graphicPath"/>"
-        rawUrl="<xsl:sequence select="$rawUrl"/>" absoluteUrl="<xsl:sequence select="$absoluteUrl"/>" </xsl:message>
+        parentPath ="<xsl:sequence select="$parentPath"/>" 
+        graphicPath="<xsl:sequence select="$graphicPath"/>"
+        rawUrl     ="<xsl:sequence select="$rawUrl"/>" 
+        absoluteUrl="<xsl:sequence select="$absoluteUrl"/>" </xsl:message>
     </xsl:if>
     <xsl:choose>
       <xsl:when test="not($graphicPath)">
@@ -194,7 +204,7 @@
     <xsl:variable name="parentPath" select="relpath:getParent($docUri)" as="xs:string"/>
     <xsl:variable name="dataPath" select="@data" as="xs:string?"/>
     <xsl:variable name="codeBase" select="@codebase" as="xs:string?"/>
-    <xsl:if test="true() or $debugBoolean">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] get-graphic-refs for object: docUri="<xsl:sequence select="$docUri"/>"
           parentPath="<xsl:sequence select="$parentPath"/>" dataPath="<xsl:sequence select="$dataPath"/>"
           codeBase="<xsl:sequence select="$codeBase"/>" </xsl:message>
@@ -242,7 +252,7 @@
     <xsl:variable name="valuePath" select="@value" as="xs:string?"/>
     <xsl:variable name="rawUrl" select="concat($parentPath, '/', $valuePath)" as="xs:string"/>
     <xsl:variable name="absoluteUrl" select="relpath:getAbsolutePath($rawUrl)"/>
-    <xsl:if test="true() or $debugBoolean">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] get-graphic-refs for param: docUri="<xsl:sequence select="$docUri"/>"
           parentPath="<xsl:sequence select="$parentPath"/>" valuePath="<xsl:sequence select="$valuePath"/>"
       </xsl:message>
