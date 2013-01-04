@@ -414,12 +414,16 @@
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/keywords')]" mode="generate-opf">
-    <xsl:message> + [DEBUG] generate-opf: handling topic/keywords</xsl:message>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] generate-opf: handling topic/keywords</xsl:message>
+    </xsl:if>
     <xsl:apply-templates select="*[df:class(., 'topic/keyword')]" mode="#current"/>
   </xsl:template>
 
   <xsl:template match="*[df:class(., 'topic/keyword')]" mode="generate-opf">
-    <xsl:message> + [DEBUG] generate-opf: handling topic/keyword</xsl:message>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] generate-opf: handling topic/keyword</xsl:message>
+    </xsl:if>
     <dc:subject><xsl:apply-templates/></dc:subject>
   </xsl:template>
   
