@@ -1,5 +1,22 @@
 Release Notes:
-Release 0.9.19RC05 26 Jan 2012 
+Release 0.9.19RC07 4 Jan 2013
+
+1. Issue 64: Correct issue with construction of graphic map when conref is used.
+ 
+
+Release 0.9.19RC06 13 Dec 2012 
+
+1. HTML5 transform close to done. Code reorganized. Docs under way
+
+2. Small bug fixes to map-driven processing
+
+3. New applicability data collection process stubbed in--still working on efficient
+implementation.
+
+4. New D4P cover and logo in place: many thanks to Human Kinetics for donating the 
+graphic design work for this (http://www.humankinetics.com)
+
+Release 0.9.19RC05 Nov 2012 
 
 1. Many refinements.
 
