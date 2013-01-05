@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subsection PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:subsection" "subsection.dtd">
+<subsection
+  id="subsection-id">
+  <title>Embedded Video</title>
+  <body>
+    <p>This subsection includes a D4P video embed. The &lt;d4p_video> element is
+      modeled as directly as possible on the HTML5 &lt;video> element. It
+      specializes from &lt;object>.</p>
+    <fig>
+      <title>Sample of Embedded Video</title>
+<!-- As of 0.9.19RC07, this version fails. See issue 65:
+        
+        <d4p_video
+        id="E5123_026.mp4-media"
+        width="300"
+        height="300">
+        <d4p_video_poster
+          value="../media/E5123_026_poster.png"/>
+        <d4p_video_source
+          value="../media/E5123_026.mp4"
+          type="video/mp4"/>
+      </d4p_video>
+-->
+    </fig>
+  </body>
+</subsection>
