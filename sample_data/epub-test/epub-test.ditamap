@@ -108,7 +108,7 @@
           <subsection
             href="chapters/copy-to-test-image-ref.xml"/>
         </subsection>
-<!--        <subsection
+        <!--        <subsection
           href="chapters/copy-to-parent-topic.xml"
           collection-type="sequence"
           navtitle="Copy-To Test, No Copy-To"
@@ -116,7 +116,8 @@
           <subsection
             href="chapters/copy-to-test-image-ref.xml"/>
         </subsection>
--->   <!--     <subsection
+-->
+        <!--     <subsection
           href="chapters/copy-to-parent-topic.xml"
           collection-type="sequence"
           navtitle="Copy-To Test, Copy-To, Chunk-to-content"
@@ -126,7 +127,8 @@
           <subsection
             href="chapters/copy-to-test-image-ref.xml"/>
         </subsection>
-   -->   </chapter>
+   -->
+      </chapter>
       <chapter
         href="chapters/element-test.xml">
         <subsection
@@ -220,6 +222,8 @@
       </chapter>
       <chapter
         href="chapters/filtering-and-flagging-test.xml"/>
+      <chapter
+        href="chapters/conref-test.xml"/>
       <chapter
         href="chapters/chapter_1.xml"/>
       <chapter
