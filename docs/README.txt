@@ -1,4 +1,9 @@
 Release Notes:
+
+Release 0.9.19RC08 8 Jan 2013
+
+1. Issue 63: Implemented support for translating Word hyperlinks into DITA XRefs.
+
 Release 0.9.19RC07 4 Jan 2013
 
 1. Issue 64: Correct issue with construction of graphic map when conref is used.
