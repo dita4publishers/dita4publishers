@@ -46,6 +46,13 @@
           <pd>When set to "true", the resulting DITA files include <xmlatt>xtrc</xmlatt> attributes that contain XPath expressions that locate the Word paragraph element from which the DITA element was generated. Set to "false" to turn this off. Default is "true" (<xmlatt>xtrc</xmlatt> attributes are generated).</pd>
         </plentry>
         <plentry>
+          <pt>includeWordBookmarks</pt>
+          <pd>When set to "true", the resulting DITA files include
+            <xmlelem>data</xmlelem> elements that reflect the bookmark start and
+            end markers. This can be useful in debugging cross reference
+            processing or other uses of bookmarks. The default is "false".</pd>
+        </plentry>
+        <plentry>
           <pt>language</pt>
           <pd>Specifies the value to use for the <xmlatt>xml:lang</xmlatt>
             attribute, e.g. "ja-JP". If not specified, the value "en-US" is

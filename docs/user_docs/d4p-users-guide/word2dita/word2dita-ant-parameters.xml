@@ -81,6 +81,12 @@
             (<xmlatt>xtrc</xmlatt> attributes are generated).</pd>
         </plentry>
         <plentry>
+          <pt>w2d.include.word.bookmarks</pt>
+          <pd>Set to "true" to turn inclusion of <xmlelem>data</xmlelem>
+            elements reflecting any Word bookmark start and end markers. Default
+            is "false".</pd>
+        </plentry>
+        <plentry>
           <pt>w2d.root.map.name</pt>
           <pd>The filename (without extension) to use for the root map if one is
             generated. By default uses the filename of the input DOCX file. Only
