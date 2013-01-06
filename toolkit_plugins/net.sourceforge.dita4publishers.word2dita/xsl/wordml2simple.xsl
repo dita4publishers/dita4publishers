@@ -424,7 +424,7 @@
         </xsl:when>
         <xsl:otherwise>
           <stylemap:style styleId="Hyperlink"
-            structureType="hyperlink"
+            structureType="xref"
             tagName="xref"
           />          
           
