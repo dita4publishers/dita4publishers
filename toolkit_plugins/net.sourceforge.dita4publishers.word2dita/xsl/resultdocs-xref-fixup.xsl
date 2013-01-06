@@ -17,7 +17,8 @@
       
       ========================================== -->
   
-  <xsl:key name="elementsByWordlocation" match="*[not(@isTopicref) and not(@isMap)]" use="@xtrc"/>
+  <!-- We only care about finding non-topic, non-topicref elements with IDs that match the word location. --> 
+  <xsl:key name="elementsByWordlocation" match="*[not(@isTopicref) and not(@isMap) and @id]" use="@xtrc"/>
         
   <xsl:template mode="resultdocs-xref-fixup" match="*">
     <xsl:copy>
