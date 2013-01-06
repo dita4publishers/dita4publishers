@@ -54,6 +54,8 @@ version="2.0">
   <xsl:param name="filterBr" as="xs:string" select="'false'"/>
   <xsl:param name="filterTabs" as="xs:string" select="'false'"/>
   <xsl:param name="includeWordBackPointers" as="xs:string" select="'true'"/>
+  <!-- When true, include <data> elements that reflect Word bookmark start and end markers -->
+  <xsl:param name="includeWordBookmarks" as="xs:string" select="'false'"/>
   <xsl:param name="language" as="xs:string" select="'en-US'"/>
   
   <xsl:param name="topicExtension" select="'.dita'" as="xs:string"/><!-- Extension for generated topic files -->
@@ -78,12 +80,18 @@ version="2.0">
   
   <xsl:variable name="filterTabsBoolean" as="xs:boolean" select="matches($filterTabs, 'yes|true|1', 'i')"/>
   <xsl:variable name="filterBrBoolean" as="xs:boolean" select="matches($filterBr, 'yes|true|1', 'i')"/>
-  <xsl:variable name="includeWordBackPointersBoolean" as="xs:boolean" select="matches($includeWordBackPointers, 'yes|true|1', 'i')"/>
+  <xsl:variable name="includeWordBackPointersBoolean" as="xs:boolean" 
+    select="matches($includeWordBackPointers, 'yes|true|1', 'i')"/>
+  
+  <xsl:variable name="includeWordBookmarksBoolean" as="xs:boolean" 
+    select="matches($includeWordBookmarks, 'yes|true|1', 'i')"/>
   
   <xsl:include
     href="wordml2simple.xsl"/>
   <xsl:include
     href="simple2dita.xsl"/>
+  <xsl:include
+    href="resultdocs-xref-fixup.xsl"/>
   <xd:doc
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
     <xd:desc>

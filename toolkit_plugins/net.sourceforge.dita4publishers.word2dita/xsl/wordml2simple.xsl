@@ -399,7 +399,7 @@
 
   <xsl:template match="w:bookmarkEnd">
     <bookmarkEnd 
-      name="{@w:id}"
+      id="{@w:id}"
     />
   </xsl:template>
   
@@ -407,7 +407,6 @@
   <xsl:template match="w:hyperlink">
     <xsl:param name="relsDoc" as="document-node()?" tunnel="yes"/>
     
-    <xsl:message> + [DEBUG] w:hyperlink</xsl:message>
     <xsl:variable name="runStyle" select="local:getHyperlinkStyle(.)" as="xs:string"/>
     <xsl:variable name="styleMapByName" as="element()?"
       select="key('styleMapsByName', lower-case($runStyle), $styleMapDoc)[1]"

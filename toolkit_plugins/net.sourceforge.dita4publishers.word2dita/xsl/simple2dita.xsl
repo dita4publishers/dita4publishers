@@ -50,6 +50,8 @@
        thing.
     -->
   
+  <xsl:key name="bookmarksByName" match="rsiwp:bookmarkStart" use="@name"/>
+  
   <xsl:template match="rsiwp:document">
     <xsl:message> + [INFO] simple2dita: Processing intermediate simpleML XML to generate DITA XML...</xsl:message>
     
@@ -71,57 +73,83 @@
       </xsl:message>
     </xsl:if>
     <xsl:message> + [INFO] Determining result documents...</xsl:message>
-    <xsl:variable name="resultDocs" as="element()*">
-      <xsl:choose>
-        <xsl:when test="local:isMap($firstP) or local:isMapTitle($firstP)">
-          <xsl:if test="true() or $debugBoolean">        
-            <xsl:message> + [DEBUG] rsiwp:document: firstP is root map, calling makeMap...</xsl:message>
-          </xsl:if>
-          <xsl:call-template name="makeMap">
-            <xsl:with-param name="content" select="rsiwp:body/(rsiwp:p | rsiwp:table)" as="node()*"/>
-            <xsl:with-param name="level" select="0" as="xs:integer"/>
-            <xsl:with-param name="newMapUrl" select="$rootMapUrl" as="xs:string"/>
-            <xsl:with-param name="topicrefType" select="'mapref'"/><!-- shouldn't be necessary, but it is -->
-            <xsl:with-param name="mapUrl" select="relpath:newFile($outputDir, 'garbage.ditamap')" tunnel="yes" as="xs:string"/>
-            <xsl:with-param name="simpleWpDoc" as="document-node()" tunnel="yes"
-              select="$simpleWpDoc"
-            />            
-          </xsl:call-template>
-        </xsl:when>
-        <xsl:when test="local:isRootTopicTitle($firstP)">
-          <xsl:if test="$debugBoolean or true()">        
-            <xsl:message> + [DEBUG] rsiwp:document: firstP is root topic title, calling makeTopic...</xsl:message>
-          </xsl:if>
-          <xsl:call-template name="makeTopic">
-            <xsl:with-param name="content" select="rsiwp:body/(rsiwp:p|rsiwp:table)" as="node()*"/>
-            <xsl:with-param name="level" select="0" as="xs:integer"/>
-            <xsl:with-param name="treePos" select="(0)" as="xs:integer+" tunnel="yes"/>
-            <xsl:with-param name="simpleWpDoc" as="document-node()" tunnel="yes"
-              select="$simpleWpDoc"
-            />            
-          </xsl:call-template>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:if test="$debugBoolean or true()">        
-            <xsl:message> + [DEBUG] rsiwp:document: firstP is neither root topic nor root map</xsl:message>
-          </xsl:if>
-        </xsl:otherwise>
-      </xsl:choose>
+    <xsl:variable name="resultDocs" as="document-node()">
+      <xsl:document>
+        <xsl:choose>
+          <xsl:when test="local:isMap($firstP) or local:isMapTitle($firstP)">
+            <xsl:if test="true() or $debugBoolean">        
+              <xsl:message> + [DEBUG] rsiwp:document: firstP is root map, calling makeMap...</xsl:message>
+            </xsl:if>
+            <xsl:call-template name="makeMap">
+              <xsl:with-param name="content" select="rsiwp:body/(rsiwp:p | rsiwp:table)" as="node()*"/>
+              <xsl:with-param name="level" select="0" as="xs:integer"/>
+              <xsl:with-param name="newMapUrl" select="$rootMapUrl" as="xs:string"/>
+              <xsl:with-param name="topicrefType" select="'mapref'"/><!-- shouldn't be necessary, but it is -->
+              <xsl:with-param name="mapUrl" select="relpath:newFile($outputDir, 'garbage.ditamap')" tunnel="yes" as="xs:string"/>
+              <xsl:with-param name="simpleWpDoc" as="document-node()" tunnel="yes"
+                select="$simpleWpDoc"
+              />            
+            </xsl:call-template>
+          </xsl:when>
+          <xsl:when test="local:isRootTopicTitle($firstP)">
+            <xsl:if test="$debugBoolean or true()">        
+              <xsl:message> + [DEBUG] rsiwp:document: firstP is root topic title, calling makeTopic...</xsl:message>
+            </xsl:if>
+            <xsl:call-template name="makeTopic">
+              <xsl:with-param name="content" select="rsiwp:body/(rsiwp:p|rsiwp:table)" as="node()*"/>
+              <xsl:with-param name="level" select="0" as="xs:integer"/>
+              <xsl:with-param name="treePos" select="(0)" as="xs:integer+" tunnel="yes"/>
+              <xsl:with-param name="simpleWpDoc" as="document-node()" tunnel="yes"
+                select="$simpleWpDoc"
+              />            
+            </xsl:call-template>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:if test="$debugBoolean or true()">        
+              <xsl:message> + [DEBUG] rsiwp:document: firstP is neither root topic nor root map</xsl:message>
+            </xsl:if>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:document>
     </xsl:variable>
+    <!-- Write out the base resultDocs data for debugging purposes -->
     <xsl:if test="false() or $debugBoolean">
       <xsl:variable
         name="tempDoc"
         select="relpath:newFile($outputDir, 'resultDocs.xml')"
         as="xs:string"/>
-      <xsl:message> + [DEBUG] saveing $resultDocs to 
+      <xsl:message> + [DEBUG] saving $resultDocs to 
 <xsl:sequence select="$tempDoc"/>        
       </xsl:message>
       <xsl:result-document href="{$tempDoc}">
         <xsl:sequence select="$resultDocs"/>
       </xsl:result-document>
     </xsl:if>
+    <!-- Fixup xrefs in the result documents: -->
+    <xsl:message> + [INFO] Fixing up xrefs in the result documents...</xsl:message>
+    <xsl:variable name="resultDocsFixedUp" as="node()*">
+      <xsl:apply-templates select="$resultDocs" mode="resultdocs-xref-fixup">
+        <xsl:with-param name="simpleWpDoc" as="document-node()" tunnel="yes"
+          select="$simpleWpDoc"
+        />                  
+      </xsl:apply-templates>
+    </xsl:variable>
+    <!-- Write out the fixed-up resultDocs data for debugging purposes -->
+    <xsl:if test="false() or $debugBoolean">
+      <xsl:variable
+        name="tempDoc"
+        select="relpath:newFile($outputDir, 'resultDocsFixedUp.xml')"
+        as="xs:string"/>
+      <xsl:message> + [DEBUG] saving $resultDocsFixedUp to 
+        <xsl:sequence select="$tempDoc"/>        
+      </xsl:message>
+      <xsl:result-document href="{$tempDoc}">
+        <xsl:sequence select="$resultDocsFixedUp"/>
+      </xsl:result-document>
+    </xsl:if>
+    <!-- Generate the result documents: -->
     <xsl:message> + [INFO] Writing result documents...</xsl:message>
-    <xsl:apply-templates select="$resultDocs" mode="generate-result-docs">
+    <xsl:apply-templates select="$resultDocsFixedUp" mode="generate-result-docs">
       <xsl:with-param name="simpleWpDoc" as="document-node()" tunnel="yes"
         select="$simpleWpDoc"
       />                  
@@ -188,6 +216,9 @@
             <xsl:attribute name="xtrc" select="@wordLocation"/>
             <xsl:attribute name="xtrf" select="ancestor::rsiwp:document[1]/@sourceDoc"/>
           </xsl:if>
+          <xsl:apply-templates select="rsiwp:bookmarkStart" mode="generate-para-ids">
+            <xsl:with-param name="tagName" select="$tagName"/>
+          </xsl:apply-templates>
           <xsl:sequence select="./@outputclass"/>
           <xsl:if test="./@dataName">
             <xsl:attribute name="name" select="./@dataName"/>
@@ -409,6 +440,7 @@
         <xsl:sequence select="$schemaAtts"/>
         <xsl:attribute name="xtrc" select="$firstP/@wordLocation"/>
         <xsl:attribute name="xml:lang" select="$language"/>
+        <xsl:attribute name="isMap" select="'true'"/>
         
         <!-- The first paragraph can simply trigger a (possibly) untitled map, or
           it can also be the map title. If it's the map title, generate it.
@@ -558,6 +590,9 @@
             />
             <xsl:element name="{$groupFirstP/@topicrefType}">
               <xsl:attribute name="xtrc" select="$groupFirstP/@wordLocation"/>
+              <!-- Indicate that this is a topicref so that we can distinguish
+                   it from topic elements with the same word location. -->
+              <xsl:attribute name="isTopicref" select="'true'"/>
               <xsl:call-template name="generateTopicrefAtts">
                 <xsl:with-param name="topicUrl" select="$topicUrl"/>
               </xsl:call-template>            
@@ -586,6 +621,7 @@
       <xsl:when test="$firstP[@rootTopicrefType != '']">
         <xsl:element name="{$firstP/@rootTopicrefType}">
           <xsl:attribute name="xtrc" select="$firstP/@wordLocation"/>
+          <xsl:attribute name="isTopicref" select="'true'"/>          
           <xsl:if test="string($firstP/@rootTopicrefType) = 'learningObject'">
             <!-- FIXME: This is a workaround until we implement the ability
               to specify collection-type for the root topicref type.
@@ -642,16 +678,18 @@
         </xsl:if>
         <xsl:element name="{$firstP/@rootTopicrefType}">
           <xsl:attribute name="xtrc" select="$firstP/@wordLocation"/>
-            <xsl:if test="string($firstP/@rootTopicrefType) = 'learningObject'">
-            <!-- FIXME: This is a workaround until we implement the ability
-              to specify collection-type for the root topicref type.
-            -->
-            <xsl:attribute name="collection-type" select="'sequence'"/>
-          </xsl:if>
+          <xsl:attribute name="isTopicref" select="'true'"/>          
+          <xsl:if test="string($firstP/@rootTopicrefType) = 'learningObject'">
+          <!-- FIXME: This is a workaround until we implement the ability
+            to specify collection-type for the root topicref type.
+          -->
+          <xsl:attribute name="collection-type" select="'sequence'"/>
+        </xsl:if>
           <xsl:choose>
             <xsl:when test="@topicrefType != ''">
               <xsl:element name="{@topicrefType}">
                 <xsl:attribute name="xtrc" select="@wordLocation"/>
+                <xsl:attribute name="isTopicref" select="'true'"/>                
                 <xsl:call-template name="generateTopicrefAtts">
                   <xsl:with-param name="topicUrl" select="$topicUrl"/>
                 </xsl:call-template>            
@@ -675,6 +713,7 @@
           <xsl:message> + [DEBUG] generateTopicrefs(): First para specifies topicrefType but not rootTopicrefType</xsl:message>
         </xsl:if>
         <xsl:element name="{$firstP/@topicrefType}">
+          <xsl:attribute name="isTopicref" select="'true'"/>          
           <xsl:call-template name="generateTopicrefAtts">
             <xsl:with-param name="topicUrl" select="$topicUrl"/>
           </xsl:call-template>            
@@ -734,7 +773,8 @@
             as="xs:string"
             select="local:getResultUrlForTopic(current-group()[1], $topicrefType, ($treePos, position()), $mapUrl, $topicName)"
           />
-          <xsl:element name="{$topicrefType}">            
+          <xsl:element name="{$topicrefType}">
+            <xsl:attribute name="isTopicref" select="'true'"/>            
             <xsl:call-template name="generateTopicrefAtts">
               <xsl:with-param name="topicUrl" select="$topicUrl"/>
             </xsl:call-template>            
@@ -756,6 +796,7 @@
           <xsl:variable name="navtitleType" select="if (@navtitleType) then string(@navtitleType) else 'navtitle'"/>
           <xsl:element name="{$topicheadType}">
             <xsl:attribute name="xtrc" select="@wordLocation"/>
+            <xsl:attribute name="isTopicref" select="'true'"/>            
             <xsl:element name="{$topicmetaType}">
               <xsl:attribute name="xtrc" select="@wordLocation"/>
               <xsl:apply-templates select="current-group()[1]"/>
@@ -794,6 +835,7 @@
             <xsl:attribute name="navtitle" select="."/>
             <xsl:attribute name="href" select="relpath:getRelativePath(relpath:getParent($mapUrl), $newMapUrl)"/>
             <xsl:attribute name="xtrc" select="@wordLocation"/>
+            <xsl:attribute name="isTopicref" select="'true'"/>
             
             <xsl:for-each select="./*[string(@structureType) = 'topicTitle' and @level = $level]">
               <xsl:call-template name="generateTopicrefs">
@@ -1182,7 +1224,12 @@ specify @topicDoc="yes".</xsl:message>
     <xsl:element name="{$topicType}">
       <xsl:attribute name="id" select="$topicName"/>
       <xsl:attribute name="xtrc" select="$firstP/@wordLocation"/>
+      <xsl:attribute name="isTopic" select="'true'"/>      
       <xsl:attribute name="xml:lang" select="$language"/>
+      <!-- Indicate that this element is in fact a topic as there's no other way
+           to know this during the result document processing phase.
+        -->
+      <xsl:attribute name="isTopic" select="'true'"/>
       <xsl:sequence select="$schemaAtts"/>
       <xsl:if test="$firstP/@topicOutputclass">
         <xsl:attribute name="outputclass" select="$firstP/@topicOutputclass"/>
@@ -1529,6 +1576,9 @@ specify @topicDoc="yes".</xsl:message>
         <xsl:variable name="me" select="." as="element()"/>
        <xsl:element name="{@tagName}">  
          <xsl:attribute name="xtrc" select="@wordLocation"/>
+         <xsl:apply-templates select="rsiwp:bookmarkStart" mode="generate-para-ids">
+           <xsl:with-param name="tagName" select="@tagName" as="xs:string"/>
+         </xsl:apply-templates>
          <xsl:call-template name="transformParaContent"/>
           <xsl:call-template name="processLevelNContainers">
             <xsl:with-param name="context" 
@@ -1544,6 +1594,11 @@ specify @topicDoc="yes".</xsl:message>
       </xsl:otherwise>
     </xsl:choose>
     
+  </xsl:template>
+  
+  <xsl:template mode="generate-para-ids" match="rsiwp:bookmarkStart">
+    <xsl:param name="tagName" as="xs:string" select="../@tagName"/>
+    <xsl:attribute name="id" select="concat($tagName, '_', @name)"/>
   </xsl:template>
   
   <xsl:template match="rsiwp:break" mode="p-content">
@@ -1566,6 +1621,19 @@ specify @topicDoc="yes".</xsl:message>
       <xsl:sequence select="./@*"/>
       <xsl:apply-templates mode="p-content"/>
     </xsl:element>
+  </xsl:template>
+  
+  <xsl:template mode="p-content" match="rsiwp:bookmarkStart">
+    <xsl:if test="$includeWordBookmarksBoolean">
+      <data name="bookmarkStart" value="{@name}" id="bookmark_{@id}">
+      </data>
+    </xsl:if>
+  </xsl:template>
+  
+  <xsl:template mode="p-content" match="rsiwp:bookmarkEnd">
+    <xsl:if test="$includeWordBookmarksBoolean">
+      <data name="bookmarkEnd" value="bookmark_{@id}"/>
+    </xsl:if>
   </xsl:template>
   
   <xsl:template match="rsiwp:indexterm" mode="p-content">
@@ -1594,7 +1662,9 @@ specify @topicDoc="yes".</xsl:message>
     <xsl:param name="simpleWpDoc" as="document-node()" tunnel="yes"
     />            
     
-    <xsl:message> + [DEBUG] rsiwp:hyperlink: structureType="<xsl:sequence select="string(@structureType)"/>"</xsl:message>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] rsiwp:hyperlink: structureType="<xsl:sequence select="string(@structureType)"/>"</xsl:message>
+    </xsl:if>
     <xsl:variable name="tagName" as="xs:string"
       select="if (@tagName) then string(@tagName) else 'xref'"
     />
@@ -2117,34 +2187,28 @@ specify @topicDoc="yes".</xsl:message>
     <!-- Given a Word Hyperlink that is a reference to a bookmark, 
          convert the bookmark reference to a DITA reference (topic ID or topicID/elementId)
          if at all possible.
+         
+         Note that at the time we process the hyperlink there is no way to know what
+         the final ID or location of the target element will be. Thus the best we can
+         do here is to use the @wordlocation value as the reference. That will allow
+         post processing to find the target by its word location and correct the
+         href value to the appropriate URL and fragment identifier.
       -->
     <xsl:param name="hyperlinkElem" as="element()"/><!-- The SimpleML hyperlink element -->
     <xsl:param name="simpleWpDoc" as="document-node()"/>            
     
 
     <xsl:variable name="bookmarkName" as="xs:string" select="$hyperlinkElem/@href"/>
-    <!-- This is an inefficient lookup but there doesn't seem to be a way to use key()
-         because of the way we're chopping up the data for processing (elements end up
-         not being in the context of a document.
-      -->
+    <xsl:variable name="bookmark" select="key('bookmarksByName', $hyperlinkElem/@href, $simpleWpDoc)"/>
+<!--    <xsl:message> + [DEBUG] + bookmarkRefToDitaRef(): bookmark=<xsl:sequence select="$bookmark"/></xsl:message>-->
     <xsl:variable name="targetPara" as="element()?"
-      select="($simpleWpDoc//rsiwp:bookmarkStart[@name = $bookmarkName])[1]/ancestor::rsiwp:p[1]
+      select="$bookmark/ancestor::rsiwp:p[1]
       "
     />
-    <xsl:message> + [DEBUG] + bookmarkRefToDitaRef(): targetPara=<xsl:sequence select="$targetPara"/></xsl:message>
+<!--    <xsl:message> + [DEBUG] + bookmarkRefToDitaRef(): targetPara=<xsl:sequence select="$targetPara"/></xsl:message>-->
     <xsl:choose>
       <xsl:when test="$targetPara">
-        <xsl:variable name="topicUri" as="xs:string" select="''"/>
-        <xsl:variable name="topicId" as="xs:string"
-          select="'topicId'"  
-        />
-        <xsl:variable name="elementId" as="xs:string?"/>
-        <xsl:sequence 
-          select="concat($topicUri, '#', $topicId, 
-          if ($elementId) then 
-             concat('/', $elementId)
-             else '')"
-        />
+        <xsl:sequence select="concat('urn:wordlocation:', $targetPara/@wordLocation)"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:sequence select="concat('unresolvable reference to name ', $hyperlinkElem/@href)"/>
