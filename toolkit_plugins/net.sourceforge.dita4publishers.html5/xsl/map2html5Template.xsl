@@ -264,7 +264,7 @@
    	<xsl:param name="content" tunnel="yes" as="node()*" />
    	
     <div id="{$IDMAINCONTENT}" class="{$CLASSMAINCONTENT}">    
-         
+      
       <xsl:choose>
       
         	<xsl:when test="$is-root">
@@ -274,20 +274,29 @@
         		<!-- !important
         		     if you remove section, you will need to change
         		     the d4p.property externalContentElement
-        		-->
+        		-->      		
         		<section>
-        			<xsl:sequence select="$content"/>
+        			<xsl:apply-templates select="." mode="generate-breadcrumb"/>
+        			<div id="topic-content">	
+        				<xsl:sequence select="$content"/>
+        			</div>
         		</section>
         	</xsl:otherwise>
         
-        </xsl:choose>      
-
+        </xsl:choose>  
+                  
       <div class="clear" /><xsl:sequence select="'&#x0a;'"/>
       
     </div>
   </xsl:template>
   
- 
+ <!-- generate html5 footer -->
+  <xsl:template match="*" mode="generate-breadcrumb">  
+    <div id="content-toolbar" class="toolbar">
+    	
+		
+	</div>
+  </xsl:template>
   
   <!-- generate html5 footer -->
   <xsl:template match="*" mode="generate-footer">  

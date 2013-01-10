@@ -2,7 +2,11 @@
  * theme-01
  **/
 html, body {
-  font-family: 'Vegur Regular','Lucida Grande',Helvetica,Arial,Verdana,sans-serif;	
+	font-family: 'Vegur Regular','Lucida Grande',Helvetica,Arial,Verdana,sans-serif;	
+}
+
+b {
+	font-family: 'Vegur Bold','Lucida Grande',Helvetica,Arial,Verdana,sans-serif;	
 }
 
 body {
@@ -11,6 +15,9 @@ body {
 	background: #EFEFEF url(../img/subtle-pattern-1.jpg) repeat;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	color:#3887b0;
+}
 
 /** header **/
 header h1 {
@@ -30,15 +37,7 @@ header {
 
 /** section container **/
 #d4h5-section-container {
-	display: block;
-	background-color: #FFFFFF;
-	border:1px solid #dfdfdf;
-	border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;		
-	-moz-box-shadow: 3px 3px 4px #ccc;
-	-webkit-box-shadow: 3px 3px 4px #ccc;
-	box-shadow: 3px 3px 4px #ccc;
+	
 }
 
 .d4p-cover-page {
@@ -56,12 +55,6 @@ div.nav-pub-title h2 {
 	font-size:0.9em;
 }
 
-
-#local-navigation .toolbar {
-	display: block;
-	width: 100%;
-}
-
 #local-navigation .toolbar.bottom {
 	margin: 2em 0;
 }
@@ -73,6 +66,7 @@ div.nav-pub-title h2 {
 
 #local-navigation li.selected a {
 	font-weight: bold;
+	outline: none;
 }
 
 #local-navigation li.selected li a {
@@ -88,22 +82,49 @@ div.nav-pub-title h2 {
 	top: 1px;
 }
 
-#navToolBar {
-	background-color: #dfdfdf;
-	border-bottom: 1px solid #ccc;
-	border-radius: 3px 0px 0px 0px;
+.toolbar {
+	display:block;
+	height: 23px;
+	background-color: #efefef;
+	border:1px solid #dfdfdf;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;		
+	-moz-box-shadow: 1px 1px 1px #dfdfdf;
+	-webkit-box-shadow: 1px 1px 1px #dfdfdf;
+	box-shadow: 1px 1px 4px #dfdfdf;
 	padding-top:3px;
 }
 
-#navToolBar button {
+.toolbar button {
+	background-color: #efefef;
+	border:none;
 	margin: 0px 0 3px 3px;
+}
+.toolbar button:hover {
+	cursor: pointer;
 }
 
 
-
 #d4h5-main-content {
-	position: relative;
-	border-left:1px solid #dfdfdf;
+	display: block;
+	position:relative;
+	left:20px;
+}
+
+#topic-content {
+	display:block;
+	background-color: #FFFFFF;
+	border:1px solid #dfdfdf;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;		
+	-moz-box-shadow: 3px 3px 4px #ccc;
+	-webkit-box-shadow: 3px 3px 4px #ccc;
+	box-shadow: 3px 3px 4px #ccc;
+	min-height: 500px;
+	padding:40px 60px 20px 80px;
+	margin:20px 0;
 }
 
 
