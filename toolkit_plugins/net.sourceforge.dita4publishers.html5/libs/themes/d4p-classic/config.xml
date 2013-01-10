@@ -1,7 +1,7 @@
 <html5>
   <!-- if you use a grid, load it first -->
   <style path="modules/960js/code/css/reset.css" />
-  <style path="modules/960js/code/css/960_24_col.css" />
+  <style path="modules/960js/code/css/960_12_col.css" />
   <style path="modules/960js/code/css/text.css" />
   
   <style path="misc/fonts/vegur/css/vegur.css" /> 
@@ -15,8 +15,7 @@
   <style path="core/ajaxLoader/css/loader.css" />  
   <style path="core/message/css/message.css" />
   <style path="core/d4p/css/buttons.css" />  
-  
-  <style path="core/layout/css/layout.css" />    
+   
   <style path="core/layout/css/ui-icons.css" />  
   
   <style path="modules/ui/jQuery-ui/jQuery-ui/themes/d4p-default/jquery.ui.accordion.css" />     
@@ -68,7 +67,10 @@
 
   <class>
   	<body>img-with-shadow</body>
-  	<navigation>grid_8</navigation>
+  	<navigation>grid_4 alpha omega</navigation>
+  	<section>
+  		<container>grid_12</container>
+  	</section>
   </class>
 
   <!-- uncomment the following line to build the theme at each time -->

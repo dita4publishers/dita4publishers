@@ -1,33 +1,44 @@
 /**
  * theme-01
  **/
-body {
-	font-size: 13px;
-	line-height: 1.4;
-	background: #FFFFFF;
+html, body {
+  font-family: 'Vegur Regular','Lucida Grande',Helvetica,Arial,Verdana,sans-serif;	
 }
+
+body {
+	font-size: 14px;
+	line-height: 1.4;
+	background: #EFEFEF url(../img/subtle-pattern-1.jpg) repeat;
+}
+
 
 /** header **/
 header h1 {
 	color: #504F4F;
-	font-size: 2.8em;
+	font-size: 2.5em;
 	font-weight: 100;
-	line-height: 62px;
+	line-height: 40px;
 	padding-left: 12px;
-	padding-top: 20px;
+	margin-top: 20px;
 	text-shadow: 0 2px 1px #BBBABA;
-
 }
 
 header {
-	background: #EFEFEF url(../img/subtle-pattern-1.jpg) repeat;
-		border-bottom: 1px solid #ccc;
+	margin: 0 auto;	
+	height:60px;
 }
 
 /** section container **/
-body #d4h5-section-container {
+#d4h5-section-container {
 	display: block;
-
+	background-color: #FFFFFF;
+	border:1px solid #dfdfdf;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;		
+	-moz-box-shadow: 3px 3px 4px #ccc;
+	-webkit-box-shadow: 3px 3px 4px #ccc;
+	box-shadow: 3px 3px 4px #ccc;
 }
 
 .d4p-cover-page {
@@ -40,7 +51,7 @@ body #d4h5-section-container {
 }
 
 /** local navigation **/
-#local-navigation {
+/**#local-navigation {
 	display:block;
 	float: left;
 	margin: 30px 0 10px 10px;
@@ -58,7 +69,7 @@ body #d4h5-section-container {
 	/* For IE 8 */
 	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ccc')";
 	min-height: 480px;
-}
+}**/
 
 
 #local-navigation .toolbar {
@@ -72,6 +83,7 @@ body #d4h5-section-container {
 
 #local-navigation ul li {
 	position: relative;
+	list-style-type: none;
 }
 
 #local-navigation li.selected a {
@@ -92,7 +104,7 @@ body #d4h5-section-container {
 }
 
 #navToolBar {
-	background-color: #ddd;
+	background-color: #dfdfdf;
 	border-bottom: 1px solid #ccc;
 	border-radius: 3px 3px 0px 0px;
 	padding-top:3px;
@@ -151,6 +163,10 @@ span.navtitle, li.collapsible a:link {
 	color: red;
 }
 
+#d4h5-main-content h1 {
+	font-size:2em;
+}
+
 .rounded {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -161,22 +177,22 @@ span.navtitle, li.collapsible a:link {
 	padding: 18px;
 }
 
-img {
+/*img {
 	max-width: 628px;
-}
+}*/
 
 #footer-container {
-	background: #F6F6F6;
-	width: 100%;
-	min-height: 210px;
-	clear: both;
-	-webkit-border-bottom-right-radius: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-moz-border-radius-bottomleft: 5px;
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
-	border-top: 5px solid #ccc;
+	display: block;
+	background-color: #dfdfdf;
+	border:1px solid #dfdfdf;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;		
+	-moz-box-shadow: 3px 3px 4px #ccc;
+	-webkit-box-shadow: 3px 3px 4px #ccc;
+	box-shadow: 3px 3px 4px #ccc;
+	margin-top:10px;
+	min-height:120px;
 }
 
 footer {

@@ -250,9 +250,8 @@
         
         </xsl:choose>
         
-
         <xsl:apply-templates select="." mode="generate-main-content"/>
-        
+        <div class="clearfix"></div>
       </div>
    </xsl:template>
    
@@ -291,8 +290,9 @@
  
   
   <!-- generate html5 footer -->
-  <xsl:template match="*" mode="generate-footer">  	
-    <div id="footer-container" class="container_24">
+  <xsl:template match="*" mode="generate-footer">  
+    <div class="clearfix"></div>	
+    <div id="footer-container" class="grid_12">
 		<xsl:call-template name="gen-user-footer"/>
 		<xsl:call-template name="processFTR"/>
 		<xsl:sequence select="'&#x0a;'"/>

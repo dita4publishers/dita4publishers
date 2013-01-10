@@ -100,6 +100,8 @@
   		
   		<xsl:variable name="count" as="xs:integer"><xsl:number count="topichead"/></xsl:variable>
   		
+
+  		
   		<xsl:variable name="isLast">
   			<xsl:choose>
   				<xsl:when test="$count mod 6 = 0">
@@ -169,28 +171,7 @@
 
   </xsl:template>
 
-
-
-
-  <!-- 
-  		Templates for ico headers -->
-  <xsl:template mode="generate-html5-ico-nav" match="*[df:class(., 'topic/title')][not(@toc = 'no')]"> </xsl:template>
-  
-    <xsl:template mode="generate-html5-ico-nav" match="*[df:class(., 'topic/meta')]" />
-
-
-  <xsl:template mode="generate-html5-ico-nav" match="*[df:isTopicRef(.)][not(@toc = 'no')]">
-    <xsl:apply-templates select="." mode="ico-toc"/>
-  </xsl:template>
-
-  <xsl:template mode="generate-html5-ico-nav" match="mapdriven:collected-data"> </xsl:template>
-
-  <xsl:template mode="generate-html5-ico-nav" match="enum:enumerables"> </xsl:template>
-
-  <xsl:template mode="generate-html5-ico-nav" match="glossdata:glossary-entries"> </xsl:template>
-
-  <xsl:template mode="generate-html5-ico-nav" match="index-terms:index-terms"> </xsl:template>
-
+  <!-- Templates for ico headers --> 
   <xsl:template mode="generate-html5-ico-nav" match="*[df:isTopicGroup(.)]" priority="20">
     <xsl:apply-templates select="." mode="ico-toc"/>
   </xsl:template>
@@ -199,13 +180,33 @@
     <xsl:apply-templates select="." mode="ico-toc"/>
   </xsl:template>
 
-  <!-- topichead elements get a navPoint, but don't actually point to
-       anything.  Same with topicref that has no @href. -->
   <xsl:template mode="generate-html5-ico-nav" match="*[df:isTopicHead(.)][not(@toc = 'no')]">
     <xsl:apply-templates select="." mode="ico-toc"/>
   </xsl:template>
+  
+  <xsl:template mode="generate-html5-ico-nav" match="*[df:isTopicRef(.)][not(@toc = 'no')]">
+    <xsl:apply-templates select="." mode="ico-toc"/>
+  </xsl:template>
+  
+  <xsl:template mode="generate-html5-ico-nav" match="*[df:class(., 'topic/topic')][@toc= 'no']" />
 
-  <xsl:template mode="generate-html5-ico-nav" match="*[df:isTopicHead(.)][@toc = 'no']"> </xsl:template>
+  <xsl:template mode="generate-html5-ico-nav" match="*[df:isTopicHead(.)][@toc = 'no']" />
+ 
+  <xsl:template mode="generate-html5-ico-nav" match="*[df:isTopicRef(.)][@toc = 'no']" />
+
+  <xsl:template mode="generate-html5-ico-nav" match="*[df:class(., 'topic/title')][not(@toc = 'no')]" />
+
+  <xsl:template mode="generate-html5-ico-nav" match="*[df:class(., 'topic/meta')]" />
+
+  <xsl:template mode="generate-html5-ico-nav" match="mapdriven:collected-data" />
+
+  <xsl:template mode="generate-html5-ico-nav" match="enum:enumerables" />
+
+  <xsl:template mode="generate-html5-ico-nav" match="glossdata:glossary-entries" /> 
+
+  <xsl:template mode="generate-html5-ico-nav" match="index-terms:index-terms" />
+
+  <xsl:template mode="generate-html5-ico-nav" match="*[df:isTopicHead(.)][@toc = 'no']" /> 
 
   
 

@@ -50,7 +50,6 @@
     <xsl:param name="relativePath" as="xs:string" select="''" tunnel="yes" />
   	<xsl:message> + [INFO] Debug mode on, render individual script link </xsl:message>
     <xsl:for-each select="$HTML5THEMECONFIGDOC/html5/script">
-    	<xsl:message><xsl:sequence select="." /></xsl:message>
     	<script type="text/javascript" charset="utf-8" src="{relpath:fixRelativePath($relativePath, concat($HTML5THEMEDIR, '/', @path))}"></script><xsl:sequence select="'&#x0a;'"/>
     </xsl:for-each>
     <xsl:apply-templates select="." mode="generate-d4p-javascript-initializer" />	
@@ -60,7 +59,7 @@
   <!-- 
     used to generate the js links 
     FIXME: find a way to translate javascript variables.
-    ex: d4h5.locale: {
+    ex: d4p.locale: {
       'property': 'value',
       'property2': 'value2',
       ...    

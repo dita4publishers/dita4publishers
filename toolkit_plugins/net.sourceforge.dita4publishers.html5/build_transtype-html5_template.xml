@@ -253,13 +253,13 @@
   	  </not>
   	</condition>
   	
-  	<condition property="html5.class.main.container" value="">
+  	<condition property="html5.class.main.container" value="container_12">
   		<not>
   			<isset property="html5.class.main.container"/>
   	  </not>
   	</condition>
   	
-  	 <condition property="html5.class.section.container" value="container_24">
+  	 <condition property="html5.class.section.container" value="">
   		<not>
   			<isset property="html5.class.section.container"/>
   	  </not>
@@ -277,13 +277,13 @@
   	  </not>
   	</condition>
   	
-  	<condition property="html5.class.main.content" value="grid_16">
+  	<condition property="html5.class.main.content" value="grid_8">
   		<not>
   			<isset property="html5.class.main.content"/>
   	  </not>
   	</condition>  	
   	
-  	<condition property="html5.class.navigation" value="grid_7">
+  	<condition property="html5.class.navigation" value="grid_4">
 		  <not>
         <isset property="html5.class.navigation" />
       </not>
