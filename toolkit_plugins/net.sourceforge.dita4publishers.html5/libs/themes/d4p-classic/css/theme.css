@@ -50,26 +50,11 @@ header {
 	top:30px;
 }
 
-/** local navigation **/
-/**#local-navigation {
-	display:block;
-	float: left;
-	margin: 30px 0 10px 10px;
-	outline: none;
-	
-	border:1px solid #ccc;
-	
-	border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-		
-	-moz-box-shadow: 3px 3px 4px #ccc;
-	-webkit-box-shadow: 3px 3px 4px #ccc;
-	box-shadow: 3px 3px 4px #ccc;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ccc')";
-	min-height: 480px;
-}**/
+
+
+div.nav-pub-title h2 {
+	font-size:0.9em;
+}
 
 
 #local-navigation .toolbar {
@@ -96,7 +81,7 @@ header {
 
 
 
-#local-navigation #nav-content  span.ui-icon {
+#local-navigation #nav-content span.ui-icon {
 	display: block;
 	left: -18px;
 	position: absolute;
@@ -106,7 +91,7 @@ header {
 #navToolBar {
 	background-color: #dfdfdf;
 	border-bottom: 1px solid #ccc;
-	border-radius: 3px 3px 0px 0px;
+	border-radius: 3px 0px 0px 0px;
 	padding-top:3px;
 }
 
@@ -118,6 +103,7 @@ header {
 
 #d4h5-main-content {
 	position: relative;
+	border-left:1px solid #dfdfdf;
 }
 
 

@@ -68,13 +68,16 @@
   <class>
   	<body>img-with-shadow</body>
   	<navigation>grid_4 alpha omega</navigation>
+  	<main>
+  		<content>grid_7 prefix_1 alpha omega</content>
+  	</main>
   	<section>
   		<container>grid_12</container>
   	</section>
   </class>
 
   <!-- uncomment the following line to build the theme at each time -->
-  <!--theme>
+  <theme>
   	<compile>true</compile>
-  </theme-->
+  </theme>
 </html5>
