@@ -76,6 +76,14 @@
   	</section>
   </class>
 
+  <search>
+  	<action></action>
+  	<placeholder>Search the documentation...</placeholder>
+  	<inputs>
+  		<!-- add all inputs elements you want in the search form -->
+  	</inputs>
+  </search>
+  
   <!-- uncomment the following line to build the theme at each time -->
   <!--theme>
   	<compile>true</compile>

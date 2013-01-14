@@ -1,20 +1,20 @@
 /** Font face **/
 @font-face {
 	font-family: "Vegur Regular";
-    src: url("../fonts/Vegur-R.otf");
+    src: url("../fonts/Vegur-R.otf"), url('Vegur-Regular.woff');
 }
 
 @font-face {
 	font-family: "Vegur Bold";
-    src: url("../fonts/Vegur-B.otf");
+    src: url("../fonts/Vegur-B.otf"), url('Vegur-Bold.woff');
 }
 
 @font-face {
 	font-family: "Vegur Medium";
-    src: url("../fonts/Vegur-M.otf");
+    src: url("../fonts/Vegur-M.otf"), url('Vegur-Medium.woff');
 }
 
 @font-face {
 	font-family: "Vegur Light";
-    src: url("../fonts/Vegur-L.otf");
+    src: url("../fonts/Vegur-L.otf"), url('Vegur-Light.woff');
 }

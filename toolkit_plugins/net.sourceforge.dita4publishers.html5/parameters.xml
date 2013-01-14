@@ -1,0 +1,65 @@
+<params>	
+	<param name="siteTheme" expression="${html5.site.theme}"/>
+	<param name="BODYCLASS" expression="${html5.class.body}"/>
+	<param name="jsoptions" expression="${html5.js.options}"/>
+	<param name="cssOutputDir" expression="${css.output.dir}"/>
+	<param name="debug" expression="${debug}"/>
+	<param name="fileOrganizationStrategy" expression="${html2.file.organization.strategy}" if="html2.file.organization.strategy"/>
+	<param name="generateDynamicToc" expression="${html5.generate.dynamic.toc}" if="html5.generate.dynamic.toc"/>
+	<param name="generateStaticToc" expression="${html2.generate.static.toc}" if="html2.generate.static.toc"/>
+	<param name="generateGlossary" expression="${html2.generate.glossary}" if="html2.generate.glossary"/>
+	<param name="generateIndex" expression="${html2.generate.index}" if="html2.generate.index"/>
+	<param name="mathJaxUseCDNLink" expression="${html2.mathjax.use.cdn.link}" if="html2.mathjax.use.cdn.link"/>
+	<param name="mathJaxUseLocalLink" expression="${html2.mathjax.use.local.link}" if="html2.mathjax.use.local.link"/>
+	<param name="mathJaxLocalJavascriptUri" expression="${html2.mathjax.local.javascript.uri}" if="html2.mathjax.local.javascript.uri"/>
+	<param name="imagesOutputDir" expression="${images.output.dir}"/>
+	<param name="outdir" expression="${html5.xslt.outdir}"/>
+     	
+	<!-- configuration file -->
+	<param name="HTML5THEMECONFIG" expression="${html5.xml.theme.config}"/> 	
+     	
+	<!-- NOTE: Case of OUTEXT matches parameter used in base HTML transform type -->
+    <param name="OUTEXT" expression="${out.ext}"/><!-- Extension to use for result files, e.g., ".html" -->
+    <param name="tempdir" expression="${html5.xslt.tempdir}"/>
+    <param name="rawPlatformString" expression="${os.name}"/>
+    <param name="titleOnlyTopicClassSpec" expression="${title.only.topic.class.spec}"/>
+    <param name="titleOnlyTopicTitleClassSpec" expression="${title.only.topic.title.class.spec}"/>
+    <param name="topicsOutputDir" expression="${topics.output.dir}"/>
+	<param name="TRANSTYPE" expression="${transtype}" if="{transtype"/>
+	
+    <!-- Parameters from dita2xhtml and similar transtypes: -->
+    <param name="WORKDIR" expression="${workdir}" if="workdir"/>
+    <param name="CSS" expression="${args.css.file}" if="args.css.file" />     
+	<param name="HTML5THEMEDIR" expression="${html5.themes.output.dir}" if="html5.args.theme.file" /> 
+    <param name="CSSTHEME" expression="${html5.args.theme.file}" if="html5.args.theme.file" /> 
+    <param name="HTML5D4PINIT" expression="$html5.d4p.init}" />
+    <param name="JSONVARFILE" expression="${d4p.html5.json.vars.file.url}" if="d4p.html5.json.vars.file.url" />
+    <param name="NAVIGATIONMARKUP" expression="${html5.navigation.markup}" if="html5.navigation.markup" />
+
+    <param name="IDMAINCONTAINER" expression="${html5.id.main.container}" if="html5.id.main.container" />
+    <param name="IDSECTIONCONTAINER" expression="${html5.id.section.container}" if="html5.id.section.container" />  
+    <param name="IDMAINCONTENT" expression="${html5.id.main.content}" if="html5.id.main.content" />
+    <param name="CLASSMAINCONTENT" expression="${html5.class.main.content}" if="html5.class.main.content" />
+    <param name="CLASSMAINCONTAINER" expression="${html5.class.main.container}" if="html5.class.main.container" />
+    <param name="CLASSSECTIONCONTAINER" expression="${html5.class.section.container}" if="html5.class.main.container" />
+		
+    <param name="CLASSNAVIGATION" expression="${html5.class.navigation}" if="html5.class.navigation" />     
+    <param name="IDLOCALNAV" expression="${html5.id.navigation}" if="html5.id.navigation" />    
+    <param name="GRIDPREFIX" expression="${html5.grid.prefix}" if="html5.grid.prefix" />
+    <param name="JS" expression="${args.js.file}" if="args.js.file" />
+    <param name="CSSPATH" expression="${user.csspath}" if="user.csspath" />
+    <param name="DRAFT" expression="${args.draft}" if="args.draft"></param>
+    <param name="ARTLBL" expression="${args.artlbl}" if="args.artlbl"></param>
+    <param name="GENERATE-TASK-LABELS" expression="${args.gen.task.lbl}" if="args.gen.task.lbl"></param>
+    <param name="PRESERVE-DITA-CLASS" expression="${args.xhtml.classattr}" if="args.xhtml.classattr"></param>
+    <param name="NOPARENTLINK" expression="${args.hide.parent.link}" if="args.hide.parent.link"></param>
+    <param name="BREADCRUMBS" expression="${args.breadcrumbs}" if="args.breadcrumbs"></param>
+    <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
+    <param name="OUTPUTDIR" expression="${output.dir}"/>
+    <param name="FILEDIR" expression="."/>
+    <param name="BASEDIR" expression="${basedir}"></param>
+    <param name="FILTERFILE" expression="${dita.input.valfile.url}" if="dita.input.valfile"></param>
+      
+    <param name="DBG" expression="${args.debug}" if="args.debug"></param>
+
+</params>
