@@ -64,11 +64,11 @@
   </xsl:template>
   
   <xsl:template mode="gather-applicability-usage" match="*[df:isTopicRef(.)][not(@format) or @format = 'dita' or @format = 'ditamap']">
-    <xsl:message> + [DEBUG] gather-applicability-usage: processing topicref... </xsl:message>
+    <!--xsl:message> + [DEBUG] gather-applicability-usage: processing topicref... </xsl:message-->
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
     <xsl:choose>
       <xsl:when test="not($topic)">
-        <xsl:message> + [WARNING] gather-applicability-usage: Failed to resolve topic reference to href "<xsl:sequence select="string(@href),string(@keyref)"/>"</xsl:message>
+        <!--xsl:message> + [WARNING] gather-applicability-usage: Failed to resolve topic reference to href "<xsl:sequence select="string(@href),string(@keyref)"/>"</xsl:message-->
       </xsl:when>
       <xsl:otherwise>
         <xsl:apply-templates select="$topic" mode="gather-applicability-usage"/>

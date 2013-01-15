@@ -57,6 +57,11 @@
       <xsl:if test="./@id">
         <xsl:attribute name="origId" select="@id"/>
       </xsl:if>
+      
+	  <xsl:attribute name="xml:lang">
+          <xsl:call-template name="getLowerCaseLang" />
+      </xsl:attribute>
+      
       <xsl:if test="./@xtrc">
         <xsl:attribute name="xtrc" select="@xtrc"/>
       </xsl:if>
