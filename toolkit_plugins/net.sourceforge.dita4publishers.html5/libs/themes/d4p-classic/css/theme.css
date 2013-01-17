@@ -1,15 +1,6 @@
 /**
  * theme-01
  **/
-
-html, body {
-	font-family: 'Vegur Regular','Lucida Grande',Helvetica,Arial,Verdana,sans-serif;
-}
-
-b {
-	font-family: 'Vegur Bold','Lucida Grande',Helvetica,Arial,Verdana,sans-serif;
-}
-
 body {
 	font-size: 14px;
 	line-height: 1.4;

@@ -50,7 +50,7 @@
     <xsl:param name="relativePath" as="xs:string" select="''" tunnel="yes" />
   	<xsl:message> + [INFO] Debug mode on, render individual script link </xsl:message>
     <xsl:for-each select="$HTML5THEMECONFIGDOC/html5/style">
-    	<link rel="stylesheet" type="text/css" href="{relpath:fixRelativePath($relativePath, concat($HTML5THEMEDIR, '/', @path))}" />
+    	<link rel="stylesheet" type="text/css" href="{concat($HTTPABSOLUTEURI,relpath:fixRelativePath($relativePath, concat($HTML5THEMEDIR, '/', @path)))}" />
     	<xsl:sequence select="'&#x0a;'"/>
     </xsl:for-each>
   </xsl:template>

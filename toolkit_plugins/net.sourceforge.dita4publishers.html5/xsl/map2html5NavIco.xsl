@@ -206,7 +206,6 @@
 
   <xsl:template mode="generate-html5-ico-nav" match="index-terms:index-terms" />
 
-  <xsl:template mode="generate-html5-ico-nav" match="*[df:isTopicHead(.)][@toc = 'no']" /> 
 
   
 

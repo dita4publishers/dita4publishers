@@ -83,7 +83,11 @@
         <isset property="args.debug" />  
 	</condition>
 	
-	
+	<condition property="http.absolute.uri" value="">
+	  <not>
+        <isset property="http.absolute.uri" />
+      </not>
+	</condition>
 
     <property name="d4p.is.map.driven" value="true"/>
 
@@ -433,13 +437,17 @@
     <condition property="html5.themes.output.dir.exists">
     	<available file="${output.dir}/${lib.html5.dir.libs}" type="dir"/>
     </condition>
-  </target>
+    
+    <condition property="html5.prevent.copy.libs">
+     	<isset property="html5.themes.output.dir.exists" />
+    </condition>
+</target>
   
   <target name="confirm.libs.exists"  description="Output confirmation message if the library directory exists in the output directory" if="html5.themes.output.dir.exists">
     <echo> [WARNING] There is already a copy of the library directory in the ouput directory, delete it manually if you want a fresh copy. This is to avoid overriding your change during development.</echo>
   </target>
   
-  <target name="html5-copy-libs"  description="Copy assets files for development" depends="dita.map.html5.init, check.libs.exists, confirm.libs.exists" if="args.debug" unless="html5.themes.output.dir.exists">
+  <target name="html5-copy-libs"  description="Copy assets files for development" depends="dita.map.html5.init, check.libs.exists, confirm.libs.exists" if="args.debug" unless="html5.prevent.copy.libs">
   
     <mkdir dir="${output.dir}/${lib.html5.dir.libs}"/>
     
@@ -467,7 +475,7 @@
 
   </target>
   
-  
+   <!-- FIXME: Move to xsl code directly -->
   <target name="xmltojsonvars" description="Convert XML variables to a json feed" if="html5.site.js.vars.exists">
   
 	<property name="xml2json.style" location="${html5.dir}/xsl/xml2json/xml-to-json.xsl"/>

@@ -295,12 +295,4 @@ var.keyword {padding:0 0.5em; 0 0}/* Most link groups are created with <div>. En
 .relref { margin-top: 1em; margin-bottom: 1em }
 .relinfo { margin-top: 1em; margin-bottom: 1em }
 .breadcrumb { font-size : smaller; margin-bottom: 1em }
-dt.prereq { margin-left : 20px;}/** used for accessibility **/
-.hidden, #page-links {
-	position:absolute; 
-	left:-10000px; 
-	top:auto; 
-	width:1px; 
-	height:1px; 
-	overflow:hidden;
-}
+dt.prereq { margin-left : 20px;}

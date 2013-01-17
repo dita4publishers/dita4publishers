@@ -92,30 +92,25 @@
 
   
   <xsl:template match="*" mode="generate-html5-page">
-    <html>
-    
-      <xsl:attribute name = "lang"><xsl:call-template name="getLowerCaseLang"/></xsl:attribute>
-      <xsl:attribute name = "xml:lang"><xsl:call-template name="getLowerCaseLang"/></xsl:attribute>      
-      <xsl:sequence select="'&#x0a;'"/>
-  
+    <html>   
+      <xsl:attribute name = "lang" select="$TEMPLATELANG" />
+      <xsl:attribute name = "xml:lang"  select="$TEMPLATELANG"/>      
       <xsl:apply-templates select="." mode="generate-head"/>     
       <xsl:apply-templates select="." mode="generate-body"/>
-
     </html>
   </xsl:template>  
    
-
-
-  
-
   <!-- page links are intented to be used for screen reader -->
   <xsl:template name="gen-page-links">
-     <ul id="page-links">
+     <ul id="page-links" class="hidden">
 		<li><a id="skip-to-content" href="#{$IDMAINCONTENT}"><xsl:call-template name="getString">
                     <xsl:with-param name="stringName" select="'SkipToContent'"/>
                 </xsl:call-template></a></li>
 		<li><a id="skip-to-localnav" href="#local-navigation"><xsl:call-template name="getString">
                     <xsl:with-param name="stringName" select="'SkipToLocalNav'"/>
+                </xsl:call-template></a></li>
+        <li><a id="skip-to-footer" href="#footer"><xsl:call-template name="getString">
+                    <xsl:with-param name="stringName" select="'SkipToFooter'"/>
                 </xsl:call-template></a></li>
      </ul>
   </xsl:template>

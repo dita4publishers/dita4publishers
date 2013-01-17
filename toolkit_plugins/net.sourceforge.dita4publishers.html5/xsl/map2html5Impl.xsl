@@ -75,6 +75,8 @@
   <xsl:param name="IDLOCALNAV" select="'home'" />
   
   <xsl:param name="GRIDPREFIX" select="'grid_'" />
+  
+  <xsl:param name="HTTPABSOLUTEURI" select="''" />
 
       
   <xsl:param name="mathJaxInclude" select="'false'"/>
@@ -100,6 +102,14 @@
   
   
   <xsl:variable name="HTML5THEMECONFIGDOC" select="document($HTML5THEMECONFIG)" /> 
+  
+  <xsl:variable name="TEMPLATELANG">
+ 	<xsl:apply-templates select="/map" mode="mapAttributes" />
+  </xsl:variable>
+  
+  <xsl:template match="*" mode="mapAttributes" >
+  	<xsl:call-template name="getLowerCaseLang"/>
+  </xsl:template>
   
   <xsl:template name="report-parameters" match="*" mode="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>

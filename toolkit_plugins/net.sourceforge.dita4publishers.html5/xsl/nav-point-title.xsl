@@ -34,7 +34,7 @@
   
     <xsl:template mode="nav-point-title" match="*[df:isTopicRef(.)] | *[df:isTopicHead(.)]">
     <xsl:variable name="navPointTitleString" select="df:getNavtitleForTopicref(.)"/>
-    <xsl:sequence select="$navPointTitleString"/>
+    <xsl:value-of select="$navPointTitleString"/>
   </xsl:template>
   
   

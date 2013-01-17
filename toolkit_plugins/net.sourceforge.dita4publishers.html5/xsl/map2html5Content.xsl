@@ -111,6 +111,7 @@
     <!--xsl:variable name="parentPath" select="relpath:getParent($baseUri)" as="xs:string"/-->
     <xsl:variable name="relativePath" select="concat(relpath:getRelativePath($parentDocUri, $parentPath), '')"
       as="xs:string"/>
+      
     <xsl:variable name="topic-title">
       <xsl:apply-templates select="." mode="nav-point-title"/>
     </xsl:variable>
