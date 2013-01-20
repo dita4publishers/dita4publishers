@@ -12,7 +12,7 @@
     match="*[df:class(., 'd4p-variables-d/d4p-variableref_text')] |
            *[df:class(., 'd4p-variables-d/d4p-variableref_keyword')]
     " priority="10">
-    <xsl:param name="topicref" select="." as="element()" tunnel="yes"/>
+    <xsl:param name="topicref" select="." as="element()?" tunnel="yes"/>
     
     <xsl:variable name="variableName" select="normalize-space(.)" as="xs:string"/>
     <xsl:variable name="parentTopic" select="ancestor::*[df:class(., 'topic/topic')][1]" as="element()?"/>
