@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+  <title>Variables Domain</title>
+  <shortdesc>The variables domain provides markup for declaring and referencing
+    variables that are scoped by the map and topic hierarchy.</shortdesc>
+  <conbody>
+    <p>Variables are declared in map metadata, topicref metadata, topic prologs,
+      and topic content. Variable definitions are specializations of
+      <xmlelem>data</xmlelem> and may occur wherever <xmlelem>data</xmlelem> is
+      allowed.</p>
+    <p>References may occur anywhere that <xmlelem>keyword</xmlelem> or
+      <xmlelem>text</xmlelem> is allowed.</p>
+    <p>Variable resolution is done at output processing time, meaning the last
+      step in a normal DITA process. This means that all content references and
+      all filtering should have been applied by the time variable references and
+      definitions are processed. This means you can use normal content reference
+      and filtering facilities to determine the effective values of variable
+      definitions and variable references.</p>
+    <p>Note that as of D4P version 0.9.19 the Variables mechanism does not
+      attempt to cover all use cases. It is intentionally simple so as to make
+      implementation easy and foster use and experimentation in order to gather
+      futher requirements. A complete variables facility, such as would be
+      appropriate for inclusion in the DITA specification, could be quite a bit
+      more complicated. </p>
+  </conbody>
+  <concept
+    id="topic_yyg_twl_y3">
+    <title>Variable Definitions:
+      <xmlelem>d4p-variable-definition</xmlelem></title>
+    <conbody>
+      <p>Variable definitions are defined using the
+        <xmlelem>d4p-variable-definition</xmlelem> element and always contained
+        by the <xmlelem>d4p-variable-definitions</xmlelem>
+        element:<codeblock>  &lt;topicmeta>
+    <b>&lt;d4p-variable-definitions></b>
+      <b>&lt;d4p-variable-definition</b> name="prodname"
+       >&lt;tm>MyProduct&lt;/tm>&lt;/d4p-variable-definition>
+    &lt;/d4p-variable-definitions>
+  &lt;/topicmeta></codeblock></p>
+      <p>The <xmlatt>name</xmlatt> attribute is the name of the variable, by
+        which it is referenced using <xmlelem>d4p-variableref-keyword</xmlelem>
+        or <xmlelem>d4p-variableref-text</xmlelem>.</p>
+      <p>The attribute value may be specified either using the
+        <xmlatt>value</xmlatt> attribute or in the content of the
+        <xmlelem>d4p-variable-definition</xmlelem> element. If
+        <xmlatt>value</xmlatt> is specified then the content of the element is
+        ignored. This allows you to use the content of the variable definition
+        as documentation for the variable if you choose.</p>
+      <p>If you put the variable value in the content then you may use any
+        markup allowed where the variable reference is allowed (or, more
+        accurately, where the content can be usefully and correctly processed,
+        which is not quite the same thing).</p>
+      <p>Note that variable references are not content references and so the
+        same strict content model consistency constraints do not necessarily
+        apply. However, you should be careful to only put markup in variables
+        that will be correctly and appropriately processed in the context where
+        the variables are referenced. In practice, this means limiting your
+        content to normal inline markup and avoiding things like footnotes,
+        cross references, block elements, and so on. If you want to impose more
+        constraints on what is allowed in variable definitions, you can use
+        constraint modules or further specialization to do so. The base markup
+        as defined by the D4P project errs on the side of generality.</p>
+    </conbody>
+  </concept>
+  <concept
+    id="concept_k13_zzl_y3">
+    <title>Variable References: <xmlelem>d4p-variableref_keyword</xmlelem> and
+      <xmlelem>d4p-variableref_text</xmlelem></title>
+    <conbody>
+      <p>Variables may be referenced in any context where
+        <xmlelem>keyword</xmlelem> or <xmlelem>text</xmlelem> are allowed, using
+        the corresponding specialization,
+        <xmlelem>d4p-variableref_keyword</xmlelem> or
+        <xmlelem>d4p-variableref_text</xmlelem>.</p>
+      <p>The content of the reference element is the variable
+        name:<codeblock>&lt;p>The <b>&lt;d4p-variableref_keyword>prodname&lt;/d4p-variableref_keyword></b> 
+product...&lt;/p></codeblock></p>
+      <p>If the variable cannot be resolved (or you don't have processing
+        support for D4P variables installed, then the content of the reference
+        element is used, just as for normal <xmlelem>keyword</xmlelem> or
+        <xmlelem>text</xmlelem> processing. If the variable can be resolved,
+        then the nearest variable definition is used to determine the effective
+        value.</p>
+      <p>The effective binding for a variable is determined as follows:<ol
+        id="ol_h1g_r1m_y3">
+        <li>In all cases, only the direct element and map tree ancestry of the
+          reference is considered. Definitions in sibling topics, maps, or
+          topicrefs are never considered for the purpose of determining the
+          effective definition for a given reference. </li>
+        <li>Definitions in topic prologs are used only when no other effective
+          definition is available. Variable definitions within topic prologs
+          serve as default or fallback values. As for other definitions, the
+          nearest ancestor topic prolog with a definition determines the
+          effective fallback value.</li>
+        <li>The nearest definition within ancestor elements determines the
+          effective binding. For elements within topics, this includes any
+          ancestry within the topic body. Note that the placement of the
+          definition within the ancestor is not important—in particular, the
+          variable definition could come after the subelement that contains the
+          reference. </li>
+        <li>For topics referenced from maps, if there is no definition within
+          the topic, then the nearest definition in the map tree ancestry
+          determines the effective binding. That is, definitions are scoped by
+          topicrefs such that the definition in the nearest topicref to the
+          topic that references the topic provides the binding.</li>
+        <li>If the variable is not defined within the topic or within any
+          topicref in the map tree ancestry, then any definition within the
+          map's metadata is used. This means that root maps may define default
+          values for variables.</li>
+        <li>If a variable is not defined anywhere, processors may choose to
+          provide default values or otherwise allow for run-time definition of
+          variables.</li>
+        </ol></p>
+      <note>Because submap metadata is not always maintained or necessarily even
+        available in all processing contexts, variables defined in the
+        <xmlelem>topicmeta</xmlelem> child of submap elements will be ignored.
+        If you want to define variables in submaps, use a wrappter topicref
+        element around the topicrefs, either <xmlelem>topicgroup</xmlelem> or
+        another allowed topicref type.</note>
+      <p>Stated more informally, the intent of these rules is that elements
+        define variable scopes within topics and topicrefs define scopes within
+        maps.</p>
+    </conbody>
+  </concept>
+</concept>

@@ -77,7 +77,25 @@
       </dlentry>
       <dlentry>
         <dt>ruby</dt>
-        <dd>Provides markup identical to the HTML 5 <xmlelem>ruby</xmlelem> markup for annotating ideographic characters with their pronounciation, as is required for Japanese-language documents.</dd>
+        <dd>Provides markup identical to the HTML 5 <xmlelem>ruby</xmlelem>
+          markup for annotating ideographic characters with their
+          pronounciation, as is required for Japanese-language documents. (Note:
+          This domain will be replaced by the equivalent domain in DITA
+          1.3).</dd>
+      </dlentry>
+      <dlentry>
+        <dt>variables</dt>
+        <dd>A simple (for now) facility for creating variables that are scoped
+          hierarchically through the map and topic hierarchy. The variables
+          facility lets you have variables scoped in a way that is analogous to
+          programming languages, where lower scopes (closer to the reference)
+          take precedence over higher scopes. Likewise, a given topic or map
+          used in two different contexts can reflect different variable values.
+          Variable definitions may be in maps, topicrefs, topic prologs, or
+          topic bodies. Variable definitions are specializations of
+          <xmlelem>data</xmlelem>, variable references are specializations of
+          <xmlelem>keyword</xmlelem> or <xmlelem>text</xmlelem> as
+          appropriate.</dd>
       </dlentry>
       <dlentry>
         <dt>verse</dt>
@@ -85,7 +103,9 @@
       </dlentry>
       <dlentry>
         <dt>XML</dt>
-        <dd>Provides elements for identifying mentions of XML constructs.</dd>
+        <dd>Provides elements for identifying mentions of XML constructs. (Note:
+          this domain will be replaced by the equivalent domain in DITA
+          1.3).</dd>
       </dlentry>
       </dl></p>
     <p>The project's vocabulary modules also include configurations of the standard topic, concept, task, and reference topic types that integrate the various DITA for Publishers domain modules.</p>
