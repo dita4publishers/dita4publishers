@@ -24,9 +24,9 @@
       <xsl:message> - [WARN] d4p-variables-domain: No $topicref parameter in context <xsl:sequence select="concat(name(..), '/', name(.))"/>.</xsl:message>
     </xsl:if>
     
-    <xsl:variable name="variableName" select="normalize-space(.)" as="xs:string"/>
     <xsl:variable name="parentTopic" select="ancestor::*[df:class(., 'topic/topic')][1]" as="element()?"/>
-    <xsl:variable name="prolog" select="$parentTopic/*[df:class(., 'topic/prolog')]" as="element()?"/>
+    
+    <xsl:variable name="variableName" select="normalize-space(.)" as="xs:string"/>
     <!-- Resolution rules:
       
       1. Nearest definition that is a direct
@@ -36,23 +36,28 @@
       3. First definition in root map metadata.
       
       -->
+    <!-- Get definitions in the refernce's containing XML document: -->
     <xsl:variable name="localVardefs" as="element()*"
       select="
       ancestor::*/*[df:class(., 'd4p-variables-d/d4p-variable-definitions')]//*[df:class(., 'd4p-variables-d/d4p-variable-definition')][@name = $variableName] |
       ancestor::*[df:class(., 'topic/topic')]/*[df:class(., 'topic/prolog')]//*[df:class(., 'd4p-variables-d/d4p-variable-definition')][@name = $variableName]"
     />
-    <xsl:message> + [DEBUG] $localVardefs=
-      <xsl:sequence select="$localVardefs"/>
-    </xsl:message>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] $localVardefs=
+          <xsl:sequence select="for $vardef in $localVardefs return concat('name=', $vardef/@name)"/>
+        </xsl:message>
+    </xsl:if>    
     <!-- Get the nearest (last) member of this list -->
     <xsl:variable name="localVarDef" as="element()?"
       select="$localVardefs[last()]"
     />
+    
+    <!-- Now see if we found something or if we need to go to the topicrefs and map: -->
     <xsl:variable name="varDef" as="element()?">
       <xsl:choose>
         <xsl:when test="count($localVarDef) = 0 and count($topicref) > 0">
-          <!-- If we get here then it means the variable was not defined by the topicref
-               or the topic, so look up the map hierarchy until you find a definition:
+          <!-- No local definition and we have a topicref giving us access to the
+               map tree. Look up the topicref hierarchy to find the nearest definition.
           -->
           <xsl:variable name="metadataAncestry" as="element()*"
             select="reverse($topicref/ancestor::*[df:class(., 'map/topicref') or df:class(., 'map/map')]/*[df:class(., 'map/topicmeta')])"
@@ -67,6 +72,7 @@
             select="$variableDefs[1]"/>
         </xsl:when>        
         <xsl:otherwise>
+          <!-- No map tree, so use whatever we found locally, if anything -->
           <xsl:sequence select="$localVarDef"/>
         </xsl:otherwise>
       </xsl:choose>
@@ -88,8 +94,31 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:message> + [WARN] In topic "<xsl:sequence select="df:getNavtitleForTopic($parentTopic)"/>" [<xsl:sequence select="string($parentTopic/@id)"/>] <xsl:sequence select="name(.)"/>: No definition found for variable "<xsl:sequence select="$variableName"/>"</xsl:message>
-        <!-- Apply default processing for this element -->
-        <span class="d4p-unresolved-variable"><xsl:next-match/></span>        
+        <!-- See if there is a fallback definition -->
+        <xsl:variable name="localFallbackDefs" as="element()*"
+          select="
+          ancestor::*/*[df:class(., 'd4p-variables-d/d4p-variable-definitions')]//*[df:class(., 'd4p-variables-d/d4p-variable-definition')][@name = $variableName] |
+          ancestor::*[df:class(., 'topic/topic')]/*[df:class(., 'topic/prolog')]//*[df:class(., 'd4p-variables-d/d4p-variable-definition-fallback')][@name = $variableName]"
+        />
+        <xsl:if test="$debugBoolean">
+          <xsl:message> + [DEBUG] $localFallbackDefs=
+            <xsl:sequence select="for $vardef in $localFallbackDefs return concat('name=', $vardef/@name)"/>
+          </xsl:message>
+        </xsl:if>    
+        <!-- Get the nearest (last) member of this list -->
+        <xsl:variable name="localFallbackDef" as="element()?"
+          select="$localFallbackDefs[last()]"
+        />
+        <xsl:choose>
+          <xsl:when test="count($localFallbackDef) = 1">
+            <xsl:message> + [WARN] Using fallback value for variable "<xsl:sequence select="$variableName"/>"</xsl:message>
+            <span class="d4p-unresolved-variable"><xsl:apply-templates select="$localFallbackDef/node()"/></span>
+          </xsl:when>
+          <xsl:otherwise>
+            <!-- Apply default processing for this element -->
+            <span class="d4p-unresolved-variable"><xsl:next-match/></span>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>    
   </xsl:template>
