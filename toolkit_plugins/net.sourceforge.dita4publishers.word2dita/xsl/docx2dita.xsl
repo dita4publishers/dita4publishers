@@ -17,7 +17,7 @@ version="2.0">
     scope="stylesheet">
     <xd:desc>
       <xd:p>DOCX to DITA generic transformation</xd:p>
-      <xd:p>Copyright (c) 2009, 2012 DITA For Publishers, Inc.</xd:p>
+      <xd:p>Copyright (c) 2009, 2013 DITA For Publishers, Inc.</xd:p>
       <xd:p>Transforms a DOCX document.xml file into a DITA topic using a style-to-tag mapping. </xd:p>
       <xd:p>This transform is intended to be the base for more specialized transforms that provide
         style-specific overrides. The input to this transform is the document.xml file within a DOCX
