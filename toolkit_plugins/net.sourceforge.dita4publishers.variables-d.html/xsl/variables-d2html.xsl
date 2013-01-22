@@ -13,13 +13,40 @@
            *[df:class(., 'd4p-variables-d/d4p-variableref_keyword')]
     " priority="10">
     <xsl:param name="topicref" select="." as="element()?" tunnel="yes"/>
+    <xsl:message> + [DEBUg] d4p-variableref: varname="<xsl:value-of select="normalize-space(.)"/>"</xsl:message>
+<!--    <xsl:message> + [DEBUG] d4p-variableref: topicref=
+      
+      <xsl:sequence select="$topicref"/>
+      
+    </xsl:message>
+-->    
+    <xsl:if test="not($topicref)">
+      <xsl:message> - [WARN] d4p-variables-domain: No $topicref parameter in context <xsl:sequence select="concat(name(..), '/', name(.))"/>.</xsl:message>
+    </xsl:if>
     
     <xsl:variable name="variableName" select="normalize-space(.)" as="xs:string"/>
     <xsl:variable name="parentTopic" select="ancestor::*[df:class(., 'topic/topic')][1]" as="element()?"/>
     <xsl:variable name="prolog" select="$parentTopic/*[df:class(., 'topic/prolog')]" as="element()?"/>
-    <xsl:variable name="localVarDef" 
-       select="($prolog//*[df:class(., 'd4p-variables-d/d4p-variable-definition')][@name = $variableName])[1]"
-       as="element()?"
+    <!-- Resolution rules:
+      
+      1. Nearest definition that is a direct
+         child of any ancestor element or in the prolog of an ancestor topic in the
+         same XML document. First declaration among siblings in document order wins.
+      2. Nearest definition in topicref tree ancestry.
+      3. First definition in root map metadata.
+      
+      -->
+    <xsl:variable name="localVardefs" as="element()*"
+      select="
+      ancestor::*/*[df:class(., 'd4p-variables-d/d4p-variable-definitions')]//*[df:class(., 'd4p-variables-d/d4p-variable-definition')][@name = $variableName] |
+      ancestor::*[df:class(., 'topic/topic')]/*[df:class(., 'topic/prolog')]//*[df:class(., 'd4p-variables-d/d4p-variable-definition')][@name = $variableName]"
+    />
+    <xsl:message> + [DEBUG] $localVardefs=
+      <xsl:sequence select="$localVardefs"/>
+    </xsl:message>
+    <!-- Get the nearest (last) member of this list -->
+    <xsl:variable name="localVarDef" as="element()?"
+      select="$localVardefs[last()]"
     />
     <xsl:variable name="varDef" as="element()?">
       <xsl:choose>
