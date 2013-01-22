@@ -196,7 +196,7 @@
     <xsl:param name="topic" as="element()?"/>
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>    
     
-    <xsl:if test="true() or $debugBoolean">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] topicref-driven-content: topicref="<xsl:sequence select="name(.)"/>, class="<xsl:sequence select="string(@class)"/>"</xsl:message>
     </xsl:if>
     <xsl:variable name="topicref" select="." as="element()"/>
@@ -207,9 +207,6 @@
         By providing the topicref as a tunneled parameter it makes it available
         to custom extensions to the base Toolkit processing.
       -->
-      <xsl:message> + [DEBUG] topicref-driven-content: topic=
-<xsl:sequence select="$topic"/>        
-</xsl:message>
       <xsl:apply-templates select="." >
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
         <xsl:with-param name="collected-data" select="$collected-data" as="element()" tunnel="yes"/>    
@@ -250,25 +247,7 @@
       <xsl:apply-templates select="$topicref" mode="enumeration"/>
       <xsl:apply-templates/>
     </xsl:element>    
-  </xsl:template>
-  
-  <!-- Override of same template from base HTML so we can unset the 
-    topicref tunnelling parameter.
-  -->
-  <xsl:template match="/dita | *[contains(@class,' topic/topic ')]">
-    <xsl:choose>
-      <xsl:when test="not(parent::*)">
-        <xsl:apply-templates select="." mode="root_element"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="." mode="child.topic">
-          <xsl:with-param name="topicref" select="()" tunnel="yes" as="element()?"/>
-        </xsl:apply-templates>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-  
-  
+  </xsl:template>  
   
   <!-- Enumeration mode manages generating numbers from topicrefs -->
   <xsl:template match="* | text()" mode="enumeration">
