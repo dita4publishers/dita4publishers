@@ -15,12 +15,13 @@
     
     DITA Map to ePub Transformation: Content Generation Module
     
-    Copyright (c) 2010, 2012 DITA For Publishers
+    Copyright (c) 2010, 2013 DITA For Publishers
     
     This module generates output HTML files for each topic referenced
     from the incoming map.
     
-    Because all the HTML files are output to a single directory, this
+    Because all the HTML files may be output to a structure
+    different from the source structure, this
     process generates unique (and opaque) filenames for the result
     HTML files. [It would be possible, given more effort, to generate
     distinct names that reflected the original filenames but it doesn't
@@ -106,14 +107,17 @@
           select="htmlutil:getTopicResultUrl($outdir, root($topic), $rootMapDocUrl)"
           as="xs:string"
         />
+        <!-- Do href fixup before doing full default-mode processing: -->
         <xsl:variable name="tempTopic" as="document-node()">
           <xsl:document>
             <xsl:apply-templates select="$topic" mode="href-fixup">
               <xsl:with-param name="topicResultUri" select="$topicResultUri"
                 tunnel="yes"/>                           
+              <xsl:with-param name="topicref" as="element()" select="." tunnel="yes"/>
             </xsl:apply-templates>
           </xsl:document>
         </xsl:variable>
+        <!-- Apply templates in default mode to the topic with fixed up hrefs: -->
         <xsl:apply-templates select="$tempTopic" mode="#current">
           <xsl:with-param name="topicref" as="element()" select="." tunnel="yes"/>
           <xsl:with-param name="resultUri" select="$topicResultUri"
@@ -137,6 +141,8 @@
     <xsl:param name="resultUri" as="xs:string" tunnel="yes"/>
     
     <xsl:message> + [INFO] Writing topic <xsl:sequence select="document-uri(root(.))"/> to HTML file "<xsl:sequence select="relpath:newFile($topicsOutputDir, relpath:getName($resultUri))"/>"...</xsl:message>
+    <xsl:if test="true() or $debugBoolean">
+    </xsl:if>
     <xsl:variable name="htmlNoNamespace" as="node()*">
       <xsl:apply-templates select="." mode="map-driven-content-processing">
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
@@ -155,13 +161,20 @@
       can do topic output processing based on the topicref context
       if the want. -->
     <xsl:param name="topicref" as="element()?" tunnel="yes"/>
+    
     <xsl:choose>
       <xsl:when test="$topicref">
+        <xsl:if test="$debugBoolean">
+          <xsl:message> + [DEBUG] topic/topic, map-driven-content-processing: applying templates to the topicref.</xsl:message>
+        </xsl:if>        
         <xsl:apply-templates select="$topicref" mode="topicref-driven-content">
           <xsl:with-param name="topic" select="." as="element()?"/>
         </xsl:apply-templates>
       </xsl:when>
       <xsl:otherwise>
+        <xsl:if test="true() or $debugBoolean">
+          <xsl:message> + [DEBUG] topic/topic, map-driven-content-processing: no topicref, doing default processing..</xsl:message>
+        </xsl:if>        
         <!-- Do default processing -->
         <xsl:apply-templates select="."/>
       </xsl:otherwise>
@@ -173,9 +186,10 @@
     in the default context to the topic parameter. -->
     <xsl:param name="topic" as="element()?"/>
     <xsl:if test="false()">
-      <xsl:message> + [DEBUG] topicref-driven-content: topicref="<xsl:sequence select="name(.)"/>, class="<xsl:sequence select="string(@class)"/>"</xsl:message>
+      <xsl:message> + [DEBUG] topicref-driven-content, map/topicref: topicref="<xsl:sequence select="name(.)"/>, class="<xsl:sequence select="string(@class)"/>"</xsl:message>
     </xsl:if>
     <xsl:variable name="topicref" select="." as="element()"/>
+    
     <xsl:for-each select="$topic">
       <!-- Process the topic in the default mode, meaning the base Toolkit-provided
         HTML output processing.
@@ -184,7 +198,7 @@
         to custom extensions to the base Toolkit processing.
       -->
       <xsl:apply-templates select=".">
-        <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
+        <xsl:with-param name="topicref" select="$topicref" as="element()" tunnel="yes"/>
       </xsl:apply-templates>
     </xsl:for-each>
   </xsl:template>
@@ -220,25 +234,7 @@
       <xsl:apply-templates select="$topicref" mode="enumeration"/>
       <xsl:apply-templates/>
     </xsl:element>    
-  </xsl:template>
-  
-  <!-- Override of same template from base HTML so we can unset the 
-       topicref tunnelling parameter.
-  -->
-  <xsl:template match="/dita | *[contains(@class,' topic/topic ')]">
-    <xsl:choose>
-      <xsl:when test="not(parent::*)">
-        <xsl:apply-templates select="." mode="root_element"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="." mode="child.topic">
-          <xsl:with-param name="topicref" select="()" tunnel="yes" as="element()?"/>
-        </xsl:apply-templates>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-  
-  
+  </xsl:template>  
   
   <!-- Enumeration mode manages generating numbers from topicrefs -->
   <xsl:template match="* | text()" mode="enumeration">
