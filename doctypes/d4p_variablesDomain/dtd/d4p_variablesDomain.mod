@@ -18,6 +18,7 @@
      
  <!ENTITY % d4p-variable-definitions "d4p-variable-definitions" >
  <!ENTITY % d4p-variable-definition  "d4p-variable-definition" >
+ <!ENTITY % d4p-variable-definition-fallback  "d4p-variable-definition-fallback" >
  <!ENTITY % d4p-variableref_keyword  "d4p-variableref_keyword" >
  <!ENTITY % d4p-variableref_text     "d4p-variableref_text" >
 
@@ -39,7 +40,8 @@
 <!ENTITY % d4p-variable-definitions.content
 "
   ((%title;)?,
-   ((%d4p-variable-definition;)* |
+   ((%d4p-variable-definition; |
+     %d4p-variable-definition-fallback;)* |
     (%d4p-variable-definitions;)*)
   )
   " 
@@ -101,6 +103,53 @@
 > 
 <!ELEMENT d4p-variable-definition %d4p-variable-definition.content; >
 <!ATTLIST d4p-variable-definition %d4p-variable-definition.attributes; >
+
+<!-- Variable Definition-fallback:
+
+     Defines a single variable to be used as a fallback value within
+     topics when no other value of the variable is declared in a higher
+     context. When specified in a topic prolog, it defines the fallback
+     value for that topic and all of its descendants. The fallback
+     value is used if and only if there is no other in-scope definition
+     of the same variable name at the point of reference, including
+     declarations that occur in the same scope as the fallbck definition.
+
+     The value of the @name attribute serves as the variable name,
+     by which it is referenced from variable-ref elements.
+     
+     The value of the variable may be specified using either the @value
+     attribute or put in content. If there is both content and a @value
+     attribute, the content is ignored and the @value attribute is used.
+     
+     Variable definitions should not be nested.
+     
+ -->
+<!ENTITY % d4p-variable-definition-fallback.content
+"
+  (%data.cnt;)*
+  " 
+>
+<!ENTITY % d4p-variable-definition-fallback.attributes
+ "
+  name
+     CDATA
+     #REQUIRED
+  value
+     CDATA
+     #IMPLIED
+  %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass
+    CDATA
+    #IMPLIED
+ "
+> 
+<!ELEMENT d4p-variable-definition-fallback %d4p-variable-definition-fallback.content; >
+<!ATTLIST d4p-variable-definition-fallback %d4p-variable-definition-fallback.attributes; >
 
 <!-- Variable Reference: 
 
@@ -165,6 +214,7 @@
 
 <!ATTLIST d4p-variable-definitions %global-atts;  class CDATA "+ topic/data    d4p-variables-d/d4p-variable-definitions ">
 <!ATTLIST d4p-variable-definition  %global-atts;  class CDATA "+ topic/data    d4p-variables-d/d4p-variable-definition ">
+<!ATTLIST d4p-variable-definition-fallback  %global-atts;  class CDATA "+ topic/data    d4p-variables-d/d4p-variable-definition-fallback ">
 <!ATTLIST d4p-variableref_keyword  %global-atts;  class CDATA "+ topic/keyword d4p-variables-d/d4p-variableref_keyword ">
 <!ATTLIST d4p-variableref_text     %global-atts;  class CDATA "+ topic/text    d4p-variables-d/d4p-variableref_text ">
 
