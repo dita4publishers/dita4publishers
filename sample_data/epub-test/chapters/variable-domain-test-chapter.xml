@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
+<chapter
+  id="chapter-id">
+  <title>D4P Variables Domain Tests</title>
+  <prolog>
+    <d4p-variable-definitions>
+      <title>Top-level variable definitions</title>
+      <d4p-variable-definitions>
+        <title>Nested variable definitions element</title>
+        <d4p-variable-definition-fallback
+          name="varFallbackDefinedInRootTopic">This is the fallback value
+          defined in the root topic</d4p-variable-definition-fallback>
+        <d4p-variable-definition-fallback
+          name="varDefinedInRootMap">{variable <b>varDefinedInRootMap</b> not
+          defined, probably because not processed in context of the EPUB test
+          root map}</d4p-variable-definition-fallback>
+      </d4p-variable-definitions>
+    </d4p-variable-definitions>
+  </prolog>
+  <body>
+    <d4p-variable-definitions>
+      <d4p-variable-definition
+        name="varDefinedInTopicBody">variable "varDefinedInTopicBody" value as
+        defined in the root topic body</d4p-variable-definition>
+    </d4p-variable-definitions>
+    <p>This variable is defined at the start of the topic body that
+      contains the reference. It should take precedence over any higher
+      definition or any fallback:
+      "<i><d4p-variableref_keyword>varDefinedInTopicBody</d4p-variableref_keyword></i>".</p>
+    <p>This variable is defined in the topicref that directly references this
+      topic:
+      "<i><d4p-variableref_keyword>varDefinedInDirectTopicref</d4p-variableref_keyword></i>"</p>
+    <p>The D4P variables domain provides a simple mechanism for defining
+      "variables" that can be referenced from any context that allows
+      <xmlelem>keyword</xmlelem> or <xmlelem>text</xmlelem>. Variables are
+      defined in maps, topicrefs, topic prologs, or topic bodies. Unlike key
+      definitions, variable definitions are scoped in a way that is analogous to
+      variables in programming languages, meaning that the closest definition is
+      the effective one, letting you have variables that are scoped by map
+      context and by topic context. The same topic used in two different
+      contexts can reflect different values for the same variable reference.</p>
+    <p>In addition, topics can define fallback or default values for variables
+      that will be used if there is no other (higher) definition for the
+      variable.</p>
+    <p>Variable definitions are specializations of <xmlelem>data</xmlelem>. The
+      <xmlatt>name</xmlatt> attribute is the variable name, the value may be
+      specified in the <xmlatt>value</xmlatt> attribute or in the element
+      content. If both element content and <xmlatt>value</xmlatt> are specified,
+      the value of the <xmlatt>value</xmlatt> attribute is used. This lets you
+      use the content of the <xmlelem>d4p-variable-definition</xmlelem> element
+      as documentation of the variable if you want. The variable value allows
+      any markup allowed within <xmlelem>data</xmlelem>.</p>
+  </body>
+  <subsection
+    id="subsection_n3l_sql_y3">
+    <title>Variable Reference Tests:
+      "<i><d4p-variableref_keyword>varDefinedInTopicProlog</d4p-variableref_keyword></i>"</title>
+    <prolog>
+      <d4p-variable-definitions>
+        <d4p-variable-definition-fallback
+          name="varFallbackOnly">fallback value for variable "varFallbackonly"
+          defined in topic prolog</d4p-variable-definition-fallback>
+        <d4p-variable-definition
+          name="varDefinedInTopicProlog">varDefinedInTopicProlog
+          value</d4p-variable-definition>
+      </d4p-variable-definitions>
+    </prolog>
+    <body>
+      <d4p-variable-definitions>
+        <d4p-variable-definition
+          name="varDefinedInTopicBody">variable "varDefinedInTopicBody" value as
+          defined in the subtopic topic body</d4p-variable-definition>
+      </d4p-variable-definitions>
+      <p>This section exercises the various ways that variables can be defined
+        and referenced. For these tests, each variable reference is within
+        <xmlelem>i</xmlelem> and within double quotes just for visual
+        distinction. The resolved value of the variable will always make it
+        clear that the value is coming from the variable definition (and is not
+        simply the contents of the variable reference).</p>
+      <p>This variable is defined at the start of the topic body that
+        contains the reference. It should take precedence over any higher
+        definition or any fallback:
+        "<i><d4p-variableref_keyword>varDefinedInTopicBody</d4p-variableref_keyword></i>".</p>
+      <dl>
+        <dlentry>
+          <dt>undeclared variable</dt>
+          <dd>This variable is not declared anywhere:
+            "<i><d4p-variableref_keyword>varNotDefinedAnywhere</d4p-variableref_keyword></i>".<p>With
+            no definition at all, the fallback processing is to simply output
+            the contents of the element, that is, the processing associated with
+            the base element type.</p></dd>
+        </dlentry>
+        <dlentry>
+          <dt>fallback defined in topic prolog</dt>
+          <dd>This variable is not declared anywhere but a fallback value is
+            defined in the prolog for the topic:
+            "<i><d4p-variableref_keyword>varFallbackOnly</d4p-variableref_keyword></i>".<p>The
+            result should be that the fallback value is used.</p></dd>
+        </dlentry>
+        <dlentry>
+          <dt>value defined in topic body</dt>
+          <dd>This variable is defined at the start of the topic body that
+            contains the reference. It should take precedence over any higher
+            definition or any fallback:
+            "<i><d4p-variableref_keyword>varDefinedInTopicBody</d4p-variableref_keyword></i>".<p>The
+            result should be the value defined in the topic body.</p></dd>
+        </dlentry>
+        <dlentry>
+          <dt>value defined in  submap prolog</dt>
+          <dd>This variable is defined in the prolog of the submap that
+            references this topic.
+            "<i><d4p-variableref_keyword>varDefinedInSubmapProlog</d4p-variableref_keyword></i>".<p>Variables
+            in submap prologs are ignored if they are available at all in the
+            processing context, which they may not be. The result should be the
+            variable reference value (the variable name).</p></dd>
+        </dlentry>
+        <dlentry>
+          <dt>value defined in direct ref topicref.</dt>
+          <dd>This variable is defined in the topicref that directly references
+            this topic:
+            "<i><d4p-variableref_keyword>varDefinedInDirectTopicref</d4p-variableref_keyword></i>"</dd>
+        </dlentry>
+        <dlentry>
+          <dt>fallback defined in root topic</dt>
+          <dd>This variable has a defined fallback value but no other
+            declaration:
+            "<i><d4p-variableref_keyword>varFallbackDefinedInRootTopic</d4p-variableref_keyword></i>"</dd>
+        </dlentry>
+        <dlentry>
+          <dt>value defined in topic prolog</dt>
+          <dd>This variable is defined in the topic prolog and should be
+            effective for all contexts within the topic:
+            "<i><d4p-variableref_keyword>varDefinedInTopicProlog</d4p-variableref_keyword></i>"</dd>
+        </dlentry>
+        <dlentry>
+          <dt>value defined in root map</dt>
+          <dd>This variable is defined in the root map:
+            "<i><d4p-variableref_keyword>varDefinedInRootMap</d4p-variableref_keyword></i>"<p>The
+            result should be the value defined in the root map is used when this
+            chapter is processed in the context of the full EPUB test document,
+            otherwise the fallback value is used.</p></dd>
+        </dlentry>
+      </dl>
+    </body>
+  </subsection>
+</chapter>

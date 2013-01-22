@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pub-component-map PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pub-component-map" "pub-component-map.dtd">
+<pub-component-map>
+  <title>D4P Variables Domain Tests</title>
+  <topicmeta>
+    <d4p-variable-definitions>
+      <d4p-variable-definition name="varDefinedInSubmapProlog"
+        value="varname 'varDefinedInSubmapProlog' defined in submap variable-domain-test-chapter"
+      />
+    </d4p-variable-definitions>
+  </topicmeta>
+  <chapter
+    href="variable-domain-test-chapter.xml">
+    <topicmeta>
+      <d4p-variable-definitions>
+        <d4p-variable-definition name="varDefinedInDirectTopicref">varname "varDefinedInDirectTopicref" defined
+in the direct topicref to the chapter.
+        </d4p-variable-definition>
+      </d4p-variable-definitions>
+    </topicmeta>
+  </chapter>
+</pub-component-map>

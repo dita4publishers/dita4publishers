@@ -45,6 +45,10 @@
         name="item-one"
         value="value one"/>
     </data>
+    <d4p-variable-definitions>
+      <title>Test Variable Definitions</title>
+      <d4p-variable-definition name="varDefinedInRootMap">varDefinedInRootMap value</d4p-variable-definition>
+    </d4p-variable-definitions>
   </pubmeta>
   <keydefs>
     <topicmeta>
@@ -149,6 +153,9 @@
       </chapter>
       <chapter
         href="chapters/d4p-vocabulary.xml"/>
+      <chapter-mapref
+        href="chapters/variable-domain-test-chapter.ditamap"
+        format="ditamap"/>
       <chapter
         href="chapters/title-only-topic-01.xml">
         <topicref
