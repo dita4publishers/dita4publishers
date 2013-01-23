@@ -12,9 +12,10 @@
           name="varFallbackDefinedInRootTopic">This is the fallback value
           defined in the root topic</d4p-variable-definition-fallback>
         <d4p-variable-definition-fallback
-          name="varDefinedInRootMap">{variable <b>varDefinedInRootMap</b> not
-          defined, probably because not processed in context of the EPUB test
-          root map}</d4p-variable-definition-fallback>
+          name="varDefinedInRootMap">{fallback: variable
+          <b>varDefinedInRootMap</b> not defined, probably because not processed
+          in context of the EPUB test root
+          map}</d4p-variable-definition-fallback>
       </d4p-variable-definitions>
     </d4p-variable-definitions>
   </prolog>
