@@ -15,7 +15,7 @@
            *[df:class(., 'd4p-variables-d/d4p-variableref_keyword')]
     " priority="10">
 
-    <xsl:message> + [DEBUg] d4p-variableref: varname="<xsl:value-of select="normalize-space(.)"/>"</xsl:message>
+    <xsl:message> + [DEBUG] d4p-variableref: varname="<xsl:value-of select="normalize-space(.)"/>"</xsl:message>
     <!--    <xsl:message> + [DEBUG] d4p-variableref: topicref=
       
       <xsl:sequence select="$topicref"/>
@@ -25,11 +25,15 @@
     
     <!-- Find the topicref that pointed to the the topic (or an ancestor topic) that contains
          the reference. -->
-    
-    <xsl:variable name="topicref" as="element()?"
-      select="()"
+    <xsl:variable name="topicAncestorIds" as="xs:string*"
+      select="ancestor::*[df:class(., 'topic/topic')]/string(@id)"
     />
-    
+    <xsl:variable name="topicref" as="element()?"
+      select="(/*/opentopic:map//*[df:class(., 'map/topicref')][string(@id) = $topicAncestorIds])[1]"
+    />
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] topicref=<xsl:sequence select="$topicref"/></xsl:message>
+    </xsl:if>    
     <xsl:if test="not($topicref)">
       <xsl:message> - [WARN] d4p-variables-domain: No $topicref parameter in context <xsl:sequence select="concat(name(..), '/', name(.))"/>.</xsl:message>
     </xsl:if>
