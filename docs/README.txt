@@ -1,8 +1,12 @@
 Release Notes:
 
-Release 0.9.19RC08 8 Jan 2013
+Release 0.9.19RC08 23 Jan 2013
 
 1. Issue 63: Implemented support for translating Word hyperlinks into DITA XRefs.
+2. Issue 69: Implemented support for D4P Variables domain in HTML and PDF outputs. 
+   Added documentation for the Variables domain to the D4P User Guide
+3. Issue 64: Fixed: Conref throws off graphic map construction when conref target is in different relative location to a graphic than referencing topic
+4. Incremental updates to the HTML5 transform and documentation.
 
 Release 0.9.19RC07 4 Jan 2013
 
