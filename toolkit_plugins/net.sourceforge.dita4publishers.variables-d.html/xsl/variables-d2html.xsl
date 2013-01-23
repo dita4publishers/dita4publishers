@@ -13,7 +13,7 @@
            *[df:class(., 'd4p-variables-d/d4p-variableref_keyword')]
     " priority="10">
     <xsl:param name="topicref" select="." as="element()?" tunnel="yes"/>
-    <xsl:message> + [DEBUg] d4p-variableref: varname="<xsl:value-of select="normalize-space(.)"/>"</xsl:message>
+    <xsl:message> + [DEBUG] d4p-variableref: varname="<xsl:value-of select="normalize-space(.)"/>"</xsl:message>
 <!--    <xsl:message> + [DEBUG] d4p-variableref: topicref=
       
       <xsl:sequence select="$topicref"/>
