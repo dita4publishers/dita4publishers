@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =====================================================
+     DITA for Publishers Training Map Domain
+     
+     Provides topicref types specialized from the DITA Learning
+     and Training learning map domain types. These types codify
+     the training organization taxonomy of course or workshop, session,
+     module, and lesson.
+     
+     Copyright (c) 2013 DITA for Publishers
+     
+     ====================================================== -->
+<!ENTITY % trainingmap-d-topicref 
+                        "
+course |
+course-mapref |
+workshop |
+workshop-mapref |
+session |
+session-mapref |
+module |
+module-mapref |
+lesson |
+lesson-mapref
+"
+>
+
+<!ENTITY trainingmap-d-att "(map trainingmap-d)">
+
+
+<!-- ================== End training map domain Entities ===================== -->
