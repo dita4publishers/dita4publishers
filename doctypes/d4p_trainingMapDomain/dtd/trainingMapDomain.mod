@@ -311,14 +311,14 @@ lesson"
 <!-- ============================================================= -->
 <!-- Topicref types: -->
 <!ATTLIST course   %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/course ">
-<!ATTLIST course   %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/course-mapref ">
+<!ATTLIST course-mapref   %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/course-mapref ">
 <!ATTLIST workshop %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/workshop ">
-<!ATTLIST workshop %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/workshop-mapref ">
+<!ATTLIST workshop-mapref %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/workshop-mapref ">
 <!ATTLIST session  %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/session ">
-<!ATTLIST session  %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/session-mapref ">
+<!ATTLIST session-mapref  %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/session-mapref ">
 <!ATTLIST module   %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/module ">
-<!ATTLIST module   %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/module-mapref ">
-<!ATTLIST lesson   %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/lesson-mapref ">
+<!ATTLIST module-mapref   %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/module-mapref ">
+<!ATTLIST lesson-mapref   %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/lesson-mapref ">
 <!ATTLIST lesson   %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/lesson ">
 
 
