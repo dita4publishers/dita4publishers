@@ -105,7 +105,7 @@
       <!-- WEK: Put the figure label below the figure content -->
       <xsl:call-template name="place-fig-lbl"/>
     </div>
-<!-- WEK: end-revflag is deprecated in 1.7 -->
+<!-- WEK: end-revflag is deprecated in 1.7
      <xsl:call-template name="end-revflag">
       <xsl:with-param name="flagrules" select="$flagrules"/>
     </xsl:call-template>
