@@ -1,7 +1,7 @@
 Release Notes:
 
 Release 0.9.19RC09 
-Release 0.9.19RC09_OT17
+Release 0.9.19_OT17RC09
 
 1. Issue 71: HTML2 transform generates toc.js with links to the temp dir location of all the files
 2. Issue 70: Nested topics not getting topicref tunnel parameter
