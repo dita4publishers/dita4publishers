@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     DITA For Publishers Textbook Domain
+     
+     Defines specializations often needed for textbooks.
+     
+     Copyright (c) 2012 DITA For Publishers
+     
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                   Formatting DOMAIN ENTITIES                  -->
+<!-- ============================================================= -->
+
+<!ENTITY % d4p_textbook-d-ph
+   "    
+   "
+>
+
+<!ENTITY % d4p_textbook-d-p
+   "
+   "
+>
+
+<!ENTITY % d4p_textbook-d-fig
+   "d4p_display-map
+   "
+>
+
+
+
+<!ENTITY   d4p_textbook-d-att     
+  "(topic d4p_textbook-d)"
+>
+
+
+<!-- ================== End DITA For Publishers Textbook Domain Entities ============ -->

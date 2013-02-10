@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/learningMap" "learningMap.dtd">
+<map>
+   <title>Open mathematics</title>
+   <topicmeta>
+      <data name="CourseCode">MU120</data>
+  
+      <data name="ItemID"/>
+      <data name="ItemTitle"/>
+  
+  
+  
+   </topicmeta>
+  
+  
+  
+  <topichead>
+      <topicmeta>
+         <navtitle>Frontmatter</navtitle>
+      </topicmeta>
+      <topicref href="frontmatter/topic_imprint.xml"/>
+      <topicref href="frontmatter/topic_preface.xml"/>
+      <topicref href="frontmatter/topic_introduction.xml"/>
+      <topicref href="frontmatter/topic_outcomes.xml"/>
+  </topichead>
+  <topicref keys="MU120_4M2">
+      <topicmeta>
+         <navtitle>Rounding and estimation</navtitle>
+      </topicmeta>
+    
+    
+      <topicref href="sessions/SES001/session_SES001.xml">
+         <topicmeta>
+            <navtitle>Rounding and estimation</navtitle>
+         </topicmeta>
+      
+         <topicref href="sessions/SES001/SEC001/section_SEC001.xml">
+            <topicmeta>
+               <navtitle>1 Rounding</navtitle>
+            </topicmeta>
+            <topicref href="sessions/SES001/SEC001/subsection_SEC001_001.xml">
+               <topicmeta>
+                  <navtitle>1.1 Rounding in daily life</navtitle>
+               </topicmeta>
+            </topicref>
+            <topicref href="sessions/SES001/SEC001/subsection_SEC001_002.xml">
+               <topicmeta>
+                  <navtitle>1.2 Rounding whole numbers</navtitle>
+               </topicmeta>
+               <topicref href="sessions/SES001/SEC001/subsubsection_SEC001_002_001.xml">
+                  <topicmeta/>
+               </topicref>
+               <topicref href="sessions/SES001/SEC001/subsubsection_SEC001_002_002.xml">
+                  <topicmeta/>
+               </topicref>
+            </topicref>
+            <topicref href="sessions/SES001/SEC001/subsection_SEC001_003.xml">
+               <topicmeta>
+                  <navtitle>1.3 Rounding in general</navtitle>
+               </topicmeta>
+               <topicref href="sessions/SES001/SEC001/subsubsection_SEC001_003_001.xml">
+                  <topicmeta/>
+               </topicref>
+            </topicref>
+            <topicref href="sessions/SES001/SEC001/subsection_SEC001_004.xml">
+               <topicmeta>
+                  <navtitle>1.4 Rounding decimals</navtitle>
+               </topicmeta>
+               <topicref href="sessions/SES001/SEC001/subsubsection_SEC001_004_001.xml">
+                  <topicmeta/>
+               </topicref>
+            </topicref>
+            <topicref href="sessions/SES001/SEC001/subsection_SEC001_005.xml">
+               <topicmeta>
+                  <navtitle>1.5 Significant figures</navtitle>
+               </topicmeta>
+               <topicref href="sessions/SES001/SEC001/subsubsection_SEC001_006_001.xml">
+                  <topicmeta/>
+               </topicref>
+            </topicref>
+            <topicref href="sessions/SES001/SEC001/subsection_SEC001_006.xml">
+               <topicmeta>
+                  <navtitle>1.6 Significant figures for numbers less than one</navtitle>
+               </topicmeta>
+               <topicref href="sessions/SES001/SEC001/subsubsection_.xml">
+                  <topicmeta/>
+               </topicref>
+            </topicref>
+         </topicref>
+         <topicref href="sessions/SES001/SEC002/section_SEC002.xml">
+            <topicmeta>
+               <navtitle>2 Estimation</navtitle>
+            </topicmeta>
+            <topicref href="sessions/SES001/SEC002/subsection_SEC002_001.xml">
+               <topicmeta>
+                  <navtitle>2.1 Using estimations</navtitle>
+               </topicmeta>
+               <topicref href="sessions/SES001/SEC002/subsubsection_SEC002_001_001.xml">
+                  <topicmeta/>
+               </topicref>
+            </topicref>
+         </topicref>
+         <topicref href="sessions/SES001/SEC003/section_SEC003.xml">
+            <topicmeta>
+               <navtitle>3 Checking your answers</navtitle>
+            </topicmeta>
+            <topicref href="sessions/SES001/SEC003/subsection_SEC003_001.xml">
+               <topicmeta>
+                  <navtitle>3.1 Have I done the right calculation?</navtitle>
+               </topicmeta>
+               <topicref href="sessions/SES001/SEC003/subsubsection_SEC003_001_001.xml">
+                  <topicmeta/>
+               </topicref>
+            </topicref>
+            <topicref href="sessions/SES001/SEC003/subsection_SEC003_002.xml">
+               <topicmeta>
+                  <navtitle>3.2 Have I used the correct order for my calculation?</navtitle>
+               </topicmeta>
+               <topicref href="sessions/SES001/SEC003/subsubsection_SEC003_002_001.xml">
+                  <topicmeta/>
+               </topicref>
+            </topicref>
+            <topicref href="sessions/SES001/SEC003/subsection_SEC003_003.xml">
+               <topicmeta>
+                  <navtitle>3.3 Have I given due consideration to units of measurement?</navtitle>
+               </topicmeta>
+               <topicref href="sessions/SES001/SEC003/subsubsection_SEC003_003_001.xml">
+                  <topicmeta/>
+               </topicref>
+            </topicref>
+            <topicref href="sessions/SES001/SEC003/subsection_SEC003_004.xml">
+               <topicmeta>
+                  <navtitle>3.4 Did I make a rough estimate to act as a check?</navtitle>
+               </topicmeta>
+               <topicref href="sessions/SES001/SEC003/subsubsection_SEC003_004_001.xml">
+                  <topicmeta/>
+               </topicref>
+            </topicref>
+            <topicref href="sessions/SES001/SEC003/subsection_SEC003_005.xml">
+               <topicmeta>
+                  <navtitle>3.5 Does the answer make sense in the real world?</navtitle>
+               </topicmeta>
+               <topicref href="sessions/SES001/SEC003/subsubsection_SEC003_005_001.xml">
+                  <topicmeta/>
+               </topicref>
+            </topicref>
+            <topicref href="sessions/SES001/SEC003/subsection_SEC003_006.xml">
+               <topicmeta>
+                  <navtitle>3.6 Additional practice</navtitle>
+               </topicmeta>
+               <topicref href="sessions/SES001/SEC003/subsubsection_SEC003_006_001.xml">
+                  <topicmeta/>
+               </topicref>
+            </topicref>
+         </topicref>
+      </topicref>
+    </topicref>
+  <topichead>
+      <topicmeta>
+         <navtitle>Backmatter</navtitle>
+      </topicmeta>
+      <topicref href="backmatter/topic_acknowledgements.xml"/>
+  </topichead>
+</map>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic
+  id="topic-id">
+  <title>Publication Content Domain</title>
+  <shortdesc>The publication content domain provides general-purpose content elements that are specific to publications.</shortdesc>
+  <body>
+    <p>The publication content domain currently defines two element: <xmlelem>epigram</xmlelem>, a pithy saying, usually humorous, and <xmlelem>epigraph</xmlelem>, a brief quotation used to introduce a piece of writing. See <xref
+      href="http://www.wsu.edu/%7Ebrians/errors/epigram.html"
+      format="html"
+      scope="external">http://www.wsu.edu/~brians/errors/epigram.html</xref>.</p>
+  </body>
+</topic>

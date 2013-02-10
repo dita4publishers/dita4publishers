@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_rubyDomain"
+    uri="d4p_rubyDomain.mod"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_rubyDomain.mod"
+    uri="d4p_rubyDomain.mod"
+  />
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_rubyDomain:entities"
+    uri="d4p_rubyDomain.ent"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_rubyDomain.ent"
+    uri="d4p_rubyDomain.ent"
+  />
+</catalog>  

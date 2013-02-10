@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!--                    DOMAIN EXTENSIONS                          -->
+<!--                    Common (default) integrations              -->
+<!-- ============================================================= -->
+
+
+<!ENTITY % fig          
+  "fig |
+   %d4p_math-d-fig;
+  "      
+>
+
+<!ENTITY % ph
+  "ph | 
+   %hi-d-ph; |
+   %d4p_formatting-d-ph; |
+   %d4p_math-d-ph; |
+   %d4p_ruby-d-ph;
+  "
+>
+
+<!ENTITY % bodydiv        
+  "bodydiv     |
+   %d4p_pubcontent-d-bodydiv;  
+  "
+>
+
+<!ENTITY % sectiondiv        
+  "sectiondiv     |
+   %d4p_pubcontent-d-sectiondiv;  
+  "
+>
+
+<!ENTITY % p         
+  "p     | 
+   %d4p_formatting-d-p;     | 
+   %d4p_math-d-p; |
+   %d4p_simplebib-d-p; |
+   %d4p_pubcontent-d-p;
+  "      
+>
+<!ENTITY % data
+  "data | 
+   %d4p_enumerationTopic-d-data; | 
+   %d4p_variables-d-data; | 
+   %d4p_simpleEnumeration-d-data;
+  "
+>
+<!ENTITY % lq
+  "lq | 
+   %d4p_pubcontent-d-lq;
+  "
+>
+<!ENTITY % index-base   "index-base | 
+                         %indexing-d-index-base;
+                        ">
+
+<!ENTITY % keyword
+  "keyword |
+   %d4p_variables-d-keyword; |
+   %xml-d-keyword;
+  "
+>
+                      
+<!ENTITY % text
+  "text |
+   %d4p_variables-d-text;
+  "
+>
+                      
+<!ENTITY % lines
+  "lines |
+   %d4p_verse-d-lines;
+  "
+>
+                      
+<!ENTITY % object
+  "object |
+   %d4p_media-d-object;
+  "
+>
+                      
+<!ENTITY % foreign
+  "foreign |
+   %d4p_math-d-foreign;
+  "
+>
+
+<!ENTITY % xref
+  "xref |
+   %d4p_formatting-d-xref;
+  "
+>
+
+
+<!-- ============================================================= -->
+<!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
+<!-- ============================================================= -->
+<!--                    Must be declared ahead of the DTDs, which
+                        puts @domains first in order               -->
+
+<!ENTITY included-domains 
+    "&hi-d-att; 
+     &indexing-d-att;
+     &d4p_formatting-d-att;
+     &d4p_ruby-d-att;
+     &d4p_renditionTargetAtt-d-att;
+     &d4p_classification-d-att;
+     &d4p_math-d-att;
+     &d4p_simplebib-d-att;
+     &d4p_variables-d-att;
+     &d4p_verse-d-att;
+     &xml-d-att;
+    "                
+ >
+
+<!--                    Definitions of declared elements           -->
+<!ENTITY % topicDefns   PUBLIC 
+                       "-//OASIS//ENTITIES DITA Topic Definitions//EN" 
+                       "topicDefn.ent"                              >
+%topicDefns;
+
+<!-- ============================================================= -->
+<!-- DOMAIN ATTRIBUTE EXTENSIONS -->
+<!-- ============================================================= -->
+
+<!ENTITY % props-attribute-extensions "%d4p_renditionTargetAtt-d-attribute;" >
+<!ENTITY % base-attribute-extensions "" >
+<!-- =================== End of declaration set ==================== -->

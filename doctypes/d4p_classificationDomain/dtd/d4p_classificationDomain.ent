@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     DITA For Publishers Classification Domain
+     
+     Defines specializations of data for classifying components
+     of publications (topics, figures, tables, etc.).
+     
+     Copyright (c) 2009 DITA For Publishers
+     
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    Classification DOMAIN ENTITIES                  -->
+<!-- ============================================================= -->
+
+<!ENTITY % d4p_classification-d-data
+   "classification
+   "
+>
+
+<!ENTITY   d4p_classification-d-att     
+  "(topic d4p_classification-d)"
+>
+
+
+<!-- ================== End Classification Domain Entities ============ -->

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
+<chapter
+  id="chapter-id">
+  <title>The DITA-to-InDesign Transformation Framework</title>
+  <shortdesc>The DITA-to-InDesign transformation framework enables the generation of InDesign documents and InCopy articles from DITA maps and topics.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>InDesign<indexterm>generating from DITA</indexterm><indexterm>transformation framework</indexterm></indexterm>
+        <indexterm>Typefi</indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+  <body>
+    <p>The framework consists of both a library of XSLT transforms for generating InCopy articles and a Java library for reading and writing InDesign interchange (INX) files. Generating InDesign from DITA content almost always requires some degree of customization and may require some Java programming if you need to generate complete InDesign documents.</p>
+    <p>The DITA-to-InDesign framework is intended to provide a low-cost,
+      easy-to-configure path from DITA content to InDesign for publishing PDF.
+      It has been developed primarily to meet the needs of typical Publishing
+      business processes, such as producing magazines and highly-designed books.
+      It does not and cannot provide 100% automation of print layout except in
+      very narrow cases. Because the process is a one-way process that is not
+      directly connected to InDesign itself it is inherently limited in the
+      amount of layout automation it can provide. But it is free.</p>
+    <p>Where full automation through InDesign is required the Typefi product provides up to 100% automation for publications where the number of titles that use a particular layout design is large enough to justify the investment in setup. See <xref
+      href="http://www.typefi.com"
+      format="html"
+      scope="external">www.typefi.com</xref> for more information on the Typefi product.</p>
+    <p>The DITA-to-InDesign framework is <i>not</i> intended and does not
+      attempt to provide round tripping between XML and InDesign.</p>
+    <p> While it is technically possible to do some round tripping when certain
+      constraints are imposed, the presumption of the DITA-to-InDesign process
+      is that, because the InDesign can be regenerated on demand, the need to
+      make changes in InDesign should generally be minimized. Likewise, the cost
+      and complexity of a round-trip-based system is much greater than the cost
+      of managing last-minute text changes can generally justify. The DITA for
+      Publishers formatting domain vocabulary module does provide markup that
+      could be used to capture formatting details but the DITA-to-InDesign tools
+      do not take advantage of this markup in any way.</p>
+    <p>In the narrower case of InCopy articles (just the text content), it is
+      possible to implement reliable round tripping between XML and InCopy using
+      relatively simple XSLT transforms. The InCopy and INX/ICML knowledge
+      represented in the DITA-to-InDesign XSLT libraries can be used for this
+      purpose but the project does not provide any examples of doing so.</p>
+    <p>Finally, the DITA-to-InDesign process does <i>not</i> use InDesign's
+      built-in XML handling facilities in any way. These facilities are too
+      limited to allow a general and fully-functional solution to generating
+      best-possible InDesign documents from XML. Rather, the DITA-to-InDesign
+      framework is predicated on generating complete InDesign or InCopy
+      documents directly, which provides full control over all aspects of the
+      final InDesign document except final layout, which can only be done by
+      InDesign itself.</p>
+    <note>As of release 0.9.19 of the DITA for Publishers materials there is no
+      general DITA-optimized InDesign template that would enable generic
+      DITA-to-InDesign transforms. Providing such a general-purpose template has
+      always been a design goal of the DITA-to-InDesign project but to date the
+      users of the DITA-to-InDesign technology have not needed it because they
+      have all had pre-existing InDesign templates and style sets. Development
+      of such a general-purpose template is on the short-term development plan
+      for DITA-to-InDesign, such as it is.</note>
+    <p>The DITA-to-InDesign framework can be used in any one of the following ways:<ol
+      id="ul_0c4e4145-2db9-417c-8228-457ec8b54e63">
+      <li>Generate just InCopy articles (text content only) that are then manually placed into InDesign documents.<p>This process is appropriate for highly-designed and variable publications such as magazines where it would be impossible or impractical or just not very helpful to generate the InDesign document as well. This is the simplest use of the DITA-to-InDesign framework as it can involve only the DITA-to-InCopy XSLT transform.  </p></li>
+      <li>
+        <p>Generate InCopy articles and a corresponding InDesign document, based on a template InDesign document, that links in each InCopy article.</p>
+        <p>This process is appropriate for documents where the page layout and general arrangement of pages and frames does not change from title to title, such as less-highly-designed magazines or books with consistent styles. This process can only provide limited layout automation, essentially limited to the first page or first two pages of each article. More automation is possible through custom InDesign scripting or when the individual articles have limited or invariant scope, such as always being exactly one page. </p>
+        <p>The output of this process is a initial set of InCopy articles and an InDesign document ready for refinement by a Designer. Because the articles are linked from the InDesign document, they can be updated (regenerated or modified by hand) without disturbing the page layout defined in InDesign. This can allow authors and designers to work in parallel as the content is being developed and completed. The main limitation is that any formatting changes made to InCopy articles by a Designer are unavoidably lost if the article is regenerated.</p>
+        <p>Note that this process requires using Java to generate the InDesign
+          document, which necessarily requires some custom programming.</p>
+        <p>Also, experience to date suggests that in many, of not most, cases,
+          it is more efficient for designers to manually place the generated
+          InCopy articles because InDesign can automate the creation of new
+          pages in that case.</p>
+      </li>
+      <li>Generate a single InDesign document with all stories included directly (not as separate InCopy articles).<p>This process is appropriate when the layout is mostly or entirely automated or there is some other reason not to keep the articles separate. This approach generally presumes that the Designer will touch the InDesign document once and then be done with it.</p></li>
+      </ol></p>
+    <p>Options (2) and (3) require use of the Java INX support library in order to generate the InDesign document. While INX is nominally an XML format, manipulating it is pretty much beyond what on can do productively with XSLT. The INX support library provides a full abstract data model for manipulating and creating INX documents, allowing you to do anything that doesn't require knowledge of how flowing content is formatted. For example, you can create new spreads, pages, and frames, create or link stories or media files, calculate the relative geometry of frames and so on.</p>
+    <note>The INX format is only fully supported by InDesign CS4 and older
+      versions. CS5 and later can read but not write INX files. This means that
+      if you are using CS5 or later, you must have a copy of CS4 available in
+      order to create INX versions of your CS5+ InDesign documents. In addition,
+      you will not be able to use any features specific to CS5 or later.<p>While
+      CS5 and later use an XML format, IDML, the XML is packaged into a Zip
+      file, which means XSLT alone cannot generate a working InDesign document.
+      While the Java INX support library could be upgraded to support generation
+      of IDML files, I have not had any client requirement to do so and the work
+      to do it is beyond the scope of resources currently available to the DITA
+      for Publishers project.</p></note>
+    <p>Generating InCopy and InDesign effectively requires some understanding of how InDesign works and general techniques for optimizing your InDesign templates and paragraph and character styles to enable maximum automation. Many of these optimizations are not things that Designers normally do so you will likely need to work closely with your Designer to help them understand how to add the necessary enhancements to your InDesign templates.</p>
+    <p>This section uses the term "Designer" to mean anyone preforming the task
+      of creating or modifying InDesign documents, and in particular, the design
+      of the visual aspects of documents such as page design, typographic
+      details, and so on, as well as doing the manual work required to create
+      final-form printed documents using InDesign. One of the design goals of
+      the DITA-to-InDesign tools is to automate the manual aspects of this job
+      as much as possible, allowing Designers to focus on the creative design
+      aspects of documents, rather than the non-creative tasks of simply getting
+      content into InDesign. </p>
+    <p>DITA-to-InDesign does not change the roll of Designers as Designers, that is, as the implementors of specific visions for the visual presentation of information because it leaves the design task in the design tools domain rather than moving it into the data processing domain as in the case of batch formatting systems such as XSL-FO and similar non-interactive composition software.</p>
+  </body>
+</chapter>

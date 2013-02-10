@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style2tagmap
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap ../../doctypes/style2tagmap/xsd/style2tagmap.xsd"
+  xmlns="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap">
+  <title>Word Default Styles Style-to-Tag Map</title>
+  <documentation> </documentation>
+  <styles>
+    <output
+      name="bookmap"
+      doctype-system="bookmap.dtd"
+      doctype-public="-//OASIS//DTD DITA BookMap//EN"/>
+
+    <output
+      name="concept"
+      doctype-system="concept.dtd"
+      doctype-public="-//OASIS//DTD DITA Concept//EN"/>
+
+    <output
+      name="task"
+      doctype-system="task.dtd"
+      doctype-public="-//OASIS//DTD DITA Task//EN"/>
+
+    <output
+      name="reference"
+      doctype-system="reference.dtd"
+      doctype-public="-//OASIS//DTD DITA Reference//EN"/>
+
+    <style
+      styleName="Title"
+      level="0"
+      format="bookmap"
+      mapType="bookmap"
+      prologType="topicmeta"
+      structureType="mapTitle"
+      tagName="title"/>
+
+
+    <style
+      styleName="Heading 1"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="concept"
+      bodyType="conbody"
+      format="concept"
+      topicrefType="chapter"
+      tagName="title"
+      topicZone="body"
+      level="1"/>
+
+    <style
+      styleName="Heading 2"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="concept"
+      bodyType="conbody"
+      format="concept"
+      topicrefType="topicref"
+      tagName="title"
+      topicZone="body"
+      level="2"/>
+    
+    <style
+      styleName="Heading 3"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="concept"
+      bodyType="conbody"
+      format="concept"
+      topicrefType="topicref"
+      tagName="title"
+      topicZone="body"
+      level="3"/>
+    
+    <style
+      styleName="Normal"
+      tagName="p"
+      topicZone="body"
+      level="1"/>
+
+    <style
+      styleName="Default Paragraph Font"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+
+    <style
+      styleName="Cover Page Name"
+      tagName="p"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleName="Cover Page Name Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+
+    <style
+      styleName="Heading1Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleName="TitleChar"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+
+    <style
+      styleName="Heading2Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+
+    <style
+      styleName="TOC 1"
+      structureType="skip"/>
+    <style
+      styleName="TOC 2"
+      structureType="skip"/>
+    <style
+      styleName="TOC 3"
+      structureType="skip"/>
+    <style
+      styleName="TOC 4"
+      structureType="skip"/>
+    <style
+      styleName="TOC 5"
+      structureType="skip"/>
+    <style
+      styleName="TOC 6"
+      structureType="skip"/>
+    <style
+      styleName="TOC 7"
+      structureType="skip"/>
+    <style
+      styleName="TOC 8"
+      structureType="skip"/>
+    <style
+      styleName="TOC 9"
+      structureType="skip"/>
+
+    <style
+      styleName="Heading3Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleName="Heading4Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+
+    <style
+      styleName="List Bullet"
+      containerType="ul"
+      tagName="li"
+      level="1"
+      structureType="block"
+      topicZone="body"/>
+    <style
+      styleName="Body Text Indent"
+      tagName="p"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleName="BodyTextIndentChar"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleName="List Bullet 2"
+      containerType="ul"
+      tagName="li"
+      level="2"
+      structureType="block"
+      topicZone="body"/>
+    <style
+      styleName="Block Text"
+      tagName="p"
+      topicZone="body"
+      outputclass="boxed"
+      level="1"/>
+    <style
+      styleName="Body Text"
+      tagName="p"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleName="Normal"
+      tagName="p"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleName="BodyTextChar"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleName="List Number"
+      containerType="ol"
+      tagName="li"
+      level="1"
+      structureType="block"
+      topicZone="body"/>
+    <style
+      styleName="List Number 2"
+      containerType="ol"
+      tagName="li"
+      level="2"
+      structureType="block"
+      topicZone="body"/>
+    
+    <style styleName="Hyperlink"
+      structureType="xref"
+      topicZone="inline"
+      level="1"
+     />
+
+
+  </styles>
+</style2tagmap>

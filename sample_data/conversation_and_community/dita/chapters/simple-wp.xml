@@ -1,0 +1,2603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document
+  xmlns="http://reallysi.com/namespaces/generic-wordprocessing-xml"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:rsiwp="http://reallysi.com/namespaces/generic-wordprocessing-xml"
+  sourceDoc="zip:file:/Users/ekimber/workspace/dita4publishers/sample_data/conversation_and_community/idml/02_cc.idml!/Stories/Story_u4763.xml">
+  <body>
+    <p
+      style="ParagraphStyle/chapter head"
+      styleId="ParagraphStyle/chapter head"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="chapter"
+      prologType="prolog"
+      bodyType="body"
+      format="chapter"
+      level="0">2: Concepts and Tools of &#8232;the Social Web</p>
+    <p
+      style="ParagraphStyle/epigram"
+      styleId="ParagraphStyle/epigram"
+      structureType="block"
+      tagName="p"
+      topicZone="body"
+      outputclass="epigram">In my eighties, my best friends are in their fifties, and I have many
+      friends at university. It keeps one young, and up with the vocabulary. That’s terribly
+      important, especially for a writer. &#8232;—Mary Wesley</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Before you begin learning about the social web or trying it out for yourself,
+      you may become overwhelmed just by the vocabulary. This book offers a sampling of some of the
+      terms that you might come across. While this chapter offers some definitions, you also need to
+      realize that the meanings change and morph, and often you will have to search the Internet or
+      ask a colleague or friend for their definition before coming to your own conclusion about a
+      new term and whether it is useful to keep in your vocabulary. Beware of trendy but meaningless
+      terms, and be choosy about your definitions. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">This chapter contains a frozen-in-time list of some terms and tools in 2009
+      that are related to social media. It isn’t easy to define every term, and often the best way
+      to learn a definition for one of these terms is to try the concept for yourself to get a sense
+      of what it is all about. Or, ask someone who uses these tools often for their favorite use
+      cases. Even those items that do not currently seem to fit your business goals may someday be
+      applicable in another situation. </p>
+    <p
+      style="ParagraphStyle/head level 1"
+      styleId="ParagraphStyle/head level 1"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="1"
+      topicZone="title">Social media tools and content</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">This summary table describes the types of <indexterm>social
+          networking<indexterm>tools</indexterm></indexterm><indexterm>social
+          media<indexterm>tools</indexterm></indexterm>tools and names of some examples with
+      definitions. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">
+      <table>
+        <cols>
+          <col/>
+          <col/>
+        </cols>
+        <tr>
+          <td>
+            <p
+              style="ParagraphStyle/table title"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Category </p>
+          </td>
+          <td>
+            <p
+              style="ParagraphStyle/table title"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Definition and description </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Audio</p>
+          </td>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Sound-producing audible file sharing, such as podcast sites and music
+              download sites. </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Community &#8232;content</p>
+          </td>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Discussion threads and content that is central to a community. Wikis,
+              forums are examples. Polls, comments, and ratings are often used within communities
+              for feedback.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Discussions</p>
+          </td>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Content focused on talking, conversing, or discussing with people.
+              Examples include blog or wiki comments, support forums and email lists.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Email</p>
+          </td>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Electronic messages sent on computers nearly everywhere. Outlook,
+              Mail for Mac, GMail, or other mailers used to write messages electronically are
+              examples.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Instant Messaging</p>
+          </td>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Includes real time or slightly asynchronous<indexterm>asynchronous
+                conversation</indexterm> conversation using messages. Increasingly video and web
+              cams are in this category. Yahoo<indexterm>Yahoo</indexterm> Instant Messenger, Skype,
+              AOL Instant Messenger, or &#8232;GTalk are examples.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Microblogging and post-style messaging</p>
+          </td>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Small posts of content often limited to few characters. Twitter,
+              Ident.ca, Jaiku, and Tumblr are example services.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Photo content</p>
+          </td>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Flickr, Picasa, or other web sites used for sharing and organizing
+              pictures using the web.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Presence and &#8232;location</p>
+          </td>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Geospatial indicators tell where a user is geographically. Mobile
+              cell phone location identification sites such as Twinkle or BrightKite are examples of
+              presence information being broadcast to others.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Profile content</p>
+          </td>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Profiles that describe the user and give them identity are on nearly
+              all sites with registrations. Professional networking sites such as
+                LinkedIn<indexterm>LinkedIn</indexterm> specialize in profiles.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Shared content</p>
+          </td>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Content that people help others find and create to help others.
+              Blogs, wikis, photo sharing sites, video sharing sites, bookmarking sites are
+              examples.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Syndicated &#8232;content</p>
+          </td>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Published so that readers are notified about updates. Blogs and
+              podcasts are examples of syndicated content.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Tags and tag clouds</p>
+          </td>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Keywords assigned as metadata on content. Social
+                <indexterm>bookmarking, social</indexterm>bookmarking such as digg.com or
+                delicious.com<indexterm>delicious.com</indexterm> use tags to help people retrieve
+              content, and tag clouds are visual representations of those tags indicating relative
+              popularity or amount of content with specific tags.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Text messaging</p>
+          </td>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">SMS (Short Messaging Service) is the standard for this type of
+              communication. Specific to mobile phone carriers, used to send short messages, photos,
+              links, and abbreviated word forms using a cell or mobile phone.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Video</p>
+          </td>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Sites used for sharing videos or screencasts and responding to video
+              posts with videos. Examples include Youtube.com, Vimeo.com, Screencasts.com,
+              Instructables.com project or company-specific sites such as Wordpress.tv and
+              Sun.tv.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Virtual </p>
+          </td>
+          <td>
+            <p
+              style="ParagraphStyle/table text"
+              styleId="copy"
+              structureType="block"
+              tagName="p"
+              topicZone="body">Used with avatars or other online objects representing a personality
+              or a physical device, such as Second Life, or haptic controllers like the Nintendo
+                <indexterm>Wii</indexterm>Wii controller</p>
+          </td>
+        </tr>
+      </table>
+    </p>
+    <p
+      style="ParagraphStyle/head level 2"
+      styleId="ParagraphStyle/head level 2"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="2"
+      topicZone="title">Tagging</p>
+    <p
+      style="ParagraphStyle/tag keywords"
+      styleId="ParagraphStyle/tag keywords"
+      structureType="block"
+      tagName="p"
+      topicZone="body"
+      outputclass="tag_keywords">folksonomy, social bookmarking<indexterm>social
+        bookmarking</indexterm>, tag clouds<indexterm>tag clouds</indexterm>, taxonomy</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"><indexterm>content<indexterm>tagging</indexterm></indexterm>Tagging involves
+      a skill with which many technical writers are familiar—determining which keywords best
+      describe a blog entry, link, photo,
+      <indexterm>video<indexterm>tagging</indexterm></indexterm>video, or image for retrieval later.
+      Social
+        <indexterm>content<indexterm>bookmarking</indexterm></indexterm>bookmarking<indexterm>bookmarking,
+        social</indexterm> sites like delicious.com<indexterm>delicious.com</indexterm> and
+        digg.com<indexterm>digg.com</indexterm> use tagging, or keywords, to help users find their
+      links later or group them into categories. What is more advanced and even social about tagging
+      is that you can usually see the tags that others use, and also see the content that they’ve
+      tagged. Tagging is a little more chaotic and less organized than more familiar techniques like
+      indexing, so it might take some time to adjust your expectations. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">For example, your company style guide<indexterm>style guidance</indexterm>
+      might mandate that the gerund form of a verb is always required, or that plurals should be
+      preferred keyword forms. But with tagging, any word or term is allowed, and sometimes the
+      terms don’t match—work and working are one example of such tag mismatch. The collective set of
+      tags is known as a <indexterm>folksonomy</indexterm>folksonomy—a
+        taxonomy<indexterm>taxonomy</indexterm> created by everyday folks. Where taxonomies are
+      strict and rigid, a folksonomy is flexible and allows for any term. Both are powerful. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Tag <indexterm>clouds, tag</indexterm>clouds are a visual method of
+      displaying tags. Tag clouds use font size or weight to indicate the amount of content or
+      popularity of each tag.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"/>
+    <p
+      style="ParagraphStyle/figure caption"
+      styleId="ParagraphStyle/figure caption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1">Visual cloud of words created on Wordle.net<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body"> Technically this is not a tag cloud since the words were collected from
+          the feed for my blog, www.justwriteclick.com.</p></fn></p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"/>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">While social bookmarking and social tagging are some of the least adopted
+      technologies on the social web, these very same technologies also show the most promise for
+      businesses as they share information and <indexterm>collaboration<indexterm>social tagging
+          and</indexterm></indexterm>collaborate internally and externally with others, according to
+      a Gilbane survey.<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body"> Gilbane Report on Collaboration and Social Media 2008</p></fn> While
+      only 5% of those surveyed said they currently use social bookmarking, nearly half of those
+      using it rated it very effective. Customer support groups can share how-to and troubleshooting
+      information by using tags for links that answer customer questions. One technical publications
+      group collects the tagged links from the support group once a week as a report on the most
+      asked and answered questions. </p>
+    <p
+      style="ParagraphStyle/head level 3"
+      styleId="ParagraphStyle/head level 3"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="3"
+      topicZone="title">Tagging examples</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">In 2003 the web site <indexterm>del.icio.us</indexterm>del.icio.us, now
+      renamed delicious.com, offered users the ability to apply metadata as tags on stored bookmarks
+      for easier retrieval later. Users also share their tagged bookmarks with others on the site. <run
+        style="n">Figure 2</run> shows a list of bookmarks with the tags for each on the right-hand
+      side.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"/>
+    <p
+      style="ParagraphStyle/figure caption"
+      styleId="ParagraphStyle/figure caption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1">delicious.com<indexterm>delicious.com</indexterm></p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"/>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Pronounced flicker, the photo-sharing site Flickr has an explore-by-tags
+      feature (<run
+        style="n">Figure 3</run>) that shows the popularity of tags like “birthday” and “family.”
+      The Hot tags area shows the most common tags used for recent uploads, and the font size of the
+      list of tags indicates the popularity of that tag on the entire site.</p>
+    <p
+      style="ParagraphStyle/figure caption"
+      styleId="ParagraphStyle/figure caption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1">flickr.com<indexterm>flickr.com</indexterm></p>
+    <p
+      style="ParagraphStyle/head level 2"
+      styleId="ParagraphStyle/head level 2"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="2"
+      topicZone="title"/>
+    <p
+      style="ParagraphStyle/head level 2"
+      styleId="ParagraphStyle/head level 2"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="2"
+      topicZone="title">Shared content</p>
+    <p
+      style="ParagraphStyle/tag keywords"
+      styleId="ParagraphStyle/tag keywords"
+      structureType="block"
+      tagName="p"
+      topicZone="body"
+      outputclass="tag_keywords"><indexterm>communities<indexterm>content contributed
+        by</indexterm></indexterm>community content, user-based content,
+        user-generated<indexterm>user-generated content</indexterm>, publishing, participatory
+        media<indexterm>participatory media</indexterm></p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"><indexterm>content<indexterm>community-generated</indexterm></indexterm><indexterm>content<indexterm>sharing</indexterm></indexterm>If
+      you study social media, you’ll see that production and distribution changes are at the heart
+      of these emerging methods. Naturally, another concept or skill that technical writers know
+      about is creating content. What is interesting about the recent mind shift towards
+        <indexterm>social media<indexterm>community development</indexterm></indexterm>community
+        content<indexterm>community-generated content<indexterm>developing</indexterm></indexterm>
+      is the thought that “everyone’s a technical writer.” In reality, of course, everyone is not a
+      paid technical writer by profession, and hopefully paid writers have the skills, experience,
+      and practice that set them apart from the rest of the crowd. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">But, where user-based
+        <indexterm>content<indexterm>user-generated</indexterm></indexterm>content lives, there is
+      also a passion for the product, and customer forums and fan-built web sites display that
+      passion for all to see. Consumer-generated media, as it is also called, can refer to many
+      different kinds of media as well, not just written text, but video,
+          audio<indexterm>audio<indexterm>consumer-generated media</indexterm></indexterm>, and
+      images. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">A conversation can begin with a user
+          <indexterm>conversations<indexterm>content created from</indexterm></indexterm>creating a
+      rough draft of <indexterm>publishing<indexterm>changes in</indexterm></indexterm>content, even
+      as a question on a support forum. A technical communicator then builds a mental concept
+      because of being afforded the user’s perspective through their contribution. Comments on wiki
+      pages and two-way conversations on online forums are a prominent part of this type of content
+      sharing, mixing, and modifying. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"><indexterm>publishing<indexterm>models</indexterm></indexterm><indexterm>publishing<indexterm>incorrect
+          content</indexterm></indexterm>Publishing models get turned over when anyone can publish
+      content and make it instantly available through Internet channels. A few years ago it wouldn’t
+      have been possible to view published content as easily and quickly as we can now. Of course
+      people argue that the more content there is, the less peer-review or any review or editing it
+      gets, so therefore it must be lesser quality. That assumption has not always held true,
+      though, when evaluation<indexterm>evaluation<indexterm>of content</indexterm></indexterm> of
+      the content may be based on whether it solves a problem quickly. A higher
+          <indexterm>search<indexterm>rankings</indexterm></indexterm>search<indexterm>search<indexterm>accessing
+          documentation through</indexterm></indexterm> ranking may prove that the consumer-created
+      content is in fact helping more people. However, the converse of that issue is that if an
+      incorrect message or workaround is being published, perhaps you should strike up a
+      conversation with the person publishing the incorrect information to see how you can correct
+      the content or the person’s perception. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">If you read through <indexterm>discussions about content<indexterm>in
+          comments</indexterm></indexterm>comments about your documentation from your users, you may
+      find sophisticated readers who have high <indexterm>technical
+          documentation<indexterm>expectations for</indexterm></indexterm>expectations for the
+      consistency, organization, and findability<indexterm>findability</indexterm> of your
+      documentation. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">What you might also find is that every representation of your company just
+      might be thought of as “<indexterm>technical documentation<indexterm>user
+          suggestions</indexterm></indexterm>technical documentation,” including white papers or
+      data sheets on your website that were not created in your department. I have been pleasantly
+      surprised by suggestions from a customer that accurately pinpointed an area to improve based
+      on the latest best practices and standards for online documentation. I’m certain that the next
+      level of sophisticated information seeker will also have high expectations and concrete
+      suggestions.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">What also might follow, as your customers verbalize their hopes for product
+      documentation, is a willingness to assist. So, another interesting aspect of this new
+      publishing channel is what motivates people to contribute content. When it is your job to
+      create the content, like it is for technical communicators, money is your motivation to some
+      extent. Other content creators may be motivated by wanting to be known as an expert in the
+      field, wanting to help others so that they’ll be helped in the future when needed, feeling
+      like a part of a group or a greater cause, and finally, a sense of time gained by publishing
+      something once instead of repeatedly sending the same message. </p>
+    <p
+      style="ParagraphStyle/head level 3"
+      styleId="ParagraphStyle/head level 3"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="3"
+      topicZone="title">Shared content examples</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">The <indexterm>World of Warcraft</indexterm>World of Warcraft
+        <indexterm>wikis, examples<indexterm>World of Warcraft</indexterm></indexterm>wiki is a
+      popular wikis for players of the massively multiplayer online role-playing game (MMORPG).
+      Recently ranked in the top 800 web sites in the United States by Alexa, it contains articles
+      about the game’s characters, game play guides, customization guides, and strategy information. <run
+        style="n">Figure 4</run> shows an article about combat that links to armor and weapon
+      articles and describes concepts of combat in the game. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"/>
+    <p
+      style="ParagraphStyle/figure caption"
+      styleId="ParagraphStyle/figure caption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1">wowwiki.com<indexterm>wowwiki.com</indexterm></p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"/>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">With the tagline “The How-to Manual that You Can Edit,” the <indexterm>wikis,
+          examples<indexterm>wikiHow</indexterm></indexterm>wikiHow site contains many how-to
+      articles with topics ranging from hobbies to holidays. In January 2009, the site surpassed the
+      50,000 article mark.<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body">
+          http://en.wikinews.org/wiki/Jack_Herrick,_WikiHow_founder_interviewed_by_Wikinews</p></fn></p>
+    <p
+      style="ParagraphStyle/figure caption"
+      styleId="ParagraphStyle/figure caption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1"><indexterm>wikihow.com</indexterm>wikihow.com<indexterm>wikihow.com</indexterm></p>
+    <p
+      style="ParagraphStyle/head level 2"
+      styleId="ParagraphStyle/head level 2"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="2"
+      topicZone="title">Syndicated content</p>
+    <p
+      style="ParagraphStyle/tag keywords"
+      styleId="ParagraphStyle/tag keywords"
+      structureType="block"
+      tagName="p"
+      topicZone="body"
+      outputclass="tag_keywords">podcast<indexterm>podcasts<indexterm>as syndicated
+          content</indexterm></indexterm>, blog, web log, vlog<indexterm>vlog</indexterm>, video
+        log<indexterm>video log</indexterm>, RSS, subscription, feeds, aggregation, news</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"><indexterm>content<indexterm>syndicated</indexterm></indexterm>All of these
+      terms are related to content that is updated regularly.
+          <indexterm>blogs<indexterm>syndication</indexterm></indexterm><indexterm>blogs<indexterm>description
+          of</indexterm></indexterm>Blogs are typically text content that is updated often;
+      sometimes additions are made multiple times a day. Blog entries range from a few sentences
+      making a comment or linking to another site to fully developed essays. Blogs can be personal
+      or professional with a lot of differences found in between. You can find the original
+      definition of web blog and why it became blog on Jason <indexterm>Kottke,
+      Jason</indexterm>Kottke’s blog.<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body"> http://kottke.org</p></fn>
+    </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Podcasts are
+          <indexterm>content<indexterm>audio</indexterm></indexterm>audio<indexterm>audio<indexterm>podcasts</indexterm></indexterm>
+      files that are posted regularly. Often podcasts are posted using blogging software, so there
+      may be overlap between the two types. Podcasts are much like a radio show featuring
+      interviews. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">A vlog or
+          <indexterm>content<indexterm>video</indexterm></indexterm>video<indexterm>video<indexterm>log,
+          vlog</indexterm></indexterm> log<indexterm>video log</indexterm> involves regularly posted
+      video content. An example is rocketboom.com, which was a news show featuring an amateur
+      newscaster who became so popular she often had more viewers than the local news affiliates in
+      her area.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">So how does regularly updated web
+          <indexterm>content<indexterm>up-to-date</indexterm></indexterm>content compare to your
+      online <indexterm>help, online<indexterm>compared to blogs</indexterm></indexterm>help
+      experience for your users? Have you already implemented an online help system with dynamic
+      updates, or are you still tied to the software release schedule? As customers become more
+      accustomed to the immediacy of blog updates, they may increasingly expect frequent updates. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"><indexterm>conversations<indexterm>blogs</indexterm></indexterm>Also,
+      consider writing a blog yourself, from the viewpoint of dedicated technical writer, to
+      increase awareness of your customers that you are a real person inside the company, working
+      hard at providing accurate, relevant information. You can be part of the customer conversation
+      that blogging provides. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">While <indexterm>social media<indexterm>metrics</indexterm></indexterm>social
+      media <indexterm>metrics<indexterm>blogging influence</indexterm></indexterm>metrics are still
+      in their infancy, many studies show that the <indexterm>reach and influence (R and
+        I)</indexterm>reach and <indexterm>blogs<indexterm>influence
+        of</indexterm></indexterm>influence<indexterm>influence, measuring</indexterm> of bloggers
+      can be and will be measured. For example, blogging about information development or
+      architecture issues that you wrestle with in the name of high-quality documentation might
+      stick out as a good selling point for your company’s product, giving the customer confidence
+      that you are giving your best towards helping them solve business problems. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">One example of a blog that gives the technical writer a voice in the
+          <indexterm>blogs<indexterm>corporate advantage</indexterm></indexterm>corporate world is
+      my former blog on <indexterm>blogs,
+      examples<indexterm>talk.bmc.com</indexterm></indexterm>talk.bmc.com. Any salesperson would get
+      very excited if a potential customer reading the conversations at talk.bmc.com led to a
+      one-on-one contact. White paper downloads are <indexterm>metrics<indexterm>social media
+          effectiveness</indexterm></indexterm>tracked through the links from the blog authors as
+      well, and blog readers are likely also white paper consumers, doing their homework with
+      searches. Industry analysts also read talk.bmc.com, and got to know some of the bloggers,
+      which in turn helps the analysts understand the goals of the business and interpret the values
+      and strategies that the company employs to serve customer needs. Analysts’ attention is sought
+      by public relations and marketing departments. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Another recent trend is the use of
+          <indexterm>content<indexterm>blogs</indexterm></indexterm>blogs for describing new
+      features in <indexterm>blogs<indexterm>product information in</indexterm></indexterm>products,
+      especially web applications. Examples are the new Google Calendar features described in a blog entry<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body">
+          http://gmailblog.blogspot.com/2009/01/get-calendar-on-your-google-desktop.html</p></fn>
+      and SmugMug’s blog<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body"> http://blogs.smugmug.com/release-notes/</p></fn> where the entire blog
+      is dedicated to <indexterm>blogs<indexterm>release information
+      in</indexterm></indexterm>release information.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">The <indexterm>Jing online help</indexterm>Jing product’s
+          <indexterm>search<indexterm>online help and</indexterm></indexterm><indexterm>help,
+          online<indexterm>created in blogging tool</indexterm></indexterm>online <indexterm>help,
+          online<indexterm>Jing example</indexterm></indexterm>help<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body"> http://help.jingproject.com/</p></fn> is written and maintained in
+        <indexterm>Movable Type</indexterm>Movable Type, a blogging tool. Jing is a relatively new
+      screencasting tool. Many blogging tools can be used as content management systems, and it
+      appears that Jing’s writers see blog engines that way too. The writers are taking advantage of
+      some nice built-in features, such as a <indexterm>help, online<indexterm>searching
+          within</indexterm></indexterm>Search field at the top of every page, and the Categories
+      link at the bottom of each help topic give an automated collection of topics. They have just
+      one “table of contents” for the help system, and that’s the top page, but it works nicely as a
+      site map. The overall effect is a very simple and elegant user assistance or support
+      system.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">A blog can work well for release notes. Give your product some
+          “<indexterm>Google<indexterm>"juice"</indexterm></indexterm>Google juice”—the mysterious
+      quality that raises the ranking of a page in Google’s search—and generate buzz for new
+      features by giving other bloggers a well-understood infrastructure to link to you and give
+      your entries trackbacks. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">This model works best when your release notes are not the primary vehicle for
+      reporting bug fixes, since the open, honest style of blogging may reveal more than your
+      marketing department would like. Separating feature information from bug reporting may help
+      you “spin” features without guilt, while keeping the information factual.</p>
+    <p
+      style="ParagraphStyle/head level 3"
+      styleId="ParagraphStyle/head level 3"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="3"
+      topicZone="title">Syndication and RSS<indexterm>RSS (Really Simple
+          Syndication)<indexterm>described</indexterm></indexterm></p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">The <run
+        style="CharacterStyle/glossary first use"
+        styleId="CharacterStyle/glossary first use"
+        tagName="term"
+        topicZone="inline">RSS</run> acronym stands for Really Simple Syndication. RSS and <run
+        style="CharacterStyle/glossary first use"
+        styleId="CharacterStyle/glossary first use"
+        tagName="term"
+        topicZone="inline">Atom</run>, a similar standard, are XML-based formats for distributing
+      and gathering content from sources across the Web, including newspapers, magazines, wikis, and
+      blogs. This syndication ability is the real beauty of blogs and podcasts. You write a blog
+      entry or upload a podcast or edit a wiki page, and people get notified when that new content
+      is posted. According to <indexterm>Technorati</indexterm>Technorati, blog subscriptions were
+      doubling every five months in 2006.<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body"> http://technorati.com/weblog/2006/02/81.html, see
+          http://technorati.com/blogging/state-of-the-blogosphere/ for more recent data.</p></fn>
+      This subscription technology is a big deal. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">RSS, one of the few three-letter acronyms in blogging and podcasting, is not
+      all that technical. RSS and feeds are nothing more than notifications and alerts for new
+      items, be they new blog posts, new or changed wiki pages, or even package tracking
+      notification. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">RSS<indexterm>RSS (Really Simple
+          Syndication)<indexterm>aggregators</indexterm></indexterm> aggregators are tools that
+      manage a collection of subYou can find popular RSS aggregators or readers on the web.<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body"> http://blogspace.com/rss/readers</p></fn> The first aggregators for
+      reading blogs<indexterm>blogs<indexterm>syndication</indexterm></indexterm> were standalone
+      readers (Sharpreader is an example) and then web-based readers were created.
+        Bloglines<indexterm>Bloglines</indexterm> and Google Reader are popular web-based readers,
+      and some browsers have this ability built-in. Feed reader tools often offer a combination of
+      notifications via email, mobile devices, or on the web. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">For audio content, like podcasts, people can load an audio file to a player
+      such as an <indexterm>iPod</indexterm>iPod, or listen using an application such as iTunes on
+      their computer, or just read about the podcast before deciding whether to download the audio
+      or not. How people want to listen to content then dictates which feed they choose. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"><indexterm>Feedburner</indexterm><indexterm>Google<indexterm>Feedburner</indexterm></indexterm>Feedburner
+      is a Google-owned tool that offers subscription pages that contain buttons for the most
+      popular aggregators. All you have to do is click one of the buttons to subscribe to a feed
+      with that particular aggregator. <run
+        style="n">Figure 6</run> shows examples of the buttons.</p>
+    <p
+      style="ParagraphStyle/figure caption"
+      styleId="ParagraphStyle/figure caption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1">Subscriber aggregator buttons</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"/>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">On different sites, several different feeds are available that allow you to
+      track subscriptions and gather detailed statistics like what browser a reader uses to access
+      the site, whether it’s a robot that’s crawling the site, and so on. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">For podcasts, sometimes there are different icons that represent different
+          audio<indexterm>audio<indexterm>accessing content through</indexterm></indexterm> feeds.
+      For example, you can subscribe to a feed that downloads the audio files directly to an iPod or
+      other audio player. Another RSS<indexterm>RSS (Really Simple Syndication)<indexterm>for
+          podcasts</indexterm></indexterm> feed downloads the
+          audio<indexterm>audio<indexterm>feeds</indexterm></indexterm> files directly to a computer
+      and plays them in iTunes<indexterm>iTunes</indexterm>. Yet another feed offered by some
+      podcasters gives text-only summaries of the podcast containing notes for each podcast. People
+      subscribe to the summary feed when they want to know about the podcast topic and contents
+      before downloading the audio file. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">If you click an RSS icon, your browser handles that type of file in a default
+      manager unless the website has set it up with another page link. For example, you could go to
+      a page that contains aggregator subscribe buttons. If you right-click the RSS icon, you can
+      copy and paste the feed URL into your aggregator. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">I have been completely amazed by the ways people are using <indexterm>RSS
+        (Really Simple Syndication)<indexterm>variety of uses</indexterm></indexterm>RSS for
+      notifications. At a South By SouthWest Interactive (SXSWi) session I attended in 2006, the
+      panelists presented a list of sample ideas you can do with RSS and a feed
+        reader<indexterm>feed readers</indexterm> such as Bloglines<indexterm>Bloglines</indexterm>
+      or Google Reader.</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Get new podcasts or video<indexterm>video<indexterm>downloading through
+          feeds</indexterm></indexterm>s by subscribing to a feed on
+      <indexterm>iTunes</indexterm>iTunes or Apple TV so that you automatically get updates
+      downloaded to your iPod or Apple TV. RSS subscriptions are not just for text
+      notifications.</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Find out the most popular blog entries and topics with RSS—aggregation of
+      information is crucial for this goal. You can enter a product name and continuously get
+      information when a new item is created with that keyword. </p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Find time-critical information or immerse yourself in a point-in-time. On some feed
+      readers you can search within a specific date range as well. Bloglines has added a longer time
+      span to their return content feature, allowing you to read feeds from 2001. </p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Get updates to classified ads based on a <indexterm>search<indexterm>RSS
+          and</indexterm></indexterm>search or a category. For example, if you are seeking a
+      specific pre-owned electronic device for a cheaper price on craigslist, you can search for
+      that keyword within the category, then copy the RSS feed link and put it into your feed
+      reader. Any time a new item is added to the craigslist classified ads, the notification
+      appears in your feed reader.</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Follow group <indexterm>conversations<indexterm>following through
+          syndication</indexterm></indexterm>conversations by RSS instead of using email and
+      clogging up your inbox with multiple messages. Yahoo<indexterm>Yahoo</indexterm> Groups offers
+      RSS feeds for conversations, so you can read them from one place such as Google Reader.</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Track packages using RSS with a website like simpletracker.com. Some eBay resellers
+      say that subscription-based
+      <indexterm>email<indexterm>tracking</indexterm></indexterm>tracking is a useful tool rather
+      than constantly using <indexterm>email<indexterm>compared to RSS</indexterm></indexterm>email
+      messages for notification.</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Use <indexterm>RSS (Really Simple Syndication)<indexterm>package tracking
+          through</indexterm></indexterm>RSS subscriptions as an <indexterm>email<indexterm>compared
+          to RSS</indexterm></indexterm>email subscription alternative for product newsletters. It
+      still requires customers to opt-in, but they can choose not to be notified via email
+      message.</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Use an RSS calendar to turn calendar dates into RSS notifications for birthdays,
+      anniversaries, and so on. The website is http://rsscalendar.com/.</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Give notification for course information via an RSS feed.</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Create keyword or hashtag searches with <indexterm>Twitter<indexterm>searching
+          within</indexterm></indexterm>Twitter’s <indexterm>search<indexterm>in
+        Twitter</indexterm></indexterm>search engine<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body"> http://search.twitter.com</p></fn> and subscribe to RSS<indexterm>RSS
+        (Really Simple Syndication)<indexterm>following group discussions</indexterm></indexterm>
+      notification for competitive intelligence and other specialized information, and receive
+      notifications only when the Tweet is in your favored language. Language filtering is
+      especially useful for a product name like the one I’ve worked with, iMIS, which is a Spanish
+      word that tends to show up in Spanish language posts. Restricting the results to English-only
+      posts eliminates the non-relevant Spanish content.</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Search for job leads on indeed.com with RSS<indexterm>RSS (Really Simple
+          Syndication)<indexterm>for job listings</indexterm></indexterm> notification; you
+      subscribe to search<indexterm>search<indexterm>RSS and</indexterm></indexterm> terms, and
+      search for your product to view the job descriptions of your typical end-user. For example,
+      search for Remedy in Arkansas and 29 job descriptions show up, but if I subscribe to the RSS
+      feed for that search, I can be notified when each new job listing appears. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Think of how a subscription-based notification on end-user documentation
+      changes could help your customers. Would a subscription to release notes additions help your
+      customers? You do need your customers to want the constant updates, but since they control the
+      amount of notificns, they can choose the interval and amount of updates they receive.</p>
+    <p
+      style="ParagraphStyle/head level 3"
+      styleId="ParagraphStyle/head level 3"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="3"
+      topicZone="title">Syndication examples</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Blogs written by writers, such as this blog by the lead writer for InDesign
+      and InCopy at Adobe, Bob Bringhurst, can give writers an opportunity for further explanation
+      of a feature. A subscription to this blog gives people information, updates to the
+        <indexterm>help, online<indexterm>blogging about</indexterm></indexterm>help, and general
+      tips.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"/>
+    <p
+      style="ParagraphStyle/figure caption"
+      styleId="ParagraphStyle/figure caption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1">blogs.adobe.com/indesigndocs</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"/>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">By subscribing to updates, readers of this Embarcadero blog by the technical
+      publications manager <indexterm>Elling, Dee</indexterm>Dee Elling can find out when a new set
+      of <indexterm>help, online<indexterm>blogging about</indexterm></indexterm>documentation is
+      released, such as the PDF files that this writer announces in this blog post. She also asks
+      the readers about their favorite formats and invites feedback through her blog.</p>
+    <p
+      style="ParagraphStyle/figure caption"
+      styleId="ParagraphStyle/figure caption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1">blogs.embarcadero.com/deeelling/</p>
+    <p
+      style="ParagraphStyle/head level 2"
+      styleId="ParagraphStyle/head level 2"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="2"
+      topicZone="title">Community </p>
+    <p
+      style="ParagraphStyle/tag keywords"
+      styleId="ParagraphStyle/tag keywords"
+      structureType="block"
+      tagName="p"
+      topicZone="body"
+      outputclass="tag_keywords">wiki, user-based content,
+        crowdsourcing<indexterm>crowdsourcing</indexterm>, discussion </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Community-based content can be a
+          <indexterm>collaboration<indexterm>community</indexterm></indexterm>collaborative effort
+      on a website, or an email <indexterm>mailing lists<indexterm>community-based
+          content</indexterm></indexterm>list that has a core set of members contributing
+      information that furthers the <indexterm>community-generated content<indexterm>wikis
+          and</indexterm></indexterm>community‘s goals. As <indexterm>Happe,
+      Rachel</indexterm>Rachel Happe states in her <indexterm>blogs, examples<indexterm>The Social
+          Organization</indexterm></indexterm>blog entry, Social Media is not Community,<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body">
+          http://www.thesocialorganization.com/2008/07/social-media-is-not-community.html</p></fn>
+          “<indexterm>communities<indexterm>goals</indexterm></indexterm>Communities gather around a
+      concept or common goal not around a collection of
+          <indexterm>content<indexterm>community-generated</indexterm></indexterm><indexterm>communities<indexterm>content
+          contributed by</indexterm></indexterm>content (although content does plays a major role,
+      it is not the impetus for the community). So while <indexterm>wikis<indexterm>collaboration
+          in</indexterm></indexterm>wikis are a type of community-based content, a community cannot
+      be interchanged with the social media tool itself that enables working on the community
+      goals.” </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Wikis are a fourteen-year-old technology
+          <indexterm>communities<indexterm>wikis supporting</indexterm></indexterm>for creating web
+      pages quickly, with the additional ability for anyone with the correct permissions to edit any
+      page on the wiki. Created by <indexterm>Cunningham, Ward</indexterm>Ward Cunningham in 1995
+      for making quick web pages for a consulting firm, wikis offer cross-platform, cross-browser
+      display and encourage collaboration. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Many <indexterm>wikis<indexterm>applications</indexterm></indexterm>wiki
+      applications have sophisticated methods for resolving even simultaneous edits. They encourage
+      what is called “crowdsourcing<indexterm>crowdsourcing</indexterm>,” organizing an open call
+      for contributions from anyone with interest and ability. Crowdsourcing was a term used in a
+      2006 Wired<indexterm>Wired</indexterm> article,<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body"> http://www.wired.com/wired/archive/14.06/crowds.html</p></fn> but the
+      concept dates back even to the 1800s when the Oxford English dictionary was created out of
+      slips of paper with well-researched definitions submitted by volunteers.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">For technical publications, wikis are an exciting new possibility for
+      engaging the customer and getting the customer’s <indexterm>discussions about
+          content<indexterm>in wikis</indexterm></indexterm>viewpoint on choices and tasks for
+      concepts as well as scenarios for how they are using the product. Wikis offer living,
+      breathing documentation due to the ability to change pages based on new information or based
+      on the results of a discussion about the content. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Customers might expect a wiki to be in place for certain products, such as
+        <indexterm>open source<indexterm>wikis for</indexterm></indexterm>open source technology or
+      games. Even if your product doesn’t seem to support a group that would require or demand
+      transparency and openness in the documentation, think about ways to offer collaborative tools
+      even if you don’t offer a wiki.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">I found the OLPC wiki at wiki.laptop.org very useful for project planning and
+      recruiting. When I needed artwork to demonstrate how to open the laptop’s unique case, I
+      posted a request on the Artwork Wanted page. I had two excellent figures sent via my wiki
+      “Talk” page within three weeks. Also, I could talk to other wiki users by using their wiki
+      “Talk” pages rather than relying on email.</p>
+    <p
+      style="ParagraphStyle/head level 3"
+      styleId="ParagraphStyle/head level 3"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="3"
+      topicZone="title">Wiki examples </p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1"><indexterm>wikis, examples<indexterm>Adobe
+          Labs</indexterm></indexterm><indexterm>communities<indexterm>examples of
+          online</indexterm></indexterm>Adobe Labs: labs.adobe.com/wiki/index.php/Main_Page</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Ajax patterns: ajaxpatterns.org</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Apache<indexterm>Apache</indexterm>
+      <indexterm>wikis, examples<indexterm>Apache</indexterm></indexterm>wiki: wiki.apache.org</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1"><indexterm>wikis, examples<indexterm>Motorola Q</indexterm></indexterm>Knoppix wiki
+      : www.knoppix.net/wiki/Main_Page </p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Microformats wiki: microformats.org/wiki/Main_Page</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Motorola Q: www.motoqwiki.com </p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1"><indexterm>wikis, examples<indexterm>Mozillazine Knowledge
+        Base</indexterm></indexterm>Mozillazine Knowledge Base:
+      kb.mozillazine.org/Knowledge_Base</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">One Laptop per Child wiki: wiki.laptop.org<indexterm>wikis, examples<indexterm>Opera
+          Browser</indexterm></indexterm></p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Opera Browser and Internet Suite wiki: operawiki.info/Opera</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">SugarCRM <indexterm>wikis, examples<indexterm>SugarCRM</indexterm></indexterm>Wiki:
+      www.sugarcrm.com/wiki/index</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1"><indexterm>wikis, examples<indexterm>Ajax
+        patterns</indexterm></indexterm><indexterm>wikis, examples<indexterm>SQL
+        Lite</indexterm></indexterm>SQL Lite: www.sqlite.org/cvstrac/wiki</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1"><indexterm>SugarLabs</indexterm><indexterm>wikis,
+          examples<indexterm>Microformats</indexterm></indexterm>SugarLabs wiki:
+      wiki.sugarlabs.org</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1"><indexterm>wikis, examples<indexterm>Ubuntu</indexterm></indexterm>Ubuntu user
+      documentation: help.ubuntu.com/community </p>
+    <p
+      style="ParagraphStyle/head level 2"
+      styleId="ParagraphStyle/head level 2"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="2"
+      topicZone="title">Presence and location</p>
+    <p
+      style="ParagraphStyle/tag keywords"
+      styleId="ParagraphStyle/tag keywords"
+      structureType="block"
+      tagName="p"
+      topicZone="body"
+      outputclass="tag_keywords">BrightKite, Latitude, Twinkle, geo-spatial location awareness,
+        poke<indexterm>poke</indexterm>, superpoke<indexterm>superpoke</indexterm>, status</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"><indexterm>presence, online</indexterm>You may find it odd that there’s a
+      function on web applications like Facebook to “poke” another user. On Twitter, you can
+          “<indexterm>Twitter<indexterm>nudging</indexterm></indexterm>nudge” someone. It is
+      basically a mechanism to get someone’s attention or to find out if they are online or not,
+      indicated by poking you back. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Another presence or location item is the <indexterm>GPS</indexterm>GPS-based
+      location indication that some web applications build in and integrate with GPS hardware to let
+      others know if they’re mobile, or even their location as they travel. This data is called
+        <indexterm>geospatial data</indexterm>geospatial data and content systems that know where
+      someone is reading content can help you analyze the
+          <indexterm>content<indexterm>localization</indexterm></indexterm><indexterm>localization,
+        analyzing</indexterm>localization or translation of content. For example, if you notice an
+      upsurge in questions about a particular help topic coming from the Ottowa, Canada area, you
+      could look for French-Canadian culture issues with the content and fix the issue.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"><indexterm>TripIt</indexterm>TripIt and <indexterm>Dopplr</indexterm>Dopplr
+      are examples of travel web applications where you share your travels with friends and
+      coworkers in the hopes of keeping others informed about where you are so that in-person
+      meetings can happen. Mobility and <indexterm>status, indicating</indexterm>status knowledge
+      might be useful if you attend your user’s conferences and want to set up face-to-face
+      gatherings. </p>
+    <p
+      style="ParagraphStyle/head level 3"
+      styleId="ParagraphStyle/head level 3"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="3"
+      topicZone="title">Presence example</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">By enabling more real-world interaction with a web application that collects
+      location data and makes it meaningful to people, Dopplr (sounds like doppler) gives you trip
+      tracking and trip planning abilities. This screenshot shows a map of my trips over a year’s
+      time. It integrates with popular social networking sites like Facebook and LinkedIn to tell my
+      network about my current location, and indicate upcoming trips that I have planned.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"> </p>
+    <p
+      style="ParagraphStyle/figure caption"
+      styleId="ParagraphStyle/figure caption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1">dopplr.com</p>
+    <p
+      style="ParagraphStyle/head level 2"
+      styleId="ParagraphStyle/head level 2"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="2"
+      topicZone="title"><indexterm>microblogging</indexterm>Microblogging and post-style
+      messaging</p>
+    <p
+      style="ParagraphStyle/tag keywords"
+      styleId="ParagraphStyle/tag keywords"
+      structureType="block"
+      tagName="p"
+      topicZone="body"
+      outputclass="tag_keywords">Twitter, Identi.ca, Jaiku, Tumblr</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"><indexterm>Twitter<indexterm>described</indexterm></indexterm>Twitter or
+      other microcontent sites can offer customers more updates on the <indexterm>status,
+        indicating</indexterm>status of your work. Twitter is a web-based application that gives you
+      140 characters to answer the question, “what are you doing?” The now-closed
+        <indexterm>Pownce</indexterm>Pownce website offered mobile integration so that cell phone
+      users could triangulate position if the user chose to reveal it to their friends.
+        Facebook<indexterm>Facebook</indexterm> and LinkedIn have a status application built into
+      the Profile page, where you fill in an answer to “What’s on your mind?” or “What are you
+      working on?” or other fill-in-the-blank completion statements for your current status, state
+      of mind, or whereabouts.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Twitter<indexterm>Twitter<indexterm>use at
+        conferences</indexterm></indexterm> is especially useful if you are at a user conference and
+      want to get together with like-minded individuals. Twitter’s character limit can be a
+      difficult adjustment to figure out what you can communicate in such a small amount of text,
+      but, integrating IM<indexterm>IM (Instant Messaging)</indexterm>-like or SMS-based
+      communications into <indexterm>technical
+        documentation<indexterm>microposts</indexterm></indexterm>technical documentation might
+      provide an innovative delivery method for instant online help when a customer needs it. Think
+      of the Tips and Tricks documentation sometimes offered as a beginning blurb when a software
+      product launches. Twitter’s “tweets” are a similar small excerpt of information. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Provide a <indexterm>Twitter<indexterm>integrating with technical
+          documentation</indexterm></indexterm>Twitter feed of tips and tricks for your software, or
+      news updates when a critical <indexterm>wikis<indexterm>broadcating page updates via
+          Twitter</indexterm></indexterm>wiki page has been added to, or find ways to have IM-like
+      discussions with your services or consulting teams while they are out on customer service
+      calls. If you are familiar with the XML-based Darwin Information Typing Architecture (DITA),
+      you could also think of Twitter posts like the &lt;shortdesc&gt; element required in
+      every DITA topic that summarizes the topic.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">You could also use microblog posts to offer a tip of the day, and link to an
+      online help topic or support article each day. You can use Twitter helper applications like
+      ping.fm to schedule posts to many social networks. Sarah <indexterm>Maddox,
+      Sarah</indexterm>Maddox recently posted her experience with using Twitter to announce changes
+      to their software product with links to release notes. She described their use of
+        <indexterm>hashtags</indexterm><indexterm>tagging<indexterm>hashtags</indexterm></indexterm>hashtags
+      and offers a detailed write up in this blog entry, <indexterm>Twitter<indexterm>integrating
+          with technical documentation</indexterm></indexterm>Twitter as a medium for release notes.<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body">
+          http://ffeathers.wordpress.com/2009/06/08/twitter-as-a-medium-for-release-notes/</p></fn></p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">With Twitter<indexterm>Twitter<indexterm>hashtags</indexterm></indexterm>,
+      you can also put <indexterm>Twitter<indexterm>keywords</indexterm></indexterm>keywords, or
+      hashtags, into your posts and automatically create a Twitter theme, called a
+          <indexterm>Twitter<indexterm>theme (Tweme)</indexterm></indexterm>Tweme. Posts with
+      hashtags, indicated with a # sign in front of the keyword, are collected on a single page at
+      twemes.com/keyword. For example, at the 2008 <indexterm>STC Summit</indexterm>STC Summit,
+      Twitter users could enter #stc2008 anywhere in their Twitter post, and everyone could view
+      those posts at http://twemes.com/stc2008. In 2009, the crowd chose #stc09 as the hashtag for
+      Twitter posts related to the 2009 STC Summit. The search.twitter.com page was available by
+      2009, making it even easier to find the hashtags related to the conference. Beware of relying
+      on Twitter servers for long term storage—often you cannot find the aggregate listing after a
+      certain amount of time has passed, apparently about a week. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">One of my favorite <indexterm>Twitter<indexterm>story
+        about</indexterm></indexterm>stories about Twitter’s usefulness at real-time events is from
+      SXSWi 2008. At Tom <indexterm>Parish, Tom</indexterm>Parish’s social media metrics panel, I
+      sat next to Summer Huggins, who works in Austin for Hammock, a media company based out of
+      Nashville. We chatted about Austin, how I feel like a tourist in my own town when I come
+      downtown, and laughed about the Compass Bank building when she said it looks like a giant nose
+      hair trimmer. (Yes, it does.)</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">When she left the talk, she accidentally left her digital camera on her seat.
+      I noticed it and asked both of the attendees in front of me if they caught her last name so
+      that I could try to find an email address for her in the SXSWi attendee directory. None of us
+      could remember her last name.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">So, I took the camera in its cute case to the SXSW information desk to be
+      placed in Lost &amp; Found, telling them that someone named Summer from Austin would
+      hopefully pick it up. They said they’d be open until 8:00 and it would be kept in a safe place
+      overnight.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Later that night, I started searching on twitter for someone named Summer
+      from Austin who maybe, just maybe, had talked about attending the social media metrics panel.
+      Sure enough, SummerH posted a tweet marked with #SXSW<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body"> http://twitter.com/SummerH/statuses/768730904</p></fn> saying she had
+      lost her digital camera! I immediately sent her a irect message on Twitter, clicked through to
+      her blog, found her email address, and sent her an email telling her she could pick up her
+      camera at SXSW Lost &amp; Found. Problem solved!</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Summer was very excited and also noted the power of the Twitter and SXSW
+      attendees by tweeting, “Lost camera is in-hand. How much do SXSWers rock?!?!” </p>
+    <p
+      style="ParagraphStyle/figure caption"
+      styleId="ParagraphStyle/figure caption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1">A single Twitter status update</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"/>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Twitter can also be useful for
+          <indexterm>Twitter<indexterm>crowdsourcing</indexterm></indexterm>crowdsourcing answers to
+      simple questions. One example is the reaction David Pogue’s followers had to his demonstration
+      of Twitter by asking “I need a cure for hiccups... RIGHT NOW! Help?”<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body">
+          http://www.nytimes.com/2009/01/29/technology/personaltech/29pogue-email.html</p></fn> He
+      didn’t indicate that he was merely demonstrating the power of Twitter for a conference in Las
+      Vegas, though. He had responses nearly immediately, but after those who answered his query
+      found out he was showing off Twitter to a crowd of 1,000 people, their reactions ranged from
+      humor to annoyance to feeling used. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">I had an experience where I mentioned on Twitter that I was looking for Super
+      Mario Jibbitz for Crocs shoes. I had two responses pointing me to sources for the item by the
+      end of the day, from two differenful <indexterm>Twitter<indexterm>for
+        support</indexterm></indexterm>Twitter users can make a difference in the corporate world,
+      also. TurboTax has customer support representatives with a Twitter account at
+      http://twitter.com/turbotax. The Twitter bio section for that account gives the names of real
+      people. They are posting helpful hints but also talking to others when they have questions. If
+      your <indexterm>Twitter<indexterm>integrating with technical
+        documentation</indexterm></indexterm>technical publications role is closely aligned with the
+      technical support department, and you think lots of your customers would appreciate a Twitter
+      account to talk to, you might consider starting one with tips, tricks, and helpful
+      information. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">A blog might be enhanced with a Twitter account in a couple of ways. I was
+      surprised when my number of Twitter followers passed my number of blog subscribers in 2009. I
+      now link to blog entries from my Twitter account even though I was originally reluctant to do
+      so (in 2007) because I thought people who followed me on <indexterm>Twitter<indexterm>linking
+          to blog</indexterm></indexterm>Twitter would be reading my blog from somewhere else, like
+      a feed reader. In 2009, I did try automating the twitter post that linked to my
+          <indexterm>blogs<indexterm>Twitter links to</indexterm></indexterm>blog entry with a
+        <indexterm>WordPress</indexterm>WordPress plug in, but ultimately I choose not to automate
+      linking to my blog entries, because I wanted to generate discussion and talk to others, not
+      just get people to click-through to my blog.</p>
+    <p
+      style="ParagraphStyle/head level 3"
+      styleId="ParagraphStyle/head level 3"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="3"
+      topicZone="title">Microblogging example</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">The <indexterm>Twitter<indexterm>example</indexterm></indexterm>Twitter
+      interface is as shockingly simple as your very first glance at the Google search engine form.
+      It contains a single field with the label “What are you doing?” You enter up to 140 characters
+      in that field, click the update button, and your
+          <indexterm>blogs<indexterm>microblogging</indexterm></indexterm>microblog post is sent to
+      all your followers. By following people on Twitter, you create your own “timeline” of the
+      people you choose to follow to read their micropost updates.</p>
+    <p
+      style="ParagraphStyle/figure caption"
+      styleId="ParagraphStyle/figure caption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1">Twitter.com</p>
+    <p
+      style="ParagraphStyle/head level 2"
+      styleId="ParagraphStyle/head level 2"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="2"
+      topicZone="title">Profile</p>
+    <p
+      style="ParagraphStyle/tag keywords"
+      styleId="ParagraphStyle/tag keywords"
+      structureType="block"
+      tagName="p"
+      topicZone="body"
+      outputclass="tag_keywords">LinkedIn<indexterm>LinkedIn</indexterm>,
+        <indexterm>Naymz</indexterm>Naymz<indexterm>Naymz</indexterm>,
+        Spock<indexterm>Spock</indexterm>,
+        <indexterm>Friendster</indexterm>Friendster<indexterm>Friendster</indexterm>, MySpace,
+        Facebook<indexterm>Facebook</indexterm></p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"><indexterm>profile, online</indexterm>Profile sites let users enter
+      information about themselves (or others in the case of Spock). This information is searchable
+      and can be correlated by entering information about relationships to others as well as your
+      activities online and offline. Human Resources recruiters have found this source of
+      information to be quite valuable, and sales and marketing and branding work and research are
+      aided by studying these sites.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Much of the excitement and media coverage surrounding <indexterm>social
+          networking<indexterm>sites</indexterm></indexterm>social media occurs when a large site
+      that collects profiles about their users changes the way that data is displayed. For example,
+      when MySpace<indexterm>MySpace<indexterm>site</indexterm></indexterm> began showing more
+      distant relationships and activity that reached farther than users expected, users demanded
+      that the feature be removed. Even though the data collection made it possible to see the
+      relationships, users did not necessarily want these extended relationships revealed. Be aware
+      that profiling can be misused, and privacy and portability of an online identity are
+      controversial subjects. </p>
+    <p
+      style="ParagraphStyle/head level 3"
+      styleId="ParagraphStyle/head level 3"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="3"
+      topicZone="title">Profile examples</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">LinkedIn is a networking site used primarily for keeping up professional
+      contacts, performing job searches, writing recommendations for others, reading company
+      profiles, and storing contact information for co-workers both current and previous. It is very
+      useful for finding information about end-users of the products you document, such as their job
+      titles and where they work.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"/>
+    <p
+      style="ParagraphStyle/figure caption"
+      styleId="ParagraphStyle/figure caption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1">Linkedin.com</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"/>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Facebook, which originally allowed only college students to register on the
+      site, has become hugely popular with over 200 million active participants, two-thirds of whom
+      are not currently college students. Since it is the most widely used social networking site,
+      based on minutes spent on it per month according to Nielson Online, you should observe
+      Facebook for trends and usage patterns.<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body">
+          http://blog.nielsen.com/nielsenwire/online_mobile/time-spent-on-facebook-up-700-but-myspace-still-tops-for-video/</p></fn>
+    </p>
+    <p
+      style="ParagraphStyle/figure caption"
+      styleId="ParagraphStyle/figure caption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1">Facebook.com</p>
+    <p
+      style="ParagraphStyle/head level 2"
+      styleId="ParagraphStyle/head level 2"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="2"
+      topicZone="title">Discussions</p>
+    <p
+      style="ParagraphStyle/tag keywords"
+      styleId="ParagraphStyle/tag keywords"
+      structureType="block"
+      tagName="p"
+      topicZone="body"
+      outputclass="tag_keywords">forum, board, email list, <indexterm>mailing
+          lists<indexterm>community-based content</indexterm></indexterm>mailing list, instant
+        messaging<indexterm>instant messaging (IM)</indexterm></p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">For technical writers who are already affiliated with customer support, the
+      idea of joining customer support
+        <indexterm>moderation<indexterm>forums</indexterm></indexterm><indexterm>discussions about
+          content<indexterm>in forums</indexterm></indexterm>forums or moderating and joining in
+          <indexterm>communities<indexterm>conversations in</indexterm></indexterm>conversations
+      there is not a new one. Valuable relationships and much needed information are abundant in
+      these online communities. Starting out by communicating on forums or
+          <indexterm>boards<indexterm>message</indexterm></indexterm>boards is an excellent way to
+      establish yourself as part of the user community. This section contains additional information
+      on conversation starting and sustaining tools.</p>
+    <p
+      style="ParagraphStyle/head level 3"
+      styleId="ParagraphStyle/head level 3"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="3"
+      topicZone="title">Instant messages</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Online <indexterm>conversations<indexterm>instant
+        messaging</indexterm></indexterm>instant messenger services such as
+        Yahoo<indexterm>Yahoo</indexterm>, MSN<indexterm>MSN</indexterm>,
+        AIM<indexterm>AIM</indexterm>, Skype<indexterm>Skype</indexterm>, or universally available
+        <indexterm>discussions about content<indexterm>in IM</indexterm></indexterm>IM<indexterm>IM
+        (Instant Messaging)</indexterm> clients such as Trillian<indexterm>Trillian</indexterm> or
+        <indexterm>Meebo</indexterm>Meebo<indexterm>Meebo</indexterm> enable you to be available to
+      customers directly. Instant messaging clients sometimes include
+          <indexterm>conversations<indexterm>video</indexterm></indexterm>video and screen-sharing
+      capabilities which is extremely useful for collaboration and explanation. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">In her Agile<indexterm>Agile development</indexterm> Tech Writer blog post,<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body">
+          http://ffeathers.wordpress.com/2008/01/20/the-agile-technical-writer/</p></fn> Sarah
+      Maddox talks about answering Instant Messages from all around the world and being available to
+      others to assist or just share humorous stories. Just be sure to have a sense of when to be
+      unavailable, or keep “office hours” if the instant messaging communication devices become too
+      disruptive for you to get your work done. </p>
+    <p
+      style="ParagraphStyle/head level 3"
+      styleId="ParagraphStyle/head level 3"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="3"
+      topicZone="title">Online forums and mailing lists</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">In a <indexterm>forums<indexterm>participating
+          in</indexterm></indexterm><indexterm>conversations<indexterm>forums</indexterm></indexterm>forum,
+      people can post questions about a product in hopes of getting answers quickly. Many open
+      source products use forums as their sole support mechanism. Forums allow anyone to respond to
+      a post or write a post. Complex forum software allows for HTML editing and emoticons in the
+      text or signatures and has fully-featured notification and moderation systems. Community
+      features include rating systems for each post or reply, avatars or profiles representing an
+      online identity, private messaging, and even an indication of which users are currently online
+      so people can talk with one another. You can use forummatrix.org to compare the features
+      available in different forum software offerings.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Many forums use point systems or other methods for earning ranks, company
+      t-shirts, or even a registration to a user conference. In some systems, you can vote on the
+      helpfulness of an answer or thank another forum member for helping you. Cory
+        Doctorow<indexterm>Doctorow, Cory</indexterm>‘s science fiction book, <run
+        style="CharacterStyle/italic body copy"
+        styleId="CharacterStyle/italic body copy"
+        tagName="i"
+        topicZone="inline">Down and Out in the Magic Kingdom</run> contains a concept called
+        <indexterm>whuffie</indexterm>whuffie—a reputation-based currency that emerges after all of
+      society’s other needs are met for free. <indexterm>Hunt, Tara</indexterm>Tara
+        Hunt<indexterm>Tara Hunt</indexterm> has a book called <run
+        style="CharacterStyle/italic body copy"
+        styleId="CharacterStyle/italic body copy"
+        tagName="i"
+        topicZone="inline">The </run><indexterm>Whuffie Factor, The</indexterm><run
+        style="CharacterStyle/italic body copy"
+        styleId="CharacterStyle/italic body copy"
+        tagName="i"
+        topicZone="inline">Whuffie Factor</run>, about the idea of whuffie to build online
+      communities for business improvement. There are others building systems for online community
+      reputation building. Yahoo Developer Network contains a library of design patterns for
+      reputation solutions.<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body">
+        http://developer.yahoo.com/ypatterns/parent.php?pattern=reputation</p></fn>
+      <indexterm>forums<indexterm>earning rankings in</indexterm></indexterm>Forums are an
+      accessible way to view and measure whuffie in an online system. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">In <run
+        style="n">Figure 14</run>, compare Guru status to Enthusiast­—Guru has more stars, likely
+      earned with “whuffie” equivalent on the forum, such as the number of times they’ve been
+      thanked per post.</p>
+    <p
+      style="ParagraphStyle/figure caption"
+      styleId="ParagraphStyle/figure caption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1">Online reputation system</p>
+    <p
+      style="ParagraphStyle/head level 3"
+      styleId="ParagraphStyle/head level 3"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="3"
+      topicZone="title">Online meetings</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Several online tools make formal presentations and meetings easier to host
+      and facilitate. Two-way
+      <indexterm>conversations<indexterm>meetings</indexterm></indexterm>conversations as well as
+      multiple participant conversations can be held with voice, chat, and even presentation slides
+      or white boards shared with all participants. WebEx, GoToMeeting, Campfire, and Dim-dim are
+      just a few examples available. </p>
+    <p
+      style="ParagraphStyle/head level 2"
+      styleId="ParagraphStyle/head level 2"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="2"
+      topicZone="title">Mashups</p>
+    <p
+      style="ParagraphStyle/tag keywords"
+      styleId="ParagraphStyle/tag keywords"
+      structureType="block"
+      tagName="p"
+      topicZone="body"
+      outputclass="tag_keywords">Mashups, multimedia, machinima<indexterm>machinima</indexterm></p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">A
+          <indexterm>mashups</indexterm><indexterm>content<indexterm>combining</indexterm></indexterm>mashup
+      is a recombination of two or more sources of data to create a new deliverable or service. A
+      classic example of a mashup is a map mashup, in which map data is overlaid with other data,
+      such as favorite restaurant locations or data from event planning software that shows you
+      which conference centers are booked for which dates, overlaid on a hybrid street and satellite
+      image map that you can zoom in or move around. For example, you can
+          <indexterm>search<indexterm>in mashups</indexterm></indexterm>search for a Nintendo
+        <indexterm>Wii</indexterm>Wii for sale near you with combined data sources at wiinearby.com. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Part of the concept of social media is that data can be recombined in
+      innovative ways. Michael <indexterm>Priestly, Michael</indexterm>Priestly demonstrated how
+      different DITA-based feeds can be recombined in different deliverables with the
+          <indexterm>IBM<indexterm>Custom Content Assembler</indexterm></indexterm>IBM
+        <indexterm>Custom Content Assembler, IBM</indexterm>Custom Content Assembler using DITA
+      feeds for Lotus product documentation.<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body">
+          http://www-10.lotus.com/ldd/ltieteamblog.nsf/dx/custom-content-assembler</p></fn> DITA is
+      an XML-based architecture for authoring, producing, and delivering technical information.
+      Users select and oy want in a custom “book” and the user-created compilation is both
+      searchable and reusable. A similar capability is available in the Remix area of the FLOSS
+      Manuals website at http://en.flossmanuals.net/remix. To make a manual remix, you select a
+      group of topics and then drag and drop the topics (chapters) onto the “remix box.” Like the
+      DITA-based Custom Content Assembler from IBM, you can export to PDF or HTML. Several years ago
+          <indexterm>Microsoft<indexterm>online user assistance</indexterm></indexterm>Microsoft
+      introduced a powerful format and data display mashup in their online user assistance—a
+      hyperlink that opens a dialog box to complete a task instead of just linking to a web page
+      that might contain a form. Although this sort of mashup is simply a way of helping a visitor
+      choose what to display or activate, its immediate involvement of the visitor brings it into
+      the category of social media.</p>
+    <p
+      style="ParagraphStyle/head level 3"
+      styleId="ParagraphStyle/head level 3"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="3"
+      topicZone="title">Mashup example</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">The <indexterm>FLOSS Manuals<indexterm>remixing
+        content</indexterm></indexterm>FLOSS Manuals remix I built for the One Laptop per Child
+      project enabled us to write separate manuals for the hardware and software, plus we could
+      deliver HTML <indexterm>help, online<indexterm>mashups in</indexterm></indexterm>help that
+      shipped with several thousand laptops around the world. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">The remix is also used to export to “widgets” that can be embedded in HTML
+      pages to populate
+          <indexterm>content<indexterm>mashups</indexterm></indexterm><indexterm>content<indexterm>integrating</indexterm></indexterm>content
+      on other websites outside of FLOSS Manuals. See <run
+        style="n">Figure 15</run> for an example of the FLOSS Manuals remix interface.</p>
+    <p
+      style="ParagraphStyle/figure caption"
+      styleId="ParagraphStyle/figure caption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1">FLOSS Manuals REMIX feature</p>
+    <p
+      style="ParagraphStyle/head level 2"
+      styleId="ParagraphStyle/head level 2"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="2"
+      topicZone="title">Photos, <indexterm>content<indexterm>video</indexterm></indexterm>video,
+      media</p>
+    <p
+      style="ParagraphStyle/tag keywords"
+      styleId="ParagraphStyle/tag keywords"
+      structureType="block"
+      tagName="p"
+      topicZone="body"
+      outputclass="tag_keywords">photo sharing,
+        video<indexterm>video<indexterm>sharing</indexterm></indexterm> sharing, viral video</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">For products that need visual explanations, you could post
+        photos<indexterm>photos</indexterm> to Flickr or <indexterm>video<indexterm>social media
+          tool</indexterm></indexterm>videos to <indexterm>You Tube</indexterm>You Tube to
+      demonstrate certain tasks or show time-saving techniques. If you use
+          tagging<indexterm>tagging<indexterm>media</indexterm></indexterm> on Flickr, you can have
+      users contribute their own screenshots with annotations about the customization they’ve done
+      to your product. An example is an iPhone<indexterm>iPhone</indexterm> screenshot that shows a
+      row of icons that the user has customized, along with how-to information imbedded in the
+      screenshot. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">The idea of
+        “<indexterm>video<indexterm>viral</indexterm></indexterm><indexterm>going
+      viral</indexterm>going <indexterm>viral, going</indexterm>viral” with a video seems much more
+      like marketing alignment than technical support alignment, so it may not be useful to your
+      particular application, but it is good to know what the concept of something “viral” is. Going
+      viral means that people are spreading a video, image or text by communication means using
+      Internet web sites or email messages. Content may go viral because of exposure on a popular
+      blog like boingboing.net, like the Burger King chicken letting people play a flash animation
+      to “have it your way” at www.subservientchicken.com. I don’t believe going viral is a
+      necessary goal for end-user documentation or for building a community around a wiki. But, for
+        <indexterm>social networking<indexterm>integrating with
+        documentation</indexterm></indexterm>technical marketing material, you would be glad to have
+      a link to a white paper or a tip of the day go viral on Twitter. For example,
+          <indexterm>Twitter<indexterm>vehicle for "going viral"</indexterm></indexterm>Twitter
+      posts can reach many people through the “<indexterm>retweet
+          (RT)</indexterm><indexterm>Twitter<indexterm>retweet</indexterm></indexterm>retweet”
+      feature where people send a copy of a twitter post along with the label “RT” and an
+      attribution to the original poster. If you are so fortunate to create a viral link or video,
+      ensure it’s accurate and helpful to your users before it gets 12 million views on You Tube.
+      Due to the speed of forwarding, “going viral” can be as dangerous as it is useful for
+      instruction. </p>
+    <p
+      style="ParagraphStyle/head level 3"
+      styleId="ParagraphStyle/head level 3"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="3"
+      topicZone="title">Media example</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">You Tube is a video-sharing site that converts uploaded videos of any format
+      into Flash-based videos that are easily played back on the web site. People can also embed
+      videos from You Tube onto other web sites. <run
+        style="n">Figure 16</run> shows instructions for installing a bulk ink system for a printer.<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body"> http://www.youtube.com/watch?v=6c_a565qXxg</p></fn> Interestingly, by
+      creating a video response to another video You Tube users “talk back” to each other, and
+      comments on videos spark discussions.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"/>
+    <p
+      style="ParagraphStyle/figure caption"
+      styleId="ParagraphStyle/figure caption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1">youtube.com </p>
+    <p
+      style="ParagraphStyle/head level 2"
+      styleId="ParagraphStyle/head level 2"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="2"
+      topicZone="title"><indexterm>conversations<indexterm>virtual</indexterm></indexterm><indexterm>content<indexterm>virtual</indexterm></indexterm>Virtual
+      content</p>
+    <p
+      style="ParagraphStyle/tag keywords"
+      styleId="ParagraphStyle/tag keywords"
+      structureType="block"
+      tagName="p"
+      topicZone="body"
+      outputclass="tag_keywords">virtual reality<indexterm>virtual reality</indexterm>, Second
+        Life<indexterm>Second Life</indexterm></p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Training organizations are already finding the value in offering
+        training<indexterm>training</indexterm> programs on Second Life, where people can gather
+      with avatars that represent their personalities online. Second Life is a virtual
+      three-dimensional environment where users create the buildings, land, and entire environment
+      as well as clothing for avatars that represent them in the virtual
+          <indexterm>communities<indexterm>virtual</indexterm></indexterm>community. Once in Second
+      Life, users connect, socialize, chat, and interact with each other in the visual
+      three-dimensional world.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">For products that need demonstration visually there may be value for
+      developing a training area in Second Life, but you need to consider development costs. You may
+      also find that the risk of “griefers<indexterm>griefers</indexterm>” tearing down your virtual
+      training environment is greater than the efforts spent in creating the environment. Also
+      consider the maintenance costs of virtual training environments, and whether the expertise
+      will be available for future modifications to the training curriculum or coursework. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"/>
+    <p
+      style="ParagraphStyle/figure caption"
+      styleId="ParagraphStyle/figure caption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1">Second Life auditorium-style meeting room<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body"> http://www.flickr.com/photos/krossbow/2717822171/</p></fn>
+    </p>
+    <p
+      style="ParagraphStyle/head level 3"
+      styleId="ParagraphStyle/head level 3"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="3"
+      topicZone="title">Virtual world examples</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Second Life contains learning areas such as the auditorium in <run
+        style="n">Figure 17</run> used by Discovery Education. The virtual screen on display is
+      called a Smartboard. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">The three-dimensional nature of the world is shown in <run
+        style="n">Figure 18</run> at a seated gathering of students. People design avatars to
+      represent themselves in the virtual world, and you can see the body language indicated by the
+      avatar leaning over to talk to an avatar in another chair in the figure.</p>
+    <p
+      style="ParagraphStyle/figure caption"
+      styleId="ParagraphStyle/figure caption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1">Second Life informal graduate student meeting<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body"> http://www.flickr.com/photos/pathfinderlinden/157712296/</p></fn>
+    </p>
+    <p
+      style="ParagraphStyle/head level 1"
+      styleId="ParagraphStyle/head level 1"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="1"
+      topicZone="title">Learning about social media</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Finding a definition for a word like “wiki” can be difficult due to the
+      proliferation of the word wiki used in web pages that may not be relevant to the topic of
+      wikis. From Cookiepedia to Wookiepedia, there are many wikis in use that may interfere with
+      discovering the definition that suits your content’s needs. One method for searching for a
+      definition of an unfamiliar term is to use the <indexterm>Google<indexterm>define-
+          command</indexterm></indexterm>Google <indexterm>definitions, searching for</indexterm><run
+        style="CharacterStyle/Emphasis"
+        styleId="CharacterStyle/Emphasis"
+        tagName="i"
+        topicZone="inline">define:</run> command. For example, in the Google search box type
+      “define: wiki” to get a list of web pages that offer definitions for the word “wiki.” </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">You also learn best about social media and tools for the social web by trying
+      them yourself. If your company does not have a need to use these tools yet, try them for
+      personal uses or as a volunteer for a non-profit cause.</p>
+    <p
+      style="ParagraphStyle/head level 2"
+      styleId="ParagraphStyle/head level 2"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="2"
+      topicZone="title">Evaluating newcomers on these content scenes</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Whether you started with LinkedIn<indexterm>LinkedIn</indexterm> or
+        Facebook<indexterm>Facebook</indexterm>, you probably learned about online <indexterm>social
+          media<indexterm>tools</indexterm></indexterm>profile sites only to be stymied after
+      receiving <indexterm>Naymz</indexterm>Naymz<indexterm>Naymz</indexterm> or
+        Spock<indexterm>Spock</indexterm> invitations<indexterm>invitations to in-person
+        events</indexterm> that spread like wild fire. How can you evaluate all these newcomers and
+      determine which ones have any return on the time spent with them?</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Here are some ideas for <indexterm>return on investment
+          (ROI)<indexterm>evaluating social media
+          tools</indexterm></indexterm><indexterm>evaluation<indexterm>of new social media
+          tools</indexterm></indexterm>evaluating newly available tools: </p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Determine which types of people, such as small business owners or representatives of
+      a corporate brand, are using certain tools, and specifically ask them what gains or returns
+      they are seeing from that specific tool. </p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Figure out your goals with <indexterm>social
+        networking<indexterm>tools</indexterm></indexterm>social networking, which will help you
+      figure out if you need to be on every single network, or if a specific few that are directly
+      related to your goals are the ones to focus on.</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Trust just a few people’s opinions on a tool—if they give it a thumbs up, then try
+      it for yourself. This technique may work well if a relatively obscure product becomes suddenly
+      popular, but you do not have the time to determine the usefulness for yourself, your company,
+      and your documentation.</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Realize that not all social networking tools need to be evaluated with an enterprise
+      or corporate application in mind. In some cases, a try it and see
+        grassroots<indexterm>grassroots efforts</indexterm> effort can reveal much more about the
+      tool than a few people evaluating with a checklist.</p>
+    <p
+      style="ParagraphStyle/ul list"
+      styleId="ParagraphStyle/ul list"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1">Be cautious when you experiment to find out where your users have their
+          <indexterm>conversations<indexterm>locating</indexterm></indexterm>conversations. The
+      strength of a community is more important than the tools used to reach that community.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Management may want more specific criteria for determining a <indexterm>Web
+          2.0<indexterm>proving business value</indexterm></indexterm>Web 2.0 tool’s fit for the
+      organization or for your end-users, but evaluating social tools is not always the same as
+      measuring enterprise <indexterm>collaboration<indexterm>tools that
+        enable</indexterm></indexterm>collaboration tools. For example, you may need to be more
+      experimental in your tests with social tools, and use them under the radar before you can
+      prove the business use, although this is a risky strategy. Management may say, “We can’t
+      expend resources chasing the latest fad.” Reasonable as that view of resource allocation may
+      be, it may cause you to miss crucial conversations that might pop up during a pilot phase.
+      Seizing the opportunity to engage with someone deeply may be more important than time and
+      resource equations, but inappropriate or unsanctioned outreach may get you fired. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">One newcomer to keep an eye on is
+          <indexterm>Google<indexterm>Wave</indexterm></indexterm>Google Wave, a personal
+      communication and collaboration tool that doesn’t easily fit into any of the previous
+      categories for social web content. Rather than tracking disparate pieces of conversations and
+      content from many different Internet sources, objects known as “waves” contain a complete
+      thread of multimedia messages. Because the “wave” is XML-based, many possibilities abound for
+      shared content, plus for collaboration, Google Wave reinvents email as we know it today.</p>
+    <p
+      style="ParagraphStyle/head level 2"
+      styleId="ParagraphStyle/head level 2"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="2"
+      topicZone="title">User-generated content and
+          community-<indexterm>communities<indexterm>content contributed
+      by</indexterm></indexterm>generated content</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"><indexterm>content<indexterm>user-generated</indexterm></indexterm><indexterm>content<indexterm>community-generated</indexterm></indexterm>We
+      may think of feedback as a Web 2.0 phenomenon, but in fact, we can find examples of feedback
+      mechanisms throughout the history of <indexterm>publishing<indexterm>feedback
+          channels</indexterm></indexterm>publishing. Since publishing of content began, there have
+      always been methods for incorporating feedback into the final product. Alan Porter describes
+      in a blog post titled Publishing is not the Final Step,<fn><p
+          style="ParagraphStyle/footnote"
+          styleId="copy"
+          structureType="block"
+          tagName="p"
+          topicZone="body">
+          http://http://blogs.webworks.com/aporter/2008/06/27/why-publishing-is-no-longer-the-last-step-in-the-process/</p></fn>
+      Shakespeare’s plays were modified each night based on audience
+          <indexterm>participation<indexterm>audience</indexterm></indexterm>participation. The
+      distributed work of the Oxford English Dictionary proposed in 1857 was to have contributors
+      find quotations of a word’s use by combing through all of English literature including popular
+      newspapers, magazines, and then submit the quote slips to the editor of the dictionary. New
+      findings of a word’s use were brought into the next edition. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">The key difference in today’s publishing landscape is that the speed at which
+      feedback and findings can come in has been accelerating, and you need to be aware of the ways
+      that information can come in. Users also have taken over some of the publishing themselves as
+      blogs and wikis and powerful searching have made it incredibly easy for any user’s content to
+      be noticed and helpful. </p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"><indexterm>user-generated content</indexterm>User-generated content is what
+      you find in <indexterm>forums<indexterm>user-generated content
+      in</indexterm></indexterm>forums and <indexterm>mailing lists<indexterm>user-generated
+          content</indexterm></indexterm>mailing lists. It is likely to show up on a
+          <indexterm>search<indexterm>accessing documentation through</indexterm></indexterm>search
+      for information and troubleshooting. User-generated content varies widely in quality and may
+      be outdated quickly. Readers of user-generated content need to understand “Caveat
+      Lector”—Reader Beware.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body"><indexterm>communities<indexterm>content contributed
+        by</indexterm></indexterm>Community-generated content has a different
+        <indexterm>community-generated content<indexterm>quality</indexterm></indexterm>quality bar.
+      While a <indexterm>communities<indexterm>goals</indexterm></indexterm>community may have a
+      mailing list as its primary form of communication, it’s likely the community is not using the
+      mailing list itself to offer how-tos or detailed troubleshooting. Instead, a community, since
+      it is defined with a common goal, may have a more formal means of content creation as one of
+      the means to achieving that goal.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Individual users are likely faster at posting informal, conversational
+      responses to specific questions. But a community may have a more thought-out approach to the
+      big picture of what needs to be created, content-wise. I am not just talking about written
+      content. I’m also thinking of Wordpress.tv, where the site was “seeded” with twenty or so
+      professionally-created video tutorials, but then the community members’ contributions were
+      also accepted. While it may take a while to create that content, and it might not have a
+      professional voice-over, it is good enough to help another community member learn a particular
+      WordPress technique. And, by leading with video offerings that gave an example of the quality
+      level and expected pacing or chunking of the information, the community has a standard to
+      meet.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">Both types of content often offer “good enough” answers to questions or
+      advice about the best way to proceed with a particular solution. Good enough is judged by the
+      reader. One type of content generation is not more professional than another. Rather, the
+      usefulness of the content vetted by a community is the criteria for judging its quality.</p>
+    <p
+      style="ParagraphStyle/main prose"
+      styleId="ParagraphStyle/main prose"
+      structureType="block"
+      tagName="p"
+      topicZone="body">In my view, a set of community-generated content may be of higher quality
+      than content created by individuals who do not share a common goal or want the same outcome. I
+      would draw a distinction between user-generated content and community-generated content due to
+      the motivations of a community being more aligned than a group labeled “users” who may be
+      motivated by severely opposing aims. Chapter 4, Community and Documentation, explores
+      community-generated content further.</p>
+  </body>
+</document>

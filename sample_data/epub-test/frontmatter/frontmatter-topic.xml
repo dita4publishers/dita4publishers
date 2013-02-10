@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic
+  id="topic-id">
+  <title>This an arbitrary top-level frontmatter topic</title>
+  <body>
+    <p>Should not be enumerated as "Chapter" if referenced by &lt;chapter>
+      topicref within pubmap-d/frontmatter section of the publication map.</p>
+  </body>
+</topic>

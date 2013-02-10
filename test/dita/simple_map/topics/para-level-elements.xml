@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="topic-1">
+  <title>Paragraph-Level Elements</title>
+  <body><p>This topic contains samples of all paragraph-level elements except lists, which have
+      their own topic.</p><p>First paragraph within a topic. The relevant data on this apparition,
+      as recorded in various logbooks, agreed pretty closely as to the structure of the object or
+      creature in question, its unprecedented speed of movement, its startling locomotive power, and
+      the unique vitality with which it seemed to be gifted. If it was a cetacean, it exceeded in
+      bulk any whale previously classified by science. No naturalist, neither Cuvier nor Lacépède,
+      neither Professor Dumeril nor Professor de Quatrefages, would have accepted the existence of
+      such a monster sight unseen—specifically, unseen by their own scientific eyes. </p><p>A second
+      paragraph. Striking an average of observations taken at different times—rejecting those timid
+      estimates that gave the object a length of 200 feet, and ignoring those exaggerated views that
+      saw it as a mile wide and three long—you could still assert that this phenomenal creature
+      greatly exceeded the dimensions of anything then known to ichthyologists, if it existed at
+      all. </p><p>A short
+      paragraph.</p><pre>Pre within body
+Second line of pre within body
+Third line of pre</pre><p
+      >After the
+      pre.</p><lines>Lines within body
+Second line of lines within body
+Third line of lines within body.</lines><example>
+      <p>A paragraph within an example. Now then, it did exist, this was an undeniable fact; and
+        since the human mind dotes on objects of wonder, you can understand the worldwide excitement
+        caused by this unearthly apparition. As for relegating it to the realm of fiction, that
+        charge had to be dropped. </p>
+      <pre>Pre within an example
+Second line of pre within example
+Third line of pre</pre>
+    </example><p>An 800x600 image within body:</p><image href="../images/img_01_800x600.jpg"/><p
+      >After the image.</p><note>A note within body with no subordinate first para. In essence, on
+      July 20, 1866, the steamer Governor Higginson, from the Calcutta &amp; Burnach Steam
+      Navigation Co., encountered this moving mass five miles off the eastern shores of Australia.<p
+        >Second para of note. Captain Baker at first thought he was in the presence of an unknown
+        reef; he was even about to fix its exact position when two waterspouts shot out of this
+        inexplicable object and sprang hissing into the air some 150 feet.</p></note><note>
+      <p>A para within note within body. In essence, on July 20, 1866, the steamer Governor
+        Higginson, from the Calcutta &amp; Burnach Steam Navigation Co., encountered this moving
+        mass five miles off the eastern shores of Australia.</p>
+      <p>Second para of note. Captain Baker at first thought he was in the presence of an unknown
+        reef; he was even about to fix its exact position when two waterspouts shot out of this
+        inexplicable object and sprang hissing into the air some 150 feet.</p>
+    </note><note type="attention">A note with type= "attention".</note><note type="caution">A note
+      with type= "caution".</note><note type="danger">A note with type= "danger".</note><note
+      type="fastpath">A note with type= "fastpath".</note><note type="important">A note with type=
+      "important".</note><note type="note">A note with type= "note".</note><note type="other">A note
+      with type= "other".</note><note type="remember">A note with type= "remember".</note><note
+      type="restriction">A note with type= "restriction".</note><note type="tip">A note with type=
+      "tip".</note><p>After the notes.</p><section spectitle="This is Spectitle Value">
+      <p>Paragraph within a section with spectitle= set to "This is Spectitle Value".</p>
+    </section><section>
+      <title>Section Title Subelement</title>
+      <p>Paragraph within a section with explicit title subelement.</p>
+    </section></body>
+</topic>

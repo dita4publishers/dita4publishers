@@ -1,0 +1,1229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?aid style="33" type="assignment" DOMVersion="5.0" readerVersion="4.0" featureSet="257" product="5.0(682)" ?>
+<AssignmentRoot>
+<docu InLi="x_0" zero="x_2_U_0_U_0" DCcp="c_U.S. Web Coated (SWOP) v2" DCrp="c_sRGB IEC61966-2.1" DCci="e_RIcs" DCbi="e_RIcs" DCii="e_RIcs" CSrp="e_CPpp" CScp="e_CPpd" DCsa="b_f" Self="rc_d">
+	<lang pnam="rk_English: USA" lsqu="k_‘’" ldqu="k_“”" pril="rk_English" subl="rk_USA" ID="rl_10d" lhyv="c_Proximity" lspv="c_Proximity" Self="rc_u40"/>
+	<colr clmd="e_prss" clsp="e_CMYK" clvl="x_4_D_0_D_0_D_0_D_100" ovrd="e_eOvB" clbs="o_n" atcs="e_nasp" atvl="x_0" pnam="c_Black" edbl="b_f" rmbl="b_f" pvis="b_t" swID="l_1f01" Self="rc_ub"/>
+	<colr clmd="e_prss" clsp="e_CMYK" clvl="x_4_D_0_D_0_D_100_D_0" ovrd="e_norm" clbs="o_n" atcs="e_nasp" atvl="x_0" pnam="c_C=0 M=0 Y=100 K=0" edbl="b_t" rmbl="b_t" pvis="b_t" swID="l_1f01" Self="rc_u12"/>
+	<colr clmd="e_prss" clsp="e_CMYK" clvl="x_4_D_0_D_100_D_0_D_0" ovrd="e_norm" clbs="o_n" atcs="e_nasp" atvl="x_0" pnam="c_C=0 M=100 Y=0 K=0" edbl="b_t" rmbl="b_t" pvis="b_t" swID="l_1f01" Self="rc_u13"/>
+	<colr clmd="e_prss" clsp="e_CMYK" clvl="x_4_D_100_D_0_D_0_D_0" ovrd="e_norm" clbs="o_n" atcs="e_nasp" atvl="x_0" pnam="c_C=100 M=0 Y=0 K=0" edbl="b_t" rmbl="b_t" pvis="b_t" swID="l_1f01" Self="rc_u14"/>
+	<colr clmd="e_prss" clsp="e_CMYK" clvl="x_4_D_100_D_90_D_10_D_0" ovrd="e_norm" clbs="o_n" atcs="e_nasp" atvl="x_0" pnam="c_C=100 M=90 Y=10 K=0" edbl="b_t" rmbl="b_t" pvis="b_t" swID="l_1f01" Self="rc_u15"/>
+	<colr clmd="e_prss" clsp="e_CMYK" clvl="x_4_D_15_D_100_D_100_D_0" ovrd="e_norm" clbs="o_n" atcs="e_nasp" atvl="x_0" pnam="c_C=15 M=100 Y=100 K=0" edbl="b_t" rmbl="b_t" pvis="b_t" swID="l_1f01" Self="rc_u16"/>
+	<colr clmd="e_prss" clsp="e_CMYK" clvl="x_4_D_75_D_5_D_100_D_0" ovrd="e_norm" clbs="o_n" atcs="e_nasp" atvl="x_0" pnam="c_C=75 M=5 Y=100 K=0" edbl="b_t" rmbl="b_t" pvis="b_t" swID="l_1f01" Self="rc_u17"/>
+	<colr clmd="e_prss" clsp="e_CMYK" clvl="x_4_D_100_D_0_D_0_D_0" ovrd="e_eOvH" clbs="o_n" atcs="e_nasp" atvl="x_0" pnam="c_Cyan" edbl="b_f" rmbl="b_f" pvis="b_f" swID="l_1f01" Self="rc_uc"/>
+	<colr clmd="e_prss" clsp="e_CMYK" clvl="x_4_D_0_D_100_D_0_D_0" ovrd="e_eOvH" clbs="o_n" atcs="e_nasp" atvl="x_0" pnam="c_Magenta" edbl="b_f" rmbl="b_f" pvis="b_f" swID="l_1f01" Self="rc_ud"/>
+	<colr clmd="e_prss" clsp="e_CMYK" clvl="x_4_D_0_D_0_D_0_D_0" ovrd="e_eOvP" clbs="o_n" atcs="e_nasp" atvl="x_0" pnam="c_Paper" edbl="b_t" rmbl="b_f" pvis="b_t" swID="l_1f01" Self="rc_uf"/>
+	<colr clmd="e_regs" clsp="e_CMYK" clvl="x_4_D_100_D_100_D_100_D_100" ovrd="e_eOvR" clbs="o_n" atcs="e_nasp" atvl="x_0" pnam="c_Registration" edbl="b_f" rmbl="b_f" pvis="b_t" swID="l_1f01" Self="rc_u10"/>
+	<colr clmd="e_prss" clsp="e_CMYK" clvl="x_4_D_0_D_0_D_100_D_0" ovrd="e_eOvH" clbs="o_n" atcs="e_nasp" atvl="x_0" pnam="c_Yellow" edbl="b_f" rmbl="b_f" pvis="b_f" swID="l_1f01" Self="rc_u11"/>
+	<colr clmd="e_prss" clsp="e_CMYK" clvl="x_4_D_0_D_0_D_0_D_100" ovrd="e_norm" clbs="o_n" atcs="e_nasp" atvl="x_0" pnam="k_" edbl="b_t" rmbl="b_t" pvis="b_f" swID="l_1f01" Self="rc_u7b"/>
+	<colr clmd="e_prss" clsp="e_CMYK" clvl="x_4_D_0_D_0_D_0_D_0" ovrd="e_norm" clbs="o_n" atcs="e_nasp" atvl="x_0" pnam="k_" edbl="b_t" rmbl="b_t" pvis="b_f" swID="l_1f01" Self="rc_u7d"/>
+	<cink inIP="rb_t" pnam="k_Process Cyan" inSd="rD_0" inAs="c_k[NoAlias]" inAn="D_75" inCP="b_f" inFr="D_70" inND="D_0.61" inPI="b_t" inPo="l_1" inTp="e_norm" Self="rc_u7"/>
+	<cink inIP="rb_t" pnam="k_Process Magenta" inSd="rD_0" inAs="c_k[NoAlias]" inAn="D_15" inCP="b_f" inFr="D_70" inND="D_0.76" inPI="b_t" inPo="l_2" inTp="e_norm" Self="rc_u8"/>
+	<cink inIP="rb_t" pnam="k_Process Yellow" inSd="rD_0" inAs="c_k[NoAlias]" inAn="D_0" inCP="b_f" inFr="D_70" inND="D_0.16" inPI="b_t" inPo="l_3" inTp="e_norm" Self="rc_u9"/>
+	<cink inIP="rb_t" pnam="k_Process Black" inSd="rD_0" inAs="c_k[NoAlias]" inAn="D_45" inCP="b_f" inFr="D_70" inND="D_1.7" inPI="b_t" inPo="l_4" inTp="e_norm" Self="rc_ua"/>
+	<swch pnam="c_None" edbl="b_f" rmbl="b_f" pvis="b_t" swID="l_1f01" Self="rc_ue"/>
+	<grad grdt="e_axlg" pnam="k_" edbl="b_t" rmbl="b_t" pvis="b_f" swID="l_1f01" Self="rc_u7c">
+		<gstp gcls="o_u7d" loca="D_0" Self="rc_u7cgstp0"/>
+		<gstp gcls="o_ub" loca="D_100" mids="D_50" Self="rc_u7cgstp1"/>
+	</grad>
+	<StSt strT="rk_" pnam="k_Triple~sep~Stroke" Self="rc_dib01a"/>
+	<StSt strT="rk_" pnam="k_ThickThinThick" Self="rc_dib009"/>
+	<StSt strT="rk_" pnam="k_ThinThickThin" Self="rc_dib008"/>
+	<StSt strT="rk_" pnam="k_ThickThick" Self="rc_dib007"/>
+	<StSt strT="rk_" pnam="k_ThickThin" Self="rc_dib006"/>
+	<StSt strT="rk_" pnam="k_ThinThick" Self="rc_dib005"/>
+	<StSt strT="rk_" pnam="k_ThinThin" Self="rc_dib004"/>
+	<StSt strT="rk_" pnam="k_Japanese Dots" Self="rc_di5a3f"/>
+	<StSt strT="rk_" pnam="k_White Diamond" Self="rc_di5a3e"/>
+	<StSt strT="rk_" pnam="k_Left Slant Hash" Self="rc_di5a3d"/>
+	<StSt strT="rk_" pnam="k_Right Slant Hash" Self="rc_di5a3c"/>
+	<StSt strT="rk_" pnam="k_Straight Hash" Self="rc_di5a3b"/>
+	<StSt strT="rk_" pnam="k_Wavy" Self="rc_di5a3a"/>
+	<StSt strT="rk_" pnam="k_Canned Dotted" Self="rc_di5a39"/>
+	<StSt strT="rk_" pnam="k_Canned Dashed 3x2" Self="rc_di5a38"/>
+	<StSt strT="rk_" pnam="k_Canned Dashed 4x4" Self="rc_di5a37"/>
+	<StSt strT="rk_" pnam="k_Dashed" Self="rc_di5a2a"/>
+	<StSt strT="rk_" pnam="k_Solid" Self="rc_di5a29"/>
+	<fFam pnam="c_Times" Self="rc_di3e">
+		<FonT fFam="c_Times" pnam="c_Times Regular" fPSN="k_Times-Roman" stts="e_fsIn" fSty="c_Regular" fnTp="e_ftTT" WSCR="l_0" fnam="c_Times Roman" fFUN="c_Times Roman" fStN="k_Regular" fPLT="k_" vers="c_6.0d6e5" Self="rc_di3eFonTnTimes Regular"/>
+		<FonT fFam="c_Times" pnam="c_Times Italic" fPSN="k_Times-Italic" stts="e_fsIn" fSty="c_Italic" fnTp="e_ftTT" WSCR="l_0" fnam="c_Times Italic" fFUN="c_Times Italic" fStN="k_Italic" fPLT="k_" vers="c_6.0d6e5" Self="rc_di3eFonTnTimes Italic"/>
+		<FonT fFam="c_Times" pnam="c_Times Bold" fPSN="k_Times-Bold" stts="e_fsIn" fSty="c_Bold" fnTp="e_ftTT" WSCR="l_0" fnam="c_Times Bold" fFUN="c_Times Bold" fStN="k_Bold" fPLT="k_" vers="c_6.0d6e5" Self="rc_di3eFonTnTimes Bold"/>
+		<FonT fFam="c_Times" pnam="c_Times Bold Italic" fPSN="k_Times-BoldItalic" stts="e_fsIn" fSty="c_Bold Italic" fnTp="e_ftTT" WSCR="l_0" fnam="c_Times Bold Italic" fFUN="c_Times Bold Italic" fStN="k_Bold Italic" fPLT="k_" vers="c_6.0d6e5" Self="rc_di3eFonTnTimes Bold Italic"/>
+	</fFam>
+	<fFam pnam="c_Myriad Pro" Self="rc_di85">
+		<FonT fFam="c_Myriad Pro" pnam="c_Myriad Pro Condensed" fPSN="k_MyriadPro-Cond" stts="e_fsIn" fSty="c_Condensed" fnTp="e_ftOF" WSCR="l_0" fnam="c_Myriad Pro Condensed" fFUN="c_Myriad Pro Condensed" fStN="k_Condensed" fPLT="k_" vers="c_Version 2.007;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032" Self="rc_di85FonTnMyriad Pro Condensed"/>
+		<FonT fFam="c_Myriad Pro" pnam="c_Myriad Pro Condensed Italic" fPSN="k_MyriadPro-CondIt" stts="e_fsIn" fSty="c_Condensed Italic" fnTp="e_ftOF" WSCR="l_0" fnam="c_Myriad Pro Condensed Italic" fFUN="c_Myriad Pro Condensed Italic" fStN="k_Condensed Italic" fPLT="k_" vers="c_Version 2.007;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032" Self="rc_di85FonTnMyriad Pro Condensed Italic"/>
+		<FonT fFam="c_Myriad Pro" pnam="c_Myriad Pro Bold Condensed" fPSN="k_MyriadPro-BoldCond" stts="e_fsIn" fSty="c_Bold Condensed" fnTp="e_ftOF" WSCR="l_0" fnam="c_Myriad Pro Bold Condensed" fFUN="c_Myriad Pro Bold Condensed" fStN="k_Bold Condensed" fPLT="k_" vers="c_Version 2.007;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032" Self="rc_di85FonTnMyriad Pro Bold Condensed"/>
+		<FonT fFam="c_Myriad Pro" pnam="c_Myriad Pro Bold Condensed Italic" fPSN="k_MyriadPro-BoldCondIt" stts="e_fsIn" fSty="c_Bold Condensed Italic" fnTp="e_ftOF" WSCR="l_0" fnam="c_Myriad Pro Bold Condensed Italic" fFUN="c_Myriad Pro Bold Condensed Italic" fStN="k_Bold Condensed Italic" fPLT="k_" vers="c_Version 2.007;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032" Self="rc_di85FonTnMyriad Pro Bold Condensed Italic"/>
+		<FonT fFam="c_Myriad Pro" pnam="c_Myriad Pro Light" fPSN="k_MyriadPro-Light" stts="e_fsIn" fSty="c_Light" fnTp="e_ftOF" WSCR="l_0" fnam="c_Myriad Pro Light" fFUN="c_Myriad Pro Light" fStN="k_Light" fPLT="k_" vers="c_Version 2.007;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032" Self="rc_di85FonTnMyriad Pro Light"/>
+		<FonT fFam="c_Myriad Pro" pnam="c_Myriad Pro Light Italic" fPSN="k_MyriadPro-LightIt" stts="e_fsIn" fSty="c_Light Italic" fnTp="e_ftOF" WSCR="l_0" fnam="c_Myriad Pro Light Italic" fFUN="c_Myriad Pro Light Italic" fStN="k_Light Italic" fPLT="k_" vers="c_Version 2.007;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032" Self="rc_di85FonTnMyriad Pro Light Italic"/>
+		<FonT fFam="c_Myriad Pro" pnam="c_Myriad Pro Regular" fPSN="k_MyriadPro-Regular" stts="e_fsIn" fSty="c_Regular" fnTp="e_ftOF" WSCR="l_0" fnam="c_Myriad Pro" fFUN="c_Myriad Pro" fStN="k_Regular" fPLT="k_" vers="c_Version 2.007;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032" Self="rc_di85FonTnMyriad Pro Regular"/>
+		<FonT fFam="c_Myriad Pro" pnam="c_Myriad Pro Italic" fPSN="k_MyriadPro-It" stts="e_fsIn" fSty="c_Italic" fnTp="e_ftOF" WSCR="l_0" fnam="c_Myriad Pro Italic" fFUN="c_Myriad Pro Italic" fStN="k_Italic" fPLT="k_" vers="c_Version 2.007;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032" Self="rc_di85FonTnMyriad Pro Italic"/>
+		<FonT fFam="c_Myriad Pro" pnam="c_Myriad Pro Semibold" fPSN="k_MyriadPro-Semibold" stts="e_fsIn" fSty="c_Semibold" fnTp="e_ftOF" WSCR="l_0" fnam="c_Myriad Pro Semibold" fFUN="c_Myriad Pro Semibold" fStN="k_Semibold" fPLT="k_" vers="c_Version 2.007;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032" Self="rc_di85FonTnMyriad Pro Semibold"/>
+		<FonT fFam="c_Myriad Pro" pnam="c_Myriad Pro Semibold Italic" fPSN="k_MyriadPro-SemiboldIt" stts="e_fsIn" fSty="c_Semibold Italic" fnTp="e_ftOF" WSCR="l_0" fnam="c_Myriad Pro Semibold Italic" fFUN="c_Myriad Pro Semibold Italic" fStN="k_Semibold Italic" fPLT="k_" vers="c_Version 2.007;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032" Self="rc_di85FonTnMyriad Pro Semibold Italic"/>
+		<FonT fFam="c_Myriad Pro" pnam="c_Myriad Pro Bold" fPSN="k_MyriadPro-Bold" stts="e_fsIn" fSty="c_Bold" fnTp="e_ftOF" WSCR="l_0" fnam="c_Myriad Pro Bold" fFUN="c_Myriad Pro Bold" fStN="k_Bold" fPLT="k_" vers="c_Version 2.007;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032" Self="rc_di85FonTnMyriad Pro Bold"/>
+		<FonT fFam="c_Myriad Pro" pnam="c_Myriad Pro Bold Italic" fPSN="k_MyriadPro-BoldIt" stts="e_fsIn" fSty="c_Bold Italic" fnTp="e_ftOF" WSCR="l_0" fnam="c_Myriad Pro Bold Italic" fFUN="c_Myriad Pro Bold Italic" fStN="k_Bold Italic" fPLT="k_" vers="c_Version 2.007;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032" Self="rc_di85FonTnMyriad Pro Bold Italic"/>
+		<FonT fFam="c_Myriad Pro" pnam="c_Myriad Pro Black" fPSN="k_MyriadPro-Black" stts="e_fsIn" fSty="c_Black" fnTp="e_ftOF" WSCR="l_0" fnam="c_Myriad Pro Black" fFUN="c_Myriad Pro Black" fStN="k_Black" fPLT="k_" vers="c_Version 2.007;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032" Self="rc_di85FonTnMyriad Pro Black"/>
+		<FonT fFam="c_Myriad Pro" pnam="c_Myriad Pro Black Italic" fPSN="k_MyriadPro-BlackIt" stts="e_fsIn" fSty="c_Black Italic" fnTp="e_ftOF" WSCR="l_0" fnam="c_Myriad Pro Black Italic" fFUN="c_Myriad Pro Black Italic" fStN="k_Black Italic" fPLT="k_" vers="c_Version 2.007;PS 002.000;Core 1.0.38;makeotf.lib1.7.9032" Self="rc_di85FonTnMyriad Pro Black Italic"/>
+	</fFam>
+	<fFam pnam="c_Kozuka Mincho Pro" Self="rc_di89">
+		<FonT fFam="c_Kozuka Mincho Pro" pnam="c_Kozuka Mincho Pro EL" fPSN="k_KozMinPro-ExtraLight" stts="e_fsIn" fSty="c_EL" fnTp="e_ftOI" WSCR="l_1" fnam="c_Kozuka Mincho Pro EL" fFUN="c_小塚明朝 Pro EL" fStN="k_EL" fPLT="k_" vers="c_Version 4.000;PS 4;Core 1.0.38;makeotf.lib1.7.12746" Self="rc_di89FonTnKozuka Mincho Pro EL"/>
+		<FonT fFam="c_Kozuka Mincho Pro" pnam="c_Kozuka Mincho Pro L" fPSN="k_KozMinPro-Light" stts="e_fsIn" fSty="c_L" fnTp="e_ftOI" WSCR="l_1" fnam="c_Kozuka Mincho Pro L" fFUN="c_小塚明朝 Pro L" fStN="k_L" fPLT="k_" vers="c_Version 4.000;PS 4;Core 1.0.38;makeotf.lib1.7.12746" Self="rc_di89FonTnKozuka Mincho Pro L"/>
+		<FonT fFam="c_Kozuka Mincho Pro" pnam="c_Kozuka Mincho Pro R" fPSN="k_KozMinPro-Regular" stts="e_fsIn" fSty="c_R" fnTp="e_ftOI" WSCR="l_1" fnam="c_Kozuka Mincho Pro R" fFUN="c_小塚明朝 Pro R" fStN="k_R" fPLT="k_" vers="c_Version 4.001;PS 4.001;Core 1.0.38;makeotf.lib1.7.9028" Self="rc_di89FonTnKozuka Mincho Pro R"/>
+		<FonT fFam="c_Kozuka Mincho Pro" pnam="c_Kozuka Mincho Pro M" fPSN="k_KozMinPro-Medium" stts="e_fsIn" fSty="c_M" fnTp="e_ftOI" WSCR="l_1" fnam="c_Kozuka Mincho Pro M" fFUN="c_小塚明朝 Pro M" fStN="k_M" fPLT="k_" vers="c_Version 4.000;PS 4;Core 1.0.38;makeotf.lib1.7.12746" Self="rc_di89FonTnKozuka Mincho Pro M"/>
+		<FonT fFam="c_Kozuka Mincho Pro" pnam="c_Kozuka Mincho Pro B" fPSN="k_KozMinPro-Bold" stts="e_fsIn" fSty="c_B" fnTp="e_ftOI" WSCR="l_1" fnam="c_Kozuka Mincho Pro B" fFUN="c_小塚明朝 Pro B" fStN="k_B" fPLT="k_" vers="c_Version 4.000;PS 4;Core 1.0.38;makeotf.lib1.7.12746" Self="rc_di89FonTnKozuka Mincho Pro B"/>
+		<FonT fFam="c_Kozuka Mincho Pro" pnam="c_Kozuka Mincho Pro H" fPSN="k_KozMinPro-Heavy" stts="e_fsIn" fSty="c_H" fnTp="e_ftOI" WSCR="l_1" fnam="c_Kozuka Mincho Pro H" fFUN="c_小塚明朝 Pro H" fStN="k_H" fPLT="k_" vers="c_Version 4.000;PS 4;Core 1.0.38;makeotf.lib1.7.12746" Self="rc_di89FonTnKozuka Mincho Pro H"/>
+	</fFam>
+	<fFam pnam="c_Verdana" Self="rc_dieb">
+		<FonT fFam="c_Verdana" pnam="c_Verdana Regular" fPSN="k_Verdana" stts="e_fsIn" fSty="c_Regular" fnTp="e_ftOT" WSCR="l_0" fnam="c_Verdana" fFUN="c_Verdana" fStN="k_Regular" fPLT="k_" vers="c_Version 2.45" Self="rc_diebFonTnVerdana Regular"/>
+		<FonT fFam="c_Verdana" pnam="c_Verdana Italic" fPSN="k_Verdana-Italic" stts="e_fsIn" fSty="c_Italic" fnTp="e_ftOT" WSCR="l_0" fnam="c_Verdana Italic" fFUN="c_Verdana Italic" fStN="k_Italic" fPLT="k_" vers="c_Version 2.45" Self="rc_diebFonTnVerdana Italic"/>
+		<FonT fFam="c_Verdana" pnam="c_Verdana Bold" fPSN="k_Verdana-Bold" stts="e_fsIn" fSty="c_Bold" fnTp="e_ftOT" WSCR="l_0" fnam="c_Verdana Bold" fFUN="c_Verdana Bold" fStN="k_Bold" fPLT="k_" vers="c_Version 2.45" Self="rc_diebFonTnVerdana Bold"/>
+		<FonT fFam="c_Verdana" pnam="c_Verdana Bold Italic" fPSN="k_Verdana-BoldItalic" stts="e_fsIn" fSty="c_Bold Italic" fnTp="e_ftOT" WSCR="l_0" fnam="c_Verdana Bold Italic" fFUN="c_Verdana Bold Italic" fStN="k_Bold Italic" fPLT="k_" vers="c_Version 2.45" Self="rc_diebFonTnVerdana Bold Italic"/>
+	</fFam>
+	<cfnt pnam="k_[No composite font]" Self="rc_u87">
+		<cfen pnam="k_Kanji" font="c_Kozuka Mincho Pro" ptfs="k_R" jcfs="D_100" phzs="D_100" pvts="D_100" plck="b_t" jcfa="b_t" bshf="D_0" Self="rc_u88"/>
+		<cfen pnam="k_Kana" font="c_Kozuka Mincho Pro" ptfs="k_R" jcfs="D_100" phzs="D_100" pvts="D_100" jcfc="k_ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんゔゕゖゝゞァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶヷヸヹヺーヽヾ" plck="b_t" jcfa="b_t" bshf="D_0" Self="rc_u8a"/>
+		<cfen pnam="k_Punctuation" font="c_Kozuka Mincho Pro" ptfs="k_R" jcfs="D_100" phzs="D_100" pvts="D_100" jcfc="k_—―‖‘’“”‥…′″∥、。〈〉《》「」『』【】〔〕〜・！（），．／：；？［］｛｝～" plck="b_t" jcfa="b_t" bshf="D_0" Self="rc_u8b"/>
+		<cfen pnam="k_Symbols" font="c_Kozuka Mincho Pro" ptfs="k_R" jcfs="D_100" phzs="D_100" pvts="D_100" jcfc="k_¢£§¨¬°±´¶×÷ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψωЁАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюяё‐†‡‰※℃Å←↑→↓⇒⇔∀∂∃∇∈∋−√∝∞∠∧∨∩∪∫∬∴∵∽≒≠≡≦≧≪≫⊂⊃⊆⊇⊥⌒■□▲△▼▽◆◇○◎●◯★☆♀♂♪♭♯〃〆〇〒〓゛゜＃＄％＆＊＋－０１２３４５６７８９＜＝＞＠ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ＼＾＿｀ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ｜￠￡￢￣￥" plck="b_t" jcfa="b_t" bshf="D_0" Self="rc_u8c"/>
+		<cfen pnam="k_Alphabetic" font="c_Times" ptfs="k_Regular" jcfs="D_100" phzs="D_100" pvts="D_100" jcfc="k_ !&quot;#$%&amp;&apos;()*+,-./:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^~sep~`abcdefghijklmnopqrstuvwxyz{|}~ ¡¤¥¦©ª«­®¯²³µ·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿıŒœŠšŸŽžƒˆˇ˘˙˚˛˜˝–‚„•‹›⁄€™∆∏∑≈≤≥◊ﬀﬁﬂﬃﬄﬅﬆ" plck="b_t" jcfa="b_f" bshf="D_0" Self="rc_u8d"/>
+		<cfen pnam="k_Numbers" font="c_Times" ptfs="k_Regular" jcfs="D_100" phzs="D_100" pvts="D_100" jcfc="k_0123456789" plck="b_t" jcfa="b_f" bshf="D_0" Self="rc_u8e"/>
+	</cfnt>
+	<csty pnam="k_[No character style]" smpt="b_f" Self="rc_u68"/>
+	<bnli pnam="k_[Default]" bncs="b_f" bncd="b_f" Self="rc_u3d"/>
+	<psty pnam="k_[No paragraph style]" smpt="b_f" flcl="o_ub" ptfs="c_Regular" ptsz="U_12" phzs="D_100" pakm="k_Metrics" ligt="b_t" lnwt="U_1" trak="D_0" ptce="c_HL Composer" dcca="s_0" dcli="s_0" bshf="U_0" capm="e_norm" lncl="o_ue" hypl="s_3" pvts="D_100" inbl="U_0" inbr="U_0" infl="U_0" alea="D_120" szld="e_atil" plng="k_English: USA" hyph="b_t" mibe="s_2" miaf="s_2" hypc="b_t" swor="s_5" nobk="b_f" hyzo="U_36" spbe="U_0" spaf="U_0" alts="x_0" undr="b_f" font="c_Times" Ofst="e_Dflt" wsde="D_100" wsma="D_133" wsmi="D_80" lsde="D_0" lsma="D_0" lsmi="D_0" gsde="D_100" gsma="D_100" gsmi="D_100" pbbp="e_nbrk" kept="b_f" kwnx="s_0" kfnl="s_2" klnl="s_2" posm="e_norm" strk="b_f" jcal="e_Jact" kepl="b_f" lint="D_-1" filt="D_-1" sovp="b_f" ovpr="b_f" pgsa="D_0" pgfa="D_0" pgsl="D_-1" pgfl="D_-1" pgss="x_2_U_0_U_0" pgst="x_2_U_0_U_0" pskw="D_0" rlac="k_Text Color" pras="D_1" prat="D_-1" paof="U_0" pral="U_0" pair="U_0" rawd="e_Klwd" rlbc="k_Text Color" prbs="D_1" prbt="D_-1" pbop="U_0" prbl="U_0" pbir="U_0" rbwd="e_Klwd" prao="b_f" prbo="b_f" prb2="b_f" prar="b_f" prbr="b_f" inlr="U_0" hylw="b_t" pals="e_full" OTor="b_f" OTfr="b_f" OTdl="b_f" OTti="b_f" patp="o_di5a29" pbtp="o_di5a29" bala="e_BlOf" alrs="x_0" ragc="o_ue" ragt="D_-1" rago="b_f" rbgc="o_ue" rbgt="D_-1" rbgo="b_f" rbg2="b_f" paln="e_left" dcdm="l_0" OTPf="e_none" OTmk="b_t" hypw="s_5" OTlc="b_t" hycf="b_t" prak="b_f" igEA="b_f" OTzr="b_f" OTss="l_0" OThi="b_f" OTca="b_t" ulco="k_Text Color" ulgc="o_ue" upgo="b_f" ulgt="D_-1" ulos="U_-9999" ulop="b_f" ultt="D_-1" ulwt="U_-9999" ultp="o_di5a29" stco="k_Text Color" stgc="o_ue" stgo="b_f" stgt="D_-1" stos="U_-9999" Stvp="b_f" sttt="D_-1" sttp="o_di5a29" stwt="U_-9999" OTsw="b_f" tsum="D_0" jmoj="e_nada" jmbs="D_-1" jmas="D_-1" jkin="e_nada" jkit="e_Jkif" jkht="e_none" jbki="b_t" jpro="b_t" jrfs="D_-1" jral="e_Jrjs" jrtp="e_Jrpc" jrfn="k_" jrft="e_nada" jrsp="e_Jr12" jrwd="D_100" jrpt="D_100" jrxo="D_0" jryo="D_0" jrpz="e_Jkar" jraa="b_t" jrva="e_Jro1" jrov="b_f" jras="b_f" jrsc="D_66" jrfl="k_Text Color" jrti="D_-1" jrof="e_atil" jrsk="k_Text Color" jrst="D_-1" jros="e_atil" jrwt="D_-1" jktp="e_none" jkfz="D_-1" jkfn="k_" jkfs="e_nada" jkcm="D_100" jkpt="D_100" jkpl="D_0" jkal="e_Jknc" jkp2="e_Jkar" jkcc="k_" jset="e_Jchi" jkfc="k_Text Color" jktn="D_-1" jkof="e_atil" jksc="k_Text Color" jkst="D_-1" jkos="e_atil" jkwt="D_-1" jtcy="b_f" jtax="D_0" jtay="D_0" jatc="s_0" jatr="b_f" jjid="s_0" jggy="s_0" jga1="b_f" jgal="e_none" crot="D_0" jro1="b_f" jren="b_t" jshp="D_0" jsha="D_4500" jsht="b_t" jshr="b_f" jwar="b_f" jwli="s_2" jwas="D_50" jwls="D_0" jwal="e_atil" jmbb="s_2" jmab="s_2" hkna="b_f" palt="b_f" ital="b_f" Jled="e_Jlab" jslh="b_f" jpgd="b_f" jgrt="b_f" jgfm="e_none" jrtd="s_0" jrtr="b_f" jrts="b_t" bnlt="e_LTno" bncl="c_Text Color" bnbc="x_2_e_BCuo_l_2022" bnsa="l_1" bnst="l_1" bnns="k_1, 2, 3, 4..." DHnm="k_1, 2, 3, 4..." blfn="k_" blft="e_nada" nmfn="k_" bnnl="o_u3d" bnle="l_1" bncp="b_t" bnar="b_t" bnbr="x_3_e_enap_l_0_l_0" bnbs="o_u68" bnnc="o_u68" bnba="e_left" bnna="e_left" bnne="c_^#.^t" bnta="c_^t" Self="rc_u67"/>
+	<psty basd="k_[No paragraph style]" pnam="k_NormalParagraphStyle" smpt="b_f" nxpa="o_u6b" kbsc="x_2_s_0_s_0" spbe="U_6" font="c_Verdana" Self="rc_u6b"/>
+	<ccst pnam="k_[None]" prst="o_u67" csps="o_u67" Self="rc_u75"/>
+	<tsty pthr="rl_0" ptfr="rl_0" pnam="k_[No table style]" HdSk="b_f" FtSk="b_f" CFfc="l_0" CFsc="l_0" CFof="b_f" CFtf="D_20" CFcf="o_ub" CFcs="o_ue" CFts="D_100" CFos="b_f" TBsw="U_1" TBss="o_di5a29" TBsc="o_ub" TBst="D_100" TBso="b_f" LBsw="U_1" LBss="o_di5a29" LBsc="o_ub" LBst="D_100" LBso="b_f" BBsw="U_1" BBss="o_di5a29" BBsc="o_ub" BBst="D_100" BBso="b_f" RBsw="U_1" RBss="o_di5a29" RBsc="o_ub" RBst="D_100" RBso="b_f" RFcf="o_ub" RFfc="l_0" RFtf="D_20" RFof="b_f" RFsc="l_0" RFcs="o_ue" RFts="D_100" RFos="b_f" TBgc="o_uf" TBgt="D_100" TBgo="b_f" LBgc="o_uf" LBgt="D_100" LBgo="b_f" BBgc="o_uf" BBgt="D_100" BBgo="b_f" RBac="o_uf" RBat="D_100" RBao="b_f" spbe="U_4" spaf="U_-4" CFPr="b_f" tsdo="e_sbej" CSfc="l_0" CScf="o_ub" CSwf="U_1" CSsf="o_di5a29" CStf="D_100" CSof="b_f" CSsc="l_0" CScs="o_ub" CSws="U_0.25" CSss="o_di5a29" CSts="D_100" CSos="b_f" CSgc="o_uf" CSgt="D_100" CSgo="b_f" CSgs="o_uf" CSas="D_100" CSps="b_f" RSfc="l_0" RScf="o_ub" RSwf="U_1" RStf="D_100" RSof="b_f" RSsc="l_0" RScs="o_ub" RSws="U_0.25" RSss="o_di5a29" RSts="D_100" RSos="b_f" RSgc="o_uf" RSgt="D_100" RSgo="b_f" RSgs="o_uf" RSas="D_100" RSps="b_f" HdBt="e_IaTc" FtBt="e_IaTc" Sfsr="l_0" Slsr="l_0" Sfsc="l_0" Slsc="l_0" Sffr="l_0" Slfr="l_0" Sffc="l_0" Slfc="l_0" RSsf="o_di5a29" Mnht="U_3" Mxht="U_600" Kwnr="b_f" Strw="e_nbrk" AuGw="b_t" MFHo="U_3" klwd="U_1" NstT="U_4" NstL="U_4" NstB="U_4" NstR="U_4" flcl="o_ue" filt="D_100" ovpr="b_f" DLTl="b_f" DLTr="b_f" DLib="b_f" DLsw="U_1" DLsy="o_di5a29" DLsc="o_ub" DLst="D_100" DLso="b_f" DLgc="o_ue" DLgt="D_100" DLgo="b_f" ClcC="b_f" Fbof="e_MAso" VJal="e_top" PSsl="U_0" Fboa="U_0" kang="D_0" Rfst="b_t" BrHd="b_t" BrFt="b_t" BrLc="b_t" BrRc="b_t" RsHd="o_n" RsFt="o_n" RsLc="o_n" RsRc="o_n" RsBr="o_u75" Self="rc_u77"/>
+	<tsty pthr="rl_0" ptfr="rl_0" pnam="k_[Basic Table]" basd="k_[No table style]" kbsc="x_2_s_0_s_0" Self="rc_u79"/>
+	<Jngd pnam="k_[Page Grid]" Self="rc_u7f">
+		<Jgda font="c_Times" ptfs="c_Regular" ptsz="D_12" Jcak="D_0" Jlak="D_9" phzs="D_100" pvts="D_100" laln="e_lltj" jgal="e_Jact" jcal="e_Jact" Self="rc_u7fJgda1"/>
+	</Jngd>
+	<ObSt pnam="k_[None]" prst="o_u67" dtos="o_u83" dfos="o_u82" dffg="o_u84" pcef="e_none" flcl="o_ue" filt="D_-1" lnwt="U_0" mitr="D_4" endc="e_bcap" endj="e_mjon" stty="o_di5a29" llen="e_none" rlen="e_none" lncl="o_ue" lint="D_-1" pcrd="D_12" gapC="o_ue" gapT="D_-1" strA="e_stAC" nopr="b_f" pgfa="D_0" pgsa="D_0" xpBm="e_norm" xpBo="D_100" xpBk="b_f" xpBi="b_f" xpSm="e_none" xpSb="e_xpMb" xpSx="U_7" xpSy="U_7" xpSr="U_5" xpSc="o_ub" xpSo="D_75" xpSs="D_0" xpSn="D_0" xpVn="D_0" xpVm="e_none" xpVw="U_9" xpVc="e_xpCc" pcOp="e_none" Self="rc_u80">
+		<TFPf ccnt="l_1" clgt="U_12" clwd="U_144" ufcw="b_f" inst="x_4_U_0_U_0_U_0_U_0" Fbof="e_MAso" Fboa="U_0" VJal="e_top" VJmi="U_0" iwrp="b_f" Self="rc_u80TFPf1"/>
+		<BfGo BFuc="b_f" BFso="U_0" BFro="e_EToi" BFic="U_12" BFcl="e_iLbl" Self="rc_u80BfGo1"/>
+		<cAOs AOpt="e_AOPi" AOsr="b_f" AOlp="b_f" AOpp="b_t" AOwp="e_ANbr" AOHa="e_left" AHrl="e_txtf" AOVa="e_botm" AOVr="e_AVba" AOxo="D_0" AOyo="D_0" AOya="D_0" Self="rc_u80cAOs1"/>
+		<ctxw txwt="e_none" ptwi="e_nada" ptwv="b_f" ptwm="b_f" ptws="e_twbs" Self="rc_u80ctxw1">
+			<ccos ptns="rx_0" acpn="rx_0" pcot="e_sacp" iied="b_f" pcnm="k_" Self="rc_u80ctxw1ccos1"/>
+		</ctxw>
+		<SyPf omAL="b_f" omBZ="U_12" sgON="e_Txft" sorn="e_horz" Self="rc_u80SyPf1"/>
+		<FFop fcrl="U_0" fcrt="U_0" fcrr="U_0" fcrb="U_0" ffit="e_none" faln="e_ANtl" Self="rc_u80FFop1"/>
+	</ObSt>
+	<ObSt obcc="b_t" basd="k_[None]" pnam="k_[Normal Graphics Frame]" prst="o_u67" osnp="b_f" obfc="b_t" obsc="b_t" obpc="b_f" obtf="b_f" obbc="b_f" oboc="b_f" obtw="b_f" obao="b_f" dtos="o_u83" dfos="o_u82" dffg="o_u84" obtc="b_t" obdc="b_t" pcef="e_none" flcl="o_ue" filt="D_-1" lnwt="U_1" mitr="D_4" endc="e_bcap" endj="e_mjon" stty="o_di5a29" llen="e_none" rlen="e_none" lncl="o_ub" lint="D_-1" pcrd="D_12" sovp="b_f" gapC="o_ue" gapT="D_-1" strA="e_stAC" nopr="b_f" pgfa="D_0" pgsa="D_0" xpBm="e_norm" xpBo="D_100" xpBk="b_f" xpBi="b_f" xpSm="e_none" xpSb="e_xpMb" xpSx="U_7" xpSy="U_7" xpSr="U_5" xpSc="o_ub" xpSo="D_75" xpSs="D_0" xpSn="D_0" xpVn="D_0" xpVm="e_none" xpVw="U_9" xpVc="e_xpCc" kbsc="x_2_s_0_s_0" obff="b_f" pcOp="e_none" obCc="b_t" Self="rc_u82">
+		<TFPf ccnt="l_1" clgt="U_12" clwd="U_144" ufcw="b_f" inst="x_4_U_0_U_0_U_0_U_0" Fbof="e_MAso" Fboa="U_0" VJal="e_top" VJmi="U_0" iwrp="b_f" Self="rc_u82TFPf1"/>
+		<BfGo BFuc="b_f" BFso="U_0" BFro="e_EToi" BFic="U_12" BFcl="e_iLbl" Self="rc_u82BfGo1"/>
+		<cAOs AOpt="e_AOPi" AOsr="b_f" AOlp="b_f" AOpp="b_t" AOwp="e_ANbr" AOHa="e_left" AHrl="e_txtf" AOVa="e_botm" AOVr="e_AVba" AOxo="D_0" AOyo="D_0" AOya="D_0" Self="rc_u82cAOs1"/>
+		<ctxw txwt="e_none" ptwi="e_nada" ptwv="b_f" ptwm="b_f" ptws="e_twbs" Self="rc_u82ctxw1">
+			<ccos ptns="rx_0" acpn="rx_0" pcot="e_sacp" iied="b_f" pcnm="k_" Self="rc_u82ctxw1ccos1"/>
+		</ctxw>
+		<SyPf omAL="b_f" omBZ="U_12" sgON="e_Unkn" sorn="e_Unkn" Self="rc_u82SyPf1"/>
+		<FFop fcrl="U_0" fcrt="U_0" fcrr="U_0" fcrb="U_0" ffit="e_none" faln="e_ANtl" Self="rc_u82FFop1"/>
+		<ospc obtc="b_t" obds="b_t" obvg="b_t" obis="b_t" obog="b_t" obig="b_t" obbe="b_t" obsa="b_t" obdf="b_t" obgf="b_t" Self="rc_u82ospc1"/>
+		<ossc obtc="b_t" obds="b_t" obvg="b_t" obis="b_t" obog="b_t" obig="b_t" obbe="b_t" obsa="b_t" obdf="b_t" obgf="b_t" Self="rc_u82ossc1"/>
+		<osfc obtc="b_t" obds="b_t" obvg="b_t" obis="b_t" obog="b_t" obig="b_t" obbe="b_t" obsa="b_t" obdf="b_t" obgf="b_t" Self="rc_u82osfc1"/>
+		<oscc obtc="b_t" obds="b_t" obvg="b_t" obis="b_t" obog="b_t" obig="b_t" obbe="b_t" obsa="b_t" obdf="b_t" obgf="b_t" Self="rc_u82oscc1"/>
+	</ObSt>
+	<ObSt obcc="b_t" basd="k_[None]" pnam="k_[Normal Text Frame]" prst="o_u6b" osnp="b_f" obfc="b_t" obsc="b_t" obpc="b_f" obtf="b_t" obbc="b_t" oboc="b_f" obtw="b_f" obao="b_f" dtos="o_u83" dfos="o_u82" dffg="o_u84" obtc="b_t" obdc="b_t" pcef="e_none" flcl="o_ue" filt="D_-1" lnwt="U_0" mitr="D_4" endc="e_bcap" endj="e_mjon" stty="o_di5a29" llen="e_none" rlen="e_none" lncl="o_ue" lint="D_-1" pcrd="D_12" gapC="o_ue" gapT="D_-1" strA="e_stAC" nopr="b_f" pgfa="D_0" pgsa="D_0" xpBm="e_norm" xpBo="D_100" xpBk="b_f" xpBi="b_f" xpSm="e_none" xpSb="e_xpMb" xpSx="U_7" xpSy="U_7" xpSr="U_5" xpSc="o_ub" xpSo="D_75" xpSs="D_0" xpSn="D_0" xpVn="D_0" xpVm="e_none" xpVw="U_9" xpVc="e_xpCc" kbsc="x_2_s_0_s_0" obff="b_f" pcOp="e_none" obCc="b_t" Self="rc_u83">
+		<TFPf ccnt="l_1" clgt="U_12" clwd="U_144" ufcw="b_f" inst="x_4_U_0_U_0_U_0_U_0" Fbof="e_MAso" Fboa="U_0" VJal="e_top" VJmi="U_0" iwrp="b_f" Self="rc_u83TFPf1"/>
+		<BfGo BFuc="b_f" BFso="U_0" BFro="e_EToi" BFic="U_12" BFcl="e_iLbl" Self="rc_u83BfGo1"/>
+		<cAOs AOpt="e_AOPi" AOsr="b_f" AOlp="b_f" AOpp="b_t" AOwp="e_ANbr" AOHa="e_left" AHrl="e_txtf" AOVa="e_botm" AOVr="e_AVba" AOxo="D_0" AOyo="D_0" AOya="D_0" Self="rc_u83cAOs1"/>
+		<ctxw txwt="e_none" ptwi="e_nada" ptwv="b_f" ptwm="b_f" ptws="e_twbs" Self="rc_u83ctxw1">
+			<ccos ptns="rx_0" acpn="rx_0" pcot="e_sacp" iied="b_f" pcnm="k_" Self="rc_u83ctxw1ccos1"/>
+		</ctxw>
+		<SyPf omAL="b_f" omBZ="U_12" sgON="e_Txft" sorn="e_Unkn" Self="rc_u83SyPf1"/>
+		<FFop fcrl="U_0" fcrt="U_0" fcrr="U_0" fcrb="U_0" ffit="e_none" faln="e_ANtl" Self="rc_u83FFop1"/>
+		<ospc obtc="b_t" obds="b_t" obvg="b_t" obis="b_t" obog="b_t" obig="b_t" obbe="b_t" obsa="b_t" obdf="b_t" obgf="b_t" Self="rc_u83ospc1"/>
+		<ossc obtc="b_t" obds="b_t" obvg="b_t" obis="b_t" obog="b_t" obig="b_t" obbe="b_t" obsa="b_t" obdf="b_t" obgf="b_t" Self="rc_u83ossc1"/>
+		<osfc obtc="b_t" obds="b_t" obvg="b_t" obis="b_t" obog="b_t" obig="b_t" obbe="b_t" obsa="b_t" obdf="b_t" obgf="b_t" Self="rc_u83osfc1"/>
+		<oscc obtc="b_t" obds="b_t" obvg="b_t" obis="b_t" obog="b_t" obig="b_t" obbe="b_t" obsa="b_t" obdf="b_t" obgf="b_t" Self="rc_u83oscc1"/>
+	</ObSt>
+	<ObSt obcc="b_t" basd="k_[None]" pnam="k_[Normal Grid]" prst="o_u6b" osnp="b_f" obfc="b_t" obsc="b_t" obpc="b_f" obtf="b_t" obbc="b_t" oboc="b_t" obtw="b_f" obao="b_f" dtos="o_u83" dfos="o_u82" dffg="o_u84" obtc="b_t" obdc="b_t" pcef="e_none" flcl="o_ue" filt="D_-1" lnwt="U_0" mitr="D_4" endc="e_bcap" endj="e_mjon" stty="o_di5a29" llen="e_none" rlen="e_none" lncl="o_ue" lint="D_-1" pcrd="D_12" gapC="o_ue" gapT="D_-1" strA="e_stAC" nopr="b_f" pgfa="D_0" pgsa="D_0" xpBm="e_norm" xpBo="D_100" xpBk="b_f" xpBi="b_f" xpSm="e_none" xpSb="e_xpMb" xpSx="U_7" xpSy="U_7" xpSr="U_5" xpSc="o_ub" xpSo="D_75" xpSs="D_0" xpSn="D_0" xpVn="D_0" xpVm="e_none" xpVw="U_9" xpVc="e_xpCc" kbsc="x_2_s_0_s_0" obff="b_f" pcOp="e_none" obCc="b_t" Self="rc_u84">
+		<TFPf ccnt="l_1" clgt="U_12" clwd="U_144" ufcw="b_f" inst="x_4_U_0_U_0_U_0_U_0" Fbof="e_MAso" Fboa="U_0" VJal="e_top" VJmi="U_0" iwrp="b_f" Self="rc_u84TFPf1"/>
+		<BfGo BFuc="b_f" BFso="U_0" BFro="e_EToi" BFic="U_12" BFcl="e_iLbl" Self="rc_u84BfGo1"/>
+		<cAOs AOpt="e_AOPi" AOsr="b_f" AOlp="b_f" AOpp="b_t" AOwp="e_ANbr" AOHa="e_left" AHrl="e_txtf" AOVa="e_botm" AOVr="e_AVba" AOxo="D_0" AOyo="D_0" AOya="D_0" Self="rc_u84cAOs1"/>
+		<ctxw txwt="e_none" ptwi="e_nada" ptwv="b_f" ptwm="b_f" ptws="e_twbs" Self="rc_u84ctxw1">
+			<ccos ptns="rx_0" acpn="rx_0" pcot="e_sacp" iied="b_f" pcnm="k_" Self="rc_u84ctxw1ccos1"/>
+		</ctxw>
+		<SyPf omAL="b_f" omBZ="U_12" sgON="e_FGtp" sorn="e_Unkn" Self="rc_u84SyPf1"/>
+		<FFop fcrl="U_0" fcrt="U_0" fcrr="U_0" fcrb="U_0" ffit="e_none" faln="e_ANtl" Self="rc_u84FFop1"/>
+		<ospc obtc="b_t" obds="b_t" obvg="b_t" obis="b_t" obog="b_t" obig="b_t" obbe="b_t" obsa="b_t" obdf="b_t" obgf="b_t" Self="rc_u84ospc1"/>
+		<ossc obtc="b_t" obds="b_t" obvg="b_t" obis="b_t" obog="b_t" obig="b_t" obbe="b_t" obsa="b_t" obdf="b_t" obgf="b_t" Self="rc_u84ossc1"/>
+		<osfc obtc="b_t" obds="b_t" obvg="b_t" obis="b_t" obog="b_t" obig="b_t" obbe="b_t" obsa="b_t" obdf="b_t" obgf="b_t" Self="rc_u84osfc1"/>
+		<oscc obtc="b_t" obds="b_t" obvg="b_t" obis="b_t" obog="b_t" obig="b_t" obbe="b_t" obsa="b_t" obdf="b_t" obgf="b_t" Self="rc_u84oscc1"/>
+	</ObSt>
+	<xiPf Xits="b_t" XMis="e_XMmi" Xicl="b_f" XMrt="b_t" Xtal="b_f" Xtit="b_t" Xiws="b_f" Xtar="b_f" Xalt="b_f" Xtfn="e_Xssx" Xisp="x_0" Xict="b_t" Self="rc_dxiPf1"/>
+	<xePf Xvae="b_f" Xprb="e_nada" Xefs="b_f" svFE="e_svU8" Xrub="b_f" Xdtd="b_t" Xeco="b_f" Xeoi="b_f" Xefi="b_f" Xeic="e_ibst" Xegp="e_plap" Xegi="b_f" Xejq="e_enMd" Xejf="e_jpgb" Xalt="b_f" Xtfn="e_Xssx" Xcrf="b_f" Xeut="e_Xtcs" Self="rc_dxePf1"/>
+	<xgPf XstN="c_Story" XstC="e_iBrd" XtaN="c_Table" XtaC="e_iDbl" XceN="c_Cell" XceC="e_iGgr" XimN="c_Image" XimC="e_iVlt" Self="rc_dxgPf1"/>
+	<ewPf Xefi="b_f" Xeoi="b_f" Xeco="b_f" Xeic="e_ibst" Xegp="e_plap" Xegi="b_f" Xejq="e_enMd" Xejf="e_jpgb" Self="rc_dewPf1"/>
+	<xpDC Self="rc_dxpDC1">
+		<xpQa Self="rc_dxpDC1xpQa1">
+			<xpQe xpBm="e_norm" xpBo="D_100" xpBk="b_f" xpBi="b_f" Self="rc_dxpDC1xpQa1xpQe1"/>
+			<xpQf xpUp="e_none" xpBm="e_xpMb" xpBo="D_75" xpUj="U_7" xpUk="U_7" dsiz="U_5" xpUt="o_n" e0D5="D_0" sprd="D_0" xpUs="b_f" xpUr="b_t" xpU7="b_f" Self="rc_dxpDC1xpQa1xpQf1"/>
+			<xpQg xpUp="e_none" wdwh="U_9" xpUq="e_xpCc" e0D5="D_0" xpUu="D_0" Self="rc_dxpDC1xpQa1xpQg1"/>
+			<xpQh xpUn="b_f" xpUt="o_n" xpBm="e_xpMb" xpBo="D_75" inAn="D_120" e0D8="U_7" xpUs="b_f" xpUu="D_0" dsiz="U_7" e0D5="D_0" Self="rc_dxpDC1xpQa1xpQh1"/>
+			<xpQi xpUn="b_f" xpBm="e_xpMc" xpBo="D_75" e0D5="D_0" xpUt="o_n" xpUo="e_xp0a" sprd="D_0" dsiz="U_7" Self="rc_dxpDC1xpQa1xpQi1"/>
+			<xpQj xpUn="b_f" xpBm="e_xpMc" xpBo="D_75" e0D5="D_0" xpUt="o_n" xpUo="e_xp0a" sprd="D_0" dsiz="U_7" hlsc="e_xp1b" Self="rc_dxpDC1xpQa1xpQj1"/>
+			<xpQk xpUn="b_f" xpUb="e_xp2b" xpUo="e_xp3a" xpUc="D_100" xpUd="e_Fstn" dsiz="U_7" xpUe="U_0" inAn="D_120" xpUf="D_30" xpUs="b_f" e0E4="o_n" xpUh="e_xpMc" e0E3="D_75" xpSc="o_n" xpSb="e_xpMb" xpSo="D_75" Self="rc_dxpDC1xpQa1xpQk1"/>
+			<xpQl xpUn="b_f" xpUt="o_n" xpBm="e_xpMb" xpBo="D_50" inAn="D_120" e0D8="U_7" dsiz="U_7" xpUv="b_f" Self="rc_dxpDC1xpQa1xpQl1"/>
+			<xpQm xpUn="b_f" xpU3="U_0" xpU4="U_0" xpU5="U_0" xpU6="U_0" xpUu="D_0" inAn="D_0" xpUw="e_en5a" e0D5="D_0" Self="rc_dxpDC1xpQa1xpQm1"/>
+			<xpQn xpUn="b_f" grdt="e_axlg" inAn="D_0" leng="U_0" xpUx="x_2_U_0_U_0" xpUy="D_0" xpUz="U_0" Self="rc_dxpDC1xpQa1xpQn1"/>
+		</xpQa>
+		<xpQb Self="rc_dxpDC1xpQb1">
+			<xpQe xpBm="e_norm" xpBo="D_100" xpBk="b_f" xpBi="b_f" Self="rc_dxpDC1xpQb1xpQe1"/>
+			<xpQf xpUp="e_none" xpBm="e_xpMb" xpBo="D_75" xpUj="U_7" xpUk="U_7" dsiz="U_5" xpUt="o_n" e0D5="D_0" sprd="D_0" xpUs="b_f" xpUr="b_t" xpU7="b_f" Self="rc_dxpDC1xpQb1xpQf1"/>
+			<xpQg xpUp="e_none" wdwh="U_9" xpUq="e_xpCc" e0D5="D_0" xpUu="D_0" Self="rc_dxpDC1xpQb1xpQg1"/>
+			<xpQh xpUn="b_f" xpUt="o_n" xpBm="e_xpMb" xpBo="D_75" inAn="D_120" e0D8="U_7" xpUs="b_f" xpUu="D_0" dsiz="U_7" e0D5="D_0" Self="rc_dxpDC1xpQb1xpQh1"/>
+			<xpQi xpUn="b_f" xpBm="e_xpMc" xpBo="D_75" e0D5="D_0" xpUt="o_n" xpUo="e_xp0a" sprd="D_0" dsiz="U_7" Self="rc_dxpDC1xpQb1xpQi1"/>
+			<xpQj xpUn="b_f" xpBm="e_xpMc" xpBo="D_75" e0D5="D_0" xpUt="o_n" xpUo="e_xp0a" sprd="D_0" dsiz="U_7" hlsc="e_xp1b" Self="rc_dxpDC1xpQb1xpQj1"/>
+			<xpQk xpUn="b_f" xpUb="e_xp2b" xpUo="e_xp3a" xpUc="D_100" xpUd="e_Fstn" dsiz="U_7" xpUe="U_0" inAn="D_120" xpUf="D_30" xpUs="b_f" e0E4="o_n" xpUh="e_xpMc" e0E3="D_75" xpSc="o_n" xpSb="e_xpMb" xpSo="D_75" Self="rc_dxpDC1xpQb1xpQk1"/>
+			<xpQl xpUn="b_f" xpUt="o_n" xpBm="e_xpMb" xpBo="D_50" inAn="D_120" e0D8="U_7" dsiz="U_7" xpUv="b_f" Self="rc_dxpDC1xpQb1xpQl1"/>
+			<xpQm xpUn="b_f" xpU3="U_0" xpU4="U_0" xpU5="U_0" xpU6="U_0" xpUu="D_0" inAn="D_0" xpUw="e_en5a" e0D5="D_0" Self="rc_dxpDC1xpQb1xpQm1"/>
+			<xpQn xpUn="b_f" grdt="e_axlg" inAn="D_0" leng="U_0" xpUx="x_2_U_0_U_0" xpUy="D_0" xpUz="U_0" Self="rc_dxpDC1xpQb1xpQn1"/>
+		</xpQb>
+		<xpQc Self="rc_dxpDC1xpQc1">
+			<xpQe xpBm="e_norm" xpBo="D_100" xpBk="b_f" xpBi="b_f" Self="rc_dxpDC1xpQc1xpQe1"/>
+			<xpQf xpUp="e_none" xpBm="e_xpMb" xpBo="D_75" xpUj="U_7" xpUk="U_7" dsiz="U_5" xpUt="o_n" e0D5="D_0" sprd="D_0" xpUs="b_f" xpUr="b_t" xpU7="b_f" Self="rc_dxpDC1xpQc1xpQf1"/>
+			<xpQg xpUp="e_none" wdwh="U_9" xpUq="e_xpCc" e0D5="D_0" xpUu="D_0" Self="rc_dxpDC1xpQc1xpQg1"/>
+			<xpQh xpUn="b_f" xpUt="o_n" xpBm="e_xpMb" xpBo="D_75" inAn="D_120" e0D8="U_7" xpUs="b_f" xpUu="D_0" dsiz="U_7" e0D5="D_0" Self="rc_dxpDC1xpQc1xpQh1"/>
+			<xpQi xpUn="b_f" xpBm="e_xpMc" xpBo="D_75" e0D5="D_0" xpUt="o_n" xpUo="e_xp0a" sprd="D_0" dsiz="U_7" Self="rc_dxpDC1xpQc1xpQi1"/>
+			<xpQj xpUn="b_f" xpBm="e_xpMc" xpBo="D_75" e0D5="D_0" xpUt="o_n" xpUo="e_xp0a" sprd="D_0" dsiz="U_7" hlsc="e_xp1b" Self="rc_dxpDC1xpQc1xpQj1"/>
+			<xpQk xpUn="b_f" xpUb="e_xp2b" xpUo="e_xp3a" xpUc="D_100" xpUd="e_Fstn" dsiz="U_7" xpUe="U_0" inAn="D_120" xpUf="D_30" xpUs="b_f" e0E4="o_n" xpUh="e_xpMc" e0E3="D_75" xpSc="o_n" xpSb="e_xpMb" xpSo="D_75" Self="rc_dxpDC1xpQc1xpQk1"/>
+			<xpQl xpUn="b_f" xpUt="o_n" xpBm="e_xpMb" xpBo="D_50" inAn="D_120" e0D8="U_7" dsiz="U_7" xpUv="b_f" Self="rc_dxpDC1xpQc1xpQl1"/>
+			<xpQm xpUn="b_f" xpU3="U_0" xpU4="U_0" xpU5="U_0" xpU6="U_0" xpUu="D_0" inAn="D_0" xpUw="e_en5a" e0D5="D_0" Self="rc_dxpDC1xpQc1xpQm1"/>
+			<xpQn xpUn="b_f" grdt="e_axlg" inAn="D_0" leng="U_0" xpUx="x_2_U_0_U_0" xpUy="D_0" xpUz="U_0" Self="rc_dxpDC1xpQc1xpQn1"/>
+		</xpQc>
+		<xpQd Self="rc_dxpDC1xpQd1">
+			<xpQe xpBm="e_norm" xpBo="D_100" xpBk="b_f" xpBi="b_f" Self="rc_dxpDC1xpQd1xpQe1"/>
+			<xpQf xpUp="e_none" xpBm="e_xpMb" xpBo="D_75" xpUj="U_7" xpUk="U_7" dsiz="U_5" xpUt="o_n" e0D5="D_0" sprd="D_0" xpUs="b_f" xpUr="b_t" xpU7="b_f" Self="rc_dxpDC1xpQd1xpQf1"/>
+			<xpQg xpUp="e_none" wdwh="U_9" xpUq="e_xpCc" e0D5="D_0" xpUu="D_0" Self="rc_dxpDC1xpQd1xpQg1"/>
+			<xpQh xpUn="b_f" xpUt="o_n" xpBm="e_xpMb" xpBo="D_75" inAn="D_120" e0D8="U_7" xpUs="b_f" xpUu="D_0" dsiz="U_7" e0D5="D_0" Self="rc_dxpDC1xpQd1xpQh1"/>
+			<xpQi xpUn="b_f" xpBm="e_xpMc" xpBo="D_75" e0D5="D_0" xpUt="o_n" xpUo="e_xp0a" sprd="D_0" dsiz="U_7" Self="rc_dxpDC1xpQd1xpQi1"/>
+			<xpQj xpUn="b_f" xpBm="e_xpMc" xpBo="D_75" e0D5="D_0" xpUt="o_n" xpUo="e_xp0a" sprd="D_0" dsiz="U_7" hlsc="e_xp1b" Self="rc_dxpDC1xpQd1xpQj1"/>
+			<xpQk xpUn="b_f" xpUb="e_xp2b" xpUo="e_xp3a" xpUc="D_100" xpUd="e_Fstn" dsiz="U_7" xpUe="U_0" inAn="D_120" xpUf="D_30" xpUs="b_f" e0E4="o_n" xpUh="e_xpMc" e0E3="D_75" xpSc="o_n" xpSb="e_xpMb" xpSo="D_75" Self="rc_dxpDC1xpQd1xpQk1"/>
+			<xpQl xpUn="b_f" xpUt="o_n" xpBm="e_xpMb" xpBo="D_50" inAn="D_120" e0D8="U_7" dsiz="U_7" xpUv="b_f" Self="rc_dxpDC1xpQd1xpQl1"/>
+			<xpQm xpUn="b_f" xpU3="U_0" xpU4="U_0" xpU5="U_0" xpU6="U_0" xpUu="D_0" inAn="D_0" xpUw="e_en5a" e0D5="D_0" Self="rc_dxpDC1xpQd1xpQm1"/>
+			<xpQn xpUn="b_f" grdt="e_axlg" inAn="D_0" leng="U_0" xpUx="x_2_U_0_U_0" xpUy="D_0" xpUz="U_0" Self="rc_dxpDC1xpQd1xpQn1"/>
+		</xpQd>
+	</xpDC>
+	<SyPf omAL="b_f" omBZ="U_12" sgON="e_Txft" sorn="e_horz" Self="rc_dSyPf1"/>
+	<TFPf ccnt="l_1" clgt="U_12" clwd="U_144" ufcw="b_f" inst="x_4_U_0_U_0_U_0_U_0" Fbof="e_MAso" Fboa="U_0" VJal="e_top" VJmi="U_0" iwrp="b_f" Self="rc_dTFPf1"/>
+	<txtp typq="b_t" shhj="b_f" shkp="b_f" shsb="b_f" shcs="b_f" hlmf="b_t" mmos="b_t" pled="b_f" sups="D_58.3" supp="D_33.3" subs="D_58.3" subp="D_33.3" Smcp="D_70" lkbd="U_2" bkbd="U_2" kkbd="D_20" sinv="b_f" jwrp="b_f" awrp="b_t" zwrp="b_f" gplt="b_f" sclt="b_t" shkk="b_f" Jnvs="b_f" Jcid="b_f" Self="rc_dtxtp1"/>
+	<cTdf prbo="b_f" rbgo="b_f" infl="U_0" inbl="U_0" inbr="U_0" spbe="U_6" spaf="U_0" bala="e_BlOf" paln="e_left" pals="e_full" alea="D_120" dcli="s_0" dcca="s_0" kepl="b_f" kept="b_f" kwnx="s_0" kfnl="s_2" klnl="s_2" pbbp="e_nbrk" ptce="c_HL Composer" wsmi="D_80" wsma="D_133" wsde="D_100" lsmi="D_0" lsma="D_0" lsde="D_0" gsmi="D_100" gsma="D_100" gsde="D_100" prar="b_f" prao="b_f" pras="D_1" prat="D_-1" paof="U_0" pral="U_0" pair="U_0" rawd="e_Klwd" rlac="k_Text Color" ragc="o_ue" ragt="D_-1" rago="b_f" patp="o_di5a29" prbr="b_f" prbs="D_1" prbt="D_-1" pbop="U_0" prbl="U_0" pbir="U_0" rbwd="e_Klwd" rlbc="k_Text Color" rbgc="o_ue" rbgt="D_-1" pbtp="o_di5a29" hypc="b_t" hyph="b_t" miaf="s_2" mibe="s_2" swor="s_5" hypl="s_3" hyzo="U_36" hypw="s_5" inlr="U_0" hylw="b_t" prb2="b_f" rbg2="b_f" dcdm="l_0" hycf="b_t" prak="b_f" igEA="b_f" prst="o_u6b" crst="o_u68" alrs="x_0" alts="x_0" font="c_Verdana" ptfs="c_Regular" ptsz="U_12" szld="e_atil" pakm="k_Metrics" trak="D_0" capm="e_norm" posm="e_norm" undr="b_f" strk="b_f" ligt="b_t" nobk="b_f" phzs="D_100" pvts="D_100" bshf="U_0" pskw="D_0" filt="D_-1" lint="D_-1" lnwt="U_1" sovp="b_f" ovpr="b_f" Ofst="e_Dflt" OTor="b_f" OTfr="b_f" OTdl="b_f" OTti="b_f" OTca="b_t" OTsw="b_f" ulco="k_Text Color" ulgc="o_ue" ultt="D_-1" ulgt="D_-1" ulop="b_f" upgo="b_f" ultp="o_di5a29" ulos="U_-9999" ulwt="U_-9999" stco="k_Text Color" stgc="o_ue" sttt="D_-1" stgt="D_-1" Stvp="b_f" stgo="b_f" sttp="o_di5a29" stos="U_-9999" stwt="U_-9999" flcl="o_ub" lncl="o_ue" plng="k_English: USA" OTzr="b_f" OThi="b_f" OTss="l_0" pgfl="D_-1" pgfa="D_0" pgsl="D_-1" pgsa="D_0" pgst="x_2_U_0_U_0" pgss="x_2_U_0_U_0" OTmk="b_t" OTlc="b_t" OTPf="e_none" jcal="e_Jact" tsum="D_0" jmbs="D_-1" jmas="D_-1" crot="D_0" jjid="s_0" jshp="D_0" jsha="D_4500" jshr="b_f" jsht="b_t" jtcy="b_f" jtax="D_0" jtay="D_0" jkfc="k_Text Color" jksc="k_Text Color" jktn="D_-1" jkst="D_-1" jkwt="D_-1" jkof="e_atil" jkos="e_atil" jktp="e_none" jkpl="D_0" jkal="e_Jknc" jkp2="e_Jkar" jkfn="k_" jkfs="e_nada" jkfz="D_-1" jkcm="D_100" jkpt="D_100" jkcc="k_" jset="e_Jchi" jrfl="k_Text Color" jrsk="k_Text Color" jrti="D_-1" jrwt="D_-1" jrof="e_atil" jros="e_atil" jrst="D_-1" jrfn="k_" jrft="e_nada" jrfs="D_-1" jpro="b_t" jrwd="D_100" jrpt="D_100" jrtp="e_Jrpc" jral="e_Jrjs" jrpz="e_Jkar" jrxo="D_0" jryo="D_0" jrsp="e_Jr12" jraa="b_t" jrov="b_f" jras="b_f" jrsc="D_66" jrva="e_Jro1" jwar="b_f" jwas="D_50" jwli="s_2" jwls="D_0" jwal="e_atil" jmab="s_2" jmbb="s_2" palt="b_f" hkna="b_f" ital="b_f" jslh="b_f" jgrt="b_f" jgfm="e_none" jrtd="s_0" jrtr="b_f" jrts="b_t" jga1="b_f" jgal="e_none" jggy="s_0" jatc="s_0" jatr="b_f" jkin="e_nada" jkit="e_Jkif" jkht="e_none" jbki="b_t" jmoj="e_nada" jren="b_t" jro1="b_f" Jled="e_Jlab" jpgd="b_f" bnns="k_1, 2, 3, 4..." bnsa="l_1" bnfs="D_-1" bncl="c_Text Color" bnsp="s_2e" bnlt="e_LTno" bnbc="x_2_e_BCuo_l_2022" nmfn="k_" nmft="e_nada" blfn="k_" blft="e_nada" bnta="c_^t" bnbs="o_u68" bnnl="o_u3d" bnle="l_1" DHnm="k_1, 2, 3, 4..." bnne="c_^#.^t" bnnc="o_u68" bncp="b_t" bnst="l_1" bnar="b_t" bnba="e_left" bnna="e_left" bnbr="x_3_e_enap_l_0_l_0" Self="rc_dcTdf1"/>
+	<dctp dpcu="e_both" dpmu="b_f" dprc="b_t" Self="rc_ddctp1"/>
+	<cAOd AOct="e_unas" AOht="D_72" AOwd="D_72" AOps="o_u67" AOos="o_u80" Self="rc_dcAOd1"/>
+	<cAOs AOpt="e_AOPi" AOsr="b_f" AOlp="b_f" AOpp="b_t" AOwp="e_ANbr" AOHa="e_left" AHrl="e_txtf" AOVa="e_top" AOVr="e_AVba" AOxo="D_0" AOyo="D_0" AOya="D_0" Self="rc_dcAOs1"/>
+	<BfGo BFuc="b_f" BFso="U_0" BFro="e_EToi" BFic="U_12" BFcl="e_iLbl" Self="rc_dBfGo1"/>
+	<FNop FNns="e_Marb" FNsa="l_1" FNrn="e_Fdrs" FNps="e_Fpsn" FNpr="c_" FNsu="c_" FNap="o_u6b" FNac="o_u68" FNmp="e_FmSp" FNsp="c_&#x9;" FNsb="U_0" FNsh="U_0" FNfm="e_MLdo" FNfo="U_0" FNpl="b_f" FNds="b_f" FNn0="b_t" FNty="o_di5a29" FNsw="U_1" FNnc="o_ub" FNrg="o_ue" FNrt="D_100" FNgt="D_100" FNgo="b_f" FNnv="b_f" FNli="U_0" FNri="U_72" FNro="U_0" FNc0="b_t" FNcy="o_di5a29" FNcw="U_1" FNcc="o_ub" FNcg="o_ue" FNct="D_100" FNc4="D_100" FNcv="b_f" FNc3="b_f" FNci="U_0" FNcr="U_288" FNco="U_0" Self="rc_dFNop1"/>
+	<ctxw txwt="e_none" ptwi="e_nada" ptwv="b_f" ptwm="b_f" ptws="e_twbs" Self="rc_dctxw1">
+		<ccos ptns="rx_0" acpn="rx_0" pcot="e_sacp" iied="b_f" pcnm="k_" Self="rc_dctxw1ccos1"/>
+	</ctxw>
+	<docp phgt="U_792" pwdt="U_612" cclr="e_iVlt" mclr="e_iMgn" nump="l_1" ppsd="b_t" bldt="U_0" bldb="U_0" bldi="U_0" bldo="U_0" bldu="b_t" slgt="U_0" slgb="U_0" slgi="U_0" slgo="U_0" slgu="b_f" PrSl="b_t" Shfl="b_t" oprb="b_t" pbin="e_ltrb" cold="e_horz" clok="b_t" MsTx="b_f" Self="rc_ddocp1"/>
+	<grdp gsho="b_f" grto="b_f" Hgdv="U_72" Vgdv="U_72" Hgsd="l_8" Vgsd="l_8" grdc="e_iLgr" GrDb="b_t" blsn="b_f" blst="U_36" bldv="U_12" blvl="D_75" blcl="e_iLbl" grlo="e_ENgt" Self="rc_dgrdp1"/>
+	<gudp gdib="b_f" gdsh="b_t" gdlk="b_f" gdto="b_t" gvth="D_5" gudc="e_iCyn" Self="rc_dgudp1"/>
+	<imgp colc="l_1" colg="U_12" mart="U_36" marb="U_36" marl="U_36" marr="U_36" cold="e_horz" Self="rc_dimgp1"/>
+	<pbdp PBbr="U_72" PBbk="e_iLgr" PBbc="e_iFie" PBsc="e_iGbl" PBcr="e_iWht" Self="rc_dpbdp1"/>
+	<viwp sntz="l_4" keyn="U_1" hunt="e_zpic" vunt="e_zpic" RCtp="e_RCSo" srul="b_t" sfre="b_t" tunt="e_zpoi" tsnt="e_zpoi" pdnt="e_zinc" lunt="e_zpoi" ptin="D_72" hrcp="D_12" vecp="D_12" SHNt="b_t" Self="rc_dviwp1"/>
+	<CPrB pcty="e_prna" BBTy="e_B2SS" BSBP="U_0" BBBP="U_0" BCrp="U_0" BSgS="e_BS04" dmTM="U_36" dmBM="U_36" dmLM="U_36" dmRM="U_36" BAAM="b_t" BChM="b_f" BPBS="b_t" Self="rc_dCPrB1"/>
+	<CPBP Rprs="rx_0" Rpds="rx_0" Rpss="rx_0" RpSL="rx_0" Rprt="c_Officejet 6300 series [4C39C9]" ppd="k_" RpFn="f_" lwcp="l_1" lwcl="b_f" Rrvr="b_f" Rpnp="b_f" Rblk="b_f" Rpgg="b_f" Rpsz="k_US Letter" Rpht="e_atil" Rpwd="e_atil" Rpof="U_0" Rpgp="U_0" RpTv="b_f" RpOr="e_high" RpCt="e_cntN" RScm="e_scxy" swdp="D_100" shtp="D_100" RpSP="b_t" RpLR="e_vprL" apm="b_f" crpm="b_f" bldm="b_f" regm="b_f" colb="b_f" pifo="b_f" RpMt="e_Dflt" RpMw="e_250p" Rpmo="U_6" RpDB="b_t" RpBt="U_0" RpBb="U_0" RpBi="U_0" RpBo="U_0" RpBC="b_f" RpCm="e_cmRB" RpTB="b_f" trpe="e_OFF" RpFp="e_none" RpNe="b_f" RpSc="e_Dflt" RpCA="D_45" RpCF="D_70" RpSO="b_f" RPCI="b_t" RCIA="D_75" RCIF="D_70" RPMI="b_t" RMIA="D_15" RMIF="D_70" RPYI="b_t" RYIA="D_0" RYIF="D_70" RPBI="b_t" RBIA="D_45" RBIF="D_70" simd="e_opss" fndl="e_whle" RpPF="b_t" RpPL="e_PSL2" RpDF="e_Bnry" RCSP="e_uDoc" RpPr="e_uDoc" RpCr="e_Dflt" RCin="e_RIac" RpCn="b_f" odir="b_f" omte="b_f" omtp="b_f" omtb="b_f" RpFS="k_kFlSt~sep~MediumDefaultName" igSO="b_f" bmpr="b_f" bmrz="l_12c" Rsty="e_Dflt" Rpdt="l_1" Rppt="l_0" ppdf="k_" Rptd="b_f" Rppr="k_TkJSQwIAAABGZ1BNEBgAADw/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9IlVURi04Ij8+Cjwh&#xa;RE9DVFlQRSBwbGlzdCBQVUJMSUMgIi0vL0FwcGxlLy9EVEQgUExJU1QgMS4wLy9FTiIgImh0dHA6&#xa;Ly93d3cuYXBwbGUuY29tL0RURHMvUHJvcGVydHlMaXN0LTEuMC5kdGQiPgo8cGxpc3QgdmVyc2lv&#xa;bj0iMS4wIj4KPGRpY3Q+Cgk8a2V5PmNvbS5hcHBsZS5wcmludC5QYWdlRm9ybWF0LlBNSG9yaXpv&#xa;bnRhbFJlczwva2V5PgoJPGRpY3Q+CgkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LmNyZWF0&#xa;b3I8L2tleT4KCQk8c3RyaW5nPmNvbS5hcHBsZS5qb2J0aWNrZXQ8L3N0cmluZz4KCQk8a2V5PmNv&#xa;bS5hcHBsZS5wcmludC50aWNrZXQuaXRlbUFycmF5PC9rZXk+CgkJPGFycmF5PgoJCQk8ZGljdD4K&#xa;CQkJCTxrZXk+Y29tLmFwcGxlLnByaW50LlBhZ2VGb3JtYXQuUE1Ib3Jpem9udGFsUmVzPC9rZXk+&#xa;CgkJCQk8cmVhbD43MjwvcmVhbD4KCQkJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5zdGF0&#xa;ZUZsYWc8L2tleT4KCQkJCTxpbnRlZ2VyPjA8L2ludGVnZXI+CgkJCTwvZGljdD4KCQk8L2FycmF5&#xa;PgoJPC9kaWN0PgoJPGtleT5jb20uYXBwbGUucHJpbnQuUGFnZUZvcm1hdC5QTU9yaWVudGF0aW9u&#xa;PC9rZXk+Cgk8ZGljdD4KCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuY3JlYXRvcjwva2V5&#xa;PgoJCTxzdHJpbmc+Y29tLmFwcGxlLmpvYnRpY2tldDwvc3RyaW5nPgoJCTxrZXk+Y29tLmFwcGxl&#xa;LnByaW50LnRpY2tldC5pdGVtQXJyYXk8L2tleT4KCQk8YXJyYXk+CgkJCTxkaWN0PgoJCQkJPGtl&#xa;eT5jb20uYXBwbGUucHJpbnQuUGFnZUZvcm1hdC5QTU9yaWVudGF0aW9uPC9rZXk+CgkJCQk8aW50&#xa;ZWdlcj4xPC9pbnRlZ2VyPgoJCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LnN0YXRlRmxh&#xa;Zzwva2V5PgoJCQkJPGludGVnZXI+MDwvaW50ZWdlcj4KCQkJPC9kaWN0PgoJCTwvYXJyYXk+Cgk8&#xa;L2RpY3Q+Cgk8a2V5PmNvbS5hcHBsZS5wcmludC5QYWdlRm9ybWF0LlBNU2NhbGluZzwva2V5PgoJ&#xa;PGRpY3Q+CgkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LmNyZWF0b3I8L2tleT4KCQk8c3Ry&#xa;aW5nPmNvbS5hcHBsZS5qb2J0aWNrZXQ8L3N0cmluZz4KCQk8a2V5PmNvbS5hcHBsZS5wcmludC50&#xa;aWNrZXQuaXRlbUFycmF5PC9rZXk+CgkJPGFycmF5PgoJCQk8ZGljdD4KCQkJCTxrZXk+Y29tLmFw&#xa;cGxlLnByaW50LlBhZ2VGb3JtYXQuUE1TY2FsaW5nPC9rZXk+CgkJCQk8cmVhbD4xPC9yZWFsPgoJ&#xa;CQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LnN0YXRlRmxhZzwva2V5PgoJCQkJPGludGVn&#xa;ZXI+MDwvaW50ZWdlcj4KCQkJPC9kaWN0PgoJCTwvYXJyYXk+Cgk8L2RpY3Q+Cgk8a2V5PmNvbS5h&#xa;cHBsZS5wcmludC5QYWdlRm9ybWF0LlBNVmVydGljYWxSZXM8L2tleT4KCTxkaWN0PgoJCTxrZXk+&#xa;Y29tLmFwcGxlLnByaW50LnRpY2tldC5jcmVhdG9yPC9rZXk+CgkJPHN0cmluZz5jb20uYXBwbGUu&#xa;am9idGlja2V0PC9zdHJpbmc+CgkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0Lml0ZW1BcnJh&#xa;eTwva2V5PgoJCTxhcnJheT4KCQkJPGRpY3Q+CgkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC5QYWdl&#xa;Rm9ybWF0LlBNVmVydGljYWxSZXM8L2tleT4KCQkJCTxyZWFsPjcyPC9yZWFsPgoJCQkJPGtleT5j&#xa;b20uYXBwbGUucHJpbnQudGlja2V0LnN0YXRlRmxhZzwva2V5PgoJCQkJPGludGVnZXI+MDwvaW50&#xa;ZWdlcj4KCQkJPC9kaWN0PgoJCTwvYXJyYXk+Cgk8L2RpY3Q+Cgk8a2V5PmNvbS5hcHBsZS5wcmlu&#xa;dC5QYWdlRm9ybWF0LlBNVmVydGljYWxTY2FsaW5nPC9rZXk+Cgk8ZGljdD4KCQk8a2V5PmNvbS5h&#xa;cHBsZS5wcmludC50aWNrZXQuY3JlYXRvcjwva2V5PgoJCTxzdHJpbmc+Y29tLmFwcGxlLmpvYnRp&#xa;Y2tldDwvc3RyaW5nPgoJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5pdGVtQXJyYXk8L2tl&#xa;eT4KCQk8YXJyYXk+CgkJCTxkaWN0PgoJCQkJPGtleT5jb20uYXBwbGUucHJpbnQuUGFnZUZvcm1h&#xa;dC5QTVZlcnRpY2FsU2NhbGluZzwva2V5PgoJCQkJPHJlYWw+MTwvcmVhbD4KCQkJCTxrZXk+Y29t&#xa;LmFwcGxlLnByaW50LnRpY2tldC5zdGF0ZUZsYWc8L2tleT4KCQkJCTxpbnRlZ2VyPjA8L2ludGVn&#xa;ZXI+CgkJCTwvZGljdD4KCQk8L2FycmF5PgoJPC9kaWN0PgoJPGtleT5jb20uYXBwbGUucHJpbnQu&#xa;c3ViVGlja2V0LnBhcGVyX2luZm9fdGlja2V0PC9rZXk+Cgk8ZGljdD4KCQk8a2V5PlBNUFBEUGFw&#xa;ZXJDb2RlTmFtZTwva2V5PgoJCTxkaWN0PgoJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQu&#xa;Y3JlYXRvcjwva2V5PgoJCQk8c3RyaW5nPmNvbS5hcHBsZS5qb2J0aWNrZXQ8L3N0cmluZz4KCQkJ&#xa;PGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0Lml0ZW1BcnJheTwva2V5PgoJCQk8YXJyYXk+CgkJ&#xa;CQk8ZGljdD4KCQkJCQk8a2V5PlBNUFBEUGFwZXJDb2RlTmFtZTwva2V5PgoJCQkJCTxzdHJpbmc+&#xa;TGV0dGVyPC9zdHJpbmc+CgkJCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LnN0YXRlRmxh&#xa;Zzwva2V5PgoJCQkJCTxpbnRlZ2VyPjA8L2ludGVnZXI+CgkJCQk8L2RpY3Q+CgkJCTwvYXJyYXk+&#xa;CgkJPC9kaWN0PgoJCTxrZXk+UE1UaW9nYVBhcGVyTmFtZTwva2V5PgoJCTxkaWN0PgoJCQk8a2V5&#xa;PmNvbS5hcHBsZS5wcmludC50aWNrZXQuY3JlYXRvcjwva2V5PgoJCQk8c3RyaW5nPmNvbS5hcHBs&#xa;ZS5qb2J0aWNrZXQ8L3N0cmluZz4KCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0Lml0ZW1B&#xa;cnJheTwva2V5PgoJCQk8YXJyYXk+CgkJCQk8ZGljdD4KCQkJCQk8a2V5PlBNVGlvZ2FQYXBlck5h&#xa;bWU8L2tleT4KCQkJCQk8c3RyaW5nPm5hLWxldHRlcjwvc3RyaW5nPgoJCQkJCTxrZXk+Y29tLmFw&#xa;cGxlLnByaW50LnRpY2tldC5zdGF0ZUZsYWc8L2tleT4KCQkJCQk8aW50ZWdlcj4wPC9pbnRlZ2Vy&#xa;PgoJCQkJPC9kaWN0PgoJCQk8L2FycmF5PgoJCTwvZGljdD4KCQk8a2V5PmNvbS5hcHBsZS5wcmlu&#xa;dC5QYWdlRm9ybWF0LlBNQWRqdXN0ZWRQYWdlUmVjdDwva2V5PgoJCTxkaWN0PgoJCQk8a2V5PmNv&#xa;bS5hcHBsZS5wcmludC50aWNrZXQuY3JlYXRvcjwva2V5PgoJCQk8c3RyaW5nPmNvbS5hcHBsZS5q&#xa;b2J0aWNrZXQ8L3N0cmluZz4KCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0Lml0ZW1BcnJh&#xa;eTwva2V5PgoJCQk8YXJyYXk+CgkJCQk8ZGljdD4KCQkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC5Q&#xa;YWdlRm9ybWF0LlBNQWRqdXN0ZWRQYWdlUmVjdDwva2V5PgoJCQkJCTxhcnJheT4KCQkJCQkJPHJl&#xa;YWw+MC4wPC9yZWFsPgoJCQkJCQk8cmVhbD4wLjA8L3JlYWw+CgkJCQkJCTxyZWFsPjczNDwvcmVh&#xa;bD4KCQkJCQkJPHJlYWw+NTc2PC9yZWFsPgoJCQkJCTwvYXJyYXk+CgkJCQkJPGtleT5jb20uYXBw&#xa;bGUucHJpbnQudGlja2V0LnN0YXRlRmxhZzwva2V5PgoJCQkJCTxpbnRlZ2VyPjA8L2ludGVnZXI+&#xa;CgkJCQk8L2RpY3Q+CgkJCTwvYXJyYXk+CgkJPC9kaWN0PgoJCTxrZXk+Y29tLmFwcGxlLnByaW50&#xa;LlBhZ2VGb3JtYXQuUE1BZGp1c3RlZFBhcGVyUmVjdDwva2V5PgoJCTxkaWN0PgoJCQk8a2V5PmNv&#xa;bS5hcHBsZS5wcmludC50aWNrZXQuY3JlYXRvcjwva2V5PgoJCQk8c3RyaW5nPmNvbS5hcHBsZS5q&#xa;b2J0aWNrZXQ8L3N0cmluZz4KCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0Lml0ZW1BcnJh&#xa;eTwva2V5PgoJCQk8YXJyYXk+CgkJCQk8ZGljdD4KCQkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC5Q&#xa;YWdlRm9ybWF0LlBNQWRqdXN0ZWRQYXBlclJlY3Q8L2tleT4KCQkJCQk8YXJyYXk+CgkJCQkJCTxy&#xa;ZWFsPi0xODwvcmVhbD4KCQkJCQkJPHJlYWw+LTE4PC9yZWFsPgoJCQkJCQk8cmVhbD43NzQ8L3Jl&#xa;YWw+CgkJCQkJCTxyZWFsPjU5NDwvcmVhbD4KCQkJCQk8L2FycmF5PgoJCQkJCTxrZXk+Y29tLmFw&#xa;cGxlLnByaW50LnRpY2tldC5zdGF0ZUZsYWc8L2tleT4KCQkJCQk8aW50ZWdlcj4wPC9pbnRlZ2Vy&#xa;PgoJCQkJPC9kaWN0PgoJCQk8L2FycmF5PgoJCTwvZGljdD4KCQk8a2V5PmNvbS5hcHBsZS5wcmlu&#xa;dC5QYXBlckluZm8uUE1QYXBlck5hbWU8L2tleT4KCQk8ZGljdD4KCQkJPGtleT5jb20uYXBwbGUu&#xa;cHJpbnQudGlja2V0LmNyZWF0b3I8L2tleT4KCQkJPHN0cmluZz5jb20uYXBwbGUuam9idGlja2V0&#xa;PC9zdHJpbmc+CgkJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5pdGVtQXJyYXk8L2tleT4K&#xa;CQkJPGFycmF5PgoJCQkJPGRpY3Q+CgkJCQkJPGtleT5jb20uYXBwbGUucHJpbnQuUGFwZXJJbmZv&#xa;LlBNUGFwZXJOYW1lPC9rZXk+CgkJCQkJPHN0cmluZz5uYS1sZXR0ZXI8L3N0cmluZz4KCQkJCQk8&#xa;a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuc3RhdGVGbGFnPC9rZXk+CgkJCQkJPGludGVnZXI+&#xa;MDwvaW50ZWdlcj4KCQkJCTwvZGljdD4KCQkJPC9hcnJheT4KCQk8L2RpY3Q+CgkJPGtleT5jb20u&#xa;YXBwbGUucHJpbnQuUGFwZXJJbmZvLlBNVW5hZGp1c3RlZFBhZ2VSZWN0PC9rZXk+CgkJPGRpY3Q+&#xa;CgkJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5jcmVhdG9yPC9rZXk+CgkJCTxzdHJpbmc+&#xa;Y29tLmFwcGxlLmpvYnRpY2tldDwvc3RyaW5nPgoJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNr&#xa;ZXQuaXRlbUFycmF5PC9rZXk+CgkJCTxhcnJheT4KCQkJCTxkaWN0PgoJCQkJCTxrZXk+Y29tLmFw&#xa;cGxlLnByaW50LlBhcGVySW5mby5QTVVuYWRqdXN0ZWRQYWdlUmVjdDwva2V5PgoJCQkJCTxhcnJh&#xa;eT4KCQkJCQkJPHJlYWw+MC4wPC9yZWFsPgoJCQkJCQk8cmVhbD4wLjA8L3JlYWw+CgkJCQkJCTxy&#xa;ZWFsPjczNDwvcmVhbD4KCQkJCQkJPHJlYWw+NTc2PC9yZWFsPgoJCQkJCTwvYXJyYXk+CgkJCQkJ&#xa;PGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LnN0YXRlRmxhZzwva2V5PgoJCQkJCTxpbnRlZ2Vy&#xa;PjA8L2ludGVnZXI+CgkJCQk8L2RpY3Q+CgkJCTwvYXJyYXk+CgkJPC9kaWN0PgoJCTxrZXk+Y29t&#xa;LmFwcGxlLnByaW50LlBhcGVySW5mby5QTVVuYWRqdXN0ZWRQYXBlclJlY3Q8L2tleT4KCQk8ZGlj&#xa;dD4KCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LmNyZWF0b3I8L2tleT4KCQkJPHN0cmlu&#xa;Zz5jb20uYXBwbGUuam9idGlja2V0PC9zdHJpbmc+CgkJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRp&#xa;Y2tldC5pdGVtQXJyYXk8L2tleT4KCQkJPGFycmF5PgoJCQkJPGRpY3Q+CgkJCQkJPGtleT5jb20u&#xa;YXBwbGUucHJpbnQuUGFwZXJJbmZvLlBNVW5hZGp1c3RlZFBhcGVyUmVjdDwva2V5PgoJCQkJCTxh&#xa;cnJheT4KCQkJCQkJPHJlYWw+LTE4PC9yZWFsPgoJCQkJCQk8cmVhbD4tMTg8L3JlYWw+CgkJCQkJ&#xa;CTxyZWFsPjc3NDwvcmVhbD4KCQkJCQkJPHJlYWw+NTk0PC9yZWFsPgoJCQkJCTwvYXJyYXk+CgkJ&#xa;CQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LnN0YXRlRmxhZzwva2V5PgoJCQkJCTxpbnRl&#xa;Z2VyPjA8L2ludGVnZXI+CgkJCQk8L2RpY3Q+CgkJCTwvYXJyYXk+CgkJPC9kaWN0PgoJCTxrZXk+&#xa;Y29tLmFwcGxlLnByaW50LlBhcGVySW5mby5wcGQuUE1QYXBlck5hbWU8L2tleT4KCQk8ZGljdD4K&#xa;CQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LmNyZWF0b3I8L2tleT4KCQkJPHN0cmluZz5j&#xa;b20uYXBwbGUuam9idGlja2V0PC9zdHJpbmc+CgkJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tl&#xa;dC5pdGVtQXJyYXk8L2tleT4KCQkJPGFycmF5PgoJCQkJPGRpY3Q+CgkJCQkJPGtleT5jb20uYXBw&#xa;bGUucHJpbnQuUGFwZXJJbmZvLnBwZC5QTVBhcGVyTmFtZTwva2V5PgoJCQkJCTxzdHJpbmc+VVMg&#xa;TGV0dGVyPC9zdHJpbmc+CgkJCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LnN0YXRlRmxh&#xa;Zzwva2V5PgoJCQkJCTxpbnRlZ2VyPjA8L2ludGVnZXI+CgkJCQk8L2RpY3Q+CgkJCTwvYXJyYXk+&#xa;CgkJPC9kaWN0PgoJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5BUElWZXJzaW9uPC9rZXk+&#xa;CgkJPHN0cmluZz4wMC4yMDwvc3RyaW5nPgoJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC50&#xa;eXBlPC9rZXk+CgkJPHN0cmluZz5jb20uYXBwbGUucHJpbnQuUGFwZXJJbmZvVGlja2V0PC9zdHJp&#xa;bmc+Cgk8L2RpY3Q+Cgk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuQVBJVmVyc2lvbjwva2V5&#xa;PgoJPHN0cmluZz4wMC4yMDwvc3RyaW5nPgoJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LnR5&#xa;cGU8L2tleT4KCTxzdHJpbmc+Y29tLmFwcGxlLnByaW50LlBhZ2VGb3JtYXRUaWNrZXQ8L3N0cmlu&#xa;Zz4KPC9kaWN0Pgo8L3BsaXN0Pgp0U1BNFg4AADw/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9&#xa;IlVURi04Ij8+CjwhRE9DVFlQRSBwbGlzdCBQVUJMSUMgIi0vL0FwcGxlLy9EVEQgUExJU1QgMS4w&#xa;Ly9FTiIgImh0dHA6Ly93d3cuYXBwbGUuY29tL0RURHMvUHJvcGVydHlMaXN0LTEuMC5kdGQiPgo8&#xa;cGxpc3QgdmVyc2lvbj0iMS4wIj4KPGRpY3Q+Cgk8a2V5PmNvbS5hcHBsZS5wcmludC5Eb2N1bWVu&#xa;dFRpY2tldC5QTVNwb29sRm9ybWF0PC9rZXk+Cgk8ZGljdD4KCQk8a2V5PmNvbS5hcHBsZS5wcmlu&#xa;dC50aWNrZXQuY3JlYXRvcjwva2V5PgoJCTxzdHJpbmc+Y29tLmFwcGxlLmpvYnRpY2tldDwvc3Ry&#xa;aW5nPgoJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5pdGVtQXJyYXk8L2tleT4KCQk8YXJy&#xa;YXk+CgkJCTxkaWN0PgoJCQkJPGtleT5jb20uYXBwbGUucHJpbnQuRG9jdW1lbnRUaWNrZXQuUE1T&#xa;cG9vbEZvcm1hdDwva2V5PgoJCQkJPHN0cmluZz5hcHBsaWNhdGlvbi9wZGY8L3N0cmluZz4KCQkJ&#xa;CTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5zdGF0ZUZsYWc8L2tleT4KCQkJCTxpbnRlZ2Vy&#xa;PjA8L2ludGVnZXI+CgkJCTwvZGljdD4KCQk8L2FycmF5PgoJPC9kaWN0PgoJPGtleT5jb20uYXBw&#xa;bGUucHJpbnQuSm9iSW5mby5QTUpvYk5hbWU8L2tleT4KCTxkaWN0PgoJCTxrZXk+Y29tLmFwcGxl&#xa;LnByaW50LnRpY2tldC5jcmVhdG9yPC9rZXk+CgkJPHN0cmluZz5jb20uYXBwbGUuam9idGlja2V0&#xa;PC9zdHJpbmc+CgkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0Lml0ZW1BcnJheTwva2V5PgoJ&#xa;CTxhcnJheT4KCQkJPGRpY3Q+CgkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC5Kb2JJbmZvLlBNSm9i&#xa;TmFtZTwva2V5PgoJCQkJPHN0cmluZz5VbnRpdGxlZDwvc3RyaW5nPgoJCQkJPGtleT5jb20uYXBw&#xa;bGUucHJpbnQudGlja2V0LnN0YXRlRmxhZzwva2V5PgoJCQkJPGludGVnZXI+MDwvaW50ZWdlcj4K&#xa;CQkJPC9kaWN0PgoJCTwvYXJyYXk+Cgk8L2RpY3Q+Cgk8a2V5PmNvbS5hcHBsZS5wcmludC5Qcmlu&#xa;dFNldHRpbmdzLlBNQ29sb3JTeW5jUHJvZmlsZUlEPC9rZXk+Cgk8ZGljdD4KCQk8a2V5PmNvbS5h&#xa;cHBsZS5wcmludC50aWNrZXQuY3JlYXRvcjwva2V5PgoJCTxzdHJpbmc+Y29tLmFwcGxlLmpvYnRp&#xa;Y2tldDwvc3RyaW5nPgoJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5pdGVtQXJyYXk8L2tl&#xa;eT4KCQk8YXJyYXk+CgkJCTxkaWN0PgoJCQkJPGtleT5jb20uYXBwbGUucHJpbnQuUHJpbnRTZXR0&#xa;aW5ncy5QTUNvbG9yU3luY1Byb2ZpbGVJRDwva2V5PgoJCQkJPGludGVnZXI+MTwvaW50ZWdlcj4K&#xa;CQkJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5zdGF0ZUZsYWc8L2tleT4KCQkJCTxpbnRl&#xa;Z2VyPjA8L2ludGVnZXI+CgkJCTwvZGljdD4KCQk8L2FycmF5PgoJPC9kaWN0PgoJPGtleT5jb20u&#xa;YXBwbGUucHJpbnQuUHJpbnRTZXR0aW5ncy5QTUNvcGllczwva2V5PgoJPGRpY3Q+CgkJPGtleT5j&#xa;b20uYXBwbGUucHJpbnQudGlja2V0LmNyZWF0b3I8L2tleT4KCQk8c3RyaW5nPmNvbS5hcHBsZS5q&#xa;b2J0aWNrZXQ8L3N0cmluZz4KCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuaXRlbUFycmF5&#xa;PC9rZXk+CgkJPGFycmF5PgoJCQk8ZGljdD4KCQkJCTxrZXk+Y29tLmFwcGxlLnByaW50LlByaW50&#xa;U2V0dGluZ3MuUE1Db3BpZXM8L2tleT4KCQkJCTxpbnRlZ2VyPjE8L2ludGVnZXI+CgkJCQk8a2V5&#xa;PmNvbS5hcHBsZS5wcmludC50aWNrZXQuc3RhdGVGbGFnPC9rZXk+CgkJCQk8aW50ZWdlcj4wPC9p&#xa;bnRlZ2VyPgoJCQk8L2RpY3Q+CgkJPC9hcnJheT4KCTwvZGljdD4KCTxrZXk+Y29tLmFwcGxlLnBy&#xa;aW50LlByaW50U2V0dGluZ3MuUE1Db3B5Q29sbGF0ZTwva2V5PgoJPGRpY3Q+CgkJPGtleT5jb20u&#xa;YXBwbGUucHJpbnQudGlja2V0LmNyZWF0b3I8L2tleT4KCQk8c3RyaW5nPmNvbS5hcHBsZS5qb2J0&#xa;aWNrZXQ8L3N0cmluZz4KCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuaXRlbUFycmF5PC9r&#xa;ZXk+CgkJPGFycmF5PgoJCQk8ZGljdD4KCQkJCTxrZXk+Y29tLmFwcGxlLnByaW50LlByaW50U2V0&#xa;dGluZ3MuUE1Db3B5Q29sbGF0ZTwva2V5PgoJCQkJPHRydWUvPgoJCQkJPGtleT5jb20uYXBwbGUu&#xa;cHJpbnQudGlja2V0LnN0YXRlRmxhZzwva2V5PgoJCQkJPGludGVnZXI+MDwvaW50ZWdlcj4KCQkJ&#xa;PC9kaWN0PgoJCTwvYXJyYXk+Cgk8L2RpY3Q+Cgk8a2V5PmNvbS5hcHBsZS5wcmludC5QcmludFNl&#xa;dHRpbmdzLlBNRmlyc3RQYWdlPC9rZXk+Cgk8ZGljdD4KCQk8a2V5PmNvbS5hcHBsZS5wcmludC50&#xa;aWNrZXQuY3JlYXRvcjwva2V5PgoJCTxzdHJpbmc+Y29tLmFwcGxlLmpvYnRpY2tldDwvc3RyaW5n&#xa;PgoJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5pdGVtQXJyYXk8L2tleT4KCQk8YXJyYXk+&#xa;CgkJCTxkaWN0PgoJCQkJPGtleT5jb20uYXBwbGUucHJpbnQuUHJpbnRTZXR0aW5ncy5QTUZpcnN0&#xa;UGFnZTwva2V5PgoJCQkJPGludGVnZXI+MTwvaW50ZWdlcj4KCQkJCTxrZXk+Y29tLmFwcGxlLnBy&#xa;aW50LnRpY2tldC5zdGF0ZUZsYWc8L2tleT4KCQkJCTxpbnRlZ2VyPjA8L2ludGVnZXI+CgkJCTwv&#xa;ZGljdD4KCQk8L2FycmF5PgoJPC9kaWN0PgoJPGtleT5jb20uYXBwbGUucHJpbnQuUHJpbnRTZXR0&#xa;aW5ncy5QTUxhc3RQYWdlPC9rZXk+Cgk8ZGljdD4KCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNr&#xa;ZXQuY3JlYXRvcjwva2V5PgoJCTxzdHJpbmc+Y29tLmFwcGxlLmpvYnRpY2tldDwvc3RyaW5nPgoJ&#xa;CTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5pdGVtQXJyYXk8L2tleT4KCQk8YXJyYXk+CgkJ&#xa;CTxkaWN0PgoJCQkJPGtleT5jb20uYXBwbGUucHJpbnQuUHJpbnRTZXR0aW5ncy5QTUxhc3RQYWdl&#xa;PC9rZXk+CgkJCQk8aW50ZWdlcj4yMTQ3NDgzNjQ3PC9pbnRlZ2VyPgoJCQkJPGtleT5jb20uYXBw&#xa;bGUucHJpbnQudGlja2V0LnN0YXRlRmxhZzwva2V5PgoJCQkJPGludGVnZXI+MDwvaW50ZWdlcj4K&#xa;CQkJPC9kaWN0PgoJCTwvYXJyYXk+Cgk8L2RpY3Q+Cgk8a2V5PmNvbS5hcHBsZS5wcmludC5Qcmlu&#xa;dFNldHRpbmdzLlBNUGFnZVJhbmdlPC9rZXk+Cgk8ZGljdD4KCQk8a2V5PmNvbS5hcHBsZS5wcmlu&#xa;dC50aWNrZXQuY3JlYXRvcjwva2V5PgoJCTxzdHJpbmc+Y29tLmFwcGxlLmpvYnRpY2tldDwvc3Ry&#xa;aW5nPgoJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5pdGVtQXJyYXk8L2tleT4KCQk8YXJy&#xa;YXk+CgkJCTxkaWN0PgoJCQkJPGtleT5jb20uYXBwbGUucHJpbnQuUHJpbnRTZXR0aW5ncy5QTVBh&#xa;Z2VSYW5nZTwva2V5PgoJCQkJPGFycmF5PgoJCQkJCTxpbnRlZ2VyPjE8L2ludGVnZXI+CgkJCQkJ&#xa;PGludGVnZXI+MjE0NzQ4MzY0NzwvaW50ZWdlcj4KCQkJCTwvYXJyYXk+CgkJCQk8a2V5PmNvbS5h&#xa;cHBsZS5wcmludC50aWNrZXQuc3RhdGVGbGFnPC9rZXk+CgkJCQk8aW50ZWdlcj4wPC9pbnRlZ2Vy&#xa;PgoJCQk8L2RpY3Q+CgkJPC9hcnJheT4KCTwvZGljdD4KCTxrZXk+Y29tLmFwcGxlLnByaW50LnRp&#xa;Y2tldC5BUElWZXJzaW9uPC9rZXk+Cgk8c3RyaW5nPjAwLjIwPC9zdHJpbmc+Cgk8a2V5PmNvbS5h&#xa;cHBsZS5wcmludC50aWNrZXQudHlwZTwva2V5PgoJPHN0cmluZz5jb20uYXBwbGUucHJpbnQuUHJp&#xa;bnRTZXR0aW5nc1RpY2tldDwvc3RyaW5nPgo8L2RpY3Q+CjwvcGxpc3Q+CndWUE0BAAAAAHRyUE0f&#xa;AAAAT2ZmaWNlamV0XzYzMDBfc2VyaWVzX180QzM5QzlfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#xa;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#xa;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#xa;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#xa;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#xa;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#xa;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#xa;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" Rpre="D_300" RpSR="x_4_D_0_D_0_D_612_D_792" RpIR="x_4_D_9_D_4.980000019073486_D_603_D_783.510009765625" RpSS="k_M1hwQW5hLWxldHRlcgAtcGhvdG8tbC1zaXplAAA4AHctdGFiANb/v6Rzph03CQgAaH2xlLBvPSQA&#xa;8AIAaNYEAAMAAACX3T8kARU9JOgPe6BljOGRARU9JAEVPSRYInugZYzhkQEVPSTw05yWMQAAAPDT&#xa;nJYM2f+/kJY8JMjX/7/w05yWOPACAKRSph3Y1v+/ABU9JDEAAAAsAK3ILRkAAAAVPSQxAAAATACt&#xa;yAEAAADw05yWARU9JPDTnJYxAAAAAQAAAADwAgDY8QIAqPECAPDTnJYCAKYd5D+mHeA/ph3I3gkA&#xa;NNf/v6w/ph03CQQAqG/hjwgAAAA4vCqXmNf/v+xy4Y/cTuOPA2S6AAAAAAABAAAADNn/v6w/ph2z&#xa;CQoATBUKAK3ZPyQBAAAAMvk/JGVHsZQ48AIAqDumHQH+4JFofbGUoKQeoFBQPSQB/uCRbLHfkaTX&#xa;/78sVaYdeNf/v2I/CgCk1/+/APACAJjXAQBofbGUpNf/vyxVph3I1/+/UrAJAGAHCwAsVaYdpNf/&#xa;vwEAAAAglT4kAPACAChVAQAAAAAAAK2mHXBoph2gSaYdNWWxlCAAAAAA8AIAONj/v5xosZQMVaYd&#xa;EFWmHSjY/79fsgkAYAcLACxVph1IERERAgAAACAAAADkrKYdgMA/JAEAAABYeRgAEFUCAACVPiQB&#xa;AAAAVVMgTGV0dGVyACBMAGxvcGUgIzQAemUAIGNtACh0YWIpAP+/UFWmHUjY/79iPwoAdNj/vwIA&#xa;AABo2P+/7fSwlHTY/79QVaYdmNj/v1KwCQBgBwsAUFWmHXTY/7+18rCUAAAAAFBVph1MVaYdKFWm&#xa;HaBMph1waKYdoEmmHWAHCwBgBwsAKlWmHajY/7+CsAkAKFWmHSxVph342P+/X7IJAGAHCwBQVaYd&#xa;4G89JOrADADE/mwbAC5tG9jY/7+FkgkAWJ2mHSxVph0EAAAAIAAAAACVPiQU2f+/+Nj/v8CmDABY&#xa;naYdUNn/vwjZ/794pQkAaH6mHWSXCwA42f+/dpcLAFidph0gAAAAONn/v3jXCQDwpQkAAAAAADjZ&#xa;/7+YlgkAYAcLAAAAAAAGAAAABMILACxVph0EwgsAaNn/v8PADAAAAAAAcJ4/JAAAAAAQAAAABgAA&#xa;AAQAAABLiNyRGs6WlvDuSCJg8EgimNn/v0bOlpbw7kgiYPBIImB9DQAAAAAAuNn/vwTCCwDY2f+/&#xa;/0GXlmDwSCICAAAAuNn/vzIml5Zg8EgiMNv/v9jZ/78CK4sAxfB8AGDwSCLY2f+/1UGXlmDwSCIB&#xa;AAAAcEOmHcXwfAAw2/+/MNv/v1jb/79483wAYPBIIlidph2gTKYdBAAAAAAAAAA02v+/GNr/vyjb&#xa;/78AAAAAACCDQAAAAAAAwIhA61G4HoXrE0AAAAAAAAAiQIAUrkfh+iBAAAAAAAAAIkA=" RpHR="x_2_D_0_D_0" RpWR="x_2_D_0_D_0" RpOR="x_2_D_0_D_0" RpSs="k_" RpCs="k_kDefault" RSIA="D_45" RSIF="D_70" Self="rc_dCPBP1"/>
+	<cIhs HSnm="k_" HSlg="l_100" HShc="l_1303a" HSgv="l_0" HSov="l_0" HSgl="x_a_c_kIndexGroup~sep~Symbol_k_kIndexGroup~sep~Symbol_k__b_f_x_4_k__k__k_kIndexSection~sep~Symbol_l_100_k_IDX~sep~Basic_k_kIndexGroup~sep~Alphabet_k__b_f_x_68_k_A_k__k_kIndexSection~sep~A_l_100_k_B_k__k_kIndexSection~sep~B_l_100_k_C_k__k_kIndexSection~sep~C_l_100_k_D_k__k_kIndexSection~sep~D_l_100_k_E_k__k_kIndexSection~sep~E_l_100_k_F_k__k_kIndexSection~sep~F_l_100_k_G_k__k_kIndexSection~sep~G_l_100_k_H_k__k_kIndexSection~sep~H_l_100_k_I_k__k_kIndexSection~sep~I_l_100_k_J_k__k_kIndexSection~sep~J_l_100_k_K_k__k_kIndexSection~sep~K_l_100_k_L_k__k_kIndexSection~sep~L_l_100_k_M_k__k_kIndexSection~sep~M_l_100_k_N_k__k_kIndexSection~sep~N_l_100_k_O_k__k_kIndexSection~sep~O_l_100_k_P_k__k_kIndexSection~sep~P_l_100_k_Q_k__k_kIndexSection~sep~Q_l_100_k_R_k__k_kIndexSection~sep~R_l_100_k_S_k__k_kIndexSection~sep~S_l_100_k_T_k__k_kIndexSection~sep~T_l_100_k_U_k__k_kIndexSection~sep~U_l_100_k_V_k__k_kIndexSection~sep~V_l_100_k_W_k__k_kIndexSection~sep~W_l_100_k_X_k__k_kIndexSection~sep~X_l_100_k_Y_k__k_kIndexSection~sep~Y_l_100_k_Z_k__k_kIndexSection~sep~Z_l_100" Self="rc_dcIhs1"/>
+	<FFop fcrl="U_0" fcrt="U_0" fcrr="U_0" fcrb="U_0" ffit="e_none" faln="e_ANtl" Self="rc_dFFop1"/>
+	<cPID flcl="o_ue" filt="D_-1" lnwt="U_1" mitr="D_4" endc="e_bcap" endj="e_mjon" stty="o_di5a29" llen="e_none" rlen="e_none" lncl="o_ue" lint="D_-1" pcOp="e_none" pcrd="D_12" pgfa="D_0" pgsa="D_0" gapC="o_ue" gapT="D_-1" strA="e_stAC" nopr="b_f" agos="o_u82" atos="o_u83" aGos="o_u84" Self="rc_dcPID1">
+	</cPID>
+	<tinD Self="rc_dtinD1">
+		<pcnt><![CDATA[AAAAAA==]]></pcnt>
+	</tinD>
+	<Jcpg font="c_Times" ptfs="c_Regular" ptsz="D_12" Jcak="D_0" Jlak="D_9" phzs="D_100" pvts="D_100" Self="rc_dJcpg1"/>
+	<Jcsg font="c_Times" ptfs="c_Regular" ptsz="D_12" Jcak="D_0" Jlak="D_9" phzs="D_100" pvts="D_100" laln="e_lltj" jgal="e_Jact" jcal="e_Jact" Jgdv="e_jGgv" Jgcc="e_botm" Jgcz="D_9.21259842519685" Self="rc_dJcsg1"/>
+	<Jgpf Jgsa="b_f" Jgsf="b_t" Jgms="D_50" Jstp="b_f" Jgci="e_iGdg" Jcen="s_a" Jslc="b_t" Jicf="b_f" Jucc="b_f" Jscc="b_t" Self="rc_dJgpf1"/>
+	<Jmui jmus="s_7fff" Self="rc_dJmui1"/>
+	<cnpo cnpr="l_1" cnSo="e_cnud" cnfp="k_1, 2, 3, 4..." Self="rc_dcnpo1"/>
+	<SPtv pnam="c_Chapter Number" TVbt="e_cntp" TVop="ro_dSPtvnChapter NumberTVPn1" Self="rc_dSPtvnChapter Number">
+		<TVPn TVtb="c_" Mdft="e_Mcur" TVta="c_" Self="rc_dSPtvnChapter NumberTVPn1"/>
+	</SPtv>
+	<SPtv pnam="c_Creation Date" TVbt="e_TVcd" TVop="ro_dSPtvnCreation DateTVPd1" Self="rc_dSPtvnCreation Date">
+		<TVPd TVtb="c_" Mdft="c_MM/dd/yy" TVta="c_" Self="rc_dSPtvnCreation DateTVPd1"/>
+	</SPtv>
+	<SPtv pnam="c_File Name" TVbt="e_TVfn" TVop="ro_dSPtvnFile NameTVPf1" Self="rc_dSPtvnFile Name">
+		<TVPf TVtb="c_" TVep="b_f" TVee="b_f" TVta="c_" Self="rc_dSPtvnFile NameTVPf1"/>
+	</SPtv>
+	<SPtv pnam="c_Last Page Number" TVbt="e_TVtp" TVop="ro_dSPtvnLast Page NumberTVPl1" Self="rc_dSPtvnLast Page Number">
+		<TVPl TVtb="c_" Mdft="e_Mcur" TVta="c_" TVsc="e_CSse" Self="rc_dSPtvnLast Page NumberTVPl1"/>
+	</SPtv>
+	<SPtv pnam="c_Modification Date" TVbt="e_TVmd" TVop="ro_dSPtvnModification DateTVPd1" Self="rc_dSPtvnModification Date">
+		<TVPd TVtb="c_" Mdft="c_MMMM d, yyyy h:mm aa" TVta="c_" Self="rc_dSPtvnModification DateTVPd1"/>
+	</SPtv>
+	<SPtv pnam="c_Output Date" TVbt="e_TVod" TVop="ro_dSPtvnOutput DateTVPd1" Self="rc_dSPtvnOutput Date">
+		<TVPd TVtb="c_" Mdft="c_MM/dd/yy" TVta="c_" Self="rc_dSPtvnOutput DateTVPd1"/>
+	</SPtv>
+	<SPtv pnam="c_Running Header" TVbt="e_TVpS" TVop="ro_dSPtvnRunning HeaderTVPr1" Self="rc_dSPtvnRunning Header">
+		<TVPr TVtb="c_" TVta="c_" prst="o_u6b" TVss="e_SAfp" TVcc="e_none" TVde="b_f" Self="rc_dSPtvnRunning HeaderTVPr1"/>
+	</SPtv>
+	<tagX pnam="c_Root" XTCr="e_iLbl" Self="rc_u9f"/>
+	<layr pnam="c_Layer 1" pvis="b_t" plck="b_f" lcol="e_iLbl" iwrp="b_f" sogd="b_t" lkgd="b_f" uilr="b_t" exlr="b_t" prta="b_t" Self="rc_ua9"/>
+	<mspr pnam="rc_A-Master" npfx="c_A" nmbs="c_Master" smsi="b_t" PagC="l_2" pmas="o_n" ovpp="x_0" Self="rc_ub3">
+		<page pnam="rc_A" SnAd="ro_n" DCof="rl_ffffffff" pbnd="rx_4_U_-396_U_-612_U_396_U_0" PgSd="re_lfth" pmas="o_n" mpgs="ry_0" ovrl="x_0" TOpp="y_0" Jgsp="e_gsto" Jumg="b_t" Self="rc_ub8">
+			<imgp colc="l_1" colg="U_12" mart="U_36" marb="U_36" marl="U_36" marr="U_36" cold="e_horz" hccl="rb_f" cpos="x_2_D_0_D_540" Self="rc_ub8imgp1"/>
+			<Jgda font="c_Times" ptfs="c_Regular" ptsz="D_12" Jcak="D_0" Jlak="D_9" phzs="D_100" pvts="D_100" laln="e_lltj" jgal="e_Jact" jcal="e_Jact" Self="rc_ub8Jgda1"/>
+		</page>
+		<page pnam="rc_A" SnAd="ro_n" DCof="rl_ffffffff" pbnd="rx_4_U_-396_U_0_U_396_U_612" PgSd="re_rgth" pmas="o_n" mpgs="ry_0" ovrl="x_0" TOpp="y_0" Jgsp="e_gsto" Jumg="b_t" Self="rc_ub9">
+			<imgp colc="l_1" colg="U_12" mart="U_36" marb="U_36" marl="U_36" marr="U_36" cold="e_horz" hccl="rb_f" cpos="x_2_D_0_D_540" Self="rc_ub9imgp1"/>
+			<Jgda font="c_Times" ptfs="c_Regular" ptsz="D_12" Jcak="D_0" Jlak="D_9" phzs="D_100" pvts="D_100" laln="e_lltj" jgal="e_Jact" jcal="e_Jact" Self="rc_ub9Jgda1"/>
+		</page>
+	</mspr>
+	<sprd fsSo="e_Dflt" smsi="b_t" ilnd="b_f" PagC="l_1" BnLc="l_0" Shfl="b_t" pmas="o_ub3" Self="rc_uac">
+		<page pnam="rc_1" SnAd="ro_ub2" DCof="rl_0" pbnd="rx_4_U_-396_U_0_U_396_U_612" PgSd="re_rgth" PgDt="rx_6_c__e_Marb_b_t_b_f_l_1_c_" pmas="o_ub3" mpgs="ry_0" ovrl="x_0" TOpp="y_0" Jgsp="e_gsto" Jumg="b_t" Self="rc_ub1">
+			<imgp colc="l_1" colg="U_12" mart="U_36" marb="U_36" marl="U_36" marr="U_36" cold="e_horz" hccl="rb_f" cpos="x_2_D_0_D_540" Self="rc_ub1imgp1"/>
+			<Jgda font="c_Times" ptfs="c_Regular" ptsz="D_12" Jcak="D_0" Jlak="D_9" phzs="D_100" pvts="D_100" laln="e_lltj" jgal="e_Jact" jcal="e_Jact" Self="rc_ub1Jgda1"/>
+		</page>
+		<txtf aobs="o_u83" strp="ro_ubf" ftxf="ro_ud1" ltxf="ro_ud1" itxf="rl_0" ptxf="o_n" ntxf="o_n" IGeo="x_19_l_1_l_4_l_2_D_-270_D_-166.71096644295304_l_2_D_-270_D_166.28903355704696_l_2_D_-106.28571428571428_D_166.28903355704696_l_2_D_-106.28571428571428_D_-166.71096644295304_b_f_D_-270_D_-166.71096644295304_D_-106.28571428571428_D_166.28903355704696_D_1_D_0_D_0_D_1_D_306_D_-193.28903355704696" cntt="e_~sep~745f7465" STof="ro_n" pgst="x_2_U_0_U_0" pgfl="U_0" pgfa="D_0" pgss="x_2_U_0_U_0" pgsl="U_0" pgsa="D_0" pilr="o_ua9" plck="b_f" pLDs="e_Dflt" gfhl="U_0" gfha="D_0" gshl="U_0" gsha="D_0" lckS="re_none" Self="rc_ud1">
+			<TFPf clwd="U_163.71428571428572" Self="rc_ud1TFPf1"/>
+			<ctxw txwt="e_none" ptwi="e_nada" ptwv="b_f" ptwm="b_f" ptws="e_twbs" Self="rc_ud1ctxw1">
+				<ccos ptns="rx_0" acpn="rx_0" Self="rc_ud1ctxw1ccos1"/>
+			</ctxw>
+			<txsr prst="o_u6b" crst="o_u68">
+				<pcnt>c_Article 1 This is the first article in the document.  </pcnt>
+			</txsr>
+		</txtf>
+		<txtf aobs="o_u83" strp="ro_ud5" ftxf="ro_ue7" ltxf="ro_ue7" itxf="rl_0" ptxf="o_n" ntxf="o_n" IGeo="x_19_l_1_l_4_l_2_D_-285_D_-179.14330009587727_l_2_D_-285_D_-39.170145733461226_l_2_D_255_D_-39.170145733461226_l_2_D_255_D_-179.14330009587727_b_f_D_-285_D_-179.14330009587727_D_255_D_-39.170145733461226_D_1_D_0_D_0_D_1_D_321_D_179.142414189837" cntt="e_~sep~745f7465" STof="ro_n" pgst="x_2_U_0_U_0" pgfl="U_0" pgfa="D_0" pgss="x_2_U_0_U_0" pgsl="U_0" pgsa="D_0" pilr="o_ua9" plck="b_f" pLDs="e_Dflt" gfhl="U_0" gfha="D_0" gshl="U_0" gsha="D_0" lckS="re_none" Self="rc_ue7">
+			<TFPf clwd="U_540" Self="rc_ue7TFPf1"/>
+			<ctxw txwt="e_none" ptwi="e_nada" ptwv="b_f" ptwm="b_f" ptws="e_twbs" Self="rc_ue7ctxw1">
+				<ccos ptns="rx_0" acpn="rx_0" Self="rc_ue7ctxw1ccos1"/>
+			</ctxw>
+			<txsr prst="o_u6b" crst="o_u68">
+				<pcnt>c_Article 2 This is the second article in the document. It is part of Assignment 1</pcnt>
+			</txsr>
+		</txtf>
+		<txtf aobs="o_u83" strp="ro_uf6" ftxf="ro_u108" ltxf="ro_u108" itxf="rl_0" ptxf="o_n" ntxf="o_n" IGeo="x_19_l_1_l_4_l_2_D_-270_D_-85.20849664429528_l_2_D_-270_D_85.20849664429528_l_2_D_270_D_85.20849664429528_l_2_D_270_D_-85.20849664429528_b_f_D_-270_D_-85.20849664429528_D_270_D_85.20849664429528_D_1_D_0_D_0_D_1_D_306_D_274.7915033557047" cntt="e_~sep~745f7465" STof="ro_n" pgst="x_2_U_0_U_0" pgfl="U_0" pgfa="D_0" pgss="x_2_U_0_U_0" pgsl="U_0" pgsa="D_0" pilr="o_ua9" plck="b_f" pLDs="e_Dflt" gfhl="U_0" gfha="D_0" gshl="U_0" gsha="D_0" lckS="re_none" Self="rc_u108">
+			<TFPf clwd="U_540" Self="rc_u108TFPf1"/>
+			<ctxw txwt="e_none" ptwi="e_nada" ptwv="b_f" ptwm="b_f" ptws="e_twbs" Self="rc_u108ctxw1">
+				<ccos ptns="rx_0" acpn="rx_0" Self="rc_u108ctxw1ccos1"/>
+			</ctxw>
+			<txsr prst="o_u6b" crst="o_u68">
+				<pcnt>c_Article 3 This is the third article. It is not part of any assignment.</pcnt>
+			</txsr>
+		</txtf>
+		<txtf aobs="o_u80" strp="ro_u125" ftxf="ro_u13a" ltxf="ro_u13a" itxf="rl_0" ptxf="o_n" ntxf="o_n" IGeo="x_19_l_1_l_4_l_2_D_-0.5_D_-0.5_l_2_D_-0.5_D_331.15012080536917_l_2_D_345.16531543624166_D_331.15012080536917_l_2_D_345.16531543624166_D_-0.5_b_f_D_-0.5_D_-0.5_D_345.16531543624166_D_331.15012080536917_D_1_D_0_D_0_D_1_D_230.83468456375834_D_-359.5" cntt="e_~sep~745f7465" STof="ro_n" lnwt="U_1" pgst="x_2_U_0_U_0" pgfl="U_0" pgfa="D_0" pgss="x_2_U_0_U_0" pgsl="U_0" pgsa="D_0" pilr="o_ua9" plck="b_f" pLDs="e_Dflt" gfhl="U_0" gfha="D_0" gshl="U_0" gsha="D_0" lckS="re_none" Self="rc_u13a">
+			<TFPf clwd="U_345.66531543624166" Self="rc_u13aTFPf1"/>
+			<ctxw txwt="e_none" ptwi="e_nada" ptwv="b_f" ptwm="b_f" ptws="e_twbs" Self="rc_u13actxw1">
+				<ccos ptns="rx_0" acpn="rx_0" Self="rc_u13actxw1ccos1"/>
+			</ctxw>
+			<txsr prst="o_u6b" crst="o_u68">
+				<pcnt>c_Article 4 This is article<?aid Char="fffc" Self="rc_u125cins19"?> 4. It has an inline-anchored graphic.</pcnt>
+			</txsr>
+			<crec aobs="o_u80" sTtl="k_" IGeo="x_19_l_1_l_4_l_2_D_-50_D_-56.5_l_2_D_-50_D_56.5_l_2_D_50_D_56.5_l_2_D_50_D_-56.5_b_f_D_-50_D_-56.5_D_50_D_56.5_D_1_D_0_D_0_D_1_D_50_D_-56.5" cntt="e_grpt" lckS="re_none" STof="ro_u125cins19" pgst="x_2_U_0_U_0" pgfl="U_0" pgfa="D_0" pgss="x_2_U_0_U_0" pgsl="U_0" pgsa="D_0" pilr="o_ua9" plck="b_t" pLDs="e_Dflt" gfhl="U_0" gfha="D_0" gshl="U_0" gsha="D_0" Self="rc_u14c">
+				<ctxw txwt="e_none" ptwi="e_nada" ptwv="b_f" ptwm="b_f" ptws="e_twbs" Self="rc_u14cctxw1">
+					<ccos ptns="rx_0" acpn="rx_0" pcot="e_sacp" iied="b_f" pcnm="k_" Self="rc_u14cctxw1ccos1"/>
+				</ctxw>
+				<icEo inGP="b_t" Self="rc_u14cicEo1"/>
+				<imag aobs="o_u80" IGeo="x_f_l_0_D_0_D_0_D_100_D_113_D_1_D_0_D_0_D_1_D_-50_D_-56.5_D_0_D_0_D_100_D_113" clsp="rc_RGB" Appi="rx_2_D_72_D_72" Eppi="rx_2_D_72_D_72" RpPr="k_Embedded" ICii="e_RIcs" pLDs="e_Dflt" ImTp="rc_InCopy Document" Self="rc_u146">
+					<GrPr><![CDATA[/9j/4AAQSkZJRgABAgEASABIAAD/4RA8RXhpZgAATU0AKgAAAAgABwESAAMAAAABAAEAAAEaAAUA
+AAABAAAAYgEbAAUAAAABAAAAagEoAAMAAAABAAIAAAExAAIAAAAeAAAAcgEyAAIAAAAUAAAAkIdp
+AAQAAAABAAAApAAAANAACvyAAAAnEAAK/IAAACcQQWRvYmUgUGhvdG9zaG9wIENTMyBNYWNpbnRv
+c2gAMjAwODoxMjowNCAxMzoxMDo0MwAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAZKADAAQAAAAB
+AAAAcQAAAAAAAAAGAQMAAwAAAAEABgAAARoABQAAAAEAAAEeARsABQAAAAEAAAEmASgAAwAAAAEA
+AgAAAgEABAAAAAEAAAEuAgIABAAAAAEAAA8GAAAAAAAAAEgAAAABAAAASAAAAAH/2P/gABBKRklG
+AAECAABIAEgAAP/tAAxBZG9iZV9DTQAB/+4ADkFkb2JlAGSAAAAAAf/bAIQADAgICAkIDAkJDBEL
+CgsRFQ8MDA8VGBMTFRMTGBEMDAwMDAwRDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAENCwsN
+Dg0QDg4QFA4ODhQUDg4ODhQRDAwMDAwREQwMDAwMDBEMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwM
+DAwM/8AAEQgAcQBkAwEiAAIRAQMRAf/dAAQAB//EAT8AAAEFAQEBAQEBAAAAAAAAAAMAAQIEBQYH
+CAkKCwEAAQUBAQEBAQEAAAAAAAAAAQACAwQFBgcICQoLEAABBAEDAgQCBQcGCAUDDDMBAAIRAwQh
+EjEFQVFhEyJxgTIGFJGhsUIjJBVSwWIzNHKC0UMHJZJT8OHxY3M1FqKygyZEk1RkRcKjdDYX0lXi
+ZfKzhMPTdePzRieUpIW0lcTU5PSltcXV5fVWZnaGlqa2xtbm9jdHV2d3h5ent8fX5/cRAAICAQIE
+BAMEBQYHBwYFNQEAAhEDITESBEFRYXEiEwUygZEUobFCI8FS0fAzJGLhcoKSQ1MVY3M08SUGFqKy
+gwcmNcLSRJNUoxdkRVU2dGXi8rOEw9N14/NGlKSFtJXE1OT0pbXF1eX1VmZ2hpamtsbW5vYnN0dX
+Z3eHl6e3x//aAAwDAQACEQMRAD8Ay6siHEgcHXVPZdS1/q7iLRo10lup5J2fSVA2ua4x3OvnqnNh
+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
+YErSZhsbgZXqgB9hrd7RG0lzmbW/2XqPQgKsumsmYsDT/aG1SijIX1WkERJGoBq3Uc30nkXNna0C
+xh8gN7XLHsdjZFW3CBpLXHbjveS0h3+hefzv5Fn+etzPaRkWtcIPBHyXNdPwMjK9X0YOwTtPeP3P
+5SUzw/RUDZ82504Ctwa1p+0SZrIG4xrur/ec39xdBiZBydm2C4+0keJ4G395Y2BmUUuDbWn1gCzc
+8at+9auVSzGwP22L21Wb2spa2Cbnghz/AGg/RrZ/hlCamar/AAgyZMZgQD12QNAd9Yr9mraG7ARx
+PCfN6vViXtx7aXkWnWwxB7abv+/qHTbaKTfZJDriLHiw6idf833fTVrPwm5mJ9nsjaRuY+QS1/5r
+/wDOQlQnqLjt9GNz/wBnYe/7V6g+yeEe/d/odv8A3z/viSwv1jb6Gyzf6m3vu3fze791JS8A/eP/
+AKCiy//WoZP/ACU7+ofyql0/jD/4w/wXDJIR2PnJQ3fWbPpn4hZfU/6TX/XavOklFH5mbDvP+6fz
+fQrP6O7+x+Uqn0z+nH/jWf8AVLiUlMPm+jGf5kf3j+UX1Hqf9Ps+P8Fl9E/mbvifyrgkksuxY4vc
+9V/pFf8AxY/KU7/6Lj/8e78jVwqSjw7SbWX+axPo+b/S2f8AFuVvp38wPg1eWpJf5MeZa53Pk+m/
+97Py/wC+pLzJJWv4rP4P/9n/7S5aUGhvdG9zaG9wIDMuMAA4QklNBCUAAAAAABAAAAAAAAAAAAAA
+AAAAAAAAOEJJTQPqAAAAABgQPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4K
+PCFET0NUWVBFIHBsaXN0IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0
+cDovL3d3dy5hcHBsZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJz
+aW9uPSIxLjAiPgo8ZGljdD4KCTxrZXk+Y29tLmFwcGxlLnByaW50LlBhZ2VGb3JtYXQuUE1Ib3Jp
+em9udGFsUmVzPC9rZXk+Cgk8ZGljdD4KCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuY3Jl
+YXRvcjwva2V5PgoJCTxzdHJpbmc+Y29tLmFwcGxlLmpvYnRpY2tldDwvc3RyaW5nPgoJCTxrZXk+
+Y29tLmFwcGxlLnByaW50LnRpY2tldC5pdGVtQXJyYXk8L2tleT4KCQk8YXJyYXk+CgkJCTxkaWN0
+PgoJCQkJPGtleT5jb20uYXBwbGUucHJpbnQuUGFnZUZvcm1hdC5QTUhvcml6b250YWxSZXM8L2tl
+eT4KCQkJCTxyZWFsPjcyPC9yZWFsPgoJCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LnN0
+YXRlRmxhZzwva2V5PgoJCQkJPGludGVnZXI+MDwvaW50ZWdlcj4KCQkJPC9kaWN0PgoJCTwvYXJy
+YXk+Cgk8L2RpY3Q+Cgk8a2V5PmNvbS5hcHBsZS5wcmludC5QYWdlRm9ybWF0LlBNT3JpZW50YXRp
+b248L2tleT4KCTxkaWN0PgoJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5jcmVhdG9yPC9r
+ZXk+CgkJPHN0cmluZz5jb20uYXBwbGUuam9idGlja2V0PC9zdHJpbmc+CgkJPGtleT5jb20uYXBw
+bGUucHJpbnQudGlja2V0Lml0ZW1BcnJheTwva2V5PgoJCTxhcnJheT4KCQkJPGRpY3Q+CgkJCQk8
+a2V5PmNvbS5hcHBsZS5wcmludC5QYWdlRm9ybWF0LlBNT3JpZW50YXRpb248L2tleT4KCQkJCTxp
+bnRlZ2VyPjE8L2ludGVnZXI+CgkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuc3RhdGVG
+bGFnPC9rZXk+CgkJCQk8aW50ZWdlcj4wPC9pbnRlZ2VyPgoJCQk8L2RpY3Q+CgkJPC9hcnJheT4K
+CTwvZGljdD4KCTxrZXk+Y29tLmFwcGxlLnByaW50LlBhZ2VGb3JtYXQuUE1TY2FsaW5nPC9rZXk+
+Cgk8ZGljdD4KCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuY3JlYXRvcjwva2V5PgoJCTxz
+dHJpbmc+Y29tLmFwcGxlLmpvYnRpY2tldDwvc3RyaW5nPgoJCTxrZXk+Y29tLmFwcGxlLnByaW50
+LnRpY2tldC5pdGVtQXJyYXk8L2tleT4KCQk8YXJyYXk+CgkJCTxkaWN0PgoJCQkJPGtleT5jb20u
+YXBwbGUucHJpbnQuUGFnZUZvcm1hdC5QTVNjYWxpbmc8L2tleT4KCQkJCTxyZWFsPjE8L3JlYWw+
+CgkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuc3RhdGVGbGFnPC9rZXk+CgkJCQk8aW50
+ZWdlcj4wPC9pbnRlZ2VyPgoJCQk8L2RpY3Q+CgkJPC9hcnJheT4KCTwvZGljdD4KCTxrZXk+Y29t
+LmFwcGxlLnByaW50LlBhZ2VGb3JtYXQuUE1WZXJ0aWNhbFJlczwva2V5PgoJPGRpY3Q+CgkJPGtl
+eT5jb20uYXBwbGUucHJpbnQudGlja2V0LmNyZWF0b3I8L2tleT4KCQk8c3RyaW5nPmNvbS5hcHBs
+ZS5qb2J0aWNrZXQ8L3N0cmluZz4KCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuaXRlbUFy
+cmF5PC9rZXk+CgkJPGFycmF5PgoJCQk8ZGljdD4KCQkJCTxrZXk+Y29tLmFwcGxlLnByaW50LlBh
+Z2VGb3JtYXQuUE1WZXJ0aWNhbFJlczwva2V5PgoJCQkJPHJlYWw+NzI8L3JlYWw+CgkJCQk8a2V5
+PmNvbS5hcHBsZS5wcmludC50aWNrZXQuc3RhdGVGbGFnPC9rZXk+CgkJCQk8aW50ZWdlcj4wPC9p
+bnRlZ2VyPgoJCQk8L2RpY3Q+CgkJPC9hcnJheT4KCTwvZGljdD4KCTxrZXk+Y29tLmFwcGxlLnBy
+aW50LlBhZ2VGb3JtYXQuUE1WZXJ0aWNhbFNjYWxpbmc8L2tleT4KCTxkaWN0PgoJCTxrZXk+Y29t
+LmFwcGxlLnByaW50LnRpY2tldC5jcmVhdG9yPC9rZXk+CgkJPHN0cmluZz5jb20uYXBwbGUuam9i
+dGlja2V0PC9zdHJpbmc+CgkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0Lml0ZW1BcnJheTwv
+a2V5PgoJCTxhcnJheT4KCQkJPGRpY3Q+CgkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC5QYWdlRm9y
+bWF0LlBNVmVydGljYWxTY2FsaW5nPC9rZXk+CgkJCQk8cmVhbD4xPC9yZWFsPgoJCQkJPGtleT5j
+b20uYXBwbGUucHJpbnQudGlja2V0LnN0YXRlRmxhZzwva2V5PgoJCQkJPGludGVnZXI+MDwvaW50
+ZWdlcj4KCQkJPC9kaWN0PgoJCTwvYXJyYXk+Cgk8L2RpY3Q+Cgk8a2V5PmNvbS5hcHBsZS5wcmlu
+dC5zdWJUaWNrZXQucGFwZXJfaW5mb190aWNrZXQ8L2tleT4KCTxkaWN0PgoJCTxrZXk+UE1QUERQ
+YXBlckNvZGVOYW1lPC9rZXk+CgkJPGRpY3Q+CgkJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tl
+dC5jcmVhdG9yPC9rZXk+CgkJCTxzdHJpbmc+Y29tLmFwcGxlLmpvYnRpY2tldDwvc3RyaW5nPgoJ
+CQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuaXRlbUFycmF5PC9rZXk+CgkJCTxhcnJheT4K
+CQkJCTxkaWN0PgoJCQkJCTxrZXk+UE1QUERQYXBlckNvZGVOYW1lPC9rZXk+CgkJCQkJPHN0cmlu
+Zz5MZXR0ZXI8L3N0cmluZz4KCQkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuc3RhdGVG
+bGFnPC9rZXk+CgkJCQkJPGludGVnZXI+MDwvaW50ZWdlcj4KCQkJCTwvZGljdD4KCQkJPC9hcnJh
+eT4KCQk8L2RpY3Q+CgkJPGtleT5QTVRpb2dhUGFwZXJOYW1lPC9rZXk+CgkJPGRpY3Q+CgkJCTxr
+ZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5jcmVhdG9yPC9rZXk+CgkJCTxzdHJpbmc+Y29tLmFw
+cGxlLmpvYnRpY2tldDwvc3RyaW5nPgoJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuaXRl
+bUFycmF5PC9rZXk+CgkJCTxhcnJheT4KCQkJCTxkaWN0PgoJCQkJCTxrZXk+UE1UaW9nYVBhcGVy
+TmFtZTwva2V5PgoJCQkJCTxzdHJpbmc+bmEtbGV0dGVyPC9zdHJpbmc+CgkJCQkJPGtleT5jb20u
+YXBwbGUucHJpbnQudGlja2V0LnN0YXRlRmxhZzwva2V5PgoJCQkJCTxpbnRlZ2VyPjA8L2ludGVn
+ZXI+CgkJCQk8L2RpY3Q+CgkJCTwvYXJyYXk+CgkJPC9kaWN0PgoJCTxrZXk+Y29tLmFwcGxlLnBy
+aW50LlBhZ2VGb3JtYXQuUE1BZGp1c3RlZFBhZ2VSZWN0PC9rZXk+CgkJPGRpY3Q+CgkJCTxrZXk+
+Y29tLmFwcGxlLnByaW50LnRpY2tldC5jcmVhdG9yPC9rZXk+CgkJCTxzdHJpbmc+Y29tLmFwcGxl
+LmpvYnRpY2tldDwvc3RyaW5nPgoJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuaXRlbUFy
+cmF5PC9rZXk+CgkJCTxhcnJheT4KCQkJCTxkaWN0PgoJCQkJCTxrZXk+Y29tLmFwcGxlLnByaW50
+LlBhZ2VGb3JtYXQuUE1BZGp1c3RlZFBhZ2VSZWN0PC9rZXk+CgkJCQkJPGFycmF5PgoJCQkJCQk8
+cmVhbD4wLjA8L3JlYWw+CgkJCQkJCTxyZWFsPjAuMDwvcmVhbD4KCQkJCQkJPHJlYWw+NzM0PC9y
+ZWFsPgoJCQkJCQk8cmVhbD41NzY8L3JlYWw+CgkJCQkJPC9hcnJheT4KCQkJCQk8a2V5PmNvbS5h
+cHBsZS5wcmludC50aWNrZXQuc3RhdGVGbGFnPC9rZXk+CgkJCQkJPGludGVnZXI+MDwvaW50ZWdl
+cj4KCQkJCTwvZGljdD4KCQkJPC9hcnJheT4KCQk8L2RpY3Q+CgkJPGtleT5jb20uYXBwbGUucHJp
+bnQuUGFnZUZvcm1hdC5QTUFkanVzdGVkUGFwZXJSZWN0PC9rZXk+CgkJPGRpY3Q+CgkJCTxrZXk+
+Y29tLmFwcGxlLnByaW50LnRpY2tldC5jcmVhdG9yPC9rZXk+CgkJCTxzdHJpbmc+Y29tLmFwcGxl
+LmpvYnRpY2tldDwvc3RyaW5nPgoJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuaXRlbUFy
+cmF5PC9rZXk+CgkJCTxhcnJheT4KCQkJCTxkaWN0PgoJCQkJCTxrZXk+Y29tLmFwcGxlLnByaW50
+LlBhZ2VGb3JtYXQuUE1BZGp1c3RlZFBhcGVyUmVjdDwva2V5PgoJCQkJCTxhcnJheT4KCQkJCQkJ
+PHJlYWw+LTE4PC9yZWFsPgoJCQkJCQk8cmVhbD4tMTg8L3JlYWw+CgkJCQkJCTxyZWFsPjc3NDwv
+cmVhbD4KCQkJCQkJPHJlYWw+NTk0PC9yZWFsPgoJCQkJCTwvYXJyYXk+CgkJCQkJPGtleT5jb20u
+YXBwbGUucHJpbnQudGlja2V0LnN0YXRlRmxhZzwva2V5PgoJCQkJCTxpbnRlZ2VyPjA8L2ludGVn
+ZXI+CgkJCQk8L2RpY3Q+CgkJCTwvYXJyYXk+CgkJPC9kaWN0PgoJCTxrZXk+Y29tLmFwcGxlLnBy
+aW50LlBhcGVySW5mby5QTVBhcGVyTmFtZTwva2V5PgoJCTxkaWN0PgoJCQk8a2V5PmNvbS5hcHBs
+ZS5wcmludC50aWNrZXQuY3JlYXRvcjwva2V5PgoJCQk8c3RyaW5nPmNvbS5hcHBsZS5qb2J0aWNr
+ZXQ8L3N0cmluZz4KCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0Lml0ZW1BcnJheTwva2V5
+PgoJCQk8YXJyYXk+CgkJCQk8ZGljdD4KCQkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC5QYXBlcklu
+Zm8uUE1QYXBlck5hbWU8L2tleT4KCQkJCQk8c3RyaW5nPm5hLWxldHRlcjwvc3RyaW5nPgoJCQkJ
+CTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5zdGF0ZUZsYWc8L2tleT4KCQkJCQk8aW50ZWdl
+cj4wPC9pbnRlZ2VyPgoJCQkJPC9kaWN0PgoJCQk8L2FycmF5PgoJCTwvZGljdD4KCQk8a2V5PmNv
+bS5hcHBsZS5wcmludC5QYXBlckluZm8uUE1VbmFkanVzdGVkUGFnZVJlY3Q8L2tleT4KCQk8ZGlj
+dD4KCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LmNyZWF0b3I8L2tleT4KCQkJPHN0cmlu
+Zz5jb20uYXBwbGUuam9idGlja2V0PC9zdHJpbmc+CgkJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRp
+Y2tldC5pdGVtQXJyYXk8L2tleT4KCQkJPGFycmF5PgoJCQkJPGRpY3Q+CgkJCQkJPGtleT5jb20u
+YXBwbGUucHJpbnQuUGFwZXJJbmZvLlBNVW5hZGp1c3RlZFBhZ2VSZWN0PC9rZXk+CgkJCQkJPGFy
+cmF5PgoJCQkJCQk8cmVhbD4wLjA8L3JlYWw+CgkJCQkJCTxyZWFsPjAuMDwvcmVhbD4KCQkJCQkJ
+PHJlYWw+NzM0PC9yZWFsPgoJCQkJCQk8cmVhbD41NzY8L3JlYWw+CgkJCQkJPC9hcnJheT4KCQkJ
+CQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuc3RhdGVGbGFnPC9rZXk+CgkJCQkJPGludGVn
+ZXI+MDwvaW50ZWdlcj4KCQkJCTwvZGljdD4KCQkJPC9hcnJheT4KCQk8L2RpY3Q+CgkJPGtleT5j
+b20uYXBwbGUucHJpbnQuUGFwZXJJbmZvLlBNVW5hZGp1c3RlZFBhcGVyUmVjdDwva2V5PgoJCTxk
+aWN0PgoJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuY3JlYXRvcjwva2V5PgoJCQk8c3Ry
+aW5nPmNvbS5hcHBsZS5qb2J0aWNrZXQ8L3N0cmluZz4KCQkJPGtleT5jb20uYXBwbGUucHJpbnQu
+dGlja2V0Lml0ZW1BcnJheTwva2V5PgoJCQk8YXJyYXk+CgkJCQk8ZGljdD4KCQkJCQk8a2V5PmNv
+bS5hcHBsZS5wcmludC5QYXBlckluZm8uUE1VbmFkanVzdGVkUGFwZXJSZWN0PC9rZXk+CgkJCQkJ
+PGFycmF5PgoJCQkJCQk8cmVhbD4tMTg8L3JlYWw+CgkJCQkJCTxyZWFsPi0xODwvcmVhbD4KCQkJ
+CQkJPHJlYWw+Nzc0PC9yZWFsPgoJCQkJCQk8cmVhbD41OTQ8L3JlYWw+CgkJCQkJPC9hcnJheT4K
+CQkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuc3RhdGVGbGFnPC9rZXk+CgkJCQkJPGlu
+dGVnZXI+MDwvaW50ZWdlcj4KCQkJCTwvZGljdD4KCQkJPC9hcnJheT4KCQk8L2RpY3Q+CgkJPGtl
+eT5jb20uYXBwbGUucHJpbnQuUGFwZXJJbmZvLnBwZC5QTVBhcGVyTmFtZTwva2V5PgoJCTxkaWN0
+PgoJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuY3JlYXRvcjwva2V5PgoJCQk8c3RyaW5n
+PmNvbS5hcHBsZS5qb2J0aWNrZXQ8L3N0cmluZz4KCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlj
+a2V0Lml0ZW1BcnJheTwva2V5PgoJCQk8YXJyYXk+CgkJCQk8ZGljdD4KCQkJCQk8a2V5PmNvbS5h
+cHBsZS5wcmludC5QYXBlckluZm8ucHBkLlBNUGFwZXJOYW1lPC9rZXk+CgkJCQkJPHN0cmluZz5V
+UyBMZXR0ZXI8L3N0cmluZz4KCQkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuc3RhdGVG
+bGFnPC9rZXk+CgkJCQkJPGludGVnZXI+MDwvaW50ZWdlcj4KCQkJCTwvZGljdD4KCQkJPC9hcnJh
+eT4KCQk8L2RpY3Q+CgkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LkFQSVZlcnNpb248L2tl
+eT4KCQk8c3RyaW5nPjAwLjIwPC9zdHJpbmc+CgkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0
+LnR5cGU8L2tleT4KCQk8c3RyaW5nPmNvbS5hcHBsZS5wcmludC5QYXBlckluZm9UaWNrZXQ8L3N0
+cmluZz4KCTwvZGljdD4KCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5BUElWZXJzaW9uPC9r
+ZXk+Cgk8c3RyaW5nPjAwLjIwPC9zdHJpbmc+Cgk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQu
+dHlwZTwva2V5PgoJPHN0cmluZz5jb20uYXBwbGUucHJpbnQuUGFnZUZvcm1hdFRpY2tldDwvc3Ry
+aW5nPgo8L2RpY3Q+CjwvcGxpc3Q+CjhCSU0D7QAAAAAAEABIAAAAAQABAEgAAAABAAE4QklNBCYA
+AAAAAA4AAAAAAAAAAAAAP4AAADhCSU0EDQAAAAAABAAAAHg4QklNBBkAAAAAAAQAAAAeOEJJTQPz
+AAAAAAAJAAAAAAAAAAABADhCSU0ECgAAAAAAAQAAOEJJTScQAAAAAAAKAAEAAAAAAAAAAThCSU0D
+9QAAAAAASAAvZmYAAQBsZmYABgAAAAAAAQAvZmYAAQChmZoABgAAAAAAAQAyAAAAAQBaAAAABgAA
+AAAAAQA1AAAAAQAtAAAABgAAAAAAAThCSU0D+AAAAAAAcAAA////////////////////////////
+/wPoAAAAAP////////////////////////////8D6AAAAAD/////////////////////////////
+A+gAAAAA/////////////////////////////wPoAAA4QklNBAAAAAAAAAIAADhCSU0EAgAAAAAA
+AgAAOEJJTQQwAAAAAAABAQA4QklNBC0AAAAAAAYAAQAAAAI4QklNBAgAAAAAABAAAAABAAACQAAA
+AkAAAAAAOEJJTQQeAAAAAAAEAAAAADhCSU0EGgAAAAADRQAAAAYAAAAAAAAAAAAAAHEAAABkAAAA
+CABpAG0AYQBnAGUALQAwADEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAGQAAABx
+AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAEAAAAAAABudWxsAAAAAgAA
+AAZib3VuZHNPYmpjAAAAAQAAAAAAAFJjdDEAAAAEAAAAAFRvcCBsb25nAAAAAAAAAABMZWZ0bG9u
+ZwAAAAAAAAAAQnRvbWxvbmcAAABxAAAAAFJnaHRsb25nAAAAZAAAAAZzbGljZXNWbExzAAAAAU9i
+amMAAAABAAAAAAAFc2xpY2UAAAASAAAAB3NsaWNlSURsb25nAAAAAAAAAAdncm91cElEbG9uZwAA
+AAAAAAAGb3JpZ2luZW51bQAAAAxFU2xpY2VPcmlnaW4AAAANYXV0b0dlbmVyYXRlZAAAAABUeXBl
+ZW51bQAAAApFU2xpY2VUeXBlAAAAAEltZyAAAAAGYm91bmRzT2JqYwAAAAEAAAAAAABSY3QxAAAA
+BAAAAABUb3AgbG9uZwAAAAAAAAAATGVmdGxvbmcAAAAAAAAAAEJ0b21sb25nAAAAcQAAAABSZ2h0
+bG9uZwAAAGQAAAADdXJsVEVYVAAAAAEAAAAAAABudWxsVEVYVAAAAAEAAAAAAABNc2dlVEVYVAAA
+AAEAAAAAAAZhbHRUYWdURVhUAAAAAQAAAAAADmNlbGxUZXh0SXNIVE1MYm9vbAEAAAAIY2VsbFRl
+eHRURVhUAAAAAQAAAAAACWhvcnpBbGlnbmVudW0AAAAPRVNsaWNlSG9yekFsaWduAAAAB2RlZmF1
+bHQAAAAJdmVydEFsaWduZW51bQAAAA9FU2xpY2VWZXJ0QWxpZ24AAAAHZGVmYXVsdAAAAAtiZ0Nv
+bG9yVHlwZWVudW0AAAARRVNsaWNlQkdDb2xvclR5cGUAAAAATm9uZQAAAAl0b3BPdXRzZXRsb25n
+AAAAAAAAAApsZWZ0T3V0c2V0bG9uZwAAAAAAAAAMYm90dG9tT3V0c2V0bG9uZwAAAAAAAAALcmln
+aHRPdXRzZXRsb25nAAAAAAA4QklNBCgAAAAAAAwAAAABP/AAAAAAAAA4QklNBBQAAAAAAAQAAAAD
+OEJJTQQMAAAAAA8iAAAAAQAAAGQAAABxAAABLAAAhGwAAA8GABgAAf/Y/+AAEEpGSUYAAQIAAEgA
+SAAA/+0ADEFkb2JlX0NNAAH/7gAOQWRvYmUAZIAAAAAB/9sAhAAMCAgICQgMCQkMEQsKCxEVDwwM
+DxUYExMVExMYEQwMDAwMDBEMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMAQ0LCw0ODRAODhAU
+Dg4OFBQODg4OFBEMDAwMDBERDAwMDAwMEQwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAAR
+CABxAGQDASIAAhEBAxEB/90ABAAH/8QBPwAAAQUBAQEBAQEAAAAAAAAAAwABAgQFBgcICQoLAQAB
+BQEBAQEBAQAAAAAAAAABAAIDBAUGBwgJCgsQAAEEAQMCBAIFBwYIBQMMMwEAAhEDBCESMQVBUWET
+InGBMgYUkaGxQiMkFVLBYjM0coLRQwclklPw4fFjczUWorKDJkSTVGRFwqN0NhfSVeJl8rOEw9N1
+4/NGJ5SkhbSVxNTk9KW1xdXl9VZmdoaWprbG1ub2N0dXZ3eHl6e3x9fn9xEAAgIBAgQEAwQFBgcH
+BgU1AQACEQMhMRIEQVFhcSITBTKBkRShsUIjwVLR8DMkYuFygpJDUxVjczTxJQYWorKDByY1wtJE
+k1SjF2RFVTZ0ZeLys4TD03Xj80aUpIW0lcTU5PSltcXV5fVWZnaGlqa2xtbm9ic3R1dnd4eXp7fH
+/9oADAMBAAIRAxEAPwDLqyIcSBwddU9l1LX+ruItGjXSW6nknZ9JUDa5rjHc6+eqc2GRBg+ITyNV
+iN5c9xgkucSSBxz2UNzwS3dBb3JhSfbZVYC76UQNO3wQrC2JJDiddE4FCcZLmiATu4mZlEoqyMgk
+Y7LLnsG54Y0mB+87b9FqpsIJkuA8PFa3S3E1WgEwS0mP7XKHVLRtdcx0WBzI/NMj8qA9z/pSdfNX
+epAC1k6w3T71nvhLY0hYWO2wSU5e8dyDCjoPik6QBOgIlJS4ueNAeVHe7mT96g74jXuo7hMT80lU
+n33enyeZ+UJIe93p86bvHySSU//Q5ZxJJPmoh51EpO+kfMqA76wnrGVheRLzujhNVVbZa2qlptfb
+oxjASSfJoVrpWHfm5bKKm77DoAZAHi5x/cb+eu46d0zD6UwtxRuuf/O5BHuM/mV/6On+R/24osuc
+Q03l2ZMeMy16PP4P1JveA/qV4xh/oa4fZ/bd/NV/+CLSzOndM6V03IuoY9zwyA+15dr9FntbsZ9J
+y19ZWD9b8jZgV440Nz5P9Vg/8k5qrQy5MmSIMiLPTTRmMIxidOnVyuhHG6je6jPYLnATWZLTA+m3
+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
+5SqfTP6cf+NZ/wBUuJSUw+b6MZ/mR/eP5RfUep/0+z4/wWX0T+Zu+J/KuCSSy7Fji9z1X+kV/wDF
+j8pTv/ouP/x7vyNXCpKPDtJtZf5rE+j5v9LZ/wAW5W+nfzA+DV5akl/kx5lrnc+T6b/3s/L/AL6k
+vMkla/is/g//2ThCSU0EIQAAAAAAVQAAAAEBAAAADwBBAGQAbwBiAGUAIABQAGgAbwB0AG8AcwBo
+AG8AcAAAABMAQQBkAG8AYgBlACAAUABoAG8AdABvAHMAaABvAHAAIABDAFMAMwAAAAEAOEJJTQ+g
+AAAAAAD4bWFuaUlSRlIAAADsOEJJTUFuRHMAAADMAAAAEAAAAAEAAAAAAABudWxsAAAAAwAAAABB
+RlN0bG9uZwAAAAAAAAAARnJJblZsTHMAAAABT2JqYwAAAAEAAAAAAABudWxsAAAAAQAAAABGcklE
+bG9uZ0G/rkAAAAAARlN0c1ZsTHMAAAABT2JqYwAAAAEAAAAAAABudWxsAAAABAAAAABGc0lEbG9u
+ZwAAAAAAAAAAQUZybWxvbmcAAAAAAAAAAEZzRnJWbExzAAAAAWxvbmdBv65AAAAAAExDbnRsb25n
+AAAAAAAAOEJJTVJvbGwAAAAIAAAAAAAAAAA4QklND6EAAAAAABxtZnJpAAAAAgAAABAAAAABAAAA
+AAAAAAEAAAAAOEJJTQQGAAAAAAAHAAgAAAABAQD/4Q/QaHR0cDovL25zLmFkb2JlLmNvbS94YXAv
+MS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5IyI/
+PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAg
+Q29yZSA0LjEtYzAzNiA0Ni4yNzY3MjAsIE1vbiBGZWIgMTkgMjAwNyAyMjoxMzo0MyAgICAgICAg
+Ij4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1z
+eW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6ZGM9Imh0dHA6
+Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczp4YXA9Imh0dHA6Ly9ucy5hZG9iZS5j
+b20veGFwLzEuMC8iIHhtbG5zOnhhcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0v
+IiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNl
+UmVmIyIgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iIHhtbG5zOmV4
+aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6
+Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIGRjOmZvcm1hdD0iaW1hZ2UvanBlZyIgeGFw
+OkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1MzIE1hY2ludG9zaCIgeGFwOkNyZWF0ZURh
+dGU9IjIwMDgtMTItMDRUMTM6MTA6NDMtMDY6MDAiIHhhcDpNb2RpZnlEYXRlPSIyMDA4LTEyLTA0
+VDEzOjEwOjQzLTA2OjAwIiB4YXA6TWV0YWRhdGFEYXRlPSIyMDA4LTEyLTA0VDEzOjEwOjQzLTA2
+OjAwIiB4YXBNTTpEb2N1bWVudElEPSJ1dWlkOkVGOTJERTNBOTdDM0REMTE5MTRBQTc1NzNENkUy
+MDAxIiB4YXBNTTpJbnN0YW5jZUlEPSJ1dWlkOkYwOTJERTNBOTdDM0REMTE5MTRBQTc1NzNENkUy
+MDAxIiB0aWZmOk9yaWVudGF0aW9uPSIxIiB0aWZmOlhSZXNvbHV0aW9uPSI3MjAwMDAvMTAwMDAi
+IHRpZmY6WVJlc29sdXRpb249IjcyMDAwMC8xMDAwMCIgdGlmZjpSZXNvbHV0aW9uVW5pdD0iMiIg
+dGlmZjpOYXRpdmVEaWdlc3Q9IjI1NiwyNTcsMjU4LDI1OSwyNjIsMjc0LDI3NywyODQsNTMwLDUz
+MSwyODIsMjgzLDI5NiwzMDEsMzE4LDMxOSw1MjksNTMyLDMwNiwyNzAsMjcxLDI3MiwzMDUsMzE1
+LDMzNDMyO0Q0RDY2RUUwOTcyMUVDQzVBNTY5QUJDNzdFQzMxOTM4IiBleGlmOlBpeGVsWERpbWVu
+c2lvbj0iMTAwIiBleGlmOlBpeGVsWURpbWVuc2lvbj0iMTEzIiBleGlmOkNvbG9yU3BhY2U9IjEi
+IGV4aWY6TmF0aXZlRGlnZXN0PSIzNjg2NCw0MDk2MCw0MDk2MSwzNzEyMSwzNzEyMiw0MDk2Miw0
+MDk2MywzNzUxMCw0MDk2NCwzNjg2NywzNjg2OCwzMzQzNCwzMzQzNywzNDg1MCwzNDg1MiwzNDg1
+NSwzNDg1NiwzNzM3NywzNzM3OCwzNzM3OSwzNzM4MCwzNzM4MSwzNzM4MiwzNzM4MywzNzM4NCwz
+NzM4NSwzNzM4NiwzNzM5Niw0MTQ4Myw0MTQ4NCw0MTQ4Niw0MTQ4Nyw0MTQ4OCw0MTQ5Miw0MTQ5
+Myw0MTQ5NSw0MTcyOCw0MTcyOSw0MTczMCw0MTk4NSw0MTk4Niw0MTk4Nyw0MTk4OCw0MTk4OSw0
+MTk5MCw0MTk5MSw0MTk5Miw0MTk5Myw0MTk5NCw0MTk5NSw0MTk5Niw0MjAxNiwwLDIsNCw1LDYs
+Nyw4LDksMTAsMTEsMTIsMTMsMTQsMTUsMTYsMTcsMTgsMjAsMjIsMjMsMjQsMjUsMjYsMjcsMjgs
+MzA7MDE4Q0RDNTkwNjBERDg3Mzc2REFBQUEwQTA3NzlDODEiIHBob3Rvc2hvcDpDb2xvck1vZGU9
+IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgcGhvdG9zaG9wOkhp
+c3Rvcnk9IiI+IDx4YXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ1dWlkOkVDOTJE
+RTNBOTdDM0REMTE5MTRBQTc1NzNENkUyMDAxIiBzdFJlZjpkb2N1bWVudElEPSJ1dWlkOkJBMzg0
+NjIwOTVDM0REMTE5MTRBQTc1NzNENkUyMDAxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpS
+REY+IDwveDp4bXBtZXRhPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIDw/eHBhY2tldCBlbmQ9InciPz7/4gxYSUNDX1BST0ZJTEUAAQEAAAxITGlu
+bwIQAABtbnRyUkdCIFhZWiAHzgACAAkABgAxAABhY3NwTVNGVAAAAABJRUMgc1JHQgAAAAAAAAAA
+AAAAAQAA9tYAAQAAAADTLUhQICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAABFjcHJ0AAABUAAAADNkZXNjAAABhAAAAGx3dHB0AAAB8AAAABRia3B0AAACBAAA
+ABRyWFlaAAACGAAAABRnWFlaAAACLAAAABRiWFlaAAACQAAAABRkbW5kAAACVAAAAHBkbWRkAAAC
+xAAAAIh2dWVkAAADTAAAAIZ2aWV3AAAD1AAAACRsdW1pAAAD+AAAABRtZWFzAAAEDAAAACR0ZWNo
+AAAEMAAAAAxyVFJDAAAEPAAACAxnVFJDAAAEPAAACAxiVFJDAAAEPAAACAx0ZXh0AAAAAENvcHly
+aWdodCAoYykgMTk5OCBIZXdsZXR0LVBhY2thcmQgQ29tcGFueQAAZGVzYwAAAAAAAAASc1JHQiBJ
+RUM2MTk2Ni0yLjEAAAAAAAAAAAAAABJzUkdCIElFQzYxOTY2LTIuMQAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWFlaIAAAAAAAAPNRAAEAAAABFsxYWVog
+AAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAABvogAAOPUAAAOQWFlaIAAAAAAAAGKZAAC3hQAAGNpY
+WVogAAAAAAAAJKAAAA+EAAC2z2Rlc2MAAAAAAAAAFklFQyBodHRwOi8vd3d3LmllYy5jaAAAAAAA
+AAAAAAAAFklFQyBodHRwOi8vd3d3LmllYy5jaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAABkZXNjAAAAAAAAAC5JRUMgNjE5NjYtMi4xIERlZmF1bHQgUkdCIGNv
+bG91ciBzcGFjZSAtIHNSR0IAAAAAAAAAAAAAAC5JRUMgNjE5NjYtMi4xIERlZmF1bHQgUkdCIGNv
+bG91ciBzcGFjZSAtIHNSR0IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZGVzYwAAAAAAAAAsUmVmZXJl
+bmNlIFZpZXdpbmcgQ29uZGl0aW9uIGluIElFQzYxOTY2LTIuMQAAAAAAAAAAAAAALFJlZmVyZW5j
+ZSBWaWV3aW5nIENvbmRpdGlvbiBpbiBJRUM2MTk2Ni0yLjEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAHZpZXcAAAAAABOk/gAUXy4AEM8UAAPtzAAEEwsAA1yeAAAAAVhZWiAAAAAAAEwJVgBQAAAA
+Vx/nbWVhcwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAo8AAAACc2lnIAAAAABDUlQgY3VydgAA
+AAAAAAQAAAAABQAKAA8AFAAZAB4AIwAoAC0AMgA3ADsAQABFAEoATwBUAFkAXgBjAGgAbQByAHcA
+fACBAIYAiwCQAJUAmgCfAKQAqQCuALIAtwC8AMEAxgDLANAA1QDbAOAA5QDrAPAA9gD7AQEBBwEN
+ARMBGQEfASUBKwEyATgBPgFFAUwBUgFZAWABZwFuAXUBfAGDAYsBkgGaAaEBqQGxAbkBwQHJAdEB
+2QHhAekB8gH6AgMCDAIUAh0CJgIvAjgCQQJLAlQCXQJnAnECegKEAo4CmAKiAqwCtgLBAssC1QLg
+AusC9QMAAwsDFgMhAy0DOANDA08DWgNmA3IDfgOKA5YDogOuA7oDxwPTA+AD7AP5BAYEEwQgBC0E
+OwRIBFUEYwRxBH4EjASaBKgEtgTEBNME4QTwBP4FDQUcBSsFOgVJBVgFZwV3BYYFlgWmBbUFxQXV
+BeUF9gYGBhYGJwY3BkgGWQZqBnsGjAadBq8GwAbRBuMG9QcHBxkHKwc9B08HYQd0B4YHmQesB78H
+0gflB/gICwgfCDIIRghaCG4IggiWCKoIvgjSCOcI+wkQCSUJOglPCWQJeQmPCaQJugnPCeUJ+woR
+CicKPQpUCmoKgQqYCq4KxQrcCvMLCwsiCzkLUQtpC4ALmAuwC8gL4Qv5DBIMKgxDDFwMdQyODKcM
+wAzZDPMNDQ0mDUANWg10DY4NqQ3DDd4N+A4TDi4OSQ5kDn8Omw62DtIO7g8JDyUPQQ9eD3oPlg+z
+D88P7BAJECYQQxBhEH4QmxC5ENcQ9RETETERTxFtEYwRqhHJEegSBxImEkUSZBKEEqMSwxLjEwMT
+IxNDE2MTgxOkE8UT5RQGFCcUSRRqFIsUrRTOFPAVEhU0FVYVeBWbFb0V4BYDFiYWSRZsFo8WshbW
+FvoXHRdBF2UXiReuF9IX9xgbGEAYZRiKGK8Y1Rj6GSAZRRlrGZEZtxndGgQaKhpRGncanhrFGuwb
+FBs7G2MbihuyG9ocAhwqHFIcexyjHMwc9R0eHUcdcB2ZHcMd7B4WHkAeah6UHr4e6R8THz4faR+U
+H78f6iAVIEEgbCCYIMQg8CEcIUghdSGhIc4h+yInIlUigiKvIt0jCiM4I2YjlCPCI/AkHyRNJHwk
+qyTaJQklOCVoJZclxyX3JicmVyaHJrcm6CcYJ0kneierJ9woDSg/KHEooijUKQYpOClrKZ0p0CoC
+KjUqaCqbKs8rAis2K2krnSvRLAUsOSxuLKIs1y0MLUEtdi2rLeEuFi5MLoIuty7uLyQvWi+RL8cv
+/jA1MGwwpDDbMRIxSjGCMbox8jIqMmMymzLUMw0zRjN/M7gz8TQrNGU0njTYNRM1TTWHNcI1/TY3
+NnI2rjbpNyQ3YDecN9c4FDhQOIw4yDkFOUI5fzm8Ofk6Njp0OrI67zstO2s7qjvoPCc8ZTykPOM9
+Ij1hPaE94D4gPmA+oD7gPyE/YT+iP+JAI0BkQKZA50EpQWpBrEHuQjBCckK1QvdDOkN9Q8BEA0RH
+RIpEzkUSRVVFmkXeRiJGZ0arRvBHNUd7R8BIBUhLSJFI10kdSWNJqUnwSjdKfUrESwxLU0uaS+JM
+KkxyTLpNAk1KTZNN3E4lTm5Ot08AT0lPk0/dUCdQcVC7UQZRUFGbUeZSMVJ8UsdTE1NfU6pT9lRC
+VI9U21UoVXVVwlYPVlxWqVb3V0RXklfgWC9YfVjLWRpZaVm4WgdaVlqmWvVbRVuVW+VcNVyGXNZd
+J114XcleGl5sXr1fD19hX7NgBWBXYKpg/GFPYaJh9WJJYpxi8GNDY5dj62RAZJRk6WU9ZZJl52Y9
+ZpJm6Gc9Z5Nn6Wg/aJZo7GlDaZpp8WpIap9q92tPa6dr/2xXbK9tCG1gbbluEm5rbsRvHm94b9Fw
+K3CGcOBxOnGVcfByS3KmcwFzXXO4dBR0cHTMdSh1hXXhdj52m3b4d1Z3s3gReG54zHkqeYl553pG
+eqV7BHtje8J8IXyBfOF9QX2hfgF+Yn7CfyN/hH/lgEeAqIEKgWuBzYIwgpKC9INXg7qEHYSAhOOF
+R4Wrhg6GcobXhzuHn4gEiGmIzokziZmJ/opkisqLMIuWi/yMY4zKjTGNmI3/jmaOzo82j56QBpBu
+kNaRP5GokhGSepLjk02TtpQglIqU9JVflcmWNJaflwqXdZfgmEyYuJkkmZCZ/JpomtWbQpuvnByc
+iZz3nWSd0p5Anq6fHZ+Ln/qgaaDYoUehtqImopajBqN2o+akVqTHpTilqaYapoum/adup+CoUqjE
+qTepqaocqo+rAqt1q+msXKzQrUStuK4trqGvFq+LsACwdbDqsWCx1rJLssKzOLOutCW0nLUTtYq2
+AbZ5tvC3aLfguFm40blKucK6O7q1uy67p7whvJu9Fb2Pvgq+hL7/v3q/9cBwwOzBZ8Hjwl/C28NY
+w9TEUcTOxUvFyMZGxsPHQce/yD3IvMk6ybnKOMq3yzbLtsw1zLXNNc21zjbOts83z7jQOdC60TzR
+vtI/0sHTRNPG1EnUy9VO1dHWVdbY11zX4Nhk2OjZbNnx2nba+9uA3AXcit0Q3ZbeHN6i3ynfr+A2
+4L3hROHM4lPi2+Nj4+vkc+T85YTmDeaW5x/nqegy6LzpRunQ6lvq5etw6/vshu0R7ZzuKO6070Dv
+zPBY8OXxcvH/8ozzGfOn9DT0wvVQ9d72bfb794r4Gfio+Tj5x/pX+uf7d/wH/Jj9Kf26/kv+3P9t
+////7gAOQWRvYmUAZEAAAAAB/9sAhAABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB
+AQEBAQEBAQEBAgICAgICAgICAgIDAwMDAwMDAwMDAQEBAQEBAQEBAQECAgECAgMDAwMDAwMDAwMD
+AwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwP/wAARCABxAGQDAREAAhEBAxEB
+/90ABAAN/8QBogAAAAYCAwEAAAAAAAAAAAAABwgGBQQJAwoCAQALAQAABgMBAQEAAAAAAAAAAAAG
+BQQDBwIIAQkACgsQAAIBAwQBAwMCAwMDAgYJdQECAwQRBRIGIQcTIgAIMRRBMiMVCVFCFmEkMxdS
+cYEYYpElQ6Gx8CY0cgoZwdE1J+FTNoLxkqJEVHNFRjdHYyhVVlcassLS4vJkg3SThGWjs8PT4yk4
+ZvN1Kjk6SElKWFlaZ2hpanZ3eHl6hYaHiImKlJWWl5iZmqSlpqeoqaq0tba3uLm6xMXGx8jJytTV
+1tfY2drk5ebn6Onq9PX29/j5+hEAAgEDAgQEAwUEBAQGBgVtAQIDEQQhEgUxBgAiE0FRBzJhFHEI
+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]]></GrPr>
+					<ctxw txwt="e_none" ptwi="e_nada" ptwv="b_f" ptwm="b_f" ptws="e_twbs" Self="rc_u146ctxw1">
+						<ccos ptns="rx_0" acpn="rx_0" pcot="e_sacp" iied="b_f" pcnm="k_" Self="rc_u146ctxw1ccos1"/>
+					</ctxw>
+					<clnk lURL="k_" letg="rk_" laID="k_" lstk="re_lnsk" LnkI="x_c_c_image-01.jpg_c_Macintosh HD_l_6e3abf_l_8c01_k_JPEG_l_4a504547_c_Macintosh HD:Users:ekimber:workspace:rsi-inx-util:test:resources:image-01.jpg_L_0~19a70_T_2008-12-04T13:10:58_l_0_b_f_b_f" Self="rc_u14b"/>
+					<cpth ptns="rx_0" acpn="rx_0" cptp="e_none" invt="b_f" iied="b_f" rtfr="b_f" uhri="b_t" thhd="l_19" tlrc="D_2" isfr="U_0" ptnm="rk_" pidx="l_ffffffff" Self="rc_u146cpth1"/>
+					<imop pres="rl_48" clfr="b_t" embd="b_t" alch="k_" Self="rc_u146imop1"/>
+				</imag>
+			</crec>
+		</txtf>
+		<crec aobs="o_u80" sTtl="k_" IGeo="x_19_l_1_l_4_l_2_D_-80.76721954345703_D_-66.5701675415039_l_2_D_-80.76721954345703_D_85.07995326386526_l_2_D_114.66135188511441_D_85.07995326386526_l_2_D_114.66135188511441_D_-66.5701675415039_b_f_D_-80.76721954345703_D_-66.5701675415039_D_114.66135188511441_D_85.07995326386526_D_1_D_0_D_0_D_1_D_461.3386481148856_D_-113.4298324584961" cntt="e_grpt" lckS="re_none" STof="ro_n" pgst="x_2_U_0_U_0" pgfl="U_0" pgfa="D_0" pgss="x_2_U_0_U_0" pgsl="U_0" pgsa="D_0" pilr="o_ua9" plck="b_f" pLDs="e_Dflt" gfhl="U_0" gfha="D_0" gshl="U_0" gsha="D_0" Self="rc_u145">
+			<ctxw txwt="e_none" ptwi="e_nada" ptwv="b_f" ptwm="b_f" ptws="e_twbs" Self="rc_u145ctxw1">
+				<ccos ptns="rx_0" acpn="rx_0" pcot="e_sacp" iied="b_f" pcnm="k_" Self="rc_u145ctxw1ccos1"/>
+			</ctxw>
+			<icEo inGP="b_t" Self="rc_u145icEo1"/>
+			<PDF aobs="o_u80" IGeo="x_f_l_0_D_38.18235778808594_D_65.67579650878906_D_199.716796875_D_198.81613159179688_D_1_D_0_D_0_D_1_D_-118.94957733154297_D_-132.24596405029297_D_38.18235778808594_D_65.67579650878906_D_199.716796875_D_198.81613159179688" ICpg="e_Dpia" ICpr="e_Dpha" ICpc="e_Dpia" pLDs="e_Dflt" ImTp="rc_InCopy Document" Self="rc_u140">
+				<GrPr><![CDATA[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
+ZGVzYwAAAAAAAAASc1JHQiBJRUM2MTk2Ni0yLjEAAAAAAAAAAAAAABJzUkdCIElFQzYxOTY2LTIu
+MQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWFlaIAAA
+AAAAAPNRAAEAAAABFsxYWVogAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAABvogAAOPUAAAOQWFla
+IAAAAAAAAGKZAAC3hQAAGNpYWVogAAAAAAAAJKAAAA+EAAC2z2Rlc2MAAAAAAAAAFklFQyBodHRw
+Oi8vd3d3LmllYy5jaAAAAAAAAAAAAAAAFklFQyBodHRwOi8vd3d3LmllYy5jaAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABkZXNjAAAAAAAAAC5JRUMgNjE5NjYt
+Mi4xIERlZmF1bHQgUkdCIGNvbG91ciBzcGFjZSAtIHNSR0IAAAAAAAAAAAAAAC5JRUMgNjE5NjYt
+Mi4xIERlZmF1bHQgUkdCIGNvbG91ciBzcGFjZSAtIHNSR0IAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+ZGVzYwAAAAAAAAAsUmVmZXJlbmNlIFZpZXdpbmcgQ29uZGl0aW9uIGluIElFQzYxOTY2LTIuMQAA
+AAAAAAAAAAAALFJlZmVyZW5jZSBWaWV3aW5nIENvbmRpdGlvbiBpbiBJRUM2MTk2Ni0yLjEAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHZpZXcAAAAAABOk/gAUXy4AEM8UAAPtzAAEEwsAA1yeAAAA
+AVhZWiAAAAAAAEwJVgBQAAAAVx/nbWVhcwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAo8AAAAC
+c2lnIAAAAABDUlQgY3VydgAAAAAAAAQAAAAABQAKAA8AFAAZAB4AIwAoAC0AMgA3ADsAQABFAEoA
+TwBUAFkAXgBjAGgAbQByAHcAfACBAIYAiwCQAJUAmgCfAKQAqQCuALIAtwC8AMEAxgDLANAA1QDb
+AOAA5QDrAPAA9gD7AQEBBwENARMBGQEfASUBKwEyATgBPgFFAUwBUgFZAWABZwFuAXUBfAGDAYsB
+kgGaAaEBqQGxAbkBwQHJAdEB2QHhAekB8gH6AgMCDAIUAh0CJgIvAjgCQQJLAlQCXQJnAnECegKE
+Ao4CmAKiAqwCtgLBAssC1QLgAusC9QMAAwsDFgMhAy0DOANDA08DWgNmA3IDfgOKA5YDogOuA7oD
+xwPTA+AD7AP5BAYEEwQgBC0EOwRIBFUEYwRxBH4EjASaBKgEtgTEBNME4QTwBP4FDQUcBSsFOgVJ
+BVgFZwV3BYYFlgWmBbUFxQXVBeUF9gYGBhYGJwY3BkgGWQZqBnsGjAadBq8GwAbRBuMG9QcHBxkH
+Kwc9B08HYQd0B4YHmQesB78H0gflB/gICwgfCDIIRghaCG4IggiWCKoIvgjSCOcI+wkQCSUJOglP
+CWQJeQmPCaQJugnPCeUJ+woRCicKPQpUCmoKgQqYCq4KxQrcCvMLCwsiCzkLUQtpC4ALmAuwC8gL
+4Qv5DBIMKgxDDFwMdQyODKcMwAzZDPMNDQ0mDUANWg10DY4NqQ3DDd4N+A4TDi4OSQ5kDn8Omw62
+DtIO7g8JDyUPQQ9eD3oPlg+zD88P7BAJECYQQxBhEH4QmxC5ENcQ9RETETERTxFtEYwRqhHJEegS
+BxImEkUSZBKEEqMSwxLjEwMTIxNDE2MTgxOkE8UT5RQGFCcUSRRqFIsUrRTOFPAVEhU0FVYVeBWb
+Fb0V4BYDFiYWSRZsFo8WshbWFvoXHRdBF2UXiReuF9IX9xgbGEAYZRiKGK8Y1Rj6GSAZRRlrGZEZ
+txndGgQaKhpRGncanhrFGuwbFBs7G2MbihuyG9ocAhwqHFIcexyjHMwc9R0eHUcdcB2ZHcMd7B4W
+HkAeah6UHr4e6R8THz4faR+UH78f6iAVIEEgbCCYIMQg8CEcIUghdSGhIc4h+yInIlUigiKvIt0j
+CiM4I2YjlCPCI/AkHyRNJHwkqyTaJQklOCVoJZclxyX3JicmVyaHJrcm6CcYJ0kneierJ9woDSg/
+KHEooijUKQYpOClrKZ0p0CoCKjUqaCqbKs8rAis2K2krnSvRLAUsOSxuLKIs1y0MLUEtdi2rLeEu
+Fi5MLoIuty7uLyQvWi+RL8cv/jA1MGwwpDDbMRIxSjGCMbox8jIqMmMymzLUMw0zRjN/M7gz8TQr
+NGU0njTYNRM1TTWHNcI1/TY3NnI2rjbpNyQ3YDecN9c4FDhQOIw4yDkFOUI5fzm8Ofk6Njp0OrI6
+7zstO2s7qjvoPCc8ZTykPOM9Ij1hPaE94D4gPmA+oD7gPyE/YT+iP+JAI0BkQKZA50EpQWpBrEHu
+QjBCckK1QvdDOkN9Q8BEA0RHRIpEzkUSRVVFmkXeRiJGZ0arRvBHNUd7R8BIBUhLSJFI10kdSWNJ
+qUnwSjdKfUrESwxLU0uaS+JMKkxyTLpNAk1KTZNN3E4lTm5Ot08AT0lPk0/dUCdQcVC7UQZRUFGb
+UeZSMVJ8UsdTE1NfU6pT9lRCVI9U21UoVXVVwlYPVlxWqVb3V0RXklfgWC9YfVjLWRpZaVm4Wgda
+VlqmWvVbRVuVW+VcNVyGXNZdJ114XcleGl5sXr1fD19hX7NgBWBXYKpg/GFPYaJh9WJJYpxi8GND
+Y5dj62RAZJRk6WU9ZZJl52Y9ZpJm6Gc9Z5Nn6Wg/aJZo7GlDaZpp8WpIap9q92tPa6dr/2xXbK9t
+CG1gbbluEm5rbsRvHm94b9FwK3CGcOBxOnGVcfByS3KmcwFzXXO4dBR0cHTMdSh1hXXhdj52m3b4
+d1Z3s3gReG54zHkqeYl553pGeqV7BHtje8J8IXyBfOF9QX2hfgF+Yn7CfyN/hH/lgEeAqIEKgWuB
+zYIwgpKC9INXg7qEHYSAhOOFR4Wrhg6GcobXhzuHn4gEiGmIzokziZmJ/opkisqLMIuWi/yMY4zK
+jTGNmI3/jmaOzo82j56QBpBukNaRP5GokhGSepLjk02TtpQglIqU9JVflcmWNJaflwqXdZfgmEyY
+uJkkmZCZ/JpomtWbQpuvnByciZz3nWSd0p5Anq6fHZ+Ln/qgaaDYoUehtqImopajBqN2o+akVqTH
+pTilqaYapoum/adup+CoUqjEqTepqaocqo+rAqt1q+msXKzQrUStuK4trqGvFq+LsACwdbDqsWCx
+1rJLssKzOLOutCW0nLUTtYq2AbZ5tvC3aLfguFm40blKucK6O7q1uy67p7whvJu9Fb2Pvgq+hL7/
+v3q/9cBwwOzBZ8Hjwl/C28NYw9TEUcTOxUvFyMZGxsPHQce/yD3IvMk6ybnKOMq3yzbLtsw1zLXN
+Nc21zjbOts83z7jQOdC60TzRvtI/0sHTRNPG1EnUy9VO1dHWVdbY11zX4Nhk2OjZbNnx2nba+9uA
+3AXcit0Q3ZbeHN6i3ynfr+A24L3hROHM4lPi2+Nj4+vkc+T85YTmDeaW5x/nqegy6LzpRunQ6lvq
+5etw6/vshu0R7ZzuKO6070DvzPBY8OXxcvH/8ozzGfOn9DT0wvVQ9d72bfb794r4Gfio+Tj5x/pX
++uf7d/wH/Jj9Kf26/kv+3P9t//8PAAABBAABAAAAogAAAAEBBAABAAAAhQAAAAIBAwABAAAACAAA
+AAMBAwABAAAABQAAAAYBAwABAAAAAgAEABEBBAABAAAACAAAABUBAwABAAAABAAAABYBBAABAAAA
+hQAAABcBBAABAAAAowwAABoBBQABAAAArAwAABsBBQABAAAAtAwAABwBAwABAAAAAQAAgFIBAwAB
+AAAAAgAAADWCAQABAAAAAH8AAHOHAQBIDAAAvAwAAAAAAAA=]]></GrPr>
+				<ctxw txwt="e_none" ptwi="e_nada" ptwv="b_f" ptwm="b_f" ptws="e_twbs" Self="rc_u140ctxw1">
+					<ccos ptns="rx_0" acpn="rx_0" pcot="e_sacp" iied="b_f" pcnm="k_" Self="rc_u140ctxw1ccos1"/>
+				</ctxw>
+				<PDFa Pgnb="l_1" DFcr="e_CrpC" TBkg="b_t" Self="rc_u140PDFa1"/>
+				<clnk lURL="k_" letg="rk_" laID="k_" lstk="re_lnsk" LnkI="x_c_c_svg-test-01.ai_c_Macintosh HD_l_6e3abf_l_8c01_k_Adobe Portable Document Format (PDF)_l_50444620_c_Macintosh HD:Users:ekimber:workspace:rsi-inx-util:test:resources:svg-test-01.ai_L_0~101fc7_T_2008-12-04T12:26:57_l_0_b_t_b_f" Self="rc_u144"/>
+				<cpth ptns="rx_0" acpn="rx_0" cptp="e_none" invt="b_f" iied="b_f" rtfr="b_f" uhri="b_t" thhd="l_19" tlrc="D_2" isfr="U_0" ptnm="rk_" pidx="l_ffffffff" Self="rc_u140cpth1"/>
+				<glop gulo="e_loko" Self="rc_u140glop1">
+					<grlr secd="rb_f" pnam="k_Layer 1" orvi="b_t" crvi="b_t" sepl="b_f" adjl="b_f" fxlr="b_f" plck="b_f" hvws="b_f" vwst="b_f" hest="b_f" esta="b_f" hpri="b_f" pris="b_f" ID="l_15" Self="rc_u140glop1i15"/>
+				</glop>
+			</PDF>
+		</crec>
+	</sprd>
+	<DcUs UsrN="c_Eliot" UsrC="e_iGld" Self="rc_dDcUs0"/>
+	<cflo ATOC="o_n" OVRF="rb_f" stcs="ry_1_o_u13a" TCAc="b_f" sLbl="c_article~sep~04" sTtl="c_article~sep~04" lckS="re_BRci" pXLS="x_0" pWRD="x_0" pTXT="x_0" pSMP="x_2_x_0_x_0" Self="rc_u125">
+		<SyPf omAL="b_f" omBZ="U_12" sgON="e_Txft" sorn="e_horz" Self="rc_u125SyPf1"/>
+		<icEo inGP="b_t" Self="rc_u125icEo1"/>
+	</cflo>
+	<cflo ATOC="o_n" OVRF="rb_f" stcs="ry_1_o_u108" TCAc="b_f" sLbl="c_article~sep~01" sTtl="c_article~sep~01" lckS="re_BRci" pXLS="x_0" pWRD="x_0" pTXT="x_0" pSMP="x_2_x_0_x_0" Self="rc_uf6">
+		<SyPf omAL="b_f" omBZ="U_12" sgON="e_Txft" sorn="e_horz" Self="rc_uf6SyPf1"/>
+		<icEo inGP="b_t" Self="rc_uf6icEo1"/>
+	</cflo>
+	<cflo ATOC="o_n" OVRF="rb_f" stcs="ry_1_o_ue7" TCAc="b_f" sLbl="c_link~sep~test~sep~01-Article 2This" sTtl="c_link~sep~test~sep~01-Article 2This" lckS="re_BRci" pXLS="x_0" pWRD="x_0" pTXT="x_0" pSMP="x_2_x_0_x_0" Self="rc_ud5">
+		<SyPf omAL="b_f" omBZ="U_12" sgON="e_Txft" sorn="e_horz" Self="rc_ud5SyPf1"/>
+		<icEo inGP="b_t" Self="rc_ud5icEo1"/>
+		<clnk lURL="k_" letg="rk_" laID="k_" lstk="re_lnsk" LnkI="x_c_c_link~sep~test~sep~01-Article 2This.incx_c_Macintosh HD_l_786c08_l_8c01_k_InCopyInterchange_l_49437835_c_Macintosh HD:Users:ekimber:workspace:rsi-inx-util:test:resources:link~sep~test~sep~01 Assignments:content:link~sep~test~sep~01-Article 2This.incx_L_0~3c40_T_2008-12-04T12:17:30_l_0_b_f_b_f" Self="rc_uf4"/>
+	</cflo>
+	<cflo ATOC="o_n" OVRF="rb_f" stcs="ry_1_o_ud1" TCAc="b_f" sLbl="c_link~sep~test~sep~01" sTtl="c_link~sep~test~sep~01" lckS="re_BRci" pXLS="x_0" pWRD="x_0" pTXT="x_0" pSMP="x_2_x_0_x_0" Self="rc_ubf">
+		<SyPf omAL="b_f" omBZ="U_12" sgON="e_Txft" sorn="e_horz" Self="rc_ubfSyPf1"/>
+		<icEo inGP="b_t" Self="rc_ubficEo1"/>
+		<clnk lURL="k_" letg="rk_" laID="k_" lstk="re_lnsk" LnkI="x_c_c_link~sep~test~sep~01.incx_c_Macintosh HD_l_786c08_l_8c01_k_InCopyInterchange_l_49437835_c_Macintosh HD:Users:ekimber:workspace:rsi-inx-util:test:resources:link~sep~test~sep~01 Assignments:content:link~sep~test~sep~01.incx_L_0~3c00_T_2008-12-04T12:17:38_l_0_b_f_b_f" Self="rc_uf1"/>
+	</cflo>
+	<cxst ATOC="o_n" stcs="ry_0" TCAc="b_f" sLbl="k_" sTtl="k_" lckS="re_none" pXLS="x_0" pWRD="x_0" pTXT="x_0" pSMP="x_2_x_0_x_0" Self="rc_u8f">
+		<txsr prst="o_u6b" crst="o_u68">
+			<pcnt>c_<?aid Char="feff" Self="rc_u8fcins1"?><?aid Char="feff" Self="rc_u8fcins2"?></pcnt>
+		</txsr>
+		<SyPf omAL="b_f" omBZ="U_12" sgON="e_Txft" sorn="e_horz" Self="rc_u8fSyPf1"/>
+	</cxst>
+	<iSOp pnam="rk_kIndexGroup~sep~Symbol" incl="b_t" prty="l_0" hdty="e_nada" Self="rc_diSOpnkIndexGroup~sep~Symbol"/>
+	<iSOp pnam="rk_kIndexGroup~sep~Alphabet" incl="b_t" prty="l_1" hdty="e_HTBL" Self="rc_diSOpnkIndexGroup~sep~Alphabet"/>
+	<iSOp pnam="rk_kIndexGroup~sep~Numeric" incl="b_f" prty="l_2" hdty="e_nada" Self="rc_diSOpnkIndexGroup~sep~Numeric"/>
+	<iSOp pnam="rk_kWRIndexGroup~sep~GreekAlphabet" incl="b_f" prty="l_3" hdty="e_nada" Self="rc_diSOpnkWRIndexGroup~sep~GreekAlphabet"/>
+	<iSOp pnam="rk_kWRIndexGroup~sep~CyrillicAlphabet" incl="b_f" prty="l_4" hdty="e_HTRu" Self="rc_diSOpnkWRIndexGroup~sep~CyrillicAlphabet"/>
+	<iSOp pnam="rk_kIndexGroup~sep~Kana" incl="b_f" prty="l_5" hdty="e_HTHA" Self="rc_diSOpnkIndexGroup~sep~Kana"/>
+	<iSOp pnam="rk_kIndexGroup~sep~Korean" incl="b_f" prty="l_6" hdty="e_HTKo" Self="rc_diSOpnkIndexGroup~sep~Korean"/>
+	<bnoc bnbt="e_BCuo" bnbv="l_2022" blfn="k_" blft="k_" Self="rc_dbnoc0"/>
+	<bnoc bnbt="e_BCuo" bnbv="l_2a" blfn="k_" blft="k_" Self="rc_dbnoc1"/>
+	<bnoc bnbt="e_BCuo" bnbv="l_25ca" blfn="k_" blft="k_" Self="rc_dbnoc2"/>
+	<bnoc bnbt="e_BCuf" bnbv="l_bb" blfn="c_Myriad Pro" blft="k_Regular" Self="rc_dbnoc3"/>
+	<bnoc bnbt="e_BCgf" bnbv="l_276" blfn="c_Myriad Pro" blft="k_Regular" Self="rc_dbnoc4"/>
+	<AsMt hDPT="rf_Macintosh HD:Users:ekimber:workspace:rsi-inx-util:test:resources:link~sep~test~sep~01.indd" pASt="re_AUtD" pnam="c_Assignment 1" UsrN="k_" AsEx="e_AsEs" AFCl="e_iLbl" AsIl="b_t" path="c_Macintosh HD:Users:ekimber:workspace:rsi-inx-util:test:resources:link~sep~test~sep~01 Assignments:Assignment 1.inca" Self="rc_uef">
+		<AsSt pnam="c_link~sep~test~sep~01.incx" pStR="o_ubf" path="c_Macintosh HD:Users:ekimber:workspace:rsi-inx-util:test:resources:link~sep~test~sep~01 Assignments:content:link~sep~test~sep~01.incx" Self="rc_uf2"/>
+		<AsSt pnam="c_link~sep~test~sep~01-Article 2This.incx" pStR="o_ud5" path="c_Macintosh HD:Users:ekimber:workspace:rsi-inx-util:test:resources:link~sep~test~sep~01 Assignments:content:link~sep~test~sep~01-Article 2This.incx" Self="rc_uf5"/>
+	</AsMt>
+</docu>
+<cins prst="o_u6b" crst="o_u68">
+	<pcnt>c_<?aid Char="0" Self="rc_u125cins19"?></pcnt>
+</cins>
+</AssignmentRoot>

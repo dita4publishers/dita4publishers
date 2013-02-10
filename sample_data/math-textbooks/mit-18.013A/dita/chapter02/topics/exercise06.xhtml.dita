@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e59"><title>Exercise 2.6</title><body><p>
+<b>Derive the relations between these functions by using similar triangles.</b>
+</p><p>
+Solution:
+</p><p>
+By similar triangles, the ratio of BD to BO, 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to 1 is the same as the ratio of CB to OC, 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>tan</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sec</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, and of OB to AO (1 to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>csc</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ ), and of CO to AC ( 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>s</m:mi><m:mi>e</m:mi><m:mi>c</m:mi><m:mi>θ</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to ( 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>tan</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi><m:mo>+</m:mo><m:mi>cot</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ )), and of CD to BC (( 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sec</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi><m:mo>−</m:mo><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ ) to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>tan</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ ), and of OE to BO ( 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to 1)
+</p><p>
+This tells us
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mi>csc</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi><m:mo>=</m:mo><m:mfrac><m:mn>1</m:mn><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><p>
+so that on taking complements we have as well,
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mi>sec</m:mi><m:mi>θ</m:mi><m:mo>=</m:mo><m:mfrac><m:mn>1</m:mn><m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><p>
+We also get
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mi>tan</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi><m:mo>=</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi><m:mi>sec</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi><m:mo>=</m:mo><m:mfrac><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow><m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><p>
+and the complementary result
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mi>cot</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi><m:mo>=</m:mo><m:mfrac><m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block></body></topic>

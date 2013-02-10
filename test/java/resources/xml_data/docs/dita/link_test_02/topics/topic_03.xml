@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<topic
+  id="topic-1"
+  class="- topic/topic "
+  ditaarch:DITAArchVersion="1.2"
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+  <title
+    class="- topic/title ">Topic 03</title>
+  <body class="- topic/body ">
+    <p class="- topic/p ">This is topic 03.</p>
+    <p class="- topic/p ">Reference to a graphic via href: <image  class="- topic/image "
+        href="../images/image_01.jpg"/></p>
+  </body>
+</topic>

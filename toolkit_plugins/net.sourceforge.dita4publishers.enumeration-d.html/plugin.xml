@@ -1,0 +1,14 @@
+<!-- 
+  Plugin descriptor for the enumeration domain HTML rendering plugin.
+  
+  Copyright (c) 2010 DITA For Publishers
+    
+  This plug-in extends the base DITA-to-HTML process to provide appropriate
+  rendering for enumeration domain elements.
+  
+  -->
+<plugin id="net.sourceforge.dita4publishers.enumeration-d.html">
+  <require plugin="net.sourceforge.dita4publishers.common.html"/> 
+  <require plugin="net.sourceforge.dita4publishers.doctypes"/> 
+  <feature extension="dita.xsl.xhtml" value="xsl/enumerationDomain2html.xsl" type="file"/>  
+</plugin>

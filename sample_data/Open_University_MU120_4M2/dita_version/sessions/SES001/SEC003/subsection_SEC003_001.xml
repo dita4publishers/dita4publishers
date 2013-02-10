@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC003_001">
+   <title>3.1 Have I done the right calculation?</title>
+   <learningContentbody>
+      <section>
+          
+          <p>Once you have done a calculation, with or without the aid of a calculator, it
+            is important that you pause for a moment to check your calculation.</p>
+          <p>You need to ask yourself some questions.</p>
+          <ol>
+            <li>
+              <p>Have I done the right calculation in the right order?</p>
+            </li>
+            <li>
+              <p>Have I given due consideration to units of measurement?</p>
+            </li>
+            <li>
+              <p>Is my answer reasonable?</p>
+            </li>
+            <li>
+              <p>Did I make a rough estimate to act as a check?</p>
+            </li>
+          </ol>
+          <p>Your calculation will probably involve a mixture of operations, like addition,
+            subtraction, multiplication and division. You should check that you have used the right
+            operations in the correct order.</p>
+          <sectiondiv outputclass="Example">
+            <p outputclass="Heading">
+               <b>Example 8</b>
+            </p>
+            <p>Suppose you are one of five people going out for a meal and sharing the total
+              bill. Your friend Val has done the accounts and shows you her calculation to check. Is
+              she correct?</p>
+            <table>
+               <title/>
+               <tgroup cols="2">
+                  <tbody>
+                     <row>
+                        <entry/>
+                        <entry>
+                           <u>  £  </u>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>Float from last outing</entry>
+                        <entry>+ 0.40</entry>
+                     </row>
+                     <row>
+                        <entry>Discount voucher for restaurant</entry>
+                        <entry>+ 5.00</entry>
+                     </row>
+                     <row>
+                        <entry>Contribution from Ali (who left early)</entry>
+                        <entry>+ 8.00</entry>
+                     </row>
+                     <row>
+                        <entry>Food</entry>
+                        <entry>
+                           <sup>−</sup> 36.98</entry>
+                     </row>
+                     <row>
+                        <entry>Drinks beforehand</entry>
+                        <entry>
+                           <sup>−</sup> 5.10</entry>
+                     </row>
+                     <row>
+                        <entry>Taxi</entry>
+                        <entry>
+                           <sup>−</sup> 3.50</entry>
+                     </row>
+                     <row>
+                        <entry>Tip</entry>
+                        <entry>
+                           <u>
+                              <sup>−</sup> 3.00</u>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>Total</entry>
+                        <entry>
+                           <sup>−</sup> 35.18</entry>
+                     </row>
+                     <row>
+                        <entry>Share among the remaining four of us</entry>
+                        <entry>
+                           <u>÷ 4</u>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry/>
+                        <entry>
+                           <sup>−</sup> 8.795</entry>
+                     </row>
+                     <row>
+                        <entry>Round up to nearest 10p</entry>
+                        <entry>
+                           <sup>−</sup> 8.80</entry>
+                     </row>
+                     <row>
+                        <entry>Everybody owes £8.80.</entry>
+                        <entry/>
+                     </row>
+                  </tbody>
+               </tgroup>
+            </table>
+            <p outputclass="SourceReference">Source: </p>
+            <sectiondiv outputclass="Answer">
+               <p outputclass="SubHeading">
+                  <b>Solution</b>
+               </p>
+              <p>Yes, she is correct.</p>
+              <p>Note that Val has used positive numbers to represent money in hand and
+                negative numbers to represent debts or payments due, but she could have done the
+                reverse. Sharing among four people, she has used division by four. It is important
+                that the total was calculated before the division by four.</p>
+            </sectiondiv>
+         </sectiondiv>
+          <sectiondiv outputclass="Example">
+            <p outputclass="Heading">
+               <b>Example 9</b>
+            </p>
+            <ul>
+              <li>
+                  <p>(a) Suppose somebody in the party queries the fact that Ali paid 80p less
+                  than everybody else, saying that everybody should pay the same. Somebody else
+                  suggests the order of the calculation needs to be changed as shown. Is this
+                  correct?</p>
+              </li>
+            </ul>
+            <table>
+               <title/>
+               <tgroup cols="2">
+                  <tbody>
+                     <row>
+                        <entry/>
+                        <entry>
+                           <u>  £  </u>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>Float from the last outing</entry>
+                        <entry>+ 0.40</entry>
+                     </row>
+                     <row>
+                        <entry>Discount voucher for restaurant</entry>
+                        <entry>+ 5.00</entry>
+                     </row>
+                     <row>
+                        <entry>Food</entry>
+                        <entry>
+                           <sup>−</sup> 36.98</entry>
+                     </row>
+                     <row>
+                        <entry>Drinks beforehand</entry>
+                        <entry>
+                           <sup>−</sup> 5.10</entry>
+                     </row>
+                     <row>
+                        <entry>Taxi</entry>
+                        <entry>
+                           <sup>−</sup> 3.50</entry>
+                     </row>
+                     <row>
+                        <entry>Tip</entry>
+                        <entry>
+                           <u>
+                              <sup>−</sup> 3.00</u>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>Total</entry>
+                        <entry>
+                           <sup>−</sup> 43.18</entry>
+                     </row>
+                     <row>
+                        <entry>Share among the remaining four of us</entry>
+                        <entry>
+                           <u>÷ 4</u>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry/>
+                        <entry>
+                           <sup>−</sup> 10.795</entry>
+                     </row>
+                     <row>
+                        <entry>Round up to nearest £0.10</entry>
+                        <entry>
+                           <sup>−</sup> 10.80</entry>
+                     </row>
+                     <row>
+                        <entry>Everybody owes £10.80</entry>
+                        <entry/>
+                     </row>
+                     <row>
+                        <entry>Contribution from Ali (left early)</entry>
+                        <entry>
+                           <u>+ 8.00</u>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>Ali still owes £2.80</entry>
+                        <entry>
+                           <sup>−</sup> 2.80</entry>
+                     </row>
+                  </tbody>
+               </tgroup>
+            </table>
+            <p outputclass="SourceReference">Source: </p>
+            <ul>
+              <li>
+                  <p>(b) Someone else, Paul, says, ‘No, this is not right! Rather than redo
+                  the calculation, it would be simpler for Ali to share the 80 p which he underpaid
+                  among the rest of us, so he owes us 20p each.’ Is this a better
+                  solution?</p>
+              </li>
+            </ul>
+            <sectiondiv outputclass="Answer">
+               <p outputclass="SubHeading">
+                  <b>Solution</b>
+               </p>
+              <ul>
+                  <li>
+                     <p>(a) There is something wrong here! The number of people sharing is now
+                    five not four and so you need to divide by five instead of four.</p>
+                  </li>
+              </ul>
+              <table>
+                  <title/>
+                  <tgroup cols="2">
+                     <tbody>
+                        <row>
+                           <entry/>
+                           <entry>
+                              <u>  £  </u>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>Float from last outing</entry>
+                           <entry>+ 0.40</entry>
+                        </row>
+                        <row>
+                           <entry>Discount voucher for restaurant</entry>
+                           <entry>+ 5.00</entry>
+                        </row>
+                        <row>
+                           <entry>Food</entry>
+                           <entry>
+                              <sup>−</sup> 36.98</entry>
+                        </row>
+                        <row>
+                           <entry>Drinks beforehand</entry>
+                           <entry>
+                              <sup>−</sup> 5.10</entry>
+                        </row>
+                        <row>
+                           <entry>Taxi</entry>
+                           <entry>
+                              <sup>−</sup> 3.50</entry>
+                        </row>
+                        <row>
+                           <entry>Tip</entry>
+                           <entry>
+                              <u>
+                                 <sup>−</sup> 3.00</u>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>Total</entry>
+                           <entry>
+                              <sup>−</sup> 43.18</entry>
+                        </row>
+                        <row>
+                           <entry>Share among all five of us</entry>
+                           <entry>
+                              <u>÷ 5</u>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry/>
+                           <entry>
+                              <sup>−</sup> 8.636</entry>
+                        </row>
+                        <row>
+                           <entry>Round up to the nearest 10p</entry>
+                           <entry>
+                              <sup>−</sup> 8.70</entry>
+                        </row>
+                        <row>
+                           <entry>Everybody owes £8.70</entry>
+                           <entry/>
+                        </row>
+                        <row>
+                           <entry>Contribution from Ali (left early)</entry>
+                           <entry>
+                              <u>+ 8.00</u>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>Ali still owes 70p</entry>
+                           <entry>
+                              <sup>−</sup> 0.70</entry>
+                        </row>
+                     </tbody>
+                  </tgroup>
+               </table>
+               <p outputclass="SourceReference">Source: </p>
+              <ul>
+                  <li>
+                     <p>(b) Paul's solution is unfair to Ali. The result of that redistribution
+                    would be that everyone would have paid £8.80 − 20p = £8.60, except for Ali who
+                    would have paid £8 + 4 × 20p = £8.80.</p>
+                  </li>
+              </ul>
+            </sectiondiv>
+          </sectiondiv>
+          
+        </section>
+   </learningContentbody>
+</learningContent>

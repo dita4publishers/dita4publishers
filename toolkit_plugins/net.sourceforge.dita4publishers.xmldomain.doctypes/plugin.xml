@@ -1,0 +1,9 @@
+<!-- 
+  Plugin descriptor for the XML domain module
+  
+  Copyright (c) 2009 DITA For Publishers
+  
+  -->
+<plugin id="net.sourceforge.dita4publishers.xmldomain.doctypes">
+  <feature extension="dita.specialization.catalog.relative" value="catalog.xml" type="file"/>
+</plugin>

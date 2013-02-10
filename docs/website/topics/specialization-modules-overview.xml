@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic
+  id="topic-1">
+  <title>DITA for Publishers Vocabulary Modules Overview</title>
+  <body>
+    <p>The DITA for Publishers project provides map, topic, and domain specialization vocabulary modules for constructs needed by typical publishing documents.</p>
+    <p>The map specializations are:<dl>
+      <dlentry>
+        <dt>publication map domain</dt>
+        <dd>Provides a rich set of topicref specializations that can be used to create DITA maps that represent almost any possible configuration of typical publication components. As a map domain, the publication map elements can be mixed with elements from other map domains, such as the Learning and Training map domain. The publication map domain has been designed to make it easy to organize publication components into submaps.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>publication metadata map domain</dt>
+        <dd>Provides a rich set of metadata elements that reflect the needs of publishers. Publishing publication metadata tends to be more demanding than that required by technical documents. As a map domain, the publishing metadata elements can be added to any map type.</dd>
+      </dlentry>
+        <dlentry>
+          <dt>pubmap</dt>
+          <dd>The publication map map type integrates the publication map and publication metadata domains into a map document type. It serves both as a general publication map type and as an example of how to integrate and configure the publication map and publication metadata domains. Similar to the DITA 1.1 bookmap, but less constrained. Represents a single publication, nominally as presented in print (although may be adapted for other media formats as well). Includes publishing-specific metadata not available from bookmap, such as both 10- and 13-digit ISBNs and ISSNs. Includes the ability to represent arbitrary single pages, such as often occur in fiction books before the main content. Also includes facilities for including cover components.</dd>
+        </dlentry>
+      </dl></p>
+    <p>The topic specializations are:<dl>
+        <dlentry>
+          <dt>article</dt>
+          <dd>For articles within periodicals or article-based books. Allows nested subsection and
+            sidebar topic types in the default shell configuration. Enables authoring of complete
+            articles as single files.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>chapter</dt>
+          <dd>For chapters within books. Allows nested subsection and sidebar topic types in the
+            default shell configuration. Enables authoring of complete chapters as single
+            files.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>part</dt>
+          <dd>For parts within books. Provides the part title and, optionally, introductory body
+            content. Can be configured to allow nested chapter or subsection topics but does not in
+            the default shell configuration.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>subsection</dt>
+          <dd>Generic subsection within articles and chapters. Enables creation of arbitrary
+            hierarchies of titled divisions, e.g., within chapters and articles. Base for more
+            specialized subsection types.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>sidebar</dt>
+          <dd>Generic out-of-line topic. May contain nested subsections in the default shell
+            configuration. Base for more specialized sidebar types.</dd>
+        </dlentry>
+      <dlentry>
+        <dt>cover</dt>
+        <dd>Provides a generic topic for representing publication covers. Has a specialized title element with empty content. The content of the cover topic would normally be a reference to a graphic of the cover itself.</dd>
+      </dlentry>
+      </dl></p>
+    <p>The topic domain specializations are:<dl>
+      <dlentry>
+        <dt>classification</dt>
+        <dd>Provides a generic <xmlelem>classification</xmlelem> element (specialized from <xmlelem>data</xmlelem>) that clearly identifies the metadata elements it contains as being classifying as opposed to any other type of metadata (such as identifying metadata). Classifying metadata normally relates its container to items in defined classification taxonomies.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>enumeration</dt>
+        <dd>A common requirement in publishing documents is arbitrary numbering (enumeration) of document components. Sometimes this enumeration is arbitrary, meaning that it cannot be automated. Sometimes it needs to be captured for legacy or historical reasons. The enumeration domains support both the simple identification of content that serves as enumerations, allowing a processor to show or suppress the enumerations as appropriate, and author-specification of arbitrary automatic numbering. The intent of the enumeration design is to enable author-specification of arbitrary numbering rules where necessary. These domains are still somewhat experimental.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>formatting</dt>
+        <dd>Provides elements that request or capture specific formatting effects, including line breaks, tabs, and mathematical equations represented using any combination of MathML, InDesign data, or graphics.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>rendition target select attribute</dt>
+        <dd>Provides a global attribute intended to allow filtering and flagging based on the rendition type, e.g., PDF, EPUB, HTML, etc.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>publication content</dt>
+        <dd>Provides elements that are unique to publications, e.g., "epigram" and "epigraph".</dd>
+      </dlentry>
+      <dlentry>
+        <dt>ruby</dt>
+        <dd>Provides markup identical to the HTML 5 <xmlelem>ruby</xmlelem>
+          markup for annotating ideographic characters with their
+          pronounciation, as is required for Japanese-language documents. (Note:
+          This domain will be replaced by the equivalent domain in DITA
+          1.3).</dd>
+      </dlentry>
+      <dlentry>
+        <dt>variables</dt>
+        <dd>A simple (for now) facility for creating variables that are scoped
+          hierarchically through the map and topic hierarchy. The variables
+          facility lets you have variables scoped in a way that is analogous to
+          programming languages, where lower scopes (closer to the reference)
+          take precedence over higher scopes. Likewise, a given topic or map
+          used in two different contexts can reflect different variable values.
+          Variable definitions may be in maps, topicrefs, topic prologs, or
+          topic bodies. Variable definitions are specializations of
+          <xmlelem>data</xmlelem>, variable references are specializations of
+          <xmlelem>keyword</xmlelem> or <xmlelem>text</xmlelem> as
+          appropriate.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>verse</dt>
+        <dd>Provides elements for representing verse as a sequence of stanzas and lines.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>XML</dt>
+        <dd>Provides elements for identifying mentions of XML constructs. (Note:
+          this domain will be replaced by the equivalent domain in DITA
+          1.3).</dd>
+      </dlentry>
+      </dl></p>
+    <p>The project's vocabulary modules also include configurations of the standard topic, concept, task, and reference topic types that integrate the various DITA for Publishers domain modules.</p>
+    <p>In addition to these base specializations (base in the sense of defining generic publishing-specific markup), the sample data includes a specialization for Shakespear plays that shows how to adapt DITA, and DITA for Publishers specializations, to the very specific task of representing plays. </p>
+  </body>
+</topic>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2007, v.4002-->
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN"
+ "http://docs.oasis-open.org/dita/v1.1/OS/dtd/map.dtd">
+<map>
+  <title>Complex Map</title>
+  <topichead navtitle="Topics Referenced From Top-Level Map">
+    <topicref href="topics/topic-01.xml" navtitle="Topic 01"/>
+    <topicref href="topics/topic-02.xml" navtitle="Topic 02"/>
+  </topichead>
+  <topichead navtitle="Subordinate Maps">
+    <topicref format="ditamap" href="submap-01.ditamap"/>
+    <topicref format="ditamap" href="submap-02.ditamap"/>
+  </topichead>
+  <reltable>
+    <relrow>
+      <relcell>
+        <topicref href="topics/topic-03.xml" navtitle="Topic 03"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/topic-01.xml" navtitle="Topic 01"/>
+        <topicref href="topics/topic-04.xml" navtitle="Topic 04"/>
+      </relcell>
+    </relrow>
+  </reltable>
+</map>
+<?Pub *0000000878 0?>

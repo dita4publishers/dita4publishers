@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="11.2">
+    <meta>
+        <filters directoryPatterns="" filePatterns=""
+            positiveFilePatterns="" showHiddenFiles="false"/>
+        <options/>
+    </meta>
+    <projectTree name="shakespear.xpr">
+        <folder name="dita-plays">
+            <file name="plays/a_and_c/a_and_c.ditamap"/>
+            <file name="plays/all_well/all_well.ditamap"/>
+            <file name="plays/as_you/as_you.ditamap"/>
+            <file name="plays/com_err/com_err.ditamap"/>
+            <file name="plays/coriolan/coriolan.ditamap"/>
+            <file name="plays/cymbelin/cymbelin.ditamap"/>
+            <file name="plays/dream/dream.ditamap"/>
+            <file name="plays/hamlet/hamlet.ditamap"/>
+            <file name="plays/hen_iv_1/hen_iv_1.ditamap"/>
+            <file name="plays/hen_iv_2/hen_iv_2.ditamap"/>
+            <file name="plays/hen_v/hen_v.ditamap"/>
+            <file name="plays/hen_vi_1/hen_vi_1.ditamap"/>
+            <file name="plays/hen_vi_2/hen_vi_2.ditamap"/>
+            <file name="plays/hen_vi_3/hen_vi_3.ditamap"/>
+            <file name="plays/hen_viii/hen_viii.ditamap"/>
+            <file name="plays/j_caesar/j_caesar.ditamap"/>
+            <file name="plays/john/john.ditamap"/>
+            <file name="plays/lear/lear.ditamap"/>
+            <file name="plays/lll/lll.ditamap"/>
+            <file name="plays/m_for_m/m_for_m.ditamap"/>
+            <file name="plays/m_wives/m_wives.ditamap"/>
+            <file name="plays/macbeth/macbeth.ditamap"/>
+            <file name="plays/merchant/merchant.ditamap"/>
+            <file name="plays/much_ado/much_ado.ditamap"/>
+            <file name="plays/othello/othello.ditamap"/>
+            <file name="plays/pericles/pericles.ditamap"/>
+            <file name="plays/r_and_j/r_and_j.ditamap"/>
+            <file name="plays/rich_ii/rich_ii.ditamap"/>
+            <file name="plays/rich_iii/rich_iii.ditamap"/>
+            <file name="plays/t_night/t_night.ditamap"/>
+            <file name="plays/taming/taming.ditamap"/>
+            <file name="plays/tempest/tempest.ditamap"/>
+            <file name="plays/timon/timon.ditamap"/>
+            <file name="plays/titus/titus.ditamap"/>
+            <file name="plays/troilus/troilus.ditamap"/>
+            <file name="plays/win_tale/win_tale.ditamap"/>
+        </folder>
+        <folder name="original-xml">
+            <file
+                name="toolkit_plugins/net.sourceforge.dita4publishers.shakespear.html/xsl/play2html.xsl"
+            />
+        </folder>
+        <folder name="plugin source">
+            <file
+                name="toolkit_plugins/net.sourceforge.dita4publishers.shakespear.html/xsl/play2html.xsl"
+            />
+        </folder>
+        <folder name="specialization modules">
+            <file name="doctypes/playmap/dtd/playmap.mod"/>
+        </folder>
+        <file name="doctypes/playmap/dtd/catalog.xml"/>
+        <file name="doctypes/playmap/dtd/playmap.dtd"/>
+    </projectTree>
+</project>

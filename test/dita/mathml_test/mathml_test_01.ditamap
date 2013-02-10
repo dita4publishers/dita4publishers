@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:map" "map.dtd">
+<map>
+  <!-- Generic map with pubmap module integrated. -->
+  <topicref
+    href="topics/topic-01.xml">
+    <topicref
+      href="topics/topic-02.xml"/>
+  </topicref>
+</map>

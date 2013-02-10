@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
+<pubmap>
+  <pubmeta>
+    <author>author information      
+    </author>
+    <source>Source information</source>
+    <publisherinformation>
+      <organization>Publisher info</organization>
+    </publisherinformation>
+    <critdates>
+      <created
+        date="2009-05-20"/>
+    </critdates>
+    <permissions
+      view="yes"/>
+    <metadata> </metadata>
+    <audience/>
+    <category/>
+    <keywords>
+      <keyword>a keyword</keyword>
+    </keywords>
+    <prodinfo>
+      <prodname/>
+      <vrmlist>
+        <vrm
+          version=""/>
+      </vrmlist>
+    </prodinfo>
+    <othermeta
+      name="foo"
+      content="bar"/>
+    <resourceid
+      id="object-id"
+      appname="some-app"/>
+    <pubid>
+      <edition>first edition</edition>
+      <isbn-10>1234-567867-0</isbn-10>
+      <isbn-13>1234-567867-123-0</isbn-13>
+      <issn-10/>
+      <issn-13/>
+      <pubnumber/>
+      <volume>1</volume>
+      <maintainer>
+        <person>person name</person>
+        <organization>organization name</organization>
+      </maintainer>
+    </pubid>
+    <pubchangehistory>
+      <edited/>
+      <tested/>
+      <approved/>
+    </pubchangehistory>
+    <pubrights>
+      <pubowner/>
+      <publicense/>
+    </pubrights>
+    <data>additional data</data>
+  </pubmeta>
+  <keydefs>
+    <topicmeta>
+      <navtitle>Key Definitions</navtitle>
+    </topicmeta>
+    <keydef-group>
+      <topicmeta>
+        <navtitle>Some key definitions</navtitle>
+      </topicmeta>
+      <keydef
+        keys="foo bar"/>
+    </keydef-group>
+    <keydef
+      keys="bar">
+      <topicmeta>
+        <linktext>This is a keydef with linktext.</linktext>
+      </topicmeta>
+    </keydef>
+  </keydefs>
+  <publication>
+    <covers>
+      <book-jacket>
+        <front-flap/>
+        <back-flap/>
+        <spine/>
+        <front-cover/>
+        <back-cover/>
+      </book-jacket>
+    </covers>
+    <page/>
+    <frontmatter> </frontmatter>
+    <pubbody>
+      <page/>
+      <chapter>
+        <subsection/>
+        <sidebar/>
+      </chapter>
+      <chapter/>
+      <part>
+        <chapter/>
+      </part>
+    </pubbody>
+    <backmatter>
+      <chapter/>
+    </backmatter>
+    <appendixes>
+      <appendix/>
+    </appendixes>
+    <colophon/>
+  </publication>
+</pubmap>

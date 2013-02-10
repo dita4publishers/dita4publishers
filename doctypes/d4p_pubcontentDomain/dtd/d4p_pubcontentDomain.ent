@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     DITA For Publishers Conent Domain
+     
+     Specializations of topic content elements that provide common
+     publication components that are semantic and not strictly
+     formatting.
+     
+     Copyright (c) 2009 DITA For Publishers
+     
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                   Formatting DOMAIN ENTITIES                  -->
+<!-- ============================================================= -->
+
+
+<!ENTITY % d4p_pubcontent-d-p
+   "epigram |
+    d4pAssetSource
+   "
+>
+
+<!ENTITY % d4p_pubcontent-d-bodydiv
+   "epigraph |
+    body-pullquote
+   "
+>
+
+<!ENTITY % d4p_pubcontent-d-sectiondiv
+   "section-pullquote
+   "
+>
+<!ENTITY % d4p_pubcontent-d-lq
+   "d4pAttributedQuote
+   "
+>
+
+<!ENTITY   d4p_pubcontent-d-att     
+  "(topic d4p_pubcontent-d)"
+>
+
+
+<!-- ================== End DITA For Publishers Content Domain Entities ============ -->

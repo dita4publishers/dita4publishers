@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE personae
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:personae" "personae.dtd">
+<personae id="personae">
+   <title>Dramatis Personae</title>
+   <personae-body>
+      <persona>LEONTES, king of Sicilia.</persona>
+      <persona>MAMILLIUS, young prince of Sicilia.</persona>
+      <pgroup>
+         <persona>CAMILLO</persona>
+         <persona>ANTIGONUS</persona>
+         <persona>CLEOMENES</persona>
+         <persona>DION</persona>
+         <grpdescr>Four Lords of Sicilia.</grpdescr>
+      </pgroup>
+      <persona>POLIXENES, King of Bohemia.</persona>
+      <persona>FLORIZEL, Prince of Bohemia.</persona>
+      <persona>ARCHIDAMUS, a Lord of Bohemia.</persona>
+      <persona>Old Shepherd, reputed father of Perdita. </persona>
+      <persona>Clown, his son.</persona>
+      <persona>AUTOLYCUS, a rogue.</persona>
+      <persona>A Mariner. </persona>
+      <persona>A Gaoler.  </persona>
+      <persona>HERMIONE, queen to Leontes.</persona>
+      <persona>PERDITA, daughter to Leontes and Hermione.</persona>
+      <persona>PAULINA, wife to Antigonus.</persona>
+      <persona>EMILIA, a lady attending on Hermione</persona>
+      <pgroup>
+         <persona>MOPSA</persona>
+         <persona>DORCAS</persona>
+         <grpdescr>Shepherdesses.</grpdescr>
+      </pgroup>
+      <persona>Other Lords and Gentlemen, Ladies, Officers, and Servants, Shepherds, and Shepherdesses.</persona>
+      <persona>Time, as Chorus.</persona>
+   </personae-body>
+</personae>

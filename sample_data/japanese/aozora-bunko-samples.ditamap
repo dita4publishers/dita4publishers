@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
+<pubmap
+  xml:lang="ja-JP">
+  <pubtitle>
+    <mainpubtitle>青空文庫のサンプル (Aozora Bunko Samples)</mainpubtitle>
+  </pubtitle>
+  <pubmeta>
+    <publisherinformation>
+      <organization>DITA for Publishers</organization>
+    </publisherinformation>
+  </pubmeta>
+  <publication>
+    <covers/>
+    <frontmatter>
+      <topicref
+        href="frontmatter/about-aozora-bunko-samples.xml"/>
+    </frontmatter>
+    <pubbody>
+      <article
+        href="aozora-2480/aozora-2480.dita"/>
+      <article
+        href="aozora-2534/aozora-2534.dita"/>
+    </pubbody>
+    <backmatter/>
+  </publication>
+</pubmap>

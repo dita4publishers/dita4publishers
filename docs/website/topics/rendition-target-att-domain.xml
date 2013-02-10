@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic
+  id="topic-id">
+  <title>Rendition Target Attribute Domain</title>
+  <shortdesc>Provides a <xmlatt>props</xmlatt> specialization for filtering and flagging on rendition target (e.g., PDF, HTML, EPUB, etc.)</shortdesc>
+  <body>
+    <p>The rendition target attribute domain provides the <xmlatt>props</xmlatt> specialization attribute <xmlatt>d4p_renditionTarget</xmlatt>. The domain does not define the allowed values for the attribute (since the set of interesting rendition targets is unbounded) but typical values would be "pdf", "html", 'epub", "kindle", etc. This attribute allows you to have map or topic elements that are specific to a particular rendition target.</p>
+  </body>
+</topic>

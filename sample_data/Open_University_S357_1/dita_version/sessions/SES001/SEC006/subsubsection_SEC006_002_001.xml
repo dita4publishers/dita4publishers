@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC006_002_001">
+   <title>6.2.1 The need for a reference frame for describing the Universe</title>
+   <learningContentbody>
+      <section>
+            
+            <p>The speed of the Earth in its orbit round the Sun is 29.8 km
+                s<sup>−1</sup>, in a heliocentric frame. But to specify the velocity vector,
+              it is not sufficient to specify the Sun as the origin of the coordinate system; fixed
+              directions must also be identified.</p>
+            
+            <sectiondiv outputclass="SAQ">
+              <p outputclass="Heading">
+               <b>Question 13</b>
+            </p>
+              <sectiondiv outputclass="saq.question">
+                <p>Here are two possible rules for fixing an
+                  <i>x</i>
+                  <sup>1</sup>-direction:</p>
+                <p>(i) The <i>x</i>
+                  <sup>1</sup>-axis is taken as the line from the Sun to
+                  the nearest star (Proxima Centauri);</p>
+                <p>(ii) The <i>x</i>
+                  <sup>1</sup>-axis is taken as pointing in the direction
+                  from the centre of the Galaxy to the nearest large galaxy (the Andromeda
+                  galaxy).</p>
+                <p>Are these two methods equally acceptable? If not, which is preferable,
+                  and is it completely satisfactory?</p>
+              </sectiondiv>
+              <sectiondiv outputclass="saq.answer">
+                <p>Proxima Centauri is the nearest star, and so is undoubtedly in our
+                  Galaxy. Our Galaxy is rotating, as is suggested independently of all frames of
+                  reference by its disc-like
+                  shape.
+                  So the line to Proxima Centauri is <i>not</i> a good x<sup>1</sup>-axis, because
+                  of the relative motion of the Sun and Proxima Centauri within the
+                  Galaxy.</p>
+                <p>The Andromeda galaxy is the nearest galaxy to ours (apart from satellite
+                  galaxies and the Magellanic Clouds). It is gravitationally bound to our Galaxy and
+                  moving relative to us. The period of the mutual ‘orbit’ of our
+                  Galaxy and the Andromeda galaxy is certainly longer than the period of the Sun (or
+                  Proxima Centauri) round our Galaxy, because the distance from our Galaxy to the
+                  Andromeda galaxy is about a hundred times bigger than the distance of the Sun (or
+                  Proxima Centauri) from the centre of our Galaxy. Nevertheless, the line connecting
+                  our Galaxy to the Andromeda galaxy cannot be taken as fixed because of their
+                  motions within the Local Group.</p>
+                <p>Thus methods (i) and (ii) are not equally acceptable; (ii) is preferable
+                  to (i), but is still not fully satisfactory.</p>
+              </sectiondiv>
+            </sectiondiv>
+            <p>The considerations of <xref href="#SAQ001_013">Question 13</xref> force one to look at bigger and bigger
+              aggregates of matter in the search for reference bodies with respect to which a system
+              of coordinates can be defined independently of the motion caused by the gravitational
+              effects of nearby matter in our local region of the Universe. We assume that the
+              clusters of galaxies fulfil this role. But clusters may be loosely associated (though
+              not bound) in superclusters.</p>
+            <p>For this reason, we would like to have an alternative way of establishing a
+              reference frame. The 3 K radiation provides such a means.</p>
+            <p>If the 3 K radiation filled the Universe at early times and has not
+              interacted appreciably with matter since decoupling, then this radiation defines a
+              system in which matter and energy in the early Universe are assumed to have been
+              distributed homogeneously. So if we were to find that the 3 K radiation is
+                <i>completely</i> isotropic when observed on Earth, we could conclude that we are
+                <i>at rest</i> with respect to the average distribution of matter and energy in the
+              Universe. In that sense, the radiation can be said to define a ‘rest
+              frame’ of the Universe. But if we find that the radiation is not isotropic, and
+              moreover, that it varies in a characteristically systematic fashion according to
+              direction, then we can conclude that we are moving in a particular direction with
+              respect to the frame in which the radiation is isotropic.</p>
+            <p>It is a matter of great interest to know the velocities of the Earth, the
+              Sun, our Galaxy and our Local Group with respect to the system defined by the 3 K
+              radiation. It might, for example, provide support for the idea that gravitational
+              effects within a supercluster must be taken into account in mapping out the
+              Universe.</p>
+          </section>
+   </learningContentbody>
+</learningContent>

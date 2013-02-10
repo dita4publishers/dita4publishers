@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subsection PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:subsection" "subsection.dtd">
+<subsection
+  id="subsection-id">
+  <title>SVG Graphics</title>
+  <body>
+    <p>This topic contains references to SVG graphics of various sorts.</p>
+    <section>
+      <title>UML Diagram from ArgoUML</title>
+      <fig>
+        <title>UML Diagram</title>
+        <image d4p_renditionTarget="epub html pdf"
+          href="images/TopicModelDiagram.svg"
+          id="image_8c1cb0cd-3e98-46fb-91e9-e3e2ca017cf2"/>
+        <p d4p_renditionTarget="kindle">Kindle does not support SVG graphics.</p>
+      </fig>
+    </section>
+  </body>
+</subsection>

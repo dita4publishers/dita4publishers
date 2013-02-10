@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" > 
+<?xml-stylesheet type="text/css" href="fcla-xml-2.30.css"?> 
+<html  
+xmlns="http://www.w3.org/1999/xhtml"  
+><head><title>Chapter SLE  Systems of Linear Equations</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- html,xhtml,mozilla,3 --> 
+<meta name="src" content="fcla-xml-2.30.tex" /> 
+<meta name="date" content="2011-12-23 18:20:00" /> 
+<link rel="stylesheet" type="text/css" href="fcla-xml-2.30.css" /> 
+</head><body 
+>
+   <!--l. 350--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li22.xml" >next</a>] [<a 
+href="#tailfcla-xml-2.30li15.xml">tail</a>] [<a 
+href="fcla-xml-2.30li14.xml#fcla-xml-2.30li15.xml" >up</a>] </p></div>
+   <h2 class="likechapterHead"><a 
+ id="x16-20000"></a>Chapter SLE&#x00A0;&#x00A0;Systems of Linear Equations</h2>
+<!--l. 350--><p class="noindent" ><a 
+ id="chapter.SLE"></a> <a 
+ id="x16-20000doc"></a><a 
+ id="dx16-20001"></a>
+</p><!--l. 10--><p class="indent" >   We will motivate our study of linear algebra by studying solutions to
+systems of linear equations. While the focus of this chapter is on the
+practical matter of how to find, and describe, these solutions, we will
+also be setting ourselves up for more theoretical ideas that will appear
+                                                                          
+
+                                                                          
+later.
+</p>
+   <div class="likesectionTOCS">
+   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li16.xml#x17-21000">Section WILA What is Linear Algebra?</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li16.xml#x17-22000" id="QQ2-17-22">Subsection LA: &#x201C;Linear&#x201D; + &#x201C;Algebra&#x201D;</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li16.xml#x17-23000" id="QQ2-17-23">Subsection AA: An Application</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li16.xml#x17-24000" id="QQ2-17-24">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li16.xml#x17-25000" id="QQ2-17-25">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li16.xml#x17-26000" id="QQ2-17-26">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li17.xml#x18-27000">Section SSLE Solving Systems of Linear Equations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li17.xml#x18-28000" id="QQ2-18-28">Subsection SLE: Systems of Linear Equations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li17.xml#x18-29000" id="QQ2-18-29">Subsection PSS: Possibilities for Solution Sets</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li17.xml#x18-30000" id="QQ2-18-30">Subsection ESEO: Equivalent Systems and Equation Operations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li17.xml#x18-31000" id="QQ2-18-31">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li17.xml#x18-32000" id="QQ2-18-32">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li17.xml#x18-33000" id="QQ2-18-33">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li18.xml#x19-34000">Section RREF Reduced Row-Echelon Form</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li18.xml#x19-35000" id="QQ2-19-35">Subsection MVNSE: Matrix and Vector Notation for Systems
+of Equations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li18.xml#x19-36000" id="QQ2-19-36">Subsection RO: Row Operations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li18.xml#x19-37000" id="QQ2-19-37">Subsection RREF: Reduced Row-Echelon Form</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li18.xml#x19-38000" id="QQ2-19-38">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li18.xml#x19-39000" id="QQ2-19-39">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li18.xml#x19-40000" id="QQ2-19-40">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li19.xml#x20-41000">Section TSS Types of Solution Sets</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li19.xml#x20-42000" id="QQ2-20-42">Subsection CS: Consistent Systems</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li19.xml#x20-43000" id="QQ2-20-43">Subsection FV: Free Variables</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li19.xml#x20-44000" id="QQ2-20-44">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li19.xml#x20-45000" id="QQ2-20-45">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li19.xml#x20-46000" id="QQ2-20-46">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li20.xml#x21-47000">Section HSE Homogeneous Systems of Equations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li20.xml#x21-48000" id="QQ2-21-48">Subsection SHS: Solutions of Homogeneous Systems</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li20.xml#x21-49000" id="QQ2-21-49">Subsection NSM: Null Space of a Matrix</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li20.xml#x21-50000" id="QQ2-21-50">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li20.xml#x21-51000" id="QQ2-21-51">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li20.xml#x21-52000" id="QQ2-21-52">Subsection SOL: Solutions</a></span>
+                                                                          
+
+                                                                          
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li21.xml#x22-53000">Section NM Nonsingular Matrices</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li21.xml#x22-54000" id="QQ2-22-54">Subsection NM: Nonsingular Matrices</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li21.xml#x22-55000" id="QQ2-22-55">Subsection NSNM: Null Space of a Nonsingular Matrix</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li21.xml#x22-56000" id="QQ2-22-56">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li21.xml#x22-57000" id="QQ2-22-57">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li21.xml#x22-58000" id="QQ2-22-58">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li21.xml#x22-59000" id="QQ2-22-59">Annotated Acronyms SLE: Systems of Linear Equations</a></span>
+   </div>
+
+
+
+
+
+                                                                          
+
+                                                                          
+   <!--l. 368--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li22.xml" >next</a>] [<a 
+href="fcla-xml-2.30li15.xml" >front</a>] [<a 
+href="fcla-xml-2.30li14.xml#fcla-xml-2.30li15.xml" >up</a>] </p></div>
+<!--l. 368--><p class="indent" >   <a 
+ id="tailfcla-xml-2.30li15.xml"></a> </p> 
+</body> 
+</html> 

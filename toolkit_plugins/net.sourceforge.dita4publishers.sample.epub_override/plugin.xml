@@ -1,0 +1,4 @@
+<plugin id="net.sourceforge.dita4publishers.sample.epub_override">
+
+  <require plugin="net.sourceforge.dita4publishers.epub"/> 
+</plugin>

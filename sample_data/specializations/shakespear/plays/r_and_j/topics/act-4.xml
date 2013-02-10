@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:act" "act.dtd">
+<act id="act-4">
+   <title>ACT IV</title>
+   <scene id="act-4-scene-1">
+      <title>SCENE I.  Friar Laurence's cell.</title>
+      <scene-body>
+         <stagedir>Enter FRIAR LAURENCE and PARIS</stagedir>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>On Thursday, sir? the time is very short.</line>
+         </speech>
+         <speech>
+            <speaker>PARIS</speaker>
+            <line>My father Capulet will have it so;</line>
+            <line>And I am nothing slow to slack his haste.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>You say you do not know the lady's mind:</line>
+            <line>Uneven is the course, I like it not.</line>
+         </speech>
+         <speech>
+            <speaker>PARIS</speaker>
+            <line>Immoderately she weeps for Tybalt's death,</line>
+            <line>And therefore have I little talk'd of love;</line>
+            <line>For Venus smiles not in a house of tears.</line>
+            <line>Now, sir, her father counts it dangerous</line>
+            <line>That she doth give her sorrow so much sway,</line>
+            <line>And in his wisdom hastes our marriage,</line>
+            <line>To stop the inundation of her tears;</line>
+            <line>Which, too much minded by herself alone,</line>
+            <line>May be put from her by society:</line>
+            <line>Now do you know the reason of this haste.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  I would I knew not why it should be slow'd.</line>
+            <line>Look, sir, here comes the lady towards my cell.</line>
+         </speech>
+         <stagedir>Enter JULIET</stagedir>
+         <speech>
+            <speaker>PARIS</speaker>
+            <line>Happily met, my lady and my wife!</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>That may be, sir, when I may be a wife.</line>
+         </speech>
+         <speech>
+            <speaker>PARIS</speaker>
+            <line>That may be must be, love, on Thursday next.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>What must be shall be.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>That's a certain text.</line>
+         </speech>
+         <speech>
+            <speaker>PARIS</speaker>
+            <line>Come you to make confession to this father?</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>To answer that, I should confess to you.</line>
+         </speech>
+         <speech>
+            <speaker>PARIS</speaker>
+            <line>Do not deny to him that you love me.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>I will confess to you that I love him.</line>
+         </speech>
+         <speech>
+            <speaker>PARIS</speaker>
+            <line>So will ye, I am sure, that you love me.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>If I do so, it will be of more price,</line>
+            <line>Being spoke behind your back, than to your face.</line>
+         </speech>
+         <speech>
+            <speaker>PARIS</speaker>
+            <line>Poor soul, thy face is much abused with tears.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>The tears have got small victory by that;</line>
+            <line>For it was bad enough before their spite.</line>
+         </speech>
+         <speech>
+            <speaker>PARIS</speaker>
+            <line>Thou wrong'st it, more than tears, with that report.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>That is no slander, sir, which is a truth;</line>
+            <line>And what I spake, I spake it to my face.</line>
+         </speech>
+         <speech>
+            <speaker>PARIS</speaker>
+            <line>Thy face is mine, and thou hast slander'd it.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>It may be so, for it is not mine own.</line>
+            <line>Are you at leisure, holy father, now;</line>
+            <line>Or shall I come to you at evening mass?</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>My leisure serves me, pensive daughter, now.</line>
+            <line>My lord, we must entreat the time alone.</line>
+         </speech>
+         <speech>
+            <speaker>PARIS</speaker>
+            <line>God shield I should disturb devotion!</line>
+            <line>Juliet, on Thursday early will I rouse ye:</line>
+            <line>Till then, adieu; and keep this holy kiss.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>O shut the door! and when thou hast done so,</line>
+            <line>Come weep with me; past hope, past cure, past help!</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Ah, Juliet, I already know thy grief;</line>
+            <line>It strains me past the compass of my wits:</line>
+            <line>I hear thou must, and nothing may prorogue it,</line>
+            <line>On Thursday next be married to this county.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Tell me not, friar, that thou hear'st of this,</line>
+            <line>Unless thou tell me how I may prevent it:</line>
+            <line>If, in thy wisdom, thou canst give no help,</line>
+            <line>Do thou but call my resolution wise,</line>
+            <line>And with this knife I'll help it presently.</line>
+            <line>God join'd my heart and Romeo's, thou our hands;</line>
+            <line>And ere this hand, by thee to Romeo seal'd,</line>
+            <line>Shall be the label to another deed,</line>
+            <line>Or my true heart with treacherous revolt</line>
+            <line>Turn to another, this shall slay them both:</line>
+            <line>Therefore, out of thy long-experienced time,</line>
+            <line>Give me some present counsel, or, behold,</line>
+            <line>'Twixt my extremes and me this bloody knife</line>
+            <line>Shall play the umpire, arbitrating that</line>
+            <line>Which the commission of thy years and art</line>
+            <line>Could to no issue of true honour bring.</line>
+            <line>Be not so long to speak; I long to die,</line>
+            <line>If what thou speak'st speak not of remedy.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Hold, daughter: I do spy a kind of hope,</line>
+            <line>Which craves as desperate an execution.</line>
+            <line>As that is desperate which we would prevent.</line>
+            <line>If, rather than to marry County Paris,</line>
+            <line>Thou hast the strength of will to slay thyself,</line>
+            <line>Then is it likely thou wilt undertake</line>
+            <line>A thing like death to chide away this shame,</line>
+            <line>That copest with death himself to scape from it:</line>
+            <line>And, if thou darest, I'll give thee remedy.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>O, bid me leap, rather than marry Paris,</line>
+            <line>From off the battlements of yonder tower;</line>
+            <line>Or walk in thievish ways; or bid me lurk</line>
+            <line>Where serpents are; chain me with roaring bears;</line>
+            <line>Or shut me nightly in a charnel-house,</line>
+            <line>O'er-cover'd quite with dead men's rattling bones,</line>
+            <line>With reeky shanks and yellow chapless skulls;</line>
+            <line>Or bid me go into a new-made grave</line>
+            <line>And hide me with a dead man in his shroud;</line>
+            <line>Things that, to hear them told, have made me tremble;</line>
+            <line>And I will do it without fear or doubt,</line>
+            <line>To live an unstain'd wife to my sweet love.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Hold, then; go home, be merry, give consent</line>
+            <line>To marry Paris: Wednesday is to-morrow:</line>
+            <line>To-morrow night look that thou lie alone;</line>
+            <line>Let not thy nurse lie with thee in thy chamber:</line>
+            <line>Take thou this vial, being then in bed,</line>
+            <line>And this distilled liquor drink thou off;</line>
+            <line>When presently through all thy veins shall run</line>
+            <line>A cold and drowsy humour, for no pulse</line>
+            <line>Shall keep his native progress, but surcease:</line>
+            <line>No warmth, no breath, shall testify thou livest;</line>
+            <line>The roses in thy lips and cheeks shall fade</line>
+            <line>To paly ashes, thy eyes' windows fall,</line>
+            <line>Like death, when he shuts up the day of life;</line>
+            <line>Each part, deprived of supple government,</line>
+            <line>Shall, stiff and stark and cold, appear like death:</line>
+            <line>And in this borrow'd likeness of shrunk death</line>
+            <line>Thou shalt continue two and forty hours,</line>
+            <line>And then awake as from a pleasant sleep.</line>
+            <line>Now, when the bridegroom in the morning comes</line>
+            <line>To rouse thee from thy bed, there art thou dead:</line>
+            <line>Then, as the manner of our country is,</line>
+            <line>In thy best robes uncover'd on the bier</line>
+            <line>Thou shalt be borne to that same ancient vault</line>
+            <line>Where all the kindred of the Capulets lie.</line>
+            <line>In the mean time, against thou shalt awake,</line>
+            <line>Shall Romeo by my letters know our drift,</line>
+            <line>And hither shall he come: and he and I</line>
+            <line>Will watch thy waking, and that very night</line>
+            <line>Shall Romeo bear thee hence to Mantua.</line>
+            <line>And this shall free thee from this present shame;</line>
+            <line>If no inconstant toy, nor womanish fear,</line>
+            <line>Abate thy valour in the acting it.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Give me, give me! O, tell not me of fear!</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Hold; get you gone, be strong and prosperous</line>
+            <line>In this resolve: I'll send a friar with speed</line>
+            <line>To Mantua, with my letters to thy lord.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Love give me strength! and strength shall help afford.</line>
+            <line>Farewell, dear father!</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-4-scene-2">
+      <title>SCENE II.  Hall in Capulet's house.</title>
+      <scene-body>
+         <stagedir>Enter CAPULET, LADY  CAPULET, Nurse, and two
+Servingmen</stagedir>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>So many guests invite as here are writ.</line>
+            <stagedir>Exit First Servant</stagedir>
+            <line>Sirrah, go hire me twenty cunning cooks.</line>
+         </speech>
+         <speech>
+            <speaker>Second Servant</speaker>
+            <line>You shall have none ill, sir; for I'll try if they</line>
+            <line>can lick their fingers.</line>
+         </speech>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>How canst thou try them so?</line>
+         </speech>
+         <speech>
+            <speaker>Second Servant</speaker>
+            <line>Marry, sir, 'tis an ill cook that cannot lick his</line>
+            <line>own fingers: therefore he that cannot lick his</line>
+            <line>fingers goes not with me.</line>
+         </speech>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>Go, be gone.</line>
+            <stagedir>Exit Second Servant</stagedir>
+            <line>We shall be much unfurnished for this time.</line>
+            <line>What, is my daughter gone to Friar Laurence?</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Ay, forsooth.</line>
+         </speech>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>Well, he may chance to do some good on her:</line>
+            <line>A peevish self-will'd harlotry it is.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>See where she comes from shrift with merry look.</line>
+         </speech>
+         <stagedir>Enter JULIET</stagedir>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>How now, my headstrong! where have you been gadding?</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Where I have learn'd me to repent the sin</line>
+            <line>Of disobedient opposition</line>
+            <line>To you and your behests, and am enjoin'd</line>
+            <line>By holy Laurence to fall prostrate here,</line>
+            <line>And beg your pardon: pardon, I beseech you!</line>
+            <line>Henceforward I am ever ruled by you.</line>
+         </speech>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>Send for the county; go tell him of this:</line>
+            <line>I'll have this knot knit up to-morrow morning.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>I met the youthful lord at Laurence' cell;</line>
+            <line>And gave him what becomed love I might,</line>
+            <line>Not step o'er the bounds of modesty.</line>
+         </speech>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>Why, I am glad on't; this is well: stand up:</line>
+            <line>This is as't should be. Let me see the county;</line>
+            <line>Ay, marry, go, I say, and fetch him hither.</line>
+            <line>Now, afore God! this reverend holy friar,</line>
+            <line>Our whole city is much bound to him.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Nurse, will you go with me into my closet,</line>
+            <line>To help me sort such needful ornaments</line>
+            <line>As you think fit to furnish me to-morrow?</line>
+         </speech>
+         <speech>
+            <speaker>LADY CAPULET</speaker>
+            <line>No, not till Thursday; there is time enough.</line>
+         </speech>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>Go, nurse, go with her: we'll to church to-morrow.</line>
+         </speech>
+         <stagedir>Exeunt JULIET and Nurse</stagedir>
+         <speech>
+            <speaker>LADY  CAPULET</speaker>
+            <line>We shall be short in our provision:</line>
+            <line>'Tis now near night.</line>
+         </speech>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>Tush, I will stir about,</line>
+            <line>And all things shall be well, I warrant thee, wife:</line>
+            <line>Go thou to Juliet, help to deck up her;</line>
+            <line>I'll not to bed to-night; let me alone;</line>
+            <line>I'll play the housewife for this once. What, ho!</line>
+            <line>They are all forth. Well, I will walk myself</line>
+            <line>To County Paris, to prepare him up</line>
+            <line>Against to-morrow: my heart is wondrous light,</line>
+            <line>Since this same wayward girl is so reclaim'd.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-4-scene-3">
+      <title>SCENE III.  Juliet's chamber.</title>
+      <scene-body>
+         <stagedir>Enter JULIET and Nurse</stagedir>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Ay, those attires are best: but, gentle nurse,</line>
+            <line>I pray thee, leave me to myself to-night,</line>
+            <line>For I have need of many orisons</line>
+            <line>To move the heavens to smile upon my state,</line>
+            <line>Which, well thou know'st, is cross, and full of sin.</line>
+         </speech>
+         <stagedir>Enter LADY CAPULET</stagedir>
+         <speech>
+            <speaker>LADY CAPULET</speaker>
+            <line>What, are you busy, ho? need you my help?</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>No, madam; we have cull'd such necessaries</line>
+            <line>As are behoveful for our state to-morrow:</line>
+            <line>So please you, let me now be left alone,</line>
+            <line>And let the nurse this night sit up with you;</line>
+            <line>For, I am sure, you have your hands full all,</line>
+            <line>In this so sudden business.</line>
+         </speech>
+         <speech>
+            <speaker>LADY CAPULET</speaker>
+            <line>Good night:</line>
+            <line>Get thee to bed, and rest; for thou hast need.</line>
+         </speech>
+         <stagedir>Exeunt LADY CAPULET and Nurse</stagedir>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Farewell! God knows when we shall meet again.</line>
+            <line>I have a faint cold fear thrills through my veins,</line>
+            <line>That almost freezes up the heat of life:</line>
+            <line>I'll call them back again to comfort me:</line>
+            <line>Nurse! What should she do here?</line>
+            <line>My dismal scene I needs must act alone.</line>
+            <line>Come, vial.</line>
+            <line>What if this mixture do not work at all?</line>
+            <line>Shall I be married then to-morrow morning?</line>
+            <line>No, no: this shall forbid it: lie thou there.</line>
+            <stagedir>Laying down her dagger</stagedir>
+            <line>What if it be a poison, which the friar</line>
+            <line>Subtly hath minister'd to have me dead,</line>
+            <line>Lest in this marriage he should be dishonour'd,</line>
+            <line>Because he married me before to Romeo?</line>
+            <line>I fear it is: and yet, methinks, it should not,</line>
+            <line>For he hath still been tried a holy man.</line>
+            <line>How if, when I am laid into the tomb,</line>
+            <line>I wake before the time that Romeo</line>
+            <line>Come to redeem me? there's a fearful point!</line>
+            <line>Shall I not, then, be stifled in the vault,</line>
+            <line>To whose foul mouth no healthsome air breathes in,</line>
+            <line>And there die strangled ere my Romeo comes?</line>
+            <line>Or, if I live, is it not very like,</line>
+            <line>The horrible conceit of death and night,</line>
+            <line>Together with the terror of the place,--</line>
+            <line>As in a vault, an ancient receptacle,</line>
+            <line>Where, for these many hundred years, the bones</line>
+            <line>Of all my buried ancestors are packed:</line>
+            <line>Where bloody Tybalt, yet but green in earth,</line>
+            <line>Lies festering in his shroud; where, as they say,</line>
+            <line>At some hours in the night spirits resort;--</line>
+            <line>Alack, alack, is it not like that I,</line>
+            <line>So early waking, what with loathsome smells,</line>
+            <line>And shrieks like mandrakes' torn out of the earth,</line>
+            <line>That living mortals, hearing them, run mad:--</line>
+            <line>O, if I wake, shall I not be distraught,</line>
+            <line>Environed with all these hideous fears?</line>
+            <line>And madly play with my forefather's joints?</line>
+            <line>And pluck the mangled Tybalt from his shroud?</line>
+            <line>And, in this rage, with some great kinsman's bone,</line>
+            <line>As with a club, dash out my desperate brains?</line>
+            <line>O, look! methinks I see my cousin's ghost</line>
+            <line>Seeking out Romeo, that did spit his body</line>
+            <line>Upon a rapier's point: stay, Tybalt, stay!</line>
+            <line>Romeo, I come! this do I drink to thee.</line>
+         </speech>
+         <stagedir>She falls upon her bed, within the curtains</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-4-scene-4">
+      <title>SCENE IV.  Hall in Capulet's house.</title>
+      <scene-body>
+         <stagedir>Enter LADY CAPULET and Nurse</stagedir>
+         <speech>
+            <speaker>LADY CAPULET</speaker>
+            <line>Hold, take these keys, and fetch more spices, nurse.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>They call for dates and quinces in the pastry.</line>
+         </speech>
+         <stagedir>Enter CAPULET</stagedir>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>Come, stir, stir, stir! the second cock hath crow'd,</line>
+            <line>The curfew-bell hath rung, 'tis three o'clock:</line>
+            <line>Look to the baked meats, good Angelica:</line>
+            <line>Spare not for the cost.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Go, you cot-quean, go,</line>
+            <line>Get you to bed; faith, You'll be sick to-morrow</line>
+            <line>For this night's watching.</line>
+         </speech>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>No, not a whit: what! I have watch'd ere now</line>
+            <line>All night for lesser cause, and ne'er been sick.</line>
+         </speech>
+         <speech>
+            <speaker>LADY CAPULET</speaker>
+            <line>Ay, you have been a mouse-hunt in your time;</line>
+            <line>But I will watch you from such watching now.</line>
+         </speech>
+         <stagedir>Exeunt LADY CAPULET and Nurse</stagedir>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>A jealous hood, a jealous hood!</line>
+            <stagedir>Enter three or four Servingmen, with spits, logs,
+and baskets</stagedir>
+            <line>Now, fellow,</line>
+            <line>What's there?</line>
+         </speech>
+         <speech>
+            <speaker>First Servant</speaker>
+            <line>Things for the cook, sir; but I know not what.</line>
+         </speech>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>Make haste, make haste.</line>
+            <stagedir>Exit First Servant</stagedir>
+            <line>Sirrah, fetch drier logs:</line>
+            <line>Call Peter, he will show thee where they are.</line>
+         </speech>
+         <speech>
+            <speaker>Second Servant</speaker>
+            <line>I have a head, sir, that will find out logs,</line>
+            <line>And never trouble Peter for the matter.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>Mass, and well said; a merry whoreson, ha!</line>
+            <line>Thou shalt be logger-head. Good faith, 'tis day:</line>
+            <line>The county will be here with music straight,</line>
+            <line>For so he said he would: I hear him near.</line>
+            <stagedir>Music within</stagedir>
+            <line>Nurse! Wife! What, ho! What, nurse, I say!</line>
+            <stagedir>Re-enter Nurse</stagedir>
+            <line>Go waken Juliet, go and trim her up;</line>
+            <line>I'll go and chat with Paris: hie, make haste,</line>
+            <line>Make haste; the bridegroom he is come already:</line>
+            <line>Make haste, I say.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-4-scene-5">
+      <title>SCENE V.  Juliet's chamber.</title>
+      <scene-body>
+         <stagedir>Enter Nurse</stagedir>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Mistress! what, mistress! Juliet! fast, I warrant her, she:</line>
+            <line>Why, lamb! why, lady! fie, you slug-a-bed!</line>
+            <line>Why, love, I say! madam! sweet-heart! why, bride!</line>
+            <line>What, not a word? you take your pennyworths now;</line>
+            <line>Sleep for a week; for the next night, I warrant,</line>
+            <line>The County Paris hath set up his rest,</line>
+            <line>That you shall rest but little. God forgive me,</line>
+            <line>Marry, and amen, how sound is she asleep!</line>
+            <line>I must needs wake her. Madam, madam, madam!</line>
+            <line>Ay, let the county take you in your bed;</line>
+            <line>He'll fright you up, i' faith. Will it not be?</line>
+            <stagedir>Undraws the curtains</stagedir>
+            <line>What, dress'd! and in your clothes! and down again!</line>
+            <line>I must needs wake you; Lady! lady! lady!</line>
+            <line>Alas, alas! Help, help! my lady's dead!</line>
+            <line>O, well-a-day, that ever I was born!</line>
+            <line>Some aqua vitae, ho! My lord! my lady!</line>
+         </speech>
+         <stagedir>Enter LADY CAPULET</stagedir>
+         <speech>
+            <speaker>LADY CAPULET</speaker>
+            <line>What noise is here?</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>O lamentable day!</line>
+         </speech>
+         <speech>
+            <speaker>LADY CAPULET</speaker>
+            <line>What is the matter?</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Look, look! O heavy day!</line>
+         </speech>
+         <speech>
+            <speaker>LADY CAPULET</speaker>
+            <line>O me, O me! My child, my only life,</line>
+            <line>Revive, look up, or I will die with thee!</line>
+            <line>Help, help! Call help.</line>
+         </speech>
+         <stagedir>Enter CAPULET</stagedir>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>For shame, bring Juliet forth; her lord is come.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>She's dead, deceased, she's dead; alack the day!</line>
+         </speech>
+         <speech>
+            <speaker>LADY CAPULET</speaker>
+            <line>Alack the day, she's dead, she's dead, she's dead!</line>
+         </speech>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>Ha! let me see her: out, alas! she's cold:</line>
+            <line>Her blood is settled, and her joints are stiff;</line>
+            <line>Life and these lips have long been separated:</line>
+            <line>Death lies on her like an untimely frost</line>
+            <line>Upon the sweetest flower of all the field.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>O lamentable day!</line>
+         </speech>
+         <speech>
+            <speaker>LADY CAPULET</speaker>
+            <line>O woful time!</line>
+         </speech>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>Death, that hath ta'en her hence to make me wail,</line>
+            <line>Ties up my tongue, and will not let me speak.</line>
+         </speech>
+         <stagedir>Enter FRIAR LAURENCE and PARIS, with Musicians</stagedir>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Come, is the bride ready to go to church?</line>
+         </speech>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>Ready to go, but never to return.</line>
+            <line>O son! the night before thy wedding-day</line>
+            <line>Hath Death lain with thy wife. There she lies,</line>
+            <line>Flower as she was, deflowered by him.</line>
+            <line>Death is my son-in-law, Death is my heir;</line>
+            <line>My daughter he hath wedded: I will die,</line>
+            <line>And leave him all; life, living, all is Death's.</line>
+         </speech>
+         <speech>
+            <speaker>PARIS</speaker>
+            <line>Have I thought long to see this morning's face,</line>
+            <line>And doth it give me such a sight as this?</line>
+         </speech>
+         <speech>
+            <speaker>LADY CAPULET</speaker>
+            <line>Accursed, unhappy, wretched, hateful day!</line>
+            <line>Most miserable hour that e'er time saw</line>
+            <line>In lasting labour of his pilgrimage!</line>
+            <line>But one, poor one, one poor and loving child,</line>
+            <line>But one thing to rejoice and solace in,</line>
+            <line>And cruel death hath catch'd it from my sight!</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>O woe! O woful, woful, woful day!</line>
+            <line>Most lamentable day, most woful day,</line>
+            <line>That ever, ever, I did yet behold!</line>
+            <line>O day! O day! O day! O hateful day!</line>
+            <line>Never was seen so black a day as this:</line>
+            <line>O woful day, O woful day!</line>
+         </speech>
+         <speech>
+            <speaker>PARIS</speaker>
+            <line>Beguiled, divorced, wronged, spited, slain!</line>
+            <line>Most detestable death, by thee beguil'd,</line>
+            <line>By cruel cruel thee quite overthrown!</line>
+            <line>O love! O life! not life, but love in death!</line>
+         </speech>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>Despised, distressed, hated, martyr'd, kill'd!</line>
+            <line>Uncomfortable time, why camest thou now</line>
+            <line>To murder, murder our solemnity?</line>
+            <line>O child! O child! my soul, and not my child!</line>
+            <line>Dead art thou! Alack! my child is dead;</line>
+            <line>And with my child my joys are buried.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Peace, ho, for shame! confusion's cure lives not</line>
+            <line>In these confusions. Heaven and yourself</line>
+            <line>Had part in this fair maid; now heaven hath all,</line>
+            <line>And all the better is it for the maid:</line>
+            <line>Your part in her you could not keep from death,</line>
+            <line>But heaven keeps his part in eternal life.</line>
+            <line>The most you sought was her promotion;</line>
+            <line>For 'twas your heaven she should be advanced:</line>
+            <line>And weep ye now, seeing she is advanced</line>
+            <line>Above the clouds, as high as heaven itself?</line>
+            <line>O, in this love, you love your child so ill,</line>
+            <line>That you run mad, seeing that she is well:</line>
+            <line>She's not well married that lives married long;</line>
+            <line>But she's best married that dies married young.</line>
+            <line>Dry up your tears, and stick your rosemary</line>
+            <line>On this fair corse; and, as the custom is,</line>
+            <line>In all her best array bear her to church:</line>
+            <line>For though fond nature bids us an lament,</line>
+            <line>Yet nature's tears are reason's merriment.</line>
+         </speech>
+         <speech>
+            <speaker>CAPULET</speaker>
+            <line>All things that we ordained festival,</line>
+            <line>Turn from their office to black funeral;</line>
+            <line>Our instruments to melancholy bells,</line>
+            <line>Our wedding cheer to a sad burial feast,</line>
+            <line>Our solemn hymns to sullen dirges change,</line>
+            <line>Our bridal flowers serve for a buried corse,</line>
+            <line>And all things change them to the contrary.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Sir, go you in; and, madam, go with him;</line>
+            <line>And go, Sir Paris; every one prepare</line>
+            <line>To follow this fair corse unto her grave:</line>
+            <line>The heavens do lour upon you for some ill;</line>
+            <line>Move them no more by crossing their high will.</line>
+         </speech>
+         <stagedir>Exeunt CAPULET, LADY CAPULET, PARIS, and FRIAR LAURENCE</stagedir>
+         <speech>
+            <speaker>First Musician</speaker>
+            <line>Faith, we may put up our pipes, and be gone.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Honest goodfellows, ah, put up, put up;</line>
+            <line>For, well you know, this is a pitiful case.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>First Musician</speaker>
+            <line>Ay, by my troth, the case may be amended.</line>
+         </speech>
+         <stagedir>Enter PETER</stagedir>
+         <speech>
+            <speaker>PETER</speaker>
+            <line>Musicians, O, musicians, 'Heart's ease, Heart's</line>
+            <line>ease:' O, an you will have me live, play 'Heart's ease.'</line>
+         </speech>
+         <speech>
+            <speaker>First Musician</speaker>
+            <line>Why 'Heart's ease?'</line>
+         </speech>
+         <speech>
+            <speaker>PETER</speaker>
+            <line>O, musicians, because my heart itself plays 'My</line>
+            <line>heart is full of woe:' O, play me some merry dump,</line>
+            <line>to comfort me.</line>
+         </speech>
+         <speech>
+            <speaker>First Musician</speaker>
+            <line>Not a dump we; 'tis no time to play now.</line>
+         </speech>
+         <speech>
+            <speaker>PETER</speaker>
+            <line>You will not, then?</line>
+         </speech>
+         <speech>
+            <speaker>First Musician</speaker>
+            <line>No.</line>
+         </speech>
+         <speech>
+            <speaker>PETER</speaker>
+            <line>I will then give it you soundly.</line>
+         </speech>
+         <speech>
+            <speaker>First Musician</speaker>
+            <line>What will you give us?</line>
+         </speech>
+         <speech>
+            <speaker>PETER</speaker>
+            <line>No money, on my faith, but the gleek;</line>
+            <line>I will give you the minstrel.</line>
+         </speech>
+         <speech>
+            <speaker>First Musician</speaker>
+            <line>Then I will give you the serving-creature.</line>
+         </speech>
+         <speech>
+            <speaker>PETER</speaker>
+            <line>Then will I lay the serving-creature's dagger on</line>
+            <line>your pate. I will carry no crotchets: I'll re you,</line>
+            <line>I'll fa you; do you note me?</line>
+         </speech>
+         <speech>
+            <speaker>First Musician</speaker>
+            <line>An you re us and fa us, you note us.</line>
+         </speech>
+         <speech>
+            <speaker>Second Musician</speaker>
+            <line>Pray you, put up your dagger, and put out your wit.</line>
+         </speech>
+         <speech>
+            <speaker>PETER</speaker>
+            <line>Then have at you with my wit! I will dry-beat you</line>
+            <line>with an iron wit, and put up my iron dagger. Answer</line>
+            <line>me like men:</line>
+            <line>'When griping grief the heart doth wound,</line>
+            <line>And doleful dumps the mind oppress,</line>
+            <line>Then music with her silver sound'--</line>
+            <line>why 'silver sound'? why 'music with her silver</line>
+            <line>sound'? What say you, Simon Catling?</line>
+         </speech>
+         <speech>
+            <speaker>Musician</speaker>
+            <line>Marry, sir, because silver hath a sweet sound.</line>
+         </speech>
+         <speech>
+            <speaker>PETER</speaker>
+            <line>Pretty! What say you, Hugh Rebeck?</line>
+         </speech>
+         <speech>
+            <speaker>Second Musician</speaker>
+            <line>I say 'silver sound,' because musicians sound for silver.</line>
+         </speech>
+         <speech>
+            <speaker>PETER</speaker>
+            <line>Pretty too! What say you, James Soundpost?</line>
+         </speech>
+         <speech>
+            <speaker>Third Musician</speaker>
+            <line>Faith, I know not what to say.</line>
+         </speech>
+         <speech>
+            <speaker>PETER</speaker>
+            <line>O, I cry you mercy; you are the singer: I will say</line>
+            <line>for you. It is 'music with her silver sound,'</line>
+            <line>because musicians have no gold for sounding:</line>
+            <line>'Then music with her silver sound</line>
+            <line>With speedy help doth lend redress.'</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>First Musician</speaker>
+            <line>What a pestilent knave is this same!</line>
+         </speech>
+         <speech>
+            <speaker>Second Musician</speaker>
+            <line>Hang him, Jack! Come, we'll in here; tarry for the</line>
+            <line>mourners, and stay dinner.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+</act>

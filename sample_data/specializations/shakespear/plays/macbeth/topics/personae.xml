@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE personae
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:personae" "personae.dtd">
+<personae id="personae">
+   <title>Dramatis Personae</title>
+   <personae-body>
+      <persona>DUNCAN, king of Scotland.</persona>
+      <pgroup>
+         <persona>MALCOLM</persona>
+         <persona>DONALBAIN</persona>
+         <grpdescr>his sons.</grpdescr>
+      </pgroup>
+      <pgroup>
+         <persona>MACBETH</persona>
+         <persona>BANQUO</persona>
+         <grpdescr>generals of the king's army.</grpdescr>
+      </pgroup>
+      <pgroup>
+         <persona>MACDUFF</persona>
+         <persona>LENNOX</persona>
+         <persona>ROSS</persona>
+         <persona>MENTEITH</persona>
+         <persona>ANGUS</persona>
+         <persona>CAITHNESS</persona>
+         <grpdescr>noblemen of Scotland.</grpdescr>
+      </pgroup>
+      <persona>FLEANCE, son to Banquo.</persona>
+      <persona>SIWARD, Earl of Northumberland, general of the English forces.</persona>
+      <persona>YOUNG SIWARD, his son.</persona>
+      <persona>SEYTON, an officer attending on Macbeth.</persona>
+      <persona>Boy, son to Macduff. </persona>
+      <persona>An English Doctor. </persona>
+      <persona>A Scotch Doctor. </persona>
+      <persona>A Soldier.</persona>
+      <persona>A Porter.</persona>
+      <persona>An Old Man.</persona>
+      <persona>LADY MACBETH</persona>
+      <persona>LADY MACDUFF</persona>
+      <persona>Gentlewoman attending on Lady Macbeth. </persona>
+      <persona>HECATE</persona>
+      <persona>Three Witches.</persona>
+      <persona>Apparitions.</persona>
+      <persona>Lords, Gentlemen, Officers, Soldiers, Murderers, Attendants, and Messengers. </persona>
+   </personae-body>
+</personae>

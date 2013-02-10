@@ -1,0 +1,1826 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:act" "act.dtd">
+<act id="act-2">
+   <title>ACT II</title>
+   <scene id="act-2-scene-1">
+      <title>SCENE I.  Rochester. An inn yard.</title>
+      <scene-body>
+         <stagedir>Enter a Carrier with a lantern in his hand</stagedir>
+         <speech>
+            <speaker>First Carrier</speaker>
+            <line>Heigh-ho! an it be not four by the day, I'll be</line>
+            <line>hanged: Charles' wain is over the new chimney, and</line>
+            <line>yet our horse not packed. What, ostler!</line>
+         </speech>
+         <speech>
+            <speaker>Ostler</speaker>
+            <line>
+               <stagedir>Within</stagedir>   Anon, anon.</line>
+         </speech>
+         <speech>
+            <speaker>First Carrier</speaker>
+            <line>I prithee, Tom, beat Cut's saddle, put a few flocks</line>
+            <line>in the point; poor jade, is wrung in the withers out</line>
+            <line>of all cess.</line>
+         </speech>
+         <stagedir>Enter another Carrier</stagedir>
+         <speech>
+            <speaker>Second Carrier</speaker>
+            <line>Peas and beans are as dank here as a dog, and that</line>
+            <line>is the next way to give poor jades the bots: this</line>
+            <line>house is turned upside down since Robin Ostler died.</line>
+         </speech>
+         <speech>
+            <speaker>First Carrier</speaker>
+            <line>Poor fellow, never joyed since the price of oats</line>
+            <line>rose; it was the death of him.</line>
+         </speech>
+         <speech>
+            <speaker>Second Carrier</speaker>
+            <line>I think this be the most villanous house in all</line>
+            <line>London road for fleas: I am stung like a tench.</line>
+         </speech>
+         <speech>
+            <speaker>First Carrier</speaker>
+            <line>Like a tench! by the mass, there is ne'er a king</line>
+            <line>christen could be better bit than I have been since</line>
+            <line>the first cock.</line>
+         </speech>
+         <speech>
+            <speaker>Second Carrier</speaker>
+            <line>Why, they will allow us ne'er a jordan, and then we</line>
+            <line>leak in your chimney; and your chamber-lie breeds</line>
+            <line>fleas like a loach.</line>
+         </speech>
+         <speech>
+            <speaker>First Carrier</speaker>
+            <line>What, ostler! come away and be hanged!</line>
+         </speech>
+         <speech>
+            <speaker>Second Carrier</speaker>
+            <line>I have a gammon of bacon and two razors of ginger,</line>
+            <line>to be delivered as far as Charing-cross.</line>
+         </speech>
+         <speech>
+            <speaker>First Carrier</speaker>
+            <line>God's body! the turkeys in my pannier are quite</line>
+            <line>starved. What, ostler! A plague on thee! hast thou</line>
+            <line>never an eye in thy head? canst not hear? An</line>
+            <line>'twere not as good deed as drink, to break the pate</line>
+            <line>on thee, I am a very villain. Come, and be hanged!</line>
+            <line>hast thou no faith in thee?</line>
+         </speech>
+         <stagedir>Enter GADSHILL</stagedir>
+         <speech>
+            <speaker>GADSHILL</speaker>
+            <line>Good morrow, carriers. What's o'clock?</line>
+         </speech>
+         <speech>
+            <speaker>First Carrier</speaker>
+            <line>I think it be two o'clock.</line>
+         </speech>
+         <speech>
+            <speaker>GADSHILL</speaker>
+            <line>I pray thee lend me thy lantern, to see my gelding</line>
+            <line>in the stable.</line>
+         </speech>
+         <speech>
+            <speaker>First Carrier</speaker>
+            <line>Nay, by God, soft; I know a trick worth two of that, i' faith.</line>
+         </speech>
+         <speech>
+            <speaker>GADSHILL</speaker>
+            <line>I pray thee, lend me thine.</line>
+         </speech>
+         <speech>
+            <speaker>Second Carrier</speaker>
+            <line>Ay, when? can'st tell? Lend me thy lantern, quoth</line>
+            <line>he? marry, I'll see thee hanged first.</line>
+         </speech>
+         <speech>
+            <speaker>GADSHILL</speaker>
+            <line>Sirrah carrier, what time do you mean to come to London?</line>
+         </speech>
+         <speech>
+            <speaker>Second Carrier</speaker>
+            <line>Time enough to go to bed with a candle, I warrant</line>
+            <line>thee. Come, neighbour Mugs, we'll call up the</line>
+            <line>gentleman: they will along with company, for they</line>
+            <line>have great charge.</line>
+         </speech>
+         <stagedir>Exeunt carriers</stagedir>
+         <speech>
+            <speaker>GADSHILL</speaker>
+            <line>What, ho! chamberlain!</line>
+         </speech>
+         <speech>
+            <speaker>Chamberlain</speaker>
+            <line>
+               <stagedir>Within</stagedir>  At hand, quoth pick-purse.</line>
+         </speech>
+         <speech>
+            <speaker>GADSHILL</speaker>
+            <line>That's even as fair as--at hand, quoth the</line>
+            <line>chamberlain; for thou variest no more from picking</line>
+            <line>of purses than giving direction doth from labouring;</line>
+            <line>thou layest the plot how.</line>
+         </speech>
+         <stagedir>Enter Chamberlain</stagedir>
+         <speech>
+            <speaker>Chamberlain</speaker>
+            <line>Good morrow, Master Gadshill. It holds current that</line>
+            <line>I told you yesternight: there's a franklin in the</line>
+            <line>wild of Kent hath brought three hundred marks with</line>
+            <line>him in gold: I heard him tell it to one of his</line>
+            <line>company last night at supper; a kind of auditor; one</line>
+            <line>that hath abundance of charge too, God knows what.</line>
+            <line>They are up already, and call for eggs and butter;</line>
+            <line>they will away presently.</line>
+         </speech>
+         <speech>
+            <speaker>GADSHILL</speaker>
+            <line>Sirrah, if they meet not with Saint Nicholas'</line>
+            <line>clerks, I'll give thee this neck.</line>
+         </speech>
+         <speech>
+            <speaker>Chamberlain</speaker>
+            <line>No, I'll none of it: I pray thee keep that for the</line>
+            <line>hangman; for I know thou worshippest St. Nicholas</line>
+            <line>as truly as a man of falsehood may.</line>
+         </speech>
+         <speech>
+            <speaker>GADSHILL</speaker>
+            <line>What talkest thou to me of the hangman? if I hang,</line>
+            <line>I'll make a fat pair of gallows; for if I hang, old</line>
+            <line>Sir John hangs with me, and thou knowest he is no</line>
+            <line>starveling. Tut! there are other Trojans that thou</line>
+            <line>dreamest not of, the which for sport sake are</line>
+            <line>content to do the profession some grace; that would,</line>
+            <line>if matters should be looked into, for their own</line>
+            <line>credit sake, make all whole. I am joined with no</line>
+            <line>foot-land rakers, no long-staff sixpenny strikers,</line>
+            <line>none of these mad mustachio purple-hued malt-worms;</line>
+            <line>but with nobility and tranquillity, burgomasters and</line>
+            <line>great oneyers, such as can hold in, such as will</line>
+            <line>strike sooner than speak, and speak sooner than</line>
+            <line>drink, and drink sooner than pray: and yet, zounds,</line>
+            <line>I lie; for they pray continually to their saint, the</line>
+            <line>commonwealth; or rather, not pray to her, but prey</line>
+            <line>on her, for they ride up and down on her and make</line>
+            <line>her their boots.</line>
+         </speech>
+         <speech>
+            <speaker>Chamberlain</speaker>
+            <line>What, the commonwealth their boots? will she hold</line>
+            <line>out water in foul way?</line>
+         </speech>
+         <speech>
+            <speaker>GADSHILL</speaker>
+            <line>She will, she will; justice hath liquored her. We</line>
+            <line>steal as in a castle, cocksure; we have the receipt</line>
+            <line>of fern-seed, we walk invisible.</line>
+         </speech>
+         <speech>
+            <speaker>Chamberlain</speaker>
+            <line>Nay, by my faith, I think you are more beholding to</line>
+            <line>the night than to fern-seed for your walking invisible.</line>
+         </speech>
+         <speech>
+            <speaker>GADSHILL</speaker>
+            <line>Give me thy hand: thou shalt have a share in our</line>
+            <line>purchase, as I am a true man.</line>
+         </speech>
+         <speech>
+            <speaker>Chamberlain</speaker>
+            <line>Nay, rather let me have it, as you are a false thief.</line>
+         </speech>
+         <speech>
+            <speaker>GADSHILL</speaker>
+            <line>Go to; 'homo' is a common name to all men. Bid the</line>
+            <line>ostler bring my gelding out of the stable. Farewell,</line>
+            <line>you muddy knave.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-2">
+      <title>SCENE II.  The highway, near Gadshill.</title>
+      <scene-body>
+         <stagedir>Enter PRINCE HENRY and POINS</stagedir>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>Come, shelter, shelter: I have removed Falstaff's</line>
+            <line>horse, and he frets like a gummed velvet.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Stand close.</line>
+         </speech>
+         <stagedir>Enter FALSTAFF</stagedir>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Poins! Poins, and be hanged! Poins!</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Peace, ye fat-kidneyed rascal! what a brawling dost</line>
+            <line>thou keep!</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Where's Poins, Hal?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>He is walked up to the top of the hill: I'll go seek him.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>I am accursed to rob in that thief's company: the</line>
+            <line>rascal hath removed my horse, and tied him I know</line>
+            <line>not where. If I travel but four foot by the squier</line>
+            <line>further afoot, I shall break my wind. Well, I doubt</line>
+            <line>not but to die a fair death for all this, if I</line>
+            <line>'scape hanging for killing that rogue. I have</line>
+            <line>forsworn his company hourly any time this two and</line>
+            <line>twenty years, and yet I am bewitched with the</line>
+            <line>rogue's company. If the rascal hath not given me</line>
+            <line>medicines to make me love him, I'll be hanged; it</line>
+            <line>could not be else: I have drunk medicines. Poins!</line>
+            <line>Hal! a plague upon you both! Bardolph! Peto!</line>
+            <line>I'll starve ere I'll rob a foot further. An 'twere</line>
+            <line>not as good a deed as drink, to turn true man and to</line>
+            <line>leave these rogues, I am the veriest varlet that</line>
+            <line>ever chewed with a tooth. Eight yards of uneven</line>
+            <line>ground is threescore and ten miles afoot with me;</line>
+            <line>and the stony-hearted villains know it well enough:</line>
+            <line>a plague upon it when thieves cannot be true one to another!</line>
+            <stagedir>They whistle</stagedir>
+            <line>Whew! A plague upon you all! Give me my horse, you</line>
+            <line>rogues; give me my horse, and be hanged!</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Peace, ye fat-guts! lie down; lay thine ear close</line>
+            <line>to the ground and list if thou canst hear the tread</line>
+            <line>of travellers.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Have you any levers to lift me up again, being down?</line>
+            <line>'Sblood, I'll not bear mine own flesh so far afoot</line>
+            <line>again for all the coin in thy father's exchequer.</line>
+            <line>What a plague mean ye to colt me thus?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Thou liest; thou art not colted, thou art uncolted.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>I prithee, good Prince Hal, help me to my horse,</line>
+            <line>good king's son.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Out, ye rogue! shall I be your ostler?</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Go, hang thyself in thine own heir-apparent</line>
+            <line>garters! If I be ta'en, I'll peach for this. An I</line>
+            <line>have not ballads made on you all and sung to filthy</line>
+            <line>tunes, let a cup of sack be my poison: when a jest</line>
+            <line>is so forward, and afoot too! I hate it.</line>
+         </speech>
+         <stagedir>Enter GADSHILL, BARDOLPH and PETO</stagedir>
+         <speech>
+            <speaker>GADSHILL</speaker>
+            <line>Stand.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>So I do, against my will.</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>O, 'tis our setter: I know his voice. Bardolph,</line>
+            <line>what news?</line>
+         </speech>
+         <speech>
+            <speaker>BARDOLPH</speaker>
+            <line>Case ye, case ye; on with your vizards: there 's</line>
+            <line>money of the king's coming down the hill; 'tis going</line>
+            <line>to the king's exchequer.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>You lie, ye rogue; 'tis going to the king's tavern.</line>
+         </speech>
+         <speech>
+            <speaker>GADSHILL</speaker>
+            <line>There's enough to make us all.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>To be hanged.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Sirs, you four shall front them in the narrow lane;</line>
+            <line>Ned Poins and I will walk lower: if they 'scape</line>
+            <line>from your encounter, then they light on us.</line>
+         </speech>
+         <speech>
+            <speaker>PETO</speaker>
+            <line>How many be there of them?</line>
+         </speech>
+         <speech>
+            <speaker>GADSHILL</speaker>
+            <line>Some eight or ten.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>'Zounds, will they not rob us?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>What, a coward, Sir John Paunch?</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Indeed, I am not John of Gaunt, your grandfather;</line>
+            <line>but yet no coward, Hal.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Well, we leave that to the proof.</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>Sirrah Jack, thy horse stands behind the hedge:</line>
+            <line>when thou needest him, there thou shalt find him.</line>
+            <line>Farewell, and stand fast.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Now cannot I strike him, if I should be hanged.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Ned, where are our disguises?</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>Here, hard by: stand close.</line>
+         </speech>
+         <stagedir>Exeunt PRINCE HENRY and POINS</stagedir>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Now, my masters, happy man be his dole, say I:</line>
+            <line>every man to his business.</line>
+         </speech>
+         <stagedir>Enter the Travellers</stagedir>
+         <speech>
+            <speaker>First Traveller</speaker>
+            <line>Come, neighbour: the boy shall lead our horses down</line>
+            <line>the hill; we'll walk afoot awhile, and ease our legs.</line>
+         </speech>
+         <speech>
+            <speaker>Thieves</speaker>
+            <line>Stand!</line>
+         </speech>
+         <speech>
+            <speaker>Travellers</speaker>
+            <line>Jesus bless us!</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Strike; down with them; cut the villains' throats:</line>
+            <line>ah! whoreson caterpillars! bacon-fed knaves! they</line>
+            <line>hate us youth: down with them: fleece them.</line>
+         </speech>
+         <speech>
+            <speaker>Travellers</speaker>
+            <line>O, we are undone, both we and ours for ever!</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Hang ye, gorbellied knaves, are ye undone? No, ye</line>
+            <line>fat chuffs: I would your store were here! On,</line>
+            <line>bacons, on! What, ye knaves! young men must live.</line>
+            <line>You are Grand-jurors, are ye? we'll jure ye, 'faith.</line>
+         </speech>
+         <stagedir>Here they rob them and bind them. Exeunt</stagedir>
+         <stagedir>Re-enter PRINCE HENRY and POINS</stagedir>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>The thieves have bound the true men. Now could thou</line>
+            <line>and I rob the thieves and go merrily to London, it</line>
+            <line>would be argument for a week, laughter for a month</line>
+            <line>and a good jest for ever.</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>Stand close; I hear them coming.</line>
+         </speech>
+         <stagedir>Enter the Thieves again</stagedir>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Come, my masters, let us share, and then to horse</line>
+            <line>before day. An the Prince and Poins be not two</line>
+            <line>arrant cowards, there's no equity stirring: there's</line>
+            <line>no more valour in that Poins than in a wild-duck.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Your money!</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>Villains!</line>
+         </speech>
+         <stagedir>As they are sharing, the Prince and Poins set upon
+them; they all run away; and Falstaff, after a blow
+or two, runs away too, leaving the booty behind them</stagedir>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Got with much ease. Now merrily to horse:</line>
+            <line>The thieves are all scatter'd and possess'd with fear</line>
+            <line>So strongly that they dare not meet each other;</line>
+            <line>Each takes his fellow for an officer.</line>
+            <line>Away, good Ned. Falstaff sweats to death,</line>
+            <line>And lards the lean earth as he walks along:</line>
+            <line>Were 't not for laughing, I should pity him.</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>How the rogue roar'd!</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-3">
+      <title>SCENE III.  Warkworth castle</title>
+      <scene-body>
+         <stagedir>Enter HOTSPUR, solus, reading a letter</stagedir>
+         <speech>
+            <speaker>HOTSPUR</speaker>
+            <line>'But for mine own part, my lord, I could be well</line>
+            <line>contented to be there, in respect of the love I bear</line>
+            <line>your house.' He could be contented: why is he not,</line>
+            <line>then? In respect of the love he bears our house:</line>
+            <line>he shows in this, he loves his own barn better than</line>
+            <line>he loves our house. Let me see some more. 'The</line>
+            <line>purpose you undertake is dangerous;'--why, that's</line>
+            <line>certain: 'tis dangerous to take a cold, to sleep, to</line>
+            <line>drink; but I tell you, my lord fool, out of this</line>
+            <line>nettle, danger, we pluck this flower, safety. 'The</line>
+            <line>purpose you undertake is dangerous; the friends you</line>
+            <line>have named uncertain; the time itself unsorted; and</line>
+            <line>your whole plot too light for the counterpoise of so</line>
+            <line>great an opposition.' Say you so, say you so? I say</line>
+            <line>unto you again, you are a shallow cowardly hind, and</line>
+            <line>you lie.  What a lack-brain is this! By the Lord,</line>
+            <line>our plot is a good plot as ever was laid; our</line>
+            <line>friends true and constant: a good plot, good</line>
+            <line>friends, and full of expectation; an excellent plot,</line>
+            <line>very good friends. What a frosty-spirited rogue is</line>
+            <line>this! Why, my lord of York commends the plot and the</line>
+            <line>general course of action. 'Zounds, an I were now by</line>
+            <line>this rascal, I could brain him with his lady's fan.</line>
+            <line>Is there not my father, my uncle and myself? lord</line>
+            <line>Edmund Mortimer, My lord of York and Owen Glendower?</line>
+            <line>is there not besides the Douglas? have I not all</line>
+            <line>their letters to meet me in arms by the ninth of the</line>
+            <line>next month? and are they not some of them set</line>
+            <line>forward already? What a pagan rascal is this! an</line>
+            <line>infidel! Ha! you shall see now in very sincerity</line>
+            <line>of fear and cold heart, will he to the king and lay</line>
+            <line>open all our proceedings. O, I could divide myself</line>
+            <line>and go to buffets, for moving such a dish of</line>
+            <line>skim milk with so honourable an action! Hang him!</line>
+            <line>let him tell the king: we are prepared. I will set</line>
+            <line>forward to-night.</line>
+            <stagedir>Enter LADY PERCY</stagedir>
+            <line>How now, Kate! I must leave you within these two hours.</line>
+         </speech>
+         <speech>
+            <speaker>LADY PERCY</speaker>
+            <line>O, my good lord, why are you thus alone?</line>
+            <line>For what offence have I this fortnight been</line>
+            <line>A banish'd woman from my Harry's bed?</line>
+            <line>Tell me, sweet lord, what is't that takes from thee</line>
+            <line>Thy stomach, pleasure and thy golden sleep?</line>
+            <line>Why dost thou bend thine eyes upon the earth,</line>
+            <line>And start so often when thou sit'st alone?</line>
+            <line>Why hast thou lost the fresh blood in thy cheeks;</line>
+            <line>And given my treasures and my rights of thee</line>
+            <line>To thick-eyed musing and cursed melancholy?</line>
+            <line>In thy faint slumbers I by thee have watch'd,</line>
+            <line>And heard thee murmur tales of iron wars;</line>
+            <line>Speak terms of manage to thy bounding steed;</line>
+            <line>Cry 'Courage! to the field!' And thou hast talk'd</line>
+            <line>Of sallies and retires, of trenches, tents,</line>
+            <line>Of palisadoes, frontiers, parapets,</line>
+            <line>Of basilisks, of cannon, culverin,</line>
+            <line>Of prisoners' ransom and of soldiers slain,</line>
+            <line>And all the currents of a heady fight.</line>
+            <line>Thy spirit within thee hath been so at war</line>
+            <line>And thus hath so bestirr'd thee in thy sleep,</line>
+            <line>That beads of sweat have stood upon thy brow</line>
+            <line>Like bubbles in a late-disturbed stream;</line>
+            <line>And in thy face strange motions have appear'd,</line>
+            <line>Such as we see when men restrain their breath</line>
+            <line>On some great sudden hest. O, what portents are these?</line>
+            <line>Some heavy business hath my lord in hand,</line>
+            <line>And I must know it, else he loves me not.</line>
+         </speech>
+         <speech>
+            <speaker>HOTSPUR</speaker>
+            <line>What, ho!</line>
+            <stagedir>Enter Servant</stagedir>
+            <line>Is Gilliams with the packet gone?</line>
+         </speech>
+         <speech>
+            <speaker>Servant</speaker>
+            <line>He is, my lord, an hour ago.</line>
+         </speech>
+         <speech>
+            <speaker>HOTSPUR</speaker>
+            <line>Hath Butler brought those horses from the sheriff?</line>
+         </speech>
+         <speech>
+            <speaker>Servant</speaker>
+            <line>One horse, my lord, he brought even now.</line>
+         </speech>
+         <speech>
+            <speaker>HOTSPUR</speaker>
+            <line>What horse? a roan, a crop-ear, is it not?</line>
+         </speech>
+         <speech>
+            <speaker>Servant</speaker>
+            <line>It is, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>HOTSPUR</speaker>
+            <line>That roan shall by my throne.</line>
+            <line>Well, I will back him straight: O esperance!</line>
+            <line>Bid Butler lead him forth into the park.</line>
+         </speech>
+         <stagedir>Exit Servant</stagedir>
+         <speech>
+            <speaker>LADY PERCY</speaker>
+            <line>But hear you, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>HOTSPUR</speaker>
+            <line>What say'st thou, my lady?</line>
+         </speech>
+         <speech>
+            <speaker>LADY PERCY</speaker>
+            <line>What is it carries you away?</line>
+         </speech>
+         <speech>
+            <speaker>HOTSPUR</speaker>
+            <line>Why, my horse, my love, my horse.</line>
+         </speech>
+         <speech>
+            <speaker>LADY PERCY</speaker>
+            <line>Out, you mad-headed ape!</line>
+            <line>A weasel hath not such a deal of spleen</line>
+            <line>As you are toss'd with. In faith,</line>
+            <line>I'll know your business, Harry, that I will.</line>
+            <line>I fear my brother Mortimer doth stir</line>
+            <line>About his title, and hath sent for you</line>
+            <line>To line his enterprise: but if you go,--</line>
+         </speech>
+         <speech>
+            <speaker>HOTSPUR</speaker>
+            <line>So far afoot, I shall be weary, love.</line>
+         </speech>
+         <speech>
+            <speaker>LADY PERCY</speaker>
+            <line>Come, come, you paraquito, answer me</line>
+            <line>Directly unto this question that I ask:</line>
+            <line>In faith, I'll break thy little finger, Harry,</line>
+            <line>An if thou wilt not tell me all things true.</line>
+         </speech>
+         <speech>
+            <speaker>HOTSPUR</speaker>
+            <line>Away,</line>
+            <line>Away, you trifler! Love! I love thee not,</line>
+            <line>I care not for thee, Kate: this is no world</line>
+            <line>To play with mammets and to tilt with lips:</line>
+            <line>We must have bloody noses and crack'd crowns,</line>
+            <line>And pass them current too. God's me, my horse!</line>
+            <line>What say'st thou, Kate? what would'st thou</line>
+            <line>have with me?</line>
+         </speech>
+         <speech>
+            <speaker>LADY PERCY</speaker>
+            <line>Do you not love me? do you not, indeed?</line>
+            <line>Well, do not then; for since you love me not,</line>
+            <line>I will not love myself. Do you not love me?</line>
+            <line>Nay, tell me if you speak in jest or no.</line>
+         </speech>
+         <speech>
+            <speaker>HOTSPUR</speaker>
+            <line>Come, wilt thou see me ride?</line>
+            <line>And when I am on horseback, I will swear</line>
+            <line>I love thee infinitely. But hark you, Kate;</line>
+            <line>I must not have you henceforth question me</line>
+            <line>Whither I go, nor reason whereabout:</line>
+            <line>Whither I must, I must; and, to conclude,</line>
+            <line>This evening must I leave you, gentle Kate.</line>
+            <line>I know you wise, but yet no farther wise</line>
+            <line>Than Harry Percy's wife: constant you are,</line>
+            <line>But yet a woman: and for secrecy,</line>
+            <line>No lady closer; for I well believe</line>
+            <line>Thou wilt not utter what thou dost not know;</line>
+            <line>And so far will I trust thee, gentle Kate.</line>
+         </speech>
+         <speech>
+            <speaker>LADY PERCY</speaker>
+            <line>How! so far?</line>
+         </speech>
+         <speech>
+            <speaker>HOTSPUR</speaker>
+            <line>Not an inch further. But hark you, Kate:</line>
+            <line>Whither I go, thither shall you go too;</line>
+            <line>To-day will I set forth, to-morrow you.</line>
+            <line>Will this content you, Kate?</line>
+         </speech>
+         <speech>
+            <speaker>LADY PERCY</speaker>
+            <line>It must of force.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-4">
+      <title>SCENE IV.  The Boar's-Head Tavern, Eastcheap.</title>
+      <scene-body>
+         <stagedir>Enter PRINCE HENRY and POINS</stagedir>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Ned, prithee, come out of that fat room, and lend me</line>
+            <line>thy hand to laugh a little.</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>Where hast been, Hal?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>With three or four loggerheads amongst three or four</line>
+            <line>score hogsheads. I have sounded the very</line>
+            <line>base-string of humility. Sirrah, I am sworn brother</line>
+            <line>to a leash of drawers; and can call them all by</line>
+            <line>their christen names, as Tom, Dick, and Francis.</line>
+            <line>They take it already upon their salvation, that</line>
+            <line>though I be but the prince of Wales, yet I am king</line>
+            <line>of courtesy; and tell me flatly I am no proud Jack,</line>
+            <line>like Falstaff, but a Corinthian, a lad of mettle, a</line>
+            <line>good boy, by the Lord, so they call me, and when I</line>
+            <line>am king of England, I shall command all the good</line>
+            <line>lads in Eastcheap. They call drinking deep, dyeing</line>
+            <line>scarlet; and when you breathe in your watering, they</line>
+            <line>cry  'hem!' and bid you play it off. To conclude, I</line>
+            <line>am so good a proficient in one quarter of an hour,</line>
+            <line>that I can drink with any tinker in his own language</line>
+            <line>during my life. I tell thee, Ned, thou hast lost</line>
+            <line>much honour, that thou wert not with me in this sweet</line>
+            <line>action. But, sweet Ned,--to sweeten which name of</line>
+            <line>Ned, I give thee this pennyworth of sugar, clapped</line>
+            <line>even now into my hand by an under-skinker, one that</line>
+            <line>never spake other English in his life than 'Eight</line>
+            <line>shillings and sixpence' and 'You are welcome,' with</line>
+            <line>this shrill addition, 'Anon, anon, sir! Score a pint</line>
+            <line>of bastard in the Half-Moon,' or so. But, Ned, to</line>
+            <line>drive away the time till Falstaff come, I prithee,</line>
+            <line>do thou stand in some by-room, while I question my</line>
+            <line>puny drawer to what end he gave me the sugar; and do</line>
+            <line>thou never leave calling 'Francis,' that his tale</line>
+            <line>to me may be nothing but 'Anon.' Step aside, and</line>
+            <line>I'll show thee a precedent.</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>Francis!</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Thou art perfect.</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>Francis!</line>
+         </speech>
+         <stagedir>Exit POINS</stagedir>
+         <stagedir>Enter FRANCIS</stagedir>
+         <speech>
+            <speaker>FRANCIS</speaker>
+            <line>Anon, anon, sir. Look down into the Pomgarnet, Ralph.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Come hither, Francis.</line>
+         </speech>
+         <speech>
+            <speaker>FRANCIS</speaker>
+            <line>My lord?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>How long hast thou to serve, Francis?</line>
+         </speech>
+         <speech>
+            <speaker>FRANCIS</speaker>
+            <line>Forsooth, five years, and as much as to--</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>
+               <stagedir>Within</stagedir>  Francis!</line>
+         </speech>
+         <speech>
+            <speaker>FRANCIS</speaker>
+            <line>Anon, anon, sir.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Five year! by'r lady, a long lease for the clinking</line>
+            <line>of pewter. But, Francis, darest thou be so valiant</line>
+            <line>as to play the coward with thy indenture and show it</line>
+            <line>a fair pair of heels and run from it?</line>
+         </speech>
+         <speech>
+            <speaker>FRANCIS</speaker>
+            <line>O Lord, sir, I'll be sworn upon all the books in</line>
+            <line>England, I could find in my heart.</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>
+               <stagedir>Within</stagedir>  Francis!</line>
+         </speech>
+         <speech>
+            <speaker>FRANCIS</speaker>
+            <line>Anon, sir.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>How old art thou, Francis?</line>
+         </speech>
+         <speech>
+            <speaker>FRANCIS</speaker>
+            <line>Let me see--about Michaelmas next I shall be--</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>
+               <stagedir>Within</stagedir>  Francis!</line>
+         </speech>
+         <speech>
+            <speaker>FRANCIS</speaker>
+            <line>Anon, sir. Pray stay a little, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Nay, but hark you, Francis: for the sugar thou</line>
+            <line>gavest me,'twas a pennyworth, wast't not?</line>
+         </speech>
+         <speech>
+            <speaker>FRANCIS</speaker>
+            <line>O Lord, I would it had been two!</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>I will give thee for it a thousand pound: ask me</line>
+            <line>when thou wilt, and thou shalt have it.</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>
+               <stagedir>Within</stagedir>  Francis!</line>
+         </speech>
+         <speech>
+            <speaker>FRANCIS</speaker>
+            <line>Anon, anon.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Anon, Francis? No, Francis; but to-morrow, Francis;</line>
+            <line>or, Francis, o' Thursday; or indeed, Francis, when</line>
+            <line>thou wilt. But, Francis!</line>
+         </speech>
+         <speech>
+            <speaker>FRANCIS</speaker>
+            <line>My lord?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Wilt thou rob this leathern jerkin, crystal-button,</line>
+            <line>not-pated, agate-ring, puke-stocking, caddis-garter,</line>
+            <line>smooth-tongue, Spanish-pouch,--</line>
+         </speech>
+         <speech>
+            <speaker>FRANCIS</speaker>
+            <line>O Lord, sir, who do you mean?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Why, then, your brown bastard is your only drink;</line>
+            <line>for look you, Francis, your white canvas doublet</line>
+            <line>will sully: in Barbary, sir, it cannot come to so much.</line>
+         </speech>
+         <speech>
+            <speaker>FRANCIS</speaker>
+            <line>What, sir?</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>
+               <stagedir>Within</stagedir>  Francis!</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Away, you rogue! dost thou not hear them call?</line>
+         </speech>
+         <stagedir>Here they both call him; the drawer stands amazed,
+not knowing which way to go</stagedir>
+         <stagedir>Enter Vintner</stagedir>
+         <speech>
+            <speaker>Vintner</speaker>
+            <line>What, standest thou still, and hearest such a</line>
+            <line>calling? Look to the guests within.</line>
+            <stagedir>Exit Francis</stagedir>
+            <line>My lord, old Sir John, with half-a-dozen more, are</line>
+            <line>at the door: shall I let them in?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Let them alone awhile, and then open the door.</line>
+            <stagedir>Exit Vintner</stagedir>
+            <line>Poins!</line>
+         </speech>
+         <stagedir>Re-enter POINS</stagedir>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>Anon, anon, sir.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Sirrah, Falstaff and the rest of the thieves are at</line>
+            <line>the door: shall we be merry?</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>As merry as crickets, my lad. But hark ye; what</line>
+            <line>cunning match have you made with this jest of the</line>
+            <line>drawer? come, what's the issue?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>I am now of all humours that have showed themselves</line>
+            <line>humours since the old days of goodman Adam to the</line>
+            <line>pupil age of this present twelve o'clock at midnight.</line>
+            <stagedir>Re-enter FRANCIS</stagedir>
+            <line>What's o'clock, Francis?</line>
+         </speech>
+         <speech>
+            <speaker>FRANCIS</speaker>
+            <line>Anon, anon, sir.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>That ever this fellow should have fewer words than a</line>
+            <line>parrot, and yet the son of a woman! His industry is</line>
+            <line>upstairs and downstairs; his eloquence the parcel of</line>
+            <line>a reckoning. I am not yet of Percy's mind, the</line>
+            <line>Hotspur of the north; he that kills me some six or</line>
+            <line>seven dozen of Scots at a breakfast, washes his</line>
+            <line>hands, and says to his wife 'Fie upon this quiet</line>
+            <line>life! I want work.' 'O my sweet Harry,' says she,</line>
+            <line>'how many hast thou killed to-day?' 'Give my roan</line>
+            <line>horse a drench,' says he; and answers 'Some</line>
+            <line>fourteen,' an hour after; 'a trifle, a trifle.' I</line>
+            <line>prithee, call in Falstaff: I'll play Percy, and</line>
+            <line>that damned brawn shall play Dame Mortimer his</line>
+            <line>wife. 'Rivo!' says the drunkard. Call in ribs, call in tallow.</line>
+         </speech>
+         <stagedir>Enter FALSTAFF, GADSHILL, BARDOLPH, and PETO;
+FRANCIS following with wine</stagedir>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>Welcome, Jack: where hast thou been?</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>A plague of all cowards, I say, and a vengeance too!</line>
+            <line>marry, and amen! Give me a cup of sack, boy. Ere I</line>
+            <line>lead this life long, I'll sew nether stocks and mend</line>
+            <line>them and foot them too. A plague of all cowards!</line>
+            <line>Give me a cup of sack, rogue. Is there no virtue extant?</line>
+         </speech>
+         <stagedir>He drinks</stagedir>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Didst thou never see Titan kiss a dish of butter?</line>
+            <line>pitiful-hearted Titan, that melted at the sweet tale</line>
+            <line>of the sun's! if thou didst, then behold that compound.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>You rogue, here's lime in this sack too: there is</line>
+            <line>nothing but roguery to be found in villanous man:</line>
+            <line>yet a coward is worse than a cup of sack with lime</line>
+            <line>in it. A villanous coward! Go thy ways, old Jack;</line>
+            <line>die when thou wilt, if manhood, good manhood, be</line>
+            <line>not forgot upon the face of the earth, then am I a</line>
+            <line>shotten herring. There live not three good men</line>
+            <line>unhanged in England; and one of them is fat and</line>
+            <line>grows old: God help the while! a bad world, I say.</line>
+            <line>I would I were a weaver; I could sing psalms or any</line>
+            <line>thing. A plague of all cowards, I say still.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>How now, wool-sack! what mutter you?</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>A king's son! If I do not beat thee out of thy</line>
+            <line>kingdom with a dagger of lath, and drive all thy</line>
+            <line>subjects afore thee like a flock of wild-geese,</line>
+            <line>I'll never wear hair on my face more. You Prince of Wales!</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Why, you whoreson round man, what's the matter?</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Are not you a coward? answer me to that: and Poins there?</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>'Zounds, ye fat paunch, an ye call me coward, by the</line>
+            <line>Lord, I'll stab thee.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>I call thee coward! I'll see thee damned ere I call</line>
+            <line>thee coward: but I would give a thousand pound I</line>
+            <line>could run as fast as thou canst. You are straight</line>
+            <line>enough in the shoulders, you care not who sees your</line>
+            <line>back: call you that backing of your friends? A</line>
+            <line>plague upon such backing! give me them that will</line>
+            <line>face me. Give me a cup of sack: I am a rogue, if I</line>
+            <line>drunk to-day.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>O villain! thy lips are scarce wiped since thou</line>
+            <line>drunkest last.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>All's one for that.</line>
+            <stagedir>He drinks</stagedir>
+            <line>A plague of all cowards, still say I.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>What's the matter?</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>What's the matter! there be four of us here have</line>
+            <line>ta'en a thousand pound this day morning.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Where is it, Jack? where is it?</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Where is it! taken from us it is: a hundred upon</line>
+            <line>poor four of us.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>What, a hundred, man?</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>I am a rogue, if I were not at half-sword with a</line>
+            <line>dozen of them two hours together. I have 'scaped by</line>
+            <line>miracle. I am eight times thrust through the</line>
+            <line>doublet, four through the hose; my buckler cut</line>
+            <line>through and through; my sword hacked like a</line>
+            <line>hand-saw--ecce signum! I never dealt better since</line>
+            <line>I was a man: all would not do. A plague of all</line>
+            <line>cowards! Let them speak: if they speak more or</line>
+            <line>less than truth, they are villains and the sons of darkness.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Speak, sirs; how was it?</line>
+         </speech>
+         <speech>
+            <speaker>GADSHILL</speaker>
+            <line>We four set upon some dozen--</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Sixteen at least, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>GADSHILL</speaker>
+            <line>And bound them.</line>
+         </speech>
+         <speech>
+            <speaker>PETO</speaker>
+            <line>No, no, they were not bound.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>You rogue, they were bound, every man of them; or I</line>
+            <line>am a Jew else, an Ebrew Jew.</line>
+         </speech>
+         <speech>
+            <speaker>GADSHILL</speaker>
+            <line>As we were sharing, some six or seven fresh men set upon us--</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>And unbound the rest, and then come in the other.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>What, fought you with them all?</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>All! I know not what you call all; but if I fought</line>
+            <line>not with fifty of them, I am a bunch of radish: if</line>
+            <line>there were not two or three and fifty upon poor old</line>
+            <line>Jack, then am I no two-legged creature.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Pray God you have not murdered some of them.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Nay, that's past praying for: I have peppered two</line>
+            <line>of them; two I am sure I have paid, two rogues</line>
+            <line>in buckram suits. I tell thee what, Hal, if I tell</line>
+            <line>thee a lie, spit in my face, call me horse. Thou</line>
+            <line>knowest my old ward; here I lay and thus I bore my</line>
+            <line>point. Four rogues in buckram let drive at me--</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>What, four? thou saidst but two even now.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Four, Hal; I told thee four.</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>Ay, ay, he said four.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>These four came all a-front, and mainly thrust at</line>
+            <line>me. I made me no more ado but took all their seven</line>
+            <line>points in my target, thus.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Seven? why, there were but four even now.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>In buckram?</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>Ay, four, in buckram suits.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Seven, by these hilts, or I am a villain else.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Prithee, let him alone; we shall have more anon.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Dost thou hear me, Hal?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Ay, and mark thee too, Jack.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Do so, for it is worth the listening to. These nine</line>
+            <line>in buckram that I told thee of--</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>So, two more already.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Their points being broken,--</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>Down fell their hose.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Began to give me ground: but I followed me close,</line>
+            <line>came in foot and hand; and with a thought seven of</line>
+            <line>the eleven I paid.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>O monstrous! eleven buckram men grown out of two!</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>But, as the devil would have it, three misbegotten</line>
+            <line>knaves in Kendal green came at my back and let drive</line>
+            <line>at me; for it was so dark, Hal, that thou couldst</line>
+            <line>not see thy hand.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>These lies are like their father that begets them;</line>
+            <line>gross as a mountain, open, palpable. Why, thou</line>
+            <line>clay-brained guts, thou knotty-pated fool, thou</line>
+            <line>whoreson, obscene, grease tallow-catch,--</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>What, art thou mad? art thou mad? is not the truth</line>
+            <line>the truth?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Why, how couldst thou know these men in Kendal</line>
+            <line>green, when it was so dark thou couldst not see thy</line>
+            <line>hand? come, tell us your reason: what sayest thou to this?</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>Come, your reason, Jack, your reason.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>What, upon compulsion? 'Zounds, an I were at the</line>
+            <line>strappado, or all the racks in the world, I would</line>
+            <line>not tell you on compulsion. Give you a reason on</line>
+            <line>compulsion! If reasons were as plentiful as</line>
+            <line>blackberries, I would give no man a reason upon</line>
+            <line>compulsion, I.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>I'll be no longer guilty of this sin; this sanguine</line>
+            <line>coward, this bed-presser, this horseback-breaker,</line>
+            <line>this huge hill of flesh,--</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>'Sblood, you starveling, you elf-skin, you dried</line>
+            <line>neat's tongue, you bull's pizzle, you stock-fish! O</line>
+            <line>for breath to utter what is like thee! you</line>
+            <line>tailor's-yard, you sheath, you bowcase; you vile</line>
+            <line>standing-tuck,--</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Well, breathe awhile, and then to it again: and</line>
+            <line>when thou hast tired thyself in base comparisons,</line>
+            <line>hear me speak but this.</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>Mark, Jack.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>We two saw you four set on four and bound them, and</line>
+            <line>were masters of their wealth. Mark now, how a plain</line>
+            <line>tale shall put you down. Then did we two set on you</line>
+            <line>four; and, with a word, out-faced you from your</line>
+            <line>prize, and have it; yea, and can show it you here in</line>
+            <line>the house: and, Falstaff, you carried your guts</line>
+            <line>away as nimbly, with as quick dexterity, and roared</line>
+            <line>for mercy and still run and roared, as ever I heard</line>
+            <line>bull-calf. What a slave art thou, to hack thy sword</line>
+            <line>as thou hast done, and then say it was in fight!</line>
+            <line>What trick, what device, what starting-hole, canst</line>
+            <line>thou now find out to hide thee from this open and</line>
+            <line>apparent shame?</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>Come, let's hear, Jack; what trick hast thou now?</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>By the Lord, I knew ye as well as he that made ye.</line>
+            <line>Why, hear you, my masters: was it for me to kill the</line>
+            <line>heir-apparent? should I turn upon the true prince?</line>
+            <line>why, thou knowest I am as valiant as Hercules: but</line>
+            <line>beware instinct; the lion will not touch the true</line>
+            <line>prince. Instinct is a great matter; I was now a</line>
+            <line>coward on instinct. I shall think the better of</line>
+            <line>myself and thee during my life; I for a valiant</line>
+            <line>lion, and thou for a true prince. But, by the Lord,</line>
+            <line>lads, I am glad you have the money. Hostess, clap</line>
+            <line>to the doors: watch to-night, pray to-morrow.</line>
+            <line>Gallants, lads, boys, hearts of gold, all the titles</line>
+            <line>of good fellowship come to you! What, shall we be</line>
+            <line>merry? shall we have a play extempore?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Content; and the argument shall be thy running away.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Ah, no more of that, Hal, an thou lovest me!</line>
+         </speech>
+         <stagedir>Enter Hostess</stagedir>
+         <speech>
+            <speaker>Hostess</speaker>
+            <line>O Jesu, my lord the prince!</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>How now, my lady the hostess! what sayest thou to</line>
+            <line>me?</line>
+         </speech>
+         <speech>
+            <speaker>Hostess</speaker>
+            <line>Marry, my lord, there is a nobleman of the court at</line>
+            <line>door would speak with you: he says he comes from</line>
+            <line>your father.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Give him as much as will make him a royal man, and</line>
+            <line>send him back again to my mother.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>What manner of man is he?</line>
+         </speech>
+         <speech>
+            <speaker>Hostess</speaker>
+            <line>An old man.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>What doth gravity out of his bed at midnight? Shall</line>
+            <line>I give him his answer?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Prithee, do, Jack.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>'Faith, and I'll send him packing.</line>
+         </speech>
+         <stagedir>Exit FALSTAFF</stagedir>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Now, sirs: by'r lady, you fought fair; so did you,</line>
+            <line>Peto; so did you, Bardolph: you are lions too, you</line>
+            <line>ran away upon instinct, you will not touch the true</line>
+            <line>prince; no, fie!</line>
+         </speech>
+         <speech>
+            <speaker>BARDOLPH</speaker>
+            <line>'Faith, I ran when I saw others run.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>'Faith, tell me now in earnest, how came Falstaff's</line>
+            <line>sword so hacked?</line>
+         </speech>
+         <speech>
+            <speaker>PETO</speaker>
+            <line>Why, he hacked it with his dagger, and said he would</line>
+            <line>swear truth out of England but he would make you</line>
+            <line>believe it was done in fight, and persuaded us to do the like.</line>
+         </speech>
+         <speech>
+            <speaker>BARDOLPH</speaker>
+            <line>Yea, and to tickle our noses with spear-grass to</line>
+            <line>make them bleed, and then to beslubber our garments</line>
+            <line>with it and swear it was the blood of true men. I</line>
+            <line>did that I did not this seven year before, I blushed</line>
+            <line>to hear his monstrous devices.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>O villain, thou stolest a cup of sack eighteen years</line>
+            <line>ago, and wert taken with the manner, and ever since</line>
+            <line>thou hast blushed extempore. Thou hadst fire and</line>
+            <line>sword on thy side, and yet thou rannest away: what</line>
+            <line>instinct hadst thou for it?</line>
+         </speech>
+         <speech>
+            <speaker>BARDOLPH</speaker>
+            <line>My lord, do you see these meteors? do you behold</line>
+            <line>these exhalations?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>I do.</line>
+         </speech>
+         <speech>
+            <speaker>BARDOLPH</speaker>
+            <line>What think you they portend?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Hot livers and cold purses.</line>
+         </speech>
+         <speech>
+            <speaker>BARDOLPH</speaker>
+            <line>Choler, my lord, if rightly taken.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>No, if rightly taken, halter.</line>
+            <stagedir>Re-enter FALSTAFF</stagedir>
+            <line>Here comes lean Jack, here comes bare-bone.</line>
+            <line>How now, my sweet creature of bombast!</line>
+            <line>How long is't ago, Jack, since thou sawest thine own knee?</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>My own knee! when I was about thy years, Hal, I was</line>
+            <line>not an eagle's talon in the waist; I could have</line>
+            <line>crept into any alderman's thumb-ring: a plague of</line>
+            <line>sighing and grief! it blows a man up like a</line>
+            <line>bladder. There's villanous news abroad: here was</line>
+            <line>Sir John Bracy from your father; you must to the</line>
+            <line>court in the morning. That same mad fellow of the</line>
+            <line>north, Percy, and he of Wales, that gave Amamon the</line>
+            <line>bastinado and made Lucifer cuckold and swore the</line>
+            <line>devil his true liegeman upon the cross of a Welsh</line>
+            <line>hook--what a plague call you him?</line>
+         </speech>
+         <speech>
+            <speaker>POINS</speaker>
+            <line>O, Glendower.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Owen, Owen, the same; and his son-in-law Mortimer,</line>
+            <line>and old Northumberland, and that sprightly Scot of</line>
+            <line>Scots, Douglas, that runs o' horseback up a hill</line>
+            <line>perpendicular,--</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>He that rides at high speed and with his pistol</line>
+            <line>kills a sparrow flying.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>You have hit it.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>So did he never the sparrow.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Well, that rascal hath good mettle in him; he will not run.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Why, what a rascal art thou then, to praise him so</line>
+            <line>for running!</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>O' horseback, ye cuckoo; but afoot he will not budge a foot.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Yes, Jack, upon instinct.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>I grant ye, upon instinct. Well, he is there too,</line>
+            <line>and one Mordake, and a thousand blue-caps more:</line>
+            <line>Worcester is stolen away to-night; thy father's</line>
+            <line>beard is turned white with the news: you may buy</line>
+            <line>land now as cheap as stinking mackerel.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Why, then, it is like, if there come a hot June and</line>
+            <line>this civil buffeting hold, we shall buy maidenheads</line>
+            <line>as they buy hob-nails, by the hundreds.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>By the mass, lad, thou sayest true; it is like we</line>
+            <line>shall have good trading that way. But tell me, Hal,</line>
+            <line>art not thou horrible afeard? thou being</line>
+            <line>heir-apparent, could the world pick thee out three</line>
+            <line>such enemies again as that fiend Douglas, that</line>
+            <line>spirit Percy, and that devil Glendower? Art thou</line>
+            <line>not horribly afraid? doth not thy blood thrill at</line>
+            <line>it?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Not a whit, i' faith; I lack some of thy instinct.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Well, thou wert be horribly chid tomorrow when thou</line>
+            <line>comest to thy father: if thou love me, practise an answer.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Do thou stand for my father, and examine me upon the</line>
+            <line>particulars of my life.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Shall I? content: this chair shall be my state,</line>
+            <line>this dagger my sceptre, and this cushion my crown.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Thy state is taken for a joined-stool, thy golden</line>
+            <line>sceptre for a leaden dagger, and thy precious rich</line>
+            <line>crown for a pitiful bald crown!</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Well, an the fire of grace be not quite out of thee,</line>
+            <line>now shalt thou be moved. Give me a cup of sack to</line>
+            <line>make my eyes look red, that it may be thought I have</line>
+            <line>wept; for I must speak in passion, and I will do it</line>
+            <line>in King Cambyses' vein.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Well, here is my leg.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>And here is my speech. Stand aside, nobility.</line>
+         </speech>
+         <speech>
+            <speaker>Hostess</speaker>
+            <line>O Jesu, this is excellent sport, i' faith!</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Weep not, sweet queen; for trickling tears are vain.</line>
+         </speech>
+         <speech>
+            <speaker>Hostess</speaker>
+            <line>O, the father, how he holds his countenance!</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>For God's sake, lords, convey my tristful queen;</line>
+            <line>For tears do stop the flood-gates of her eyes.</line>
+         </speech>
+         <speech>
+            <speaker>Hostess</speaker>
+            <line>O Jesu, he doth it as like one of these harlotry</line>
+            <line>players as ever I see!</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Peace, good pint-pot; peace, good tickle-brain.</line>
+            <line>Harry, I do not only marvel where thou spendest thy</line>
+            <line>time, but also how thou art accompanied: for though</line>
+            <line>the camomile, the more it is trodden on the faster</line>
+            <line>it grows, yet youth, the more it is wasted the</line>
+            <line>sooner it wears. That thou art my son, I have</line>
+            <line>partly thy mother's word, partly my own opinion,</line>
+            <line>but chiefly a villanous trick of thine eye and a</line>
+            <line>foolish-hanging of thy nether lip, that doth warrant</line>
+            <line>me. If then thou be son to me, here lies the point;</line>
+            <line>why, being son to me, art thou so pointed at? Shall</line>
+            <line>the blessed sun of heaven prove a micher and eat</line>
+            <line>blackberries? a question not to be asked. Shall</line>
+            <line>the sun of England prove a thief and take purses? a</line>
+            <line>question to be asked. There is a thing, Harry,</line>
+            <line>which thou hast often heard of and it is known to</line>
+            <line>many in our land by the name of pitch: this pitch,</line>
+            <line>as ancient writers do report, doth defile; so doth</line>
+            <line>the company thou keepest: for, Harry, now I do not</line>
+            <line>speak to thee in drink but in tears, not in</line>
+            <line>pleasure but in passion, not in words only, but in</line>
+            <line>woes also: and yet there is a virtuous man whom I</line>
+            <line>have often noted in thy company, but I know not his name.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>What manner of man, an it like your majesty?</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>A goodly portly man, i' faith, and a corpulent; of a</line>
+            <line>cheerful look, a pleasing eye and a most noble</line>
+            <line>carriage; and, as I think, his age some fifty, or,</line>
+            <line>by'r lady, inclining to three score; and now I</line>
+            <line>remember me, his name is Falstaff: if that man</line>
+            <line>should be lewdly given, he deceiveth me; for, Harry,</line>
+            <line>I see virtue in his looks. If then the tree may be</line>
+            <line>known by the fruit, as the fruit by the tree, then,</line>
+            <line>peremptorily I speak it, there is virtue in that</line>
+            <line>Falstaff: him keep with, the rest banish. And tell</line>
+            <line>me now, thou naughty varlet, tell me, where hast</line>
+            <line>thou been this month?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Dost thou speak like a king? Do thou stand for me,</line>
+            <line>and I'll play my father.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Depose me? if thou dost it half so gravely, so</line>
+            <line>majestically, both in word and matter, hang me up by</line>
+            <line>the heels for a rabbit-sucker or a poulter's hare.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Well, here I am set.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>And here I stand: judge, my masters.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Now, Harry, whence come you?</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>My noble lord, from Eastcheap.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>The complaints I hear of thee are grievous.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>'Sblood, my lord, they are false: nay, I'll tickle</line>
+            <line>ye for a young prince, i' faith.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Swearest thou, ungracious boy? henceforth ne'er look</line>
+            <line>on me. Thou art violently carried away from grace:</line>
+            <line>there is a devil haunts thee in the likeness of an</line>
+            <line>old fat man; a tun of man is thy companion. Why</line>
+            <line>dost thou converse with that trunk of humours, that</line>
+            <line>bolting-hutch of beastliness, that swollen parcel</line>
+            <line>of dropsies, that huge bombard of sack, that stuffed</line>
+            <line>cloak-bag of guts, that roasted Manningtree ox with</line>
+            <line>the pudding in his belly, that reverend vice, that</line>
+            <line>grey iniquity, that father ruffian, that vanity in</line>
+            <line>years? Wherein is he good, but to taste sack and</line>
+            <line>drink it? wherein neat and cleanly, but to carve a</line>
+            <line>capon and eat it? wherein cunning, but in craft?</line>
+            <line>wherein crafty, but in villany? wherein villanous,</line>
+            <line>but in all things? wherein worthy, but in nothing?</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>I would your grace would take me with you: whom</line>
+            <line>means your grace?</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>That villanous abominable misleader of youth,</line>
+            <line>Falstaff, that old white-bearded Satan.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>My lord, the man I know.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>I know thou dost.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>But to say I know more harm in him than in myself,</line>
+            <line>were to say more than I know. That he is old, the</line>
+            <line>more the pity, his white hairs do witness it; but</line>
+            <line>that he is, saving your reverence, a whoremaster,</line>
+            <line>that I utterly deny. If sack and sugar be a fault,</line>
+            <line>God help the wicked! if to be old and merry be a</line>
+            <line>sin, then many an old host that I know is damned: if</line>
+            <line>to be fat be to be hated, then Pharaoh's lean kine</line>
+            <line>are to be loved. No, my good lord; banish Peto,</line>
+            <line>banish Bardolph, banish Poins: but for sweet Jack</line>
+            <line>Falstaff, kind Jack Falstaff, true Jack Falstaff,</line>
+            <line>valiant Jack Falstaff, and therefore more valiant,</line>
+            <line>being, as he is, old Jack Falstaff, banish not him</line>
+            <line>thy Harry's company, banish not him thy Harry's</line>
+            <line>company: banish plump Jack, and banish all the world.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>I do, I will.</line>
+            <stagedir>A knocking heard</stagedir>
+         </speech>
+         <stagedir>Exeunt Hostess, FRANCIS, and BARDOLPH</stagedir>
+         <stagedir>Re-enter BARDOLPH, running</stagedir>
+         <speech>
+            <speaker>BARDOLPH</speaker>
+            <line>O, my lord, my lord! the sheriff with a most</line>
+            <line>monstrous watch is at the door.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Out, ye rogue! Play out the play: I have much to</line>
+            <line>say in the behalf of that Falstaff.</line>
+         </speech>
+         <stagedir>Re-enter the Hostess</stagedir>
+         <speech>
+            <speaker>Hostess</speaker>
+            <line>O Jesu, my lord, my lord!</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Heigh, heigh! the devil rides upon a fiddlestick:</line>
+            <line>what's the matter?</line>
+         </speech>
+         <speech>
+            <speaker>Hostess</speaker>
+            <line>The sheriff and all the watch are at the door: they</line>
+            <line>are come to search the house. Shall I let them in?</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Dost thou hear, Hal? never call a true piece of</line>
+            <line>gold a counterfeit: thou art essentially mad,</line>
+            <line>without seeming so.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>And thou a natural coward, without instinct.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>I deny your major: if you will deny the sheriff,</line>
+            <line>so; if not, let him enter: if I become not a cart</line>
+            <line>as well as another man, a plague on my bringing up!</line>
+            <line>I hope I shall as soon be strangled with a halter as another.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Go, hide thee behind the arras: the rest walk up</line>
+            <line>above. Now, my masters, for a true face and good</line>
+            <line>conscience.</line>
+         </speech>
+         <speech>
+            <speaker>FALSTAFF</speaker>
+            <line>Both which I have had: but their date is out, and</line>
+            <line>therefore I'll hide me.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Call in the sheriff.</line>
+            <stagedir>Exeunt all except PRINCE HENRY and PETO</stagedir>
+            <stagedir>Enter Sheriff and the Carrier</stagedir>
+            <line>Now, master sheriff, what is your will with me?</line>
+         </speech>
+         <speech>
+            <speaker>Sheriff</speaker>
+            <line>First, pardon me, my lord. A hue and cry</line>
+            <line>Hath follow'd certain men unto this house.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>What men?</line>
+         </speech>
+         <speech>
+            <speaker>Sheriff</speaker>
+            <line>One of them is well known, my gracious lord,</line>
+            <line>A gross fat man.</line>
+         </speech>
+         <speech>
+            <speaker>Carrier</speaker>
+            <line>As fat as butter.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>The man, I do assure you, is not here;</line>
+            <line>For I myself at this time have employ'd him.</line>
+            <line>And, sheriff, I will engage my word to thee</line>
+            <line>That I will, by to-morrow dinner-time,</line>
+            <line>Send him to answer thee, or any man,</line>
+            <line>For any thing he shall be charged withal:</line>
+            <line>And so let me entreat you leave the house.</line>
+         </speech>
+         <speech>
+            <speaker>Sheriff</speaker>
+            <line>I will, my lord. There are two gentlemen</line>
+            <line>Have in this robbery lost three hundred marks.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>It may be so: if he have robb'd these men,</line>
+            <line>He shall be answerable; and so farewell.</line>
+         </speech>
+         <speech>
+            <speaker>Sheriff</speaker>
+            <line>Good night, my noble lord.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>I think it is good morrow, is it not?</line>
+         </speech>
+         <speech>
+            <speaker>Sheriff</speaker>
+            <line>Indeed, my lord, I think it be two o'clock.</line>
+         </speech>
+         <stagedir>Exeunt Sheriff and Carrier</stagedir>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>This oily rascal is known as well as Paul's. Go,</line>
+            <line>call him forth.</line>
+         </speech>
+         <speech>
+            <speaker>PETO</speaker>
+            <line>Falstaff!--Fast asleep behind the arras, and</line>
+            <line>snorting like a horse.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Hark, how hard he fetches breath. Search his pockets.</line>
+            <stagedir>He searcheth his pockets, and findeth certain papers</stagedir>
+            <line>What hast thou found?</line>
+         </speech>
+         <speech>
+            <speaker>PETO</speaker>
+            <line>Nothing but papers, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>Let's see what they be: read them.</line>
+         </speech>
+         <speech>
+            <speaker>PETO</speaker>
+            <line>
+               <stagedir>Reads</stagedir>  Item, A capon,. . 2s. 2d.</line>
+            <line>Item, Sauce,. . . 4d.</line>
+            <line>Item, Sack, two gallons, 5s. 8d.</line>
+            <line>Item, Anchovies and sack after supper, 2s. 6d.</line>
+            <line>Item, Bread,        ob.</line>
+         </speech>
+         <speech>
+            <speaker>PRINCE HENRY</speaker>
+            <line>O monstrous! but one half-penny-worth of bread to</line>
+            <line>this intolerable deal of sack! What there is else,</line>
+            <line>keep close; we'll read it at more advantage: there</line>
+            <line>let him sleep till day. I'll to the court in the</line>
+            <line>morning. We must all to the wars, and thy place</line>
+            <line>shall be honourable. I'll procure this fat rogue a</line>
+            <line>charge of foot; and I know his death will be a</line>
+            <line>march of twelve-score. The money shall be paid</line>
+            <line>back again with advantage. Be with me betimes in</line>
+            <line>the morning; and so, good morrow, Peto.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+         <speech>
+            <speaker>PETO</speaker>
+            <line>Good morrow, good my lord.</line>
+         </speech>
+      </scene-body>
+   </scene>
+</act>

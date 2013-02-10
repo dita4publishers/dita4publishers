@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:map" "map.dtd">
+<map>
+  <title>Simple DITA-Based Web Site</title>
+  <topicmeta>
+    <data
+    name="favicon"
+    value="images/favico.jpg"/>
+    <d4p-variable-definitions>
+      <d4p-variable-definition name="var05" value="var05 value in map metadata"/>
+      <d4p-variable-definition name="var07" value="var07 value in map metadata"/>
+      <d4p-variable-definition name="var08" value="var08 value in map metadata"/>
+    </d4p-variable-definitions>    
+  </topicmeta>
+  <topicref
+    href="pages/website-start.dita">
+    <topicref
+      href="pages/subpage-1.dita">
+      <topicmeta>
+        <metadata>
+          <d4p-variable-definitions>
+            <d4p-variable-definition name="var08" value="var08 value in parent topicref metadata"/>
+          </d4p-variable-definitions>
+        </metadata>
+      </topicmeta>
+      <topicref
+        href="pages/variable-definition-test.xml">
+        <topicmeta>
+          <metadata>
+            <d4p-variable-definitions>
+              <d4p-variable-definition name="var03" value="var03 value in topicref metadata"/>              
+              <d4p-variable-definition name="var04" value="var04 value in topicref metadata"/>              
+              <d4p-variable-definition name="var07" value="var07 value in topicref metadata"/>
+            </d4p-variable-definitions>
+          </metadata>
+        </topicmeta>
+      </topicref>
+      <topicref locktitle="yes"
+        href="pages/variable-definition-test.xml" copy-to="variable-definition-test-use-02.xml">
+        <topicmeta>
+          <navtitle>Second use of variable-definition-test topic</navtitle>
+          <metadata>
+            <d4p-variable-definitions>
+              <d4p-variable-definition name="var04" value="var04 value in second use of topic."/>              
+            </d4p-variable-definitions>
+          </metadata>
+        </topicmeta>
+      </topicref>
+    </topicref>
+    <topicref
+      href="pages/subpage-2.dita">
+      <topichead
+        navtitle="Topic Head 1">
+        <topicref
+          href="pages/subpage-3.dita"/>
+      </topichead>
+      <topicgroup>
+        <topicref
+          href="pages/subpage-3.dita"/>
+      </topicgroup>
+    </topicref>
+  </topicref>
+</map>

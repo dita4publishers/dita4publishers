@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic
+  id="topicid">
+  <title>XML Domain</title>
+  <body>
+    <p>The XML domain provides phrase-level elements for identifying mentions of XML components. It
+      is convenient for documents that discuss XML markup (such as this one).</p>
+    <p>The XML domain provides the following element types:<dl>
+        <dlentry>
+          <dt><xmlelem>xmlelem</xmlelem></dt>
+          <dd>Identifies a mention of an XML element type (tagname): <p>The markup:<pre>&lt;xmlelem>my-tagname&lt;/xmlelem></pre>Produces: <xmlelem>my-tagname</xmlelem></p></dd>
+        </dlentry>
+        <dlentry>
+          <dt><xmlelem>xmlatt</xmlelem></dt>
+          <dd>Identifies a mention of an XML attribute: <p>The markup:<pre>&lt;xmlatt>my-attname&lt;/xmlatt></pre>Produces: <xmlatt>my-attname</xmlatt></p></dd>
+        </dlentry>
+        <dlentry>
+          <dt><xmlelem>textent</xmlelem></dt>
+          <dd>Identifies a mention of an XML text entity: <p>The markup:<pre>&lt;textent>my-text-entity&lt;/textent></pre>Produces: <textent>my-text-entity</textent></p></dd>
+        </dlentry>
+        <dlentry>
+          <dt><xmlelem>parment</xmlelem></dt>
+          <dd>Identifies a mention of an XML parameter entity: <p>The markup:<pre>&lt;parment>my-parameter-entity&lt;/parment></pre>Produces: <parment>my-parameter-entity</parment></p></dd>
+        </dlentry>
+        <dlentry>
+          <dt><xmlelem>numcharref</xmlelem></dt>
+          <dd>Identifies a mention of an XML numeric character reference: <p>The markup:<pre>&lt;numcharref>2014&lt;/numcharref> (em-dash)</pre>Produces: <numcharref>2014</numcharref>  (em-dash)</p></dd>
+        </dlentry>
+      </dl></p>
+  </body>
+</topic>

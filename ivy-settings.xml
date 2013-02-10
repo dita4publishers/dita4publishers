@@ -1,0 +1,41 @@
+<ivysettings>
+  <settings defaultResolver="default"/>
+  <property name="ivy.lib.dir" value="${basedir}/java/lib"/>
+  <property name="ivy.local.default.root" value="${ivy.default.ivy.user.dir}/local" override="false"/>
+  <property name="ivy.local.default.ivy.pattern"      value="[organisation]/[module]/[artifact]-[revision].[ext]" override="false"/>
+  <property name="ivy.local.default.artifact.pattern" value="[organisation]/[module]/[artifact]-[revision].[ext]" override="false"/>
+  <property name="ivy.retrieve.pattern" value="${ivy.lib.dir}/[artifact].[ext]"/>
+  
+  <resolvers>
+
+    <filesystem name="local">
+      <ivy pattern="${ivy.local.default.root}/${ivy.local.default.ivy.pattern}" />
+      <artifact pattern="${ivy.local.default.root}/${ivy.local.default.artifact.pattern}" />
+    </filesystem>
+	  
+    <url name="shared">
+      <ivy pattern="${rsi.ivy.shared.repository}/[organisation]/[module]/ivy-[revision].xml" />
+      <artifact pattern="${rsi.ivy.shared.repository}/[organisation]/[module]/[artifact]-[revision].[ext]" />
+    </url>           
+    
+    <url name="prof_serve">
+      <ivy pattern="${rsi.ivy.prof_serv.repository}/[organisation]/[module]/ivy-[revision].xml" />
+      <artifact pattern="${rsi.ivy.prof_serv.repository}/[organisation]/[module]/[artifact]-[revision].[ext]" />
+    </url>           
+    
+    <ibiblio name="public" m2compatible="true"/>
+        
+    <chain name="main" dual="true" returnFirst="true">
+      <resolver ref="prof_serve"/>
+      <resolver ref="shared"/>
+      <resolver ref="public"/>
+    </chain>
+    
+    <chain name="default" returnFirst="true">
+      <resolver ref="local"/>
+      <resolver ref="main"/>
+    </chain>
+    
+  </resolvers>
+  
+</ivysettings>

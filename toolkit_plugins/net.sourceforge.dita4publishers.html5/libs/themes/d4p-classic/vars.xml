@@ -1,0 +1,11 @@
+<d4p>
+	<outputSelector>#d4h5-main-content</outputSelector>
+	<navigationSelector>#nav-content</navigationSelector>
+	<externalContentElement>section</externalContentElement>
+	<loaderParentElement>body</loaderParentElement>
+	<navigation>
+		<buttons>true</buttons>
+		<leaf>ui-icon-circlesmall-plus</leaf>
+		<leafActive>ui-icon-circlesmall-minus</leafActive>
+	</navigation>
+</d4p>

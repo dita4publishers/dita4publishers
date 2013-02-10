@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/map.dtd">
+<map>
+  <title>Spaces in Filenames Test</title>
+  <topichead>
+    <topicmeta>
+      <navtitle>Topicrefs with escaped URLs</navtitle>
+    </topicmeta>
+    <topicref
+      href="folder%20with%20spaces/topic%20one.xml"/>
+    <topicref
+      href="folder%20with%20spaces/topic_two.xml"/>
+    <topicref
+      href="folderWithNoSpaces/topic%20three.xml"/>
+    <topicref
+      href="folderWithNoSpaces/topic_four.xml"/>
+    <topicref
+      href="folder%20with%20spaces/topic%20one.xml"/>
+  </topichead>
+  <topichead>
+    <topicmeta>
+      <navtitle>Topicrefs with literal spaces in the URLs</navtitle>
+    </topicmeta>
+    <topicref
+      href="folder with spaces/topic one-b.xml"/>
+    <topicref
+      href="folder with spaces/topic_two-b.xml"/>
+    <topicref
+      href="folderWithNoSpaces/topic three-b.xml"/>
+    <topicref
+      href="folderWithNoSpaces/topic_four-b.xml"/>
+  </topichead>
+</map>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
+<chapter
+  id="chapter-id">
+  <title><ph>General Element Tests</ph>
+    <ph>second phrase in title with intervening space</ph></title>
+  <body>
+    <p>The title of this chapter contains two <xmlelem>ph</xmlelem> elements with a literal space between them. The space should be preserved in the output ToC.</p>
+  </body>
+  
+  <subsection
+    id="ss1">
+    <title>Inline elements</title>
+    <body>
+      <p>Bold: <b>bold text</b>.</p>
+      <p>Italic: <i>italic text</i>.</p>
+      <p>Bold italic: <b><i>bold italic</i></b>.</p>
+      <p>Citation: <cite>citation text</cite>.</p>
+      <p>Footnote with no ID<fn>This is a footnote with no ID.</fn><fn
+        id="fn-01">This is a footnote with an ID.</fn></p>
+      <p>Xref to footnote<xref
+        href="#ss1/fn-01"
+        format="dita"
+        type="fn"/></p>
+      <p>Index term: /<indexterm>index term</indexterm>/ (There should be no visible text between the "/" characters.)</p>
+      <p>Keyword: <keyword>keyword value</keyword>.</p>
+      <p>Line through (strikeout): <linethrough>line through text</linethrough>.</p>
+      <p>Generic phrase: <ph>phrase content</ph>.</p>
+      <p>Quote: <q>quoted string</q>.</p>
+      <p>Subscript: normal<sub>sub</sub>after sub.</p>
+      <p>Superscript: normal<sup>sup</sup>after sup.</p>
+      <p>Term: <term>term value</term>.</p>
+      <p>Trademark: <tm
+        tmtype="tm">normal trademarked term</tm>, <tm
+        tmtype="reg">registered trademark</tm>, <tm
+        tmtype="service">service mark</tm></p>
+      <p>Teletype: <tt>teletype text</tt>.</p>
+      <p>Underline: <u>underlined text</u>.</p>
+    </body>
+  </subsection>
+  <subsection
+    id="ss2">
+    <title>Tables</title>
+    <body>
+      <p>A simple table:</p>
+      <simpletable>
+        <strow>
+          <stentry>R1 C1</stentry>
+          <stentry>R1C2</stentry>
+          <stentry>R1C3</stentry>
+        </strow>
+        <strow>
+          <stentry>R2 C1</stentry>
+          <stentry>R2 C2</stentry>
+          <stentry>R2 C3</stentry>
+        </strow>
+      </simpletable>
+      <p>A complex table:</p>
+      <table
+        frame="all">
+        <title>This is a Sample Table</title>
+        <tgroup
+          cols="6">
+          <colspec
+            colname="c1"
+            colnum="1"
+            colwidth="1.0*"/>
+          <colspec
+            colname="c2"
+            colnum="2"
+            colwidth="1.0*"/>
+          <colspec
+            colname="c3"
+            colnum="3"
+            colwidth="1.0*"/>
+          <colspec
+            colname="c4"
+            colnum="4"
+            colwidth="1.0*"/>
+          <colspec
+            colname="c5"
+            colnum="5"
+            colwidth="1.0*"/>
+          <colspec
+            colname="c6"
+            colnum="6"
+            colwidth="1.0*"/>
+          <thead>
+            <row>
+              <entry>Column 1</entry>
+              <entry>Column 2</entry>
+              <entry>Column 3</entry>
+              <entry>Column 4</entry>
+              <entry>Column 5</entry>
+              <entry>Column 6</entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry>R1 C1</entry>
+              <entry>R1 C2</entry>
+              <entry>R1 C3</entry>
+              <entry>R1 C4</entry>
+              <entry>R1 C5</entry>
+              <entry>R1 C6</entry>
+            </row>
+            <row>
+              <entry>R2 C1</entry>
+              <entry>R2 C2</entry>
+              <entry>R2 C3</entry>
+              <entry>R2 C4</entry>
+              <entry>R2 C5</entry>
+              <entry>R2 C6</entry>
+            </row>
+            <row>
+              <entry>R3 C1</entry>
+              <entry>R3 C2</entry>
+              <entry>R3 C3</entry>
+              <entry>R3 C4</entry>
+              <entry>R3 C5</entry>
+              <entry>R3 C6</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </body>
+  </subsection>
+  <subsection
+    id="ss3">
+    <title>Graphics and Media Objects</title>
+    <body>
+      <p><art-ph>
+        <art_title>ePub Test Cover</art_title>
+        <image
+          href="../covers/images/1407-02.jpg"/>
+        </art-ph></p>
+    </body>
+  </subsection>
+  <subsection
+    id="ss4">
+    <title>Other Elements</title>
+    <body>
+      <p>Definition list:</p>
+      <dl>
+        <dlhead>
+          <dthd>DT Head</dthd>
+          <ddhd>DD Head</ddhd>
+        </dlhead>
+        <dlentry>
+          <dt>term</dt>
+          <dd>This is the definition.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>term 2</dt>
+          <dd>This is the 2nd definition.</dd>
+        </dlentry>
+      </dl>
+    </body>
+  </subsection>
+  <subsection
+    id="ss5">
+    <title>Elements That Produce Bad XHTML Unless Overridden</title>
+    <body>
+      <p>The elements in this section produce invalid (per the epubcheck tool) XHTML when using the base HTML generation templates. These elements must be handled in the HTML-to-XHTML fixup process.</p>
+      <fig>
+        <title>Title of Figure with Description</title>
+        <desc>Figure description. This is a description with no subordinate markup.</desc>
+        <lines>This is the content of the figure.
+In this case it is &lt;lines>.</lines>
+      </fig>
+      <fig>
+        <title>Title of Figure with Description</title>
+        <desc><p>Figure description in a nested p element</p></desc>
+        <lines>This is the content of the figure.
+In this case it is &lt;lines>.</lines>
+      </fig>
+      <lq>A long quote (blockquote in HTML). This is a <term>term</term> in the long quote
+      <p>This is a properly-tagged paragraph</p>
+        More unwrapped text after the paragraph.
+      </lq>
+      <p>A long quote with a single paragraph:</p>
+      <lq><p>Single paragraph in a long quote.</p></lq>
+    </body>
+  </subsection>
+
+</chapter>

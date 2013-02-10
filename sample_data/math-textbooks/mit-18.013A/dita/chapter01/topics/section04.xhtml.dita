@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e56"><title>1.4 Standard Functions</title><body><p>
+A
+<b>standard function</b>
+is one defined on an interval of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℝ</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ that is obtained by a finite sequence of
+<b>standard operations</b>
+starting from any combination of
+<b>three basic functions</b>
+.
+</p><p>
+<b>What are the basic functions</b>
+?
+</p><p>
+ 
+</p><p>
+<b>The identity function
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>
+</b>
+</p><p>
+<image href="images/identity.gif" width="300" height="300"><alt>figure</alt></image>
+</p><p>
+ 
+</p><p>
+<b>The <ph outputclass="a">exponential function</ph>
+</b>
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+</p><p>
+<image href="images/exp.gif" width="300" height="300"><alt>figure</alt></image>
+</p><p>
+ 
+</p><p>
+<b>The <ph outputclass="a">sine function</ph>
+  <d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>
+</b>
+</p><p>
+
+  <image href="images/sin.gif" width="296" height="296"><alt>figure</alt></image>
+
+</p><p>
+ 
+</p><p>
+<b>What are the standard operations?</b>
+</p><p>
+<i>Multiplication by a number in
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℝ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>, addition, subtraction, multiplication, division, substitution of the value of one function as argument of another,
+     and taking the "inverse".</i>
+</p><p>
+Most of the functions we encounter will be standard functions.
+</p><p>
+Examples: 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mn>4</m:mn><m:msup><m:mi>x</m:mi><m:mn>2</m:mn></m:msup></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mfrac><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mi>x</m:mi></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+You can enter your favorite standard functions, 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>g</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, in the following applet, and observe the effects of combining 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>g</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ in various ways, and also look at the inverse function to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+Note that when f has the same value for more than one argument, you must decide which of these arguments you want to call the value of the inverse function.
+<br/>
+</p><p>
+ 
+</p><p>
+<ph outputclass="a"/>
+<object classid="java:OperationsOnFunctions.class" width="760" height="450">
+  <param name="archive" value="operationsOnFunctions.jar, mk_lib.jar, parser_math.jar, jcbwt363.jar" valuetype="data"/>
+  <param name="codebase" value="../applets/" valuetype="data"/>
+</object>
+</p></body></topic>

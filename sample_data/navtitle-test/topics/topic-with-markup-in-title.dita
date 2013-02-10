@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="topic-1">
+  <title>Title With Markup <ph>This is in <codeph>&lt;ph></codeph>. Here is a footnote: <fn>This is a footnote in a title</fn></ph></title>
+  <body>
+    <p>This topic's title has markup that needs to preserved in any &lt;navtitle> markup generated in DITA maps. That is, the result of constructing the effective &lt;topicref> element for the reference to this topic should be:<codeblock>  &lt;topicref href="topics/topic-with-markup-in-title.dita">
+    &lt;topicmeta>
+      &lt;navtitle>Title With Markup &lt;ph>This is in &lt;ph outputclass="codeph">&amp;lt;ph>&lt;/ph>. Here is a footnote: 
+&lt;fn>This is a footnote in a title&lt;/fn>&lt;/ph>&lt;/navtitle>
+    &lt;/topicmeta>
+  &lt;/topicref></codeblock></p>
+  </body>
+</topic>

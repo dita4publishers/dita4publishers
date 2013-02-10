@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic
+  id="topicid">
+  <title>Formatting Domain</title>
+  <shortdesc>The formatting domain provides elements for producing specific formatting effects that are either arbitrary (not connected to any particular semantic or structural aspect of the content) or simply required to meet specific publication requirements. These elements should be used only when necessary but when they are necessary they are available.</shortdesc>
+  <body>
+    <p>The elements in this module are:<dl>
+      <dlentry>
+        <dt><xmlelem>art</xmlelem></dt>
+        <dd>Represents an abstract piece of "art". Holds a reference to one or more graphic objects (<xmlelem>image</xmlelem>) (normally different formats of the same base image, such as a high-resolution TIF and low-resolution JPEG). It may have an "art title", which labels the art as a re-usable object (e.g., when displayed in a CMS system as a standalone object). It may also contain classifying metadata.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlelem>b-i</xmlelem></dt>
+        <dd>"Bold italic". Allows a single element to represent the combination of <xmlelem>b</xmlelem> and <xmlelem>i</xmlelem>, which is useful for conversion from flat word processing formats.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlelem>b-sc</xmlelem></dt>
+        <dd>"Bold small caps". Allows a single element to represent the combination of <xmlelem>b</xmlelem> and <xmlelem>sc</xmlelem>, which is useful for conversion from flat word processing formats.</dd>
+      </dlentry>
+        <dlentry>
+          <dt><xmlelem>br</xmlelem></dt>
+          <dd>Represents a hard return (as for HTML <xmlelem>br</xmlelem> element). Can be used for
+            example in titles to indicate a hard break point.</dd>
+        </dlentry>
+      <dlentry>
+        <dt><xmlelem>eqn_block</xmlelem></dt>
+        <dd>Represents a block equation. Same content as for <xmlelem>eqn_inline</xmlelem>.</dd>
+      </dlentry>
+        <dlentry>
+          <dt><xmlelem>eqn_inline</xmlelem></dt>
+          <dd>Represents an inline equation. Can contain any combination of MathML markup, InDesign INX markup, or references to graphics (<xmlelem>art</xmlelem>).</dd>
+        </dlentry>
+      <dlentry>
+        <dt><xmlelem>frac</xmlelem></dt>
+        <dd>Represents a simple mathematical fraction. Enables the rendering of fractions without the use of full MathML markup.</dd>
+      </dlentry>
+        <dlentry>
+          <dt><xmlelem>inx_snippet</xmlelem></dt>
+          <dd>Holds a snippet of InDesign CS3 interchange XML. This element is intended to be a
+            fallback for things like equations that simply cannot be easily represented in any other
+            way for printing purposes. Should be used only when absolutely necessary. INX snippets
+            can only be rendered directly by InDesign.</dd>
+        </dlentry>
+      <dlentry>
+        <dt><xmlelem>linethrough</xmlelem></dt>
+        <dd>Line-through or "strikeout". Text with a line drawn through it as is used for strike-outs.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlelem>roman</xmlelem></dt>
+        <dd>"Roman" (not italic, bold, or small caps). Use to indicate text that is not highlighted, usually within the context of a paragraph-level element that is normally highlighted in some way, such as paragraphs that are normally rendered in italic.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlelem>sc</xmlelem></dt>
+        <dd>"Small caps". Represents a phrase in small caps.</dd>
+      </dlentry>
+      <dlentry>
+        <dt><xmlelem>tab</xmlelem></dt>
+        <dd>Represents a horizontal tab character. Literal tabs cannot be reliably entered in XML data, so this element allows the capturing of tabbed content. Note that the tab stops applied to the tabs is a function of the rendition applied.</dd>
+      </dlentry>
+      </dl></p>
+    <p>The formatting domain includes the standard MathML markup for use with
+        <xmlelem>eqn_inline</xmlelem> and <xmlelem>eqn_block</xmlelem>. The ability to render MathML
+      depends on the rendering system available. MathML rendering is available for HTML and
+      XSL-FO-based outputs. Rendering MathML into InDesign requires commercial tools.</p>
+  </body>
+</topic>

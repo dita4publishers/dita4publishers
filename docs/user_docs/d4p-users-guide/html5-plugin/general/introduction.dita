@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_sxw_h53_hg">
+ <title>Introduction</title>
+ <shortdesc>The HTML5 plugin is an attempt to add better support for HTML5 for the DITA community.</shortdesc>
+ <conbody>
+  <p>Frameset and frames support have been removed from the HTML5 specifications, so we use the <abbreviated-form
+    keyref="def-AJAX"/> way to replace the previous mechanism. </p>
+ </conbody>
+</concept>

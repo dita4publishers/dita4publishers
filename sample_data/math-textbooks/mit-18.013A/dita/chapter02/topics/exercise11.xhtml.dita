@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e59"><title>Exercise 2.11</title><body><p>
+<b>Find expressions for 
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mrow><m:mrow><m:mo>(</m:mo><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mfrac><m:mi>t</m:mi><m:mn>2</m:mn></m:mfrac></m:mrow><m:mo>)</m:mo></m:mrow></m:mrow><m:mn>2</m:mn></m:msup></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mrow><m:mrow><m:mo>(</m:mo><m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mfrac><m:mi>t</m:mi><m:mn>2</m:mn></m:mfrac></m:mrow><m:mo>)</m:mo></m:mrow></m:mrow><m:mn>2</m:mn></m:msup></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> from the Pythagorean theorem and the cosine addition theorem.</b>
+</p><p>
+Solution:
+</p><p>
+The Pythagorian theorem is the statement 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mn>2</m:mn></m:msup><m:mo>+</m:mo><m:msup><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mn>2</m:mn></m:msup><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ (or we can interpret it to be that statement).
+</p><p>
+If we apply this equation for 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mo>=</m:mo><m:mfrac><m:mi>t</m:mi><m:mn>2</m:mn></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and also use the cosine addition theorem
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>u</m:mi><m:mo>+</m:mo><m:mi>v</m:mi><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:mo stretchy="false">(</m:mo><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>u</m:mi><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">(</m:mo><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>v</m:mi><m:mo stretchy="false">)</m:mo><m:mo>−</m:mo><m:mo stretchy="false">(</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>u</m:mi><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">(</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>v</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><p>
+for 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>u</m:mi><m:mo>=</m:mo><m:mi>v</m:mi><m:mo>=</m:mo><m:mfrac><m:mi>t</m:mi><m:mn>2</m:mn></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, we get
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>t</m:mi><m:mo>=</m:mo><m:msup><m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo></m:mrow><m:mn>2</m:mn></m:msup><m:mfrac><m:mi>t</m:mi><m:mn>2</m:mn></m:mfrac><m:mo>−</m:mo><m:msup><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo></m:mrow><m:mn>2</m:mn></m:msup><m:mfrac><m:mi>t</m:mi><m:mn>2</m:mn></m:mfrac></m:mrow></m:math></d4p_MathML>
+   
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mn>1</m:mn><m:mo>=</m:mo><m:msup><m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo></m:mrow><m:mn>2</m:mn></m:msup><m:mfrac><m:mi>t</m:mi><m:mn>2</m:mn></m:mfrac><m:mo>+</m:mo><m:msup><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo></m:mrow><m:mn>2</m:mn></m:msup><m:mfrac><m:mi>t</m:mi><m:mn>2</m:mn></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><p>
+and we can add and subtract these equations from one another to get
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:msup><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo></m:mrow><m:mn>2</m:mn></m:msup><m:mfrac><m:mi>t</m:mi><m:mn>2</m:mn></m:mfrac><m:mo>=</m:mo><m:mfrac><m:mrow><m:mn>1</m:mn><m:mo>−</m:mo><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>t</m:mi></m:mrow><m:mn>2</m:mn></m:mfrac></m:mrow></m:math></d4p_MathML>
+   
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:msup><m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo></m:mrow><m:mn>2</m:mn></m:msup><m:mfrac><m:mi>t</m:mi><m:mn>2</m:mn></m:mfrac><m:mo>=</m:mo><m:mfrac><m:mrow><m:mn>1</m:mn><m:mo>+</m:mo><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>t</m:mi></m:mrow><m:mn>2</m:mn></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block></body></topic>

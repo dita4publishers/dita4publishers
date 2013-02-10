@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC006_002_003">
+   <title>6.2.3 Measurement of the angular distribution of the 3 K radiation</title>
+   <learningContentbody>
+      <section>
+            
+            <p>How are such angular distributions to be measured? One way, of course, is to
+              take a radio telescope and swing it round the sky, taking readings in different
+              directions. But as is clear from <xref href="#FIG001_017">Figure 20</xref>(a), the atmosphere itself emits microwaves.
+              There is therefore a grave danger, with this method, of picking up different
+              contributions of atmospheric emission from different directions – more as you
+              point your telescope close to the ground, with a long path through the atmosphere,
+              less when it is vertical with the minimum path through the atmosphere. A better, and
+              indeed simpler, way with a ground-based telescope is to leave the telescope in a fixed
+              direction with respect to the Earth, say vertical, and let the Earth's rotation carry
+              it round. In 24 hours, the telescope will be carried round a whole circle, allowing
+              the measured intensity to be plotted against angle of observation as indicated in <xref href="#FIG001_024">Figure 27</xref>.</p>
+            <p>Thus a practical prescription for looking for the translational motion of the
+              Earth, relative to the frame in which the 3 K radiation is isotropic, is to look for a
+              variation with a 24-hour period in the radiation detected by a fixed radio telescope.
+              Such a search, for a variation of <i>known period</i>, can be carried out very
+              sensitively. That is why we have looked at the data in two stages, first asking if the
+              data look isotropic, and now asking more specifically for the magnitude of any 24-hour
+              variation.</p>
+            <p>A further nice experimental feature is that the component being sought is of
+              period 24 <i>sidereal</i> hours. Human interference, on the other hand, will tend to
+              have a period of 24 <i>solar</i> hours. This small distinction (explained below) often
+              allows a radio astronomer to sort out the pure astronomical signal from the strong
+              terrestrial noise.</p>
+            <p>
+            <b>Sidereal Day</b>
+         </p>
+            <p>Looking at the Earth from outside the Solar System, one sees it revolving
+              366¼ times a year, not 365¼. From our position on the Earth, we see only
+              365¼ days, because one turn is taken up in the revolution round the Sun. A
+              sidereal day is (1/366¼) of a year and a solar day is (1/365¼) of a
+              year.</p>
+            
+            <sectiondiv outputclass="SAQ">
+              <p outputclass="Heading">
+               <b>Question 14</b>
+            </p>
+              <sectiondiv outputclass="saq.question">
+                <p>How large a change in apparent temperature of the 3 K radiation is
+                  expected due to the Earth's motion round the Sun? How large is it due to the Solar
+                  System's motion of 230 km s<sup>−1</sup> round the Galaxy? (The <xref href="http://openlearn.open.ac.uk/file.php/3639/S357Datasheets.pdf"
+                        scope="external"
+                        format="html">data sheet</xref> gives information you may need to answer this
+                  question.)</p>
+              </sectiondiv>
+              <sectiondiv outputclass="saq.answer">
+                <p>The mean speed of the Earth round the Sun can be obtained by taking the
+                  orbit as a circle of radius 1.5 × 10<sup>11</sup> m. The speed <ph outputclass="InlineEquation">
+                     <image href="../../media/S357_1_ie00italvi.gif"/>
+                     <ph outputclass="inlineequation-description"/>
+                  </ph> is
+                  then</p>
+                <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue047i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+                <p>(Strictly, the orbit is not quite circular, so the speed varies somewhat
+                  above and below this value.)</p>
+                <p>From Equation 12 in <xref href="#SEC006_002">Section 6.2</xref>, the maximum change in apparent
+                  temperature, Δ<i>T</i>, which this motion can cause at low frequencies
+                  arises when cos<i>θ</i> = 1. Δ<i>T</i>/<i>T</i> is then a
+                  fraction</p>
+                <fig outputclass="Equation">
+                  <image href="../../media/S357_1_ue048i.gif"/>
+                  <p outputclass="equation-description"/>
+               </fig>
+                <p>The speed of the Solar System round the Galaxy about 230 km
+                    s<sup>−1</sup>, gives a Δ<i>T</i>/<i>T</i> of about
+                    (2.3 × 10<sup>5</sup>)/(3 × 10<sup>8</sup>)
+                  ≈ 10<sup>−3</sup>.</p>
+              </sectiondiv>
+            </sectiondiv>
+          </section>
+   </learningContentbody>
+</learningContent>

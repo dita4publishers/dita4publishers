@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC007_002">
+   <title>7.2 The temperature of matter and radiation</title>
+   <learningContentbody>
+      <section>
+          
+          <p>The different reactions by which neutrons and protons came together soon after
+            the instant of the big bang to produce heavier nuclei will have proceeded at different
+            rates according to the energies of the particles involved. The first step in calculating
+            nuclear abundances is therefore to make some assumption about these
+            energies.</p>
+          <p>The particles at any instant have a wide range of energies; this obviously
+            complicates matters. Fortunately, however, it is possible to make one very important
+            simplification. This is based on the concept of <i>equilibrium</i>. We have already
+            touched on this topic in the context of our discussion of the origin of the 3 K
+            radiation. Let us now look into it in a little more detail:</p>
+          <p>We use an analogy. Suppose that a large number of molecules of an ordinary gas
+            are introduced into an insulated container. To all external appearances, the state of
+            the gas does not change with time. It is at a fixed pressure and a fixed temperature and
+            is said to be in equilibrium. Of course, on a microscopic scale, a great deal is
+            happening as the molecules collide with one another. Nevertheless, the measurable
+            properties of the gas remain effectively constant. The reason for this is that the
+            distribution of energy among the molecules fluctuates to only a very small extent about
+            a well-defined average pattern. Thus, although the energy of any given molecule
+            continually changes as it collides with others, details like the most probable energy
+            for a molecule, or the probability of a molecule having an energy greater than, say,
+              10<sup>−20</sup> J are preserved. Now it turns out that, once the temperature
+            of the gas has been specified, it is possible to predict the average pattern of energy
+            distribution in the gas at equilibrium – the <i>temperature of matter</i> serves
+            as a label for the average mixture of energies of the gas molecules. For example, the
+            most probable energy for a molecule is proportional to the temperature, and could, in
+            the absence of a thermometer, be used to define the temperature scale.</p>
+          <p>If we now have a mixture of gas and radiation, and these are allowed to come
+            into equilibrium with each other, not only will the particles of the gas adopt a
+            characteristic energy distribution, but so also will the photons of the radiation. As we
+            discussed earlier in connection with the microwave radiation, this distribution of
+            photon energies is known as a thermal spectrum, and is rather different from the
+            Maxwell-Boltzmann distribution for molecules. Nevertheless, the distribution can again
+            be labelled by a single number – the <i>temperature of radiation</i>. This is
+            defined to be proportional to the most probable energy (or frequency) of a photon. Our
+            two temperature scales for matter and for radiation are consistent in that, whenever
+            radiation is in equilibrium with matter, the values of the two temperatures
+            agree.</p>
+          
+          <p>Returning now to the early Universe, it is important to realise that the very
+            high density of matter and radiation at that time gave rise to a frequency of collisions
+            between protons, neutrons, electrons, and photons sufficiently high to ensure that the
+            various components of the Universe were in almost perfect equilibrium. Thus, their
+            respective distributions of energies could be labelled by a <i>single</i> common
+            temperature. The electrons had the same temperature as the protons and the neutrons and
+            the photons, because the collisions were so frequent that no part of the Universe could
+            get out of step with the rest. This is very important because it allows us to replace
+            the great complexity of the possible energy distributions by a single parameter –
+            the temperature.</p>
+          <p>Strictly speaking, the various equilibria – between particles, and
+            between particles and radiation – can never have been quite perfect because the
+            Universe was expanding all the time, and therefore cooling rapidly. There was therefore
+            never a steady approach to a final condition such as we associate with the behaviour of,
+            say, a cup of coffee cooling to equilibrium with its surroundings. Indeed, as we have
+            pointed out before, the Universe has still not reached equilibrium. Nevertheless, there
+            was near-equilibrium in the early Universe because of the high rate of
+            collisions.</p>
+        </section>
+   </learningContentbody>
+</learningContent>

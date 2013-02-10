@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
+<pubmap>
+  <pubtitle> <mainpubtitle>DITA For Publishers Cover Markup Test</mainpubtitle> </pubtitle>
+  <pubmeta>
+    <metadata>
+      <keywords>
+        <indexterm>cover<indexterm>graphics for</indexterm></indexterm>
+        <indexterm>graphics<indexterm>for covers</indexterm><indexterm>testing</indexterm></indexterm>
+        <indexterm>test<indexterm>of graphics</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </pubmeta>
+  <keydefs>
+    <topicmeta>
+      <navtitle>Key Definitions</navtitle>
+    </topicmeta>
+  </keydefs>
+  <publication>
+    <covers>
+      <epub-cover-graphic
+        format="jpg"
+        href="cover-images/front-cover-epub.jpg"/>
+      <epub-cover
+        href="topics/epub-cover.xml"/>
+      <front-cover
+        href="topics/front-cover.xml"/>
+      <inside-front-cover
+        href="topics/inside-front-cover.xml"/>
+      <back-cover
+        href="topics/back-cover.xml"/>
+      <book-jacket href="topics/book-jacket.xml"/>
+    </covers>
+    <pubbody>
+      <chapter
+        href="topics/graphics-from-ai-and-not.xml"/>
+    </pubbody>
+  </publication>
+</pubmap>

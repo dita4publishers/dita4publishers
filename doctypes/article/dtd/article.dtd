@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     DITA For Publishers Article Topic Type
+     
+     Represents an article within a serial publication.
+     
+     Specializes from topic
+     
+     Copyright (c) 2009 DITA For Publishers
+
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ENTITY DECLARATIONS                 -->
+<!-- ============================================================= -->
+
+<!ENTITY % commonDomainIntegrations-dec
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations:entities"
+         "d4p_commonDomainIntegrations.ent"
+>%commonDomainIntegrations-dec;
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE DECLARATIONS              -->
+<!-- ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN EXTENSIONS                          -->
+<!-- ============================================================= -->
+<!--                    One for each extended base element, with
+                        the name of the domain(s) in which the
+                        extension was declared                     -->
+                        
+                        
+<!ENTITY % commonDomainEntityIntegrations-dec
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations:integrationEntities"
+         "d4p_commonDomainEntityIntegrations.ent"
+>%commonDomainEntityIntegrations-dec;
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
+<!-- ============================================================= -->
+<!ENTITY % props-attribute-extensions  ""                            >
+<!ENTITY % base-attribute-extensions   ""                            >
+
+
+<!-- ============================================================= -->
+<!--                    TOPIC NESTING OVERRIDE                     -->
+<!-- ============================================================= -->
+
+<!--                    Redefine the infotype entity to exclude 
+                        other topic types and disallow nesting     -->
+<!ENTITY % article-info-types 
+  "subsection |
+   sidebar
+  "
+>
+
+<!ENTITY % subsection-info-types 
+  "subsection |
+   sidebar
+  "
+>
+
+<!ENTITY % info-types
+  "%article-info-types;
+  "
+>
+
+<!-- ============================================================= -->
+<!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
+<!-- ============================================================= -->
+<!--                    Must be declared ahead of the DTDs, which
+                        puts @domains first in order               -->
+
+
+<!-- ============================================================= -->
+<!--                    TOPIC ELEMENT INTEGRATION                  -->
+<!-- ============================================================= -->
+
+<!--                    Embed topic to get generic elements        -->
+<!ENTITY % topic-type   PUBLIC 
+"-//OASIS//ELEMENTS DITA Topic//EN" 
+"topic.mod"                                                          >
+%topic-type;
+
+
+<!ENTITY % article-typemod 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:article" 
+"article.mod"                                                        >                                                     
+%article-typemod;
+
+<!ENTITY % subsection-typemod 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:subsection" 
+"subsection.mod"                                                        
+>                                                     
+%subsection-typemod;
+
+<!ENTITY % sidebar-typemod 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:sidebar" 
+"sidebar.mod"                                                        >                                                     
+%sidebar-typemod;
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ELEMENT INTEGRATION                 -->
+<!-- ============================================================= -->
+
+<!ENTITY % commonDomainIntegrations
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations"
+         "d4p_commonDomainIntegrations.mod"
+>%commonDomainIntegrations;
+
+<!-- ================== End Article DTD  ==================== -->

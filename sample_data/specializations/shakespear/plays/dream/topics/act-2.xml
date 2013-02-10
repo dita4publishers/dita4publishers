@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:act" "act.dtd">
+<act id="act-2">
+   <title>ACT II</title>
+   <scene id="act-2-scene-1">
+      <title>SCENE I.  A wood near Athens.</title>
+      <scene-body>
+         <stagedir>Enter, from opposite sides, a Fairy, and PUCK</stagedir>
+         <speech>
+            <speaker>PUCK</speaker>
+            <line>How now, spirit! whither wander you?</line>
+         </speech>
+         <speech>
+            <speaker>Fairy</speaker>
+            <line>Over hill, over dale,</line>
+            <line>Thorough bush, thorough brier,</line>
+            <line>Over park, over pale,</line>
+            <line>Thorough flood, thorough fire,</line>
+            <line>I do wander everywhere,</line>
+            <line>Swifter than the moon's sphere;</line>
+            <line>And I serve the fairy queen,</line>
+            <line>To dew her orbs upon the green.</line>
+            <line>The cowslips tall her pensioners be:</line>
+            <line>In their gold coats spots you see;</line>
+            <line>Those be rubies, fairy favours,</line>
+            <line>In those freckles live their savours:</line>
+            <line>I must go seek some dewdrops here</line>
+            <line>And hang a pearl in every cowslip's ear.</line>
+            <line>Farewell, thou lob of spirits; I'll be gone:</line>
+            <line>Our queen and all our elves come here anon.</line>
+         </speech>
+         <speech>
+            <speaker>PUCK</speaker>
+            <line>The king doth keep his revels here to-night:</line>
+            <line>Take heed the queen come not within his sight;</line>
+            <line>For Oberon is passing fell and wrath,</line>
+            <line>Because that she as her attendant hath</line>
+            <line>A lovely boy, stolen from an Indian king;</line>
+            <line>She never had so sweet a changeling;</line>
+            <line>And jealous Oberon would have the child</line>
+            <line>Knight of his train, to trace the forests wild;</line>
+            <line>But she perforce withholds the loved boy,</line>
+            <line>Crowns him with flowers and makes him all her joy:</line>
+            <line>And now they never meet in grove or green,</line>
+            <line>By fountain clear, or spangled starlight sheen,</line>
+            <line>But, they do square, that all their elves for fear</line>
+            <line>Creep into acorn-cups and hide them there.</line>
+         </speech>
+         <speech>
+            <speaker>Fairy</speaker>
+            <line>Either I mistake your shape and making quite,</line>
+            <line>Or else you are that shrewd and knavish sprite</line>
+            <line>Call'd Robin Goodfellow: are not you he</line>
+            <line>That frights the maidens of the villagery;</line>
+            <line>Skim milk, and sometimes labour in the quern</line>
+            <line>And bootless make the breathless housewife churn;</line>
+            <line>And sometime make the drink to bear no barm;</line>
+            <line>Mislead night-wanderers, laughing at their harm?</line>
+            <line>Those that Hobgoblin call you and sweet Puck,</line>
+            <line>You do their work, and they shall have good luck:</line>
+            <line>Are not you he?</line>
+         </speech>
+         <speech>
+            <speaker>PUCK</speaker>
+            <line>Thou speak'st aright;</line>
+            <line>I am that merry wanderer of the night.</line>
+            <line>I jest to Oberon and make him smile</line>
+            <line>When I a fat and bean-fed horse beguile,</line>
+            <line>Neighing in likeness of a filly foal:</line>
+            <line>And sometime lurk I in a gossip's bowl,</line>
+            <line>In very likeness of a roasted crab,</line>
+            <line>And when she drinks, against her lips I bob</line>
+            <line>And on her wither'd dewlap pour the ale.</line>
+            <line>The wisest aunt, telling the saddest tale,</line>
+            <line>Sometime for three-foot stool mistaketh me;</line>
+            <line>Then slip I from her bum, down topples she,</line>
+            <line>And 'tailor' cries, and falls into a cough;</line>
+            <line>And then the whole quire hold their hips and laugh,</line>
+            <line>And waxen in their mirth and neeze and swear</line>
+            <line>A merrier hour was never wasted there.</line>
+            <line>But, room, fairy! here comes Oberon.</line>
+         </speech>
+         <speech>
+            <speaker>Fairy</speaker>
+            <line>And here my mistress. Would that he were gone!</line>
+         </speech>
+         <stagedir>Enter, from one side, OBERON, with his train;
+from the other, TITANIA, with hers</stagedir>
+         <speech>
+            <speaker>OBERON</speaker>
+            <line>Ill met by moonlight, proud Titania.</line>
+         </speech>
+         <speech>
+            <speaker>TITANIA</speaker>
+            <line>What, jealous Oberon! Fairies, skip hence:</line>
+            <line>I have forsworn his bed and company.</line>
+         </speech>
+         <speech>
+            <speaker>OBERON</speaker>
+            <line>Tarry, rash wanton: am not I thy lord?</line>
+         </speech>
+         <speech>
+            <speaker>TITANIA</speaker>
+            <line>Then I must be thy lady: but I know</line>
+            <line>When thou hast stolen away from fairy land,</line>
+            <line>And in the shape of Corin sat all day,</line>
+            <line>Playing on pipes of corn and versing love</line>
+            <line>To amorous Phillida. Why art thou here,</line>
+            <line>Come from the farthest Steppe of India?</line>
+            <line>But that, forsooth, the bouncing Amazon,</line>
+            <line>Your buskin'd mistress and your warrior love,</line>
+            <line>To Theseus must be wedded, and you come</line>
+            <line>To give their bed joy and prosperity.</line>
+         </speech>
+         <speech>
+            <speaker>OBERON</speaker>
+            <line>How canst thou thus for shame, Titania,</line>
+            <line>Glance at my credit with Hippolyta,</line>
+            <line>Knowing I know thy love to Theseus?</line>
+            <line>Didst thou not lead him through the glimmering night</line>
+            <line>From Perigenia, whom he ravished?</line>
+            <line>And make him with fair AEgle break his faith,</line>
+            <line>With Ariadne and Antiopa?</line>
+         </speech>
+         <speech>
+            <speaker>TITANIA</speaker>
+            <line>These are the forgeries of jealousy:</line>
+            <line>And never, since the middle summer's spring,</line>
+            <line>Met we on hill, in dale, forest or mead,</line>
+            <line>By paved fountain or by rushy brook,</line>
+            <line>Or in the beached margent of the sea,</line>
+            <line>To dance our ringlets to the whistling wind,</line>
+            <line>But with thy brawls thou hast disturb'd our sport.</line>
+            <line>Therefore the winds, piping to us in vain,</line>
+            <line>As in revenge, have suck'd up from the sea</line>
+            <line>Contagious fogs; which falling in the land</line>
+            <line>Have every pelting river made so proud</line>
+            <line>That they have overborne their continents:</line>
+            <line>The ox hath therefore stretch'd his yoke in vain,</line>
+            <line>The ploughman lost his sweat, and the green corn</line>
+            <line>Hath rotted ere his youth attain'd a beard;</line>
+            <line>The fold stands empty in the drowned field,</line>
+            <line>And crows are fatted with the murrion flock;</line>
+            <line>The nine men's morris is fill'd up with mud,</line>
+            <line>And the quaint mazes in the wanton green</line>
+            <line>For lack of tread are undistinguishable:</line>
+            <line>The human mortals want their winter here;</line>
+            <line>No night is now with hymn or carol blest:</line>
+            <line>Therefore the moon, the governess of floods,</line>
+            <line>Pale in her anger, washes all the air,</line>
+            <line>That rheumatic diseases do abound:</line>
+            <line>And thorough this distemperature we see</line>
+            <line>The seasons alter: hoary-headed frosts</line>
+            <line>Far in the fresh lap of the crimson rose,</line>
+            <line>And on old Hiems' thin and icy crown</line>
+            <line>An odorous chaplet of sweet summer buds</line>
+            <line>Is, as in mockery, set: the spring, the summer,</line>
+            <line>The childing autumn, angry winter, change</line>
+            <line>Their wonted liveries, and the mazed world,</line>
+            <line>By their increase, now knows not which is which:</line>
+            <line>And this same progeny of evils comes</line>
+            <line>From our debate, from our dissension;</line>
+            <line>We are their parents and original.</line>
+         </speech>
+         <speech>
+            <speaker>OBERON</speaker>
+            <line>Do you amend it then; it lies in you:</line>
+            <line>Why should Titania cross her Oberon?</line>
+            <line>I do but beg a little changeling boy,</line>
+            <line>To be my henchman.</line>
+         </speech>
+         <speech>
+            <speaker>TITANIA</speaker>
+            <line>Set your heart at rest:</line>
+            <line>The fairy land buys not the child of me.</line>
+            <line>His mother was a votaress of my order:</line>
+            <line>And, in the spiced Indian air, by night,</line>
+            <line>Full often hath she gossip'd by my side,</line>
+            <line>And sat with me on Neptune's yellow sands,</line>
+            <line>Marking the embarked traders on the flood,</line>
+            <line>When we have laugh'd to see the sails conceive</line>
+            <line>And grow big-bellied with the wanton wind;</line>
+            <line>Which she, with pretty and with swimming gait</line>
+            <line>Following,--her womb then rich with my young squire,--</line>
+            <line>Would imitate, and sail upon the land,</line>
+            <line>To fetch me trifles, and return again,</line>
+            <line>As from a voyage, rich with merchandise.</line>
+            <line>But she, being mortal, of that boy did die;</line>
+            <line>And for her sake do I rear up her boy,</line>
+            <line>And for her sake I will not part with him.</line>
+         </speech>
+         <speech>
+            <speaker>OBERON</speaker>
+            <line>How long within this wood intend you stay?</line>
+         </speech>
+         <speech>
+            <speaker>TITANIA</speaker>
+            <line>Perchance till after Theseus' wedding-day.</line>
+            <line>If you will patiently dance in our round</line>
+            <line>And see our moonlight revels, go with us;</line>
+            <line>If not, shun me, and I will spare your haunts.</line>
+         </speech>
+         <speech>
+            <speaker>OBERON</speaker>
+            <line>Give me that boy, and I will go with thee.</line>
+         </speech>
+         <speech>
+            <speaker>TITANIA</speaker>
+            <line>Not for thy fairy kingdom. Fairies, away!</line>
+            <line>We shall chide downright, if I longer stay.</line>
+         </speech>
+         <stagedir>Exit TITANIA with her train</stagedir>
+         <speech>
+            <speaker>OBERON</speaker>
+            <line>Well, go thy way: thou shalt not from this grove</line>
+            <line>Till I torment thee for this injury.</line>
+            <line>My gentle Puck, come hither. Thou rememberest</line>
+            <line>Since once I sat upon a promontory,</line>
+            <line>And heard a mermaid on a dolphin's back</line>
+            <line>Uttering such dulcet and harmonious breath</line>
+            <line>That the rude sea grew civil at her song</line>
+            <line>And certain stars shot madly from their spheres,</line>
+            <line>To hear the sea-maid's music.</line>
+         </speech>
+         <speech>
+            <speaker>PUCK</speaker>
+            <line>I remember.</line>
+         </speech>
+         <speech>
+            <speaker>OBERON</speaker>
+            <line>That very time I saw, but thou couldst not,</line>
+            <line>Flying between the cold moon and the earth,</line>
+            <line>Cupid all arm'd: a certain aim he took</line>
+            <line>At a fair vestal throned by the west,</line>
+            <line>And loosed his love-shaft smartly from his bow,</line>
+            <line>As it should pierce a hundred thousand hearts;</line>
+            <line>But I might see young Cupid's fiery shaft</line>
+            <line>Quench'd in the chaste beams of the watery moon,</line>
+            <line>And the imperial votaress passed on,</line>
+            <line>In maiden meditation, fancy-free.</line>
+            <line>Yet mark'd I where the bolt of Cupid fell:</line>
+            <line>It fell upon a little western flower,</line>
+            <line>Before milk-white, now purple with love's wound,</line>
+            <line>And maidens call it love-in-idleness.</line>
+            <line>Fetch me that flower; the herb I shew'd thee once:</line>
+            <line>The juice of it on sleeping eye-lids laid</line>
+            <line>Will make or man or woman madly dote</line>
+            <line>Upon the next live creature that it sees.</line>
+            <line>Fetch me this herb; and be thou here again</line>
+            <line>Ere the leviathan can swim a league.</line>
+         </speech>
+         <speech>
+            <speaker>PUCK</speaker>
+            <line>I'll put a girdle round about the earth</line>
+            <line>In forty minutes.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>OBERON</speaker>
+            <line>Having once this juice,</line>
+            <line>I'll watch Titania when she is asleep,</line>
+            <line>And drop the liquor of it in her eyes.</line>
+            <line>The next thing then she waking looks upon,</line>
+            <line>Be it on lion, bear, or wolf, or bull,</line>
+            <line>On meddling monkey, or on busy ape,</line>
+            <line>She shall pursue it with the soul of love:</line>
+            <line>And ere I take this charm from off her sight,</line>
+            <line>As I can take it with another herb,</line>
+            <line>I'll make her render up her page to me.</line>
+            <line>But who comes here? I am invisible;</line>
+            <line>And I will overhear their conference.</line>
+         </speech>
+         <stagedir>Enter DEMETRIUS, HELENA, following him</stagedir>
+         <speech>
+            <speaker>DEMETRIUS</speaker>
+            <line>I love thee not, therefore pursue me not.</line>
+            <line>Where is Lysander and fair Hermia?</line>
+            <line>The one I'll slay, the other slayeth me.</line>
+            <line>Thou told'st me they were stolen unto this wood;</line>
+            <line>And here am I, and wode within this wood,</line>
+            <line>Because I cannot meet my Hermia.</line>
+            <line>Hence, get thee gone, and follow me no more.</line>
+         </speech>
+         <speech>
+            <speaker>HELENA</speaker>
+            <line>You draw me, you hard-hearted adamant;</line>
+            <line>But yet you draw not iron, for my heart</line>
+            <line>Is true as steel: leave you your power to draw,</line>
+            <line>And I shall have no power to follow you.</line>
+         </speech>
+         <speech>
+            <speaker>DEMETRIUS</speaker>
+            <line>Do I entice you? do I speak you fair?</line>
+            <line>Or, rather, do I not in plainest truth</line>
+            <line>Tell you, I do not, nor I cannot love you?</line>
+         </speech>
+         <speech>
+            <speaker>HELENA</speaker>
+            <line>And even for that do I love you the more.</line>
+            <line>I am your spaniel; and, Demetrius,</line>
+            <line>The more you beat me, I will fawn on you:</line>
+            <line>Use me but as your spaniel, spurn me, strike me,</line>
+            <line>Neglect me, lose me; only give me leave,</line>
+            <line>Unworthy as I am, to follow you.</line>
+            <line>What worser place can I beg in your love,--</line>
+            <line>And yet a place of high respect with me,--</line>
+            <line>Than to be used as you use your dog?</line>
+         </speech>
+         <speech>
+            <speaker>DEMETRIUS</speaker>
+            <line>Tempt not too much the hatred of my spirit;</line>
+            <line>For I am sick when I do look on thee.</line>
+         </speech>
+         <speech>
+            <speaker>HELENA</speaker>
+            <line>And I am sick when I look not on you.</line>
+         </speech>
+         <speech>
+            <speaker>DEMETRIUS</speaker>
+            <line>You do impeach your modesty too much,</line>
+            <line>To leave the city and commit yourself</line>
+            <line>Into the hands of one that loves you not;</line>
+            <line>To trust the opportunity of night</line>
+            <line>And the ill counsel of a desert place</line>
+            <line>With the rich worth of your virginity.</line>
+         </speech>
+         <speech>
+            <speaker>HELENA</speaker>
+            <line>Your virtue is my privilege: for that</line>
+            <line>It is not night when I do see your face,</line>
+            <line>Therefore I think I am not in the night;</line>
+            <line>Nor doth this wood lack worlds of company,</line>
+            <line>For you in my respect are all the world:</line>
+            <line>Then how can it be said I am alone,</line>
+            <line>When all the world is here to look on me?</line>
+         </speech>
+         <speech>
+            <speaker>DEMETRIUS</speaker>
+            <line>I'll run from thee and hide me in the brakes,</line>
+            <line>And leave thee to the mercy of wild beasts.</line>
+         </speech>
+         <speech>
+            <speaker>HELENA</speaker>
+            <line>The wildest hath not such a heart as you.</line>
+            <line>Run when you will, the story shall be changed:</line>
+            <line>Apollo flies, and Daphne holds the chase;</line>
+            <line>The dove pursues the griffin; the mild hind</line>
+            <line>Makes speed to catch the tiger; bootless speed,</line>
+            <line>When cowardice pursues and valour flies.</line>
+         </speech>
+         <speech>
+            <speaker>DEMETRIUS</speaker>
+            <line>I will not stay thy questions; let me go:</line>
+            <line>Or, if thou follow me, do not believe</line>
+            <line>But I shall do thee mischief in the wood.</line>
+         </speech>
+         <speech>
+            <speaker>HELENA</speaker>
+            <line>Ay, in the temple, in the town, the field,</line>
+            <line>You do me mischief. Fie, Demetrius!</line>
+            <line>Your wrongs do set a scandal on my sex:</line>
+            <line>We cannot fight for love, as men may do;</line>
+            <line>We should be wood and were not made to woo.</line>
+            <stagedir>Exit DEMETRIUS</stagedir>
+            <line>I'll follow thee and make a heaven of hell,</line>
+            <line>To die upon the hand I love so well.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>OBERON</speaker>
+            <line>Fare thee well, nymph: ere he do leave this grove,</line>
+            <line>Thou shalt fly him and he shall seek thy love.</line>
+            <stagedir>Re-enter PUCK</stagedir>
+            <line>Hast thou the flower there? Welcome, wanderer.</line>
+         </speech>
+         <speech>
+            <speaker>PUCK</speaker>
+            <line>Ay, there it is.</line>
+         </speech>
+         <speech>
+            <speaker>OBERON</speaker>
+            <line>I pray thee, give it me.</line>
+            <line>I know a bank where the wild thyme blows,</line>
+            <line>Where oxlips and the nodding violet grows,</line>
+            <line>Quite over-canopied with luscious woodbine,</line>
+            <line>With sweet musk-roses and with eglantine:</line>
+            <line>There sleeps Titania sometime of the night,</line>
+            <line>Lull'd in these flowers with dances and delight;</line>
+            <line>And there the snake throws her enamell'd skin,</line>
+            <line>Weed wide enough to wrap a fairy in:</line>
+            <line>And with the juice of this I'll streak her eyes,</line>
+            <line>And make her full of hateful fantasies.</line>
+            <line>Take thou some of it, and seek through this grove:</line>
+            <line>A sweet Athenian lady is in love</line>
+            <line>With a disdainful youth: anoint his eyes;</line>
+            <line>But do it when the next thing he espies</line>
+            <line>May be the lady: thou shalt know the man</line>
+            <line>By the Athenian garments he hath on.</line>
+            <line>Effect it with some care, that he may prove</line>
+            <line>More fond on her than she upon her love:</line>
+            <line>And look thou meet me ere the first cock crow.</line>
+         </speech>
+         <speech>
+            <speaker>PUCK</speaker>
+            <line>Fear not, my lord, your servant shall do so.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-2">
+      <title>SCENE II.  Another part of the wood.</title>
+      <scene-body>
+         <stagedir>Enter TITANIA, with her train</stagedir>
+         <speech>
+            <speaker>TITANIA</speaker>
+            <line>Come, now a roundel and a fairy song;</line>
+            <line>Then, for the third part of a minute, hence;</line>
+            <line>Some to kill cankers in the musk-rose buds,</line>
+            <line>Some war with rere-mice for their leathern wings,</line>
+            <line>To make my small elves coats, and some keep back</line>
+            <line>The clamorous owl that nightly hoots and wonders</line>
+            <line>At our quaint spirits. Sing me now asleep;</line>
+            <line>Then to your offices and let me rest.</line>
+            <stagedir>The Fairies sing</stagedir>
+            <line>You spotted snakes with double tongue,</line>
+            <line>Thorny hedgehogs, be not seen;</line>
+            <line>Newts and blind-worms, do no wrong,</line>
+            <line>Come not near our fairy queen.</line>
+            <line>Philomel, with melody</line>
+            <line>Sing in our sweet lullaby;</line>
+            <line>Lulla, lulla, lullaby, lulla, lulla, lullaby:</line>
+            <line>Never harm,</line>
+            <line>Nor spell nor charm,</line>
+            <line>Come our lovely lady nigh;</line>
+            <line>So, good night, with lullaby.</line>
+            <line>Weaving spiders, come not here;</line>
+            <line>Hence, you long-legg'd spinners, hence!</line>
+            <line>Beetles black, approach not near;</line>
+            <line>Worm nor snail, do no offence.</line>
+            <line>Philomel, with melody, &amp;c.</line>
+         </speech>
+         <speech>
+            <speaker>Fairy</speaker>
+            <line>Hence, away! now all is well:</line>
+            <line>One aloof stand sentinel.</line>
+         </speech>
+         <stagedir>Exeunt Fairies. TITANIA sleeps</stagedir>
+         <stagedir>Enter OBERON and squeezes the flower on TITANIA's eyelids</stagedir>
+         <speech>
+            <speaker>OBERON</speaker>
+            <line>What thou seest when thou dost wake,</line>
+            <line>Do it for thy true-love take,</line>
+            <line>Love and languish for his sake:</line>
+            <line>Be it ounce, or cat, or bear,</line>
+            <line>Pard, or boar with bristled hair,</line>
+            <line>In thy eye that shall appear</line>
+            <line>When thou wakest, it is thy dear:</line>
+            <line>Wake when some vile thing is near.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <stagedir>Enter LYSANDER and HERMIA</stagedir>
+         <speech>
+            <speaker>LYSANDER</speaker>
+            <line>Fair love, you faint with wandering in the wood;</line>
+            <line>And to speak troth, I have forgot our way:</line>
+            <line>We'll rest us, Hermia, if you think it good,</line>
+            <line>And tarry for the comfort of the day.</line>
+         </speech>
+         <speech>
+            <speaker>HERMIA</speaker>
+            <line>Be it so, Lysander: find you out a bed;</line>
+            <line>For I upon this bank will rest my head.</line>
+         </speech>
+         <speech>
+            <speaker>LYSANDER</speaker>
+            <line>One turf shall serve as pillow for us both;</line>
+            <line>One heart, one bed, two bosoms and one troth.</line>
+         </speech>
+         <speech>
+            <speaker>HERMIA</speaker>
+            <line>Nay, good Lysander; for my sake, my dear,</line>
+            <line>Lie further off yet, do not lie so near.</line>
+         </speech>
+         <speech>
+            <speaker>LYSANDER</speaker>
+            <line>O, take the sense, sweet, of my innocence!</line>
+            <line>Love takes the meaning in love's conference.</line>
+            <line>I mean, that my heart unto yours is knit</line>
+            <line>So that but one heart we can make of it;</line>
+            <line>Two bosoms interchained with an oath;</line>
+            <line>So then two bosoms and a single troth.</line>
+            <line>Then by your side no bed-room me deny;</line>
+            <line>For lying so, Hermia, I do not lie.</line>
+         </speech>
+         <speech>
+            <speaker>HERMIA</speaker>
+            <line>Lysander riddles very prettily:</line>
+            <line>Now much beshrew my manners and my pride,</line>
+            <line>If Hermia meant to say Lysander lied.</line>
+            <line>But, gentle friend, for love and courtesy</line>
+            <line>Lie further off; in human modesty,</line>
+            <line>Such separation as may well be said</line>
+            <line>Becomes a virtuous bachelor and a maid,</line>
+            <line>So far be distant; and, good night, sweet friend:</line>
+            <line>Thy love ne'er alter till thy sweet life end!</line>
+         </speech>
+         <speech>
+            <speaker>LYSANDER</speaker>
+            <line>Amen, amen, to that fair prayer, say I;</line>
+            <line>And then end life when I end loyalty!</line>
+            <line>Here is my bed: sleep give thee all his rest!</line>
+         </speech>
+         <speech>
+            <speaker>HERMIA</speaker>
+            <line>With half that wish the wisher's eyes be press'd!</line>
+         </speech>
+         <stagedir>They sleep</stagedir>
+         <stagedir>Enter PUCK</stagedir>
+         <speech>
+            <speaker>PUCK</speaker>
+            <line>Through the forest have I gone.</line>
+            <line>But Athenian found I none,</line>
+            <line>On whose eyes I might approve</line>
+            <line>This flower's force in stirring love.</line>
+            <line>Night and silence.--Who is here?</line>
+            <line>Weeds of Athens he doth wear:</line>
+            <line>This is he, my master said,</line>
+            <line>Despised the Athenian maid;</line>
+            <line>And here the maiden, sleeping sound,</line>
+            <line>On the dank and dirty ground.</line>
+            <line>Pretty soul! she durst not lie</line>
+            <line>Near this lack-love, this kill-courtesy.</line>
+            <line>Churl, upon thy eyes I throw</line>
+            <line>All the power this charm doth owe.</line>
+            <line>When thou wakest, let love forbid</line>
+            <line>Sleep his seat on thy eyelid:</line>
+            <line>So awake when I am gone;</line>
+            <line>For I must now to Oberon.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <stagedir>Enter DEMETRIUS and HELENA, running</stagedir>
+         <speech>
+            <speaker>HELENA</speaker>
+            <line>Stay, though thou kill me, sweet Demetrius.</line>
+         </speech>
+         <speech>
+            <speaker>DEMETRIUS</speaker>
+            <line>I charge thee, hence, and do not haunt me thus.</line>
+         </speech>
+         <speech>
+            <speaker>HELENA</speaker>
+            <line>O, wilt thou darkling leave me? do not so.</line>
+         </speech>
+         <speech>
+            <speaker>DEMETRIUS</speaker>
+            <line>Stay, on thy peril: I alone will go.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>HELENA</speaker>
+            <line>O, I am out of breath in this fond chase!</line>
+            <line>The more my prayer, the lesser is my grace.</line>
+            <line>Happy is Hermia, wheresoe'er she lies;</line>
+            <line>For she hath blessed and attractive eyes.</line>
+            <line>How came her eyes so bright? Not with salt tears:</line>
+            <line>If so, my eyes are oftener wash'd than hers.</line>
+            <line>No, no, I am as ugly as a bear;</line>
+            <line>For beasts that meet me run away for fear:</line>
+            <line>Therefore no marvel though Demetrius</line>
+            <line>Do, as a monster fly my presence thus.</line>
+            <line>What wicked and dissembling glass of mine</line>
+            <line>Made me compare with Hermia's sphery eyne?</line>
+            <line>But who is here? Lysander! on the ground!</line>
+            <line>Dead? or asleep? I see no blood, no wound.</line>
+            <line>Lysander if you live, good sir, awake.</line>
+         </speech>
+         <speech>
+            <speaker>LYSANDER</speaker>
+            <line>
+               <stagedir>Awaking</stagedir>  And run through fire I will for thy sweet sake.</line>
+            <line>Transparent Helena! Nature shows art,</line>
+            <line>That through thy bosom makes me see thy heart.</line>
+            <line>Where is Demetrius? O, how fit a word</line>
+            <line>Is that vile name to perish on my sword!</line>
+         </speech>
+         <speech>
+            <speaker>HELENA</speaker>
+            <line>Do not say so, Lysander; say not so</line>
+            <line>What though he love your Hermia? Lord, what though?</line>
+            <line>Yet Hermia still loves you: then be content.</line>
+         </speech>
+         <speech>
+            <speaker>LYSANDER</speaker>
+            <line>Content with Hermia! No; I do repent</line>
+            <line>The tedious minutes I with her have spent.</line>
+            <line>Not Hermia but Helena I love:</line>
+            <line>Who will not change a raven for a dove?</line>
+            <line>The will of man is by his reason sway'd;</line>
+            <line>And reason says you are the worthier maid.</line>
+            <line>Things growing are not ripe until their season</line>
+            <line>So I, being young, till now ripe not to reason;</line>
+            <line>And touching now the point of human skill,</line>
+            <line>Reason becomes the marshal to my will</line>
+            <line>And leads me to your eyes, where I o'erlook</line>
+            <line>Love's stories written in love's richest book.</line>
+         </speech>
+         <speech>
+            <speaker>HELENA</speaker>
+            <line>Wherefore was I to this keen mockery born?</line>
+            <line>When at your hands did I deserve this scorn?</line>
+            <line>Is't not enough, is't not enough, young man,</line>
+            <line>That I did never, no, nor never can,</line>
+            <line>Deserve a sweet look from Demetrius' eye,</line>
+            <line>But you must flout my insufficiency?</line>
+            <line>Good troth, you do me wrong, good sooth, you do,</line>
+            <line>In such disdainful manner me to woo.</line>
+            <line>But fare you well: perforce I must confess</line>
+            <line>I thought you lord of more true gentleness.</line>
+            <line>O, that a lady, of one man refused.</line>
+            <line>Should of another therefore be abused!</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>LYSANDER</speaker>
+            <line>She sees not Hermia. Hermia, sleep thou there:</line>
+            <line>And never mayst thou come Lysander near!</line>
+            <line>For as a surfeit of the sweetest things</line>
+            <line>The deepest loathing to the stomach brings,</line>
+            <line>Or as tie heresies that men do leave</line>
+            <line>Are hated most of those they did deceive,</line>
+            <line>So thou, my surfeit and my heresy,</line>
+            <line>Of all be hated, but the most of me!</line>
+            <line>And, all my powers, address your love and might</line>
+            <line>To honour Helen and to be her knight!</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>HERMIA</speaker>
+            <line>
+               <stagedir>Awaking</stagedir>  Help me, Lysander, help me! do thy best</line>
+            <line>To pluck this crawling serpent from my breast!</line>
+            <line>Ay me, for pity! what a dream was here!</line>
+            <line>Lysander, look how I do quake with fear:</line>
+            <line>Methought a serpent eat my heart away,</line>
+            <line>And you sat smiling at his cruel pray.</line>
+            <line>Lysander! what, removed? Lysander! lord!</line>
+            <line>What, out of hearing? gone? no sound, no word?</line>
+            <line>Alack, where are you speak, an if you hear;</line>
+            <line>Speak, of all loves! I swoon almost with fear.</line>
+            <line>No? then I well perceive you all not nigh</line>
+            <line>Either death or you I'll find immediately.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+      </scene-body>
+   </scene>
+</act>

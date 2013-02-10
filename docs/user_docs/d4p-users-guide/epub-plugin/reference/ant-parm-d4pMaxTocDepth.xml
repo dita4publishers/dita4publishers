@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/reference.dtd">
+<reference id="referenceId">
+  <title>d4p.max.toc.depth Ant parameter</title>
+  <shortdesc>Specifies the maximum depth of the generated HTML table of
+    contents.</shortdesc>
+  <refbody>
+    <section
+      spectitle="Value">
+      <p>An integer from 1 to n. </p>
+    </section>
+    <section
+      spectitle="Default">
+      <p>The default is "5".</p>
+    </section>
+  </refbody>
+</reference>

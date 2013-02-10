@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+    <fo:layout-master-set>
+        <fo:simple-page-master master-name="page-master-01"
+          page-height="11in"
+          page-width="8in"
+          >
+            <fo:region-body></fo:region-body>
+        </fo:simple-page-master>
+    </fo:layout-master-set>
+    <fo:page-sequence master-reference="page-master-01">
+      <!--<fo:folio-prefix>Prefix-</fo:folio-prefix>-->
+      <!--<fo:folio-suffix>-Suffix</fo:folio-suffix>-->
+      <fo:flow flow-name="xsl-region-body">
+            <fo:block>This is the first page</fo:block>
+          <fo:block>Page number: <fo:page-number/></fo:block>
+        </fo:flow>
+    </fo:page-sequence>
+</fo:root>

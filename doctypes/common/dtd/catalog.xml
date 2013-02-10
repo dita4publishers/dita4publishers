@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations"
+    uri="d4p_commonDomainIntegrations.mod"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations.mod"
+    uri="d4p_commonDomainIntegrations.mod"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations:entities"
+    uri="d4p_commonDomainIntegrations.ent"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations.ent"
+    uri="d4p_commonDomainIntegrations.ent"
+  />
+  
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations:integrationEntities"
+    uri="d4p_commonDomainEntityIntegrations.ent"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainEntityIntegrations.ent"
+    uri="d4p_commonDomainEntityIntegrations.ent"
+  />
+  
+</catalog>  

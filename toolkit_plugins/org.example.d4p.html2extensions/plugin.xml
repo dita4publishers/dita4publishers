@@ -1,0 +1,10 @@
+<!-- 
+
+  Sample extension plugin for the HTML2 transformation type.
+  
+  -->
+<plugin id="org.example.d4p.html2extensions">
+  <require plugin="net.sourceforge.dita4publishers.html2"/> 
+  <feature extension="xsl.transtype-html2" 
+  value="xsl/html2extensions.xsl" type="file"/>  
+</plugin>

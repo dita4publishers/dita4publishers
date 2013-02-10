@@ -1,0 +1,48 @@
+/*
+==============================
+    XML elements. [xml-d]
+==============================
+*/
+
+/*
+    Application Messages.
+*/
+*[class~="xml-d/xmlelem"],
+*[class~="xml-d/xmlatt"],
+*[class~="xml-d/parment"],
+*[class~="xml-d/textent"],
+*[class~="xml-d/numcharref"]
+{
+    font-family:monospace;
+}
+*[class~="xml-d/xmlelem"]:before {
+    content: '<';
+}
+*[class~="xml-d/xmlelem"]:after {
+    content: '>';
+}
+
+*[class~="xml-d/parment"]:before {
+    content: '%';
+}
+
+*[class~="xml-d/textent"]:before {
+    content: '&';
+}
+
+*[class~="xml-d/numcharref"]:before {
+    content: '&#';
+}
+
+*[class~="xml-d/parment"]:after,
+*[class~="xml-d/textent"]:after,
+*[class~="xml-d/numcharref"]:after
+{
+    content: ';';
+}
+
+*[class~="xml-d/xmlatt"]:before {
+    content: '@';
+}
+
+

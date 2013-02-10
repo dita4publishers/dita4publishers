@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<val>
+  <prop action="exclude" att="d4p_renditionTarget"/>
+  <prop action="exclude" att="d4p_renditionTarget" val="pdf" />
+  <prop action="flag" att="d4p_renditionTarget" val="html" color="red">
+    <startflag><alt-text>[HTML]</alt-text></startflag>    
+  </prop>
+</val>

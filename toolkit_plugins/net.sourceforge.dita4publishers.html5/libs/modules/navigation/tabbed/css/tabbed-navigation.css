@@ -1,0 +1,46 @@
+/**
+ *  @file tabbed-navigation
+ *
+ *  !experimental, not ready
+ *
+ *  Copyright 2012 DITA For Publishers  
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */ 
+#tab-tools {
+	display:block;
+	position:absolute;
+	width:100%;
+	border-bottom:1px dashed #ccc;
+	height: 22px;
+    padding-top: 12px;
+}
+
+#tab-tools:hover {
+	cursor:pointer;
+}
+
+#tab-tools h2, #tab-tools span {
+	float:left;
+	position:relative;
+}
+
+#tab-tools span.ico.grip {
+	margin:0 5px;
+}
+
+#tab-tools h2 {
+	font-size:1em;
+	font-weight: bold;
+}

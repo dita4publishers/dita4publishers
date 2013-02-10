@@ -1,0 +1,1030 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:act" "act.dtd">
+<act id="act-2">
+   <title>ACT II</title>
+   <scene id="act-2-scene-1">
+      <title>SCENE I.  Rome. BRUTUS's orchard.</title>
+      <scene-body>
+         <stagedir>Enter BRUTUS</stagedir>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>What, Lucius, ho!</line>
+            <line>I cannot, by the progress of the stars,</line>
+            <line>Give guess how near to day. Lucius, I say!</line>
+            <line>I would it were my fault to sleep so soundly.</line>
+            <line>When, Lucius, when? awake, I say! what, Lucius!</line>
+         </speech>
+         <stagedir>Enter LUCIUS</stagedir>
+         <speech>
+            <speaker>LUCIUS</speaker>
+            <line>Call'd you, my lord?</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Get me a taper in my study, Lucius:</line>
+            <line>When it is lighted, come and call me here.</line>
+         </speech>
+         <speech>
+            <speaker>LUCIUS</speaker>
+            <line>I will, my lord.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>It must be by his death: and for my part,</line>
+            <line>I know no personal cause to spurn at him,</line>
+            <line>But for the general. He would be crown'd:</line>
+            <line>How that might change his nature, there's the question.</line>
+            <line>It is the bright day that brings forth the adder;</line>
+            <line>And that craves wary walking. Crown him?--that;--</line>
+            <line>And then, I grant, we put a sting in him,</line>
+            <line>That at his will he may do danger with.</line>
+            <line>The abuse of greatness is, when it disjoins</line>
+            <line>Remorse from power: and, to speak truth of Caesar,</line>
+            <line>I have not known when his affections sway'd</line>
+            <line>More than his reason. But 'tis a common proof,</line>
+            <line>That lowliness is young ambition's ladder,</line>
+            <line>Whereto the climber-upward turns his face;</line>
+            <line>But when he once attains the upmost round.</line>
+            <line>He then unto the ladder turns his back,</line>
+            <line>Looks in the clouds, scorning the base degrees</line>
+            <line>By which he did ascend. So Caesar may.</line>
+            <line>Then, lest he may, prevent. And, since the quarrel</line>
+            <line>Will bear no colour for the thing he is,</line>
+            <line>Fashion it thus; that what he is, augmented,</line>
+            <line>Would run to these and these extremities:</line>
+            <line>And therefore think him as a serpent's egg</line>
+            <line>Which, hatch'd, would, as his kind, grow mischievous,</line>
+            <line>And kill him in the shell.</line>
+         </speech>
+         <stagedir>Re-enter LUCIUS</stagedir>
+         <speech>
+            <speaker>LUCIUS</speaker>
+            <line>The taper burneth in your closet, sir.</line>
+            <line>Searching the window for a flint, I found</line>
+            <line>This paper, thus seal'd up; and, I am sure,</line>
+            <line>It did not lie there when I went to bed.</line>
+         </speech>
+         <stagedir>Gives him the letter</stagedir>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Get you to bed again; it is not day.</line>
+            <line>Is not to-morrow, boy, the ides of March?</line>
+         </speech>
+         <speech>
+            <speaker>LUCIUS</speaker>
+            <line>I know not, sir.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Look in the calendar, and bring me word.</line>
+         </speech>
+         <speech>
+            <speaker>LUCIUS</speaker>
+            <line>I will, sir.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>The exhalations whizzing in the air</line>
+            <line>Give so much light that I may read by them.</line>
+            <stagedir>Opens the letter and reads</stagedir>
+            <line>'Brutus, thou sleep'st: awake, and see thyself.</line>
+            <line>Shall Rome, &amp;c. Speak, strike, redress!</line>
+            <line>Brutus, thou sleep'st: awake!'</line>
+            <line>Such instigations have been often dropp'd</line>
+            <line>Where I have took them up.</line>
+            <line>'Shall Rome, &amp;c.' Thus must I piece it out:</line>
+            <line>Shall Rome stand under one man's awe? What, Rome?</line>
+            <line>My ancestors did from the streets of Rome</line>
+            <line>The Tarquin drive, when he was call'd a king.</line>
+            <line>'Speak, strike, redress!' Am I entreated</line>
+            <line>To speak and strike? O Rome, I make thee promise:</line>
+            <line>If the redress will follow, thou receivest</line>
+            <line>Thy full petition at the hand of Brutus!</line>
+         </speech>
+         <stagedir>Re-enter LUCIUS</stagedir>
+         <speech>
+            <speaker>LUCIUS</speaker>
+            <line>Sir, March is wasted fourteen days.</line>
+         </speech>
+         <stagedir>Knocking within</stagedir>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>'Tis good. Go to the gate; somebody knocks.</line>
+            <stagedir>Exit LUCIUS</stagedir>
+            <line>Since Cassius first did whet me against Caesar,</line>
+            <line>I have not slept.</line>
+            <line>Between the acting of a dreadful thing</line>
+            <line>And the first motion, all the interim is</line>
+            <line>Like a phantasma, or a hideous dream:</line>
+            <line>The Genius and the mortal instruments</line>
+            <line>Are then in council; and the state of man,</line>
+            <line>Like to a little kingdom, suffers then</line>
+            <line>The nature of an insurrection.</line>
+         </speech>
+         <stagedir>Re-enter LUCIUS</stagedir>
+         <speech>
+            <speaker>LUCIUS</speaker>
+            <line>Sir, 'tis your brother Cassius at the door,</line>
+            <line>Who doth desire to see you.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Is he alone?</line>
+         </speech>
+         <speech>
+            <speaker>LUCIUS</speaker>
+            <line>No, sir, there are moe with him.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Do you know them?</line>
+         </speech>
+         <speech>
+            <speaker>LUCIUS</speaker>
+            <line>No, sir; their hats are pluck'd about their ears,</line>
+            <line>And half their faces buried in their cloaks,</line>
+            <line>That by no means I may discover them</line>
+            <line>By any mark of favour.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Let 'em enter.</line>
+            <stagedir>Exit LUCIUS</stagedir>
+            <line>They are the faction. O conspiracy,</line>
+            <line>Shamest thou to show thy dangerous brow by night,</line>
+            <line>When evils are most free? O, then by day</line>
+            <line>Where wilt thou find a cavern dark enough</line>
+            <line>To mask thy monstrous visage? Seek none, conspiracy;</line>
+            <line>Hide it in smiles and affability:</line>
+            <line>For if thou path, thy native semblance on,</line>
+            <line>Not Erebus itself were dim enough</line>
+            <line>To hide thee from prevention.</line>
+         </speech>
+         <stagedir>Enter the conspirators, CASSIUS, CASCA, DECIUS
+BRUTUS, CINNA, METELLUS CIMBER, and TREBONIUS</stagedir>
+         <speech>
+            <speaker>CASSIUS</speaker>
+            <line>I think we are too bold upon your rest:</line>
+            <line>Good morrow, Brutus; do we trouble you?</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>I have been up this hour, awake all night.</line>
+            <line>Know I these men that come along with you?</line>
+         </speech>
+         <speech>
+            <speaker>CASSIUS</speaker>
+            <line>Yes, every man of them, and no man here</line>
+            <line>But honours you; and every one doth wish</line>
+            <line>You had but that opinion of yourself</line>
+            <line>Which every noble Roman bears of you.</line>
+            <line>This is Trebonius.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>He is welcome hither.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIUS</speaker>
+            <line>This, Decius Brutus.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>He is welcome too.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIUS</speaker>
+            <line>This, Casca; this, Cinna; and this, Metellus Cimber.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>They are all welcome.</line>
+            <line>What watchful cares do interpose themselves</line>
+            <line>Betwixt your eyes and night?</line>
+         </speech>
+         <speech>
+            <speaker>CASSIUS</speaker>
+            <line>Shall I entreat a word?</line>
+         </speech>
+         <stagedir>BRUTUS and CASSIUS whisper</stagedir>
+         <speech>
+            <speaker>DECIUS BRUTUS</speaker>
+            <line>Here lies the east: doth not the day break here?</line>
+         </speech>
+         <speech>
+            <speaker>CASCA</speaker>
+            <line>No.</line>
+         </speech>
+         <speech>
+            <speaker>CINNA</speaker>
+            <line>O, pardon, sir, it doth; and yon gray lines</line>
+            <line>That fret the clouds are messengers of day.</line>
+         </speech>
+         <speech>
+            <speaker>CASCA</speaker>
+            <line>You shall confess that you are both deceived.</line>
+            <line>Here, as I point my sword, the sun arises,</line>
+            <line>Which is a great way growing on the south,</line>
+            <line>Weighing the youthful season of the year.</line>
+            <line>Some two months hence up higher toward the north</line>
+            <line>He first presents his fire; and the high east</line>
+            <line>Stands, as the Capitol, directly here.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Give me your hands all over, one by one.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIUS</speaker>
+            <line>And let us swear our resolution.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>No, not an oath: if not the face of men,</line>
+            <line>The sufferance of our souls, the time's abuse,--</line>
+            <line>If these be motives weak, break off betimes,</line>
+            <line>And every man hence to his idle bed;</line>
+            <line>So let high-sighted tyranny range on,</line>
+            <line>Till each man drop by lottery. But if these,</line>
+            <line>As I am sure they do, bear fire enough</line>
+            <line>To kindle cowards and to steel with valour</line>
+            <line>The melting spirits of women, then, countrymen,</line>
+            <line>What need we any spur but our own cause,</line>
+            <line>To prick us to redress? what other bond</line>
+            <line>Than secret Romans, that have spoke the word,</line>
+            <line>And will not palter? and what other oath</line>
+            <line>Than honesty to honesty engaged,</line>
+            <line>That this shall be, or we will fall for it?</line>
+            <line>Swear priests and cowards and men cautelous,</line>
+            <line>Old feeble carrions and such suffering souls</line>
+            <line>That welcome wrongs; unto bad causes swear</line>
+            <line>Such creatures as men doubt; but do not stain</line>
+            <line>The even virtue of our enterprise,</line>
+            <line>Nor the insuppressive mettle of our spirits,</line>
+            <line>To think that or our cause or our performance</line>
+            <line>Did need an oath; when every drop of blood</line>
+            <line>That every Roman bears, and nobly bears,</line>
+            <line>Is guilty of a several bastardy,</line>
+            <line>If he do break the smallest particle</line>
+            <line>Of any promise that hath pass'd from him.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIUS</speaker>
+            <line>But what of Cicero? shall we sound him?</line>
+            <line>I think he will stand very strong with us.</line>
+         </speech>
+         <speech>
+            <speaker>CASCA</speaker>
+            <line>Let us not leave him out.</line>
+         </speech>
+         <speech>
+            <speaker>CINNA</speaker>
+            <line>No, by no means.</line>
+         </speech>
+         <speech>
+            <speaker>METELLUS CIMBER</speaker>
+            <line>O, let us have him, for his silver hairs</line>
+            <line>Will purchase us a good opinion</line>
+            <line>And buy men's voices to commend our deeds:</line>
+            <line>It shall be said, his judgment ruled our hands;</line>
+            <line>Our youths and wildness shall no whit appear,</line>
+            <line>But all be buried in his gravity.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>O, name him not: let us not break with him;</line>
+            <line>For he will never follow any thing</line>
+            <line>That other men begin.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIUS</speaker>
+            <line>Then leave him out.</line>
+         </speech>
+         <speech>
+            <speaker>CASCA</speaker>
+            <line>Indeed he is not fit.</line>
+         </speech>
+         <speech>
+            <speaker>DECIUS BRUTUS</speaker>
+            <line>Shall no man else be touch'd but only Caesar?</line>
+         </speech>
+         <speech>
+            <speaker>CASSIUS</speaker>
+            <line>Decius, well urged: I think it is not meet,</line>
+            <line>Mark Antony, so well beloved of Caesar,</line>
+            <line>Should outlive Caesar: we shall find of him</line>
+            <line>A shrewd contriver; and, you know, his means,</line>
+            <line>If he improve them, may well stretch so far</line>
+            <line>As to annoy us all: which to prevent,</line>
+            <line>Let Antony and Caesar fall together.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Our course will seem too bloody, Caius Cassius,</line>
+            <line>To cut the head off and then hack the limbs,</line>
+            <line>Like wrath in death and envy afterwards;</line>
+            <line>For Antony is but a limb of Caesar:</line>
+            <line>Let us be sacrificers, but not butchers, Caius.</line>
+            <line>We all stand up against the spirit of Caesar;</line>
+            <line>And in the spirit of men there is no blood:</line>
+            <line>O, that we then could come by Caesar's spirit,</line>
+            <line>And not dismember Caesar! But, alas,</line>
+            <line>Caesar must bleed for it! And, gentle friends,</line>
+            <line>Let's kill him boldly, but not wrathfully;</line>
+            <line>Let's carve him as a dish fit for the gods,</line>
+            <line>Not hew him as a carcass fit for hounds:</line>
+            <line>And let our hearts, as subtle masters do,</line>
+            <line>Stir up their servants to an act of rage,</line>
+            <line>And after seem to chide 'em. This shall make</line>
+            <line>Our purpose necessary and not envious:</line>
+            <line>Which so appearing to the common eyes,</line>
+            <line>We shall be call'd purgers, not murderers.</line>
+            <line>And for Mark Antony, think not of him;</line>
+            <line>For he can do no more than Caesar's arm</line>
+            <line>When Caesar's head is off.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIUS</speaker>
+            <line>Yet I fear him;</line>
+            <line>For in the ingrafted love he bears to Caesar--</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Alas, good Cassius, do not think of him:</line>
+            <line>If he love Caesar, all that he can do</line>
+            <line>Is to himself, take thought and die for Caesar:</line>
+            <line>And that were much he should; for he is given</line>
+            <line>To sports, to wildness and much company.</line>
+         </speech>
+         <speech>
+            <speaker>TREBONIUS</speaker>
+            <line>There is no fear in him; let him not die;</line>
+            <line>For he will live, and laugh at this hereafter.</line>
+         </speech>
+         <stagedir>Clock strikes</stagedir>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Peace! count the clock.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIUS</speaker>
+            <line>The clock hath stricken three.</line>
+         </speech>
+         <speech>
+            <speaker>TREBONIUS</speaker>
+            <line>'Tis time to part.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIUS</speaker>
+            <line>But it is doubtful yet,</line>
+            <line>Whether Caesar will come forth to-day, or no;</line>
+            <line>For he is superstitious grown of late,</line>
+            <line>Quite from the main opinion he held once</line>
+            <line>Of fantasy, of dreams and ceremonies:</line>
+            <line>It may be, these apparent prodigies,</line>
+            <line>The unaccustom'd terror of this night,</line>
+            <line>And the persuasion of his augurers,</line>
+            <line>May hold him from the Capitol to-day.</line>
+         </speech>
+         <speech>
+            <speaker>DECIUS BRUTUS</speaker>
+            <line>Never fear that: if he be so resolved,</line>
+            <line>I can o'ersway him; for he loves to hear</line>
+            <line>That unicorns may be betray'd with trees,</line>
+            <line>And bears with glasses, elephants with holes,</line>
+            <line>Lions with toils and men with flatterers;</line>
+            <line>But when I tell him he hates flatterers,</line>
+            <line>He says he does, being then most flattered.</line>
+            <line>Let me work;</line>
+            <line>For I can give his humour the true bent,</line>
+            <line>And I will bring him to the Capitol.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIUS</speaker>
+            <line>Nay, we will all of us be there to fetch him.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>By the eighth hour: is that the uttermost?</line>
+         </speech>
+         <speech>
+            <speaker>CINNA</speaker>
+            <line>Be that the uttermost, and fail not then.</line>
+         </speech>
+         <speech>
+            <speaker>METELLUS CIMBER</speaker>
+            <line>Caius Ligarius doth bear Caesar hard,</line>
+            <line>Who rated him for speaking well of Pompey:</line>
+            <line>I wonder none of you have thought of him.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Now, good Metellus, go along by him:</line>
+            <line>He loves me well, and I have given him reasons;</line>
+            <line>Send him but hither, and I'll fashion him.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIUS</speaker>
+            <line>The morning comes upon 's: we'll leave you, Brutus.</line>
+            <line>And, friends, disperse yourselves; but all remember</line>
+            <line>What you have said, and show yourselves true Romans.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Good gentlemen, look fresh and merrily;</line>
+            <line>Let not our looks put on our purposes,</line>
+            <line>But bear it as our Roman actors do,</line>
+            <line>With untired spirits and formal constancy:</line>
+            <line>And so good morrow to you every one.</line>
+            <stagedir>Exeunt all but BRUTUS</stagedir>
+            <line>Boy! Lucius! Fast asleep? It is no matter;</line>
+            <line>Enjoy the honey-heavy dew of slumber:</line>
+            <line>Thou hast no figures nor no fantasies,</line>
+            <line>Which busy care draws in the brains of men;</line>
+            <line>Therefore thou sleep'st so sound.</line>
+         </speech>
+         <stagedir>Enter PORTIA</stagedir>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Brutus, my lord!</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Portia, what mean you? wherefore rise you now?</line>
+            <line>It is not for your health thus to commit</line>
+            <line>Your weak condition to the raw cold morning.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Nor for yours neither. You've ungently, Brutus,</line>
+            <line>Stole from my bed: and yesternight, at supper,</line>
+            <line>You suddenly arose, and walk'd about,</line>
+            <line>Musing and sighing, with your arms across,</line>
+            <line>And when I ask'd you what the matter was,</line>
+            <line>You stared upon me with ungentle looks;</line>
+            <line>I urged you further; then you scratch'd your head,</line>
+            <line>And too impatiently stamp'd with your foot;</line>
+            <line>Yet I insisted, yet you answer'd not,</line>
+            <line>But, with an angry wafture of your hand,</line>
+            <line>Gave sign for me to leave you: so I did;</line>
+            <line>Fearing to strengthen that impatience</line>
+            <line>Which seem'd too much enkindled, and withal</line>
+            <line>Hoping it was but an effect of humour,</line>
+            <line>Which sometime hath his hour with every man.</line>
+            <line>It will not let you eat, nor talk, nor sleep,</line>
+            <line>And could it work so much upon your shape</line>
+            <line>As it hath much prevail'd on your condition,</line>
+            <line>I should not know you, Brutus. Dear my lord,</line>
+            <line>Make me acquainted with your cause of grief.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>I am not well in health, and that is all.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Brutus is wise, and, were he not in health,</line>
+            <line>He would embrace the means to come by it.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Why, so I do. Good Portia, go to bed.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Is Brutus sick? and is it physical</line>
+            <line>To walk unbraced and suck up the humours</line>
+            <line>Of the dank morning? What, is Brutus sick,</line>
+            <line>And will he steal out of his wholesome bed,</line>
+            <line>To dare the vile contagion of the night</line>
+            <line>And tempt the rheumy and unpurged air</line>
+            <line>To add unto his sickness? No, my Brutus;</line>
+            <line>You have some sick offence within your mind,</line>
+            <line>Which, by the right and virtue of my place,</line>
+            <line>I ought to know of: and, upon my knees,</line>
+            <line>I charm you, by my once-commended beauty,</line>
+            <line>By all your vows of love and that great vow</line>
+            <line>Which did incorporate and make us one,</line>
+            <line>That you unfold to me, yourself, your half,</line>
+            <line>Why you are heavy, and what men to-night</line>
+            <line>Have had to resort to you: for here have been</line>
+            <line>Some six or seven, who did hide their faces</line>
+            <line>Even from darkness.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Kneel not, gentle Portia.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>I should not need, if you were gentle Brutus.</line>
+            <line>Within the bond of marriage, tell me, Brutus,</line>
+            <line>Is it excepted I should know no secrets</line>
+            <line>That appertain to you? Am I yourself</line>
+            <line>But, as it were, in sort or limitation,</line>
+            <line>To keep with you at meals, comfort your bed,</line>
+            <line>And talk to you sometimes? Dwell I but in the suburbs</line>
+            <line>Of your good pleasure? If it be no more,</line>
+            <line>Portia is Brutus' harlot, not his wife.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>You are my true and honourable wife,</line>
+            <line>As dear to me as are the ruddy drops</line>
+            <line>That visit my sad heart</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>If this were true, then should I know this secret.</line>
+            <line>I grant I am a woman; but withal</line>
+            <line>A woman that Lord Brutus took to wife:</line>
+            <line>I grant I am a woman; but withal</line>
+            <line>A woman well-reputed, Cato's daughter.</line>
+            <line>Think you I am no stronger than my sex,</line>
+            <line>Being so father'd and so husbanded?</line>
+            <line>Tell me your counsels, I will not disclose 'em:</line>
+            <line>I have made strong proof of my constancy,</line>
+            <line>Giving myself a voluntary wound</line>
+            <line>Here, in the thigh: can I bear that with patience.</line>
+            <line>And not my husband's secrets?</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>O ye gods,</line>
+            <line>Render me worthy of this noble wife!</line>
+            <stagedir>Knocking within</stagedir>
+            <line>Hark, hark! one knocks: Portia, go in awhile;</line>
+            <line>And by and by thy bosom shall partake</line>
+            <line>The secrets of my heart.</line>
+            <line>All my engagements I will construe to thee,</line>
+            <line>All the charactery of my sad brows:</line>
+            <line>Leave me with haste.</line>
+            <stagedir>Exit PORTIA</stagedir>
+            <line>Lucius, who's that knocks?</line>
+         </speech>
+         <stagedir>Re-enter LUCIUS with LIGARIUS</stagedir>
+         <speech>
+            <speaker>LUCIUS</speaker>
+            <line>He is a sick man that would speak with you.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Caius Ligarius, that Metellus spake of.</line>
+            <line>Boy, stand aside. Caius Ligarius! how?</line>
+         </speech>
+         <speech>
+            <speaker>LIGARIUS</speaker>
+            <line>Vouchsafe good morrow from a feeble tongue.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>O, what a time have you chose out, brave Caius,</line>
+            <line>To wear a kerchief! Would you were not sick!</line>
+         </speech>
+         <speech>
+            <speaker>LIGARIUS</speaker>
+            <line>I am not sick, if Brutus have in hand</line>
+            <line>Any exploit worthy the name of honour.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Such an exploit have I in hand, Ligarius,</line>
+            <line>Had you a healthful ear to hear of it.</line>
+         </speech>
+         <speech>
+            <speaker>LIGARIUS</speaker>
+            <line>By all the gods that Romans bow before,</line>
+            <line>I here discard my sickness! Soul of Rome!</line>
+            <line>Brave son, derived from honourable loins!</line>
+            <line>Thou, like an exorcist, hast conjured up</line>
+            <line>My mortified spirit. Now bid me run,</line>
+            <line>And I will strive with things impossible;</line>
+            <line>Yea, get the better of them. What's to do?</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>A piece of work that will make sick men whole.</line>
+         </speech>
+         <speech>
+            <speaker>LIGARIUS</speaker>
+            <line>But are not some whole that we must make sick?</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>That must we also. What it is, my Caius,</line>
+            <line>I shall unfold to thee, as we are going</line>
+            <line>To whom it must be done.</line>
+         </speech>
+         <speech>
+            <speaker>LIGARIUS</speaker>
+            <line>Set on your foot,</line>
+            <line>And with a heart new-fired I follow you,</line>
+            <line>To do I know not what: but it sufficeth</line>
+            <line>That Brutus leads me on.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Follow me, then.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-2">
+      <title>SCENE II.  CAESAR's house.</title>
+      <scene-body>
+         <stagedir>Thunder and lightning. Enter CAESAR, in his
+night-gown</stagedir>
+         <speech>
+            <speaker>CAESAR</speaker>
+            <line>Nor heaven nor earth have been at peace to-night:</line>
+            <line>Thrice hath Calpurnia in her sleep cried out,</line>
+            <line>'Help, ho! they murder Caesar!' Who's within?</line>
+         </speech>
+         <stagedir>Enter a Servant</stagedir>
+         <speech>
+            <speaker>Servant</speaker>
+            <line>My lord?</line>
+         </speech>
+         <speech>
+            <speaker>CAESAR</speaker>
+            <line>Go bid the priests do present sacrifice</line>
+            <line>And bring me their opinions of success.</line>
+         </speech>
+         <speech>
+            <speaker>Servant</speaker>
+            <line>I will, my lord.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <stagedir>Enter CALPURNIA</stagedir>
+         <speech>
+            <speaker>CALPURNIA</speaker>
+            <line>What mean you, Caesar? think you to walk forth?</line>
+            <line>You shall not stir out of your house to-day.</line>
+         </speech>
+         <speech>
+            <speaker>CAESAR</speaker>
+            <line>Caesar shall forth: the things that threaten'd me</line>
+            <line>Ne'er look'd but on my back; when they shall see</line>
+            <line>The face of Caesar, they are vanished.</line>
+         </speech>
+         <speech>
+            <speaker>CALPURNIA</speaker>
+            <line>Caesar, I never stood on ceremonies,</line>
+            <line>Yet now they fright me. There is one within,</line>
+            <line>Besides the things that we have heard and seen,</line>
+            <line>Recounts most horrid sights seen by the watch.</line>
+            <line>A lioness hath whelped in the streets;</line>
+            <line>And graves have yawn'd, and yielded up their dead;</line>
+            <line>Fierce fiery warriors fought upon the clouds,</line>
+            <line>In ranks and squadrons and right form of war,</line>
+            <line>Which drizzled blood upon the Capitol;</line>
+            <line>The noise of battle hurtled in the air,</line>
+            <line>Horses did neigh, and dying men did groan,</line>
+            <line>And ghosts did shriek and squeal about the streets.</line>
+            <line>O Caesar! these things are beyond all use,</line>
+            <line>And I do fear them.</line>
+         </speech>
+         <speech>
+            <speaker>CAESAR</speaker>
+            <line>What can be avoided</line>
+            <line>Whose end is purposed by the mighty gods?</line>
+            <line>Yet Caesar shall go forth; for these predictions</line>
+            <line>Are to the world in general as to Caesar.</line>
+         </speech>
+         <speech>
+            <speaker>CALPURNIA</speaker>
+            <line>When beggars die, there are no comets seen;</line>
+            <line>The heavens themselves blaze forth the death of princes.</line>
+         </speech>
+         <speech>
+            <speaker>CAESAR</speaker>
+            <line>Cowards die many times before their deaths;</line>
+            <line>The valiant never taste of death but once.</line>
+            <line>Of all the wonders that I yet have heard.</line>
+            <line>It seems to me most strange that men should fear;</line>
+            <line>Seeing that death, a necessary end,</line>
+            <line>Will come when it will come.</line>
+            <stagedir>Re-enter Servant</stagedir>
+            <line>What say the augurers?</line>
+         </speech>
+         <speech>
+            <speaker>Servant</speaker>
+            <line>They would not have you to stir forth to-day.</line>
+            <line>Plucking the entrails of an offering forth,</line>
+            <line>They could not find a heart within the beast.</line>
+         </speech>
+         <speech>
+            <speaker>CAESAR</speaker>
+            <line>The gods do this in shame of cowardice:</line>
+            <line>Caesar should be a beast without a heart,</line>
+            <line>If he should stay at home to-day for fear.</line>
+            <line>No, Caesar shall not: danger knows full well</line>
+            <line>That Caesar is more dangerous than he:</line>
+            <line>We are two lions litter'd in one day,</line>
+            <line>And I the elder and more terrible:</line>
+            <line>And Caesar shall go forth.</line>
+         </speech>
+         <speech>
+            <speaker>CALPURNIA</speaker>
+            <line>Alas, my lord,</line>
+            <line>Your wisdom is consumed in confidence.</line>
+            <line>Do not go forth to-day: call it my fear</line>
+            <line>That keeps you in the house, and not your own.</line>
+            <line>We'll send Mark Antony to the senate-house:</line>
+            <line>And he shall say you are not well to-day:</line>
+            <line>Let me, upon my knee, prevail in this.</line>
+         </speech>
+         <speech>
+            <speaker>CAESAR</speaker>
+            <line>Mark Antony shall say I am not well,</line>
+            <line>And, for thy humour, I will stay at home.</line>
+            <stagedir>Enter DECIUS BRUTUS</stagedir>
+            <line>Here's Decius Brutus, he shall tell them so.</line>
+         </speech>
+         <speech>
+            <speaker>DECIUS BRUTUS</speaker>
+            <line>Caesar, all hail! good morrow, worthy Caesar:</line>
+            <line>I come to fetch you to the senate-house.</line>
+         </speech>
+         <speech>
+            <speaker>CAESAR</speaker>
+            <line>And you are come in very happy time,</line>
+            <line>To bear my greeting to the senators</line>
+            <line>And tell them that I will not come to-day:</line>
+            <line>Cannot, is false, and that I dare not, falser:</line>
+            <line>I will not come to-day: tell them so, Decius.</line>
+         </speech>
+         <speech>
+            <speaker>CALPURNIA</speaker>
+            <line>Say he is sick.</line>
+         </speech>
+         <speech>
+            <speaker>CAESAR</speaker>
+            <line>Shall Caesar send a lie?</line>
+            <line>Have I in conquest stretch'd mine arm so far,</line>
+            <line>To be afraid to tell graybeards the truth?</line>
+            <line>Decius, go tell them Caesar will not come.</line>
+         </speech>
+         <speech>
+            <speaker>DECIUS BRUTUS</speaker>
+            <line>Most mighty Caesar, let me know some cause,</line>
+            <line>Lest I be laugh'd at when I tell them so.</line>
+         </speech>
+         <speech>
+            <speaker>CAESAR</speaker>
+            <line>The cause is in my will: I will not come;</line>
+            <line>That is enough to satisfy the senate.</line>
+            <line>But for your private satisfaction,</line>
+            <line>Because I love you, I will let you know:</line>
+            <line>Calpurnia here, my wife, stays me at home:</line>
+            <line>She dreamt to-night she saw my statua,</line>
+            <line>Which, like a fountain with an hundred spouts,</line>
+            <line>Did run pure blood: and many lusty Romans</line>
+            <line>Came smiling, and did bathe their hands in it:</line>
+            <line>And these does she apply for warnings, and portents,</line>
+            <line>And evils imminent; and on her knee</line>
+            <line>Hath begg'd that I will stay at home to-day.</line>
+         </speech>
+         <speech>
+            <speaker>DECIUS BRUTUS</speaker>
+            <line>This dream is all amiss interpreted;</line>
+            <line>It was a vision fair and fortunate:</line>
+            <line>Your statue spouting blood in many pipes,</line>
+            <line>In which so many smiling Romans bathed,</line>
+            <line>Signifies that from you great Rome shall suck</line>
+            <line>Reviving blood, and that great men shall press</line>
+            <line>For tinctures, stains, relics and cognizance.</line>
+            <line>This by Calpurnia's dream is signified.</line>
+         </speech>
+         <speech>
+            <speaker>CAESAR</speaker>
+            <line>And this way have you well expounded it.</line>
+         </speech>
+         <speech>
+            <speaker>DECIUS BRUTUS</speaker>
+            <line>I have, when you have heard what I can say:</line>
+            <line>And know it now: the senate have concluded</line>
+            <line>To give this day a crown to mighty Caesar.</line>
+            <line>If you shall send them word you will not come,</line>
+            <line>Their minds may change. Besides, it were a mock</line>
+            <line>Apt to be render'd, for some one to say</line>
+            <line>'Break up the senate till another time,</line>
+            <line>When Caesar's wife shall meet with better dreams.'</line>
+            <line>If Caesar hide himself, shall they not whisper</line>
+            <line>'Lo, Caesar is afraid'?</line>
+            <line>Pardon me, Caesar; for my dear dear love</line>
+            <line>To our proceeding bids me tell you this;</line>
+            <line>And reason to my love is liable.</line>
+         </speech>
+         <speech>
+            <speaker>CAESAR</speaker>
+            <line>How foolish do your fears seem now, Calpurnia!</line>
+            <line>I am ashamed I did yield to them.</line>
+            <line>Give me my robe, for I will go.</line>
+            <stagedir>Enter PUBLIUS, BRUTUS, LIGARIUS, METELLUS, CASCA,
+TREBONIUS, and CINNA</stagedir>
+            <line>And look where Publius is come to fetch me.</line>
+         </speech>
+         <speech>
+            <speaker>PUBLIUS</speaker>
+            <line>Good morrow, Caesar.</line>
+         </speech>
+         <speech>
+            <speaker>CAESAR</speaker>
+            <line>Welcome, Publius.</line>
+            <line>What, Brutus, are you stirr'd so early too?</line>
+            <line>Good morrow, Casca. Caius Ligarius,</line>
+            <line>Caesar was ne'er so much your enemy</line>
+            <line>As that same ague which hath made you lean.</line>
+            <line>What is 't o'clock?</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>Caesar, 'tis strucken eight.</line>
+         </speech>
+         <speech>
+            <speaker>CAESAR</speaker>
+            <line>I thank you for your pains and courtesy.</line>
+            <stagedir>Enter ANTONY</stagedir>
+            <line>See! Antony, that revels long o' nights,</line>
+            <line>Is notwithstanding up. Good morrow, Antony.</line>
+         </speech>
+         <speech>
+            <speaker>ANTONY</speaker>
+            <line>So to most noble Caesar.</line>
+         </speech>
+         <speech>
+            <speaker>CAESAR</speaker>
+            <line>Bid them prepare within:</line>
+            <line>I am to blame to be thus waited for.</line>
+            <line>Now, Cinna: now, Metellus: what, Trebonius!</line>
+            <line>I have an hour's talk in store for you;</line>
+            <line>Remember that you call on me to-day:</line>
+            <line>Be near me, that I may remember you.</line>
+         </speech>
+         <speech>
+            <speaker>TREBONIUS</speaker>
+            <line>Caesar, I will:</line>
+            <stagedir>Aside</stagedir>
+            <line>and so near will I be,</line>
+            <line>That your best friends shall wish I had been further.</line>
+         </speech>
+         <speech>
+            <speaker>CAESAR</speaker>
+            <line>Good friends, go in, and taste some wine with me;</line>
+            <line>And we, like friends, will straightway go together.</line>
+         </speech>
+         <speech>
+            <speaker>BRUTUS</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  That every like is not the same, O Caesar,</line>
+            <line>The heart of Brutus yearns to think upon!</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-3">
+      <title>SCENE III.  A street near the Capitol.</title>
+      <scene-body>
+         <stagedir>Enter ARTEMIDORUS, reading a paper</stagedir>
+         <speech>
+            <speaker>ARTEMIDORUS</speaker>
+            <line>'Caesar, beware of Brutus; take heed of Cassius;</line>
+            <line>come not near Casca; have an eye to Cinna, trust not</line>
+            <line>Trebonius: mark well Metellus Cimber: Decius Brutus</line>
+            <line>loves thee not: thou hast wronged Caius Ligarius.</line>
+            <line>There is but one mind in all these men, and it is</line>
+            <line>bent against Caesar. If thou beest not immortal,</line>
+            <line>look about you: security gives way to conspiracy.</line>
+            <line>The mighty gods defend thee! Thy lover,</line>
+            <line>'ARTEMIDORUS.'</line>
+            <line>Here will I stand till Caesar pass along,</line>
+            <line>And as a suitor will I give him this.</line>
+            <line>My heart laments that virtue cannot live</line>
+            <line>Out of the teeth of emulation.</line>
+            <line>If thou read this, O Caesar, thou mayst live;</line>
+            <line>If not, the Fates with traitors do contrive.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-4">
+      <title>SCENE IV.  Another part of the same street, before the house of BRUTUS.</title>
+      <scene-body>
+         <stagedir>Enter PORTIA and LUCIUS</stagedir>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>I prithee, boy, run to the senate-house;</line>
+            <line>Stay not to answer me, but get thee gone:</line>
+            <line>Why dost thou stay?</line>
+         </speech>
+         <speech>
+            <speaker>LUCIUS</speaker>
+            <line>To know my errand, madam.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>I would have had thee there, and here again,</line>
+            <line>Ere I can tell thee what thou shouldst do there.</line>
+            <line>O constancy, be strong upon my side,</line>
+            <line>Set a huge mountain 'tween my heart and tongue!</line>
+            <line>I have a man's mind, but a woman's might.</line>
+            <line>How hard it is for women to keep counsel!</line>
+            <line>Art thou here yet?</line>
+         </speech>
+         <speech>
+            <speaker>LUCIUS</speaker>
+            <line>Madam, what should I do?</line>
+            <line>Run to the Capitol, and nothing else?</line>
+            <line>And so return to you, and nothing else?</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Yes, bring me word, boy, if thy lord look well,</line>
+            <line>For he went sickly forth: and take good note</line>
+            <line>What Caesar doth, what suitors press to him.</line>
+            <line>Hark, boy! what noise is that?</line>
+         </speech>
+         <speech>
+            <speaker>LUCIUS</speaker>
+            <line>I hear none, madam.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Prithee, listen well;</line>
+            <line>I heard a bustling rumour, like a fray,</line>
+            <line>And the wind brings it from the Capitol.</line>
+         </speech>
+         <speech>
+            <speaker>LUCIUS</speaker>
+            <line>Sooth, madam, I hear nothing.</line>
+         </speech>
+         <stagedir>Enter the Soothsayer</stagedir>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Come hither, fellow: which way hast thou been?</line>
+         </speech>
+         <speech>
+            <speaker>Soothsayer</speaker>
+            <line>At mine own house, good lady.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>What is't o'clock?</line>
+         </speech>
+         <speech>
+            <speaker>Soothsayer</speaker>
+            <line>About the ninth hour, lady.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Is Caesar yet gone to the Capitol?</line>
+         </speech>
+         <speech>
+            <speaker>Soothsayer</speaker>
+            <line>Madam, not yet: I go to take my stand,</line>
+            <line>To see him pass on to the Capitol.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Thou hast some suit to Caesar, hast thou not?</line>
+         </speech>
+         <speech>
+            <speaker>Soothsayer</speaker>
+            <line>That I have, lady: if it will please Caesar</line>
+            <line>To be so good to Caesar as to hear me,</line>
+            <line>I shall beseech him to befriend himself.</line>
+         </speech>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>Why, know'st thou any harm's intended towards him?</line>
+         </speech>
+         <speech>
+            <speaker>Soothsayer</speaker>
+            <line>None that I know will be, much that I fear may chance.</line>
+            <line>Good morrow to you. Here the street is narrow:</line>
+            <line>The throng that follows Caesar at the heels,</line>
+            <line>Of senators, of praetors, common suitors,</line>
+            <line>Will crowd a feeble man almost to death:</line>
+            <line>I'll get me to a place more void, and there</line>
+            <line>Speak to great Caesar as he comes along.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>PORTIA</speaker>
+            <line>I must go in. Ay me, how weak a thing</line>
+            <line>The heart of woman is! O Brutus,</line>
+            <line>The heavens speed thee in thine enterprise!</line>
+            <line>Sure, the boy heard me: Brutus hath a suit</line>
+            <line>That Caesar will not grant. O, I grow faint.</line>
+            <line>Run, Lucius, and commend me to my lord;</line>
+            <line>Say I am merry: come to me again,</line>
+            <line>And bring me word what he doth say to thee.</line>
+         </speech>
+         <stagedir>Exeunt severally</stagedir>
+      </scene-body>
+   </scene>
+</act>

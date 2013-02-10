@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     DITA For Publishers Verse Domain
+     
+     Defines specializations of lines and ph for representing
+     verse.
+     
+     Copyright (c) 2010 DITA For Publishers
+     
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                   Formatting DOMAIN ENTITIES                  -->
+<!-- ============================================================= -->
+
+<!ENTITY % d4p_verse-d-lines
+   "verse
+   "
+>
+
+<!ENTITY   d4p_verse-d-att     
+  "(topic d4p_verse-d)"
+>
+
+<!-- ================== End DITA For Publishers Verse Domain Entities ============ -->

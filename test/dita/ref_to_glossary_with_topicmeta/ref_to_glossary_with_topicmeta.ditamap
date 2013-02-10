@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="DITA Map" xsi:noNamespaceSchemaLocation="urn:oasis:names:tc:dita:xsd:map.xsd:1.1">
+  <title>Map With Topicrefs Containing topicmeta Pointing to Glossary Topics </title>
+  <topicref href="topics/topic-01.xml" navtitle="Generic Topic" type="topic">
+    <topicmeta>
+      <critdates>
+        <created date="2008-02-27"/>
+      </critdates>
+    </topicmeta>
+  </topicref>
+  <topichead navtitle="Glossary">
+    <topicmeta>
+      <data name="data-01" value="value-01"/>
+      <data name="data-02" value="value-02"/>
+    </topicmeta>
+  <topicref href="topics/glossentry-01.xml" navtitle="Glossary Entry" type="glossentry">
+    <topicmeta>
+      <critdates>
+        <created date="2008-02-27"/>
+      </critdates>
+    </topicmeta>
+  </topicref>
+  </topichead>
+</map>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE personae
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:personae" "personae.dtd">
+<personae id="personae">
+   <title>Dramatis Personae</title>
+   <personae-body>
+      <persona>CAIUS MARCIUS, Afterwards CAIUS MARCIUS CORIOLANUS.</persona>
+      <pgroup>
+         <persona>TITUS LARTIUS</persona>
+         <persona>COMINIUS</persona>
+         <grpdescr>generals against the Volscians.</grpdescr>
+      </pgroup>
+      <persona>MENENIUS AGRIPPA, friend to Coriolanus. </persona>
+      <pgroup>
+         <persona>SICINIUS VELUTUS</persona>
+         <persona>JUNIUS BRUTUS</persona>
+         <grpdescr>tribunes of the people.</grpdescr>
+      </pgroup>
+      <persona>Young MARCUS, son to Coriolanus.</persona>
+      <persona>A Roman Herald. </persona>
+      <persona>TULLUS AUFIDIUS, general of the Volscians. </persona>
+      <persona>Lieutenant to Aufidius. </persona>
+      <persona>Conspirators with Aufidius.</persona>
+      <persona>A Citizen of Antium.</persona>
+      <persona>Two Volscian Guards.</persona>
+      <persona>VOLUMNIA, mother to Coriolanus.</persona>
+      <persona>VIRGILIA, wife to Coriolanus.</persona>
+      <persona>VALERIA, friend to Virgilia.</persona>
+      <persona>Gentlewoman, attending on Virgilia. </persona>
+      <persona>Roman and Volscian Senators, Patricians, Aediles, Lictors, Soldiers, Citizens, Messengers, Servants to Aufidius, and other Attendants.</persona>
+   </personae-body>
+</personae>

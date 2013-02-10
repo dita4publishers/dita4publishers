@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" > 
+<?xml-stylesheet type="text/css" href="fcla-xml-2.30.css"?> 
+<html  
+xmlns="http://www.w3.org/1999/xhtml"  
+><head><title>Chapter D  Determinants</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- html,xhtml,mozilla,3 --> 
+<meta name="src" content="fcla-xml-2.30.tex" /> 
+<meta name="date" content="2011-12-23 18:20:00" /> 
+<link rel="stylesheet" type="text/css" href="fcla-xml-2.30.css" /> 
+</head><body 
+>
+   <!--l. 422--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li46.xml" >next</a>] [<a 
+href="fcla-xml-2.30li36.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li36.xml#tailfcla-xml-2.30li36.xml" >prev-tail</a>] [<a 
+href="#tailfcla-xml-2.30li43.xml">tail</a>] [<a 
+href="fcla-xml-2.30li14.xml#fcla-xml-2.30li43.xml" >up</a>] </p></div>
+   <h2 class="likechapterHead"><a 
+ id="x44-200000"></a>Chapter D&#x00A0;&#x00A0;Determinants</h2>
+<!--l. 422--><p class="noindent" ><a 
+ id="chapter.D"></a> <a 
+ id="x44-200000doc"></a><a 
+ id="dx44-200001"></a>
+</p><!--l. 10--><p class="indent" >   The determinant is a function that takes a square matrix as an input and
+produces a scalar as an output. So unlike a vector space, it is not an algebraic
+structure. However, it has many beneficial properties for studying vector spaces,
+matrices and systems of equations, so it is hard to ignore (though some have
+tried). While the properties of a determinant can be very useful, they are also
+complicated to prove.
+</p>
+   <div class="likesectionTOCS">
+   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li44.xml#x45-201000">Section DM Determinant of a Matrix</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li44.xml#x45-202000" id="QQ2-45-202">Subsection EM: Elementary Matrices</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li44.xml#x45-203000" id="QQ2-45-203">Subsection DD: Definition of the Determinant</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li44.xml#x45-204000" id="QQ2-45-204">Subsection CD: Computing Determinants</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li44.xml#x45-205000" id="QQ2-45-205">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li44.xml#x45-206000" id="QQ2-45-206">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li44.xml#x45-207000" id="QQ2-45-207">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li45.xml#x46-208000">Section PDM Properties of Determinants of Matrices</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li45.xml#x46-209000" id="QQ2-46-209">Subsection DRO: Determinants and Row Operations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li45.xml#x46-210000" id="QQ2-46-210">Subsection DROEM: Determinants, Row Operations, Elementary
+Matrices</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li45.xml#x46-211000" id="QQ2-46-211">Subsection DNMMM: Determinants, Nonsingular Matrices,
+Matrix Multiplication</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li45.xml#x46-212000" id="QQ2-46-212">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li45.xml#x46-213000" id="QQ2-46-213">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li45.xml#x46-214000" id="QQ2-46-214">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li45.xml#x46-215000" id="QQ2-46-215">Annotated Acronyms D: Determinants</a></span>
+                                                                          
+
+                                                                          
+   </div>
+
+                                                                          
+
+                                                                          
+   <!--l. 436--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li46.xml" >next</a>] [<a 
+href="fcla-xml-2.30li36.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li36.xml#tailfcla-xml-2.30li36.xml" >prev-tail</a>] [<a 
+href="fcla-xml-2.30li43.xml" >front</a>] [<a 
+href="fcla-xml-2.30li14.xml#fcla-xml-2.30li43.xml" >up</a>] </p></div>
+<!--l. 436--><p class="indent" >   <a 
+ id="tailfcla-xml-2.30li43.xml"></a> </p> 
+</body> 
+</html> 

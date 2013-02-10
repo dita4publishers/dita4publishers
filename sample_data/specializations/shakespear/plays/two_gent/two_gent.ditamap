@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE playmap
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:playmap" "playmap.dtd">
+<playmap xml:lang="en">
+   <title>The Two Gentlemen of Verona</title>
+   <playmeta><author>William Shakespear</author>
+      <playmetadata>
+         <scene-description>SCENE  Verona; Milan; the frontiers of Mantua.</scene-description>
+      </playmetadata>
+   </playmeta>
+   <covers>
+      <front-cover href="topics/front-cover.xml"/>
+   </covers>
+   <personae href="topics/personae.xml"/>
+   <acts>
+      <act href="topics/act-1.xml"/>
+      <act href="topics/act-2.xml"/>
+      <act href="topics/act-3.xml"/>
+      <act href="topics/act-4.xml"/>
+      <act href="topics/act-5.xml"/>
+   </acts>
+</playmap>

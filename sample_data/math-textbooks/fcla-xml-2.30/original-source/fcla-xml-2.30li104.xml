@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" > 
+<?xml-stylesheet type="text/css" href="fcla-xml-2.30.css"?> 
+<html  
+xmlns="http://www.w3.org/1999/xhtml"  
+><head><title>Chapter MD  Matrix Decompositions</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- html,xhtml,mozilla,3 --> 
+<meta name="src" content="fcla-xml-2.30.tex" /> 
+<meta name="date" content="2011-12-23 18:20:00" /> 
+<link rel="stylesheet" type="text/css" href="fcla-xml-2.30.css" /> 
+</head><body 
+>
+   <!--l. 561--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li103.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li103.xml#tailfcla-xml-2.30li103.xml" >prev-tail</a>] [<a 
+href="#tailfcla-xml-2.30li104.xml">tail</a>] [<a 
+href="fcla-xml-2.30li98.xml#fcla-xml-2.30li104.xml" >up</a>] </p></div>
+   <h2 class="likechapterHead"><a 
+ id="x105-445000"></a>Chapter MD&#x00A0;&#x00A0;Matrix Decompositions</h2>
+<!--l. 561--><p class="noindent" ><a 
+ id="chapter.MD"></a> <a 
+ id="x105-445000doc"></a><a 
+ id="dx105-445001"></a>
+</p><!--l. 10--><p class="indent" >   This chapter is about breaking up a matrix
+<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math> into pieces that somehow
+combine to recreate <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>.
+Usually the pieces are again matrices, and usually they are then combined via
+matrix multiplication (<a 
+href="fcla-xml-2.30li31.xml#definition.MM">Definition&#x00A0;MM</a>). In some cases, the decomposition will
+be valid for any matrix, but often we might need extra conditions on
+<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>, such
+as being square (<a 
+href="fcla-xml-2.30li21.xml#definition.SQM">Definition&#x00A0;SQM</a>), nonsingular (<a 
+href="fcla-xml-2.30li21.xml#definition.NM">Definition&#x00A0;NM</a>) or diagonalizable
+(<a 
+href="fcla-xml-2.30li49.xml#definition.DZM">Definition&#x00A0;DZM</a>) before we can guarantee the decomposition. If you are
+comfortable with topics like decomposing a solution vector into linear
+combinations (<a 
+href="fcla-xml-2.30li24.xml#subsection.LC.VFSS">Subsection&#x00A0;LC.VFSS</a>) or decomposing vector spaces into direct
+sums (<a 
+href="fcla-xml-2.30li42.xml#subsection.PD.DS">Subsection&#x00A0;PD.DS</a>), then we will be doing similar things in this chapter.
+If not, review these ideas and take another look at <a 
+href="fcla-xml-2.30li71.xml#technique.DC">Technique&#x00A0;DC</a> on
+decompositions.
+</p><!--l. 12--><p class="indent" >   We have studied one matrix decomposition already, so we will review
+that here in this introduction, both as a way of previewing the topic in a
+familiar setting, but also since it does not deserve another section all of its
+own.
+</p><!--l. 14--><p class="indent" >   A diagonalizable matrix (<a 
+href="fcla-xml-2.30li49.xml#definition.DZM">Definition&#x00A0;DZM</a>) is defined to be a square matrix
+<!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math> such that there is an
+invertible matrix <!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>S</mi></math> and
+a diagonal matrix <!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>D</mi></math>
+where <!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><mi 
+>A</mi><mi 
+>S</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>D</mi></math>. We can re-write
+this as <!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>S</mi><mi 
+>D</mi><msup><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+></math>. Here we have
+a decomposition of <!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>
+into three matrices, <!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>S</mi></math>,
+                                                                          
+
+                                                                          
+<!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>D</mi></math> and
+<!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+></math>,
+which recombine through matrix multiplication to recreate
+<!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>. We also know that
+the diagonal entries of <!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>D</mi></math>
+are the eigenvalues of <!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>.
+We cannot form this decomposition for just any matrix &#x2014;
+<!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>
+must be square and we know from <a 
+href="fcla-xml-2.30li49.xml#theorem.DC">Theorem&#x00A0;DC</a> that a matrix of size
+<!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi></math>
+is diagonalizable if and only if there is a basis for
+<!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>&#x2102;</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+></math> composed entirely of
+eigenvectors of <!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>, or by
+<a 
+href="fcla-xml-2.30li49.xml#theorem.DMFE">Theorem&#x00A0;DMFE</a> we know that <!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>
+is diagonalizable if and only if each eigenvalue of
+<!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>
+has a geometric multiplicity equal to its algebraic multiplicity.
+Some authors prefer to call this an <span 
+class="cmbx-12">eigen decomposition </span>of
+<!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>
+rather than a <span 
+class="cmbx-12">matrix diagonalization</span>.
+</p><!--l. 16--><p class="indent" >   Another decomposition, which is similar in flavor to matrix diagonalization, is
+orthonormal diagonalization (<a 
+href="fcla-xml-2.30li59.xml#theorem.OD">Theorem&#x00A0;OD</a>). Here we require the matrix
+<!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math> to be normal and we
+get the decomposition <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>U</mi><mi 
+>D</mi><msup><mrow 
+><mi 
+>U</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&#x2217;</mo></mrow></msup 
+></math>,
+where <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>D</mi></math>
+is a diagonal matrix with the eigenvalues of
+<!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math> on the diagonal,
+and <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>U</mi></math> is unitary. The
+hypothesis that <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>
+is normal guarantees the decomposition and we get the extra information that
+<!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>U</mi></math> is
+unitary.
+</p><!--l. 18--><p class="indent" >   Each section of this chapter features a different matrix decomposition, with
+the exception of <a 
+href="fcla-xml-2.30li103.xml#section.PSM">Section&#x00A0;PSM</a>, which presents background information on positive
+semi-definite matrices required for singular value decompositions, square roots and
+polar decompositions.
+                                                                          
+
+                                                                          
+</p>
+   <div class="likesectionTOCS">
+   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li105.xml#x106-446000">Section ROD Rank One Decomposition</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li106.xml#x107-447000">Section TD Triangular Decomposition</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li106.xml#x107-448000" id="QQ2-107-459">Subsection TD: Triangular Decomposition</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li106.xml#x107-449000" id="QQ2-107-460">Subsection TDSSE: Triangular Decomposition and Solving
+Systems of Equations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li106.xml#x107-450000" id="QQ2-107-461">Subsection CTD: Computing Triangular Decompositions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li107.xml#x108-451000">Section SVD Singular Value Decomposition</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li107.xml#x108-452000" id="QQ2-108-463">Subsection MAP: Matrix-Adjoint Product</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li107.xml#x108-453000" id="QQ2-108-464">Subsection SVD: Singular Value Decomposition</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li108.xml#x109-454000">Section SR Square Roots</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li108.xml#x109-455000" id="QQ2-109-466">Subsection SRM: Square Root of a Matrix</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li109.xml#x110-456000">Section POD Polar Decomposition</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li111.xml#x112-458000">Section CF Curve Fitting</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li111.xml#x112-459000" id="QQ2-112-470">Subsection DF: Data Fitting</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li111.xml#x112-460000" id="QQ2-112-471">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li112.xml#x113-461000">Section SAS Sharing A Secret</a></span>
+   </div>
+
+
+
+
+                                                                          
+
+                                                                          
+   <!--l. 581--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li103.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li103.xml#tailfcla-xml-2.30li103.xml" >prev-tail</a>] [<a 
+href="fcla-xml-2.30li104.xml" >front</a>] [<a 
+href="fcla-xml-2.30li98.xml#fcla-xml-2.30li104.xml" >up</a>] </p></div>
+<!--l. 581--><p class="indent" >   <a 
+ id="tailfcla-xml-2.30li104.xml"></a> </p> 
+</body> 
+</html> 

@@ -1,0 +1,18 @@
+<!-- 
+  Plugin descriptor for the DITA4Publishers variables domain HTML extensions
+  
+  Copyright (c) 2013 DITA For Publishers
+  
+  Implements HTML rendering for the variables domain.
+  -->
+<plugin id="net.sourceforge.dita4publishers.variables-d.html">
+
+  <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
+  <require plugin="net.sourceforge.dita4publishers.doctypes"/> 
+  
+  <feature extension="dita.xsl.xhtml"
+    value="xsl/variables-d2html.xsl" 
+      type="file"
+  />
+      
+</plugin>

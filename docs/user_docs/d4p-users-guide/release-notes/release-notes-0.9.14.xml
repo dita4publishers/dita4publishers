@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>Release Notes: Version 0.9.14</title>
+ <shortdesc>Version 0.9.14 released 7 February 2011</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>
+          <indexterm>release notes<indexterm>Version 0.9.14</indexterm></indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <section>
+      <title>HTML2 Transformation Types</title>
+      <ul>
+        <li>Corrected bug in generation of index.html file to use <codeph>name="contentwin"</codeph> in addition to <codeph>id="contentwin"</codeph>. This fixes an issue with handling of links from the dynamic ToC to the content topics displayed within the iframe.</li>
+      </ul>
+    </section>
+  </conbody>
+</concept>

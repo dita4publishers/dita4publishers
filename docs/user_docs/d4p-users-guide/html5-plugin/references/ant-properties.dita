@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="reference_tss_dv4_sh">
+  <title>Availaible ant properties </title>
+  <shortdesc>This properties allows to customize the output.</shortdesc>
+  <refbody>
+    <properties>
+      <property>
+        <proptype>html5.site.theme</proptype>
+        <propvalue>Refers to the theme you want to use for the output. Default value is
+          <option>default</option></propvalue>
+      </property>
+      <property>
+        <proptype>html5.site.js.vars</proptype>
+        <propvalue>Path to the xml files containing variables to be send to the
+          javascript d4p object. Default is
+          <filepath>${<varname>html5.dir</varname>}/sites/${<varname>htmkl5.site.theme</varname>}/vars.xml</filepath></propvalue>
+      </property>
+      <property>
+        <proptype>html5.args.theme.file</proptype>
+        <propvalue>Refers to the final relative path to the compressed CSS. By convention, style.css is the
+          none-compressed file whereas style-min.css is the compressed one. Default is
+            <filepath>themes/${site.theme}/css/style-min.css</filepath></propvalue>
+      </property>
+      <property>
+        <proptype>html5.args.js.file</proptype>
+        <propvalue>Refers to the final relative path to the compressed
+          javascript file. By convention, script.js is the none-compressed file
+          whereas script-min.js is the compressed one. Default is
+          <filepath>themes/${<varname>html5.site.theme</varname>}/js/script-min.js</filepath></propvalue>
+      </property>
+      <property>
+        <proptype>html5.navigation.markup</proptype>
+        <propvalue>This feature is experimental. The value of this variable is used to switch from an xsl to another to
+          output the navigation markup in different way. Default value is: <option>navigation-default</option>.
+          Different navigation way should be proposed in future released of the plugin.</propvalue>
+      </property>
+      <property>
+        <proptype>html5.id.main.container</proptype>
+        <propvalue>The @id of the main container element. This element is the first element after the body element.
+          Default value is: <option>d4h5-main-container</option>.</propvalue>
+      </property>
+      <property>
+        <proptype>html5.class.main.container</proptype>
+        <propvalue>The @class of the main container element. Default value is an empty string.</propvalue>
+      </property>
+      <property>
+        <proptype>html5.id.section.container</proptype>
+        <propvalue>The @id of the section container element. is the first element after the body element. Default value
+          is: <option>d4h5-section-container</option>.</propvalue>
+      </property>
+      <property>
+        <proptype>html5.class.section.container</proptype>
+        <propvalue>The @class of the section container element. Default value is: <option>container_24</option>, which
+          activate the 960 Grid for this element and its children.</propvalue>
+      </property>
+      <property>
+        <proptype>html5.id.main.content</proptype>
+        <propvalue>The @id of the main content element. The main content is the regions where the AJAX content is
+          output. Default value is: <option>d4h5-main-content</option>.</propvalue>
+      </property>
+      <property>
+        <proptype>html5.class.main.content</proptype>
+        <propvalue>The @class of the main-content element. Default value is: <option>prefix_1 grid_16</option>, which
+          means: add an empty column on the left, then add 16 columns for the content. Changing this value allows you to
+          set a different size for the content. . You should change it with the class.navigation property. </propvalue>
+      </property>
+      <property>
+        <proptype>html5.class.navigation</proptype>
+        <propvalue>The @class of the navigation element. Default value is: <option>nav-left grid_7</option>, which
+          means: the navigation is on the left and span 7 columns for the content. Changing this value allows you to set
+          a different size for the navigation. You should change it with the class.main.content property. </propvalue>
+      </property>
+      <property>
+        <proptype>html5.js.options</proptype>
+        <propvalue>Options that you want to pass to the d4p javascript object. The content of this property allows to
+          change the initializer of the d4p object. <codeph>$(function() { d4p.init({ &lt; ${js.options} &gt; });
+            });</codeph> Default is an empty string. </propvalue>
+      </property>
+      <property>
+        <proptype>html5.bodyClass</proptype>
+        <propvalue>Allows to control the @class of the body element. Default value is: <option>centered img-with-shadow
+            ${navigation.markup}</option>, which means: centered layout wth all images having drop-shadows. The
+          navigation markup has been added for future development.</propvalue>
+      </property>
+    </properties>
+  </refbody>
+</reference>

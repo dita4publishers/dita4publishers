@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" > 
+<?xml-stylesheet type="text/css" href="fcla-xml-2.30.css"?> 
+<html  
+xmlns="http://www.w3.org/1999/xhtml"  
+><head><title>Appendix A  Archetypes</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- html,xhtml,mozilla,3 --> 
+<meta name="src" content="fcla-xml-2.30.tex" /> 
+<meta name="date" content="2011-12-23 18:20:00" /> 
+<link rel="stylesheet" type="text/css" href="fcla-xml-2.30.css" /> 
+</head><body 
+>
+   <!--l. 518--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li97.xml" >next</a>] [<a 
+href="fcla-xml-2.30li68.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li68.xml#tailfcla-xml-2.30li68.xml" >prev-tail</a>] [<a 
+href="#tailfcla-xml-2.30li72.xml">tail</a>] [<a 
+href="fcla-xml-2.30li14.xml#fcla-xml-2.30li72.xml" >up</a>] </p></div>
+   <h2 class="likechapterHead"><a 
+ id="x73-378000"></a>Appendix A&#x00A0;&#x00A0;Archetypes</h2>
+<!--l. 518--><p class="noindent" ><a 
+ id="appendix.A"></a> <a 
+ id="x73-378000doc"></a><a 
+ id="dx73-378001"></a>
+</p><!--l. 32--><p class="indent" >   WordNet (an open-source lexical database) gives the following definition
+of &#x201C;archetype&#x201D;: something that serves as a model or a basis for making
+copies.
+</p><!--l. 34--><p class="indent" >   Our archetypes are typical examples of systems of equations, matrices and
+linear transformations. They have been designed to demonstrate the range of
+possibilities, allowing you to compare and contrast them. Several are of a size and
+complexity that is usually not presented in a textbook, but should do a better job
+of being &#x201C;typical.&#x201D;
+</p><!--l. 36--><p class="indent" >   We have made frequent reference to many of these throughout the text, such
+as the frequent comparisons between <a 
+href="fcla-xml-2.30li73.xml#archetype.A">Archetype&#x00A0;A</a> and <a 
+href="fcla-xml-2.30li74.xml#archetype.B">Archetype&#x00A0;B</a>. Some
+we have left for you to investigate, such as <a 
+href="fcla-xml-2.30li82.xml#archetype.J">Archetype&#x00A0;J</a>, which parallels
+<a 
+href="fcla-xml-2.30li81.xml#archetype.I">Archetype&#x00A0;I</a>.
+</p><!--l. 38--><p class="indent" >   How should you use the archetypes? First, consult the description of
+each one as it is mentioned in the text. See how other facts about the
+example might illuminate whatever property or construction is being
+described in the example. Second, each property has a short description
+that usually includes references to the relevant theorems. Perform the
+computations and understand the connections to the listed theorems. Third, each
+property has a small checkbox in front of it. Use the archetypes like a
+workbook and chart your progress by &#x201C;checking-off&#x201D; those properties that you
+understand.
+</p><!--l. 40--><p class="indent" >   The next page has a chart that summarizes some (but not all) of the
+properties described for each archetype. Notice that while there are several types
+of objects, there are fundamental connections between them. That some lines of
+the table do double-duty is meant to convey some of these connections.
+Consult this table when you wish to quickly find an example of a certain
+                                                                          
+
+                                                                          
+phenomenon.
+                                                                          
+
+                                                                          
+</p>
+<div class="center" 
+>
+<!--l. 13--><p class="noindent" >
+</p>
+<div class="tabular"> <table id="TBL-4583" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-4583-1g"><col 
+id="TBL-4583-1" /></colgroup><colgroup id="TBL-4583-2g"><col 
+id="TBL-4583-2" /></colgroup><colgroup id="TBL-4583-3g"><col 
+id="TBL-4583-3" /></colgroup><colgroup id="TBL-4583-4g"><col 
+id="TBL-4583-4" /></colgroup><colgroup id="TBL-4583-5g"><col 
+id="TBL-4583-5" /></colgroup><colgroup id="TBL-4583-6g"><col 
+id="TBL-4583-6" /></colgroup><colgroup id="TBL-4583-7g"><col 
+id="TBL-4583-7" /></colgroup><colgroup id="TBL-4583-8g"><col 
+id="TBL-4583-8" /></colgroup><colgroup id="TBL-4583-9g"><col 
+id="TBL-4583-9" /></colgroup><colgroup id="TBL-4583-10g"><col 
+id="TBL-4583-10" /></colgroup><colgroup id="TBL-4583-11g"><col 
+id="TBL-4583-11" /></colgroup><colgroup id="TBL-4583-12g"><col 
+id="TBL-4583-12" /></colgroup><colgroup id="TBL-4583-13g"><col 
+id="TBL-4583-13" /></colgroup><colgroup id="TBL-4583-14g"><col 
+id="TBL-4583-14" /></colgroup><colgroup id="TBL-4583-15g"><col 
+id="TBL-4583-15" /></colgroup><colgroup id="TBL-4583-16g"><col 
+id="TBL-4583-16" /></colgroup><colgroup id="TBL-4583-17g"><col 
+id="TBL-4583-17" /></colgroup><colgroup id="TBL-4583-18g"><col 
+id="TBL-4583-18" /></colgroup><colgroup id="TBL-4583-19g"><col 
+id="TBL-4583-19" /></colgroup><colgroup id="TBL-4583-20g"><col 
+id="TBL-4583-20" /></colgroup><colgroup id="TBL-4583-21g"><col 
+id="TBL-4583-21" /></colgroup><colgroup id="TBL-4583-22g"><col 
+id="TBL-4583-22" /></colgroup><colgroup id="TBL-4583-23g"><col 
+id="TBL-4583-23" /></colgroup><colgroup id="TBL-4583-24g"><col 
+id="TBL-4583-24" /></colgroup><colgroup id="TBL-4583-25g"><col 
+id="TBL-4583-25" /></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-4583-1-"><td  style="text-align:left; white-space:nowrap;" id="TBL-4583-1-1"  
+class="td11">                 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-2"  
+class="td11"><a 
+href="fcla-xml-2.30li73.xml#archetype.A">A</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-3"  
+class="td11"><a 
+href="fcla-xml-2.30li74.xml#archetype.B">B</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-4"  
+class="td11"><a 
+href="fcla-xml-2.30li75.xml#archetype.C">C</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-5"  
+class="td11"><a 
+href="fcla-xml-2.30li76.xml#archetype.D">D</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-6"  
+class="td11"><a 
+href="fcla-xml-2.30li77.xml#archetype.E">E</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-7"  
+class="td11"> <a 
+href="fcla-xml-2.30li78.xml#archetype.F">F</a> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-8"  
+class="td11"><a 
+href="fcla-xml-2.30li79.xml#archetype.G">G</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-9"  
+class="td11"><a 
+href="fcla-xml-2.30li80.xml#archetype.H">H</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-10"  
+class="td11"><a 
+href="fcla-xml-2.30li81.xml#archetype.I">I</a> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-11"  
+class="td11"><a 
+href="fcla-xml-2.30li82.xml#archetype.J">J</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-12"  
+class="td11"><a 
+href="fcla-xml-2.30li83.xml#archetype.K">K</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-13"  
+class="td11"><a 
+href="fcla-xml-2.30li84.xml#archetype.L">L</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-14"  
+class="td11"><a 
+href="fcla-xml-2.30li85.xml#archetype.M">M</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-15"  
+class="td11"><a 
+href="fcla-xml-2.30li86.xml#archetype.N">N</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-16"  
+class="td11"><a 
+href="fcla-xml-2.30li87.xml#archetype.O">O</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-17"  
+class="td11"><a 
+href="fcla-xml-2.30li88.xml#archetype.P">P</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-18"  
+class="td11"><a 
+href="fcla-xml-2.30li89.xml#archetype.Q">Q</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-19"  
+class="td11"><a 
+href="fcla-xml-2.30li90.xml#archetype.R">R</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-20"  
+class="td11"><a 
+href="fcla-xml-2.30li91.xml#archetype.S">S</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-21"  
+class="td11"><a 
+href="fcla-xml-2.30li92.xml#archetype.T">T</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-22"  
+class="td11"><a 
+href="fcla-xml-2.30li93.xml#archetype.U">U</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-23"  
+class="td11"><a 
+href="fcla-xml-2.30li94.xml#archetype.V">V</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-24"  
+class="td11"><a 
+href="fcla-xml-2.30li95.xml#archetype.W">W</a></td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-1-25"  
+class="td11"><a 
+href="fcla-xml-2.30li96.xml#archetype.X">X</a></td>
+</tr><tr 
+class="hline"><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-4583-2-"><td  style="text-align:left; white-space:nowrap;" id="TBL-4583-2-1"  
+class="td11">Type                    </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-2"  
+class="td11">S</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-3"  
+class="td11">S</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-4"  
+class="td11">S</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-5"  
+class="td11">S</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-6"  
+class="td11">S</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-7"  
+class="td11"> S </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-8"  
+class="td11">S</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-9"  
+class="td11">S</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-10"  
+class="td11">S</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-11"  
+class="td11">S</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-12"  
+class="td11">M</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-13"  
+class="td11">M</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-14"  
+class="td11">L</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-15"  
+class="td11">L</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-16"  
+class="td11">L</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-17"  
+class="td11">L</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-18"  
+class="td11">L</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-19"  
+class="td11">L</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-20"  
+class="td11">L</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-21"  
+class="td11">L</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-22"  
+class="td11">L</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-23"  
+class="td11">L</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-24"  
+class="td11"> L </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-2-25"  
+class="td11">L</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4583-3-"><td  style="text-align:left; white-space:nowrap;" id="TBL-4583-3-1"  
+class="td11">Vars, Cols, Domain  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-2"  
+class="td11">3</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-3"  
+class="td11"> 3 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-4"  
+class="td11">4</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-5"  
+class="td11">4</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-6"  
+class="td11">4</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-7"  
+class="td11"> 4 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-8"  
+class="td11">2</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-9"  
+class="td11">2</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-10"  
+class="td11">7</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-11"  
+class="td11">9</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-12"  
+class="td11"> 5 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-13"  
+class="td11"> 5 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-14"  
+class="td11"> 5 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-15"  
+class="td11">5</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-16"  
+class="td11">3</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-17"  
+class="td11">3</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-18"  
+class="td11">5</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-19"  
+class="td11">5</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-20"  
+class="td11">3</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-21"  
+class="td11">5</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-22"  
+class="td11">6</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-23"  
+class="td11"> 4 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-24"  
+class="td11"> 3 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-3-25"  
+class="td11">4</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4583-4-"><td  style="text-align:left; white-space:nowrap;" id="TBL-4583-4-1"  
+class="td11">Eqns, Rows, CoDom</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-2"  
+class="td11">3</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-3"  
+class="td11"> 3 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-4"  
+class="td11">3</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-5"  
+class="td11">3</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-6"  
+class="td11">3</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-7"  
+class="td11"> 4 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-8"  
+class="td11">5</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-9"  
+class="td11">5</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-10"  
+class="td11">4</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-11"  
+class="td11">6</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-12"  
+class="td11"> 5 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-13"  
+class="td11"> 5 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-14"  
+class="td11"> 3 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-15"  
+class="td11">3</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-16"  
+class="td11">5</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-17"  
+class="td11">5</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-18"  
+class="td11">5</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-19"  
+class="td11">5</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-20"  
+class="td11">4</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-21"  
+class="td11">6</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-22"  
+class="td11">4</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-23"  
+class="td11"> 4 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-24"  
+class="td11"> 3 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-4-25"  
+class="td11">4</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4583-5-"><td  style="text-align:left; white-space:nowrap;" id="TBL-4583-5-1"  
+class="td11">Solution Set           </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-2"  
+class="td11"> I </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-3"  
+class="td11">U</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-4"  
+class="td11"> I </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-5"  
+class="td11"> I </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-6"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-7"  
+class="td11"> U </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-8"  
+class="td11">U</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-9"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-10"  
+class="td11"> I </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-11"  
+class="td11"> I </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-12"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-13"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-14"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-15"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-16"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-17"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-18"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-19"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-20"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-21"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-22"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-23"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-24"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-5-25"  
+class="td11"> </td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-4583-6-"><td  style="text-align:left; white-space:nowrap;" id="TBL-4583-6-1"  
+class="td11">Rank </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-2"  
+class="td11">2</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-3"  
+class="td11"> 3 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-4"  
+class="td11">3</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-5"  
+class="td11"> 2 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-6"  
+class="td11">2</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-7"  
+class="td11"> 4 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-8"  
+class="td11"> 2 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-9"  
+class="td11">2</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-10"  
+class="td11">3</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-11"  
+class="td11">4</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-12"  
+class="td11"> 5 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-13"  
+class="td11"> 3 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-14"  
+class="td11"> 2 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-15"  
+class="td11">3</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-16"  
+class="td11"> 2 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-17"  
+class="td11">3</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-18"  
+class="td11"> 4 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-19"  
+class="td11">5</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-20"  
+class="td11">2</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-21"  
+class="td11">5</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-22"  
+class="td11">4</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-23"  
+class="td11"> 4 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-24"  
+class="td11"> 3 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-6-25"  
+class="td11">3</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4583-7-"><td  style="text-align:left; white-space:nowrap;" id="TBL-4583-7-1"  
+class="td11">Nullity                  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-2"  
+class="td11">1</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-3"  
+class="td11"> 0 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-4"  
+class="td11">1</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-5"  
+class="td11">2</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-6"  
+class="td11">2</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-7"  
+class="td11"> 0 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-8"  
+class="td11">0</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-9"  
+class="td11">0</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-10"  
+class="td11">4</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-11"  
+class="td11">5</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-12"  
+class="td11"> 0 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-13"  
+class="td11"> 2 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-14"  
+class="td11"> 3 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-15"  
+class="td11">2</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-16"  
+class="td11">1</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-17"  
+class="td11">0</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-18"  
+class="td11">1</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-19"  
+class="td11">0</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-20"  
+class="td11">1</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-21"  
+class="td11">0</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-22"  
+class="td11">2</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-23"  
+class="td11"> 0 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-24"  
+class="td11"> 0 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-7-25"  
+class="td11">1</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4583-8-"><td  style="text-align:left; white-space:nowrap;" id="TBL-4583-8-1"  
+class="td11">Injective                </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-2"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-3"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-4"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-5"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-6"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-7"  
+class="td11">   </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-8"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-9"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-10"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-11"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-12"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-13"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-14"  
+class="td11">X</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-15"  
+class="td11">X</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-16"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-17"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-18"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-19"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-20"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-21"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-22"  
+class="td11">X</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-23"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-24"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-8-25"  
+class="td11">N</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4583-9-"><td  style="text-align:left; white-space:nowrap;" id="TBL-4583-9-1"  
+class="td11">Surjective              </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-2"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-3"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-4"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-5"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-6"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-7"  
+class="td11">   </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-8"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-9"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-10"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-11"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-12"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-13"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-14"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-15"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-16"  
+class="td11">X</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-17"  
+class="td11">X</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-18"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-19"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-20"  
+class="td11">X</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-21"  
+class="td11">X</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-22"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-23"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-24"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-9-25"  
+class="td11">N</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4583-10-"><td  style="text-align:left; white-space:nowrap;" id="TBL-4583-10-1"  
+class="td11">Full Rank              </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-2"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-3"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-4"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-5"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-6"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-7"  
+class="td11"> Y </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-8"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-9"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-10"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-11"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-12"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-13"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-14"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-15"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-16"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-17"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-18"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-19"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-20"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-21"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-22"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-23"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-24"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-10-25"  
+class="td11"> </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4583-11-"><td  style="text-align:left; white-space:nowrap;" id="TBL-4583-11-1"  
+class="td11">Nonsingular           </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-2"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-3"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-4"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-5"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-6"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-7"  
+class="td11"> Y </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-8"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-9"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-10"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-11"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-12"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-13"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-14"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-15"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-16"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-17"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-18"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-19"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-20"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-21"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-22"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-23"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-24"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-11-25"  
+class="td11"> </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4583-12-"><td  style="text-align:left; white-space:nowrap;" id="TBL-4583-12-1"  
+class="td11">Invertible               </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-2"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-3"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-4"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-5"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-6"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-7"  
+class="td11"> Y </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-8"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-9"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-10"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-11"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-12"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-13"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-14"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-15"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-16"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-17"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-18"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-19"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-20"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-21"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-22"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-23"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-24"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-12-25"  
+class="td11">N</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4583-13-"><td  style="text-align:left; white-space:nowrap;" id="TBL-4583-13-1"  
+class="td11">Determinant           </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-2"  
+class="td11">0</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-3"  
+class="td11">-2</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-4"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-5"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-6"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-7"  
+class="td11">-18</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-8"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-9"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-10"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-11"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-12"  
+class="td11">16</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-13"  
+class="td11"> 0 </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-14"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-15"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-16"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-17"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-18"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-19"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-20"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-21"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-22"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-23"  
+class="td11">-2</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-24"  
+class="td11">-3</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-13-25"  
+class="td11">0</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4583-14-"><td  style="text-align:left; white-space:nowrap;" id="TBL-4583-14-1"  
+class="td11">Diagonalizable        </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-2"  
+class="td11">N</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-3"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-4"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-5"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-6"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-7"  
+class="td11"> Y </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-8"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-9"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-10"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-11"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-12"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-13"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-14"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-15"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-16"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-17"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-18"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-19"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-20"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-21"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-22"  
+class="td11"> </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-23"  
+class="td11">  </td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-24"  
+class="td11">Y</td><td  style="text-align:center; white-space:nowrap;" id="TBL-4583-14-25"  
+class="td11">Y</td></tr></table>
+</div><br /><br />
+<span 
+class="cmr-17">Archetype Facts</span><br />
+S=System of Equations, M=Matrix, L=Linear Transformation<br />
+U=Unique solution, I=Infinitely many solutions, N=No solutions<br />
+Y=Yes, N=No, X=Impossible, blank=Not Applicable </div>
+<!--l. 48--><p class="indent" >
+                                                                          
+
+                                                                          
+</p>
+   <div class="likesectionTOCS">
+   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li73.xml#x74-379000">Archetype A </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li74.xml#x75-381000">Archetype B </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li75.xml#x76-383000">Archetype C </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li76.xml#x77-385000">Archetype D </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li77.xml#x78-387000">Archetype E </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li78.xml#x79-389000">Archetype F </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li79.xml#x80-391000">Archetype G </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li80.xml#x81-393000">Archetype H </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li81.xml#x82-395000">Archetype I </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li82.xml#x83-397000">Archetype J </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li83.xml#x84-399000">Archetype K </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li84.xml#x85-401000">Archetype L </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li85.xml#x86-403000">Archetype M </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li86.xml#x87-405000">Archetype N </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li87.xml#x88-407000">Archetype O </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li88.xml#x89-409000">Archetype P </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li89.xml#x90-411000">Archetype Q </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li90.xml#x91-413000">Archetype R </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li91.xml#x92-415000">Archetype S </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li92.xml#x93-417000">Archetype T </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li93.xml#x94-419000">Archetype U </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li94.xml#x95-421000">Archetype V </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li95.xml#x96-423000">Archetype W </a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li96.xml#x97-425000">Archetype X </a></span>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                          
+
+                                                                          
+   <!--l. 530--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li97.xml" >next</a>] [<a 
+href="fcla-xml-2.30li68.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li68.xml#tailfcla-xml-2.30li68.xml" >prev-tail</a>] [<a 
+href="fcla-xml-2.30li72.xml" >front</a>] [<a 
+href="fcla-xml-2.30li14.xml#fcla-xml-2.30li72.xml" >up</a>] </p></div>
+<!--l. 530--><p class="indent" >   <a 
+ id="tailfcla-xml-2.30li72.xml"></a> </p> 
+</body> 
+</html> 

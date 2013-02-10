@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" title="DITA Map" xsi:noNamespaceSchemaLocation="urn:oasis:names:tc:dita:xsd:map.xsd:1.1">
+  <title>Map With XRefs To Topicheads and Topicrefs</title>
+  <topichead navtitle="Topic Head One" id="topic-head-01">
+    <topicref href="topics/topic-01.xml">
+      <topicref href="topics/subtopic-01.xml" id="subtopic-01-use-01" copy-to="subtopic-01-use-01.xml"/>
+    </topicref>
+  </topichead>
+  <topichead navtitle="Topic Head Two">
+    <topicref href="topics/topic-02.xml">
+      <topicref href="topics/subtopic-01.xml" id="subtopic-01-use-02" copy-to="subtopic-01-use-02.xml"/>
+    </topicref>
+  </topichead>
+</map>

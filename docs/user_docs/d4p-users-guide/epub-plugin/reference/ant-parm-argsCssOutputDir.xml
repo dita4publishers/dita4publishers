@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/reference.dtd">
+<reference id="referenceId">
+  <title>args.css.output.dir Ant parameter</title>
+  <shortdesc>Specifies the directory to put CSS files into for EPUB and Kindle
+    transforms. </shortdesc>
+  <refbody>
+    <section
+      spectitle="Value">
+      <p>An absolute platform-specific filename.</p>
+    </section>
+    <section
+      spectitle="Default">
+      <p>The configured topic output directory.</p>
+    </section>
+  </refbody>
+</reference>

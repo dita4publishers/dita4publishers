@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="front-cover" outputclass="front-cover">
+   <title>The Second Part of Henry the Sixth</title>
+   <body>
+      <p outputclass="play-subtitle">
+         <b>2 KING HENRY VI</b>
+      </p>
+      <p>SCENE  England.</p>
+      <fig frame="all" outputclass="cover-picture">
+         <p>
+            <image href="images/cover-graphic.jpg" placement="break" align="center" width="200">
+               <alt>Cover Graphic</alt>
+            </image>
+         </p>
+      </fig>
+      <section spectitle="License">
+         <p>By agreement with Jon Bosak (2009), this edition is
+      published under the <xref href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/" format="html"
+                  scope="external">Creative Commons Attribution-Noncommercial-Share Alike</xref> license. Jon's original
+      license and attributions also apply (see below).</p>
+         <p>
+            <xref href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/" format="html"
+                  scope="external">
+               <image href="images/cc-logo-88x31.png">
+                  <alt>Creative Commons License</alt>
+               </image>
+            </xref>
+         </p>
+         <p>ASCII text placed in the public domain by Moby Lexical Tools, 1992.</p>
+         <p>SGML markup by Jon Bosak, 1992-1994.</p>
+         <p>XML version by Jon Bosak, 1996-1999.</p>
+         <p>The XML markup in this version is Copyright © 1999 Jon Bosak.
+This work may freely be distributed on condition that it not be
+modified or altered in any way.</p>
+      </section>
+   </body>
+</topic>

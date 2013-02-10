@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map
+  class="- map/map "
+  ditaarch:DITAArchVersion="1.2"
+  domains="a(props myprop)"
+  xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+  <title
+    class="- topic/title ">Link Test 02</title>
+  <!--  This map tree defines the following unique keys:
+    
+    key-01 
+    key-02
+    key-03
+    key-04
+    key-05
+    key-06
+    key-07
+    
+    -->
+  <!-- NOTE: This map also defines key key-01 but because
+             it is lower in the map tree, that definition
+             is not effective, even thought the map is included
+             in the top-level map before the definition of 
+             key-01 here.
+             
+             sub_01 defines key key-06.
+    -->
+  <mapref
+    href="link_test_sub_02.ditamap"
+    format="ditamap"
+    class="+ map/topicref mapgroup-d/mapref "/>
+  <!-- OSX-specific key definition -->
+  <topicref
+    keys="key-01"
+    href="topics/topic_01-osx.xml"
+    platform="osx"
+    class="- map/topicref  "/>
+  <!-- Windows-specific key definition -->
+  <topicref
+    keys="key-01"
+    href="topics/topic_01-win.xml"
+    props="platform(windows)"
+    class="- map/topicref  "/>
+  <!-- Generic key definition -->
+  <topicref
+    keys="key-01"
+    href="topics/topic_01-all-platforms.xml"
+    class="- map/topicref  "/>
+  <topicref
+    keys="key-02"
+    href="http://www.example.com"
+    format="html"
+    scope="external"
+    class="- map/topicref "/>
+  <topicref
+    keys="key-03 key-04"
+    href="topics/topic_03.xml"
+    class="- map/topicref "/>
+  <!-- Topicref that does not define a key: -->
+  <topicref
+    href="topics/topic_04.xml"
+    class="- map/topicref "/>
+  <!-- Second declaration of key "key-01". This declaration
+       is not effective because it comes later in the 
+       document than the other declaration.
+    -->
+  <topicref
+    keys="key-01"
+    href="topics/topic_04.xml"
+    class="- map/topicref  "/>
+  <topicref
+    keys="key-05"
+    keyref="key-02"
+    class="- map/topicref  "/>
+  <keydef
+    href="images/image_01.jpg"
+    format="jpg"
+    class="- map/topicref  "
+    keys="key-06"/>
+</map>

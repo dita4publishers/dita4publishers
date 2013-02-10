@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="12.0">
+    <meta>
+        <filters directoryPatterns="" filePatterns=""
+            positiveFilePatterns="" showHiddenFiles="false"/>
+        <options/>
+    </meta>
+    <projectTree name="word2dita.xpr">
+        <file name="docs/user_docs/d4p-users-guide.ditamap"/>
+        <file
+            name="toolkit_plugins/net.sourceforge.dita4publishers.word2dita/xsl/docx2dita.xsl"/>
+        <file
+            name="sample_data/word2dita/all_defaults/word/style2tagmap.xml"/>
+        <file
+            name="sample_data/word2dita/all_defaults/word/word2bookmap_test_01.docx"
+        />
+    </projectTree>
+</project>

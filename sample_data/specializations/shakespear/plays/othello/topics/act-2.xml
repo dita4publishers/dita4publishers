@@ -1,0 +1,1365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:act" "act.dtd">
+<act id="act-2">
+   <title>ACT II</title>
+   <scene id="act-2-scene-1">
+      <title>SCENE I.  A Sea-port in Cyprus. An open place near the quay.</title>
+      <scene-body>
+         <stagedir>Enter MONTANO and two Gentlemen</stagedir>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>What from the cape can you discern at sea?</line>
+         </speech>
+         <speech>
+            <speaker>First Gentleman</speaker>
+            <line>Nothing at all: it is a highwrought flood;</line>
+            <line>I cannot, 'twixt the heaven and the main,</line>
+            <line>Descry a sail.</line>
+         </speech>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>Methinks the wind hath spoke aloud at land;</line>
+            <line>A fuller blast ne'er shook our battlements:</line>
+            <line>If it hath ruffian'd so upon the sea,</line>
+            <line>What ribs of oak, when mountains melt on them,</line>
+            <line>Can hold the mortise? What shall we hear of this?</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>A segregation of the Turkish fleet:</line>
+            <line>For do but stand upon the foaming shore,</line>
+            <line>The chidden billow seems to pelt the clouds;</line>
+            <line>The wind-shaked surge, with high and monstrous mane,</line>
+            <line>seems to cast water on the burning bear,</line>
+            <line>And quench the guards of the ever-fixed pole:</line>
+            <line>I never did like molestation view</line>
+            <line>On the enchafed flood.</line>
+         </speech>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>If that the Turkish fleet</line>
+            <line>Be not enshelter'd and embay'd, they are drown'd:</line>
+            <line>It is impossible they bear it out.</line>
+         </speech>
+         <stagedir>Enter a third Gentleman</stagedir>
+         <speech>
+            <speaker>Third Gentleman</speaker>
+            <line>News, lads! our wars are done.</line>
+            <line>The desperate tempest hath so bang'd the Turks,</line>
+            <line>That their designment halts: a noble ship of Venice</line>
+            <line>Hath seen a grievous wreck and sufferance</line>
+            <line>On most part of their fleet.</line>
+         </speech>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>How! is this true?</line>
+         </speech>
+         <speech>
+            <speaker>Third Gentleman</speaker>
+            <line>The ship is here put in,</line>
+            <line>A Veronesa; Michael Cassio,</line>
+            <line>Lieutenant to the warlike Moor Othello,</line>
+            <line>Is come on shore: the Moor himself at sea,</line>
+            <line>And is in full commission here for Cyprus.</line>
+         </speech>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>I am glad on't; 'tis a worthy governor.</line>
+         </speech>
+         <speech>
+            <speaker>Third Gentleman</speaker>
+            <line>But this same Cassio, though he speak of comfort</line>
+            <line>Touching the Turkish loss, yet he looks sadly,</line>
+            <line>And prays the Moor be safe; for they were parted</line>
+            <line>With foul and violent tempest.</line>
+         </speech>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>Pray heavens he be;</line>
+            <line>For I have served him, and the man commands</line>
+            <line>Like a full soldier. Let's to the seaside, ho!</line>
+            <line>As well to see the vessel that's come in</line>
+            <line>As to throw out our eyes for brave Othello,</line>
+            <line>Even till we make the main and the aerial blue</line>
+            <line>An indistinct regard.</line>
+         </speech>
+         <speech>
+            <speaker>Third Gentleman</speaker>
+            <line>Come, let's do so:</line>
+            <line>For every minute is expectancy</line>
+            <line>Of more arrivance.</line>
+         </speech>
+         <stagedir>Enter CASSIO</stagedir>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Thanks, you the valiant of this warlike isle,</line>
+            <line>That so approve the Moor! O, let the heavens</line>
+            <line>Give him defence against the elements,</line>
+            <line>For I have lost us him on a dangerous sea.</line>
+         </speech>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>Is he well shipp'd?</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>His bark is stoutly timber'd, his pilot</line>
+            <line>Of very expert and approved allowance;</line>
+            <line>Therefore my hopes, not surfeited to death,</line>
+            <line>Stand in bold cure.</line>
+         </speech>
+         <stagedir>A cry within 'A sail, a sail, a sail!'</stagedir>
+         <stagedir>Enter a fourth Gentleman</stagedir>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>What noise?</line>
+         </speech>
+         <speech>
+            <speaker>Fourth Gentleman</speaker>
+            <line>The town is empty; on the brow o' the sea</line>
+            <line>Stand ranks of people, and they cry 'A sail!'</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>My hopes do shape him for the governor.</line>
+         </speech>
+         <stagedir>Guns heard</stagedir>
+         <speech>
+            <speaker>Second Gentlemen</speaker>
+            <line>They do discharge their shot of courtesy:</line>
+            <line>Our friends at least.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>I pray you, sir, go forth,</line>
+            <line>And give us truth who 'tis that is arrived.</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>I shall.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>But, good lieutenant, is your general wived?</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Most fortunately: he hath achieved a maid</line>
+            <line>That paragons description and wild fame;</line>
+            <line>One that excels the quirks of blazoning pens,</line>
+            <line>And in the essential vesture of creation</line>
+            <line>Does tire the ingener.</line>
+            <stagedir>Re-enter second Gentleman</stagedir>
+            <line>How now! who has put in?</line>
+         </speech>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>'Tis one Iago, ancient to the general.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Has had most favourable and happy speed:</line>
+            <line>Tempests themselves, high seas, and howling winds,</line>
+            <line>The gutter'd rocks and congregated sands--</line>
+            <line>Traitors ensteep'd to clog the guiltless keel,--</line>
+            <line>As having sense of beauty, do omit</line>
+            <line>Their mortal natures, letting go safely by</line>
+            <line>The divine Desdemona.</line>
+         </speech>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>What is she?</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>She that I spake of, our great captain's captain,</line>
+            <line>Left in the conduct of the bold Iago,</line>
+            <line>Whose footing here anticipates our thoughts</line>
+            <line>A se'nnight's speed. Great Jove, Othello guard,</line>
+            <line>And swell his sail with thine own powerful breath,</line>
+            <line>That he may bless this bay with his tall ship,</line>
+            <line>Make love's quick pants in Desdemona's arms,</line>
+            <line>Give renew'd fire to our extincted spirits</line>
+            <line>And bring all Cyprus comfort!</line>
+            <stagedir>Enter DESDEMONA, EMILIA, IAGO, RODERIGO, and
+Attendants</stagedir>
+            <line>O, behold,</line>
+            <line>The riches of the ship is come on shore!</line>
+            <line>Ye men of Cyprus, let her have your knees.</line>
+            <line>Hail to thee, lady! and the grace of heaven,</line>
+            <line>Before, behind thee, and on every hand,</line>
+            <line>Enwheel thee round!</line>
+         </speech>
+         <speech>
+            <speaker>DESDEMONA</speaker>
+            <line>I thank you, valiant Cassio.</line>
+            <line>What tidings can you tell me of my lord?</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>He is not yet arrived: nor know I aught</line>
+            <line>But that he's well and will be shortly here.</line>
+         </speech>
+         <speech>
+            <speaker>DESDEMONA</speaker>
+            <line>O, but I fear--How lost you company?</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>The great contention of the sea and skies</line>
+            <line>Parted our fellowship--But, hark! a sail.</line>
+         </speech>
+         <stagedir>Within 'A sail, a sail!' Guns heard</stagedir>
+         <speech>
+            <speaker>Second Gentleman</speaker>
+            <line>They give their greeting to the citadel;</line>
+            <line>This likewise is a friend.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>See for the news.</line>
+            <stagedir>Exit Gentleman</stagedir>
+            <line>Good ancient, you are welcome.</line>
+            <stagedir>To EMILIA</stagedir>
+            <line>Welcome, mistress.</line>
+            <line>Let it not gall your patience, good Iago,</line>
+            <line>That I extend my manners; 'tis my breeding</line>
+            <line>That gives me this bold show of courtesy.</line>
+         </speech>
+         <stagedir>Kissing her</stagedir>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Sir, would she give you so much of her lips</line>
+            <line>As of her tongue she oft bestows on me,</line>
+            <line>You'll have enough.</line>
+         </speech>
+         <speech>
+            <speaker>DESDEMONA</speaker>
+            <line>Alas, she has no speech.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>In faith, too much;</line>
+            <line>I find it still, when I have list to sleep:</line>
+            <line>Marry, before your ladyship, I grant,</line>
+            <line>She puts her tongue a little in her heart,</line>
+            <line>And chides with thinking.</line>
+         </speech>
+         <speech>
+            <speaker>EMILIA</speaker>
+            <line>You have little cause to say so.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Come on, come on; you are pictures out of doors,</line>
+            <line>Bells in your parlors, wild-cats in your kitchens,</line>
+            <line>Saints m your injuries, devils being offended,</line>
+            <line>Players in your housewifery, and housewives' in your beds.</line>
+         </speech>
+         <speech>
+            <speaker>DESDEMONA</speaker>
+            <line>O, fie upon thee, slanderer!</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Nay, it is true, or else I am a Turk:</line>
+            <line>You rise to play and go to bed to work.</line>
+         </speech>
+         <speech>
+            <speaker>EMILIA</speaker>
+            <line>You shall not write my praise.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>No, let me not.</line>
+         </speech>
+         <speech>
+            <speaker>DESDEMONA</speaker>
+            <line>What wouldst thou write of me, if thou shouldst</line>
+            <line>praise me?</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>O gentle lady, do not put me to't;</line>
+            <line>For I am nothing, if not critical.</line>
+         </speech>
+         <speech>
+            <speaker>DESDEMONA</speaker>
+            <line>Come on assay. There's one gone to the harbour?</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Ay, madam.</line>
+         </speech>
+         <speech>
+            <speaker>DESDEMONA</speaker>
+            <line>I am not merry; but I do beguile</line>
+            <line>The thing I am, by seeming otherwise.</line>
+            <line>Come, how wouldst thou praise me?</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>I am about it; but indeed my invention</line>
+            <line>Comes from my pate as birdlime does from frize;</line>
+            <line>It plucks out brains and all: but my Muse labours,</line>
+            <line>And thus she is deliver'd.</line>
+            <line>If she be fair and wise, fairness and wit,</line>
+            <line>The one's for use, the other useth it.</line>
+         </speech>
+         <speech>
+            <speaker>DESDEMONA</speaker>
+            <line>Well praised! How if she be black and witty?</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>If she be black, and thereto have a wit,</line>
+            <line>She'll find a white that shall her blackness fit.</line>
+         </speech>
+         <speech>
+            <speaker>DESDEMONA</speaker>
+            <line>Worse and worse.</line>
+         </speech>
+         <speech>
+            <speaker>EMILIA</speaker>
+            <line>How if fair and foolish?</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>She never yet was foolish that was fair;</line>
+            <line>For even her folly help'd her to an heir.</line>
+         </speech>
+         <speech>
+            <speaker>DESDEMONA</speaker>
+            <line>These are old fond paradoxes to make fools laugh i'</line>
+            <line>the alehouse. What miserable praise hast thou for</line>
+            <line>her that's foul and foolish?</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>There's none so foul and foolish thereunto,</line>
+            <line>But does foul pranks which fair and wise ones do.</line>
+         </speech>
+         <speech>
+            <speaker>DESDEMONA</speaker>
+            <line>O heavy ignorance! thou praisest the worst best.</line>
+            <line>But what praise couldst thou bestow on a deserving</line>
+            <line>woman indeed, one that, in the authority of her</line>
+            <line>merit, did justly put on the vouch of very malice itself?</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>She that was ever fair and never proud,</line>
+            <line>Had tongue at will and yet was never loud,</line>
+            <line>Never lack'd gold and yet went never gay,</line>
+            <line>Fled from her wish and yet said 'Now I may,'</line>
+            <line>She that being anger'd, her revenge being nigh,</line>
+            <line>Bade her wrong stay and her displeasure fly,</line>
+            <line>She that in wisdom never was so frail</line>
+            <line>To change the cod's head for the salmon's tail;</line>
+            <line>She that could think and ne'er disclose her mind,</line>
+            <line>See suitors following and not look behind,</line>
+            <line>She was a wight, if ever such wight were,--</line>
+         </speech>
+         <speech>
+            <speaker>DESDEMONA</speaker>
+            <line>To do what?</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>To suckle fools and chronicle small beer.</line>
+         </speech>
+         <speech>
+            <speaker>DESDEMONA</speaker>
+            <line>O most lame and impotent conclusion! Do not learn</line>
+            <line>of him, Emilia, though he be thy husband. How say</line>
+            <line>you, Cassio? is he not a most profane and liberal</line>
+            <line>counsellor?</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>He speaks home, madam: You may relish him more in</line>
+            <line>the soldier than in the scholar.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  He takes her by the palm: ay, well said,</line>
+            <line>whisper: with as little a web as this will I</line>
+            <line>ensnare as great a fly as Cassio. Ay, smile upon</line>
+            <line>her, do; I will gyve thee in thine own courtship.</line>
+            <line>You say true; 'tis so, indeed: if such tricks as</line>
+            <line>these strip you out of your lieutenantry, it had</line>
+            <line>been better you had not kissed your three fingers so</line>
+            <line>oft, which now again you are most apt to play the</line>
+            <line>sir in. Very good; well kissed! an excellent</line>
+            <line>courtesy! 'tis so, indeed. Yet again your fingers</line>
+            <line>to your lips? would they were clyster-pipes for your sake!</line>
+            <stagedir>Trumpet within</stagedir>
+            <line>The Moor! I know his trumpet.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>'Tis truly so.</line>
+         </speech>
+         <speech>
+            <speaker>DESDEMONA</speaker>
+            <line>Let's meet him and receive him.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Lo, where he comes!</line>
+         </speech>
+         <stagedir>Enter OTHELLO and Attendants</stagedir>
+         <speech>
+            <speaker>OTHELLO</speaker>
+            <line>O my fair warrior!</line>
+         </speech>
+         <speech>
+            <speaker>DESDEMONA</speaker>
+            <line>My dear Othello!</line>
+         </speech>
+         <speech>
+            <speaker>OTHELLO</speaker>
+            <line>It gives me wonder great as my content</line>
+            <line>To see you here before me. O my soul's joy!</line>
+            <line>If after every tempest come such calms,</line>
+            <line>May the winds blow till they have waken'd death!</line>
+            <line>And let the labouring bark climb hills of seas</line>
+            <line>Olympus-high and duck again as low</line>
+            <line>As hell's from heaven! If it were now to die,</line>
+            <line>'Twere now to be most happy; for, I fear,</line>
+            <line>My soul hath her content so absolute</line>
+            <line>That not another comfort like to this</line>
+            <line>Succeeds in unknown fate.</line>
+         </speech>
+         <speech>
+            <speaker>DESDEMONA</speaker>
+            <line>The heavens forbid</line>
+            <line>But that our loves and comforts should increase,</line>
+            <line>Even as our days do grow!</line>
+         </speech>
+         <speech>
+            <speaker>OTHELLO</speaker>
+            <line>Amen to that, sweet powers!</line>
+            <line>I cannot speak enough of this content;</line>
+            <line>It stops me here; it is too much of joy:</line>
+            <line>And this, and this, the greatest discords be</line>
+            <stagedir>Kissing her</stagedir>
+            <line>That e'er our hearts shall make!</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  O, you are well tuned now!</line>
+            <line>But I'll set down the pegs that make this music,</line>
+            <line>As honest as I am.</line>
+         </speech>
+         <speech>
+            <speaker>OTHELLO</speaker>
+            <line>Come, let us to the castle.</line>
+            <line>News, friends; our wars are done, the Turks</line>
+            <line>are drown'd.</line>
+            <line>How does my old acquaintance of this isle?</line>
+            <line>Honey, you shall be well desired in Cyprus;</line>
+            <line>I have found great love amongst them. O my sweet,</line>
+            <line>I prattle out of fashion, and I dote</line>
+            <line>In mine own comforts. I prithee, good Iago,</line>
+            <line>Go to the bay and disembark my coffers:</line>
+            <line>Bring thou the master to the citadel;</line>
+            <line>He is a good one, and his worthiness</line>
+            <line>Does challenge much respect. Come, Desdemona,</line>
+            <line>Once more, well met at Cyprus.</line>
+         </speech>
+         <stagedir>Exeunt OTHELLO, DESDEMONA, and Attendants</stagedir>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Do thou meet me presently at the harbour. Come</line>
+            <line>hither. If thou be'st valiant,-- as, they say, base</line>
+            <line>men being in love have then a nobility in their</line>
+            <line>natures more than is native to them--list me. The</line>
+            <line>lieutenant tonight watches on the court of</line>
+            <line>guard:--first, I must tell thee this--Desdemona is</line>
+            <line>directly in love with him.</line>
+         </speech>
+         <speech>
+            <speaker>RODERIGO</speaker>
+            <line>With him! why, 'tis not possible.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Lay thy finger thus, and let thy soul be instructed.</line>
+            <line>Mark me with what violence she first loved the Moor,</line>
+            <line>but for bragging and telling her fantastical lies:</line>
+            <line>and will she love him still for prating? let not</line>
+            <line>thy discreet heart think it. Her eye must be fed;</line>
+            <line>and what delight shall she have to look on the</line>
+            <line>devil? When the blood is made dull with the act of</line>
+            <line>sport, there should be, again to inflame it and to</line>
+            <line>give satiety a fresh appetite, loveliness in favour,</line>
+            <line>sympathy in years, manners and beauties; all which</line>
+            <line>the Moor is defective in: now, for want of these</line>
+            <line>required conveniences, her delicate tenderness will</line>
+            <line>find itself abused, begin to heave the gorge,</line>
+            <line>disrelish and abhor the Moor; very nature will</line>
+            <line>instruct her in it and compel her to some second</line>
+            <line>choice. Now, sir, this granted,--as it is a most</line>
+            <line>pregnant and unforced position--who stands so</line>
+            <line>eminent in the degree of this fortune as Cassio</line>
+            <line>does? a knave very voluble; no further</line>
+            <line>conscionable than in putting on the mere form of</line>
+            <line>civil and humane seeming, for the better compassing</line>
+            <line>of his salt and most hidden loose affection? why,</line>
+            <line>none; why, none: a slipper and subtle knave, a</line>
+            <line>finder of occasions, that has an eye can stamp and</line>
+            <line>counterfeit advantages, though true advantage never</line>
+            <line>present itself; a devilish knave. Besides, the</line>
+            <line>knave is handsome, young, and hath all those</line>
+            <line>requisites in him that folly and green minds look</line>
+            <line>after: a pestilent complete knave; and the woman</line>
+            <line>hath found him already.</line>
+         </speech>
+         <speech>
+            <speaker>RODERIGO</speaker>
+            <line>I cannot believe that in her; she's full of</line>
+            <line>most blessed condition.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Blessed fig's-end! the wine she drinks is made of</line>
+            <line>grapes: if she had been blessed, she would never</line>
+            <line>have loved the Moor. Blessed pudding! Didst thou</line>
+            <line>not see her paddle with the palm of his hand? didst</line>
+            <line>not mark that?</line>
+         </speech>
+         <speech>
+            <speaker>RODERIGO</speaker>
+            <line>Yes, that I did; but that was but courtesy.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Lechery, by this hand; an index and obscure prologue</line>
+            <line>to the history of lust and foul thoughts. They met</line>
+            <line>so near with their lips that their breaths embraced</line>
+            <line>together. Villanous thoughts, Roderigo! when these</line>
+            <line>mutualities so marshal the way, hard at hand comes</line>
+            <line>the master and main exercise, the incorporate</line>
+            <line>conclusion, Pish! But, sir, be you ruled by me: I</line>
+            <line>have brought you from Venice. Watch you to-night;</line>
+            <line>for the command, I'll lay't upon you. Cassio knows</line>
+            <line>you not. I'll not be far from you: do you find</line>
+            <line>some occasion to anger Cassio, either by speaking</line>
+            <line>too loud, or tainting his discipline; or from what</line>
+            <line>other course you please, which the time shall more</line>
+            <line>favourably minister.</line>
+         </speech>
+         <speech>
+            <speaker>RODERIGO</speaker>
+            <line>Well.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Sir, he is rash and very sudden in choler, and haply</line>
+            <line>may strike at you: provoke him, that he may; for</line>
+            <line>even out of that will I cause these of Cyprus to</line>
+            <line>mutiny; whose qualification shall come into no true</line>
+            <line>taste again but by the displanting of Cassio. So</line>
+            <line>shall you have a shorter journey to your desires by</line>
+            <line>the means I shall then have to prefer them; and the</line>
+            <line>impediment most profitably removed, without the</line>
+            <line>which there were no expectation of our prosperity.</line>
+         </speech>
+         <speech>
+            <speaker>RODERIGO</speaker>
+            <line>I will do this, if I can bring it to any</line>
+            <line>opportunity.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>I warrant thee. Meet me by and by at the citadel:</line>
+            <line>I must fetch his necessaries ashore. Farewell.</line>
+         </speech>
+         <speech>
+            <speaker>RODERIGO</speaker>
+            <line>Adieu.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>That Cassio loves her, I do well believe it;</line>
+            <line>That she loves him, 'tis apt and of great credit:</line>
+            <line>The Moor, howbeit that I endure him not,</line>
+            <line>Is of a constant, loving, noble nature,</line>
+            <line>And I dare think he'll prove to Desdemona</line>
+            <line>A most dear husband. Now, I do love her too;</line>
+            <line>Not out of absolute lust, though peradventure</line>
+            <line>I stand accountant for as great a sin,</line>
+            <line>But partly led to diet my revenge,</line>
+            <line>For that I do suspect the lusty Moor</line>
+            <line>Hath leap'd into my seat; the thought whereof</line>
+            <line>Doth, like a poisonous mineral, gnaw my inwards;</line>
+            <line>And nothing can or shall content my soul</line>
+            <line>Till I am even'd with him, wife for wife,</line>
+            <line>Or failing so, yet that I put the Moor</line>
+            <line>At least into a jealousy so strong</line>
+            <line>That judgment cannot cure. Which thing to do,</line>
+            <line>If this poor trash of Venice, whom I trash</line>
+            <line>For his quick hunting, stand the putting on,</line>
+            <line>I'll have our Michael Cassio on the hip,</line>
+            <line>Abuse him to the Moor in the rank garb--</line>
+            <line>For I fear Cassio with my night-cap too--</line>
+            <line>Make the Moor thank me, love me and reward me.</line>
+            <line>For making him egregiously an ass</line>
+            <line>And practising upon his peace and quiet</line>
+            <line>Even to madness. 'Tis here, but yet confused:</line>
+            <line>Knavery's plain face is never seen tin used.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-2">
+      <title>SCENE II.  A street.</title>
+      <scene-body>
+         <stagedir>Enter a Herald with a proclamation; People
+following</stagedir>
+         <speech>
+            <speaker>Herald</speaker>
+            <line>It is Othello's pleasure, our noble and valiant</line>
+            <line>general, that, upon certain tidings now arrived,</line>
+            <line>importing the mere perdition of the Turkish fleet,</line>
+            <line>every man put himself into triumph; some to dance,</line>
+            <line>some to make bonfires, each man to what sport and</line>
+            <line>revels his addiction leads him: for, besides these</line>
+            <line>beneficial news, it is the celebration of his</line>
+            <line>nuptial. So much was his pleasure should be</line>
+            <line>proclaimed. All offices are open, and there is full</line>
+            <line>liberty of feasting from this present hour of five</line>
+            <line>till the bell have told eleven. Heaven bless the</line>
+            <line>isle of Cyprus and our noble general Othello!</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-3">
+      <title>SCENE III.  A hall in the castle.</title>
+      <scene-body>
+         <stagedir>Enter OTHELLO, DESDEMONA, CASSIO, and Attendants</stagedir>
+         <speech>
+            <speaker>OTHELLO</speaker>
+            <line>Good Michael, look you to the guard to-night:</line>
+            <line>Let's teach ourselves that honourable stop,</line>
+            <line>Not to outsport discretion.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Iago hath direction what to do;</line>
+            <line>But, notwithstanding, with my personal eye</line>
+            <line>Will I look to't.</line>
+         </speech>
+         <speech>
+            <speaker>OTHELLO</speaker>
+            <line>Iago is most honest.</line>
+            <line>Michael, good night: to-morrow with your earliest</line>
+            <line>Let me have speech with you.</line>
+            <stagedir>To DESDEMONA</stagedir>
+            <line>Come, my dear love,</line>
+            <line>The purchase made, the fruits are to ensue;</line>
+            <line>That profit's yet to come 'tween me and you.</line>
+            <line>Good night.</line>
+         </speech>
+         <stagedir>Exeunt OTHELLO, DESDEMONA, and Attendants</stagedir>
+         <stagedir>Enter IAGO</stagedir>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Welcome, Iago; we must to the watch.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Not this hour, lieutenant; 'tis not yet ten o' the</line>
+            <line>clock. Our general cast us thus early for the love</line>
+            <line>of his Desdemona; who let us not therefore blame:</line>
+            <line>he hath not yet made wanton the night with her; and</line>
+            <line>she is sport for Jove.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>She's a most exquisite lady.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>And, I'll warrant her, fun of game.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Indeed, she's a most fresh and delicate creature.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>What an eye she has! methinks it sounds a parley of</line>
+            <line>provocation.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>An inviting eye; and yet methinks right modest.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>And when she speaks, is it not an alarum to love?</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>She is indeed perfection.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Well, happiness to their sheets! Come, lieutenant, I</line>
+            <line>have a stoup of wine; and here without are a brace</line>
+            <line>of Cyprus gallants that would fain have a measure to</line>
+            <line>the health of black Othello.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Not to-night, good Iago: I have very poor and</line>
+            <line>unhappy brains for drinking: I could well wish</line>
+            <line>courtesy would invent some other custom of</line>
+            <line>entertainment.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>O, they are our friends; but one cup: I'll drink for</line>
+            <line>you.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>I have drunk but one cup to-night, and that was</line>
+            <line>craftily qualified too, and, behold, what innovation</line>
+            <line>it makes here: I am unfortunate in the infirmity,</line>
+            <line>and dare not task my weakness with any more.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>What, man! 'tis a night of revels: the gallants</line>
+            <line>desire it.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Where are they?</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Here at the door; I pray you, call them in.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>I'll do't; but it dislikes me.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>If I can fasten but one cup upon him,</line>
+            <line>With that which he hath drunk to-night already,</line>
+            <line>He'll be as full of quarrel and offence</line>
+            <line>As my young mistress' dog. Now, my sick fool Roderigo,</line>
+            <line>Whom love hath turn'd almost the wrong side out,</line>
+            <line>To Desdemona hath to-night caroused</line>
+            <line>Potations pottle-deep; and he's to watch:</line>
+            <line>Three lads of Cyprus, noble swelling spirits,</line>
+            <line>That hold their honours in a wary distance,</line>
+            <line>The very elements of this warlike isle,</line>
+            <line>Have I to-night fluster'd with flowing cups,</line>
+            <line>And they watch too. Now, 'mongst this flock of drunkards,</line>
+            <line>Am I to put our Cassio in some action</line>
+            <line>That may offend the isle.--But here they come:</line>
+            <line>If consequence do but approve my dream,</line>
+            <line>My boat sails freely, both with wind and stream.</line>
+         </speech>
+         <stagedir>Re-enter CASSIO; with him MONTANO and Gentlemen;
+servants following with wine</stagedir>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>'Fore God, they have given me a rouse already.</line>
+         </speech>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>Good faith, a little one; not past a pint, as I am</line>
+            <line>a soldier.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Some wine, ho!</line>
+            <stagedir>Sings</stagedir>
+            <line>And let me the canakin clink, clink;</line>
+            <line>And let me the canakin clink</line>
+            <line>A soldier's a man;</line>
+            <line>A life's but a span;</line>
+            <line>Why, then, let a soldier drink.</line>
+            <line>Some wine, boys!</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>'Fore God, an excellent song.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>I learned it in England, where, indeed, they are</line>
+            <line>most potent in potting: your Dane, your German, and</line>
+            <line>your swag-bellied Hollander--Drink, ho!--are nothing</line>
+            <line>to your English.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Is your Englishman so expert in his drinking?</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Why, he drinks you, with facility, your Dane dead</line>
+            <line>drunk; he sweats not to overthrow your Almain; he</line>
+            <line>gives your Hollander a vomit, ere the next pottle</line>
+            <line>can be filled.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>To the health of our general!</line>
+         </speech>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>I am for it, lieutenant; and I'll do you justice.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>O sweet England!</line>
+            <line>King Stephen was a worthy peer,</line>
+            <line>His breeches cost him but a crown;</line>
+            <line>He held them sixpence all too dear,</line>
+            <line>With that he call'd the tailor lown.</line>
+            <line>He was a wight of high renown,</line>
+            <line>And thou art but of low degree:</line>
+            <line>'Tis pride that pulls the country down;</line>
+            <line>Then take thine auld cloak about thee.</line>
+            <line>Some wine, ho!</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Why, this is a more exquisite song than the other.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Will you hear't again?</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>No; for I hold him to be unworthy of his place that</line>
+            <line>does those things. Well, God's above all; and there</line>
+            <line>be souls must be saved, and there be souls must not be saved.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>It's true, good lieutenant.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>For mine own part,--no offence to the general, nor</line>
+            <line>any man of quality,--I hope to be saved.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>And so do I too, lieutenant.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Ay, but, by your leave, not before me; the</line>
+            <line>lieutenant is to be saved before the ancient. Let's</line>
+            <line>have no more of this; let's to our affairs.--Forgive</line>
+            <line>us our sins!--Gentlemen, let's look to our business.</line>
+            <line>Do not think, gentlemen. I am drunk: this is my</line>
+            <line>ancient; this is my right hand, and this is my left:</line>
+            <line>I am not drunk now; I can stand well enough, and</line>
+            <line>speak well enough.</line>
+         </speech>
+         <speech>
+            <speaker>All</speaker>
+            <line>Excellent well.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Why, very well then; you must not think then that I am drunk.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>To the platform, masters; come, let's set the watch.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>You see this fellow that is gone before;</line>
+            <line>He is a soldier fit to stand by Caesar</line>
+            <line>And give direction: and do but see his vice;</line>
+            <line>'Tis to his virtue a just equinox,</line>
+            <line>The one as long as the other: 'tis pity of him.</line>
+            <line>I fear the trust Othello puts him in.</line>
+            <line>On some odd time of his infirmity,</line>
+            <line>Will shake this island.</line>
+         </speech>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>But is he often thus?</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>'Tis evermore the prologue to his sleep:</line>
+            <line>He'll watch the horologe a double set,</line>
+            <line>If drink rock not his cradle.</line>
+         </speech>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>It were well</line>
+            <line>The general were put in mind of it.</line>
+            <line>Perhaps he sees it not; or his good nature</line>
+            <line>Prizes the virtue that appears in Cassio,</line>
+            <line>And looks not on his evils: is not this true?</line>
+         </speech>
+         <stagedir>Enter RODERIGO</stagedir>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>
+               <stagedir>Aside to him</stagedir>  How now, Roderigo!</line>
+            <line>I pray you, after the lieutenant; go.</line>
+         </speech>
+         <stagedir>Exit RODERIGO</stagedir>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>And 'tis great pity that the noble Moor</line>
+            <line>Should hazard such a place as his own second</line>
+            <line>With one of an ingraft infirmity:</line>
+            <line>It were an honest action to say</line>
+            <line>So to the Moor.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Not I, for this fair island:</line>
+            <line>I do love Cassio well; and would do much</line>
+            <line>To cure him of this evil--But, hark! what noise?</line>
+         </speech>
+         <stagedir>Cry within: 'Help! help!'</stagedir>
+         <stagedir>Re-enter CASSIO, driving in RODERIGO</stagedir>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>You rogue! you rascal!</line>
+         </speech>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>What's the matter, lieutenant?</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>A knave teach me my duty!</line>
+            <line>I'll beat the knave into a twiggen bottle.</line>
+         </speech>
+         <speech>
+            <speaker>RODERIGO</speaker>
+            <line>Beat me!</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Dost thou prate, rogue?</line>
+         </speech>
+         <stagedir>Striking RODERIGO</stagedir>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>Nay, good lieutenant;</line>
+            <stagedir>Staying him</stagedir>
+            <line>I pray you, sir, hold your hand.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Let me go, sir,</line>
+            <line>Or I'll knock you o'er the mazzard.</line>
+         </speech>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>Come, come,</line>
+            <line>you're drunk.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Drunk!</line>
+         </speech>
+         <stagedir>They fight</stagedir>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>
+               <stagedir>Aside to RODERIGO</stagedir>  Away, I say; go out, and cry a mutiny.</line>
+            <stagedir>Exit RODERIGO</stagedir>
+            <line>Nay, good lieutenant,--alas, gentlemen;--</line>
+            <line>Help, ho!--Lieutenant,--sir,--Montano,--sir;</line>
+            <line>Help, masters!--Here's a goodly watch indeed!</line>
+            <stagedir>Bell rings</stagedir>
+            <line>Who's that which rings the bell?--Diablo, ho!</line>
+            <line>The town will rise: God's will, lieutenant, hold!</line>
+            <line>You will be shamed for ever.</line>
+         </speech>
+         <stagedir>Re-enter OTHELLO and Attendants</stagedir>
+         <speech>
+            <speaker>OTHELLO</speaker>
+            <line>What is the matter here?</line>
+         </speech>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>'Zounds, I bleed still; I am hurt to the death.</line>
+         </speech>
+         <stagedir>Faints</stagedir>
+         <speech>
+            <speaker>OTHELLO</speaker>
+            <line>Hold, for your lives!</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Hold, ho! Lieutenant,--sir--Montano,--gentlemen,--</line>
+            <line>Have you forgot all sense of place and duty?</line>
+            <line>Hold! the general speaks to you; hold, hold, for shame!</line>
+         </speech>
+         <speech>
+            <speaker>OTHELLO</speaker>
+            <line>Why, how now, ho! from whence ariseth this?</line>
+            <line>Are we turn'd Turks, and to ourselves do that</line>
+            <line>Which heaven hath forbid the Ottomites?</line>
+            <line>For Christian shame, put by this barbarous brawl:</line>
+            <line>He that stirs next to carve for his own rage</line>
+            <line>Holds his soul light; he dies upon his motion.</line>
+            <line>Silence that dreadful bell: it frights the isle</line>
+            <line>From her propriety. What is the matter, masters?</line>
+            <line>Honest Iago, that look'st dead with grieving,</line>
+            <line>Speak, who began this? on thy love, I charge thee.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>I do not know: friends all but now, even now,</line>
+            <line>In quarter, and in terms like bride and groom</line>
+            <line>Devesting them for bed; and then, but now--</line>
+            <line>As if some planet had unwitted men--</line>
+            <line>Swords out, and tilting one at other's breast,</line>
+            <line>In opposition bloody. I cannot speak</line>
+            <line>Any beginning to this peevish odds;</line>
+            <line>And would in action glorious I had lost</line>
+            <line>Those legs that brought me to a part of it!</line>
+         </speech>
+         <speech>
+            <speaker>OTHELLO</speaker>
+            <line>How comes it, Michael, you are thus forgot?</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>I pray you, pardon me; I cannot speak.</line>
+         </speech>
+         <speech>
+            <speaker>OTHELLO</speaker>
+            <line>Worthy Montano, you were wont be civil;</line>
+            <line>The gravity and stillness of your youth</line>
+            <line>The world hath noted, and your name is great</line>
+            <line>In mouths of wisest censure: what's the matter,</line>
+            <line>That you unlace your reputation thus</line>
+            <line>And spend your rich opinion for the name</line>
+            <line>Of a night-brawler? give me answer to it.</line>
+         </speech>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>Worthy Othello, I am hurt to danger:</line>
+            <line>Your officer, Iago, can inform you,--</line>
+            <line>While I spare speech, which something now</line>
+            <line>offends me,--</line>
+            <line>Of all that I do know: nor know I aught</line>
+            <line>By me that's said or done amiss this night;</line>
+            <line>Unless self-charity be sometimes a vice,</line>
+            <line>And to defend ourselves it be a sin</line>
+            <line>When violence assails us.</line>
+         </speech>
+         <speech>
+            <speaker>OTHELLO</speaker>
+            <line>Now, by heaven,</line>
+            <line>My blood begins my safer guides to rule;</line>
+            <line>And passion, having my best judgment collied,</line>
+            <line>Assays to lead the way: if I once stir,</line>
+            <line>Or do but lift this arm, the best of you</line>
+            <line>Shall sink in my rebuke. Give me to know</line>
+            <line>How this foul rout began, who set it on;</line>
+            <line>And he that is approved in this offence,</line>
+            <line>Though he had twinn'd with me, both at a birth,</line>
+            <line>Shall lose me. What! in a town of war,</line>
+            <line>Yet wild, the people's hearts brimful of fear,</line>
+            <line>To manage private and domestic quarrel,</line>
+            <line>In night, and on the court and guard of safety!</line>
+            <line>'Tis monstrous. Iago, who began't?</line>
+         </speech>
+         <speech>
+            <speaker>MONTANO</speaker>
+            <line>If partially affined, or leagued in office,</line>
+            <line>Thou dost deliver more or less than truth,</line>
+            <line>Thou art no soldier.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Touch me not so near:</line>
+            <line>I had rather have this tongue cut from my mouth</line>
+            <line>Than it should do offence to Michael Cassio;</line>
+            <line>Yet, I persuade myself, to speak the truth</line>
+            <line>Shall nothing wrong him. Thus it is, general.</line>
+            <line>Montano and myself being in speech,</line>
+            <line>There comes a fellow crying out for help:</line>
+            <line>And Cassio following him with determined sword,</line>
+            <line>To execute upon him. Sir, this gentleman</line>
+            <line>Steps in to Cassio, and entreats his pause:</line>
+            <line>Myself the crying fellow did pursue,</line>
+            <line>Lest by his clamour--as it so fell out--</line>
+            <line>The town might fall in fright: he, swift of foot,</line>
+            <line>Outran my purpose; and I return'd the rather</line>
+            <line>For that I heard the clink and fall of swords,</line>
+            <line>And Cassio high in oath; which till to-night</line>
+            <line>I ne'er might say before. When I came back--</line>
+            <line>For this was brief--I found them close together,</line>
+            <line>At blow and thrust; even as again they were</line>
+            <line>When you yourself did part them.</line>
+            <line>More of this matter cannot I report:</line>
+            <line>But men are men; the best sometimes forget:</line>
+            <line>Though Cassio did some little wrong to him,</line>
+            <line>As men in rage strike those that wish them best,</line>
+            <line>Yet surely Cassio, I believe, received</line>
+            <line>From him that fled some strange indignity,</line>
+            <line>Which patience could not pass.</line>
+         </speech>
+         <speech>
+            <speaker>OTHELLO</speaker>
+            <line>I know, Iago,</line>
+            <line>Thy honesty and love doth mince this matter,</line>
+            <line>Making it light to Cassio. Cassio, I love thee</line>
+            <line>But never more be officer of mine.</line>
+            <stagedir>Re-enter DESDEMONA, attended</stagedir>
+            <line>Look, if my gentle love be not raised up!</line>
+            <line>I'll make thee an example.</line>
+         </speech>
+         <speech>
+            <speaker>DESDEMONA</speaker>
+            <line>What's the matter?</line>
+         </speech>
+         <speech>
+            <speaker>OTHELLO</speaker>
+            <line>All's well now, sweeting; come away to bed.</line>
+            <line>Sir, for your hurts, myself will be your surgeon:</line>
+            <line>Lead him off.</line>
+            <stagedir>To MONTANO, who is led off</stagedir>
+            <line>Iago, look with care about the town,</line>
+            <line>And silence those whom this vile brawl distracted.</line>
+            <line>Come, Desdemona: 'tis the soldiers' life</line>
+            <line>To have their balmy slumbers waked with strife.</line>
+         </speech>
+         <stagedir>Exeunt all but IAGO and CASSIO</stagedir>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>What, are you hurt, lieutenant?</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Ay, past all surgery.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Marry, heaven forbid!</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Reputation, reputation, reputation! O, I have lost</line>
+            <line>my reputation! I have lost the immortal part of</line>
+            <line>myself, and what remains is bestial. My reputation,</line>
+            <line>Iago, my reputation!</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>As I am an honest man, I thought you had received</line>
+            <line>some bodily wound; there is more sense in that than</line>
+            <line>in reputation. Reputation is an idle and most false</line>
+            <line>imposition: oft got without merit, and lost without</line>
+            <line>deserving: you have lost no reputation at all,</line>
+            <line>unless you repute yourself such a loser. What, man!</line>
+            <line>there are ways to recover the general again: you</line>
+            <line>are but now cast in his mood, a punishment more in</line>
+            <line>policy than in malice, even so as one would beat his</line>
+            <line>offenceless dog to affright an imperious lion: sue</line>
+            <line>to him again, and he's yours.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>I will rather sue to be despised than to deceive so</line>
+            <line>good a commander with so slight, so drunken, and so</line>
+            <line>indiscreet an officer. Drunk? and speak parrot?</line>
+            <line>and squabble? swagger? swear? and discourse</line>
+            <line>fustian with one's own shadow? O thou invisible</line>
+            <line>spirit of wine, if thou hast no name to be known by,</line>
+            <line>let us call thee devil!</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>What was he that you followed with your sword? What</line>
+            <line>had he done to you?</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>I know not.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Is't possible?</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>I remember a mass of things, but nothing distinctly;</line>
+            <line>a quarrel, but nothing wherefore. O God, that men</line>
+            <line>should put an enemy in their mouths to steal away</line>
+            <line>their brains! that we should, with joy, pleasance</line>
+            <line>revel and applause, transform ourselves into beasts!</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Why, but you are now well enough: how came you thus</line>
+            <line>recovered?</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>It hath pleased the devil drunkenness to give place</line>
+            <line>to the devil wrath; one unperfectness shows me</line>
+            <line>another, to make me frankly despise myself.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Come, you are too severe a moraler: as the time,</line>
+            <line>the place, and the condition of this country</line>
+            <line>stands, I could heartily wish this had not befallen;</line>
+            <line>but, since it is as it is, mend it for your own good.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>I will ask him for my place again; he shall tell me</line>
+            <line>I am a drunkard! Had I as many mouths as Hydra,</line>
+            <line>such an answer would stop them all. To be now a</line>
+            <line>sensible man, by and by a fool, and presently a</line>
+            <line>beast! O strange! Every inordinate cup is</line>
+            <line>unblessed and the ingredient is a devil.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>Come, come, good wine is a good familiar creature,</line>
+            <line>if it be well used: exclaim no more against it.</line>
+            <line>And, good lieutenant, I think you think I love you.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>I have well approved it, sir. I drunk!</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>You or any man living may be drunk! at a time, man.</line>
+            <line>I'll tell you what you shall do. Our general's wife</line>
+            <line>is now the general: may say so in this respect, for</line>
+            <line>that he hath devoted and given up himself to the</line>
+            <line>contemplation, mark, and denotement of her parts and</line>
+            <line>graces: confess yourself freely to her; importune</line>
+            <line>her help to put you in your place again: she is of</line>
+            <line>so free, so kind, so apt, so blessed a disposition,</line>
+            <line>she holds it a vice in her goodness not to do more</line>
+            <line>than she is requested: this broken joint between</line>
+            <line>you and her husband entreat her to splinter; and, my</line>
+            <line>fortunes against any lay worth naming, this</line>
+            <line>crack of your love shall grow stronger than it was before.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>You advise me well.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>I protest, in the sincerity of love and honest kindness.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>I think it freely; and betimes in the morning I will</line>
+            <line>beseech the virtuous Desdemona to undertake for me:</line>
+            <line>I am desperate of my fortunes if they cheque me here.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>You are in the right. Good night, lieutenant; I</line>
+            <line>must to the watch.</line>
+         </speech>
+         <speech>
+            <speaker>CASSIO</speaker>
+            <line>Good night, honest Iago.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>And what's he then that says I play the villain?</line>
+            <line>When this advice is free I give and honest,</line>
+            <line>Probal to thinking and indeed the course</line>
+            <line>To win the Moor again? For 'tis most easy</line>
+            <line>The inclining Desdemona to subdue</line>
+            <line>In any honest suit: she's framed as fruitful</line>
+            <line>As the free elements. And then for her</line>
+            <line>To win the Moor--were't to renounce his baptism,</line>
+            <line>All seals and symbols of redeemed sin,</line>
+            <line>His soul is so enfetter'd to her love,</line>
+            <line>That she may make, unmake, do what she list,</line>
+            <line>Even as her appetite shall play the god</line>
+            <line>With his weak function. How am I then a villain</line>
+            <line>To counsel Cassio to this parallel course,</line>
+            <line>Directly to his good? Divinity of hell!</line>
+            <line>When devils will the blackest sins put on,</line>
+            <line>They do suggest at first with heavenly shows,</line>
+            <line>As I do now: for whiles this honest fool</line>
+            <line>Plies Desdemona to repair his fortunes</line>
+            <line>And she for him pleads strongly to the Moor,</line>
+            <line>I'll pour this pestilence into his ear,</line>
+            <line>That she repeals him for her body's lust;</line>
+            <line>And by how much she strives to do him good,</line>
+            <line>She shall undo her credit with the Moor.</line>
+            <line>So will I turn her virtue into pitch,</line>
+            <line>And out of her own goodness make the net</line>
+            <line>That shall enmesh them all.</line>
+            <stagedir>Re-enter RODERIGO</stagedir>
+            <line>How now, Roderigo!</line>
+         </speech>
+         <speech>
+            <speaker>RODERIGO</speaker>
+            <line>I do follow here in the chase, not like a hound that</line>
+            <line>hunts, but one that fills up the cry. My money is</line>
+            <line>almost spent; I have been to-night exceedingly well</line>
+            <line>cudgelled; and I think the issue will be, I shall</line>
+            <line>have so much experience for my pains, and so, with</line>
+            <line>no money at all and a little more wit, return again to Venice.</line>
+         </speech>
+         <speech>
+            <speaker>IAGO</speaker>
+            <line>How poor are they that have not patience!</line>
+            <line>What wound did ever heal but by degrees?</line>
+            <line>Thou know'st we work by wit, and not by witchcraft;</line>
+            <line>And wit depends on dilatory time.</line>
+            <line>Does't not go well? Cassio hath beaten thee.</line>
+            <line>And thou, by that small hurt, hast cashier'd Cassio:</line>
+            <line>Though other things grow fair against the sun,</line>
+            <line>Yet fruits that blossom first will first be ripe:</line>
+            <line>Content thyself awhile. By the mass, 'tis morning;</line>
+            <line>Pleasure and action make the hours seem short.</line>
+            <line>Retire thee; go where thou art billeted:</line>
+            <line>Away, I say; thou shalt know more hereafter:</line>
+            <line>Nay, get thee gone.</line>
+            <stagedir>Exit RODERIGO</stagedir>
+            <line>Two things are to be done:</line>
+            <line>My wife must move for Cassio to her mistress;</line>
+            <line>I'll set her on;</line>
+            <line>Myself the while to draw the Moor apart,</line>
+            <line>And bring him jump when he may Cassio find</line>
+            <line>Soliciting his wife: ay, that's the way</line>
+            <line>Dull not device by coldness and delay.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+      </scene-body>
+   </scene>
+</act>

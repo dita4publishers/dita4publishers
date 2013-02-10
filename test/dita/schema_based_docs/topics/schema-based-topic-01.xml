@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsa4="http://dita.oasis-open.org/architecture/2005/" id="topic-1" xsi:noNamespaceSchemaLocation="urn:oasis:names:tc:dita:xsd:topic.xsd:1.1">
+  <title>Schema-Based Topic</title>
+  <body>
+    <p>This topic uses only an XSD schema and not a DOCTYPE declaration. This means it will be correctly processed as a DITA document only when the processor is configured to use an XML parser that does XSD schema validation. The 1.4 version of the DITA Open Toolkit is so configured, so this document should process correctly with the Toolkit.</p>
+    <p>This is a paragraph <apiname>apiname</apiname> more content <codeblock>This is a code block</codeblock></p>
+    <p>Another paragraph, followed by a simple table:</p>
+    <simpletable>
+      <sthead>
+        <stentry>Column 1</stentry>
+        <stentry>Colunn 2</stentry>
+      </sthead>
+      <strow>
+        <stentry>R1C1</stentry>
+        <stentry>R1C2</stentry>
+      </strow>
+    </simpletable>
+  </body>
+</topic>

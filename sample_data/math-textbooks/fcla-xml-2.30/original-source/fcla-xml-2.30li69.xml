@@ -1,0 +1,1374 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" > 
+<?xml-stylesheet type="text/css" href="fcla-xml-2.30.css"?> 
+<html  
+xmlns="http://www.w3.org/1999/xhtml"  
+><head><title>Section CNO  Complex Number Operations</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- html,xhtml,mozilla,3 --> 
+<meta name="src" content="fcla-xml-2.30.tex" /> 
+<meta name="date" content="2011-12-23 18:20:00" /> 
+<link rel="stylesheet" type="text/css" href="fcla-xml-2.30.css" /> 
+</head><body 
+>
+   <!--l. 503--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li70.xml" >next</a>] [<a 
+href="#tailfcla-xml-2.30li69.xml">tail</a>] [<a 
+href="fcla-xml-2.30li68.xml#fcla-xml-2.30li69.xml" >up</a>] </p></div>
+   <h3 class="likesectionHead"><a 
+ id="x70-353000"></a>Section CNO&#x00A0;&#x00A0;Complex Number Operations</h3>
+<!--l. 503--><p class="noindent" ><a 
+ id="section.CNO"></a> From <a 
+href="http://linear.ups.edu/" ><span 
+class="cmti-12">A First Course in Linear Algebra</span></a><br 
+class="newline" />Version 2.30<br 
+class="newline" /><span 
+class="cmsy-10x-x-120">&#x00A9;</span>&#x00A0;2004.<br 
+class="newline" />Licensed under the <a 
+href="http://www.gnu.org/licenses/fdl.html" >GNU Free Documentation License</a>.<br 
+class="newline" /><a 
+href="http://linear.ups.edu/" class="url" ><span 
+class="cmtt-12">http://linear.ups.edu/</span></a><br 
+class="newline" /><br 
+class="newline" /><a 
+ id="x70-353000doc"></a> <a 
+ id="dx70-353001"></a> In this section we review of the basics of working with complex numbers.
+                                                                          
+
+                                                                          
+</p><!--l. 19--><p class="noindent" >
+</p>
+   <h4 class="likesubsectionHead"><a 
+ id="x70-354000"></a>Subsection CNA: Arithmetic with complex numbers</h4>
+<!--l. 19--><p class="noindent" ><a 
+ id="subsection.CNO.CNA"></a>  <a 
+ id="x70-354000doc"></a><a 
+ id="dx70-354001"></a>   A complex number is a linear combination of
+<!--l. 21--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>1</mn></math> and
+<!--l. 21--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>i</mi> <mo 
+class="MathClass-rel">=</mo> <msqrt><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msqrt></math>, typically written
+in the form <!--l. 21--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>a</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>b</mi><mi 
+>i</mi></math>.
+Complex numbers can be added, subtracted, multiplied and divided, just like we
+are used to doing with real numbers, including the restriction on division by zero.
+We will not define these operations carefully, but instead illustrate with
+examples.
+</p><!--l. 23--><p class="noindent" ><span 
+class="cmbx-12">Example</span><span 
+class="cmbx-12">&#x00A0;ACN</span><br 
+class="newline" /><a 
+ id="example.ACN"><span 
+class="cmbx-12">Arithmetic of complex numbers</span></a><a 
+ id="dx70-354002"></a><a 
+ id="dx70-354003"></a><a 
+ id="dx70-354004"></a><br 
+class="newline" />
+</p><!--tex4ht:inline--><!--l. 32--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+<mtr><mtd 
+columnalign="right" class="align-odd"><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>2</mn> <mo 
+class="MathClass-bin">+</mo> <mn>5</mn><mi 
+>i</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>6</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>4</mn><mi 
+>i</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mtd><mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>2</mn> <mo 
+class="MathClass-bin">+</mo> <mn>6</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>5</mn> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>4</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>i</mi> <mo 
+class="MathClass-rel">=</mo> <mn>8</mn> <mo 
+class="MathClass-bin">+</mo> <mi 
+>i</mi><mspace width="2em"/></mtd>                                <mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label">
+<mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>2</mn> <mo 
+class="MathClass-bin">+</mo> <mn>5</mn><mi 
+>i</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&#x2212;</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>6</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>4</mn><mi 
+>i</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mtd><mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>2</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>6</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>5</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>4</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>i</mi> <mo 
+class="MathClass-rel">=</mo> <mo 
+class="MathClass-bin">&#x2212;</mo><mn>4</mn> <mo 
+class="MathClass-bin">+</mo> <mn>9</mn><mi 
+>i</mi><mspace width="2em"/></mtd>                             <mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label">
+<mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>2</mn> <mo 
+class="MathClass-bin">+</mo> <mn>5</mn><mi 
+>i</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>6</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>4</mn><mi 
+>i</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mtd>   <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>2</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>6</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>5</mn><mi 
+>i</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>6</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>2</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>4</mn><mi 
+>i</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mn>5</mn><mi 
+>i</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>4</mn><mi 
+>i</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn><mn>2</mn> <mo 
+class="MathClass-bin">+</mo> <mn>3</mn><mn>0</mn><mi 
+>i</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>8</mn><mi 
+>i</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>2</mn><mn>0</mn><msup><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label">
+<mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                  <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn><mn>2</mn> <mo 
+class="MathClass-bin">+</mo> <mn>2</mn><mn>2</mn><mi 
+>i</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>2</mn><mn>0</mn><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mn>3</mn><mn>2</mn> <mo 
+class="MathClass-bin">+</mo> <mn>2</mn><mn>2</mn><mi 
+>i</mi><mspace width="2em"/></mtd>                               <mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label">
+   </mtd></mtr><mtr><mtd columnspan="4" class="intertext"><!--mstyle 
+class="intertext"--><mtext  >&#x00A0;Division&#x00A0;takes&#x00A0;just&#x00A0;a&#x00A0;bit&#x00A0;more&#x00A0;care.&#x00A0;We&#x00A0;multiply&#x00A0;the&#x00A0;denominator&#x00A0;by&#x00A0;a
+complex&#x00A0;number&#x00A0;chosen&#x00A0;to&#x00A0;produce&#x00A0;a&#x00A0;real&#x00A0;number&#x00A0;and&#x00A0;then&#x00A0;we&#x00A0;can&#x00A0;produce&#x00A0;a
+complex&#x00A0;number&#x00A0;as&#x00A0;a&#x00A0;result.</mtext><!--/mstyle--></mtd></mtr><mtr><mtd>
+<mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"><mfrac><mrow 
+><mn>2</mn> <mo 
+class="MathClass-bin">+</mo> <mn>5</mn><mi 
+>i</mi></mrow>
+<mrow 
+><mn>6</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>4</mn><mi 
+>i</mi></mrow></mfrac></mtd>            <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+><mn>2</mn> <mo 
+class="MathClass-bin">+</mo> <mn>5</mn><mi 
+>i</mi></mrow> 
+<mrow 
+><mn>6</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>4</mn><mi 
+>i</mi></mrow></mfrac> <mfrac><mrow 
+><mn>6</mn> <mo 
+class="MathClass-bin">+</mo> <mn>4</mn><mi 
+>i</mi></mrow> 
+<mrow 
+><mn>6</mn> <mo 
+class="MathClass-bin">+</mo> <mn>4</mn><mi 
+>i</mi></mrow></mfrac> <mo 
+class="MathClass-rel">=</mo> <mfrac><mrow 
+> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>8</mn> <mo 
+class="MathClass-bin">+</mo> <mn>3</mn><mn>8</mn><mi 
+>i</mi></mrow> 
+    <mrow 
+><mn>5</mn><mn>2</mn></mrow></mfrac>      <mo 
+class="MathClass-rel">=</mo> <mo 
+class="MathClass-bin">&#x2212;</mo><mfrac><mrow 
+><mn>8</mn></mrow>
+<mrow 
+><mn>5</mn><mn>2</mn></mrow></mfrac> <mo 
+class="MathClass-bin">+</mo> <mfrac><mrow 
+><mn>3</mn><mn>8</mn></mrow> 
+<mrow 
+><mn>5</mn><mn>2</mn></mrow></mfrac><mi 
+>i</mi> <mo 
+class="MathClass-rel">=</mo> <mo 
+class="MathClass-bin">&#x2212;</mo><mfrac><mrow 
+><mn>2</mn></mrow>
+<mrow 
+><mn>1</mn><mn>3</mn></mrow></mfrac> <mo 
+class="MathClass-bin">+</mo> <mfrac><mrow 
+><mn>1</mn><mn>9</mn></mrow> 
+<mrow 
+><mn>2</mn><mn>6</mn></mrow></mfrac><mi 
+>i</mi><mspace width="2em"/></mtd>       <mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+                                                                          
+
+                                                                          
+   <!--l. 34--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-bin">&#x22A0;</mo></math>
+<!--l. 36--><p class="indent" >   In this example, we used <!--l. 36--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>6</mn> <mo 
+class="MathClass-bin">+</mo> <mn>4</mn><mi 
+>i</mi></math>
+to convert the denominator in the fraction to a real number. This number is
+known as the conjugate, which we define in the next section. We will often exploit
+the basic properties of complex number addition, subtraction, multiplication and
+division, so we will carefully define the two basic operations, together
+with a definition of equality, and then collect nine basic properties in a
+theorem.
+</p><!--l. 40--><p class="noindent" ><span 
+class="cmbx-12">Definition</span><span 
+class="cmbx-12">&#x00A0;CNE</span><br 
+class="newline" /><a 
+ id="definition.CNE"><span 
+class="cmbx-12">Complex Number Equality</span></a><a 
+ id="dx70-354005"></a><a 
+ id="dx70-354006"></a><a 
+ id="dx70-354007"></a><br 
+class="newline" /> The complex numbers <!--l. 41--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>a</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>b</mi><mi 
+>i</mi></math>
+and <!--l. 41--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>c</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>d</mi><mi 
+>i</mi></math> are <span 
+class="cmbx-12">equal</span>,
+denoted <!--l. 41--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&#x03B2;</mi></math>,
+if <!--l. 41--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>a</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>c</mi></math> and
+<!--l. 41--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>b</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>d</mi></math>. <a 
+ id="dx70-354008"></a><a 
+ id="dx70-354009"></a><a 
+ id="dx70-354010"></a>
+</p><!--l. 42--><p class="noindent" >(This definition contains <a 
+ id="notation.CNE">Notation CNE</a>.)
+<!--l. 43--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-bin">&#x25B3;</mo></math>
+</p><!--l. 46--><p class="noindent" ><span 
+class="cmbx-12">Definition</span><span 
+class="cmbx-12">&#x00A0;CNA</span><br 
+class="newline" /><a 
+ id="definition.CNA"><span 
+class="cmbx-12">Complex Number Addition</span></a><a 
+ id="dx70-354011"></a><a 
+ id="dx70-354012"></a><a 
+ id="dx70-354013"></a><br 
+class="newline" /> The <span 
+class="cmbx-12">sum </span>of the complex numbers <!--l. 47--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>a</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>b</mi><mi 
+>i</mi></math>
+and <!--l. 47--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>c</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>d</mi><mi 
+>i</mi></math> ,
+denoted <!--l. 47--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B2;</mi></math>,
+is <!--l. 47--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>a</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>c</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>b</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>d</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>i</mi></math>. <a 
+ id="dx70-354014"></a><a 
+ id="dx70-354015"></a><a 
+ id="dx70-354016"></a>
+</p><!--l. 48--><p class="noindent" >(This definition contains <a 
+ id="notation.CNA">Notation CNA</a>.)
+<!--l. 49--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-bin">&#x25B3;</mo></math>
+</p><!--l. 52--><p class="noindent" ><span 
+class="cmbx-12">Definition</span><span 
+class="cmbx-12">&#x00A0;CNM</span><br 
+class="newline" /><a 
+ id="definition.CNM"><span 
+class="cmbx-12">Complex Number Multiplication</span></a><a 
+ id="dx70-354017"></a><a 
+ id="dx70-354018"></a><a 
+ id="dx70-354019"></a><br 
+class="newline" /> The <span 
+class="cmbx-12">product </span>of the complex numbers
+<!--l. 53--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>a</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>b</mi><mi 
+>i</mi></math> and
+<!--l. 53--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>c</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>d</mi><mi 
+>i</mi></math> ,
+denoted <!--l. 53--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mi 
+>&#x03B2;</mi></math>,
+                                                                          
+
+                                                                          
+is <!--l. 53--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>a</mi><mi 
+>c</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>b</mi><mi 
+>d</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>a</mi><mi 
+>d</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>b</mi><mi 
+>c</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>i</mi></math>. <a 
+ id="dx70-354020"></a><a 
+ id="dx70-354021"></a><a 
+ id="dx70-354022"></a>
+</p><!--l. 54--><p class="noindent" >(This definition contains <a 
+ id="notation.CNM">Notation CNM</a>.)
+<!--l. 55--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-bin">&#x25B3;</mo></math>
+</p><!--l. 57--><p class="noindent" ><span 
+class="cmbx-12">Theorem</span><span 
+class="cmbx-12">&#x00A0;PCNA</span><br 
+class="newline" /><a 
+ id="theorem.PCNA"><span 
+class="cmbx-12">Properties of Complex Number Arithmetic</span></a><a 
+ id="dx70-354023"></a><a 
+ id="dx70-354024"></a><a 
+ id="dx70-354025"></a><br 
+class="newline" /> The operations of addition and multiplication of complex numbers have the
+following properties. </p>
+     <ul class="itemize1">
+     <li class="itemize"><a 
+ id="dx70-354026"></a><a 
+ id="dx70-354027"></a><a 
+ id="dx70-354028"></a><a 
+ id="property.ACCN"><span 
+class="cmbx-12">ACCN</span></a>   <span 
+class="cmbx-12">Additive Closure, Complex Numbers</span><br 
+class="newline" />If <!--l. 63--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>&#x2102;</mi></math>,
+     then <!--l. 63--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>&#x2102;</mi></math>.
+     </li>
+     <li class="itemize"><a 
+ id="dx70-354029"></a><a 
+ id="dx70-354030"></a><a 
+ id="dx70-354031"></a><a 
+ id="property.MCCN"><span 
+class="cmbx-12">MCCN</span></a>   <span 
+class="cmbx-12">Multiplicative Closure, Complex Numbers</span><br 
+class="newline" />If <!--l. 66--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>&#x2102;</mi></math>,
+     then <!--l. 66--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>&#x2102;</mi></math>.
+     </li>
+     <li class="itemize"><a 
+ id="dx70-354032"></a><a 
+ id="dx70-354033"></a><a 
+ id="dx70-354034"></a><a 
+ id="property.CACN"><span 
+class="cmbx-12">CACN</span></a>   <span 
+class="cmbx-12">Commutativity of Addition, Complex Numbers</span><br 
+class="newline" />For any <!--l. 69--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>&#x2102;</mi></math>,
+     <!--l. 69--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B1;</mi></math>.
+     </li>
+     <li class="itemize"><a 
+ id="dx70-354035"></a><a 
+ id="dx70-354036"></a><a 
+ id="dx70-354037"></a><a 
+ id="property.CMCN"><span 
+class="cmbx-12">CMCN</span></a>   <span 
+class="cmbx-12">Commutativity of Multiplication, Complex Numbers</span><br 
+class="newline" />For any <!--l. 72--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>&#x2102;</mi></math>,
+     <!--l. 72--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&#x03B2;</mi><mi 
+>&#x03B1;</mi></math>.
+     </li>
+     <li class="itemize"><a 
+ id="dx70-354038"></a><a 
+ id="dx70-354039"></a><a 
+ id="dx70-354040"></a><a 
+ id="property.AACN"><span 
+class="cmbx-12">AACN</span></a>   <span 
+class="cmbx-12">Additive Associativity, Complex Numbers</span><br 
+class="newline" />For any <!--l. 75--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>&#x03B2;</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>&#x03B3;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>&#x2102;</mi></math>,
+     <!--l. 75--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-bin">+</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B3;</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B2;</mi></mrow></mfenced> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B3;</mi></math>.
+     </li>
+     <li class="itemize"><a 
+ id="dx70-354041"></a><a 
+ id="dx70-354042"></a><a 
+ id="dx70-354043"></a><a 
+ id="property.MACN"><span 
+class="cmbx-12">MACN</span></a>   <span 
+class="cmbx-12">Multiplicative Associativity, Complex Numbers</span><br 
+class="newline" />For any <!--l. 78--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>&#x03B2;</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>&#x03B3;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>&#x2102;</mi></math>,
+     <!--l. 78--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>&#x03B2;</mi><mi 
+>&#x03B3;</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>&#x03B1;</mi><mi 
+>&#x03B2;</mi></mrow></mfenced><mi 
+>&#x03B3;</mi></math>.
+                                                                          
+
+                                                                          
+     </li>
+     <li class="itemize"><a 
+ id="dx70-354044"></a><a 
+ id="dx70-354045"></a><a 
+ id="dx70-354046"></a><a 
+ id="property.DCN"><span 
+class="cmbx-12">DCN</span></a>   <span 
+class="cmbx-12">Distributivity, Complex Numbers</span><br 
+class="newline" />For any <!--l. 81--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>&#x03B2;</mi><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mi 
+>&#x03B3;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>&#x2102;</mi></math>,
+     <!--l. 81--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B3;</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&#x03B1;</mi><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B1;</mi><mi 
+>&#x03B3;</mi></math>.
+     </li>
+     <li class="itemize"><a 
+ id="dx70-354047"></a><a 
+ id="dx70-354048"></a><a 
+ id="dx70-354049"></a><a 
+ id="property.ZCN"><span 
+class="cmbx-12">ZCN</span></a>   <span 
+class="cmbx-12">Zero, Complex Numbers</span><br 
+class="newline" />There is a complex number <!--l. 84--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>0</mn> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn> <mo 
+class="MathClass-bin">+</mo> <mn>0</mn><mi 
+>i</mi></math>
+     so that for any <!--l. 84--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>&#x2102;</mi></math>,
+     <!--l. 84--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>0</mn> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&#x03B1;</mi></math>.
+     </li>
+     <li class="itemize"><a 
+ id="dx70-354050"></a><a 
+ id="dx70-354051"></a><a 
+ id="dx70-354052"></a><a 
+ id="property.OCN"><span 
+class="cmbx-12">OCN</span></a>   <span 
+class="cmbx-12">One, Complex Numbers</span><br 
+class="newline" />There is a complex number <!--l. 87--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>1</mn> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn> <mo 
+class="MathClass-bin">+</mo> <mn>0</mn><mi 
+>i</mi></math>
+     so that for any <!--l. 87--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>&#x2102;</mi></math>,
+     <!--l. 87--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>1</mn><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&#x03B1;</mi></math>.
+     </li>
+     <li class="itemize"><a 
+ id="dx70-354053"></a><a 
+ id="dx70-354054"></a><a 
+ id="dx70-354055"></a><a 
+ id="property.AICN"><span 
+class="cmbx-12">AICN</span></a>   <span 
+class="cmbx-12">Additive Inverse, Complex Numbers</span><br 
+class="newline" />For every <!--l. 90--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>&#x2102;</mi></math>
+     there exists <!--l. 90--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" > <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>&#x2102;</mi></math>
+     so that <!--l. 90--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-bin">+</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mi 
+>&#x03B1;</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn></math>.
+     </li>
+     <li class="itemize"><a 
+ id="dx70-354056"></a><a 
+ id="dx70-354057"></a><a 
+ id="dx70-354058"></a><a 
+ id="property.MICN"><span 
+class="cmbx-12">MICN</span></a>   <span 
+class="cmbx-12">Multiplicative Inverse, Complex Numbers</span><br 
+class="newline" />For every <!--l. 93--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>&#x2102;</mi></math>,
+     <!--l. 93--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi><mo 
+class="MathClass-rel">&#x2260;</mo><mn>0</mn></math>
+     there exists <!--l. 93--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mfrac><mrow 
+><mn>1</mn></mrow>
+<mrow 
+><mi 
+>&#x03B1;</mi></mrow></mfrac> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>&#x2102;</mi></math>
+     so that <!--l. 93--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mfrac><mrow 
+><mn>1</mn></mrow>
+<mrow 
+><mi 
+>&#x03B1;</mi></mrow></mfrac></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mn>1</mn></math>.</li></ul>
+<!--l. 96--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-ord">&#x25A1;</mo></math>
+<!--l. 98--><p class="noindent" ><span 
+class="cmbx-12">Proof</span>&#x00A0;&#x00A0; We could derive each of these properties of complex numbers with a
+proof that builds on the identical properties of the real numbers. The only proof
+that might be at all interesting would be to show <a 
+href="#property.MICN">Property&#x00A0;MICN</a> since we would
+need to trot out a conjugate. For this property, and especially for the others, we
+might be tempted to construct proofs of the identical properties for the reals.
+This would take us way too far afield, so we will draw a line in the sand
+right here and just agree that these nine fundamental behaviors are true.
+OK?
+                                                                          
+
+                                                                          
+</p><!--l. 101--><p class="indent" >   Mostly we have stated these nine properties carefully so that we can make
+reference to them later in other proofs. So we will be linking back here often.
+<!--l. 103--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-ord">&#x25A0;</mo></math>
+</p><!--l. 111--><p class="noindent" >
+</p>
+   <h4 class="likesubsectionHead"><a 
+ id="x70-355000"></a>Subsection CCN: Conjugates of Complex Numbers</h4>
+<!--l. 111--><p class="noindent" ><a 
+ id="subsection.CNO.CCN"></a> <a 
+ id="x70-355000doc"></a><a 
+ id="dx70-355001"></a>
+</p><!--l. 113--><p class="noindent" ><span 
+class="cmbx-12">Definition</span><span 
+class="cmbx-12">&#x00A0;CCN</span><br 
+class="newline" /><a 
+ id="definition.CCN"><span 
+class="cmbx-12">Conjugate of a Complex Number</span></a><a 
+ id="dx70-355002"></a><a 
+ id="dx70-355003"></a><a 
+ id="dx70-355004"></a><br 
+class="newline" /> The <span 
+class="cmbx-12">conjugate </span>of the complex number
+<!--l. 114--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>a</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>b</mi><mi 
+>i</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <msup><mrow 
+><mi 
+>&#x2102;</mi></mrow><mrow 
+></mrow></msup 
+></math> is the complex
+number <!--l. 114--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mover accent="false" 
+class="mml-overline"><mrow><mi 
+>&#x03B1;</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover> <mo 
+class="MathClass-rel">=</mo> <mi 
+>a</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>b</mi><mi 
+>i</mi></math>.
+<a 
+ id="dx70-355005"></a><a 
+ id="dx70-355006"></a><a 
+ id="dx70-355007"></a>
+</p><!--l. 115--><p class="noindent" >(This definition contains <a 
+ id="notation.CCN">Notation CCN</a>.)
+<!--l. 116--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-bin">&#x25B3;</mo></math>
+</p><!--l. 118--><p class="noindent" ><span 
+class="cmbx-12">Example</span><span 
+class="cmbx-12">&#x00A0;CSCN</span><br 
+class="newline" /><a 
+ id="example.CSCN"><span 
+class="cmbx-12">Conjugate of some complex numbers</span></a><a 
+ id="dx70-355008"></a><a 
+ id="dx70-355009"></a><a 
+ id="dx70-355010"></a><br 
+class="newline" />
+</p><!--tex4ht:inline--><!--l. 123--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+   <mtr><mtd 
+columnalign="right" class="align-odd"><mover accent="false" 
+class="mml-overline"><mrow><mn>2</mn> <mo 
+class="MathClass-bin">+</mo> <mn>3</mn><mi 
+>i</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover> <mo 
+class="MathClass-rel">=</mo> <mn>2</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>3</mn><mi 
+>i</mi></mtd>   <mtd 
+class="align-even"><mspace width="2em"/></mtd>   <mtd 
+columnalign="right" class="align-odd"><mover accent="false" 
+class="mml-overline"><mrow><mn>5</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>4</mn><mi 
+>i</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover> <mo 
+class="MathClass-rel">=</mo> <mn>5</mn> <mo 
+class="MathClass-bin">+</mo> <mn>4</mn><mi 
+>i</mi></mtd>   <mtd 
+class="align-even"><mspace width="2em"/></mtd>   <mtd 
+columnalign="right" class="align-odd"><mover accent="false" 
+class="mml-overline"><mrow> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>3</mn> <mo 
+class="MathClass-bin">+</mo> <mn>0</mn><mi 
+>i</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover> <mo 
+class="MathClass-rel">=</mo> <mo 
+class="MathClass-bin">&#x2212;</mo><mn>3</mn> <mo 
+class="MathClass-bin">+</mo> <mn>0</mn><mi 
+>i</mi></mtd>   <mtd 
+class="align-even"><mspace width="2em"/></mtd>   <mtd 
+columnalign="right" class="align-odd"><mover accent="false" 
+class="mml-overline"><mrow><mn>0</mn> <mo 
+class="MathClass-bin">+</mo> <mn>0</mn><mi 
+>i</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn> <mo 
+class="MathClass-bin">+</mo> <mn>0</mn><mi 
+>i</mi></mtd>   <mtd 
+class="align-even"><mspace width="2em"/></mtd>   <mtd 
+columnalign="right" class="align-label"></mtd>   <mtd 
+class="align-label"><mspace width="2em"/></mtd>   <mtd 
+columnalign="right" class="align-label"></mtd>   <mtd 
+class="align-label"><mspace width="2em"/></mtd>   <mtd 
+columnalign="right" class="align-label"></mtd>   <mtd 
+class="align-label"><mspace width="2em"/></mtd>   <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+   <!--l. 125--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-bin">&#x22A0;</mo></math>
+                                                                          
+
+                                                                          
+<!--l. 127--><p class="indent" >   Notice how the conjugate of a real number leaves the number unchanged. The
+conjugate enjoys some basic properties that are useful when we work with linear
+expressions involving addition and multiplication.
+</p><!--l. 129--><p class="noindent" ><span 
+class="cmbx-12">Theorem</span><span 
+class="cmbx-12">&#x00A0;CCRA</span><br 
+class="newline" /><a 
+ id="theorem.CCRA"><span 
+class="cmbx-12">Complex Conjugation Respects Addition</span></a><a 
+ id="dx70-355011"></a><a 
+ id="dx70-355012"></a><a 
+ id="dx70-355013"></a><br 
+class="newline" /> Suppose that <!--l. 130--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi></math>
+and <!--l. 130--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B2;</mi></math> are complex
+numbers. Then <!--l. 130--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mover accent="false" 
+class="mml-overline"><mrow><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B2;</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover> <mo 
+class="MathClass-rel">=</mo> <mover accent="false" 
+class="mml-overline"><mrow><mi 
+>&#x03B1;</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover> <mo 
+class="MathClass-bin">+</mo> <mover accent="false" 
+class="mml-overline"><mrow><mi 
+>&#x03B2;</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover></math>.
+<!--l. 131--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-ord">&#x25A1;</mo></math>
+</p><!--l. 133--><p class="noindent" ><span 
+class="cmbx-12">Proof</span>&#x00A0;&#x00A0; Let <!--l. 134--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>a</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>b</mi><mi 
+>i</mi></math>
+and <!--l. 134--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>r</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>s</mi><mi 
+>i</mi></math>.
+Then </p><table class="equation-star"><tr><td>
+<!--l. 136--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" class="equation">
+<mover accent="false" 
+class="mml-overline"><mrow><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>&#x03B2;</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover> <mo 
+class="MathClass-rel">=</mo> <mover accent="false" 
+class="mml-overline"><mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>a</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>r</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>b</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>i</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>a</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>r</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&#x2212;</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>b</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>i</mi> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>a</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>b</mi><mi 
+>i</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>r</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>s</mi><mi 
+>i</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mover accent="false" 
+class="mml-overline"><mrow><mi 
+>&#x03B1;</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover> <mo 
+class="MathClass-bin">+</mo> <mover accent="false" 
+class="mml-overline"><mrow><mi 
+>&#x03B2;</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover>
+</math></td></tr></table>
+   <!--l. 140--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-ord">&#x25A0;</mo></math>
+<!--l. 142--><p class="noindent" ><span 
+class="cmbx-12">Theorem</span><span 
+class="cmbx-12">&#x00A0;CCRM</span><br 
+class="newline" /><a 
+ id="theorem.CCRM"><span 
+class="cmbx-12">Complex Conjugation Respects Multiplication</span></a><a 
+ id="dx70-355014"></a><a 
+ id="dx70-355015"></a><a 
+ id="dx70-355016"></a><br 
+class="newline" /> Suppose that <!--l. 143--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi></math>
+and <!--l. 143--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B2;</mi></math> are complex
+numbers. Then <!--l. 143--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mover accent="false" 
+class="mml-overline"><mrow><mi 
+>&#x03B1;</mi><mi 
+>&#x03B2;</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover> <mo 
+class="MathClass-rel">=</mo> <mover accent="false" 
+class="mml-overline"><mrow><mi 
+>&#x03B1;</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover><mover accent="false" 
+class="mml-overline"><mrow><mi 
+>&#x03B2;</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover></math>.
+<!--l. 144--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-ord">&#x25A1;</mo></math>
+</p><!--l. 146--><p class="noindent" ><span 
+class="cmbx-12">Proof</span>&#x00A0;&#x00A0; Let <!--l. 147--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>a</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>b</mi><mi 
+>i</mi></math>
+and <!--l. 147--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B2;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>r</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>s</mi><mi 
+>i</mi></math>.
+Then
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 152--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+     <mtr><mtd 
+columnalign="right" class="align-odd"><mover accent="false" 
+class="mml-overline"><mrow><mi 
+>&#x03B1;</mi><mi 
+>&#x03B2;</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover></mtd>     <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mover accent="false" 
+class="mml-overline"><mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>a</mi><mi 
+>r</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>b</mi><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>a</mi><mi 
+>s</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>b</mi><mi 
+>r</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>i</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>a</mi><mi 
+>r</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>b</mi><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&#x2212;</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>a</mi><mi 
+>s</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>b</mi><mi 
+>r</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>i</mi><mspace width="2em"/></mtd>                  <mtd 
+columnalign="right" class="align-label"></mtd>     <mtd 
+class="align-label">
+     <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>        <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>a</mi><mi 
+>r</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>a</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mi 
+>s</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mi 
+>b</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>r</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>i</mi> <mo 
+class="MathClass-rel">=</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>a</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>b</mi><mi 
+>i</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>r</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>s</mi><mi 
+>i</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mover accent="false" 
+class="mml-overline"><mrow><mi 
+>&#x03B1;</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover><mover accent="false" 
+class="mml-overline"><mrow><mi 
+>&#x03B2;</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover><mspace width="2em"/></mtd>     <mtd 
+columnalign="right" class="align-label"></mtd>     <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+   <!--l. 154--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-ord">&#x25A0;</mo></math>
+<!--l. 156--><p class="noindent" ><span 
+class="cmbx-12">Theorem</span><span 
+class="cmbx-12">&#x00A0;CCT</span><br 
+class="newline" /><a 
+ id="theorem.CCT"><span 
+class="cmbx-12">Complex Conjugation Twice</span></a><a 
+ id="dx70-355017"></a><a 
+ id="dx70-355018"></a><a 
+ id="dx70-355019"></a><br 
+class="newline" /> Suppose that <!--l. 157--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi></math> is a
+complex number. Then <!--l. 157--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mover accent="false" 
+class="mml-overline"><mrow><mover accent="false" 
+class="mml-overline"><mrow><mi 
+>&#x03B1;</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover></mrow><mo 
+accent="true">&#x00AF;</mo></mover> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&#x03B1;</mi></math>.
+<!--l. 158--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-ord">&#x25A1;</mo></math>
+</p><!--l. 160--><p class="noindent" ><span 
+class="cmbx-12">Proof</span>&#x00A0;&#x00A0; Let <!--l. 161--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>a</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>b</mi><mi 
+>i</mi></math>.
+Then </p><table class="equation-star"><tr><td>
+<!--l. 163--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" class="equation">
+                   <mover accent="false" 
+class="mml-overline"><mrow><mover accent="false" 
+class="mml-overline"><mrow><mi 
+>&#x03B1;</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover></mrow><mo 
+accent="true">&#x00AF;</mo></mover> <mo 
+class="MathClass-rel">=</mo> <mover accent="false" 
+class="mml-overline"><mrow><mi 
+>a</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>b</mi><mi 
+>i</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover> <mo 
+class="MathClass-rel">=</mo> <mi 
+>a</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mi 
+>b</mi><mi 
+>i</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>a</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>b</mi><mi 
+>i</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&#x03B1;</mi>
+</math></td></tr></table>
+   <!--l. 167--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-ord">&#x25A0;</mo></math>
+                                                                          
+
+                                                                          
+<!--l. 169--><p class="noindent" >
+</p>
+   <h4 class="likesubsectionHead"><a 
+ id="x70-356000"></a>Subsection MCN: Modulus of a Complex Number</h4>
+<!--l. 169--><p class="noindent" ><a 
+ id="subsection.CNO.MCN"></a> <a 
+ id="x70-356000doc"></a><a 
+ id="dx70-356001"></a>  We define one more operation with complex numbers that may be new to
+you.
+</p><!--l. 173--><p class="noindent" ><span 
+class="cmbx-12">Definition</span><span 
+class="cmbx-12">&#x00A0;MCN</span><br 
+class="newline" /><a 
+ id="definition.MCN"><span 
+class="cmbx-12">Modulus of a Complex Number</span></a><a 
+ id="dx70-356002"></a><a 
+ id="dx70-356003"></a><a 
+ id="dx70-356004"></a><br 
+class="newline" /> The <span 
+class="cmbx-12">modulus </span>of the complex number
+<!--l. 174--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">=</mo> <mi 
+>a</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>b</mi><mi 
+>i</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <msup><mrow 
+><mi 
+>&#x2102;</mi></mrow><mrow 
+></mrow></msup 
+></math>, is
+the nonnegative real number </p><table class="equation-star"><tr><td>
+<!--l. 176--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" class="equation">
+                          <mfenced separators="" 
+open="|"  close="|" ><mrow><mi 
+>&#x03B1;</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <msqrt><mrow><mi 
+>&#x03B1;</mi><mover accent="false" 
+class="mml-overline"><mrow><mi 
+>&#x03B1;</mi></mrow><mo 
+accent="true">&#x00AF;</mo></mover></mrow></msqrt> <mo 
+class="MathClass-rel">=</mo> <msqrt><mrow><msup><mrow 
+><mi 
+>a</mi></mrow><mrow 
+><mn>2</mn> </mrow> </msup 
+> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mi 
+>b</mi></mrow><mrow 
+><mn>2</mn></mrow></msup 
+></mrow></msqrt><mo 
+class="MathClass-punc">.</mo>
+</math></td></tr></table>
+   <!--l. 180--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-bin">&#x25B3;</mo></math>
+<!--l. 182--><p class="noindent" ><span 
+class="cmbx-12">Example</span><span 
+class="cmbx-12">&#x00A0;MSCN</span><br 
+class="newline" /><a 
+ id="example.MSCN"><span 
+class="cmbx-12">Modulus of some complex numbers</span></a><a 
+ id="dx70-356005"></a><a 
+ id="dx70-356006"></a><a 
+ id="dx70-356007"></a><br 
+class="newline" />
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 187--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+    <mtr><mtd 
+columnalign="right" class="align-odd"> <mfenced separators="" 
+open="|"  close="|" ><mrow><mn>2</mn> <mo 
+class="MathClass-bin">+</mo> <mn>3</mn><mi 
+>i</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <msqrt><mrow><mn>1</mn><mn>3</mn></mrow></msqrt></mtd>    <mtd 
+class="align-even"><mspace width="2em"/></mtd>    <mtd 
+columnalign="right" class="align-odd"> <mfenced separators="" 
+open="|"  close="|" ><mrow><mn>5</mn> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>4</mn><mi 
+>i</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <msqrt><mrow><mn>4</mn><mn>1</mn></mrow></msqrt></mtd>    <mtd 
+class="align-even"><mspace width="2em"/></mtd>    <mtd 
+columnalign="right" class="align-odd"> <mfenced separators="" 
+open="|"  close="|" ><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>3</mn> <mo 
+class="MathClass-bin">+</mo> <mn>0</mn><mi 
+>i</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mn>3</mn></mtd>    <mtd 
+class="align-even"><mspace width="2em"/></mtd>    <mtd 
+columnalign="right" class="align-odd"> <mfenced separators="" 
+open="|"  close="|" ><mrow><mn>0</mn> <mo 
+class="MathClass-bin">+</mo> <mn>0</mn><mi 
+>i</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn></mtd>    <mtd 
+class="align-even"><mspace width="2em"/></mtd>    <mtd 
+columnalign="right" class="align-label"></mtd>    <mtd 
+class="align-label"><mspace width="2em"/></mtd>    <mtd 
+columnalign="right" class="align-label"></mtd>    <mtd 
+class="align-label"><mspace width="2em"/></mtd>    <mtd 
+columnalign="right" class="align-label"></mtd>    <mtd 
+class="align-label"><mspace width="2em"/></mtd>    <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+   <!--l. 189--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-bin">&#x22A0;</mo></math>
+<!--l. 191--><p class="indent" >   The modulus can be interpreted as a version of the absolute value for complex
+numbers, as is suggested by the notation employed. You can see this in how
+<!--l. 191--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" > <mfenced separators="" 
+open="|"  close="|" ><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>3</mn></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="|"  close="|" ><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>3</mn> <mo 
+class="MathClass-bin">+</mo> <mn>0</mn><mi 
+>i</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mn>3</mn></math>.
+Notice too how the modulus of the complex zero,
+<!--l. 191--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>0</mn> <mo 
+class="MathClass-bin">+</mo> <mn>0</mn><mi 
+>i</mi></math>, has
+value <!--l. 191--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>0</mn></math>.
+                                                                          
+
+                                                                          
+</p><!--l. 503--><p class="indent" >
+                                                                          
+
+                                                                          
+                                                                          
+
+                                                                          
+</p>
+   <!--l. 504--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li70.xml" >next</a>] [<a 
+href="fcla-xml-2.30li69.xml" >front</a>] [<a 
+href="fcla-xml-2.30li68.xml#fcla-xml-2.30li69.xml" >up</a>] </p></div>
+<!--l. 504--><p class="indent" >   <a 
+ id="tailfcla-xml-2.30li69.xml"></a>  </p> 
+</body> 
+</html> 

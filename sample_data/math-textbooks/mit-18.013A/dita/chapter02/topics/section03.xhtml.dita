@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e56"><title>2.3 Properties of Trigonometric Functions</title><body><p>
+The important properties are:
+</p><p>
+The Pythagorean theorem (which is really our definition of distance as discussed below).
+</p><p>
+The addition theorems which are expressions for 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>a</m:mi><m:mo>+</m:mo><m:mi>b</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>a</m:mi><m:mo>+</m:mo><m:mi>b</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+The half angle theorem (a consequence of the previous two).
+</p><p>
+All trigonometric functions depend only on the angle mod 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mn>2</m:mn><m:mi>π</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+The law of sines: in the triangle ABC, the ratio of the length AB and AC is the ratio of the sines of the opposite angles: 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mfrac><m:mrow><m:mi>A</m:mi><m:mi>B</m:mi></m:mrow><m:mrow><m:mi>A</m:mi><m:mi>C</m:mi></m:mrow></m:mfrac><m:mo>=</m:mo><m:mfrac><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>C</m:mi></m:mrow><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>B</m:mi></m:mrow></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. This is just the fact that both 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>A</m:mi><m:mi>B</m:mi><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>B</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>A</m:mi><m:mi>C</m:mi><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>C</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ are equal to AH.
+</p><p>
+<image href="images/law_sines.gif" width="184" height="116"><alt>figure</alt></image>
+</p><p>
+The law of cosines. (see
+<ph outputclass="a">
+  <b>Exercise
+       3.5</b>
+</ph>
+)
+</p><p>
+The coordinates of the point on the unit circle at angle 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>θ</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ with center at the origin are ( 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi><m:mo>,</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ ) which means 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>y</m:mi><m:mo>=</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi><m:mo>,</m:mo><m:mi>x</m:mi><m:mo>=</m:mo><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+The tangent line to a circle with center at the origin through 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo>,</m:mo><m:mi>y</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is perpendicular to the line from the center to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo>,</m:mo><m:mi>y</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and points toward the 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>y</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ axis in the first quadrant. Its direction is given by ( 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo>−</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi><m:mo>,</m:mo><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ ).
+</p><p>
+<b>All properties follow from the differential properties of the 
+  sine.</b>
+</p><p>
+For the moment we assume
+</p><p>
+<br/>
+Then using
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo>=</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mfrac><m:mi>π</m:mi><m:mn>2</m:mn></m:mfrac><m:mo>−</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><p>
+We get
+</p><p>
+These two statements combine to tell us that if we differentiate 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ twice we get 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo>−</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+; differentiating three times yields 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo>−</m:mo><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, and four times brings us back to where we started from with 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+And we have 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mn>0</m:mn><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>,</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mn>0</m:mn><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+And so we have 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mn>0</m:mn><m:mo>=</m:mo><m:mn>0</m:mn><m:mo>,</m:mo><m:mo stretchy="false">(</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mn>0</m:mn><m:mo stretchy="false">)</m:mo><m:mo>'</m:mo><m:mo>=</m:mo><m:mn>1</m:mn><m:mo>,</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mn>0</m:mn><m:mo stretchy="false">)</m:mo><m:mo>"</m:mo><m:mo>=</m:mo><m:mn>0</m:mn><m:mo>,</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mn>0</m:mn><m:mo stretchy="false">)</m:mo><m:mo>"</m:mo><m:mo>'</m:mo><m:mo>=</m:mo><m:mo>−</m:mo><m:mn>1</m:mn></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and further derivatives repeat as (from the start 0 1 0 -1 0 1 0 -1 0 1 0 -1, etc) at argument 0.
+</p><p>
+This information determines a power series formula for the sine of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+The constant term must be 0; the linear term 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, the quadratic term 0 the cubic term 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mfrac><m:mrow><m:msup><m:mi>x</m:mi><m:mn>3</m:mn></m:msup></m:mrow><m:mrow><m:mn>3</m:mn><m:mo>!</m:mo></m:mrow></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, and continuing around, all the even terms power terms must be 0, and the odd ones must alternate in sign and otherwise be just like those in the series expansion of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+All this follows because the monomial 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mi>x</m:mi><m:mi>k</m:mi></m:msup></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ has all its derivatives 0 at 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ except the k-th which is 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>k</m:mi><m:mo>!</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ We can therefore read off the power series for sine from the sequence of derivative values at 0.
+</p><p>
+We get
+</p><p>
+and similarly
+</p><p>
+which implies
+</p>
+    <d4p_eqn_block>
+      <d4p_MathML>
+        <m:math
+          xmlns:m="http://www.w3.org/1998/Math/MathML"
+          display="block"
+          overflow="scroll">
+          <m:mrow>
+            <m:mi>exp</m:mi>
+            <m:mo>⁡</m:mo>
+            <m:mi>i</m:mi>
+            <m:mi>x</m:mi>
+            <m:mo>=</m:mo>
+            <m:mi>cos</m:mi>
+            <m:mo>⁡</m:mo>
+            <m:mi>x</m:mi>
+            <m:mo>+</m:mo>
+            <m:mi>i</m:mi>
+            <m:mi>sin</m:mi>
+            <m:mo>⁡</m:mo>
+            <m:mi>x</m:mi>
+          </m:mrow>
+        </m:math>
+      </d4p_MathML>
+    </d4p_eqn_block><p>  (A) </p><p>
+We can therefore use the properties of the exponential function to deduce the properties of the trigonometric functions.
+</p><p>
+For example, the addition theorem for sines and cosines can be deduced as follows
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>i</m:mi><m:mo stretchy="false">(</m:mo><m:mi>a</m:mi><m:mo>+</m:mo><m:mi>b</m:mi><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>a</m:mi><m:mo>+</m:mo><m:mi>b</m:mi><m:mo stretchy="false">)</m:mo><m:mo>+</m:mo><m:mi>i</m:mi><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>a</m:mi><m:mo>+</m:mo><m:mi>b</m:mi><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:mo stretchy="false">(</m:mo><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>i</m:mi><m:mi>a</m:mi><m:mo stretchy="false">)</m:mo><m:mo>*</m:mo><m:mo stretchy="false">(</m:mo><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>i</m:mi><m:mi>b</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mrow><m:mo>=</m:mo><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>a</m:mi><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>b</m:mi><m:mo>−</m:mo><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>a</m:mi><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>b</m:mi><m:mo>+</m:mo><m:mi>i</m:mi><m:mo stretchy="false">(</m:mo><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>a</m:mi><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>b</m:mi><m:mo>+</m:mo><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>b</m:mi><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>a</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><p>
+Identifying real and imaginary parts of these expressions gives the addition formulae.
+</p><p>
+<b>Exercises:</b>
+</p><p>
+<b> 2.10 Derive the formulae for
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> in terms of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>i</m:mi><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mo>−</m:mo><m:mi>i</m:mi><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>, that follows from equation (A) above. <ph outputclass="a">Solution</ph>
+</b>
+</p><p>
+<b>2.11 Find expressions for 
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mrow><m:mrow><m:mo>(</m:mo><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mfrac><m:mi>t</m:mi><m:mn>2</m:mn></m:mfrac></m:mrow><m:mo>)</m:mo></m:mrow></m:mrow><m:mn>2</m:mn></m:msup></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mrow><m:mrow><m:mo>(</m:mo><m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mfrac><m:mi>t</m:mi><m:mn>2</m:mn></m:mfrac></m:mrow><m:mo>)</m:mo></m:mrow></m:mrow><m:mn>2</m:mn></m:msup></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> from the Pythagorean theorem and the cosine addition theorem. <ph outputclass="a">Solution</ph>
+</b>
+</p><p>
+<b>2.12 Set up a spreadsheet to compute the
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> for any inputed
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>. How many terms in the
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> power series expansion do you need to evaluate
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mn>.5</m:mn></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> to 8 decimal places? <ph outputclass="a">Solution</ph>
+</b>
+</p></body></topic>

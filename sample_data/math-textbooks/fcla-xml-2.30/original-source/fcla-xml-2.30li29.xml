@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" > 
+<?xml-stylesheet type="text/css" href="fcla-xml-2.30.css"?> 
+<html  
+xmlns="http://www.w3.org/1999/xhtml"  
+><head><title>Chapter M  Matrices</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- html,xhtml,mozilla,3 --> 
+<meta name="src" content="fcla-xml-2.30.tex" /> 
+<meta name="date" content="2011-12-23 18:20:00" /> 
+<link rel="stylesheet" type="text/css" href="fcla-xml-2.30.css" /> 
+</head><body 
+>
+   <!--l. 386--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li36.xml" >next</a>] [<a 
+href="fcla-xml-2.30li22.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li22.xml#tailfcla-xml-2.30li22.xml" >prev-tail</a>] [<a 
+href="#tailfcla-xml-2.30li29.xml">tail</a>] [<a 
+href="fcla-xml-2.30li14.xml#fcla-xml-2.30li29.xml" >up</a>] </p></div>
+   <h2 class="likechapterHead"><a 
+ id="x30-103000"></a>Chapter M&#x00A0;&#x00A0;Matrices</h2>
+<!--l. 386--><p class="noindent" ><a 
+ id="chapter.M"></a> <a 
+ id="x30-103000doc"></a><a 
+ id="dx30-103001"></a>
+</p><!--l. 10--><p class="indent" >   We have made frequent use of matrices for solving systems of equations, and
+we have begun to investigate a few of their properties, such as the null space and
+nonsingularity. In this chapter, we will take a more systematic approach to the
+study of matrices.
+</p>
+   <div class="likesectionTOCS">
+   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li30.xml#x31-104000">Section MO Matrix Operations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li30.xml#x31-105000" id="QQ2-31-105">Subsection MEASM: Matrix Equality, Addition, Scalar Multiplication</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li30.xml#x31-106000" id="QQ2-31-106">Subsection VSP: Vector Space Properties</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li30.xml#x31-107000" id="QQ2-31-107">Subsection TSM: Transposes and Symmetric Matrices</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li30.xml#x31-108000" id="QQ2-31-108">Subsection MCC: Matrices and Complex Conjugation</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li30.xml#x31-109000" id="QQ2-31-109">Subsection AM: Adjoint of a Matrix</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li30.xml#x31-110000" id="QQ2-31-110">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li30.xml#x31-111000" id="QQ2-31-111">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li30.xml#x31-112000" id="QQ2-31-112">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li31.xml#x32-113000">Section MM Matrix Multiplication</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li31.xml#x32-114000" id="QQ2-32-114">Subsection MVP: Matrix-Vector Product</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li31.xml#x32-115000" id="QQ2-32-115">Subsection MM: Matrix Multiplication</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li31.xml#x32-116000" id="QQ2-32-116">Subsection MMEE: Matrix Multiplication, Entry-by-Entry</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li31.xml#x32-117000" id="QQ2-32-117">Subsection PMM: Properties of Matrix Multiplication</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li31.xml#x32-118000" id="QQ2-32-118">Subsection HM: Hermitian Matrices</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li31.xml#x32-119000" id="QQ2-32-119">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li31.xml#x32-120000" id="QQ2-32-120">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li31.xml#x32-121000" id="QQ2-32-121">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li32.xml#x33-122000">Section MISLE Matrix Inverses and Systems of Linear Equations</a></span>
+                                                                          
+
+                                                                          
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li32.xml#x33-123000" id="QQ2-33-123">Subsection IM: Inverse of a Matrix</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li32.xml#x33-124000" id="QQ2-33-124">Subsection CIM: Computing the Inverse of a Matrix</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li32.xml#x33-125000" id="QQ2-33-125">Subsection PMI: Properties of Matrix Inverses</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li32.xml#x33-126000" id="QQ2-33-126">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li32.xml#x33-127000" id="QQ2-33-127">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li32.xml#x33-128000" id="QQ2-33-128">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li33.xml#x34-129000">Section MINM Matrix Inverses and Nonsingular Matrices</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li33.xml#x34-130000" id="QQ2-34-130">Subsection NMI: Nonsingular Matrices are Invertible</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li33.xml#x34-131000" id="QQ2-34-131">Subsection UM: Unitary Matrices</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li33.xml#x34-132000" id="QQ2-34-132">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li33.xml#x34-133000" id="QQ2-34-133">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li33.xml#x34-134000" id="QQ2-34-134">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li34.xml#x35-135000">Section CRS Column and Row Spaces</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li34.xml#x35-136000" id="QQ2-35-136">Subsection CSSE: Column Spaces and Systems of Equations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li34.xml#x35-137000" id="QQ2-35-137">Subsection CSSOC: Column Space Spanned by Original Columns</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li34.xml#x35-138000" id="QQ2-35-138">Subsection CSNM: Column Space of a Nonsingular Matrix</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li34.xml#x35-139000" id="QQ2-35-139">Subsection RSM: Row Space of a Matrix</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li34.xml#x35-140000" id="QQ2-35-140">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li34.xml#x35-141000" id="QQ2-35-141">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li34.xml#x35-142000" id="QQ2-35-142">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li35.xml#x36-143000">Section FS Four Subsets</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li35.xml#x36-144000" id="QQ2-36-144">Subsection LNS: Left Null Space</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li35.xml#x36-145000" id="QQ2-36-145">Subsection CRS: Computing Column Spaces</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li35.xml#x36-146000" id="QQ2-36-146">Subsection EEF: Extended echelon form</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li35.xml#x36-147000" id="QQ2-36-147">Subsection FS: Four Subsets</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li35.xml#x36-148000" id="QQ2-36-148">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li35.xml#x36-149000" id="QQ2-36-149">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li35.xml#x36-150000" id="QQ2-36-150">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li35.xml#x36-151000" id="QQ2-36-151">Annotated Acronyms M: Matrices</a></span>
+   </div>
+
+
+
+
+
+                                                                          
+
+                                                                          
+   <!--l. 404--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li36.xml" >next</a>] [<a 
+href="fcla-xml-2.30li22.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li22.xml#tailfcla-xml-2.30li22.xml" >prev-tail</a>] [<a 
+href="fcla-xml-2.30li29.xml" >front</a>] [<a 
+href="fcla-xml-2.30li14.xml#fcla-xml-2.30li29.xml" >up</a>] </p></div>
+<!--l. 404--><p class="indent" >   <a 
+ id="tailfcla-xml-2.30li29.xml"></a> </p> 
+</body> 
+</html> 

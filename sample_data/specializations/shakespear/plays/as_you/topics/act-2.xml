@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:act" "act.dtd">
+<act id="act-2">
+   <title>ACT II</title>
+   <scene id="act-2-scene-1">
+      <title>SCENE I.  The Forest of Arden.</title>
+      <scene-body>
+         <stagedir>Enter DUKE SENIOR, AMIENS, and two or three Lords,
+like foresters</stagedir>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>Now, my co-mates and brothers in exile,</line>
+            <line>Hath not old custom made this life more sweet</line>
+            <line>Than that of painted pomp? Are not these woods</line>
+            <line>More free from peril than the envious court?</line>
+            <line>Here feel we but the penalty of Adam,</line>
+            <line>The seasons' difference, as the icy fang</line>
+            <line>And churlish chiding of the winter's wind,</line>
+            <line>Which, when it bites and blows upon my body,</line>
+            <line>Even till I shrink with cold, I smile and say</line>
+            <line>'This is no flattery: these are counsellors</line>
+            <line>That feelingly persuade me what I am.'</line>
+            <line>Sweet are the uses of adversity,</line>
+            <line>Which, like the toad, ugly and venomous,</line>
+            <line>Wears yet a precious jewel in his head;</line>
+            <line>And this our life exempt from public haunt</line>
+            <line>Finds tongues in trees, books in the running brooks,</line>
+            <line>Sermons in stones and good in every thing.</line>
+            <line>I would not change it.</line>
+         </speech>
+         <speech>
+            <speaker>AMIENS</speaker>
+            <line>Happy is your grace,</line>
+            <line>That can translate the stubbornness of fortune</line>
+            <line>Into so quiet and so sweet a style.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>Come, shall we go and kill us venison?</line>
+            <line>And yet it irks me the poor dappled fools,</line>
+            <line>Being native burghers of this desert city,</line>
+            <line>Should in their own confines with forked heads</line>
+            <line>Have their round haunches gored.</line>
+         </speech>
+         <speech>
+            <speaker>First Lord</speaker>
+            <line>Indeed, my lord,</line>
+            <line>The melancholy Jaques grieves at that,</line>
+            <line>And, in that kind, swears you do more usurp</line>
+            <line>Than doth your brother that hath banish'd you.</line>
+            <line>To-day my Lord of Amiens and myself</line>
+            <line>Did steal behind him as he lay along</line>
+            <line>Under an oak whose antique root peeps out</line>
+            <line>Upon the brook that brawls along this wood:</line>
+            <line>To the which place a poor sequester'd stag,</line>
+            <line>That from the hunter's aim had ta'en a hurt,</line>
+            <line>Did come to languish, and indeed, my lord,</line>
+            <line>The wretched animal heaved forth such groans</line>
+            <line>That their discharge did stretch his leathern coat</line>
+            <line>Almost to bursting, and the big round tears</line>
+            <line>Coursed one another down his innocent nose</line>
+            <line>In piteous chase; and thus the hairy fool</line>
+            <line>Much marked of the melancholy Jaques,</line>
+            <line>Stood on the extremest verge of the swift brook,</line>
+            <line>Augmenting it with tears.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>But what said Jaques?</line>
+            <line>Did he not moralize this spectacle?</line>
+         </speech>
+         <speech>
+            <speaker>First Lord</speaker>
+            <line>O, yes, into a thousand similes.</line>
+            <line>First, for his weeping into the needless stream;</line>
+            <line>'Poor deer,' quoth he, 'thou makest a testament</line>
+            <line>As worldlings do, giving thy sum of more</line>
+            <line>To that which had too much:' then, being there alone,</line>
+            <line>Left and abandon'd of his velvet friends,</line>
+            <line>''Tis right:' quoth he; 'thus misery doth part</line>
+            <line>The flux of company:' anon a careless herd,</line>
+            <line>Full of the pasture, jumps along by him</line>
+            <line>And never stays to greet him; 'Ay' quoth Jaques,</line>
+            <line>'Sweep on, you fat and greasy citizens;</line>
+            <line>'Tis just the fashion: wherefore do you look</line>
+            <line>Upon that poor and broken bankrupt there?'</line>
+            <line>Thus most invectively he pierceth through</line>
+            <line>The body of the country, city, court,</line>
+            <line>Yea, and of this our life, swearing that we</line>
+            <line>Are mere usurpers, tyrants and what's worse,</line>
+            <line>To fright the animals and to kill them up</line>
+            <line>In their assign'd and native dwelling-place.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>And did you leave him in this contemplation?</line>
+         </speech>
+         <speech>
+            <speaker>Second Lord</speaker>
+            <line>We did, my lord, weeping and commenting</line>
+            <line>Upon the sobbing deer.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>Show me the place:</line>
+            <line>I love to cope him in these sullen fits,</line>
+            <line>For then he's full of matter.</line>
+         </speech>
+         <speech>
+            <speaker>First Lord</speaker>
+            <line>I'll bring you to him straight.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-2">
+      <title>SCENE II.  A room in the palace.</title>
+      <scene-body>
+         <stagedir>Enter DUKE FREDERICK, with Lords</stagedir>
+         <speech>
+            <speaker>DUKE FREDERICK</speaker>
+            <line>Can it be possible that no man saw them?</line>
+            <line>It cannot be: some villains of my court</line>
+            <line>Are of consent and sufferance in this.</line>
+         </speech>
+         <speech>
+            <speaker>First Lord</speaker>
+            <line>I cannot hear of any that did see her.</line>
+            <line>The ladies, her attendants of her chamber,</line>
+            <line>Saw her abed, and in the morning early</line>
+            <line>They found the bed untreasured of their mistress.</line>
+         </speech>
+         <speech>
+            <speaker>Second Lord</speaker>
+            <line>My lord, the roynish clown, at whom so oft</line>
+            <line>Your grace was wont to laugh, is also missing.</line>
+            <line>Hisperia, the princess' gentlewoman,</line>
+            <line>Confesses that she secretly o'erheard</line>
+            <line>Your daughter and her cousin much commend</line>
+            <line>The parts and graces of the wrestler</line>
+            <line>That did but lately foil the sinewy Charles;</line>
+            <line>And she believes, wherever they are gone,</line>
+            <line>That youth is surely in their company.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE FREDERICK</speaker>
+            <line>Send to his brother; fetch that gallant hither;</line>
+            <line>If he be absent, bring his brother to me;</line>
+            <line>I'll make him find him: do this suddenly,</line>
+            <line>And let not search and inquisition quail</line>
+            <line>To bring again these foolish runaways.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-3">
+      <title>SCENE III.  Before OLIVER'S house.</title>
+      <scene-body>
+         <stagedir>Enter ORLANDO and ADAM, meeting</stagedir>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>Who's there?</line>
+         </speech>
+         <speech>
+            <speaker>ADAM</speaker>
+            <line>What, my young master? O, my gentle master!</line>
+            <line>O my sweet master! O you memory</line>
+            <line>Of old Sir Rowland! why, what make you here?</line>
+            <line>Why are you virtuous? why do people love you?</line>
+            <line>And wherefore are you gentle, strong and valiant?</line>
+            <line>Why would you be so fond to overcome</line>
+            <line>The bonny priser of the humorous duke?</line>
+            <line>Your praise is come too swiftly home before you.</line>
+            <line>Know you not, master, to some kind of men</line>
+            <line>Their graces serve them but as enemies?</line>
+            <line>No more do yours: your virtues, gentle master,</line>
+            <line>Are sanctified and holy traitors to you.</line>
+            <line>O, what a world is this, when what is comely</line>
+            <line>Envenoms him that bears it!</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>Why, what's the matter?</line>
+         </speech>
+         <speech>
+            <speaker>ADAM</speaker>
+            <line>O unhappy youth!</line>
+            <line>Come not within these doors; within this roof</line>
+            <line>The enemy of all your graces lives:</line>
+            <line>Your brother--no, no brother; yet the son--</line>
+            <line>Yet not the son, I will not call him son</line>
+            <line>Of him I was about to call his father--</line>
+            <line>Hath heard your praises, and this night he means</line>
+            <line>To burn the lodging where you use to lie</line>
+            <line>And you within it: if he fail of that,</line>
+            <line>He will have other means to cut you off.</line>
+            <line>I overheard him and his practises.</line>
+            <line>This is no place; this house is but a butchery:</line>
+            <line>Abhor it, fear it, do not enter it.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>Why, whither, Adam, wouldst thou have me go?</line>
+         </speech>
+         <speech>
+            <speaker>ADAM</speaker>
+            <line>No matter whither, so you come not here.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>What, wouldst thou have me go and beg my food?</line>
+            <line>Or with a base and boisterous sword enforce</line>
+            <line>A thievish living on the common road?</line>
+            <line>This I must do, or know not what to do:</line>
+            <line>Yet this I will not do, do how I can;</line>
+            <line>I rather will subject me to the malice</line>
+            <line>Of a diverted blood and bloody brother.</line>
+         </speech>
+         <speech>
+            <speaker>ADAM</speaker>
+            <line>But do not so. I have five hundred crowns,</line>
+            <line>The thrifty hire I saved under your father,</line>
+            <line>Which I did store to be my foster-nurse</line>
+            <line>When service should in my old limbs lie lame</line>
+            <line>And unregarded age in corners thrown:</line>
+            <line>Take that, and He that doth the ravens feed,</line>
+            <line>Yea, providently caters for the sparrow,</line>
+            <line>Be comfort to my age! Here is the gold;</line>
+            <line>And all this I give you. Let me be your servant:</line>
+            <line>Though I look old, yet I am strong and lusty;</line>
+            <line>For in my youth I never did apply</line>
+            <line>Hot and rebellious liquors in my blood,</line>
+            <line>Nor did not with unbashful forehead woo</line>
+            <line>The means of weakness and debility;</line>
+            <line>Therefore my age is as a lusty winter,</line>
+            <line>Frosty, but kindly: let me go with you;</line>
+            <line>I'll do the service of a younger man</line>
+            <line>In all your business and necessities.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>O good old man, how well in thee appears</line>
+            <line>The constant service of the antique world,</line>
+            <line>When service sweat for duty, not for meed!</line>
+            <line>Thou art not for the fashion of these times,</line>
+            <line>Where none will sweat but for promotion,</line>
+            <line>And having that, do choke their service up</line>
+            <line>Even with the having: it is not so with thee.</line>
+            <line>But, poor old man, thou prunest a rotten tree,</line>
+            <line>That cannot so much as a blossom yield</line>
+            <line>In lieu of all thy pains and husbandry</line>
+            <line>But come thy ways; well go along together,</line>
+            <line>And ere we have thy youthful wages spent,</line>
+            <line>We'll light upon some settled low content.</line>
+         </speech>
+         <speech>
+            <speaker>ADAM</speaker>
+            <line>Master, go on, and I will follow thee,</line>
+            <line>To the last gasp, with truth and loyalty.</line>
+            <line>From seventeen years till now almost fourscore</line>
+            <line>Here lived I, but now live here no more.</line>
+            <line>At seventeen years many their fortunes seek;</line>
+            <line>But at fourscore it is too late a week:</line>
+            <line>Yet fortune cannot recompense me better</line>
+            <line>Than to die well and not my master's debtor.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-4">
+      <title>SCENE IV.  The Forest of Arden.</title>
+      <scene-body>
+         <stagedir>Enter ROSALIND for Ganymede, CELIA for Aliena,
+and TOUCHSTONE</stagedir>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>O Jupiter, how weary are my spirits!</line>
+         </speech>
+         <speech>
+            <speaker>TOUCHSTONE</speaker>
+            <line>I care not for my spirits, if my legs were not weary.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>I could find in my heart to disgrace my man's</line>
+            <line>apparel and to cry like a woman; but I must comfort</line>
+            <line>the weaker vessel, as doublet and hose ought to show</line>
+            <line>itself courageous to petticoat: therefore courage,</line>
+            <line>good Aliena!</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>I pray you, bear with me; I cannot go no further.</line>
+         </speech>
+         <speech>
+            <speaker>TOUCHSTONE</speaker>
+            <line>For my part, I had rather bear with you than bear</line>
+            <line>you; yet I should bear no cross if I did bear you,</line>
+            <line>for I think you have no money in your purse.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Well, this is the forest of Arden.</line>
+         </speech>
+         <speech>
+            <speaker>TOUCHSTONE</speaker>
+            <line>Ay, now am I in Arden; the more fool I; when I was</line>
+            <line>at home, I was in a better place: but travellers</line>
+            <line>must be content.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Ay, be so, good Touchstone.</line>
+            <stagedir>Enter CORIN and SILVIUS</stagedir>
+            <line>Look you, who comes here; a young man and an old in</line>
+            <line>solemn talk.</line>
+         </speech>
+         <speech>
+            <speaker>CORIN</speaker>
+            <line>That is the way to make her scorn you still.</line>
+         </speech>
+         <speech>
+            <speaker>SILVIUS</speaker>
+            <line>O Corin, that thou knew'st how I do love her!</line>
+         </speech>
+         <speech>
+            <speaker>CORIN</speaker>
+            <line>I partly guess; for I have loved ere now.</line>
+         </speech>
+         <speech>
+            <speaker>SILVIUS</speaker>
+            <line>No, Corin, being old, thou canst not guess,</line>
+            <line>Though in thy youth thou wast as true a lover</line>
+            <line>As ever sigh'd upon a midnight pillow:</line>
+            <line>But if thy love were ever like to mine--</line>
+            <line>As sure I think did never man love so--</line>
+            <line>How many actions most ridiculous</line>
+            <line>Hast thou been drawn to by thy fantasy?</line>
+         </speech>
+         <speech>
+            <speaker>CORIN</speaker>
+            <line>Into a thousand that I have forgotten.</line>
+         </speech>
+         <speech>
+            <speaker>SILVIUS</speaker>
+            <line>O, thou didst then ne'er love so heartily!</line>
+            <line>If thou remember'st not the slightest folly</line>
+            <line>That ever love did make thee run into,</line>
+            <line>Thou hast not loved:</line>
+            <line>Or if thou hast not sat as I do now,</line>
+            <line>Wearying thy hearer in thy mistress' praise,</line>
+            <line>Thou hast not loved:</line>
+            <line>Or if thou hast not broke from company</line>
+            <line>Abruptly, as my passion now makes me,</line>
+            <line>Thou hast not loved.</line>
+            <line>O Phebe, Phebe, Phebe!</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Alas, poor shepherd! searching of thy wound,</line>
+            <line>I have by hard adventure found mine own.</line>
+         </speech>
+         <speech>
+            <speaker>TOUCHSTONE</speaker>
+            <line>And I mine. I remember, when I was in love I broke</line>
+            <line>my sword upon a stone and bid him take that for</line>
+            <line>coming a-night to Jane Smile; and I remember the</line>
+            <line>kissing of her batlet and the cow's dugs that her</line>
+            <line>pretty chopt hands had milked; and I remember the</line>
+            <line>wooing of a peascod instead of her, from whom I took</line>
+            <line>two cods and, giving her them again, said with</line>
+            <line>weeping tears 'Wear these for my sake.' We that are</line>
+            <line>true lovers run into strange capers; but as all is</line>
+            <line>mortal in nature, so is all nature in love mortal in folly.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Thou speakest wiser than thou art ware of.</line>
+         </speech>
+         <speech>
+            <speaker>TOUCHSTONE</speaker>
+            <line>Nay, I shall ne'er be ware of mine own wit till I</line>
+            <line>break my shins against it.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Jove, Jove! this shepherd's passion</line>
+            <line>Is much upon my fashion.</line>
+         </speech>
+         <speech>
+            <speaker>TOUCHSTONE</speaker>
+            <line>And mine; but it grows something stale with me.</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>I pray you, one of you question yond man</line>
+            <line>If he for gold will give us any food:</line>
+            <line>I faint almost to death.</line>
+         </speech>
+         <speech>
+            <speaker>TOUCHSTONE</speaker>
+            <line>Holla, you clown!</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Peace, fool: he's not thy kinsman.</line>
+         </speech>
+         <speech>
+            <speaker>CORIN</speaker>
+            <line>Who calls?</line>
+         </speech>
+         <speech>
+            <speaker>TOUCHSTONE</speaker>
+            <line>Your betters, sir.</line>
+         </speech>
+         <speech>
+            <speaker>CORIN</speaker>
+            <line>Else are they very wretched.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>Peace, I say. Good even to you, friend.</line>
+         </speech>
+         <speech>
+            <speaker>CORIN</speaker>
+            <line>And to you, gentle sir, and to you all.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>I prithee, shepherd, if that love or gold</line>
+            <line>Can in this desert place buy entertainment,</line>
+            <line>Bring us where we may rest ourselves and feed:</line>
+            <line>Here's a young maid with travel much oppress'd</line>
+            <line>And faints for succor.</line>
+         </speech>
+         <speech>
+            <speaker>CORIN</speaker>
+            <line>Fair sir, I pity her</line>
+            <line>And wish, for her sake more than for mine own,</line>
+            <line>My fortunes were more able to relieve her;</line>
+            <line>But I am shepherd to another man</line>
+            <line>And do not shear the fleeces that I graze:</line>
+            <line>My master is of churlish disposition</line>
+            <line>And little recks to find the way to heaven</line>
+            <line>By doing deeds of hospitality:</line>
+            <line>Besides, his cote, his flocks and bounds of feed</line>
+            <line>Are now on sale, and at our sheepcote now,</line>
+            <line>By reason of his absence, there is nothing</line>
+            <line>That you will feed on; but what is, come see.</line>
+            <line>And in my voice most welcome shall you be.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>What is he that shall buy his flock and pasture?</line>
+         </speech>
+         <speech>
+            <speaker>CORIN</speaker>
+            <line>That young swain that you saw here but erewhile,</line>
+            <line>That little cares for buying any thing.</line>
+         </speech>
+         <speech>
+            <speaker>ROSALIND</speaker>
+            <line>I pray thee, if it stand with honesty,</line>
+            <line>Buy thou the cottage, pasture and the flock,</line>
+            <line>And thou shalt have to pay for it of us.</line>
+         </speech>
+         <speech>
+            <speaker>CELIA</speaker>
+            <line>And we will mend thy wages. I like this place.</line>
+            <line>And willingly could waste my time in it.</line>
+         </speech>
+         <speech>
+            <speaker>CORIN</speaker>
+            <line>Assuredly the thing is to be sold:</line>
+            <line>Go with me: if you like upon report</line>
+            <line>The soil, the profit and this kind of life,</line>
+            <line>I will your very faithful feeder be</line>
+            <line>And buy it with your gold right suddenly.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-5">
+      <title>SCENE V.  The Forest.</title>
+      <scene-body>
+         <stagedir>Enter AMIENS, JAQUES, and others</stagedir>
+         <subhead>SONG.</subhead>
+         <speech>
+            <speaker>AMIENS</speaker>
+            <line>Under the greenwood tree</line>
+            <line>Who loves to lie with me,</line>
+            <line>And turn his merry note</line>
+            <line>Unto the sweet bird's throat,</line>
+            <line>Come hither, come hither, come hither:</line>
+            <line>Here shall he see No enemy</line>
+            <line>But winter and rough weather.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>More, more, I prithee, more.</line>
+         </speech>
+         <speech>
+            <speaker>AMIENS</speaker>
+            <line>It will make you melancholy, Monsieur Jaques.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>I thank it. More, I prithee, more. I can suck</line>
+            <line>melancholy out of a song, as a weasel sucks eggs.</line>
+            <line>More, I prithee, more.</line>
+         </speech>
+         <speech>
+            <speaker>AMIENS</speaker>
+            <line>My voice is ragged: I know I cannot please you.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>I do not desire you to please me; I do desire you to</line>
+            <line>sing. Come, more; another stanzo: call you 'em stanzos?</line>
+         </speech>
+         <speech>
+            <speaker>AMIENS</speaker>
+            <line>What you will, Monsieur Jaques.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>Nay, I care not for their names; they owe me</line>
+            <line>nothing. Will you sing?</line>
+         </speech>
+         <speech>
+            <speaker>AMIENS</speaker>
+            <line>More at your request than to please myself.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>Well then, if ever I thank any man, I'll thank you;</line>
+            <line>but that they call compliment is like the encounter</line>
+            <line>of two dog-apes, and when a man thanks me heartily,</line>
+            <line>methinks I have given him a penny and he renders me</line>
+            <line>the beggarly thanks. Come, sing; and you that will</line>
+            <line>not, hold your tongues.</line>
+         </speech>
+         <speech>
+            <speaker>AMIENS</speaker>
+            <line>Well, I'll end the song. Sirs, cover the while; the</line>
+            <line>duke will drink under this tree. He hath been all</line>
+            <line>this day to look you.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>And I have been all this day to avoid him. He is</line>
+            <line>too disputable for my company: I think of as many</line>
+            <line>matters as he, but I give heaven thanks and make no</line>
+            <line>boast of them. Come, warble, come.</line>
+            <subhead>SONG.</subhead>
+            <line>Who doth ambition shun</line>
+            <stagedir>All together here</stagedir>
+            <line>And loves to live i' the sun,</line>
+            <line>Seeking the food he eats</line>
+            <line>And pleased with what he gets,</line>
+            <line>Come hither, come hither, come hither:</line>
+            <line>Here shall he see No enemy</line>
+            <line>But winter and rough weather.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>I'll give you a verse to this note that I made</line>
+            <line>yesterday in despite of my invention.</line>
+         </speech>
+         <speech>
+            <speaker>AMIENS</speaker>
+            <line>And I'll sing it.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>Thus it goes:--</line>
+            <line>If it do come to pass</line>
+            <line>That any man turn ass,</line>
+            <line>Leaving his wealth and ease,</line>
+            <line>A stubborn will to please,</line>
+            <line>Ducdame, ducdame, ducdame:</line>
+            <line>Here shall he see</line>
+            <line>Gross fools as he,</line>
+            <line>An if he will come to me.</line>
+         </speech>
+         <speech>
+            <speaker>AMIENS</speaker>
+            <line>What's that 'ducdame'?</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>'Tis a Greek invocation, to call fools into a</line>
+            <line>circle. I'll go sleep, if I can; if I cannot, I'll</line>
+            <line>rail against all the first-born of Egypt.</line>
+         </speech>
+         <speech>
+            <speaker>AMIENS</speaker>
+            <line>And I'll go seek the duke: his banquet is prepared.</line>
+         </speech>
+         <stagedir>Exeunt severally</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-6">
+      <title>SCENE VI.  The forest.</title>
+      <scene-body>
+         <stagedir>Enter ORLANDO and ADAM</stagedir>
+         <speech>
+            <speaker>ADAM</speaker>
+            <line>Dear master, I can go no further. O, I die for food!</line>
+            <line>Here lie I down, and measure out my grave. Farewell,</line>
+            <line>kind master.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>Why, how now, Adam! no greater heart in thee? Live</line>
+            <line>a little; comfort a little; cheer thyself a little.</line>
+            <line>If this uncouth forest yield any thing savage, I</line>
+            <line>will either be food for it or bring it for food to</line>
+            <line>thee. Thy conceit is nearer death than thy powers.</line>
+            <line>For my sake be comfortable; hold death awhile at</line>
+            <line>the arm's end: I will here be with thee presently;</line>
+            <line>and if I bring thee not something to eat, I will</line>
+            <line>give thee leave to die: but if thou diest before I</line>
+            <line>come, thou art a mocker of my labour. Well said!</line>
+            <line>thou lookest cheerly, and I'll be with thee quickly.</line>
+            <line>Yet thou liest in the bleak air: come, I will bear</line>
+            <line>thee to some shelter; and thou shalt not die for</line>
+            <line>lack of a dinner, if there live any thing in this</line>
+            <line>desert. Cheerly, good Adam!</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-7">
+      <title>SCENE VII.  The forest.</title>
+      <scene-body>
+         <stagedir>A table set out. Enter DUKE SENIOR, AMIENS, and
+Lords like outlaws</stagedir>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>I think he be transform'd into a beast;</line>
+            <line>For I can no where find him like a man.</line>
+         </speech>
+         <speech>
+            <speaker>First Lord</speaker>
+            <line>My lord, he is but even now gone hence:</line>
+            <line>Here was he merry, hearing of a song.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>If he, compact of jars, grow musical,</line>
+            <line>We shall have shortly discord in the spheres.</line>
+            <line>Go, seek him: tell him I would speak with him.</line>
+         </speech>
+         <stagedir>Enter JAQUES</stagedir>
+         <speech>
+            <speaker>First Lord</speaker>
+            <line>He saves my labour by his own approach.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>Why, how now, monsieur! what a life is this,</line>
+            <line>That your poor friends must woo your company?</line>
+            <line>What, you look merrily!</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>A fool, a fool! I met a fool i' the forest,</line>
+            <line>A motley fool; a miserable world!</line>
+            <line>As I do live by food, I met a fool</line>
+            <line>Who laid him down and bask'd him in the sun,</line>
+            <line>And rail'd on Lady Fortune in good terms,</line>
+            <line>In good set terms and yet a motley fool.</line>
+            <line>'Good morrow, fool,' quoth I. 'No, sir,' quoth he,</line>
+            <line>'Call me not fool till heaven hath sent me fortune:'</line>
+            <line>And then he drew a dial from his poke,</line>
+            <line>And, looking on it with lack-lustre eye,</line>
+            <line>Says very wisely, 'It is ten o'clock:</line>
+            <line>Thus we may see,' quoth he, 'how the world wags:</line>
+            <line>'Tis but an hour ago since it was nine,</line>
+            <line>And after one hour more 'twill be eleven;</line>
+            <line>And so, from hour to hour, we ripe and ripe,</line>
+            <line>And then, from hour to hour, we rot and rot;</line>
+            <line>And thereby hangs a tale.' When I did hear</line>
+            <line>The motley fool thus moral on the time,</line>
+            <line>My lungs began to crow like chanticleer,</line>
+            <line>That fools should be so deep-contemplative,</line>
+            <line>And I did laugh sans intermission</line>
+            <line>An hour by his dial. O noble fool!</line>
+            <line>A worthy fool! Motley's the only wear.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>What fool is this?</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>O worthy fool! One that hath been a courtier,</line>
+            <line>And says, if ladies be but young and fair,</line>
+            <line>They have the gift to know it: and in his brain,</line>
+            <line>Which is as dry as the remainder biscuit</line>
+            <line>After a voyage, he hath strange places cramm'd</line>
+            <line>With observation, the which he vents</line>
+            <line>In mangled forms. O that I were a fool!</line>
+            <line>I am ambitious for a motley coat.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>Thou shalt have one.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>It is my only suit;</line>
+            <line>Provided that you weed your better judgments</line>
+            <line>Of all opinion that grows rank in them</line>
+            <line>That I am wise. I must have liberty</line>
+            <line>Withal, as large a charter as the wind,</line>
+            <line>To blow on whom I please; for so fools have;</line>
+            <line>And they that are most galled with my folly,</line>
+            <line>They most must laugh. And why, sir, must they so?</line>
+            <line>The 'why' is plain as way to parish church:</line>
+            <line>He that a fool doth very wisely hit</line>
+            <line>Doth very foolishly, although he smart,</line>
+            <line>Not to seem senseless of the bob: if not,</line>
+            <line>The wise man's folly is anatomized</line>
+            <line>Even by the squandering glances of the fool.</line>
+            <line>Invest me in my motley; give me leave</line>
+            <line>To speak my mind, and I will through and through</line>
+            <line>Cleanse the foul body of the infected world,</line>
+            <line>If they will patiently receive my medicine.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>Fie on thee! I can tell what thou wouldst do.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>What, for a counter, would I do but good?</line>
+         </speech>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>Most mischievous foul sin, in chiding sin:</line>
+            <line>For thou thyself hast been a libertine,</line>
+            <line>As sensual as the brutish sting itself;</line>
+            <line>And all the embossed sores and headed evils,</line>
+            <line>That thou with licence of free foot hast caught,</line>
+            <line>Wouldst thou disgorge into the general world.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>Why, who cries out on pride,</line>
+            <line>That can therein tax any private party?</line>
+            <line>Doth it not flow as hugely as the sea,</line>
+            <line>Till that the weary very means do ebb?</line>
+            <line>What woman in the city do I name,</line>
+            <line>When that I say the city-woman bears</line>
+            <line>The cost of princes on unworthy shoulders?</line>
+            <line>Who can come in and say that I mean her,</line>
+            <line>When such a one as she such is her neighbour?</line>
+            <line>Or what is he of basest function</line>
+            <line>That says his bravery is not of my cost,</line>
+            <line>Thinking that I mean him, but therein suits</line>
+            <line>His folly to the mettle of my speech?</line>
+            <line>There then; how then? what then? Let me see wherein</line>
+            <line>My tongue hath wrong'd him: if it do him right,</line>
+            <line>Then he hath wrong'd himself; if he be free,</line>
+            <line>Why then my taxing like a wild-goose flies,</line>
+            <line>Unclaim'd of any man. But who comes here?</line>
+         </speech>
+         <stagedir>Enter ORLANDO, with his sword drawn</stagedir>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>Forbear, and eat no more.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>Why, I have eat none yet.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>Nor shalt not, till necessity be served.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>Of what kind should this cock come of?</line>
+         </speech>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>Art thou thus bolden'd, man, by thy distress,</line>
+            <line>Or else a rude despiser of good manners,</line>
+            <line>That in civility thou seem'st so empty?</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>You touch'd my vein at first: the thorny point</line>
+            <line>Of bare distress hath ta'en from me the show</line>
+            <line>Of smooth civility: yet am I inland bred</line>
+            <line>And know some nurture. But forbear, I say:</line>
+            <line>He dies that touches any of this fruit</line>
+            <line>Till I and my affairs are answered.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>An you will not be answered with reason, I must die.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>What would you have? Your gentleness shall force</line>
+            <line>More than your force move us to gentleness.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>I almost die for food; and let me have it.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>Sit down and feed, and welcome to our table.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>Speak you so gently? Pardon me, I pray you:</line>
+            <line>I thought that all things had been savage here;</line>
+            <line>And therefore put I on the countenance</line>
+            <line>Of stern commandment. But whate'er you are</line>
+            <line>That in this desert inaccessible,</line>
+            <line>Under the shade of melancholy boughs,</line>
+            <line>Lose and neglect the creeping hours of time</line>
+            <line>If ever you have look'd on better days,</line>
+            <line>If ever been where bells have knoll'd to church,</line>
+            <line>If ever sat at any good man's feast,</line>
+            <line>If ever from your eyelids wiped a tear</line>
+            <line>And know what 'tis to pity and be pitied,</line>
+            <line>Let gentleness my strong enforcement be:</line>
+            <line>In the which hope I blush, and hide my sword.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>True is it that we have seen better days,</line>
+            <line>And have with holy bell been knoll'd to church</line>
+            <line>And sat at good men's feasts and wiped our eyes</line>
+            <line>Of drops that sacred pity hath engender'd:</line>
+            <line>And therefore sit you down in gentleness</line>
+            <line>And take upon command what help we have</line>
+            <line>That to your wanting may be minister'd.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>Then but forbear your food a little while,</line>
+            <line>Whiles, like a doe, I go to find my fawn</line>
+            <line>And give it food. There is an old poor man,</line>
+            <line>Who after me hath many a weary step</line>
+            <line>Limp'd in pure love: till he be first sufficed,</line>
+            <line>Oppress'd with two weak evils, age and hunger,</line>
+            <line>I will not touch a bit.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>Go find him out,</line>
+            <line>And we will nothing waste till you return.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>I thank ye; and be blest for your good comfort!</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>Thou seest we are not all alone unhappy:</line>
+            <line>This wide and universal theatre</line>
+            <line>Presents more woeful pageants than the scene</line>
+            <line>Wherein we play in.</line>
+         </speech>
+         <speech>
+            <speaker>JAQUES</speaker>
+            <line>All the world's a stage,</line>
+            <line>And all the men and women merely players:</line>
+            <line>They have their exits and their entrances;</line>
+            <line>And one man in his time plays many parts,</line>
+            <line>His acts being seven ages. At first the infant,</line>
+            <line>Mewling and puking in the nurse's arms.</line>
+            <line>And then the whining school-boy, with his satchel</line>
+            <line>And shining morning face, creeping like snail</line>
+            <line>Unwillingly to school. And then the lover,</line>
+            <line>Sighing like furnace, with a woeful ballad</line>
+            <line>Made to his mistress' eyebrow. Then a soldier,</line>
+            <line>Full of strange oaths and bearded like the pard,</line>
+            <line>Jealous in honour, sudden and quick in quarrel,</line>
+            <line>Seeking the bubble reputation</line>
+            <line>Even in the cannon's mouth. And then the justice,</line>
+            <line>In fair round belly with good capon lined,</line>
+            <line>With eyes severe and beard of formal cut,</line>
+            <line>Full of wise saws and modern instances;</line>
+            <line>And so he plays his part. The sixth age shifts</line>
+            <line>Into the lean and slipper'd pantaloon,</line>
+            <line>With spectacles on nose and pouch on side,</line>
+            <line>His youthful hose, well saved, a world too wide</line>
+            <line>For his shrunk shank; and his big manly voice,</line>
+            <line>Turning again toward childish treble, pipes</line>
+            <line>And whistles in his sound. Last scene of all,</line>
+            <line>That ends this strange eventful history,</line>
+            <line>Is second childishness and mere oblivion,</line>
+            <line>Sans teeth, sans eyes, sans taste, sans everything.</line>
+         </speech>
+         <stagedir>Re-enter ORLANDO, with ADAM</stagedir>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>Welcome. Set down your venerable burthen,</line>
+            <line>And let him feed.</line>
+         </speech>
+         <speech>
+            <speaker>ORLANDO</speaker>
+            <line>I thank you most for him.</line>
+         </speech>
+         <speech>
+            <speaker>ADAM</speaker>
+            <line>So had you need:</line>
+            <line>I scarce can speak to thank you for myself.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>Welcome; fall to: I will not trouble you</line>
+            <line>As yet, to question you about your fortunes.</line>
+            <line>Give us some music; and, good cousin, sing.</line>
+         </speech>
+         <subhead>SONG.</subhead>
+         <speech>
+            <speaker>AMIENS</speaker>
+            <line>Blow, blow, thou winter wind.</line>
+            <line>Thou art not so unkind</line>
+            <line>As man's ingratitude;</line>
+            <line>Thy tooth is not so keen,</line>
+            <line>Because thou art not seen,</line>
+            <line>Although thy breath be rude.</line>
+            <line>Heigh-ho! sing, heigh-ho! unto the green holly:</line>
+            <line>Most friendship is feigning, most loving mere folly:</line>
+            <line>Then, heigh-ho, the holly!</line>
+            <line>This life is most jolly.</line>
+            <line>Freeze, freeze, thou bitter sky,</line>
+            <line>That dost not bite so nigh</line>
+            <line>As benefits forgot:</line>
+            <line>Though thou the waters warp,</line>
+            <line>Thy sting is not so sharp</line>
+            <line>As friend remember'd not.</line>
+            <line>Heigh-ho! sing, &amp;c.</line>
+         </speech>
+         <speech>
+            <speaker>DUKE SENIOR</speaker>
+            <line>If that you were the good Sir Rowland's son,</line>
+            <line>As you have whisper'd faithfully you were,</line>
+            <line>And as mine eye doth his effigies witness</line>
+            <line>Most truly limn'd and living in your face,</line>
+            <line>Be truly welcome hither: I am the duke</line>
+            <line>That loved your father: the residue of your fortune,</line>
+            <line>Go to my cave and tell me. Good old man,</line>
+            <line>Thou art right welcome as thy master is.</line>
+            <line>Support him by the arm. Give me your hand,</line>
+            <line>And let me all your fortunes understand.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+</act>

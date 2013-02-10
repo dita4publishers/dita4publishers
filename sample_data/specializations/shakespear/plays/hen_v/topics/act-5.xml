@@ -1,0 +1,896 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:act" "act.dtd">
+<act id="act-5">
+   <title>ACT V</title>
+   <prologue id="act-5-prologue">
+      <title>PROLOGUE.</title>
+      <prologue-body>
+         <stagedir>Enter Chorus</stagedir>
+         <speech>
+            <speaker>Chorus</speaker>
+            <line>Vouchsafe to those that have not read the story,</line>
+            <line>That I may prompt them: and of such as have,</line>
+            <line>I humbly pray them to admit the excuse</line>
+            <line>Of time, of numbers and due course of things,</line>
+            <line>Which cannot in their huge and proper life</line>
+            <line>Be here presented. Now we bear the king</line>
+            <line>Toward Calais: grant him there; there seen,</line>
+            <line>Heave him away upon your winged thoughts</line>
+            <line>Athwart the sea. Behold, the English beach</line>
+            <line>Pales in the flood with men, with wives and boys,</line>
+            <line>Whose shouts and claps out-voice the deep mouth'd sea,</line>
+            <line>Which like a mighty whiffler 'fore the king</line>
+            <line>Seems to prepare his way: so let him land,</line>
+            <line>And solemnly see him set on to London.</line>
+            <line>So swift a pace hath thought that even now</line>
+            <line>You may imagine him upon Blackheath;</line>
+            <line>Where that his lords desire him to have borne</line>
+            <line>His bruised helmet and his bended sword</line>
+            <line>Before him through the city: he forbids it,</line>
+            <line>Being free from vainness and self-glorious pride;</line>
+            <line>Giving full trophy, signal and ostent</line>
+            <line>Quite from himself to God. But now behold,</line>
+            <line>In the quick forge and working-house of thought,</line>
+            <line>How London doth pour out her citizens!</line>
+            <line>The mayor and all his brethren in best sort,</line>
+            <line>Like to the senators of the antique Rome,</line>
+            <line>With the plebeians swarming at their heels,</line>
+            <line>Go forth and fetch their conquering Caesar in:</line>
+            <line>As, by a lower but loving likelihood,</line>
+            <line>Were now the general of our gracious empress,</line>
+            <line>As in good time he may, from Ireland coming,</line>
+            <line>Bringing rebellion broached on his sword,</line>
+            <line>How many would the peaceful city quit,</line>
+            <line>To welcome him! much more, and much more cause,</line>
+            <line>Did they this Harry. Now in London place him;</line>
+            <line>As yet the lamentation of the French</line>
+            <line>Invites the King of England's stay at home;</line>
+            <line>The emperor's coming in behalf of France,</line>
+            <line>To order peace between them; and omit</line>
+            <line>All the occurrences, whatever chanced,</line>
+            <line>Till Harry's back-return again to France:</line>
+            <line>There must we bring him; and myself have play'd</line>
+            <line>The interim, by remembering you 'tis past.</line>
+            <line>Then brook abridgment, and your eyes advance,</line>
+            <line>After your thoughts, straight back again to France.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+      </prologue-body>
+   </prologue>
+   <scene id="act-5-scene-1">
+      <title>SCENE I.  France. The English camp.</title>
+      <scene-body>
+         <stagedir>Enter FLUELLEN and GOWER</stagedir>
+         <speech>
+            <speaker>GOWER</speaker>
+            <line>Nay, that's right; but why wear you your leek today?</line>
+            <line>Saint Davy's day is past.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>There is occasions and causes why and wherefore in</line>
+            <line>all things: I will tell you, asse my friend,</line>
+            <line>Captain Gower: the rascally, scald, beggarly,</line>
+            <line>lousy, pragging knave, Pistol, which you and</line>
+            <line>yourself and all the world know to be no petter</line>
+            <line>than a fellow, look you now, of no merits, he is</line>
+            <line>come to me and prings me pread and salt yesterday,</line>
+            <line>look you, and bid me eat my leek: it was in place</line>
+            <line>where I could not breed no contention with him; but</line>
+            <line>I will be so bold as to wear it in my cap till I see</line>
+            <line>him once again, and then I will tell him a little</line>
+            <line>piece of my desires.</line>
+         </speech>
+         <stagedir>Enter PISTOL</stagedir>
+         <speech>
+            <speaker>GOWER</speaker>
+            <line>Why, here he comes, swelling like a turkey-cock.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>'Tis no matter for his swellings nor his</line>
+            <line>turkey-cocks. God pless you, Aunchient Pistol! you</line>
+            <line>scurvy, lousy knave, God pless you!</line>
+         </speech>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>Ha! art thou bedlam? dost thou thirst, base Trojan,</line>
+            <line>To have me fold up Parca's fatal web?</line>
+            <line>Hence! I am qualmish at the smell of leek.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>I peseech you heartily, scurvy, lousy knave, at my</line>
+            <line>desires, and my requests, and my petitions, to eat,</line>
+            <line>look you, this leek: because, look you, you do not</line>
+            <line>love it, nor your affections and your appetites and</line>
+            <line>your digestions doo's not agree with it, I would</line>
+            <line>desire you to eat it.</line>
+         </speech>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>Not for Cadwallader and all his goats.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>There is one goat for you.</line>
+            <stagedir>Strikes him</stagedir>
+            <line>Will you be so good, scauld knave, as eat it?</line>
+         </speech>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>Base Trojan, thou shalt die.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>You say very true, scauld knave, when God's will is:</line>
+            <line>I will desire you to live in the mean time, and eat</line>
+            <line>your victuals: come, there is sauce for it.</line>
+            <stagedir>Strikes him</stagedir>
+            <line>You called me yesterday mountain-squire; but I will</line>
+            <line>make you to-day a squire of low degree. I pray you,</line>
+            <line>fall to: if you can mock a leek, you can eat a leek.</line>
+         </speech>
+         <speech>
+            <speaker>GOWER</speaker>
+            <line>Enough, captain: you have astonished him.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>I say, I will make him eat some part of my leek, or</line>
+            <line>I will peat his pate four days. Bite, I pray you; it</line>
+            <line>is good for your green wound and your ploody coxcomb.</line>
+         </speech>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>Must I bite?</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>Yes, certainly, and out of doubt and out of question</line>
+            <line>too, and ambiguities.</line>
+         </speech>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>By this leek, I will most horribly revenge: I eat</line>
+            <line>and eat, I swear--</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>Eat, I pray you: will you have some more sauce to</line>
+            <line>your leek? there is not enough leek to swear by.</line>
+         </speech>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>Quiet thy cudgel; thou dost see I eat.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>Much good do you, scauld knave, heartily. Nay, pray</line>
+            <line>you, throw none away; the skin is good for your</line>
+            <line>broken coxcomb. When you take occasions to see leeks</line>
+            <line>hereafter, I pray you, mock at 'em; that is all.</line>
+         </speech>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>Good.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>Ay, leeks is good: hold you, there is a groat to</line>
+            <line>heal your pate.</line>
+         </speech>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>Me a groat!</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>Yes, verily and in truth, you shall take it; or I</line>
+            <line>have another leek in my pocket, which you shall eat.</line>
+         </speech>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>I take thy groat in earnest of revenge.</line>
+         </speech>
+         <speech>
+            <speaker>FLUELLEN</speaker>
+            <line>If I owe you any thing, I will pay you in cudgels:</line>
+            <line>you shall be a woodmonger, and buy nothing of me but</line>
+            <line>cudgels. God b' wi' you, and keep you, and heal your pate.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>All hell shall stir for this.</line>
+         </speech>
+         <speech>
+            <speaker>GOWER</speaker>
+            <line>Go, go; you are a counterfeit cowardly knave. Will</line>
+            <line>you mock at an ancient tradition, begun upon an</line>
+            <line>honourable respect, and worn as a memorable trophy of</line>
+            <line>predeceased valour and dare not avouch in your deeds</line>
+            <line>any of your words? I have seen you gleeking and</line>
+            <line>galling at this gentleman twice or thrice. You</line>
+            <line>thought, because he could not speak English in the</line>
+            <line>native garb, he could not therefore handle an</line>
+            <line>English cudgel: you find it otherwise; and</line>
+            <line>henceforth let a Welsh correction teach you a good</line>
+            <line>English condition. Fare ye well.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>PISTOL</speaker>
+            <line>Doth Fortune play the huswife with me now?</line>
+            <line>News have I, that my Nell is dead i' the spital</line>
+            <line>Of malady of France;</line>
+            <line>And there my rendezvous is quite cut off.</line>
+            <line>Old I do wax; and from my weary limbs</line>
+            <line>Honour is cudgelled. Well, bawd I'll turn,</line>
+            <line>And something lean to cutpurse of quick hand.</line>
+            <line>To England will I steal, and there I'll steal:</line>
+            <line>And patches will I get unto these cudgell'd scars,</line>
+            <line>And swear I got them in the Gallia wars.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-2">
+      <title>SCENE II.  France. A royal palace.</title>
+      <scene-body>
+         <stagedir>Enter, at one door KING HENRY, EXETER, BEDFORD,
+GLOUCESTER, WARWICK, WESTMORELAND, and other Lords;
+at another, the FRENCH KING, QUEEN ISABEL, the
+PRINCESS KATHARINE, ALICE and other Ladies; the
+DUKE of BURGUNDY, and his train</stagedir>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Peace to this meeting, wherefore we are met!</line>
+            <line>Unto our brother France, and to our sister,</line>
+            <line>Health and fair time of day; joy and good wishes</line>
+            <line>To our most fair and princely cousin Katharine;</line>
+            <line>And, as a branch and member of this royalty,</line>
+            <line>By whom this great assembly is contrived,</line>
+            <line>We do salute you, Duke of Burgundy;</line>
+            <line>And, princes French, and peers, health to you all!</line>
+         </speech>
+         <speech>
+            <speaker>KING OF FRANCE</speaker>
+            <line>Right joyous are we to behold your face,</line>
+            <line>Most worthy brother England; fairly met:</line>
+            <line>So are you, princes English, every one.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN ISABEL</speaker>
+            <line>So happy be the issue, brother England,</line>
+            <line>Of this good day and of this gracious meeting,</line>
+            <line>As we are now glad to behold your eyes;</line>
+            <line>Your eyes, which hitherto have borne in them</line>
+            <line>Against the French, that met them in their bent,</line>
+            <line>The fatal balls of murdering basilisks:</line>
+            <line>The venom of such looks, we fairly hope,</line>
+            <line>Have lost their quality, and that this day</line>
+            <line>Shall change all griefs and quarrels into love.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>To cry amen to that, thus we appear.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN ISABEL</speaker>
+            <line>You English princes all, I do salute you.</line>
+         </speech>
+         <speech>
+            <speaker>BURGUNDY</speaker>
+            <line>My duty to you both, on equal love,</line>
+            <line>Great Kings of France and England! That I have labour'd,</line>
+            <line>With all my wits, my pains and strong endeavours,</line>
+            <line>To bring your most imperial majesties</line>
+            <line>Unto this bar and royal interview,</line>
+            <line>Your mightiness on both parts best can witness.</line>
+            <line>Since then my office hath so far prevail'd</line>
+            <line>That, face to face and royal eye to eye,</line>
+            <line>You have congreeted, let it not disgrace me,</line>
+            <line>If I demand, before this royal view,</line>
+            <line>What rub or what impediment there is,</line>
+            <line>Why that the naked, poor and mangled Peace,</line>
+            <line>Dear nurse of arts and joyful births,</line>
+            <line>Should not in this best garden of the world</line>
+            <line>Our fertile France, put up her lovely visage?</line>
+            <line>Alas, she hath from France too long been chased,</line>
+            <line>And all her husbandry doth lie on heaps,</line>
+            <line>Corrupting in its own fertility.</line>
+            <line>Her vine, the merry cheerer of the heart,</line>
+            <line>Unpruned dies; her hedges even-pleach'd,</line>
+            <line>Like prisoners wildly overgrown with hair,</line>
+            <line>Put forth disorder'd twigs; her fallow leas</line>
+            <line>The darnel, hemlock and rank fumitory</line>
+            <line>Doth root upon, while that the coulter rusts</line>
+            <line>That should deracinate such savagery;</line>
+            <line>The even mead, that erst brought sweetly forth</line>
+            <line>The freckled cowslip, burnet and green clover,</line>
+            <line>Wanting the scythe, all uncorrected, rank,</line>
+            <line>Conceives by idleness and nothing teems</line>
+            <line>But hateful docks, rough thistles, kecksies, burs,</line>
+            <line>Losing both beauty and utility.</line>
+            <line>And as our vineyards, fallows, meads and hedges,</line>
+            <line>Defective in their natures, grow to wildness,</line>
+            <line>Even so our houses and ourselves and children</line>
+            <line>Have lost, or do not learn for want of time,</line>
+            <line>The sciences that should become our country;</line>
+            <line>But grow like savages,--as soldiers will</line>
+            <line>That nothing do but meditate on blood,--</line>
+            <line>To swearing and stern looks, diffused attire</line>
+            <line>And every thing that seems unnatural.</line>
+            <line>Which to reduce into our former favour</line>
+            <line>You are assembled: and my speech entreats</line>
+            <line>That I may know the let, why gentle Peace</line>
+            <line>Should not expel these inconveniences</line>
+            <line>And bless us with her former qualities.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>If, Duke of Burgundy, you would the peace,</line>
+            <line>Whose want gives growth to the imperfections</line>
+            <line>Which you have cited, you must buy that peace</line>
+            <line>With full accord to all our just demands;</line>
+            <line>Whose tenors and particular effects</line>
+            <line>You have enscheduled briefly in your hands.</line>
+         </speech>
+         <speech>
+            <speaker>BURGUNDY</speaker>
+            <line>The king hath heard them; to the which as yet</line>
+            <line>There is no answer made.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Well then the peace,</line>
+            <line>Which you before so urged, lies in his answer.</line>
+         </speech>
+         <speech>
+            <speaker>KING OF FRANCE</speaker>
+            <line>I have but with a cursorary eye</line>
+            <line>O'erglanced the articles: pleaseth your grace</line>
+            <line>To appoint some of your council presently</line>
+            <line>To sit with us once more, with better heed</line>
+            <line>To re-survey them, we will suddenly</line>
+            <line>Pass our accept and peremptory answer.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Brother, we shall. Go, uncle Exeter,</line>
+            <line>And brother Clarence, and you, brother Gloucester,</line>
+            <line>Warwick and Huntingdon, go with the king;</line>
+            <line>And take with you free power to ratify,</line>
+            <line>Augment, or alter, as your wisdoms best</line>
+            <line>Shall see advantageable for our dignity,</line>
+            <line>Any thing in or out of our demands,</line>
+            <line>And we'll consign thereto. Will you, fair sister,</line>
+            <line>Go with the princes, or stay here with us?</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN ISABEL</speaker>
+            <line>Our gracious brother, I will go with them:</line>
+            <line>Haply a woman's voice may do some good,</line>
+            <line>When articles too nicely urged be stood on.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Yet leave our cousin Katharine here with us:</line>
+            <line>She is our capital demand, comprised</line>
+            <line>Within the fore-rank of our articles.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN ISABEL</speaker>
+            <line>She hath good leave.</line>
+         </speech>
+         <stagedir>Exeunt all except HENRY, KATHARINE, and ALICE</stagedir>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Fair Katharine, and most fair,</line>
+            <line>Will you vouchsafe to teach a soldier terms</line>
+            <line>Such as will enter at a lady's ear</line>
+            <line>And plead his love-suit to her gentle heart?</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Your majesty shall mock at me; I cannot speak your England.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>O fair Katharine, if you will love me soundly with</line>
+            <line>your French heart, I will be glad to hear you</line>
+            <line>confess it brokenly with your English tongue. Do</line>
+            <line>you like me, Kate?</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Pardonnez-moi, I cannot tell vat is 'like me.'</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>An angel is like you, Kate, and you are like an angel.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Que dit-il? que je suis semblable a les anges?</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>Oui, vraiment, sauf votre grace, ainsi dit-il.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>I said so, dear Katharine; and I must not blush to</line>
+            <line>affirm it.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>O bon Dieu! les langues des hommes sont pleines de</line>
+            <line>tromperies.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>What says she, fair one? that the tongues of men</line>
+            <line>are full of deceits?</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>Oui, dat de tongues of de mans is be full of</line>
+            <line>deceits: dat is de princess.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>The princess is the better Englishwoman. I' faith,</line>
+            <line>Kate, my wooing is fit for thy understanding: I am</line>
+            <line>glad thou canst speak no better English; for, if</line>
+            <line>thou couldst, thou wouldst find me such a plain king</line>
+            <line>that thou wouldst think I had sold my farm to buy my</line>
+            <line>crown. I know no ways to mince it in love, but</line>
+            <line>directly to say 'I love you:' then if you urge me</line>
+            <line>farther than to say 'do you in faith?' I wear out</line>
+            <line>my suit. Give me your answer; i' faith, do: and so</line>
+            <line>clap hands and a bargain: how say you, lady?</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Sauf votre honneur, me understand vell.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Marry, if you would put me to verses or to dance for</line>
+            <line>your sake, Kate, why you undid me: for the one, I</line>
+            <line>have neither words nor measure, and for the other, I</line>
+            <line>have no strength in measure, yet a reasonable</line>
+            <line>measure in strength. If I could win a lady at</line>
+            <line>leap-frog, or by vaulting into my saddle with my</line>
+            <line>armour on my back, under the correction of bragging</line>
+            <line>be it spoken. I should quickly leap into a wife.</line>
+            <line>Or if I might buffet for my love, or bound my horse</line>
+            <line>for her favours, I could lay on like a butcher and</line>
+            <line>sit like a jack-an-apes, never off. But, before God,</line>
+            <line>Kate, I cannot look greenly nor gasp out my</line>
+            <line>eloquence, nor I have no cunning in protestation;</line>
+            <line>only downright oaths, which I never use till urged,</line>
+            <line>nor never break for urging. If thou canst love a</line>
+            <line>fellow of this temper, Kate, whose face is not worth</line>
+            <line>sun-burning, that never looks in his glass for love</line>
+            <line>of any thing he sees there, let thine eye be thy</line>
+            <line>cook. I speak to thee plain soldier: If thou canst</line>
+            <line>love me for this, take me: if not, to say to thee</line>
+            <line>that I shall die, is true; but for thy love, by the</line>
+            <line>Lord, no; yet I love thee too. And while thou</line>
+            <line>livest, dear Kate, take a fellow of plain and</line>
+            <line>uncoined constancy; for he perforce must do thee</line>
+            <line>right, because he hath not the gift to woo in other</line>
+            <line>places: for these fellows of infinite tongue, that</line>
+            <line>can rhyme themselves into ladies' favours, they do</line>
+            <line>always reason themselves out again. What! a</line>
+            <line>speaker is but a prater; a rhyme is but a ballad. A</line>
+            <line>good leg will fall; a straight back will stoop; a</line>
+            <line>black beard will turn white; a curled pate will grow</line>
+            <line>bald; a fair face will wither; a full eye will wax</line>
+            <line>hollow: but a good heart, Kate, is the sun and the</line>
+            <line>moon; or, rather, the sun, and not the moon; for it</line>
+            <line>shines bright and never changes, but keeps his</line>
+            <line>course truly. If thou would have such a one, take</line>
+            <line>me; and take me, take a soldier; take a soldier,</line>
+            <line>take a king. And what sayest thou then to my love?</line>
+            <line>speak, my fair, and fairly, I pray thee.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Is it possible dat I sould love de enemy of France?</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>No; it is not possible you should love the enemy of</line>
+            <line>France, Kate: but, in loving me, you should love</line>
+            <line>the friend of France; for I love France so well that</line>
+            <line>I will not part with a village of it; I will have it</line>
+            <line>all mine: and, Kate, when France is mine and I am</line>
+            <line>yours, then yours is France and you are mine.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>I cannot tell vat is dat.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>No, Kate? I will tell thee in French; which I am</line>
+            <line>sure will hang upon my tongue like a new-married</line>
+            <line>wife about her husband's neck, hardly to be shook</line>
+            <line>off. Je quand sur le possession de France, et quand</line>
+            <line>vous avez le possession de moi,--let me see, what</line>
+            <line>then? Saint Denis be my speed!--donc votre est</line>
+            <line>France et vous etes mienne. It is as easy for me,</line>
+            <line>Kate, to conquer the kingdom as to speak so much</line>
+            <line>more French: I shall never move thee in French,</line>
+            <line>unless it be to laugh at me.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Sauf votre honneur, le Francois que vous parlez, il</line>
+            <line>est meilleur que l'Anglois lequel je parle.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>No, faith, is't not, Kate: but thy speaking of my</line>
+            <line>tongue, and I thine, most truly-falsely, must needs</line>
+            <line>be granted to be much at one. But, Kate, dost thou</line>
+            <line>understand thus much English, canst thou love me?</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>I cannot tell.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Can any of your neighbours tell, Kate? I'll ask</line>
+            <line>them. Come, I know thou lovest me: and at night,</line>
+            <line>when you come into your closet, you'll question this</line>
+            <line>gentlewoman about me; and I know, Kate, you will to</line>
+            <line>her dispraise those parts in me that you love with</line>
+            <line>your heart: but, good Kate, mock me mercifully; the</line>
+            <line>rather, gentle princess, because I love thee</line>
+            <line>cruelly. If ever thou beest mine, Kate, as I have a</line>
+            <line>saving faith within me tells me thou shalt, I get</line>
+            <line>thee with scambling, and thou must therefore needs</line>
+            <line>prove a good soldier-breeder: shall not thou and I,</line>
+            <line>between Saint Denis and Saint George, compound a</line>
+            <line>boy, half French, half English, that shall go to</line>
+            <line>Constantinople and take the Turk by the beard?</line>
+            <line>shall we not? what sayest thou, my fair</line>
+            <line>flower-de-luce?</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>I do not know dat</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>No; 'tis hereafter to know, but now to promise: do</line>
+            <line>but now promise, Kate, you will endeavour for your</line>
+            <line>French part of such a boy; and for my English moiety</line>
+            <line>take the word of a king and a bachelor. How answer</line>
+            <line>you, la plus belle Katharine du monde, mon tres cher</line>
+            <line>et devin deesse?</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Your majestee ave fausse French enough to deceive de</line>
+            <line>most sage demoiselle dat is en France.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Now, fie upon my false French! By mine honour, in</line>
+            <line>true English, I love thee, Kate: by which honour I</line>
+            <line>dare not swear thou lovest me; yet my blood begins to</line>
+            <line>flatter me that thou dost, notwithstanding the poor</line>
+            <line>and untempering effect of my visage. Now, beshrew</line>
+            <line>my father's ambition! he was thinking of civil wars</line>
+            <line>when he got me: therefore was I created with a</line>
+            <line>stubborn outside, with an aspect of iron, that, when</line>
+            <line>I come to woo ladies, I fright them. But, in faith,</line>
+            <line>Kate, the elder I wax, the better I shall appear:</line>
+            <line>my comfort is, that old age, that ill layer up of</line>
+            <line>beauty, can do no more, spoil upon my face: thou</line>
+            <line>hast me, if thou hast me, at the worst; and thou</line>
+            <line>shalt wear me, if thou wear me, better and better:</line>
+            <line>and therefore tell me, most fair Katharine, will you</line>
+            <line>have me? Put off your maiden blushes; avouch the</line>
+            <line>thoughts of your heart with the looks of an empress;</line>
+            <line>take me by the hand, and say 'Harry of England I am</line>
+            <line>thine:' which word thou shalt no sooner bless mine</line>
+            <line>ear withal, but I will tell thee aloud 'England is</line>
+            <line>thine, Ireland is thine, France is thine, and Harry</line>
+            <line>Plantagenet is thine;' who though I speak it before</line>
+            <line>his face, if he be not fellow with the best king,</line>
+            <line>thou shalt find the best king of good fellows.</line>
+            <line>Come, your answer in broken music; for thy voice is</line>
+            <line>music and thy English broken; therefore, queen of</line>
+            <line>all, Katharine, break thy mind to me in broken</line>
+            <line>English; wilt thou have me?</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Dat is as it sall please de roi mon pere.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Nay, it will please him well, Kate it shall please</line>
+            <line>him, Kate.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Den it sall also content me.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Upon that I kiss your hand, and I call you my queen.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Laissez, mon seigneur, laissez, laissez: ma foi, je</line>
+            <line>ne veux point que vous abaissiez votre grandeur en</line>
+            <line>baisant la main d'une de votre seigeurie indigne</line>
+            <line>serviteur; excusez-moi, je vous supplie, mon</line>
+            <line>tres-puissant seigneur.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Then I will kiss your lips, Kate.</line>
+         </speech>
+         <speech>
+            <speaker>KATHARINE</speaker>
+            <line>Les dames et demoiselles pour etre baisees devant</line>
+            <line>leur noces, il n'est pas la coutume de France.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Madam my interpreter, what says she?</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>Dat it is not be de fashion pour les ladies of</line>
+            <line>France,--I cannot tell vat is baiser en Anglish.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>To kiss.</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>Your majesty entendre bettre que moi.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>It is not a fashion for the maids in France to kiss</line>
+            <line>before they are married, would she say?</line>
+         </speech>
+         <speech>
+            <speaker>ALICE</speaker>
+            <line>Oui, vraiment.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>O Kate, nice customs curtsy to great kings. Dear</line>
+            <line>Kate, you and I cannot be confined within the weak</line>
+            <line>list of a country's fashion: we are the makers of</line>
+            <line>manners, Kate; and the liberty that follows our</line>
+            <line>places stops the mouth of all find-faults; as I will</line>
+            <line>do yours, for upholding the nice fashion of your</line>
+            <line>country in denying me a kiss: therefore, patiently</line>
+            <line>and yielding.</line>
+            <stagedir>Kissing her</stagedir>
+            <line>You have witchcraft in your lips, Kate: there is</line>
+            <line>more eloquence in a sugar touch of them than in the</line>
+            <line>tongues of the French council; and they should</line>
+            <line>sooner persuade Harry of England than a general</line>
+            <line>petition of monarchs. Here comes your father.</line>
+         </speech>
+         <stagedir>Re-enter the FRENCH KING and his QUEEN, BURGUNDY,
+and other Lords</stagedir>
+         <speech>
+            <speaker>BURGUNDY</speaker>
+            <line>God save your majesty! my royal cousin, teach you</line>
+            <line>our princess English?</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>I would have her learn, my fair cousin, how</line>
+            <line>perfectly I love her; and that is good English.</line>
+         </speech>
+         <speech>
+            <speaker>BURGUNDY</speaker>
+            <line>Is she not apt?</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Our tongue is rough, coz, and my condition is not</line>
+            <line>smooth; so that, having neither the voice nor the</line>
+            <line>heart of flattery about me, I cannot so conjure up</line>
+            <line>the spirit of love in her, that he will appear in</line>
+            <line>his true likeness.</line>
+         </speech>
+         <speech>
+            <speaker>BURGUNDY</speaker>
+            <line>Pardon the frankness of my mirth, if I answer you</line>
+            <line>for that. If you would conjure in her, you must</line>
+            <line>make a circle; if conjure up love in her in his true</line>
+            <line>likeness, he must appear naked and blind. Can you</line>
+            <line>blame her then, being a maid yet rosed over with the</line>
+            <line>virgin crimson of modesty, if she deny the</line>
+            <line>appearance of a naked blind boy in her naked seeing</line>
+            <line>self? It were, my lord, a hard condition for a maid</line>
+            <line>to consign to.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Yet they do wink and yield, as love is blind and enforces.</line>
+         </speech>
+         <speech>
+            <speaker>BURGUNDY</speaker>
+            <line>They are then excused, my lord, when they see not</line>
+            <line>what they do.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Then, good my lord, teach your cousin to consent winking.</line>
+         </speech>
+         <speech>
+            <speaker>BURGUNDY</speaker>
+            <line>I will wink on her to consent, my lord, if you will</line>
+            <line>teach her to know my meaning: for maids, well</line>
+            <line>summered and warm kept, are like flies at</line>
+            <line>Bartholomew-tide, blind, though they have their</line>
+            <line>eyes; and then they will endure handling, which</line>
+            <line>before would not abide looking on.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>This moral ties me over to time and a hot summer;</line>
+            <line>and so I shall catch the fly, your cousin, in the</line>
+            <line>latter end and she must be blind too.</line>
+         </speech>
+         <speech>
+            <speaker>BURGUNDY</speaker>
+            <line>As love is, my lord, before it loves.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>It is so: and you may, some of you, thank love for</line>
+            <line>my blindness, who cannot see many a fair French city</line>
+            <line>for one fair French maid that stands in my way.</line>
+         </speech>
+         <speech>
+            <speaker>FRENCH KING</speaker>
+            <line>Yes, my lord, you see them perspectively, the cities</line>
+            <line>turned into a maid; for they are all girdled with</line>
+            <line>maiden walls that war hath never entered.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Shall Kate be my wife?</line>
+         </speech>
+         <speech>
+            <speaker>FRENCH KING</speaker>
+            <line>So please you.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>I am content; so the maiden cities you talk of may</line>
+            <line>wait on her: so the maid that stood in the way for</line>
+            <line>my wish shall show me the way to my will.</line>
+         </speech>
+         <speech>
+            <speaker>FRENCH KING</speaker>
+            <line>We have consented to all terms of reason.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Is't so, my lords of England?</line>
+         </speech>
+         <speech>
+            <speaker>WESTMORELAND</speaker>
+            <line>The king hath granted every article:</line>
+            <line>His daughter first, and then in sequel all,</line>
+            <line>According to their firm proposed natures.</line>
+         </speech>
+         <speech>
+            <speaker>EXETER</speaker>
+            <line>Only he hath not yet subscribed this:</line>
+            <line>Where your majesty demands, that the King of France,</line>
+            <line>having any occasion to write for matter of grant,</line>
+            <line>shall name your highness in this form and with this</line>
+            <line>addition in French, Notre trescher fils Henri, Roi</line>
+            <line>d'Angleterre, Heritier de France; and thus in</line>
+            <line>Latin, Praeclarissimus filius noster Henricus, Rex</line>
+            <line>Angliae, et Haeres Franciae.</line>
+         </speech>
+         <speech>
+            <speaker>FRENCH KING</speaker>
+            <line>Nor this I have not, brother, so denied,</line>
+            <line>But your request shall make me let it pass.</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>I pray you then, in love and dear alliance,</line>
+            <line>Let that one article rank with the rest;</line>
+            <line>And thereupon give me your daughter.</line>
+         </speech>
+         <speech>
+            <speaker>FRENCH KING</speaker>
+            <line>Take her, fair son, and from her blood raise up</line>
+            <line>Issue to me; that the contending kingdoms</line>
+            <line>Of France and England, whose very shores look pale</line>
+            <line>With envy of each other's happiness,</line>
+            <line>May cease their hatred, and this dear conjunction</line>
+            <line>Plant neighbourhood and Christian-like accord</line>
+            <line>In their sweet bosoms, that never war advance</line>
+            <line>His bleeding sword 'twixt England and fair France.</line>
+         </speech>
+         <speech>
+            <speaker>ALL</speaker>
+            <line>Amen!</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Now, welcome, Kate: and bear me witness all,</line>
+            <line>That here I kiss her as my sovereign queen.</line>
+         </speech>
+         <stagedir>Flourish</stagedir>
+         <speech>
+            <speaker>QUEEN ISABEL</speaker>
+            <line>God, the best maker of all marriages,</line>
+            <line>Combine your hearts in one, your realms in one!</line>
+            <line>As man and wife, being two, are one in love,</line>
+            <line>So be there 'twixt your kingdoms such a spousal,</line>
+            <line>That never may ill office, or fell jealousy,</line>
+            <line>Which troubles oft the bed of blessed marriage,</line>
+            <line>Thrust in between the paction of these kingdoms,</line>
+            <line>To make divorce of their incorporate league;</line>
+            <line>That English may as French, French Englishmen,</line>
+            <line>Receive each other. God speak this Amen!</line>
+         </speech>
+         <speech>
+            <speaker>ALL</speaker>
+            <line>Amen!</line>
+         </speech>
+         <speech>
+            <speaker>KING HENRY V</speaker>
+            <line>Prepare we for our marriage--on which day,</line>
+            <line>My Lord of Burgundy, we'll take your oath,</line>
+            <line>And all the peers', for surety of our leagues.</line>
+            <line>Then shall I swear to Kate, and you to me;</line>
+            <line>And may our oaths well kept and prosperous be!</line>
+         </speech>
+         <stagedir>Sennet. Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <epilogue id="act-5-epilog">
+      <title>EPILOGUE</title>
+      <epilogue-body>
+         <stagedir>Enter Chorus</stagedir>
+         <speech>
+            <speaker>Chorus</speaker>
+            <line>Thus far, with rough and all-unable pen,</line>
+            <line>Our bending author hath pursued the story,</line>
+            <line>In little room confining mighty men,</line>
+            <line>Mangling by starts the full course of their glory.</line>
+            <line>Small time, but in that small most greatly lived</line>
+            <line>This star of England: Fortune made his sword;</line>
+            <line>By which the world's best garden be achieved,</line>
+            <line>And of it left his son imperial lord.</line>
+            <line>Henry the Sixth, in infant bands crown'd King</line>
+            <line>Of France and England, did this king succeed;</line>
+            <line>Whose state so many had the managing,</line>
+            <line>That they lost France and made his England bleed:</line>
+            <line>Which oft our stage hath shown; and, for their sake,</line>
+            <line>In your fair minds let this acceptance take.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+      </epilogue-body>
+   </epilogue>
+</act>

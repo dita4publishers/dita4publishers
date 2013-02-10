@@ -1,0 +1,12 @@
+<!-- 
+  Plugin descriptor for the DITA4Publishers XML domain PDF2 extensions
+  
+  Copyright (c) 2010 DITA For Publishers
+  
+  Implements XSL-FO rendering of elements in the XML domain.
+  -->
+<plugin id="net.sourceforge.dita4publishers.xmldomain.fo">
+  <feature extension="dita.xsl.xslfo"
+      value="xsl/xml-d2fo.xsl" type="file"/>
+      
+</plugin>

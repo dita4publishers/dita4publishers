@@ -1,0 +1,14 @@
+<!-- 
+  Plugin descriptor for the DITA4Publishers media domain HTML extensions
+  
+  Copyright (c) 2012 DITA For Publishers
+  
+  Implements HTML rendering for the media domain.
+  -->
+<plugin id="net.sourceforge.dita4publishers.media-d.html">
+  <require plugin="net.sourceforge.dita4publishers.common.html"/> 
+  <require plugin="net.sourceforge.dita4publishers.doctypes"/> 
+  <feature extension="dita.xsl.xhtml"
+      value="xsl/media-d2html.xsl" type="file"/>
+      
+</plugin>

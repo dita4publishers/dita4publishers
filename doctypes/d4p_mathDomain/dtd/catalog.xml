@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_mathDomain"
+    uri="d4p_mathDomain.mod"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_mathDomain.mod"
+    uri="d4p_mathDomain.mod"
+  />
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_mathDomain:entities"
+    uri="d4p_mathDomain.ent"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_mathDomain.ent"
+    uri="d4p_mathDomain.ent"
+  />
+</catalog>  

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="topic-1" xsi:noNamespaceSchemaLocation="urn:oasis:names:tc:dita:xsd:topic.xsd:1.1">
+  <title>Topic One</title>
+  <body>
+    <p>This topic contains xrefs to topics, topicheads in a map and topicrefs in a map.</p>
+    <note><p>The square brackets around the xrefs are in the source as authored to help 
+    indicate what aspect of the xref rendition is generated.</p></note>
+    <section>
+      <title>Topicref To a Topic</title>
+      <p>Xref to topic two: [<xref href="topic-02.xml"/>].</p>
+    </section>
+    <section>
+      <title>Topicref to a Topichead In A Map</title>
+      <p>Topic to topichead "topic-head-01" (no format= value): [<xref href="../xref_to_map_entries.ditamap#topic-head-01"/>]</p>
+      <p>Topic to topichead "topic-head-01" (format="dita"): [<xref href="../xref_to_map_entries.ditamap#topic-head-01" format="dita"/>]</p>
+    </section>
+    <section>
+      <title>Topicref to a Topicref in A Map</title>
+      <p>Topic to topicref "subtopic-01-use-01" (no format= value): [<xref href="../xref_to_map_entries.ditamap#subtopic-01-use-01"/>]</p>
+      <p>Topic to topichead "subtopic-01-use-01" (format="dita"): [<xref href="../xref_to_map_entries.ditamap#subtopic-01-use-01" format="dita"/>]</p>
+    </section>
+  </body>
+</topic>

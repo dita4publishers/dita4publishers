@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!--  MODULE:    Shakespear Play Map                               -->
+<!--  VERSION:   1.2                                               -->
+<!--  DATE:      May 2009                                          -->
+<!--                                                               -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+<!--                    TYPICAL INVOCATION                         -->
+<!--                                                               -->
+<!--  Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:playmap"
+      Delivered as file "playmap.dtd"                               -->
+ 
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    DTD to describe DITA Publication Maps             -->
+<!--                                                               -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    MAP ENTITY DECLARATIONS                    -->
+<!-- ============================================================= -->
+
+<!ENTITY % playmap-dec     
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:entities:dtd:playmap" 
+         "playmap.ent"
+>%playmap-dec;
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ENTITY DECLARATIONS                 -->
+<!-- ============================================================= -->
+
+<!ENTITY % mapgroup-d-dec 
+                        PUBLIC 
+"-//OASIS//ENTITIES DITA 1.2 Map Group Domain//EN" 
+"mapGroup.ent"                                                 >
+%mapgroup-d-dec;
+
+<!ENTITY % pubmap-d-dec 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pubmapDomain" 
+"pubmapDomain.ent"                                                 
+>
+%pubmap-d-dec;
+
+<!ENTITY % pubmapMapref-d-dec 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pubmapMaprefDomain" 
+"pubmapMaprefDomain.ent"                                                 
+>
+%pubmapMapref-d-dec;
+
+<!ENTITY % pubmeta-d-dec 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pubmetadataDomain" 
+"pubmetadataDomain.ent"                                                 
+>
+%pubmeta-d-dec;
+
+<!ENTITY % d4p_simpleEnumeration-d-dec     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:entities:dtd:dita:d4p_simpleEnumerationDomain:entities" 
+"d4p_simpleEnumerationDomain.ent"                                                
+>
+%d4p_simpleEnumeration-d-dec;
+
+<!ENTITY % indexing-d-dec     PUBLIC 
+"-//OASIS//ENTITIES DITA 1.2 Indexing Domain//EN" 
+"indexingDomain.ent"                                           >
+%indexing-d-dec;
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE DECLARATIONS              -->
+<!-- ============================================================= -->
+
+<!ENTITY % d4p_renditionTargetAtt-d-dec     
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_renditionTargetAttDomain:entities" 
+         "d4p_renditionTargetAttDomain.ent"                                                
+>
+%d4p_renditionTargetAtt-d-dec;
+
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN EXTENSIONS                          -->
+<!-- ============================================================= -->
+<!--                    One for each extended base element, with
+                        the name of the domain(s) in which the
+                        extension was declared                     -->
+<!ENTITY % topicref     "topicref |
+                         %mapgroup-d-topicref; |
+                         %pubmapMapref-d-topicref; |
+                         %pubmap-d-topicref;
+                        ">
+<!ENTITY % index-base   "index-base |
+                         %indexing-d-index-base;
+                        ">
+
+<!ENTITY % data
+  "data | 
+   %d4p_simpleEnumeration-d-data;
+  "
+>
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
+<!-- ============================================================= -->
+<!ENTITY % props-attribute-extensions "%d4p_renditionTargetAtt-d-attribute;" >
+<!ENTITY % base-attribute-extensions   ""                            >
+
+<!-- ============================================================= -->
+<!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
+<!-- ============================================================= -->
+<!--                    Must be declared ahead of the DTDs, which
+                        puts @domains first in order               -->
+<!ENTITY included-domains 
+                        "                         
+                         &pubmap-d-att;
+                         &pubmapMapref-d-att;
+                         &pubmeta-d-att;
+                         &d4p_renditionTargetAtt-d-att;
+                         &d4p_simpleEnumerationMap-d-att;
+                         &playmap-att;
+                         &mapgroup-d-att;
+                         &indexing-d-att; 
+                        ">
+
+<!-- ============================================================= -->
+<!--                    MAP ELEMENT INTEGRATION                    -->
+<!-- ============================================================= -->
+
+<!ENTITY % map-type PUBLIC 
+"-//OASIS//ELEMENTS DITA 1.2 Map//EN" 
+"map.mod"                                                      >
+%map-type;
+
+<!ENTITY % mapgroup-d-def  
+                        PUBLIC 
+"-//OASIS//ELEMENTS DITA 1.2 Map Group Domain//EN" 
+"mapGroup.mod"                                                 >
+%mapgroup-d-def;
+
+<!ENTITY % pubmap-d-def PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmapDomain" 
+"pubmapDomain.mod"                                                        >
+%pubmap-d-def;
+
+<!ENTITY % pubmapMapref-d-def PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmapMaprefDomain" 
+"pubmapMaprefDomain.mod"                                                        >
+%pubmapMapref-d-def;
+
+<!ENTITY % pubmeta-d-def PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmetadataDomain" 
+"pubmetadataDomain.mod"                                                        >
+%pubmeta-d-def;
+
+
+<!ENTITY % playmap-type PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dtd:playmap" 
+"playmap.mod"                                                        >
+%playmap-type;
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ELEMENT INTEGRATION                 -->
+<!-- ============================================================= -->
+
+<!ENTITY % d4p_simpleEnumeration-d-def     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dita:modules:d4p_simpleEnumerationDomain" 
+"d4p_simpleEnumeration.mod"
+>
+%d4p_simpleEnumeration-d-def;
+
+
+<!ENTITY % indexing-d-def
+                        PUBLIC 
+"-//OASIS//ELEMENTS DITA 1.2 Indexing Domain//EN" 
+"indexingDomain.mod"                                           >
+%indexing-d-def;
+
+<!-- ================== End DITA playmap DTD  ==================== -->

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!--  MODULE:    DITA PubMap Domain Entity                         -->
+<!--  VERSION:   1.2                                               -->
+<!--  DATE:      July 2009                                         -->
+<!--                                                               -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+<!--                    TYPICAL INVOCATION                         -->
+<!--                                                               -->
+<!--  Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "urn:pubid:dita4publishers.sourceforge.net/entities/dtd/pubmapDomain"
+      Delivered as file "pubmapDomain.ent"                         -->
+
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    Declaring the domain entities for publication     -->
+<!--             maps domain.                                      -->
+<!--                                                               -->
+<!--                                                               -->
+<!--  UPDATES:                                                     -->
+<!-- ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    PUBMAP ENTITIES                            -->
+<!-- ============================================================= -->
+
+<!ENTITY % pubmap-d-topicref 
+                        "
+abbrevlist     |
+amendments     |
+appendix       |
+appendix-mapref |
+appendixes     |
+appendixes-mapref |
+article        |
+article-mapref |
+back-cover     |
+back-flap      |
+book-jacket    |
+backmatter     |
+backmatter-mapref |
+bibliolist     |
+chapter        |
+chapter-mapref |
+colophon       |
+copyright-page |
+covers         |
+covers-mapref  |
+dedication     |
+department     |
+department-mapref |
+division       |
+draftintro     |
+figurelist     |
+forward        |
+front-cover    |
+front-flap     |
+frontmatter    |
+glossarylist   |
+glossary       |
+glossary-mapref |
+indexlist      |
+keydefs        |
+keydef-group   |
+keydef-group-mapref |
+notices        |
+page           |
+part           |
+part-mapref    |
+preface        |
+pubabstract    |
+publist        |
+publists       |
+pubbody        |
+pubbody-mapref |
+publication    |
+publication-mapref |
+subsection     |
+subsection-mapref |
+sidebar        |
+sidebar-mapref |
+spine          |
+tablelist      |
+toc            |
+trademarklist  |
+wrap-cover  |
+wrap-cover-mapref    
+"
+>
+
+
+<!ENTITY % pubmap-d-title
+"pubtitle
+">
+<!ENTITY pubmap-d-att "(map pubmap-d)">
+
+
+<!-- ================== End Pubmap Domain Entities ===================== -->

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
+<chapter
+  id="chapter-id">
+  <title>Test of Content Reference</title>
+  <body>
+    <p>Using content reference to reuse elements that themselves have references
+      to other resources, such as images, can be problematic because of the need
+      to rewrite pointers. In the case of images, the map-driven processing
+      graphic source-to-output map can potentially be thrown off by conref
+      because it has to know the source location of the image and that
+      information is not clearly maintained in the intermediate files produced
+      by the Open Toolkit as of version 1.6.3.</p>
+    <p>The main use case is where a conref reuses a &lt;fig> element from a
+      topic that is in a different relative location to the image than the
+      referencing topic.</p>
+    <fig
+      conref="reusable-resources/common-figures.xml#subsection-id/fig-0001"/>
+  </body>
+</chapter>

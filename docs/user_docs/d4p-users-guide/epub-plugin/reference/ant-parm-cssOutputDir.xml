@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/reference.dtd">
+<reference id="referenceId">
+  <title>css.output.dir Ant parameter</title>
+  <shortdesc>Specifies the directory to hold the CSS style sheets included in the EPUB package.</shortdesc>
+  <refbody>
+    <section
+      spectitle="Notes">This parameter is set through the value of the base <parmname>args.css.output.dir</parmname> parameter, which the base Toolkit processing uses to put the CSS files in the specified location. </section>
+    <section
+      spectitle="Value">
+      <p>Any valid directory name.</p>
+    </section>
+    <section
+      spectitle="Default">
+      <p>"topics"</p>
+    </section>
+    <section
+      spectitle="XSLT Parameter">
+      <p>cssOutputDir</p>
+    </section>
+  </refbody>
+</reference>

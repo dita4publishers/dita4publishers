@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style2tagmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap ../../doctypes/style2tagmap/xsd/style2tagmap.xsd"
+  xmlns="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap">
+  <documentation>
+    
+  </documentation>
+  <styles>
+    <style styleId="Heading1"
+           structureType="topicTitle"
+           tagName="title"
+           topicType="article"
+           prologType="prolog"
+           bodyType="body"
+           level="0"
+    /><!-- level=0 indicates the root topic. -->
+    
+    <style styleId="subhead"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="subsection"
+      level="1"
+      topicZone="title"
+    />
+
+    <style styleId="sidebarhead"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="sidebar"
+      level="1"
+      topicZone="title"
+    />
+    
+    <style styleId="question"
+      structureType="topicTitle"
+      tagName="title"
+      topicType="interview-question"
+      bodyType="interview-response"
+      prologType="prolog"
+      level="1"
+      topicZone="title"
+    />
+    
+    <style styleId="section"
+      structureType="section"
+      tagName="section"
+      topicZone="body"
+      spectitle="#toColon"
+    />
+    
+    <style styleId="copy"
+      structureType="block"
+      tagName="p"
+      topicZone="body"
+    />
+  
+    <style styleId="copysidebar"
+      structureType="block"
+      tagName="p"
+      topicZone="body"
+    />
+    
+    <style styleId="call"
+      structureType="block"
+      tagName="callout"
+      topicZone="body"
+    />
+    
+    <style styleId="ExecutiveSummary"
+      structureType="block"
+      tagName="p"
+      containerType="executive-summary"
+      topicZone="body"
+      level="1"
+    />
+    
+    <style styleId="deck"
+      structureType="shortdesc"
+      tagName="deck"
+      topicZone="shortdesc"
+    />
+
+    <style styleId="questionadditional"
+      structureType="shortdesc"
+      tagName="shortdesc"
+      topicZone="shortdesc"
+    />
+    
+    <style styleId="byline"
+      structureType="skip"
+    />
+  
+    <style styleId="Callouts"
+      structureType="skip"
+    />
+    
+    <style styleId="bio"
+      structureType="prologData"
+      tagName="astd-author"
+      baseClass=" topic/author "
+      containingTopic="root"
+      topicZone="prolog"
+      useContent="elementsOnly"
+    />
+    
+    <style styleId="sidebar"
+      structureType="skip"
+    />
+    
+    <style styleId="cite"
+      tagName="cite"
+      topicZone="inline"
+    />
+    
+    <style styleId="Strong"
+      
+      tagName="b"
+      topicZone="inline"
+    />
+    
+    <style styleId="bold"
+      
+      tagName="b"
+      topicZone="inline"
+    />
+    
+    <style styleId="italic"
+      
+      tagName="i"
+      topicZone="inline"
+    />
+    
+    <style styleId="Hyperlink"
+      structureType="xref"
+      tagName="xref"
+      topicZone="inline"
+    />
+    
+    <style styleId="ListBullet"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1"
+    />
+    
+    <style styleId="ListBulletsidebar"
+      structureType="block"
+      tagName="li"
+      containerType="ul"
+      topicZone="body"
+      level="1"
+    />
+    
+    <style styleId="CiteText"
+      structureType="block"
+      tagName="p"
+      containerType="lq"
+      topicZone="body"
+      level="1"
+    />
+    
+    <style styleId="figcaption"
+      structureType="block"
+      tagName="title"
+      containerType="fig"
+      topicZone="body"
+      level="1"
+    />
+
+    <style styleId="entry"
+      structureType="block"
+      tagName="p"
+      topicZone="body"
+    />
+    
+    <style styleId="ListNumber"
+        structureType="block"
+        tagName="li"
+        containerType="ol"
+        topicZone="body"
+        level="1"
+        />
+    
+    <style styleId="ListNumberCopy"
+      structureType="block"
+      tagName="p"
+      containerType="li"
+      topicZone="body"
+      level="2"
+    />
+
+    <style styleId="dlterm"
+      structureType="dt"
+      tagName="dt"
+      containerType="dl"
+      dlEntryType="dlentry"
+      topicZone="body"
+      level="1"
+    />
+    
+    <style styleId="dldefinition"
+      structureType="dd"
+      tagName="dd"
+      containerType="dl"
+      dlEntryType="dlentry"
+      topicZone="body"
+      level="1"
+    />
+    
+  </styles>
+</style2tagmap>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC003_004_001">
+   <title>Try some yourself</title>
+   <learningContentbody>
+      <section>
+            
+            <sectiondiv outputclass="Activity">
+              <sectiondiv outputclass="activity.question">
+                <p>
+                  <b>1</b> For each of the following calculations make suitable rough
+                  estimates before doing the calculation on your calculator and check the
+                  result.</p>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(a)</b> 22.12 ÷ 4.12</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(b)</b> 0.897 × 10.00345</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(c)</b> 1009 × 23.789 × 278.98</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(d) </b>(12.98 + 14.87 + 63.098) ÷ 12.54</p>
+                  </li>
+                </ul>
+              </sectiondiv>
+              <sectiondiv outputclass="Answer">
+                <p>You may have worked out a ball-park figure rather than under and over
+                  estimates or you may have used different estimates. This does not matter as long
+                  as you can check on whether your calculator answer is what you would
+                  expect.</p>
+                <ul>
+                  <li>
+                    <p>
+                        <b>(a)</b> Overestimate: 24 ÷ 4 = 6</p>
+                  </li>
+                  <li>
+                    <p>     Underestimate: 20 ÷ 5 = 4.</p>
+                  </li>
+                  <li>
+                    <p>     Answer = 5.368932039.</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(b) </b>Overestimate: 1 × 11 = 11</p>
+                  </li>
+                  <li>
+                    <p>     Underestimate: 0.8 × 10 = 8.</p>
+                  </li>
+                  <li>
+                    <p>     Answer = 8.97309465.</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(c) </b>Overestimate: 1010 × 24 × 300 = 1010 × 7200 = 7272
+                      000</p>
+                  </li>
+                  <li>
+                    <p>     Underestimate: 1000 × 20 × 270 = 5400 000</p>
+                  </li>
+                  <li>
+                    <p>     Answer = 6696 385.117</p>
+                  </li>
+                  <li>
+                    <p>
+                        <b>(d)</b> Overestimate: (13 + 15 + 64) ÷ 10 = 9.2</p>
+                  </li>
+                  <li>
+                    <p>     Underestimate: (12 + 14 + 63) ÷ 13 = 89÷ 13 <ph outputclass="InlineEquation">
+                           <image href="../../media/asymptotically.gif"/>
+                           <ph outputclass="inlineequation-description"/>
+                        </ph> 7</p>
+                  </li>
+                  <li>
+                    <p>     Answer = 7.252631579.</p>
+                  </li>
+                </ul>
+              </sectiondiv>
+            </sectiondiv>
+            <sectiondiv outputclass="Activity">
+              <sectiondiv outputclass="activity.question">
+                <p>
+                  <b>2</b> You are helping a friend, Al, who is preparing a base for a new
+                  garage. He needs to purchase ready-made concrete from a local supplier. The
+                  concrete is sold in units of cubic metres so he needs to calculate how much to
+                  order.</p>
+                <fig>
+                  <image href="../../media/MU120_A_I053i.jpg"/>
+                  <p/>
+               </fig>
+                <p>The plan of the proposed garage is shown in the diagram above. Following
+                  advice from a builder the base is to have a thickness of 200 mm. Al's estimate for
+                  concrete required is given below.</p>
+                <p>volume = length × width × thickness</p>
+                <p>volume = 6.56 × 4.68 × 2.00</p>
+                <p>volume = 61.4016 cubic metres</p>
+                <p>Hence volume of concrete needed is 61 cubic metres, to 2 s.f.</p>
+                <p>Make a rough estimate of what you would expect the answer to be. Are you
+                  happy with Al's calculation?</p>
+              </sectiondiv>
+              <sectiondiv outputclass="Answer">
+                <p>Rough estimate = 7 × 5 × 0.2 <ph outputclass="InlineEquation">
+                     <image href="../../media/asymptotically.gif"/>
+                     <ph outputclass="inlineequation-description"/>
+                  </ph> 7 cubic
+                  metres.</p>
+                <p>Al's estimate = 61 cubic metres which seems rather large, by a factor of
+                  about ten, so you should not be happy with his estimate.</p>
+                <p>He has said that 200 mm = 2 m whereas he should have used 0.2 m: he
+                  should have divided 200 by 1000 rather than 100. (There are 1000 mm in 1
+                  m.)</p>
+              </sectiondiv>
+            </sectiondiv>
+          </section>
+   </learningContentbody>
+</learningContent>

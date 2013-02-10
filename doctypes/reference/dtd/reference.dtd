@@ -1,0 +1,146 @@
+<!--=============================================================
+    Local shell
+    ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ENTITY DECLARATIONS                 -->
+<!-- ============================================================= -->
+
+
+<!ENTITY % ui-d-dec     PUBLIC 
+"-//OASIS//ENTITIES DITA User Interface Domain//EN" 
+"../dita-base/uiDomain.ent"                                                       >
+%ui-d-dec;
+
+<!ENTITY % hi-d-dec     PUBLIC 
+"-//OASIS//ENTITIES DITA Highlight Domain//EN" 
+"../dita-base/highlightDomain.ent"                                                >
+%hi-d-dec;
+
+<!ENTITY % pr-d-dec     PUBLIC 
+"-//OASIS//ENTITIES DITA Programming Domain//EN" 
+"../dita-base/programmingDomain.ent"                                              >
+%pr-d-dec;
+
+<!ENTITY % sw-d-dec     PUBLIC 
+"-//OASIS//ENTITIES DITA Software Domain//EN" 
+"../dita-base/softwareDomain.ent"                                                 >
+%sw-d-dec;
+
+<!ENTITY % ut-d-dec     PUBLIC 
+"-//OASIS//ENTITIES DITA Utilities Domain//EN" 
+"../dita-base/utilitiesDomain.ent"                                                >
+%ut-d-dec;
+
+<!ENTITY % indexing-d-dec     PUBLIC 
+"-//OASIS//ENTITIES DITA Indexing Domain//EN" 
+"../dita-base/indexingDomain.ent"                                                 >
+%indexing-d-dec;
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE DECLARATIONS              -->
+<!-- ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN EXTENSIONS                          -->
+<!-- ============================================================= -->
+<!--                    One for each extended base element, with
+                        the name of the domain(s) in which the
+                        extension was declared                     -->
+
+<!ENTITY % pre          "pre     | %pr-d-pre;     | %sw-d-pre;     | 
+                                   %ui-d-pre;"                       >
+<!ENTITY % keyword      "keyword | %pr-d-keyword; | %sw-d-keyword; |
+                                   %ui-d-keyword;"                   >
+<!ENTITY % ph           "ph      | %pr-d-ph;      | %sw-d-ph;      | 
+                                    %hi-d-ph;     | %ui-d-ph;"       >
+<!ENTITY % fig          "fig     | %pr-d-fig;     | %ut-d-fig;"      >
+<!ENTITY % dl           "dl      | %pr-d-dl;"                        >
+<!ENTITY % index-base   "index-base | %indexing-d-index-base;"       >
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
+<!-- ============================================================= -->
+<!ENTITY % props-attribute-extensions  ""                            >
+<!ENTITY % base-attribute-extensions   ""                            >
+
+
+<!-- ============================================================= -->
+<!--                    TOPIC NESTING OVERRIDE                     -->
+<!-- ============================================================= -->
+
+<!--                    Redefine the infotype entity to exclude 
+                        other topic types and disallow nesting     -->
+<!ENTITY % reference-info-types 
+                        "reference"                                  >
+
+
+<!-- ============================================================= -->
+<!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
+<!-- ============================================================= -->
+<!--                    Must be declared ahead of the DTDs, which
+                        puts @domains first in order               -->
+
+<!ENTITY included-domains 
+                        "&ui-d-att; &hi-d-att; &pr-d-att; &sw-d-att;
+                         &ut-d-att; &indexing-d-att;"                >
+
+
+<!-- ============================================================= -->
+<!--                    TOPIC ELEMENT INTEGRATION                  -->
+<!-- ============================================================= -->
+
+<!--                    Embed topic to get generic elements        -->
+<!ENTITY % topic-type   PUBLIC 
+"-//OASIS//ELEMENTS DITA Topic//EN" 
+"../dita-base/topic.mod"                                                          >
+%topic-type;
+
+<!--                     Embed reference to get specific elements  -->
+<!ENTITY % reference-typemod 
+                        PUBLIC 
+"-//OASIS//ELEMENTS DITA Reference//EN" 
+"../dita-base/reference.mod"                                                      >
+ %reference-typemod;
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ELEMENT INTEGRATION                 -->
+<!-- ============================================================= -->
+
+
+<!ENTITY % ui-d-def     PUBLIC 
+"-//OASIS//ELEMENTS DITA User Interface Domain//EN" 
+"../dita-base/uiDomain.mod"                                                       >
+%ui-d-def;
+
+<!ENTITY % hi-d-def     PUBLIC 
+"-//OASIS//ELEMENTS DITA Highlight Domain//EN" 
+"../dita-base/highlightDomain.mod"                                                >
+%hi-d-def;
+
+<!ENTITY % pr-d-def     PUBLIC 
+"-//OASIS//ELEMENTS DITA Programming Domain//EN" 
+"../dita-base/programmingDomain.mod"                                              >
+%pr-d-def;
+
+<!ENTITY % sw-d-def     PUBLIC 
+"-//OASIS//ELEMENTS DITA Software Domain//EN" 
+"../dita-base/softwareDomain.mod"                                                 >
+%sw-d-def;
+
+<!ENTITY % ut-d-def     PUBLIC 
+"-//OASIS//ELEMENTS DITA Utilities Domain//EN" 
+"../dita-base/utilitiesDomain.mod"                                                >
+%ut-d-def;
+
+<!ENTITY % indexing-d-def     PUBLIC 
+"-//OASIS//ELEMENTS DITA Indexing Domain//EN" 
+"../dita-base/indexingDomain.mod"                                                 >
+%indexing-d-def;
+
+
+<!-- ================== End DITA Reference DTD  ================== -->

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">
+
+
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pub-component-map"
+    uri="pub-component-map.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pub-component-map:pub-component-map.dtd"
+    uri="pub-component-map.dtd"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pub-component-map"
+    uri="pub-component-map.mod"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pub-component-map:pub-component-map.mod"
+    uri="pub-component-map.mod"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pub-component-map"
+    uri="pub-component-map.ent"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pub-component-map:pub-component-map.ent"
+    uri="pub-component-map.ent"
+  />
+  
+</catalog>

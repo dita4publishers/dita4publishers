@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE personae
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:personae" "personae.dtd">
+<personae id="personae">
+   <title>Dramatis Personae</title>
+   <personae-body>
+      <pgroup>
+         <persona>A Lord.</persona>
+         <persona>CHRISTOPHER SLY, a tinker. 	</persona>
+         <persona>Hostess, Page, Players, Huntsmen, and Servants.</persona>
+         <grpdescr>Persons in the Induction.</grpdescr>
+      </pgroup>
+      <persona>BAPTISTA, a rich gentleman of Padua.</persona>
+      <persona>VINCENTIO, an old gentleman of Pisa.</persona>
+      <persona>LUCENTIO, son to Vincentio, in love with Bianca.</persona>
+      <persona>PETRUCHIO, a gentleman of Verona, a suitor to Katharina.</persona>
+      <pgroup>
+         <persona>GREMIO</persona>
+         <persona>HORTENSIO</persona>
+         <grpdescr>suitors to Bianca.</grpdescr>
+      </pgroup>
+      <pgroup>
+         <persona>TRANIO</persona>
+         <persona>BIONDELLO</persona>
+         <grpdescr>servants to Lucentio.</grpdescr>
+      </pgroup>
+      <pgroup>
+         <persona>GRUMIO</persona>
+         <persona>CURTIS</persona>
+         <persona>NATHANIEL</persona>
+         <persona>NICHOLAS</persona>
+         <persona>JOSEPH</persona>
+         <persona>PHILIP</persona>
+         <persona>PETER</persona>
+         <grpdescr>servants to Petruchio.</grpdescr>
+      </pgroup>
+      <persona>A Pedant.</persona>
+      <pgroup>
+         <persona>KATHARINA the shrew,</persona>
+         <persona>BIANCA</persona>
+         <grpdescr>daughters to Baptista.</grpdescr>
+      </pgroup>
+      <persona>Widow.</persona>
+      <persona>Tailor, Haberdasher, and Servants attending on Baptista and Petruchio.</persona>
+   </personae-body>
+</personae>

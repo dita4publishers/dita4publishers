@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/reference.dtd">
+<reference id="referenceId">
+  <title>epub.temp.dir Ant parameter</title>
+  <shortdesc>Specifies the directory to use for EPUB-specific processing separate from the main Toolkit's temp directory.</shortdesc>
+  <refbody>
+    <section
+      spectitle="Value">
+      <p>An absolute platform-specific filename.</p>
+    </section>
+    <section
+      spectitle="Default">
+      <p>directory <filepath>epub_temp</filepath> within the defined Toolkit temp directory.</p>
+    </section>
+    <section
+      spectitle="Notes">
+      <p>This directory holds all the files that are then Zipped up to create the final EPUB file.</p>
+    </section>
+  </refbody>
+</reference>

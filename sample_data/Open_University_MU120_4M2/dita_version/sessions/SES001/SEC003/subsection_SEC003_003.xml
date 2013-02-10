@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE learningContent
+  PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "learningContent.dtd">
+<learningContent id="SEC003_003">
+   <title>3.3 Have I given due consideration to units of measurement?</title>
+   <learningContentbody>
+      <section>
+          
+          <p>Many mathematical problems include units of
+            measurement. The measurement may be of length,
+            weight, time, temperature or currency. The UK uses both metric and imperial
+            units.</p>
+          <p>The table below gives the units of length that are in everyday use in the UK,
+            but you may know some others.</p>
+          <table>
+            <title/>
+            <tgroup cols="2">
+               <tbody>
+                  <row>
+                     <entry>
+                        <i>Metric</i>
+                     </entry>
+                     <entry>
+                        <i>Imperial</i>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>millimeter</entry>
+                     <entry>inches</entry>
+                  </row>
+                  <row>
+                     <entry>centimetre</entry>
+                     <entry>feet</entry>
+                  </row>
+                  <row>
+                     <entry>metre</entry>
+                     <entry>yards</entry>
+                  </row>
+                  <row>
+                     <entry>kilometre</entry>
+                     <entry>miles</entry>
+                  </row>
+              </tbody>
+            </tgroup>
+         </table>
+         <p outputclass="SourceReference">Source: </p>
+          <p>There is a great variety of measurement units in use. Their incorrect use leads
+            to errors which can sometimes be costly.</p>
+          <p>On 23 September 1999, NASA lost a $125 million Mars orbiter. This was because
+            an engineering team used imperial units of measurement while NASA's team used the metric
+            system for a key spacecraft operation.</p>
+          
+          <fig>
+            <title/>
+            <image href="../../media/orbiter.jpg"/>
+            <p/>
+         </fig>
+          <sectiondiv outputclass="Example">
+            <p outputclass="Heading">
+               <b>Example 10</b>
+            </p>
+            <fig>
+               <image href="../../media/MU120_A_I050i.jpg"/>
+               <p/>
+            </fig>
+            <p>Suppose that you want to buy a carpet, priced at £16.00 per square metre, for
+              the room shown above and you calculate the area as follows.</p>
+            <p>Area = 5 × 450 = 2250</p>
+            <p>Cost of carpet = 16 × 2250 = £3600</p>
+            <p>An expensive carpet! What is wrong?</p>
+            <sectiondiv outputclass="Answer">
+               <p outputclass="SubHeading">
+                  <b>Solution</b>
+               </p>
+              <p>There is a mixture of units: metres and centimetres.</p>
+              <p>If a problem has a mixture of measurement units, it is usually a good idea
+                to convert all measures to the same units. Here the carpet is sold in units of
+                ‘square metres’, therefore ensure all the measurements are in metres.</p>
+              <p>Hence area required = 5 × 4.50.</p>
+              <p>Area = 22.5 square metres.</p>
+              <p>Cost of carpet = £16 × 22.5 = £360.</p>
+            </sectiondiv>
+         </sectiondiv>
+          
+        </section>
+   </learningContentbody>
+</learningContent>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= -->
+<!--                    HEADER                                     -->
+<!-- ============================================================= -->
+<!--  MODULE:    DITA for Publishers Pubmap Entity                 -->
+<!--  VERSION:   1.2                                               -->
+<!--  DATE:      February 2008                                     -->
+<!--                                                               -->
+<!-- ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    PUBLIC DOCUMENT TYPE DEFINITION            -->
+<!--                    TYPICAL INVOCATION                         -->
+<!--                                                               -->
+<!--  Refer to this file by the following public identifier or an 
+      appropriate system identifier 
+PUBLIC "urn:pubid:dita4publishers.sourceforge.net/entities/dtd/pubmap"
+      Delivered as file "pubmap.ent"                               -->
+
+<!-- ============================================================= -->
+<!-- SYSTEM:     Darwin Information Typing Architecture (DITA)     -->
+<!--                                                               -->
+<!-- PURPOSE:    Declaring the domain entity for concept topics    -->
+<!--                                                               -->
+<!-- ORIGINAL CREATION DATE:                                       -->
+<!--             July  2009                                        -->
+<!--                                                               -->
+<!--             (C) Copyright 2009 DITA For Publishers            -->
+<!--             All Rights Reserved.                              -->
+<!--                                                               -->
+<!--  UPDATES:                                                     -->
+<!-- ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    PUBMAP ENTITIES                           -->
+<!-- ============================================================= -->
+
+<!ENTITY pubmap-att     
+  "(map pubmap)"
+>
+
+
+<!-- ================== End Concept Entities ===================== -->

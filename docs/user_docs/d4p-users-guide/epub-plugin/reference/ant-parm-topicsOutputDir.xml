@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/reference.dtd">
+<reference id="referenceId">
+  <title>topics.output.dir Ant parameter</title>
+  <shortdesc>Specifies the name of the directory within the EPUB to hold all the topics.</shortdesc>
+  <refbody>
+    <section
+      spectitle="Value">
+      <p>Any valid directory name.</p>
+    </section>
+    <section
+      spectitle="Default">
+      <p>"topics"</p>
+    </section>
+    <section
+      spectitle="XSLT Parameter">
+      <p>topicsOutputDir</p>
+    </section>
+    <section
+      spectitle="Notes">
+      <p>The HTML files generated for topics are given unique names within the output directory so that there are no name conflicts.</p>
+    </section>
+  </refbody>
+</reference>

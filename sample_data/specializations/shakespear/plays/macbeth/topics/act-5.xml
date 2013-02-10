@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:act" "act.dtd">
+<act id="act-5">
+   <title>ACT V</title>
+   <scene id="act-5-scene-1">
+      <title>SCENE I.  Dunsinane. Ante-room in the castle.</title>
+      <scene-body>
+         <stagedir>Enter a Doctor of Physic and a Waiting-Gentlewoman</stagedir>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>I have two nights watched with you, but can perceive</line>
+            <line>no truth in your report. When was it she last walked?</line>
+         </speech>
+         <speech>
+            <speaker>Gentlewoman</speaker>
+            <line>Since his majesty went into the field, I have seen</line>
+            <line>her rise from her bed, throw her night-gown upon</line>
+            <line>her, unlock her closet, take forth paper, fold it,</line>
+            <line>write upon't, read it, afterwards seal it, and again</line>
+            <line>return to bed; yet all this while in a most fast sleep.</line>
+         </speech>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>A great perturbation in nature, to receive at once</line>
+            <line>the benefit of sleep, and do the effects of</line>
+            <line>watching! In this slumbery agitation, besides her</line>
+            <line>walking and other actual performances, what, at any</line>
+            <line>time, have you heard her say?</line>
+         </speech>
+         <speech>
+            <speaker>Gentlewoman</speaker>
+            <line>That, sir, which I will not report after her.</line>
+         </speech>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>You may to me: and 'tis most meet you should.</line>
+         </speech>
+         <speech>
+            <speaker>Gentlewoman</speaker>
+            <line>Neither to you nor any one; having no witness to</line>
+            <line>confirm my speech.</line>
+            <stagedir>Enter LADY MACBETH, with a taper</stagedir>
+            <line>Lo you, here she comes! This is her very guise;</line>
+            <line>and, upon my life, fast asleep. Observe her; stand close.</line>
+         </speech>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>How came she by that light?</line>
+         </speech>
+         <speech>
+            <speaker>Gentlewoman</speaker>
+            <line>Why, it stood by her: she has light by her</line>
+            <line>continually; 'tis her command.</line>
+         </speech>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>You see, her eyes are open.</line>
+         </speech>
+         <speech>
+            <speaker>Gentlewoman</speaker>
+            <line>Ay, but their sense is shut.</line>
+         </speech>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>What is it she does now? Look, how she rubs her hands.</line>
+         </speech>
+         <speech>
+            <speaker>Gentlewoman</speaker>
+            <line>It is an accustomed action with her, to seem thus</line>
+            <line>washing her hands: I have known her continue in</line>
+            <line>this a quarter of an hour.</line>
+         </speech>
+         <speech>
+            <speaker>LADY MACBETH</speaker>
+            <line>Yet here's a spot.</line>
+         </speech>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>Hark! she speaks: I will set down what comes from</line>
+            <line>her, to satisfy my remembrance the more strongly.</line>
+         </speech>
+         <speech>
+            <speaker>LADY MACBETH</speaker>
+            <line>Out, damned spot! out, I say!--One: two: why,</line>
+            <line>then, 'tis time to do't.--Hell is murky!--Fie, my</line>
+            <line>lord, fie! a soldier, and afeard? What need we</line>
+            <line>fear who knows it, when none can call our power to</line>
+            <line>account?--Yet who would have thought the old man</line>
+            <line>to have had so much blood in him.</line>
+         </speech>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>Do you mark that?</line>
+         </speech>
+         <speech>
+            <speaker>LADY MACBETH</speaker>
+            <line>The thane of Fife had a wife: where is she now?--</line>
+            <line>What, will these hands ne'er be clean?--No more o'</line>
+            <line>that, my lord, no more o' that: you mar all with</line>
+            <line>this starting.</line>
+         </speech>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>Go to, go to; you have known what you should not.</line>
+         </speech>
+         <speech>
+            <speaker>Gentlewoman</speaker>
+            <line>She has spoke what she should not, I am sure of</line>
+            <line>that: heaven knows what she has known.</line>
+         </speech>
+         <speech>
+            <speaker>LADY MACBETH</speaker>
+            <line>Here's the smell of the blood still: all the</line>
+            <line>perfumes of Arabia will not sweeten this little</line>
+            <line>hand. Oh, oh, oh!</line>
+         </speech>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>What a sigh is there! The heart is sorely charged.</line>
+         </speech>
+         <speech>
+            <speaker>Gentlewoman</speaker>
+            <line>I would not have such a heart in my bosom for the</line>
+            <line>dignity of the whole body.</line>
+         </speech>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>Well, well, well,--</line>
+         </speech>
+         <speech>
+            <speaker>Gentlewoman</speaker>
+            <line>Pray God it be, sir.</line>
+         </speech>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>This disease is beyond my practise: yet I have known</line>
+            <line>those which have walked in their sleep who have died</line>
+            <line>holily in their beds.</line>
+         </speech>
+         <speech>
+            <speaker>LADY MACBETH</speaker>
+            <line>Wash your hands, put on your nightgown; look not so</line>
+            <line>pale.--I tell you yet again, Banquo's buried; he</line>
+            <line>cannot come out on's grave.</line>
+         </speech>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>Even so?</line>
+         </speech>
+         <speech>
+            <speaker>LADY MACBETH</speaker>
+            <line>To bed, to bed! there's knocking at the gate:</line>
+            <line>come, come, come, come, give me your hand. What's</line>
+            <line>done cannot be undone.--To bed, to bed, to bed!</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>Will she go now to bed?</line>
+         </speech>
+         <speech>
+            <speaker>Gentlewoman</speaker>
+            <line>Directly.</line>
+         </speech>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>Foul whisperings are abroad: unnatural deeds</line>
+            <line>Do breed unnatural troubles: infected minds</line>
+            <line>To their deaf pillows will discharge their secrets:</line>
+            <line>More needs she the divine than the physician.</line>
+            <line>God, God forgive us all! Look after her;</line>
+            <line>Remove from her the means of all annoyance,</line>
+            <line>And still keep eyes upon her. So, good night:</line>
+            <line>My mind she has mated, and amazed my sight.</line>
+            <line>I think, but dare not speak.</line>
+         </speech>
+         <speech>
+            <speaker>Gentlewoman</speaker>
+            <line>Good night, good doctor.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-2">
+      <title>SCENE II.  The country near Dunsinane.</title>
+      <scene-body>
+         <stagedir>Drum and colours. Enter MENTEITH, CAITHNESS, ANGUS,
+LENNOX, and Soldiers</stagedir>
+         <speech>
+            <speaker>MENTEITH</speaker>
+            <line>The English power is near, led on by Malcolm,</line>
+            <line>His uncle Siward and the good Macduff:</line>
+            <line>Revenges burn in them; for their dear causes</line>
+            <line>Would to the bleeding and the grim alarm</line>
+            <line>Excite the mortified man.</line>
+         </speech>
+         <speech>
+            <speaker>ANGUS</speaker>
+            <line>Near Birnam wood</line>
+            <line>Shall we well meet them; that way are they coming.</line>
+         </speech>
+         <speech>
+            <speaker>CAITHNESS</speaker>
+            <line>Who knows if Donalbain be with his brother?</line>
+         </speech>
+         <speech>
+            <speaker>LENNOX</speaker>
+            <line>For certain, sir, he is not: I have a file</line>
+            <line>Of all the gentry: there is Siward's son,</line>
+            <line>And many unrough youths that even now</line>
+            <line>Protest their first of manhood.</line>
+         </speech>
+         <speech>
+            <speaker>MENTEITH</speaker>
+            <line>What does the tyrant?</line>
+         </speech>
+         <speech>
+            <speaker>CAITHNESS</speaker>
+            <line>Great Dunsinane he strongly fortifies:</line>
+            <line>Some say he's mad; others that lesser hate him</line>
+            <line>Do call it valiant fury: but, for certain,</line>
+            <line>He cannot buckle his distemper'd cause</line>
+            <line>Within the belt of rule.</line>
+         </speech>
+         <speech>
+            <speaker>ANGUS</speaker>
+            <line>Now does he feel</line>
+            <line>His secret murders sticking on his hands;</line>
+            <line>Now minutely revolts upbraid his faith-breach;</line>
+            <line>Those he commands move only in command,</line>
+            <line>Nothing in love: now does he feel his title</line>
+            <line>Hang loose about him, like a giant's robe</line>
+            <line>Upon a dwarfish thief.</line>
+         </speech>
+         <speech>
+            <speaker>MENTEITH</speaker>
+            <line>Who then shall blame</line>
+            <line>His pester'd senses to recoil and start,</line>
+            <line>When all that is within him does condemn</line>
+            <line>Itself for being there?</line>
+         </speech>
+         <speech>
+            <speaker>CAITHNESS</speaker>
+            <line>Well, march we on,</line>
+            <line>To give obedience where 'tis truly owed:</line>
+            <line>Meet we the medicine of the sickly weal,</line>
+            <line>And with him pour we in our country's purge</line>
+            <line>Each drop of us.</line>
+         </speech>
+         <speech>
+            <speaker>LENNOX</speaker>
+            <line>Or so much as it needs,</line>
+            <line>To dew the sovereign flower and drown the weeds.</line>
+            <line>Make we our march towards Birnam.</line>
+         </speech>
+         <stagedir>Exeunt, marching</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-3">
+      <title>SCENE III.  Dunsinane. A room in the castle.</title>
+      <scene-body>
+         <stagedir>Enter MACBETH, Doctor, and Attendants</stagedir>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>Bring me no more reports; let them fly all:</line>
+            <line>Till Birnam wood remove to Dunsinane,</line>
+            <line>I cannot taint with fear. What's the boy Malcolm?</line>
+            <line>Was he not born of woman? The spirits that know</line>
+            <line>All mortal consequences have pronounced me thus:</line>
+            <line>'Fear not, Macbeth; no man that's born of woman</line>
+            <line>Shall e'er have power upon thee.' Then fly,</line>
+            <line>false thanes,</line>
+            <line>And mingle with the English epicures:</line>
+            <line>The mind I sway by and the heart I bear</line>
+            <line>Shall never sag with doubt nor shake with fear.</line>
+            <stagedir>Enter a Servant</stagedir>
+            <line>The devil damn thee black, thou cream-faced loon!</line>
+            <line>Where got'st thou that goose look?</line>
+         </speech>
+         <speech>
+            <speaker>Servant</speaker>
+            <line>There is ten thousand--</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>Geese, villain!</line>
+         </speech>
+         <speech>
+            <speaker>Servant</speaker>
+            <line>Soldiers, sir.</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>Go prick thy face, and over-red thy fear,</line>
+            <line>Thou lily-liver'd boy. What soldiers, patch?</line>
+            <line>Death of thy soul! those linen cheeks of thine</line>
+            <line>Are counsellors to fear. What soldiers, whey-face?</line>
+         </speech>
+         <speech>
+            <speaker>Servant</speaker>
+            <line>The English force, so please you.</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>Take thy face hence.</line>
+            <stagedir>Exit Servant</stagedir>
+            <line>Seyton!--I am sick at heart,</line>
+            <line>When I behold--Seyton, I say!--This push</line>
+            <line>Will cheer me ever, or disseat me now.</line>
+            <line>I have lived long enough: my way of life</line>
+            <line>Is fall'n into the sear, the yellow leaf;</line>
+            <line>And that which should accompany old age,</line>
+            <line>As honour, love, obedience, troops of friends,</line>
+            <line>I must not look to have; but, in their stead,</line>
+            <line>Curses, not loud but deep, mouth-honour, breath,</line>
+            <line>Which the poor heart would fain deny, and dare not. Seyton!</line>
+         </speech>
+         <stagedir>Enter SEYTON</stagedir>
+         <speech>
+            <speaker>SEYTON</speaker>
+            <line>What is your gracious pleasure?</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>What news more?</line>
+         </speech>
+         <speech>
+            <speaker>SEYTON</speaker>
+            <line>All is confirm'd, my lord, which was reported.</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>I'll fight till from my bones my flesh be hack'd.</line>
+            <line>Give me my armour.</line>
+         </speech>
+         <speech>
+            <speaker>SEYTON</speaker>
+            <line>'Tis not needed yet.</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>I'll put it on.</line>
+            <line>Send out more horses; skirr the country round;</line>
+            <line>Hang those that talk of fear. Give me mine armour.</line>
+            <line>How does your patient, doctor?</line>
+         </speech>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>Not so sick, my lord,</line>
+            <line>As she is troubled with thick coming fancies,</line>
+            <line>That keep her from her rest.</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>Cure her of that.</line>
+            <line>Canst thou not minister to a mind diseased,</line>
+            <line>Pluck from the memory a rooted sorrow,</line>
+            <line>Raze out the written troubles of the brain</line>
+            <line>And with some sweet oblivious antidote</line>
+            <line>Cleanse the stuff'd bosom of that perilous stuff</line>
+            <line>Which weighs upon the heart?</line>
+         </speech>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>Therein the patient</line>
+            <line>Must minister to himself.</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>Throw physic to the dogs; I'll none of it.</line>
+            <line>Come, put mine armour on; give me my staff.</line>
+            <line>Seyton, send out. Doctor, the thanes fly from me.</line>
+            <line>Come, sir, dispatch. If thou couldst, doctor, cast</line>
+            <line>The water of my land, find her disease,</line>
+            <line>And purge it to a sound and pristine health,</line>
+            <line>I would applaud thee to the very echo,</line>
+            <line>That should applaud again.--Pull't off, I say.--</line>
+            <line>What rhubarb, cyme, or what purgative drug,</line>
+            <line>Would scour these English hence? Hear'st thou of them?</line>
+         </speech>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>Ay, my good lord; your royal preparation</line>
+            <line>Makes us hear something.</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>Bring it after me.</line>
+            <line>I will not be afraid of death and bane,</line>
+            <line>Till Birnam forest come to Dunsinane.</line>
+         </speech>
+         <speech>
+            <speaker>Doctor</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  Were I from Dunsinane away and clear,</line>
+            <line>Profit again should hardly draw me here.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-4">
+      <title>SCENE IV.  Country near Birnam wood.</title>
+      <scene-body>
+         <stagedir>Drum and colours. Enter MALCOLM, SIWARD and YOUNG
+SIWARD, MACDUFF, MENTEITH, CAITHNESS, ANGUS,
+LENNOX, ROSS, and Soldiers, marching</stagedir>
+         <speech>
+            <speaker>MALCOLM</speaker>
+            <line>Cousins, I hope the days are near at hand</line>
+            <line>That chambers will be safe.</line>
+         </speech>
+         <speech>
+            <speaker>MENTEITH</speaker>
+            <line>We doubt it nothing.</line>
+         </speech>
+         <speech>
+            <speaker>SIWARD</speaker>
+            <line>What wood is this before us?</line>
+         </speech>
+         <speech>
+            <speaker>MENTEITH</speaker>
+            <line>The wood of Birnam.</line>
+         </speech>
+         <speech>
+            <speaker>MALCOLM</speaker>
+            <line>Let every soldier hew him down a bough</line>
+            <line>And bear't before him: thereby shall we shadow</line>
+            <line>The numbers of our host and make discovery</line>
+            <line>Err in report of us.</line>
+         </speech>
+         <speech>
+            <speaker>Soldiers</speaker>
+            <line>It shall be done.</line>
+         </speech>
+         <speech>
+            <speaker>SIWARD</speaker>
+            <line>We learn no other but the confident tyrant</line>
+            <line>Keeps still in Dunsinane, and will endure</line>
+            <line>Our setting down before 't.</line>
+         </speech>
+         <speech>
+            <speaker>MALCOLM</speaker>
+            <line>'Tis his main hope:</line>
+            <line>For where there is advantage to be given,</line>
+            <line>Both more and less have given him the revolt,</line>
+            <line>And none serve with him but constrained things</line>
+            <line>Whose hearts are absent too.</line>
+         </speech>
+         <speech>
+            <speaker>MACDUFF</speaker>
+            <line>Let our just censures</line>
+            <line>Attend the true event, and put we on</line>
+            <line>Industrious soldiership.</line>
+         </speech>
+         <speech>
+            <speaker>SIWARD</speaker>
+            <line>The time approaches</line>
+            <line>That will with due decision make us know</line>
+            <line>What we shall say we have and what we owe.</line>
+            <line>Thoughts speculative their unsure hopes relate,</line>
+            <line>But certain issue strokes must arbitrate:</line>
+            <line>Towards which advance the war.</line>
+         </speech>
+         <stagedir>Exeunt, marching</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-5">
+      <title>SCENE V.  Dunsinane. Within the castle.</title>
+      <scene-body>
+         <stagedir>Enter MACBETH, SEYTON, and Soldiers, with drum
+and colours</stagedir>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>Hang out our banners on the outward walls;</line>
+            <line>The cry is still 'They come:' our castle's strength</line>
+            <line>Will laugh a siege to scorn: here let them lie</line>
+            <line>Till famine and the ague eat them up:</line>
+            <line>Were they not forced with those that should be ours,</line>
+            <line>We might have met them dareful, beard to beard,</line>
+            <line>And beat them backward home.</line>
+            <stagedir>A cry of women within</stagedir>
+            <line>What is that noise?</line>
+         </speech>
+         <speech>
+            <speaker>SEYTON</speaker>
+            <line>It is the cry of women, my good lord.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>I have almost forgot the taste of fears;</line>
+            <line>The time has been, my senses would have cool'd</line>
+            <line>To hear a night-shriek; and my fell of hair</line>
+            <line>Would at a dismal treatise rouse and stir</line>
+            <line>As life were in't: I have supp'd full with horrors;</line>
+            <line>Direness, familiar to my slaughterous thoughts</line>
+            <line>Cannot once start me.</line>
+            <stagedir>Re-enter SEYTON</stagedir>
+            <line>Wherefore was that cry?</line>
+         </speech>
+         <speech>
+            <speaker>SEYTON</speaker>
+            <line>The queen, my lord, is dead.</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>She should have died hereafter;</line>
+            <line>There would have been a time for such a word.</line>
+            <line>To-morrow, and to-morrow, and to-morrow,</line>
+            <line>Creeps in this petty pace from day to day</line>
+            <line>To the last syllable of recorded time,</line>
+            <line>And all our yesterdays have lighted fools</line>
+            <line>The way to dusty death. Out, out, brief candle!</line>
+            <line>Life's but a walking shadow, a poor player</line>
+            <line>That struts and frets his hour upon the stage</line>
+            <line>And then is heard no more: it is a tale</line>
+            <line>Told by an idiot, full of sound and fury,</line>
+            <line>Signifying nothing.</line>
+            <stagedir>Enter a Messenger</stagedir>
+            <line>Thou comest to use thy tongue; thy story quickly.</line>
+         </speech>
+         <speech>
+            <speaker>Messenger</speaker>
+            <line>Gracious my lord,</line>
+            <line>I should report that which I say I saw,</line>
+            <line>But know not how to do it.</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>Well, say, sir.</line>
+         </speech>
+         <speech>
+            <speaker>Messenger</speaker>
+            <line>As I did stand my watch upon the hill,</line>
+            <line>I look'd toward Birnam, and anon, methought,</line>
+            <line>The wood began to move.</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>Liar and slave!</line>
+         </speech>
+         <speech>
+            <speaker>Messenger</speaker>
+            <line>Let me endure your wrath, if't be not so:</line>
+            <line>Within this three mile may you see it coming;</line>
+            <line>I say, a moving grove.</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>If thou speak'st false,</line>
+            <line>Upon the next tree shalt thou hang alive,</line>
+            <line>Till famine cling thee: if thy speech be sooth,</line>
+            <line>I care not if thou dost for me as much.</line>
+            <line>I pull in resolution, and begin</line>
+            <line>To doubt the equivocation of the fiend</line>
+            <line>That lies like truth: 'Fear not, till Birnam wood</line>
+            <line>Do come to Dunsinane:'  and now a wood</line>
+            <line>Comes toward Dunsinane. Arm, arm, and out!</line>
+            <line>If this which he avouches does appear,</line>
+            <line>There is nor flying hence nor tarrying here.</line>
+            <line>I gin to be aweary of the sun,</line>
+            <line>And wish the estate o' the world were now undone.</line>
+            <line>Ring the alarum-bell! Blow, wind! come, wrack!</line>
+            <line>At least we'll die with harness on our back.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-6">
+      <title>SCENE VI.  Dunsinane. Before the castle.</title>
+      <scene-body>
+         <stagedir>Drum and colours. Enter MALCOLM, SIWARD, MACDUFF,
+and their Army, with boughs</stagedir>
+         <speech>
+            <speaker>MALCOLM</speaker>
+            <line>Now near enough: your leafy screens throw down.</line>
+            <line>And show like those you are. You, worthy uncle,</line>
+            <line>Shall, with my cousin, your right-noble son,</line>
+            <line>Lead our first battle: worthy Macduff and we</line>
+            <line>Shall take upon 's what else remains to do,</line>
+            <line>According to our order.</line>
+         </speech>
+         <speech>
+            <speaker>SIWARD</speaker>
+            <line>Fare you well.</line>
+            <line>Do we but find the tyrant's power to-night,</line>
+            <line>Let us be beaten, if we cannot fight.</line>
+         </speech>
+         <speech>
+            <speaker>MACDUFF</speaker>
+            <line>Make all our trumpets speak; give them all breath,</line>
+            <line>Those clamorous harbingers of blood and death.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-7">
+      <title>SCENE VII.  Another part of the field.</title>
+      <scene-body>
+         <stagedir>Alarums. Enter MACBETH</stagedir>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>They have tied me to a stake; I cannot fly,</line>
+            <line>But, bear-like, I must fight the course. What's he</line>
+            <line>That was not born of woman? Such a one</line>
+            <line>Am I to fear, or none.</line>
+         </speech>
+         <stagedir>Enter YOUNG SIWARD</stagedir>
+         <speech>
+            <speaker>YOUNG SIWARD</speaker>
+            <line>What is thy name?</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>Thou'lt be afraid to hear it.</line>
+         </speech>
+         <speech>
+            <speaker>YOUNG SIWARD</speaker>
+            <line>No; though thou call'st thyself a hotter name</line>
+            <line>Than any is in hell.</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>My name's Macbeth.</line>
+         </speech>
+         <speech>
+            <speaker>YOUNG SIWARD</speaker>
+            <line>The devil himself could not pronounce a title</line>
+            <line>More hateful to mine ear.</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>No, nor more fearful.</line>
+         </speech>
+         <speech>
+            <speaker>YOUNG SIWARD</speaker>
+            <line>Thou liest, abhorred tyrant; with my sword</line>
+            <line>I'll prove the lie thou speak'st.</line>
+         </speech>
+         <stagedir>They fight and YOUNG SIWARD is slain</stagedir>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>Thou wast born of woman</line>
+            <line>But swords I smile at, weapons laugh to scorn,</line>
+            <line>Brandish'd by man that's of a woman born.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <stagedir>Alarums. Enter MACDUFF</stagedir>
+         <speech>
+            <speaker>MACDUFF</speaker>
+            <line>That way the noise is. Tyrant, show thy face!</line>
+            <line>If thou be'st slain and with no stroke of mine,</line>
+            <line>My wife and children's ghosts will haunt me still.</line>
+            <line>I cannot strike at wretched kerns, whose arms</line>
+            <line>Are hired to bear their staves: either thou, Macbeth,</line>
+            <line>Or else my sword with an unbatter'd edge</line>
+            <line>I sheathe again undeeded. There thou shouldst be;</line>
+            <line>By this great clatter, one of greatest note</line>
+            <line>Seems bruited. Let me find him, fortune!</line>
+            <line>And more I beg not.</line>
+         </speech>
+         <stagedir>Exit. Alarums</stagedir>
+         <stagedir>Enter MALCOLM and SIWARD</stagedir>
+         <speech>
+            <speaker>SIWARD</speaker>
+            <line>This way, my lord; the castle's gently render'd:</line>
+            <line>The tyrant's people on both sides do fight;</line>
+            <line>The noble thanes do bravely in the war;</line>
+            <line>The day almost itself professes yours,</line>
+            <line>And little is to do.</line>
+         </speech>
+         <speech>
+            <speaker>MALCOLM</speaker>
+            <line>We have met with foes</line>
+            <line>That strike beside us.</line>
+         </speech>
+         <speech>
+            <speaker>SIWARD</speaker>
+            <line>Enter, sir, the castle.</line>
+         </speech>
+         <stagedir>Exeunt. Alarums</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-5-scene-8">
+      <title>SCENE VIII.  Another part of the field.</title>
+      <scene-body>
+         <stagedir>Enter MACBETH</stagedir>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>Why should I play the Roman fool, and die</line>
+            <line>On mine own sword? whiles I see lives, the gashes</line>
+            <line>Do better upon them.</line>
+         </speech>
+         <stagedir>Enter MACDUFF</stagedir>
+         <speech>
+            <speaker>MACDUFF</speaker>
+            <line>Turn, hell-hound, turn!</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>Of all men else I have avoided thee:</line>
+            <line>But get thee back; my soul is too much charged</line>
+            <line>With blood of thine already.</line>
+         </speech>
+         <speech>
+            <speaker>MACDUFF</speaker>
+            <line>I have no words:</line>
+            <line>My voice is in my sword: thou bloodier villain</line>
+            <line>Than terms can give thee out!</line>
+         </speech>
+         <stagedir>They fight</stagedir>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>Thou losest labour:</line>
+            <line>As easy mayst thou the intrenchant air</line>
+            <line>With thy keen sword impress as make me bleed:</line>
+            <line>Let fall thy blade on vulnerable crests;</line>
+            <line>I bear a charmed life, which must not yield,</line>
+            <line>To one of woman born.</line>
+         </speech>
+         <speech>
+            <speaker>MACDUFF</speaker>
+            <line>Despair thy charm;</line>
+            <line>And let the angel whom thou still hast served</line>
+            <line>Tell thee, Macduff was from his mother's womb</line>
+            <line>Untimely ripp'd.</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>Accursed be that tongue that tells me so,</line>
+            <line>For it hath cow'd my better part of man!</line>
+            <line>And be these juggling fiends no more believed,</line>
+            <line>That palter with us in a double sense;</line>
+            <line>That keep the word of promise to our ear,</line>
+            <line>And break it to our hope. I'll not fight with thee.</line>
+         </speech>
+         <speech>
+            <speaker>MACDUFF</speaker>
+            <line>Then yield thee, coward,</line>
+            <line>And live to be the show and gaze o' the time:</line>
+            <line>We'll have thee, as our rarer monsters are,</line>
+            <line>Painted on a pole, and underwrit,</line>
+            <line>'Here may you see the tyrant.'</line>
+         </speech>
+         <speech>
+            <speaker>MACBETH</speaker>
+            <line>I will not yield,</line>
+            <line>To kiss the ground before young Malcolm's feet,</line>
+            <line>And to be baited with the rabble's curse.</line>
+            <line>Though Birnam wood be come to Dunsinane,</line>
+            <line>And thou opposed, being of no woman born,</line>
+            <line>Yet I will try the last. Before my body</line>
+            <line>I throw my warlike shield. Lay on, Macduff,</line>
+            <line>And damn'd be him that first cries, 'Hold, enough!'</line>
+         </speech>
+         <stagedir>Exeunt, fighting. Alarums</stagedir>
+         <stagedir>Retreat. Flourish. Enter, with drum and colours,
+MALCOLM, SIWARD, ROSS, the other Thanes, and Soldiers</stagedir>
+         <speech>
+            <speaker>MALCOLM</speaker>
+            <line>I would the friends we miss were safe arrived.</line>
+         </speech>
+         <speech>
+            <speaker>SIWARD</speaker>
+            <line>Some must go off: and yet, by these I see,</line>
+            <line>So great a day as this is cheaply bought.</line>
+         </speech>
+         <speech>
+            <speaker>MALCOLM</speaker>
+            <line>Macduff is missing, and your noble son.</line>
+         </speech>
+         <speech>
+            <speaker>ROSS</speaker>
+            <line>Your son, my lord, has paid a soldier's debt:</line>
+            <line>He only lived but till he was a man;</line>
+            <line>The which no sooner had his prowess confirm'd</line>
+            <line>In the unshrinking station where he fought,</line>
+            <line>But like a man he died.</line>
+         </speech>
+         <speech>
+            <speaker>SIWARD</speaker>
+            <line>Then he is dead?</line>
+         </speech>
+         <speech>
+            <speaker>ROSS</speaker>
+            <line>Ay, and brought off the field: your cause of sorrow</line>
+            <line>Must not be measured by his worth, for then</line>
+            <line>It hath no end.</line>
+         </speech>
+         <speech>
+            <speaker>SIWARD</speaker>
+            <line>Had he his hurts before?</line>
+         </speech>
+         <speech>
+            <speaker>ROSS</speaker>
+            <line>Ay, on the front.</line>
+         </speech>
+         <speech>
+            <speaker>SIWARD</speaker>
+            <line>Why then, God's soldier be he!</line>
+            <line>Had I as many sons as I have hairs,</line>
+            <line>I would not wish them to a fairer death:</line>
+            <line>And so, his knell is knoll'd.</line>
+         </speech>
+         <speech>
+            <speaker>MALCOLM</speaker>
+            <line>He's worth more sorrow,</line>
+            <line>And that I'll spend for him.</line>
+         </speech>
+         <speech>
+            <speaker>SIWARD</speaker>
+            <line>He's worth no more</line>
+            <line>They say he parted well, and paid his score:</line>
+            <line>And so, God be with him! Here comes newer comfort.</line>
+         </speech>
+         <stagedir>Re-enter MACDUFF, with MACBETH's head</stagedir>
+         <speech>
+            <speaker>MACDUFF</speaker>
+            <line>Hail, king! for so thou art: behold, where stands</line>
+            <line>The usurper's cursed head: the time is free:</line>
+            <line>I see thee compass'd with thy kingdom's pearl,</line>
+            <line>That speak my salutation in their minds;</line>
+            <line>Whose voices I desire aloud with mine:</line>
+            <line>Hail, King of Scotland!</line>
+         </speech>
+         <speech>
+            <speaker>ALL</speaker>
+            <line>Hail, King of Scotland!</line>
+         </speech>
+         <stagedir>Flourish</stagedir>
+         <speech>
+            <speaker>MALCOLM</speaker>
+            <line>We shall not spend a large expense of time</line>
+            <line>Before we reckon with your several loves,</line>
+            <line>And make us even with you. My thanes and kinsmen,</line>
+            <line>Henceforth be earls, the first that ever Scotland</line>
+            <line>In such an honour named. What's more to do,</line>
+            <line>Which would be planted newly with the time,</line>
+            <line>As calling home our exiled friends abroad</line>
+            <line>That fled the snares of watchful tyranny;</line>
+            <line>Producing forth the cruel ministers</line>
+            <line>Of this dead butcher and his fiend-like queen,</line>
+            <line>Who, as 'tis thought, by self and violent hands</line>
+            <line>Took off her life; this, and what needful else</line>
+            <line>That calls upon us, by the grace of Grace,</line>
+            <line>We will perform in measure, time and place:</line>
+            <line>So, thanks to all at once and to each one,</line>
+            <line>Whom we invite to see us crown'd at Scone.</line>
+         </speech>
+         <stagedir>Flourish. Exeunt</stagedir>
+      </scene-body>
+   </scene>
+</act>

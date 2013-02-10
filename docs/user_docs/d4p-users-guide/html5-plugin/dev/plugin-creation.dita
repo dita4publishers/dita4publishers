@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="create-plugin">
+    <title>HTML5 plugin creation</title>
+    <shortdesc>Follow this steps to create a html5 plugin.</shortdesc>
+    <taskbody>
+        <context>In the DITA-OT plugins directory:</context>
+        <steps>
+            <step>
+                <cmd>Create a directory for your plugin.</cmd>
+                <stepxmp><filepath id="plugin">org.company.html5</filepath></stepxmp>
+            </step>
+            <step>
+                <cmd>Create a file <filepath>plugin.xml</filepath> in the <filepath conref="#create-plugin/plugin"/></cmd>
+            </step>
+        </steps>
+    </taskbody>
+</task>

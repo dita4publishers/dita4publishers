@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:sidebar"
+    uri="sidebar.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:sidebar.dtd"
+    uri="sidebar.dtd"
+    />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:modules:sidebar"
+    uri="sidebar.mod"
+  />
+  <system systemId="urn:pubid::modules:sidebar.mod"
+    uri="sidebar.mod"
+  />
+</catalog>  

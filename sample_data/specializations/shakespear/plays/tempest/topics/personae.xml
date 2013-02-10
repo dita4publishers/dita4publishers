@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE personae
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:personae" "personae.dtd">
+<personae id="personae">
+   <title>Dramatis Personae</title>
+   <personae-body>
+      <persona>ALONSO, King of Naples.</persona>
+      <persona>SEBASTIAN, his brother.</persona>
+      <persona>PROSPERO, the right Duke of Milan.</persona>
+      <persona>ANTONIO, his brother, the usurping Duke of Milan.</persona>
+      <persona>FERDINAND, son to the King of Naples.</persona>
+      <persona>GONZALO, an honest old Counsellor.</persona>
+      <pgroup>
+         <persona>ADRIAN</persona>
+         <persona>FRANCISCO</persona>
+         <grpdescr>Lords.</grpdescr>
+      </pgroup>
+      <persona>CALIBAN, a savage and deformed Slave.</persona>
+      <persona>TRINCULO, a Jester.</persona>
+      <persona>STEPHANO, a drunken Butler.</persona>
+      <persona>Master of a Ship. </persona>
+      <persona>Boatswain. </persona>
+      <persona>Mariners. </persona>
+      <persona>MIRANDA, daughter to Prospero.</persona>
+      <persona>ARIEL, an airy Spirit.</persona>
+      <pgroup>
+         <persona>IRIS</persona>
+         <persona>CERES</persona>
+         <persona>JUNO</persona>
+         <persona>Nymphs</persona>
+         <persona>Reapers</persona>
+         <grpdescr>presented by Spirits.</grpdescr>
+      </pgroup>
+      <persona>Other Spirits attending on Prospero.</persona>
+   </personae-body>
+</personae>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     DITA For Publishers Act Topic Type
+     
+     Represents an act within a Shakespear play.
+     
+     Specializes from play-component
+     
+     Copyright (c) 2009 DITA For Publishers
+
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ENTITY DECLARATIONS                 -->
+<!-- ============================================================= -->
+
+<!ENTITY % hi-d-dec     PUBLIC 
+"-//OASIS//ENTITIES DITA Highlight Domain//EN" 
+"highlightDomain.ent"                                                
+>
+%hi-d-dec;
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE DECLARATIONS              -->
+<!-- ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN EXTENSIONS                          -->
+<!-- ============================================================= -->
+<!--                    One for each extended base element, with
+                        the name of the domain(s) in which the
+                        extension was declared                     -->
+                        
+<!ENTITY % ph
+  "ph |
+   %hi-d-ph;"
+>                        
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
+<!-- ============================================================= -->
+<!ENTITY % props-attribute-extensions  ""                            >
+<!ENTITY % base-attribute-extensions   ""                            >
+
+
+<!-- ============================================================= -->
+<!--                    TOPIC NESTING OVERRIDE                     -->
+<!-- ============================================================= -->
+
+<!--                    Redefine the infotype entity to exclude 
+                        other topic types and disallow nesting     -->
+<!ENTITY % act-info-types 
+  "scene |
+   prologue |
+   epilogue
+  "
+>
+
+<!ENTITY % info-types
+  "%act-info-types;
+  "
+>
+
+<!-- ============================================================= -->
+<!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
+<!-- ============================================================= -->
+<!--                    Must be declared ahead of the DTDs, which
+                        puts @domains first in order               -->
+
+<!ENTITY included-domains 
+    "&hi-d-att; 
+    "                
+ >
+
+<!-- ============================================================= -->
+<!--                    TOPIC ELEMENT INTEGRATION                  -->
+<!-- ============================================================= -->
+
+<!--                    Embed topic to get generic elements        -->
+<!ENTITY % topic-type   PUBLIC 
+"-//OASIS//ELEMENTS DITA Topic//EN" 
+"topic.mod"                                                          >
+%topic-type;
+
+<!ELEMENT foo EMPTY >
+<!ENTITY % ph.content-att
+ "ph-content CDATA '%ph.content;'"
+>
+<!ATTLIST foo %ph.content-att; >
+<!ENTITY % play-component-typemod 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:play-component" 
+"play-component.mod"
+>                                                     
+%play-component-typemod;
+
+<!ENTITY % act-typemod 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:act" 
+"act.mod"                                                        
+>                                                     
+%act-typemod;
+
+<!ENTITY % scene-typemod 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:scene" 
+"scene.mod"                                                        
+>                                                     
+%scene-typemod;
+
+<!ENTITY % epilogue-typemod 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:epilogue" 
+"epilogue.mod"                                                        
+>                                                     
+%epilogue-typemod;
+
+<!ENTITY % prologue-typemod 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:shakespear:prologue" 
+"prologue.mod"                                                        
+>                                                     
+%prologue-typemod;
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ELEMENT INTEGRATION                 -->
+<!-- ============================================================= -->
+
+<!ENTITY % hi-d-def     PUBLIC 
+"-//OASIS//ELEMENTS DITA Highlight Domain//EN" 
+"highlightDomain.mod"                                                >
+%hi-d-def;
+
+
+
+<!-- ================== End act DTD  ==================== -->

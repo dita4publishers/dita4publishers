@@ -1,0 +1,70 @@
+/* Style sheet for CSS3 styling of topics */
+
+header {
+}
+
+section {
+}
+
+section h1 {
+   border: 2px solid;
+   border-radius: 25px;
+   padding: 4px;
+   text-align: center;
+   background-color: blue;
+   color: white;
+   font-family: Myriad, Verdana, sans-serif;
+}
+
+.note {
+  
+   border: 2px solid red;
+   border-radius: 10px;
+   padding: 10px;
+   float: right;
+   width: 60px;
+   height: 40px;
+   font-size: 0pt;
+   background-color: yellow;
+   -webkit-transition: width 2s, height 2s, font-size 1s;
+   -webkit-transition-timing-function: ease;
+}
+
+.note:hover {
+  width: 200px;
+  height: 100px;
+  font-size: 10pt;
+}
+
+.notetitle {
+  font-weight: bold;
+  font-size: 14pt;
+  color: red;
+   text-transform: uppercase;
+   
+  
+}
+
+.notetitle:before {
+  content: ' ';
+  width: 20px;
+}
+
+.body {
+  column-count: 2;
+  column-gap: 4px;
+  column-rule: 1px solid blue;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 40px;
+  -webkit-column-rule: 1px solid blue;
+}
+
+.related-links {
+  display: none;
+}
+
+.fn {
+  float: bottom;
+  border-top: 1pt solid black;
+  width: 50%;  
+}

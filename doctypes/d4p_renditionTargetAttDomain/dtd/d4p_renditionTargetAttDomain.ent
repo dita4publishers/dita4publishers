@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================
+     DITA For Publishers Rendition Target @props attribute
+     
+     This attribute is intended to enable filtering or flagging
+     of content based on its intended rendition target.
+     
+     Rendition targets include things like "HTML", "EPUB", "PDF",
+     "help", etc.
+     
+     NOTE: This attribute does not replace the DITA-defined @print
+     attribute used in maps. It is intended to be a more general
+     conditional attribute where it is necessary to have 
+     content specific to different rendition targets in the same
+     source document.
+          
+     ===========================================================-->
+<!ENTITY % d4p_renditionTargetAtt-d-attribute "d4p_renditionTarget CDATA #IMPLIED">
+
+<!ENTITY d4p_renditionTargetAtt-d-att "a(props d4p_renditionTarget)" >
+
+<!-- ===== End of D4P Rendition Target Attribute Module ==== -->

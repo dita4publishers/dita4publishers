@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>Word-to-DITA XSLT Transformation Parameters</title>
+ <shortdesc>Required and optional parameters for the Word-to-DITA XSLT transformation</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>transformation parameters<indexterm>word-to-dita transformation</indexterm></indexterm>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <p>To run the docx2dita.xsl transformation outside the Toolkit use the XSLT parameters shown here.</p>
+    <section>
+      <title>Required Parameters</title>
+      <parml>
+        <plentry>
+          <pt>outputDir</pt>
+          <pd>The directory to put generated output in. Should be an absolute URL.</pd>
+        </plentry>
+        <plentry>
+          <pt>styleMapUri</pt>
+          <pd>The URI of the style-to-tag map to use. Should be specified as an absolute URL, e.g., "file://workspace/word2dita/xsl/mystyle-to-tag-map.xml".</pd>
+        </plentry>
+      </parml>
+    </section>
+    <section>
+      <title>Optional Parameters</title>
+      <parml>
+        <plentry>
+          <pt>fileNamePrefix</pt>
+          <pd>The prefix to use for generated filenames other than subordinate maps. Default is "" (no prefix).</pd>
+        </plentry>
+        <plentry>
+          <pt>filterBr</pt>
+          <pd>When set to "true" filters out all literal break characters. If not specified, all literal breaks in the word document are preserved in the intermediate transform and, by default, in the resulting DITA XML (using the DITA4Publishers <xmlelem>br</xmlelem> element from the formatting domain).</pd>
+        </plentry>
+        <plentry>
+          <pt>filterTabs</pt>
+          <pd>When set to "true" filters out all literal tab characters. If not specified, all literal tabs in the word document are preserved in the intermediate transform and, by default, in the resulting DITA XML (using the DITA4Publishers <xmlelem>tab</xmlelem> element from the formatting domain).</pd>
+        </plentry>
+        <plentry>
+          <pt>includeWordBackPointers</pt>
+          <pd>When set to "true", the resulting DITA files include <xmlatt>xtrc</xmlatt> attributes that contain XPath expressions that locate the Word paragraph element from which the DITA element was generated. Set to "false" to turn this off. Default is "true" (<xmlatt>xtrc</xmlatt> attributes are generated).</pd>
+        </plentry>
+        <plentry>
+          <pt>includeWordBookmarks</pt>
+          <pd>When set to "true", the resulting DITA files include
+            <xmlelem>data</xmlelem> elements that reflect the bookmark start and
+            end markers. This can be useful in debugging cross reference
+            processing or other uses of bookmarks. The default is "false".</pd>
+        </plentry>
+        <plentry>
+          <pt>language</pt>
+          <pd>Specifies the value to use for the <xmlatt>xml:lang</xmlatt>
+            attribute, e.g. "ja-JP". If not specified, the value "en-US" is
+            used.</pd>
+        </plentry>
+        <plentry>
+          <pt>mediaDirUri</pt>
+          <pd>The URI of the folder to put graphics in (determines the value of <xmlatt>src</xmlatt> and <xmlatt>href</xmlatt> attributes for generated graphic references). Default is "topics/media" under the main output directory.</pd>
+        </plentry>
+        <plentry>
+          <pt>rawPlatformString</pt>
+          <pd>The operating system platform as provided by the Ant os.name property. Default is "unknown".</pd>
+        </plentry>
+        <plentry>
+          <pt>rootMapName</pt>
+          <pd>The name (without extension) to use for the root map. Default is "rootmap".</pd>
+        </plentry>
+        <plentry>
+          <pt>rootMapUrl</pt>
+          <pd>The full filename the root map. Constructed from the <parmname>rootMapName</parmname> parameter by default.</pd>
+        </plentry>
+        <plentry>
+          <pt>rootTopicName</pt>
+          <pd>The name (without extension) to use for the root topic. Default is
+            the base name of the input DOCX file.</pd>
+        </plentry>
+        <plentry>
+          <pt>submapNamePrefix</pt>
+          <pd>The prefix to use for the filenames of generated submaps. Default is "map".</pd>
+        </plentry>
+        <plentry>
+          <pt>topicExtension</pt>
+          <pd>The filename extension to use for topics. Default is ".dita".</pd>
+        </plentry>
+      </parml>
+    </section>
+  </conbody>
+</concept>

@@ -1,0 +1,1747 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:act" "act.dtd">
+<act id="act-1">
+   <title>ACT I</title>
+   <scene id="act-1-scene-1">
+      <title>SCENE I.  Elsinore. A platform before the castle.</title>
+      <scene-body>
+         <stagedir>FRANCISCO at his post. Enter to him BERNARDO</stagedir>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>Who's there?</line>
+         </speech>
+         <speech>
+            <speaker>FRANCISCO</speaker>
+            <line>Nay, answer me: stand, and unfold yourself.</line>
+         </speech>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>Long live the king!</line>
+         </speech>
+         <speech>
+            <speaker>FRANCISCO</speaker>
+            <line>Bernardo?</line>
+         </speech>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>He.</line>
+         </speech>
+         <speech>
+            <speaker>FRANCISCO</speaker>
+            <line>You come most carefully upon your hour.</line>
+         </speech>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>'Tis now struck twelve; get thee to bed, Francisco.</line>
+         </speech>
+         <speech>
+            <speaker>FRANCISCO</speaker>
+            <line>For this relief much thanks: 'tis bitter cold,</line>
+            <line>And I am sick at heart.</line>
+         </speech>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>Have you had quiet guard?</line>
+         </speech>
+         <speech>
+            <speaker>FRANCISCO</speaker>
+            <line>Not a mouse stirring.</line>
+         </speech>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>Well, good night.</line>
+            <line>If you do meet Horatio and Marcellus,</line>
+            <line>The rivals of my watch, bid them make haste.</line>
+         </speech>
+         <speech>
+            <speaker>FRANCISCO</speaker>
+            <line>I think I hear them. Stand, ho! Who's there?</line>
+         </speech>
+         <stagedir>Enter HORATIO and MARCELLUS</stagedir>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Friends to this ground.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>And liegemen to the Dane.</line>
+         </speech>
+         <speech>
+            <speaker>FRANCISCO</speaker>
+            <line>Give you good night.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>O, farewell, honest soldier:</line>
+            <line>Who hath relieved you?</line>
+         </speech>
+         <speech>
+            <speaker>FRANCISCO</speaker>
+            <line>Bernardo has my place.</line>
+            <line>Give you good night.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>Holla! Bernardo!</line>
+         </speech>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>Say,</line>
+            <line>What, is Horatio there?</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>A piece of him.</line>
+         </speech>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>Welcome, Horatio: welcome, good Marcellus.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>What, has this thing appear'd again to-night?</line>
+         </speech>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>I have seen nothing.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>Horatio says 'tis but our fantasy,</line>
+            <line>And will not let belief take hold of him</line>
+            <line>Touching this dreaded sight, twice seen of us:</line>
+            <line>Therefore I have entreated him along</line>
+            <line>With us to watch the minutes of this night;</line>
+            <line>That if again this apparition come,</line>
+            <line>He may approve our eyes and speak to it.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Tush, tush, 'twill not appear.</line>
+         </speech>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>Sit down awhile;</line>
+            <line>And let us once again assail your ears,</line>
+            <line>That are so fortified against our story</line>
+            <line>What we have two nights seen.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Well, sit we down,</line>
+            <line>And let us hear Bernardo speak of this.</line>
+         </speech>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>Last night of all,</line>
+            <line>When yond same star that's westward from the pole</line>
+            <line>Had made his course to illume that part of heaven</line>
+            <line>Where now it burns, Marcellus and myself,</line>
+            <line>The bell then beating one,--</line>
+         </speech>
+         <stagedir>Enter Ghost</stagedir>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>Peace, break thee off; look, where it comes again!</line>
+         </speech>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>In the same figure, like the king that's dead.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>Thou art a scholar; speak to it, Horatio.</line>
+         </speech>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>Looks it not like the king?  mark it, Horatio.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Most like: it harrows me with fear and wonder.</line>
+         </speech>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>It would be spoke to.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>Question it, Horatio.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>What art thou that usurp'st this time of night,</line>
+            <line>Together with that fair and warlike form</line>
+            <line>In which the majesty of buried Denmark</line>
+            <line>Did sometimes march? by heaven I charge thee, speak!</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>It is offended.</line>
+         </speech>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>See, it stalks away!</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Stay! speak, speak! I charge thee, speak!</line>
+         </speech>
+         <stagedir>Exit Ghost</stagedir>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>'Tis gone, and will not answer.</line>
+         </speech>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>How now, Horatio! you tremble and look pale:</line>
+            <line>Is not this something more than fantasy?</line>
+            <line>What think you on't?</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Before my God, I might not this believe</line>
+            <line>Without the sensible and true avouch</line>
+            <line>Of mine own eyes.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>Is it not like the king?</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>As thou art to thyself:</line>
+            <line>Such was the very armour he had on</line>
+            <line>When he the ambitious Norway combated;</line>
+            <line>So frown'd he once, when, in an angry parle,</line>
+            <line>He smote the sledded Polacks on the ice.</line>
+            <line>'Tis strange.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>Thus twice before, and jump at this dead hour,</line>
+            <line>With martial stalk hath he gone by our watch.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>In what particular thought to work I know not;</line>
+            <line>But in the gross and scope of my opinion,</line>
+            <line>This bodes some strange eruption to our state.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>Good now, sit down, and tell me, he that knows,</line>
+            <line>Why this same strict and most observant watch</line>
+            <line>So nightly toils the subject of the land,</line>
+            <line>And why such daily cast of brazen cannon,</line>
+            <line>And foreign mart for implements of war;</line>
+            <line>Why such impress of shipwrights, whose sore task</line>
+            <line>Does not divide the Sunday from the week;</line>
+            <line>What might be toward, that this sweaty haste</line>
+            <line>Doth make the night joint-labourer with the day:</line>
+            <line>Who is't that can inform me?</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>That can I;</line>
+            <line>At least, the whisper goes so. Our last king,</line>
+            <line>Whose image even but now appear'd to us,</line>
+            <line>Was, as you know, by Fortinbras of Norway,</line>
+            <line>Thereto prick'd on by a most emulate pride,</line>
+            <line>Dared to the combat; in which our valiant Hamlet--</line>
+            <line>For so this side of our known world esteem'd him--</line>
+            <line>Did slay this Fortinbras; who by a seal'd compact,</line>
+            <line>Well ratified by law and heraldry,</line>
+            <line>Did forfeit, with his life, all those his lands</line>
+            <line>Which he stood seized of, to the conqueror:</line>
+            <line>Against the which, a moiety competent</line>
+            <line>Was gaged by our king; which had return'd</line>
+            <line>To the inheritance of Fortinbras,</line>
+            <line>Had he been vanquisher; as, by the same covenant,</line>
+            <line>And carriage of the article design'd,</line>
+            <line>His fell to Hamlet. Now, sir, young Fortinbras,</line>
+            <line>Of unimproved mettle hot and full,</line>
+            <line>Hath in the skirts of Norway here and there</line>
+            <line>Shark'd up a list of lawless resolutes,</line>
+            <line>For food and diet, to some enterprise</line>
+            <line>That hath a stomach in't; which is no other--</line>
+            <line>As it doth well appear unto our state--</line>
+            <line>But to recover of us, by strong hand</line>
+            <line>And terms compulsatory, those foresaid lands</line>
+            <line>So by his father lost: and this, I take it,</line>
+            <line>Is the main motive of our preparations,</line>
+            <line>The source of this our watch and the chief head</line>
+            <line>Of this post-haste and romage in the land.</line>
+         </speech>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>I think it be no other but e'en so:</line>
+            <line>Well may it sort that this portentous figure</line>
+            <line>Comes armed through our watch; so like the king</line>
+            <line>That was and is the question of these wars.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>A mote it is to trouble the mind's eye.</line>
+            <line>In the most high and palmy state of Rome,</line>
+            <line>A little ere the mightiest Julius fell,</line>
+            <line>The graves stood tenantless and the sheeted dead</line>
+            <line>Did squeak and gibber in the Roman streets:</line>
+            <line>As stars with trains of fire and dews of blood,</line>
+            <line>Disasters in the sun; and the moist star</line>
+            <line>Upon whose influence Neptune's empire stands</line>
+            <line>Was sick almost to doomsday with eclipse:</line>
+            <line>And even the like precurse of fierce events,</line>
+            <line>As harbingers preceding still the fates</line>
+            <line>And prologue to the omen coming on,</line>
+            <line>Have heaven and earth together demonstrated</line>
+            <line>Unto our climatures and countrymen.--</line>
+            <line>But soft, behold! lo, where it comes again!</line>
+            <stagedir>Re-enter Ghost</stagedir>
+            <line>I'll cross it, though it blast me. Stay, illusion!</line>
+            <line>If thou hast any sound, or use of voice,</line>
+            <line>Speak to me:</line>
+            <line>If there be any good thing to be done,</line>
+            <line>That may to thee do ease and grace to me,</line>
+            <line>Speak to me:</line>
+            <stagedir>Cock crows</stagedir>
+            <line>If thou art privy to thy country's fate,</line>
+            <line>Which, happily, foreknowing may avoid, O, speak!</line>
+            <line>Or if thou hast uphoarded in thy life</line>
+            <line>Extorted treasure in the womb of earth,</line>
+            <line>For which, they say, you spirits oft walk in death,</line>
+            <line>Speak of it: stay, and speak! Stop it, Marcellus.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>Shall I strike at it with my partisan?</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Do, if it will not stand.</line>
+         </speech>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>'Tis here!</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>'Tis here!</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>'Tis gone!</line>
+            <stagedir>Exit Ghost</stagedir>
+            <line>We do it wrong, being so majestical,</line>
+            <line>To offer it the show of violence;</line>
+            <line>For it is, as the air, invulnerable,</line>
+            <line>And our vain blows malicious mockery.</line>
+         </speech>
+         <speech>
+            <speaker>BERNARDO</speaker>
+            <line>It was about to speak, when the cock crew.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>And then it started like a guilty thing</line>
+            <line>Upon a fearful summons. I have heard,</line>
+            <line>The cock, that is the trumpet to the morn,</line>
+            <line>Doth with his lofty and shrill-sounding throat</line>
+            <line>Awake the god of day; and, at his warning,</line>
+            <line>Whether in sea or fire, in earth or air,</line>
+            <line>The extravagant and erring spirit hies</line>
+            <line>To his confine: and of the truth herein</line>
+            <line>This present object made probation.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>It faded on the crowing of the cock.</line>
+            <line>Some say that ever 'gainst that season comes</line>
+            <line>Wherein our Saviour's birth is celebrated,</line>
+            <line>The bird of dawning singeth all night long:</line>
+            <line>And then, they say, no spirit dares stir abroad;</line>
+            <line>The nights are wholesome; then no planets strike,</line>
+            <line>No fairy takes, nor witch hath power to charm,</line>
+            <line>So hallow'd and so gracious is the time.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>So have I heard and do in part believe it.</line>
+            <line>But, look, the morn, in russet mantle clad,</line>
+            <line>Walks o'er the dew of yon high eastward hill:</line>
+            <line>Break we our watch up; and by my advice,</line>
+            <line>Let us impart what we have seen to-night</line>
+            <line>Unto young Hamlet; for, upon my life,</line>
+            <line>This spirit, dumb to us, will speak to him.</line>
+            <line>Do you consent we shall acquaint him with it,</line>
+            <line>As needful in our loves, fitting our duty?</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>Let's do't, I pray; and I this morning know</line>
+            <line>Where we shall find him most conveniently.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-1-scene-2">
+      <title>SCENE II.  A room of state in the castle.</title>
+      <scene-body>
+         <stagedir>Enter KING CLAUDIUS, QUEEN GERTRUDE, HAMLET,
+POLONIUS, LAERTES, VOLTIMAND, CORNELIUS, Lords,
+and Attendants</stagedir>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Though yet of Hamlet our dear brother's death</line>
+            <line>The memory be green, and that it us befitted</line>
+            <line>To bear our hearts in grief and our whole kingdom</line>
+            <line>To be contracted in one brow of woe,</line>
+            <line>Yet so far hath discretion fought with nature</line>
+            <line>That we with wisest sorrow think on him,</line>
+            <line>Together with remembrance of ourselves.</line>
+            <line>Therefore our sometime sister, now our queen,</line>
+            <line>The imperial jointress to this warlike state,</line>
+            <line>Have we, as 'twere with a defeated joy,--</line>
+            <line>With an auspicious and a dropping eye,</line>
+            <line>With mirth in funeral and with dirge in marriage,</line>
+            <line>In equal scale weighing delight and dole,--</line>
+            <line>Taken to wife: nor have we herein barr'd</line>
+            <line>Your better wisdoms, which have freely gone</line>
+            <line>With this affair along. For all, our thanks.</line>
+            <line>Now follows, that you know, young Fortinbras,</line>
+            <line>Holding a weak supposal of our worth,</line>
+            <line>Or thinking by our late dear brother's death</line>
+            <line>Our state to be disjoint and out of frame,</line>
+            <line>Colleagued with the dream of his advantage,</line>
+            <line>He hath not fail'd to pester us with message,</line>
+            <line>Importing the surrender of those lands</line>
+            <line>Lost by his father, with all bonds of law,</line>
+            <line>To our most valiant brother. So much for him.</line>
+            <line>Now for ourself and for this time of meeting:</line>
+            <line>Thus much the business is: we have here writ</line>
+            <line>To Norway, uncle of young Fortinbras,--</line>
+            <line>Who, impotent and bed-rid, scarcely hears</line>
+            <line>Of this his nephew's purpose,--to suppress</line>
+            <line>His further gait herein; in that the levies,</line>
+            <line>The lists and full proportions, are all made</line>
+            <line>Out of his subject: and we here dispatch</line>
+            <line>You, good Cornelius, and you, Voltimand,</line>
+            <line>For bearers of this greeting to old Norway;</line>
+            <line>Giving to you no further personal power</line>
+            <line>To business with the king, more than the scope</line>
+            <line>Of these delated articles allow.</line>
+            <line>Farewell, and let your haste commend your duty.</line>
+         </speech>
+         <speech>
+            <speaker>CORNELIUS</speaker>
+            <speaker>VOLTIMAND</speaker>
+            <line>In that and all things will we show our duty.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>We doubt it nothing: heartily farewell.</line>
+            <stagedir>Exeunt VOLTIMAND and CORNELIUS</stagedir>
+            <line>And now, Laertes, what's the news with you?</line>
+            <line>You told us of some suit; what is't, Laertes?</line>
+            <line>You cannot speak of reason to the Dane,</line>
+            <line>And loose your voice: what wouldst thou beg, Laertes,</line>
+            <line>That shall not be my offer, not thy asking?</line>
+            <line>The head is not more native to the heart,</line>
+            <line>The hand more instrumental to the mouth,</line>
+            <line>Than is the throne of Denmark to thy father.</line>
+            <line>What wouldst thou have, Laertes?</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>My dread lord,</line>
+            <line>Your leave and favour to return to France;</line>
+            <line>From whence though willingly I came to Denmark,</line>
+            <line>To show my duty in your coronation,</line>
+            <line>Yet now, I must confess, that duty done,</line>
+            <line>My thoughts and wishes bend again toward France</line>
+            <line>And bow them to your gracious leave and pardon.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Have you your father's leave? What says Polonius?</line>
+         </speech>
+         <speech>
+            <speaker>LORD POLONIUS</speaker>
+            <line>He hath, my lord, wrung from me my slow leave</line>
+            <line>By laboursome petition, and at last</line>
+            <line>Upon his will I seal'd my hard consent:</line>
+            <line>I do beseech you, give him leave to go.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Take thy fair hour, Laertes; time be thine,</line>
+            <line>And thy best graces spend it at thy will!</line>
+            <line>But now, my cousin Hamlet, and my son,--</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  A little more than kin, and less than kind.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>How is it that the clouds still hang on you?</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Not so, my lord; I am too much i' the sun.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>Good Hamlet, cast thy nighted colour off,</line>
+            <line>And let thine eye look like a friend on Denmark.</line>
+            <line>Do not for ever with thy vailed lids</line>
+            <line>Seek for thy noble father in the dust:</line>
+            <line>Thou know'st 'tis common; all that lives must die,</line>
+            <line>Passing through nature to eternity.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Ay, madam, it is common.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>If it be,</line>
+            <line>Why seems it so particular with thee?</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Seems, madam! nay it is; I know not 'seems.'</line>
+            <line>'Tis not alone my inky cloak, good mother,</line>
+            <line>Nor customary suits of solemn black,</line>
+            <line>Nor windy suspiration of forced breath,</line>
+            <line>No, nor the fruitful river in the eye,</line>
+            <line>Nor the dejected 'havior of the visage,</line>
+            <line>Together with all forms, moods, shapes of grief,</line>
+            <line>That can denote me truly: these indeed seem,</line>
+            <line>For they are actions that a man might play:</line>
+            <line>But I have that within which passeth show;</line>
+            <line>These but the trappings and the suits of woe.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>'Tis sweet and commendable in your nature, Hamlet,</line>
+            <line>To give these mourning duties to your father:</line>
+            <line>But, you must know, your father lost a father;</line>
+            <line>That father lost, lost his, and the survivor bound</line>
+            <line>In filial obligation for some term</line>
+            <line>To do obsequious sorrow: but to persever</line>
+            <line>In obstinate condolement is a course</line>
+            <line>Of impious stubbornness; 'tis unmanly grief;</line>
+            <line>It shows a will most incorrect to heaven,</line>
+            <line>A heart unfortified, a mind impatient,</line>
+            <line>An understanding simple and unschool'd:</line>
+            <line>For what we know must be and is as common</line>
+            <line>As any the most vulgar thing to sense,</line>
+            <line>Why should we in our peevish opposition</line>
+            <line>Take it to heart? Fie! 'tis a fault to heaven,</line>
+            <line>A fault against the dead, a fault to nature,</line>
+            <line>To reason most absurd: whose common theme</line>
+            <line>Is death of fathers, and who still hath cried,</line>
+            <line>From the first corse till he that died to-day,</line>
+            <line>'This must be so.' We pray you, throw to earth</line>
+            <line>This unprevailing woe, and think of us</line>
+            <line>As of a father: for let the world take note,</line>
+            <line>You are the most immediate to our throne;</line>
+            <line>And with no less nobility of love</line>
+            <line>Than that which dearest father bears his son,</line>
+            <line>Do I impart toward you. For your intent</line>
+            <line>In going back to school in Wittenberg,</line>
+            <line>It is most retrograde to our desire:</line>
+            <line>And we beseech you, bend you to remain</line>
+            <line>Here, in the cheer and comfort of our eye,</line>
+            <line>Our chiefest courtier, cousin, and our son.</line>
+         </speech>
+         <speech>
+            <speaker>QUEEN GERTRUDE</speaker>
+            <line>Let not thy mother lose her prayers, Hamlet:</line>
+            <line>I pray thee, stay with us; go not to Wittenberg.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>I shall in all my best obey you, madam.</line>
+         </speech>
+         <speech>
+            <speaker>KING CLAUDIUS</speaker>
+            <line>Why, 'tis a loving and a fair reply:</line>
+            <line>Be as ourself in Denmark. Madam, come;</line>
+            <line>This gentle and unforced accord of Hamlet</line>
+            <line>Sits smiling to my heart: in grace whereof,</line>
+            <line>No jocund health that Denmark drinks to-day,</line>
+            <line>But the great cannon to the clouds shall tell,</line>
+            <line>And the king's rouse the heavens all bruit again,</line>
+            <line>Re-speaking earthly thunder. Come away.</line>
+         </speech>
+         <stagedir>Exeunt all but HAMLET</stagedir>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>O, that this too too solid flesh would melt</line>
+            <line>Thaw and resolve itself into a dew!</line>
+            <line>Or that the Everlasting had not fix'd</line>
+            <line>His canon 'gainst self-slaughter! O God! God!</line>
+            <line>How weary, stale, flat and unprofitable,</line>
+            <line>Seem to me all the uses of this world!</line>
+            <line>Fie on't! ah fie! 'tis an unweeded garden,</line>
+            <line>That grows to seed; things rank and gross in nature</line>
+            <line>Possess it merely. That it should come to this!</line>
+            <line>But two months dead: nay, not so much, not two:</line>
+            <line>So excellent a king; that was, to this,</line>
+            <line>Hyperion to a satyr; so loving to my mother</line>
+            <line>That he might not beteem the winds of heaven</line>
+            <line>Visit her face too roughly. Heaven and earth!</line>
+            <line>Must I remember? why, she would hang on him,</line>
+            <line>As if increase of appetite had grown</line>
+            <line>By what it fed on: and yet, within a month--</line>
+            <line>Let me not think on't--Frailty, thy name is woman!--</line>
+            <line>A little month, or ere those shoes were old</line>
+            <line>With which she follow'd my poor father's body,</line>
+            <line>Like Niobe, all tears:--why she, even she--</line>
+            <line>O, God! a beast, that wants discourse of reason,</line>
+            <line>Would have mourn'd longer--married with my uncle,</line>
+            <line>My father's brother, but no more like my father</line>
+            <line>Than I to Hercules: within a month:</line>
+            <line>Ere yet the salt of most unrighteous tears</line>
+            <line>Had left the flushing in her galled eyes,</line>
+            <line>She married. O, most wicked speed, to post</line>
+            <line>With such dexterity to incestuous sheets!</line>
+            <line>It is not nor it cannot come to good:</line>
+            <line>But break, my heart; for I must hold my tongue.</line>
+         </speech>
+         <stagedir>Enter HORATIO, MARCELLUS, and BERNARDO</stagedir>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Hail to your lordship!</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>I am glad to see you well:</line>
+            <line>Horatio,--or I do forget myself.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>The same, my lord, and your poor servant ever.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Sir, my good friend; I'll change that name with you:</line>
+            <line>And what make you from Wittenberg, Horatio? Marcellus?</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>My good lord--</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>I am very glad to see you. Good even, sir.</line>
+            <line>But what, in faith, make you from Wittenberg?</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>A truant disposition, good my lord.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>I would not hear your enemy say so,</line>
+            <line>Nor shall you do mine ear that violence,</line>
+            <line>To make it truster of your own report</line>
+            <line>Against yourself: I know you are no truant.</line>
+            <line>But what is your affair in Elsinore?</line>
+            <line>We'll teach you to drink deep ere you depart.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>My lord, I came to see your father's funeral.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>I pray thee, do not mock me, fellow-student;</line>
+            <line>I think it was to see my mother's wedding.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Indeed, my lord, it follow'd hard upon.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Thrift, thrift, Horatio! the funeral baked meats</line>
+            <line>Did coldly furnish forth the marriage tables.</line>
+            <line>Would I had met my dearest foe in heaven</line>
+            <line>Or ever I had seen that day, Horatio!</line>
+            <line>My father!--methinks I see my father.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Where, my lord?</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>In my mind's eye, Horatio.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>I saw him once; he was a goodly king.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>He was a man, take him for all in all,</line>
+            <line>I shall not look upon his like again.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>My lord, I think I saw him yesternight.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Saw? who?</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>My lord, the king your father.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>The king my father!</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Season your admiration for awhile</line>
+            <line>With an attent ear, till I may deliver,</line>
+            <line>Upon the witness of these gentlemen,</line>
+            <line>This marvel to you.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>For God's love, let me hear.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Two nights together had these gentlemen,</line>
+            <line>Marcellus and Bernardo, on their watch,</line>
+            <line>In the dead vast and middle of the night,</line>
+            <line>Been thus encounter'd. A figure like your father,</line>
+            <line>Armed at point exactly, cap-a-pe,</line>
+            <line>Appears before them, and with solemn march</line>
+            <line>Goes slow and stately by them: thrice he walk'd</line>
+            <line>By their oppress'd and fear-surprised eyes,</line>
+            <line>Within his truncheon's length; whilst they, distilled</line>
+            <line>Almost to jelly with the act of fear,</line>
+            <line>Stand dumb and speak not to him. This to me</line>
+            <line>In dreadful secrecy impart they did;</line>
+            <line>And I with them the third night kept the watch;</line>
+            <line>Where, as they had deliver'd, both in time,</line>
+            <line>Form of the thing, each word made true and good,</line>
+            <line>The apparition comes: I knew your father;</line>
+            <line>These hands are not more like.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>But where was this?</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>My lord, upon the platform where we watch'd.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Did you not speak to it?</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>My lord, I did;</line>
+            <line>But answer made it none: yet once methought</line>
+            <line>It lifted up its head and did address</line>
+            <line>Itself to motion, like as it would speak;</line>
+            <line>But even then the morning cock crew loud,</line>
+            <line>And at the sound it shrunk in haste away,</line>
+            <line>And vanish'd from our sight.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>'Tis very strange.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>As I do live, my honour'd lord, 'tis true;</line>
+            <line>And we did think it writ down in our duty</line>
+            <line>To let you know of it.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Indeed, indeed, sirs, but this troubles me.</line>
+            <line>Hold you the watch to-night?</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <speaker>BERNARDO</speaker>
+            <line>We do, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Arm'd, say you?</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <speaker>BERNARDO</speaker>
+            <line>Arm'd, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>From top to toe?</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <speaker>BERNARDO</speaker>
+            <line>My lord, from head to foot.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Then saw you not his face?</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>O, yes, my lord; he wore his beaver up.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>What, look'd he frowningly?</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>A countenance more in sorrow than in anger.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Pale or red?</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Nay, very pale.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>And fix'd his eyes upon you?</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Most constantly.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>I would I had been there.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>It would have much amazed you.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Very like, very like. Stay'd it long?</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>While one with moderate haste might tell a hundred.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <speaker>BERNARDO</speaker>
+            <line>Longer, longer.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Not when I saw't.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>His beard was grizzled--no?</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>It was, as I have seen it in his life,</line>
+            <line>A sable silver'd.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>I will watch to-night;</line>
+            <line>Perchance 'twill walk again.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>I warrant it will.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>If it assume my noble father's person,</line>
+            <line>I'll speak to it, though hell itself should gape</line>
+            <line>And bid me hold my peace. I pray you all,</line>
+            <line>If you have hitherto conceal'd this sight,</line>
+            <line>Let it be tenable in your silence still;</line>
+            <line>And whatsoever else shall hap to-night,</line>
+            <line>Give it an understanding, but no tongue:</line>
+            <line>I will requite your loves. So, fare you well:</line>
+            <line>Upon the platform, 'twixt eleven and twelve,</line>
+            <line>I'll visit you.</line>
+         </speech>
+         <speech>
+            <speaker>All</speaker>
+            <line>Our duty to your honour.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Your loves, as mine to you: farewell.</line>
+            <stagedir>Exeunt all but HAMLET</stagedir>
+            <line>My father's spirit in arms! all is not well;</line>
+            <line>I doubt some foul play: would the night were come!</line>
+            <line>Till then sit still, my soul: foul deeds will rise,</line>
+            <line>Though all the earth o'erwhelm them, to men's eyes.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-1-scene-3">
+      <title>SCENE III.  A room in Polonius' house.</title>
+      <scene-body>
+         <stagedir>Enter LAERTES and OPHELIA</stagedir>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>My necessaries are embark'd: farewell:</line>
+            <line>And, sister, as the winds give benefit</line>
+            <line>And convoy is assistant, do not sleep,</line>
+            <line>But let me hear from you.</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>Do you doubt that?</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>For Hamlet and the trifling of his favour,</line>
+            <line>Hold it a fashion and a toy in blood,</line>
+            <line>A violet in the youth of primy nature,</line>
+            <line>Forward, not permanent, sweet, not lasting,</line>
+            <line>The perfume and suppliance of a minute; No more.</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>No more but so?</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>Think it no more;</line>
+            <line>For nature, crescent, does not grow alone</line>
+            <line>In thews and bulk, but, as this temple waxes,</line>
+            <line>The inward service of the mind and soul</line>
+            <line>Grows wide withal. Perhaps he loves you now,</line>
+            <line>And now no soil nor cautel doth besmirch</line>
+            <line>The virtue of his will: but you must fear,</line>
+            <line>His greatness weigh'd, his will is not his own;</line>
+            <line>For he himself is subject to his birth:</line>
+            <line>He may not, as unvalued persons do,</line>
+            <line>Carve for himself; for on his choice depends</line>
+            <line>The safety and health of this whole state;</line>
+            <line>And therefore must his choice be circumscribed</line>
+            <line>Unto the voice and yielding of that body</line>
+            <line>Whereof he is the head. Then if he says he loves you,</line>
+            <line>It fits your wisdom so far to believe it</line>
+            <line>As he in his particular act and place</line>
+            <line>May give his saying deed; which is no further</line>
+            <line>Than the main voice of Denmark goes withal.</line>
+            <line>Then weigh what loss your honour may sustain,</line>
+            <line>If with too credent ear you list his songs,</line>
+            <line>Or lose your heart, or your chaste treasure open</line>
+            <line>To his unmaster'd importunity.</line>
+            <line>Fear it, Ophelia, fear it, my dear sister,</line>
+            <line>And keep you in the rear of your affection,</line>
+            <line>Out of the shot and danger of desire.</line>
+            <line>The chariest maid is prodigal enough,</line>
+            <line>If she unmask her beauty to the moon:</line>
+            <line>Virtue itself 'scapes not calumnious strokes:</line>
+            <line>The canker galls the infants of the spring,</line>
+            <line>Too oft before their buttons be disclosed,</line>
+            <line>And in the morn and liquid dew of youth</line>
+            <line>Contagious blastments are most imminent.</line>
+            <line>Be wary then; best safety lies in fear:</line>
+            <line>Youth to itself rebels, though none else near.</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>I shall the effect of this good lesson keep,</line>
+            <line>As watchman to my heart. But, good my brother,</line>
+            <line>Do not, as some ungracious pastors do,</line>
+            <line>Show me the steep and thorny way to heaven;</line>
+            <line>Whiles, like a puff'd and reckless libertine,</line>
+            <line>Himself the primrose path of dalliance treads,</line>
+            <line>And recks not his own rede.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>O, fear me not.</line>
+            <line>I stay too long: but here my father comes.</line>
+            <stagedir>Enter POLONIUS</stagedir>
+            <line>A double blessing is a double grace,</line>
+            <line>Occasion smiles upon a second leave.</line>
+         </speech>
+         <speech>
+            <speaker>LORD POLONIUS</speaker>
+            <line>Yet here, Laertes! aboard, aboard, for shame!</line>
+            <line>The wind sits in the shoulder of your sail,</line>
+            <line>And you are stay'd for. There; my blessing with thee!</line>
+            <line>And these few precepts in thy memory</line>
+            <line>See thou character. Give thy thoughts no tongue,</line>
+            <line>Nor any unproportioned thought his act.</line>
+            <line>Be thou familiar, but by no means vulgar.</line>
+            <line>Those friends thou hast, and their adoption tried,</line>
+            <line>Grapple them to thy soul with hoops of steel;</line>
+            <line>But do not dull thy palm with entertainment</line>
+            <line>Of each new-hatch'd, unfledged comrade. Beware</line>
+            <line>Of entrance to a quarrel, but being in,</line>
+            <line>Bear't that the opposed may beware of thee.</line>
+            <line>Give every man thy ear, but few thy voice;</line>
+            <line>Take each man's censure, but reserve thy judgment.</line>
+            <line>Costly thy habit as thy purse can buy,</line>
+            <line>But not express'd in fancy; rich, not gaudy;</line>
+            <line>For the apparel oft proclaims the man,</line>
+            <line>And they in France of the best rank and station</line>
+            <line>Are of a most select and generous chief in that.</line>
+            <line>Neither a borrower nor a lender be;</line>
+            <line>For loan oft loses both itself and friend,</line>
+            <line>And borrowing dulls the edge of husbandry.</line>
+            <line>This above all: to thine ownself be true,</line>
+            <line>And it must follow, as the night the day,</line>
+            <line>Thou canst not then be false to any man.</line>
+            <line>Farewell: my blessing season this in thee!</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>Most humbly do I take my leave, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>LORD POLONIUS</speaker>
+            <line>The time invites you; go; your servants tend.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>Farewell, Ophelia; and remember well</line>
+            <line>What I have said to you.</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>'Tis in my memory lock'd,</line>
+            <line>And you yourself shall keep the key of it.</line>
+         </speech>
+         <speech>
+            <speaker>LAERTES</speaker>
+            <line>Farewell.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>LORD POLONIUS</speaker>
+            <line>What is't, Ophelia, be hath said to you?</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>So please you, something touching the Lord Hamlet.</line>
+         </speech>
+         <speech>
+            <speaker>LORD POLONIUS</speaker>
+            <line>Marry, well bethought:</line>
+            <line>'Tis told me, he hath very oft of late</line>
+            <line>Given private time to you; and you yourself</line>
+            <line>Have of your audience been most free and bounteous:</line>
+            <line>If it be so, as so 'tis put on me,</line>
+            <line>And that in way of caution, I must tell you,</line>
+            <line>You do not understand yourself so clearly</line>
+            <line>As it behoves my daughter and your honour.</line>
+            <line>What is between you? give me up the truth.</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>He hath, my lord, of late made many tenders</line>
+            <line>Of his affection to me.</line>
+         </speech>
+         <speech>
+            <speaker>LORD POLONIUS</speaker>
+            <line>Affection! pooh! you speak like a green girl,</line>
+            <line>Unsifted in such perilous circumstance.</line>
+            <line>Do you believe his tenders, as you call them?</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>I do not know, my lord, what I should think.</line>
+         </speech>
+         <speech>
+            <speaker>LORD POLONIUS</speaker>
+            <line>Marry, I'll teach you: think yourself a baby;</line>
+            <line>That you have ta'en these tenders for true pay,</line>
+            <line>Which are not sterling. Tender yourself more dearly;</line>
+            <line>Or--not to crack the wind of the poor phrase,</line>
+            <line>Running it thus--you'll tender me a fool.</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>My lord, he hath importuned me with love</line>
+            <line>In honourable fashion.</line>
+         </speech>
+         <speech>
+            <speaker>LORD POLONIUS</speaker>
+            <line>Ay, fashion you may call it; go to, go to.</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>And hath given countenance to his speech, my lord,</line>
+            <line>With almost all the holy vows of heaven.</line>
+         </speech>
+         <speech>
+            <speaker>LORD POLONIUS</speaker>
+            <line>Ay, springes to catch woodcocks. I do know,</line>
+            <line>When the blood burns, how prodigal the soul</line>
+            <line>Lends the tongue vows: these blazes, daughter,</line>
+            <line>Giving more light than heat, extinct in both,</line>
+            <line>Even in their promise, as it is a-making,</line>
+            <line>You must not take for fire. From this time</line>
+            <line>Be somewhat scanter of your maiden presence;</line>
+            <line>Set your entreatments at a higher rate</line>
+            <line>Than a command to parley. For Lord Hamlet,</line>
+            <line>Believe so much in him, that he is young</line>
+            <line>And with a larger tether may he walk</line>
+            <line>Than may be given you: in few, Ophelia,</line>
+            <line>Do not believe his vows; for they are brokers,</line>
+            <line>Not of that dye which their investments show,</line>
+            <line>But mere implorators of unholy suits,</line>
+            <line>Breathing like sanctified and pious bawds,</line>
+            <line>The better to beguile. This is for all:</line>
+            <line>I would not, in plain terms, from this time forth,</line>
+            <line>Have you so slander any moment leisure,</line>
+            <line>As to give words or talk with the Lord Hamlet.</line>
+            <line>Look to't, I charge you: come your ways.</line>
+         </speech>
+         <speech>
+            <speaker>OPHELIA</speaker>
+            <line>I shall obey, my lord.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-1-scene-4">
+      <title>SCENE IV.  The platform.</title>
+      <scene-body>
+         <stagedir>Enter HAMLET, HORATIO, and MARCELLUS</stagedir>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>The air bites shrewdly; it is very cold.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>It is a nipping and an eager air.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>What hour now?</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>I think it lacks of twelve.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>No, it is struck.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Indeed? I heard it not: then it draws near the season</line>
+            <line>Wherein the spirit held his wont to walk.</line>
+            <stagedir>A flourish of trumpets, and ordnance shot off, within</stagedir>
+            <line>What does this mean, my lord?</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>The king doth wake to-night and takes his rouse,</line>
+            <line>Keeps wassail, and the swaggering up-spring reels;</line>
+            <line>And, as he drains his draughts of Rhenish down,</line>
+            <line>The kettle-drum and trumpet thus bray out</line>
+            <line>The triumph of his pledge.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Is it a custom?</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Ay, marry, is't:</line>
+            <line>But to my mind, though I am native here</line>
+            <line>And to the manner born, it is a custom</line>
+            <line>More honour'd in the breach than the observance.</line>
+            <line>This heavy-headed revel east and west</line>
+            <line>Makes us traduced and tax'd of other nations:</line>
+            <line>They clepe us drunkards, and with swinish phrase</line>
+            <line>Soil our addition; and indeed it takes</line>
+            <line>From our achievements, though perform'd at height,</line>
+            <line>The pith and marrow of our attribute.</line>
+            <line>So, oft it chances in particular men,</line>
+            <line>That for some vicious mole of nature in them,</line>
+            <line>As, in their birth--wherein they are not guilty,</line>
+            <line>Since nature cannot choose his origin--</line>
+            <line>By the o'ergrowth of some complexion,</line>
+            <line>Oft breaking down the pales and forts of reason,</line>
+            <line>Or by some habit that too much o'er-leavens</line>
+            <line>The form of plausive manners, that these men,</line>
+            <line>Carrying, I say, the stamp of one defect,</line>
+            <line>Being nature's livery, or fortune's star,--</line>
+            <line>Their virtues else--be they as pure as grace,</line>
+            <line>As infinite as man may undergo--</line>
+            <line>Shall in the general censure take corruption</line>
+            <line>From that particular fault: the dram of eale</line>
+            <line>Doth all the noble substance of a doubt</line>
+            <line>To his own scandal.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Look, my lord, it comes!</line>
+         </speech>
+         <stagedir>Enter Ghost</stagedir>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Angels and ministers of grace defend us!</line>
+            <line>Be thou a spirit of health or goblin damn'd,</line>
+            <line>Bring with thee airs from heaven or blasts from hell,</line>
+            <line>Be thy intents wicked or charitable,</line>
+            <line>Thou comest in such a questionable shape</line>
+            <line>That I will speak to thee: I'll call thee Hamlet,</line>
+            <line>King, father, royal Dane: O, answer me!</line>
+            <line>Let me not burst in ignorance; but tell</line>
+            <line>Why thy canonized bones, hearsed in death,</line>
+            <line>Have burst their cerements; why the sepulchre,</line>
+            <line>Wherein we saw thee quietly inurn'd,</line>
+            <line>Hath oped his ponderous and marble jaws,</line>
+            <line>To cast thee up again. What may this mean,</line>
+            <line>That thou, dead corse, again in complete steel</line>
+            <line>Revisit'st thus the glimpses of the moon,</line>
+            <line>Making night hideous; and we fools of nature</line>
+            <line>So horridly to shake our disposition</line>
+            <line>With thoughts beyond the reaches of our souls?</line>
+            <line>Say, why is this? wherefore? what should we do?</line>
+         </speech>
+         <stagedir>Ghost beckons HAMLET</stagedir>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>It beckons you to go away with it,</line>
+            <line>As if it some impartment did desire</line>
+            <line>To you alone.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>Look, with what courteous action</line>
+            <line>It waves you to a more removed ground:</line>
+            <line>But do not go with it.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>No, by no means.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>It will not speak; then I will follow it.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Do not, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Why, what should be the fear?</line>
+            <line>I do not set my life in a pin's fee;</line>
+            <line>And for my soul, what can it do to that,</line>
+            <line>Being a thing immortal as itself?</line>
+            <line>It waves me forth again: I'll follow it.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>What if it tempt you toward the flood, my lord,</line>
+            <line>Or to the dreadful summit of the cliff</line>
+            <line>That beetles o'er his base into the sea,</line>
+            <line>And there assume some other horrible form,</line>
+            <line>Which might deprive your sovereignty of reason</line>
+            <line>And draw you into madness? think of it:</line>
+            <line>The very place puts toys of desperation,</line>
+            <line>Without more motive, into every brain</line>
+            <line>That looks so many fathoms to the sea</line>
+            <line>And hears it roar beneath.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>It waves me still.</line>
+            <line>Go on; I'll follow thee.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>You shall not go, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Hold off your hands.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Be ruled; you shall not go.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>My fate cries out,</line>
+            <line>And makes each petty artery in this body</line>
+            <line>As hardy as the Nemean lion's nerve.</line>
+            <line>Still am I call'd. Unhand me, gentlemen.</line>
+            <line>By heaven, I'll make a ghost of him that lets me!</line>
+            <line>I say, away! Go on; I'll follow thee.</line>
+         </speech>
+         <stagedir>Exeunt Ghost and HAMLET</stagedir>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>He waxes desperate with imagination.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>Let's follow; 'tis not fit thus to obey him.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Have after. To what issue will this come?</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>Something is rotten in the state of Denmark.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Heaven will direct it.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>Nay, let's follow him.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-1-scene-5">
+      <title>SCENE V.  Another part of the platform.</title>
+      <scene-body>
+         <stagedir>Enter GHOST and HAMLET</stagedir>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Where wilt thou lead me? speak; I'll go no further.</line>
+         </speech>
+         <speech>
+            <speaker>Ghost</speaker>
+            <line>Mark me.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>I will.</line>
+         </speech>
+         <speech>
+            <speaker>Ghost</speaker>
+            <line>My hour is almost come,</line>
+            <line>When I to sulphurous and tormenting flames</line>
+            <line>Must render up myself.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Alas, poor ghost!</line>
+         </speech>
+         <speech>
+            <speaker>Ghost</speaker>
+            <line>Pity me not, but lend thy serious hearing</line>
+            <line>To what I shall unfold.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Speak; I am bound to hear.</line>
+         </speech>
+         <speech>
+            <speaker>Ghost</speaker>
+            <line>So art thou to revenge, when thou shalt hear.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>What?</line>
+         </speech>
+         <speech>
+            <speaker>Ghost</speaker>
+            <line>I am thy father's spirit,</line>
+            <line>Doom'd for a certain term to walk the night,</line>
+            <line>And for the day confined to fast in fires,</line>
+            <line>Till the foul crimes done in my days of nature</line>
+            <line>Are burnt and purged away. But that I am forbid</line>
+            <line>To tell the secrets of my prison-house,</line>
+            <line>I could a tale unfold whose lightest word</line>
+            <line>Would harrow up thy soul, freeze thy young blood,</line>
+            <line>Make thy two eyes, like stars, start from their spheres,</line>
+            <line>Thy knotted and combined locks to part</line>
+            <line>And each particular hair to stand on end,</line>
+            <line>Like quills upon the fretful porpentine:</line>
+            <line>But this eternal blazon must not be</line>
+            <line>To ears of flesh and blood. List, list, O, list!</line>
+            <line>If thou didst ever thy dear father love--</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>O God!</line>
+         </speech>
+         <speech>
+            <speaker>Ghost</speaker>
+            <line>Revenge his foul and most unnatural murder.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Murder!</line>
+         </speech>
+         <speech>
+            <speaker>Ghost</speaker>
+            <line>Murder most foul, as in the best it is;</line>
+            <line>But this most foul, strange and unnatural.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Haste me to know't, that I, with wings as swift</line>
+            <line>As meditation or the thoughts of love,</line>
+            <line>May sweep to my revenge.</line>
+         </speech>
+         <speech>
+            <speaker>Ghost</speaker>
+            <line>I find thee apt;</line>
+            <line>And duller shouldst thou be than the fat weed</line>
+            <line>That roots itself in ease on Lethe wharf,</line>
+            <line>Wouldst thou not stir in this. Now, Hamlet, hear:</line>
+            <line>'Tis given out that, sleeping in my orchard,</line>
+            <line>A serpent stung me; so the whole ear of Denmark</line>
+            <line>Is by a forged process of my death</line>
+            <line>Rankly abused: but know, thou noble youth,</line>
+            <line>The serpent that did sting thy father's life</line>
+            <line>Now wears his crown.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>O my prophetic soul! My uncle!</line>
+         </speech>
+         <speech>
+            <speaker>Ghost</speaker>
+            <line>Ay, that incestuous, that adulterate beast,</line>
+            <line>With witchcraft of his wit, with traitorous gifts,--</line>
+            <line>O wicked wit and gifts, that have the power</line>
+            <line>So to seduce!--won to his shameful lust</line>
+            <line>The will of my most seeming-virtuous queen:</line>
+            <line>O Hamlet, what a falling-off was there!</line>
+            <line>From me, whose love was of that dignity</line>
+            <line>That it went hand in hand even with the vow</line>
+            <line>I made to her in marriage, and to decline</line>
+            <line>Upon a wretch whose natural gifts were poor</line>
+            <line>To those of mine!</line>
+            <line>But virtue, as it never will be moved,</line>
+            <line>Though lewdness court it in a shape of heaven,</line>
+            <line>So lust, though to a radiant angel link'd,</line>
+            <line>Will sate itself in a celestial bed,</line>
+            <line>And prey on garbage.</line>
+            <line>But, soft! methinks I scent the morning air;</line>
+            <line>Brief let me be. Sleeping within my orchard,</line>
+            <line>My custom always of the afternoon,</line>
+            <line>Upon my secure hour thy uncle stole,</line>
+            <line>With juice of cursed hebenon in a vial,</line>
+            <line>And in the porches of my ears did pour</line>
+            <line>The leperous distilment; whose effect</line>
+            <line>Holds such an enmity with blood of man</line>
+            <line>That swift as quicksilver it courses through</line>
+            <line>The natural gates and alleys of the body,</line>
+            <line>And with a sudden vigour doth posset</line>
+            <line>And curd, like eager droppings into milk,</line>
+            <line>The thin and wholesome blood: so did it mine;</line>
+            <line>And a most instant tetter bark'd about,</line>
+            <line>Most lazar-like, with vile and loathsome crust,</line>
+            <line>All my smooth body.</line>
+            <line>Thus was I, sleeping, by a brother's hand</line>
+            <line>Of life, of crown, of queen, at once dispatch'd:</line>
+            <line>Cut off even in the blossoms of my sin,</line>
+            <line>Unhousel'd, disappointed, unanel'd,</line>
+            <line>No reckoning made, but sent to my account</line>
+            <line>With all my imperfections on my head:</line>
+            <line>O, horrible! O, horrible! most horrible!</line>
+            <line>If thou hast nature in thee, bear it not;</line>
+            <line>Let not the royal bed of Denmark be</line>
+            <line>A couch for luxury and damned incest.</line>
+            <line>But, howsoever thou pursuest this act,</line>
+            <line>Taint not thy mind, nor let thy soul contrive</line>
+            <line>Against thy mother aught: leave her to heaven</line>
+            <line>And to those thorns that in her bosom lodge,</line>
+            <line>To prick and sting her. Fare thee well at once!</line>
+            <line>The glow-worm shows the matin to be near,</line>
+            <line>And 'gins to pale his uneffectual fire:</line>
+            <line>Adieu, adieu! Hamlet, remember me.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>O all you host of heaven! O earth! what else?</line>
+            <line>And shall I couple hell? O, fie! Hold, hold, my heart;</line>
+            <line>And you, my sinews, grow not instant old,</line>
+            <line>But bear me stiffly up. Remember thee!</line>
+            <line>Ay, thou poor ghost, while memory holds a seat</line>
+            <line>In this distracted globe. Remember thee!</line>
+            <line>Yea, from the table of my memory</line>
+            <line>I'll wipe away all trivial fond records,</line>
+            <line>All saws of books, all forms, all pressures past,</line>
+            <line>That youth and observation copied there;</line>
+            <line>And thy commandment all alone shall live</line>
+            <line>Within the book and volume of my brain,</line>
+            <line>Unmix'd with baser matter: yes, by heaven!</line>
+            <line>O most pernicious woman!</line>
+            <line>O villain, villain, smiling, damned villain!</line>
+            <line>My tables,--meet it is I set it down,</line>
+            <line>That one may smile, and smile, and be a villain;</line>
+            <line>At least I'm sure it may be so in Denmark:</line>
+            <stagedir>Writing</stagedir>
+            <line>So, uncle, there you are. Now to my word;</line>
+            <line>It is 'Adieu, adieu! remember me.'</line>
+            <line>I have sworn 't.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <speaker>HORATIO</speaker>
+            <line>
+               <stagedir>Within</stagedir>  My lord, my lord,--</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>
+               <stagedir>Within</stagedir> Lord Hamlet,--</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>
+               <stagedir>Within</stagedir> Heaven secure him!</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>So be it!</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>
+               <stagedir>Within</stagedir>  Hillo, ho, ho, my lord!</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Hillo, ho, ho, boy! come, bird, come.</line>
+         </speech>
+         <stagedir>Enter HORATIO and MARCELLUS</stagedir>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>How is't, my noble lord?</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>What news, my lord?</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>O, wonderful!</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Good my lord, tell it.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>No; you'll reveal it.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Not I, my lord, by heaven.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>Nor I, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>How say you, then; would heart of man once think it?</line>
+            <line>But you'll be secret?</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <speaker>MARCELLUS</speaker>
+            <line>Ay, by heaven, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>There's ne'er a villain dwelling in all Denmark</line>
+            <line>But he's an arrant knave.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>There needs no ghost, my lord, come from the grave</line>
+            <line>To tell us this.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Why, right; you are i' the right;</line>
+            <line>And so, without more circumstance at all,</line>
+            <line>I hold it fit that we shake hands and part:</line>
+            <line>You, as your business and desire shall point you;</line>
+            <line>For every man has business and desire,</line>
+            <line>Such as it is; and for mine own poor part,</line>
+            <line>Look you, I'll go pray.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>These are but wild and whirling words, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>I'm sorry they offend you, heartily;</line>
+            <line>Yes, 'faith heartily.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>There's no offence, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Yes, by Saint Patrick, but there is, Horatio,</line>
+            <line>And much offence too. Touching this vision here,</line>
+            <line>It is an honest ghost, that let me tell you:</line>
+            <line>For your desire to know what is between us,</line>
+            <line>O'ermaster 't as you may. And now, good friends,</line>
+            <line>As you are friends, scholars and soldiers,</line>
+            <line>Give me one poor request.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>What is't, my lord? we will.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Never make known what you have seen to-night.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <speaker>MARCELLUS</speaker>
+            <line>My lord, we will not.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Nay, but swear't.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>In faith,</line>
+            <line>My lord, not I.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>Nor I, my lord, in faith.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Upon my sword.</line>
+         </speech>
+         <speech>
+            <speaker>MARCELLUS</speaker>
+            <line>We have sworn, my lord, already.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Indeed, upon my sword, indeed.</line>
+         </speech>
+         <speech>
+            <speaker>Ghost</speaker>
+            <line>
+               <stagedir>Beneath</stagedir>  Swear.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Ah, ha, boy! say'st thou so? art thou there,</line>
+            <line>truepenny?</line>
+            <line>Come on--you hear this fellow in the cellarage--</line>
+            <line>Consent to swear.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>Propose the oath, my lord.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Never to speak of this that you have seen,</line>
+            <line>Swear by my sword.</line>
+         </speech>
+         <speech>
+            <speaker>Ghost</speaker>
+            <line>
+               <stagedir>Beneath</stagedir>  Swear.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Hic et ubique? then we'll shift our ground.</line>
+            <line>Come hither, gentlemen,</line>
+            <line>And lay your hands again upon my sword:</line>
+            <line>Never to speak of this that you have heard,</line>
+            <line>Swear by my sword.</line>
+         </speech>
+         <speech>
+            <speaker>Ghost</speaker>
+            <line>
+               <stagedir>Beneath</stagedir>  Swear.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Well said, old mole! canst work i' the earth so fast?</line>
+            <line>A worthy pioner! Once more remove, good friends.</line>
+         </speech>
+         <speech>
+            <speaker>HORATIO</speaker>
+            <line>O day and night, but this is wondrous strange!</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>And therefore as a stranger give it welcome.</line>
+            <line>There are more things in heaven and earth, Horatio,</line>
+            <line>Than are dreamt of in your philosophy. But come;</line>
+            <line>Here, as before, never, so help you mercy,</line>
+            <line>How strange or odd soe'er I bear myself,</line>
+            <line>As I perchance hereafter shall think meet</line>
+            <line>To put an antic disposition on,</line>
+            <line>That you, at such times seeing me, never shall,</line>
+            <line>With arms encumber'd thus, or this headshake,</line>
+            <line>Or by pronouncing of some doubtful phrase,</line>
+            <line>As 'Well, well, we know,' or 'We could, an if we would,'</line>
+            <line>Or 'If we list to speak,' or 'There be, an if they might,'</line>
+            <line>Or such ambiguous giving out, to note</line>
+            <line>That you know aught of me: this not to do,</line>
+            <line>So grace and mercy at your most need help you, Swear.</line>
+         </speech>
+         <speech>
+            <speaker>Ghost</speaker>
+            <line>
+               <stagedir>Beneath</stagedir>  Swear.</line>
+         </speech>
+         <speech>
+            <speaker>HAMLET</speaker>
+            <line>Rest, rest, perturbed spirit!</line>
+            <stagedir>They swear</stagedir>
+            <line>So, gentlemen,</line>
+            <line>With all my love I do commend me to you:</line>
+            <line>And what so poor a man as Hamlet is</line>
+            <line>May do, to express his love and friending to you,</line>
+            <line>God willing, shall not lack. Let us go in together;</line>
+            <line>And still your fingers on your lips, I pray.</line>
+            <line>The time is out of joint: O cursed spite,</line>
+            <line>That ever I was born to set it right!</line>
+            <line>Nay, come, let's go together.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+</act>

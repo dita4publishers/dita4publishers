@@ -1,0 +1,1378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE act
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:shakespear:dtd:act" "act.dtd">
+<act id="act-2">
+   <title>ACT II</title>
+   <prologue id="act-2-prologue">
+      <title>PROLOGUE</title>
+      <prologue-body>
+         <stagedir>Enter Chorus</stagedir>
+         <speech>
+            <speaker>Chorus</speaker>
+            <line>Now old desire doth in his death-bed lie,</line>
+            <line>And young affection gapes to be his heir;</line>
+            <line>That fair for which love groan'd for and would die,</line>
+            <line>With tender Juliet match'd, is now not fair.</line>
+            <line>Now Romeo is beloved and loves again,</line>
+            <line>Alike betwitched by the charm of looks,</line>
+            <line>But to his foe supposed he must complain,</line>
+            <line>And she steal love's sweet bait from fearful hooks:</line>
+            <line>Being held a foe, he may not have access</line>
+            <line>To breathe such vows as lovers use to swear;</line>
+            <line>And she as much in love, her means much less</line>
+            <line>To meet her new-beloved any where:</line>
+            <line>But passion lends them power, time means, to meet</line>
+            <line>Tempering extremities with extreme sweet.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+      </prologue-body>
+   </prologue>
+   <scene id="act-2-scene-1">
+      <title>SCENE I.  A lane by the wall of Capulet's orchard.</title>
+      <scene-body>
+         <stagedir>Enter ROMEO</stagedir>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Can I go forward when my heart is here?</line>
+            <line>Turn back, dull earth, and find thy centre out.</line>
+         </speech>
+         <stagedir>He climbs the wall, and leaps down within it</stagedir>
+         <stagedir>Enter BENVOLIO and MERCUTIO</stagedir>
+         <speech>
+            <speaker>BENVOLIO</speaker>
+            <line>Romeo! my cousin Romeo!</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>He is wise;</line>
+            <line>And, on my lie, hath stol'n him home to bed.</line>
+         </speech>
+         <speech>
+            <speaker>BENVOLIO</speaker>
+            <line>He ran this way, and leap'd this orchard wall:</line>
+            <line>Call, good Mercutio.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>Nay, I'll conjure too.</line>
+            <line>Romeo! humours! madman! passion! lover!</line>
+            <line>Appear thou in the likeness of a sigh:</line>
+            <line>Speak but one rhyme, and I am satisfied;</line>
+            <line>Cry but 'Ay me!' pronounce but 'love' and 'dove;'</line>
+            <line>Speak to my gossip Venus one fair word,</line>
+            <line>One nick-name for her purblind son and heir,</line>
+            <line>Young Adam Cupid, he that shot so trim,</line>
+            <line>When King Cophetua loved the beggar-maid!</line>
+            <line>He heareth not, he stirreth not, he moveth not;</line>
+            <line>The ape is dead, and I must conjure him.</line>
+            <line>I conjure thee by Rosaline's bright eyes,</line>
+            <line>By her high forehead and her scarlet lip,</line>
+            <line>By her fine foot, straight leg and quivering thigh</line>
+            <line>And the demesnes that there adjacent lie,</line>
+            <line>That in thy likeness thou appear to us!</line>
+         </speech>
+         <speech>
+            <speaker>BENVOLIO</speaker>
+            <line>And if he hear thee, thou wilt anger him.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>This cannot anger him: 'twould anger him</line>
+            <line>To raise a spirit in his mistress' circle</line>
+            <line>Of some strange nature, letting it there stand</line>
+            <line>Till she had laid it and conjured it down;</line>
+            <line>That were some spite: my invocation</line>
+            <line>Is fair and honest, and in his mistress' name</line>
+            <line>I conjure only but to raise up him.</line>
+         </speech>
+         <speech>
+            <speaker>BENVOLIO</speaker>
+            <line>Come, he hath hid himself among these trees,</line>
+            <line>To be consorted with the humorous night:</line>
+            <line>Blind is his love and best befits the dark.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>If love be blind, love cannot hit the mark.</line>
+            <line>Now will he sit under a medlar tree,</line>
+            <line>And wish his mistress were that kind of fruit</line>
+            <line>As maids call medlars, when they laugh alone.</line>
+            <line>Romeo, that she were, O, that she were</line>
+            <line>An open et caetera, thou a poperin pear!</line>
+            <line>Romeo, good night: I'll to my truckle-bed;</line>
+            <line>This field-bed is too cold for me to sleep:</line>
+            <line>Come, shall we go?</line>
+         </speech>
+         <speech>
+            <speaker>BENVOLIO</speaker>
+            <line>Go, then; for 'tis in vain</line>
+            <line>To seek him here that means not to be found.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-2">
+      <title>SCENE II.  Capulet's orchard.</title>
+      <scene-body>
+         <stagedir>Enter ROMEO</stagedir>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>He jests at scars that never felt a wound.</line>
+            <stagedir>JULIET appears above at a window</stagedir>
+            <line>But, soft! what light through yonder window breaks?</line>
+            <line>It is the east, and Juliet is the sun.</line>
+            <line>Arise, fair sun, and kill the envious moon,</line>
+            <line>Who is already sick and pale with grief,</line>
+            <line>That thou her maid art far more fair than she:</line>
+            <line>Be not her maid, since she is envious;</line>
+            <line>Her vestal livery is but sick and green</line>
+            <line>And none but fools do wear it; cast it off.</line>
+            <line>It is my lady, O, it is my love!</line>
+            <line>O, that she knew she were!</line>
+            <line>She speaks yet she says nothing: what of that?</line>
+            <line>Her eye discourses; I will answer it.</line>
+            <line>I am too bold, 'tis not to me she speaks:</line>
+            <line>Two of the fairest stars in all the heaven,</line>
+            <line>Having some business, do entreat her eyes</line>
+            <line>To twinkle in their spheres till they return.</line>
+            <line>What if her eyes were there, they in her head?</line>
+            <line>The brightness of her cheek would shame those stars,</line>
+            <line>As daylight doth a lamp; her eyes in heaven</line>
+            <line>Would through the airy region stream so bright</line>
+            <line>That birds would sing and think it were not night.</line>
+            <line>See, how she leans her cheek upon her hand!</line>
+            <line>O, that I were a glove upon that hand,</line>
+            <line>That I might touch that cheek!</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Ay me!</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>She speaks:</line>
+            <line>O, speak again, bright angel! for thou art</line>
+            <line>As glorious to this night, being o'er my head</line>
+            <line>As is a winged messenger of heaven</line>
+            <line>Unto the white-upturned wondering eyes</line>
+            <line>Of mortals that fall back to gaze on him</line>
+            <line>When he bestrides the lazy-pacing clouds</line>
+            <line>And sails upon the bosom of the air.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>O Romeo, Romeo! wherefore art thou Romeo?</line>
+            <line>Deny thy father and refuse thy name;</line>
+            <line>Or, if thou wilt not, be but sworn my love,</line>
+            <line>And I'll no longer be a Capulet.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>
+               <stagedir>Aside</stagedir>  Shall I hear more, or shall I speak at this?</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>'Tis but thy name that is my enemy;</line>
+            <line>Thou art thyself, though not a Montague.</line>
+            <line>What's Montague? it is nor hand, nor foot,</line>
+            <line>Nor arm, nor face, nor any other part</line>
+            <line>Belonging to a man. O, be some other name!</line>
+            <line>What's in a name? that which we call a rose</line>
+            <line>By any other name would smell as sweet;</line>
+            <line>So Romeo would, were he not Romeo call'd,</line>
+            <line>Retain that dear perfection which he owes</line>
+            <line>Without that title. Romeo, doff thy name,</line>
+            <line>And for that name which is no part of thee</line>
+            <line>Take all myself.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>I take thee at thy word:</line>
+            <line>Call me but love, and I'll be new baptized;</line>
+            <line>Henceforth I never will be Romeo.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>What man art thou that thus bescreen'd in night</line>
+            <line>So stumblest on my counsel?</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>By a name</line>
+            <line>I know not how to tell thee who I am:</line>
+            <line>My name, dear saint, is hateful to myself,</line>
+            <line>Because it is an enemy to thee;</line>
+            <line>Had I it written, I would tear the word.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>My ears have not yet drunk a hundred words</line>
+            <line>Of that tongue's utterance, yet I know the sound:</line>
+            <line>Art thou not Romeo and a Montague?</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Neither, fair saint, if either thee dislike.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>How camest thou hither, tell me, and wherefore?</line>
+            <line>The orchard walls are high and hard to climb,</line>
+            <line>And the place death, considering who thou art,</line>
+            <line>If any of my kinsmen find thee here.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>With love's light wings did I o'er-perch these walls;</line>
+            <line>For stony limits cannot hold love out,</line>
+            <line>And what love can do that dares love attempt;</line>
+            <line>Therefore thy kinsmen are no let to me.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>If they do see thee, they will murder thee.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Alack, there lies more peril in thine eye</line>
+            <line>Than twenty of their swords: look thou but sweet,</line>
+            <line>And I am proof against their enmity.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>I would not for the world they saw thee here.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>I have night's cloak to hide me from their sight;</line>
+            <line>And but thou love me, let them find me here:</line>
+            <line>My life were better ended by their hate,</line>
+            <line>Than death prorogued, wanting of thy love.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>By whose direction found'st thou out this place?</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>By love, who first did prompt me to inquire;</line>
+            <line>He lent me counsel and I lent him eyes.</line>
+            <line>I am no pilot; yet, wert thou as far</line>
+            <line>As that vast shore wash'd with the farthest sea,</line>
+            <line>I would adventure for such merchandise.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Thou know'st the mask of night is on my face,</line>
+            <line>Else would a maiden blush bepaint my cheek</line>
+            <line>For that which thou hast heard me speak to-night</line>
+            <line>Fain would I dwell on form, fain, fain deny</line>
+            <line>What I have spoke: but farewell compliment!</line>
+            <line>Dost thou love me? I know thou wilt say 'Ay,'</line>
+            <line>And I will take thy word: yet if thou swear'st,</line>
+            <line>Thou mayst prove false; at lovers' perjuries</line>
+            <line>Then say, Jove laughs. O gentle Romeo,</line>
+            <line>If thou dost love, pronounce it faithfully:</line>
+            <line>Or if thou think'st I am too quickly won,</line>
+            <line>I'll frown and be perverse an say thee nay,</line>
+            <line>So thou wilt woo; but else, not for the world.</line>
+            <line>In truth, fair Montague, I am too fond,</line>
+            <line>And therefore thou mayst think my 'havior light:</line>
+            <line>But trust me, gentleman, I'll prove more true</line>
+            <line>Than those that have more cunning to be strange.</line>
+            <line>I should have been more strange, I must confess,</line>
+            <line>But that thou overheard'st, ere I was ware,</line>
+            <line>My true love's passion: therefore pardon me,</line>
+            <line>And not impute this yielding to light love,</line>
+            <line>Which the dark night hath so discovered.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Lady, by yonder blessed moon I swear</line>
+            <line>That tips with silver all these fruit-tree tops--</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>O, swear not by the moon, the inconstant moon,</line>
+            <line>That monthly changes in her circled orb,</line>
+            <line>Lest that thy love prove likewise variable.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>What shall I swear by?</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Do not swear at all;</line>
+            <line>Or, if thou wilt, swear by thy gracious self,</line>
+            <line>Which is the god of my idolatry,</line>
+            <line>And I'll believe thee.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>If my heart's dear love--</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Well, do not swear: although I joy in thee,</line>
+            <line>I have no joy of this contract to-night:</line>
+            <line>It is too rash, too unadvised, too sudden;</line>
+            <line>Too like the lightning, which doth cease to be</line>
+            <line>Ere one can say 'It lightens.' Sweet, good night!</line>
+            <line>This bud of love, by summer's ripening breath,</line>
+            <line>May prove a beauteous flower when next we meet.</line>
+            <line>Good night, good night! as sweet repose and rest</line>
+            <line>Come to thy heart as that within my breast!</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>O, wilt thou leave me so unsatisfied?</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>What satisfaction canst thou have to-night?</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>The exchange of thy love's faithful vow for mine.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>I gave thee mine before thou didst request it:</line>
+            <line>And yet I would it were to give again.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Wouldst thou withdraw it? for what purpose, love?</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>But to be frank, and give it thee again.</line>
+            <line>And yet I wish but for the thing I have:</line>
+            <line>My bounty is as boundless as the sea,</line>
+            <line>My love as deep; the more I give to thee,</line>
+            <line>The more I have, for both are infinite.</line>
+            <stagedir>Nurse calls within</stagedir>
+            <line>I hear some noise within; dear love, adieu!</line>
+            <line>Anon, good nurse! Sweet Montague, be true.</line>
+            <line>Stay but a little, I will come again.</line>
+         </speech>
+         <stagedir>Exit, above</stagedir>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>O blessed, blessed night! I am afeard.</line>
+            <line>Being in night, all this is but a dream,</line>
+            <line>Too flattering-sweet to be substantial.</line>
+         </speech>
+         <stagedir>Re-enter JULIET, above</stagedir>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Three words, dear Romeo, and good night indeed.</line>
+            <line>If that thy bent of love be honourable,</line>
+            <line>Thy purpose marriage, send me word to-morrow,</line>
+            <line>By one that I'll procure to come to thee,</line>
+            <line>Where and what time thou wilt perform the rite;</line>
+            <line>And all my fortunes at thy foot I'll lay</line>
+            <line>And follow thee my lord throughout the world.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>
+               <stagedir>Within</stagedir>  Madam!</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>I come, anon.--But if thou mean'st not well,</line>
+            <line>I do beseech thee--</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>
+               <stagedir>Within</stagedir>  Madam!</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>By and by, I come:--</line>
+            <line>To cease thy suit, and leave me to my grief:</line>
+            <line>To-morrow will I send.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>So thrive my soul--</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>A thousand times good night!</line>
+         </speech>
+         <stagedir>Exit, above</stagedir>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>A thousand times the worse, to want thy light.</line>
+            <line>Love goes toward love, as schoolboys from</line>
+            <line>their books,</line>
+            <line>But love from love, toward school with heavy looks.</line>
+         </speech>
+         <stagedir>Retiring</stagedir>
+         <stagedir>Re-enter JULIET, above</stagedir>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Hist! Romeo, hist! O, for a falconer's voice,</line>
+            <line>To lure this tassel-gentle back again!</line>
+            <line>Bondage is hoarse, and may not speak aloud;</line>
+            <line>Else would I tear the cave where Echo lies,</line>
+            <line>And make her airy tongue more hoarse than mine,</line>
+            <line>With repetition of my Romeo's name.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>It is my soul that calls upon my name:</line>
+            <line>How silver-sweet sound lovers' tongues by night,</line>
+            <line>Like softest music to attending ears!</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Romeo!</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>My dear?</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>At what o'clock to-morrow</line>
+            <line>Shall I send to thee?</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>At the hour of nine.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>I will not fail: 'tis twenty years till then.</line>
+            <line>I have forgot why I did call thee back.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Let me stand here till thou remember it.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>I shall forget, to have thee still stand there,</line>
+            <line>Remembering how I love thy company.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>And I'll still stay, to have thee still forget,</line>
+            <line>Forgetting any other home but this.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>'Tis almost morning; I would have thee gone:</line>
+            <line>And yet no further than a wanton's bird;</line>
+            <line>Who lets it hop a little from her hand,</line>
+            <line>Like a poor prisoner in his twisted gyves,</line>
+            <line>And with a silk thread plucks it back again,</line>
+            <line>So loving-jealous of his liberty.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>I would I were thy bird.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Sweet, so would I:</line>
+            <line>Yet I should kill thee with much cherishing.</line>
+            <line>Good night, good night! parting is such</line>
+            <line>sweet sorrow,</line>
+            <line>That I shall say good night till it be morrow.</line>
+         </speech>
+         <stagedir>Exit above</stagedir>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Sleep dwell upon thine eyes, peace in thy breast!</line>
+            <line>Would I were sleep and peace, so sweet to rest!</line>
+            <line>Hence will I to my ghostly father's cell,</line>
+            <line>His help to crave, and my dear hap to tell.</line>
+         </speech>
+         <stagedir>Exit</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-3">
+      <title>SCENE III.  Friar Laurence's cell.</title>
+      <scene-body>
+         <stagedir>Enter FRIAR LAURENCE, with a basket</stagedir>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>The grey-eyed morn smiles on the frowning night,</line>
+            <line>Chequering the eastern clouds with streaks of light,</line>
+            <line>And flecked darkness like a drunkard reels</line>
+            <line>From forth day's path and Titan's fiery wheels:</line>
+            <line>Now, ere the sun advance his burning eye,</line>
+            <line>The day to cheer and night's dank dew to dry,</line>
+            <line>I must up-fill this osier cage of ours</line>
+            <line>With baleful weeds and precious-juiced flowers.</line>
+            <line>The earth that's nature's mother is her tomb;</line>
+            <line>What is her burying grave that is her womb,</line>
+            <line>And from her womb children of divers kind</line>
+            <line>We sucking on her natural bosom find,</line>
+            <line>Many for many virtues excellent,</line>
+            <line>None but for some and yet all different.</line>
+            <line>O, mickle is the powerful grace that lies</line>
+            <line>In herbs, plants, stones, and their true qualities:</line>
+            <line>For nought so vile that on the earth doth live</line>
+            <line>But to the earth some special good doth give,</line>
+            <line>Nor aught so good but strain'd from that fair use</line>
+            <line>Revolts from true birth, stumbling on abuse:</line>
+            <line>Virtue itself turns vice, being misapplied;</line>
+            <line>And vice sometimes by action dignified.</line>
+            <line>Within the infant rind of this small flower</line>
+            <line>Poison hath residence and medicine power:</line>
+            <line>For this, being smelt, with that part cheers each part;</line>
+            <line>Being tasted, slays all senses with the heart.</line>
+            <line>Two such opposed kings encamp them still</line>
+            <line>In man as well as herbs, grace and rude will;</line>
+            <line>And where the worser is predominant,</line>
+            <line>Full soon the canker death eats up that plant.</line>
+         </speech>
+         <stagedir>Enter ROMEO</stagedir>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Good morrow, father.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Benedicite!</line>
+            <line>What early tongue so sweet saluteth me?</line>
+            <line>Young son, it argues a distemper'd head</line>
+            <line>So soon to bid good morrow to thy bed:</line>
+            <line>Care keeps his watch in every old man's eye,</line>
+            <line>And where care lodges, sleep will never lie;</line>
+            <line>But where unbruised youth with unstuff'd brain</line>
+            <line>Doth couch his limbs, there golden sleep doth reign:</line>
+            <line>Therefore thy earliness doth me assure</line>
+            <line>Thou art up-roused by some distemperature;</line>
+            <line>Or if not so, then here I hit it right,</line>
+            <line>Our Romeo hath not been in bed to-night.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>That last is true; the sweeter rest was mine.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>God pardon sin! wast thou with Rosaline?</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>With Rosaline, my ghostly father? no;</line>
+            <line>I have forgot that name, and that name's woe.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>That's my good son: but where hast thou been, then?</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>I'll tell thee, ere thou ask it me again.</line>
+            <line>I have been feasting with mine enemy,</line>
+            <line>Where on a sudden one hath wounded me,</line>
+            <line>That's by me wounded: both our remedies</line>
+            <line>Within thy help and holy physic lies:</line>
+            <line>I bear no hatred, blessed man, for, lo,</line>
+            <line>My intercession likewise steads my foe.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Be plain, good son, and homely in thy drift;</line>
+            <line>Riddling confession finds but riddling shrift.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Then plainly know my heart's dear love is set</line>
+            <line>On the fair daughter of rich Capulet:</line>
+            <line>As mine on hers, so hers is set on mine;</line>
+            <line>And all combined, save what thou must combine</line>
+            <line>By holy marriage: when and where and how</line>
+            <line>We met, we woo'd and made exchange of vow,</line>
+            <line>I'll tell thee as we pass; but this I pray,</line>
+            <line>That thou consent to marry us to-day.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Holy Saint Francis, what a change is here!</line>
+            <line>Is Rosaline, whom thou didst love so dear,</line>
+            <line>So soon forsaken? young men's love then lies</line>
+            <line>Not truly in their hearts, but in their eyes.</line>
+            <line>Jesu Maria, what a deal of brine</line>
+            <line>Hath wash'd thy sallow cheeks for Rosaline!</line>
+            <line>How much salt water thrown away in waste,</line>
+            <line>To season love, that of it doth not taste!</line>
+            <line>The sun not yet thy sighs from heaven clears,</line>
+            <line>Thy old groans ring yet in my ancient ears;</line>
+            <line>Lo, here upon thy cheek the stain doth sit</line>
+            <line>Of an old tear that is not wash'd off yet:</line>
+            <line>If e'er thou wast thyself and these woes thine,</line>
+            <line>Thou and these woes were all for Rosaline:</line>
+            <line>And art thou changed? pronounce this sentence then,</line>
+            <line>Women may fall, when there's no strength in men.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Thou chid'st me oft for loving Rosaline.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>For doting, not for loving, pupil mine.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>And bad'st me bury love.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Not in a grave,</line>
+            <line>To lay one in, another out to have.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>I pray thee, chide not; she whom I love now</line>
+            <line>Doth grace for grace and love for love allow;</line>
+            <line>The other did not so.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>O, she knew well</line>
+            <line>Thy love did read by rote and could not spell.</line>
+            <line>But come, young waverer, come, go with me,</line>
+            <line>In one respect I'll thy assistant be;</line>
+            <line>For this alliance may so happy prove,</line>
+            <line>To turn your households' rancour to pure love.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>O, let us hence; I stand on sudden haste.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Wisely and slow; they stumble that run fast.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-4">
+      <title>SCENE IV.  A street.</title>
+      <scene-body>
+         <stagedir>Enter BENVOLIO and MERCUTIO</stagedir>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>Where the devil should this Romeo be?</line>
+            <line>Came he not home to-night?</line>
+         </speech>
+         <speech>
+            <speaker>BENVOLIO</speaker>
+            <line>Not to his father's; I spoke with his man.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>Ah, that same pale hard-hearted wench, that Rosaline.</line>
+            <line>Torments him so, that he will sure run mad.</line>
+         </speech>
+         <speech>
+            <speaker>BENVOLIO</speaker>
+            <line>Tybalt, the kinsman of old Capulet,</line>
+            <line>Hath sent a letter to his father's house.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>A challenge, on my life.</line>
+         </speech>
+         <speech>
+            <speaker>BENVOLIO</speaker>
+            <line>Romeo will answer it.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>Any man that can write may answer a letter.</line>
+         </speech>
+         <speech>
+            <speaker>BENVOLIO</speaker>
+            <line>Nay, he will answer the letter's master, how he</line>
+            <line>dares, being dared.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>Alas poor Romeo! he is already dead; stabbed with a</line>
+            <line>white wench's black eye; shot through the ear with a</line>
+            <line>love-song; the very pin of his heart cleft with the</line>
+            <line>blind bow-boy's butt-shaft: and is he a man to</line>
+            <line>encounter Tybalt?</line>
+         </speech>
+         <speech>
+            <speaker>BENVOLIO</speaker>
+            <line>Why, what is Tybalt?</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>More than prince of cats, I can tell you. O, he is</line>
+            <line>the courageous captain of compliments. He fights as</line>
+            <line>you sing prick-song, keeps time, distance, and</line>
+            <line>proportion; rests me his minim rest, one, two, and</line>
+            <line>the third in your bosom: the very butcher of a silk</line>
+            <line>button, a duellist, a duellist; a gentleman of the</line>
+            <line>very first house, of the first and second cause:</line>
+            <line>ah, the immortal passado! the punto reverso! the</line>
+            <line>hai!</line>
+         </speech>
+         <speech>
+            <speaker>BENVOLIO</speaker>
+            <line>The what?</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>The pox of such antic, lisping, affecting</line>
+            <line>fantasticoes; these new tuners of accents! 'By Jesu,</line>
+            <line>a very good blade! a very tall man! a very good</line>
+            <line>whore!' Why, is not this a lamentable thing,</line>
+            <line>grandsire, that we should be thus afflicted with</line>
+            <line>these strange flies, these fashion-mongers, these</line>
+            <line>perdona-mi's, who stand so much on the new form,</line>
+            <line>that they cannot at ease on the old bench? O, their</line>
+            <line>bones, their bones!</line>
+         </speech>
+         <stagedir>Enter ROMEO</stagedir>
+         <speech>
+            <speaker>BENVOLIO</speaker>
+            <line>Here comes Romeo, here comes Romeo.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>Without his roe, like a dried herring: flesh, flesh,</line>
+            <line>how art thou fishified! Now is he for the numbers</line>
+            <line>that Petrarch flowed in: Laura to his lady was but a</line>
+            <line>kitchen-wench; marry, she had a better love to</line>
+            <line>be-rhyme her; Dido a dowdy; Cleopatra a gipsy;</line>
+            <line>Helen and Hero hildings and harlots; Thisbe a grey</line>
+            <line>eye or so, but not to the purpose. Signior</line>
+            <line>Romeo, bon jour! there's a French salutation</line>
+            <line>to your French slop. You gave us the counterfeit</line>
+            <line>fairly last night.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Good morrow to you both. What counterfeit did I give you?</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>The ship, sir, the slip; can you not conceive?</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Pardon, good Mercutio, my business was great; and in</line>
+            <line>such a case as mine a man may strain courtesy.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>That's as much as to say, such a case as yours</line>
+            <line>constrains a man to bow in the hams.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Meaning, to court'sy.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>Thou hast most kindly hit it.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>A most courteous exposition.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>Nay, I am the very pink of courtesy.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Pink for flower.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>Right.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Why, then is my pump well flowered.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>Well said: follow me this jest now till thou hast</line>
+            <line>worn out thy pump, that when the single sole of it</line>
+            <line>is worn, the jest may remain after the wearing sole singular.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>O single-soled jest, solely singular for the</line>
+            <line>singleness.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>Come between us, good Benvolio; my wits faint.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Switch and spurs, switch and spurs; or I'll cry a match.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>Nay, if thy wits run the wild-goose chase, I have</line>
+            <line>done, for thou hast more of the wild-goose in one of</line>
+            <line>thy wits than, I am sure, I have in my whole five:</line>
+            <line>was I with you there for the goose?</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Thou wast never with me for any thing when thou wast</line>
+            <line>not there for the goose.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>I will bite thee by the ear for that jest.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Nay, good goose, bite not.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>Thy wit is a very bitter sweeting; it is a most</line>
+            <line>sharp sauce.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>And is it not well served in to a sweet goose?</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>O here's a wit of cheveril, that stretches from an</line>
+            <line>inch narrow to an ell broad!</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>I stretch it out for that word 'broad;' which added</line>
+            <line>to the goose, proves thee far and wide a broad goose.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>Why, is not this better now than groaning for love?</line>
+            <line>now art thou sociable, now art thou Romeo; now art</line>
+            <line>thou what thou art, by art as well as by nature:</line>
+            <line>for this drivelling love is like a great natural,</line>
+            <line>that runs lolling up and down to hide his bauble in a hole.</line>
+         </speech>
+         <speech>
+            <speaker>BENVOLIO</speaker>
+            <line>Stop there, stop there.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>Thou desirest me to stop in my tale against the hair.</line>
+         </speech>
+         <speech>
+            <speaker>BENVOLIO</speaker>
+            <line>Thou wouldst else have made thy tale large.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>O, thou art deceived; I would have made it short:</line>
+            <line>for I was come to the whole depth of my tale; and</line>
+            <line>meant, indeed, to occupy the argument no longer.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Here's goodly gear!</line>
+         </speech>
+         <stagedir>Enter Nurse and PETER</stagedir>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>A sail, a sail!</line>
+         </speech>
+         <speech>
+            <speaker>BENVOLIO</speaker>
+            <line>Two, two; a shirt and a smock.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Peter!</line>
+         </speech>
+         <speech>
+            <speaker>PETER</speaker>
+            <line>Anon!</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>My fan, Peter.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>Good Peter, to hide her face; for her fan's the</line>
+            <line>fairer face.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>God ye good morrow, gentlemen.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>God ye good den, fair gentlewoman.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Is it good den?</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>'Tis no less, I tell you, for the bawdy hand of the</line>
+            <line>dial is now upon the prick of noon.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Out upon you! what a man are you!</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>One, gentlewoman, that God hath made for himself to</line>
+            <line>mar.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>By my troth, it is well said; 'for himself to mar,'</line>
+            <line>quoth a'? Gentlemen, can any of you tell me where I</line>
+            <line>may find the young Romeo?</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>I can tell you; but young Romeo will be older when</line>
+            <line>you have found him than he was when you sought him:</line>
+            <line>I am the youngest of that name, for fault of a worse.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>You say well.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>Yea, is the worst well? very well took, i' faith;</line>
+            <line>wisely, wisely.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>if you be he, sir, I desire some confidence with</line>
+            <line>you.</line>
+         </speech>
+         <speech>
+            <speaker>BENVOLIO</speaker>
+            <line>She will indite him to some supper.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>A bawd, a bawd, a bawd! so ho!</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>What hast thou found?</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>No hare, sir; unless a hare, sir, in a lenten pie,</line>
+            <line>that is something stale and hoar ere it be spent.</line>
+            <stagedir>Sings</stagedir>
+            <line>An old hare hoar,</line>
+            <line>And an old hare hoar,</line>
+            <line>Is very good meat in lent</line>
+            <line>But a hare that is hoar</line>
+            <line>Is too much for a score,</line>
+            <line>When it hoars ere it be spent.</line>
+            <line>Romeo, will you come to your father's? we'll</line>
+            <line>to dinner, thither.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>I will follow you.</line>
+         </speech>
+         <speech>
+            <speaker>MERCUTIO</speaker>
+            <line>Farewell, ancient lady; farewell,</line>
+            <stagedir>Singing</stagedir>
+            <line>'lady, lady, lady.'</line>
+         </speech>
+         <stagedir>Exeunt MERCUTIO and BENVOLIO</stagedir>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Marry, farewell! I pray you, sir, what saucy</line>
+            <line>merchant was this, that was so full of his ropery?</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>A gentleman, nurse, that loves to hear himself talk,</line>
+            <line>and will speak more in a minute than he will stand</line>
+            <line>to in a month.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>An a' speak any thing against me, I'll take him</line>
+            <line>down, an a' were lustier than he is, and twenty such</line>
+            <line>Jacks; and if I cannot, I'll find those that shall.</line>
+            <line>Scurvy knave! I am none of his flirt-gills; I am</line>
+            <line>none of his skains-mates. And thou must stand by</line>
+            <line>too, and suffer every knave to use me at his pleasure?</line>
+         </speech>
+         <speech>
+            <speaker>PETER</speaker>
+            <line>I saw no man use you a pleasure; if I had, my weapon</line>
+            <line>should quickly have been out, I warrant you: I dare</line>
+            <line>draw as soon as another man, if I see occasion in a</line>
+            <line>good quarrel, and the law on my side.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Now, afore God, I am so vexed, that every part about</line>
+            <line>me quivers. Scurvy knave! Pray you, sir, a word:</line>
+            <line>and as I told you, my young lady bade me inquire you</line>
+            <line>out; what she bade me say, I will keep to myself:</line>
+            <line>but first let me tell ye, if ye should lead her into</line>
+            <line>a fool's paradise, as they say, it were a very gross</line>
+            <line>kind of behavior, as they say: for the gentlewoman</line>
+            <line>is young; and, therefore, if you should deal double</line>
+            <line>with her, truly it were an ill thing to be offered</line>
+            <line>to any gentlewoman, and very weak dealing.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Nurse, commend me to thy lady and mistress. I</line>
+            <line>protest unto thee--</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Good heart, and, i' faith, I will tell her as much:</line>
+            <line>Lord, Lord, she will be a joyful woman.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>What wilt thou tell her, nurse? thou dost not mark me.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>I will tell her, sir, that you do protest; which, as</line>
+            <line>I take it, is a gentlemanlike offer.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Bid her devise</line>
+            <line>Some means to come to shrift this afternoon;</line>
+            <line>And there she shall at Friar Laurence' cell</line>
+            <line>Be shrived and married. Here is for thy pains.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>No truly sir; not a penny.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Go to; I say you shall.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>This afternoon, sir? well, she shall be there.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>And stay, good nurse, behind the abbey wall:</line>
+            <line>Within this hour my man shall be with thee</line>
+            <line>And bring thee cords made like a tackled stair;</line>
+            <line>Which to the high top-gallant of my joy</line>
+            <line>Must be my convoy in the secret night.</line>
+            <line>Farewell; be trusty, and I'll quit thy pains:</line>
+            <line>Farewell; commend me to thy mistress.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Now God in heaven bless thee! Hark you, sir.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>What say'st thou, my dear nurse?</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Is your man secret? Did you ne'er hear say,</line>
+            <line>Two may keep counsel, putting one away?</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>I warrant thee, my man's as true as steel.</line>
+         </speech>
+         <speech>
+            <speaker>NURSE</speaker>
+            <line>Well, sir; my mistress is the sweetest lady--Lord,</line>
+            <line>Lord! when 'twas a little prating thing:--O, there</line>
+            <line>is a nobleman in town, one Paris, that would fain</line>
+            <line>lay knife aboard; but she, good soul, had as lief</line>
+            <line>see a toad, a very toad, as see him. I anger her</line>
+            <line>sometimes and tell her that Paris is the properer</line>
+            <line>man; but, I'll warrant you, when I say so, she looks</line>
+            <line>as pale as any clout in the versal world. Doth not</line>
+            <line>rosemary and Romeo begin both with a letter?</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Ay, nurse; what of that? both with an R.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Ah. mocker! that's the dog's name; R is for</line>
+            <line>the--No; I know it begins with some other</line>
+            <line>letter:--and she hath the prettiest sententious of</line>
+            <line>it, of you and rosemary, that it would do you good</line>
+            <line>to hear it.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Commend me to thy lady.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Ay, a thousand times.</line>
+            <stagedir>Exit Romeo</stagedir>
+            <line>Peter!</line>
+         </speech>
+         <speech>
+            <speaker>PETER</speaker>
+            <line>Anon!</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Peter, take my fan, and go before and apace.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-5">
+      <title>SCENE V.  Capulet's orchard.</title>
+      <scene-body>
+         <stagedir>Enter JULIET</stagedir>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>The clock struck nine when I did send the nurse;</line>
+            <line>In half an hour she promised to return.</line>
+            <line>Perchance she cannot meet him: that's not so.</line>
+            <line>O, she is lame! love's heralds should be thoughts,</line>
+            <line>Which ten times faster glide than the sun's beams,</line>
+            <line>Driving back shadows over louring hills:</line>
+            <line>Therefore do nimble-pinion'd doves draw love,</line>
+            <line>And therefore hath the wind-swift Cupid wings.</line>
+            <line>Now is the sun upon the highmost hill</line>
+            <line>Of this day's journey, and from nine till twelve</line>
+            <line>Is three long hours, yet she is not come.</line>
+            <line>Had she affections and warm youthful blood,</line>
+            <line>She would be as swift in motion as a ball;</line>
+            <line>My words would bandy her to my sweet love,</line>
+            <line>And his to me:</line>
+            <line>But old folks, many feign as they were dead;</line>
+            <line>Unwieldy, slow, heavy and pale as lead.</line>
+            <line>O God, she comes!</line>
+            <stagedir>Enter Nurse and PETER</stagedir>
+            <line>O honey nurse, what news?</line>
+            <line>Hast thou met with him? Send thy man away.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Peter, stay at the gate.</line>
+         </speech>
+         <stagedir>Exit PETER</stagedir>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Now, good sweet nurse,--O Lord, why look'st thou sad?</line>
+            <line>Though news be sad, yet tell them merrily;</line>
+            <line>If good, thou shamest the music of sweet news</line>
+            <line>By playing it to me with so sour a face.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>I am a-weary, give me leave awhile:</line>
+            <line>Fie, how my bones ache! what a jaunt have I had!</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>I would thou hadst my bones, and I thy news:</line>
+            <line>Nay, come, I pray thee, speak; good, good nurse, speak.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Jesu, what haste? can you not stay awhile?</line>
+            <line>Do you not see that I am out of breath?</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>How art thou out of breath, when thou hast breath</line>
+            <line>To say to me that thou art out of breath?</line>
+            <line>The excuse that thou dost make in this delay</line>
+            <line>Is longer than the tale thou dost excuse.</line>
+            <line>Is thy news good, or bad? answer to that;</line>
+            <line>Say either, and I'll stay the circumstance:</line>
+            <line>Let me be satisfied, is't good or bad?</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Well, you have made a simple choice; you know not</line>
+            <line>how to choose a man: Romeo! no, not he; though his</line>
+            <line>face be better than any man's, yet his leg excels</line>
+            <line>all men's; and for a hand, and a foot, and a body,</line>
+            <line>though they be not to be talked on, yet they are</line>
+            <line>past compare: he is not the flower of courtesy,</line>
+            <line>but, I'll warrant him, as gentle as a lamb. Go thy</line>
+            <line>ways, wench; serve God. What, have you dined at home?</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>No, no: but all this did I know before.</line>
+            <line>What says he of our marriage? what of that?</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Lord, how my head aches! what a head have I!</line>
+            <line>It beats as it would fall in twenty pieces.</line>
+            <line>My back o' t' other side,--O, my back, my back!</line>
+            <line>Beshrew your heart for sending me about,</line>
+            <line>To catch my death with jaunting up and down!</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>I' faith, I am sorry that thou art not well.</line>
+            <line>Sweet, sweet, sweet nurse, tell me, what says my love?</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Your love says, like an honest gentleman, and a</line>
+            <line>courteous, and a kind, and a handsome, and, I</line>
+            <line>warrant, a virtuous,--Where is your mother?</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Where is my mother! why, she is within;</line>
+            <line>Where should she be? How oddly thou repliest!</line>
+            <line>'Your love says, like an honest gentleman,</line>
+            <line>Where is your mother?'</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>O God's lady dear!</line>
+            <line>Are you so hot? marry, come up, I trow;</line>
+            <line>Is this the poultice for my aching bones?</line>
+            <line>Henceforward do your messages yourself.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Here's such a coil! come, what says Romeo?</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Have you got leave to go to shrift to-day?</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>I have.</line>
+         </speech>
+         <speech>
+            <speaker>Nurse</speaker>
+            <line>Then hie you hence to Friar Laurence' cell;</line>
+            <line>There stays a husband to make you a wife:</line>
+            <line>Now comes the wanton blood up in your cheeks,</line>
+            <line>They'll be in scarlet straight at any news.</line>
+            <line>Hie you to church; I must another way,</line>
+            <line>To fetch a ladder, by the which your love</line>
+            <line>Must climb a bird's nest soon when it is dark:</line>
+            <line>I am the drudge and toil in your delight,</line>
+            <line>But you shall bear the burden soon at night.</line>
+            <line>Go; I'll to dinner: hie you to the cell.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Hie to high fortune! Honest nurse, farewell.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+   <scene id="act-2-scene-6">
+      <title>SCENE VI.  Friar Laurence's cell.</title>
+      <scene-body>
+         <stagedir>Enter FRIAR LAURENCE and ROMEO</stagedir>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>So smile the heavens upon this holy act,</line>
+            <line>That after hours with sorrow chide us not!</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Amen, amen! but come what sorrow can,</line>
+            <line>It cannot countervail the exchange of joy</line>
+            <line>That one short minute gives me in her sight:</line>
+            <line>Do thou but close our hands with holy words,</line>
+            <line>Then love-devouring death do what he dare;</line>
+            <line>It is enough I may but call her mine.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>These violent delights have violent ends</line>
+            <line>And in their triumph die, like fire and powder,</line>
+            <line>Which as they kiss consume: the sweetest honey</line>
+            <line>Is loathsome in his own deliciousness</line>
+            <line>And in the taste confounds the appetite:</line>
+            <line>Therefore love moderately; long love doth so;</line>
+            <line>Too swift arrives as tardy as too slow.</line>
+            <stagedir>Enter JULIET</stagedir>
+            <line>Here comes the lady: O, so light a foot</line>
+            <line>Will ne'er wear out the everlasting flint:</line>
+            <line>A lover may bestride the gossamer</line>
+            <line>That idles in the wanton summer air,</line>
+            <line>And yet not fall; so light is vanity.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Good even to my ghostly confessor.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Romeo shall thank thee, daughter, for us both.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>As much to him, else is his thanks too much.</line>
+         </speech>
+         <speech>
+            <speaker>ROMEO</speaker>
+            <line>Ah, Juliet, if the measure of thy joy</line>
+            <line>Be heap'd like mine and that thy skill be more</line>
+            <line>To blazon it, then sweeten with thy breath</line>
+            <line>This neighbour air, and let rich music's tongue</line>
+            <line>Unfold the imagined happiness that both</line>
+            <line>Receive in either by this dear encounter.</line>
+         </speech>
+         <speech>
+            <speaker>JULIET</speaker>
+            <line>Conceit, more rich in matter than in words,</line>
+            <line>Brags of his substance, not of ornament:</line>
+            <line>They are but beggars that can count their worth;</line>
+            <line>But my true love is grown to such excess</line>
+            <line>I cannot sum up sum of half my wealth.</line>
+         </speech>
+         <speech>
+            <speaker>FRIAR LAURENCE</speaker>
+            <line>Come, come with me, and we will make short work;</line>
+            <line>For, by your leaves, you shall not stay alone</line>
+            <line>Till holy church incorporate two in one.</line>
+         </speech>
+         <stagedir>Exeunt</stagedir>
+      </scene-body>
+   </scene>
+</act>
