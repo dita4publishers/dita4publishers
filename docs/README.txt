@@ -1,5 +1,15 @@
 Release Notes:
 
+Release 0.9.19RC09 
+Release 0.9.19RC09_OT17
+
+1. Issue 71: HTML2 transform generates toc.js with links to the temp dir location of all the files
+2. Issue 70: Nested topics not getting topicref tunnel parameter
+3. Issue 67: References to user.input.file.list in epub, epub3, html2, and kindle breaks DITA-OT1.7.1 builds 
+
+With this release, now producing two packages, one for OT 1.5.4 and 1.6.x, one for 1.7.x, reflecting changes 
+in the HTML XSLT code for doing flagging.
+
 Release 0.9.19RC08 23 Jan 2013
 
 1. Issue 63: Implemented support for translating Word hyperlinks into DITA XRefs.
