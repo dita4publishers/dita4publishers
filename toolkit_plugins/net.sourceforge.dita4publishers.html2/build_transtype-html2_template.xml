@@ -103,6 +103,7 @@
   	description="Generate all ePub components from input map and topics">
   	
   	<makeurl file="${output.dir}" property="html2.xslt.outdir"/>
+  	<makeurl file="${dita.temp.dir}" property="html2.xslt.tempdir"/>
   	
   	<property name="map2html2.style" location="${html2.dir}/xsl/map2html2.xsl"/>
   	<property name="args.xhtml.toc" value="index"/>
@@ -111,7 +112,7 @@
     <xslt processor="trax"
       basedir="${dita.temp.dir}"
       destdir="${output.dir}"
-      includesfile="${dita.temp.dir}${file.separator}user.input.file.list"
+      includesfile="${dita.temp.dir}${file.separator}${user.input.file.listfile}"
       classpathref="dost.class.path"
       style="${map2html2.style}"
       filenameparameter="inputFileNameParam"
