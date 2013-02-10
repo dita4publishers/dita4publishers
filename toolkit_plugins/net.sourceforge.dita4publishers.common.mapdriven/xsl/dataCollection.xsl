@@ -27,8 +27,8 @@
   
   <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="plugin:org.dita.base:xsl/common/dita-utilities.xsl"/>
 -->
-  <xsl:import href="../../../xsl/common/dita-utilities.xsl"/>
   <xsl:import href="mapdrivenEnumeration.xsl"/>
   <xsl:import href="glossaryProcessing.xsl"/>
   <xsl:import href="indexProcessing.xsl"/>
