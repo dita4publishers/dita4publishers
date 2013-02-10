@@ -143,7 +143,7 @@
     <xslt processor="trax"
       basedir="${dita.temp.dir}"
       destdir="${dita.temp.dir}"
-      includesfile="${dita.temp.dir}${file.separator}user.input.file.list"
+    	includesfile="${dita.temp.dir}${file.separator}${user.input.file.listfile}"
       classpathref="dost.class.path"
       style="${args.xsl}">
      	<param name="cssOutputDir" expression="${css.output.dir}"/>
