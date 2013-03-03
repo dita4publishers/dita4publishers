@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_flh_3m2_kj">
+  <title>Topic C-01</title>
+  <body>
+    <p>This topic is "owned" by map C.</p>
+    <p>Cross reference to topic C-02: <xref keyref="topic-c-02">C-02</xref></p>
+  </body>
+</topic>

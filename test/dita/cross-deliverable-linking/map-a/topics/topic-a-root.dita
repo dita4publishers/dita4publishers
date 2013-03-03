@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_vtn_cp2_kj">
+  <title>Map A</title>
+  <body>
+    <p>This is Map A. It has a peer-scope reference to topic B-01 from Map
+      B.</p>
+    <p>Map A only includes topics A-01 and A-02 in its navigation tree. Topic
+      B-01 is a cross-deliverable link and B-01 itself links to B-02.</p>
+  </body>
+</topic>

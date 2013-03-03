@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_vtn_cp2_kj">
+  <title>Map B</title>
+  <body>
+    <p>This is Map B. It has a peer-scope reference to topic A-01 from Map A.
+      A-01 has a link to topic A-02.</p>
+  </body>
+</topic>

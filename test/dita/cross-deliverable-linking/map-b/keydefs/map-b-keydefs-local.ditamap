@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+  <title>Map B Local Keydefs</title>
+  <topicgroup>
+    <topicmeta>
+      <navtitle>Keydefs Map B scope="local"</navtitle>
+    </topicmeta>
+    <keydef
+      keys="topic-b-root"
+      href="../topics/topic-b-root.dita"/>
+    <keydef
+      keys="topic-b-01"
+      href="../topics/topic-b-01.dita"/>
+    <keydef
+      keys="topic-b-02"
+      href="../topics/topic-b-02.dita"/>
+  </topicgroup>
+</map>

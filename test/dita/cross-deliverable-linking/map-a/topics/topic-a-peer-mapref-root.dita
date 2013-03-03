@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_tp5_vw2_kj">
+  <title>Map A With Peer Mapref </title>
+  <body>
+    <p>This variant of Map A uses &lt;mapref scope="peer"/> to include the
+      local-scope key definitions for map B. The intent is that references to
+      these keys will be treated as peer references from the point of view of
+      references within map A's local-scope resources (e.g., topic-a-01.dita),
+      without requiring map A to duplicate those key definitions itself.</p>
+  </body>
+</topic>
