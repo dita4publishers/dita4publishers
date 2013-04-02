@@ -288,6 +288,7 @@
     
   <xsl:template 
     match="
+    *[df:class(., 'topic/div')] |
     *[df:class(., 'topic/bodydiv')] |
     *[df:class(., 'topic/sectiondiv')] 
     ">    
