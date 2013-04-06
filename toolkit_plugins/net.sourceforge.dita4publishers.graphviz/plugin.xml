@@ -1,5 +1,6 @@
 <plugin id="net.sourceforge.d4p.graphviz">
-
+  <extension id="xsl.transtype-graphviz"/>
+  
   <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
   <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
 

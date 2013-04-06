@@ -1,5 +1,6 @@
 <plugin id="net.sourceforge.dita4publishers.kindle">
-
+  <extension-point id="xsl.transtype-kindle"/>
+  
   <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
   <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
   <require plugin="net.sourceforge.dita4publishers.epub"/> 
