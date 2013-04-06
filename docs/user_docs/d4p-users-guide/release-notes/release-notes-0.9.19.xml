@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>Release Notes: Version 0.9.19</title>
+ <shortdesc>Version 0.9.19 (Under development)</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>
+          <indexterm>release notes<indexterm>Version
+            0.9.18</indexterm></indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <section>
+      <title>Theme for the Release</title>
+      <p>The 0.9.19 release is primarily about finishing out and generalizing
+        the map-based processing used in the EPUB, Kindle, HTML2, and HTML5
+        transforms.</p>
+      <p>I am also trying to get the vocabulary documentation finished out for
+        this release.</p>
+      <p>It is also about HTML5 with the new HTML5 transformation type,
+        developed by Bertrand Lefort.</p>
+      <p>The release also includes additions and refinements to the vocabulary,
+        numerous bug fixes and whatnot.</p>
+      <p>See the Sourceforge project files area for release notes of the various
+        release candidates.</p>
+    </section>
+  </conbody>
+</concept>
