@@ -541,7 +541,7 @@
 		</scp>
 	</target>
 	
-	<target name="upload-userguide-html5-contents-to-sourceforge" 
+	<target name="upload-userguide-html5-contents-to-sourceforge" depends="html5-d4p-user-guide"
 		description="Upload HTML5 version of UG contents to sourceforge">
 		<property name="pub.name" value="d4p-users-guide"></property>
 		<scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs/d4p-user-guide"
