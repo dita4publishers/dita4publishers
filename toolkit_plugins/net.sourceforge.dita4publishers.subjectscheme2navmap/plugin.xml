@@ -1,5 +1,7 @@
 <plugin id="net.sourceforge.d4p.subjectscheme2navmap">
 
+  <extension-point id="xsl.transtype-subjectscheme2navmap"/>
+  
   <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
   <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
 

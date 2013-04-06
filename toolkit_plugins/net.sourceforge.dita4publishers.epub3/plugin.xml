@@ -1,5 +1,7 @@
 <plugin id="net.sourceforge.dita4publishers.epub3">
 
+  <extension id="xsl.transtype-epub3"/>
+
   <require plugin="org.dita.xhtml"/>
   <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
   <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
