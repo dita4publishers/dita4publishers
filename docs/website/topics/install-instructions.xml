@@ -6,13 +6,18 @@
   <taskbody>
     <context>
       <p>The DITA For Publishers materials are provided as a single Zip package
-        from the project's download page: <xref/>. The Toolkit plugins are
-        intended for use with the 1.5 version of the Open Toolkit but may work
-        with the 1.4.3 version. The DITA for Publishers plugins are tested
-        against the latest stable and milestone releases. Note that release
-        1.5.4 fixes a number of bugs from 1.5.3. The 1.5.4 release has proven
-        stable for me and I recommend moving to that release if at all
-        possible.</p>
+        from the project's download page: <xref
+        href="https://sourceforge.net/projects/dita4publishers/files/"
+        scope="external"
+        format="html">https://sourceforge.net/projects/dita4publishers/files/</xref>.
+        The Toolkit plugins are intended for use with the 1.5, 1.6, and 1.7
+        versions of the Open Toolkit but may work with the 1.4.3 version. The
+        DITA for Publishers plugins are tested against the latest stable and
+        milestone releases. Note that release 1.5.4 fixes a number of bugs from
+        1.5.3. The 1.5.4 release has proven stable for me and I recommend moving
+        to that release if at all possible. Note that for 1.7 there are a few
+        minor code differences from 1.6 that require a separate build of the D4P
+        plugins, identified by "OT17" in the materials package filename.</p>
     </context>
     <steps>
       <step>

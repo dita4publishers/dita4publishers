@@ -8,28 +8,22 @@
       <created
         date="2009-05-20"/>
       <revised
-        modified="2012-01-08"/>
+        modified="2013-04-06"/>
     </critdates>
   </prolog>
   <body>
-    <p>Updates for 8 January 2012:<ul
+    <p>Updates for 6 April 2013:<ul
       id="ul_e5a3356b-1f4e-4c6d-a24b-68eb7d56fed6">
-      <li>Fixed a number of small but serious bugs in the Word-to-DITA
-        transform. Added feature for setting the <xmlatt>xml:lang</xmlatt>
-        attribute. See release notes in the User Guide.</li>
-      <li>Fixed handling of <xmlatt>scale</xmlatt> attribute on
-        <xmlelem>image</xmlelem> for HTML2, EPUB, and Kindle transformation
-        types.</li>
-      <li>Fixed small bugs and made small enhancements to the EPUB and Kindle
-        transform types.</li>
-      <li>Fixed lingering issues with the Toolkit plugin Ant scripts setting
-        global values inappropriately.</li>
-      <li>Minor enhancements to the documentation.</li>
+      <li>Fixed issues 75, 76, 77</li>
+      <li>Added release notes for version 0.9.19</li>
+      <li>Use HTML5 version of the User Guide</li>
       </ul></p>
     <p>The DITA for Publishers project is an open-source, community project to enable the quick and productive use of DITA by Publishers. Enabling activities include:<ul
       id="ul_05546f8a-88ba-476d-8d8b-352681eb9e67">
       <li>Providing generic DITA specializations for common publishing document components, including publishing-specific map types and domains ("pubmap", publication map domain, publication metadata domain), topic types ("article", "chapter", "subsection", "sidebar", "part"), and domains ("formatting domain", "classification domain", etc.).</li>
-      <li>General-purpose Open Toolkit plugins for generating EPUB and Kindle electronic books from any DITA map.</li>
+      <li>General-purpose Open Toolkit plugins for generating EPUB and Kindle
+        electronic books from any DITA map, as well as an HTML5 generation
+        plugin.</li>
       <li>Providing DITA Open Toolkit plugins with HTML, PDF, EPUB, and Kindle rendering support for the D4P specializations.</li>
       <li>Providing tutorial and how-to guidance to Publishing users of DITA.</li>
       <li>Providing a transformation framework and Open Toolkit plugin for converting styled Word documents to DITA.</li>
@@ -40,7 +34,12 @@
     <p>See the <xref
       href="../d4p-user-guide/index.html"
       format="html"
-      scope="external"><i>DITA for Publishers User Guide</i></xref> for detailed information on how to use the DITA for Publishers components.</p>
+      scope="external"><i>DITA for Publishers User Guide</i></xref> for detailed
+      information on how to use the DITA for Publishers components. (Generic
+      HTML version available at <xref
+      href="../d4p-user-guide-html2/index.html"
+      scope="external"
+      format="html">../d4p-user-guide-html2/index.html</xref>.)</p>
     <p>Eliot Kimber's DITA specialization and configuration tutorials can be found at <xref
       href="http://www.xiruss.org/tutorials/dita-specialization/"
       format="html"
@@ -73,7 +72,13 @@
               format="dita">How To Use the DITA For Publishers Materials</xref><p><xref
               href="../d4p-user-guide/index.html"
               format="html"
-              scope="external"><i>DITA for Publishers User Guide</i></xref></p></entry>
+              scope="external"><i>DITA for Publishers User Guide</i></xref>
+              (HTML5)  <xref
+              href="../d4p-user-guide-html2/index.html"
+              scope="external"
+              format="html">../d4p-user-guide-html2/index.html</xref> (generic
+              HTML)</p><p>The D4P package also includes an EPUB and Kindle
+              version of the <cite>User Guide</cite>.</p></entry>
           </row>
           <row>
             <entry>dita4publishers SourceForge project </entry>
@@ -86,8 +91,8 @@
             <entry>dita4publishers source code access (Subversion-based)</entry>
             <entry><xref
               format="html"
-              href="http://dita4publishers.svn.sourceforge.net/viewvc/dita4publishers/"
-              scope="external">http://dita4publishers.svn.sourceforge.net/viewvc/dita4publishers/</xref></entry>
+              href="https://sourceforge.net/p/dita4publishers/code"
+              scope="external">https://sourceforge.net/p/dita4publishers/code</xref></entry>
           </row>
           <row>
             <entry>EPUBs (readable with EPUB readers)</entry>
