@@ -12,10 +12,6 @@
 	           Ant/runtime preferences.
 	  -->
 
-  <property file="build.properties"/>
-  <property file="${user.home}/.build.properties"/>
-  <property file="${user.home}/build.properties"/>
-
 	<!-- NOTE: Update version.properties as needed to reflect new 
 	           versions of project components.
 	  -->
@@ -521,7 +517,7 @@
 	  </target>
 	  
   <target name="upload-d4p-user-guide-html-sourceforge" depends="html-d4p-user-guide" description="Upload D4P User Guide HTML to sourceforge">
-    <scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs/d4p-user-guide"
+    <scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs/d4p-user-guide-html2"
      password="${sourceforge.password}"    	
       verbose="true"
       >
@@ -545,13 +541,14 @@
 		</scp>
 	</target>
 	
-	<target name="upload-userguide-html5-contents-to-sourceforge" description="Upload HTML5 version of UG contents to sourceforge">
+	<target name="upload-userguide-html5-contents-to-sourceforge" 
+		description="Upload HTML5 version of UG contents to sourceforge">
 		<property name="pub.name" value="d4p-users-guide"></property>
-		<scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs/d4p-user-guide-html5"
+		<scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs/d4p-user-guide"
 		 password="${sourceforge.password}"
 			verbose="true"
 			>
-			<fileset dir="${docs.dir}/user_docs/html5">
+			<fileset dir="${build}/docs/html5/${pub.name}">
         <include name="**/*"/>
 				<exclude name="collected-data.xml"/>
 				<exclude name="copy-graphics.xml"/>
@@ -583,6 +580,10 @@
 			<property name="dita.temp.dir" location="${basedir}/temp/${pub.name}/epub"/>
 			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
 			<property name="output.dir" location="${output.dir}"/>
+			<property name="args.copycss" value="yes"/>
+			<property name="epub.exclude.auto.rellinks" value="true"/>
+			<property name="generate.copy.outer" value="2"/>
+			<property name="html2.generate.index" value="true"/>
 		</ant>		
 		
 		<antcall target="post-transform-cleanup-d4p-user-guide">
@@ -608,6 +609,38 @@
       <property name="args.hdf" value="${docs.dir}/user_docs/${pub.name}/static-html/topic-header-html.html"/>
       <property name="args.ftr" value="${docs.dir}/user_docs/${pub.name}/static-html/topic-footer-html.html"/>
       <property name="dita.temp.dir" location="${basedir}/temp/${pub.name}/html"/>
+      <property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
+      <property name="output.dir" location="${output.dir}"/>
+    	<property name="html2.generate.dynamic.toc" value="true"/>
+    </ant>    
+  	
+  </target>
+  
+  <target name="html5-d4p-user-guide" description="Generate HTML5 for D4P User's Guide">
+    <property name="pub.name" value="d4p-users-guide"/>
+    <property name="root.map" location="${docs.dir}/user_docs/${pub.name}.ditamap"/>
+    <property name="output.dir" location="${build}/docs/html5/${pub.name}"/>
+
+    <ant antfile="${dita-ot-dir}/build.xml" 
+          dir="${dita-ot-dir}"
+          target="dita2html5"
+          
+          >
+      <property name="args.input" location="${root.map}"/>
+      <property name="args.outext" value="html"/>
+      <property name="args.copycss" value="yes"/>
+    	<property name="args.css" location="/${basedir}/src/css/d4p-docs-html5.css"/>
+    	<property name="args.csspath" value="css"/>
+    	<property name="args.cssroot" value="css"/>
+    	<property name="args.hide.parent.link" value="yes"/>
+    	<property name="d4p.html5.json.vars.file" location="${output.dir}/json.vars"/>
+      <property name="generate.copy.outer" value="2"/>
+      <property name="outer.control" value="quiet"/>
+      <property name="dita.dir" location="${dita-ot-dir}"/>
+      <property name="args.xhtml.toc" value="index"/>
+      <property name="args.hdf" value="${docs.dir}/user_docs/${pub.name}/static-html/topic-header-html.html"/>
+      <property name="args.ftr" value="${docs.dir}/user_docs/${pub.name}/static-html/topic-footer-html.html"/>
+      <property name="dita.temp.dir" location="${basedir}/temp/${pub.name}/html5"/>
       <property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
       <property name="output.dir" location="${output.dir}"/>
     	<property name="html2.generate.dynamic.toc" value="true"/>
@@ -652,6 +685,10 @@
 			<property name="clean.temp" value="true"/><!-- Unset to preserve the temp directory -->
 			<property name="output.dir" location="${output.dir}"/>
 			<property name="kindlegen.executable" location="${kindlegen.executable}"/>
+			<property name="args.copycss" value="yes"/>
+			<property name="epub.exclude.auto.rellinks" value="true"/>
+			<property name="generate.copy.outer" value="2"/>
+			<property name="html2.generate.index" value="true"/>
 	  </ant>
 		
 		<antcall target="post-transform-cleanup-d4p-user-guide">
