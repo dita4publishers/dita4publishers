@@ -8,19 +8,18 @@
       <created
         date="2009-05-20"/>
       <revised
-        modified="2013-04-06"/>
+        modified="2013-04-21"/>
     </critdates>
   </prolog>
   <body>
-    <p>Updates for 6 April 2013:<ul
+    <p>Updates for 21 April 2013:<ul
       id="ul_e5a3356b-1f4e-4c6d-a24b-68eb7d56fed6">
-      <li>Fixed issues 75, 76, 77</li>
-      <li>Added release notes for version 0.9.19</li>
-      <li>Use HTML5 version of the User Guide</li>
+      <li>Reverted back to the HTML2 version of the User Guide as the HTML5
+        version appears to not work with older IE versions.</li>
       </ul></p>
     <p>The DITA for Publishers project is an open-source, community project to enable the quick and productive use of DITA by Publishers. Enabling activities include:<ul
       id="ul_05546f8a-88ba-476d-8d8b-352681eb9e67">
-      <li>Providing generic DITA specializations for common publishing document components, including publishing-specific map types and domains ("pubmap", publication map domain, publication metadata domain), topic types ("article", "chapter", "subsection", "sidebar", "part"), and domains ("formatting domain", "classification domain", etc.).</li>
+      <li>Providing generic DITA specializations for common publishing document components, including publishing-specific map types and domains ("pubmap", publication map domain, publication metadata domain), topic types ("article", "chapter", "subsection", "sidebar", "part"), and domains ("formatting domain", "classification domain", "media (video and audio)", etc.).</li>
       <li>General-purpose Open Toolkit plugins for generating EPUB and Kindle
         electronic books from any DITA map, as well as an HTML5 generation
         plugin.</li>
@@ -35,11 +34,11 @@
       href="../d4p-user-guide/index.html"
       format="html"
       scope="external"><i>DITA for Publishers User Guide</i></xref> for detailed
-      information on how to use the DITA for Publishers components. (Generic
-      HTML version available at <xref
-      href="../d4p-user-guide-html2/index.html"
+      information on how to use the DITA for Publishers components. (Experimental HTML5
+version available at <xref
+      href="../d4p-user-guide-html5/index.html"
       scope="external"
-      format="html">../d4p-user-guide-html2/index.html</xref>.)</p>
+      format="html">../d4p-user-guide-html5/index.html</xref>.)</p>
     <p>Eliot Kimber's DITA specialization and configuration tutorials can be found at <xref
       href="http://www.xiruss.org/tutorials/dita-specialization/"
       format="html"
@@ -72,12 +71,11 @@
               format="dita">How To Use the DITA For Publishers Materials</xref><p><xref
               href="../d4p-user-guide/index.html"
               format="html"
-              scope="external"><i>DITA for Publishers User Guide</i></xref>
-              (HTML5)  <xref
-              href="../d4p-user-guide-html2/index.html"
+              scope="external"><i>DITA for Publishers User Guide</i></xref> (D4P HTML2 transform), 
+              <xref
+              href="../d4p-user-guide-html5/index.html"
               scope="external"
-              format="html">../d4p-user-guide-html2/index.html</xref> (generic
-              HTML)</p><p>The D4P package also includes an EPUB and Kindle
+              format="html">../d4p-user-guide-html5/index.html</xref> (HTML5)</p><p>The D4P package also includes an EPUB and Kindle
               version of the <cite>User Guide</cite>.</p></entry>
           </row>
           <row>
@@ -112,6 +110,6 @@
         </tbody>
       </tgroup>
       </table></p>
-    <p>Last revised: 8 January 2012</p>
+    <p>Last revised: 21 April 2013</p>
   </body>
 </topic>
