@@ -9,19 +9,16 @@
       specializes from &lt;object>.</p>
     <fig>
       <title>Sample of Embedded Video</title>
-<!-- As of 0.9.19RC07, this version fails. See issue 65:
-        
-        <d4p_video
+      <d4p_video
         id="E5123_026.mp4-media"
         width="300"
         height="300">
         <d4p_video_poster
-          value="../media/E5123_026_poster.png"/>
-        <d4p_video_source
-          value="../media/E5123_026.mp4"
+          value="media/E5123_026_poster.png"/>
+        <d4p_media_source
+          value="media/E5123_026.mp4"
           type="video/mp4"/>
       </d4p_video>
--->
     </fig>
   </body>
 </subsection>

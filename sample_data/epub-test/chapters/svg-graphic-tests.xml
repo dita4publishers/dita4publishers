@@ -9,10 +9,13 @@
       <title>UML Diagram from ArgoUML</title>
       <fig>
         <title>UML Diagram</title>
-        <image d4p_renditionTarget="epub html pdf"
+        <image
+          d4p_renditionTarget="epub html pdf"
           href="images/TopicModelDiagram.svg"
-          id="image_8c1cb0cd-3e98-46fb-91e9-e3e2ca017cf2"/>
-        <p d4p_renditionTarget="kindle">Kindle does not support SVG graphics.</p>
+          id="image_8c1cb0cd-3e98-46fb-91e9-e3e2ca017cf2"
+          width="4in"/>
+        <p
+          d4p_renditionTarget="kindle">Kindle does not support SVG graphics.</p>
       </fig>
     </section>
   </body>
