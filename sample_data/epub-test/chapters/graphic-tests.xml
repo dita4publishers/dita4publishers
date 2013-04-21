@@ -2,7 +2,7 @@
 <!DOCTYPE chapter PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
 <chapter
   id="chapter-id">
-  <title>Graphic Tests</title>
+  <title>Graphic and Media Tests</title>
   <prolog>
     <metadata>
       <keywords>
@@ -13,7 +13,7 @@
     </metadata>
   </prolog>
   <body>
-    <p>This chapter tests graphics.</p>
+    <p>This chapter tests graphics and media objects (audio and video).</p>
     <fig>
       <title>Graphic that's in the common/ directory, outside the scope of the main map's directory.</title>
       <image

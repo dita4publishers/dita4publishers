@@ -47,7 +47,9 @@
     </data>
     <d4p-variable-definitions>
       <title>Test Variable Definitions</title>
-      <d4p-variable-definition name="varDefinedInRootMap">varDefinedInRootMap value</d4p-variable-definition>
+      <d4p-variable-definition
+        name="varDefinedInRootMap">varDefinedInRootMap
+        value</d4p-variable-definition>
     </d4p-variable-definitions>
   </pubmeta>
   <keydefs>
@@ -150,6 +152,8 @@
           href="chapters/mathml-tests.xml"/>
         <subsection
           href="chapters/video-embedding-test.xml"/>
+        <topicref
+          href="chapters/audio-embedding-test.xml"/>
       </chapter>
       <chapter
         href="chapters/d4p-vocabulary.xml"/>
