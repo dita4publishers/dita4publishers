@@ -441,7 +441,7 @@
         <include name="*.txt"/>
       	<include name="*/**"/>
         <exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/>
-        <!-- <exclude name="net.sourceforge.dita4publishers.html5/**"/> -->
+        <exclude name="net.sourceforge.dita4publishers.epub3/**"/>
         <exclude name="org.dita2indesign.test.*/**"/>
       </fileset>
     </zip>
@@ -516,8 +516,11 @@
 		</scp>
 	  </target>
 	  
-  <target name="upload-d4p-user-guide-html-sourceforge" depends="html-d4p-user-guide" description="Upload D4P User Guide HTML to sourceforge">
-    <scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs/d4p-user-guide-html2"
+  <target name="upload-d4p-user-guide-html-sourceforge" 
+  	depends="html-d4p-user-guide" 
+  	description="Upload D4P User Guide HTML to sourceforge">
+  	
+    <scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs/d4p-user-guide"
      password="${sourceforge.password}"    	
       verbose="true"
       >
@@ -541,10 +544,10 @@
 		</scp>
 	</target>
 	
-	<target name="upload-userguide-html5-contents-to-sourceforge" depends="html5-d4p-user-guide"
+	<target name="upload-d4p-user-guide-html5-sourceforge" depends="html5-d4p-user-guide"
 		description="Upload HTML5 version of UG contents to sourceforge">
 		<property name="pub.name" value="d4p-users-guide"></property>
-		<scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs/d4p-user-guide"
+		<scp todir="${sourceforge.username},dita4publishers@web.sourceforge.net:htdocs/d4p-user-guide-html5"
 		 password="${sourceforge.password}"
 			verbose="true"
 			>
@@ -592,7 +595,8 @@
     </antcall>
 	</target>
 	
-  <target name="html-d4p-user-guide" description="Generate HTML for D4P User's Guide">
+  <target name="html-d4p-user-guide" 
+  	description="Generate HTML for D4P User's Guide">
     <property name="pub.name" value="d4p-users-guide"/>
     <property name="root.map" location="${docs.dir}/user_docs/${pub.name}.ditamap"/>
     <property name="output.dir" location="${build}/docs/html/${pub.name}"/>
