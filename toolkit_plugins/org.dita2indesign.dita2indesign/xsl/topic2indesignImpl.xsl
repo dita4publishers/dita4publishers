@@ -318,8 +318,20 @@
     <xsl:apply-templates/>
   </xsl:template>
   
+  <xsl:template name="constructManifestFileEntry">
+    <xsl:param name="incopyFileUri" as="xs:string"/>
+    <file uri="{$incopyFileUri}"/>&#x0020;
+  </xsl:template>
+  
   <xsl:template match="RSUITE:*" mode="#all" priority="10"/><!-- Ignore in all modes -->
     
+  <xsl:template match="*" mode="result-docs">
+    <!--
+    <xsl:message> + [DEBUG] topic2article.xsl: in result-docs catch-all: <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/>.</xsl:message>
+    -->
+    <xsl:apply-templates mode="#current" select="*"/>
+  </xsl:template>
+  
   <xsl:template mode="#default" match="*" priority="-1">
     <xsl:message> + [WARNING] topic2indesignImpl (default mode): Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence 
       select="concat(name(.), ' [', normalize-space(@class), ']')"/></xsl:message>

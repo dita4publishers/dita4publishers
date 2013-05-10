@@ -105,6 +105,11 @@
 		<format property="package.date" pattern="yyyy-MM-dd"/>
 	</tstamp>
   
+  <tstamp>
+  	<format property="build-date-time"
+  	          pattern="yyyy-MM-dd HH:mm:SSS z"/>
+	</tstamp>
+
 
   <target name="clean">
   </target>
@@ -1089,7 +1094,27 @@
   		<include name="templates/*/**"/>
   	</zip>
   </target>
-  	
+
+	<target name="rsuite-add-version-info-to-files">
+    <replace file="${classes.home}/rsuite-plugin.xml"
+      propertyfile="${basedir}/build.number"
+      >
+      <replacefilter
+        token="^version^"
+        value="${plugin_version}"
+      />
+      <replacefilter
+        token="^buildnumber^"
+        property="build.number"
+      />
+      <replacefilter
+        token="^timestamp^"
+        value="${build-date-time}"
+      />
+    </replace>
+  </target>
+
+
   <target name="package-rsuite-plugins" depends="init-target, clean">
     <!-- NOTE: The RSuite plugin only packages Web-accessible resources.
                It contains no Java code.
@@ -1112,6 +1137,9 @@
         <include name="net.sourceforge.dita4publishers.word2dita/**/*"/>
     	</fileset>
     </copy>
+
+  	<antcall target="add-version-info-to-files"/>
+
     <jar destfile="${target.home}/${target.jar}" >
       <fileset dir="${classes.home}" >
         <include name="**.*" />
@@ -1119,6 +1147,17 @@
         <exclude name="**/log4j.properties"/>
       </fileset>
     </jar>
+  </target>
+	
+	<target name="push-rsuite-plugin-to-ivy" depends="package-rsuite-plugins"
+		description="Puts the RSuite plugin in Ivy reflecting the value of the version_property in version.properties"
+		>
+		<scp todir="rsuite@vpn.reallysi.com:~/www/ivy-repo/dita4publishers/${plugin.name}-plugin/${plugin.name}-plugin-${rsuite-plugin_version}.jar" 
+			file="${target.home}/${target.jar}"
+			port="2626"
+			password="rsuite"
+			verbose="true"
+		/>
   </target>
 	
   <target name="package-api-and-tools" depends="init-target, jar-api, jar-tools, javadoc-api-and-tools">

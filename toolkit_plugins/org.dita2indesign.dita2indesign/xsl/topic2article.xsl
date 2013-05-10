@@ -25,6 +25,8 @@
   <xsl:import href="elem2styleMapper.xsl"/>
   <xsl:include href="topic2indesignImpl.xsl"/>
   
+  <xsl:param name="articleFilenameBase" as="xs:string" select="''"/>
+  
   <xsl:param name="debug" select="'false'"/>
   <xsl:variable name="debugBoolean" select="if ($debug = 'true') then true() else false()" as="xs:boolean"/>
 
@@ -38,10 +40,25 @@
         select="string(/*[1]/@class)"
       /></xsl:message>
     </xsl:if>
+    <xsl:message> + [DEBUG] topic2article.xsl: articleFilenameBase="<xsl:sequence select="$articleFilenameBase"/>"</xsl:message>
+    
+    <xsl:variable name="effectiveFilenameBase" as="xs:string"
+      select="if ($articleFilenameBase = '')
+      then relpath:getNamePart(document-uri(root(.)))
+      else $articleFilenameBase"
+    />
+    <xsl:message> + [DEBUG] topic2article.xsl: effectiveFilenameBase="<xsl:sequence select="$effectiveFilenameBase"/>"</xsl:message>
     <!-- Using a mode for map processing so topic processing
          can be the default mode for convenience.
     -->
-    <xsl:apply-templates/>
+    <manifest>&#x0020;
+      <xsl:apply-templates>
+        <xsl:with-param name="articleFilenameBase" 
+          tunnel="yes" 
+          select="$effectiveFilenameBase"/>
+      
+  </xsl:apply-templates>
+    </manifest>
   </xsl:template>
   
   <xsl:template match="/*[df:class(., 'topic/topic')]" priority="10">
