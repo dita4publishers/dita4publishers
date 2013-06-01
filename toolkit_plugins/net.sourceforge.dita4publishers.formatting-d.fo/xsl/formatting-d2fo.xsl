@@ -26,5 +26,11 @@
     <xsl:apply-templates select="*[not(contains(@class, ' d4p-formatting-d/art_title '))]"/>
   </xsl:template>
   
+  <xsl:template match="*[contains(@class,' d4p-formatting-d/b-i ')]">
+    <fo:inline font-weight="bold" font-style="italic">
+      <xsl:apply-templates/>
+    </fo:inline>
+  </xsl:template>
+  
   <!-- FIXME: Implement some sort of support for the other formatting-d elements. -->
 </xsl:stylesheet>
