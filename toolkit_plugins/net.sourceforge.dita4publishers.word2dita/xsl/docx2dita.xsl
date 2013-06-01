@@ -149,11 +149,16 @@ version="2.0">
           select="$simpleWpDocBase"/>
       </xsl:result-document>
     </xsl:if>
+    
+    <xsl:variable name="simpleWpDocLevelFixupResult" as="element()">
+      <xsl:apply-templates select="$simpleWpDocBase" mode="simpleWpDocLevel-fixup"/>
+    </xsl:variable>
+    
     <xsl:variable name="simpleWpDoc"
       as="document-node()"
     >
       <xsl:document>
-        <xsl:apply-templates select="$simpleWpDocBase" mode="simpleWpDoc-fixup"/>
+        <xsl:apply-templates select="$simpleWpDocLevelFixupResult" mode="simpleWpDoc-fixup"/>
       </xsl:document>
     </xsl:variable>
     <xsl:apply-templates
@@ -167,6 +172,44 @@ version="2.0">
     </xsl:apply-templates>
     <xsl:message> + [INFO] Done.</xsl:message>
   </xsl:template>
+  
+  
+  <xsl:template match="@level[../@topicType]" mode="simpleWpDocLevel-fixup">
+    <xsl:variable name="newLevel" select="local:calculateLevel(..)" as="xs:integer"/>
+    <xsl:if test="$debugBoolean">  
+      <xsl:message> + [DEBUG] Style name: <xsl:value-of select="../@style"/>, old level: <xsl:value-of select="."/>, new level: <xsl:value-of select="$newLevel"/></xsl:message>
+    </xsl:if>
+    <xsl:attribute name="level" select="$newLevel"/>
+  </xsl:template>
+  
+  <xsl:function name="local:calculateLevel" as="xs:integer">
+    <xsl:param name="topicLevelElem" as="element()"/>
+    
+    <xsl:variable name="originalLevel" select="$topicLevelElem/@level/number()"/>
+    <xsl:variable name="precedingLevel" select=
+      "$topicLevelElem/preceding-sibling::*[@topicType][@level/number() le $originalLevel][1]"/>
+    
+    <xsl:sequence select=
+      "if(not($precedingLevel))
+      then 0
+      else if($precedingLevel/@level/number() lt $originalLevel)
+      then local:calculateLevel($precedingLevel) +1
+      else if($precedingLevel/@level/number() eq $originalLevel)
+      then local:calculateLevel($precedingLevel)
+      else (: Impossible to happen :) -999
+      "/>
+  </xsl:function>
+  
+  <xsl:template mode="simpleWpDocLevel-fixup" match="*">
+    <xsl:copy>
+      <xsl:apply-templates select="@*,node()" mode="#current"/>
+    </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template mode="simpleWpDocLevel-fixup" match="@* | text() | processing-instruction()">
+    <xsl:sequence select="."/>
+  </xsl:template>
+  
   
   <xsl:template mode="simpleWpDoc-fixup" match="*">
     <xsl:copy>

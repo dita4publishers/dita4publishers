@@ -20,9 +20,23 @@
           and non-root-topic-prolog paragraph in the Word document must be of structure type
           "topicTitle", "map", or "mapTitle" and level "0" (zero).</li>
         <li>Paragraph styles that map to topic titles and contained elements (within topic bodies)
-          must map to exactly one fixed level. Thus, to have two levels of subsection topics, you
-          must have two separate paragraph styles, one that maps to level 1 and one that maps to
-          level 2, even though both map to <xmlelem>subsection</xmlelem> topic types.</li>
+          must map to exactly one fixed level (although the processing only cares about the
+          relationships between the level values). Thus, to have two levels of subsection topics,
+          you must have two separate paragraph styles, one that maps to level 1 and one that maps to
+          level 2 (or greater), even though both map to <xmlelem>subsection</xmlelem> topic types.
+          As of 0.9.19 RC 11, there is processing that recalculates the levels after the
+          WordML2Simple process has finished (but before simpleWpDoc-fixup). The recalculation
+          preserves the relationship between the fixed level values in the style-to-tag map. This
+          provides greater flexibility for authoring and minimizes the Word styles you need. For
+          example, if you need to use a Heading 3 style immediately after a Heading 1 style (which
+          is not rare in trade publishing), then the processing will produce valid DITA content with
+          the topics properly nested as expected. If you have content that can appear at multiple
+          hierarchical levels (like sidebars), then you no longer need Word styles for each level
+          that content can appear at. You just need to give the style that generates the sidebar
+          topic (probably its title) a level that is a high number (e.g., 50). If your Word document
+          has the sidebar style after a Heading 1, then the recalculation will change the level of
+          that instance to 2; if you then have the sidebar style after a Heading 4, then it
+          changes that instance to a level 5.</li>
         <li>Character style mapping is flat within a paragraph: there is currently no general way to
           infer multiple levels of inline markup from a flat sequence of character runs (this is
           more a limitation of Word's character styles than of the mapping mechanism). In theory it
