@@ -126,6 +126,10 @@
   	<xsl:copy/>
   </xsl:template>
   
+  <xsl:template  mode="html2xhtml" match="@type[.='text/css']" priority="20">
+    <xsl:copy/>
+  </xsl:template>
+  
   <xsl:template  mode="html2xhtml" match="
     @lang |
     @target |
