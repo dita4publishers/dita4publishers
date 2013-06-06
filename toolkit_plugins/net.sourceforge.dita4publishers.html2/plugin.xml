@@ -10,5 +10,4 @@
 
   <feature extension="dita.conductor.transtype.check" value="html2" type="txt"/>
   <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
-
 </plugin>

@@ -87,7 +87,7 @@
 <!-- ============================================================= -->
 
 <!ATTLIST d4p_biblioentryBase %global-atts;  class CDATA "+ topic/p     d4p-bibbase-d/d4p_biblioentryBase ">
-<!ATTLIST d4p_bibliosetBase   %global-atts;  class CDATA "+ topic/ph     d4p-bibbase-d/d4p_bibliosetBase ">
+<!ATTLIST d4p_bibliosetBase   %global-atts;  class CDATA "+ topic/ph    d4p-bibbase-d/d4p_bibliosetBase ">
 
 
 <!-- ================== End BibBase Domain ==================== -->
