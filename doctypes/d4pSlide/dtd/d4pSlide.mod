@@ -100,7 +100,7 @@
 <!ENTITY % d4pInstructorNotes.attributes
              "spectitle 
                         CDATA 
-                                  'Student Notes'
+                                  'Instructor Notes'
               %univ-atts;
               outputclass 
                         CDATA 
