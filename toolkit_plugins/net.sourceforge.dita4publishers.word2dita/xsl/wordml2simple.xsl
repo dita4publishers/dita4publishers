@@ -499,7 +499,7 @@
   <xsl:template match="w:tr">
     <xsl:variable name="tagName" as="xs:string"
       select="
-      if (w:trPr/w:tblHeader) then 'th' else 'tr'
+      if (w:trPr/w:tblHeader) then 'thead' else 'tr'
       "
     />
     <xsl:element name="{$tagName}">
@@ -509,14 +509,74 @@
   </xsl:template>
   
   <xsl:template match="w:tc">
-    <td>
-<!--      <xsl:apply-templates select="w:tcPr/*"/>-->
-      <xsl:apply-templates select="*[not(self::w:tcPr)]">
-        <xsl:with-param name="mapUnstyledParasTo" select="'entry'" tunnel="yes"/>
-      </xsl:apply-templates>
-    </td>
+    <!-- much of the code in this template comes from the OpenXMLWebViewer's DocX2Html.xslt transform:
+            https://openxmlviewer.codeplex.com/
+            which is licensed under the Microsoft Public License (Ms-PL)
+            Major changes included only using the 50 lines or so relevant for our purposes and modifying as needed
+            to interact with the rest of the word2dita transform, namely preserving paragraph and character styles
+            -->
+    <xsl:variable name="vmerge" select="w:tcPr[1]/w:vMerge[1]"/>
+    <xsl:variable name="curCell" select="."/>
+    <xsl:variable name="tblCount" select="count(ancestor::w:tbl)"/>
+    <xsl:variable name="curCellInContext"
+      select="ancestor::w:tr[1]/*[count($curCell|descendant-or-self::*)=count(descendant-or-self::*)]"/>
+    <xsl:variable name="numCellsBefore"
+      select="count($curCellInContext/preceding-sibling::*[descendant-or-self::*[name()='w:tc' and (count(ancestor::w:tbl)=$tblCount)]])"/>
+    <xsl:if test="not($vmerge and not($vmerge/@w:val))">
+      <td>
+        <xsl:for-each select="w:tcPr[1]/w:gridSpan[1]/@w:val">
+          <xsl:attribute name="colspan">
+            <xsl:value-of select="."/>
+          </xsl:attribute>
+        </xsl:for-each>
+        
+        <xsl:variable name="rowspan">
+          <xsl:choose>
+            <xsl:when test="not($vmerge)">1</xsl:when>
+            <xsl:otherwise>
+              <xsl:variable name="myRow" select="ancestor::w:tr[1]"/>
+              <xsl:variable name="myRowInContext"
+                select="$myRow/ancestor::w:tbl[1]/*[count($myRow|descendant-or-self::*)=count(descendant-or-self::*)]"/>
+              <xsl:variable name="belowCurCell"
+                select="$myRowInContext/following-sibling::*//w:tc[count(ancestor::w:tbl)=$tblCount][$numCellsBefore + 1]"/>
+              <xsl:variable name="NextRestart"
+                select="($belowCurCell//w:tcPr/w:vMerge[@w:val='restart'])[1]"/>
+              <xsl:variable name="NextRestartInContext"
+                select="$NextRestart/ancestor::w:tbl[1]/*[count($NextRestart|descendant-or-self::*)=count(descendant-or-self::*)]"/>
+              <xsl:variable name="mergesAboveMe"
+                select="count($myRowInContext/preceding-sibling::*[(descendant-or-self::*[name()='w:tc'])[$numCellsBefore + 1][descendant-or-self::*[name()='w:vMerge']]])"/>
+              <xsl:variable name="mergesAboveNextRestart"
+                select="count($NextRestartInContext/preceding-sibling::*[(descendant-or-self::*[name()='w:tc'])[$numCellsBefore + 1][descendant-or-self::*[name()='w:vMerge']]])"/>
+              
+              <xsl:choose>
+                <xsl:when test="$NextRestart">
+                  <xsl:value-of select="$mergesAboveNextRestart - $mergesAboveMe"
+                  />
+                </xsl:when>
+                <xsl:when test="$vmerge/@w:val">
+                  <xsl:value-of
+                    select="count($belowCurCell[descendant-or-self::*[name()='w:vMerge']]) + 1"
+                  />
+                </xsl:when>
+                <xsl:otherwise>1</xsl:otherwise>
+              </xsl:choose>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+        
+        <xsl:if test="$vmerge">
+          <xsl:attribute name="rowspan">
+            <xsl:value-of select="$rowspan"/>
+          </xsl:attribute>
+        </xsl:if>
+        <!--      <xsl:apply-templates select="w:tcPr/*"/>-->
+        <xsl:apply-templates select="*[not(self::w:tcPr)]">
+          <xsl:with-param name="mapUnstyledParasTo" select="'entry'" tunnel="yes"/>
+        </xsl:apply-templates>
+      </td>
+    </xsl:if>
   </xsl:template>
-  
+    
   <xsl:template match="w:tab">
     <xsl:if test="not($filterTabsBoolean)">
       <tab/>
