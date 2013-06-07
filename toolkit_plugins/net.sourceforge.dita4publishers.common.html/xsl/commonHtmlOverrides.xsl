@@ -241,6 +241,8 @@
     match="@*" priority="-1"
     />
   
-  
+  <xsl:template match="*[df:class(., 'learningBase/lcTime')]">
+    <div class="lcTime{if(@outputclass) then concat(' ', @outputclass) else ''}"><xsl:apply-templates/></div>
+  </xsl:template>
   
 </xsl:stylesheet>
