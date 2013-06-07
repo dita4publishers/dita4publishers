@@ -34,6 +34,7 @@ lesson"
 <!ENTITY % module-mapref "module-mapref" >
 <!ENTITY % lesson "lesson" >
 <!ENTITY % lesson-mapref "lesson-mapref" >
+<!ENTITY % learningObjectMapref "learningObjectMapref" >
 
 
 
@@ -211,7 +212,8 @@ lesson"
    (%learningPlanRef;)?,
    ((%learningOverviewRef;) | 
     (%learningPreAssessmentRef;))*,
-   (%learningObject;)*,
+   (%learningObject; |
+    %learningObjectMapref;)*,
    ((%learningPostAssessmentRef;) | 
     (%learningSummaryRef;))* )"
 >
@@ -303,6 +305,21 @@ lesson"
 <!ELEMENT lesson-mapref    %lesson-mapref.content;>
 <!ATTLIST lesson-mapref    %lesson-mapref.attributes;>
 
+<!--  Learning object map reference 
+
+      NOTE: In DITA 1.3, the L&T learning map domain
+      provides this element type
+
+-->
+<!ENTITY % learningObjectMapref.content
+ "%mapref.cnt;"
+>
+<!ENTITY % learningObjectMapref.attributes
+ "%mapref-atts;"
+>
+<!ELEMENT learningObjectMapref    %learningObjectMapref.content;>
+<!ATTLIST learningObjectMapref    %learningObjectMapref.attributes;>
+
 
 
  
@@ -320,6 +337,7 @@ lesson"
 <!ATTLIST module-mapref   %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/module-mapref ">
 <!ATTLIST lesson-mapref   %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/lesson-mapref ">
 <!ATTLIST lesson   %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/lesson ">
+<!ATTLIST learningObjectMapref   %global-atts; class CDATA "+ map/topicref learningmap-d/topicref trainingmap-d/learningObjectMapref ">
 
 
 <!-- ================== End training map domain ============================= -->
