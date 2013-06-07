@@ -279,8 +279,25 @@
     
   </xsl:template>
   
+  <!-- Much of the code used for table transformation comes from the DITA Open Toolkit's h2d plugin -->
   <xsl:template match="rsiwp:table">
-<!--    <xsl:message> + [DEBUG] rsiwp:table: Starting...</xsl:message>-->
+    <xsl:variable name="cols-in-first-row">
+      <xsl:choose>
+        <xsl:when test="rsiwp:tbody/rsiwp:tr">
+          <xsl:apply-templates select="(rsiwp:tbody[1]/rsiwp:tr[1]/rsiwp:td[1]|rsiwp:tbody[1]/rsiwp:tr[1]/rsiwp:th[1])[1]"
+            mode="count-cols"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates select="(rsiwp:tr[1]/rsiwp:td[1]|rsiwp:tr[1]/rsiwp:th[1])[1]" mode="count-cols"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="width">
+      <xsl:if test="@width">
+        <xsl:value-of select="substring-before(@width,'%')"/>
+      </xsl:if>
+    </xsl:variable>
+    <!--    <xsl:message> + [DEBUG] rsiwp:table: Starting...</xsl:message>-->
     <xsl:variable name="tagName" as="xs:string"
       select="
       if (@tagName) 
@@ -290,17 +307,46 @@
     />
     <xsl:element name="{$tagName}">  
       <xsl:call-template name="generateXtrcAtt"/>
-      <tgroup cols="{count(rsiwp:cols/rsiwp:col)}">
-        <xsl:apply-templates select="rsiwp:cols"/>
-        <xsl:if test="rsiwp:th">
-          <thead>
-            <xsl:apply-templates select="rsiwp:th"/>          
-          </thead>
-        </xsl:if>
+      <xsl:if test="@align">
+        <xsl:attribute name="align">
+          <xsl:value-of select="@align"/>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:choose>
+        <xsl:when test="number($width) &lt; 100">
+          <xsl:attribute name="pgwide">0</xsl:attribute>
+        </xsl:when>
+        <xsl:when test="string-length($width)">
+          <xsl:attribute name="pgwide">1</xsl:attribute>
+        </xsl:when>
+      </xsl:choose>
+      
+      <tgroup>
+        <!-- add colspan data here -->
+        <xsl:attribute name="cols">
+          <xsl:value-of select="$cols-in-first-row"/>
+        </xsl:attribute>
+        <xsl:call-template name="create-colspec">
+          <xsl:with-param name="total-cols">
+            <xsl:value-of select="$cols-in-first-row"/>
+          </xsl:with-param>
+        </xsl:call-template>
+        <xsl:choose>
+          <xsl:when test="rsiwp:thead">
+            <thead>
+              <xsl:apply-templates select="rsiwp:thead/rsiwp:tr"/> <!-- FIXME: will this select anything? -->
+            </thead>
+          </xsl:when>
+          <xsl:when test="rsiwp:tr[rsiwp:th and not(rsiwp:td)]"> <!-- FIXME: Will this ever select anything? I don't think we make rsiwp:th in wordml2simple -->
+            <thead>
+              <xsl:apply-templates select="rsiwp:tr[rsiwp:th and not(rsiwp:td)]"/>
+            </thead>
+          </xsl:when>
+        </xsl:choose>
         <tbody>
           <xsl:choose>
-            <xsl:when test="rsiwp:tr">
-              <xsl:apply-templates select="rsiwp:tr"/>
+            <xsl:when test="rsiwp:tbody/rsiwp:tr[rsiwp:td]|rsiwp:tr[rsiwp:td]">
+              <xsl:apply-templates select="rsiwp:tbody/rsiwp:tr[rsiwp:td]|rsiwp:tr[rsiwp:td]"/>         
             </xsl:when>
             <xsl:otherwise>
               <row>
@@ -308,35 +354,358 @@
               </row>
             </xsl:otherwise>
           </xsl:choose>
-          
-        </tbody>    
+        </tbody>
       </tgroup>
     </xsl:element>
   </xsl:template>
   
-  <xsl:template match="rsiwp:cols">
-    <xsl:apply-templates/>
-  </xsl:template>
-  
-  <xsl:template match="rsiwp:col">
-    <colspec colname="{position()}" 
-      colwidth="{concat(@width, '*')}"/>
-  </xsl:template>
-  
-  <xsl:template match="rsiwp:tr | rsiwp:th">
-    <row>
-      <xsl:apply-templates/>
-    </row>
-  </xsl:template>
-  
-  <xsl:template match="rsiwp:td">
-    <entry>
-      <xsl:call-template name="handleBodyParas">
-        <xsl:with-param name="bodyParas" select="*"/>
-      </xsl:call-template>
-    </entry>
-  </xsl:template>
-  
+    <xsl:template match="rsiwp:td|rsiwp:th">
+        <entry>
+            <xsl:if test="@rowspan">
+                <xsl:attribute name="morerows">
+                    <xsl:value-of select="number(@rowspan)-1"/>
+                </xsl:attribute>
+            </xsl:if>
+            <xsl:if test="@colspan">
+                <!-- Allow entries to span columns -->
+                <xsl:variable name="current-cell">
+                    <xsl:call-template name="current-cell-position"/>
+                </xsl:variable>
+                <xsl:attribute name="namest">col<xsl:value-of select="$current-cell"/></xsl:attribute>
+                <xsl:attribute name="nameend">col<xsl:value-of select="$current-cell + number(@colspan) - 1"
+                /></xsl:attribute>
+            </xsl:if>
+            <xsl:choose>
+                <xsl:when test="@align">
+                    <xsl:attribute name="align">
+                        <xsl:value-of select="@align"/>
+                    </xsl:attribute>
+                </xsl:when>
+                <xsl:when test="../@align">
+                    <xsl:attribute name="align">
+                        <xsl:value-of select="../@align"/>
+                    </xsl:attribute>
+                </xsl:when>
+            </xsl:choose>
+            <xsl:call-template name="handleBodyParas">
+                <xsl:with-param name="bodyParas" select="*"/>
+            </xsl:call-template>
+            <!-- Original for reference: 
+      <xsl:choose>
+        <xsl:when test="table">
+          <p>
+            <xsl:apply-templates select="*|text()|comment()"/>
+          </p>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates select="*|text()|comment()"/>
+        </xsl:otherwise>
+      </xsl:choose> -->
+        </entry>
+    </xsl:template>
+    
+    
+    <xsl:template match="rsiwp:tr|rsiwp:thead">
+        <row>
+            <xsl:if test="@valign">
+                <xsl:attribute name="valign">
+                    <xsl:value-of select="@valign"/>
+                </xsl:attribute>
+            </xsl:if>
+            <xsl:apply-templates/>
+        </row>
+    </xsl:template>
+    
+    <xsl:template match="rsiwp:td|rsiwp:th" mode="count-cols">
+        <xsl:param name="current-count">1</xsl:param>
+        <xsl:variable name="current-span">
+            <xsl:choose>
+                <xsl:when test="@colspan">
+                    <xsl:value-of select="@colspan"/>
+                </xsl:when>
+                <xsl:otherwise>1</xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:choose>
+            <xsl:when test="following-sibling::rsiwp:th or following-sibling::rsiwp:td">
+                <xsl:apply-templates select="(following-sibling::rsiwp:th|following-sibling::rsiwp:td)[1]"
+                    mode="count-cols">
+                    <xsl:with-param name="current-count">
+                        <xsl:value-of select="number($current-span) + number($current-count)"/>
+                    </xsl:with-param>
+                </xsl:apply-templates>
+            </xsl:when>
+            <xsl:when test="@colspan">
+                <xsl:value-of select="number($current-span) + number($current-count) - 1"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$current-count"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    <xsl:template name="create-colspec">
+        <xsl:param name="total-cols">0</xsl:param>
+        <xsl:param name="on-column">1</xsl:param>
+        <xsl:if test="$on-column &lt;= $total-cols">
+            <colspec>
+                <xsl:attribute name="colname">col<xsl:value-of select="$on-column"/></xsl:attribute>
+                <xsl:if test="@align">
+                    <xsl:attribute name="align">
+                        <xsl:value-of select="@align"/>
+                    </xsl:attribute>
+                </xsl:if>
+            </colspec>
+            <xsl:call-template name="create-colspec">
+                <xsl:with-param name="total-cols">
+                    <xsl:value-of select="$total-cols"/>
+                </xsl:with-param>
+                <xsl:with-param name="on-column">
+                    <xsl:value-of select="$on-column + 1"/>
+                </xsl:with-param>
+            </xsl:call-template>
+        </xsl:if>
+    </xsl:template>
+    
+    
+    <!-- Determine which column the current entry sits in. Count the current entry,
+     plus every entry before it; take spanned rows and columns into account.
+     If any entries in this table span rows, we must examine the entire table to
+     be sure of the current column. Use mode="find-matrix-column".
+     Otherwise, we just need to examine the current row. Use mode="count-cells". -->
+    <xsl:template name="current-cell-position">
+        <xsl:choose>
+            <xsl:when test="parent::rsiwp:tr/parent::rsiwp:thead">
+                <xsl:apply-templates select="(ancestor::rsiwp:table[1]/rsiwp:thead/rsiwp:tr/*[1])[1]"
+                    mode="find-matrix-column">
+                    <xsl:with-param name="stop-id">
+                        <xsl:value-of select="generate-id(.)"/>
+                    </xsl:with-param>
+                </xsl:apply-templates>
+            </xsl:when>
+            <xsl:when test="ancestor::rsiwp:table[1]//*[@rowspan][1]">
+                <xsl:apply-templates
+                    select="(ancestor::rsiwp:table[1]/rsiwp:tbody/rsiwp:tr/*[1]|ancestor::rsiwp:table[1]/rsiwp:tr/*[1])[1]"
+                    mode="find-matrix-column">
+                    <xsl:with-param name="stop-id">
+                        <xsl:value-of select="generate-id(.)"/>
+                    </xsl:with-param>
+                </xsl:apply-templates>
+            </xsl:when>
+            <xsl:when test="not(preceding-sibling::rsiwp:td|preceding-sibling::rsiwp:th)">1</xsl:when>
+            <xsl:otherwise>
+                <xsl:apply-templates select="(preceding-sibling::rsiwp:th|preceding-sibling::rsiwp:td)[last()]"
+                    mode="count-cells"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    <!-- Count the number of cells in the current row. Move backwards from the test cell. Add one
+     for each entry, plus the number of spanned columns. -->
+    <xsl:template match="*" mode="count-cells">
+        <xsl:param name="current-count">1</xsl:param>
+        <xsl:variable name="new-count">
+            <xsl:choose>
+                <xsl:when test="@colspan">
+                    <xsl:value-of select="$current-count + number(@colspan)"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="$current-count + 1"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:choose>
+            <xsl:when test="not(preceding-sibling::rsiwp:td|preceding-sibling::rsiwp:th)">
+                <xsl:value-of select="$new-count"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:apply-templates select="(preceding-sibling::rsiwp:th|preceding-sibling::rsiwp:td)[last()]"
+                    mode="count-cells">
+                    <xsl:with-param name="current-count">
+                        <xsl:value-of select="$new-count"/>
+                    </xsl:with-param>
+                </xsl:apply-templates>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    <!-- Set up a pseudo-matrix to find the column of the current entry. Start with the first entry
+     in the first row. Progress to the end of the row, then start the next row; go until we find
+     the test cell (with id=$stop-id).
+     If an entry spans rows, add the cells that will be covered to $matrix.
+     If we get to an entry and its position is already filled in $matrix, then the entry is pushed
+     to the side. Add one to the column count and re-try the entry. -->
+    <xsl:template match="*" mode="find-matrix-column">
+        <xsl:param name="stop-id"/>
+        <xsl:param name="matrix"/>
+        <xsl:param name="row-count">1</xsl:param>
+        <xsl:param name="col-count">1</xsl:param>
+        <!-- $current-position has the format [1:3] for row 1, col 3. Use to test if this cell is covered. -->
+        <xsl:variable name="current-position">[<xsl:value-of select="$row-count"/>:<xsl:value-of
+            select="$col-count"/>]</xsl:variable>
+        
+        <xsl:choose>
+            <!-- If the current value is already covered, increment the column number and try again. -->
+            <xsl:when test="contains($matrix,$current-position)">
+                <xsl:apply-templates select="." mode="find-matrix-column">
+                    <xsl:with-param name="stop-id">
+                        <xsl:value-of select="$stop-id"/>
+                    </xsl:with-param>
+                    <xsl:with-param name="matrix">
+                        <xsl:value-of select="$matrix"/>
+                    </xsl:with-param>
+                    <xsl:with-param name="row-count">
+                        <xsl:value-of select="$row-count"/>
+                    </xsl:with-param>
+                    <xsl:with-param name="col-count">
+                        <xsl:value-of select="$col-count + 1"/>
+                    </xsl:with-param>
+                </xsl:apply-templates>
+            </xsl:when>
+            <!-- If this is the cell we are testing, return the current column number. -->
+            <xsl:when test="generate-id(.)=$stop-id">
+                <xsl:value-of select="$col-count"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <!-- Figure out what the next column value will be. -->
+                <xsl:variable name="next-col-count">
+                    <xsl:choose>
+                        <xsl:when test="not(following-sibling::*)">1</xsl:when>
+                        <xsl:when test="@colspan">
+                            <xsl:value-of select="$col-count + number(@colspan) - 1"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="$col-count + 1"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
+                <!-- Determine any values that need to be added to the matrix, if this entry spans rows. -->
+                <xsl:variable name="new-matrix-values">
+                    <xsl:if test="@rowspan">
+                        <xsl:call-template name="add-to-matrix">
+                            <xsl:with-param name="start-row">
+                                <xsl:value-of select="number($row-count)"/>
+                            </xsl:with-param>
+                            <xsl:with-param name="end-row">
+                                <xsl:value-of select="number($row-count) + number(@rowspan) - 1"/>
+                            </xsl:with-param>
+                            <xsl:with-param name="start-col">
+                                <xsl:value-of select="number($col-count)"/>
+                            </xsl:with-param>
+                            <xsl:with-param name="end-col">
+                                <xsl:choose>
+                                    <xsl:when test="@colspan">
+                                        <xsl:value-of select="number($col-count) + number(@colspan) - 1"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="number($col-count)"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:with-param>
+                        </xsl:call-template>
+                    </xsl:if>
+                </xsl:variable>
+                <xsl:choose>
+                    <!-- If there are more entries in this row, move to the next one. -->
+                    <xsl:when test="following-sibling::*">
+                        <xsl:apply-templates select="following-sibling::*[1]" mode="find-matrix-column">
+                            <xsl:with-param name="stop-id">
+                                <xsl:value-of select="$stop-id"/>
+                            </xsl:with-param>
+                            <xsl:with-param name="matrix">
+                                <xsl:value-of select="$matrix"/>
+                                <xsl:value-of select="$new-matrix-values"/>
+                            </xsl:with-param>
+                            <xsl:with-param name="row-count">
+                                <xsl:value-of select="$row-count"/>
+                            </xsl:with-param>
+                            <xsl:with-param name="col-count">
+                                <xsl:value-of select="$next-col-count"/>
+                            </xsl:with-param>
+                        </xsl:apply-templates>
+                    </xsl:when>
+                    <!-- Otherwise, move to the first entry in the next row. -->
+                    <xsl:otherwise>
+                        <xsl:apply-templates select="../following-sibling::rsiwp:tr[1]/*[1]" mode="find-matrix-column">
+                            <xsl:with-param name="stop-id">
+                                <xsl:value-of select="$stop-id"/>
+                            </xsl:with-param>
+                            <xsl:with-param name="matrix">
+                                <xsl:value-of select="$matrix"/>
+                                <xsl:value-of select="$new-matrix-values"/>
+                            </xsl:with-param>
+                            <xsl:with-param name="row-count">
+                                <xsl:value-of select="$row-count + 1"/>
+                            </xsl:with-param>
+                            <xsl:with-param name="col-count">
+                                <xsl:value-of select="1"/>
+                            </xsl:with-param>
+                        </xsl:apply-templates>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    <!-- This template returns values that must be added to the table matrix. Every cell in the box determined
+     by start-row, end-row, start-col, and end-col will be added. First add every value from the first
+     column. When past $end-row, move to the next column. When past $end-col, every value is added. -->
+    <xsl:template name="add-to-matrix">
+        <xsl:param name="start-row"/>
+        <xsl:param name="end-row"/>
+        <xsl:param name="current-row">
+            <xsl:value-of select="$start-row"/>
+        </xsl:param>
+        <xsl:param name="start-col"/>
+        <xsl:param name="end-col"/>
+        <xsl:param name="current-col">
+            <xsl:value-of select="$start-col"/>
+        </xsl:param>
+        <xsl:choose>
+            <xsl:when test="$current-col > $end-col"/>
+            <!-- Out of the box; every value has been added -->
+            <xsl:when test="$current-row > $end-row">
+                <!-- Finished with this column; move to next -->
+                <xsl:call-template name="add-to-matrix">
+                    <xsl:with-param name="start-row">
+                        <xsl:value-of select="$start-row"/>
+                    </xsl:with-param>
+                    <xsl:with-param name="end-row">
+                        <xsl:value-of select="$end-row"/>
+                    </xsl:with-param>
+                    <xsl:with-param name="current-row">
+                        <xsl:value-of select="$start-row"/>
+                    </xsl:with-param>
+                    <xsl:with-param name="start-col">
+                        <xsl:value-of select="$start-col"/>
+                    </xsl:with-param>
+                    <xsl:with-param name="end-col">
+                        <xsl:value-of select="$end-col"/>
+                    </xsl:with-param>
+                    <xsl:with-param name="current-col">
+                        <xsl:value-of select="$current-col + 1"/>
+                    </xsl:with-param>
+                </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise>
+                <!-- Output the value for the current entry -->
+                <xsl:text>[</xsl:text>
+                <xsl:value-of select="$current-row"/>:<xsl:value-of select="$current-col"/>
+                <xsl:text>]</xsl:text>
+                <!-- Move to the next row, in the same column. -->
+                <xsl:call-template name="add-to-matrix">
+                    <xsl:with-param name="start-row"><xsl:value-of select="$start-row"/></xsl:with-param>
+                    <xsl:with-param name="end-row"><xsl:value-of select="$end-row"/></xsl:with-param>
+                    <xsl:with-param name="current-row"><xsl:value-of select="$current-row + 1"
+                    /></xsl:with-param>
+                    <xsl:with-param name="start-col"><xsl:value-of select="$start-col"/></xsl:with-param>
+                    <xsl:with-param name="end-col"><xsl:value-of select="$end-col"/></xsl:with-param>
+                    <xsl:with-param name="current-col"><xsl:value-of select="$current-col"/></xsl:with-param>
+                </xsl:call-template>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
   
   <xsl:template match="rsiwp:run" mode="p-content">
     <xsl:variable name="tagName" as="xs:string"
