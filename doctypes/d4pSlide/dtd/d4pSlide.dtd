@@ -70,6 +70,21 @@
          "../../base/dtd/utilitiesDomain.ent"                                                
 >%ut-d-dec;
 
+<!ENTITY % pr-d-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Programming Domain//EN" 
+         "programmingDomain.ent"                                              
+>%pr-d-dec;
+
+<!ENTITY % sw-d-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Software Domain//EN" 
+         "softwareDomain.ent"                                                 
+>%sw-d-dec;
+
+<!ENTITY % ui-d-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 User Interface Domain//EN" 
+         "uiDomain.ent"                                                       
+>%ui-d-dec;
+
 
 
 <!-- ============================================================= -->
@@ -89,6 +104,7 @@
                          %learning-d-lcInteractionBase;
                         ">                        
 <!ENTITY % fig          "fig |
+                         %pr-d-fig; |
                          %ut-d-fig; |
                          %learningInteractionBase-d-fig; |
                          %learning-d-fig; |
@@ -106,6 +122,32 @@
 <!ENTITY % metadata     "metadata |
                          %learningmeta-d-metadata;
                          ">
+
+<!ENTITY % pre          "pre | 
+                         %pr-d-pre; | 
+                         %sw-d-pre; | 
+                         %ui-d-pre;
+                        ">
+<!ENTITY % keyword      "keyword | 
+                         %pr-d-keyword; | 
+                         %sw-d-keyword; |
+                         %ui-d-keyword; |
+   %d4p_variables-d-keyword; |
+   %xml-d-keyword;
+                        ">
+<!ENTITY % ph           "ph | 
+                         %hi-d-ph; | 
+                         %pr-d-ph; | 
+                         %sw-d-ph; | 
+                         %ui-d-ph; |
+   %d4p_formatting-d-ph; |
+   %d4p_math-d-ph; |
+   %d4p_ruby-d-ph;
+                        ">
+
+<!ENTITY % dl           "dl | 
+                         %pr-d-dl;
+                        ">
 
 <!ENTITY % commonDomainEntityIntegrations-dec
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations:integrationEntities"
@@ -206,6 +248,21 @@
   PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Learning Metadata Domain//EN" 
          "learningMetadataDomain.mod">
   %learningmeta-d-def;
+
+<!ENTITY % ui-d-def     
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 User Interface Domain//EN" 
+         "uiDomain.mod"
+>%ui-d-def;
+
+<!ENTITY % pr-d-def     
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Programming Domain//EN" 
+         "programmingDomain.mod"
+>%pr-d-def;
+
+<!ENTITY % sw-d-def     
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Software Domain//EN" 
+         "softwareDomain.mod"
+>%sw-d-def;
 
 
 <!-- ================== End subsection DTD  ==================== -->
