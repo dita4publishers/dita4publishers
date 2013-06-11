@@ -34,6 +34,8 @@ lesson"
 <!ENTITY % module-mapref "module-mapref" >
 <!ENTITY % lesson "lesson" >
 <!ENTITY % lesson-mapref "lesson-mapref" >
+<!ENTITY % exercise "exercise" >
+<!ENTITY % exercise-mapref "exercise-mapref" >
 <!ENTITY % learningObjectMapref "learningObjectMapref" >
 
 
@@ -170,7 +172,9 @@ lesson"
    ((%learningOverviewRef;) | 
     (%learningPreAssessmentRef;))*,
    (%module; | 
-    %module-mapref;)*,
+    %module-mapref; |
+    %exercise; |
+    %exercise-mapref;)*,
    ((%learningPostAssessmentRef;) | 
     (%learningSummaryRef;))* )"
 >
@@ -191,7 +195,9 @@ lesson"
    ((%learningOverviewRef;) | 
     (%learningPreAssessmentRef;))*,
    (%lesson; | 
-    %lesson-mapref;)*,
+    %lesson-mapref; |
+    %exercise; |
+    %exercise-mapref;)*,
    ((%learningPostAssessmentRef;) | 
     (%learningSummaryRef;))* )"
 >
@@ -213,7 +219,9 @@ lesson"
    ((%learningOverviewRef;) | 
     (%learningPreAssessmentRef;))*,
    (%learningObject; |
-    %learningObjectMapref;)*,
+    %learningObjectMapref; |
+    %exercise; |
+    %exercise-mapref;)*,
    ((%learningPostAssessmentRef;) | 
     (%learningSummaryRef;))* )"
 >
@@ -223,6 +231,31 @@ lesson"
 >
 <!ELEMENT lesson    %lesson.content;>
 <!ATTLIST lesson    %lesson.attributes;>
+
+<!ENTITY % exercise.content
+                       "((%topicmeta;)?,
+                         (%learningContentRef;)*
+                         )"
+>
+<!ENTITY % exercise.attributes
+             "%learningDomain-topicref-atts;
+              collection-type
+                        (choice|
+                         unordered|
+                         sequence|
+                         family | 
+                         -dita-use-conref-target)
+                                   #IMPLIED
+              type
+                        CDATA
+                                  #IMPLIED
+              format
+                        CDATA
+                                  #IMPLIED
+">
+<!ELEMENT exercise    %exercise.content;>
+<!ATTLIST exercise    %exercise.attributes;>
+
 
 <!-- ============================================
      Map reference specializations
@@ -305,6 +338,15 @@ lesson"
 <!ELEMENT lesson-mapref    %lesson-mapref.content;>
 <!ATTLIST lesson-mapref    %lesson-mapref.attributes;>
 
+<!ENTITY % exercise-mapref.content
+ "%mapref.cnt;"
+>
+<!ENTITY % exercise-mapref.attributes
+ "%mapref-atts;"
+>
+<!ELEMENT exercise-mapref    %exercise-mapref.content;>
+<!ATTLIST exercise-mapref    %exercise-mapref.attributes;>
+
 <!--  Learning object map reference 
 
       NOTE: In DITA 1.3, the L&T learning map domain
@@ -327,17 +369,19 @@ lesson"
 <!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
 <!-- ============================================================= -->
 <!-- Topicref types: -->
-<!ATTLIST course   %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/course ">
-<!ATTLIST course-mapref   %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/course-mapref ">
-<!ATTLIST workshop %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/workshop ">
-<!ATTLIST workshop-mapref %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/workshop-mapref ">
-<!ATTLIST session  %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/session ">
-<!ATTLIST session-mapref  %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/session-mapref ">
-<!ATTLIST module   %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/module ">
-<!ATTLIST module-mapref   %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/module-mapref ">
-<!ATTLIST lesson-mapref   %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/lesson-mapref ">
-<!ATTLIST lesson   %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/lesson ">
-<!ATTLIST learningObjectMapref   %global-atts; class CDATA "+ map/topicref learningmap-d/topicref trainingmap-d/learningObjectMapref ">
+<!ATTLIST course                 %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/course ">
+<!ATTLIST course-mapref          %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/course-mapref ">
+<!ATTLIST workshop               %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/workshop ">
+<!ATTLIST workshop-mapref        %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/workshop-mapref ">
+<!ATTLIST session                %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/session ">
+<!ATTLIST session-mapref         %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/session-mapref ">
+<!ATTLIST module                 %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/module ">
+<!ATTLIST module-mapref          %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/module-mapref ">
+<!ATTLIST lesson-mapref          %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/lesson-mapref ">
+<!ATTLIST lesson                 %global-atts; class CDATA "+ map/topicref learningmap-d/learningGroup trainingmap-d/lesson ">
+<!ATTLIST exercise-mapref        %global-atts; class CDATA "+ map/topicref learningmap-d/learningObject trainingmap-d/exercise-mapref ">
+<!ATTLIST exercise               %global-atts; class CDATA "+ map/topicref learningmap-d/learningObject trainingmap-d/exercise ">
+<!ATTLIST learningObjectMapref   %global-atts; class CDATA "+ map/topicref learningmap-d/learningObject trainingmap-d/learningObjectMapref ">
 
 
 <!-- ================== End training map domain ============================= -->
