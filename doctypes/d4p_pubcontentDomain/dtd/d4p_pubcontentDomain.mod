@@ -196,11 +196,12 @@ An epigraph is a brief quotation used to introduce a piece of writing
 
 <!ATTLIST body-pullquote         %global-atts;  class CDATA "+ topic/bodydiv    d4p-pubcontent-d/body-pullquote ">
 <!ATTLIST section-pullquote      %global-atts;  class CDATA "+ topic/sectiondiv d4p-pubcontent-d/section-pullquote ">
-<!ATTLIST epigraph               %global-atts;  class CDATA "+ topic/bodydiv    d4p-pubcontent-d/epigraph ">
-<!ATTLIST epigraph-attribution   %global-atts;  class CDATA "+ topic/p          d4p-pubcontent-d/epigraph-attribution ">
 
 <!ATTLIST epigraph               %global-atts;  class CDATA "+ topic/bodydiv    d4p-pubcontent-d/epigraph ">
 <!ATTLIST epigraph-attribution   %global-atts;  class CDATA "+ topic/p          d4p-pubcontent-d/epigraph-attribution ">
+<!ATTLIST epigram                %global-atts;  class CDATA "+ topic/bodydiv    d4p-pubcontent-d/epigram ">
+<!ATTLIST epigram-attribution    %global-atts;  class CDATA "+ topic/p          d4p-pubcontent-d/epigram-attribution ">
+
 
 <!ATTLIST d4pAttributedQuote     %global-atts;  class CDATA "+ topic/lq         d4p-pubcontent-d/d4pAttributedQuote ">
 <!ATTLIST d4pQuoteAttribution    %global-atts;  class CDATA "+ topic/p          d4p-pubcontent-d/d4pQuoteAttribution ">
