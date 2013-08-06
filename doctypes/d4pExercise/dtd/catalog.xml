@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:d4pExercise"
+    uri="d4pExercise.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:d4pExercise.dtd"
+    uri="d4pExercise.dtd"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:modules:d4pExercise"
+    uri="d4pExercise.mod"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:modules:d4pExercise.mod"
+    uri="d4pExercise.mod"
+  />
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:entities:d4pExercise"
+    uri="d4pExercise.ent"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:entities:d4pExercise.ent"
+    uri="d4pExercise.ent"
+  />
+</catalog>  
