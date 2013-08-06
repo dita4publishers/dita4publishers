@@ -973,6 +973,12 @@
     </javac>    
   </target>
 	
+  <target name="jar-slideset-generator" depends="dist-init,compile" description="Create jar for DITA-to-SlideSet transformer">
+    <jar jarfile="${dist}/dita2slideset.jar" basedir="${classes.home}" >
+			<include name="net/sourceforge/dita4publishers/slideset/**/*"/>
+    </jar>
+  </target>
+	
   <target name="jar-inx-util" depends="dist-init,compile" description="Create jar for DITA2InDesign INX Utility library">
     <jar jarfile="${dist}/dita2indesign-inx-util.jar" basedir="${classes.home}" >
 			<include name="net/sourceforge/dita4publishers/util/conversion/**/*"/>
@@ -1133,9 +1139,10 @@
     </copy>
     <copy todir="${classes.home}/WebContent/toolkit_plugins">
       <fileset dir="${toolkit.plugin.src}">
-      	<include name="net.sourceforge.dita4publishers.common.xslt/**/*"/>
+      	<include name="net.sourceforge.dita4publishers.common./**/*"/>
       	<include name="org.dita2indesign.dita2indesign/**/*"/>
         <include name="net.sourceforge.dita4publishers.word2dita/**/*"/>
+        <include name="net.sourceforge.dita4publishers.slideset/**/*"/>
     	</fileset>
     </copy>
 

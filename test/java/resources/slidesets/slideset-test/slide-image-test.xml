@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<d4pSlide id="slide-01" ditaarch:DITAArchVersion="1.2" class="- topic/topic learningBase/learningBase learningContent/learningContent d4pSlide/d4pSlide " xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+  <title
+    class="- topic/title ">Image Test</title>
+  <d4pSlideBody class="- topic/body  learningBase/learningBasebody learningContent/learningContentbody d4pSlide/d4pSlideBody ">
+    <lcInstruction
+      class="- topic/section learningBase/lcInstruction ">
+      <ul class="- topic/ul ">
+        <li
+          class="- topic/li ">Bullet list item 1 Slide 2</li>
+        <li
+          class="- topic/li ">Bullet list item 2 Slide 2</li>
+      </ul>
+      <fig
+        id="fig_o23_tb5_yk"
+        expanse="page"
+        class="- topic/fig "><image
+          href="file:/Users/ekimber/workspace_40/dita4publishers_slideset/test/java/resources/slidesets/slideset-test/images/D4P_logo_final.png"
+        id="image_jwb_xb5_yk"
+        class="- topic/image "/></fig>
+<!--      <ul class="- topic/ul "
+        id="ul_fg2_dc5_yk">
+        <li
+          class="- topic/li ">First bullet list</li>
+        <li
+          class="- topic/li ">Second list item</li>
+      </ul>
+-->    </lcInstruction>
+      
+    
+  </d4pSlideBody>
+</d4pSlide>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:sld="urn:ns:dita4publishers.org:doctypes:simpleslideset"
+  targetNamespace="urn:ns:dita4publishers.org:doctypes:simpleslideset"
+  elementFormDefault="qualified" 
+  attributeFormDefault="unqualified">
+
+  <xs:element
+    name="simpleslideset">
+    <xs:annotation>
+      <xs:documentation> 
+        <div> 
+          <h2>Simple Side Set</h2> 
+          <p>Represents a set of one or more slides, e.g., PowerPoint slides, Slidey slides, etc.</p>
+          <p>This document type is used to enable generation of
+          things like PowerPoint using the Apache POI library (or its equivalent)
+          by containing the essential information that the slide-generation
+          process will need in order to create appropriately-formatted slides.
+          The primary use case is PowerPoint slides created using the Apache POI
+          support for generation PPTX.
+          </p>
+          <p>One thing in this model that is not inherent in at least PowerPoint is styles for
+          paragraphs, frames, and so on. This model provides a facility for defining styles
+          that represent named collections of properties. Slides and slide components can then
+          refer to those styles to have them be applied automatically.</p>
+        </div>
+      </xs:documentation>
+    </xs:annotation>
+    
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="sld:prolog" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="sld:styles" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="sld:slides" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="prolog">
+    <xs:annotation>
+      <xs:documentation> 
+        <div> 
+          <h2>Prolog</h2>
+          <p>Contains metadata that applies to the slide set as a whole.
+          This should include metadata that should be set in the resulting
+          document.</p>
+        </div>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="styles">
+    <xs:annotation>
+      <xs:documentation> 
+        <div> 
+          <h2>Styles</h2>
+          <p>Defines named styles. Each style is a collection of properties.</p>
+          <p>The style types are<ul>
+            <li>slide - Defines properties that apply to the slide as a whole</li>
+            <li>paragraph - Defines properties that apply to a single paragraph (in the word processing sense)</li>
+            <li>character - Defines properties that apply to a run of text within a paragraph</li>
+            <li>object - Defines properties that apply to a graphic or frame</li>
+          </ul></p>
+        </div>
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  
+  <xs:element name="slides">
+    <xs:annotation>
+      <xs:documentation> 
+        <div> 
+          <h2>Slides</h2>
+          <p>Contains the text of the slides. </p>
+          <p>Slides may be grouped into slide sets, e.g., corresponding to "sections" in PPT.</p>
+        </div>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="sld:slidegroup"/>
+        <xs:element ref="sld:slide"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="slidegroup">
+    <xs:annotation>
+      <xs:documentation> 
+        <div> 
+          <h2>Slide Group</h2>
+          <p>Contains one or more slides.</p>
+        </div>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>      
+        <xs:element ref="sld:title" minOccurs="0" maxOccurs="1"/>
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+          <xs:element ref="sld:slide"/>
+        </xs:choice>
+      </xs:sequence>    
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="slide">
+    <xs:annotation>
+      <xs:documentation> 
+        <div> 
+          <h2>Slide</h2>
+          <p>Represents a single slide</p>
+        </div>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="sld:title" maxOccurs="1" minOccurs="0"/>
+        <xs:element ref="sld:slidebody" maxOccurs="1" minOccurs="0"/>
+        <xs:element ref="sld:slidenotes" maxOccurs="1" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="title">
+    <xs:annotation>
+      <xs:documentation> 
+        <div> 
+          <h2>Slide Title</h2>
+          <p>The title of the slide</p>
+        </div>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:any  
+          processContents="lax" 
+          namespace="##targetNamespace" 
+          maxOccurs="unbounded" 
+          minOccurs="0" 
+        />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="slidebody">
+    <xs:annotation>
+      <xs:documentation> 
+        <div> 
+          <h2>Slide Body</h2>
+          <p>The body of the slide</p>
+        </div>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:any  
+          processContents="lax" 
+          namespace="##targetNamespace" 
+          maxOccurs="unbounded" 
+          minOccurs="0" 
+        />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="slidenotes">
+    <xs:annotation>
+      <xs:documentation> 
+        <div> 
+          <h2>Slide Notes</h2>
+          <p>The notes for the slide</p>
+        </div>
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice>
+        <xs:any  
+          processContents="lax" 
+          namespace="##targetNamespace" 
+          maxOccurs="unbounded" 
+          minOccurs="0" 
+        />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  
+  
+</xs:schema>

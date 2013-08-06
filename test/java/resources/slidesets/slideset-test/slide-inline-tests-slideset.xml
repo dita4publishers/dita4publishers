@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><sld:slide xmlns:sld="urn:ns:dita4publishers.org:doctypes:simpleslideset"><sld:title><sld:p style="Title">Inline Tests</sld:p></sld:title><sld:slidebody>
+    
+      <sld:ul>
+        <sld:li>Bold: <sld:inline style="b">bold</sld:inline></sld:li>
+        <sld:li>Italic: <sld:inline style="i">italic</sld:inline></sld:li>
+        <sld:li>Underline: <sld:inline style="u">underline</sld:inline></sld:li>
+        <sld:li>codeph: <sld:inline style="codeph">code phrase</sld:inline></sld:li>
+        <sld:li>Small caps: <sld:inline style="sc">small caps</sld:inline></sld:li>
+        <sld:li>Bold Small caps: <sld:inline style="b-sc">bold small
+          caps</sld:inline></sld:li>
+      </sld:ul>
+    
+      
+    
+  </sld:slidebody><sld:slidenotes>
+  Inline Tests
+  
+</sld:slidenotes></sld:slide>

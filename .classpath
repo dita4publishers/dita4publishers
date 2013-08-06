@@ -19,12 +19,14 @@
 	<classpathentry kind="lib" path="lib/saxon9-dom.jar"/>
 	<classpathentry kind="lib" path="lib/commons-cli.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/Users/ekimber/java/poi-3.7/poi-3.7-20101029.jar"/>
 	<classpathentry kind="lib" path="/Users/ekimber/java/poi-3.7/ooxml-lib/dom4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="/Users/ekimber/java/poi-3.7/ooxml-lib/geronimo-stax-api_1.0_spec-1.0.jar"/>
 	<classpathentry kind="lib" path="/Users/ekimber/java/poi-3.7/ooxml-lib/xmlbeans-2.3.0.jar"/>
-	<classpathentry kind="lib" path="/Users/ekimber/java/poi-3.7/poi-ooxml-3.7-20101029.jar" sourcepath="/apache-poi/src/ooxml/java"/>
-	<classpathentry kind="lib" path="/Users/ekimber/java/poi-3.7/poi-ooxml-schemas-3.7-20101029.jar"/>
 	<classpathentry exported="true" kind="con" path="GROOVY_DSL_SUPPORT"/>
+	<classpathentry kind="lib" path="lib/ooxml-schemas.jar"/>
+	<classpathentry kind="lib" path="lib/poi-ooxml-schemas.jar"/>
+	<classpathentry kind="lib" path="lib/poi-ooxml.jar"/>
+	<classpathentry kind="lib" path="lib/poi.jar"/>
+	<classpathentry kind="lib" path="lib/poi-scratchpad-4.0-beta1-20130517.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

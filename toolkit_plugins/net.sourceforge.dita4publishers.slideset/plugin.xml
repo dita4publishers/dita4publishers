@@ -1,0 +1,14 @@
+<plugin id="net.sourceforge.d4p.slideset">
+  <extension id="xsl.transtype-slideset"/>
+  
+  <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
+  <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
+
+  <template file="build_transtype-slideset_template.xml"/>
+  
+  <template file="xsl/map2slideset_template.xsl"/>
+
+  <feature extension="dita.conductor.transtype.check" value="slideset" type="txt"/>
+  <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
+
+</plugin>

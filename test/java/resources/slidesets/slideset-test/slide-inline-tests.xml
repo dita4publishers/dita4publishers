@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<d4pSlide id="slide-01" ditaarch:DITAArchVersion="1.2" class="- topic/topic learningBase/learningBase learningContent/learningContent d4pSlide/d4pSlide " xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+<title
+class="- topic/title ">Inline Tests</title>
+<d4pSlideBody class="- topic/body  learningBase/learningBasebody learningContent/learningContentbody d4pSlide/d4pSlideBody ">
+<lcInstruction class="- topic/section learningBase/lcInstruction ">
+<ul
+class="- topic/ul ">
+<li
+class="- topic/li ">Bold: <b class="+ topic/ph hi-d/b ">bold</b></li>
+<li
+class="- topic/li ">Italic: <i class="+ topic/ph hi-d/i ">italic</i></li>
+<li
+class="- topic/li ">Underline: <u class="+ topic/ph hi-d/u ">underline</u></li>
+<li
+class="- topic/li ">codeph: <codeph
+class="+ topic/ph pr-d/codeph ">code phrase</codeph></li>
+<li
+class="- topic/li ">Small caps: <sc
+class="+ topic/ph    d4p-formatting-d/sc ">small caps</sc></li>
+<li
+class="- topic/li ">Bold Small caps: <b-sc
+class="+ topic/ph    d4p-formatting-d/b-sc ">bold small caps</b-sc></li>
+</ul>
+</lcInstruction>
+
+
+</d4pSlideBody>
+</d4pSlide>
