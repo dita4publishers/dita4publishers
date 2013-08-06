@@ -1139,7 +1139,7 @@
     </copy>
     <copy todir="${classes.home}/WebContent/toolkit_plugins">
       <fileset dir="${toolkit.plugin.src}">
-      	<include name="net.sourceforge.dita4publishers.common./**/*"/>
+      	<include name="net.sourceforge.dita4publishers.common.*/**/*"/>
       	<include name="org.dita2indesign.dita2indesign/**/*"/>
         <include name="net.sourceforge.dita4publishers.word2dita/**/*"/>
         <include name="net.sourceforge.dita4publishers.slideset/**/*"/>
