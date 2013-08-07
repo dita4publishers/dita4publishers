@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Source;
@@ -32,7 +33,7 @@ public class PPTXSlideSetTransformer
      * @throws ParserConfigurationException 
      */
     public PPTXSlideSetTransformer(Source mapSource,
-            ByteArrayOutputStream resultStream,
+            OutputStream resultStream,
             InputStream basePresentationStream) throws ParserConfigurationException {
         super(mapSource, resultStream);
         this.basePresentationStream = basePresentationStream;

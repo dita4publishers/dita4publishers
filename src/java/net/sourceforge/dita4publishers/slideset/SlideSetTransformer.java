@@ -3,18 +3,19 @@ package net.sourceforge.dita4publishers.slideset;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.transform.Source;
-import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.URIResolver;
 
 import net.sf.saxon.s9api.QName;
 import net.sf.saxon.s9api.XdmAtomicValue;
 
 import org.apache.commons.logging.Log;
+import org.apache.xml.resolver.CatalogManager;
 
 public interface SlideSetTransformer {
 
@@ -63,7 +64,7 @@ public interface SlideSetTransformer {
      * @return The output stream. The default stream is a {@link ByteArrayOutputStream}
      */
     public abstract
-            ByteArrayOutputStream
+            OutputStream
             getResultStream();
 
     /**
@@ -74,7 +75,7 @@ public interface SlideSetTransformer {
     public abstract
             void
             setResultStream(
-                    ByteArrayOutputStream resultStream);
+                    OutputStream resultStream);
 
     /**
      * Get the document builder used to parse the input document and
@@ -155,4 +156,10 @@ public interface SlideSetTransformer {
     public abstract
             void
             setUriResolver(URIResolver resolver);
+
+    /**
+     * Gets the list of catalog file paths set for the transformer.
+     * @return Array, possibly null, of catalog file paths (see {@link CatalogManager}).
+     */
+    String[] getCatalogs();
 }

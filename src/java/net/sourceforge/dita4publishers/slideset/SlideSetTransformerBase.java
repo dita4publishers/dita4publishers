@@ -3,6 +3,7 @@ package net.sourceforge.dita4publishers.slideset;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URL;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -26,6 +27,10 @@ import net.sf.saxon.s9api.XsltTransformer;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.xerces.util.XMLCatalogResolver;
+import org.apache.xml.resolver.CatalogManager;
+import org.apache.xml.resolver.tools.CatalogResolver;
+import org.xml.sax.EntityResolver;
 
 /**
  * Utility class that manages the full DITA-to-slideset-to-slides transformation
@@ -37,11 +42,12 @@ public abstract class SlideSetTransformerBase implements SlideSetTransformer {
     // The log may be overriden by subclasses.
     protected Log log = LogFactory.getLog(SlideSetTransformerBase.class);
     private DocumentBuilder docBuilder;
-    private ByteArrayOutputStream resultStream;
+    private OutputStream resultStream;
     private Source slideSetTransformSource;
     private Map<QName, XdmAtomicValue> slideSetTransformParams;
     private boolean debug;
-    private URIResolver uriResolver; 
+    private URIResolver uriResolver;
+    private String[] catalogs; 
     
     public SlideSetTransformerBase() throws ParserConfigurationException {
         docBuilder = DocumentBuilderFactory.newInstance()
@@ -57,14 +63,14 @@ public abstract class SlideSetTransformerBase implements SlideSetTransformer {
     /**
      * Construct the transformer with the map source and result output stream.
      * @param mapSource Source providing the DITA map to process.
-     * @param resultStream Output stream to hold the primary result.
+     * @param resultStream2 Output stream to hold the primary result.
      * @throws ParserConfigurationException
      */
     public SlideSetTransformerBase(
             Source mapSource,
-            ByteArrayOutputStream resultStream) throws ParserConfigurationException {
+            OutputStream resultStream2) throws ParserConfigurationException {
         this(mapSource);
-        this.resultStream = resultStream;
+        this.resultStream = resultStream2;
     }
 
     /* (non-Javadoc)
@@ -113,7 +119,7 @@ public abstract class SlideSetTransformerBase implements SlideSetTransformer {
      */
     @Override
     public
-            ByteArrayOutputStream
+            OutputStream
             getResultStream() {
         return this.resultStream;
     }
@@ -125,7 +131,7 @@ public abstract class SlideSetTransformerBase implements SlideSetTransformer {
     public
             void
             setResultStream(
-                    ByteArrayOutputStream resultStream) {
+                    OutputStream resultStream) {
         this.resultStream = resultStream;
     }
 
@@ -158,16 +164,33 @@ public abstract class SlideSetTransformerBase implements SlideSetTransformer {
         Processor proc = new Processor(false); // Not schema aware.
         proc.setConfigurationProperty(FeatureKeys.DTD_VALIDATION, false);
         proc.setConfigurationProperty(FeatureKeys.LINE_NUMBERING, true);
-
-        if (log.isDebugEnabled()) {
-            // Capture timing and file output info.
-            proc.setConfigurationProperty(FeatureKeys.TIMING, true);
+        String[] catalogs = getCatalogs();
+        if (catalogs != null && catalogs.length > 0) {
+            String catalogList = catalogs[0];
+            for (int i = 1; i < catalogs.length; i++) {
+                catalogList += ";" + catalogs[i];
+            }
+            CatalogManager manager = new CatalogManager();
+            manager.setCatalogFiles(catalogList);
+            manager.setRelativeCatalogs(true);
+            manager.setPreferPublic(true);
+            EntityResolver resolver = new XMLCatalogResolver(catalogs);
+            if (log.isDebugEnabled()) {
+                // Capture timing and file output info.
+                proc.setConfigurationProperty(FeatureKeys.TIMING, true);
+            }
         }
         XsltCompiler compiler = proc.newXsltCompiler();
         if (uriResolver != null) {
             compiler.setURIResolver(uriResolver);
         }
         return compiler;
+    }
+
+    @Override
+    public
+            String[] getCatalogs() {
+        return this.catalogs;
     }
 
     @Override
@@ -234,6 +257,12 @@ public abstract class SlideSetTransformerBase implements SlideSetTransformer {
                     URIResolver resolver) {
                         this.uriResolver = resolver;
                         
+                    }
+
+    public
+            void setCatalogs(
+                    String[] catalogs) {
+                        this.catalogs = catalogs;
                     }
 
 
