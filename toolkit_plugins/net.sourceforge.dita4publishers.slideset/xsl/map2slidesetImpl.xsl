@@ -26,6 +26,9 @@
        
        ============================================================== -->
 
+  <xsl:import href="../../../xsl/common/dita-utilities.xsl"/>
+  <xsl:import href="../../../xsl/common/output-message.xsl"/>
+  
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
@@ -60,6 +63,9 @@
   <xsl:variable name="generateIndexBoolean" 
     select="matches($generateIndex, 'yes|true|on|1', 'i')"
   />
+  
+  <!-- used by the OT-provided output-message named template. -->
+  <xsl:variable name="msgprefix">DOTX</xsl:variable>
   
   <xsl:output method="xml" name="indented-xml"
     indent="yes"
