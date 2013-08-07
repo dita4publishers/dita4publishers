@@ -977,6 +977,27 @@
     <jar jarfile="${dist}/dita2slideset.jar" basedir="${classes.home}" >
 			<include name="net/sourceforge/dita4publishers/slideset/**/*"/>
     </jar>
+    <jar jarfile="${dist}/dita2slideset-app.jar" basedir="${classes.home}" >
+			<include name="net/sourceforge/dita4publishers/slideset/**/*"/>
+      <manifest>
+        <attribute name="Main-Class" value="net.sourceforge.dita4publishers.slideset.DITA2PPTX"/>
+        <attribute name="Class-Path" value=". 
+          commons-logging.jar
+          commons-cli.jar
+          commons-io.jar
+          log4j.jar
+              "
+        />
+	    </manifest>
+    	<zipgroupfileset dir="${lib}">
+  			<include name="commons-*.jar"/>
+  			<include name="log4j.jar"/>
+  			<include name="saxon*.jar"/>
+  			<include name="xml-apis.jar"/>
+  			<include name="xml-resolver.jar"/>
+  			<include name="xercesImpl.jar"/>
+    	</zipgroupfileset>
+    </jar>
   </target>
 	
   <target name="jar-inx-util" depends="dist-init,compile" description="Create jar for DITA2InDesign INX Utility library">
