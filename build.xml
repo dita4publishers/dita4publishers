@@ -991,10 +991,14 @@
 	    </manifest>
     	<zipgroupfileset dir="${lib}">
   			<include name="commons-*.jar"/>
+  			<include name="dom4j.jar"/>
   			<include name="log4j.jar"/>
+  			<include name="poi.jar"/>
+  			<include name="poi-*.jar"/>
   			<include name="saxon*.jar"/>
   			<include name="xml-apis.jar"/>
   			<include name="xml-resolver.jar"/>
+  			<include name="xbean.jar"/>
   			<include name="xercesImpl.jar"/>
     	</zipgroupfileset>
     </jar>

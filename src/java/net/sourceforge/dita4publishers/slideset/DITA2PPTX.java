@@ -1,6 +1,5 @@
 package net.sourceforge.dita4publishers.slideset;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -223,15 +222,17 @@ public class DITA2PPTX {
                     File ditaToSlideSetXsltFile,
                     File ditaOtDir) throws Exception {
         
-        Source mapSource = new StreamSource(mapFile);
         InputStream basePresentationStream = new FileInputStream(basePPTXFile);
         Source xsltSource = new StreamSource(ditaToSlideSetXsltFile);
         
         
         SlideSetTransformerBase transformer = 
                 new PPTXSlideSetTransformer(
-                        mapSource, 
+                        mapFile,                         
                         basePresentationStream);
+        String masterDitaCatalogPath = ((new File(ditaOtDir, "catalog-dita.xml")).getAbsolutePath());
+        String[] catalogs = {masterDitaCatalogPath};
+        transformer.setCatalogs(catalogs);
         transformer.setResultStream(new FileOutputStream(resultPPTXFile));
         Map<QName, XdmAtomicValue> params = new HashMap<QName, XdmAtomicValue>();
         params.put(
@@ -239,9 +240,6 @@ public class DITA2PPTX {
                 new XdmAtomicValue(resultPPTXFile.getParentFile().getAbsolutePath()));
 
         transformer.setSlideSetTransformSource(xsltSource, params);
-        String masterDitaCatalogPath = ((new File(ditaOtDir, "catalog-dita.xml")).getAbsolutePath());
-        String[] catalogs = {masterDitaCatalogPath};
-        transformer.setCatalogs(catalogs);
         transformer.transform();
         
     }

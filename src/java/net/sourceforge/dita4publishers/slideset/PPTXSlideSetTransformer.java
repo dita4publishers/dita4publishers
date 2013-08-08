@@ -3,12 +3,12 @@ package net.sourceforge.dita4publishers.slideset;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Source;
 
 import net.sf.saxon.s9api.Serializer;
 import net.sourceforge.dita4publishers.slideset.visitors.PPTXGeneratingSlideSetVisitor;
@@ -32,10 +32,15 @@ public class PPTXSlideSetTransformer
      * @param basePresentationStream Input stream providing the base PPTX deck to use as a template.
      * @throws ParserConfigurationException 
      */
-    public PPTXSlideSetTransformer(Source mapSource,
+    public PPTXSlideSetTransformer(
+            InputStream mapStream,
+            String mapSystemId,
             OutputStream resultStream,
             InputStream basePresentationStream) throws ParserConfigurationException {
-        super(mapSource, resultStream);
+        super(
+                mapStream, 
+                mapSystemId, 
+                resultStream);
         this.basePresentationStream = basePresentationStream;
     }
 
@@ -44,9 +49,10 @@ public class PPTXSlideSetTransformer
     }
 
     public PPTXSlideSetTransformer(
-            Source mapSource,
-            InputStream basePresentationStream) throws ParserConfigurationException {
-        super(mapSource);
+            File mapFile,
+            InputStream basePresentationStream) throws Exception {
+        super(new FileInputStream(mapFile),
+                mapFile.toURI().toURL().toExternalForm());
         this.basePresentationStream = basePresentationStream;
     }
 

@@ -31,14 +31,6 @@ public interface SlideSetTransformer {
                     URL ditaMapUrl) throws IOException;
 
     /**
-     * Set the source for the input DITA map.
-     * @param mapSource The source to use.
-     */
-    public abstract
-            void setDitaMap(
-                    Source mapSource);
-
-    /**
      * Set the log to use for logging.
      * @param log The log to use.
      */
@@ -89,9 +81,10 @@ public interface SlideSetTransformer {
     /**
      * Gets the DITA map {@link Source} set on the transformer.
      * @return The source. Will be null if not yet set. 
+     * @throws Exception 
      */
     public abstract
-            Source getMapSource();
+            Source getMapSource() throws Exception;
 
     /**
      * Does the transform. The input is the map source, the primary
