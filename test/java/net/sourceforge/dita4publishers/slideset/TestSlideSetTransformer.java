@@ -16,7 +16,6 @@ import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Source;
-import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.URIResolver;
 import javax.xml.transform.stream.StreamSource;
 
@@ -49,11 +48,26 @@ public class TestSlideSetTransformer {
                 "Didn't find template PPTX file",
                 basePresentationUrl);
 
-        // FIXME: This is a hack for immediate testing. Not sure how to get around this
-        // for unit testing purposes. Propbably with a system property
+        String ditaHomePath = System.getenv("DITA_HOME");
+        if (ditaHomePath == null || "".equals(ditaHomePath.trim())) {
+            System.err.println("Environment variable DITA_HOME not set, cannot continue.");
+            System.exit(-1);
+        }
+        
+        File ditaHomeDir = new File(ditaHomePath);
+        
+        File ditaToSlideSetXsltFile = 
+                new File(
+                  new File(
+                    new File(
+                      new File(ditaHomeDir, "plugins"),  
+                      "net.sourceforge.dita4publishers.slideset"),
+                    "xsl"), 
+                 "map2slidesetImpl.xsl");
+
         
         URL ditaToSlideSetXsltUrl = 
-                new URL("file:///Users/ekimber/workspace_40/dita4publishers_slideset/toolkit_plugins/net.sourceforge.dita4publishers.slideset/xsl/map2slidesetImpl.xsl");
+                ditaToSlideSetXsltFile.toURI().toURL();
         assertNotNull(ditaToSlideSetXsltUrl);
         
         Log log = LogFactory.getLog("slidesettransformer log");
@@ -72,12 +86,14 @@ public class TestSlideSetTransformer {
         // From a Source
         Source mapSource = new StreamSource(ditaMapUrl.openStream());
         mapSource.setSystemId(ditaMapUrl.toExternalForm());
-        transformer.setDitaMap(mapSource);
+        transformer.setDitaMap(ditaMapUrl);
         // Can also construct the transformer with the source:
         
         transformer = new PPTXSlideSetTransformer(
-                mapSource, 
-                ditaToSlideSetXsltUrl.openStream());
+                ditaMapUrl.openStream(),
+                ditaMapUrl.toExternalForm(),
+                new ByteArrayOutputStream(),
+                basePresentationUrl.openStream());
         Source candSource = transformer.getMapSource();
         assertNotNull(candSource);
         assertEquals(mapSource, candSource);
@@ -94,10 +110,9 @@ public class TestSlideSetTransformer {
         URIResolver resolver = null;
         transformer.setUriResolver(resolver);
         
-        ByteArrayOutputStream resultStream = transformer.getResultStream();
+        OutputStream resultStream = transformer.getResultStream();
         assertNotNull(resultStream);
-        assertTrue("Expected a ByteArrayOutputStream, got " + resultStream.getClass().getSimpleName(), 
-                resultStream instanceof ByteArrayOutputStream);
+        // The resultStream can be any type of output stream.
         
         Map<QName, XdmAtomicValue> params = new HashMap<QName, XdmAtomicValue>();
         File tempFile = File.createTempFile("dita2pptx", "garbage");
@@ -116,7 +131,8 @@ public class TestSlideSetTransformer {
         resultStream = new ByteArrayOutputStream();
         
         transformer = new PPTXSlideSetTransformer(
-                mapSource, 
+                ditaMapUrl.openStream(), 
+                ditaMapUrl.toExternalForm(),
                 resultStream,
                 basePresentationUrl.openStream());
         candSource = transformer.getMapSource();
