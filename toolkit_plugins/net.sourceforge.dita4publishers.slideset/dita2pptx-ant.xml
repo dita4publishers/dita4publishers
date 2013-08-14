@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="dita2pptx" default="dita2pptx">
+	
+	<property name="lib" location="../../dist"/>
+	
+  <target name="dita2pptx">
+    <java jar="${lib}/dita2slideset-app.jar">
+    	<!--
+    	java -jar /Users/ekimber/workspace_40/dita4publishers_0.9.19_slideset/dist/dita2slideset-app.jar 
+    	DITA2PPTX -i ${cfd}/${cfne} -b ${cfd}/${cfn}-base.pptx -o ${cfd} -otdir ${frameworksDir}/dita/DITA-OT 
+    	-->
+    	<arg line=""/>
+    </java>
+  </target>
+</project>

@@ -106,6 +106,10 @@
     <sld:div style="{local:getOutputClass(.)}"><xsl:apply-templates/></sld:div>  
   </xsl:template>
   
+  <xsl:template match="*[df:class(., 'topic/pre')]" mode="#all">
+    <sld:pre style="{local:getOutputClass(.)}"><xsl:apply-templates/></sld:pre>  
+  </xsl:template>
+  
   <xsl:template match="*[df:class(., 'topic/image')]" mode="#all">
     <xsl:variable name="hrefValue" as="xs:string" select="@href"/>
     <xsl:variable name="imageUrl" as="xs:string"
