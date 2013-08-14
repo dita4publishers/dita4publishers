@@ -33,7 +33,7 @@
                          (%shortdesc; | 
                           %abstract;)?,
                          (%prolog;)?,
-                         (%d4pSlideBody;),
+                         (%d4pSlideBody;)?,
                          (%related-links;)?,
                          (%d4pSlide-info-types;)* )"
 >
