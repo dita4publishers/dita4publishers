@@ -1248,6 +1248,10 @@
     <xsl:if test="@processing-role">
       <xsl:copy-of select="@processing-role"/>
     </xsl:if>
+    <xsl:if test="@toc">
+      <xsl:copy-of select="@toc"/>
+    </xsl:if>
+  
     <xsl:call-template name="generateXtrcAtt"/>
       
   </xsl:template>
