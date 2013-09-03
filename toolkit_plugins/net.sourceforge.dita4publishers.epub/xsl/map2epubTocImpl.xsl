@@ -74,11 +74,38 @@
         
     <xsl:message> + [INFO] Generating ToC (NCX) file "<xsl:sequence select="$resultUri"/>"...</xsl:message>
     
+    <xsl:variable name="dtbUidValue" as="xs:string">
+      <xsl:choose>
+        <xsl:when test="$idURIStub ne 'http://my-URI-stub/'"><xsl:sequence select="$idURIStub"/></xsl:when>
+        <xsl:otherwise>
+          <xsl:variable name="bookids" as="element()*">
+            <xsl:apply-templates select="*[df:class(., 'map/topicmeta')]" mode="list-bookids"/>
+            
+          </xsl:variable>
+          
+          <xsl:choose>
+            <xsl:when test="count($bookids) = 0">
+              <xsl:sequence select="'no-bookid-value'"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:variable name="tempDcIdentifiers">
+                <xsl:call-template name="constructDcIdentifiers">
+                  <xsl:with-param name="bookids" select="$bookids" as="element()+"/>
+                </xsl:call-template>
+              </xsl:variable>
+              <xsl:value-of select="$tempDcIdentifiers"/>
+            </xsl:otherwise>
+          </xsl:choose>
+          
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    
     <xsl:result-document href="{$resultUri}" format="ncx">
       <ncx xmlns="http://www.daisy.org/z3986/2005/ncx/"
         version="2005-1" xml:lang="en">
         <head xmlns:ncx="http://www.daisy.org/z3986/2005/ncx/">
-          <meta name="dtb:uid" content="{$idURIStub}{@id}"/>
+          <meta name="dtb:uid" content="{$dtbUidValue}"/>
           <meta name="dtb:depth" content="1"/>
           <meta name="dtb:totalPageCount" content="0"/>
           <meta name="dtb:maxPageNumber" content="0"/>
