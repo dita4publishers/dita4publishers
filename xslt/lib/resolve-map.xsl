@@ -170,6 +170,9 @@
      </xsl:choose>
     </xsl:if>
       <xsl:choose>
+        <xsl:when test="not($refTarget)">
+          <xsl:message> + [WARN] Failed to resolve topicref to a resource: <xsl:sequence select="df:reportTopicref(.)"/></xsl:message>
+        </xsl:when>
         <xsl:when test="@format = 'ditamap'">
           <xsl:if test="false() and $debugBoolean">
             <xsl:message> + [DEBUG] resolve-map(): Reference is to a subordinate map.</xsl:message>
