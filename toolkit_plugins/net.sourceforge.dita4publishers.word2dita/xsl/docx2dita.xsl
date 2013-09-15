@@ -89,6 +89,8 @@ version="2.0">
   <xsl:include
     href="wordml2simple.xsl"/>
   <xsl:include
+    href="wordml2simpleLevelFixup.xsl"/>
+  <xsl:include
     href="simple2dita.xsl"/>
   <xsl:include
     href="resultdocs-xref-fixup.xsl"/>
@@ -125,6 +127,10 @@ version="2.0">
     <xsl:variable name="stylesDoc" as="document-node()"
       select="document('styles.xml', .)"
     />      
+    
+    <xsl:message> + [INFO] ====================================</xsl:message>
+    <xsl:message> + [INFO] Generating initial simple WP doc....</xsl:message>
+    <xsl:message> + [INFO] ====================================</xsl:message>
     <xsl:variable
       name="simpleWpDocBase"
       as="element()">
@@ -150,10 +156,33 @@ version="2.0">
       </xsl:result-document>
     </xsl:if>
     
+    <xsl:message> + [INFO] ====================================</xsl:message>
+    <xsl:message> + [INFO] Doing level fixup....</xsl:message>
+    <xsl:message> + [INFO] ====================================</xsl:message>
     <xsl:variable name="simpleWpDocLevelFixupResult" as="element()">
-      <xsl:apply-templates select="$simpleWpDocBase" mode="simpleWpDocLevel-fixup"/>
+      <xsl:apply-templates select="$simpleWpDocBase" mode="simpleWpDoc-levelFixupRoot"/>
+<!--      <xsl:sequence select="$simpleWpDocBase"/>-->
     </xsl:variable>
     
+    <xsl:if
+      test="true() or $debugBoolean">
+    <xsl:variable
+      name="tempDocLevelFixup"
+      select="relpath:newFile($outputDir, 'simpleWpDocLevelFixup.xml')"
+      as="xs:string"/>
+      <xsl:result-document
+        href="{$tempDocLevelFixup}">
+        <xsl:message> + [DEBUG] Intermediate simple WP level fixup result doc saved as <xsl:sequence
+            select="$tempDocLevelFixup"/></xsl:message>
+        <xsl:sequence
+          select="$simpleWpDocLevelFixupResult"/>
+      </xsl:result-document>
+    </xsl:if>
+
+    <xsl:message> + [INFO] ====================================</xsl:message>
+    <xsl:message> + [INFO] Doing general fixup....</xsl:message>
+    <xsl:message> + [INFO] ====================================</xsl:message>
+
     <xsl:variable name="simpleWpDoc"
       as="document-node()"
     >
@@ -161,6 +190,12 @@ version="2.0">
         <xsl:apply-templates select="$simpleWpDocLevelFixupResult" mode="simpleWpDoc-fixup"/>
       </xsl:document>
     </xsl:variable>
+
+    <xsl:message> + [INFO] ====================================</xsl:message>
+    <xsl:message> + [INFO] Generating DITA result....</xsl:message>
+    <xsl:message> + [INFO] ====================================</xsl:message>
+
+
     <xsl:apply-templates
       select="$simpleWpDoc/*"
       >
@@ -170,56 +205,11 @@ version="2.0">
         tunnel="yes"        
       />
     </xsl:apply-templates>
+    <xsl:message> + [INFO] ====================================</xsl:message>
     <xsl:message> + [INFO] Done.</xsl:message>
+    <xsl:message> + [INFO] ====================================</xsl:message>
   </xsl:template>
   
-  
-  <xsl:template match="@level[../@topicType]" mode="simpleWpDocLevel-fixup">
-    <xsl:variable name="newLevel" select="local:calculateLevel(..)" as="xs:integer"/>
-    <xsl:if test="$debugBoolean">  
-      <xsl:message> + [DEBUG] Style name: <xsl:value-of select="../@style"/>, old level: <xsl:value-of select="."/>, new level: <xsl:value-of select="$newLevel"/></xsl:message>
-    </xsl:if>
-    <xsl:attribute name="level" select="$newLevel"/>
-  </xsl:template>
-  
-  <xsl:function name="local:calculateLevel" as="xs:integer">
-    <xsl:param name="topicLevelElem" as="element()"/>
-    
-    <xsl:variable name="originalLevel" select="$topicLevelElem/@level/number()"/>
-    <xsl:variable name="precedingLevel" select=
-      "$topicLevelElem/preceding-sibling::*[@topicType][@level/number() le $originalLevel][1]"/>
-    
-    <xsl:sequence select=
-      "if(not($precedingLevel))
-      then 0
-      else if($precedingLevel/@level/number() lt $originalLevel)
-      then local:calculateLevel($precedingLevel) +1
-      else if($precedingLevel/@level/number() eq $originalLevel)
-      then local:calculateLevel($precedingLevel)
-      else (: Impossible to happen :) -999
-      "/>
-  </xsl:function>
-  
-  <xsl:template mode="simpleWpDocLevel-fixup" match="*">
-    <xsl:copy>
-      <xsl:apply-templates select="@*,node()" mode="#current"/>
-    </xsl:copy>
-  </xsl:template>
-  
-  <xsl:template mode="simpleWpDocLevel-fixup" match="@* | text() | processing-instruction()">
-    <xsl:sequence select="."/>
-  </xsl:template>
-  
-  
-  <xsl:template mode="simpleWpDoc-fixup" match="*">
-    <xsl:copy>
-      <xsl:apply-templates select="@*,node()" mode="#current"/>
-    </xsl:copy>
-  </xsl:template>
-  
-  <xsl:template mode="simpleWpDoc-fixup" match="@* | text() | processing-instruction()">
-    <xsl:sequence select="."/>
-  </xsl:template>
   
   <xsl:template name="report-parameters" match="*" mode="report-parameters">
     <xsl:message> 

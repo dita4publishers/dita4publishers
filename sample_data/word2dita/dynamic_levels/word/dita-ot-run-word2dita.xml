@@ -17,7 +17,7 @@
 	<target name="transformMyDoc">
 	
     <property name="word.doc" 
-      location="${myAntFile.dir}/word2bookmap_test_01.docx"/>
+      location="${myAntFile.dir}/word2bookmap_dynamic_levels.docx"/>
 
     <basename  property="doc.base.name" file="${word.doc}" suffix=".docx"/>
 

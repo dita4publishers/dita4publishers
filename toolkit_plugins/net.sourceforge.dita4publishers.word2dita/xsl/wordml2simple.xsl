@@ -638,6 +638,27 @@
     <image src="{$imageUri}"/>
   </xsl:template>
   
+  
+    <!--==================================
+      simpleWpDoc-fixup
+      
+      Mode for doing post-processing fixup on
+      the simpleWP generated solely from
+      the style-to-tag mapping.
+      ================================== -->
+
+  
+  <xsl:template mode="simpleWpDoc-fixup" match="*">
+    <xsl:copy>
+      <xsl:apply-templates select="@*,node()" mode="#current"/>
+    </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template mode="simpleWpDoc-fixup" match="@* | text() | processing-instruction()">
+    <xsl:sequence select="."/>
+  </xsl:template>
+  
+
   <xsl:function name="local:getImageReferenceUri" as="xs:string">
     <xsl:param name="relsDoc" as="document-node()?"/>
     <xsl:param name="relId" as="xs:string"/>
