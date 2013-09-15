@@ -22,8 +22,8 @@
             <filepath>/Users/ekimber</filepath>) and in that file put a line like
             this:<codeblock>dita-ot-dir=<b>c:/DITA-OT</b></codeblock><p>Where the part in bold
             reflects the location of the Toolkit on your machine.</p></li>
-        <li>Copy the <filepath>word2dita/all_defaults</filepath> directory to a convenient place
-          (e.g., to <filepath>/Users/ekimber/w2d_transforms/all_defaults</filepath>). </li>
+        <li>From the DITA for Publishers sample data (provided as a separate Zip file in the main installation), copy the <filepath>word2dita/all_defaults</filepath> directory to a convenient place
+        (e.g., to <filepath>/Users/ekimber/w2d_transforms/all_defaults</filepath>). </li>
         <li>If necessary, run the <filepath>startcmd</filepath> file that is applicable for your
           operating system. This displays a DITA-OT shell. The DITA-OT shell makes sure that certain
           libraries required for the transformation are available. <p>You do not need to run the
@@ -74,13 +74,12 @@
       start configuring the style-to-tag mapping to reflect your specific requirements and Word
       documents. You will likely find that you also need to refine how your documents are styled so
       that they map most effectively.</p>
-    <p>Finally, remember that the Word-to-DITA process is a work in progress and there is always
-      room for improvement. Please report any bugs or feature requests to the DITA for Publishers
-      bug tracker on SourceForge (<xref format="html"
-        href="https://sourceforge.net/tracker/?group_id=262530&amp;atid=1259341" scope="external"
-        >https://sourceforge.net/tracker/?group_id=262530&amp;atid=1259341</xref>). The Word to DITA
-      transform has been used in production by several companies but for a relatively narrow set of
-      requirements, so I cannot claim to have tested it broadly.</p>
+    <p>Finally, remember that the Word-to-DITA process is a work in progress and there is always room for improvement. Please report any bugs or feature requests to the DITA for Publishers bug tracker
+      on SourceForge (<xref
+      format="html"
+      href="http://sourceforge.net/p/dita4publishers/bugs"
+      scope="external">http://sourceforge.net/p/dita4publishers/bugs</xref>). The Word to DITA transform has been used in production by many companies but for a relatively narrow set of requirements,
+      so I cannot claim to have tested it broadly.</p>
     <p>Remember too that the Word to DITA framework is open source, which means I welcome fixes and
       enhancements from the community.</p>
   </conbody>
