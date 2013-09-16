@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d4p_MathML">
+    <title>d4p_MathML</title>
+    <shortdesc class="- topic/shortdesc "/> <!-- For future use -->
+    <prolog class="- topic/prolog ">
+        <metadata class="- topic/metadata ">
+            <keywords class="- topic/keywords ">
+                <indexterm class="- topic/indexterm ">d4p_MathML</indexterm>
+                <!-- sample from DITA langref
+                    <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
+				    </indexterm>
+				-->
+            </keywords>
+        </metadata>
+    </prolog>
+    <body>
+        <bodydiv outputclass="summary"><p>d4p_MathML is for MathML content.</p></bodydiv>
+        <bodydiv outputclass="d4p"><p>d4p_MathML is a specialization of foreign. Processors should output the MathML in a suitable fashion. Note the difference in the element name as compared to the version in the d4p_formattingDomain. In this domain, there is an underscore after the "d4p".</p></bodydiv>    	    
+        <bodydiv outputclass="contains"><!-- placeholder for contains --></bodydiv>
+        <bodydiv outputclass="contains-by"><!-- placeholder for contains-by --></bodydiv>    
+        <bodydiv outputclass="inheritance"><!-- inheritance --></bodydiv>
+        <bodydiv outputclass="example1"><!-- example1 --></bodydiv>    	
+        <bodydiv outputclass="attributes"><!-- attributes --></bodydiv>
+        
+    </body>
+</topic>

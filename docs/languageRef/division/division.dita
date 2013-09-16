@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="division">
+    <title>division</title>
+    <shortdesc class="- topic/shortdesc "/> <!-- For future use -->
+    <prolog class="- topic/prolog ">
+        <metadata class="- topic/metadata ">
+            <keywords class="- topic/keywords ">
+                <indexterm class="- topic/indexterm ">division</indexterm>
+                <!-- sample from DITA langref
+                    <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
+				    </indexterm>
+				-->
+            </keywords>
+        </metadata>
+    </prolog>
+    <body>
+        <bodydiv outputclass="summary"><p>A division is a topic type for representing a title division in a publication or a chapter. So it can be a top-level topic in a publication. It can contain nested division, subsection, and sidebar topics.</p></bodydiv>
+        <bodydiv outputclass="d4p"><p>This is a specialization of topic.</p></bodydiv>    	    
+        <bodydiv outputclass="contains"><!-- placeholder for contains --></bodydiv>
+        <bodydiv outputclass="contains-by"><!-- placeholder for contains-by --></bodydiv>    
+        <bodydiv outputclass="inheritance"><!-- inheritance --></bodydiv>
+        <bodydiv outputclass="example1"><!-- example1 --></bodydiv>    	
+        <bodydiv outputclass="attributes"><!-- attributes --></bodydiv>
+        
+    </body>
+</topic>

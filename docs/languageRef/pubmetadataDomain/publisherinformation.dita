@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="publisherinformation">
+    <title>publisherinformation</title>
+    <shortdesc class="- topic/shortdesc "/> <!-- For future use -->
+    <prolog class="- topic/prolog ">
+        <metadata class="- topic/metadata ">
+            <keywords class="- topic/keywords ">
+                <indexterm class="- topic/indexterm ">publisherinformation</indexterm>
+                <!-- sample from DITA langref
+                    <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
+				    </indexterm>
+				-->
+            </keywords>
+        </metadata>
+    </prolog>
+    <body>
+        <bodydiv outputclass="summary"><p>publisherinformation represents information on a publication's publisher. It can include information on the person, organization, location of printing, date of publishing, and additional information can be represented through nested data elements.</p></bodydiv>
+        <bodydiv outputclass="d4p"><p>publisherinformation is a specialization of publisher.</p></bodydiv>    	    
+        <bodydiv outputclass="contains"><!-- placeholder for contains --></bodydiv>
+        <bodydiv outputclass="contains-by"><!-- placeholder for contains-by --></bodydiv>    
+        <bodydiv outputclass="inheritance"><!-- inheritance --></bodydiv>
+        <bodydiv outputclass="example1"><!-- example1 --></bodydiv>    	
+        <bodydiv outputclass="attributes"><!-- attributes --></bodydiv>
+        
+    </body>
+</topic>

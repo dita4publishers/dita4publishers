@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d4p_audio">
+    <title>d4p_audio</title>
+    <shortdesc class="- topic/shortdesc "/> <!-- For future use -->
+    <prolog class="- topic/prolog ">
+        <metadata class="- topic/metadata ">
+            <keywords class="- topic/keywords ">
+                <indexterm class="- topic/indexterm ">d4p_audio</indexterm>
+                <!-- sample from DITA langref
+                    <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
+				    </indexterm>
+				-->
+            </keywords>
+        </metadata>
+    </prolog>
+    <body>
+        <bodydiv outputclass="summary"><p>The d4p_audio element is for including audio in a DITA topic. It corresponds to HTML5's &lt;audio&gt; element. While it is possible an editing environment could play audio, it is more likely that audio won't actually be rendered and playable until a DITA source is transformed into an output deliverable, such as HTML files or an epub3 package. Height and width can be specified as optional attributes. An audio's source should be indicated by a child &lt;d4p_media_source&gt; element (more than one source may be specified). A poster image (at most only one) can be specified as a child &lt;d4p_video_poster&gt; element (a poster graphic may provide an enticement to the reader to click play or even provide some supplemental content). It is good practice to include a child &lt;desc&gt; element as alternate content for deliverable formats that cannot play audio or for accessibility purposes for a user who is auditorially impaired. For example, a &lt;desc&gt; element might describe what the audio says or give directions for accessing the audio in another manner.</p></bodydiv>
+        <bodydiv outputclass="d4p"><p>The d4p_audio element is specialized from the base object element.</p></bodydiv>    	    
+        <bodydiv outputclass="contains"><!-- placeholder for contains --></bodydiv>
+        <bodydiv outputclass="contains-by"><!-- placeholder for contains-by --></bodydiv>    
+        <bodydiv outputclass="inheritance"><!-- inheritance --></bodydiv>
+        <bodydiv outputclass="example1"><!-- example1 --></bodydiv>    	
+        <bodydiv outputclass="attributes"><!-- attributes --></bodydiv>
+        
+    </body>
+</topic>

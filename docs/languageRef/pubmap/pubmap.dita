@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="pubmap">
+    <title>pubmap</title>
+    <shortdesc class="- topic/shortdesc "/> <!-- For future use -->
+    <prolog class="- topic/prolog ">
+        <metadata class="- topic/metadata ">
+            <keywords class="- topic/keywords ">
+                <indexterm class="- topic/indexterm ">pubmap</indexterm>
+                <!-- sample from DITA langref
+                    <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
+				    </indexterm>
+				-->
+            </keywords>
+        </metadata>
+    </prolog>
+    <body>
+        <bodydiv outputclass="summary"><p>pubmap is a map type for publications. This module is an example of defining a specific map type that uses the publication map domain elements exclusively. The publication map domain elements can also be used in other map types as needed; there is no requirement to use the pubmap map element just to get publication map  components. This allows you to define completely different organizations of publication-specific topicref types. pubmap is a result of three related domains: one for elements (pubmapDomain), one for references to other maps (pubmapMaprefDomain), and one for metadata (pubmetadataDomain). In doing so, it overcomes some deficiencies of the bookmap map type: chapter topicrefs do not have to be within part topicrefs when a part topicref is used; a verbose set of metadata options are provided; pubmap-specific map references can be used; the content models can be extended as needed.</p></bodydiv>
+        <bodydiv outputclass="d4p"><p>pubmap specializes from map. It is a useful starting point for new map types.</p></bodydiv>    	    
+        <bodydiv outputclass="contains"><!-- placeholder for contains --></bodydiv>
+        <bodydiv outputclass="contains-by"><!-- placeholder for contains-by --></bodydiv>    
+        <bodydiv outputclass="inheritance"><!-- inheritance --></bodydiv>
+        <bodydiv outputclass="example1"><!-- example1 --></bodydiv>    	
+        <bodydiv outputclass="attributes"><!-- attributes --></bodydiv>
+        
+    </body>
+</topic>

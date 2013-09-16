@@ -1,0 +1,4 @@
+DITA4Publishers Language Reference Notes
+
+2013-09-15
+This is the initial commit of the D4P Lang Ref. Each element (or almost each element) is defined with at least some information about semantics and usage along with basic specialization information. Much of the information came from comments in the element's DTD. Further work is needed in terms of fleshing out the semantics, adding contains/contained by information, adding inheritance information, adding examples, and adding attribute information. But this is at least a solid start.

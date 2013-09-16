@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="sidebar">
+    <title>sidebar</title>
+    <shortdesc class="- topic/shortdesc "/> <!-- For future use -->
+    <prolog class="- topic/prolog ">
+        <metadata class="- topic/metadata ">
+            <keywords class="- topic/keywords ">
+                <indexterm class="- topic/indexterm ">sidebar</indexterm>
+                <!-- sample from DITA langref
+                    <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
+				    </indexterm>
+				-->
+            </keywords>
+        </metadata>
+    </prolog>
+    <body>
+        <bodydiv outputclass="summary"><p>A sidebar represents a sidebar in a publication and is part of a chapter, article, or division. A sidebar does not necessarily have a distinct point in the greater hierarchy, in many cases it can appear at any one of several locations depending on the output (e.g., at a typesetter's discretion). Because a sidebar is a topic type, it can only come after another topic's title or (if present) body element. This means that if you need a sidebar to appear in your output in the middle of another topic, then you need to use the d4pSidebarAnchor element. That element allows authors to have sidebars appear in outputs at any arbitrary location without breaking the rules of DITA. Sidebars can only nest sidebar and subsection topics.</p></bodydiv>
+        <bodydiv outputclass="d4p"><p>This is a specialization of the base topic type.</p></bodydiv>    	    
+        <bodydiv outputclass="contains"><!-- placeholder for contains --></bodydiv>
+        <bodydiv outputclass="contains-by"><!-- placeholder for contains-by --></bodydiv>    
+        <bodydiv outputclass="inheritance"><!-- inheritance --></bodydiv>
+        <bodydiv outputclass="example1"><!-- example1 --></bodydiv>    	
+        <bodydiv outputclass="attributes"><!-- attributes --></bodydiv>
+        
+    </body>
+</topic>
