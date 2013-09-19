@@ -217,7 +217,7 @@
           <xsl:message> + [DEBUG] df:resolveTopicRef(): context is a topicref.</xsl:message>
         </xsl:if>
         <xsl:variable name="topicUri" as="xs:string" 
-          select="df:getEffectiveTopicUri($context)"/>
+          select="df:getEffectiveTopicUri($context)"/>        
         <xsl:if test="$debugBoolean">
           <xsl:message> + [DEBUG] df:resolveTopicRef(): topicUri="<xsl:sequence select="$topicUri"/>"</xsl:message>
         </xsl:if>
@@ -314,7 +314,7 @@
       </xsl:when>
       <xsl:otherwise>
         <!-- Explicit fragment ID, try to resolve it -->
-        <xsl:if test="true() or $debugBoolean">
+        <xsl:if test="$debugBoolean">
           <xsl:message> + [DEBUG] df:resolveTopicUri(): Explicit fragment identifier, resolving it.</xsl:message>
         </xsl:if>
         <xsl:variable name="topicsWithId" select="key('topicsById', $topicFragId, $topicDoc)"/>
@@ -598,6 +598,7 @@
         then substring-before($effectiveUri, '#') 
         else normalize-space($effectiveUri)
     "/>    
+    <xsl:message> + [DEBUG] df:getEffectiveTopicUri(): baseUri="<xsl:value-of select="$baseUri"/>"</xsl:message>
     <xsl:variable name="result" as="xs:string">
       <xsl:choose>
         <xsl:when test="string($context/@copy-to) != ''">
@@ -611,6 +612,7 @@
       </xsl:choose>
       
     </xsl:variable>
+    <xsl:message> + [DEBUG] df:getEffectiveTopicUri(): result="<xsl:value-of select="$result"/>"</xsl:message>
     <xsl:sequence select="$result"/>
   </xsl:function>
   
