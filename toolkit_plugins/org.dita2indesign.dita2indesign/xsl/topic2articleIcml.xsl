@@ -85,7 +85,7 @@
     </xsl:if>
 
     <xsl:variable name="incopyFileUri" as="xs:string"
-      select="relpath:newFile(relpath:getParent(document-uri(root(.))), 
+      select="relpath:newFile(concat('file:', $outputPath), 
                               concat($articleFilenameBase, '.icml'))"
     />
    
