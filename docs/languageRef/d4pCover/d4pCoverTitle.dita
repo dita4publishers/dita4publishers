@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
-<reference id="concept">
-    <title>concept</title>
+<reference id="d4pCover">
+    <title>d4pCoverTitle</title>
     <shortdesc class="- topic/shortdesc "/> <!-- For future use -->
     <prolog class="- topic/prolog ">
         <metadata class="- topic/metadata ">
             <keywords class="- topic/keywords ">
-                <indexterm class="- topic/indexterm ">concept</indexterm>
+                <indexterm class="- topic/indexterm ">d4pCoverTitle</indexterm>
                 <!-- sample from DITA langref
                     <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
 				    </indexterm>
@@ -15,18 +15,18 @@
         </metadata>
     </prolog>
     <refbody>
-        <refbodydiv outputclass="summary"><section id="summary">See the DITA language reference for information about the concept topic type.</section></refbodydiv>
-        <refbodydiv outputclass="d4p"><section id="d4p">This is a local shell. The only change is that it integrates the common domains for the DITA4Publishers project.</section></refbodydiv>
+        <refbodydiv outputclass="summary"><section id="summary">The d4pCoverTitle is the title element for the d4pCover topic type. It must be empty.</section></refbodydiv>
+        <refbodydiv outputclass="d4p"><section id="d4p">The d4pCoverTitle is specialized from title.</section></refbodydiv>    	    
         <refbodydiv outputclass="contains"><!-- placeholder for contains --></refbodydiv>
         <refbodydiv outputclass="contains-by"><!-- placeholder for contains-by --></refbodydiv>    
         <refbodydiv outputclass="inheritance">
             <section id="inheritance">
                 <title>Inheritance</title>
-                <p>- topic/topic concept/concept</p>
+                <p>- topic/title d4pCover/d4pCoverTitle</p>
             </section>
-        </refbodydiv> 	
+        </refbodydiv>
+        <example id="example1">No example is provided because this is an empty element.</example>    	
         <refbodydiv outputclass="attributes"><!-- attributes --></refbodydiv>
         
     </refbody>
 </reference>
-

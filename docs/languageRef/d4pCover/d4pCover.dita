@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
-<topic id="d4pCover">
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference id="d4pCover">
     <title>d4pCover</title>
     <shortdesc class="- topic/shortdesc "/> <!-- For future use -->
     <prolog class="- topic/prolog ">
@@ -14,14 +14,32 @@
             </keywords>
         </metadata>
     </prolog>
-    <body>
-        <bodydiv outputclass="summary"><p>The d4pCover is a topic type that represents the cover for a publication. The title element is d4pCoverTitle, but this is empty by definition, because covers do not have display titles in the main body of the publication but may have navigation and search titles. The d4pCover may not have any nested topics. The cover is specified in the body (e.g., as an image element). Other information, such as rights, may be specified as well.</p></bodydiv>
-        <bodydiv outputclass="d4p"><p>The d4pCover topic type is specialized from the base topic type.</p></bodydiv>    	    
-        <bodydiv outputclass="contains"><!-- placeholder for contains --></bodydiv>
-        <bodydiv outputclass="contains-by"><!-- placeholder for contains-by --></bodydiv>    
-        <bodydiv outputclass="inheritance"><!-- inheritance --></bodydiv>
-        <bodydiv outputclass="example1"><!-- example1 --></bodydiv>    	
-        <bodydiv outputclass="attributes"><!-- attributes --></bodydiv>
+    <refbody>
+        <refbodydiv outputclass="summary"><section id="summary">The d4pCover is a topic type that represents the cover for a publication. The title element is d4pCoverTitle, but this is empty by definition, because covers do not have display titles in the main body of the publication but may have navigation and search titles. The d4pCover may not have any nested topics. The cover is specified in the body (e.g., as an image element). Other information, such as rights, may be specified as well.</section></refbodydiv>
+        <refbodydiv outputclass="d4p"><section id="d4p">The d4pCover topic type is specialized from the base topic type. Processors should generate the appropriate cover for the target rendition.</section></refbodydiv>    	    
+        <refbodydiv outputclass="contains"><!-- placeholder for contains --></refbodydiv>
+        <refbodydiv outputclass="contains-by"><!-- placeholder for contains-by --></refbodydiv>    
+        <refbodydiv outputclass="inheritance">
+            <section id="inheritance">
+                <title>Inheritance</title>
+                <p>- topic/topic d4pCover/d4pCover</p>
+            </section>
+        </refbodydiv>
+        <example id="example1">
+            <fig><title>Sample of an instance of d4pCover topic type</title>
+            <codeblock>
+&lt;d4pCover id="cover"&gt;
+    &lt;d4pCoverTitle&gt;&lt;/d4pCoverTitle&gt;
+    &lt;titlealts&gt;
+        &lt;navtitle&gt;Cover&lt;/navtitle&gt;
+    &lt;/titlealts&gt;
+    &lt;body&gt;
+        &lt;image href="cover.jpg" /&gt;
+    &lt;/body&gt;
+&lt;/d4pCover&gt;
+                </codeblock></fig>
+        </example>    	
+        <refbodydiv outputclass="attributes"><!-- attributes --></refbodydiv>
         
-    </body>
-</topic>
+    </refbody>
+</reference>
