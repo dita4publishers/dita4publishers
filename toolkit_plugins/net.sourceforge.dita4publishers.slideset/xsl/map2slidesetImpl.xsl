@@ -136,15 +136,6 @@
      <xsl:call-template name="mapdriven:collect-data"/>      
    </xsl:variable>
    
-   <xsl:if test="true() or $debugBoolean">
-     <xsl:message> + [DEBUG] Writing file <xsl:sequence select="relpath:newFile($outdir, 'collected-data.xml')"/>...</xsl:message>
-     <xsl:result-document href="{relpath:newFile($outdir, 'collected-data.xml')}"
-       format="indented-xml"
-       >
-       <xsl:sequence select="$collected-data"/>
-     </xsl:result-document>
-   </xsl:if>
-   
    <xsl:apply-templates select="." mode="generate-slides">
      <xsl:with-param name="collected-data" as="element()" tunnel="yes"
        select="$collected-data"
