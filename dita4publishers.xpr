@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="13.1">
+<project version="15.0">
     <meta>
         <filters directoryPatterns="" filePatterns="" positiveFilePatterns="" showHiddenFiles="false"/>
-        <options/>
+        <options>
+            <serialized version="15.0" xml:space="preserve">
+                <map>
+                    <entry>
+                        <String>enable.project.master.files.support</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                </map>
+            </serialized>
+        </options>
     </meta>
     <projectTree name="dita4publishers.xpr">
+        <folder masterFiles="true" name="Master Files">
+            <file name="toolkit_plugins/net.sourceforge.dita4publishers.word2dita/xsl/docx2dita.xsl"/>
+        </folder>
+        <folder path="../../workspace/dita-ot/"/>
+        <folder path="."/>
         <folder path="docs/"/>
         <folder path="sample_data/"/>
         <folder path="toolkit_plugins/"/>
+        <folder path="../rsuite-dita-support/"/>
         <file name="templates/maps/D4P%20Pubmap.ditamap"/>
         <file name="docs/user_docs/d4p-users-guide.ditamap"/>
         <file name="docs/website/dita4publishers.ditamap"/>
