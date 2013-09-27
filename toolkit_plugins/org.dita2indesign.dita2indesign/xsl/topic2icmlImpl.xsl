@@ -207,6 +207,12 @@
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/image')]">
+    <!-- FIXME: The Link URL can be relative as long as it still starts
+         with file:/ (and CS6 and older only supports file:/ URLs as far
+         as I can determine).
+         
+         e.g., "file:Links/image-01.jpg"
+      -->
     <xsl:variable name="linkUri"
       select="
       if (starts-with(@href, 'file:') or starts-with(@href, 'http:'))
@@ -225,26 +231,42 @@
         -->
         <PathGeometry>
           <GeometryPathType PathOpen="false">
-            <PathPointArray>
-              <PathPointType Anchor="-72.0 -47.0" LeftDirection="-72.0 -47.0" RightDirection="-72.0 -47.0"/>
-              <PathPointType Anchor="-72.0 47.0" LeftDirection="-72.0 47.0" RightDirection="-72.0 47.0"/>
-              <PathPointType Anchor="72.0 47.0" LeftDirection="72.0 47.0" RightDirection="72.0 47.0"/>
-              <PathPointType Anchor="72.0 -47.0" LeftDirection="72.0 -47.0" RightDirection="72.0 -47.0"/>
-            </PathPointArray>
+                <PathPointArray>
+                  <PathPointType
+                    Anchor="-72 -47"
+                    LeftDirection="-72 -47"
+                    RightDirection="-72 -47"/>
+                  <PathPointType
+                    Anchor="-72 260.3865234375"
+                    LeftDirection="-72 260.3865234375"
+                    RightDirection="-72 260.3865234375"/>
+                  <PathPointType
+                    Anchor="466.99999999999994 260.3865234375"
+                    LeftDirection="466.99999999999994 260.3865234375"
+                    RightDirection="466.99999999999994 260.3865234375"/>
+                  <PathPointType
+                    Anchor="466.99999999999994 -47"
+                    LeftDirection="466.99999999999994 -47"
+                    RightDirection="466.99999999999994 -47"/>
+                </PathPointArray>
           </GeometryPathType>
         </PathGeometry>
       </Properties>
+      <!-- Proportional fitting -->
+      <FrameFittingOption
+            AutoFit="false"
+            LeftCrop="0"
+            TopCrop="-87.39155923273314"
+            RightCrop="22.365016263100983"
+            BottomCrop="143.23151786205875"
+            FittingOnEmptyFrame="Proportionally"
+            FittingAlignment="CenterAnchor"/>
       <Image 
         ImageRenderingIntent="UseColorSettings" 
         AppliedObjectStyle="ObjectStyle/$ID/[None]" 
         Visible="true" 
         Name="$ID/"
         Self="rc_{concat(generate-id(),'Image')}">
-        <!-- NOTE: The LnkI= attribute is required in order to create a working link but generating
-                   that value is pretty much beyond the ability of XSLT. Need to look at the 
-                   link generation code in the RSI INX Utils library to see how best to do this.
-                   It may require integrating that library with XSLT.
-        -->
         <Link 
           Self="{concat(generate-id(),'Link')}" 
           AssetURL="$ID/" 

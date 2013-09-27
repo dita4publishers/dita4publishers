@@ -952,7 +952,7 @@
  	  </copy>
   </target>
 	
-	<target name="init-target">
+	<target name="init-target" depends="init">
     <delete dir="${target.home}" failonerror="false"/>
     <mkdir dir="${target.home}"/>
 		<mkdir dir="${api-and-tools.target}"/>

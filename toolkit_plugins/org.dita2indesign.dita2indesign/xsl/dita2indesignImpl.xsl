@@ -24,10 +24,7 @@
     'true' - Turns debugging on
     'false' - Turns it off (the default)
     =====================================================================-->
-  
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  
+    
   <xsl:include href="topic2icmlImpl.xsl"/>
   
   <xsl:param name="WORKDIR" as="xs:string" select="''"/>
@@ -60,9 +57,11 @@
   
   <xsl:template match="/">
     <xsl:apply-templates select="." mode="report-parameters"/>
-    <xsl:apply-templates>
-      <xsl:with-param name="articleType" select="'topic'" as="xs:string" tunnel="yes"/>
-    </xsl:apply-templates>
+    <manifest>&#x0020;
+      <xsl:apply-templates>
+        <xsl:with-param name="articleType" select="'topic'" as="xs:string" tunnel="yes"/>
+      </xsl:apply-templates>
+    </manifest>
   </xsl:template>
   
   <xsl:template name="report-parameters" match="*" mode="report-parameters">
@@ -95,8 +94,12 @@
     <xsl:apply-templates mode="process-map"/>
   </xsl:template>
 
-  <xsl:template mode="process-map" match="*[df:class(.,'map/map')]">
+  <xsl:template mode="process-map" match="*[df:class(.,'map/map')]">    
     <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+
+  <xsl:template mode="process-map #default" match="*[df:class(.,'map/map')]/*[df:class(.,'topic/title')]">
+    <!-- Map titles for submaps are always suppressed -->    
   </xsl:template>
   
   <xsl:template mode="process-map" match="*[df:class(., 'map/topicref')][@href]">
@@ -134,6 +137,8 @@
      not(df:hasSpecifiedNavtitle(.))]">
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
+  
+  <xsl:template mode="process-map" match="text()"/><!-- Suppress text in process-map mode -->
   
   <xsl:template 
     match="
