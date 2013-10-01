@@ -405,7 +405,7 @@
   <xsl:template match="RSUITE:*" mode="#all" priority="10"/><!-- Ignore in all modes -->
     
   <xsl:template mode="#default" match="*" priority="-1">
-    <xsl:message> + [WARNING] topic2indesignImpl (default mode): Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence 
+    <xsl:message> + [WARNING] topic2icmlImpl (default mode): Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence 
       select="concat(name(.), ' [', normalize-space(@class), ']')"/></xsl:message>
   </xsl:template>
   

@@ -7,12 +7,16 @@
       version="2.0">
   
   <!-- =====================================================================
-       DITA to InDesign Transform
+       DITA Map to InCopy Articles
        
-       Generates InCopy articles (.incx) and/or InDesign INX files from 
-       an input map or a single topic.
+       Generates one or more InCopy articles (.icml) from a DITA map.
+       Each topic will be processed to generate one or more InCopy 
+       articles.
+       
+       The direct output of the transform is an XML manifest file that
+       lists the InCopy articles generated.
     
-       Copyright (c) 2008, 2012 DITA2InDesign project
+       Copyright (c) 2013 DITA for Publishers
     
     Parameters:
     
@@ -21,8 +25,8 @@
     
     debug - Turns template debugging on and off: 
     
-    'true' - Turns debugging on
-    'false' - Turns it off (the default)
+      'true' - Turns debugging on
+      'false' - Turns it off (the default)
     =====================================================================-->
     
   <xsl:include href="topic2icmlImpl.xsl"/>
@@ -45,23 +49,37 @@
   <xsl:param name="debug" select="'false'"/>
   <xsl:variable name="debugBoolean" select="if ($debug = 'true') then true() else false()" as="xs:boolean"/>
   
-  <!-- For output it is essential that there be no extraneous whitespace.
-    There is no need for a DOCTYPE declaration as all attributes
-    will have been instantiated by this process. Validation is neither
-    useful nor meaningful at this point in the process.
+  <!-- 
+    The direct output of the transform is an XML manifest file
+    that lists all the files generated.
   -->
   <xsl:output encoding="UTF-8"
     indent="no"
     method="xml"
   />
   
+  <!--NOTE: topic2icmlImpl.xsl defines the icml output type -->
+  
   <xsl:template match="/">
-    <xsl:apply-templates select="." mode="report-parameters"/>
-    <manifest>&#x0020;
-      <xsl:apply-templates>
-        <xsl:with-param name="articleType" select="'topic'" as="xs:string" tunnel="yes"/>
-      </xsl:apply-templates>
-    </manifest>
+    <xsl:param name="isRoot" as="xs:boolean" select="true()" tunnel="yes"/>
+    <xsl:message> + [DEBUG] dita2indesignImpl: default: "/"</xsl:message>
+    <xsl:choose>
+      <xsl:when test="$isRoot">
+        <xsl:apply-templates select="." mode="report-parameters"/>
+        <manifest>&#x0020;
+          <xsl:apply-templates>
+            <xsl:with-param name="articleType" select="'topic'" as="xs:string" tunnel="yes"/>
+            <xsl:with-param name="isRoot" tunnel="yes" as="xs:boolean" select="false()"/>
+          </xsl:apply-templates>
+        </manifest>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates>
+          <xsl:with-param name="articleType" select="'topic'" as="xs:string" tunnel="yes"/>
+          <xsl:with-param name="isRoot" tunnel="yes" as="xs:boolean" select="false()"/>
+        </xsl:apply-templates>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   
   <xsl:template name="report-parameters" match="*" mode="report-parameters">
@@ -91,6 +109,7 @@
   </xsl:template>
   
   <xsl:template match="/*[df:class(., 'map/map')]">
+    <xsl:message> + [DEBUG] dita2indesignImpl: /*[df:class(., 'map/map')]</xsl:message>
     <xsl:apply-templates mode="process-map"/>
   </xsl:template>
 
@@ -111,7 +130,11 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:message> + [INFO] Processing topic <xsl:sequence select="document-uri(root($targetTopic))"/>...</xsl:message>
-        <xsl:apply-templates select="$targetTopic">
+        <!-- Apply templates to the root node of the topic, rather than
+             the topic doc, so we don't have each topic match the "/"
+             template.
+          -->
+        <xsl:apply-templates select="$targetTopic/*">
           <!-- Give the topic access to its referencing topicref so it can know where it 
                lives in the map structure, what the topicref properties were, etc.
             -->
@@ -153,7 +176,7 @@
   -->
   
   <xsl:template mode="process-map" match="*" priority="-1">
-    <xsl:message> + [WARNING] (process-map mode): Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/></xsl:message>
+    <xsl:message> + [WARNING] dita2indesignImpl.xsl: (process-map mode): Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/></xsl:message>
   </xsl:template>
   
 </xsl:stylesheet>
