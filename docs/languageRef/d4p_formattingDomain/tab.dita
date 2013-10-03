@@ -1,27 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
-<topic id="tab">
-    <title>tab</title>
-    <shortdesc class="- topic/shortdesc "/> <!-- For future use -->
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+           id="tab"
+           ditaarch:DITAArchVersion="1.2"
+           domains="(topic hi-d)       (topic indexing-d)      (topic d4p_formatting-d)      (topic d4p_ruby-d)      (topic d4p_classification-d)      a(props d4p_renditionTarget)      (topic d4p_variables-d)      (topic d4p_verse-d)      (topic xml-d)     "
+           class="- topic/topic ">
+    <title class="- topic/title ">tab</title>
+    <shortdesc class="- topic/shortdesc "><!-- For future use --></shortdesc>
     <prolog class="- topic/prolog ">
         <metadata class="- topic/metadata ">
             <keywords class="- topic/keywords ">
                 <indexterm class="- topic/indexterm ">tab</indexterm>
-                <!-- sample from DITA langref
+            <!-- sample from DITA langref
                     <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
-				    </indexterm>
-				-->
+				    </indexterm> -->
             </keywords>
         </metadata>
     </prolog>
-    <body>
-        <bodydiv outputclass="summary"><p>tab is a placeholder element for a singular horizontal tab character (HTML entity &amp;#09;). This is needed because a tab character is whitespace that is often discarded by default by XSLT processors. Tabs can be used to separate items into lists to save space on a page (such as when items are short in length). You should consider whether using tabs is appropriate or if a table (or simple table) is a better option.</p></bodydiv>
-        <bodydiv outputclass="d4p"><p>The tab character (HTML entity &amp;09;) is difficult to represent in some outputs, especially HTML-based outputs like epub. One possible solution is to use five non-breaking spaces (HTML entity &amp;#160;); the non-breaking space is a good choice because multiple regular spaces will be ignored by most HTML rendering. The downside to using non-breaking spaces is that you are not guaranteed your items will line up. If you want your items to line up neatly, then the best solution is to use a table.</p></bodydiv>    	    
-        <bodydiv outputclass="contains"><!-- placeholder for contains --></bodydiv>
-        <bodydiv outputclass="contains-by"><!-- placeholder for contains-by --></bodydiv>    
-        <bodydiv outputclass="inheritance"><!-- inheritance --></bodydiv>
-        <bodydiv outputclass="example1"><!-- example1 --></bodydiv>    	
-        <bodydiv outputclass="attributes"><!-- attributes --></bodydiv>
+    <refbody class="- topic/body reference/refbody ">
+        <refbodydiv outputclass="summary" class="- topic/bodydiv reference/refbodydiv ">
+         <section id="summary" class="- topic/section ">tab is a placeholder element for a singular horizontal tab character (HTML entity &amp;#09;). This is needed because a tab character is whitespace that is often discarded by default by XSLT processors. Tabs can be used to separate items into lists to save space on a page (such as when items are short in length). You should consider whether using tabs is appropriate or if a table (or simple table) is a better option.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p" class="- topic/bodydiv reference/refbodydiv ">
+         <section id="d4p" class="- topic/section ">The tab character (HTML entity &amp;09;) is difficult to represent in some outputs, especially HTML-based outputs like epub. One possible solution is to use five non-breaking spaces (HTML entity &amp;#160;); the non-breaking space is a good choice because multiple regular spaces will be ignored by most HTML rendering. The downside to using non-breaking spaces is that you are not guaranteed your items will line up. If you want your items to line up neatly, then the best solution is to use a table.</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains" class="- topic/bodydiv reference/refbodydiv ">
+         <section id="contains" class="- topic/section "/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by" class="- topic/bodydiv reference/refbodydiv ">
+         <section id="contains-by" class="- topic/section "/>
+      </refbodydiv>    
+        <refbodydiv outputclass="inheritance" class="- topic/bodydiv reference/refbodydiv ">
+         <section id="inheritance" class="- topic/section "/>
+      </refbodydiv>
+        <refbodydiv outputclass="example1" class="- topic/bodydiv reference/refbodydiv ">
+         <section id="example1" class="- topic/section "/>
+      </refbodydiv>    	
+        <refbodydiv outputclass="attributes" class="- topic/bodydiv reference/refbodydiv ">
+         <section id="attributes" class="- topic/section "/>
+      </refbodydiv>
         
-    </body>
-</topic>
+    </refbody>
+</reference>

@@ -1,45 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
-<reference id="d4pCover">
-    <title>d4pCover</title>
-    <shortdesc class="- topic/shortdesc "/> <!-- For future use -->
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+           id="d4pCover"
+           ditaarch:DITAArchVersion="1.2"
+           domains="(topic ui-d) (topic hi-d) (topic pr-d) (topic sw-d)                          (topic ut-d) (topic indexing-d)"
+           class="- topic/topic       reference/reference ">
+    <title class="- topic/title ">d4pCoverTitle</title>
+    <shortdesc class="- topic/shortdesc "><!-- For future use --></shortdesc>
     <prolog class="- topic/prolog ">
         <metadata class="- topic/metadata ">
             <keywords class="- topic/keywords ">
-                <indexterm class="- topic/indexterm ">d4pCover</indexterm>
-                <!-- sample from DITA langref
+                <indexterm class="- topic/indexterm ">d4pCoverTitle</indexterm>
+            <!-- sample from DITA langref
                     <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
-				    </indexterm>
-				-->
+				    </indexterm> -->
             </keywords>
         </metadata>
     </prolog>
-    <refbody>
-        <refbodydiv outputclass="summary"><section id="summary">The d4pCover is a topic type that represents the cover for a publication. The title element is d4pCoverTitle, but this is empty by definition, because covers do not have display titles in the main body of the publication but may have navigation and search titles. The d4pCover may not have any nested topics. The cover is specified in the body (e.g., as an image element). Other information, such as rights, may be specified as well.</section></refbodydiv>
-        <refbodydiv outputclass="d4p"><section id="d4p">The d4pCover topic type is specialized from the base topic type. Processors should generate the appropriate cover for the target rendition.</section></refbodydiv>    	    
-        <refbodydiv outputclass="contains"><!-- placeholder for contains --></refbodydiv>
-        <refbodydiv outputclass="contains-by"><!-- placeholder for contains-by --></refbodydiv>    
-        <refbodydiv outputclass="inheritance">
-            <section id="inheritance">
-                <title>Inheritance</title>
-                <p>- topic/topic d4pCover/d4pCover</p>
+    <refbody class="- topic/body        reference/refbody ">
+        <refbodydiv outputclass="summary" class="- topic/bodydiv     reference/refbodydiv ">
+         <section id="summary" class="- topic/section ">The d4pCoverTitle is the title element for the d4pCover topic type. It must be empty.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p" class="- topic/bodydiv     reference/refbodydiv ">
+         <section id="d4p" class="- topic/section ">The d4pCoverTitle is specialized from title.</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains"
+                  class="- topic/bodydiv     reference/refbodydiv "/>
+        <refbodydiv outputclass="contains-by"
+                  class="- topic/bodydiv     reference/refbodydiv "/>    
+        <refbodydiv outputclass="inheritance"
+                  class="- topic/bodydiv     reference/refbodydiv ">
+            <section id="inheritance" class="- topic/section ">
+                <title class="- topic/title ">Inheritance</title>
+                - topic/title d4pCover/d4pCoverTitle
             </section>
         </refbodydiv>
-        <example id="example1">
-            <fig><title>Sample of an instance of d4pCover topic type</title>
-            <codeblock>
-&lt;d4pCover id="cover"&gt;
-    &lt;d4pCoverTitle&gt;&lt;/d4pCoverTitle&gt;
-    &lt;titlealts&gt;
-        &lt;navtitle&gt;Cover&lt;/navtitle&gt;
-    &lt;/titlealts&gt;
-    &lt;body&gt;
-        &lt;image href="cover.jpg" /&gt;
-    &lt;/body&gt;
-&lt;/d4pCover&gt;
-                </codeblock></fig>
-        </example>    	
-        <refbodydiv outputclass="attributes"><!-- attributes --></refbodydiv>
+        <example id="example1" class="- topic/example ">No example is provided because this is an empty element.</example>    	
+        <refbodydiv outputclass="attributes"
+                  class="- topic/bodydiv     reference/refbodydiv "/>
         
     </refbody>
 </reference>

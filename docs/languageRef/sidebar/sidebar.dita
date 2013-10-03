@@ -1,27 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
-<topic id="sidebar">
-    <title>sidebar</title>
-    <shortdesc class="- topic/shortdesc "/> <!-- For future use -->
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+           id="sidebar"
+           ditaarch:DITAArchVersion="1.2"
+           domains="(topic hi-d)       (topic indexing-d)      (topic d4p_formatting-d)      (topic d4p_ruby-d)      (topic d4p_classification-d)      a(props d4p_renditionTarget)      (topic d4p_variables-d)      (topic d4p_verse-d)      (topic xml-d)     "
+           class="- topic/topic ">
+    <title class="- topic/title ">sidebar</title>
+    <shortdesc class="- topic/shortdesc "><!-- For future use --></shortdesc>
     <prolog class="- topic/prolog ">
         <metadata class="- topic/metadata ">
             <keywords class="- topic/keywords ">
                 <indexterm class="- topic/indexterm ">sidebar</indexterm>
-                <!-- sample from DITA langref
+            <!-- sample from DITA langref
                     <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
-				    </indexterm>
-				-->
+				    </indexterm> -->
             </keywords>
         </metadata>
     </prolog>
-    <body>
-        <bodydiv outputclass="summary"><p>A sidebar represents a sidebar in a publication and is part of a chapter, article, or division. A sidebar does not necessarily have a distinct point in the greater hierarchy, in many cases it can appear at any one of several locations depending on the output (e.g., at a typesetter's discretion). Because a sidebar is a topic type, it can only come after another topic's title or (if present) body element. This means that if you need a sidebar to appear in your output in the middle of another topic, then you need to use the d4pSidebarAnchor element. That element allows authors to have sidebars appear in outputs at any arbitrary location without breaking the rules of DITA. Sidebars can only nest sidebar and subsection topics.</p></bodydiv>
-        <bodydiv outputclass="d4p"><p>This is a specialization of the base topic type.</p></bodydiv>    	    
-        <bodydiv outputclass="contains"><!-- placeholder for contains --></bodydiv>
-        <bodydiv outputclass="contains-by"><!-- placeholder for contains-by --></bodydiv>    
-        <bodydiv outputclass="inheritance"><!-- inheritance --></bodydiv>
-        <bodydiv outputclass="example1"><!-- example1 --></bodydiv>    	
-        <bodydiv outputclass="attributes"><!-- attributes --></bodydiv>
+    <refbody class="- topic/body reference/refbody ">
+        <refbodydiv outputclass="summary" class="- topic/bodydiv reference/refbodydiv ">
+         <section id="summary" class="- topic/section ">A sidebar represents an out-of-line element in a publication and is part of a chapter, article, or division. A sidebar does not necessarily have a distinct point in the greater hierarchy, in many cases it can appear at any one of several locations depending on the output (e.g., at a typesetter's discretion). Because a sidebar is a topic type, it can only come after another topic's title or (if present) body element. This means that if you need a sidebar to appear in your output in the middle of another topic, then you need to use the d4pSidebarAnchor element. That element allows authors to have sidebars appear in outputs at any arbitrary location without breaking the rules of DITA. Sidebars can only nest sidebar and subsection topics.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p" class="- topic/bodydiv reference/refbodydiv ">
+         <section id="d4p" class="- topic/section ">This is a specialization of the base topic type and is recommended, in part, to be used as a base for further specialization.</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains" class="- topic/bodydiv reference/refbodydiv ">
+         <section id="contains" class="- topic/section "/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by" class="- topic/bodydiv reference/refbodydiv ">
+         <section id="contains-by" class="- topic/section "/>
+      </refbodydiv>    
+        <refbodydiv outputclass="inheritance" class="- topic/bodydiv reference/refbodydiv ">
+          <section id="inheritance" class="- topic/section ">- topic/topic sidebar/sidebar </section>
+      </refbodydiv>
+        <refbodydiv outputclass="example1" class="- topic/bodydiv reference/refbodydiv ">
+         <section id="example1" class="- topic/section "/>
+      </refbodydiv>    	
+        <refbodydiv outputclass="attributes" class="- topic/bodydiv reference/refbodydiv ">
+         <section id="attributes" class="- topic/section "/>
+      </refbodydiv>
         
-    </body>
-</topic>
+    </refbody>
+</reference>

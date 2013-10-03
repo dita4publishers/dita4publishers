@@ -1,27 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
-<topic id="body-pullquote">
-    <title>body-pullquote</title>
-    <shortdesc class="- topic/shortdesc "/> <!-- For future use -->
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+           id="body-pullquote"
+           ditaarch:DITAArchVersion="1.2"
+           domains="(topic hi-d)       (topic indexing-d)      (topic d4p_formatting-d)      (topic d4p_ruby-d)      (topic d4p_classification-d)      a(props d4p_renditionTarget)      (topic d4p_variables-d)      (topic d4p_verse-d)      (topic xml-d)     "
+           class="- topic/topic ">
+    <title class="- topic/title ">body-pullquote</title>
+    <shortdesc class="- topic/shortdesc "><!-- For future use --></shortdesc>
     <prolog class="- topic/prolog ">
         <metadata class="- topic/metadata ">
             <keywords class="- topic/keywords ">
                 <indexterm class="- topic/indexterm ">body-pullquote</indexterm>
-                <!-- sample from DITA langref
+            <!-- sample from DITA langref
                     <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
-				    </indexterm>
-				-->
+				    </indexterm> -->
             </keywords>
         </metadata>
     </prolog>
-    <body>
-        <bodydiv outputclass="summary"><p>body-pullquote represents a pull quote.  It should be used when other varieties (epigram, epigraph, etc.) are not appropriate.</p></bodydiv>
-        <bodydiv outputclass="d4p"><p>body-pullquote is specialized from bodydiv.</p></bodydiv>    	    
-        <bodydiv outputclass="contains"><!-- placeholder for contains --></bodydiv>
-        <bodydiv outputclass="contains-by"><!-- placeholder for contains-by --></bodydiv>    
-        <bodydiv outputclass="inheritance"><!-- inheritance --></bodydiv>
-        <bodydiv outputclass="example1"><!-- example1 --></bodydiv>    	
-        <bodydiv outputclass="attributes"><!-- attributes --></bodydiv>
+    <refbody class="- topic/body reference/refbody ">
+        <refbodydiv outputclass="summary" class="- topic/bodydiv reference/refbodydiv ">
+         <section id="summary" class="- topic/section ">body-pullquote represents a pull quote, which is usually a replication of content from the same publication component in order to provide emphasis.  It should be used when other varieties (epigram, epigraph, etc.) are not appropriate.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p" class="- topic/bodydiv reference/refbodydiv ">
+         <section id="d4p" class="- topic/section ">body-pullquote is specialized from bodydiv.</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains" class="- topic/bodydiv reference/refbodydiv ">
+         <section id="contains" class="- topic/section "/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by" class="- topic/bodydiv reference/refbodydiv ">
+         <section id="contains-by" class="- topic/section "/>
+      </refbodydiv>    
+        <refbodydiv outputclass="inheritance" class="- topic/bodydiv reference/refbodydiv ">
+          <section id="inheritance" class="- topic/section ">+ topic/bodydiv    d4p-pubcontent-d/body-pullquote </section>
+      </refbodydiv>
+      <example id="example1">
+        <fig><title>Sample of an instance of the body-pullquote element</title>
+          <codeblock>
+&lt;p&gt;
+In essence, DITA lets us eat our cake and have it. Publishers can have publication models and topic types that are adapted to their specific needs yet still take advantage of all the modularity and reuse features of DITA when they are needed. Publishers can mix and match the simple (chapter) with the sophisticated (task) and choose from a growing library of special-purpose vocabulary modules, such as the DITA Learning and Training modules for representing assessments (test questions) and formal learning objects.
+&lt;/p&gt;
+&lt;body-pullquote&gt;
+In essence, DITA lets us eat our cake and have it.
+&lt;/body-pullquote&gt;
+                </codeblock></fig>
+      </example>    	
+        <refbodydiv outputclass="attributes" class="- topic/bodydiv reference/refbodydiv ">
+         <section id="attributes" class="- topic/section "/>
+      </refbodydiv>
         
-    </body>
-</topic>
+    </refbody>
+</reference>
