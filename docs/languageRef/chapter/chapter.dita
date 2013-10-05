@@ -15,7 +15,7 @@
         </metadata>
     </prolog>
     <refbody>
-        <refbodydiv outputclass="summary"><section id="summary">A chapter topic is a division of content within a publication. The length of a chapter is arbitrary and should be sufficient for covering the material. Dividing content into chapters is done at the author's discretion and factors to consider include navigation ease, grouping of related information, and the order that a reader should encounter the material.</section></refbodydiv>
+        <refbodydiv outputclass="summary"><section id="summary">A chapter topic is a division of content within a publication. The length of a chapter is arbitrary and should be sufficient for covering the material. Dividing content into chapters is done at the author's discretion and factors to consider include navigation ease, grouping of related information, and the order that a reader should encounter the material. This topic type enables authoring of complete chapters as single files.</section></refbodydiv>
         <refbodydiv outputclass="d4p"><section id="d4p">The chapter topic is a top level topic type and specialized from the base topic type. The only constraint is that it can only nest division, subsection, and sidebar topics.</section></refbodydiv>    	    
         <refbodydiv outputclass="contains"><!-- placeholder for contains --></refbodydiv>
         <refbodydiv outputclass="contains-by"><!-- placeholder for contains-by --></refbodydiv>    

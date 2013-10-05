@@ -1,7 +1,27 @@
 DITA4Publishers Language Reference Notes
+TODO:
+-Search files for "FIXME" and fill in missing details (will likely need Eliot's help for some of this)
+-Finish integrating info from D4P User Guide
+-Finish inheritance sections
+-Add examples
+-Iterate over to improve, refine, and eliminate documentation debt
+
+
+Structure of Individual Files:
+Each file for an element has a refbody that is structured as so:
+-Summary: An overview of the semantic role and other information for use within a publication
+-D4P: Architectural information
+-Contains: The elements that the element for this file can contain; this information to be automatically generated in the future
+-Contains by: The elements that can contain the element for the file; this information to be automatically generated in the future
+-Inheritance: The inheritance information for the element
+-Example: Zero, one, or more examples of the element in use
+-Attributes: The element's possible attributes; hopefully part of this will be able to be generated automatically
+
+2013-10-02
+Convert all remaining dita files from topics to references (thanks to oXygen's feature of running an XSLT file on an entire project). Integrate existing information from D4P User Guide most elements and domains. Fix error in deck example. Add info to the languageRef-notes.txt file explaining structure of langRef files and a TODO list.
 
 2013-09-18
-Added inheritance information, examples, and processing notes to several items and converted them to use of the reference topic type
+Add inheritance information, examples, and processing notes to several items and converted them to use of the reference topic type
 
 2013-09-16
 Reorganize language-reference.ditamap into broad categories of topic specializations, domains, and map specializations. Not the final organization, but useful for the time being.
