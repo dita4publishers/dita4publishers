@@ -48,8 +48,8 @@ version="2.0">
   <xsl:param name="styleMapUri" as="xs:string"/>
   <xsl:param name="mediaDirUri" select="relpath:newFile($outputDir, 'topics/media')" as="xs:string"/>  
   <xsl:param name="outputDir" as="xs:string"/>
-  <xsl:param name="rootMapName" as="xs:string" select="'rootmap'"/>
   <xsl:param name="rootTopicName" as="xs:string?" select="()"/>
+  <xsl:param name="rootMapName" as="xs:string" select="$rootTopicName"/>
   <xsl:param name="submapNamePrefix" as="xs:string" select="'map'"/>
   <xsl:param name="filterBr" as="xs:string" select="'false'"/>
   <xsl:param name="filterTabs" as="xs:string" select="'false'"/>
