@@ -57,7 +57,9 @@
     
     <!-- NOTE: This template is overridden by sample template in topic2articleIcml.xsl -->
     
-    <xsl:message> + [DEBUG] topic2icmlImpl.xsl: Processing root topic</xsl:message>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] topic2icmlImpl.xsl: Processing root topic</xsl:message>
+    </xsl:if>
     <!-- Create a new output InCopy article. 
       
       NOTE: This code assumes that all chunking has been performed
@@ -77,7 +79,9 @@
     <xsl:variable name="effectiveArticleType" as="xs:string"
       select="if ($articleType) then $articleType else name(.)"
     />
-    <xsl:message> + [DEBUG] effectiveArticleType="<xsl:sequence select="$effectiveArticleType"/>"</xsl:message>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] effectiveArticleType="<xsl:sequence select="$effectiveArticleType"/>"</xsl:message>
+    </xsl:if>
     
     <!-- First, generate any result docs from subelements -->
     <xsl:message> + [INFO] topic2icmlImpl.xsl: Applying result-docs mode to children of root topic...</xsl:message>
@@ -105,7 +109,7 @@
     <!-- The style catalog can be the styles.xml file from an IDML package -->
     <xsl:param name="styleCatalog" as="node()*"/>
     
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="true() or $debugBoolean">
       <xsl:message> + [DEBUG] makeInCopyArticle: Article type is "<xsl:sequence select="$articleType"/>"</xsl:message>
     </xsl:if>
     
@@ -413,6 +417,13 @@
     <xsl:param name="incopyFileUri" as="xs:string"/>
     <file uri="{$incopyFileUri}"/>&#x0020;
   </xsl:template>
+  
+  <xsl:template match="*" mode="result-docs">
+    <xsl:apply-templates mode="#current" select="*"/>
+  </xsl:template>
+  
+  <xsl:template match="text()" mode="result-docs"/>
+
   <!--
     The following implements the d4pSidebarAnchor. With the use of keys, it suppresses the location of the anchoredObject (e.g., a sidebar) and instead copies it to the result tree in the location of the d4pSidebarAnchor. Currently commented out pending recommended changes to the d4pSidebarAnchor element. Code does work and is in use at Human Kinetics -->
   <!--

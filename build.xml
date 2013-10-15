@@ -453,6 +453,19 @@
     </zip>
   </target>
 	
+	<target name="push-toolkit-plugin-to-ivy" depends="package-toolkit-plugins"
+			description="Puts the Toolkit plugin in Ivy reflecting the value of the version_property in version.properties"
+			>
+			<echo message="Copying Toolkit plugin to ${ivy.repo.scp.user}@${ivy.repo.scp.server}:${ivy.repo.parent.dir}/ivy-repo/dita4publishers/dita4publishers-toolkit-plugins/dita4publishers-toolkit-plugins-${package_version}.zip"/>
+			<scp todir="${ivy.repo.scp.user}@${ivy.repo.scp.server}:${ivy.repo.parent.dir}/ivy-repo/dita4publishers/dita4publishers-toolkit-plugins/dita4publishers-toolkit-plugins-${package_version}.zip" 
+				file="${package.dist}/dita4publishers-toolkit-plugins-${package_version}.zip"
+				password="${ivy.repo.scp.password}"			
+				verbose="true"
+			/>
+	</target>
+	
+
+	
 	<target name="package-delivery" 
 		depends="
 		dist-init, 
@@ -973,37 +986,6 @@
     </javac>    
   </target>
 	
-  <target name="jar-slideset-generator" depends="dist-init,compile" description="Create jar for DITA-to-SlideSet transformer">
-    <jar jarfile="${dist}/dita2slideset.jar" basedir="${classes.home}" >
-			<include name="net/sourceforge/dita4publishers/slideset/**/*"/>
-    </jar>
-    <jar jarfile="${dist}/dita2slideset-app.jar" basedir="${classes.home}" >
-			<include name="net/sourceforge/dita4publishers/slideset/**/*"/>
-      <manifest>
-        <attribute name="Main-Class" value="net.sourceforge.dita4publishers.slideset.DITA2PPTX"/>
-        <attribute name="Class-Path" value=". 
-          commons-logging.jar
-          commons-cli.jar
-          commons-io.jar
-          log4j.jar
-              "
-        />
-	    </manifest>
-    	<zipgroupfileset dir="${lib}">
-  			<include name="commons-*.jar"/>
-  			<include name="dom4j.jar"/>
-  			<include name="log4j.jar"/>
-  			<include name="poi.jar"/>
-  			<include name="poi-*.jar"/>
-  			<include name="saxon*.jar"/>
-  			<include name="xml-apis.jar"/>
-  			<include name="xml-resolver.jar"/>
-  			<include name="xbean.jar"/>
-  			<include name="xercesImpl.jar"/>
-    	</zipgroupfileset>
-    </jar>
-  </target>
-	
   <target name="jar-inx-util" depends="dist-init,compile" description="Create jar for DITA2InDesign INX Utility library">
     <jar jarfile="${dist}/dita2indesign-inx-util.jar" basedir="${classes.home}" >
 			<include name="net/sourceforge/dita4publishers/util/conversion/**/*"/>
@@ -1182,7 +1164,7 @@
     </jar>
   </target>
 	
-	<target name="push-rsuite-plugin-to-ivy" depends="package-rsuite-plugins"
+  <target name="push-rsuite-plugin-to-ivy" depends="package-rsuite-plugins"
 		description="Puts the RSuite plugin in Ivy reflecting the value of the version_property in version.properties"
 		>
 		<echo message="Copying plugin to ${ivy.repo.scp.user}@${ivy.repo.scp.server}:${ivy.repo.parent.dir}/ivy-repo/dita4publishers/${rsuite-plugin.name}-plugin/${rsuite-plugin.name}-plugin-${rsuite-plugin_version}.jar"/>

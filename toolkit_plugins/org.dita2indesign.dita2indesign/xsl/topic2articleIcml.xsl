@@ -121,5 +121,7 @@
     <xsl:apply-templates mode="#current" select="*"/>
   </xsl:template>
   
+  <xsl:template match="text()" mode="result-docs"/>
+  
   
 </xsl:stylesheet>

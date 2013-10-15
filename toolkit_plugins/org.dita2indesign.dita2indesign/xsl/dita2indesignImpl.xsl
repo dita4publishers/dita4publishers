@@ -54,7 +54,7 @@
     that lists all the files generated.
   -->
   <xsl:output encoding="UTF-8"
-    indent="no"
+    indent="yes"
     method="xml"
   />
   
@@ -62,7 +62,6 @@
   
   <xsl:template match="/">
     <xsl:param name="isRoot" as="xs:boolean" select="true()" tunnel="yes"/>
-    <xsl:message> + [DEBUG] dita2indesignImpl: default: "/"</xsl:message>
     <xsl:choose>
       <xsl:when test="$isRoot">
         <xsl:apply-templates select="." mode="report-parameters"/>
@@ -109,7 +108,6 @@
   </xsl:template>
   
   <xsl:template match="/*[df:class(., 'map/map')]">
-    <xsl:message> + [DEBUG] dita2indesignImpl: /*[df:class(., 'map/map')]</xsl:message>
     <xsl:apply-templates mode="process-map"/>
   </xsl:template>
 
@@ -129,12 +127,12 @@
         <xsl:message> + [ERROR] Failed to resolve topicref to URL "<xsl:sequence select="string(@href)"/>".</xsl:message>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message> + [INFO] Processing topic <xsl:sequence select="document-uri(root($targetTopic))"/>...</xsl:message>
+        <xsl:message> + [INFO] process-map: Processing topic <xsl:sequence select="document-uri(root($targetTopic))"/> in default mode...</xsl:message>
         <!-- Apply templates to the root node of the topic, rather than
              the topic doc, so we don't have each topic match the "/"
              template.
           -->
-        <xsl:apply-templates select="$targetTopic/*">
+        <xsl:apply-templates select="$targetTopic">
           <!-- Give the topic access to its referencing topicref so it can know where it 
                lives in the map structure, what the topicref properties were, etc.
             -->
