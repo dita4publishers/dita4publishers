@@ -17,6 +17,7 @@ import net.sourceforge.dita4publishers.api.dita.KeyAccessOptions;
 import net.sourceforge.dita4publishers.util.GrammarPoolManager;
 
 import org.apache.commons.logging.Log;
+import org.apache.xerces.util.XMLGrammarPoolImpl;
 import org.apache.xerces.xni.grammars.XMLGrammarPool;
 import org.w3c.dom.Document;
 
@@ -37,6 +38,7 @@ public class BosConstructionOptions {
 	private XMLGrammarPool grammarPool = GrammarPoolManager.getGrammarPool();
 	private boolean quiet = false;  // When true, suppresses info logging.
 	private Transformer reportSerializationTransform;
+	private XMLGrammarPoolImpl grammarPool;
 
 	/**
 	 * @return the invalidDocs
@@ -61,6 +63,17 @@ public class BosConstructionOptions {
 		this.log = log;
 		this.report = reportBuilder;
 		this.catalogs = catalogs;
+		initGrammarPool(log);
+
+	}
+
+	private void initGrammarPool(Log log) {
+		try {
+		    this.grammarPool = new XMLGrammarPoolImpl();
+		}
+		catch (Exception e) {
+			log.warn("Failed to create Xerces grammar pool for caching DTDs and schemas");
+		}
 	}
 
 	/**
@@ -70,6 +83,7 @@ public class BosConstructionOptions {
 	public BosConstructionOptions(Log log, Map<URI, Document> domCache) {
 		this.log = log;
 		this.domCache = domCache;		
+		initGrammarPool(log);
 	}
 
 	/**
