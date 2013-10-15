@@ -628,13 +628,20 @@
   
   <xsl:template match="a:blip">
     <xsl:param name="relsDoc" tunnel="yes" as="document-node()?"/>
-    <xsl:variable name="imageUri" select="local:getImageReferenceUri($relsDoc, @r:embed)" as="xs:string"/>
+    <xsl:variable name="imageUri" as="xs:string" 
+      select="local:getImageReferenceUri($relsDoc, @r:embed, @r:link)" 
+      />
     <image src="{$imageUri}"/>
   </xsl:template>
   
   <xsl:template match="v:imagedata">
     <xsl:param name="relsDoc" tunnel="yes" as="document-node()?"/>
-    <xsl:variable name="imageUri" select="local:getImageReferenceUri($relsDoc, @r:id)" as="xs:string"/>
+    <!-- WEK: I can't determine from the ECMA-376 Part I doc if v:imagedata allows
+         the @r:link attribute. 
+    -->
+    <xsl:variable name="imageUri" as="xs:string"
+      select="local:getImageReferenceUri($relsDoc, @r:id, @r:link)" 
+    />
     <image src="{$imageUri}"/>
   </xsl:template>
   
@@ -662,11 +669,24 @@
   <xsl:function name="local:getImageReferenceUri" as="xs:string">
     <xsl:param name="relsDoc" as="document-node()?"/>
     <xsl:param name="relId" as="xs:string"/>
+    <xsl:param name="linkId" as="xs:string?"/><!-- ID of any external link to the image. -->
  
     <xsl:variable name="rel" as="element()?"
       select="key('relsById', $relId, $relsDoc)"
     />
-    <xsl:variable name="target" select="string($rel/@Target)" as="xs:string"/>
+    <xsl:variable name="linkRel" 
+      select="
+      if ($linkId) 
+         then key('relsById', $linkId, $relsDoc) 
+         else ()" 
+      as="element()?"
+    />
+    <xsl:variable name="target"  as="xs:string"
+      select="
+      if ($linkRel) 
+         then string($linkRel/@Target) 
+         else string($rel/@Target)" 
+    />
     <xsl:variable name="imageFilename" as="xs:string"
       select="relpath:getName($target)"
     />
