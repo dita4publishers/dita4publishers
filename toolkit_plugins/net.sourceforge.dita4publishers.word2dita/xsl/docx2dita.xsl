@@ -63,6 +63,17 @@ version="2.0">
   
   <xsl:param name="rawPlatformString" select="'unknown'" as="xs:string"/>
   
+  <!-- When true, use any external (linked) filename as the name for referenced graphics,
+       rather than the internal names. Note that tools that deal with the graphic files
+       extracted from the DOCX file will have to know how the internal names map to external
+       names (which they can know by examining the word/_rels/document.xml.rels file in the
+       package).
+    -->
+  <xsl:param name="useLinkedGraphicNames" as="xs:string" select="'no'"/>
+  <xsl:param name="useLinkedGraphicNamesBoolean" as="xs:boolean" 
+    select="matches($useLinkedGraphicNames, 'yes|true|1', 'i')"
+  />
+  
   <xsl:variable name="rootMapUrl" select="concat($rootMapName, '.ditamap')" as="xs:string"/>
   <xsl:variable name="rootTopicUrl" 
     as="xs:string?" 

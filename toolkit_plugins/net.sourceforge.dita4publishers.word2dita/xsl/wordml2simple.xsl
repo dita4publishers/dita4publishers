@@ -683,7 +683,7 @@
     />
     <xsl:variable name="target"  as="xs:string"
       select="
-      if ($linkRel) 
+      if ($useLinkedGraphicNamesBoolean and $linkRel) 
          then string($linkRel/@Target) 
          else string($rel/@Target)" 
     />
