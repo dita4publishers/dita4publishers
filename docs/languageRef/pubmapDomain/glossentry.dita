@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference id="glossentry">
+   <title>glossentry</title>
+   <shortdesc class="- topic/shortdesc "/>
+   <prolog class="- topic/prolog ">
+      <metadata class="- topic/metadata ">
+         <keywords class="- topic/keywords ">
+            <indexterm class="- topic/indexterm ">pubmapDomain elements<indexterm class="- topic/indexterm ">glossentry</indexterm>
+            </indexterm>
+            <indexterm class="- topic/indexterm ">glossentry</indexterm>
+         </keywords>
+      </metadata>
+   </prolog>
+   <refbody class="- topic/body reference/refbody">
+      <refbodydiv outputclass="summary">
+         <section id="summary">The &lt;glossentry&gt; element references a topic or map as a glossentry within a book.
+                    </section>
+      </refbodydiv>
+      <refbodydiv outputclass="d4p">
+         <section id="d4p"><!--Any d4p specific information could go here.--></section>
+      </refbodydiv>
+      <refbodydiv outputclass="contains"/>
+      <refbodydiv outputclass="contains-by"/>
+      <refbodydiv outputclass="inheritance">
+         <section id="inheritance">
+            <title>Inheritance</title>
+            <p>+ map/topicref pubmap-d/glossentry </p>
+         </section>
+      </refbodydiv>
+      <!--If appropriate an example could go here.-->
+      <refbodydiv outputclass="attributes"/>
+   </refbody>
+</reference>

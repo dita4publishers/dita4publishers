@@ -166,7 +166,65 @@
                 <topicref href="d4p_verseDomain/verse.dita" navtitle="verse" />
             </topichead>
             <topichead navtitle="pubmapDomain">
+                <topicref href="pubmapDomain/abbrevlist.dita" navtitle="abbrevlist"/>
+                <topicref href="pubmapDomain/amendments.dita" navtitle="amendments"/>
+                <topicref href="pubmapDomain/appendix.dita" navtitle="appendix"/>
+                <topicref href="pubmapDomain/appendixes.dita" navtitle="appendixes"/>
+                <topicref href="pubmapDomain/article.dita" navtitle="article"/>
+                <topicref href="pubmapDomain/back-cover.dita" navtitle="back-cover"/>
+                <topicref href="pubmapDomain/back-flap.dita" navtitle="back-flap"/>
+                <topicref href="pubmapDomain/backmatter.dita" navtitle="backmatter"/>
+                <topicref href="pubmapDomain/book-jacket.dita" navtitle="book-jacket"/>
+                <topicref href="pubmapDomain/bibliolist.dita" navtitle="bibliolist"/>
+                <topicref href="pubmapDomain/chapter.dita" navtitle="chapter"/>
+                <topicref href="pubmapDomain/colophon.dita" navtitle="colophon"/>
+                <topicref href="pubmapDomain/copyright-page.dita" navtitle="copyright-page"/>
+                <topicref href="pubmapDomain/covers.dita" navtitle="covers"/>
+                <topicref href="pubmapDomain/dedication.dita" navtitle="dedication"/>
+                <topicref href="pubmapDomain/department.dita" navtitle="department"/>
+                <topicref href="pubmapDomain/division.dita" navtitle="division"/>
+                <topicref href="pubmapDomain/draftintro.dita" navtitle="draftintro"/>
+                <topicref href="pubmapDomain/epub-cover.dita" navtitle="epub-cover"/>
+                <topicref href="pubmapDomain/epub-cover-graphic.dita"
+                    navtitle="epub-cover-graphic"/>
+                <topicref href="pubmapDomain/figurelist.dita" navtitle="figurelist"/>
+                <topicref href="pubmapDomain/forward.dita" navtitle="forward"/>
+                <topicref href="pubmapDomain/front-cover.dita" navtitle="front-cover"/>
+                <topicref href="pubmapDomain/front-flap.dita" navtitle="front-flap"/>
+                <topicref href="pubmapDomain/frontmatter.dita" navtitle="frontmatter"/>
+                <topicref href="pubmapDomain/glossary.dita" navtitle="glossary"/>
+                <topicref href="pubmapDomain/glossentry.dita" navtitle="glossentry"/>
+                <topicref href="pubmapDomain/glossary-group.dita" navtitle="glossary-group"/>
+                <topicref href="pubmapDomain/glossarylist.dita" navtitle="glossarylist"/>
+                <topicref href="pubmapDomain/indexlist.dita" navtitle="indexlist"/>
+                <topicref href="pubmapDomain/inside-front-cover.dita"
+                    navtitle="inside-front-cover"/>
+                <topicref href="pubmapDomain/keydefs.dita" navtitle="keydefs"/>
+                <topicref href="pubmapDomain/keydef-group.dita" navtitle="keydef-group"/>
+                <topicref href="pubmapDomain/mainpubtitle.dita" navtitle="mainpubtitle"/>
+                <topicref href="pubmapDomain/notices.dita" navtitle="notices"/>
+                <topicref href="pubmapDomain/page.dita" navtitle="page"/>
+                <topicref href="pubmapDomain/part.dita" navtitle="part"/>
+                <topicref href="pubmapDomain/partsection.dita" navtitle="partsection"/>
+                <topicref href="pubmapDomain/preface.dita" navtitle="preface"/>
+                <topicref href="pubmapDomain/pubabstract.dita" navtitle="pubabstract"/>
+                <topicref href="pubmapDomain/publibrary.dita" navtitle="publibrary"/>
+                <topicref href="pubmapDomain/publist.dita" navtitle="publist"/>
+                <topicref href="pubmapDomain/publists.dita" navtitle="publists"/>
+                <topicref href="pubmapDomain/pubbody.dita" navtitle="pubbody"/>
+                <topicref href="pubmapDomain/pubtitle.dita" navtitle="pubtitle"/>
+                <topicref href="pubmapDomain/pubtitlealt.dita" navtitle="pubtitlealt"/>
+                <topicref href="pubmapDomain/publication.dita" navtitle="publication"/>
                 <topicref href="pubmapDomain/pubmapDomain.dita" navtitle="pubmapDomain" />
+                <topicref href="pubmapDomain/sidebar.dita" navtitle="sidebar"/>
+                <topicref href="pubmapDomain/spine.dita" navtitle="spine"/>
+                <topicref href="pubmapDomain/subsection.dita" navtitle="subsection"/>
+                <topicref href="pubmapDomain/subtitle.dita" navtitle="subtitle"/>
+                <topicref href="pubmapDomain/tablelist.dita" navtitle="tablelist"/>
+                <topicref href="pubmapDomain/toc.dita" navtitle="toc"/>
+                <topicref href="pubmapDomain/trademarklist.dita" navtitle="trademarklist"/>
+                <topicref href="pubmapDomain/wrap-cover.dita" navtitle="wrap-cover"/>
+                
             </topichead>
             <topichead navtitle="pubmapMaprefDomain">
                 <topicref href="pubmapMaprefDomain/pubmapMaprefDomain.dita" navtitle="pubmapMaprefDomain" />

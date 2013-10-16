@@ -17,6 +17,9 @@ Each file for an element has a refbody that is structured as so:
 -Example: Zero, one, or more examples of the element in use
 -Attributes: The element's possible attributes; hopefully part of this will be able to be generated automatically
 
+2013-10-15
+Add files and all elements for the pubmapDomain. Update ditamap to include references to new files. Add latest version of language reference built as a PDF. 
+
 2013-10-02
 Convert all remaining dita files from topics to references (thanks to oXygen's feature of running an XSLT file on an entire project). Integrate existing information from D4P User Guide most elements and domains. Fix error in deck example. Add info to the languageRef-notes.txt file explaining structure of langRef files and a TODO list.
 
