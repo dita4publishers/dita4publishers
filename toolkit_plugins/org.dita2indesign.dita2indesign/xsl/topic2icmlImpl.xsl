@@ -47,10 +47,6 @@
     cdata-section-elements="GrPr" />
   
   <xsl:template match="/*[df:class(., 'topic/topic')]" priority="5">
-    <xsl:param name="articleFilenameBase" 
-      tunnel="yes"
-      as="xs:string"
-    />
     <!-- The topicref that points to this topic -->
     <xsl:param name="topicref" as="element()?" tunnel="yes"/>
     <xsl:param name="articleType" as="xs:string" tunnel="yes"/>
