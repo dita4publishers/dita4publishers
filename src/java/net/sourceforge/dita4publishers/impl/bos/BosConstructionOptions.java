@@ -38,7 +38,6 @@ public class BosConstructionOptions {
 	private XMLGrammarPool grammarPool = GrammarPoolManager.getGrammarPool();
 	private boolean quiet = false;  // When true, suppresses info logging.
 	private Transformer reportSerializationTransform;
-	private XMLGrammarPoolImpl grammarPool;
 
 	/**
 	 * @return the invalidDocs
