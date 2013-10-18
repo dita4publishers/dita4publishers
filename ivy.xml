@@ -10,19 +10,10 @@
     
     <dependency org="apache" name="xml-apis" rev="20080213" />
     <dependency org="apache" name="resolver" rev="1.2" />
-    <dependency org="apache" name="poi" rev="3.8"/>
-    <dependency org="apache" name="poi-ooxml" rev="3.9-20121203" />
-    <dependency org="apache" name="poi-scratchpad" rev="3.9-20121203" />
-    <dependency org="apache" name="poi-ooxml-schemas" rev="3.9-20121203"/>
 
     <dependency org="dom4j" name="dom4j" rev="1.6.1" />
 
 
-		<!--  NOTE: ooxml-schemas is the full schema set, while poi-ooxml-schemas is a subset.
-		            The full schemas may sometimes be needed for code under development.
-		             -->
-    <dependency org="apache" name="ooxml-schemas" rev="1.1"/>
-    <dependency org="apache" name="sanselan" rev="0.97"/>
 
     <!-- Apache's XML Parser -->
     <dependency org="xerces" name="xercesImpl" rev="2.9.1"/>
