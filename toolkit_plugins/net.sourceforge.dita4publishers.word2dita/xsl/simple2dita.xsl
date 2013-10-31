@@ -2148,9 +2148,11 @@ specify @topicDoc="yes".</xsl:message>
     <xsl:param name="resultUrl" as="xs:string" tunnel="yes"/>
     
     <xsl:variable name="resultDir" select="relpath:getParent($resultUrl)"/>
-    <xsl:variable name="srcAtt" select="@src" as="xs:string"/>
+    <xsl:variable name="effectiveImageFilename" as="xs:string" 
+      select="local:constructImageFilenameForRsiwpImage(.)"
+    />
     <xsl:variable name="imageUrl" as="xs:string"
-      select="relpath:getRelativePath($resultDir, $srcAtt)"
+      select="relpath:getRelativePath($resultDir, $effectiveImageFilename)"
     />
     <image href="{$imageUrl}">
       <alt><xsl:sequence select="$imageUrl"/></alt>
@@ -2607,5 +2609,14 @@ specify @topicDoc="yes".</xsl:message>
   <xsl:template match="rsiwp:*" priority="-0.5">
     <xsl:message> + [WARNING] simple2dita: Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/></xsl:message>
   </xsl:template>
+  
+  <xsl:function name="local:constructImageFilenameForRsiwpImage" as="xs:string">
+    <xsl:param name="imageElem" as="element(rsiwp:image)"/>
+    <!-- Construct the image filename to use when constructing image references from
+         rsiwp:image elements. 
+      -->
+    <xsl:variable name="result" select="$imageElem/@src" as="xs:string"/>
+    <xsl:sequence select="$result"/>
+  </xsl:function>
 
 </xsl:stylesheet>

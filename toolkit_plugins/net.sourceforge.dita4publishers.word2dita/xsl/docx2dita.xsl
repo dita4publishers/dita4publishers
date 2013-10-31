@@ -74,6 +74,13 @@ version="2.0">
     select="matches($useLinkedGraphicNames, 'yes|true|1', 'i')"
   />
   
+  <!-- Prefix to add to image filenames when constructing image references
+       in the result XML.
+    -->
+  <xsl:param name="imageFilenamePrefix" as="xs:string?"
+    select="$fileNamePrefix"
+  />
+  
   <xsl:variable name="rootMapUrl" select="concat($rootMapName, '.ditamap')" as="xs:string"/>
   <xsl:variable name="rootTopicUrl" 
     as="xs:string?" 
@@ -157,7 +164,7 @@ version="2.0">
       as="xs:string"/>
     <!-- NOTE: do not set this check to true(): it will fail when run within RSuite -->
     <xsl:if
-      test="true() or $debugBoolean">
+      test="false() or $debugBoolean">
       <xsl:result-document
         href="{$tempDoc}">
         <xsl:message> + [DEBUG] Intermediate simple WP doc saved as <xsl:sequence
@@ -176,7 +183,7 @@ version="2.0">
     </xsl:variable>
     
     <xsl:if
-      test="true() or $debugBoolean">
+      test="false() or $debugBoolean">
     <xsl:variable
       name="tempDocLevelFixup"
       select="relpath:newFile($outputDir, 'simpleWpDocLevelFixup.xml')"
@@ -191,7 +198,7 @@ version="2.0">
     </xsl:if>
 
     <xsl:message> + [INFO] ====================================</xsl:message>
-    <xsl:message> + [INFO] Doing general fixup....</xsl:message>
+    <xsl:message> + [INFO] Doing general simpleWpDoc fixup....</xsl:message>
     <xsl:message> + [INFO] ====================================</xsl:message>
 
     <xsl:variable name="simpleWpDoc"
@@ -201,6 +208,21 @@ version="2.0">
         <xsl:apply-templates select="$simpleWpDocLevelFixupResult" mode="simpleWpDoc-fixup"/>
       </xsl:document>
     </xsl:variable>
+
+    <xsl:if
+      test="false() or $debugBoolean">
+      <xsl:variable
+        name="tempDocFixup"
+        select="relpath:newFile($outputDir, 'simpleWpDocFixup.xml')"
+        as="xs:string"/>
+      <xsl:result-document
+        href="{$tempDocFixup}">
+        <xsl:message> + [DEBUG] Fixed-up simple WP doc saved as <xsl:sequence
+            select="$tempDocFixup"/></xsl:message>
+        <xsl:sequence
+          select="$simpleWpDoc"/>
+      </xsl:result-document>
+    </xsl:if>
 
     <xsl:message> + [INFO] ====================================</xsl:message>
     <xsl:message> + [INFO] Generating DITA result....</xsl:message>

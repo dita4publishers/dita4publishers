@@ -687,9 +687,16 @@
          then string($linkRel/@Target) 
          else string($rel/@Target)" 
     />
-    <xsl:variable name="imageFilename" as="xs:string"
+    <xsl:variable name="imageBasename" as="xs:string"
       select="relpath:getName($target)"
     />
+    <xsl:variable name="imageFilename" as="xs:string"
+      select="
+      if ($imageFilenamePrefix)
+         then concat($imageFilenamePrefix, $imageBasename)
+         else $imageBasename"
+    />
+
     <xsl:variable name="srcValue" as="xs:string"
       select="relpath:newFile($mediaDirUri, $imageFilename)"
     />
