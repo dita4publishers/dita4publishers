@@ -3,17 +3,17 @@
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
 <reference id="backmatter">
    <title>backmatter</title>
-   <shortdesc class="- topic/shortdesc "/>
-   <prolog class="- topic/prolog ">
-      <metadata class="- topic/metadata ">
-         <keywords class="- topic/keywords ">
-            <indexterm class="- topic/indexterm ">pubmapDomain elements<indexterm class="- topic/indexterm ">backmatter</indexterm>
+   <shortdesc />
+   <prolog>
+      <metadata>
+         <keywords>
+            <indexterm>pubmapDomain elements<indexterm>backmatter</indexterm>
             </indexterm>
-            <indexterm class="- topic/indexterm ">backmatter</indexterm>
+            <indexterm>backmatter</indexterm>
          </keywords>
       </metadata>
    </prolog>
-   <refbody class="- topic/body reference/refbody">
+   <refbody>
       <refbodydiv outputclass="summary">
          <section id="summary">The &lt;backmatter&gt; element references a topic or map as a backmatter within a book.
                     </section>

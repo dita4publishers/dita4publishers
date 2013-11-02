@@ -1,44 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE reference
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
-<reference xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
-           id="d4pQuoteAttribution"
-           ditaarch:DITAArchVersion="1.2"
-           domains="(topic hi-d)       (topic indexing-d)      (topic d4p_formatting-d)      (topic d4p_ruby-d)      (topic d4p_classification-d)      a(props d4p_renditionTarget)      (topic d4p_variables-d)      (topic d4p_verse-d)      (topic xml-d)     "
-           class="- topic/topic ">
-    <title class="- topic/title ">d4pQuoteAttribution</title>
-    <shortdesc class="- topic/shortdesc "><!-- For future use --></shortdesc>
-    <prolog class="- topic/prolog ">
-        <metadata class="- topic/metadata ">
-            <keywords class="- topic/keywords ">
-                <indexterm class="- topic/indexterm ">d4pQuoteAttribution</indexterm>
+<reference id="d4pQuoteAttribution">
+    <title>d4pQuoteAttribution</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>d4pQuoteAttribution</indexterm>
             <!-- sample from DITA langref
-                    <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
 				    </indexterm> -->
             </keywords>
         </metadata>
     </prolog>
-    <refbody class="- topic/body reference/refbody ">
-        <refbodydiv outputclass="summary" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="summary" class="- topic/section ">d4pQuoteAttribution is the source or attribution for a d4pAttributedQuote.</section>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">d4pQuoteAttribution is the source or attribution for a d4pAttributedQuote.</section>
       </refbodydiv>
-        <refbodydiv outputclass="d4p" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="d4p" class="- topic/section ">d4pQuoteAttribution is specialized from p.</section>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">d4pQuoteAttribution is specialized from p.</section>
       </refbodydiv>    	    
-        <refbodydiv outputclass="contains" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="contains" class="- topic/section "/>
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
       </refbodydiv>
-        <refbodydiv outputclass="contains-by" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="contains-by" class="- topic/section "/>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
       </refbodydiv>    
-        <refbodydiv outputclass="inheritance" class="- topic/bodydiv reference/refbodydiv ">
-          <section id="inheritance" class="- topic/section ">+ topic/p          d4p-pubcontent-d/d4pQuoteAttribution </section>
+        <refbodydiv outputclass="inheritance">
+          <section id="inheritance">+ topic/p          d4p-pubcontent-d/d4pQuoteAttribution </section>
       </refbodydiv>
-        <refbodydiv outputclass="example1" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="example1" class="- topic/section "/>
+        <refbodydiv outputclass="example1">
+         <section id="example1"/>
       </refbodydiv>    	
-        <refbodydiv outputclass="attributes" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="attributes" class="- topic/section "/>
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
       </refbodydiv>
         
     </refbody>

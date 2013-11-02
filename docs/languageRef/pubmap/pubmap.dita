@@ -1,44 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE reference
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
-<reference xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
-           id="pubmap"
-           ditaarch:DITAArchVersion="1.2"
-           domains="(topic hi-d)       (topic indexing-d)      (topic d4p_formatting-d)      (topic d4p_ruby-d)      (topic d4p_classification-d)      a(props d4p_renditionTarget)      (topic d4p_variables-d)      (topic d4p_verse-d)      (topic xml-d)     "
-           class="- topic/topic ">
-    <title class="- topic/title ">pubmap</title>
-    <shortdesc class="- topic/shortdesc "><!-- For future use --></shortdesc>
-    <prolog class="- topic/prolog ">
-        <metadata class="- topic/metadata ">
-            <keywords class="- topic/keywords ">
-                <indexterm class="- topic/indexterm ">pubmap</indexterm>
+<reference id="pubmap">
+    <title>pubmap</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>pubmap</indexterm>
             <!-- sample from DITA langref
-                    <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
 				    </indexterm> -->
             </keywords>
         </metadata>
     </prolog>
-    <refbody class="- topic/body reference/refbody ">
-        <refbodydiv outputclass="summary" class="- topic/bodydiv reference/refbodydiv ">
-          <section id="summary" class="- topic/section ">pubmap is a map type for a single publication. It includes the ability to specify publishing -specific metadata; to represent arbitrary single pages, such as often occur in fiction books before the main content; to include cover components. This module is an example of defining a specific map type that uses the publication map domain elements exclusively. The publication map domain elements can also be used in other map types as needed; there is no requirement to use the pubmap map element just to get publication map  components. This allows you to define completely different organizations of publication-specific topicref types. pubmap is a result of three related domains: one for elements (pubmapDomain), one for references to other maps (pubmapMaprefDomain), and one for metadata (pubmetadataDomain). In doing so, it overcomes some deficiencies of the bookmap map type: chapter topicrefs do not have to be within part topicrefs when a part topicref is used; a verbose set of metadata options are provided; pubmap-specific map references can be used; the content models can be extended as needed.</section>
+    <refbody>
+        <refbodydiv outputclass="summary">
+          <section id="summary">pubmap is a map type for a single publication. It includes the ability to specify publishing -specific metadata; to represent arbitrary single pages, such as often occur in fiction books before the main content; to include cover components. This module is an example of defining a specific map type that uses the publication map domain elements exclusively. The publication map domain elements can also be used in other map types as needed; there is no requirement to use the pubmap map element just to get publication map  components. This allows you to define completely different organizations of publication-specific topicref types. pubmap is a result of three related domains: one for elements (pubmapDomain), one for references to other maps (pubmapMaprefDomain), and one for metadata (pubmetadataDomain). In doing so, it overcomes some deficiencies of the bookmap map type: chapter topicrefs do not have to be within part topicrefs when a part topicref is used; a verbose set of metadata options are provided; pubmap-specific map references can be used; the content models can be extended as needed.</section>
       </refbodydiv>
-        <refbodydiv outputclass="d4p" class="- topic/bodydiv reference/refbodydiv ">
-          <section id="d4p" class="- topic/section ">pubmap specializes from map. It is a useful starting point for new map types. And it serves both as a general publication map type and as an example of how to integrate and configure the publication map and publication metadata domains.</section>
+        <refbodydiv outputclass="d4p">
+          <section id="d4p">pubmap specializes from map. It is a useful starting point for new map types. And it serves both as a general publication map type and as an example of how to integrate and configure the publication map and publication metadata domains.</section>
       </refbodydiv>    	    
-        <refbodydiv outputclass="contains" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="contains" class="- topic/section "/>
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
       </refbodydiv>
-        <refbodydiv outputclass="contains-by" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="contains-by" class="- topic/section "/>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
       </refbodydiv>    
-        <refbodydiv outputclass="inheritance" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="inheritance" class="- topic/section ">- map/map pubmap/pubmap</section>
+        <refbodydiv outputclass="inheritance">
+         <section id="inheritance">- map/map pubmap/pubmap</section>
       </refbodydiv>
-        <refbodydiv outputclass="example1" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="example1" class="- topic/section "/>
+        <refbodydiv outputclass="example1">
+         <section id="example1"/>
       </refbodydiv>    	
-        <refbodydiv outputclass="attributes" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="attributes" class="- topic/section "/>
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
       </refbodydiv>
         
     </refbody>

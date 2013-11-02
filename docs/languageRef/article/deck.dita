@@ -2,13 +2,13 @@
 <!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
 <reference id="deck">
     <title>deck</title>
-    <shortdesc class="- topic/shortdesc "/> <!-- For future use -->
-    <prolog class="- topic/prolog ">
-        <metadata class="- topic/metadata ">
-            <keywords class="- topic/keywords ">
-                <indexterm class="- topic/indexterm ">deck</indexterm>
+    <shortdesc> <!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>deck</indexterm>
                 <!-- sample from DITA langref
-                    <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
 				    </indexterm>
 				-->
             </keywords>
@@ -30,7 +30,7 @@
                 <codeblock>
 &lt;article id="deckSample"&gt;
     &lt;title&gt;Relationship of the Role of Perceived Chance in Board Games and Players' Enjoyability&lt;/title&gt;
-    &lt;deck class="- topic/shortdesc article/deck "&gt;This paper investigates the relationship between board game players' perception of the significance of chance with their reported enjoyability of the board game. Players rated their perception of chance in affecting the outcome of the game on a scale of 1 to 10. They also used a ten point scale for rating how much they enjoyed each game.&lt;/deck&gt; 
+    &lt;deck&gt;This paper investigates the relationship between board game players' perception of the significance of chance with their reported enjoyability of the board game. Players rated their perception of chance in affecting the outcome of the game on a scale of 1 to 10. They also used a ten point scale for rating how much they enjoyed each game.&lt;/deck&gt; 
     &lt;body&gt;
         &lt;!-- Article content goes here --&gt;
     &lt;/body&gt;

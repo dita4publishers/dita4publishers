@@ -1,38 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE reference
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
-<reference xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
-           id="body-pullquote"
-           ditaarch:DITAArchVersion="1.2"
-           domains="(topic hi-d)       (topic indexing-d)      (topic d4p_formatting-d)      (topic d4p_ruby-d)      (topic d4p_classification-d)      a(props d4p_renditionTarget)      (topic d4p_variables-d)      (topic d4p_verse-d)      (topic xml-d)     "
-           class="- topic/topic ">
-    <title class="- topic/title ">body-pullquote</title>
-    <shortdesc class="- topic/shortdesc "><!-- For future use --></shortdesc>
-    <prolog class="- topic/prolog ">
-        <metadata class="- topic/metadata ">
-            <keywords class="- topic/keywords ">
-                <indexterm class="- topic/indexterm ">body-pullquote</indexterm>
+<reference id="body-pullquote">
+    <title>body-pullquote</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>body-pullquote</indexterm>
             <!-- sample from DITA langref
-                    <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
 				    </indexterm> -->
             </keywords>
         </metadata>
     </prolog>
-    <refbody class="- topic/body reference/refbody ">
-        <refbodydiv outputclass="summary" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="summary" class="- topic/section ">body-pullquote represents a pull quote, which is usually a replication of content from the same publication component in order to provide emphasis.  It should be used when other varieties (epigram, epigraph, etc.) are not appropriate.</section>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">body-pullquote represents a pull quote, which is usually a replication of content from the same publication component in order to provide emphasis.  It should be used when other varieties (epigram, epigraph, etc.) are not appropriate.</section>
       </refbodydiv>
-        <refbodydiv outputclass="d4p" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="d4p" class="- topic/section ">body-pullquote is specialized from bodydiv.</section>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">body-pullquote is specialized from bodydiv.</section>
       </refbodydiv>    	    
-        <refbodydiv outputclass="contains" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="contains" class="- topic/section "/>
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
       </refbodydiv>
-        <refbodydiv outputclass="contains-by" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="contains-by" class="- topic/section "/>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
       </refbodydiv>    
-        <refbodydiv outputclass="inheritance" class="- topic/bodydiv reference/refbodydiv ">
-          <section id="inheritance" class="- topic/section ">+ topic/bodydiv    d4p-pubcontent-d/body-pullquote </section>
+        <refbodydiv outputclass="inheritance">
+          <section id="inheritance">+ topic/bodydiv    d4p-pubcontent-d/body-pullquote </section>
       </refbodydiv>
       <example id="example1">
         <fig><title>Sample of an instance of the body-pullquote element</title>
@@ -45,8 +41,8 @@ In essence, DITA lets us eat our cake and have it.
 &lt;/body-pullquote&gt;
                 </codeblock></fig>
       </example>    	
-        <refbodydiv outputclass="attributes" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="attributes" class="- topic/section "/>
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
       </refbodydiv>
         
     </refbody>

@@ -1,44 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE reference
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
-<reference xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
-           id="d4p_video_tracks"
-           ditaarch:DITAArchVersion="1.2"
-           domains="(topic hi-d)       (topic indexing-d)      (topic d4p_formatting-d)      (topic d4p_ruby-d)      (topic d4p_classification-d)      a(props d4p_renditionTarget)      (topic d4p_variables-d)      (topic d4p_verse-d)      (topic xml-d)     "
-           class="- topic/topic ">
-    <title class="- topic/title ">d4p_video_tracks</title>
-    <shortdesc class="- topic/shortdesc "><!-- For future use --></shortdesc>
-    <prolog class="- topic/prolog ">
-        <metadata class="- topic/metadata ">
-            <keywords class="- topic/keywords ">
-                <indexterm class="- topic/indexterm ">d4p_video_tracks</indexterm>
+<reference id="d4p_video_tracks">
+    <title>d4p_video_tracks</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>d4p_video_tracks</indexterm>
             <!-- sample from DITA langref
-                    <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
 				    </indexterm> -->
             </keywords>
         </metadata>
     </prolog>
-    <refbody class="- topic/body reference/refbody ">
-        <refbodydiv outputclass="summary" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="summary" class="- topic/section ">The d4p_video_tracks element is deprecated. The d4p_media_tracks element should be used instead.</section>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">The d4p_video_tracks element is deprecated. The d4p_media_tracks element should be used instead.</section>
       </refbodydiv>
-        <refbodydiv outputclass="d4p" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="d4p" class="- topic/section "> </section>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p"> </section>
       </refbodydiv>    	    
-        <refbodydiv outputclass="contains" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="contains" class="- topic/section "/>
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
       </refbodydiv>
-        <refbodydiv outputclass="contains-by" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="contains-by" class="- topic/section "/>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
       </refbodydiv>    
-        <refbodydiv outputclass="inheritance" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="inheritance" class="- topic/section "/>
+        <refbodydiv outputclass="inheritance">
+         <section id="inheritance"/>
       </refbodydiv>
-        <refbodydiv outputclass="example1" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="example1" class="- topic/section "/>
+        <refbodydiv outputclass="example1">
+         <section id="example1"/>
       </refbodydiv>    	
-        <refbodydiv outputclass="attributes" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="attributes" class="- topic/section "/>
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
       </refbodydiv>
         
     </refbody>

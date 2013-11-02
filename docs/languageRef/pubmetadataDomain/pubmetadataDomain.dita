@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE reference
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
-<reference xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
-           id="pubmetadataDomain"
-           ditaarch:DITAArchVersion="1.2"
-           domains="(topic hi-d)       (topic indexing-d)      (topic d4p_formatting-d)      (topic d4p_ruby-d)      (topic d4p_classification-d)      a(props d4p_renditionTarget)      (topic d4p_variables-d)      (topic d4p_verse-d)      (topic xml-d)     "
-           class="- topic/topic ">
-    <title class="- topic/title ">pubmetadataDomain</title>
-    <shortdesc class="- topic/shortdesc "><!-- For future use --></shortdesc>
-    <prolog class="- topic/prolog ">
-        <metadata class="- topic/metadata ">
-            <keywords class="- topic/keywords ">
-                <indexterm class="- topic/indexterm ">pubmetadataDomain</indexterm>
+<reference id="pubmetadataDomain">
+    <title>pubmetadataDomain</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>pubmetadataDomain</indexterm>
             <!-- sample from DITA langref
-                    <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
 				    </indexterm> -->
             </keywords>
         </metadata>
     </prolog>
-    <refbody class="- topic/body reference/refbody ">
-        <refbodydiv outputclass="summary" class="- topic/bodydiv reference/refbodydiv ">
-          <section id="summary" class="- topic/section ">The pubmetadataDomain contains a rich set of elements to be used for representing metadata information for publications that meets the needs of publishers (such as that which describes, names, and classifies the publication, including its title, any ISBN or ISSN numbers, copyright statements, authorship, ownership, and so on). Publishing publication metadata tends to be more demanding than that required by technical documents. As a map domain, the publishing metadata elements can be added to any map type. To use this, integrate the domain into your local map types.</section>
+    <refbody>
+        <refbodydiv outputclass="summary">
+          <section id="summary">The pubmetadataDomain contains a rich set of elements to be used for representing metadata information for publications that meets the needs of publishers (such as that which describes, names, and classifies the publication, including its title, any ISBN or ISSN numbers, copyright statements, authorship, ownership, and so on). Publishing publication metadata tends to be more demanding than that required by technical documents. As a map domain, the publishing metadata elements can be added to any map type. To use this, integrate the domain into your local map types.</section>
       </refbodydiv>
     </refbody>
 </reference>

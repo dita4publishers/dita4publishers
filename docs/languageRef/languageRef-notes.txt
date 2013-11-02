@@ -3,8 +3,7 @@ TODO:
 -Search files for "FIXME" and fill in missing details (will likely need Eliot's help for some of this)
 -Finish integrating info from D4P User Guide
 -Finish inheritance sections
--Add examples
--Iterate over to improve, refine, and eliminate documentation debt
+-Iterate over to add examples, improve, refine, and eliminate documentation debt
 
 
 Structure of Individual Files:
@@ -16,6 +15,9 @@ Each file for an element has a refbody that is structured as so:
 -Inheritance: The inheritance information for the element
 -Example: Zero, one, or more examples of the element in use
 -Attributes: The element's possible attributes; hopefully part of this will be able to be generated automatically
+
+2013-11-02
+Remove class, domains, ditaarch attributes that should not be present. Add files for enumeration domains but not defined elements due to experimental nature of domains. Build latest version of language reference as PDF.
 
 2013-10-15
 Add files and all elements for the pubmapDomain. Update ditamap to include references to new files. Add latest version of language reference built as a PDF. 

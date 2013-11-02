@@ -3,17 +3,17 @@
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
 <reference id="back-cover">
    <title>back-cover</title>
-   <shortdesc class="- topic/shortdesc "/>
-   <prolog class="- topic/prolog ">
-      <metadata class="- topic/metadata ">
-         <keywords class="- topic/keywords ">
-            <indexterm class="- topic/indexterm ">pubmapDomain elements<indexterm class="- topic/indexterm ">back-cover</indexterm>
+   <shortdesc />
+   <prolog>
+      <metadata>
+         <keywords>
+            <indexterm>pubmapDomain elements<indexterm>back-cover</indexterm>
             </indexterm>
-            <indexterm class="- topic/indexterm ">back-cover</indexterm>
+            <indexterm>back-cover</indexterm>
          </keywords>
       </metadata>
    </prolog>
-   <refbody class="- topic/body reference/refbody">
+   <refbody>
       <refbodydiv outputclass="summary">
          <section id="summary">The &lt;back-cover&gt; element references a topic or map as a back-cover within a book.
                     </section>

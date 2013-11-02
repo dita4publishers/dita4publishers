@@ -3,17 +3,17 @@
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
 <reference id="keydefs">
    <title>keydefs</title>
-   <shortdesc class="- topic/shortdesc "/>
-   <prolog class="- topic/prolog ">
-      <metadata class="- topic/metadata ">
-         <keywords class="- topic/keywords ">
-            <indexterm class="- topic/indexterm ">pubmapDomain elements<indexterm class="- topic/indexterm ">keydefs</indexterm>
+   <shortdesc />
+   <prolog>
+      <metadata>
+         <keywords>
+            <indexterm>pubmapDomain elements<indexterm>keydefs</indexterm>
             </indexterm>
-            <indexterm class="- topic/indexterm ">keydefs</indexterm>
+            <indexterm>keydefs</indexterm>
          </keywords>
       </metadata>
    </prolog>
-   <refbody class="- topic/body reference/refbody">
+   <refbody>
       <refbodydiv outputclass="summary">
          <section id="summary">The &lt;keydefs&gt; element references a topic or map as a keydefs within a book.
                     </section>

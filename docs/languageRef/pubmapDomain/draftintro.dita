@@ -3,17 +3,17 @@
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
 <reference id="draftintro">
    <title>draftintro</title>
-   <shortdesc class="- topic/shortdesc "/>
-   <prolog class="- topic/prolog ">
-      <metadata class="- topic/metadata ">
-         <keywords class="- topic/keywords ">
-            <indexterm class="- topic/indexterm ">pubmapDomain elements<indexterm class="- topic/indexterm ">draftintro</indexterm>
+   <shortdesc />
+   <prolog>
+      <metadata>
+         <keywords>
+            <indexterm>pubmapDomain elements<indexterm>draftintro</indexterm>
             </indexterm>
-            <indexterm class="- topic/indexterm ">draftintro</indexterm>
+            <indexterm>draftintro</indexterm>
          </keywords>
       </metadata>
    </prolog>
-   <refbody class="- topic/body reference/refbody">
+   <refbody>
       <refbodydiv outputclass="summary">
          <section id="summary">The &lt;draftintro&gt; element references a topic or map as a draftintro within a book.
                     </section>

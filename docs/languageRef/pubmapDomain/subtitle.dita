@@ -3,17 +3,17 @@
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
 <reference id="subtitle">
   <title>subtitle</title>
-  <shortdesc class="- topic/shortdesc "/>
-  <prolog class="- topic/prolog ">
-    <metadata class="- topic/metadata ">
-      <keywords class="- topic/keywords ">
-        <indexterm class="- topic/indexterm ">pubmapDomain elements<indexterm class="- topic/indexterm ">subtitle</indexterm>
+  <shortdesc />
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>pubmapDomain elements<indexterm>subtitle</indexterm>
         </indexterm>
-        <indexterm class="- topic/indexterm ">subtitle</indexterm>
+        <indexterm>subtitle</indexterm>
       </keywords>
     </metadata>
   </prolog>
-  <refbody class="- topic/body reference/refbody">
+  <refbody>
     <refbodydiv outputclass="summary">
       <section id="summary">The &lt;subtitle&gt; element is the sub title of a pubblication map's title, which may represent the sub title of a publication or of a sub-part of a publication.
       </section>

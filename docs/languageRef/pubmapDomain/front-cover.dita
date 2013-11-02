@@ -3,17 +3,17 @@
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
 <reference id="front-cover">
    <title>front-cover</title>
-   <shortdesc class="- topic/shortdesc "/>
-   <prolog class="- topic/prolog ">
-      <metadata class="- topic/metadata ">
-         <keywords class="- topic/keywords ">
-            <indexterm class="- topic/indexterm ">pubmapDomain elements<indexterm class="- topic/indexterm ">front-cover</indexterm>
+   <shortdesc />
+   <prolog>
+      <metadata>
+         <keywords>
+            <indexterm>pubmapDomain elements<indexterm>front-cover</indexterm>
             </indexterm>
-            <indexterm class="- topic/indexterm ">front-cover</indexterm>
+            <indexterm>front-cover</indexterm>
          </keywords>
       </metadata>
    </prolog>
-   <refbody class="- topic/body reference/refbody">
+   <refbody>
       <refbodydiv outputclass="summary">
          <section id="summary">The &lt;front-cover&gt; element references a topic or map as a front-cover within a book.
                     </section>

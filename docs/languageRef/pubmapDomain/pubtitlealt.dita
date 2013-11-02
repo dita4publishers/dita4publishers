@@ -3,17 +3,17 @@
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
 <reference id="pubtitlealt">
   <title>pubtitlealt</title>
-  <shortdesc class="- topic/shortdesc "/>
-  <prolog class="- topic/prolog ">
-    <metadata class="- topic/metadata ">
-      <keywords class="- topic/keywords ">
-        <indexterm class="- topic/indexterm ">pubmapDomain elements<indexterm class="- topic/indexterm ">pubtitlealt</indexterm>
+  <shortdesc />
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>pubmapDomain elements<indexterm>pubtitlealt</indexterm>
         </indexterm>
-        <indexterm class="- topic/indexterm ">pubtitlealt</indexterm>
+        <indexterm>pubtitlealt</indexterm>
       </keywords>
     </metadata>
   </prolog>
-  <refbody class="- topic/body reference/refbody">
+  <refbody>
     <refbodydiv outputclass="summary">
       <section id="summary">The &lt;pubtitlealt&gt; element is the alternative title of a pubblication map's title, which may represent the alternative title of a publication or of a sub-part of a publication.
       </section>

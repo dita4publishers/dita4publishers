@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE reference
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
-<reference xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
-           id="d4p_classificationDomain"
-           ditaarch:DITAArchVersion="1.2"
-           domains="(topic hi-d)       (topic indexing-d)      (topic d4p_formatting-d)      (topic d4p_ruby-d)      (topic d4p_classification-d)      a(props d4p_renditionTarget)      (topic d4p_variables-d)      (topic d4p_verse-d)      (topic xml-d)     "
-           class="- topic/topic ">
-    <title class="- topic/title ">d4p_classificationDomain</title>
-    <shortdesc class="- topic/shortdesc "><!-- For future use --></shortdesc>
-    <prolog class="- topic/prolog ">
-        <metadata class="- topic/metadata ">
-            <keywords class="- topic/keywords ">
-                <indexterm class="- topic/indexterm ">d4p_classificationDomain</indexterm>
+<reference id="d4p_classificationDomain">
+    <title>d4p_classificationDomain</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>d4p_classificationDomain</indexterm>
             <!-- sample from DITA langref
-                    <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
 				    </indexterm> -->
             </keywords>
         </metadata>
     </prolog>
-    <refbody class="- topic/body reference/refbody ">
-        <refbodydiv outputclass="summary" class="- topic/bodydiv reference/refbodydiv ">
-          <section id="summary" class="- topic/section ">The d4p_classificationDomain defines specializations of data for classifying components of publications (topics, figures, tables, etc.). This clearly identifies the metadata elements it contains as being classifying as opposed to any other type of metadata (such as identifying metadata). Classifying metadata normally relates its container to items in defined classification taxonomies.</section>
+    <refbody>
+        <refbodydiv outputclass="summary">
+          <section id="summary">The d4p_classificationDomain defines specializations of data for classifying components of publications (topics, figures, tables, etc.). This clearly identifies the metadata elements it contains as being classifying as opposed to any other type of metadata (such as identifying metadata). Classifying metadata normally relates its container to items in defined classification taxonomies.</section>
       </refbodydiv>
-        <refbodydiv outputclass="shortname" class="- topic/bodydiv reference/refbodydiv ">
-            <section id="shortname" class="- topic/section ">d4p_classification-d</section>
+        <refbodydiv outputclass="shortname">
+            <section id="shortname">d4p_classification-d</section>
         </refbodydiv> 
-        <refbodydiv outputclass="modulename" class="- topic/bodydiv reference/refbodydiv ">
-            <section id="modulename" class="- topic/section ">d4p_classificationDomain.ent and d4p_classificationDomain.mod</section>
+        <refbodydiv outputclass="modulename">
+            <section id="modulename">d4p_classificationDomain.ent and d4p_classificationDomain.mod</section>
         </refbodydiv>
     </refbody>
 </reference>

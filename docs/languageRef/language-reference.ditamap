@@ -76,6 +76,15 @@
                 <topicref href="d4p_classificationDomain/classification_element.dita" navtitle="classification_element" />
                 <topicref href="d4p_classificationDomain/d4p_classificationDomain.dita" navtitle="d4p_classificationDomain" />
             </topichead>
+            <topichead navtitle="d4p_enumerationBaseTopicDomain">
+                <topicref href="d4p_enumerationBaseTopicDomain/d4p_enumerationBaseTopicDomain.dita" navtitle="d4p_enumerationBaseTopicDomain" />
+            </topichead>
+            <topichead navtitle="d4p_enumerationMapDomain">
+                <topicref href="d4p_enumerationMapDomain/d4p_enumerationMapDomain.dita" navtitle="d4p_enumerationMapDomain" />
+            </topichead>
+            <topichead navtitle="d4p_enumerationTopicDomain">
+                <topicref href="d4p_enumerationTopicDomain/d4p_enumerationTopicDomain.dita" navtitle="d4p_enumerationTopicDomain" />
+            </topichead>
             <topichead navtitle="d4p_formattingDomain">
                 <topicref href="d4p_formattingDomain/art-ph.dita" navtitle="art-ph" />
                 <topicref href="d4p_formattingDomain/art.dita" navtitle="art" />

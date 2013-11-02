@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE reference
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
-<reference xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
-           id="language-reference"
-           ditaarch:DITAArchVersion="1.2"
-           domains="(topic hi-d)       (topic indexing-d)      (topic d4p_formatting-d)      (topic d4p_ruby-d)      (topic d4p_classification-d)      a(props d4p_renditionTarget)      (topic d4p_variables-d)      (topic d4p_verse-d)      (topic xml-d)     "
-           class="- topic/topic ">
-    <title class="- topic/title ">DITA4Publishers Language Reference</title>
-    <shortdesc class="- topic/shortdesc "><!-- For future use --></shortdesc>
-    <refbody class="- topic/body reference/refbody ">
-        <refbodydiv outputclass="summary" class="- topic/bodydiv reference/refbodydiv ">
-            <section id="summary" class="- topic/section ">
+<reference id="language-reference">
+    <title>DITA4Publishers Language Reference</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <refbody>
+        <refbodydiv outputclass="summary">
+            <section id="summary">
                 The language reference provides information about each element in the DITA4Publishers vocabulary modules. This is a work in progress. If there are specific aspects you would like fleshed out sooner rather than later, please email Steven Calderwood at stevenc@hkusa.com.
             </section>
         </refbodydiv>

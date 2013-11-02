@@ -1,44 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE reference
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
-<reference xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
-           id="pubrights"
-           ditaarch:DITAArchVersion="1.2"
-           domains="(topic hi-d)       (topic indexing-d)      (topic d4p_formatting-d)      (topic d4p_ruby-d)      (topic d4p_classification-d)      a(props d4p_renditionTarget)      (topic d4p_variables-d)      (topic d4p_verse-d)      (topic xml-d)     "
-           class="- topic/topic ">
-    <title class="- topic/title ">pubrights</title>
-    <shortdesc class="- topic/shortdesc "><!-- For future use --></shortdesc>
-    <prolog class="- topic/prolog ">
-        <metadata class="- topic/metadata ">
-            <keywords class="- topic/keywords ">
-                <indexterm class="- topic/indexterm ">pubrights</indexterm>
+<reference id="pubrights">
+    <title>pubrights</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>pubrights</indexterm>
             <!-- sample from DITA langref
-                    <indexterm class="- topic/indexterm ">Topic elements<indexterm class="- topic/indexterm ">abstract</indexterm>
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
 				    </indexterm> -->
             </keywords>
         </metadata>
     </prolog>
-    <refbody class="- topic/body reference/refbody ">
-        <refbodydiv outputclass="summary" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="summary" class="- topic/section ">pubrights represents the rights governing a publication's usage by third parties. It can specify the first year of copyright, the last or most recent year of copyright, the owner of the publication, the rights restrictions, the license that governs the publication's usage (when traditional copyright restrictions do not apply), and a summary of the publication. Further information can be specified through nesting data elements.</section>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">pubrights represents the rights governing a publication's usage by third parties. It can specify the first year of copyright, the last or most recent year of copyright, the owner of the publication, the rights restrictions, the license that governs the publication's usage (when traditional copyright restrictions do not apply), and a summary of the publication. Further information can be specified through nesting data elements.</section>
       </refbodydiv>
-        <refbodydiv outputclass="d4p" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="d4p" class="- topic/section ">pubrights is a specialization of data.</section>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">pubrights is a specialization of data.</section>
       </refbodydiv>    	    
-        <refbodydiv outputclass="contains" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="contains" class="- topic/section "/>
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
       </refbodydiv>
-        <refbodydiv outputclass="contains-by" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="contains-by" class="- topic/section "/>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
       </refbodydiv>    
-        <refbodydiv outputclass="inheritance" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="inheritance" class="- topic/section "/>
+        <refbodydiv outputclass="inheritance">
+         <section id="inheritance"/>
       </refbodydiv>
-        <refbodydiv outputclass="example1" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="example1" class="- topic/section "/>
+        <refbodydiv outputclass="example1">
+         <section id="example1"/>
       </refbodydiv>    	
-        <refbodydiv outputclass="attributes" class="- topic/bodydiv reference/refbodydiv ">
-         <section id="attributes" class="- topic/section "/>
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
       </refbodydiv>
         
     </refbody>
