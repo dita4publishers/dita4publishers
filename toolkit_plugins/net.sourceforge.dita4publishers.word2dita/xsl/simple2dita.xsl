@@ -13,7 +13,7 @@
   <!--==========================================
     Simple Word Processing Markup to DITA generic transformation
     
-    Copyright (c) 2009, 2012 DITA For Publishers, Inc.
+    Copyright (c) 2009, 2013 DITA For Publishers, Inc.
 
     Transforms a simple word processing document into a DITA topic using
     a style-to-tag mapping.
@@ -53,8 +53,11 @@
   <xsl:key name="bookmarksByName" match="rsiwp:bookmarkStart" use="@name"/>
   
   <xsl:template match="rsiwp:document">
-    <xsl:message> + [INFO] simple2dita: Processing intermediate simpleML XML to generate DITA XML...</xsl:message>
-    
+    <xsl:message> + [INFO] ++++++++++++++++++++++++++++++ 
+ + [INFO] 
+ + [INFO] simple2dita: Processing intermediate simpleML XML to generate DITA XML...
+ + [INFO]    
+ + [INFO] ++++++++++++++++++++++++++++++</xsl:message>
     <!-- Capture the input document so we can pass it around into contexts where the original
          document context gets lost.
       -->
@@ -92,7 +95,7 @@
             </xsl:call-template>
           </xsl:when>
           <xsl:when test="local:isRootTopicTitle($firstP)">
-            <xsl:if test="$debugBoolean or true()">        
+            <xsl:if test="$debugBoolean">        
               <xsl:message> + [DEBUG] rsiwp:document: firstP is root topic title, calling makeTopic...</xsl:message>
             </xsl:if>
             <xsl:call-template name="makeTopic">
@@ -105,7 +108,7 @@
             </xsl:call-template>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:if test="$debugBoolean or true()">        
+            <xsl:if test="$debugBoolean">        
               <xsl:message> + [DEBUG] rsiwp:document: firstP is neither root topic nor root map</xsl:message>
             </xsl:if>
           </xsl:otherwise>
@@ -113,7 +116,7 @@
       </xsl:document>
     </xsl:variable>
     <!-- Write out the base resultDocs data for debugging purposes -->
-    <xsl:if test="false() or $debugBoolean">
+    <xsl:if test="true() or $debugBoolean">
       <xsl:variable
         name="tempDoc"
         select="relpath:newFile($outputDir, 'resultDocs.xml')"
@@ -135,7 +138,7 @@
       </xsl:apply-templates>
     </xsl:variable>
     <!-- Write out the fixed-up resultDocs data for debugging purposes -->
-    <xsl:if test="false() or $debugBoolean">
+    <xsl:if test="true() or $debugBoolean">
       <xsl:variable
         name="tempDoc"
         select="relpath:newFile($outputDir, 'resultDocsFixedUp.xml')"
@@ -180,7 +183,7 @@
   <xsl:template match="rsiwp:p[string(@structureType) = 'skip']" priority="10"/>
   
   <xsl:template match="rsiwp:p" name="transformPara">
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="true() or $debugBoolean">
       <xsl:message> + [DEBUG] rsiwp:p (transformPara): text=<xsl:sequence select="substring(., 1, 40)"/></xsl:message>
     </xsl:if>
     <xsl:variable name="tagName" as="xs:string"
@@ -195,7 +198,7 @@
     </xsl:if>
     <xsl:choose>
       <xsl:when test="count(./*) = 0 and normalize-space(.) = ''">
-        <xsl:if test="$debugBoolean">
+        <xsl:if test="true() or $debugBoolean">
           <xsl:message> + [DEBUG] Skipping apparently-empty paragraph: <xsl:sequence select="local:reportPara(.)"/></xsl:message>
         </xsl:if>
       </xsl:when>
@@ -752,11 +755,11 @@
 
     <xsl:variable name="firstP" select="$content[1]"/>
     
-    <xsl:if test="false() or $debugBoolean">
+    <xsl:if test="true() or $debugBoolean">
       <xsl:message> + [DEBUG] makeMap: firstP=<xsl:value-of select="$firstP"/></xsl:message>
       <xsl:message> + [DEBUG] makeMap: treePos=<xsl:value-of select="$treePos"/></xsl:message>
     </xsl:if>
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="true() or $debugBoolean">
       <xsl:message> + [DEBUG] makeMap: newMapUrl=<xsl:sequence select="$newMapUrl"/></xsl:message>
     </xsl:if>
     
@@ -764,7 +767,7 @@
     
     <xsl:variable name="formatName" select="$firstP/@format" as="xs:string?"/>
     <xsl:if test="not($formatName)">
-      <xsl:message terminate="yes"> + [ERROR] makeMap: No format= attribute for paragraph style <xsl:sequence select="string($firstP/@styleId)"/>, which is mapped to structure type "map".</xsl:message>
+      <xsl:message terminate="yes"> + [ERROR] makeMap: No format= attribute for paragraph style <xsl:sequence select="string($firstP/@styleName)"/>, which is mapped to structure type "map".</xsl:message>
     </xsl:if>
     
     <xsl:variable name="format" select="key('formats', $formatName, $styleMapDoc)[1]" as="element()?"/>
@@ -846,24 +849,37 @@
           </xsl:element>
         </xsl:if>
         
-        <xsl:if test="$debugBoolean">        
+        <xsl:if test="true() or $debugBoolean">        
           <xsl:message> + [DEBUG] </xsl:message>
           <xsl:message> + [DEBUG] +++++++++++++</xsl:message>
           <xsl:message> + [DEBUG] </xsl:message>
           <xsl:message> + [DEBUG] makeMap: calling generateTopicrefs...</xsl:message>
-          <xsl:message> + [DEBUG] makeMap: $nextLevel="<xsl:sequence select="$nextLevel"/>"</xsl:message>
+          <xsl:message> + [DEBUG]   makeMap: $nextLevel="<xsl:sequence select="$nextLevel"/>"</xsl:message>
+          <xsl:message> + [DEBUG]   makemap: $firstP/@secondStructureType = "<xsl:sequence select="$firstP/@secondStructureType"/>"</xsl:message>
         </xsl:if>
         <xsl:call-template name="generateTopicrefs">
+          <!-- For generating topicrefs, want all paragraphs that would result
+               in something in the map, so any topic title paragraphs, or map,
+               map title, topic head, or topic group paragraphs.
+               
+               If the paragraph we're processing now has a second structure type
+               of "topicTitle", that means it generates a map and generates a 
+               topic, referenced from that map.
+               
+               If the paragraph we're on does not have a topicTitle second structure
+               type, then it can't contribute to the topicrefs in the map we're
+               generating now.
+            -->
           <xsl:with-param name="content" 
             select="
             
             (if (string($firstP/@secondStructureType) = 'topicTitle')
               then $content
               else $content[position() > 1])[(string(@structureType) = 'topicTitle' or 
-            string(@structureType) = 'map' or 
-            string(@structureType) = 'mapTitle' or
-            string(@structureType) = 'topicHead' or
-            string(@structureType) = 'topicGroup')]" as="node()*"/>
+                                              string(@structureType) = 'map' or 
+                                              string(@structureType) = 'mapTitle' or
+                                              string(@structureType) = 'topicHead' or
+                                              string(@structureType) = 'topicGroup')]" as="node()*"/>
           <xsl:with-param name="level" 
             select="if ((string($firstP/@secondStructureType) = 'topicTitle')) 
                then $level else $nextLevel" 
@@ -871,7 +887,7 @@
           />
           <xsl:with-param name="mapUrl" select="$resultUrl" as="xs:string" tunnel="yes"/>
         </xsl:call-template>
-        <xsl:if test="false() or $debugBoolean">        
+        <xsl:if test="true() or $debugBoolean">        
           <xsl:message> + [DEBUG] </xsl:message>
           <xsl:message> + [DEBUG] +++++++++++++</xsl:message>
           <xsl:message> + [DEBUG] </xsl:message>
@@ -892,7 +908,7 @@
         </xsl:call-template>        
       </xsl:element>
     </rsiwp:result-document>
-    <xsl:if test="false() or $debugBoolean">        
+    <xsl:if test="true() or $debugBoolean">        
       <xsl:message> + [DEBUG] makeMap: Done.</xsl:message>
     </xsl:if>
   </xsl:template>
@@ -914,8 +930,9 @@
     <xsl:param name="treePos" as="xs:integer*" tunnel="yes"/>
     <xsl:param name="mapUrl" as="xs:string" tunnel="yes"/>
     
+    
     <xsl:message> + [DEBUG] generateTopicrefs: Starting, level=<xsl:sequence select="$level"/></xsl:message>
-   <xsl:if test="$debugBoolean">
+   <xsl:if test="true() or $debugBoolean">
      <xsl:message> + [DEBUG] generateTopicrefs: Starting, content:
 <xsl:sequence select="local:reportParas($content)"/>
      </xsl:message>
@@ -1047,7 +1064,7 @@
     
     <xsl:choose>
       <xsl:when test="$firstP/@rootTopicrefType != ''">
-        <xsl:if test="$debugBoolean">                  
+        <xsl:if test="true() or $debugBoolean">                  
           <xsl:message> + [DEBUG] generateTopicrefs(): First para specifies rootTopicrefType</xsl:message>
         </xsl:if>
         <xsl:element name="{$firstP/@rootTopicrefType}">
@@ -1107,7 +1124,7 @@
         </xsl:call-template>    
       </xsl:otherwise>
     </xsl:choose>
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="true() or $debugBoolean">
       <xsl:message> + [DEBUG] generateTopicrefs: Done.</xsl:message>
     </xsl:if>
   </xsl:template>
@@ -1160,9 +1177,9 @@
             </xsl:if>
           </xsl:element>          
         </xsl:when>
-        <xsl:when test="string(@structureType) = 'topichead'">
+        <xsl:when test="string(@structureType) = 'topicHead'">
           
-          <xsl:if test="$debugBoolean">        
+          <xsl:if test="true() or $debugBoolean">        
             <xsl:message> + [DEBUG] generateTopicrefs: Got a topic head. Level=<xsl:sequence select="string(@level)"/></xsl:message>
           </xsl:if>
           <xsl:variable name="topicheadType" select="if (@topicheadType) then string(@topicheadType) else 'topichead'"/>
@@ -1176,6 +1193,7 @@
               <xsl:apply-templates select="current-group()[1]"/>
             </xsl:element>
             <xsl:call-template name="generateTopicrefs">
+              <!-- FIXME: Need to account for @secondStructureType attribute -->
               <xsl:with-param name="content" select="current-group()[position() > 1]" as="node()*"/>
               <xsl:with-param name="level" select="$level + 1" as="xs:integer"/>
               <xsl:with-param name="treePos" select="($treePos, position() - 2)" tunnel="yes"/>
@@ -1183,7 +1201,7 @@
           </xsl:element>          
         </xsl:when>
         <xsl:when test="string(@structureType) = 'map' or string(@structureType) = 'mapTitle'">
-          <xsl:if test="$debugBoolean">        
+          <xsl:if test="true() or $debugBoolean">        
             <xsl:message> + [DEBUG] generateTopicrefs: Got a map-reference-generating map or map title. Level=<xsl:sequence select="string(@level)"/></xsl:message>
           </xsl:if>
           <xsl:variable name="mapRefType" as="xs:string"
@@ -2508,6 +2526,15 @@ specify @topicDoc="yes".</xsl:message>
                           else '',
                        if ($para/@containerType)
                           then concat(' containerType=', $para/@containerType)
+                          else '',
+                       if ($para/@structureType)
+                          then concat(' structureType=', $para/@structureType)
+                          else '',
+                       if ($para/@secondStructureType)
+                          then concat(' secondStructureType=', $para/@secondStructureType)
+                          else '',
+                       if ($para/@mapType)
+                          then concat(' mapType=', $para/@mapType)
                           else '',
                        if ($para/@containerOutputclass)
                           then concat(' containerOutputclass=', $para/@containerOutputclass)

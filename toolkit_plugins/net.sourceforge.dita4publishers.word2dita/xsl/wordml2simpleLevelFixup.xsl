@@ -44,7 +44,7 @@
       ================================== -->
   
   <xsl:template mode="simpleWpDoc-levelFixupRoot" match="rsiwp:document">
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] simpleWpDoc-levelFixupRoot: handling rsiwp:document...</xsl:message>
     </xsl:if>
     <!-- Apply template to the first child of the <body> element: -->
@@ -69,7 +69,7 @@
     <xsl:param name="currentLevelGroup" as="xs:string"/>
     <xsl:param name="currentTopicLevelGroup" as="xs:string"/>
     
-    <xsl:if test="$debugBoolean">    
+    <xsl:if test="false() and $debugBoolean">    
       <xsl:message> + [DEBUG] simpleWpDoc-levelFixup:  <xsl:value-of select="@style"/></xsl:message>
       <xsl:message> + [DEBUG]    currentLevel:      <xsl:sequence select="$currentLevel"/></xsl:message>
       <xsl:message> + [DEBUG]    currentTopicLevel: <xsl:sequence select="$currentTopicLevel"/></xsl:message>
@@ -88,7 +88,7 @@
     <xsl:variable name="myLevelValue" as="xs:string"
       select="string(@level)"
     />
-    <xsl:if test="$debugBoolean">    
+    <xsl:if test="false() and $debugBoolean">    
       <xsl:message> + [DEBUG]    myLevelValue: <xsl:sequence select="$myLevelValue"/></xsl:message>
     </xsl:if>
     <!-- The use of generate-id(.) here ensures that unspecified
@@ -111,7 +111,7 @@
          else $currentTopicLevelGroup
        "
     />
-    <xsl:if test="$debugBoolean">    
+    <xsl:if test="false() and $debugBoolean">    
       <xsl:message> + [DEBUG]    myTopicLevelGroup: <xsl:sequence select="$myTopicLevelGroup"/></xsl:message>
     </xsl:if>
     
@@ -133,7 +133,7 @@
       </xsl:when>
       <xsl:when test="string(number($myLevelValue)) != 'NaN'">
         <!-- Level is an explicit number, no change to the paragraph -->
-        <xsl:if test="$debugBoolean">    
+        <xsl:if test="false() and $debugBoolean">    
           <xsl:message> + [DEBUG]    myLevelValue is a number, leaving as-is</xsl:message>
         </xsl:if>
         <xsl:variable name="myLevel" as="xs:integer"
@@ -146,7 +146,7 @@
              else $currentTopicLevel
              "
         />
-        <xsl:if test="$debugBoolean">    
+        <xsl:if test="false() and $debugBoolean">    
           <xsl:message> + [DEBUG]    Is a topic</xsl:message>
         </xsl:if>
         <!-- Level is explicit, no change to this element -->
@@ -161,7 +161,7 @@
         </xsl:apply-templates>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:if test="$debugBoolean">
+        <xsl:if test="false() and $debugBoolean">
           <xsl:message> + [DEBUG]    myLevelValue is not a number, setting relative</xsl:message>
         </xsl:if>
         <!-- Relative level, figure out the effective level -->
@@ -171,7 +171,7 @@
              then $currentTopicLevel 
              else $currentLevel"
         />
-        <xsl:if test="$debugBoolean">
+        <xsl:if test="false() and $debugBoolean">
           <xsl:message> + [DEBUG]    $baseLevel:  <xsl:sequence select="$baseLevel"/></xsl:message>
         </xsl:if>
         <xsl:variable name="myLevel" as="xs:integer"
@@ -182,7 +182,7 @@
               (not($isTopic) and $myLevelGroup = $currentLevelGroup)">
               <xsl:message></xsl:message>
               <!-- No change, first item in level group will set the level value and we just follow. -->
-        <xsl:if test="$debugBoolean">
+        <xsl:if test="false() and $debugBoolean">
           <xsl:message> + [DEBUG]    myLevelGroup = current topic or body level group, using $baseLevel value</xsl:message>
         </xsl:if>
               <xsl:sequence select="$baseLevel"/>
@@ -191,7 +191,7 @@
               <xsl:sequence select="$baseLevel"/>
             </xsl:when>
             <xsl:when test="$myLevelValue = 'plusOne'">
-        <xsl:if test="$debugBoolean">
+        <xsl:if test="false() and $debugBoolean">
           <xsl:message> + [DEBUG]    myLevelGroup != current topic or body level group, using $baseLevel + 1</xsl:message>
         </xsl:if>
               <xsl:sequence select="$baseLevel + 1"/>
@@ -210,7 +210,7 @@
             </xsl:otherwise>
           </xsl:choose>
         </xsl:variable>
-        <xsl:if test="$debugBoolean">
+        <xsl:if test="false() and $debugBoolean">
           <xsl:message> + [DEBUG]    myLevel: <xsl:sequence select="$myLevel"/></xsl:message>
         </xsl:if>
         <!-- Now output the original element with the @level attribute reset -->

@@ -31,7 +31,7 @@
       MS Office 2007 Office Open XML to generic
       XML transform.
       
-      Copyright (c) 2009, 2012 DITA For Publishers
+      Copyright (c) 2009, 2013 DITA For Publishers
       
       This transform is a generic transform that produces a simplified
       form of generic XML from Office Open XML.
@@ -120,7 +120,7 @@
     <xsl:variable name="styleName" as="xs:string"
       select="local:lookupStyleName(., $stylesDoc, $styleId)"
     />
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] w:p: styleName="<xsl:sequence select="$styleName"/>"</xsl:message>
     </xsl:if>
     <!-- Mapping by name takes precedence over mapping by ID -->
@@ -171,11 +171,11 @@
         </xsl:otherwise>
       </xsl:choose>      
     </xsl:variable>
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] match on w:p: structureType = "<xsl:sequence select="string($styleData/@structureType)"/>"</xsl:message>
     </xsl:if>
     <xsl:if test="string($styleData/@structureType) != 'skip'">
-      <xsl:if test="$debugBoolean">
+      <xsl:if test="false() and $debugBoolean">
         <xsl:message> + [DEBUG] match on w:p: Paragraph not skipped, calling handlePara. p=<xsl:sequence select="substring(string(./w:r[1]), 0, 40)"/></xsl:message>
       </xsl:if>
       <xsl:call-template name="handlePara">
@@ -195,7 +195,7 @@
       <xsl:if test="not($styleData/@topicZone)">
         <xsl:attribute name="topicZone" select="'body'"/>
       </xsl:if>
-      <xsl:if test="$debugBoolean">        
+      <xsl:if test="false() and $debugBoolean">        
         <xsl:message> + [DEBUG] handlePara: p="<xsl:sequence select="substring(normalize-space(.), 1, 40)"/>"</xsl:message>
       </xsl:if>
       <!-- FIXME: This code is not doing anything specific with smartTag elements, just
@@ -211,12 +211,12 @@
       <xsl:for-each-group 
         select="*" 
         group-adjacent="name(.)">
-        <xsl:if test="$debugBoolean">
+        <xsl:if test="false() and $debugBoolean">
           <xsl:message> + [DEBUG] handlePara: current-group()[1]=<xsl:sequence select="current-group()[1]"/></xsl:message>
         </xsl:if>
         <xsl:choose>
           <xsl:when test="current-group()[1][self::w:r/w:endnoteReference]">
-            <xsl:if test="$debugBoolean">
+            <xsl:if test="false() and $debugBoolean">
               <xsl:message> + [DEBUG] handlePara: handling w:r/w:endnoteReference</xsl:message>
             </xsl:if>
             <xsl:call-template name="handleEndNoteRef">
@@ -224,7 +224,7 @@
             </xsl:call-template>
           </xsl:when>
           <xsl:when test="current-group()[1][self::w:r[w:footnoteReference]]">
-            <xsl:if test="$debugBoolean">
+            <xsl:if test="false() and $debugBoolean">
               <xsl:message> + [DEBUG] handlePara: handling w:r/w:footnoteReference</xsl:message>
             </xsl:if>
             <xsl:call-template name="handleFootNoteRef">
@@ -239,7 +239,7 @@
             </xsl:for-each-group>            
           </xsl:when>
           <xsl:when test="current-group()[1][self::w:smartTag]">
-            <xsl:if test="$debugBoolean">
+            <xsl:if test="false() and $debugBoolean">
               <xsl:message> + [DEBUG] handlePara: *** got a w:smartTag. current-group=<xsl:sequence select="current-group()"/></xsl:message>
             </xsl:if>     
             <xsl:for-each select="current-group()">
@@ -336,7 +336,7 @@
   
   
   <xsl:template match="w:footnoteReference">
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] Handling w:footnoteReference...</xsl:message>
     </xsl:if>
     <xsl:variable name="footnotesDoc" as="document-node()?"
@@ -606,12 +606,12 @@
   </xsl:template>
   
   <xsl:template match="w:sym">
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] w:sym: <xsl:sequence select="."/></xsl:message>
     </xsl:if>
     <xsl:variable name="charCode" select="@w:char" as="xs:string"/>
     <xsl:variable name="character" select="codepoints-to-string(local:hex-to-char($charCode))" as="xs:string"/>
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] w:sym: char="<xsl:sequence select="$character"/>"</xsl:message>
     </xsl:if>
     <rsiwp:symbol font="{@w:font}"
