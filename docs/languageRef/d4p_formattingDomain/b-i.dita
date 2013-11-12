@@ -28,12 +28,16 @@
          <section id="contains-by"/>
       </refbodydiv>    
         <refbodydiv outputclass="inheritance">
-         <section id="inheritance"/>
+         <section id="inheritance">
+                <title>Inheritance</title>
+             <p>+ topic/ph    d4p-formatting-d/b-i </p>
+            </section>
       </refbodydiv>
-        <refbodydiv outputclass="example1">
-         <section id="example1"/>
-      </refbodydiv>    	
-        <refbodydiv outputclass="attributes">
+      <example id="example1">
+        <fig><title>Sample of an instance of the b-i element</title>
+          <codeblock>&lt;p&gt;The name of the XML architecture we use is &lt;b-i&gt;DITA&lt;/b-i&gt;.&lt;/p&gt;</codeblock></fig>
+      </example>    	 	
+      <refbodydiv outputclass="attributes">
          <section id="attributes"/>
       </refbodydiv>
         

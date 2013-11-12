@@ -21,21 +21,11 @@
         <refbodydiv outputclass="d4p">
          <section id="d4p">Most elements of this domain are specializations of either p (and are block elements) or ph (and are inline elements). One is a specialization of foreign and one is a specialization of xref.</section>
       </refbodydiv>    	    
-        <refbodydiv outputclass="contains">
-         <section id="contains"/>
+      <refbodydiv outputclass="shortname">
+        <section id="shortname">d4p_formatting-d</section>
+      </refbodydiv> 
+      <refbodydiv outputclass="modulename">
+        <section id="modulename">d4p_formattingDomain.ent and d4p_formattingDomain.mod</section>
       </refbodydiv>
-        <refbodydiv outputclass="contains-by">
-         <section id="contains-by"/>
-      </refbodydiv>    
-        <refbodydiv outputclass="inheritance">
-         <section id="inheritance"/>
-      </refbodydiv>
-        <refbodydiv outputclass="example1">
-         <section id="example1"/>
-      </refbodydiv>    	
-        <refbodydiv outputclass="attributes">
-         <section id="attributes"/>
-      </refbodydiv>
-        
     </refbody>
 </reference>

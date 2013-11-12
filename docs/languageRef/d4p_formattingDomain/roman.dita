@@ -16,7 +16,7 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">roman designates text should be not given any empohasis, such as bold or italic. It is useful for when a parent block element assigns bold, italic, etc., such as a heading. In such cases, the use of roman can actually provide emphasis to the content by making it standout.</section>
+          <section id="summary">roman designates text should not be given any empohasis, such as bold or italic. It is useful for when a parent block element assigns bold, italic, etc., such as a heading. In such cases, the use of roman can actually provide emphasis to the content by making it standout.</section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
          <section id="d4p">roman is a specialization of ph.</section>
@@ -28,11 +28,15 @@
          <section id="contains-by"/>
       </refbodydiv>    
         <refbodydiv outputclass="inheritance">
-         <section id="inheritance"/>
+         <section id="inheritance">
+                <title>Inheritance</title>
+           <p>+ topic/ph    d4p-formatting-d/roman </p>
+            </section>
       </refbodydiv>
-        <refbodydiv outputclass="example1">
-         <section id="example1"/>
-      </refbodydiv>    	
+      <example id="example1">
+        <fig><title>Sample of an instance of the roman element</title>
+          <codeblock>&lt;p outputclass="bold"&gt;This text is bold, &lt;roman&gt;but this is roman.&lt;/roman&gt;&lt;/p&gt;</codeblock></fig>
+      </example>    	
         <refbodydiv outputclass="attributes">
          <section id="attributes"/>
       </refbodydiv>

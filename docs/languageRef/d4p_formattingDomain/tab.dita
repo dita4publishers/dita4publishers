@@ -28,11 +28,15 @@
          <section id="contains-by"/>
       </refbodydiv>    
         <refbodydiv outputclass="inheritance">
-         <section id="inheritance"/>
+         <section id="inheritance">
+                <title>Inheritance</title>
+           <p>+ topic/ph    d4p-formatting-d/tab </p>
+            </section>
       </refbodydiv>
-        <refbodydiv outputclass="example1">
-         <section id="example1"/>
-      </refbodydiv>    	
+      <example id="example1">
+        <fig><title>Sample of an instance of the tab element</title>
+          <codeblock>&lt;p&gt;This is text before a tab&lt;tab /&gt;This is text after a tab&lt;/p&gt;</codeblock></fig>
+      </example>    	
         <refbodydiv outputclass="attributes">
          <section id="attributes"/>
       </refbodydiv>

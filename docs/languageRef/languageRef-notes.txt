@@ -16,6 +16,9 @@ Each file for an element has a refbody that is structured as so:
 -Example: Zero, one, or more examples of the element in use
 -Attributes: The element's possible attributes; hopefully part of this will be able to be generated automatically
 
+2013-11-11
+Refine documentation for formattingDomain with examples and inheritance information. Remove errant catalog.dita file from formattingDomain files.
+
 2013-11-02
 Remove class, domains, ditaarch attributes that should not be present. Add files for enumeration domains but not defined elements due to experimental nature of domains. Build latest version of language reference as PDF.
 

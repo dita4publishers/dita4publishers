@@ -28,11 +28,15 @@
          <section id="contains-by"/>
       </refbodydiv>    
         <refbodydiv outputclass="inheritance">
-         <section id="inheritance"/>
+         <section id="inheritance">
+                <title>Inheritance</title>
+           <p>+ topic/ph    d4p-formatting-d/eqn_inline </p>
+            </section>
       </refbodydiv>
-        <refbodydiv outputclass="example1">
-         <section id="example1"/>
-      </refbodydiv>    	
+      <example id="example1">
+        <fig><title>Sample of an instance of the eqn_inline element</title>
+          <codeblock>&lt;p&gt;A sample equation is &lt;eqn_inline&gt;2 + 2 = 4&lt;/eqn_inline&gt;.&lt;/p&gt;</codeblock></fig>
+      </example>    	 	
         <refbodydiv outputclass="attributes">
          <section id="attributes"/>
       </refbodydiv>

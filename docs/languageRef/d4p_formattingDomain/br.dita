@@ -28,12 +28,17 @@
          <section id="contains-by"/>
       </refbodydiv>    
         <refbodydiv outputclass="inheritance">
-         <section id="inheritance"/>
+         <section id="inheritance">
+                <title>Inheritance</title>
+           <p>+ topic/ph    d4p-formatting-d/br </p>
+            </section>
       </refbodydiv>
-        <refbodydiv outputclass="example1">
-         <section id="example1"/>
-      </refbodydiv>    	
-        <refbodydiv outputclass="attributes">
+      <example id="example1">
+        <fig><title>Sample of an instance of the br element</title>
+          <codeblock>&lt;p&gt;This paragraph has a 
+            &lt;br />&gt;line break for formatting reasons.&lt;/p&gt;</codeblock></fig>
+      </example>    	 	
+      <refbodydiv outputclass="attributes">
          <section id="attributes"/>
       </refbodydiv>
         

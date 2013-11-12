@@ -28,12 +28,16 @@
          <section id="contains-by"/>
       </refbodydiv>    
         <refbodydiv outputclass="inheritance">
-         <section id="inheritance"/>
+         <section id="inheritance">
+                <title>Inheritance</title>
+           <p>+ topic/ph    d4p-formatting-d/b-sc </p>
+            </section>
       </refbodydiv>
-        <refbodydiv outputclass="example1">
-         <section id="example1"/>
-      </refbodydiv>    	
-        <refbodydiv outputclass="attributes">
+      <example id="example1">
+        <fig><title>Sample of an instance of the b-sc element</title>
+          <codeblock>&lt;p&gt;The meeting is at 5:30&lt;b-sc&gt;am&lt;/b-sc&gt; because of time zone differences.&lt;/p&gt;</codeblock></fig>
+      </example>    	 	
+      <refbodydiv outputclass="attributes">
          <section id="attributes"/>
       </refbodydiv>
         
