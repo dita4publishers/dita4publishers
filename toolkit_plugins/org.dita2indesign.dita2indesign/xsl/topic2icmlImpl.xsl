@@ -7,7 +7,8 @@
       xmlns:e2s="http//dita2indesign.org/functions/element-to-style-mapping"
       xmlns:RSUITE="http://www.reallysi.com"
       xmlns:idsc="http://www.reallysi.com/namespaces/indesign_style_catalog"
-      exclude-result-prefixes="xs local df relpath e2s RSUITE idsc"
+      xmlns:incxgen="http//dita2indesign.org/functions/incx-generation"
+      exclude-result-prefixes="xs local df relpath e2s RSUITE idsc incxgen"
       version="2.0">
   
   <!-- Topic to ICML Transformation.
@@ -466,12 +467,21 @@
     />
 <!--    <xsl:message> + [DEBUG] generateStyleCatalog: cStyleName=<xsl:sequence select="$pStyleNames"/></xsl:message>-->
     <xsl:variable name="styleCatalog" as="node()*">
+      <!-- NOTE: The style ID (@Self) is a URL-escaped version of the style name, e.g.:
+        
+        <ParagraphStyle 
+           Self="ParagraphStyle/Style Group 1%3aGrouped Style 1" 
+           Name="Style Group 1:Grouped Style 1"
+        
+        But what is specified in the element-to-style mapping should be the unescaped style name,
+        since we can easily escape the name string.
+        -->
       <RootCharacterStyleGroup Self="rootCharacterStyleGroup">
         <xsl:for-each select="$cStyleNames">
           <xsl:variable name="styleId" select="." as="xs:string"/>
           <xsl:variable name="name" 
             as="xs:string"
-            select="substring-after(., 'CharacterStyle/')" 
+            select="incxgen:unescapeStyleID(substring-after(., 'CharacterStyle/'))" 
           />
           <xsl:variable name="baseStyle" select="$styleCatalog//CharacterStyle[@Self = $styleId]" as="node()*"/>
           <xsl:choose>
@@ -483,7 +493,7 @@
                 <xsl:message> + [WARN] Character style "<xsl:sequence select="$name"/>" not in style catalog. Generating stub style definition.</xsl:message>
               </xsl:if>
               <CharacterStyle 
-                Self="CharacterStyle/{$name}" 
+                Self="{$styleId}" 
                 Name="{$name}" >
                 <Properties>
                   <BasedOn type="string">$ID/[No character style]</BasedOn>
@@ -498,7 +508,7 @@
           <xsl:variable name="styleId" select="." as="xs:string"/>
           <xsl:variable name="name" 
             as="xs:string"
-            select="substring-after(., 'ParagraphStyle/')" 
+            select="incxgen:unescapeStyleID(substring-after(., 'ParagraphStyle/'))" 
           />
           <xsl:variable name="baseStyle" select="$styleCatalog//ParagraphStyle[@Self = $styleId]" as="node()*"/>
           <xsl:choose>
@@ -510,7 +520,7 @@
                 <xsl:message> + [WARN] Paragraph style "<xsl:sequence select="$name"/>" not in style catalog. Generating stub style definition.</xsl:message>
               </xsl:if>
               <ParagraphStyle 
-                Self="ParagraphStyle/{$name}" 
+                Self="{$styleId}" 
                 Name="{$name}" 
                 >
                 <Properties>

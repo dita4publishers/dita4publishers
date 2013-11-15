@@ -159,9 +159,12 @@
     <xsl:param name="caption" as="node()*"/>
     <xsl:variable name="pStyle" select="'tableCaption'" as="xs:string"/>
     <xsl:variable name="cStyle" select="'$ID/[No character style]'" as="xs:string"/>
+    <xsl:variable name="pStyleEscaped" as="xs:string" select="incxgen:escapeStyleName($pStyle)"/>
+    <xsl:variable name="cStyleEscaped" as="xs:string" select="incxgen:escapeStyleName($cStyle)"/>
+    
     <ParagraphStyleRange
-      AppliedParagraphStyle="ParagraphStyle/${pStyle}"><xsl:text>&#x0a;</xsl:text>
-      <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/${cStyle}" ParagraphBreakType="NextFrame"
+      AppliedParagraphStyle="ParagraphStyle/{$pStyleEscaped}"><xsl:text>&#x0a;</xsl:text>
+      <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/{$cStyleEscaped}" ParagraphBreakType="NextFrame"
         ><xsl:value-of select="$caption"/></CharacterStyleRange><xsl:text>&#x0a;</xsl:text>
     </ParagraphStyleRange><xsl:text>&#x0a;</xsl:text>  
   </xsl:template>
