@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_b45_vk2_fm">
+  <title>Key Reference to An Image</title>
+  <body>
+    <fig
+      id="fig_fvv_wk2_fm">
+      <title>Image Reference using Keyref</title>
+      <p><image
+        id="image_ytl_yk2_fm"
+        keyref="image-01"/></p>
+    </fig>
+  </body>
+</topic>
