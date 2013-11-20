@@ -16,6 +16,7 @@
   <xsl:attribute-set name="region-body" use-attribute-sets="region-body.odd"/>
   
   <xsl:attribute-set name="region-body.odd">
+    <xsl:attribute name="column-count">2</xsl:attribute>
     <xsl:attribute name="margin-top">
       <xsl:value-of select="$page-margin-top"/>
     </xsl:attribute>
@@ -53,6 +54,7 @@
   </xsl:attribute-set>
 
   <xsl:attribute-set name="region-body.even">
+    <xsl:attribute name="column-count">2</xsl:attribute>
     <xsl:attribute name="margin-top">
       <xsl:value-of select="$page-margin-top"/>
     </xsl:attribute>
