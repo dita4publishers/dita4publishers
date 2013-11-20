@@ -2173,6 +2173,7 @@ specify @topicDoc="yes".</xsl:message>
       select="relpath:getRelativePath($resultDir, $effectiveImageFilename)"
     />
     <image href="{$imageUrl}">
+      <xsl:copy-of select="./@width, ./@height"/>
       <alt><xsl:sequence select="$imageUrl"/></alt>
     </image>
   </xsl:template>

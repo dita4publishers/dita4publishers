@@ -598,7 +598,42 @@
          chase down the relationship to get the name of
          the actual embedded grahpic.
     -->
-    <xsl:apply-templates select=".//pic:blipFill"/>
+    <!-- NOTE: the <pic:cNvPr
+                      id="0"
+                      name="2012-07-20 23.51.36.jpg"/> element
+         may provide reliable knowledge of the original filename
+         Or it may not. Not clear from the samples alone.
+     -->
+    <!-- See: http://en.wikipedia.org/wiki/English_Metric_Unit#DrawingML 
+    
+         The values in the DOCX data are "English Metric Units" which can
+         be reliably converted to English or metric units.
+         
+         There are 360,000 EMUs/centimeter
+    -->
+    <xsl:variable name="xExtentStr" as="xs:string?" select=".//wp:extent/@cx"/>
+    <!--<xsl:message> + [DEBUG] xExtentStr="<xsl:sequence select="$xExtentStr"/>"</xsl:message>-->
+    <xsl:variable name="yExtentStr" as="xs:string?" select=".//wp:extent/@cy"/>
+    <!--<xsl:message> + [DEBUG] yExtentStr="<xsl:sequence select="$yExtentStr"/>"</xsl:message>-->
+    <xsl:variable name="xExtentEmu" as="xs:double" 
+      select="if ($xExtentStr castable as xs:integer) then number($xExtentStr) else 1800000.0"/>
+<!--    <xsl:message> + [DEBUG] xExtentEmu="<xsl:sequence select="$xExtentEmu"/>"</xsl:message>-->
+    <xsl:variable name="yExtentEmu" as="xs:double" 
+      select="if ($yExtentStr castable as xs:integer) then number($yExtentStr) else 1800000.0"/>
+<!--    <xsl:message> + [DEBUG] yExtentEmu="<xsl:sequence select="$yExtentEmu"/>"</xsl:message>-->
+    <!-- Width and height in mm -->
+    <xsl:variable name="width" as="xs:string"
+      select="concat(string($xExtentEmu div 36000), 'mm')" 
+    />
+<!--    <xsl:message> + [DEBUG] width="<xsl:sequence select="$width"/>"</xsl:message>-->
+    <xsl:variable name="height" as="xs:string"
+      select="concat(string($yExtentEmu div 36000), 'mm')" 
+    />
+<!--    <xsl:message> + [DEBUG] height="<xsl:sequence select="$height"/>"</xsl:message>-->
+    <xsl:apply-templates select=".//pic:blipFill">
+      <xsl:with-param name="width" select="$width" as="xs:string" tunnel="yes"/>
+      <xsl:with-param name="height" select="$height" as="xs:string" tunnel="yes"/>
+    </xsl:apply-templates>
   </xsl:template>
 
   <xsl:template match="w:pict">
@@ -628,10 +663,16 @@
   
   <xsl:template match="a:blip">
     <xsl:param name="relsDoc" tunnel="yes" as="document-node()?"/>
+    <!-- Width and height. The values should include the units indicator -->
+    <xsl:param name="width" tunnel="yes" as="xs:string"/>
+    <xsl:param name="height" tunnel="yes" as="xs:string"/>
     <xsl:variable name="imageUri" as="xs:string" 
       select="local:getImageReferenceUri($relsDoc, @r:embed, @r:link)" 
       />
-    <image src="{$imageUri}"/>
+    <image src="{$imageUri}" 
+      width="{$width}"
+      height="{$height}"
+    />
   </xsl:template>
   
   <xsl:template match="v:imagedata">
@@ -670,7 +711,7 @@
     <xsl:param name="relsDoc" as="document-node()?"/>
     <xsl:param name="relId" as="xs:string"/>
     <xsl:param name="linkId" as="xs:string?"/><!-- ID of any external link to the image. -->
- 
+     
     <xsl:variable name="rel" as="element()?"
       select="key('relsById', $relId, $relsDoc)"
     />
