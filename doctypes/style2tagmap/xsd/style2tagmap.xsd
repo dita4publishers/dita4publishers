@@ -993,6 +993,37 @@
         </xs:annotation>
       </xs:attribute>
       <xs:attribute
+        name="topicheadType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div
+              xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Topic Head Element Type Name</h2>
+              <p>For paragraphs that generate topicheads in addition to other elements types,
+              specifies the element type for the topic head. The default is "topichead".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="navtitleType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div
+              xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Navigation Title Element Type Name</h2>
+              <p>For paragraphs that generate topicheads, the element type
+              name to use for the navtitle element that holds the navigation title
+              of the topic head. The default is "navtitle".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
         name="mapRefType"
         type="xs:string"
         use="optional">
