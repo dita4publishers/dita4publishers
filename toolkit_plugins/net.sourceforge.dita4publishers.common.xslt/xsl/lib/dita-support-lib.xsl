@@ -212,9 +212,10 @@
         </xsl:if>
         <xsl:sequence select="()"/>
       </xsl:when>
-      <xsl:otherwise>
+      <xsl:otherwise>        
         <xsl:if test="$debugBoolean">
           <xsl:message> + [DEBUG] df:resolveTopicRef(): context is a topicref.</xsl:message>
+          <xsl:message> + [DEBUG] df:resolveTopicRef(): href="<xsl:value-of select="$context/@href"/>"</xsl:message>
         </xsl:if>
         <xsl:variable name="topicUri" as="xs:string" 
           select="df:getEffectiveTopicUri($context)"/>        
@@ -259,6 +260,7 @@
   </xsl:function>
   
   <xsl:function name="df:resolveTopicUri" as="element()?">
+    <!-- Resolves a URI reference to a topic. -->
     <xsl:param name="context" as="element()"/>
     <xsl:param name="topicUri" as="xs:string"/>
     
@@ -328,7 +330,13 @@
             <xsl:sequence select="$topicsWithId[1]"/>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:sequence select="$topicsWithId[1]"/>
+            <xsl:variable name="resultTopic" as="element()" select="$topicsWithId[1]"/>
+            <xsl:if test="$debugBoolean">
+              <xsl:message>+ [DEBUG] df:resolveTopicUri(): fragment identifier addressed topic: 
+<xsl:sequence select="$resultTopic"/>
+</xsl:message>
+            </xsl:if>
+            <xsl:sequence select="$resultTopic"/>
           </xsl:otherwise>
         </xsl:choose>                    
       </xsl:otherwise>
@@ -584,6 +592,11 @@
   </xsl:function>
   
   <xsl:function name="df:getEffectiveTopicUri">
+    <!-- Returns the URI, including fragment identifier,
+         for the resource ultimately addressed by
+         a topicref. Redirects through key references
+         if necessary.
+      -->
     <xsl:param name="rootmap" as="element()"/>
     <xsl:param name="context" as="element()"/>
     <xsl:variable name="effectiveUri" as="xs:string"
@@ -593,15 +606,21 @@
       "
     />
     <xsl:variable name="baseUri" as="xs:string"
-       select="
-    if (contains($effectiveUri, '#')) 
-        then substring-before($effectiveUri, '#') 
-        else normalize-space($effectiveUri)
-    "/>    
-    <xsl:message> + [DEBUG] df:getEffectiveTopicUri(): baseUri="<xsl:value-of select="$baseUri"/>"</xsl:message>
-    <xsl:variable name="result" as="xs:string">
+       select="relpath:getResourcePartOfUri($effectiveUri)
+    "/>
+    <xsl:variable name="fragmentId" as="xs:string"
+      select="relpath:getFragmentId($effectiveUri)"
+    />
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] df:getEffectiveTopicUri(): baseUri="<xsl:value-of select="$baseUri"/>"</xsl:message>
+    </xsl:if>
+    
+    <xsl:variable name="resultBase" as="xs:string">
       <xsl:choose>
         <xsl:when test="string($context/@copy-to) != ''">
+          <!-- If copy-to is in effect, then we have to replace the filename part of the
+               base URI with the value specified in the @copy-to attribute.               
+            -->
           <xsl:variable name="copyTo" select="$context/@copy-to" as="xs:string"/>
           <xsl:variable name="fullUri" select="string(resolve-uri($copyTo, base-uri($context)))" as="xs:string"/>
           <xsl:sequence select="relpath:getRelativePath(relpath:getParent(base-uri($context)), $fullUri)"/>
@@ -612,7 +631,15 @@
       </xsl:choose>
       
     </xsl:variable>
-    <xsl:message> + [DEBUG] df:getEffectiveTopicUri(): result="<xsl:value-of select="$result"/>"</xsl:message>
+    <xsl:variable name="result" as="xs:string"
+      select="if ($fragmentId = '')
+      then $resultBase
+      else concat($resultBase, '#', $fragmentId)
+      "
+    />
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] df:getEffectiveTopicUri(): result="<xsl:value-of select="$result"/>"</xsl:message>
+    </xsl:if>
     <xsl:sequence select="$result"/>
   </xsl:function>
   
