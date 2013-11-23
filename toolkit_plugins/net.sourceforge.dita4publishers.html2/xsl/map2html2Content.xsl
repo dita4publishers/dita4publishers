@@ -141,7 +141,7 @@
     <!-- Result URI to which the document should be written. -->
     <xsl:param name="resultUri" as="xs:string" tunnel="yes"/>
     
-    <xsl:message> + [INFO] Writing topic <xsl:sequence select="document-uri(root(.))"/> to HTML file "<xsl:sequence 
+    <xsl:message> + [INFO] Writing topic <xsl:sequence select="base-uri(root(.))"/> to HTML file "<xsl:sequence 
       select="$resultUri"/>"...</xsl:message>
     <xsl:variable name="htmlNoNamespace" as="node()*">
       <xsl:apply-templates select="." mode="map-driven-content-processing" >
@@ -204,8 +204,8 @@
       <!-- Process the topic in the default mode, meaning the base Toolkit-provided
         HTML output processing.
         
-        By providing the topicref as a tunneled parameter it makes it available
-        to custom extensions to the base Toolkit processing.
+        By providing the topicref and collected data as a tunneled parameters
+        it makes them available to custom extensions to the base Toolkit processing.
       -->
       <xsl:apply-templates select="." >
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
@@ -227,8 +227,13 @@
     <a id="{generate-id()}" class="indexterm-anchor"/>
   </xsl:template>
   
-  <!-- NOTE: the body of this template is taken from the base dita2xhtmlImpl.xsl -->
-  <xsl:template match="*[df:class(., 'topic/topic')]/*[df:class(., 'topic/title')]">
+  <!-- NOTE: the body of this template is taken from the base dita2xhtmlImpl.xsl 
+   
+       This should only be applied to root topics so that chunk to-content does
+       not result in the same topicref being used for now-child topics and thus
+       resulting in incorrect enumeration logic.
+  -->
+  <xsl:template match="*[df:class(., 'topic/topic')][parent::dita or count(parent::*) = 0]/*[df:class(., 'topic/title')]">
     <xsl:param name="topicref" select="()" as="element()?" tunnel="yes"/>
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>    
     
