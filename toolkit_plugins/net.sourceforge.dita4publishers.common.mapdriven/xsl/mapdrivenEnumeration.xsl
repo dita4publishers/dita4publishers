@@ -13,7 +13,7 @@
     that allows numbering of numberable things based on their hierarchical
     structure in the publication.
     
-    Copyright (c) 2011 DITA For Publishers
+    Copyright (c) 2011, 2013 DITA For Publishers
     
     Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
     The intent of this license is for this material to be licensed in a way that is
@@ -22,17 +22,12 @@
     This transform requires XSLT 2.
     ================================================================= -->
 
-  <!--  
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
--->
   <xsl:template match="*[df:class(., 'map/map')]" mode="construct-enumerable-structure">
     <!-- At some future time, interpret D4P enumeration metadata to configure enumerable
          processing.
     -->
     <xsl:message> + [INFO] Constructing enumerables structure...</xsl:message>
+    <!-- NOTE: This should avoid getting any topicrefs from within reltables. -->
     <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
     <xsl:message> + [INFO] Enumerables structure constructed.</xsl:message>
   </xsl:template>
@@ -65,7 +60,7 @@
       <xsl:if test="./@xtrc">
         <xsl:attribute name="xtrc" select="@xtrc"/>
       </xsl:if>
-      <xsl:attribute name="docUri" select="document-uri(root(.))"/>
+      <xsl:attribute name="docUri" select="base-uri(root(.))"/>
       <xsl:sequence select="$additional-attributes"/>
       <xsl:choose>
         <xsl:when test="$content">
