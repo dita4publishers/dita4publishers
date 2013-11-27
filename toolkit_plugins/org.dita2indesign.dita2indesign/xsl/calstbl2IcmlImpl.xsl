@@ -63,7 +63,14 @@
   </xsl:template>
   
   <xsl:template match="tgroup | *[df:class(., 'topic/tgroup')]" priority="10">
-    <xsl:apply-templates mode="#current"/>
+    <xsl:variable name="colspecElems" as="element()*">
+      <wrapper>
+        <xsl:sequence select="colspec | *[df:class(.,'topic/colspec')]" />
+      </wrapper>
+    </xsl:variable>
+    <xsl:apply-templates mode="#current">
+      <xsl:with-param name="colspecElems" select="$colspecElems" as="element()*" tunnel="yes" />
+    </xsl:apply-templates>
   </xsl:template>
   
   <xsl:template 
@@ -93,14 +100,27 @@
     <xsl:param name="rowCount" as="xs:integer" tunnel="yes"/>
     <xsl:param name="articleType" as="xs:string" tunnel="yes"/>
     <xsl:param name="cellStyle" as="xs:string" tunnel="yes" select="'[None]'"/>
+    <xsl:param name="colspecElems" as="element()*" tunnel="yes" />
     
+    <xsl:variable name="namest" select="if (@namest) then @namest else ''" as="xs:string" />
+    <xsl:variable name="nameend" select="if (@nameend) then @nameend else ''" as="xs:string" />
+    <xsl:variable name="isColSpan" select="
+      if ($namest ne '' and $nameend ne '') then
+        (if ($namest ne $nameend) then 
+          (if ($colspecElems/*[@colname=$namest] and $colspecElems/*[@colname=$nameend]) then true()
+          else false())
+        else false ())
+      else false ()"
+    as="xs:boolean" />
     <xsl:variable name="rowNumber" select="count(../preceding-sibling::*[df:class(., 'topic/row')])" as="xs:integer"/>
     <xsl:variable name="colNumber" select="count(preceding-sibling::*[df:class(., 'topic/entry')])" as="xs:integer"/>
     <xsl:variable name="colspan">
       <!-- FIXME: This needs to be reworked for CALS tables -->
       <xsl:choose>
-        <xsl:when test="@colspan">
-          <xsl:value-of select="@colspan"/>
+        <xsl:when test="$isColSpan">
+          <xsl:variable name="numColsBeforeStartColSpan" select="count($colspecElems/*[@colname=$namest]/preceding::*[self::colspec | self::*[df:class(.,'topic/colspec')]])" as="xs:integer" />
+          <xsl:variable name="numColsBeforeEndColSpan" select="count($colspecElems/*[@colname=$nameend]/preceding::*[self::colspec | self::*[df:class(.,'topic/colspec')]])" as="xs:integer" />
+          <xsl:value-of select="$numColsBeforeEndColSpan - $numColsBeforeStartColSpan + 1"/>
         </xsl:when>
         <xsl:otherwise>
           <xsl:value-of select="1"/>
