@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_jr3_l1c_3m">
+  <title>Table Combo Spans Example</title>
+  <body>
+    <p>Table that has multiple kinds of spans<table frame="all" id="table_pzz_n1c_3m">
+        <tgroup cols="7">
+          <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+          <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+          <colspec colname="c3" colnum="3" colwidth="1.0*"/>
+          <colspec colname="c4" colnum="4" colwidth="1.0*"/>
+          <colspec colname="c5" colnum="5" colwidth="1.0*"/>
+          <colspec colname="c6" colnum="6" colwidth="1.0*"/>
+          <colspec colname="c7" colnum="7" colwidth="1.0*"/>
+          <tbody>
+            <row>
+              <entry morerows="2">0:0 || 1:0 || 2:0</entry>
+              <entry namest="c2" nameend="c4">0:1 -- 0:2 -- 0:3</entry>
+              <entry>0:4</entry>
+              <entry>0:5</entry>
+              <entry>0:6</entry>
+            </row>
+            <row>
+              <entry>1:1</entry>
+              <entry morerows="1" namest="c3" nameend="c4">1:2 || 2:2 -- 1:3 || 2:3</entry>
+              <entry>1:4</entry>
+              <entry>1:5</entry>
+              <entry>1:6</entry>
+            </row>
+            <row>
+              <entry>2:1</entry>
+              <entry>2:4</entry>
+              <entry namest="c6" nameend="c7">2:5 -- 2:6</entry>
+            </row>
+            
+          </tbody>
+        </tgroup>
+      </table></p>
+  </body>
+</topic>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_dmp_xwd_gm">
+  <title>Table With No Spans</title>
+  <body>
+    <p>Table that has no spans.</p>
+    <p>
+      <table frame="all" id="table_fyz_ywd_gm">
+        <title/>
+        <tgroup cols="2">
+          <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+          <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+          <tbody>
+            <row>
+              <entry>wx</entry>
+              <entry>a</entry>
+            </row>
+            <row>
+              <entry>y</entry>
+              <entry>b</entry>
+            </row>
+            <row>
+              <entry>z</entry>
+              <entry>c</entry>
+            </row>
+            <row>
+              <entry>zz</entry>
+              <entry>d</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </p>
+    
+  </body>
+</topic>
