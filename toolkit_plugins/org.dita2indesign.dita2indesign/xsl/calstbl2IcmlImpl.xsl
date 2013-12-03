@@ -17,13 +17,17 @@
     
   -->
  
+ 
 <!-- 
   Required modules: 
   <xsl:import href="lib/icml_generation_util.xsl"/>
   <xsl:import href="elem2styleMapper.xsl"/>
   -->
   <xsl:template match="*[df:class(.,'topic/table')]" priority="20">
-    <xsl:variable name="colCounts" select="ctbl:calcRowCounts(.)" as="xs:integer*"/>
+    <xsl:variable name="colCounts" as="xs:integer*">
+      <xsl:apply-templates mode="calcRowEntryCounts" />
+    </xsl:variable>
+    
     <xsl:variable name="numRows" select="count(.//*[df:class(., 'topic/row')])" as="xs:integer"/>
     <xsl:variable name="numCols" select="max($colCounts)" as="xs:integer"/>
     <xsl:variable name="tableID" select="generate-id(.)"/>
@@ -105,11 +109,10 @@
     <xsl:variable name="rowNumber" select="count(../preceding-sibling::*[df:class(., 'topic/row')])" as="xs:integer"/>
     <xsl:variable name="colNumber" as="xs:integer"><xsl:call-template name="current-cell-position"/></xsl:variable>
     
-    <!-- InCopy/IDML cell position indices begin at 0; instead of altering the current-cell-position low, we decrement by 1; also useful for debugging current-cell-position errors -->
+    <!-- InCopy/IDML cell position indices begin at 0; instead of altering the current-cell-position value, we decrement by 1; also useful for debugging current-cell-position errors -->
     <xsl:variable name="colNumber" select="$colNumber - 1" as="xs:integer"/>
     
     <xsl:variable name="colspan">
-      <!-- FIXME: This needs to be reworked for CALS tables -->
       <xsl:choose>
         <xsl:when test="incxgen:isColSpan(.,$colspecElems)">
           <xsl:value-of select="incxgen:numberColsSpanned(.,$colspecElems)"/>
@@ -181,10 +184,16 @@
     </ParagraphStyleRange><xsl:text>&#x0a;</xsl:text>  
   </xsl:template>
   
-  <xsl:function name="ctbl:calcRowCounts" as="xs:integer*">
+  <!-- This function did not work because it did not take into account spanning cells -->
+  <!-- <xsl:function name="ctbl:calcRowCounts" as="xs:integer*">
     <xsl:param name="context" as="element()"/>
     <xsl:sequence select="for $row in $context//row return count($row/entry)"/>
-  </xsl:function>
+  </xsl:function> -->
+  
+  <!-- This mode calculates the entry number for each entry; a later variable in the calling code uses the max function to find the highest numbered entry, which is the total number of columns -->
+  <xsl:template mode="calcRowEntryCounts" match="*[df:class(.,'topic/entry')]">
+    <xsl:call-template name="current-cell-position"/>
+  </xsl:template>
   
   <xsl:template mode="crow" match="*" priority="-1">
     <xsl:message> + [WARNING] (crow mode): Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence 
@@ -198,27 +207,28 @@
      If any entries in this table span rows, we must examine the entire table to
      be sure of the current column. Use mode="find-matrix-column".
      Otherwise, we just need to examine the current row. Use mode="count-cells". -->
-  <xsl:template name="current-cell-position">
-    <xsl:choose>
-      <xsl:when test="parent::*[self::row | self::*[df:class(., 'topic/row')]]/parent::*[self::thead | self::*[df:class(., 'topic/thead')]]">
-        <xsl:message>parent:row/parent:thead</xsl:message>
-        <xsl:apply-templates select="(ancestor::*[self::table | self::*[df:class(., 'topic/table')]][1]/thead/row/*[1])[1]"
-          mode="find-matrix-column">
-          <xsl:with-param name="stop-id"><xsl:value-of select="generate-id(.)"/></xsl:with-param>
-        </xsl:apply-templates>
-      </xsl:when>
-      <xsl:when test="ancestor::*[self::table | self::*[df:class(., 'topic/table')]][1]//*[@morerows][1]">
-        <xsl:message>more rows</xsl:message>
-        <xsl:apply-templates select="(ancestor::*[self::table | self::*[df:class(., 'topic/table')]][1]/*[self::tgroup | self::*[df:class(., 'topic/tgroup')]]/*[self::tbody | self::*[df:class(., 'topic/tbody')]]/*[self::row | self::*[df:class(., 'topic/row')]]/*[1]|ancestor::*[self::table | self::*[df:class(., 'topic/table')]][1]/*[self::row | self::*[df:class(., 'topic/row')]]/*[1])[1]"
-          mode="find-matrix-column">
-          <xsl:with-param name="stop-id"><xsl:value-of select="generate-id(.)"/></xsl:with-param>
-        </xsl:apply-templates>
-      </xsl:when>
-      <xsl:when test="not(preceding-sibling::*[self::entry | self::*[df:class(., 'topic/entry')]])">1</xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="(preceding-sibling::*[self::entry | self::*[df:class(., 'topic/entry')]])[last()]" mode="count-cells"/>
-      </xsl:otherwise>
-    </xsl:choose>
+  <xsl:template name="current-cell-position" as="xs:integer">
+    <xsl:variable name="cellCount">
+      <xsl:choose>
+        <xsl:when test="parent::*[self::row | self::*[df:class(., 'topic/row')]]/parent::*[self::thead | self::*[df:class(., 'topic/thead')]]">
+          <xsl:apply-templates select="(ancestor::*[self::table | self::*[df:class(., 'topic/table')]][1]/thead/row/*[1])[1]"
+            mode="find-matrix-column">
+            <xsl:with-param name="stop-id"><xsl:value-of select="generate-id(.)"/></xsl:with-param>
+          </xsl:apply-templates>
+        </xsl:when>
+        <xsl:when test="ancestor::*[self::table | self::*[df:class(., 'topic/table')]][1]//*[@morerows][1]">
+          <xsl:apply-templates select="(ancestor::*[self::table | self::*[df:class(., 'topic/table')]][1]/*[self::tgroup | self::*[df:class(., 'topic/tgroup')]]/*[self::tbody | self::*[df:class(., 'topic/tbody')]]/*[self::row | self::*[df:class(., 'topic/row')]]/*[1]|ancestor::*[self::table | self::*[df:class(., 'topic/table')]][1]/*[self::row | self::*[df:class(., 'topic/row')]]/*[1])[1]"
+            mode="find-matrix-column">
+            <xsl:with-param name="stop-id"><xsl:value-of select="generate-id(.)"/></xsl:with-param>
+          </xsl:apply-templates>
+        </xsl:when>
+        <xsl:when test="not(preceding-sibling::*[self::entry | self::*[df:class(., 'topic/entry')]])">1</xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates select="(preceding-sibling::*[self::entry | self::*[df:class(., 'topic/entry')]])[last()]" mode="count-cells"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:sequence select="if ($cellCount eq '') then 0 else $cellCount"/>
   </xsl:template>
   
   <!-- Count the number of cells in the current row. Move backwards from the test cell. Add one
