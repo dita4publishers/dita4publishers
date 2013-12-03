@@ -13,6 +13,17 @@
           <colspec colnum="5" colname="col5"/>
           <colspec colnum="6" colname="col6"/>
           <colspec colnum="7" colname="col7"/>
+          <thead>
+            <row>
+              <entry>0</entry>
+              <entry>1</entry>
+              <entry>2</entry>
+              <entry>3</entry>
+              <entry>4</entry>
+              <entry>5</entry>
+              <entry>6</entry>
+            </row>
+          </thead>
           <tbody>
             <row>
               <entry>0:0</entry>

@@ -12,18 +12,18 @@
           <colspec colname="c2" colnum="2" colwidth="1.0*"/>
           <tbody>
             <row>
-              <entry>xs</entry>
-              <entry>a</entry>
+              <entry>0:0</entry>
+              <entry>0:1</entry>
             </row>
             <row>
-              <entry namest="c1" nameend="c2">zydb</entry>
+              <entry namest="c1" nameend="c2">1:0 - 1:1</entry>
             </row>
             <row>
-              <entry>z</entry>
-              <entry>c</entry>
+              <entry>2:0</entry>
+              <entry>2:1</entry>
             </row>
             <row>
-              <entry namest="c1" nameend="c2">d</entry>
+              <entry namest="c1" nameend="c2">3:0 - 3:1</entry>
             </row>
           </tbody>
         </tgroup>
