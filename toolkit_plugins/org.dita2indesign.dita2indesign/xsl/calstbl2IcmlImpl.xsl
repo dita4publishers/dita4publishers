@@ -87,7 +87,7 @@
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/row')]" mode="crow">
-    <xsl:variable name="rowIndex" select="count(preceding-sibling::*[self::row | self::*[df:class(., 'topic/row')]])" as="xs:integer"/>
+    <xsl:variable name="rowIndex" select="count(preceding-sibling::*[self::row or df:class(., 'topic/row')])" as="xs:integer"/>
     <!-- changed MFHO from "17" to "1" -->
     <Row 
       Name="{$rowIndex}" 
