@@ -105,7 +105,11 @@ version="2.0">
     select="matches($includeWordBookmarks, 'yes|true|1', 'i')"/>
   
   <xsl:include
+    href="office-open-utils.xsl"/>
+  <xsl:include
     href="wordml2simple.xsl"/>
+  <xsl:include 
+    href="spreadsheetml2simple.xsl"/>
   <xsl:include
     href="wordml2simpleLevelFixup.xsl"/>
   <xsl:include

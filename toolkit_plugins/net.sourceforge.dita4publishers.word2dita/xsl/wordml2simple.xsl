@@ -15,6 +15,7 @@
       xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"
       xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"
       xmlns:rels="http://schemas.openxmlformats.org/package/2006/relationships"
+      xmlns:c="http://schemas.openxmlformats.org/drawingml/2006/chart"
       
       xmlns:local="urn:local-functions"
       
@@ -24,7 +25,7 @@
       xmlns:relpath="http://dita2indesign/functions/relpath"
       xmlns="http://reallysi.com/namespaces/generic-wordprocessing-xml"
       
-      exclude-result-prefixes="a pic xs mv mo ve o r m v w10 w wne wp local relpath saxon"
+      exclude-result-prefixes="a c pic xs mv mo ve o r m v w10 w wne wp local relpath saxon"
       version="2.0">
   
   <!--==========================================
@@ -58,7 +59,6 @@
   <xsl:key name="formats" match="stylemap:output" use="@name"/>
   <xsl:key name="styleMapsById" match="stylemap:style" use="@styleId"/>
   <xsl:key name="styleMapsByName" match="stylemap:style" use="lower-case(@styleName)"/>
-  <xsl:key name="relsById" match="rels:Relationship" use="@Id"/>
   <xsl:key name="stylesById" match="w:style" use="@w:styleId"/>
   
   <xsl:variable name="styleMapDoc" as="document-node()"
@@ -630,7 +630,9 @@
       select="concat(string($yExtentEmu div 36000), 'mm')" 
     />
 <!--    <xsl:message> + [DEBUG] height="<xsl:sequence select="$height"/>"</xsl:message>-->
-    <xsl:apply-templates select=".//pic:blipFill">
+    <xsl:message> + [DEBUG] w:drawing, applying templates to contents.</xsl:message>
+    <xsl:comment> &#x0a;==== drawing ===&#x0a;</xsl:comment>
+    <xsl:apply-templates select=".//pic:blipFill | .//c:chart">
       <xsl:with-param name="width" select="$width" as="xs:string" tunnel="yes"/>
       <xsl:with-param name="height" select="$height" as="xs:string" tunnel="yes"/>
     </xsl:apply-templates>
@@ -684,6 +686,96 @@
       select="local:getImageReferenceUri($relsDoc, @r:id, @r:link)" 
     />
     <image src="{$imageUri}"/>
+  </xsl:template>
+  
+  <xsl:template match="c:chart">
+    <xsl:param name="relsDoc" tunnel="yes" as="document-node()?"/>
+    <!-- Width and height. The values should include the units indicator -->
+    <xsl:param name="width" tunnel="yes" as="xs:string"/>
+    <xsl:param name="height" tunnel="yes" as="xs:string"/>
+    <xsl:message> + [DEBUG] c:chart: Starting</xsl:message>
+    <!-- A chart. 
+      
+         There are various things we could do with charts. As of Dec 2013
+         I haven't found any existing code that can translate a Word chart
+         to SVG.
+         
+         The chart element points to the chart XML document, which then
+         has a relationship to the Excel spreadsheet that contains
+         the chart data.
+         -->
+    
+    <xsl:variable name="rel" as="element()?"
+      select="key('relsById', @r:id, $relsDoc)"
+    />
+    <!-- 
+      In the $relsDoc, which is in the _rels/ directory: 
+      
+      <Relationship Id="rId8" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/chart" Target="charts/chart1.xml"/>
+      
+      -->
+    <xsl:variable name="targetUri" as="xs:string" select="$rel/@Target"/>
+    <xsl:variable name="chartDoc" as="document-node()"
+      select="document($targetUri, root(.))"
+    />
+    <xsl:choose>
+      <xsl:when test="not($chartDoc)">
+        <xsl:message> - [WARN] Failed to resolve reference to chart document "<xsl:sequence select="$targetUri"/>"</xsl:message>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:message> + [DEBUG] Got a chart doc, processing it...</xsl:message>
+        <!-- Chase down the chart data source and transform it into a table -->
+        <xsl:choose>
+          <xsl:when test="$chartDoc/*/c:externalData">
+            <xsl:variable name="chartname" as="xs:string" 
+              select="relpath:getNamePart(document-uri($chartDoc))"
+            />
+            <xsl:variable name="extDataId" as="xs:string" 
+              select="$chartDoc/*/c:externalData/@r:id"/>
+            <xsl:variable name="relsDocURI" as="xs:string"
+              select="concat('../word/charts/_rels/', $chartname, '.xml.rels')"
+            />
+            <xsl:variable name="chartsRelsDoc" as="document-node()?"
+              select="document($relsDocURI, .)"
+            />
+            <xsl:variable name="rel" as="element()?" 
+              select="key('relsById', $extDataId, $chartsRelsDoc)"
+            />
+            <xsl:variable name="extDataRelativeUri" as="xs:string" 
+              select="$rel/@Target"
+            />
+            <xsl:variable name="extDataAbsolutePath" as="xs:string"
+              select="relpath:getAbsolutePath(
+                         relpath:newFile(
+                            relpath:getParent(document-uri($chartDoc)), 
+                            $extDataRelativeUri))"
+            />
+            <xsl:variable name="extDataURI" as="xs:string"
+              select="concat('zip:', $extDataAbsolutePath)"
+            />
+            <xsl:variable name="spreadsheetDocURI" as="xs:string"
+              select="concat($extDataURI, '!', '/xl/worksheets/sheet1.xml')"
+            />
+            <xsl:variable name="spreadsheetDoc" as="document-node()?"
+              select="document($spreadsheetDocURI)"
+            />
+            <xsl:choose>
+              <xsl:when test="$spreadsheetDoc">
+                <xsl:apply-templates select="$spreadsheetDoc" mode="spreadsheet-to-cals-table"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:message> - [WARN] Failed to get spreadsheet document for chart element using URI "<xsl:sequence select="$spreadsheetDocURI"/>"</xsl:message>
+              </xsl:otherwise>
+            </xsl:choose>
+            
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:message> - [WARN] No c:externalData element for chart "<xsl:value-of select="$targetUri"/>"</xsl:message>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:otherwise>
+    </xsl:choose>
+    
   </xsl:template>
   
   
@@ -773,60 +865,6 @@
                        v:shapetype
                        "
   />
-  
-  <xsl:function name="local:getRunStyleId" as="xs:string">
-    <xsl:param name="context" as="element()"/>
-    <xsl:sequence select="
-      if ($context/w:rPr/w:rStyle) 
-          then string($context/w:rPr/w:rStyle/@w:val)
-          else ''
-    "/>
-  </xsl:function>
-  
-  <xsl:function name="local:getHyperlinkStyle" as="xs:string">
-    <!-- Hyperlinks don't have a directly-associated style but 
-         should contain at least one text run. So we use
-         the first text run as the hyperlink style to determine
-         the hyperlink style.
-      -->
-    <xsl:param name="context" as="element()"/>
-    <xsl:sequence select="
-      if ($context/w:r[1]/w:rPr/w:rStyle) 
-      then string($context/w:r[1]/w:rPr/w:rStyle/@w:val)
-      else ''
-      "/>
-  </xsl:function>
-  
-  <xsl:function name="local:getParaStyleId" as="xs:string">
-    <xsl:param name="context" as="element()"/>
-    <xsl:param name="mapUnstyledParasTo" as="xs:string"/>
-    <xsl:sequence select="
-      if ($context/w:pPr/w:pStyle) 
-         then string($context/w:pPr/w:pStyle/@w:val)
-         else $mapUnstyledParasTo
-      "/>
-  </xsl:function>
-  
-  <xsl:function name="local:lookupStyleName" as="xs:string">
-    <xsl:param name="context" as="element()"/>
-    <xsl:param name="stylesDoc" as="document-node()"/>
-    <xsl:param name="styleId" as="xs:string"/>
-    <xsl:variable name="styleElem" as="element()?"
-      select="key('stylesById', $styleId, $stylesDoc)[1]"
-    />
-    <xsl:choose>
-      <xsl:when test="$styleElem">
-         <xsl:variable name="styleName" as="xs:string"
-           select="$styleElem/w:name/@w:val"/>
-         <xsl:sequence select="$styleName"/>        
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:message> + [WARN] lookupStyleName(): No style definition found for style ID "<xsl:sequence select="$styleId"/>", returning style ID "<xsl:sequence select="$styleId"/>"</xsl:message>
-        <xsl:sequence select="$styleId"/>
-      </xsl:otherwise>
-    </xsl:choose>
-    
-  </xsl:function>
   
   <xsl:function name="local:hex-to-char" as="xs:integer">
     <xsl:param name="in"/> <!-- e.g. 030C -->
