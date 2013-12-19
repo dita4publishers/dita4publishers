@@ -24,6 +24,10 @@
   <xsl:import href="elem2styleMapper.xsl"/>
 -->
   
+  <xsl:template match="*[df:class(., 'topic/data')]" mode="block-children cont" priority="-0.9">
+    <!-- Suppress <data> elements by default -->
+  </xsl:template>
+  
   <xsl:template 
     match="
     *[df:class(., 'topic/ph')] |
@@ -31,7 +35,8 @@
     *[df:class(., 'topic/keyword')] |
     *[df:class(., 'topic/text')] |
     *[df:class(., 'topic/entry')] |
-    *[df:class(., 'topic/cite')]
+    *[df:class(., 'topic/cite')] |
+    *[df:class(., 'd4p_simplenum-d/d4pSimpleEnumerator')]
     " 
     mode="block-children">
     
@@ -124,6 +129,11 @@
   
   <xsl:template mode="cont" match="*[df:class(., 'topic/ph')]">
     <!-- If we get here with a ph element, it must be a passthrough -->
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template mode="cont" match="*[df:class(., 'topic/data')]">
+    <!-- If we get here with a data element, it must be a passthrough -->
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
