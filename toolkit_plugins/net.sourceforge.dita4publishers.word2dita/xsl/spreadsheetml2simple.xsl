@@ -38,15 +38,15 @@
        ================================== -->
   
   <xsl:template match="/" mode="spreadsheet-to-cals-table">
-    <xsl:message> + [DEBUG] spreadsheet-to-cals-table, "/": Handling document: <xsl:sequence select="."/></xsl:message>
+<!--    <xsl:message> + [DEBUG] spreadsheet-to-cals-table, "/": Handling document: <xsl:sequence select="."/></xsl:message>-->
     <!-- Root should be a worksheet element -->
     <xsl:apply-templates mode="#current"/>
-    <xsl:message> + [DEBUG] spreadsheet-to-cals-table: Done with "/" template</xsl:message>
+<!--    <xsl:message> + [DEBUG] spreadsheet-to-cals-table: Done with "/" template</xsl:message>-->
   </xsl:template>
   
   <xsl:template mode="spreadsheet-to-cals-table" match="ws:worksheet">
-    <xsl:message>+ [DEBUG] spreadsheet-to-cals-table: ws:worksheet</xsl:message>
-    <table>
+<!--    <xsl:message>+ [DEBUG] spreadsheet-to-cals-table: ws:worksheet</xsl:message>-->
+    <table styleId="table" structureType="block" tagName="table" topicZone="body">
       <xsl:apply-templates mode="#current"/>
     </table>
 
@@ -54,7 +54,7 @@
   
   <xsl:template mode="spreadsheet-to-cals-table" 
     match="ws:cols">
-    <xsl:message>+ [DEBUG] spreadsheet-to-cals-table: ws:cols</xsl:message>
+    <!--<xsl:message>+ [DEBUG] spreadsheet-to-cals-table: ws:cols</xsl:message>-->
     <cols>
       <xsl:apply-templates mode="#current"/>
     </cols>
@@ -62,13 +62,22 @@
   </xsl:template>
   
   <xsl:template mode="spreadsheet-to-cals-table" match="ws:col">
-    <xsl:message>+ [DEBUG] spreadsheet-to-cals-table: ws:col</xsl:message>
+<!--    <xsl:message>+ [DEBUG] spreadsheet-to-cals-table: ws:col</xsl:message>-->
     <!-- The width is a unitless number so it should work as a proportional width -->
-    <col width="{@width}"/>
+    <!-- The col element can apply to multiple columns, so we need to 
+         repeat it for the number of times it repeats.
+         
+      -->
+    <xsl:variable name="context" select="." as="node()"/>
+    <xsl:variable name="min" select="@min" as="xs:integer"/>
+    <xsl:variable name="max" select="@max" as="xs:integer"/>
+    <xsl:for-each select="$min to $max">
+      <col width="{$context/@width}"/>
+    </xsl:for-each>
   </xsl:template>
   
   <xsl:template mode="spreadsheet-to-cals-table" match="ws:sheetData">
-    <xsl:message>+ [DEBUG] spreadsheet-to-cals-table: ws:sheetData</xsl:message>
+<!--    <xsl:message>+ [DEBUG] spreadsheet-to-cals-table: ws:sheetData</xsl:message>-->
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
 
@@ -79,11 +88,14 @@
   </xsl:template>
 
   <xsl:template mode="spreadsheet-to-cals-table" match="ws:c">
-    <td><xsl:apply-templates mode="#current"/></td>
+    <td>
+      <p style="entry" styleName="entry" tagName="p" outputclass="entry" topicZone="body" level="1"><xsl:apply-templates mode="#current"/></p>
+    </td>
   </xsl:template>
   
   <xsl:template mode="spreadsheet-to-cals-table" match="ws:v">
-    <xsl:variable name="type" as="xs:string" select="../*/@t"/>
+    <!-- NOTE: The type is not always specified. -->
+    <xsl:variable name="type" as="xs:string?" select="../@t"/>
     <!-- From Office Open XML Part 1 - 18.18.11 ST_CellType (Cell Type):
       
 b (Boolean) Cell containing a boolean.
@@ -97,6 +109,7 @@ n (Number) Cell containing a number.
 s (Shared String) Cell containing a shared string.
 str (String) Cell containing a formula string.      
       -->
+<!--    <xsl:message> + [DEBUG] spreadsheet-to-cals-table: ws:v: type="<xsl:sequence select="$type"/>"</xsl:message>-->
     <xsl:choose>
       <xsl:when test="$type = 's'">
         <xsl:sequence select="ooutil:resolveSharedString(.)"/>
@@ -124,7 +137,7 @@ str (String) Cell containing a formula string.
   </xsl:template>
   
   <xsl:template mode="spreadsheet-to-cals-table" match="*" priority="-1">
-    <xsl:message> + [DEBUG] spreadsheet-to-cals-table: Unhandled element <xsl:sequence select="concat(name(..), '/', name(.))"/></xsl:message>
+<!--    <xsl:message> + [DEBUG] spreadsheet-to-cals-table: Unhandled element <xsl:sequence select="concat(name(..), '/', name(.))"/></xsl:message>-->
   </xsl:template>
   
 </xsl:stylesheet>

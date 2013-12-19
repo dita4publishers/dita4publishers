@@ -174,7 +174,12 @@
     <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] match on w:p: structureType = "<xsl:sequence select="string($styleData/@structureType)"/>"</xsl:message>
     </xsl:if>
-    <xsl:if test="string($styleData/@structureType) != 'skip'">
+<xsl:choose>    
+  <xsl:when test="string($styleData/@structureType) = 'skip'"/><!-- Skip it -->
+  <xsl:when test=".//w:drawing//c:chart">
+    <xsl:apply-templates select=".//w:drawing"/><!-- Put chart tables at same level as paragraphs -->
+  </xsl:when>
+  <xsl:otherwise>
       <xsl:if test="false() and $debugBoolean">
         <xsl:message> + [DEBUG] match on w:p: Paragraph not skipped, calling handlePara. p=<xsl:sequence select="substring(string(./w:r[1]), 0, 40)"/></xsl:message>
       </xsl:if>
@@ -182,8 +187,9 @@
         <xsl:with-param name="styleId" select="$styleName" as="xs:string"/>
         <xsl:with-param name="styleData" select="$styleData" as="element()"/>
       </xsl:call-template>  
-    </xsl:if>
-  </xsl:template>
+    </xsl:otherwise>
+</xsl:choose>  
+</xsl:template>
   
   <xsl:template name="handlePara">
     <xsl:param name="styleId" as="xs:string"/>

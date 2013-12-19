@@ -20,8 +20,9 @@
   xmlns:rels="http://schemas.openxmlformats.org/package/2006/relationships"
   xmlns:c="http://schemas.openxmlformats.org/drawingml/2006/chart"
   xmlns:local="urn:local-functions"
+  xmlns:relpath="http://dita2indesign/functions/relpath"
 
-  exclude-result-prefixes="xs xd ooutil mv mo ve o r m v w10 w wne wp pic a rels c local"
+  exclude-result-prefixes="xs xd ooutil mv mo ve o r m v w10 w wne wp pic a rels c local relpath"
   version="2.0">
   <!-- ============================================================ 
     Utilities for operating on Microsoft Office Office Open files.
@@ -35,10 +36,17 @@
       <xsl:variable name="sharedStringsDoc" as="document-node()?"
         select="ooutil:getSharedStringsDoc($vElement)"
       />
+<!--      <xsl:message> + [DEBUG] ooutil:resolveSharedString: $sharedStringsDoc = <xsl:sequence select="boolean($sharedStringsDoc)"/></xsl:message>-->
       <!-- NOTE: value is zero-based index into the shared string table. -->
-      <xsl:variable name="index" as="xs:integer" select="$vElement"/>
+      <xsl:variable name="index0Based" as="xs:integer" select="$vElement"/>
+<!--      <xsl:message> + [DEBUG] ooutil:resolveSharedString: index = <xsl:sequence select="$index0Based"/></xsl:message>-->
+      <xsl:variable name="index1Based" as="xs:integer" select="$index0Based + 1"/>
+      <xsl:variable name="siElem" as="element()?"
+        select="$sharedStringsDoc/*/*[$index1Based]"
+      />
+<!--      <xsl:message> + [DEBUG] ooutil:resolveSharedString: siElem = <xsl:sequence select="$siElem"/></xsl:message>-->
       
-      <xsl:variable name="result" as="xs:string" select="string(($sharedStringsDoc/*/sheet:si)[index + 1])"/>
+      <xsl:variable name="result" as="xs:string" select="string($siElem)"/>
       <xsl:sequence select="$result"/>
     </xsl:function>
     
@@ -52,10 +60,14 @@
   </xsl:function>
   
   <xsl:function name="ooutil:getSharedStringsDoc" as="document-node()?">
-    <xsl:param name="context" as="element()"/>
+    <xsl:param name="context" as="element()"/>    
     <!-- Context should be an element within a sheet -->
-    <xsl:variable name="resultDoc" as="document-node()"
-      select="document('../sharedStrings.xml', root($context))"
+
+    <xsl:variable name="sharedStringsURI" as="xs:string"
+      select="relpath:newFile(relpath:getParent(relpath:getParent(document-uri(root($context)))), 'sharedStrings.xml')"
+    />
+    <xsl:variable name="resultDoc" as="document-node()?"
+      select="document($sharedStringsURI)"
     />    
     <xsl:sequence select="$resultDoc"/>
   </xsl:function>
