@@ -60,6 +60,8 @@ version="2.0">
   
   <xsl:param name="topicExtension" select="'.dita'" as="xs:string"/><!-- Extension for generated topic files -->
   <xsl:param name="fileNamePrefix" select="''" as="xs:string"/><!-- Prefix for genenerated file names -->
+  <xsl:param name="chartsAsTables" select="'false'" as="xs:string"/><!-- When true, capture Word charts as tables with the chart data -->
+  <xsl:variable name="chartsAsTablesBoolean" as="xs:boolean" select="$chartsAsTables = 'true'"/>
   
   <xsl:param name="rawPlatformString" select="'unknown'" as="xs:string"/>
   
@@ -272,6 +274,7 @@ version="2.0">
       + outputDir       = "<xsl:sequence select="$outputDir"/>"  
       + debug           = "<xsl:sequence select="$debug"/>"
       + includeWordBackPointers= "<xsl:sequence select="$includeWordBackPointersBoolean"/>"  
+      + chartsAsTables  = "<xsl:sequence select="$chartsAsTablesBoolean"/>"  
       
       Global Variables:
       

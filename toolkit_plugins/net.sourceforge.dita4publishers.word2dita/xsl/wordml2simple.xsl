@@ -177,7 +177,14 @@
 <xsl:choose>    
   <xsl:when test="string($styleData/@structureType) = 'skip'"/><!-- Skip it -->
   <xsl:when test=".//w:drawing//c:chart">
-    <xsl:apply-templates select=".//w:drawing"/><!-- Put chart tables at same level as paragraphs -->
+    <xsl:choose>
+      <xsl:when test="$chartsAsTablesBoolean">
+        <xsl:apply-templates select=".//w:drawing"/><!-- Put chart tables at same level as paragraphs -->
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:message> + [INFO] chartsAsTables is false, ignoring <xsl:value-of select="string-join(.//w:drawing/*/wp:docPr/@name, ', ')"/></xsl:message>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:when>
   <xsl:otherwise>
       <xsl:if test="false() and $debugBoolean">

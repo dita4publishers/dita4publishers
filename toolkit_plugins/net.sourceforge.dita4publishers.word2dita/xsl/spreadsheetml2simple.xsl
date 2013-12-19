@@ -114,6 +114,20 @@ str (String) Cell containing a formula string.
       <xsl:when test="$type = 's'">
         <xsl:sequence select="ooutil:resolveSharedString(.)"/>
       </xsl:when>
+      <xsl:when test="$type = 'n' or not($type)">
+        <!-- Try to format the number appropriately 
+        
+        For now just applying some reasonable defaults.
+        Correct implementation would be to chase down the number
+        format details for the cell from the Spreadsheet data.
+        -->
+        <xsl:variable name="rawValue" as="xs:string" select="."/>
+        <xsl:choose>
+          <xsl:when test="$rawValue castable as xs:decimal">
+            <xsl:sequence select="format-number(number($rawValue), '#############0.00')"></xsl:sequence>
+          </xsl:when>
+        </xsl:choose>
+      </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="."/>
       </xsl:otherwise>
