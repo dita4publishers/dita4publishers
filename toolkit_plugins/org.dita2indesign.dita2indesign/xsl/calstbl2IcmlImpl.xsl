@@ -25,7 +25,7 @@
   -->
   <xsl:template match="*[df:class(.,'topic/table')]" priority="20">
     <xsl:variable name="colCounts" as="xs:integer*">
-      <xsl:apply-templates mode="calcRowEntryCounts" />
+      <xsl:apply-templates mode="calcRowEntryCounts" select=".//*[df:class(., 'topic/entry')]"/>
     </xsl:variable>
     
     <xsl:variable name="numRows" select="count(.//*[df:class(., 'topic/row')])" as="xs:integer"/>
@@ -191,6 +191,8 @@
   <xsl:template mode="calcRowEntryCounts" match="*[df:class(.,'topic/entry')]">
     <xsl:call-template name="current-cell-position"/>
   </xsl:template>
+  
+  <xsl:template match="text()" mode="calcRowEntryCounts"/>
   
   <xsl:template mode="crow" match="*" priority="-1">
     <xsl:message> + [WARNING] (crow mode): Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence 
