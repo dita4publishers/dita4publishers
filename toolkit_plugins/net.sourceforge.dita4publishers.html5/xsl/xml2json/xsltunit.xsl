@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" 
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
-	xmlns:exsl="http://exslt.org/common" 
-	extension-element-prefixes="exsl"
-	xmlns:xsltu="http://xsltunit.org/0/" 
-	exclude-result-prefixes="exsl">
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+  xmlns:exsl="http://exslt.org/common" 
+  extension-element-prefixes="exsl"
+  xmlns:xsltu="http://xsltunit.org/0/" 
+  exclude-result-prefixes="exsl">
 
   <xsl:template name="xsltu:assertEqual">
     <xsl:param name="id"/>

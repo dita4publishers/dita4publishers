@@ -1,8 +1,23 @@
-<!-- Convert a DITA map to an HTML5 data set. 
+<?xml version="1.0" encoding="utf-8"?>   
+<!--   
+       Licensed to the Apache Software Foundation (ASF) under one
+       or more contributor license agreements.  See the NOTICE file
+       distributed with this work for additional information
+       regarding copyright ownership.  The ASF licenses this file
+       to you under the Apache License, Version 2.0 (the
+       "License"); you may not use this file except in compliance
+       with the License.  You may obtain a copy of the License at
 
-     Extensions to this transform can override or extend any of those modes.
+         http://www.apache.org/licenses/LICENSE-2.0
 
+       Unless required by applicable law or agreed to in writing,
+       software distributed under the License is distributed on an
+       "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+       KIND, either express or implied.  See the License for the
+       specific language governing permissions and limitations
+       under the License.
 -->
+
 <xsl:stylesheet
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -38,14 +53,14 @@
     </xsl:variable>
     <!-- note, attention, caution, fastpath, important, notice, remember, restriction, tip, warning, other -->
     <xsl:variable name="html5NoteElement">
-    	<xsl:choose>
-    		<xsl:when test="@importance='low' or @importance='obsolete'">
-    			<xsl:value-of select="'details'" />
-    		</xsl:when>
-    		<xsl:otherwise>
-    		  <xsl:value-of select="'aside'" />
-    		</xsl:otherwise>
-    	</xsl:choose>
+      <xsl:choose>
+        <xsl:when test="@importance='low' or @importance='obsolete'">
+          <xsl:value-of select="'details'" />
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="'aside'" />
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:variable>
     
 
@@ -146,11 +161,11 @@
   </xsl:variable>
   
   <xsl:variable name="scale-to-fit">
-	<xsl:choose>
-		<xsl:when test="@scalefit='yes'">
-			<xsl:value-of select="'d4p-ui-scale2fit'" />
-		</xsl:when>
-	</xsl:choose>
+  <xsl:choose>
+    <xsl:when test="@scalefit='yes'">
+      <xsl:value-of select="'d4p-ui-scale2fit'" />
+    </xsl:when>
+  </xsl:choose>
   </xsl:variable>
   
   <xsl:variable name="isSVG" select="$ends-with-svg = 'true' or $ends-with-svgz = 'true'"/>
@@ -161,7 +176,7 @@
             http://e.metaclarity.org/52/cross-browser-svg-issues/ 
         -->
         <object type="image/svg+xml" data="{@href}">
-			<xsl:call-template name="commonattributes">
+      <xsl:call-template name="commonattributes">
             <xsl:with-param name="default-output-class">
               <xsl:if test="@placement='break'">
                 <!--Align only works for break-->
@@ -174,23 +189,16 @@
             </xsl:with-param>
           </xsl:call-template>
            <xsl:apply-templates select="@height|@width"/>
-		</object>
+    </object>
       </xsl:when>
 <xsl:otherwise>
   <img>
     <xsl:attribute name="class">
-		<xsl:value-of select="concat(@placement, ' ', @align, ' ', $scale-to-fit)" />
+    <xsl:value-of select="concat(@placement, ' ', @align, ' ', $scale-to-fit)" />
     </xsl:attribute>
     
     <xsl:call-template name="setid"/>
-    <xsl:choose>
-      <xsl:when test="*[contains(@class, ' topic/longdescref ')]">
-        <xsl:apply-templates select="*[contains(@class, ' topic/longdescref ')]"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="@longdescref"/>
-      </xsl:otherwise>
-    </xsl:choose>
+   
     <xsl:apply-templates select="@href|@height|@width"/>
     <!-- Add by Alan for Bug:#2900417 on Date: 2009-11-23 begin -->
     <xsl:apply-templates select="@scale"/>
@@ -246,51 +254,7 @@
      <xsl:attribute name="class" select="../@align" />
   </xsl:template>
   
-  <xsl:template name="next-prev-parent-links">
-     <xsl:for-each select="descendant::*
-     [contains(@class, ' topic/link ')]
-     [(@role='parent' and
-          generate-id(.)=generate-id(key('link',concat(ancestor::*[contains(@class, ' topic/related-links ')]/parent::*[contains(@class, ' topic/topic ')]/@id, ' ', @href,@type,@role,@platform,@audience,@importance,@outputclass,@keyref,@scope,@format,@otherrole,@product,@otherprops,@rev,@class,child::*))[1])
-     ) or (@role='next' and
-          generate-id(.)=generate-id(key('link',concat(ancestor::*[contains(@class, ' topic/related-links ')]/parent::*[contains(@class, ' topic/topic ')]/@id, ' ', @href,@type,@role,@platform,@audience,@importance,@outputclass,@keyref,@scope,@format,@otherrole,@product,@otherprops,@rev,@class,child::*))[1])
-     ) or (@role='previous' and
-          generate-id(.)=generate-id(key('link',concat(ancestor::*[contains(@class, ' topic/related-links ')]/parent::*[contains(@class, ' topic/topic ')]/@id, ' ', @href,@type,@role,@platform,@audience,@importance,@outputclass,@keyref,@scope,@format,@otherrole,@product,@otherprops,@rev,@class,child::*))[1])
-     )]/parent::*">
-     <xsl:value-of select="$newline"/>
-     
-     <div id="familylinks"><xsl:value-of select="$newline"/>
-  <!-- previous -->
-  <xsl:if test="contains($include.roles, ' previous ')">
-     <xsl:for-each select="*[@href][@role='previous']">
-          <div id="rel-previous" class="link"><span class="ui-icon ui-icon-circle-triangle-w"></span><xsl:apply-templates select="."/></div><xsl:value-of select="$newline"/>
-     </xsl:for-each>
-  </xsl:if>
-  
-  <!-- parent -->
-    <xsl:if test="$NOPARENTLINK='no' and contains($include.roles, ' parent ')">
-     <xsl:choose>
-       <xsl:when test="*[@href][@role='parent']">
-         <xsl:for-each select="*[@href][@role='parent']">
-          <div id="rel-parent" class="link"><span class="ui-icon"></span><xsl:apply-templates select="."/></div><xsl:value-of select="$newline"/>
-         </xsl:for-each>
-       </xsl:when>
-       <xsl:otherwise>
-          <xsl:for-each select="*[@href][@role='ancestor'][last()]">
-          <div id="rel-parent" class="link"><span class="ui-icon ui-icon-circle-triangle-n"></span><xsl:call-template name="parentlink"/></div><xsl:value-of select="$newline"/>
-          </xsl:for-each>
-       </xsl:otherwise>
-     </xsl:choose>
-    </xsl:if>
 
-<!-- next -->
-  <xsl:if test="contains($include.roles, ' next ')">
-     <xsl:for-each select="*[@href][@role='next']">
-          <div id="rel-next" class="link"><span class="ui-icon ui-icon-circle-triangle-e"></span><xsl:apply-templates select="."/></div><xsl:value-of select="$newline"/>
-     </xsl:for-each>
-  </xsl:if>
-       </div><xsl:value-of select="$newline"/>
-     </xsl:for-each>
-</xsl:template>
 
 
 </xsl:stylesheet>

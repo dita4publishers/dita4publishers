@@ -1,3 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>   
+<!--   
+       Licensed to the Apache Software Foundation (ASF) under one
+       or more contributor license agreements.  See the NOTICE file
+       distributed with this work for additional information
+       regarding copyright ownership.  The ASF licenses this file
+       to you under the Apache License, Version 2.0 (the
+       "License"); you may not use this file except in compliance
+       with the License.  You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing,
+       software distributed under the License is distributed on an
+       "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+       KIND, either express or implied.  See the License for the
+       specific language governing permissions and limitations
+       under the License.
+-->
+
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:df="http://dita2indesign.org/dita/functions" xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:relpath="http://dita2indesign/functions/relpath" xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"
@@ -5,22 +25,7 @@
   xmlns:mapdriven="http://dita4publishers.org/mapdriven" xmlns:enum="http://dita4publishers.org/enumerables"
   xmlns:local="urn:functions:local"
   exclude-result-prefixes="local xs df xsl relpath htmlutil index-terms mapdriven glossdata enum">
-  <!-- =============================================================
-
-    DITA Map to HTML5 Transformation
-
-    HTML5 navigation structure generation.
-
-    Copyright (c) 2012 DITA For Publishers
-
-    Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
-    The intent of this license is for this material to be licensed in a way that is
-    consistent with and compatible with the license of the DITA Open Toolkit.
-
-    This transform requires XSLT 2.
-    ================================================================= -->
-
-
+ 
   <xsl:variable name="maxdepth" as="xs:integer" select="3"/>
 
   <xsl:template mode="generate-html5-nav-tabbed-markup" match="*[df:class(., 'map/map')]">
@@ -109,6 +114,8 @@
 
     <div id="{$tabId}" class="content-chunk">
       <xsl:if test="$items">
+      
+        
         <h2>
           <xsl:apply-templates select="." mode="nav-point-title"/>
         </h2>
@@ -151,7 +158,7 @@
 
 
   <!-- 
-  		Templates for tab headers -->
+      Templates for tab headers -->
   <xsl:template mode="generate-html5-tabbed-nav" match="*[df:class(., 'topic/title')][not(@toc = 'no')]"> </xsl:template>
 
   <xsl:template mode="generate-html5-tabbed-nav" match="*[df:class(., 'topic/meta')]"/>
@@ -327,7 +334,8 @@
     <xsl:param name="result-uri" tunnel="yes"/>
     <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
     <xsl:message> + [INFO] MERGING TOPIC <xsl:value-of select="@href"/> INTO CONTENT with result uri <xsl:value-of
-        select="$result-uri"/></xsl:message>
+        select="$result-uri"/>
+        </xsl:message>
 
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
     <xsl:variable name="topicResultUri" select="htmlutil:getTopicResultUrl($outdir, root($topic), $rootMapDocUrl)"
