@@ -1,0 +1,61 @@
+/**
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */
+ol, ul {
+  margin-left:0px;
+}
+
+ul li, ol li {
+  margin:1em 0 1em 1em;
+  list-style-position: outside;
+}
+
+/** full scope support
+ *
+ * nested ol lishould render
+ * 1. abc
+ * 1.1 def.
+ **/
+
+ol.full-scope { counter-reset: item }
+
+ol.full-scope li:before {
+  content: counters(item, ".") " ";
+  counter-increment: item
+}
+
+li p:first-child {
+  display:inline;
+}
+
+dt {margin-top:1.5em}
+
+dd {margin-top:0.3em}
+
+
+li dl {
+    position:relative;
+  left:12px
+}
+
+ul.ullinks {
+  border-top: 1px dashed #ccc;
+  padding-top:15px;
+  margin-top:25px;
+}
+
+ul.ullinks li.ulchildlink {
+  margin:10px 0;
+}

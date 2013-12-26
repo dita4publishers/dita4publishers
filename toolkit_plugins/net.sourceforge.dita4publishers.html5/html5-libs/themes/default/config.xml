@@ -1,0 +1,14 @@
+<html5>
+  <!-- if you use a grid, load it first -->  
+  <style path="themes/default/css/theme.css" /> 
+  <script path="themes/default/js/script.js" /> 
+
+  <class>
+    <body></body>
+    <navigation></navigation>
+  </class>
+  
+  <theme>
+    <compile>true</compile>
+  </theme>
+</html5>

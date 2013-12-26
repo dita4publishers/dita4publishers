@@ -1,0 +1,44 @@
+<html5>
+  <!-- if you use a grid, load it first -->
+  <style path="misc/fonts/vegur/css/vegur.css" /> 
+ 
+  <style path="core/d4p/css/d4p.css" />
+  <style path="core/d4p/css/tools.css" />  
+  <style path="core/d4p/css/dita.css" />
+  <style path="core/d4p/css/table.css" />
+  <style path="core/d4p/css/list.css" />  
+
+  <style path="core/ajaxLoader/css/loader.css" />  
+  <style path="core/message/css/message.css" />
+  <style path="core/d4p/css/buttons.css" />  
+   
+  <style path="core/layout/css/ui-icons.css" />  
+  
+  <style path="modules/images/css/images.css" />  
+  <style path="themes/uo/css/theme.css" /> 
+  
+  <script path="core/d4p/js/array.prototype.js" />
+  <script path="core/d4p/js/d4p.js" />
+  
+  <script path="core/module-prototype/js/module.js" />
+  
+  <!-- carefull in this order -->
+  <script path="core/ajaxLoader/js/ajaxLoader.js" />
+  <script path="core/ajaxLoader/js/ajaxnav.js" />  
+    <script path="core/message/js/message.js" />
+  
+  <script path="modules/ui/jQuery-ui/adapter/js/ui.js" />
+  
+  <script path="modules/ui/jQuery-ui/accordion/js/accordion.js" />  
+  <script path="modules/ui/jQuery-ui/dialog/js/dialog.js" /> 
+  <script path="themes/uo/js/script.js" />  
+  
+  <d4p>
+    <init>true</init>
+  </d4p>
+
+  <theme>
+    <compile>true</compile>
+  </theme>
+  
+</html5>

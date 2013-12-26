@@ -1,0 +1,53 @@
+/**
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */ 
+.ui-icon, button.ui-icon  {
+  width: 16px;
+  height: 16px;
+  background-image: url(../img/ui-icons_222222_256x240.png);
+}
+
+.ui-widget-content .ui-icon {
+  background-image: url(../img/ui-icons_222222_256x240.png);
+}
+
+.ui-widget-header .ui-icon {
+  background-image: url(../img/ui-icons_222222_256x240.png);
+}
+
+.ui-state-default .ui-icon {
+  background-image: url(../img/ui-icons_888888_256x240.png);
+}
+
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {
+  background-image: url(../img/ui-icons_454545_256x240.png);
+}
+
+.ui-state-active .ui-icon {
+  background-image: url(../img/ui-icons_454545_256x240.png);
+}
+
+.ui-state-highlight .ui-icon {
+  background-image: url(../img/ui-icons_2e83ff_256x240.png);
+}
+
+.ui-state-error .ui-icon, .ui-state-error-text .ui-icon {
+  background-image: url(../img/ui-icons_cd0a0a_256x240.png);
+}
+
+button.ui-icon {
+    height: 24px;
+    width: 24px;
+}

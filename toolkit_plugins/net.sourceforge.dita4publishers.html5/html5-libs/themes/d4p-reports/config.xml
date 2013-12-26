@@ -1,0 +1,38 @@
+<html5>
+  <!-- if you use a grid, load it first -->
+  <style path="modules/960js/code/css/reset.css" />
+  <style path="modules/960js/code/css/text.css" />
+  
+  <style path="misc/fonts/vegur/css/vegur.css" /> 
+  <style path="misc/fonts/vegur/css/typography.css" />
+  
+  <style path="core/d4p/css/tools.css" />  
+  <style path="core/d4p/css/dita.css" />
+  <style path="core/d4p/css/table.css" />
+  <style path="core/d4p/css/list.css" />  
+
+
+  <style path="core/layout/css/ui-icons.css" />  
+  
+  <style path="modules/images/css/images.css" />  
+  <style path="modules/notes/css/notes.css" /> 
+
+  <style path="modules/ui/jQuery-ui/scale2fit/css/scale2fit.css" /> 
+  <style path="modules/reltable/css/reltable.css" /> 
+  
+
+  <style path="themes/d4p-reports/css/theme.css" /> 
+
+  <script path="core/d4p/js/array.prototype.js" />
+  <script path="modules/table-fixed-header/table-fixed-header.js" />
+  <script path="themes/d4p-reports/js/script.js" /> 
+ 
+  <d4p>
+    <init>false</init>
+  </d4p>
+
+  <!-- uncomment the following line to build the theme at each time -->
+  <theme>
+    <compile>true</compile>
+  </theme>
+</html5>
