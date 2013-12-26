@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+
+<project name="theme.builder" basedir=".">
+
+  <dirname property="theme.builder.dir" file="${ant.file.theme.builder}"/>
+  <property name="dita.plugins.dir" location="${theme.builder.dir}/../" />
+  <property name="ditaot.dir" location="${theme.builder.dir}/../../"/>
+  <property name="ditaot.temp.dir" location="${theme.builder.dir}/../../temp"/>
+  <property name="d4p.html5.dir" location="${theme.builder.dir}" />
+
+  <mkdir dir="${ditaot.temp.dir}" />
+
+  <loadproperties srcFile="${theme.builder.dir}/shared.properties" />
+
+  <!--
+    html5 site theme can ne set by
+     * args.cssroot
+     * setting the property in a previous ant script
+  -->
+  <condition property="html5.site.theme" value="${args.cssroot}">
+    <isset property="args.cssroot" />
+  </condition>
+
+  <condition property="html5.site.theme" value="dita-d4p-classic">
+    <not>
+      <isset property="html5.site.theme" />
+    </not>
+  </condition>
+
+  <!-- theme dir definition -->
+  <condition property="html5.theme.dir" value="${d4p.html5.dir}/${html5.themes.dir}/${html5.site.theme}">
+    <not>
+      <isset property="html5.theme.dir" />
+    </not>
+  </condition>
+
+  <condition property="html5.theme.config.dir" value="${d4p.html5.dir}/${html5.libs.dir}/${html5.themes.dir}">
+    <not>
+      <isset property="html5.theme.config.dir" />
+    </not>
+  </condition>
+
+  <property name="html5.temp.theme.dir" location="${ditaot.temp.dir}/${html5.themes.dir}/${html5.site.theme}" />
+  <property name="html5.temp.libs.dir" location="${ditaot.temp.dir}/${html5.libs.dir}" />
+  <property name="html5.theme.output.dir" location="${output.dir}/${html5.themes.dir}/${html5.site.theme}" />
+
+  <available file="${html5.theme.dir}" type="dir" property="html5.theme.exists"/>
+
+  <!-- Default location of the configuration file -->
+  <condition property="html5.site.config" value="${html5.theme.config.dir}/${html5.site.theme}/config.xml">
+    <not>
+      <isset property="html5.site.config" />
+    </not>
+  </condition>
+
+  <property name="basedir" location="${dita.temp.dir}/${html5.themes.dir}/${html5.site.theme}/${html5.libs.dir}" />
+
+  <macrodef name="package">
+    <attribute name="type" />
+    <attribute name="filelist"/>
+    <attribute name="to"/>
+    <attribute name="theme" />
+    <sequential>
+        <antcall target="package.compress">
+          <param name="type" value="@{type}"/>
+          <param name="filelist" value="@{filelist}"/>
+          <param name="to" value="@{to}"/>
+          <param name="html5.site.theme" value="@{theme}"/>
+        </antcall>
+    </sequential>
+  </macrodef>
+
+   <macrodef name="package-prepare">
+    <attribute name="theme" />
+     <sequential>
+        <antcall target="package.prepare" >
+           <param name="html5.site.theme" value="@{theme}"/>
+        </antcall>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="package-get">
+    <attribute name="dir" />
+     <attribute name="theme" />
+     <sequential>
+        <antcall target="package.get" >
+           <param name="output.dir" value="@{dir}"/>
+           <param name="html5.site.theme" value="@{theme}"/>
+        </antcall>
+    </sequential>
+  </macrodef>
+
+  <target name="package.get" depends="store.builded.theme.dir">
+    <echo>Sending assets to the output directory</echo>
+    <mkdir dir="${html5.theme.output.dir}" />
+     <copy todir="${html5.theme.output.dir}">
+       <fileset dir="${html5.theme.dir}"/>
+     </copy>
+  </target>
+
+  <target name="package.compress" depends="package.concatenate, package.copy-assets">
+    <apply executable="java" parallel="false" dest="${html5.temp.theme.dir}">
+      <fileset dir="${html5.temp.theme.dir}">
+        <include name="**/**"/>
+      </fileset>
+      <arg line="-jar"/>
+      <arg path="${theme.builder.dir}/${compressor.path}"/>
+      <srcfile/>
+      <arg line="-o"/>
+      <mapper type="glob" from="*.${html5.concatenation.prefix}.${type}" to="*.${type}"/>
+      <targetfile/>
+    </apply>
+  </target>
+
+   <target name="package.concatenate">
+    <echo> +++ Concatenating file before compression </echo>
+    <echo>     ${html5.temp.theme.dir}/${type}/${to}.${html5.concatenation.prefix}.${type} </echo>
+
+   <condition property="package.css">
+      <equals arg1="${type}" arg2="css" />
+    </condition>
+
+    <concat destfile="${html5.temp.theme.dir}/${type}/${to}.${html5.concatenation.prefix}.${type}">
+      <filelist dir="${html5.temp.libs.dir}" files="${filelist}"></filelist>
+    </concat>
+
+  </target>
+
+  <target name="package.prepare" unless="package.prepared">
+
+    <mkdir dir="${html5.temp.libs.dir}" />
+
+    <!-- copy main library -->
+    <mkdir dir="${html5.temp.libs.dir}" />
+    <copy todir="${html5.temp.libs.dir}" >
+      <fileset dir="${theme.builder.dir}/${html5.libs.dir}"/>
+    </copy>
+
+    <!-- copy other library -->
+    <copy todir="${html5.temp.libs.dir}">
+      <fileset dir="${dita.plugins.dir}">
+        <include name="*/${html5.libs.dir}/**"/>
+      </fileset>
+      <regexpmapper from=".*/${html5.libs.dir}/(.*)" to="\1" />
+    </copy>
+
+    <!-- copy theme directory -->
+    <mkdir dir="${html5.temp.libs.dir}/${html5.themes.dir}" />
+    <copy todir="${html5.temp.libs.dir}/${html5.themes.dir}/">
+      <fileset dir="${dita.plugins.dir}">
+        <include name="*/theme/${html5.site.theme}/**"/>
+      </fileset>
+      <regexpmapper from=".*/theme/(.*)" to="\1" />
+    </copy>
+
+    <property name="package.prepare" value="yes" />
+
+  </target>
+
+  <target name="package.copy-assets" if="package.css">
+    <echo> +++ Getting assets from css files location</echo>
+
+    <filelist id="html5.style.css.path" dir="${basedir}" files="${filelist}"/>
+
+    <pathconvert property="img.path.converted" pathsep="," refid="html5.style.css.path">
+      <mapper type="regexp" from="^${basedir}/(.*)/(.*)/css/.*.css"  to="\1/\2/img/"/>
+    </pathconvert>
+
+    <pathconvert property="font.path.converted" pathsep="," refid="html5.style.css.path">
+      <mapper type="regexp" from="^${basedir}/(.*)/(.*)/css/.*.css"  to="\1/\2/fonts/"/>
+    </pathconvert>
+
+    <fileset id="html5.imgs.path" dir="${html5.temp.libs.dir}">
+      <patternset includes="${img.path.converted}">
+        <exclude name="*.css" />
+        <exclude name="*.js" />
+        <exclude name="*.psd" />
+      </patternset>
+    </fileset>
+
+    <fileset id="html5.fonts.path" dir="${html5.temp.libs.dir}">
+      <type type="file"/>
+      <patternset includes="${font.path.converted}">
+        <exclude name="*.css" />
+        <exclude name="*.js" />
+        <include name="*.otf" />
+        <include name="*.woff" />
+        <include name="*.ttf" />
+      </patternset>
+    </fileset>
+
+    <copy todir="${html5.temp.theme.dir}/${html5.img.dir}" failonerror="false" force="true" flatten="true">
+      <fileset refid="html5.imgs.path" />
+    </copy>
+
+    <copy todir="${html5.temp.theme.dir}/${html5.fonts.dir}" failonerror="false" force="true" flatten="true">
+      <fileset refid="html5.fonts.path" />
+    </copy>
+
+  </target>
+
+  <target name="store.builded.theme.dir" unless="html5.theme.exists">
+    <mkdir dir="${html5.theme.dir}" />
+     <copy todir="${html5.theme.dir}">
+       <fileset dir="${html5.temp.theme.dir}"/>
+     </copy>
+  </target>
+</project>
