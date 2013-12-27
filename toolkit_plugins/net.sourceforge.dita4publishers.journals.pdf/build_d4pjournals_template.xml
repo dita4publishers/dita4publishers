@@ -1,5 +1,5 @@
 <project name="net.sourceforge.dita4publishers.journals.pdf" default="dita2d4pjournals">
-    <property name="transtype" value="smptg"/>
+    <property name="transtype" value="d4pjournals"/>
     <target name="dita2d4pjournals"
         xmlns:dita="http://dita-ot.sourceforge.net"
         dita:extension="depends org.dita.dost.platform.InsertDependsAction">
