@@ -14,15 +14,16 @@
     </metadata>
   </prolog>
  <conbody>
-    <p>The HTML5 transformation type produces HTML5-based output that integrates
-      HTML5 technologies, including <term
-      keyref="def-AJAX">AJAX</term> and CSS. The resulting HTML5 provides
-      dynamic and modern navigation and presentation. The supporting components
-      such as the CSS style sheets and JavaScript used to render the HTML in
-      browsers is designed to be easily adapted or replaced as required to
-      provide specific navigation and presentation styles.</p>
-    <p>Note that HTML5 does not use the HTML frames mechanism. All navigation
-      and visual organization of content within the browser is done through
-      JavaScript.</p>
+    <p>The HTML5 transformation type produces HTML5-based output that integrates HTML5 technologies.
+      The resulting HTML5 provides dynamic and modern navigation and presentation. The supporting
+      components such as the CSS style sheets and JavaScript used to render the HTML in browsers is
+      designed to be easily adapted or replaced as required to provide specific navigation and
+      presentation styles.</p>
+   <p>The HTML5 plugin contains a <q>theme feature</q>. The theme feature, is an attempt to bring a way to register, 
+     concatenate and compress css and javascript into a single theme.</p>
+    <note>The HTML5 plugin does not use the HTML frames mechanism. </note>
+    <note>The HTML5 plugin does not creates an index.html file by default. If you want an index.html
+      file generated, simply rename your fist topic in the map to index.dita and place it at the
+      same level than the map.</note>
   </conbody>
 </concept>
