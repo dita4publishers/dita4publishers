@@ -6,6 +6,7 @@
       xmlns:stylemap="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap"
       xmlns:relpath="http://dita2indesign/functions/relpath"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:m="http://www.w3.org/1998/Math/MathML"
       
       exclude-result-prefixes="xs rsiwp stylemap local relpath xsi"
       version="2.0">
@@ -183,7 +184,7 @@
   <xsl:template match="rsiwp:p[string(@structureType) = 'skip']" priority="10"/>
   
   <xsl:template match="rsiwp:p" name="transformPara">
-    <xsl:if test="true() or $debugBoolean">
+    <xsl:if test="false() or $debugBoolean">
       <xsl:message> + [DEBUG] rsiwp:p (transformPara): text=<xsl:sequence select="substring(., 1, 40)"/></xsl:message>
     </xsl:if>
     <xsl:variable name="tagName" as="xs:string"
@@ -198,7 +199,7 @@
     </xsl:if>
     <xsl:choose>
       <xsl:when test="count(./*) = 0 and normalize-space(.) = ''">
-        <xsl:if test="true() or $debugBoolean">
+        <xsl:if test="false() or $debugBoolean">
           <xsl:message> + [DEBUG] Skipping apparently-empty paragraph: <xsl:sequence select="local:reportPara(.)"/></xsl:message>
         </xsl:if>
       </xsl:when>
@@ -2047,6 +2048,12 @@ specify @topicDoc="yes".</xsl:message>
         <xsl:apply-templates mode="p-content"/>
       </xsl:element>
     </xsl:if>
+  </xsl:template>
+  
+  <xsl:template match="m:math" mode="p-content">
+    <mathml>
+      <xsl:sequence select="."/>
+    </mathml>
   </xsl:template>
   
   <xsl:template match="rsiwp:fn" mode="p-content">

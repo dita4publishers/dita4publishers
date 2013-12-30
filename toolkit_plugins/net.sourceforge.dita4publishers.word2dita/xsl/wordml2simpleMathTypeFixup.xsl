@@ -98,9 +98,10 @@
   </xsl:template>
   
   <xsl:template mode="handleMathMLMarkup" match="mathml:*">
-    <xsl:element name="{concat('m:', local-name(.))}">
+    <xsl:copy>
       <xsl:apply-templates select="@*, node()" mode="#current"/>
-    </xsl:element>
+    </xsl:copy>
+    
   </xsl:template>
   
   <xsl:template mode="handleMathMLMarkup" match="text() | @* | processing-instruction()">
