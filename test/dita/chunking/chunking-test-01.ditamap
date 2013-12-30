@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map locktitle="yes">
+  <title>Chunking Test 01</title>
+  <topicref href="topics-01.dita#topic_hw4_n1x_km" chunk="select-topic to-content">
+    <topicmeta>
+      <navtitle>child topic 01, chunk="select-topic to-content"</navtitle>
+    </topicmeta>
+  </topicref>
+  <topicref href="topics-01.dita" navtitle="Child topic 01, no chunk"/>
+</map>
