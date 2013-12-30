@@ -115,6 +115,8 @@ version="2.0">
   <xsl:include
     href="wordml2simpleLevelFixup.xsl"/>
   <xsl:include
+    href="wordml2simpleMathTypeFixup.xsl"/>
+  <xsl:include
     href="simple2dita.xsl"/>
   <xsl:include
     href="resultdocs-xref-fixup.xsl"/>
@@ -204,6 +206,33 @@ version="2.0">
     </xsl:if>
 
     <xsl:message> + [INFO] ====================================</xsl:message>
+    <xsl:message> + [INFO] Doing MathType simpleWpDoc fixup....</xsl:message>
+    <xsl:message> + [INFO] ====================================</xsl:message>
+
+    <xsl:variable name="simpleWpDocMathTypeFixupResult"
+      as="document-node()"
+    >
+      <xsl:document>
+        <xsl:apply-templates select="$simpleWpDocLevelFixupResult" mode="simpleWpDoc-MathTypeFixup"/>
+      </xsl:document>
+    </xsl:variable>
+
+    <xsl:if
+      test="true() or $debugBoolean">
+    <xsl:variable
+      name="tempDocMathTypeFixup"
+      select="relpath:newFile($outputDir, 'simpleWpDocMathTypeFixup.xml')"
+      as="xs:string"/>
+      <xsl:result-document
+        href="{$tempDocMathTypeFixup}">
+        <xsl:message> + [DEBUG] Intermediate simple WP MathType fixup result doc saved as <xsl:sequence
+            select="$tempDocMathTypeFixup"/></xsl:message>
+        <xsl:sequence
+          select="$simpleWpDocMathTypeFixupResult"/>
+      </xsl:result-document>
+    </xsl:if>
+
+    <xsl:message> + [INFO] ====================================</xsl:message>
     <xsl:message> + [INFO] Doing general simpleWpDoc fixup....</xsl:message>
     <xsl:message> + [INFO] ====================================</xsl:message>
 
@@ -211,7 +240,7 @@ version="2.0">
       as="document-node()"
     >
       <xsl:document>
-        <xsl:apply-templates select="$simpleWpDocLevelFixupResult" mode="simpleWpDoc-fixup"/>
+        <xsl:apply-templates select="$simpleWpDocMathTypeFixupResult" mode="simpleWpDoc-fixup"/>
       </xsl:document>
     </xsl:variable>
 
