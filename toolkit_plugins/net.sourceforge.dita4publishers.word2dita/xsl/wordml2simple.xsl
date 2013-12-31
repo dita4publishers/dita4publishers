@@ -148,6 +148,19 @@
             topicZone="body"
           />          
         </xsl:when>
+        <xsl:when test="$styleName = 'MTDisplayEquation'">
+          <!-- This is MathML content that will be converted
+               to MathML markup and put within a <mathml>
+               element (specialization of <foreign>, new in 
+               DITA 1.3). Default mapping is to wrap it in
+               <equation-block> (also new in DITA 1.3).
+            -->
+          <stylemap:style styleId="MTDisplayEquation"
+            structureType="block"
+            tagName="equation-block"
+            topicZone="body"
+          />          
+        </xsl:when>
         <xsl:otherwise>
           <xsl:choose>
             <xsl:when test="$specifiedStyleId = ''">
@@ -157,7 +170,9 @@
                 else normalize-space(.)
                 "
               />
-              <xsl:message> - [WARNING: Unstyled non-empty paragraph with content "<xsl:sequence select="$contentString"/>"</xsl:message>              
+              <xsl:if test="$warnOnUnstyledParasBoolean">
+                <xsl:message> - [WARNING: Unstyled non-empty paragraph with content "<xsl:sequence select="$contentString"/>"</xsl:message>              
+              </xsl:if>
             </xsl:when>
             <xsl:otherwise>
               <xsl:message> - [WARNING: No style mapping for paragraph with style "<xsl:sequence select="$styleName"/>" [<xsl:sequence select="$styleId"/>]</xsl:message>
@@ -294,9 +309,22 @@
           select="($styleMapByName, $styleMapById)[1]"
         />
         
-        <xsl:if test="not($runStyleMap)">
-          <xsl:message> - [WARNING: No style mapping for character run with style "<xsl:sequence select="$styleName"/>" [<xsl:sequence select="$styleId"/>]</xsl:message>
-        </xsl:if>
+        <!-- 'MTConvertedEquation' is used for MathType-produced
+              MathML content that is converted to MathML by a later
+              process step.
+          -->
+        <xsl:choose>
+          <xsl:when test="$styleName = 'MTConvertedEquation'">
+            <stylemap:style styleId="MTConvertedEquation"
+            structureType="ph"
+            tagName="mathml"
+          />          
+
+          </xsl:when>
+          <xsl:when test="not($runStyleMap)">
+            <xsl:message> - [WARNING: No style mapping for character run with style "<xsl:sequence select="$styleName"/>" [<xsl:sequence select="$styleId"/>]</xsl:message>
+          </xsl:when>
+        </xsl:choose>
         <xsl:variable name="runTagName"
           as="xs:string"
           select="if ($runSequence[1][self::w:hyperlink])

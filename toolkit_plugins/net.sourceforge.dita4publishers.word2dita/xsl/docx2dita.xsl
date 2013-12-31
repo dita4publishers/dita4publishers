@@ -83,6 +83,14 @@ version="2.0">
     select="$fileNamePrefix"
   />
   
+  <!-- If true, issue warnings about unstyled paragraphs. Unstyled paragraphs
+       map to <p> by default.
+    -->
+  <xsl:param name="warnOnUnstyledParas" as="xs:string" select="'false'"/>
+  <xsl:variable name="warnOnUnstyledParasBoolean"
+     select="matches($warnOnUnstyledParas, 'yes|true|1', 'i')"
+  />
+  
   <xsl:variable name="rootMapUrl" select="concat($rootMapName, '.ditamap')" as="xs:string"/>
   <xsl:variable name="rootTopicUrl" 
     as="xs:string?" 
@@ -205,20 +213,30 @@ version="2.0">
       </xsl:result-document>
     </xsl:if>
 
-    <xsl:message> + [INFO] ====================================</xsl:message>
-    <xsl:message> + [INFO] Doing MathType simpleWpDoc fixup....</xsl:message>
-    <xsl:message> + [INFO] ====================================</xsl:message>
+    
 
     <xsl:variable name="simpleWpDocMathTypeFixupResult"
       as="document-node()"
     >
-      <xsl:document>
-        <xsl:apply-templates select="$simpleWpDocLevelFixupResult" mode="simpleWpDoc-MathTypeFixup"/>
-      </xsl:document>
+      <xsl:choose>      
+      <xsl:when test="$simpleWpDocLevelFixupResult//rsiwp:run[@style='MTConvertedEquation']">  
+        <xsl:message> + [INFO] ====================================</xsl:message>
+        <xsl:message> + [INFO] Doing MathType simpleWpDoc fixup....</xsl:message>
+        <xsl:message> + [INFO] ====================================</xsl:message>
+        <xsl:document>
+          <xsl:apply-templates select="$simpleWpDocLevelFixupResult" mode="simpleWpDoc-MathTypeFixup"/>
+        </xsl:document>
+      </xsl:when>
+        <xsl:otherwise>
+          <xsl:document>
+            <xsl:sequence select="$simpleWpDocLevelFixupResult"/>
+          </xsl:document>
+        </xsl:otherwise>
+      </xsl:choose>    
     </xsl:variable>
 
     <xsl:if
-      test="true() or $debugBoolean">
+      test="$debugBoolean">
     <xsl:variable
       name="tempDocMathTypeFixup"
       select="relpath:newFile($outputDir, 'simpleWpDocMathTypeFixup.xml')"

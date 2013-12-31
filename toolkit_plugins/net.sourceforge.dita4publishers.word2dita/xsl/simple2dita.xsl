@@ -117,7 +117,7 @@
       </xsl:document>
     </xsl:variable>
     <!-- Write out the base resultDocs data for debugging purposes -->
-    <xsl:if test="true() or $debugBoolean">
+    <xsl:if test="$debugBoolean">
       <xsl:variable
         name="tempDoc"
         select="relpath:newFile($outputDir, 'resultDocs.xml')"
@@ -139,7 +139,7 @@
       </xsl:apply-templates>
     </xsl:variable>
     <!-- Write out the fixed-up resultDocs data for debugging purposes -->
-    <xsl:if test="true() or $debugBoolean">
+    <xsl:if test="$debugBoolean">
       <xsl:variable
         name="tempDoc"
         select="relpath:newFile($outputDir, 'resultDocsFixedUp.xml')"
@@ -756,11 +756,11 @@
 
     <xsl:variable name="firstP" select="$content[1]"/>
     
-    <xsl:if test="true() or $debugBoolean">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] makeMap: firstP=<xsl:value-of select="$firstP"/></xsl:message>
       <xsl:message> + [DEBUG] makeMap: treePos=<xsl:value-of select="$treePos"/></xsl:message>
     </xsl:if>
-    <xsl:if test="true() or $debugBoolean">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] makeMap: newMapUrl=<xsl:sequence select="$newMapUrl"/></xsl:message>
     </xsl:if>
     
@@ -850,7 +850,7 @@
           </xsl:element>
         </xsl:if>
         
-        <xsl:if test="true() or $debugBoolean">        
+        <xsl:if test="$debugBoolean">        
           <xsl:message> + [DEBUG] </xsl:message>
           <xsl:message> + [DEBUG] +++++++++++++</xsl:message>
           <xsl:message> + [DEBUG] </xsl:message>
@@ -888,7 +888,7 @@
           />
           <xsl:with-param name="mapUrl" select="$resultUrl" as="xs:string" tunnel="yes"/>
         </xsl:call-template>
-        <xsl:if test="true() or $debugBoolean">        
+        <xsl:if test="$debugBoolean">        
           <xsl:message> + [DEBUG] </xsl:message>
           <xsl:message> + [DEBUG] +++++++++++++</xsl:message>
           <xsl:message> + [DEBUG] </xsl:message>
@@ -909,7 +909,7 @@
         </xsl:call-template>        
       </xsl:element>
     </rsiwp:result-document>
-    <xsl:if test="true() or $debugBoolean">        
+    <xsl:if test="$debugBoolean">        
       <xsl:message> + [DEBUG] makeMap: Done.</xsl:message>
     </xsl:if>
   </xsl:template>
@@ -933,7 +933,7 @@
     
     
     <xsl:message> + [DEBUG] generateTopicrefs: Starting, level=<xsl:sequence select="$level"/></xsl:message>
-   <xsl:if test="true() or $debugBoolean">
+   <xsl:if test="$debugBoolean">
      <xsl:message> + [DEBUG] generateTopicrefs: Starting, content:
 <xsl:sequence select="local:reportParas($content)"/>
      </xsl:message>
@@ -1065,7 +1065,7 @@
     
     <xsl:choose>
       <xsl:when test="$firstP/@rootTopicrefType != ''">
-        <xsl:if test="true() or $debugBoolean">                  
+        <xsl:if test="$debugBoolean">                  
           <xsl:message> + [DEBUG] generateTopicrefs(): First para specifies rootTopicrefType</xsl:message>
         </xsl:if>
         <xsl:element name="{$firstP/@rootTopicrefType}">
@@ -1125,7 +1125,7 @@
         </xsl:call-template>    
       </xsl:otherwise>
     </xsl:choose>
-    <xsl:if test="true() or $debugBoolean">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] generateTopicrefs: Done.</xsl:message>
     </xsl:if>
   </xsl:template>
@@ -1180,7 +1180,7 @@
         </xsl:when>
         <xsl:when test="string(@structureType) = 'topicHead'">
           
-          <xsl:if test="true() or $debugBoolean">        
+          <xsl:if test="$debugBoolean">        
             <xsl:message> + [DEBUG] generateTopicrefs: Got a topic head. Level=<xsl:sequence select="string(@level)"/></xsl:message>
           </xsl:if>
           <xsl:variable name="topicheadType" select="if (@topicheadType) then string(@topicheadType) else 'topichead'"/>
@@ -1202,7 +1202,7 @@
           </xsl:element>          
         </xsl:when>
         <xsl:when test="string(@structureType) = 'map' or string(@structureType) = 'mapTitle'">
-          <xsl:if test="true() or $debugBoolean">        
+          <xsl:if test="$debugBoolean">        
             <xsl:message> + [DEBUG] generateTopicrefs: Got a map-reference-generating map or map title. Level=<xsl:sequence select="string(@level)"/></xsl:message>
           </xsl:if>
           <xsl:variable name="mapRefType" as="xs:string"
@@ -2135,7 +2135,9 @@ specify @topicDoc="yes".</xsl:message>
                                then substring-before(substring-after($origHref, 'urn:'), ':')
                                else substring-before($origHref, ':')
                     "/>
-                  <xsl:message> + [DEBUG] rsiwp:hyperlink: scheme="<xsl:sequence select="$scheme"/>"</xsl:message>
+                  <xsl:if test="$debugBoolean">
+                    <xsl:message> + [DEBUG] rsiwp:hyperlink: scheme="<xsl:sequence select="$scheme"/>"</xsl:message>
+                  </xsl:if>
                   <xsl:sequence select="$scheme"/>
                 </xsl:otherwise>
               </xsl:choose>
