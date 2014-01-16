@@ -43,14 +43,17 @@
       <xsl:for-each-group select="*" group-adjacent="local:isMathTypeContent(.)">
         <xsl:choose>
           <xsl:when test="current-grouping-key() = 'true'">
-           <rsiwp:p>
+            <xsl:message> + [DEBUG] simpleWpDoc-MathTypeFixup. Have MathML group, 
+      first para = "<xsl:value-of select="current-group()[1]"/>
+      last para = "<xsl:value-of select="current-group()[last()]"/></xsl:message>
+           <p>
              <!-- Get the attributes for the first paragraph of the group so we get its style,
                   Word location, etc.
                -->
              <xsl:apply-templates select="current-group()[1]/@*" mode="#current"/>
              <xsl:comment> MathML Generated from MathType-generated MathML markup. </xsl:comment>
              <xsl:apply-templates select="local:makeMathMLMarkup(current-group())" mode="handleMathMLMarkup"/>
-           </rsiwp:p>
+           </p>
           </xsl:when>
           <xsl:otherwise>
             <!-- Not MathType, just echo to the output -->
@@ -114,8 +117,25 @@
   
   <xsl:function name="local:isMathTypeContent" as="xs:string">
     <xsl:param name="context" as="element()"/>
-    <xsl:variable name="result" as="xs:boolean"
-      select="if ($context/rsiwp:run[@style = 'MTConvertedEquation']) then true() else false()"
+    <!-- If the paragraph contains an MTConvertedEquation run 
+         or the paragraph is not empty and its preceding sibling
+         contains a converted equation. This last rule ensures that
+         inline equations remain in the same paragraph as text following
+         them. This is based on the assumption/observation that block
+         equations always have at least one blank paragraph following them.
+      -->
+<!--    <xsl:message> + [DEBUG] isMathTypeContent: $context = "<xsl:value-of select="$context"/>"</xsl:message>
+    <xsl:message> + [DEBUG]   normalize-space($context) != '' and 
+           $context/preceding-sibling::rsiwp:p[1][rsiwp:run[@style = 'MTConvertedEquation']]="<xsl:sequence 
+             select="normalize-space($context) != '' and 
+           $context/preceding-sibling::rsiwp:p[1][rsiwp:run[@style = 'MTConvertedEquation']]"/>"</xsl:message>
+-->    <xsl:variable name="result" as="xs:boolean"
+      select="
+      if (($context/rsiwp:run[@style = 'MTConvertedEquation']) or
+          (normalize-space($context) != '' and 
+           $context/preceding-sibling::rsiwp:p[1][rsiwp:run[@style = 'MTConvertedEquation']]))
+        then true() 
+        else false()"
     />
     <xsl:sequence select="string($result)"/>
   </xsl:function>
