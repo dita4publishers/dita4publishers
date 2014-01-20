@@ -119,10 +119,7 @@
     <xsl:param name="context" as="element()"/>
     <!-- If the paragraph contains an MTConvertedEquation run 
          or the paragraph is not empty and its preceding sibling
-         contains a converted equation and the equation does not
-         end in the last run of the preceding paragraph. If the
-         preceding paragraph has an equation that ends in the last
-         run then it must mark a paragraph boundary.
+         contains a converted equation.
       -->
 <!--    <xsl:message> + [DEBUG] isMathTypeContent: $context = "<xsl:value-of select="$context"/>"</xsl:message>
     <xsl:message> + [DEBUG]   normalize-space($context) != '' and 
@@ -133,14 +130,11 @@
     <xsl:variable name="precedingParaHasEquation" as="xs:boolean"
       select="boolean($context/preceding-sibling::rsiwp:p[1][rsiwp:run[@style = 'MTConvertedEquation']])"
     />
-    <xsl:variable name="precedingParaEndsEquation" as="xs:boolean"
-      select="boolean($context/preceding-sibling::rsiwp:p[1][rsiwp:run[last()][@style = 'MTConvertedEquation']])"
-    />
     <xsl:variable name="result" as="xs:boolean"
       select="
       if (($context/rsiwp:run[@style = 'MTConvertedEquation']) or
           (normalize-space($context) != '' and 
-           ($precedingParaHasEquation and not($precedingParaEndsEquation))))
+           $precedingParaHasEquation))
         then true() 
         else false()"
     />
