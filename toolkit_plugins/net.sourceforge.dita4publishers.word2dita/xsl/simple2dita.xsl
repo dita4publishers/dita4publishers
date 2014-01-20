@@ -285,17 +285,6 @@
   
   <!-- Much of the code used for table transformation comes from the DITA Open Toolkit's h2d plugin -->
   <xsl:template match="rsiwp:table">
-    <xsl:variable name="cols-in-first-row">
-      <xsl:choose>
-        <xsl:when test="rsiwp:tbody/rsiwp:tr">
-          <xsl:apply-templates select="(rsiwp:tbody[1]/rsiwp:tr[1]/rsiwp:td[1]|rsiwp:tbody[1]/rsiwp:tr[1]/rsiwp:th[1])[1]"
-            mode="count-cols"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:apply-templates select="(rsiwp:tr[1]/rsiwp:td[1]|rsiwp:tr[1]/rsiwp:th[1])[1]" mode="count-cols"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
     <xsl:variable name="width">
       <xsl:if test="@width">
         <xsl:value-of select="substring-before(@width,'%')"/>
@@ -311,11 +300,8 @@
     />
     <xsl:element name="{$tagName}">  
       <xsl:call-template name="generateXtrcAtt"/>
-      <xsl:if test="@align">
-        <xsl:attribute name="align">
-          <xsl:value-of select="@align"/>
-        </xsl:attribute>
-      </xsl:if>
+      <xsl:sequence select="@align"/>
+      <xsl:sequence select="@frame"/>
       <xsl:choose>
         <xsl:when test="number($width) &lt; 100">
           <xsl:attribute name="pgwide">0</xsl:attribute>
@@ -327,14 +313,8 @@
       
       <tgroup>
         <!-- add colspan data here -->
-        <xsl:attribute name="cols">
-          <xsl:value-of select="$cols-in-first-row"/>
-        </xsl:attribute>
-        <xsl:call-template name="create-colspec">
-          <xsl:with-param name="total-cols">
-            <xsl:value-of select="$cols-in-first-row"/>
-          </xsl:with-param>
-        </xsl:call-template>
+        <xsl:attribute name="cols" select="count(rsiwp:cols/rsiwp:col)"/>
+        <xsl:call-template name="create-colspec"/>        
         <xsl:choose>
           <xsl:when test="rsiwp:thead">
             <thead>
@@ -449,26 +429,13 @@
     </xsl:template>
     
     <xsl:template name="create-colspec">
-        <xsl:param name="total-cols">0</xsl:param>
-        <xsl:param name="on-column">1</xsl:param>
-        <xsl:if test="$on-column &lt;= $total-cols">
+      <xsl:for-each select="rsiwp:cols/rsiwp:col">
             <colspec>
-                <xsl:attribute name="colname">col<xsl:value-of select="$on-column"/></xsl:attribute>
-                <xsl:if test="@align">
-                    <xsl:attribute name="align">
-                        <xsl:value-of select="@align"/>
-                    </xsl:attribute>
-                </xsl:if>
+              <xsl:attribute name="colname" select="concat('col', position())"/>
+              <xsl:sequence select="@align"/>
+              <xsl:sequence select="@colwidth"/>
             </colspec>
-            <xsl:call-template name="create-colspec">
-                <xsl:with-param name="total-cols">
-                    <xsl:value-of select="$total-cols"/>
-                </xsl:with-param>
-                <xsl:with-param name="on-column">
-                    <xsl:value-of select="$on-column + 1"/>
-                </xsl:with-param>
-            </xsl:call-template>
-        </xsl:if>
+      </xsl:for-each>
     </xsl:template>
     
     

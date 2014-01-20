@@ -190,7 +190,9 @@
       <xsl:message> + [DEBUG] match on w:p: structureType = "<xsl:sequence select="string($styleData/@structureType)"/>"</xsl:message>
     </xsl:if>
 <xsl:choose>    
-  <xsl:when test="string($styleData/@structureType) = 'skip'"/><!-- Skip it -->
+  <xsl:when test="string($styleData/@structureType) = 'skip'">
+    <xsl:message> + [DEBUG] skipping paragraph with @structureType "<xsl:value-of select="$styleData/@structureType"/>"</xsl:message>
+  </xsl:when><!-- Skip it -->
   <xsl:when test=".//w:drawing//c:chart">
     <xsl:choose>
       <xsl:when test="$chartsAsTablesBoolean">
@@ -521,7 +523,11 @@
         topicZone="body"
       />                
     </xsl:variable>
+    <!--  NOTE: width values are 1/20 of a point -->
+    <xsl:message> + [DEBUG] ===== Starting a table</xsl:message>
     <table>
+      <xsl:attribute name="frame" select="local:constructFrameValue(w:tblPr/w:tblBorders)"/>
+      <xsl:attribute name="calculatedWidth" select="local:calculateTableActualWidth(w:tblGrid)"/>
       <xsl:for-each select="$styleData/@*">
         <xsl:copy/>
       </xsl:for-each>
@@ -529,13 +535,88 @@
       <xsl:if test="w:tblGrid">
         <cols>
           <xsl:for-each select="w:tblGrid/w:gridCol">
-            <col width="{@w:w}"/>
+            <xsl:variable name="widthValPoints" as="xs:string"
+              select="
+              if (string(number(@w:w)) = 'NaN') 
+                 then @w:w 
+                 else concat(format-number((number(@w:w) div 20), '######.00'), 'pt')"
+            />
+            <col colwidth="{$widthValPoints}"/>
           </xsl:for-each>
         </cols>
       </xsl:if>
       <xsl:apply-templates select="*[not(self::w:tblPr)]"/>
     </table>
+    <xsl:message> + [DEBUG] ===== Ending a table</xsl:message>
   </xsl:template>
+  
+  <xsl:function name="local:calculateTableActualWidth" as="xs:string">
+    <xsl:param name="tblGrid" as="element(w:tblGrid)?"/>
+    <!--  NOTE: width values are 1/20 of a point -->
+    <xsl:variable name="result" as="xs:string">
+      <xsl:choose>
+        <xsl:when test="$tblGrid">
+          <xsl:variable name="widthValues" 
+            select="for $att in $tblGrid/w:gridCol/@w:w return number($att)"
+            />
+          <xsl:variable name="sum" 
+            select="sum($widthValues)"
+          />           
+          <xsl:sequence select="string($sum div 20)"/><!-- Value in points -->          
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:sequence select="'0'"/><!-- Width not calculatable -->
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+  
+  <xsl:function name="local:constructFrameValue" as="xs:string">
+    <!-- Try to figure out the appropriate value for the DITA @frame
+         attribute from the Word frame details.
+      -->
+    <xsl:param name="tblBorders" as="element(w:tblBorders)?"/>
+    <xsl:variable name="result" as="xs:string">
+    <xsl:choose>
+      <xsl:when test="$tblBorders">
+        <xsl:variable name="borderTop" as="xs:boolean" 
+          select="$tblBorders/w:top/@w:val != 'nil'"/>
+        <xsl:variable name="borderBottom" as="xs:boolean"
+          select="$tblBorders/w:bottom/@w:val != 'nil'"/>
+        <xsl:variable name="borderLeft" as="xs:boolean"
+          select="$tblBorders/w:left/@w:val != 'nil'"/>
+        <xsl:variable name="borderRight" as="xs:boolean"
+          select="$tblBorders/w:right/@w:val != 'nil'"/>
+        <xsl:choose>
+          <xsl:when test="$borderTop and $borderBottom and $borderLeft and $borderRight">
+            <xsl:sequence select="'all'"/>
+          </xsl:when>
+          <xsl:when test="$borderTop and $borderBottom and not($borderLeft and $borderRight)">
+            <xsl:sequence select="'topbot'"/>
+          </xsl:when>
+          <xsl:when test="not($borderTop and $borderBottom) and $borderLeft and $borderRight">
+            <xsl:sequence select="'sides'"/>
+          </xsl:when>
+          <xsl:when test="not($borderTop) and $borderBottom and not($borderLeft and $borderRight)">
+            <xsl:sequence select="'bottom'"/>
+          </xsl:when>
+          <xsl:when test="$borderTop and not($borderBottom and $borderLeft and $borderRight)">
+            <xsl:sequence select="'top'"/>
+          </xsl:when>
+          <xsl:when test="not($borderTop and $borderBottom and $borderLeft and $borderRight)">
+            <xsl:sequence select="'none'"/>
+          </xsl:when>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="'all'"/>
+      </xsl:otherwise>
+    </xsl:choose>
+      
+    </xsl:variable>
+    <xsl:sequence select="$result"/>
+  </xsl:function>
   
   <xsl:template match="w:tr">
     <xsl:variable name="tagName" as="xs:string"
@@ -652,10 +733,11 @@
          
          There are 360,000 EMUs/centimeter
     -->
+    <!--<xsl:message> + [DEBUG] ===== w:drawing: Starting...</xsl:message>-->
     <xsl:variable name="xExtentStr" as="xs:string?" select=".//wp:extent/@cx"/>
-    <!--<xsl:message> + [DEBUG] xExtentStr="<xsl:sequence select="$xExtentStr"/>"</xsl:message>-->
+<!--    <xsl:message> + [DEBUG] xExtentStr="<xsl:sequence select="$xExtentStr"/>"</xsl:message>-->
     <xsl:variable name="yExtentStr" as="xs:string?" select=".//wp:extent/@cy"/>
-    <!--<xsl:message> + [DEBUG] yExtentStr="<xsl:sequence select="$yExtentStr"/>"</xsl:message>-->
+<!--    <xsl:message> + [DEBUG] yExtentStr="<xsl:sequence select="$yExtentStr"/>"</xsl:message>-->
     <xsl:variable name="xExtentEmu" as="xs:double" 
       select="if ($xExtentStr castable as xs:integer) then number($xExtentStr) else 1800000.0"/>
 <!--    <xsl:message> + [DEBUG] xExtentEmu="<xsl:sequence select="$xExtentEmu"/>"</xsl:message>-->
@@ -664,11 +746,11 @@
 <!--    <xsl:message> + [DEBUG] yExtentEmu="<xsl:sequence select="$yExtentEmu"/>"</xsl:message>-->
     <!-- Width and height in mm -->
     <xsl:variable name="width" as="xs:string"
-      select="concat(string($xExtentEmu div 36000), 'mm')" 
+      select="concat(format-number($xExtentEmu div 36000, '#########.00'), 'mm')" 
     />
 <!--    <xsl:message> + [DEBUG] width="<xsl:sequence select="$width"/>"</xsl:message>-->
     <xsl:variable name="height" as="xs:string"
-      select="concat(string($yExtentEmu div 36000), 'mm')" 
+      select="concat(format-number($yExtentEmu div 36000, '#########.00'), 'mm')" 
     />
 <!--    <xsl:message> + [DEBUG] height="<xsl:sequence select="$height"/>"</xsl:message>-->
     <xsl:message> + [DEBUG] w:drawing, applying templates to contents.</xsl:message>
@@ -734,7 +816,7 @@
     <!-- Width and height. The values should include the units indicator -->
     <xsl:param name="width" tunnel="yes" as="xs:string"/>
     <xsl:param name="height" tunnel="yes" as="xs:string"/>
-    <xsl:message> + [DEBUG] c:chart: Starting</xsl:message>
+<!--    <xsl:message> + [DEBUG] c:chart: Starting</xsl:message>-->
     <!-- A chart. 
       
          There are various things we could do with charts. As of Dec 2013
@@ -764,7 +846,7 @@
         <xsl:message> - [WARN] Failed to resolve reference to chart document "<xsl:sequence select="$targetUri"/>"</xsl:message>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message> + [DEBUG] Got a chart doc, processing it...</xsl:message>
+<!--        <xsl:message> + [DEBUG] Got a chart doc, processing it...</xsl:message>-->
         <!-- Chase down the chart data source and transform it into a table -->
         <xsl:choose>
           <xsl:when test="$chartDoc/*/c:externalData">

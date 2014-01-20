@@ -119,21 +119,28 @@
     <xsl:param name="context" as="element()"/>
     <!-- If the paragraph contains an MTConvertedEquation run 
          or the paragraph is not empty and its preceding sibling
-         contains a converted equation. This last rule ensures that
-         inline equations remain in the same paragraph as text following
-         them. This is based on the assumption/observation that block
-         equations always have at least one blank paragraph following them.
+         contains a converted equation and the equation does not
+         end in the last run of the preceding paragraph. If the
+         preceding paragraph has an equation that ends in the last
+         run then it must mark a paragraph boundary.
       -->
 <!--    <xsl:message> + [DEBUG] isMathTypeContent: $context = "<xsl:value-of select="$context"/>"</xsl:message>
     <xsl:message> + [DEBUG]   normalize-space($context) != '' and 
            $context/preceding-sibling::rsiwp:p[1][rsiwp:run[@style = 'MTConvertedEquation']]="<xsl:sequence 
              select="normalize-space($context) != '' and 
            $context/preceding-sibling::rsiwp:p[1][rsiwp:run[@style = 'MTConvertedEquation']]"/>"</xsl:message>
--->    <xsl:variable name="result" as="xs:boolean"
+-->    
+    <xsl:variable name="precedingParaHasEquation" as="xs:boolean"
+      select="boolean($context/preceding-sibling::rsiwp:p[1][rsiwp:run[@style = 'MTConvertedEquation']])"
+    />
+    <xsl:variable name="precedingParaEndsEquation" as="xs:boolean"
+      select="boolean($context/preceding-sibling::rsiwp:p[1][rsiwp:run[last()][@style = 'MTConvertedEquation']])"
+    />
+    <xsl:variable name="result" as="xs:boolean"
       select="
       if (($context/rsiwp:run[@style = 'MTConvertedEquation']) or
           (normalize-space($context) != '' and 
-           $context/preceding-sibling::rsiwp:p[1][rsiwp:run[@style = 'MTConvertedEquation']]))
+           ($precedingParaHasEquation and not($precedingParaEndsEquation))))
         then true() 
         else false()"
     />
