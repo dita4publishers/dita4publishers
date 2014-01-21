@@ -117,8 +117,18 @@
         <xsl:if test="not(current-group()/index-terms:index-term)">
           <!-- Only put out targets for this term if there are no subterms -->
           <index-terms:targets>
-            <xsl:sequence select="current-group()/index-terms:target[*[df:class(.,'topic/indexterm')][not(*[df:class(.,'topic/indexterm')])]]"/>
-          </index-terms:targets>
+            <!-- Group index entries by @xtrc value: the same term with the same
+                 @xtrc is in fact the same entry, so don't duplicate it.
+              -->
+            <xsl:for-each-group
+              select="current-group()/index-terms:target[*[df:class(.,'topic/indexterm')]
+                                                          [not(*[df:class(.,'topic/indexterm')])]]"
+              group-by="./*[df:class(., 'topic/indexterm')]/@xtrc"                       
+              >
+              <xsl:sequence select="current-group()[1]"/>
+            </xsl:for-each-group>
+<!--            <xsl:sequence select="current-group()/index-terms:target[*[df:class(.,'topic/indexterm')][not(*[df:class(.,'topic/indexterm')])]]"/>
+-->          </index-terms:targets>
           <xsl:if test="current-group()/index-terms:see">
             <index-terms:sees>
               <xsl:for-each-group select="current-group()/index-terms:see" group-by="index-terms:label">
@@ -157,6 +167,11 @@
     match="*[df:class(.,'map/topicmeta')] | *[df:class(., 'topic/topic')]">
     <xsl:apply-templates 
       select=".//*[df:class(.,'topic/indexterm')]" mode="generate-index"/>
+  </xsl:template>
+  
+  <xsl:template mode="gather-index-terms" priority="10"
+    match="*[df:class(., 'map/reltable')]">
+    <!-- Suppress handling of things within relatables -->
   </xsl:template>
   
   <xsl:template mode="gather-index-terms" 

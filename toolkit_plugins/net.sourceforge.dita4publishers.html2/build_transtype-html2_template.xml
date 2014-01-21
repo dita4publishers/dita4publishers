@@ -196,7 +196,7 @@
     <mkdir dir="${user.csspath.real}"/>    
     <!-- Always copy system default css files -->
     <copy todir="${user.csspath.real}">
-      <fileset dir="${dita.resource.dir}" includes="*.css"/>
+      <fileset dir="${dita.plugin.org.dita.xhtml.dir}/resource" includes="*.css"/>
     </copy>    
   	<copy todir="${user.csspath.real}">
   		<fileset dir="${html2.dir}/css">

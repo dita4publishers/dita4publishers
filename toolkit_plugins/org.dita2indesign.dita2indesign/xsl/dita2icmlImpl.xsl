@@ -28,7 +28,7 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   
-  <xsl:include href="topic2indesignImpl.xsl"/>
+  <xsl:include href="topic2icmlImpl.xsl"/>
   
   <xsl:param name="WORKDIR" as="xs:string" select="''"/>
   <xsl:param name="PATH2PROJ" as="xs:string" select="''"/>

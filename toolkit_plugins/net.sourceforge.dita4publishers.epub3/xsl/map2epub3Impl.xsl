@@ -73,7 +73,7 @@
        - HTML5 for content
        - Pronunciation lexicons for text-to-speach
        - Inline SMLL phonemes
-       - CSS3 speach features from
+       - CSS3 speech features 
        - @epub:type attribute, corresponds to HTML @role (namespace http://www.idpf.org/2007/ops)
        - Multiple root documents (e.g., fixed-layout and dynamic layout
          versions of the same content)
@@ -177,11 +177,13 @@
     <xsl:call-template name="make-meta-inf"/>
     <xsl:call-template name="make-mimetype"/>
     
-    <xsl:message> + [INFO] Gathering index terms...</xsl:message>
+    <xsl:message> + [INFO] Collecting data for numbering, indexing, etc...</xsl:message>
     
     <xsl:apply-templates select="." mode="generate-content">
       <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>     
     </xsl:apply-templates>
+    <xsl:message> + [INFO] Data collected.</xsl:message>
+    
     <!-- NOTE: The generate-toc mode is for the EPUB toc, not the HTML toc -->
     <xsl:apply-templates select="." mode="generate-toc">
       <xsl:with-param name="collected-data" as="element()" select="$collected-data" tunnel="yes"/>

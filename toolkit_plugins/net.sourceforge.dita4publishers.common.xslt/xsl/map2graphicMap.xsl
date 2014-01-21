@@ -141,7 +141,20 @@
                itself the result of a conref (that is, it would be very rare to
                have a topic that then conrefs to a different topic)
             -->
-          <xsl:value-of select="relpath:toUrl(root(.)/*[1]/@xtrf)"/>
+          <!-- Handling the case where temporary files have <dita> wrapped around the
+               root for some reason. -->
+          <xsl:variable name="xtrfValue" as="xs:string?"
+            select="normalize-space((root(.)/*[1]/@xtrf | root(.)/dita/*[1]/@xtrf)[1])"
+          />
+          <xsl:choose>
+            <xsl:when test="$xtrfValue != ''">
+              <xsl:sequence select="relpath:toUrl($xtrfValue)"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:message terminate="yes"> + [ERROR] No @xtrf element on root element <xsl:value-of select="name(root(.))"/> or it's first child in document
+<xsl:sequence select="document-uri(root(.))"/></xsl:message>
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>

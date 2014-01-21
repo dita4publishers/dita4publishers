@@ -134,7 +134,7 @@
   
   <xsl:template match="*[df:class(., 'topic/b')]" 
     mode="style-map-cstyle">
-    <xsl:sequence select="'italic'"/>
+    <xsl:sequence select="'bold'"/>
   </xsl:template>
   
   <xsl:template 

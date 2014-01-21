@@ -99,7 +99,7 @@
   </xsl:template>
   
   <xsl:template mode="getMapTitle" match="@title">
-    <xsl:sequence select="string(.)"/>
+    <xsl:value-of select="."/>
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/title')]" mode="getMapTitle">

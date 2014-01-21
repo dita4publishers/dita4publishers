@@ -24,6 +24,10 @@
   <xsl:import href="elem2styleMapper.xsl"/>
 -->
   
+  <xsl:template match="*[df:class(., 'topic/data')]" mode="block-children cont" priority="-0.9">
+    <!-- Suppress <data> elements by default -->
+  </xsl:template>
+  
   <xsl:template 
     match="
     *[df:class(., 'topic/ph')] |
@@ -31,7 +35,8 @@
     *[df:class(., 'topic/keyword')] |
     *[df:class(., 'topic/text')] |
     *[df:class(., 'topic/entry')] |
-    *[df:class(., 'topic/cite')]
+    *[df:class(., 'topic/cite')] |
+    *[df:class(., 'd4p_simplenum-d/d4pSimpleEnumerator')]
     " 
     mode="block-children">
     
@@ -100,6 +105,9 @@
     <xsl:param name="txsrAtts" tunnel="yes" as="attribute()*"/>
     <xsl:param name="text" as="xs:string" select="''"/>
     
+    <xsl:variable name="pStyleEscaped" as="xs:string" select="incxgen:escapeStyleName($pStyle)"/>
+    <xsl:variable name="cStyleEscaped" as="xs:string" select="incxgen:escapeStyleName($cStyle)"/>
+
     <xsl:variable name="textValue" as="xs:string"
       select="
       if ($text = '')
@@ -108,11 +116,11 @@
       "
     />
     
-<!--    <xsl:message> + [DEBUG] block-children/cont: text(): pStyle="<xsl:sequence select="$pStyle"/>", cStyle="<xsl:sequence select="$cStyle"/>"</xsl:message>-->
+<!--    <xsl:message> + [DEBUG] block-children/cont: text(): pStyle="<xsl:sequence select="$pStyle"/>", cStyle="<xsl:sequence select="$cStyleEscaped"/>"</xsl:message>-->
     
     <ParagraphStyleRange
-      AppliedParagraphStyle="ParagraphStyle/{$pStyle}"><xsl:text>&#x0a;</xsl:text>
-      <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/{$cStyle}"
+      AppliedParagraphStyle="ParagraphStyle/{$pStyleEscaped}"><xsl:text>&#x0a;</xsl:text>
+      <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/{$cStyleEscaped}"
         >
         <Content><xsl:value-of select="incxgen:normalizeText($textValue)"
       /></Content></CharacterStyleRange><xsl:text>&#x0a;</xsl:text>
@@ -121,6 +129,11 @@
   
   <xsl:template mode="cont" match="*[df:class(., 'topic/ph')]">
     <!-- If we get here with a ph element, it must be a passthrough -->
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template mode="cont" match="*[df:class(., 'topic/data')]">
+    <!-- If we get here with a data element, it must be a passthrough -->
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   

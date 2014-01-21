@@ -200,7 +200,7 @@
     <mkdir dir="${user.csspath.real}"/>    
     <!-- Always copy system default css files -->
     <copy todir="${user.csspath.real}">
-      <fileset dir="${dita.resource.dir}" includes="*.css"/>
+      <fileset dir="${dita.plugin.org.dita.base.dir}" includes="*.css"/>
     </copy>    
     <!-- Copy user specify css file when required -->
     <antcall target="kindle-copy-css-user"/>

@@ -37,6 +37,9 @@
     <xsl:param name="content" as="node()*"/>
     <xsl:param name="markerType" as="xs:string" select="'para'"/>
     
+    <xsl:variable name="pStyleEscaped" as="xs:string" select="incxgen:escapeStyleName($pStyle)"/>
+    <xsl:variable name="cStyleEscaped" as="xs:string" select="incxgen:escapeStyleName($cStyle)"/>
+    
 <!--    <xsl:message> + [DEBUG] makeBlock-cont: pStyle="<xsl:sequence select="$pStyle"/>", cStyle="<xsl:sequence select="$cStyle"/>"</xsl:message>-->
     
     <xsl:variable name="pcntContent" as="node()*">
@@ -54,7 +57,7 @@
     <xsl:choose>
       <xsl:when test="$markerType = 'framebreak'">
         <ParagraphStyleRange
-          AppliedParagraphStyle="ParagraphStyle/{$pStyle}">
+          AppliedParagraphStyle="ParagraphStyle/{$pStyleEscaped}">
           <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]" ParagraphBreakType="NextFrame">
             <Br/>
           </CharacterStyleRange>
@@ -62,7 +65,7 @@
       </xsl:when>
       <xsl:when test="$markerType = 'columnbreak'">
         <ParagraphStyleRange
-          AppliedParagraphStyle="ParagraphStyle/{$pStyle}">
+          AppliedParagraphStyle="ParagraphStyle/{$pStyleEscaped}">
           <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]" ParagraphBreakType="NextColumn">
             <Br/>
           </CharacterStyleRange>
@@ -70,7 +73,7 @@
       </xsl:when>
       <xsl:when test="$markerType = 'linebreak'">
         <ParagraphStyleRange
-          AppliedParagraphStyle="ParagraphStyle/{$pStyle}">
+          AppliedParagraphStyle="ParagraphStyle/{$pStyleEscaped}">
           <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]">
             <Content><xsl:text>&#x2028;</xsl:text></Content>
           </CharacterStyleRange>
@@ -78,7 +81,7 @@
       </xsl:when>
       <xsl:when test="$markerType = 'pagebreak'">
         <ParagraphStyleRange
-          AppliedParagraphStyle="ParagraphStyle/{$pStyle}">
+          AppliedParagraphStyle="ParagraphStyle/{$pStyleEscaped}">
           <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]" ParagraphBreakType="NextPage">
             <Br/>
           </CharacterStyleRange>
@@ -86,7 +89,7 @@
       </xsl:when>
       <xsl:when test="$markerType = 'oddpagebreak'">
         <ParagraphStyleRange
-          AppliedParagraphStyle="ParagraphStyle/{$pStyle}">
+          AppliedParagraphStyle="ParagraphStyle/{$pStyleEscaped}">
           <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]" ParagraphBreakType="NextOddPage">
             <Br/>
           </CharacterStyleRange>
@@ -94,7 +97,7 @@
       </xsl:when>
       <xsl:when test="$markerType = 'evenpagebreak'">
         <ParagraphStyleRange
-          AppliedParagraphStyle="ParagraphStyle/{$pStyle}">
+          AppliedParagraphStyle="ParagraphStyle/{$pStyleEscaped}">
           <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]" ParagraphBreakType="NextEvenPage">
             <Br/>
           </CharacterStyleRange>
@@ -103,7 +106,7 @@
       <xsl:when test="$markerType = 'none'"/>
       <xsl:otherwise>
         <ParagraphStyleRange
-          AppliedParagraphStyle="ParagraphStyle/{$pStyle}">
+          AppliedParagraphStyle="ParagraphStyle/{$pStyleEscaped}">
           <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]">
             <Br/>
           </CharacterStyleRange>
@@ -329,6 +332,27 @@
       </Note>
   </xsl:template>
   
+  <xsl:function name="incxgen:escapeStyleName" as="xs:string">
+    <xsl:param name="styleName" as="xs:string"/>
+    <xsl:variable name="escape1" as="xs:string"
+      select="replace($styleName, ':', '%3a')"
+    />
+    <xsl:variable name="escape2" as="xs:string"
+      select="replace($escape1, '&lt;', '%3c')"
+    />
+    <xsl:sequence select="$escape2"/>
+  </xsl:function>
+  
+  <xsl:function name="incxgen:unescapeStyleID" as="xs:string">
+    <xsl:param name="styleID" as="xs:string"/>
+    <xsl:variable name="escape1" as="xs:string"
+      select="replace($styleID, '%3a', ':')"
+    />
+    <xsl:variable name="escape2" as="xs:string"
+      select="replace($escape1, '%3c', '&lt;')"
+    />
+    <xsl:sequence select="$escape2"/>
+  </xsl:function>
   
   <!-- Style catalog: -->
   
@@ -336,18 +360,28 @@
     <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] styleCatalogUri = "<xsl:sequence select="$styleCatalogUri"/>"</xsl:message>
     </xsl:if>
-    <xsl:variable name="catalogUri" as="xs:string"
-        select="if ($styleCatalogUri != '')
-                   then $styleCatalogUri
-                   else $defaultStyleCatalogUri
-                   "/>
-    <xsl:if test="$debugBoolean">
-      <xsl:message> + [DEBUG] catalogUri = "<xsl:sequence select="$catalogUri"/>"</xsl:message>
-    </xsl:if>
-    <xsl:variable name="catalogDoc" select="document($catalogUri)" as="document-node()?"/>
-    <xsl:if test="not($catalogDoc)">
-      <xsl:message terminate="yes"> + [ERROR] Could not load InDesign style catalog "<xsl:sequence select="$catalogUri"/>"</xsl:message>
-    </xsl:if>
-    <xsl:sequence select="$catalogDoc/*[1]"/>
+    <xsl:choose>
+      <xsl:when test="$styleCatalogUri != ''">
+        <xsl:variable name="catalogDoc" select="document($styleCatalogUri)" as="document-node()?"/>
+        <xsl:if test="not($catalogDoc)">
+          <xsl:message terminate="yes"> + [ERROR] Could not load InDesign style catalog "<xsl:sequence select="$styleCatalogUri"/>"</xsl:message>
+        </xsl:if>
+        <xsl:sequence select="$catalogDoc/*[1]"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <idsc:InDesign_Style_Catalog
+  xmlns:idsc="http://www.reallysi.com/namespaces/indesign_style_catalog">
+          <idsc:ParagraphStyles>
+          </idsc:ParagraphStyles>
+          <idsc:CharacterStyles>
+          </idsc:CharacterStyles>
+          <idsc:TableStyles>
+          </idsc:TableStyles>
+          <idsc:ObjectStyles>
+          </idsc:ObjectStyles>
+        </idsc:InDesign_Style_Catalog>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:variable>
+
 </xsl:stylesheet>

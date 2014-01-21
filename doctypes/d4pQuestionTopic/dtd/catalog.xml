@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:d4pQuestionTopic"
+    uri="d4pQuestionTopic.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:d4pQuestionTopic.dtd"
+    uri="d4pQuestionTopic.dtd"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:modules:d4pQuestionTopic"
+    uri="d4pQuestionTopic.mod"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:modules:d4pQuestionTopic.mod"
+    uri="d4pQuestionTopic.mod"
+  />
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:entities:d4pQuestionTopic"
+    uri="d4pQuestionTopic.ent"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:entities:d4pQuestionTopic.ent"
+    uri="d4pQuestionTopic.ent"
+  />
+</catalog>  

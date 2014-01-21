@@ -7,7 +7,8 @@
       xmlns:e2s="http//dita2indesign.org/functions/element-to-style-mapping"
       xmlns:RSUITE="http://www.reallysi.com"
       xmlns:idsc="http://www.reallysi.com/namespaces/indesign_style_catalog"
-      exclude-result-prefixes="xs local df relpath e2s RSUITE idsc"
+      xmlns:incxgen="http//dita2indesign.org/functions/incx-generation"
+      exclude-result-prefixes="xs local df relpath e2s RSUITE idsc incxgen"
       version="2.0">
   
   <!-- Topic to ICML Transformation.
@@ -47,17 +48,15 @@
     cdata-section-elements="GrPr" />
   
   <xsl:template match="/*[df:class(., 'topic/topic')]" priority="5">
-    <xsl:param name="articleFilenameBase" 
-      tunnel="yes"
-      as="xs:string"
-    />
     <!-- The topicref that points to this topic -->
     <xsl:param name="topicref" as="element()?" tunnel="yes"/>
     <xsl:param name="articleType" as="xs:string" tunnel="yes"/>
     
     <!-- NOTE: This template is overridden by sample template in topic2articleIcml.xsl -->
     
-    <xsl:message> + [DEBUG] topic2icmlImpl.xsl: Processing root topic</xsl:message>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] topic2icmlImpl.xsl: Processing root topic</xsl:message>
+    </xsl:if>
     <!-- Create a new output InCopy article. 
       
       NOTE: This code assumes that all chunking has been performed
@@ -77,7 +76,9 @@
     <xsl:variable name="effectiveArticleType" as="xs:string"
       select="if ($articleType) then $articleType else name(.)"
     />
-    <xsl:message> + [DEBUG] effectiveArticleType="<xsl:sequence select="$effectiveArticleType"/>"</xsl:message>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] effectiveArticleType="<xsl:sequence select="$effectiveArticleType"/>"</xsl:message>
+    </xsl:if>
     
     <!-- First, generate any result docs from subelements -->
     <xsl:message> + [INFO] topic2icmlImpl.xsl: Applying result-docs mode to children of root topic...</xsl:message>
@@ -105,7 +106,7 @@
     <!-- The style catalog can be the styles.xml file from an IDML package -->
     <xsl:param name="styleCatalog" as="node()*"/>
     
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="true() or $debugBoolean">
       <xsl:message> + [DEBUG] makeInCopyArticle: Article type is "<xsl:sequence select="$articleType"/>"</xsl:message>
     </xsl:if>
     
@@ -207,6 +208,12 @@
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/image')]">
+    <!-- FIXME: The Link URL can be relative as long as it still starts
+         with file:/ (and CS6 and older only supports file:/ URLs as far
+         as I can determine).
+         
+         e.g., "file:Links/image-01.jpg"
+      -->
     <xsl:variable name="linkUri"
       select="
       if (starts-with(@href, 'file:') or starts-with(@href, 'http:'))
@@ -225,26 +232,42 @@
         -->
         <PathGeometry>
           <GeometryPathType PathOpen="false">
-            <PathPointArray>
-              <PathPointType Anchor="-72.0 -47.0" LeftDirection="-72.0 -47.0" RightDirection="-72.0 -47.0"/>
-              <PathPointType Anchor="-72.0 47.0" LeftDirection="-72.0 47.0" RightDirection="-72.0 47.0"/>
-              <PathPointType Anchor="72.0 47.0" LeftDirection="72.0 47.0" RightDirection="72.0 47.0"/>
-              <PathPointType Anchor="72.0 -47.0" LeftDirection="72.0 -47.0" RightDirection="72.0 -47.0"/>
-            </PathPointArray>
+                <PathPointArray>
+                  <PathPointType
+                    Anchor="-72 -47"
+                    LeftDirection="-72 -47"
+                    RightDirection="-72 -47"/>
+                  <PathPointType
+                    Anchor="-72 260.3865234375"
+                    LeftDirection="-72 260.3865234375"
+                    RightDirection="-72 260.3865234375"/>
+                  <PathPointType
+                    Anchor="466.99999999999994 260.3865234375"
+                    LeftDirection="466.99999999999994 260.3865234375"
+                    RightDirection="466.99999999999994 260.3865234375"/>
+                  <PathPointType
+                    Anchor="466.99999999999994 -47"
+                    LeftDirection="466.99999999999994 -47"
+                    RightDirection="466.99999999999994 -47"/>
+                </PathPointArray>
           </GeometryPathType>
         </PathGeometry>
       </Properties>
+      <!-- Proportional fitting -->
+      <FrameFittingOption
+            AutoFit="false"
+            LeftCrop="0"
+            TopCrop="-87.39155923273314"
+            RightCrop="22.365016263100983"
+            BottomCrop="143.23151786205875"
+            FittingOnEmptyFrame="Proportionally"
+            FittingAlignment="CenterAnchor"/>
       <Image 
         ImageRenderingIntent="UseColorSettings" 
         AppliedObjectStyle="ObjectStyle/$ID/[None]" 
         Visible="true" 
         Name="$ID/"
         Self="rc_{concat(generate-id(),'Image')}">
-        <!-- NOTE: The LnkI= attribute is required in order to create a working link but generating
-                   that value is pretty much beyond the ability of XSLT. Need to look at the 
-                   link generation code in the RSI INX Utils library to see how best to do this.
-                   It may require integrating that library with XSLT.
-        -->
         <Link 
           Self="{concat(generate-id(),'Link')}" 
           AssetURL="$ID/" 
@@ -383,7 +406,7 @@
   <xsl:template match="RSUITE:*" mode="#all" priority="10"/><!-- Ignore in all modes -->
     
   <xsl:template mode="#default" match="*" priority="-1">
-    <xsl:message> + [WARNING] topic2indesignImpl (default mode): Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence 
+    <xsl:message> + [WARNING] topic2icmlImpl (default mode): Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence 
       select="concat(name(.), ' [', normalize-space(@class), ']')"/></xsl:message>
   </xsl:template>
   
@@ -392,6 +415,36 @@
     <file uri="{$incopyFileUri}"/>&#x0020;
   </xsl:template>
   
+  <xsl:template match="*" mode="result-docs">
+    <xsl:apply-templates mode="#current" select="*"/>
+  </xsl:template>
+  
+  <xsl:template match="text()" mode="result-docs"/>
+
+  <!--
+    The following implements the d4pSidebarAnchor. With the use of keys, it suppresses the location of the anchoredObject (e.g., a sidebar) and instead copies it to the result tree in the location of the d4pSidebarAnchor. Currently commented out pending recommended changes to the d4pSidebarAnchor element. Code does work and is in use at Human Kinetics -->
+  <!--
+  <xsl:key name="kObjectAnchor" match="*[df:class(.,'topic/xref d4p-formatting-d/d4pSidebarAnchor')]" use="@otherprops"/>
+  
+  <xsl:key name="kAnchoredObject" match="*" use="@id"/>
+  
+  <xsl:template match="*[df:class(.,'topic/xref d4p-formatting-d/d4pSidebarAnchor')]" priority="20">
+    <xsl:apply-templates select=
+      "key('kAnchoredObject', @otherprops)">
+      <xsl:with-param name="useNextMatch" select="'true'" as="xs:string" />
+    </xsl:apply-templates>
+    
+  </xsl:template>
+  
+  <xsl:template match="*[key('kObjectAnchor', @id)]" priority="20">
+    <xsl:param name="useNextMatch" select="'false'" as="xs:string" />
+    <xsl:choose>
+      <xsl:when test="$useNextMatch='true'">
+        <xsl:next-match/>
+      </xsl:when> 
+    </xsl:choose>
+  </xsl:template>
+  -->
   <xsl:function name="local:getArticleUrlForTopic" as="xs:string">
     <xsl:param name="context" as="element()"/>
     
@@ -414,12 +467,21 @@
     />
 <!--    <xsl:message> + [DEBUG] generateStyleCatalog: cStyleName=<xsl:sequence select="$pStyleNames"/></xsl:message>-->
     <xsl:variable name="styleCatalog" as="node()*">
+      <!-- NOTE: The style ID (@Self) is a URL-escaped version of the style name, e.g.:
+        
+        <ParagraphStyle 
+           Self="ParagraphStyle/Style Group 1%3aGrouped Style 1" 
+           Name="Style Group 1:Grouped Style 1"
+        
+        But what is specified in the element-to-style mapping should be the unescaped style name,
+        since we can easily escape the name string.
+        -->
       <RootCharacterStyleGroup Self="rootCharacterStyleGroup">
         <xsl:for-each select="$cStyleNames">
           <xsl:variable name="styleId" select="." as="xs:string"/>
           <xsl:variable name="name" 
             as="xs:string"
-            select="substring-after(., 'CharacterStyle/')" 
+            select="incxgen:unescapeStyleID(substring-after(., 'CharacterStyle/'))" 
           />
           <xsl:variable name="baseStyle" select="$styleCatalog//CharacterStyle[@Self = $styleId]" as="node()*"/>
           <xsl:choose>
@@ -431,7 +493,7 @@
                 <xsl:message> + [WARN] Character style "<xsl:sequence select="$name"/>" not in style catalog. Generating stub style definition.</xsl:message>
               </xsl:if>
               <CharacterStyle 
-                Self="CharacterStyle/{$name}" 
+                Self="{$styleId}" 
                 Name="{$name}" >
                 <Properties>
                   <BasedOn type="string">$ID/[No character style]</BasedOn>
@@ -446,7 +508,7 @@
           <xsl:variable name="styleId" select="." as="xs:string"/>
           <xsl:variable name="name" 
             as="xs:string"
-            select="substring-after(., 'ParagraphStyle/')" 
+            select="incxgen:unescapeStyleID(substring-after(., 'ParagraphStyle/'))" 
           />
           <xsl:variable name="baseStyle" select="$styleCatalog//ParagraphStyle[@Self = $styleId]" as="node()*"/>
           <xsl:choose>
@@ -458,7 +520,7 @@
                 <xsl:message> + [WARN] Paragraph style "<xsl:sequence select="$name"/>" not in style catalog. Generating stub style definition.</xsl:message>
               </xsl:if>
               <ParagraphStyle 
-                Self="ParagraphStyle/{$name}" 
+                Self="{$styleId}" 
                 Name="{$name}" 
                 >
                 <Properties>

@@ -33,4 +33,28 @@
   </xsl:template>
   
   <!-- FIXME: Implement some sort of support for the other formatting-d elements. -->
+  <!--
+    The following implements the d4pSidebarAnchor. With the use of keys, it suppresses the location of the anchoredObject (e.g., a sidebar) and instead copies it to the result tree in the location of the d4pSidebarAnchor. Currently commented out pending recommended changes to the d4pSidebarAnchor element. Code does work and is in use at Human Kinetics -->
+  <!--
+  <xsl:key name="kObjectAnchor" match="*[df:class(.,'topic/xref d4p-formatting-d/d4pSidebarAnchor')]" use="@otherprops"/>
+  
+  <xsl:key name="kAnchoredObject" match="*" use="@id"/>
+  
+  <xsl:template match="*[df:class(.,'topic/xref d4p-formatting-d/d4pSidebarAnchor')]" priority="20">
+    <xsl:apply-templates select=
+      "key('kAnchoredObject', @otherprops)">
+      <xsl:with-param name="useNextMatch" select="'true'" as="xs:string" />
+    </xsl:apply-templates>
+    
+  </xsl:template>
+  
+  <xsl:template match="*[key('kObjectAnchor', @id)]" priority="20">
+    <xsl:param name="useNextMatch" select="'false'" as="xs:string" />
+    <xsl:choose>
+      <xsl:when test="$useNextMatch='true'">
+        <xsl:next-match/>
+      </xsl:when> 
+    </xsl:choose>
+  </xsl:template>
+  -->
 </xsl:stylesheet>

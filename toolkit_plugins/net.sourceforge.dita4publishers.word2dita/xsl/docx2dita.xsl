@@ -48,8 +48,8 @@ version="2.0">
   <xsl:param name="styleMapUri" as="xs:string"/>
   <xsl:param name="mediaDirUri" select="relpath:newFile($outputDir, 'topics/media')" as="xs:string"/>  
   <xsl:param name="outputDir" as="xs:string"/>
-  <xsl:param name="rootMapName" as="xs:string" select="'rootmap'"/>
   <xsl:param name="rootTopicName" as="xs:string?" select="()"/>
+  <xsl:param name="rootMapName" as="xs:string" select="$rootTopicName"/>
   <xsl:param name="submapNamePrefix" as="xs:string" select="'map'"/>
   <xsl:param name="filterBr" as="xs:string" select="'false'"/>
   <xsl:param name="filterTabs" as="xs:string" select="'false'"/>
@@ -60,8 +60,36 @@ version="2.0">
   
   <xsl:param name="topicExtension" select="'.dita'" as="xs:string"/><!-- Extension for generated topic files -->
   <xsl:param name="fileNamePrefix" select="''" as="xs:string"/><!-- Prefix for genenerated file names -->
+  <xsl:param name="chartsAsTables" select="'false'" as="xs:string"/><!-- When true, capture Word charts as tables with the chart data -->
+  <xsl:variable name="chartsAsTablesBoolean" as="xs:boolean" select="$chartsAsTables = 'true'"/>
   
   <xsl:param name="rawPlatformString" select="'unknown'" as="xs:string"/>
+  
+  <!-- When true, use any external (linked) filename as the name for referenced graphics,
+       rather than the internal names. Note that tools that deal with the graphic files
+       extracted from the DOCX file will have to know how the internal names map to external
+       names (which they can know by examining the word/_rels/document.xml.rels file in the
+       package).
+    -->
+  <xsl:param name="useLinkedGraphicNames" as="xs:string" select="'no'"/>
+  <xsl:param name="useLinkedGraphicNamesBoolean" as="xs:boolean" 
+    select="matches($useLinkedGraphicNames, 'yes|true|1', 'i')"
+  />
+  
+  <!-- Prefix to add to image filenames when constructing image references
+       in the result XML.
+    -->
+  <xsl:param name="imageFilenamePrefix" as="xs:string?"
+    select="$fileNamePrefix"
+  />
+  
+  <!-- If true, issue warnings about unstyled paragraphs. Unstyled paragraphs
+       map to <p> by default.
+    -->
+  <xsl:param name="warnOnUnstyledParas" as="xs:string" select="'false'"/>
+  <xsl:variable name="warnOnUnstyledParasBoolean"
+     select="matches($warnOnUnstyledParas, 'yes|true|1', 'i')"
+  />
   
   <xsl:variable name="rootMapUrl" select="concat($rootMapName, '.ditamap')" as="xs:string"/>
   <xsl:variable name="rootTopicUrl" 
@@ -87,7 +115,15 @@ version="2.0">
     select="matches($includeWordBookmarks, 'yes|true|1', 'i')"/>
   
   <xsl:include
+    href="office-open-utils.xsl"/>
+  <xsl:include
     href="wordml2simple.xsl"/>
+  <xsl:include 
+    href="spreadsheetml2simple.xsl"/>
+  <xsl:include
+    href="wordml2simpleLevelFixup.xsl"/>
+  <xsl:include
+    href="wordml2simpleMathTypeFixup.xsl"/>
   <xsl:include
     href="simple2dita.xsl"/>
   <xsl:include
@@ -125,6 +161,10 @@ version="2.0">
     <xsl:variable name="stylesDoc" as="document-node()"
       select="document('styles.xml', .)"
     />      
+    
+    <xsl:message> + [INFO] ====================================</xsl:message>
+    <xsl:message> + [INFO] Generating initial simple WP doc....</xsl:message>
+    <xsl:message> + [INFO] ====================================</xsl:message>
     <xsl:variable
       name="simpleWpDocBase"
       as="element()">
@@ -140,7 +180,7 @@ version="2.0">
       as="xs:string"/>
     <!-- NOTE: do not set this check to true(): it will fail when run within RSuite -->
     <xsl:if
-      test="true() or $debugBoolean">
+      test="false() or $debugBoolean">
       <xsl:result-document
         href="{$tempDoc}">
         <xsl:message> + [DEBUG] Intermediate simple WP doc saved as <xsl:sequence
@@ -150,17 +190,98 @@ version="2.0">
       </xsl:result-document>
     </xsl:if>
     
+    <xsl:message> + [INFO] ====================================</xsl:message>
+    <xsl:message> + [INFO] Doing level fixup....</xsl:message>
+    <xsl:message> + [INFO] ====================================</xsl:message>
     <xsl:variable name="simpleWpDocLevelFixupResult" as="element()">
-      <xsl:apply-templates select="$simpleWpDocBase" mode="simpleWpDocLevel-fixup"/>
+      <xsl:apply-templates select="$simpleWpDocBase" mode="simpleWpDoc-levelFixupRoot"/>
+<!--      <xsl:sequence select="$simpleWpDocBase"/>-->
     </xsl:variable>
     
+    <xsl:if
+      test="false() or $debugBoolean">
+    <xsl:variable
+      name="tempDocLevelFixup"
+      select="relpath:newFile($outputDir, 'simpleWpDocLevelFixup.xml')"
+      as="xs:string"/>
+      <xsl:result-document
+        href="{$tempDocLevelFixup}">
+        <xsl:message> + [DEBUG] Intermediate simple WP level fixup result doc saved as <xsl:sequence
+            select="$tempDocLevelFixup"/></xsl:message>
+        <xsl:sequence
+          select="$simpleWpDocLevelFixupResult"/>
+      </xsl:result-document>
+    </xsl:if>
+
+    
+
+    <xsl:variable name="simpleWpDocMathTypeFixupResult"
+      as="document-node()"
+    >
+      <xsl:choose>      
+      <xsl:when test="$simpleWpDocLevelFixupResult//rsiwp:run[@style='MTConvertedEquation']">  
+        <xsl:message> + [INFO] ====================================</xsl:message>
+        <xsl:message> + [INFO] Doing MathType simpleWpDoc fixup....</xsl:message>
+        <xsl:message> + [INFO] ====================================</xsl:message>
+        <xsl:document>
+          <xsl:apply-templates select="$simpleWpDocLevelFixupResult" mode="simpleWpDoc-MathTypeFixup"/>
+        </xsl:document>
+      </xsl:when>
+        <xsl:otherwise>
+          <xsl:document>
+            <xsl:sequence select="$simpleWpDocLevelFixupResult"/>
+          </xsl:document>
+        </xsl:otherwise>
+      </xsl:choose>    
+    </xsl:variable>
+
+    <xsl:if
+      test="$debugBoolean">
+    <xsl:variable
+      name="tempDocMathTypeFixup"
+      select="relpath:newFile($outputDir, 'simpleWpDocMathTypeFixup.xml')"
+      as="xs:string"/>
+      <xsl:result-document
+        href="{$tempDocMathTypeFixup}">
+        <xsl:message> + [DEBUG] Intermediate simple WP MathType fixup result doc saved as <xsl:sequence
+            select="$tempDocMathTypeFixup"/></xsl:message>
+        <xsl:sequence
+          select="$simpleWpDocMathTypeFixupResult"/>
+      </xsl:result-document>
+    </xsl:if>
+
+    <xsl:message> + [INFO] ====================================</xsl:message>
+    <xsl:message> + [INFO] Doing general simpleWpDoc fixup....</xsl:message>
+    <xsl:message> + [INFO] ====================================</xsl:message>
+
     <xsl:variable name="simpleWpDoc"
       as="document-node()"
     >
       <xsl:document>
-        <xsl:apply-templates select="$simpleWpDocLevelFixupResult" mode="simpleWpDoc-fixup"/>
+        <xsl:apply-templates select="$simpleWpDocMathTypeFixupResult" mode="simpleWpDoc-fixup"/>
       </xsl:document>
     </xsl:variable>
+
+    <xsl:if
+      test="false() or $debugBoolean">
+      <xsl:variable
+        name="tempDocFixup"
+        select="relpath:newFile($outputDir, 'simpleWpDocFixup.xml')"
+        as="xs:string"/>
+      <xsl:result-document
+        href="{$tempDocFixup}">
+        <xsl:message> + [DEBUG] Fixed-up simple WP doc saved as <xsl:sequence
+            select="$tempDocFixup"/></xsl:message>
+        <xsl:sequence
+          select="$simpleWpDoc"/>
+      </xsl:result-document>
+    </xsl:if>
+
+    <xsl:message> + [INFO] ====================================</xsl:message>
+    <xsl:message> + [INFO] Generating DITA result....</xsl:message>
+    <xsl:message> + [INFO] ====================================</xsl:message>
+
+
     <xsl:apply-templates
       select="$simpleWpDoc/*"
       >
@@ -170,56 +291,11 @@ version="2.0">
         tunnel="yes"        
       />
     </xsl:apply-templates>
+    <xsl:message> + [INFO] ====================================</xsl:message>
     <xsl:message> + [INFO] Done.</xsl:message>
+    <xsl:message> + [INFO] ====================================</xsl:message>
   </xsl:template>
   
-  
-  <xsl:template match="@level[../@topicType]" mode="simpleWpDocLevel-fixup">
-    <xsl:variable name="newLevel" select="local:calculateLevel(..)" as="xs:integer"/>
-    <xsl:if test="$debugBoolean">  
-      <xsl:message> + [DEBUG] Style name: <xsl:value-of select="../@style"/>, old level: <xsl:value-of select="."/>, new level: <xsl:value-of select="$newLevel"/></xsl:message>
-    </xsl:if>
-    <xsl:attribute name="level" select="$newLevel"/>
-  </xsl:template>
-  
-  <xsl:function name="local:calculateLevel" as="xs:integer">
-    <xsl:param name="topicLevelElem" as="element()"/>
-    
-    <xsl:variable name="originalLevel" select="$topicLevelElem/@level/number()"/>
-    <xsl:variable name="precedingLevel" select=
-      "$topicLevelElem/preceding-sibling::*[@topicType][@level/number() le $originalLevel][1]"/>
-    
-    <xsl:sequence select=
-      "if(not($precedingLevel))
-      then 0
-      else if($precedingLevel/@level/number() lt $originalLevel)
-      then local:calculateLevel($precedingLevel) +1
-      else if($precedingLevel/@level/number() eq $originalLevel)
-      then local:calculateLevel($precedingLevel)
-      else (: Impossible to happen :) -999
-      "/>
-  </xsl:function>
-  
-  <xsl:template mode="simpleWpDocLevel-fixup" match="*">
-    <xsl:copy>
-      <xsl:apply-templates select="@*,node()" mode="#current"/>
-    </xsl:copy>
-  </xsl:template>
-  
-  <xsl:template mode="simpleWpDocLevel-fixup" match="@* | text() | processing-instruction()">
-    <xsl:sequence select="."/>
-  </xsl:template>
-  
-  
-  <xsl:template mode="simpleWpDoc-fixup" match="*">
-    <xsl:copy>
-      <xsl:apply-templates select="@*,node()" mode="#current"/>
-    </xsl:copy>
-  </xsl:template>
-  
-  <xsl:template mode="simpleWpDoc-fixup" match="@* | text() | processing-instruction()">
-    <xsl:sequence select="."/>
-  </xsl:template>
   
   <xsl:template name="report-parameters" match="*" mode="report-parameters">
     <xsl:message> 
@@ -245,6 +321,7 @@ version="2.0">
       + outputDir       = "<xsl:sequence select="$outputDir"/>"  
       + debug           = "<xsl:sequence select="$debug"/>"
       + includeWordBackPointers= "<xsl:sequence select="$includeWordBackPointersBoolean"/>"  
+      + chartsAsTables  = "<xsl:sequence select="$chartsAsTablesBoolean"/>"  
       
       Global Variables:
       

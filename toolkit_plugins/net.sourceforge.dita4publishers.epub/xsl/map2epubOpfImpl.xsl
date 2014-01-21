@@ -65,7 +65,14 @@
           
           <dc:language id="language"><xsl:sequence select="$lang"/></dc:language>
           
-          <xsl:apply-templates select="*[df:class(., 'map/topicmeta')]" mode="bookid"/>
+          <xsl:choose>
+            <xsl:when test="*[df:class(., 'map/topicmeta')]">
+              <xsl:apply-templates select="*[df:class(., 'map/topicmeta')]" mode="bookid"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <dc:identifier id="bookid">no-bookid-value</dc:identifier>
+            </xsl:otherwise>
+          </xsl:choose>
           
           <!-- Remaining metadata fields optional, so 
             their tags only get output if values exist. -->

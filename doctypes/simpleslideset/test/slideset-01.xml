@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sld:simpleslideset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:ns:dita4publishers.org:doctypes:simpleslideset ../simpleslideset.xsd"
+ xmlns:sld="urn:ns:dita4publishers.org:doctypes:simpleslideset">
+  
+  <sld:prolog>
+    <!-- Prolog goes here -->
+  </sld:prolog>
+  <sld:styles>
+    <sld:slideStyle name="slideStyle01">
+      <sld:property name="foo" value="bar"/>
+      <sld:property name="baz" value="fred"/>
+    </sld:slideStyle>
+    <sld:paraStyle name="Title">
+      <sld:property name="font-family" value="Helvetica"/>
+      <sld:property name="font-weight" value="bold"/>
+      <sld:property name="font-size" value="24pt"/>
+    </sld:paraStyle>
+    <sld:paraStyle name="normal">
+      <sld:property name="font-family" value="Helvetica"/>
+      <sld:property name="font-size" value="18pt"/>
+    </sld:paraStyle>
+    <sld:charStyle name="charStyle01">
+      <sld:property name="foo" value="bar"/>
+      <sld:property name="baz" value="fred"/>
+    </sld:charStyle>
+    <sld:objectStyle name="objectStyle01">
+      <sld:property name="foo" value="bar"/>
+      <sld:property name="baz" value="fred"/>
+    </sld:objectStyle>
+  </sld:styles>
+  <sld:slides>
+    <sld:slide>
+      <sld:title>
+        <sld:p style="Title">The Slide Title</sld:p>
+      </sld:title>
+      <sld:slidebody>
+        <sld:p>The slide body</sld:p>
+        <sld:ul>
+          <sld:li>This is a list item</sld:li>
+          <sld:li>Second list item</sld:li>
+          <sld:ul>
+            <sld:li>This is a list item</sld:li>
+            <sld:li>Second list item</sld:li>
+          </sld:ul>
+        </sld:ul>
+        <sld:div>
+          <sld:p>This is a para within a div. Divs can group things </sld:p>
+        </sld:div>
+      </sld:slidebody>
+      <sld:slidenotes>
+        <sld:p>This is a note</sld:p>
+        <sld:p>This is another note</sld:p>
+      </sld:slidenotes>
+    </sld:slide>
+  </sld:slides>
+</sld:simpleslideset>

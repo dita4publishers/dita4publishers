@@ -59,7 +59,7 @@
       then relpath:getNamePart(document-uri(root(.)))
       else $articleFilenameBase"
     />
-    <xsl:message> + [DEBUG] topic2article.xsl: effectiveFilenameBase="<xsl:sequence select="$effectiveFilenameBase"/>"</xsl:message>
+    <xsl:message> + [DEBUG] topic2articleIcml.xsl: effectiveFilenameBase="<xsl:sequence select="$effectiveFilenameBase"/>"</xsl:message>
     <!-- Using a mode for map processing so topic processing
          can be the default mode for convenience.
     -->
@@ -83,12 +83,27 @@
     <xsl:if test="true()">
       <xsl:message> + [DEBUG] topic2article.xsl: Processing root topic...</xsl:message>
     </xsl:if>
+    
+    <xsl:if test="contains($outputPath, '\')">
+      <xsl:message terminate="yes"> + [ERROR] Value of outputPath parameter has backslashes, which suggest a Windows file path. The value just be a URI: "<xsl:sequence select="$outputPath"/></xsl:message>
+    </xsl:if>
+    
+    <xsl:message> + [DEBUG] topic2articleIcml: $outputPath="<xsl:sequence select="$outputPath"/>"</xsl:message>
 
-    <xsl:variable name="incopyFileUri" as="xs:string"
-      select="relpath:newFile(relpath:getParent(document-uri(root(.))), 
+    <xsl:variable name="effectiveOutputPath" as="xs:string"
+      select="if (matches($outputPath, '^[\w]+:.+'))
+      then $outputPath
+      else concat('file:', $outputPath)
+      "
+    />
+    <xsl:message> + [DEBUG] topic2articleIcml: $effectiveOutputPath="<xsl:sequence select="$effectiveOutputPath"/>"</xsl:message>
+    <xsl:variable name="incopyFileUri" as="xs:string"      
+      select="relpath:newFile($effectiveOutputPath, 
                               concat($articleFilenameBase, '.icml'))"
     />
    
+    <xsl:message> + [INFO] topic2icmlImpl.xsl: incopyFileUri="<xsl:sequence select="$incopyFileUri"/>"</xsl:message>
+
     <!-- First, generate any result docs from subelements -->
     <xsl:message> + [INFO] topic2icmlImpl.xsl: Applying result-docs mode to children of root topic...</xsl:message>
     <xsl:apply-templates select="*" mode="result-docs">
@@ -120,6 +135,8 @@
     -->
     <xsl:apply-templates mode="#current" select="*"/>
   </xsl:template>
+  
+  <xsl:template match="text()" mode="result-docs"/>
   
   
 </xsl:stylesheet>
