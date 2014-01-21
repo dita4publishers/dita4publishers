@@ -607,6 +607,9 @@
           <xsl:when test="not($borderTop and $borderBottom and $borderLeft and $borderRight)">
             <xsl:sequence select="'none'"/>
           </xsl:when>
+          <xsl:otherwise>
+            <xsl:sequence select="'all'"/><!-- Assume all borders -->
+          </xsl:otherwise>
         </xsl:choose>
       </xsl:when>
       <xsl:otherwise>
