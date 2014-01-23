@@ -93,6 +93,10 @@
   "
 >
 
+<!ENTITY % term         "term | 
+                         %abbrev-d-term;
+                        ">
+
 
 <!-- ============================================================= -->
 <!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
@@ -112,6 +116,7 @@
      &d4p_variables-d-att;
      &d4p_verse-d-att;
      &xml-d-att;
+     &abbrev-d-att;
     "                
  >
 
