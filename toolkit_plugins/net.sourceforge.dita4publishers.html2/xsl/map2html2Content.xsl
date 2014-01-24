@@ -149,11 +149,6 @@
         <xsl:with-param name="collected-data" select="$collected-data" as="element()" tunnel="yes"/>    
       </xsl:apply-templates>      
     </xsl:variable>
-    <xsl:if test="true() or $debugBoolean">
-      <xsl:result-document href="{concat($outdir, '/', 'htmlNoNamespace/', relpath:getName($resultUri))}">
-        <xsl:sequence select="$htmlNoNamespace"/>
-      </xsl:result-document>
-    </xsl:if>
     <xsl:result-document format="topic-html" href="{$resultUri}" >
       <xsl:apply-templates select="$htmlNoNamespace" mode="no-namespace-html-post-process">
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
@@ -230,7 +225,7 @@
   <!-- NOTE: the body of this template is taken from the base dita2xhtmlImpl.xsl 
    
        This should only be applied to root topics so that chunk to-content does
-       not result in the same topicref being used for now-child topics and thus
+       not result in the same topicref being used for non-child topics and thus
        resulting in incorrect enumeration logic.
   -->
   <xsl:template match="*[df:class(., 'topic/topic')][parent::dita or count(parent::*) = 0]/*[df:class(., 'topic/title')]">
