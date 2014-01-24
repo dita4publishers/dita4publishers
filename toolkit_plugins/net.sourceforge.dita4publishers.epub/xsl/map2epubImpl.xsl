@@ -54,10 +54,7 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   
   <!-- Import the base HTML output generation transform. -->
-<!-- For 1.5.4+ : -->
-    <xsl:import href="plugin:org.dita.xhtml:xsl/dita2xhtml.xsl"/>
-  <!-- For 1.5.3 and older: -->
-<!--  <xsl:import href="../../../xsl/dita2xhtml.xsl"/>-->
+  <xsl:import href="plugin:org.dita.xhtml:xsl/dita2xhtml.xsl"/>
   
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMapImpl.xsl"/>
