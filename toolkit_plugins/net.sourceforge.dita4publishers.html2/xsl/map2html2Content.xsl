@@ -149,11 +149,6 @@
         <xsl:with-param name="collected-data" select="$collected-data" as="element()" tunnel="yes"/>    
       </xsl:apply-templates>      
     </xsl:variable>
-    <xsl:if test="true() or $debugBoolean">
-      <xsl:result-document href="{concat($outdir, '/', 'htmlNoNamespace/', relpath:getName($resultUri))}">
-        <xsl:sequence select="$htmlNoNamespace"/>
-      </xsl:result-document>
-    </xsl:if>
     <xsl:result-document format="topic-html" href="{$resultUri}" >
       <xsl:apply-templates select="$htmlNoNamespace" mode="no-namespace-html-post-process">
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
