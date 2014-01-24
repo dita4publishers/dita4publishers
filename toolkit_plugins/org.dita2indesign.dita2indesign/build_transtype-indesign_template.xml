@@ -71,6 +71,7 @@
 
     	<!-- Parameters from dita2xhtml and similar transtypes: -->   
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
+      <xmlcatalog refid="dita.catalog"></xmlcatalog>
     </xslt>
   	<echo message="[DEBUG] Transform applied"/>
   </target>
@@ -98,6 +99,7 @@
 
     	<!-- Parameters from dita2xhtml and similar transtypes: -->   
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
+      <xmlcatalog refid="dita.catalog"></xmlcatalog>
     </xslt>
   	
   </target>

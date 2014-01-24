@@ -358,6 +358,7 @@
       style="${map2html5.style}"
       filenameparameter="inputFileNameParam"
     >
+      <xmlcatalog refid="dita.catalog"></xmlcatalog>
 
        <dita:extension id="dita.html5.map" behavior="org.dita.dost.platform.InsertAction" />
 
@@ -403,6 +404,7 @@
       <param name="html5sitetheme" expression="${html5.site.theme}"/>
       <param name="themedir" expression="${html5.themes.dir}"/>
       <param name="ouputdir" expression="${output.dir}"/>
+      <xmlcatalog refid="dita.catalog"></xmlcatalog>
   </xslt>
 
   <ant antfile="${output.dir}/ant/compressor.xml"/>

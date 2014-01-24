@@ -175,6 +175,7 @@
     	<param name="MANAGINGEDITOR" expression="${rss.managingEditor}"></param>
     	<param name="WEBMASTER" expression="${rss.webmaster}"></param>
     	<param name="FILENAME" expression="${rss.filename}"></param>
+      <xmlcatalog refid="dita.catalog"></xmlcatalog>
 
     	
 

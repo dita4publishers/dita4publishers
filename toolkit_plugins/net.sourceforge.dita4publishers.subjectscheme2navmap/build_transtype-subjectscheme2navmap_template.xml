@@ -46,6 +46,7 @@
       <param name="DRAFT" expression="${args.draft}" if="args.draft"></param>
       <param name="ARTLBL" expression="${args.artlbl}" if="args.artlbl"></param>
     	<param name="OUTPUTDIR" expression="${output.dir}"/>
+      <xmlcatalog refid="dita.catalog"></xmlcatalog>
     </xslt>
 
 

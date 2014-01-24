@@ -155,6 +155,7 @@
     	<param name="FILEDIR" expression="."/>
       <param name="FILTERFILE" expression="${dita.input.valfile.url}" if="dita.input.valfile"></param>
       <param name="DBG" expression="${args.debug}" if="args.debug"></param>
+      <xmlcatalog refid="dita.catalog"></xmlcatalog>
       
       <mapper type="glob"
               from="${user.input.file}"
