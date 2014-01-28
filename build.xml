@@ -289,7 +289,7 @@
       </fileset>
     </copy>
     <copy todir="${plugin.dist}/net.sourceforge.dita4publishers.xmldomain.doctypes">
-      <fileset dir="${doctypes.src}/xmldomain">
+      <fileset dir="${doctypes.src}/xmlDomain">
         <include name="*/**"/>
       </fileset>
     </copy>
