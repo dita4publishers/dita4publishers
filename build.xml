@@ -19,8 +19,9 @@
   <property file="build.properties"/>
   <property file="${user.home}/.build.properties"/>
   <property file="${user.home}/build.properties"/>
+	<!--
   <ivy:settings id="ivy.instance" file="ivy-settings.xml" />
-	
+	-->
   <property name="build" location="${basedir}/build"/>
   <property name="dist" location="${basedir}/dist"/>
   <property name="lib" location="${basedir}/lib"/>
@@ -95,7 +96,9 @@
   </path>
 
   <target name="resolve" description="Retrieve dependencies with ivy" depends="init">
+  	<!--
       <ivy:retrieve pattern="${ivy.lib.dir}/[artifact].[ext]" />
+      -->
   </target>
 
 	<target name="init">
