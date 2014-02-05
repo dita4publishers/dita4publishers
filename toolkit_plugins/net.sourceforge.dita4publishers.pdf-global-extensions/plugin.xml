@@ -8,7 +8,7 @@
   type to fix various problems or add additional 
   functionality.  
   -->
-<plugin id="net.sf.dita4publishers.pdf-global-extensions">
+<plugin id="net.sourceforge.dita4publishers.pdf-global-extensions">
 
   <require plugin="org.dita.pdf2"/>
   

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="net.sf.dita4publishers-transtype-pdf" default="dita2pdf-d4p">
+<project name="net.sourceforge.dita4publishers-transtype-pdf" default="dita2pdf-d4p">
   
   <!-- =========================
     Build file for use with the DITA Open Toolkit.
@@ -17,7 +17,7 @@
     >
     <!-- Override the default root XSLT transform to use ours, which then overrides many many things.
       -->
-    <property name="args.xsl.pdf" value="${dita.plugin.net.sf.dita4publishers.pdf.dir}/xsl/d4pMap2xslfo.xsl"/>  
+    <property name="args.xsl.pdf" value="${dita.plugin.net.sourceforge.dita4publishers.pdf.dir}/xsl/d4pMap2xslfo.xsl"/>  
     <antcall target="dita2pdf2"/>
   </target>
   

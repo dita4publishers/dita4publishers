@@ -1,7 +1,7 @@
-<plugin id="net.sf.d4p.graphviz">
+<plugin id="net.sourceforge.d4p.graphviz">
 
-  <require plugin="net.sf.dita4publishers.common.mapdriven"/> 
-  <require plugin="net.sf.dita4publishers.common.xslt"/> 
+  <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
+  <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
 
   <template file="build_transtype-graphviz_template.xml"/>
   
