@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<?Pub Inc?>
+<reference id="CanonUSBAPIs-B18666F2" xml:lang="en">
+<title>Canon USB APIs</title>
+<shortdesc>Canon provides an application programming interface (API)
+to enable software developers to access images stored on the SD card
+to and to control camera functions.</shortdesc>
+<prolog>
+<metadata><keywords><indexterm>APIs</indexterm></keywords></metadata>
+</prolog>
+<refbody>
+<section><title>Introduction</title><p>The Canon USB APIs enable you
+to perform the following functions with 3rd party software when the
+camera is attached to a computer with a USB inteface.</p><ul>
+<li><p>Fetch a range of thumbnail images</p></li>
+<li><p>Fetch an individual image</p></li>
+<li><p>Control camera functions for remote shooting</p></li>
+</ul><p>The APIs are especially useful for enabling tethered shooting.
+The following sections document the various APIs.</p></section>
+<section><title>USBFetchImage</title><p>Fetch an image by name or
+by sequence number on the SD card.</p><codeblock>JPEGImage USBFetchImage (
+	string imagename;
+	integer imagesequence;
+);
+</codeblock><table>
+<tgroup cols="2">
+<?PubTbl tgroup dispwid="565.00px"?>
+<colspec colname="col1" colwidth="0.57*"/><colspec colname="col2"
+colwidth="1.43*"/>
+<thead>
+<row>
+<entry valign="top">Argument</entry>
+<entry valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>imagename</entry>
+<entry>A string giving the full image name. If not null, indicates
+that you are requesting a named image. If null, indicates you are
+requesting an image by sequence.</entry>
+</row>
+<row>
+<entry>imagesequence</entry>
+<entry>An integer indicating the position on the SD card of the image
+to retrieve. If zero, retrieves the next image on the card. </entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+<example id="RetrievingImagesInSequence-B1B0C7FD"><title>Retrieving
+Images in Sequence</title><p>The example demonstrates how to retrieve
+images in sequence starting from the first image on the card.</p><codeblock
+expanse="page">JPEGImage myJPEGImage; 
+String noname = "";    // Must pass in a null image name if requesting next image in sequence
+myJPEGImage = USBFetchImage(noname, 0);
+// do something with the image</codeblock></example>
+<example id="RetrievingANamedImage-B1B0CAC5"><title>Retrieving a Named
+Image</title><?Pub Caret -2?><p>This example demonstrates how to retrieve
+an image by name.</p><codeblock expanse="page" scale="80">JPEGImage myJPEGImage; 
+String imgName = "img_2003.jpg";    // imagesequence argument is ignored if this is not null.
+myJPEGImage = USBFetchImage(imgName, 0);
+// do something with the image</codeblock></example>
+</refbody>
+</reference>

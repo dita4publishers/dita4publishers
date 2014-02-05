@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="reference_5dn_m3n_th">
+  <title>d4p.externalContentElement</title>
+  <shortdesc>Once a AJAX call is performed, the d4p.externalContentElement is used to defined which element of the
+    response hold the content to be displayed</shortdesc>
+  <refbody>
+    <refsyn>
+      <synph>
+        <var>d4p</var>
+        <delim>.</delim>
+        <kwd>externalContentElement</kwd>
+        <delim> = </delim> string (default: &quot;section&quot;) </synph>
+    </refsyn>
+    
+  </refbody>
+</reference>

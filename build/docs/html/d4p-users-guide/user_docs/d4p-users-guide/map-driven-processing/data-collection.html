@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="concept"></meta>
+<meta name="DC.Title" content="Data Collection Processing Phase"></meta>
+<meta name="abstract" content="Overview of map-driven-processing data collection phase"></meta>
+<meta name="description" content="Overview of map-driven-processing data collection phase"></meta>
+<meta name="DC.subject" content="map-driven processing, data collection, data collection, overview"></meta>
+<meta name="keywords" content="map-driven processing, data collection, data collection, overview"></meta>
+<meta name="DC.Relation" scheme="URI" content="map-driven-processing.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="enumeration.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC10"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="conceptId"></meta>
+<link rel="stylesheet" type="text/css" href="../../../commonltr.css"></link>
+<title>Data Collection Processing Phase</title>
+</head>
+<body id="conceptId">
+
+
+ <h1 class="title topictitle1">Data Collection Processing Phase</h1>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">Overview of map-driven-processing data collection phase </p>
+
+    <div class="p">The data collection process can be extended in several
+      ways:<a id="d8253e46" class="indexterm-anchor"></a><ul class="ul" id="conceptId__ul_ifb_52d_rh">
+      <li class="li">You can extend the default enumeration data set to add or remove
+        things you do or don't want to number by adding templates in the mode
+        <span class="keyword">construct-enumerable-structure</span>.<p class="p">By default the
+        enumeration data reflects all elements with titles: topics, figures,
+        tables, sections, examples, bodydiv, sectiondiv, and div. </p>
+<p class="p">If you
+        wanted to number notes, for example, you could add a template that
+        matches on "topic/note" in the mode construct-enumerable-structure and
+        call the template <span class="keyword">construct-enumerated-element</span> with
+        the appropriate content.</p>
+</li>
+
+      <li class="li">You can extend or modify the index and glossary grouping and sorting
+        behavior, although there should be no need unless you need to apply
+        specific grouping or sorting rules for some reason. Note that as of
+        0.9.19, the grouping and sorting is only tested for English, so getting
+        correct grouping and sorting for other languages, locales, and writing
+        systems will likely require customization or, in the worst case, XSLT
+        extensions that implement appropriate collation.</li>
+
+      <li class="li"> Add your own data collection for whatever purpose by implementing
+        templates in the mode <span class="keyword">data-collection-extensions</span>. You
+        can generate whatever XML structures you want through this mode.<p class="p">For
+        example, if you needed specific data to support some interaction feature
+        of your generated output, you could gather that data in the
+        data-collection-extensions mode.</p>
+</li>
+
+      </ul>
+</div>
+
+    <p class="p">The collected data is not normally written out—it is simply held in
+      memory as an XSLT variable. However, if you turn debugging on using the
+      <span class="keyword parmname">debug</span> parameter the collected data will be written to
+      the output directory as the file
+      <span class="ph filepath">collected-data.xml</span>.</p>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="map-driven-processing.html" title="Using and extending the DITA for Publishers map-driven processing framework">Map-Driven Processing</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="enumeration.html" title="How to use the collected enumeration data to number things in output.">Numbering Things: Collected Data and Enumeration</a></div>
+</div>
+</div>
+
+</body>
+</html>

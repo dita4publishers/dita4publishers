@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
 <pubmap>
-  <pubtitle> <mainpubtitle>DITA For Publishers User Guide</mainpubtitle> </pubtitle>
-  <pubmeta> <author>W. Eliot Kimber</author> <keywords>
-    <indexterm>Word<index-see>MS Word</index-see></indexterm>
-    </keywords> <prodinfo>
-    <prodname>DITA For Publishers</prodname>
-    <vrmlist>
-      <vrm
-        version="0.9.17"/>
-    </vrmlist>
-    </prodinfo> <pubrights> <copyrfirst> <year>2010</year> </copyrfirst> <copyrlast>
-    <year>2011</year> </copyrlast>
-    <pubowner><organization>DITA For Publishers</organization></pubowner> </pubrights> </pubmeta>
+  <pubtitle>
+    <mainpubtitle>DITA For Publishers User Guide</mainpubtitle>
+  </pubtitle>
+  <pubmeta>
+    <author>W. Eliot Kimber</author>
+    <keywords>
+      <keyword>Computers &amp; Internet</keyword>
+      <keyword>DITA</keyword>
+      <keyword>DITA for Publishers</keyword>
+      <keyword>Publishing</keyword>
+      <indexterm>Word<index-see>MS Word</index-see></indexterm>
+    </keywords>
+    <prodinfo>
+      <prodname>DITA For Publishers</prodname>
+      <vrmlist>
+        <vrm
+          version="0.9.19RC10"/>
+      </vrmlist>
+    </prodinfo>
+    <pubrights>
+      <copyrfirst>
+        <year>2010</year>
+      </copyrfirst>
+      <copyrlast>
+        <year>2013</year>
+      </copyrlast>
+      <pubowner>
+        <organization>DITA For Publishers</organization>
+      </pubowner>
+    </pubrights>
+  </pubmeta>
   <keydefs>
     <topicmeta>
       <navtitle>Key Definitions</navtitle>
@@ -21,8 +40,8 @@
   <publication>
     <covers>
       <epub-cover-graphic
-        href="d4p-users-guide/images/epub-cover-graphic.jpg"
-        format="jpg">
+        href="d4p-users-guide/images/epub-cover-graphic.png"
+        format="png">
         <topicmeta>
           <navtitle>Cover Graphic</navtitle>
         </topicmeta>
@@ -35,8 +54,10 @@
         href="d4p-users-guide/topics/about-this-book.xml"/>
       <topicref
         href="d4p-users-guide/release-notes/release-notes.xml">
-        <subsection
-          href="d4p-users-guide/release-notes/release-notes-0.9.17.xml"/>
+        <topicref
+          href="d4p-users-guide/release-notes/release-notes-0.9.19.xml"/>
+        <topicref
+          href="d4p-users-guide/release-notes/release-notes-0.9.18.xml"/>
         <subsection
           href="d4p-users-guide/release-notes/release-notes-0.9.16.xml"/>
         <subsection
@@ -67,8 +88,6 @@
           href="d4p-users-guide/tasks/plugin-installation.xml">
           <subsection
             href="d4p-users-guide/epub-plugin/setting-up-kindlegen.xml"/>
-          <subsection
-            href="d4p-users-guide/graphviz/setting-up-graphviz-plugin.xml"/>
         </chapter>
         <chapter
           href="d4p-users-guide/epub-plugin/generating-epubs.xml">
@@ -87,7 +106,18 @@
           <subsection
             href="d4p-users-guide/epub-plugin/epub-transtype-parameters-ref.xml">
             <topicref
-              href="d4p-users-guide/epub-plugin/reference/ant-parm-coverGraphicFile.xml"/>
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-argsCssOutputDir.xml"
+              keys="args.css.output.dir.refentry"
+              collection-type="sequence"/>
+            <topicref
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-coverGraphicFile.xml"
+              keys="ant-param_cover.graphic.file"/>
+            <topicref
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-d4pMaxNavDepth.xml"
+              keys="ant-param_d4p.max.nav.depth"/>
+            <topicref
+              href="d4p-users-guide/epub-plugin/reference/ant-parm-d4pMaxTocDepth.xml"
+              keys="ant-param_d4p.max.toc-depth"/>
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-epubIncludeAutoRellinks.xml"/>
             <topicref
@@ -98,8 +128,6 @@
               href="d4p-users-guide/epub-plugin/reference/ant-parm-imagesOutputDir.xml"/>
             <subsection
               href="d4p-users-guide/epub-plugin/reference/ant-parm-kindleGenExecutable.xml"/>
-            <subsection
-              href="d4p-users-guide/epub-plugin/reference/ant-parm-kindleArgs.xml"/>
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicClassSpec.xml"/>
             <topicref
@@ -107,6 +135,17 @@
             <topicref
               href="d4p-users-guide/epub-plugin/reference/ant-parm-topicsOutputDir.xml"/>
           </subsection>
+        </chapter>
+        <chapter
+          href="d4p-users-guide/map-driven-processing/map-driven-processing.xml">
+          <subsection
+            href="d4p-users-guide/map-driven-processing/data-collection.xml"/>
+          <subsection
+            href="d4p-users-guide/map-driven-processing/enumeration.xml"/>
+          <subsection
+            href="d4p-users-guide/map-driven-processing/index-generation.xml"/>
+          <subsection
+            href="d4p-users-guide/map-driven-processing/graphic-map-generation.xml"/>
         </chapter>
         <chapter
           href="d4p-users-guide/html2-plugin/html2-toolkit-plugin.xml">
@@ -129,33 +168,49 @@
               href="d4p-users-guide/html2-plugin/reference/ant-parm-generateStaticToc.xml"/>
           </subsection>
         </chapter>
+        <topicref
+          href="d4p-users-guide/html5-plugin/html5-plugin.ditamap"
+          format="ditamap"/>
         <chapter
           href="d4p-users-guide/word2dita/word-to-dita-plugin.xml"/>
-        <chapter
-          href="d4p-users-guide/map-driven-processing/map-driven-processing.xml">
-          <subsection
-            href="d4p-users-guide/map-driven-processing/collected-data-variable.xml">
-            <subsection
-              href="d4p-users-guide/map-driven-processing/enumerables-data-structure.xml"/>
-            <subsection
-              href="d4p-users-guide/map-driven-processing/index-terms-collected-data.xml"/>
-          </subsection>
-        </chapter>
-        <chapter
-          href="d4p-users-guide/graphviz/graph-visualization.xml"/>
       </part>
       <part
         href="d4p-users-guide/vocabulary-part/vocabulary-part.xml">
         <chapter
-          href="d4p-users-guide/vocabulary-part/d4p-vocabulary-concepts.xml"/>
-        <chapter
-          href="d4p-users-guide/vocabulary-part/domain-modules-overview.xml">
-          <subsection
-            href="d4p-users-guide/vocabulary-part/map-domains-overview.xml"/>
-          <subsection
-            href="d4p-users-guide/vocabulary-part/topic-domains-overview.xml"/>
-          <subsection
-            href="d4p-users-guide/vocabulary-part/rendition-target-att.xml"/>
+          href="d4p-users-guide/vocabulary-part/d4p-vocabulary-concepts.xml">
+          <topicref
+            href="../website/topics/specialization-modules-overview.xml">
+            <topicref
+              href="../website/topics/d4p-topic-types.xml"/>
+            <topicref
+              href="../website/topics/pubmap-domain.xml"/>
+            <topicref
+              href="d4p-users-guide/vocabulary-part/domain-modules-overview.xml"
+              collection-type="sequence">
+              <subsection
+                href="d4p-users-guide/vocabulary-part/map-domains-overview.xml"/>
+              <subsection
+                href="d4p-users-guide/vocabulary-part/topic-domains-overview.xml"/>
+              <topicref
+                href="../website/topics/classification-domain.xml"/>
+              <topicref
+                href="../website/topics/enumeration-domains.xml"/>
+              <topicref
+                href="../website/topics/formatting-domain.xml"/>
+              <topicref
+                href="../website/topics/pubcontent-domain.xml"/>
+              <subsection
+                href="d4p-users-guide/vocabulary-part/rendition-target-att.xml"/>
+              <topicref
+                href="../website/topics/ruby-domain.xml"/>
+              <subsection
+                href="../website/topics/variables-domain.xml"/>
+              <topicref
+                href="../website/topics/versie-domain.xml"/>
+              <topicref
+                href="../website/topics/xml-domain.xml"/>
+            </topicref>
+          </topicref>
         </chapter>
         <chapter
           href="d4p-users-guide/vocabulary-part/integrating-modules.xml">
@@ -206,11 +261,15 @@
           <subsection
             href="d4p-users-guide/dita2indesign/indesign-product-overview.xml"/>
           <subsection
+            href="d4p-users-guide/dita2indesign/generating-incopy-articles-from-topics.xml"/>
+          <subsection
             href="d4p-users-guide/dita2indesign/dita-to-indesign-plugin-usage.xml"/>
           <subsection
             href="d4p-users-guide/dita2indesign/generating-incopy-articles.xml">
             <subsection
               href="d4p-users-guide/dita2indesign/mapping-paragraphs-to-indesign-styles.xml"/>
+            <subsection
+              href="d4p-users-guide/dita2indesign/grouped-style-name-syntax.xml"/>
           </subsection>
           <subsection
             href="d4p-users-guide/dita2indesign/indesign-optimization.xml"/>

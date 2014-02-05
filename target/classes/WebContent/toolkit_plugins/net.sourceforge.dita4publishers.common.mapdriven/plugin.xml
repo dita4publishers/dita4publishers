@@ -1,0 +1,10 @@
+<plugin id="net.sourceforge.dita4publishers.common.mapdriven">
+  <!-- This plugin provides shared components used or usuable
+       by all map-driven-based transformation types (HTML2, EPUB, Kindle, etc.)
+       
+       This plugin does not define any transformation types.
+      -->
+      
+  <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
+      
+</plugin>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html2:collected-data xmlns:glossdata="http://dita4publishers.org/glossdata"
+                      xmlns:html2="http://dita4publishers.org/html2">
+   <index-terms:index-terms xmlns:index-terms="http://dita4publishers.org/index-terms">
+      <index-terms:ungrouped/>
+      <index-terms:grouped-and-sorted/>
+   </index-terms:index-terms>
+   <enum:enumerables xmlns:enum="http://dita4publishers.org/enumerables">
+  Heading 1Heading 1Sidebar ASidebar AHeading 2Heading 2Sidebar BSidebar BSidebar B’Sidebar B’Subtopic B.1Subtopic B.1Heading 3Heading 3Subtopic 3.1Subtopic 3.1Subtopic 3.1.1Subtopic 3.1.1Heading 4Heading 4
+</enum:enumerables>
+   <glossdata:glossary-entries/>
+  Heading 1Heading 1Sidebar ASidebar AHeading 2Heading 2Sidebar BSidebar BSidebar B’Sidebar B’Subtopic B.1Subtopic B.1Heading 3Heading 3Subtopic 3.1Subtopic 3.1Subtopic 3.1.1Subtopic 3.1.1Heading 4Heading 4
+</html2:collected-data>

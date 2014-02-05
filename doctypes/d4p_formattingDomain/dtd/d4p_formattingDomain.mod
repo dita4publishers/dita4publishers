@@ -5,31 +5,41 @@
      Defines specializations of p and ph for requesting specific
      formatting effects.
      
-     Copyright (c) 2009, 2010 DITA For Publishers
+     Copyright (c) 2009, 2012 DITA For Publishers
      
      ============================================================= -->
      
+ <!ENTITY % art-ph        "art-ph" >
  <!ENTITY % art           "art" >
  <!ENTITY % art_title     "art_title" >
- <!ENTITY % b-i          "b-i"                                      >
+ <!ENTITY % b-i           "b-i">
  <!ENTITY % br            "br" >
- <!ENTITY % b-sc         "b-sc"                                         >
+ <!ENTITY % b-sc          "b-sc">
+ <!-- d4pSidebarAnchor is the preferred spelling. -->
+ <!ENTITY % d4p_sidebar-anchor "d4p_sidebar-anchor" >
+ <!ENTITY % d4pSidebarAnchor "d4pSidebarAnchor" >
+ <!ENTITY % dropcap       "dropcap" >
  <!ENTITY % eqn_inline    "eqn_inline" >
  <!ENTITY % eqn_block     "eqn_block" >
  <!ENTITY % d4pMathML     "d4pMathML" >
  <!ENTITY % frac          "frac" >
  <!ENTITY % inx_snippet   "inx_snippet" >
  <!ENTITY % linethrough   "linethrough" >
- <!ENTITY % roman        "roman"                                      >
- <!ENTITY % sc           "sc"                                         >
+ <!ENTITY % roman         "roman">
+ <!ENTITY % sc            "sc">
  <!ENTITY % tab           "tab" >
      
 
 <!ENTITY % MATHML.prefixed "INCLUDE">
+<!--
+  NOTE: As of version 0.9.19, the mathML DTD is included
+        by the D4P Math domain. 
+        
 
 <!ENTITY % mathml2.dtd 
   SYSTEM "../../mathml2/dtd/mathml2.dtd"
 >%mathml2.dtd;
+-->
 
 <!-- ============================================================= -->
 <!--                   ELEMENT NAME ENTITIES                       -->
@@ -203,6 +213,29 @@
 <!ELEMENT art %art.content; >
 <!ATTLIST art %art.attributes; >
 
+<!ENTITY % art-ph.content
+"
+  ((%art_title;)?,
+   (%image; |
+    %object; |
+    %foreign;)*,
+   (%data;)*)
+">
+<!ENTITY % art-ph.attributes
+"
+  %id-atts;
+  %localization-atts;
+  base       
+    CDATA                            
+    #IMPLIED
+  %base-attribute-extensions;
+  outputclass 
+    CDATA                            
+    #IMPLIED    
+">
+<!ELEMENT art-ph %art-ph.content; >
+<!ATTLIST art-ph %art-ph.attributes; >
+
 <!ENTITY % art_title.content
 "
   (%ph.cnt;)*
@@ -294,6 +327,22 @@
 <!ELEMENT sc    %sc.content;>
 <!ATTLIST sc    %sc.attributes;>
 
+<!--                    LONG NAME: Drop Cap                     -->
+<!ENTITY % dropcap.content
+                       "(#PCDATA | 
+                         %basic.ph; | 
+                         %data.elements.incl; |
+                         %foreign.unknown.incl;)*"
+>
+<!ENTITY % dropcap.attributes
+             "%univ-atts; 
+              outputclass 
+                        CDATA 
+                                  #IMPLIED"
+>
+<!ELEMENT dropcap    %dropcap.content;>
+<!ATTLIST dropcap    %dropcap.attributes;>
+
 
 <!--                    LONG NAME: Bold Italic                     -->
 <!ENTITY % b-i.content
@@ -328,12 +377,31 @@
 <!ELEMENT b-sc    %b-sc.content;>
 <!ATTLIST b-sc    %b-sc.attributes;>
 
+<!ENTITY % d4p_sidebar-anchor.content
+                       "(%data.elements.incl;)*"
+>
+<!ENTITY % d4p_sidebar-anchor.attributes
+  "%xref.attributes;"
+>
+<!ELEMENT d4p_sidebar-anchor    %d4p_sidebar-anchor.content;>
+<!ATTLIST d4p_sidebar-anchor    %d4p_sidebar-anchor.attributes;>
+
+<!ENTITY % d4pSidebarAnchor.content
+                       "(%data.elements.incl;)*"
+>
+<!ENTITY % d4pSidebarAnchor.attributes
+  "%xref.attributes;"
+>
+<!ELEMENT d4pSidebarAnchor    %d4pSidebarAnchor.content;>
+<!ATTLIST d4pSidebarAnchor    %d4pSidebarAnchor.attributes;>
+
 
 <!-- ============================================================= -->
 <!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
 <!-- ============================================================= -->
 
-<!ATTLIST art              %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/art ">
+<!ATTLIST art-ph           %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/art-ph ">
+<!ATTLIST art              %global-atts;  class CDATA "+ topic/p     d4p-formatting-d/art ">
 <!ATTLIST art_title        %global-atts;  class CDATA "+ topic/data  d4p-formatting-d/art_title ">
 
 <!ATTLIST b-i              %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/b-i "  >
@@ -341,7 +409,10 @@
 <!ATTLIST b-sc             %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/b-sc "  >
 <!ATTLIST eqn_inline       %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/eqn_inline ">
 <!ATTLIST eqn_block        %global-atts;  class CDATA "+ topic/p     d4p-formatting-d/eqn_block ">
+<!ATTLIST d4p_sidebar-anchor %global-atts;  class CDATA "+ topic/xref d4p-formatting-d/d4p_sidebar-anchor ">
+<!ATTLIST d4pSidebarAnchor %global-atts;  class CDATA "+ topic/xref d4p-formatting-d/d4pSidebarAnchor ">
 <!ATTLIST d4pMathML        %global-atts;  class CDATA "+ topic/foreign d4p-formatting-d/d4pMathML ">
+<!ATTLIST dropcap          %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/dropcap "  >
 <!ATTLIST frac             %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/frac ">
 <!ATTLIST inx_snippet      %global-atts;  class CDATA "+ topic/foreign d4p-formatting-d/inx_snippet ">
 <!ATTLIST linethrough      %global-atts;  class CDATA "+ topic/ph    d4p-formatting-d/linethrough ">

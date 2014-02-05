@@ -5,7 +5,8 @@
   xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
   xmlns:local="urn:functions:local"
   xmlns="http://www.w3.org/1999/xhtml"
-  exclude-result-prefixes="xs xd local"
+  xmlns:m="http://www.w3.org/1998/Math/MathML"
+  exclude-result-prefixes="xs xd local m"
   version="2.0">
   <!-- Transform unnamespaced HTML docs into namespaced XHTML docs are required by the epub spec. 
   
@@ -34,6 +35,12 @@
     </xsl:element>
   </xsl:template>
 
+  <xsl:template mode="html2xhtml" match="math | m:math" xmlns="http://www.w3.org/1998/Math/MathML">
+    <xsl:element name="{name(.)}">
+      <xsl:apply-templates select="@*,node()" mode="#current"/>
+    </xsl:element>
+  </xsl:template>
+  
   <!-- <a> elements used for IDs are not used in XHTML -->
   <xsl:template match="a[@name and not(@href)]" priority="10" mode="html2xhtml"/>
   
@@ -56,7 +63,9 @@
         group-adjacent="local:getBlockOrInlineGroupingKey(.)">
         <xsl:choose>
           <xsl:when test="current-grouping-key() = 'inline'">
-            <p><xsl:apply-templates select="current-group()" mode="#current"/></p>
+            <xsl:if test="normalize-space(.) != '' and normalize-space(.) != ' '">
+              <p><xsl:apply-templates select="current-group()" mode="#current"/></p>
+            </xsl:if>
           </xsl:when>
           <xsl:otherwise>
             <xsl:apply-templates select="current-group()" mode="#current"/>
@@ -91,6 +100,34 @@
   <xsl:template  mode="html2xhtml" match="img/@width | img/@height" priority="100">
     <!--  Suppress for now because of issue with ImgUtils not working and generating
           bad values for height and width. -->
+    <xsl:variable name="length" as="xs:string" select="."/>
+    <xsl:choose>
+      <xsl:when test="starts-with($length, '-')">
+        <xsl:message> + [WARN] Value "<xsl:sequence select="$length"/>" for <xsl:sequence select="name(..)"/>/@<xsl:sequence select="name(.)"/> is negative. This reflects a bug in the Open Toolkit.</xsl:message>
+        <xsl:message> + [WARN]   Suppressing attribute in HTML output.</xsl:message>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="effectiveLength" as="xs:string"
+          select="if (matches($length, '[0-9]+'))
+          then concat($length, 'px')
+          else $length
+          "
+        />
+        <xsl:attribute name="{name(.)}" select="$effectiveLength"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
+  <xsl:template  mode="html2xhtml" match="video/@width" priority="20">
+    <xsl:copy/>  
+  </xsl:template>
+  
+  <xsl:template  mode="html2xhtml" match="script/@type" priority="30">
+  	<xsl:copy/>
+  </xsl:template>
+  
+  <xsl:template  mode="html2xhtml" match="@type[.='text/css']" priority="20">
+    <xsl:copy/>
   </xsl:template>
   
   <xsl:template  mode="html2xhtml" match="

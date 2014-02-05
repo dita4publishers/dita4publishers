@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE conversion_configuration PUBLIC "urn:pubid:dita4publishers.sf.net:doctypes:dita:conversion_configuration" "conversion_configuration.dtd">
+<conversion_configuration
+  id="topic-1">
+  <title/>
+  <conversion_configuration_body>
+    <section>
+      <title>Instructions and Notes</title>
+      <p>Set the @id attribute on the conversion_configuration element to a unique value. This ID is then what publication content assemblies specify to use a given configuration set.</p>
+    </section>
+    <word2xmlOptions>
+      <optionSet>
+        <option>
+          <optionName>option1</optionName>
+          <optionValue>option value</optionValue>
+        </option>
+      </optionSet>
+    </word2xmlOptions>
+    <xml2InDesignOptions>
+      <optionSet>
+        <option>
+          <optionName>option value map</optionName>
+          <optionValueMap>
+            <valueMap>
+              <valueMapEntry>
+                <valueKey>key1</valueKey>
+                <optionValue>value 1</optionValue>
+              </valueMapEntry>
+              <valueMapEntry>
+                <valueKey>key2</valueKey>
+                <optionValue>value 2</optionValue>
+              </valueMapEntry>
+              <valueMapEntry>
+                <valueKey>key3</valueKey>
+                <optionValue>value 3</optionValue>
+              </valueMapEntry>
+            </valueMap>
+          </optionValueMap>
+        </option>
+      </optionSet>
+    </xml2InDesignOptions>
+    <otherOptions>
+      <optionSet>
+        <option>
+          <optionName>option1</optionName>
+          <optionValue>option value</optionValue>
+        </option>
+      </optionSet>
+    </otherOptions>
+  </conversion_configuration_body>
+</conversion_configuration>

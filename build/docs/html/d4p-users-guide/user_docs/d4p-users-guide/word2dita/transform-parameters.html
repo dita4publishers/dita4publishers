@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="concept"></meta>
+<meta name="DC.Title" content="Word-to-DITA XSLT Transformation Parameters"></meta>
+<meta name="abstract" content="Required and optional parameters for the Word-to-DITA XSLT transformation"></meta>
+<meta name="description" content="Required and optional parameters for the Word-to-DITA XSLT transformation"></meta>
+<meta name="DC.subject" content="transformation parameters, word-to-dita transformation"></meta>
+<meta name="keywords" content="transformation parameters, word-to-dita transformation"></meta>
+<meta name="DC.Relation" scheme="URI" content="word2dita-intro.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="word-usage-tips.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="word2dita-ant-parameters.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC10"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="conceptId"></meta>
+<link rel="stylesheet" type="text/css" href="../../../commonltr.css"></link>
+<title>Word-to-DITA XSLT Transformation Parameters</title>
+</head>
+<body id="conceptId">
+
+
+ <h1 class="title topictitle1">Word-to-DITA XSLT Transformation Parameters</h1>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">Required and optional parameters for the Word-to-DITA XSLT transformation</p>
+
+    <p class="p">To run the docx2dita.xsl transformation outside the Toolkit use the XSLT parameters shown here.</p>
+
+    <div class="section"><h2 class="title sectiontitle">Required Parameters</h2>
+      
+      <dl class="dl parml">
+        
+          <dt class="dt pt dlterm">outputDir</dt>
+
+          <dd class="dd pd">The directory to put generated output in. Should be an absolute URL.</dd>
+
+        
+        
+          <dt class="dt pt dlterm">styleMapUri</dt>
+
+          <dd class="dd pd">The URI of the style-to-tag map to use. Should be specified as an absolute URL, e.g., "file://workspace/word2dita/xsl/mystyle-to-tag-map.xml".</dd>
+
+        
+      </dl>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Optional Parameters</h2>
+      
+      <dl class="dl parml">
+        
+          <dt class="dt pt dlterm">fileNamePrefix</dt>
+
+          <dd class="dd pd">The prefix to use for generated filenames other than subordinate maps. Default is "" (no prefix).</dd>
+
+        
+        
+          <dt class="dt pt dlterm">filterBr</dt>
+
+          <dd class="dd pd">When set to "true" filters out all literal break characters. If not specified, all literal breaks in the word document are preserved in the intermediate transform and, by default, in the resulting DITA XML (using the DITA4Publishers <code>&lt;br&gt;</code> element from the formatting domain).</dd>
+
+        
+        
+          <dt class="dt pt dlterm">filterTabs</dt>
+
+          <dd class="dd pd">When set to "true" filters out all literal tab characters. If not specified, all literal tabs in the word document are preserved in the intermediate transform and, by default, in the resulting DITA XML (using the DITA4Publishers <code>&lt;tab&gt;</code> element from the formatting domain).</dd>
+
+        
+        
+          <dt class="dt pt dlterm">includeWordBackPointers</dt>
+
+          <dd class="dd pd">When set to "true", the resulting DITA files include <code>@xtrc</code> attributes that contain XPath expressions that locate the Word paragraph element from which the DITA element was generated. Set to "false" to turn this off. Default is "true" (<code>@xtrc</code> attributes are generated).</dd>
+
+        
+        
+          <dt class="dt pt dlterm">includeWordBookmarks</dt>
+
+          <dd class="dd pd">When set to "true", the resulting DITA files include
+            <code>&lt;data&gt;</code> elements that reflect the bookmark start and
+            end markers. This can be useful in debugging cross reference
+            processing or other uses of bookmarks. The default is "false".</dd>
+
+        
+        
+          <dt class="dt pt dlterm">language</dt>
+
+          <dd class="dd pd">Specifies the value to use for the <code>@xml:lang</code>
+            attribute, e.g. "ja-JP". If not specified, the value "en-US" is
+            used.</dd>
+
+        
+        
+          <dt class="dt pt dlterm">mediaDirUri</dt>
+
+          <dd class="dd pd">The URI of the folder to put graphics in (determines the value of <code>@src</code> and <code>@href</code> attributes for generated graphic references). Default is "topics/media" under the main output directory.</dd>
+
+        
+        
+          <dt class="dt pt dlterm">rawPlatformString</dt>
+
+          <dd class="dd pd">The operating system platform as provided by the Ant os.name property. Default is "unknown".</dd>
+
+        
+        
+          <dt class="dt pt dlterm">rootMapName</dt>
+
+          <dd class="dd pd">The name (without extension) to use for the root map. Default is "rootmap".</dd>
+
+        
+        
+          <dt class="dt pt dlterm">rootMapUrl</dt>
+
+          <dd class="dd pd">The full filename the root map. Constructed from the <span class="keyword parmname">rootMapName</span> parameter by default.</dd>
+
+        
+        
+          <dt class="dt pt dlterm">rootTopicName</dt>
+
+          <dd class="dd pd">The name (without extension) to use for the root topic. Default is
+            the base name of the input DOCX file.</dd>
+
+        
+        
+          <dt class="dt pt dlterm">submapNamePrefix</dt>
+
+          <dd class="dd pd">The prefix to use for the filenames of generated submaps. Default is "map".</dd>
+
+        
+        
+          <dt class="dt pt dlterm">topicExtension</dt>
+
+          <dd class="dd pd">The filename extension to use for topics. Default is ".dita".</dd>
+
+        
+      </dl>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="word2dita-intro.html" title="The Word-to-DITA (Word2DITA) transformation framework enables the reliable generation of maps and topics form styled Word documents.">The Word-to-DITA Transformation Framework</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="word-usage-tips.html" title="Things you can or should do to make the transformation most effective">Tips for Using Word With the Word-to-DITA Transform</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="word2dita-ant-parameters.html" title="Ant parameters for the Word-to-DITA transformation type">Word-to-DITA Ant Parameters</a></div>
+</div>
+</div>
+
+</body>
+</html>

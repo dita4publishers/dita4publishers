@@ -79,6 +79,11 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pub-componen
          "../../base/dtd/indexingDomain.ent"                                                 
 >%indexing-d-dec;
 
+<!ENTITY % d4p_variables-d-dec     PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_variablesDomain:entities" 
+"d4p_variablesDomain.ent"                                                
+>
+%d4p_variables-d-dec;
 
 
 <!-- ============================================================= -->
@@ -127,10 +132,25 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pub-componen
                         ">
 
 <!ENTITY % data
-  "data | 
-   %d4p_simpleEnumeration-d-data;
+  "data |   
+   %d4p_simpleEnumeration-d-data; |
+   %d4p_variables-d-data;
   "
 >
+
+<!ENTITY % keyword
+  "keyword |
+   %d4p_variables-d-keyword;
+  "
+>
+                      
+<!ENTITY % text
+  "text |
+   %d4p_variables-d-text;
+  "
+>
+
+
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
@@ -184,6 +204,15 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pub-componen
 "pubmetadataDomain.mod"                                                        >
 %pubmeta-d-def;
 
+<!ENTITY % pub-component-map-type PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pub-component-map" 
+"pub-component-map.mod"                                                      >
+%pub-component-map-type;
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ELEMENT INTEGRATION                 -->
+<!-- ============================================================= -->
+
 <!ENTITY % d4p_enumerationMap-d-def     PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:modules:dita:modules:d4p_enumerationMap" 
 "d4p_enumerationMapDomain.mod"
@@ -197,20 +226,16 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pub-componen
 %d4p_simpleEnumeration-d-def;
 
 
-<!ENTITY % pub-component-map-type PUBLIC 
-"urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pub-component-map" 
-"pub-component-map.mod"                                                      >
-%pub-component-map-type;
-
-<!-- ============================================================= -->
-<!--                    DOMAIN ELEMENT INTEGRATION                 -->
-<!-- ============================================================= -->
-
 <!ENTITY % indexing-d-def     
   PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Indexing Domain//EN" 
          "../../base/dtd/indexingDomain.mod"                                                 
 >%indexing-d-def;
 
+<!ENTITY % d4p_variables-d-def    PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_variablesDomain" 
+"d4p_variablesDomain.mod"                                                
+>
+%d4p_variables-d-def;
 
 
 <!-- ================== End DITA pub-component-map DTD  ==================== -->

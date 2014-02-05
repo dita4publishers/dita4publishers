@@ -19,7 +19,7 @@
             <step>
                 <cmd>Unzip the plugin's Zip file into your Toolkit's <filepath>plugins</filepath> directory.</cmd>
         <stepresult>
-          <p>You should get one or more directories under <filepath>plugins</filepath> named like <filepath>net.sourceforge.dita4publishers.doctypes</filepath> or <filepath>net.sf.dita4publishers.graphviz</filepath>.</p>
+          <p>You should get one or more directories under <filepath>plugins</filepath> named like <filepath>net.sourceforge.dita4publishers.doctypes</filepath>.</p>
         </stepresult>
             </step>
       <step>
@@ -52,7 +52,6 @@ Total time: 0 seconds</codeblock></p>
         </steps>
     <result>
       <p>The plugins should be ready to use.</p>
-      <note>Some plugins require third-party tools that must be acquired and installed separately.</note>
     </result>
     </taskbody>
 </task>

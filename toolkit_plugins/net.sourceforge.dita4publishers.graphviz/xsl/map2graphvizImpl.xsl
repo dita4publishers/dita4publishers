@@ -9,7 +9,7 @@
   xmlns:glossdata="http://dita4publishers.org/glossdata"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:html2="http://dita4publishers.org/html2"
-  xmlns:gv="http://dita4publishers.sf.net/functions/graphviz"
+  xmlns:gv="http://dita4publishers.sourceforge.net/functions/graphviz"
 
   exclude-result-prefixes="xs xd df relpath html2 gv enum index-terms"
   version="2.0">
@@ -31,9 +31,9 @@
        
        ============================================================== -->
 
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.mapdriven/xsl/indexProcessing.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/indexProcessing.xsl"/>
   
   <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
   
@@ -80,7 +80,7 @@
   
   <xsl:template match="/">
     
-    <xsl:call-template name="report-parameters"/>
+    <xsl:apply-templates select="." mode="report-parameters"/>
     
     <xsl:apply-templates>
       <xsl:with-param name="rootMapDocUrl" select="document-uri(.)" as="xs:string" tunnel="yes"/>
@@ -140,7 +140,7 @@
     
   </xsl:template>
    
-  <xsl:template name="report-parameters">
+  <xsl:template name="report-parameters" match="*" mode="report-parameters">
     <xsl:message> 
       ==========================================
       Plugin version: ^version^ - build ^buildnumber^ at ^timestamp^

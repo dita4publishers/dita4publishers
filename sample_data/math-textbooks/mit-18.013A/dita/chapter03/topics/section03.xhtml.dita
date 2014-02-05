@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e56"><title>3.3 The Dot Product</title><body><p>
+Given two vectors 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ whose components are elements of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℝ</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, with the same number of components, we define their
+<b>dot product,</b>
+written as 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>·</m:mo><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+<b> or
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>,</m:mo><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>
+</b>
+as
+<b>the sum of the products of corresponding components: <i>
+    <d4p_eqn_inline>
+      <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mstyle displaystyle="true"><m:munder><m:mo maxsize="3">∑</m:mo><m:mi>i</m:mi></m:munder></m:mstyle><m:mrow><m:msub><m:mi>v</m:mi><m:mi>i</m:mi></m:msub><m:msub><m:mi>w</m:mi><m:mi>i</m:mi></m:msub></m:mrow></m:mrow></m:math></d4p_MathML>
+    </d4p_eqn_inline>.</i>
+</b>
+</p><p>
+<b>Obvious facts:</b>
+the dot product is linear in 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and in 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and is symmetric between them.
+</p><p>
+We define the
+<b>length of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>
+</b>
+to be the positive square root of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>,</m:mo><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+; the
+<b>length of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>
+</b>
+is usually denoted by 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mrow><m:mo>|</m:mo><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow><m:mo>|</m:mo></m:mrow></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+<b>Wonderful Fact: the dot product is invariant under rotation of coordinates.</b>
+</p><p>
+<b>Exercises 3.1 Prove this statement. <ph outputclass="a">Solution</ph>
+</b>
+</p><p>
+As a consequence of this fact, in evaluating 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>·</m:mo><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, we can rotate coordinates so that the first basis vector is in the direction of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and the second one is perpendicular to it in the plane of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+<b>Then
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> will have first two coordinates
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mrow><m:mo>(</m:mo><m:mrow><m:mrow><m:mo>|</m:mo><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow><m:mo>|</m:mo></m:mrow><m:mo>,</m:mo><m:mn>0</m:mn></m:mrow><m:mo>)</m:mo></m:mrow></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and if the angle between
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> is
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>θ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>,
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> will have
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mrow><m:mo>(</m:mo><m:mrow><m:mrow><m:mo>|</m:mo><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow><m:mo>|</m:mo></m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi><m:mo>,</m:mo><m:mrow><m:mo>|</m:mo><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow><m:mo>|</m:mo></m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow><m:mo>)</m:mo></m:mrow></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> as its similarly defined coordinates.<br/>
+The dot product
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>·</m:mo><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>
+</b>
+therefore is 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mrow><m:mo>|</m:mo><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow><m:mo>|</m:mo></m:mrow><m:mrow><m:mo>|</m:mo><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow><m:mo>|</m:mo></m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, in this coordinate system (that is, with these basis vectors), and hence in any coordinate system obtained by rotations from it.
+</p><p>
+The fact that
+<b>the dot product is linear in each of its arguments</b>
+is extremely important and valuable. It means that you can apply
+<b>the distributive 
+  law</b>
+in either argument to express the dot product of a sum or difference as the sum or difference of the dot products.
+</p><p>
+<ph outputclass="a">
+  <b>Example</b>
+</ph>
+</p><p>
+<b>
+  <ph outputclass="a"/>Exercises 3.2 Express
+    the square of the area of a parallelogram with sides
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> in terms of dot products. <ph outputclass="a">Solution</ph>
+</b>
+</p><p>
+<i>
+  <ph outputclass="a"/>
+</i>
+The dot product of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ divided by the magnitude of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, which is
+<b>
+  <d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mrow><m:mo>|</m:mo><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow><m:mo>|</m:mo></m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>
+</b>
+, is called
+<b>the component of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> in the direction of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>.</b>
+</p><p>
+The vector in the 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ direction having magnitude and sign of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mrow><m:mo>|</m:mo><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow><m:mo>|</m:mo></m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>θ</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is called
+<b>the projection of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> on
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>.</b>
+</p><p>
+The vector obtained by subtracting the projection of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ on 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ from 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is called
+<b>the projection of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> perpendicular to
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>
+</b>
+or normal to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. (By definition this projection has zero component in the direction of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, and is therefore normal to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.)
+</p><p>
+<b>Exercises:</b>
+</p><p>
+<b>3.3 Express the square of the component of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> in the direction of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> in terms of dot products. <ph outputclass="a">Solution</ph>
+</b>
+</p><p>
+<b>3.4 Express the component of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> perpendicular to
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> in terms of dot products. 
+  <ph outputclass="a">Solution</ph>
+</b>
+</p><p>
+<b>
+  <ph outputclass="a"/>3.5 Write out  
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>−</m:mo><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo><m:mo>·</m:mo><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>−</m:mo><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> using the linearity of the dot product in each of its arguments. What famous 
+  law does this establish? <ph outputclass="a">Solution</ph>
+</b>
+</p><p>
+<b>3.6 Express the projection of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> on
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> in terms of dot products and the vector
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>w</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>. <ph outputclass="a">Solution</ph>
+</b>
+</p><p>
+ 
+</p><p>
+<ph outputclass="a"/>
+<object classid="java:OperationsOnVectors.class" width="760" height="450">
+  <param name="archive" value="operationsOnVectors.jar, mk_lib.jar, parser_math.jar, jcbwt363.jar" valuetype="data"/>
+  <param name="codebase" value="../applets/" valuetype="data"/>
+</object>
+</p></body></topic>

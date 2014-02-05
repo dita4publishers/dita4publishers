@@ -12,10 +12,6 @@
   
   exclude-result-prefixes="local xs df xsl relpath kindleutil index-terms gmap">
 
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="kindle-generation-utils.xsl"/>
-
   <xsl:template match="*[df:class(., 'map/map')]" mode="additional-graphic-refs">
     <xsl:variable name="coverGraphicUri" select="local:getKindleCoverGraphicSourceUri(.)" as="xs:string"/>
     <gmap:graphic-ref href="{$coverGraphicUri}" filename="{relpath:getName($coverGraphicUri)}"/>

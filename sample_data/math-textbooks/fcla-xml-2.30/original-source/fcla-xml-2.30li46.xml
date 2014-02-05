@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" > 
+<?xml-stylesheet type="text/css" href="fcla-xml-2.30.css"?> 
+<html  
+xmlns="http://www.w3.org/1999/xhtml"  
+><head><title>Chapter E  Eigenvalues</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- html,xhtml,mozilla,3 --> 
+<meta name="src" content="fcla-xml-2.30.tex" /> 
+<meta name="date" content="2011-12-23 18:20:00" /> 
+<link rel="stylesheet" type="text/css" href="fcla-xml-2.30.css" /> 
+</head><body 
+>
+   <!--l. 436--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li50.xml" >next</a>] [<a 
+href="fcla-xml-2.30li43.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li43.xml#tailfcla-xml-2.30li43.xml" >prev-tail</a>] [<a 
+href="#tailfcla-xml-2.30li46.xml">tail</a>] [<a 
+href="fcla-xml-2.30li14.xml#fcla-xml-2.30li46.xml" >up</a>] </p></div>
+   <h2 class="likechapterHead"><a 
+ id="x47-216000"></a>Chapter E&#x00A0;&#x00A0;Eigenvalues</h2>
+<!--l. 436--><p class="noindent" ><a 
+ id="chapter.E"></a> <a 
+ id="x47-216000doc"></a><a 
+ id="dx47-216001"></a>
+</p><!--l. 10--><p class="indent" >   When we have a square matrix of size
+<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi></math>,
+<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>, and we multiply
+it by a vector <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>x</mi></math>
+from <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>&#x2102;</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+></math>
+to form the matrix-vector product (<a 
+href="fcla-xml-2.30li31.xml#definition.MVP">Definition&#x00A0;MVP</a>), the result is another vector
+in <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>&#x2102;</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+></math>.
+So we can adopt a functional view of this computation &#x2014; the act of
+multiplying by a square matrix is a function that converts one vector
+(<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>x</mi></math>) into
+another one (<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi><mi 
+>x</mi></math>)
+of the same size. For some vectors, this seemingly complicated computation is really
+no more complicated than scalar multiplication. The vectors vary according to the
+choice of <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>,
+so the question is to determine, for an individual choice of
+<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>, if
+there are any such vectors, and if so, which ones. It happens in a variety of
+situations that these vectors (and the scalars that go along with them) are of
+special interest.
+</p><!--l. 12--><p class="indent" >   We will be solving polynomial equations in this chapter, which raises the
+specter of roots that are complex numbers. This distinct possibility is our main
+reason for entertaining the complex numbers throughout the course. You might be
+moved to revisit <a 
+href="fcla-xml-2.30li69.xml#section.CNO">Section&#x00A0;CNO</a> and <a 
+href="fcla-xml-2.30li28.xml#section.O">Section&#x00A0;O</a>.
+</p>
+   <div class="likesectionTOCS">
+                                                                          
+
+                                                                          
+   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li47.xml#x48-217000">Section EE Eigenvalues and Eigenvectors</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li47.xml#x48-218000" id="QQ2-48-218">Subsection EEM: Eigenvalues and Eigenvectors of a Matrix</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li47.xml#x48-219000" id="QQ2-48-219">Subsection PM: Polynomials and Matrices</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li47.xml#x48-220000" id="QQ2-48-220">Subsection EEE: Existence of Eigenvalues and Eigenvectors</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li47.xml#x48-221000" id="QQ2-48-221">Subsection CEE: Computing Eigenvalues and Eigenvectors</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li47.xml#x48-222000" id="QQ2-48-222">Subsection ECEE: Examples of Computing Eigenvalues and
+Eigenvectors</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li47.xml#x48-223000" id="QQ2-48-223">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li47.xml#x48-224000" id="QQ2-48-224">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li47.xml#x48-225000" id="QQ2-48-225">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li48.xml#x49-226000">Section PEE Properties of Eigenvalues and Eigenvectors</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li48.xml#x49-227000" id="QQ2-49-227">Subsection ME: Multiplicities of Eigenvalues</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li48.xml#x49-228000" id="QQ2-49-228">Subsection EHM: Eigenvalues of Hermitian Matrices</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li48.xml#x49-229000" id="QQ2-49-229">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li48.xml#x49-230000" id="QQ2-49-230">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li48.xml#x49-231000" id="QQ2-49-231">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li49.xml#x50-232000">Section SD Similarity and Diagonalization</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li49.xml#x50-233000" id="QQ2-50-233">Subsection SM: Similar Matrices</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li49.xml#x50-234000" id="QQ2-50-234">Subsection PSM: Properties of Similar Matrices</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li49.xml#x50-235000" id="QQ2-50-235">Subsection D: Diagonalization</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li49.xml#x50-236000" id="QQ2-50-236">Subsection FS: Fibonacci Sequences</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li49.xml#x50-237000" id="QQ2-50-237">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li49.xml#x50-238000" id="QQ2-50-238">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li49.xml#x50-239000" id="QQ2-50-239">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li49.xml#x50-240000" id="QQ2-50-240">Annotated Acronyms E: Eigenvalues</a></span>
+   </div>
+
+
+                                                                          
+
+                                                                          
+   <!--l. 451--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li50.xml" >next</a>] [<a 
+href="fcla-xml-2.30li43.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li43.xml#tailfcla-xml-2.30li43.xml" >prev-tail</a>] [<a 
+href="fcla-xml-2.30li46.xml" >front</a>] [<a 
+href="fcla-xml-2.30li14.xml#fcla-xml-2.30li46.xml" >up</a>] </p></div>
+<!--l. 451--><p class="indent" >   <a 
+ id="tailfcla-xml-2.30li46.xml"></a> </p> 
+</body> 
+</html> 

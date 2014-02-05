@@ -8,7 +8,8 @@
   xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"
   xmlns:gmap="http://dita4publishers/namespaces/graphic-input-to-output-map"  
   xmlns="http://www.idpf.org/2007/opf"
-  exclude-result-prefixes="df xs relpath htmlutil gmap"
+  xmlns:local="urn:functions:local"
+  exclude-result-prefixes="df xs relpath htmlutil gmap local"
   >
 
   <!-- Convert a DITA map to an EPUB content.opf file. 
@@ -45,7 +46,7 @@
     <xsl:message> + [INFO] Generating OPF file "<xsl:sequence select="$resultUri"/>"...</xsl:message>
     
     <xsl:variable name="uniqueTopicRefs" as="element()*" select="df:getUniqueTopicrefs(.)"/>
-    
+        
     <xsl:result-document format="opf" href="{$resultUri}">
       <package xmlns="http://www.idpf.org/2007/opf"
         xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -64,7 +65,14 @@
           
           <dc:language id="language"><xsl:sequence select="$lang"/></dc:language>
           
-          <xsl:apply-templates select="*[df:class(., 'map/topicmeta')]" mode="bookid"/>
+          <xsl:choose>
+            <xsl:when test="*[df:class(., 'map/topicmeta')]">
+              <xsl:apply-templates select="*[df:class(., 'map/topicmeta')]" mode="bookid"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <dc:identifier id="bookid">no-bookid-value</dc:identifier>
+            </xsl:otherwise>
+          </xsl:choose>
           
           <!-- Remaining metadata fields optional, so 
             their tags only get output if values exist. -->
@@ -81,6 +89,11 @@
             " 
             mode="generate-opf"/>
           
+          <!-- NOTE: keywords can be directly in topicmeta or in metadata under topicmeta -->
+          <xsl:apply-templates mode="generate-opf"
+            select="*[df:class(., 'map/topicmeta')]//*[df:class(., 'topic/keywords')]"
+          />
+          
           <xsl:if test="$effectiveCoverGraphicUri != ''">
             <meta name="cover" content="{$coverImageId}"/>
           </xsl:if>
@@ -94,6 +107,7 @@
           <!-- List the XHTML files -->
           <xsl:apply-templates mode="manifest" select="$uniqueTopicRefs"/>
           <xsl:apply-templates select=".//*[df:isTopicHead(.)]" mode="manifest"/>
+          <xsl:apply-templates select=".//*[local:includeTopicrefInManifest(.)]" mode="manifest"/>
           <!-- Hook for extension points: -->
           <xsl:apply-templates select="." mode="generate-opf-manifest-extensions"/>
           <!-- List the images -->
@@ -103,31 +117,50 @@
           <xsl:if test="$CSS != ''">
             <opf:item id="{$CSS}" href="{$cssOutputDir}/{$CSS}" media-type="text/css"/>
           </xsl:if>
-          <xsl:if test="$generateHtmlTocBoolean">
-            <xsl:variable name="tocId" select="concat('html-toc_', generate-id(.))" as="xs:string"/>
-            <xsl:variable name="htmlTocUrl" as="xs:string" 
-        select="relpath:newFile($topicsOutputPath, concat($tocId, $OUTEXT))"/>
-            <opf:item id="{$tocId}" href="{$htmlTocUrl}" media-type="text/html"/>
+          <xsl:if test="$generateIndexBoolean">
+            <opf:item id="generated-index" href="generated-index.html" media-type="application/xhtml+xml"/>
           </xsl:if>
         </manifest>
         
         <spine toc="ncx">
-          <xsl:if test="$generateHtmlTocBoolean">
-            <xsl:variable name="tocId" select="concat('html-toc_', generate-id(.))" as="xs:string"/>
-            <xsl:variable name="htmlTocUrl" as="xs:string" 
-        select="relpath:newFile($topicsOutputPath, concat($tocId, $OUTEXT))"/>
-            <opf:itemref idref="{$tocId}"/>
+          
+          <xsl:apply-templates mode="spine" 
+            select="($uniqueTopicRefs | 
+            .//*[df:isTopicHead(.)]) | 
+            .//*[local:includeTopicrefInSpine(.)]"
+          />
+          <xsl:if test="$generateIndexBoolean">
+            <opf:itemref idref="generated-index"/>
           </xsl:if>
           
-          <xsl:apply-templates mode="spine" select="($uniqueTopicRefs | .//*[df:isTopicHead(.)])"/>
-          
-          <!-- Hook for extension points: -->
-          <xsl:apply-templates select="." mode="spine-extensions"/>
         </spine>
+        
+          <guide>
+            <xsl:apply-templates mode="guide"  select=".">
+              <xsl:with-param name="uniqueTopicRefs" as="element()*" 
+                select="$uniqueTopicRefs" tunnel="yes"/>
+            </xsl:apply-templates>            
+          </guide>
         
       </package>
     </xsl:result-document>  
     <xsl:message> + [INFO] OPF file generation done.</xsl:message>
+  </xsl:template>
+  
+  <xsl:template mode="guide" match="*[df:class(., 'map/map')]">
+    <xsl:param name="uniqueTopicRefs" as="element()*" tunnel="yes"/>
+    <!-- FIXME: Generate a guide entry for the cover page -->            
+    <!--<reference type="cover" title="Cover Page" href="${frontCoverUri}"/>-->
+    <xsl:apply-templates mode="#current" 
+      select="*[df:class(., 'map/topicref')][not(@processing-role = 'resource-only')]"
+    />
+    
+  </xsl:template>
+  
+  <xsl:template mode="guide" match="text()"/>
+  
+  <xsl:template mode="guide" match="*[df:class(., 'map/topicref')]">
+    <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicref')][not(@processing-role = 'resource-only')]"/>
   </xsl:template>
   
   <xsl:template mode="generate-opf-manifest-extensions" match="*[df:class(., 'map/map')]">
@@ -233,11 +266,16 @@
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
     <xsl:choose>
       <xsl:when test="not($topic)">
-        <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
+        <xsl:message> + [WARNING] manifest: Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, root($topic))" as="xs:string"/>
         <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
+        <xsl:if test="false()">          
+          <xsl:message> + [DEBUG] map2epubOpfImpl: outdir="<xsl:sequence select="$outdir"/>"</xsl:message>
+          <xsl:message> + [DEBUG] map2epubOpfImpl: targetUri="<xsl:sequence select="$targetUri"/>"</xsl:message>
+          <xsl:message> + [DEBUG] map2epubOpfImpl: relativeUri="<xsl:sequence select="$relativeUri"/>"</xsl:message>
+        </xsl:if>        
         <opf:item id="{generate-id()}" href="{$relativeUri}"
               media-type="application/xhtml+xml"/>
       </xsl:otherwise>
@@ -381,7 +419,21 @@
     </xsl:choose>
     
   </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/keywords')]" mode="generate-opf">
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] generate-opf: handling topic/keywords</xsl:message>
+    </xsl:if>
+    <xsl:apply-templates select="*[df:class(., 'topic/keyword')]" mode="#current"/>
+  </xsl:template>
 
+  <xsl:template match="*[df:class(., 'topic/keyword')]" mode="generate-opf">
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] generate-opf: handling topic/keyword</xsl:message>
+    </xsl:if>
+    <dc:subject><xsl:apply-templates/></dc:subject>
+  </xsl:template>
+  
   <xsl:template match="*[df:class(., 'topic/data') and @name = 'opf-metadata']" mode="generate-opf">
     <xsl:apply-templates select="*[df:class(., 'topic/data')]" mode="generate-opf-metadata"/>
   </xsl:template>
@@ -418,6 +470,7 @@
       <xsl:attribute name="media-type">
         <xsl:choose>
           <xsl:when test="$imageExtension = 'jpg'"><xsl:sequence select="'image/jpeg'"/></xsl:when>
+          <xsl:when test="$imageExtension = 'jpeg'"><xsl:sequence select="'image/jpeg'"/></xsl:when>
           <xsl:when test="$imageExtension = 'gif'"><xsl:sequence select="'image/gif'"/></xsl:when>
           <xsl:when test="$imageExtension = 'png'"><xsl:sequence select="'image/png'"/></xsl:when>
           <xsl:otherwise>
@@ -429,5 +482,37 @@
     </opf:item>
   </xsl:template>
   
-  <xsl:template match="text()" mode="generate-opf manifest"/>
+  <xsl:function name="local:includeTopicrefInSpine" as="xs:boolean">
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="test">
+      <xsl:apply-templates select="$context" mode="include-topicref-in-spine"/>
+    </xsl:variable>
+    <xsl:variable name="result" as="xs:boolean" select="$test = 'true'"/>
+    <xsl:if test="$result">
+      <xsl:message> + [DEBUG] local:includeTopicrefInSpine: Including element "<xsl:sequence select="name($context)"/>" in spine.</xsl:message>
+    </xsl:if>
+    <xsl:sequence select="$result"/>
+  </xsl:function>  
+  
+  <xsl:function name="local:includeTopicrefInManifest" as="xs:boolean">
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="test">
+      <xsl:apply-templates select="$context" mode="include-topicref-in-manifest"/>
+    </xsl:variable>
+    <xsl:variable name="result" as="xs:boolean" select="$test = 'true'"/>
+    <xsl:if test="$result">
+      <xsl:message> + [DEBUG] local:includeTopicrefInSpine: Including element "<xsl:sequence select="name($context)"/>" in manifest.</xsl:message>
+    </xsl:if>
+    <xsl:sequence select="$result"/>
+  </xsl:function>  
+  
+  <xsl:template mode="include-topicref-in-spine" match="*">
+    <!-- Do nothing, don't explicitly include by default. -->
+  </xsl:template>
+  
+  <xsl:template mode="include-topicref-in-manifest" match="*">
+    <!-- Do nothing, don't explicitly include by default. -->
+  </xsl:template>
+  
+  <xsl:template match="text()" mode="generate-opf manifest guide include-topicref-in-manifest include-topicref-in-spine"/>
 </xsl:stylesheet>

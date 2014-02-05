@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e55"><title>Exercise 2.14</title><body><p>
+<b>Deduce from these two equations that for
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> to any base we have</b>
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo><m:mi>a</m:mi><m:mi>b</m:mi><m:mo>=</m:mo><m:mi>log</m:mi><m:mo>⁡</m:mo><m:mi>a</m:mi><m:mo>+</m:mo><m:mi>log</m:mi><m:mo>⁡</m:mo><m:mi>b</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+Solution:
+</p><p>
+Suppose we want to prove this for logarithms to base 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>c</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. We deduced in the previous exercise that we can write 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mrow><m:mi>log</m:mi><m:mo>⁡</m:mo></m:mrow><m:mi>c</m:mi></m:msub><m:mi>x</m:mi><m:mo>=</m:mo><m:mfrac><m:mrow><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow><m:mrow><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>c</m:mi></m:mrow></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+Applying this fact to each logarithm here, the result we want to prove is the same result for natural logarithms, with each term divided by 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>c</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+In other words, the corresponding result for natural logarithms, which we proved in the previous exercise, implies this one on dividing each term by 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>ln</m:mi><m:mo>⁡</m:mo><m:mi>c</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, and using the fact just mentioned.
+</p></body></topic>

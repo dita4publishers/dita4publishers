@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="concept"></meta>
+<meta name="DC.Title" content="Graphic Map Generation"></meta>
+<meta name="abstract" content="The map-driven processing generates an Ant script that copies graphics from their source locations to the output location."></meta>
+<meta name="description" content="The map-driven processing generates an Ant script that copies graphics from their source locations to the output location."></meta>
+<meta name="DC.Relation" scheme="URI" content="map-driven-processing.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="index-generation.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC10"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="conceptId"></meta>
+<link rel="stylesheet" type="text/css" href="../../../commonltr.css"></link>
+<title>Graphic Map Generation</title>
+</head>
+<body id="conceptId">
+
+
+ <h1 class="title topictitle1">Graphic Map Generation</h1>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">The map-driven processing generates an Ant script that copies
+    graphics from their source locations to the output location.</p>
+
+   <p class="p">Because the map-driven processing allows you to change the output
+      organization of the generated files, references to graphics in the source
+      DITA XML do not translate directly to graphic references in the output. To
+      address this, the map-driven process finds all graphic references in the
+      input data (including graphics referenced from DITAVAL files), constructs
+      an input-to-output location map, and generates an Ant script that copies
+      the source graphics to their output location. As part of output
+      generation, references to graphics are rewritten to reflect their output
+      location.</p>
+
+    <p class="p">The graphic map generation is implemented in the module
+      <span class="ph filepath">net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMap.xsl</span>.
+      You can extend the default processing to provide mapping for any graphics
+      that are not represented by normal DITA markup, such as covers determined
+      by run-time parameters or branding graphics defined separately or
+      whatever.</p>
+
+    <p class="p">The map generation is done in two phases. </p>
+
+    <div class="p">The first phase is mode "get-graphic-refs", which is applied to the map,
+      all topics, and the DITAVAL file, if specified. It results in a set of
+      graphic reference elements of the
+      form:<pre class="pre codeblock"> &lt;gmap:graphic-ref 
+   href="{absoluteUrl of source graphic}" 
+   filename="{filename of the graphic}"
+ /&gt;</pre>
+</div>
+
+    <p class="p">One <code>&lt;graphic-ref&gt;</code> element should be generated for each
+      graphic reference in the source.</p>
+
+    <div class="p">The second phase processes all the <code>&lt;graphic-ref&gt;</code>
+      elements to determine the set of unique graphics used. This process
+      results in the graphic map, which looks like
+      this:<pre class="pre codeblock">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;gmap:graphic-map
+  xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+  xmlns:gmap="http://dita4publishers/namespaces/graphic-input-to-output-map"&gt;
+  &lt;gmap:graphic-map-item
+    input-url="/Users/ekimber/workspace_37/dita4publishers_0.9.19_clean/sample_data/flagging-test/ditavals/graphics/windows-icon.jpg"
+    output-url="file:/Users/ekimber/workspace_37/dita4publishers_0.9.19_clean/sample_data/flagging-test/html5/images/windows-icon.jpg"
+    id="d82e1"/&gt;
+  &lt;gmap:graphic-map-item
+    input-url="file:/Users/ekimber/workspace_37/dita4publishers_0.9.19_clean/sample_data/flagging-test/ditavals/graphics/windows-icon.jpg"
+    output-url="file:/Users/ekimber/workspace_37/dita4publishers_0.9.19_clean/sample_data/flagging-test/html5/images/windows-icon-2.jpg"
+    id="d82e2"/&gt;
+  &lt;gmap:graphic-map-item
+    input-url="file:/Users/ekimber/workspace_37/dita4publishers_0.9.19_clean/sample_data/flagging-test/ditavals/graphics/osx-icon.jpg"
+    output-url="file:/Users/ekimber/workspace_37/dita4publishers_0.9.19_clean/sample_data/flagging-test/html5/images/osx-icon.jpg"
+    id="d82e3"/&gt;
+&lt;/gmap:graphic-map&gt;</pre>
+</div>
+
+    <p class="p">The graphic map may then be passed as a parameter to subsequent
+      processing and is used to generate the
+      <span class="ph filepath">copy-graphics.xml</span> Ant script (mode
+      "generate-graphic-copy-ant-script" implemented in module
+      <span class="ph filepath">net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl</span>).</p>
+
+    <p class="p">Image URLs are rewritten during initial topic processing using the mode
+      "href-fixup" implemented in the module
+      <span class="ph filepath">net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl</span>.
+      URLs are rewritten to reflect the output location of the images so that
+      the default HTML output processing will automatically construct the
+      correct URL for the images.</p>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="map-driven-processing.html" title="Using and extending the DITA for Publishers map-driven processing framework">Map-Driven Processing</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="index-generation.html" title="Overview of using the grouped and sorted index entries in the collected data to do index generation.">Index Generation</a></div>
+</div>
+</div>
+
+</body>
+</html>

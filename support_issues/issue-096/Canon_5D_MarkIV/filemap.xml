@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<filemap sourcebasepath="C:\ditaprojects\Canon_5D_MarkIV" dita2trisoft="10.1.0.0">
+  <file id="GUID-550C981E-FFE7-487D-9089-4EB357C8E553" targetfolder="Tutorials\Camera Manual\topics" title="Specifications" filetype="ISHModule" filepath="Specifications.dita" filename="Specifications.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-550C981E-FFE7-487D-9089-4EB357C8E553" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Specifications</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-38BC75F1-241E-4B12-98DD-0039E7C9E589" targetfolder="Tutorials\Camera Manual\topics" title="Physical Specifications" filetype="ISHModule" filepath="Specifications_Physical.dita" filename="Specifications_Physical.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-38BC75F1-241E-4B12-98DD-0039E7C9E589" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Physical Specifications</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-9DF0E94B-98AD-4243-9B6C-4C61BAE1F46F" targetfolder="Tutorials\Camera Manual\topics" title="Cautions During Prolonged Use" filetype="ISHModule" filepath="ProlongedUse.dita" filename="ProlongedUse.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-9DF0E94B-98AD-4243-9B6C-4C61BAE1F46F" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Cautions During Prolonged Use</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-CD7DBA54-17B0-4747-8BCA-75C934A7A1C3" targetfolder="Tutorials\Camera Manual\topics" title="Advanced Features" filetype="ISHModule" filepath="AdvancedFeatures.dita" filename="AdvancedFeatures.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-CD7DBA54-17B0-4747-8BCA-75C934A7A1C3" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Advanced Features</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-A48B899A-7F60-4537-87D0-0085F0A8BC57" targetfolder="Tutorials\Camera Manual\topics" title="Handling Precautions" filetype="ISHModule" filepath="HandlingPrecautions.dita" filename="HandlingPrecautions.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-A48B899A-7F60-4537-87D0-0085F0A8BC57" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Handling Precautions</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-9320584F-C398-45A4-915D-302D66ABCC1A" targetfolder="Tutorials\Camera Manual\topics" title="Intelligent Viewfinder" filetype="ISHModule" filepath="IntelligentViewfinder.dita" filename="IntelligentViewfinder.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-9320584F-C398-45A4-915D-302D66ABCC1A" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Intelligent Viewfinder</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-5112CBDC-8EF2-4BA9-BEBD-CFF3092B0155" targetfolder="Tutorials\Camera Manual\maps" title="Using Flash" filetype="ISHMasterDoc" filepath="Ch_UsingFlash.ditamap" filename="Ch_UsingFlash.ditamap" fileextension=".ditamap" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-5112CBDC-8EF2-4BA9-BEBD-CFF3092B0155" ishtype="ISHMasterDoc">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Using Flash</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-EDE7E526-F839-44E7-8ADF-558BDC28FF6C" targetfolder="Tutorials\Camera Manual\topics" title="Preface" filetype="ISHModule" filepath="Preface.dita" filename="Preface.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-EDE7E526-F839-44E7-8ADF-558BDC28FF6C" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Preface</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-FF271832-65FF-4F46-9236-3CBD11728F23" targetfolder="Tutorials\Camera Manual\maps" title="Key map" filetype="ISHMasterDoc" filepath="keydefs.ditamap" filename="keydefs.ditamap" fileextension=".ditamap" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-FF271832-65FF-4F46-9236-3CBD11728F23" ishtype="ISHMasterDoc">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Key map</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-83FC44B8-086D-4634-8C76-330DBDB34170" targetfolder="Tutorials\Camera Manual\topics" title="Taking Your First Photo" filetype="ISHModule" filepath="TakingYourFirstPhoto.dita" filename="TakingYourFirstPhoto.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-83FC44B8-086D-4634-8C76-330DBDB34170" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Taking Your First Photo</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-E27B76DC-6FDC-46F7-87E3-50CAC8DFA07F" targetfolder="Tutorials\Camera Manual\topics" title="Setting Automatic Mode" filetype="ISHModule" filepath="SettingAutomaticMode.dita" filename="SettingAutomaticMode.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-E27B76DC-6FDC-46F7-87E3-50CAC8DFA07F" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Setting Automatic Mode</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-6A18EAEA-DE1F-4F34-ADBE-21E7A5B3F6B8" targetfolder="Tutorials\Camera Manual\topics" title="Custom Functions" filetype="ISHModule" filepath="CustomFunctions.dita" filename="CustomFunctions.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-6A18EAEA-DE1F-4F34-ADBE-21E7A5B3F6B8" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Custom Functions</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-394650ED-4DF0-4211-94E8-39EA362176E9" targetfolder="Tutorials\Camera Manual\topics" title="EOS HD Video" filetype="ISHModule" filepath="EOSHDVideo.dita" filename="EOSHDVideo.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-394650ED-4DF0-4211-94E8-39EA362176E9" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">EOS HD Video</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-61809A9F-1D25-447B-995C-2854E1295D14" targetfolder="Tutorials\Camera Manual\glossary" title="aperture" filetype="ISHModule" filepath="glossary\g_aperture.dita" filename="g_aperture.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-61809A9F-1D25-447B-995C-2854E1295D14" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">aperture</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-269DC7C9-B351-483F-B9A9-A743ED30A125" targetfolder="Tutorials\Camera Manual\topics" title="22.3 Megapixel Full-Frame CMOS Sensor" filetype="ISHModule" filepath="lFull-FrameCMOSSensor.dita" filename="lFull-FrameCMOSSensor.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-269DC7C9-B351-483F-B9A9-A743ED30A125" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">22.3 Megapixel Full-Frame CMOS Sensor</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-C0CCEE58-25D4-4CE9-A022-A9D5C241C38E" targetfolder="Tutorials\Camera Manual\topics" title="About the Canon Wireless Flash System" filetype="ISHModule" filepath="AboutTheCanonWirelessFlashSystem.dita" filename="AboutTheCanonWirelessFlashSystem.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-C0CCEE58-25D4-4CE9-A022-A9D5C241C38E" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">About the Canon Wireless Flash System</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-DFEAA72C-29A2-40D4-9BC1-21A4208BEABE" targetfolder="Tutorials\Camera Manual\topics" title="General Specifications" filetype="ISHModule" filepath="Specifications_General.dita" filename="Specifications_General.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-DFEAA72C-29A2-40D4-9BC1-21A4208BEABE" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">General Specifications</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-369B3B91-0E39-4AB2-9721-AAAB47CA68CA" targetfolder="Tutorials\Camera Manual\topics" title="Creative Auto Shooting" filetype="ISHModule" filepath="CreativeAutoShooting.dita" filename="CreativeAutoShooting.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-369B3B91-0E39-4AB2-9721-AAAB47CA68CA" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Creative Auto Shooting</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-BB305FA2-9AC4-48C3-A42E-66BA100441C3" targetfolder="Tutorials\Camera Manual\glossary" title="bracketing" filetype="ISHModule" filepath="glossary\g_bracketing.dita" filename="g_bracketing.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-BB305FA2-9AC4-48C3-A42E-66BA100441C3" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">bracketing</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-A1080883-D06D-474D-9868-992062448F53" targetfolder="Tutorials\Camera Manual\glossary" title="sync speed" filetype="ISHModule" filepath="glossary\g_sync-speed.dita" filename="g_sync-speed.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-A1080883-D06D-474D-9868-992062448F53" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">sync speed</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-8C4C3262-827E-4BA1-B965-FE0F21EDE430" targetfolder="Tutorials\Camera Manual\topics" title="Focusing and Shooting" filetype="ISHModule" filepath="FocusingShooting.dita" filename="FocusingShooting.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-8C4C3262-827E-4BA1-B965-FE0F21EDE430" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Focusing and Shooting</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-60CC6025-D28B-4D9C-9130-F978CCDDBA10" targetfolder="Tutorials\Camera Manual\topics" title="61-Point High Density AF" filetype="ISHModule" filepath="HighDensityReticularAF.dita" filename="HighDensityReticularAF.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-60CC6025-D28B-4D9C-9130-F978CCDDBA10" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">61-Point High Density AF</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-2253973A-6971-4FA0-9DE8-EB7BCCE25B7A" targetfolder="Tutorials\Camera Manual\glossary" title="sharpness" filetype="ISHModule" filepath="glossary\g_sharpness.dita" filename="g_sharpness.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-2253973A-6971-4FA0-9DE8-EB7BCCE25B7A" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">sharpness</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-15F3EE95-0235-4077-8A73-79CBACCBAA40" targetfolder="Tutorials\Camera Manual\topics" title="Canon USB APIs" filetype="ISHModule" filepath="CanonUSBAPIs.dita" filename="CanonUSBAPIs.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-15F3EE95-0235-4077-8A73-79CBACCBAA40" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Canon USB APIs</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-9CDA7777-AF2C-4C15-8E91-FC4A4097DBF4" targetfolder="Tutorials\Camera Manual\glossary" title="exposure compensation" filetype="ISHModule" filepath="glossary\g_exposure-compensation.dita" filename="g_exposure-compensation.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-9CDA7777-AF2C-4C15-8E91-FC4A4097DBF4" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">exposure compensation</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-C48D9FE9-DAC1-4F5C-AC11-D8D781CA1F44" targetfolder="Tutorials\Camera Manual\glossary" title="distortion" filetype="ISHModule" filepath="glossary\g_distortion.dita" filename="g_distortion.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-C48D9FE9-DAC1-4F5C-AC11-D8D781CA1F44" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">distortion</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-624B9707-E8EA-4C01-8049-0ACA3488B7D6" targetfolder="Tutorials\Camera Manual\topics" title="5D Mark IV At a Glance" filetype="ISHModule" filepath="5DMarkIVAtAGlance.dita" filename="5DMarkIVAtAGlance.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-624B9707-E8EA-4C01-8049-0ACA3488B7D6" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">5D Mark IV At a Glance</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-AC978BD4-50EA-41C0-9B98-4BF3135ABE3A" targetfolder="Tutorials\Camera Manual\glossary" title="resolution" filetype="ISHModule" filepath="glossary\g_resolution.dita" filename="g_resolution.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-AC978BD4-50EA-41C0-9B98-4BF3135ABE3A" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">resolution</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-817B22B2-2FAF-409C-8EF8-FCD0D216ED4D" targetfolder="Tutorials\Camera Manual\topics" title="Introducing The 5D Mark IV" filetype="ISHModule" filepath="IntroducingThe5DMarkIV.dita" filename="IntroducingThe5DMarkIV.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-817B22B2-2FAF-409C-8EF8-FCD0D216ED4D" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Introducing The 5D Mark IV</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-DB94D6D1-BA81-4236-8A2F-506F0F5F2656" targetfolder="Tutorials\Camera Manual\glossary" title="slow sync" filetype="ISHModule" filepath="glossary\g_slow-sync.dita" filename="g_slow-sync.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-DB94D6D1-BA81-4236-8A2F-506F0F5F2656" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">slow sync</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-8380E3AB-A832-4EA2-800D-460429A90B71" targetfolder="Tutorials\Camera Manual\topics" title="Getting Started" filetype="ISHModule" filepath="GettingStarted.dita" filename="GettingStarted.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-8380E3AB-A832-4EA2-800D-460429A90B71" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Getting Started</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-0DAF34EA-37A1-4D52-83C9-F6B0CDA6A7F5" targetfolder="Tutorials\Camera Manual\topics" title="Warranty" filetype="ISHModule" filepath="Warranty.dita" filename="Warranty.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-0DAF34EA-37A1-4D52-83C9-F6B0CDA6A7F5" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Warranty</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-F600EBF2-2316-4062-9BAB-E696266370CE" targetfolder="Tutorials\Camera Manual\topics" title="Installing Batteries" filetype="ISHModule" filepath="InstallingBatteries.dita" filename="InstallingBatteries.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-F600EBF2-2316-4062-9BAB-E696266370CE" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Installing Batteries</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-485842B6-E2A2-48F0-A1F7-BC8D8DBD36AE" targetfolder="Tutorials\Camera Manual\topics" title="About Your First Photo" filetype="ISHModule" filepath="AboutYourFirstPhoto.dita" filename="AboutYourFirstPhoto.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-485842B6-E2A2-48F0-A1F7-BC8D8DBD36AE" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">About Your First Photo</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-D225CD4D-1C4D-43DF-BC71-0BFBD176BE69" targetfolder="Tutorials\Camera Manual\topics" title="Appendixes" filetype="ISHModule" filepath="Appendixes.dita" filename="Appendixes.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-D225CD4D-1C4D-43DF-BC71-0BFBD176BE69" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Appendixes</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-962A1BEF-49EB-4B2A-A6D9-443EBAAFCF2B" targetfolder="Tutorials\Camera Manual\graphics" title="camera_body" filetype="ISHIllustration" filepath="graphics\camera_body.jpg" filename="camera_body.jpg" fileextension=".jpg" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-962A1BEF-49EB-4B2A-A6D9-443EBAAFCF2B" ishtype="ISHIllustration">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">camera_body</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+        <ishfield name="FRESOLUTION" level="lng" xml:space="preserve">Low</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-EC5F237C-6864-4E57-9293-42B1B50CB874" targetfolder="Tutorials\Camera Manual\glossary" title="f-stop" filetype="ISHModule" filepath="glossary\g_f-stop.dita" filename="g_f-stop.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-EC5F237C-6864-4E57-9293-42B1B50CB874" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">f-stop</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-C2D375EC-125E-4A8A-864F-19B4C67CEABE" targetfolder="Tutorials\Camera Manual\glossary" title="through-the-lens metering" filetype="ISHModule" filepath="glossary\g_through-the-lens-metering.dita" filename="g_through-the-lens-metering.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-C2D375EC-125E-4A8A-864F-19B4C67CEABE" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">through-the-lens metering</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-71942135-1C58-4A6F-AE08-248A560C5C09" targetfolder="Tutorials\Camera Manual\topics" title="About Canon Flash" filetype="ISHModule" filepath="AboutCanonFlash.dita" filename="AboutCanonFlash.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-71942135-1C58-4A6F-AE08-248A560C5C09" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">About Canon Flash</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-57143D32-B5F8-46B5-948B-F55FCE840800" targetfolder="Tutorials\Camera Manual\glossary" title="EV" filetype="ISHModule" filepath="glossary\g_EV.dita" filename="g_EV.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-57143D32-B5F8-46B5-948B-F55FCE840800" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">EV</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-032E190A-23B4-4CAF-BAE6-2DCD3068B9AF" targetfolder="Tutorials\Camera Manual\glossary" title="zoom lens" filetype="ISHModule" filepath="glossary\g_zoom-lens.dita" filename="g_zoom-lens.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-032E190A-23B4-4CAF-BAE6-2DCD3068B9AF" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">zoom lens</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-FB175AC8-7707-4F4A-8E82-EEE3DBCE19DD" targetfolder="Tutorials\Camera Manual\glossary" title="focal length" filetype="ISHModule" filepath="glossary\g_focal-length.dita" filename="g_focal-length.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-FB175AC8-7707-4F4A-8E82-EEE3DBCE19DD" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">focal length</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-FE139C0E-6F30-4CE2-A455-79CA1481A14A" targetfolder="Tutorials\Camera Manual\glossary" title="TTL auto flash" filetype="ISHModule" filepath="glossary\g_TTL-auto-flash.dita" filename="g_TTL-auto-flash.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-FE139C0E-6F30-4CE2-A455-79CA1481A14A" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">TTL auto flash</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-53755572-B5D5-47CD-8274-F0810F99BAB7" targetfolder="Tutorials\Camera Manual\topics" title="Using Multiple Flashes with Wireless" filetype="ISHModule" filepath="UsingMultipleFlashesWithWireless.dita" filename="UsingMultipleFlashesWithWireless.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-53755572-B5D5-47CD-8274-F0810F99BAB7" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Using Multiple Flashes with Wireless</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-BF749539-F33F-49A8-B487-785BC29D5BE9" targetfolder="Tutorials\Camera Manual\topics" title="Initial Setup" filetype="ISHModule" filepath="InitialSetup.dita" filename="InitialSetup.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-BF749539-F33F-49A8-B487-785BC29D5BE9" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Initial Setup</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-C51383B2-1F94-499A-A32B-A461ABFFF341" targetfolder="Tutorials\Camera Manual\maps" title="&#xA;User’s Guide&#xA;Release 1.01&#xA;" filetype="ISHMasterDoc" filepath="Canon5D_MarkIV_manual.ditamap" filename="Canon5D_MarkIV_manual.ditamap" fileextension=".ditamap" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-C51383B2-1F94-499A-A32B-A461ABFFF341" ishtype="ISHMasterDoc">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">
+User’s Guide
+Release 1.01
+</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-CD954897-3A2B-4BAF-AEE8-4BC384A90608" targetfolder="Tutorials\Camera Manual\graphics" title="camera_body_rear" filetype="ISHIllustration" filepath="graphics\camera_body_rear.jpg" filename="camera_body_rear.jpg" fileextension=".jpg" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-CD954897-3A2B-4BAF-AEE8-4BC384A90608" ishtype="ISHIllustration">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">camera_body_rear</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+        <ishfield name="FRESOLUTION" level="lng" xml:space="preserve">Low</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-F9E5CC8C-C15C-47D3-AC08-65F201AFA05B" targetfolder="Tutorials\Camera Manual\topics" title="Using Automatic Modes" filetype="ISHModule" filepath="UsingAutomaticModes.dita" filename="UsingAutomaticModes.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-F9E5CC8C-C15C-47D3-AC08-65F201AFA05B" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Using Automatic Modes</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-94E7C620-E465-4F1F-B9A2-C23D1BC429CF" targetfolder="Tutorials\Camera Manual\glossary" title="flash sync speed" filetype="ISHModule" filepath="glossary\g_flash-sync-speed.dita" filename="g_flash-sync-speed.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-94E7C620-E465-4F1F-B9A2-C23D1BC429CF" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">flash sync speed</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-7360B3EC-CBD7-4175-A686-9FD84A4576CF" targetfolder="Tutorials\Camera Manual\topics" title="Shooting RAW vs. JPEG" filetype="ISHModule" filepath="ShootingRAWVs.JPEG.dita" filename="ShootingRAWVs.JPEG.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-7360B3EC-CBD7-4175-A686-9FD84A4576CF" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Shooting RAW vs. JPEG</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-52AEF06E-7122-4E3E-A57A-A75C7C657DE6" targetfolder="Tutorials\Camera Manual\topics" title="Using External Flash" filetype="ISHModule" filepath="UsingExternalFlash.dita" filename="UsingExternalFlash.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-52AEF06E-7122-4E3E-A57A-A75C7C657DE6" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Using External Flash</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-C72D95E2-9C4A-4683-965F-E8EB3EE77086" targetfolder="Tutorials\Camera Manual\topics" title="Steps for Taking Your First Photo" filetype="ISHModule" filepath="StepsForTakingYourFirstPhoto.dita" filename="StepsForTakingYourFirstPhoto.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-C72D95E2-9C4A-4683-965F-E8EB3EE77086" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Steps for Taking Your First Photo</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-87EFC57B-D796-4046-B615-9A0039DE0326" targetfolder="Tutorials\Camera Manual\topics" title="iFCL 63-Zone Dual Layer Metering Sensor" filetype="ISHModule" filepath="MeteringSensor.dita" filename="MeteringSensor.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-87EFC57B-D796-4046-B615-9A0039DE0326" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">iFCL 63-Zone Dual Layer Metering Sensor</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-1B3010CB-4BF9-4A02-9BF3-FC50D09E3E4B" targetfolder="Tutorials\Camera Manual\glossary" title="hot shoe" filetype="ISHModule" filepath="glossary\g_hot-show.dita" filename="g_hot-show.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-1B3010CB-4BF9-4A02-9BF3-FC50D09E3E4B" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">hot shoe</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-07B36E9A-C469-47D1-9948-882A04E348FA" targetfolder="Tutorials\Camera Manual\topics" title="Using Intelligent Auto Mode" filetype="ISHModule" filepath="UsingQuickAutoMode.dita" filename="UsingQuickAutoMode.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-07B36E9A-C469-47D1-9948-882A04E348FA" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Using Intelligent Auto Mode</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-AD673692-247D-45C8-827A-A877173842D3" targetfolder="Tutorials\Camera Manual\topics" title="Shooting HDR" filetype="ISHModule" filepath="ShootingHDR.dita" filename="ShootingHDR.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-AD673692-247D-45C8-827A-A877173842D3" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Shooting HDR</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-6837D801-523C-424A-B20E-FFB5F398EA44" targetfolder="Tutorials\Camera Manual\topics" title="Using Scene Modes" filetype="ISHModule" filepath="UsingSceneModes.dita" filename="UsingSceneModes.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-6837D801-523C-424A-B20E-FFB5F398EA44" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Using Scene Modes</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-F80182D1-8D36-4A3C-95A7-227002475DC8" targetfolder="Tutorials\Camera Manual\graphics" title="camera_body_rear" filetype="ISHIllustration" filepath="graphics\camera_body_rear.svg" filename="camera_body_rear.svg" fileextension=".svg" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-F80182D1-8D36-4A3C-95A7-227002475DC8" ishtype="ISHIllustration">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">camera_body_rear</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+        <ishfield name="FRESOLUTION" level="lng" xml:space="preserve">High</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-1FA0AA81-EB3A-4CA3-A6AB-793AE2AC065C" targetfolder="Tutorials\Camera Manual\topics" title="Taking Photos" filetype="ISHModule" filepath="TakingPhotos.dita" filename="TakingPhotos.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-1FA0AA81-EB3A-4CA3-A6AB-793AE2AC065C" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Taking Photos</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-D87FA3F7-8E1D-402B-B163-CC154DC3277A" targetfolder="Tutorials\Camera Manual\glossary" title="slave unit" filetype="ISHModule" filepath="glossary\g_slave-unit.dita" filename="g_slave-unit.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-D87FA3F7-8E1D-402B-B163-CC154DC3277A" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">slave unit</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-1CF7B4A9-41AB-4564-BE97-2E3724017954" targetfolder="Tutorials\Camera Manual\glossary" title="aperture priority" filetype="ISHModule" filepath="glossary\g_aperture-priority.dita" filename="g_aperture-priority.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-1CF7B4A9-41AB-4564-BE97-2E3724017954" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">aperture priority</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-03D25EEC-5E37-428D-9EA1-1F6397FADB99" targetfolder="Tutorials\Camera Manual\glossary" title="shutter priority" filetype="ISHModule" filepath="glossary\g_shutter-priority.dita" filename="g_shutter-priority.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-03D25EEC-5E37-428D-9EA1-1F6397FADB99" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">shutter priority</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-A076F5FF-C2FF-4267-86EC-787B125347E4" targetfolder="Tutorials\Camera Manual\topics" title="Scene Modes Descriptions" filetype="ISHModule" filepath="SceneModesDescriptions.dita" filename="SceneModesDescriptions.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-A076F5FF-C2FF-4267-86EC-787B125347E4" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Scene Modes Descriptions</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-8C8AF1A3-DB68-4DF8-A34B-18C6A0E5B06A" targetfolder="Tutorials\Camera Manual\topics" title="Understanding Metering Modes" filetype="ISHModule" filepath="UnderstandingMeteringModes.dita" filename="UnderstandingMeteringModes.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-8C8AF1A3-DB68-4DF8-A34B-18C6A0E5B06A" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Understanding Metering Modes</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-E9A0FF95-234E-47FB-95AE-153523BFB5B8" targetfolder="Tutorials\Camera Manual\glossary" title="telephoto lens" filetype="ISHModule" filepath="glossary\g_telephoto-lens.dita" filename="g_telephoto-lens.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-E9A0FF95-234E-47FB-95AE-153523BFB5B8" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">telephoto lens</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-BC6FEDA2-91F4-4F17-B352-40E70C2BA471" targetfolder="Tutorials\Camera Manual\topics" title="Configuring a Two-Light Setup" filetype="ISHModule" filepath="ConfiguringATwo-LightSetup.dita" filename="ConfiguringATwo-LightSetup.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-BC6FEDA2-91F4-4F17-B352-40E70C2BA471" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Configuring a Two-Light Setup</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-85E1DB2C-EE56-4A80-9B60-EBD5D3901BD4" targetfolder="Tutorials\Camera Manual\topics" title="DIGIC 5+ Image Processor" filetype="ISHModule" filepath="DIGIC5ImageProcessor.dita" filename="DIGIC5ImageProcessor.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-85E1DB2C-EE56-4A80-9B60-EBD5D3901BD4" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">DIGIC 5+ Image Processor</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-40C7A20D-B8C4-4F84-93BF-AF8D9753DAE2" targetfolder="Tutorials\Camera Manual\graphics" title="camera_body" filetype="ISHIllustration" filepath="graphics\camera_body.svg" filename="camera_body.svg" fileextension=".svg" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-40C7A20D-B8C4-4F84-93BF-AF8D9753DAE2" ishtype="ISHIllustration">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">camera_body</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+        <ishfield name="FRESOLUTION" level="lng" xml:space="preserve">High</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-FAB7ADCF-562B-4168-AD80-5AA5EDE798A4" targetfolder="Tutorials\Camera Manual\img_text" title="Figure Description — Canon Body" filetype="ISHModule" filepath="img_text\img_desc_camera_body.dita" filename="img_desc_camera_body.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-FAB7ADCF-562B-4168-AD80-5AA5EDE798A4" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Figure Description — Canon Body</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-A363308F-C4B1-430E-B344-54494755E636" targetfolder="Tutorials\Camera Manual\topics" title="Using Flash" filetype="ISHModule" filepath="UsingFlash.dita" filename="UsingFlash.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-A363308F-C4B1-430E-B344-54494755E636" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Using Flash</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-F00CA5B9-8969-4399-8B2E-F38CAACC1958" targetfolder="Tutorials\Camera Manual\glossary" title="depth of field" filetype="ISHModule" filepath="glossary\g_depth-of-field.dita" filename="g_depth-of-field.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-F00CA5B9-8969-4399-8B2E-F38CAACC1958" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">depth of field</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-2EC44047-349B-4FDB-BB39-48A8C434E6D2" targetfolder="Tutorials\Camera Manual\topics" title="Using the Internal Flash" filetype="ISHModule" filepath="UsingTheInternalFlash.dita" filename="UsingTheInternalFlash.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-2EC44047-349B-4FDB-BB39-48A8C434E6D2" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">Using the Internal Flash</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-0C8BAEE1-CB81-45CA-B90C-D4A8B45E81E7" targetfolder="Tutorials\Camera Manual\glossary" title="ISO" filetype="ISHModule" filepath="glossary\g_ISO.dita" filename="g_ISO.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-0C8BAEE1-CB81-45CA-B90C-D4A8B45E81E7" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">ISO</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-EE87881B-83A2-419E-80E8-80FAFEE2E8A8" targetfolder="Tutorials\Camera Manual\glossary" title="chromatic aberration" filetype="ISHModule" filepath="glossary\g_chromatic-aberration.dita" filename="g_chromatic-aberration.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-EE87881B-83A2-419E-80E8-80FAFEE2E8A8" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">chromatic aberration</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-2BB72C49-F7E6-419C-B91B-E1F80A046B0A" targetfolder="Tutorials\Camera Manual\topics" title="What's In the Box" filetype="ISHModule" filepath="What'sInTheBox.dita" filename="What'sInTheBox.dita" fileextension=".dita" folderhasmixedcontent="True">
+    <ishobject ishref="GUID-2BB72C49-F7E6-419C-B91B-E1F80A046B0A" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">What's In the Box</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+  <file id="GUID-E8948D07-1029-4A73-82DE-D7A18F69F5E0" targetfolder="Tutorials\Camera Manual\glossary" title="PC Terminal/PC socket" filetype="ISHModule" filepath="glossary\g_pc-terminal.dita" filename="g_pc-terminal.dita" fileextension=".dita" folderhasmixedcontent="False">
+    <ishobject ishref="GUID-E8948D07-1029-4A73-82DE-D7A18F69F5E0" ishtype="ISHModule">
+      <ishfields>
+        <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en</ishfield>
+        <ishfield name="FTITLE" level="logical" xml:space="preserve">PC Terminal/PC socket</ishfield>
+        <ishfield name="VERSION" level="version" xml:space="preserve">1</ishfield>
+      </ishfields>
+    </ishobject>
+  </file>
+</filemap>

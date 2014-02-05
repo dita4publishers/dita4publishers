@@ -5,6 +5,9 @@
                 xmlns:relpath="http://dita2indesign/functions/relpath"
                 xmlns:htmlutil="http://dita4publishers.org/functions/htmlutil"
                 xmlns:index-terms="http://dita4publishers.org/index-terms"
+                xmlns:glossdata="http://dita4publishers.org/glossdata"
+                xmlns:mapdriven="http://dita4publishers.org/mapdriven"
+                xmlns:enum="http://dita4publishers.org/enumerables"
                 xmlns:local="urn:functions:local"
                 exclude-result-prefixes="local xs df xsl relpath htmlutil index-terms"
   >
@@ -23,17 +26,17 @@
     
     This transform requires XSLT 2.
     ================================================================= -->    
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+<!--
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
-  
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
+-->  
   <xsl:output indent="yes" name="javascript" method="text"/>
 
 
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-dynamic-toc">
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>
-    <xsl:param name="rootMapDocUrl" tunnel="yes" as="xs:string"/>
     
     <xsl:if test="$generateDynamicTocBoolean">
       
@@ -126,7 +129,7 @@
       <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
       <xsl:choose>
         <xsl:when test="not($topic)">
-          <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
+          <xsl:message> + [WARNING] generate-dynamic-toc: Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
         </xsl:when>
         <xsl:otherwise>
           <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, root($topic), $rootMapDocUrl)" as="xs:string"/>
@@ -170,6 +173,18 @@
         </xsl:otherwise>
       </xsl:choose>    
     </xsl:if>    
+  </xsl:template>
+  
+  <xsl:template match="mapdriven:collected-data" mode="generate-dynamic-toc">
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template match="enum:enumerables" mode="generate-dynamic-toc">
+    <!-- Nothing to do with enumerables in this context -->
+  </xsl:template>
+  
+  <xsl:template match="glossdata:glossary-entries" mode="generate-dynamic-toc">
+    <xsl:message> + [INFO] dynamic ToC generation: glossary entry processing not yet implemented.</xsl:message>
   </xsl:template>
   
   <xsl:template match="index-terms:index-terms" mode="generate-dynamic-toc">

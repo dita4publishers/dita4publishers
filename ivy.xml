@@ -1,5 +1,5 @@
 <ivy-module version="2.0">
-  <info organisation="RSI" module="rsuite-admin-client"/>
+  <info organisation="dita4publishers" module="dita4publishers"/>
   <dependencies>
     
     <dependency org="apache" name="ant" rev="1.7.1" />
@@ -10,6 +10,10 @@
     
     <dependency org="apache" name="xml-apis" rev="20080213" />
     <dependency org="apache" name="resolver" rev="1.2" />
+
+    <dependency org="dom4j" name="dom4j" rev="1.6.1" />
+
+
 
     <!-- Apache's XML Parser -->
     <dependency org="xerces" name="xercesImpl" rev="2.9.1"/>

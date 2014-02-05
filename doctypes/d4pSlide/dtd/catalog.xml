@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:d4pSlide"
+    uri="d4pSlide.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:d4pSlide.dtd"
+    uri="d4pSlide.dtd"
+  />
+  
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:modules:d4pSlide"
+    uri="d4pSlide.mod"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:modules:d4pSlide.mod"
+    uri="d4pSlide.mod"
+  />
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:entities:d4pSlide"
+    uri="d4pSlide.ent"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:entities:d4pSlide.ent"
+    uri="d4pSlide.ent"
+  />
+</catalog>  

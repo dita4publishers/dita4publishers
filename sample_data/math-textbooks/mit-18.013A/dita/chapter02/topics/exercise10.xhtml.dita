@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e59"><title>Exercise 2.10</title><body><p>
+<b>Derive the formulae for
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> in terms of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>i</m:mi><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mo>−</m:mo><m:mi>i</m:mi><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>, that follows from equation (A) above.</b>
+</p><p>
+Solution:
+</p><p>
+Equation (A) reads
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>i</m:mi><m:mi>x</m:mi><m:mo>=</m:mo><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo>+</m:mo><m:mi>i</m:mi><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><p>
+and it holds for all 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ positive or negative, so that we also have
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mo>−</m:mo><m:mi>i</m:mi><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo>−</m:mo><m:mi>i</m:mi><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><p>
+where we have used the fact that cosine is an even function and sine an odd one.
+</p><p>
+We can solve these two equations for 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mtable columnalign="left"><m:mtr><m:mtd><m:mi>cos</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo>=</m:mo><m:mfrac><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>i</m:mi><m:mi>x</m:mi><m:mo>+</m:mo><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mo>−</m:mo><m:mi>i</m:mi><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mn>2</m:mn></m:mfrac></m:mtd></m:mtr><m:mtr><m:mtd><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo>=</m:mo><m:mfrac><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>i</m:mi><m:mi>x</m:mi><m:mo>−</m:mo><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mo>−</m:mo><m:mi>i</m:mi><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mrow><m:mn>2</m:mn><m:mi>i</m:mi></m:mrow></m:mfrac></m:mtd></m:mtr></m:mtable></m:math></d4p_MathML>
+</d4p_eqn_block></body></topic>

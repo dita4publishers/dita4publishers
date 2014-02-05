@@ -14,8 +14,11 @@
     <note>At the moment, this mechanism only supports a single CSS file. A future enhancement will be to allow the copying of all the CSS files in a specified directory.</note>
    <p>The EPUB transformation type uses the same Ant parameters for CSS styles sheets as for the normal HTML transformation type. The difference is that you <i>must</i> copy the CSS files to the output since they need to be part of the EPUB package. Thus the <parmname>args.copycss</parmname> parameter is implicitly set to "yes" if you specify the <parmname>args.css</parmname> parameter.</p>
     <p>Likewise, the parameter <parmname>args.csspath</parmname> is ignored because the EPUB processor controls how the CSS files are referenced in the generated HTML files.</p>
-    <p>You may specify the directory within the EPUB package to contain the CSS files using the parameter <parmname
-      keyref="css.output.dir_refentry">css.output.dir</parmname>. By default it is the same as the topic output directory (which by default is "topics").</p>
+    <p>You may specify the directory within the EPUB package to contain the CSS
+      files using the parameter <parmname
+      keyref="args.css.output.dir.refentry">args.css.output.dir</parmname>. By
+      default it is the same as the topic output directory (which by default is
+      "topics").</p>
     <p>The <parmname>args.css</parmname> parameter can be an absolute path to the CSS file or it can be a path relative to the value of the <parmname>args.cssroot</parmname> parameter.</p>
     <p>For example, if you have a custom CSS file <filepath>mystyle.css</filepath> in the directory <filepath>c:\projects\mydoc\css</filepath> and you want to use that CSS file in your EPUB you would specify the Ant parameter <parmname>args.css</parmname> with the value "c:\projects\mydoc\css\mystyle.css".</p>
     <p>If you have a common CSS source directory and you use different CSS files for different publications, you can specify both <parmname>args.cssroot</parmname> and <parmname>args.css</parmname> like so:<ul>

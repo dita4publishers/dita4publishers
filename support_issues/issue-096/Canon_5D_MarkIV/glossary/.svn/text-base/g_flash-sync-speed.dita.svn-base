@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE glossentry PUBLIC "-//OASIS//DTD DITA Glossary//EN"
+ "glossary.dtd">
+<glossentry id="FlashSyncSpeed-A568314E" xml:lang="en">
+<glossterm>flash sync speed</glossterm>
+<glossdef>Exposure time with a focal-plane shutter is measured from
+the instant the first curtain is released, to begin its travel across
+the frame, until the instant the second curtain is released, to begin
+its travel across the frame. When the first curtain reaches the end
+of its travel, the frame is uncovered as far as the first curtain
+is concerned, so it closes the electrical contacts for X sync and
+fires the flash instantly. Shutter speed at which the entire frame
+is exposed when the flash is fired in flash shooting. </glossdef>
+</glossentry><?Pub Caret -3?>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+ "task.dtd">
+<?Pub Inc?>
+<task id="ShootingHDR-B4C67BDB" xml:lang="en">
+<title>Shooting HDR</title>
+<shortdesc>Shooting in HDR enables you to creating images with a higher
+dynamic range. This means higher levels of detail in both the highlights
+and shadows.</shortdesc>
+<prolog>
+<metadata><keywords><indexterm></indexterm></keywords></metadata>
+</prolog>
+<taskbody>
+<prereq>HDR is enabled only when shooting JPEGs. RAW shooting is not
+supported.</prereq>
+<context>HDR stands for high dynamic range. When you shoot HDR, the
+camera does automatic exposure bracketing, taking 3, 5, or 7 shots,
+one correctly exposed, one or more over-exposed, and one or more under-exposed.
+The number of stops by which the image is under- and over-exposed
+is configurable. The camera then combines the images into a single
+image, preserving detail in both the highlights and shadows. The results
+can be breathtaking.</context>
+<steps>
+<step><cmd>Ensure that the camera is set to shoot JPEGs.</cmd></step>
+<step><cmd>In the settings menu, select the number of stops to under-
+and over-expose.</cmd></step>
+</steps>
+<result>A single image is saved to the card.</result>
+</taskbody><?Pub Caret -1?>
+</task>

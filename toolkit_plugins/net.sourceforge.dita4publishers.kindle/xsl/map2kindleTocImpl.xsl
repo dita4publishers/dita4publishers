@@ -12,11 +12,6 @@
   >
   <!-- Convert a DITA map to an EPUB toc.ncx file. -->
   
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
-  
-
   <xsl:output indent="yes" name="ncx" method="xml"/>
 
 
@@ -131,7 +126,7 @@
       <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
       <xsl:choose>
         <xsl:when test="not($topic)">
-          <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
+          <xsl:message> + [WARNING] generate-toc: Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
         </xsl:when>
         <xsl:otherwise>
           <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, root($topic))" as="xs:string"/>
@@ -273,7 +268,7 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="*[df:isTopicGroup(.)]" mode="nav-point-title">
+  <xsl:template match="*[df:isTopicGroup(.)]" mode="nav-point-title" priority="10">
     <!-- Per the 1.2 spec, topic group navtitles are always ignored -->
   </xsl:template>
   

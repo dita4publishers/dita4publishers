@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference id="body-pullquote">
+    <title>body-pullquote</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>body-pullquote</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">body-pullquote represents a pull quote, which is usually a replication of content from the same publication component in order to provide emphasis.  It should be used when other varieties (epigram, epigraph, etc.) are not appropriate.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">body-pullquote is specialized from bodydiv.</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
+      </refbodydiv>    
+        <refbodydiv outputclass="inheritance">
+          <section id="inheritance">+ topic/bodydiv    d4p-pubcontent-d/body-pullquote </section>
+      </refbodydiv>
+      <example id="example1">
+        <fig><title>Sample of an instance of the body-pullquote element</title>
+          <codeblock>
+&lt;p&gt;
+In essence, DITA lets us eat our cake and have it. Publishers can have publication models and topic types that are adapted to their specific needs yet still take advantage of all the modularity and reuse features of DITA when they are needed. Publishers can mix and match the simple (chapter) with the sophisticated (task) and choose from a growing library of special-purpose vocabulary modules, such as the DITA Learning and Training modules for representing assessments (test questions) and formal learning objects.
+&lt;/p&gt;
+&lt;body-pullquote&gt;
+In essence, DITA lets us eat our cake and have it.
+&lt;/body-pullquote&gt;
+                </codeblock></fig>
+      </example>    	
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

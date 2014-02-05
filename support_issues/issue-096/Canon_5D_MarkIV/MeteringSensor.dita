@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<?Pub Inc?>
+<concept id="MeteringSensor-9CA9EF83" xml:lang="en">
+<title>iFCL 63-Zone Dual Layer Metering Sensor</title>
+<conbody>
+<p>An intelligent metering system works in conjunction with the autofocus
+system and independently analyzes 'Focus, Color, and Luminance' within
+the scene for the most precise exposure settings possible. The 63
+zones cover the entire image area with great detail and the dual-layer
+design permits a wider sensitivity to different wavelengths of light.</p>
+<p> The dual layers are split into a red/green channel and a blue/green
+channel; which counters the red light sensitivity bias electronic
+sensors inherently have. A series of algorithms are employed to combine
+data received from both layers, with the resulting exposure reading
+being extremely accurate regardless of the shooting conditions.</p><?Pub
+Caret 0?>
+</conbody>
+</concept>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
-<topic id="topic-1">
-  <title>Chapter With @toc="no"</title>
-  <body>
-    <p>The topicref to this chapter specifies @toc = "no" so it should not be listed in any ToC.</p>
-  </body>
-</topic>

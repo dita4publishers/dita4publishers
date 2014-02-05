@@ -2,9 +2,9 @@
      DITA For Publishers Simple Enumeration Domain
      
      Defines a specialization of data for defining and
-     specifying literal (invariant).
+     specifying literal (invariant) numbers.
      
-     Copyright (c) 2010 DITA For Publishers
+     Copyright (c) 2010, 2012 DITA For Publishers
      
      ============================================================= -->
 
@@ -13,7 +13,9 @@
 <!-- ============================================================= -->
 
 <!ENTITY % d4p_simpleEnumeration-d-data
-   "d4pSimpleEnumerator
+   "d4pSimpleEnumerator |
+    d4pPageNumber |
+    d4pPageRange
    "
 >
 

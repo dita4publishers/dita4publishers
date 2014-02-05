@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e55"><title>Exercise 1.1</title><body><p>
+<b>Is
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℤ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> countable?</b>
+</p><p>
+Solution:
+</p><p>
+Though there are "twice as many" positive and negative integers as there are only positive ones, we can make a one-to-one correspondence between 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℤ</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℕ</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. We can, in other words, assign a unique positive integer to each positive and negative integer.
+</p><p>
+How? Assign the positive integer 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mn>2</m:mn><m:mi>n</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to the positive integer 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>n</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, and the integer 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mn>2</m:mn><m:mi>n</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to the negative integer 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo>−</m:mo><m:mi>n</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. The correspondence looks like this:
+</p><table><tgroup cols="18"><tbody><row><entry>
+      <d4p_eqn_inline>
+        <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℕ</m:mi></m:math></d4p_MathML>
+      </d4p_eqn_inline>:
+    </entry><entry>
+      <p>
+      1
+      </p>
+    </entry><entry>
+      <p>
+      2
+      </p>
+    </entry><entry>
+      <p>
+      3
+      </p>
+    </entry><entry>
+      <p>
+      4
+      </p>
+    </entry><entry>
+      <p>
+      5
+      </p>
+    </entry><entry>
+      <p>
+      6
+      </p>
+    </entry><entry>
+      <p>
+      7
+      </p>
+    </entry><entry>
+      <p>
+      8
+      </p>
+    </entry><entry>
+      <p>
+      9
+      </p>
+    </entry><entry>
+      <p>
+      10
+      </p>
+    </entry><entry>
+      <p>
+      11
+      </p>
+    </entry><entry>
+      <p>
+      12
+      </p>
+    </entry><entry>
+      <p>
+      13
+      </p>
+    </entry><entry>
+      <p>
+      14
+      </p>
+    </entry><entry>
+      <p>
+      15
+      </p>
+    </entry><entry>
+      <p>
+      16
+      </p>
+    </entry><entry>
+      <p>
+      ...
+      </p>
+    </entry></row><row><entry>
+      <d4p_eqn_inline>
+        <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℤ</m:mi></m:math></d4p_MathML>
+      </d4p_eqn_inline>:
+    </entry><entry>
+      <p>
+      0
+      </p>
+    </entry><entry>
+      <p>
+      -1
+      </p>
+    </entry><entry>
+      <p>
+      1
+      </p>
+    </entry><entry>
+      <p>
+      -2
+      </p>
+    </entry><entry>
+      <p>
+      2
+      </p>
+    </entry><entry>
+      <p>
+      -3
+      </p>
+    </entry><entry>
+      <p>
+      3
+      </p>
+    </entry><entry>
+      <p>
+      -4
+      </p>
+    </entry><entry>
+      <p>
+      4
+      </p>
+    </entry><entry>
+      <p>
+      -5
+      </p>
+    </entry><entry>
+      <p>
+      5
+      </p>
+    </entry><entry>
+      <p>
+      -6
+      </p>
+    </entry><entry>
+      <p>
+      6
+      </p>
+    </entry><entry>
+      <p>
+      -7
+      </p>
+    </entry><entry>
+      <p>
+      7
+      </p>
+    </entry><entry>
+      <p>
+      -8
+      </p>
+    </entry><entry>
+      <p>
+      ...
+      </p>
+    </entry></row></tbody></tgroup></table><p>
+Sooner or later you get to every element of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℤ</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ this way, though the elements of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℕ</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ grow faster than those of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℤ</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. The peculiar fact, but fact nevertheless is that it doesn't matter at all that the elements of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℕ</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ grow faster here.
+</p></body></topic>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Generating InCopy Articles from DITA Topics"/>
+<meta name="abstract" content="You can directly generate InCopy articles from DITA topics using the XSLT transforms in the org.dita2indesign.dita2indesign plugin. You do not have to use the Open Toolkit to run the transform."/>
+<meta name="description" content="You can directly generate InCopy articles from DITA topics using the XSLT transforms in the org.dita2indesign.dita2indesign plugin. You do not have to use the Open Toolkit to run the transform."/>
+<meta name="DC.Relation" scheme="URI" content="dita-to-indesign-framework-chapter.html"/>
+<meta name="DC.Relation" scheme="URI" content="indesign-product-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="dita-to-indesign-plugin-usage.html"/>
+<meta name="prodname" content="DITA For Publishers"/>
+<meta name="version" content="0.9.19RC10"/>
+<meta name="DC.Creator" content="W. Eliot Kimber"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="conceptId"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Generating InCopy Articles from DITA Topics</title>
+</head>
+<body id="conceptId">
+
+
+ <h1 class="title topictitle1">Generating InCopy Articles from DITA Topics</h1>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">You can directly generate InCopy articles from DITA topics using the
+    XSLT transforms in the org.dita2indesign.dita2indesign plugin. You do not
+    have to use the Open Toolkit to run the transform.</p>
+
+   <p class="p">The <span class="ph filepath">org.dita2indesign.dita2indesign/xsl</span> directory
+      holds the XSLT transforms used to generate InCopy articles from topics and
+      maps. You can run the transforms directly or run them using the Open
+      Toolkit in order to do all necessary DITA preprocessing (conref
+      resolution, filtering, etc.). For testing purposes it is usually most
+      efficient to run the transforms directly, e.g., in a tool like the oXygen
+      XML editor.</p>
+
+    <p class="p">The transforms can generate either the old INCX format or the newer ICML
+      format. For use with InDesign CS5 and newer you must generate the ICML
+      format. For InDesign CS3 and CS4 you must use the INCX format. The INCX
+      format is essentially obsolete and that form of the transforms is not
+      being actively maintained. This discussion only describes generating ICML
+      InCopy articles.</p>
+
+    <p class="p">The root transform is <span class="ph filepath">topic2articleIcml.xsl</span>. Here
+      the term "article" means "InCopy article" as opposed to "magazine
+      article". This transform manages the generation of one or more InCopy
+      articles from the input topic. The direct output of the transform is an
+      XML manifest file that lists all the InCopy articles generated. The
+      manifest is designed primarily to support the use of the transform from
+      Java code where the Java code needs to know about all the generated InCopy
+      articles. </p>
+
+    <p class="p">The core ICML generation is done by the
+      <span class="ph filepath">topic2icmlImpl.xsl</span> transform. It's processing a
+      little convoluted because of the need to generate all result documents
+      before generating the manifest. It uses the file
+      <span class="ph filepath">elem2styleMapperIcml.xsl</span> as the default
+      element-to-style mapping module. Use this module as the model for your own
+      custom mapping.</p>
+
+    <p class="p">By default each input topic results in one InCopy article, reflecting the
+      element-to-style mapping defined in the elem2styleMapperIcml.xsl module.
+      However, you can extend the base transform to generate multiple InCopy
+      articles from a single input topic. You would need to do this for any
+      content that needs to be placed in its own disconnected frame, such as
+      figures, sidebars, pull quotes, and so on.</p>
+
+    <p class="p">TBD: Provide sample transform that does this.</p>
+
+    <p class="p">TBD: Document general pattern for creating a custom InCopy generation
+      transform</p>
+
+    <p class="p">TBD: How to set up the Toolkit-based transform</p>
+
+    <p class="p">TBD: Processing a map and its topics</p>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="dita-to-indesign-framework-chapter.html" title="The DITA-to-InDesign transformation framework enables the generation of InDesign documents and InCopy articles from DITA maps and topics.">The DITA-to-InDesign Transformation Framework</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="indesign-product-overview.html" title="Adobe InDesign and InCopy are companion products, part of Adobe's Creative Suite set of products. InDesign is a desktop publishing tool widely used in Publishing and where typographic quality and layout sophistication are paramount.">Overview of the InDesign and InCopy Products</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="dita-to-indesign-plugin-usage.html" title="How to use the DITA-to-InDesign Toolkit Plugin to generate inDesign and InCopy documents from DITA content.">Generating InDesign from DITA Using the Toolkit Plugin</a></div>
+</div>
+</div>
+
+</body>
+</html>

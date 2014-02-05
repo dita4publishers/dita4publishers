@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="part"/>
+<meta name="DC.Title" content="The DITA For Publishers Word to DITA and DITA to InDesign Tools"/>
+<meta name="abstract" content="This part documents the Word-to-DITA and DITA-to-InDesign transformation frameworks."/>
+<meta name="description" content="This part documents the Word-to-DITA and DITA-to-InDesign transformation frameworks."/>
+<meta name="DC.subject" content="MS Word, to-DITA transformation framework"/>
+<meta name="keywords" content="MS Word, to-DITA transformation framework"/>
+<meta name="DC.Relation" scheme="URI" content="../vocabulary-part/vocabulary-part.html"/>
+<meta name="DC.Relation" scheme="URI" content="../word2dita/word2dita-intro.html"/>
+<meta name="DC.Relation" scheme="URI" content="../dita2indesign/dita-to-indesign-framework-chapter.html"/>
+<meta name="prodname" content="DITA For Publishers"/>
+<meta name="version" content="0.9.19RC10"/>
+<meta name="DC.Creator" content="W. Eliot Kimber"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="part-id"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>The DITA For Publishers Word to DITA and DITA to InDesign Tools</title>
+</head>
+<body id="part-id">
+
+
+  <h1 class="title topictitle1"><span xmlns="http://www.w3.org/1999/xhtml" class="enumeration_part">Part III. </span>The DITA For Publishers Word to DITA and DITA to InDesign Tools</h1>
+  
+  
+  <div class="body"><p class="shortdesc">This part documents the Word-to-DITA and DITA-to-InDesign transformation frameworks.</p>
+
+    <p class="p">The Word-to-DITA and DITA-to-InDesign transformation frameworks enable the use of DITA with Word as the primary authoring and editorial workflow vehicle and InDesign as the primary print production technology.</p>
+
+    <p class="p">These two frameworks reflect the fact that for many publishers it is simply impractical or impossible to use an XML-first or XML-only editorial process, especially when dealing with external authors and subject matter experts. For good or ill, Microsoft Word is the form most authors can or will use. Likewise, InDesign is almost universally accepted as the tool for producing high-quality typeset publications. Without ways to integrate these two technologies into a DITA-based environment, the use of DITA (or XML in general) is a non-starter for most Publishers.</p>
+
+    <p class="p">The technologies documented in this part are <em class="ph i">frameworks</em>, meaning that they require some degree of configuration and customization to be useful in a specific context—you cannot simply take an arbitrary Word document and expect any transform to give you a useful XML result. Likewise, the use of InDesign (or any desktop publishing system) requires a mapping to specific styles and layouts that will always be specific to your documents.</p>
+
+    <p class="p">Given that configuration is always required, these frameworks have been designed to make the configuration and, where necessary, customization process as easy as possible.</p>
+
+    <p class="p">The Word-to-DITA transformation can be configured largely or entirely (depending on your requirements) using an XML configuration file to map Word styles to DITA markup structures. It can handle going from Word documents to single topics or to complete systems of maps and topics.</p>
+
+    <p class="p">The DITA-to-InDesign transformation is configured through a simple-to-modify XSLT module that maps DITA elements in context to InDesign style names.</p>
+
+    <p class="p">When requirements are not too extreme it is possible to get a demonstrable end-to-end-with-DITA-in-the-middle system going in less than a day, including defining custom vocabulary modules.</p>
+
+    <p class="p">These frameworks don't do everything you may want to have and are not intended to compete with or replace commercial tools. They are intended primarily to get you started and to provide a starting point for further development and extension.</p>
+
+    <p class="p">For example, Word-based authoring can be made more effective and reliable by using Word macros to guide authors in styling. Likewise, InDesign scripting can go a long way toward automating some repetitive layout tasks by taking advantage of the additional structure provided by base markup. There are a number of commercial products that offer support for authoring XML in Word or generating XML from styled word, such as the Inera eXstyles product (<a class="xref" href="http://www.inera.com/" target="_blank">www.inera.com</a>).</p>
+
+    <p class="p">Finally, the production of complete, print-ready publications from XML through InDesign is an inherently challenging process. The DITA For Publishers DITA-to-InDesign framework does not attempt to solve that problem. It is intended primarily to support processes where designers must be directly involved in the layout, such as magazine production, or where there is no attempt to completely automate composition, but simply to provide the input to an more traditional manual layout process.</p>
+
+    <p class="p">To fully automate production from XML the Typefi product is the best solution (<a class="xref" href="http://www.typefi.com" target="_blank">www.typefi.com</a>). Typefi enables up to 100% automation of InDesign-based production where book design is consistent across titles, e.g., for series publications like travel guides, journals, and so on. Typefi provides a level of sophistication that would be impossible (and pointless) to replicate. Typefi is a for-cost product but it offers a tremendous value when automated composition is a requirement. </p>
+
+  </div>
+
+<div class="related-links">
+<ol class="olchildlinks">
+<li class="link olchildlink"><a href="../word2dita/word2dita-intro.html">The Word-to-DITA Transformation Framework</a><br/>
+The Word-to-DITA (Word2DITA) transformation framework enables the reliable generation of maps and topics form styled Word documents.</li>
+<li class="link olchildlink"><a href="../dita2indesign/dita-to-indesign-framework-chapter.html">The DITA-to-InDesign Transformation Framework</a><br/>
+The DITA-to-InDesign transformation framework enables the generation of InDesign documents and InCopy articles from DITA maps and topics.</li>
+</ol>
+
+<div class="familylinks">
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../vocabulary-part/vocabulary-part.html" title="The DITA for Publishers project provides a set of map and topic types along with a number of markup domains specifically designed to meet the needs of Publishers and publishing-type documents (books and magazines).">The DITA For Publishers Markup Vocabulary</a></div>
+</div>
+</div>
+
+</body>
+</html>

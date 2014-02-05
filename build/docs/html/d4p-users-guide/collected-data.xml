@@ -1,0 +1,1887 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapdriven:collected-data xmlns:mapdriven="http://dita4publishers.org/mapdriven"
+                          xmlns:applicability="http://dita4publishers.org/applicability"
+                          xmlns:index-terms="http://dita4publishers.org/index-terms"
+                          xmlns:enum="http://dita4publishers.org/enumerables">
+   <enum:enumerables>
+      <front-cover xmlns="http://dita4publishers.org/enumerables"
+                   class="+ map/topicref pubmap-d/front-cover "
+                   sourceId="-front-cover-30-1212-99"
+                   xml:lang="en-us"
+                   xtrc="front-cover:1"
+                   docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                   topicOutputClass="d4p-cover-page"
+                   topicID="topic-1">
+         <title>DITA For Publishers User Guide</title>
+      </front-cover>
+      <frontmatter xmlns="http://dita4publishers.org/enumerables"
+                   class="+ map/topicref pubmap-d/frontmatter "
+                   sourceId="-frontmatter-40-1092-1885"
+                   xml:lang="en-us"
+                   xtrc="frontmatter:1"
+                   docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap">
+         <topicref class="- map/topicref " sourceId="-topicref-40-1202-99" xml:lang="en-us"
+                   xtrc="topicref:1"
+                   docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                   topicID="topic-id">
+            <title>About This Book</title>
+         </topicref>
+         <topicref class="- map/topicref " sourceId="-topicref-49-1092-1786" xml:lang="en-us"
+                   xtrc="topicref:2"
+                   docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                   topicID="conceptId">
+            <title>Release Notes</title>
+            <topicref class="- map/topicref " sourceId="-topicref-58-1182-161" xml:lang="en-us"
+                      xtrc="topicref:3"
+                      docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                      topicID="conceptId">
+               <title>Release Notes: Version 0.9.19</title>
+               <section class="- topic/section " sourceId="conceptId-section-14-5-632" xml:lang="en-us"
+                        xtrc="section:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.19.xml">
+                  <title>Theme for the Release</title>
+               </section>
+            </topicref>
+            <topicref class="- map/topicref " sourceId="-topicref-68-1172-161" xml:lang="en-us"
+                      xtrc="topicref:4"
+                      docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                      topicID="conceptId">
+               <title>Release Notes: Version 0.9.18</title>
+               <section class="- topic/section " sourceId="conceptId-section-14-111-290"
+                        xml:lang="en-us"
+                        xtrc="section:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.18.xml">
+                  <title>All transformation types (HTML2, EPUB, etc.)</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-21-70-2579"
+                        xml:lang="en-us"
+                        xtrc="section:2"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.18.xml">
+                  <title>Word to DITA</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-62-31-2171"
+                        xml:lang="en-us"
+                        xtrc="section:3"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.18.xml">
+                  <title>EPUB and Kindle</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-101-25-519"
+                        xml:lang="en-us"
+                        xtrc="section:4"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.18.xml">
+                  <title>DITA to InDesign</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-107-10-709"
+                        xml:lang="en-us"
+                        xtrc="section:5"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.18.xml">
+                  <title>Vocabulary Modules</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-122-5-192"
+                        xml:lang="en-us"
+                        xtrc="section:6"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.18.xml">
+                  <title>Documentation</title>
+               </section>
+            </topicref>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-78-1162-164"
+                        xml:lang="en-us"
+                        xtrc="subsection:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Release Notes: Version 0.9.16</title>
+               <section class="- topic/section " sourceId="conceptId-section-14-15-285"
+                        xml:lang="en-us"
+                        xtrc="section:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.16.xml">
+                  <title>Extensible transformation types (HTML2, EPUB, etc.)</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-19-5-512" xml:lang="en-us"
+                        xtrc="section:2"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.16.xml">
+                  <title>Word to DITA</title>
+               </section>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-88-1152-167"
+                        xml:lang="en-us"
+                        xtrc="subsection:2"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Release Notes: Version 0.9.15</title>
+               <section class="- topic/section " sourceId="conceptId-section-14-24-111"
+                        xml:lang="en-us"
+                        xtrc="section:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.15.xml">
+                  <title>Common XSLT library</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-18-20-209"
+                        xml:lang="en-us"
+                        xtrc="section:2"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.15.xml">
+                  <title>Word to DITA</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-22-5-539" xml:lang="en-us"
+                        xtrc="section:3"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.15.xml">
+                  <title>Vocabulary</title>
+               </section>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-98-1142-166"
+                        xml:lang="en-us"
+                        xtrc="subsection:3"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Release Notes: Version 0.9.14</title>
+               <section class="- topic/section " sourceId="conceptId-section-14-5-279" xml:lang="en-us"
+                        xtrc="section:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.14.xml">
+                  <title>HTML2 Transformation Types</title>
+               </section>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-108-1132-166"
+                        xml:lang="en-us"
+                        xtrc="subsection:4"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Release Notes: Version 0.9.13</title>
+               <section class="- topic/section " sourceId="conceptId-section-14-10-305"
+                        xml:lang="en-us"
+                        xtrc="section:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.13.xml">
+                  <title>EPUB and Kindle Transformation Types</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-21-5-119" xml:lang="en-us"
+                        xtrc="section:2"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.13.xml">
+                  <title>Kindle Transformation Type</title>
+               </section>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-118-1122-166"
+                        xml:lang="en-us"
+                        xtrc="subsection:5"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Release Notes: Version 0.9.12</title>
+               <section class="- topic/section " sourceId="conceptId-section-14-5-148" xml:lang="en-us"
+                        xtrc="section:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.12.xml">
+                  <title>HTML2, EPUB, and Kindle Transformation Types</title>
+               </section>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-128-1112-165"
+                        xml:lang="en-us"
+                        xtrc="subsection:6"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Release Notes: Version 0.9.11</title>
+               <section class="- topic/section " sourceId="conceptId-section-14-15-138"
+                        xml:lang="en-us"
+                        xtrc="section:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.11.xml">
+                  <title>General</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-18-9-239" xml:lang="en-us"
+                        xtrc="section:2"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.11.xml">
+                  <title>DITA to InDesign</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-24-5-241" xml:lang="en-us"
+                        xtrc="section:3"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.11.xml">
+                  <title>Vocabulary</title>
+               </section>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-138-1102-167"
+                        xml:lang="en-us"
+                        xtrc="subsection:7"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Release Notes: Version 0.9.10</title>
+               <section class="- topic/section " sourceId="conceptId-section-14-21-140"
+                        xml:lang="en-us"
+                        xtrc="section:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.10.xml">
+                  <title>EPUB, Kindle, and HTML2 Transformation Types</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-18-16-202"
+                        xml:lang="en-us"
+                        xtrc="section:2"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.10.xml">
+                  <title>Word-to-DITA</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-23-12-210"
+                        xml:lang="en-us"
+                        xtrc="section:3"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.10.xml">
+                  <title>Vocabulary</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-27-5-361" xml:lang="en-us"
+                        xtrc="section:4"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.10.xml">
+                  <title>Documentation</title>
+               </section>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-148-1092-163"
+                        xml:lang="en-us"
+                        xtrc="subsection:8"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Release Notes: Version 0.9.9</title>
+               <section class="- topic/section " sourceId="conceptId-section-14-24-646"
+                        xml:lang="en-us"
+                        xtrc="section:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.9.xml">
+                  <title>EPUB, Kindle, and HTML2 Transformation Types</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-22-19-162"
+                        xml:lang="en-us"
+                        xtrc="section:2"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.9.xml">
+                  <title>EPUB and Kindle Transformation Types</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-27-13-291"
+                        xml:lang="en-us"
+                        xtrc="section:3"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.9.xml">
+                  <title>HTML2 Transformation Type</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-33-5-181" xml:lang="en-us"
+                        xtrc="section:4"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/release-notes/release-notes-0.9.9.xml">
+                  <title>Vocabulary</title>
+               </section>
+            </subsection>
+         </topicref>
+      </frontmatter>
+      <chapter xmlns="http://dita4publishers.org/enumerables"
+               class="+ map/topicref pubmap-d/chapter "
+               sourceId="-chapter-160-1082-139"
+               xml:lang="en-us"
+               xtrc="chapter:1"
+               docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+               topicID="chapter-id">
+         <title>Introduction to DITA For Publishers</title>
+      </chapter>
+      <part xmlns="http://dita4publishers.org/enumerables"
+            class="+ map/topicref pubmap-d/part "
+            sourceId="-part-169-452-12243"
+            xml:lang="en-us"
+            xtrc="part:1"
+            docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+            topicID="part-id">
+         <title>The DITA For Publishers Open Toolkit Plugins</title>
+         <chapter class="+ map/topicref pubmap-d/chapter " sourceId="-chapter-177-1053-457"
+                  xml:lang="en-us"
+                  xtrc="chapter:2"
+                  docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                  topicID="taskId">
+            <title>Installing the Toolkit Plugins</title>
+            <context class="- topic/section task/context " sourceId="taskId-context-14-45-196"
+                     xml:lang="en-us"
+                     xtrc="context:1"
+                     docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/tasks/plugin-installation.xml"/>
+            <result class="- topic/section task/result " sourceId="taskId-result-50-11-47"
+                    xml:lang="en-us"
+                    xtrc="result:1"
+                    docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/tasks/plugin-installation.xml"/>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-186-1053-253"
+                        xml:lang="en-us"
+                        xtrc="subsection:9"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Setting Up The kindlegen Command-Line Utility</title>
+            </subsection>
+         </chapter>
+         <chapter class="+ map/topicref pubmap-d/chapter " sourceId="-chapter-197-853-4560"
+                  xml:lang="en-us"
+                  xtrc="chapter:3"
+                  docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                  topicID="chapter-id">
+            <title>Generating EPUBs and Kindle Books from DITA Content</title>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-206-1033-211"
+                        xml:lang="en-us"
+                        xtrc="subsection:10"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="taskId">
+               <title>Generating EPUBs From OxygenXML</title>
+               <context class="- topic/section task/context " sourceId="taskId-context-17-35-411"
+                        xml:lang="en-us"
+                        xtrc="context:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/generating-epubs-from-oxygen.xml"/>
+               <result class="- topic/section task/result " sourceId="taskId-result-44-8-1138"
+                       xml:lang="en-us"
+                       xtrc="result:1"
+                       docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/generating-epubs-from-oxygen.xml"/>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-216-1023-232"
+                        xml:lang="en-us"
+                        xtrc="subsection:11"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="taskId">
+               <title>Generating Kindle Books From OxygenXML</title>
+               <context class="- topic/section task/context " sourceId="taskId-context-17-41-698"
+                        xml:lang="en-us"
+                        xtrc="context:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/generating-kindle-books-from-oxygen.xml"/>
+               <result class="- topic/section task/result " sourceId="taskId-result-48-11-1102"
+                       xml:lang="en-us"
+                       xtrc="result:1"
+                       docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/generating-kindle-books-from-oxygen.xml"/>
+            </subsection>
+            <topicref class="- map/topicref " sourceId="-topicref-226-1013-223" xml:lang="en-us"
+                      xtrc="topicref:5"
+                      docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                      topicID="conceptId">
+               <title>Using Custom CSS Style Sheets</title>
+               <note class="- topic/note " sourceId="conceptId-note-13-37-159" xml:lang="en-us"
+                     xtrc="note:1"
+                     docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/using-custom-css.xml"/>
+            </topicref>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-236-1003-230"
+                        xml:lang="en-us"
+                        xtrc="subsection:12"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Creating Cover Graphics and Covers</title>
+               <note class="- topic/note " sourceId="conceptId-note-35-11-451" xml:lang="en-us"
+                     xtrc="note:1"
+                     docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/creating-cover-graphics.xml"/>
+            </subsection>
+            <abbrevlist class="+ map/topicref pubmap-d/abbrevlist " sourceId="-abbrevlist-246-994-141"
+                        xml:lang="en-us"
+                        xtrc="abbrevlist:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="subsection-id">
+               <title>Creating Arbitrary EPUB OPF Metadata</title>
+            </abbrevlist>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-255-983-311"
+                        xml:lang="en-us"
+                        xtrc="subsection:13"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Implementing Overrides for Common Processing</title>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-266-853-2888"
+                        xml:lang="en-us"
+                        xtrc="subsection:14"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>EPUB and Kindle Transformation Parameters</title>
+               <topicref class="- map/topicref " sourceId="-topicref-275-963-217" xml:lang="en-us"
+                         xtrc="topicref:6"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="referenceId">
+                  <title>args.css.output.dir Ant parameter</title>
+                  <section class="- topic/section " sourceId="referenceId-section-10-10-51"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-argsCssOutputDir.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-12-8-50"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-argsCssOutputDir.xml"/>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-285-953-229" xml:lang="en-us"
+                         xtrc="topicref:7"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="referenceId">
+                  <title>cover.graphic.file Ant parameter</title>
+                  <section class="- topic/section " sourceId="referenceId-section-19-19-137"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-coverGraphicFile.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-21-17-94"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-coverGraphicFile.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-23-15-74"
+                           xml:lang="en-us"
+                           xtrc="section:3"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-coverGraphicFile.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-25-11-254"
+                           xml:lang="en-us"
+                           xtrc="section:4"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-coverGraphicFile.xml"/>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-295-943-199" xml:lang="en-us"
+                         xtrc="topicref:8"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="referenceId">
+                  <title>d4p.max.nav.depth Ant parameter</title>
+                  <section class="- topic/section " sourceId="referenceId-section-10-17-334"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-d4pMaxNavDepth.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-12-15-36"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-d4pMaxNavDepth.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-14-11-182"
+                           xml:lang="en-us"
+                           xtrc="section:3"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-d4pMaxNavDepth.xml"/>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-305-933-203" xml:lang="en-us"
+                         xtrc="topicref:9"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="referenceId">
+                  <title>d4p.max.toc.depth Ant parameter</title>
+                  <section class="- topic/section " sourceId="referenceId-section-10-13-36"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-d4pMaxTocDepth.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-12-11-31"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-d4pMaxTocDepth.xml"/>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-315-923-227" xml:lang="en-us"
+                         xtrc="topicref:10"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="referenceId">
+                  <title>epub.exclude.auto.rellinks Ant parameter</title>
+                  <section class="- topic/section " sourceId="referenceId-section-10-17-62"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-epubIncludeAutoRellinks.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-12-15-49"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-epubIncludeAutoRellinks.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-14-13-18"
+                           xml:lang="en-us"
+                           xtrc="section:3"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-epubIncludeAutoRellinks.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-16-11-432"
+                           xml:lang="en-us"
+                           xtrc="section:4"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-epubIncludeAutoRellinks.xml"/>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-325-913-232" xml:lang="en-us"
+                         xtrc="topicref:11"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="referenceId">
+                  <title>epub.pubid.uri.stub Ant parameter</title>
+                  <section class="- topic/section " sourceId="referenceId-section-10-17-95"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-epubPubidUriStub.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-12-15-101"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-epubPubidUriStub.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-14-13-21"
+                           xml:lang="en-us"
+                           xtrc="section:3"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-epubPubidUriStub.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-16-11-155"
+                           xml:lang="en-us"
+                           xtrc="section:4"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-epubPubidUriStub.xml"/>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-335-903-231" xml:lang="en-us"
+                         xtrc="topicref:12"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="referenceId">
+                  <title>epub.temp.dir Ant parameter</title>
+                  <section class="- topic/section " sourceId="referenceId-section-10-16-51"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-epubTempDir.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-12-13-74"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-epubTempDir.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-15-11-101"
+                           xml:lang="en-us"
+                           xtrc="section:3"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-epubTempDir.xml"/>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-345-893-202" xml:lang="en-us"
+                         xtrc="topicref:13"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="referenceId">
+                  <title>images.output.dir Ant parameter</title>
+                  <section class="- topic/section " sourceId="referenceId-section-10-17-36"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-imagesOutputDir.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-12-15-20"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-imagesOutputDir.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-14-13-27"
+                           xml:lang="en-us"
+                           xtrc="section:3"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-imagesOutputDir.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-16-11-183"
+                           xml:lang="en-us"
+                           xtrc="section:4"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-imagesOutputDir.xml"/>
+               </topicref>
+               <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-355-883-225"
+                           xml:lang="en-us"
+                           xtrc="subsection:15"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                           topicID="referenceId">
+                  <title>kindlegen.executable Ant parameter</title>
+                  <section class="- topic/section " sourceId="referenceId-section-19-17-407"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-kindleGenExecutable.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-23-15-23"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-kindleGenExecutable.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-25-11-156"
+                           xml:lang="en-us"
+                           xtrc="section:3"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-kindleGenExecutable.xml"/>
+               </subsection>
+               <topicref class="- map/topicref " sourceId="-topicref-365-873-243" xml:lang="en-us"
+                         xtrc="topicref:14"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="referenceId">
+                  <title>title.only.topic.class.spec Ant parameter</title>
+                  <section class="- topic/section " sourceId="referenceId-section-10-19-93"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicClassSpec.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-13-16-28"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicClassSpec.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-16-14-35"
+                           xml:lang="en-us"
+                           xtrc="section:3"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicClassSpec.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-18-11-614"
+                           xml:lang="en-us"
+                           xtrc="section:4"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicClassSpec.xml"/>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-375-863-266" xml:lang="en-us"
+                         xtrc="topicref:15"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="referenceId">
+                  <title>title.only.topic.title.class.spec Ant parameter</title>
+                  <section class="- topic/section " sourceId="referenceId-section-10-19-94"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicTitleClassSpec.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-13-16-28"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicTitleClassSpec.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-16-14-40"
+                           xml:lang="en-us"
+                           xtrc="section:3"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicTitleClassSpec.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-18-11-620"
+                           xml:lang="en-us"
+                           xtrc="section:4"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicTitleClassSpec.xml"/>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-385-853-206" xml:lang="en-us"
+                         xtrc="topicref:16"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="referenceId">
+                  <title>topics.output.dir Ant parameter</title>
+                  <section class="- topic/section " sourceId="referenceId-section-10-14-37"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-topicsOutputDir.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-12-12-20"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-topicsOutputDir.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-14-10-27"
+                           xml:lang="en-us"
+                           xtrc="section:3"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-topicsOutputDir.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-16-8-135"
+                           xml:lang="en-us"
+                           xtrc="section:4"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-topicsOutputDir.xml"/>
+               </topicref>
+            </subsection>
+         </chapter>
+         <chapter class="+ map/topicref pubmap-d/chapter " sourceId="-chapter-397-803-1061"
+                  xml:lang="en-us"
+                  xtrc="chapter:4"
+                  docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                  topicID="conceptId">
+            <title>Map-Driven Processing</title>
+            <note class="- topic/note " sourceId="conceptId-note-30-45-260" xml:lang="en-us"
+                  xtrc="note:1"
+                  docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/map-driven-processing/map-driven-processing.xml"/>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-406-833-189"
+                        xml:lang="en-us"
+                        xtrc="subsection:16"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Data Collection Processing Phase</title>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-416-823-238"
+                        xml:lang="en-us"
+                        xtrc="subsection:17"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Numbering Things: Collected Data and Enumeration</title>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-426-813-205"
+                        xml:lang="en-us"
+                        xtrc="subsection:18"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Index Generation</title>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-436-803-239"
+                        xml:lang="en-us"
+                        xtrc="subsection:19"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Graphic Map Generation</title>
+            </subsection>
+         </chapter>
+         <chapter class="+ map/topicref pubmap-d/chapter " sourceId="-chapter-447-713-1927"
+                  xml:lang="en-us"
+                  xtrc="chapter:5"
+                  docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                  topicID="conceptId">
+            <title>HTML2 Plugin</title>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-456-763-739"
+                        xml:lang="en-us"
+                        xtrc="subsection:20"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Understanding the HTML2 Transformations</title>
+               <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-465-773-207"
+                           xml:lang="en-us"
+                           xtrc="subsection:21"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                           topicID="conceptId">
+                  <title>Overall HTML Generation Process Flow</title>
+               </subsection>
+               <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-475-763-295"
+                           xml:lang="en-us"
+                           xtrc="subsection:22"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                           topicID="conceptId">
+                  <title>Extending and Customizing Enumeration Processing (Numbering)</title>
+               </subsection>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-486-713-1053"
+                        xml:lang="en-us"
+                        xtrc="subsection:23"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>HTML2 Transformation Parameters</title>
+               <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-495-743-232"
+                           xml:lang="en-us"
+                           xtrc="subsection:24"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                           topicID="referenceId">
+                  <title>html2.file.organization.strategy Ant parameter</title>
+                  <section class="- topic/section " sourceId="referenceId-section-19-14-367"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-fileOrganizationStrategy.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-21-12-85"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-fileOrganizationStrategy.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-23-10-37"
+                           xml:lang="en-us"
+                           xtrc="section:3"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-fileOrganizationStrategy.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-25-8-12"
+                           xml:lang="en-us"
+                           xtrc="section:4"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-fileOrganizationStrategy.xml"/>
+               </subsection>
+               <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-505-733-214"
+                           xml:lang="en-us"
+                           xtrc="subsection:25"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                           topicID="referenceId">
+                  <title>html2.generate.dynamic.toc Ant parameter</title>
+                  <section class="- topic/section " sourceId="referenceId-section-19-17-29"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-generateDynamicToc.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-21-15-58"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-generateDynamicToc.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-23-13-31"
+                           xml:lang="en-us"
+                           xtrc="section:3"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-generateDynamicToc.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-25-11-86"
+                           xml:lang="en-us"
+                           xtrc="section:4"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-generateDynamicToc.xml"/>
+               </subsection>
+               <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-515-723-214"
+                           xml:lang="en-us"
+                           xtrc="subsection:26"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                           topicID="referenceId">
+                  <title>html2.generate.frameset Ant parameter</title>
+                  <section class="- topic/section " sourceId="referenceId-section-19-17-29"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-generateFrameset.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-21-15-49"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-generateFrameset.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-23-13-29"
+                           xml:lang="en-us"
+                           xtrc="section:3"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-generateFrameset.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-25-11-144"
+                           xml:lang="en-us"
+                           xtrc="section:4"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-generateFrameset.xml"/>
+               </subsection>
+               <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-525-713-211"
+                           xml:lang="en-us"
+                           xtrc="subsection:27"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                           topicID="referenceId">
+                  <title>html2.generate.static.toc Ant parameter</title>
+                  <section class="- topic/section " sourceId="referenceId-section-19-14-29"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-generateStaticToc.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-21-12-65"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-generateStaticToc.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-23-10-30"
+                           xml:lang="en-us"
+                           xtrc="section:3"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-generateStaticToc.xml"/>
+                  <section class="- topic/section " sourceId="referenceId-section-25-8-84"
+                           xml:lang="en-us"
+                           xtrc="section:4"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-generateStaticToc.xml"/>
+               </subsection>
+            </subsection>
+         </chapter>
+         <chapter class="+ map/topicref pubmap-d/chapter " sourceId="-chapter-537-462-3787"
+                  xml:lang="en-us"
+                  xtrc="chapter:1"
+                  docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                  topicID="conceptId">
+            <title>HTML5 Plugin</title>
+            <topichead class="+ map/topicref mapgroup-d/topichead " sourceId="-topichead-613-618-250"
+                       xml:lang="en-us"
+                       xtrc="topichead:1"
+                       docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap">
+               <title>Getting Started</title>
+               <topicref class="- map/topicref " sourceId="-topicref-615-628-111" xml:lang="en-us"
+                         xtrc="topicref:1"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="concept_3b5_mrd_qh">
+                  <title>Downloading HTML5 plugin</title>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-620-623-110" xml:lang="en-us"
+                         xtrc="topicref:2"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="concept_phf_dyd_qh">
+                  <title>Running the html5 plugin</title>
+                  <section class="- topic/section " sourceId="concept_phf_dyd_qh-section-4-8-197"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/general/running.xml">
+                     <title>Running DITA-OT from Ant</title>
+                  </section>
+                  <section class="- topic/section " sourceId="concept_phf_dyd_qh-section-8-5-161"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/general/running.xml">
+                     <title>Running DITA-OT from command-line tool</title>
+                  </section>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-625-618-14" xml:lang="en-us"
+                         xtrc="topicref:3"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="concept_j5b_lsd_qh">
+                  <title>License</title>
+                  <section class="- topic/section " sourceId="concept_j5b_lsd_qh-section-9-28-58"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/general/licence.xml">
+                     <title>jQuery</title>
+                  </section>
+                  <section class="- topic/section " sourceId="concept_j5b_lsd_qh-section-14-22-149"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/general/licence.xml">
+                     <title>jQuery UI</title>
+                  </section>
+                  <section class="- topic/section " sourceId="concept_j5b_lsd_qh-section-20-16-86"
+                           xml:lang="en-us"
+                           xtrc="section:3"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/general/licence.xml">
+                     <title>960 Grid System</title>
+                  </section>
+                  <section class="- topic/section " sourceId="concept_j5b_lsd_qh-section-26-10-133"
+                           xml:lang="en-us"
+                           xtrc="section:4"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/general/licence.xml">
+                     <title>jQuery BBQ: Back Button &amp; Query Library</title>
+                  </section>
+                  <section class="- topic/section " sourceId="concept_j5b_lsd_qh-section-32-5-66"
+                           xml:lang="en-us"
+                           xtrc="section:5"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/general/licence.xml">
+                     <title>Modernizr</title>
+                  </section>
+               </topicref>
+            </topichead>
+            <topichead class="+ map/topicref mapgroup-d/mapref " sourceId="-topichead-631-577-884"
+                       xml:lang="en-us"
+                       xtrc="topichead:1"
+                       docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap">
+               <topicref class="- map/topicref " sourceId="-topicref-631-612-46" xml:lang="en-us"
+                         xtrc="topicref:1"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="concept_nyf_phj_hg">
+                  <title>Layout</title>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-636-607-161" xml:lang="en-us"
+                         xtrc="topicref:2"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="concept_nxl_srz_jg">
+                  <title>Multiple columns layout</title>
+                  <section class="- topic/section " sourceId="concept_nxl_srz_jg-section-3-15-799"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/features/muti-columns.xml">
+                     <title>2 columns layout</title>
+                  </section>
+                  <section class="- topic/section " sourceId="concept_nxl_srz_jg-section-8-10-803"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/features/muti-columns.xml">
+                     <title>3 columns layout</title>
+                  </section>
+                  <section class="- topic/section " sourceId="concept_nxl_srz_jg-section-13-5-802"
+                           xml:lang="en-us"
+                           xtrc="section:3"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/features/muti-columns.xml">
+                     <title>4 columns layout</title>
+                  </section>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-641-602-165" xml:lang="en-us"
+                         xtrc="topicref:3"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="concept_tyl_xvz_jg">
+                  <title>CSS grid</title>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-646-597-77" xml:lang="en-us"
+                         xtrc="topicref:4"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="concept_5dp_fc4_sh">
+                  <title>Image support</title>
+                  <section class="- topic/section " sourceId="concept_5dp_fc4_sh-section-3-30-501"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/features/images.xml">
+                     <title>Standard images</title>
+                  </section>
+                  <section class="- topic/section " sourceId="concept_5dp_fc4_sh-section-16-22-1273"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/features/images.xml">
+                     <title>Floating image</title>
+                  </section>
+                  <section class="- topic/section " sourceId="concept_5dp_fc4_sh-section-24-14-215"
+                           xml:lang="en-us"
+                           xtrc="section:3"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/features/images.xml">
+                     <title>SVG support</title>
+                  </section>
+                  <section class="- topic/section " sourceId="concept_5dp_fc4_sh-section-32-5-356"
+                           xml:lang="en-us"
+                           xtrc="section:4"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/features/images.xml">
+                     <title>Cycle</title>
+                  </section>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-651-592-203" xml:lang="en-us"
+                         xtrc="topicref:5"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="concept_tv2_cd2_h3">
+                  <title>Notes</title>
+                  <section class="- topic/section " sourceId="concept_tv2_cd2_h3-section-3-23-4271"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/features/notes.xml">
+                     <title>Notes nested into a paragraph</title>
+                  </section>
+                  <section class="- topic/section " sourceId="concept_tv2_cd2_h3-section-30-5-410"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/features/notes.xml">
+                     <title>Notes not nested</title>
+                  </section>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-656-577-232" xml:lang="en-us"
+                         xtrc="topicref:6"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="concept_ntp_yhk_th">
+                  <title>UI</title>
+                  <topicref class="- map/topicref " sourceId="-topicref-660-582-93" xml:lang="en-us"
+                            xtrc="topicref:7"
+                            docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                            topicID="concept_xqz_f3k_th">
+                     <title>Accordion</title>
+                     <conbodydiv class="- topic/bodydiv concept/conbodydiv "
+                                 sourceId="concept_xqz_f3k_th-conbodydiv-3-5-449"
+                                 xml:lang="en-us"
+                                 xtrc="conbodydiv:1"
+                                 docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/features/accordion.xml">
+                        <section class="- topic/section " sourceId="concept_xqz_f3k_th-section-3-11-148"
+                                 xml:lang="en-us"
+                                 xtrc="section:1"
+                                 docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/features/accordion.xml">
+                           <title>Section 1</title>
+                        </section>
+                        <section class="- topic/section " sourceId="concept_xqz_f3k_th-section-6-8-144"
+                                 xml:lang="en-us"
+                                 xtrc="section:2"
+                                 docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/features/accordion.xml">
+                           <title>Section 2</title>
+                        </section>
+                        <section class="- topic/section " sourceId="concept_xqz_f3k_th-section-9-5-144"
+                                 xml:lang="en-us"
+                                 xtrc="section:3"
+                                 docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/features/accordion.xml">
+                           <title>Section 3</title>
+                        </section>
+                     </conbodydiv>
+                  </topicref>
+                  <topicref class="- map/topicref " sourceId="-topicref-665-577-62" xml:lang="en-us"
+                            xtrc="topicref:8"
+                            docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                            topicID="concept_sbn_swk_th">
+                     <title>Cycle</title>
+                     <section class="- topic/section " sourceId="concept_sbn_swk_th-section-3-5-339"
+                              xml:lang="en-us"
+                              xtrc="section:1"
+                              docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/features/ui-images.xml">
+                        <sectiondiv class="- topic/sectiondiv " sourceId="concept_sbn_swk_th-sectiondiv-3-5-332"
+                                    xml:lang="en-us"
+                                    xtrc="sectiondiv:1"
+                                    docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/features/ui-images.xml">
+                           <sectiondiv class="- topic/sectiondiv " sourceId="concept_sbn_swk_th-sectiondiv-5-5-54"
+                                       xml:lang="en-us"
+                                       xtrc="sectiondiv:2"
+                                       docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/features/ui-images.xml"/>
+                        </sectiondiv>
+                     </section>
+                  </topicref>
+               </topicref>
+            </topichead>
+            <topichead class="+ map/topicref mapgroup-d/topichead " sourceId="-topichead-672-491-1733"
+                       xml:lang="en-us"
+                       xtrc="topichead:2"
+                       docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap">
+               <title>Development</title>
+               <topicref class="- map/topicref " sourceId="-topicref-674-569-144" xml:lang="en-us"
+                         xtrc="topicref:4"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="concept_vqn_l1p_sh">
+                  <title>Introduction</title>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-679-564-103" xml:lang="en-us"
+                         xtrc="topicref:5"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="concept_31k_mbp_sh">
+                  <title>Directory structure</title>
+                  <section class="- topic/section " sourceId="concept_31k_mbp_sh-section-5-25-463"
+                           xml:lang="en-us"
+                           xtrc="section:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/directory-structure.xml">
+                     <title>libs</title>
+                  </section>
+                  <section class="- topic/section " sourceId="concept_31k_mbp_sh-section-19-22-24"
+                           xml:lang="en-us"
+                           xtrc="section:2"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/directory-structure.xml">
+                     <title>old</title>
+                  </section>
+                  <section class="- topic/section " sourceId="concept_31k_mbp_sh-section-22-19-39"
+                           xml:lang="en-us"
+                           xtrc="section:3"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/directory-structure.xml">
+                     <title>samples</title>
+                  </section>
+                  <section class="- topic/section " sourceId="concept_31k_mbp_sh-section-25-16-226"
+                           xml:lang="en-us"
+                           xtrc="section:4"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/directory-structure.xml">
+                     <title>sites</title>
+                  </section>
+                  <section class="- topic/section " sourceId="concept_31k_mbp_sh-section-28-12-253"
+                           xml:lang="en-us"
+                           xtrc="section:5"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/directory-structure.xml">
+                     <title>themes</title>
+                  </section>
+                  <section class="- topic/section " sourceId="concept_31k_mbp_sh-section-32-8-140"
+                           xml:lang="en-us"
+                           xtrc="section:6"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/directory-structure.xml">
+                     <title>xml2json</title>
+                  </section>
+                  <section class="- topic/section " sourceId="concept_31k_mbp_sh-section-36-5-66"
+                           xml:lang="en-us"
+                           xtrc="section:7"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/directory-structure.xml">
+                     <title>xsl</title>
+                  </section>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-684-549-277" xml:lang="en-us"
+                         xtrc="topicref:6"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="concept_hzy_2ql_th">
+                  <title>Theme Development</title>
+                  <topicref class="- map/topicref " sourceId="-topicref-688-554-191" xml:lang="en-us"
+                            xtrc="topicref:7"
+                            docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                            topicID="task_ssz_2jp_sh">
+                     <title>Before starting a new theme</title>
+                     <context class="- topic/section task/context "
+                              sourceId="task_ssz_2jp_sh-context-3-24-84"
+                              xml:lang="en-us"
+                              xtrc="context:1"
+                              docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/before.xml"/>
+                  </topicref>
+                  <topicref class="- map/topicref " sourceId="-topicref-693-549-52" xml:lang="en-us"
+                            xtrc="topicref:8"
+                            docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                            topicID="concept_bnb_x4p_sh">
+                     <title>Development of a new theme</title>
+                  </topicref>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-699-496-1100" xml:lang="en-us"
+                         xtrc="topicref:9"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="concept_mzm_jql_th">
+                  <title>The d4p javascript object reference</title>
+                  <topicref class="- map/topicref " sourceId="-topicref-703-510-677" xml:lang="en-us"
+                            xtrc="topicref:10"
+                            docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                            topicID="concept_bq5_ttb_5h">
+                     <title>The d4p properties</title>
+                     <topicref class="- map/topicref " sourceId="-topicref-706-535-56" xml:lang="en-us"
+                               xtrc="topicref:11"
+                               docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                               topicID="reference_5dn_m3n_th">
+                        <title>d4p.version</title>
+                        <refsyn class="- topic/section     reference/refsyn "
+                                sourceId="reference_5dn_m3n_th-refsyn-3-7-70"
+                                xml:lang="en-us"
+                                xtrc="refsyn:1"
+                                docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/version.xml"/>
+                        <section class="- topic/section " sourceId="reference_5dn_m3n_th-section-9-4-81"
+                                 xml:lang="en-us"
+                                 xtrc="section:1"
+                                 docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/version.xml">
+                           <title>Description</title>
+                        </section>
+                     </topicref>
+                     <topicref class="- map/topicref " sourceId="-topicref-711-530-130" xml:lang="en-us"
+                               xtrc="topicref:12"
+                               docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                               topicID="reference_5dn_m3n_th">
+                        <title>d4p.loadInitialContent</title>
+                        <refsyn class="- topic/section     reference/refsyn "
+                                sourceId="reference_5dn_m3n_th-refsyn-3-8-98"
+                                xml:lang="en-us"
+                                xtrc="refsyn:1"
+                                docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/loadInitialContent.xml"/>
+                        <section class="- topic/section " sourceId="reference_5dn_m3n_th-section-9-4-401"
+                                 xml:lang="en-us"
+                                 xtrc="section:1"
+                                 docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/loadInitialContent.xml">
+                           <title>Description</title>
+                        </section>
+                     </topicref>
+                     <topicref class="- map/topicref " sourceId="-topicref-716-525-56" xml:lang="en-us"
+                               xtrc="topicref:13"
+                               docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                               topicID="reference_5dn_m3n_th">
+                        <title>d4p.hash</title>
+                        <refsyn class="- topic/section     reference/refsyn "
+                                sourceId="reference_5dn_m3n_th-refsyn-3-18-70"
+                                xml:lang="en-us"
+                                xtrc="refsyn:1"
+                                docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/hash.xml"/>
+                     </topicref>
+                     <topicref class="- map/topicref " sourceId="-topicref-721-520-97" xml:lang="en-us"
+                               xtrc="topicref:14"
+                               docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                               topicID="reference_5dn_m3n_th">
+                        <title>d4p.outputSelector</title>
+                        <refsyn class="- topic/section     reference/refsyn "
+                                sourceId="reference_5dn_m3n_th-refsyn-3-9-109"
+                                xml:lang="en-us"
+                                xtrc="refsyn:1"
+                                docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/outputSelector.xml"/>
+                        <section class="- topic/section " sourceId="reference_5dn_m3n_th-section-9-4-294"
+                                 xml:lang="en-us"
+                                 xtrc="section:1"
+                                 docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/outputSelector.xml">
+                           <title>Description</title>
+                        </section>
+                     </topicref>
+                     <topicref class="- map/topicref " sourceId="-topicref-726-515-103" xml:lang="en-us"
+                               xtrc="topicref:15"
+                               docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                               topicID="reference_5dn_m3n_th">
+                        <title>d4p.navigationSelector:</title>
+                        <refsyn class="- topic/section     reference/refsyn "
+                                sourceId="reference_5dn_m3n_th-refsyn-3-9-113"
+                                xml:lang="en-us"
+                                xtrc="refsyn:1"
+                                docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/navigationSelector.xml"/>
+                        <section class="- topic/section " sourceId="reference_5dn_m3n_th-section-9-4-347"
+                                 xml:lang="en-us"
+                                 xtrc="section:1"
+                                 docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/navigationSelector.xml">
+                           <title>Description</title>
+                        </section>
+                     </topicref>
+                     <topicref class="- map/topicref " sourceId="-topicref-731-510-199" xml:lang="en-us"
+                               xtrc="topicref:16"
+                               docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                               topicID="reference_5dn_m3n_th">
+                        <title>d4p.externalContentElement</title>
+                        <refsyn class="- topic/section     reference/refsyn "
+                                sourceId="reference_5dn_m3n_th-refsyn-3-4-106"
+                                xml:lang="en-us"
+                                xtrc="refsyn:1"
+                                docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/externalContentElement.xml"/>
+                     </topicref>
+                  </topicref>
+                  <topicref class="- map/topicref " sourceId="-topicref-737-496-253" xml:lang="en-us"
+                            xtrc="topicref:17"
+                            docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                            topicID="concept_fr3_5pb_5h">
+                     <title>The d4p.ajaxLoader object type</title>
+                     <section class="- topic/section " sourceId="concept_fr3_5pb_5h-section-9-17-157"
+                              xml:lang="en-us"
+                              xtrc="section:1"
+                              docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/d4p/ajaxLoader/ajaxLoader.xml">
+                        <title>How to create an instance of the d4p.ajaxLoader object</title>
+                     </section>
+                     <section class="- topic/section " sourceId="concept_fr3_5pb_5h-section-13-12-484"
+                              xml:lang="en-us"
+                              xtrc="section:2"
+                              docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/d4p/ajaxLoader/ajaxLoader.xml">
+                        <title>How to assign different parser to the new instanciated object</title>
+                     </section>
+                     <section class="- topic/section " sourceId="concept_fr3_5pb_5h-section-18-8-206"
+                              xml:lang="en-us"
+                              xtrc="section:3"
+                              docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/html5-plugin/dev/d4p/ajaxLoader/ajaxLoader.xml">
+                        <title>How to change the output selector of the new instanciated object</title>
+                     </section>
+                     <topicref class="- map/topicref " sourceId="-topicref-741-496-133" xml:lang="en-us"
+                               xtrc="topicref:18"
+                               docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                               topicID="concept_4lv_lvb_5h">
+                        <title>d4p.ajaxLoader methods</title>
+                        <topicref class="- map/topicref " sourceId="-topicref-744-496-89" xml:lang="en-us"
+                                  xtrc="topicref:19"
+                                  docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                                  topicID="concept_dcw_n5b_5h">
+                           <title>setOutputSelector</title>
+                        </topicref>
+                     </topicref>
+                  </topicref>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-752-491-98" xml:lang="en-us"
+                         xtrc="topicref:20"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="reference_tss_dv4_sh">
+                  <title>Availaible ant properties </title>
+               </topicref>
+            </topichead>
+            <topichead class="+ map/topicref mapgroup-d/mapref " sourceId="-topichead-758-472-34"
+                       xml:lang="en-us"
+                       xtrc="topichead:1"
+                       docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap">
+               <title>Glossary</title>
+               <glossref class="+ map/topicref glossref-d/glossref " sourceId="-glossref-760-484-6"
+                         xml:lang="en-us"
+                         xtrc="glossref:1"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="glossentry_mq1_y53_hg">
+                  <title>CSS</title>
+               </glossref>
+               <glossref class="+ map/topicref glossref-d/glossref " sourceId="-glossref-764-480-6"
+                         xml:lang="en-us"
+                         xtrc="glossref:2"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="glossentry_mq1_y53_hg">
+                  <title>DOM</title>
+               </glossref>
+               <glossref class="+ map/topicref glossref-d/glossref " sourceId="-glossref-768-476-6"
+                         xml:lang="en-us"
+                         xtrc="glossref:3"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="glossentry_mq1_y53_hg">
+                  <title>W3C</title>
+               </glossref>
+               <glossref class="+ map/topicref glossref-d/glossref " sourceId="-glossref-772-472-8"
+                         xml:lang="en-us"
+                         xtrc="glossref:4"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="glossentry_mq1_y53_hg">
+                  <title>AJAX</title>
+               </glossref>
+            </topichead>
+            <topichead class="+ map/topicref mapgroup-d/mapref " sourceId="-topichead-777-462-180"
+                       xml:lang="en-us"
+                       xtrc="topichead:1"
+                       docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap">
+               <topicref class="- map/topicref " sourceId="-topicref-777-462-180" xml:lang="en-us"
+                         xtrc="topicref:1"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="concept_2gn_hfy_jg">
+                  <title>Very long title, expected to break into multiple lines</title>
+                  <topicref class="- map/topicref " sourceId="-topicref-781-462-72" xml:lang="en-us"
+                            xtrc="topicref:2"
+                            docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                            topicID="concept_umk_hwj_qh">
+                     <title>This is a child under the long title</title>
+                  </topicref>
+               </topicref>
+            </topichead>
+         </chapter>
+         <chapter class="+ map/topicref pubmap-d/chapter " sourceId="-chapter-788-452-294"
+                  xml:lang="en-us"
+                  xtrc="chapter:6"
+                  docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                  topicID="conceptId">
+            <title>Generating DITA from Documents (Word-to-DITA Transformation Framework)</title>
+         </chapter>
+      </part>
+      <part xmlns="http://dita4publishers.org/enumerables"
+            class="+ map/topicref pubmap-d/part "
+            sourceId="-part-799-251-5161"
+            xml:lang="en-us"
+            xtrc="part:2"
+            docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+            topicID="part-id">
+         <title>The DITA For Publishers Markup Vocabulary</title>
+         <chapter class="+ map/topicref pubmap-d/chapter " sourceId="-chapter-808-282-3872"
+                  xml:lang="en-us"
+                  xtrc="chapter:7"
+                  docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                  topicID="chapter-id">
+            <title>Understanding the DITA For Publishers Markup Vocabulary</title>
+            <topicref class="- map/topicref " sourceId="-topicref-817-282-3595" xml:lang="en-us"
+                      xtrc="topicref:18"
+                      docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                      topicID="topic-1">
+               <title>DITA for Publishers Vocabulary Modules Overview</title>
+               <topicref class="- map/topicref " sourceId="-topicref-825-413-320" xml:lang="en-us"
+                         xtrc="topicref:19"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="topic-id">
+                  <title>Publication Component Topic Types</title>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-835-403-294" xml:lang="en-us"
+                         xtrc="topicref:20"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="topic-id">
+                  <title>Publication Maps</title>
+               </topicref>
+               <topicref class="- map/topicref " sourceId="-topicref-845-282-2818" xml:lang="en-us"
+                         xtrc="topicref:21"
+                         docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                         topicID="subsection-id">
+                  <title>DITA For Publishers Domains</title>
+                  <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-854-383-204"
+                              xml:lang="en-us"
+                              xtrc="subsection:28"
+                              docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                              topicID="subsection-id">
+                     <title>Publication Map Domains</title>
+                  </subsection>
+                  <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-864-373-226"
+                              xml:lang="en-us"
+                              xtrc="subsection:29"
+                              docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                              topicID="subsection-id">
+                     <title>Topic Domains</title>
+                  </subsection>
+                  <topicref class="- map/topicref " sourceId="-topicref-874-363-242" xml:lang="en-us"
+                            xtrc="topicref:22"
+                            docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                            topicID="topic-id">
+                     <title>Classification Domain</title>
+                  </topicref>
+                  <topicref class="- map/topicref " sourceId="-topicref-884-353-252" xml:lang="en-us"
+                            xtrc="topicref:23"
+                            docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                            topicID="topic-id">
+                     <title>Enumeration Domains</title>
+                     <note class="- topic/note " sourceId="topic-id-note-23-11-85" xml:lang="en-us"
+                           xtrc="note:1"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/website/topics/enumeration-domains.xml"/>
+                  </topicref>
+                  <topicref class="- map/topicref " sourceId="-topicref-894-343-449" xml:lang="en-us"
+                            xtrc="topicref:24"
+                            docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                            topicID="topicid">
+                     <title>Formatting Domain</title>
+                  </topicref>
+                  <topicref class="- map/topicref " sourceId="-topicref-904-333-228" xml:lang="en-us"
+                            xtrc="topicref:25"
+                            docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                            topicID="topic-id">
+                     <title>Publication Content Domain</title>
+                  </topicref>
+                  <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-914-322-239"
+                              xml:lang="en-us"
+                              xtrc="subsection:30"
+                              docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                              topicID="subsection-id">
+                     <title>Rendition Target Attribute Domain</title>
+                  </subsection>
+                  <topicref class="- map/topicref " sourceId="-topicref-925-311-221" xml:lang="en-us"
+                            xtrc="topicref:26"
+                            docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                            topicID="topic-id">
+                     <title>Ruby Domain</title>
+                  </topicref>
+                  <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-936-301-229"
+                              xml:lang="en-us"
+                              xtrc="subsection:31"
+                              docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                              topicID="conceptId">
+                     <title>Variables Domain</title>
+                     <concept class="- topic/topic concept/concept " sourceId="topic_yyg_twl_y3"
+                              origId="topic_yyg_twl_y3"
+                              xml:lang="en-us"
+                              xtrc="concept:2"
+                              docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/website/topics/variables-domain.xml"
+                              id="topic_yyg_twl_y3">
+                        <title>Variable Definitions: d4p-variable-definition and
+      d4p-variable-definitions</title>
+                     </concept>
+                     <concept class="- topic/topic concept/concept " sourceId="concept_yrk_b4s_y3"
+                              origId="concept_yrk_b4s_y3"
+                              xml:lang="en-us"
+                              xtrc="concept:3"
+                              docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/website/topics/variables-domain.xml"
+                              id="concept_yrk_b4s_y3">
+                        <title>Fallback values:
+      d4p-variable-definition-fallback</title>
+                     </concept>
+                     <concept class="- topic/topic concept/concept " sourceId="concept_k13_zzl_y3"
+                              origId="concept_k13_zzl_y3"
+                              xml:lang="en-us"
+                              xtrc="concept:4"
+                              docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/website/topics/variables-domain.xml"
+                              id="concept_k13_zzl_y3">
+                        <title>Variable References: d4p-variableref_keyword and
+      d4p-variableref_text</title>
+                        <note class="- topic/note " sourceId="conceptId-concept_k13_zzl_y3-note-93-3-372"
+                              xml:lang="en-us"
+                              xtrc="note:1"
+                              docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/website/topics/variables-domain.xml"/>
+                     </concept>
+                  </subsection>
+                  <topicref class="- map/topicref " sourceId="-topicref-946-291-213" xml:lang="en-us"
+                            xtrc="topicref:27"
+                            docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                            topicID="topic-id">
+                     <title>Verse Domain</title>
+                  </topicref>
+                  <topicref class="- map/topicref " sourceId="-topicref-956-282-89" xml:lang="en-us"
+                            xtrc="topicref:28"
+                            docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                            topicID="topicid">
+                     <title>XML Domain</title>
+                  </topicref>
+               </topicref>
+            </topicref>
+         </chapter>
+         <chapter class="+ map/topicref pubmap-d/chapter " sourceId="-chapter-968-261-670"
+                  xml:lang="en-us"
+                  xtrc="chapter:8"
+                  docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                  topicID="chapter-id">
+            <title>Integrating D4P Modules Into Document Type Shells</title>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-977-261-343"
+                        xml:lang="en-us"
+                        xtrc="subsection:32"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="subsection-id">
+               <title>Integrating Attribute Domains</title>
+               <context class="- topic/section task/context "
+                        sourceId="subsection-id-context-11-43-380"
+                        xml:lang="en-us"
+                        xtrc="context:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/vocabulary-part/integrating-attribute-domains.xml"/>
+               <result class="- topic/section task/result " sourceId="subsection-id-result-49-5-188"
+                       xml:lang="en-us"
+                       xtrc="result:1"
+                       docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/vocabulary-part/integrating-attribute-domains.xml"/>
+            </subsection>
+         </chapter>
+         <chapter class="+ map/topicref pubmap-d/chapter " sourceId="-chapter-989-251-254"
+                  xml:lang="en-us"
+                  xtrc="chapter:9"
+                  docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                  topicID="chapter-id">
+            <title>DITA For Publishers Vocabulary Reference</title>
+            <note class="- topic/note " sourceId="chapter-id-note-11-8-154" xml:lang="en-us"
+                  xtrc="note:1"
+                  docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/vocabulary-part/d4p-vocabulary-reference.xml"/>
+         </chapter>
+      </part>
+      <part xmlns="http://dita4publishers.org/enumerables"
+            class="+ map/topicref pubmap-d/part "
+            sourceId="-part-1000-21-6210"
+            xml:lang="en-us"
+            xtrc="part:3"
+            docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+            topicID="part-id">
+         <title>The DITA For Publishers Word to DITA and DITA to InDesign Tools</title>
+         <chapter class="+ map/topicref pubmap-d/chapter " sourceId="-chapter-1009-101-3538"
+                  xml:lang="en-us"
+                  xtrc="chapter:10"
+                  docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                  topicID="chapter-id">
+            <title>The Word-to-DITA Transformation Framework</title>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1018-221-240"
+                        xml:lang="en-us"
+                        xtrc="subsection:33"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Getting Started With The Word2DITA Transform</title>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1028-201-531"
+                        xml:lang="en-us"
+                        xtrc="subsection:34"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Generating DITA from Word Using the Toolkit Plugin</title>
+               <section class="- topic/section " sourceId="conceptId-section-13-49-280"
+                        xml:lang="en-us"
+                        xtrc="section:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/word-to-dita-plugin-usage.xml">
+                  <title>Required Parameters</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-24-15-1240"
+                        xml:lang="en-us"
+                        xtrc="section:2"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/word-to-dita-plugin-usage.xml">
+                  <title>Optional Parameters</title>
+               </section>
+               <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1037-201-274"
+                           xml:lang="en-us"
+                           xtrc="subsection:35"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                           topicID="conceptId">
+                  <title>Setting Up an Ant Script for Running the Word-to-DITA Transform</title>
+               </subsection>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1048-191-228"
+                        xml:lang="en-us"
+                        xtrc="subsection:36"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Generating DITA From Within OxygenXML</title>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1058-181-494"
+                        xml:lang="en-us"
+                        xtrc="subsection:37"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="concept-id">
+               <title>Style to Tag Mapping</title>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1068-171-187"
+                        xml:lang="en-us"
+                        xtrc="subsection:38"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Common Style-to-Tag Mapping Cases</title>
+               <concept class="- topic/topic concept/concept " sourceId="normal-paragraph-mapping"
+                        origId="normal-paragraph-mapping"
+                        xml:lang="en-us"
+                        xtrc="concept:2"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/common-mapping-cases.xml"
+                        id="normal-paragraph-mapping">
+                  <title>Simple Paragraphs and Character Runs</title>
+               </concept>
+               <concept class="- topic/topic concept/concept " sourceId="headings" origId="headings"
+                        xml:lang="en-us"
+                        xtrc="concept:3"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/common-mapping-cases.xml"
+                        id="headings">
+                  <title>Heading Paragraphs That Map to Topics</title>
+               </concept>
+               <concept class="- topic/topic concept/concept " sourceId="mapping-lists"
+                        origId="mapping-lists"
+                        xml:lang="en-us"
+                        xtrc="concept:4"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/common-mapping-cases.xml"
+                        id="mapping-lists">
+                  <title>Mapping List Paragraphs (Generating Container Elements)</title>
+               </concept>
+               <concept class="- topic/topic concept/concept " sourceId="mapping-dl"
+                        origId="mapping-dl"
+                        xml:lang="en-us"
+                        xtrc="concept:5"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/common-mapping-cases.xml"
+                        id="mapping-dl">
+                  <title>Mapping Definition Lists</title>
+               </concept>
+               <concept class="- topic/topic concept/concept " sourceId="mapping-procedures"
+                        origId="mapping-procedures"
+                        xml:lang="en-us"
+                        xtrc="concept:6"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/common-mapping-cases.xml"
+                        id="mapping-procedures">
+                  <title>Mapping Procedure Steps</title>
+               </concept>
+               <concept class="- topic/topic concept/concept " sourceId="mapping-tables"
+                        origId="mapping-tables"
+                        xml:lang="en-us"
+                        xtrc="concept:7"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/common-mapping-cases.xml"
+                        id="mapping-tables">
+                  <title>Mapping Tables</title>
+               </concept>
+               <concept class="- topic/topic concept/concept " sourceId="skipping-paras"
+                        origId="skipping-paras"
+                        xml:lang="en-us"
+                        xtrc="concept:8"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/common-mapping-cases.xml"
+                        id="skipping-paras">
+                  <title>Skipping Paragraphs</title>
+               </concept>
+               <concept class="- topic/topic concept/concept " sourceId="mapping-to-sections"
+                        origId="mapping-to-sections"
+                        xml:lang="en-us"
+                        xtrc="concept:9"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/common-mapping-cases.xml"
+                        id="mapping-to-sections">
+                  <title>Mapping to Sections</title>
+               </concept>
+               <concept class="- topic/topic concept/concept " sourceId="mapping-to-maps"
+                        origId="mapping-to-maps"
+                        xml:lang="en-us"
+                        xtrc="concept:10"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/common-mapping-cases.xml"
+                        id="mapping-to-maps">
+                  <title>Mapping to Maps and Map Components (Topicrefs)</title>
+               </concept>
+               <concept class="- topic/topic concept/concept " sourceId="mapping-metadata"
+                        origId="mapping-metadata"
+                        xml:lang="en-us"
+                        xtrc="concept:11"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/common-mapping-cases.xml"
+                        id="mapping-metadata">
+                  <title>Mapping Metadata</title>
+               </concept>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1078-161-223"
+                        xml:lang="en-us"
+                        xtrc="subsection:39"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Troubleshooting the Word-to-DITA Process</title>
+               <concept class="- topic/topic concept/concept " sourceId="general-debugging-tips"
+                        origId="general-debugging-tips"
+                        xml:lang="en-us"
+                        xtrc="concept:2"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/troubleshooting-word2dita.xml"
+                        id="general-debugging-tips">
+                  <title>General Troubleshooting Tips</title>
+               </concept>
+               <concept class="- topic/topic concept/concept " sourceId="missing-content"
+                        origId="missing-content"
+                        xml:lang="en-us"
+                        xtrc="concept:3"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/troubleshooting-word2dita.xml"
+                        id="missing-content">
+                  <title>The Markup is Not Valid Against the DTD</title>
+               </concept>
+               <concept class="- topic/topic concept/concept " sourceId="map-and-topics-dont-match"
+                        origId="map-and-topics-dont-match"
+                        xml:lang="en-us"
+                        xtrc="concept:4"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/troubleshooting-word2dita.xml"
+                        id="map-and-topics-dont-match">
+                  <title>Generated Maps and Topics Do Not Match</title>
+               </concept>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1088-151-264"
+                        xml:lang="en-us"
+                        xtrc="subsection:40"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Word-to-DITA Style-to-Tag Mapping Video Tutorial</title>
+               <note class="- topic/note " sourceId="conceptId-note-16-28-133" xml:lang="en-us"
+                     xtrc="note:1"
+                     docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/word2dita-video-tutorial-01.xml"/>
+               <note class="- topic/note " sourceId="conceptId-note-21-26-61" xml:lang="en-us"
+                     xtrc="note:2"
+                     docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/word2dita-video-tutorial-01.xml"/>
+               <fig class="- topic/fig "
+                    sourceId="conceptId-word2dita-video-tutorial-01fig-25-11-242"
+                    origId="word2dita-video-tutorial-01"
+                    xml:lang="en-us"
+                    xtrc="fig:1"
+                    docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/word2dita-video-tutorial-01.xml">
+                  <title>Word-to-DITA Video Tutorial: Technical Document Style to Tag Mapping</title>
+               </fig>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1098-131-442"
+                        xml:lang="en-us"
+                        xtrc="subsection:41"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Extending and Overriding the Word to DITA Transform</title>
+               <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1107-131-211"
+                           xml:lang="en-us"
+                           xtrc="subsection:42"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                           topicID="conceptId">
+                  <title>Sample Custom Word-to-DITA XSLT Stylesheet</title>
+               </subsection>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1118-121-240"
+                        xml:lang="en-us"
+                        xtrc="subsection:43"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Tips for Using Word With the Word-to-DITA Transform</title>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1128-111-228"
+                        xml:lang="en-us"
+                        xtrc="subsection:44"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Word-to-DITA XSLT Transformation Parameters</title>
+               <section class="- topic/section " sourceId="conceptId-section-15-62-355"
+                        xml:lang="en-us"
+                        xtrc="section:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/transform-parameters.xml">
+                  <title>Required Parameters</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-24-11-2730"
+                        xml:lang="en-us"
+                        xtrc="section:2"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/transform-parameters.xml">
+                  <title>Optional Parameters</title>
+               </section>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1138-101-178"
+                        xml:lang="en-us"
+                        xtrc="subsection:45"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Word-to-DITA Ant Parameters</title>
+               <section class="- topic/section " sourceId="conceptId-section-13-78-257"
+                        xml:lang="en-us"
+                        xtrc="section:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/word2dita-ant-parameters.xml">
+                  <title>Required Parameters</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-22-8-4417"
+                        xml:lang="en-us"
+                        xtrc="section:2"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/word2dita/word2dita-ant-parameters.xml">
+                  <title>Optional Parameters</title>
+               </section>
+            </subsection>
+         </chapter>
+         <chapter class="+ map/topicref pubmap-d/chapter " sourceId="-chapter-1149-21-2393"
+                  xml:lang="en-us"
+                  xtrc="chapter:11"
+                  docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                  topicID="chapter-id">
+            <title>The DITA-to-InDesign Transformation Framework</title>
+            <note class="- topic/note " sourceId="chapter-id-note-25-42-583" xml:lang="en-us"
+                  xtrc="note:1"
+                  docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/dita2indesign/dita-to-indesign-framework-chapter.xml"/>
+            <note class="- topic/note " sourceId="chapter-id-note-39-27-809" xml:lang="en-us"
+                  xtrc="note:2"
+                  docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/dita2indesign/dita-to-indesign-framework-chapter.xml"/>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1158-81-389"
+                        xml:lang="en-us"
+                        xtrc="subsection:46"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Overview of the InDesign and InCopy Products</title>
+               <note class="- topic/note " sourceId="conceptId-note-14-16-134" xml:lang="en-us"
+                     xtrc="note:1"
+                     docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/dita2indesign/indesign-product-overview.xml"/>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1168-71-356"
+                        xml:lang="en-us"
+                        xtrc="subsection:47"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Generating InCopy Articles from DITA Topics</title>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1178-61-284"
+                        xml:lang="en-us"
+                        xtrc="subsection:48"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Generating InDesign from DITA Using the Toolkit Plugin</title>
+               <section class="- topic/section " sourceId="conceptId-section-13-28-43" xml:lang="en-us"
+                        xtrc="section:1"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/dita2indesign/dita-to-indesign-plugin-usage.xml">
+                  <title>Required Parameters</title>
+               </section>
+               <section class="- topic/section " sourceId="conceptId-section-16-11-468"
+                        xml:lang="en-us"
+                        xtrc="section:2"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/dita2indesign/dita-to-indesign-plugin-usage.xml">
+                  <title>Optional Parameters</title>
+               </section>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1188-31-777"
+                        xml:lang="en-us"
+                        xtrc="subsection:49"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Configuring the DITA-to-InDesign Transformation</title>
+               <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1197-41-301"
+                           xml:lang="en-us"
+                           xtrc="subsection:50"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                           topicID="conceptId">
+                  <title>Mapping XML Elements to InDesign Paragraph and Character Styles</title>
+               </subsection>
+               <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1207-31-237"
+                           xml:lang="en-us"
+                           xtrc="subsection:51"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                           topicID="conceptId">
+                  <title>Specifying InDesign Grouped Style Names</title>
+               </subsection>
+            </subsection>
+            <subsection class="+ map/topicref pubmap-d/subsection " sourceId="-subsection-1218-21-291"
+                        xml:lang="en-us"
+                        xtrc="subsection:52"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                        topicID="conceptId">
+               <title>Preparing InDesign Templates for DITA-to-InDesign Use</title>
+               <concept class="- topic/topic concept/concept " sourceId="threaded-frames"
+                        origId="threaded-frames"
+                        xml:lang="en-us"
+                        xtrc="concept:2"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/dita2indesign/indesign-optimization.xml"
+                        id="threaded-frames">
+                  <title>Thread Frames for Complex Page Layouts</title>
+               </concept>
+               <concept class="- topic/topic concept/concept " sourceId="page-masters"
+                        origId="page-masters"
+                        xml:lang="en-us"
+                        xtrc="concept:3"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/dita2indesign/indesign-optimization.xml"
+                        id="page-masters">
+                  <title>Use Page Masters for All Distinct Page Layouts</title>
+               </concept>
+               <concept class="- topic/topic concept/concept " sourceId="optimizing-styles"
+                        origId="optimizing-styles"
+                        xml:lang="en-us"
+                        xtrc="concept:4"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/dita2indesign/indesign-optimization.xml"
+                        id="optimizing-styles">
+                  <title>Define Styles for All Visual Distinctions</title>
+                  <concept class="- topic/topic concept/concept " sourceId="styles-general"
+                           origId="styles-general"
+                           xml:lang="en-us"
+                           xtrc="concept:5"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/dita2indesign/indesign-optimization.xml"
+                           id="styles-general">
+                     <title>General Style Definition Guidelines</title>
+                  </concept>
+                  <concept class="- topic/topic concept/concept " sourceId="styles-lists"
+                           origId="styles-lists"
+                           xml:lang="en-us"
+                           xtrc="concept:6"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/dita2indesign/indesign-optimization.xml"
+                           id="styles-lists">
+                     <title>Styles for Lists</title>
+                  </concept>
+                  <concept class="- topic/topic concept/concept " sourceId="styles-object"
+                           origId="styles-object"
+                           xml:lang="en-us"
+                           xtrc="concept:7"
+                           docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/dita2indesign/indesign-optimization.xml"
+                           id="styles-object">
+                     <title>Object Styles</title>
+                  </concept>
+               </concept>
+               <concept class="- topic/topic concept/concept " sourceId="using-script-labesl"
+                        origId="using-script-labesl"
+                        xml:lang="en-us"
+                        xtrc="concept:8"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/dita2indesign/indesign-optimization.xml"
+                        id="using-script-labesl">
+                  <title>Use Script Labels for Key Frames</title>
+               </concept>
+               <concept class="- topic/topic concept/concept " sourceId="configuring-page-masters"
+                        origId="configuring-page-masters"
+                        xml:lang="en-us"
+                        xtrc="concept:9"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/dita2indesign/indesign-optimization.xml"
+                        id="configuring-page-masters">
+                  <title>Configuring Page Masters</title>
+               </concept>
+               <concept class="- topic/topic concept/concept " sourceId="template-frames"
+                        origId="template-frames"
+                        xml:lang="en-us"
+                        xtrc="concept:10"
+                        docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide/dita2indesign/indesign-optimization.xml"
+                        id="template-frames">
+                  <title>Using Template Frames</title>
+               </concept>
+            </subsection>
+         </chapter>
+      </part>
+      <appendix xmlns="http://dita4publishers.org/enumerables"
+                class="+ map/topicref pubmap-d/appendix "
+                sourceId="-appendix-1231-10-142"
+                xml:lang="en-us"
+                xtrc="appendix:1"
+                docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                topicID="chapter-id">
+         <title>This is an Appendix</title>
+      </appendix>
+      <backmatter xmlns="http://dita4publishers.org/enumerables"
+                  class="+ map/topicref pubmap-d/backmatter "
+                  sourceId="-backmatter-1242-0-85"
+                  xml:lang="en-us"
+                  xtrc="backmatter:1"
+                  docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap">
+         <topicref class="- map/topicref " sourceId="-topicref-1242-0-85" xml:lang="en-us"
+                   xtrc="topicref:29"
+                   docUri="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/temp/d4p-users-guide/html/user_docs/d4p-users-guide.ditamap"
+                   topicID="topic-id">
+            <title>Colophon</title>
+         </topicref>
+      </backmatter>
+   </enum:enumerables>
+   <glossdata:glossary-entries xmlns:glossdata="http://dita4publishers.org/glossdata"/>
+</mapdriven:collected-data>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<?Pub Inc?>
+<concept id="UnderstandingMeteringModes-9F32659C" xml:lang="en">
+<title>Understanding Metering Modes</title>
+<shortdesc>Metering modes enable you to choose the area of the image
+that the camera measures to calculate the correct exposure.</shortdesc>
+<prolog>
+<metadata><keywords><indexterm>metering</indexterm></keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>You change metering modes via the Q menu or the metering mode button
+on top of the camera body. <xref format="dita"
+href="#UnderstandingMeteringModes-9F32659C/MeteringModes-9F333230"
+scope="local" type="table"></xref> describes the available metering
+modes.</p><?Pub Caret -1?>
+<table id="MeteringModes-9F333230">
+<title>Metering Modes</title>
+<tgroup cols="2"><colspec colname="col1"/><colspec colname="col2"/>
+<thead>
+<row>
+<entry valign="top">Metering Mode</entry>
+<entry valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>Matrix metering</entry>
+<entry>Measures the entire frame using all 63 metering zones and takes
+an average of all zones to computing the proper exposure. This is
+the default metering mode.</entry>
+</row>
+<row>
+<entry>Center weighted average</entry>
+<entry>Meters based on an average of the entire frame, but gives more
+weight to subjects located in the center of the frame. </entry>
+</row>
+<row>
+<entry>Partial metering</entry>
+<entry>Meters based on only a small portion of the frame, which is
+the portion enclosed by the outer circle visible in the viewfinder.
+This accounts for 9% of the total frame.</entry>
+</row>
+<row>
+<entry>Spot metering</entry>
+<entry>Meters based only on the small circle in the middle of the
+frame, which accounts for 6% of the frame. Use spot metering in difficult
+lighting situations such as a backlit subject or a very dark background.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</conbody>
+</concept>

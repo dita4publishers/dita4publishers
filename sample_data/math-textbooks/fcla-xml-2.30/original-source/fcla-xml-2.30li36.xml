@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" > 
+<?xml-stylesheet type="text/css" href="fcla-xml-2.30.css"?> 
+<html  
+xmlns="http://www.w3.org/1999/xhtml"  
+><head><title>Chapter VS  Vector Spaces</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- html,xhtml,mozilla,3 --> 
+<meta name="src" content="fcla-xml-2.30.tex" /> 
+<meta name="date" content="2011-12-23 18:20:00" /> 
+<link rel="stylesheet" type="text/css" href="fcla-xml-2.30.css" /> 
+</head><body 
+>
+   <!--l. 404--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li43.xml" >next</a>] [<a 
+href="fcla-xml-2.30li29.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li29.xml#tailfcla-xml-2.30li29.xml" >prev-tail</a>] [<a 
+href="#tailfcla-xml-2.30li36.xml">tail</a>] [<a 
+href="fcla-xml-2.30li14.xml#fcla-xml-2.30li36.xml" >up</a>] </p></div>
+   <h2 class="likechapterHead"><a 
+ id="x37-152000"></a>Chapter VS&#x00A0;&#x00A0;Vector Spaces</h2>
+<!--l. 404--><p class="noindent" ><a 
+ id="chapter.VS"></a> <a 
+ id="x37-152000doc"></a><a 
+ id="dx37-152001"></a>
+</p><!--l. 10--><p class="indent" >   We now have a computational toolkit in place and so we can begin our study
+of linear algebra in a more theoretical style.
+</p><!--l. 12--><p class="indent" >   Linear algebra is the study of two fundamental objects, vector spaces and
+linear transformations (see <a 
+href="fcla-xml-2.30li50.xml#chapter.LT">Chapter&#x00A0;LT</a>). This chapter will focus on the former.
+The power of mathematics is often derived from generalizing many different
+situations into one abstract formulation, and that is exactly what we will be doing
+throughout this chapter.
+</p>
+   <div class="likesectionTOCS">
+   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li37.xml#x38-153000">Section VS Vector Spaces</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li37.xml#x38-154000" id="QQ2-38-154">Subsection VS: Vector Spaces</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li37.xml#x38-155000" id="QQ2-38-155">Subsection EVS: Examples of Vector Spaces</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li37.xml#x38-156000" id="QQ2-38-156">Subsection VSP: Vector Space Properties</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li37.xml#x38-157000" id="QQ2-38-157">Subsection RD: Recycling Definitions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li37.xml#x38-158000" id="QQ2-38-158">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li37.xml#x38-159000" id="QQ2-38-159">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li37.xml#x38-160000" id="QQ2-38-160">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li38.xml#x39-161000">Section S Subspaces</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li38.xml#x39-162000" id="QQ2-39-162">Subsection TS: Testing Subspaces</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li38.xml#x39-163000" id="QQ2-39-163">Subsection TSS: The Span of a Set</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li38.xml#x39-164000" id="QQ2-39-164">Subsection SC: Subspace Constructions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li38.xml#x39-165000" id="QQ2-39-165">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li38.xml#x39-166000" id="QQ2-39-166">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li38.xml#x39-167000" id="QQ2-39-167">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li39.xml#x40-168000">Section LISS Linear Independence and Spanning Sets</a></span>
+                                                                          
+
+                                                                          
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li39.xml#x40-169000" id="QQ2-40-169">Subsection LI: Linear Independence</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li39.xml#x40-170000" id="QQ2-40-170">Subsection SS: Spanning Sets</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li39.xml#x40-171000" id="QQ2-40-171">Subsection VR: Vector Representation</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li39.xml#x40-172000" id="QQ2-40-172">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li39.xml#x40-173000" id="QQ2-40-173">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li39.xml#x40-174000" id="QQ2-40-174">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li40.xml#x41-175000">Section B Bases</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li40.xml#x41-176000" id="QQ2-41-176">Subsection B: Bases</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li40.xml#x41-177000" id="QQ2-41-177">Subsection BSCV: Bases for Spans of Column Vectors</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li40.xml#x41-178000" id="QQ2-41-178">Subsection BNM: Bases and Nonsingular Matrices</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li40.xml#x41-179000" id="QQ2-41-179">Subsection OBC: Orthonormal Bases and Coordinates</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li40.xml#x41-180000" id="QQ2-41-180">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li40.xml#x41-181000" id="QQ2-41-181">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li40.xml#x41-182000" id="QQ2-41-182">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li41.xml#x42-183000">Section D Dimension</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li41.xml#x42-184000" id="QQ2-42-184">Subsection D: Dimension</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li41.xml#x42-185000" id="QQ2-42-185">Subsection DVS: Dimension of Vector Spaces</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li41.xml#x42-186000" id="QQ2-42-186">Subsection RNM: Rank and Nullity of a Matrix</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li41.xml#x42-187000" id="QQ2-42-187">Subsection RNNM: Rank and Nullity of a Nonsingular Matrix</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li41.xml#x42-188000" id="QQ2-42-188">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li41.xml#x42-189000" id="QQ2-42-189">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li41.xml#x42-190000" id="QQ2-42-190">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li42.xml#x43-191000">Section PD Properties of Dimension</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li42.xml#x43-192000" id="QQ2-43-192">Subsection GT: Goldilocks&#x2019; Theorem</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li42.xml#x43-193000" id="QQ2-43-193">Subsection RT: Ranks and Transposes</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li42.xml#x43-194000" id="QQ2-43-194">Subsection DFS: Dimension of Four Subspaces</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li42.xml#x43-195000" id="QQ2-43-195">Subsection DS: Direct Sums</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li42.xml#x43-196000" id="QQ2-43-196">Subsection READ: Reading Questions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li42.xml#x43-197000" id="QQ2-43-197">Subsection EXC: Exercises</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li42.xml#x43-198000" id="QQ2-43-198">Subsection SOL: Solutions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li42.xml#x43-199000" id="QQ2-43-199">Annotated Acronyms VS: Vector Spaces</a></span>
+   </div>
+
+
+
+
+
+                                                                          
+
+                                                                          
+   <!--l. 422--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li43.xml" >next</a>] [<a 
+href="fcla-xml-2.30li29.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li29.xml#tailfcla-xml-2.30li29.xml" >prev-tail</a>] [<a 
+href="fcla-xml-2.30li36.xml" >front</a>] [<a 
+href="fcla-xml-2.30li14.xml#fcla-xml-2.30li36.xml" >up</a>] </p></div>
+<!--l. 422--><p class="indent" >   <a 
+ id="tailfcla-xml-2.30li36.xml"></a> </p> 
+</body> 
+</html> 

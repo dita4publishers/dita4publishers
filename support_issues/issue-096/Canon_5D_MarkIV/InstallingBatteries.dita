@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+ "task.dtd">
+<?Pub Inc?>
+<task id="InstallingBatteries-8E8C99B7" xml:lang="en">
+<title>Installing Batteries</title>
+<shortdesc>Installing batteries is easy and requires no tools.</shortdesc>
+<prolog>
+<metadata><keywords><indexterm>batteries<indexterm>installing</indexterm
+></indexterm><indexterm>installing batteries</indexterm></keywords>
+</metadata><?Pub Caret 45?>
+</prolog>
+<taskbody>
+<steps>
+<step><cmd>Ensure the power switch is off.</cmd></step>
+<step><cmd>Open the battery cover at the bottom of the camera by pushing
+in on the tab.<fn id="DoNotForce.-B120314A">Do not force.</fn><xref
+format="dita" href="#InstallingBatteries-8E8C99B7/DoNotForce.-B120314A"
+scope="local" type="fn"></xref></cmd></step>
+<step><cmd>Insert the battery into the slot until it snaps into place.<xref
+format="dita" href="#InstallingBatteries-8E8C99B7/DoNotForce.-B120314A"
+scope="local" type="fn"></xref></cmd></step>
+<step><cmd>Close the battery cover.<fn>Push until you hear a click.</fn
+></cmd></step>
+</steps>
+</taskbody>
+</task>

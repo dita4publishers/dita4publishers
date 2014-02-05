@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+  <title>Map B</title>
+  <topicgroup>
+    <topicmeta>
+      <navtitle>Key Definitions</navtitle>
+    </topicmeta>
+    <mapref href="keydefs/map-b-keydefs-local.ditamap"/>
+    <topicgroup>
+      <topicmeta>
+        <navtitle>Keydefs Map A scope="peer"</navtitle>
+      </topicmeta>
+      <keydef
+        keys="topic-a-01"
+        href="../map-a/topics/topic-a-01.dita"
+        scope="peer"/>
+      <keydef
+        keys="topic-a-02"
+        href="../map-a/topics/topic-a-02.dita"
+        scope="peer"/>
+    </topicgroup>
+  </topicgroup>
+  <topicref
+    keyref="topic-b-root">
+    <topicref
+      keyref="topic-b-01"/>
+    <topicref
+      keyref="topic-b-02"/>
+  </topicref>
+</map>

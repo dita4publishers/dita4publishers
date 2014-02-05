@@ -29,11 +29,11 @@
     with the generated topics.
     
     =============================================================  -->
-  
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
-  
+<!--  
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
+  -->
   <xsl:output name="topic-html"
     method="xhtml"
     encoding="UTF-8"
@@ -100,15 +100,13 @@
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
     <xsl:choose>
       <xsl:when test="not($topic)">
-        <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
+        <xsl:message> + [WARNING] generate-content: Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="topicResultUri" 
           select="htmlutil:getTopicResultUrl($outdir, root($topic), $rootMapDocUrl)"
           as="xs:string"
         />
-        <xsl:message> + [DEBUG] outdir="<xsl:sequence select="$outdir"/>", 
-    topicResultUri="<xsl:sequence select="$topicResultUri"/></xsl:message>
         <xsl:variable name="tempTopic" as="document-node()">
           <xsl:document>
             <xsl:apply-templates select="$topic" mode="href-fixup">
@@ -143,7 +141,7 @@
     <!-- Result URI to which the document should be written. -->
     <xsl:param name="resultUri" as="xs:string" tunnel="yes"/>
     
-    <xsl:message> + [INFO] Writing topic <xsl:sequence select="document-uri(root(.))"/> to HTML file "<xsl:sequence 
+    <xsl:message> + [INFO] Writing topic <xsl:sequence select="base-uri(root(.))"/> to HTML file "<xsl:sequence 
       select="$resultUri"/>"...</xsl:message>
     <xsl:variable name="htmlNoNamespace" as="node()*">
       <xsl:apply-templates select="." mode="map-driven-content-processing" >
@@ -151,11 +149,6 @@
         <xsl:with-param name="collected-data" select="$collected-data" as="element()" tunnel="yes"/>    
       </xsl:apply-templates>      
     </xsl:variable>
-    <xsl:if test="true() and $debugBoolean">
-      <xsl:result-document href="{concat($outdir, '/', 'htmlNoNamespace/', relpath:getName($resultUri))}">
-        <xsl:sequence select="$htmlNoNamespace"/>
-      </xsl:result-document>
-    </xsl:if>
     <xsl:result-document format="topic-html" href="{$resultUri}" >
       <xsl:apply-templates select="$htmlNoNamespace" mode="no-namespace-html-post-process">
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
@@ -175,7 +168,7 @@
     <!-- This template is a general dispatch template that applies
       templates to the topicref in a distinct mode so processors
       can do topic output processing based on the topicref context
-      if the want. -->
+      if they want to. -->
     <xsl:param name="topicref" as="element()?" tunnel="yes"/>
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>    
     
@@ -198,7 +191,7 @@
     <xsl:param name="topic" as="element()?"/>
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>    
     
-    <xsl:if test="false() and $debugBoolean">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] topicref-driven-content: topicref="<xsl:sequence select="name(.)"/>, class="<xsl:sequence select="string(@class)"/>"</xsl:message>
     </xsl:if>
     <xsl:variable name="topicref" select="." as="element()"/>
@@ -206,10 +199,10 @@
       <!-- Process the topic in the default mode, meaning the base Toolkit-provided
         HTML output processing.
         
-        By providing the topicref as a tunneled parameter it makes it available
-        to custom extensions to the base Toolkit processing.
+        By providing the topicref and collected data as a tunneled parameters
+        it makes them available to custom extensions to the base Toolkit processing.
       -->
-      <xsl:apply-templates select=".">
+      <xsl:apply-templates select="." >
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
         <xsl:with-param name="collected-data" select="$collected-data" as="element()" tunnel="yes"/>    
       </xsl:apply-templates>
@@ -229,8 +222,13 @@
     <a id="{generate-id()}" class="indexterm-anchor"/>
   </xsl:template>
   
-  <!-- NOTE: the body of this template is taken from the base dita2xhtmlImpl.xsl -->
-  <xsl:template match="*[df:class(., 'topic/topic')]/*[df:class(., 'topic/title')]">
+  <!-- NOTE: the body of this template is taken from the base dita2xhtmlImpl.xsl 
+   
+       This should only be applied to root topics so that chunk to-content does
+       not result in the same topicref being used for non-child topics and thus
+       resulting in incorrect enumeration logic.
+  -->
+  <xsl:template match="*[df:class(., 'topic/topic')][parent::dita or count(parent::*) = 0]/*[df:class(., 'topic/title')]">
     <xsl:param name="topicref" select="()" as="element()?" tunnel="yes"/>
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>    
     
@@ -249,25 +247,7 @@
       <xsl:apply-templates select="$topicref" mode="enumeration"/>
       <xsl:apply-templates/>
     </xsl:element>    
-  </xsl:template>
-  
-  <!-- Override of same template from base HTML so we can unset the 
-    topicref tunnelling parameter.
-  -->
-  <xsl:template match="/dita | *[contains(@class,' topic/topic ')]">
-    <xsl:choose>
-      <xsl:when test="not(parent::*)">
-        <xsl:apply-templates select="." mode="root_element"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="." mode="child.topic">
-          <xsl:with-param name="topicref" select="()" tunnel="yes" as="element()?"/>
-        </xsl:apply-templates>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-  
-  
+  </xsl:template>  
   
   <!-- Enumeration mode manages generating numbers from topicrefs -->
   <xsl:template match="* | text()" mode="enumeration">

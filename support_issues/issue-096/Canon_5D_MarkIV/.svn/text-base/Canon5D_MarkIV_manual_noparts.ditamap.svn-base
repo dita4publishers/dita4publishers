@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN"
+ "bookmap.dtd">
+<?Pub UDT template _font?>
+<bookmap xml:lang="en">
+<booktitle>
+<mainbooktitle>Canon 5D Mark IV User’s Guide</mainbooktitle>
+</booktitle>
+<frontmatter>
+<booklists>
+<toc/>
+<tablelist/></booklists><?Pub Caret -1?>
+<preface format="dita" href="Preface.dita" navtitle="Preface"
+scope="local" type="concept">
+<topicref format="dita" href="HandlingPrecautions.dita"
+navtitle="Handling Precautions" scope="local" type="concept">
+<topicref format="dita" href="ProlongedUse.dita"
+navtitle="Cautions During Prolonged Use" scope="local" type="concept">
+</topicref>
+</topicref>
+<topicref format="dita" href="Warranty.dita" navtitle="Warranty"
+scope="local" type="concept"></topicref>
+</preface>
+</frontmatter>
+<chapter format="dita" href="IntroducingThe5DMarkIV.dita"
+navtitle="Introducing The 5D Mark IV" scope="local" type="concept">
+<topicref format="dita" href="lFull-FrameCMOSSensor.dita"
+navtitle="22.3 Megapixel Full-Frame CMOS Sensor" scope="local"
+type="concept"></topicref>
+<topicref format="dita" href="DIGIC5ImageProcessor.dita"
+navtitle="DIGIC 5+ Image Processor" scope="local" type="concept">
+</topicref>
+<topicref format="dita" href="HighDensityReticularAF.dita"
+navtitle="61-Point High Density Reticular AF" scope="local"
+type="concept"></topicref>
+<topicref format="dita" href="EOSHDVideo.dita" navtitle="EOS HD Video"
+scope="local" type="concept"></topicref>
+</chapter>
+<chapter format="dita" href="InitialSetup.dita" navtitle="Initial Setup"
+scope="local" type="topic">
+<topicref format="dita" href="What'sInTheBox.dita"
+navtitle="What's In the Box" scope="local" type="topic"></topicref>
+<topicref format="dita" href="5DMarkIVAtAGlance.dita"
+navtitle="5D Mark IV At a Glance" scope="local" type="reference">
+</topicref>
+<topicref format="dita" href="InstallingBatteries.dita"
+navtitle="Installing Batteries" scope="local" type="topic"></topicref>
+</chapter>
+<chapter format="dita" href="TakingYourFirstPhoto.dita"
+navtitle="Taking Your First Photo" scope="local" type="topic">
+<topicref format="dita" href="SettingAutomaticMode.dita"
+navtitle="Setting Automatic Mode" scope="local" type="topic"></topicref>
+<topicref format="dita" href="FocusingAndShooting.dita"
+navtitle="Focusing and Shooting" scope="local" type="topic"></topicref>
+</chapter>
+<chapter format="dita" href="UsingAutomaticModes.dita"
+navtitle="Using Automatic Modes" scope="local" type="topic">
+<topicref format="dita" href="UsingQuickAutoMode.dita"
+navtitle="Using Intelligent Auto Mode" scope="local" type="topic">
+</topicref>
+<topicref format="dita" href="UsingSceneModes.dita"
+navtitle="Using Scene Modes" scope="local" type="topic"></topicref>
+<topicref format="dita" href="SceneModesDescriptions.dita"
+navtitle="Scene Modes Descriptions" scope="local" type="reference">
+</topicref>
+</chapter>
+<chapter format="dita" href="UsingFlash.dita" navtitle="Using Flash"
+scope="local" type="topic"><?Pub Dtl?>
+<topicref format="dita" href="AboutCanonFlash.dita"
+navtitle="About Canon Flash" scope="local" type="topic"></topicref>
+<topicref format="dita" href="UsingTheInternalFlash.dita"
+navtitle="Using the Internal Flash" scope="local" type="topic">
+</topicref>
+<topicref format="dita" href="UsingExternalFlash.dita"
+navtitle="Using External Flash" scope="local" type="topic"></topicref>
+<topicref chunk="to-content" format="dita"
+href="UsingMultipleFlashesWithWireless.dita"
+navtitle="Using Multiple Flashes with Wireless" scope="local"
+type="topic">
+<topicref format="dita" href="AboutTheCanonWirelessFlashSystem.dita"
+navtitle="About the Canon Wireless Flash System" scope="local"
+type="concept"></topicref>
+<topicref format="dita" href="ConfiguringATwo-LightSetup.dita"
+navtitle="Configuring a Two-Light Setup" scope="local" type="task">
+</topicref>
+</topicref>
+</chapter>
+<appendices format="dita" href="Appendixes.dita" navtitle="Appendixes"
+scope="local" type="topic">
+<appendix format="dita" href="CustomFunctions.dita"
+navtitle="Custom Functions" scope="local" type="topic"></appendix>
+<appendix format="dita" href="Specifications.dita"
+navtitle="Specifications" scope="local" type="topic">
+<topicref format="dita" href="Specifications_General.dita"
+navtitle="General Specifications" scope="local" type="reference">
+</topicref>
+<topicref format="dita" href="Specifications_Physical.dita"
+navtitle="Physical Specifications" scope="local" type="reference">
+</topicref>
+</appendix>
+</appendices>
+</bookmap>

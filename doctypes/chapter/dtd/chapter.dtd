@@ -55,13 +55,15 @@
 <!--                    Redefine the infotype entity to exclude 
                         other topic types and disallow nesting     -->
 <!ENTITY % chapter-info-types 
-  "subsection |
+  "division |
+   subsection |
    sidebar
   "
 >
 
 <!ENTITY % subsection-info-types 
-  "subsection |
+  "division |
+   subsection |
    sidebar
   "
 >
@@ -77,14 +79,7 @@
 <!--                    Must be declared ahead of the DTDs, which
                         puts @domains first in order               -->
 
-<!ENTITY included-domains 
-    "&hi-d-att; 
-     &ut-d-att;
-     &formatting-d-att;
-     &xml-d-att;
-    "                
- >
-
+<!-- NOTE: These are provided in the common domain entity integrations module. -->
 
 <!-- ============================================================= -->
 <!--                    TOPIC ELEMENT INTEGRATION                  -->
@@ -102,6 +97,13 @@
 "urn:pubid:dita4publishers.sourceforge.net:modules:chapter" 
 "chapter.mod"                                                        >                                                     
 %chapter-typemod;
+
+<!ENTITY % division-typemod 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sourceforge.net:modules:division" 
+"division.mod"                                                        
+>                                                     
+%division-typemod;
 
 <!ENTITY % subsection-typemod 
                         PUBLIC 
@@ -127,4 +129,4 @@
          "d4p_commonDomainIntegration.mod"
 >%commonDomainIntegrations;
 
-<!-- ================== End Lesson DTD  ==================== -->
+<!-- ================== End Chapter DTD  ==================== -->

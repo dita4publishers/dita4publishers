@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Publication Component Topic Types"/>
+<meta name="abstract" content="The five topic types article, chapter, part, subsection, and sidebar provide the basic building blocks for all publications when coupled with the standard task and glossary entry types."/>
+<meta name="description" content="The five topic types article, chapter, part, subsection, and sidebar provide the basic building blocks for all publications when coupled with the standard task and glossary entry types."/>
+<meta name="DC.Relation" scheme="URI" content="specialization-modules-overview.html"/>
+<meta name="prodname" content="DITA For Publishers"/>
+<meta name="version" content="0.9.19RC10"/>
+<meta name="DC.Creator" content="W. Eliot Kimber"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topic-id"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Publication Component Topic Types</title>
+</head>
+<body id="topic-id">
+
+
+  <h1 class="title topictitle1">Publication Component Topic Types</h1>
+  
+  <div class="body"><p class="shortdesc">The five topic types article, chapter, part, subsection, and sidebar provide the basic building blocks for all publications when coupled with the standard task and glossary entry types.</p>
+
+    <p class="p">All publications consist of some combination of chapters or articles, sometimes organized into parts or similar groupings. Within a chapter or article there may be a hierarchy of titled divisions (subsections) or sidebars.</p>
+
+    <p class="p">The DITA for Publishers topic types <code>&lt;article&gt;</code>, <code>&lt;chapter&gt;</code>, <code>&lt;subsection&gt;</code>, <code>&lt;sidebar&gt;</code>, and <code>&lt;part&gt;</code>, coupled with the generic topic type <code>&lt;topic&gt;</code>, the glossary entry topic type <code>&lt;glossentry&gt;</code>, and other more-specialized topic types such as <code>&lt;task&gt;</code> and <code>&lt;learningContent&gt;</code>, can represent almost any publication with appropriate clarity and completeness without requiring additional specialization.</p>
+
+    <p class="p">The content of the five topic types is identical to the base <code>&lt;topic&gt;</code> topic type. This provides maximum flexibility, ensuring that almost any legacy content can be captured as one of these topic types.</p>
+
+    <p class="p">The main purpose of these topic types is to make it clear that a particular topic is an article or is a chapter, or at least that it started its life with that expectation. In short, authors expect to have root element types that correspond to the things they are creating as an authorial action. It also enables finding of content based on its basic role, e.g., "find all articles that contain the text 'publishing tools'".</p>
+
+    <p class="p">Note that more specific structural distinctions within publications—frontmatter components, appendixes, etc.—are normally made within publication maps. A given "chapter" may act as a frontmatter section, a body chapter, or an appendix depending on how it is used in a particular publication. Of course, enterprises may decide to further specialize from these basic types.</p>
+
+    <p class="p">Each of the five types may directly contain the other topic types as appropriate. Parts may contain articles or chapters. Parts, chapters, and articles may contain subsections or sidebars. Subsections may contain nested subsections or sidebars. Sidebars may contain subsections but not other sidebars (at least not directly).</p>
+
+    <p class="p">An effect of this design is that an entire part or chapter or article can be authored and managed as a single XML document—there is no requirement to make each subordinate topic a separate file (DITA in general does not require it and DITA for Publishers definitely does not require it). </p>
+
+    <p class="p">Keep in mind also that nested topics may be re-used from maps without first breaking them out into separate files. This means, for example, that you should be able to use by reference from another publication a sidebar originally authored as a nested topic within a chapter or article.</p>
+
+    <p class="p">For publications that include glossaries, the standard DITA <code>&lt;glossentry&gt;</code> topic type should serve. Likewise, publications that include processes or procedures or tutorials should be able to use the standard <code>&lt;task&gt;</code> topic type.</p>
+
+    <p class="p">Finally, any publication component for which any of these specialized types is not appropriate can use the generic <code>&lt;topic&gt;</code> topic type. For example, some publications include arbitrary untitled pages that play no obvious semantic or structural role, at least not one requiring codification in carefully-designed markup. In this case a generic topic with an empty title element will serve just fine (remember that one of the few hard rules in DITA is that every topic must have a title <em class="ph i">element</em>—there's no rule that says that title element can't be empty).</p>
+
+    <p class="p">Because publishing content is, by its nature, varied, arbitrary and largely at the whim of authors and designers, the DITA For Publishers designs must necessarily be as flexible as possible and, in general, take a much less dogmatic approach to markup than tends to be applied to the use of DITA in technical documentation, where consistency and repeatability are the driving business requirements. This means that DITA for Publishers will often explicitly allow, or even encourage, markup practices that would be anethma in the context of technical documentation but are the only way to solve certain problems in the context of Publishing. </p>
+
+    <p class="p">The <code>&lt;d4pCover&gt;</code> topic type is intended for topics that represent graphical covers where the topic has no natural title. The <code>&lt;d4pCover&gt;</code> topic type provides a specialized title element that has empty content. The body of the topic is normall a reference to a graphic for the cover (e.g., the front cover or back cover of a book).</p>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="specialization-modules-overview.html">DITA for Publishers Vocabulary Modules Overview</a></div>
+</div>
+</div>
+
+</body>
+</html>

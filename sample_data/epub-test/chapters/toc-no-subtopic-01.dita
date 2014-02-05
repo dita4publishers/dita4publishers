@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
-<topic id="topic-1">
-  <title>Subtopic Below toc=no Chapter</title>
-  <body>
-    <p>This subtopic is a child in the map of a chapter with toc="no" specified. It should not be listed in the ToC because the @toc value should propagate from the parent.</p>
-  </body>
-</topic>

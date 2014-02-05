@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subsection PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:subsection" "subsection.dtd">
+<subsection
+  id="subsection-id">
+  <title>Parent for Copy-to Test</title>
+  <body>
+    <p>This topic is referenced by a topicref that specifies
+      <xmlatt>copy-to</xmlatt>. It has a descendant topic that references a
+      graphic.</p>
+  </body>
+</subsection>

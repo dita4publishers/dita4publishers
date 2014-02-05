@@ -19,7 +19,13 @@
         href="reference/ant-parm-coverGraphicFile.xml#referenceId"
         format="dita"/>)</li>
       <li>You can include a <codeph>&lt;data></codeph> element with a @name value of "covergraphic" in the root map's <xmlelem>topicmeta</xmlelem> element, where the value or content of the <xmlelem>data</xmlelem> element is the absolute or relative path (from the map) of the graphic to use.</li>
-      <li>You can use the DITA for Publishers <xmlelem>epub-cover-graphic</xmlelem> element within the <xmlelem>covers</xmlelem> section of a publication map to point to the cover graphic.</li>
+      <li>You can use the DITA for Publishers
+        <xmlelem>epub-cover-graphic</xmlelem> element within the
+        <xmlelem>covers</xmlelem> section of a publication map to point to the
+        cover graphic. The <xmlelem>epub-cover-graphic</xmlelem> element must
+        have an <xmlatt>id</xmlatt> value of "coverimage" at least for iBooks.
+        This ensures that it matches the corresponding <xmlelem>meta</xmlelem>
+        element in the generated OPF file.</li>
       <li>You can implement a Toolkit plugin that extends the base EPUB generation transform and override the template for <xmlelem>map</xmlelem> in the mode "get-cover-graphic-uri". For example, you may have an existing convention for representing cover graphics in your publications.</li>
       </ul></p>
     <note>The cover graphic used for the EPUB cover must (and should) be different from any other graphic representation of the cover. For example, if you reference the same graphic as the EPUB cover graphic and as an image from a "cover" topic, the EPUB OPF metadata entry will probably not be correct.<p>As a general practice, the EPUB cover graphic should be a fairly low-resolution image sized according to the guidelines for the target EPUB reader or library.</p></note>

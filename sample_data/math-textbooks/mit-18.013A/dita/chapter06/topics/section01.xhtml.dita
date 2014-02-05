@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e56"><title>6.1 Differentiability, the Tangent Line-Linear Approximation</title><body><p>
+A function 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ of one real variable is said to be
+<b>differentiable</b>
+at argument 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+,
+<b>if its graph looks like a straight line </b>
+for arguments in any open interval including 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. (An open interval is one that does not contain its endpoints.)
+</p><p>
+<b>Its derivative at <d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> is the slope of that line.</b>
+</p><p>
+(To be more precise, for whatever positive criterion of nearness you choose however small, there is an open interval containing 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ so that for every 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mo>'</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ in the interval other than 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ itself, the difference between 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mfrac><m:mrow><m:mi>f</m:mi><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo>'</m:mo><m:mo stretchy="false">)</m:mo><m:mo>−</m:mo><m:mi>f</m:mi><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mrow><m:mi>x</m:mi><m:mo>'</m:mo><m:mo>−</m:mo><m:mi>x</m:mi></m:mrow></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and the slope of that line is less than that criterion.)
+<ph outputclass="a">
+  <b>Note</b>
+</ph>
+</p><p>
+The line that 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ resembles near argument 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is called the
+<b>tangent line to
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> at argument</b>
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and the linear function it represents is called
+<b>the linear approximation to
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> at argument</b>
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+The slope of the tangent line at 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is given by 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mfrac><m:mrow><m:mi>d</m:mi><m:mi>f</m:mi></m:mrow><m:mrow><m:mi>d</m:mi><m:mi>x</m:mi></m:mrow></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ on that line for any two point 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mi>P</m:mi><m:mn>2</m:mn></m:msub></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mi>P</m:mi><m:mn>1</m:mn></m:msub></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ on it, with 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mi>P</m:mi><m:mn>1</m:mn></m:msub><m:mo>=</m:mo><m:mo stretchy="false">(</m:mo><m:msub><m:mi>P</m:mi><m:mrow><m:mn>1</m:mn><m:mi>x</m:mi></m:mrow></m:msub><m:mo>,</m:mo><m:msub><m:mi>P</m:mi><m:mrow><m:mn>1</m:mn><m:mi>y</m:mi></m:mrow></m:msub><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mi>P</m:mi><m:mn>2</m:mn></m:msub><m:mo>=</m:mo><m:mo stretchy="false">(</m:mo><m:msub><m:mi>P</m:mi><m:mrow><m:mn>2</m:mn><m:mi>x</m:mi></m:mrow></m:msub><m:mo>,</m:mo><m:msub><m:mi>P</m:mi><m:mrow><m:mn>2</m:mn><m:mi>y</m:mi></m:mrow></m:msub><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mi>d</m:mi><m:mi>f</m:mi><m:mo>=</m:mo><m:msub><m:mi>P</m:mi><m:mrow><m:mn>2</m:mn><m:mi>y</m:mi></m:mrow></m:msub><m:mo>−</m:mo><m:msub><m:mi>P</m:mi><m:mrow><m:mn>1</m:mn><m:mi>y</m:mi></m:mrow></m:msub></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mi>d</m:mi><m:mi>x</m:mi><m:mo>=</m:mo><m:msub><m:mi>P</m:mi><m:mrow><m:mn>2</m:mn><m:mi>x</m:mi></m:mrow></m:msub><m:mo>−</m:mo><m:msub><m:mi>P</m:mi><m:mrow><m:mn>1</m:mn><m:mi>x</m:mi></m:mrow></m:msub></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><p>
+We use the notation 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>d</m:mi><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>d</m:mi><m:mi>f</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to denote changes in the corresponding variables that are so small that we can assume
+<b>the linear 
+  approximation to
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> (and to any other function involved in the definition of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> ) is exacty satisfied</b>
+(and if there is no such distance create one in your imagination).
+</p><p>
+Changes of this sort are called
+<b>differentials</b>
+. The derivative of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ at argument 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is usually written as 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mfrac><m:mrow><m:mi>d</m:mi><m:mi>f</m:mi></m:mrow><m:mrow><m:mi>d</m:mi><m:mi>x</m:mi></m:mrow></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ or 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mfrac><m:mrow><m:mi>d</m:mi><m:mi>f</m:mi><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mrow><m:mi>d</m:mi><m:mi>x</m:mi></m:mrow></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, or 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>f</m:mi><m:mo>'</m:mo><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+In fact if 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>d</m:mi><m:mi>f</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>d</m:mi><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ are differentials, then the derivative is 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mfrac><m:mrow><m:mi>d</m:mi><m:mi>f</m:mi></m:mrow><m:mrow><m:mi>d</m:mi><m:mi>x</m:mi></m:mrow></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ by definition since the derivative is the ratio of the change of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>f</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to the change of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ in the linear approximation.
+</p><p>
+The applet here allows you to enter any standard function and domain, and look at it, its slope and derivative in it.
+</p><p>
+ 
+</p><p>
+<ph outputclass="a"/>
+<object classid="java:DerivativeTangentLine.class" width="760" height="450">
+  <param name="archive" value="derivativeTangentLine.jar, mk_lib.jar, parser_math.jar, jcbwt363.jar" valuetype="data"/>
+  <param name="codebase" value="../applets/" valuetype="data"/>
+</object>
+</p></body></topic>

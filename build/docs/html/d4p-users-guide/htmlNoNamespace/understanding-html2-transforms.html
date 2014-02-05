@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Understanding the HTML2 Transformations"/>
+<meta name="abstract" content="Guidance on how the HTML2 XSLT transformations are organized and how the processing works."/>
+<meta name="description" content="Guidance on how the HTML2 XSLT transformations are organized and how the processing works."/>
+<meta name="DC.Relation" scheme="URI" content="html2-toolkit-plugin.html"/>
+<meta name="DC.Relation" scheme="URI" content="html2-transtype-parameters-ref.html"/>
+<meta name="DC.Relation" scheme="URI" content="overall-process-flow.html"/>
+<meta name="DC.Relation" scheme="URI" content="customizing-enumeration.html"/>
+<meta name="prodname" content="DITA For Publishers"/>
+<meta name="version" content="0.9.19RC10"/>
+<meta name="DC.Creator" content="W. Eliot Kimber"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="conceptId"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Understanding the HTML2 Transformations</title>
+</head>
+<body id="conceptId">
+
+
+ <h1 class="title topictitle1">Understanding the HTML2 Transformations</h1>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">Guidance on how the HTML2 XSLT transformations are organized and how the processing works.</p>
+
+   <p class="p">The HTML2 transformations are "map driven", meaning that the initial input document is a resolved DITA map and all processing of the map and its referenced topics is driven directly by the map structure. This processing takes advantage of XSLT2 features that make it easier to do multi-stage processing within a single XSLT transformation and that make it possible to produce multiple result documents. The transform also takes advantage of XSLT2's support for locally-defined functions to make it possible to do complex filename processing, which enables more sophisticated and flexible output processing than the original HTML transformation type can provide (which I will refer to as "HTML1" in this document).</p>
+
+    <p class="p">The HTML2 transformation type does use the general topic-to-HTML processing provided by the HTML1 transformation type, meaning that any plugin-provided extensions to the HTML transformation type will be used by the HTML2 transformation type.</p>
+
+    <p class="p">The HTML2 transformation type replaces all the topic file and graphic file list generation required by the HTML1 topic type.</p>
+
+    <p class="p">Understanding and extending the HTML2 transformation type requires use of and understanding of XSLT2 features.</p>
+
+    <p class="p">The HTML2 transforms have been designed for maximum ease of extension and customization. They make heavy use of XSLT modes.</p>
+
+    <p class="p">For the purposes of this discussion, the map and its local-scope dependencies are referred to collectively as "the publication". Because the transform processes everything in one go, it is sensible to think of the compound document defined by map as a single entity for processing purposes. That entity is "the publication".</p>
+
+ </div>
+
+<div class="related-links">
+<ol class="olchildlinks">
+<li class="link olchildlink"><a href="overall-process-flow.html">Overall HTML Generation Process Flow</a><br/>
+Describes the overall processing flow for the HTML2 transformation</li>
+<li class="link olchildlink"><a href="customizing-enumeration.html">Extending and Customizing Enumeration Processing (Numbering)</a><br/>
+How to customize and extend the default enumeration processing for topic titles and other numbered things.</li>
+</ol>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="html2-toolkit-plugin.html" title="Generating HTML using map-drive processing">HTML2 Plugin</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="html2-transtype-parameters-ref.html" title="Unique parameters for the HTML2 transformation type">HTML2 Transformation Parameters</a></div>
+</div>
+</div>
+
+</body>
+</html>

@@ -55,17 +55,11 @@ public static Test suite()
 		assertTrue("DOCX file does not exist", docxFile.exists());
 		URL inputUrl = topic_1_1Url;
 
-		Document logDoc;
-		try {
-			logDoc = Word2DitaValidationHelper.validateXml(messageFile, inputUrl, catalogs);
-			Word2DitaValidationHelper.addValidationMessagesToDocxFile(docxFile, newDocxFile, logDoc);
-
-			System.out.println("New zip file is: " + newDocxFile.getAbsolutePath());
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail(e.getMessage());
-		}
+		Document logDoc = Word2DitaValidationHelper.validateXml(messageFile, inputUrl, catalogs);
 		
+		Word2DitaValidationHelper.addValidationMessagesToDocxFile(docxFile, newDocxFile, logDoc);
+
+		System.out.println("New zip file is: " + newDocxFile.getAbsolutePath());
 	}
 
 

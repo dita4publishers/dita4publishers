@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference id="d4p_trainingMapDomain">
+    <title>d4p_trainingMapDomain</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>d4p_trainingMapDomain</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">d4p_trainingMapDomain provides topicref types specialized from the DITA Learning and Training learning map domain types. These types codify the training organization taxonomy of course or workshop, session, module, and lesson. Course represents a complete course of study. Workshop represents a multi-session training activity given over one or more days. Session represents one or more modules within a course or workshop, usually spanning one or more hours of instruction. Module represents one or more lessons on the same general subject; a module typically represents about an hour of instruction. Lesson one or more learning objects focusing on a a single subject or topic and typically represents about 10 minutes of instruction. Mapref types are designed for each.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p"> </section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
+      </refbodydiv>    
+        <refbodydiv outputclass="inheritance">
+         <section id="inheritance"/>
+      </refbodydiv>
+        <refbodydiv outputclass="example1">
+         <section id="example1"/>
+      </refbodydiv>    	
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

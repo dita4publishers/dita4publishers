@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     DITA For Publishers Division Topic Type Module
+     
+     Represents a titled division (topic) within a book.
+     
+     Specializes from topic
+     
+     Copyright (c) 2012 DITA For Publishers
+
+     ============================================================= -->
+
+<!-- =============================================================
+     Non-DITA Namespace declarations: 
+     ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                   ARCHITECTURE ENTITIES                       -->
+<!-- ============================================================= -->
+
+<!-- default namespace prefix for DITAArchVersion attribute can be
+     overridden through predefinition in the document type shell   -->
+<!ENTITY % DITAArchNSPrefix
+  "ditaarch"
+>
+
+<!-- must be instanced on each topic type                          -->
+<!ENTITY % arch-atts 
+  "xmlns:%DITAArchNSPrefix; 
+     CDATA
+     #FIXED 'http://dita.oasis-open.org/architecture/2005/'
+   %DITAArchNSPrefix;:DITAArchVersion
+     CDATA
+     '1.2'
+"
+>
+
+
+
+<!-- ============================================================= -->
+<!--                   SPECIALIZATION OF DECLARED ELEMENTS         -->
+<!-- ============================================================= -->
+
+
+<!ENTITY % division-info-types 
+  "division
+     "
+>
+
+
+<!-- ============================================================= -->
+<!--                   ELEMENT NAME ENTITIES                       -->
+<!-- ============================================================= -->
+ 
+
+<!ENTITY % division      "division"                           >
+
+
+<!-- ============================================================= -->
+<!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
+<!-- ============================================================= -->
+
+
+<!ENTITY included-domains 
+  ""
+>
+
+
+<!-- ============================================================= -->
+<!--                    ELEMENT DECLARATIONS                       -->
+<!-- ============================================================= -->
+
+<!ENTITY % division.content 
+"((%title;), 
+   (%titlealts;)?,
+   (%abstract; | 
+    %shortdesc;)?, 
+   (%prolog;)?, 
+   (%body;)?, 
+   (%related-links;)?,
+   (%division-info-types;)* )
+">
+<!ENTITY % division.attributes 
+'id         
+    ID                               
+    #REQUIRED
+  conref     
+    CDATA                            
+    #IMPLIED
+  %select-atts;
+  %localization-atts;
+  %arch-atts;
+  outputclass 
+    CDATA                            
+    #IMPLIED
+  domains    
+    CDATA                
+    "&included-domains;"    
+
+'>
+<!ELEMENT division %division.content; >
+<!ATTLIST division %division.attributes; >
+
+
+
+<!-- ============================================================= -->
+<!--                    SPECIALIZATION ATTRIBUTE DECLARATIONS      -->
+<!-- ============================================================= -->
+
+
+<!ATTLIST division      %global-atts;  class CDATA "- topic/topic division/division ">
+
+<!-- ================== End Declaration Set  ===================== -->

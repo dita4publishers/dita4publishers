@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<?Pub Inc?>
+<reference id="DMarkIVAtAGlance-965163B5" xml:lang="en">
+<title>5D Mark IV At a Glance</title>
+<refbody>
+<section><p><xref format="dita"
+href="#DMarkIVAtAGlance-965163B5/FrontView-96519931" scope="local"
+type="fig"></xref> shows the front view of the <keyword
+keyref="Prodname"></keyword> body.</p><fig id="FrontView-96519931">
+<title>Front View</title>
+<image href="graphics/camera_body.svg"><alt>Camera body</alt>
+<longdescref format="dita" href="img_text/img_desc_camera_body.dita"
+scope="local" type="topic"/></image></fig><p><xref format="dita"
+href="#DMarkIVAtAGlance-965163B5/RearView-A6CA36FD" scope="local"
+type="fig"></xref> shows the rear view, with the high-resolution display.</p
+><fig id="RearView-A6CA36FD">
+<title>Rear View</title>
+<image href="graphics/camera_body_rear.svg"></image></fig></section><?Pub
+Caret -1?>
+</refbody>
+</reference>

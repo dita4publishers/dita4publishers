@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="w2d" name="default-styles-to-one-topic">
+  
+ <import file="../w2d-test-ant-init.xml"/>
+	
+
+ <target name="w2d" depends="check-for-toolkit">
+ 	
+ 	<property name="ditaOutputDir" location="${basedir}/dita"/>
+ 	<property name="htmlOutputDir" location="${basedir}/html"/>
+
+ 	<property name="baseFilename" value="w2d_test-custom-styles-to-one-topic"/>
+ 	
+ 	<property name="rootDitaFile" 
+ 		location="${ditaOutputDir}/${baseFilename}.dita"
+ 	/>
+ 	<property name="expectedDitaFile" 
+ 		location="${ditaOutputDir}/${baseFilename}.dita"
+ 	/>
+ 	<property name="expectedHtmlFile" 
+ 		location="${htmlOutputDir}/${baseFilename}.html"
+ 	/>
+ 	
+ 	
+ 	<ant 
+ 		antfile="${dita-ot-dir}/build.xml" 
+ 		target="dita2word2dita" 		
+ 		>
+ 		<property 
+ 			name="args.input" 
+ 			location="${basedir}/${baseFilename}.docx"
+ 		/>
+ 		<property
+ 			name="output.dir"
+ 			location="${ditaOutputDir}"
+ 		/>
+ 		<property
+ 			name="dita.temp.dir"
+ 			location="${basedir}/temp"
+ 		/>
+ 		<property
+ 	    name="w2d.clean.output.dir"
+      value="true"
+    />
+ 		<property 
+ 		  name="w2d.debug.xslt"
+ 		  value="${debug.xslt}"
+ 		/>
+ 		<property 
+ 		  name="w2d.style-to-tag-map"
+ 		  value="${basedir}/style2tagmap.xml"
+ 		/>
+ 		<property
+ 		  name="w2d.root.topic.name"
+ 		  value="${baseFilename}"
+ 		/>
+ 		<property
+ 		  name="w2d.filter.br"
+ 		  value="true"
+ 		/>
+ 		<property
+ 		  name="w2d.filter.tabs"
+ 		  value="true"
+ 		/>
+ 	</ant>
+ 	
+ 	
+ 	<fail message="Did not find expected root output file '${rootDitaFile}'">
+ 		<condition>
+ 			<not>
+	 		 	<available 
+	 		 		file="${rootDitaFile}"
+	 		 	/>
+ 			</not>
+ 		</condition>
+  </fail>
+ 	
+ 	<fail message="Did not find expected DITA file '${expectedDitaFile}'">
+ 		<condition>
+ 			<not>
+	 		 	<available 
+	 		 		file="${expectedDitaFile}"
+	 		 	/>
+ 			</not>
+ 		</condition>
+  </fail>
+ 	
+ 	<ant 
+ 		antfile="${dita-ot-dir}/build.xml" 
+ 		>
+ 		<property name="transtype"
+ 		  value="xhtml"
+ 		/>
+ 		<property name="args.input"
+ 		  value="${rootDitaFile}"
+ 		/>
+ 		<property name="output.dir"
+ 			value="${htmlOutputDir}"
+ 		/>
+ 		<property name="dita.temp.dir"
+ 			value="${basedir}/temp"
+ 		/>
+ 		<property
+ 		  name="clean.output"
+ 		  value="true"
+ 		/>
+ 		<property
+ 		  name="onlytopic.in.map"
+ 		  value="true"
+ 		/>
+  </ant>
+
+ 	<fail message="Did not find expected root output file '${expectedHtmlFile}'">
+ 		<condition>
+ 			<not>
+	 		 	<available 
+	 		 		file="${expectedHtmlFile}"
+	 		 	/>
+ 		  </not>
+ 		</condition>
+  </fail>
+
+ </target> 
+</project>

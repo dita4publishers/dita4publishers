@@ -54,23 +54,12 @@ public abstract class InDesignGeometryHavingObject extends DefaultInDesignObject
 
 	/**
 	 * Apply the Rectangle's transformation matrix to its bounding box to 
-	 * to return a new Box in terms of the Pasteboard coordinates.
+	 * to return a new Box in terms of the parent's coordinates.
 	 * @return
 	 */
-	public Box innerToPasteBoard() {
+	public Box innerToParentCoordinates() {
 		Box bb = this.getGeometry().getBoundingBox();
-		// The rectangle's transform converts to the containing Spread's
-		// coordinate space. To get to pasteboard space, must apply the
-		// the Spread's transformation matrix. This will translate the 
-		// rectangle in the positive vertical direction, one spread
-		// depth for each preceding spread in the document.
-		Box spreadBox = bb.transform(this.getGeometry().getTransformationMatrix());
-		Spread parentSpread = (Spread)this.getParent();
-		TransformationMatix matrix = parentSpread.getTransformationMatrix();
-		if (matrix == null) {
-			throw new RuntimeException("Spread " + parentSpread.getId() + " has a null transformation matrix. This means its spread index has not been set.");
-		}
-		Box pbBox =  spreadBox.transform(matrix);
+		Box pbBox =  bb.transform(this.getTransformationMatrix());
 		return pbBox;
 	}
 
@@ -79,14 +68,6 @@ public abstract class InDesignGeometryHavingObject extends DefaultInDesignObject
 	 */
 	public Box getBoundingBox() {
 		return this.getGeometry().getBoundingBox();
-	}
-
-	/**
-	 * Return a box with the rectangle's coordinates translated to the pasteboard coordinate space.
-	 * @return
-	 */
-	public Box innerToPasteboard() {
-		return this.getBoundingBox().transform(this.getGeometry().getTransformationMatrix());
 	}
 
 	/**
@@ -124,19 +105,22 @@ public abstract class InDesignGeometryHavingObject extends DefaultInDesignObject
 	}
 
 	/**
-	 * Returns true if the rectangle overlaps the page's boundary.
-	 * Note that the rectangle need to be completely contained within the page
+	 * Returns true if the rectangle overlaps the rectangle's boundary.
 	 * @param rect
 	 * @return
 	 */
 	public boolean intersects(Rectangle rect) {
-		Box pbBox = rect.innerToPasteBoard();
+		Box pbBox = rect.innerToParentCoordinates();
 		logger.debug("intersects(): rect.boundingBox     =" + rect.getBoundingBox());
 		logger.debug("intersects(): rect's matrix        =" + rect.getTransformationMatrix());
-		logger.debug("intersects(): rect's pasteboard Box=" + pbBox);
+		logger.debug("intersects(): rect's parent Box    =" + pbBox);
 		logger.debug("intersects(): page's bounding box  =" + this.getBoundingBox());
-		logger.debug("intersects(): returning: " + pbBox.intersects(this.getBoundingBox()));
-		return pbBox.intersects(this.getBoundingBox());
+		logger.debug("intersects(): page's matrix        =" + this.getTransformationMatrix());
+		logger.debug("intersects(): page's parent box    =" + this.innerToParentCoordinates());
+		Box myPasteboardBox = this.innerToParentCoordinates();
+		boolean result = pbBox.intersects(myPasteboardBox);
+		logger.debug("intersects(): returning: " + result);
+		return result;
 	}
 
 	/**
@@ -154,6 +138,10 @@ public abstract class InDesignGeometryHavingObject extends DefaultInDesignObject
 		super.updatePropertyMap();
 		this.setGeometryProperty("IGeo", this.getGeometry());
 
+	}
+
+	public void setTransformationMatrix(TransformationMatix matrix) {
+		this.geometry.setTransformationMatrix(matrix);
 	}
 
 }

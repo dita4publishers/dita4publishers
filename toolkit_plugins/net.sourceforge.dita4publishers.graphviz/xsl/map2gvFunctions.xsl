@@ -39,13 +39,19 @@
   <xsl:function name="gv:quoteString" as="xs:string">
     <xsl:param name="inString" as="xs:string?"/>
     <xsl:variable name="escapedQuote" select='concat("\\", """")' as="xs:string"/>
-    <xsl:variable name="result" as="xs:string"
+    <xsl:variable name="result1" as="xs:string"
       select='
       if ($inString) 
          then concat("""", replace($inString, """", $escapedQuote), """") 
          else ""'
     />
-    <xsl:sequence select="$result"/>
+    <xsl:variable name="result2" as="xs:string"
+      select="replace($result1, '&lt;', '&amp;lt;')"
+    />
+    <xsl:variable name="result3" as="xs:string"
+      select="replace($result2, '&gt;', '&amp;gt;')"
+    />
+    <xsl:sequence select="normalize-space($result3)"/>
   </xsl:function>
     
   <xsl:function name="gv:makeNodeDecl" as="xs:string*">

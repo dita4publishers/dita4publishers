@@ -1,0 +1,16 @@
+<plugin id="net.sourceforge.dita4publishers.common.xslfo">
+  <!-- This plugin provides common XSLT imports and 
+       supporting code used by all D4P FO transformation
+       type extensions.
+       
+       In particular, it centralizes imports of library modules
+       so that a given module is imported exactly once.
+  -->
+  <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
+  
+  <feature extension="dita.xsl.xslfo"
+    value="xsl/commonXslfoExtensionSupport.xsl" 
+    type="file"
+  />
+  
+</plugin>

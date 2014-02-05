@@ -2,7 +2,7 @@
 <!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
 <concept id="conceptId">
  <title>HTML2 Plugin</title>
- <shortdesc>Generating HTML using map-driven processing</shortdesc>
+ <shortdesc>Generating HTML using map-drive processing</shortdesc>
   <prolog>
     <metadata>
       <keywords>
@@ -22,6 +22,6 @@
       <li>Generation of literal HTML files for topic heads as though the topic heads were references to title-only topics.</li>
       <li>Generation of a back-of-the-book index and other publication-scope lists.</li>
       </ul></p>
-    <p>The HTML2 transform uses the base HTML transformation type for general topic HTML generation. It accepts all the parameters for the base HTML transform in addition to the HTML2-specific parameters documented in this section.</p>
+    <p>The HTML2 transform uses the base HTML transformation type for general topic HTMl generation. It accepts all the parameters for the base HTML transform in addition to the HTML2-specific parameters documented in this section.</p>
  </conbody>
 </concept>

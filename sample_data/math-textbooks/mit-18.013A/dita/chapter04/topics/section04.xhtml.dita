@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e56"><title>4.4 The Determinant and the Inverse of a Matrix</title><body><p>
+The inverse of a square matrix 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is a matrix, denoted as 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mi>M</m:mi><m:mrow><m:mo>−</m:mo><m:mn>1</m:mn></m:mrow></m:msup></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, with the property that 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mi>M</m:mi><m:mrow><m:mo>−</m:mo><m:mn>1</m:mn></m:mrow></m:msup><m:mi>M</m:mi><m:mo>=</m:mo><m:mi>M</m:mi><m:msup><m:mi>M</m:mi><m:mrow><m:mo>−</m:mo><m:mn>1</m:mn></m:mrow></m:msup><m:mo>=</m:mo><m:mi>I</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. Here 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>I</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is the identity matrix of the same size as 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, having 1's on the diagonal and 0's elsewhere.
+</p><p>
+In terms of transformations, 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mi>M</m:mi><m:mrow><m:mo>−</m:mo><m:mn>1</m:mn></m:mrow></m:msup></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ undoes the transformation produced by 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and so the combination 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mi>M</m:mi><m:mrow><m:mo>−</m:mo><m:mn>1</m:mn></m:mrow></m:msup><m:mi>M</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ represents the transformation that changes nothing.
+</p><p>
+The condition 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>M</m:mi><m:msup><m:mi>M</m:mi><m:mrow><m:mo>−</m:mo><m:mn>1</m:mn></m:mrow></m:msup><m:mo>=</m:mo><m:mi>I</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ can be written as
+</p><p>
+and
+</p><p>
+when 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>k</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>i</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ are different, and these conditions completely determine the matrix 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mi>M</m:mi><m:mrow><m:mo>−</m:mo><m:mn>1</m:mn></m:mrow></m:msup></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ given 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, when 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ has an inverse.
+</p><p>
+These equations have the same form as the two conditions
+<ph outputclass="a">
+  <b>(A)</b>
+</ph>
+and
+<b>
+  <ph outputclass="a">(B)</ph>
+</b>
+of section 4.3 except that 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>det</m:mi><m:mo>⁡</m:mo><m:mi>M</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is on the left-hand side in (A) instead of 1, and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mrow><m:mo stretchy="false">(</m:mo><m:mo>−</m:mo><m:mn>1</m:mn><m:mo stretchy="false">)</m:mo></m:mrow><m:mrow><m:mi>i</m:mi><m:mo>+</m:mo><m:mi>j</m:mi></m:mrow></m:msup><m:msub><m:mi>M</m:mi><m:mrow><m:mi>i</m:mi><m:mi>j</m:mi></m:mrow></m:msub></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ appears in (A) and (B) instead of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msubsup><m:mi>M</m:mi><m:mrow><m:mi>j</m:mi><m:mi>i</m:mi></m:mrow><m:mrow><m:mo>−</m:mo><m:mn>1</m:mn></m:mrow></m:msubsup></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ here.
+</p><p>
+We can therefore divide both sides of (A) and (B) by 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>det</m:mi><m:mo>⁡</m:mo><m:mi>M</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, and deduce
+</p><p>
+Remember that here 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mi>M</m:mi><m:mrow><m:mi>i</m:mi><m:mi>j</m:mi></m:mrow></m:msub></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is the determinant of the matrix obtained by omitting the i-th row and j-th column of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+; the elements of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ are the 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mi>m</m:mi><m:mrow><m:mi>i</m:mi><m:mi>j</m:mi></m:mrow></m:msub></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, while 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msubsup><m:mi>M</m:mi><m:mrow><m:mi>j</m:mi><m:mi>i</m:mi></m:mrow><m:mrow><m:mo>−</m:mo><m:mn>1</m:mn></m:mrow></m:msubsup></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ here represents the element of the inverse matrix to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ in j-th row and i-th column.
+</p><p>
+We can phrase this in words as:
+<b>the inverse of a matrix
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> is the matrix of its cofactors, with rows and columns interchanged, divided by its determinant.</b>
+</p><p>
+<b>Exercises:</b>
+</p><p>
+<b> 4.7 Compute the inverse of the matrix in <ph outputclass="a">Exercise 
+  4.4</ph> using this formula. Check the product 
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mi>M</m:mi><m:mrow><m:mo>−</m:mo><m:mn>1</m:mn></m:mrow></m:msup><m:mi>M</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> to be sure your result is correct.</b>
+</p><p>
+<b>4.8 Set up a spreadsheet that computes the inverse of any three by three 
+  matrix with non-zero determinant, using this formula.<br/>
+  (Hint: by copying the first two rows into a fourth and fifth row and the first 
+  two columns into a fourth and fifth column, you can make one entry and copy 
+  to get all of the
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mrow><m:mo stretchy="false">(</m:mo><m:mo>−</m:mo><m:mn>1</m:mn><m:mo stretchy="false">)</m:mo></m:mrow><m:mrow><m:mi>i</m:mi><m:mo>+</m:mo><m:mi>j</m:mi></m:mrow></m:msup><m:msub><m:mi>M</m:mi><m:mrow><m:mi>i</m:mi><m:mi>j</m:mi></m:mrow></m:msub></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> at once. Then all that is left is rearranging to swap indices and dividing by the determinant (which is the dot product of any row of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>M</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> with the corresponding cofactors).)</b>
+</p></body></topic>

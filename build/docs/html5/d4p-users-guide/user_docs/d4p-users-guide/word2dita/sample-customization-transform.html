@@ -1,0 +1,393 @@
+<html lang="" xml:lang="">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>DITA For Publishers User Guide - Sample Custom Word-to-DITA XSLT Stylesheet W. Eliot Kimber DITA For Publishers Extending
+         and Overriding the Word to DITA TransformHow to customize the XSLT processing to handle special cases
+      </title>
+      
+      <meta charset="utf-8">
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      
+      <link rel="schema.DC" href="http://purl.org/dc/terms/">
+      <meta name="DC.Type" content="concept">
+      
+      <meta name="DC.Title" content="Sample Custom Word-to-DITA XSLT Stylesheet">
+      
+      <meta name="abstract" content="A working example of a custom Word-to-DITA XSLT stylesheet">
+      
+      <meta name="description" content="A working example of a custom Word-to-DITA XSLT stylesheet">
+      
+      <meta name="DC.Relation" scheme="URI" content="customizing-the-transform.html">
+      
+      <meta name="prodname" content="DITA For Publishers">
+      
+      <meta name="version" content="0.9.19RC10">
+      
+      <meta name="DC.Creator" content="W. Eliot Kimber">
+      
+      <meta name="DC.Format" content="XHTML">
+      
+      <meta name="DC.Identifier" content="conceptId">
+      
+      
+      <link rel="stylesheet" type="text/css" href="../../../themes/d4p-classic/css/style-min.css">
+      <script type="text/javascript" src="../../../themes/d4p-classic/js/script-min.js">
+</script>
+      <script type="text/javascript">
+d4p.setProps({"outputSelector":"#d4h5-main-content","navigationSelector":"#nav-content","externalContentElement":"section","loaderParentElement":"body","navigation":{"buttons":true,"leaf":"ui-icon-circlesmall-plus","leafActive":"ui-icon-circlesmall-minus"}});
+$(function(){d4p.init({relativePath:'../../../', });});</script>
+      </head>
+   
+   <body class="en-us d4p-classic img-with-shadow">
+      <div id="d4h5-main-container" class="container_12" role="application">
+         
+         <ul id="page-links" class="hidden">
+            <li><a id="skip-to-content" href="#d4h5-main-content">Skip to content</a></li>
+            <li><a id="skip-to-localnav" href="#local-navigation">Skip to navigation</a></li>
+            <li><a id="skip-to-footer" href="#footer">Skip to footer</a></li>
+         </ul>
+         <header role="banner" aria-labelledby="publication-title">
+            <h1 id="publication-title">DITA For Publishers User Guide</h1>
+            <form id="search" action=""><input id="search-text" type="text" autocomplete="off" placeholder="Search the documentation..." name="search"></form>
+         </header>
+         <div id="d4h5-section-container" class="grid_12">
+            <nav id="local-navigation" role="navigation" aria-label="Main navigation" class="grid_4 alpha omega">
+               <div id="nav-content">
+                  <div class="nav-pub-title">
+                     <h2 class="nav-pub-title">
+                        <span class="ph mainpubtitle">DITA For Publishers User Guide</span>
+                        
+                     </h2>
+                     
+                  </div>
+                  <ul>
+                     <li><a href="../../../user_docs/d4p-users-guide/frontmatter/coverpage.html">DITA For Publishers User Guide</a></li>
+                     <li><a href="../../../user_docs/d4p-users-guide/topics/about-this-book.html">About This Book</a></li>
+                     <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes.html">Release Notes</a><ul>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.19.html">Release Notes: Version 0.9.19</a></li>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.18.html">Release Notes: Version 0.9.18</a></li>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.16.html">Release Notes: Version 0.9.16</a></li>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.15.html">Release Notes: Version 0.9.15</a></li>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.14.html">Release Notes: Version 0.9.14</a></li>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.13.html">Release Notes: Version 0.9.13</a></li>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.12.html">Release Notes: Version 0.9.12</a></li>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.11.html">Release Notes: Version 0.9.11</a></li>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.10.html">Release Notes: Version 0.9.10</a></li>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.9.html">Release Notes: Version 0.9.9</a></li>
+                        </ul>
+                     </li>
+                     <li><a href="../../../user_docs/d4p-users-guide/topics/intro-to-d4p.html"><span class="enumeration enumeration0">Chapter 1. </span>Introduction to DITA For Publishers</a></li>
+                     <li><a href="../../../user_docs/d4p-users-guide/introduction-chapter.html"><span class="enumeration enumeration0">Part I. </span>The DITA For Publishers Open Toolkit Plugins</a><ul>
+                           <li><a href="../../../user_docs/d4p-users-guide/tasks/plugin-installation.html"><span class="enumeration enumeration1">Chapter 2. </span>Installing the Toolkit Plugins</a><ul>
+                                 <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/setting-up-kindlegen.html">Setting Up The kindlegen Command-Line Utility</a></li>
+                              </ul>
+                           </li>
+                           <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/generating-epubs.html"><span class="enumeration enumeration1">Chapter 3. </span>Generating EPUBs and Kindle Books from DITA Content</a><ul>
+                                 <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/generating-epubs-from-oxygen.html">Generating EPUBs From OxygenXML</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/generating-kindle-books-from-oxygen.html">Generating Kindle Books From OxygenXML</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/using-custom-css.html">Using Custom CSS Style Sheets</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/creating-cover-graphics.html">Creating Cover Graphics and Covers</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/creating-opf-metadata.html">Creating Arbitrary EPUB OPF Metadata</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/overriding-base-processing.html">Implementing Overrides for Common Processing</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/epub-transtype-parameters-ref.html">EPUB and Kindle Transformation Parameters</a><ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-argsCssOutputDir.html">args.css.output.dir Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-coverGraphicFile.html">cover.graphic.file Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-d4pMaxNavDepth.html">d4p.max.nav.depth Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-d4pMaxTocDepth.html">d4p.max.toc.depth Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-epubIncludeAutoRellinks.html">epub.exclude.auto.rellinks Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-epubPubidUriStub.html">epub.pubid.uri.stub Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-epubTempDir.html">epub.temp.dir Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-imagesOutputDir.html">images.output.dir Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-kindleGenExecutable.html">kindlegen.executable Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicClassSpec.html">title.only.topic.class.spec Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicTitleClassSpec.html">title.only.topic.title.class.spec Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-topicsOutputDir.html">topics.output.dir Ant parameter</a></li>
+                                    </ul>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li><a href="../../../user_docs/d4p-users-guide/map-driven-processing/map-driven-processing.html"><span class="enumeration enumeration1">Chapter 4. </span>Map-Driven Processing</a><ul>
+                                 <li><a href="../../../user_docs/d4p-users-guide/map-driven-processing/data-collection.html">Data Collection Processing Phase</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/map-driven-processing/enumeration.html">Numbering Things: Collected Data and Enumeration</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/map-driven-processing/index-generation.html">Index Generation</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/map-driven-processing/graphic-map-generation.html">Graphic Map Generation</a></li>
+                              </ul>
+                           </li>
+                           <li><a href="../../../user_docs/d4p-users-guide/html2-plugin/html2-toolkit-plugin.html"><span class="enumeration enumeration1">Chapter 5. </span>HTML2 Plugin</a><ul>
+                                 <li><a href="../../../user_docs/d4p-users-guide/html2-plugin/understanding-html2-transforms.html">Understanding the HTML2 Transformations</a><ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html2-plugin/overall-process-flow.html">Overall HTML Generation Process Flow</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html2-plugin/customizing-enumeration.html">Extending and Customizing Enumeration Processing (Numbering)</a></li>
+                                    </ul>
+                                 </li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/html2-plugin/html2-transtype-parameters-ref.html">HTML2 Transformation Parameters</a><ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-fileOrganizationStrategy.html">html2.file.organization.strategy Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-generateDynamicToc.html">html2.generate.dynamic.toc Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-generateFrameset.html">html2.generate.frameset Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-generateStaticToc.html">html2.generate.static.toc Ant parameter</a></li>
+                                    </ul>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/html5-toolkit-plugin.html"><span class="enumeration enumeration1">Chapter 6. </span>HTML5 Plugin</a><ul>
+                                 <li id="d78e1327">Getting Started
+                                    <ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/general/downloading.html">Downloading HTML5 plugin</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/general/running.html">Running the html5 plugin</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/general/licence.html">License</a></li>
+                                    </ul>
+                                 </li>
+                                 <li id="d78e1360">Features
+                                    <ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/features/layout.html">Layout</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/features/muti-columns.html">Multiple columns layout</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/features/css-grid.html">CSS grid</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/features/images.html">Image support</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/features/notes.html">Notes</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/features/ui-intro.html">UI</a><ul>
+                                             <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/features/accordion.html">Accordion</a></li>
+                                             <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/features/ui-images.html">Cycle</a></li>
+                                          </ul>
+                                       </li>
+                                    </ul>
+                                 </li>
+                                 <li id="d78e1441">Development
+                                    <ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/intro.html">Introduction</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/directory-structure.html">Directory structure</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/theme-dev.html">Theme Development</a><ul>
+                                             <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/before.html">Before starting a new theme</a></li>
+                                             <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/theme-development.html">Development of a new theme</a></li>
+                                          </ul>
+                                       </li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/d4p.html">The d4p javascript object reference</a><ul>
+                                             <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/d4p-properties.html">The d4p properties</a><ul>
+                                                   <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/version.html">d4p.version</a></li>
+                                                   <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/loadInitialContent.html">d4p.loadInitialContent</a></li>
+                                                   <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/hash.html">d4p.hash</a></li>
+                                                   <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/outputSelector.html">d4p.outputSelector</a></li>
+                                                   <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/navigationSelector.html">d4p.navigationSelector:</a></li>
+                                                   <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/externalContentElement.html">d4p.externalContentElement</a></li>
+                                                </ul>
+                                             </li>
+                                             <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/ajaxLoader/ajaxLoader.html">The d4p.ajaxLoader object type</a><ul>
+                                                   <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/ajaxLoader/methods/methods.html">d4p.ajaxLoader methods</a></li>
+                                                </ul>
+                                             </li>
+                                          </ul>
+                                       </li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/references/ant-properties.html">Availaible ant properties </a></li>
+                                    </ul>
+                                 </li>
+                                 <li id="d78e1608">Glossary</li>
+                                 <li id="d78e1640">Special cases
+                                    <ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/cases/long-title.dira.html">Very long title, expected to break into multiple lines</a><ul>
+                                             <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/cases/subordinate-topic.html">This is a child under the long title</a></li>
+                                          </ul>
+                                       </li>
+                                    </ul>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li><a href="../../../user_docs/d4p-users-guide/word2dita/word-to-dita-plugin.html"><span class="enumeration enumeration1">Chapter 7. </span>Generating DITA from Documents (Word-to-DITA Transformation Framework)</a></li>
+                        </ul>
+                     </li>
+                     <li><a href="../../../user_docs/d4p-users-guide/vocabulary-part/vocabulary-part.html"><span class="enumeration enumeration0">Part II. </span>The DITA For Publishers Markup Vocabulary</a><ul>
+                           <li><a href="../../../user_docs/d4p-users-guide/vocabulary-part/d4p-vocabulary-concepts.html"><span class="enumeration enumeration1">Chapter 8. </span>Understanding the DITA For Publishers Markup Vocabulary</a><ul>
+                                 <li><a href="../../../website/topics/specialization-modules-overview.html">DITA for Publishers Vocabulary Modules Overview</a><ul>
+                                       <li><a href="../../../website/topics/d4p-topic-types.html">Publication Component Topic Types</a></li>
+                                       <li><a href="../../../website/topics/pubmap-domain.html">Publication Maps</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/vocabulary-part/domain-modules-overview.html">DITA For Publishers Domains</a><ul>
+                                             <li><a href="../../../user_docs/d4p-users-guide/vocabulary-part/map-domains-overview.html">Publication Map Domains</a></li>
+                                             <li><a href="../../../user_docs/d4p-users-guide/vocabulary-part/topic-domains-overview.html">Topic Domains</a></li>
+                                             <li><a href="../../../website/topics/classification-domain.html">Classification Domain</a></li>
+                                             <li><a href="../../../website/topics/enumeration-domains.html">Enumeration Domains</a></li>
+                                             <li><a href="../../../website/topics/formatting-domain.html">Formatting Domain</a></li>
+                                             <li><a href="../../../website/topics/pubcontent-domain.html">Publication Content Domain</a></li>
+                                             <li><a href="../../../user_docs/d4p-users-guide/vocabulary-part/rendition-target-att.html">Rendition Target Attribute Domain</a></li>
+                                             <li><a href="../../../website/topics/ruby-domain.html">Ruby Domain</a></li>
+                                             <li><a href="../../../website/topics/variables-domain.html">Variables Domain</a></li>
+                                             <li><a href="../../../website/topics/versie-domain.html">Verse Domain</a></li>
+                                             <li><a href="../../../website/topics/xml-domain.html">XML Domain</a></li>
+                                          </ul>
+                                       </li>
+                                    </ul>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li><a href="../../../user_docs/d4p-users-guide/vocabulary-part/integrating-modules.html"><span class="enumeration enumeration1">Chapter 9. </span>Integrating D4P Modules Into Document Type Shells</a><ul>
+                                 <li><a href="../../../user_docs/d4p-users-guide/vocabulary-part/integrating-attribute-domains.html">Integrating Attribute Domains</a></li>
+                              </ul>
+                           </li>
+                           <li><a href="../../../user_docs/d4p-users-guide/vocabulary-part/d4p-vocabulary-reference.html"><span class="enumeration enumeration1">Chapter 10. </span>DITA For Publishers Vocabulary Reference</a></li>
+                        </ul>
+                     </li>
+                     <li><a href="../../../user_docs/d4p-users-guide/transform-frameworks-part/transform-frameworks-part.html"><span class="enumeration enumeration0">Part III. </span>The DITA For Publishers Word to DITA and DITA to InDesign Tools</a><ul>
+                           <li><a href="../../../user_docs/d4p-users-guide/word2dita/word2dita-intro.html"><span class="enumeration enumeration1">Chapter 11. </span>The Word-to-DITA Transformation Framework</a><ul>
+                                 <li><a href="../../../user_docs/d4p-users-guide/word2dita/w2d-getting-started.html">Getting Started With The Word2DITA Transform</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/word2dita/word-to-dita-plugin-usage.html">Generating DITA from Word Using the Toolkit Plugin</a><ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/word2dita/word-to-dita-ant-task.html">Setting Up an Ant Script for Running the Word-to-DITA Transform</a></li>
+                                    </ul>
+                                 </li>
+                                 <li><a href="../../../user_docs/docx2dita_guide_and_reference/word2dita-from-oxygen.html">Generating DITA From Within OxygenXML</a></li>
+                                 <li><a href="../../../user_docs/docx2dita_guide_and_reference/style-to-tag-map-overview.html">Style to Tag Mapping</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/word2dita/common-mapping-cases.html">Common Style-to-Tag Mapping Cases</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/word2dita/troubleshooting-word2dita.html">Troubleshooting the Word-to-DITA Process</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/word2dita/word2dita-video-tutorial-01.html">Word-to-DITA Style-to-Tag Mapping Video Tutorial</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/word2dita/customizing-the-transform.html">Extending and Overriding the Word to DITA Transform</a><ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/word2dita/sample-customization-transform.html">Sample Custom Word-to-DITA XSLT Stylesheet</a></li>
+                                    </ul>
+                                 </li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/word2dita/word-usage-tips.html">Tips for Using Word With the Word-to-DITA Transform</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/word2dita/transform-parameters.html">Word-to-DITA XSLT Transformation Parameters</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/word2dita/word2dita-ant-parameters.html">Word-to-DITA Ant Parameters</a></li>
+                              </ul>
+                           </li>
+                           <li><a href="../../../user_docs/d4p-users-guide/dita2indesign/dita-to-indesign-framework-chapter.html"><span class="enumeration enumeration1">Chapter 12. </span>The DITA-to-InDesign Transformation Framework</a><ul>
+                                 <li><a href="../../../user_docs/d4p-users-guide/dita2indesign/indesign-product-overview.html">Overview of the InDesign and InCopy Products</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/dita2indesign/generating-incopy-articles-from-topics.html">Generating InCopy Articles from DITA Topics</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/dita2indesign/dita-to-indesign-plugin-usage.html">Generating InDesign from DITA Using the Toolkit Plugin</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/dita2indesign/generating-incopy-articles.html">Configuring the DITA-to-InDesign Transformation</a><ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/dita2indesign/mapping-paragraphs-to-indesign-styles.html">Mapping XML Elements to InDesign Paragraph and Character Styles</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/dita2indesign/grouped-style-name-syntax.html">Specifying InDesign Grouped Style Names</a></li>
+                                    </ul>
+                                 </li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/dita2indesign/indesign-optimization.html">Preparing InDesign Templates for DITA-to-InDesign Use</a></li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li><a href="../../../user_docs/d4p-users-guide/appendixes/appendix-01.html"><span class="enumeration enumeration0">Appendix A. </span>This is an Appendix</a></li>
+                     <li><a href="../../../user_docs/d4p-users-guide/backmatter/colophon.html">Colophon</a></li>
+                  </ul>
+               </div>
+            </nav>
+            <div id="d4h5-main-content" class="grid_8 alpha omega">
+               <section>
+                  <div id="content-toolbar" class="toolbar"></div>
+                  <div id="topic-content">
+                     <div class="topic concept nested0" id="conceptId">
+                        
+                        <h1 class="title topictitle1">Sample Custom Word-to-DITA XSLT Stylesheet</h1>
+                        
+                        
+                        
+                        <div class="body conbody">
+                           <p class="shortdesc">A working example of a custom Word-to-DITA XSLT stylesheet</p>
+                           
+                           
+                           <p class="p">To customize and extend the base Word-to-DITA transformation you need a new top-level XSLT document that includes <span class="ph filepath">docx2dita.xsl</span> transformation and then adds any new templates you need in order to customize processing. The following example shows an
+                              example of extending the "final-fixup" mode to capture literal numbers in topic titles.
+                           </p>
+                           
+                           <pre class="pre codeblock">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  exclude-result-prefixes="xs "
+  version="2.0"&gt;
+  
+  &lt;xsl:import href="../../net.sourceforge.dita4publishers.word2dita/xsl/docx2dita.xsl"/&gt;
+  
+  &lt;xsl:template match="<strong class="ph b">concept/title</strong>" mode="final-fixup"&gt;
+    &lt;!-- Look for numbers for the form "1-1" at the start of titles and wrap in d4pSimpleEnumeration
+         element. The number must be in the first text node, not in a subelement.
+    --&gt;
+    &lt;xsl:variable name="childNodes" select="./node()" as="node()*"/&gt;
+    &lt;xsl:message&gt; + [DEBUG] childNodes=&lt;xsl:sequence select="$childNodes"/&gt;&lt;/xsl:message&gt;
+    &lt;xsl:choose&gt;
+      &lt;xsl:when test="$childNodes[1]/self::text() and matches($childNodes[1], '^[0-9]+')"&gt;
+        &lt;xsl:copy&gt;
+          &lt;xsl:apply-templates select="@*" mode="#current"/&gt;
+          &lt;xsl:analyze-string select="$childNodes[1]" regex="^(([0-9]+(-[0-9]+)*)[ ]+)(.*)"&gt;
+            &lt;xsl:matching-substring&gt;
+              &lt;d4pSimpleEnumeration&gt;&lt;xsl:sequence select="regex-group(1)"/&gt;&lt;/d4pSimpleEnumeration&gt;
+              &lt;xsl:sequence select="regex-group(4)"/&gt;
+            &lt;/xsl:matching-substring&gt;
+            &lt;xsl:non-matching-substring&gt;
+              &lt;xsl:sequence select="."/&gt;
+            &lt;/xsl:non-matching-substring&gt;
+          &lt;/xsl:analyze-string&gt;
+          &lt;xsl:apply-templates select="$childNodes[position() &gt; 1]" mode="#current"/&gt;
+        &lt;/xsl:copy&gt;        
+      &lt;/xsl:when&gt;
+      &lt;xsl:otherwise&gt;
+        &lt;xsl:apply-imports/&gt;
+      &lt;/xsl:otherwise&gt;
+    &lt;/xsl:choose&gt;
+  &lt;/xsl:template&gt;
+  
+&lt;/xsl:stylesheet&gt;</pre>
+                           
+                           <p class="p">This transform as shown is intended to be packaged in a separate Open Toolkit plugin so that it is in a known location relative
+                              to the base transform provided by the Word-to-DITA. In this example the transform is in the directory <span class="ph filepath">xsl/</span> under the plugin's main directory (mirroring the organization of the word-to-DITA plugin itself).
+                           </p>
+                           
+                           
+                           <div class="p">The plugin descriptor looks like this:<pre class="pre codeblock">&lt;!-- 
+  Plugin descriptor for an example Word-to-DITA extension transform
+  
+  Use this as a sample for your own plugin.
+  
+  --&gt;
+&lt;plugin id="org.example.d4p.word2ditaextension"&gt;
+  &lt;require plugin="net.sourceforge.dita4publishers.word2dita"/&gt; 
+
+  &lt;!-- This plugin just provides the transform in a reliable location
+       relative to the base transform. It doesn't define its own
+       transformation type.
+    --&gt;
+&lt;/plugin&gt;</pre>
+                              </div>
+                           
+                           
+                           <div class="p">The directory structure of the plugin is:<pre class="pre codeblock">org.example.d4p.word2ditaextension/
+  plugin.xml
+  xsl/
+    sample-word-to-dita-customization.xsl</pre>
+                              </div>
+                           
+                           
+                           <p class="p">You would copy the <span class="ph filepath">org.example.d4p.word2ditaextension</span> directory to the <span class="ph filepath">plugins</span> directory of your Toolkit in order to make it available. Note that because this plugin doesn't define a new transformation
+                              type or directly-extend any other plugins, you don't have to run the integrator.xml script after deploying it.
+                           </p>
+                           
+                           
+                           <p class="p">To use the customization you would specify the XSLT file as the value of the <span class="keyword parmname">w2d.word2dita.xslt</span> Ant parameter, either on the command line or in an Ant build script that applies the Word-to-DITA process to a specific file.
+                           </p>
+                           
+                           
+                           <p class="p">A working version of this plugin is included in the DITA for Publishers Open Toolkit plugin package as the plugin "org.example.d4p.word2ditaextension".</p>
+                           
+                           
+                        </div>
+                        
+                        
+                        <div class="related-links">
+                           
+                           <div id="familylinks">
+                              
+                           </div>
+                           
+                        </div>
+                        
+                     </div>
+                     
+                  </div>
+               </section>
+               <div class="clear"></div>
+               
+            </div>
+            <div class="clearfix"></div>
+         </div>
+         <div class="clearfix"></div>
+         <div id="footer-container" class="grid_12">
+            
+            
+         </div>
+      </div>
+   </body>
+   
+</html>

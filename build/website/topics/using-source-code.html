@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Using the DITA For Publishers Source"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/how-to-use.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="taskId"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<title>Using the DITA For Publishers Source</title>
+</head>
+<body id="taskId">
+
+
+  <h1 class="title topictitle1">Using the DITA For Publishers Source</h1>
+
+  <div class="body taskbody">
+    <div class="section context">
+      <p class="p">You can also use the DITA For Publishers materials directly from the project's source code
+        control system. You can also use the materials as a model for local development setups for
+        developing your own DITA specializations. The materials are managed using Subversion through
+        SourceForge. You can use any Subversion client to access the source code, such as
+        TortoisSVN, the Oxygen Subversion client, or the Subclipse plugin for Eclipse.</p>
+
+    </div>
+
+    <ol class="ol steps"><li class="li step">
+        <span class="ph cmd">Using a Subversion client, check out a read-only copy of the
+          materials, following the instructions on the project's code access
+          page: <a class="xref" href="https://sourceforge.net/p/dita4publishers/code" target="_blank">https://sourceforge.net/p/dita4publishers/code</a></span>
+      </li>
+<li class="li step">
+        <span class="ph cmd">Create a file named <span class="ph filepath">build.properties</span> or <span class="ph filepath">.build.properties</span>, either in the project's directory or in your home
+          directory.</span>
+         
+          <p class="p">This file is used by the project's Ant build script to configure the location of the
+            DITA Open Toolkit.</p>
+
+        
+      </li>
+<li class="li step">
+        <span class="ph cmd">Edit the <span class="ph filepath">build.properties</span> file you just created and add the
+          property "dita-ot-dir".</span>
+         
+          <div class="p">The property specification should look like
+            this:<pre class="pre codeblock">dita-ot-dir=<em class="ph i">{path-to-toolkit}</em></pre>
+</div>
+
+          <p class="p">Where "<em class="ph i">{path-to-toolkit}</em> is wherever directory contains your Toolkit, e.g.
+            "c:/dita-ot" or "/Applications/Oxygen/frameworks/dita/DITA-OT" or whatever.</p>
+
+          <div class="p">If you use Oxygen or similar tool that provides a Toolkit and maintain multiple
+            versions of the tool, it can be useful to define a separate property for the editor
+            location,
+            e.g.:<pre class="pre codeblock">oxygen_home=/Applications/oxygen_10.2
+dita-ot-dir=${oxygen_home}/frameworks/dita/DITA-OT</pre>
+</div>
+
+        
+      </li>
+<li class="li step">
+        <span class="ph cmd">Save the file.</span>
+      </li>
+<li class="li step">
+        <span class="ph cmd">Test the DITA for Publishers' Ant file by running the target
+          "deploy-toolkit-plugins".</span>
+         
+          <p class="p">From a command line where the dita4publishers directory is the current directory, run
+            this command (assuming Ant in your PATH):</p>
+
+          <pre class="pre codeblock">ant deploy-toolkit-plugins</pre>
+
+          <p class="p">You should see messages indicating that the plugins have been copied to your toolkit
+            and the integrate task has been run.</p>
+
+        
+      </li>
+</ol>
+
+    <div class="section result">
+      <p class="p">You should now be ready to use the Publishing specializations with the Toolkit and edit
+        documents that use them using any XML editor that uses your Toolkit to get the DTDs its
+        needs (e.g., OxygenXML).</p>
+
+      <p class="p">Other editors may require more work to configure to enable editing.</p>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/how-to-use.html">How To Use the DITA For Publishers Materials</a></div>
+</div>
+</div>
+
+</body>
+</html>

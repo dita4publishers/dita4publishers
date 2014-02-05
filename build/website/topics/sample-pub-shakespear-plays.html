@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Sample Publications: Shakespear Plays"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/sample-publications-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/shakespear-plays-license.html"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/shakespear-plays-epubs-catalog.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topic-id"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<title>Sample Publications: Shakespear Plays</title>
+</head>
+<body id="topic-id">
+
+
+  <h1 class="title topictitle1">Sample Publications: Shakespear Plays</h1>
+
+  <div class="body">
+    <p class="p">The Shakespear Plays sample demonstrates how to create publication-specific specializations
+      for data that is more structured than just paragraphs and lists.</p>
+
+    <p class="p">The DITA source is based on Jon Bosak's XML Shakespear data set, which he had created as an
+      exercise in markup design and with the goal of producing interesting XML content for
+      transforming, searching, and so on.</p>
+
+    <p class="p">With Jon's approval, I have created a DITA specialization that emulates Jon's original markup
+      design as closely as possible within the constraints and requirements of DITA. The materials
+      are provided via a <a class="xref" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/" target="_blank">Creative Commons Attribution-Noncommercial-Share Alike</a> license.</p>
+
+    <p class="p"><a class="xref" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/" target="_blank"><img class="image" src="http://i.creativecommons.org/l/by-nc-sa/3.0/us/88x31.png" alt="Creative Commons License"/></a></p>
+
+    <p class="p">In the original XML data set, each play is provided as a single-file XML document. While it
+      would have been possible to create a topic specialization that allowed an analogous
+      single-file representation of the whole play, it seemed to make more sense to represent the
+      whole play as a map and organize the top-level components into separate topics.</p>
+
+    <div class="p">Thus, the specializations for the plays are:<dl class="dl">
+        
+          <dt class="dt dlterm">playmap</dt>
+
+          <dd class="dd">Represents the play as whole. Holds the play-level metadata. Provides specialized
+            topicrefs for grouping the play components and linking to them: <code>&lt;invoc&gt;</code>
+            (invocation), <code>&lt;prologue&gt;</code>, <code>&lt;epilogue&gt;</code>, and <code>&lt;act&gt;</code>, with the initial assumption being that these top-level play components
+            would be managed as single files (that is, the scenes within an act would not be broken
+            out into separate files).</dd>
+
+        
+        
+          <dt class="dt dlterm">play-component</dt>
+
+          <dd class="dd">An "abstract" base topic type that establishes the common components needed by the
+            concrete topic types (act, scene, etc.). Looking at Jon's markup design, it was clear
+            that each of the different major play components shared many of the same structural
+            components and structural rules. In that case, it is necessary, or at least, convenient
+            to have a common base topic type from which concrete types are derived. Defines
+            specialized elements for representing speeches as sets of lines and stage
+            directions.</dd>
+
+        
+        
+          <dt class="dt dlterm">act</dt>
+
+          <dd class="dd">Topic type for holding an entire act. An act consists of one or more <code>&lt;scene&gt;</code> topics. May also include a <code>&lt;prologue&gt;</code> or <code>&lt;epilogue&gt;</code> topic.</dd>
+
+        
+        
+          <dt class="dt dlterm">scene</dt>
+
+          <dd class="dd">Topic type for holding an individual scene within an act. Scene topics have no nested
+            topics by default (but, for example, it could make sense to allow nested commentary
+            topics if it was useful to allow authoring of commentary within the scene source
+            document, rather than linking it to the scene using normal DITA linking
+            mechanisms).</dd>
+
+        
+        
+          <dt class="dt dlterm">induct</dt>
+
+          <dd class="dd">Topic type for the "induction" part of the play, if there is one (e.g., <cite class="cite">Henry
+              IV, Part 2</cite>).</dd>
+
+        
+        
+          <dt class="dt dlterm">personae</dt>
+
+          <dd class="dd">Topic type for the "dramatis personae" for the play, that is, a list of characters.
+            Defines specialized elements for identifying the characters and grouping sets of
+            characters together.</dd>
+
+        
+        
+          <dt class="dt dlterm">prologue</dt>
+
+          <dd class="dd">Topic type for a prologue for the entire play or for an individual act.</dd>
+
+        
+        
+          <dt class="dt dlterm">epilogue</dt>
+
+          <dd class="dd">Topic type for an epilogue for the entire play or for an individual act.</dd>
+
+        
+      </dl>
+</div>
+
+    <p class="p">The <code>&lt;scene&gt;</code> topic type can be literally nested within the other
+      scene-containing topic types or managed as separate topic files.</p>
+
+    <p class="p">The Shakespear plays materials includes a Toolkit plugin that extends the XHTML transform to
+      render the play-specific elements appropriately. Using this plugin, you can then generate both
+      HTML and EPub renderings of the plays that look like plays.</p>
+
+  </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="../topics/shakespear-plays-license.html">Shakespear Plays: History and License</a></strong><br/>
+</li>
+<li class="link ulchildlink"><strong><a href="../topics/shakespear-plays-epubs-catalog.html">Shakespear Play EPub Catalog</a></strong><br/>
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/sample-publications-overview.html">Sample Publications</a></div>
+</div>
+</div>
+
+</body>
+</html>

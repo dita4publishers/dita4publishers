@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" > 
+<?xml-stylesheet type="text/css" href="fcla-xml-2.30.css"?> 
+<html  
+xmlns="http://www.w3.org/1999/xhtml"  
+><head><title>Appendix CN  Computation Notes</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- html,xhtml,mozilla,3 --> 
+<meta name="src" content="fcla-xml-2.30.tex" /> 
+<meta name="date" content="2011-12-23 18:20:00" /> 
+<link rel="stylesheet" type="text/css" href="fcla-xml-2.30.css" /> 
+</head><body 
+>
+   <!--l. 493--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li68.xml" >next</a>] [<a 
+href="fcla-xml-2.30li55.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li55.xml#tailfcla-xml-2.30li55.xml" >prev-tail</a>] [<a 
+href="#tailfcla-xml-2.30li63.xml">tail</a>] [<a 
+href="fcla-xml-2.30li14.xml#fcla-xml-2.30li63.xml" >up</a>] </p></div>
+   <h2 class="likechapterHead"><a 
+ id="x64-322000"></a>Appendix CN&#x00A0;&#x00A0;Computation Notes</h2>
+<!--l. 493--><p class="noindent" ><a 
+ id="appendix.CN"></a> <a 
+ id="x64-322000doc"></a><a 
+ id="dx64-322001"></a>
+</p><!--l. 493--><p class="indent" >   <a 
+ id="computation">&#x00A0;<br 
+class="newline" /></a>
+</p>
+   <div class="likesectionTOCS">
+   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li64.xml#x65-323000">Section MMA Mathematica</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li64.xml#x65-324000" id="QQ2-65-324">Computation Note ME.MMA: Matrix Entry</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li64.xml#x65-325000" id="QQ2-65-325">Computation Note RR.MMA: Row Reduce</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li64.xml#x65-326000" id="QQ2-65-326">Computation Note LS.MMA: Linear Solve</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li64.xml#x65-327000" id="QQ2-65-327">Computation Note VLC.MMA: Vector Linear Combinations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li64.xml#x65-328000" id="QQ2-65-328">Computation Note NS.MMA: Null Space</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li64.xml#x65-329000" id="QQ2-65-329">Computation Note VFSS.MMA: Vector Form of Solution Set</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li64.xml#x65-330000" id="QQ2-65-330">Computation Note GSP.MMA: Gram-Schmidt Procedure</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li64.xml#x65-331000" id="QQ2-65-331">Computation Note TM.MMA: Transpose of a Matrix</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li64.xml#x65-332000" id="QQ2-65-332">Computation Note MM.MMA: Matrix Multiplication</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li64.xml#x65-333000" id="QQ2-65-333">Computation Note MI.MMA: Matrix Inverse</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li65.xml#x66-334000">Section TI86 Texas Instruments 86</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li65.xml#x66-335000" id="QQ2-66-335">Computation Note ME.TI86: Matrix Entry</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li65.xml#x66-336000" id="QQ2-66-336">Computation Note RR.TI86: Row Reduce</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li65.xml#x66-337000" id="QQ2-66-337">Computation Note VLC.TI86: Vector Linear Combinations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li65.xml#x66-338000" id="QQ2-66-338">Computation Note TM.TI86: Transpose of a Matrix</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li66.xml#x67-339000">Section TI83 Texas Instruments 83</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li66.xml#x67-340000" id="QQ2-67-340">Computation Note ME.TI83: Matrix Entry</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li66.xml#x67-341000" id="QQ2-67-341">Computation Note RR.TI83: Row Reduce</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li66.xml#x67-342000" id="QQ2-67-342">Computation Note VLC.TI83: Vector Linear Combinations</a></span>
+<br />   &#x00A0;<span class="likesectionToc" ><a 
+href="fcla-xml-2.30li67.xml#x68-343000">Section SAGE SAGE: Open Source Mathematics Software</a></span>
+                                                                          
+
+                                                                          
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li67.xml#x68-344000" id="QQ2-68-344">Computation Note R.SAGE: Rings</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li67.xml#x68-345000" id="QQ2-68-345">Computation Note ME.SAGE: Matrix Entry</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li67.xml#x68-346000" id="QQ2-68-346">Computation Note RR.SAGE: Row Reduce</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li67.xml#x68-347000" id="QQ2-68-347">Computation Note LS.SAGE: Linear Solve</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li67.xml#x68-348000" id="QQ2-68-348">Computation Note VLC.SAGE: Vector Linear Combinations</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li67.xml#x68-349000" id="QQ2-68-349">Computation Note MI.SAGE: Matrix Inverse</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li67.xml#x68-350000" id="QQ2-68-350">Computation Note TM.SAGE: Transpose of a Matrix</a></span>
+<br />   &#x00A0;&#x00A0;<span class="likesubsectionToc" ><a 
+href="fcla-xml-2.30li67.xml#x68-351000" id="QQ2-68-351">Computation Note E.SAGE: Eigenspaces</a></span>
+   </div>
+
+
+
+                                                                          
+
+                                                                          
+   <!--l. 502--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li68.xml" >next</a>] [<a 
+href="fcla-xml-2.30li55.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li55.xml#tailfcla-xml-2.30li55.xml" >prev-tail</a>] [<a 
+href="fcla-xml-2.30li63.xml" >front</a>] [<a 
+href="fcla-xml-2.30li14.xml#fcla-xml-2.30li63.xml" >up</a>] </p></div>
+<!--l. 502--><p class="indent" >   <a 
+ id="tailfcla-xml-2.30li63.xml"></a> </p> 
+</body> 
+</html> 

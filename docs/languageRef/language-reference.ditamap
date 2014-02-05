@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
+<pubmap>
+    <pubtitle>
+        <mainpubtitle>DITA4Publishers Language Reference</mainpubtitle>
+    </pubtitle>
+    <publication>
+        <topicref href="language-reference.dita" navtitle="Language reference" />
+        <topichead navtitle="Topic Type Specializations">
+            <topichead navtitle="article">
+                <topicref href="article/article.dita" navtitle="article" />
+                <topicref href="article/deck.dita" navtitle="deck" />
+            </topichead>
+            <topichead navtitle="chapter">
+                <topicref href="chapter/chapter.dita" navtitle="chapter" />
+            </topichead>
+            <topichead navtitle="conversion_configuration">
+                <topicref href="conversion_configuration/conversion_configuration.dita" navtitle="conversion_configuration" />
+            </topichead>
+            <topichead navtitle="concept">
+                <topicref href="concept/concept.dita" navtitle="concept" />
+            </topichead>
+            <topichead navtitle="d4pCover">
+                <topicref href="d4pCover/d4pCover.dita" navtitle="d4pCover" />
+            </topichead>
+            <topichead navtitle="d4pExercise">
+                <topicref href="d4pExercise/d4pExercise.dita" navtitle="d4pExercise" />
+                <topicref href="d4pExercise/d4pExerciseBody.dita" navtitle="d4pExerciseBody" />
+                <topicref href="d4pExercise/d4pInstructorNotes.dita" navtitle="d4pInstructorNotes" />
+                <topicref href="d4pExercise/d4pStudentNotes.dita" navtitle="d4pStudentNotes" />
+            </topichead>
+            <topichead navtitle="d4pSlide">
+                <topicref href="d4pSlide/d4pInstructorNotes.dita" navtitle="d4pInstructorNotes" />
+                <topicref href="d4pSlide/d4pSlide.dita" navtitle="d4pSlide" />
+                <topicref href="d4pSlide/d4pSlideBody.dita" navtitle="d4pSlideBody" />
+                <topicref href="d4pSlide/d4pStudentNotes.dita" navtitle="d4pStudentNotes" />
+            </topichead>
+            <topichead navtitle="division">
+                <topicref href="division/division.dita" navtitle="division" />
+            </topichead>
+            <topichead navtitle="part">
+                <topicref href="part/part.dita" navtitle="part" />
+            </topichead>
+            <topichead navtitle="reference">
+                <topicref href="reference/reference.dita" navtitle="reference" />
+            </topichead>
+            <topichead navtitle="report">
+                <topicref href="report/report.dita" navtitle="report" />
+            </topichead>
+            <topichead navtitle="sidebar">
+                <topicref href="sidebar/sidebar.dita" navtitle="sidebar" />
+            </topichead>
+            <topichead navtitle="style2tagmap">
+                <topicref href="style2tagmap/style2tagmap.dita" navtitle="style2tagmap" />
+            </topichead>
+            <topichead navtitle="subsection">
+                <topicref href="subsection/subsection.dita" navtitle="subsection" />
+            </topichead>
+            <topichead navtitle="task">
+                <topicref href="task/task.dita" navtitle="task" />
+            </topichead>
+            <topichead navtitle="topic">
+                <topicref href="topic/topic.dita" navtitle="topic" />
+            </topichead>
+            <topichead navtitle="topic_mathonly">
+                <topicref href="topic_mathonly/topic_mathonly.dita" navtitle="topic_mathonly" />
+            </topichead>
+        </topichead>            
+        <topichead navtitle="Domains">
+            <topichead navtitle="d4p_bibbaseDomain">
+                <topicref href="d4p_bibbaseDomain/d4p_bibbaseDomain.dita" navtitle="d4p_bibbaseDomain" />
+                <topicref href="d4p_bibbaseDomain/d4p_biblioentryBase.dita" navtitle="d4p_biblioentryBase" />
+                <topicref href="d4p_bibbaseDomain/d4p_bibliosetBase.dita" navtitle="d4p_bibliosetBase" />
+            </topichead>
+            <topichead navtitle="d4p_classificationDomain">
+                <topicref href="d4p_classificationDomain/classification_element.dita" navtitle="classification_element" />
+                <topicref href="d4p_classificationDomain/d4p_classificationDomain.dita" navtitle="d4p_classificationDomain" />
+            </topichead>
+            <topichead navtitle="d4p_enumerationBaseTopicDomain">
+                <topicref href="d4p_enumerationBaseTopicDomain/d4p_enumerationBaseTopicDomain.dita" navtitle="d4p_enumerationBaseTopicDomain" />
+            </topichead>
+            <topichead navtitle="d4p_enumerationMapDomain">
+                <topicref href="d4p_enumerationMapDomain/d4p_enumerationMapDomain.dita" navtitle="d4p_enumerationMapDomain" />
+            </topichead>
+            <topichead navtitle="d4p_enumerationTopicDomain">
+                <topicref href="d4p_enumerationTopicDomain/d4p_enumerationTopicDomain.dita" navtitle="d4p_enumerationTopicDomain" />
+            </topichead>
+            <topichead navtitle="d4p_formattingDomain">
+                <topicref href="d4p_formattingDomain/art-ph.dita" navtitle="art-ph" />
+                <topicref href="d4p_formattingDomain/art.dita" navtitle="art" />
+                <topicref href="d4p_formattingDomain/art_title.dita" navtitle="art_title" />
+                <topicref href="d4p_formattingDomain/b-i.dita" navtitle="b-i" />
+                <topicref href="d4p_formattingDomain/b-sc.dita" navtitle="b-sc" />
+                <topicref href="d4p_formattingDomain/br.dita" navtitle="br" />
+                <topicref href="d4p_formattingDomain/catalog.dita" navtitle="catalog" />
+                <topicref href="d4p_formattingDomain/d4p_formattingDomain.dita" navtitle="d4p_formattingDomain" />
+                <topicref href="d4p_formattingDomain/d4p_sidebar-anchor.dita" navtitle="d4p_sidebar-anchor" />
+                <topicref href="d4p_formattingDomain/d4pMathML.dita" navtitle="d4pMathML" />
+                <topicref href="d4p_formattingDomain/d4pSidebarAnchor.dita" navtitle="d4pSidebarAnchor" />
+                <topicref href="d4p_formattingDomain/dropcap.dita" navtitle="dropcap" />
+                <topicref href="d4p_formattingDomain/eqn_block.dita" navtitle="eqn_block" />
+                <topicref href="d4p_formattingDomain/eqn_inline.dita" navtitle="eqn_inline" />
+                <topicref href="d4p_formattingDomain/frac.dita" navtitle="frac" />
+                <topicref href="d4p_formattingDomain/inx_snippet.dita" navtitle="inx_snippet" />
+                <topicref href="d4p_formattingDomain/linethrough.dita" navtitle="linethrough" />
+                <topicref href="d4p_formattingDomain/roman.dita" navtitle="roman" />
+                <topicref href="d4p_formattingDomain/sc.dita" navtitle="sc" />
+                <topicref href="d4p_formattingDomain/tab.dita" navtitle="tab" />
+            </topichead>
+            <topichead navtitle="d4p_mathDomain">
+                <topicref href="d4p_mathDomain/d4p_display-equation.dita" navtitle="d4p_display-equation" />
+                <topicref href="d4p_mathDomain/d4p_eqn_block.dita" navtitle="d4p_eqn_block" />
+                <topicref href="d4p_mathDomain/d4p_eqn_inline.dita" navtitle="d4p_eqn_inline" />
+                <topicref href="d4p_mathDomain/d4p_mathDomain.dita" navtitle="d4p_mathDomain" />
+                <topicref href="d4p_mathDomain/d4p_MathML.dita" navtitle="d4p_MathML" />
+            </topichead>
+            <topichead navtitle="d4p_mediaDomain">
+                <topicref href="d4p_mediaDomain/d4p_audio.dita" navtitle="d4p_audio" />
+                <topicref href="d4p_mediaDomain/d4p_media_source.dita" navtitle="d4p_media_source" />
+                <topicref href="d4p_mediaDomain/d4p_media_tracks.dita" navtitle="d4p_media_tracks" />
+                <topicref href="d4p_mediaDomain/d4p_mediaDomain.dita" navtitle="d4p_mediaDomain" />
+                <topicref href="d4p_mediaDomain/d4p_video.dita" navtitle="d4p_video" />
+                <topicref href="d4p_mediaDomain/d4p_video_poster.dita" navtitle="d4p_video_poster" />
+                <topicref href="d4p_mediaDomain/d4p_video_source.dita" navtitle="d4p_video_source" />
+                <topicref href="d4p_mediaDomain/d4p_video_tracks.dita" navtitle="d4p_video_tracks" />
+            </topichead>
+            <topichead navtitle="d4p_pubcontentDomain">
+                <topicref href="d4p_pubcontentDomain/body-pullquote.dita" navtitle="body-pullquote" />
+                <topicref href="d4p_pubcontentDomain/d4p_pubcontentDomain.dita" navtitle="d4p_pubcontentDomain" />
+                <topicref href="d4p_pubcontentDomain/d4pAssetSource.dita" navtitle="d4pAssetSource" />
+                <topicref href="d4p_pubcontentDomain/d4pAttributedQuote.dita" navtitle="d4pAttributedQuote" />
+                <topicref href="d4p_pubcontentDomain/d4pQuoteAttribution.dita" navtitle="d4pQuoteAttribution" />
+                <topicref href="d4p_pubcontentDomain/epigram-attribution.dita" navtitle="epigram-attribution" />
+                <topicref href="d4p_pubcontentDomain/epigram.dita" navtitle="epigram" />
+                <topicref href="d4p_pubcontentDomain/epigraph-attribution.dita" navtitle="epigraph-attribution" />
+                <topicref href="d4p_pubcontentDomain/epigraph.dita" navtitle="epigraph" />
+                <topicref href="d4p_pubcontentDomain/section-pullquote.dita" navtitle="section-pullquote" />
+            </topichead>
+            <topichead navtitle="d4p_renditionTargetAttDomain">
+                <topicref href="d4p_renditionTargetAttDomain/d4p_renditionTarget.dita" navtitle="d4p_renditionTarget" />
+                <topicref href="d4p_renditionTargetAttDomain/d4p_renditionTargetDomain.dita" navtitle="d4p_renditionTargetDomain" />
+            </topichead>
+            <topichead navtitle="d4p_rubyDomain">
+                <topicref href="d4p_rubyDomain/d4p_rubyDomain.dita" navtitle="d4p_rubyDomain" />
+                <topicref href="d4p_rubyDomain/rb.dita" navtitle="rb" />
+                <topicref href="d4p_rubyDomain/rp.dita" navtitle="rp" />
+                <topicref href="d4p_rubyDomain/rt.dita" navtitle="rt" />
+                <topicref href="d4p_rubyDomain/ruby.dita" navtitle="ruby" />
+            </topichead>
+            <topichead navtitle="d4p_simplebibDomain">
+                <topicref href="d4p_simplebibDomain/d4p_simplebibDomain.dita" navtitle="d4p_simplebibDomain" />
+                <topicref href="d4p_simplebibDomain/d4p_simpleBiblioentry.dita" navtitle="d4p_simpleBiblioentry" />
+                <topicref href="d4p_simplebibDomain/d4p_simpleBiblioset.dita" navtitle="d4p_simpleBiblioset" />
+            </topichead>
+            <topichead navtitle="d4p_simpleEnumerationDomain">
+                <topicref href="d4p_simpleEnumerationDomain/d4p_simpleEnumerationDomain.dita" navtitle="d4p_simpleEnumerationDomain" />
+                <topicref href="d4p_simpleEnumerationDomain/d4pPageNumber.dita" navtitle="d4pPageNumber" />
+                <topicref href="d4p_simpleEnumerationDomain/d4pPageRange.dita" navtitle="d4pPageRange" />
+                <topicref href="d4p_simpleEnumerationDomain/d4pSimpleEnumerator.dita" navtitle="d4pSimpleEnumerator" />
+            </topichead>
+            <topichead navtitle="d4p_textbookDomain">
+                <topicref href="d4p_textbookDomain/d4p_display-map.dita" navtitle="d4p_display-map" />
+                <topicref href="d4p_textbookDomain/d4p_textbookDomain.dita" navtitle="d4p_textbookDomain" />
+            </topichead>
+            <topichead navtitle="d4p_trainingMapDomain">
+                <topicref href="d4p_trainingMapDomain/d4p_trainingMapDomain.dita" navtitle="d4p_trainingMapDomain" />
+            </topichead>
+            <topichead navtitle="d4p_variablesDomain">
+                <topicref href="d4p_variablesDomain/d4p_variablesDomain.dita" navtitle="d4p_variablesDomain" />
+            </topichead>
+            <topichead navtitle="d4p_verseDomain">
+                <topicref href="d4p_verseDomain/d4p_verseDomain.dita" navtitle="d4p_verseDomain" />
+                <topicref href="d4p_verseDomain/stanza.dita" navtitle="stanza" />
+                <topicref href="d4p_verseDomain/verse-line.dita" navtitle="verse-line" />
+                <topicref href="d4p_verseDomain/verse.dita" navtitle="verse" />
+            </topichead>
+            <topichead navtitle="pubmapDomain">
+                <topicref href="pubmapDomain/abbrevlist.dita" navtitle="abbrevlist"/>
+                <topicref href="pubmapDomain/amendments.dita" navtitle="amendments"/>
+                <topicref href="pubmapDomain/appendix.dita" navtitle="appendix"/>
+                <topicref href="pubmapDomain/appendixes.dita" navtitle="appendixes"/>
+                <topicref href="pubmapDomain/article.dita" navtitle="article"/>
+                <topicref href="pubmapDomain/back-cover.dita" navtitle="back-cover"/>
+                <topicref href="pubmapDomain/back-flap.dita" navtitle="back-flap"/>
+                <topicref href="pubmapDomain/backmatter.dita" navtitle="backmatter"/>
+                <topicref href="pubmapDomain/book-jacket.dita" navtitle="book-jacket"/>
+                <topicref href="pubmapDomain/bibliolist.dita" navtitle="bibliolist"/>
+                <topicref href="pubmapDomain/chapter.dita" navtitle="chapter"/>
+                <topicref href="pubmapDomain/colophon.dita" navtitle="colophon"/>
+                <topicref href="pubmapDomain/copyright-page.dita" navtitle="copyright-page"/>
+                <topicref href="pubmapDomain/covers.dita" navtitle="covers"/>
+                <topicref href="pubmapDomain/dedication.dita" navtitle="dedication"/>
+                <topicref href="pubmapDomain/department.dita" navtitle="department"/>
+                <topicref href="pubmapDomain/division.dita" navtitle="division"/>
+                <topicref href="pubmapDomain/draftintro.dita" navtitle="draftintro"/>
+                <topicref href="pubmapDomain/epub-cover.dita" navtitle="epub-cover"/>
+                <topicref href="pubmapDomain/epub-cover-graphic.dita"
+                    navtitle="epub-cover-graphic"/>
+                <topicref href="pubmapDomain/figurelist.dita" navtitle="figurelist"/>
+                <topicref href="pubmapDomain/forward.dita" navtitle="forward"/>
+                <topicref href="pubmapDomain/front-cover.dita" navtitle="front-cover"/>
+                <topicref href="pubmapDomain/front-flap.dita" navtitle="front-flap"/>
+                <topicref href="pubmapDomain/frontmatter.dita" navtitle="frontmatter"/>
+                <topicref href="pubmapDomain/glossary.dita" navtitle="glossary"/>
+                <topicref href="pubmapDomain/glossentry.dita" navtitle="glossentry"/>
+                <topicref href="pubmapDomain/glossary-group.dita" navtitle="glossary-group"/>
+                <topicref href="pubmapDomain/glossarylist.dita" navtitle="glossarylist"/>
+                <topicref href="pubmapDomain/indexlist.dita" navtitle="indexlist"/>
+                <topicref href="pubmapDomain/inside-front-cover.dita"
+                    navtitle="inside-front-cover"/>
+                <topicref href="pubmapDomain/keydefs.dita" navtitle="keydefs"/>
+                <topicref href="pubmapDomain/keydef-group.dita" navtitle="keydef-group"/>
+                <topicref href="pubmapDomain/mainpubtitle.dita" navtitle="mainpubtitle"/>
+                <topicref href="pubmapDomain/notices.dita" navtitle="notices"/>
+                <topicref href="pubmapDomain/page.dita" navtitle="page"/>
+                <topicref href="pubmapDomain/part.dita" navtitle="part"/>
+                <topicref href="pubmapDomain/partsection.dita" navtitle="partsection"/>
+                <topicref href="pubmapDomain/preface.dita" navtitle="preface"/>
+                <topicref href="pubmapDomain/pubabstract.dita" navtitle="pubabstract"/>
+                <topicref href="pubmapDomain/publibrary.dita" navtitle="publibrary"/>
+                <topicref href="pubmapDomain/publist.dita" navtitle="publist"/>
+                <topicref href="pubmapDomain/publists.dita" navtitle="publists"/>
+                <topicref href="pubmapDomain/pubbody.dita" navtitle="pubbody"/>
+                <topicref href="pubmapDomain/pubtitle.dita" navtitle="pubtitle"/>
+                <topicref href="pubmapDomain/pubtitlealt.dita" navtitle="pubtitlealt"/>
+                <topicref href="pubmapDomain/publication.dita" navtitle="publication"/>
+                <topicref href="pubmapDomain/pubmapDomain.dita" navtitle="pubmapDomain" />
+                <topicref href="pubmapDomain/sidebar.dita" navtitle="sidebar"/>
+                <topicref href="pubmapDomain/spine.dita" navtitle="spine"/>
+                <topicref href="pubmapDomain/subsection.dita" navtitle="subsection"/>
+                <topicref href="pubmapDomain/subtitle.dita" navtitle="subtitle"/>
+                <topicref href="pubmapDomain/tablelist.dita" navtitle="tablelist"/>
+                <topicref href="pubmapDomain/toc.dita" navtitle="toc"/>
+                <topicref href="pubmapDomain/trademarklist.dita" navtitle="trademarklist"/>
+                <topicref href="pubmapDomain/wrap-cover.dita" navtitle="wrap-cover"/>
+                
+            </topichead>
+            <topichead navtitle="pubmapMaprefDomain">
+                <topicref href="pubmapMaprefDomain/pubmapMaprefDomain.dita" navtitle="pubmapMaprefDomain" />
+            </topichead>
+            <topichead navtitle="pubmetadataDomain">
+                <topicref href="pubmetadataDomain/approved.dita" navtitle="approved" />
+                <topicref href="pubmetadataDomain/completed.dita" navtitle="completed" />
+                <topicref href="pubmetadataDomain/copyrfirst.dita" navtitle="copyrfirst" />
+                <topicref href="pubmetadataDomain/copyrlast.dita" navtitle="copyrlast" />
+                <topicref href="pubmetadataDomain/day.dita" navtitle="day" />
+                <topicref href="pubmetadataDomain/doi.dita" navtitle="doi" />
+                <topicref href="pubmetadataDomain/edited.dita" navtitle="edited" />
+                <topicref href="pubmetadataDomain/edition.dita" navtitle="edition" />
+                <topicref href="pubmetadataDomain/isbn-10.dita" navtitle="isbn-10" />
+                <topicref href="pubmetadataDomain/isbn-13.dita" navtitle="isbn-13" />
+                <topicref href="pubmetadataDomain/isbn.dita" navtitle="isbn" />
+                <topicref href="pubmetadataDomain/issn-10.dita" navtitle="issn-10" />
+                <topicref href="pubmetadataDomain/issn-13.dita" navtitle="issn-13" />
+                <topicref href="pubmetadataDomain/issn.dita" navtitle="issn" />
+                <topicref href="pubmetadataDomain/issue.dita" navtitle="issue" />
+                <topicref href="pubmetadataDomain/locnumber.dita" navtitle="locnumber" />
+                <topicref href="pubmetadataDomain/maintainer.dita" navtitle="maintainer" />
+                <topicref href="pubmetadataDomain/month.dita" navtitle="month" />
+                <topicref href="pubmetadataDomain/organization.dita" navtitle="organization" />
+                <topicref href="pubmetadataDomain/person.dita" navtitle="person" />
+                <topicref href="pubmetadataDomain/printlocation.dita" navtitle="printlocation" />
+                <topicref href="pubmetadataDomain/pubchangehistory.dita" navtitle="pubchangehistory" />
+                <topicref href="pubmetadataDomain/pubevent.dita" navtitle="pubevent" />
+                <topicref href="pubmetadataDomain/pubeventtype.dita" navtitle="pubeventtype" />
+                <topicref href="pubmetadataDomain/pubid.dita" navtitle="pubid" />
+                <topicref href="pubmetadataDomain/publicense.dita" navtitle="publicense" />
+                <topicref href="pubmetadataDomain/published.dita" navtitle="published" />
+                <topicref href="pubmetadataDomain/publisherinformation.dita" navtitle="publisherinformation" />
+                <topicref href="pubmetadataDomain/publishtype.dita" navtitle="publishtype" />
+                <topicref href="pubmetadataDomain/pubmeta.dita" navtitle="pubmeta" />
+                <topicref href="pubmetadataDomain/pubmetadataDomain.dita" navtitle="pubmetadataDomain" />
+                <topicref href="pubmetadataDomain/pubnumber.dita" navtitle="pubnumber" />
+                <topicref href="pubmetadataDomain/pubowner.dita" navtitle="pubowner" />
+                <topicref href="pubmetadataDomain/pubpartno.dita" navtitle="pubpartno" />
+                <topicref href="pubmetadataDomain/pubrestriction.dita" navtitle="pubrestriction" />
+                <topicref href="pubmetadataDomain/pubrights.dita" navtitle="pubrights" />
+                <topicref href="pubmetadataDomain/reviewed.dita" navtitle="reviewed" />
+                <topicref href="pubmetadataDomain/revisionid.dita" navtitle="revisionid" />
+                <topicref href="pubmetadataDomain/started.dita" navtitle="started" />
+                <topicref href="pubmetadataDomain/summary.dita" navtitle="summary" />
+                <topicref href="pubmetadataDomain/tested.dita" navtitle="tested" />
+                <topicref href="pubmetadataDomain/volume.dita" navtitle="volume" />
+                <topicref href="pubmetadataDomain/year.dita" navtitle="year" />
+            </topichead>
+            <topichead navtitle="xmlDomain">
+                <topicref href="xmlDomain/numcharref.dita" navtitle="numcharref" />
+                <topicref href="xmlDomain/parment.dita" navtitle="parment" />
+                <topicref href="xmlDomain/textent.dita" navtitle="textent" />
+                <topicref href="xmlDomain/xmlatt.dita" navtitle="xmlatt" />
+                <topicref href="xmlDomain/xmlDomain.dita" navtitle="xmlDomain" />
+                <topicref href="xmlDomain/xmlelem.dita" navtitle="xmlelem" />
+            </topichead>
+        </topichead>
+        <topichead navtitle="Map Type Specializations">
+            <topichead navtitle="learningMap">
+                <topicref href="learningMap/learningMap.dita" navtitle="learningMap" />
+            </topichead>
+            <topichead navtitle="map">
+                <topicref href="map/map.dita" navtitle="map" />
+            </topichead>
+            <topichead navtitle="pub-component-map">
+                <topicref href="pub-component-map/pub-component-map.dita" navtitle="pub-component-map" />
+            </topichead>
+            <topichead navtitle="pubmap">
+                <topicref href="pubmap/pubmap.dita" navtitle="pubmap" />
+            </topichead>
+            <topichead navtitle="trainingMap">
+                <topicref href="trainingMap/trainingMap.dita" navtitle="trainingMap" />
+            </topichead>
+        </topichead>
+    </publication>
+</pubmap>

@@ -1,14 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
 <topic id="topic-1">
-  <title>This is the title of Chapter-01.xml</title>
-  <titlealts>
-    <navtitle>Chapter 1
-      Navtitle</navtitle>
-    <searchtitle>Chapter 1
-      SearchTitle</searchtitle>
-  </titlealts>
+  <title>A Chapter</title>
   <body>
-    <p>Topic paragraph<indexterm>topic<indexterm>initial paragraph for</indexterm></indexterm></p>
+    <p>Topic paragraph</p>
   </body>
 </topic>

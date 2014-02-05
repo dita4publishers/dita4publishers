@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map
+  title="DITA Topic Map title in @title attribute">
+  <topicref
+    xtrc="/w:document/w:body[1]/w:p[8]"
+    href="topics/topic_1.dita">
+    <topicref
+      xtrc="/w:document/w:body[1]/w:p[10]"
+      href="topics/topic_1_1.dita"/>
+    <topicref
+      xtrc="/w:document/w:body[1]/w:p[12]"
+      href="topics/topic_1_2.dita">
+      <topicref
+        xtrc="/w:document/w:body[1]/w:p[14]"
+        href="topics/topic_1_2_1.dita"/>
+      <topicref
+        xtrc="/w:document/w:body[1]/w:p[16]"
+        href="topics/topic_1_2_2.dita">
+        <topicref
+          xtrc="/w:document/w:body[1]/w:p[18]"
+          href="topics/topic_1_2_2_1.dita"/>
+      </topicref>
+      <topicref
+        xtrc="/w:document/w:body[1]/w:p[20]"
+        href="topics/topic_1_2_3.dita">
+        <topicref
+          xtrc="/w:document/w:body[1]/w:p[22]"
+          href="topics/topic_1_2_3_1.dita">
+          <topicref
+            xtrc="/w:document/w:body[1]/w:p[24]"
+            href="topics/topic_1_2_3_1_1.dita"/>
+        </topicref>
+        <topicref
+          xtrc="/w:document/w:body[1]/w:p[26]"
+          href="topics/topic_1_2_3_2.dita"/>
+      </topicref>
+    </topicref>
+  </topicref>
+</map>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="topic"></meta>
+<meta name="DC.Title" content="Enumeration Domains"></meta>
+<meta name="abstract" content="Provides elements for simply identifying enumerations within content (simple enumeration domain) or for defining automatic enumeration &#34;streams&#34;."></meta>
+<meta name="description" content="Provides elements for simply identifying enumerations within content (simple enumeration domain) or for defining automatic enumeration &#34;streams&#34;."></meta>
+<meta name="DC.Relation" scheme="URI" content="../../user_docs/d4p-users-guide/vocabulary-part/domain-modules-overview.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="classification-domain.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="formatting-domain.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC10"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="topic-id"></meta>
+<link rel="stylesheet" type="text/css" href="../../commonltr.css"></link>
+<title>Enumeration Domains</title>
+</head>
+<body id="topic-id">
+
+
+  <h1 class="title topictitle1">Enumeration Domains</h1>
+  
+  <div class="body"><p class="shortdesc">Provides elements for simply identifying enumerations within content (simple enumeration domain) or for defining automatic enumeration "streams".</p>
+
+    <p class="p">The enumeration domains provide markup for both identifying enumerations within content (simple enumerations) and for defining automatic enumeration "streams".</p>
+
+    <p class="p">The simple enumeration domain (d4p_simpleEnumeration) provides the element type <code>&lt;d4pSimpleEnumerator&gt;</code>, a specialization of <code>&lt;data&gt;</code>. Use <code>&lt;d4pSimpleEnumerator&gt;</code> to identify the occurrence of things like chapter and section numbers within content where you need to preserve the number for legacy purposes or to reflect author intent but where it may be necessary to suppress the number in different use or publishing contexts.</p>
+
+    <p class="p">The problem with numbers of course is that they reflect a specific use of a topic or element within a specific packaging context. Thus, what is Chapter 2 in one book may be Chapter 3 in a different publishing context (or even a later revision of the same publication) or may not be usefully numbered at all.</p>
+
+    <p class="p">Ideally, all numbers would always be generated automatically. However, in a Publishing context that is not always practical. Legacy documents may have ideosyncratic numbers that cannot be automated. New documents may require numbering that is automatable but unique to that particular document.</p>
+
+    <p class="p">The <code>&lt;d4pSimpleEnumerator&gt;</code> allows identification of numbers in a way that clearly distinguishes the number from surrounding content, allowing it to be formatted appropriately, including suppressing it altogether. The <code>&lt;d4pSimpleEnumerator&gt;</code> is a specialization of <code>&lt;data&gt;</code>, which means it is semantically metadata and will be hidden by default. The DITA for Publishers project provides Toolkit plugins that extend the HTML and PDF transforms for the simple enumeration domain that unhide the <code>&lt;d4pSimpleEnumerator&gt;</code> elements, making them visible by default.</p>
+
+    <p class="p">The two enumeration domains d4p_enumerationMapDomain and d4p_enumerationTopicDomain provide support for author-specified automatic numbering that is arbitrary. The enumeration map domain provides elements for defining enumeration "streams". The enumeration topic domain provides elements for generating numbers within a specific stream.</p>
+
+    <div class="note important"><span class="importanttitle">Important:</span> The map and topic enumeration domains are experimental and not yet fully implemented.</div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../user_docs/d4p-users-guide/vocabulary-part/domain-modules-overview.html" title="The D4P vocabulary modules include a number of domains you can use to augment both map and topic types.">DITA For Publishers Domains</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="classification-domain.html" title="The classification domain provides metadata specifically for classifying topics or maps, typically in terms of a specific taxonomy.">Classification Domain</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="formatting-domain.html" title="The formatting domain provides elements for producing specific formatting effects that are either arbitrary (not connected to any particular semantic or structural aspect of the content) or simply required to meet specific publication requirements. These elements should be used only when necessary but when they are necessary they are available.">Formatting Domain</a></div>
+</div>
+</div>
+
+</body>
+</html>

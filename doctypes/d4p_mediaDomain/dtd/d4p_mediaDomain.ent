@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     DITA For Publishers Media Domain
+     
+     Defines specializations of <object> for media embedding.
+     
+     Copyright (c) 2012 DITA For Publishers
+     
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                        Media DOMAIN ENTITIES                  -->
+<!-- ============================================================= -->
+
+<!ENTITY % d4p_media-d-object
+   "d4p_video |
+    d4p_audio
+   "
+>
+
+
+<!-- ================== End DITA For Publishers Media Domain Entities ============ -->

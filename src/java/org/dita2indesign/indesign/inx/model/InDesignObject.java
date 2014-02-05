@@ -71,5 +71,10 @@ public abstract class InDesignObject extends DefaultInDesignComponent {
 		this.setStringProperty(InDesignDocument.PROP_SELF, id);
 	}
 
+	public void postLoad() throws Exception {
+		// Override to do any post-load processing,
+		// such as getting objects for object reference
+		// properties.
+	}
 
 }

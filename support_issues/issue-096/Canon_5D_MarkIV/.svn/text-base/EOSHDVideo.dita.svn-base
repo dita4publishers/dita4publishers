@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<?Pub Inc?>
+<concept id="EOSHDVideo-94281E41" xml:lang="en">
+<title>EOS HD Video</title>
+<shortdesc>Full HD video recording is supported in multiple formats,
+including 1080/30p, 24p, 25p; 720/60p, 50p; 480/30p, 25p.</shortdesc>
+<prolog>
+<metadata><keywords><indexterm></indexterm></keywords></metadata>
+</prolog>
+<conbody><draft-comment>Need to add section on auto-focus during video
+recording</draft-comment>
+<p>While recording video, a 4GB automatic file partition is employed
+in order to gain longer continuous recording times, up to 29 minutes
+59 seconds.<fn>Video recording requires SD cards with a speed rating
+of 6 or more. A speed rating of 10 is recommended.</fn>Both All i-frame
+and IPB compressions are supported as well as the standard H.264/MPEG
+-4 AVC codec. Embedding the time code is also possible for greater
+convenience when recording with multiple cameras. </p>
+<p>Video performance is further enhanced with the ability to manually
+adjust your exposure settings and audio levels while recording<fn
+>The 5D Mark IV does not provide continuous auto-focus. You must focus
+manually. A tripod and focus accessories such as follow-focus apparatus
+are recommended.</fn>. By employing Live View, you can view your recording
+on the LCD and make settings changes with a dedicated menu tab on
+the fly. The DIGIC 5+ processor also dramatically improves video response
+times and helps to reduce color artifacts, aberrations, and moiré.
+See <xref format="dita" href="HighDensityReticularAF.dita" scope="local"
+type="concept"><?Pub _previewtext
+text="61-Point High Density Reticular AF"?></xref><xref format="dita"
+href="HighDensityReticularAF.dita" scope="local" type="concept"><?Pub
+_previewtext text="61-Point High Density AF"?></xref></p><?Pub Caret 558?>
+</conbody>
+</concept>

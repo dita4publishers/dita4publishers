@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e52"><title>Comment</title><body><p>
+If you are not familiar with the concept of the derivative, read the first section of
+<ph outputclass="a">Chapter 6</ph>
+, and enter the function 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ in the
+<ph outputclass="a">applet</ph>
+in section 6.1. Notice that 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ has the property that it is its own derivative.
+</p></body></topic>

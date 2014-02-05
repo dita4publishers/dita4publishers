@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= 
+     ============================================================= -->
+<grammar xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" 
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+  xmlns="http://relaxng.org/ns/structure/1.0" 
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  
+  <!-- Define the domain values of this module -->
+  <define name="domains-atts-value" combine="choice">
+    <value>(topic chapter)</value>
+  </define>
+  
+  <!-- XXX -->
+  <define name="chapter-info-types">
+    <ref name="info-types"/>
+  </define>
+  
+  <!-- Define patterns -->
+  <define name="chapter">
+    <ref name="chapter.element"/>
+  </define>
+  
+  <!-- Define elements content and attributes -->
+  
+  <!-- LONG NAME: Concept -->
+  <define name="chapter.content">
+    <ref name="title"/>
+    <optional>
+      <ref name="titlealts"/>
+    </optional>
+    <optional>
+      <choice>
+        <ref name="abstract"/>
+        <ref name="shortdesc"/>
+      </choice>
+    </optional>
+    <optional>
+      <ref name="prolog"/>
+    </optional>
+    <optional>
+      <ref name="body"/>
+    </optional>
+    <optional>
+      <ref name="related-links"/>
+    </optional>
+    <zeroOrMore>
+      <ref name="chapter-info-types"/>
+    </zeroOrMore>
+  </define>
+  <define name="chapter.attributes">
+    <attribute name="id">
+      <data type="ID"/>
+    </attribute>
+    <ref name="conref-atts"/>
+    <ref name="select-atts"/>
+    <ref name="localization-atts"/>
+    <optional>
+      <attribute name="outputclass"/>
+    </optional>
+  </define>
+  <define name="chapter.element">
+    <element name="chapter">
+      <a:documentation>The &lt;chapter> element is the top-level element for a topic that answers
+        the question what is? Concepts provide background information that users must know before
+        they can successfully work with a product or interface. Often, a chapter is an extended
+        definition of a major abstraction such as a process or function. It might also have an
+        example or a graphic, but generally the structure of a chapter is fairly simple. 
+        Category: Concept elements</a:documentation>
+      <ref name="chapter.attlist"/>
+      <ref name="chapter.content"/>
+    </element>
+  </define>
+  <define name="chapter.attlist" combine="interleave">
+    <ref name="chapter.attributes"/>
+    <ref name="arch-atts"/>
+    <optional>
+      <attribute name="domains" a:defaultValue="(topic chapter)                            (topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    "/>
+    </optional>
+  </define>
+   
+  <!-- Specialization attributes. Global attributes and class defaults -->
+  
+  <define name="chapter.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- topic/topic chapter/chapter "/>
+    </optional>
+  </define>
+  <define name="conbody.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- topic/body  chapter/conbody "/>
+    </optional>
+  </define>
+  <define name="conbodydiv.attlist" combine="interleave">
+    <ref name="global-atts"/>
+    <optional>
+      <attribute name="class" a:defaultValue="- topic/bodydiv chapter/conbodydiv "/>
+    </optional>
+  </define>
+  
+</grammar>

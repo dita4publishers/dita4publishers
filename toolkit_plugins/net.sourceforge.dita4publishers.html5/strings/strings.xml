@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This file is part of the DITA Open Toolkit project hosted on
+     Sourceforge.net. See the accompanying license.txt file for
+     applicable licenses.-->
+<!-- (c) Copyright IBM Corp. 2004, 2005 All Rights Reserved. -->
+<!-- Updated 20081229 to add sr-rs as alternative to sr-sp   -->
+<langlist name="d4h5">
+    <lang xml:lang="en"    filename="strings-en.xml"/>
+    <lang xml:lang="en-ca" filename="strings-en-ca.xml"/>
+    <lang xml:lang="en-us" filename="strings-en-us.xml"/>
+    <lang xml:lang="fr"    filename="strings-fr.xml"/>
+    <lang xml:lang="fr-ca" filename="strings-fr-ca.xml"/>
+</langlist>

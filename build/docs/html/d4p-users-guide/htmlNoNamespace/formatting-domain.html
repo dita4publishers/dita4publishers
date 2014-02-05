@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="topic"/>
+<meta name="DC.Title" content="Formatting Domain"/>
+<meta name="abstract" content="The formatting domain provides elements for producing specific formatting effects that are either arbitrary (not connected to any particular semantic or structural aspect of the content) or simply required to meet specific publication requirements. These elements should be used only when necessary but when they are necessary they are available."/>
+<meta name="description" content="The formatting domain provides elements for producing specific formatting effects that are either arbitrary (not connected to any particular semantic or structural aspect of the content) or simply required to meet specific publication requirements. These elements should be used only when necessary but when they are necessary they are available."/>
+<meta name="DC.Relation" scheme="URI" content="../../user_docs/d4p-users-guide/vocabulary-part/domain-modules-overview.html"/>
+<meta name="DC.Relation" scheme="URI" content="enumeration-domains.html"/>
+<meta name="DC.Relation" scheme="URI" content="pubcontent-domain.html"/>
+<meta name="prodname" content="DITA For Publishers"/>
+<meta name="version" content="0.9.19RC10"/>
+<meta name="DC.Creator" content="W. Eliot Kimber"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="topicid"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Formatting Domain</title>
+</head>
+<body id="topicid">
+
+
+  <h1 class="title topictitle1">Formatting Domain</h1>
+  
+  <div class="body"><p class="shortdesc">The formatting domain provides elements for producing specific formatting effects that are either arbitrary (not connected to any particular semantic or structural aspect of the content) or simply required to meet specific publication requirements. These elements should be used only when necessary but when they are necessary they are available.</p>
+
+    <div class="p">The elements in this module are:<dl class="dl">
+      
+        <dt class="dt dlterm"><code>&lt;art&gt;</code></dt>
+
+        <dd class="dd">Represents an abstract piece of "art". Holds a reference to one or more graphic objects (<code>&lt;image&gt;</code>) (normally different formats of the same base image, such as a high-resolution TIF and low-resolution JPEG). It may have an "art title", which labels the art as a re-usable object (e.g., when displayed in a CMS system as a standalone object). It may also contain classifying metadata.</dd>
+
+      
+      
+        <dt class="dt dlterm"><code>&lt;b-i&gt;</code></dt>
+
+        <dd class="dd">"Bold italic". Allows a single element to represent the combination of <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code>, which is useful for conversion from flat word processing formats.</dd>
+
+      
+      
+        <dt class="dt dlterm"><code>&lt;b-sc&gt;</code></dt>
+
+        <dd class="dd">"Bold small caps". Allows a single element to represent the combination of <code>&lt;b&gt;</code> and <code>&lt;sc&gt;</code>, which is useful for conversion from flat word processing formats.</dd>
+
+      
+        
+          <dt class="dt dlterm"><code>&lt;br&gt;</code></dt>
+
+          <dd class="dd">Represents a hard return (as for HTML <code>&lt;br&gt;</code> element). Can be used for
+            example in titles to indicate a hard break point.</dd>
+
+        
+      
+        <dt class="dt dlterm"><code>&lt;eqn_block&gt;</code></dt>
+
+        <dd class="dd">Represents a block equation. Same content as for <code>&lt;eqn_inline&gt;</code>.</dd>
+
+      
+        
+          <dt class="dt dlterm"><code>&lt;eqn_inline&gt;</code></dt>
+
+          <dd class="dd">Represents an inline equation. Can contain any combination of MathML markup, InDesign INX markup, or references to graphics (<code>&lt;art&gt;</code>).</dd>
+
+        
+      
+        <dt class="dt dlterm"><code>&lt;frac&gt;</code></dt>
+
+        <dd class="dd">Represents a simple mathematical fraction. Enables the rendering of fractions without the use of full MathML markup.</dd>
+
+      
+        
+          <dt class="dt dlterm"><code>&lt;inx_snippet&gt;</code></dt>
+
+          <dd class="dd">Holds a snippet of InDesign CS3 interchange XML. This element is intended to be a
+            fallback for things like equations that simply cannot be easily represented in any other
+            way for printing purposes. Should be used only when absolutely necessary. INX snippets
+            can only be rendered directly by InDesign.</dd>
+
+        
+      
+        <dt class="dt dlterm"><code>&lt;linethrough&gt;</code></dt>
+
+        <dd class="dd">Line-through or "strikeout". Text with a line drawn through it as is used for strike-outs.</dd>
+
+      
+      
+        <dt class="dt dlterm"><code>&lt;roman&gt;</code></dt>
+
+        <dd class="dd">"Roman" (not italic, bold, or small caps). Use to indicate text that is not highlighted, usually within the context of a paragraph-level element that is normally highlighted in some way, such as paragraphs that are normally rendered in italic.</dd>
+
+      
+      
+        <dt class="dt dlterm"><code>&lt;sc&gt;</code></dt>
+
+        <dd class="dd">"Small caps". Represents a phrase in small caps.</dd>
+
+      
+      
+        <dt class="dt dlterm"><code>&lt;tab&gt;</code></dt>
+
+        <dd class="dd">Represents a horizontal tab character. Literal tabs cannot be reliably entered in XML data, so this element allows the capturing of tabbed content. Note that the tab stops applied to the tabs is a function of the rendition applied.</dd>
+
+      
+      </dl>
+</div>
+
+    <p class="p">The formatting domain includes the standard MathML markup for use with
+        <code>&lt;eqn_inline&gt;</code> and <code>&lt;eqn_block&gt;</code>. The ability to render MathML
+      depends on the rendering system available. MathML rendering is available for HTML and
+      XSL-FO-based outputs. Rendering MathML into InDesign requires commercial tools.</p>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../user_docs/d4p-users-guide/vocabulary-part/domain-modules-overview.html" title="The D4P vocabulary modules include a number of domains you can use to augment both map and topic types.">DITA For Publishers Domains</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="enumeration-domains.html" title="Provides elements for simply identifying enumerations within content (simple enumeration domain) or for defining automatic enumeration &#34;streams&#34;.">Enumeration Domains</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="pubcontent-domain.html" title="The publication content domain provides general-purpose content elements that are specific to publications.">Publication Content Domain</a></div>
+</div>
+</div>
+
+</body>
+</html>

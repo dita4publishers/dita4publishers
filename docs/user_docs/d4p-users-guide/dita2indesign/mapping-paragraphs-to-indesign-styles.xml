@@ -87,7 +87,14 @@
       </simpletable></p>
     <p>The second highlighted example follows exactly the same pattern, differing only in the name of the mode ("style-map-cstyle") .</p>
     <p>Your custom element-to-style mappings should follow the same pattern, differing only in the details of the <xmlatt>match</xmlatt> expression and the style name produced.</p>
-    <p>The only otther thing you may need to add is a <xmlatt>priority</xmlatt> attribute when you need to have templates for more-specialized elements that would otherwise match on a template for the specialization's ancestor types. In that case, you must specify a <xmlatt>priority</xmlatt> attribute on the <xmlelem>xsl:template</xmlelem> element with a value greater than 1, e.g., <codeph>&lt;xsl:template priority="10" ...</codeph> or whatever number ensures the template will match before other templates the element might have matched on.</p>
+    <p>The only other thing you may need to add is a <xmlatt>priority</xmlatt>
+      attribute when you need to have templates for more-specialized elements
+      that would otherwise match on a template for the specialization's ancestor
+      types. In that case, you must specify a <xmlatt>priority</xmlatt>
+      attribute on the <xmlelem>xsl:template</xmlelem> element with a value
+      greater than 1, e.g., <codeph>&lt;xsl:template priority="10" ...</codeph>
+      or whatever number ensures the template will match before other templates
+      the element might have matched on.</p>
     <p>For example, say your vocabulary includes a specialization of <xmlelem>ph</xmlelem> named "foo" and a specialization of "foo" named "bar". You want <xmlelem>foo</xmlelem> to map to the paragraph style "Foo" but <xmlelem>bar</xmlelem> to map to the paragraph style "Bar". You start by creating these two match templates:<codeblock>  &lt;xsl:template match="*[df:class(., 'foodomain-d/foo')]" 
     mode="style-map-pstyle">
     &lt;xsl:sequence select="'Foo'"/>
@@ -106,7 +113,9 @@
     <p>Now when you run the transform all the <xmlelem>bar</xmlelem> elements will map to the style 'Bar' as you intended.</p>
     <p>The <xmlatt>priority</xmlatt> value of "0.75" for the template for the <xmlelem>ph</xmlelem> element in the example above puts it's priority <i>below</i> the default priority of "1", ensuring that the template for <xmlelem>ph</xmlelem> will not interfere with any templates for specializations of <xmlelem>ph</xmlelem>.</p>
     <p>To create your own mapping module, simply copy the base <filepath>elem2styleMap.xsl</filepath> file to a new location, normally a Toolkit plugin for your extensions, remove all the templates you don't want to override, modify the ones you do, and add any additional mappings you need.</p>
-    <p>If these mappings should be global to all InCopy generations in your environment you can use the module as an Toolkit-provided extension to the base DITA2InDesign transformation type.</p>
+    <p>If these mappings should be global to all InCopy generations in your
+      environment you can use the module as a Toolkit-provided extension to the
+      base DITA2InDesign transformation type.</p>
     <p>If, as is more likely, your mappings are for a specific use and not global to all InCopy transforms, then you must create a new plugin with a new top-level transform that includes your mapping module and the base dita2indesign.xsl transform.</p>
  </conbody>
 </concept>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+ "task.dtd">
+<?Pub Inc?>
+<task id="ConfiguringATwo-LightSetup-903679B5" xml:lang="en">
+<title>Configuring a Two-Light Setup</title>
+<shortdesc>In this setup, you use a Canon 580 EX II as the master
+and a Canon 430 EX II as the slave. Both flashes are off-camera.</shortdesc>
+<prolog>
+<metadata><keywords><indexterm>two-light setup</indexterm></keywords>
+</metadata>
+</prolog>
+<taskbody>
+<prereq>For this setup, a long E-TTL cable is required. This cable
+plugs in to the hot shoe of your camera on one end, and the 580 EX
+II on the other end. The effect is the same as if the 580 EX were
+mounted in the hot shoe. In addition, two light stands are required.</prereq>
+<context> In this scenario, the master serves as the key light, and
+the slave as the fill light. Both flashes are mounted on stands. The
+key light is to camera left, and the fill light to camera right, both
+at a 45 degree angle to the subject.</context>
+<steps>
+<step><cmd>Turn on the 580 EX II and set it for wireless master mode
+in E-TTL mode.</cmd>
+<info>The master flash is in group A by default.</info>
+</step>
+<step><cmd>Connect the 580 EX II to your camera hot show with the
+E-TTL cable. Mount the assembly on a light stand.</cmd></step>
+<step><cmd>Refer to the 580 EX II manual and place the flash in master
+mode.</cmd></step>
+<step><cmd>Turn on the 430 EX II and set it for wireless slave mode
+in E-TTL mode. Configure it in Group B.</cmd>
+<info>The focus-assist light blinks slowly when the flash is in slave
+mode.</info>
+</step>
+<step><cmd>Press the <uicontrol>Menu</uicontrol> button on your camera,
+locate the <uicontrol>External Speedlite Control</uicontrol> menu
+selection, and then choose <uicontrol>Flash function settings</uicontrol
+>.</cmd></step>
+<step><cmd>Set the Flash mode to ETTL and the flash group to A:B.</cmd>
+</step>
+<step><cmd>Set the A:B ration to 2:1</cmd></step>
+<step id="TakeATestShotAndDetermineTheRelativ-DFF88459"><cmd>Take
+a test shot and scrutinize the relative power of the key and fill
+lights.</cmd></step>
+<step id="AdjustRelativePowerByAdjustingTheRa-DFF887B7"><cmd>Adjust
+relative power by adjusting the ratio of Group A to Group B.</cmd>
+</step><?Pub Caret -2?>
+<step><cmd>Repeats Steps <xref format="dita"
+href="#ConfiguringATwo-LightSetup-903679B5/TakeATestShotAndDetermineTheRelativ-DFF88459"
+scope="local" type="step"><?Pub _previewtext
+text="No title at target; link text should be authored"?></xref> and <xref
+format="dita"
+href="#ConfiguringATwo-LightSetup-903679B5/AdjustRelativePowerByAdjustingTheRa-DFF887B7"
+scope="local" type="step"><?Pub _previewtext
+text="No title at target; link text should be authored"?></xref> until
+you are satisfied with the image.</cmd></step>
+</steps>
+<example><title>Key Light to Fill Light Ratios</title><p>To obtain
+subtle shadows for a flattering look that approaches a fashion image,
+set the A to B ratio to 2:1. To obtain a more dramatic look that accentuates
+highlights and shadows, set the ration to 4:1 or 8:1.</p></example>
+</taskbody>
+</task>

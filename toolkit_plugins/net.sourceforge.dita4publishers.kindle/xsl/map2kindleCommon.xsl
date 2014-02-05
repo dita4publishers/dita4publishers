@@ -6,8 +6,6 @@
   
   exclude-result-prefixes="xs df"
   version="2.0">
-
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
   
   <!-- Pub Title mode: -->
 
@@ -37,10 +35,6 @@
     *[df:class(., 'topic/keyword')] | 
     *[df:class(., 'topic/text')] ">
     <xsl:apply-templates mode="#current"/>
-  </xsl:template>
-  
-  <xsl:template match="*[df:class(., 'topic/data')]" mode="#all" priority="-1">
-    <!-- Suppress <data> by default. -->
   </xsl:template>
   
   

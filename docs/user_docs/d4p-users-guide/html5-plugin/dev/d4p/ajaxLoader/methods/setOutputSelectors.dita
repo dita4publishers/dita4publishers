@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_dcw_n5b_5h">
+ <title>setOutputSelector</title>
+ <shortdesc>Set the output selector used to output the ajax content</shortdesc>
+ <conbody>
+  <p conref="../ajaxLoader.dita#concept_fr3_5pb_5h/changeOutputSelector"/>
+  <codeblock conref="../ajaxLoader.dita#concept_fr3_5pb_5h/changeOutputSelectorCode"/>
+ </conbody>
+</concept>

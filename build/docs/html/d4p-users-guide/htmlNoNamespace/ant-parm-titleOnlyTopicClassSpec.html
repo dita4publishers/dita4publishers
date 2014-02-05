@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="title.only.topic.class.spec Ant parameter"/>
+<meta name="abstract" content="Specifies the @class attribute value to use for title-only topics generated from topicheads."/>
+<meta name="description" content="Specifies the @class attribute value to use for title-only topics generated from topicheads."/>
+<meta name="DC.Relation" scheme="URI" content="../epub-transtype-parameters-ref.html"/>
+<meta name="DC.Relation" scheme="URI" content="ant-parm-kindleGenExecutable.html"/>
+<meta name="DC.Relation" scheme="URI" content="ant-parm-titleOnlyTopicTitleClassSpec.html"/>
+<meta name="prodname" content="DITA For Publishers"/>
+<meta name="version" content="0.9.19RC10"/>
+<meta name="DC.Creator" content="W. Eliot Kimber"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="referenceId"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>title.only.topic.class.spec Ant parameter</title>
+</head>
+<body id="referenceId">
+
+
+  <h1 class="title topictitle1">title.only.topic.class.spec Ant parameter</h1>
+  
+  <div class="body refbody"><p class="shortdesc">Specifies the @class attribute value to use for title-only topics generated from topicheads.</p>
+
+    <div class="section"><h2 class="sectiontitle">Value</h2>
+      <p class="p">Any valid @class value for a topic type (e.g., "<samp class="ph codeph">- topic/topic mytopic/mytopic </samp>").</p>
+
+    </div>
+
+    <div class="section"><h2 class="sectiontitle">Default</h2>
+      <p class="p">"<samp class="ph codeph">- topic/topic </samp>"</p>
+
+    </div>
+
+    <div class="section"><h2 class="sectiontitle">XSLT Parameter</h2>
+      <p class="p">titleOnlyTopicClassSpec</p>
+
+    </div>
+
+    <div class="section"><h2 class="sectiontitle">Notes</h2>
+      <p class="p">The EPUB standard requires that all navigation ToC entries point to a content object. The EPUB transform handles this by generating title-only topics for each topichead in the map. These generated topics are then processed by the normal HTML generation process.</p>
+
+      <p class="p">If you have a topic specialization that produces custom HTML results that you want to use for these generated topics, you can use this parameter to generate topics of that type. Note that this parameter applies to all generated title-only topics—there is currently no mechanism to get different topic types for different map contexts.</p>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../epub-transtype-parameters-ref.html" title="EPUB-specific parameters for the EPUB transformation type">EPUB and Kindle Transformation Parameters</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="ant-parm-kindleGenExecutable.html" title="Specifies the name, and if necessary, full path of the kindlegen command-line executable">kindlegen.executable Ant parameter</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="ant-parm-titleOnlyTopicTitleClassSpec.html" title="Specifies the @class attribute value to use for titles for title-only topics generated from topicheads.">title.only.topic.title.class.spec Ant parameter</a></div>
+</div>
+</div>
+
+</body>
+</html>

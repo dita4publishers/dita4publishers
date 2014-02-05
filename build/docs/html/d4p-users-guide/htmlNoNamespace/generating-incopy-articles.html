@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Configuring the DITA-to-InDesign Transformation"/>
+<meta name="abstract" content="You can generate InCopy articles from single topics or from maps using XSLT."/>
+<meta name="description" content="You can generate InCopy articles from single topics or from maps using XSLT."/>
+<meta name="DC.subject" content="InCopy, generating articles from maps and topics, topics, generating InCopy articles from"/>
+<meta name="keywords" content="InCopy, generating articles from maps and topics, topics, generating InCopy articles from"/>
+<meta name="DC.Relation" scheme="URI" content="dita-to-indesign-framework-chapter.html"/>
+<meta name="DC.Relation" scheme="URI" content="dita-to-indesign-plugin-usage.html"/>
+<meta name="DC.Relation" scheme="URI" content="indesign-optimization.html"/>
+<meta name="DC.Relation" scheme="URI" content="mapping-paragraphs-to-indesign-styles.html"/>
+<meta name="DC.Relation" scheme="URI" content="grouped-style-name-syntax.html"/>
+<meta name="prodname" content="DITA For Publishers"/>
+<meta name="version" content="0.9.19RC10"/>
+<meta name="DC.Creator" content="W. Eliot Kimber"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="conceptId"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Configuring the DITA-to-InDesign Transformation</title>
+</head>
+<body id="conceptId">
+
+
+ <h1 class="title topictitle1">Configuring the DITA-to-InDesign Transformation</h1>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">You can generate InCopy articles from single topics or from maps using XSLT.</p>
+
+   <p class="p">An InCopy article contains a single sequence of paragraphs to be placed within an InDesign frame sequence. The native format for InCopy articles is INCX, an XML format, which makes it possible to generate InCopy articles using XSLT.</p>
+
+    <p class="p">The DITA-to-InDesign framework provides a general XSLT library and base transforms for generating InCopy articles from DITA source (although the library itself is not particularly DITA-specific, meaning it can be applied to sort of XML without too much effort).</p>
+
+    <p class="p">The base transforms are packaged in the org.dita2indesign.dita2indesign Open Toolkit plugin. The dita2indesign transformation type provides the extendable XSLT transform dita2indesign.xsl. You can use normal Toolkit extension facilities to extend this transformation using extension point ID "xsl.transtype-indesign'.</p>
+
+    <p class="p">You can also create a custom top-level XSLT transform that imports the transform <span class="ph filepath">dita2indesignImpl.xsl</span> and either define a new transformation type or simply specify the transformation file as the value of the <span class="keyword parmname">map2indesign.style</span> Ant property.</p>
+
+    <p class="p">The basic purpose of the transformation is to map XML elements to InDesign paragraphs and character runs with the appropriate paragraph and character styles applied. All of the visual aspects of the rendition, with the exception of explicit frame breaks, are provided by InDesign through the style definitions and other layout aspects, which are defined either manually by a Designer or generated through a separate, Java-based InDesign generation process.</p>
+
+    <p class="p">Thus the primary configuration task is to map elements in context to style names. This is done through an XSLT module that uses very simple XSLT templates to do the mapping. You do not need to have any knowledge of XSLT details in order to define this mapping. However, you must know at least enough XPath to be able to specify the match expressions needed by your data. However, this is a pretty small subset of XPath in most cases. The examples provided in this section should be sufficient for most tasks.</p>
+
+    <p class="p">Another configuration task that may be required is emitting frame, column, or page break characters as required by your content to trigger the appropriate flowing of text through sequences of threaded frames. This is done through XSLT templates that override the base processing for paragraphs. Again, no prior XSLT knowledge is required, you simply need to copy the examples in this section and adapt them as appropriate to your content.</p>
+
+    <p class="p">For more involved requirements you may need to perform more complex processing, such as using metadata values to generate paragraphs in the output, reorder elements from the input to the output, or generate multiple InCopy articles from a single topic. This requires more general knowledge of XSLT but examples of these types of processing are available to use as guides and starting points.</p>
+
+ </div>
+
+<div class="related-links">
+<ol class="olchildlinks">
+<li class="link olchildlink"><a href="mapping-paragraphs-to-indesign-styles.html">Mapping XML Elements to InDesign Paragraph and Character Styles</a><br/>
+You define the mapping of elements to specific character and paragraph styles using simple XSLT templates.</li>
+<li class="link olchildlink"><a href="grouped-style-name-syntax.html">Specifying InDesign Grouped Style Names</a><br/>
+InDesign styles may be grouped or ungrouped. Grouped styles require     a specific syntax.</li>
+</ol>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="dita-to-indesign-framework-chapter.html" title="The DITA-to-InDesign transformation framework enables the generation of InDesign documents and InCopy articles from DITA maps and topics.">The DITA-to-InDesign Transformation Framework</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="dita-to-indesign-plugin-usage.html" title="How to use the DITA-to-InDesign Toolkit Plugin to generate inDesign and InCopy documents from DITA content.">Generating InDesign from DITA Using the Toolkit Plugin</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="indesign-optimization.html" title="By taking advantage of InDesign features you can maximize the automation provided by the DITA-to-InDesign framework.">Preparing InDesign Templates for DITA-to-InDesign Use</a></div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic
+  id="topic-id">
+  <title>Topic With Associated Key 02</title>
+  <shortdesc>This topic is bound to a key</shortdesc>
+  <body>
+    <p>This topic is referenced twice from the map using the same key.</p>
+  </body>
+</topic>

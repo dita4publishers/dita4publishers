@@ -1,0 +1,75 @@
+##
+# Enable gzip/deflate processing for text-based content
+##
+# Insert filter
+SetOutputFilter DEFLATE
+
+# Netscape 4.x has some problems...
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+
+# Netscape 4.06-4.08 have some more problems
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+
+# MSIE masquerades as Netscape, but it is fine
+# BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+
+# NOTE: Due to a bug in mod_setenvif up to Apache 2.0.48
+# the above regex won't work. You can use the following
+# workaround to get the desired effect:
+BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+
+# Don't compress images and fonts
+SetEnvIfNoCase Request_URI \
+\.(?:gif|jpe?g|png|otf|ttf)$ no-gzip dont-vary
+
+# Make sure proxies don't deliver the wrong content
+Header append Vary User-Agent env=!dont-vary
+
+# Make sure proxies don't cache the content
+# See http://httpd.apache.org/docs/2.0/mod/mod_deflate.html#proxies
+Header set Vary *
+
+##
+# Enable UTF-8 encoding, not by default
+##
+AddDefaultCharset Off
+AddDefaultCharset utf-8
+
+##
+# Requires mod_expires to be enabled.
+##
+<IfModule mod_expires.c>
+  # Enable expirations.
+  ExpiresActive On
+
+  # Cache all files for 2 weeks after access (A).
+  ExpiresDefault A1209600
+
+  # Do not cache dynamically generated pages.
+  ExpiresByType text/html A1
+</IfModule>
+
+##
+# Rewrite
+##
+# The html5 plugin rewrite @href to load them by AJAX
+# Robots should not have any issue indexing content
+# clients using the index file should not have any issue either
+# clients using a referenced page from a search engine should be redirected to the index
+# and the url needs to be rewrited in this case
+
+RewriteEngine on
+
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !=/favicon.ico
+RewriteCond %{REQUEST_FILENAME} !.*\.(css|jpg|jpeg|gif|zip|js|png|otf|ttf)
+RewriteCond %{QUERY_STRING} !ajax
+RewriteCond %{QUERY_STRING} !r
+RewriteCond %{REQUEST_FILENAME} !assets.*$
+RewriteCond %{REQUEST_FILENAME} !index\.html$
+RewriteCond %{HTTP_USER_AGENT} .*(opera|aol|msie|firefox|chrome|konqueror|safari|netscape|navigator|mosaic|lynx|amaya|omniweb|avant|camino|flock|seamonkey|mozilla|gecko).*
+
+RewriteRule ^(.*)$ index.html?r=$1 [R]
+

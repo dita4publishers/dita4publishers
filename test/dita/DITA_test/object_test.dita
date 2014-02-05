@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="concept_l4n_m4z_y3">
+ <title>&lt;object> test</title>
+ <conbody>
+  <p>The purpose of this is to test audio and video in a topic and the result of transforming to
+   HTML in the OT. According to previous discussions, the result should be pretty good but not sure
+   what the actual values of the element should be.</p>
+  <d4p_video id="HP-Spin" height="500" width="500" name="controls">
+   <d4p_video_source value="HP-Spin_x264.mp4" type="video/mp4"/>
+   <d4p_video_source value="HP-Spin_VP8.webm" type="video/webm"/>
+   <d4p_video_source value="HP-Spin_libtheora.ogv" type="video/ogg"/>
+  </d4p_video>
+  <unknown>&lt;audio controls height="100" width="100">&lt;source value="event_002.mp3"
+   type="audio/mpeg"/>&lt;source value="event_002.wav" type="audio/wav"/>&lt;/audio></unknown>
+ </conbody>
+</concept>

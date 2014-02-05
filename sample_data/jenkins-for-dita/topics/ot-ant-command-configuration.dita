@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_ltz_vs4_ym">
+  <title>Configuring the Open Toolkit Ant Command In Jenkins</title>
+  <shortdesc>What to put in the Jenkins job</shortdesc>
+  <body>
+    <p>Note that you specify one parameter per line in the Jenkins Ant configuration dialog—it adds the "-D" flag. All the fields after the "Targets" field are under the "Advanced" button in the Jenkins job creation interface.</p>
+    <section>
+      <title>Targets Field Values</title>
+      <p>The "targets" field must provide the "-lib" parameters needed to make the Open Toolkit's Java jars available:<codeblock>-lib $WORKSPACE/docs.tools/DITA-OT/lib:$WORKSPACE/docs.tools/DITA-OT/lib/saxon</codeblock></p>
+      <p>The actual target to run does not need to be specified as the OT always runs with the default target specified in the main build.xml file.</p>
+      <p>You can add addition -lib parameters if you have custom jars required by Open Toolkit plugins.</p>
+    </section>
+    <section>
+      <title>Build File Value</title>
+      <p>This value points to the location of the DITA Open Toolkit the job should use. If the OT is within the job's workspace (e.g., because it's in one of the repositories the job checks out), then you can use <varname>$WORKSPACE</varname> environment variable to construct the path, otherwise specify the absolute path on server, e.g., <codeblock>$WORKSPACE/my-ot-repo/DITA-OT/build.xml</codeblock></p>
+      <p>In this example, <filepath>my-ot-repo</filepath> is the directory containing the repository that provides the Open Toolkit to run.</p>
+    </section>
+    <section>
+      <title>Ant properties</title>
+      <p>You set the Ant properties, one line per property, as you would for the Ant command line, but without the "-D" flag. You can specify any Ant property. Note that you can expand the Ant properties field in the Jenkins job creation page.</p>
+      <p>Any transformation will require these properties:<codeblock>clean.output=true
+clean.temp=true
+transtype=<varname>transtype</varname>
+dita.dir=<varname>locationOfDitaOT</varname>
+basedir=$WORKSPACE/<varname>directoryWithTheInputMap</varname>/
+args.input=$WORKSPACE/<varname>directoryWithTheInputMap-dir</varname>/<varname>publication-ditamap</varname>
+output.dir=$WORKSPACE/<varname>directoryToHoldTheOutput</varname></codeblock></p>
+      <p>You can specify any other parameters you need. See the DITA Open Toolkit documentation.</p>
+    </section>
+    <section>
+      <title>Java Options</title>
+      <p>Java options are specified in the "Java Options" field. If you are processing large documents you may need to increase the amount of memory available to the Java process. There are two Java options for this: -Xmx and -XX:MaxPermSize.</p>
+      <p>Usually you only need to use the -Xmx (maximum memory). Typically even the largest documents will run with 1 Gigabyte of memory:<codeblock>-Xmx1G</codeblock></p>
+      <p>Windows machines you only have a maximum of about 1.6Gig of memory available to the Java virtual machine when running in 32-bit mode. Even if you have a 64-bit Windows machine Java may run in 32-bit mode. If you need more than 1.6Gig of memory and you are running on a 64-bit Windows machine, you can use the <codeph>-d64</codeph> Java parameter to force 64-bit mode, which allows you to specify as much memory as you want, at least up to the amount of physical memory installed on the machine. </p>
+      <p>For very large documents or certain memory-intensive transformation types, you may run out of "permanent gen space", in which case you need to use the -XX:MaxPermSize parameter to increase that value, typically to 256M:<codeblock>-XX:MaxPermSize=256M</codeblock></p>
+      <p>You can specify both parameters together if you need to.</p>
+    </section>    
+  </body>
+</topic>

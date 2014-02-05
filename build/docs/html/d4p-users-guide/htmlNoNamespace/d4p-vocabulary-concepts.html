@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="chapter"/>
+<meta name="DC.Title" content="Understanding the DITA For Publishers Markup Vocabulary"/>
+<meta name="abstract" content="This section provides general concepts and usuage guidance for the DITA for Publishers vocabulary."/>
+<meta name="description" content="This section provides general concepts and usuage guidance for the DITA for Publishers vocabulary."/>
+<meta name="DC.Relation" scheme="URI" content="vocabulary-part.html"/>
+<meta name="DC.Relation" scheme="URI" content="integrating-modules.html"/>
+<meta name="DC.Relation" scheme="URI" content="../../../website/topics/specialization-modules-overview.html"/>
+<meta name="prodname" content="DITA For Publishers"/>
+<meta name="version" content="0.9.19RC10"/>
+<meta name="DC.Creator" content="W. Eliot Kimber"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="chapter-id"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Understanding the DITA For Publishers Markup Vocabulary</title>
+</head>
+<body id="chapter-id">
+
+
+  <h1 class="title topictitle1"><span xmlns="http://www.w3.org/1999/xhtml" class="enumeration_chapter">Chapter 8. </span>Understanding the DITA For Publishers Markup Vocabulary</h1>
+  
+  <div class="body"><p class="shortdesc">This section provides general concepts and usuage guidance for the DITA for Publishers vocabulary.</p>
+
+    <div class="p">The DITA for Publishers vocabulary addresses the following key requirements that most Publishers have for most publications:<ul class="ul" id="chapter-id__ul_4cb332ef-0304-4310-bd6a-430c48cbce01">
+      <li class="li">Publication structures are almost infinitely variable across titles.<p class="p">This means that DITA maps that represent publications must be very flexible and impose few, if any, abitrary constraints. The Publication Map (pubmap) domain provides this level of flexibility.</p>
+</li>
+
+      <li class="li">The rhetorical role of a given topic included in a publication is usually a function of how it is used, not of the topic itself.<p class="p">That is, unlike technical documentation written with a clear separation of information types (concept, task, reference), most publishing content is quite generic. Thus a given topic may function as an article in the context of an issue of a periodical, a chapter in the context of one book, and an appendix or sidebar in the context of another book.</p>
+<p class="p">This means that publication maps must be able to impose onto the topics they use the rhetorical role those topics play in the that publication. The publication map domain supports this by providing a wide variety of topicref specializations that represent common publication components: chapter, article, part, subsection, sidebar, preface, acknowledgements, etc. It also provides a pattern and example for creating additional such specializations as needed to support the needs of new publications.</p>
+</li>
+
+      <li class="li">The metadata for publications is both sophisticated and varied.<p class="p">Unlike technical documentation, the metadata for publications is often quite extensive and variable from publication type to publication type and from title to title and from publisher to publisher.</p>
+<p class="p">The Publication Metadata (pubmeta) domain provides a rich set of metadata elements that reflect the specific needs of commercial publications. As a domain it can be replaced in map document types with other metadata models while still using the pubmap domain. It also provides a base for further extension and specialization. This maximizes the flexibility of the metadata model for publication maps.</p>
+</li>
+
+      <li class="li">Publications often have arbitrary and unpredictable content and formatting requirements.<p class="p">In technical documentation one goal is usually consistency of content and formatting across titles. In Publishing the exact opposite is usually the goal, or at least the reality, namely allow and encourage creative difference in order to distinguish publications from each other.</p>
+<p class="p">The formatting and enumeration domains provide markup for capturing arbitrary formatting and numbering. The base Publishing topic types are based directly on the base DITA <code>&lt;topic&gt;</code> topic type, which imposes few constraints on the body content of topics. These two features enable capturing and expressing essentially unbounded variation in content structure and formatting requirements, as appropriate.</p>
+<p class="p">On the other hand, where consistency is a goal, for example in series publications like travel guides or textbooks, you can use all the normal features of DITA to define map and topic models that impose the appropriate rules and help to ensure consistency of structure and content (keeping in mind that there is no substitute for editorial oversight and author training).</p>
+</li>
+
+      <li class="li">The content of publications is pretty simple, except when it isn't.<p class="p">The content of most books and periodical articles is very simple: paragraphs, lists, tables, and figures. For this content a generic DITA topic with no additional domain modules beyond the highlight domain is sufficient. But some publications have topics that are quite sophisticated in their content. For that content you may want more specialized markup.</p>
+<p class="p">DITA for Publishers provides out of the box a set of completely generic topic types that map to the basic components of most publications: part, chapter, article, subsection, and sidebar. These topic types are specialized directly from <code>&lt;topic&gt;</code>, differing from <code>&lt;topic&gt;</code> only in the root tagname. But because this DITA you can also use other topic types or define new topic types that provide more-precise markup as needed. Using normal DITA facilities you can integrate any needed DITA for Publishers domain modules into those topic types as needed. For example, if the normal DITA <code>&lt;task&gt;</code> topic type is appropriate for a how-to publication, you can integrate the D4P formatting domain with the base <code>&lt;task&gt;</code> topic type and hey-presto, a Publishing task.</p>
+</li>
+
+      </ul>
+</div>
+
+    <p class="p">In short, Publishing content participates in fundamentally different business processes and supports fundamentally different business requirements than technical documentation. These differences are reflected in different publication development business processes and workflows, different approaches to authoring and revision, and different requirements for content consistency. Most publishing content is not particularly modular, certainly not below the chapter or article level. But some is (travel and nature guides, for example). Reuse within a publishing context is usually at a much larger unit of granularity than in technical documentation. It would be rare, for example, to reuse below the topic level in a typical publication.</p>
+
+    <p class="p">For technical documentation the key requirements of consistency and modularity coupled with task-oriented writing practices lead to the markup designs reflected in the standard DITA task/concept/reference topic types and the bookmap map type.</p>
+
+    <p class="p">For publishing content, the key requirements of flexibility and adaptability and a non-requirement for consistency or modularity (in general) leads to the markup designs reflected in the DITA for Publishers part/chapter/article/section/sidebar topic types and the publication map and publication metadata domains.</p>
+
+    <p class="p">But part of the genius and magic of DITA is that these two sets of requirements and the resulting disparate markup designs are both supported equally well by the underlying DITA architecture and supporting infrastructure.</p>
+
+    <p class="p">In essence, DITA lets us eat our cake and have it. Publishers can have publication models and topic types that are adapted to their specific needs yet still take advantage of all the modularity and reuse features of DITA when they are needed. Publishers can mix and match the simple (chapter) with the sophisticated (task) and choose from a growing library of special-purpose vocabulary modules, such as the DITA Learning and Training modules for representing assessments (test questions) and formal learning objects.</p>
+
+    <p class="p">A key feature of the DITA architecture is separation of concerns between publication structure and organization (maps) and publication content (topics). This separation is required in order to enable easy reuse of publication components across publications without making copies of content. The DITA map mechanism is analogous to the "virtual document" features provided by many content management systems or to the InDesign "book" feature. Strictly speaking, the use of maps in DITA is not required—you could represent an entire publication as a single topic document—but normal DITA practice is to always have maps and that practice is assumed in the DITA for Publishers design and implementation.</p>
+
+  </div>
+
+<div class="related-links">
+<ol class="olchildlinks">
+<li class="link olchildlink"><a href="../../../website/topics/specialization-modules-overview.html">DITA for Publishers Vocabulary Modules Overview</a><br/>
+</li>
+</ol>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="vocabulary-part.html" title="The DITA for Publishers project provides a set of map and topic types along with a number of markup domains specifically designed to meet the needs of Publishers and publishing-type documents (books and magazines).">The DITA For Publishers Markup Vocabulary</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="integrating-modules.html" title="To use the vocabulary modules with your own map and topic types you must update your document type shells to include the DITA for Publishers vocabulary modules.">Integrating D4P Modules Into Document Type Shells</a></div>
+</div>
+</div>
+
+</body>
+</html>

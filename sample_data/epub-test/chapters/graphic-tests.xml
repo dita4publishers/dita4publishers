@@ -2,15 +2,42 @@
 <!DOCTYPE chapter PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
 <chapter
   id="chapter-id">
-  <title>Graphic Tests</title>
+  <title>Graphic and Media Tests</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>graphics<indexterm>tests for</indexterm><indexterm>.jpeg
+          extension</indexterm></indexterm>
+        <indexterm>tests<indexterm>of graphics</indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
   <body>
-    <p>This chapter tests graphics.</p>
+    <p>This chapter tests graphics and media objects (audio and video).</p>
     <fig>
       <title>Graphic that's in the common/ directory, outside the scope of the main map's directory.</title>
       <image
         href="../../common/graphics/1407-02.jpg"
         id="image_63494073-947f-492a-8d76-d4ca4dc198c5">
         <alt>Graphic from the common/graphics directory</alt>
+      </image>
+    </fig>
+    <fig>
+      <title>Graphic referenced by key</title>
+      <image
+        keyref="graphic-1407-04"
+        id="image_ccs_s4b_f2">
+        <alt>Graphic referenced by key. Dorothy admonishing the Cowardly
+          Lion.</alt>
+      </image>
+    </fig>
+    <fig>
+      <title>Graphic with .jpeg extension</title>
+      <image
+        href="images/IMG_0774.jpeg"
+        id="image_r5n_12s_w2">
+        <alt>Graphic of a ski. Graphic has extension ".jpeg" rather than
+          ".jpg"</alt>
       </image>
     </fig>
   </body>

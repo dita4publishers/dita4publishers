@@ -37,6 +37,9 @@
   name
     NMTOKEN
     'd4pEnumerator'
+  outputclass
+    CDATA
+    #IMPLIED
 ">
 <!ELEMENT d4pEnumerator %d4pEnumerator.content; >
 <!ATTLIST d4pEnumerator %d4pEnumerator.attributes; >

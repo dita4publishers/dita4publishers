@@ -4,9 +4,13 @@
   id="topic-id">
   <title>Colophon</title>
   <body>
-    <p>This DITA-based version of <cite>The Wonderful Wizard of OZ</cite> uses the map, topic, and domain specializations of the DITA For Publishers project, <xref
+    <p>This DITA-based version of <cite>The Wonderful Wizard of OZ</cite> uses
+      the map, topic, and domain specializations of the DITA For Publishers
+      project, <xref
       href="http://dita4publishers.sourceforge.net"
       scope="external"
-      format="html">dita4publishers.sourceforge.net</xref>. The various renderings are generated using the DITA Open Toolkit with extentions and customizations provided as part of the DITA For Publishers materials.</p>
+      format="html">dita4publishers.sourceforge.net</xref>. The various
+      renderings are generated using the DITA Open Toolkit with extentions and
+      customizations provided as part of the DITA For Publishers materials.</p>
   </body>
 </topic>

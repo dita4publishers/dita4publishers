@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e56"><title>1.2 Numbers</title><body><p>
+<b>We start with the basic concept of a number. The Natural Numbers, denoted as
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℕ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>, </b>
+are the numbers 1,2,3,... These are closed under Addition.
+</p><p>
+<b>A set that can be put in <ph outputclass="a">correspondence</ph> 
+  with
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℕ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> or a subset of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℕ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> is called countable.</b>
+</p><p>
+Introducing the notion of subtraction makes us enlarge 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℕ</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to get the
+<b>Integers, denoted as
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℤ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>, </b>
+positive or negative or 0, so that our numbers are closed under the operation of substraction.
+</p><p>
+<b>Exercise 1.1 Is
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℤ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> countable? <ph outputclass="a">Solution</ph>
+</b>
+</p><p>
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℤ</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is closed under multiplication; which is to say that the product of two integers is an integer.
+</p><p>
+To obtain a set of numbers closed under Division: we must enlarge 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℤ</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to get the
+<b>Rational Numbers
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℚ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>,</b>
+which are fractions of the form 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mfrac><m:mi>a</m:mi><m:mi>b</m:mi></m:mfrac></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ where 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>a</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is in 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℤ</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>b</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is in 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℕ</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+<b>Exercises:</b>
+</p><p>
+<b>1.2 Is
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℚ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> countable?</b>
+(See picture for hint.)
+<ph outputclass="a">
+  <b>Solution</b>
+</ph>
+</p><p>
+<image href="images/countable_q.gif" width="300" height="300"><alt>figure</alt></image>
+</p><p>
+<b>1.3 Prove or disprove: a countable set of countable sets is countable. <ph outputclass="a">Solution</ph>
+</b>
+</p><p>
+<b>Decimal form of numbers</b>
+</p><p>
+The numbers between 0 and 1 can each be represented as a decimal point followed by an infinite string of digits, each digit being one of 1, 2, 3, ..., 9, 0.
+</p><p>
+Rational numbers repeat themselves endlessly after some point: (for example 1 / 4 is .250* or also .249* where the star means that you repeat the starred digit endlessly) 1 / 3 is .3*, 1 / 7 = .(142857)*, 57 / 100 = .570*.
+</p><p>
+Irrational numbers do not do so.
+<br/>
+</p><p>
+<b>Exercises:</b>
+</p><p>
+<b>1.4 Prove that rational numbers repeat the same finite sequence of digits 
+  endlessly, and that irrational numbers do not. <ph outputclass="a">Solution</ph>
+</b>
+</p><p>
+<b>1.5 Are there non-rational decimal digit sequences? <ph outputclass="a">Solution</ph>
+</b>
+</p><p>
+<b>1.6 Are all such sequences countable? </b>
+(See picture for hint.)
+<b>
+  <ph outputclass="a">Solution</ph>
+</b>
+</p><p>
+<image href="images/countable_r.gif" width="300" height="300"><alt>figure</alt></image>
+</p><p>
+<b>A number which differs from the number in the k-th position 
+  on the list in its k-th decimal digit, cannot be in any position on the list 
+  of numbers!</b>
+</p><p>
+<b>Algebraic numbers</b>
+are solutions to polynomial equations, with integer coefficients.
+</p><p>
+<b>Exercise 1.7 Are algebraic numbers countable? <ph outputclass="a">Solution</ph>
+</b>
+</p><p>
+The
+<b>Real Numbers
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℝ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>
+</b>
+are
+<b>all distinct infinite sequences of digits, 
+  having a sign and a finite number of digits in front of the decimal point.</b>
+</p><p>
+You can add subtract multiply and divide them except dividing by 0 is not allowed.
+</p><p>
+<b>Are there other sets that we might dignify by calling numbers?</b>
+</p><p>
+<b>Yes! There are "Numbers mod
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> ". These are remainders of
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℤ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> or
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℚ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> or
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℝ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> obtained when you divide by
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>.</b>
+</p><p>
+<b>There are also complex numbers, which form the set
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℂ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>. These are expressions of the form
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>a</m:mi><m:mo>+</m:mo><m:mi>i</m:mi><m:mi>b</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> where
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mi>i</m:mi><m:mn>2</m:mn></m:msup><m:mo>=</m:mo><m:mo>−</m:mo><m:mn>1</m:mn></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>,
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>a</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>b</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> are in
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℝ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>, and multiplication and division are as in
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>ℝ</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> with the additional rule above.</b>
+</p><p>
+<ph outputclass="a">
+  <b>Comment - More on Complex Numbers</b>
+</ph>
+</p></body></topic>

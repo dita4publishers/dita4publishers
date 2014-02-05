@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference id="pubmapDomain">
+    <title>pubmapDomain</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>pubmapDomain</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+          <section id="summary">The pubmapDomain provides building blocks for maps that represent publications. These blocks are a rich set of topicref specializations that can be used to create DITA maps that represent almost any possible configuration of typical publication components. As a map domain, the publication map elements can be mixed with elements from other map domains, such as the Learning and Training map domain. The publication map domain has been designed to make it easy to organize publication components into submaps.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">FIXME: Add element files and explanations.</section>
+      </refbodydiv>    	   
+        <refbodydiv outputclass="shortname">
+          <section id="shortname">pubmap-d</section>
+        </refbodydiv> 
+      <refbodydiv outputclass="modulename">
+        <section id="modulename">pubmapDomain.ent and pubmapDomain.mod</section>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

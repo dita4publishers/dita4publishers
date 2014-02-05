@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+ <title>Version-Specific Publication Root Map (Keydefs point down)</title>
+  <mapref href="common/common-keydefs.ditamap"/>
+  <mapref href="project-01/doc-01/doc01-topics-keydefs.ditamap"/>
+  <topicref href="project-01/doc-01/doc-01-rev-01/topics/doc-01-rev-01-topic-01.dita"/>
+  <mapref href="project-01/doc-01/topics/doc-01-common-01.ditamap"/>
+  <mapref href="project-01/doc-01/doc-01-rev-01/doc-01-rev-01-submap-01.ditamap"/>
+</map>

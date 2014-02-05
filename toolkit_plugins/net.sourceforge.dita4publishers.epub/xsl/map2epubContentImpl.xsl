@@ -15,12 +15,13 @@
     
     DITA Map to ePub Transformation: Content Generation Module
     
-    Copyright (c) 2010, 2011 DITA For Publishers
+    Copyright (c) 2010, 2013 DITA For Publishers
     
     This module generates output HTML files for each topic referenced
     from the incoming map.
     
-    Because all the HTML files are output to a single directory, this
+    Because all the HTML files may be output to a structure
+    different from the source structure, this
     process generates unique (and opaque) filenames for the result
     HTML files. [It would be possible, given more effort, to generate
     distinct names that reflected the original filenames but it doesn't
@@ -45,31 +46,6 @@
     <xsl:message> + [INFO] Generating content...</xsl:message>
     <xsl:variable name="uniqueTopicRefs" as="element()*" select="df:getUniqueTopicrefs(.)"/>
     
-    <xsl:if test="$generateHtmlTocBoolean">
-      <xsl:variable name="tocTopicFilename" as="xs:string"
-        select="'_generated-toc'"
-      />
-      <xsl:variable name="tocTopicUri" 
-          select="relpath:newFile($topicsOutputPath, concat($tocTopicFilename, '.dita'))" 
-          as="xs:string" 
-      />
-
-      <xsl:message> + [INFO] Generating table of contents as file "<xsl:sequence select="$tocTopicUri"/>"...</xsl:message>
-
-      <xsl:variable name="tocTopic" as="document-node()">
-        <xsl:apply-templates select="." mode="generate-toc-topic">
-          <xsl:with-param name="tocTopicUri" select="$tocTopicUri" as="xs:string"/>
-        </xsl:apply-templates>
-      </xsl:variable>
-
-      <xsl:variable name="resultUri" as="xs:string"
-        select="relpath:newFile($topicsOutputPath, concat($tocTopicFilename, $outext))"
-      />
-
-      <xsl:apply-templates select="$tocTopic" mode="generate-content">
-        <xsl:with-param name="resultUri" as="xs:string" select="$resultUri" tunnel="yes"/>
-      </xsl:apply-templates>
-    </xsl:if>
     
 <xsl:if test="$debugBoolean">    
   <xsl:message> + [DEBUG] ------------------------------- 
@@ -124,21 +100,24 @@
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
     <xsl:choose>
       <xsl:when test="not($topic)">
-        <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
+        <xsl:message> + [WARNING] generate-content: Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="topicResultUri" 
           select="htmlutil:getTopicResultUrl($outdir, root($topic), $rootMapDocUrl)"
           as="xs:string"
         />
+        <!-- Do href fixup before doing full default-mode processing: -->
         <xsl:variable name="tempTopic" as="document-node()">
           <xsl:document>
             <xsl:apply-templates select="$topic" mode="href-fixup">
               <xsl:with-param name="topicResultUri" select="$topicResultUri"
                 tunnel="yes"/>                           
+              <xsl:with-param name="topicref" as="element()" select="." tunnel="yes"/>
             </xsl:apply-templates>
           </xsl:document>
         </xsl:variable>
+        <!-- Apply templates in default mode to the topic with fixed up hrefs: -->
         <xsl:apply-templates select="$tempTopic" mode="#current">
           <xsl:with-param name="topicref" as="element()" select="." tunnel="yes"/>
           <xsl:with-param name="resultUri" select="$topicResultUri"
@@ -162,6 +141,8 @@
     <xsl:param name="resultUri" as="xs:string" tunnel="yes"/>
     
     <xsl:message> + [INFO] Writing topic <xsl:sequence select="document-uri(root(.))"/> to HTML file "<xsl:sequence select="relpath:newFile($topicsOutputDir, relpath:getName($resultUri))"/>"...</xsl:message>
+    <xsl:if test="true() or $debugBoolean">
+    </xsl:if>
     <xsl:variable name="htmlNoNamespace" as="node()*">
       <xsl:apply-templates select="." mode="map-driven-content-processing">
         <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
@@ -180,13 +161,20 @@
       can do topic output processing based on the topicref context
       if the want. -->
     <xsl:param name="topicref" as="element()?" tunnel="yes"/>
+    
     <xsl:choose>
       <xsl:when test="$topicref">
+        <xsl:if test="$debugBoolean">
+          <xsl:message> + [DEBUG] topic/topic, map-driven-content-processing: applying templates to the topicref.</xsl:message>
+        </xsl:if>        
         <xsl:apply-templates select="$topicref" mode="topicref-driven-content">
           <xsl:with-param name="topic" select="." as="element()?"/>
         </xsl:apply-templates>
       </xsl:when>
       <xsl:otherwise>
+        <xsl:if test="true() or $debugBoolean">
+          <xsl:message> + [DEBUG] topic/topic, map-driven-content-processing: no topicref, doing default processing..</xsl:message>
+        </xsl:if>        
         <!-- Do default processing -->
         <xsl:apply-templates select="."/>
       </xsl:otherwise>
@@ -198,9 +186,10 @@
     in the default context to the topic parameter. -->
     <xsl:param name="topic" as="element()?"/>
     <xsl:if test="false()">
-      <xsl:message> + [DEBUG] topicref-driven-content: topicref="<xsl:sequence select="name(.)"/>, class="<xsl:sequence select="string(@class)"/>"</xsl:message>
+      <xsl:message> + [DEBUG] topicref-driven-content, map/topicref: topicref="<xsl:sequence select="name(.)"/>, class="<xsl:sequence select="string(@class)"/>"</xsl:message>
     </xsl:if>
     <xsl:variable name="topicref" select="." as="element()"/>
+    
     <xsl:for-each select="$topic">
       <!-- Process the topic in the default mode, meaning the base Toolkit-provided
         HTML output processing.
@@ -209,7 +198,7 @@
         to custom extensions to the base Toolkit processing.
       -->
       <xsl:apply-templates select=".">
-        <xsl:with-param name="topicref" select="$topicref" as="element()?" tunnel="yes"/>
+        <xsl:with-param name="topicref" select="$topicref" as="element()" tunnel="yes"/>
       </xsl:apply-templates>
     </xsl:for-each>
   </xsl:template>
@@ -245,25 +234,7 @@
       <xsl:apply-templates select="$topicref" mode="enumeration"/>
       <xsl:apply-templates/>
     </xsl:element>    
-  </xsl:template>
-  
-  <!-- Override of same template from base HTML so we can unset the 
-       topicref tunnelling parameter.
-  -->
-  <xsl:template match="/dita | *[contains(@class,' topic/topic ')]">
-    <xsl:choose>
-      <xsl:when test="not(parent::*)">
-        <xsl:apply-templates select="." mode="root_element"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="." mode="child.topic">
-          <xsl:with-param name="topicref" select="()" tunnel="yes" as="element()?"/>
-        </xsl:apply-templates>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-  
-  
+  </xsl:template>  
   
   <!-- Enumeration mode manages generating numbers from topicrefs -->
   <xsl:template match="* | text()" mode="enumeration">
@@ -275,5 +246,28 @@
   <xsl:template match="text()" mode="generate-content"/>
   
   <xsl:template match="*[df:class(., 'map/topicmeta')]" priority="10"/>
+  <!--
+    The following implements the d4pSidebarAnchor. With the use of keys, it suppresses the location of the anchoredObject (e.g., a sidebar) and instead copies it to the result tree in the location of the d4pSidebarAnchor. Currently commented out pending recommended changes to the d4pSidebarAnchor element. Code does work and is in use at Human Kinetics -->
+  <!--
+  <xsl:key name="kObjectAnchor" match="*[df:class(.,'topic/xref d4p-formatting-d/d4pSidebarAnchor')]" use="@otherprops"/>
   
+  <xsl:key name="kAnchoredObject" match="*" use="@id"/>
+  
+  <xsl:template match="*[df:class(.,'topic/xref d4p-formatting-d/d4pSidebarAnchor')]" priority="20">
+    <xsl:apply-templates select=
+      "key('kAnchoredObject', @otherprops)">
+      <xsl:with-param name="useNextMatch" select="'true'" as="xs:string" />
+    </xsl:apply-templates>
+    
+  </xsl:template>
+  
+  <xsl:template match="*[key('kObjectAnchor', @id)]" priority="20">
+    <xsl:param name="useNextMatch" select="'false'" as="xs:string" />
+    <xsl:choose>
+      <xsl:when test="$useNextMatch='true'">
+        <xsl:next-match/>
+      </xsl:when> 
+    </xsl:choose>
+  </xsl:template>
+  -->
 </xsl:stylesheet>

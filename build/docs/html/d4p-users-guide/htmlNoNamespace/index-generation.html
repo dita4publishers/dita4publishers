@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Index Generation"/>
+<meta name="abstract" content="Overview of using the grouped and sorted index entries in the collected data to do index generation."/>
+<meta name="description" content="Overview of using the grouped and sorted index entries in the collected data to do index generation."/>
+<meta name="DC.subject" content="index, generation of"/>
+<meta name="keywords" content="index, generation of"/>
+<meta name="DC.Relation" scheme="URI" content="map-driven-processing.html"/>
+<meta name="DC.Relation" scheme="URI" content="enumeration.html"/>
+<meta name="DC.Relation" scheme="URI" content="graphic-map-generation.html"/>
+<meta name="prodname" content="DITA For Publishers"/>
+<meta name="version" content="0.9.19RC10"/>
+<meta name="DC.Creator" content="W. Eliot Kimber"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="conceptId"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Index Generation</title>
+</head>
+<body id="conceptId">
+
+
+ <h1 class="title topictitle1">Index Generation</h1>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">Overview of using the grouped and sorted index entries in the
+    collected data to do index generation.</p>
+
+   <p class="p">The collected data includes grouped-and-sorted index entries. This data
+      can then be used to generate output-specific indexes, such as
+      back-of-the-book indexes for print, navigation trees in online outputs,
+      and so on.</p>
+
+    <p class="p">The DITA for Publishers HTML2 and EPUB/Kindle transformation types
+      provide examples of using the collected index entries to generate various
+      output forms of the index. The HTML2 transformation type can include the
+      index as part of the left-nav dynamic table of contents. The EPUB/Kindle
+      transformation type can include the index as a HTML file with links back
+      to the entries in content.</p>
+
+    <div class="p">The collected index data looks like
+      this:<pre class="pre codeblock">&lt;mapdriven:collected-data xmlns:mapdriven="http://dita4publishers.org/mapdriven"
+                          xmlns:index-terms="http://dita4publishers.org/index-terms"
+                          xmlns:enum="http://dita4publishers.org/enumerables"&gt;
+   &lt;index-terms:index-terms&gt;
+      &lt;index-terms:ungrouped&gt;
+        ...
+      &lt;/index-terms:ungrouped&gt;
+      &lt;index-terms:grouped-and-sorted&gt;
+          ...
+          &lt;index-terms:index-group grouping-key="g" sorting-key="g"&gt;
+            &lt;index-terms:label&gt;G&lt;/index-terms:label&gt;
+            &lt;index-terms:sub-terms&gt;
+               &lt;index-terms:index-term grouping-key="g" sorting-key="general task"&gt;
+                  &lt;index-terms:label&gt;general task&lt;/index-terms:label&gt;
+                  &lt;index-terms:original-markup&gt;
+                     &lt;indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                class="- topic/indexterm "
+                                xtrf="/Users/ekimber/workspace/dita-for-practitioners/doc_src/body/part-arch-overview/conref-facility.xml"
+                                xtrc="indexterm:69"&gt;general task&lt;/indexterm&gt;
+                  &lt;/index-terms:original-markup&gt;
+                  &lt;index-terms:targets&gt;
+                     &lt;index-terms:target source-uri="file:/Users/ekimber/workspace/dita-for-practitioners/doc_src/temp/epub/body/part-arch-overview/conref-facility.xml#subsection_gsu_mxu_hb"&gt;
+                        &lt;indexterm xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+                                   class="- topic/indexterm "
+                                   xtrf="/Users/ekimber/workspace/dita-for-practitioners/doc_src/body/part-arch-overview/conref-facility.xml"
+                                   xtrc="indexterm:69"&gt;general task&lt;/indexterm&gt;
+                     &lt;/index-terms:target&gt;
+                  &lt;/index-terms:targets&gt;
+                  &lt;index-terms:sub-terms/&gt;
+               &lt;/index-terms:index-term&gt;
+               ...
+            &lt;/index-terms:sub-terms&gt;
+            ...
+         &lt;/index-terms:index-group&gt;
+         ...
+      &lt;/index-terms:grouped-and-sorted&gt;
+    &lt;/index-terms:index-terms&gt;
+    ...
+&lt;/mapdriven:collected-data&gt;</pre>
+</div>
+
+    <p class="p">The <code>&lt;index-terms:ungrouped&gt;</code> element contains the raw
+      index entries in the order they occur in the source. You can normally
+      ignore it.</p>
+
+    <p class="p">The <code>&lt;index-terms:grouped-and-sorted&gt;</code> structure contains
+      the grouped-and-sorted index entries. The structure is pretty
+      self-explanatory. Each group and term has a grouping key and a sorting
+      key. For groups the two will usually be the same, but for entries, they
+      will usually be different. Each <code>&lt;index-terms:index-term&gt;</code>
+      element contains the term's label, the original DITA
+      <code>&lt;indexterm&gt;</code> markup, the targets to which the entry links
+      (meaning all the places the original term occurred in the source), and any
+      subordinate terms.</p>
+
+    <p class="p">The index grouping and sorting is implemented in the file
+      <span class="ph filepath">net.sourceforge.dita4publishers.common.mapdriven/xsl/indexProcessing.xsl</span>.
+      You can modify the default grouping and sorting behavior by overriding or
+      extending the mode <span class="keyword">group-and-sort-index</span>. You can modify
+      the default grouping and sorting key construction by overriding the
+      template for "topic/indexterm" in mode
+      <span class="keyword">gather-index-terms</span>. This template uses the functions
+      <span class="keyword">local:construct-index-group-key()</span> and
+      <span class="keyword">local:construct-index-term-grouping-key()</span> to construct
+      the grouping and sort keys. You can implement your own functions if you
+      need different grouping and sort keys, which is likely if you are working
+      with non-English documents.</p>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="map-driven-processing.html" title="Using and extending the DITA for Publishers map-driven processing framework">Map-Driven Processing</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="enumeration.html" title="How to use the collected enumeration data to number things in output.">Numbering Things: Collected Data and Enumeration</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="graphic-map-generation.html" title="The map-driven processing generates an Ant script that copies graphics from their source locations to the output location.">Graphic Map Generation</a></div>
+</div>
+</div>
+
+</body>
+</html>

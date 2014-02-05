@@ -525,6 +525,7 @@ public class InDesignDocument extends InDesignObject {
 		Spread newSpread = new Spread();
 		assignIdAndRegister(newSpread);
 		newSpread.setParent(this);
+		newSpread.setSpreadIndex(this.spreads.size());
 		this.spreads.add(newSpread);
 		MasterSpread masterSpread = this.getMasterSpread(masterSpreadName);
 		if (masterSpread == null) {
@@ -534,31 +535,29 @@ public class InDesignDocument extends InDesignObject {
 			}
 			throw new Exception("Failed to find master spread \"" + masterSpreadName + "\"");
 		}
-		newSpread.setMasterSpread(masterSpread);
 		newSpread.setTransformationMatrix(this.spreads.size());
+		// Note that masters apply to pages, not spreads.
+		for (Page page : newSpread.getPages()) {
+			page.setAppliedMaster(masterSpread);
+		}
+		
 		this.addChild(newSpread);
 		return newSpread;
 	}
 
 	/**
+	 * Create a new spread that reflects the 
      * @param masterSpreadName
      * @return
      * @throws Exception 
      */
     public Spread addSpread(String masterSpreadName) throws Exception {
-        Spread spread = new Spread();
-        assignIdAndRegister(spread);
-        spread.setParent(this);
+    	Spread spread = newSpread(masterSpreadName);
         
         // Get the corresponding master spread, clone its data source,
         // and use that to load the spread.
         
-        MasterSpread  masterSpread = this.getMasterSpread(masterSpreadName);
-        
         spread.setTransformationMatrix(this.spreads.size());
-        this.spreads.add(spread);
-        spread.setMasterSpread(masterSpread);
-        this.addChild(spread);
         
         return spread;
     }
@@ -577,7 +576,9 @@ public class InDesignDocument extends InDesignObject {
 	 * @throws Exception 
 	 */
 	public Page newPage(Element dataSource) throws Exception {
-		return (Page)newObject(Page.class, dataSource);
+		Page page = (Page)newObject(Page.class, dataSource);
+		page.postLoad();
+		return page;
 	}
 
 	/**
@@ -1036,6 +1037,30 @@ public class InDesignDocument extends InDesignObject {
 			style = this.cstylesByName.get(styleName);
 		}
 		return style;
+	}
+
+	public static void updateThreadsForOverriddenFrames(
+			Page masterPage,
+			Map<Rectangle, Rectangle> masterToOverride) 
+					throws Exception,
+			InDesignDocumentException {
+		
+		for (Rectangle rect : masterToOverride.keySet()) {
+			if (!(rect instanceof TextFrame)) continue;
+			TextFrame master = (TextFrame)rect;
+			TextFrame clone = (TextFrame)masterToOverride.get(master);
+			TextFrame prev = clone.getPreviousInThread();
+			if (prev != null) {
+				TextFrame prevClone = (TextFrame)masterToOverride.get(prev);
+				clone.setPreviousInThread(prevClone);
+			}
+			TextFrame next = clone.getNextInThread();
+			if (next != null) {
+				TextFrame nextClone = (TextFrame)masterToOverride.get(next);
+				clone.setNextInThread(nextClone);
+			}
+		}
+		
 	}
 
 

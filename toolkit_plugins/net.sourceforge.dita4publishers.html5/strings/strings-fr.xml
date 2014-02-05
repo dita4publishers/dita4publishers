@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This file is part of the DITA Open Toolkit project hosted on
+   Sourceforge.net. See the accompanying license.txt file for
+   applicable licenses.-->
+<!-- (c) Copyright IBM Corp. 2004, 2005 All Rights Reserved. -->
+
+<strings xml:lang="fr">        <!-- Canadian French -->
+
+   <!-- UO specific -->
+   <str name="SkipToContent">Aller au contenu</str>
+   <str name="SkipToLocalNav">Aller à la navigation</str>
+   <str name="SkipToFooter">Aller au bas de la page</str>
+   <str name="turnJavascriptOn">Pour consulter cette documentation, vous devez activer Javascript.</str>
+   <str name="BackToTop">Haut de la page</str>
+   
+</strings>

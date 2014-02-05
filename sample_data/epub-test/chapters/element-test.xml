@@ -129,11 +129,11 @@
     id="ss3">
     <title>Graphics and Media Objects</title>
     <body>
-      <p><art>
+      <p><art-ph>
         <art_title>ePub Test Cover</art_title>
         <image
           href="../covers/images/1407-02.jpg"/>
-        </art></p>
+        </art-ph></p>
     </body>
   </subsection>
   <subsection
@@ -178,6 +178,8 @@ In this case it is &lt;lines>.</lines>
       <p>This is a properly-tagged paragraph</p>
         More unwrapped text after the paragraph.
       </lq>
+      <p>A long quote with a single paragraph:</p>
+      <lq><p>Single paragraph in a long quote.</p></lq>
     </body>
   </subsection>
 

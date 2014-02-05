@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference id="linethrough">
+    <title>linethrough</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>linethrough</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">linethrough specifies text that should appear as if struck out. It is often used to show corrections in explanatory or learning material.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">linethrough is a specialization of ph.</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
+      </refbodydiv>    
+        <refbodydiv outputclass="inheritance">
+         <section id="inheritance">
+                <title>Inheritance</title>
+           <p>+ topic/ph    d4p-formatting-d/linethrough </p>
+            </section>
+      </refbodydiv>
+      <example id="example1">
+        <fig><title>Sample of an instance of the linethrough element</title>
+          <codeblock>&lt;p&gt;The Greek letter &lt;linethrough&gt;rho&lt;/linethrough&gt; pi represents the ratio of a circle's circumference to its diameter.&lt;/p&gt;</codeblock></fig>
+      </example>    	
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

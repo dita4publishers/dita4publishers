@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference id="dropcap">
+    <title>dropcap</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>dropcap</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">A dropcap is the first one to a few letters of the first word of a paragraph (often the first in a larger unit such as a chapter). It is presented within the normal margins of the paragraph, but it takes up more than one line. It is used to draw the reader's attention.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">dropcap is a specialization of ph.</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
+      </refbodydiv>    
+        <refbodydiv outputclass="inheritance">
+         <section id="inheritance">
+                <title>Inheritance</title>
+           <p>+ topic/ph    d4p-formatting-d/dropcap </p>
+            </section>
+      </refbodydiv>
+      <example id="example1">
+        <fig><title>Sample of an instance of the dropcap element</title>
+          <codeblock>&lt;p&gt;&lt;dropcap&gt;DITA&lt;/dropcap&gt;is an XML architecture that allows for new, arbitrary elements to be defined without breaking tooling.&lt;/p&gt;</codeblock></fig>
+      </example>    	
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="DC.Type" content="reference"/>
+<meta name="DC.Title" content="DitaDxpMapPackager"/>
+<meta name="abstract" content="Creates a DITA Interchange Package (DXP) Zip file from a DITA map containing all the local dependencies required by the map."/>
+<meta name="description" content="Creates a DITA Interchange Package (DXP) Zip file from a DITA map containing all the local dependencies required by the map."/>
+<meta name="DC.Relation" scheme="URI" content="../dita-api-and-tools/d4p-tools.html"/>
+<meta name="prodname" content="DOCX2DITA"/>
+<meta name="version" content="0"/>
+<meta name="release" content="8"/>
+<meta name="copyright" content="DITA For Publishers 2009" type="primary"/>
+<meta name="DC.Rights.Owner" content="DITA For Publishers 2009" type="primary"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="referenceId"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<title>DitaDxpMapPackager</title>
+</head>
+<body id="referenceId">
+
+
+  <h1 class="title topictitle1">DitaDxpMapPackager</h1>
+
+  
+  <div class="body refbody"><p class="shortdesc">Creates a DITA Interchange Package (DXP) Zip file from a DITA map containing all the
+    local dependencies required by the map.</p>
+
+    <div class="section refsyn">
+      <div style="display: block; border: 1 black solid; padding: 2pt; color: maroon; margin-bottom: 6pt;">
+         
+          <kbd><b>DitaDxpMapPackager</b></kbd>
+         
+          <kbd class="ph delim">-</kbd><kbd><b>i</b></kbd> 
+          <var>input map file</var> 
+         [  <kbd class="ph delim">-</kbd><kbd><b>o</b></kbd> 
+          <var>DXP zip file</var> ] 
+         [  <kbd class="ph delim">-</kbd><kbd><b>c</b></kbd> 
+          <var>XML catalog file</var> ] 
+         [  <kbd class="ph delim">-</kbd><kbd><b>d</b></kbd> 
+          <var>Ditaval file</var> ] 
+      </div>
+    </div>
+
+    <div style="margin-top: 1em;"><strong>Parameters</strong></div><table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable properties"><tr class="sthead prophead">
+<th valign="bottom" align="left" id="d40e88" class="stentry proptypehd">Option</th>
+<th valign="bottom" id="d40e84-value" align="left">Value</th>
+<th valign="bottom" align="left" id="d40e91" class="stentry propdeschd">Description</th>
+</tr><tr class="strow property">
+<td valign="top" headers="d40e88" class="stentry proptype">-i</td>
+<td valign="top" headers="d40e84-value" class="stentry propvalue">Path and filename of the root map to process</td>
+<td headers="d40e91"> </td>
+</tr>
+<tr class="strow property">
+<td valign="top" headers="d40e88" class="stentry proptype">-o</td>
+<td valign="top" headers="d40e84-value" class="stentry propvalue">(optional) Path and filename of the DXP package. If not specified, a package
+          named <span class="ph filepath"><var class="keyword varname">mapFilename</var>.dxp</span> in the same directory as the
+          input map will be created.</td>
+<td headers="d40e91"> </td>
+</tr>
+<tr class="strow property">
+<td valign="top" headers="d40e88" class="stentry proptype">-c</td>
+<td valign="top" headers="d40e84-value" class="stentry propvalue">(optional) Path and filename of the XML catalog to use for resolving DTD and
+          schema references. If not specified, and the DITA_HOME environment variable is set, the
+            <span class="ph filepath">catalog-dita.xml</span> file will be used, if found. If DITA_HOME is not
+          set, then no catalogs are used.</td>
+<td headers="d40e91"> </td>
+</tr>
+<tr class="strow property">
+<td valign="top" headers="d40e88" class="stentry proptype">-d</td>
+<td valign="top" headers="d40e84-value" class="stentry propvalue">(optional) Path and filename of the Ditaval file to use when determining the key
+          space and constructing the BOS. If not specified, all elements are applicable.</td>
+<td headers="d40e91"> </td>
+</tr>
+</table>
+
+    <div class="section"><h2 class="sectiontitle">Usage</h2>
+      <div class="p">To run from the command line, use a Java command like so (all on one
+        line):<pre class="pre codeblock">java -Xmx512M -jar dita4publishers-dxppackager.jar 
+  -i ~/workspace/dita_12_spec/dita1.2-complete.ditamap  
+  -o ditaspec-complete.dxp</pre>
+</div>
+
+      <p class="p">As the BOS construction process builds DOMs of each document in the BOS, larger maps will
+        require more Java memory, as specified by the <span class="keyword parmname">-Xmx</span> Java parameter. This
+        example processes the DITA 1.2 full specification (architectural spec and language
+        reference), consistent of 779 separate documents.</p>
+
+      <p class="p">The resulting Zip file contains all the local dependencies required by the root map as
+        determined by the BOS construction process.</p>
+
+      <p class="p">The DITA Interchange Package specification requires that the resulting package have either
+        exactly one root map in the top-level directory or have a DXP manifest map. By default the
+        DXP map packager reorganizes the BOS members so that the root map is by itself in the root
+        directory and all dependencies are in directories below it. If files have to be moved to
+        accomplish this all affected pointers will be rewritten to reflect the moves.</p>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../dita-api-and-tools/d4p-tools.html" title="The DITA for Publishers tools provide implementations of the DITA Link Management API as well as utilities for using the implementations and doing useful things, such as getting key space reports and packaging DITA bounded object sets as Zip files (DITA Interchange Packages (DXP) packages).">DITA For Publishers Tools</a></div>
+</div>
+</div>
+
+</body>
+</html>

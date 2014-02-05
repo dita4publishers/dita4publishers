@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catalog PUBLIC "-//OASIS//DTD XML Catalogs V1.1//EN" "http://www.oasis-open.org/committees/entity/release/1.1/catalog.dtd">
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <!-- This is a sample -->
+  <uri name="rsuite:/res/plugin/dita4publishers/xslt/word2dita/docx2dita.xsl" 
+    uri="docx2dita.xsl"/>
+</catalog>

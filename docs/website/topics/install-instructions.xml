@@ -5,7 +5,19 @@
   <title>Installing the DITA For Publishers Package</title>
   <taskbody>
     <context>
-      <p>The DITA For Publishers materials are provided as a single Zip package from the project's download page: <xref/>. The Toolkit plugins are intended for use with the 1.5 version of the Open Toolkit but may work with the 1.4.3 version.</p>
+      <p>The DITA For Publishers materials are provided as a single Zip package
+        from the project's download page: <xref
+        href="https://sourceforge.net/projects/dita4publishers/files/"
+        scope="external"
+        format="html">https://sourceforge.net/projects/dita4publishers/files/</xref>.
+        The Toolkit plugins are intended for use with the 1.5, 1.6, and 1.7
+        versions of the Open Toolkit but may work with the 1.4.3 version. The
+        DITA for Publishers plugins are tested against the latest stable and
+        milestone releases. Note that release 1.5.4 fixes a number of bugs from
+        1.5.3. The 1.5.4 release has proven stable for me and I recommend moving
+        to that release if at all possible. Note that for 1.7 there are a few
+        minor code differences from 1.6 that require a separate build of the D4P
+        plugins, identified by "OT17" in the materials package filename.</p>
     </context>
     <steps>
       <step>
@@ -63,17 +75,32 @@
             your Open Toolkit's directory and then issue this command:</p>
           <codeblock>tools/ant/bin/ant -f integrator.xml</codeblock>
           <p>That should run and you should see some sort of happy message.</p>
-          <p>If you are using a Toolkit installed with an XML editor, running any Toolkit process
-            from the editor should automatically do the integration step.</p>
+          <note>The Open Toolkit that comes installed with OxygenXML does not
+            include Ant in the <filepath>tools/ant</filepath> location within
+            the Toolkit because OxygenXML already provides Ant in a different
+            location. As of Oxygen 13.1, Ant is in
+            <filepath>tools/ant</filepath> below the main Oxygen installation
+            directory. If you are in a command window with Oxygen's Toolkit as
+            your current directory, you would do
+            this:<codeblock>c:\Program Files\oxygen\frameworks\dita\DITA-OT > ..\..\..\tools\ant\bin\ant -f integrator.xml</codeblock></note>
         </info>
       </step>
       <step>
         <cmd>Test the toolkit by running the epub generation on one of the sample
           publications.</cmd>
         <info>
-          <p>Using a command line from the DITA OT directory, this command should work:</p>
+          <p>You first need to start a Toolkit-specific command window, which
+            you do by running the command startCmd.bat (Windows) or startCmd.sh
+            (OSX, Linux). This sets up the Java class path so the Toolkit
+            processes will work
+            correctly:<codeblock>c:\DITA-OT > startCmd.bat</codeblock></p>
+          <p>The, using the command window you just created, this command should
+            work:</p>
           <codeblock>java -jar lib/dost.jar /i:/Users/myname/dita4publishers/sample_data/wizard-of-oz/wizard-of-oz.ditamap /transtype:epub</codeblock>
           <p>Specifying the actual path to where you put the sample data.</p>
+          <p>For Windows, use backslashes in the filename in the
+            <parmname>/i</parmname>
+            parameter:<codeblock>java -jar lib/dost.jar /i:\Users\myname\dita4publishers\sample_data\wizard-of-oz\wizard-of-oz.ditamap /transtype:epub</codeblock></p>
         </info>
       </step>
     </steps>

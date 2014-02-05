@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="reference"></meta>
+<meta name="DC.Title" content="Canon USB APIs"></meta>
+<meta name="abstract" content="Canon provides an application programming interface (API) to enable software developers to access images stored on the SD card to and to control camera functions."></meta>
+<meta name="description" content="Canon provides an application programming interface (API) to enable software developers to access images stored on the SD card to and to control camera functions."></meta>
+<meta name="DC.subject" content="APIs"></meta>
+<meta name="keywords" content="APIs"></meta>
+<meta name="DC.Relation" scheme="URI" content="Appendixes.html"></meta>
+<meta name="prodname" content="Canon 5D Mark IV"></meta>
+<meta name="version" content="1.0"></meta>
+<meta name="DC.Contributor" content="Scott Kelby"></meta>
+<meta name="DC.Creator" content="Joe McNally"></meta>
+<meta name="DC.Creator" content="Lindsay Adler"></meta>
+<meta name="DC.Creator" content="Steve Fogel"></meta>
+<meta name="DC.Publisher" content="2013 January"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="CanonUSBAPIs-B18666F2"></meta>
+<meta name="DC.Language" content="en"></meta>
+<link rel="stylesheet" type="text/css" href="commonltr.css"></link>
+<title>Canon USB APIs</title>
+</head>
+<body id="CanonUSBAPIs-B18666F2">
+
+
+<h1 class="title topictitle1">Canon USB APIs</h1>
+
+
+<div class="body refbody"><p class="shortdesc">Canon provides an application programming interface (API)
+to enable software developers to access images stored on the SD card
+to and to control camera functions.</p>
+
+<div class="section"><h2 class="title sectiontitle">Introduction</h2><p class="p">The Canon USB APIs enable you
+to perform the following functions with 3rd party software when the
+camera is attached to a computer with a USB inteface.</p>
+<ul class="ul">
+<li class="li"><p class="p">Fetch a range of thumbnail images</p>
+</li>
+
+<li class="li"><p class="p">Fetch an individual image</p>
+</li>
+
+<li class="li"><p class="p">Control camera functions for remote shooting</p>
+</li>
+
+</ul>
+<p class="p">The APIs are especially useful for enabling tethered shooting.
+The following sections document the various APIs.</p>
+</div>
+
+<div class="section"><h2 class="title sectiontitle">USBFetchImage</h2><p class="p">Fetch an image by name or
+by sequence number on the SD card.</p>
+<pre class="pre codeblock">JPEGImage USBFetchImage (
+	string imagename;
+	integer imagesequence;
+);
+</pre>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" frame="border" border="1" rules="all">
+
+
+<thead class="thead" align="left">
+<tr class="row">
+<th class="entry" valign="top" width="28.499999999999996%" id="d4186e100">Argument</th>
+
+<th class="entry" valign="top" width="71.5%" id="d4186e103">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry" valign="top" width="28.499999999999996%" headers="d4186e100 ">imagename</td>
+
+<td class="entry" valign="top" width="71.5%" headers="d4186e103 ">A string giving the full image name. If not null, indicates
+that you are requesting a named image. If null, indicates you are
+requesting an image by sequence.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry" valign="top" width="28.499999999999996%" headers="d4186e100 ">imagesequence</td>
+
+<td class="entry" valign="top" width="71.5%" headers="d4186e103 ">An integer indicating the position on the SD card of the image
+to retrieve. If zero, retrieves the next image on the card. </td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+</div>
+
+<div class="example" id="CanonUSBAPIs-B18666F2__RetrievingImagesInSequence-B1B0C7FD"><h2 class="title sectiontitle">Retrieving
+Images in Sequence</h2><p class="p">The example demonstrates how to retrieve
+images in sequence starting from the first image on the card.</p>
+<pre class="pre codeblock">JPEGImage myJPEGImage; 
+String noname = "";    // Must pass in a null image name if requesting next image in sequence
+myJPEGImage = USBFetchImage(noname, 0);
+// do something with the image</pre>
+</div>
+
+<div class="example" id="CanonUSBAPIs-B18666F2__RetrievingANamedImage-B1B0CAC5"><h2 class="title sectiontitle">Retrieving a Named
+Image</h2><p class="p">This example demonstrates how to retrieve
+an image by name.</p>
+<pre class="pre codeblock">JPEGImage myJPEGImage; 
+String imgName = "img_2003.jpg";    // imagesequence argument is ignored if this is not null.
+myJPEGImage = USBFetchImage(imgName, 0);
+// do something with the image</pre>
+</div>
+
+</div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="Appendixes.html">Appendixes</a></div>
+</div>
+</div>
+
+</body>
+</html>

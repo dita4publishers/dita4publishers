@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN"
+ "topic.dtd">
+<?Pub Inc?>
+<topic id="CustomFunctions-8EAE27FA" xml:lang="en">
+<title>Custom Functions</title>
+<shortdesc>Custom functions give you finer control over the operation
+of your camera.</shortdesc>
+<prolog>
+<metadata><keywords><indexterm>custom functions.</indexterm></keywords>
+</metadata>
+</prolog>
+<body>
+<p>The following table lists custom functions and their default settings.</p>
+<table id="CustomFunctions-A9FD7CB8">
+<title>Custom Functions</title><?Pub Caret -2?>
+<tgroup cols="3"><colspec colname="col1"/><colspec colname="col2"/>
+<colspec colname="col3"/>
+<thead>
+<row>
+<entry valign="top">Function Name</entry>
+<entry valign="top">Description</entry>
+<entry valign="top">Default</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>Exposure level increments</entry>
+<entry>Exposure level increments available when setting exposure compensation</entry>
+<entry>1/3/ stop</entry>
+</row>
+<row>
+<entry>ISO Expansion</entry>
+<entry>Enables expansion of ISO to 6400</entry>
+<entry>Off</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+</body>
+</topic>

@@ -4,20 +4,8 @@
   <!-- test to see where the plugin is located, plugins or demo -->
   <dirname property="html2.dir" file="${ant.file.dita2html2}"/>
 	
-	<!-- The name of the directory, within the ePub package, to contain all images: -->
-	<property name="images.output.dir" value="images"/>
-	<!-- The name of the directory, within the ePub package, to contain all topics: -->
-	<property name="topics.output.dir" value=""/>
 	<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
 	<property name="debug" value="false"/>
-	
-	<property name="html2.temp.dir" value="${dita.temp.dir}${file.separator}html2_temp"/>
-	
-	<!-- Defines the @class value to use for topic elements generated for topicheads. -->
-	<property name="title.only.topic.class.spec" value="- topic/topic "/>
-	
-	<!-- Defines the @class value to use for topic title elements generated for topicheads. -->
-	<property name="title.only.topic.title.class.spec" value="- topic/title "/>
 	
 	<target name="dita2html2"
     unless="noMap"
@@ -32,7 +20,38 @@
 	  
     
   <target name="dita.map.html2.init"
-    description="Init properties for Epub">
+    description="Init properties for HTML2">
+
+    <property name="d4p.is.map.driven" value="true"/>
+
+    <condition property="topics.output.dir" value="topics">
+  		<not>
+  			<isset property="topics.output.dir"/>
+  	  </not>
+  	</condition>
+
+  	<!-- The name of the directory, within the output package, to contain all images: -->
+  		
+    <condition property="images.output.dir" value="images">
+  		<not>
+    	  <isset property="images.output.dir" />
+  		</not>
+    </condition>
+  	  	
+  	<!-- Defines the @class value to use for topic elements generated for topicheads. -->
+  	<condition property="title.only.topic.class.spec" value="- topic/topic ">
+  		<not>
+    	  <isset property="title.only.topic.class.spec" />
+  		</not>
+  	</condition>
+  	
+  	<!-- Defines the @class value to use for topic title elements generated for topicheads. -->
+  	<condition property="title.only.topic.title.class.spec" value="- topic/title ">
+  		<not>
+    	  <isset property="title.only.topic.title.class.spec" />
+  		</not>
+  	</condition>
+    	  	
     <basename property="dita.map.toc.root"
       file="${dita.input.filename}"
       suffix=".ditamap" />
@@ -57,23 +76,43 @@
     <condition property="css.output.dir" value="${args.css.output.dir}">
       <isset property="args.css.output.dir" />
     </condition>
-  	<echo message="css.output.dir='${css.output.dir}'"/>
+  	
+    <condition property="html2.doDynTocFileCopy">
+    	<or>
+    		<not>
+    		  <isset property="html2.generate.dynamic.toc"/><!-- Default is true for dyntoc. -->
+    		</not>
+  	  	<equals arg1="${html2.generate.dynamic.toc}" arg2="true"/>
+  	  	<equals arg1="${html2.generate.dynamic.toc}" arg2="yes"/>
+  	  	<equals arg1="${html2.generate.dynamic.toc}" arg2="1"/>
+    	</or>
+   </condition>
+
+    <condition property="html2.do.copy.graphics" value="true">
+  		<not>
+  			<isset property="html2.do.copy.graphics"/>
+  	  </not>
+  	</condition>
+
+
+  	<echo message="+++ html2-specific properties:"/>
+  	<echoproperties format="text" regex="^(html2|css|out\.|d4p|args\.html2)" taskname="echo"/>
   </target>
   
   <target name="dita.map.html2" depends="dita.map.html2.init, html2-copy-css, html2-copy-dyntoc-javascript" 
   	description="Generate all ePub components from input map and topics">
   	
-  	<mkdir dir="${html2.temp.dir}"/>
   	<makeurl file="${output.dir}" property="html2.xslt.outdir"/>
   	<makeurl file="${dita.temp.dir}" property="html2.xslt.tempdir"/>
   	
   	<property name="map2html2.style" location="${html2.dir}/xsl/map2html2.xsl"/>
   	<property name="args.xhtml.toc" value="index"/>
+    <makeurl file="${dita.input.valfile}" property="dita.input.valfile.url" validate="no"></makeurl>    
   	
     <xslt processor="trax"
       basedir="${dita.temp.dir}"
       destdir="${output.dir}"
-      includesfile="${dita.temp.dir}${file.separator}user.input.file.list"
+      includesfile="${dita.temp.dir}${file.separator}${user.input.file.listfile}"
       classpathref="dost.class.path"
       style="${map2html2.style}"
       filenameparameter="inputFileNameParam"
@@ -85,8 +124,12 @@
       <param name="generateDynamicToc" expression="${html2.generate.dynamic.toc}" if="html2.generate.dynamic.toc"/>
       <param name="generateFrameset" expression="${html2.generate.frameset}" if="html2.generate.frameset"/>
       <param name="generateStaticToc" expression="${html2.generate.static.toc}" if="html2.generate.static.toc"/>
+    	<param name="generateGlossary" expression="${html2.generate.glossary}" if="html2.generate.glossary"/>
     	<param name="generateIndex" expression="${html2.generate.index}" if="html2.generate.index"/>
-     	<param name="imagesOutputDir" expression="${images.output.dir}"/>    	
+      <param name="mathJaxUseCDNLink" expression="${html2.mathjax.use.cdn.link}" if="html2.mathjax.use.cdn.link"/>
+      <param name="mathJaxUseLocalLink" expression="${html2.mathjax.use.local.link}" if="html2.mathjax.use.local.link"/>
+      <param name="mathJaxLocalJavascriptUri" expression="${html2.mathjax.local.javascript.uri}" if="html2.mathjax.local.javascript.uri"/>
+      <param name="imagesOutputDir" expression="${images.output.dir}"/>    	
      	<param name="outdir" expression="${html2.xslt.outdir}"/>
     	<!-- NOTE: Case of OUTEXT matches parameter used in base HTML transform type -->
     	<param name="OUTEXT" expression="${out.ext}"/><!-- Extension to use for result files, e.g., ".html" -->
@@ -95,9 +138,10 @@
     	<param name="titleOnlyTopicClassSpec" expression="${title.only.topic.class.spec}"/>
     	<param name="titleOnlyTopicTitleClassSpec" expression="${title.only.topic.title.class.spec}"/>
      	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
-
+		<param name="TRANSTYPE" expression="${transtype}"/>
     	<!-- Parameters from dita2xhtml and similar transtypes: -->   
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
+      <param name="BASEDIR" expression="${basedir}"></param>
       <param name="CSS" expression="${args.css.file}" if="args.css.file" />
       <param name="CSSPATH" expression="${user.csspath}" if="user.csspath" />
       <param name="DRAFT" expression="${args.draft}" if="args.draft"></param>
@@ -107,16 +151,27 @@
       <param name="NOPARENTLINK" expression="${args.hide.parent.link}" if="args.hide.parent.link"></param>
       <param name="BREADCRUMBS" expression="${args.breadcrumbs}" if="args.breadcrumbs"></param>
       <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
+    	<param name="OUTPUTDIR" expression="${output.dir}"/>
+    	<param name="FILEDIR" expression="."/>
+      <param name="FILTERFILE" expression="${dita.input.valfile.url}" if="dita.input.valfile"></param>
+      <param name="DBG" expression="${args.debug}" if="args.debug"></param>
+      <xmlcatalog refid="dita.catalog"></xmlcatalog>
+      
       <mapper type="glob"
               from="${user.input.file}"
               to="${args.xhtml.toc}${out.ext}" />
     </xslt>
   	
-  	<antcall target="html2.copy.graphics"/>
-  	
+  	<condition property="skip.copy.graphics" value="${local.skip.copy.graphics}">
+  		<isset property="local.skip.copy.graphics"/>
+  	</condition>
+  			
+  	<antcall target="html2.copy.graphics">
+  		<param name="do.copy.graphics"  value="${local.skip.copy.graphics}"/>
+  	</antcall>
   </target>
   
-  <target name="html2.copy.graphics" 
+  <target name="html2.copy.graphics" unless="skip.copy.graphics" 
 	  description="Copies graphics from input to the output directory based on the graphic map generated during html2 generation">
   	<ant antfile="${output.dir}/copy-graphics.xml"  		
   		>
@@ -125,7 +180,7 @@
     
   <target name="html2-copy-dyntoc-javascript"  description="Copy JavaScript files" 
   	depends="dita.map.html2.init" 
-  	if="html2.generate.dynamic.toc">
+  	if="html2.doDynTocFileCopy">
   	<copy todir="${output.dir}">
   		<fileset dir="${html2.dir}/dynamic-toc-support">
   			<include name="**/*"/>
@@ -142,7 +197,7 @@
     <mkdir dir="${user.csspath.real}"/>    
     <!-- Always copy system default css files -->
     <copy todir="${user.csspath.real}">
-      <fileset dir="${dita.resource.dir}" includes="*.css"/>
+      <fileset dir="${dita.plugin.org.dita.xhtml.dir}/resource" includes="*.css"/>
     </copy>    
   	<copy todir="${user.csspath.real}">
   		<fileset dir="${html2.dir}/css">

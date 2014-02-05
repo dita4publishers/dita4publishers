@@ -9,14 +9,14 @@
   xmlns:glossdata="http://dita4publishers.org/glossdata"
   xmlns:relpath="http://dita2indesign/functions/relpath"
   xmlns:mapdriven="http://dita4publishers.org/mapdriven"
-  exclude-result-prefixes="xs xd df relpath"
+  exclude-result-prefixes="xs xd df relpath mapdriven"
   version="2.0">
   
   <!-- =============================================================
     
        DITA Map to HTML Transformation
        
-       Copyright (c) 2010, 2011 DITA For Publishers
+       Copyright (c) 2010, 2012 DITA For Publishers
        
        Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
        The intent of this license is for this material to be licensed in a way that is
@@ -45,17 +45,36 @@
        
        ============================================================== -->
 
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.mapdriven/xsl/dataCollection.xsl"/>
-  
+<!--  These two imports are provided by the commonHtmlExtensionSupport.xsl module from the common.html
+       plugin. These imports are integrated into the dita2html-base.xsl in the base Toolkit transform:
+       
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+-->  
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/reportParametersBase.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/dataCollection.xsl"/>
   <!-- Import the base HTML output generation transform. -->
-  <xsl:import href="../../../xsl/dita2xhtml.xsl"/>
+  <xsl:import href="plugin:org.dita.xhtml:xsl/dita2xhtml.xsl"/>
   
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/map2graphicMap.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
+  
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMap.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
+  
+  <!-- FIXME: This URL syntax is local to me: I hacked catalog-dita_template.xml
+              to add this entry:
+              
+              <rewriteURI uriStartString="plugin:base-xsl:" rewritePrefix="xsl/"></rewriteURI>
+       
+        see https://github.com/dita-ot/dita-ot/issues/1405       
+    -->
+  <xsl:import href="plugin:org.dita.base:xsl/common/dita-utilities.xsl"/>
+  
+  <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlOverrides.xsl"/>
+  <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlEnumeration.xsl"/>
+  <xsl:include href="../../net.sourceforge.dita4publishers.common.html/xsl/commonHtmlBookmapEnumeration.xsl"/>
+
   
   <xsl:include href="map2html2Content.xsl"/>
   <xsl:include href="map2html2RootPages.xsl"/>
@@ -63,7 +82,7 @@
   <xsl:include href="map2html2StaticToc.xsl"/>
   <xsl:include href="map2html2Frameset.xsl"/>
   <xsl:include href="map2html2Index.xsl"/>
-  
+
   <xsl:include href="map2html2D4P.xsl"/>
   <xsl:include href="map2html2Bookmap.xsl"/>
   
@@ -120,22 +139,16 @@
   -->  
   <xsl:param name="generateIndex" as="xs:string" select="'no'"/>
   <xsl:variable name="generateIndexBoolean" 
-    select="
-    lower-case($generateIndex) = 'yes' or 
-    lower-case($generateIndex) = 'true' or
-    lower-case($generateIndex) = 'on'
-    "/>
+    select="matches($generateIndex, 'yes|true|on|1', 'i')"
+  />
   
   <!-- Generate the glossary dynamically using all glossary entry
        topics included in the map.
     -->
   <xsl:param name="generateGlossary" as="xs:string" select="'no'"/>
   <xsl:variable name="generateGlossaryBoolean" 
-    select="
-    lower-case($generateGlossary) = 'yes' or 
-    lower-case($generateGlossary) = 'true' or
-    lower-case($generateGlossary) = 'on'
-    "/>
+    select="matches($generateGlossary, 'yes|true|on|1', 'i')"
+  />
   
   
   <!-- value for @class on <body> of the generated static TOC HTML document -->
@@ -144,25 +157,28 @@
   <xsl:param name="contenttarget" select="'contentwin'"/>
   
   <xsl:param name="generateDynamicToc" select="'true'"/>
-  <xsl:param name="generateDynamicTocBoolean" select="matches($generateDynamicToc, 'yes|true|or', 'i')"/>
+  <xsl:param name="generateDynamicTocBoolean" select="matches($generateDynamicToc, 'yes|true|on|1', 'i')"/>
   
   <xsl:param name="generateFrameset" select="'true'"/>
-  <xsl:param name="generateFramesetBoolean" select="matches($generateFrameset, 'yes|true|or', 'i')"/>
+  <xsl:param name="generateFramesetBoolean" select="matches($generateFrameset, 'yes|true|on|1', 'i')"/>
   
   <xsl:param name="generateStaticToc" select="'false'"/>
-  <xsl:param name="generateStaticTocBoolean" select="matches($generateDynamicToc, 'yes|true|or', 'i')"/>
+  <xsl:param name="generateStaticTocBoolean" select="matches($generateStaticToc, 'yes|true|on|1', 'i')"/>
+
+  <!-- NOTE: MathJax parameters are defined in the math-d2html.xsl module. -->
   
-  <xsl:template name="report-parameters">
+  <xsl:template name="report-parameters" match="*" mode="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
     <xsl:message> 
       ==========================================
       Plugin version: ^version^ - build ^buildnumber^ at ^timestamp^
       
-      Parameters:
+      HTML2 Parameters:
       
       + cssOutputDir       = "<xsl:sequence select="$cssOutputDir"/>"
       + fileOrganizationStrategy = "<xsl:sequence select="$fileOrganizationStrategy"/>"  
       + generateDynamicToc = "<xsl:sequence select="$generateDynamicToc"/>"
+      + generateGlossary   = "<xsl:sequence select="$generateGlossary"/>"
       + generateFrameset   = "<xsl:sequence select="$generateFrameset"/>"
       + generateIndex      = "<xsl:sequence select="$generateIndex"/>
       + generateStaticToc  = "<xsl:sequence select="$generateStaticToc"/>"
@@ -175,14 +191,19 @@
       + titleOnlyTopicTitleClassSpec = "<xsl:sequence select="$titleOnlyTopicTitleClassSpec"/>"
       + topicsOutputDir    = "<xsl:sequence select="$topicsOutputDir"/>"
 
-      + DITAEXT         = "<xsl:sequence select="$DITAEXT"/>"
-      + WORKDIR         = "<xsl:sequence select="$WORKDIR"/>"
-      + PATH2PROJ       = "<xsl:sequence select="$PATH2PROJ"/>"
-      + KEYREF-FILE     = "<xsl:sequence select="$KEYREF-FILE"/>"
+      DITA2HTML parameters:
+      
       + CSS             = "<xsl:sequence select="$CSS"/>"
       + CSSPATH         = "<xsl:sequence select="$CSSPATH"/>"
-      + debug           = "<xsl:sequence select="$debug"/>"
+      + DITAEXT         = "<xsl:sequence select="$DITAEXT"/>"
+      + FILEDIR         = "<xsl:sequence select="$FILEDIR"/>"
+      + KEYREF-FILE     = "<xsl:sequence select="$KEYREF-FILE"/>"
+      + OUTPUTDIR       = "<xsl:sequence select="$OUTPUTDIR"/>"
+      + PATH2PROJ       = "<xsl:sequence select="$PATH2PROJ"/>"
+      + WORKDIR         = "<xsl:sequence select="$WORKDIR"/>"
       
+      + debug           = "<xsl:sequence select="$debug"/>"
+
       Global Variables:
       
       + cssOutputPath    = "<xsl:sequence select="$cssOutputPath"/>"
@@ -190,10 +211,14 @@
       + imagesOutputPath = "<xsl:sequence select="$imagesOutputPath"/>"
       + platform         = "<xsl:sequence select="$platform"/>"
       + debugBoolean     = "<xsl:sequence select="$debugBoolean"/>"
-      
+    </xsl:message>      
+    <xsl:next-match />  
+    <xsl:message>  
       ==========================================
     </xsl:message>
   </xsl:template>
+  
+  <xsl:template mode="report-parameters" match="text()"/><!-- Suppress text in this mode -->
   
   
   <xsl:output method="xml" name="indented-xml"
@@ -257,7 +282,7 @@
   
   <xsl:template match="/*[df:class(., 'map/map')]">
     
-    <xsl:call-template name="report-parameters"/>
+    <xsl:apply-templates select="." mode="report-parameters"/>
 
     <xsl:variable name="uniqueTopicRefs" as="element()*" select="df:getUniqueTopicrefs(.)"/>
     
@@ -265,10 +290,17 @@
       select="//*[df:class(.,'map/topicref')][@processing-role = 'normal']"
     />
     
-    <xsl:message> + [DEBUG] chunkRootTopicrefs=
+    <xsl:message> + [INFO] Collecting data for index generation, enumeration, etc....</xsl:message>
+    
+    <xsl:variable name="collected-data" as="element()">
+      <xsl:call-template name="mapdriven:collect-data"/>      
+    </xsl:variable>
+    
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] chunkRootTopicrefs=
 <xsl:sequence select="$chunkRootTopicrefs"/>      
-    </xsl:message>
-
+       </xsl:message>
+    </xsl:if>
     <xsl:variable name="graphicMap" as="element()">
       <xsl:apply-templates select="." mode="generate-graphic-map">
       </xsl:apply-templates>
@@ -276,12 +308,6 @@
     <xsl:result-document href="{relpath:newFile($outdir, 'graphicMap.xml')}" format="graphic-map">
       <xsl:sequence select="$graphicMap"/>
     </xsl:result-document>    
-    
-    <xsl:message> + [INFO] Gathering index terms...</xsl:message>
-    
-    <xsl:variable name="collected-data" as="element()">
-      <xsl:call-template name="mapdriven:collect-data"/>      
-    </xsl:variable>
     
     <xsl:if test="true() or $debugBoolean">
       <xsl:message> + [DEBUG] Writing file <xsl:sequence select="relpath:newFile($outdir, 'collected-data.xml')"/>...</xsl:message>
@@ -313,5 +339,5 @@
       <xsl:with-param name="graphicMap" as="element()" tunnel="yes" select="$graphicMap"/>
     </xsl:apply-templates>
   </xsl:template>
-  
+   
 </xsl:stylesheet>

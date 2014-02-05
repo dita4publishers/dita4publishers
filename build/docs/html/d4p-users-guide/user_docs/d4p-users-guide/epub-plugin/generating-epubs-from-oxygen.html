@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="task"></meta>
+<meta name="DC.Title" content="Generating EPUBs From OxygenXML"></meta>
+<meta name="abstract" content="You can configure a DITA transformation scenario in OxygenXML to generate EPUBs."></meta>
+<meta name="description" content="You can configure a DITA transformation scenario in OxygenXML to generate EPUBs."></meta>
+<meta name="DC.subject" content="OxygenXML, generating EPUBs with, EPUB, generating, with OxygenXML, transformation scenario"></meta>
+<meta name="keywords" content="OxygenXML, generating EPUBs with, EPUB, generating, with OxygenXML, transformation scenario"></meta>
+<meta name="DC.Relation" scheme="URI" content="generating-epubs.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="generating-kindle-books-from-oxygen.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC10"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="taskId"></meta>
+<link rel="stylesheet" type="text/css" href="../../../commonltr.css"></link>
+<title>Generating EPUBs From OxygenXML</title>
+</head>
+<body id="taskId">
+
+
+ <h1 class="title topictitle1">Generating EPUBs From OxygenXML</h1>
+ 
+  
+ <div class="body taskbody"><p class="shortdesc">You can configure a DITA transformation scenario in OxygenXML to generate EPUBs.</p>
+
+    <div class="section context">
+      <p class="p">You must have the EPUB plugin deployed to the Open Toolkit used by OxygenXML, normally in the <span class="ph filepath">frameworks/dita/DITA-OT</span> directory under Oxygen's installation directory. You can also use a different Toolkit by changing the value of the <span class="keyword parmname">dita.dir</span> Ant parameter.</p>
+
+      <p class="p">These instructions reflect Oxygen version 11.2 and 12.0.</p>
+
+      <p class="p">To set up an EPUB transformation scenario in OxygenXML, do the following.</p>
+
+    </div>
+
+    <ol class="ol steps" id="taskId__steps_bd2ab97b-2b84-4975-b881-a037eff4c6dd"><li class="li step">
+        <span class="ph cmd">From either the main editing window or the DITA Maps Manager, open the "Configure Transformation Scenario" dialog (the little wrench and red arrow button in the toolbar).</span>
+      </li>
+<li class="li step">
+        <span class="ph cmd">Select "DITA OT Transformation" from the <span class="ph uicontrol">Scenario Type</span> pulldown.</span>
+      </li>
+<li class="li step">
+        <span class="ph cmd">Select the "DITA Map XHTML" transform and press the <span class="ph uicontrol">Duplicate</span> button.</span>
+         
+          <p class="p">The "Edit Scenario" dialog should open.</p>
+
+        
+      </li>
+<li class="li step">
+        <span class="ph cmd">Change the scenario name to something like "DITA Map EPUB"</span>
+      </li>
+<li class="li step">
+        <span class="ph cmd">Select the <span class="ph uicontrol">Parameters</span> tab (it should be selected by default), add a new parameter named "transtype" and set its value to "epub".</span>
+      </li>
+<li class="li step">
+        <span class="ph cmd">Select the <span class="ph uicontrol">OK</span> button to save the scenario.</span>
+         
+          <p class="p">You should see your new scenario in the list of available DITA OT transformation scenarios.</p>
+
+        
+      </li>
+</ol>
+
+    <div class="section result">
+      <p class="p">The scenario should be ready to use. You can test it by applying it to any DITA map. The EPUB file is generated in whatever you've configured as the output directory using the normal output location configuration (as specified in the Output tab of the transformation scenario configuration dialog. </p>
+
+      <p class="p">If you select the "Open in browser" option in the transformation scenario's output options and you have an application associated with .epub files, such as Adobe Digital Editions, the newly-generated EPUB should open in that application. Note that in OxygenXML 12 you have the option of associating EPUB files with OxygenXML, which can open them in its Archive Browser. If you have that association, then doing "Open in browser" will open the EPUB in OxygenXML, not in an EPUB viewer.</p>
+
+      <p class="p">You can edit the scenario to add additional EPUB parameters as necessary. Simply open the scenario in the Scenario Editor, select the "add parameter" button, and create the parameter. The EPUB-specific parameters are documented in <a class="xref" href="epub-transtype-parameters-ref.html#conceptId" title="EPUB-specific parameters for the EPUB transformation type">EPUB and Kindle Transformation Parameters</a>.</p>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="generating-epubs.html" title="The D4P EPUB and Kindle book generation Open Toolkit plugins enable generation of delivery-ready EPUBs and Kindle books from any conforming DITA content.">Generating EPUBs and Kindle Books from DITA Content</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="generating-kindle-books-from-oxygen.html" title="You can configure a DITA transformation scenario in OxygenXML to generate Kindle books.">Generating Kindle Books From OxygenXML</a></div>
+</div>
+</div>
+
+</body>
+</html>

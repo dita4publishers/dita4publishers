@@ -1,0 +1,3356 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" > 
+<?xml-stylesheet type="text/css" href="fcla-xml-2.30.css"?> 
+<html  
+xmlns="http://www.w3.org/1999/xhtml"  
+><head><title>Section T  Trace</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- html,xhtml,mozilla,3 --> 
+<meta name="src" content="fcla-xml-2.30.tex" /> 
+<meta name="date" content="2011-12-23 18:20:00" /> 
+<link rel="stylesheet" type="text/css" href="fcla-xml-2.30.css" /> 
+</head><body 
+>
+   <!--l. 548--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li101.xml" >next</a>] [<a 
+href="fcla-xml-2.30li99.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li99.xml#tailfcla-xml-2.30li99.xml" >prev-tail</a>] [<a 
+href="#tailfcla-xml-2.30li100.xml">tail</a>] [<a 
+href="fcla-xml-2.30li98.xml#fcla-xml-2.30li100.xml" >up</a>] </p></div>
+   <h3 class="likesectionHead"><a 
+ id="x101-435000"></a>Section T&#x00A0;&#x00A0;Trace</h3>
+<!--l. 548--><p class="noindent" ><a 
+ id="section.T"></a> From <a 
+href="http://linear.ups.edu/" ><span 
+class="cmti-12">A First Course in Linear Algebra</span></a><br 
+class="newline" />Version 2.30<br 
+class="newline" /><span 
+class="cmsy-10x-x-120">&#x00A9;</span>&#x00A0;2004.<br 
+class="newline" />Licensed under the <a 
+href="http://www.gnu.org/licenses/fdl.html" >GNU Free Documentation License</a>.<br 
+class="newline" /><a 
+href="http://linear.ups.edu/" class="url" ><span 
+class="cmtt-12">http://linear.ups.edu/</span></a><br 
+class="newline" /><br 
+class="newline" /><a 
+ id="x101-435000doc"></a> <a 
+ id="dx101-435001"></a>
+</p><!--l. 17--><p class="indent" >   This section contributed by <a 
+href="fcla-xml-2.30li6.xml#ZimmerAndy">Andy&#x00A0;Zimmer</a>.
+</p><!--l. 19--><p class="indent" >   The matrix trace is a function that sends square matrices to scalars. In some
+ways it is reminiscent of the determinant. And like the determinant, it has many
+useful and surprising properties.
+</p><!--l. 21--><p class="noindent" ><span 
+class="cmbx-12">Definition</span><span 
+class="cmbx-12">&#x00A0;T</span><br 
+class="newline" /><a 
+ id="definition.T"><span 
+class="cmbx-12">Trace</span></a><a 
+ id="dx101-435002"></a><a 
+ id="dx101-435003"></a><a 
+ id="dx101-435004"></a><br 
+class="newline" /> Suppose <!--l. 22--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math> is a square
+matrix of size <!--l. 22--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi></math>.
+Then the <span 
+class="cmbx-12">trace </span>of <!--l. 22--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>,
+<!--l. 22--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced></math>, is the sum of the
+diagonal entries of <!--l. 22--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>.
+Symbolically,
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 27--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                             <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced></mtd>                             <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>i</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mi 
+>i</mi><mi 
+>i</mi></mrow></msub 
+><mspace width="2em"/></mtd>                             <mtd 
+columnalign="right" class="align-label"></mtd>                             <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<a 
+ id="dx101-435005"></a>
+<a 
+ id="dx101-435006"></a>
+<a 
+ id="dx101-435007"></a>
+<!--l. 28--><p class="noindent" >(This definition contains <a 
+ id="notation.T">Notation T</a>.)
+<!--l. 29--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-bin">&#x25B3;</mo></math>
+</p><!--l. 31--><p class="indent" >   The next three proofs make for excellent practice. In some books they would
+be left as exercises for the reader as they are all &#x201C;trivial&#x201D; in the sense they do not
+rely on anything but the definition of the matrix trace.
+</p><!--l. 33--><p class="noindent" ><span 
+class="cmbx-12">Theorem</span><span 
+class="cmbx-12">&#x00A0;TL</span><br 
+class="newline" /><a 
+ id="theorem.TL"><span 
+class="cmbx-12">Trace is Linear</span></a><a 
+ id="dx101-435008"></a><a 
+ id="dx101-435009"></a><a 
+ id="dx101-435010"></a><br 
+class="newline" /> Suppose <!--l. 34--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math> and
+<!--l. 34--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>B</mi></math> are square
+matrices of size <!--l. 34--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi></math>.
+Then <!--l. 34--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>B</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>B</mi></mrow></mfenced></math>.
+Furthermore, if <!--l. 34--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>&#x03B1;</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <mi 
+>&#x2102;</mi></math>,
+then <!--l. 34--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>&#x03B1;</mi><mi 
+>A</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&#x03B1;</mi><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced></math>.
+<!--l. 35--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-ord">&#x25A1;</mo></math>
+</p><!--l. 37--><p class="noindent" ><span 
+class="cmbx-12">Proof</span>&#x00A0;&#x00A0; These properties are exactly those required for a linear transformation.
+To prove these results we just manipulate sums,
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 46--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+         <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>B</mi></mrow></mfenced></mtd>         <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">+</mo> <mi 
+>B</mi></mrow></mfenced></mrow><mrow 
+>
+<mi 
+>i</mi><mi 
+>i</mi></mrow></msub 
+><mspace width="2em"/></mtd>                   <mtd 
+columnalign="right" class="align-odd"></mtd>         <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#definition.T"  class="label" >Definition T</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-label"></mtd>         <mtd 
+class="align-label"><mspace width="2em"/></mtd>         <mtd 
+columnalign="right" class="align-label"></mtd>         <mtd 
+class="align-label">
+         <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                 <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>i</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mi 
+>i</mi><mi 
+>i</mi></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>B</mi></mrow></mfenced></mrow><mrow 
+><mi 
+>i</mi><mi 
+>i</mi></mrow></msub 
+><mspace width="2em"/></mtd>                 <mtd 
+columnalign="right" class="align-odd"></mtd>         <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="fcla-xml-2.30li30.xml#definition.MA"  class="label" >Definition MA</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-label"></mtd>         <mtd 
+class="align-label"><mspace width="2em"/></mtd>         <mtd 
+columnalign="right" class="align-label"></mtd>         <mtd 
+class="align-label">
+         <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                 <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>i</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mi 
+>i</mi><mi 
+>i</mi></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>i</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>B</mi></mrow></mfenced></mrow><mrow 
+>
+<mi 
+>i</mi><mi 
+>i</mi></mrow></msub 
+><mspace width="2em"/></mtd>         <mtd 
+columnalign="right" class="align-odd"></mtd>         <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="fcla-xml-2.30li69.xml#property.CACN"  class="label" >Property CACN</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>         <mtd 
+columnalign="right" class="align-label"></mtd>         <mtd 
+class="align-label"><mspace width="2em"/></mtd>         <mtd 
+columnalign="right" class="align-label"></mtd>         <mtd 
+class="align-label">
+         <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                 <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced> <mo 
+class="MathClass-bin">+</mo> <mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>B</mi></mrow></mfenced><mspace width="2em"/></mtd>                          <mtd 
+columnalign="right" class="align-odd"></mtd>         <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#definition.T"  class="label" >Definition T</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-label"></mtd>         <mtd 
+class="align-label"><mspace width="2em"/></mtd>         <mtd 
+columnalign="right" class="align-label"></mtd>         <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 48--><p class="noindent" >The second part is as straightforward as the first,
+</p><!--tex4ht:inline--><!--l. 56--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+             <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>&#x03B1;</mi><mi 
+>A</mi></mrow></mfenced></mtd>             <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>i</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>&#x03B1;</mi><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mi 
+>i</mi><mi 
+>i</mi></mrow></msub 
+><mspace width="2em"/></mtd>              <mtd 
+columnalign="right" class="align-odd"></mtd>             <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#definition.T"  class="label" >Definition T</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>                 <mtd 
+columnalign="right" class="align-label"></mtd>             <mtd 
+class="align-label"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-label"></mtd>             <mtd 
+class="align-label">
+             <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                  <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>i</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><mi 
+>&#x03B1;</mi><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mi 
+>i</mi><mi 
+>i</mi></mrow></msub 
+><mspace width="2em"/></mtd>              <mtd 
+columnalign="right" class="align-odd"></mtd>             <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="fcla-xml-2.30li30.xml#definition.MSM"  class="label" >Definition MSM</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-label"></mtd>             <mtd 
+class="align-label"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-label"></mtd>             <mtd 
+class="align-label">
+             <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                  <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&#x03B1;</mi><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+>&#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>i</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mi 
+>i</mi><mi 
+>i</mi></mrow></msub 
+><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-odd"></mtd>             <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="fcla-xml-2.30li69.xml#property.DCN"  class="label" >Property DCN</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>               <mtd 
+columnalign="right" class="align-label"></mtd>             <mtd 
+class="align-label"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-label"></mtd>             <mtd 
+class="align-label">
+             <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                  <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mi 
+>&#x03B1;</mi><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced><mspace width="2em"/></mtd>                      <mtd 
+columnalign="right" class="align-odd"></mtd>             <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#definition.T"  class="label" >Definition T</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>                 <mtd 
+columnalign="right" class="align-label"></mtd>             <mtd 
+class="align-label"><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-label"></mtd>             <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+   <!--l. 58--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-ord">&#x25A0;</mo></math>
+<!--l. 60--><p class="noindent" ><span 
+class="cmbx-12">Theorem</span><span 
+class="cmbx-12">&#x00A0;TSRM</span><br 
+class="newline" /><a 
+ id="theorem.TSRM"><span 
+class="cmbx-12">Trace is Symmetric with Respect to Multiplication</span></a><a 
+ id="dx101-435011"></a><a 
+ id="dx101-435012"></a><a 
+ id="dx101-435013"></a><br 
+class="newline" /> Suppose <!--l. 61--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math> and
+<!--l. 61--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>B</mi></math> are square
+matrices of size <!--l. 61--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi></math>.
+Then <!--l. 61--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi><mi 
+>B</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>B</mi><mi 
+>A</mi></mrow></mfenced></math>.
+                                                                          
+
+                                                                          
+<!--l. 62--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-ord">&#x25A1;</mo></math>
+</p><!--l. 64--><p class="noindent" ><span 
+class="cmbx-12">Proof</span>&#x00A0;&#x00A0;
+</p><!--tex4ht:inline--><!--l. 74--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+          <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi><mi 
+>B</mi></mrow></mfenced></mtd>          <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi><mi 
+>B</mi></mrow></mfenced></mrow><mrow 
+>
+<mi 
+>k</mi><mi 
+>k</mi></mrow></msub 
+><mspace width="2em"/></mtd>                     <mtd 
+columnalign="right" class="align-odd"></mtd>          <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#definition.T"  class="label" >Definition T</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>               <mtd 
+columnalign="right" class="align-label"></mtd>          <mtd 
+class="align-label"><mspace width="2em"/></mtd>          <mtd 
+columnalign="right" class="align-label"></mtd>          <mtd 
+class="align-label">
+          <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>&#x2113;</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mi 
+>k</mi><mi 
+>&#x2113;</mi></mrow></msub 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>B</mi></mrow></mfenced></mrow><mrow 
+><mi 
+>&#x2113;</mi><mi 
+>k</mi></mrow></msub 
+><mspace width="2em"/></mtd>          <mtd 
+columnalign="right" class="align-odd"></mtd>          <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="fcla-xml-2.30li31.xml#theorem.EMP"  class="label" >Theorem EMP</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>            <mtd 
+columnalign="right" class="align-label"></mtd>          <mtd 
+class="align-label"><mspace width="2em"/></mtd>          <mtd 
+columnalign="right" class="align-label"></mtd>          <mtd 
+class="align-label">
+          <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>&#x2113;</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mi 
+>k</mi><mi 
+>&#x2113;</mi></mrow></msub 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>B</mi></mrow></mfenced></mrow><mrow 
+><mi 
+>&#x2113;</mi><mi 
+>k</mi></mrow></msub 
+><mspace width="2em"/></mtd>          <mtd 
+columnalign="right" class="align-odd"></mtd>          <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="fcla-xml-2.30li69.xml#property.CACN"  class="label" >Property CACN</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-label"></mtd>          <mtd 
+class="align-label"><mspace width="2em"/></mtd>          <mtd 
+columnalign="right" class="align-label"></mtd>          <mtd 
+class="align-label">
+          <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>&#x2113;</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>B</mi></mrow></mfenced></mrow><mrow 
+>
+<mi 
+>&#x2113;</mi><mi 
+>k</mi></mrow></msub 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+><mi 
+>k</mi><mi 
+>&#x2113;</mi></mrow></msub 
+><mspace width="2em"/></mtd>          <mtd 
+columnalign="right" class="align-odd"></mtd>          <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="fcla-xml-2.30li69.xml#property.CMCN"  class="label" >Property CMCN</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>          <mtd 
+columnalign="right" class="align-label"></mtd>          <mtd 
+class="align-label"><mspace width="2em"/></mtd>          <mtd 
+columnalign="right" class="align-label"></mtd>          <mtd 
+class="align-label">
+          <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>&#x2113;</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>B</mi><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mi 
+>&#x2113;</mi><mi 
+>&#x2113;</mi></mrow></msub 
+><mspace width="2em"/></mtd>                      <mtd 
+columnalign="right" class="align-odd"></mtd>          <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="fcla-xml-2.30li31.xml#theorem.EMP"  class="label" >Theorem EMP</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>            <mtd 
+columnalign="right" class="align-label"></mtd>          <mtd 
+class="align-label"><mspace width="2em"/></mtd>          <mtd 
+columnalign="right" class="align-label"></mtd>          <mtd 
+class="align-label">
+          <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>B</mi><mi 
+>A</mi></mrow></mfenced><mspace width="2em"/></mtd>                              <mtd 
+columnalign="right" class="align-odd"></mtd>          <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#definition.T"  class="label" >Definition T</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>               <mtd 
+columnalign="right" class="align-label"></mtd>          <mtd 
+class="align-label"><mspace width="2em"/></mtd>          <mtd 
+columnalign="right" class="align-label"></mtd>          <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+   <!--l. 76--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-ord">&#x25A0;</mo></math>
+<!--l. 78--><p class="noindent" ><span 
+class="cmbx-12">Theorem</span><span 
+class="cmbx-12">&#x00A0;TIST</span><br 
+class="newline" /><a 
+ id="theorem.TIST"><span 
+class="cmbx-12">Trace is Invariant Under Similarity Transformations</span></a><a 
+ id="dx101-435014"></a><a 
+ id="dx101-435015"></a><a 
+ id="dx101-435016"></a><br 
+class="newline" /> Suppose <!--l. 79--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math> and
+<!--l. 79--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>S</mi></math> are square
+matrices of size <!--l. 79--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi></math>
+and <!--l. 79--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>S</mi></math> is invertible.
+Then <!--l. 79--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><msup><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><mi 
+>A</mi><mi 
+>S</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced></math>.
+<!--l. 80--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-ord">&#x25A1;</mo></math>
+</p><!--l. 82--><p class="noindent" ><span 
+class="cmbx-12">Proof</span>&#x00A0;&#x00A0; Invariant means constant under some operation. In this case the operation
+is a similarity transformation. A lengthy exercise (but possibly a educational one)
+would be to prove this result without referencing <a 
+href="#theorem.TSRM">Theorem&#x00A0;TSRM</a>. But here we
+will,
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 90--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+           <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><msup><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><mi 
+>A</mi><mi 
+>S</mi></mrow></mfenced></mtd>           <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mfenced separators="" 
+open="("  close=")" ><mrow><msup><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><mi 
+>A</mi></mrow></mfenced><mi 
+>S</mi></mrow></mfenced><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-odd"></mtd>           <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="fcla-xml-2.30li31.xml#theorem.MMA"  class="label" >Theorem MMA</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>            <mtd 
+columnalign="right" class="align-label"></mtd>           <mtd 
+class="align-label"><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-label"></mtd>           <mtd 
+class="align-label">
+           <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                   <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>S</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><msup><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><mi 
+>A</mi></mrow></mfenced></mrow></mfenced><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-odd"></mtd>           <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#theorem.TSRM"  class="label" >Theorem TSRM</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-label"></mtd>           <mtd 
+class="align-label"><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-label"></mtd>           <mtd 
+class="align-label">
+           <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                   <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>S</mi><msup><mrow 
+><mi 
+>S</mi></mrow><mrow 
+><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+></mrow></mfenced> <mi 
+>A</mi></mrow></mfenced><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-odd"></mtd>           <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="fcla-xml-2.30li31.xml#theorem.MMA"  class="label" >Theorem MMA</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>            <mtd 
+columnalign="right" class="align-label"></mtd>           <mtd 
+class="align-label"><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-label"></mtd>           <mtd 
+class="align-label">
+           <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                   <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced><mspace width="2em"/></mtd>                 <mtd 
+columnalign="right" class="align-odd"></mtd>           <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="fcla-xml-2.30li32.xml#definition.MI"  class="label" >Definition MI</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>              <mtd 
+columnalign="right" class="align-label"></mtd>           <mtd 
+class="align-label"><mspace width="2em"/></mtd>           <mtd 
+columnalign="right" class="align-label"></mtd>           <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+   <!--l. 92--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-ord">&#x25A0;</mo></math>
+<!--l. 94--><p class="indent" >   Now we could define the trace of a linear transformation as the trace of any
+matrix representation of the transformation. Would this definition be
+well-defined? That is, will two different representations of the same linear
+transformation always have the same trace? Why? (Think <a 
+href="fcla-xml-2.30li58.xml#theorem.SCB">Theorem&#x00A0;SCB</a>.) We
+will now prove one of the most interesting and surprising results about the
+trace.
+</p><!--l. 96--><p class="noindent" ><span 
+class="cmbx-12">Theorem</span><span 
+class="cmbx-12">&#x00A0;TSE</span><br 
+class="newline" /><a 
+ id="theorem.TSE"><span 
+class="cmbx-12">Trace is the Sum of the Eigenvalues</span></a><a 
+ id="dx101-435017"></a><a 
+ id="dx101-435018"></a><a 
+ id="dx101-435019"></a><br 
+class="newline" /> Suppose that <!--l. 97--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math> is a square
+matrix of size <!--l. 97--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi></math> with
+distinct eigenvalues <!--l. 97--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mn>3</mn></mrow></msub 
+><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mo 
+class="MathClass-op">&#x2026;</mo><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></math>.
+Then
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 102--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                           <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced></mtd>                           <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>i</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>k</mi></mrow></munderover 
+><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+>
+<mi 
+>A</mi></mrow></msub 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+></mrow></mfenced> <msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+><mspace width="2em"/></mtd>                           <mtd 
+columnalign="right" class="align-label"></mtd>                           <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+   <!--l. 104--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-ord">&#x25A1;</mo></math>
+<!--l. 106--><p class="noindent" ><span 
+class="cmbx-12">Proof</span>&#x00A0;&#x00A0; It is amazing that the eigenvalues would have anything to do
+with the sum of the diagonal entries. Our proof will rely on double
+counting. We will demonstrate two different ways of counting the same
+thing therefore proving equality. Our object of interest is the coefficient of
+<!--l. 107--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+></math> in the characteristic
+polynomial of <!--l. 107--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math> (<a 
+href="fcla-xml-2.30li47.xml#definition.CP">Definition&#x00A0;CP</a>),
+which will be denoted <!--l. 107--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msub 
+></math>.
+From the proof of <a 
+href="fcla-xml-2.30li48.xml#theorem.NEM">Theorem&#x00A0;NEM</a> we have,
+</p><!--tex4ht:inline--><!--l. 117--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+  <mtr><mtd 
+columnalign="right" class="align-odd"><msub><mrow 
+><mi 
+>p</mi></mrow><mrow 
+><mi 
+>A</mi></mrow></msub 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>x</mi></mrow></mfenced></mtd>  <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+>
+<mn>1</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+><mi 
+>A</mi></mrow></msub 
+><mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+></mrow></mfenced>
+         </mrow></msup 
+><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+><mi 
+>A</mi></mrow></msub 
+><mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mn>2</mn></mrow></msub 
+></mrow></mfenced>
+         </mrow></msup 
+><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mn>3</mn></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+><mi 
+>A</mi></mrow></msub 
+><mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mn>3</mn></mrow></msub 
+></mrow></mfenced>
+         </mrow></msup 
+><mo 
+class="MathClass-rel">&#x22EF;</mo><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+><mi 
+>A</mi></mrow></msub 
+><mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>k</mi></mrow></msub 
+></mrow></mfenced>
+        </mrow></msup 
+><mspace width="2em"/></mtd>  <mtd 
+columnalign="right" class="align-label"></mtd>  <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 119--><p class="noindent" >First we want to prove that <!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msub 
+></math>
+is equal to <!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msup 
+><msubsup><mrow 
+><mo 
+class="MathClass-op"> &#x2211;</mo><!--nolimits--></mrow><mrow 
+>
+<mi 
+>i</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>k</mi></mrow></msubsup 
+><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+>
+<mi 
+>A</mi></mrow></msub 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+></mrow></mfenced> <msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+></math>
+and to do this we will use a straight forward counting argument.
+Induction can be used here as well (try it), but the intuitive approach
+is a much stronger technique. Let&#x2019;s imagine creating each term one
+by one from the extended product. How do we do this? From each
+<!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></math> we pick
+either a <!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>x</mi></math>
+                                                                          
+
+                                                                          
+or a <!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+></math>.
+But we are only interested in the terms that result in
+<!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>x</mi></math> to the
+power <!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>1</mn></math>. As
+<!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msubsup><mrow 
+><mo 
+class="MathClass-op"> &#x2211;</mo>
+   <!--nolimits--></mrow><mrow 
+><mi 
+>i</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>k</mi></mrow></msubsup 
+><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+>
+<mi 
+>A</mi></mrow></msub 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mi 
+>n</mi></math>, we have
+<!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi></math> factors of the form
+<!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>. Then to get terms
+with <!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+></math> we need to
+pick <!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>x</mi></math>&#x2019;s in every
+<!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>, except one. Since
+we have <!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi></math> linear
+factors there are <!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi></math>
+ways to do this, namely each eigenvalue represented as many times as it&#x2019;s algebraic
+multiplicity. Now we have to take into account the sign of each term. As we pick
+<!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>1</mn></math>
+<!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>x</mi></math>&#x2019;s and
+one <!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+></math>
+(which has a negative sign in the linear factor) we get a factor of
+<!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" > <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>1</mn></math>. Then we have to take
+into account the <!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi></mrow></msup 
+></math> in the
+characteristic polynomial. Thus <!--l. 119--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msub 
+></math>
+is the sum of these terms,
+</p><!--tex4ht:inline--><!--l. 123--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                       <mtr><mtd 
+columnalign="right" class="align-odd"><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msup 
+><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>i</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>k</mi></mrow></munderover 
+><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+>
+<mi 
+>A</mi></mrow></msub 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+></mrow></mfenced> <msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+></mtd>                       <mtd 
+class="align-even"><mspace width="2em"/></mtd>                       <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 125--><p class="noindent" >Now we will now show that <!--l. 125--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msub 
+></math>
+is also equal to <!--l. 125--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced></math>.
+                                                                          
+
+                                                                          
+For this we will proceed by induction on the size of
+<!--l. 125--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>. If
+<!--l. 125--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math> is a
+<!--l. 125--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mn>1</mn> <mo 
+class="MathClass-bin">&#x00D7;</mo> <mn>1</mn></math> square matrix
+then <!--l. 125--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>p</mi></mrow><mrow 
+><mi 
+>A</mi></mrow></msub 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>x</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+><mn>1</mn><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi></mrow></mfenced></math> and
+<!--l. 125--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>1</mn><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mn>1</mn><mn>1</mn></mrow></msub 
+></math>. With our base case in
+hand let&#x2019;s assume <!--l. 125--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math> is a
+square matrix of size <!--l. 125--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi></math>.
+By <a 
+href="fcla-xml-2.30li47.xml#definition.CP">Definition&#x00A0;CP</a>
+</p><!--tex4ht:inline--><!--l. 136--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+<mtr><mtd 
+columnalign="right" class="align-odd"><msub><mrow 
+><mi 
+>p</mi></mrow><mrow 
+><mi 
+>A</mi></mrow></msub 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>x</mi></mrow></mfenced></mtd><mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow></mfenced><mspace width="2em"/></mtd>                                                           <mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label">
+<mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>     <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow></mfenced> </mrow><mrow 
+><mn>1</mn><mn>1</mn></mrow></msub 
+><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mn>1</mn></mrow></mfenced></mrow></mfenced> <mo 
+class="MathClass-bin">&#x2212;</mo><msub><mrow 
+><mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow></mfenced> </mrow><mrow 
+><mn>1</mn><mn>2</mn></mrow></msub 
+><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mn>2</mn></mrow></mfenced></mrow></mfenced> <mo 
+class="MathClass-bin">+</mo><mspace width="2em"/></mtd>          <mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label">
+<mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>     <mtd 
+class="align-even"><mspace width="1em" class="quad"/><mspace width="1em" class="quad"/><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow></mfenced> </mrow><mrow 
+><mn>1</mn><mn>3</mn></mrow></msub 
+><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+><mi 
+>n</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mn>3</mn></mrow></mfenced></mrow></mfenced> <mo 
+class="MathClass-bin">&#x2212;</mo><mo 
+class="MathClass-rel">&#x22EF;</mo> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msup 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+>
+<mi 
+>n</mi></mrow></msub 
+></mrow></mfenced> </mrow><mrow 
+><mn>1</mn><mi 
+>n</mi></mrow></msub 
+><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>n</mi></mrow></mfenced></mrow></mfenced><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 138--><p class="noindent" >First let&#x2019;s consider the maximum degree of
+<!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow></mfenced> </mrow><mrow 
+><mn>1</mn><mi 
+>i</mi></mrow></msub 
+><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>i</mi></mrow></mfenced></mrow></mfenced></math> when
+<!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>i</mi><mo 
+class="MathClass-rel">&#x2260;</mo><mn>1</mn></math>. For polynomials, the
+degree of <!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>f</mi></math>, denoted
+<!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>, is the highest power
+of <!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>x</mi></math> in the expression
+<!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>. A well known result
+of this definition is: if <!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>g</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>h</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+then <!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>g</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>h</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math> (can you prove
+this?). Now <!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow></mfenced> </mrow><mrow 
+><mn>1</mn><mi 
+>i</mi></mrow></msub 
+></math> has
+degree zero when <!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>i</mi><mo 
+class="MathClass-rel">&#x2260;</mo><mn>1</mn></math>.
+Furthermore <!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>i</mi></mrow></mfenced></math>
+has <!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>1</mn></math>
+                                                                          
+
+                                                                          
+rows, one of which has all of its entries of degree zero, since column
+<!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>i</mi></math> is removed.
+The other <!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>2</mn></math>
+rows have one entry with degree one and the remainder of
+degree zero. Then by <a 
+href="#exercise.T.T30">Exercise&#x00A0;T.T30</a>, the maximum degree of
+<!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow></mfenced> </mrow><mrow 
+><mn>1</mn><mi 
+>i</mi></mrow></msub 
+><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>i</mi></mrow></mfenced></mrow></mfenced></math> is
+<!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>2</mn></math>. So these terms will not
+affect the coefficient of <!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+></math>.
+Now we are free to focus all of our attention on the term
+<!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow></mfenced> </mrow><mrow 
+><mn>1</mn><mn>1</mn></mrow></msub 
+><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mn>1</mn></mrow></mfenced></mrow></mfenced></math>. As
+<!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mn>1</mn></mrow></mfenced></math> is a
+<!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>n</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&#x00D7;</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>n</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></math> matrix the induction
+hypothesis tells us that <!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mn>1</mn></mrow></mfenced></mrow></mfenced></math>
+has a coefficient of <!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>2</mn></mrow></msup 
+><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mn>1</mn></mrow></mfenced></mrow></mfenced></math>
+for <!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>2</mn></mrow></msup 
+></math>.
+We also note that the proof of <a 
+href="fcla-xml-2.30li48.xml#theorem.NEM">Theorem&#x00A0;NEM</a> tells us that the leading coefficient
+of <!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mn>1</mn></mrow></mfenced></mrow></mfenced></math> is
+<!--l. 138--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+></math>.
+Then,
+</p><!--tex4ht:inline--><!--l. 145--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+<mtr><mtd 
+columnalign="right" class="align-odd"><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow></mfenced> </mrow><mrow 
+><mn>1</mn><mn>1</mn></mrow></msub 
+></mtd><mtd 
+class="align-even"><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi><msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mn>1</mn></mrow></mfenced></mrow></mfenced><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-odd"> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+><mn>1</mn><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>x</mi></mrow></mfenced> <mfenced separators="" 
+open="("  close=")" ><mrow><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>2</mn></mrow></msup 
+><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mn>1</mn></mrow></mfenced></mrow></mfenced> <msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>2</mn></mrow></msup 
+> <mo 
+class="MathClass-bin">+</mo> <mo 
+class="MathClass-op">&#x2026;</mo></mrow></mfenced></mtd><mtd 
+class="align-even"><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label"><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 147--><p class="noindent" >Expanding the product shows <!--l. 147--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msub 
+></math>
+(the coefficient of <!--l. 147--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+></math>)
+to be
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 158--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+     <mtr><mtd 
+columnalign="right" class="align-odd"><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msub 
+></mtd>     <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mn>1</mn><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mn>1</mn></mrow></mfenced></mrow></mfenced><mspace width="2em"/></mtd>                 <mtd 
+columnalign="right" class="align-odd"></mtd>     <mtd 
+class="align-even"><mspace width="2em"/></mtd>                    <mtd 
+columnalign="right" class="align-label"></mtd>     <mtd 
+class="align-label">
+     <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>          <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mn>1</mn><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></munderover 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mn>1</mn></mrow></mfenced></mrow></mfenced> </mrow><mrow 
+>
+<mi 
+>k</mi><mi 
+>k</mi></mrow></msub 
+><mspace width="2em"/></mtd>     <mtd 
+columnalign="right" class="align-odd"></mtd>     <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#definition.T"  class="label" >Definition T</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>       <mtd 
+columnalign="right" class="align-label"></mtd>     <mtd 
+class="align-label"><mspace width="2em"/></mtd>     <mtd 
+columnalign="right" class="align-label"></mtd>     <mtd 
+class="align-label">
+     <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>          <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><mstyle mathsize="1.61em"><mfenced separators="" 
+open="("  close="" ><mrow></mrow></mfenced></mstyle><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mn>1</mn><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></munderover 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mn>1</mn></mrow></mfenced></mrow></mfenced> </mrow><mrow 
+>
+<mi 
+>k</mi><mi 
+>k</mi></mrow></msub 
+><mstyle mathsize="1.61em"><mfenced separators="" 
+open=")"  close="" ><mrow></mrow></mfenced></mstyle><mspace width="2em"/></mtd>             <mtd 
+columnalign="right" class="align-odd"></mtd>     <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="fcla-xml-2.30li69.xml#property.DCN"  class="label" >Property DCN</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>     <mtd 
+columnalign="right" class="align-label"></mtd>     <mtd 
+class="align-label"><mspace width="2em"/></mtd>     <mtd 
+columnalign="right" class="align-label"></mtd>     <mtd 
+class="align-label">
+     <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>          <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><mstyle mathsize="1.61em"><mfenced separators="" 
+open="("  close="" ><mrow></mrow></mfenced></mstyle><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mn>1</mn><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-bin">+</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>k</mi><mo 
+class="MathClass-rel">=</mo><mn>2</mn></mrow><mrow 
+><mi 
+>n</mi></mrow></munderover 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mi 
+>k</mi><mi 
+>k</mi></mrow></msub 
+><mstyle mathsize="1.61em"><mfenced separators="" 
+open=")"  close="" ><mrow></mrow></mfenced></mstyle><mspace width="2em"/></mtd>                   <mtd 
+columnalign="right" class="align-odd"></mtd>     <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="fcla-xml-2.30li44.xml#definition.SM"  class="label" >Definition SM</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>      <mtd 
+columnalign="right" class="align-label"></mtd>     <mtd 
+class="align-label"><mspace width="2em"/></mtd>     <mtd 
+columnalign="right" class="align-label"></mtd>     <mtd 
+class="align-label">
+     <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>          <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced><mspace width="2em"/></mtd>                                    <mtd 
+columnalign="right" class="align-odd"></mtd>     <mtd 
+class="align-even"><!--mstyle 
+class="text"--><mtext  >&#x00A0;</mtext><mtext 
+ xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#definition.T"  class="label" >Definition T</mtext><mtext 
+class="endlabel"></mtext><!--/mstyle--><mspace width="2em"/></mtd>       <mtd 
+columnalign="right" class="align-label"></mtd>     <mtd 
+class="align-label"><mspace width="2em"/></mtd>     <mtd 
+columnalign="right" class="align-label"></mtd>     <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 160--><p class="noindent" >With two expressions for <!--l. 160--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msub 
+></math>,
+we have our result,
+</p><!--tex4ht:inline--><!--l. 168--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                   <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced></mtd>                   <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msup 
+><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msup 
+><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced><mspace width="2em"/></mtd>                               <mtd 
+columnalign="right" class="align-label"></mtd>                   <mtd 
+class="align-label">
+                   <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                      <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msup 
+><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+>
+<mi 
+>n</mi><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow></msub 
+><mspace width="2em"/></mtd>                                      <mtd 
+columnalign="right" class="align-label"></mtd>                   <mtd 
+class="align-label">
+                   <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                      <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msup 
+><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msup 
+><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>i</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>k</mi></mrow></munderover 
+><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+>
+<mi 
+>A</mi></mrow></msub 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+></mrow></mfenced> <msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+><mspace width="2em"/></mtd>                   <mtd 
+columnalign="right" class="align-label"></mtd>                   <mtd 
+class="align-label">
+                   <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                      <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>i</mi><mo 
+class="MathClass-rel">=</mo><mn>1</mn></mrow><mrow 
+><mi 
+>k</mi></mrow></munderover 
+><msub><mrow 
+><mi 
+>&#x03B1;</mi></mrow><mrow 
+>
+<mi 
+>A</mi></mrow></msub 
+> <mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+></mrow></mfenced> <msub><mrow 
+><mi 
+>&#x03BB;</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+><mspace width="2em"/></mtd>                                   <mtd 
+columnalign="right" class="align-label"></mtd>                   <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+                                                                          
+
+                                                                          
+   <!--l. 170--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo 
+class="MathClass-ord">&#x25A0;</mo></math>
+                                                                          
+
+                                                                          
+   <h4 class="likesubsectionHead"><a 
+ id="x101-436000"></a>Subsection EXC: Exercises</h4>
+<!--l. 548--><p class="noindent" ><a 
+ id="subsection.T.EXC"></a>  <a 
+ id="x101-436000doc"></a><a 
+ id="dx101-436001"></a>   <a 
+ id="exercise.T.T10"><span 
+class="cmbx-12">T10</span></a>   Prove there are no square matrices
+<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math> and
+<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>B</mi></math> such
+that <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi><mi 
+>B</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mi 
+>B</mi><mi 
+>A</mi> <mo 
+class="MathClass-rel">=</mo> <msub><mrow 
+><mi 
+>I</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></math>.
+&#x00A0;<br 
+class="newline" /> Contributed&#x00A0;by&#x00A0;<a 
+href="fcla-xml-2.30li6.xml#ZimmerAndy">Andy&#x00A0;Zimmer</a>
+</p><!--l. 11--><p class="noindent" ><a 
+ id="exercise.T.T12"><span 
+class="cmbx-12">T12</span></a>   Assume <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math> is a
+square matrix of size <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi></math>
+matrix. Prove <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><msup><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mi 
+>t</mi></mrow></msup 
+></mrow></mfenced></math>.
+&#x00A0;<br 
+class="newline" /> Contributed&#x00A0;by&#x00A0;<a 
+href="fcla-xml-2.30li6.xml#ZimmerAndy">Andy&#x00A0;Zimmer</a>
+</p><!--l. 12--><p class="noindent" ><a 
+ id="exercise.T.T20"><span 
+class="cmbx-12">T20</span></a>   If <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>T</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+> <mo 
+class="MathClass-rel">=</mo> <mfenced separators="" 
+open="{"  close="}" ><mrow><mfenced separators="" 
+open=""  close="|" ><mrow><mi 
+>M</mi> <mo 
+class="MathClass-rel">&#x2208;</mo> <msub><mrow 
+><mi 
+>M</mi></mrow><mrow 
+><mi 
+>n</mi><mi 
+>n</mi></mrow></msub 
+></mrow></mfenced> <mi 
+>t</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>M</mi></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <mn>0</mn></mrow></mfenced></math> then
+prove <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>T</mi></mrow><mrow 
+><mi 
+>n</mi></mrow></msub 
+></math> is a
+subspace of <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msub><mrow 
+><mi 
+>M</mi></mrow><mrow 
+><mi 
+>n</mi><mi 
+>n</mi></mrow></msub 
+></math>
+and determine it&#x2019;s dimension. &#x00A0;<br 
+class="newline" /> Contributed&#x00A0;by&#x00A0;<a 
+href="fcla-xml-2.30li6.xml#ZimmerAndy">Andy&#x00A0;Zimmer</a>
+</p><!--l. 13--><p class="noindent" ><a 
+ id="exercise.T.T30"><span 
+class="cmbx-12">T30</span></a>   Assume <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math> is a
+<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi> <mo 
+class="MathClass-bin">&#x00D7;</mo> <mi 
+>n</mi></math> matrix with polynomial
+entries. Define <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>i</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+to be the maximum degree of the entries in row
+<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>i</mi></math>. Then
+<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo class="qopname">det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2264;</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo> <mn>2</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mo class="qopname">&#x2026;</mo> <mo 
+class="MathClass-bin">+</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>n</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>. (Hint:
+If <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>h</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>g</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>, then
+<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2264;</mo><!--mstyle 
+class="text"--><mtext  >&#x00A0;max</mtext><!--/mstyle--><mrow ><mo 
+class="MathClass-open">{</mo><mrow><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>h</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>g</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">}</mo></mrow></math>.)
+&#x00A0;<br 
+class="newline" /> Contributed&#x00A0;by&#x00A0;<a 
+href="fcla-xml-2.30li6.xml#ZimmerAndy">Andy&#x00A0;Zimmer</a>    <a 
+href="#solution.T.T30">Solution</a>&#x00A0;[<a 
+href="#x101-437000doc">2363<!--tex4ht:ref: solution.T.T30 --></a>]
+</p><!--l. 14--><p class="noindent" ><a 
+ id="exercise.T.T40"><span 
+class="cmbx-12">T40</span></a>   If <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>
+is a square matrix, the <span 
+class="cmbx-12">matrix exponential </span>is defined as
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                               <mtr><mtd 
+columnalign="right" class="align-odd"><msup><mrow 
+><mi 
+>e</mi></mrow><mrow 
+><mi 
+>A</mi></mrow></msup 
+> <mo 
+class="MathClass-rel">=</mo><munderover accentunder="false" accent="false"><mrow  
+><mo mathsize="big" 
+> &#x2211;</mo>
+  </mrow><mrow 
+><mi 
+>i</mi><mo 
+class="MathClass-rel">=</mo><mn>0</mn></mrow><mrow 
+><mi 
+>&#x221E;</mi></mrow></munderover 
+><mfrac><mrow 
+><msup><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msup 
+></mrow>
+ <mrow 
+><mi 
+>i</mi><mo 
+class="MathClass-punc">!</mo></mrow></mfrac> </mtd>                               <mtd 
+class="align-even"><mspace width="2em"/></mtd>                               <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 16--><p class="noindent" >Prove that <!--l. 16--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><msup><mrow 
+><mi 
+>e</mi></mrow><mrow 
+><mi 
+>A</mi></mrow></msup 
+></mrow></mfenced> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mi 
+>e</mi></mrow><mrow 
+><mi 
+>t</mi><mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow></msup 
+></math>.
+(You might want to give some thought to the convergence of the infinite sum as
+well.) &#x00A0;<br 
+class="newline" /> Contributed&#x00A0;by&#x00A0;<a 
+href="fcla-xml-2.30li6.xml#ZimmerAndy">Andy&#x00A0;Zimmer</a>
+                                                                          
+
+                                                                          
+</p>
+   <h4 class="likesubsectionHead"><a 
+ id="x101-437000"></a>Subsection SOL: Solutions</h4>
+<!--l. 548--><p class="noindent" ><a 
+ id="subsection.T.SOL"></a> <a 
+ id="x101-437000doc"></a><a 
+ id="dx101-437001"></a> <a 
+ id="solution.T.T30"><span 
+class="cmbx-12">T30</span></a>   Contributed&#x00A0;by&#x00A0;<a 
+href="fcla-xml-2.30li6.xml#ZimmerAndy">Andy&#x00A0;Zimmer</a>    <a 
+href="#exercise.T.T30">Statement</a>&#x00A0;[<a 
+href="#x101-436000doc">2361<!--tex4ht:ref: exercise.T.T30 --></a>]<br 
+class="newline" />We will proceed by induction. If <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>
+is a square matrix of size 1, then clearly
+<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo class="qopname">det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2264;</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>. Now assume
+<!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math> is a square
+matrix of size <!--l. 10--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>n</mi></math>
+then by <a 
+href="fcla-xml-2.30li44.xml#theorem.DER">Theorem&#x00A0;DER</a>,
+</p><!--tex4ht:inline--><!--l. 20--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+  <mtr><mtd 
+columnalign="right" class="align-odd"><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced></mtd>  <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>2</mn></mrow></msup 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mn>1</mn><mo 
+class="MathClass-punc">,</mo><mn>1</mn></mrow></msub 
+><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mn>1</mn></mrow></mfenced></mrow></mfenced> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>3</mn></mrow></msup 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mn>1</mn><mo 
+class="MathClass-punc">,</mo><mn>2</mn></mrow></msub 
+><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mn>2</mn></mrow></mfenced></mrow></mfenced><mspace width="2em"/></mtd>         <mtd 
+columnalign="right" class="align-label"></mtd>  <mtd 
+class="align-label">
+  <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>        <mtd 
+class="align-even"><mspace width="1em" class="quad"/> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>4</mn></mrow></msup 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mn>1</mn><mo 
+class="MathClass-punc">,</mo><mn>3</mn></mrow></msub 
+><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mn>3</mn></mrow></mfenced></mrow></mfenced> <mo 
+class="MathClass-bin">+</mo> <mo 
+class="MathClass-rel">&#x22EF;</mo> <mo 
+class="MathClass-bin">+</mo> <msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mi 
+>n</mi><mo 
+class="MathClass-bin">+</mo><mn>1</mn></mrow></msup 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mn>1</mn><mo 
+class="MathClass-punc">,</mo><mi 
+>n</mi></mrow></msub 
+><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>n</mi></mrow></mfenced></mrow></mfenced><mspace width="2em"/></mtd>  <mtd 
+columnalign="right" class="align-label"></mtd>  <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 22--><p class="noindent" >Let&#x2019;s consider the degree of term <!--l. 22--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>j</mi></math>,
+<!--l. 22--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>1</mn><mo 
+class="MathClass-bin">+</mo><mi 
+>j</mi></mrow></msup 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mn>1</mn><mo 
+class="MathClass-punc">,</mo><mi 
+>j</mi></mrow></msub 
+><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>j</mi></mrow></mfenced></mrow></mfenced></math>. By definition
+of the function <!--l. 22--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>m</mi><mi 
+>d</mi></math>,
+<!--l. 22--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><msub><mrow 
+><mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+><mn>1</mn><mo 
+class="MathClass-punc">,</mo><mi 
+>j</mi></mrow></msub 
+></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2264;</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>j</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>. We
+use our induction hypothesis to examine the other part of the product which tells
+us that
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 27--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+<mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>d</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mo class="qopname">det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>j</mi></mrow></mfenced></mrow></mfenced></mrow></mfenced></mtd><mtd 
+class="align-even"> <mo 
+class="MathClass-rel">&#x2264;</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>j</mi></mrow></mfenced><mo 
+class="MathClass-punc">,</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>j</mi></mrow></mfenced><mo 
+class="MathClass-punc">,</mo> <mn>2</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mo 
+class="MathClass-rel">&#x22EF;</mo> <mo 
+class="MathClass-bin">+</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>j</mi></mrow></mfenced><mo 
+class="MathClass-punc">,</mo><mi 
+>n</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label">
+<mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>           <mtd 
+class="align-even"><mspace width="2em"/></mtd>                                                       <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+<!--l. 29--><p class="noindent" >Furthermore by definition of <!--l. 29--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>j</mi></mrow></mfenced></math>
+(<a 
+href="fcla-xml-2.30li44.xml#definition.SM">Definition&#x00A0;SM</a>) row <!--l. 29--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>i</mi></math>
+of matrix <!--l. 29--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi></math>
+contains all the entries of the corresponding row in
+<!--l. 29--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>j</mi></mrow></mfenced></math>
+then,
+</p><!--tex4ht:inline--><!--l. 39--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+                    <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>j</mi></mrow></mfenced><mo 
+class="MathClass-punc">,</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mtd>                        <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">&#x2264;</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mspace width="2em"/></mtd>                        <mtd 
+columnalign="right" class="align-label"></mtd>                    <mtd 
+class="align-label">
+                    <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>j</mi></mrow></mfenced><mo 
+class="MathClass-punc">,</mo> <mn>2</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mtd>                        <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">&#x2264;</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo> <mn>2</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mspace width="2em"/></mtd>                        <mtd 
+columnalign="right" class="align-label"></mtd>                    <mtd 
+class="align-label">
+                    <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                                     <mtd 
+class="align-even"><mo 
+class="MathClass-op">&#x22EE;</mo><mspace width="2em"/></mtd>                                   <mtd 
+columnalign="right" class="align-label"></mtd>                    <mtd 
+class="align-label">
+                    <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>j</mi></mrow></mfenced><mo 
+class="MathClass-punc">,</mo><mi 
+>j</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mtd>                     <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">&#x2264;</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>j</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mspace width="2em"/></mtd>                    <mtd 
+columnalign="right" class="align-label"></mtd>                    <mtd 
+class="align-label">
+                    <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>j</mi></mrow></mfenced><mo 
+class="MathClass-punc">,</mo><mi 
+>j</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mtd>                         <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">&#x2264;</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>j</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mspace width="2em"/></mtd>                    <mtd 
+columnalign="right" class="align-label"></mtd>                    <mtd 
+class="align-label">
+                    <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                                     <mtd 
+class="align-even"><mo 
+class="MathClass-op">&#x22EE;</mo><mspace width="2em"/></mtd>                                   <mtd 
+columnalign="right" class="align-label"></mtd>                    <mtd 
+class="align-label">
+                    <mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>j</mi></mrow></mfenced><mo 
+class="MathClass-punc">,</mo><mi 
+>n</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mtd>                    <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">&#x2264;</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>n</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mspace width="2em"/></mtd>                        <mtd 
+columnalign="right" class="align-label"></mtd>                    <mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 41--><p class="noindent" >So,
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 47--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+<mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>d</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mo class="qopname">det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>j</mi></mrow></mfenced></mrow></mfenced></mrow></mfenced></mtd><mtd 
+class="align-even"> <mo 
+class="MathClass-rel">&#x2264;</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>j</mi></mrow></mfenced><mo 
+class="MathClass-punc">,</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>j</mi></mrow></mfenced><mo 
+class="MathClass-punc">,</mo> <mn>2</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mo 
+class="MathClass-rel">&#x22EF;</mo> <mo 
+class="MathClass-bin">+</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>j</mi></mrow></mfenced><mo 
+class="MathClass-punc">,</mo><mi 
+>n</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mspace width="2em"/></mtd>                      <mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label">
+<mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>           <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">&#x2264;</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo> <mn>2</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mo 
+class="MathClass-rel">&#x22EF;</mo> <mo 
+class="MathClass-bin">+</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>j</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>j</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mo 
+class="MathClass-rel">&#x22EF;</mo> <mo 
+class="MathClass-bin">+</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>n</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 49--><p class="noindent" >Then using the property that if <!--l. 49--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>g</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mi 
+>h</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+then <!--l. 49--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>g</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>h</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>,
+</p><!--tex4ht:inline--><!--l. 57--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+<mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>d</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><msup><mrow 
+><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mrow 
+><mn>1</mn><mo 
+class="MathClass-bin">+</mo><mi 
+>j</mi></mrow></msup 
+><msub><mrow 
+> <mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+>
+<mn>1</mn><mo 
+class="MathClass-punc">,</mo><mi 
+>j</mi></mrow></msub 
+><mo class="qopname"> det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>j</mi></mrow></mfenced></mrow></mfenced></mrow></mfenced></mtd><mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mi 
+>d</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><msub><mrow 
+><mfenced separators="" 
+open="["  close="]" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mrow 
+><mn>1</mn><mo 
+class="MathClass-punc">,</mo><mi 
+>j</mi></mrow></msub 
+></mrow></mfenced> <mo 
+class="MathClass-bin">+</mo> <mi 
+>d</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mo class="qopname">det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi> <mfenced separators="" 
+open="("  close=")" ><mrow><mn>1</mn><mo 
+class="MathClass-rel">|</mo><mi 
+>j</mi></mrow></mfenced></mrow></mfenced></mrow></mfenced><mspace width="2em"/></mtd>                    <mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label">
+<mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                        <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">&#x2264;</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>j</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo> <mn>2</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mo 
+class="MathClass-rel">&#x22EF;</mo><mo 
+class="MathClass-bin">+</mo><mspace width="2em"/></mtd>   <mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label">
+<mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                        <mtd 
+class="align-even"><mspace width="1em" class="quad"/><mspace width="1em" class="quad"/><mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>j</mi> <mo 
+class="MathClass-bin">&#x2212;</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>j</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mo 
+class="MathClass-rel">&#x22EF;</mo> <mo 
+class="MathClass-bin">+</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>n</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mspace width="2em"/></mtd><mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label">
+<mspace width="2em"/></mtd></mtr><mtr><mtd 
+columnalign="right" class="align-odd"></mtd>                        <mtd 
+class="align-even"> <mo 
+class="MathClass-rel">=</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo> <mn>2</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mo 
+class="MathClass-rel">&#x22EF;</mo> <mo 
+class="MathClass-bin">+</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>n</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mspace width="2em"/></mtd>     <mtd 
+columnalign="right" class="align-label"></mtd><mtd 
+class="align-label">
+   <mspace width="2em"/></mtd></mtr></mtable></math>
+<!--l. 59--><p class="noindent" >As <!--l. 59--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>j</mi></math> is
+arbitrary the degree of all terms in the determinant are so bounded. Finally using the
+fact that if <!--l. 59--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>f</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">=</mo> <mi 
+>g</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>h</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>x</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></math>
+then <!--l. 59--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>f</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2264;</mo><!--mstyle 
+class="text"--><mtext  >&#x00A0;max</mtext><!--/mstyle--><mrow ><mo 
+class="MathClass-open">{</mo><mrow><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>h</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow><mo 
+class="MathClass-punc">,</mo><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>g</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mrow><mo 
+class="MathClass-close">}</mo></mrow></math>
+we have
+                                                                          
+
+                                                                          
+</p><!--tex4ht:inline--><!--l. 63--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" ><mtable 
+columnalign="left" class="align-star">
+            <mtr><mtd 
+columnalign="right" class="align-odd"><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo class="qopname">det</mo> <mfenced separators="" 
+open="("  close=")" ><mrow><mi 
+>A</mi></mrow></mfenced></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-rel">&#x2264;</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo> <mn>1</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo> <mn>2</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">+</mo> <mo 
+class="MathClass-rel">&#x22EF;</mo> <mo 
+class="MathClass-bin">+</mo> <mi 
+>m</mi><mi 
+>d</mi><mrow ><mo 
+class="MathClass-open">(</mo><mrow><mi 
+>A</mi><mo 
+class="MathClass-punc">,</mo><mi 
+>n</mi></mrow><mo 
+class="MathClass-close">)</mo></mrow></mtd>            <mtd 
+class="align-even"><mspace width="2em"/></mtd>            <mtd 
+columnalign="right" class="align-label">
+   </mtd></mtr></mtable></math>
+                                                                          
+
+                                                                          
+                                                                          
+
+                                                                          
+   <!--l. 549--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li101.xml" >next</a>] [<a 
+href="fcla-xml-2.30li99.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li99.xml#tailfcla-xml-2.30li99.xml" >prev-tail</a>] [<a 
+href="fcla-xml-2.30li100.xml" >front</a>] [<a 
+href="fcla-xml-2.30li98.xml#fcla-xml-2.30li100.xml" >up</a>] </p></div>
+<!--l. 549--><p class="indent" >   <a 
+ id="tailfcla-xml-2.30li100.xml"></a>  </p> 
+</body> 
+</html> 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>Specifying InDesign Grouped Style Names</title>
+ <shortdesc>InDesign styles may be grouped or ungrouped. Grouped styles require
+    a specific syntax.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>InDesign<indexterm>group styles</indexterm></indexterm>
+        <indexterm>InDesign<indexterm>styles, grouped</indexterm></indexterm>
+        <indexterm>grouped InDesign styles</indexterm>
+        <indexterm>styles<indexterm>grouped</indexterm></indexterm>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>For ungrouped styles, the value specified in the elem2styleMap.xsl
+      templates is just the style name as it appears in the InDesign style list,
+      e.g. "Body Text" or "LI Bullet 1" or whatever.</p>
+    <p>For grouped styles, the value is the group name, a colon, and the style
+      name, e.g. "Chapter:Chapter Title", where "Chapter" is the group name and
+      "Chapter Title" is the style name within the group.</p>
+ </conbody>
+</concept>

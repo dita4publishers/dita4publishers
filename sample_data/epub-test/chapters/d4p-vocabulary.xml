@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
+<chapter
+  id="chapter-id">
+  <title>D4P Vocabulary tests</title>
+  <body>
+    <p><indexterm>DITA for
+      Publishers<indexterm>vocabulary</indexterm></indexterm>Tests of D4P
+      vocabulary elements.</p>
+  </body>
+  <subsection
+    id="subsection_vvn_jvk_x2">
+    <title>Simple Enumeration Domain</title>
+    <body>
+      <p><indexterm>enumeration domain</indexterm><indexterm>DITA for
+        Publisherss<indexterm>enumeration
+        domain</indexterm></indexterm><indexterm>domains<indexterm>enumeration</indexterm></indexterm>Here
+        is a simple enumerator with the value "4" (between the quotes):
+        "<d4pSimpleEnumerator>4</d4pSimpleEnumerator>".</p>
+    </body>
+  </subsection>
+</chapter>

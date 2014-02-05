@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="concept"></meta>
+<meta name="DC.Title" content="Preparing InDesign Templates for DITA-to-InDesign Use"></meta>
+<meta name="abstract" content="By taking advantage of InDesign features you can maximize the automation provided by the DITA-to-InDesign framework."></meta>
+<meta name="description" content="By taking advantage of InDesign features you can maximize the automation provided by the DITA-to-InDesign framework."></meta>
+<meta name="DC.subject" content="InDesign, optimizing for automation"></meta>
+<meta name="keywords" content="InDesign, optimizing for automation"></meta>
+<meta name="DC.Relation" scheme="URI" content="dita-to-indesign-framework-chapter.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="generating-incopy-articles.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC10"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="conceptId"></meta>
+<link rel="stylesheet" type="text/css" href="../../../commonltr.css"></link>
+<title>Preparing InDesign Templates for DITA-to-InDesign Use</title>
+</head>
+<body id="conceptId">
+
+
+ <h1 class="title topictitle1">Preparing InDesign Templates for DITA-to-InDesign Use</h1>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">By taking advantage of InDesign features you can maximize the automation provided by the DITA-to-InDesign framework.</p>
+
+    <div class="p">The main optimization techniques are:<ul class="ul">
+      <li class="li">Using threaded frames with frame break characters to automate layout of complex page designs such as chapter openers.</li>
+
+      <li class="li">Defining separate page masters for each distinct page layout (meaning unique arrangement of frames)</li>
+
+      <li class="li">Defining paragraph styles for each distinct structural component that needs a distinct presentation, especially the parts of lists (first, last, middle items, etc.).</li>
+
+      <li class="li">Using script labels on frames to enable automated placement and generation of frames based on rules applied to the XML content.</li>
+
+      </ul>
+</div>
+
+  </div>
+
+  <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="dita-to-indesign-framework-chapter.html" title="The DITA-to-InDesign transformation framework enables the generation of InDesign documents and InCopy articles from DITA maps and topics.">The DITA-to-InDesign Transformation Framework</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="generating-incopy-articles.html" title="You can generate InCopy articles from single topics or from maps using XSLT.">Configuring the DITA-to-InDesign Transformation</a></div>
+</div>
+</div>
+<div class="topic concept nested1" id="threaded-frames">
+    <h2 class="title topictitle2">Thread Frames for Complex Page Layouts</h2>
+    <div class="body conbody">
+      <p class="p">The most important automation enabler is the use of threaded frames coupled with the use of "frame break" characters in the generated content.</p>
+
+      <p class="p">For example, a chapter opener might use several frames to lay out the chapter number, chapter title, the opening paragraph, an epigraph or epigram, and so on. When Designers are creating such pages by hand they typically created disconnected (unthreaded) frames for each part and simply place the content in the frames manually.</p>
+
+      <p class="p">However, the same layout can be automated by threading all the frames in the appropriate order and using Adobe-specific frame break characters in the input to force text to start in the appropriate frame. As long as the generated text doesn't overflow a frame before the frame break is reached, all the text will be layed out correctly.</p>
+
+      <p class="p">You should always be able to take an existing page design with unthreaded frames and simply thread the frames together to create the appropriate page master.</p>
+
+      <p class="p">The generation of frame break characters is defined in the XSLT transform that generates the InCopy articles.</p>
+
+    </div>
+
+  </div>
+
+  <div class="topic concept nested1" id="page-masters">
+    <h2 class="title topictitle2">Use Page Masters for All Distinct Page Layouts</h2>
+    <div class="body conbody">
+      <p class="p">Designers will often not bother to set up distinct page masters for different pages where the variations are minor or where it's easier for them to simply do it manually. However, for automation there needs to be a distinct page master for each distinct page design, where a page design is distinct when it has frames not found on any other page in the same position.</p>
+
+      <p class="p">For example, odd and even versions of the same page need to have distinct page masters.</p>
+
+      <p class="p">Having distinct page masters allows the InDesign generation process to both select the correct page master for a given XML context and also to select the correct frame from a page master when it needs to generate a frame on demand.</p>
+
+      <p class="p">In general, the more distinction there is in the InDesign template, the easier it is to transform to it because it requires fewer complex business rules in the generation code.</p>
+
+      <p class="p">Page master names are used by the Java-based InDesign generation process to choose the appropriate page master as the basis for new pages generated for XML content.</p>
+
+    </div>
+
+  </div>
+
+  <div class="topic concept nested1" id="optimizing-styles">
+    <h2 class="title topictitle2">Define Styles for All Visual Distinctions</h2>
+    <div class="body conbody">
+      <p class="p">InDesign allows you to create named styles for paragraphs, character runs, objects, and tables. You can then use these styles to automate much of the layout of text and graphics generated from the XML.</p>
+
+      <p class="p">Most designers do not bother to create distinct styles for paragraphs that require special treatment, such as the initial or last items in lists, because it's just as easy for them to do the manual adjustment as it is to apply a distinct style. But when generating the paragraphs all visual distinctions should be defined by styles, which requires distinct styles for different instances of the same basic element, lists being the most obvious example.</p>
+
+      <p class="p">Likewise, you can use table and object styles to better automate the visual aspects of tables and graphics.</p>
+
+      <p class="p">Style names are used in the XML-to-InDesign mapping.</p>
+
+    </div>
+
+    <div class="topic concept nested2" id="styles-general">
+      <h3 class="title topictitle3">General Style Definition Guidelines</h3>
+      <div class="body conbody">
+        <div class="p">In general, you want to define as much of the visual aspect of the paragraph as you can using the style definition alone. This includes:<ul class="ul">
+          <li class="li">All spacing before, after, and around the paragraph.</li>
+
+          <li class="li">Any generated text for the paragraph, including list bullets, numbers, and so on.</li>
+
+          <li class="li">For numbered items, use InDesign's automatic numbering features for lists. <p class="p">Automatic numbering is usually not usable for numbers that span topic boundaries, such as heading and figure numbers. For those items the numbers should be generated as part of the InDesign generation process.</p>
+</li>
+
+          <li class="li">Use nested styles to format generated text. You can use nested styles to format literal text in the InDesign paragraph but it's usually easier to just generate the appropriate character style as part of the XML-to-InDesign generation process.</li>
+
+          <li class="li">Derive variant styles from base styles to make style development and maintenance easier. For example, all the paragraph styles for a given list type should be based off the same base paragraph style.</li>
+
+          <li class="li">Name styles clearly and consistently. <p class="p">It seems to work best to give styles a common prefix with suffixes that indicate the purpose of variants, such as "Bullet List 1", "Bullet List 1 First", etc. Many designers use the convention of putting character style names in all lowercase. Because the style names will be specified in the XSLT code that generates the InDesign content, it's important to have consistent names that reduce the chance of error when defining or updating the mapping.</p>
+</li>
+
+          </ul>
+</div>
+
+        <p class="p">The visual aspects of the style definitions don't matter at all to the transformation process, only the style names. This means that different documents can use the same style names with different visual definitions to get very different looks from the same transformation mapping, simply by using different InDesign templates.</p>
+
+        <p class="p">If you are using Microsoft Word to author documents from which XML is generated that then gets used to generate InDesign there is no general requirement to have the Word style names match the InDesign style names. However, it often makes things clearer to users and implementors if there is a clear association between Word style names and InDesign style names. In many cases pre-existing practice is to flow Word documents into InDesign, where the style names match so that InDesign automatically applies appropriate styles. There is no reason to change this practice when putting XML between Word and InDesign.</p>
+
+        <p class="p">By the same token, because you are going through a neutral intermediate format (XML) on the path from Word to InDesign, there is no technical requirement the Word styles have any association to the InDesign styles as the mappings from Word to XML and from XML to Word are completely independent.</p>
+
+      </div>
+
+    </div>
+
+    <div class="topic concept nested2" id="styles-lists">
+      <h3 class="title topictitle3">Styles for Lists</h3>
+      <div class="body conbody">
+        <div class="p">For lists, you generally need these styles, one set for each type of list (bulleted, numbered) and indention level (first, second, third, etc.):<ul class="ul">
+          <li class="li">A separate style for the first item in the list. This style will control the amount of space between the preceding paragraph and the start of the list.</li>
+
+          <li class="li">A separate style for the main (not first) list items. This style controls the space between items.</li>
+
+          <li class="li">A separate style for the last item in the list if you require different spacing after the list than following paragraphs would normally generate.</li>
+
+          <li class="li">Paragraphs for second and subsequent paragraphs within a list item.</li>
+
+          <li class="li">Paragraphs for other elements that might occur with list items and that would need special treatment, such as notes, examples, and so on.</li>
+
+          </ul>
+</div>
+
+        <p class="p">To Designers this will seem like a very large set of styles but it's necessary in order to enable automation.</p>
+
+        <p class="p">Use InDesign auto numbering for numbered lists unless there is some reason that the InDesign process must generate the numbers (for example, because they reflect arbitrary author control over numbering or a more complex DITA-defined business rule, such as task numbering).</p>
+
+      </div>
+
+    </div>
+
+    <div class="topic concept nested2" id="styles-object">
+      <h3 class="title topictitle3">Object Styles</h3>
+      <div class="body conbody">
+        <p class="p">InDesign lets you define styles for objects (frames) and styles. These styles can automate some aspects of graphics and table formatting. </p>
+
+        <p class="p">Use object styles by defining object styles in your InDesign template document and using those styles on template frames used for graphics.</p>
+
+        <p class="p">Tables styles are not directly supported by the general DITA-to-InDesign transformation framework as of version 0.9.11.</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="topic concept nested1" id="using-script-labesl">
+    <h2 class="title topictitle2">Use Script Labels for Key Frames</h2>
+    <div class="body conbody">
+      <p class="p">In this context "key frame" means a frame that is the initial frame of a text flow (sequence of threaded frames) or a "template" frame to use for holding graphics. That is, frames that need to be created or located by the InDesign generation process in order to construct new pages or properly populate existing pages.</p>
+
+      <p class="p">InDesign provides a general feature, script labels, that lets Designers associate arbitrary descriptive labels with frames (and other objects). Script labels then allow processors to find frames by their labels.</p>
+
+      <p class="p">In order for the Java INX library to generate new pages you must put distinct script labels on frames that the Java code will need to find. The script label can be any string as long as it is unique within the appropriate scope, which is normally within a single master spread. (While it should be possible to distinguish frames on different pages with the same label within a single master spread, the current INX support library cannot do so. In addition, there is no requirement in InDesign that frame on a spread be associated with a page within the spread, so it is best to simply give each frame a unique label within the the spread.)</p>
+
+      <p class="p">In the common case where you have even and odd versions of the same page design it can be useful to use suffixes like "-even" and "-odd" to make it easier to select frames based on use of a common base name, e.g. "MainFlow" as the base name "MainFlow-even" and "MainFlow-odd" as the labels on the even and odd versions of the frames.</p>
+
+      <p class="p">It is only necessary to put script labels on frames that will need to be selected. However, for complex page layouts and corresponding generation logic it can be helpful to put descriptive labels on all frames to aid in debugging or simply to make the intent of the page design clearer to observers.</p>
+
+    </div>
+
+  </div>
+
+  <div class="topic concept nested1" id="configuring-page-masters">
+    <h2 class="title topictitle2">Configuring Page Masters</h2>
+    <div class="body conbody">
+      <p class="p">InDesign page masters define the static components of pages and can also define frames that should be cloned into new pages created from the page master. You can use this feature to simplify the generation of new pages using the Java INX support library.</p>
+
+      <p class="p">Each frame on a master spread can be flagged as to whether or not it should override the master frame and thus be cloned to new pages. When you create new pages interactively in InDesign, the flagged frames are automatically copied to the new page. The INX support library can do the same thing, automatically cloning master frames flagged as overridable in the page master. Following the cloning, the Java code can then use script labels on the cloned frames to find the right frame for further processing (e.g., to place a story or graphic into).</p>
+
+      <p class="p">When you set up your page masters you must ensure that only those master frames that should be overridden are flagged as overridable. Any frame that should be the same on ever page with that master should be "locked" (set as not overridable) in the page master.</p>
+
+    </div>
+
+  </div>
+
+  <div class="topic concept nested1" id="template-frames">
+    <h2 class="title topictitle2">Using Template Frames</h2>
+    <div class="body conbody">
+      <p class="p">InDesign does not have a formal concept of "template frames". However, it is common design practice to create specific frames for use as templates, placing them outside the boundaries of the pages on a master page sequence. If you have frame templates that are not specific to a particular master page it usually makes sense to create a separate master spread just for template frames. This allows you to position the frames at the appropriate places on their pages, removing the need for the InDesign generation code to know how to position the frame when a frame's position on a page is invariant. When the position of a frame is variable then either the InDesign generation code needs to know how to position it or you have to leave the positiioning for a human to handle as a post-generation task.</p>
+
+      <p class="p">A frame template normally reflects a specific size, object style, default content (if applicable) and optionally a specific location along one or more placement axes (horizontal, vertical, or stacking (z axis). For example, you might want to have a specific frame style for tip-type notes. You could design the frame, giving it specific properties and a specific object style, and give it a descriptive script label. That frame could then be cloned during InDesign generation as needed. Note that the Java code needs to know the </p>
+
+      <p class="p">In manual design practice, Designers simply copy and paste these frames as needed to create new pages or page masters. The Java INX support library can do the same thing by locating frames by script label and cloning them into pages at the appropriate location.</p>
+
+      <div class="p">There are two ways to set up and use frame templates:<ol class="ol">
+        <li class="li">Place template frames specific to a given page master outside the page boundaries of the master pages and let the InDesign generation code position the frames as appropriate. This requires custom Java code to do the positioning (as of version 0.9.11).</li>
+
+        <li class="li">Create separate master spreads specifically for template frames and position the frames within the page boundaries as a appropriate. This allows the inDesign generation code to simply clone the frame onto the output page without modifying its original geometry, which allows for simpler Java code.</li>
+
+        </ol>
+</div>
+
+      <p class="p">In both cases you must of course use script labels to enable the InDesign generation process to find the appropriate template.</p>
+
+      <p class="p">Note also that there is no general way for the InDesign generation process to know where on a page a given paragraph will occur within flowed content that spans multiple pages. For the first page of a flow you can usually know or guess reasonably accurately where things will fall, depending on the page design details. But after that the best you can do is generate frames that have the appropriate properties for a human or InDesign script to place based on the final flow of the text.</p>
+
+      <p class="p">The Java code can generate anchored frames, so that Designers can know what place in the content a given frame is associated with.</p>
+
+    </div>
+
+  </div>
+
+
+</body>
+</html>

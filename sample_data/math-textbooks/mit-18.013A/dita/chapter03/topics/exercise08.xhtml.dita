@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e59"><title>Exercise 3.8</title><body><p>
+<b>Build a spreadsheet that multiplies 4 by 4 matrices.</b>
+</p><p>
+Solution:
+</p><p>
+You can build a spreadsheet that will multiply two matrices of a given size (or smaller) by entering one instruction and copying it appropriately.
+</p><p>
+This takes the drudgery, such as it is, out of multiplying matrices, and allows you to find higher powers of matrices as well.
+</p><p>
+<b>How?</b>
+</p><p>
+Suppose your 4 by 4 (say) matrix 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>A</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is in locations A1 to A4, B1 to B4, C1 to C4 and D1 to D4 and your matrix 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>B</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is in locations F1 - F4, G1 - G4, H1 - H4, and I1 - I4.
+</p><p>
+Then enter the following formula in K1
+</p><p>
+=$A1*F$1+$B1*F$2+$C1*F$3+$D1*F$4
+</p><p>
+(notice that the dollar signs go on the indices that change from term to term in the formula of the instruction.)
+</p><p>
+This formula will put the dot product of the first row of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>A</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and the first column of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>B</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ in the square K1.
+</p><p>
+Now copy this entry (using a fill or copy command) into rows 1-4 and columns from 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>K</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ upward as far as you like, say to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>A</m:mi><m:mi>Z</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p></body></topic>

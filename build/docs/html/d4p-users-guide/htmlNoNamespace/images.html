@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Image support"/>
+<meta name="abstract" content="The plugin offers the different options for images."/>
+<meta name="description" content="The plugin offers the different options for images."/>
+<meta name="DC.Relation" scheme="URI" content="../html5-toolkit-plugin.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="concept_5dp_fc4_sh"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Image support</title>
+</head>
+<body id="concept_5dp_fc4_sh">
+
+
+  <h1 class="title topictitle1">Image support</h1>
+  
+  <div class="body conbody"><p class="shortdesc">The plugin offers the different options for images.</p>
+
+    <div class="section"><h2 class="title sectiontitle">Standard images</h2>
+      
+      <p class="p">The attribute @class of body element controls general layout of the page. If the @class contains the value
+          <span class="keyword option">img-with-shadow</span>, then all images will have a drop shadow by default.</p>
+
+      <div class="p">
+        <pre class="pre codeblock">&lt;image keyref="img-dita" align="left" placement="break"/&gt;</pre>
+
+        <br/><div class="imageleft"><img class="image imageleft" src="../../../../images/DITA_finch.jpg"/></div><br/>
+      </div>
+
+      <div class="p">
+        <pre class="pre codeblock">&lt;image keyref="img-dita" align="center" placement="break"/&gt;</pre>
+
+        <br/><div class="imagecenter"><img class="image imagecenter" src="../../../../images/DITA_finch.jpg"/></div><br/>
+      </div>
+
+      <div class="p">
+        <pre class="pre codeblock">&lt;image keyref="img-dita" align="right" placement="break"/&gt;</pre>
+
+        <br/><div class="imageright"><img class="image imageright" src="../../../../images/DITA_finch.jpg"/></div><br/>
+      </div>
+
+    </div>
+
+    
+    <div class="section"><h2 class="title sectiontitle">Floating image</h2>
+      
+      <pre class="pre codeblock">
+        &lt;p&gt;
+        &lt;image keyref="img-dita" align="left" /&gt;
+        Lorem ipsum dolor sit amet.
+      &lt;/p&gt;     
+      </pre>
+
+      
+      <p class="p">
+        <img class="image" src="../../../../images/DITA_finch.jpg"/>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+
+      
+      <pre class="pre codeblock">
+        &lt;p&gt;
+        &lt;image keyref="img-dita" align="right" /&gt;
+        Lorem ipsum dolor sit amet.
+      &lt;/p&gt;     
+      </pre>
+
+      
+      <p class="p">
+        <img class="image" src="../../../../images/DITA_finch.jpg"/>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+
+      
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">SVG support</h2>
+      
+      <p class="p">The SVG is output a standard image.. This example use the <a class="xref" href="http://jquery.malsup.com/cycle/" target="_blank">jQuery Cycle</a> under the <a class="xref" href="http://www.opensource.org/licenses/mit-license.php" target="_blank"> license as an example.</a></p>
+
+      <div class="p">
+        <pre class="pre codeblock">&lt;image keyref="img-dita-svg" align="right" /&gt;</pre>
+
+        <embed class="image" src="../../../../images/DITA_finch.svg"/>
+      </div>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Cycle</h2>
+      
+      <div xmlns="http://www.w3.org/1999/xhtml" class="sectiondiv">
+        <p xmlns="" class="p">Please look at the image below for few seconds.</p>
+
+        <pre xmlns="" class="pre codeblock">
+&lt;sectiondiv outputclass="d4p-ui-cycle"&gt;
+    &lt;image keyref="img-dita-3" align="left"/&gt;
+    &lt;image keyref="img-dita-2" align="left"/&gt;
+    &lt;image keyref="img-dita" align="left"/&gt;
+&lt;/sectiondiv&gt;
+      </pre>
+
+        <div class="sectiondiv d4p-ui-cycle">
+          <img xmlns="" class="image" src="../../../../images/DITA_finch_3.jpg"/>
+          <img xmlns="" class="image" src="../../../../images/DITA_finch_2.jpg"/>
+          <img xmlns="" class="image" src="../../../../images/DITA_finch.jpg"/>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../html5-toolkit-plugin.html" title="Generates HTML5 from DITA maps.">HTML5 Plugin</a></div>
+</div>
+</div>
+
+</body>
+</html>

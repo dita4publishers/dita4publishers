@@ -1,0 +1,106 @@
+ 
+    digraph map_navigation_tree {
+    
+    // Graph properties:
+    rankdir=TB;label="Map navigation tree: DITA Topic Map title in @title attribute";
+
+  
+    node [shape="record"]
+   
+    "node_map_d50e4" [label="DITA Topic Map title in @title attribute",]
+    "\"node_topicref_d50e6\"" [
+     label="Heading 1", 
+ color="blue", 
+ 
+      ]
+     "\"node_topicref_d50e13\"" [
+     label="Sidebar A", 
+ color="blue", 
+ 
+      ]
+     "\"node_topicref_d50e20\"" [
+     label="Heading 2", 
+ color="blue", 
+ 
+      ]
+     "\"node_topicref_d50e27\"" [
+     label="Sidebar B", 
+ color="blue", 
+ 
+      ]
+     "\"node_topicref_d50e34\"" [
+     label="Sidebar B’", 
+ color="blue", 
+ 
+      ]
+     "\"node_topicref_d50e41\"" [
+     label="Subtopic B.1", 
+ color="blue", 
+ 
+      ]
+     "\"node_topicref_d50e48\"" [
+     label="Heading 3", 
+ color="blue", 
+ 
+      ]
+     "\"node_topicref_d50e55\"" [
+     label="Subtopic 3.1", 
+ color="blue", 
+ 
+      ]
+     "\"node_topicref_d50e62\"" [
+     label="Subtopic 3.1.1", 
+ color="blue", 
+ 
+      ]
+     "\"node_topicref_d50e69\"" [
+     label="Heading 4", 
+ color="blue", 
+ 
+      ]
+    
+// Start of navigation hierarchy:
+
+    "node_map_d50e4" -> {      
+"node_topicref_d50e6"
+ }
+"node_topicref_d50e6" -> {      
+    "node_topicref_d50e13" "node_topicref_d50e20"
+}      
+    "node_topicref_d50e13" -> {      
+    
+}      
+    "node_topicref_d50e20" -> {      
+    "node_topicref_d50e27" "node_topicref_d50e34" "node_topicref_d50e48"
+}      
+    "node_topicref_d50e27" -> {      
+    
+}      
+    "node_topicref_d50e34" -> {      
+    "node_topicref_d50e41"
+}      
+    "node_topicref_d50e41" -> {      
+    
+}      
+    "node_topicref_d50e48" -> {      
+    "node_topicref_d50e55" "node_topicref_d50e69"
+}      
+    "node_topicref_d50e55" -> {      
+    "node_topicref_d50e62"
+}      
+    "node_topicref_d50e62" -> {      
+    
+}      
+    "node_topicref_d50e69" -> {      
+    
+}      
+    
+// End of navigation hierarchy 
+"node_map_d50e4" [
+    shape="record",
+color="blue",
+style="filled",
+fillcolor="yellow",
+ ]
+    
+}

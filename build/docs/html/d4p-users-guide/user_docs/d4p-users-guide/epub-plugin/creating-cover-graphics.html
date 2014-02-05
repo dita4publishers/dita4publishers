@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="concept"></meta>
+<meta name="DC.Title" content="Creating Cover Graphics and Covers"></meta>
+<meta name="abstract" content="Some readers and book libraries, such as iBooks, have special conventions for cover graphics."></meta>
+<meta name="description" content="Some readers and book libraries, such as iBooks, have special conventions for cover graphics."></meta>
+<meta name="DC.subject" content="cover, graphic for, graphics"></meta>
+<meta name="keywords" content="cover, graphic for, graphics"></meta>
+<meta name="DC.Relation" scheme="URI" content="generating-epubs.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="using-custom-css.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="creating-opf-metadata.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC10"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="conceptId"></meta>
+<link rel="stylesheet" type="text/css" href="../../../commonltr.css"></link>
+<title>Creating Cover Graphics and Covers</title>
+</head>
+<body id="conceptId">
+
+
+ <h1 class="title topictitle1">Creating Cover Graphics and Covers</h1>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">Some readers and book libraries, such as iBooks, have special conventions for cover graphics.</p>
+
+  <p class="p">Some EPUB readers and library systems have special conventions for covers and cover graphics that are used to provide a graphic or icon for the book. In addition, you may want to generate or provide a cover page that serves as the first page in play order for the EPUB.</p>
+
+    <p class="p">For example, with iBooks, if you put the metadata entry <samp class="ph codeph">&lt;meta name="cover" content="coverimage"/&gt;</samp> in your EPUB's OPF file (the main manifest), where "coverimage" is the manifest ID of an included graphic, then iBooks will use that graphic in the iBooks bookshelf in iTunes and in iBooks, rather than the default cover graphic. Other readers and EPUB libraries have similar features.</p>
+
+    <div class="p">The EPUB transform provides several ways to specify the cover graphic:<ul class="ul">
+      <li class="li">You can specify the graphic as a parameter to the generation process (<a class="xref" href="reference/ant-parm-coverGraphicFile.html#referenceId" title="Specifies the absolute or relative path of the graphic to use as the cover graphic for the EPUB.">cover.graphic.file Ant parameter</a>)</li>
+
+      <li class="li">You can include a <samp class="ph codeph">&lt;data&gt;</samp> element with a @name value of "covergraphic" in the root map's <code>&lt;topicmeta&gt;</code> element, where the value or content of the <code>&lt;data&gt;</code> element is the absolute or relative path (from the map) of the graphic to use.</li>
+
+      <li class="li">You can use the DITA for Publishers
+        <code>&lt;epub-cover-graphic&gt;</code> element within the
+        <code>&lt;covers&gt;</code> section of a publication map to point to the
+        cover graphic. The <code>&lt;epub-cover-graphic&gt;</code> element must
+        have an <code>@id</code> value of "coverimage" at least for iBooks.
+        This ensures that it matches the corresponding <code>&lt;meta&gt;</code>
+        element in the generated OPF file.</li>
+
+      <li class="li">You can implement a Toolkit plugin that extends the base EPUB generation transform and override the template for <code>&lt;map&gt;</code> in the mode "get-cover-graphic-uri". For example, you may have an existing convention for representing cover graphics in your publications.</li>
+
+      </ul>
+</div>
+
+    <div class="note note"><span class="notetitle">Note:</span> The cover graphic used for the EPUB cover must (and should) be different from any other graphic representation of the cover. For example, if you reference the same graphic as the EPUB cover graphic and as an image from a "cover" topic, the EPUB OPF metadata entry will probably not be correct.<p class="p">As a general practice, the EPUB cover graphic should be a fairly low-resolution image sized according to the guidelines for the target EPUB reader or library.</p>
+</div>
+
+    <p class="p">TBD: Tips about graphics for EPUBs in different readers. If anyone knows anything useful, please let me know—Eliot.</p>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="generating-epubs.html" title="The D4P EPUB and Kindle book generation Open Toolkit plugins enable generation of delivery-ready EPUBs and Kindle books from any conforming DITA content.">Generating EPUBs and Kindle Books from DITA Content</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="using-custom-css.html" title="You can include custom CSS styles sheets in your EPUB just as you can for HTML output generally.">Using Custom CSS Style Sheets</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="creating-opf-metadata.html">Creating Arbitrary EPUB OPF Metadata</a></div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_zfw_m1x_km">
+  <title>Root Topic</title>
+  <body>
+    <p>This is the root topic</p>
+  </body>
+  <topic id="topic_hw4_n1x_km">
+    <title>Child Topic 01</title>
+    <body>
+      <p>This is child topic 01</p>
+    </body>
+    <topic id="topic_cyp_41x_km">
+      <title>Child Topic 01-01</title>
+      <body>
+        <p>This is a child of topic 01</p>
+      </body>
+    </topic>
+  </topic>
+  <topic id="topic_oqk_q1x_km">
+    <title>Child Topic 02</title>
+    <body>
+      <p>This is child topic 02</p>
+    </body>
+  </topic>
+</topic>

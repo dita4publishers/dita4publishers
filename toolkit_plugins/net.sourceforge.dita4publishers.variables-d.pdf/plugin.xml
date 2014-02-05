@@ -1,0 +1,18 @@
+<!-- 
+  Plugin descriptor for the DITA4Publishers variables domain PDF extensions
+  
+  Copyright (c) 2013 DITA For Publishers
+  
+  Implements PDF rendering for the variables domain.
+  -->
+<plugin id="net.sourceforge.dita4publishers.variables-d.pdf">
+
+  <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
+  <require plugin="net.sourceforge.dita4publishers.doctypes"/> 
+  
+  <feature extension="dita.xsl.xslfo"
+    value="xsl/variables-d2pdf.xsl" 
+      type="file"
+  />
+      
+</plugin>

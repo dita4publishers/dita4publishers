@@ -53,6 +53,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % dedication "dedication" >
 <!ENTITY % department "department" >
 <!ENTITY % draftintro "draftintro" >
+<!ENTITY % division  "division" >
 <!ENTITY % epub-cover-graphic "epub-cover-graphic" >
 <!ENTITY % epub-cover "epub-cover" >
 <!ENTITY % figurelist "figurelist" >
@@ -237,6 +238,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
    %copyright-page; | 
    %dedication; | 
    %department; |
+   %division; |
    %draftintro; | 
    %figurelist; |
    %forward; | 
@@ -276,6 +278,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % keydefs.content
  "((%topicmeta;)?,
    ((%keydef;) |
+    (%mapref;) |
     (%keydef-group;))*)"
 >
 <!ENTITY % keydefs.attributes
@@ -576,7 +579,9 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 
 <!--                    LONG NAME: Dedication                      -->
 <!ENTITY % dedication.content
-                       "(%subsection;)*"
+                       "(%subsection; |
+                         %division;
+                        )*"
 >
 <!ENTITY % dedication.attributes
              "%chapter-atts;"
@@ -708,6 +713,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % chapter.content
                        "((%topicmeta;)?, 
                          (%subsection; |
+                          %division; |
                           %sidebar; |
                           %page; |
                           %topicref;)*)"
@@ -732,6 +738,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % subsection.content
                        "((%topicmeta;)?, 
                          (%subsection; |
+                          %division; |
                           %sidebar; |
                           %page; |
                           %topicref;)*)"
@@ -746,6 +753,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ENTITY % sidebar.content
                        "((%topicmeta;)?, 
                          (%subsection; |
+                          %division; |
                           %page; |
                           topicref)*)"
 >
@@ -807,7 +815,10 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
                   #IMPLIED
               keys
                   NMTOKENS
-                  #IMPLIED              
+                  #IMPLIED   
+              navtitle
+                  CDATA
+                    #IMPLIED
               %univ-atts;        
 
 ">
@@ -819,7 +830,11 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
                        "(%topicmeta;)?"            
 >
 <!ENTITY % front-cover.attributes
-             "%chapter-atts;"
+             "%chapter-atts;
+              navtitle
+                  CDATA
+                    #IMPLIED
+             "
 >
 <!ELEMENT front-cover    %front-cover.content;>
 <!ATTLIST front-cover    %front-cover.attributes;>
@@ -829,7 +844,11 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
                        "(%topicmeta;)?"            
 >
 <!ENTITY % inside-front-cover.attributes
-             "%chapter-atts;"
+             "%chapter-atts;
+              navtitle
+                  CDATA
+                    #IMPLIED
+             "
 >
 <!ELEMENT inside-front-cover    %inside-front-cover.content;>
 <!ATTLIST inside-front-cover    %inside-front-cover.attributes;>
@@ -839,7 +858,11 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
                        "(%topicmeta;)?"            
 >
 <!ENTITY % back-cover.attributes
-             "%chapter-atts;"
+             "%chapter-atts;
+              navtitle
+                  CDATA
+                    #IMPLIED
+             "
 >
 <!ELEMENT back-cover    %back-cover.content;>
 <!ATTLIST back-cover    %back-cover.attributes;>
@@ -849,7 +872,11 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
                        "(%topicmeta;)?"            
 >
 <!ENTITY % wrap-cover.attributes
-             "%chapter-atts;"
+             "%chapter-atts;
+              navtitle
+                  CDATA
+                    #IMPLIED
+             "
 >
 <!ELEMENT wrap-cover    %wrap-cover.content;>
 <!ATTLIST wrap-cover    %wrap-cover.attributes;>
@@ -859,7 +886,11 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
                        "(%topicmeta;)?"            
 >
 <!ENTITY % front-flap.attributes
-             "%chapter-atts;"
+             "%chapter-atts;
+              navtitle
+                  CDATA
+                    #IMPLIED
+             "
 >
 <!ELEMENT front-flap    %front-flap.content;>
 <!ATTLIST front-flap    %front-flap.attributes;>
@@ -869,7 +900,11 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
                        "(%topicmeta;)?"            
 >
 <!ENTITY % back-flap.attributes
-             "%chapter-atts;"
+             "%chapter-atts;
+              navtitle
+                  CDATA
+                    #IMPLIED
+             "
 >
 <!ELEMENT back-flap    %back-flap.content;>
 <!ATTLIST back-flap    %back-flap.attributes;>
@@ -879,7 +914,11 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
                        "(%topicmeta;)?"            
 >
 <!ENTITY % spine.attributes
-             "%chapter-atts;"
+             "%chapter-atts;
+              navtitle
+                  CDATA
+                    #IMPLIED
+             "
 >
 <!ELEMENT spine    %spine.content;>
 <!ATTLIST spine    %spine.attributes;>
@@ -896,7 +935,11 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
                        "            
 >
 <!ENTITY % book-jacket.attributes
-             "%chapter-atts;"
+             "%chapter-atts;
+              navtitle
+                  CDATA
+                    #IMPLIED
+             "
 >
 <!ELEMENT book-jacket    %book-jacket.content;>
 <!ATTLIST book-jacket    %book-jacket.attributes;>
@@ -909,6 +952,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
                           ((%chapter;) | 
                            (%article;) |
                            (%department;) |
+                           (%division;) |
                            (%figurelist;) |
                            (%glossarylist;) |
                            (%partsection;) |
@@ -930,6 +974,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
                          ((%chapter;) | 
                           (%article;) |
                           (%department;) |
+                          (%division;) |
                           (%figurelist;) |
                           (%glossarylist;) |
                           (%partsection;) |
@@ -952,6 +997,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
                          ((%chapter;) | 
                           (%article;) |
                           (%department;) |
+                          (%division;) |
                           (%subsection;) |
                           (%page;))* )"
 >
@@ -960,6 +1006,22 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 >
 <!ELEMENT department    %department.content;>
 <!ATTLIST department    %department.attributes;>
+
+<!--                    LONG NAME: Division                            -->
+<!ENTITY % division.content
+                       "((%topicmeta;)?,
+                         ((%chapter;) | 
+                          (%article;) |
+                          (%department;) |
+                          (%division;) |
+                          (%subsection;) |
+                          (%page;))* )"
+>
+<!ENTITY % division.attributes
+             "%chapter-atts;"
+>
+<!ELEMENT division    %division.content;>
+<!ATTLIST division    %division.attributes;>
 
 <!--                    LONG NAME: Appendixes                        -->
 <!ENTITY % appendixes.content
@@ -1207,6 +1269,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/modules/dtd/pubmapDomain"
 <!ATTLIST covers        %global-atts; class CDATA "+ map/topicref pubmap-d/covers ">
 <!ATTLIST dedication    %global-atts; class CDATA "+ map/topicref pubmap-d/dedication ">
 <!ATTLIST department    %global-atts; class CDATA "+ map/topicref pubmap-d/department ">
+<!ATTLIST division      %global-atts; class CDATA "+ map/topicref pubmap-d/division ">
 <!ATTLIST draftintro    %global-atts; class CDATA "+ map/topicref pubmap-d/draftintro ">
 <!ATTLIST epub-cover    %global-atts; class CDATA "+ map/topicref pubmap-d/epub-cover ">
 <!ATTLIST epub-cover-graphic    %global-atts; class CDATA "+ map/topicref pubmap-d/epub-cover-graphic ">

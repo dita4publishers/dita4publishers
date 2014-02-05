@@ -1,0 +1,56 @@
+<project name="subjectscheme2navmap" default="subjectscheme2navmap"
+  >
+  
+	<!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
+	<property name="debug" value="false"/>
+	
+
+  <target name="dita2subjectscheme2navmap"
+    unless="noMap"
+    xmlns:dita="http://dita-ot.sourceforge.net"
+    dita:depends="build-init, preprocess,subjectscheme2navmap"
+    dita:extension="depends org.dita.dost.platform.InsertDependsAction">
+  </target>
+  
+  <target name="subjectscheme2navmap"
+    unless="noMap"
+    depends="dita.map.subjectscheme2navmap"/>
+	  
+    
+  <target name="dita.map.subjectscheme2navmap.init"
+    description="Init properties for subjectscheme2navmap">
+    <basename property="dita.map.toc.root"
+      file="${dita.input.filename}"
+      suffix=".ditamap" />
+
+  </target>
+  
+
+  
+  <target name="dita.map.subjectscheme2navmap" depends="dita.map.subjectscheme2navmap.init" 
+  	description="Generate a navigation map from a subject scheme map">
+  	
+    <xslt processor="trax"
+      basedir="${dita.temp.dir}"
+      destdir="${output.dir}"
+      includesfile="${dita.temp.dir}${file.separator}fullditamap.list"
+      classpathref="dost.class.path"
+      style="${map2subjectscheme2navmap.style}">
+      <param name="debug" expression="${debug}"/>
+     	<param name="tempdir" expression="${graphviz.xslt.tempdir}"/>
+    	<param name="outdir" expression="${output.dir}"/>
+    	<param name="rawPlatformString" expression="${os.name}"/>
+
+    	<!-- Parameters from dita2xhtml and similar transtypes: -->   
+      <param name="WORKDIR" expression="${workdir}" if="workdir"/>
+      <param name="DRAFT" expression="${args.draft}" if="args.draft"></param>
+      <param name="ARTLBL" expression="${args.artlbl}" if="args.artlbl"></param>
+    	<param name="OUTPUTDIR" expression="${output.dir}"/>
+      <xmlcatalog refid="dita.catalog"></xmlcatalog>
+    </xslt>
+
+
+  </target>
+  
+
+</project>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Setting Up Eclipse to Run Toolkit Ant Tasks"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/how-to-use.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="taskId"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<title>Setting Up Eclipse to Run Toolkit Ant Tasks</title>
+</head>
+<body id="taskId">
+
+
+  <h1 class="title topictitle1">Setting Up Eclipse to Run Toolkit Ant Tasks</h1>
+
+  <div class="body taskbody">
+    <div class="section context">
+      <p class="p">The DITA For Publisher materials are optimized for development using the <a class="xref" href="http://www.eclipse.org" target="_blank">Eclipse</a> development environment. In order to run DITA Open Toolkit
+        against DITA For Publishers materials from Eclipse, you must modify Eclipse's Ant
+        configuration to include the Toolkit-specific JAR files. The DITA For Publishers <span class="ph filepath">build.xml</span> file includes a property that points to your local Toolkit
+        installation. You need to also set that property to reflect your local installation. These
+        instructions assume that you already have Eclipse installed and running. The DITA For
+        Publishers source code includes an Eclipse <span class="ph filepath">.project</span> file.</p>
+
+    </div>
+
+    <ol class="ol steps"><li class="li step">
+        <span class="ph cmd">Open the Eclipse Preferences dialog.</span>
+      </li>
+<li class="li step">
+        <span class="ph cmd">Navigate to Ant/Runtime and select the "Classpath" tab.</span>
+      </li>
+<li class="li step">
+        <span class="ph cmd">Select the "Global Entries" item in the Classpath pane and then select "Add External
+          JARs...".</span>
+      </li>
+<li class="li step">
+        <span class="ph cmd">Navigate to your Toolkit's <span class="ph filepath">lib/</span> directory and select all the
+            <span class="ph filepath">.jar</span> files.</span>
+      </li>
+<li class="li step">
+        <span class="ph cmd">If you have a Toolkit that includes Saxon (which you should), repeat Step 4 and select
+          all the jars in <span class="ph filepath">lib/saxon</span>.</span>
+      </li>
+</ol>
+
+    <div class="section result">
+      <p class="p">You should now be able to run the project's Toolkit-using targets, e.g. "epub-wizard-of-oz"
+        from within Eclipse.</p>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/how-to-use.html">How To Use the DITA For Publishers Materials</a></div>
+</div>
+</div>
+
+</body>
+</html>

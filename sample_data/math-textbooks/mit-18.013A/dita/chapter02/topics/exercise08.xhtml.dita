@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e59"><title>Exercise 2.8</title><body><p>
+<b>Find an alternative expression for</b>
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>tan</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo>+</m:mo><m:mi>cot</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mn>2</m:mn></m:msup></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+Solution:
+</p><p>
+The expression here is the square of the length of the line segment AC. By the Pythagorean Theorem, that is the sum of the squares of the lengths of the sides, OA and OB, or 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>csc</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mn>2</m:mn></m:msup><m:mo>+</m:mo><m:msup><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>sec</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mn>2</m:mn></m:msup></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. I suppose there are lots of other expressions for it as well.
+</p></body></topic>

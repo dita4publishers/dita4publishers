@@ -1,0 +1,72 @@
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference id="conversion_configuration">
+    <title>conversion_configuration</title>
+    <shortdesc> <!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>conversion_configuration</indexterm>
+                <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm>
+				-->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary"><section id="summary">A conversion configuration is a configuration file that specifies mapping files for the Word2DITA and DITA2InCopy processes. It is probably most used within CMSes to control the mentioned processes.</section></refbodydiv>
+        <refbodydiv outputclass="d4p"><section id="d4p">The conversion_configuration topic type is specialized from the base topic type. It is not intended for use with output processors. Should it be processed by an output processor, the correct behavior would be to suppress it.</section></refbodydiv>    	    
+        <refbodydiv outputclass="contains"><!-- placeholder for contains --></refbodydiv>
+        <refbodydiv outputclass="contains-by"><!-- placeholder for contains-by --></refbodydiv>    
+        <refbodydiv outputclass="inheritance">
+            <section id="inheritance">
+                <title>Inheritance</title>
+                <p>- topic/topic conversion_configuration/conversion_configuration</p>
+            </section>
+        </refbodydiv>
+        <example id="example1">
+            <fig><title>Sample of an instance of conversion_configuration topic type</title>
+                <codeblock>
+&lt;conversion_configuration id="book-conversion-config"&gt;
+  &lt;title&gt;Book Conversion Configuration&lt;/title&gt;
+  &lt;conversion_configuration_body&gt;
+    &lt;section&gt; &lt;title&gt;Instructions and Notes&lt;/title&gt; &lt;p&gt;Describe relationship between optionValues here.&lt;/p&gt; &lt;/section&gt;
+    &lt;word2xmlOptions
+      spectitle="Word to XML Options"&gt;
+      &lt;optionSet&gt;
+        &lt;option&gt;
+          &lt;optionName&gt;style2tagmap&lt;/optionName&gt;
+          &lt;optionValue&gt;book-style2tagmap.xml&lt;/optionValue&gt;
+        &lt;/option&gt;
+        &lt;option&gt;
+          &lt;optionName&gt;docx2ditaXslt&lt;/optionName&gt;
+          &lt;optionValue&gt;book-docx2dita.xsl&lt;/optionValue&gt;
+        &lt;/option&gt;
+      &lt;/optionSet&gt;
+    &lt;/word2xmlOptions&gt;
+    &lt;xml2InDesignOptions
+      spectitle="XML to InDesign Options"&gt;
+      &lt;optionSet&gt;
+        &lt;option&gt;
+          &lt;optionName&gt;xml2indesignXslt&lt;/optionName&gt;
+          &lt;optionValue&gt;chapter2icml.xsl&lt;/optionValue&gt;
+        &lt;/option&gt;
+        &lt;option&gt;
+          &lt;optionName&gt;indesignStyleCatalog&lt;/optionName&gt;
+          &lt;optionValue&gt;book-dita-indesign-style-catalog.xml&lt;/optionValue&gt;
+        &lt;/option&gt;
+        &lt;option&gt;
+          &lt;optionName&gt;incopyFormat&lt;/optionName&gt;
+          &lt;optionValue&gt;icml&lt;/optionValue&gt;
+        &lt;/option&gt;
+      &lt;/optionSet&gt;
+    &lt;/xml2InDesignOptions&gt;
+  &lt;/conversion_configuration_body&gt;
+&lt;/conversion_configuration&gt;
+                </codeblock></fig>
+        </example>    	
+        <refbodydiv outputclass="attributes"><!-- attributes --></refbodydiv>
+        
+    </refbody>
+</reference>
+

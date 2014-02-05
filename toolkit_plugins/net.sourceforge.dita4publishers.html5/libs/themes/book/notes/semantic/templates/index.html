@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+	<title>Introduction to Aikido</title>
+
+	<!-- meta charset -->
+	<meta charset="UTF-8" />
+
+	<!-- Others meta -->
+	<meta name="description" content=" (合気道 Aikidō?) is a Japanese martial art developed by Morihei Ueshiba">
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+
+	<!-- Add Dublin Core ? -->
+
+	<!-- Mobile viewport  -->
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<!-- CORE CSS -->
+	<link rel="stylesheet" media="screen" href="a/css/style.css">
+
+	<!--
+		THEME CSS, should be changeable using ant property
+		This will allow user to customize their theme
+	-->
+	<link rel="stylesheet" media="screen" href="a/css/theme/default/style.css">
+	<!--
+		Javascripts
+		need to identify a framework
+		is GPL or MIT license Ok ?
+	-->
+	<script src="a/js/script.min.js"></script>
+
+	<!--
+		Unobstructive javascript,
+		we will need to pass ant property to the javascript,
+		like transtype
+	-->
+	<script type="text/javascript">
+		$(function() {
+			$("#book").html5book({
+				transtype: "transtypevalue"
+			});
+		});
+	</script>
+
+	<!-- links -->
+	<link rel="prev" href="#" />
+	<link rel="next" href="#" />
+
+</head>
+<!-- body class will contain class for the book state.
+
+Ex. :
+
+- State
+  * book-closed-cover
+  * book-closed-last
+  * book-open
+
+- Transition
+  * page-turn
+
+- Book graphics (to disable them on reader if necessary)
+  * with-graphics
+
+- Book theme
+ * theme-default
+
+(..)
+
+-->
+<body class="en-US book-open theme-default" >
+
+<div id="container">
+
+	<div id="book">
+
+		<div id="artworks">
+			<!--
+				artwork is html semantic for graphics
+				to be defined
+				could be added by javascript
+			-->
+		</div>
+
+		<div id="pages-container">
+
+			<header id="pageHeader">
+				<h1>Book title or chapter title</h1>
+				<!--
+					pages is the container for all pages
+
+					toolbar will be top of the page
+					to leave more space for the book on the screen
+				-->
+				<div id="tools">
+					<nav>
+						<h2>Toolbar</h2>
+						<ul>
+							<li> <a href="#">Back to table of content </a> </li>
+
+							<!-- the next 2 will be added by javascript -->
+							</li>
+							<li> <a href="#">Search</a> </li>
+							<li> <a href="#">Add a Bookmark</a> </li>
+						</ul>
+					</nav>
+				</div>
+			</header>
+
+			<div id="pages">
+
+				<!--  placholder for the page, see code example in pages directory -->
+
+			</div>
+
+			<footer id="pageFooter">
+
+				<div id="pager">
+					<nav id="pageTools">
+						<!--
+							We may implement a slider toolbar
+							to allow client to quickly jump from a page to another
+						-->
+						<h2>Page tools</h2>
+						<a id="buttonPrevious" rel="prev"> Previous page title </a>
+						<a id="buttonNext" rel="next"> Next page title </a>
+					</nav>
+				</div>
+
+			</footer>
+		</div>
+	</div>
+
+</div>
+</body>
+</html>

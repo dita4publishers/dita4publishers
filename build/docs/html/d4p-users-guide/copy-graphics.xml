@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="graphics-copy" default="copy-graphics">
+   <target name="copy-graphics">
+      <echo message="Doing copy graphics..."/>
+      <copy toFile="/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/build/docs/html/d4p-users-guide/images/cover-graphic.png"
+            overwrite="yes">
+         <fileset dir="/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/docs/user_docs/d4p-users-guide/images">
+            <include name="cover-graphic.png"/>
+         </fileset>
+      </copy>
+      <copy toFile="/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/build/docs/html/d4p-users-guide/images/DITA_finch.jpg"
+            overwrite="yes">
+         <fileset dir="/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/docs/user_docs/d4p-users-guide/html5-plugin/assets/img">
+            <include name="DITA_finch.jpg"/>
+         </fileset>
+      </copy>
+      <copy toFile="/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/build/docs/html/d4p-users-guide/images/DITA_finch.svg"
+            overwrite="yes">
+         <fileset dir="/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/docs/user_docs/d4p-users-guide/html5-plugin/assets/img">
+            <include name="DITA_finch.svg"/>
+         </fileset>
+      </copy>
+      <copy toFile="/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/build/docs/html/d4p-users-guide/images/DITA_finch_3.jpg"
+            overwrite="yes">
+         <fileset dir="/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/docs/user_docs/d4p-users-guide/html5-plugin/assets/img">
+            <include name="DITA_finch_3.jpg"/>
+         </fileset>
+      </copy>
+      <copy toFile="/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/build/docs/html/d4p-users-guide/images/DITA_finch_2.jpg"
+            overwrite="yes">
+         <fileset dir="/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/docs/user_docs/d4p-users-guide/html5-plugin/assets/img">
+            <include name="DITA_finch_2.jpg"/>
+         </fileset>
+      </copy>
+      <copy toFile="/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/build/docs/html/d4p-users-guide/images/directory-structure.jpg"
+            overwrite="yes">
+         <fileset dir="/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/docs/user_docs/d4p-users-guide/html5-plugin/assets/img">
+            <include name="directory-structure.jpg"/>
+         </fileset>
+      </copy>
+   </target>
+</project>

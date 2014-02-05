@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bibliography xml:id="app.bibliography"
+              xmlns="http://docbook.org/ns/docbook"
+              version="5.0"
+              xmlns:xl="http://www.w3.org/1999/xlink">
+  <info>
+      <title>Bibliography</title>
+  </info>
+    <bibliomixed  xml:id="Aberdeen">
+      <abbrev>Aberdeen, 2010</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Aberdeen Group</personname>
+        </author>
+      </authorgroup>.
+      <citetitle>Mobility in Service: The Agenda for 2010</citetitle>.
+      <bibliosource>
+        <link xl:href="http://www.aberdeen.com/Aberdeen-Library/6339/RA-mobile-field-service.aspx"/>
+      </bibliosource>.
+      Available to subscribers to the Aberdeen Research Library.
+    </bibliomixed>
+    <bibliomixed  xml:id="Dictionary.com">
+      <abbrev>Dictionary.com</abbrev>
+      <citetitle>Dictionary.com</citetitle>.
+      <bibliosource>
+        <link xl:href="http://dictionary.reference.com/"/></bibliosource>.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="Downer10">
+      <abbrev>Dunton-Downer, 2010</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Dunton-Downer, Leslie</personname>
+        </author>
+      </authorgroup>.
+      <citetitle>The English is Coming! How One Language is Sweeping the World</citetitle>.
+      <publisher><publishername>Touchstone</publishername></publisher>.
+      <pubdate>2010</pubdate>.
+      ISBN: <biblioid class="isbn">978-1-4391-7665-6</biblioid>.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="Gentle09">
+      <abbrev>Gentle09</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Gentle, Anne</personname>
+        </author>
+      </authorgroup>.
+      <citetitle>Conversation and Community: The Social Web for Documentation</citetitle>.
+      <publisher><publishername>XML Press</publishername></publisher>.
+      <pubdate>2009</pubdate>.
+      ISBN: <biblioid class="isbn">978-0-9822191-1-9</biblioid>.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="Gould08">
+      <abbrev>Gould, 2008</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Gould, Jonathan</personname>
+        </author>
+      </authorgroup>.
+      <citetitle>Can’t Buy Me Love: The Beatles, Britain and America</citetitle>.
+      <publisher><publishername>Three Rivers Press</publishername></publisher>.
+      <pubdate>2008</pubdate>.
+      ISBN: <biblioid class="isbn">978-0307353382</biblioid>.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="Halvorson08">
+      <abbrev>Halvorson, 2008</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Halvorson, Kristina</personname>
+        </author>
+      </authorgroup>.
+      <citetitle pubwork="article">The Discipline of Content Strategy.</citetitle>
+      <publisher><publishername>AlistApart.com</publishername></publisher>.
+      <pubdate>2008</pubdate>.
+      <bibliosource>
+        <link xl:href="http://www.alistapart.com/articles/thedisciplineofcontentstrategy/"/>
+      </bibliosource>.
+    </bibliomixed>
+    <bibliomixed  xml:id="Lovinger07">
+      <abbrev>Lovinger, 2007</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Lovinger, Rachel</personname>
+        </author>
+      </authorgroup>.
+      <citetitle pubwork="article">Content Strategy: The Philosophy of Data.</citetitle>
+      <publisher><publishername>Boxes and Arrows</publishername></publisher>.
+      <pubdate>2008</pubdate>.
+      <bibliosource>
+        <link xl:href="http://www.boxesandarrows.com/view/content-strategy-the"/></bibliosource>.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="Maddox12">
+      <abbrev>Maddox, 2012</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Maddox, Sarah</personname>
+        </author>
+      </authorgroup>.
+      <citetitle>Confluence, Tech Comm, Chocolate</citetitle>.
+      <publisher><publishername>XML Press</publishername></publisher>.
+      <pubdate>2012</pubdate>.
+      ISBN: <biblioid class="isbn">978-1-937434-00-7</biblioid>.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="Mader07">
+      <abbrev>Mader, 2007</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Mader, Stewart</personname>
+        </author>
+      </authorgroup>.
+      <citetitle>Wikipatterns.</citetitle>
+      <publisher><publishername>Wiley</publishername></publisher>,
+      <pubdate>2007</pubdate>,
+      ISBN: <biblioid class="isbn">978-0470223628</biblioid>.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="McCloud">
+      <abbrev>McCloud, 1994</abbrev>
+      <authorgroup>
+        <author>
+          <personname>McCloud, Scott</personname>
+        </author>
+      </authorgroup>.
+      <citetitle>Understanding Comics: The Invisible Art</citetitle>.
+      <publisher><publishername>William Morrow Paperbacks</publishername></publisher>.
+      <pubdate>1994</pubdate>.
+      ISBN: <biblioid class="isbn">978-0060976255</biblioid>.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="McKee">
+      <abbrev>McKee, 1997</abbrev>
+      <authorgroup>
+        <author>
+          <personname>McKee, Robert</personname>
+        </author>
+      </authorgroup>.
+      <citetitle>Story: Substance, Structure, Style and the Principles of Screenwriting</citetitle>.
+      <publisher><publishername>It Books</publishername></publisher>.
+      <pubdate>1997</pubdate>.
+      ISBN: <biblioid class="isbn">978-0060391683</biblioid>.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="Pettegree">
+      <abbrev>Pettegree, 2011</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Pettegree, Andres</personname>
+        </author>
+      </authorgroup>.
+      <citetitle>The Book in the Renaissance</citetitle>.
+      <publisher><publishername>Yale University Press</publishername></publisher>.
+      <pubdate>2011</pubdate>.
+      ISBN: <biblioid class="isbn">978-0300178210</biblioid>.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="Porter03">
+      <abbrev>Porter, 2003</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Porter, Alan J.</personname>
+        </author>
+      </authorgroup>
+      <citetitle>Before They Were Beatles</citetitle>.
+      <publisher><publishername>Xlibris</publishername></publisher>.
+      <pubdate>2003</pubdate>.
+      ISBN: <biblioid class="isbn">978-1413430561</biblioid>.
+    </bibliomixed>
+    
+    <bibliomixed  xml:id="Porter09">
+      <abbrev>Porter, 2009</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Porter, Alan J.</personname>
+        </author>
+      </authorgroup>
+      <citetitle>James Bond: The History of the Illustrated 007</citetitle>.
+      <publisher><publishername>Hermes Press</publishername></publisher>.
+      <pubdate>2009</pubdate>.
+      ISBN: <biblioid class="isbn">978-1932563184</biblioid>.
+    </bibliomixed>   
+
+    <bibliomixed  xml:id="Porter10">
+      <abbrev>Porter, 2010</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Porter, Alan J.</personname>
+        </author>
+      </authorgroup>
+      <citetitle>WIKI: Grow Your Own for Fun and Profit</citetitle>.
+      <publisher><publishername>XML Press</publishername></publisher>.
+      <pubdate>2010</pubdate>.
+      ISBN: <biblioid class="isbn">978-0-9822191-2-6</biblioid>.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="Porter13">
+      <abbrev>Porter, 2013</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Porter, Alan J.</personname>
+        </author>
+      </authorgroup>
+      <citetitle>The James Bond Lexicon</citetitle>.
+      <publisher><publishername>Hasslein Books</publishername></publisher>.
+      Coming in 2013.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="Powell">
+      <abbrev>Powell, 2011</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Powell, Lindsay</personname>
+        </author>
+      </authorgroup>.
+      <citetitle>All Things Under the Sun: How Modern Ideas are Really Ancient</citetitle>.
+      <publisher><publishername>lulu.com</publishername></publisher>.
+      <pubdate>2011</pubdate>.
+      ISBN: <biblioid class="isbn">978-1257378708</biblioid>.
+    </bibliomixed>
+    <bibliomixed  xml:id="Ressler">
+      <abbrev>Ressler, 1993</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Ressler, Sanford</personname>
+        </author>
+      </authorgroup>.
+      <citetitle>Perspectives on Electronic Publishing: Standards, Solutions, and More</citetitle>.
+      <publisher><publishername>Prentice Hall</publishername></publisher>.
+      <pubdate>1993</pubdate>.
+      ISBN: <biblioid class="isbn">978-0132874915</biblioid>.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="Schriver96">
+      <abbrev>Schriver, 1996</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Schriver, Karen A.</personname>
+        </author>
+      </authorgroup>
+      <citetitle>Dynamics in Document Design: Creating Text for Readers</citetitle>.
+      <publisher><publishername>Wiley</publishername></publisher>.
+      <pubdate>1996</pubdate>.
+      ISBN: <biblioid class="isbn">978-0471306368</biblioid>.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="Sheffield">
+      <abbrev>Sheffield, 2009</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Sheffield, Richard</personname>
+        </author>
+      </authorgroup>.
+      <citetitle>The Web Content Strategist's Bible: The Complete Guide To A New And Lucrative Career For Writers Of All Kinds</citetitle>.
+      <publisher><publishername>CreateSpace</publishername></publisher>.
+      <pubdate>2009</pubdate>.
+      ISBN: <biblioid class="isbn">978-1441482624</biblioid>.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="Smith99">
+      <abbrev>Smith, 1999</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Smith, Douglas K.</personname>
+        </author>
+      </authorgroup>
+      <citetitle>Fumbling the Future</citetitle>.
+      <publisher><publishername>iUniverse</publishername></publisher>.
+      <pubdate>1999</pubdate>.
+      ISBN: <biblioid class="isbn">978-1583482667</biblioid>.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="Straus07">
+      <abbrev>Straus, 2007</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Straus, Jane</personname>
+        </author>
+      </authorgroup>.
+      <citetitle>The Blue Book of Grammar and Punctuation</citetitle>.
+      <publisher><publishername>Graphics Pr</publishername></publisher>.
+      <pubdate>2007</pubdate>.
+      ISBN: <biblioid class="isbn">978-0470222683</biblioid>.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="OED">
+      <abbrev>OED, 2007</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Trumble, William R., editor</personname>
+        </author>
+      </authorgroup>.
+      <citetitle>Shorter Oxford English Dictionary</citetitle>.
+      <publisher><publishername>Oxford University Press, USA</publishername></publisher>.
+      <pubdate>2007</pubdate>.
+      ISBN: <biblioid class="isbn">978-019923243</biblioid>.
+      One of many editions of this venerable work.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="Tufte">
+      <abbrev>Tufte, 2001</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Tufte, Edward R.</personname>
+        </author>
+      </authorgroup>
+      <citetitle>The Visual Display of Quantitative Information</citetitle>.
+      <publisher><publishername>Graphics Pr</publishername></publisher>.
+      <pubdate>2001</pubdate>.
+      ISBN: <biblioid class="isbn">978-0961392147</biblioid>.
+      Second edition.
+    </bibliomixed>
+    <bibliomixed  xml:id="Websters1913">
+      <abbrev>Websters, 1913</abbrev>
+      <citetitle>Websters Unabridged Dictionary</citetitle>.
+      <bibliosource>
+        <link xl:href="http://www.gutenberg.org/ebooks/29765"/>
+      </bibliosource>.
+      Project Gutenberg's version of <citetitle>Webster’s Revised Unabridged Dictionary</citetitle>, 1913 Edition, published by C. and G. Merriam Co., Springfield, Mass. 
+    </bibliomixed>
+    <bibliomixed  xml:id="Websters">
+      <abbrev>Websters Online</abbrev>
+      <citetitle>Merriam-Webster Online</citetitle>.
+      <bibliosource>
+        <link xl:href="http://www.merriam-webster.com/"/></bibliosource>.
+    </bibliomixed>
+    <bibliomixed  xml:id="Wojcik10">
+      <abbrev>Wojcik, 2010</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Wojcik, Richard H. and James E. Hoard</personname>
+        </author>
+      </authorgroup>.
+      <citetitle pubwork="article">Controlled Languages in Industry.</citetitle>
+      In <citetitle>Survey of the State of the Art in Human Language</citetitle>,
+      edited by 
+      <authorgroup>
+        <author>
+          <personname>Cole, Ronald, et al</personname>
+        </author>
+      </authorgroup>.
+      <publisher><publishername>Cambridge University Press</publishername></publisher>.
+      <pubdate>2010</pubdate>.
+      ISBN: <biblioid class="isbn">978-0521126243</biblioid>.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="Wurman97">
+      <abbrev>Wurman, 1997</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Wurman, Richard Saul</personname>
+        </author>
+      </authorgroup>.
+      <citetitle>Information Architects</citetitle>.
+      <publisher><publishername>Graphis Inc</publishername></publisher>.
+      <pubdate>1997</pubdate>.
+      ISBN: <biblioid class="isbn">978-1888001389</biblioid>.
+    </bibliomixed>
+
+    <bibliomixed  xml:id="Wurman">
+      <abbrev>Wurman, 2000</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Wurman, Richard Saul</personname>
+        </author>
+      </authorgroup>.
+      <citetitle>Information Anxiety 2</citetitle>.
+      <publisher><publishername>Que</publishername></publisher>.
+      <pubdate>2000</pubdate>.
+      ISBN: <biblioid class="isbn">978-0789724106</biblioid>.
+      Follow up to his 1989 classic, <citetitle>Information Anxiety.</citetitle>
+    </bibliomixed>
+
+    <bibliomixed  xml:id="Zambonini10">
+      <abbrev>Zambonini, 2010</abbrev>
+      <authorgroup>
+        <author>
+          <personname>Zambonini, Dan</personname>
+        </author>
+      </authorgroup>.
+      <citetitle pubwork="article">Content Strategists: What Do They Do?</citetitle>
+      <publisher><publishername>Contentini.com</publishername></publisher>.
+      <pubdate>2010</pubdate>.
+      <bibliosource>
+        <link xl:href="http://contentini.com/content-strategists-what-do-they-do/"/></bibliosource>.
+    </bibliomixed>
+
+
+</bibliography>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="concept"></meta>
+<meta name="DC.Title" content="Generating DITA from Word Using the Toolkit Plugin"></meta>
+<meta name="abstract" content="How to use the Word-to-DITA Toolkit Plugin to generate DITA content from Word documents."></meta>
+<meta name="description" content="How to use the Word-to-DITA Toolkit Plugin to generate DITA content from Word documents."></meta>
+<meta name="DC.Relation" scheme="URI" content="word2dita-intro.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="w2d-getting-started.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="../../docx2dita_guide_and_reference/word2dita-from-oxygen.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="word-to-dita-ant-task.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC10"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="conceptId"></meta>
+<link rel="stylesheet" type="text/css" href="../../../commonltr.css"></link>
+<title>Generating DITA from Word Using the Toolkit Plugin</title>
+</head>
+<body id="conceptId">
+
+
+ <h1 class="title topictitle1">Generating DITA from Word Using the Toolkit Plugin</h1>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">How to use the Word-to-DITA Toolkit Plugin to generate DITA content from Word documents.</p>
+
+    <p class="p">To use the transformation as a Toolkit plugin simply deploy the DITA for Publishers Toolkit plugins to your Open Toolkit directory. The Word-to-DITA transformation type is "word2dita".</p>
+
+    <div class="section"><h2 class="title sectiontitle">Required Parameters</h2>
+      
+      <dl class="dl parml">
+        
+          <dt class="dt pt dlterm"><span class="keyword parmname">args.input</span></dt>
+
+          <dd class="dd pd">The absolute filename and path of the DOCX file to process.</dd>
+
+        
+        
+          <dt class="dt pt dlterm"><span class="keyword parmname">w2d.style-to-tag-map</span></dt>
+
+          <dd class="dd pd">The absolute filename and path of the style-to-tag mapping to use.</dd>
+
+        
+      </dl>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Optional Parameters</h2>
+      
+      <dl class="dl parml">
+        
+          <dt class="dt pt dlterm"><span class="keyword parmname">output.dir</span></dt>
+
+          <dd class="dd pd">Specifies the absolute path of of the directory to contain the generated output.</dd>
+
+        
+        
+          <dt class="dt pt dlterm"><span class="keyword parmname">w2d.clean.output.dir</span></dt>
+
+          <dd class="dd pd">When set to "true" deletes any files in the output directory before running the generation.</dd>
+
+        
+        
+          <dt class="dt pt dlterm"><span class="keyword parmname">w2d.filter.br</span></dt>
+
+          <dd class="dd pd">When set to any value (e.g., "true"), filters out literal break characters, which are otherwise preserved in the DITA output as <code>&lt;br&gt;</code> elements.</dd>
+
+        
+        
+          <dt class="dt pt dlterm"><span class="keyword parmname">w2d.filter.tabs</span></dt>
+
+          <dd class="dd pd">When set to any value (e.g. "true"), filters out literal tab characters, which are otherwise preserved in the DITA output as <code>&lt;tab&gt;</code> elements.</dd>
+
+        
+        
+          <dt class="dt pt dlterm"><span class="keyword parmname">w2d.root.output.filename</span></dt>
+
+          <dd class="dd pd">The filename to use for the root output file (the root map or root topic depending on how your mapping is set up), e.g. "rootmap.ditamap".</dd>
+
+        
+        
+          <dt class="dt pt dlterm"><span class="keyword parmname">w2d.word2dita.xslt</span></dt>
+
+          <dd class="dd pd">Specifies the name of the XSLT transform to use to convert the DOCX file to DITA. Default is the <span class="ph filepath">docx2dita.xsl</span> transform in the word2dita Toolkit plugin.</dd>
+
+        
+        
+          <dt class="dt pt dlterm"><span class="keyword parmname">w2d.debug.xslt</span></dt>
+
+          <dd class="dd pd">Turns on debugging of the XSLT transform. Default is "false".</dd>
+
+        
+      </dl>
+
+    </div>
+
+ </div>
+
+<div class="related-links">
+<ol class="olchildlinks">
+<li class="link olchildlink"><a href="word-to-dita-ant-task.html">Setting Up an Ant Script for Running the Word-to-DITA Transform</a><br></br>
+How to set up an Ant task to run the Word-to-DITA transform against DOCX files.</li>
+</ol>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="word2dita-intro.html" title="The Word-to-DITA (Word2DITA) transformation framework enables the reliable generation of maps and topics form styled Word documents.">The Word-to-DITA Transformation Framework</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="w2d-getting-started.html" title="How to set up an Ant task to convert a Word document to DITA using the Open Toolkit">Getting Started With The Word2DITA Transform</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../../docx2dita_guide_and_reference/word2dita-from-oxygen.html" title="You can transform Word documents from within OxygenXML without using the Open Toolkit">Generating DITA From Within OxygenXML</a></div>
+</div>
+</div>
+
+</body>
+</html>

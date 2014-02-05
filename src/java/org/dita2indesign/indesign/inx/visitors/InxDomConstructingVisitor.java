@@ -4,6 +4,7 @@
 package org.dita2indesign.indesign.inx.visitors;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
@@ -89,14 +90,29 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 			// Now visit the result of the document components:
 			this.currentParentNode = newDocElem;
 			logger.debug("visit(InDesignDocument): iterating over children:");
+			// It appears that stories (cflo) must be output after any spreads
 			for (InDesignComponent comp : doc.getChildren()) {
 				if (logger.isDebugEnabled()) {
 					String dsName = comp.getInxTagName();
 					dsName = "<" + dsName + ">";
 					logger.debug("visit(InDesignDocument): child=" + comp.getClass().getSimpleName() + ", " + dsName);
 				}
-				comp.accept(this);
+				if (!(comp instanceof Story)) {
+					comp.accept(this);
+				}				
 			}
+			Iterator<Story> storyIter = doc.getStoryIterator();
+			while (storyIter.hasNext()) {
+				Story story = storyIter.next();
+				if (logger.isDebugEnabled()) {
+					String dsName = story.getInxTagName();
+					dsName = "<" + dsName + ">";
+					logger.debug("visit(InDesignDocument): child=" + story.getClass().getSimpleName() + ", " + dsName);
+				}
+				story.accept(this);
+			}
+			
+			
 		} else {
 			logger.debug("visit(): Document does not have a data source.");
 			
@@ -113,6 +129,7 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	}
 
 	private Element processInDesignComponent(InDesignComponent comp) throws Exception {
+		comp.updatePropertyMap(); // Give the object a chance to update it's property map
 		String tagName = comp.getInxTagName();
 		if (tagName == null) {
 			throw new Exception("No INX tagname value for component " + comp);
@@ -167,11 +184,6 @@ public class InxDomConstructingVisitor implements InDesignDocumentVisitor {
 	public void visit(TextFrame frame)  throws Exception {
 		Element elem = processInDesignObject(frame);
 		setGeometryAttribute(frame, elem);
-		elem.setAttribute(InDesignDocument.PROP_STRP, constructObjectReference(frame.getParentStory()));
-		elem.setAttribute(InDesignDocument.PROP_FTXF, constructObjectReference(frame));
-		elem.setAttribute(InDesignDocument.PROP_LTXF, constructObjectReference(frame));
-		elem.setAttribute(InDesignDocument.PROP_NTXF, constructObjectReference(frame.getNextInThread()));
-		elem.setAttribute(InDesignDocument.PROP_PTXF, constructObjectReference(frame.getPreviousInThread()));
 		currentParentNode = elem.getParentNode();
 	}
 

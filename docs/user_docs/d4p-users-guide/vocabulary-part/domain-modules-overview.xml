@@ -20,7 +20,11 @@
       <li>d4p_enumerationTopicDomain<p>Provides elements for capturing or controlling the number of things like topics and list items. There is a corresponding map domain, d4p_enumerationMapDomain.</p></li>
       <li>d4p_formattingDomain<p>Provides elements intended to express direct formatting intent, such as line breaks, tabs, additional inline decoration types (e.g., strikethrough), and inclusion of formatter-specific snippets, such as embedded InDesign INX markup.</p></li>
       <li>d4p_pubcontentDomain<p>Provides elements typical to publications, such as epigrams used in part and chapter openers.</p></li>
-      <li>d4p_simpleEnumerationDomain<p>Provides simple enumeration markup for simply capturing literal numbers, for example, from legacy content.</p></li>
+      <li>d4p_simpleEnumerationDomain<p>Provides simple enumeration markup for
+        simply capturing literal numbers, for example, from legacy
+        content.</p></li>
+      <li>d4p_variablesDomain<p>Provides a simple mechanism for scoped variables
+        that can be referenced from any context.</p></li>
       <li>d4p_verseDomain<p>Provides markup for representing poetry and similar stanza-based content.</p></li>
       </ul></p>
     <p>The attribute domains are:<ul>

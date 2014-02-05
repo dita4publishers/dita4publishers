@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="graphics-copy" default="copy-graphics">
+   <target name="copy-graphics">
+      <echo message="Doing copy graphics..."/>
+      <copy toFile="/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/support_issues/issue-096/Canon_5D_MarkIV/html2/images/camera_body.svg"
+            overwrite="yes">
+         <fileset dir="/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/support_issues/issue-096/Canon_5D_MarkIV/graphics">
+            <include name="camera_body.svg"/>
+         </fileset>
+      </copy>
+      <copy toFile="/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/support_issues/issue-096/Canon_5D_MarkIV/html2/images/camera_body_rear.svg"
+            overwrite="yes">
+         <fileset dir="/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/support_issues/issue-096/Canon_5D_MarkIV/graphics">
+            <include name="camera_body_rear.svg"/>
+         </fileset>
+      </copy>
+   </target>
+</project>

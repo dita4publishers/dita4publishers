@@ -1,0 +1,739 @@
+<html lang="" xml:lang="">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>DITA For Publishers User Guide - Preparing InDesign Templates for DITA-to-InDesign Use W. Eliot Kimber InDesignoptimizing
+         for automation DITA For Publishers The DITA-to-InDesign Transformation FrameworkThe DITA-to-InDesign transformation framework
+         enables the generation of InDesign documents and InCopy articles from DITA maps and topics.Configuring the DITA-to-InDesign
+         TransformationYou can generate InCopy articles from single topics or from maps using XSLT.
+      </title>
+      
+      <meta charset="utf-8">
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      
+      <link rel="schema.DC" href="http://purl.org/dc/terms/">
+      <meta name="DC.Type" content="concept">
+      
+      <meta name="DC.Title" content="Preparing InDesign Templates for DITA-to-InDesign Use">
+      
+      <meta name="abstract" content="By taking advantage of InDesign features you can maximize the automation provided by the DITA-to-InDesign framework.">
+      
+      <meta name="description" content="By taking advantage of InDesign features you can maximize the automation provided by the DITA-to-InDesign framework.">
+      
+      <meta name="DC.subject" content="InDesign, optimizing for automation">
+      
+      <meta name="keywords" content="InDesign, optimizing for automation">
+      
+      <meta name="DC.Relation" scheme="URI" content="dita-to-indesign-framework-chapter.html">
+      
+      <meta name="DC.Relation" scheme="URI" content="generating-incopy-articles.html">
+      
+      <meta name="prodname" content="DITA For Publishers">
+      
+      <meta name="version" content="0.9.19RC10">
+      
+      <meta name="DC.Creator" content="W. Eliot Kimber">
+      
+      <meta name="DC.Format" content="XHTML">
+      
+      <meta name="DC.Identifier" content="conceptId">
+      
+      
+      <link rel="stylesheet" type="text/css" href="../../../themes/d4p-classic/css/style-min.css">
+      <script type="text/javascript" src="../../../themes/d4p-classic/js/script-min.js">
+</script>
+      <script type="text/javascript">
+d4p.setProps({"outputSelector":"#d4h5-main-content","navigationSelector":"#nav-content","externalContentElement":"section","loaderParentElement":"body","navigation":{"buttons":true,"leaf":"ui-icon-circlesmall-plus","leafActive":"ui-icon-circlesmall-minus"}});
+$(function(){d4p.init({relativePath:'../../../', });});</script>
+      </head>
+   
+   <body class="en-us d4p-classic img-with-shadow">
+      <div id="d4h5-main-container" class="container_12" role="application">
+         
+         <ul id="page-links" class="hidden">
+            <li><a id="skip-to-content" href="#d4h5-main-content">Skip to content</a></li>
+            <li><a id="skip-to-localnav" href="#local-navigation">Skip to navigation</a></li>
+            <li><a id="skip-to-footer" href="#footer">Skip to footer</a></li>
+         </ul>
+         <header role="banner" aria-labelledby="publication-title">
+            <h1 id="publication-title">DITA For Publishers User Guide</h1>
+            <form id="search" action=""><input id="search-text" type="text" autocomplete="off" placeholder="Search the documentation..." name="search"></form>
+         </header>
+         <div id="d4h5-section-container" class="grid_12">
+            <nav id="local-navigation" role="navigation" aria-label="Main navigation" class="grid_4 alpha omega">
+               <div id="nav-content">
+                  <div class="nav-pub-title">
+                     <h2 class="nav-pub-title">
+                        <span class="ph mainpubtitle">DITA For Publishers User Guide</span>
+                        
+                     </h2>
+                     
+                  </div>
+                  <ul>
+                     <li><a href="../../../user_docs/d4p-users-guide/frontmatter/coverpage.html">DITA For Publishers User Guide</a></li>
+                     <li><a href="../../../user_docs/d4p-users-guide/topics/about-this-book.html">About This Book</a></li>
+                     <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes.html">Release Notes</a><ul>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.19.html">Release Notes: Version 0.9.19</a></li>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.18.html">Release Notes: Version 0.9.18</a></li>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.16.html">Release Notes: Version 0.9.16</a></li>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.15.html">Release Notes: Version 0.9.15</a></li>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.14.html">Release Notes: Version 0.9.14</a></li>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.13.html">Release Notes: Version 0.9.13</a></li>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.12.html">Release Notes: Version 0.9.12</a></li>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.11.html">Release Notes: Version 0.9.11</a></li>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.10.html">Release Notes: Version 0.9.10</a></li>
+                           <li><a href="../../../user_docs/d4p-users-guide/release-notes/release-notes-0.9.9.html">Release Notes: Version 0.9.9</a></li>
+                        </ul>
+                     </li>
+                     <li><a href="../../../user_docs/d4p-users-guide/topics/intro-to-d4p.html"><span class="enumeration enumeration0">Chapter 1. </span>Introduction to DITA For Publishers</a></li>
+                     <li><a href="../../../user_docs/d4p-users-guide/introduction-chapter.html"><span class="enumeration enumeration0">Part I. </span>The DITA For Publishers Open Toolkit Plugins</a><ul>
+                           <li><a href="../../../user_docs/d4p-users-guide/tasks/plugin-installation.html"><span class="enumeration enumeration1">Chapter 2. </span>Installing the Toolkit Plugins</a><ul>
+                                 <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/setting-up-kindlegen.html">Setting Up The kindlegen Command-Line Utility</a></li>
+                              </ul>
+                           </li>
+                           <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/generating-epubs.html"><span class="enumeration enumeration1">Chapter 3. </span>Generating EPUBs and Kindle Books from DITA Content</a><ul>
+                                 <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/generating-epubs-from-oxygen.html">Generating EPUBs From OxygenXML</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/generating-kindle-books-from-oxygen.html">Generating Kindle Books From OxygenXML</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/using-custom-css.html">Using Custom CSS Style Sheets</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/creating-cover-graphics.html">Creating Cover Graphics and Covers</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/creating-opf-metadata.html">Creating Arbitrary EPUB OPF Metadata</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/overriding-base-processing.html">Implementing Overrides for Common Processing</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/epub-transtype-parameters-ref.html">EPUB and Kindle Transformation Parameters</a><ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-argsCssOutputDir.html">args.css.output.dir Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-coverGraphicFile.html">cover.graphic.file Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-d4pMaxNavDepth.html">d4p.max.nav.depth Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-d4pMaxTocDepth.html">d4p.max.toc.depth Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-epubIncludeAutoRellinks.html">epub.exclude.auto.rellinks Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-epubPubidUriStub.html">epub.pubid.uri.stub Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-epubTempDir.html">epub.temp.dir Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-imagesOutputDir.html">images.output.dir Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-kindleGenExecutable.html">kindlegen.executable Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicClassSpec.html">title.only.topic.class.spec Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-titleOnlyTopicTitleClassSpec.html">title.only.topic.title.class.spec Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/epub-plugin/reference/ant-parm-topicsOutputDir.html">topics.output.dir Ant parameter</a></li>
+                                    </ul>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li><a href="../../../user_docs/d4p-users-guide/map-driven-processing/map-driven-processing.html"><span class="enumeration enumeration1">Chapter 4. </span>Map-Driven Processing</a><ul>
+                                 <li><a href="../../../user_docs/d4p-users-guide/map-driven-processing/data-collection.html">Data Collection Processing Phase</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/map-driven-processing/enumeration.html">Numbering Things: Collected Data and Enumeration</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/map-driven-processing/index-generation.html">Index Generation</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/map-driven-processing/graphic-map-generation.html">Graphic Map Generation</a></li>
+                              </ul>
+                           </li>
+                           <li><a href="../../../user_docs/d4p-users-guide/html2-plugin/html2-toolkit-plugin.html"><span class="enumeration enumeration1">Chapter 5. </span>HTML2 Plugin</a><ul>
+                                 <li><a href="../../../user_docs/d4p-users-guide/html2-plugin/understanding-html2-transforms.html">Understanding the HTML2 Transformations</a><ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html2-plugin/overall-process-flow.html">Overall HTML Generation Process Flow</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html2-plugin/customizing-enumeration.html">Extending and Customizing Enumeration Processing (Numbering)</a></li>
+                                    </ul>
+                                 </li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/html2-plugin/html2-transtype-parameters-ref.html">HTML2 Transformation Parameters</a><ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-fileOrganizationStrategy.html">html2.file.organization.strategy Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-generateDynamicToc.html">html2.generate.dynamic.toc Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-generateFrameset.html">html2.generate.frameset Ant parameter</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html2-plugin/reference/ant-parm-generateStaticToc.html">html2.generate.static.toc Ant parameter</a></li>
+                                    </ul>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/html5-toolkit-plugin.html"><span class="enumeration enumeration1">Chapter 6. </span>HTML5 Plugin</a><ul>
+                                 <li id="d78e1327">Getting Started
+                                    <ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/general/downloading.html">Downloading HTML5 plugin</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/general/running.html">Running the html5 plugin</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/general/licence.html">License</a></li>
+                                    </ul>
+                                 </li>
+                                 <li id="d78e1360">Features
+                                    <ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/features/layout.html">Layout</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/features/muti-columns.html">Multiple columns layout</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/features/css-grid.html">CSS grid</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/features/images.html">Image support</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/features/notes.html">Notes</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/features/ui-intro.html">UI</a><ul>
+                                             <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/features/accordion.html">Accordion</a></li>
+                                             <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/features/ui-images.html">Cycle</a></li>
+                                          </ul>
+                                       </li>
+                                    </ul>
+                                 </li>
+                                 <li id="d78e1441">Development
+                                    <ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/intro.html">Introduction</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/directory-structure.html">Directory structure</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/theme-dev.html">Theme Development</a><ul>
+                                             <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/before.html">Before starting a new theme</a></li>
+                                             <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/theme-development.html">Development of a new theme</a></li>
+                                          </ul>
+                                       </li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/d4p.html">The d4p javascript object reference</a><ul>
+                                             <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/d4p-properties.html">The d4p properties</a><ul>
+                                                   <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/version.html">d4p.version</a></li>
+                                                   <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/loadInitialContent.html">d4p.loadInitialContent</a></li>
+                                                   <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/hash.html">d4p.hash</a></li>
+                                                   <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/outputSelector.html">d4p.outputSelector</a></li>
+                                                   <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/navigationSelector.html">d4p.navigationSelector:</a></li>
+                                                   <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/properties/externalContentElement.html">d4p.externalContentElement</a></li>
+                                                </ul>
+                                             </li>
+                                             <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/ajaxLoader/ajaxLoader.html">The d4p.ajaxLoader object type</a><ul>
+                                                   <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/dev/d4p/ajaxLoader/methods/methods.html">d4p.ajaxLoader methods</a></li>
+                                                </ul>
+                                             </li>
+                                          </ul>
+                                       </li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/references/ant-properties.html">Availaible ant properties </a></li>
+                                    </ul>
+                                 </li>
+                                 <li id="d78e1608">Glossary</li>
+                                 <li id="d78e1640">Special cases
+                                    <ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/cases/long-title.dira.html">Very long title, expected to break into multiple lines</a><ul>
+                                             <li><a href="../../../user_docs/d4p-users-guide/html5-plugin/cases/subordinate-topic.html">This is a child under the long title</a></li>
+                                          </ul>
+                                       </li>
+                                    </ul>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li><a href="../../../user_docs/d4p-users-guide/word2dita/word-to-dita-plugin.html"><span class="enumeration enumeration1">Chapter 7. </span>Generating DITA from Documents (Word-to-DITA Transformation Framework)</a></li>
+                        </ul>
+                     </li>
+                     <li><a href="../../../user_docs/d4p-users-guide/vocabulary-part/vocabulary-part.html"><span class="enumeration enumeration0">Part II. </span>The DITA For Publishers Markup Vocabulary</a><ul>
+                           <li><a href="../../../user_docs/d4p-users-guide/vocabulary-part/d4p-vocabulary-concepts.html"><span class="enumeration enumeration1">Chapter 8. </span>Understanding the DITA For Publishers Markup Vocabulary</a><ul>
+                                 <li><a href="../../../website/topics/specialization-modules-overview.html">DITA for Publishers Vocabulary Modules Overview</a><ul>
+                                       <li><a href="../../../website/topics/d4p-topic-types.html">Publication Component Topic Types</a></li>
+                                       <li><a href="../../../website/topics/pubmap-domain.html">Publication Maps</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/vocabulary-part/domain-modules-overview.html">DITA For Publishers Domains</a><ul>
+                                             <li><a href="../../../user_docs/d4p-users-guide/vocabulary-part/map-domains-overview.html">Publication Map Domains</a></li>
+                                             <li><a href="../../../user_docs/d4p-users-guide/vocabulary-part/topic-domains-overview.html">Topic Domains</a></li>
+                                             <li><a href="../../../website/topics/classification-domain.html">Classification Domain</a></li>
+                                             <li><a href="../../../website/topics/enumeration-domains.html">Enumeration Domains</a></li>
+                                             <li><a href="../../../website/topics/formatting-domain.html">Formatting Domain</a></li>
+                                             <li><a href="../../../website/topics/pubcontent-domain.html">Publication Content Domain</a></li>
+                                             <li><a href="../../../user_docs/d4p-users-guide/vocabulary-part/rendition-target-att.html">Rendition Target Attribute Domain</a></li>
+                                             <li><a href="../../../website/topics/ruby-domain.html">Ruby Domain</a></li>
+                                             <li><a href="../../../website/topics/variables-domain.html">Variables Domain</a></li>
+                                             <li><a href="../../../website/topics/versie-domain.html">Verse Domain</a></li>
+                                             <li><a href="../../../website/topics/xml-domain.html">XML Domain</a></li>
+                                          </ul>
+                                       </li>
+                                    </ul>
+                                 </li>
+                              </ul>
+                           </li>
+                           <li><a href="../../../user_docs/d4p-users-guide/vocabulary-part/integrating-modules.html"><span class="enumeration enumeration1">Chapter 9. </span>Integrating D4P Modules Into Document Type Shells</a><ul>
+                                 <li><a href="../../../user_docs/d4p-users-guide/vocabulary-part/integrating-attribute-domains.html">Integrating Attribute Domains</a></li>
+                              </ul>
+                           </li>
+                           <li><a href="../../../user_docs/d4p-users-guide/vocabulary-part/d4p-vocabulary-reference.html"><span class="enumeration enumeration1">Chapter 10. </span>DITA For Publishers Vocabulary Reference</a></li>
+                        </ul>
+                     </li>
+                     <li><a href="../../../user_docs/d4p-users-guide/transform-frameworks-part/transform-frameworks-part.html"><span class="enumeration enumeration0">Part III. </span>The DITA For Publishers Word to DITA and DITA to InDesign Tools</a><ul>
+                           <li><a href="../../../user_docs/d4p-users-guide/word2dita/word2dita-intro.html"><span class="enumeration enumeration1">Chapter 11. </span>The Word-to-DITA Transformation Framework</a><ul>
+                                 <li><a href="../../../user_docs/d4p-users-guide/word2dita/w2d-getting-started.html">Getting Started With The Word2DITA Transform</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/word2dita/word-to-dita-plugin-usage.html">Generating DITA from Word Using the Toolkit Plugin</a><ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/word2dita/word-to-dita-ant-task.html">Setting Up an Ant Script for Running the Word-to-DITA Transform</a></li>
+                                    </ul>
+                                 </li>
+                                 <li><a href="../../../user_docs/docx2dita_guide_and_reference/word2dita-from-oxygen.html">Generating DITA From Within OxygenXML</a></li>
+                                 <li><a href="../../../user_docs/docx2dita_guide_and_reference/style-to-tag-map-overview.html">Style to Tag Mapping</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/word2dita/common-mapping-cases.html">Common Style-to-Tag Mapping Cases</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/word2dita/troubleshooting-word2dita.html">Troubleshooting the Word-to-DITA Process</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/word2dita/word2dita-video-tutorial-01.html">Word-to-DITA Style-to-Tag Mapping Video Tutorial</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/word2dita/customizing-the-transform.html">Extending and Overriding the Word to DITA Transform</a><ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/word2dita/sample-customization-transform.html">Sample Custom Word-to-DITA XSLT Stylesheet</a></li>
+                                    </ul>
+                                 </li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/word2dita/word-usage-tips.html">Tips for Using Word With the Word-to-DITA Transform</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/word2dita/transform-parameters.html">Word-to-DITA XSLT Transformation Parameters</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/word2dita/word2dita-ant-parameters.html">Word-to-DITA Ant Parameters</a></li>
+                              </ul>
+                           </li>
+                           <li><a href="../../../user_docs/d4p-users-guide/dita2indesign/dita-to-indesign-framework-chapter.html"><span class="enumeration enumeration1">Chapter 12. </span>The DITA-to-InDesign Transformation Framework</a><ul>
+                                 <li><a href="../../../user_docs/d4p-users-guide/dita2indesign/indesign-product-overview.html">Overview of the InDesign and InCopy Products</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/dita2indesign/generating-incopy-articles-from-topics.html">Generating InCopy Articles from DITA Topics</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/dita2indesign/dita-to-indesign-plugin-usage.html">Generating InDesign from DITA Using the Toolkit Plugin</a></li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/dita2indesign/generating-incopy-articles.html">Configuring the DITA-to-InDesign Transformation</a><ul>
+                                       <li><a href="../../../user_docs/d4p-users-guide/dita2indesign/mapping-paragraphs-to-indesign-styles.html">Mapping XML Elements to InDesign Paragraph and Character Styles</a></li>
+                                       <li><a href="../../../user_docs/d4p-users-guide/dita2indesign/grouped-style-name-syntax.html">Specifying InDesign Grouped Style Names</a></li>
+                                    </ul>
+                                 </li>
+                                 <li><a href="../../../user_docs/d4p-users-guide/dita2indesign/indesign-optimization.html">Preparing InDesign Templates for DITA-to-InDesign Use</a></li>
+                              </ul>
+                           </li>
+                        </ul>
+                     </li>
+                     <li><a href="../../../user_docs/d4p-users-guide/appendixes/appendix-01.html"><span class="enumeration enumeration0">Appendix A. </span>This is an Appendix</a></li>
+                     <li><a href="../../../user_docs/d4p-users-guide/backmatter/colophon.html">Colophon</a></li>
+                  </ul>
+               </div>
+            </nav>
+            <div id="d4h5-main-content" class="grid_8 alpha omega">
+               <section>
+                  <div id="content-toolbar" class="toolbar"></div>
+                  <div id="topic-content">
+                     <div class="topic concept nested0" id="conceptId">
+                        
+                        <h1 class="title topictitle1">Preparing InDesign Templates for DITA-to-InDesign Use</h1>
+                        
+                        
+                        
+                        <div class="body conbody">
+                           <p class="shortdesc">By taking advantage of InDesign features you can maximize the automation provided by the DITA-to-InDesign framework.</p>
+                           
+                           
+                           <div class="p">The main optimization techniques are:
+                              <ul class="ul">
+                                 
+                                 <li class="li">Using threaded frames with frame break characters to automate layout of complex page designs such as chapter openers.</li>
+                                 
+                                 
+                                 <li class="li">Defining separate page masters for each distinct page layout (meaning unique arrangement of frames)</li>
+                                 
+                                 
+                                 <li class="li">Defining paragraph styles for each distinct structural component that needs a distinct presentation, especially the parts
+                                    of lists (first, last, middle items, etc.).
+                                 </li>
+                                 
+                                 
+                                 <li class="li">Using script labels on frames to enable automated placement and generation of frames based on rules applied to the XML content.</li>
+                                 
+                                 
+                              </ul>
+                              
+                           </div>
+                           
+                           
+                        </div>
+                        
+                        
+                        <div class="related-links">
+                           
+                           <div id="familylinks">
+                              
+                           </div>
+                           
+                        </div>
+                        
+                        <div class="topic concept nested1" id="threaded-frames">
+                           
+                           <h2 class="title topictitle2">Thread Frames for Complex Page Layouts</h2>
+                           
+                           <div class="body conbody">
+                              
+                              <p class="p">The most important automation enabler is the use of threaded frames coupled with the use of "frame break" characters in the
+                                 generated content.
+                              </p>
+                              
+                              
+                              <p class="p">For example, a chapter opener might use several frames to lay out the chapter number, chapter title, the opening paragraph,
+                                 an epigraph or epigram, and so on. When Designers are creating such pages by hand they typically created disconnected (unthreaded)
+                                 frames for each part and simply place the content in the frames manually.
+                              </p>
+                              
+                              
+                              <p class="p">However, the same layout can be automated by threading all the frames in the appropriate order and using Adobe-specific frame
+                                 break characters in the input to force text to start in the appropriate frame. As long as the generated text doesn't overflow
+                                 a frame before the frame break is reached, all the text will be layed out correctly.
+                              </p>
+                              
+                              
+                              <p class="p">You should always be able to take an existing page design with unthreaded frames and simply thread the frames together to
+                                 create the appropriate page master.
+                              </p>
+                              
+                              
+                              <p class="p">The generation of frame break characters is defined in the XSLT transform that generates the InCopy articles.</p>
+                              
+                              
+                           </div>
+                           
+                           
+                        </div>
+                        
+                        
+                        <div class="topic concept nested1" id="page-masters">
+                           
+                           <h2 class="title topictitle2">Use Page Masters for All Distinct Page Layouts</h2>
+                           
+                           <div class="body conbody">
+                              
+                              <p class="p">Designers will often not bother to set up distinct page masters for different pages where the variations are minor or where
+                                 it's easier for them to simply do it manually. However, for automation there needs to be a distinct page master for each distinct
+                                 page design, where a page design is distinct when it has frames not found on any other page in the same position.
+                              </p>
+                              
+                              
+                              <p class="p">For example, odd and even versions of the same page need to have distinct page masters.</p>
+                              
+                              
+                              <p class="p">Having distinct page masters allows the InDesign generation process to both select the correct page master for a given XML
+                                 context and also to select the correct frame from a page master when it needs to generate a frame on demand.
+                              </p>
+                              
+                              
+                              <p class="p">In general, the more distinction there is in the InDesign template, the easier it is to transform to it because it requires
+                                 fewer complex business rules in the generation code.
+                              </p>
+                              
+                              
+                              <p class="p">Page master names are used by the Java-based InDesign generation process to choose the appropriate page master as the basis
+                                 for new pages generated for XML content.
+                              </p>
+                              
+                              
+                           </div>
+                           
+                           
+                        </div>
+                        
+                        
+                        <div class="topic concept nested1" id="optimizing-styles">
+                           
+                           <h2 class="title topictitle2">Define Styles for All Visual Distinctions</h2>
+                           
+                           <div class="body conbody">
+                              
+                              <p class="p">InDesign allows you to create named styles for paragraphs, character runs, objects, and tables. You can then use these styles
+                                 to automate much of the layout of text and graphics generated from the XML.
+                              </p>
+                              
+                              
+                              <p class="p">Most designers do not bother to create distinct styles for paragraphs that require special treatment, such as the initial
+                                 or last items in lists, because it's just as easy for them to do the manual adjustment as it is to apply a distinct style.
+                                 But when generating the paragraphs all visual distinctions should be defined by styles, which requires distinct styles for
+                                 different instances of the same basic element, lists being the most obvious example.
+                              </p>
+                              
+                              
+                              <p class="p">Likewise, you can use table and object styles to better automate the visual aspects of tables and graphics.</p>
+                              
+                              
+                              <p class="p">Style names are used in the XML-to-InDesign mapping.</p>
+                              
+                              
+                           </div>
+                           
+                           
+                           <div class="topic concept nested2" id="styles-general">
+                              
+                              <h3 class="title topictitle3">General Style Definition Guidelines</h3>
+                              
+                              <div class="body conbody">
+                                 
+                                 <div class="p">In general, you want to define as much of the visual aspect of the paragraph as you can using the style definition alone.
+                                    This includes:
+                                    <ul class="ul">
+                                       
+                                       <li class="li">All spacing before, after, and around the paragraph.</li>
+                                       
+                                       
+                                       <li class="li">Any generated text for the paragraph, including list bullets, numbers, and so on.</li>
+                                       
+                                       
+                                       <li class="li">For numbered items, use InDesign's automatic numbering features for lists. 
+                                          <p class="p">Automatic numbering is usually not usable for numbers that span topic boundaries, such as heading and figure numbers. For
+                                             those items the numbers should be generated as part of the InDesign generation process.
+                                          </p>
+                                          
+                                       </li>
+                                       
+                                       
+                                       <li class="li">Use nested styles to format generated text. You can use nested styles to format literal text in the InDesign paragraph but
+                                          it's usually easier to just generate the appropriate character style as part of the XML-to-InDesign generation process.
+                                       </li>
+                                       
+                                       
+                                       <li class="li">Derive variant styles from base styles to make style development and maintenance easier. For example, all the paragraph styles
+                                          for a given list type should be based off the same base paragraph style.
+                                       </li>
+                                       
+                                       
+                                       <li class="li">Name styles clearly and consistently. 
+                                          <p class="p">It seems to work best to give styles a common prefix with suffixes that indicate the purpose of variants, such as "Bullet
+                                             List 1", "Bullet List 1 First", etc. Many designers use the convention of putting character style names in all lowercase.
+                                             Because the style names will be specified in the XSLT code that generates the InDesign content, it's important to have consistent
+                                             names that reduce the chance of error when defining or updating the mapping.
+                                          </p>
+                                          
+                                       </li>
+                                       
+                                       
+                                    </ul>
+                                    
+                                 </div>
+                                 
+                                 
+                                 <p class="p">The visual aspects of the style definitions don't matter at all to the transformation process, only the style names. This
+                                    means that different documents can use the same style names with different visual definitions to get very different looks
+                                    from the same transformation mapping, simply by using different InDesign templates.
+                                 </p>
+                                 
+                                 
+                                 <p class="p">If you are using Microsoft Word to author documents from which XML is generated that then gets used to generate InDesign there
+                                    is no general requirement to have the Word style names match the InDesign style names. However, it often makes things clearer
+                                    to users and implementors if there is a clear association between Word style names and InDesign style names. In many cases
+                                    pre-existing practice is to flow Word documents into InDesign, where the style names match so that InDesign automatically
+                                    applies appropriate styles. There is no reason to change this practice when putting XML between Word and InDesign.
+                                 </p>
+                                 
+                                 
+                                 <p class="p">By the same token, because you are going through a neutral intermediate format (XML) on the path from Word to InDesign, there
+                                    is no technical requirement the Word styles have any association to the InDesign styles as the mappings from Word to XML and
+                                    from XML to Word are completely independent.
+                                 </p>
+                                 
+                                 
+                              </div>
+                              
+                              
+                           </div>
+                           
+                           
+                           <div class="topic concept nested2" id="styles-lists">
+                              
+                              <h3 class="title topictitle3">Styles for Lists</h3>
+                              
+                              <div class="body conbody">
+                                 
+                                 <div class="p">For lists, you generally need these styles, one set for each type of list (bulleted, numbered) and indention level (first,
+                                    second, third, etc.):
+                                    <ul class="ul">
+                                       
+                                       <li class="li">A separate style for the first item in the list. This style will control the amount of space between the preceding paragraph
+                                          and the start of the list.
+                                       </li>
+                                       
+                                       
+                                       <li class="li">A separate style for the main (not first) list items. This style controls the space between items.</li>
+                                       
+                                       
+                                       <li class="li">A separate style for the last item in the list if you require different spacing after the list than following paragraphs would
+                                          normally generate.
+                                       </li>
+                                       
+                                       
+                                       <li class="li">Paragraphs for second and subsequent paragraphs within a list item.</li>
+                                       
+                                       
+                                       <li class="li">Paragraphs for other elements that might occur with list items and that would need special treatment, such as notes, examples,
+                                          and so on.
+                                       </li>
+                                       
+                                       
+                                    </ul>
+                                    
+                                 </div>
+                                 
+                                 
+                                 <p class="p">To Designers this will seem like a very large set of styles but it's necessary in order to enable automation.</p>
+                                 
+                                 
+                                 <p class="p">Use InDesign auto numbering for numbered lists unless there is some reason that the InDesign process must generate the numbers
+                                    (for example, because they reflect arbitrary author control over numbering or a more complex DITA-defined business rule, such
+                                    as task numbering).
+                                 </p>
+                                 
+                                 
+                              </div>
+                              
+                              
+                           </div>
+                           
+                           
+                           <div class="topic concept nested2" id="styles-object">
+                              
+                              <h3 class="title topictitle3">Object Styles</h3>
+                              
+                              <div class="body conbody">
+                                 
+                                 <p class="p">InDesign lets you define styles for objects (frames) and styles. These styles can automate some aspects of graphics and table
+                                    formatting. 
+                                 </p>
+                                 
+                                 
+                                 <p class="p">Use object styles by defining object styles in your InDesign template document and using those styles on template frames used
+                                    for graphics.
+                                 </p>
+                                 
+                                 
+                                 <p class="p">Tables styles are not directly supported by the general DITA-to-InDesign transformation framework as of version 0.9.11.</p>
+                                 
+                                 
+                              </div>
+                              
+                              
+                           </div>
+                           
+                           
+                        </div>
+                        
+                        
+                        <div class="topic concept nested1" id="using-script-labesl">
+                           
+                           <h2 class="title topictitle2">Use Script Labels for Key Frames</h2>
+                           
+                           <div class="body conbody">
+                              
+                              <p class="p">In this context "key frame" means a frame that is the initial frame of a text flow (sequence of threaded frames) or a "template"
+                                 frame to use for holding graphics. That is, frames that need to be created or located by the InDesign generation process in
+                                 order to construct new pages or properly populate existing pages.
+                              </p>
+                              
+                              
+                              <p class="p">InDesign provides a general feature, script labels, that lets Designers associate arbitrary descriptive labels with frames
+                                 (and other objects). Script labels then allow processors to find frames by their labels.
+                              </p>
+                              
+                              
+                              <p class="p">In order for the Java INX library to generate new pages you must put distinct script labels on frames that the Java code will
+                                 need to find. The script label can be any string as long as it is unique within the appropriate scope, which is normally within
+                                 a single master spread. (While it should be possible to distinguish frames on different pages with the same label within a
+                                 single master spread, the current INX support library cannot do so. In addition, there is no requirement in InDesign that
+                                 frame on a spread be associated with a page within the spread, so it is best to simply give each frame a unique label within
+                                 the the spread.)
+                              </p>
+                              
+                              
+                              <p class="p">In the common case where you have even and odd versions of the same page design it can be useful to use suffixes like "-even"
+                                 and "-odd" to make it easier to select frames based on use of a common base name, e.g. "MainFlow" as the base name "MainFlow-even"
+                                 and "MainFlow-odd" as the labels on the even and odd versions of the frames.
+                              </p>
+                              
+                              
+                              <p class="p">It is only necessary to put script labels on frames that will need to be selected. However, for complex page layouts and corresponding
+                                 generation logic it can be helpful to put descriptive labels on all frames to aid in debugging or simply to make the intent
+                                 of the page design clearer to observers.
+                              </p>
+                              
+                              
+                           </div>
+                           
+                           
+                        </div>
+                        
+                        
+                        <div class="topic concept nested1" id="configuring-page-masters">
+                           
+                           <h2 class="title topictitle2">Configuring Page Masters</h2>
+                           
+                           <div class="body conbody">
+                              
+                              <p class="p">InDesign page masters define the static components of pages and can also define frames that should be cloned into new pages
+                                 created from the page master. You can use this feature to simplify the generation of new pages using the Java INX support
+                                 library.
+                              </p>
+                              
+                              
+                              <p class="p">Each frame on a master spread can be flagged as to whether or not it should override the master frame and thus be cloned to
+                                 new pages. When you create new pages interactively in InDesign, the flagged frames are automatically copied to the new page.
+                                 The INX support library can do the same thing, automatically cloning master frames flagged as overridable in the page master.
+                                 Following the cloning, the Java code can then use script labels on the cloned frames to find the right frame for further processing
+                                 (e.g., to place a story or graphic into).
+                              </p>
+                              
+                              
+                              <p class="p">When you set up your page masters you must ensure that only those master frames that should be overridden are flagged as overridable.
+                                 Any frame that should be the same on ever page with that master should be "locked" (set as not overridable) in the page master.
+                              </p>
+                              
+                              
+                           </div>
+                           
+                           
+                        </div>
+                        
+                        
+                        <div class="topic concept nested1" id="template-frames">
+                           
+                           <h2 class="title topictitle2">Using Template Frames</h2>
+                           
+                           <div class="body conbody">
+                              
+                              <p class="p">InDesign does not have a formal concept of "template frames". However, it is common design practice to create specific frames
+                                 for use as templates, placing them outside the boundaries of the pages on a master page sequence. If you have frame templates
+                                 that are not specific to a particular master page it usually makes sense to create a separate master spread just for template
+                                 frames. This allows you to position the frames at the appropriate places on their pages, removing the need for the InDesign
+                                 generation code to know how to position the frame when a frame's position on a page is invariant. When the position of a frame
+                                 is variable then either the InDesign generation code needs to know how to position it or you have to leave the positiioning
+                                 for a human to handle as a post-generation task.
+                              </p>
+                              
+                              
+                              <p class="p">A frame template normally reflects a specific size, object style, default content (if applicable) and optionally a specific
+                                 location along one or more placement axes (horizontal, vertical, or stacking (z axis). For example, you might want to have
+                                 a specific frame style for tip-type notes. You could design the frame, giving it specific properties and a specific object
+                                 style, and give it a descriptive script label. That frame could then be cloned during InDesign generation as needed. Note
+                                 that the Java code needs to know the 
+                              </p>
+                              
+                              
+                              <p class="p">In manual design practice, Designers simply copy and paste these frames as needed to create new pages or page masters. The
+                                 Java INX support library can do the same thing by locating frames by script label and cloning them into pages at the appropriate
+                                 location.
+                              </p>
+                              
+                              
+                              <div class="p">There are two ways to set up and use frame templates:
+                                 <ol class="ol">
+                                    
+                                    <li class="li">Place template frames specific to a given page master outside the page boundaries of the master pages and let the InDesign
+                                       generation code position the frames as appropriate. This requires custom Java code to do the positioning (as of version 0.9.11).
+                                    </li>
+                                    
+                                    
+                                    <li class="li">Create separate master spreads specifically for template frames and position the frames within the page boundaries as a appropriate.
+                                       This allows the inDesign generation code to simply clone the frame onto the output page without modifying its original geometry,
+                                       which allows for simpler Java code.
+                                    </li>
+                                    
+                                    
+                                 </ol>
+                                 
+                              </div>
+                              
+                              
+                              <p class="p">In both cases you must of course use script labels to enable the InDesign generation process to find the appropriate template.</p>
+                              
+                              
+                              <p class="p">Note also that there is no general way for the InDesign generation process to know where on a page a given paragraph will
+                                 occur within flowed content that spans multiple pages. For the first page of a flow you can usually know or guess reasonably
+                                 accurately where things will fall, depending on the page design details. But after that the best you can do is generate frames
+                                 that have the appropriate properties for a human or InDesign script to place based on the final flow of the text.
+                              </p>
+                              
+                              
+                              <p class="p">The Java code can generate anchored frames, so that Designers can know what place in the content a given frame is associated
+                                 with.
+                              </p>
+                              
+                              
+                           </div>
+                           
+                           
+                        </div>
+                        
+                        
+                     </div>
+                     
+                  </div>
+               </section>
+               <div class="clear"></div>
+               
+            </div>
+            <div class="clearfix"></div>
+         </div>
+         <div class="clearfix"></div>
+         <div id="footer-container" class="grid_12">
+            
+            
+         </div>
+      </div>
+   </body>
+   
+</html>

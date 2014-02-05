@@ -19,6 +19,10 @@
       <li>You can specify either the style display name, using <xmlatt>styleName</xmlatt> or the style ID, using <xmlatt>styleId</xmlatt>. The style name is the display name that is used in the various Word style-related user interfaces. The style ID is the value specified in the underlying markup for paragraphs and character ranges. If you specify both style name and style ID on a mapping, the style name takes precedence. In general, the style name is more reliable as Word may change the style ID, for example, when using locale-specific versions of Word.</li>
       <li>The "style ID" for Word styles is not the same as the display name of the style, but it is usually very similar. In most cases the style ID is the display name with all spaces and special character removed, e.g., the style with the display name "Heading 1" has the style ID "Heading1". If you happen to define two style names that differ only in their use of spaces, e.g., "Heading 1" and "Heading1", then the style ID of the second style defined will be something like "Heading10" so that the style ID is unique within the Word document. If you're not sure what the style ID is you can open the document.xml file from the DOCX Zip package and look for <xmlelem>w:pStyle</xmlelem> elements—the value of the <xmlatt>w:val</xmlatt> attribute is the style ID.</li>
       <li>The <xmlatt>tagName</xmlatt> attribute always specifies the name of the <i>primary</i> (most deeply nested) result element. The primary result may be surrounded by other elements as specified with other attributes, such as <xmlatt>containerType</xmlatt>. The element named by <xmlatt>tagName</xmlatt> is the element that will contain the text of the paragraph or character run being mapped, except in a few special cases, such as mapping to section elements.</li>
+      <li>The <xmlatt>outputclass</xmlatt> attribute is helpful for applying further XSLT processing (particularly
+          in finding appropriate elements) and for applying additional styling in an output (like in
+          HTML where the <xmlatt>outputclass</xmlatt> attribute becomes part of the generated class attribute that
+          can be used with CSS).</li>
       </ul></p>
     <p>Finally, the design of the current style-to-tag mapping document evolved somewhat organically based on client requirements as they came up. There are aspects of it that are not necessarily logically consistent. I have started the process of designing a new style-to-tag mapping document type but it's on the back burner. But I would definitely welcome any suggestions for how to make the mapping markup clearer or easier to use.</p>
  </conbody>
@@ -246,7 +250,43 @@
     id="mapping-metadata">
     <title>Mapping Metadata</title>
     <conbody>
-      <p>TBD</p>
+      <p>To map paragraphs to <xmlelem>data</xmlelem> elements within the root
+        topic prolog, you must specify:<ul
+        id="ul_egh_k3v_3h">
+        <li><xmlatt>topicZone</xmlatt> as "prolog"</li>
+        <li><xmlatt>baseClass</xmlatt> as "- topic/data " (note the trailing
+          blank) </li>
+        <li><xmlatt>containingTopic</xmlatt> as "root" </li>
+        <li><xmlatt>level</xmlatt> as "0"</li>
+        </ul></p>
+      <p>To map to unspecialized <xmlelem>data</xmlelem> you would specify
+        <xmlatt>tagName</xmlatt> as "data". You can put the paragraph content
+        either into the content of the <xmlelem>data</xmlelem> element or into
+        the <xmlatt>value</xmlatt> attribute. To put it in content, set
+        <xmlatt>putValueIn</xmlatt> to "content", otherwise set it to
+        "value".</p>
+      <p>Because the DITA content model for <xmlelem>prolog</xmlelem> is a bit
+        fiddly, with a required sequence of element types, you may need to apply
+        post-processing in the "final-fixup" mode to make sure the resulting
+        prolog content is valid.</p>
+    </conbody>
+  </concept>
+  <concept
+    id="mapping-sidebars">
+    <title>Mapping Sidebars</title>
+    <conbody>
+      <p>Sidebars are a particular problematic element because they often have no fixed location in the overall hierarchy. That is, they are often allowed (by publishers' business rules) to occur at many different levels (perhaps inside Heading 1, Heading 2, Heading 3, and Heading 4 sections). This used to require specific Word styles for each hierarchical level that the sidebar could appear at (e.g., Sidebar Title in Heading 1, Sidebar Title in Heading 2). That increased work and potential for error for maintainers of the style-to-tag mapping (because they had to make sure they had appropriate definitions for each level a sidebar was allowed at) and for authors (because they had to use the right sidebar style for whatever level the sidebar was to apepar at. These obstacles have been overcome starting in 0.9.19 RC 11.</p>
+      <p>With 0.9.19 RC 11, there is further processing that recalculates the level for individual instances of topic-generating styles. Because the recalculation respects the relationships between levels as established in the style-to-tag mapping, authors can place sidebars where they want and mapping maintainers only need a single sidebar title style definition (assuming they set the relationships correctly). The easiest (perhaps best) way to set the level for sidebars is to give them a really deep level, such as 50. In the recalculation, each instance of the sidebar title will be assigned a level that nests the sidebar within the parent topic.</p>
+      <p>For example, to map the paragraph "Sidebar Title" to a sidebar topic you would use this mapping:<codeblock>&lt;style styleName="Sidebar Title"
+  structureType="topicTitle"
+  tagName="title"
+  topicType="sidebar"
+  bodyType="body"
+  prologType="prolog"
+  level="50"
+/></codeblock></p>
+      <p>For information on other attributes, see the section <xref href="#headings" format="dita"/>.</p>
+      
     </conbody>
   </concept>
 </concept>

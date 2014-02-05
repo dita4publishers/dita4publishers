@@ -4,6 +4,7 @@
 package org.dita2indesign.indesign.inx.model;
 
 import java.awt.geom.Rectangle2D;
+import java.util.Collection;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -113,7 +114,8 @@ public class Box {
 	 */
 	public boolean intersects(Box box1) {
 		Rectangle2D b1Rect = box1.getRectangle2D();
-		return b1Rect.intersects(this.getRectangle2D());
+		Rectangle2D myRect = this.getRectangle2D();
+		return b1Rect.intersects(myRect);
 	}
 
 	/**
@@ -190,13 +192,25 @@ public class Box {
 	 * @return
 	 */
 	public Box transform(TransformationMatix matrix) {
-		// FIXME: For now assuming that all transforms are simple translations on
-		// unrotated or scaled boxes.
-		double left = this.getLeft() + matrix.getXTranslation();
-		double top = this.getTop() + matrix.getYTranslation();
-		double right = this.getRight() + matrix.getXTranslation();
-		double bottom = this.getBottom() + matrix.getYTranslation();
-		Box newBox = new Box(left, top, right, bottom);
+		
+		// FIXME: This is bogus because the transform could do a rotation or
+		// skew, in which case defining the box as the position of the edges
+		// is no good. For now using the opposite corners to set the edge
+		// positions.
+
+		PathPoint ul = new PathPoint(this.getLeft(), this.getTop());
+		PathPoint newUl = matrix.transform(ul);
+		
+//		PathPoint ur = new PathPoint(this.getRight(), this.getTop());
+//		PathPoint newUr = matrix.transform(ur);
+		
+		PathPoint lr = new PathPoint(this.getRight(), this.getBottom());
+		PathPoint newLr = matrix.transform(lr);
+		
+//		PathPoint ll = new PathPoint(this.getLeft(), this.getBottom());
+//		PathPoint newLl = matrix.transform(ll);
+		
+		Box newBox = new Box(newUl.getX(),newUl.getY(), newLr.getX(), newLr.getY());
 		return newBox;
 	}
 	

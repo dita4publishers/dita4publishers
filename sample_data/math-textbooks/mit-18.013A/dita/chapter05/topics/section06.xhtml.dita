@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e56"><title>5.6 Vector Triple Products</title><body><p>
+The volume of a parallelepiped with sides 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>,</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is the area of its base (say the parallelogram with area 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mrow><m:mo>|</m:mo><m:mrow><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow><m:mo>|</m:mo></m:mrow></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ ) multiplied by its altitude, the component of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ in the direction of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. This is the magnitude of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>·</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+; but it is also the magnitude of the determinant of the matrix with column 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>,</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, so these linear functions of the vectors here are the same up to sign. The usual sign convention gives
+</p><p>
+
+</p><p>
+This product is not changed by cyclically permuting the vectors (for example to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>,</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>,</m:mo><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ ) or by reversing the order of the factors in the dot product.
+</p><p>
+We can deduce then that
+<b>
+  <d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>·</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>=</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>·</m:mo><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>=</m:mo><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>·</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>.</b>
+In words,
+<b>we can switch the dot and cross product without changing anything 
+  in this entity.</b>
+(In either formula of course you must take the cross product first.) This product, like the determinant, changes sign if you just reverse the vectors in the cross product.
+<br/>
+</p><p>
+The vector triple product, 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is a vector, is normal to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and normal to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ which means it is in the plane of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. And it is linear in all three vectors.
+</p><p>
+We can deduce it is a multiple of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ that is linear in 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ plus a multiple of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ that is linear in 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, with the condition that it is normal to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+Any multiple of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>·</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo><m:mo>−</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>·</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ will obey all these conditions.
+</p><p>
+What multiple is 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+?
+</p><p>
+Suppose 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:mi>q</m:mi><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>·</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo><m:mo>−</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>·</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ holds.
+</p><p>
+Earlier we saw that the square of the area of a parallelogram with sides 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ can be written either as 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>·</m:mo><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>·</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo><m:mo>−</m:mo><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>·</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>·</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ or 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo><m:mo>·</m:mo><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. By interchanging the dot and first cross product on the right here you can rewrite this equality as
+</p>
+    <d4p_eqn_block>
+      <d4p_MathML>
+        <m:math
+          xmlns:m="http://www.w3.org/1998/Math/MathML"
+          display="block"
+          overflow="scroll">
+          <m:mrow>
+            <m:mo
+              stretchy="false">(</m:mo>
+            <m:mover
+              accent="true">
+              <m:mi>B</m:mi>
+              <m:mo
+                stretchy="true">⟶</m:mo>
+            </m:mover>
+            <m:mo>×</m:mo>
+            <m:mover
+              accent="true">
+              <m:mi>A</m:mi>
+              <m:mo
+                stretchy="true">⟶</m:mo>
+            </m:mover>
+            <m:mo
+              stretchy="false">)</m:mo>
+            <m:mo>·</m:mo>
+            <m:mo
+              stretchy="false">(</m:mo>
+            <m:mover
+              accent="true">
+              <m:mi>B</m:mi>
+              <m:mo
+                stretchy="true">⟶</m:mo>
+            </m:mover>
+            <m:mo>×</m:mo>
+            <m:mover
+              accent="true">
+              <m:mi>A</m:mi>
+              <m:mo
+                stretchy="true">⟶</m:mo>
+            </m:mover>
+            <m:mo
+              stretchy="false">)</m:mo>
+            <m:mo>=</m:mo>
+            <m:mover
+              accent="true">
+              <m:mi>B</m:mi>
+              <m:mo
+                stretchy="true">⟶</m:mo>
+            </m:mover>
+            <m:mo>·</m:mo>
+            <m:mo
+              stretchy="false">(</m:mo>
+            <m:mover
+              accent="true">
+              <m:mi>A</m:mi>
+              <m:mo
+                stretchy="true">⟶</m:mo>
+            </m:mover>
+            <m:mo>×</m:mo>
+            <m:mo
+              stretchy="false">(</m:mo>
+            <m:mover
+              accent="true">
+              <m:mi>B</m:mi>
+              <m:mo
+                stretchy="true">⟶</m:mo>
+            </m:mover>
+            <m:mo>×</m:mo>
+            <m:mover
+              accent="true">
+              <m:mi>A</m:mi>
+              <m:mo
+                stretchy="true">⟶</m:mo>
+            </m:mover>
+            <m:mo
+              stretchy="false">)</m:mo>
+            <m:mo
+              stretchy="false">)</m:mo>
+            <m:mo>=</m:mo>
+            <m:mo
+              stretchy="false">(</m:mo>
+            <m:mover
+              accent="true">
+              <m:mi>A</m:mi>
+              <m:mo
+                stretchy="true">⟶</m:mo>
+            </m:mover>
+            <m:mo>·</m:mo>
+            <m:mover
+              accent="true">
+              <m:mi>A</m:mi>
+              <m:mo
+                stretchy="true">⟶</m:mo>
+            </m:mover>
+            <m:mo
+              stretchy="false">)</m:mo>
+            <m:mo
+              stretchy="false">(</m:mo>
+            <m:mover
+              accent="true">
+              <m:mi>B</m:mi>
+              <m:mo
+                stretchy="true">⟶</m:mo>
+            </m:mover>
+            <m:mo>·</m:mo>
+            <m:mover
+              accent="true">
+              <m:mi>B</m:mi>
+              <m:mo
+                stretchy="true">⟶</m:mo>
+            </m:mover>
+            <m:mo
+              stretchy="false">)</m:mo>
+            <m:mo>−</m:mo>
+            <m:mo
+              stretchy="false">(</m:mo>
+            <m:mover
+              accent="true">
+              <m:mi>A</m:mi>
+              <m:mo
+                stretchy="true">⟶</m:mo>
+            </m:mover>
+            <m:mo>·</m:mo>
+            <m:mover
+              accent="true">
+              <m:mi>B</m:mi>
+              <m:mo
+                stretchy="true">⟶</m:mo>
+            </m:mover>
+            <m:mo
+              stretchy="false">)</m:mo>
+            <m:mo
+              stretchy="false">(</m:mo>
+            <m:mover
+              accent="true">
+              <m:mi>A</m:mi>
+              <m:mo
+                stretchy="true">⟶</m:mo>
+            </m:mover>
+            <m:mo>·</m:mo>
+            <m:mover
+              accent="true">
+              <m:mi>B</m:mi>
+              <m:mo
+                stretchy="true">⟶</m:mo>
+            </m:mover>
+            <m:mo
+              stretchy="false">)</m:mo>
+          </m:mrow>
+        </m:math>
+      </d4p_MathML>
+    </d4p_eqn_block><p>
+If we identify 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ with 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ in 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and take the dot product of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mo stretchy="false">(</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ with 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ we find 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>q</m:mi><m:mo>=</m:mo><m:mn>1</m:mn></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, and we get
+</p><p>
+<i>This is sometimes called the <b>back cab</b> rule to make it easier to remember 
+  the appropriate signs. When using this name remember that the parentheses here 
+  are all as far back as possible in this expression The easiest way to get the 
+  signs right here without remembering anything is to guess a sign and then check 
+  it on the case</i>
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>=</m:mo><m:mover accent="true"><m:mi>i</m:mi><m:mo stretchy="true">^</m:mo></m:mover><m:mo>=</m:mo><m:mover accent="true"><m:mi>C</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>,</m:mo><m:mover accent="true"><m:mi>B</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>=</m:mo><m:mover accent="true"><m:mi>j</m:mi><m:mo stretchy="true">^</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+<b>Exercise 5.13 Suppose we have a vector
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> in three dimensions and an unknown vector
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>, but we do know
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>×</m:mo><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>A</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>·</m:mo><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>. Can we find
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>v</m:mi><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>? YES! How?</b>
+</p></body></topic>

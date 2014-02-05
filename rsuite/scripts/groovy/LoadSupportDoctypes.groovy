@@ -21,8 +21,8 @@ def doctypesDir = new File(projectDir, "doctypes");
 def File xsltDir = new File(projectDir, "/xslt");
 def File previewXslFile = new File(xsltDir, "preview/dita-preview.xsl");
 
-def baseTopicTypeURI = "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/";
-def baseMapTypeURI = "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/";
+def baseTopicTypeURI = "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:";
+def baseMapTypeURI = "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:";
 
 
 def loadAndConfigureTopicDtd(dtdFile, dtdPublicId, topicTypes, otherMoTypes, previewXslFile, catalog)
@@ -73,6 +73,21 @@ def loadAndConfigureDtd(dtdFile, dtdPublicId, moDefList, previewXslFile, catalog
 	}
 }
 
+	def otherMoTypes = [];
+	
+	def topicTypes = ['conversion_configuration',
+		]
+
+
+topicTypes.each {
+loadAndConfigureTopicDtd(new File(doctypesDir, it + "/dtd/" + it + ".dtd"),
+  baseTopicTypeURI + it,
+  topicTypes,
+  otherMoTypes,
+  previewXslFile,
+  catalog);
+
+}
 
 
 //Special cases:
@@ -83,9 +98,13 @@ def importer = importerFactory.generateImporter("XMLSchema", new SchemaInputSour
 uuid = importer.execute()   
 def moDefList = [];
 
-def namespaceDecls = (String[])[ "s2t=" + "urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap"];
+def namespaceDecls = (String[])[ "s2t=" + "urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap"];
 
-moDefList.add(new ManagedObjectDefinition(['name' : '{urn:public:/dita4publishers.org/namespaces/word2dita/style2tagmap}:style2tagmap', 
+moDefList.add(new ManagedObjectDefinition(['name' : '{urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap}:style2tagmap', 
+                                           'displayNameXPath': "s2t:title", 
+                                           'versionable': 'true', 
+                                           'reusable': 'true']))
+moDefList.add(new ManagedObjectDefinition(['name' : 'style2tagmap', 
                                            'displayNameXPath': "s2t:title", 
                                            'versionable': 'true', 
                                            'reusable': 'true']))

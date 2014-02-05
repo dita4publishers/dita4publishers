@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e56"><title>3.1 Vectors</title><body><p>
+We will call a sequence of numbers of length 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>k</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+<b>a k-vector.</b>
+</p><p>
+We define
+<b> addition and subtraction among k-vectors to be termwise addition 
+  and subtraction, so that for 2-vectors we have</b>
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>a</m:mi><m:mo>,</m:mo><m:mi>b</m:mi><m:mo stretchy="false">)</m:mo><m:mo>+</m:mo><m:mo stretchy="false">(</m:mo><m:mi>c</m:mi><m:mo>,</m:mo><m:mi>d</m:mi><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:mo stretchy="false">(</m:mo><m:mi>a</m:mi><m:mo>+</m:mo><m:mi>c</m:mi><m:mo>,</m:mo><m:mi>b</m:mi><m:mo>+</m:mo><m:mi>d</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><p>
+If we choose an origin O in the Euclidean plane we can describe
+<b>any point in the plane by a vector whose first component is the
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> coordinate of the point and second is the
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>y</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline> component, that is, by
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo>,</m:mo><m:mi>y</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>, a 2-vector.</b>
+</p><p>
+We call the vector with i-th component value = 1 and the rest 0 the basis vector in the i-th direction. In ordinary three dimensional space the basis vectors in the 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mo>,</m:mo><m:mi>y</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>z</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ directions are denoted as 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>i</m:mi><m:mo stretchy="true">^</m:mo></m:mover><m:mo>,</m:mo><m:mover accent="true"><m:mi>j</m:mi><m:mo stretchy="true">^</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mi>k</m:mi><m:mo stretchy="true">^</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ respectively. The vector 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo>,</m:mo><m:mi>y</m:mi><m:mo>,</m:mo><m:mi>z</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ can also be written as 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mover accent="true"><m:mi>i</m:mi><m:mo stretchy="true">^</m:mo></m:mover><m:mo>+</m:mo><m:mi>y</m:mi><m:mover accent="true"><m:mi>j</m:mi><m:mo stretchy="true">^</m:mo></m:mover><m:mo>+</m:mo><m:mi>z</m:mi><m:mover accent="true"><m:mi>k</m:mi><m:mo stretchy="true">^</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+.
+</p><p>
+<b>We assume here that basis vectors are perpendicular to one 
+  another, and each has unit length.</b>
+</p></body></topic>

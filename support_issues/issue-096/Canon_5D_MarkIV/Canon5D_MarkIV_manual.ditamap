@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN"
+ "bookmap.dtd">
+<?Pub UDT template _font?>
+<?Pub Inc?>
+<bookmap xml:lang="en">
+  <booktitle>
+    <booklibrary>Canon 5D Mark IV</booklibrary>
+    <mainbooktitle>User’s Guide</mainbooktitle>
+    <booktitlealt>Release 1.01</booktitlealt>
+  </booktitle>
+  <bookmeta>
+    <author type="creator">Steve Fogel</author>
+    <author type="contributor">Scott Kelby</author>
+    <author type="other">Joe McNally</author>
+    <author type="other">Lindsay Adler</author>
+    <?Pub Caret -1?>
+    <publisherinformation>
+      <published>
+        <completed>
+          <year><?Pub Dtl?>2013</year>
+          <month><?Pub Dtl?>January</month>
+        </completed>
+      </published>
+    </publisherinformation>
+    <prodinfo>
+      <?Pub Dtl?>
+      <prodname><?Pub Dtl?>Canon 5D Mark IV</prodname>
+      <vrmlist>
+        <?Pub Dtl?>
+        <vrm version="1.0"/>
+      </vrmlist>
+    </prodinfo>
+    <bookid>
+      <?Pub Dtl?>
+      <bookpartno><?Pub Dtl?>B68349–02</bookpartno>
+    </bookid>
+    <bookrights>
+      <?Pub Dtl?>
+      <copyrfirst>
+        <?Pub Dtl?>
+        <year><?Pub Dtl?>2012</year>
+      </copyrfirst>
+      <copyrlast>
+        <?Pub Dtl?>
+        <year><?Pub Dtl?>2013</year>
+      </copyrlast>
+      <bookowner><?Pub Dtl?></bookowner>
+    </bookrights>
+  </bookmeta>
+  <part format="dita" href="GettingStarted.dita" navtitle="Getting Started" scope="local">
+    <!-- chunk="to-content" -->
+    <chapter format="dita" chunk="to-content" href="IntroducingThe5DMarkIV.dita" scope="local" type="concept">
+      <?Pub Dtl?>
+      <topicref format="dita" href="lFull-FrameCMOSSensor.dita" navtitle="22.3 Megapixel Full-Frame CMOS Sensor" scope="local" type="concept"/>
+      <topicref format="dita" href="DIGIC5ImageProcessor.dita" navtitle="DIGIC 5+ Image Processor" scope="local" type="concept"> </topicref>
+      <topicref format="dita" href="HighDensityReticularAF.dita" navtitle="61-Point High Density AF" scope="local" type="concept"> </topicref>
+      <topicref format="dita" href="EOSHDVideo.dita" navtitle="EOS HD Video" scope="local" type="concept"/>
+      <topicref format="dita" href="MeteringSensor.dita" navtitle="Metering Sensor" scope="local" type="concept"/>
+      <topicref format="dita" href="IntelligentViewfinder.dita" navtitle="Intelligent Viewfinder" scope="local" type="concept"> </topicref>
+    </chapter>
+    <chapter format="dita" href="InitialSetup.dita" navtitle="Initial Setup" scope="local">
+      <topicref format="dita" href="What'sInTheBox.dita" navtitle="What's In the Box" scope="local"/>
+      <topicref format="dita" href="5DMarkIVAtAGlance.dita" navtitle="5D Mark IV At a Glance" scope="local" type="reference"> </topicref>
+      <topicref format="dita" href="InstallingBatteries.dita" navtitle="Installing Batteries" scope="local"/>
+    </chapter>
+    <chapter format="dita" href="TakingYourFirstPhoto.dita" navtitle="Taking Your First Photo" scope="local">
+      <?Pub Dtl?>
+      <topicref format="dita" href="AboutYourFirstPhoto.dita" navtitle="About Your First Photo" scope="local" type="concept"> </topicref>
+      <topicref format="dita" href="StepsForTakingYourFirstPhoto.dita" navtitle="Steps for Taking Your First Photo" scope="local">
+        <topicref format="dita" href="SettingAutomaticMode.dita" navtitle="Setting Automatic Mode" scope="local"/>
+        <topicref format="dita" href="FocusingShooting.dita" navtitle="Focusing and Shooting" scope="local" type="task"/>
+      </topicref>
+    </chapter>
+  </part>
+  <part format="dita" href="TakingPhotos.dita" navtitle="Taking Photos" scope="local">
+    <chapter format="dita" href="UsingAutomaticModes.dita" navtitle="Using Automatic Modes" scope="local">
+      <topicref format="dita" href="UsingQuickAutoMode.dita" navtitle="Using Intelligent Auto Mode" scope="local"> </topicref>
+      <topicref format="dita" href="UsingSceneModes.dita" navtitle="Using Scene Modes" scope="local"/>
+      <topicref format="dita" href="SceneModesDescriptions.dita" navtitle="Scene Modes Descriptions" scope="local" type="reference"> </topicref>
+      <topicref format="dita" href="CreativeAutoShooting.dita" navtitle="Creative Auto Shooting" scope="local" type="concept"> </topicref>
+    </chapter>
+    <chapter format="dita" href="UsingFlash.dita" navtitle="Using Flash" scope="local">
+      <topicref format="ditamap" href="Ch_UsingFlash.ditamap" navtitle="Using Flash" scope="local"/>
+    </chapter>
+    <chapter format="dita" href="AdvancedFeatures.dita" navtitle="Advanced Features" scope="local">
+      <topicref format="dita" href="ShootingRAWVs.JPEG.dita" navtitle="Shooting RAW vs. JPEG" scope="local" type="concept"> </topicref>
+      <topicref format="dita" href="UnderstandingMeteringModes.dita" navtitle="Understanding Metering Modes" scope="local" type="concept"> </topicref>
+    </chapter>
+  </part>
+  <appendices format="dita" href="Appendixes.dita" navtitle="Appendixes" scope="local">
+    <appendix format="dita" href="CustomFunctions.dita" navtitle="Custom Functions" scope="local"/>
+    <appendix format="dita" href="Specifications.dita" navtitle="Specifications" scope="local">
+      <?Pub Dtl?>
+      <topicref format="dita" href="Specifications_General.dita" navtitle="General Specifications" scope="local" type="reference"> </topicref>
+      <topicref format="dita" href="Specifications_Physical.dita" navtitle="Physical Specifications" scope="local" type="reference"> </topicref>
+    </appendix>
+    <appendix format="dita" href="CanonUSBAPIs.dita" navtitle="Canon USB APIs" scope="local" type="reference"/>
+  </appendices>
+  <backmatter>
+    <booklists>
+      <glossarylist>
+        <?Pub Dtl?>
+        <topicref format="dita" href="glossary/g_aperture.dita" navtitle="aperture" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_aperture-priority.dita" navtitle="aperture priority" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_bracketing.dita" navtitle="bracketing" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_chromatic-aberration.dita" navtitle="chromatic aberration" scope="local" type="glossentry"> </topicref>
+        <topicref format="dita" href="glossary/g_depth-of-field.dita" navtitle="depth of field" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_distortion.dita" navtitle="distortion" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_EV.dita" navtitle="EV" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_exposure-compensation.dita" navtitle="exposure compensation" scope="local" type="glossentry"> </topicref>
+        <topicref format="dita" href="glossary/g_f-stop.dita" navtitle="f-stop" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_flash-sync-speed.dita" navtitle="flash sync speed" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_focal-length.dita" navtitle="focal length" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_hot-show.dita" navtitle="hot shoe" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_ISO.dita" navtitle="ISO" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_pc-terminal.dita" navtitle="PC Terminal/PC socket" scope="local" type="glossentry"> </topicref>
+        <topicref format="dita" href="glossary/g_resolution.dita" navtitle="resolution" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_sharpness.dita" navtitle="sharpness" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_shutter-priority.dita" navtitle="shutter priority" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_slave-unit.dita" navtitle="slave unit" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_slow-sync.dita" navtitle="slow sync" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_sync-speed.dita" navtitle="sync speed" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_telephoto-lens.dita" navtitle="telephoto lens" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_through-the-lens-metering.dita" navtitle="through-the-lens metering" scope="local" type="glossentry"> </topicref>
+        <topicref format="dita" href="glossary/g_TTL-auto-flash.dita" navtitle="TTL auto flash" scope="local" type="glossentry"/>
+        <topicref format="dita" href="glossary/g_zoom-lens.dita" navtitle="zoom lens" scope="local" type="glossentry"/>
+      </glossarylist>
+      <indexlist/>
+    </booklists>
+  </backmatter>
+  <reltable>
+    <relrow>
+      <relcell>
+        <topicref format="dita" href="AboutCanonFlash.dita" navtitle="About Canon Flash" scope="local" type="concept"/>
+        <topicref format="dita" href="ConfiguringATwo-LightSetup.dita" navtitle="Configuring a Two-Light Setup" scope="local" type="task"> </topicref>
+      </relcell>
+      <relcell>
+        <topicref format="dita" href="AboutTheCanonWirelessFlashSystem.dita" navtitle="About the Canon Wireless Flash System" scope="local" type="concept"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref format="dita" href="UsingSceneModes.dita" navtitle="Using Scene Modes" scope="local">
+          <topicmeta>
+            <linktext>Using Scene Modes for Advanced Photography with Amateur Skills</linktext>
+          </topicmeta>
+        </topicref>
+      </relcell>
+      <relcell>
+        <topicref format="dita" href="SceneModesDescriptions.dita" navtitle="Scene Modes Descriptions" scope="local" type="reference"> </topicref>
+      </relcell>
+    </relrow>
+  </reltable>
+  <reltable>
+    <relheader>
+      <relcolspec linking="sourceonly">
+        <title>Source</title>
+      </relcolspec>
+      <relcolspec linking="targetonly">
+        <title>Target</title>
+      </relcolspec>
+    </relheader>
+    <relrow>
+      <relcell>
+        <topicref format="dita" href="DIGIC5ImageProcessor.dita" navtitle="DIGIC 5+ Image Processor" scope="local" type="concept"> </topicref>
+      </relcell>
+      <relcell>
+        <topicref format="dita" href="MeteringSensor.dita" navtitle="Metering Sensor" scope="local" type="concept"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref format="dita" href="IntelligentViewfinder.dita" navtitle="Intelligent Viewfinder" scope="local" type="concept"> </topicref>
+      </relcell>
+      <relcell>
+        <topicref format="dita" href="EOSHDVideo.dita" navtitle="EOS HD Video" scope="local" type="concept"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell/>
+      <relcell/>
+    </relrow>
+  </reltable>
+</bookmap>

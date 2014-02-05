@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_czg_zq4_ym">
+  <title>Jenkins for DITA</title>
+  <shortdesc>How to use Jenkins to run DITA Open Toolkit processes.</shortdesc>
+  <body>
+    <p>The Jenkins continuous integration (CI) tool, <xref href="http://jenkins-ci.org" format="html" scope="external"
+      >http://jenkins-ci.org</xref>, is an open-source continous integration tool that runs on all platforms. It is widely used in the Java development community and elsewhere to do automated build and testing.</p>
+    <p>You can set up Jenkins to run the DITA Open Toolkit against DITA content stored in a source code management system like Subversion or git or fetched from some other location. This makes it easy to do automated builds of documents, for example, whenever new commits are made to the source code repository, or nightly, or whatever makes sense.</p>
+    <p>Jenkins is a very flexible system and there are many ways to do things. However, to run the Open Toolkit requires setting a few values in a non-obvious way. This document explains the details of running the Open Toolkit through Jenkins. This document does not try to cover Jenkins concepts—the Jenkins documentation and community cover that more than adequately.</p>
+  </body>
+</topic>

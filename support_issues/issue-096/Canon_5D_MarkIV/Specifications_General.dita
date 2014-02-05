@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<?Pub Inc?>
+<reference id="Specifications_General-9772F057" xml:lang="en">
+<title>General Specifications</title>
+<refbody>
+<section><p><fn id="fn-12111-B02ADD48">Canon reserves the right to
+modify specifications at any time.</fn><xref format="dita"
+href="#Specifications_General-9772F057/GeneralSpecifications-94B3BC9A"
+scope="local" type="table"></xref> lists general specifications for
+your camera.<xref format="dita"
+href="#Specifications_General-9772F057/fn-12111-B02ADD48" scope="local"
+type="fn"></xref></p><table id="GeneralSpecifications-94B3BC9A">
+<title>General Specifications</title>
+<tgroup cols="2"><colspec colname="col1"/><colspec colname="col2"/>
+<thead>
+<row>
+<entry valign="top">Specification</entry>
+<entry valign="top">Value</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>Camera Format</entry>
+<entry>Full-frame<fn>Equivalent to 35mm film negative size.</fn><fn
+>Default aspect ration 3:2</fn></entry>
+</row>
+<row>
+<entry>Lens Mount</entry>
+<entry>Canon EF</entry>
+</row>
+<row>
+<entry>Pixels</entry>
+<entry>23.4 Megapixel</entry>
+</row>
+<row>
+<entry>Max Resolution</entry>
+<entry>22.1MP: 5760 x 3840 @ 3:2</entry>
+</row>
+<row>
+<entry>Sensor Type / Size</entry>
+<entry>CMOS, 36 x 24 mm</entry>
+</row>
+<row>
+<entry>Bit Depth</entry>
+<entry>14–bit</entry>
+</row>
+<row>
+<entry>Noise Reduction</entry>
+<entry>Yes</entry>
+</row>
+<row>
+<entry>Memory Card Type</entry>
+<entry>SD<?Pub _newline?>SDHC<?Pub _newline?>SDXC</entry>
+</row>
+<row>
+<entry>Shutter speed</entry>
+<entry>30 sec to 1/4000 sec</entry>
+</row>
+<row>
+<entry>ISO Range</entry>
+<entry>100–25600</entry>
+</row>
+<row>
+<entry>Focus Type</entry>
+<entry>Auto &amp; Manual<fn id="LensMustBeSetToAF-B11F5EF6">Lens must
+be set to AF</fn><xref format="dita"
+href="#Specifications_General-9772F057/LensMustBeSetToAF-B11F5EF6"
+scope="local" type="fn"></xref></entry>
+</row>
+<row>
+<entry>Focus Mode</entry>
+<entry>Single-servo, Continuous servo<xref format="dita"
+href="#Specifications_General-9772F057/LensMustBeSetToAF-B11F5EF6"
+scope="local" type="fn"></xref></entry><?Pub Caret -1?>
+</row>
+<row>
+<entry>Autofocus points</entry>
+<entry>61<fn>9 cross-type autofocus points.</fn></entry>
+</row>
+<row>
+<entry>Viewfinder type</entry>
+<entry>Pentaprism</entry>
+</row>
+<row>
+<entry>Viewfinder Coverage</entry>
+<entry>100%</entry>
+</row>
+<row>
+<entry>Scene modes</entry>
+<entry>See <xref format="dita"
+href="SceneModesDescriptions.dita#SceneModesDescriptions-9429EFC1/SceneModeDescriptionPortraitSoftens-942A5120"
+scope="local" type="table"></xref></entry>
+</row>
+</tbody>
+</tgroup>
+</table><p>Refer to the Canon Web site<fn>http://www.canonusa.com/imaging</fn
+> for the latest specifications.</p></section>
+</refbody>
+</reference>

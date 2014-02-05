@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="concept"></meta>
+<meta name="DC.Title" content="Mapping XML Elements to InDesign Paragraph and Character Styles"></meta>
+<meta name="abstract" content="You define the mapping of elements to specific character and paragraph styles using simple XSLT templates."></meta>
+<meta name="description" content="You define the mapping of elements to specific character and paragraph styles using simple XSLT templates."></meta>
+<meta name="DC.subject" content="elements in context, mapping to InDesign styles, InDesign styles, mapping elements in context to"></meta>
+<meta name="keywords" content="elements in context, mapping to InDesign styles, InDesign styles, mapping elements in context to"></meta>
+<meta name="DC.Relation" scheme="URI" content="generating-incopy-articles.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="grouped-style-name-syntax.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC10"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="conceptId"></meta>
+<link rel="stylesheet" type="text/css" href="../../../commonltr.css"></link>
+<title>Mapping XML Elements to InDesign Paragraph and Character Styles</title>
+</head>
+<body id="conceptId">
+
+
+ <h1 class="title topictitle1">Mapping XML Elements to InDesign Paragraph and Character Styles</h1>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">You define the mapping of elements to specific character and paragraph styles using simple XSLT templates.</p>
+
+   <p class="p">Unlike the Word-to-DITA transformation framework, which uses a separate configuration file to define the mapping of Word paragraphs to DITA elements, the DITA-to-InDesign process uses XSLT modules with very simple XSLT templates. The reason for this is that the only way to fully support mapping arbitrary elements in context to styles is to use XPath or something equivalent to it and it would be harder to define and implement a separate configuration specification that gave you that power than it would to simply code the XSLT directly.</p>
+
+    <p class="p">The base DITA-to-InDesign transform includes a module named <span class="ph filepath">elem2styleMapper.xsl</span>, which defines the default mapping for DITA elements to paragraph and character style names. However, it is unlikely that this mapping will work for some or even any of your content, since the style names need to match your InDesign templates. Thus you will likely need to create your own element-to-style mapper module that extends or overrides the base mapping, either as an extension to the DITA2InDesign plugin or via a custom top-level transform that includes your custom mapper as well as the base DITA2InDesign transform.</p>
+
+    <div class="p">The element-to-style mapper looks like this:<pre class="pre codeblock">&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+      xmlns:xs="http://www.w3.org/2001/XMLSchema"
+      xmlns:local="urn:local-functions"
+      xmlns:df="http://dita2indesign.org/dita/functions"
+      xmlns:e2s="http//dita2indesign.org/functions/element-to-style-mapping"
+      exclude-result-prefixes="xs local df e2s"
+      version="2.0"&gt;
+  
+  &lt;!-- Element-to-style mapper
+    
+    This module provides the base implementation for
+    the "style-map" modes, which map elements in context
+    to InDesign style names (paragraph, character, frame,
+    object, table).
+    
+    Copyright (c) 2009 Really Strategies, Inc.
+    
+    NOTE: This material is intended to be donated to the RSI-sponsored
+    DITA2InDesign open-source project.
+  --&gt;
+  &lt;xsl:import href="../lib/dita-support-lib.xsl"/&gt;
+  &lt;xsl:import href="lib/incx_generation_util.xsl"/&gt;
+  
+<strong class="ph b">  &lt;xsl:template match="/*[df:class(., 'topic/topic')]/*[df:class(., 'topic/title')]" 
+    mode="style-map-pstyle"&gt;
+    &lt;xsl:sequence select="'Topic Title 1'"/&gt;
+  &lt;/xsl:template&gt;</strong>
+  
+  &lt;xsl:template match="/*[df:class(., 'topic/topic')]/*[df:class(., 'topic/topic')]/*[df:class(., 'topic/title')]" 
+    mode="style-map-pstyle"&gt;
+    &lt;xsl:sequence select="'Topic Title 2'"/&gt;
+  &lt;/xsl:template&gt;
+
+  ...
+
+  &lt;xsl:template match="*[df:class(., 'topic/ph')]" 
+    mode="style-map-cstyle" priority="0.75"&gt;
+    &lt;xsl:sequence select="'[No character style]'"/&gt;
+  &lt;/xsl:template&gt;
+  
+<strong class="ph b">  &lt;xsl:template match="*[df:class(., 'topic/cite')]" 
+    mode="style-map-cstyle"&gt;
+    &lt;xsl:sequence select="'italic'"/&gt;
+  &lt;/xsl:template&gt;</strong>
+
+  ...
+
+&lt;/xsl:stylesheet&gt;</pre>
+</div>
+
+    <p class="p">The module provides templates for two different XSLT modes; style-map-pstyle and style-map-cstyle.</p>
+
+    <p class="p">The style-map-pstyle templates map elements in context to paragraph style names. The style-map-cstyle templates map elements to character style names. Note that the same XML element may map to both paragraphs and character runs in different contexts.</p>
+
+    <p class="p">Each template does nothing other than produce a literal string that is the InDesign style name. </p>
+
+    <div class="p">Looking at the first highlighted template above, the parts are:<table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead">
+        <th valign="bottom" align="left" id="d26617e78" class="stentry" width="50%">Component</th>
+
+        <th valign="bottom" align="left" id="d26617e81" class="stentry" width="50%">Meaning</th>
+
+      </tr>
+<tr class="strow">
+        <td valign="top" headers="d26617e78" class="stentry"><samp class="ph codeph">match="/*[df:class(., 'topic/topic')]/*[df:class(., 'topic/title')]"</samp></td>
+
+        <td valign="top" headers="d26617e81" class="stentry">The match statement that matches a specific context. The value of the <code>@match</code> attribute is an XPath expression. Here it uses the DITA Support Library "df:class" function to match on elements based on their DITA <code>@class</code> values rather than their tagnames, e.g., title within a topic that is the root of the document (as indicated by the leading "/" in the XPath expression).</td>
+
+      </tr>
+<tr class="strow">
+        <td valign="top" headers="d26617e78" class="stentry"><samp class="ph codeph">mode="style-map-pstyle"</samp></td>
+
+        <td valign="top" headers="d26617e81" class="stentry">The XSLT mode this template is used in, in this case "style-map-pstyle", indicating a template that maps to a paragraph style name. The other possible mode is "style-map-cstyle"</td>
+
+      </tr>
+<tr class="strow">
+        <td valign="top" headers="d26617e78" class="stentry"><samp class="ph codeph">&lt;xsl:sequence select="'Topic Title 1'"/&gt;</samp></td>
+
+        <td valign="top" headers="d26617e81" class="stentry">An XSLT 2 sequence constructor used to produce the literal string "Topic Title 1" per the value of the <code>@select</code> attribute. Note the single quotes within the double quotes of the attribute specification. The style name string is the style display name as it appears in the InDesign user interface.</td>
+
+      </tr>
+</table>
+</div>
+
+    <p class="p">The second highlighted example follows exactly the same pattern, differing only in the name of the mode ("style-map-cstyle") .</p>
+
+    <p class="p">Your custom element-to-style mappings should follow the same pattern, differing only in the details of the <code>@match</code> expression and the style name produced.</p>
+
+    <p class="p">The only other thing you may need to add is a <code>@priority</code>
+      attribute when you need to have templates for more-specialized elements
+      that would otherwise match on a template for the specialization's ancestor
+      types. In that case, you must specify a <code>@priority</code>
+      attribute on the <code>&lt;xsl:template&gt;</code> element with a value
+      greater than 1, e.g., <samp class="ph codeph">&lt;xsl:template priority="10" ...</samp>
+      or whatever number ensures the template will match before other templates
+      the element might have matched on.</p>
+
+    <div class="p">For example, say your vocabulary includes a specialization of <code>&lt;ph&gt;</code> named "foo" and a specialization of "foo" named "bar". You want <code>&lt;foo&gt;</code> to map to the paragraph style "Foo" but <code>&lt;bar&gt;</code> to map to the paragraph style "Bar". You start by creating these two match templates:<pre class="pre codeblock">  &lt;xsl:template match="*[df:class(., 'foodomain-d/foo')]" 
+    mode="style-map-pstyle"&gt;
+    &lt;xsl:sequence select="'Foo'"/&gt;
+  &lt;/xsl:template&gt;
+
+  &lt;xsl:template match="*[df:class(., 'bardomain-d/bar')]" 
+    mode="style-map-pstyle"&gt;
+    &lt;xsl:sequence select="'Bar'"/&gt;
+  &lt;/xsl:template&gt;</pre>
+</div>
+
+    <p class="p">If you used these templates as is you would get "ambiguous rule match" messages for <code>&lt;bar&gt;</code> elements because <code>&lt;bar&gt;</code> is a specialization of <code>&lt;foo&gt;</code> and thus matches both on a check for foo as well as bar (that is, the <code>@class</code> value for <code>&lt;bar&gt;</code> would be something like "<samp class="ph codeph">+ topic/ph foodomain-d/foo bardomain-d/bar </samp>").</p>
+
+    <div class="p">To remove the ambiguity you would add a <code>@priority</code> attribute to the template for <code>&lt;bar&gt;</code>, forcing it to match first:<pre class="pre codeblock">  &lt;xsl:template match="*[df:class(., 'bardomain-d/bar')]" 
+    <strong class="ph b">priority="10"</strong>
+    mode="style-map-pstyle"&gt;
+    &lt;xsl:sequence select="'Bar'"/&gt;
+  &lt;/xsl:template&gt;</pre>
+</div>
+
+    <p class="p">Now when you run the transform all the <code>&lt;bar&gt;</code> elements will map to the style 'Bar' as you intended.</p>
+
+    <p class="p">The <code>@priority</code> value of "0.75" for the template for the <code>&lt;ph&gt;</code> element in the example above puts it's priority <em class="ph i">below</em> the default priority of "1", ensuring that the template for <code>&lt;ph&gt;</code> will not interfere with any templates for specializations of <code>&lt;ph&gt;</code>.</p>
+
+    <p class="p">To create your own mapping module, simply copy the base <span class="ph filepath">elem2styleMap.xsl</span> file to a new location, normally a Toolkit plugin for your extensions, remove all the templates you don't want to override, modify the ones you do, and add any additional mappings you need.</p>
+
+    <p class="p">If these mappings should be global to all InCopy generations in your
+      environment you can use the module as a Toolkit-provided extension to the
+      base DITA2InDesign transformation type.</p>
+
+    <p class="p">If, as is more likely, your mappings are for a specific use and not global to all InCopy transforms, then you must create a new plugin with a new top-level transform that includes your mapping module and the base dita2indesign.xsl transform.</p>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="generating-incopy-articles.html" title="You can generate InCopy articles from single topics or from maps using XSLT.">Configuring the DITA-to-InDesign Transformation</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="grouped-style-name-syntax.html" title="InDesign styles may be grouped or ungrouped. Grouped styles require a specific syntax.">Specifying InDesign Grouped Style Names</a></div>
+</div>
+</div>
+
+</body>
+</html>

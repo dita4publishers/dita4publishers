@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="task"></meta>
+<meta name="DC.Title" content="Before starting a new theme"></meta>
+<meta name="abstract" content="Before starting to develop a theme or adapt your to fit in this plugins, you need to install the yui compressor on your computer."></meta>
+<meta name="description" content="Before starting to develop a theme or adapt your to fit in this plugins, you need to install the yui compressor on your computer."></meta>
+<meta name="DC.Relation" scheme="URI" content="theme-dev.html"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="task_ssz_2jp_sh"></meta>
+<link rel="stylesheet" type="text/css" href="../../../../commonltr.css"></link>
+<title>Before starting a new theme</title>
+</head>
+<body id="task_ssz_2jp_sh">
+
+
+    <h1 class="title topictitle1">Before starting a new theme</h1>
+    
+    <div class="body taskbody"><p class="shortdesc">Before starting to develop a theme or adapt your to fit in this plugins, you need to install the yui
+        compressor on your computer.</p>
+
+        <div class="section context">
+            <p class="p">In order to be abble to compress all javascripts and css files</p>
+
+        </div>
+
+        <ol class="ol steps"><li class="li step">
+                <span class="ph cmd">Download the <a class="xref" href="http://developer.yahoo.com/yui/compressor/" target="_blank">YUI compressor</a></span>
+            </li>
+<li class="li step">
+                <span class="ph cmd">Move the directory into the lib directory of the html5 plugin so the final path of the jar file is:
+                        <span class="ph filepath">DITA-OT/plugins/net.sourceforge.dita4publishers.html5/libs/yuicompressor-2.4.7/build/yuicompressor-2.4.7.jar</span></span>
+                 
+                    <p class="p">The html5 plugin has been developped with the yuicompressor version 2.4.7.
+                    If you use a different version, you might have to edit the file
+                            <span class="ph filepath">shared.properties</span> under the lib directory, which tells ant where to
+                        find the YUI compressor.</p>
+
+                
+            </li>
+<li class="li step">
+                <span class="ph cmd">Run a test on your shell:</span>
+                 
+                    <pre class="pre codeblock">
+shell: cd DITA-OT
+shell: ./startcmd.sh
+shell: cd plugins/net.sourceforge.dita4publishers.html5/libs
+shell: ant -f build.xml
+                </pre>
+
+                    <p class="p">This steps takes independantly all the css and js defined in the
+                            <span class="ph filepath">sites/default/default.properties</span>, concatenate them into one style.css
+                        and one script.js respectively and compress them using the <a class="xref" href="http://developer.yahoo.com/yui/compressor/" target="_blank">YUI compressor</a> to style-min.css
+                        and script-min.js respectively in the themes/default directory.</p>
+
+                
+                 You should see no error in the <span class="keyword cmdname">package.compress</span> execution
+                    target.
+            </li>
+</ol>
+
+    </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="theme-dev.html">Theme Development</a></div>
+</div>
+</div>
+
+</body>
+</html>

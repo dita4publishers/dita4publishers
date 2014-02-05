@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
+<chapter
+  id="chapter-id">
+  <title>Test of MathML Support</title>
+  <body>
+    <p>The DITA for Publishers d4p_math vocabulary domain provides markup for
+      including MathML markup into DITA documents. The D4P HTML, EPUB, Kindle,
+      and PDF extensions implement rendering of MathML in HTML-based and
+      XSL-FO-based outputs.</p>
+  </body>
+  <subsection
+    id="subsection_nnt_xnv_bf">
+    <title>D4P Math Vocabulary Domain</title>
+    <body>
+      <p>The D4P math domain provides the following elements:<dl>
+        <dlentry>
+          <dt><xmlelem>d4p_MathML</xmlelem></dt>
+          <dd>Container for MathML markup. As currently configured, the MathML
+            markup must use the "m:" namespace prefix.</dd>
+        </dlentry>
+        <dlentry>
+          <dt><xmlelem>d4p_eqn_inline</xmlelem></dt>
+          <dd>Holds an inline equation (specializes from <xmlelem>ph</xmlelem>).
+            The content may include <xmlelem>d4p_MathML</xmlelem>.<p>Sample: <d4p_eqn_inline>
+              <d4p_MathML><!-- MathType@Translator@5@5@MathML2 (m namespace).tdl@MathML 2.0 (m namespace)@ -->
+                <m:math display='block'>
+                  <m:semantics>
+                    <m:mrow>
+                      <m:msqrt>
+                        <m:mrow>
+                          <m:msup>
+                            <m:mi>a</m:mi>
+                            <m:mn>2</m:mn>
+                          </m:msup>
+                          <m:mo>+</m:mo><m:msup>
+                            <m:mi>b</m:mi>
+                            <m:mn>2</m:mn>
+                          </m:msup>
+                          
+                        </m:mrow>
+                      </m:msqrt>
+                      
+                    </m:mrow>
+                    <m:annotation encoding='MathType-MTEF'>MathType@MTEF@5@5@+=faaagCart1ev2aaaKnaaaaWenf2ys9wBH5garuavP1wzZbqedmvETj2BSbqefm0B1jxALjharqqtubsr4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8FesqqrFfpeea0xe9Lq=Jc9vqaqpepm0xbba9pwe9Q8fs0=yqaqpepae9pg0FirpepeKkFr0xfr=xfr=xb9Gqpi0dc9adbaqaaeGaciGaaiaabeqaamaabaabaaGcbaWaaOaaaeaacaWGHbWaaWbaaSqabeaacaaIYaaaaOGaey4kaSIaamOyamaaCaaaleqabaGaaGOmaaaaaeqaaaaa@32B4@</m:annotation>
+                  </m:semantics>
+                </m:math>
+                <!-- MathType@End@5@5@ -->
+              </d4p_MathML>
+            </d4p_eqn_inline></p></dd>
+        </dlentry>
+        <dlentry>
+          <dt><xmlelem>d4p_eqn_block</xmlelem></dt>
+          <dd>Holds a block equation (specializes from <xmlelem>p</xmlelem>).
+            The content may include <xmlelem>d4p_MathML</xmlelem>.
+            <d4p_eqn_block>
+              <d4p_MathML><m:math display="block">
+                <m:mrow>
+                  <m:msub>
+                    <m:mi>a</m:mi>
+                    <m:mn>0</m:mn>
+                    
+                  </m:msub>
+                  <m:mo>+</m:mo>
+                  <m:mfrac>
+                    <m:mn>1</m:mn>
+                    <m:mstyle displaystyle="true" scriptlevel="0">
+                      <m:msub>
+                        <m:mi>a</m:mi>
+                        
+                        <m:mn>1</m:mn>
+                      </m:msub>
+                      <m:mo>+</m:mo>
+                      <m:mfrac>
+                        <m:mn>1</m:mn>
+                        <m:mstyle displaystyle="true" scriptlevel="0">
+                          <m:msub>
+                            
+                            <m:mi>a</m:mi>
+                            <m:mn>2</m:mn>
+                          </m:msub>
+                          <m:mo>+</m:mo>
+                          <m:mfrac>
+                            <m:mn>1</m:mn>
+                            <m:mstyle displaystyle="true" scriptlevel="0">
+                              
+                              <m:msub>
+                                <m:mi>a</m:mi>
+                                <m:mn>3</m:mn>
+                              </m:msub>
+                              <m:mo>+</m:mo>
+                              <m:mfrac>
+                                <m:mn>1</m:mn>
+                                
+                                <m:mstyle displaystyle="true" scriptlevel="0">
+                                  <m:msub>
+                                    <m:mi>a</m:mi>
+                                    <m:mn>4</m:mn>
+                                  </m:msub>
+                                </m:mstyle>
+                              </m:mfrac>
+                            </m:mstyle>
+                          </m:mfrac>
+                          
+                        </m:mstyle>
+                      </m:mfrac>
+                    </m:mstyle>
+                  </m:mfrac>
+                </m:mrow>
+              </m:math></d4p_MathML>
+              
+            </d4p_eqn_block>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt><xmlelem>d4p_display-equation</xmlelem></dt>
+          <dd>Specialization of <xmlelem>fig</xmlelem>. Provides for easy
+            numbering and listing of equations separate from other figures.
+            Content is identical to <xmlelem>fig</xmlelem>. Because
+            <xmlelem>fig</xmlelem> allows <xmlelem>foreign</xmlelem>, it may
+            include <xmlelem>d4p_MathML</xmlelem>.</dd>
+        </dlentry>
+        </dl></p>
+      <p>Here is a display equation containing an
+        <xmlelem>d4p_eqn_block</xmlelem> element:</p>
+      <fig></fig>
+      <d4p_display-equation>
+        <title>First Sample Equation</title>
+        <d4p_MathML>
+          <!-- MathType@Translator@5@5@MathML2 (m namespace).tdl@MathML 2.0 (m namespace)@ -->
+          <m:math
+            display="block">
+            <m:semantics>
+              <m:mrow>
+                <m:mfrac>
+                  <m:mrow>
+                    <m:menclose
+                      notation="updiagonalstrike">
+                      <m:mrow>
+                        <m:mo>&#x2212;</m:mo>
+                        <m:mi>b</m:mi>
+                        <m:mo>&#x00B1;</m:mo>
+                        <m:msqrt>
+                          <m:mrow>
+                            <m:msup>
+                              <m:mi>b</m:mi>
+                              <m:mn>2</m:mn>
+                            </m:msup>
+                            <m:mo>&#x2212;</m:mo>
+                            <m:mn>4</m:mn>
+                            <m:mi>a</m:mi>
+                            <m:mi>c</m:mi>
+                          </m:mrow>
+                        </m:msqrt>
+                      </m:mrow>
+                    </m:menclose>
+                  </m:mrow>
+                  <m:mrow>
+                    <m:mn>2</m:mn>
+                    <m:mi>a</m:mi>
+                  </m:mrow>
+                </m:mfrac>
+                <m:mo>=</m:mo>
+                <m:mfrac>
+                  <m:mn>1</m:mn>
+                  <m:mrow>
+                    <m:menclose
+                      notation="updiagonalstrike">
+                      <m:mn>2</m:mn>
+                    </m:menclose>
+                  </m:mrow>
+                </m:mfrac>
+              </m:mrow>
+              <m:annotation
+                encoding="MathType-MTEF">MathType@MTEF@5@5@+=faaagCart1ev2aaaKnaaaaWenf2ys9wBH5garuavP1wzZbqedmvETj2BSbqefm0B1jxALjharqqtubsr4rNCHbGeaGqiVu0Je9sqqrpepC0xbbL8FesqqrFfpeea0xe9Lq=Jc9vqaqpepm0xbba9pwe9Q8fs0=yqaqpepae9pg0FirpepeKkFr0xfr=xfr=xb9Gqpi0dc9adbaqaaeGaciGaaiaabeqaamaabaabaaGcbaWaaSaaaeaadaajcaqaaiabgkHiTiaadkgacqGHXcqSdaGcaaqaaiaadkgadaahaaWcbeqaaiaaikdaaaGccqGHsislcaaI0aGaamyyaiaadogaaSqabaaaaaGcbaGaaGOmaiaadggaaaGaeyypa0ZaaSaaaeaacaaIXaaabaWaaqIaaeaacaaIYaaaaaaaaaa@3BE6@</m:annotation>
+            </m:semantics>
+          </m:math>
+          <!-- MathType@End@5@5@ -->
+        </d4p_MathML>
+      </d4p_display-equation>
+    </body>
+  </subsection>
+</chapter>

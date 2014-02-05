@@ -17,7 +17,8 @@
 
 
 <!ENTITY % d4p_pubcontent-d-p
-   "epigram
+   "epigram |
+    d4pAssetSource
    "
 >
 
@@ -29,6 +30,10 @@
 
 <!ENTITY % d4p_pubcontent-d-sectiondiv
    "section-pullquote
+   "
+>
+<!ENTITY % d4p_pubcontent-d-lq
+   "d4pAttributedQuote
    "
 >
 

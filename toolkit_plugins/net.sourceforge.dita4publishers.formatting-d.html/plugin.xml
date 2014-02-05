@@ -6,6 +6,8 @@
   Implements HTML rendering for the formatting domain.
   -->
 <plugin id="net.sourceforge.dita4publishers.formatting-d.html">
+  <require plugin="net.sourceforge.dita4publishers.common.html"/> 
+  <require plugin="net.sourceforge.dita4publishers.doctypes"/> 
   <feature extension="dita.xsl.xhtml"
       value="xsl/formatting-d2html.xsl" type="file"/>
       

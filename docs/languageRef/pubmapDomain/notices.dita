@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference id="notices">
+   <title>notices</title>
+   <shortdesc />
+   <prolog>
+      <metadata>
+         <keywords>
+            <indexterm>pubmapDomain elements<indexterm>notices</indexterm>
+            </indexterm>
+            <indexterm>notices</indexterm>
+         </keywords>
+      </metadata>
+   </prolog>
+   <refbody>
+      <refbodydiv outputclass="summary">
+         <section id="summary">The &lt;notices&gt; element references a topic or map as a notices within a book.
+                    </section>
+      </refbodydiv>
+      <refbodydiv outputclass="d4p">
+         <section id="d4p"><!--Any d4p specific information could go here.--></section>
+      </refbodydiv>
+      <refbodydiv outputclass="contains"/>
+      <refbodydiv outputclass="contains-by"/>
+      <refbodydiv outputclass="inheritance">
+         <section id="inheritance">
+            <title>Inheritance</title>
+            <p>+ map/topicref pubmap-d/notices </p>
+         </section>
+      </refbodydiv>
+      <!--If appropriate an example could go here.-->
+      <refbodydiv outputclass="attributes"/>
+   </refbody>
+</reference>

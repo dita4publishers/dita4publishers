@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style2tagmap
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap ../../doctypes/style2tagmap/xsd/style2tagmap.xsd"
+  xmlns="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap">
+  <title>Word Default Styles Style-to-Tag Map</title>
+  <documentation> </documentation>
+  <styles>
+    <output
+      name="map"
+      doctype-system="map.dtd"
+      doctype-public="-//OASIS//DTD DITA Map//EN"/>
+
+    <output
+      name="concept"
+      doctype-system="concept.dtd"
+      doctype-public="-//OASIS//DTD DITA Concept//EN"/>
+
+    <output
+      name="task"
+      doctype-system="task.dtd"
+      doctype-public="-//OASIS//DTD DITA Task//EN"/>
+
+    <output
+      name="reference"
+      doctype-system="reference.dtd"
+      doctype-public="-//OASIS//DTD DITA Reference//EN"/>
+
+    <style
+      styleName="Title Page Title"
+      level="0"
+      format="map"
+      mapType="map"
+      prologType="topicmeta"
+      structureType="mapTitle"
+      tagName="title"/>
+
+    <style
+      styleName="Heading 1"
+      structureType="topicHead"
+      tagname="topichead"
+      level="1"/>
+    
+    <style
+      styleName="Heading 2"
+      structureType="topicHead"
+      tagname="topichead"
+      level="2"/>
+    
+    <style
+      styleName="fm_H0chapter"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="concept"
+      bodyType="conbody"
+      format="concept"
+      topicrefType="topicref"
+      tagName="title"
+      topicZone="body"
+      level="1"/>
+
+    <style
+      styleName="fm_h1heading"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="concept"
+      bodyType="conbody"
+      format="concept"
+      topicrefType="topicref"
+      tagName="title"
+      topicZone="body"
+      level="2"/>
+    
+    <style
+      styleName="fm_h2heading"
+      structureType="topicTitle"
+      topicDoc="yes"
+      topicType="concept"
+      bodyType="conbody"
+      format="concept"
+      topicrefType="topicref"
+      tagName="title"
+      topicZone="body"
+      level="3"/>
+    
+    <style
+      styleName="fm_htdtodoheading"
+      structureType="shortdesc"
+      tagName="shortdesc"
+      topicZone="shortdesc"
+      level="1"/>
+
+    <style
+      styleName="fm_body"
+      tagName="p"
+      topicZone="body"
+      level="1"/>
+
+ 
+    <style
+      styleName="Default Paragraph Font"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+
+
+    <style
+      styleName="fm_numlist"
+      structureType="skip"/>
+    
+    <style
+      styleName="fmnumlist"
+      structureType="skip"/>
+    
+    <style
+      styleName="fm_halfsquare"
+      structureType="skip"/>
+    
+    <style
+      styleName="fm_emphasisboldcell"
+      tagName="b"
+      topicZone="inline"
+      level="1"/>
+
+    <style
+      styleName="fm_emphasisitalic"
+      tagName="i"
+      topicZone="inline"
+      level="1"/>
+    
+    <style
+      styleName="Heading2Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    
+    <style
+      styleName="fm_tatableanchor"
+      structureType="skip"/>
+    
+    <style
+      styleName="Table of Contents Page Title"
+      structureType="skip"/>
+
+    <style
+      styleName="TOC 1"
+      structureType="skip"/>
+    <style
+      styleName="TOC 2"
+      structureType="skip"/>
+    <style
+      styleName="TOC 3"
+      structureType="skip"/>
+    <style
+      styleName="TOC 4"
+      structureType="skip"/>
+    <style
+      styleName="TOC 5"
+      structureType="skip"/>
+    <style
+      styleName="TOC 6"
+      structureType="skip"/>
+    <style
+      styleName="TOC 7"
+      structureType="skip"/>
+    <style
+      styleName="TOC 8"
+      structureType="skip"/>
+    <style
+      styleName="TOC 9"
+      structureType="skip"/>
+
+    <style
+      styleName="Heading3Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleName="Heading4Char"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+
+    <style
+      styleName="fm_l1bbulleted"
+      containerType="ul"
+      tagName="li"
+      level="1"
+      structureType="block"
+      topicZone="body"/>
+    
+    <style
+      styleName="fm_tclbscelllistbulletsmall"
+      containerType="ul"
+      tagName="li"
+      level="1"
+      structureType="block"
+      topicZone="inline"/>
+      
+    <style
+      styleName="Body Text Indent"
+      tagName="p"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleName="BodyTextIndentChar"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleName="fm_l2bbulleted"
+      containerType="ul"
+      tagName="li"
+      level="2"
+      structureType="block"
+      topicZone="body"/>
+    <style
+      styleName="fm_abalertbody"
+      tagName="note"
+      topicZone="body"
+      structureType="block"
+      level="1"/>
+    
+    <style
+      styleName="fm_analertnote"
+      tagName="note"
+      topicZone="body"
+      structureType="block"
+      level="1"/>
+    <style
+      styleName="Body Text"
+      tagName="p"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleName="Normal"
+      tagName="p"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleName="BodyTextChar"
+      tagName="ph"
+      topicZone="body"
+      level="1"/>
+    <style
+      styleName="fm_l1nnumbered"
+      containerType="ol"
+      tagName="li"
+      level="1"
+      structureType="block"
+      topicZone="body"/>
+    <style
+      styleName="List Number 2"
+      containerType="ol"
+      tagName="li"
+      level="2"
+      structureType="block"
+      topicZone="body"/>
+    
+    <style styleName="Hyperlink"
+      structureType="xref"
+      topicZone="inline"
+      level="1"/>
+
+
+  </styles>
+</style2tagmap>

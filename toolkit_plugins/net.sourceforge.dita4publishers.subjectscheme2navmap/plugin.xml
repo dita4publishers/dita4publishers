@@ -1,0 +1,15 @@
+<plugin id="net.sourceforge.d4p.subjectscheme2navmap">
+
+  <extension-point id="xsl.transtype-subjectscheme2navmap"/>
+  
+  <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
+  <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
+
+  <template file="build_transtype-subjectscheme2navmap_template.xml"/>
+  
+  <template file="xsl/subjectscheme2navmap_template.xsl"/>
+
+  <feature extension="dita.conductor.transtype.check" value="subjectscheme2navmap" type="txt"/>
+  <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
+
+</plugin>

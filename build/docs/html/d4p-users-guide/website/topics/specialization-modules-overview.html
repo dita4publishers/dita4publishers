@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="topic"></meta>
+<meta name="DC.Title" content="DITA for Publishers Vocabulary Modules Overview"></meta>
+<meta name="DC.Relation" scheme="URI" content="../../user_docs/d4p-users-guide/vocabulary-part/d4p-vocabulary-concepts.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="d4p-topic-types.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="pubmap-domain.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="../../user_docs/d4p-users-guide/vocabulary-part/domain-modules-overview.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC10"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="topic-1"></meta>
+<link rel="stylesheet" type="text/css" href="../../commonltr.css"></link>
+<title>DITA for Publishers Vocabulary Modules Overview</title>
+</head>
+<body id="topic-1">
+
+
+  <h1 class="title topictitle1">DITA for Publishers Vocabulary Modules Overview</h1>
+  <div class="body">
+    <p class="p">The DITA for Publishers project provides map, topic, and domain specialization vocabulary modules for constructs needed by typical publishing documents.</p>
+
+    <div class="p">The map specializations are:<dl class="dl">
+      
+        <dt class="dt dlterm">publication map domain</dt>
+
+        <dd class="dd">Provides a rich set of topicref specializations that can be used to create DITA maps that represent almost any possible configuration of typical publication components. As a map domain, the publication map elements can be mixed with elements from other map domains, such as the Learning and Training map domain. The publication map domain has been designed to make it easy to organize publication components into submaps.</dd>
+
+      
+      
+        <dt class="dt dlterm">publication metadata map domain</dt>
+
+        <dd class="dd">Provides a rich set of metadata elements that reflect the needs of publishers. Publishing publication metadata tends to be more demanding than that required by technical documents. As a map domain, the publishing metadata elements can be added to any map type.</dd>
+
+      
+        
+          <dt class="dt dlterm">pubmap</dt>
+
+          <dd class="dd">The publication map map type integrates the publication map and publication metadata domains into a map document type. It serves both as a general publication map type and as an example of how to integrate and configure the publication map and publication metadata domains. Similar to the DITA 1.1 bookmap, but less constrained. Represents a single publication, nominally as presented in print (although may be adapted for other media formats as well). Includes publishing-specific metadata not available from bookmap, such as both 10- and 13-digit ISBNs and ISSNs. Includes the ability to represent arbitrary single pages, such as often occur in fiction books before the main content. Also includes facilities for including cover components.</dd>
+
+        
+      
+        <dt class="dt dlterm">report</dt>
+
+        <dd class="dd">A map that represents a report.</dd>
+
+      
+      
+        <dt class="dt dlterm">trainingMap</dt>
+
+        <dd class="dd">A map for training. Integrates the DITA Learning and Training
+          learning map and learning metadata domain. Intended as a base for maps
+          that represent training-specific learning content.</dd>
+
+      
+      </dl>
+</div>
+
+    <div class="p">The topic specializations are:<dl class="dl">
+        
+          <dt class="dt dlterm">article</dt>
+
+          <dd class="dd">For articles within periodicals or article-based books. Allows nested subsection and
+            sidebar topic types in the default shell configuration. Enables authoring of complete
+            articles as single files.</dd>
+
+        
+        
+          <dt class="dt dlterm">chapter</dt>
+
+          <dd class="dd">For chapters within books. Allows nested subsection and sidebar topic types in the
+            default shell configuration. Enables authoring of complete chapters as single
+            files.</dd>
+
+        
+        
+          <dt class="dt dlterm">part</dt>
+
+          <dd class="dd">For parts within books. Provides the part title and, optionally, introductory body
+            content. Can be configured to allow nested chapter or subsection topics but does not in
+            the default shell configuration.</dd>
+
+        
+        
+          <dt class="dt dlterm">subsection</dt>
+
+          <dd class="dd">Generic subsection within articles and chapters. Enables creation of arbitrary
+            hierarchies of titled divisions, e.g., within chapters and articles. Base for more
+            specialized subsection types.</dd>
+
+        
+        
+          <dt class="dt dlterm">sidebar</dt>
+
+          <dd class="dd">Generic out-of-line topic. May contain nested subsections in the default shell
+            configuration. Base for more specialized sidebar types.</dd>
+
+        
+      
+        <dt class="dt dlterm">cover</dt>
+
+        <dd class="dd">Provides a generic topic for representing publication covers. Has a specialized title element with empty content. The content of the cover topic would normally be a reference to a graphic of the cover itself.</dd>
+
+      
+      </dl>
+</div>
+
+    <div class="p">The topic domain specializations are:<dl class="dl">
+      
+        <dt class="dt dlterm">bibbase</dt>
+
+        <dd class="dd">Provides the base for more sophisticated bibliographic entries.
+          Modeled on the DocBook <code>&lt;biblioentry&gt;</code> and
+          <code>&lt;bibliomixed&gt;</code> element types.</dd>
+
+      
+      
+        <dt class="dt dlterm">classification</dt>
+
+        <dd class="dd">Provides a generic <code>&lt;classification&gt;</code> element (specialized from <code>&lt;data&gt;</code>) that clearly identifies the metadata elements it contains as being classifying as opposed to any other type of metadata (such as identifying metadata). Classifying metadata normally relates its container to items in defined classification taxonomies.</dd>
+
+      
+      
+        <dt class="dt dlterm">enumeration</dt>
+
+        <dd class="dd">A common requirement in publishing documents is arbitrary numbering (enumeration) of document components. Sometimes this enumeration is arbitrary, meaning that it cannot be automated. Sometimes it needs to be captured for legacy or historical reasons. The enumeration domains support both the simple identification of content that serves as enumerations, allowing a processor to show or suppress the enumerations as appropriate, and author-specification of arbitrary automatic numbering. The intent of the enumeration design is to enable author-specification of arbitrary numbering rules where necessary. These domains are still somewhat experimental.</dd>
+
+      
+      
+        <dt class="dt dlterm">formatting</dt>
+
+        <dd class="dd">Provides elements that request or capture specific formatting effects, including line breaks, tabs, and mathematical equations represented using any combination of MathML, InDesign data, or graphics.</dd>
+
+      
+      
+        <dt class="dt dlterm">math</dt>
+
+        <dd class="dd">Provides markup for representing equations in various ways,
+          including using MathML. It currently integrates MathML as a foreign
+          vocabulary. However, that integration will be replaced in DITA 1.3
+          with a standard integration. This domain will then provide various
+          wrapper elements for representing different types of equations
+          regardless of how those equations are defined.</dd>
+
+      
+      
+        <dt class="dt dlterm">media</dt>
+
+        <dd class="dd">Provides markup for integrating rich media (video, audio, etc.) into
+          DITA content. Modeled as closely as possible on the HTML5 video and
+          related elements. Output support is provided for HTML, HTML5, and
+          EPUB.</dd>
+
+      
+      
+        <dt class="dt dlterm">rendition target select attribute</dt>
+
+        <dd class="dd">Provides a global attribute intended to allow filtering and flagging based on the rendition type, e.g., PDF, EPUB, HTML, etc.</dd>
+
+      
+      
+        <dt class="dt dlterm">publication content</dt>
+
+        <dd class="dd">Provides elements that are unique to publications, e.g., "epigram" and "epigraph".</dd>
+
+      
+      
+        <dt class="dt dlterm">ruby</dt>
+
+        <dd class="dd">Provides markup identical to the HTML 5 <code>&lt;ruby&gt;</code>
+          markup for annotating ideographic characters with their
+          pronounciation, as is required for Japanese-language documents. (Note:
+          This domain will be replaced by the equivalent domain in DITA
+          1.3).</dd>
+
+      
+      
+        <dt class="dt dlterm">textbook</dt>
+
+        <dd class="dd">Intended to provide elements specific to textbooks. Currently only
+          provides the "display map" specialization of
+          <code>&lt;fig&gt;</code>.</dd>
+
+      
+      
+        <dt class="dt dlterm">variables</dt>
+
+        <dd class="dd">A simple (for now) facility for creating variables that are scoped
+          hierarchically through the map and topic hierarchy. The variables
+          facility lets you have variables scoped in a way that is analogous to
+          programming languages, where lower scopes (closer to the reference)
+          take precedence over higher scopes. Likewise, a given topic or map
+          used in two different contexts can reflect different variable values.
+          Variable definitions may be in maps, topicrefs, topic prologs, or
+          topic bodies. Variable definitions are specializations of
+          <code>&lt;data&gt;</code>, variable references are specializations of
+          <code>&lt;keyword&gt;</code> or <code>&lt;text&gt;</code> as
+          appropriate.</dd>
+
+      
+      
+        <dt class="dt dlterm">verse</dt>
+
+        <dd class="dd">Provides elements for representing verse as a sequence of stanzas and lines.</dd>
+
+      
+      
+        <dt class="dt dlterm">XML</dt>
+
+        <dd class="dd">Provides elements for identifying mentions of XML constructs. (Note:
+          this domain will be replaced by the equivalent domain in DITA
+          1.3).</dd>
+
+      
+      </dl>
+</div>
+
+    <p class="p">The project's vocabulary modules also include configurations of the standard topic, concept, task, and reference topic types that integrate the various DITA for Publishers domain modules.</p>
+
+    <p class="p">In addition to these base specializations (base in the sense of defining
+      generic publishing-specific markup), the sample data includes a
+      specialization for Shakespeare plays that shows how to adapt DITA, and
+      DITA for Publishers specializations, to the very specific task of
+      representing plays. </p>
+
+  </div>
+
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><strong><a href="d4p-topic-types.html">Publication Component Topic Types</a></strong><br></br>
+The five topic types article, chapter, part, subsection, and sidebar provide the basic building blocks for all publications when coupled with the standard task and glossary entry types.</li>
+<li class="link ulchildlink"><strong><a href="pubmap-domain.html">Publication Maps</a></strong><br></br>
+The publication map and publication metadata domains provide a rich set of topic references and metadata elements for use in maps that can represent almost any existing or possible publication.</li>
+<li class="link ulchildlink"><strong><a href="../../user_docs/d4p-users-guide/vocabulary-part/domain-modules-overview.html">DITA For Publishers Domains</a></strong><br></br>
+The D4P vocabulary modules include a number of domains you can use to augment both map and topic types.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../user_docs/d4p-users-guide/vocabulary-part/d4p-vocabulary-concepts.html" title="This section provides general concepts and usuage guidance for the DITA for Publishers vocabulary.">Understanding the DITA For Publishers Markup Vocabulary</a></div>
+</div>
+</div>
+
+</body>
+</html>

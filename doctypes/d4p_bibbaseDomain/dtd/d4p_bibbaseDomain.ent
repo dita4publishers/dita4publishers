@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     DITA For Publishers BibBase Domain
+     
+     Defines base types for bibliographic entries. These types
+     are modeled as closely as possible on the DocBook biblioentry
+     and bibliomixed models.
+     
+     This base domain is intended primarily to provide a base
+     for further specialization.
+     
+     Copyright (c) 2012 DITA For Publishers
+     
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                   Formatting DOMAIN ENTITIES                  -->
+<!-- ============================================================= -->
+
+<!ENTITY % d4p_bibbase-d-ph
+   "    
+   "
+>
+
+<!ENTITY % d4p_bibbase-d-p
+   "d4p_biblioentryBase
+   "
+>
+
+
+<!ENTITY   d4p_bibbase-d-att     
+  "(topic d4p_bibbase-d)"
+>
+
+
+<!-- ================== End DITA For Publishers BibBase Domain Entities ============ -->

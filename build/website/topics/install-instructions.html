@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="task"/>
+<meta name="DC.Title" content="Installing the DITA For Publishers Package"/>
+<meta name="DC.Relation" scheme="URI" content="../topics/how-to-use.html"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="taskId"/>
+<link rel="stylesheet" type="text/css" href="../commonltr.css"/>
+<title>Installing the DITA For Publishers Package</title>
+</head>
+<body id="taskId">
+
+
+  <h1 class="title topictitle1">Installing the DITA For Publishers Package</h1>
+
+  <div class="body taskbody">
+    <div class="section context">
+      <p class="p">The DITA For Publishers materials are provided as a single Zip package
+        from the project's download page: <a class="xref" href="https://sourceforge.net/projects/dita4publishers/files/" target="_blank">https://sourceforge.net/projects/dita4publishers/files/</a>.
+        The Toolkit plugins are intended for use with the 1.5, 1.6, and 1.7
+        versions of the Open Toolkit but may work with the 1.4.3 version. The
+        DITA for Publishers plugins are tested against the latest stable and
+        milestone releases. Note that release 1.5.4 fixes a number of bugs from
+        1.5.3. The 1.5.4 release has proven stable for me and I recommend moving
+        to that release if at all possible. Note that for 1.7 there are a few
+        minor code differences from 1.6 that require a separate build of the D4P
+        plugins, identified by "OT17" in the materials package filename.</p>
+
+    </div>
+
+    <ol class="ol steps"><li class="li step">
+        <span class="ph cmd">Download the Zip package and unpack it wherever you like, e.g. <span class="ph filepath">c:\myprojects\dita4publishers</span>.</span>
+      </li>
+<li class="li step">
+        <span class="ph cmd">Unzip the package.</span>
+         
+          <div class="p">You should get these directories and zip files:<dl class="dl">
+              
+                <dt class="dt dlterm"><span class="ph filepath">dita4publishers_toolkit_plugins-<var class="keyword varname">version</var>-<var class="keyword varname">release</var>-<var class="keyword varname">modification</var>.zip</span></dt>
+
+                <dd class="dd">Contains the DITA for Publishers Toolkit plugins. To be installed in your local
+                  Open Toolkit's <span class="ph filepath">plugins</span> directory.</dd>
+
+              
+              
+                <dt class="dt dlterm"><span class="ph filepath">documentation</span></dt>
+
+                <dd class="dd">Contains the project documentation (DITA format).</dd>
+
+              
+            
+              
+                <dt class="dt dlterm"><span class="ph filepath">sample_data</span></dt>
+
+                <dd class="dd">Contains sample publications and related data that serve to demonstrate and test the Publishing vocabulary modules.</dd>
+
+              
+              
+                <dt class="dt dlterm"><span class="ph filepath">xslt</span></dt>
+
+                <dd class="dd">Contains various XSLT transforms that might be useful, mostly used to convert
+                  Project Gutenberg sample data into publications (the XSLTs used by plugins are in
+                  the plugins as packaged).</dd>
+
+              
+            </dl>
+</div>
+
+        
+      </li>
+<li class="li step">
+        <span class="ph cmd">Unzip the file <span class="ph filepath">dita4publishers_toolkit_plugins</span> into your local
+          Open Toolkit's <span class="ph filepath">plugins</span> directory so that each top-level directory in
+          the Zip file is a direct child of <span class="ph filepath">plugins</span>.</span>
+         
+          <div class="p">Your <span class="ph filepath">plugins</span> directory should include a number of DITA for Publishers plugin directories, including:<ul class="ul">
+            <li class="li">net.sourceforge.dita4publishers.doctypes</li>
+
+            <li class="li">net.sourceforge.dita4publishers.epub</li>
+
+            <li class="li">net.sourceforge.dita4publishers.kindle</li>
+
+            <li class="li">net.sourceforge.dita4publishers.pubmap.html</li>
+
+            <li class="li">net.sourceforge.dita4publishers.word2dita</li>
+
+            <li class="li">net.sourceforge.dita4publishers.xmldomain.doctypes</li>
+
+            <li class="li">net.sourceforge.dita4publishers.xmldomain.html</li>
+
+            </ul>
+</div>
+
+        
+      </li>
+<li class="li step">
+        <span class="ph cmd">Run the Toolkit's integrate Ant target to integrate the new plugins into the
+          toolkit.</span>
+         
+          <p class="p">There are many ways to do this, but one way is to use a command window. Navigate to
+            your Open Toolkit's directory and then issue this command:</p>
+
+          <pre class="pre codeblock">tools/ant/bin/ant -f integrator.xml</pre>
+
+          <p class="p">That should run and you should see some sort of happy message.</p>
+
+          <div class="note note"><span class="notetitle">Note:</span> The Open Toolkit that comes installed with OxygenXML does not
+            include Ant in the <span class="ph filepath">tools/ant</span> location within
+            the Toolkit because OxygenXML already provides Ant in a different
+            location. As of Oxygen 13.1, Ant is in
+            <span class="ph filepath">tools/ant</span> below the main Oxygen installation
+            directory. If you are in a command window with Oxygen's Toolkit as
+            your current directory, you would do
+            this:<pre class="pre codeblock">c:\Program Files\oxygen\frameworks\dita\DITA-OT &gt; ..\..\..\tools\ant\bin\ant -f integrator.xml</pre>
+</div>
+
+        
+      </li>
+<li class="li step">
+        <span class="ph cmd">Test the toolkit by running the epub generation on one of the sample
+          publications.</span>
+         
+          <div class="p">You first need to start a Toolkit-specific command window, which
+            you do by running the command startCmd.bat (Windows) or startCmd.sh
+            (OSX, Linux). This sets up the Java class path so the Toolkit
+            processes will work
+            correctly:<pre class="pre codeblock">c:\DITA-OT &gt; startCmd.bat</pre>
+</div>
+
+          <p class="p">The, using the command window you just created, this command should
+            work:</p>
+
+          <pre class="pre codeblock">java -jar lib/dost.jar /i:/Users/myname/dita4publishers/sample_data/wizard-of-oz/wizard-of-oz.ditamap /transtype:epub</pre>
+
+          <p class="p">Specifying the actual path to where you put the sample data.</p>
+
+          <div class="p">For Windows, use backslashes in the filename in the
+            <span class="keyword parmname">/i</span>
+            parameter:<pre class="pre codeblock">java -jar lib/dost.jar /i:\Users\myname\dita4publishers\sample_data\wizard-of-oz\wizard-of-oz.ditamap /transtype:epub</pre>
+</div>
+
+        
+      </li>
+</ol>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/how-to-use.html">How To Use the DITA For Publishers Materials</a></div>
+</div>
+</div>
+
+</body>
+</html>

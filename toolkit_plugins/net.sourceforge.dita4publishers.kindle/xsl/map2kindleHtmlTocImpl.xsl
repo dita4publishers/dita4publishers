@@ -6,10 +6,6 @@
   xmlns="http://www.w3.org/1999/xhtml"
   exclude-result-prefixes="local xs df xsl relpath htmlutil index-terms">
 
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
-  
   <xsl:output indent="yes" name="html" method="html"/>
 
 
@@ -99,7 +95,7 @@
       <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
       <xsl:choose>
         <xsl:when test="not($topic)">
-          <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence
+          <xsl:message> + [WARNING] generate-html-toc: Failed to resolve topic reference to href "<xsl:sequence
               select="string(@href)"/>"</xsl:message>
         </xsl:when>
         <xsl:otherwise>

@@ -1,0 +1,205 @@
+<project name="dita2rss" default="dita2rss"
+  >
+
+  <!-- test to see where the plugin is located, plugins or demo -->
+  <dirname property="rss.dir" file="${ant.file.dita2rss}"/>
+
+
+	<target name="dita2rss"
+    	unless="noMap"
+   		xmlns:dita="http://dita-ot.sourceforge.net"
+		dita:depends="d4p.map-driven-build-init, build-init, preprocess, rss"
+    	dita:extension="depends org.dita.dost.platform.InsertDependsAction">
+	</target>
+
+	<target name="rss"
+    	unless="noMap"
+    	depends="dita.map.rss"/>
+
+
+  <target name="dita.map.rss.init"
+    description="Init properties for rss">
+    
+    <property name="d4p.is.map.driven" value="true"/>
+
+    <condition property="topics.output.dir" value="topics">
+  		<not>
+  			<isset property="topics.output.dir"/>
+  	  </not>
+  	</condition>
+
+  	<!-- The name of the directory, within the output package, to contain all images: -->
+    <condition property="images.output.dir" value="images">
+  		<not>
+    	  <isset property="images.output.dir" />
+  		</not>
+    </condition>
+
+  	<property name="rss.temp.dir" value="${dita.temp.dir}${file.separator}rss_temp"/>
+
+  	<!-- Defines the @class value to use for topic elements generated for topicheads. -->
+  	<condition property="title.only.topic.class.spec" value="- topic/topic ">
+  		<not>
+    	  <isset property="title.only.topic.class.spec" />
+  		</not>
+  	</condition>
+
+  	<!-- Defines the @class value to use for topic title elements generated for topicheads. -->
+  	<condition property="title.only.topic.title.class.spec" value="- topic/title ">
+  		<not>
+    	  <isset property="title.only.topic.title.class.spec" />
+  		</not>
+  	</condition>
+
+    <basename property="dita.map.toc.root"
+      file="${dita.input.filename}"
+      suffix=".ditamap" />
+
+    <condition property="args.rss.toc" value="${dita.map.toc.root}">
+      <not>
+        <isset property="args.rss.toc" />
+      </not>
+    </condition>
+
+    <condition property="out.ext" value=".html">
+      <not>
+        <isset property="out.ext" />
+      </not>
+    </condition>
+
+    <condition property="noPlugin">
+      <equals arg1="${dita.rss.plugin}" arg2="no" />
+    </condition>
+
+    <condition property="rss.do.copy.graphics" value="true">
+  		<not>
+  			<isset property="rss.do.copy.graphics"/>
+  	  </not>
+  	</condition>
+  	
+  	<!-- dates are RF-822 format
+  		 @see http://asg.web.cmu.edu/rfc/rfc822.html
+  		 @see http://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html
+  		 @example: Sat, 07 Sep 2002 00:00:01 GMT
+  	-->  	
+  	<tstamp>
+    	<format property="rss.pubdate" pattern="EEE, dd MMM yyyy HH:mm:ss z" locale="en,UK"/>
+  	</tstamp>
+  	
+  	<!-- time to leave, in minutes -->
+  	<condition property="rss.ttl" value="1440">
+  		<not>
+  			<isset property="rss.ttl"/>
+  	  </not>
+  	</condition>
+  	
+  	<condition property="rss.managingEditor" value="">
+  		<not>
+  			<isset property="rss.managingEditor"/>
+  	  </not>
+  	</condition>
+  	
+  	 <condition property="rss.webmaster" value="">
+  		<not>
+  			<isset property="rss.webmaster"/>
+  	  </not>
+  	</condition>
+  	
+  	<!-- domain : carefull to the trailing slash -->
+  	<condition property="rss.link" value="http://www.example.com/">
+  		<not>
+  			<isset property="rss.link"/>
+  	  </not>
+  	</condition>
+  	
+  	<condition property="rss.doc.dir" value="my/dir/">
+  		<not>
+  			<isset property="rss.doc.dir"/>
+  	  </not>
+  	</condition>
+  	
+  	<condition property="rss.filename" value="feed">
+  		<not>
+  			<isset property="rss.filename"/>
+  	  </not>
+  	</condition>
+  	
+  	 <condition property="rss.ext" value=".xml">
+  		<not>
+  			<isset property="rss.ext"/>
+  	  </not>
+  	</condition>
+		
+  	<echo message="+++ rss-specific properties:"/>
+  	<echoproperties format="text" regex="^(rss|html2|css|user|out\.)" taskname="echo"/>
+  </target>
+
+  <target name="dita.map.rss" depends="dita.map.rss.init"
+  	description="Generate rss components from input map">
+
+  	<mkdir dir="${rss.temp.dir}"/>
+  	<makeurl file="${output.dir}" property="rss.xslt.outdir"/>
+  	<makeurl file="${dita.temp.dir}" property="rss.xslt.tempdir"/>
+  	
+  	<property name="args.xhtml.toc" value="index"/>
+  	<property name="map2rss.style" location="${rss.dir}/xsl/map2rss.xsl"/>
+  	
+  	<echo> ++ ${dita.temp.dir}/${dita.input.filename}
+  	${dita.temp.dir}/${dita.input.filename}</echo>
+    <xslt processor="trax"
+      in="${dita.temp.dir}/${dita.input.filename}"
+      out="${output.dir}/empty.xml"
+      classpathref="dost.class.path"
+      style="${map2rss.style}"
+    >
+      <param name="debug" expression="${debug}"/>
+    <param name="fileOrganizationStrategy" expression="${html2.file.organization.strategy}" if="html2.file.organization.strategy"/>
+      <param name="generateDynamicToc" expression="${rss.generate.dynamic.toc}" if="rss.generate.dynamic.toc"/>
+      <param name="generateStaticToc" expression="${html2.generate.static.toc}" if="html2.generate.static.toc"/>
+    	<param name="generateGlossary" expression="${html2.generate.glossary}" if="html2.generate.glossary"/>
+    	<param name="generateIndex" expression="${html2.generate.index}" if="html2.generate.index"/>
+      <param name="mathJaxUseCDNLink" expression="${html2.mathjax.use.cdn.link}" if="html2.mathjax.use.cdn.link"/>
+      <param name="mathJaxUseLocalLink" expression="${html2.mathjax.use.local.link}" if="html2.mathjax.use.local.link"/>
+      <param name="mathJaxLocalJavascriptUri" expression="${html2.mathjax.local.javascript.uri}" if="html2.mathjax.local.javascript.uri"/>
+      <param name="imagesOutputDir" expression="${images.output.dir}"/>
+     	<param name="outdir" expression="${rss.xslt.outdir}"/>
+    	<!-- NOTE: Case of OUTEXT matches parameter used in base HTML transform type -->
+    	<param name="RSSEXT" expression="${rss.ext}"/>
+    	<param name="OUTEXT" expression="${out.ext}"/><!-- Extension to use for result files, e.g., ".html" -->
+     	<param name="tempdir" expression="${rss.xslt.tempdir}"/>
+    	<param name="rawPlatformString" expression="${os.name}"/>
+    	<param name="titleOnlyTopicClassSpec" expression="${title.only.topic.class.spec}"/>
+    	<param name="titleOnlyTopicTitleClassSpec" expression="${title.only.topic.title.class.spec}"/>
+     	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
+		  <param name="TRANSTYPE" expression="${transtype}" if="{transtype"/>
+    	<!-- Parameters from dita2xhtml and similar transtypes: -->
+      <param name="WORKDIR" expression="${workdir}" if="workdir"/>
+     
+      <param name="DRAFT" expression="${args.draft}" if="args.draft"></param>
+      <param name="ARTLBL" expression="${args.artlbl}" if="args.artlbl"></param>
+      <param name="GENERATE-TASK-LABELS" expression="${args.gen.task.lbl}" if="args.gen.task.lbl"></param>
+      <param name="PRESERVE-DITA-CLASS" expression="${args.xhtml.classattr}" if="args.xhtml.classattr"></param>
+      <param name="NOPARENTLINK" expression="${args.hide.parent.link}" if="args.hide.parent.link"></param>
+      <param name="BREADCRUMBS" expression="${args.breadcrumbs}" if="args.breadcrumbs"></param>
+      <param name="INDEXSHOW" expression="${args.indexshow}" if="args.indexshow"></param>
+    	<param name="OUTPUTDIR" expression="${output.dir}"/>
+    	<param name="FILEDIR" expression="."/>
+    	<param name="PUBDATE" expression="${rss.pubdate}" />
+    	<param name="RSSLINK" expression="${rss.link}" />
+    	<param name="RSSDIR" expression="${rss.doc.dir}" />
+    	<param name="TTL" expression="${rss.ttl}" />
+    	<param name="MANAGINGEDITOR" expression="${rss.managingEditor}" />
+    	<param name="WEBMASTER" expression="${rss.webmaster}" />
+    	<param name="FILENAME" expression="${rss.filename}" />
+      <xmlcatalog refid="dita.catalog"></xmlcatalog>
+
+    	<dita:extension id="dita.rss.map" behavior="org.dita.dost.platform.InsertAction" xmlns:dita="http://dita-ot.sourceforge.net"/>
+
+    </xslt>
+    
+    <delete file="${output.dir}/empty.xml" />
+
+  </target>
+
+  
+</project>

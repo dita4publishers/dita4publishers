@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic 
+  id="topic-id" class="- topic/topic ">
+  <title class="- topic/title ">DITA 2 InCopy Test 01</title>
+  <shortdesc/>
+  <body  base="" class="- topic/body ">
+    <p 
+      outputclass="style1" class="- topic/p ">This is a para with outputclass "style1".</p>
+    <p
+      outputclass="style2" class="- topic/p ">This is a para with outputclass "style2".</p>
+  </body>
+</topic>

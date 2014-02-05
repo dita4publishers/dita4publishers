@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subsection PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:subsection" "subsection.dtd">
+<subsection
+  id="subsection-id">
+  <title>Index Test Cases</title>
+  <body>
+    <p>This subsection contains tests of index entries.</p>
+    <p>Index term element with two subordinate entries: <indexterm>primary
+      term<indexterm>secondary term 1</indexterm><indexterm>secondary term
+      2</indexterm></indexterm> (primary term with subitems secondary term 1 and
+      secondary term 2</p>
+    <p>Index see: <indexterm>top-level index term<index-see>primary
+      term</index-see></indexterm> ("top-level index term" with see to "primary
+      term"</p>
+    <p>Index see also: <indexterm>index
+      levels<indexterm>primary</indexterm></indexterm><indexterm>index
+      levels<index-see-also>primary term</index-see-also></indexterm> "index
+      levels" with subordinate item "primary" and a see-also to "primary
+      term".</p>
+  </body>
+</subsection>

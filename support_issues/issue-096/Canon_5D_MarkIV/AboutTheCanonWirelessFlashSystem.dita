@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<?Pub Inc?>
+<concept id="AboutTheCanonWirelessFlashSystem-90366BF2" xml:lang="en">
+<title>About the Canon Wireless Flash System</title>
+<shortdesc>The Canon wireless flash system enables you to control
+multiple Speedlite flashes by using a <term>pre-flash</term>. The
+preflash sends information to all flashes such as sync mode and firing
+power.</shortdesc>
+<prolog>
+<metadata><keywords><indexterm>wireless flash</indexterm></keywords>
+</metadata>
+</prolog>
+<conbody>
+<p>Flashes in a wireless system consist of one master and many slaves.
+The master can be either a Speedlite or the ST-2 Wireless Flash Controller.
+Not all Speedlites can be configured to be a master. For example,
+the 580 EX II can be a master, but not the 430 EX II. Any Speedlite
+can be a slave, however.</p>
+<p>You configure a Canon external flash to become a master flash by
+making settings on the flash itself or by adjusting flash settings
+in the camera. When an external flash is acting as a master, it can
+control any number of slave flashes. You configure an external flash
+to be a slave by adjusting settings on the flash.</p>
+<p>Each slave flash can be assigned to a group. The Canon wireless
+system supports three groups: A, B, and C. You can control the flash
+power of each group separately by making settings on the master flash
+or in the camera.</p>
+<section><title>Manual Flash</title><p>When Speedlites are set in
+manual mode, you can control the power level of each group separately
+from the camera or from the Speedlite control panel. Examples of power
+levels include 1/1, 1/2, 1/4, 1/8, and so on, all the way to 1/128.</p
+></section>
+<section><title>E-TTL Flash</title><p>When flashes are set in E-TTL
+mode, you adjust the power levels of each group by setting power <term
+>ratios</term>. You can set the ratio of the group A level to the
+group B as 1:1, 1:2, 1:4 and so on, or as 1:1: 2:1, 4:1 and so on.</p
+></section>
+<section><title>Examples</title><p><xref format="dita"
+href="#AboutTheCanonWirelessFlashSystem-90366BF2/ClassicTwo-LightSetup-9F9B1DC5"
+scope="local" type="example"></xref> and <xref format="dita"
+href="#AboutTheCanonWirelessFlashSystem-90366BF2/example-148-9F9C64A4"
+scope="local" type="example"></xref> describe some sample multiple-light
+setups.</p><?Pub Caret 2?></section>
+<example id="ClassicTwo-LightSetup-9F9B1DC5"><title>Classic Two-Light
+Setup, Off-Camera Flash, E-TTL Mode</title><p>In the classic off-camera
+two-light setup, you use one flash as the key light, and one as the
+fill light. The key light is the master, attached to the camera with
+a long E-TTL cord, and is at camera-left at a 45 degree angle to the
+subject.</p><note>By default, the master is always in group A.</note
+><p>The fill light is at camera-right, also at a 45 degree angle and
+is in Group B. The ratio of group A to group B is set to 2:1, so that
+the key light is brighter than the fill light.</p></example>
+<example id="example-148-9F9C64A4"><title>Three-Light Setup, Off-Camera
+Flash, Manual Mode</title><p>This setup uses a key and fill light,
+but also uses a rim light (or “hair light”) to separate the subject
+from the background. The rim light is placed behind and above the
+subject, and is in group C. All flashes are set to manual operation.
+The key light’s power is set to 1/2, the fill light to 1/4, and the
+rim light to 1/2. Because the  ST-2 Wireless Flash Controller can
+control only two groups, you must use a Speedlite as the master.</p
+></example>
+</conbody>
+</concept>

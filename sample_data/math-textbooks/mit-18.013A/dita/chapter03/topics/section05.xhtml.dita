@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e56"><title>3.5 Linear Dependence and Independence</title><body><p>
+<b>A linear dependency</b>
+among vectors 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mrow><m:msub><m:mi>v</m:mi><m:mn>1</m:mn></m:msub></m:mrow><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ to 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mrow><m:msub><m:mi>v</m:mi><m:mi>k</m:mi></m:msub></m:mrow><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is an equation, 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mi>c</m:mi><m:mn>1</m:mn></m:msub><m:mover accent="true"><m:mrow><m:msub><m:mi>v</m:mi><m:mn>1</m:mn></m:msub></m:mrow><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>+</m:mo><m:mo>⋯</m:mo><m:mo>+</m:mo><m:msub><m:mi>c</m:mi><m:mi>k</m:mi></m:msub><m:mover accent="true"><m:mrow><m:msub><m:mi>v</m:mi><m:mi>k</m:mi></m:msub></m:mrow><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>=</m:mo><m:mover accent="true"><m:mn>0</m:mn><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, or 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mstyle displaystyle="true"><m:munder><m:mo mathsize="11 pt">∑</m:mo><m:mi>j</m:mi></m:munder></m:mstyle><m:mrow><m:msub><m:mi>c</m:mi><m:mi>j</m:mi></m:msub><m:mover accent="true"><m:mrow><m:msub><m:mi>v</m:mi><m:mi>j</m:mi></m:msub></m:mrow><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow><m:mo>=</m:mo><m:mover accent="true"><m:mn>0</m:mn><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ in which some of the c's ar not 0. A set of vectors is said to be
+<b>linearly 
+  independent</b>
+if there is no linear dependence among them, and
+<b>linearly 
+  dependent</b>
+if there is one or more linear dependence.
+</p><p>
+<b>Example: suppose</b>
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mrow><m:msub><m:mi>v</m:mi><m:mn>1</m:mn></m:msub></m:mrow><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>=</m:mo><m:mover accent="true"><m:mi>i</m:mi><m:mo stretchy="true">^</m:mo></m:mover><m:mo>+</m:mo><m:mover accent="true"><m:mi>j</m:mi><m:mo stretchy="true">^</m:mo></m:mover><m:mo>;</m:mo><m:mover accent="true"><m:mrow><m:msub><m:mi>v</m:mi><m:mn>2</m:mn></m:msub></m:mrow><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>=</m:mo><m:mn>2</m:mn><m:mover accent="true"><m:mi>i</m:mi><m:mo stretchy="true">^</m:mo></m:mover><m:mo>;</m:mo><m:mover accent="true"><m:mrow><m:msub><m:mi>v</m:mi><m:mn>3</m:mn></m:msub></m:mrow><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>=</m:mo><m:mn>3</m:mn><m:mover accent="true"><m:mi>j</m:mi><m:mo stretchy="true">^</m:mo></m:mover><m:mo>.</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+</p><p>
+Then 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mrow><m:msub><m:mi>v</m:mi><m:mn>1</m:mn></m:msub></m:mrow><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>,</m:mo><m:mover accent="true"><m:mrow><m:msub><m:mi>v</m:mi><m:mn>2</m:mn></m:msub></m:mrow><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mover accent="true"><m:mrow><m:msub><m:mi>v</m:mi><m:mn>3</m:mn></m:msub></m:mrow><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ are linearly dependent because there is the relation
+</p><p>
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mn>6</m:mn><m:mover accent="true"><m:mrow><m:msub><m:mi>v</m:mi><m:mn>1</m:mn></m:msub></m:mrow><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>=</m:mo><m:mn>3</m:mn><m:mover accent="true"><m:mrow><m:msub><m:mi>v</m:mi><m:mn>2</m:mn></m:msub></m:mrow><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>+</m:mo><m:mn>2</m:mn><m:mover accent="true"><m:mrow><m:msub><m:mi>v</m:mi><m:mn>3</m:mn></m:msub></m:mrow><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, or 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mn>6</m:mn><m:mover accent="true"><m:mrow><m:msub><m:mi>v</m:mi><m:mn>1</m:mn></m:msub></m:mrow><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>−</m:mo><m:mn>3</m:mn><m:mover accent="true"><m:mrow><m:msub><m:mi>v</m:mi><m:mn>2</m:mn></m:msub></m:mrow><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>−</m:mo><m:mn>2</m:mn><m:mover accent="true"><m:mrow><m:msub><m:mi>v</m:mi><m:mn>3</m:mn></m:msub></m:mrow><m:mo stretchy="true">⟶</m:mo></m:mover><m:mo>=</m:mo><m:mover accent="true"><m:mn>0</m:mn><m:mo stretchy="true">⟶</m:mo></m:mover></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+</p><p>
+<b>Exercise 3.11 Prove: any
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>k</m:mi><m:mo>+</m:mo><m:mn>1</m:mn></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> k-vectors are linearly dependent. (You can  do it by using mathematical induction.) (If you are not familiar with
+    mathematical 
+  induction read this solution and become familiar with it!) <ph outputclass="a">Solution</ph>
+</b>
+</p></body></topic>

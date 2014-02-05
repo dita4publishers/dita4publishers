@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subsection PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:subsection" "subsection.dtd">
+<subsection
+  id="subsection-id">
+  <title>Title With Keyref: <keyword
+    keyref="d4p-full-name"/>, After the Keyref</title>
+  <body>
+    <p>The title should include the text "DITA for Publishers", as provided by
+      the keyref: <keyword
+      keyref="d4p-full-name"/>.</p>
+  </body>
+</subsection>

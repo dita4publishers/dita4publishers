@@ -1,0 +1,16 @@
+/**
+ * @file layout css for html5 plugin
+ */
+header {
+	display:block;
+	height:20px
+	background: #CCC;
+}
+
+header h1 {
+
+}
+
+#left-navigation {
+	background: #EEE;
+}

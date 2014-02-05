@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<?Pub Inc?>
+<reference id="SceneModesDescriptions-9429EFC1" xml:lang="en">
+<title>Scene Modes Descriptions</title>
+<shortdesc></shortdesc>
+<prolog>
+<metadata><keywords><indexterm></indexterm></keywords></metadata>
+</prolog>
+<refbody>
+<section><p><xref format="dita"
+href="#SceneModesDescriptions-9429EFC1/SceneModeDescriptionPortraitSoftens-942A5120"
+scope="local" type="table"></xref> explains the available scene modes.</p
+><table id="SceneModeDescriptionPortraitSoftens-942A5120">
+<title>Scene Modes</title>
+<tgroup cols="2"><colspec colname="col1"/><colspec colname="col2"/>
+<thead>
+<row>
+<entry valign="top">Scene Mode</entry>
+<entry valign="top">Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>Portrait</entry>
+<entry>Softens skin tones.</entry>
+</row>
+<row>
+<entry>Landscape</entry>
+<entry>Makes colors more vivid.</entry>
+</row>
+<row>
+<entry>Beach/Snow</entry>
+<entry>Adjusts exposure to compensate for bright backgrounds.</entry><?Pub
+Caret -1?>
+</row>
+<row>
+<entry>Night portrait</entry>
+<entry>For night portraits without flash. Raises ISO and sets short
+shutter speeds.<fn>The use of a tripod is recommended.</fn></entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody>
+</reference>

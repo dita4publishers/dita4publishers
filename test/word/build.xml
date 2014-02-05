@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="runAllTests" name="word2dita-test-suite">
+  	
+ <target name="runAllTests">
+ 	<ant antfile="custom-styles-to-one-topic/build.xml" inheritall="false"/>
+ 	<ant antfile="default-styles-to-maps-and-topics/build.xml" inheritall="false"/>
+ 	<ant antfile="default-styles-to-one-topic/build.xml" inheritall="false"/>
+ </target>
+ 
+</project>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =============================================================
+     DITA For Publishers Simple Bibliography Domain
+     
+     Provides a simple bibliography markup that is sufficient
+     to identify bibliography entries as distinct from other 
+     paragraphs but does not try to model the detailed fields
+     within a bibliography entry.
+     
+     Copyright (c) 2012 DITA For Publishers
+     
+     ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                   Formatting DOMAIN ENTITIES                  -->
+<!-- ============================================================= -->
+
+<!ENTITY % d4p_simplebib-d-ph
+   "    
+   "
+>
+
+<!ENTITY % d4p_simplebib-d-p
+   "d4p_simpleBiblioentry
+   "
+>
+
+
+<!ENTITY   d4p_simplebib-d-att     
+  "(topic d4p_simplebib-d)"
+>
+
+
+<!-- ================== End DITA For Publishers Simple Bibliography Domain Entities ============ -->

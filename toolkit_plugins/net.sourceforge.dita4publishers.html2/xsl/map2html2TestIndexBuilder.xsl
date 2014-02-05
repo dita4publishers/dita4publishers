@@ -42,12 +42,12 @@
        
        ============================================================== -->
 
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   
   
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
   
   <xsl:include href="map2html2Index.xsl"/>
 
@@ -131,7 +131,7 @@
   <xsl:param name="DITAEXT" select="'.dita'"/>
   <xsl:param name="newline" select="'&#x0a;'"/>
   
-  <xsl:template name="report-parameters">
+  <xsl:template name="report-parameters" match="*" mode="report-parameters">
     <xsl:param name="effectiveCoverGraphicUri" select="''" as="xs:string" tunnel="yes"/>
     <xsl:message> 
       ==========================================
@@ -230,7 +230,7 @@
   
   <xsl:template match="/*[df:class(., 'map/map')]">
     
-    <xsl:call-template name="report-parameters"/>
+    <xsl:apply-templates select="." mode="report-parameters"/>
 
     <xsl:variable name="uniqueTopicRefs" as="element()*" select="df:getUniqueTopicrefs(.)"/>
 

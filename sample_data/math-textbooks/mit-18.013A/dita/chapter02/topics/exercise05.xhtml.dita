@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e59"><title>Exercise 2.5</title><body><p>
+<b>State and prove these fundamental properties ie, expressions for 
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo>+</m:mo><m:mi>r</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> and for
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>r</m:mi><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>. (Hint: what value do they have at
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline>? What are their derivatives? Deduce their series from these statements and identify them.)</b>
+</p><p>
+Solution:
+</p><p>
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo>+</m:mo><m:mi>r</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ has value 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>r</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ at argument 0 and is its own derivative by the chain rule. By the logic used to get the series for 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ we obtain: 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msub><m:mi>a</m:mi><m:mn>0</m:mn></m:msub><m:mo>=</m:mo><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>r</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, and the relation between the 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>a</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ 's is exactly as before. We can deduce that each 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>a</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ is 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>r</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ multiplied by its value in the previous case, which gives us
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mo stretchy="false">(</m:mo><m:mi>x</m:mi><m:mo>+</m:mo><m:mi>r</m:mi><m:mo stretchy="false">)</m:mo><m:mo>=</m:mo><m:mo stretchy="false">(</m:mo><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo><m:mo>*</m:mo><m:mo stretchy="false">(</m:mo><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>r</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><p>
+Notice that 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>r</m:mi><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ has value 1 when 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, and has derivative 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>r</m:mi><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>r</m:mi><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+. Also notice that, for values of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>r</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ for which it is defined, 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:msup><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mi>r</m:mi></m:msup></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ has the same value at 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>x</m:mi><m:mo>=</m:mo><m:mn>0</m:mn></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ and the same derivative (use the power rule and the chain rule). (We conclude that these functions are the same thing: their difference is 0 and has 0 derivative everywhere, which means it never changes from 0)
+</p><p>
+So we have
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>r</m:mi><m:mi>x</m:mi><m:mo>=</m:mo><m:msup><m:mrow><m:mo stretchy="false">(</m:mo><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo stretchy="false">)</m:mo></m:mrow><m:mi>r</m:mi></m:msup></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><p>
+for all values of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>r</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ for which we have a definition for the latter expression. This allows us to define the second expression to be the first everywhere else.
+</p></body></topic>

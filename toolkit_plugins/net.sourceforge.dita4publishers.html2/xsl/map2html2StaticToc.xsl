@@ -23,12 +23,12 @@
     
     This transform requires XSLT 2.
     ================================================================= -->    
+<!--  
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
   
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
-  
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
+-->  
   <xsl:template match="*[df:class(., 'map/map')]" mode="generate-static-toc">
     <xsl:param name="collected-data" as="element()" tunnel="yes"/>
     <xsl:if test="$generateStaticTocBoolean">
@@ -43,7 +43,7 @@
     </xsl:if>
   </xsl:template>  
   
-  <xsl:template match="*[df:isTopicGroup(.)]" mode="generate-static-toc">
+  <xsl:template match="*[df:isTopicGroup(.)]" mode="generate-static-toc" priority="10">
     <xsl:apply-templates mode="#current" 
       select="*[df:class(., 'map/topicref')]"/>        
   </xsl:template>
@@ -58,7 +58,7 @@
       
       <xsl:choose>
         <xsl:when test="not($topic)">
-          <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
+          <xsl:message> + [WARNING] generate-static-toc: Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
         </xsl:when>
         <xsl:otherwise>
           <xsl:variable name="fragId" as="xs:string" 

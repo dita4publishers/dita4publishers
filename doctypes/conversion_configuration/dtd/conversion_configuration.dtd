@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!-- ============================================================= -->
+<!--                    TOPIC ENTITY DECLARATIONS                  -->
+<!-- ============================================================= -->
+
+<!ENTITY % conversion_configuration-dec     
+  PUBLIC "urn:pubid:dita4publishers.sf.net:doctypes:modules:conversion_configuration:entities" 
+         "conversion_configuration.ent"
+>%conversion_configuration-dec;
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ENTITY DECLARATIONS                 -->
+<!-- ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE DECLARATIONS              -->
+<!-- ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN EXTENSIONS                          -->
+<!-- ============================================================= -->
+<!--                    One for each extended base element, with
+                        the name of the domain(s) in which the
+                        extension was declared                     -->
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
+<!-- ============================================================= -->
+<!ENTITY % props-attribute-extensions  ""                            >
+<!ENTITY % base-attribute-extensions   ""                            >
+
+
+<!-- ============================================================= -->
+<!--                    TOPIC NESTING OVERRIDE                     -->
+<!-- ============================================================= -->
+
+<!--                    Redefine the infotype entity to exclude 
+                        other topic types and disallow nesting     -->
+<!ENTITY % conversion_configuration-info-types 
+                        "topic"                                    >
+
+
+<!-- ============================================================= -->
+<!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
+<!-- ============================================================= -->
+<!--                    Must be declared ahead of the DTDs, which
+                        puts @domains first in order               -->
+
+
+<!-- ============================================================= -->
+<!--                    TOPIC ELEMENT INTEGRATION                  -->
+<!-- ============================================================= -->
+
+<!--                    Embed topic to get generic elements        -->
+<!ENTITY % topic-type   PUBLIC 
+"-//OASIS//ELEMENTS DITA 1.2 Topic//EN" 
+"topic.mod">
+%topic-type;
+
+
+<!--                    Embed conversion_configuration to get specific elements     -->
+<!ENTITY % conversion_configuration-typemod 
+                        PUBLIC 
+"urn:pubid:dita4publishers.sf.net:doctypes:modules:conversion_configuration" 
+"conversion_configuration.mod">
+%conversion_configuration-typemod;
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ELEMENT INTEGRATION                 -->
+<!-- ============================================================= -->
+
+
+<!-- ================== End DITA Concept DTD  ==================== -->

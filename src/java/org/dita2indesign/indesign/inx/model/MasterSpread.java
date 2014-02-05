@@ -41,6 +41,20 @@ public class MasterSpread extends Spread {
 		visitor.visit(this);
 	}
 
+	@Override
+	protected void setPageSide(Page page) throws Exception {
+		if (getDocumentPreferences().isFacingPages()) {
+			int inx = this.pages.indexOf(page);
+			if (inx == 0) {
+				page.setPageSide(PageSideOption.LEFT_HAND);
+			} else {
+				page.setPageSide(PageSideOption.RIGHT_HAND);
+			}
+		}
+	}
+
+
+	
 
 
 

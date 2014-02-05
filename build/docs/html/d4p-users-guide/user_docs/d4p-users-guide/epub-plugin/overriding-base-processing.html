@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="concept"></meta>
+<meta name="DC.Title" content="Implementing Overrides for Common Processing"></meta>
+<meta name="abstract" content="You can use the same args.xsl parameter as for the XHTML transform to specify a custom top-level transform that includes overrides to the base processing."></meta>
+<meta name="description" content="You can use the same args.xsl parameter as for the XHTML transform to specify a custom top-level transform that includes overrides to the base processing."></meta>
+<meta name="DC.subject" content="overriding base processing"></meta>
+<meta name="keywords" content="overriding base processing"></meta>
+<meta name="DC.Relation" scheme="URI" content="generating-epubs.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="creating-opf-metadata.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="epub-transtype-parameters-ref.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC10"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="conceptId"></meta>
+<link rel="stylesheet" type="text/css" href="../../../commonltr.css"></link>
+<title>Implementing Overrides for Common Processing</title>
+</head>
+<body id="conceptId">
+
+
+ <h1 class="title topictitle1">Implementing Overrides for Common Processing</h1>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">You can use the same <span class="keyword parmname">args.xsl</span> parameter as for the XHTML transform to specify a custom top-level transform that includes overrides to the base processing.</p>
+
+   <p class="p">The Toolkit's XHTML transform provides a parameter, <span class="keyword parmname">args.xml</span>, by which you can specify the top-level XSLT transform to be used by the transformation type. You normally use this facility to apply overrides to the base processing provided by the transformation type.</p>
+
+    <p class="p">Note that there is an important distinction between <em class="ph i">extending</em> a transformation type and <em class="ph i">overriding</em> a transformation type. Extensions are provided through Toolkit plugins that are integrated with the base transformation type and apply to all uses of that transformation type. For example, the DITA for Publishers formatting-d.html and formatting-d.fo Toolkit plugins extend the base XHTML and PDF transforms with support for the DITA for Publishers formatting domain elements. These extensions are used unconditionally by all invocations of the XHTML and PDF transformation types.</p>
+
+    <p class="p">When you <em class="ph i">override</em> a transformation type you are changing the base processing for a specific invocation of the transformation type. Overrides are not integrated with the base transformation type. Rather, they are implemented as new top-level XSLT transforms that import the base transformation (e.g., dita2xhtml.xsl) and include or import custom XSLT code that extends or overrides the base processing.</p>
+
+    <p class="p">You normally use overrides to achieve output results that are specific to a particular document, document type, or delivery target. For example, you might want to output specific topic-level metadata for a specific kind of publication or even for a specific single publication. When dealing with Publishing use cases, where every publication might have different requirements it is likely that you may need to implement publication-specific overrides to achieve some specific effect.</p>
+
+    <p class="p">Note also that the general override strategy for HTML-based outputs like EPUB and Kindle is different from the override strategy for PDF output using the Toolkit's built-in PDF transformation type. The PDF transformation type has its own customization framework that provides a different way to apply overrides to the transformation (it also allows extension using integrated plugins).</p>
+
+    <p class="p">You can override the EPUB and Kindle processing by creating a new top-level XSLT transformation that includes the base map2epub.xsl or map2kindle.xsl transforms provided by the respective Toolkit plugins and that also includes your custom XSLT transform that does whatever you need. Because the EPUB and Kindle transforms are both based on the XHTML transform you can normally use a single override file with the XHTML, EPUB, and Kindle transformation types.</p>
+
+    <p class="p">The top-level transformation can be packaged as a separate Open Toolkit plugin that depends on, but does not integrate into, the base transformation type it extends. This is the best thing to do if you must distribute the extension to different systems. If the override will only be used on a single machine you can put the top-level transformation anywhere. However, in this case the top-level transformation will necessarily have system-specific URIs for the Toolkit-provided base transformations, which means it is not portable.</p>
+
+    <div class="p">A typical "local" top-level transformation file looks like this:<pre class="pre codeblock">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  exclude-result-prefixes="xs"
+  version="2.0"&gt;
+  
+  &lt;xsl:import href="/Applications/oxygen/frameworks/dita//DITA-OT/plugins/net.sourceforge.dita4publishers.epub/xsl/map2epub.xsl"/&gt;
+  &lt;xsl:include href="my-html-overrides.xsl"/&gt;
+  
+&lt;/xsl:stylesheet&gt;</pre>
+</div>
+
+    <p class="p">This example is a "local" override that uses an absolute URI to import the base transformation, in this case the EPUB <span class="ph filepath">map2epub.xsl</span> transform. It also includes the local overrides, here in the file <span class="ph filepath">my-html-overrides.xsl</span>. The corresponding transformation for the Kindle transformation type would include the Kindle-specific top-level transform and the same overrides (assuming that you want the EPUB and Kindle outputs to reflect the same overrides, which would normally be the case).</p>
+
+    <p class="p">The overrides themselves can be anything you need and can override either the base XHTML processing from the dita2xhtml transformation type or can override the EPUB- and Kindle-specific processing from the EPUB or Kindle plugins. For most overrides you would be overriding the base XHTML processing.</p>
+
+    <p class="p">To use the override transformation you simply specify the path and filename of the transformation as the value of the <span class="keyword parmname">args.xml</span> Ant parameter for the XHTML, EPUB, or Kindle transformation types. </p>
+
+    <p class="p">To package an override as a Toolkit plugin you create a <span class="ph filepath">plugin.xml</span> file that defines the plugin and use a relative URI to include the base transformation type, relative to the plugin's location as deployed in a Toolkit. You put the <span class="ph filepath">plugin.xml</span> and override transform into their own uniquely-named directory within the Toolkit's <span class="ph filepath">plugins/</span> directory.</p>
+
+    <div class="p">The <span class="ph filepath">plugin.xml</span> file should look like this:<pre class="pre codeblock">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;plugin id="<strong class="ph b">my.unique.plugin.name</strong>"&gt;
+  
+  &lt;require plugin="net.sourceforge.dita4publishers.epub"/&gt; 
+  
+&lt;/plugin&gt;</pre>
+</div>
+
+    <p class="p">Where the bold text should reflect a unique name for this particular plugin.</p>
+
+    <p class="p">This plugin descriptor simply establishes a dependency on the Toolkit transformation type it overrides, e.g., the EPUB plugin. </p>
+
+    <div class="p">Assuming that you are deploying the plugin to the <span class="ph filepath">plugins/</span> directory and that your override template is at the root of its own plugin's directory, then the top-level transform should look like this:<pre class="pre codeblock">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  exclude-result-prefixes="xs"
+  version="2.0"&gt;
+  
+  &lt;xsl:import href="../net.sourceforge.dita4publishers.epub/xsl/map2epub.xsl"/&gt;
+  &lt;xsl:include href="my-html-overrides.xsl"/&gt;
+  
+&lt;/xsl:stylesheet&gt;</pre>
+</div>
+
+    <p class="p">With this plugin you can then specify the transformation within your plugin as the value of the <span class="keyword parmname">args.xml</span> Ant parameter.</p>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="generating-epubs.html" title="The D4P EPUB and Kindle book generation Open Toolkit plugins enable generation of delivery-ready EPUBs and Kindle books from any conforming DITA content.">Generating EPUBs and Kindle Books from DITA Content</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="creating-opf-metadata.html">Creating Arbitrary EPUB OPF Metadata</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="epub-transtype-parameters-ref.html" title="EPUB-specific parameters for the EPUB transformation type">EPUB and Kindle Transformation Parameters</a></div>
+</div>
+</div>
+
+</body>
+</html>

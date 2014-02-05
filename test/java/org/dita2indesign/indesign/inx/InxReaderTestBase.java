@@ -38,6 +38,7 @@ public abstract class InxReaderTestBase extends TestCase {
 	protected static final URL inxData = InxReaderTests.class.getResource("/resources/idd_cs3_test_01.inx");
 	protected static final URL inxData2 = InxReaderTests.class.getResource("/resources/BB_Template_1.inx");
 	protected static final URL geoTest = InxReaderTests.class.getResource("/resources/geometry-test.inx");
+	protected static final URL page2FrameTest = InxReaderTests.class.getResource("/resources/page-to-frame-test-01.inx");
 	protected static final URL linkTest = InxReaderTests.class.getResource("/resources/link_test_01.inx");
 	protected static final URL ddgTemplate = InxReaderTests.class.getResource("/resources/ddgTemplate-LP.inx");
 	protected static URI incopyArticle01 = null;
@@ -67,8 +68,9 @@ public abstract class InxReaderTestBase extends TestCase {
 	/**
 	 * @param recs
 	 * @param allRecs
+	 * @throws Exception 
 	 */
-	protected void getAllRecs(List<Rectangle> recs, List<Rectangle> allRecs) {
+	protected void getAllRecs(List<Rectangle> recs, List<Rectangle> allRecs) throws Exception {
 		for (Rectangle rec : recs) {
 			allRecs.add(rec);
 			List<Rectangle> subRecs = rec.getRectangles();
@@ -81,6 +83,7 @@ public abstract class InxReaderTestBase extends TestCase {
 		assertNotNull(inxData);
 		assertNotNull(inxData2);
 		assertNotNull(geoTest);
+		assertNotNull(page2FrameTest);
 		assertNotNull(linkTest);
 		
 	}

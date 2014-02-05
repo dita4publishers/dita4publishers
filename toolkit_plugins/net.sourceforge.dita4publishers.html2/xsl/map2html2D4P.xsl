@@ -20,10 +20,10 @@
     
     This transform requires XSLT 2.
     ================================================================= -->    
-  
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  
+<!--  
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  -->
   <!-- Extensions for DITA for Publishers vocabulary modules in
   different contexts -->
   
@@ -41,46 +41,8 @@
     <xsl:apply-templates select="$topic"/>    
   </xsl:template>
 
-  <xsl:template mode="enumeration" match="*[df:class(., 'pubmap-d/part')]" 
-    priority="10">
-    <span class='enumeration_part'>
-      <xsl:text>Part </xsl:text><!-- FIXME: Enable localization of the string. -->
-      <!-- When maps are merged, if there are two root topicrefs, both get the class of the referencing 
-           topicref, e.g., <keydefs/><part/> as the children of the target map becomes two mapref topicrefs in the
-           merged result. -->
-      <xsl:number count="*[df:class(., 'pubmap-d/part')][not(@processing-role = 'resource-only')]" format="I" level="single"/>
-      <xsl:text>. </xsl:text>
-    </span>
-  </xsl:template>
-  
-  <xsl:template mode="enumeration" match="*[df:class(., 'pubmap-d/chapter')]">
-    <span class='enumeration_chapter'>
-      <xsl:text>Chapter </xsl:text><!-- FIXME: Enable localization of the string. -->
-      <xsl:number 
-        count="*[df:class(., 'pubmap-d/chapter')][not(@processing-role = 'resource-only')]" 
-        format="1." 
-        level="any" 
-        from="*[df:class(., 'pubmap-d/pubbody')] | *[df:class(., 'map/map')]"/>
-      <xsl:text> </xsl:text>
-    </span>
-  </xsl:template>
-  
-  <xsl:template mode="enumeration" match="*[df:class(., 'pubmap-d/appendix')]">
-    <span class='enumeration_chapter'>
-      <xsl:text>Appendix </xsl:text><!-- FIXME: Enable localization of the string. -->
-      <xsl:number 
-        count="*[df:class(., 'map/topicref')][not(@processing-role = 'resource-only')]" 
-        format="A." 
-        level="single" 
-        from="*[df:class(., 'pubmap-d/appendixes')]"/>
-      <xsl:text> </xsl:text>
-    </span>
-  </xsl:template>
+
   
   <!-- FIXME: Add rules for other topicrefs -->
-  
-  <!-- TOC (.ncx) generation context -->
-  
-  <!-- OPF (.opf) generation context -->
   
 </xsl:stylesheet>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<?Pub Inc?>
+<concept id="ShootingRAWVs.JPEG-9F311E44" xml:lang="en">
+<title>Shooting RAW vs. JPEG</title>
+<shortdesc>Shooting in RAW format enables you to produce better results
+if you post-process your images. Shooting in JPEG produces small files
+and requires no post-processing.</shortdesc>
+<prolog>
+<metadata><keywords><indexterm>RAW files</indexterm><indexterm>JPEG
+quality</indexterm></keywords></metadata>
+</prolog>
+<conbody>
+<p>Shooting in RAW format has several advantages, the most important
+of which is no loss of image data when the file is stored, and the
+ability to adjust many aspects of the photo in post-processing without
+losing quality. For example, you can use Adobe Camera Raw or Adobe
+Photoshop Lightroom to adjust the white balance of a shot after the
+fact. RAW files are not compressed and are therefore not lossy. One
+disadvantage of shooting in RAW is larger file sizes, which means
+you can fit fewer images on your card.</p>
+<p>Shooting in JPEG requires no post-processing. The image is processed
+in the camera, and attributes such as sharpness, contrast, and saturation
+are applied before saving the image to the card. Some cameras enable
+you to adjust how these attributes are applied by creating <term>profiles</term
+>.</p>
+<p>JPEG is a compressed and therefore lossy format. However, you can
+control the amount of compression with camera settings. These settings
+in your 5D Mark IV are called Quality. <xref format="dita"
+href="#ShootingRAWVs.JPEG-9F311E44/JPEGQualitySettings-9F335513"
+scope="local" type="table"></xref> describes the various JPEG quality
+settings.</p>
+<table colsep="1" frame="all" id="JPEGQualitySettings-9F335513"
+rowsep="1">
+<title>JPEG Quality Settings</title><?Pub Caret -2?>
+<tgroup cols="2"><colspec colname="col1"/><colspec colname="col2"/>
+<thead>
+<row>
+<entry valign="top">JPEG Quality</entry>
+<entry valign="top">Suitable For</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>HIGH</entry>
+<entry>Creating large prints and for preserving fine detail when cropping
+the photo. This quality produces the largest file size.</entry>
+</row>
+<row>
+<entry>MEDIUM</entry>
+<entry>Creating medium sized prints and preserving a reasonable amount
+of detail when cropping. This quality produces a medium file size.</entry>
+</row>
+<row>
+<entry>LOW</entry>
+<entry>Creating snapshots and maximizing the number of images that
+can fit on your card. Color fidelity and image clarity may be diminished.
+Extreme cropping is not recommended.</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<p><xref format="dita"
+href="#ShootingRAWVs.JPEG-9F311E44/RAWVs.JPEGFileSize-9FB15986"
+scope="local" type="example"></xref> gives an example of the difference
+between RAW and JPEG file sizes.</p>
+<example id="RAWVs.JPEGFileSize-9FB15986"><title>RAW vs. JPEG File
+Size</title><p>The Canon 5D Mark IV RAW file size is 24.4 MB. In contrast,
+a large sized JPEG is 10.2 MB, while a medium sized JPEG is only 4.2
+MB</p></example>
+</conbody>
+</concept>

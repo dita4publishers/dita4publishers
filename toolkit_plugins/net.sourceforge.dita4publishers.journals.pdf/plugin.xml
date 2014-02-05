@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<plugin id="net.sourceforge.dita4publishers.journals.pdf">
+    <feature extension="dita.conductor.transtype.check" value="d4pjournals"/>
+    <feature extension="dita.transtype.print" value="d4pjournals"/>
+    <feature extension="dita.conductor.target.relative" file="build.xml"/>
+</plugin>

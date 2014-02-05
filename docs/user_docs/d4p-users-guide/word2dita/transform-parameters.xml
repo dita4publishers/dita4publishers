@@ -46,6 +46,19 @@
           <pd>When set to "true", the resulting DITA files include <xmlatt>xtrc</xmlatt> attributes that contain XPath expressions that locate the Word paragraph element from which the DITA element was generated. Set to "false" to turn this off. Default is "true" (<xmlatt>xtrc</xmlatt> attributes are generated).</pd>
         </plentry>
         <plentry>
+          <pt>includeWordBookmarks</pt>
+          <pd>When set to "true", the resulting DITA files include
+            <xmlelem>data</xmlelem> elements that reflect the bookmark start and
+            end markers. This can be useful in debugging cross reference
+            processing or other uses of bookmarks. The default is "false".</pd>
+        </plentry>
+        <plentry>
+          <pt>language</pt>
+          <pd>Specifies the value to use for the <xmlatt>xml:lang</xmlatt>
+            attribute, e.g. "ja-JP". If not specified, the value "en-US" is
+            used.</pd>
+        </plentry>
+        <plentry>
           <pt>mediaDirUri</pt>
           <pd>The URI of the folder to put graphics in (determines the value of <xmlatt>src</xmlatt> and <xmlatt>href</xmlatt> attributes for generated graphic references). Default is "topics/media" under the main output directory.</pd>
         </plentry>
@@ -63,11 +76,8 @@
         </plentry>
         <plentry>
           <pt>rootTopicName</pt>
-          <pd>The name (without extension) to use for the root topic. If specified, creates the root topic with this name, ignoring any result filename specified for the transform as a whole. If not specified, then for single-topic results, the normal transform result is used, otherwise the normal topic name generation rules are used. <p>Use this parameter when you want to generate a single root topic from a Word document and you are not generating a map and you want the style-to-tag mapping to determine the result document type declaration.</p></pd>
-        </plentry>
-        <plentry>
-          <pt>rootTopicUrl</pt>
-          <pd>The full filename of the root topic. Constructed from the <parmname>rootTopicName</parmname> parameter by default. Use this parameter if for some reason <parmname>rootTopicName</parmname> doesn't do what you want. Specifying this parameter overrides the <parmname>rootTopicName</parmname> parameter if it is also specified.</pd>
+          <pd>The name (without extension) to use for the root topic. Default is
+            the base name of the input DOCX file.</pd>
         </plentry>
         <plentry>
           <pt>submapNamePrefix</pt>

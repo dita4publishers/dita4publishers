@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic id="d1e59"><title>Exercise 2.12</title><body><p>
+<b>Set up a spreadsheet to compute the
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> for any inputted
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+  </d4p_eqn_inline>. How many terms in the
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> power series expansion do you need to evaluate
+<d4p_eqn_inline>
+    <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mn>.5</m:mn></m:mrow></m:math></d4p_MathML>
+  </d4p_eqn_inline> to 8 decimal places?</b>
+</p><p>
+Solution:
+</p><p>
+The power series expansion of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ consists of the odd power terms in the expansion of 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+, with alternating signs,
+</p><d4p_eqn_block>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="block" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi><m:mo>=</m:mo><m:mi>x</m:mi><m:mo>−</m:mo><m:mfrac><m:mrow><m:msup><m:mi>x</m:mi><m:mn>3</m:mn></m:msup></m:mrow><m:mrow><m:mn>3</m:mn><m:mo>!</m:mo></m:mrow></m:mfrac><m:mo>+</m:mo><m:mfrac><m:mrow><m:msup><m:mi>x</m:mi><m:mn>5</m:mn></m:msup></m:mrow><m:mrow><m:mn>5</m:mn><m:mo>!</m:mo></m:mrow></m:mfrac><m:mo>−</m:mo><m:mo>⋯</m:mo></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_block><p>
+We can set up a spreadsheet to compute it in many ways, and here is one.
+</p><p>
+We will do almost the same thing as done for 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>exp</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ in column A we will put 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>j</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+; and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>j</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ will start at 1 and go up by 2 in each successive row. We will put 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ in the first row of column B and 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mo>−</m:mo><m:msup><m:mi>x</m:mi><m:mn>2</m:mn></m:msup></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ in successive rows, and multiply previous C entry by entry in B and divide by entry in A and by entry in A, minus 1.
+</p><p>
+We will get the following formulae in the spreadsheet
+</p><table><tgroup cols="4"><tbody><row><entry>
+      <d4p_eqn_inline>
+        <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+      </d4p_eqn_inline>
+    </entry><entry>
+      <p>
+      0.5
+      </p>
+    </entry><entry>
+      <d4p_eqn_inline>
+        <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+      </d4p_eqn_inline>
+    </entry><entry>  </entry></row><row><entry>
+      <p>
+      1
+      </p>
+    </entry><entry>
+      <p>
+      =B1
+      </p>
+    </entry><entry>
+      <p>
+      =A2*B2
+      </p>
+    </entry><entry>
+      <p>
+      =D1+C2
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A2+2
+      </p>
+    </entry><entry>
+      <p>
+      =-B2*B2
+      </p>
+    </entry><entry>
+      <p>
+      =C2*B3/A3/(A3-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D2+C3
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A3+2
+      </p>
+    </entry><entry>
+      <p>
+      =B3
+      </p>
+    </entry><entry>
+      <p>
+      =C3*B4/A4/(A4-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D3+C4
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A4+2
+      </p>
+    </entry><entry>
+      <p>
+      =B4
+      </p>
+    </entry><entry>
+      <p>
+      =C4*B5/A5/(A5-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D4+C5
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A5+2
+      </p>
+    </entry><entry>
+      <p>
+      =B5
+      </p>
+    </entry><entry>
+      <p>
+      =C5*B6/A6/(A6-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D5+C6
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A6+2
+      </p>
+    </entry><entry>
+      <p>
+      =B6
+      </p>
+    </entry><entry>
+      <p>
+      =C6*B7/A7/(A7-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D6+C7
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A7+2
+      </p>
+    </entry><entry>
+      <p>
+      =B7
+      </p>
+    </entry><entry>
+      <p>
+      =C7*B8/A8/(A8-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D7+C8
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A8+2
+      </p>
+    </entry><entry>
+      <p>
+      =B8
+      </p>
+    </entry><entry>
+      <p>
+      =C8*B9/A9/(A9-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D8+C9
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A9+2
+      </p>
+    </entry><entry>
+      <p>
+      =B9
+      </p>
+    </entry><entry>
+      <p>
+      =C9*B10/A10/(A10-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D9+C10
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A10+2
+      </p>
+    </entry><entry>
+      <p>
+      =B10
+      </p>
+    </entry><entry>
+      <p>
+      =C10*B11/A11/(A11-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D10+C11
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A11+2
+      </p>
+    </entry><entry>
+      <p>
+      =B11
+      </p>
+    </entry><entry>
+      <p>
+      =C11*B12/A12/(A12-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D11+C12
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A12+2
+      </p>
+    </entry><entry>
+      <p>
+      =B12
+      </p>
+    </entry><entry>
+      <p>
+      =C12*B13/A13/(A13-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D12+C13
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A13+2
+      </p>
+    </entry><entry>
+      <p>
+      =B13
+      </p>
+    </entry><entry>
+      <p>
+      =C13*B14/A14/(A14-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D13+C14
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A14+2
+      </p>
+    </entry><entry>
+      <p>
+      =B14
+      </p>
+    </entry><entry>
+      <p>
+      =C14*B15/A15/(A15-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D14+C15
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A15+2
+      </p>
+    </entry><entry>
+      <p>
+      =B15
+      </p>
+    </entry><entry>
+      <p>
+      =C15*B16/A16/(A16-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D15+C16
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A16+2
+      </p>
+    </entry><entry>
+      <p>
+      =B16
+      </p>
+    </entry><entry>
+      <p>
+      =C16*B17/A17/(A17-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D16+C17
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A17+2
+      </p>
+    </entry><entry>
+      <p>
+      =B17
+      </p>
+    </entry><entry>
+      <p>
+      =C17*B18/A18/(A18-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D17+C18
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A18+2
+      </p>
+    </entry><entry>
+      <p>
+      =B18
+      </p>
+    </entry><entry>
+      <p>
+      =C18*B19/A19/(A19-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D18+C19
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A19+2
+      </p>
+    </entry><entry>
+      <p>
+      =B19
+      </p>
+    </entry><entry>
+      <p>
+      =C19*B20/A20/(A20-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D19+C20
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A20+2
+      </p>
+    </entry><entry>
+      <p>
+      =B20
+      </p>
+    </entry><entry>
+      <p>
+      =C20*B21/A21/(A21-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D20+C21
+      </p>
+    </entry></row><row><entry>
+      <p>
+      =A21+2
+      </p>
+    </entry><entry>
+      <p>
+      =B21
+      </p>
+    </entry><entry>
+      <p>
+      =C21*B22/A22/(A22-1)
+      </p>
+    </entry><entry>
+      <p>
+      =D21+C22
+      </p>
+    </entry></row></tbody></tgroup></table><p>
+The numerical results will be
+</p><table><tgroup cols="4"><tbody><row><entry>
+      <d4p_eqn_inline>
+        <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mi>x</m:mi></m:math></d4p_MathML>
+      </d4p_eqn_inline>
+    </entry><entry>
+      <p>
+      0.5
+      </p>
+    </entry><entry>
+      <d4p_eqn_inline>
+        <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mi>x</m:mi></m:mrow></m:math></d4p_MathML>
+      </d4p_eqn_inline>
+    </entry><entry>  </entry></row><row><entry>
+      <p>
+      1
+      </p>
+    </entry><entry>
+      <p>
+      0.5
+      </p>
+    </entry><entry>
+      <p>
+      0.5
+      </p>
+    </entry><entry>
+      <p>
+      0.5
+      </p>
+    </entry></row><row><entry>
+      <p>
+      3
+      </p>
+    </entry><entry>
+      <p>
+      -0.25
+      </p>
+    </entry><entry>
+      <p>
+      -0.0208333
+      </p>
+    </entry><entry>
+      <p>
+      0.479166667
+      </p>
+    </entry></row><row><entry>
+      <p>
+      5
+      </p>
+    </entry><entry>
+      <p>
+      -0.25
+      </p>
+    </entry><entry>
+      <p>
+      0.0002604
+      </p>
+    </entry><entry>
+      <p>
+      0.479427083
+      </p>
+    </entry></row><row><entry>
+      <p>
+      7
+      </p>
+    </entry><entry>
+      <p>
+      -0.25
+      </p>
+    </entry><entry>
+      <p>
+      -1.55E-06
+      </p>
+    </entry><entry>
+      <p>
+      0.479425533
+      </p>
+    </entry></row><row><entry>
+      <p>
+      9
+      </p>
+    </entry><entry>
+      <p>
+      -0.25
+      </p>
+    </entry><entry>
+      <p>
+      5.382E-09
+      </p>
+    </entry><entry>
+      <p>
+      0.479425539
+      </p>
+    </entry></row><row><entry>
+      <p>
+      11
+      </p>
+    </entry><entry>
+      <p>
+      -0.25
+      </p>
+    </entry><entry>
+      <p>
+      -1.223E-11
+      </p>
+    </entry><entry>
+      <p>
+      0.479425539
+      </p>
+    </entry></row><row><entry>
+      <p>
+      13
+      </p>
+    </entry><entry>
+      <p>
+      -0.25
+      </p>
+    </entry><entry>
+      <p>
+      1.96E-14
+      </p>
+    </entry><entry>
+      <p>
+      0.479425539
+      </p>
+    </entry></row><row><entry>
+      <p>
+      15
+      </p>
+    </entry><entry>
+      <p>
+      -0.25
+      </p>
+    </entry><entry>
+      <p>
+      -2.334E-17
+      </p>
+    </entry><entry>
+      <p>
+      0.479425539
+      </p>
+    </entry></row><row><entry>
+      <p>
+      17
+      </p>
+    </entry><entry>
+      <p>
+      -0.25
+      </p>
+    </entry><entry>
+      <p>
+      2.145E-20
+      </p>
+    </entry><entry>
+      <p>
+      0.479425539
+      </p>
+    </entry></row><row><entry>
+      <p>
+      19
+      </p>
+    </entry><entry>
+      <p>
+      -0.25
+      </p>
+    </entry><entry>
+      <p>
+      -1.568E-23
+      </p>
+    </entry><entry>
+      <p>
+      0.479425539
+      </p>
+    </entry></row></tbody></tgroup></table><p>
+You can see that the first 4 terms by themselves give 
+<d4p_eqn_inline>
+  <d4p_MathML><m:math xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline" overflow="scroll"><m:mrow><m:mi>sin</m:mi><m:mo>⁡</m:mo><m:mn>.5</m:mn></m:mrow></m:math></d4p_MathML>
+</d4p_eqn_inline>
+ correctly to 8 decimal places.
+</p></body></topic>

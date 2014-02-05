@@ -39,7 +39,6 @@ public class TextFrame extends Rectangle {
 		this.setParentStory(myParentStory);
 	}
 
-
 	public void loadObject(Element dataSource) throws Exception {
 		super.loadObject(dataSource);
 		parentStoryId = InxHelper.decodeRawValueToSingleObjectId(dataSource.getAttribute("strp"));
@@ -57,10 +56,6 @@ public class TextFrame extends Rectangle {
 			this.parentStoryId = parentStory.getId();
 		} else {
 			this.parentStoryId = null;
-		}
-		TextFrame nextInThread = this.getNextInThread();
-		if (nextInThread != null) {
-			nextInThread.setParentStory(parentStory);
 		}
 		return parentStory;
 	}
@@ -92,17 +87,19 @@ public class TextFrame extends Rectangle {
 	}
 
 	/**
-	 * Set the next frame in the thread. Automatically
-	 * sets this frame as the previous frame on 
-	 * the specified text frame.
+	 * Set the next frame in the thread. Note that
+	 * the caller must also update the previous
+	 * in thread to keep things in sync. Because of cloning
+	 * operations, this method cannot reliably update
+	 * the next frame's previous pointer.
 	 * @param nextTextFrame The frame to which this frame
 	 * is to be threaded.
 	 */
 	public void setNextInThread(TextFrame nextTextFrame) {
 		this.nextInThread = nextTextFrame;
-		if (nextTextFrame != null) {
-			nextTextFrame.setPreviousInThread(this);
-		}
+		this.removeProperty(InDesignDocument.PROP_NTXF);
+		this.removeProperty(InDesignDocument.PROP_FTXF);
+		this.removeProperty(InDesignDocument.PROP_LTXF);
 	}
 
 	/**
@@ -111,8 +108,11 @@ public class TextFrame extends Rectangle {
 	 * as the next frame in thread on some other frame.
 	 * @param textFrame
 	 */
-	protected void setPreviousInThread(TextFrame textFrame) {
+	public void setPreviousInThread(TextFrame textFrame) {
 		this.previousInThread = textFrame;
+		this.removeProperty(InDesignDocument.PROP_PTXF);
+		this.removeProperty(InDesignDocument.PROP_FTXF);
+		this.removeProperty(InDesignDocument.PROP_LTXF);
 	}
 
 	/**
@@ -122,10 +122,11 @@ public class TextFrame extends Rectangle {
 	 */
 	public TextFrame getNextInThread() throws Exception {
 		if (nextInThread == null && hasProperty(InDesignDocument.PROP_NTXF)) {
-				String objectId = getObjectReferenceProperty(InDesignDocument.PROP_NTXF);
-				if (objectId != null) {
-					this.nextInThread = (TextFrame)this.getDocument().getObject(objectId);
-				}
+			String nextId = getObjectReferenceProperty(InDesignDocument.PROP_NTXF);
+			if (nextId != null && nextInThread == null) {
+				TextFrame next = (TextFrame)this.getDocument().getObject(nextId);
+				this.setNextInThread(next);
+			}
 		}
 		return this.nextInThread;
 	}
@@ -135,8 +136,16 @@ public class TextFrame extends Rectangle {
 	 * frame is part of.
 	 * @return The previous frame, or null if this is the first or only
 	 * frame in the thread.
+	 * @throws Exception 
 	 */
-	public TextFrame getPreviousInThread() {
+	public TextFrame getPreviousInThread() throws Exception {
+		if (previousInThread == null && hasProperty(InDesignDocument.PROP_PTXF)) {
+			String prevId = getObjectReferenceProperty(InDesignDocument.PROP_PTXF);
+			if (prevId != null && previousInThread == null) {
+				TextFrame prev = (TextFrame)this.getDocument().getObject(prevId);
+				this.setPreviousInThread(prev);
+			}
+		}
 		return this.previousInThread;
 	}
 
@@ -146,9 +155,39 @@ public class TextFrame extends Rectangle {
 	@Override
 	public void updatePropertyMap() throws Exception {
 		super.updatePropertyMap();
-		this.setObjectReferenceProperty(InDesignDocument.PROP_NTXF, this.nextInThread);
-		this.setObjectReferenceProperty(InDesignDocument.PROP_PTXF, this.previousInThread);
-		this.setObjectReferenceProperty(InDesignDocument.PROP_STRP, this.parentStory);
+		this.setObjectReferenceProperty(InDesignDocument.PROP_FTXF, this.getFirstFrameInThread());
+		this.setObjectReferenceProperty(InDesignDocument.PROP_PTXF, this.getPreviousInThread());
+		this.setObjectReferenceProperty(InDesignDocument.PROP_NTXF, this.getNextInThread());
+		this.setObjectReferenceProperty(InDesignDocument.PROP_LTXF, this.getLastFrameInThread());
+		this.setObjectReferenceProperty(InDesignDocument.PROP_STRP, this.getParentStory());
+	}
+
+	public TextFrame getFirstFrameInThread() throws Exception {
+		TextFrame first = this;
+		TextFrame cand = this.getPreviousInThread();
+		while (cand != null) {
+			first = cand;
+			cand = first.getPreviousInThread();
+		}
+		// Not sure this can ever happen but...
+		if (this.equals(first) && this.getNextInThread() == null) {
+			return null;
+		}
+		return first;
+	}
+
+	public TextFrame getLastFrameInThread() throws Exception {
+		TextFrame last = this;
+		TextFrame cand = this.getNextInThread();
+		while (cand != null) {
+			last = cand;
+			cand = last.getNextInThread();
+		}
+		// Not sure this can ever happen but...
+		if (this.equals(last) && this.getPreviousInThread() == null) {
+			return null;
+		}
+		return last;
 	}
 
 

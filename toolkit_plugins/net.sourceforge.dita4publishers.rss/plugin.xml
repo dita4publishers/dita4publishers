@@ -1,0 +1,11 @@
+<plugin id="net.sourceforge.dita4publishers.rss">
+  <extension-point id="xsl.transtype-rss"/>
+  <extension-point id="dita.rss.map"/>
+  
+  <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
+  <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
+  <template file="build_transtype-rss_template.xml"/>  
+  <template file="xsl/map2rss_template.xsl"/>
+  <feature extension="dita.conductor.transtype.check" value="rss" type="txt"/>
+  <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
+</plugin>

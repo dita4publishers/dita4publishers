@@ -32,10 +32,6 @@
     
     =============================================================  -->
   
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
-  
   <xsl:output name="topic-html"
     method="xhtml"
     encoding="UTF-8"
@@ -87,7 +83,7 @@
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
     <xsl:choose>
       <xsl:when test="not($topic)">
-        <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
+        <xsl:message> + [WARNING] generate-content: Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="topicResultUri" select="htmlutil:getTopicResultUrl($outdir, root($topic))" as="xs:string"/>
@@ -206,25 +202,7 @@
       <xsl:apply-templates/>
     </xsl:element>    
   </xsl:template>
-  
-  <!-- Override of same template from base HTML so we can unset the 
-       topicref tunnelling parameter.
-  -->
-  <xsl:template match="/dita | *[contains(@class,' topic/topic ')]">
-    <xsl:choose>
-      <xsl:when test="not(parent::*)">
-        <xsl:apply-templates select="." mode="root_element"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="." mode="child.topic">
-          <xsl:with-param name="topicref" select="()" tunnel="yes" as="element()?"/>
-        </xsl:apply-templates>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-  
-  
-  
+    
   <!-- Enumeration mode manages generating numbers from topicrefs -->
   <xsl:template match="* | text()" mode="enumeration">
     <xsl:if test="false()">
@@ -235,5 +213,28 @@
   <xsl:template match="text()" mode="generate-content"/>
   
   <xsl:template match="*[df:class(., 'map/topicmeta')]" priority="10"/>
+  <!--
+    The following implements the d4pSidebarAnchor. With the use of keys, it suppresses the location of the anchoredObject (e.g., a sidebar) and instead copies it to the result tree in the location of the d4pSidebarAnchor. Currently commented out pending recommended changes to the d4pSidebarAnchor element. Code does work and is in use at Human Kinetics -->
+  <!--
+  <xsl:key name="kObjectAnchor" match="*[df:class(.,'topic/xref d4p-formatting-d/d4pSidebarAnchor')]" use="@otherprops"/>
   
+  <xsl:key name="kAnchoredObject" match="*" use="@id"/>
+  
+  <xsl:template match="*[df:class(.,'topic/xref d4p-formatting-d/d4pSidebarAnchor')]" priority="20">
+    <xsl:apply-templates select=
+      "key('kAnchoredObject', @otherprops)">
+      <xsl:with-param name="useNextMatch" select="'true'" as="xs:string" />
+    </xsl:apply-templates>
+    
+  </xsl:template>
+  
+  <xsl:template match="*[key('kObjectAnchor', @id)]" priority="20">
+    <xsl:param name="useNextMatch" select="'false'" as="xs:string" />
+    <xsl:choose>
+      <xsl:when test="$useNextMatch='true'">
+        <xsl:next-match/>
+      </xsl:when> 
+    </xsl:choose>
+  </xsl:template>
+  -->  
 </xsl:stylesheet>

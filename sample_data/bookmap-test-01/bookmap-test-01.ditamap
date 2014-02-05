@@ -2,105 +2,53 @@
 <!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/bookmap.dtd">
 <bookmap>
   <booktitle>
-    <mainbooktitle>Bookmap Test
-      01</mainbooktitle>
+    <mainbooktitle>Bookmap Test 01</mainbooktitle>
   </booktitle>
-  <bookmeta>
-    <prodinfo>
-      <prodname>Bookmap Test
-        1</prodname>
-      <vrmlist>
-        <vrm
-          version="1"
-          release="2"
-          modification="3"/>
-      </vrmlist>
-    </prodinfo>
-    <bookrights>
-      <bookowner/>
-    </bookrights>
-  </bookmeta>
   <frontmatter>
-    <topicref
-      href="topics/front-cover.dita"
-      outputclass="frontCover"/>
-    <preface
-      href="topics/preface.dita"/>
     <booklists>
       <toc/>
-      <figurelist/>
-      <tablelist/>
     </booklists>
   </frontmatter>
   <part
     href="topics/part-01.xml">
     <topicmeta>
-      <navtitle>This is the first
-        part</navtitle>
+      <navtitle>This is the first part</navtitle>
     </topicmeta>
     <chapter
-      href="topics/chapter-01.xml"
-      chunk="to-content">
-      <topicref
-        href="topics/subconcept-01.xml"/>
-      <topicref
-        href="topics/subconcept-02.dita"/>
+      href="topics/chapter-01.xml">
+      <topicmeta>
+        <navtitle>This is the first chapter</navtitle>
+      </topicmeta>
     </chapter>
     <chapter
       href="topics/chapter-02.xml">
+      <topicmeta>
+        <navtitle>This is the second chapter</navtitle>
+      </topicmeta>
     </chapter>
   </part>
   <part
     href="topics/part-02.xml">
+    <topicmeta>
+      <navtitle>This is the second part</navtitle>
+    </topicmeta>
     <chapter
-      href="topics/chapter-03.xml"> </chapter>
+      href="topics/chapter-03.xml">
+      <topicmeta>
+        <navtitle>This is the third chapter</navtitle>
+      </topicmeta>
+    </chapter>
     <chapter
-      href="topics/chapter-04.xml"> </chapter>
-    <!--    <chapter
-      href="chapter-map-01.ditamap"
-      chunk="to-content"
-      format="ditamap"/> -->
-    <chapter
-      href="chapter-map-02.ditamap"
-      chunk="to-content"
-      format="ditamap"/>
+      href="topics/chapter-04.xml">
+      <topicmeta>
+        <navtitle>This is the fourth chapter</navtitle>
+      </topicmeta>
+    </chapter>
   </part>
   <part>
     <topicmeta>
-      <navtitle>The Third Part
-        (&lt;navtitle&gt;)</navtitle>
+      <navtitle>The Third Part (&lt;navtitle&gt;)</navtitle>   
     </topicmeta>
   </part>
-  <part
-    navtitle="The Fourth Part (@navtite)"/>
-  <appendices>
-    <appendix
-      href="topics/appendix-first.dita"/>
-    <appendix
-      href="topics/appendix-second.dita"/>
-  </appendices>
-  <backmatter>
-    <booklists>
-      <bibliolist/>
-    </booklists>
-    <topichead>
-      <topicmeta>
-        <navtitle>Glossary of
-          Terms</navtitle>
-      </topicmeta>
-      <topicgroup
-        toc="no">
-        <topicref
-          href="topics/gloss-group-a.dita">
-          <topicref
-            href="topics/gloss-apple-fruite.dita"/>
-          <topicref
-            href="topics/gloss-architecture-n-01.dita"/>
-        </topicref>
-      </topicgroup>
-    </topichead>
-    <booklists>
-      <indexlist/>
-    </booklists>
-  </backmatter>
+  <part navtitle="The Fourth Part (@navtite)"/>
 </bookmap>

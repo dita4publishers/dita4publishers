@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_dmp_xwd_gm">
+  <title>Table With Rowspans</title>
+  <body>
+    <p>Table that has row spans.</p>
+    <p>
+      <table frame="all" id="table_fyz_ywd_gm">
+        <tgroup cols="2">
+          <colspec colname="c1" colnum="1" colwidth="1.0*"/>
+          <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+          <tbody>
+            <row>
+              <entry>0:1</entry>
+              <entry>0:2</entry>
+            </row>
+            <row>
+              <entry morerows="1">1:1</entry>
+              <entry>1:2</entry>
+            </row>
+            <row>
+              <entry>2:2</entry>
+            </row>
+            <row>
+              <entry>3:1</entry>
+              <entry>3:2</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </p>
+    
+  </body>
+</topic>

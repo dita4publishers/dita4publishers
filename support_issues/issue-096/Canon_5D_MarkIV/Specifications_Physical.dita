@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2012, v.4002-->
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<?Pub Inc?>
+<reference id="Specifications_Physical-9772F94C" xml:lang="en">
+<title>Physical Specifications</title>
+<refbody>
+<section><p><xref format="dita"
+href="#Specifications_Physical-9772F94C/table-134-94B41E9D"
+scope="local" type="table"></xref> lists physical specifications.<xref
+format="dita"
+href="Specifications_General.dita#Specifications_General-9772F057/fn-12111-B02ADD48"
+scope="local" type="fn"></xref></p><table id="table-134-94B41E9D">
+<title>Physical Specifications</title>
+<tgroup cols="2"><colspec colname="col1" colwidth="0.94*"/><colspec
+colname="col2" colwidth="1.06*"/>
+<thead>
+<row>
+<entry valign="top">Specification</entry>
+<entry valign="top">Value</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>Length/Width</entry>
+<entry>12.5cm x 7.5cm<fn id="AtSeaLevel-B11CB550">At sea level</fn
+><xref format="dita"
+href="#Specifications_Physical-9772F94C/AtSeaLevel-B11CB550"
+scope="local" type="fn"></xref></entry>
+</row>
+<row>
+<entry>Height</entry>
+<entry>8.9cm<xref format="dita"
+href="#Specifications_Physical-9772F94C/AtSeaLevel-B11CB550"
+scope="local" type="fn"></xref></entry><?Pub Caret -1?>
+</row>
+<row>
+<entry>Weight</entry>
+<entry>15oz</entry>
+</row>
+<row>
+<entry>Operating Temperature</entry>
+<entry>-5 deg C to 50 deg C</entry>
+</row>
+</tbody>
+</tgroup>
+</table></section>
+</refbody>
+</reference>

@@ -1,0 +1,10 @@
+<!-- 
+  Plugin descriptor for the DITA for Publishers Math Standalone vocabulary module
+  
+  Copyright (c) 2012 DITA For Publishers
+  
+  
+  -->
+<plugin id="net.sourceforge.dita4publishers.math">
+  <feature extension="dita.specialization.catalog.relative" value="catalog.xml" type="file"/>
+</plugin>

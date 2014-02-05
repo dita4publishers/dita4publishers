@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="copyright" content="(C) Copyright 2005"/>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"/>
+<meta name="DC.Type" content="concept"/>
+<meta name="DC.Title" content="Creating Arbitrary EPUB OPF Metadata"/>
+<meta name="DC.subject" content="metadata, OPF, creating, OPF metadata"/>
+<meta name="keywords" content="metadata, OPF, creating, OPF metadata"/>
+<meta name="DC.Relation" scheme="URI" content="generating-epubs.html"/>
+<meta name="DC.Relation" scheme="URI" content="creating-cover-graphics.html"/>
+<meta name="DC.Relation" scheme="URI" content="overriding-base-processing.html"/>
+<meta name="prodname" content="DITA For Publishers"/>
+<meta name="version" content="0.9.19RC10"/>
+<meta name="DC.Creator" content="W. Eliot Kimber"/>
+<meta name="DC.Format" content="XHTML"/>
+<meta name="DC.Identifier" content="subsection-id"/>
+<link rel="stylesheet" type="text/css" href="commonltr.css"/>
+<title>Creating Arbitrary EPUB OPF Metadata</title>
+</head>
+<body id="subsection-id">
+
+
+  <h1 class="title topictitle1">Creating Arbitrary EPUB OPF Metadata</h1>
+  
+  <div class="body conbody">
+    <p class="p">The OPF package manifest within an EPUB document can contain metadata entries. The entries required for EPUB validation are created automatically by the EPUB generation process. However, you may want or need to add additional metadata, for example to support the conventions of a particular EPUB reader.</p>
+
+    <p class="p">You can create arbitrary OPF metadata entries by creating a <code>&lt;data&gt;</code> element in your map's metadata with the name "opf-metadata". Use child <code>&lt;data&gt;</code> elements to define specific metadata items, where the <code>@name</code> value is is used as the <code>@name</code> attribute on the OPF <code>&lt;meta&gt;</code> and the <code>@@value</code> or content of the <code>&lt;data&gt;</code> element is used as the <code>@content</code> attribute on the OPF <code>&lt;meta&gt;</code> element.</p>
+
+    <div class="p">For example, this markup in a DITA map:<pre class="pre codeblock">&lt;map&gt;
+ &lt;topicmeta&gt;
+  &lt;data name="opf-metadata"&gt;
+    &lt;data name="item-one" value="value one"/&gt;
+    &lt;data name="item-two" value="value two"/&gt;
+  &lt;/data&gt;
+ &lt;/topicmeta&gt;
+&lt;/map&gt;</pre>
+</div>
+
+    <div class="p">Would result in OPF metadata like this:<pre class="pre codeblock">   ...
+   &lt;metadata&gt;
+      &lt;dc:title&gt;DITA For Publishers User Guide&lt;/dc:title&gt;
+      &lt;dc:language id="language"&gt;en-US&lt;/dc:language&gt;
+      &lt;dc:identifier id="bookid"&gt;http://example.org/epubs/&lt;/dc:identifier&gt;
+      &lt;dc:creator opf:role="aut"&gt;W. Eliot Kimber&lt;/dc:creator&gt;
+      <strong class="ph b">&lt;meta name="item-one" content="value one"/&gt;</strong>
+      <strong class="ph b">&lt;meta name="item-two" content="value two"/&gt;</strong>
+   &lt;/metadata&gt;
+   ...</pre>
+</div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="generating-epubs.html" title="The D4P EPUB and Kindle book generation Open Toolkit plugins enable generation of delivery-ready EPUBs and Kindle books from any conforming DITA content.">Generating EPUBs and Kindle Books from DITA Content</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="creating-cover-graphics.html" title="Some readers and book libraries, such as iBooks, have special conventions for cover graphics.">Creating Cover Graphics and Covers</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="overriding-base-processing.html" title="You can use the same args.xsl parameter as for the XHTML transform to specify a custom top-level transform that includes overrides to the base processing.">Implementing Overrides for Common Processing</a></div>
+</div>
+</div>
+
+</body>
+</html>

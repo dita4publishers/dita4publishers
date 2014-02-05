@@ -1,0 +1,14 @@
+<!-- 
+  Plugin descriptor for the DITA4Publishers math domain HTML extensions
+  
+  Copyright (c) 2012 DITA For Publishers
+  
+  Implements HTML rendering for the math domain.
+  -->
+<plugin id="net.sourceforge.dita4publishers.math-d.html">
+  <require plugin="net.sourceforge.dita4publishers.common.html"/> 
+  <require plugin="net.sourceforge.dita4publishers.doctypes"/> 
+  <feature extension="dita.xsl.xhtml"
+      value="xsl/math-d2html.xsl" type="file"/>
+      
+</plugin>

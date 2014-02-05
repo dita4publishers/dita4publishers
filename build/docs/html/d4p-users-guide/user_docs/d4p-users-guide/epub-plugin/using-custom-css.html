@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="concept"></meta>
+<meta name="DC.Title" content="Using Custom CSS Style Sheets"></meta>
+<meta name="abstract" content="You can include custom CSS styles sheets in your EPUB just as you can for HTML output generally."></meta>
+<meta name="description" content="You can include custom CSS styles sheets in your EPUB just as you can for HTML output generally."></meta>
+<meta name="DC.subject" content="css, custom"></meta>
+<meta name="keywords" content="css, custom"></meta>
+<meta name="DC.Relation" scheme="URI" content="generating-epubs.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="generating-kindle-books-from-oxygen.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="creating-cover-graphics.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC10"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="conceptId"></meta>
+<link rel="stylesheet" type="text/css" href="../../../commonltr.css"></link>
+<title>Using Custom CSS Style Sheets</title>
+</head>
+<body id="conceptId">
+
+
+ <h1 class="title topictitle1">Using Custom CSS Style Sheets</h1>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">You can include custom CSS styles sheets in your EPUB just as you can for HTML output generally.</p>
+
+    <div class="note note"><span class="notetitle">Note:</span> At the moment, this mechanism only supports a single CSS file. A future enhancement will be to allow the copying of all the CSS files in a specified directory.</div>
+
+   <p class="p">The EPUB transformation type uses the same Ant parameters for CSS styles sheets as for the normal HTML transformation type. The difference is that you <em class="ph i">must</em> copy the CSS files to the output since they need to be part of the EPUB package. Thus the <span class="keyword parmname">args.copycss</span> parameter is implicitly set to "yes" if you specify the <span class="keyword parmname">args.css</span> parameter.</p>
+
+    <p class="p">Likewise, the parameter <span class="keyword parmname">args.csspath</span> is ignored because the EPUB processor controls how the CSS files are referenced in the generated HTML files.</p>
+
+    <p class="p">You may specify the directory within the EPUB package to contain the CSS
+      files using the parameter <span class="keyword parmname">args.css.output.dir</span>. By
+      default it is the same as the topic output directory (which by default is
+      "topics").</p>
+
+    <p class="p">The <span class="keyword parmname">args.css</span> parameter can be an absolute path to the CSS file or it can be a path relative to the value of the <span class="keyword parmname">args.cssroot</span> parameter.</p>
+
+    <p class="p">For example, if you have a custom CSS file <span class="ph filepath">mystyle.css</span> in the directory <span class="ph filepath">c:\projects\mydoc\css</span> and you want to use that CSS file in your EPUB you would specify the Ant parameter <span class="keyword parmname">args.css</span> with the value "c:\projects\mydoc\css\mystyle.css".</p>
+
+    <div class="p">If you have a common CSS source directory and you use different CSS files for different publications, you can specify both <span class="keyword parmname">args.cssroot</span> and <span class="keyword parmname">args.css</span> like so:<ul class="ul">
+      <li class="li"><span class="keyword parmname">args.cssroot</span> as "c:\projects\mydoc\css"</li>
+
+      <li class="li"><span class="keyword parmname">args.css</span> as "mystyle.css"</li>
+
+      </ul>
+</div>
+
+    <p class="p">If you want your CSS somewhere other than the topics directory, specify the <span class="keyword parmname">css.output.dir</span> parameter to the desired directory name, e.g. "css".</p>
+
+    <p class="p">The built-in CSS style sheets provided with the DITA Open Toolkit are always included in the EPUB in the CSS output directory and are always referenced in the HTML after any user-specified CSS style sheet.</p>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="generating-epubs.html" title="The D4P EPUB and Kindle book generation Open Toolkit plugins enable generation of delivery-ready EPUBs and Kindle books from any conforming DITA content.">Generating EPUBs and Kindle Books from DITA Content</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="generating-kindle-books-from-oxygen.html" title="You can configure a DITA transformation scenario in OxygenXML to generate Kindle books.">Generating Kindle Books From OxygenXML</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="creating-cover-graphics.html" title="Some readers and book libraries, such as iBooks, have special conventions for cover graphics.">Creating Cover Graphics and Covers</a></div>
+</div>
+</div>
+
+</body>
+</html>

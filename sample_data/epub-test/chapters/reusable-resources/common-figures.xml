@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subsection PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:subsection" "subsection.dtd">
+<subsection
+  id="subsection-id">
+  <title>Reusable Figures</title>
+  <body>
+    <p>This topic contains &lt;fig> elements intended to be used by conref from
+      other topics.</p>
+    <fig
+      id="fig-0001">
+      <title>Some Skis</title>
+      <image
+        href="../images/IMG_0774.jpeg"
+        id="image_kgj_bwf_53">
+        <alt>Shows a pair of rental skis with the number "110-20" written on
+          them.</alt>
+      </image>
+    </fig>
+  </body>
+</subsection>

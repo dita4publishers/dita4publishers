@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmap:graphic-map xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+                  xmlns:gmap="http://dita4publishers/namespaces/graphic-input-to-output-map">
+   <gmap:graphic-map-item input-url="/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/support_issues/issue-096/Canon_5D_MarkIV/graphics/camera_body.svg"
+                          output-url="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/support_issues/issue-096/Canon_5D_MarkIV/html2/images/camera_body.svg"
+                          id="d266e1"/>
+   <gmap:graphic-map-item input-url="/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/support_issues/issue-096/Canon_5D_MarkIV/graphics/camera_body_rear.svg"
+                          output-url="file:/Users/ekimber/workspace_40/dita4publishers_0.9.19_clean/support_issues/issue-096/Canon_5D_MarkIV/html2/images/camera_body_rear.svg"
+                          id="d266e2"/>
+</gmap:graphic-map>

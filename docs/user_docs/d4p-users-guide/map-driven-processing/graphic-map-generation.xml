@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<concept id="conceptId">
+ <title>Graphic Map Generation</title>
+ <shortdesc>The map-driven processing generates an Ant script that copies
+    graphics from their source locations to the output location.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm></indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+   <p>Because the map-driven processing allows you to change the output
+      organization of the generated files, references to graphics in the source
+      DITA XML do not translate directly to graphic references in the output. To
+      address this, the map-driven process finds all graphic references in the
+      input data (including graphics referenced from DITAVAL files), constructs
+      an input-to-output location map, and generates an Ant script that copies
+      the source graphics to their output location. As part of output
+      generation, references to graphics are rewritten to reflect their output
+      location.</p>
+    <p>The graphic map generation is implemented in the module
+      <filepath>net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMap.xsl</filepath>.
+      You can extend the default processing to provide mapping for any graphics
+      that are not represented by normal DITA markup, such as covers determined
+      by run-time parameters or branding graphics defined separately or
+      whatever.</p>
+    <p>The map generation is done in two phases. </p>
+    <p>The first phase is mode "get-graphic-refs", which is applied to the map,
+      all topics, and the DITAVAL file, if specified. It results in a set of
+      graphic reference elements of the
+      form:<codeblock> &lt;gmap:graphic-ref 
+   href="{absoluteUrl of source graphic}" 
+   filename="{filename of the graphic}"
+ /></codeblock></p>
+    <p>One <xmlelem>graphic-ref</xmlelem> element should be generated for each
+      graphic reference in the source.</p>
+    <p>The second phase processes all the <xmlelem>graphic-ref</xmlelem>
+      elements to determine the set of unique graphics used. This process
+      results in the graphic map, which looks like
+      this:<codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;gmap:graphic-map
+  xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+  xmlns:gmap="http://dita4publishers/namespaces/graphic-input-to-output-map">
+  &lt;gmap:graphic-map-item
+    input-url="/Users/ekimber/workspace_37/dita4publishers_0.9.19_clean/sample_data/flagging-test/ditavals/graphics/windows-icon.jpg"
+    output-url="file:/Users/ekimber/workspace_37/dita4publishers_0.9.19_clean/sample_data/flagging-test/html5/images/windows-icon.jpg"
+    id="d82e1"/>
+  &lt;gmap:graphic-map-item
+    input-url="file:/Users/ekimber/workspace_37/dita4publishers_0.9.19_clean/sample_data/flagging-test/ditavals/graphics/windows-icon.jpg"
+    output-url="file:/Users/ekimber/workspace_37/dita4publishers_0.9.19_clean/sample_data/flagging-test/html5/images/windows-icon-2.jpg"
+    id="d82e2"/>
+  &lt;gmap:graphic-map-item
+    input-url="file:/Users/ekimber/workspace_37/dita4publishers_0.9.19_clean/sample_data/flagging-test/ditavals/graphics/osx-icon.jpg"
+    output-url="file:/Users/ekimber/workspace_37/dita4publishers_0.9.19_clean/sample_data/flagging-test/html5/images/osx-icon.jpg"
+    id="d82e3"/>
+&lt;/gmap:graphic-map></codeblock></p>
+    <p>The graphic map may then be passed as a parameter to subsequent
+      processing and is used to generate the
+      <filepath>copy-graphics.xml</filepath> Ant script (mode
+      "generate-graphic-copy-ant-script" implemented in module
+      <filepath>net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl</filepath>).</p>
+    <p>Image URLs are rewritten during initial topic processing using the mode
+      "href-fixup" implemented in the module
+      <filepath>net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl</filepath>.
+      URLs are rewritten to reflect the output location of the images so that
+      the default HTML output processing will automatically construct the
+      correct URL for the images.</p>
+ </conbody>
+</concept>

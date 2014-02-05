@@ -23,10 +23,6 @@
     
   -->
   
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
-  <xsl:import href="kindle-generation-utils.xsl"/>
   
   <xsl:param name="tempFilesDir" select="'tempFilesDir value not passed'" as="xs:string"/>
 
@@ -143,7 +139,7 @@
             <item id="{$CSS}" href="{$cssOutputDir}/{$CSS}" media-type="text/css"/>
           </xsl:if>
           <!-- kindle requires a cover image -->
-          <item id="coverimage" media-type="image/jpg" href="./images/{$coverImageFilename}"/>
+          <item id="coverimage" media-type="image/jpeg" href="./images/{$coverImageFilename}"/>
         </manifest>
         
         <spine toc="ncx">
@@ -248,7 +244,7 @@
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
     <xsl:choose>
       <xsl:when test="not($topic)">
-        <xsl:message> + [WARNING] Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
+        <xsl:message> + [WARNING] manifest: Failed to resolve topic reference to href "<xsl:sequence select="string(@href)"/>"</xsl:message>
       </xsl:when>
       <xsl:otherwise>
         <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, root($topic))" as="xs:string"/>
@@ -444,6 +440,7 @@
       <xsl:attribute name="media-type">
         <xsl:choose>
           <xsl:when test="$imageExtension = 'jpg'"><xsl:sequence select="'image/jpeg'"/></xsl:when>
+          <xsl:when test="$imageExtension = 'jpeg'"><xsl:sequence select="'image/jpeg'"/></xsl:when>
           <xsl:when test="$imageExtension = 'gif'"><xsl:sequence select="'image/gif'"/></xsl:when>
           <xsl:when test="$imageExtension = 'png'"><xsl:sequence select="'image/png'"/></xsl:when>
           <xsl:otherwise>

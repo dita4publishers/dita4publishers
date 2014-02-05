@@ -47,6 +47,12 @@
   name
     NMTOKEN
     #IMPLIED
+  value
+    CDATA
+    #IMPLIED
+  outputclass
+    CDATA
+    #IMPLIED
 ">
 <!ELEMENT d4pEnumeratorProperty %d4pEnumeratorProperty.content; >
 <!ATTLIST d4pEnumeratorProperty %d4pEnumeratorProperty.attributes; >

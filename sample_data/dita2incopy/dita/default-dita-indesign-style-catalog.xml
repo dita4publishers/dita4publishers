@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<idsc:InDesign_Style_Catalog
+  xmlns:idsc="http://www.reallysi.com/namespaces/indesign_style_catalog">
+  <idsc:ParagraphStyles>
+    <idsc:pStyle
+      base=""
+      name="[No paragraph style]"
+    />
+    <idsc:pStyle
+      base="[Basic Paragraph]"
+      name="Body Para"
+    />
+    <idsc:pStyle
+      base=""
+      name="_Base Title"
+    />
+    <idsc:pStyle
+      base="_Base Title"
+      name="Topic Title 1"
+    />
+    <idsc:pStyle
+      base="_Base Title"
+      name="Topic Title 2"/>
+    <idsc:pStyle
+      base=""
+      name="Short Description"/>
+    <idsc:pStyle
+      base="Body Para"
+      name="List Bullet"/>
+    <idsc:pStyle
+      base="Body Para"
+      name="List Number"/>
+    <idsc:pStyle
+      base="Body Para"
+      name="List Number First"/>
+    <idsc:pStyle
+      base="Body Para"
+      name="DL Term"/>
+    <idsc:pStyle
+      base="Body Para"
+      name="DL Definition"/>
+    <idsc:pStyle
+      base="Body Para"
+      name="Long Quote Para Only"/>
+    <idsc:pStyle
+      base="Body Para"
+      name="Long Quote Para"/>
+    <idsc:pStyle
+      base="Body Para"
+      name="Long Quote Para First"/>
+    <idsc:pStyle
+      base="Body Para"
+      name="Long Quote Para Last"/>
+    <idsc:pStyle
+      base="Body Para"
+      name="Figure Title"/>
+    <idsc:pStyle
+      base="Body Para"
+      name="bodydiv"/>
+    <idsc:pStyle
+      base="Body Para"
+      name="sectiondiv"/>
+    <idsc:pStyle
+      base=""
+      name="topic/entry"
+    />
+    
+  </idsc:ParagraphStyles>
+  <idsc:CharacterStyles>
+    <idsc:cStyle
+      base=""
+      name="[No character style]"
+    />
+    <idsc:cStyle
+      base=""
+      name="italic"
+    />
+    <idsc:cStyle
+      base=""
+      name="bold"
+    />
+    <idsc:cStyle
+      base=""
+      name="bold-italic"
+    />
+    <idsc:cStyle
+      base=""
+      name="monospaced"
+    />
+    <idsc:cStyle
+      base="monospaced"
+      name="bold-italic-monospaced"
+    />
+    <idsc:cStyle
+      base="monospaced"
+      name="bold-monospaced"
+    />
+    <idsc:cStyle
+      base="monospaced"
+      name="italic-monospaced"
+    />
+    <idsc:cStyle
+      base=""
+      name="small-caps"
+    />
+    <idsc:cStyle
+      base=""
+      name="underline"
+    />
+    <idsc:cStyle
+      base="underline"
+      name="bold-underline"
+    />
+    <idsc:cStyle
+      base="bold-underline"
+      name="bold-italic-underline"
+    />
+    <idsc:cStyle
+      base="bold-underline"
+      name="bold-italic-monospaced-underline"
+    />
+    <idsc:cStyle
+      base="underline"
+      name="italic-underline"
+    />
+    <idsc:cStyle
+      base="bold-underline"
+      name="bold-monospaced-underline"
+    />
+    <idsc:cStyle
+      base="italic-underline"
+      name="italic-monospaced-underline"
+    />
+    <idsc:cStyle
+      base=""
+      name="xref"
+    />
+    <idsc:cStyle
+      base=""
+      name="xref-internal"
+    />
+    <idsc:cStyle
+      base=""
+      name="xref-external"
+    />
+  </idsc:CharacterStyles>
+  <idsc:TableStyles>
+    <idsc:tStyle
+      base=""
+      name="[No table style]"
+    />
+    <idsc:tStyle
+      base="[No table style]"
+      name="[Basic Table]"
+    />
+  </idsc:TableStyles>
+  <idsc:ObjectStyles>
+    <idsc:objStyle
+      base=""
+      name="[None]"/>
+    <idsc:objStyle
+      base="[None]"
+      name="[Normal Graphics Frame]"
+    />
+    <idsc:objStyle
+      base="[None]"
+      name="[Normal Text Frame]"
+    />
+    <idsc:objStyle
+      base="[None]"
+      name="[Normal Grid]"
+    />
+  </idsc:ObjectStyles>
+</idsc:InDesign_Style_Catalog>

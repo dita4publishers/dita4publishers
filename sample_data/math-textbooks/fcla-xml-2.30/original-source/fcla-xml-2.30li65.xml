@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="iso-8859-1" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" 
+"http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" > 
+<?xml-stylesheet type="text/css" href="fcla-xml-2.30.css"?> 
+<html  
+xmlns="http://www.w3.org/1999/xhtml"  
+><head><title>Section TI86  Texas Instruments 86</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)" /> 
+<!-- html,xhtml,mozilla,3 --> 
+<meta name="src" content="fcla-xml-2.30.tex" /> 
+<meta name="date" content="2011-12-23 18:20:00" /> 
+<link rel="stylesheet" type="text/css" href="fcla-xml-2.30.css" /> 
+</head><body 
+>
+   <!--l. 37--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li66.xml" >next</a>] [<a 
+href="fcla-xml-2.30li64.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li64.xml#tailfcla-xml-2.30li64.xml" >prev-tail</a>] [<a 
+href="#tailfcla-xml-2.30li65.xml">tail</a>] [<a 
+href="fcla-xml-2.30li63.xml#fcla-xml-2.30li65.xml" >up</a>] </p></div>
+   <h3 class="likesectionHead"><a 
+ id="x66-334000"></a>Section TI86&#x00A0;&#x00A0;Texas Instruments 86</h3>
+<!--l. 37--><p class="noindent" ><a 
+ id="section.TI86"></a> From <a 
+href="http://linear.ups.edu/" ><span 
+class="cmti-12">A First Course in Linear Algebra</span></a><br 
+class="newline" />Version 2.30<br 
+class="newline" /><span 
+class="cmsy-10x-x-120">&#x00A9;</span>&#x00A0;2004.<br 
+class="newline" />Licensed under the <a 
+href="http://www.gnu.org/licenses/fdl.html" >GNU Free Documentation License</a>.<br 
+class="newline" /><a 
+href="http://linear.ups.edu/" class="url" ><span 
+class="cmtt-12">http://linear.ups.edu/</span></a><br 
+class="newline" /><br 
+class="newline" /><a 
+ id="x66-334000doc"></a> <a 
+ id="dx66-334001"></a>
+</p>
+   <h4 class="likesubsectionHead"><a 
+ id="x66-335000"></a>Computation Note ME.TI86: Matrix Entry</h4>
+<!--l. 37--><p class="noindent" ><a 
+ id="computation.ME.TI86"></a> <a 
+ id="x66-335000doc"></a><a 
+ id="dx66-335001"></a> <a 
+ id="dx66-335002"></a><a 
+ id="dx66-335003"></a>On the TI-86, press the  <span 
+class="cmtt-12">MATRX </span>key  <span 
+class="cmtt-12">(Yellow-7) </span>. Press the second menu key
+over,  <span 
+class="cmtt-12">F2 </span>, to bring up the  <span 
+class="cmtt-12">EDIT </span>screen. Give your matrix a name, one letter or
+many, then press  <span 
+class="cmtt-12">ENTER </span>. You can then change the size of the matrix (rows,
+then columns) and begin editing individual entries (which are initially
+zero).  <span 
+class="cmtt-12">ENTER </span>will move you from entry to entry, or the  <span 
+class="cmtt-12">down arrow</span>
+key will move you to the next row. A menu gives you extra options for
+editing.
+</p><!--l. 12--><p class="indent" >   Matrices may also be entered on the home screen as follows. Use brackets
+([&#x00A0;,&#x00A0;]) to enclose rows with elements separated by commas. Group rows,
+in order, into a final set of brackets (with no commas between rows).
+This can then be stored in a name with the  <span 
+class="cmtt-12">STO </span>key. So, for example,
+</p><table class="equation-star"><tr><td>
+                                                                          
+
+                                                                          
+<!--l. 14--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" class="equation">
+                   <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mn>1</mn><mo 
+class="MathClass-punc">,</mo> <mn>2</mn><mo 
+class="MathClass-punc">,</mo> <mn>3</mn><mo 
+class="MathClass-punc">,</mo> <mn>4</mn></mrow><mo 
+class="MathClass-close">]</mo></mrow><mspace width="1em" class="nbsp" /><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mn>5</mn><mo 
+class="MathClass-punc">,</mo> <mn>6</mn><mo 
+class="MathClass-punc">,</mo> <mn>7</mn><mo 
+class="MathClass-punc">,</mo> <mn>8</mn></mrow><mo 
+class="MathClass-close">]</mo></mrow><mspace width="1em" class="nbsp" /><mrow ><mo 
+class="MathClass-open">[</mo><mrow><mn>9</mn><mo 
+class="MathClass-punc">,</mo> <mn>1</mn><mn>0</mn><mo 
+class="MathClass-punc">,</mo> <mn>1</mn><mn>1</mn><mo 
+class="MathClass-punc">,</mo> <mn>1</mn><mn>2</mn></mrow><mo 
+class="MathClass-close">]</mo></mrow></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-rel">&#x2192;</mo> <mi 
+>A</mi>
+</math></td></tr></table>
+<!--l. 20--><p class="indent" >   will create a matrix named  <span 
+class="cmtt-12">A </span>that is equal to </p><table class="equation-star"><tr><td>
+<!--l. 22--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" class="equation">
+ <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd><mtd 
+class="array"  columnalign="center"> <mn>2</mn> </mtd><mtd 
+class="array"  columnalign="center"> <mn>3</mn> </mtd><mtd 
+class="array"  columnalign="center"> <mn>4</mn> </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>5</mn> </mtd> <mtd 
+class="array"  columnalign="center"> <mn>6</mn> </mtd> <mtd 
+class="array"  columnalign="center"> <mn>7</mn> </mtd> <mtd 
+class="array"  columnalign="center"> <mn>8</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>9</mn> </mtd><mtd 
+class="array"  columnalign="center"><mn>1</mn><mn>0</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>1</mn><mn>1</mn></mtd><mtd 
+class="array"  columnalign="center"><mn>1</mn><mn>2</mn></mtd></mtr> <!--*\c@MaxMatrixCols c--></mtable>                                                                                       </mrow></mfenced>
+</math></td></tr></table>
+<!--l. 37--><p class="noindent" >
+</p>
+   <h4 class="likesubsectionHead"><a 
+ id="x66-336000"></a>Computation Note RR.TI86: Row Reduce</h4>
+<!--l. 37--><p class="noindent" ><a 
+ id="computation.RR.TI86"></a> <a 
+ id="x66-336000doc"></a><a 
+ id="dx66-336001"></a> <a 
+ id="dx66-336002"></a><a 
+ id="dx66-336003"></a>If  <span 
+class="cmtt-12">A </span>is the name of a matrix stored in the TI-86, then the command  <span 
+class="cmtt-12">rref A</span>
+will return the reduced row-echelon form of the matrix. This command can also be
+found by pressing the  <span 
+class="cmtt-12">MATRX </span>key, then  <span 
+class="cmtt-12">F4 </span>for  <span 
+class="cmtt-12">OPS </span>, and finally,  <span 
+class="cmtt-12">F5 </span>for  <span 
+class="cmtt-12">rref</span>
+.
+</p><!--l. 12--><p class="indent" >   Note that this command will not work for a matrix with more rows than
+columns. (Ed. Not sure just why this is!) A work-around is to pad the matrix with
+extra columns of zeros until the matrix is square.
+</p>
+   <h4 class="likesubsectionHead"><a 
+ id="x66-337000"></a>Computation Note VLC.TI86: Vector Linear Combinations</h4>
+<!--l. 37--><p class="noindent" ><a 
+ id="computation.VLC.TI86"></a> <a 
+ id="x66-337000doc"></a><a 
+ id="dx66-337001"></a> <a 
+ id="dx66-337002"></a><a 
+ id="dx66-337003"></a> Contributed&#x00A0;by&#x00A0;<a 
+href="fcla-xml-2.30li6.xml#BeezerRobert">Robert&#x00A0;Beezer</a> <br 
+class="newline" />Vector operations on the TI-86 can be accessed via the  <span 
+class="cmtt-12">VECTR </span>key, which is
+                                                                          
+
+                                                                          
+<span 
+class="cmtt-12">Yellow-8 </span>. The  <span 
+class="cmtt-12">EDIT </span>tool appears when the  <span 
+class="cmtt-12">F2 </span>key is pressed. After providing
+a name and giving a &#x201C;dimension&#x201D; (the size) then you can enter the individual
+entries, one at a time. Vectors can also be entered on the home screen using
+brackets ( <span 
+class="cmtt-12">[ </span>,  <span 
+class="cmtt-12">] </span>). To create the vector </p><table class="equation-star"><tr><td>
+<!--l. 13--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" class="equation">
+<mi 
+>v</mi> <mo 
+class="MathClass-rel">=</mo>  <mfenced separators="" 
+open="["  close="]" ><mrow><mtable  style="text-align:axis;"  
+equalrows="false" columnlines="none none none none none none none none none none none" equalcolumns="false" class="array"><mtr><mtd 
+class="array"  columnalign="center"><mn>1</mn></mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>2</mn></mtd>
+</mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>3</mn> </mtd></mtr><mtr><mtd 
+class="array"  columnalign="center"> <mn>4</mn></mtd></mtr>  <!--*\c@MaxMatrixCols c--></mtable>                                                                                              </mrow></mfenced>
+</math></td></tr></table>
+<!--l. 17--><p class="indent" >   use brackets and the store key ( <span 
+class="cmtt-12">STO </span>), </p><table class="equation-star"><tr><td>
+<!--l. 19--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" class="equation">
+                              <mrow ><mo 
+class="MathClass-open">[</mo><mrow><mn>1</mn><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mn>2</mn><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mn>3</mn><mo 
+class="MathClass-punc">,</mo><mspace width="0.3em" class="thinspace"/><mn>4</mn></mrow><mo 
+class="MathClass-close">]</mo></mrow> <mo 
+class="MathClass-rel">&#x2192;</mo> <mi 
+>v</mi>
+</math></td></tr></table>
+<!--l. 23--><p class="indent" >   Vector addition and scalar multiplication are then very natural. If  <span 
+class="cmtt-12">u </span>and  <span 
+class="cmtt-12">v</span>
+are two vectors of equal size, then </p><table class="equation-star"><tr><td>
+                                                                          
+
+                                                                          
+<!--l. 25--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="block" class="equation">
+                              <mn>2</mn> <mo 
+class="MathClass-bin">&#x2217;</mo> <mi 
+>u</mi> <mo 
+class="MathClass-bin">+</mo> <mrow ><mo 
+class="MathClass-open">(</mo><mrow><mo 
+class="MathClass-bin">&#x2212;</mo><mn>3</mn></mrow><mo 
+class="MathClass-close">)</mo></mrow> <mo 
+class="MathClass-bin">&#x2217;</mo> <mi 
+>v</mi>
+</math></td></tr></table>
+<!--l. 29--><p class="indent" >   will compute the correct vector and display the result as a vector.
+</p>
+   <h4 class="likesubsectionHead"><a 
+ id="x66-338000"></a>Computation Note TM.TI86: Transpose of a Matrix</h4>
+<!--l. 37--><p class="noindent" ><a 
+ id="computation.TM.TI86"></a> <a 
+ id="x66-338000doc"></a><a 
+ id="dx66-338001"></a> <a 
+ id="dx66-338002"></a><a 
+ id="dx66-338003"></a> Contributed&#x00A0;by&#x00A0;<a 
+href="fcla-xml-2.30li6.xml#FickenscherEric">Eric&#x00A0;Fickenscher</a> <br 
+class="newline" />Suppose  <span 
+class="cmtt-12">A </span>is the name of a matrix stored in the TI-86. Use the command
+<!--l. 12--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+><mi 
+>A</mi></mrow><mrow 
+><mi 
+>T</mi> </mrow></msup 
+></math> to transpose
+<span 
+class="cmtt-12">A </span>. This command can be found by pressing the  <span 
+class="cmtt-12">MATRX </span>key, then  <span 
+class="cmtt-12">F3 </span>for  <span 
+class="cmtt-12">MATH </span>, then  <span 
+class="cmtt-12">F2</span>
+for <!--l. 13--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML" display="inline" ><msup><mrow 
+></mrow><mrow 
+><mi 
+>T</mi> </mrow></msup 
+></math>.
+                                                                          
+
+                                                                          
+</p>
+   <!--l. 47--><div class="crosslinks"><p class="noindent">[<a 
+href="fcla-xml-2.30li66.xml" >next</a>] [<a 
+href="fcla-xml-2.30li64.xml" >prev</a>] [<a 
+href="fcla-xml-2.30li64.xml#tailfcla-xml-2.30li64.xml" >prev-tail</a>] [<a 
+href="fcla-xml-2.30li65.xml" >front</a>] [<a 
+href="fcla-xml-2.30li63.xml#fcla-xml-2.30li65.xml" >up</a>] </p></div>
+<!--l. 47--><p class="indent" >   <a 
+ id="tailfcla-xml-2.30li65.xml"></a>  </p> 
+</body> 
+</html> 

@@ -7,7 +7,8 @@
   rendering for XML domain elements.
   
   -->
-<plugin id="com.reallysi.xmldomain.html">
+<plugin id="net.sourceforge.dita4publishers.xmldomain.html">
+  <require plugin="net.sourceforge.dita4publishers.common.html"/> 
   <require plugin="net.sourceforge.dita4publishers.xmldomain.doctypes"/> 
   <feature extension="dita.xsl.xhtml" value="xsl/xmlDomain2html.xsl" type="file"/>  
 </plugin>
