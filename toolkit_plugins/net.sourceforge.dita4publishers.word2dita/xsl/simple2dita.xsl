@@ -345,6 +345,7 @@
   
     <xsl:template match="rsiwp:td|rsiwp:th">
         <entry>
+
             <xsl:if test="@rowspan">
                 <xsl:attribute name="morerows">
                     <xsl:value-of select="number(@rowspan)-1"/>
@@ -352,12 +353,23 @@
             </xsl:if>
             <xsl:if test="@colspan">
                 <!-- Allow entries to span columns -->
-                <xsl:variable name="current-cell">
-                    <xsl:call-template name="current-cell-position"/>
-                </xsl:variable>
-                <xsl:attribute name="namest">col<xsl:value-of select="$current-cell"/></xsl:attribute>
-                <xsl:attribute name="nameend">col<xsl:value-of select="$current-cell + number(@colspan) - 1"
-                /></xsl:attribute>
+              <xsl:variable name="startColNum" as="xs:integer"
+                      select="sum(for $colspan in preceding-sibling::rsiwp:td/@colspan return xs:integer($colspan)) + 
+                              count(preceding-sibling::rsiwp:td[not(@colspan)]) + 1"
+              />
+              <xsl:variable name="endColNum" as="xs:integer"
+                      select="sum(for $colspan in preceding-sibling::rsiwp:td/@colspan return xs:integer($colspan)) + 
+                              count(preceding-sibling::rsiwp:td[not(@colspan)]) + 
+                              xs:integer(@colspan)"
+              />
+              <xsl:variable name="startColName" as="xs:string"
+                select="local:constructColumnName(ancestor::rsiwp:table/rsiwp:cols/rsiwp:col[$startColNum])"
+              />
+              <xsl:variable name="endColName" as="xs:string"
+                select="local:constructColumnName(ancestor::rsiwp:table/rsiwp:cols/rsiwp:col[$endColNum])"
+              />
+                <xsl:attribute name="namest" select="$startColName"/>
+                <xsl:attribute name="nameend" select="$endColName"/>
             </xsl:if>
             <xsl:choose>
                 <xsl:when test="@align">
@@ -431,7 +443,7 @@
     <xsl:template name="create-colspec">
       <xsl:for-each select="rsiwp:cols/rsiwp:col">
             <colspec>
-              <xsl:attribute name="colname" select="concat('col', position())"/>
+              <xsl:attribute name="colname" select="local:constructColumnName(.)"/>
               <xsl:sequence select="@align"/>
               <xsl:sequence select="@colwidth"/>
             </colspec>
@@ -2623,4 +2635,9 @@ specify @topicDoc="yes".</xsl:message>
     <xsl:sequence select="$result"/>
   </xsl:function>
 
+  <xsl:function name="local:constructColumnName" as="xs:string">
+    <xsl:param name="colElement" as="element(rsiwp:col)"/>
+    <xsl:variable name="result" select="concat('col', count($colElement/preceding-sibling::rsiwp:col) + 1)" as="xs:string"/>
+    <xsl:sequence select="$result"/>
+  </xsl:function>
 </xsl:stylesheet>

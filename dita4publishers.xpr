@@ -21,15 +21,15 @@
             <file name="toolkit_plugins/net.sourceforge.dita4publishers.html2/xsl/map2html2Impl.xsl"/>
         </folder>
         <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/"/>
-        <folder path="../../workspace/d4p-toolkits/"/>
-        <folder path="../../workspace/dita-13-spec/"/>
-        <folder path="../../workspace/dita-ot/"/>
+        <folder path="../d4p-toolkits/"/>
+        <folder path="../dita-12-spec/"/>
+        <folder path="../dita-13-spec/"/>
+        <folder path="../dita-ot/"/>
         <folder path="."/>
         <folder path="docs/"/>
         <folder path="sample_data/"/>
         <folder path="toolkit_plugins/"/>
-        <folder path="../omics-plugin/"/>
-        <folder path="../rsuite-sales-demo%20trunk/"/>
+        <folder path="../../workspace_40/omics-plugin/"/>
         <file name="templates/maps/D4P%20Pubmap.ditamap"/>
         <file name="docs/user_docs/d4p-users-guide.ditamap"/>
         <file name="docs/website/dita4publishers.ditamap"/>
