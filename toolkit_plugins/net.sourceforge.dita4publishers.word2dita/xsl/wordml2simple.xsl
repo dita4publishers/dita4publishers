@@ -69,11 +69,21 @@
     as="xs:string"
   />
   
+  <!-- Mapping from Word-specific Symbol font charcters to Unicode symbols 
+  
+       FIXME: this is a short-term solution specific to the Symbol font.
+       Need a more general solution that can accomodate multiple fonts.
+  -->
+  <xsl:variable name="fontCharMapSymbol" as="document-node()"
+      select="document('font2unicodeMaps/font2UnicodeMapSymbol.xml')"
+  />
+  
   <xsl:template match="/" name="processDocumentXml">
     <xsl:param name="stylesDoc" as="document-node()" tunnel="yes"/>
 
     <xsl:message> + [INFO] wordml2simple: Processing DOCX document.xml file to generate intermediate simpleML XML...</xsl:message>
     <xsl:message> + [INFO] styleMap=<xsl:sequence select="document-uri($styleMapDoc)"/></xsl:message>
+    <xsl:message> + [DEBUG] $fontCharMapSymbol="<xsl:sequence select="$fontCharMapSymbol"/></xsl:message>
     <xsl:if test="not(/w:document)">
       <xsl:message terminate="yes"> - [ERROR] Input document must be a w:document document.</xsl:message>
     </xsl:if>
@@ -769,13 +779,47 @@
   </xsl:template>
   
   <xsl:template match="w:sym">
-    <xsl:if test="false() and $debugBoolean">
-      <xsl:message> + [DEBUG] w:sym: <xsl:sequence select="."/></xsl:message>
-    </xsl:if>
     <xsl:variable name="charCode" select="@w:char" as="xs:string"/>
-    <xsl:variable name="character" select="codepoints-to-string(local:hex-to-char($charCode))" as="xs:string"/>
-    <xsl:if test="false() and $debugBoolean">
-      <xsl:message> + [DEBUG] w:sym: char="<xsl:sequence select="$character"/>"</xsl:message>
+    <xsl:if test="starts-with($charCode, 'F') or $debugBoolean">
+      <xsl:message> + [DEBUG] ==== w:sym: <xsl:value-of select="./@w:font, ' ', ./@w:char"/></xsl:message>
+    </xsl:if>
+    <!-- See 17.3.3.30 sym (Symbol Character) in the Office Open XML Part 1 Doc:
+      
+         Characters with codes starting with "F" have had 0xF000 added to them
+         to put them in the private use area.
+      -->
+    <xsl:message> + [DEBUG] </xsl:message>
+    <xsl:variable name="nonPrivateCharCode" as="xs:string"
+      select="if (starts-with($charCode, 'F')) then replace($charCode, 'F', '0') else $charCode"
+    />
+    <xsl:if test="starts-with($charCode, 'F')">
+      <xsl:message> + [DEBUG] nonPrivateCharCode=<xsl:sequence select="$nonPrivateCharCode"/></xsl:message>
+    </xsl:if>
+    <!-- NOTE: This is a short-term hack specific to the Symbol font. Need a more 
+         complete solution that can handle other fonts, e.g., Wingdings, etc.
+         
+         The getUnicodeForFont() function doesn't guarantee a good Unicode code point,
+         it currently only works for Symbol.
+      -->
+    <xsl:variable name="unicodeCodePoint" as="xs:string"
+      select="if (@w:font = 'Symbol') 
+         then (local:getUnicodeForFont('Symbol', $nonPrivateCharCode)) 
+         else $nonPrivateCharCode"
+    />
+    <xsl:if test="starts-with($charCode, 'F')">
+      <xsl:message> + [DEBUG] unicodeCodePoint=<xsl:sequence select="$unicodeCodePoint"/></xsl:message>
+    </xsl:if>
+
+    <xsl:variable name="codePoint" as="xs:integer"
+      select="local:hex-to-char($unicodeCodePoint)"
+    />
+    <xsl:if test="starts-with($charCode, 'F')">
+      <xsl:message> + [DEBUG] codePoint=<xsl:sequence select="$codePoint"/></xsl:message>
+    </xsl:if>
+    <xsl:variable name="character" 
+      select="codepoints-to-string($codePoint)" as="xs:string"/>
+    <xsl:if test="starts-with($charCode, 'F')">
+      <xsl:message> + [DEBUG] character=<xsl:sequence select="$character"/></xsl:message>
     </xsl:if>
     <rsiwp:symbol font="{@w:font}"
       ><xsl:sequence select="$character"/></rsiwp:symbol>
@@ -999,6 +1043,34 @@
       then local:hex-digit-to-integer($in)
       else 16*local:hex-to-char(substring($in, 1, string-length($in)-1)) +
       local:hex-digit-to-integer(substring($in, string-length($in)))"/>
+  </xsl:function>
+  
+  <xsl:function name="local:getUnicodeForFont" as="xs:string">
+    <xsl:param name="fontName" as="xs:string"/>
+    <xsl:param name="fontCodePoint" as="xs:string"/>
+<!--    <xsl:message> + [DEBUG] getUnicodeForFont(): fontName="<xsl:value-of select="$fontName"/>"</xsl:message>
+    <xsl:message> + [DEBUG] getUnicodeForFont(): fontCodePoint="<xsl:value-of select="$fontCodePoint"/>"</xsl:message>
+-->    
+    <xsl:variable name="unicodeCodePoint" as="xs:string">
+      <xsl:choose>
+        <xsl:when test="lower-case($fontName) = 'symbol'">
+<!--    <xsl:message> + [DEBUG] getUnicodeForFont():   Font is Symbol font.</xsl:message>-->
+          <xsl:variable name="codePointMapping" as="element()?"
+            select="$fontCharMapSymbol/*/codePointMapping[@origCodePoint = $fontCodePoint]"
+          />
+          <xsl:variable name="unicodeCodePoint" select="$codePointMapping/@unicodeCodePoint" as="xs:string"/>
+<!--    <xsl:message> + [DEBUG] getUnicodeForFont():   codePointMapping=<xsl:sequence select="$codePointMapping"/></xsl:message>     
+    <xsl:message> + [DEBUG] getUnicodeForFont():   unicodeCodePoint=<xsl:sequence select="$unicodeCodePoint"/></xsl:message>
+-->          <xsl:sequence 
+            select="$unicodeCodePoint"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:message> - [WARN] local:getUnicodeForFont(): Unrecognized font name "<xsl:value-of select="$fontName"/>"</xsl:message>
+          <xsl:sequence select="$fontCodePoint"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:sequence select="$unicodeCodePoint"/>
   </xsl:function>
   
   <xsl:function name="local:hex-digit-to-integer" as="xs:integer">
