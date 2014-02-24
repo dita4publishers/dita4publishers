@@ -14,7 +14,7 @@
   <!--==========================================
     Simple Word Processing Markup to DITA generic transformation
     
-    Copyright (c) 2009, 2013 DITA For Publishers, Inc.
+    Copyright (c) 2009, 2014 DITA For Publishers, Inc.
 
     Transforms a simple word processing document into a DITA topic using
     a style-to-tag mapping.
