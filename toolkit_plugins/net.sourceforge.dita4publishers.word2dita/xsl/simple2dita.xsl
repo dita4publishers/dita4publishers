@@ -383,6 +383,18 @@
                     </xsl:attribute>
                 </xsl:when>
             </xsl:choose>
+            <xsl:choose>
+                <xsl:when test="@valign">
+                    <xsl:attribute name="valign">
+                        <xsl:value-of select="@valign"/>
+                    </xsl:attribute>
+                </xsl:when>
+                <xsl:when test="../@valign">
+                    <xsl:attribute name="valign">
+                        <xsl:value-of select="../@valign"/>
+                    </xsl:attribute>
+                </xsl:when>
+            </xsl:choose>
             <xsl:call-template name="handleBodyParas">
                 <xsl:with-param name="bodyParas" select="*"/>
             </xsl:call-template>

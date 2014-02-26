@@ -598,7 +598,7 @@
     />
     <xsl:variable name="result" as="xs:string?"
       select="if ($valignValue)
-      then ('bottom', 'center', 'top', 'top')[index-of($wordJustificationValues, $valignValue)]
+      then ('bottom', 'middle', 'top', 'top')[index-of($wordJustificationValues, $valignValue)]
       else ()"
     />
     <xsl:sequence select="$result"/>
