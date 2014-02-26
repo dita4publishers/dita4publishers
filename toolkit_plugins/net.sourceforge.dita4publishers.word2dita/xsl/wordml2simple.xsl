@@ -560,6 +560,50 @@
     <xsl:message> + [DEBUG] ===== Ending a table</xsl:message>
   </xsl:template>
   
+  <xsl:function name="local:calculateTableCellHorizontalAlignment" as="xs:string?">
+    <!-- Returns the appropriate value for the CALS @align attribute or nothing
+         if the alignment is unspecified.
+      -->
+    <xsl:param name="tcElement" as="element(w:tc)"/>
+    <xsl:variable name="jcValue" as="xs:string?"
+      select="$tcElement/w:p/w:pPr/w:jc/@w:val"
+     />
+    <!-- See section 17.18.44 in the Office Open XML spec
+         for details on the values.
+      -->
+    <xsl:variable name="wordJustificationValues" as="xs:string+"
+      select="('left', 'center', 'right', 'both', 'end', 'distribute', 'numTab', 'start')"
+    />
+    <xsl:variable name="result" as="xs:string?"
+      select=" if ($jcValue) 
+      then ('left', 'center', 'right', 'justify', 'right', 'justify', 'char', 'left')[index-of($wordJustificationValues, $jcValue)]
+      else ()"
+    />
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+  
+  <xsl:function name="local:calculateTableCellVerticalAlignment" as="xs:string?">
+    <!-- Returns the appropriate value for the CALS @valign attribute or nothing
+         if the alignment is unspecified.
+      -->
+    <xsl:param name="tcElement" as="element(w:tc)"/>
+    <xsl:variable name="valignValue" as="xs:string?"
+      select="$tcElement/w:tcPr/w:vAlign/@w:val"
+     />
+    <!-- See section 17.18.101 ST_VerticalJc in the Office Open XML spec
+         for details on the values.
+      -->
+    <xsl:variable name="wordJustificationValues" as="xs:string+"
+      select="('bottom', 'center', 'top', 'both')"
+    />
+    <xsl:variable name="result" as="xs:string?"
+      select="if ($valignValue)
+      then ('bottom', 'center', 'top', 'top')[index-of($wordJustificationValues, $valignValue)]
+      else ()"
+    />
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+  
   <xsl:function name="local:calculateTableActualWidth" as="xs:string">
     <xsl:param name="tblGrid" as="element(w:tblGrid)?"/>
     <!--  NOTE: width values are 1/20 of a point -->
@@ -657,8 +701,22 @@
       select="ancestor::w:tr[1]/*[count($curCell|descendant-or-self::*)=count(descendant-or-self::*)]"/>
     <xsl:variable name="numCellsBefore"
       select="count($curCellInContext/preceding-sibling::*[descendant-or-self::*[name()='w:tc' and (count(ancestor::w:tbl)=$tblCount)]])"/>
+    
+    <xsl:variable name="horizontalAlignment" as="xs:string?"
+      select="local:calculateTableCellHorizontalAlignment(.)"
+    />
+    <xsl:variable name="verticalAlignment" as="xs:string?"
+      select="local:calculateTableCellVerticalAlignment(.)"
+    />
+    
     <xsl:if test="not($vmerge and not($vmerge/@w:val))">
       <td>
+        <xsl:if test="$horizontalAlignment">
+          <xsl:attribute name="align" select="$horizontalAlignment"/>
+        </xsl:if>
+        <xsl:if test="$verticalAlignment">
+          <xsl:attribute name="valign" select="$verticalAlignment"/>
+        </xsl:if>
         <xsl:for-each select="w:tcPr[1]/w:gridSpan[1]/@w:val">
           <xsl:attribute name="colspan">
             <xsl:value-of select="."/>
