@@ -1154,7 +1154,22 @@
     	</fileset>
     </copy>
 
-  	<antcall target="add-version-info-to-files"/>
+    <replace file="${classes.home}/rsuite-plugin.xml"
+      propertyfile="${basedir}/build.number"
+      >
+      <replacefilter
+        token="^version^"
+        value="${rsuite-plugin_version}"
+      />
+      <replacefilter
+        token="^buildnumber^"
+        property="build.number"
+      />
+      <replacefilter
+        token="^timestamp^"
+        value="${build-date-time}"
+      />
+    </replace>
 
     <jar destfile="${target.home}/${target.jar}" >
       <fileset dir="${classes.home}" >
