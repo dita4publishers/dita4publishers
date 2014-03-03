@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Font2UnicodeMap sourceFont="Wingdings">
+  <!-- See http://www.alanwood.net/demos/wingdings.html -->
+   <codePointMapping
+      origCodePoint="0020"
+      unicodeCodePoint="0020"
+      characterName="SPACE"
+   />
+   <codePointMapping
+      origCodePoint="0021"
+      unicodeCodePoint="0021"
+      characterName="EXCLAMATION MARK"
+   />
+   <codePointMapping
+      origCodePoint="0022"
+      unicodeCodePoint="2200"
+      characterName="FOR ALL"
+   />
+   <codePointMapping
+      origCodePoint="0023"
+      unicodeCodePoint="0023"
+      characterName="NUMBER SIGN"
+   />
+   <codePointMapping
+      origCodePoint="0024"
+      unicodeCodePoint="2203"
+      characterName="THERE EXISTS"
+   />
+   <codePointMapping
+      origCodePoint="0025"
+      unicodeCodePoint="0025"
+      characterName="PERCENT SIGN"
+   />
+   <codePointMapping
+      origCodePoint="0026"
+      unicodeCodePoint="0026"
+      characterName="AMPERSAND"
+   />
+   <codePointMapping
+      origCodePoint="0027"
+      unicodeCodePoint="220B"
+      characterName="CONTAINS AS MEMBER"
+   />
+   <codePointMapping
+      origCodePoint="0028"
+      unicodeCodePoint="0028"
+      characterName="LEFT PARENTHESIS"
+   />
+   <codePointMapping
+      origCodePoint="0029"
+      unicodeCodePoint="0029"
+      characterName="RIGHT PARENTHESIS"
+   />
+   <codePointMapping
+      origCodePoint="002A"
+      unicodeCodePoint="2217"
+      characterName="ASTERISK OPERATOR"
+   />
+   <codePointMapping
+      origCodePoint="002B"
+      unicodeCodePoint="002B"
+      characterName="PLUS SIGN"
+   />
+   <codePointMapping
+      origCodePoint="002C"
+      unicodeCodePoint="002C"
+      characterName="COMMA"
+   />
+   <codePointMapping
+      origCodePoint="002D"
+      unicodeCodePoint="2212"
+      characterName="MINUS SIGN"
+   />
+   <codePointMapping
+      origCodePoint="002E"
+      unicodeCodePoint="002E"
+      characterName="FULL STOP"
+   />
+   <codePointMapping
+      origCodePoint="002F"
+      unicodeCodePoint="002F"
+      characterName="SOLIDUS"
+   />
+   <codePointMapping
+      origCodePoint="0030"
+      unicodeCodePoint="0030"
+      characterName="DIGIT ZERO"
+   />
+   <codePointMapping
+      origCodePoint="0031"
+      unicodeCodePoint="0031"
+      characterName="DIGIT ONE"
+   />
+   <codePointMapping
+      origCodePoint="0032"
+      unicodeCodePoint="0032"
+      characterName="DIGIT TWO"
+   />
+   <codePointMapping
+      origCodePoint="0033"
+      unicodeCodePoint="0033"
+      characterName="DIGIT THREE"
+   />
+   <codePointMapping
+      origCodePoint="0034"
+      unicodeCodePoint="0034"
+      characterName="DIGIT FOUR"
+   />
+   <codePointMapping
+      origCodePoint="0035"
+      unicodeCodePoint="0035"
+      characterName="DIGIT FIVE"
+   />
+   <codePointMapping
+      origCodePoint="0036"
+      unicodeCodePoint="0036"
+      characterName="DIGIT SIX"
+   />
+   <codePointMapping
+      origCodePoint="0037"
+      unicodeCodePoint="0037"
+      characterName="DIGIT SEVEN"
+   />
+   <codePointMapping
+      origCodePoint="0038"
+      unicodeCodePoint="0038"
+      characterName="DIGIT EIGHT"
+   />
+   <codePointMapping
+      origCodePoint="0039"
+      unicodeCodePoint="0039"
+      characterName="DIGIT NINE"
+   />
+   <codePointMapping
+      origCodePoint="003A"
+      unicodeCodePoint="003A"
+      characterName="COLON"
+   />
+   <codePointMapping
+      origCodePoint="003B"
+      unicodeCodePoint="003B"
+      characterName="SEMICOLON"
+   />
+   <codePointMapping
+      origCodePoint="003C"
+      unicodeCodePoint="003C"
+      characterName="LESS-THAN SIGN"
+   />
+   <codePointMapping
+      origCodePoint="003D"
+      unicodeCodePoint="003D"
+      characterName="EQUALS SIGN"
+   />
+   <codePointMapping
+      origCodePoint="003E"
+      unicodeCodePoint="003E"
+      characterName="GREATER-THAN SIGN"
+   />
+   <codePointMapping
+      origCodePoint="003F"
+      unicodeCodePoint="003F"
+      characterName="QUESTION MARK"
+   />
+   <codePointMapping
+      origCodePoint="0040"
+      unicodeCodePoint="2245"
+      characterName="APPROXIMATELY EQUAL TO"
+   />
+   <codePointMapping
+      origCodePoint="0041"
+      unicodeCodePoint="0391"
+      characterName="GREEK CAPITAL LETTER ALPHA"
+   />
+   <codePointMapping
+      origCodePoint="0042"
+      unicodeCodePoint="0392"
+      characterName="GREEK CAPITAL LETTER BETA"
+   />
+   <codePointMapping
+      origCodePoint="0043"
+      unicodeCodePoint="03A7"
+      characterName="GREEK CAPITAL LETTER CHI"
+   />
+   <codePointMapping
+      origCodePoint="0044"
+      unicodeCodePoint="0394"
+      characterName="GREEK CAPITAL LETTER DELTA"
+   />
+   <codePointMapping
+      origCodePoint="0045"
+      unicodeCodePoint="0395"
+      characterName="GREEK CAPITAL LETTER EPSILON"
+   />
+   <codePointMapping
+      origCodePoint="0046"
+      unicodeCodePoint="03A6"
+      characterName="GREEK CAPITAL LETTER PHI"
+   />
+   <codePointMapping
+      origCodePoint="0047"
+      unicodeCodePoint="0393"
+      characterName="GREEK CAPITAL LETTER GAMMA"
+   />
+   <codePointMapping
+      origCodePoint="0048"
+      unicodeCodePoint="0397"
+      characterName="GREEK CAPITAL LETTER ETA"
+   />
+   <codePointMapping
+      origCodePoint="0049"
+      unicodeCodePoint="0399"
+      characterName="GREEK CAPITAL LETTER IOTA"
+   />
+   <codePointMapping
+      origCodePoint="004A"
+      unicodeCodePoint="03D1"
+      characterName="GREEK THETA SYMBOL"
+   />
+   <codePointMapping
+      origCodePoint="004B"
+      unicodeCodePoint="039A"
+      characterName="GREEK CAPITAL LETTER KAPPA"
+   />
+   <codePointMapping
+      origCodePoint="004C"
+      unicodeCodePoint="039B"
+      characterName="GREEK CAPITAL LETTER LAMDA"
+   />
+   <codePointMapping
+      origCodePoint="004D"
+      unicodeCodePoint="039C"
+      characterName="GREEK CAPITAL LETTER MU"
+   />
+   <codePointMapping
+      origCodePoint="004E"
+      unicodeCodePoint="039D"
+      characterName="GREEK CAPITAL LETTER NU"
+   />
+   <codePointMapping
+      origCodePoint="004F"
+      unicodeCodePoint="039F"
+      characterName="GREEK CAPITAL LETTER OMICRON"
+   />
+   <codePointMapping
+      origCodePoint="0050"
+      unicodeCodePoint="03A0"
+      characterName="GREEK CAPITAL LETTER PI"
+   />
+   <codePointMapping
+      origCodePoint="0051"
+      unicodeCodePoint="0398"
+      characterName="GREEK CAPITAL LETTER THETA"
+   />
+   <codePointMapping
+      origCodePoint="0052"
+      unicodeCodePoint="03A1"
+      characterName="GREEK CAPITAL LETTER RHO"
+   />
+   <codePointMapping
+      origCodePoint="0053"
+      unicodeCodePoint="03A3"
+      characterName="GREEK CAPITAL LETTER SIGMA"
+   />
+   <codePointMapping
+      origCodePoint="0054"
+      unicodeCodePoint="03A4"
+      characterName="GREEK CAPITAL LETTER TAU"
+   />
+   <codePointMapping
+      origCodePoint="0055"
+      unicodeCodePoint="03A5"
+      characterName="GREEK CAPITAL LETTER UPSILON"
+   />
+   <codePointMapping
+      origCodePoint="0056"
+      unicodeCodePoint="03C2"
+      characterName="GREEK SMALL LETTER FINAL SIGMA"
+   />
+   <codePointMapping
+      origCodePoint="0057"
+      unicodeCodePoint="03A9"
+      characterName="GREEK CAPITAL LETTER OMEGA"
+   />
+   <codePointMapping
+      origCodePoint="0058"
+      unicodeCodePoint="039E"
+      characterName="GREEK CAPITAL LETTER XI"
+   />
+   <codePointMapping
+      origCodePoint="0059"
+      unicodeCodePoint="03A8"
+      characterName="GREEK CAPITAL LETTER PSI"
+   />
+   <codePointMapping
+      origCodePoint="005A"
+      unicodeCodePoint="0396"
+      characterName="GREEK CAPITAL LETTER ZETA"
+   />
+   <codePointMapping
+      origCodePoint="005B"
+      unicodeCodePoint="005B"
+      characterName="LEFT SQUARE BRACKET"
+   />
+   <codePointMapping
+      origCodePoint="005C"
+      unicodeCodePoint="2234"
+      characterName="THEREFORE"
+   />
+   <codePointMapping
+      origCodePoint="005D"
+      unicodeCodePoint="005D"
+      characterName="RIGHT SQUARE BRACKET"
+   />
+   <codePointMapping
+      origCodePoint="005E"
+      unicodeCodePoint="22A5"
+      characterName="UP TACK"
+   />
+   <codePointMapping
+      origCodePoint="005F"
+      unicodeCodePoint="005F"
+      characterName="LOW LINE"
+   />
+   <codePointMapping
+      origCodePoint="0060"
+      unicodeCodePoint="F8E5"
+      characterName="RADICAL EXTENDER"
+   />
+   <codePointMapping
+      origCodePoint="0061"
+      unicodeCodePoint="03B1"
+      characterName="GREEK SMALL LETTER ALPHA"
+   />
+   <codePointMapping
+      origCodePoint="0062"
+      unicodeCodePoint="03B2"
+      characterName="GREEK SMALL LETTER BETA"
+   />
+   <codePointMapping
+      origCodePoint="0063"
+      unicodeCodePoint="03C7"
+      characterName="GREEK SMALL LETTER CHI"
+   />
+   <codePointMapping
+      origCodePoint="0064"
+      unicodeCodePoint="03B4"
+      characterName="GREEK SMALL LETTER DELTA"
+   />
+   <codePointMapping
+      origCodePoint="0065"
+      unicodeCodePoint="03B5"
+      characterName="GREEK SMALL LETTER EPSILON"
+   />
+   <codePointMapping
+      origCodePoint="0066"
+      unicodeCodePoint="03C6"
+      characterName="GREEK SMALL LETTER PHI"
+   />
+   <codePointMapping
+      origCodePoint="0067"
+      unicodeCodePoint="03B3"
+      characterName="GREEK SMALL LETTER GAMMA"
+   />
+   <codePointMapping
+      origCodePoint="0068"
+      unicodeCodePoint="03B7"
+      characterName="GREEK SMALL LETTER ETA"
+   />
+   <codePointMapping
+      origCodePoint="0069"
+      unicodeCodePoint="03B9"
+      characterName="GREEK SMALL LETTER IOTA"
+   />
+   <codePointMapping
+      origCodePoint="006A"
+      unicodeCodePoint="03D5"
+      characterName="GREEK PHI SYMBOL"
+   />
+   <codePointMapping
+      origCodePoint="006B"
+      unicodeCodePoint="03BA"
+      characterName="GREEK SMALL LETTER KAPPA"
+   />
+   <codePointMapping
+      origCodePoint="006C"
+      unicodeCodePoint="03BB"
+      characterName="GREEK SMALL LETTER LAMDA"
+   />
+   <codePointMapping
+      origCodePoint="006D"
+      unicodeCodePoint="03BC"
+      characterName="GREEK SMALL LETTER MU"
+   />
+   <codePointMapping
+      origCodePoint="006E"
+      unicodeCodePoint="03BD"
+      characterName="GREEK SMALL LETTER NU"
+   />
+   <codePointMapping
+      origCodePoint="006F"
+      unicodeCodePoint="03BF"
+      characterName="GREEK SMALL LETTER OMICRON"
+   />
+   <codePointMapping
+      origCodePoint="0070"
+      unicodeCodePoint="03C0"
+      characterName="GREEK SMALL LETTER PI"
+   />
+   <codePointMapping
+      origCodePoint="0071"
+      unicodeCodePoint="03B8"
+      characterName="GREEK SMALL LETTER THETA"
+   />
+   <codePointMapping
+      origCodePoint="0072"
+      unicodeCodePoint="03C1"
+      characterName="GREEK SMALL LETTER RHO"
+   />
+   <codePointMapping
+      origCodePoint="0073"
+      unicodeCodePoint="03C3"
+      characterName="GREEK SMALL LETTER SIGMA"
+   />
+   <codePointMapping
+      origCodePoint="0074"
+      unicodeCodePoint="03C4"
+      characterName="GREEK SMALL LETTER TAU"
+   />
+   <codePointMapping
+      origCodePoint="0075"
+      unicodeCodePoint="03C5"
+      characterName="GREEK SMALL LETTER UPSILON"
+   />
+   <codePointMapping
+      origCodePoint="0076"
+      unicodeCodePoint="03D6"
+      characterName="GREEK PI SYMBOL"
+   />
+   <codePointMapping
+      origCodePoint="0077"
+      unicodeCodePoint="03C9"
+      characterName="GREEK SMALL LETTER OMEGA"
+   />
+   <codePointMapping
+      origCodePoint="0078"
+      unicodeCodePoint="03BE"
+      characterName="GREEK SMALL LETTER XI"
+   />
+   <codePointMapping
+      origCodePoint="0079"
+      unicodeCodePoint="03C8"
+      characterName="GREEK SMALL LETTER PSI"
+   />
+   <codePointMapping
+      origCodePoint="007A"
+      unicodeCodePoint="03B6"
+      characterName="GREEK SMALL LETTER ZETA"
+   />
+   <codePointMapping
+      origCodePoint="007B"
+      unicodeCodePoint="007B"
+      characterName="LEFT CURLY BRACKET"
+   />
+   <codePointMapping
+      origCodePoint="007C"
+      unicodeCodePoint="007C"
+      characterName="VERTICAL LINE"
+   />
+   <codePointMapping
+      origCodePoint="007D"
+      unicodeCodePoint="007D"
+      characterName="RIGHT CURLY BRACKET"
+   />
+   <codePointMapping
+      origCodePoint="007E"
+      unicodeCodePoint="223C"
+      characterName="TILDE OPERATOR"
+   />
+   <codePointMapping
+      origCodePoint="00A0"
+      unicodeCodePoint="20AC"
+      characterName="EURO SIGN"
+   />
+   <codePointMapping
+      origCodePoint="00A1"
+      unicodeCodePoint="03D2"
+      characterName="GREEK UPSILON WITH HOOK SYMBOL"
+   />
+   <codePointMapping
+      origCodePoint="00A2"
+      unicodeCodePoint="2032"
+      characterName="PRIME"
+   />
+   <codePointMapping
+      origCodePoint="00A3"
+      unicodeCodePoint="2264"
+      characterName="LESS-THAN OR EQUAL TO"
+   />
+   <codePointMapping
+      origCodePoint="00A4"
+      unicodeCodePoint="2044"
+      characterName="FRACTION SLASH"
+   />
+   <codePointMapping
+      origCodePoint="00A5"
+      unicodeCodePoint="221E"
+      characterName="INFINITY"
+   />
+   <codePointMapping
+      origCodePoint="00A6"
+      unicodeCodePoint="0192"
+      characterName="LATIN SMALL LETTER F WITH HOOK"
+   />
+   <codePointMapping
+      origCodePoint="00A7"
+      unicodeCodePoint="2663"
+      characterName="BLACK CLUB SUIT"
+   />
+   <codePointMapping
+      origCodePoint="00A8"
+      unicodeCodePoint="2666"
+      characterName="BLACK DIAMOND SUIT"
+   />
+   <codePointMapping
+      origCodePoint="00A9"
+      unicodeCodePoint="2665"
+      characterName="BLACK HEART SUIT"
+   />
+   <codePointMapping
+      origCodePoint="00AA"
+      unicodeCodePoint="2660"
+      characterName="BLACK SPADE SUIT"
+   />
+   <codePointMapping
+      origCodePoint="00AB"
+      unicodeCodePoint="2194"
+      characterName="LEFT RIGHT ARROW"
+   />
+   <codePointMapping
+      origCodePoint="00AC"
+      unicodeCodePoint="2190"
+      characterName="LEFTWARDS ARROW"
+   />
+   <codePointMapping
+      origCodePoint="00AD"
+      unicodeCodePoint="2191"
+      characterName="UPWARDS ARROW"
+   />
+   <codePointMapping
+      origCodePoint="00AE"
+      unicodeCodePoint="2192"
+      characterName="RIGHTWARDS ARROW"
+   />
+   <codePointMapping
+      origCodePoint="00AF"
+      unicodeCodePoint="2193"
+      characterName="DOWNWARDS ARROW"
+   />
+   <codePointMapping
+      origCodePoint="00B0"
+      unicodeCodePoint="00B0"
+      characterName="DEGREE SIGN"
+   />
+   <codePointMapping
+      origCodePoint="00B1"
+      unicodeCodePoint="00B1"
+      characterName="PLUS-MINUS SIGN"
+   />
+   <codePointMapping
+      origCodePoint="00B2"
+      unicodeCodePoint="2033"
+      characterName="DOUBLE PRIME"
+   />
+   <codePointMapping
+      origCodePoint="00B3"
+      unicodeCodePoint="2265"
+      characterName="GREATER-THAN OR EQUAL TO"
+   />
+   <codePointMapping
+      origCodePoint="00B4"
+      unicodeCodePoint="00D7"
+      characterName="MULTIPLICATION SIGN"
+   />
+   <codePointMapping
+      origCodePoint="00B5"
+      unicodeCodePoint="221D"
+      characterName="PROPORTIONAL TO"
+   />
+   <codePointMapping
+      origCodePoint="00B6"
+      unicodeCodePoint="2202"
+      characterName="PARTIAL DIFFERENTIAL"
+   />
+   <codePointMapping
+      origCodePoint="00B7"
+      unicodeCodePoint="2022"
+      characterName="BULLET"
+   />
+   <codePointMapping
+      origCodePoint="00B8"
+      unicodeCodePoint="00F7"
+      characterName="DIVISION SIGN"
+   />
+   <codePointMapping
+      origCodePoint="00B9"
+      unicodeCodePoint="2260"
+      characterName="NOT EQUAL TO"
+   />
+   <codePointMapping
+      origCodePoint="00BA"
+      unicodeCodePoint="2261"
+      characterName="IDENTICAL TO"
+   />
+   <codePointMapping
+      origCodePoint="00BB"
+      unicodeCodePoint="2248"
+      characterName="ALMOST EQUAL TO"
+   />
+   <codePointMapping
+      origCodePoint="00BC"
+      unicodeCodePoint="2026"
+      characterName="HORIZONTAL ELLIPSIS"
+   />
+   <codePointMapping
+      origCodePoint="00BD"
+      unicodeCodePoint="F8E6"
+      characterName="VERTICAL ARROW EXTENDER"
+   />
+   <codePointMapping
+      origCodePoint="00BE"
+      unicodeCodePoint="F8E7"
+      characterName="HORIZONTAL ARROW EXTENDER"
+   />
+   <codePointMapping
+      origCodePoint="00BF"
+      unicodeCodePoint="21B5"
+      characterName="DOWNWARDS ARROW WITH CORNER LEFTWARDS"
+   />
+   <codePointMapping
+      origCodePoint="00C0"
+      unicodeCodePoint="2135"
+      characterName="ALEF SYMBOL"
+   />
+   <codePointMapping
+      origCodePoint="00C1"
+      unicodeCodePoint="2111"
+      characterName="BLACK-LETTER CAPITAL I"
+   />
+   <codePointMapping
+      origCodePoint="00C2"
+      unicodeCodePoint="211C"
+      characterName="BLACK-LETTER CAPITAL R"
+   />
+   <codePointMapping
+      origCodePoint="00C3"
+      unicodeCodePoint="2118"
+      characterName="SCRIPT CAPITAL P"
+   />
+   <codePointMapping
+      origCodePoint="00C4"
+      unicodeCodePoint="2297"
+      characterName="CIRCLED TIMES"
+   />
+   <codePointMapping
+      origCodePoint="00C5"
+      unicodeCodePoint="2295"
+      characterName="CIRCLED PLUS"
+   />
+   <codePointMapping
+      origCodePoint="00C6"
+      unicodeCodePoint="2205"
+      characterName="EMPTY SET"
+   />
+   <codePointMapping
+      origCodePoint="00C7"
+      unicodeCodePoint="2229"
+      characterName="INTERSECTION"
+   />
+   <codePointMapping
+      origCodePoint="00C8"
+      unicodeCodePoint="222A"
+      characterName="UNION"
+   />
+   <codePointMapping
+      origCodePoint="00C9"
+      unicodeCodePoint="2283"
+      characterName="SUPERSET OF"
+   />
+   <codePointMapping
+      origCodePoint="00CA"
+      unicodeCodePoint="2287"
+      characterName="SUPERSET OF OR EQUAL TO"
+   />
+   <codePointMapping
+      origCodePoint="00CB"
+      unicodeCodePoint="2284"
+      characterName="NOT A SUBSET OF"
+   />
+   <codePointMapping
+      origCodePoint="00CC"
+      unicodeCodePoint="2282"
+      characterName="SUBSET OF"
+   />
+   <codePointMapping
+      origCodePoint="00CD"
+      unicodeCodePoint="2286"
+      characterName="SUBSET OF OR EQUAL TO"
+   />
+   <codePointMapping
+      origCodePoint="00CE"
+      unicodeCodePoint="2208"
+      characterName="ELEMENT OF"
+   />
+   <codePointMapping
+      origCodePoint="00CF"
+      unicodeCodePoint="2209"
+      characterName="NOT AN ELEMENT OF"
+   />
+   <codePointMapping
+      origCodePoint="00D0"
+      unicodeCodePoint="2220"
+      characterName="ANGLE"
+   />
+   <codePointMapping
+      origCodePoint="00D1"
+      unicodeCodePoint="2207"
+      characterName="NABLA"
+   />
+   <codePointMapping
+      origCodePoint="00D2"
+      unicodeCodePoint="F6DA"
+      characterName="REGISTERED SIGN SERIF"
+   />
+   <codePointMapping
+      origCodePoint="00D3"
+      unicodeCodePoint="F6D9"
+      characterName="COPYRIGHT SIGN SERIF"
+   />
+   <codePointMapping
+      origCodePoint="00D4"
+      unicodeCodePoint="F6DB"
+      characterName="TRADE MARK SIGN SERIF"
+   />
+   <codePointMapping
+      origCodePoint="00D5"
+      unicodeCodePoint="220F"
+      characterName="N-ARY PRODUCT"
+   />
+   <codePointMapping
+      origCodePoint="00D6"
+      unicodeCodePoint="221A"
+      characterName="SQUARE ROOT"
+   />
+   <codePointMapping
+      origCodePoint="00D7"
+      unicodeCodePoint="22C5"
+      characterName="DOT OPERATOR"
+   />
+   <codePointMapping
+      origCodePoint="00D8"
+      unicodeCodePoint="00AC"
+      characterName="NOT SIGN"
+   />
+   <codePointMapping
+      origCodePoint="00D9"
+      unicodeCodePoint="2227"
+      characterName="LOGICAL AND"
+   />
+   <codePointMapping
+      origCodePoint="00DA"
+      unicodeCodePoint="2228"
+      characterName="LOGICAL OR"
+   />
+   <codePointMapping
+      origCodePoint="00DB"
+      unicodeCodePoint="21D4"
+      characterName="LEFT RIGHT DOUBLE ARROW"
+   />
+   <codePointMapping
+      origCodePoint="00DC"
+      unicodeCodePoint="21D0"
+      characterName="LEFTWARDS DOUBLE ARROW"
+   />
+   <codePointMapping
+      origCodePoint="00DD"
+      unicodeCodePoint="21D1"
+      characterName="UPWARDS DOUBLE ARROW"
+   />
+   <codePointMapping
+      origCodePoint="00DE"
+      unicodeCodePoint="21D2"
+      characterName="RIGHTWARDS DOUBLE ARROW"
+   />
+   <codePointMapping
+      origCodePoint="00DF"
+      unicodeCodePoint="21D3"
+      characterName="DOWNWARDS DOUBLE ARROW"
+   />
+   <codePointMapping
+      origCodePoint="00E0"
+      unicodeCodePoint="25CA"
+      characterName="LOZENGE"
+   />
+   <codePointMapping
+      origCodePoint="00E1"
+      unicodeCodePoint="2329"
+      characterName="LEFT-POINTING ANGLE BRACKET"
+   />
+   <codePointMapping
+      origCodePoint="00E2"
+      unicodeCodePoint="F8E8"
+      characterName="REGISTERED SIGN SANS SERIF"
+   />
+   <codePointMapping
+      origCodePoint="00E3"
+      unicodeCodePoint="F8E9"
+      characterName="COPYRIGHT SIGN SANS SERIF"
+   />
+   <codePointMapping
+      origCodePoint="00E4"
+      unicodeCodePoint="F8EA"
+      characterName="TRADE MARK SIGN SANS SERIF"
+   />
+   <codePointMapping
+      origCodePoint="00E5"
+      unicodeCodePoint="2211"
+      characterName="N-ARY SUMMATION"
+   />
+   <codePointMapping
+      origCodePoint="00E6"
+      unicodeCodePoint="F8EB"
+      characterName="LEFT PAREN TOP"
+   />
+   <codePointMapping
+      origCodePoint="00E7"
+      unicodeCodePoint="F8EC"
+      characterName="LEFT PAREN EXTENDER"
+   />
+   <codePointMapping
+      origCodePoint="00E8"
+      unicodeCodePoint="F8ED"
+      characterName="LEFT PAREN BOTTOM"
+   />
+   <codePointMapping
+      origCodePoint="00E9"
+      unicodeCodePoint="F8EE"
+      characterName="LEFT SQUARE BRACKET TOP"
+   />
+   <codePointMapping
+      origCodePoint="00EA"
+      unicodeCodePoint="F8EF"
+      characterName="LEFT SQUARE BRACKET EXTENDER"
+   />
+   <codePointMapping
+      origCodePoint="00EB"
+      unicodeCodePoint="F8F0"
+      characterName="LEFT SQUARE BRACKET BOTTOM"
+   />
+   <codePointMapping
+      origCodePoint="00EC"
+      unicodeCodePoint="F8F1"
+      characterName="LEFT CURLY BRACKET TOP"
+   />
+   <codePointMapping
+      origCodePoint="00ED"
+      unicodeCodePoint="F8F2"
+      characterName="LEFT CURLY BRACKET MID"
+   />
+   <codePointMapping
+      origCodePoint="00EE"
+      unicodeCodePoint="F8F3"
+      characterName="LEFT CURLY BRACKET BOTTOM"
+   />
+   <codePointMapping
+      origCodePoint="00EF"
+      unicodeCodePoint="F8F4"
+      characterName="CURLY BRACKET EXTENDER"
+   />
+   <codePointMapping
+      origCodePoint="00F1"
+      unicodeCodePoint="232A"
+      characterName="RIGHT-POINTING ANGLE BRACKET"
+   />
+   <codePointMapping
+      origCodePoint="00F2"
+      unicodeCodePoint="222B"
+      characterName="INTEGRAL"
+   />
+   <codePointMapping
+      origCodePoint="00F3"
+      unicodeCodePoint="2320"
+      characterName="TOP HALF INTEGRAL"
+   />
+   <codePointMapping
+      origCodePoint="00F4"
+      unicodeCodePoint="F8F5"
+      characterName="INTEGRAL EXTENDER"
+   />
+   <codePointMapping
+      origCodePoint="00F5"
+      unicodeCodePoint="2321"
+      characterName="BOTTOM HALF INTEGRAL"
+   />
+   <codePointMapping
+      origCodePoint="00F6"
+      unicodeCodePoint="F8F6"
+      characterName="RIGHT PAREN TOP"
+   />
+   <codePointMapping
+      origCodePoint="00F7"
+      unicodeCodePoint="F8F7"
+      characterName="RIGHT PAREN EXTENDER"
+   />
+   <codePointMapping
+      origCodePoint="00F8"
+      unicodeCodePoint="F8F8"
+      characterName="RIGHT PAREN BOTTOM"
+   />
+   <codePointMapping
+      origCodePoint="00F9"
+      unicodeCodePoint="F8F9"
+      characterName="RIGHT SQUARE BRACKET TOP"
+   />
+   <codePointMapping
+      origCodePoint="00FA"
+      unicodeCodePoint="F8FA"
+      characterName="RIGHT SQUARE BRACKET EXTENDER"
+   />
+   <codePointMapping
+      origCodePoint="00FB"
+      unicodeCodePoint="F8FB"
+      characterName="RIGHT SQUARE BRACKET BOTTOM"
+   />
+   <codePointMapping
+      origCodePoint="00FC"
+      unicodeCodePoint="F8FC"
+      characterName="RIGHT CURLY BRACKET TOP"
+   />
+   <codePointMapping
+      origCodePoint="00FD"
+      unicodeCodePoint="F8FD"
+      characterName="RIGHT CURLY BRACKET MID"
+   />
+   <codePointMapping
+      origCodePoint="00FE"
+      unicodeCodePoint="F8FE"
+      characterName="RIGHT CURLY BRACKET BOTTOM"
+   />
+</Font2UnicodeMap>
