@@ -166,7 +166,7 @@
   
   <xsl:template match="*[df:class(., 'topic/topic')]" priority="100" mode="map-driven-content-processing">
     <!-- This template is a general dispatch template that applies
-      templates to the topicref in a distinct mode so processors
+      templates to the topic in a distinct mode so processors
       can do topic output processing based on the topicref context
       if they want to. -->
     <xsl:param name="topicref" as="element()?" tunnel="yes"/>
