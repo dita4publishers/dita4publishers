@@ -68,21 +68,29 @@
   <xsl:variable name="imageRelType" select="'http://schemas.openxmlformats.org/officeDocument/2006/relationships/image'"
     as="xs:string"
   />
-  
-  <!-- Mapping from Word-specific Symbol font charcters to Unicode symbols 
-  
-       FIXME: this is a short-term solution specific to the Symbol font.
-       Need a more general solution that can accomodate multiple fonts.
-  -->
+ 
   <xsl:variable name="font2UnicodeMapsCollectionUri" as="xs:string"
       select="concat('font2unicodeMaps', '?', 
           'recurse=yes;',
           'select=*.xml'
           )" 
   />
-  <xsl:variable name="font2UnicodeMaps" as="document-node()*"
+ <!-- Unfortunately, the RSuite CMS system doesn't currently set the collection
+      URI resolver and so attempts to resolve URIs relative to plugin-provided
+      XSLTs will fail. See RSuite issue RCS-1802.
+      
+      Until that bug is fixed, will have to hard-code the set of available
+      symbol maps.
+      
+   -->
+<!--  <xsl:variable name="font2UnicodeMaps" as="document-node()*"
     select="collection(iri-to-uri($font2UnicodeMapsCollectionUri))"
   />
+--> 
+  <xsl:variable name="font2UnicodeMaps" as="document-node()*">
+    <xsl:sequence select="document('font2unicodeMaps/font2UnicodeMapSymbol.xml')"/>  
+    <xsl:sequence select="document('font2unicodeMaps/font2UnicodeMapWingdings.xml')"/>  
+  </xsl:variable>
   
   <xsl:template match="/" name="processDocumentXml">
     <xsl:param name="stylesDoc" as="document-node()" tunnel="yes"/>
@@ -1102,6 +1110,7 @@
     <xsl:variable name="fontCharMap" as="element()?"
       select="$font2UnicodeMaps/*[lower-case(@sourceFont) = lower-case($fontName)]"
     />
+
     <xsl:choose>
       <xsl:when test="not($fontCharMap)">
         <xsl:message> - [WARN] getUnicodeForFont(): No font-to-character map found for font "<xsl:value-of select="$fontName"/>"</xsl:message>
