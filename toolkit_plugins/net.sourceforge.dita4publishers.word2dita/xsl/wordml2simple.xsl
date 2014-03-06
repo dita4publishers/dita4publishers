@@ -216,12 +216,14 @@
         </xsl:otherwise>
       </xsl:choose>      
     </xsl:variable>
-    <xsl:if test="false() and $debugBoolean">
+    <xsl:if test="$debugBoolean">
       <xsl:message> + [DEBUG] match on w:p: structureType = "<xsl:sequence select="string($styleData/@structureType)"/>"</xsl:message>
     </xsl:if>
 <xsl:choose>    
   <xsl:when test="string($styleData/@structureType) = 'skip'">
-    <xsl:message> + [DEBUG] skipping paragraph with @structureType "<xsl:value-of select="$styleData/@structureType"/>"</xsl:message>
+    <xsl:if test="$debugBoolean">
+      <xsl:message> + [DEBUG] skipping paragraph with @structureType "<xsl:value-of select="$styleData/@structureType"/>"</xsl:message>
+    </xsl:if>
   </xsl:when><!-- Skip it -->
   <xsl:when test=".//w:drawing//c:chart">
     <xsl:choose>
@@ -460,12 +462,14 @@
   </xsl:template>
 
   <xsl:template match="w:r[w:rPr/w:rFonts]" priority="10">
-    <xsl:variable name="fontFace" as="xs:string"
+    <xsl:variable name="fontFace" as="xs:string?"
       select="w:rPr/w:rFonts/@w:ascii"
     />
+<!--        <xsl:message> + [DEBUG] ==== w:r[w:rPr/w:rFonts]: fontFace="<xsl:sequence select="$fontFace"/>"</xsl:message>-->
+
     <xsl:choose>
       <xsl:when test="$fontFace = ('Symbol', 'Wingdings')">
-        <xsl:message> + [DEBUG] w:r[w:rPr/w:rFonts]: fontFace="<xsl:value-of select="$fontFace"/></xsl:message>
+<!--        <xsl:message> + [DEBUG] w:r[w:rPr/w:rFonts]: fontFace="<xsl:value-of select="$fontFace"/></xsl:message>-->
         <!-- Treat the content as for w:sym -->
         <xsl:variable name="text" as="xs:string"
           select="string(w:t)"
@@ -474,14 +478,15 @@
           <xsl:variable name="codePoint" as="xs:string"
             select="local:int-to-hex(.)"
             />
-          <xsl:message> + [DEBUG] codePoint="<xsl:sequence select="$codePoint"/>"</xsl:message>
+<!--          <xsl:message> + [DEBUG] codePoint="<xsl:sequence select="$codePoint"/>"</xsl:message>-->
           <xsl:sequence select="local:constructSymbolForCharcode(
             $codePoint, 
-            string($fontFace))"
+            $fontFace)"
           />
         </xsl:for-each>
       </xsl:when>
       <xsl:otherwise>
+        <xsl:message> + [WARN] w:r[w:rPr/w:rFonts]: No value for @w:ascii on wrFonts element: <xsl:sequence select="w:rPr/w:rFonts"/></xsl:message>
         <xsl:next-match/>
       </xsl:otherwise>
     </xsl:choose>
@@ -582,7 +587,7 @@
       />                
     </xsl:variable>
     <!--  NOTE: width values are 1/20 of a point -->
-    <xsl:message> + [DEBUG] ===== Starting a table</xsl:message>
+<!--    <xsl:message> + [DEBUG] ===== Starting a table</xsl:message>-->
     <table>
       <xsl:attribute name="frame" select="local:constructFrameValue(w:tblPr/w:tblBorders)"/>
       <xsl:attribute name="calculatedWidth" select="local:calculateTableActualWidth(w:tblGrid)"/>
@@ -605,7 +610,7 @@
       </xsl:if>
       <xsl:apply-templates select="*[not(self::w:tblPr)]"/>
     </table>
-    <xsl:message> + [DEBUG] ===== Ending a table</xsl:message>
+<!--    <xsl:message> + [DEBUG] ===== Ending a table</xsl:message>-->
   </xsl:template>
   
   <xsl:function name="local:calculateTableCellHorizontalAlignment" as="xs:string?">
@@ -885,10 +890,23 @@
   </xsl:template>
   
   <xsl:template match="w:sym">
-    <xsl:sequence select="local:constructSymbolForCharcode(
-      string(@w:char), 
-      string(@w:font))"
+    <xsl:variable name="fontFace" as="xs:string?" 
+      select="@w:font"
     />
+<!--    <xsl:message> + [DEBUG] ==== w:sym: fontFace="<xsl:sequence select="$fontFace"/>"</xsl:message>-->
+    <xsl:choose>
+      <xsl:when test="$fontFace != ''">
+        <xsl:sequence select="local:constructSymbolForCharcode(
+          string(@w:char), 
+          $fontFace
+          )"
+        />
+      </xsl:when>
+      <xsl:otherwise>
+        <rsiwp:symbol font="{$fontFace}"
+          ><xsl:sequence select="string(@w:char)"/></rsiwp:symbol>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   
   <xsl:function name="local:constructSymbolForCharcode" as="node()*">
