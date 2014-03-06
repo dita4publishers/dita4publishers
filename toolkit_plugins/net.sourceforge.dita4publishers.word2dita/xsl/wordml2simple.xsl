@@ -458,7 +458,35 @@
   <xsl:template match="w:r">
     <xsl:apply-templates/>
   </xsl:template>
-  
+
+  <xsl:template match="w:r[w:rPr/w:rFonts]" priority="10">
+    <xsl:variable name="fontFace" as="xs:string"
+      select="w:rPr/w:rFonts/@w:ascii"
+    />
+    <xsl:choose>
+      <xsl:when test="$fontFace = ('Symbol', 'Wingdings')">
+        <xsl:message> + [DEBUG] w:r[w:rPr/w:rFonts]: fontFace="<xsl:value-of select="$fontFace"/></xsl:message>
+        <!-- Treat the content as for w:sym -->
+        <xsl:variable name="text" as="xs:string"
+          select="string(w:t)"
+        />
+        <xsl:for-each select="string-to-codepoints($text)">
+          <xsl:variable name="codePoint" as="xs:string"
+            select="local:int-to-hex(.)"
+            />
+          <xsl:message> + [DEBUG] codePoint="<xsl:sequence select="$codePoint"/>"</xsl:message>
+          <xsl:sequence select="local:constructSymbolForCharcode(
+            $codePoint, 
+            string($fontFace))"
+          />
+        </xsl:for-each>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:next-match/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
   <xsl:template match="w:smartTag">
     <xsl:apply-templates/>
   </xsl:template>
@@ -857,8 +885,16 @@
   </xsl:template>
   
   <xsl:template match="w:sym">
-    <xsl:variable name="charCode" select="@w:char" as="xs:string"/>
-    <!-- See 17.3.3.30 sym (Symbol Character) in the Office Open XML Part 1 Doc:
+    <xsl:sequence select="local:constructSymbolForCharcode(
+      string(@w:char), 
+      string(@w:font))"
+    />
+  </xsl:template>
+  
+  <xsl:function name="local:constructSymbolForCharcode" as="node()*">
+    <xsl:param name="charCode" as="xs:string"/>
+    <xsl:param name="fontFace" as="xs:string"/>
+        <!-- See 17.3.3.30 sym (Symbol Character) in the Office Open XML Part 1 Doc:
       
          Characters with codes starting with "F" have had 0xF000 added to them
          to put them in the private use area.
@@ -870,16 +906,17 @@
          there is no mapping found for the symbol.
       -->
     <xsl:variable name="unicodeCodePoint" as="xs:string"
-      select="local:getUnicodeForFont(string(@w:font), $nonPrivateCharCode)"
+      select="local:getUnicodeForFont(string($fontFace), $nonPrivateCharCode)"
     />
     <xsl:variable name="codePoint" as="xs:integer"
       select="local:hex-to-char($unicodeCodePoint)"
     />
     <xsl:variable name="character" 
       select="codepoints-to-string($codePoint)" as="xs:string"/>
-    <rsiwp:symbol font="{@w:font}"
+    <rsiwp:symbol font="{$fontFace}"
       ><xsl:sequence select="$character"/></rsiwp:symbol>
-  </xsl:template>
+
+  </xsl:function>
   
   <xsl:template match="v:shape">
     <xsl:apply-templates/>
@@ -1138,6 +1175,19 @@
     <xsl:sequence 
       select="string-length(substring-before('0123456789ABCDEF',
       $char))"/>
+  </xsl:function>
+  
+  <xsl:function name="local:int-to-hex" as="xs:string">
+   <xsl:param name="in" as="xs:integer"/>
+   <xsl:sequence
+     select="if ($in eq 0)
+             then '0'
+             else
+               concat(if ($in gt 16)
+                      then local:int-to-hex($in idiv 16)
+                      else '',
+                      substring('0123456789ABCDEF',
+                                ($in mod 16) + 1, 1))"/>
   </xsl:function>
   
   <xsl:template match="w:*" priority="-0.5">
