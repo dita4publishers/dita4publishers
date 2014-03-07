@@ -24,38 +24,58 @@
   <xsl:import href="elem2styleMapper.xsl"/>
   -->
   <xsl:template match="*[df:class(.,'topic/table')]" priority="20">
-    <xsl:variable name="colCounts" as="xs:integer*">
-      <xsl:apply-templates mode="calcRowEntryCounts" select=".//*[df:class(., 'topic/entry')]"/>
-    </xsl:variable>
-    
-    <xsl:variable name="numRows" select="count(.//*[df:class(., 'topic/row')])" as="xs:integer"/>
-    <xsl:variable name="numCols" select="max($colCounts)" as="xs:integer"/>
-    <xsl:variable name="tableID" select="generate-id(.)"/>
-    <xsl:variable name="tStyle" select="e2s:getTStyleForElement(.)" as="xs:string"/>
     <xsl:text>&#x0a;</xsl:text>
     <xsl:if test="*[df:class(., 'topic/title')]">
       <xsl:call-template name="makeTableCaption">
         <xsl:with-param name="caption" select="*[df:class(., 'topic/title')]" as="node()*"/>
       </xsl:call-template>
     </xsl:if>
+    <xsl:apply-templates select="*[df:class(., 'topic/tgroup')]"/>
+  </xsl:template>
+  
+  <xsl:template match="*[df:class(., 'topic/tgroup')]">
+    <xsl:message> + [DEBUG] tgroup: colCounts="<xsl:sequence select="*/*[df:class(., 'topic/row')]/*[df:class(., 'topic/entry')]"/>"</xsl:message>
+    <xsl:variable name="colCounts" as="xs:integer*">
+      <xsl:apply-templates mode="calcRowEntryCounts" select="*/*[df:class(., 'topic/row')]/*[df:class(., 'topic/entry')]"/>
+    </xsl:variable>
+    <xsl:message> + [DEBUG] tgroup: colCounts="<xsl:sequence select="$colCounts"/>"</xsl:message>
+    
+    <xsl:variable name="numBodyRows"  as="xs:integer"
+      select="count(*[df:class(., 'topic/tbody')]/*[df:class(., 'topic/row')])"
+    />
+    <xsl:variable name="numHeaderRows"  as="xs:integer"
+      select="count(*[df:class(., 'topic/thead')]/*[df:class(., 'topic/row')])"
+    />
+    <xsl:variable name="numCols" select="max($colCounts)" as="xs:integer"/>
+    <xsl:variable name="tableID" select="generate-id(.)"/>
+    <xsl:variable name="tStyle" select="e2s:getTStyleForElement(.)" as="xs:string"/>
+    <xsl:if test="$numCols != count(*[df:class(., 'topic/colspec')])">
+      <xsl:message> + [WARN] Table <xsl:value-of select="../*[df:class(., 'topic/title')]"/>:</xsl:message>
+      <xsl:message> + [WARN]   Maximum column count (<xsl:value-of select="$numCols"/>) not equal to number of colspec elements (<xsl:value-of select="count(*[df:class(., 'colspec')])"/>).</xsl:message>
+    </xsl:if>
      <Table 
       AppliedTableStyle="TableStyle/$ID/{$tStyle}" 
       TableDirection="LeftToRightDirection"
-      HeaderRowCount="0" 
+      HeaderRowCount="${numHeaderRows}" 
       FooterRowCount="0" 
-      BodyRowCount="{$numRows}" 
+      BodyRowCount="{$numBodyRows}" 
       ColumnCount="{$numCols}" 
       Self="rc_{generate-id()}"><xsl:text>&#x0a;</xsl:text>
-      <xsl:apply-templates select="*[df:class(., 'topic/tgroup')]" mode="crow"/>
+      <xsl:apply-templates select="." mode="crow"/>
       <!-- replace this apply templates with function to generate ccol elements.
         This apply-templates generates a ccol for every cell; just need one ccol for each column
         <xsl:apply-templates select="row" mode="ccol"/> -->
-      <xsl:copy-of select="incxgen:makeCcolElems($numCols,$tableID)"/>
-      <xsl:apply-templates select="*[df:class(., 'topic/tgroup')]">
+      <xsl:sequence 
+        select="incxgen:makeColumnElems(
+                 *[df:class(., 'colspec')], 
+                 $numCols,
+                 $tableID)"
+      />
+      <xsl:apply-templates>
         <xsl:with-param name="colCount" select="$numCols" as="xs:integer" tunnel="yes"/>
-        <xsl:with-param name="rowCount" select="$numRows" as="xs:integer" tunnel="yes"/>
+        <xsl:with-param name="rowCount" select="$numHeaderRows + $numBodyRows" as="xs:integer" tunnel="yes"/>
       </xsl:apply-templates>
-    </Table><xsl:text>&#x0a;</xsl:text>
+    </Table><xsl:text>&#x0a;</xsl:text>    
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/tgroup')]" mode="crow">
@@ -64,17 +84,6 @@
   
   <xsl:template match="*[df:class(., 'topic/colspec')]" mode="crow #default">
     <!-- Ignored in this mode -->
-  </xsl:template>
-  
-  <xsl:template match="tgroup | *[df:class(., 'topic/tgroup')]" priority="10">
-    <xsl:variable name="colspecElems" as="element()*">
-      <wrapper>
-        <xsl:sequence select="colspec | *[df:class(.,'topic/colspec')]" />
-      </wrapper>
-    </xsl:variable>
-    <xsl:apply-templates mode="#current">
-      <xsl:with-param name="colspecElems" select="$colspecElems" as="element()*" tunnel="yes" />
-    </xsl:apply-templates>
   </xsl:template>
   
   <xsl:template 
