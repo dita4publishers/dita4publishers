@@ -10,12 +10,13 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/"
       xmlns:xhtml="http://www.w3.org/1999/xhtml"
       xmlns:incxgen="http//dita2indesign.org/functions/incx-generation"
-      exclude-result-prefixes="xs idsc incxgen ditaarch xmp-x pam prism dc pim xhtml"
+      xmlns:df="http://dita2indesign.org/dita/functions"
+      exclude-result-prefixes="xs idsc incxgen ditaarch xmp-x pam prism dc pim xhtml df"
       version="2.0">
   <!-- =================================================
        Adobe InCopy Markup Language (ICML) generation utilities.
        
-       Copyright (c) 2011 DITA for Publishers.
+       Copyright (c) 2011, 2014 DITA for Publishers.
        
        ================================================= -->
   
@@ -292,6 +293,7 @@
     <xsl:param name="colspecs" as="element()*"/><!-- DITA colspec elements for the table -->
     <xsl:param name="numCols" as="xs:integer"/>
     <xsl:param name="tableID" as="xs:string"/>
+
     <!-- Width of table in points. 
         
          Really need to make this parameterizable, although
@@ -307,10 +309,18 @@
       select="count($colspecs) = $numCols"
     />
     
+    <xsl:variable name="availableWidth" as="xs:double"
+      select="incxgen:calcAvailableWidth($tableWidth, $colspecs)"
+    />
+    <xsl:variable name="numProportialColumns" as="xs:integer"
+      select="count($colspecs[ends-with(@colwidth, '*')])"
+    />
+
     <xsl:variable name="result" as="node()*">
       <xsl:for-each select="1 to $numCols">
-        <xsl:variable name="colspec"
-          select="if ($haveColSpecs) then $colspecs[.] else ()"
+        <xsl:variable name="curpos" as="xs:integer" select="."/>
+        <xsl:variable name="colspec" as="element()?"
+          select="if ($haveColSpecs) then $colspecs[$curpos] else ()"
         />
         <xsl:element name="Column">
           <xsl:attribute name="Self" select="concat('rc_', $tableID, 'Column',position()-1)"/>
@@ -325,7 +335,12 @@
                       the available width is.
            -->
           <xsl:attribute name="SingleColumnWidth"
-              select="incxgen:calcColumnWidth($colspecs[i], $tableWidth, $numCols)"
+              select="incxgen:calcColumnWidth(
+                         $colspec, 
+                         $tableWidth, 
+                         $numCols, 
+                         $availableWidth,
+                         $numProportialColumns)"
           />          
         </xsl:element>
       </xsl:for-each>
@@ -333,10 +348,31 @@
     <xsl:copy-of select="$result"/>
   </xsl:function>
   
+  <xsl:function name="incxgen:calcAvailableWidth" as="xs:double">
+    <xsl:param name="tableWidth" as="xs:double"/>
+    <xsl:param name="colspecs" as="element()*"/>
+    <xsl:variable name="explictWidths" as="xs:double*">
+      <xsl:for-each select="$colspecs">
+        <xsl:variable name="baseWid" select="@colwidth" as="xs:string?"/>
+        <xsl:choose>
+          <xsl:when test="ends-with($baseWid, 'pt')">
+            <xsl:sequence select="number(substring-before($baseWid, 'pt'))"/>
+          </xsl:when>
+        </xsl:choose>
+      </xsl:for-each>
+    </xsl:variable>
+    <xsl:variable name="result" as="xs:double"
+      select="if (count($explictWidths) > 0) then sum($explictWidths) else 0.0"
+    />
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+  
   <xsl:function name="incxgen:calcColumnWidth" as="xs:double">
     <xsl:param name="colspec" as="element()?"/>
     <xsl:param name="tableWidth" as="xs:double"/>
     <xsl:param name="numCols" as="xs:integer"/>
+    <xsl:param name="availableWidth" as="xs:double"/><!-- tableWidth - explicit widths -->
+    <xsl:param name="numProportialColumns" as="xs:integer"/>
     
     <!-- FIXME: Right now not trying to handle any measurement
          units other than points (which is what we get from Word
@@ -344,18 +380,29 @@
       -->
     <xsl:variable name="result" as="xs:double" >
       <xsl:choose>
-        <xsl:when test="$colspec">
+        <xsl:when test="boolean($colspec)">
           <xsl:variable name="baseWid" as="xs:string" select="$colspec/@colwidth"/>
+          <xsl:message> + [DEBUG] calcColumnWidth: baseWid="<xsl:value-of select="$baseWid"/>"</xsl:message>
           <xsl:choose>
             <xsl:when test="ends-with($baseWid, 'pt')">
               <xsl:sequence select="number(substring-before($baseWid, 'pt'))"/>
             </xsl:when>
+            <xsl:when test="ends-with($baseWid, '*')">
+              <!-- Proportional width: Divides amount of total width among all proportional columns. 
+              
+              FIXME: Figure out the math to make this calculation.
+              
+              -->
+              <xsl:sequence select="$tableWidth div $numCols"/>
+            </xsl:when>
             <xsl:otherwise>
+              <xsl:message> + [DEBUG] calcColumnWidth: not a point value, dividing table width by numcols</xsl:message>
               <xsl:sequence select="$tableWidth div $numCols"/>
             </xsl:otherwise>
           </xsl:choose>
         </xsl:when>
         <xsl:otherwise>
+          <xsl:message> + [DEBUG] calcColumnWidth: no colspec, dividing table width by numcols</xsl:message>
           <xsl:sequence select="$tableWidth div $numCols"/>
         </xsl:otherwise>
       </xsl:choose>

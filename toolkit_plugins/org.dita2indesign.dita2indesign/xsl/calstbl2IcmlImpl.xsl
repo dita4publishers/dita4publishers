@@ -34,11 +34,9 @@
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/tgroup')]">
-    <xsl:message> + [DEBUG] tgroup: colCounts="<xsl:sequence select="*/*[df:class(., 'topic/row')]/*[df:class(., 'topic/entry')]"/>"</xsl:message>
     <xsl:variable name="colCounts" as="xs:integer*">
       <xsl:apply-templates mode="calcRowEntryCounts" select="*/*[df:class(., 'topic/row')]/*[df:class(., 'topic/entry')]"/>
     </xsl:variable>
-    <xsl:message> + [DEBUG] tgroup: colCounts="<xsl:sequence select="$colCounts"/>"</xsl:message>
     
     <xsl:variable name="numBodyRows"  as="xs:integer"
       select="count(*[df:class(., 'topic/tbody')]/*[df:class(., 'topic/row')])"
@@ -67,7 +65,7 @@
         <xsl:apply-templates select="row" mode="ccol"/> -->
       <xsl:sequence 
         select="incxgen:makeColumnElems(
-                 *[df:class(., 'colspec')], 
+                 *[df:class(., 'topic/colspec')], 
                  $numCols,
                  $tableID)"
       />
