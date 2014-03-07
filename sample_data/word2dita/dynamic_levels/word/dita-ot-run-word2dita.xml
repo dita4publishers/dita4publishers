@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Single Word Doc to Map and Topics All Built-In Styles" default="transformMyDoc">
+	
+  <property file="build.properties"/>
+  <property file="${user.home}/.build.properties"/>
+  <property file="${user.home}/build.properties"/>
+	
+  <!-- This property should be set in one of the included files above
+       to reflect the location of Toolkit on your machine:
+    -->
+  <property name="dita-ot-dir" location="c:\DITA-OT1.5"/>
+	
+	<dirname property="myAntFile.dir" file="${ant.file}"/>
+
+	<tstamp/>
+
+	<target name="transformMyDoc">
+	
+    <property name="word.doc" 
+      location="${myAntFile.dir}/word2bookmap_dynamic_levels.docx"/>
+
+    <basename  property="doc.base.name" file="${word.doc}" suffix=".docx"/>
+
+		<ant antfile="${dita-ot-dir}/build.xml" target="dita2word2dita">
+			<!-- Set this to the filename of the DOCX file to be transformed: -->
+			<property name="args.input" location="${word.doc}"/>
+
+			<!-- Change w2d.style-to-tag-map to point to your style-to-tag map document: -->
+			<property name="w2d.style-to-tag-map" location="${myAntFile.dir}/style2tagmap.xml"/>
+			
+      <property name="w2d.root.output.filename" value="${doc.base.name}.ditamap"/>
+			
+			<!-- Specify output.dir to set to the output directory to contain the generated DITA files: -->
+			
+			<property name="output.dir" location="${myAntFile.dir}/../dita"/>
+			<property name="w2d.clean.output.dir" value="true"/><!-- Clean output directory before doing generation -->
+			<property name="w2d.debug.xslt" value="true"/><!-- Turn XSLT debug messages on -->
+		</ant>
+    <ant antfile="${dita-ot-dir}/build.xml" target="dita2xhtml">
+      <property name="args.input" 
+        location="${myAntFile.dir}/../dita/${doc.base.name}.ditamap"/>
+    </ant>
+
+	</target>	
+
+</project>

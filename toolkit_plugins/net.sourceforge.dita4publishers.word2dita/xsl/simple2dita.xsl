@@ -2623,4 +2623,9 @@ specify @topicDoc="yes".</xsl:message>
     <xsl:sequence select="$result"/>
   </xsl:function>
 
+  <xsl:function name="local:constructColumnName" as="xs:string">
+    <xsl:param name="colElement" as="element(rsiwp:col)"/>
+    <xsl:variable name="result" select="concat('col', count($colElement/preceding-sibling::rsiwp:col) + 1)" as="xs:string"/>
+    <xsl:sequence select="$result"/>
+  </xsl:function>
 </xsl:stylesheet>

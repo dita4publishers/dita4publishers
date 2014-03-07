@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference id="pubmeta">
+    <title>pubmeta</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>pubmeta</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">pubmeta holds the publication's metadata as defined in the pubmetadata domain.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">pubmeta is a specialization of topicmeta.</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
+      </refbodydiv>    
+        <refbodydiv outputclass="inheritance">
+         <section id="inheritance"/>
+      </refbodydiv>
+        <refbodydiv outputclass="example1">
+         <section id="example1"/>
+      </refbodydiv>    	
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

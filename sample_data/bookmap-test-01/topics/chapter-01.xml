@@ -4,5 +4,7 @@
   <title>A Chapter</title>
   <body>
     <p>Topic paragraph</p>
+    <p>Some characters outside the ASCII range: small letter beta: "β"</p>
+    <p>Sigma: "Σ"</p>
   </body>
 </topic>

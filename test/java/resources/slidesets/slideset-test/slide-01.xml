@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<d4pSlide id="slide-01" ditaarch:DITAArchVersion="1.2" class="- topic/topic learningBase/learningBase learningContent/learningContent d4pSlide/d4pSlide " xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+  <title class="- topic/title ">Slide One</title>
+  <d4pSlideBody class="- topic/body  learningBase/learningBasebody learningContent/learningContentbody d4pSlide/d4pSlideBody ">
+    <lcInstruction class="- topic/section learningBase/lcInstruction ">
+      <ul class="- topic/ul ">
+        <li class="- topic/li ">Bullet list item 1 Slide 1</li>
+        <li class="- topic/li ">Bullet list item 2 Slide 1<ul
+          id="ul_k4c_q4n_yk" class="- topic/ul ">
+          <li class="- topic/li ">Nested bullet list item 1 Slide 1</li>
+          <li class="- topic/li ">Nested bullet list item 2 Slide 1</li>
+          </ul></li>
+      </ul>
+    </lcInstruction>
+    <d4pStudentNotes class="- topic/section  learningBase/section learningContent/section d4pSlide/d4pStudentNotes ">
+      <p class="- topic/p ">This is a student note</p>
+    </d4pStudentNotes>
+    <d4pInstructorNotes class="- topic/section  learningBase/section learningContent/section d4pSlide/d4pInstructorNotes ">
+      <p class="- topic/p ">This is an instructor note</p>
+    </d4pInstructorNotes>
+      
+    
+  </d4pSlideBody>
+</d4pSlide>

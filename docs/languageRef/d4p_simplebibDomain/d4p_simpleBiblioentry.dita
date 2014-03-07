@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference id="d4p_simpleBiblioentry">
+    <title>d4p_simpleBiblioentry</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>d4p_simpleBiblioentry</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">The d4p_simpleBiblioentry element is the element for a simple bibliographic entry. It is analogous to DocBook's biblioentry and bibliomixed elements.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">This element specializes from the p element. To provide further markup within the element use ph with an outputclass, use d4p_simpleBiblioset with an outputclass, or further specialize d4p_simpleBiblioset, in which case you might consider such element names as d4p_simpleBiblioAuthor, d4p_simpleBiblioTitle, etc.</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
+      </refbodydiv>    
+        <refbodydiv outputclass="inheritance">
+         <section id="inheritance"/>
+      </refbodydiv>
+        <refbodydiv outputclass="example1">
+         <section id="example1"/>
+      </refbodydiv>    	
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

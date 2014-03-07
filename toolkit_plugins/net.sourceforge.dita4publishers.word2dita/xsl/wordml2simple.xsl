@@ -68,12 +68,42 @@
   <xsl:variable name="imageRelType" select="'http://schemas.openxmlformats.org/officeDocument/2006/relationships/image'"
     as="xs:string"
   />
+ 
+  <xsl:variable name="font2UnicodeMapsCollectionUri" as="xs:string"
+      select="concat('font2unicodeMaps', '?', 
+          'recurse=yes;',
+          'select=*.xml'
+          )" 
+  />
+ <!-- Unfortunately, the RSuite CMS system doesn't currently set the collection
+      URI resolver and so attempts to resolve URIs relative to plugin-provided
+      XSLTs will fail. See RSuite issue RCS-1802.
+      
+      Until that bug is fixed, will have to hard-code the set of available
+      symbol maps.
+      
+   -->
+<!--  <xsl:variable name="font2UnicodeMaps" as="document-node()*"
+    select="collection(iri-to-uri($font2UnicodeMapsCollectionUri))"
+  />
+--> 
+  <xsl:variable name="font2UnicodeMaps" as="document-node()*">
+    <xsl:sequence select="document('font2unicodeMaps/font2UnicodeMapSymbol.xml')"/>  
+    <xsl:sequence select="document('font2unicodeMaps/font2UnicodeMapWingdings.xml')"/>  
+  </xsl:variable>
   
   <xsl:template match="/" name="processDocumentXml">
     <xsl:param name="stylesDoc" as="document-node()" tunnel="yes"/>
 
     <xsl:message> + [INFO] wordml2simple: Processing DOCX document.xml file to generate intermediate simpleML XML...</xsl:message>
     <xsl:message> + [INFO] styleMap=<xsl:sequence select="document-uri($styleMapDoc)"/></xsl:message>
+    <xsl:message> + [INFO] Found <xsl:value-of select="count($font2UnicodeMaps)"/> font-to-Unicode maps</xsl:message>
+    <xsl:if test="count($font2UnicodeMaps) > 0">
+      <xsl:for-each select="$font2UnicodeMaps">
+        <xsl:sort select="relpath:getName(document-uri(.))"/>
+        <xsl:message> + [INFO]   - <xsl:value-of select="relpath:getName(document-uri(.))"/></xsl:message>
+      </xsl:for-each>      
+    </xsl:if>
     <xsl:if test="not(/w:document)">
       <xsl:message terminate="yes"> - [ERROR] Input document must be a w:document document.</xsl:message>
     </xsl:if>
@@ -428,7 +458,38 @@
   <xsl:template match="w:r">
     <xsl:apply-templates/>
   </xsl:template>
-  
+
+  <xsl:template match="w:r[w:rPr/w:rFonts]" priority="10">
+    <xsl:variable name="fontFace" as="xs:string?"
+      select="w:rPr/w:rFonts/@w:ascii"
+    />
+<!--        <xsl:message> + [DEBUG] ==== w:r[w:rPr/w:rFonts]: fontFace="<xsl:sequence select="$fontFace"/>"</xsl:message>-->
+
+    <xsl:choose>
+      <xsl:when test="$fontFace = ('Symbol', 'Wingdings')">
+<!--        <xsl:message> + [DEBUG] w:r[w:rPr/w:rFonts]: fontFace="<xsl:value-of select="$fontFace"/></xsl:message>-->
+        <!-- Treat the content as for w:sym -->
+        <xsl:variable name="text" as="xs:string"
+          select="string(w:t)"
+        />
+        <xsl:for-each select="string-to-codepoints($text)">
+          <xsl:variable name="codePoint" as="xs:string"
+            select="local:int-to-hex(.)"
+            />
+<!--          <xsl:message> + [DEBUG] codePoint="<xsl:sequence select="$codePoint"/>"</xsl:message>-->
+          <xsl:sequence select="local:constructSymbolForCharcode(
+            $codePoint, 
+            $fontFace)"
+          />
+        </xsl:for-each>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:message> + [WARN] w:r[w:rPr/w:rFonts]: No value for @w:ascii on wrFonts element: <xsl:sequence select="w:rPr/w:rFonts"/></xsl:message>
+        <xsl:next-match/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
   <xsl:template match="w:smartTag">
     <xsl:apply-templates/>
   </xsl:template>
@@ -781,6 +842,33 @@
       ><xsl:sequence select="$character"/></rsiwp:symbol>
   </xsl:template>
   
+  <xsl:function name="local:constructSymbolForCharcode" as="node()*">
+    <xsl:param name="charCode" as="xs:string"/>
+    <xsl:param name="fontFace" as="xs:string"/>
+        <!-- See 17.3.3.30 sym (Symbol Character) in the Office Open XML Part 1 Doc:
+      
+         Characters with codes starting with "F" have had 0xF000 added to them
+         to put them in the private use area.
+      -->
+    <xsl:variable name="nonPrivateCharCode" as="xs:string"
+      select="if (starts-with($charCode, 'F')) then replace($charCode, 'F', '0') else $charCode"
+    />
+    <!-- getUnicodeForFont() will return the literal "?" character's code point if
+         there is no mapping found for the symbol.
+      -->
+    <xsl:variable name="unicodeCodePoint" as="xs:string"
+      select="local:getUnicodeForFont(string($fontFace), $nonPrivateCharCode)"
+    />
+    <xsl:variable name="codePoint" as="xs:integer"
+      select="local:hex-to-char($unicodeCodePoint)"
+    />
+    <xsl:variable name="character" 
+      select="codepoints-to-string($codePoint)" as="xs:string"/>
+    <rsiwp:symbol font="{$fontFace}"
+      ><xsl:sequence select="$character"/></rsiwp:symbol>
+
+  </xsl:function>
+  
   <xsl:template match="v:shape">
     <xsl:apply-templates/>
   </xsl:template>
@@ -1006,6 +1094,19 @@
     <xsl:sequence 
       select="string-length(substring-before('0123456789ABCDEF',
       $char))"/>
+  </xsl:function>
+  
+  <xsl:function name="local:int-to-hex" as="xs:string">
+   <xsl:param name="in" as="xs:integer"/>
+   <xsl:sequence
+     select="if ($in eq 0)
+             then '0'
+             else
+               concat(if ($in gt 16)
+                      then local:int-to-hex($in idiv 16)
+                      else '',
+                      substring('0123456789ABCDEF',
+                                ($in mod 16) + 1, 1))"/>
   </xsl:function>
   
   <xsl:template match="w:*" priority="-0.5">

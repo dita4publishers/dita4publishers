@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference id="eqn_block">
+    <title>eqn_block</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>eqn_block</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">eqn_block is for a block-level equation. The equation (and possibly the equation identifier, such as a number) is the only content in the block.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">eqn_block is a specialization of p. It can contain MathML.</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
+      </refbodydiv>    
+        <refbodydiv outputclass="inheritance">
+         <section id="inheritance">
+                <title>Inheritance</title>
+           <p>+ topic/p     d4p-formatting-d/eqn_block </p>
+            </section>
+      </refbodydiv>
+      <example id="example1">
+        <fig><title>Sample of an instance of the eqn_block element</title>
+          <codeblock>&lt;p&gt;The following equation is an example of arithmetic.&lt;/p&gt;
+          &lt;eqn_block&gt;2 + 2 = 4&lt;/eqn_block&gt;</codeblock></fig>
+      </example>    	 	
+      <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

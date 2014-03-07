@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map  class="- map/map " ditaarch:DITAArchVersion="1.2" domains="(topic delay-d)                          (map mapgroup-d)                           (topic indexing-d)                          (map glossref-d)                          (topic hi-d)                           (topic ut-d)                           (topic hazard-d)                          (topic abbrev-d)                          (topic pr-d)                           (topic sw-d)                          (topic ui-d)                         " xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">
+ <title  class="- topic/title ">Slide Set Test 01</title>
+  <topicref
+    href="slide-01.xml" class="- map/topicref "/>
+  <topicref
+    href="slide-02.xml" class="- map/topicref "/>
+  <topicref
+    href="slide-inline-tests.xml" class="- map/topicref "/>
+  <topicref
+    href="slide-image-test.xml" class="- map/topicref "/>
+</map>

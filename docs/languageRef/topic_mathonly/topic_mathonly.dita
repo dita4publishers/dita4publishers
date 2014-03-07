@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference id="topic_mathonly">
+    <title>topic_mathonly</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>topic_mathonly</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">The topic_mathonly is a local shell of the base topic type intended for usage with math content.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">FIXME: Is this correct? Anything else? </section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
+      </refbodydiv>    
+        <refbodydiv outputclass="inheritance">
+         <section id="inheritance"/>
+      </refbodydiv>
+        <refbodydiv outputclass="example1">
+         <section id="example1"/>
+      </refbodydiv>    	
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

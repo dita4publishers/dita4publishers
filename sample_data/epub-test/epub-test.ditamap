@@ -79,6 +79,14 @@
         </keywords>
       </topicmeta>
     </keydef>
+  <keydef
+      keys="keyed-topic-01-key-02"
+      href="chapters/keyed-topic-one.xml"
+      processing-role="resource-only"/>
+    <keydef
+      keys="keyed-topic-02"
+      href="chapters/keyed-topic-two.xml"
+      processing-role="resource-only"/>
   </keydefs>
   <publication>
     <covers>
@@ -232,6 +240,14 @@
         href="chapters/keyref-tests.xml">
         <subsection
           keyref="keyed-topic-01"/>
+      <subsection
+          keyref="keyed-topic-01-key-02"
+          copy-to="keyed-topic-01-key-02.dita"/>
+        <subsection
+          keyref="keyed-topic-02"/>
+        <subsection
+          keyref="keyed-topic-02"
+          copy-to="keyed-topic-02-02.dita"/>
       </chapter>
       <chapter
         href="chapters/filtering-and-flagging-test.xml"/>

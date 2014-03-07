@@ -1,0 +1,39 @@
+DITA4Publishers Language Reference Notes
+TODO:
+-Search files for "FIXME" and fill in missing details (will likely need Eliot's help for some of this)
+-Finish integrating info from D4P User Guide
+-Finish inheritance sections
+-Iterate over to add examples, improve, refine, and eliminate documentation debt
+
+
+Structure of Individual Files:
+Each file for an element has a refbody that is structured as so:
+-Summary: An overview of the semantic role and other information for use within a publication
+-D4P: Architectural information
+-Contains: The elements that the element for this file can contain; this information to be automatically generated in the future
+-Contains by: The elements that can contain the element for the file; this information to be automatically generated in the future
+-Inheritance: The inheritance information for the element
+-Example: Zero, one, or more examples of the element in use
+-Attributes: The element's possible attributes; hopefully part of this will be able to be generated automatically
+
+2013-11-11
+Refine documentation for formattingDomain with examples and inheritance information. Remove errant catalog.dita file from formattingDomain files.
+
+2013-11-02
+Remove class, domains, ditaarch attributes that should not be present. Add files for enumeration domains but not defined elements due to experimental nature of domains. Build latest version of language reference as PDF.
+
+2013-10-15
+Add files and all elements for the pubmapDomain. Update ditamap to include references to new files. Add latest version of language reference built as a PDF. 
+
+2013-10-02
+Convert all remaining dita files from topics to references (thanks to oXygen's feature of running an XSLT file on an entire project). Integrate existing information from D4P User Guide most elements and domains. Fix error in deck example. Add info to the languageRef-notes.txt file explaining structure of langRef files and a TODO list.
+
+2013-09-18
+Add inheritance information, examples, and processing notes to several items and converted them to use of the reference topic type
+
+2013-09-16
+Reorganize language-reference.ditamap into broad categories of topic specializations, domains, and map specializations. Not the final organization, but useful for the time being.
+
+
+2013-09-15
+This is the initial commit of the D4P Lang Ref. Each element (or almost each element) is defined with at least some information about semantics and usage along with basic specialization information. Much of the information came from comments in the element's DTD. Further work is needed in terms of fleshing out the semantics, adding contains/contained by information, adding inheritance information, adding examples, and adding attribute information. But this is at least a solid start.

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference id="d4p_rubyDomain">
+    <title>d4p_rubyDomain</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>d4p_rubyDomain</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">The d4p_rubyDomain defines equivalent of HTML ruby elements for marking up Japanese language documents. The rules for these elements are the same as the rules for HTML5 ruby elements.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p"> </section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
+      </refbodydiv>    
+        <refbodydiv outputclass="inheritance">
+         <section id="inheritance"/>
+      </refbodydiv>
+        <refbodydiv outputclass="example1">
+         <section id="example1"/>
+      </refbodydiv>    	
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

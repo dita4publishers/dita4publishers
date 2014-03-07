@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
+<topic
+  id="topic-id">
+  <title/>
+  <shortdesc/>
+  <body>
+    <fig
+      id="fig_o23_tb5_yk"
+      outputclass="background"
+      expanse="page" class="- topic/fig ">
+      <image
+        href="images/D4P_logo_final.png"
+        id="image_jwb_xb5_yk" class="- topic/image "/>
+    </fig>
+    <ul
+      id="ul_fg2_dc5_yk">
+      <li>Background image should be behind the list items</li>
+      <li>Second list item</li>
+    </ul>
+  </body>
+</topic>

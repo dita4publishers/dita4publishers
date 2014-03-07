@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference id="d4p_biblioentryBase">
+    <title>d4p_biblioentryBase</title>
+    <shortdesc> <!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>d4p_biblioentryBase</indexterm>
+                <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm>
+				-->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary"><section id="summary">The d4p_biblioentryBase element is the base element for a bibliographic entry. Again, it is not intended to be used but rather intended to be specialized from. It is a block element.</section></refbodydiv>
+        <refbodydiv outputclass="d4p"><section id="d4p">This element specializes from the p element. See d4p_simpleBiblioentry for an example specialization.</section></refbodydiv>    	    
+        <refbodydiv outputclass="contains"><!-- placeholder for contains --></refbodydiv>
+        <refbodydiv outputclass="contains-by"><!-- placeholder for contains-by --></refbodydiv>    
+        <refbodydiv outputclass="inheritance">
+            <section id="inheritance">
+                <title>Inheritance</title>
+                <p>+ topic/p d4p-bibbase-d/d4p_biblioentryBase </p>
+            </section>
+        </refbodydiv>
+        <example id="example1">
+            Because this is only intended for use as a base for specialization, see the d4p_simpleBiblioentry for an example.
+        </example>    	
+        <refbodydiv outputclass="attributes"><!-- attributes --></refbodydiv>
+        
+    </refbody>
+</reference>
+

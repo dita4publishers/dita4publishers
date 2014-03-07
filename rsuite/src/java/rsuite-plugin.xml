@@ -1,4 +1,4 @@
-<rsuite-plugin id="dita4publishers">
+<rsuite-plugin id="dita4publishers" version="^version^ Build ^buildnumber^ at ^timestamp^">
   <!-- RSuite CMS plugin configuration. Used to package the DITA4Publishers transforms and
        other resources into an RSuite plugin for use by other RSuite-integrated components,
        e.g. action handlers.

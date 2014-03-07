@@ -18,6 +18,9 @@
         <folder path="docs/"/>
         <folder path="sample_data/"/>
         <folder path="toolkit_plugins/"/>
+        <folder path="../northstar-travel/"/>
+        <folder path="../omics-plugin/"/>
+        <folder path="../rsuite-sales-demo%20trunk/"/>
         <file name="templates/maps/D4P%20Pubmap.ditamap"/>
         <file name="docs/user_docs/d4p-users-guide.ditamap"/>
         <file name="docs/website/dita4publishers.ditamap"/>

@@ -595,7 +595,6 @@
       </xs:attribute>
       <xs:attribute
         name="level"
-        type="xs:string"
         use="optional">
         <xs:annotation>
           <xs:documentation>
@@ -614,14 +613,218 @@
                 common containers, such as list items. For example, paragraphs that are first-level
                 list items (relative to the body or section) must have a level of "1", paragraphs
                 that are second-level list items must have a level of "2" and so on.</p>
-              <p>Note that for a given style ID, the level is invariant, meaning that there is
-                currently no mechanism for a style to indicate a level that is one lower than some
-                container. That restriction may be removed in the future, but is a side effect of
-                using XSLT's for-each-group mechanism. </p>
+              <p>Note that for a given style ID, numeric level values are invariant, meaning
+              that the paragraph will always be at that level. You can use the relative keywords
+              explained below to define paragraph styles with dynamically-determined levels. 
+              Note that not all your paragraphs can relative because relatively-leveled paragraphs cannot
+              be relative to other relatively-leveled paragraphs. </p>
+              <p>The level value may be a number, indicating an explicit level, or it may
+              be one of the relative level keywords "currentLevel", "plusOne", or "minusOne".</p>
+              <p>Relative levels are determined relative to the nearest preceding paragraph
+              in a different level group. Level group is determined by the value of the 
+              @levelGroup attribute. If a paragraph has no level group then its level group
+              is considered different from any following relatively-leveled paragraph (in particular,
+              paragraphs with the same style are <i>not</i> considered to be in the same
+              level group by default).</p>
+              <p>When the level value is "currentLevel", the paragraph will get the same level as the nearest
+              preceding sibling paragraph with an explicit level. For example, if you have H1 
+              paragraphs mapped to level "1", H2 styles mapped to level 2,
+              and the paragraph style "Troubleshooting" set to "currentLevel", then a Troubleshooting
+              paragraph preceded by an H1 paragraph or other Troubleshooting paragraphs will have 
+              a level of "1", determined by the H1 paragraph, but if it's preceded by an H2 paragraph,
+              it will have a level of "2".</p>
+              <p>When the level value is "plusOne", the paragraph's level will be set to
+              one greater than the nearest preceding paragraph with an explicit level.
+              This allows you to have paragraphs that may occur in different contexts and
+              result in the correct level, such as note paragraphs that may occur as peers
+              to body paragraphs or within list items.</p>
+              <p>When the level value is "minusOne", the paragraph's level will be set
+              to one less than the nearest preceding paragraph with an explicit level.
+              (Not sure when you'd want this behavior but it's included for symmetry).</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction
+            base="xs:NMTOKEN">
+            <xs:enumeration
+              value="currentLevel">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Relative level is the same as the effective level
+                    of the preceding paragraph in the same or different
+                    level group (level group is not relevant for "currentLevel"
+                    because it has no effect).</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="plusOne">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Relative level is one lower (higher effective level number) than 
+                    preceding paragraph in a different level group.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="minusOne">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Relative level one higher (lower effective level number) than 
+                    preceding paragraph in a different level group. If the effective
+                    level would be less than zero then the effective level is zero.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="0">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Explicit level zero (0)</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="1">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Explicit level 1</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="2">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Explicit level 2</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="3">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Explicit level 3</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="4">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Explicit level 4</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="5">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Explicit level 5</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="6">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Explicit level 6</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="7">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Explicit level 7</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="8">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Explicit level 8</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="9">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Explicit level 9</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute
+        name="levelGroup"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div
+              xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Level Group Name</h2>
+              <p>Specifies the name of a group to which a relatively-leveled paragraph
+              belongs.</p>
+              <p>For example, if you have paragraph styles that should be treated as
+              siblings within the same parent context, then if they all specify the
+              same level group they will be treated as siblings. They will be leveled
+              relative to the nearest preceding sibling with either a different level              
+              group or an explicit level value.</p>
+              <p>For example, if you have elements that should always be treated as direct
+              children of some preceding container, such as topic body, list item, etc.,
+              then those elements should all be in the same level group. Likewise, if you
+              have paragraphs that are list items, they should have a different level group
+              so that they can be relatively leveled relative to some containing paragraph.</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
       </xs:attribute>
+
       <xs:attribute
         name="baseClass"
         type="xs:string"
@@ -785,6 +988,37 @@
               <p>For paragraphs that generate new documents and specify "yes" for topicDoc,
                 indicates the element type to use for the reference to the generated topic in the
                 result map. Defaults to "topicref".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="topicheadType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div
+              xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Topic Head Element Type Name</h2>
+              <p>For paragraphs that generate topicheads in addition to other elements types,
+              specifies the element type for the topic head. The default is "topichead".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="navtitleType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div
+              xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Navigation Title Element Type Name</h2>
+              <p>For paragraphs that generate topicheads, the element type
+              name to use for the navtitle element that holds the navigation title
+              of the topic head. The default is "navtitle".</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>

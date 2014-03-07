@@ -39,17 +39,22 @@
 -->
  <xsl:template match="/*" mode="resolve-map">
    <xsl:message> + [INFO] Root element in mode resolve-map was not a map, got <xsl:sequence select="name(.)"/>[class=<xsl:sequence select="string(@class)"/></xsl:message>
-   <map class="- map/map "> 
+   <map class="- map/map " xml:base="{base-uri(.)}"> 
      <topicref class="- map/topicref "
-        href="{document-uri(root(.))}"/>
+        href="{base-uri(.)}"/>
    </map>
  </xsl:template>
   
   <xsl:template match="/*[df:class(., 'map/map')]" mode="resolve-map" priority="10">
+    <xsl:param name="map-base-uri" as="xs:string" tunnel="yes"/>
     <xsl:message> + [INFO] resolve-map(): Constructing resolved map...</xsl:message>
+    <xsl:if test="false() and $debugBoolean">
+      <xsl:message> + [DEBUG] resove-map(): base-uri(.)="<xsl:sequence select="base-uri(.)"/></xsl:message>
+    </xsl:if>    
       <xsl:copy copy-namespaces="no">
+        <xsl:attribute name="xml:base" select="$map-base-uri"/>
         <xsl:apply-templates select="node() | @*" mode="#current">
-          <xsl:with-param name="resolvedMapBaseUri" select="document-uri(root(.))" as="xs:string" tunnel="yes"/>
+          <xsl:with-param name="resolvedMapBaseUri" select="base-uri(.)" as="xs:string" tunnel="yes"/>
         </xsl:apply-templates>
       </xsl:copy>
     <xsl:message> + [INFO]</xsl:message>
@@ -58,7 +63,7 @@
   </xsl:template>
   
   <xsl:template mode="resolve-map" match="@*">
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG]   Default attribute handling: <xsl:sequence select="name(..)"/>/@<xsl:sequence select="name(.)"/>="<xsl:sequence select="string(.)"/>"</xsl:message>
     </xsl:if>
     <xsl:copy/>
@@ -90,7 +95,7 @@
           else -1
       "
     />
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] resolve-map():  ** For topic head "<xsl:sequence select="name(.)"/>", parentHeadLevel=<xsl:sequence select="$parentHeadLevel"/>, myHeadLevel=<xsl:sequence select="$myHeadLevel"/></xsl:message>
     </xsl:if>
     <xsl:copy>
@@ -105,7 +110,7 @@
   </xsl:template>
   
   <xsl:template match="*[ df:isTopicGroup(.)]" mode="resolve-map">
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] resolve-map(): ** Processing topic group "<xsl:sequence select="name(.)"/>"</xsl:message>
     </xsl:if>
     <xsl:copy>
@@ -117,6 +122,9 @@
     <!-- @href[../*[df:class(., 'map/topicref')]] -->
     <xsl:param name="resolvedMapBaseUri" as="xs:string" tunnel="yes"/>
     <xsl:variable name="baseUri" select="base-uri(.)"/>
+    <xsl:if test="false() and $debugBoolean">
+      <xsl:message> + [DEBUG] resolve-map: @href, baseUri="<xsl:sequence select="$baseUri"/>"</xsl:message>
+    </xsl:if>
     <xsl:variable name="originalUri"  as="xs:string"
       select="relpath:newFile(relpath:getParent($baseUri), string(.))"
     />
@@ -124,14 +132,14 @@
     <xsl:variable name="newHrefValue" as="xs:string"
       select="relpath:getRelativePath(relpath:getParent($resolvedMapBaseUri), $originalUri)"
     />
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] resolve-map():  ** Handling topicref/@href. Original href="<xsl:sequence select="string(.)"/>"</xsl:message>
       <xsl:message> + [DEBUG]     resolvedMapBaseUri="<xsl:sequence select="$resolvedMapBaseUri"/>"</xsl:message>
       <xsl:message> + [DEBUG]     baseUri=           "<xsl:sequence select="$baseUri"/>"</xsl:message>
       <xsl:message> + [DEBUG]     originalUri=       "<xsl:sequence select="$originalUri"/>"</xsl:message>
       <xsl:message> + [DEBUG]     newHrefValue=      "<xsl:sequence select="$newHrefValue"/>"</xsl:message>
     </xsl:if>
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] resolve-map: Setting @href to "<xsl:value-of select="$newHrefValue"/>"</xsl:message>
     </xsl:if>
     <xsl:attribute name="{name(.)}" select="$newHrefValue"/>
@@ -150,7 +158,7 @@
                  For specialized topicrefs, template overrides can handle that case, e.g.,
                  sidebars.
       -->
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] resolve-map(): ** Processing topic ref "<xsl:sequence select="name(.)"/>"</xsl:message>
       <xsl:choose>      
        <xsl:when test="$refTarget">
@@ -162,8 +170,11 @@
      </xsl:choose>
     </xsl:if>
       <xsl:choose>
+        <xsl:when test="not($refTarget)">
+          <xsl:message> + [WARN] Failed to resolve topicref to a resource: <xsl:sequence select="df:reportTopicref(.)"/></xsl:message>
+        </xsl:when>
         <xsl:when test="@format = 'ditamap'">
-          <xsl:if test="$debugBoolean">
+          <xsl:if test="false() and $debugBoolean">
             <xsl:message> + [DEBUG] resolve-map(): Reference is to a subordinate map.</xsl:message>
           </xsl:if>
           <!-- Reference to subordinate map -->
@@ -182,21 +193,21 @@
           </xsl:apply-templates>      
         </xsl:when>
         <xsl:otherwise>
-          <xsl:if test="$debugBoolean">
+          <xsl:if test="false() and $debugBoolean">
             <xsl:message> + [DEBUG] resolve-map(): Reference is to a non-map resource</xsl:message>
           </xsl:if>
           <xsl:variable name="myHeadLevel" 
             select="$parentHeadLevel + 1"
           />
           <xsl:copy>
-            <xsl:if test="$debugBoolean">
+            <xsl:if test="false() and $debugBoolean">
               <xsl:message> + [DEBUG] resolve-map(): Applying templates to all attributes: <xsl:sequence select="@*"/>...</xsl:message>
             </xsl:if>
             <xsl:apply-templates select="@*" mode="#current"/>
             <xsl:if test="$myHeadLevel != $parentHeadLevel">
               <xsl:attribute name="headLevel" select="$myHeadLevel"/>
             </xsl:if>
-            <xsl:if test="$debugBoolean">
+            <xsl:if test="false() and $debugBoolean">
               <xsl:message> + [DEBUG] resolve-map(): Applying templates to children of the topicref...</xsl:message>
             </xsl:if>
             <xsl:apply-templates select="node()" mode="#current">

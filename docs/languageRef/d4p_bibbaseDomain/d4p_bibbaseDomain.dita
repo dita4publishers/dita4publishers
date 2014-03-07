@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference id="d4p_bibbaseDomain">
+    <title>d4p_bibbaseDomain</title>
+    <shortdesc> <!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>d4p_bibbaseDomain</indexterm>
+                <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm>
+				-->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary"><section id="summary">The BibBase Domain defines base types for bibliographic entries. These types are modeled as closely as possible on the DocBook biblioentry and bibliomixed models. They are intended for specialization.</section></refbodydiv>
+        <refbodydiv outputclass="d4p"><section id="d4p">Specializations should specialize from &lt;ph&gt; to provide more detailed markup. The SimpleBib domain is a specialization from this base domain. That domain provides no further restrictions. It can be either a starting point for further specialization or the markup to use.</section></refbodydiv>    	    
+        <refbodydiv outputclass="shortname">
+            <section id="shortname">d4p_bibbase-d</section>
+        </refbodydiv> 
+        <refbodydiv outputclass="modulename">
+            <section id="modulename">d4p_bibbaseDomain.ent and d4p_bibbaseDomain.mod</section>
+        </refbodydiv>
+    </refbody>
+</reference>
+

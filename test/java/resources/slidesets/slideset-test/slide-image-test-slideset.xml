@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><sld:slide xmlns:sld="urn:ns:dita4publishers.org:doctypes:simpleslideset"><sld:title><sld:p style="Title">Image Test</sld:p></sld:title><sld:slidebody>
+    
+      <sld:div style="fig"><sld:image href="file:/Users/ekimber/workspace_40/dita4publishers_slideset/test/java/resources/slidesets/slideset-test/slide-image-test.xml/images/D4P_logo_final.png"/></sld:div>
+      <sld:ul>
+        <sld:li>First bullet list</sld:li>
+        <sld:li>Second list item</sld:li>
+      </sld:ul>
+    
+      
+    
+  </sld:slidebody><sld:slidenotes/></sld:slide>

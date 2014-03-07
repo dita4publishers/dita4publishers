@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<plugin id="net.sourceforge.dita4publishers.pdf-dl-as-dl">
+  <feature extension="dita.xsl.xslfo"
+      value="xsl/fo-dl-as-dl.xsl" type="file"/>
+</plugin>

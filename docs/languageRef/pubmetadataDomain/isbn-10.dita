@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "reference.dtd">
+<reference id="isbn-10">
+    <title>isbn-10</title>
+    <shortdesc><!-- For future use --></shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>isbn-10</indexterm>
+            <!-- sample from DITA langref
+                    <indexterm>Topic elements<indexterm>abstract</indexterm>
+				    </indexterm> -->
+            </keywords>
+        </metadata>
+    </prolog>
+    <refbody>
+        <refbodydiv outputclass="summary">
+         <section id="summary">isbn-10 represents the 10-digit International Standard Book Number of a publication. If the publication has a 13 digit ISBN or an ISBN in a different format, then the appropriate isbn-13 or isbn element should be used. It is left to the user on whether to separate parts of the ISBN with hyphens or other separators, but consistency should be valued.</section>
+      </refbodydiv>
+        <refbodydiv outputclass="d4p">
+         <section id="d4p">isbn-10 is a specialization of data.</section>
+      </refbodydiv>    	    
+        <refbodydiv outputclass="contains">
+         <section id="contains"/>
+      </refbodydiv>
+        <refbodydiv outputclass="contains-by">
+         <section id="contains-by"/>
+      </refbodydiv>    
+        <refbodydiv outputclass="inheritance">
+         <section id="inheritance"/>
+      </refbodydiv>
+        <refbodydiv outputclass="example1">
+         <section id="example1"/>
+      </refbodydiv>    	
+        <refbodydiv outputclass="attributes">
+         <section id="attributes"/>
+      </refbodydiv>
+        
+    </refbody>
+</reference>

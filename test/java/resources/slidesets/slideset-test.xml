@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><sld:simpleslideset xmlns:enum="http://dita4publishers.org/enumerables" xmlns:glossdata="http://dita4publishers.org/glossdata" xmlns:sld="urn:ns:dita4publishers.org:doctypes:simpleslideset"><sld:prolog/><sld:styles/><sld:slides><sld:title><sld:p style="Title">Slide Set Test 01</sld:p></sld:title><sld:slide><sld:title><sld:p style="Title">Slide One</sld:p></sld:title><sld:slidebody><sld:title><sld:p style="Title">Slide One</sld:p></sld:title>
+      <sld:ul><sld:li>Bullet list item 1 Slide 1</sld:li><sld:li>Bullet list item 2 Slide 1<sld:ul><sld:li>Nested bullet list item 1 Slide 1</sld:li><sld:li>Nested bullet list item 2 Slide 1</sld:li></sld:ul></sld:li></sld:ul>
+    
+      <sld:p>This is a student note</sld:p>
+    
+      <sld:p>This is an instructor note</sld:p>
+    </sld:slidebody><sld:slidenotes/></sld:slide></sld:slides></sld:simpleslideset>

@@ -1,0 +1,22 @@
+<project name="dita2epub-custom" default="dita2epub-custom"
+  > <!-- update the text after the "dita2" to match your custom transtype -->
+	<!-- NOTE: This build file depends on targets defined in the epub transtype -->
+  
+  <!-- Controls debugging within the XSLTs. Set to "true" to turn on debugging: -->
+  <property name="debug" value="false"/>
+  
+	<!-- Global properties that affect the base Toolkit processing: -->
+	
+  <!-- update the text after the "dita2" in the target's name to match your custom transtype -->
+  <target name="dita2epub-custom"
+    unless="noMap"
+    xmlns:dita="http://dita-ot.sourceforge.net"
+    >
+
+    <antcall target="dita2epub">
+      <param name="args.xsl" value="${dita.dir}/plugins/org.example.d4p.epub-custom/xsl/map2epub_template.xsl"/>
+    </antcall>
+    
+  </target> 
+  
+</project>
