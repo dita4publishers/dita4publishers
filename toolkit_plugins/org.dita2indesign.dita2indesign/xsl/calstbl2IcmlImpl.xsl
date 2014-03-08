@@ -94,12 +94,18 @@
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/row')]" mode="crow">
-    <xsl:variable name="rowIndex" select="count(preceding-sibling::*[self::row or df:class(., 'topic/row')])" as="xs:integer"/>
-    <!-- changed MFHO from "17" to "1" -->
+    <!-- In InDesign tables, the header and body rows are indexed together
+      -->
+    <xsl:variable name="rowIndex"  as="xs:integer"
+      select="if (parent::*[df:class(., 'topic/tbody')])
+      then count(../../*[df:class(., 'topic/thead')]/*[df:class(., 'topic/row')]) +
+           count(preceding-sibling::*[self::row or df:class(., 'topic/row')])
+      else count(preceding-sibling::*[self::row or df:class(., 'topic/row')])
+      "/>
     <Row 
       Name="{$rowIndex}" 
       SingleRowHeight="1" 
-      Self="rc_{generate-id(..)}crow{$rowIndex}"/><xsl:text>&#x0a;</xsl:text>
+      Self="{generate-id(..)}crow{$rowIndex}"/><xsl:text>&#x0a;</xsl:text>
   </xsl:template>
   
   <xsl:template match="*[df:class(., 'topic/row')]">
@@ -113,7 +119,11 @@
     <xsl:param name="cellStyle" as="xs:string" tunnel="yes" select="'[None]'"/>
     <xsl:param name="colspecElems" as="element()*" tunnel="yes" />
     
-    <xsl:variable name="rowNumber" select="count(../preceding-sibling::*[df:class(., 'topic/row')])" as="xs:integer"/>
+    <xsl:variable name="rowNumber" 
+      select="if (../parent::*[df:class(., 'topic/tbody')])
+      then count(../../../*[df:class(., 'topic/thead')]/*[df:class(., 'topic/row')]) +
+           count(../preceding-sibling::*[self::row or df:class(., 'topic/row')])
+      else count(../preceding-sibling::*[self::row or df:class(., 'topic/row')])" as="xs:integer"/>
     <xsl:variable name="colNumber" as="xs:integer"><xsl:call-template name="current-cell-position"/></xsl:variable>
     
     <!-- InCopy/IDML cell position indices begin at 0; instead of altering the current-cell-position value, 
@@ -219,7 +229,7 @@
     <xsl:variable name="cellCount">
       <xsl:choose>
         <xsl:when test="parent::*[self::row or df:class(., 'topic/row')]/parent::*[self::thead or df:class(., 'topic/thead')]">
-          <xsl:apply-templates select="(ancestor::*[self::table | self::*[df:class(., 'topic/table')]][1]/thead/row/*[1])[1]"
+          <xsl:apply-templates select="(ancestor::*[self::tgroup | self::*[df:class(., 'topic/tgroup')]][1]/thead/row/*[1])[1]"
             mode="find-matrix-column">
             <xsl:with-param name="stop-id" select="generate-id(.)"/>
           </xsl:apply-templates>
