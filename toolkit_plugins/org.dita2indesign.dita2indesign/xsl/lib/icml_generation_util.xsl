@@ -312,8 +312,8 @@
     <xsl:variable name="availableWidth" as="xs:double"
       select="incxgen:calcAvailableWidth($tableWidth, $colspecs)"
     />
-    <xsl:variable name="numProportialColumns" as="xs:integer"
-      select="count($colspecs[ends-with(@colwidth, '*')])"
+    <xsl:variable name="proportionalColspecs" as="element()*"
+      select="$colspecs[ends-with(@colwidth, '*')]"
     />
 
     <xsl:variable name="result" as="node()*">
@@ -340,7 +340,7 @@
                          $tableWidth, 
                          $numCols, 
                          $availableWidth,
-                         $numProportialColumns)"
+                         $proportionalColspecs)"
           />          
         </xsl:element>
       </xsl:for-each>
@@ -361,8 +361,11 @@
         </xsl:choose>
       </xsl:for-each>
     </xsl:variable>
-    <xsl:variable name="result" as="xs:double"
+    <xsl:variable name="explicitWidth" as="xs:double"
       select="if (count($explictWidths) > 0) then sum($explictWidths) else 0.0"
+    />
+    <xsl:variable name="result" as="xs:double"
+      select="$tableWidth - $explicitWidth"
     />
     <xsl:sequence select="$result"/>
   </xsl:function>
@@ -372,7 +375,7 @@
     <xsl:param name="tableWidth" as="xs:double"/>
     <xsl:param name="numCols" as="xs:integer"/>
     <xsl:param name="availableWidth" as="xs:double"/><!-- tableWidth - explicit widths -->
-    <xsl:param name="numProportialColumns" as="xs:integer"/>
+    <xsl:param name="proportionalColspecs" as="element()*"/>
     
     <!-- FIXME: Right now not trying to handle any measurement
          units other than points (which is what we get from Word
@@ -389,11 +392,18 @@
             </xsl:when>
             <xsl:when test="ends-with($baseWid, '*')">
               <!-- Proportional width: Divides amount of total width among all proportional columns. 
-              
-              FIXME: Figure out the math to make this calculation.
+              240/(1+1.38)*1.38=139.1596
+              240/(1+1.38)     =100.8403  //Multiplied by 1 in this case
               
               -->
-              <xsl:sequence select="$tableWidth div $numCols"/>
+              <xsl:variable name="totalProportions" as="xs:double"
+                select="sum(for $width in $proportionalColspecs/@colwidth 
+                                return number(substring-before($width, '*')))"
+              />
+              <xsl:variable name="proportion" as="xs:double"
+                select="number(substring-before($baseWid, '*'))"
+              />
+              <xsl:sequence select="($availableWidth div $totalProportions) * $proportion"/>
             </xsl:when>
             <xsl:otherwise>
               <xsl:message> + [DEBUG] calcColumnWidth: not a point value, dividing table width by numcols</xsl:message>

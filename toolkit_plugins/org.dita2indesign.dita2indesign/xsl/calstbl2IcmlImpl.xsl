@@ -54,7 +54,7 @@
      <Table 
       AppliedTableStyle="TableStyle/$ID/{$tStyle}" 
       TableDirection="LeftToRightDirection"
-      HeaderRowCount="${numHeaderRows}" 
+      HeaderRowCount="{$numHeaderRows}" 
       FooterRowCount="0" 
       BodyRowCount="{$numBodyRows}" 
       ColumnCount="{$numCols}" 
