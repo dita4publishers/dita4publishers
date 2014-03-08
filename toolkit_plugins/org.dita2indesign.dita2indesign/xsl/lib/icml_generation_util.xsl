@@ -385,7 +385,6 @@
       <xsl:choose>
         <xsl:when test="boolean($colspec)">
           <xsl:variable name="baseWid" as="xs:string" select="$colspec/@colwidth"/>
-          <xsl:message> + [DEBUG] calcColumnWidth: baseWid="<xsl:value-of select="$baseWid"/>"</xsl:message>
           <xsl:choose>
             <xsl:when test="ends-with($baseWid, 'pt')">
               <xsl:sequence select="number(substring-before($baseWid, 'pt'))"/>
@@ -406,13 +405,11 @@
               <xsl:sequence select="($availableWidth div $totalProportions) * $proportion"/>
             </xsl:when>
             <xsl:otherwise>
-              <xsl:message> + [DEBUG] calcColumnWidth: not a point value, dividing table width by numcols</xsl:message>
               <xsl:sequence select="$tableWidth div $numCols"/>
             </xsl:otherwise>
           </xsl:choose>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:message> + [DEBUG] calcColumnWidth: no colspec, dividing table width by numcols</xsl:message>
           <xsl:sequence select="$tableWidth div $numCols"/>
         </xsl:otherwise>
       </xsl:choose>
