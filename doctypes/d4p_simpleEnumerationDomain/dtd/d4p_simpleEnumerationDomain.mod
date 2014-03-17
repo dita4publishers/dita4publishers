@@ -91,6 +91,7 @@
 
 <!ATTLIST d4pSimpleEnumerator   %global-atts;  class CDATA "+ topic/data  d4p_enumBase-d/d4pEnumeratorBase     d4p_simplenum-d/d4pSimpleEnumerator ">
 <!ATTLIST d4pPageNumber         %global-atts;  class CDATA "+ topic/data  d4p_enumBase-d/d4pEnumeratorBase     d4p_simplenum-d/d4pPageNumber ">
+<!ATTLIST d4pPageRange         %global-atts;  class CDATA "+ topic/data  d4p_enumBase-d/d4pEnumeratorBase     d4p_simplenum-d/d4pPageRange ">
 
 
 <!-- ================== End D4P Simple Enumeration Topic Domain ==================== -->

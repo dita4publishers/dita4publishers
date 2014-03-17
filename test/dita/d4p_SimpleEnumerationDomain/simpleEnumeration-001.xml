@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
+<chapter
+  id="chapter-id">
+  <title>Test of D4P Simple Enumeration Elements</title>
+  <body>
+    <p>Simple Enumerator: <d4pSimpleEnumerator>10</d4pSimpleEnumerator></p>
+    <p>Page number: <d4pPageNumber>4</d4pPageNumber></p>
+    <p>Page Range: <d4pPageRange><d4pPageNumber>10</d4pPageNumber><d4pPageNumber>20</d4pPageNumber></d4pPageRange></p>
+  </body>
+</chapter>
