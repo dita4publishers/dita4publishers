@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+  <title>Introduction to Aikido</title>
+
+  <!-- meta charset -->
+  <meta charset="UTF-8" />
+
+  <!-- Others meta -->
+  <meta name="description" content=" (合気道 Aikidō?) is a Japanese martial art developed by Morihei Ueshiba">
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+
+  <!-- Add Dublin Core ? -->
+
+  <!-- Mobile viewport  -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- CORE CSS -->
+  <link rel="stylesheet" media="screen" href="a/css/style.css">
+
+  <!--
+    THEME CSS, should be changeable using ant property
+    This will allow user to customize their theme
+  -->
+  <link rel="stylesheet" media="screen" href="a/theme/default/style.css">
+  <!--
+    Javascripts
+    need to identify a framework
+    is GPL or MIT license Ok ?
+  -->
+  <script src="a/libs/jQuery/jquery-1.7.1.min.js"></script>
+  <script src="a/libs/modernizr/modernizr.dev.2.0.6.js"></script>
+
+  <!--
+    Unobstructive javascript,
+    we will need to pass ant property to the javascript,
+    like transtype
+  -->
+  <script type="text/javascript">
+  $(function() {
+    $("#switchSide").click(function(){
+      $("body").toggleClass("two-sides");
+    });
+
+    $("#switchDropCaps").click(function(){
+      $("body").toggleClass("drop-caps");
+    });
+
+       var canvas = document.getElementById("pageFlip");
+       var ctx = canvas.getContext('2d');
+    });
+
+  </script>
+
+  <!-- links -->
+  <link rel="prev" href="#" />
+  <link rel="next" href="#" />
+
+</head>
+<!-- body class will contain class for the book state.
+
+Ex. :
+
+- State
+  * book-closed-cover
+  * book-closed-last
+  * book-open
+
+- Transition
+  * page-turn
+
+- Book graphics (to disable them on reader if necessary)
+  * with-graphics
+
+- Book theme
+ * theme-default
+
+(..)
+
+-->
+<body class="en-US book-open theme-default two-sides drop-caps" >
+
+<div id="container">
+
+  <div id="book" class="no-selection">
+
+    <div id="artworks">
+      <!--
+        artwork is html semantic for graphics
+        to be defined
+        could be added by javascript
+      -->
+    </div>
+
+    <div id="pages-container">
+
+      <header id="pageHeader">
+        <h1>Book title or chapter title</h1>
+        <!--
+          pages is the container for all pages
+
+          toolbar will be top of the page
+          to leave more space for the book on the screen
+        -->
+        <div id="tools">
+          <nav>
+            <h2>Toolbar</h2>
+            <ul>
+              <li> <a href="#">Back to table of content </a> </li>
+
+              <!-- the next 2 will be added by javascript -->
+              </li>
+              <li> <a href="#">Search</a> </li>
+              <li> <a href="#">Add a Bookmark</a> </li>
+              <li> <a id="switchSide" href="#">S</a> </li>
+              <li> <a id="switchDropCaps"  href="#">D</a> </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <div id="pages">
+
+          <div id="page-1" class="page verso">
+          <section class="chapter">
+
+            <p>London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln&#8217;s Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill. Smoke lowering down from chimney&#8211;pots, making a soft black drizzle, with flakes of soot in it as big as full&#8211;grown snowflakes&#8212;gone into mourning, one might imagine, for the death of the sun. Dogs, undistinguishable in mire. Horses, scarcely better; splashed to their very blinkers. Foot passengers, jostling one another&#8217;s umbrellas in a general infection of ill temper, and losing their foot&#8211;hold at street&#8211;corners, where tens of thousands of other foot passengers have been slipping and sliding since the day broke (if this day ever broke), adding new deposits to the crust upon crust of mud, sticking at those points tenaciously to the pavement, and accumulating at compound interest.</p>
+            <p>Fog everywhere. Fog up the river, where it flows among green aits and meadows; fog down the river, where it rolls defiled among the tiers of shipping and the waterside pollutions of a great (and dirty) city. Fog on the Essex marshes, fog on the Kentish heights. Fog creeping into the cabooses of collier&#8211;brigs; fog lying out on the yards and hovering in the rigging of great ships; fog drooping on the gunwales of barges and small boats. Fog in the eyes and throats of ancient Greenwich pensioners, wheezing by the firesides of their wards; fog in the stem and bowl of the afternoon pipe of the wrathful skipper, down in his close cabin; fog cruelly pinching the toes and fingers of his shivering little 'prentice boy on deck. Chance people on the bridges peeping over the parapets into a nether sky of fog, with fog all round them, as if they were up in a balloon and hanging in the misty clouds.</p>
+
+          </section>
+        </div>
+
+        <div class="page recto">
+          <section class="chapter">
+             <h1>CHAPTER I<br /> In Chancery</h1>
+
+            <p>London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln&#8217;s Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill. Smoke lowering down from chimney&#8211;pots, making a soft black drizzle, with flakes of soot in it as big as full&#8211;grown snowflakes&#8212;gone into mourning, one might imagine, for the death of the sun. Dogs, undistinguishable in mire. Horses, scarcely better; splashed to their very blinkers. Foot passengers, jostling one another&#8217;s umbrellas in a general infection of ill temper, and losing their foot&#8211;hold at street&#8211;corners, where tens of thousands of other foot passengers have been slipping and sliding since the day broke (if this day ever broke), adding new deposits to the crust upon crust of mud, sticking at those points tenaciously to the pavement, and accumulating at compound interest.</p>
+            <p>Fog everywhere. Fog up the river, where it flows among green aits and meadows; fog down the river, where it rolls defiled among the tiers of shipping and the waterside pollutions of a great (and dirty) city. Fog on the Essex marshes, fog on the Kentish heights. Fog creeping into the cabooses of collier&#8211;brigs; fog lying out on the yards and hovering in the rigging of great ships; fog drooping on the gunwales of barges and small boats. Fog in the eyes and throats of ancient Greenwich pensioners, wheezing by the firesides of their wards; fog in the stem and bowl of the afternoon pipe of the wrathful skipper, down in his close cabin; fog cruelly pinching the toes and fingers of his shivering little 'prentice boy on deck. Chance people on the bridges peeping over the parapets into a nether sky of fog, with fog all round them, as if they were up in a balloon and hanging in the misty clouds.</p>
+
+          </section>
+        </div>
+
+      </div>
+
+      <footer id="pageFooter">
+
+        <div id="pager">
+          <nav id="pageTools">
+            <!--
+              We may implement a slider toolbar
+              to allow client to quickly jump from a page to another
+            -->
+            <h2>Page tools</h2>
+            <a id="buttonPrevious" rel="prev"> Previous page title </a>
+            <a id="buttonNext" rel="next"> Next page title </a>
+          </nav>
+        </div>
+
+      </footer>
+    </div>
+    <canvas id="pageFlip"></canvas>
+  </div>
+
+</div>
+</body>
+</html>

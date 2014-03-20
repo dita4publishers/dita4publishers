@@ -32,7 +32,7 @@
       MS Office 2007 Office Open XML to generic
       XML transform.
       
-      Copyright (c) 2009, 2014 DITA For Publishers
+      Copyright (c) 2009, 2013 DITA For Publishers
       
       This transform is a generic transform that produces a simplified
       form of generic XML from Office Open XML.
@@ -216,14 +216,12 @@
         </xsl:otherwise>
       </xsl:choose>      
     </xsl:variable>
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="false() and $debugBoolean">
       <xsl:message> + [DEBUG] match on w:p: structureType = "<xsl:sequence select="string($styleData/@structureType)"/>"</xsl:message>
     </xsl:if>
 <xsl:choose>    
   <xsl:when test="string($styleData/@structureType) = 'skip'">
-    <xsl:if test="$debugBoolean">
-      <xsl:message> + [DEBUG] skipping paragraph with @structureType "<xsl:value-of select="$styleData/@structureType"/>"</xsl:message>
-    </xsl:if>
+    <xsl:message> + [DEBUG] skipping paragraph with @structureType "<xsl:value-of select="$styleData/@structureType"/>"</xsl:message>
   </xsl:when><!-- Skip it -->
   <xsl:when test=".//w:drawing//c:chart">
     <xsl:choose>
@@ -587,7 +585,7 @@
       />                
     </xsl:variable>
     <!--  NOTE: width values are 1/20 of a point -->
-<!--    <xsl:message> + [DEBUG] ===== Starting a table</xsl:message>-->
+    <xsl:message> + [DEBUG] ===== Starting a table</xsl:message>
     <table>
       <xsl:attribute name="frame" select="local:constructFrameValue(w:tblPr/w:tblBorders)"/>
       <xsl:attribute name="calculatedWidth" select="local:calculateTableActualWidth(w:tblGrid)"/>
@@ -610,52 +608,8 @@
       </xsl:if>
       <xsl:apply-templates select="*[not(self::w:tblPr)]"/>
     </table>
-<!--    <xsl:message> + [DEBUG] ===== Ending a table</xsl:message>-->
+    <xsl:message> + [DEBUG] ===== Ending a table</xsl:message>
   </xsl:template>
-  
-  <xsl:function name="local:calculateTableCellHorizontalAlignment" as="xs:string?">
-    <!-- Returns the appropriate value for the CALS @align attribute or nothing
-         if the alignment is unspecified.
-      -->
-    <xsl:param name="tcElement" as="element(w:tc)"/>
-    <xsl:variable name="jcValue" as="xs:string?"
-      select="$tcElement/w:p/w:pPr/w:jc/@w:val"
-     />
-    <!-- See section 17.18.44 in the Office Open XML spec
-         for details on the values.
-      -->
-    <xsl:variable name="wordJustificationValues" as="xs:string+"
-      select="('left', 'center', 'right', 'both', 'end', 'distribute', 'numTab', 'start')"
-    />
-    <xsl:variable name="result" as="xs:string?"
-      select=" if ($jcValue) 
-      then ('left', 'center', 'right', 'justify', 'right', 'justify', 'char', 'left')[index-of($wordJustificationValues, $jcValue)]
-      else ()"
-    />
-    <xsl:sequence select="$result"/>
-  </xsl:function>
-  
-  <xsl:function name="local:calculateTableCellVerticalAlignment" as="xs:string?">
-    <!-- Returns the appropriate value for the CALS @valign attribute or nothing
-         if the alignment is unspecified.
-      -->
-    <xsl:param name="tcElement" as="element(w:tc)"/>
-    <xsl:variable name="valignValue" as="xs:string?"
-      select="$tcElement/w:tcPr/w:vAlign/@w:val"
-     />
-    <!-- See section 17.18.101 ST_VerticalJc in the Office Open XML spec
-         for details on the values.
-      -->
-    <xsl:variable name="wordJustificationValues" as="xs:string+"
-      select="('bottom', 'center', 'top', 'both')"
-    />
-    <xsl:variable name="result" as="xs:string?"
-      select="if ($valignValue)
-      then ('bottom', 'middle', 'top', 'top')[index-of($wordJustificationValues, $valignValue)]
-      else ()"
-    />
-    <xsl:sequence select="$result"/>
-  </xsl:function>
   
   <xsl:function name="local:calculateTableActualWidth" as="xs:string">
     <xsl:param name="tblGrid" as="element(w:tblGrid)?"/>
@@ -754,22 +708,8 @@
       select="ancestor::w:tr[1]/*[count($curCell|descendant-or-self::*)=count(descendant-or-self::*)]"/>
     <xsl:variable name="numCellsBefore"
       select="count($curCellInContext/preceding-sibling::*[descendant-or-self::*[name()='w:tc' and (count(ancestor::w:tbl)=$tblCount)]])"/>
-    
-    <xsl:variable name="horizontalAlignment" as="xs:string?"
-      select="local:calculateTableCellHorizontalAlignment(.)"
-    />
-    <xsl:variable name="verticalAlignment" as="xs:string?"
-      select="local:calculateTableCellVerticalAlignment(.)"
-    />
-    
     <xsl:if test="not($vmerge and not($vmerge/@w:val))">
       <td>
-        <xsl:if test="$horizontalAlignment">
-          <xsl:attribute name="align" select="$horizontalAlignment"/>
-        </xsl:if>
-        <xsl:if test="$verticalAlignment">
-          <xsl:attribute name="valign" select="$verticalAlignment"/>
-        </xsl:if>
         <xsl:for-each select="w:tcPr[1]/w:gridSpan[1]/@w:val">
           <xsl:attribute name="colspan">
             <xsl:value-of select="."/>
@@ -890,23 +830,16 @@
   </xsl:template>
   
   <xsl:template match="w:sym">
-    <xsl:variable name="fontFace" as="xs:string?" 
-      select="@w:font"
-    />
-<!--    <xsl:message> + [DEBUG] ==== w:sym: fontFace="<xsl:sequence select="$fontFace"/>"</xsl:message>-->
-    <xsl:choose>
-      <xsl:when test="$fontFace != ''">
-        <xsl:sequence select="local:constructSymbolForCharcode(
-          string(@w:char), 
-          $fontFace
-          )"
-        />
-      </xsl:when>
-      <xsl:otherwise>
-        <rsiwp:symbol font="{$fontFace}"
-          ><xsl:sequence select="string(@w:char)"/></rsiwp:symbol>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:if test="false() and $debugBoolean">
+      <xsl:message> + [DEBUG] w:sym: <xsl:sequence select="."/></xsl:message>
+    </xsl:if>
+    <xsl:variable name="charCode" select="@w:char" as="xs:string"/>
+    <xsl:variable name="character" select="codepoints-to-string(local:hex-to-char($charCode))" as="xs:string"/>
+    <xsl:if test="false() and $debugBoolean">
+      <xsl:message> + [DEBUG] w:sym: char="<xsl:sequence select="$character"/>"</xsl:message>
+    </xsl:if>
+    <rsiwp:symbol font="{@w:font}"
+      ><xsl:sequence select="$character"/></rsiwp:symbol>
   </xsl:template>
   
   <xsl:function name="local:constructSymbolForCharcode" as="node()*">
@@ -1154,38 +1087,6 @@
       then local:hex-digit-to-integer($in)
       else 16*local:hex-to-char(substring($in, 1, string-length($in)-1)) +
       local:hex-digit-to-integer(substring($in, string-length($in)))"/>
-  </xsl:function>
-  
-  <xsl:function name="local:getUnicodeForFont" as="xs:string">
-    <xsl:param name="fontName" as="xs:string"/>
-    <xsl:param name="fontCodePoint" as="xs:string"/>
-<!--    <xsl:message> + [DEBUG] getUnicodeForFont(): fontName="<xsl:value-of select="$fontName"/>"</xsl:message>
-    <xsl:message> + [DEBUG] getUnicodeForFont(): fontCodePoint="<xsl:value-of select="$fontCodePoint"/>"</xsl:message>
--->    
-    <xsl:variable name="fontCharMap" as="element()?"
-      select="$font2UnicodeMaps/*[lower-case(@sourceFont) = lower-case($fontName)]"
-    />
-
-    <xsl:choose>
-      <xsl:when test="not($fontCharMap)">
-        <xsl:message> - [WARN] getUnicodeForFont(): No font-to-character map found for font "<xsl:value-of select="$fontName"/>"</xsl:message>
-        <xsl:sequence select="'003F'"></xsl:sequence>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:variable name="unicodeCodePoint" as="xs:string">
-          <xsl:variable name="codePointMapping" as="element()?"
-            select="$fontCharMap/codePointMapping[@origCodePoint = $fontCodePoint]"
-          />
-         
-          <xsl:variable name="unicodeCodePoint" select="$codePointMapping/@unicodeCodePoint" as="xs:string"/>
-<!--          <xsl:message> + [DEBUG] getUnicodeForFont():   codePointMapping=<xsl:sequence select="$codePointMapping"/></xsl:message>     -->
-<!--          <xsl:message> + [DEBUG] getUnicodeForFont():   unicodeCodePoint=<xsl:sequence select="$unicodeCodePoint"/></xsl:message>-->
-          <xsl:sequence 
-            select="$unicodeCodePoint"/>
-        </xsl:variable>
-        <xsl:sequence select="$unicodeCodePoint"/>
-      </xsl:otherwise>
-    </xsl:choose>
   </xsl:function>
   
   <xsl:function name="local:hex-digit-to-integer" as="xs:integer">

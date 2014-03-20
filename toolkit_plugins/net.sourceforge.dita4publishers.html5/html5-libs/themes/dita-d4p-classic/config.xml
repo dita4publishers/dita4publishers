@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+       Licensed to the Apache Software Foundation (ASF) under one
+       or more contributor license agreements.  See the NOTICE file
+       distributed with this work for additional information
+       regarding copyright ownership.  The ASF licenses this file
+       to you under the Apache License, Version 2.0 (the
+       "License"); you may not use this file except in compliance
+       with the License.  You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing,
+       software distributed under the License is distributed on an
+       "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+       KIND, either express or implied.  See the License for the
+       specific language governing permissions and limitations
+       under the License.
+-->
+<html5>
+  <!--
+
+    Every CSS below this marker should be easely reusable
+
+  -->
+  <!-- Core -->
+  <tag>
+    <name>link</name>
+    <output>yes</output>
+    <filename>style.css</filename>
+    <prefix></prefix>
+    <suffix></suffix>
+    <attributes>
+        <rel>stylesheet</rel>
+        <type>text/css</type>
+        <media>screen, projection</media>
+    </attributes>
+    <value></value>
+    <source>
+      <file path="themes/dita-d4p-classic/css/theme.css" />
+
+      <file path="modules/960js/code/css/reset.css" />
+      <file path="modules/960js/code/css/text.css" />
+
+      <!-- Vegur font -->
+      <file path="misc/fonts/vegur/css/vegur.css" />
+      <file path="misc/fonts/vegur/css/typography.css" />
+
+      <!-- D4P specific -->
+      <file path="modules/features/layout/css/ui-icons.css" />
+      <file path="modules/features/d4p/css/d4p.css" />
+      <file path="modules/features/d4p/css/tools.css" />
+      <file path="modules/features/columns/css/columns.css" />
+      <file path="modules/DITA/notes/css/notes.css" />
+
+      <!-- DITA specific -->
+      <file path="modules/DITA/css/dita.css" />
+      <file path="modules/DITA/tables/css/table.css" />
+      <file path="modules/DITA/example/css/example.css" />
+      <file path="modules/DITA/list/css/list.css" />
+      <file path="modules/DITA/buttons/css/buttons.css" />
+      <file path="modules/DITA/images/css/images.css" />
+      <file path="modules/DITA/pre/css/pre.css" />
+      <file path="modules/DITA/reltable/css/reltable.css" />
+      <file path="modules/DITA/tasks/css/task.css" />
+
+      <!-- jQuery UI -->
+      <file path="modules/jQuery-ui/themes/d4p-default/jquery.ui.accordion.css" />
+      <file path="modules/jQuery-ui/themes/d4p-default/jquery.ui.core.css" />
+      <file path="modules/jQuery-ui/themes/d4p-default/jquery.ui.theme.css" />
+      <file path="modules/jQuery-ui/themes/d4p-default/jquery.ui.accordion.css" />
+
+      <!-- Custom jQuery widgets -->
+      <file path="modules/jQuery-widgets/navigation/classic/css/collapsible-navigation.css" />
+
+
+    </source>
+  </tag>
+
+
+  <!-- tag for mobile version -->
+  <tag>
+    <name>link</name>
+    <output>no</output>
+    <filename>mobile.min.css</filename>
+    <prefix></prefix>
+    <suffix></suffix>
+    <attributes>
+      <rel>stylesheet</rel>
+      <type>text/css</type>
+      <media>screen, projection</media>
+    </attributes>
+    <value></value>
+    <source>
+      <file path="modules/960-Responsive-Grid/css/mobile.css" />
+    </source>
+  </tag>
+
+  <!-- tag for 720 px grid -->
+  <tag>
+    <name>link</name>
+    <output>no</output>
+    <filename>720.min.css</filename>
+    <prefix></prefix>
+    <suffix></suffix>
+    <attributes>
+      <rel>stylesheet</rel>
+      <type>text/css</type>
+       <media>screen, projection</media>
+    </attributes>
+    <value></value>
+    <source>
+       <file path="modules/960-Responsive-Grid/css/720.css" />
+    </source>
+  </tag>
+
+  <!-- tag for 960 px grid -->
+  <tag>
+    <name>link</name>
+    <output>no</output>
+    <filename>960.min.css</filename>
+    <prefix></prefix>
+    <suffix></suffix>
+    <attributes>
+     <rel>stylesheet</rel>
+     <type>text/css</type>
+     <media>screen, projection</media>
+    </attributes>
+    <value></value>
+    <source>
+      <file path="modules/960-Responsive-Grid/css/960.css" />
+    </source>
+  </tag>
+
+  <!-- tag for 1200 px grid -->
+  <tag>
+    <name>link</name>
+    <output>no</output>
+    <filename>1200.min.css</filename>
+    <prefix></prefix>
+    <suffix></suffix>
+    <attributes>
+      <rel>stylesheet</rel>
+      <type>text/css</type>
+      <media>screen, projection</media>
+    </attributes>
+    <value></value>
+    <source>
+      <file path="modules/960-Responsive-Grid/css/1200.css" />
+    </source>
+  </tag>
+
+  <!-- tag for 1600 px grid -->
+  <tag>
+    <name>link</name>
+    <output>no</output>
+    <filename>1560.min.css</filename>
+    <prefix></prefix>
+    <suffix></suffix>
+    <attributes>
+      <rel>stylesheet</rel>
+      <type>text/css</type>
+        <media>screen, projection</media>
+    </attributes>
+    <value></value>
+    <source>
+      <file path="modules/960-Responsive-Grid/css/1560.css" />
+    </source>
+  </tag>
+
+  <!-- tag for 1920 px grid -->
+  <tag>
+    <name>link</name>
+    <output>no</output>
+    <filename>1920.min.css</filename>
+    <prefix></prefix>
+    <suffix></suffix>
+    <attributes>
+      <rel>stylesheet</rel>
+      <type>text/css</type>
+         <media>screen, projection</media>
+      </attributes>
+      <value></value>
+      <source>
+        <file path="modules/960-Responsive-Grid/css/1920.css" />
+      </source>
+  </tag>
+
+  <!-- tag for > 2500 px grid -->
+  <tag>
+    <name>link</name>
+    <output>no</output>
+    <filename>2520.min.css</filename>
+    <prefix></prefix>
+    <suffix></suffix>
+    <attributes>
+      <rel>stylesheet</rel>
+      <type>text/css</type>
+      <media>screen, projection</media>
+    </attributes>
+    <value></value>
+    <source>
+      <file path="modules/960-Responsive-Grid/css/2520.css" />
+    </source>
+  </tag>
+
+
+  <tag>
+    <name>link</name>
+    <output>yes</output>
+    <prefix></prefix>
+    <suffix></suffix>
+    <attributes>
+      <rel>stylesheet</rel>
+      <type>text/css</type>
+      <media>screen, projection, print</media>
+      <src>http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML</src>
+    </attributes>
+    <value></value>
+  </tag>
+
+  <tag>
+    <name>script</name>
+    <output>yes</output>
+    <filename>script.js</filename>
+    <prefix></prefix>
+    <suffix></suffix>
+    <attributes>
+        <type>text/javascript</type>
+    </attributes>
+    <value></value>
+    <source>
+
+      <file path="modules/modernizr/modernizr.dev.2.0.6.js" />
+
+      <!--file path="modules/prefixFree/prefixFree.js" /-->
+      <file path="modules/jQuery/jquery-1.7.1.min.js" />
+
+      <!-- navigation -->
+      <file path="modules/jQuery-widgets/navigation/classic/js/navigation.js" />
+
+      <!-- jquery ui -->
+      <file path="modules/jQuery-ui/ui/jquery.ui.core.js" />
+      <file path="modules/jQuery-ui/ui/jquery.ui.widget.js" />
+      <file path="modules/jQuery-ui/ui/jquery.ui.accordion.js" />
+      <file path="themes/dita-d4p-classic/js/script.js" />
+
+      <!-- code to instantiate jQuery UI -->
+      <!--file path="modules/jQuery-widgets-init/accordion/accordion.js" /-->
+
+      <!-- jQuery Cycle -->
+      <!--file path="modules/jQuery-widgets/cycle/js/cycle.js" /-->
+      <!--file path="modules/jQuery-widgets/cycle/js/jquery.cycle.js" /-->
+    </source>
+  </tag>
+
+ <tag>
+    <name>script</name>
+      <output>yes</output>
+      <prefix></prefix>
+      <suffix></suffix>
+      <attributes>
+          <type>text/javascript</type>
+      </attributes>
+      <value>
+      <![CDATA[
+        d4p.cssGridPath = d4p.dev ? 'libs/modules/960-Responsive-Grid/css/' : 'themes/dita-d4p-classic/css/';
+        var ADAPT_CONFIG = {
+          // Where is your CSS?
+          path: d4p.relativePath + d4p.cssGridPath,
+
+          // false = Only run once, when page first loads.
+          // true = Change on window resize and page tilt.
+          dynamic: true,
+
+          // Optional callback... myCallback(i, width)
+          callback: setBodyClassfunction,
+
+          // First range entry is the minimum.
+          // Last range entry is the maximum.
+          // Separate ranges by "to" keyword.
+          range: [
+             // small (size-0)
+            '0px    to 760px  = mobile.min.css',
+             // medium (size-1, size-2)
+            '760px  to 980px  = 720.min.css',
+            '980px  to 1270px = 960.min.css',
+             // large (size-3, size-5)
+            '1270px to 1600px = 1200.min.css',
+            '1600px to 1940px = 1560.min.css',
+             // extra large (size-6)
+            '1940px to 2540px = 1920.min.css',
+            '2540px           = 2520.min.css'
+          ]
+        };
+
+        function setBodyClassfunction (i, width) {
+            var cs = '';
+            $("html").removeClass (function (index, css) {
+              return (css.match (/size-[a-z]+/g) || []).join(' ');
+            });
+
+            switch(i)
+            {
+            case 0:
+              cs = 'size-small';
+              break;
+            case 1:
+            case 2:
+              cs = 'size-medium';
+              break;
+            case 3:
+            case 4:
+              cs = 'size-large';
+              break;
+            default:
+               cs = 'size-x-large';
+            }
+            $("html").addClass(cs);
+         }
+        ]]>
+      </value>
+  </tag>
+
+  <tag>
+    <name>script</name>
+    <output>yes</output>
+    <filename>adapt.js</filename>
+    <prefix></prefix>
+    <suffix></suffix>
+    <attributes>
+        <type>text/javascript</type>
+    </attributes>
+    <value></value>
+    <source>
+      <!-- The adapt.js for responsive tools -->
+      <file path="modules/960-Responsive-Grid/js/adapt.js" />
+    </source>
+  </tag>
+
+  <!--
+    external libraries, stored locally
+    you could use the latest CDN instead
+  -->
+
+  <d4p>
+    <init>false</init>
+  </d4p>
+
+  <class>
+    <body>img-with-shadow</body>
+    <navigation>grid_4 alpha omega</navigation>
+    <main>
+      <content>grid_8 alpha omega</content>
+    </main>
+    <section>
+      <container>grid_12</container>
+    </section>
+  </class>
+
+  <search>
+    <action></action>
+    <placeholder>Search the documentation...</placeholder>
+    <inputs>
+      <!-- add all inputs elements you want in the search form -->
+    </inputs>
+  </search>
+
+</html5>

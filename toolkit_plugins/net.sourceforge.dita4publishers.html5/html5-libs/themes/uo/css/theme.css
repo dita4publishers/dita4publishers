@@ -1,0 +1,366 @@
+body.theme-01 .section .title { background-color: #FFF; }
+
+body dfn
+{
+  font-weight: normal;
+  font-style: normal;
+}
+
+span.ph.num
+{
+  float: left;
+  left: 45px;
+  position: absolute;
+}
+
+.theme-01 .section .title { background-color: #FFFFFF; }
+.theme-01 .section h3 { color: #741026; }
+
+.section .title, .section h2, .section h2 a, .section h2 a:link, .section h2 a:visited
+{
+  color: #741026;
+  font-size: 14px;
+  font-weight: bold;
+  height: 23px;
+  line-height: 1;
+  margin-bottom: 10px;
+  outline: medium none;
+  padding: 0;
+  text-decoration: none;
+}
+
+.ui-accordion-content ~ div.nested2 { display: none; }
+.ui-accordion-content.ui-accordion-content-active ~  div.nested2 { display: block; }
+h2.ui-accordion-header { font-size: 1.7em; }
+
+div.nested2 h3
+{
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: 0.5em 0;
+}
+
+/**
+ * Toolbox for tabbed navigation
+ */
+
+#tab-tools
+{
+  display: block;
+  position: absolute;
+  width: 100%;
+  border-bottom: 1px dashed #ccc;
+  height: 22px;
+  padding-top: 12px;
+}
+
+#tab-tools:hover { cursor: pointer; }
+
+#tab-tools h2, #tab-tools span
+{
+  float: left;
+  position: relative;
+}
+
+#tab-tools span.ico.grip { margin: 0 5px; }
+
+#tab-tools h2
+{
+  font-size: 1em;
+  font-weight: bold;
+}
+
+#tabs-navigation .ui-state-active a, #tabs-navigation .ui-state-hover a { text-decoration: underline; }
+
+.content-chunk
+{
+  display: block;
+  min-height: 400px;
+  margin: 0px 0 70px 0;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+#toolbar #contentToolBar, #toolbar #homeToolBar
+{
+  display: block;
+  height: 38px;
+  padding-top: 5px;
+  width: 950px;
+  margin: 0;
+}
+
+#toolbar #contentToolBar
+{
+  border-bottom: 1px solid #ccc;
+  background-color: #eee;
+  border-radius: 3px 3px 0px 0px;
+}
+
+#toolbar #homeToolBar { }
+
+#home .header h1
+{
+  margin: 17px 0 0 0px;
+  font-size: 22px;
+  color: #741026;
+  top: 16px;
+  display:inline
+
+}
+
+#home.state-active .header h1
+{
+  font-size: 20px;
+  margin: 17px 0 0 20px;
+}
+
+#home .header { position: relative; top:20px;}
+
+#home button.audienceBtn
+{
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  position: relative;
+  margin: 0;
+  
+}
+
+#home button.audienceBtn .ui-icon
+{
+  position:relative;
+  left:-9px;
+}
+
+#audience-widget
+{
+  font-size: 16px;
+  line-height: 18px;
+  margin-top: 0px;
+  display: inline;
+}
+#audience-widget button {
+  display: inline;
+  font-size:12px;
+  padding:2px 3px;
+  margin-left:0.8em;
+}
+#audience-widget .ligther
+{
+  padding-left: 10px;
+  font-size: 12px;
+}
+
+#audience-widget h1:hover { cursor: pointer; }
+.active #audience-select { display: block; }
+
+#audience-select
+{
+  display: none;
+  background-color: #FFFFFF;
+  border: 1px solid #CAC3BC;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  padding: 4px 0;
+  position: absolute;
+  left: 0x;
+  top: 40px;
+  width: 570px;
+  z-index: 1000;
+  font-size: 16px;
+}
+
+#audience-select li
+{
+  background-image: none;
+  margin: 0;
+}
+
+#audience-select li:hover { background-color: #EEE; }
+
+#audience-select li a:link
+{
+  text-decoration: none;
+  display: block;
+  padding: 5px;
+}
+
+#ajax-content .toolbar { left: 0px; }
+
+.content-chunk h4, .content-chunk h5 { margin-bottom: 0.5em; }
+
+
+#ajax-content section, #ajax-content article
+{
+  margin: 30px 0 4px 60px;
+  width: 600px;
+}
+
+#ajax-content h1, #ajax-content p { margin-left: 0px; }
+#content-container .topic { margin-top: 0em; }
+
+#main-content #content-container h1
+{
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.topic .address p.street { margin: 0; }
+
+/**
+ * icons
+ */
+
+#main-content #doc-content .box-ico
+{
+  margin-top: 5em;
+  float: left;
+  display: block;
+  width: 120px;
+  height: 100px;
+  text-align: center;
+  margin-left: 15px;
+}
+
+#main-content #doc-content .state-active .box-ico
+{
+  margin-top: 30px;
+  width: 85px;
+  height: 100px;
+}
+
+.box-ico  span.ico
+{
+  background: transparent url(../img/icones-sprite.png) no-repeat 0px 0px;
+  display: block;
+  width: 97px;
+  height: 77px;
+  margin: 0 auto;
+}
+
+.state-active .box-ico  span.ico
+{
+  background: transparent url(../img/icones-sprite.png) no-repeat 0px 0px;
+  display: block;
+  width: 61px;
+  height: 52px;
+}
+
+.box-ico a, .box-ico a:link, .box-ico a:visited
+{
+  padding-top: 90px;
+  position: relative;
+  top: -80px;
+  width: 120px;
+  font-weight: bold;
+  line-height: 1.2;
+  color:#000;
+}
+#main-content .box-ico a, #main-content .box-ico a:link, #main-content .box-ico a:visited {
+  color:#333;
+}
+#main-content .box-ico.active  a {
+  color:#741026;
+}
+
+.state-active .box-ico a, .state-active .box-ico a:link
+{
+  height: 60px;
+  width: 85px;
+  padding-top: 60px;
+  position: relative;
+  top: -55px;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+#home.state-active
+{
+  background-color: #fff;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.25), 0 0 50px rgba(0,0,0,0.1) inset;
+  border-radius: 1% 1% 1% 1% / 1% 1% 1% 1%;
+  left: -39px;
+  position: relative;
+  width: 948px;
+  margin-bottom: 2em;
+}
+
+#home.state-active:after
+{
+  position: absolute;
+  width: 80%;
+  height: 40%;
+  left: 10%;
+  border-radius: 50%;
+  z-index: -1;
+  bottom: 0%;
+  content: "";
+  box-shadow: 0 7px 16px rgba(0,0,0,0.4);
+}
+
+
+
+/**
+ * icons
+ */
+
+#ico-policies span.ico, #ico-politiques span.ico { background-position: 0px -154px; }
+#ico-conges span.ico, #ico-leaves span.ico { background-position: -194px 0; }
+#ico-benefits span.ico, #ico-avantages span.ico { background-position: -97px 0; }
+#ico-remuneration span.ico, #ico-compensation span.ico { background-position: 0px -77px; }
+#ico-performance span.ico { background-position: -194px -77px; }
+#ico-pension span.ico, #ico-regime-retraite span.ico { background-position: -97px -77px; }
+#ico-awards span.ico, #ico-prix span.ico { background-position: -97px -154px; }
+#ico-bookshelf span.ico { background-position: -194px -154px; }
+
+.state-active #ico-life-events span.ico { background-position: 0px -232px; }
+.state-active #ico-policies span.ico, .state-active #ico-politiques span.ico { background-position: 0px -336px; }
+.state-active #ico-conges span.ico, .state-active #ico-leaves span.ico { background-position: -127px -232px; }
+.state-active #ico-benefits span.ico, .state-active  #ico-avantages span.ico { background-position: -63px -232px; }
+.state-active #ico-remuneration span.ico, .state-active  #ico-compensation span.ico { background-position: 0px -284px; }
+.state-active #ico-performance span.ico { background-position: -127px -284px; }
+.state-active #ico-pension span.ico, .state-active #ico-regime-retraite span.ico { background-position: -62px -284px; }
+.state-active #ico-awards span.ico, .state-active #ico-prix span.ico { background-position: -66px -336px; }
+.state-active #ico-bookshelf span.ico { background-position: 2px -94px; }
+body.theme-01 .section .title { background-color: #FFF; }
+
+body dfn
+{
+  font-weight: normal;
+  font-style: normal;
+}
+
+.section-content li { margin: 1em 0; }
+#main-content article h1 { margin-top: 0; }
+
+/** for collective agreements **/
+span.ph.num
+{
+  float: left;
+  left: 30px;
+  position: absolute;
+}
+
+/** d4p-faq **/
+
+#main-content .d4p-faq h2 {
+  font-size:16px;
+  margin-bottom:1.5em;
+}
+
+ #main-content .d4p-faq .ui-accordion-content {
+   border-left:10px solid #dfdfdf;
+   padding-left:20px;
+   margin-bottom: 2em;
+ }
+ 
+.named-anchor {
+  position:absolute;
+  top:0px;
+  left:0px;
+}
+ 
+ 

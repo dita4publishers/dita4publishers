@@ -1,0 +1,32 @@
+/** carefull, url are set based on the final location of the assets, not the current **/
+@font-face {
+  font-family: "Vegur Regular";
+    src: url("../fonts/vegur/Vegur-R-0.602.otf");
+}
+@font-face {
+  font-family: "Vegur Bold";
+    src: url("../fonts/Vegur/Vegur-B-0.602.otf");
+}
+@font-face {
+  font-family: "Vegur Medium";
+    src: url("../fonts/Vegur/Vegur-M-0.602.otf");
+}
+@font-face {
+  font-family: "Vegur Light";
+    src: url("../fonts/Vegur/Vegur-L-0.602.otf");
+}
+
+
+.fontface h1, .fontface  h2, .fontface  h3, .fontface  h4,.fontface  h5,.fontface  h6
+{
+  font-family: "Vegur Regular", sans-serif;
+  color: #333;
+}
+
+.fontface body
+{
+  font-family: DroidSans, Arial, Helvetica, sans-serif;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  color: #333;
+}

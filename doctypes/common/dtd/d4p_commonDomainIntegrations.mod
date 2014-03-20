@@ -93,4 +93,9 @@
 >
 %xml-d-def;
 
+<!ENTITY % abbrev-d-def     
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Abbreviated Form Domain//EN" 
+         "abbreviateDomain.mod"
+>%abbrev-d-def;
+
 <!-- ================ End of declaration set ==================== -->

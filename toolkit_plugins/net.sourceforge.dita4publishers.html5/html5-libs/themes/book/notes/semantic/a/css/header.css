@@ -1,0 +1,17 @@
+header {
+  margin:25px 0 2em 0;
+  position:relative;
+}
+header h1 {
+  font-size:1.2em;
+  color:#666;
+  text-align: left;
+  width:430px;
+  margin-left:125px;
+}
+.two-sides header h1 {
+  display:block;
+  width:500px;
+  margin-left:0;
+  text-align: center;
+}

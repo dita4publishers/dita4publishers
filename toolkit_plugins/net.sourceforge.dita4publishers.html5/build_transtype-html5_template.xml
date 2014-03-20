@@ -1,131 +1,121 @@
-<project name="dita2html5" default="dita2html5"
-  >
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
 
+    http://www.apache.org/licenses/LICENSE-2.0
 
-  <!-- test to see where the plugin is located, plugins or demo -->
-  <dirname property="html5.dir" file="${ant.file.dita2html5}"/>
-  
-  <property name="default.settings" value="${html5.dir}/setting.properties" />
-  
-  <available file="${default.settings}" property="setting.present"/>
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<project name="dita2html5" default="dita2html5" xmlns:dita="http://dita-ot.sourceforge.net">
 
-	<target name="dita2html5"
+  <dirname property="ditaot.dir" file="${d4p.html5.dir}/../../"/>
+
+  <condition property="compressor.script.filename" value="build-theme.xml">
+    <not>
+      <isset property="compressor.script.filename" />
+    </not>
+  </condition>
+
+  <import file="${compressor.script.filename}" />
+  <import file="compressor-install.xml" />
+
+  <target name="dita2html5"
     unless="noMap"
     xmlns:dita="http://dita-ot.sourceforge.net"
-		dita:depends="d4p.map-driven-build-init, build-init, preprocess, html5"
+    dita:depends="compressor.install, d4p.map-driven-build-init, build-init, preprocess, html5"
     dita:extension="depends org.dita.dost.platform.InsertDependsAction">
   </target>
 
+
   <target name="html5"
     unless="noMap"
-    depends="dita.map.html5"/>
-    
-    <target name="load.settings" description="Load theme settings if exists" if="setting.present" unless="html5.site.theme">
-    	<echo>Loading html5.site.theme from settings</echo>
-    	<loadproperties srcFile="${default.settings}"/>
-    </target>
-    
-  <target name="html5.theme.init" depends="load.settings" description="Init HTML5 theme properties">
-     <condition property="html5.site.theme" value="d4p-classic">
-		  <not>
-        <isset property="html5.site.theme" />
-      </not>
-	</condition>
-	
-	<condition property="html5.dir.libs" value="libs">
-		  <not>
-        <isset property="html5.dir.libs" />
-      </not>
-	</condition>
-	
-	
-	 <condition property="html5.site.config" value="${html5.dir}/${html5.dir.libs}/themes/${html5.site.theme}/config.xml">
-		  <not>
-        <isset property="html5.site.config" />
-      </not>
-	</condition>
-	
-		<xmlproperty file="${html5.site.config}" collapseAttributes="true" semanticAttributes="true"/>
-		
-		<echoproperties>
-    		<propertyset>
-      			<propertyref prefix="html5."/>
-    		</propertyset>
-  		</echoproperties>
-  </target>
+    depends="dita.map.html5"
+  />
 
-  <target name="html5.theme.build" if="html5.theme.compile" depends="html5.theme.init"
-    description="Compile HTML5 theme">
-    <ant dir="${html5.dir}/${html5.dir.libs}/" antfile="build.xml">
-  		<property name="properties" value="${html5.site.theme}"/>
-	</ant>  
-  </target>
+  <target name="dita.map.html5.init" description="Initialize  HTML5 plugin properties">
 
-  <target name="dita.map.html5.init" depends="html5.theme.build"
-    description="Init properties for HTML5">
-	
-	<condition property="html5.site.js.vars" value="${html5.dir}/${html5.dir.libs}/themes/${html5.site.theme}/vars.xml">
-		  <not>
-        <isset property="html5.site.js.vars" />
-      </not>
-	</condition>
-	
-	
-    <available file="${html5.site.js.vars}" property="html5.site.js.vars.exists"/>
-	
-	<condition property="html5.themes.output.dir" value="themes">
-	  <not>
-        <isset property="args.debug" />
-      </not>
-	</condition>
-	
-	<condition property="html5.themes.output.dir" value="libs">
-        <isset property="args.debug" />  
-	</condition>
-	
-	<condition property="http.absolute.uri" value="">
-	  <not>
+    <condition property="http.absolute.uri" value="">
+      <not>
         <isset property="http.absolute.uri" />
       </not>
-	</condition>
+    </condition>
 
     <property name="d4p.is.map.driven" value="true"/>
 
     <condition property="topics.output.dir" value="topics">
-  		<not>
-  			<isset property="topics.output.dir"/>
-  	  </not>
-  	</condition>
-  	
-  	<condition property="html5.grid.prefix" value="grid_">
-  		<not>
-  			<isset property="html5.grid.prefix"/>
-  	  </not>
-  	</condition>
-
-  	<!-- The name of the directory, within the output package, to contain all images: -->
-
-    <condition property="images.output.dir" value="images">
-  		<not>
-    	  <isset property="images.output.dir" />
-  		</not>
+      <not>
+        <isset property="topics.output.dir"/>
+      </not>
     </condition>
 
-  	<property name="html5.temp.dir" value="${dita.temp.dir}${file.separator}html5_temp"/>
+    <condition property="html5.grid.prefix" value="grid_">
+      <not>
+        <isset property="html5.grid.prefix"/>
+      </not>
+    </condition>
 
-  	<!-- Defines the @class value to use for topic elements generated for topicheads. -->
-  	<condition property="title.only.topic.class.spec" value="- topic/topic ">
-  		<not>
-    	  <isset property="title.only.topic.class.spec" />
-  		</not>
-  	</condition>
+    <!-- The name of the directory, within the output package, to contain all images: -->
+    <condition property="images.output.dir" value="images">
+      <not>
+        <isset property="images.output.dir" />
+      </not>
+    </condition>
 
-  	<!-- Defines the @class value to use for topic title elements generated for topicheads. -->
-  	<condition property="title.only.topic.title.class.spec" value="- topic/title ">
-  		<not>
-    	  <isset property="title.only.topic.title.class.spec" />
-  		</not>
-  	</condition>
+    <condition property="html5.copy.libs" value="yes">
+      <and>
+        <not>
+          <isset property="html5.copy.libs" />
+        </not>
+        <isset property="args.debug" />
+      </and>
+    </condition>
+
+    <condition property="dita.map.html5.do.package" value="yes">
+      <and>
+        <not>
+          <isset property="html5.theme.exists" />
+        </not>
+        <not>
+          <isset property="args.debug" />
+        </not>
+      </and>
+    </condition>
+
+    <condition property="html5.copy.assets" value="yes">
+      <and>
+        <not>
+          <isset property="html5.copy.libs" />
+        </not>
+        <not>
+          <isset property="args.debug" />
+        </not>
+      </and>
+    </condition>
+
+    <!-- Defines the @class value to use for topic elements generated for topicheads. -->
+    <condition property="title.only.topic.class.spec" value="- topic/topic ">
+      <not>
+        <isset property="title.only.topic.class.spec" />
+      </not>
+    </condition>
+
+    <!-- Defines the @class value to use for topic title elements generated for topicheads. -->
+    <condition property="title.only.topic.title.class.spec" value="- topic/title ">
+      <not>
+        <isset property="title.only.topic.title.class.spec" />
+      </not>
+    </condition>
 
     <basename property="dita.map.toc.root"
       file="${dita.input.filename}"
@@ -152,207 +142,213 @@
         <isset property="args.debug" />
       </not>
     </condition>
-    
+
     <condition property="args.compression.suffix" value="">
         <isset property="args.debug" />
-    </condition>       
-    
+    </condition>
+
     <condition property="args.css.filename" value="style">
       <not>
         <isset property="args.css.filename" />
       </not>
     </condition>
- 
+
     <condition property="args.css.extension" value=".css">
       <not>
         <isset property="args.css.extension" />
       </not>
-    </condition> 
-    
+    </condition>
+
     <condition property="args.js.extension" value=".js">
       <not>
         <isset property="args.js.extension" />
       </not>
-    </condition>   
-		
-	<condition property="args.css.file" value="">
+    </condition>
+
+    <condition property="args.css.file" value="">
       <not>
         <isset property="args.css.file" />
       </not>
     </condition>
-    
-     <condition property="args.js.filename" value="script">
+
+    <condition property="args.js.filename" value="script">
       <not>
         <isset property="args.js.filename" />
       </not>
     </condition>
-    
-    <condition property="html5.args.theme.file" value="themes/${html5.site.theme}/css/${args.css.filename}${args.compression.suffix}${args.css.extension}">
+
+    <!-- check the role of the next 3 lines -->
+    <condition property="html5.args.css.path" value="themes/${html5.site.theme}/${html5.css.dir}/">
+      <not>
+        <isset property="html5.args.css.path" />
+      </not>
+    </condition>
+
+    <condition property="html5.args.theme.file" value="themes/${html5.site.theme}/${html5.css.dir}/${args.css.filename}${args.compression.suffix}${args.css.extension}">
       <not>
         <isset property="html5.args.theme.file" />
       </not>
     </condition>
-    
-	<condition property="args.js.file" value="themes/${html5.site.theme}/js/${args.js.filename}${args.compression.suffix}${args.js.extension}">
+
+    <condition property="args.js.file" value="themes/${html5.site.theme}/${html5.js.dir}/${args.js.filename}${args.compression.suffix}${args.js.extension}">
       <not>
         <isset property="args.js.file" />
       </not>
-    </condition>    
-    
+    </condition>
+
     <condition property="css.output.dir" value="css">
       <not>
         <isset property="args.css.output.dir" />
       </not>
     </condition>
-    
-	<condition property="lib.html5.dir.libs" value="libs">
-      <not>
-        <isset property="lib.html5.dir.libs" />
-      </not>
+
+    <!-- the html5.themes.output.dir change in debug mode -->
+    <condition property="html5.themes.output.dir" value="libs">
+      <isset property="args.debug" />
     </condition>
-    
-     <condition property="html5.themes.output.dir" value="themes">
+
+    <condition property="html5.themes.output.dir" value="themes">
       <not>
         <isset property="html5.themes.output.dir" />
       </not>
     </condition>
 
-    <!--condition property="css.output.dir" value="${args.css.output.dir}">
-      <isset property="args.css.output.dir" />
-    </condition-->
-
     <condition property="html5.doJavaScriptFileCopy">
-    	<!-- For now just always do it. -->
-  	  	<equals arg1="true" arg2="true"/>
+      <equals arg1="true" arg2="true"/>
    </condition>
 
     <condition property="html5.do.copy.graphics" value="true">
-  		<not>
-  			<isset property="html5.do.copy.graphics"/>
-  	  </not>
-  	</condition>
-  	
-  	<!-- 
-  	    output navigation in different ways
-  	    - navigation-default: a standard navigation (for left or right size)
-  	    - navigation-tabbed:  a tabbed navigation
-  	               You need a limited number of items 
-  	              at the first level for this !important
-  	-->
-  	 <condition property="html5.navigation.markup" value="navigation-default">
-  		<not>
-  			<isset property="html5.navigation.markup"/>
-  	  </not>
-  	</condition>
-
-    <condition property="html5.id.main.container" value="d4h5-main-container">
-  		<not>
-  			<isset property="html5.id.main.container"/>
-  	  </not>
-  	</condition>
-  	
-  	<condition property="html5.id.section.container" value="d4h5-section-container">
-  		<not>
-  			<isset property="html5.id.section.container"/>
-  	  </not>
-  	</condition>
-  	
-  	<condition property="html5.class.main.container" value="container_12">
-  		<not>
-  			<isset property="html5.class.main.container"/>
-  	  </not>
-  	</condition>
-  	
-  	 <condition property="html5.class.section.container" value="">
-  		<not>
-  			<isset property="html5.class.section.container"/>
-  	  </not>
-  	</condition>
-  	  
-  	<condition property="html5.id.main.content" value="d4h5-main-content">
-  		<not>
-  			<isset property="html5.id.main.content"/>
-  	  </not>
-  	</condition>
-  	
-  	<condition property="html5.id.navigation" value="local-navigation">
-  		<not>
-  			<isset property="html5.id.navigation"/>
-  	  </not>
-  	</condition>
-  	
-  	<condition property="html5.class.main.content" value="grid_8">
-  		<not>
-  			<isset property="html5.class.main.content"/>
-  	  </not>
-  	</condition>  	
-  	
-  	<condition property="html5.class.navigation" value="grid_4">
-		  <not>
-        <isset property="html5.class.navigation" />
-      </not>
-	</condition>
-
-	<!-- used to pass parameter to the javascript d4p obj -->
-	<condition property="html5.js.options" value="">
-		  <not>
-        <isset property="html5.js.options" />
-      </not>
-	</condition>
-	
-	<condition property="html5.class.body" value="centered img-with-shadow paged  ${html5.navigation.markup}">
-		  <not>
-        <isset property="html5.class.body" />
-      </not>
-	</condition>
-    
-    <condition property="d4p.html5.json.vars.dir" value="${dita.temp.dir}/json">
       <not>
-        <isset property="d4p.html5.json.vars.dir" />
+        <isset property="html5.do.copy.graphics"/>
       </not>
     </condition>
-	
-    <condition property="d4p.html5.json.vars.file" value="${d4p.html5.json.vars.dir}/vars.json">
-		  <not>
-		    <isset property="d4p.html5.json.vars.file" />
+
+    <!-- used in the xsl code to swucth navigation behavior-->
+    <condition property="html5.navigation.markup" value="navigation-default">
+      <not>
+        <isset property="html5.navigation.markup"/>
       </not>
-	</condition>
-	
-		
-  	<echo message="+++ html5-specific properties:"/>
-  	<echoproperties format="text" regex="^(html5|html2|css|user|out\.)" taskname="echo"/>
+    </condition>
+
+    <condition property="html5.id.main.container" value="d4h5-main-container">
+      <not>
+        <isset property="html5.id.main.container"/>
+      </not>
+    </condition>
+
+    <condition property="html5.id.section.container" value="d4h5-section-container">
+      <not>
+        <isset property="html5.id.section.container"/>
+      </not>
+    </condition>
+
+    <condition property="html5.class.main.container" value="container_12">
+      <not>
+        <isset property="html5.class.main.container"/>
+      </not>
+    </condition>
+
+     <condition property="html5.class.section.container" value="grid_12">
+      <not>
+        <isset property="html5.class.section.container"/>
+      </not>
+    </condition>
+
+    <condition property="html5.id.main.content" value="d4h5-main-content">
+      <not>
+        <isset property="html5.id.main.content"/>
+      </not>
+    </condition>
+
+    <condition property="html5.id.navigation" value="local-navigation">
+      <not>
+        <isset property="html5.id.navigation"/>
+      </not>
+    </condition>
+
+    <condition property="html5.class.main.content" value="grid_8 alpha omega">
+      <not>
+        <isset property="html5.class.main.content"/>
+      </not>
+    </condition>
+
+    <condition property="html5.class.navigation" value="grid_4 alpha omega">
+      <not>
+        <isset property="html5.class.navigation" />
+      </not>
+    </condition>
+
+    <!-- used to pass parameter to the javascript d4p obj -->
+    <condition property="html5.js.options" value="">
+      <not>
+        <isset property="html5.js.options" />
+      </not>
+    </condition>
+
+    <condition property="html5.class.body" value="centered ${html5.navigation.markup}">
+      <not>
+        <isset property="html5.class.body" />
+      </not>
+    </condition>
+
+    <condition property="generateIndex" value="yes">
+      <not>
+        <isset property="generateIndex" />
+      </not>
+    </condition>
+
+    <xmlproperty file="${html5.site.config}" collapseAttributes="true" semanticAttributes="true" />
+
   </target>
-  
+
+  <target name="dita.map.html5.echo" description="Echo HTML5 plugin properties" unless="html5.echo.done">
+    <echo message="+++ html5-specific properties:"/>
+    <echoproperties format="text" regex="^(html5|css|user|out\.)" taskname="echo"/>
+    <property name="html5.echo.done" value="yes"/>
+  </target>
+
   <target name="check-html5-json-vars-urls" if="html5.site.js.vars.exists">
-  
-      <makeurl file="${d4p.html5.json.vars.file}" property="d4p.html5.json.vars.file.url"/>
-      
+    <makeurl file="${d4p.html5.json.vars.file}" property="d4p.html5.json.vars.file.url"/>
   </target>
 
-  <target name="dita.map.html5" depends="dita.map.html5.init, html5-copy-assets, html5-copy-libs, xmltojsonvars, check-html5-json-vars-urls"
-  	description="Generate html5 components from input map and topics">
+  <target name="dita.map.html5.package" if="dita.map.html5.do.package">
+   <echo>Theme ${html5.site.theme} not found in ${html5.theme.dir}, building it</echo>
+   <antcall target="theme-xml-preprocess" inheritAll="yes" />
+  </target>
 
-  	<mkdir dir="${html5.temp.dir}"/>
-  	<makeurl file="${output.dir}" property="html5.xslt.outdir"/>
-  	<makeurl file="${dita.temp.dir}" property="html5.xslt.tempdir"/>
-    <makeurl file="${html5.site.config}" property="html5.xml.theme.config"/>    
-    <makeurl file="${dita.input.valfile}" property="dita.input.valfile.url" validate="no"></makeurl>    
-    
-     <condition property="d4p.html5.json.vars.file.url" value="">
-		  <not>
+  <target name="dita.map.html5.get.package" unless="dita.map.html5.do.package">
+   <echo>Theme ${html5.site.theme} not found in ${html5.theme.dir}, building it</echo>
+   <antcall target="package.get" inheritAll="yes" />
+  </target>
+
+  <target name="dita.map.html5.get.libs" if="args.debug">
+   <echo>Args debug is on, sending copy of library</echo>
+   <antcall target="package.prepare" inheritAll="yes" />
+   <mkdir dir="${output.dir}/${html5.libs.dir}"/>
+    <copy todir="${output.dir}/${html5.libs.dir}/" >
+      <fileset dir="${html5.theme.dir}/${html5.libs.dir}"/>
+    </copy>
+  </target>
+
+  <target
+    name="dita.map.html5"
+    depends="dita.map.html5.init, dita.map.html5.echo, dita.map.html5.package, dita.map.html5.get.package, dita.map.html5.get.libs"
+    description="Generate html5 components from input map and topics"
+  >
+
+    <makeurl file="${output.dir}" property="html5.xslt.outdir"/>
+    <makeurl file="${dita.temp.dir}" property="html5.xslt.tempdir"/>
+    <makeurl file="${html5.site.config}" property="html5.xml.theme.config"/>
+    <makeurl file="${dita.input.valfile}" property="dita.input.valfile.url" validate="no"></makeurl>
+
+    <condition property="d4p.html5.json.vars.file.url" value="">
+      <not>
         <isset property="d4p.html5.json.vars.file.url" />
       </not>
-	</condition>
-	
-    
-    
+    </condition>
 
-    <echo message="d4p.html5.json.vars.file=${d4p.html5.json.vars.file}"/>
-    
-    <echo message="d4p.html5.json.vars.file.url=${d4p.html5.json.vars.file.url}"/>
-    
-  	<property name="map2html5.style" location="${html5.dir}/xsl/map2html5.xsl"/>
-  	<property name="args.xhtml.toc" value="index"/>
+    <property name="map2html5.style" location="${d4p.html5.dir}/xsl/map2html5.xsl"/>
+    <property name="args.xhtml.toc" value="index"/>
 
     <xslt processor="trax"
       basedir="${dita.temp.dir}"
@@ -361,138 +357,59 @@
       classpathref="dost.class.path"
       style="${map2html5.style}"
       filenameparameter="inputFileNameParam"
-    	>
+    >
+      <xmlcatalog refid="dita.catalog"></xmlcatalog>
 
-      
-    	<dita:extension id="dita.html5.map" behavior="org.dita.dost.platform.InsertAction" xmlns:dita="http://dita-ot.sourceforge.net"/>
-    	
-      <mapper type="glob"
-              from="${user.input.file}"
-              to="${args.xhtml.toc}${out.ext}" />
-              
-              
+       <dita:extension id="dita.html5.map" behavior="org.dita.dost.platform.InsertAction" />
+
+       <mapper
+         type="glob"
+         from="${user.input.file}"
+         to="${args.xhtml.toc}${out.ext}"
+        />
+
     </xslt>
 
-  	<condition property="skip.copy.graphics" value="${local.skip.copy.graphics}">
-  		<isset property="local.skip.copy.graphics"/>
-  	</condition>
+    <condition property="skip.copy.graphics" value="${local.skip.copy.graphics}">
+      <isset property="local.skip.copy.graphics"/>
+    </condition>
 
-  	<antcall target="html5.copy.graphics">
-  		<param name="do.copy.graphics"  value="${local.skip.copy.graphics}"/>
-  	</antcall>
+    <antcall target="html5.copy.graphics">
+      <param name="do.copy.graphics"  value="${local.skip.copy.graphics}"/>
+    </antcall>
   </target>
 
   <target name="html5.copy.graphics" unless="skip.copy.graphics"
-	  description="Copies graphics from input to the output directory based on the graphic map generated during html5 generation">
-  	<ant antfile="${output.dir}/copy-graphics.xml"
-  		>
-  	</ant>
-    </target>
-
-  <target name="html5-copy-dyntoc-javascript"  description="Copy JavaScript files"
-  	depends="dita.map.html5.init"
-  	if="html5.doDynTocFileCopy">
-  	<copy todir="${output.dir}">
-  		<fileset dir="${html5.dir}/dynamic-toc-support">
-  			<include name="**/*"/>
-  		</fileset>
-  	</copy>
-
-	</target>
-
-  <target name="html5-copy-css"  description="Copy CSS files" depends="dita.map.html5.init" >
-    <condition property="user.copycss.yes">
-      <isset property="args.css.present"/>
-    </condition>
-    <property name="user.csspath.real" value="${output.dir}${file.separator}${css.output.dir}"/>
-    <mkdir dir="${user.csspath.real}"/>
-    <!-- Always copy system default css files -->
-    <copy todir="${user.csspath.real}">
-      <fileset dir="${dita.resource.dir}" includes="*.css"/>
-    </copy>
-    <copy todir="${output.dir}">
-      <fileset dir="${dita.resource.dir}" includes="*.css"/>
-    </copy>
-  	<copy todir="${user.csspath.real}">
-  		<fileset dir="${html5.dir}/css">
-  			<include name="**/*"/>
-  	  </fileset>
-  	</copy>
-    <!-- Copy user specify css file when required -->
-    <antcall target="html5-copy-css-user"/>
-    <antcall target="html5-copy-javascript"/>
-  </target>
-
-  <target name="html5-copy-assets"  description="Copy assets files for production" depends="dita.map.html5.init" unless="args.debug">
-
-    <mkdir dir="${output.dir}/${html5.themes.output.dir}/${html5.site.theme}"/>
-    
-    <copy todir="${output.dir}/${html5.themes.output.dir}/${html5.site.theme}">
-      <fileset dir="${html5.dir}/${html5.themes.output.dir}/${html5.site.theme}"/>
-    </copy>
-
-  </target>
-  
-  <target name="check.libs.exists"  description="Check if the library directory exists in the output directory">
-    <condition property="html5.themes.output.dir.exists">
-    	<available file="${output.dir}/${lib.html5.dir.libs}" type="dir"/>
-    </condition>
-    
-    <condition property="html5.prevent.copy.libs">
-     	<isset property="html5.themes.output.dir.exists" />
-    </condition>
-</target>
-  
-  <target name="confirm.libs.exists"  description="Output confirmation message if the library directory exists in the output directory" if="html5.themes.output.dir.exists">
-    <echo> [WARNING] There is already a copy of the library directory in the ouput directory, delete it manually if you want a fresh copy. This is to avoid overriding your change during development.</echo>
-  </target>
-  
-  <target name="html5-copy-libs"  description="Copy assets files for development" depends="dita.map.html5.init, check.libs.exists, confirm.libs.exists" if="args.debug" unless="html5.prevent.copy.libs">
-  
-    <mkdir dir="${output.dir}/${lib.html5.dir.libs}"/>
-    
-    <copy todir="${output.dir}/${lib.html5.dir.libs}">
-      <fileset dir="${html5.dir}/${lib.html5.dir.libs}"/>
-    </copy>
-
-  </target>
-  
-  <target name="html5-copy-css-user" if="user.copycss.yes">
-    <copy file="${args.css.real}" todir="${user.csspath.real}"/>
+    description="Copies graphics from input to the output directory based on the graphic map generated during html5 generation">
+    <ant antfile="${output.dir}/copy-graphics.xml"/>
   </target>
 
 
-  <target name="html5-copy-javascript"  description="Copy JavaScript files"
-    depends="dita.map.html5.init"
-    if="html5.doJavaScriptFileCopy">
-    <!-- FIXME: Parameterize the location of the JavaScript files -->
-    <mkdir dir="${output.dir}/js"/>
-    <copy todir="${output.dir}/js">
-      <fileset dir="${html5.dir}/js">
-        <include name="**/*"/>
-      </fileset>
-    </copy>
 
-  </target>
-  
    <!-- FIXME: Move to xsl code directly -->
-  <target name="xmltojsonvars" description="Convert XML variables to a json feed" if="html5.site.js.vars.exists">
-  
-	<property name="xml2json.style" location="${html5.dir}/xsl/xml2json/xml-to-json.xsl"/>
-	
-    <mkdir dir="${d4p.html5.json.vars.dir}" />
-		
-	<xslt processor="trax"
-      in="${html5.site.js.vars}"
-      out="${d4p.html5.json.vars.file}"
-      extension=".json"
-      style="${xml2json.style}">
-      <param name="jsonp" expression="d4p.setProps"/>
-       
-      
-	</xslt>
+  <target name="theme-xml-preprocess" description="Process theme">
+
+  <property name="theme.preprocess.style" location="${d4p.html5.dir}/xsl/theme/theme-preprocess.xsl"/>
+
+    <mkdir dir="${output.dir}/ant/" />
+
+  <xslt processor="trax"
+      in="${html5.site.config}"
+      out="${output.dir}/ant/compressor.xml"
+      extension=".xml"
+      style="${theme.preprocess.style}">
+
+      <param name="html5dir" expression="${d4p.html5.dir}"/>
+      <param name="script" expression="${compressor.script.filename}"/>
+      <param name="html5sitetheme" expression="${html5.site.theme}"/>
+      <param name="themedir" expression="${html5.themes.dir}"/>
+      <param name="ouputdir" expression="${output.dir}"/>
+      <xmlcatalog refid="dita.catalog"></xmlcatalog>
+  </xslt>
+
+  <ant antfile="${output.dir}/ant/compressor.xml"/>
 
   </target>
 
-  
+
 </project>

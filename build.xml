@@ -1,4 +1,4 @@
-<project name="DITA For Publishers" basedir="."
+<project name="DITA For Publishers OT1.7" basedir="."
   xmlns:ivy="antlib:org.apache.ivy.ant"
 	>
 	
@@ -19,8 +19,9 @@
   <property file="build.properties"/>
   <property file="${user.home}/.build.properties"/>
   <property file="${user.home}/build.properties"/>
+	<!--
   <ivy:settings id="ivy.instance" file="ivy-settings.xml" />
-	
+	-->
   <property name="build" location="${basedir}/build"/>
   <property name="dist" location="${basedir}/dist"/>
   <property name="lib" location="${basedir}/lib"/>
@@ -95,7 +96,9 @@
   </path>
 
   <target name="resolve" description="Retrieve dependencies with ivy" depends="init">
+  	<!--
       <ivy:retrieve pattern="${ivy.lib.dir}/[artifact].[ext]" />
+      -->
   </target>
 
 	<target name="init">
@@ -1154,22 +1157,7 @@
     	</fileset>
     </copy>
 
-    <replace file="${classes.home}/rsuite-plugin.xml"
-      propertyfile="${basedir}/build.number"
-      >
-      <replacefilter
-        token="^version^"
-        value="${rsuite-plugin_version}"
-      />
-      <replacefilter
-        token="^buildnumber^"
-        property="build.number"
-      />
-      <replacefilter
-        token="^timestamp^"
-        value="${build-date-time}"
-      />
-    </replace>
+  	<antcall target="add-version-info-to-files"/>
 
     <jar destfile="${target.home}/${target.jar}" >
       <fileset dir="${classes.home}" >

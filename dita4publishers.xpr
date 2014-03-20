@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="15.1">
+<project version="15.2">
     <meta>
         <filters directoryPatterns="" filePatterns="" positiveFilePatterns="" showHiddenFiles="false"/>
         <options>
-            <serialized version="15.1" xml:space="preserve">
+            <serialized version="15.2" xml:space="preserve">
                 <map>
                     <entry>
                         <String>enable.project.master.files.support</String>
@@ -14,14 +14,6 @@
         </options>
     </meta>
     <projectTree name="dita4publishers.xpr">
-        <folder masterFiles="true" name="Master Files">
-            <file name="sample_data/dita2incopy/xsl/dita2incopyTest-Grouped-Styles.xsl"/>
-            <file name="toolkit_plugins/org.dita2indesign.dita2indesign/xsl/dita2indesignImpl.xsl"/>
-            <file name="toolkit_plugins/net.sourceforge.dita4publishers.word2dita/xsl/docx2dita.xsl"/>
-            <file name="toolkit_plugins/net.sourceforge.dita4publishers.html2/xsl/map2html2Impl.xsl"/>
-        </folder>
-        <folder path="../../../../Applications/oxygen/frameworks/dita/DITA-OT/"/>
-        <folder path="../../workspace/dita-ot/"/>
         <folder path="."/>
         <folder path="docs/"/>
         <folder path="sample_data/"/>

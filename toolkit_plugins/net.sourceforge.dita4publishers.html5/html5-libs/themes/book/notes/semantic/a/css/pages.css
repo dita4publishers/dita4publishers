@@ -1,0 +1,23 @@
+#pages-container { }
+#pages { margin: 0 0 2em 0; }
+
+.page
+{
+  display: block;
+  width: 800px;
+  padding: 0 25px;
+  margin-left: 100px;
+  position: relative;
+  text-align: justify;
+  float: left;
+}
+.two-sides .page { width: 450px; }
+.page.verso, .page.recto { }
+.page.verso { display: none; }
+.two-sides .page.recto { margin-left: 0; }
+
+.two-sides .page.verso
+{
+  display: block;
+  margin-left: 0;
+}

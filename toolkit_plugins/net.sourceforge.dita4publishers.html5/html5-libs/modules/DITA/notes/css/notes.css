@@ -1,0 +1,72 @@
+/**
+ * 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */ 
+aside.normal, aside.low {
+  border-left:9px solid #ccc;
+  padding:9px 0px 9px 9px;
+}
+
+aside.note {
+  background-color: #eee;
+    border-left: 10px solid #ccc;
+    padding:10px 10px 12px 21px;
+}
+
+aside.note span.title {
+  text-indent:-10000px;
+  position:absolute;
+}
+
+aside.important {
+  background-color: rgba(255, 0, 0, 0.1);
+    border-left: 10px solid red;
+    padding:10px 10px 12px 21px;
+}
+
+aside.important  span.title {
+  color:red;
+}
+
+aside.low {
+  color:#bbb;
+}
+
+.obsolete {
+  text-decoration: line-through;
+}
+
+.obsolete .title  {
+  text-decoration: none !important;
+}
+
+aside.high {
+  border: 1px dashed  #cd0a0a;
+  border:1px solid #ccc;
+  background-color:#EEE;
+  padding:9px;
+  font-size:1.2em;
+}
+aside.high .title {
+  color:#CC0000;
+}
+aside .title {
+  display:block;
+  padding-bottom:9px;
+}
+
+details.low, details.obsolete {
+  color:#999;
+}
+

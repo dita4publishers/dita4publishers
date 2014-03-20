@@ -1,0 +1,29 @@
+<!ELEMENT body (#PCDATA)>
+<!ELEMENT tag (#PCDATA | name | output | prefix | suffix | attributes | value | source)*>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT search (#PCDATA | action | placeholder | inputs)*>
+<!ELEMENT file (#PCDATA)>
+<!ATTLIST file path CDATA #IMPLIED>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT value (#PCDATA)>
+<!ELEMENT html5 (#PCDATA | tag | file | script | d4p | class | search)*>
+<!ELEMENT action (#PCDATA)>
+<!ELEMENT placeholder (#PCDATA)>
+<!ELEMENT d4p (#PCDATA | init)*>
+<!ELEMENT init (#PCDATA)>
+<!ELEMENT class (#PCDATA | body | navigation | main | section)*>
+<!ELEMENT script (#PCDATA)>
+<!ATTLIST script path CDATA #IMPLIED>
+<!ELEMENT suffix (#PCDATA)>
+<!ELEMENT section (#PCDATA | container)*>
+<!ELEMENT main (#PCDATA | content)*>
+<!ELEMENT content (#PCDATA)>
+<!ELEMENT inputs (#PCDATA)>
+<!ELEMENT source (#PCDATA | file)*>
+<!ELEMENT navigation (#PCDATA)>
+<!ELEMENT container (#PCDATA)>
+<!ELEMENT prefix (#PCDATA)>
+<!ELEMENT rel (#PCDATA)>
+<!ELEMENT attributes (#PCDATA | rel | type | media)*>
+<!ELEMENT output (#PCDATA)>
+<!ELEMENT media (#PCDATA)>

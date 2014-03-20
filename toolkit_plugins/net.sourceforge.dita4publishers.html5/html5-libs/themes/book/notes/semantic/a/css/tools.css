@@ -1,0 +1,27 @@
+#tools {
+  display:block;
+  position:absolute;
+  right:0px;
+  top:-25px;
+}
+
+#tools nav ul {
+  display:block;
+  width: 430px;
+  height: 30px;
+  list-style-type: none;
+
+
+}
+#tools nav ul li {
+  float:right;
+  padding-right: 10px;
+
+}
+#tools nav ul li a, #tools nav ul li a:link {
+  text-indent: -10000px;
+  background-color: #ccc;
+  width: 20px;
+  height: 20px;
+  display: block;
+}

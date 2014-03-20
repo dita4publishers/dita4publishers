@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="task_u5b_dlw_pm">
+    <title>Install Foundation and configure the theme</title>
+    <shortdesc>In order to develop a new theme, you need to develop a customization plugin.</shortdesc>
+    <taskbody>
+        <context>
+            <p>In this tutorial, we will do a minimal implementation of the <xref
+                    keyref="foundation"/> using the html5 plugin.</p>
+        </context>
+        <steps>   
+            <step>
+                <cmd>Download the <xref keyref="foundation"/>, and extract it in the <filepath>net.sourceforge.dita4publishers.html5.foundation/theme/html5-foundation/</filepath> directory</cmd>
+                <tutorialinfo>
+                    This directory should contains all the css and javascript your need for your project.                   
+                </tutorialinfo>
+            </step>
+            
+            <step>
+                <cmd>Edit the <filepath>config.xml</filepath> file located in the
+                        <filepath>net.sourceforge.dita4publishers.html5.foundation/theme/html5-foundation/</filepath>
+                    directory. The structure allows you specify how you want the css and javascript
+                    builded for you documentation. According to the Foundation documentation, a
+                    foundation project requires only the foundation.css file and 3 scripts. The
+                    html5 plugins allows to concatenate this 3 scripts into a single file (this will
+                    reduces the number of http connections required per page).</cmd>
+                <stepxmp>
+                    <codeblock>
+  &lt;tag&gt;
+    &lt;name&gt;link&lt;/name&gt;
+    &lt;output&gt;yes&lt;/output&gt;
+    &lt;filename&gt;style.css&lt;/filename&gt;
+    &lt;prefix&gt;&lt;/prefix&gt;
+    &lt;suffix&gt;&lt;/suffix&gt;
+    &lt;attributes&gt;
+        &lt;rel&gt;stylesheet&lt;/rel&gt;
+        &lt;type&gt;text/css&lt;/type&gt;
+        &lt;media&gt;screen, projection&lt;/media&gt;
+    &lt;/attributes&gt;
+    &lt;value&gt;&lt;/value&gt;
+    &lt;source&gt;
+      &lt;file path="themes/html5-foundation/css/foundation.css" /&gt;
+    &lt;/source&gt;
+  &lt;/tag&gt;
+
+
+  &lt;tag&gt;
+    &lt;name&gt;script&lt;/name&gt;
+    &lt;output&gt;yes&lt;/output&gt;
+    &lt;filename&gt;script.js&lt;/filename&gt;
+    &lt;prefix&gt;&lt;/prefix&gt;
+    &lt;suffix&gt;&lt;/suffix&gt;
+    &lt;attributes&gt;
+        &lt;type&gt;text/javascript&lt;/type&gt;
+    &lt;/attributes&gt;
+    &lt;value&gt;&lt;/value&gt;
+    &lt;source&gt;
+      &lt;file path="themes/html5-foundation/js/modernizr.js" /&gt;
+      &lt;file path="themes/html5-foundation/js/jquery.js" /&gt;
+      &lt;file path="themes/html5-foundation/js/foundation.min.js" /&gt;
+    &lt;/source&gt;
+  &lt;/tag&gt;
+                                                   
+                    </codeblock>
+                </stepxmp>
+                <stepresult>
+                    At this step, you already have processed all the required css and files for the plugin.
+                </stepresult>
+            </step>
+            
+        </steps>
+    </taskbody>
+</task>

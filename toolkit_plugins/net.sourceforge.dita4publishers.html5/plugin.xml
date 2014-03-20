@@ -1,16 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
 <plugin id="net.sourceforge.dita4publishers.html5">
-  
-  <extension-point id="dita.html5.map"/>
-  
+
+<!--   
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+
   <require plugin="net.sourceforge.dita4publishers.html2"/> 
-  <template file="build_transtype-html5_template.xml"/>
+    <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
+    <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
   
+  <extension-point id="dita.html5.map" name="HTML5 xslt parameters" />
+  <extension-point id="xsl.transtype-html5" name="HTML5 XSLT extension" />
+
+  <template file="build_transtype-html5_template.xml"/>  
+  <template file="build-theme_template.xml"/>
   <template file="xsl/map2html5_template.xsl"/>
+  
 
   <feature extension="dita.conductor.transtype.check" value="html5" type="txt"/>
   <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
   <feature extension="dita.xsl.xhtml" file="xsl/map2html5flagging.xsl"/>
   <feature extension="dita.xsl.strings" value="strings/strings.xml" type="file"/>
   <feature extension="dita.html5.map" value="parameters.xml" type="file" />
-  
+    
 </plugin>

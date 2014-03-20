@@ -1,0 +1,7 @@
+<d4h5>
+  <outputSelector>#ajax-content</outputSelector>
+    <navigationSelector>#doc-content</navigationSelector>
+    <externalContentElement>article</externalContentElement>
+    <loadInitialContent>false</loadInitialContent>
+    <loaderParentElement>#main-container</loaderParentElement>   
+</d4h5>

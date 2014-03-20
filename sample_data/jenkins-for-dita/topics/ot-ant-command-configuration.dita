@@ -35,6 +35,12 @@ output.dir=$WORKSPACE/<varname>directoryToHoldTheOutput</varname></codeblock></p
       <p>Windows machines you only have a maximum of about 1.6Gig of memory available to the Java virtual machine when running in 32-bit mode. Even if you have a 64-bit Windows machine Java may run in 32-bit mode. If you need more than 1.6Gig of memory and you are running on a 64-bit Windows machine, you can use the <codeph>-d64</codeph> Java parameter to force 64-bit mode, which allows you to specify as much memory as you want, at least up to the amount of physical memory installed on the machine. </p>
       <p>For very large documents or certain memory-intensive transformation types, you may run out of "permanent gen space", in which case you need to use the -XX:MaxPermSize parameter to increase that value, typically to 256M:<codeblock>-XX:MaxPermSize=256M</codeblock></p>
       <p>You can specify both parameters together if you need to.</p>
+      <fig id="fig_wtr_g2w_ym">
+        <title>Jenkins Invoke Ant configuration panel</title>
+        <p><image href="../media/invoke-ant-panel-01.png" id="image_wl3_32w_ym" width="4in">
+          <alt>Picture of the Jenkins "Invoke Ant" panel showing all fields and a working Ant invocation.</alt>
+          </image></p>
+      </fig>
     </section>    
   </body>
 </topic>
