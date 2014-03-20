@@ -177,6 +177,17 @@
     </xsl:copy>
   </xsl:template>
   
+  <xsl:template mode="generate-result-docs" match="@xtrc | @xtrf" priority="10">
+    <xsl:choose>
+      <xsl:when test="$includeWordBackPointersBoolean">
+        <xsl:sequence select="."/>
+      </xsl:when>
+      <xsl:otherwise>
+        <!-- Don't copy the attribute -->
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
   <xsl:template mode="generate-result-docs" match="@*|node()">
     <xsl:copy/>
   </xsl:template>
@@ -217,9 +228,7 @@
         </xsl:variable>
         <xsl:element name="{$tagName}">  
           <xsl:call-template name="generateXtrcAtt"/>
-          <xsl:if test="$includeWordBackPointersBoolean">
-            <xsl:attribute name="xtrf" select="ancestor::rsiwp:document[1]/@sourceDoc"/>
-          </xsl:if>
+          <xsl:attribute name="xtrf" select="ancestor::rsiwp:document[1]/@sourceDoc"/>
           <xsl:apply-templates select="rsiwp:bookmarkStart" mode="generate-para-ids">
             <xsl:with-param name="tagName" select="$tagName"/>
           </xsl:apply-templates>
@@ -1816,9 +1825,8 @@ specify @topicDoc="yes".</xsl:message>
   </xsl:template>
   
   <xsl:template name="generateXtrcAtt">
-    <xsl:if test="$includeWordBackPointersBoolean">
-      <xsl:attribute name="xtrc" select="@wordLocation"/>
-    </xsl:if>    
+    <xsl:attribute name="xtrc" select="@wordLocation"/>
+   
   </xsl:template>
   
   <xsl:template name="processLevelNContainers">

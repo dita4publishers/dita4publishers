@@ -47,6 +47,12 @@
     <xsl:variable name="wordLocation" as="xs:string" select="substring-after(., 'urn:wordlocation:')"/>
     <!-- There may be multiple elements with the same word location. Assume that the first one
          is the one we want. -->
+    <xsl:message> + [DEBUG] resultdocs-xref-fixup: urn:worklocation: @href="<xsl:value-of select="."/>"</xsl:message>
+    <xsl:variable name="targetByXPath" as="element()*"
+      select="//*[@wordLocation = $wordLocation]"
+    />
+    <xsl:message> + [DEBUG] resultdocs-xref-fixup: count($targetsByXPath)=<xsl:value-of select="count($targetByXPath)"/></xsl:message>
+     
     <xsl:variable name="target" select="key('elementsByWordlocation', $wordLocation, root(.))[1]"/>
     <xsl:choose>
       <xsl:when test="$target">
@@ -105,7 +111,7 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:message> - [WARN] resultdocs-xref-fixup: Could not find element for word location "<xsl:sequence select="$wordLocation"/>"</xsl:message>
-        <xsl:attribute name="href" select="concat('urn:error:Unresolvable reference to ', $wordLocation)"/>
+        <xsl:attribute name="href" select="iri-to-uri(concat('urn:error:Unresolvablereference to ', $wordLocation))"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
