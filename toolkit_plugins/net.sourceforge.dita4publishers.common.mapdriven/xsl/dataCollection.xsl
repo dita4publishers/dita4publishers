@@ -1,7 +1,8 @@
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:df="http://dita2indesign.org/dita/functions" xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:relpath="http://dita2indesign/functions/relpath" xmlns:glossdata="http://dita4publishers.org/glossdata"
-  xmlns:applicability="http://dita4publishers.org/applicability" xmlns:mapdriven="http://dita4publishers.org/mapdriven"
+  xmlns:applicability="http://dita4publishers.org/applicability" 
+  xmlns:mapdriven="http://dita4publishers.org/mapdriven"
   xmlns:local="urn:functions:local" xmlns:index-terms="http://dita4publishers.org/index-terms"
   xmlns:enum="http://dita4publishers.org/enumerables" exclude-result-prefixes="local xs df xsl relpath glossdata">
   <!-- =============================================================
@@ -12,7 +13,7 @@
     phase of map-driven processing. It can be extended through plugins to collect
     additional data or modify or extend the built-in data collection.
     
-    Copyright (c) 2011, 2012 DITA For Publishers
+    Copyright (c) 2011, 2014 DITA For Publishers
     
     Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
     The intent of this license is for this material to be licensed in a way that is
