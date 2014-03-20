@@ -13,7 +13,7 @@
     that allows numbering of numberable things based on their hierarchical
     structure in the publication.
     
-    Copyright (c) 2011, 2013 DITA For Publishers
+    Copyright (c) 2011, 2014 DITA For Publishers
     
     Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
     The intent of this license is for this material to be licensed in a way that is
@@ -23,17 +23,19 @@
     ================================================================= -->
 
   <xsl:template match="*[df:class(., 'map/map')]" mode="construct-enumerable-structure">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/> 
     <!-- At some future time, interpret D4P enumeration metadata to configure enumerable
          processing.
     -->
     <xsl:message> + [INFO] Constructing enumerables structure...</xsl:message>
     <!-- NOTE: This should avoid getting any topicrefs from within reltables. -->
-    <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>
+    <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>    
     <xsl:message> + [INFO] Enumerables structure constructed.</xsl:message>
   </xsl:template>
 
   <xsl:template mode="construct-enumerable-structure"
-    match="*[df:isTopicHead(.)][not(@processing-role = 'resource-only')]">
+    match="*[df:isTopicHead(.)]">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/> 
     <xsl:call-template name="construct-enumerated-element">
     	<xsl:with-param name="additional-attributes" as="attribute()*">
             <xsl:if test="@id">
@@ -44,9 +46,13 @@
   </xsl:template>
 
   <xsl:template name="construct-enumerated-element">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/> 
     <xsl:param name="content" as="node()*"/>
     <xsl:param name="additional-attributes" as="attribute()*"/>
-
+    
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] construct-enumerated-element(): <xsl:value-of select="concat(name(..), '/', name(.))"/></xsl:message>
+    </xsl:if>
     <xsl:element name="{name(.)}" namespace="http://dita4publishers.org/enumerables">
       <xsl:sequence select="@class"/>
       <xsl:attribute name="sourceId" select="df:generate-dita-id(.)"/>
@@ -64,23 +70,40 @@
       <xsl:sequence select="$additional-attributes"/>
       <xsl:choose>
         <xsl:when test="$content">
+          <xsl:if test="$doDebug">
+            <xsl:message> + [DEBUG]     using $content...</xsl:message>
+          </xsl:if>
           <xsl:sequence select="$content"/>
         </xsl:when>
         <xsl:otherwise>
+          <xsl:if test="$doDebug">
+            <xsl:message> + [DEBUG]     applying templates to child nodes...</xsl:message>
+          </xsl:if>
           <xsl:apply-templates select="node()" mode="#current"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:element>
   </xsl:template>
 
-
+  <xsl:template mode="construct-enumerable-structure" priority="100"
+    match="*[df:class(., 'map/topicref')][@processing-role = 'resource-only']"
+  >
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/> 
+    <!-- Resource-only topicrefs and their descendants
+         cannot contribute to the navigation tree -->
+  </xsl:template>
 
   <xsl:template mode="construct-enumerable-structure" match="*[df:isTopicGroup(.)]" priority="10">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/> 
     <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicref')]"/>
   </xsl:template>
 
   <xsl:template mode="construct-enumerable-structure"
-    match="*[df:isTopicRef(.)][not(@processing-role = 'resource-only')]">
+    match="*[df:isTopicRef(.)]">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] construct-enumerable-structure: topicref: <xsl:value-of select="@href"/></xsl:message>
+    </xsl:if>
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
     <xsl:choose>
       <xsl:when test="not($topic)">
@@ -96,6 +119,7 @@
         <xsl:variable name="class" as="xs:string"
           select="if (name(.) = 'topicref') then string($topic/@class) else string(@class)"/>
         <xsl:call-template name="construct-enumerated-element">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
           <xsl:with-param name="additional-attributes" as="attribute()*">
             <xsl:if test="$topic/@outputclass">
               <xsl:attribute name="topicOutputClass" select="string($topic/@outputclass)"/>
@@ -105,11 +129,16 @@
             </xsl:if>
           </xsl:with-param>
           <xsl:with-param name="content" as="node()*">
-            <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicmeta')]"/>
+            <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicmeta')]">
+              <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+            </xsl:apply-templates>
             <xsl:apply-templates mode="#current" select="$topic">
+              <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
               <xsl:with-param name="topicref" as="element()" select="." tunnel="yes"/>
             </xsl:apply-templates>
-            <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicref')]"/>
+            <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicref')]">
+              <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+            </xsl:apply-templates>
           </xsl:with-param>
         </xsl:call-template>
       </xsl:otherwise>
@@ -118,27 +147,45 @@
 
   <xsl:template mode="construct-enumerable-structure"
     match="*[df:isTopicHead(.)][not(@processing-role = 'resource-only')]/*[df:class(., 'map/topicmeta')]">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/> 
     <xsl:apply-templates mode="#current" select="*[df:class(., 'topic/navtitle')]"/>
   </xsl:template>
 
   <xsl:template mode="construct-enumerable-structure"
-    match="*[df:class(., 'topic/navtitle')] | *[df:class(., 'topic/title')]">
+    match="*[df:class(., 'topic/navtitle')] | 
+           *[df:class(., 'topic/title')]"
+    >
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/> 
     <!-- The title text is just for debugging, not for output, so we don't worry about handling
          any markup within the title.
       -->
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] construct-enumerable-structure: <xsl:value-of select="concat(name(..), '/', name(.))"/>: <xsl:value-of select="."/></xsl:message>
+    </xsl:if>
     <title>
       <xsl:value-of select="."/>
     </title>
   </xsl:template>
 
-  <xsl:template mode="construct-enumerable-structure" match="/*[df:class(., 'topic/topic')]" priority="10">
+  <xsl:template mode="construct-enumerable-structure"  priority="10"
+    match="/*[df:class(., 'topic/topic')] | 
+           /dita/*[df:class(., 'topic/topic')]"
+    >
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/> 
     <!-- Root topics are handled by the topicref topic, where the topicref and topic details are
          merged. -->
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] construct-enumerable-structure: /*[df:class(., 'topic/topic')]: <xsl:value-of select="*[df:class(., 'topic/title')]"/></xsl:message>
+    </xsl:if>
     <xsl:apply-templates select="*[df:class(., 'topic/body')], *[df:class(., 'topic/topic')]" mode="#current"/>
   </xsl:template>
 
   <xsl:template mode="construct-enumerable-structure"
     match="*[df:class(., 'topic/topic')]/*[df:class(., 'topic/topic')]">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/> 
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] construct-enumerable-structure: topic/topic: <xsl:value-of select="*[df:class(., 'topic/title')]"/></xsl:message>
+    </xsl:if>
     <xsl:call-template name="construct-enumerated-element">
       <xsl:with-param name="content" as="node()*">
         <xsl:apply-templates mode="#current"
@@ -162,6 +209,7 @@
     *[df:class(., 'topic/bodydiv')] | 
     *[df:class(., 'topic/sectiondiv')]
     ">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/> 
     <xsl:call-template name="construct-enumerated-element">
       <xsl:with-param name="content" as="node()*">
         <xsl:apply-templates mode="#current" select="*[df:class(., 'topic/title')]"/>
@@ -173,17 +221,25 @@
     match="@domains | 
     @ditaarch:DITAArchVersion |
     @xtrf |
-    @xtrc"> </xsl:template>
+    @xtrc"> 
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/> 
+  </xsl:template>
 
   <xsl:template mode="construct-enumerable-structure" match="@*">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/> 
     <xsl:sequence select="."/>
   </xsl:template>
 
-  <xsl:template mode="construct-enumerable-structure" match="text()"/>
+  <xsl:template mode="construct-enumerable-structure" match="text()">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/> 
+  </xsl:template>
 
   <xsl:template mode="construct-enumerable-structure" match="*[df:class(., 'topic/body')]//*" priority="-1">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/> 
     <!-- Ignore anything within body that isn't explicitly handled. -->
-    <!--    <xsl:message> + [DEBUG] construct-enumerable-structure: catch all for <xsl:sequence select="name(.)"/></xsl:message>-->
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] construct-enumerable-structure: catch all for <xsl:sequence select="name(.)"/></xsl:message>
+    </xsl:if>
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
 

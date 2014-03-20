@@ -47,6 +47,7 @@
   <xsl:template match="/">
     <xsl:variable name="rootMapUrl" select="string(document-uri(.))" as="xs:string"/>
     <xsl:call-template name="mapdriven:collect-data">
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
       <xsl:with-param name="rootMapDocUrl" select="$rootMapUrl" as="xs:string"/>
     </xsl:call-template>
   </xsl:template>
