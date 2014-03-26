@@ -831,7 +831,7 @@
             </xsl:when>
             <xsl:otherwise>
               <xsl:variable name="topicId" as="xs:string?"
-                select="$context/ancestor::*[df:class(.,'topic/topic')]/@id"
+                select="($context/ancestor::*[df:class(.,'topic/topic')]/@id)[last()]"
               />
               <!-- Must be an element within a topic or a topicref -->
               <xsl:sequence select="            
