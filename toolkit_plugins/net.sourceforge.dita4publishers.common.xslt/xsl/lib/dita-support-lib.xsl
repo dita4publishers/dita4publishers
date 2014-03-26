@@ -751,29 +751,100 @@
   
   <xsl:function name="df:generate-dita-id" as="xs:string">
     <xsl:param name="context" as="element()"/>
+    <!-- Constructs an ID that should be unique within the context
+         of the root map. However, without a topicref to provide
+         unambiguous context there may be cases where two elements
+         happen to produce the same ID value.
+      -->
+    <xsl:sequence select="df:generate-dita-id($context, ())"/>
+  </xsl:function>
+  
+  <xsl:function name="df:generate-dita-id" as="xs:string">
+    <xsl:param name="context" as="element()"/>
+    <xsl:param name="topicref" as="element()?"/>
+    <!-- Generates an ID that should be unique within the scope
+         of the root map.
+         
+         This transform assumes that the input map is a single-document
+         resolved map, e.g., as produced by the Open Toolkit preprocessing.
+         
+         NOTE: If the topicref parameter is not specified there is a chance
+               that the generated ID may not be unique if the containing
+               topic is used multiple times in the map.
+      -->
     <xsl:variable name="resultId" as="xs:string">
       <xsl:choose>
         <xsl:when test="df:class(($context/ancestor-or-self::*)[last()], 'map/map')">
           <xsl:sequence select="concat(name($context), '-', count($context/preceding::*) + 1)"/>
         </xsl:when>
-        <xsl:when test="df:class($context, 'topic/topic')">
-          <xsl:sequence select="string($context/@id)"/>
-        </xsl:when>
         <xsl:otherwise>
-          <!-- Must be an element within a topic -->
-          <xsl:sequence select="            
-            concat(
-              string-join($context/ancestor::*[df:class(.,'topic/topic')]/@id, '-'),
-              if ($context/@id) then concat('-',string($context/@id))
-              else
-              '-',
-              name($context), '-', 
-              count($context/preceding::*) + 1,
-              '-',
-              count($context/following::*),
-              '-',
-              string-length(string($context))
-            )"/>
+          <!-- Non-map element -->
+          <xsl:variable name="rootIdComponent" as="xs:string">
+            <!-- This is the key part of the ID because it ensures that
+                 all the other parts will be in a unique context.
+                 
+                 This ID needs to be globally unique within the root map
+                 context. We can get that either by getting the key or
+                 generated-id() value for the topicref, or, if there's no
+                 topicref, then using the @xtrf and @xtrc values for the 
+                 root topic, which should be unique (but in the case where the
+                 same topic is used multiple times in a map, may not be).
+               -->
+             <xsl:choose>
+               <xsl:when test="$topicref">
+                 <!-- If the topicref has an associated key name, use
+                      that so that the generated ID is tied to something
+                      obvious, otherwise just generate an ID in the usual
+                      XPath way.
+                   -->
+                 <xsl:sequence select="
+                   if ($topicref/@keys) 
+                      then (tokenize(string($topicref/@keys), ' ')[1]) 
+                      else generate-id($topicref)"></xsl:sequence>
+               </xsl:when>
+               <xsl:otherwise>
+                 <xsl:choose>
+                   <xsl:when test="$context/ancestor-or-self::*[@xtrf]">
+                     <xsl:variable name="ancestor" as="element()"
+                       select="($context/ancestor-or-self::*[@xtrf])[last()]"
+                     />
+                     <xsl:sequence select="string(df:checksum(concat($ancestor/@xtrf, $ancestor/@xtrc)))"/>
+                   </xsl:when>
+                   <xsl:otherwise>
+                     <!-- No @xtrf, drop back and punt by hashing the text value of the containing document
+                       
+                          This is not 100% reliable but it's the best we have at this point.
+                     -->
+                     <xsl:sequence select="string(df:checksum(string(root($context))))"/>
+                   </xsl:otherwise>
+                 </xsl:choose>
+               </xsl:otherwise>
+             </xsl:choose>
+          </xsl:variable>
+          <xsl:choose>
+            <xsl:when test="df:class($context, 'topic/topic')">
+              <xsl:sequence select="concat('id-', $rootIdComponent, '-', string($context/@id))"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:variable name="topicId" as="xs:string?"
+                select="$context/ancestor::*[df:class(.,'topic/topic')]/@id"
+              />
+              <!-- Must be an element within a topic or a topicref -->
+              <xsl:sequence select="            
+                concat('id-', $rootIdComponent, '-',
+                  if ($topicId) then concat($topicId, '-') else '',
+                  if ($context/@id) then concat('-',string($context/@id))
+                  else
+                  '-',
+                  name($context), '-', 
+                  count($context/preceding::*) + 1,
+                  '-',
+                  count($context/following::*),
+                  '-',
+                  string-length(string($context))
+                )"/>
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
@@ -804,6 +875,37 @@
     </xsl:if>
     <xsl:sequence select="$result"/>
   </xsl:function>
+    
+    <!-- NOTE: The checksum and fletcher16 functions developed by LarsH 
+         as posted on StackOverflow here:
+         
+         http://stackoverflow.com/questions/6753343/using-xsl-to-make-a-hash-of-xml-file
+         
+      -->
+    <xsl:function name="df:checksum" as="xs:int">
+        <xsl:param name="str" as="xs:string"/>
+        <xsl:variable name="codepoints" select="string-to-codepoints($str)"/>
+        <xsl:value-of select="df:fletcher16($codepoints, count($codepoints), 1, 0, 0)"/>
+    </xsl:function>
+
+    <xsl:function name="df:fletcher16">
+        <xsl:param name="str" as="xs:integer*"/>
+        <xsl:param name="len" as="xs:integer" />
+        <xsl:param name="index" as="xs:integer" />
+        <xsl:param name="sum1" as="xs:integer" />
+        <xsl:param name="sum2" as="xs:integer"/>
+        <xsl:choose>
+            <xsl:when test="$index ge $len">
+                <xsl:sequence select="$sum2 * 256 + $sum1"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:variable name="newSum1" as="xs:integer"
+                    select="($sum1 + $str[$index]) mod 255"/>
+                <xsl:sequence select="df:fletcher16($str, $len, $index + 1, $newSum1,
+                        ($sum2 + $newSum1) mod 255)" />
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:function>    
     
   <xsl:template mode="topicref-report" match="*[df:class(., 'map/topicref')]">
     <xsl:text>&#x0a;</xsl:text>
