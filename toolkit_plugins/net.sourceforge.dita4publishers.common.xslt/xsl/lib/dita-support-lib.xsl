@@ -762,6 +762,10 @@
   <xsl:function name="df:generate-dita-id" as="xs:string">
     <xsl:param name="context" as="element()"/>
     <xsl:param name="topicref" as="element()?"/>
+    <!-- NOTE: The two-parameter form of this method requires that all
+               users pass in the same topicref in order to get the same
+               ID.
+      -->
     <!-- Generates an ID that should be unique within the scope
          of the root map.
          
