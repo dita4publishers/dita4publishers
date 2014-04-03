@@ -29,7 +29,9 @@
     -->
     <xsl:message> + [INFO] Constructing enumerables structure...</xsl:message>
     <!-- NOTE: This should avoid getting any topicrefs from within reltables. -->
-    <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current"/>    
+    <xsl:apply-templates select="*[df:class(., 'map/topicref')]" mode="#current">
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+    </xsl:apply-templates>    
     <xsl:message> + [INFO] Enumerables structure constructed.</xsl:message>
   </xsl:template>
 
@@ -111,6 +113,9 @@
             "<xsl:sequence select="string(@href)"/>"</xsl:message>
       </xsl:when>
       <xsl:otherwise>
+        <xsl:if test="$doDebug">
+          <xsl:message> + [DEBUG] construct-enumerable-structure:   resolved topicref, processing the topic...</xsl:message>
+        </xsl:if>
         <!-- If topicref is unspecialized then use topic's tagname and class, otherwise
              assume tagname of topicref is more significant than tagname
              of target topic. Always remember class of topic, just in case.
@@ -118,6 +123,9 @@
         <xsl:variable name="tagname" as="xs:string" select="if (name(.) = 'topicref') then name($topic) else name(.)"/>
         <xsl:variable name="class" as="xs:string"
           select="if (name(.) = 'topicref') then string($topic/@class) else string(@class)"/>
+        <xsl:if test="$doDebug">
+          <xsl:message> + [DEBUG] construct-enumerable-structure:   Calling template "construct-enumerated-element"...</xsl:message>
+        </xsl:if>
         <xsl:call-template name="construct-enumerated-element">
           <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
           <xsl:with-param name="additional-attributes" as="attribute()*">
@@ -129,16 +137,31 @@
             </xsl:if>
           </xsl:with-param>
           <xsl:with-param name="content" as="node()*">
+            <xsl:if test="$doDebug">
+              <xsl:message> + [DEBUG] construct-enumerable-structure:     Constructing value of "content" parameter...</xsl:message>
+            </xsl:if>
+            <xsl:if test="$doDebug">
+              <xsl:message> + [DEBUG] construct-enumerable-structure:       Applying templates to map/topicmeta in mode construct-enumerable-structure...</xsl:message>
+            </xsl:if>
             <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicmeta')]">
               <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
             </xsl:apply-templates>
+            <xsl:if test="$doDebug">
+              <xsl:message> + [DEBUG] construct-enumerable-structure:       Applying templates to $topic in mode construct-enumerable-structure...</xsl:message>
+            </xsl:if>
             <xsl:apply-templates mode="#current" select="$topic">
               <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
               <xsl:with-param name="topicref" as="element()" select="." tunnel="yes"/>
             </xsl:apply-templates>
+            <xsl:if test="$doDebug">
+              <xsl:message> + [DEBUG] construct-enumerable-structure:       Applying templates to child topicrefs in mode construct-enumerable-structure...</xsl:message>
+            </xsl:if>
             <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicref')]">
               <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
             </xsl:apply-templates>
+            <xsl:if test="$doDebug">
+              <xsl:message> + [DEBUG] construct-enumerable-structure:    Done constructing "content" param.</xsl:message>
+            </xsl:if>
           </xsl:with-param>
         </xsl:call-template>
       </xsl:otherwise>
@@ -212,7 +235,7 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/> 
     <xsl:call-template name="construct-enumerated-element">
       <xsl:with-param name="content" as="node()*">
-        <xsl:apply-templates mode="#current" select="*[df:class(., 'topic/title')]"/>
+        <xsl:apply-templates mode="#current"/>
       </xsl:with-param>
     </xsl:call-template>
   </xsl:template>
