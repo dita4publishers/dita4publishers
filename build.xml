@@ -234,7 +234,9 @@
     </copy>
     <copy todir="${doctypes.plugin-dist}/doctypes">
       <fileset dir="${doctypes.src}">
-        <exclude name="xmlDomain/**"/>
+        <!-- NOTE: the D4P XML domain is made obsolete by the DITA 1.3 XML domain, but the two
+             are not identical, so we need to maintain the D4P domain for a while. -->
+        <!-- <exclude name="xmlDomain/**"/> -->
       </fileset>
     </copy>
     <!-- FIX a bug/unfortunate potential parameter entity name clash with the MathML3 DTD -->

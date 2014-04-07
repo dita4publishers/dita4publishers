@@ -20,10 +20,10 @@
     </body>
   </subsection>
   <subsection
-    id="subsection_e3v_kpd_sn">
-    <title>XML Domain</title>
+    id="subsection_oyp_gtd_sn">
+    <title>D4P XML Domain</title>
     <body>
-      <p><xmlelem>elementName</xmlelem></p>
+      <p>Element: <xmlelem>elementName</xmlelem></p>
     </body>
   </subsection>
 </chapter>

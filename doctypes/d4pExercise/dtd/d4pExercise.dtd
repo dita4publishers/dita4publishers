@@ -52,7 +52,7 @@
 
 <!ENTITY % commonDomainIntegrations-dec
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations:entities"
-         "d4p_commonDomainIntegration.ent"
+         "d4p_commonDomainIntegrations.ent"
 >%commonDomainIntegrations-dec;
 
 <!ENTITY % learningInteractionBase-d-dec 
@@ -239,7 +239,7 @@
 
 <!ENTITY % commonDomainIntegrations
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations"
-         "d4p_commonDomainIntegration.mod"
+         "d4p_commonDomainIntegrations.mod"
 >%commonDomainIntegrations;
 
 <!ENTITY % ut-d-def     
