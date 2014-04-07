@@ -14,7 +14,25 @@
   
   <!-- Default context (HTML generation) -->
   
-
+  <xsl:template mode="enumeration" match="*[df:class(., 'bookmap/part')]" 
+    priority="10">
+    <span class='enumeration_part'>
+      <xsl:text>Part </xsl:text><!-- FIXME: Enable localization of the string. -->
+      <xsl:number count="*[df:class(., 'bookmap/part')]" format="I" level="single"/>
+      <xsl:text>. </xsl:text>
+    </span>
+  </xsl:template>
+  
+  <xsl:template mode="enumeration" match="*[df:class(., 'bookmap/chapter')]">
+    <span class='enumeration_chapter'>
+      <xsl:text>Chapter </xsl:text><!-- FIXME: Enable localization of the string. -->
+      <xsl:number 
+        count="*[df:class(., 'bookmap/chapter')]" 
+        format="1." 
+        level="any"/>
+      <xsl:text> </xsl:text>
+    </span>
+  </xsl:template>
   
   <!-- FIXME: Add rules for other topicrefs -->
   
