@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
+<pubmap>
+  <pubtitle>
+    <mainpubtitle/>
+  </pubtitle>
+  <pubmeta>
+    <metadata>
+      <keywords>
+        <indexterm/>
+      </keywords>
+    </metadata>
+  </pubmeta>
+  <keydefs>
+    <topicmeta>
+      <navtitle>Key Definitions</navtitle>
+    </topicmeta>
+  </keydefs>
+  <publication>
+    <covers/>
+    <frontmatter/>
+    <pubbody>
+      <topicref
+        href="chapters/d4p-vocabulary.xml"/>
+    </pubbody>
+    <backmatter/>
+  </publication>
+</pubmap>

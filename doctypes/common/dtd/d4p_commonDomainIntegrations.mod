@@ -17,7 +17,7 @@
 
 <!ENTITY % d4p_simpleEnumeration-d-def     PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:modules:dita:modules:d4p_simpleEnumerationDomain" 
-"d4p_simpleEnumeration.mod"
+"d4p_simpleEnumerationDomain.mod"
 >
 %d4p_simpleEnumeration-d-def;
 
