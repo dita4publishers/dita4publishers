@@ -27,8 +27,11 @@
         <refbodydiv outputclass="contains-by">
          <section id="contains-by"/>
       </refbodydiv>    
-        <refbodydiv outputclass="inheritance">
-         <section id="inheritance"/>
+      <refbodydiv outputclass="inheritance">
+        <section id="inheritance">
+          <title>Inheritance</title>
+          <p>- topic/body  learningBase/learningBasebody learningContent/learningContentbody d4pExercise/d4pExerciseBody </p>
+        </section>
       </refbodydiv>
         <refbodydiv outputclass="example1">
          <section id="example1"/>

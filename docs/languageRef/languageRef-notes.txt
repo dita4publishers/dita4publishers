@@ -1,8 +1,10 @@
 DITA4Publishers Language Reference Notes
 TODO:
--Search files for "FIXME" and fill in missing details (will likely need Eliot's help for some of this)
--Finish integrating info from D4P User Guide
--Finish inheritance sections
+-Setup ruby example in d4p_rubyDomain.dita so it outputs in PDF properly; need to make a 
+custom PDF2 plugin for building the documentation?
+-Do one last check of user guide vocab documentation against the language ref
+-Do one last check of DTD comments against the language ref
+-Add xrefs (using keyrefs) to mentions of other items in the vocab ref
 -Iterate over to add examples, improve, refine, and eliminate documentation debt
 
 
@@ -15,6 +17,9 @@ Each file for an element has a refbody that is structured as so:
 -Inheritance: The inheritance information for the element
 -Example: Zero, one, or more examples of the element in use
 -Attributes: The element's possible attributes; hopefully part of this will be able to be generated automatically
+
+2014-03-14
+Finish integration info from D4P user guide and inheritance sections. Refine documentation for medaDomain, rendition attribute domain, ruby domain, simpleBib domain, d4psimpleenumeration, textbookDomain, trainingDomain, variablesDomain, verseDomain, d4pExercise, d4pSlide, division, pubmapMaprefDomain, XML domain. Build latest version of language reference as PDF.
 
 2013-11-11
 Refine documentation for formattingDomain with examples and inheritance information. Remove errant catalog.dita file from formattingDomain files.

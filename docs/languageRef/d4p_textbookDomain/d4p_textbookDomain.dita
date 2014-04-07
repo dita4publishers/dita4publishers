@@ -16,26 +16,18 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">d4p_textbookDomain defines elements often needed for textbooks.</section>
+          <section id="summary">d4p_textbookDomain defines elements often needed for textbooks. It currently only provides the "display map" specialization of &lt;fig&gt;.</section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
          <section id="d4p"> </section>
       </refbodydiv>    	    
-        <refbodydiv outputclass="contains">
-         <section id="contains"/>
+      <refbodydiv outputclass="shortname">
+        <section id="shortname">d4p_textbook-d</section>
+      </refbodydiv> 
+      <refbodydiv outputclass="modulename">
+        <section id="modulename">d4p_textbookDomain.ent and d4p_textbookDomain.mod</section>
       </refbodydiv>
-        <refbodydiv outputclass="contains-by">
-         <section id="contains-by"/>
-      </refbodydiv>    
-        <refbodydiv outputclass="inheritance">
-         <section id="inheritance"/>
-      </refbodydiv>
-        <refbodydiv outputclass="example1">
-         <section id="example1"/>
-      </refbodydiv>    	
-        <refbodydiv outputclass="attributes">
-         <section id="attributes"/>
-      </refbodydiv>
+      
         
     </refbody>
 </reference>

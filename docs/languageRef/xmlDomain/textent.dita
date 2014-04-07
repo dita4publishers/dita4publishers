@@ -16,10 +16,11 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">FIXME: Find out what this is for</section>
+         <section id="summary">This element identifies a mention of an XML text entity.</section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
-         <section id="d4p"> </section>
+          <section id="d4p">The markup &lt;textent&gt;my-text-entity&lt;/textent&gt;
+            should produce the output: &amp;my-text-entity;</section>
       </refbodydiv>    	    
         <refbodydiv outputclass="contains">
          <section id="contains"/>
@@ -27,12 +28,17 @@
         <refbodydiv outputclass="contains-by">
          <section id="contains-by"/>
       </refbodydiv>    
-        <refbodydiv outputclass="inheritance">
-         <section id="inheritance"/>
+      <refbodydiv outputclass="inheritance">
+        <section id="inheritance">
+          <title>Inheritance</title>
+          <p>+ topic/keyword xml-d/textent </p>
+        </section>
       </refbodydiv>
-        <refbodydiv outputclass="example1">
-         <section id="example1"/>
-      </refbodydiv>    	
+      <example id="example1">
+        <fig><title>Sample of an instance of the textent element</title>
+          <codeblock>To get an ampersand in your XML use &lt;textent&gt;amp&lt;/textent&gt;.</codeblock>
+        </fig>
+      </example> 	
         <refbodydiv outputclass="attributes">
          <section id="attributes"/>
       </refbodydiv>

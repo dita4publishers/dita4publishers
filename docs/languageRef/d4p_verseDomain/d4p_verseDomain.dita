@@ -16,25 +16,16 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">The d4p_verseDomain represents verses of poetry.</section>
+          <section id="summary">The d4p_verseDomain provides markup for representing poetry, songs, and other line-oriented content organized into stanzas.</section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
          <section id="d4p"> </section>
       </refbodydiv>    	    
-        <refbodydiv outputclass="contains">
-         <section id="contains"/>
-      </refbodydiv>
-        <refbodydiv outputclass="contains-by">
-         <section id="contains-by"/>
-      </refbodydiv>    
-        <refbodydiv outputclass="inheritance">
-         <section id="inheritance"/>
-      </refbodydiv>
-        <refbodydiv outputclass="example1">
-         <section id="example1"/>
-      </refbodydiv>    	
-        <refbodydiv outputclass="attributes">
-         <section id="attributes"/>
+      <refbodydiv outputclass="shortname">
+        <section id="shortname">d4p_verse-d</section>
+      </refbodydiv> 
+      <refbodydiv outputclass="modulename">
+        <section id="modulename">d4p_verseDomain.ent and d4p_verseDomain.mod</section>
       </refbodydiv>
         
     </refbody>

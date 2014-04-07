@@ -16,7 +16,7 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">verse represents an instance of poetry. A verse can contain verse-lines, when a stanza is not appropriate, or stanzas (which contain verse-lines). </section>
+          <section id="summary">verse represents an instance of poetry. A verse can contain verse-lines, when a stanza is not appropriate, or stanzas (which contain verse-lines). The element specializes from &lt;lines&gt;, so all white space within the &lt;verse&gt; element is significant by default. </section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
          <section id="d4p">verse is a specialization of lines.</section>
@@ -27,12 +27,26 @@
         <refbodydiv outputclass="contains-by">
          <section id="contains-by"/>
       </refbodydiv>    
-        <refbodydiv outputclass="inheritance">
-         <section id="inheritance"/>
+      <refbodydiv outputclass="inheritance">
+        <section id="inheritance">
+          <title>Inheritance</title>
+          <p>+ topic/lines    d4p-verse-d/verse </p>
+        </section>
       </refbodydiv>
-        <refbodydiv outputclass="example1">
-         <section id="example1"/>
-      </refbodydiv>    	
+      <example id="example1">
+        <fig><title>Sample of an instance of the stanza element</title>
+          <codeblock> 
+&lt;verse&gt;
+  &lt;stanza&gt;
+    &lt;verse-line&gt;'Twas brillig and the slithy tothes&lt;/verse-line&gt;
+    &lt;verse-line&gt;Did gyre and gymbal in the wabe&lt;/verse-line&gt;
+    &lt;verse-line&gt;All mimsy were the borogroves&lt;/verse-line&gt;
+    &lt;verse-line&gt;And the mome raths outgrabe.&lt;/verse-line&gt;
+  &lt;/stanza&gt;
+&lt;/verse&gt;
+          </codeblock>
+        </fig>
+      </example>
         <refbodydiv outputclass="attributes">
          <section id="attributes"/>
       </refbodydiv>

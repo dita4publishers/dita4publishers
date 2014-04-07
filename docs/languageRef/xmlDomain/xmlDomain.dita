@@ -16,26 +16,16 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">The xmlDomain provides inline elements for identifying mentions of XML constructs: element types, attributes, text entities, parameter entities, and numeric character references.</section>
+          <section id="summary">The xmlDomain provides inline elements for identifying mentions of XML constructs: element types, attributes, text entities, parameter entities, and numeric character references. It is convenient for documents that discuss XML markup (such as D4P User Guide). NOTE: This domain will be replaced by its equivalent with DITA 1.3.</section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
          <section id="d4p">Everything is a specialization of keyword.</section>
       </refbodydiv>    	    
-        <refbodydiv outputclass="contains">
-         <section id="contains"/>
+      <refbodydiv outputclass="shortname">
+        <section id="shortname">xml-d</section>
+      </refbodydiv> 
+      <refbodydiv outputclass="modulename">
+        <section id="modulename">xmlDomain.ent and xmlDomain.mod</section>
       </refbodydiv>
-        <refbodydiv outputclass="contains-by">
-         <section id="contains-by"/>
-      </refbodydiv>    
-        <refbodydiv outputclass="inheritance">
-         <section id="inheritance"/>
-      </refbodydiv>
-        <refbodydiv outputclass="example1">
-         <section id="example1"/>
-      </refbodydiv>    	
-        <refbodydiv outputclass="attributes">
-         <section id="attributes"/>
-      </refbodydiv>
-        
     </refbody>
 </reference>

@@ -19,7 +19,8 @@
          <section id="summary">A numcharref is an inline element for numeric character references, which are short sequences of characters that start with &amp; and end with a ; and represents a single character. It can only contain other elements of the keyword and text types.</section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
-         <section id="d4p">This is a specialization of keyword.</section>
+          <section id="d4p">This is a specialization of keyword. The markup &lt;numcharref&gt;2014&lt;/numcharref&gt; (em-dash)
+            should produce &amp;#2014; (em-dash)</section>
       </refbodydiv>    	    
         <refbodydiv outputclass="contains">
          <section id="contains"/>
@@ -27,12 +28,17 @@
         <refbodydiv outputclass="contains-by">
          <section id="contains-by"/>
       </refbodydiv>    
-        <refbodydiv outputclass="inheritance">
-         <section id="inheritance"/>
+      <refbodydiv outputclass="inheritance">
+        <section id="inheritance">
+          <title>Inheritance</title>
+          <p>+ topic/keyword xml-d/numcharref </p>
+        </section>
       </refbodydiv>
-        <refbodydiv outputclass="example1">
-         <section id="example1"/>
-      </refbodydiv>    	
+      <example id="example1">
+        <fig><title>Sample of an instance of the numcharref element</title>
+          <codeblock>To use an em-dash in your output, use this in your XML: &lt;numcharref&gt;2014&lt;/numcharref&gt;.</codeblock>
+        </fig>
+      </example> 		
         <refbodydiv outputclass="attributes">
          <section id="attributes"/>
       </refbodydiv>

@@ -1,5 +1,11 @@
 Release Notes:
 
+Release 0.9.19RC09 6 April 2013
+Release 0.9.19_OT17RC09
+
+1. Issues 75, 77: Declared all extension points so strict integration succeeds
+2. Issue 76: Corrected case of filenames for d4p_simpleEnumerationDomain.mod,.ent. Fixes failures on Linux
+
 Release 0.9.19RC09 
 Release 0.9.19_OT17RC09
 

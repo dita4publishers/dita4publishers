@@ -16,25 +16,19 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">The d4p_mediaDomain defines specializations for the inclusion of interactive media (assets that are not graphics) into publications, such media may be video or audio.</section>
+          <section id="summary">The d4p_mediaDomain defines specializations and markup for the 
+            inclusion of interactive media (assets that are not graphics) into publications, such 
+            media may be video or audio. It is modeled as closely as possible on the HTML5 video and
+            related elements. Output support is provided for HTML, HTML5, and EPUB.</section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
          <section id="d4p"> </section>
       </refbodydiv>    	    
-        <refbodydiv outputclass="contains">
-         <section id="contains"/>
-      </refbodydiv>
-        <refbodydiv outputclass="contains-by">
-         <section id="contains-by"/>
-      </refbodydiv>    
-        <refbodydiv outputclass="inheritance">
-         <section id="inheritance"/>
-      </refbodydiv>
-        <refbodydiv outputclass="example1">
-         <section id="example1"/>
-      </refbodydiv>    	
-        <refbodydiv outputclass="attributes">
-         <section id="attributes"/>
+      <refbodydiv outputclass="shortname">
+        <section id="shortname">d4p_media-d</section>
+      </refbodydiv> 
+      <refbodydiv outputclass="modulename">
+        <section id="modulename">d4p_mediaDomain.ent and d4p_mediaDomain.mod</section>
       </refbodydiv>
         
     </refbody>

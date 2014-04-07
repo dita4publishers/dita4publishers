@@ -16,7 +16,11 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">The d4p_video_poster is an optional element on a d4p_video or d4p_audio element. It is a graphic that displays before the video starts. For audio, the graphic may continue to be displayed while the audio is being played. Exact behavior will depend on the rendering environment. The source of the graphic is specified by the @value attribute.</section>
+         <section id="summary">The d4p_video_poster is an optional element on a d4p_video or 
+           d4p_audio element. It is a graphic that displays before the video starts. For audio, the 
+           graphic may continue to be displayed while the audio is being played. Exact behavior will
+           depend on the rendering environment. The source of the graphic is specified by the @value
+           attribute.</section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
          <section id="d4p">The d4p_video_poster is specialized from param.</section>
@@ -27,8 +31,11 @@
         <refbodydiv outputclass="contains-by">
          <section id="contains-by"/>
       </refbodydiv>    
-        <refbodydiv outputclass="inheritance">
-         <section id="inheritance"/>
+      <refbodydiv outputclass="inheritance">
+        <section id="inheritance">
+          <title>Inheritance</title>
+          <p>+ topic/param    d4p-media-d/d4p_video_poster </p>
+        </section>
       </refbodydiv>
         <refbodydiv outputclass="example1">
          <section id="example1"/>

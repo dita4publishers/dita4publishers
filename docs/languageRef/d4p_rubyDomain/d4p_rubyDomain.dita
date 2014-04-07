@@ -16,26 +16,30 @@
     </prolog>
     <refbody>
         <refbodydiv outputclass="summary">
-         <section id="summary">The d4p_rubyDomain defines equivalent of HTML ruby elements for marking up Japanese language documents. The rules for these elements are the same as the rules for HTML5 ruby elements.</section>
+         <section id="summary">The d4p_rubyDomain defines equivalent of HTML ruby elements for marking up ideographic characters, such as those done in Japanese language documents. The rules for these elements are the same as the rules for HTML5 ruby elements. Note: This domain will be replaced by an equivalent domain DITA 1.3.</section>
+          <section id="notes">
+            <p>The ruby domain provides a single top-level element, @ruby, which then holds some combination of phrase-level content (the text to which the ruby applies), and some combination of &lt;rb>, &lt;rp>, and &lt;rt> elements. These elements correspond directly to the HTML 5 and HTML 4 @ruby markup (the main difference being that in HTML 5 the &lt;rb> (ruby base) element is not used).</p>
+              
+            <p>For example, Japanese content with a ruby would be marked up like so: (NB: This does not display properly in generated PDF.)</p>
+            <p>&lt;p> 探険船シビリアコフ号の北氷洋航海中に撮影されたエピソード映画の中に、一頭の&lt;ruby></p>
+            <p>&lt;rb>白熊&lt;/rb></p>
+            <p>&lt;rp>（&lt;/rp></p>
+            <p>&lt;rt>しろくま&lt;/rt></p>
+            <p>&lt;rp>）&lt;/rp></p>
+            <p>&lt;/ruby>を射殺し、その子を生け捕る光景が記録されている。&lt;/p></p>
+            <p>For HTML output the markup is output exactly as tagged in the DITA source and most browsers will render the ruby text above the base text. When that rendition is not provided, then the ruby text is given after the base text within parantheses.</p>
+          </section>
       </refbodydiv>
         <refbodydiv outputclass="d4p">
          <section id="d4p"> </section>
       </refbodydiv>    	    
-        <refbodydiv outputclass="contains">
-         <section id="contains"/>
+      <refbodydiv outputclass="shortname">
+        <section id="shortname">d4p_ruby-d</section>
+      </refbodydiv> 
+      <refbodydiv outputclass="modulename">
+        <section id="modulename">d4p_rubyDomain.ent and d4p_rubyDomain.mod</section>
       </refbodydiv>
-        <refbodydiv outputclass="contains-by">
-         <section id="contains-by"/>
-      </refbodydiv>    
-        <refbodydiv outputclass="inheritance">
-         <section id="inheritance"/>
-      </refbodydiv>
-        <refbodydiv outputclass="example1">
-         <section id="example1"/>
-      </refbodydiv>    	
-        <refbodydiv outputclass="attributes">
-         <section id="attributes"/>
-      </refbodydiv>
+      
         
     </refbody>
 </reference>
