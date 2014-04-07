@@ -13,7 +13,7 @@
 
 <!ENTITY % learningmap-d-dec
   PUBLIC "-//OASIS//ENTITIES DITA 1.2 Learning Map Domain//EN" 
-         "learningMapdomain.ent">
+         "learningMapDomain.ent">
   %learningmap-d-dec;
 
 <!ENTITY % learningmeta-d-dec 
@@ -107,7 +107,7 @@
 
 <!ENTITY % learningmap-d-def PUBLIC 
 "-//OASIS//ELEMENTS DITA 1.2 Learning Map Domain//EN" 
-"learningMapdomain.mod">
+"learningMapDomain.mod">
   %learningmap-d-def;
 
 <!ENTITY % learningmeta-d-def PUBLIC 
