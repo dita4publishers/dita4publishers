@@ -33,6 +33,7 @@
   <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
 -->
   <xsl:template match="/*[df:class(., 'map/map')]" mode="group-and-sort-index">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     
     <!-- Gather all the index entries from the map and topic. 
     -->
@@ -53,20 +54,23 @@
   </xsl:template>
   
   <xsl:template mode="group-and-sort-index" match="index-terms:ungrouped">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- Group first-level terms by index group -->
     <!-- FIXME: Implement usual index grouping localization and configuration per
       I18N library. 
     -->
-<!--    <xsl:message> + [DEBUG] All ungrouped terms:
-      <xsl:for-each select="*">
-        <xsl:sequence select="local:reportIndexTerm(.)"/>      
-      </xsl:for-each>
-    </xsl:message>
--->    <xsl:for-each-group select="index-terms:index-term"
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] group-and-sort-index: index-terms:ungrouped - All ungrouped terms:
+        <xsl:for-each select="*">
+          <xsl:sequence select="local:reportIndexTerm(.)"/>      
+        </xsl:for-each>
+      </xsl:message>
+    </xsl:if>
+    <xsl:for-each-group select="index-terms:index-term"
       group-by="./@grouping-key"
       >
       <xsl:sort select="./@grouping-key" case-order="lower-first"/>
-      <xsl:if test="false() and $debugBoolean">
+      <xsl:if test="$doDebug">
         <xsl:message> + [DEBUG] Index group "<xsl:sequence select="local:construct-index-group-label(current-group()[1])"
         />", grouping key: "<xsl:sequence select="current-grouping-key()"
         />", sort key: "<xsl:sequence select="local:construct-index-group-sort-key(current-group()[1])"
@@ -93,12 +97,14 @@
   </xsl:template>
   
   <xsl:template name="process-index-terms">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+
     <!-- Given a group of index terms, process each group. -->
     <xsl:param name="index-terms" as="node()*"/>
     <xsl:param name="term-depth" as="xs:integer"/>
     
     <xsl:for-each-group select="$index-terms" 
-      group-by="index-terms:label">
+      group-by="@sorting-key">
       <xsl:sort select="@sorting-key" case-order="lower-first" />
       <!-- Each group is all the entries for a given term key -->
       <xsl:variable name="firstTerm" select="current-group()[1]" as="element()"/>
