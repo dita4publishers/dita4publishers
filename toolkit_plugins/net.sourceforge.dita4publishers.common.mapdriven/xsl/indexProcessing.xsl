@@ -17,7 +17,7 @@
     
     NOTE: This functionality is not completely implemented.
     
-    Copyright (c) 2010, 2012 DITA For Publishers
+    Copyright (c) 2010, 2014 DITA For Publishers
     
     Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
     The intent of this license is for this material to be licensed in a way that is
@@ -33,6 +33,7 @@
   <xsl:import href="../../net.sf.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
 -->
   <xsl:template match="/*[df:class(., 'map/map')]" mode="group-and-sort-index">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     
     <!-- Gather all the index entries from the map and topic. 
     -->
@@ -53,20 +54,23 @@
   </xsl:template>
   
   <xsl:template mode="group-and-sort-index" match="index-terms:ungrouped">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- Group first-level terms by index group -->
     <!-- FIXME: Implement usual index grouping localization and configuration per
       I18N library. 
     -->
-<!--    <xsl:message> + [DEBUG] All ungrouped terms:
-      <xsl:for-each select="*">
-        <xsl:sequence select="local:reportIndexTerm(.)"/>      
-      </xsl:for-each>
-    </xsl:message>
--->    <xsl:for-each-group select="index-terms:index-term"
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] group-and-sort-index: index-terms:ungrouped - All ungrouped terms:
+        <xsl:for-each select="*">
+          <xsl:sequence select="local:reportIndexTerm(.)"/>      
+        </xsl:for-each>
+      </xsl:message>
+    </xsl:if>
+    <xsl:for-each-group select="index-terms:index-term"
       group-by="./@grouping-key"
       >
       <xsl:sort select="./@grouping-key" case-order="lower-first"/>
-      <xsl:if test="false() and $debugBoolean">
+      <xsl:if test="$doDebug">
         <xsl:message> + [DEBUG] Index group "<xsl:sequence select="local:construct-index-group-label(current-group()[1])"
         />", grouping key: "<xsl:sequence select="current-grouping-key()"
         />", sort key: "<xsl:sequence select="local:construct-index-group-sort-key(current-group()[1])"
@@ -93,19 +97,22 @@
   </xsl:template>
   
   <xsl:template name="process-index-terms">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+
     <!-- Given a group of index terms, process each group. -->
     <xsl:param name="index-terms" as="node()*"/>
     <xsl:param name="term-depth" as="xs:integer"/>
     
+    
     <xsl:for-each-group select="$index-terms" 
-      group-by="index-terms:label">
+      group-by="@sorting-key">
       <xsl:sort select="@sorting-key" case-order="lower-first" />
       <!-- Each group is all the entries for a given term key -->
       <xsl:variable name="firstTerm" select="current-group()[1]" as="element()"/>
       <xsl:if test="$term-depth > 3">
         <xsl:message> - [WARNING] Index entry is more than 3 levels deep: "<xsl:value-of select="index-terms:label"/>"</xsl:message>
       </xsl:if>
-      <xsl:if test="false()">
+      <xsl:if test="$doDebug">
         <xsl:message> + [DEBUG] group-and-sort-index: index term level <xsl:sequence select="$term-depth"/>: "<xsl:value-of select="index-terms:label"/></xsl:message>
       </xsl:if>
       <index-terms:index-term 
@@ -116,19 +123,28 @@
         <xsl:sequence select="index-terms:original-markup"/>        
         <xsl:if test="not(current-group()/index-terms:index-term)">
           <!-- Only put out targets for this term if there are no subterms -->
+
+          <xsl:if test="$doDebug">
+            <xsl:message> + [DEBUG] index grouping and sorting: leaf index term: <xsl:sequence select="local:reportIndexTerm(.)"/></xsl:message>
+          </xsl:if>
+            <xsl:if test="$doDebug">
+              <xsl:message> + [DEBUG]   Processing <xsl:value-of select="count(current-group()/index-terms:target[*[df:class(.,'topic/indexterm')]
+                                                          [not(*[df:class(.,'topic/indexterm')])]])"/> targets for the term...</xsl:message>
+            </xsl:if>
           <index-terms:targets>
-            <!-- Group index entries by @xtrc value: the same term with the same
-                 @xtrc is in fact the same entry, so don't duplicate it.
-              -->
             <xsl:for-each-group
               select="current-group()/index-terms:target[*[df:class(.,'topic/indexterm')]
                                                           [not(*[df:class(.,'topic/indexterm')])]]"
               group-by="./*[df:class(., 'topic/indexterm')]/@xtrc"                       
               >
+              <!-- If two entries have the same @xtrc value then they are in fact the same entry -->
+              <!-- Note that in the collected index data we want all *unique* entries even if they
+                   point to the same topic since in some outputs (e.g., print) there may still be
+                   a need to output different entries in the generated index.
+                -->
               <xsl:sequence select="current-group()[1]"/>
             </xsl:for-each-group>
-<!--            <xsl:sequence select="current-group()/index-terms:target[*[df:class(.,'topic/indexterm')][not(*[df:class(.,'topic/indexterm')])]]"/>
--->          </index-terms:targets>
+          </index-terms:targets>
           <xsl:if test="current-group()/index-terms:see">
             <index-terms:sees>
               <xsl:for-each-group select="current-group()/index-terms:see" group-by="index-terms:label">

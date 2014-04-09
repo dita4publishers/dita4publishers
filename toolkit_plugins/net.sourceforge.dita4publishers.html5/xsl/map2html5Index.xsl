@@ -146,7 +146,12 @@
 
   <xsl:template mode="generate-index" match="index-terms:targets">
     <span class="index-term-targets">
-      <xsl:apply-templates mode="#current"/>
+      <!-- For HTML we only want one entry in the generated index for each
+           unique target topic.
+        -->
+      <xsl:for-each-group select="index-terms:target" group-by="@source-uri">
+        <xsl:apply-templates mode="#current" select="current-group()[1]"/>
+      </xsl:for-each-group>
     </span>
   </xsl:template>
 
