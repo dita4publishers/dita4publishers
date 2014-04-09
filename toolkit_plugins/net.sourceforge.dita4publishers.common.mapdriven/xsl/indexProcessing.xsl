@@ -103,6 +103,7 @@
     <xsl:param name="index-terms" as="node()*"/>
     <xsl:param name="term-depth" as="xs:integer"/>
     
+    
     <xsl:for-each-group select="$index-terms" 
       group-by="@sorting-key">
       <xsl:sort select="@sorting-key" case-order="lower-first" />
@@ -111,7 +112,7 @@
       <xsl:if test="$term-depth > 3">
         <xsl:message> - [WARNING] Index entry is more than 3 levels deep: "<xsl:value-of select="index-terms:label"/>"</xsl:message>
       </xsl:if>
-      <xsl:if test="false()">
+      <xsl:if test="$doDebug">
         <xsl:message> + [DEBUG] group-and-sort-index: index term level <xsl:sequence select="$term-depth"/>: "<xsl:value-of select="index-terms:label"/></xsl:message>
       </xsl:if>
       <index-terms:index-term 
@@ -122,19 +123,28 @@
         <xsl:sequence select="index-terms:original-markup"/>        
         <xsl:if test="not(current-group()/index-terms:index-term)">
           <!-- Only put out targets for this term if there are no subterms -->
+
+          <xsl:if test="$doDebug">
+            <xsl:message> + [DEBUG] index grouping and sorting: leaf index term: <xsl:sequence select="local:reportIndexTerm(.)"/></xsl:message>
+          </xsl:if>
+            <xsl:if test="$doDebug">
+              <xsl:message> + [DEBUG]   Processing <xsl:value-of select="count(current-group()/index-terms:target[*[df:class(.,'topic/indexterm')]
+                                                          [not(*[df:class(.,'topic/indexterm')])]])"/> targets for the term...</xsl:message>
+            </xsl:if>
           <index-terms:targets>
-            <!-- Group index entries by @xtrc value: the same term with the same
-                 @xtrc is in fact the same entry, so don't duplicate it.
-              -->
             <xsl:for-each-group
               select="current-group()/index-terms:target[*[df:class(.,'topic/indexterm')]
                                                           [not(*[df:class(.,'topic/indexterm')])]]"
               group-by="./*[df:class(., 'topic/indexterm')]/@xtrc"                       
               >
+              <!-- If two entries have the same @xtrc value then they are in fact the same entry -->
+              <!-- Note that in the collected index data we want all *unique* entries even if they
+                   point to the same topic since in some outputs (e.g., print) there may still be
+                   a need to output different entries in the generated index.
+                -->
               <xsl:sequence select="current-group()[1]"/>
             </xsl:for-each-group>
-<!--            <xsl:sequence select="current-group()/index-terms:target[*[df:class(.,'topic/indexterm')][not(*[df:class(.,'topic/indexterm')])]]"/>
--->          </index-terms:targets>
+          </index-terms:targets>
           <xsl:if test="current-group()/index-terms:see">
             <index-terms:sees>
               <xsl:for-each-group select="current-group()/index-terms:see" group-by="index-terms:label">

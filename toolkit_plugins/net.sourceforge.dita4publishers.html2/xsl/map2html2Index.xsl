@@ -19,7 +19,7 @@
     
     NOTE: This functionality is not completely implemented.
     
-    Copyright (c) 2010, 2011 DITA For Publishers
+    Copyright (c) 2010, 2014 DITA For Publishers
     
     Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
     The intent of this license is for this material to be licensed in a way that is
@@ -69,72 +69,119 @@
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:index-group">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] generate-index: index-group: <xsl:value-of select="index-terms:label"/> (<xsl:value-of select="@grouping-key"/>)</xsl:message>
+    </xsl:if>
     <div class="index-group">
       <h2><xsl:apply-templates select="index-terms:label" mode="#current"/></h2>
-      <xsl:apply-templates select="index-terms:sub-terms" mode="#current"/>
+      <xsl:apply-templates select="index-terms:sub-terms" mode="#current">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+      </xsl:apply-templates>
     </div>      
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:index-term">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] generate-index: index-term: <xsl:value-of select="index-terms:label"/> (<xsl:value-of select="@grouping-key"/>)</xsl:message>
+    </xsl:if>
     <li class="index-term" >
       <span class="label"><xsl:apply-templates select="index-terms:label" mode="#current"/></span>
-      <xsl:apply-templates select="index-terms:targets" mode="#current"/>
+      <xsl:apply-templates select="index-terms:targets" mode="#current">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+      </xsl:apply-templates>
       <xsl:apply-templates 
         select="index-terms:sub-terms | 
                 index-terms:see-alsos | 
                 index-terms:sees" 
-        mode="#current"/>
+        mode="#current">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+      </xsl:apply-templates>
     </li>
   </xsl:template>
   
   <xsl:template match="index-terms:see-alsos" mode="generate-index">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <ul class="see-also">
       <li class="see-also">
         <span class="see-also-label">See also: </span>
-        <xsl:apply-templates mode="#current"/>
+        <xsl:apply-templates mode="#current">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:apply-templates>
       </li>
     </ul>
   </xsl:template>
   
   <xsl:template match="index-terms:sees" mode="generate-index">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <ul class="see">
       <li class="see">
         <span class="see-label">See: </span>
-        <xsl:apply-templates mode="#current"/>
+        <xsl:apply-templates mode="#current">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:apply-templates>
       </li>
     </ul>
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:see-also">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="preceding-sibling::*">
       <xsl:text>, </xsl:text>
     </xsl:if>    
-    <xsl:apply-templates  select="index-terms:label" mode="#current"/>
+    <xsl:apply-templates  select="index-terms:label" mode="#current">
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+    </xsl:apply-templates>
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:see">
-    <xsl:apply-templates  select="index-terms:label" mode="#current"/>
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:apply-templates  select="index-terms:label" mode="#current">
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+    </xsl:apply-templates>
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:original-markup">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- nothing to do -->
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:sub-terms">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="./*">
       <ul class="index-terms">
-        <xsl:apply-templates mode="#current"/>      
+        <xsl:apply-templates mode="#current">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:apply-templates>      
       </ul>      
     </xsl:if>
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:targets">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:variable name="doDebug" as="xs:boolean" select="string(../@sorting-key) = 'video log'"/>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] generate-index: Processing targets for entry "video log"...</xsl:message>
+    </xsl:if>
     <span class="index-term-targets">
-      <xsl:apply-templates mode="#current"/>      
+      <!-- If two targets have the same source URI then they're pointing to the same
+           topic and we only want one entry in the index in that case.
+        -->
+      <xsl:for-each-group select="index-terms:target" group-by="@source-uri">
+        <xsl:if test="$doDebug">
+          <xsl:message> + [DEBUG] generate-index:  for-each-group, grouping key="<xsl:value-of select="current-grouping-key()"/>"</xsl:message>
+        </xsl:if>
+        
+        <xsl:apply-templates mode="#current" select="current-group()[1]">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:apply-templates>      
+      </xsl:for-each-group>
     </span>      
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:target">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="rootMapDocUrl" tunnel="yes" as="xs:string"/>
 
     <xsl:if test="preceding-sibling::*">
@@ -150,26 +197,38 @@
         <xsl:attribute name="target" select="$contenttarget"/>
       </xsl:if>
       <xsl:text> [</xsl:text>
-      <xsl:apply-templates select="." mode="generate-index-term-link-text"/>
+      <xsl:apply-templates select="." mode="generate-index-term-link-text">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+      </xsl:apply-templates>
       <xsl:text>] </xsl:text>
     </a>
   </xsl:template>
   
   
   <xsl:template mode="generate-index-term-link-text" match="index-terms:target">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:number count="index-terms:target" format="1"/>
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:index-terms">
-    <xsl:apply-templates mode="#current"/>    
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:apply-templates mode="#current">
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+    </xsl:apply-templates>    
   </xsl:template>
   
   <xsl:template mode="generate-index" match="index-terms:grouped-and-sorted">
-    <xsl:apply-templates mode="#current"/>    
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:apply-templates mode="#current">
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+    </xsl:apply-templates>    
   </xsl:template>
   
   <xsl:template match="index-terms:label" mode="generate-index #default">
-    <xsl:apply-templates/>
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:apply-templates>
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+    </xsl:apply-templates>
   </xsl:template>
   
   <xsl:template match="text()" mode="generate-index" priority="-1"/>    

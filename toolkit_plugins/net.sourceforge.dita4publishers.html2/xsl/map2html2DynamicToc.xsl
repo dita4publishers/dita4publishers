@@ -260,11 +260,25 @@
     <xsl:apply-templates mode="#current"/>
   </xsl:template>  
   
+  <xsl:template match="index-terms:targets" 
+    mode="generate-dynamic-toc">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <!-- For HTML we only want one entry in the generated index for each
+         unique target topic.
+      -->
+    <xsl:for-each-group select="index-terms:target" group-by="@source-uri">
+      <xsl:apply-templates mode="#current" select="current-group()[1]"/>
+    </xsl:for-each-group>
+  </xsl:template>  
+  
   <xsl:template match="index-terms:target" 
     mode="generate-dynamic-toc">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="parentId" as="xs:string" tunnel="yes"/>
     <xsl:param name="rootMapDocUrl" tunnel="yes" as="xs:string"/>
-    <xsl:message> + [DEBUG] index-terms:target: @source-uri="<xsl:sequence select="string(@source-uri)"/>"</xsl:message>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] index-terms:target: @source-uri="<xsl:sequence select="string(@source-uri)"/>"</xsl:message>
+    </xsl:if>
     <xsl:variable name="topic" select="document(relpath:getResourcePartOfUri(@source-uri))" as="document-node()"/>
     
     <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, $topic, $rootMapDocUrl)" as="xs:string"/>
