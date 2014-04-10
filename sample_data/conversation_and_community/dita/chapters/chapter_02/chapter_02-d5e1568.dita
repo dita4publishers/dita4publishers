@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subsection
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:subsection" "subsection.dtd">
+<subsection id="d5e1568"><title>User-generated content and community-generated content</title><prolog><metadata><keywords><indexterm>communities<indexterm>content contributed by</indexterm></indexterm><indexterm>content contributed by</indexterm></keywords></metadata></prolog><body><p><indexterm>content<indexterm>user-generated</indexterm></indexterm><indexterm>content<indexterm>community-generated</indexterm></indexterm>We
+          may think of feedback as a Web 2.0 phenomenon, but in fact, we can find examples of
+          feedback mechanisms throughout the history of <indexterm>publishing<indexterm>feedback
+              channels</indexterm></indexterm>publishing. Since publishing of content began, there
+          have always been methods for incorporating feedback into the final product. Alan Porter
+          describes in a blog post titled Publishing is not the Final Step,<fn>
+            <p>
+              http://http://blogs.webworks.com/aporter/2008/06/27/why-publishing-is-no-longer-the-last-step-in-the-process/</p>
+          </fn> Shakespeare’s plays were modified each night based on audience <indexterm>participation<indexterm>audience</indexterm></indexterm>participation. The
+          distributed work of the Oxford English Dictionary proposed in 1857 was to have
+          contributors find quotations of a word’s use by combing through all of English literature
+          including popular newspapers, magazines, and then submit the quote slips to the editor of
+          the dictionary. New findings of a word’s use were brought into the next edition. </p><p>The key difference in today’s publishing landscape is that the speed at which feedback
+          and findings can come in has been accelerating, and you need to be aware of the ways that
+          information can come in. Users also have taken over some of the publishing themselves as
+          blogs and wikis and powerful searching have made it incredibly easy for any user’s content
+          to be noticed and helpful. </p><p><indexterm>user-generated content</indexterm>User-generated content is what you find in
+            <indexterm>forums<indexterm>user-generated content in</indexterm></indexterm>forums and
+            <indexterm>mailing lists<indexterm>user-generated content</indexterm></indexterm>mailing
+          lists. It is likely to show up on a <indexterm>search<indexterm>accessing documentation
+              through</indexterm></indexterm>search for information and troubleshooting.
+          User-generated content varies widely in quality and may be outdated quickly. Readers of
+          user-generated content need to understand “Caveat Lector”—Reader Beware.</p><p><indexterm>communities<indexterm>content contributed
+          by</indexterm></indexterm>Community-generated content has a different <indexterm>community-generated content<indexterm>quality</indexterm></indexterm>quality bar. While
+          a <indexterm>communities<indexterm>goals</indexterm></indexterm>community may have a
+          mailing list as its primary form of communication, it’s likely the community is not using
+          the mailing list itself to offer how-tos or detailed troubleshooting. Instead, a
+          community, since it is defined with a common goal, may have a more formal means of content
+          creation as one of the means to achieving that goal.</p><p>Individual users are likely faster at posting informal, conversational responses to
+          specific questions. But a community may have a more thought-out approach to the big
+          picture of what needs to be created, content-wise. I am not just talking about written
+          content. I’m also thinking of Wordpress.tv, where the site was “seeded” with twenty or so
+          professionally-created video tutorials, but then the community members’ contributions were
+          also accepted. While it may take a while to create that content, and it might not have a
+          professional voice-over, it is good enough to help another community member learn a
+          particular WordPress technique. And, by leading with video offerings that gave an example
+          of the quality level and expected pacing or chunking of the information, the community has
+          a standard to meet.</p><p>Both types of content often offer “good enough” answers to questions or advice about the
+          best way to proceed with a particular solution. Good enough is judged by the reader. One
+          type of content generation is not more professional than another. Rather, the usefulness
+          of the content vetted by a community is the criteria for judging its quality.</p><p>In my view, a set of community-generated content may be of higher quality than content
+          created by individuals who do not share a common goal or want the same outcome. I would
+          draw a distinction between user-generated content and community-generated content due to
+          the motivations of a community being more aligned than a group labeled “users” who may be
+          motivated by severely opposing aims. Chapter 4, Community and Documentation, explores
+          community-generated content further.</p></body></subsection>

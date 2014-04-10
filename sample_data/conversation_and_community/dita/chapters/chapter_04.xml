@@ -3,7 +3,7 @@
   PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:chapter" "chapter.dtd">
 <chapter
   id="d5e2">
-  <title>Community and Documentation</title>
+  <title>Case D: Single topicref to a multi-topic document, @chunk="select-topic by-topic"</title>
   <prolog/>
   <body>
     <p><image

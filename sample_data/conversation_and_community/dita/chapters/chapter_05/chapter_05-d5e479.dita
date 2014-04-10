@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subsection
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:subsection" "subsection.dtd">
+<subsection id="d5e479"><title>Instant messaging and responses</title><body><p>You have probably noticed that many websites now contain “<indexterm>Live
+            Help</indexterm><indexterm>help, live</indexterm>Live Help” links. If your corporate
+          site includes such links, you might find out how the live help is staffed and volunteer to
+          be a staffer for an hour or longer, exchanging instant messages with real customers. </p><p>Interesting examples exist of scripted response programs written for frequently asked
+          questions, using artificial intelligence stored in knowledge reserves, dictionaries, or
+          other reference materials such as concordances to guess at a needed response. For example,
+          IRC has a helper robot called IRCza that is natural language artificial intelligence chat
+          robot for IRC.<fn>
+            <p> http://timberfrog.com/icqza/irczafaq.html</p>
+          </fn> AOL Instant Messenger offers AIMbots, which can tell you when movies are going to
+          show. According to the paper “Using Instant Messaging to Provide an Intelligent Learning
+          Environment,” <indexterm>Artificial Intelligence Markup Language
+          (AIML)</indexterm>Artificial Intelligence Markup Language (AIML)<fn>
+            <p> http://www.alicebot.org/TR/2001/WD-aiml/</p>
+          </fn> is an XML-compliant language that facilitates the creation of “<indexterm>chatbots</indexterm>chatbots” with various personalities and kinds of knowledge. By
+          connecting the chatbot to a support knowledge base of frequent responses, you might be
+          able to offer a virtual conversation with responses to a customer.</p></body></subsection>

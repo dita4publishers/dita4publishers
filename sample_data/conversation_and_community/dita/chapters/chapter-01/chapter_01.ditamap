@@ -2,7 +2,8 @@
 <!DOCTYPE map
   PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
 <map>
-   <topicref href="chapter_01.dita">
+  <!-- Case B: topicref root of tree of topicrefs, chunk="to-content" -->
+   <topicref href="chapter_01.dita" chunk="to-content">
       <topicref href="chapter_01-d5e51.dita"/>
       <topicref href="chapter_01-d5e99.dita">
          <topicref href="chapter_01-d5e180.dita"/>

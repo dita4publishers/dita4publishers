@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subsection
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:subsection" "subsection.dtd">
+<subsection id="d5e406"><title>Introducing comment and feedback systems in user assistance</title><prolog><metadata><keywords><indexterm>comments<indexterm>enabling</indexterm></indexterm><indexterm>enabling</indexterm></keywords></metadata></prolog><body><p><indexterm>help, online<indexterm>comments in</indexterm></indexterm>Help authoring tools
+          provide user feedback tools right inside of the topics that you author with the tool. Even
+          a simple link to an email address on each help page so that readers can send email to a
+          centralized mailbox in the department gives your readers a way to give feedback. If you
+          want to structure the feedback, add a web form with specific fields to be filled out
+          before a reader can send it. The <indexterm>help, online<indexterm>feedback
+              tools</indexterm></indexterm>feedback mechanism can send the form via <indexterm>email<indexterm>using for customer feedback</indexterm></indexterm>email. Google
+          Forms can populate a Google Spreadsheet with results even as the responses are still
+          coming in. Comments and feedback systems can be incorporated into many online help
+          outputs. Jive Software and JS-Kit are two such offerings. Also, be sure you can track on
+          which pages people are choosing to initiate the comment or response mechanism of your
+          choice. </p><p>You may find ways to discover what your readers are doing without requiring their
+          participation to do so, like Will Hill’s “read-wear” phrase and concept discussed in
+          Chapter 6.<fn>
+            <p> http://www.useit.com/alertbox/participation_inequality.html</p>
+          </fn></p></body></subsection>

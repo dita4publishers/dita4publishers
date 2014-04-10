@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subsection
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:subsection" "subsection.dtd">
+<subsection id="d5e1053"><title>Measuring whether a documentation conversation works </title><body><p>This question, “But does documentation as conversation work?” stems from the <indexterm>metrics<indexterm>social media implementation</indexterm></indexterm>measurability
+          equation. Those who are interested in website metrics and analytics often want some fancy
+          tool to take care of the measurements for them. But, in reality, it is extremely difficult
+          to know what measuring stick you can use on a blog entry, for example, or the value of a
+          well-stocked wiki. Measuring community involvement is often discussed in fuzzy vague terms
+          and not hard numbers. So, if you apply conversation or community methods to <indexterm>technical documentation<indexterm>measuring effectiveness
+          of</indexterm></indexterm>documentation, how do you prove it is working? And how do you
+          prove the level to which it’s working and whether it outpaces conventional user assistance
+          methods? </p><p>Website analytical tools like <indexterm>metrics<indexterm>Google
+            Analytics</indexterm></indexterm><indexterm>Google<indexterm>Analytics</indexterm></indexterm>Google
+          Analytics help you count numbers of visitors, and the tools are getting more sophisticated
+          about measuring how long each visitor stays. Also, they are better able to track the path
+          that users take through a help system, which can help you measure their effectiveness.
+          Plus, Google’s <indexterm>help, online<indexterm>tracking
+            keywords</indexterm></indexterm><indexterm>help, online<indexterm>finding</indexterm></indexterm><indexterm>Google<indexterm>keyword
+            tracking</indexterm></indexterm>keyword tracking is extremely helpful for indicating
+          which <indexterm>search<indexterm>keywords</indexterm></indexterm>keywords are most
+          searched for and may help you analyze which <indexterm>metrics<indexterm>keywords</indexterm></indexterm>keywords are most efficient for letting a user figure
+          out the answer and move on. Time spent on a page may or may not be a good measurement for
+          effectiveness of a help system, but findability<indexterm>findability</indexterm> of your
+          help system is measurable. You can also ask your audience if their participation in
+          conversation or community has prevented them from leaving a company or abandoning a
+          product from a particular company. Often we don’t measure in the sense of preventing a
+          negative result.</p><p><indexterm>community equity</indexterm>Community equity is an emerging research area that
+          measures the value that an individual brings as a member of an online community. Peter
+          Reiser at Sun Microsystems has developed a method and algorithm for calculating a member’s
+          community equity based on information offerings and personal interactions with others. His
+          team also created widgets that help people see other members equity ratings and central
+          areas of expertise. By reading, rating, contributing, tagging, and editing, a person
+          increases their <indexterm>information equity</indexterm>information equity. Personal
+          equity is calculated based on connections, reputation, and collaborative efforts. The
+          values “age” and decrease to zero over time so there is a “freshness” to the values. Peter
+          Reiser’s project is now available as an <indexterm>open source<indexterm>community equity
+              project</indexterm></indexterm>open source project.<fn>
+            <p> http://kenai.com/projects/community-equity</p>
+          </fn> These individual visual measures of a community member’s contributions may help you
+          measure the overall value of a community.</p><p>In the SXSW Interactive panel presentation titled “Social Media Metrics: Where are
+            they?”<fn>
+            <p>
+              http://2008.sxsw.com/interactive/programming/panels_schedule/?action=show&amp;id=IAP060474</p>
+          </fn> the producer for talk.bmc.com community content<indexterm>community-generated
+              content<indexterm>developing</indexterm></indexterm>, Ynema <indexterm>Mangum,
+            Ynema</indexterm>Mangum, noted a <indexterm>metrics<indexterm>case
+            study</indexterm></indexterm><indexterm>help, online<indexterm>measuring</indexterm></indexterm>measurement case study of a single blog entry written
+          by <indexterm>Hurley, William (whurley)</indexterm>William Hurley (known as Whurley)
+          titled “20 Reasons Why Microsoft Loves Open Source.” Whurley’s blog entry it was intended
+          to draw attention and managed to get on the front page of active online communities such
+          as Slashdot and Digg. It could cost $800,000 dollars to gain similar media coverage. That
+          is one method to measure conversations, though <indexterm>whurley (William
+            Hurley)</indexterm>Whurley’s use of conflict journalism and sensationalist shots at
+          competitors does not fit nicely into our usual methods of delivering quality information
+          in a timely manner. </p><p>So, how could you measure whether a technical publication-based conversation is working?
+          My first suggestion is to go to the usual metrics that technical publication uses to
+          provide value—for example, lowered support costs. Or, perhaps it is not Return on
+          Investment you need to measure but <indexterm>risk of inaction (ROI)</indexterm><indexterm>metrics<indexterm>risk of inaction</indexterm></indexterm>Risk of Inaction. If your
+          competitors all use wikis or <indexterm>help, online<indexterm>conversation-based tools
+              in</indexterm></indexterm><indexterm>help, online<indexterm>comments
+            in</indexterm></indexterm>help systems with <indexterm>comments<indexterm>on blog
+              posts</indexterm></indexterm>comments and other conversation-based, community-based
+          user assistance tools, your team should evaluate their use for your deliverables as well.
+          Just as competing products need to keep up with each other’s features, I think that we
+          need to keep an eye on competitor’s conversations and determine if there’s a perceived
+          value your company should match.</p></body></subsection>

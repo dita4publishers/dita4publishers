@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subsection
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:subsection" "subsection.dtd">
+<subsection id="d5e267"><title>Integrating user content into your user assistance</title><body><p><i>Mashup</i>
+        <indexterm>content<indexterm>integrating</indexterm></indexterm>typically refers to websites
+        or applications that combine data from different sources in new ways. You could think of
+        integration of user contributions into your <indexterm>help, online<indexterm>creating from
+            wiki pages</indexterm></indexterm>user assistance as a mashup in itself. An example of a
+          <indexterm>content<indexterm>combining</indexterm></indexterm>mashup that could be used in
+          <indexterm>help, online<indexterm>mashups in</indexterm></indexterm>user assistance is a
+          <indexterm>wikislices</indexterm><indexterm>wikis<indexterm>slicing</indexterm></indexterm><i>wikislice</i>, which repurposes a part of a <indexterm>content<indexterm>wiki</indexterm></indexterm>wiki as an ebook<indexterm>ebooks
+          (PDF)</indexterm> (PDF<indexterm>PDF, as wiki output</indexterm>) or in an online help
+        system. A wikislice is a selected cross-section of a wiki, created by wiki editors
+        selectively extracting content on a particular group of articles for different audiences or
+        deliverables. The sample wikislices on Wikipedia<fn>
+          <p> http://en.wikipedia.org/wiki/Wikipedia:WikiProject_Wikislice </p>
+        </fn> contain content related to mathematics, chemistry, and physics, to name a few
+        subjects. A wikislice can be downloaded to consume offline, so an Internet connection is not
+        necessary once the content is local. And because the wikislice can be styled differently
+        from the wiki as a whole, it can benefit from a more readable format, and its content can be
+        more easily digestible and organized than the vast expanse of a well-populated wiki. </p><p>A project called <indexterm>InfoSlicer</indexterm>InfoSlicer<fn>
+          <p> http://activities.sugarlabs.org/en-US/sugar/addon/4042</p>
+        </fn> is housed on the <indexterm>open source<indexterm>InfoSlicer</indexterm></indexterm><indexterm>open source<indexterm>SugarLabs</indexterm></indexterm>SugarLabs website, host site for the developers of the
+          <indexterm>Sugar learning platform</indexterm>Sugar learning platform. A team created
+        InfoSlicer to help teachers create curriculum by downloading and re-mixing Wikipedia
+        articles. For example, if a teacher wants to teach students about the African continent,
+        they can download articles about animals, clothing, civil structures, and traditions that
+        are native to countries in Africa, then combine them into one set of articles. The Darwin
+        Information Typing Architecture (DITA) is the technology that combines the data since the
+        underlying organization layer is a DITA map structure.</p><p>InfoSlicer for creating wikislices</p><p>To use some slice of a wiki as part of your online help system, you could set up a plug-in
+        that queries the wiki’s database or source content for specific articles at specific
+          publishing<indexterm>publishing<indexterm>wiki content</indexterm></indexterm> times. You
+        need to ensure that the <indexterm>communities<indexterm>content contributed
+          by</indexterm></indexterm>community would welcome such remixes of their contributed
+        content, and that the wiki content licensing allows you to republish the content as part of
+        your static user assistance system. </p><p>Following are tools and techniques that can enable a mashup of wiki<indexterm>wikis<indexterm>exporting content</indexterm></indexterm> and user assistance:</p><ul><li><indexterm>MWDumper</indexterm>MWDumper, available at download.wikimedia.org/tools, is a
+          tool that extracts sets of pages from a <indexterm>MediaWiki<indexterm>exporting
+              from</indexterm></indexterm>MediaWiki dump file. You write your own filters to ensure
+          you get the pages you want. Your information architecture should use certain templates
+          that you would pre-select as the topics to be filtered and exported from MediaWiki.
+          Prerequisites are the Java SDK and access to the database running the MediaWiki
+          installation.</li><li>You can use a Special:Export box for MediaWiki pages that enables you to export a set of
+          pages based on a category name. On any MediaWiki installation, you can enter the root
+          domain URL plus /Sple, go to http://www.wikihow.com/Special:Export and enter Work-World as
+          the category. You’ll get a list of the subcategories. Select the options and save the
+          file. You can then download the resulting XML file.</li><li>If the structure of the content is easily determined (such as a heading followed by only
+          paragraph text), you might consider screen-scraping, which can be done with scripting
+          programs. For more complex topics, such as tasks with embedded graphics, this approach may
+          not work well because it is difficult to capture multiple embedded files with a screen
+          scraping process.</li><li>You can also do direct database calls to the wiki database layer. There is a connection
+          that allows users to use Microsoft Word to edit the wiki database layer directly using a
+          subset of DITA<indexterm>DITA</indexterm> markup tags.</li></ul><p>If you’re thinking about mashing up your wiki content with your user assistance content,
+        consider the following guidelines:</p><ul><li>Ensure that the content is licensed for use in a new deliverable. <indexterm>Creative
+            Commons license</indexterm>Creative Commons licenses allow for share and share alike,
+          meaning that anything created from your shared content must also be shared content itself.
+          The ramification of choosing content with this license is that your resulting content also
+          has to be shareable. You would also have to attribute the source. GNU Public License has
+          more documentation-friendly terms in it, but it requires that resulting content be
+          licensed with the same terms. </li><li>Design the wiki with specific tags in mind for collection. Let wiki contributors know
+          that articles tagged in a certain way will be incorporated into the online help.</li><li>Query the database for categories, specific tags, or templates, and create a
+            DITA<indexterm>DITA</indexterm> map or similar structure for re-assembling the
+          content.</li><li>Using a DITA<indexterm>DITA</indexterm> map or similar structure as a query, get the
+          content out of the wiki database, and then turn it into HTML files (or whatever format is
+          needed by the user assistance/help authoring tool). Import files into the help authoring
+          tool and recompile the help. </li></ul><p>Other ways to integrate user content into your user assistance include using
+          screencasts<indexterm>screencasts</indexterm> created by users, searching Google for the
+        most helpful troubleshooting articles related to your product and asking permission to
+        re-post those, and incorporating wiki articles with the author’s permission and proper
+        licensing agreements in place. These suggestions are just a few techniques that might work
+        for your content. </p></body></subsection>

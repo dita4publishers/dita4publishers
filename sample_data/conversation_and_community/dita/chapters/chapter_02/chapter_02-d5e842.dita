@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subsection
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:subsection" "subsection.dtd">
+<subsection id="d5e842"><title>Presence and location</title><body><p>BrightKite, Latitude, Twinkle, geo-spatial location awareness, poke<indexterm>poke</indexterm>, superpoke<indexterm>superpoke</indexterm>, status</p><p><indexterm>presence, online</indexterm>You may find it odd that there’s a function on web
+          applications like Facebook to “poke” another user. On Twitter, you can “<indexterm>Twitter<indexterm>nudging</indexterm></indexterm>nudge” someone. It is basically a
+          mechanism to get someone’s attention or to find out if they are online or not, indicated
+          by poking you back. </p><p>Another presence or location item is the <indexterm>GPS</indexterm>GPS-based location
+          indication that some web applications build in and integrate with GPS hardware to let
+          others know if they’re mobile, or even their location as they travel. This data is called
+            <indexterm>geospatial data</indexterm>geospatial data and content systems that know
+          where someone is reading content can help you analyze the <indexterm>content<indexterm>localization</indexterm></indexterm><indexterm>localization,
+          analyzing</indexterm>localization or translation of content. For example, if you notice an
+          upsurge in questions about a particular help topic coming from the Ottowa, Canada area,
+          you could look for French-Canadian culture issues with the content and fix the issue.</p><p><indexterm>TripIt</indexterm>TripIt and <indexterm>Dopplr</indexterm>Dopplr are examples
+          of travel web applications where you share your travels with friends and coworkers in the
+          hopes of keeping others informed about where you are so that in-person meetings can
+          happen. Mobility and <indexterm>status, indicating</indexterm>status knowledge might be
+          useful if you attend your user’s conferences and want to set up face-to-face gatherings. </p><p>Presence example</p><p>By enabling more real-world interaction with a web application that collects location
+          data and makes it meaningful to people, Dopplr (sounds like doppler) gives you trip
+          tracking and trip planning abilities. This screenshot shows a map of my trips over a
+          year’s time. It integrates with popular social networking sites like Facebook and LinkedIn
+          to tell my network about my current location, and indicate upcoming trips that I have
+          planned.</p><p>dopplr.com</p></body></subsection>
