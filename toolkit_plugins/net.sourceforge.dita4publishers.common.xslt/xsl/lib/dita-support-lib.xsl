@@ -886,7 +886,7 @@
          http://stackoverflow.com/questions/6753343/using-xsl-to-make-a-hash-of-xml-file
          
       -->
-    <xsl:function name="df:checksum" as="xs:int">
+    <xsl:function name="df:checksum" as="xs:integer">
         <xsl:param name="str" as="xs:string"/>
         <xsl:variable name="codepoints" select="string-to-codepoints($str)"/>
         <xsl:value-of select="df:fletcher16($codepoints, count($codepoints), 1, 0, 0)"/>
