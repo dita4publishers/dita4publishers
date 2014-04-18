@@ -311,6 +311,8 @@
       <xsl:call-template name="generateXtrcAtt"/>
       <xsl:sequence select="@align"/>
       <xsl:sequence select="@frame"/>
+      <xsl:sequence select="@rowsep"/>
+      <xsl:sequence select="@colsep"/>
       <xsl:choose>
         <xsl:when test="number($width) &lt; 100">
           <xsl:attribute name="pgwide">0</xsl:attribute>

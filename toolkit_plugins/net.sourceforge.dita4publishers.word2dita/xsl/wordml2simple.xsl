@@ -596,6 +596,8 @@
     <table>
       <xsl:attribute name="frame" select="local:constructFrameValue(w:tblPr/w:tblBorders)"/>
       <xsl:attribute name="calculatedWidth" select="local:calculateTableActualWidth(w:tblGrid)"/>
+      <!-- Construct rowsep and colsep values as appropriate: -->
+      <xsl:apply-templates select="w:tblPr/w:tblBorders" mode="table-attributes"/>
       <xsl:for-each select="$styleData/@*">
         <xsl:copy/>
       </xsl:for-each>
@@ -616,6 +618,26 @@
       <xsl:apply-templates select="*[not(self::w:tblPr)]"/>
     </table>
 <!--    <xsl:message> + [DEBUG] ===== Ending a table</xsl:message>-->
+  </xsl:template>
+  
+  <xsl:template mode="table-attributes" match="w:tblBorders">
+    <xsl:apply-templates select="w:insideH | w:insideV" mode="#current"/>
+  </xsl:template>
+  
+  <xsl:template mode="table-attributes" match="w:insideH">
+    <xsl:variable name="value" as="xs:string" select="@w:val"/>
+    <!-- NOTE: It looks like any value means there is a horizontal inside border,
+         per the Office Open XML spec.
+      -->
+    <xsl:attribute name="rowsep" select="'1'"/>
+  </xsl:template>
+  
+  <xsl:template mode="table-attributes" match="w:insideV">
+    <xsl:variable name="value" as="xs:string" select="@w:val"/>
+    <!-- NOTE: It looks like any value means there is a vertical inside border,
+         per the Office Open XML spec.
+      -->
+    <xsl:attribute name="colsep" select="'1'"/>
   </xsl:template>
   
   <xsl:function name="local:calculateTableCellHorizontalAlignment" as="xs:string?">
