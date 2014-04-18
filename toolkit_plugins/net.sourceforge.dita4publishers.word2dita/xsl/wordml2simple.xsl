@@ -461,7 +461,7 @@
     <xsl:apply-templates/>
   </xsl:template>
 
-  <xsl:template match="w:r[w:rPr/w:rFonts]" priority="10">
+  <xsl:template match="w:r[w:rPr/w:rFonts[@w:ascii]]" priority="10">
     <xsl:variable name="fontFace" as="xs:string?"
       select="w:rPr/w:rFonts/@w:ascii"
     />
@@ -484,6 +484,11 @@
             $fontFace)"
           />
         </xsl:for-each>
+      </xsl:when>
+      <xsl:when test="$fontFace != ''">
+        <xsl:if test="$debugBoolean">          
+        <xsl:message> + [DEBUG] w:r[w:rPr/w:rFonts]: Value "<xsl:value-of select="$fontFace"/> for @w:ascii attribute.</xsl:message>
+        </xsl:if>
       </xsl:when>
       <xsl:otherwise>
         <xsl:message> + [WARN] w:r[w:rPr/w:rFonts]: No value for @w:ascii on wrFonts element: <xsl:sequence select="w:rPr/w:rFonts"/></xsl:message>
