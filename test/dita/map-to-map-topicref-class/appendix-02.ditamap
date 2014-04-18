@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "bookmap.dtd">
+<map>
+  <title>Appendix Topic referenced with normal topicref</title>
+  <topicref
+    href="topics/appendix-topic-02.dita"/>
+</map>
