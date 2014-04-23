@@ -1,4 +1,5 @@
 <project name="dita2html2" default="dita2html2"
+  xmlns:dita="http://dita-ot.sourceforge.net" 
   >
   
   <!-- test to see where the plugin is located, plugins or demo -->
@@ -138,7 +139,7 @@
     	<param name="titleOnlyTopicClassSpec" expression="${title.only.topic.class.spec}"/>
     	<param name="titleOnlyTopicTitleClassSpec" expression="${title.only.topic.title.class.spec}"/>
      	<param name="topicsOutputDir" expression="${topics.output.dir}"/>
-		<param name="TRANSTYPE" expression="${transtype}"/>
+		  <param name="TRANSTYPE" expression="${transtype}"/>
     	<!-- Parameters from dita2xhtml and similar transtypes: -->   
       <param name="WORKDIR" expression="${workdir}" if="workdir"/>
       <param name="BASEDIR" expression="${basedir}"></param>
@@ -155,6 +156,7 @@
     	<param name="FILEDIR" expression="."/>
       <param name="FILTERFILE" expression="${dita.input.valfile.url}" if="dita.input.valfile"></param>
       <param name="DBG" expression="${args.debug}" if="args.debug"></param>
+      <dita:extension id="d4p.html2.xslt.param" behavior="org.dita.dost.platform.InsertAction"/>
       <xmlcatalog refid="dita.catalog"></xmlcatalog>
       
       <mapper type="glob"

@@ -1,5 +1,6 @@
 <plugin id="net.sourceforge.dita4publishers.html2">
   <extension-point id="xsl.transtype-html2"/>
+  <extension-point id="d4p.html2.xslt.param" name="HTML2 XSLT parameters"/>
 
   <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
   <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 

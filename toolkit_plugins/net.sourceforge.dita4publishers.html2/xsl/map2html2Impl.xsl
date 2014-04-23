@@ -212,7 +212,7 @@
       + platform         = "<xsl:sequence select="$platform"/>"
       + debugBoolean     = "<xsl:sequence select="$debugBoolean"/>"
     </xsl:message>      
-    <xsl:next-match />  
+    <xsl:apply-templates select="." mode="extension-report-parameters"/>
     <xsl:message>  
       ==========================================
     </xsl:message>
