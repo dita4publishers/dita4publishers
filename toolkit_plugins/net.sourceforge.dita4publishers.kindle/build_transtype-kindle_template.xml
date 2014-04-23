@@ -1,4 +1,5 @@
 <project name="dita2kindle" default="dita2kindle"
+  xmlns:dita="http://dita-ot.sourceforge.net"
   >
   
   <!-- test to see where the plugin is located, plugins or demo -->
@@ -175,6 +176,7 @@
     	<param name="FILEDIR" expression="."/>
       <param name="FILTERFILE" expression="${dita.input.valfile.url}" if="dita.input.valfile"></param>
       <param name="DBG" expression="${args.debug}" if="args.debug"></param>
+      <dita:extension id="d4p.html2.xslt.param" behavior="org.dita.dost.platform.InsertAction"/>
       <xmlcatalog refid="dita.catalog"></xmlcatalog>
       
     </xslt>
