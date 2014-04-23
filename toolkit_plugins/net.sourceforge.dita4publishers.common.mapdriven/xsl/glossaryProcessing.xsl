@@ -203,35 +203,6 @@
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
   
-  <xsl:template match="*[df:isTopicRef(.)]" mode="gather-index-terms">
-    <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
-
-    <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
-    
-    <xsl:choose>
-        <xsl:when test="not($topic)">
-          <!-- Do nothing. Unresolveable topics will already have been reported. -->
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:variable name="targetUri" select="htmlutil:getTopicResultUrl($outdir, root($topic), $rootMapDocUrl)" as="xs:string"/>
-          <xsl:variable name="relativeUri" select="relpath:getRelativePath($outdir, $targetUri)" as="xs:string"/>
-            <!-- Any subordinate topics in the currently-referenced topic are
-              reflected in the ToC before any subordinate topicrefs.
-            -->
-            <!--<xsl:message> + [DEBUG] gather-glossdata: applying templates to indexterms in referenced topic:
-              <xsl:apply-templates select="$topic//*[df:class(., 'topic/indexterm')][not(parent::*[df:class(., 'topic/indexterm')])]" mode="report-element"></xsl:apply-templates>
-            </xsl:message>-->
-            <xsl:apply-templates mode="#current" 
-              select="$topic//*[df:class(., 'topic/indexterm')][not(parent::*[df:class(., 'topic/indexterm')])], *[df:class(., 'map/topicref')]">
-              <xsl:with-param name="targetUri" as="xs:string" tunnel="yes"
-                select="$targetUri"
-              />
-            </xsl:apply-templates>
-        </xsl:otherwise>
-      </xsl:choose>    
-        
-  </xsl:template>
-  
   <xsl:function name="local:construct-glossary-group-key" as="xs:string">
     <xsl:param name="label" as="node()*"/>
     <xsl:variable name="labelStr" as="xs:string">

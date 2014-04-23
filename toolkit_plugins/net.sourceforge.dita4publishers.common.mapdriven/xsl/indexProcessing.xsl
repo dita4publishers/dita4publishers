@@ -354,6 +354,7 @@ the index-see and index-see-also elements will be ignored.</xsl:message>
   </xsl:template>
   
   <xsl:template match="*[df:isTopicRef(.)]" mode="gather-index-terms">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/> 
     <xsl:param name="rootMapDocUrl" as="xs:string" tunnel="yes"/>
 
     <xsl:variable name="topic" select="df:resolveTopicRef(.)" as="element()*"/>
@@ -363,15 +364,23 @@ the index-see and index-see-also elements will be ignored.</xsl:message>
           <!-- Do nothing. Unresolveable topics will already have been reported. -->
         </xsl:when>
         <xsl:otherwise>
-            <!-- Any subordinate topics in the currently-referenced topic are
-              reflected in the ToC before any subordinate topicrefs.
-            -->
-            <!--<xsl:message> + [DEBUG] gather-index-terms: applying templates to indexterms in referenced topic:
-              <xsl:apply-templates select="$topic//*[df:class(., 'topic/indexterm')][not(parent::*[df:class(., 'topic/indexterm')])]" mode="report-element"></xsl:apply-templates>
-            </xsl:message>-->
+          <!-- Any subordinate topics in the currently-referenced topic are
+            reflected in the ToC before any subordinate topicrefs.
+          -->
+          <!--<xsl:message> + [DEBUG] gather-index-terms: applying templates to indexterms in referenced topic:
+            <xsl:apply-templates select="$topic//*[df:class(., 'topic/indexterm')][not(parent::*[df:class(., 'topic/indexterm')])]" mode="report-element"></xsl:apply-templates>
+          </xsl:message>-->
+          <xsl:apply-templates mode="#current" 
+            select="$topic//*[df:class(., 'topic/indexterm')][not(parent::*[df:class(., 'topic/indexterm')])]"> 
+          </xsl:apply-templates>
+          <xsl:if test="not(contains(@chunk, 'to-content'))">
+            <!-- If this topicref chunks to content then we don't want to process
+                 any subordinate topicrefs because all the index entries will be in the
+                 chunk referenced by this topicref.
+              -->
             <xsl:apply-templates mode="#current" 
-              select="$topic//*[df:class(., 'topic/indexterm')][not(parent::*[df:class(., 'topic/indexterm')])], *[df:class(., 'map/topicref')]">
-            </xsl:apply-templates>
+              select="*[df:class(., 'map/topicref')]"/>
+          </xsl:if>
         </xsl:otherwise>
       </xsl:choose>    
         

@@ -156,9 +156,16 @@
             <xsl:if test="$doDebug">
               <xsl:message> + [DEBUG] construct-enumerable-structure:       Applying templates to child topicrefs in mode construct-enumerable-structure...</xsl:message>
             </xsl:if>
-            <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicref')]">
-              <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-            </xsl:apply-templates>
+            <xsl:if test="not(contains(@chunk, 'to-content'))">
+              <!-- If the topicref specifies chunk="to-content" then we don't need to
+                   process any subordinate topicrefs because all the content will have
+                   been in the chunk referenced by this topicrefs. Any subordinate 
+                   topicrefs will be only for navigation purposes.
+                -->
+              <xsl:apply-templates mode="#current" select="*[df:class(., 'map/topicref')]">
+                <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+              </xsl:apply-templates>
+            </xsl:if>
             <xsl:if test="$doDebug">
               <xsl:message> + [DEBUG] construct-enumerable-structure:    Done constructing "content" param.</xsl:message>
             </xsl:if>
