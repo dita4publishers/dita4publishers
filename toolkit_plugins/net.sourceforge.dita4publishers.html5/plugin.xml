@@ -24,8 +24,12 @@
     <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
     <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
   
-  <extension-point id="dita.html5.map" name="HTML5 xslt parameters" />
   <extension-point id="xsl.transtype-html5" name="HTML5 XSLT extension" />
+  <extension-point id="d4p.html5.xslt.param" name="HTML5 XSLT parameters"/>
+  <!-- NOTE: the dita.html5.map extension point is obsolete but retained
+             for backward compatibility.
+    -->
+  <extension-point id="dita.html5.map" name="HTML5 xslt parameters" />
 
   <template file="build_transtype-html5_template.xml"/>  
   <template file="build-theme_template.xml"/>
@@ -36,6 +40,6 @@
   <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
   <feature extension="dita.xsl.xhtml" file="xsl/map2html5flagging.xsl"/>
   <feature extension="dita.xsl.strings" value="strings/strings.xml" type="file"/>
-  <feature extension="dita.html5.map" value="parameters.xml" type="file" />
+  <feature extension="d4p.html5.xslt.param" value="parameters.xml" type="file" />
     
 </plugin>

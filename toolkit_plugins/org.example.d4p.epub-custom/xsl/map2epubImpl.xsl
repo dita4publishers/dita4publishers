@@ -16,7 +16,7 @@
     
        DITA Map to EPUB Custom Transformation
        
-       Copyright (c) 2013 DITA For Publishers
+       Copyright (c) 2013, 2014 DITA For Publishers
        
        Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
        The intent of this license is for this material to be licensed in a way that is
@@ -31,10 +31,24 @@
        ============================================================== -->
 
   <xsl:import href="../../net.sourceforge.dita4publishers.epub/xsl/map2epubImpl.xsl"/> <!-- import the D4P epub transform -->
-  
+
+  <xsl:param name="paramNameinXSLT" as="xs:string" select="'not-set'"/>
+
   <!-- Example custom template; all this does is applies the next matching template to any element that is or is specialized from the base paragraph element in DITA 1.2 --> 
   <xsl:template match="*[df:class(.,'topic/p')]">
     <xsl:next-match/>
   </xsl:template>
+  
+  
+  <xsl:template match="*" mode="extension-report-parameters">
+    <xsl:message>
+      
+      EPUB Customization Parameters:
+      
+      paramNameinXSLT  = "<xsl:value-of select="$paramNameinXSLT"/>"
+    </xsl:message>
+  </xsl:template>
+  
+
   
 </xsl:stylesheet>

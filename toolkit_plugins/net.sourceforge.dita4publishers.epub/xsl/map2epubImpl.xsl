@@ -16,7 +16,7 @@
     
        DITA Map to ePub Transformation
        
-       Copyright (c) 2010, 2012 DITA For Publishers
+       Copyright (c) 2010, 2014 DITA For Publishers
        
        Licensed under Common Public License v1.0 or the Apache Software Foundation License v2.0.
        The intent of this license is for this material to be licensed in a way that is
@@ -246,7 +246,7 @@
       
       ==========================================
     </xsl:message>
-    <xsl:apply-imports/>
+    <xsl:apply-templates select="." mode="extension-report-parameters"/>
   </xsl:template>
   
   

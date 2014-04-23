@@ -360,6 +360,10 @@
     >
       <xmlcatalog refid="dita.catalog"></xmlcatalog>
 
+       <dita:extension id="d4p.html5.xslt.param" behavior="org.dita.dost.platform.InsertAction" />
+      <!-- NOTE: The dita.html5.map extension point is replaced by the d4p.html5.xslt.param but
+                 is retained for backward compatibility.
+        -->
        <dita:extension id="dita.html5.map" behavior="org.dita.dost.platform.InsertAction" />
 
        <mapper

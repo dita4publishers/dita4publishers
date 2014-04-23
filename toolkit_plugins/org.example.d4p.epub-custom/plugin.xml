@@ -13,5 +13,6 @@
 
   <feature extension="dita.conductor.transtype.check" value="epub-custom" type="txt"/> <!-- change value to match your custom transtype -->
   <feature extension="dita.conductor.target.relative" file="build.xml"/>
+  <feature extension="d4p.epub.xslt.param" file="insertParameters.xml"/>
 
 </plugin>

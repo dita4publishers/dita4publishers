@@ -315,9 +315,11 @@
       + platform         = "<xsl:sequence select="$platform"/>"
       + debugBoolean     = "<xsl:sequence select="$debugBoolean"/>"
 
+    </xsl:message>
+    <xsl:apply-templates select="." mode="extension-report-parameters"/>
+    <xsl:message>
       ==========================================
     </xsl:message>
-    <xsl:apply-imports/>
   </xsl:template>
 
 
