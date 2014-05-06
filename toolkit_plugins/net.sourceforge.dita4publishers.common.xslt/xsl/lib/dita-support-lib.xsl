@@ -359,50 +359,58 @@
       else $uri
       "/>
     <xsl:variable name="containingDoc"
-      as="document-node()"
+      as="document-node()?"
       select="if ($resourcePart = '') 
       then root($context) 
       else document($resourcePart, $context)
       "
     />
-    <xsl:variable name="topicId" as="xs:string" 
-      select="if (contains($fragmentId, '/')) 
-      then substring-before($fragmentId, '/') 
-      else $fragmentId"
-    />
-    <xsl:variable name="elemId" as="xs:string"
-      select="substring-after($fragmentId, '/')"
-    />
-    <xsl:variable name="targetTopic" as="element()?"
-      select="key('topicsById', $topicId, $containingDoc)"
-    />
-     <xsl:if test="$debugBoolean">    
-      <xsl:message> + [DEBUG] resolveTopicElementRef(): 
-          +        $context="<xsl:sequence select="$context"/>" 
-          +        $resourcePart="<xsl:sequence select="$resourcePart"/>" 
-          +        $fragmentId="<xsl:sequence select="$fragmentId"/>" 
-          +        $topicId="<xsl:sequence select="$topicId "/>" 
-          +        $elemId="<xsl:sequence select="$elemId "/>" 
-          +        $targetTopic="<xsl:sequence select="$targetTopic/@id"/>" 
-        </xsl:message>
-     </xsl:if>    
     <xsl:choose>
-      <xsl:when test="$targetTopic">
-        <xsl:choose>
-          <xsl:when test="$elemId != ''">
-            <xsl:variable name="targetElement" as="element()?"
-              select="$targetTopic//*[@id = $elemId][count($targetTopic|./ancestor::*[df:class(., 'topic/topic')][1]) = 1]"
-            />
-            <xsl:sequence select="$targetElement"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:sequence select="$targetTopic"/>
-          </xsl:otherwise>
-        </xsl:choose>        
-      </xsl:when>
-      <xsl:otherwise>
+      <xsl:when test="not($containingDoc)">
         <xsl:message> - [ERROR] Failed to resolve URI "<xsl:sequence select="$uri"/>" to a topic.</xsl:message>
         <xsl:sequence select="()"/>
+      </xsl:when>
+      <xsl:otherwise>        
+        <xsl:variable name="topicId" as="xs:string" 
+          select="if (contains($fragmentId, '/')) 
+          then substring-before($fragmentId, '/') 
+          else $fragmentId"
+        />
+        <xsl:variable name="elemId" as="xs:string"
+          select="substring-after($fragmentId, '/')"
+        />
+        <xsl:variable name="targetTopic" as="element()?"
+          select="key('topicsById', $topicId, $containingDoc)"
+        />
+         <xsl:if test="$debugBoolean">    
+          <xsl:message> + [DEBUG] resolveTopicElementRef(): 
+              +        $context="<xsl:sequence select="$context"/>" 
+              +        $resourcePart="<xsl:sequence select="$resourcePart"/>" 
+              +        $fragmentId="<xsl:sequence select="$fragmentId"/>" 
+              +        $topicId="<xsl:sequence select="$topicId "/>" 
+              +        $elemId="<xsl:sequence select="$elemId "/>" 
+              +        $targetTopic="<xsl:sequence select="$targetTopic/@id"/>" 
+            </xsl:message>
+         </xsl:if>    
+        <xsl:choose>
+          <xsl:when test="$targetTopic">
+            <xsl:choose>
+              <xsl:when test="$elemId != ''">
+                <xsl:variable name="targetElement" as="element()?"
+                  select="$targetTopic//*[@id = $elemId][count($targetTopic|./ancestor::*[df:class(., 'topic/topic')][1]) = 1]"
+                />
+                <xsl:sequence select="$targetElement"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:sequence select="$targetTopic"/>
+              </xsl:otherwise>
+            </xsl:choose>        
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:message> - [ERROR] Failed to resolve URI "<xsl:sequence select="$uri"/>" to a topic.</xsl:message>
+            <xsl:sequence select="()"/>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:function>

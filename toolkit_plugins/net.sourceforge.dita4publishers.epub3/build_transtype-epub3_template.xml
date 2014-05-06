@@ -73,6 +73,7 @@
     	<param name="FILEDIR" expression="."/>
       <param name="FILTERFILE" expression="${dita.input.valfile.url}" if="dita.input.valfile"></param>
       <param name="DBG" expression="${args.debug}" if="args.debug"></param>
+      <dita:extension id="d4p.epub.xslt.param" behavior="org.dita.dost.platform.InsertAction"/>
       <xmlcatalog refid="dita.catalog"></xmlcatalog>
     </xslt>
   	
