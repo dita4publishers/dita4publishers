@@ -54,6 +54,7 @@
   <xsl:key name="bookmarksByName" match="rsiwp:bookmarkStart" use="@name"/>
   
   <xsl:template match="rsiwp:document">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:message> + [INFO] ++++++++++++++++++++++++++++++ 
  + [INFO] 
  + [INFO] simple2dita: Processing intermediate simpleML XML to generate DITA XML...
@@ -65,11 +66,13 @@
     <xsl:variable name="simpleWpDoc" as="document-node()" select="root(.)"/>
     <!-- First <p> in doc should be title for the root topic. If it's not, bail -->  
     <xsl:variable name="firstP" select="rsiwp:body/(rsiwp:p|rsiwp:table)[1]" as="element()?"/>
-    <xsl:if test="$debugBoolean">        
+    <xsl:if test="$doDebug">        
       <xsl:message> + [DEBUG] rsiwp:document: firstP=<xsl:sequence select="$firstP"/></xsl:message>
     </xsl:if>
-    <xsl:if test="$firstP and not(local:isRootTopicTitle($firstP)) and not(local:isMap($firstP))">
-      <xsl:message terminate="yes"> - [ERROR] The first block in the Word document must be mapped to the root map or topic title.
+    <xsl:if test="$firstP and 
+                  not(local:isRootTopicTitle($firstP)) and 
+                  not(local:isMap($firstP) or local:isMapTitle($firstP))">
+      <xsl:message terminate="yes"> - [ERROR] The first paragraph in the Word document must be mapped to the root map or topic title.
         First para is style <xsl:sequence select="string($firstP/@style)"/>, mapped as <xsl:sequence 
           select="
           (key('styleMapsByName', lower-case(string($firstP/@style)), $styleMapDoc)[1],
@@ -81,7 +84,7 @@
       <xsl:document>
         <xsl:choose>
           <xsl:when test="local:isMap($firstP) or local:isMapTitle($firstP)">
-            <xsl:if test="$debugBoolean">        
+            <xsl:if test="$doDebug">        
               <xsl:message> + [DEBUG] rsiwp:document: firstP is root map, calling makeMap...</xsl:message>
             </xsl:if>
             <xsl:call-template name="makeMap">
@@ -96,7 +99,7 @@
             </xsl:call-template>
           </xsl:when>
           <xsl:when test="local:isRootTopicTitle($firstP)">
-            <xsl:if test="$debugBoolean">        
+            <xsl:if test="$doDebug">        
               <xsl:message> + [DEBUG] rsiwp:document: firstP is root topic title, calling makeTopic...</xsl:message>
             </xsl:if>
             <xsl:call-template name="makeTopic">
@@ -109,7 +112,7 @@
             </xsl:call-template>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:if test="$debugBoolean">        
+            <xsl:if test="$doDebug">        
               <xsl:message> + [DEBUG] rsiwp:document: firstP is neither root topic nor root map</xsl:message>
             </xsl:if>
           </xsl:otherwise>
@@ -117,7 +120,7 @@
       </xsl:document>
     </xsl:variable>
     <!-- Write out the base resultDocs data for debugging purposes -->
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:variable
         name="tempDoc"
         select="relpath:newFile($outputDir, 'resultDocs.xml')"
@@ -139,7 +142,7 @@
       </xsl:apply-templates>
     </xsl:variable>
     <!-- Write out the fixed-up resultDocs data for debugging purposes -->
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:variable
         name="tempDoc"
         select="relpath:newFile($outputDir, 'resultDocsFixedUp.xml')"
@@ -163,6 +166,7 @@
   </xsl:template>
   
   <xsl:template mode="generate-result-docs" match="rsiwp:result-document" priority="10">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:message> + [INFO] Generating result document "<xsl:sequence select="string(@href)"/>..."</xsl:message>
     <xsl:result-document href="{@href}" 
       doctype-public="{@doctype-public}"
@@ -172,12 +176,14 @@
   </xsl:template>
   
   <xsl:template mode="generate-result-docs" match="*" priority="5">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:copy copy-namespaces="no">
       <xsl:apply-templates select="@*,node()" mode="#current"/>
     </xsl:copy>
   </xsl:template>
   
   <xsl:template mode="generate-result-docs" match="@xtrc | @xtrf" priority="10">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:choose>
       <xsl:when test="$includeWordBackPointersBoolean">
         <xsl:sequence select="."/>
@@ -189,13 +195,17 @@
   </xsl:template>
   
   <xsl:template mode="generate-result-docs" match="@*|node()">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:copy/>
   </xsl:template>
   
-  <xsl:template match="rsiwp:p[string(@structureType) = 'skip']" priority="10"/>
+  <xsl:template match="rsiwp:p[string(@structureType) = 'skip']" priority="10">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+  </xsl:template>
   
   <xsl:template match="rsiwp:p" name="transformPara">
-    <xsl:if test="false() or $debugBoolean">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rsiwp:p (transformPara): text=<xsl:sequence select="substring(., 1, 40)"/></xsl:message>
     </xsl:if>
     <xsl:variable name="tagName" as="xs:string"
@@ -210,7 +220,7 @@
     </xsl:if>
     <xsl:choose>
       <xsl:when test="count(./*) = 0 and normalize-space(.) = ''">
-        <xsl:if test="false() or $debugBoolean">
+        <xsl:if test="$doDebug">
           <xsl:message> + [DEBUG] Skipping apparently-empty paragraph: <xsl:sequence select="local:reportPara(.)"/></xsl:message>
         </xsl:if>
       </xsl:when>
@@ -247,6 +257,7 @@
   </xsl:template>
   
   <xsl:template mode="generate-id" match="*">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="idGenerator" select="''"/>
     <xsl:choose>
       <xsl:when test="$idGenerator = ''">
@@ -262,6 +273,7 @@
   </xsl:template>
   
   <xsl:template name="transformParaContent">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:variable name="isTitlePara" as="xs:boolean"
       select="local:isTopicTitle(.)"
     />
@@ -294,6 +306,7 @@
   
   <!-- Much of the code used for table transformation comes from the DITA Open Toolkit's h2d plugin -->
   <xsl:template match="rsiwp:table">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:variable name="width">
       <xsl:if test="@width">
         <xsl:value-of select="substring-before(@width,'%')"/>
@@ -354,7 +367,8 @@
     </xsl:element>
   </xsl:template>
   
-    <xsl:template match="rsiwp:td|rsiwp:th">
+  <xsl:template match="rsiwp:td|rsiwp:th">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
         <entry>
 
             <xsl:if test="@rowspan">
@@ -421,10 +435,11 @@
         </xsl:otherwise>
       </xsl:choose> -->
         </entry>
-    </xsl:template>
-    
-    
-    <xsl:template match="rsiwp:tr|rsiwp:thead">
+  </xsl:template>
+  
+  
+  <xsl:template match="rsiwp:tr|rsiwp:thead">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
         <row>
             <xsl:if test="@valign">
                 <xsl:attribute name="valign">
@@ -433,37 +448,39 @@
             </xsl:if>
             <xsl:apply-templates/>
         </row>
-    </xsl:template>
-    
-    <xsl:template match="rsiwp:td|rsiwp:th" mode="count-cols">
-        <xsl:param name="current-count">1</xsl:param>
-        <xsl:variable name="current-span">
-            <xsl:choose>
-                <xsl:when test="@colspan">
-                    <xsl:value-of select="@colspan"/>
-                </xsl:when>
-                <xsl:otherwise>1</xsl:otherwise>
-            </xsl:choose>
-        </xsl:variable>
-        <xsl:choose>
-            <xsl:when test="following-sibling::rsiwp:th or following-sibling::rsiwp:td">
-                <xsl:apply-templates select="(following-sibling::rsiwp:th|following-sibling::rsiwp:td)[1]"
-                    mode="count-cols">
-                    <xsl:with-param name="current-count">
-                        <xsl:value-of select="number($current-span) + number($current-count)"/>
-                    </xsl:with-param>
-                </xsl:apply-templates>
-            </xsl:when>
-            <xsl:when test="@colspan">
-                <xsl:value-of select="number($current-span) + number($current-count) - 1"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:value-of select="$current-count"/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template>
-    
-    <xsl:template name="create-colspec">
+  </xsl:template>
+  
+  <xsl:template match="rsiwp:td|rsiwp:th" mode="count-cols">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+      <xsl:param name="current-count">1</xsl:param>
+      <xsl:variable name="current-span">
+          <xsl:choose>
+              <xsl:when test="@colspan">
+                  <xsl:value-of select="@colspan"/>
+              </xsl:when>
+              <xsl:otherwise>1</xsl:otherwise>
+          </xsl:choose>
+      </xsl:variable>
+      <xsl:choose>
+          <xsl:when test="following-sibling::rsiwp:th or following-sibling::rsiwp:td">
+              <xsl:apply-templates select="(following-sibling::rsiwp:th|following-sibling::rsiwp:td)[1]"
+                  mode="count-cols">
+                  <xsl:with-param name="current-count">
+                      <xsl:value-of select="number($current-span) + number($current-count)"/>
+                  </xsl:with-param>
+              </xsl:apply-templates>
+          </xsl:when>
+          <xsl:when test="@colspan">
+              <xsl:value-of select="number($current-span) + number($current-count) - 1"/>
+          </xsl:when>
+          <xsl:otherwise>
+              <xsl:value-of select="$current-count"/>
+          </xsl:otherwise>
+      </xsl:choose>
+  </xsl:template>
+  
+  <xsl:template name="create-colspec">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
       <xsl:for-each select="rsiwp:cols/rsiwp:col">
             <colspec>
               <xsl:attribute name="colname" select="local:constructColumnName(.)"/>
@@ -508,7 +525,8 @@
     
     <!-- Count the number of cells in the current row. Move backwards from the test cell. Add one
      for each entry, plus the number of spanned columns. -->
-    <xsl:template match="*" mode="count-cells">
+  <xsl:template match="*" mode="count-cells">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
         <xsl:param name="current-count">1</xsl:param>
         <xsl:variable name="new-count">
             <xsl:choose>
@@ -541,7 +559,8 @@
      If an entry spans rows, add the cells that will be covered to $matrix.
      If we get to an entry and its position is already filled in $matrix, then the entry is pushed
      to the side. Add one to the column count and re-try the entry. -->
-    <xsl:template match="*" mode="find-matrix-column">
+  <xsl:template match="*" mode="find-matrix-column">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
         <xsl:param name="stop-id"/>
         <xsl:param name="matrix"/>
         <xsl:param name="row-count">1</xsl:param>
@@ -657,6 +676,7 @@
      by start-row, end-row, start-col, and end-col will be added. First add every value from the first
      column. When past $end-row, move to the next column. When past $end-col, every value is added. -->
     <xsl:template name="add-to-matrix">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
         <xsl:param name="start-row"/>
         <xsl:param name="end-row"/>
         <xsl:param name="current-row">
@@ -714,6 +734,7 @@
     
   
   <xsl:template match="rsiwp:run" mode="p-content">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:variable name="tagName" as="xs:string"
       select="
       if (@tagName) 
@@ -734,10 +755,12 @@
   </xsl:template>
   
   <xsl:template match="text()" mode="p-content">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:copy/>
   </xsl:template>
   
   <xsl:template match="rsiwp:symbol" mode="p-content">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <ph outputclass="symbol"
       ><data name="font" value="{@font}"
       /><xsl:apply-templates mode="#current"
@@ -747,6 +770,7 @@
   
   
   <xsl:template name="makeMap">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="content" as="element()+"/>
     <xsl:param name="level"  as="xs:integer"/><!-- Level of this topic -->
     <xsl:param name="treePos" as="xs:integer*" tunnel="yes"/><!-- Sequence of integers representing tree position of parent. --> 
@@ -758,11 +782,11 @@
 
     <xsl:variable name="firstP" select="$content[1]"/>
     
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] makeMap: firstP=<xsl:value-of select="$firstP"/></xsl:message>
       <xsl:message> + [DEBUG] makeMap: treePos=<xsl:value-of select="$treePos"/></xsl:message>
     </xsl:if>
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] makeMap: newMapUrl=<xsl:sequence select="$newMapUrl"/></xsl:message>
     </xsl:if>
     
@@ -852,7 +876,7 @@
           </xsl:element>
         </xsl:if>
         
-        <xsl:if test="$debugBoolean">        
+        <xsl:if test="$doDebug">        
           <xsl:message> + [DEBUG] </xsl:message>
           <xsl:message> + [DEBUG] +++++++++++++</xsl:message>
           <xsl:message> + [DEBUG] </xsl:message>
@@ -890,7 +914,7 @@
           />
           <xsl:with-param name="mapUrl" select="$resultUrl" as="xs:string" tunnel="yes"/>
         </xsl:call-template>
-        <xsl:if test="$debugBoolean">        
+        <xsl:if test="$doDebug">        
           <xsl:message> + [DEBUG] </xsl:message>
           <xsl:message> + [DEBUG] +++++++++++++</xsl:message>
           <xsl:message> + [DEBUG] </xsl:message>
@@ -911,12 +935,13 @@
         </xsl:call-template>        
       </xsl:element>
     </rsiwp:result-document>
-    <xsl:if test="$debugBoolean">        
+    <xsl:if test="$doDebug">        
       <xsl:message> + [DEBUG] makeMap: Done.</xsl:message>
     </xsl:if>
   </xsl:template>
   
   <xsl:template name="handleTopicProlog">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="content" as="node()*"/>
     
     <xsl:call-template name="handleBodyParas">
@@ -928,14 +953,15 @@
   <!-- Generate topicsrefs and topicheads.
   -->
   <xsl:template name="generateTopicrefs">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="content" as="node()*"/>
     <xsl:param name="level" as="xs:integer"/>
     <xsl:param name="treePos" as="xs:integer*" tunnel="yes"/>
     <xsl:param name="mapUrl" as="xs:string" tunnel="yes"/>
     
     
-    <xsl:message> + [DEBUG] generateTopicrefs: Starting, level=<xsl:sequence select="$level"/></xsl:message>
-   <xsl:if test="$debugBoolean">
+   <xsl:if test="$doDebug">
+     <xsl:message> + [DEBUG] generateTopicrefs: Starting, level=<xsl:sequence select="$level"/></xsl:message>
      <xsl:message> + [DEBUG] generateTopicrefs: Starting, content:
 <xsl:sequence select="local:reportParas($content)"/>
      </xsl:message>
@@ -1033,112 +1059,14 @@
  
   </xsl:template>
   
-  <!-- Generate topicsrefs and topicheads.
-  -->
-  <xsl:template name="generateTopicrefs-orig">
-    <xsl:param name="content" as="node()*"/>
-    <xsl:param name="level" as="xs:integer"/>
-    <xsl:param name="treePos" as="xs:integer*" tunnel="yes"/>
-    <xsl:param name="mapUrl" as="xs:string" tunnel="yes"/>
-    <xsl:variable name="firstP" select="$content[1]" as="element()"/>
-    
-    <xsl:if test="$debugBoolean">
-      <xsl:message> + [DEBUG] *** generateTopicrefs: treePos=<xsl:sequence select="$treePos"/></xsl:message>
-    </xsl:if>
-
-    <xsl:variable name="topicName" as="xs:string">
-      <xsl:apply-templates mode="topic-name" select="($firstP)">
-        <xsl:with-param name="treePos" select="($treePos, 1)" as="xs:integer*" />
-      </xsl:apply-templates>
-    </xsl:variable>
-    
-    <xsl:variable name="topicrefType" 
-      select="if (string(@topicrefType) != '')
-      then string(@topicrefType)
-      else 'topicref'
-      "
-      as="xs:string"
-    />    
-    
-    <xsl:variable name="topicUrl"
-      as="xs:string"
-      select="local:getResultUrlForTopic($firstP, $topicrefType, ($treePos, 1), $mapUrl, $topicName)"
-    />
-    
-    <xsl:choose>
-      <xsl:when test="$firstP/@rootTopicrefType != ''">
-        <xsl:if test="$debugBoolean">                  
-          <xsl:message> + [DEBUG] generateTopicrefs(): First para specifies rootTopicrefType</xsl:message>
-        </xsl:if>
-        <xsl:element name="{$firstP/@rootTopicrefType}">
-          <xsl:call-template name="generateXtrcAtt"/>
-          <xsl:attribute name="isTopicref" select="'true'"/>          
-          <xsl:if test="string($firstP/@rootTopicrefType) = 'learningObject'">
-          <!-- FIXME: This is a workaround until we implement the ability
-            to specify collection-type for the root topicref type.
-          -->
-          <xsl:attribute name="collection-type" select="'sequence'"/>
-        </xsl:if>
-          <xsl:choose>
-            <xsl:when test="@topicrefType != ''">
-              <xsl:element name="{@topicrefType}">
-                <xsl:call-template name="generateXtrcAtt"/>
-                <xsl:attribute name="isTopicref" select="'true'"/>                
-                <xsl:call-template name="generateTopicrefAtts">
-                  <xsl:with-param name="topicUrl" select="$topicUrl"/>
-                </xsl:call-template>            
-                <xsl:call-template name="generateSubordinateTopicrefs">
-                  <xsl:with-param name="content" select="$content"/>
-                  <xsl:with-param name="level" select="$level"/>
-                </xsl:call-template>    
-              </xsl:element>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:call-template name="generateSubordinateTopicrefs">
-                <xsl:with-param name="content" select="$content"/>
-                <xsl:with-param name="level" select="$level"/>
-              </xsl:call-template>    
-            </xsl:otherwise>
-          </xsl:choose>          
-        </xsl:element>
-      </xsl:when>
-      <xsl:when test="$firstP/@topicrefType">
-        <xsl:if test="$debugBoolean and true()">                  
-          <xsl:message> + [DEBUG] generateTopicrefs(): First para specifies topicrefType but not rootTopicrefType</xsl:message>
-        </xsl:if>
-        <xsl:element name="{$firstP/@topicrefType}">
-          <xsl:attribute name="isTopicref" select="'true'"/>          
-          <xsl:call-template name="generateTopicrefAtts">
-            <xsl:with-param name="topicUrl" select="$topicUrl"/>
-          </xsl:call-template>            
-          <xsl:call-template name="generateSubordinateTopicrefs">
-            <xsl:with-param name="content" select="$content" as="node()*"/>
-            <xsl:with-param name="level" select="$level + 1"/>
-          </xsl:call-template>    
-        </xsl:element>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:if test="$debugBoolean and true()">                  
-          <xsl:message> + [DEBUG] generateTopicrefs(): First para does not specify topicrefType</xsl:message>
-        </xsl:if>
-        <xsl:call-template name="generateSubordinateTopicrefs">
-          <xsl:with-param name="content" select="$content"/>
-          <xsl:with-param name="level" select="$level"/>
-        </xsl:call-template>    
-      </xsl:otherwise>
-    </xsl:choose>
-    <xsl:if test="$debugBoolean">
-      <xsl:message> + [DEBUG] generateTopicrefs: Done.</xsl:message>
-    </xsl:if>
-  </xsl:template>
-  
   <xsl:template name="generateSubordinateTopicrefs">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="content" as="node()*"/>
     <xsl:param name="level" as="xs:integer"/>
     <xsl:param name="treePos" as="xs:integer*" tunnel="yes" select="()"/>
     <xsl:param name="mapUrl" as="xs:string" tunnel="yes"/>
     
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] generateSubordinateTopicrefs: level=<xsl:sequence select="$level"/>.</xsl:message>
     </xsl:if>
     <xsl:for-each-group select="$content[position() > 1]" 
@@ -1153,7 +1081,7 @@
       />
       <xsl:choose>
         <xsl:when test="string(@structureType) = 'topicTitle' and string(@topicDoc) = 'yes'">
-          <xsl:if test="$debugBoolean">        
+          <xsl:if test="$doDebug">        
             <xsl:message> + [DEBUG] generateTopicrefs: Got a doc-creating topic title. Level=<xsl:sequence select="string(@level)"/></xsl:message>
           </xsl:if>
           <xsl:variable name="topicName" as="xs:string">
@@ -1182,7 +1110,7 @@
         </xsl:when>
         <xsl:when test="string(@structureType) = 'topicHead'">
           
-          <xsl:if test="$debugBoolean">        
+          <xsl:if test="$doDebug">        
             <xsl:message> + [DEBUG] generateTopicrefs: Got a topic head. Level=<xsl:sequence select="string(@level)"/></xsl:message>
           </xsl:if>
           <xsl:variable name="topicheadType" select="if (@topicheadType) then string(@topicheadType) else 'topichead'"/>
@@ -1204,7 +1132,7 @@
           </xsl:element>          
         </xsl:when>
         <xsl:when test="string(@structureType) = 'map' or string(@structureType) = 'mapTitle'">
-          <xsl:if test="$debugBoolean">        
+          <xsl:if test="$doDebug">        
             <xsl:message> + [DEBUG] generateTopicrefs: Got a map-reference-generating map or map title. Level=<xsl:sequence select="string(@level)"/></xsl:message>
           </xsl:if>
           <xsl:variable name="mapRefType" as="xs:string"
@@ -1251,12 +1179,13 @@
         </xsl:otherwise>
       </xsl:choose>          
     </xsl:for-each-group>
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] generateSubordinateTopicrefs: Done.</xsl:message>
-    </xsl:if>
-    
+    </xsl:if>    
   </xsl:template>
+  
   <xsl:template name="generateTopicrefAtts">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="topicUrl"/>
     <xsl:param name="mapUrl" tunnel="yes" as="xs:string"/>
     
@@ -1288,10 +1217,11 @@
        mode and processing pass.
     -->
   <xsl:template name="generateTopics">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="content" as="node()*"/>
     <xsl:param name="level" as="xs:integer"/>
     <xsl:param name="treePos" as="xs:integer*" tunnel="yes" select="()"/>
-    <xsl:if test="false() or $debugBoolean">        
+    <xsl:if test="$doDebug">        
       <xsl:message> + [DEBUG] *** generateTopics: Starting, level=<xsl:sequence select="$level"/>, treePos=<xsl:sequence select="$treePos"/></xsl:message>
     </xsl:if>
     
@@ -1312,7 +1242,7 @@
     <xsl:for-each-group select="$content" 
       group-starting-with="*[(string(@structureType) = 'topicTitle' or string(@structureType) = 'map' or string(@structureType) = 'mapTitle') and
       string(@level) = string($level)]">
-      <xsl:if test="false() or $debugBoolean">
+      <xsl:if test="$doDebug">
         <xsl:message> + [DEBUG] generateTopics: In for-each-group:</xsl:message>
         <xsl:message> + [DEBUG]        group=<xsl:sequence select="current-group()"/></xsl:message>
         <xsl:message> + [DEBUG]        position()=<xsl:sequence select="position()"/></xsl:message>
@@ -1374,6 +1304,7 @@
   </xsl:template>
   
   <xsl:template name="makeTopic">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="content" as="node()+"/>
     <xsl:param name="level" as="xs:integer"/><!-- Level of this topic -->
     <xsl:param name="treePos" as="xs:integer+" tunnel="yes"/><!-- Tree position of topic in map tree -->
@@ -1381,7 +1312,7 @@
     <xsl:param name="mapUrl" as="xs:string?" tunnel="yes"/>
     
     
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] makeTopic: treePos=<xsl:sequence select="$treePos"/></xsl:message>
       <xsl:message> + [DEBUG] makeTopic: level=<xsl:sequence select="$level"/></xsl:message>
       <xsl:message> + [DEBUG] makeTopic: rootTopicUrl=<xsl:sequence select="$rootTopicUrl"/></xsl:message>
@@ -1389,7 +1320,7 @@
 
     <xsl:variable name="firstP" select="$content[1]"/>
     
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] makeTopic: firstP=<xsl:sequence select="$firstP"/></xsl:message>
     </xsl:if>
     
@@ -1400,7 +1331,7 @@
       as="xs:boolean"
     />
 
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] makeTopic: makeDoc=<xsl:value-of select="$makeDoc"/></xsl:message>
     </xsl:if>
 
@@ -1442,7 +1373,7 @@ specify @topicDoc="yes".</xsl:message>
           <xsl:message terminate="yes"> + [ERROR] No topicType= attribute for paragraph style <xsl:sequence select="string($firstP/@styleId)"/>, when topicDoc="yes".</xsl:message>
         </xsl:if>
         
-        <xsl:if test="$debugBoolean">
+        <xsl:if test="$doDebug">
           <xsl:message> + [DEBUG] makeTopic: formatName="<xsl:sequence select="$formatName"/>"</xsl:message>
         </xsl:if>
         
@@ -1450,7 +1381,7 @@ specify @topicDoc="yes".</xsl:message>
         <xsl:if test="not($format)">
           <xsl:message terminate="yes"> + [ERROR] makeMap: Failed to find &lt;output&gt; element for @format value "<xsl:sequence select="$formatName"/>" specified for style "<xsl:sequence select="string($firstP/@styleName)"/>" <xsl:sequence select="concat(' [', string($firstP/@styleId), ']')"/>. Check your style-to-tag mapping.</xsl:message>
         </xsl:if>
-        <xsl:if test="$debugBoolean">
+        <xsl:if test="$doDebug">
           <xsl:message> + [DEBUG] makeTopic: format="<xsl:sequence select="$format"/>"</xsl:message>
         </xsl:if>
                 
@@ -1466,7 +1397,7 @@ specify @topicDoc="yes".</xsl:message>
             />
           </xsl:if>
         </xsl:variable>
-        <xsl:if test="false() or $debugBoolean">
+        <xsl:if test="$doDebug">
           <xsl:message> + [DEBUG] makeTopic: schemaAtts=<xsl:sequence select="$schemaAtts"/></xsl:message>
         </xsl:if>
         
@@ -1480,7 +1411,7 @@ specify @topicDoc="yes".</xsl:message>
             <xsl:with-param name="schemaAtts" as="attribute()*" select="$schemaAtts"/>
           </xsl:call-template>
         </xsl:variable>
-        <xsl:if test="$debugBoolean">
+        <xsl:if test="$doDebug">
           <xsl:message> + DEBUG: $format=<xsl:sequence select="$format"/></xsl:message>
         </xsl:if>
         <!-- Now do ID fixup on the result document: -->
@@ -1525,7 +1456,8 @@ specify @topicDoc="yes".</xsl:message>
   </xsl:template>
 
   <xsl:template mode="final-fixup" match="*">
-    <xsl:if test="$debugBoolean">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] final-fixup: handling <xsl:sequence select="name(.)"/></xsl:message>
     </xsl:if>
     <xsl:copy>
@@ -1534,11 +1466,12 @@ specify @topicDoc="yes".</xsl:message>
   </xsl:template>
   
   <xsl:template mode="final-fixup" match="@id" priority="2">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- Override this template to implement specific ID generators -->
     <xsl:variable name="idGenerator" select="string(../@idGenerator)" as="xs:string"/>
     <xsl:choose>
       <xsl:when test="$idGenerator = '' or $idGenerator = 'default'">
-        <xsl:if test="$debugBoolean">
+        <xsl:if test="$doDebug">
           <xsl:message> + [DEBUG] final-fixup/@ID: Using default ID generator, returning "<xsl:sequence select="string(.)"/>"</xsl:message>
         </xsl:if>
         <xsl:copy/><!-- Use the base generated ID value. -->
@@ -1564,6 +1497,7 @@ specify @topicDoc="yes".</xsl:message>
   
   <!-- Constructs the topic itself -->
   <xsl:template name="constructTopic">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="content" as="node()*"/>
     <xsl:param name="level" as="xs:integer"/>
     <xsl:param name="topicName" as="xs:string" tunnel="yes" select="generate-id(.)"/>
@@ -1574,7 +1508,7 @@ specify @topicDoc="yes".</xsl:message>
     <xsl:variable name="firstP" select="$content[1]"/>
     <xsl:variable name="nextLevel" select="$level + 1" as="xs:integer"/>
  
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] constructTopic: firstP=<xsl:sequence select="local:reportPara($firstP)"/></xsl:message>
     </xsl:if>
     
@@ -1599,7 +1533,7 @@ specify @topicDoc="yes".</xsl:message>
       "
     />
     
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] constructTopic: topicType="<xsl:value-of select="$topicType"/>"</xsl:message>
       <xsl:message> + [DEBUG] constructTopic: bodyType="<xsl:value-of select="$bodyType"/>"</xsl:message>
       <xsl:message> + [DEBUG] constructTopic: prologType="<xsl:value-of select="$prologType"/>"</xsl:message>
@@ -1612,12 +1546,12 @@ specify @topicDoc="yes".</xsl:message>
       </xsl:if>
     </xsl:variable>
     
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] constructTopic: Creating topic element <xsl:value-of select="$topicType"/></xsl:message>
       <xsl:message> + [DEBUG] constructTopic: topicName="<xsl:sequence select="$topicName"/>"</xsl:message>
     </xsl:if>
     
-    <xsl:if test="false() or $debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] constructTopic: schemaAtts=<xsl:sequence select="$schemaAtts"/></xsl:message>
     </xsl:if>
     <xsl:element name="{$topicType}">
@@ -1639,16 +1573,16 @@ specify @topicDoc="yes".</xsl:message>
         else 'title'
         "
       />
-      <xsl:if test="$debugBoolean">
+      <xsl:if test="$doDebug">
         <xsl:message> + [DEBUG] constructTopic: Applying templates to firstP...</xsl:message>
       </xsl:if>      
       <xsl:apply-templates select="$firstP"/>
-      <xsl:if test="$debugBoolean">
+      <xsl:if test="$doDebug">
         <xsl:message> + [DEBUG] constructTopic: For-each-group on content...</xsl:message>
       </xsl:if>      
       <xsl:for-each-group select="$content[position() > 1]" 
         group-starting-with="*[string(@structureType) = 'topicTitle' and string(@level) = string($nextLevel)]">
-        <xsl:if test="false() and $debugBoolean">
+        <xsl:if test="$doDebug">
           <xsl:message> + [DEBUG] constructTopic: currentGroup[<xsl:sequence select="position()"/>]: <xsl:sequence select="current-group()"/></xsl:message>
         </xsl:if>      
         <xsl:choose>
@@ -1704,7 +1638,7 @@ specify @topicDoc="yes".</xsl:message>
               </xsl:choose>
             </xsl:if>
             <xsl:if test="current-group()[string(@topicZone) = 'body']">
-              <xsl:if test="$debugBoolean">        
+              <xsl:if test="$doDebug">        
                 <xsl:message> + [DEBUG] current group is topicZone body</xsl:message>
               </xsl:if>
               <xsl:element name="{$bodyType}">
@@ -1717,7 +1651,7 @@ specify @topicDoc="yes".</xsl:message>
             </xsl:if>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:if test="$debugBoolean">        
+            <xsl:if test="$doDebug">        
               <xsl:message> + [DEBUG] makeTopic(): Not topicZone prolog or body, calling makeTopic...</xsl:message>
             </xsl:if>
             <xsl:call-template name="makeTopic">
@@ -1732,10 +1666,11 @@ specify @topicDoc="yes".</xsl:message>
   </xsl:template>
   
   <xsl:template name="handleSectionParas">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="sectionParas" as="element()*"/>
     <xsl:param name="initialSectionType" as="xs:string"/>
     
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] handleSectionParas: initialSectionType="<xsl:sequence select="$initialSectionType"/>"</xsl:message>
     </xsl:if>
     <xsl:for-each-group select="$sectionParas" group-starting-with="*[string(@structureType) = 'section']">
@@ -1797,6 +1732,7 @@ specify @topicDoc="yes".</xsl:message>
   </xsl:template>
   
   <xsl:template name="handleBodyParas">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="bodyParas" as="element()*"/>
     
     <xsl:for-each-group select="$bodyParas" group-adjacent="boolean(@containerType)">
@@ -1818,7 +1754,7 @@ specify @topicDoc="yes".</xsl:message>
   </xsl:template>
   
   <xsl:template match="containerGroup">
-<!--    <xsl:message> + [DEBUG] Handling groupContainer...</xsl:message>-->
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:call-template name="processLevelNContainers">
       <xsl:with-param name="context" select="*" as="element()*"/>
       <xsl:with-param name="level" select="1" as="xs:integer"/>
@@ -1827,24 +1763,23 @@ specify @topicDoc="yes".</xsl:message>
   </xsl:template>
   
   <xsl:template name="generateXtrcAtt">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:attribute name="xtrc" select="@wordLocation"/>
    
   </xsl:template>
   
   <xsl:template name="processLevelNContainers">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="context" as="element()*"/>
     <xsl:param name="level" as="xs:integer"/>
     <xsl:param name="currentContainer" as="xs:string"/>
-<!--    <xsl:message> + [DEBUG] processLevelNContainers, level="<xsl:sequence select="$level"/>"</xsl:message>
-    <xsl:message> + [DEBUG]   currentContainer="<xsl:sequence select="$currentContainer"/>"</xsl:message>
--->    
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] processLevelNContainers, level="<xsl:sequence select="$level"/>"</xsl:message>
+      <xsl:message> + [DEBUG]   currentContainer="<xsl:sequence select="$currentContainer"/>"</xsl:message>     
+    </xsl:if>
     <xsl:for-each-group select="$context[@level = $level]" group-adjacent="@containerType">
-<!--      <xsl:message> + [DEBUG]   @containerType="<xsl:sequence select="string(@containerType)"/>"</xsl:message>
-      <xsl:message> + [DEBUG]   $currentContainer != @containerType="<xsl:sequence select="$currentContainer != string(@containerType)"/>"</xsl:message>
--->
       <xsl:choose>
         <xsl:when test="$currentContainer != string(@containerType)">
-<!--          <xsl:message> + [DEBUG ]  currentContainer != @containerType, currentPara=<xsl:sequence select="local:reportPara(.)"/></xsl:message>-->
           <xsl:element name="{@containerType}">
             <xsl:call-template name="generateXtrcAtt"/>
             <xsl:if test="@containerOutputclass">
@@ -1867,7 +1802,9 @@ specify @topicDoc="yes".</xsl:message>
       </xsl:choose>
     </xsl:for-each-group>    
   </xsl:template>
+  
   <xsl:template name="handleGroupSequence">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="level" as="xs:integer"/>
     <xsl:choose>
       <xsl:when test="string(@structureType) = 'dt' and @level = $level">
@@ -1996,20 +1933,22 @@ specify @topicDoc="yes".</xsl:message>
       <xsl:otherwise>
         <xsl:call-template name="transformPara"/>
       </xsl:otherwise>
-    </xsl:choose>
-    
+    </xsl:choose>    
   </xsl:template>
   
   <xsl:template mode="generate-para-ids" match="rsiwp:bookmarkStart">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="tagName" as="xs:string" select="../@tagName"/>
     <xsl:attribute name="id" select="concat($tagName, '_', @name)"/>
   </xsl:template>
   
   <xsl:template match="rsiwp:break" mode="p-content">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <br/>
   </xsl:template>
   
   <xsl:template match="rsiwp:tab" mode="p-content">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <tab/>
   </xsl:template>
   
@@ -2021,6 +1960,7 @@ specify @topicDoc="yes".</xsl:message>
     rsiwp:ph 
     "
     mode="p-content">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:element name="{local-name()}">
       <xsl:sequence select="./@*"/>
       <xsl:apply-templates mode="p-content"/>
@@ -2028,6 +1968,7 @@ specify @topicDoc="yes".</xsl:message>
   </xsl:template>
   
   <xsl:template mode="p-content" match="rsiwp:bookmarkStart">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$includeWordBookmarksBoolean">
       <data name="bookmarkStart" value="{@name}" id="bookmark_{@id}">
       </data>
@@ -2035,12 +1976,14 @@ specify @topicDoc="yes".</xsl:message>
   </xsl:template>
   
   <xsl:template mode="p-content" match="rsiwp:bookmarkEnd">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$includeWordBookmarksBoolean">
       <data name="bookmarkEnd" value="bookmark_{@id}"/>
     </xsl:if>
   </xsl:template>
   
   <xsl:template match="rsiwp:indexterm" mode="p-content">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="inTitleContext" as="xs:boolean" tunnel="yes"
        select="false()"/>
     <xsl:if test="not($inTitleContext)">
@@ -2052,12 +1995,14 @@ specify @topicDoc="yes".</xsl:message>
   </xsl:template>
   
   <xsl:template match="m:math" mode="p-content">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <mathml>
       <xsl:sequence select="."/>
     </mathml>
   </xsl:template>
   
   <xsl:template match="rsiwp:fn" mode="p-content">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:element name="{local-name()}">
       <xsl:sequence select="./@*"/>
       <xsl:call-template name="handleSectionParas">
@@ -2068,11 +2013,11 @@ specify @topicDoc="yes".</xsl:message>
   </xsl:template>
   
   <xsl:template match="rsiwp:hyperlink" mode="p-content">
-    
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>    
     <xsl:param name="simpleWpDoc" as="document-node()" tunnel="yes"
     />            
     
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rsiwp:hyperlink: structureType="<xsl:sequence select="string(@structureType)"/>"</xsl:message>
     </xsl:if>
     <xsl:variable name="tagName" as="xs:string"
@@ -2136,7 +2081,7 @@ specify @topicDoc="yes".</xsl:message>
                                then substring-before(substring-after($origHref, 'urn:'), ':')
                                else substring-before($origHref, ':')
                     "/>
-                  <xsl:if test="$debugBoolean">
+                  <xsl:if test="$doDebug">
                     <xsl:message> + [DEBUG] rsiwp:hyperlink: scheme="<xsl:sequence select="$scheme"/>"</xsl:message>
                   </xsl:if>
                   <xsl:sequence select="$scheme"/>
@@ -2173,6 +2118,7 @@ specify @topicDoc="yes".</xsl:message>
     <xd:param name="resultUrl"></xd:param>
   </xd:doc>
   <xsl:template match="rsiwp:image" mode="p-content">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="resultUrl" as="xs:string" tunnel="yes"/>
     
     <xsl:variable name="resultDir" select="relpath:getParent($resultUrl)"/>
@@ -2319,10 +2265,17 @@ specify @topicDoc="yes".</xsl:message>
   
   <xsl:function name="local:getTopicType" as="xs:string">
     <xsl:param name="context" as="element()"/>
+    <xsl:sequence select="local:getTopicType($context, $debugBoolean)"/>
+  </xsl:function>
+  
+  <xsl:function name="local:getTopicType" as="xs:string">
+    <xsl:param name="context" as="element()"/>
+    <xsl:param name="doDebug" as="xs:boolean"/>
+    
     <xsl:variable name="styleId" as="xs:string"
       select="$context/@style"
     />
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] local:getTopicType(): styleId="<xsl:value-of select="$styleId"/>"</xsl:message>
     </xsl:if>
     <xsl:choose>
@@ -2334,7 +2287,7 @@ specify @topicDoc="yes".</xsl:message>
           select="(key('styleMapsByName', lower-case($styleId), $styleMapDoc)[1],
           key('styleMapsById', $styleId, $styleMapDoc)[1])[1]"
         />
-        <xsl:if test="$debugBoolean">
+        <xsl:if test="$doDebug">
           <xsl:message> + [DEBUG] local:getTopicType(): styleMap="<xsl:sequence select="$styleMap"/>"</xsl:message>
         </xsl:if>
         <xsl:variable name="topicType"
@@ -2345,7 +2298,7 @@ specify @topicDoc="yes".</xsl:message>
           "
           as="xs:string"
         />
-        <xsl:if test="$debugBoolean">
+        <xsl:if test="$doDebug">
           <xsl:message> + [DEBUG] local:getTopicType(): returning "<xsl:value-of select="$topicType"/>"</xsl:message>
         </xsl:if>
         <xsl:sequence select="$topicType"/>
@@ -2386,8 +2339,26 @@ specify @topicDoc="yes".</xsl:message>
     <xsl:param name="treePos" as="xs:integer+"/>
     <xsl:param name="mapUrl" as="xs:string"/>
     <xsl:param name="topicName" as="xs:string"/>
+    <xsl:sequence 
+      select="local:getResultUrlForTopic(
+      $context, 
+      $topicrefType, 
+      $treePos, 
+      $mapUrl, 
+      $topicName, 
+      $debugBoolean)"
+    />
+  </xsl:function>
+  
+  <xsl:function name="local:getResultUrlForTopic" as="xs:string">
+    <xsl:param name="context" as="element()"/>
+    <xsl:param name="topicrefType" as="xs:string?"/>
+    <xsl:param name="treePos" as="xs:integer+"/>
+    <xsl:param name="mapUrl" as="xs:string"/>
+    <xsl:param name="topicName" as="xs:string"/>
+    <xsl:param name="doDebug" as="xs:boolean"/>
     
-    <xsl:if test="false() or $debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] getResultUrlForTopic(): topicrefType=<xsl:value-of select="$topicrefType"/>, treePos=<xsl:value-of select="$treePos"/></xsl:message>
     </xsl:if>
     <xsl:variable name="topicRelativeUri" as="xs:string+">
@@ -2424,6 +2395,7 @@ specify @topicDoc="yes".</xsl:message>
   </xsl:function>
 
   <xsl:template match="rsiwp:p" mode="topic-name">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- Generates the name for a topic, which can then be
          used in IDs and filenames.
       -->
@@ -2440,15 +2412,16 @@ specify @topicDoc="yes".</xsl:message>
   </xsl:template>  
  
   <xsl:template match="rsiwp:p" mode="topic-url">   
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="treePos" as="xs:integer+"/>
     <xsl:param name="topicName" as="xs:string"/>
     
-    <xsl:if test="false() or $debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rsiwp:p, mode=topic-url: treePos=<xsl:sequence select="$treePos"/></xsl:message>
     </xsl:if>
 
     <xsl:variable name="result" select="concat('topics/', $topicName, $topicExtension)"/>
-    <xsl:if test="false() or $debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rsiwp:p, mode=topic-url: result="<xsl:sequence select="$result"/>"</xsl:message>
     </xsl:if>
     <xsl:sequence select="$result"/>
@@ -2458,9 +2431,10 @@ specify @topicDoc="yes".</xsl:message>
   
  
   <xsl:template match="rsiwp:p" mode="map-url">   
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="treePos" as="xs:integer+"/>
     
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rsiwp:p, mode=map-url: treePos=<xsl:sequence select="$treePos"/></xsl:message>
     </xsl:if>
     
@@ -2473,13 +2447,14 @@ specify @topicDoc="yes".</xsl:message>
     <xsl:variable name="submapName" as="xs:string" select="concat($fileNamePrefix, $submapNamePrefix, string-join($treePosString, ''))"/>
     
     <xsl:variable name="result" select="concat($submapName, '/', $submapName, '.ditamap')"/>
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rsiwp:p, mode="map-url": result=<xsl:sequence select="$result"/></xsl:message>
     </xsl:if>
     <xsl:sequence select="$result"/>
   </xsl:template>
   
   <xsl:template match="rsiwp:*" mode="topic-url">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:message> - [WARNING] Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/> in mode 'topic-url'</xsl:message>
     <xsl:variable name="topicTitleFragment">
       <xsl:choose>
@@ -2495,6 +2470,7 @@ specify @topicDoc="yes".</xsl:message>
   </xsl:template>
   
   <xsl:template match="rsiwp:*" mode="map-url">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:message> - [WARNING] Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/> in mode 'map-url'</xsl:message>
     <xsl:variable name="mapTitleFragment">
       <xsl:choose>
@@ -2641,10 +2617,12 @@ specify @topicDoc="yes".</xsl:message>
   </xsl:function>
   
   <xsl:template match="rsiwp:*" priority="-0.5" mode="p-content">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:message> + [WARNING] simple2dita[p-content]: Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/></xsl:message>
   </xsl:template>
   
   <xsl:template match="rsiwp:*" priority="-0.5">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:message> + [WARNING] simple2dita: Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/></xsl:message>
   </xsl:template>
   

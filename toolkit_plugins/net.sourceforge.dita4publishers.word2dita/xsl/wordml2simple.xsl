@@ -93,6 +93,7 @@
   </xsl:variable>
   
   <xsl:template match="/" name="processDocumentXml">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="stylesDoc" as="document-node()" tunnel="yes"/>
 
     <xsl:message> + [INFO] wordml2simple: Processing DOCX document.xml file to generate intermediate simpleML XML...</xsl:message>
@@ -123,16 +124,19 @@
   </xsl:template>
   
   <xsl:template match="w:document">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:apply-templates/>
   </xsl:template>
   
   <xsl:template match="w:body">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <body>
       <xsl:apply-templates/>
     </body>
   </xsl:template>
   
   <xsl:template match="w:p">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="mapUnstyledParasTo" select="'Normal'" tunnel="yes"/>
     <xsl:param name="stylesDoc" as="document-node()" tunnel="yes"/>
     
@@ -150,7 +154,7 @@
     <xsl:variable name="styleName" as="xs:string"
       select="local:lookupStyleName(., $stylesDoc, $styleId)"
     />
-    <xsl:if test="false() and $debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] w:p: styleName="<xsl:sequence select="$styleName"/>"</xsl:message>
     </xsl:if>
     <!-- Mapping by name takes precedence over mapping by ID -->
@@ -216,12 +220,12 @@
         </xsl:otherwise>
       </xsl:choose>      
     </xsl:variable>
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] match on w:p: structureType = "<xsl:sequence select="string($styleData/@structureType)"/>"</xsl:message>
     </xsl:if>
 <xsl:choose>    
   <xsl:when test="string($styleData/@structureType) = 'skip'">
-    <xsl:if test="$debugBoolean">
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] skipping paragraph with @structureType "<xsl:value-of select="$styleData/@structureType"/>"</xsl:message>
     </xsl:if>
   </xsl:when><!-- Skip it -->
@@ -236,7 +240,7 @@
     </xsl:choose>
   </xsl:when>
   <xsl:otherwise>
-      <xsl:if test="false() and $debugBoolean">
+      <xsl:if test="$doDebug">
         <xsl:message> + [DEBUG] match on w:p: Paragraph not skipped, calling handlePara. p=<xsl:sequence select="substring(string(./w:r[1]), 0, 40)"/></xsl:message>
       </xsl:if>
       <xsl:call-template name="handlePara">
@@ -248,6 +252,7 @@
 </xsl:template>
   
   <xsl:template name="handlePara">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="styleId" as="xs:string"/>
     <xsl:param name="styleData" as="element()"/>
     <p style="{$styleId}" wordLocation="{saxon:path()}">
@@ -257,7 +262,7 @@
       <xsl:if test="not($styleData/@topicZone)">
         <xsl:attribute name="topicZone" select="'body'"/>
       </xsl:if>
-      <xsl:if test="false() and $debugBoolean">        
+      <xsl:if test="$doDebug">        
         <xsl:message> + [DEBUG] handlePara: p="<xsl:sequence select="substring(normalize-space(.), 1, 40)"/>"</xsl:message>
       </xsl:if>
       <!-- FIXME: This code is not doing anything specific with smartTag elements, just
@@ -273,12 +278,12 @@
       <xsl:for-each-group 
         select="*" 
         group-adjacent="name(.)">
-        <xsl:if test="false() and $debugBoolean">
+        <xsl:if test="$doDebug">
           <xsl:message> + [DEBUG] handlePara: current-group()[1]=<xsl:sequence select="current-group()[1]"/></xsl:message>
         </xsl:if>
         <xsl:choose>
           <xsl:when test="current-group()[1][self::w:r/w:endnoteReference]">
-            <xsl:if test="false() and $debugBoolean">
+            <xsl:if test="$doDebug">
               <xsl:message> + [DEBUG] handlePara: handling w:r/w:endnoteReference</xsl:message>
             </xsl:if>
             <xsl:call-template name="handleEndNoteRef">
@@ -286,7 +291,7 @@
             </xsl:call-template>
           </xsl:when>
           <xsl:when test="current-group()[1][self::w:r[w:footnoteReference]]">
-            <xsl:if test="false() and $debugBoolean">
+            <xsl:if test="$doDebug">
               <xsl:message> + [DEBUG] handlePara: handling w:r/w:footnoteReference</xsl:message>
             </xsl:if>
             <xsl:call-template name="handleFootNoteRef">
@@ -301,7 +306,7 @@
             </xsl:for-each-group>            
           </xsl:when>
           <xsl:when test="current-group()[1][self::w:smartTag]">
-            <xsl:if test="false() and $debugBoolean">
+            <xsl:if test="$doDebug">
               <xsl:message> + [DEBUG] handlePara: *** got a w:smartTag. current-group=<xsl:sequence select="current-group()"/></xsl:message>
             </xsl:if>     
             <xsl:for-each select="current-group()">
@@ -321,6 +326,7 @@
   </xsl:template>
   
   <xsl:template name="handleRunSequence">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="runSequence" as="element()*"/>
     <xsl:param name="stylesDoc" as="document-node()" tunnel="yes"/>
 
@@ -380,6 +386,7 @@
   </xsl:template>
   
   <xsl:template name="handleFootNoteRef">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="runSequence" as="element()*"/>
     <!-- Get the footnote ID, try to find it in the footnotes.xml document,
          and generate a footnote element.
@@ -388,6 +395,7 @@
   </xsl:template>
   
   <xsl:template name="handleEndNoteRef">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="runSequence" as="element()*"/>
     <!-- Get the footnote ID, try to find it in the footnotes.xml document,
          and generate a footnote element.
@@ -400,18 +408,23 @@
        These occur within footnotes and are not
        relevant to the DITA output.
     -->
-  <xsl:template match="r:w[w:footnoteRef]"/>
+  <xsl:template match="r:w[w:footnoteRef]">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>    
+  </xsl:template>
   
   <!-- Suppress runs that contain w:endnoteRef.
     
        These occur within endnotes and are not
        relevant to the DITA output.
     -->
-  <xsl:template match="r:w[w:endnoteRef]" priority="5"/>
+  <xsl:template match="r:w[w:endnoteRef]" priority="5">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+  </xsl:template>
   
   
   <xsl:template match="w:footnoteReference">
-    <xsl:if test="false() and $debugBoolean">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] Handling w:footnoteReference...</xsl:message>
     </xsl:if>
     <xsl:variable name="footnotesDoc" as="document-node()?"
@@ -434,6 +447,7 @@
   </xsl:template>
   
   <xsl:template match="w:endnoteReference">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:variable name="endnotesDoc" as="document-node()?"
       select="document('endnotes.xml', .)"
     />
@@ -454,22 +468,23 @@
   </xsl:template>
   
   <xsl:template match="w:footnote | w:endnote">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:apply-templates/><!-- FIXME: May need to be more selective here. -->
   </xsl:template>
   
   <xsl:template match="w:r">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:apply-templates/>
   </xsl:template>
 
   <xsl:template match="w:r[w:rPr/w:rFonts[@w:ascii]]" priority="10">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:variable name="fontFace" as="xs:string?"
       select="w:rPr/w:rFonts/@w:ascii"
     />
-<!--        <xsl:message> + [DEBUG] ==== w:r[w:rPr/w:rFonts]: fontFace="<xsl:sequence select="$fontFace"/>"</xsl:message>-->
 
     <xsl:choose>
       <xsl:when test="$fontFace = ('Symbol', 'Wingdings')">
-<!--        <xsl:message> + [DEBUG] w:r[w:rPr/w:rFonts]: fontFace="<xsl:value-of select="$fontFace"/></xsl:message>-->
         <!-- Treat the content as for w:sym -->
         <xsl:variable name="text" as="xs:string"
           select="string(w:t)"
@@ -478,7 +493,6 @@
           <xsl:variable name="codePoint" as="xs:string"
             select="local:int-to-hex(.)"
             />
-<!--          <xsl:message> + [DEBUG] codePoint="<xsl:sequence select="$codePoint"/>"</xsl:message>-->
           <xsl:sequence select="local:constructSymbolForCharcode(
             $codePoint, 
             $fontFace)"
@@ -486,7 +500,7 @@
         </xsl:for-each>
       </xsl:when>
       <xsl:when test="$fontFace != ''">
-        <xsl:if test="$debugBoolean">          
+        <xsl:if test="$doDebug">          
         <xsl:message> + [DEBUG] w:r[w:rPr/w:rFonts]: Value "<xsl:value-of select="$fontFace"/> for @w:ascii attribute.</xsl:message>
         </xsl:if>
       </xsl:when>
@@ -498,10 +512,12 @@
   </xsl:template>
 
   <xsl:template match="w:smartTag">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:apply-templates/>
   </xsl:template>
   
   <xsl:template match="w:bookmarkStart">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <bookmarkStart 
       name="{@w:name}" 
       id="{@w:id}"
@@ -509,6 +525,7 @@
   </xsl:template>
 
   <xsl:template match="w:bookmarkEnd">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <bookmarkEnd 
       id="{@w:id}"
     />
@@ -516,6 +533,7 @@
   
   
   <xsl:template match="w:hyperlink">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="relsDoc" as="document-node()?" tunnel="yes"/>
     
     <xsl:variable name="runStyle" select="local:getHyperlinkStyle(.)" as="xs:string"/>
@@ -574,9 +592,12 @@
     </hyperlink>
   </xsl:template>
   
-  <xsl:template match="text()"/>
+  <xsl:template match="text()">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+  </xsl:template>
   
   <xsl:template match="w:t">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- NOTE: this has to be value-of. If you use select, you get spaces
                between the w:t text values.
       -->
@@ -584,6 +605,7 @@
   </xsl:template>
 
   <xsl:template match="w:tbl">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:variable name="styleData" as="element()">
       <stylemap:style styleId="table"
         structureType="block"
@@ -592,7 +614,6 @@
       />                
     </xsl:variable>
     <!--  NOTE: width values are 1/20 of a point -->
-<!--    <xsl:message> + [DEBUG] ===== Starting a table</xsl:message>-->
     <table>
       <xsl:attribute name="frame" select="local:constructFrameValue(w:tblPr/w:tblBorders)"/>
       <xsl:attribute name="calculatedWidth" select="local:calculateTableActualWidth(w:tblGrid)"/>
@@ -617,14 +638,15 @@
       </xsl:if>
       <xsl:apply-templates select="*[not(self::w:tblPr)]"/>
     </table>
-<!--    <xsl:message> + [DEBUG] ===== Ending a table</xsl:message>-->
   </xsl:template>
   
   <xsl:template mode="table-attributes" match="w:tblBorders">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:apply-templates select="w:insideH | w:insideV" mode="#current"/>
   </xsl:template>
   
   <xsl:template mode="table-attributes" match="w:insideH">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:variable name="value" as="xs:string" select="@w:val"/>
     <!-- NOTE: It looks like any value means there is a horizontal inside border,
          per the Office Open XML spec.
@@ -633,6 +655,7 @@
   </xsl:template>
   
   <xsl:template mode="table-attributes" match="w:insideV">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:variable name="value" as="xs:string" select="@w:val"/>
     <!-- NOTE: It looks like any value means there is a vertical inside border,
          per the Office Open XML spec.
@@ -756,6 +779,7 @@
   </xsl:function>
   
   <xsl:template match="w:tr">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:variable name="tagName" as="xs:string"
       select="
       if (w:trPr/w:tblHeader) then 'thead' else 'tr'
@@ -768,6 +792,7 @@
   </xsl:template>
   
   <xsl:template match="w:tc">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- much of the code in this template comes from the OpenXMLWebViewer's DocX2Html.xslt transform:
             https://openxmlviewer.codeplex.com/
             which is licensed under the Microsoft Public License (Ms-PL)
@@ -851,22 +876,26 @@
   </xsl:template>
     
   <xsl:template match="w:tab">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="not($filterTabsBoolean)">
       <tab/>
     </xsl:if>
   </xsl:template>
   
   <xsl:template match="w:cr | w:br">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="not($filterBrBoolean)">
       <break/>
     </xsl:if>
   </xsl:template>
   
   <xsl:template match="w:fldSimple">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:apply-templates/>
   </xsl:template>
   
   <xsl:template match="w:drawing">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- If there is a pic:blipFill then if there is an a:blip,
          chase down the relationship to get the name of
          the actual embedded grahpic.
@@ -884,27 +913,19 @@
          
          There are 360,000 EMUs/centimeter
     -->
-    <!--<xsl:message> + [DEBUG] ===== w:drawing: Starting...</xsl:message>-->
     <xsl:variable name="xExtentStr" as="xs:string?" select=".//wp:extent/@cx"/>
-<!--    <xsl:message> + [DEBUG] xExtentStr="<xsl:sequence select="$xExtentStr"/>"</xsl:message>-->
     <xsl:variable name="yExtentStr" as="xs:string?" select=".//wp:extent/@cy"/>
-<!--    <xsl:message> + [DEBUG] yExtentStr="<xsl:sequence select="$yExtentStr"/>"</xsl:message>-->
     <xsl:variable name="xExtentEmu" as="xs:double" 
       select="if ($xExtentStr castable as xs:integer) then number($xExtentStr) else 1800000.0"/>
-<!--    <xsl:message> + [DEBUG] xExtentEmu="<xsl:sequence select="$xExtentEmu"/>"</xsl:message>-->
     <xsl:variable name="yExtentEmu" as="xs:double" 
       select="if ($yExtentStr castable as xs:integer) then number($yExtentStr) else 1800000.0"/>
-<!--    <xsl:message> + [DEBUG] yExtentEmu="<xsl:sequence select="$yExtentEmu"/>"</xsl:message>-->
     <!-- Width and height in mm -->
     <xsl:variable name="width" as="xs:string"
       select="concat(format-number($xExtentEmu div 36000, '#########.00'), 'mm')" 
     />
-<!--    <xsl:message> + [DEBUG] width="<xsl:sequence select="$width"/>"</xsl:message>-->
     <xsl:variable name="height" as="xs:string"
       select="concat(format-number($yExtentEmu div 36000, '#########.00'), 'mm')" 
     />
-<!--    <xsl:message> + [DEBUG] height="<xsl:sequence select="$height"/>"</xsl:message>-->
-    <xsl:message> + [DEBUG] w:drawing, applying templates to contents.</xsl:message>
     <xsl:comment> &#x0a;==== drawing ===&#x0a;</xsl:comment>
     <xsl:apply-templates select=".//pic:blipFill | .//c:chart">
       <xsl:with-param name="width" select="$width" as="xs:string" tunnel="yes"/>
@@ -913,14 +934,15 @@
   </xsl:template>
 
   <xsl:template match="w:pict">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:apply-templates/>
   </xsl:template>
   
   <xsl:template match="w:sym">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:variable name="fontFace" as="xs:string?" 
       select="@w:font"
     />
-<!--    <xsl:message> + [DEBUG] ==== w:sym: fontFace="<xsl:sequence select="$fontFace"/>"</xsl:message>-->
     <xsl:choose>
       <xsl:when test="$fontFace != ''">
         <xsl:sequence select="local:constructSymbolForCharcode(
@@ -964,14 +986,17 @@
   </xsl:function>
   
   <xsl:template match="v:shape">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:apply-templates/>
   </xsl:template>
   
   <xsl:template match="pic:blipFill">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:apply-templates select=".//a:blip"/>
   </xsl:template>
   
   <xsl:template match="a:blip">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="relsDoc" tunnel="yes" as="document-node()?"/>
     <!-- Width and height. The values should include the units indicator -->
     <xsl:param name="width" tunnel="yes" as="xs:string"/>
@@ -986,6 +1011,7 @@
   </xsl:template>
   
   <xsl:template match="v:imagedata">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="relsDoc" tunnel="yes" as="document-node()?"/>
     <!-- WEK: I can't determine from the ECMA-376 Part I doc if v:imagedata allows
          the @r:link attribute. 
@@ -997,11 +1023,11 @@
   </xsl:template>
   
   <xsl:template match="c:chart">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="relsDoc" tunnel="yes" as="document-node()?"/>
     <!-- Width and height. The values should include the units indicator -->
     <xsl:param name="width" tunnel="yes" as="xs:string"/>
     <xsl:param name="height" tunnel="yes" as="xs:string"/>
-<!--    <xsl:message> + [DEBUG] c:chart: Starting</xsl:message>-->
     <!-- A chart. 
       
          There are various things we could do with charts. As of Dec 2013
@@ -1031,7 +1057,6 @@
         <xsl:message> - [WARN] Failed to resolve reference to chart document "<xsl:sequence select="$targetUri"/>"</xsl:message>
       </xsl:when>
       <xsl:otherwise>
-<!--        <xsl:message> + [DEBUG] Got a chart doc, processing it...</xsl:message>-->
         <!-- Chase down the chart data source and transform it into a table -->
         <xsl:choose>
           <xsl:when test="$chartDoc/*/c:externalData">
@@ -1097,12 +1122,14 @@
 
   
   <xsl:template mode="simpleWpDoc-fixup" match="*">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:copy>
       <xsl:apply-templates select="@*,node()" mode="#current"/>
     </xsl:copy>
   </xsl:template>
   
   <xsl:template mode="simpleWpDoc-fixup" match="@* | text() | processing-instruction()">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:sequence select="."/>
   </xsl:template>
   
@@ -1172,7 +1199,9 @@
                        w:fldChar |
                        v:shapetype
                        "
-  />
+  >
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+  </xsl:template>
   
   <xsl:function name="local:hex-to-char" as="xs:integer">
     <xsl:param name="in"/> <!-- e.g. 030C -->
@@ -1236,10 +1265,12 @@
   </xsl:function>
   
   <xsl:template match="w:*" priority="-0.5">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:message> - [WARNING] wordml2simple: Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/></xsl:message>
   </xsl:template>
   
   <xsl:template match="*" priority="-1">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:message> - [WARNING] wordml2simple: Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/></xsl:message>
   </xsl:template>
   

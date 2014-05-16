@@ -91,6 +91,11 @@ version="2.0">
      select="matches($warnOnUnstyledParas, 'yes|true|1', 'i')"
   />
   
+  <xsl:param name="saveIntermediateDocs" as="xs:string" select="'false'"/>
+  <xsl:variable name="doSaveIntermediateDocs" as="xs:boolean" 
+    select="$debugBoolean or matches($saveIntermediateDocs, 'true|yes|1|on', 'i')"
+  />
+  
   <xsl:variable name="rootMapUrl" select="concat($rootMapName, '.ditamap')" as="xs:string"/>
   <xsl:variable name="rootTopicUrl" 
     as="xs:string?" 
@@ -147,17 +152,19 @@ version="2.0">
   <xsl:variable
     name="debugBoolean"
     as="xs:boolean"
-    select="$debug = 'true'"/>
+    select="matches($debug, 'true|yes|1|on', 'i')"/>
   <xd:doc
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
     <xd:desc>
       <xd:p/>
     </xd:desc>
   </xd:doc>
+  
   <xsl:template
     match="/"
     priority="10">
     <xsl:apply-templates select="." mode="report-parameters"/>
+    <xsl:variable name="doDebug" as="xs:boolean" select="$debugBoolean"/>
     <xsl:variable name="stylesDoc" as="document-node()"
       select="document('styles.xml', .)"
     />      
@@ -170,6 +177,7 @@ version="2.0">
       as="element()">
       <xsl:call-template
         name="processDocumentXml">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
         <xsl:with-param name="stylesDoc" as="document-node()" tunnel="yes"
           select="$stylesDoc"/>
       </xsl:call-template>
@@ -180,7 +188,7 @@ version="2.0">
       as="xs:string"/>
     <!-- NOTE: do not set this check to true(): it will fail when run within RSuite -->
     <xsl:if
-      test="false() or $debugBoolean">
+      test="$doSaveIntermediateDocs">
       <xsl:result-document
         href="{$tempDoc}">
         <xsl:message> + [DEBUG] Intermediate simple WP doc saved as <xsl:sequence
@@ -194,12 +202,14 @@ version="2.0">
     <xsl:message> + [INFO] Doing level fixup....</xsl:message>
     <xsl:message> + [INFO] ====================================</xsl:message>
     <xsl:variable name="simpleWpDocLevelFixupResult" as="element()">
-      <xsl:apply-templates select="$simpleWpDocBase" mode="simpleWpDoc-levelFixupRoot"/>
+      <xsl:apply-templates select="$simpleWpDocBase" mode="simpleWpDoc-levelFixupRoot">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+      </xsl:apply-templates>
 <!--      <xsl:sequence select="$simpleWpDocBase"/>-->
     </xsl:variable>
     
     <xsl:if
-      test="false() or $debugBoolean">
+      test="$doSaveIntermediateDocs">
     <xsl:variable
       name="tempDocLevelFixup"
       select="relpath:newFile($outputDir, 'simpleWpDocLevelFixup.xml')"
@@ -213,8 +223,6 @@ version="2.0">
       </xsl:result-document>
     </xsl:if>
 
-    
-
     <xsl:variable name="simpleWpDocMathTypeFixupResult"
       as="document-node()"
     >
@@ -224,7 +232,9 @@ version="2.0">
         <xsl:message> + [INFO] Doing MathType simpleWpDoc fixup....</xsl:message>
         <xsl:message> + [INFO] ====================================</xsl:message>
         <xsl:document>
-          <xsl:apply-templates select="$simpleWpDocLevelFixupResult" mode="simpleWpDoc-MathTypeFixup"/>
+          <xsl:apply-templates select="$simpleWpDocLevelFixupResult" mode="simpleWpDoc-MathTypeFixup">
+            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+          </xsl:apply-templates>
         </xsl:document>
       </xsl:when>
         <xsl:otherwise>
@@ -236,7 +246,7 @@ version="2.0">
     </xsl:variable>
 
     <xsl:if
-      test="$debugBoolean">
+      test="$doSaveIntermediateDocs">
     <xsl:variable
       name="tempDocMathTypeFixup"
       select="relpath:newFile($outputDir, 'simpleWpDocMathTypeFixup.xml')"
@@ -258,12 +268,14 @@ version="2.0">
       as="document-node()"
     >
       <xsl:document>
-        <xsl:apply-templates select="$simpleWpDocMathTypeFixupResult" mode="simpleWpDoc-fixup"/>
+        <xsl:apply-templates select="$simpleWpDocMathTypeFixupResult" mode="simpleWpDoc-fixup">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:apply-templates>
       </xsl:document>
     </xsl:variable>
 
     <xsl:if
-      test="false() or $debugBoolean">
+      test="$doSaveIntermediateDocs">
       <xsl:variable
         name="tempDocFixup"
         select="relpath:newFile($outputDir, 'simpleWpDocFixup.xml')"
@@ -285,6 +297,7 @@ version="2.0">
     <xsl:apply-templates
       select="$simpleWpDoc/*"
       >
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       <xsl:with-param 
         name="resultUrl" 
         select="relpath:newFile($outputDir, 'temp.output')" 
@@ -322,11 +335,13 @@ version="2.0">
       + debug           = "<xsl:sequence select="$debug"/>"
       + includeWordBackPointers= "<xsl:sequence select="$includeWordBackPointersBoolean"/>"  
       + chartsAsTables  = "<xsl:sequence select="$chartsAsTablesBoolean"/>"  
+      + saveIntermediateDocs  = "<xsl:sequence select="$saveIntermediateDocs"/>"  
       
       Global Variables:
       
       + platform         = "<xsl:sequence select="$platform"/>"
       + debugBoolean     = "<xsl:sequence select="$debugBoolean"/>"
+      + doSaveIntermediateDocs = "<xsl:sequence select="$doSaveIntermediateDocs"/>"
       
       ==========================================
     </xsl:message>
