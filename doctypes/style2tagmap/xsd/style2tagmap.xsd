@@ -557,8 +557,26 @@
               xmlns="http://www.w3.org/1999/xhtml">
               <h2>Format (Result Document Type)</h2>
               <p>Specifies the name of an &lt;output> element that defines the details of the result
-                document to be created from the paragraph (e.g., new topic documents). Must be
-                specified if makeDoc = "yes".</p>
+                topic or root map document to be created from the paragraph. Must be
+                specified if @topicDoc = "yes". For paragraphs that generate root maps you
+              should use the @mapFormat attribute but @format will be used if specified.
+              For paragraphs that generate submaps you must specify @mapFormat.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="mapFormat"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div
+              xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Map Format (Map Result Document Type)</h2>
+              <p>Specifies the name of an &lt;output> element that defines the details of the result
+                map document to be created from the paragraph. Must be
+                specified if @mapDoc = "yes".</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
@@ -966,7 +984,7 @@
               xmlns="http://www.w3.org/1999/xhtml">
               <h2>Put Metadata Value In value= or Content</h2>
               <p>For elements that map to some specialization of topic/data, indicates whether the
-                value goes in the element content ("content") or the value= attribute ("value").</p>
+                value goes in the element content ("content") or the @value attribute ("value").</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
@@ -995,7 +1013,7 @@
             <xhtml:div
               xmlns="http://www.w3.org/1999/xhtml">
               <h2>Chunk Attribute Value</h2>
-              <p>For paragraphs that map or generate topicrefs, the value to set on the chunk=
+              <p>For paragraphs that map or generate topicrefs, the value to set on the @chunk
                 attribute in the result, normally "to-content" (indicating that the result
                 navigation branch should be result in a single output "chunk" (e.g., single HTML
                 page).</p>
@@ -1004,8 +1022,29 @@
         </xs:annotation>
       </xs:attribute>
       <xs:attribute
+        name="mapDoc"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div
+              xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Create Map Document?</h2>
+              <p>When set to "yes", indicates that the paragraph should generate a new
+              submap document. When set to "yes" must specify @mapFormat and @mapType.</p>
+              <p>Specify "yes" to generate a new map, "no" to prevent generation
+              of a new map even when @mapRefType is specified.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute
         name="topicDoc"
-        type="xs:string"
         use="optional">
         <xs:annotation>
           <xs:documentation>
@@ -1014,10 +1053,16 @@
               <h2>Create Topic Document?</h2>
               <p>For paragraphs that generate new topics, when set to "yes", indicates that the
                 topic should be output in its own document. When set to "yes", should also specify a
-                value for format=.</p>
+                value for @format.</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:attribute>
       <xs:attribute
         name="topicType"
@@ -1089,10 +1134,12 @@
             <xhtml:div
               xmlns="http://www.w3.org/1999/xhtml">
               <h2>Map Reference Element Type Name</h2>
-              <p>For paragraphs that generate new maps and, the topicref type
+              <p>For paragraphs that generate new maps, the topicref type
               to use for the reference to the map from the parent map. If not
               specified, the rootTopicrefType or topicrefType is used as the
               map reference type.</p>
+              <p>Specifying @mapRefType implies @mapDoc="yes". When specified
+              must also specify the @mapFormat attribute.</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
@@ -1158,8 +1205,8 @@
             <xhtml:div
               xmlns="http://www.w3.org/1999/xhtml">
               <h2>Immediate Element outputclass= Value</h2>
-              <p>The outputclass= value to use on the element directly generated from the incoming
-                style (that is, the element specified by the tagName= attribute).</p>
+              <p>The @outputclass value to use on the element directly generated from the incoming
+                style (that is, the element specified by the @tagName attribute).</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
@@ -1173,7 +1220,7 @@
             <xhtml:div
               xmlns="http://www.w3.org/1999/xhtml">
               <h2>Value for outputclass= on Topic</h2>
-              <p>For styles that generate topics, indicates the outputclass= value to use for the
+              <p>For styles that generate topics, indicates the @outputclass value to use for the
                 generated topic.</p>
             </xhtml:div>
           </xs:documentation>
@@ -1223,7 +1270,7 @@
                 For example, paragraphs that map to &lt;li> would specify a container type of "ol"
                 or "ul", as appropriate. Adjacent paragraphs with the same container type and level
                 will be grouped together under a single instance of the specified container.</p>
-              <p>If containerType= is specified, you must specify level=.</p>
+              <p>If @containerType is specified, you must specify @level.</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
@@ -1238,7 +1285,7 @@
               xmlns="http://www.w3.org/1999/xhtml">
               <h2>Container Element outputclass= Value</h2>
               <p>For styles that imply the creation of a container element (e.g., list items),
-                specifies the outputclass= value for the container.</p>
+                specifies the @outputclass value for the container.</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
