@@ -1,4 +1,5 @@
 <project name="dita2epub3" default="dita2epub3"
+  xmlns:dita="http://dita-ot.sourceforge.net"
   >
 	<!-- NOTE: This build file depends on targets defined in the epub transtype -->
   
