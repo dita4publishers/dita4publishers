@@ -846,21 +846,77 @@
       </xs:attribute>
       <xs:attribute
         name="containingTopic"
-        type="xs:string"
         use="optional">
         <xs:annotation>
           <xs:documentation>
             <xhtml:div
               xmlns="http://www.w3.org/1999/xhtml">
               <h2>Containing Topic or Map</h2>
-              <p>For prolog elements, indicates whether the paragraph belongs to the root topic or
-                map ("root") or whether it goes with the nearest parent topic. This allows elements
+              <p>For prolog elements, indicates whether the paragraph belongs to the root topic ("roottopic") or
+                map ("rootmap") or whether it goes with the nearest parent topic ("currenttopic") or map ("currentmap"). 
+                This allows elements
                 that occur anywhere in the input to contribute to the root topic or map metadata,
                 for example, author or copyright information that occurs at the end of an article
                 but is metadata for the root result topic.</p>
+              <p>The value "root" is obsolete and means the same thing as "roottopic".</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="root">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>Obsolete. Use "roottopic".</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>            
+            </xs:enumeration>
+            <xs:enumeration value="rootmap">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The metadata item will be put in the map prolog for the root map.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>            
+            </xs:enumeration>
+            <xs:enumeration value="roottopic">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The metadata item will be put in the map prolog for the root topic.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>            
+            </xs:enumeration>
+            <xs:enumeration value="currentmap">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The metadata item will be put in the map prolog for the current map (which 
+                      may be the root map or may be a submap).</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>            
+            </xs:enumeration>
+            <xs:enumeration value="currenttopic">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div
+                    xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The metadata item will be put in the topic prolog for the current topic.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>            
+            </xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:attribute>
       <xs:attribute
         name="topicZone"
@@ -870,13 +926,14 @@
             <xhtml:div
               xmlns="http://www.w3.org/1999/xhtml">
               <h2>Topic Zone</h2>
-              <p>Indicates which general part of the result topic the element goes in, one of:<dl>
+              <p>Indicates which general part of the result topic or map the element goes in, one of:<dl>
                   <dt>title</dt>
                   <dd>The topic or map title.</dd>
                   <dt>shortdesc</dt>
                   <dd>The short description for a topic.</dd>
                   <dt>topicmeta</dt>
-                  <dd>The topicmeta container for a map.</dd>
+                  <dd>The metadata container for a map. The container type is specified by the 
+                  @prologType attribute on the &lt;style element that generates the map.</dd>
                   <dt>prolog</dt>
                   <dd>The prolog of a topic.</dd>
                   <dt>body</dt>
@@ -1048,11 +1105,28 @@
           <xs:documentation>
             <xhtml:div
               xmlns="http://www.w3.org/1999/xhtml">
-              <h2>Data Element name= Attribute Value</h2>
+              <h2>Data Element @name Attribute Value</h2>
               <p>For styles that map to a specialization of topic/data, indicates the value to set
-                for the name= attribute. Normally used for styles that map to unspecialized
-                &lt;data> where you need the name= attribute indicate the specific metadata type. Do
-                not specify if the result element type defines a default value for name=.</p>
+                for the @name attribute. Normally used for styles that map to unspecialized
+                &lt;data> where you need the @name attribute indicate the specific metadata type. Do
+                not specify if the result element type defines a default value for @name.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="typeAttValue"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div
+              xmlns="http://www.w3.org/1999/xhtml">
+              <h2>@type Attribute Value</h2>
+              <p>For styles that map to elements
+                that allow @type (e.g., data, author, longdescref), indicates the value to set
+                for the @type attribute. Do
+                not specify if the result element type defines a default value for @type.</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>

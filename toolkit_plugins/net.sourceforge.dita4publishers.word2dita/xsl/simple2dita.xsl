@@ -243,9 +243,7 @@
             <xsl:with-param name="tagName" select="$tagName"/>
           </xsl:apply-templates>
           <xsl:sequence select="./@outputclass"/>
-          <xsl:if test="./@dataName">
-            <xsl:attribute name="name" select="./@dataName"/>
-          </xsl:if>
+          <xsl:apply-templates select="@dataName, @typeAttValue"/>
           <xsl:apply-templates select="." mode="generate-id">
             <xsl:with-param name="idGenerator" select="$idGenerator" as="xs:string"/>
             <xsl:with-param name="tagName" select="$tagName" as="xs:string"/>
@@ -254,6 +252,16 @@
         </xsl:element>
       </xsl:otherwise>
     </xsl:choose>    
+  </xsl:template>
+  
+  <xsl:template match="@dataName">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:attribute name="name" select="."/>
+  </xsl:template>
+  
+  <xsl:template match="@typeAttValue">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:attribute name="type" select="."/>
   </xsl:template>
   
   <xsl:template mode="generate-id" match="*">
@@ -871,8 +879,8 @@
             </xsl:otherwise>
           </xsl:choose>
         </xsl:if>
-        <xsl:if test="$content[string(@topicZone) = 'topicmeta' and string(@containingTopic) = 'root']">
-          <xsl:variable name="prologParas" select="$content[string(@topicZone) = 'topicmeta' and string(@containingTopic) = 'root']" as="node()*"/>
+        <xsl:if test="$content[string(@topicZone) = 'topicmeta' and string(@containingTopic) = 'rootmap']">
+          <xsl:variable name="prologParas" select="$content[string(@topicZone) = 'topicmeta' and string(@containingTopic) = 'rootmap']" as="node()*"/>
           <!-- Now process any map-level topic metadata paragraphs. -->
           <xsl:element name="{$prologType}">
             <xsl:call-template name="generateXtrcAtt"/>
@@ -1237,7 +1245,7 @@
     <xsl:variable name="firstP" select="$content[1]" as="element()*"/>
     <xsl:variable name="firstStructureType" as="xs:string*" select="$firstP/@structureType"/>
     <xsl:if test="not($firstStructureType = ('topicTitle', 'map', 'mapTitle')) and
-                  not($firstP[@topicZone = ('topicmeta', 'prolog') and @containingTopic = 'root'])
+                  not($firstP[@topicZone = ('topicmeta', 'prolog') and @containingTopic = ('root', 'roottopic', 'rootmap')])
       ">
         <xsl:message terminate="yes"> + [ERROR] First paragraph following the root-map-generating paragraph
  + [ERROR] is not a topic title, map, or map title paragraph. You cannot have content paragraphs
@@ -1607,7 +1615,7 @@ specify @topicDoc="yes".</xsl:message>
                   <xsl:element name="{$prologType}">
                     <xsl:call-template name="generateXtrcAtt"/>
                     <!-- For root topic, can pull metadata from anywhere in the incoming document. -->
-                    <xsl:apply-templates select="root($firstP)//*[string(@containingTopic) = 'root' and 
+                    <xsl:apply-templates select="root($firstP)//*[string(@containingTopic) = ('root', 'roottopic') and 
                       string(@topicZone) = 'prolog' and 
                       contains(@baseClass, ' topic/author ')]"/>     
                     <!-- FIXME: This is a hack to handle index entries in keywords. Need to refine this
@@ -1620,16 +1628,19 @@ specify @topicDoc="yes".</xsl:message>
                         </keywords>
                       </metadata>
                     </xsl:if>
-                    <xsl:apply-templates select="root($firstP)//*[string(@containingTopic) = 'root' and 
+                    <xsl:apply-templates select="root($firstP)//*[string(@containingTopic) = ('root', 'roottopic') and 
                       string(@topicZone) = 'prolog' and 
                       contains(@baseClass, ' topic/data ')
                       ]"/>                        
                   </xsl:element>                  
                 </xsl:when>
-                <xsl:when test="current-group()[string(@topicZone) = 'prolog' and not(@containingTopic)]">
+                <xsl:when test="current-group()[string(@topicZone) = 'prolog' and 
+                                not(@containingTopic = ('root', 'roottopic'))]">
                   <xsl:element name="{$prologType}">
                     <xsl:call-template name="generateXtrcAtt"/>
-                    <xsl:apply-templates select="current-group()[not(@containingTopic) and string(@topicZone) = 'prolog']"/>
+                    <xsl:apply-templates 
+                      select="current-group()[not(@containingTopic = ('root', 'roottopic')) and 
+                                              string(@topicZone) = 'prolog']"/>
                   </xsl:element>
                 </xsl:when>
                 <xsl:when test="count($titleIndexEntries) > 0">
