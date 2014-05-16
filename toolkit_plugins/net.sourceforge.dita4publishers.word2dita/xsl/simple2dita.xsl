@@ -780,6 +780,8 @@
     <xsl:param name="newMapUrl" as="xs:string" 
       select="local:getResultUrlForMap($content[1], $topicrefType, $treePos, $mapUrl)"/>
 
+    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
+    
     <xsl:variable name="firstP" select="$content[1]"/>
     
     <xsl:if test="$doDebug">
@@ -794,7 +796,11 @@
     
     <xsl:variable name="formatName" select="$firstP/@format" as="xs:string?"/>
     <xsl:if test="not($formatName)">
-      <xsl:message terminate="yes"> + [ERROR] makeMap: No format= attribute for paragraph style <xsl:sequence select="string($firstP/@styleName)"/>, which is mapped to structure type "map".</xsl:message>
+      <xsl:message terminate="yes"> + [ERROR] makeMap: No format= attribute for paragraph style <xsl:sequence select="string($firstP/@styleName)"/>, which is mapped to structure type "map".
+        When a paragraph generates a new document the style mapping must specify the name of
+        an &lt;output&gt; element with the @format attribute, e.g. format="pubmap" where "pubmap"
+        is the name on an &lt;output&gt; in the style-to-tag mapping. 
+      </xsl:message>
     </xsl:if>
     
     <xsl:variable name="format" select="key('formats', $formatName, $styleMapDoc)[1]" as="element()?"/>
@@ -1230,7 +1236,9 @@
       -->
     <xsl:variable name="firstP" select="$content[1]" as="element()*"/>
     <xsl:variable name="firstStructureType" as="xs:string*" select="$firstP/@structureType"/>
-    <xsl:if test="not($firstStructureType = ('topicTitle', 'map', 'mapTitle'))">
+    <xsl:if test="not($firstStructureType = ('topicTitle', 'map', 'mapTitle')) and
+                  not($firstP[@topicZone = ('topicmeta', 'prolog') and @containingTopic = 'root'])
+      ">
         <xsl:message terminate="yes"> + [ERROR] First paragraph following the root-map-generating paragraph
  + [ERROR] is not a topic title, map, or map title paragraph. You cannot have content paragraphs
  + [ERROR] between the publication title and the first topic-generating paragraph.
