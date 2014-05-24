@@ -275,6 +275,7 @@
             </xsl:call-template>
           </xsl:element>
         </xsl:if>
+        <!--<xsl:variable name="doDebug" as="xs:boolean" select="true()"/>-->
         <xsl:if test="$doDebug">
           <xsl:message> + [DEBUG] Applying templates to map element children...</xsl:message>
         </xsl:if>
@@ -343,14 +344,15 @@
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rsiwp:mapref: parentMapUrl="<xsl:value-of select="$parentMapUrl"/></xsl:message>
     </xsl:if>
-    <xsl:variable name="newMapRelativeUrl" as="xs:string"
+    <xsl:variable name="newMapUrl" as="xs:string"
       select="local:getResultUrlForMap(rsiwp:map, $parentMapUrl)"
       />
-    <xsl:variable name="newMapUrl" as="xs:string"
-      select="relpath:newFile(relpath:getParent($parentMapUrl), $newMapRelativeUrl)"
+    <xsl:variable name="newMapRelativeUrl" as="xs:string"
+      select="relpath:getRelativePath(relpath:getParent($parentMapUrl), $newMapUrl)"
     />
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] rsiwp:mapref: newMapUrl="<xsl:value-of select="$newMapUrl"/></xsl:message>
+      <xsl:message> + [DEBUG] rsiwp:mapref:         newMapUrl="<xsl:value-of select="$newMapUrl"/></xsl:message>
+      <xsl:message> + [DEBUG] rsiwp:mapref: newMapRelativeUrl="<xsl:value-of select="$newMapRelativeUrl"/></xsl:message>
     </xsl:if>
     <xsl:variable name="tagname" as="xs:string"
       select="@maprefType"
@@ -372,7 +374,7 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="parentMapUrl" as="xs:string" tunnel="yes"/>
     
-    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
+<!--    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>-->
 
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rsiwp:topicref: parentMapUrl="<xsl:value-of select="$parentMapUrl"/>"</xsl:message>
@@ -381,19 +383,32 @@
     <xsl:variable name="topicrefType" as="xs:string"
       select="if (@topicrefType) then @topicrefType else 'topicref'"
     />
-    
+    <xsl:variable name="topicName" as="xs:string">
+      <xsl:apply-templates mode="topic-name" select="rsiwp:topic">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+      </xsl:apply-templates>
+    </xsl:variable>
+
     <xsl:variable name="topicUrl" as="xs:string"
-      select="local:getResultUrlForTopic(rsiwp:topic, $parentMapUrl, $topicrefType, '')"
+      select="local:getResultUrlForTopic(rsiwp:topic, $parentMapUrl, $topicrefType, $topicName)"
     />
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rsiwp:topicref: topicUrl="<xsl:value-of select="$topicUrl"/>"</xsl:message>
     </xsl:if>
+    <xsl:variable name="topicRelativeUrl" as="xs:string"
+      select="relpath:getRelativePath(relpath:getParent($parentMapUrl), $topicUrl)"
+    />
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] rsiwp:topicref: topicRelativeUrl="<xsl:value-of select="$topicRelativeUrl"/>"</xsl:message>
+    </xsl:if>
     <xsl:element name="{$topicrefType}">
-      <xsl:attribute name="href" select="$topicUrl"/>
+      <xsl:attribute name="href" select="$topicRelativeUrl"/>
       <xsl:call-template name="generateXtrcAtt"/>
       <xsl:sequence select="@chunk, @collection-type, @processing-role, @toc"/>
       <xsl:apply-templates>
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        <xsl:with-param name="topicUrl" as="xs:string" select="$topicUrl"/>
+        <xsl:with-param name="topicName" as="xs:string" tunnel="yes" select="$topicName"/>
       </xsl:apply-templates>
     </xsl:element>
   </xsl:template>
@@ -422,13 +437,17 @@
   <xsl:template match="rsiwp:topic">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="parentMapUrl" as="xs:string" tunnel="yes"/>
+    <xsl:param name="topicUrl" as="xs:string?"/><!-- Result URL for the topic document -->
+    <xsl:param name="topicName" as="xs:string" tunnel="yes"/><!-- File/ID for the topic -->
     
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] rsiwp:topic: </xsl:message>
+      <xsl:message> + [DEBUG] rsiwp:topic:  topicUrl="<xsl:value-of select="$topicUrl"/></xsl:message>
+      <xsl:message> + [DEBUG] rsiwp:topic: topicName="<xsl:value-of select="$topicName"/></xsl:message>
     </xsl:if>
     
     <xsl:call-template name="makeTopic">
-      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>   
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+      <xsl:with-param name="topicUrl" as="xs:string?" select="$topicUrl"/>
     </xsl:call-template>
 
   </xsl:template>
@@ -1086,8 +1105,8 @@
     <!-- Map a topic. The context element is an rsiwp:topic element -->
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="parentMapUrl" as="xs:string?" tunnel="yes"/>
-    
-    
+    <xsl:param name="topicUrl" as="xs:string?"/><!-- Result URL for the topic document -->    
+    <xsl:param name="topicName" as="xs:string" tunnel="yes"/>    
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] makeTopic: rootTopicUrl=<xsl:sequence select="$rootTopicUrl"/></xsl:message>
     </xsl:if>
@@ -1110,12 +1129,6 @@
       <xsl:message> + [DEBUG] makeTopic: makeDoc=<xsl:value-of select="$makeDoc"/></xsl:message>
     </xsl:if>
     
-    <xsl:variable name="topicName" as="xs:string">
-      <xsl:apply-templates mode="topic-name" select=".">
-        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-      </xsl:apply-templates>
-    </xsl:variable>
-
     <xsl:choose>
       <xsl:when test="$makeDoc">
         
@@ -1123,19 +1136,7 @@
           select="if (@topicrefType) then @topicrefType else 'topicref'"
         />
         
-        <xsl:variable name="topicUrl"
-           as="xs:string"
-           select="local:getResultUrlForTopic(., $parentMapUrl, $topicrefType, $topicName)"
-        />
-        
-        <!-- FIXME: Not sure we should be using outputDir here. Need to rationalize with 
-             map URL construction.
-          -->
-        <xsl:variable name="resultUrl" as="xs:string"
-            select="relpath:newFile($outputDir,$topicUrl)"
-        />
-        
-        <xsl:message> + [INFO] Creating new topic document "<xsl:sequence select="$resultUrl"/>"...</xsl:message>
+        <xsl:message> + [INFO] Creating new topic document "<xsl:sequence select="$topicUrl"/>"...</xsl:message>
         
         <xsl:variable name="formatName" select="./@topicType" as="xs:string?"/>
         <xsl:if test="not($formatName)">
@@ -1174,15 +1175,15 @@
         <xsl:variable name="resultDoc" as="node()*"> 
           <xsl:call-template name="constructTopic">
             <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-            <xsl:with-param name="resultUrl" as="xs:string" tunnel="yes" select="$resultUrl"/>
+            <xsl:with-param name="resultUrl" as="xs:string" tunnel="yes" select="$topicUrl"/>
             <xsl:with-param name="topicName" as="xs:string" tunnel="yes" select="$topicName"/>
             <xsl:with-param name="schemaAtts" as="attribute()*" select="$schemaAtts"/>
           </xsl:call-template>
         </xsl:variable>
 
         <!-- Now do ID fixup on the result document: -->
-        <xsl:message> + [INFO] Applying final-fixup mode to <xsl:sequence select="$resultUrl"/>...</xsl:message>
-        <rsiwp:result-document href="{$resultUrl}"
+        <xsl:message> + [INFO] Applying final-fixup mode to <xsl:sequence select="$topicUrl"/>...</xsl:message>
+        <rsiwp:result-document href="{$topicUrl}"
             doctype-public="{$format/@doctype-public}"
             doctype-system="{$format/@doctype-system}"
             >
