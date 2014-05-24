@@ -119,6 +119,10 @@ version="2.0">
   <xsl:variable name="includeWordBookmarksBoolean" as="xs:boolean" 
     select="matches($includeWordBookmarks, 'yes|true|1', 'i')"/>
   
+  <xsl:output name="indented" 
+    method="xml"
+    indent="yes"
+  />
   <xsl:include
     href="office-open-utils.xsl"/>
   <xsl:include
@@ -191,7 +195,7 @@ version="2.0">
     <!-- NOTE: do not set this check to true(): it will fail when run within RSuite -->
     <xsl:if
       test="$doSaveIntermediateDocs">
-      <xsl:result-document
+      <xsl:result-document format="indented"
         href="{$tempDoc}">
         <xsl:message> + [DEBUG] Intermediate simple WP doc saved as <xsl:sequence
             select="$tempDoc"/></xsl:message>
@@ -216,7 +220,7 @@ version="2.0">
       name="tempDocLevelFixup"
       select="relpath:newFile($outputDir, 'simpleWpDocLevelFixup.xml')"
       as="xs:string"/>
-      <xsl:result-document
+      <xsl:result-document format="indented"
         href="{$tempDocLevelFixup}">
         <xsl:message> + [DEBUG] Intermediate simple WP level fixup result doc saved as <xsl:sequence
             select="$tempDocLevelFixup"/></xsl:message>
@@ -253,7 +257,7 @@ version="2.0">
       name="tempDocMathTypeFixup"
       select="relpath:newFile($outputDir, 'simpleWpDocMathTypeFixup.xml')"
       as="xs:string"/>
-      <xsl:result-document
+      <xsl:result-document format="indented"
         href="{$tempDocMathTypeFixup}">
         <xsl:message> + [DEBUG] Intermediate simple WP MathType fixup result doc saved as <xsl:sequence
             select="$tempDocMathTypeFixup"/></xsl:message>
@@ -282,7 +286,7 @@ version="2.0">
         name="tempDocFixup"
         select="relpath:newFile($outputDir, 'simpleWpDocFixup.xml')"
         as="xs:string"/>
-      <xsl:result-document
+      <xsl:result-document format="indented"
         href="{$tempDocFixup}">
         <xsl:message> + [DEBUG] Fixed-up simple WP doc saved as <xsl:sequence
             select="$tempDocFixup"/></xsl:message>
@@ -304,7 +308,7 @@ version="2.0">
         name="tempDocFixup"
         select="relpath:newFile($outputDir, 'simpleWpWithLevels.xml')"
         as="xs:string"/>
-      <xsl:result-document
+      <xsl:result-document format="indented"
         href="{$tempDocFixup}">
         <xsl:message> + [DEBUG] Simple WP doc with levels added saved as <xsl:sequence
             select="$tempDocFixup"/></xsl:message>
