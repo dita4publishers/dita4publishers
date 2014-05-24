@@ -40,6 +40,9 @@
     document is indicated by a rsiwp:result-document element, which
     provides the details needed to construct the final result document.
     
+      This document reflects any map and topic hierarchy implied by the
+    paragraphs.
+    
     Phase 2: Generate result documents
     
     Phase 2 operates on the output of the phase 2 to generate each 

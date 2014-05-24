@@ -43,7 +43,9 @@
   
   <xsl:template mode="simpleWp-addLevels" match="/">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <xsl:apply-templates select="*" mode="#current"/>    
+    <xsl:apply-templates select="*" mode="#current">
+       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$debugBoolean"/>
+    </xsl:apply-templates>    
   </xsl:template>
   
   <xsl:template mode="simpleWp-addLevels" match="/*">
@@ -53,14 +55,31 @@
   </xsl:template>
   
   <xsl:template mode="simpleWp-addLevels" match="rsiwp:body">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- Within the <body> element there must be at least one
          paragraph that is either the level 0 topic or map
       -->
     
-    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] simpleWp-addLevels: rsiwp:body</xsl:message>
     </xsl:if>
+    
+    <!-- First <p> in doc should be title for the root topic. If it's not, bail -->  
+    <xsl:variable name="firstP" select="rsiwp:body/(rsiwp:p|rsiwp:table)[1]" as="element()?"/>
+    <xsl:if test="$doDebug">        
+      <xsl:message> + [DEBUG] rsiwp:document: firstP=<xsl:sequence select="$firstP"/></xsl:message>
+    </xsl:if>
+    <xsl:if test="$firstP and 
+                  not(local:isRootTopicTitle($firstP)) and 
+                  not(local:isMap($firstP) or local:isMapTitle($firstP))">
+      <xsl:message terminate="yes"> - [ERROR] The first paragraph in the Word document must be mapped to the root map or topic title.
+        First para is style <xsl:sequence select="string($firstP/@style)"/>, mapped as <xsl:sequence 
+          select="
+          (key('styleMapsByName', lower-case(string($firstP/@style)), $styleMapDoc)[1],
+          key('styleMapsById', string($firstP/@style), $styleMapDoc)[1])[1]"/> 
+      </xsl:message>
+    </xsl:if>
+    
     <xsl:copy>
       <xsl:apply-templates select="@*" mode="#current"/>
       <xsl:call-template name="groupMapsAndTopicsByLevel">
