@@ -179,7 +179,7 @@
 
     <xsl:variable name="map" as="element()">
       <rsiwp:map>
-        <xsl:sequence select="@mapType, @mapFormat, @prologType"/>
+        <xsl:sequence select="@mapType, @mapFormat, @prologType, @styleName, @styleId"/>
         <xsl:apply-templates mode="addLevels-mapTitle" select=".">
           <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
         </xsl:apply-templates>
@@ -192,7 +192,7 @@
     <xsl:choose>
       <xsl:when test="$level > 0">
         <rsiwp:mapref>
-          <xsl:sequence select="@maprefType"/>
+          <xsl:sequence select="@maprefType, @styleName, @styleId"/>
           <xsl:sequence select="$map"/>
         </rsiwp:mapref>
       </xsl:when>
@@ -250,7 +250,7 @@
       <xsl:message> + [DEBUG] addLevels-topicref: <xsl:value-of select="local:reportPara(.)"/></xsl:message>
     </xsl:if>
     <xsl:element name="rsiwp:topicref">
-      <xsl:sequence select="@topicrefType"/>
+      <xsl:sequence select="@topicrefType, @styleName, @styleId"/>
       <xsl:apply-templates select="." mode="addLevels-navtitle"/>
       <xsl:apply-templates mode="addLevels-topic" select=".">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
@@ -267,7 +267,7 @@
     </xsl:if>
 
     <rsiwp:topic>
-      <xsl:sequence select="@topicType, @format, @bodyType, @prologType"/>
+      <xsl:sequence select="@topicType, @format, @bodyType, @prologType, @styleName, @styleId"/>
       <xsl:apply-templates mode="addLevels-handleChildren" select=".">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
         <xsl:with-param name="level" as="xs:integer" tunnel="yes" select="@level"/>

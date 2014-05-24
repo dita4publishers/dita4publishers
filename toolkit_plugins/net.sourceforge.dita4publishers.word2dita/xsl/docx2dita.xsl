@@ -138,6 +138,8 @@ version="2.0">
   <xsl:include
     href="simple2dita.xsl"/>
   <xsl:include
+    href="modeMapUrl.xsl"/>
+  <xsl:include
     href="resultdocs-xref-fixup.xsl"/>
   <xd:doc
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
@@ -323,7 +325,7 @@ version="2.0">
 
 
     <xsl:apply-templates
-      select="$simpleWpDoc/*"
+      select="$simpleWithLevels/*"
       >
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       <xsl:with-param 
