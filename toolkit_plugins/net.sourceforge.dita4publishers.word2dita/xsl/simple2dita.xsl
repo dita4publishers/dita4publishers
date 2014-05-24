@@ -86,8 +86,6 @@
       -->
     <xsl:variable name="simpleWpDoc" as="document-node()" select="root(.)"/>
     
-    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
-
     <xsl:message> + [INFO] simple2dita: Phase 1: Generate DITA maps and topics as a single XML document....</xsl:message>
     <xsl:variable name="resultDocs" as="document-node()">
       <xsl:document>
@@ -148,22 +146,35 @@
 
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rwiwp:body</xsl:message>
-    </xsl:if>
+    </xsl:if>    
+    
+    
+    <xsl:variable name="newMapUrl" as="xs:string"
+      select="relpath:newFile($outputDir, $rootMapUrl)"
+    />
+    <xsl:variable name="newTopicUrl" as="xs:string"
+      select="relpath:newFile($outputDir, $rootTopicUrl)"
+    />
 
     <xsl:apply-templates>
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-      <xsl:with-param name="parentMapUrl" as="xs:string" tunnel="yes" select="$rootMapUrl"/>
+      <xsl:with-param name="parentMapUrl" as="xs:string" tunnel="yes" 
+        select="''"/>
+      <xsl:with-param name="newMapUrl" as="xs:string"  select="$newMapUrl"/>
+      <xsl:with-param name="newTopicUrl" as="xs:string"  select="$newTopicUrl"/>
     </xsl:apply-templates>
   </xsl:template>
     
   <xsl:template match="rsiwp:body/rsiwp:topic">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="parentMapUrl" as="xs:string" tunnel="yes" select="''"/>
+    <xsl:param name="newTopicUrl" as="xs:string" />
     
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rwiwp:body/rsiwp:topic</xsl:message>
     </xsl:if>
 
+    <!-- FIXME: Generate the topic -->
     <!-- Root topic -->
   </xsl:template>
   
@@ -171,9 +182,11 @@
     <!-- generate a map document -->
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="parentMapUrl" as="xs:string" tunnel="yes" select="''"/>
+    <xsl:param name="newMapUrl" as="xs:string"/><!-- Absolute path for the new map -->
     
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rsiwp:map: parentMapUrl="<xsl:value-of select="$parentMapUrl"/>"</xsl:message>
+      <xsl:message> + [DEBUG] rsiwp:map:    newMapUrl="<xsl:value-of select="$newMapUrl"/>"</xsl:message>
     </xsl:if>
     
     <xsl:if test="not(@mapFormat) and @format">
@@ -216,16 +229,12 @@
       "
     />
     
-    <xsl:variable name="newMapUrl" as="xs:string"
-      select="local:getResultUrlForMap(., $parentMapUrl)"
-    />
-    
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rsiwp:map: newMapUrl="<xsl:value-of select="$newMapUrl"/>"</xsl:message>
     </xsl:if>
     
     <xsl:variable name="resultUrl" as="xs:string"
-      select="relpath:newFile(relpath:getParent($parentMapUrl), $newMapUrl)"
+      select="$newMapUrl"
     />
     
     <xsl:message> + [INFO] makeMap: Creating new map document "<xsl:sequence select="$resultUrl"/>"...</xsl:message>
@@ -277,7 +286,7 @@
           rsiwp:topic
           ">
           <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-          <xsl:with-param name="parentMapUrl" as="xs:string" select="$newMapUrl"/>
+          <xsl:with-param name="parentMapUrl" as="xs:string" select="$newMapUrl" tunnel="yes"/>
         </xsl:apply-templates>
       </xsl:element>
     </rsiwp:result-document>
@@ -290,8 +299,41 @@
   <xsl:template match="rsiwp:maptitle">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- Generate the map title -->
-    <!-- FIXME: Do this properly -->
-    <xsl:apply-templates/>
+    <xsl:choose>
+      <xsl:when test="@containerType">
+        <xsl:element name="{@containerType}">
+          <xsl:apply-templates>
+            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+          </xsl:apply-templates>
+        </xsl:element>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates>
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:apply-templates>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
+  <xsl:template match="rsiwp:navtitle">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:variable name="topicmetaType" as="xs:string"
+      select="if (@topicrefTopicmetaType) then @topicrefTopicmetaType else 'topicmeta'"
+    />
+    <xsl:variable name="navtitleType" as="xs:string"
+      select="if (@navtitleType) then @navtitleType else 'navtitle'"
+    />
+    <xsl:element name="{$topicmetaType}">
+      <xsl:element name="{$navtitleType}">
+        <xsl:call-template name="generateXtrcAtt"/>
+        <!-- We don't want to process the paragraph itself in default mode,
+             because that will generate a topic title element.
+             So we process its content. There may be a better way to do this,
+             e.g., a navtitle-specific mode.
+          -->
+        <xsl:apply-templates select="*/node()"/>
+      </xsl:element>
+    </xsl:element>
   </xsl:template>
 
   <xsl:template match="rsiwp:mapref">
@@ -299,19 +341,29 @@
     <xsl:param name="parentMapUrl" as="xs:string" tunnel="yes"/>
 
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] rsiwp:mapref: </xsl:message>
+      <xsl:message> + [DEBUG] rsiwp:mapref: parentMapUrl="<xsl:value-of select="$parentMapUrl"/></xsl:message>
     </xsl:if>
-    <xsl:variable name="newMapUrl" as="xs:string"
+    <xsl:variable name="newMapRelativeUrl" as="xs:string"
       select="local:getResultUrlForMap(rsiwp:map, $parentMapUrl)"
       />
+    <xsl:variable name="newMapUrl" as="xs:string"
+      select="relpath:newFile(relpath:getParent($parentMapUrl), $newMapRelativeUrl)"
+    />
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] rsiwp:mapref: newMapUrl="<xsl:value-of select="$newMapUrl"/></xsl:message>
+    </xsl:if>
     <xsl:variable name="tagname" as="xs:string"
       select="@maprefType"
     />
     <xsl:element name="{$tagname}">
-      <xsl:attribute name="href" select="$newMapUrl"/>
+      <xsl:attribute name="href" select="$newMapRelativeUrl"/>
       <xsl:call-template name="generateXtrcAtt"/>
-      <xsl:apply-templates><!-- Should never have inappropriate children -->
+      <xsl:if test="@maprefFormat">
+        <xsl:attribute name="format" select="@maprefFormat"/>
+      </xsl:if>
+      <xsl:apply-templates><!-- The only child of rsiwp:mapref should be rsiwp:map -->
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        <xsl:with-param name="newMapUrl" as="xs:string"  select="$newMapUrl"/>
       </xsl:apply-templates>
     </xsl:element>
   </xsl:template>
@@ -319,9 +371,11 @@
   <xsl:template match="rsiwp:topicref">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="parentMapUrl" as="xs:string" tunnel="yes"/>
+    
+    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
 
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] rsiwp:topicref: </xsl:message>
+      <xsl:message> + [DEBUG] rsiwp:topicref: parentMapUrl="<xsl:value-of select="$parentMapUrl"/>"</xsl:message>
     </xsl:if>
     
     <xsl:variable name="topicrefType" as="xs:string"
@@ -2107,10 +2161,18 @@
     <!-- Construct the absolute result URL for the map. -->
     <xsl:param name="context" as="element()"/>
     <xsl:param name="parentMapUrl" as="xs:string"/>
+    <xsl:sequence select="local:getResultUrlForMap($context, $parentMapUrl, false())"/>
+  </xsl:function>
+
+  <xsl:function name="local:getResultUrlForMap" as="xs:string">
+    <!-- Construct the absolute result URL for the map. -->
+    <xsl:param name="context" as="element()"/>
+    <xsl:param name="parentMapUrl" as="xs:string"/>
+    <xsl:param name="doDebug" as="xs:boolean"/>
     
     <xsl:variable name="mapRelativeUri" as="xs:string+">
       <xsl:apply-templates mode="map-url" select="$context">
-        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="true()"/>
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       </xsl:apply-templates>
     </xsl:variable>
     <xsl:variable name="result" as="xs:string"

@@ -192,7 +192,7 @@
     <xsl:choose>
       <xsl:when test="$level > 0">
         <rsiwp:mapref>
-          <xsl:sequence select="@maprefType, @styleName, @styleId"/>
+          <xsl:sequence select="@maprefType, @maprefFormat, @styleName, @styleId"/>
           <xsl:sequence select="$map"/>
         </rsiwp:mapref>
       </xsl:when>
@@ -206,6 +206,7 @@
     match="*[@structureType = ('mapTitle') or @secondStructureType = ('mapTitle')]">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <rsiwp:maptitle>
+      <xsl:sequence select="@containerType"/>
       <xsl:sequence select="local:getContainerTypeSiblings(.)"/>
     </rsiwp:maptitle>
   </xsl:template>

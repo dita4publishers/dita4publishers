@@ -58,8 +58,19 @@
          used in IDs and filenames.
       -->
     <xsl:variable name="treePosString" as="xs:string">
-      <xsl:number count="rsiwp:map | rsiwp:topic" format="_01_01"
-        level="multiple"
+      <!-- This numbering numbers the topics sequentially through the map
+        
+           - The root topic (if there is no map)
+           - Each topicref
+           - Each non-document-root topic           
+      
+      -->
+      <xsl:number count="
+        rsiwp:topicref |
+        rsiwp:body/rsiwp:topic |
+        rsiwp:topic[parent::rsiwp:topic]" format="_01_01"
+        from="/"
+        level="any"
       />
     </xsl:variable>
     
