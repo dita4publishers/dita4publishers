@@ -30,7 +30,7 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     
     <xsl:variable name="treePosString" as="xs:string">
-      <xsl:number count="rsiwp:map" format="1_"
+      <xsl:number count="rsiwp:map" format="_01_01"
         level="multiple"
       />
     </xsl:variable>
