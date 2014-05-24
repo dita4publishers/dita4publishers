@@ -130,6 +130,8 @@ version="2.0">
   <xsl:include
     href="wordml2simpleMathTypeFixup.xsl"/>
   <xsl:include
+    href="wordml2simpleAddLevels.xsl"/>
+  <xsl:include
     href="simple2dita.xsl"/>
   <xsl:include
     href="resultdocs-xref-fixup.xsl"/>
@@ -286,6 +288,28 @@ version="2.0">
             select="$tempDocFixup"/></xsl:message>
         <xsl:sequence
           select="$simpleWpDoc"/>
+      </xsl:result-document>
+    </xsl:if>
+    
+    <xsl:variable name="simpleWithLevels" as="document-node()">
+      <xsl:document>
+        <xsl:apply-templates select="$simpleWpDoc" mode="simpleWp-addLevels">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:apply-templates>
+      </xsl:document>
+    </xsl:variable>
+    <xsl:if
+      test="$doSaveIntermediateDocs">
+      <xsl:variable
+        name="tempDocFixup"
+        select="relpath:newFile($outputDir, 'simpleWpWithLevels.xml')"
+        as="xs:string"/>
+      <xsl:result-document
+        href="{$tempDocFixup}">
+        <xsl:message> + [DEBUG] Simple WP doc with levels added saved as <xsl:sequence
+            select="$tempDocFixup"/></xsl:message>
+        <xsl:sequence
+          select="$simpleWithLevels"/>
       </xsl:result-document>
     </xsl:if>
 

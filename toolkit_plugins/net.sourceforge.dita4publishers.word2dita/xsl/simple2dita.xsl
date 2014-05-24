@@ -798,7 +798,7 @@
   <xsl:template name="makeMap">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="content" as="element()+"/>
-    <xsl:param name="level"  as="xs:integer"/><!-- Level of this topic -->
+    <xsl:param name="level"  as="xs:integer"/><!-- Level of this map -->
     <xsl:param name="treePos" as="xs:integer*" tunnel="yes"/><!-- Sequence of integers representing tree position of parent. --> 
     <xsl:param name="maprefType" select="if ($content[1]/@mapRefType) then $content[1]/@mapRefType else 'mapref'" as="xs:string"/>
     <xsl:param name="mapUrl" as="xs:string" tunnel="yes"/>
@@ -889,8 +889,9 @@
         <xsl:if test="local:isMapTitle($firstP)">
           <xsl:choose>
             <xsl:when test="$firstP/@containerType">              
-              <!-- First N paras should be of the same container type. Process them
-                   as a unit.
+              <!-- For the map title, there may be multiple paragraphs that contribute to the map
+                   title within a common container (e.g., to generate a bookmap or pubmap title and 
+                   subtitle).
                 -->
               <xsl:element name="{$firstP/@containerType}">
                 <xsl:apply-templates select="local:getContainerTypeSiblings($firstP)">
@@ -905,6 +906,7 @@
             </xsl:otherwise>
           </xsl:choose>
         </xsl:if>
+        <!-- Gather any paragraphs that contribute to the root map's map-level metadata: -->
         <xsl:if test="$content[string(@topicZone) = 'topicmeta' and string(@containingTopic) = 'rootmap']">
           <xsl:variable name="prologParas" select="$content[string(@topicZone) = 'topicmeta' and string(@containingTopic) = 'rootmap']" as="node()*"/>
           <!-- Now process any map-level topic metadata paragraphs. -->
@@ -916,69 +918,189 @@
           </xsl:element>
         </xsl:if>
         
-        <xsl:if test="$doDebug">        
-          <xsl:message> + [DEBUG] </xsl:message>
-          <xsl:message> + [DEBUG] +++++++++++++</xsl:message>
-          <xsl:message> + [DEBUG] </xsl:message>
-          <xsl:message> + [DEBUG] makeMap: calling generateTopicrefs...</xsl:message>
-          <xsl:message> + [DEBUG]   makeMap: $nextLevel="<xsl:sequence select="$nextLevel"/>"</xsl:message>
-          <xsl:message> + [DEBUG]   makemap: $firstP/@secondStructureType = "<xsl:sequence select="$firstP/@secondStructureType"/>"</xsl:message>
-        </xsl:if>
-        <xsl:call-template name="generateTopicrefs">
-          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-          <!-- For generating topicrefs, want all paragraphs that would result
-               in something in the map, so any topic title paragraphs, or map,
-               map title, topic head, or topic group paragraphs.
-               
-               If the paragraph we're processing now has a second structure type
-               of "topicTitle", that means it generates a map and generates a 
-               topic, referenced from that map.
-               
-               If the paragraph we're on does not have a topicTitle second structure
-               type, then it can't contribute to the topicrefs in the map we're
-               generating now.
-            -->
-          <xsl:with-param name="content" 
-            select="
-            
-            (if (string($firstP/@secondStructureType) = 'topicTitle')
-              then $content
-              else $content[position() > 1])[(string(@structureType) = 'topicTitle' or 
-                                              string(@structureType) = 'map' or 
-                                              string(@structureType) = 'mapTitle' or
-                                              string(@structureType) = 'topicHead' or
-                                              string(@structureType) = 'topicGroup')]" as="node()*"/>
-          <xsl:with-param name="level" 
-            select="if ((string($firstP/@secondStructureType) = 'topicTitle')) 
-               then $level else $nextLevel" 
-               as="xs:integer"
-          />
-          <xsl:with-param name="mapUrl" select="$resultUrl" as="xs:string" tunnel="yes"/>
-        </xsl:call-template>
-        <xsl:if test="$doDebug">        
-          <xsl:message> + [DEBUG] </xsl:message>
-          <xsl:message> + [DEBUG] +++++++++++++</xsl:message>
-          <xsl:message> + [DEBUG] </xsl:message>
-          <xsl:message> + [DEBUG] makeMap: Calling generateTopics...
-            </xsl:message>
-        </xsl:if>
-        <xsl:call-template name="generateTopics">
-          <xsl:with-param name="content" 
-            select="
-            if (string($firstP/@secondStructureType) = 'topicTitle') 
-               then $content
-               else $content[position() > 1]" as="node()*"/>
-          <xsl:with-param name="level" 
-            select="if ((string($firstP/@secondStructureType) = 'topicTitle')) 
-            then $level else $nextLevel" 
-            as="xs:integer"/>
-          <xsl:with-param name="mapUrl" select="$resultUrl" as="xs:string" tunnel="yes"/>
-        </xsl:call-template>        
+        <!-- Construct the map-specific content for this map. This is
+             everything except the topicref and topic that can be
+             generated from the map-generating paragraph that
+             got us to the makeMap template.
+             
+             Thus, if the map-generating paragraph is level 0, 
+             this variable will reflect the level 1 and lower
+             content.
+             
+             The generation of any topic and topicref produced by
+             the paragraph that generated map is handled separately.
+             
+             The current paragraph is not relevant to this process.
+          -->
+        <xsl:variable name="mapContent" as="node()*">
+          <xsl:call-template name="generateMapTopicrefContents">
+            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+            <xsl:with-param name="content" as="element()+" 
+              select="$content[position() > 1] 
+                        except(*[@topicZone = 'topicmeta'][@containingTopic = 'rootmap'])"
+            />
+            <xsl:with-param name="level"  as="xs:integer" select="$level + 1"/>
+            <xsl:with-param name="mapUrl" select="$resultUrl" as="xs:string" tunnel="yes"/>
+          </xsl:call-template>
+        </xsl:variable>
+        
+        <!-- If the first paragraph is itself a topic-generating 
+             paragraph then we need to generate that topicref and that
+             topic before generating the subordinate topicrefs.
+          -->
+        <xsl:choose>
+          <xsl:when test="local:isTopicTitle($firstP)">
+            <!-- Generate the topicref and topic generated by the
+                 paragraph that generated this map.
+              -->
+            <!-- FIXME: Probably want a named template to do this 
+                 if there's not one already.
+              -->
+            <xsl:sequence select="$mapContent"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <!-- No wrapping topicref and topic, so just emit
+                 the content.
+              -->
+            <xsl:sequence select="$mapContent"/>
+          </xsl:otherwise>
+        </xsl:choose>        
       </xsl:element>
     </rsiwp:result-document>
     <xsl:if test="$doDebug">        
       <xsl:message> + [DEBUG] makeMap: Done.</xsl:message>
     </xsl:if>
+  </xsl:template>
+  
+  <xsl:template name="generateMapTopicrefContents">
+    <!-- Generates the topicref content of the map, meaning
+         any topicrefs and the maps and topics they point
+         to.
+         
+         The value of $content will include the title-generating
+         paragraph (if there is one) since we may need to generate
+         a topicref and topic from that paragraph.
+      -->
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:param name="content" as="element()+"/>
+    <xsl:param name="level"  as="xs:integer"/><!-- Level to be processed -->
+    <xsl:param name="treePos" as="xs:integer*" tunnel="yes"/><!-- Sequence of integers representing tree position of parent. --> 
+    <xsl:param name="mapUrl" as="xs:string" tunnel="yes"/>
+    
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] generateRootMapContents: level="<xsl:value-of select="$level"/>"</xsl:message>
+      <xsl:message> + [DEBUG] generateRootMapContents: treePos="<xsl:value-of select="$treePos"/>"</xsl:message>
+    </xsl:if>
+    
+        <!-- Process all the map-element-generating paragraphs in order to generate
+             topicrefs, result map documents, and result topic documents.
+             
+             This first phase of processing generates everything together in one result
+             document which is then processed to pull out each of the result documents.
+             
+             Thus there is no need to separate the logic for constructing topicrefs from
+             the logic for constructing map documents and topic documents.
+             
+          -->        
+    <xsl:if test="$content[xs:integer(@level) lt $level]">
+      <xsl:message> - [WARN] generateMapTopicrefContents: Current level is "<xsl:value-of select="$level"/> but
+      content has a @level value lower than that, most likely a paragraph that is styled as level 0 when it should not be.</xsl:message>
+    </xsl:if>
+    
+    <!-- At this point we expect a sequence of paragraphs
+         with levels. These paragraphs could also have
+         @containerType values, meaning they should be
+         grouped together under the same container type.
+         
+         Thus we need to group by level and container type.
+         
+         For example, you might need to have all the chapter
+         topicrefs grouped under a single topicgroup or
+         topichead for some reason.
+         
+         -->
+    
+    <xsl:for-each-group select="$content" 
+      group-starting-with="
+          *[(string(@structureType) = 'topicTitle' or 
+            string(@structureType) = 'map' or 
+            string(@structureType) = 'mapTitle' or
+            string(@structureType) = 'topicHead' or
+            string(@structureType) = 'topicGroup')  and
+            string(@level) = string($level)]">
+      <xsl:choose>
+        <xsl:when test="not(local:isMapContentItem(.))">
+          <!-- Must be content of the root-level topic for this map -->
+        </xsl:when>
+        <xsl:otherwise>
+          <!-- Process the group. -->
+          <xsl:call-template name="processMapContentItem">
+            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+            <xsl:with-param name="content" as="element()+" 
+              select="current-group()"
+            />
+          </xsl:call-template>
+        </xsl:otherwise>
+      </xsl:choose>      
+    </xsl:for-each-group>
+  </xsl:template>
+  
+  <xsl:template name="processMapContentItem">
+    <!-- Handle a map content item, meaning a map, map title,
+         topic head, topic group, or topic/topicref.
+         
+         The content should be the paragraph that
+         generates the content item and all subordinate
+         paragraphs.
+      -->
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:param name="content" as="element()+"/>
+    <xsl:param name="treePos" as="xs:integer*" tunnel="yes"/><!-- FIXME: Need to make sure this is set correctly --> 
+    <xsl:param name="mapUrl" as="xs:string" tunnel="yes"/>
+    
+    <xsl:variable name="firstP" as="element()" select="$content[1]"/>
+    <xsl:variable name="level" as="xs:integer" select="$firstP/@level"/>
+    
+    <xsl:choose>
+      <xsl:when test="local:isMap($firstP) or local:isMapTitle($firstP)">
+        <xsl:call-template name="makeMap">
+          <!-- FIXME: Parameters -->
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:when test="local:isTopicTitle($firstP)">
+        <xsl:call-template name="makeTopic">
+          <!-- FIXME: Parameters -->
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:when test="$firstP/@structureType = ('topicGroup', 'topicHead')">
+        <xsl:variable name="tagname" as="xs:string">
+          <xsl:choose>
+            <xsl:when test="$firstP/@tagName != ''">
+              <xsl:value-of select="$firstP/@tagName"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:message> - [WARN] No @tagName attribute for paragraph: <xsl:value-of select="$firstP"/></xsl:message>
+              <xsl:value-of select="'topicgroup'"/>
+            </xsl:otherwise>
+          </xsl:choose>          
+        </xsl:variable>
+        <xsl:element name="{$tagname}">
+          <xsl:if test="$firstP/@structureType = 'topicHead'">
+            <topicmeta>
+              <!-- FIXME: Not sure what default mode processing will do in this case -->
+              <navtitle><xsl:apply-templates select="$firstP"/></navtitle>
+            </topicmeta>
+          </xsl:if>
+          <xsl:call-template name="generateMapTopicrefContents">
+            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+            <xsl:with-param name="content" as="element()+" 
+              select="$content[position() > 1]"
+            />
+            <xsl:with-param name="level"  as="xs:integer" select="$level + 1"/>
+          </xsl:call-template>
+        </xsl:element>
+      </xsl:when>
+    </xsl:choose>
   </xsl:template>
   
   <xsl:template name="handleTopicProlog">
@@ -2335,6 +2457,28 @@ specify @topicDoc="yes".</xsl:message>
     </xsl:choose>
   </xsl:function>
   
+  <xsl:function name="local:isMapContentItem" as="xs:boolean">
+    <!-- Determines if a paragraph generates a map content item,
+         meaning a map, map title, topic group, topic head, or
+         topic.
+         
+         This function is used in map generation so any paragraph
+         that generates a topic must necessarily generate a topic
+         document and a topicref as topics cannot go directly
+         in map documents.
+       -->
+    <xsl:param name="context" as="element()"/>
+    <xsl:variable name="isMapContentElement" as="xs:boolean"
+      select="string($context/@structureType) = ('map', 'mapTitle', 'topicGroup', 'topicHead') or
+              string($context/@secondStructureType) = ('map', 'mapTitle', 'topicGroup', 'topicHead')"
+    />
+    <xsl:variable name="isTopicref" as="xs:boolean"
+      select="$context/@structureType = 'topicTitle' or
+              $context/@secondStructureType = 'topicTitle'"
+    />
+    <xsl:sequence select="$isMapContentElement or $isTopicref"/>
+  </xsl:function>
+  
   <xsl:function name="local:isRootTopicTitle" as="xs:boolean">
     <xsl:param name="context" as="element()"/>
     <xsl:variable name="styleName" as="xs:string"
@@ -2694,10 +2838,15 @@ specify @topicDoc="yes".</xsl:message>
   </xsl:function>
   
   <xsl:function name="local:getContainerTypeSiblings" as="node()*">
+    <!-- Gets the adjacent siblings following the last member of $sibs
+         with the same container type.
+         
+         If there are no more siblings, returns $sibs.
+       -->
     <xsl:param name="sibs" as="element()*"/>
     <xsl:variable name="lastSib" select="$sibs[last()]" as="element()"/>
     <xsl:variable name="nextSib" select="$lastSib/following-sibling::*[1]" as="element()?"/>
-    <xsl:variable name="containerType" select="$lastSib/@containerType" as="xs:string"/>
+    <xsl:variable name="containerType" select="$lastSib/@containerType" as="xs:string?"/>
     <xsl:choose>
       <xsl:when test="$nextSib[@containerType = $containerType]">
         <xsl:sequence select="local:getContainerTypeSiblings(($sibs, $nextSib))"/>
