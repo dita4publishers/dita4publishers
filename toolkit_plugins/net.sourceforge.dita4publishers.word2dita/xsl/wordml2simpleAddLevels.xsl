@@ -267,7 +267,7 @@
     </xsl:if>
 
     <rsiwp:topic>
-      <xsl:sequence select="@topicType, @format, @bodyType, @prologType, @styleName, @styleId"/>
+      <xsl:sequence select="@topicType, @topicrefType, @format, @bodyType, @prologType, @styleName, @styleId"/>
       <xsl:apply-templates mode="addLevels-handleChildren" select=".">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
         <xsl:with-param name="level" as="xs:integer" tunnel="yes" select="@level"/>

@@ -49,6 +49,8 @@
     <xsl:sequence select="$result"/>
   </xsl:template>
   
+  <xsl:template match="text()" mode="map-url"/>   
+
   <xsl:template match="rsiwp:*" mode="map-url">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:message> - [WARNING] Unhandled element <xsl:sequence select="name(..)"/>/<xsl:sequence select="name(.)"/> in mode 'map-url'</xsl:message>

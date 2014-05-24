@@ -140,6 +140,8 @@ version="2.0">
   <xsl:include
     href="modeMapUrl.xsl"/>
   <xsl:include
+    href="modeTopicUrl.xsl"/>
+  <xsl:include
     href="resultdocs-xref-fixup.xsl"/>
   <xd:doc
     xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
