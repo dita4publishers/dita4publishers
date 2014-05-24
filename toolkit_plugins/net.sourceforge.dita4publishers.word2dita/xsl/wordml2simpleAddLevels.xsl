@@ -241,7 +241,7 @@
   </xsl:template>
   
   <xsl:template mode="addLevels-topic" priority="10"
-    match="*[@structureType = 'topicTitle' or @structureType = 'topicTitle']">
+    match="*[@structureType = 'topicTitle' or @secondStructureType = 'topicTitle']">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] addLevels-topicref: <xsl:value-of select="local:reportPara(.)"/></xsl:message>
