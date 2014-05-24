@@ -1032,7 +1032,7 @@
               <p>When set to "yes", indicates that the paragraph should generate a new
               submap document. When set to "yes" must specify @mapFormat and @mapType.</p>
               <p>Specify "yes" to generate a new map, "no" to prevent generation
-              of a new map even when @mapRefType is specified.</p>
+              of a new map even when @maprefType is specified.</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
@@ -1126,7 +1126,7 @@
         </xs:annotation>
       </xs:attribute>
       <xs:attribute
-        name="mapRefType"
+        name="maprefType"
         type="xs:string"
         use="optional">
         <xs:annotation>
@@ -1138,7 +1138,7 @@
               to use for the reference to the map from the parent map. If not
               specified, the rootTopicrefType or topicrefType is used as the
               map reference type.</p>
-              <p>Specifying @mapRefType implies @mapDoc="yes". When specified
+              <p>Specifying @maprefType implies @mapDoc="yes". When specified
               must also specify the @mapFormat attribute.</p>
             </xhtml:div>
           </xs:documentation>

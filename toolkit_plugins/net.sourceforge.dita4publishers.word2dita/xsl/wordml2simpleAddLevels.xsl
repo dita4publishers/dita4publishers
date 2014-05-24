@@ -126,6 +126,7 @@
           <xsl:apply-templates select="current-group()[1]" mode="addLevels-map">
             <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
             <xsl:with-param name="rest" as="element()*" tunnel="yes" select="current-group()[position() > 1]"/>
+            <xsl:with-param name="level" as="xs:integer" tunnel="yes" select="$level"/>
           </xsl:apply-templates>
         </xsl:otherwise>
       </xsl:choose>
@@ -151,21 +152,35 @@
     >
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="rest" as="element()*" tunnel="yes"/>
+    <xsl:param name="level" as="xs:integer" tunnel="yes" select="0"/>
     
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] addLevels-map: map or mapTitle: <xsl:value-of select="local:reportPara(.)"/></xsl:message>
     </xsl:if>
 
-    <rsiwp:map>
-      <xsl:sequence select="@mapType, @mapFormat, @prologType"/>
-      <xsl:apply-templates mode="addLevels-mapTitle" select=".">
-        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-      </xsl:apply-templates>
-      <xsl:apply-templates mode="addLevels-topicref" select=".">
-        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-        <xsl:with-param name="level" as="xs:integer" select="@level"/>
-      </xsl:apply-templates>
-    </rsiwp:map>
+    <xsl:variable name="map" as="element()">
+      <rsiwp:map>
+        <xsl:sequence select="@mapType, @mapFormat, @prologType"/>
+        <xsl:apply-templates mode="addLevels-mapTitle" select=".">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:apply-templates>
+        <xsl:apply-templates mode="addLevels-topicref" select=".">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+          <xsl:with-param name="level" as="xs:integer" select="@level"/>
+        </xsl:apply-templates>
+      </rsiwp:map>
+    </xsl:variable>
+    <xsl:choose>
+      <xsl:when test="$level > 0">
+        <rsiwp:mapref>
+          <xsl:sequence select="@maprefType"/>
+          <xsl:sequence select="$map"/>
+        </rsiwp:mapref>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="$map"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   
   <xsl:template mode="addLevels-mapTitle" 
