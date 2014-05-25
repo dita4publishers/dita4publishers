@@ -324,16 +324,29 @@
     <xsl:variable name="navtitleType" as="xs:string"
       select="if (@navtitleType) then @navtitleType else 'navtitle'"
     />
-    <xsl:element name="{$topicmetaType}">
-      <xsl:element name="{$navtitleType}">
-        <xsl:call-template name="generateXtrcAtt"/>
-        <!-- We don't want to process the paragraph itself in default mode,
-             because that will generate a topic title element.
-             So we process its content. There may be a better way to do this,
-             e.g., a navtitle-specific mode.
-          -->
-        <xsl:apply-templates select="*/node()"/>
+    <xsl:if test="$generateNavtitlesBoolean">
+      <xsl:element name="{$topicmetaType}">
+        <xsl:call-template name="generateXtrcAtt">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:call-template>
+        <xsl:apply-templates mode="navtitle">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:apply-templates>
       </xsl:element>
+    </xsl:if>
+  </xsl:template>
+  
+  <xsl:template mode="navtitle" match="rsiwp:*">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:variable name="navtitleType" as="xs:string" 
+      select="if (@navtitleType) then @navtitleType else 'navtitle'"/>
+    <xsl:element name="{$navtitleType}">
+      <xsl:call-template name="generateXtrcAtt">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+      </xsl:call-template>
+      <xsl:call-template name="transformParaContent">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+      </xsl:call-template>    
     </xsl:element>
   </xsl:template>
 
@@ -1263,8 +1276,8 @@
     <xsl:copy/>
   </xsl:template>
   
-  <!-- Constructs the topic itself -->
   <xsl:template name="constructTopic">
+  <!-- Constructs the topic itself. Result is a topic element containing the topic and any nested topics. -->
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="topicName" as="xs:string" tunnel="yes" select="generate-id(.)"/>
     <xsl:param name="schemaAtts" as="attribute()*" select="()"/>
@@ -1321,7 +1334,9 @@
     </xsl:if>
     <xsl:element name="{$topicType}">
       <xsl:attribute name="id" select="$topicName"/>
-      <xsl:call-template name="generateXtrcAtt"/>
+      <xsl:call-template name="generateXtrcAtt">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+      </xsl:call-template>
       <xsl:attribute name="isTopic" select="'true'"/>      
       <xsl:attribute name="xml:lang" select="$language"/>
       <!-- Indicate that this element is in fact a topic as there's no other way
@@ -1367,34 +1382,46 @@
               <xsl:choose>
                 <xsl:when test="$level = 0">
                   <xsl:element name="{$prologType}">
-                    <xsl:call-template name="generateXtrcAtt"/>
+                    <xsl:call-template name="generateXtrcAtt">
+                      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+                    </xsl:call-template>
                     <!-- For root topic, can pull metadata from anywhere in the incoming document. -->
                     <xsl:apply-templates select="root($firstP)//*[string(@containingTopic) = ('root', 'roottopic') and 
                       string(@topicZone) = 'prolog' and 
-                      contains(@baseClass, ' topic/author ')]"/>     
+                      contains(@baseClass, ' topic/author ')]">
+                      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+                    </xsl:apply-templates>     
                     <!-- FIXME: This is a hack to handle index entries in keywords. Need to refine this
                                 so it handles keywords explicitly mapped to the prolog.
                       -->
                     <xsl:if test="count($titleIndexEntries) > 0">
                       <metadata>
                         <keywords>
-                           <xsl:apply-templates select="$titleIndexEntries" mode="p-content"/>                          
+                           <xsl:apply-templates select="$titleIndexEntries" mode="p-content">
+                             <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+                           </xsl:apply-templates>                       
                         </keywords>
                       </metadata>
                     </xsl:if>
                     <xsl:apply-templates select="root($firstP)//*[string(@containingTopic) = ('root', 'roottopic') and 
                       string(@topicZone) = 'prolog' and 
                       contains(@baseClass, ' topic/data ')
-                      ]"/>                        
+                      ]">
+                      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+                    </xsl:apply-templates>                        
                   </xsl:element>                  
                 </xsl:when>
                 <xsl:when test="current-group()[string(@topicZone) = 'prolog' and 
                                 not(@containingTopic = ('root', 'roottopic'))]">
                   <xsl:element name="{$prologType}">
-                    <xsl:call-template name="generateXtrcAtt"/>
+                    <xsl:call-template name="generateXtrcAtt">
+                      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+                    </xsl:call-template>
                     <xsl:apply-templates 
                       select="current-group()[not(@containingTopic = ('root', 'roottopic')) and 
-                                              string(@topicZone) = 'prolog']"/>
+                                              string(@topicZone) = 'prolog']">
+                      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+                    </xsl:apply-templates>
                   </xsl:element>
                 </xsl:when>
                 <xsl:when test="count($titleIndexEntries) > 0">
@@ -1402,7 +1429,9 @@
                     <xsl:call-template name="generateXtrcAtt"/>
                     <metadata>
                       <keywords>
-                        <xsl:apply-templates select="$titleIndexEntries" mode="p-content"/>                          
+                        <xsl:apply-templates select="$titleIndexEntries" mode="p-content">
+                          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+                        </xsl:apply-templates>                          
                       </keywords>
                     </metadata>
                   </xsl:element>
@@ -1415,8 +1444,11 @@
                 <xsl:message> + [DEBUG] current group is topicZone body</xsl:message>
               </xsl:if>
               <xsl:element name="{$bodyType}">
-                <xsl:call-template name="generateXtrcAtt"/>
+                <xsl:call-template name="generateXtrcAtt">
+                  <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+                </xsl:call-template>
                 <xsl:call-template name="handleSectionParas">
+                  <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
                   <xsl:with-param name="sectionParas" select="current-group()[string(@topicZone) = 'body']" as="element()*"/>
                   <xsl:with-param name="initialSectionType" select="$initialSectionType" as="xs:string"/>
                 </xsl:call-template>
@@ -1433,6 +1465,9 @@
       <xsl:if test="$doDebug">        
         <xsl:message> + [DEBUG] makeTopic(): Applying templates to child map and topic items...</xsl:message>
       </xsl:if>
+      <xsl:apply-templates select="rsiwp:topic">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+      </xsl:apply-templates>
     </xsl:element>      
   </xsl:template>
   

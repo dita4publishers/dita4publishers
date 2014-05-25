@@ -95,7 +95,15 @@ version="2.0">
   <xsl:variable name="doSaveIntermediateDocs" as="xs:boolean" 
     select="$debugBoolean or matches($saveIntermediateDocs, 'true|yes|1|on', 'i')"
   />
-  
+
+  <!-- When true, use topic titles as navigation titles in generated
+       topicrefs.
+    -->
+  <xsl:param name="generateNavtitles" as="xs:string" select="'true'"/>
+  <xsl:variable name="generateNavtitlesBoolean"
+     select="matches($generateNavtitles, 'yes|true|1', 'i')"
+  />
+
   <xsl:variable name="rootMapUrl" select="concat($rootMapName, '.ditamap')" as="xs:string"/>
   <xsl:variable name="rootTopicUrl" 
     as="xs:string?" 
