@@ -1129,33 +1129,27 @@
       <xsl:message> + [DEBUG] makeTopic: makeDoc=<xsl:value-of select="$makeDoc"/></xsl:message>
     </xsl:if>
     
-    <xsl:choose>
-      <xsl:when test="$makeDoc">
-        
-        <xsl:variable name="topicrefType" as="xs:string" 
-          select="if (@topicrefType) then @topicrefType else 'topicref'"
-        />
-        
-        <xsl:message> + [INFO] Creating new topic document "<xsl:sequence select="$topicUrl"/>"...</xsl:message>
-        
-        <xsl:variable name="formatName" select="./@topicType" as="xs:string?"/>
-        <xsl:if test="not($formatName)">
-          <xsl:message terminate="yes"> + [ERROR] No topicType= attribute for paragraph style <xsl:sequence select="string(./@styleId)"/>, when topicDoc="yes".</xsl:message>
-        </xsl:if>
-        
-        <xsl:if test="$doDebug">
-          <xsl:message> + [DEBUG] makeTopic: formatName="<xsl:sequence select="$formatName"/>"</xsl:message>
-        </xsl:if>
-        
-        <xsl:variable name="format" select="key('formats', $formatName, $styleMapDoc)[1]" as="element()?"/>
-        <xsl:if test="not($format)">
-          <xsl:message terminate="yes"> + [ERROR] makeMap: Failed to find &lt;output&gt; element for @format value "<xsl:value-of select="$formatName"/>" specified for style "<xsl:value-of select="@styleName"/>" <xsl:value-of select="concat(' [', @styleId, ']')"/>. Check your style-to-tag mapping.</xsl:message>
-        </xsl:if>
-        <xsl:if test="$doDebug">
-          <xsl:message> + [DEBUG] makeTopic: format="<xsl:sequence select="$format"/>"</xsl:message>
-        </xsl:if>
-                
-        <xsl:variable name="schemaAtts" as="attribute()*">
+    <xsl:variable name="formatName" select="./@topicType" as="xs:string?"/>
+    <xsl:if test="not($formatName)">
+      <xsl:message terminate="yes"> + [ERROR] No topicType= attribute for paragraph style <xsl:sequence select="string(./@styleId)"/>, when topicDoc="yes".</xsl:message>
+    </xsl:if>
+    
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] makeTopic: formatName="<xsl:sequence select="$formatName"/>"</xsl:message>
+    </xsl:if>
+    
+    <xsl:variable name="format" select="key('formats', $formatName, $styleMapDoc)[1]" as="element()?"/>
+    
+    <xsl:if test="not($format)">
+      <xsl:message terminate="yes"> + [ERROR] makeMap: Failed to find &lt;output&gt; element for @format value "<xsl:value-of select="$formatName"/>" specified for style "<xsl:value-of select="@styleName"/>" <xsl:value-of select="concat(' [', @styleId, ']')"/>. Check your style-to-tag mapping.</xsl:message>
+    </xsl:if>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] makeTopic: format="<xsl:sequence select="$format"/>"</xsl:message>
+    </xsl:if>
+
+    <xsl:variable name="schemaAtts" as="attribute()*">
+      <xsl:choose>
+        <xsl:when test="$makeDoc">
           <xsl:if test="$format/@noNamespaceSchemalocation">
             <xsl:attribute name="xsi:noNamespaceSchemaLocation"
               select="string($format/@noNamespaceSchemaLocation)"
@@ -1166,20 +1160,34 @@
               select="string($format/@schemaLocation)"
             />
           </xsl:if>
-        </xsl:variable>
-
-        <xsl:if test="$doDebug">
-          <xsl:message> + [DEBUG] makeTopic: schemaAtts=<xsl:sequence select="$schemaAtts"/></xsl:message>
-        </xsl:if>
-
-        <xsl:variable name="resultDoc" as="node()*"> 
-          <xsl:call-template name="constructTopic">
-            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-            <xsl:with-param name="resultUrl" as="xs:string" tunnel="yes" select="$topicUrl"/>
-            <xsl:with-param name="topicName" as="xs:string" tunnel="yes" select="$topicName"/>
-            <xsl:with-param name="schemaAtts" as="attribute()*" select="$schemaAtts"/>
-          </xsl:call-template>
-        </xsl:variable>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:sequence select="()"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] makeTopic: schemaAtts=<xsl:sequence select="$schemaAtts"/></xsl:message>
+    </xsl:if>        
+    
+    <xsl:variable name="topicElement" as="node()*">
+      <xsl:call-template name="constructTopic">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        <xsl:with-param name="resultUrl" as="xs:string" tunnel="yes" select="$topicUrl"/>
+        <xsl:with-param name="topicName" as="xs:string" tunnel="yes" select="$topicName"/>
+        <xsl:with-param name="schemaAtts" as="attribute()*" select="$schemaAtts"/>
+      </xsl:call-template>
+    </xsl:variable>
+    
+    <xsl:choose>
+      <xsl:when test="$makeDoc">
+        
+        <xsl:variable name="topicrefType" as="xs:string" 
+          select="if (@topicrefType) then @topicrefType else 'topicref'"
+        />
+        
+        <xsl:message> + [INFO] Creating new topic document "<xsl:sequence select="$topicUrl"/>"...</xsl:message>
+                
 
         <!-- Now do ID fixup on the result document: -->
         <xsl:message> + [INFO] Applying final-fixup mode to <xsl:sequence select="$topicUrl"/>...</xsl:message>
@@ -1187,16 +1195,30 @@
             doctype-public="{$format/@doctype-public}"
             doctype-system="{$format/@doctype-system}"
             >
-          <xsl:apply-templates select="$resultDoc" mode="final-fixup">
+          <xsl:apply-templates select="$topicElement" mode="final-fixup">
             <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
           </xsl:apply-templates>
         </rsiwp:result-document>
         <xsl:message> + [INFO] final-fixup mode applied.</xsl:message>
       </xsl:when>
       <xsl:otherwise>
-        <!-- FIXME: Handle non-root topic case here. Or maybe somewhere else -->
+        <!-- Output the topic as a subtopic of the parent topic -->
+        <xsl:sequence select="$topicElement"/>
       </xsl:otherwise>
     </xsl:choose>
+
+    <!-- Process any subordinate topicrefs or maps.
+         This should only produce a result if this topic
+         produced a topic document.
+      -->
+    <xsl:apply-templates 
+        select="
+        rsiwp:topicref | 
+        rsiwp:map | 
+        rsiwp:mapref">
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+    </xsl:apply-templates>
+
   </xsl:template>
 
   <xsl:template mode="final-fixup" match="*">
@@ -1411,14 +1433,6 @@
       <xsl:if test="$doDebug">        
         <xsl:message> + [DEBUG] makeTopic(): Applying templates to child map and topic items...</xsl:message>
       </xsl:if>
-      <xsl:apply-templates 
-        select="
-        rsiwp:topic | 
-        rsiwp:topicref | 
-        rsiwp:map | 
-        rsiwp:mapref">
-        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-      </xsl:apply-templates>
     </xsl:element>      
   </xsl:template>
   
