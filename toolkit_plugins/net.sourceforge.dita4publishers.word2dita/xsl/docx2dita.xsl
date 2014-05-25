@@ -104,6 +104,15 @@ version="2.0">
      select="matches($generateNavtitles, 'yes|true|1', 'i')"
   />
 
+  <xsl:param
+    name="debug"
+    select="'false'"
+    as="xs:string"/>
+  <xsl:variable
+    name="debugBoolean"
+    as="xs:boolean"
+    select="matches($debug, 'true|yes|1|on', 'i')"/>
+
   <xsl:variable name="rootMapUrl" select="concat($rootMapName, '.ditamap')" as="xs:string"/>
   <xsl:variable name="rootTopicUrl" 
     as="xs:string?" 
@@ -151,32 +160,7 @@ version="2.0">
     href="modeTopicUrl.xsl"/>
   <xsl:include
     href="resultdocs-xref-fixup.xsl"/>
-  <xd:doc
-    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
-    <xd:desc>
-      <xd:p/>
-    </xd:desc>
-  </xd:doc>
-  <xsl:param
-    name="debug"
-    select="'false'"
-    as="xs:string"/>
-  <xd:doc
-    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
-    <xd:desc>
-      <xd:p/>
-    </xd:desc>
-  </xd:doc>
-  <xsl:variable
-    name="debugBoolean"
-    as="xs:boolean"
-    select="matches($debug, 'true|yes|1|on', 'i')"/>
-  <xd:doc
-    xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
-    <xd:desc>
-      <xd:p/>
-    </xd:desc>
-  </xd:doc>
+  
   
   <xsl:template
     match="/"

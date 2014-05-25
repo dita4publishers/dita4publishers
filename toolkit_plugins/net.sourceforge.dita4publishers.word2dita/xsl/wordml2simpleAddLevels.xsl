@@ -49,8 +49,11 @@
   </xsl:template>
   
   <xsl:template mode="simpleWp-addLevels" match="/*">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:copy>
-      <xsl:apply-templates select="@*,*" mode="#current"/>
+      <xsl:apply-templates select="@*,*" mode="#current">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+      </xsl:apply-templates>
     </xsl:copy>
   </xsl:template>
   
@@ -59,6 +62,7 @@
     <!-- Within the <body> element there must be at least one
          paragraph that is either the level 0 topic or map
       -->
+<!--    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>-->
     
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] simpleWp-addLevels: rsiwp:body</xsl:message>
@@ -247,17 +251,35 @@
   <xsl:template mode="addLevels-topicref" 
          match="*[@structureType = 'topicTitle' or @secondStructureType = 'topicTitle']">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:param name="level" as="xs:integer" tunnel="yes"/>
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] addLevels-topicref: <xsl:value-of select="local:reportPara(.)"/></xsl:message>
     </xsl:if>
-    <xsl:element name="rsiwp:topicref">
-      <xsl:sequence select="@topicrefType, @styleName, @styleId"/>
-      <xsl:apply-templates select="." mode="addLevels-navtitle"/>
-      <xsl:apply-templates mode="addLevels-topic" select=".">
-        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-        <xsl:with-param name="level" as="xs:integer" tunnel="yes" select="@level"/>
-      </xsl:apply-templates>
-    </xsl:element>
+    <!-- FIXME: Might be better to pass down an indicator that we are in a map context -->
+    <xsl:choose>
+      <xsl:when test="(@topicDoc = 'yes' and $level > 0) or @secondStructureType = 'topicTitle'">
+        <xsl:if test="$doDebug">
+          <xsl:message> + [DEBUG] addLevels-topicref: Will make topic doc, generating topicref.</xsl:message>
+        </xsl:if>
+        <xsl:element name="rsiwp:topicref">
+          <xsl:sequence select="@topicrefType, @styleName, @styleId"/>
+          <xsl:apply-templates select="." mode="addLevels-navtitle"/>
+          <xsl:apply-templates mode="addLevels-topic" select=".">
+            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+            <xsl:with-param name="level" as="xs:integer" tunnel="yes" select="@level"/>
+          </xsl:apply-templates>
+        </xsl:element>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:if test="$doDebug">
+          <xsl:message> + [DEBUG] addLevels-topicref: Will not make topic doc, no topicref</xsl:message>
+        </xsl:if>
+        <xsl:apply-templates mode="addLevels-topic" select=".">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+          <xsl:with-param name="level" as="xs:integer" tunnel="yes" select="@level"/>
+        </xsl:apply-templates>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   
   <xsl:template mode="addLevels-topic" priority="10"

@@ -143,7 +143,7 @@
   
   <xsl:template match="rsiwp:body">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-
+    
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rwiwp:body</xsl:message>
     </xsl:if>    
@@ -170,12 +170,17 @@
     <xsl:param name="parentMapUrl" as="xs:string" tunnel="yes" select="''"/>
     <xsl:param name="newTopicUrl" as="xs:string" />
     
+    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
+    
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rwiwp:body/rsiwp:topic</xsl:message>
     </xsl:if>
-
-    <!-- FIXME: Generate the topic -->
-    <!-- Root topic -->
+    <xsl:call-template name="makeTopic">
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+      <xsl:with-param name="parentMapUrl" as="xs:string?" tunnel="yes" select="()"/>
+      <xsl:with-param name="topicUrl" as="xs:string?" select="$rootTopicUrl"/>    
+      <xsl:with-param name="topicName" as="xs:string" select="$rootTopicName" tunnel="yes"/>
+    </xsl:call-template>
   </xsl:template>
   
   <xsl:template match="rsiwp:map">
@@ -1115,13 +1120,14 @@
   </xsl:template>
   
   <xsl:template name="makeTopic">
-    <!-- Map a topic. The context element is an rsiwp:topic element -->
+    <!-- Make a topic. The context element is an rsiwp:topic element -->
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="parentMapUrl" as="xs:string?" tunnel="yes"/>
     <xsl:param name="topicUrl" as="xs:string?"/><!-- Result URL for the topic document -->    
-    <xsl:param name="topicName" as="xs:string" tunnel="yes"/>    
+    <xsl:param name="topicName" as="xs:string" select="generate-id(.)"/>   
+    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] makeTopic: rootTopicUrl=<xsl:sequence select="$rootTopicUrl"/></xsl:message>
+      <xsl:message> + [DEBUG] makeTopic: topicUrl=<xsl:sequence select="$topicUrl"/></xsl:message>
     </xsl:if>
     
     <!-- If this topic makes a new document, for whatever reason, then
@@ -1143,7 +1149,7 @@
     </xsl:if>
     
     <xsl:variable name="formatName" select="./@topicType" as="xs:string?"/>
-    <xsl:if test="not($formatName)">
+    <xsl:if test="$makeDoc and not($formatName)">
       <xsl:message terminate="yes"> + [ERROR] No topicType= attribute for paragraph style <xsl:sequence select="string(./@styleId)"/>, when topicDoc="yes".</xsl:message>
     </xsl:if>
     
@@ -1153,8 +1159,8 @@
     
     <xsl:variable name="format" select="key('formats', $formatName, $styleMapDoc)[1]" as="element()?"/>
     
-    <xsl:if test="not($format)">
-      <xsl:message terminate="yes"> + [ERROR] makeMap: Failed to find &lt;output&gt; element for @format value "<xsl:value-of select="$formatName"/>" specified for style "<xsl:value-of select="@styleName"/>" <xsl:value-of select="concat(' [', @styleId, ']')"/>. Check your style-to-tag mapping.</xsl:message>
+    <xsl:if test="$makeDoc and not($format)">
+      <xsl:message terminate="yes"> + [ERROR] makeTopic: Failed to find &lt;output&gt; element for @format value "<xsl:value-of select="$formatName"/>" specified for style "<xsl:value-of select="@styleName"/>" <xsl:value-of select="concat(' [', @styleId, ']')"/>. Check your style-to-tag mapping.</xsl:message>
     </xsl:if>
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] makeTopic: format="<xsl:sequence select="$format"/>"</xsl:message>
@@ -1186,8 +1192,7 @@
     <xsl:variable name="topicElement" as="node()*">
       <xsl:call-template name="constructTopic">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-        <xsl:with-param name="resultUrl" as="xs:string" tunnel="yes" select="$topicUrl"/>
-        <xsl:with-param name="topicName" as="xs:string" tunnel="yes" select="$topicName"/>
+        <xsl:with-param name="topicName" as="xs:string" select="$topicName"/>
         <xsl:with-param name="schemaAtts" as="attribute()*" select="$schemaAtts"/>
       </xsl:call-template>
     </xsl:variable>
@@ -1215,7 +1220,9 @@
         <xsl:message> + [INFO] final-fixup mode applied.</xsl:message>
       </xsl:when>
       <xsl:otherwise>
-        <!-- Output the topic as a subtopic of the parent topic -->
+        <!-- Output the topic as a subtopic of the parent topic or as the root topic
+             where there is no map.
+          -->
         <xsl:sequence select="$topicElement"/>
       </xsl:otherwise>
     </xsl:choose>
@@ -1279,7 +1286,7 @@
   <xsl:template name="constructTopic">
   <!-- Constructs the topic itself. Result is a topic element containing the topic and any nested topics. -->
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <xsl:param name="topicName" as="xs:string" tunnel="yes" select="generate-id(.)"/>
+    <xsl:param name="topicName" as="xs:string" select="generate-id(.)"/>
     <xsl:param name="schemaAtts" as="attribute()*" select="()"/>
     
     <xsl:variable name="initialSectionType" as="xs:string" select="string(@initialSectionType)"/>
