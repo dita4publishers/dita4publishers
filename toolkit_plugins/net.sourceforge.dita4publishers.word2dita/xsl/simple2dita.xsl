@@ -177,7 +177,7 @@
     </xsl:if>
     <xsl:call-template name="makeTopic">
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-      <xsl:with-param name="parentMapUrl" as="xs:string?" tunnel="yes" select="()"/>
+      <xsl:with-param name="parentMapUrl" as="xs:string?" tunnel="yes" select="$parentMapUrl"/>
       <xsl:with-param name="topicUrl" as="xs:string?" select="$rootTopicUrl"/>    
       <xsl:with-param name="topicName" as="xs:string" select="$rootTopicName" tunnel="yes"/>
     </xsl:call-template>
