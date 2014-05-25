@@ -170,7 +170,7 @@
     <xsl:param name="parentMapUrl" as="xs:string" tunnel="yes" select="''"/>
     <xsl:param name="newTopicUrl" as="xs:string" />
     
-    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
+<!--    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>-->
     
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rwiwp:body/rsiwp:topic</xsl:message>
@@ -1125,7 +1125,7 @@
     <xsl:param name="parentMapUrl" as="xs:string?" tunnel="yes"/>
     <xsl:param name="topicUrl" as="xs:string?"/><!-- Result URL for the topic document -->    
     <xsl:param name="topicName" as="xs:string" select="generate-id(.)"/>   
-    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
+<!--    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>-->
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] makeTopic: topicUrl=<xsl:sequence select="$topicUrl"/></xsl:message>
     </xsl:if>
@@ -1189,6 +1189,10 @@
       <xsl:message> + [DEBUG] makeTopic: schemaAtts=<xsl:sequence select="$schemaAtts"/></xsl:message>
     </xsl:if>        
     
+    <xsl:if test="$makeDoc">
+      <xsl:message> + [INFO] Creating new topic document "<xsl:sequence select="$topicUrl"/>", <xsl:value-of select="*[1]"/>...</xsl:message>
+    </xsl:if>
+    
     <xsl:variable name="topicElement" as="node()*">
       <xsl:call-template name="constructTopic">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
@@ -1203,10 +1207,6 @@
         <xsl:variable name="topicrefType" as="xs:string" 
           select="if (@topicrefType) then @topicrefType else 'topicref'"
         />
-        
-        <xsl:message> + [INFO] Creating new topic document "<xsl:sequence select="$topicUrl"/>"...</xsl:message>
-                
-
         <!-- Now do ID fixup on the result document: -->
         <xsl:message> + [INFO] Applying final-fixup mode to <xsl:sequence select="$topicUrl"/>...</xsl:message>
         <rsiwp:result-document href="{$topicUrl}"
@@ -1220,6 +1220,11 @@
         <xsl:message> + [INFO] final-fixup mode applied.</xsl:message>
       </xsl:when>
       <xsl:otherwise>
+        <xsl:variable name="indent" as="xs:string"
+          select="string-join(for $i in 1 to count(ancestor::rsiwp:topic) return '   ','')"
+        />
+         <xsl:message> + [INFO] Creating nested topic<xsl:value-of select="$indent"/> [<xsl:value-of select="$topicName"/>] <xsl:value-of select="*[1]"/></xsl:message>
+
         <!-- Output the topic as a subtopic of the parent topic or as the root topic
              where there is no map.
           -->
