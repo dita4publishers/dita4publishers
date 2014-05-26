@@ -183,7 +183,7 @@
 
     <xsl:variable name="map" as="element()">
       <rsiwp:map>
-        <xsl:sequence select="@mapType, @mapFormat, @prologType, @styleName, @styleId"/>
+        <xsl:sequence select="@mapType, @mapFormat, @format, @prologType, @styleName, @styleId"/>
         <xsl:apply-templates mode="addLevels-mapTitle" select=".">
           <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
         </xsl:apply-templates>
