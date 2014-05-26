@@ -22,6 +22,10 @@
        Override these templates to implement your
        own map filenaming conventions.
        ========================================= -->
+  
+  <!-- The default number format to use for generating topic numbers. -->
+  <xsl:param name="topicNumberFormat" as="xs:string" select="'_1_1'"/>
+  
   <xsl:template match="rsiwp:topic" mode="topic-url">   
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="topicrefType" as="xs:string"/>
@@ -68,7 +72,7 @@
       <xsl:number count="
         rsiwp:topicref |
         rsiwp:body/rsiwp:topic |
-        rsiwp:topic[parent::rsiwp:topic]" format="_01_01"
+        rsiwp:topic[parent::rsiwp:topic]" format="{$topicNumberFormat}"
         from="/"
         level="any"
       />

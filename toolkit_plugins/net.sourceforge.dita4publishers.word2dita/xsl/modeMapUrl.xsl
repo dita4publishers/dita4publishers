@@ -22,7 +22,8 @@
        Override these templates to implement your
        own map filenaming conventions.
        ========================================= -->
-  
+    <xsl:param name="mapNumberFormat" as="xs:string" select="'_1_1'"/>
+
   <xsl:template match="rsiwp:map" mode="map-url">   
     <!-- Constructs the relative part of the URL for the map,
          e.g., containing directory and map filename.
@@ -30,7 +31,7 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     
     <xsl:variable name="treePosString" as="xs:string">
-      <xsl:number count="rsiwp:mapref" format="_01_01"
+      <xsl:number count="rsiwp:mapref" format="{$mapNumberFormat}"
         level="multiple"
       />
     </xsl:variable>
