@@ -56,6 +56,46 @@
           <pt><parmname>w2d.debug.xslt</parmname></pt>
           <pd>Turns on debugging of the XSLT transform. Default is "false".</pd>
         </plentry>
+        <plentry>
+          <pt><parmname>w2d.media.dir</parmname></pt>
+          <pd>Name of the directory to put any media objects extracted from the Word document.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.root.map.name</parmname></pt>
+          <pd>The name for the root map, e.g. "myPubRootmap". Do not include any file extension.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.root.topic.name</parmname></pt>
+          <pd>The name for the root topic, e.g. "myPubRootTopic". Do not include any file extension. This value will be used for the root topic filename and @id value.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.submap.name.prefix</parmname></pt>
+          <pd>The prefix to use for the names of generated submaps. Default is "map".</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.include.word.backpointers</parmname></pt>
+          <pd>When set to "true", include @xtrf and @xtrc attributes with the locations of the Word paragraphs that generated each element. Default is "true".</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.include.word.bookmarks</parmname></pt>
+          <pd>When set to "true", reflect Word bookmark start and end boundaries in the generated DITA output as &lt;data> elements. Default is "false". </pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.filename.prefix</parmname></pt>
+          <pd>The prefix to use for all generated filenames, e.g. "pub1234_". Default is no prefix. Use a prefix to ensure that generated map and topic filenames are unique outside the scope of the files generated for a single Word document.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.submap.name.prefix</parmname></pt>
+          <pd>The prefix to use for generated submaps, e.g., "submap_". Default is no prefix.</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.language</parmname></pt>
+          <pd>The value to use for the @xml:lang attribute in generated maps and topics. Default is "en-US".</pd>
+        </plentry>
+        <plentry>
+          <pt><parmname>w2d.generate.navtitles</parmname></pt>
+          <pd>When set to "true" generates navigation titles for topicrefs, using the title of the referenced topic. Default is "true".</pd>
+        </plentry>
       </parml>
     </section>
  </conbody>

@@ -72,7 +72,7 @@ version="2.0">
        package).
     -->
   <xsl:param name="useLinkedGraphicNames" as="xs:string" select="'no'"/>
-  <xsl:param name="useLinkedGraphicNamesBoolean" as="xs:boolean" 
+  <xsl:variable name="useLinkedGraphicNamesBoolean" as="xs:boolean" 
     select="matches($useLinkedGraphicNames, 'yes|true|1', 'i')"
   />
   

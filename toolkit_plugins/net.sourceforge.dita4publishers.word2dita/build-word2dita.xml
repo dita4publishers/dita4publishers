@@ -72,6 +72,12 @@
 			 </not>
 		</condition>
 		
+		<condition property="w2d.generate.navtitles" value="true">
+			<not>
+			  <isset property="w2d.generate.navtitles"/>
+			 </not>
+		</condition>
+		
 	  <condition property="w2d.language" value="en-US">
 	    <not>
 	      <isset property="w2d.language"/>
@@ -116,7 +122,7 @@
 				  <isset property="w2d.root.map.name"/>
 				</not>
 			</and>
-	  </condition>
+	  </condition>	  
 
 		<condition property="w2d.root.output.filename" value="delete.me">
 			<and>
@@ -205,11 +211,19 @@
       <param name="filterTabs" expression="${w2d.filter.tabs}" if="w2d.filter.tabs"/>
       <param name="includeWordBackPointers" expression="${w2d.include.word.backpointers}" if="w2d.include.word.backpointers"/>
       <param name="topicExtension" expression="${w2d.topic.extension}" if="w2d.topic.extension"/>
-      <param name="includeWordBackPointers" expression="${w2d.include.word.backpointers}" if="w2d.include.word.backpointers"/>
       <param name="includeWordBookmarks" expression="${w2d.include.word.bookmarks}" if="w2d.include.word.bookmarks"/>
       <param name="fileNamePrefix" expression="${w2d.filename.prefix}" if="w2d.filename.prefix"/>
       <param name="submapNamePrefix" expression="${w2d.submap.name.prefix}" if="w2d.submap.name.prefix"/>
 			<param name="language" expression="${w2d.language}" if="w2d.language"/>
+		  <param name="generateNavtitles" expression="${w2d.generate.navtitles}"
+		     if="w2d.generate.navtitles"
+		  />
+		  <param name="topicNumberFormat" expression="${w2d.topic.number.format}"
+		     if="w2d.topic.number.format"
+		  />
+		  <param name="mapNumberFormat" expression="${w2d.map.number.format}"
+		     if="w2d.map.number.format"
+		  />
       <xmlcatalog refid="dita.catalog"></xmlcatalog>
 		</xslt>
 		<echo>[INFO] Transform complete</echo>

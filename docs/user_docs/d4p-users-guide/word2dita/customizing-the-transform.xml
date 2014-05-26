@@ -23,8 +23,8 @@
     <p>The extension points provided are:<ul>
       <li>The "final fixup" phase, which you can extend by implementing templates in the "final-fixup" mode. These templates operate on the DITA XML produced by the the second phase and must produce valid DITA markup as their output. Note that the XML handled by the final-fixup mode doesn't have any associated schema or DTD at that point, so there are no <xmlatt>class</xmlatt> attributes to key on. This means you must use templates that match on the element type names, rather than on <xmlatt>class</xmlatt> attribute values.</li>
       <li>The "generate-id" and "topic-name" modes can be overridden to provide custom ID generation logic. The mappings for individual paragraph and character styles can specify a named "ID generator" value that is then passed as a parameter ot the generate-id mode. Custom ID generator code can use that parameter to select the appropriate ID generation logic.</li>
-      <li>The "topic-url"mode can be overridden to implement custom rules for constructing result topic filenames.</li>
-      <li>The "map-url" mode can be overridden to implement custom rules for construction result map filenames.</li>
+      <li>The "topic-url"mode can be overridden to implement custom rules for constructing result topic filenames (base implementation is in the file <filepath>modeTopicUrl.xsl</filepath>).</li>
+      <li>The "map-url" mode can be overridden to implement custom rules for construction result map filenames (base implementation is in the file <filepath>modeMapUrl.xsl</filepath>).</li>
       </ul></p>
  </conbody>
 </concept>

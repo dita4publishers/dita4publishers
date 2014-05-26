@@ -11,9 +11,9 @@
     </metadata>
   </prolog>
  <conbody>
-    <p>The Word2DITA transform is packaged as an Open Toolkit plugin (see <xref format="dita"
-        href="word-to-dita-plugin.xml#conceptId"/>). This makes it easy to apply the transform to
-      Word documents using an existing Open Toolkit installation.</p>
+    <p>The Word2DITA transform is packaged as an Open Toolkit plugin (see <xref
+      format="dita"
+      href="word-to-dita-plugin.xml#conceptId"/>). This makes it easy to apply the transform to Word documents using an existing Open Toolkit installation. You can also apply the transform directly to the document.xml file within a DOCX package, e.g., using OxygenXML. The Word2DITA transform is not dependent on any Open Toolkit preprocessing or Toolkit-provided components.</p>
     <p>To convert one of the sample files, follow these steps:<ol
         id="ol_9afef18a-a29f-4275-acee-d51a88dacadd">
         <li>Deploy the DITA for Publishers Toolkit plugins to your Open Toolkit (see <xref

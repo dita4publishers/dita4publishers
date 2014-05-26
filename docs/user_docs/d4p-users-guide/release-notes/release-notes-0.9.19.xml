@@ -28,5 +28,22 @@
       <p>See the Sourceforge project files area for release notes of the various
         release candidates.</p>
     </section>
+    <section>
+      <title>Word to DITA</title>
+      <ul
+        id="ul_ukr_j4t_f4">
+        <li>Issue152: Reimplemented map and topic generation to correct errors in map generation. Made the intermediate simpleWP XML reflect the map and topic hierarchy to make DITA generation easier. This change could affect custom preprocessing applied to the simpleWP XML. Also adds a number of new attributes to style mapping definitions as required to fully specify map and topicref generation. </li>
+        <li>Issue152: Broke out map and topic filename generation code into separate XSLT modules to make it easier to override or extend: <filepath>modeMapUrl.xsl</filepath> and <filepath>modeTopicUrl.xsl</filepath></li>
+        <li>Improved table generation to capture all table geometry, including horizontal and vertical alignment within cells.</li>
+        <li>Handle characters in non-Unicode, Word-specific Symbol and Wingdings fonts. These characters should be translated to the correct Unicode character when there is a Unicode character to use.</li>
+      </ul>
+    </section>
+    <section>
+      <title>Transformation Types</title>
+      <ul
+        id="ul_oyk_2pt_f4">
+        <li>Added XSLT parameter extension points to all transform types</li>
+      </ul>
+    </section>
   </conbody>
 </concept>

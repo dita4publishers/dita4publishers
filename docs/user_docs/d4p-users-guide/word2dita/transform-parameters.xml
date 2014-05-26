@@ -30,6 +30,10 @@
       <title>Optional Parameters</title>
       <parml>
         <plentry>
+          <pt>chartsAsTables</pt>
+          <pd>When set to "true", treat embedded Word charts as tables. Puts the data for the chart into a DITA table. Default is "false" (charts will not be reflected in the DITA result).</pd>
+        </plentry>
+        <plentry>
           <pt>fileNamePrefix</pt>
           <pd>The prefix to use for generated filenames other than subordinate maps. Default is "" (no prefix).</pd>
         </plentry>
@@ -40,6 +44,14 @@
         <plentry>
           <pt>filterTabs</pt>
           <pd>When set to "true" filters out all literal tab characters. If not specified, all literal tabs in the word document are preserved in the intermediate transform and, by default, in the resulting DITA XML (using the DITA4Publishers <xmlelem>tab</xmlelem> element from the formatting domain).</pd>
+        </plentry>
+        <plentry>
+          <pt>generateNavtitles</pt>
+          <pd>When set to "true", generated topicrefs will have navigation titles reflecting the titles of the referenced topics. Default is "true".</pd>
+        </plentry>
+        <plentry>
+          <pt>imageFilenamePrefix</pt>
+          <pd>The prefix to use for filenames for images referenced by the generated DITA markup. Use this parameter ensure that the filenames for referenced images will be unique outside the scope of the XML generated from the Word document. For embedded images that are not linked to an external graphic, the filenames are always of the form "image1.xxx", "image2.xxx", etc. The default is no prefix.</pd>
         </plentry>
         <plentry>
           <pt>includeWordBackPointers</pt>
@@ -59,6 +71,10 @@
             used.</pd>
         </plentry>
         <plentry>
+          <pt>mapNumberFormat</pt>
+          <pd>The number formatting string, as for the <xmlelem>xsl:number</xmlelem> instruction, to use when generating map filenames. The default is "_1_1", which produces names like "map_1_1.ditamap". Use a value of "_01_01" to get filenames like "map_01_02.ditamap". Used by the default map URL construction logic.</pd>
+        </plentry>
+        <plentry>
           <pt>mediaDirUri</pt>
           <pd>The URI of the folder to put graphics in (determines the value of <xmlatt>src</xmlatt> and <xmlatt>href</xmlatt> attributes for generated graphic references). Default is "topics/media" under the main output directory.</pd>
         </plentry>
@@ -76,8 +92,11 @@
         </plentry>
         <plentry>
           <pt>rootTopicName</pt>
-          <pd>The name (without extension) to use for the root topic. Default is
-            the base name of the input DOCX file.</pd>
+          <pd>The name (without extension) to use for the root topic. </pd>
+        </plentry>
+        <plentry>
+          <pt>saveIntermediateDocs</pt>
+          <pd>When set to "true", saves the intermediate documents created during the transformation process to the file system for debugging purposes. Default is "false" unless "debug" is also set to "true".</pd>
         </plentry>
         <plentry>
           <pt>submapNamePrefix</pt>
@@ -86,6 +105,18 @@
         <plentry>
           <pt>topicExtension</pt>
           <pd>The filename extension to use for topics. Default is ".dita".</pd>
+        </plentry>
+        <plentry>
+          <pt>topicNumberFormat</pt>
+          <pd>The number formatting string, as for the <xmlelem>xsl:number</xmlelem> instruction, to use when generating topic filenames. The default is "_1_1", which produces names like "topic_1_1.dita". Use a value of "_01_01" to get filenames like "topic_01_02.dita". Used by the default topic URL construction logic.</pd>
+        </plentry>
+        <plentry>
+          <pt>useLinkedGraphicNames</pt>
+          <pd>Use the names of linked graphics for graphic references when present. Note that Word documents can include images that are not linked to external file. In this case the images will have filenames like "image1.xxx". Default is "false".</pd>
+        </plentry>
+        <plentry>
+          <pt>warnOnUnstyledParas</pt>
+          <pd>Issue warnings for Word paragraphs that do not have any associated style. Default is "false". Unstyled paragraphs will map to DITA <xmlelem>p</xmlelem> by default so it is not strictly necessary to style all paragraphs in the Word document.</pd>
         </plentry>
       </parml>
     </section>

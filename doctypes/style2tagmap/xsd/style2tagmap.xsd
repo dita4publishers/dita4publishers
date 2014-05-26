@@ -6,12 +6,11 @@
   xmlns:RSUITE="http://www.reallysi.com"
   xmlns:r="http://www.rsuitecms.com/rsuite/ns/metadata"
   targetNamespace="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap">
-  
-  
+
+
   <xs:annotation>
     <xs:documentation>
-      <xhtml:div
-        xmlns="http://www.w3.org/1999/xhtml">
+      <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
         <h1>Style to DITA Tag Mapping</h1>
         <p>This schema governs documents that define a mapping from named styles in word processing
           and desktop publishing to DITA markup. It is designed to enable a completely
@@ -26,36 +25,37 @@
     name="style2tagmapType">
     <xs:annotation>
       <xs:documentation>
-        <xhtml:div
-          xmlns="http://www.w3.org/1999/xhtml">
+        <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
           <p>Document element for the style mapping.</p>
         </xhtml:div>
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element ref="s2t:title" minOccurs="0"/>
+      <xs:element
+        ref="s2t:title"
+        minOccurs="0"/>
       <xs:element
         ref="s2t:documentation"
         minOccurs="0"
-        maxOccurs="1">
-      </xs:element>
+        maxOccurs="1"> </xs:element>
       <xs:element
         ref="s2t:styles"
         minOccurs="0"
         maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
-  
-  <xs:element name="title">
-    <xs:complexType mixed="true"/>
+
+  <xs:element
+    name="title">
+    <xs:complexType
+      mixed="true"/>
   </xs:element>
-  
+
   <xs:element
     name="documentation">
     <xs:annotation>
       <xs:documentation>
-        <xhtml:div
-          xmlns="http://www.w3.org/1999/xhtml">
+        <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
           <h2>Documentation Container</h2>
           <p>Contains documentation in some other namespace, e.g., XHTML.</p>
         </xhtml:div>
@@ -63,7 +63,8 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:any processContents="skip"
+        <xs:any
+          processContents="skip"
           namespace="##other"
           minOccurs="0"
           maxOccurs="unbounded"/>
@@ -74,8 +75,7 @@
     name="styles">
     <xs:annotation>
       <xs:documentation>
-        <xhtml:div
-          xmlns="http://www.w3.org/1999/xhtml">
+        <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
           <h2>Styles Container</h2>
           <p>Contains the individual style-to-tag mappings.</p>
         </xhtml:div>
@@ -98,8 +98,7 @@
     name="output">
     <xs:annotation>
       <xs:documentation>
-        <xhtml:div
-          xmlns="http://www.w3.org/1999/xhtml">
+        <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
           <h2>Output Definition</h2>
           <p>As for XSLT 2.</p>
         </xhtml:div>
@@ -132,8 +131,7 @@
     name="style">
     <xs:annotation>
       <xs:documentation>
-        <xhtml:div
-          xmlns="http://www.w3.org/1999/xhtml">
+        <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
           <h2>Style Mapping</h2>
           <p>Maps a single named style to some output result. See the user documentation for
             details.</p>
@@ -148,8 +146,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Style ID</h2>
               <p>The format-specific "ID" for a style, that is, the internal identifier for
                 a style by which it can be looked up or matched against the incoming data. For Word
@@ -169,8 +166,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Style Name</h2>
               <p>The format-specific "name" for a style, that is, the display name for
                 a style by which it can be looked up or matched against the incoming data. For Word
@@ -187,8 +183,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Structure Type</h2>
               <p>The general structure type to which the style maps. This determines the general
                 type of processing and result for the style.</p>
@@ -202,8 +197,7 @@
               value="map">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The paragraph maps to a map but not a map title.</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -213,8 +207,7 @@
               value="mapTitle">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The paragraph maps to the title of a map. Map titles are optional.</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -224,8 +217,7 @@
               value="topicmeta">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The style maps to an element that goes in the topicmeta container of a map or
                       topicref within a map.</p>
                   </xhtml:div>
@@ -236,9 +228,8 @@
               value="prologData">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
-                    <p>The style maps to an element that goes in the prolog container of topic.</p>
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The style maps to an element that goes in the prolog container of a topic.</p>
                   </xhtml:div>
                 </xs:documentation>
               </xs:annotation>
@@ -247,8 +238,7 @@
               value="topicTitle">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The paragraph maps to the title of a topic. For a given result topic there
                       must be exactly one paragraph that maps to the topic title.</p>
                   </xhtml:div>
@@ -259,8 +249,7 @@
               value="topicGroup">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The paragraph generates a new topicgroup element in the result map. Topicgroups do not have titles.</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -270,8 +259,7 @@
               value="topicHead">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The paragraph generates a new topichead element in the result map and provides its titles.</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -281,8 +269,7 @@
               value="section">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The paragraph generates a new section</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -292,8 +279,7 @@
               value="shortdesc">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The paragraph acts as the containing topic's short description.</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -303,8 +289,7 @@
               value="block">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Indicates that the paragraph is a generic block container, e.g. a DITA paragraph
                     or similar.</p>
                   </xhtml:div>
@@ -315,8 +300,7 @@
               value="skip">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Indicates that the paragraph should be completely ignored by the generation
                       process. Skipped paragraphs are removed before analysis of body and section
                       content in order to determine adjacent paragraphs for the purpose of
@@ -329,8 +313,7 @@
               value="dt">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Paragraph is the definition term part of a dlentry within a definition list.</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -340,8 +323,7 @@
               value="dd">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Paragraph is the definition description part of a dlentry within a definition list.</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -351,8 +333,7 @@
               value="xref">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>A cross reference.</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -366,8 +347,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Second Structure Type</h2>
               <p>If a paragraph maps to two structure types, eg topic title and map title, the second structure type attribute is used. This determines the general
                 type of processing and result for the style.</p>
@@ -381,8 +361,7 @@
               value="mapTitle">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The paragraph maps to the title of a map. Map titles are optional.</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -392,8 +371,7 @@
               value="topicmeta">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The style maps to an element that goes in the topicmeta container of a map or
                       topicref within a map.</p>
                   </xhtml:div>
@@ -404,8 +382,7 @@
               value="prologData">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The style maps to an element that goes in the prolog container of topic.</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -415,8 +392,7 @@
               value="topicTitle">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The paragraph maps to the title of a topic. For a given result topic there
                       must be exactly one paragraph that maps to the topic title.</p>
                   </xhtml:div>
@@ -427,8 +403,7 @@
               value="topicGroup">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The paragraph generates a new topicgroup element in the result map. Topicgroups do not have titles.</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -438,8 +413,7 @@
               value="topicHead">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The paragraph generates a new topichead element in the result map and provides its titles.</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -449,8 +423,7 @@
               value="section">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The paragraph generates a new section</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -460,8 +433,7 @@
               value="shortdesc">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The paragraph acts as the containing topic's short description.</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -471,8 +443,7 @@
               value="block">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Indicates that the paragraph is a generic block container, e.g. a DITA paragraph
                       or similar.</p>
                   </xhtml:div>
@@ -483,8 +454,7 @@
               value="skip">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Indicates that the paragraph should be completely ignored by the generation
                       process. Skipped paragraphs are removed before analysis of body and section
                       content in order to determine adjacent paragraphs for the purpose of
@@ -497,8 +467,7 @@
               value="dt">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Paragraph is the definition term part of a dlentry within a definition list.</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -508,8 +477,7 @@
               value="dd">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Paragraph is the definition description part of a dlentry within a definition list.</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -519,8 +487,7 @@
               value="xref">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>A cross reference.</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -535,8 +502,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Result Tag Name</h2>
               <p>The name of the element type to generate as the immediately-generated element for
                 the style. For example, a paragraph style that maps to a topic title and therefore
@@ -553,10 +519,9 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Format (Result Document Type)</h2>
-              <p>Specifies the name of an &lt;output> element that defines the details of the result
+              <p>Specifies the name of an &lt;output&gt; element that defines the details of the result
                 topic or root map document to be created from the paragraph. Must be
                 specified if @topicDoc = "yes". For paragraphs that generate root maps you
               should use the @mapFormat attribute but @format will be used if specified.
@@ -571,10 +536,9 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Map Format (Map Result Document Type)</h2>
-              <p>Specifies the name of an &lt;output> element that defines the details of the result
+              <p>Specifies the name of an &lt;output&gt; element that defines the details of the result
                 map document to be created from the paragraph. Must be
                 specified if @mapDoc = "yes".</p>
             </xhtml:div>
@@ -587,8 +551,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Map Element Type</h2>
               <p>Specifies root element type name for the map to be generated from the paragraph,
                 e.g. "map".</p>
@@ -602,11 +565,38 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Prolog Element Type</h2>
               <p>Specifies the tag name for the prolog for a generated map or topic. Defaults to
                 "prolog" for topics and "topicmeta" for maps.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="shortdescType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Short Description Element Type</h2>
+              <p>Specifies the tag name for the short description for a generated topicref or topic. Defaults to
+                "shortdesc".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="abstractType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Abstract Element Type</h2>
+              <p>Specifies the tag name for the abstract for a generated topicref or topic. Defaults to
+                "abstract".</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
@@ -616,8 +606,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Structural Level</h2>
               <p>Specifies the structural level, in the result data, that the style maps to. The
                 level value is used in the transform to group paragraphs together within a common
@@ -669,8 +658,7 @@
               value="currentLevel">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Relative level is the same as the effective level
                     of the preceding paragraph in the same or different
                     level group (level group is not relevant for "currentLevel"
@@ -683,8 +671,7 @@
               value="plusOne">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Relative level is one lower (higher effective level number) than 
                     preceding paragraph in a different level group.</p>
                   </xhtml:div>
@@ -695,8 +682,7 @@
               value="minusOne">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Relative level one higher (lower effective level number) than 
                     preceding paragraph in a different level group. If the effective
                     level would be less than zero then the effective level is zero.</p>
@@ -708,8 +694,7 @@
               value="0">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Explicit level zero (0)</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -719,8 +704,7 @@
               value="1">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Explicit level 1</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -730,8 +714,7 @@
               value="2">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Explicit level 2</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -741,8 +724,7 @@
               value="3">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Explicit level 3</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -752,8 +734,7 @@
               value="4">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Explicit level 4</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -763,8 +744,7 @@
               value="5">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Explicit level 5</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -774,8 +754,7 @@
               value="6">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Explicit level 6</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -785,8 +764,7 @@
               value="7">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Explicit level 7</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -796,8 +774,7 @@
               value="8">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Explicit level 8</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -807,8 +784,7 @@
               value="9">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Explicit level 9</p>
                   </xhtml:div>
                 </xs:documentation>
@@ -823,8 +799,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Level Group Name</h2>
               <p>Specifies the name of a group to which a relatively-leveled paragraph
               belongs.</p>
@@ -849,8 +824,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Base Class of Result Element</h2>
               <p>Specifies the base class (as defined in the DITA standard) that a give element is a
                 specialization of. This allows elements to be organized into the correct place in
@@ -867,8 +841,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Containing Topic or Map</h2>
               <p>For prolog elements, indicates whether the paragraph belongs to the root topic ("roottopic") or
                 map ("rootmap") or whether it goes with the nearest parent topic ("currenttopic") or map ("currentmap"). 
@@ -881,57 +854,58 @@
           </xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="xs:NMTOKEN">
-            <xs:enumeration value="root">
+          <xs:restriction
+            base="xs:NMTOKEN">
+            <xs:enumeration
+              value="root">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>Obsolete. Use "roottopic".</p>
                   </xhtml:div>
                 </xs:documentation>
-              </xs:annotation>            
+              </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="rootmap">
+            <xs:enumeration
+              value="rootmap">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The metadata item will be put in the map prolog for the root map.</p>
                   </xhtml:div>
                 </xs:documentation>
-              </xs:annotation>            
+              </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="roottopic">
+            <xs:enumeration
+              value="roottopic">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The metadata item will be put in the map prolog for the root topic.</p>
                   </xhtml:div>
                 </xs:documentation>
-              </xs:annotation>            
+              </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="currentmap">
+            <xs:enumeration
+              value="currentmap">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The metadata item will be put in the map prolog for the current map (which 
                       may be the root map or may be a submap).</p>
                   </xhtml:div>
                 </xs:documentation>
-              </xs:annotation>            
+              </xs:annotation>
             </xs:enumeration>
-            <xs:enumeration value="currenttopic">
+            <xs:enumeration
+              value="currenttopic">
               <xs:annotation>
                 <xs:documentation>
-                  <xhtml:div
-                    xmlns="http://www.w3.org/1999/xhtml">
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The metadata item will be put in the topic prolog for the current topic.</p>
                   </xhtml:div>
                 </xs:documentation>
-              </xs:annotation>            
+              </xs:annotation>
             </xs:enumeration>
           </xs:restriction>
         </xs:simpleType>
@@ -941,15 +915,16 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Topic Zone</h2>
               <p>Indicates which general part of the result topic or map the element goes in, one of:<dl>
                   <dt>title</dt>
                   <dd>The topic or map title.</dd>
                   <dt>shortdesc</dt>
                   <dd>The short description for a topic.</dd>
-                  <dt>topicmeta</dt>
+                   <dt>abstract</dt>
+                  <dd>The abstract for a topic.</dd>
+                 <dt>topicmeta</dt>
                   <dd>The metadata container for a map. The container type is specified by the 
                   @prologType attribute on the &lt;style element that generates the map.</dd>
                   <dt>prolog</dt>
@@ -963,14 +938,24 @@
           </xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="xs:NMTOKEN">
-            <xs:enumeration value="title"/>
-            <xs:enumeration value="titleAlts"/>
-            <xs:enumeration value="shortdesc"/>
-            <xs:enumeration value="topicmeta"/>
-            <xs:enumeration value="prolog"/>
-            <xs:enumeration value="body"/>
-            <xs:enumeration value="inline"/>
+          <xs:restriction
+            base="xs:NMTOKEN">
+            <xs:enumeration
+              value="title"/>
+            <xs:enumeration
+              value="titleAlts"/>
+            <xs:enumeration
+              value="shortdesc"/>
+            <xs:enumeration
+              value="abstract"/>
+            <xs:enumeration
+              value="topicmeta"/>
+            <xs:enumeration
+              value="prolog"/>
+            <xs:enumeration
+              value="body"/>
+            <xs:enumeration
+              value="inline"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -980,8 +965,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Put Metadata Value In value= or Content</h2>
               <p>For elements that map to some specialization of topic/data, indicates whether the
                 value goes in the element content ("content") or the @value attribute ("value").</p>
@@ -995,8 +979,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Topic Body Element Type</h2>
               <p>For paragraphs that map to topics, the element type to use for the topic body.
                 Defaults to "body".</p>
@@ -1010,8 +993,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Chunk Attribute Value</h2>
               <p>For paragraphs that map or generate topicrefs, the value to set on the @chunk
                 attribute in the result, normally "to-content" (indicating that the result
@@ -1026,8 +1008,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Create Map Document?</h2>
               <p>When set to "yes", indicates that the paragraph should generate a new
               submap document. When set to "yes" must specify @mapFormat and @mapType.</p>
@@ -1037,9 +1018,12 @@
           </xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="xs:NMTOKEN">
-            <xs:enumeration value="yes"/>
-            <xs:enumeration value="no"/>
+          <xs:restriction
+            base="xs:NMTOKEN">
+            <xs:enumeration
+              value="yes"/>
+            <xs:enumeration
+              value="no"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -1048,8 +1032,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Create Topic Document?</h2>
               <p>For paragraphs that generate new topics, when set to "yes", indicates that the
                 topic should be output in its own document. When set to "yes", should also specify a
@@ -1058,9 +1041,12 @@
           </xs:documentation>
         </xs:annotation>
         <xs:simpleType>
-          <xs:restriction base="xs:NMTOKEN">
-            <xs:enumeration value="yes"/>
-            <xs:enumeration value="no"/>
+          <xs:restriction
+            base="xs:NMTOKEN">
+            <xs:enumeration
+              value="yes"/>
+            <xs:enumeration
+              value="no"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -1070,8 +1056,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Topic Element Type Name</h2>
               <p>The element type name to use for the result topic. Defaults to "topic". </p>
             </xhtml:div>
@@ -1084,8 +1069,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Topic Reference Element Type Name</h2>
               <p>For paragraphs that generate new documents and specify "yes" for topicDoc,
                 indicates the element type to use for the reference to the generated topic in the
@@ -1100,8 +1084,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Topic Head Element Type Name</h2>
               <p>For paragraphs that generate topicheads in addition to other elements types,
               specifies the element type for the topic head. The default is "topichead".</p>
@@ -1115,8 +1098,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Navigation Title Element Type Name</h2>
               <p>For paragraphs that generate topicheads, the element type
               name to use for the navtitle element that holds the navigation title
@@ -1131,8 +1113,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Map Reference Element Type Name</h2>
               <p>For paragraphs that generate new maps, the topicref type
               to use for the reference to the map from the parent map. If not
@@ -1145,17 +1126,33 @@
         </xs:annotation>
       </xs:attribute>
       <xs:attribute
+        name="maprefFormat"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Map Reference @format Value</h2>
+              <p>For paragraphs that generate map references,
+              the value to specify on the @format attribute
+              for the mapref element, normally "ditamap".
+              Must be specified when the generated map reference element does not set "ditamap" as the default
+              value for the @format attribute.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
         name="dataName"
         type="xs:string"
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Data Element @name Attribute Value</h2>
               <p>For styles that map to a specialization of topic/data, indicates the value to set
                 for the @name attribute. Normally used for styles that map to unspecialized
-                &lt;data> where you need the @name attribute indicate the specific metadata type. Do
+                &lt;data&gt; where you need the @name attribute indicate the specific metadata type. Do
                 not specify if the result element type defines a default value for @name.</p>
             </xhtml:div>
           </xs:documentation>
@@ -1167,8 +1164,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>@type Attribute Value</h2>
               <p>For styles that map to elements
                 that allow @type (e.g., data, author, longdescref), indicates the value to set
@@ -1184,8 +1180,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Initial Section Element Type Name</h2>
               <p>For styles that map to topic, indicates the name of a specialization of
                 topic/section to use to contain any paragraphs within the topic that occur before an
@@ -1202,8 +1197,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Immediate Element outputclass= Value</h2>
               <p>The @outputclass value to use on the element directly generated from the incoming
                 style (that is, the element specified by the @tagName attribute).</p>
@@ -1217,8 +1211,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Value for outputclass= on Topic</h2>
               <p>For styles that generate topics, indicates the @outputclass value to use for the
                 generated topic.</p>
@@ -1232,8 +1225,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Section Element Type</h2>
               <p>For styles that imply the creation of a containing section element, the element
                 type to use.</p>
@@ -1247,8 +1239,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Use Paragraph as Section Title?</h2>
               <p>For styles that map to a specialiation of topic/section, indicates whether or not
                 the paragraph content should be used as the section title. The default is "yes". If
@@ -1263,11 +1254,10 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Container Element Type</h2>
               <p>For elements that have a required container, indicates the containing element type.
-                For example, paragraphs that map to &lt;li> would specify a container type of "ol"
+                For example, paragraphs that map to &lt;li&gt; would specify a container type of "ol"
                 or "ul", as appropriate. Adjacent paragraphs with the same container type and level
                 will be grouped together under a single instance of the specified container.</p>
               <p>If @containerType is specified, you must specify @level.</p>
@@ -1281,8 +1271,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Container Element outputclass= Value</h2>
               <p>For styles that imply the creation of a container element (e.g., list items),
                 specifies the @outputclass value for the container.</p>
@@ -1296,8 +1285,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Use Content or Elements?</h2>
               <p>For paragraphs, indicates whether the result should reflect all the paragraph's
                 content or only generated subelements. When set to "elementsOnly", only elements
@@ -1315,8 +1303,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Section Spectitle Match Pattern</h2>
               <p>For paragraphs that start sections and need to set the spectitle attribute.</p>
               <p>For paragraphs that have runin headings, where the run-in heading text
@@ -1337,8 +1324,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Definition List Entry Element Type</h2>
               <p>Specifies the tag name for the definition list entry container for a dt/dd pair.</p>
             </xhtml:div>
@@ -1351,8 +1337,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Root Topicref Element Type</h2>
               <p>Specifies the tag name for the root topicref element to use around all generated
               topicrefs within the map.</p>
@@ -1366,8 +1351,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Collection Type</h2>
               <p>As for DITA topicref.</p>
             </xhtml:div>
@@ -1380,8 +1364,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Processing Role</h2>
               <p>As for DITA topicref.</p>
             </xhtml:div>
@@ -1394,8 +1377,7 @@
         use="optional">
         <xs:annotation>
           <xs:documentation>
-            <xhtml:div
-              xmlns="http://www.w3.org/1999/xhtml">
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>ID Generator</h2>
               <p>For elements that should have an ID generated, the name of the
               ID generator to use. The default value is "default", where the default
@@ -1419,6 +1401,5 @@
   </xs:element>
   <xs:element
     name="style2tagmap"
-    type="s2t:style2tagmapType">
-  </xs:element>
+    type="s2t:style2tagmapType"> </xs:element>
 </xs:schema>

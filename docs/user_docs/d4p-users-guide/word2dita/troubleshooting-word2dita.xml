@@ -50,12 +50,4 @@
       <p>Also verify that your assumption about what the markup should be is correct. Create the markup you want to generate in an editor and verify that your understanding of what it should be is correct.</p>
     </conbody>
   </concept>
-  <concept
-    id="map-and-topics-dont-match">
-    <title>Generated Maps and Topics Do Not Match</title>
-    <conbody>
-      <p>As of version 0.9.10, there is an issue with paragraphs between the root title and the Word table of contents (that is, before the first generated topic) throwing off the map generation process so you get a reference to topic 1 but no topic 1 is generated.</p>
-      <p>The fix is to remove those paragraphs from the Word document or map them to skip or to metadata of the root map.</p>
-    </conbody>
-  </concept>
 </concept>

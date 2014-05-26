@@ -14,7 +14,7 @@
    <p>This section describes how to set up the mapping for different common cases.</p>
     <p>But first some general tips:<ul>
       <li>For paragraphs that map to topic components you must specify the <xmlatt>topicZone</xmlatt> attribute as this attribute is used to group incoming paragraphs for further processing. If the <xmlatt>topicZone</xmlatt> attribute is not specified a default of "body" is used. This is usually what you want but would be wrong if the paragraph should have gone in the map or topic prolog.</li>
-      <li>Paragraphs that contribute to topic or map metadata can go anywhere in the Word document because they go into a separate topic zone and therefore get plucked out of the input and put in the right place regardless of where they occur.</li>
+      <li>Paragraphs that contribute to the root topic or map metadata can go anywhere in the Word document because they go into a separate topic zone and therefore get plucked out of the input and put in the right place regardless of where they occur.</li>
       <li>The <xmlatt>level</xmlatt> attribute is what determines the hierarchical relationship among elements within the same output context, such as within the topic body.</li>
       <li>You can specify either the style display name, using <xmlatt>styleName</xmlatt> or the style ID, using <xmlatt>styleId</xmlatt>. The style name is the display name that is used in the various Word style-related user interfaces. The style ID is the value specified in the underlying markup for paragraphs and character ranges. If you specify both style name and style ID on a mapping, the style name takes precedence. In general, the style name is more reliable as Word may change the style ID, for example, when using locale-specific versions of Word.</li>
       <li>The "style ID" for Word styles is not the same as the display name of the style, but it is usually very similar. In most cases the style ID is the display name with all spaces and special character removed, e.g., the style with the display name "Heading 1" has the style ID "Heading1". If you happen to define two style names that differ only in their use of spaces, e.g., "Heading 1" and "Heading1", then the style ID of the second style defined will be something like "Heading10" so that the style ID is unique within the Word document. If you're not sure what the style ID is you can open the document.xml file from the DOCX Zip package and look for <xmlelem>w:pStyle</xmlelem> elements—the value of the <xmlatt>w:val</xmlatt> attribute is the style ID.</li>
@@ -23,6 +23,7 @@
           in finding appropriate elements) and for applying additional styling in an output (like in
           HTML where the <xmlatt>outputclass</xmlatt> attribute becomes part of the generated class attribute that
           can be used with CSS).</li>
+      <li>A paragraph that generates a topic may also generate a map or submap and in that case will also generate a topicref to the topic (and a mapref to the submap if a submap is generated). This lets you generate trees of maps in addition to trees of topics. You can choose to generate a hierarchy of topics as separate topic documents with nested topicrefs or as a single XML document with a root topic and nested topics. </li>
       </ul></p>
     <p>Finally, the design of the current style-to-tag mapping document evolved somewhat organically based on client requirements as they came up. There are aspects of it that are not necessarily logically consistent. I have started the process of designing a new style-to-tag mapping document type but it's on the back burner. But I would definitely welcome any suggestions for how to make the mapping markup clearer or easier to use.</p>
  </conbody>
@@ -69,6 +70,7 @@
       <p>The <xmlatt>level</xmlatt> attribute indicates that this is a top-level topic and it would be subordinate only to a paragraph that specifies level zero, which is normally reserved for the paragraph that generates the root map or topic and should normally be the first unskipped paragraph in the Word document.</p>
       <p>The <xmlatt>topicDoc</xmlatt> attribute indicates that this topic should be put in a new document, which in turn implies the generation of a topicref to the generated document. The default is "no" so you must specify <xmlatt>topicDoc</xmlatt> with a value of "yes" if you want the topic chunked out to a new file.</p>
       <p>If you specify "yes" for <xmlatt>topicDoc</xmlatt> then you must specify <xmlatt>format</xmlatt>, which names an <xmlelem>output</xmlelem> element defined in the style-to-tag mapping document. The format value determines the public and system IDs to use for the generated topic document. You must also specify the <xmlatt>topicrefType</xmlatt> attribute if process is generating a map in addition to topics.</p>
+      <p>If you specify "yes" for <xmlatt>topicDoc</xmlatt> and the topic is not the root topic (meaning the primary result topic) then the style mapping should also generate a map so that there is a place to put a topicref to the generated topic document.</p>
       <p>The <xmlatt>topicrefType</xmlatt> attribute specifies the tagname to use for the topicref that will refer to the generated topic. In this case the topicref tagname is "chapter".</p>
       <p>Mapping lower-level headings uses the same pattern, specifying the appropriate level, e.g., level "2" for paragraph style Heading 2 and so on.</p>
     </conbody>
@@ -153,6 +155,7 @@
     <title>Mapping Tables</title>
     <conbody>
       <p>Word tables are automatically converted to DITA tables. Paragraph and character styles within table cells will be mapped as defined in the mapping but you don't have direct control over how the table elements map to DITA markup (but you can always post-process the initial DITA into whatever you want).</p>
+      <p>The transform captures as much detail from the Word table as can be expressed using DITA tables, including the precise table geometry, row and column spans, row and cell borders, and horizontal and vertical cell alignment.</p>
     </conbody>
   </concept>
   <concept
@@ -221,17 +224,18 @@
   level="0"
   structureType="mapTitle"
   tagName="title"
-  format="bookmap"
+  mapFormat="bookmap"
   mapType="bookmap"
   prologType="topicmeta"
 /></codeblock></p>
       <p>The <xmlatt>structureType</xmlatt> value of "mapTitle" triggers the general map generation. The other attributes define the details of the map markup: <xmlatt>mapType</xmlatt> and <xmlatt>prologType</xmlatt>. The value "0" (zero) for the <xmlatt>level</xmlatt> attribute indicates that this is the root output structure. You should only have one level-zero paragraph-to-map or paragraph-to-topic mapping.</p>
-      <p>If you map a paragraph to a structure type of "mapTitle" at a level other than zero then you will create a submap that is referenced from the parent map (that is, the map that is one level up in the mapping hierarchy). In this case you must specify the <xmlatt>topicrefType</xmlatt> attribute in order to get a topicref generated in the parent map.</p>
-      <p>When a paragraph maps to a map and a topic you specify a structure type of "mapTitle" and specify the topic type using the <xmlatt>sectionStructure</xmlatt> attribute. You can then specify the other attributes used to generate a result topic as you would for a structure type of "mapTitle":<codeblock>&lt;style
+      <p>If you map a paragraph to a structure type of "mapTitle" at a level other than zero then you will create a submap that is referenced from the parent map (that is, the map that is one level up in the mapping hierarchy). In this case you must specify the <xmlatt>maprefType</xmlatt> attribute in order to get a topicref generated in the parent map.</p>
+      <p>When a paragraph maps to a map and a topic you specify a structure type of "mapTitle" and specify the topic type using the <xmlatt>secondStructureType</xmlatt> attribute. You can then specify the other attributes used to generate a result topic as you would for a structure type of "mapTitle":<codeblock>&lt;style
   styleName="Topic Title"
   bodyType="learningContentbody"
   chunk="to-content"
-  format="learningMap"
+  mapFormat="learningMap"
+  format="learningContent"
   initialSectionType="section"
   level="1"
   mapType="map"
@@ -241,9 +245,11 @@
   tagName="title"
   topicDoc="yes"
   topicType="learningContent"
-  topicrefType="learningContentRef"/></codeblock></p>
+  topicrefType="learningContentRef"
+/></codeblock></p>
       <p>This example maps a paragraph named "Topic Title" to a generic map (<xmlatt>mapType</xmlatt> of "map") and a learningContent topic referenced from the map. The value of "1" for the <xmlatt>level</xmlatt> attribute means this map will be a submap to the root map.</p>
-      <p>When a new document document should be referenced from the current map simply specify the <xmlatt>topicrefType</xmlatt> attribute.</p>
+      <p>There are attributes for specifying the element types for each different kind of element that might result from generating both a map and topic.</p>
+      <p>When a new document  should be referenced from the current map simply specify the <xmlatt>topicrefType</xmlatt> attribute and a structure type of "topicTitle".</p>
     </conbody>
   </concept>
   <concept
@@ -275,7 +281,8 @@
     id="mapping-sidebars">
     <title>Mapping Sidebars</title>
     <conbody>
-      <p>Sidebars are a particular problematic element because they often have no fixed location in the overall hierarchy. That is, they are often allowed (by publishers' business rules) to occur at many different levels (perhaps inside Heading 1, Heading 2, Heading 3, and Heading 4 sections). This used to require specific Word styles for each hierarchical level that the sidebar could appear at (e.g., Sidebar Title in Heading 1, Sidebar Title in Heading 2). That increased work and potential for error for maintainers of the style-to-tag mapping (because they had to make sure they had appropriate definitions for each level a sidebar was allowed at) and for authors (because they had to use the right sidebar style for whatever level the sidebar was to apepar at. These obstacles have been overcome starting in 0.9.19 RC 11.</p>
+      <p>Sidebars are a particular problematic element because they often have no fixed location in the overall hierarchy. That is, they are often allowed (by publishers' business rules) to occur at many different levels (perhaps inside Heading 1, Heading 2, Heading 3, and Heading 4 sections). This used to require specific Word styles for each hierarchical level that the sidebar could appear at (e.g., Sidebar Title in Heading 1, Sidebar Title in Heading 2). That increased work and potential for error for maintainers of the style-to-tag mapping (because they had to make sure they had appropriate definitions for each level a sidebar was allowed at) and for authors (because they had to use the right sidebar style for whatever level the sidebar was to appear at. These obstacles have been overcome starting in 0.9.19 RC 11.</p>
+      <p>FIXME: Rewrite to reflect new relative level values.</p>
       <p>With 0.9.19 RC 11, there is further processing that recalculates the level for individual instances of topic-generating styles. Because the recalculation respects the relationships between levels as established in the style-to-tag mapping, authors can place sidebars where they want and mapping maintainers only need a single sidebar title style definition (assuming they set the relationships correctly). The easiest (perhaps best) way to set the level for sidebars is to give them a really deep level, such as 50. In the recalculation, each instance of the sidebar title will be assigned a level that nests the sidebar within the parent topic.</p>
       <p>For example, to map the paragraph "Sidebar Title" to a sidebar topic you would use this mapping:<codeblock>&lt;style styleName="Sidebar Title"
   structureType="topicTitle"
