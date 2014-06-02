@@ -458,6 +458,18 @@
     <xsl:param name="topicUrl" as="xs:string?"/><!-- Result URL for the topic document -->
     <xsl:param name="topicName" as="xs:string" tunnel="yes"/><!-- File/ID for the topic -->
     
+    <!-- FIXME: This really needs to go through a mode for generating IDs
+                that will result in the correct ID but the current
+                ID-generation framework doesn't provide for just generating
+                ID values, only ID attributes.
+                
+                Or else need to rethink how makeTopic works with regard to
+                topic ID generation.
+      -->
+    <xsl:variable name="topicName" as="xs:string"
+      select="if ($topicName = '') then generate-id(.) else $topicName"
+    />
+    
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rsiwp:topic:  topicUrl="<xsl:value-of select="$topicUrl"/></xsl:message>
       <xsl:message> + [DEBUG] rsiwp:topic: topicName="<xsl:value-of select="$topicName"/></xsl:message>
@@ -466,6 +478,7 @@
     <xsl:call-template name="makeTopic">
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       <xsl:with-param name="topicUrl" as="xs:string?" select="$topicUrl"/>
+      <xsl:with-param name="topicName" as="xs:string" select="$topicName"/>
     </xsl:call-template>
 
   </xsl:template>
@@ -1126,8 +1139,6 @@
     <xsl:param name="topicUrl" as="xs:string?"/><!-- Result URL for the topic document -->    
     <xsl:param name="topicName" as="xs:string" select="generate-id(.)"/>   
     
-    <xsl:variable name="doDebug" as="xs:boolean" select="true()"></xsl:variable>
-    
 <!--    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>-->
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] makeTopic: topicName="<xsl:value-of select="$topicName"/>, topicUrl=<xsl:sequence select="$topicUrl"/></xsl:message>
@@ -1194,6 +1205,9 @@
     
     <xsl:if test="$makeDoc">
       <xsl:message> + [INFO] Creating new topic document "<xsl:sequence select="$topicUrl"/>", <xsl:value-of select="*[1]"/>...</xsl:message>
+    </xsl:if>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] makeTopic: Calling constructTopic, topicName="<xsl:value-of select="$topicName"/>"</xsl:message>
     </xsl:if>
     
     <xsl:variable name="topicElement" as="node()*">
@@ -1306,7 +1320,7 @@
     <xsl:variable name="nextLevel" as="xs:integer" select="$level + 1"/>
  
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] constructTopic: context="<xsl:sequence select="."/></xsl:message>
+      <xsl:message> + [DEBUG] constructTopic: topicName=<xsl:sequence select="$topicName"/></xsl:message>
       <xsl:message> + [DEBUG] constructTopic: topic=<xsl:sequence select="local:reportPara(.)"/></xsl:message>
     </xsl:if>
     
@@ -1488,6 +1502,7 @@
       </xsl:if>
       <xsl:apply-templates select="rsiwp:topic">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        <xsl:with-param name="topicName" as="xs:string" tunnel="yes" select="''"/>
       </xsl:apply-templates>
     </xsl:element>      
   </xsl:template>
