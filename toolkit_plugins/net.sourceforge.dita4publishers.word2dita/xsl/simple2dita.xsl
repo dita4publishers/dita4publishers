@@ -1125,9 +1125,12 @@
     <xsl:param name="parentMapUrl" as="xs:string?" tunnel="yes"/>
     <xsl:param name="topicUrl" as="xs:string?"/><!-- Result URL for the topic document -->    
     <xsl:param name="topicName" as="xs:string" select="generate-id(.)"/>   
+    
+    <xsl:variable name="doDebug" as="xs:boolean" select="true()"></xsl:variable>
+    
 <!--    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>-->
     <xsl:if test="$doDebug">
-      <xsl:message> + [DEBUG] makeTopic: topicUrl=<xsl:sequence select="$topicUrl"/></xsl:message>
+      <xsl:message> + [DEBUG] makeTopic: topicName="<xsl:value-of select="$topicName"/>, topicUrl=<xsl:sequence select="$topicUrl"/></xsl:message>
     </xsl:if>
     
     <!-- If this topic makes a new document, for whatever reason, then
@@ -1289,16 +1292,21 @@
   </xsl:template>
   
   <xsl:template name="constructTopic">
-  <!-- Constructs the topic itself. Result is a topic element containing the topic and any nested topics. -->
+  <!-- Constructs the topic itself. Result is a topic element containing the topic and any nested topics. 
+       
+       Context is rwiwp:topic element
+  -->
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="topicName" as="xs:string" select="generate-id(.)"/>
     <xsl:param name="schemaAtts" as="attribute()*" select="()"/>
+    
     
     <xsl:variable name="initialSectionType" as="xs:string" select="string(@initialSectionType)"/>
     <xsl:variable name="level" as="xs:integer" select="1"/><!-- Topics establish a new level context -->
     <xsl:variable name="nextLevel" as="xs:integer" select="$level + 1"/>
  
     <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] constructTopic: context="<xsl:sequence select="."/></xsl:message>
       <xsl:message> + [DEBUG] constructTopic: topic=<xsl:sequence select="local:reportPara(.)"/></xsl:message>
     </xsl:if>
     
@@ -1382,7 +1390,7 @@
           <xsl:message> + [DEBUG] constructTopic: currentGroup[<xsl:sequence select="position()"/>]: <xsl:sequence select="current-group()"/></xsl:message>
         </xsl:if>      
         <xsl:choose>
-          <xsl:when test="current-group()[position() = 1] and current-group()[1][string(@structureType) != 'topicTitle']">
+          <xsl:when test="current-group()[position() = 1] and current-group()[1][not(string(@structureType) = ('topicTitle'))]">
             <!-- Prolog and body elements for the topic -->
             <xsl:apply-templates select="current-group()[string(@topicZone) = 'titleAlts']">
               <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
@@ -1454,6 +1462,7 @@
             <xsl:if test="current-group()[string(@topicZone) = 'body']">
               <xsl:if test="$doDebug">        
                 <xsl:message> + [DEBUG] current group is topicZone body</xsl:message>
+                <xsl:message> + [DEBUG]   paras=<xsl:value-of select="local:reportParas(current-group())"/></xsl:message>
               </xsl:if>
               <xsl:element name="{$bodyType}">
                 <xsl:call-template name="generateXtrcAtt">
@@ -2284,7 +2293,9 @@
                           then concat(' containerOutputclass=', $para/@containerOutputclass)
                           else '',
                           ']',
-                       substring(normalize-space($para), 1,20)
+                          if ($para/self::rsiwp:topic)
+                             then substring(normalize-space($para/*[1]), 1,20)
+                             else substring(normalize-space($para), 1,20)
                        )"
       />
     </xsl:if>

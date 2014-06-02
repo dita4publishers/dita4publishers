@@ -80,11 +80,20 @@
 	<path id="dita-classpath"
 		>
 		<fileset dir="${dita-ot-dir}">
-			<include name="lib"/><!-- Added for 1.5.4 -->
+			<include name="lib"/>
 		</fileset>
 		<fileset dir="${dita-ot-dir}/lib">
 		  <include name="**/*.jar"/>
 		</fileset>
+    <fileset dir="${dita-ot-dir}/lib/org.dita.dost.platform">
+      <include name="*.properties"/>
+    </fileset>
+    <fileset dir="${dita-ot-dir}/lib">
+      <include name="saxon"/>
+    </fileset>
+    <fileset dir="${dita-ot-dir}/lib/saxon">
+      <include name="**/*.jar"/>
+    </fileset>
 	</path>
 	
   <path id="classpath.base">
@@ -210,7 +219,6 @@
 	<target name="dist-toolkit-plugins" description="Packages the DITA Open Toolkit plugins for deployment to a working Toolkit instance"
 		 depends="
 		dist-init, 
-		dist-sample-data, 
 		dist-dita2indesign-toolkit-plugins
 		"
 		>
@@ -298,15 +306,6 @@
 		
     <antcall target="add-version-info-to-files"/>
 		
-		<property name="sample_data-zip.filename" value="dita4publishers-sample_data-${package_version}.zip"/>
-		<property name="sample_data-zip" location="${dist}/${sample_data-zip.filename}"/>
-    
-		<zip destfile="${sample_data-zip}">
-      <fileset dir="${dist}">
-        <include name="sample_data/**"/>
-      </fileset>
-    </zip>
-
   </target>
 	
   <target name="dist-dita2indesign-toolkit-plugins" 
@@ -474,8 +473,8 @@
 		dist-init, 
 		package-toolkit-plugins, 
     package-editing-templates, 
-		package-api-and-tools, 
-		build-d4p-user-guide, 
+		package-api-and-tools,
+	  build-d4p-user-guide,
 		dist-sample-data, 
 		dist-license-info,
 		dist-documentation
@@ -595,7 +594,6 @@
 
 		<ant antfile="${dita-ot-dir}/build.xml" 
 					dir="${dita-ot-dir}"
-					target="dita2epub"
 					
 					>
 			<property name="args.input" location="${root.map}"/>
@@ -735,14 +733,13 @@
 			</fileset>
 		</delete>
 		<ant antfile="${dita-ot-dir}/build.xml"
-			target="dita2pdf2"
 			>
 			<property name="pdf.formatter" value="ah"/>
       <property name="args.input"  location="${root.map}"/>
       <property name="args.draft" value="${draft}"/>
       <property name="output.dir"  value="${output.dir}"/>
       <property name="dita.temp.dir" value="${basedir}/temp/${pub.name}/pdf"/>
-      <property name="transtype"   value="pdf"/>
+      <property name="transtype"   value="pdf2"/>
       <property name="clean.temp" value="yes"/>
 		</ant>
 		
@@ -771,7 +768,8 @@
 		
 	</target>
 		
-	<target name="build-d4p-user-guide" description="Generates all the deliverable forms of the D4P User Guide">
+	<target name="build-d4p-user-guide" 
+	  description="Generates all the deliverable forms of the D4P User Guide">
 		<property name="pub.name" value="d4p-users-guide.ditamap"/>
 		<property name="root.map" location="${docs.dir}/user_docs/${pub.name}"/>
 		
@@ -789,11 +787,10 @@
     </replace>
 
 
-		<antcall target="epub-d4p-user-guide"/>
+    <antcall target="epub-d4p-user-guide"/>
 		<antcall target="kindle-d4p-user-guide"/>
-		<antcall target="pdf-d4p-user-guide"/>
-		<antcall target="indesign-d4p-user-guide"/>
-
+		<!-- <antcall target="indesign-d4p-user-guide"/> -->
+    <antcall target="pdf-d4p-user-guide"/>
 	</target>
 	
 	<target name="generate-epubs-for-samples" depends="integrate, epub-wizard-of-oz, epub-shakespear-plays"
