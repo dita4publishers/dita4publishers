@@ -36,6 +36,7 @@
     <topicmeta>
       <navtitle>Key Definitions</navtitle>
     </topicmeta>
+    <keydef keys="language-reference" href="../languageRef/language-reference.ditamap" format="ditamap" />
   </keydefs>
   <publication>
     <covers>
@@ -220,7 +221,9 @@
             href="d4p-users-guide/vocabulary-part/integrating-attribute-domains.xml"/>
         </chapter>
         <chapter
-          href="d4p-users-guide/vocabulary-part/d4p-vocabulary-reference.xml"/>
+          href="d4p-users-guide/vocabulary-part/d4p-vocabulary-reference.xml">
+          <mapref keyref="language-reference" />
+        </chapter>
       </part>
       <part
         href="d4p-users-guide/transform-frameworks-part/transform-frameworks-part.xml">

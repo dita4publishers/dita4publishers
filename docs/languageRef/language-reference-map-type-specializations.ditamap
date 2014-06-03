@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
+<pubmap>
+  <pubtitle>
+    <mainpubtitle>Map Type Specializations</mainpubtitle>
+  </pubtitle>
+  <publication>
+    <topichead navtitle="Map Type Specializations">
+      <topichead navtitle="learningMap">
+        <topicref href="learningMap/learningMap.dita" navtitle="learningMap" />
+      </topichead>
+      <topichead navtitle="map">
+        <topicref href="map/map.dita" navtitle="map" />
+      </topichead>
+      <topichead navtitle="pub-component-map">
+        <topicref href="pub-component-map/pub-component-map.dita" navtitle="pub-component-map" />
+      </topichead>
+      <topichead navtitle="pubmap">
+        <topicref href="pubmap/pubmap.dita" navtitle="pubmap" />
+      </topichead>
+      <topichead navtitle="trainingMap">
+        <topicref href="trainingMap/trainingMap.dita" navtitle="trainingMap" />
+      </topichead>
+    </topichead>
+  </publication>
+</pubmap>

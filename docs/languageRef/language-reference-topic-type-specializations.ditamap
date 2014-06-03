@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "pubmap.dtd">
+<pubmap>
+    <pubtitle>
+      <mainpubtitle>Topic Type Specializations</mainpubtitle>
+    </pubtitle>
+    <publication>
+      <topichead navtitle="Topic Type Specializations"> 
+      <topichead navtitle="article">
+                <topicref href="article/article.dita" navtitle="article" />
+                <topicref href="article/deck.dita" navtitle="deck" />
+            </topichead>
+            <topichead navtitle="chapter">
+                <topicref href="chapter/chapter.dita" navtitle="chapter" />
+            </topichead>
+            <topichead navtitle="conversion_configuration">
+                <topicref href="conversion_configuration/conversion_configuration.dita" navtitle="conversion_configuration" />
+            </topichead>
+            <topichead navtitle="concept">
+                <topicref href="concept/concept.dita" navtitle="concept" />
+            </topichead>
+            <topichead navtitle="d4pCover">
+                <topicref href="d4pCover/d4pCover.dita" navtitle="d4pCover" />
+            </topichead>
+            <topichead navtitle="d4pExercise">
+                <topicref href="d4pExercise/d4pExercise.dita" navtitle="d4pExercise" />
+                <topicref href="d4pExercise/d4pExerciseBody.dita" navtitle="d4pExerciseBody" />
+                <topicref href="d4pExercise/d4pInstructorNotes.dita" navtitle="d4pInstructorNotes" />
+                <topicref href="d4pExercise/d4pStudentNotes.dita" navtitle="d4pStudentNotes" />
+            </topichead>
+            <topichead navtitle="d4pSlide">
+                <topicref href="d4pSlide/d4pInstructorNotes.dita" navtitle="d4pInstructorNotes" />
+                <topicref href="d4pSlide/d4pSlide.dita" navtitle="d4pSlide" />
+                <topicref href="d4pSlide/d4pSlideBody.dita" navtitle="d4pSlideBody" />
+                <topicref href="d4pSlide/d4pStudentNotes.dita" navtitle="d4pStudentNotes" />
+            </topichead>
+            <topichead navtitle="division">
+                <topicref href="division/division.dita" navtitle="division" />
+            </topichead>
+            <topichead navtitle="part">
+                <topicref href="part/part.dita" navtitle="part" />
+            </topichead>
+            <topichead navtitle="reference">
+                <topicref href="reference/reference.dita" navtitle="reference" />
+            </topichead>
+            <topichead navtitle="report">
+                <topicref href="report/report.dita" navtitle="report" />
+            </topichead>
+            <topichead navtitle="sidebar">
+                <topicref href="sidebar/sidebar.dita" navtitle="sidebar" />
+            </topichead>
+            <topichead navtitle="style2tagmap">
+                <topicref href="style2tagmap/style2tagmap.dita" navtitle="style2tagmap" />
+            </topichead>
+            <topichead navtitle="subsection">
+                <topicref href="subsection/subsection.dita" navtitle="subsection" />
+            </topichead>
+            <topichead navtitle="task">
+                <topicref href="task/task.dita" navtitle="task" />
+            </topichead>
+            <topichead navtitle="topic">
+                <topicref href="topic/topic.dita" navtitle="topic" />
+            </topichead>
+            <topichead navtitle="topic_mathonly">
+                <topicref href="topic_mathonly/topic_mathonly.dita" navtitle="topic_mathonly" />
+            </topichead>
+      </topichead>           
+    </publication>
+</pubmap>
