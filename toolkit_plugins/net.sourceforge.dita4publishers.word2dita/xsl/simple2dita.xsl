@@ -1376,7 +1376,6 @@
       <!-- Indicate that this element is in fact a topic as there's no other way
            to know this during the result document processing phase.
         -->
-      <xsl:attribute name="isTopic" select="'true'"/>
       <xsl:sequence select="$schemaAtts"/>
       <xsl:if test="@topicOutputclass">
         <xsl:attribute name="outputclass" select="@topicOutputclass"/>
