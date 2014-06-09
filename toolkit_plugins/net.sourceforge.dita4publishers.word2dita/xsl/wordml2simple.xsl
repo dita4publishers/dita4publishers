@@ -301,6 +301,7 @@
           <xsl:when test="current-group()[1][self::w:r]">
             <xsl:for-each-group select="current-group()" group-adjacent="local:getRunStyleId(.)">
               <xsl:call-template name="handleRunSequence">
+                <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
                 <xsl:with-param name="runSequence" select="current-group()"/>
               </xsl:call-template>
             </xsl:for-each-group>            
@@ -311,6 +312,7 @@
             </xsl:if>     
             <xsl:for-each select="current-group()">
               <xsl:call-template name="handleRunSequence">
+                <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
                 <xsl:with-param name="runSequence" select="w:r"/>
               </xsl:call-template>              
             </xsl:for-each>
@@ -329,13 +331,26 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="runSequence" as="element()*"/>
     <xsl:param name="stylesDoc" as="document-node()" tunnel="yes"/>
+    
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] handleRunSequence: runSequence=<xsl:sequence select="$runSequence"/></xsl:message>
+    </xsl:if>
 
     <xsl:variable name="styleId" select="if ($runSequence[1]) then local:getRunStyleId($runSequence[1]) else ''" as="xs:string"/>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] handleRunSequence: styleId=<xsl:value-of select="$styleId"/></xsl:message>
+    </xsl:if>
     <xsl:choose>
       <xsl:when test="$styleId = ''">
+        <xsl:if test="$doDebug">
+          <xsl:message> + [DEBUG] handleRunSequence: No style ID, applying templates to run sequence...</xsl:message>
+        </xsl:if>
         <xsl:apply-templates select="$runSequence"/>
       </xsl:when>
       <xsl:otherwise>
+        <xsl:if test="$doDebug">
+          <xsl:message> + [DEBUG] handleRunSequence: Got a style ID.</xsl:message>
+        </xsl:if>
         <xsl:variable name="styleName" as="xs:string"
           select="local:lookupStyleName(., $stylesDoc, $styleId)"
         />
@@ -372,6 +387,9 @@
           else 'run'
           "
         />
+        <xsl:if test="$doDebug">
+          <xsl:message> + [DEBUG] handleRunSequence: runTagName="<xsl:value-of select="$runTagName"/>", generating result element...</xsl:message>
+        </xsl:if>
         <xsl:element name="{$runTagName}">
           <xsl:attribute name="style" select="$styleId"/>
           <xsl:if test="$runStyleMap">
@@ -379,7 +397,12 @@
               <xsl:copy/>
             </xsl:for-each>
           </xsl:if>
-          <xsl:apply-templates select="$runSequence"/></xsl:element>
+          <xsl:if test="$doDebug">
+            <xsl:message> + [DEBUG] handleRunSequence: Applying templates to run sequence...</xsl:message>
+          </xsl:if>
+          <xsl:apply-templates select="$runSequence">
+            <xsl:with-param name="doDebug" as="xs:boolean" select="$doDebug"/>
+          </xsl:apply-templates></xsl:element>
       </xsl:otherwise>
     </xsl:choose>        
     
@@ -474,7 +497,9 @@
   
   <xsl:template match="w:r">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <xsl:apply-templates/>
+    <xsl:apply-templates>
+      <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+    </xsl:apply-templates>
   </xsl:template>
 
   <xsl:template match="w:r[w:rPr/w:rFonts[@w:ascii]]" priority="10">
@@ -583,11 +608,23 @@
       <xsl:for-each select="$runStyleData/@*">
         <xsl:copy/>
       </xsl:for-each>
+      <xsl:if test="$doDebug">
+        <xsl:message> + [DEBUG] hyperlink: applying templates to first run...</xsl:message>
+      </xsl:if>
       <xsl:apply-templates select="w:r[1]"/>
       <xsl:if test="count(w:r) > 1">
-        <xsl:call-template name="handleRunSequence">
-          <xsl:with-param name="runSequence" select="w:r[position() > 1]"/>
-        </xsl:call-template>
+        <xsl:if test="$doDebug">
+          <xsl:message> + [DEBUG] hyperlink: More runs, calling handleRunSequence on grouped runs...</xsl:message>
+        </xsl:if>
+        <xsl:for-each-group select="w:r[position() > 1]" group-adjacent="local:getRunStyleId(.)">
+          <xsl:if test="$doDebug">
+            <xsl:message> + [DEBUG] hyperlink: grouping key="<xsl:value-of select="current-grouping-key()"/>"</xsl:message>
+          </xsl:if>
+          <xsl:call-template name="handleRunSequence">
+            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+            <xsl:with-param name="runSequence" select="current-group()"/>
+          </xsl:call-template>
+        </xsl:for-each-group>            
       </xsl:if>
     </hyperlink>
   </xsl:template>
