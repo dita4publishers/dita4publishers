@@ -1034,13 +1034,17 @@
   
   <xsl:template match="a:blip">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <xsl:param name="relsDoc" tunnel="yes" as="document-node()?"/>
+    <xsl:param name="relsDoc" tunnel="yes" as="document-node()?"/>    
     <!-- Width and height. The values should include the units indicator -->
     <xsl:param name="width" tunnel="yes" as="xs:string"/>
     <xsl:param name="height" tunnel="yes" as="xs:string"/>
+    
     <xsl:variable name="imageUri" as="xs:string" 
       select="local:getImageReferenceUri($relsDoc, @r:embed, @r:link)" 
       />
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] a:blip: imageUri="<xsl:value-of select="$imageUri"/>"</xsl:message>
+    </xsl:if>
     <image src="{$imageUri}" 
       width="{$width}"
       height="{$height}"

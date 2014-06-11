@@ -1142,7 +1142,7 @@
     <!-- Make a topic. The context element is an rsiwp:topic element -->
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="parentMapUrl" as="xs:string?" tunnel="yes"/>
-    <xsl:param name="topicUrl" as="xs:string?"/><!-- Result URL for the topic document -->    
+    <xsl:param name="topicUrl" as="xs:string"/><!-- Result URL for the topic document -->    
     <xsl:param name="topicName" as="xs:string" select="generate-id(.)"/>   
     
 <!--    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>-->
@@ -1214,6 +1214,7 @@
     </xsl:if>
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] makeTopic: Calling constructTopic, topicName="<xsl:value-of select="$topicName"/>"</xsl:message>
+      <xsl:message> + [DEBUG] makeTopic:    topicUrl="<xsl:value-of select="$topicUrl"/>"</xsl:message>
     </xsl:if>
     
     <xsl:variable name="topicElement" as="node()*">
@@ -1221,6 +1222,7 @@
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
         <xsl:with-param name="topicName" as="xs:string" select="$topicName"/>
         <xsl:with-param name="schemaAtts" as="attribute()*" select="$schemaAtts"/>
+        <xsl:with-param name="topicUrl" as="xs:string" tunnel="yes" select="$topicUrl"/>
       </xsl:call-template>
     </xsl:variable>
     
@@ -1318,6 +1320,7 @@
   -->
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="topicName" as="xs:string" select="generate-id(.)"/>
+    <xsl:param name="topicUrl" as="xs:string" tunnel="yes"/>
     <xsl:param name="schemaAtts" as="attribute()*" select="()"/>
     
     
@@ -1367,6 +1370,7 @@
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] constructTopic: Creating topic element <xsl:value-of select="$topicType"/></xsl:message>
       <xsl:message> + [DEBUG] constructTopic: topicName="<xsl:sequence select="$topicName"/>"</xsl:message>
+      <xsl:message> + [DEBUG] constructTopic: topicUrl="<xsl:sequence select="$topicUrl"/>"</xsl:message>
     </xsl:if>
     
     <xsl:if test="$doDebug">
@@ -1489,8 +1493,11 @@
                 </xsl:call-template>
                 <xsl:call-template name="handleSectionParas">
                   <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-                  <xsl:with-param name="sectionParas" select="current-group()[string(@topicZone) = 'body']" as="element()*"/>
+                  <xsl:with-param name="sectionParas" 
+                    select="current-group()[string(@topicZone) = 'body']" as="element()*"/>
                   <xsl:with-param name="initialSectionType" select="$initialSectionType" as="xs:string"/>
+                  <xsl:with-param name="resultUrl" as="xs:string" tunnel="yes"
+                    select="$topicUrl"/>
                 </xsl:call-template>
               </xsl:element>                  
             </xsl:if>
@@ -1967,14 +1974,21 @@
   <xsl:template match="rsiwp:image" mode="p-content">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="resultUrl" as="xs:string" tunnel="yes"/>
-    
+        
     <xsl:variable name="resultDir" select="relpath:getParent($resultUrl)"/>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] rwiwp:image: resultDir="<xsl:value-of select="$resultDir"/>"</xsl:message>
+    </xsl:if>
     <xsl:variable name="effectiveImageFilename" as="xs:string" 
       select="local:constructImageFilenameForRsiwpImage(.)"
     />
     <xsl:variable name="imageUrl" as="xs:string"
       select="relpath:getRelativePath($resultDir, $effectiveImageFilename)"
     />
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] rwiwp:image: $effectiveImageFilename="<xsl:value-of select="$effectiveImageFilename"/>"</xsl:message>
+      <xsl:message> + [DEBUG] rwiwp:image: imageUrl="<xsl:value-of select="$imageUrl"/>"</xsl:message>
+    </xsl:if>
     <image href="{$imageUrl}">
       <xsl:copy-of select="./@width, ./@height"/>
       <alt><xsl:sequence select="$imageUrl"/></alt>
