@@ -220,12 +220,17 @@
   <xsl:template mode="addLevels-topicref" 
     match="*[@structureType = 'topicGroup' or @structureType = 'topicHead']">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    
-    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
-    
+        
     <xsl:variable name="level" as="xs:integer" select="@level"/>
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] addLevels-topicref: topicHead/Group: level="<xsl:value-of select="$level"/>"</xsl:message>
+    </xsl:if>
+    
+    <xsl:variable name="content" as="element()*"
+      select="./following-sibling::*"
+    />
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] addLevels-topicref: topicHead/Group: content="<xsl:value-of select="local:reportParas($content)"/><xsl:value-of select="$level"/>"</xsl:message>
     </xsl:if>
     
     <xsl:if test="$doDebug">
@@ -236,7 +241,7 @@
       <xsl:apply-templates select="." mode="addLevels-navtitle"/>
       <xsl:call-template name="groupMapsAndTopicsByLevel">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-        <xsl:with-param name="content" as="element()*" select="./following-sibling::*"/>
+        <xsl:with-param name="content" as="element()*" select="$content"/>
         <xsl:with-param name="level" select="$level + 1" as="xs:integer"/>
       </xsl:call-template>
     </xsl:element>
