@@ -35,7 +35,7 @@
        levels within topic bodies so it's not as simple as just grouping by level
        value. Also, not all paragraphs have an explicit level.
        
-       The result of this processing is a a document with the map and topic 
+       The result of this processing is a document with the map and topic 
        hierarchy reflected but grouping by container type not reflected. The next
        processing step is to group things by container type where appropriate
        (e.g., within the map structure and within topic body contents).
@@ -220,6 +220,18 @@
   <xsl:template mode="addLevels-topicref" 
     match="*[@structureType = 'topicGroup' or @structureType = 'topicHead']">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+        
+    <xsl:variable name="level" as="xs:integer" select="@level"/>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] addLevels-topicref: topicHead/Group: level="<xsl:value-of select="$level"/>"</xsl:message>
+    </xsl:if>
+    
+    <xsl:variable name="content" as="element()*"
+      select="./following-sibling::*"
+    />
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] addLevels-topicref: topicHead/Group: content="<xsl:value-of select="local:reportParas($content)"/><xsl:value-of select="$level"/>"</xsl:message>
+    </xsl:if>
     
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] addLevels-topicref: <xsl:value-of select="local:reportPara(.)"/></xsl:message>
@@ -227,7 +239,11 @@
     <xsl:element name="rsiwp:{@structureType}">
       <xsl:sequence select="@*"/>
       <xsl:apply-templates select="." mode="addLevels-navtitle"/>
-      <!-- FIXME: Do something with the rest of the group. -->
+      <xsl:call-template name="groupMapsAndTopicsByLevel">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        <xsl:with-param name="content" as="element()*" select="$content"/>
+        <xsl:with-param name="level" select="$level + 1" as="xs:integer"/>
+      </xsl:call-template>
     </xsl:element>
   </xsl:template>
   

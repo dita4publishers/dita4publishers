@@ -291,6 +291,8 @@
           select="
           rsiwp:mapref | 
           rsiwp:topicref | 
+          rsiwp:topicGroup | 
+          rsiwp:topicHead | 
           rsiwp:map | 
           rsiwp:topic
           ">
@@ -434,10 +436,10 @@
     </xsl:element>
   </xsl:template>
 
-  <xsl:template match="rsiwp:topichead | rsiwp:topicgroup">
+  <xsl:template match="rsiwp:topicHead | rsiwp:topicGroup">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="parentMapUrl" as="xs:string" tunnel="yes"/>
-
+    
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] rsiwp:topichead</xsl:message>
     </xsl:if>
