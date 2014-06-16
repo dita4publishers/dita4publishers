@@ -278,7 +278,7 @@
           <xsl:message> + [DEBUG] addLevels-topicref: Will make topic doc, generating topicref.</xsl:message>
         </xsl:if>
         <xsl:element name="rsiwp:topicref">
-          <xsl:sequence select="@topicrefType, @styleName, @styleId"/>
+          <xsl:sequence select="@topicrefType, @styleName, @styleId, @chunk"/>
           <xsl:apply-templates select="." mode="addLevels-navtitle"/>
           <xsl:apply-templates mode="addLevels-topic" select=".">
             <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
