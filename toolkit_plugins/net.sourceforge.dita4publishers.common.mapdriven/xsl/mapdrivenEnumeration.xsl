@@ -245,6 +245,7 @@
         <xsl:apply-templates mode="#current"/>
       </xsl:with-param>
     </xsl:call-template>
+    <xsl:apply-templates mode="construct-enumerable-structure"/>
   </xsl:template>
 
   <xsl:template mode="construct-enumerable-structure" priority="10"
