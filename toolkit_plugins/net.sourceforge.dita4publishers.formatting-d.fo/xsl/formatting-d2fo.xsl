@@ -12,8 +12,11 @@
   <xsl:template match="*[contains(@class, ' d4p-formatting-d/br ')]" priority="10"
     mode="#default getTitle"
     >
-    <xsl:message> + [DEBUG] handling d4p-formatting-d/br </xsl:message>
-    <fo:block>&#xa0;</fo:block>
+    <!--<xsl:message> + [DEBUG] handling d4p-formatting-d/br </xsl:message>-->
+    <!-- WEK: Previously had non-breaking space. This causes extra vertical space 
+         in AXF and FOP.
+      -->
+    <fo:block>&#x0020;</fo:block>
   </xsl:template>
   
   <xsl:template match="*[contains(@class, ' d4p-formatting-d/tab ')]" priority="10"
