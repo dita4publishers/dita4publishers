@@ -16,7 +16,7 @@
           and desktop publishing to DITA markup. It is designed to enable a completely
           configuration-driven transform from flat sequences of paragraphs into arbitrary DITA
           markup, using any specialization. </p>
-        <p>Copyright (c) 2009, 2012 DITA For Publishers</p>
+        <p>Copyright (c) 2009, 2014 DITA For Publishers</p>
         <p>This material is free open source provided through an Apache license or similar.</p>
       </xhtml:div>
     </xs:documentation>
@@ -139,6 +139,11 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="s2t:mapProperties" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="s2t:topicrefProperties" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="s2t:topicProperties" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
       <xs:attribute
         name="styleId"
         type="xs:string"
@@ -1402,4 +1407,515 @@
   <xs:element
     name="style2tagmap"
     type="s2t:style2tagmapType"> </xs:element>
+  <xs:element name="mapProperties">
+    <xs:annotation>
+      <xs:appinfo>
+        <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+        <h2>Map Properties</h2>
+        <p>Holds properties that define the details of the map to 
+        be generated from the paragraph. Also defines the details
+        of the mapref element generated for non-root maps.</p>
+      </xhtml:div></xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute
+        name="structureType"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Structure Type</h2>
+              <p>The general structure type to which the style maps. This determines the general
+                type of processing and result for the style.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction
+            base="xs:NMTOKEN">
+            <xs:enumeration
+              value="map">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The paragraph maps to a map but not a map title.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="mapTitle">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The paragraph maps to the title of a map. Map titles are optional.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute
+        name="tagName"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Result Tag Name</h2>
+              <p>The name of the element type to generate as the immediately-generated element for
+                the style. For example, a paragraph style that maps to a topic title and therefore
+                starts a topic, uses the value of the tagName attribute for the title element that
+                holds the content of the paragraph. Other attributes, named *Type*, determine the
+                tag names of other elements generated or implied by the style (e.g., topicType).</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="format"
+        type="xs:string"
+        use="required">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Format (Result Document Type)</h2>
+              <p>Specifies the name of an &lt;output&gt; element that defines the details of the result
+                topic or root map document to be created from the paragraph. Must be
+                specified when generating a map.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="containerType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Container Element Type</h2>
+              <p>For elements that have a required container, indicates the containing element type.
+                For example, paragraphs that map to &lt;li&gt; would specify a container type of "ol"
+                or "ul", as appropriate. Adjacent paragraphs with the same container type and level
+                will be grouped together under a single instance of the specified container.</p>
+              <p>If @containerType is specified, you must specify @level.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="containerOutputclass"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Container Element outputclass= Value</h2>
+              <p>For styles that imply the creation of a container element (e.g., map titles),
+                specifies the @outputclass value for the container.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="mapType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Map Element Type</h2>
+              <p>Specifies root element type name for the map to be generated from the paragraph,
+                e.g. "map".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="prologType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Prolog Element Type</h2>
+              <p>Specifies the tag name for the prolog for the generated map. Defaults to "topicmeta" for maps.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="maprefType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Map Reference Element Type Name</h2>
+              <p>Indicates the tagname for the mapref created for the generated map when the
+              generated map is not a root map (and therefore needs to be referenced from
+              its parent map). Defaults to "mapref".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="topicrefProperties">
+    <xs:annotation>
+      <xs:appinfo>
+        <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+        <h2>Map Properties</h2>
+        <p>Holds properties that define the details of the topicref to 
+        be generated from the paragraph.</p>
+      </xhtml:div>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute
+        name="topicrefType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Topic Reference Element Type Name</h2>
+              <p>Indicates the element type to use for the reference to the generated topic in the
+                result map. Defaults to "topicref".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="tagname"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Topicref Navigation Title Tagname</h2>
+              <p>The tagname for the navigation title element generated
+              from the paragraph contents of the paragraph that generates
+              the topicref. Default value is "navtitle".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="topicmetaType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Topicmeta Element Type Name</h2>
+              <p>The element type name for the topicmeta element used to hold the
+              navigation title for the topicref as well as any metadata on the topicref.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="containerType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Container Element Type</h2>
+              <p>The container element type to use for adjacent topicrefs at the same
+              level within the map. For example, "frontmatter" to generate a &lt;frontmatter&gt;
+              container around a set of topicrefs.</p>              
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="outputclass"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Topicref @outputclass Value</h2>
+              <p>The @outputclass value to use on the generated topicref element.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="print"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Topicref @print Value</h2>
+              <p>The @print value to use on the generated topicref element (allowed values are "yes" and "no").</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="toc"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Topicref @toc Value</h2>
+              <p>The @toc value to use on the generated topicref element (allowed values are "yes" and "no").</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="locktitle"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Topicref @locktitle Value</h2>
+              <p>The @locktitle value to use on the generated topicref element's topicmeta element (allowed values are "yes" and "no"). When locktitle is "yes", the topicref's navigation title will be used in navigation instead of the
+              topic's title (e.g., in tables of contents). Default is "no".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="lockmeta"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Topicmeta @lockmeta Value</h2>
+              <p>The @lockmeta value to use on the generated topicref element's topicmeta element (allowed values are "yes" and "no"). When lockmeta is "yes", the topic's metadata will be used in preference
+              to the same metadata values specified on the topicref. Default DITA behavior is 
+              "no", meaning that the topic's metadata is not locked and metadata specified on 
+              the topicref will override the topic's metadata.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="search"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Topicref @search Value</h2>
+              <p>The @search value to use on the generated topicref element (allowed values are "yes" and "no"). Indicates whether or not the referenced topic is available for search. Default is "yes".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="chunk"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Chunk Attribute Value</h2>
+              <p>The value to set on the @chunk
+                attribute on the topicref, normally "to-content" (indicating that the result
+                navigation branch should be result in a single output "chunk" (e.g., single HTML
+                page). The default is no @chunk value.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="collection-type"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Collection Type</h2>
+              <p>As for DITA topicref.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="processing-role"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Processing Role</h2>
+              <p>As for DITA topicref. Values are "normal" and "resource-only". Default is "normal".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="shortdescType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Short Description Element Type</h2>
+              <p>Specifies the tag name for the short description for a generated topicref or topic. Defaults to
+                "shortdesc".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="abstractType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Abstract Element Type</h2>
+              <p>Specifies the tag name for the abstract for a generated topicref or topic. Defaults to
+                "abstract".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="topicProperties">
+    <xs:annotation>
+      <xs:appinfo>
+        <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+        <h2>Map Properties</h2>
+        <p>Holds properties that define the details of the topic to 
+        be generated from the paragraph.</p>
+      </xhtml:div>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attribute
+        name="tagName"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Result Tag Name</h2>
+              <p>The tagname for the title of the topic to be generated. Default is "title".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="topicType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Topic Element Type Name</h2>
+              <p>The element type name to use for the result topic. Defaults to "topic". </p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="bodyType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Topic Body Element Type</h2>
+              <p>For paragraphs that map to topics, the element type to use for the topic body.
+                Defaults to "body".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="prologType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Prolog Element Type</h2>
+              <p>Specifies the tag name for the prolog for a generated map or topic. Defaults to
+                "prolog" for topics and "topicmeta" for maps.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="shortdescType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Short Description Element Type</h2>
+              <p>Specifies the tag name for the short description for a generated topicref or topic. Defaults to
+                "shortdesc".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="abstractType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Abstract Element Type</h2>
+              <p>Specifies the tag name for the abstract for a generated topicref or topic. Defaults to
+                "abstract".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="topicDoc"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Create Topic Document?</h2>
+              <p>When set to "yes", indicates that the
+                topic should be output in its own document. When set to "yes", should also specify a
+                value for @format.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction
+            base="xs:NMTOKEN">
+            <xs:enumeration
+              value="yes"/>
+            <xs:enumeration
+              value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute
+        name="format"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Format (Result Document Type)</h2>
+              <p>Specifies the name of an &lt;output&gt; element that defines the details of the result
+                topic. Must be specified when @topicDoc is "yes". Ignored if @topicDoc is "no".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>    
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
