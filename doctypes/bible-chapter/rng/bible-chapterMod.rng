@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://relaxng.org/ns/structure/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+    <moduleTitle>DITA Concept</moduleTitle>
+    <headerComment xml:space="preserve">
+=============================================================
+DITA for Publishers Bible Chapter
+
+Base topic type for chapters of Christian and Jewish bibles.
+
+Copyright (c) 2014, DITA for Publishers
+=============================================================
+    </headerComment>
+    <moduleMetadata>
+      <moduleType>topic</moduleType>
+      <moduleShortName>concept</moduleShortName>
+      <modulePublicIds>
+        <dtdMod>-//OASIS//ELEMENTS DITA<var presep=" " name="ditaver"/> Concept//EN</dtdMod>
+        <dtdEnt>-//OASIS//ENTITIES DITA<var presep=" " name="ditaver"/> Concept//EN</dtdEnt>
+        <xsdMod>urn:oasis:names:tc:dita:xsd:bible-chapterMod.xsd<var presep=":" name="ditaver"/></xsdMod>
+        <xsdGrp>urn:oasis:names:tc:dita:xsd:conceptGrp.xsd<var presep=":" name="ditaver"/></xsdGrp>
+        <rncMod>urn:oasis:names:tc:dita:rnc:bible-chapterMod.rnc<var presep=":" name="ditaver"/></rncMod>
+        <rngMod>urn:oasis:names:tc:dita:rng:bible-chapterMod.rng<var presep=":" name="ditaver"/></rngMod>
+      </modulePublicIds>
+      <domainsContribution>(topic bible-chapter)</domainsContribution>
+    </moduleMetadata>
+  </moduleDesc>
+  <div>
+    <a:documentation>TOPIC NESTING OVERRIDES</a:documentation>
+
+    <define name="bible-chapter-info-types">
+      <ref name="info-types"/>
+    </define>
+
+  </div>
+  <div>
+    <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
+    <define name="bible-chapter">
+      <ref name="bible-chapter.element"/>
+    </define>
+    <define name="bc-body">
+      <ref name="bc-body.element"/>
+    </define>
+
+  </div>
+  <div>
+    <a:documentation>ELEMENT TYPE DECLARATIONS</a:documentation>
+
+    <div>
+      <a:documentation> LONG NAME: Bible Chapter </a:documentation>
+      <define name="bible-chapter.content">
+        <ref name="title"/>
+        <optional>
+          <ref name="titlealts"/>
+        </optional>
+        <optional>
+          <choice>
+            <ref name="abstract"/>
+            <ref name="shortdesc"/>
+          </choice>
+        </optional>
+        <optional>
+          <ref name="prolog"/>
+        </optional>
+        <optional>
+          <ref name="bc-body"/>
+        </optional>
+        <optional>
+          <ref name="related-links"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="bible-chapter-info-types"/>
+        </zeroOrMore>
+      </define>
+      <define name="bible-chapter.attributes">
+        <attribute name="id">
+          <data type="ID"/>
+        </attribute>
+        <ref name="conref-atts"/>
+        <ref name="select-atts"/>
+        <ref name="localization-atts"/>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+      </define>
+      <define name="bible-chapter.element">
+        <element name="bible-chapter" dita:longName="Bible Chapter">
+          <a:documentation>Contains a single chapter of a Bible.</a:documentation>
+          <ref name="bible-chapter.attlist"/>
+          <ref name="bible-chapter.content"/>
+        </element>
+      </define>
+      <define name="bible-chapter.attlist" combine="interleave">
+        <ref name="bible-chapter.attributes"/>
+        <ref name="arch-atts"/>
+        <ref name="domains-att"/>
+      </define>
+      <define name="idElements" combine="choice">
+        <ref name="bible-chapter.element"/>
+      </define>
+    </div>
+    <div>
+      <a:documentation> LONG NAME: Bible Chapter Body </a:documentation>
+      <define name="bc-body.content">
+        <zeroOrMore>
+          <choice>
+            <ref name="body.cnt"/>
+            <ref name="bodydiv"/>
+            <ref name="example"/>
+            <ref name="section"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="bc-body.attributes">
+        <ref name="id-atts"/>
+        <ref name="localization-atts"/>
+        <optional>
+          <attribute name="base"/>
+        </optional>
+        <ref name="base-attribute-extensions"/>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+      </define>
+      <define name="bc-body.element">
+        <element name="bc-body" dita:longName="Bible Chapter Body">
+          <a:documentation>Contains the body text of a Bible chapter.</a:documentation>
+          <ref name="bc-body.attlist"/>
+          <ref name="bc-body.content"/>
+        </element>
+      </define>
+      <define name="bc-body.attlist" combine="interleave">
+        <ref name="bc-body.attributes"/>
+      </define>
+
+    </div>
+    
+  </div>
+  <div>
+    <a:documentation>SPECIALIZATION ATTRIBUTE DECLARATIONS</a:documentation>
+
+    <define name="bible-chapter.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- topic/topic bible-chapter/bible-chapter "/>
+      </optional>
+    </define>
+    <define name="bc-body.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- topic/body  bible-chapter/bc-body "/>
+      </optional>
+    </define>
+    
+  </div>
+</grammar>

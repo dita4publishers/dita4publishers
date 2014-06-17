@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns="http://relaxng.org/ns/structure/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+    <moduleTitle>DITA Bookmap</moduleTitle>
+    <headerComment>
+=============================================================
+DITA for Publishers Bible Map
+
+Map type for representing Christian and Jewish bibles as
+publications. 
+
+Copyright (c) 2014, DITA for Publishers
+=============================================================    
+</headerComment>
+    <moduleMetadata>
+      <moduleType>map</moduleType>
+      <moduleShortName>bible-map</moduleShortName>
+      <modulePublicIds>
+        <dtdMod>urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:bible-map.mod</dtdMod>
+        <dtdEnt>urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:bible-map.ent</dtdEnt>
+        <xsdGrp>urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:bible-mapGrp.xsd</xsdGrp>
+        <xsdMod>urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:bible-mapMod.xsd</xsdMod>
+        <rncMod>urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:bible-mapMod.rnc</rncMod>
+        <rngMod>urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:bible-mapMod.rng</rngMod>
+      </modulePublicIds>
+      <domainsContribution>(map bible-map)</domainsContribution>
+    </moduleMetadata>
+  </moduleDesc>
+  <div>
+    <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
+    <define name="testament">
+      <ref name="testament.element"/>
+    </define>
+    <define name="book">
+      <ref name="book.element"/>
+    </define>
+    <define name="bible-chapter">
+      <ref name="bible-chapter.element"/>
+    </define>
+    <define name="bible-part">
+      <ref name="bible-part.element"/>
+    </define>
+  </div>
+  <div>
+    <a:documentation>COMMON ATTRIBUTE SETS</a:documentation>
+  </div>
+  <div>
+    <a:documentation>ELEMENT TYPE PATTERNS</a:documentation>
+
+    <div>
+      <a:documentation>LONG NAME: Bible Map</a:documentation>
+      <define name="bible-map.content">
+        <optional>
+          <choice>
+            <ref name="title"/>
+          </choice>
+        </optional>
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="reltable"/>
+        </zeroOrMore>
+      </define>
+      <define name="bible-map.attributes">
+        <optional>
+          <attribute name="id">
+            <data type="ID"/>
+          </attribute>
+        </optional>
+        <ref name="conref-atts"/>
+        <optional>
+          <attribute name="anchorref"/>
+        </optional>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <ref name="localization-atts"/>
+        <ref name="topicref-atts"/>
+        <ref name="select-atts"/>
+      </define>
+      <define name="bible-map.element">
+        <element name="bible-map" dita:longName="Book Map">
+          <a:documentation>Represents a Bible as a publication, or a component of a bible (e.g., a single
+testament, part, book, or chapter.</a:documentation>
+          <ref name="bible-map.attlist"/>
+          <ref name="bible-map.content"/>
+        </element>
+      </define>
+      <define name="bible-map.attlist" combine="interleave">
+        <ref name="bible-map.attributes"/>
+        <ref name="arch-atts"/>
+        <ref name="domains-att"/>
+      </define>
+    </div>    <div>
+      <a:documentation>LONG NAME: Testament</a:documentation>
+      <define name="testament.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="bible-chapter"/>
+        </zeroOrMore>
+      </define>
+      <define name="testament.attributes">
+        <optional>
+          <attribute name="id">
+            <data type="ID"/>
+          </attribute>
+        </optional>
+        <ref name="conref-atts"/>
+        <optional>
+          <attribute name="anchorref"/>
+        </optional>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <ref name="localization-atts"/>
+        <ref name="topicref-atts"/>
+        <ref name="select-atts"/>
+      </define>
+      <define name="testament.element">
+        <element name="testament" dita:longName="Testament">
+          <a:documentation>A testament within a bible (e.g., Old Testament, New Testament).</a:documentation>
+          <ref name="testament.attlist"/>
+          <ref name="testament.content"/>
+        </element>
+      </define>
+      <define name="testament.attlist" combine="interleave">
+        <ref name="testament.attributes"/>
+        <ref name="arch-atts"/>
+        <ref name="domains-att"/>
+      </define>
+    </div>
+  </div>
+  <div>
+    <a:documentation>SPECIALIZATION ATTRIBUTES</a:documentation>
+
+    <define name="bible-map.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- map/map bible-map/bible-map "/>
+      </optional>
+    </define>
+    <define name="testament.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="- map/topicref bible-map/testament "/>
+      </optional>
+    </define>
+
+  </div>
+</grammar>

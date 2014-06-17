@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+  <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+    <moduleTitle>DITA Topic Base Shell (only base domains)</moduleTitle>
+    <headerComment xml:space="preserve">
+=============================================================
+DITA for Publishers Bible Chapter
+
+Base topic type for chapters of Christian and Jewish bibles.
+This is a sample document type shell for this topic type.
+Copy and assign your own copyright and public IDs for 
+production use.
+
+Copyright (c) 2014, DITA for Publishers
+=============================================================
+</headerComment>
+    <moduleMetadata>
+      <moduleType>topicshell</moduleType>
+      <moduleShortName>Bible chapter</moduleShortName>
+      <shellPublicIds>
+        <dtdShell>urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:bible-chapter.dtd</dtdShell>
+        <rncShell>urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:bible-chapter.rnc</rncShell>
+        <rngShell>urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:bible-chapter.rng</rngShell>
+        <xsdShell>urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:bible-chapter.xsd</xsdShell>
+      </shellPublicIds>
+    </moduleMetadata>
+  </moduleDesc>
+  <div>
+    <a:documentation>ROOT ELEMENT DECLARATION</a:documentation>
+    <start combine="choice">
+      <ref name="bible-chapter.element"/>
+    </start>
+  </div>
+  <div>
+    <a:documentation>DOMAINS ATTRIBUTE</a:documentation>
+    <define name="domains-att">
+      <optional>
+        <attribute name="domains"
+          a:defaultValue="(topic bible-chapter)
+                         (topic hi-d)
+                         (topic indexing-d)
+                         (topic topic)
+                         a(props deliveryTarget)"
+        />
+      </optional>
+    </define>
+  </div>
+  <div>
+    <a:documentation>MODULE INCLUSIONS</a:documentation>
+    <include href="urn:oasis:names:tc:dita:rng:topicMod.rng"/>
+    <include href="bible-chapterMod.rng">
+      <define name="bible-chapter-info-types">
+        <ref name="bible-chapter.element"/>
+      </define>
+
+    </include>
+    <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomainMod.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:highlightDomainMod.rng"/>
+    <include href="urn:oasis:names:tc:dita:rng:indexingDomainMod.rng"/>
+  </div>
+  <div>
+    <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>
+    <define name="any">
+      <zeroOrMore>
+        <choice>
+          <ref name="idElements"/>
+          <element>
+            <anyName>
+              <except>
+                <name>topic</name>
+                <name>bible-chapter</name>
+              </except>
+            </anyName>
+            <zeroOrMore>
+              <attribute>
+                <anyName/>
+              </attribute>
+            </zeroOrMore>
+            <ref name="any"/>
+          </element>
+          <text/>
+        </choice>
+      </zeroOrMore>
+    </define>
+  </div>
+</grammar>

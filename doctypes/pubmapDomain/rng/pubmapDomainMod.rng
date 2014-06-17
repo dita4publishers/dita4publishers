@@ -1,0 +1,2525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:dita="http://dita.oasis-open.org/architecture/2005/" xmlns="http://relaxng.org/ns/structure/1.0">
+  <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+    <moduleTitle>DITA Highlight Domain</moduleTitle>
+    <headerComment><![CDATA[
+=============================================================
+SYSTEM:     Darwin Information Typing Architecture (DITA)    
+                                                             
+PURPOSE:    Define elements and specialization attributes    
+            for use in maps that represent print-focused     
+            publications.                                    
+                                                             
+=============================================================
+]]></headerComment>
+    <moduleMetadata>
+      <moduleType>elementdomain</moduleType>
+      <moduleShortName>pubmap-d</moduleShortName>
+      <modulePublicIds>
+        <dtdMod>urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmapDomain</dtdMod>
+        <dtdEnt>urn:pubid:dita4publishers.sourceforge.net:entities:dtd:pubmapDomain</dtdEnt>
+        <xsdMod>urn:pubid:dita4publishers.sourceforge.net:modules:xsd:pubmapDomain</xsdMod>
+        <rncMod>urn:pubid:dita4publishers.sourceforge.net:modules:rnc:pubmapDomain</rncMod>
+        <rngMod>urn:pubid:dita4publishers.sourceforge.net:modules:rng:pubmapDomain</rngMod>
+      </modulePublicIds>
+      <domainsContribution>(map pubmap-d)</domainsContribution>
+    </moduleMetadata>
+  </moduleDesc>
+
+
+
+  <div>
+    <a:documentation>ELEMENT NAME ENTITIES</a:documentation>
+
+
+    <define name="pubmap-d-topicref">
+      <choice>
+        <ref name="abbrevlist.element"/>
+        <ref name="amendments.element"/>
+        <ref name="appendix.element"/>
+        <ref name="appendixes.element"/>
+        <ref name="article.element"/>
+        <ref name="back-cover.element"/>
+        <ref name="back-flap.element"/>
+        <ref name="book-jacket.element"/>
+        <ref name="backmatter.element"/>
+        <ref name="bibliolist.element"/>
+        <ref name="chapter.element"/>
+        <ref name="colophon.element"/>
+        <ref name="copyright-page.element"/>
+        <ref name="covers.element"/>
+        <ref name="dedication.element"/>
+        <ref name="department.element"/>
+        <ref name="division.element"/>
+        <ref name="draftintro.element"/>
+        <ref name="figurelist.element"/>
+        <ref name="forward.element"/>
+        <ref name="front-cover.element"/>
+        <ref name="front-flap.element"/>
+        <ref name="frontmatter.element"/>
+        <ref name="glossarylist.element"/>
+        <ref name="glossary.element"/>
+        <ref name="indexlist.element"/>
+        <ref name="keydefs.element"/>
+        <ref name="keydef-group.element"/>
+        <ref name="notices.element"/>
+        <ref name="page.element"/>
+        <ref name="part.element"/>
+        <ref name="preface.element"/>
+        <ref name="pubabstract.element"/>
+        <ref name="publist.element"/>
+        <ref name="publists.element"/>
+        <ref name="pubbody.element"/>
+        <ref name="publication.element"/>
+        <ref name="subsection.element"/>
+        <ref name="sidebar.element"/>
+        <ref name="spine.element"/>
+        <ref name="tablelist.element"/>
+        <ref name="toc.element"/>
+        <ref name="trademarklist.element"/>
+        <ref name="wrap-cover.element"/>
+        <ref name="wrap-cover.element"/>
+      </choice>
+    </define>
+    <define name="pubmap-d-title">
+      <ref name="pubtitle.element"/>
+    </define>
+  </div>
+  <div>
+    <a:documentation>ELEMENT TYPE NAME PATTERNS</a:documentation>
+    <define name="abbrevlist">
+      <ref name="abbrevlist.element"/>
+    </define>
+    <define name="amendments">
+      <ref name="amendments.element"/>
+    </define>
+    <define name="appendix">
+      <ref name="appendix.element"/>
+    </define>
+    <define name="appendixes">
+      <ref name="appendixes.element"/>
+    </define>
+    <define name="article">
+      <ref name="article.element"/>
+    </define>
+    <define name="back-cover">
+      <ref name="back-cover.element"/>
+    </define>
+    <define name="back-flap">
+      <ref name="back-flap.element"/>
+    </define>
+    <define name="backmatter">
+      <ref name="backmatter.element"/>
+    </define>
+    <define name="bibliolist">
+      <ref name="bibliolist.element"/>
+    </define>
+    <define name="book-jacket">
+      <ref name="book-jacket.element"/>
+    </define>
+    <define name="chapter">
+      <ref name="chapter.element"/>
+    </define>
+    <define name="colophon">
+      <ref name="colophon.element"/>
+    </define>
+    <define name="copyright-page">
+      <ref name="copyright-page.element"/>
+    </define>
+    <define name="covers">
+      <ref name="covers.element"/>
+    </define>
+    <define name="dedication">
+      <ref name="dedication.element"/>
+    </define>
+    <define name="department">
+      <ref name="department.element"/>
+    </define>
+    <define name="draftintro">
+      <ref name="draftintro.element"/>
+    </define>
+    <define name="division">
+      <ref name="division.element"/>
+    </define>
+    <define name="epub-cover-graphic">
+      <ref name="epub-cover-graphic.element"/>
+    </define>
+    <define name="epub-cover">
+      <ref name="epub-cover.element"/>
+    </define>
+    <define name="figurelist">
+      <ref name="figurelist.element"/>
+    </define>
+    <define name="forward">
+      <ref name="forward.element"/>
+    </define>
+    <define name="front-cover">
+      <ref name="front-cover.element"/>
+    </define>
+    <define name="front-flap">
+      <ref name="front-flap.element"/>
+    </define>
+    <define name="frontmatter">
+      <ref name="frontmatter.element"/>
+    </define>
+    <define name="glossary">
+      <ref name="glossary.element"/>
+    </define>
+    <define name="glossentry">
+      <ref name="glossentry.element"/>
+    </define>
+    <define name="glossary-group">
+      <ref name="glossary-group.element"/>
+    </define>
+    <define name="glossarylist">
+      <ref name="glossarylist.element"/>
+    </define>
+    <define name="indexlist">
+      <ref name="indexlist.element"/>
+    </define>
+    <define name="inside-front-cover">
+      <ref name="inside-front-cover.element"/>
+    </define>
+    <define name="keydefs">
+      <ref name="keydefs.element"/>
+    </define>
+    <define name="keydef-group">
+      <ref name="keydef-group.element"/>
+    </define>
+    <define name="notices">
+      <ref name="notices.element"/>
+    </define>
+    <define name="page">
+      <ref name="page.element"/>
+    </define>
+    <define name="part">
+      <ref name="part.element"/>
+    </define>
+    <define name="partsection">
+      <ref name="partsection.element"/>
+    </define>
+    <define name="preface">
+      <ref name="preface.element"/>
+    </define>
+    <define name="pubabstract">
+      <ref name="pubabstract.element"/>
+    </define>
+    <define name="publist">
+      <ref name="publist.element"/>
+    </define>
+    <define name="publists">
+      <ref name="publists.element"/>
+    </define>
+    <define name="pubbody">
+      <ref name="pubbody.element"/>
+    </define>
+    <define name="publication">
+      <ref name="publication.element"/>
+    </define>
+    <define name="subsection">
+      <ref name="subsection.element"/>
+    </define>
+    <define name="sidebar">
+      <ref name="sidebar.element"/>
+    </define>
+    <define name="spine">
+      <ref name="spine.element"/>
+    </define>
+    <define name="tablelist">
+      <ref name="tablelist.element"/>
+    </define>
+    <define name="toc">
+      <ref name="toc.element"/>
+    </define>
+    <define name="trademarklist">
+      <ref name="trademarklist.element"/>
+    </define>
+    <define name="wrap-cover">
+      <ref name="wrap-cover.element"/>
+    </define>
+    <define name="pubtitle">
+      <ref name="pubtitle.element"/>
+    </define>
+  </div>
+
+  <div>
+    <a:documentation>ph types:</a:documentation>
+<!--    <define name="completed">
+      <ref name="completed.element"/>
+    </define>
+--><!--    <define name="day">
+      <ref name="day.element"/>
+    </define>-->
+    <define name="mainpubtitle">
+      <ref name="mainpubtitle.element"/>
+    </define>
+    <define name="subtitle">
+      <ref name="subtitle.element"/>
+    </define>
+<!--    <define name="month">
+      <ref name="month.element"/>
+    </define>
+-->    <define name="publibrary">
+      <ref name="publibrary.element"/>
+    </define>
+    <define name="pubtitlealt">
+      <ref name="pubtitlealt.element"/>
+    </define>
+<!--    <define name="revisionid">
+      <ref name="revisionid.element"/>
+    </define>
+--><!--    <define name="started">
+      <ref name="started.element"/>
+    </define>-->
+    <!--<define name="summary">
+      <ref name="summary.element"/>
+    </define>-->
+    <!--<define name="year">
+      <ref name="year.element"/>
+    </define>-->
+  </div>
+
+
+
+  <div>
+    <a:documentation>COMMON ATTRIBUTE SETS</a:documentation>
+    <define name="pub-topicref-atts">
+      <a:documentation>Currently: same as topicref, sets collection-type to 'sequence'</a:documentation>
+      <optional>
+        <attribute name="collection-type" a:defaultValue="sequence">
+          <choice>
+            <value>choice</value>
+            <value>family</value>
+            <value>sequence</value>
+            <value>unordered</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="type"/>
+      </optional>
+      <optional>
+        <attribute name="cascade" dita:since="1.3"/>
+      </optional>
+      <optional>
+        <attribute name="processing-role">
+          <choice>
+            <value>normal</value>
+            <value>resource-only</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="scope">
+          <choice>
+            <value>external</value>
+            <value>local</value>
+            <value>peer</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="locktitle">
+          <choice>
+            <value>no</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="format"/>
+      </optional>
+      <optional>
+        <attribute name="linking">
+          <choice>
+            <value>none</value>
+            <value>normal</value>
+            <value>sourceonly</value>
+            <value>targetonly</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="toc">
+          <choice>
+            <value>no</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="print">
+          <choice>
+            <value>no</value>
+            <value>printonly</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="search">
+          <choice>
+            <value>no</value>
+            <value>yes</value>
+            <value>-dita-use-conref-target</value>
+          </choice>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="chunk"/>
+      </optional>
+      <optional>
+        <attribute name="keyscope" dita:since="1.3"/>
+      </optional>
+    </define>
+    <define name="chapter-atts">
+      <optional>
+        <attribute name="navtitle"/>
+      </optional>
+      <optional>
+        <attribute name="href"/>
+      </optional>
+      <optional>
+        <attribute name="keyref"/>
+      </optional>
+      <optional>
+        <attribute name="keys"/>
+      </optional>
+      <optional>
+        <attribute name="copy-to"/>
+      </optional>
+      <optional>
+        <attribute name="outputclass"/>
+      </optional>
+      <ref name="topicref-atts"/>
+      <ref name="univ-atts"/>
+    </define>
+
+    <define name="mapref.attributes">
+      <optional>
+        <attribute name="navtitle"/>
+      </optional>
+      <optional>
+        <attribute name="href"/>
+      </optional>
+      <optional>
+        <attribute name="keys"/>
+      </optional>
+      <optional>
+        <attribute name="query"/>
+      </optional>
+      <optional>
+        <attribute name="copy-to"/>
+      </optional>
+      <optional>
+        <attribute name="outputclass"/>
+      </optional>
+      <optional>
+        <attribute name="format" a:defaultValue="ditamap"/>
+      </optional>
+      <ref name="univ-atts"/>
+    </define>
+  </div>
+  <div>
+    <a:documentation>ELEMENT TYPE PATTERNS</a:documentation>
+
+
+
+    <div>
+      <a:documentation>Front Matter                 </a:documentation>
+      <define name="frontmatter.content">
+        <zeroOrMore>
+          <choice>
+
+            <ref name="article"/>
+            <ref name="chapter"/>
+            <ref name="colophon"/>
+            <ref name="copyright-page"/>
+            <ref name="dedication"/>
+            <ref name="department"/>
+            <ref name="division"/>
+            <ref name="draftintro"/>
+            <ref name="figurelist"/>
+            <ref name="forward"/>
+            <ref name="glossary"/>
+            <ref name="glossarylist"/>
+            <ref name="notices"/>
+            <ref name="page"/>
+            <ref name="pubabstract"/>
+            <ref name="publist"/>
+            <ref name="publists"/>
+            <ref name="preface"/>
+            <ref name="topicref"/>
+            <ref name="subsection"/>
+            <ref name="tablelist"/>
+            <ref name="toc"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="frontmatter.attributes">
+        <optional>
+          <attribute name="keyref"/>
+        </optional>
+        <optional>
+          <attribute name="query"/>
+        </optional>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <ref name="pub-topicref-atts"/>
+        <ref name="univ-atts"/>
+      </define>
+      <define name="frontmatter.element">
+        <element name="frontmatter" dita:longName="frontmatter">
+          <a:documentation/>
+          <ref name="frontmatter.attlist"/>
+          <ref name="frontmatter.content"/>
+        </element>
+      </define>
+      <define name="frontmatter.attlist" combine="interleave">
+        <ref name="frontmatter.attributes"/>
+      </define>
+
+
+
+
+    </div>
+    <div>
+      <a:documentation>Key Definitions                 </a:documentation>
+      <define name="keydefs.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <choice>
+            <ref name="keydef"/>
+            <ref name="mapref"/>
+            <ref name="keydef-group"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="keydefs.attributes">
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <optional>
+          <attribute name="processing-role" a:defaultValue="resource-only"/>
+        </optional>
+        <optional>
+          <attribute name="navtitle"/>
+        </optional>
+        <ref name="univ-atts"/>
+      </define>
+      <define name="keydefs.element">
+        <element name="keydefs" dita:longName="keydefs">
+          <a:documentation/>
+          <ref name="keydefs.attlist"/>
+          <ref name="keydefs.content"/>
+        </element>
+      </define>
+      <define name="keydefs.attlist" combine="interleave">
+        <ref name="keydefs.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>Key Definition Group                 </a:documentation>
+      <define name="keydef-group.content">
+
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <choice>
+
+            <ref name="keydef"/>
+            <ref name="keydef-group"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="keydef-group.attributes">
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <optional>
+          <attribute name="processing-role" a:defaultValue="resource-only"/>
+        </optional>
+        <optional>
+          <attribute name="navtitle"/>
+        </optional>
+        <ref name="univ-atts"/>
+        <ref name="univ-atts"/>
+      </define>
+      <define name="keydef-group.element">
+        <element name="keydef-group" dita:longName="keydef-group">
+          <a:documentation/>
+          <ref name="keydef-group.attlist"/>
+          <ref name="keydef-group.content"/>
+        </element>
+      </define>
+      <define name="keydef-group.attlist" combine="interleave">
+        <ref name="keydef-group.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>Back Matter                  </a:documentation>
+      <define name="backmatter.content">
+        <zeroOrMore>
+          <choice>
+
+            <ref name="article"/>
+            <ref name="amendments"/>
+            <ref name="chapter"/>
+            <ref name="colophon"/>
+            <ref name="dedication"/>
+            <ref name="glossary"/>
+            <ref name="glossarylist"/>
+            <ref name="notices"/>
+            <ref name="page"/>
+            <ref name="publist"/>
+            <ref name="publists"/>
+            <ref name="subsection"/>
+            <ref name="topicref"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="backmatter.attributes">
+        <optional>
+          <attribute name="keyref"/>
+        </optional>
+        <optional>
+          <attribute name="query"/>
+        </optional>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <ref name="univ-atts"/>
+        <ref name="pub-topicref-atts"/>
+        <ref name="univ-atts"/>
+      </define>
+      <define name="backmatter.element">
+        <element name="backmatter" dita:longName="backmatter">
+          <a:documentation/>
+          <ref name="backmatter.attlist"/>
+          <ref name="backmatter.content"/>
+        </element>
+      </define>
+      <define name="backmatter.attlist" combine="interleave">
+        <ref name="backmatter.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>pub Title                   </a:documentation>
+      <define name="pubtitle.content">
+
+        <optional>
+          <ref name="publibrary"/>
+        </optional>
+        <ref name="mainpubtitle"/>
+        <optional>
+          <ref name="subtitle"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="pubtitlealt"/>
+        </zeroOrMore>
+      </define>
+      <define name="pubtitle.attributes">
+        <ref name="id-atts"/>
+        <ref name="localization-atts"/>
+        <optional>
+          <attribute name="base"/>
+        </optional>
+        <ref name="base-attribute-extensions"/>
+        <optional>
+          <attribute name="base"/>
+        </optional>
+      </define>
+      <define name="pubtitle.element">
+        <element name="pubtitle" dita:longName="pubtitle">
+          <a:documentation/>
+          <ref name="pubtitle.attlist"/>
+          <ref name="pubtitle.content"/>
+        </element>
+      </define>
+      <define name="pubtitle.attlist" combine="interleave">
+        <ref name="pubtitle.attributes"/>
+      </define>
+
+
+
+      <!-- The following three elements are specialized from <ph>. They are
+     titles, which have a more limited content model than phrases. The
+     content model here matches title.cnt; that entity is not reused
+     in case it is expanded in the future to include something not
+     allowed in a phrase.                                          -->
+    </div>
+    <div>
+      <a:documentation>Library Title                </a:documentation>
+      <define name="publibrary.content">
+        <zeroOrMore>
+          <choice>
+            <text/>
+            <ref name="basic.ph.noxref"/>
+            <ref name="image"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="publibrary.attributes">
+        <optional>
+          <attribute name="keyref"/>
+        </optional>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <ref name="univ-atts"/>
+      </define>
+      <define name="publibrary.element">
+        <element name="publibrary" dita:longName="publibrary">
+          <a:documentation/>
+          <ref name="publibrary.attlist"/>
+          <ref name="publibrary.content"/>
+        </element>
+      </define>
+      <define name="publibrary.attlist" combine="interleave">
+        <ref name="publibrary.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>Main pub Title              </a:documentation>
+      <define name="mainpubtitle.content">
+        <zeroOrMore>
+          <choice>
+
+            <text/>
+            <ref name="basic.ph.noxref"/>
+            <ref name="image"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="mainpubtitle.attributes">
+        <optional>
+          <attribute name="keyref"/>
+        </optional>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <ref name="univ-atts"/>
+      </define>
+      <define name="mainpubtitle.element">
+        <element name="mainpubtitle" dita:longName="mainpubtitle">
+          <a:documentation/>
+          <ref name="mainpubtitle.attlist"/>
+          <ref name="mainpubtitle.content"/>
+        </element>
+      </define>
+      <define name="mainpubtitle.attlist" combine="interleave">
+        <ref name="mainpubtitle.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>Subtitle              </a:documentation>
+      <define name="subtitle.content">
+        <zeroOrMore>
+          <choice>
+
+            <text/>
+            <ref name="basic.ph.noxref"/>
+            <ref name="image"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="subtitle.attributes">
+        <optional>
+          <attribute name="keyref"/>
+        </optional>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <ref name="univ-atts"/>
+      </define>
+      <define name="subtitle.element">
+        <element name="subtitle" dita:longName="subtitle">
+          <a:documentation/>
+          <ref name="subtitle.attlist"/>
+          <ref name="subtitle.content"/>
+        </element>
+      </define>
+      <define name="subtitle.attlist" combine="interleave">
+        <ref name="subtitle.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>Alternate pub Title         </a:documentation>
+      <define name="pubtitlealt.content">
+        <zeroOrMore>
+          <choice>
+
+            <text/>
+            <ref name="basic.ph.noxref"/>
+            <ref name="image"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="pubtitlealt.attributes">
+        <optional>
+          <attribute name="keyref"/>
+        </optional>
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <ref name="univ-atts"/>
+      </define>
+      <define name="pubtitlealt.element">
+        <element name="pubtitlealt" dita:longName="pubtitlealt">
+          <a:documentation/>
+          <ref name="pubtitlealt.attlist"/>
+          <ref name="pubtitlealt.content"/>
+        </element>
+      </define>
+      <define name="pubtitlealt.attlist" combine="interleave">
+        <ref name="pubtitlealt.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>Draft Introduction           </a:documentation>
+      <define name="draftintro.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="topicref"/>
+        </zeroOrMore>
+      </define>
+      <define name="draftintro.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="draftintro.element">
+        <element name="draftintro" dita:longName="draftintro">
+          <a:documentation/>
+          <ref name="draftintro.attlist"/>
+          <ref name="draftintro.content"/>
+        </element>
+      </define>
+      <define name="draftintro.attlist" combine="interleave">
+        <ref name="draftintro.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>pub Abstract                </a:documentation>
+      <define name="pubabstract.content">
+        <empty/>
+      </define>
+      <define name="pubabstract.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="pubabstract.element">
+        <element name="pubabstract" dita:longName="pubabstract">
+          <a:documentation/>
+          <ref name="pubabstract.attlist"/>
+          <ref name="pubabstract.content"/>
+        </element>
+      </define>
+      <define name="pubabstract.attlist" combine="interleave">
+        <ref name="pubabstract.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>Dedication                   </a:documentation>
+      <define name="dedication.content">
+        <zeroOrMore>
+          <choice>
+
+            <ref name="subsection"/>
+            <ref name="division"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="dedication.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="dedication.element">
+        <element name="dedication" dita:longName="dedication">
+          <a:documentation/>
+          <ref name="dedication.attlist"/>
+          <ref name="dedication.content"/>
+        </element>
+      </define>
+      <define name="dedication.attlist" combine="interleave">
+        <ref name="dedication.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>Page                   </a:documentation>
+      <define name="page.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="page.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="page.element">
+        <element name="page" dita:longName="page">
+          <a:documentation/>
+          <ref name="page.attlist"/>
+          <ref name="page.content"/>
+        </element>
+      </define>
+      <define name="page.attlist" combine="interleave">
+        <ref name="page.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>Forward                      </a:documentation>
+      <define name="forward.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="topicref"/>
+        </zeroOrMore>
+      </define>
+
+      <define name="forward.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="forward.element">
+        <element name="forward" dita:longName="forward">
+          <a:documentation/>
+          <ref name="forward.attlist"/>
+          <ref name="forward.content"/>
+        </element>
+      </define>
+      <define name="forward.attlist" combine="interleave">
+        <ref name="forward.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>Preface                      </a:documentation>
+      <define name="preface.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="topicref"/>
+        </zeroOrMore>
+      </define>
+
+      <define name="preface.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="preface.element">
+        <element name="preface" dita:longName="preface">
+          <a:documentation/>
+          <ref name="preface.attlist"/>
+          <ref name="preface.content"/>
+        </element>
+      </define>
+      <define name="preface.attlist" combine="interleave">
+        <ref name="preface.attributes"/>
+      </define>
+
+    </div>
+    <div>
+      <a:documentation>publication                      </a:documentation>
+      <define name="publication.content">
+
+        <zeroOrMore>
+          <ref name="topicref"/>
+        </zeroOrMore>
+      </define>
+
+      <define name="publication.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="publication.element">
+        <element name="publication" dita:longName="publication">
+          <a:documentation/>
+          <ref name="publication.attlist"/>
+          <ref name="publication.content"/>
+        </element>
+      </define>
+      <define name="publication.attlist" combine="interleave">
+        <ref name="publication.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>pubbody                      </a:documentation>
+      <define name="pubbody.content">
+
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="appendix"/>
+          <ref name="article"/>
+          <ref name="chapter"/>
+          <ref name="glossary"/>
+          <ref name="part"/>
+          <ref name="page"/>
+          <ref name="topicref"/>
+        </zeroOrMore>
+      </define>
+
+      <!-- Sets collection-type to sequence by default -->
+      <define name="pubbody.attributes">
+        <optional>
+          <attribute name="outputclass"/>
+        </optional>
+        <optional>
+          <attribute name="collection-type" a:defaultValue="sequence">
+            <choice>
+              <value>choice</value>
+              <value>family</value>
+              <value>sequence</value>
+              <value>unordered</value>
+              <value>-dita-use-conref-target</value>
+            </choice>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="type"/>
+        </optional>
+        <optional>
+          <attribute name="scope">
+            <choice>
+              <value>external</value>
+              <value>local</value>
+              <value>peer</value>
+              <value>-dita-use-conref-target</value>
+            </choice>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="locktitle">
+            <choice>
+              <value>no</value>
+              <value>yes</value>
+              <value>-dita-use-conref-target</value>
+            </choice>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="print">
+            <choice>
+              <value>no</value>
+              <value>printonly</value>
+              <value>yes</value>
+              <value>-dita-use-conref-target</value>
+            </choice>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="chunk"/>
+        </optional>
+        <ref name="univ-atts"/>
+      </define>
+      <define name="pubbody.element">
+        <element name="pubbody" dita:longName="pubbody">
+          <a:documentation/>
+          <ref name="pubbody.attlist"/>
+          <ref name="pubbody.content"/>
+        </element>
+      </define>
+      <define name="pubbody.attlist" combine="interleave">
+        <ref name="pubbody.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>Chapter                      </a:documentation>
+      <define name="chapter.content">
+
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <choice>
+            <ref name="subsection"/>
+            <ref name="division"/>
+            <ref name="sidebar"/>
+            <ref name="page"/>
+            <ref name="topicref"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="chapter.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="chapter.element">
+        <element name="chapter" dita:longName="chapter">
+          <a:documentation/>
+          <ref name="chapter.attlist"/>
+          <ref name="chapter.content"/>
+        </element>
+      </define>
+      <define name="chapter.attlist" combine="interleave">
+        <ref name="chapter.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>Article                   </a:documentation>
+      <define name="article.content">
+        <ref name="chapter.content"/>
+      </define>
+      <define name="article.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="article.element">
+        <element name="article" dita:longName="article">
+          <a:documentation/>
+          <ref name="article.attlist"/>
+          <ref name="article.content"/>
+        </element>
+      </define>
+      <define name="article.attlist" combine="interleave">
+        <ref name="article.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>Subsection                   </a:documentation>
+      <define name="subsection.content">
+
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <choice>
+            <ref name="subsection"/>
+            <ref name="division"/>
+            <ref name="sidebar"/>
+            <ref name="page"/>
+            <ref name="topicref"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="subsection.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="subsection.element">
+        <element name="subsection" dita:longName="subsection">
+          <a:documentation/>
+          <ref name="subsection.attlist"/>
+          <ref name="subsection.content"/>
+        </element>
+      </define>
+      <define name="subsection.attlist" combine="interleave">
+        <ref name="subsection.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>Sidebar                   </a:documentation>
+      <define name="sidebar.content">
+
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <optional>
+            <ref name="subsection"/>
+            <ref name="division"/>
+            <ref name="page"/>
+            <ref name="topicref.element"/>
+            <ref name="topicgroup.element"/>
+            <ref name="topichead.element"/>
+          </optional>
+        </zeroOrMore>
+      </define>
+      <define name="sidebar.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="sidebar.element">
+        <element name="sidebar" dita:longName="sidebar">
+          <a:documentation/>
+          <ref name="sidebar.attlist"/>
+          <ref name="sidebar.content"/>
+        </element>
+      </define>
+      <define name="sidebar.attlist" combine="interleave">
+        <ref name="sidebar.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>Covers                   </a:documentation>
+      <define name="covers.content">
+        <zeroOrMore>
+          <ref name="epub-cover-graphic"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="epub-cover"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="front-cover"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="inside-front-cover"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="back-cover"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="book-jacket"/>
+        </zeroOrMore>
+      </define>
+      <!-- FIXME: should be a topic group -->
+      <define name="covers.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="covers.element">
+        <element name="covers" dita:longName="covers">
+          <a:documentation/>
+          <ref name="covers.attlist"/>
+          <ref name="covers.content"/>
+        </element>
+      </define>
+      <define name="covers.attlist" combine="interleave">
+        <ref name="covers.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>epub-cover                   </a:documentation>
+      <define name="epub-cover.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="epub-cover.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="epub-cover.element">
+        <element name="epub-cover" dita:longName="epub-cover">
+          <a:documentation/>
+          <ref name="epub-cover.attlist"/>
+          <ref name="epub-cover.content"/>
+        </element>
+      </define>
+      <define name="epub-cover.attlist" combine="interleave">
+        <ref name="epub-cover.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>epub-cover-graphic            </a:documentation>
+      <!-- Points to a graphic to use for EPUB covers (e.g., for iBooks) -->
+      <define name="epub-cover-graphic.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="epub-cover-graphic.attributes">
+        <optional>
+          <attribute name="processing-role" a:defaultValue="resource-only"/>
+          <choice>
+            <value>normal</value>
+            <value>resource-only</value>
+          </choice>
+        </optional>
+        <!--              scope 
+                        (local) 
+                                  'local'
+              format 
+                        (jpg | 
+                         png |
+                         gif |
+                         svg)
+                        #REQUIRED                         
+              href
+                  CDATA
+                  #IMPLIED
+              keyref
+                  CDATA
+                  #IMPLIED
+              keys
+                  NMTOKENS
+                  #IMPLIED   
+              navtitle
+                  CDATA
+                    #IMPLIED
+-->
+        <ref name="univ-atts"/>
+      </define>
+      <define name="epub-cover-graphic.element">
+        <element name="epub-cover-graphic" dita:longName="epub-cover-graphic">
+          <a:documentation/>
+          <ref name="epub-cover-graphic.attlist"/>
+          <ref name="epub-cover-graphic.content"/>
+        </element>
+      </define>
+      <define name="epub-cover-graphic.attlist" combine="interleave">
+        <ref name="epub-cover-graphic.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>front-cover                   </a:documentation>
+      <define name="front-cover.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="front-cover.attributes">
+        <ref name="chapter-atts"/>
+        <optional>
+          <attribute name="navtitle"/>
+        </optional>
+      </define>
+      <define name="front-cover.element">
+        <element name="front-cover" dita:longName="front-cover">
+          <a:documentation/>
+          <ref name="front-cover.attlist"/>
+          <ref name="front-cover.content"/>
+        </element>
+      </define>
+      <define name="front-cover.attlist" combine="interleave">
+        <ref name="front-cover.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>inside front cover                   </a:documentation>
+      <define name="inside-front-cover.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="inside-front-cover.attributes">
+        <ref name="chapter-atts"/>
+        <optional>
+          <attribute name="navtitle"/>
+        </optional>
+
+      </define>
+      <define name="inside-front-cover.element">
+        <element name="inside-front-cover" dita:longName="inside-front-cover">
+          <a:documentation/>
+          <ref name="inside-front-cover.attlist"/>
+          <ref name="inside-front-cover.content"/>
+        </element>
+      </define>
+      <define name="inside-front-cover.attlist" combine="interleave">
+        <ref name="inside-front-cover.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>back cover                   </a:documentation>
+      <define name="back-cover.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="back-cover.attributes">
+        <ref name="chapter-atts"/>
+        <optional>
+          <attribute name="navtitle"/>
+        </optional>
+
+      </define>
+      <define name="back-cover.element">
+        <element name="back-cover" dita:longName="back-cover">
+          <a:documentation/>
+          <ref name="back-cover.attlist"/>
+          <ref name="back-cover.content"/>
+        </element>
+      </define>
+      <define name="back-cover.attlist" combine="interleave">
+        <ref name="back-cover.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>wrap cover                   </a:documentation>
+      <define name="wrap-cover.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="wrap-cover.attributes">
+        <ref name="chapter-atts"/>
+        <optional>
+          <attribute name="navtitle"/>
+        </optional>
+
+      </define>
+      <define name="wrap-cover.element">
+        <element name="wrap-cover" dita:longName="wrap-cover">
+          <a:documentation/>
+          <ref name="wrap-cover.attlist"/>
+          <ref name="wrap-cover.content"/>
+        </element>
+      </define>
+      <define name="wrap-cover.attlist" combine="interleave">
+        <ref name="wrap-cover.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>front flap                   </a:documentation>
+      <define name="front-flap.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="front-flap.attributes">
+        <ref name="chapter-atts"/>
+        <optional>
+          <attribute name="navtitle"/>
+        </optional>
+
+      </define>
+      <define name="front-flap.element">
+        <element name="front-flap" dita:longName="front-flap">
+          <a:documentation/>
+          <ref name="front-flap.attlist"/>
+          <ref name="front-flap.content"/>
+        </element>
+      </define>
+      <define name="front-flap.attlist" combine="interleave">
+        <ref name="front-flap.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>back flap                   </a:documentation>
+      <define name="back-flap.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="back-flap.attributes">
+        <ref name="chapter-atts"/>
+        <optional>
+          <attribute name="navtitle"/>
+        </optional>
+
+      </define>
+      <define name="back-flap.element">
+        <element name="back-flap" dita:longName="back-flap">
+          <a:documentation/>
+          <ref name="back-flap.attlist"/>
+          <ref name="back-flap.content"/>
+        </element>
+      </define>
+      <define name="back-flap.attlist" combine="interleave">
+        <ref name="back-flap.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>spine                   </a:documentation>
+      <define name="spine.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="spine.attributes">
+        <ref name="chapter-atts"/>
+        <optional>
+          <attribute name="navtitle"/>
+        </optional>
+
+      </define>
+      <define name="spine.element">
+        <element name="spine" dita:longName="spine">
+          <a:documentation/>
+          <ref name="spine.attlist"/>
+          <ref name="spine.content"/>
+        </element>
+      </define>
+      <define name="spine.attlist" combine="interleave">
+        <ref name="spine.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>book jacket                   </a:documentation>
+      <define name="book-jacket.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <optional>
+          <ref name="front-flap"/>
+        </optional>
+        <optional>
+          <ref name="back-flap"/>
+        </optional>
+        <optional>
+          <ref name="spine"/>
+        </optional>
+        <choice>
+          <ref name="wrap-cover"/>
+          <optional>
+            <ref name="front-cover"/>
+          </optional>
+        </choice>
+        <optional>
+          <ref name="back-cover"/>
+        </optional>
+      </define>
+      <define name="book-jacket.attributes">
+        <ref name="chapter-atts"/>
+        <optional>
+          <attribute name="navtitle"/>
+        </optional>
+
+      </define>
+      <define name="book-jacket.element">
+        <element name="book-jacket" dita:longName="book-jacket">
+          <a:documentation/>
+          <ref name="book-jacket.attlist"/>
+          <ref name="book-jacket.content"/>
+        </element>
+      </define>
+      <define name="book-jacket.attlist" combine="interleave">
+        <ref name="book-jacket.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>Part                         </a:documentation>
+      <define name="part.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <optional>
+          <ref name="keydefs"/>
+        </optional>
+        <zeroOrMore>
+          <choice>
+            <ref name="chapter"/>
+            <ref name="article"/>
+            <ref name="department"/>
+            <ref name="division"/>
+            <ref name="figurelist"/>
+            <ref name="glossarylist"/>
+            <ref name="partsection"/>
+            <ref name="publist"/>
+            <ref name="publists"/>
+            <ref name="page"/>
+            <ref name="tablelist"/>
+            <ref name="toc"/>
+            <ref name="topicref.element"/>
+            <ref name="topicgroup.element"/>
+            <ref name="topichead.element"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="part.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="part.element">
+        <element name="part" dita:longName="part">
+          <a:documentation/>
+          <ref name="part.attlist"/>
+          <ref name="part.content"/>
+        </element>
+      </define>
+      <define name="part.attlist" combine="interleave">
+        <ref name="part.attributes"/>
+      </define>
+
+
+      <define name="partsection.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <choice>
+            <ref name="chapter"/>
+            <ref name="article"/>
+            <ref name="department"/>
+            <ref name="division"/>
+            <ref name="figurelist"/>
+            <ref name="glossarylist"/>
+            <ref name="partsection"/>
+            <ref name="publist"/>
+            <ref name="publists"/>
+            <ref name="page"/>
+            <ref name="tablelist"/>
+            <ref name="toc"/>
+            <ref name="topicref.element"/>
+            <ref name="topicgroup.element"/>
+            <ref name="topichead.element"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="partsection.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="partsection.element">
+        <element name="partsection" dita:longName="partsection">
+          <a:documentation/>
+          <ref name="partsection.attlist"/>
+          <ref name="partsection.content"/>
+        </element>
+      </define>
+      <define name="partsection.attlist" combine="interleave">
+        <ref name="partsection.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>Department                         </a:documentation>
+      <define name="department.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <choice>
+            <ref name="chapter"/>
+            <ref name="article"/>
+            <ref name="department"/>
+            <ref name="division"/>
+            <ref name="subsection"/>
+            <ref name="page"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="department.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="department.element">
+        <element name="department" dita:longName="department">
+          <a:documentation/>
+          <ref name="department.attlist"/>
+          <ref name="department.content"/>
+        </element>
+      </define>
+      <define name="department.attlist" combine="interleave">
+        <ref name="department.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>Division                         </a:documentation>
+      <define name="division.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <choice>
+            <ref name="chapter"/>
+            <ref name="article"/>
+            <ref name="department"/>
+            <ref name="division"/>
+            <ref name="subsection"/>
+            <ref name="page"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="division.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="division.element">
+        <element name="division" dita:longName="division">
+          <a:documentation/>
+          <ref name="division.attlist"/>
+          <ref name="division.content"/>
+        </element>
+      </define>
+      <define name="division.attlist" combine="interleave">
+        <ref name="division.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>Appendixes                     </a:documentation>
+      <define name="appendixes.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <choice>
+            <ref name="appendix"/>
+            <ref name="chapter"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="appendixes.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="appendixes.element">
+        <element name="appendixes" dita:longName="appendixes">
+          <a:documentation/>
+          <ref name="appendixes.attlist"/>
+          <ref name="appendixes.content"/>
+        </element>
+      </define>
+      <define name="appendixes.attlist" combine="interleave">
+        <ref name="appendixes.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>Appendix                     </a:documentation>
+      <define name="appendix.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="topicref"/>
+        </zeroOrMore>
+      </define>
+      <define name="appendix.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="appendix.element">
+        <element name="appendix" dita:longName="appendix">
+          <a:documentation/>
+          <ref name="appendix.attlist"/>
+          <ref name="appendix.content"/>
+        </element>
+      </define>
+      <define name="appendix.attlist" combine="interleave">
+        <ref name="appendix.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>Notices                      </a:documentation>
+      <define name="notices.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="topicref"/>
+        </zeroOrMore>
+      </define>
+      <define name="notices.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="notices.element">
+        <element name="notices" dita:longName="notices">
+          <a:documentation/>
+          <ref name="notices.attlist"/>
+          <ref name="notices.content"/>
+        </element>
+      </define>
+      <define name="notices.attlist" combine="interleave">
+        <ref name="notices.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>Amendments                   </a:documentation>
+      <define name="amendments.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="amendments.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="amendments.element">
+        <element name="amendments" dita:longName="amendments">
+          <a:documentation/>
+          <ref name="amendments.attlist"/>
+          <ref name="amendments.content"/>
+        </element>
+      </define>
+      <define name="amendments.attlist" combine="interleave">
+        <ref name="amendments.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>Colophon                     </a:documentation>
+      <define name="colophon.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="colophon.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="colophon.element">
+        <element name="colophon" dita:longName="colophon">
+          <a:documentation/>
+          <ref name="colophon.attlist"/>
+          <ref name="colophon.content"/>
+        </element>
+      </define>
+      <define name="colophon.attlist" combine="interleave">
+        <ref name="colophon.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>Copyright page               </a:documentation>
+      <define name="copyright-page.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="copyright-page.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="copyright-page.element">
+        <element name="copyright-page" dita:longName="copyright-page">
+          <a:documentation/>
+          <ref name="copyright-page.attlist"/>
+          <ref name="copyright-page.content"/>
+        </element>
+      </define>
+      <define name="copyright-page.attlist" combine="interleave">
+        <ref name="copyright-page.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>pub Lists                   </a:documentation>
+      <define name="publists.content">
+        <zeroOrMore>
+          <choice>
+
+            <ref name="abbrevlist"/>
+            <ref name="bibliolist"/>
+            <ref name="publist"/>
+            <ref name="figurelist"/>
+            <ref name="glossarylist"/>
+            <ref name="indexlist"/>
+            <ref name="tablelist"/>
+            <ref name="trademarklist"/>
+            <ref name="toc"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="publists.attributes">
+        <optional>
+          <attribute name="keyref"/>
+        </optional>
+        <ref name="topicref-atts"/>
+        <ref name="id-atts"/>
+        <ref name="select-atts"/>
+        <ref name="localization-atts"/>
+      </define>
+      <define name="publists.element">
+        <element name="publists" dita:longName="publists">
+          <a:documentation/>
+          <ref name="publists.attlist"/>
+          <ref name="publists.content"/>
+        </element>
+      </define>
+      <define name="publists.attlist" combine="interleave">
+        <ref name="publists.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>Table of Contents            </a:documentation>
+      <define name="toc.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="toc.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="toc.element">
+        <element name="toc" dita:longName="toc">
+          <a:documentation/>
+          <ref name="toc.attlist"/>
+          <ref name="toc.content"/>
+        </element>
+      </define>
+      <define name="toc.attlist" combine="interleave">
+        <ref name="toc.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>Figure List                  </a:documentation>
+      <define name="figurelist.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="figurelist.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="figurelist.element">
+        <element name="figurelist" dita:longName="figurelist">
+          <a:documentation/>
+          <ref name="figurelist.attlist"/>
+          <ref name="figurelist.content"/>
+        </element>
+      </define>
+      <define name="figurelist.attlist" combine="interleave">
+        <ref name="figurelist.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>Table List                   </a:documentation>
+      <define name="tablelist.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="tablelist.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="tablelist.element">
+        <element name="tablelist" dita:longName="tablelist">
+          <a:documentation/>
+          <ref name="tablelist.attlist"/>
+          <ref name="tablelist.content"/>
+        </element>
+      </define>
+      <define name="tablelist.attlist" combine="interleave">
+        <ref name="tablelist.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>Abbreviation List            </a:documentation>
+      <define name="abbrevlist.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="abbrevlist.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="abbrevlist.element">
+        <element name="abbrevlist" dita:longName="abbrevlist">
+          <a:documentation/>
+          <ref name="abbrevlist.attlist"/>
+          <ref name="abbrevlist.content"/>
+        </element>
+      </define>
+      <define name="abbrevlist.attlist" combine="interleave">
+        <ref name="abbrevlist.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>Trademark List               </a:documentation>
+      <define name="trademarklist.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="trademarklist.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="trademarklist.element">
+        <element name="trademarklist" dita:longName="trademarklist">
+          <a:documentation/>
+          <ref name="trademarklist.attlist"/>
+          <ref name="trademarklist.content"/>
+        </element>
+      </define>
+      <define name="trademarklist.attlist" combine="interleave">
+        <ref name="trademarklist.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>Bibliography List            </a:documentation>
+      <define name="bibliolist.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="bibliolist.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="bibliolist.element">
+        <element name="bibliolist" dita:longName="bibliolist">
+          <a:documentation/>
+          <ref name="bibliolist.attlist"/>
+          <ref name="bibliolist.content"/>
+        </element>
+      </define>
+      <define name="bibliolist.attlist" combine="interleave">
+        <ref name="bibliolist.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>Glossary List                </a:documentation>
+      <define name="glossarylist.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="topicref"/>
+        </zeroOrMore>
+      </define>
+      <define name="glossarylist.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="glossarylist.element">
+        <element name="glossarylist" dita:longName="glossarylist">
+          <a:documentation/>
+          <ref name="glossarylist.attlist"/>
+          <ref name="glossarylist.content"/>
+        </element>
+      </define>
+      <define name="glossarylist.attlist" combine="interleave">
+        <ref name="glossarylist.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>Glossary                </a:documentation>
+      <define name="glossary.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <choice>
+            <ref name="glossary-group"/>
+            <ref name="glossentry"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="glossary.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="glossary.element">
+        <element name="glossary" dita:longName="glossary">
+          <a:documentation/>
+          <ref name="glossary.attlist"/>
+          <ref name="glossary.content"/>
+        </element>
+      </define>
+      <define name="glossary.attlist" combine="interleave">
+        <ref name="glossary.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>Glossary Group               </a:documentation>
+      <define name="glossary-group.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+        <zeroOrMore>
+          <choice>
+            <ref name="glossary-group"/>
+            <ref name="glossentry"/>
+          </choice>
+        </zeroOrMore>
+      </define>
+      <define name="glossary-group.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="glossary-group.element">
+        <element name="glossary-group" dita:longName="glossary-group">
+          <a:documentation/>
+          <ref name="glossary-group.attlist"/>
+          <ref name="glossary-group.content"/>
+        </element>
+      </define>
+      <define name="glossary-group.attlist" combine="interleave">
+        <ref name="glossary-group.attributes"/>
+      </define>
+
+
+    </div>
+    <div>
+      <a:documentation>Glossary Entry               </a:documentation>
+      <define name="glossentry.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="glossentry.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="glossentry.element">
+        <element name="glossentry" dita:longName="glossentry">
+          <a:documentation/>
+          <ref name="glossentry.attlist"/>
+          <ref name="glossentry.content"/>
+        </element>
+      </define>
+      <define name="glossentry.attlist" combine="interleave">
+        <ref name="glossentry.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>Index List                   </a:documentation>
+      <define name="indexlist.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="indexlist.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="indexlist.element">
+        <element name="indexlist" dita:longName="indexlist">
+          <a:documentation/>
+          <ref name="indexlist.attlist"/>
+          <ref name="indexlist.content"/>
+        </element>
+      </define>
+      <define name="indexlist.attlist" combine="interleave">
+        <ref name="indexlist.attributes"/>
+      </define>
+
+
+
+    </div>
+    <div>
+      <a:documentation>pub List                    </a:documentation>
+      <define name="publist.content">
+        <optional>
+          <ref name="topicmeta"/>
+        </optional>
+      </define>
+      <define name="publist.attributes">
+        <ref name="chapter-atts"/>
+      </define>
+      <define name="publist.element">
+        <element name="publist" dita:longName="publist">
+          <a:documentation/>
+          <ref name="publist.attlist"/>
+          <ref name="publist.content"/>
+        </element>
+      </define>
+      <define name="publist.attlist" combine="interleave">
+        <ref name="publist.attributes"/>
+      </define>
+
+    </div>
+  </div>
+  <div><a:documentation>SPECIALIZATION ATTRIBUTE DECLARATIONS</a:documentation>
+    <define name="abbrevlist.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/abbrevlist "/>
+      </optional>
+    </define>
+    <define name="amendments.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/amendments "/>
+      </optional>
+    </define>
+    <define name="appendix.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/appendix "/>
+      </optional>
+    </define>
+    <define name="appendixes.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/appendixes "/>
+      </optional>
+    </define>
+    <define name="article.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/article "/>
+      </optional>
+    </define>
+    <define name="back-cover.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/back-cover "/>
+      </optional>
+    </define>
+    <define name="back-flap.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/back-flap "/>
+      </optional>
+    </define>
+    <define name="backmatter.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/backmatter "/>
+      </optional>
+    </define>
+    <define name="book-jacket.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/book-jacket "/>
+      </optional>
+    </define>
+    <define name="bibliolist.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/bibliolist "/>
+      </optional>
+    </define>
+    <define name="chapter.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/chapter "/>
+      </optional>
+    </define>
+    <define name="colophon.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/colophon "/>
+      </optional>
+    </define>
+    <define name="copyright-page.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/copyright-page "/>
+      </optional>
+    </define>
+    <define name="covers.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/covers "/>
+      </optional>
+    </define>
+    <define name="dedication.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/dedication "/>
+      </optional>
+    </define>
+    <define name="department.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/department "/>
+      </optional>
+    </define>
+    <define name="division.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/division "/>
+      </optional>
+    </define>
+    <define name="draftintro.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/draftintro "/>
+      </optional>
+    </define>
+    <define name="epub-cover.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/epub-cover "/>
+      </optional>
+    </define>
+    <define name="epub-cover-graphic.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/epub-cover-graphic "/>
+      </optional>
+    </define>
+    <define name="figurelist.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/figurelist "/>
+      </optional>
+    </define>
+    <define name="forward.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/forward "/>
+      </optional>
+    </define>
+    <define name="front-cover.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/front-cover "/>
+      </optional>
+    </define>
+    <define name="front-flap.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/front-flap "/>
+      </optional>
+    </define>
+    <define name="frontmatter.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/frontmatter "/>
+      </optional>
+    </define>
+    <define name="glossary.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/glossary "/>
+      </optional>
+    </define>
+    <define name="glossentry.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/glossentry "/>
+      </optional>
+    </define>
+    <define name="glossary-group.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/glossary-group "/>
+      </optional>
+    </define>
+    <define name="glossarylist.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/glossarylist "/>
+      </optional>
+    </define>
+    <define name="indexlist.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/indexlist "/>
+      </optional>
+    </define>
+    <define name="inside-front-cover.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/inside-front-cover "/>
+      </optional>
+    </define>
+    <define name="keydefs.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/keydefs "/>
+      </optional>
+    </define>
+    <define name="keydef-group.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/keydef-group "/>
+      </optional>
+    </define>
+    <define name="notices.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/notices "/>
+      </optional>
+    </define>
+    <define name="page.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/page "/>
+      </optional>
+    </define>
+    <define name="part.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/part "/>
+      </optional>
+    </define>
+    <define name="partsection.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/partsection "/>
+      </optional>
+    </define>
+    <define name="preface.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/preface "/>
+      </optional>
+    </define>
+    <define name="pubabstract.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/pubabstract "/>
+      </optional>
+    </define>
+    <define name="publist.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/publist "/>
+      </optional>
+    </define>
+    <define name="publists.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/publists "/>
+      </optional>
+    </define>
+    <define name="pubbody.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/pubbody "/>
+      </optional>
+    </define>
+    <define name="publication.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/publication "/>
+      </optional>
+    </define>
+    <define name="sidebar.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/sidebar "/>
+      </optional>
+    </define>
+    <define name="spine.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/spine "/>
+      </optional>
+    </define>
+    <define name="subsection.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/subsection "/>
+      </optional>
+    </define>
+    <define name="tablelist.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/tablelist "/>
+      </optional>
+    </define>
+    <define name="toc.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/toc "/>
+      </optional>
+    </define>
+    <define name="trademarklist.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/trademarklist "/>
+      </optional>
+    </define>
+    <define name="wrap-cover.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ map/topicref pubmap-d/wrap-cover "/>
+      </optional>
+    </define>
+
+    <!-- title types: -->
+
+    <define name="pubtitle.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ topic/title pubmap-d/pubtitle "/>
+      </optional>
+    </define>
+
+    <!-- ph types: -->
+
+    <define name="mainpubtitle.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ topic/ph pubmap-d/mainpubtitle "/>
+      </optional>
+    </define>
+    <define name="subtitle.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ topic/ph pubmap-d/subtitle "/>
+      </optional>
+    </define>
+    <define name="pubtitlealt.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ topic/ph pubmap-d/pubtitlealt "/>
+      </optional>
+    </define>
+    <define name="publibrary.attlist" combine="interleave">
+      <ref name="global-atts"/>
+      <optional>
+        <attribute name="class" a:defaultValue="+ topic/ph pubmap-d/publibrary "/>
+      </optional>
+    </define>
+
+
+    <!-- ================== End pub map domain ============================= -->
+  </div>
+</grammar>

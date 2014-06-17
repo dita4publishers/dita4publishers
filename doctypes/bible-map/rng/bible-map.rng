@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../checkShell.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+         xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+  <moduleDesc xmlns="http://dita.oasis-open.org/architecture/2005/">
+      <moduleTitle>DITA Bible Map Shell</moduleTitle>
+      <headerComment xml:space="preserve">      
+=============================================================
+DITA for Publishers Bible Map Document Type Shell
+
+Represents a bible as a publication
+
+This is a sample document type shell. Copy and set your own
+public IDs and copyright statement for production use.
+
+Copyright (c) 2014 DITA for Publishers
+=============================================================
+</headerComment>
+      <moduleMetadata>
+         <moduleType>mapshell</moduleType>
+         <moduleShortName>bible-map</moduleShortName>
+         <shellPublicIds>
+            <dtdShell>-//OASIS//DTD DITA<var presep=" " name="ditaver"/> BookMap//EN</dtdShell>
+            <rncShell>urn:oasis:names:tc:dita:rnc:bible-map.rnc<var presep=":" name="ditaver"/>
+            </rncShell>
+            <rngShell>urn:oasis:names:tc:dita:rng:bible-map.rng<var presep=":" name="ditaver"/>
+            </rngShell>
+            <xsdShell>urn:oasis:names:tc:dita:xsd:bible-map.xsd<var presep=":" name="ditaver"/>
+            </xsdShell>
+         </shellPublicIds>
+      </moduleMetadata>
+  </moduleDesc>
+
+  <div>
+      <a:documentation>ROOT ELEMENT DECLARATION</a:documentation>
+      <start>
+         <ref name="bible-map.element"/>
+      </start>
+  </div>
+  <div>
+      <a:documentation>DOMAINS ATTRIBUTE</a:documentation>
+      <define name="domains-att" combine="interleave">
+         <optional>
+            <attribute name="domains"
+                       a:defaultValue="
+                         (map bible-map)
+                         (map map)
+                         (map pubmap-d)
+                         (topic delay-d)
+                         (topic ditavalref-d)
+                         (topic hi-d)
+                         (topic indexing-d)
+                         (topic mapgroup-d)
+                         a(props deliveryTarget)"/>
+         </optional>
+      </define>
+  </div>
+  <div>
+      <a:documentation>MODULE INCLUSIONS</a:documentation>
+      <include href="urn:oasis:names:tc:dita:rng:mapMod.rng"/>
+      <include href="../../pubmapDomain/rng/pubmapDomainMod.rng"/>
+      <include href="bible-mapMod.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:delayResolutionDomainMod.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:deliveryTargetAttDomainMod.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:ditavalrefDomainMod.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:highlightDomainMod.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:indexingDomainMod.rng"/>
+      <include href="urn:oasis:names:tc:dita:rng:mapGroupMod.rng"/>
+  </div>
+  <div>
+      <a:documentation>ID-DEFINING-ELEMENT OVERRIDES</a:documentation>
+      <define name="any">
+         <zeroOrMore>
+            <choice>
+               <ref name="idElements"/>
+               <element>
+                  <anyName>
+                     <except>
+                        <name>map</name>
+                        <name>bible-map</name>
+                        <name>anchor</name>
+                     </except>
+                  </anyName>
+                  <zeroOrMore>
+                     <attribute>
+                        <anyName/>
+                     </attribute>
+                  </zeroOrMore>
+                  <ref name="any"/>
+               </element>
+               <text/>
+            </choice>
+         </zeroOrMore>
+      </define>
+  </div>
+</grammar>
