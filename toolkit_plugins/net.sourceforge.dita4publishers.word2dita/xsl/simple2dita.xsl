@@ -197,19 +197,7 @@
       <xsl:message> + [DEBUG] rsiwp:map:    newMapUrl="<xsl:value-of select="$newMapUrl"/>"</xsl:message>
     </xsl:if>
     
-    <xsl:if test="not(@mapFormat) and @format">
-      <xsl:message> + [WARN] No @mapFormat attribute for map, using @format. Should use @mapFormat for maps.</xsl:message>
-    </xsl:if>
-    
-    <xsl:variable name="formatName" select="(@mapFormat, @format)[1]" as="xs:string?"/>
-    
-    <xsl:if test="not($formatName)">
-      <xsl:message terminate="yes"> + [ERROR] No @mapFormat attribute for paragraph style <xsl:value-of select="@styleName"/>, which is mapped to structure type "map" or "mapTitle".
-        When a paragraph generates a new map document the style mapping must specify the name of
-        an &lt;output&gt; element with the @mapFormat attribute, e.g. mapFormat="pubmap" where "pubmap"
-        is the name on an &lt;output&gt; in the style-to-tag mapping. 
-      </xsl:message>
-    </xsl:if>
+    <xsl:variable name="formatName" select="@format" as="xs:string?"/>
     
     <xsl:variable name="format" select="key('formats', $formatName, $styleMapDoc)[1]" as="element()?"/>
     <xsl:if test="not($format)">
@@ -543,7 +531,7 @@
       "
     />
     <xsl:if test="not(./@tagName)">
-      <xsl:message> + [WARNING] No style to tag mapping for paragraph style "<xsl:sequence select="string(@style)"/>"</xsl:message>
+      <xsl:message> + [WARNING] No @tagName value for paragraph with style "<xsl:sequence select="string(@style)"/>". This should not happen.</xsl:message>
     </xsl:if>
     <xsl:choose>
       <xsl:when test="count(./*) = 0 and normalize-space(.) = ''">
@@ -1336,7 +1324,7 @@
     </xsl:if>
     
     <xsl:variable name="topicType" as="xs:string"
-      select="local:getTopicType(.)"
+      select="@topicType"
     />
     
     <xsl:variable name="bodyType" as="xs:string"
@@ -1349,8 +1337,7 @@
     
     <xsl:variable name="prologType" as="xs:string"
       select="
-      if (@prologType and @prologType != '' and 
-          not(@secondStructureType = 'topicTitle'))
+      if (@prologType)
       then @prologType
       else 'prolog'
       "

@@ -57,8 +57,14 @@
   </xd:doc>
   
   <xsl:key name="formats" match="stylemap:output" use="@name"/>
-  <xsl:key name="styleMapsById" match="stylemap:style" use="@styleId"/>
-  <xsl:key name="styleMapsByName" match="stylemap:style" use="lower-case(@styleName)"/>
+  <xsl:key name="styleMapsById" 
+    match="stylemap:style | stylemap:paragraphStyle | stylemap:characterStyle"
+    use="@styleId"
+  />
+  <xsl:key name="styleMapsByName" 
+    match="stylemap:style | stylemap:paragraphStyle | stylemap:characterStyle"
+    use="lower-case(@styleName)"
+  />
   <xsl:key name="stylesById" match="w:style" use="@w:styleId"/>
   
   <xsl:variable name="styleMapDoc" as="document-node()"
@@ -139,6 +145,7 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="mapUnstyledParasTo" select="'Normal'" tunnel="yes"/>
     <xsl:param name="stylesDoc" as="document-node()" tunnel="yes"/>
+    <xsl:variable name="doDebug" as="xs:boolean" select="false()"/>
     
     <xsl:variable name="specifiedStyleId" as="xs:string"
       select="string(./w:pPr/w:pStyle/@w:val)"
@@ -168,6 +175,9 @@
       select="($styleMapByName, $styleMapById)[1]"
     />
     
+    <xsl:if test="$doDebug">
+      <xsl:message> + w:p: styleMap=<xsl:sequence select="$styleMap"/></xsl:message>
+    </xsl:if>
     <xsl:variable name="styleData" as="element()">
       <xsl:choose>
         <xsl:when test="$styleMap">          
@@ -176,7 +186,7 @@
         <xsl:when test="not($styleMap) and $specifiedStyleId = '' and normalize-space(.) = ''">
           <!-- Don't report unstyled and completely empty paragraphs. They will be 
           filtered out in later processing phases. -->
-          <stylemap:style styleId="copy"
+          <stylemap:paragraphStyle styleId="copy"
             structureType="block"
             tagName="p"
             topicZone="body"
@@ -189,7 +199,7 @@
                DITA 1.3). Default mapping is to wrap it in
                <equation-block> (also new in DITA 1.3).
             -->
-          <stylemap:style styleId="MTDisplayEquation"
+          <stylemap:paragraphStyle styleId="MTDisplayEquation"
             structureType="block"
             tagName="equation-block"
             topicZone="body"
@@ -212,7 +222,7 @@
               <xsl:message> - [WARNING: No style mapping for paragraph with style "<xsl:sequence select="$styleName"/>" [<xsl:sequence select="$styleId"/>]</xsl:message>
             </xsl:otherwise>
           </xsl:choose>
-          <stylemap:style styleId="copy"
+          <stylemap:paragraphStyle styleId="copy"
             structureType="block"
             tagName="p"
             topicZone="body"
@@ -255,13 +265,34 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="styleId" as="xs:string"/>
     <xsl:param name="styleData" as="element()"/>
+    
+    <xsl:if test="$styleData/self::stylemap:characterStyle">
+      <xsl:message> - [WARN] Paragraph style "<xsl:value-of select="$styleId"/>" is a paragraph style but 
+      is mapped using a <xsl:value-of select="local-name($styleData)"/> element.</xsl:message>
+    </xsl:if>
     <p style="{$styleId}" wordLocation="{saxon:path()}">
+      <!-- If this paragraph generates a topic, then its tagName
+           will be the tagname for the topic title, so we want
+           that on the paragraph itself.
+        -->
+      <xsl:sequence select="stylemap:topicProperties/@tagName"/>
       <xsl:for-each select="$styleData/@*">
         <xsl:copy/>
       </xsl:for-each>
       <xsl:if test="not($styleData/@topicZone)">
-        <xsl:attribute name="topicZone" select="'body'"/>
+        <xsl:attribute name="topicZone" 
+          select="'body'"
+        />
       </xsl:if>
+      <!-- Set attributes on the paragraph indicating if it generates a map, topic, or topicref.
+           These attributes make subsequent grouping logic easier. 
+        -->
+      <xsl:apply-templates select="$styleData/*" mode="set-map-structure-atts"/>
+      <!-- Copy any child elements to the paragraph -->
+      <xsl:if test="$doDebug">
+        <xsl:message> + [DEBUG] handlePara: styleData=<xsl:sequence select="$styleData"/></xsl:message>
+      </xsl:if>
+      <xsl:sequence select="$styleData/stylemap:*"/>
       <xsl:if test="$doDebug">        
         <xsl:message> + [DEBUG] handlePara: p="<xsl:sequence select="substring(normalize-space(.), 1, 40)"/>"</xsl:message>
       </xsl:if>
@@ -327,6 +358,18 @@
     
   </xsl:template>
   
+  <xsl:template mode="set-map-structure-atts" match="stylemap:mapProperties">
+    <xsl:attribute name="generatesMap" select="'true'"/>
+  </xsl:template>
+  
+  <xsl:template mode="set-map-structure-atts" match="stylemap:topicProperties">
+    <xsl:attribute name="generatesTopic" select="'true'"/>
+  </xsl:template>
+  
+  <xsl:template mode="set-map-structure-atts" match="stylemap:topicrefProperties">
+    <xsl:attribute name="generatesTopicref" select="'true'"/>
+  </xsl:template>
+  
   <xsl:template name="handleRunSequence">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="runSequence" as="element()*"/>
@@ -370,7 +413,7 @@
           -->
         <xsl:choose>
           <xsl:when test="$styleName = 'MTConvertedEquation'">
-            <stylemap:style styleId="MTConvertedEquation"
+            <stylemap:characterStyle styleId="MTConvertedEquation"
             structureType="ph"
             tagName="mathml"
           />          
@@ -577,7 +620,7 @@
           <xsl:sequence select="$runStyleMap"/>
         </xsl:when>
         <xsl:otherwise>
-          <stylemap:style styleId="Hyperlink"
+          <stylemap:characterStyle styleId="Hyperlink"
             structureType="xref"
             tagName="xref"
           />          
@@ -644,7 +687,7 @@
   <xsl:template match="w:tbl">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:variable name="styleData" as="element()">
-      <stylemap:style styleId="table"
+      <stylemap:paragraphStyle styleId="table"
         structureType="block"
         tagName="table"
         topicZone="body"

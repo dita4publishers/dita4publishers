@@ -1063,7 +1063,7 @@
         <xs:annotation>
           <xs:documentation>
             <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
-              <h2>Put Metadata Value In value= or Content</h2>
+              <h2>Put Metadata Value In @value or Content</h2>
               <p>For elements that map to some specialization of topic/data, indicates whether the
                 value goes in the element content ("content") or the @value attribute ("value").</p>
             </xhtml:div>
@@ -1295,7 +1295,7 @@
         <xs:annotation>
           <xs:documentation>
             <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
-              <h2>Immediate Element outputclass= Value</h2>
+              <h2>Immediate Element @outputclass Value</h2>
               <p>The @outputclass value to use on the element directly generated from the incoming
                 style (that is, the element specified by the @tagName attribute).</p>
             </xhtml:div>
@@ -1309,7 +1309,7 @@
         <xs:annotation>
           <xs:documentation>
             <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
-              <h2>Value for outputclass= on Topic</h2>
+              <h2>Value for @outputclass on Topic</h2>
               <p>For styles that generate topics, indicates the @outputclass value to use for the
                 generated topic.</p>
             </xhtml:div>
@@ -1369,7 +1369,7 @@
         <xs:annotation>
           <xs:documentation>
             <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
-              <h2>Container Element outputclass= Value</h2>
+              <h2>Container Element @outputclass Value</h2>
               <p>For styles that imply the creation of a container element (e.g., list items),
                 specifies the @outputclass value for the container.</p>
             </xhtml:div>
@@ -2241,7 +2241,7 @@
         <xs:annotation>
           <xs:documentation>
             <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
-              <h2>Put Metadata Value In value= or Content</h2>
+              <h2>Put Metadata Value In @value or Content</h2>
               <p>For elements that map to some specialization of topic/data, indicates whether the
                 value goes in the element content ("content") or the @value attribute ("value").</p>
             </xhtml:div>
@@ -2287,7 +2287,7 @@
         <xs:annotation>
           <xs:documentation>
             <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
-              <h2>Immediate Element outputclass= Value</h2>
+              <h2>Immediate Element @outputclass Value</h2>
               <p>The @outputclass value to use on the element directly generated from the incoming
                 style (that is, the element specified by the @tagName attribute).</p>
             </xhtml:div>
@@ -2347,7 +2347,7 @@
         <xs:annotation>
           <xs:documentation>
             <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
-              <h2>Container Element outputclass= Value</h2>
+              <h2>Container Element @outputclass Value</h2>
               <p>For styles that imply the creation of a container element (e.g., list items),
                 specifies the @outputclass value for the container.</p>
             </xhtml:div>
@@ -2526,7 +2526,7 @@
         <xs:annotation>
           <xs:documentation>
             <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
-              <h2>Put Metadata Value In value= or Content</h2>
+              <h2>Put Metadata Value In @value or Content</h2>
               <p>For elements that map to some specialization of topic/data, indicates whether the
                 value goes in the element content ("content") or the @value attribute ("value").</p>
             </xhtml:div>
@@ -2556,7 +2556,7 @@
         <xs:annotation>
           <xs:documentation>
             <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
-              <h2>Immediate Element outputclass= Value</h2>
+              <h2>Immediate Element @outputclass Value</h2>
               <p>The @outputclass value to use on the element directly generated from the incoming
                 style (that is, the element specified by the @tagName attribute).</p>
             </xhtml:div>
@@ -2585,7 +2585,7 @@
         <xs:annotation>
           <xs:documentation>
             <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
-              <h2>Container Element outputclass= Value</h2>
+              <h2>Container Element @outputclass Value</h2>
               <p>For styles that imply the creation of a container element (e.g., list items),
                 specifies the @outputclass value for the container.</p>
             </xhtml:div>
@@ -2721,7 +2721,7 @@
         <xs:annotation>
           <xs:documentation>
             <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
-              <h2>Container Element outputclass= Value</h2>
+              <h2>Container Element @outputclass Value</h2>
               <p>For styles that imply the creation of a container element (e.g., map titles),
                 specifies the @outputclass value for the container.</p>
             </xhtml:div>
@@ -2752,6 +2752,19 @@
               <p>Indicates the tagname for the mapref created for the generated map when the
               generated map is not a root map (and therefore needs to be referenced from
               its parent map). Defaults to "mapref".</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="outputclass"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Immediate Element outputclass= Value</h2>
+              <p>The @outputclass value to use on the generated map element.</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
@@ -3129,6 +3142,19 @@
                 expliclty-indicated section. If not specified, the topic will not have an initial
                 section. Useful for topic types, such as reference and lcLearningContent, that
                 require all topic body content to be within some form of section.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="outputclass"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Immediate Element @outputclass Value</h2>
+              <p>The @outputclass value to use on the generated topic element.</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>

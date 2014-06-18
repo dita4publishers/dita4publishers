@@ -114,12 +114,7 @@
     </xsl:if>
     <xsl:for-each-group select="$content" 
       group-starting-with="
-         *[(string(@structureType) = 
-            ('topicTitle', 
-             'map', 
-             'mapTitle',
-             'topicHead',
-             'topicGroup'))  and
+         *[local:isMapOrTopicStructure(.)  and
             string(@level) = string($level)]">
       <!-- This system of match templates handles the first paragraph of the group
            to see if it generates a map, a map title (if it generates a map), a 
@@ -130,12 +125,7 @@
            to the final simple-to-DITA transform.
         -->
       <xsl:choose>
-        <xsl:when test=".[not(string(@structureType) = 
-            ('topicTitle', 
-             'map', 
-             'mapTitle',
-             'topicHead',
-             'topicGroup'))]">
+        <xsl:when test=".[not(local:isMapOrTopicStructure(.))]">
           <xsl:if test="$doDebug">
             <xsl:message> + [DEBUG] groupMapsAndTopicsByLevel: Group is not a map structure, emitting it.</xsl:message>
           </xsl:if>
@@ -171,7 +161,7 @@
   </xsl:template>
   
   <xsl:template mode="addLevels-map" 
-    match="*[@structureType = ('map', 'mapTitle') or @secondStructureType = ('map', 'mapTitle')]"    
+    match="*[@generatesMap = 'true']"    
     >
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="rest" as="element()*" tunnel="yes"/>
@@ -181,13 +171,26 @@
       <xsl:message> + [DEBUG] addLevels-map: map or mapTitle: <xsl:value-of select="local:reportPara(.)"/></xsl:message>
     </xsl:if>
 
+    <xsl:variable name="outputElem" as="element()?"
+      select="key('formats', string(stylemap:mapProperties/@format)[1], $styleMapDoc)"
+    />
+    
+    <xsl:if test="not($outputElem)">
+      <xsl:message> - [ERROR] No &lt;output&gt; element for format "<xsl:value-of select="stylemap:mapProperties/@format"/>"</xsl:message>
+    </xsl:if>
+
     <xsl:variable name="map" as="element()">
       <rsiwp:map>
-        <xsl:sequence select="@mapType, @mapFormat, @format, @prologType, @styleName, @styleId"/>
+        <xsl:for-each select="$outputElem">
+          <xsl:sequence select="@mapType, @prologType"/>  
+        </xsl:for-each>        
+        <xsl:sequence select="stylemap:mapProperties/@*"/>
+        
         <xsl:apply-templates mode="addLevels-mapTitle" select=".">
           <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+          <xsl:with-param name="tagName" as="xs:string?" select="stylemap:mapProperties/@tagName"/>
         </xsl:apply-templates>
-        <xsl:apply-templates mode="addLevels-topicref" select=".">
+        <xsl:apply-templates mode="addLevels-topicref" select=". except(stylemap:mapProperties)">
           <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
           <xsl:with-param name="level" as="xs:integer" select="@level"/>
         </xsl:apply-templates>
@@ -196,7 +199,10 @@
     <xsl:choose>
       <xsl:when test="$level > 0">
         <rsiwp:mapref>
-          <xsl:sequence select="@maprefType, @maprefFormat, @styleName, @styleId"/>
+          <xsl:sequence select="@styleName, @styleId"/>
+          <xsl:for-each select="stylemap:MapProperties">
+            <xsl:sequence select="@maprefType"/>
+          </xsl:for-each>          
           <xsl:sequence select="$map"/>
         </rsiwp:mapref>
       </xsl:when>
@@ -209,7 +215,9 @@
   <xsl:template mode="addLevels-mapTitle" 
     match="*[@structureType = ('mapTitle') or @secondStructureType = ('mapTitle')]">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:param name="tagName" as="xs:string?" />
     <rsiwp:maptitle>
+      <xsl:attribute name="tagName" select="if ($tagName) then $tagName else 'title'"/>
       <xsl:sequence select="@containerType"/>
       <xsl:sequence select="local:getContainerTypeSiblings(.)"/>
     </rsiwp:maptitle>
@@ -218,7 +226,7 @@
   <xsl:template mode="addLevels-mapTitle" match="*" priority="-1"/>
   
   <xsl:template mode="addLevels-topicref" 
-    match="*[@structureType = 'topicGroup' or @structureType = 'topicHead']">
+    match="*[@structureType = ('topicHead', 'topicGroup') ]" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
         
     <xsl:variable name="level" as="xs:integer" select="@level"/>
@@ -237,8 +245,11 @@
       <xsl:message> + [DEBUG] addLevels-topicref: <xsl:value-of select="local:reportPara(.)"/></xsl:message>
     </xsl:if>
     <xsl:element name="rsiwp:{@structureType}">
-      <xsl:sequence select="@*"/>
-      <xsl:apply-templates select="." mode="addLevels-navtitle"/>
+      <xsl:sequence select="@*, stylemap:topicrefProperties/@*"/>
+      <xsl:apply-templates select="." mode="addLevels-navtitle">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        <xsl:with-param name="tagName" as="xs:string?" select="stylemap:topicrefProperties/@tagName"/>
+      </xsl:apply-templates>
       <xsl:call-template name="groupMapsAndTopicsByLevel">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
         <xsl:with-param name="content" as="element()*" select="$content"/>
@@ -259,55 +270,71 @@
   
   <xsl:template mode="addLevels-navtitle" match="*">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:param name="tagName" as="xs:string?"/>
     <rsiwp:navtitle>
+      <xsl:attribute name="tagName" select="if ($tagName) then $tagName else 'navtitle'"/>
       <xsl:sequence select="local:getContainerTypeSiblings(.)"/>
     </rsiwp:navtitle>
   </xsl:template>
   
   <xsl:template mode="addLevels-topicref" 
-         match="*[@structureType = 'topicTitle' or @secondStructureType = 'topicTitle']">
+         match="*[@generatesTopicref = 'true']">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="level" as="xs:integer" tunnel="yes"/>
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] addLevels-topicref: <xsl:value-of select="local:reportPara(.)"/></xsl:message>
     </xsl:if>
-    <!-- FIXME: Might be better to pass down an indicator that we are in a map context -->
-    <xsl:choose>
-      <xsl:when test="(@topicDoc = 'yes' and $level > 0) or @secondStructureType = 'topicTitle'">
-        <xsl:if test="$doDebug">
-          <xsl:message> + [DEBUG] addLevels-topicref: Will make topic doc, generating topicref.</xsl:message>
-        </xsl:if>
-        <xsl:element name="rsiwp:topicref">
-          <xsl:sequence select="@topicrefType, @styleName, @styleId, @chunk"/>
-          <xsl:apply-templates select="." mode="addLevels-navtitle"/>
-          <xsl:apply-templates mode="addLevels-topic" select=".">
-            <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-            <xsl:with-param name="level" as="xs:integer" tunnel="yes" select="@level"/>
-          </xsl:apply-templates>
-        </xsl:element>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:if test="$doDebug">
-          <xsl:message> + [DEBUG] addLevels-topicref: Will not make topic doc, no topicref</xsl:message>
-        </xsl:if>
-        <xsl:apply-templates mode="addLevels-topic" select=".">
-          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-          <xsl:with-param name="level" as="xs:integer" tunnel="yes" select="@level"/>
-        </xsl:apply-templates>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] addLevels-topicref: Will make topic doc, generating topicref.</xsl:message>
+    </xsl:if>
+    <xsl:element name="rsiwp:topicref">
+      <xsl:sequence select="@styleId, 
+        stylemap:topicrefProperties/@*
+        "
+      />
+      <xsl:apply-templates select="." mode="addLevels-navtitle"/>
+      <xsl:apply-templates mode="addLevels-topic" select=". except (stylemap:topicrefProperties)">
+        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        <xsl:with-param name="level" as="xs:integer" tunnel="yes" select="@level"/>
+      </xsl:apply-templates>
+    </xsl:element>
   </xsl:template>
   
   <xsl:template mode="addLevels-topic" priority="10"
-    match="*[@structureType = 'topicTitle' or @secondStructureType = 'topicTitle']">
+    match="*[@generatesTopic = 'true']">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] addLevels-topicref: <xsl:value-of select="local:reportPara(.)"/></xsl:message>
     </xsl:if>
+    
+    <xsl:variable name="topicOutputElem" as="element()?"
+      select="key('formats', string(stylemap:topicProperties/@format)[1], $styleMapDoc)"
+    />
 
     <rsiwp:topic>
-      <xsl:sequence select="@topicType, @topicrefType, @format, @bodyType, @prologType, @styleName, @styleId, @topicOutputclass"/>
-      <xsl:apply-templates mode="addLevels-handleChildren" select=".">
+      <!-- Attributes on the topicProperties element take
+           precedence over attributes on referenced 
+           output element, if any.
+        -->
+      <!-- Properties from the paragraph element: -->
+      <xsl:sequence select="
+          @styleName, 
+          @styleId"
+      />
+      <xsl:for-each select="$topicOutputElem">
+        <xsl:sequence 
+          select="
+          @topicType, 
+          @topicrefType, 
+          @bodyType, 
+          @prologType
+          "
+        />
+      </xsl:for-each>
+      <xsl:sequence 
+        select="stylemap:topicProperties/@*"
+      />
+      <xsl:apply-templates mode="addLevels-handleChildren" select=". except (stylemap:topicProperties)">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
         <xsl:with-param name="level" as="xs:integer" tunnel="yes" select="@level"/>
       </xsl:apply-templates>
@@ -349,4 +376,20 @@
     <xsl:sequence select="."/>
   </xsl:template>
   
+  <xsl:function name="local:isMapOrTopicStructure">
+    <xsl:param name="p"/>
+    <xsl:variable name="result" 
+      select="(string($p/@structureType) = 
+            ('topicTitle', 
+             'map', 
+             'mapTitle',
+             'topicHead',
+             'topicGroup') or
+            $p/@generatesMap = 'true' or
+            $p/@generatesTopicref = 'true' or
+            $p/@generatesTopic = 'true'
+            )"/>
+    <xsl:sequence select="$result"/>
+  </xsl:function>
+    
 </xsl:stylesheet>
