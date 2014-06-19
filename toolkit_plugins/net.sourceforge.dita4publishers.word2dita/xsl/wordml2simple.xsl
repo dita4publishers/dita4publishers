@@ -270,12 +270,12 @@
       <xsl:message> - [WARN] Paragraph style "<xsl:value-of select="$styleId"/>" is a paragraph style but 
       is mapped using a <xsl:value-of select="local-name($styleData)"/> element.</xsl:message>
     </xsl:if>
-    <p style="{$styleId}" wordLocation="{saxon:path()}">
       <!-- If this paragraph generates a topic, then its tagName
            will be the tagname for the topic title, so we want
            that on the paragraph itself.
         -->
-      <xsl:sequence select="stylemap:topicProperties/@tagName"/>
+    <p style="{$styleId}" wordLocation="{saxon:path()}">
+      <xsl:sequence select="local:getTagnameFromNestedProperties($styleData)"/>
       <xsl:for-each select="$styleData/@*">
         <xsl:copy/>
       </xsl:for-each>
@@ -357,6 +357,42 @@
     </p>
     
   </xsl:template>
+  <xsl:function name="local:getTagnameFromNestedProperties">
+    <xsl:param name="styleData" as="element()?"/>
+    <xsl:variable name="tagName" as="xs:string?">
+      <xsl:choose>
+        <xsl:when test="$styleData/@tagName">
+          <xsl:sequence select="string($styleData/@tagName)"/>
+        </xsl:when>
+        <xsl:when test="$styleData/stylemap:topicrefProperties and count($styleData/*) = 1">
+          <xsl:sequence select="if ($styleData/stylemap:topicrefProperties/@tagName) 
+            then $styleData/stylemap:topicrefProperties/@tagName
+            else 'navtitle'
+            "
+          />
+        </xsl:when>
+        <xsl:when test="$styleData/stylemap:mapProperties and count($styleData/*) = 1">
+          <xsl:sequence select="if ($styleData/stylemap:mapProperties/@tagName) 
+            then $styleData/stylemap:mapProperties/@tagName
+            else 'title'
+            "
+          />
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:sequence 
+            select="($styleData/stylemap:topicProperties/@tagName, 
+                     $styleData/stylemap:topicrefProperties/@tagName, 
+                     $styleData/stylemap:mapProperties/@tagName)[1]"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:if test="$tagName = ''">
+      <xsl:message> - [ERROR] No @tagName attribute for style "<xsl:value-of select="$styleData/@styleName"/>".</xsl:message>
+    </xsl:if>
+    <xsl:if test="$tagName != ''">
+      <xsl:attribute name="tagName" select="$tagName"/>
+    </xsl:if>
+  </xsl:function>
   
   <xsl:template mode="set-map-structure-atts" match="stylemap:mapProperties">
     <xsl:attribute name="generatesMap" select="'true'"/>
