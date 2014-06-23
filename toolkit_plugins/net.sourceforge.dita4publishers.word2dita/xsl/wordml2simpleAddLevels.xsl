@@ -43,9 +43,31 @@
   
   <xsl:template mode="simpleWp-addLevels" match="/">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <xsl:apply-templates select="*" mode="#current">
-       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$debugBoolean"/>
-    </xsl:apply-templates>    
+    <!-- Construct the map, topicref, and topic hierarchy, but without container types. -->
+    <xsl:variable name="structureNoContainerTypes" as="node()*">
+      <xsl:apply-templates select="*" mode="#current">
+         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$debugBoolean"/>
+      </xsl:apply-templates>    
+    </xsl:variable>
+    <xsl:if
+      test="$doSaveIntermediateDocs">
+      <xsl:variable
+        name="tempDocFixup"
+        select="relpath:newFile($outputDir, 'simpleWpWithLevelsNoContainerTypes.xml')"
+        as="xs:string"/>
+      <xsl:result-document format="indented"
+        href="{$tempDocFixup}">
+        <xsl:message> + [DEBUG] Simple WP doc with levels added saved as <xsl:sequence
+            select="$tempDocFixup"/></xsl:message>
+        <xsl:sequence
+          select="$structureNoContainerTypes"/>
+      </xsl:result-document>
+    </xsl:if>
+    <xsl:sequence select="$structureNoContainerTypes"/>
+<!--    <xsl:apply-templates select="$structureNoContainerTypes" mode="handleContainerTypes">-->
+       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="true()"/>
+    <!--</xsl:apply-templates>-->
+  
   </xsl:template>
   
   <xsl:template mode="simpleWp-addLevels" match="/*">
@@ -109,6 +131,8 @@
     <xsl:param name="content" as="element()*"/>
     <xsl:param name="level" as="xs:integer" select="0"/>
     
+    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
+    
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] groupMapsAndTopicsByLevel: level=<xsl:value-of select="$level"/>, content[1]=<xsl:value-of select="local:reportPara($content[1])"/></xsl:message>
     </xsl:if>
@@ -121,7 +145,7 @@
            topicref, and finally a topic.
            
            This will result in the pargraphs grouped to reflect the map and
-           topic hierarchy. This is set of grouped paragraphs is then the input
+           topic hierarchy. This set of grouped paragraphs is then the input
            to the final simple-to-DITA transform.
         -->
       <xsl:choose>
@@ -228,16 +252,17 @@
   <xsl:template mode="addLevels-topicref" 
     match="*[@structureType = ('topicHead', 'topicGroup') ]" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-        
+    <xsl:param name="rest" as="element()*" tunnel="yes"/>
+      
     <xsl:variable name="level" as="xs:integer" select="@level"/>
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] addLevels-topicref: topicHead/Group: level="<xsl:value-of select="$level"/>"</xsl:message>
     </xsl:if>
     
     <xsl:variable name="content" as="element()*"
-      select="./following-sibling::*"
+      select="$rest"
     />
-    <xsl:if test="$doDebug">
+    <xsl:if test="false() and $doDebug">
       <xsl:message> + [DEBUG] addLevels-topicref: topicHead/Group: content="<xsl:value-of select="local:reportParas($content)"/><xsl:value-of select="$level"/>"</xsl:message>
     </xsl:if>
     
@@ -376,6 +401,67 @@
     <xsl:sequence select="."/>
   </xsl:template>
   
+  <!-- ========================================
+       Mode handleContainerTypes
+       ======================================== -->
+  
+  <xsl:template mode="handleContainerTypes" 
+    match="rsiwp:map | 
+           rsiwp:topicref | 
+           rsiwp:topicHead | 
+           rsiwp:topicGroup
+           ">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] handleContainerTypes: <xsl:value-of select="concat(name(..), '/', name(.))"/></xsl:message>
+    </xsl:if>
+    
+    <xsl:copy>
+      <xsl:sequence select="@*"/>
+      <xsl:for-each-group select="*" group-adjacent="concat('x', @containerType)">
+        <xsl:if test="$doDebug">
+          <xsl:message> + [DEBUG] handleContainerTypes:   Group <xsl:value-of select="position()"/></xsl:message>
+        </xsl:if>
+        <xsl:choose>
+          <xsl:when test="current-grouping-key() != 'x'">
+            <xsl:if test="$doDebug">
+              <xsl:message> + [DEBUG] handleContainerTypes:   containerType="<xsl:value-of select="@containerType"/>"</xsl:message>
+            </xsl:if>
+            <rsiwp:topicref topicrefType="{@containerType}"
+              >
+              <xsl:if test="@containerTypeOutputclass">
+                <xsl:attribute name="outputclass" select="@containerTypeOutputclass"/>
+              </xsl:if>
+              <xsl:apply-templates mode="#current" select="current-group()">
+                <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+              </xsl:apply-templates>
+            </rsiwp:topicref>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:if test="$doDebug">
+              <xsl:message> + [DEBUG] handleContainerTypes:   No container type in group</xsl:message>
+            </xsl:if>
+            <xsl:apply-templates mode="#current" select="current-group()">
+              <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+            </xsl:apply-templates>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:for-each-group>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template mode="handleContainerTypes" match="*" priority="-0.5">
+    <xsl:copy>
+      <xsl:sequence select="@*"/>
+      <xsl:apply-templates mode="#current"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template mode="handleContainerTypes" match="text() | processing-instruction() | comment()" priority="0">
+    <xsl:sequence select="."/>
+  </xsl:template>
+
   <xsl:function name="local:isMapOrTopicStructure">
     <xsl:param name="p"/>
     <xsl:variable name="result" 
