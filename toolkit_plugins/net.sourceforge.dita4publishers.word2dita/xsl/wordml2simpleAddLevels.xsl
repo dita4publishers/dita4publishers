@@ -379,6 +379,7 @@
       <xsl:sequence 
         select="stylemap:topicProperties/@*"
       />
+      <xsl:sequence select="."/>
       <xsl:apply-templates mode="addLevels-handleChildren" select=".">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
         <xsl:with-param name="level" as="xs:integer" tunnel="yes" select="@level"/>
@@ -393,7 +394,6 @@
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] addLevels-topic: Catch-all: <xsl:value-of select="local:reportPara(.)"/></xsl:message>
     </xsl:if>
-    <xsl:sequence select="."/>
     <xsl:apply-templates mode="addLevels-handleChildren" select=".">
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       <xsl:with-param name="level" as="xs:integer" tunnel="yes" select="@level"/>
