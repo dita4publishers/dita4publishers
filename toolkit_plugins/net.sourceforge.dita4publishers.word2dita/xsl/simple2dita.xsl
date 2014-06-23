@@ -999,7 +999,7 @@
      by start-row, end-row, start-col, and end-col will be added. First add every value from the first
      column. When past $end-row, move to the next column. When past $end-col, every value is added. -->
     <xsl:template name="add-to-matrix">
-    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+        <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
         <xsl:param name="start-row"/>
         <xsl:param name="end-row"/>
         <xsl:param name="current-row">
@@ -1068,13 +1068,34 @@
     <xsl:if test="not(./@tagName)">
       <xsl:message> + [WARNING] No style to tag mapping for character style "<xsl:sequence select="string(@style)"/>"</xsl:message>
     </xsl:if>
-    <xsl:element name="{$tagName}">
-      <xsl:call-template name="generateXtrcAtt"/>
-      <xsl:if test="@outputclass">
-        <xsl:attribute name="outputclass" select="string(@outputclass)"/>
-      </xsl:if>
-      <xsl:apply-templates mode="#current"/>
-    </xsl:element>
+    <xsl:variable name="containerType" as="xs:string?"
+      select="@containerType"
+    />
+    <xsl:choose>
+      <xsl:when test="$containerType != ''">
+        <xsl:element name="{$containerType}">
+          <xsl:if test="@containerTypeOutputclass">
+            <xsl:attribute name="outputclass" select="@containerTypeOutputclass"/>
+          </xsl:if>
+          <xsl:element name="{$tagName}">
+            <xsl:call-template name="generateXtrcAtt"/>
+            <xsl:if test="@outputclass">
+              <xsl:attribute name="outputclass" select="string(@outputclass)"/>
+            </xsl:if>
+            <xsl:apply-templates mode="#current"/>
+          </xsl:element>
+        </xsl:element>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:element name="{$tagName}">
+          <xsl:call-template name="generateXtrcAtt"/>
+          <xsl:if test="@outputclass">
+            <xsl:attribute name="outputclass" select="string(@outputclass)"/>
+          </xsl:if>
+          <xsl:apply-templates mode="#current"/>
+        </xsl:element>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   
   <xsl:template match="text()" mode="p-content">
@@ -1804,10 +1825,38 @@
     "
     mode="p-content">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <xsl:element name="{local-name()}">
-      <xsl:sequence select="./@*"/>
-      <xsl:apply-templates mode="p-content"/>
-    </xsl:element>
+    
+    <xsl:variable name="containerType" as="xs:string?"
+      select="@containerType"
+    />
+    <xsl:choose>
+      <xsl:when test="$containerType != ''">
+        <xsl:element name="{$containerType}">
+          <xsl:if test="@containerTypeOutputclass">
+            <xsl:attribute name="outputclass" select="@containerTypeOutputclass"/>
+          </xsl:if>
+          <xsl:element name="{local-name()}">
+            <xsl:call-template name="generateXtrcAtt"/>
+            <xsl:if test="@outputclass">
+              <xsl:attribute name="outputclass" select="string(@outputclass)"/>
+            </xsl:if>
+            <xsl:sequence select="./@*"/>
+            <xsl:apply-templates mode="p-content"/>
+          </xsl:element>
+        </xsl:element>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:element name="{local-name()}">
+          <xsl:call-template name="generateXtrcAtt"/>
+          <xsl:if test="@outputclass">
+            <xsl:attribute name="outputclass" select="string(@outputclass)"/>
+          </xsl:if>
+          <xsl:sequence select="./@*"/>
+          <xsl:apply-templates mode="p-content"/>
+        </xsl:element>
+      </xsl:otherwise>
+    </xsl:choose>
+    
   </xsl:template>
   
   <xsl:template mode="p-content" match="rsiwp:bookmarkStart">
