@@ -63,10 +63,10 @@
           select="$structureNoContainerTypes"/>
       </xsl:result-document>
     </xsl:if>
-    <xsl:sequence select="$structureNoContainerTypes"/>
-<!--    <xsl:apply-templates select="$structureNoContainerTypes" mode="handleContainerTypes">-->
+<!--    <xsl:sequence select="$structureNoContainerTypes"/>-->
+    <xsl:apply-templates select="$structureNoContainerTypes" mode="handleContainerTypes">
        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="true()"/>
-    <!--</xsl:apply-templates>-->
+    </xsl:apply-templates>
   
   </xsl:template>
   
@@ -130,8 +130,6 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="content" as="element()*"/>
     <xsl:param name="level" as="xs:integer" select="0"/>
-    
-    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
     
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] groupMapsAndTopicsByLevel: level=<xsl:value-of select="$level"/>, content[1]=<xsl:value-of select="local:reportPara($content[1])"/></xsl:message>
@@ -412,7 +410,7 @@
            rsiwp:topicGroup
            ">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    
+        
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] handleContainerTypes: <xsl:value-of select="concat(name(..), '/', name(.))"/></xsl:message>
     </xsl:if>
@@ -428,7 +426,10 @@
             <xsl:if test="$doDebug">
               <xsl:message> + [DEBUG] handleContainerTypes:   containerType="<xsl:value-of select="@containerType"/>"</xsl:message>
             </xsl:if>
-            <rsiwp:topicref topicrefType="{@containerType}"
+            <!-- Containers in a map context can only be topic groups since there isn't
+                 a title.
+              -->
+            <rsiwp:topicGroup topicrefType="{@containerType}"
               >
               <xsl:if test="@containerTypeOutputclass">
                 <xsl:attribute name="outputclass" select="@containerTypeOutputclass"/>
@@ -436,7 +437,7 @@
               <xsl:apply-templates mode="#current" select="current-group()">
                 <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
               </xsl:apply-templates>
-            </rsiwp:topicref>
+            </rsiwp:topicGroup>
           </xsl:when>
           <xsl:otherwise>
             <xsl:if test="$doDebug">
