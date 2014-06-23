@@ -172,7 +172,7 @@
   
   <xsl:template mode="addLevels-map" match="*" priority="-1">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-
+    
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] addLevels-map: catch-all: <xsl:value-of select="local:reportPara(.)"/></xsl:message>
     </xsl:if>
@@ -188,6 +188,10 @@
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="rest" as="element()*" tunnel="yes"/>
     <xsl:param name="level" as="xs:integer" tunnel="yes" select="0"/>
+    
+    <!-- The context element is the first element of the level-specific group.
+         The $rest is the remaining paragraphs in the group.
+      -->
     
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] addLevels-map: map or mapTitle: <xsl:value-of select="local:reportPara(.)"/></xsl:message>
@@ -207,22 +211,28 @@
           <xsl:sequence select="@mapType, @prologType"/>  
         </xsl:for-each>        
         <xsl:sequence select="stylemap:mapProperties/@*"/>
-        
+        <!-- Construct a map title structure from the paragraph that 
+             generates the map itself. Not all maps will have titles.
+          -->
         <xsl:apply-templates mode="addLevels-mapTitle" select=".">
           <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
           <xsl:with-param name="tagName" as="xs:string?" select="stylemap:mapProperties/@tagName"/>
         </xsl:apply-templates>
-        <xsl:apply-templates mode="addLevels-topicref" select=". except(stylemap:mapProperties)">
+        <xsl:apply-templates mode="addLevels-topicref" select=".">
           <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
           <xsl:with-param name="level" as="xs:integer" select="@level"/>
+          <!-- The $rest parameter is unchanged. -->
         </xsl:apply-templates>
       </rsiwp:map>
     </xsl:variable>
+    <!-- For maps that are not the root map, emit a reference to the map we just
+         generated
+      -->
     <xsl:choose>
       <xsl:when test="$level > 0">
         <rsiwp:mapref>
           <xsl:sequence select="@styleName, @styleId"/>
-          <xsl:for-each select="stylemap:MapProperties">
+          <xsl:for-each select="stylemap:mapProperties">
             <xsl:sequence select="@maprefType"/>
           </xsl:for-each>          
           <xsl:sequence select="$map"/>
@@ -238,6 +248,7 @@
     match="*[@structureType = ('mapTitle') or @secondStructureType = ('mapTitle')]">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="tagName" as="xs:string?" />
+    
     <rsiwp:maptitle>
       <xsl:attribute name="tagName" select="if ($tagName) then $tagName else 'title'"/>
       <xsl:sequence select="@containerType"/>
@@ -267,12 +278,22 @@
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] addLevels-topicref: <xsl:value-of select="local:reportPara(.)"/></xsl:message>
     </xsl:if>
+    
+    <xsl:variable name="navtitleType" as="xs:string"
+      select="(@navtitleType, stylemap:topicrefProperties/@navtitleType)[1]"
+    />
+    
     <xsl:element name="rsiwp:{@structureType}">
       <xsl:sequence select="@*, stylemap:topicrefProperties/@*"/>
-      <xsl:apply-templates select="." mode="addLevels-navtitle">
-        <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-        <xsl:with-param name="tagName" as="xs:string?" select="stylemap:topicrefProperties/@tagName"/>
-      </xsl:apply-templates>
+      <!-- If the navtitle type is e.g. "#noNavTitle" then don't generate a navigation title -->
+      <xsl:if test="not(starts-with($navtitleType, '#'))">
+        <xsl:apply-templates select="." mode="addLevels-navtitle">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+          <xsl:with-param name="tagName" as="xs:string?" 
+            select="$navtitleType"
+          />
+        </xsl:apply-templates>
+      </xsl:if>
       <xsl:call-template name="groupMapsAndTopicsByLevel">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
         <xsl:with-param name="content" as="element()*" select="$content"/>
@@ -294,8 +315,9 @@
   <xsl:template mode="addLevels-navtitle" match="*">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="tagName" as="xs:string?"/>
+    
+    
     <rsiwp:navtitle>
-      <xsl:attribute name="tagName" select="if ($tagName) then $tagName else 'navtitle'"/>
       <xsl:sequence select="local:getContainerTypeSiblings(.)"/>
     </rsiwp:navtitle>
   </xsl:template>
@@ -316,7 +338,7 @@
         "
       />
       <xsl:apply-templates select="." mode="addLevels-navtitle"/>
-      <xsl:apply-templates mode="addLevels-topic" select=". except (stylemap:topicrefProperties)">
+      <xsl:apply-templates mode="addLevels-topic" select=".">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
         <xsl:with-param name="level" as="xs:integer" tunnel="yes" select="@level"/>
       </xsl:apply-templates>
@@ -357,7 +379,7 @@
       <xsl:sequence 
         select="stylemap:topicProperties/@*"
       />
-      <xsl:apply-templates mode="addLevels-handleChildren" select=". except (stylemap:topicProperties)">
+      <xsl:apply-templates mode="addLevels-handleChildren" select=".">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
         <xsl:with-param name="level" as="xs:integer" tunnel="yes" select="@level"/>
       </xsl:apply-templates>
@@ -366,9 +388,12 @@
   
   <xsl:template mode="addLevels-topic" match="*" priority="-1">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:param name="rest" as="element()*" tunnel="yes"/>
+
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] addLevels-topic: Catch-all: <xsl:value-of select="local:reportPara(.)"/></xsl:message>
     </xsl:if>
+    <xsl:sequence select="."/>
     <xsl:apply-templates mode="addLevels-handleChildren" select=".">
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       <xsl:with-param name="level" as="xs:integer" tunnel="yes" select="@level"/>
@@ -384,9 +409,6 @@
       <xsl:message> + [DEBUG] addLevels-handleChildren: <xsl:value-of select="local:reportPara(.)"/>, level="<xsl:value-of select="$level"/>"</xsl:message>
     </xsl:if>
 
-    <!-- Emit the current paragraph then apply the grouping process to the rest. -->
-    <xsl:sequence select="."/>
-    
     <xsl:call-template name="groupMapsAndTopicsByLevel">
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       <xsl:with-param name="content" select="$rest" as="element()*"/>
@@ -422,6 +444,12 @@
           <xsl:message> + [DEBUG] handleContainerTypes:   Group <xsl:value-of select="position()"/></xsl:message>
         </xsl:if>
         <xsl:choose>
+          <xsl:when test=".[self::rsiwp:maptitle or self::rsiwp:navtitle]">
+            <!-- Not a map item, just process it -->
+            <xsl:apply-templates mode="#current" select="current-group()">
+              <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+            </xsl:apply-templates>            
+          </xsl:when>
           <xsl:when test="current-grouping-key() != 'x'">
             <xsl:if test="$doDebug">
               <xsl:message> + [DEBUG] handleContainerTypes:   containerType="<xsl:value-of select="@containerType"/>"</xsl:message>

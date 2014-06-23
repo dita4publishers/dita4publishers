@@ -2797,7 +2797,7 @@
         </xs:annotation>
       </xs:attribute>
       <xs:attribute
-        name="tagname"
+        name="navtitleType"
         type="xs:string"
         use="optional">
         <xs:annotation>
@@ -2806,7 +2806,8 @@
               <h2>Topicref Navigation Title Tagname</h2>
               <p>The tagname for the navigation title element generated
               from the paragraph contents of the paragraph that generates
-              the topicref. Default value is "navtitle".</p>
+              the topicref. Default value is "navtitle". Values starting with
+              "#", e.g. "noNavTitle, suppress the navigation title.</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>

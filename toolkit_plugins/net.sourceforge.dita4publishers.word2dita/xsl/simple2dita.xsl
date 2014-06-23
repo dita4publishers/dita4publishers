@@ -319,9 +319,6 @@
     <xsl:variable name="topicmetaType" as="xs:string"
       select="if (@topicrefTopicmetaType) then @topicrefTopicmetaType else 'topicmeta'"
     />
-    <xsl:variable name="navtitleType" as="xs:string"
-      select="if (@navtitleType) then @navtitleType else 'navtitle'"
-    />
     <xsl:if test="$generateNavtitlesBoolean">
       <xsl:element name="{$topicmetaType}">
         <xsl:call-template name="generateXtrcAtt">
@@ -366,7 +363,7 @@
       <xsl:message> + [DEBUG] rsiwp:mapref: newMapRelativeUrl="<xsl:value-of select="$newMapRelativeUrl"/></xsl:message>
     </xsl:if>
     <xsl:variable name="tagname" as="xs:string"
-      select="@maprefType"
+      select="if (@maprefType) then @maprefType else 'mapref'"
     />
     <xsl:element name="{$tagname}">
       <xsl:attribute name="href" select="$newMapRelativeUrl"/>
@@ -381,7 +378,7 @@
     </xsl:element>
   </xsl:template>
 
-  <xsl:template match="rsiwp:topicref">
+  <xsl:template match="rsiwp:topicref[rsiwp:topic]" priority="10">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="parentMapUrl" as="xs:string" tunnel="yes"/>
     
@@ -394,7 +391,7 @@
     <xsl:variable name="topicrefType" as="xs:string"
       select="if (@topicrefType) then @topicrefType else 'topicref'"
     />
-    <xsl:variable name="topicName" as="xs:string">
+    <xsl:variable name="topicName" as="xs:string?">
       <xsl:apply-templates mode="topic-name" select="rsiwp:topic">
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       </xsl:apply-templates>
@@ -424,7 +421,8 @@
     </xsl:element>
   </xsl:template>
 
-  <xsl:template match="rsiwp:topicHead | rsiwp:topicGroup">
+  <xsl:template match="rsiwp:topicHead | rsiwp:topicGroup | rsiwp:topicref">
+    <!-- Includes topicrefs with no child topic elements. -->
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="parentMapUrl" as="xs:string" tunnel="yes"/>
     
