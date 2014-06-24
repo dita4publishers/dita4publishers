@@ -88,9 +88,6 @@
     <fileset dir="${dita-ot-dir}/lib/org.dita.dost.platform">
       <include name="*.properties"/>
     </fileset>
-    <fileset dir="${dita-ot-dir}/lib">
-      <include name="saxon"/>
-    </fileset>
     <fileset dir="${dita-ot-dir}/lib/saxon">
       <include name="**/*.jar"/>
     </fileset>
