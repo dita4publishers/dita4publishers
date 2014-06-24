@@ -217,6 +217,23 @@
           </xs:documentation>
         </xs:annotation>
       </xs:attribute>
+      <xs:attribute
+        name="initialSectionType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Initial Section Element Type Name</h2>
+              <p>For styles that generate topics, indicates the name of a specialization of
+                topic/section to use to contain any paragraphs within the topic that occur before an
+                explicitly-indicated section. If not specified, the topic will not have an initial
+                section. Useful for topic types, such as reference and lcLearningContent, that
+                require all topic body content to be within some form of section.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:element
@@ -2765,6 +2782,20 @@
             <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Immediate Element outputclass= Value</h2>
               <p>The @outputclass value to use on the generated map element.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="rootTopicrefType"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Root Topicref Element Type</h2>
+              <p>Specifies the tag name for the root topicref element to use around all generated
+              topicrefs within the map.</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>

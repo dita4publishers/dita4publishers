@@ -58,10 +58,20 @@
       topicDoc="yes"
       topicType="concept"
       bodyType="conbody"
+      abstractType="abstract"
+      shortdescType="shortdesc"
+      prologType="prolog"
+      initialSectionType="foosection"
+      navtitleType="navtitle"
+      rootTopicrefType="topicgroup"
       format="concept"
       topicrefType="chapter"
       tagName="title"
       level="1"
+      maprefFormat="ditamap"
+      mapFormat="map"
+      maprefType="mapref"
+      chunk="to-content"
     />    
     <style styleName="heading 2"
       structureType="topicTitle"
@@ -84,6 +94,7 @@
       topicrefType="topicref"
       tagName="title"
       level="3"
+      
     />    
     
     <style styleName="heading 4"
@@ -274,6 +285,10 @@
   
 />
     
+    <style styleName="bold"
+      topicZone="inline"
+      tagName="b"
+      />
     
   </styles>
 </style2tagmap>
