@@ -65,7 +65,7 @@
     </xsl:if>
 <!--    <xsl:sequence select="$structureNoContainerTypes"/>-->
     <xsl:apply-templates select="$structureNoContainerTypes" mode="handleContainerTypes">
-       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="true()"/>
+       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
     </xsl:apply-templates>
   
   </xsl:template>
