@@ -34,7 +34,6 @@
   <xsl:template match="s2m:output">
     <xsl:variable name="format" select="@name" as="xs:string"/>
     <xsl:copy>
-      <xsl:apply-templates select="@*"/>
       <xsl:apply-templates 
         select="(/*/s2m:styles/s2m:style[@format = $format])[1]"
         mode="get-maptype"
@@ -43,6 +42,7 @@
         select="(/*/s2m:styles/s2m:style[@format = $format])[1]"
         mode="get-topictypeAtts"
       />
+      <xsl:sequence select="@*"/><!-- Preserve any attributes on output -->
     </xsl:copy>
   </xsl:template>
   
@@ -88,7 +88,7 @@
                      @mapFormat or
                      @maprefFormat or
                      @maprefType
-                     ]">
+                     ][not(s2m:mapProperties)]">
     <mapProperties>
       <xsl:apply-templates select="@*" mode="#current"/>
     </mapProperties>
@@ -118,7 +118,7 @@
          =========================== -->
   
   <xsl:template mode="make-topicref-properties" 
-     match="s2m:style[@topicrefType or @topicDoc = 'yes']">
+     match="s2m:style[@topicrefType or @topicDoc = 'yes'][not(s2m:topicrefProperties)]">
     <topicrefProperties>
       <xsl:apply-templates select="@*" mode="#current"/>
     </topicrefProperties>
@@ -140,7 +140,7 @@
     match="s2m:style[@structureType = 'topicTitle' or
                      @topicDoc = 'yes' or
                      @topicType
-                     ]"      
+                     ][not(s2m:topicProperties)]"      
     >
     <topicProperties>
       <xsl:apply-templates select="@*" mode="make-topic-properties"/>
@@ -151,7 +151,7 @@
     match="@topicDoc | 
            @topicType |
            @bodyType |
-           @prologType[not(@structureType = ('map', 'mapTitle'))] |
+           @prologType[not(../@structureType = ('map', 'mapTitle'))] |
            @abstractType |
            @shortdescType |
            @initialSectionType
@@ -162,7 +162,13 @@
   <xsl:template mode="make-map-properties make-topicref-properties make-topic-properties"
     match="* | @*" priority="-1"
     >
-    <!-- Nothing to do -->
+    
+  </xsl:template>
+  
+  <xsl:template match="s2m:mapProperties | s2m:topicrefProperties | s2m:topicProperties">
+    <xsl:copy>
+      <xsl:sequence select="@*, node()"/>
+    </xsl:copy>
   </xsl:template>
   
   <xsl:template match="
@@ -182,8 +188,7 @@
     @maprefFormat |
     @mapFormat |
     @maprefType |
-    @prologType[../@structureType = ('map', 'mapTitle')] |
-    @tagName[../@structureType = ('map', 'mapTitle')]
+    @prologType[../@structureType = ('map', 'mapTitle')]
     ">
     <!-- These attributes are handled by the property subelement-creating templates. -->    
   </xsl:template>
