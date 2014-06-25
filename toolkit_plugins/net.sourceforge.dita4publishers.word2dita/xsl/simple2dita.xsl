@@ -327,8 +327,42 @@
         <xsl:apply-templates mode="navtitle">
           <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
         </xsl:apply-templates>
+        
+        <xsl:call-template name="handleTopicrefMetadata">
+          <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+        </xsl:call-template>
       </xsl:element>
     </xsl:if>
+  </xsl:template>
+  
+  <xsl:template match="rsiwp:topicHead/rsiwp:p | 
+                       rsiwp:topicref/rsiwp:p |
+                       rsiwp:topicGroup/rsiwp:p
+                       " priority="10">
+    <!-- Suppressed in default mode -->
+  </xsl:template>
+  
+  <xsl:template name="handleTopicrefMetadata">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <!-- Context is an rsiwp:topicHead, topicref, or topicGroup element -->
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] handleTopicrefMetadata: Handling metadata...</xsl:message>
+    </xsl:if>
+    <xsl:variable name="topicrefMetadata" as="element()*"
+      select="following-sibling::rsiwp:p[@containingTopic = 'currenttopicref' and 
+                                         @topicZone = 'topicmeta'] |
+              ../rsiwp:topic/rsiwp:p[@containingTopic = 'currenttopicref' and 
+                                         @topicZone = 'topicmeta']"
+    />
+    <xsl:if test="$doDebug">
+
+      <xsl:message> + [DEBUG] handleTopicrefMetadata: topicrefMetadata=<xsl:sequence select="local:reportParas($topicrefMetadata)"/></xsl:message>
+    </xsl:if>
+    <metadata><!-- FIXME: Should parameterize this but not bothering to for now. -->
+      <xsl:for-each select="$topicrefMetadata">
+        <xsl:call-template name="transformPara"/>
+      </xsl:for-each>   
+    </metadata>
   </xsl:template>
   
   <xsl:template mode="navtitle" match="rsiwp:*">
@@ -1421,7 +1455,7 @@
         </xsl:if>      
         <xsl:choose>
           <xsl:when test="current-group()[position() = 1] and current-group()[1][not(string(@structureType) = ('topicTitle'))]">
-            <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
+            
             <xsl:if test="$doDebug">
               <xsl:message> + [DEBUG] constructTopic: First group and it does not start with topicTitle structure type.</xsl:message>
               <xsl:message> + [DEBUG] constructTopic:   currentGroup=<xsl:sequence select="local:reportParas(current-group())"/></xsl:message>
