@@ -154,7 +154,8 @@
            @prologType[not(../@structureType = ('map', 'mapTitle'))] |
            @abstractType |
            @shortdescType |
-           @initialSectionType
+           @initialSectionType |
+           @format[not(../@structureType = ('map', 'mapTitle'))]
            ">
     <xsl:sequence select="."/>
   </xsl:template>
