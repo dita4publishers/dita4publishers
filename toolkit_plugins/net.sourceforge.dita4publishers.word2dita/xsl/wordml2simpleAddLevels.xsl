@@ -280,7 +280,9 @@
     </xsl:if>
     
     <xsl:variable name="navtitleType" as="xs:string"
-      select="(@navtitleType, stylemap:topicrefProperties/@navtitleType)[1]"
+      select="if ((@navtitleType, stylemap:topicrefProperties/@navtitleType)[1])
+      then (@navtitleType, stylemap:topicrefProperties/@navtitleType)[1]
+      else 'navtitle'"
     />
     
     <xsl:element name="rsiwp:{@structureType}">

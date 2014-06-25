@@ -1153,10 +1153,7 @@
     <xsl:param name="parentMapUrl" as="xs:string?" tunnel="yes"/>
     <xsl:param name="topicUrl" as="xs:string"/><!-- Result URL for the topic document -->    
     <xsl:param name="topicName" as="xs:string" select="generate-id(.)"/>   
-    
-    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
-    
-<!--    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>-->
+        
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] makeTopic: topicName="<xsl:value-of select="$topicName"/>, topicUrl=<xsl:sequence select="$topicUrl"/></xsl:message>
     </xsl:if>
@@ -1424,6 +1421,12 @@
         </xsl:if>      
         <xsl:choose>
           <xsl:when test="current-group()[position() = 1] and current-group()[1][not(string(@structureType) = ('topicTitle'))]">
+            <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
+            <xsl:if test="$doDebug">
+              <xsl:message> + [DEBUG] constructTopic: First group and it does not start with topicTitle structure type.</xsl:message>
+              <xsl:message> + [DEBUG] constructTopic:   currentGroup=<xsl:sequence select="local:reportParas(current-group())"/></xsl:message>
+            </xsl:if>
+            
             <!-- Prolog and body elements for the topic -->
             <xsl:apply-templates select="current-group()[string(@topicZone) = 'titleAlts']">
               <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
@@ -1431,9 +1434,16 @@
             <xsl:apply-templates select="current-group()[string(@topicZone) = 'shortdesc']">
               <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
             </xsl:apply-templates>             
-            <xsl:if test=".[string(@topicZone) = 'prolog' or $level = 0] or count($titleIndexEntries) > 0">
+            <xsl:if test="current-group()[string(@topicZone) = 'prolog' or $level = 0] or count($titleIndexEntries) > 0">
+                  <xsl:if test="$doDebug">
+                    <xsl:message> + [DEBUG] constructTopic: Handling prolog paragraphs in the current group.</xsl:message>
+                  </xsl:if>
               <xsl:choose>
                 <xsl:when test="$level = 0">
+                  <!-- Root topic -->
+                  <xsl:if test="$doDebug">
+                    <xsl:message> + [DEBUG] constructTopic:  Prolog for root topic...</xsl:message>
+                  </xsl:if>
                   <xsl:element name="{$prologType}">
                     <xsl:call-template name="generateXtrcAtt">
                       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
@@ -1464,20 +1474,25 @@
                     </xsl:apply-templates>                        
                   </xsl:element>                  
                 </xsl:when>
-                <xsl:when test="current-group()[string(@topicZone) = 'prolog' and 
-                                not(@containingTopic = ('root', 'roottopic'))]">
+                <xsl:when test="current-group()[@containingTopic = ('currenttopic')]">
+                  <xsl:if test="$doDebug">
+                    <xsl:message> + [DEBUG] constructTopic:  Prolog for current topic...</xsl:message>
+                  </xsl:if>
                   <xsl:element name="{$prologType}">
                     <xsl:call-template name="generateXtrcAtt">
                       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
                     </xsl:call-template>
                     <xsl:apply-templates 
-                      select="current-group()[not(@containingTopic = ('root', 'roottopic')) and 
+                      select="current-group()[@containingTopic = ('currenttopic') and 
                                               string(@topicZone) = 'prolog']">
                       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
                     </xsl:apply-templates>
                   </xsl:element>
                 </xsl:when>
                 <xsl:when test="count($titleIndexEntries) > 0">
+                  <xsl:if test="$doDebug">
+                    <xsl:message> + [DEBUG] constructTopic:  Title index entries</xsl:message>
+                  </xsl:if>
                   <xsl:element name="{$prologType}">
                     <xsl:call-template name="generateXtrcAtt"/>
                     <metadata>
@@ -1489,7 +1504,13 @@
                     </metadata>
                   </xsl:element>
                 </xsl:when>
-                <xsl:otherwise/><!-- Must be only root-level prolog elements in this non-root topic context -->
+                <xsl:otherwise>
+                  <!-- Must be only root-level prolog elements in this non-root topic context -->
+                  <xsl:if test="$doDebug">
+                    <xsl:message> + [DEBUG] constructTopic:  No prolog elements in this group</xsl:message>
+                  </xsl:if>
+                  
+                </xsl:otherwise>
               </xsl:choose>
             </xsl:if>
             <xsl:if test="current-group()[string(@topicZone) = 'body']">
@@ -2366,8 +2387,8 @@
                           else '',
                           ']',
                           if ($para/self::rsiwp:topic)
-                             then substring(normalize-space($para/*[1]), 1,20)
-                             else substring(normalize-space($para), 1,20)
+                             then substring(normalize-space($para/*[1]), 1,40)
+                             else substring(normalize-space($para), 1,40)
                        )"
       />
     </xsl:if>
