@@ -1154,6 +1154,8 @@
     <xsl:param name="topicUrl" as="xs:string"/><!-- Result URL for the topic document -->    
     <xsl:param name="topicName" as="xs:string" select="generate-id(.)"/>   
     
+    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
+    
 <!--    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>-->
     <xsl:if test="$doDebug">
       <xsl:message> + [DEBUG] makeTopic: topicName="<xsl:value-of select="$topicName"/>, topicUrl=<xsl:sequence select="$topicUrl"/></xsl:message>
@@ -1177,9 +1179,9 @@
       <xsl:message> + [DEBUG] makeTopic: makeDoc=<xsl:value-of select="$makeDoc"/></xsl:message>
     </xsl:if>
     
-    <xsl:variable name="formatName" select="./@topicType" as="xs:string?"/>
+    <xsl:variable name="formatName" select="./@format" as="xs:string?"/>
     <xsl:if test="$makeDoc and not($formatName)">
-      <xsl:message terminate="yes"> + [ERROR] No topicType= attribute for paragraph style <xsl:sequence select="string(./@styleId)"/>, when topicDoc="yes".</xsl:message>
+      <xsl:message terminate="yes"> + [ERROR] No format= attribute for paragraph style <xsl:sequence select="string(./@styleName)"/>, when topicDoc="yes".</xsl:message>
     </xsl:if>
     
     <xsl:if test="$doDebug">
@@ -1395,8 +1397,8 @@
            to know this during the result document processing phase.
         -->
       <xsl:sequence select="$schemaAtts"/>
-      <xsl:if test="@topicOutputclass">
-        <xsl:attribute name="outputclass" select="@topicOutputclass"/>
+      <xsl:if test="@outputclass">
+        <xsl:attribute name="outputclass" select="@outputclass"/>
       </xsl:if>
       <xsl:variable name="titleTagName" as="xs:string"
         select="if (@tagName)

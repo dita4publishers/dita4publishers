@@ -159,6 +159,10 @@
            ">
     <xsl:sequence select="."/>
   </xsl:template>
+  
+  <xsl:template mode="make-topic-properties" match="@topicOutputclass">
+    <xsl:attribute name="outputclass" select="."/>
+  </xsl:template>
 
   <xsl:template mode="make-map-properties make-topicref-properties make-topic-properties"
     match="* | @*" priority="-1"
@@ -179,6 +183,7 @@
     @format |
     @topicDoc |
     @topicType |
+    @topicOutputclass |
     @bodyType |
     @abstractType |
     @shortdescType |

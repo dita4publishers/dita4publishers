@@ -1021,6 +1021,18 @@
                 </xs:documentation>
               </xs:annotation>
             </xs:enumeration>
+            <xs:enumeration
+              value="currenttopicref">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The metadata item will be put in the topicref that points
+                    to the current topic or ancestor topic. Note that this requires
+                    that there actually be a topicref to put the metadata in.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -1320,20 +1332,6 @@
         </xs:annotation>
       </xs:attribute>
       <xs:attribute
-        name="topicOutputclass"
-        type="xs:string"
-        use="optional">
-        <xs:annotation>
-          <xs:documentation>
-            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
-              <h2>Value for @outputclass on Topic</h2>
-              <p>For styles that generate topics, indicates the @outputclass value to use for the
-                generated topic.</p>
-            </xhtml:div>
-          </xs:documentation>
-        </xs:annotation>
-      </xs:attribute>
-      <xs:attribute
         name="sectionType"
         type="xs:string"
         use="optional">
@@ -1507,6 +1505,20 @@
               <p>For elements for which IDs are optional, specify this attribute with a
               value of "default" to get IDs using the default generator. Specify a different
               generator name to use that generator.</p>
+            </xhtml:div>
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute
+        name="topicOutputclass"
+        type="xs:string"
+        use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+              <h2>Value for @outputclass on Topic</h2>
+              <p>For styles that generate topics, indicates the @outputclass value to use for the
+                generated topic.</p>
             </xhtml:div>
           </xs:documentation>
         </xs:annotation>
@@ -2136,7 +2148,7 @@
             <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
               <h2>Containing Topic or Map</h2>
               <p>For prolog elements, indicates whether the paragraph belongs to the root topic ("roottopic") or
-                map ("rootmap") or whether it goes with the nearest parent topic ("currenttopic") or map ("currentmap"). 
+                map ("rootmap") or whether it goes with the nearest parent topic ("currenttopic"), map ("currentmap"), or topicref ("currenttopicref"). 
                 This allows elements
                 that occur anywhere in the input to contribute to the root topic or map metadata,
                 for example, author or copyright information that occurs at the end of an article
@@ -2195,6 +2207,18 @@
                 <xs:documentation>
                   <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
                     <p>The metadata item will be put in the topic prolog for the current topic.</p>
+                  </xhtml:div>
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration
+              value="currenttopicref">
+              <xs:annotation>
+                <xs:documentation>
+                  <xhtml:div xmlns="http://www.w3.org/1999/xhtml">
+                    <p>The metadata item will be put in the topicref that points
+                    to the current topic or ancestor topic. Note that this requires
+                    that there actually be a topicref to put the metadata in.</p>
                   </xhtml:div>
                 </xs:documentation>
               </xs:annotation>

@@ -16,21 +16,21 @@
       <output name="map"
               doctype-system="map.dtd"
               doctype-public="-//OASIS//DTD DITA Map//EN"/>
-      <output name="bookmap"
+      <output mapType="bookmap"
+              prologType="topicmeta"
+              name="bookmap"
               doctype-system="bookmap.dtd"
-              doctype-public="-//OASIS//DTD DITA BookMap//EN"
-              mapType="bookmap"
-              prologType="topicmeta"/>
+              doctype-public="-//OASIS//DTD DITA BookMap//EN"/>
     
-      <output name="concept"
-              doctype-system="concept.dtd"
-              doctype-public="-//OASIS//DTD DITA Concept//EN"
-              topicType="concept"
+      <output topicType="concept"
               bodyType="conbody"
               abstractType="abstract"
               shortdescType="shortdesc"
               prologType="prolog"
-              initialSectionType="foosection"/>
+              initialSectionType="foosection"
+              name="concept"
+              doctype-system="concept.dtd"
+              doctype-public="-//OASIS//DTD DITA Concept//EN"/>
     
       <output name="task"
               doctype-system="task.dtd"
@@ -40,7 +40,10 @@
               doctype-system="reference.dtd"
               doctype-public="-//OASIS//DTD DITA Reference//EN"/>
 
-      <paragraphStyle styleName="Title" level="0" structureType="mapTitle">
+      <paragraphStyle styleName="Title"
+                      level="0"
+                      structureType="mapTitle"
+                      tagName="title">
          <mapProperties format="bookmap" prologType="topicmeta" tagName="title"/>
       </paragraphStyle>
     
@@ -56,14 +59,19 @@
                           abstractType="abstract"
                           shortdescType="shortdesc"
                           prologType="prolog"
-                          initialSectionType="foosection"/>
+                          initialSectionType="foosection"
+                          format="concept"/>
       </paragraphStyle>    
       <paragraphStyle styleName="heading 2"
                       structureType="topicTitle"
                       tagName="title"
                       level="2">
          <topicrefProperties topicrefType="topicref"/>
-         <topicProperties topicDoc="yes" topicType="concept" bodyType="conbody"/>
+         <topicProperties topicDoc="yes"
+                          topicType="concept"
+                          bodyType="conbody"
+                          format="concept"
+                          outputclass="mytopic"/>
       </paragraphStyle>    
     
     
@@ -72,7 +80,10 @@
                       tagName="title"
                       level="3">
          <topicrefProperties topicrefType="topicref"/>
-         <topicProperties topicDoc="yes" topicType="concept" bodyType="conbody"/>
+         <topicProperties topicDoc="yes"
+                          topicType="concept"
+                          bodyType="conbody"
+                          format="concept"/>
       </paragraphStyle>    
     
       <paragraphStyle styleName="heading 4"
@@ -80,7 +91,10 @@
                       tagName="title"
                       level="4">
          <topicrefProperties topicrefType="topicref"/>
-         <topicProperties topicDoc="yes" topicType="concept" bodyType="conbody"/>
+         <topicProperties topicDoc="yes"
+                          topicType="concept"
+                          bodyType="conbody"
+                          format="concept"/>
       </paragraphStyle>    
     
       <paragraphStyle styleName="Normal" tagName="p" topicZone="body" level="1"/>
