@@ -573,7 +573,7 @@
       <xsl:message> + [WARNING] No @tagName value for paragraph with style "<xsl:sequence select="string(@style)"/>". This should not happen.</xsl:message>
     </xsl:if>
     <xsl:choose>
-      <xsl:when test="count(./*) = 0 and normalize-space(.) = ''">
+      <xsl:when test="count(./* except (rsiwp:break)) = 0 and normalize-space(.) = ''">
         <xsl:if test="$doDebug">
           <xsl:message> + [DEBUG] Skipping apparently-empty paragraph: <xsl:sequence select="local:reportPara(.)"/></xsl:message>
         </xsl:if>
@@ -1873,7 +1873,7 @@
     <br/>
   </xsl:template>
   
-  <xsl:template match="rsiwp:break[@type = ('page', 'column')]" mode="p-content">
+  <xsl:template match="rsiwp:break[@xtype = ('page', 'column')]" mode="p-content">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <!-- Suppress by default. The only thing these could safely become would be PIs or comments. -->
   </xsl:template>
