@@ -74,7 +74,7 @@
   <xsl:param name="inputFileNameParam"/>
 
   <!-- Directory into which the generated output is put. -->
-  <xsl:param name="outdir" select="./html2"/>
+  <xsl:param name="outdir" select="./html5"/>
 
  <!--
     NOTE: Case of OUTEXT parameter matches case used in base HTML
@@ -84,7 +84,7 @@
   <xsl:param name="tempdir" select="./temp"/>
 
  <!--
-    The path of the directory, relative the $outdir parameter,
+    The path of the directory, relative to the $outdir parameter,
     to hold the graphics in the result HTML package. Should not have
     a leading "/".
   -->
@@ -208,7 +208,10 @@
     "
   />
 
-  <xsl:variable name="debugBinary" select="$debug = 'true'" as="xs:boolean"/>
+  <xsl:variable name="debugBinary" 
+    as="xs:boolean"
+    select="matches($debug,  'true|yes|on|1', 'i')" 
+  />
 
   <xsl:variable name="topicsOutputPath">
     <xsl:choose>
@@ -323,7 +326,7 @@
   </xsl:template>
 
 
-
+  <!-- NOTE: For XSLT3 we'll be able to use the "html5" method value -->
   <xsl:output name="html5" method="html" indent="yes" encoding="utf-8" omit-xml-declaration="yes"/>
 
   <xsl:template match="/">
@@ -458,6 +461,8 @@
     <xsl:apply-templates select="." mode="generate-graphic-copy-ant-script">
       <xsl:with-param name="graphicMap" as="element()" tunnel="yes" select="$graphicMap"/>
     </xsl:apply-templates>
+    
+    <xsl:message> + [INFO] HTML5 generation complete.</xsl:message>
 
   </xsl:template>
 

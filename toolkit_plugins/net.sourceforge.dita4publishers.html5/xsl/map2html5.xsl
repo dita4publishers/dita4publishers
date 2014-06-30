@@ -20,7 +20,7 @@
  <xsl:import href="map2html5Impl.xsl"></xsl:import>
 
   
-<xsl:import href="../../com.tweddle.html5.html5zhcn/xsl/custom-all-html5-transforms.xsl"/>
+<!--<xsl:import href="../../com.tweddle.html5.html5zhcn/xsl/custom-all-html5-transforms.xsl"/>-->
 
 
 </xsl:stylesheet>
