@@ -470,7 +470,14 @@
     
     <xsl:element name="{$topicrefType}">
       <xsl:call-template name="generateXtrcAtt"/>
-      <xsl:sequence select="@chunk, @collection-type, @processing-role, @toc"/>
+      <xsl:sequence select="
+        @chunk, 
+        @collection-type, 
+        @outputclass, 
+        @print,
+        @processing-role, 
+        @toc 
+        "/>
       <xsl:apply-templates>
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       </xsl:apply-templates>
