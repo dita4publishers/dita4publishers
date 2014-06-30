@@ -1873,6 +1873,11 @@
     <br/>
   </xsl:template>
   
+  <xsl:template match="rsiwp:break[@type = ('page', 'column')]" mode="p-content">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <!-- Suppress by default. The only thing these could safely become would be PIs or comments. -->
+  </xsl:template>
+  
   <xsl:template match="rsiwp:tab" mode="p-content">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <tab/>

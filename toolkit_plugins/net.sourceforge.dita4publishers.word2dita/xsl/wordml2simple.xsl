@@ -1000,9 +1000,26 @@
   
   <xsl:template match="w:cr | w:br">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
-    <xsl:if test="not($filterBrBoolean)">
-      <break/>
+    <xsl:variable name="doDebug" as="xs:boolean" select="true()"/>
+    <xsl:if test="true() or $doDebug">
+      <xsl:message> + [DEBUG] <xsl:value-of select="name(.)"/>: <xsl:sequence select="."/></xsl:message>
     </xsl:if>
+    <xsl:if test="not($filterBrBoolean)">
+      <xsl:if test="$doDebug">
+        <xsl:message> + [DEBUG] <xsl:value-of select="name(.)"/>: Not filtered, generating &lt;break;&gt; element.</xsl:message>
+      </xsl:if>
+      <break>
+        <xsl:apply-templates select="@w:type"/>
+      </break>
+    </xsl:if>
+  </xsl:template>
+  
+  <xsl:template match="@w:type">
+    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+    <xsl:if test="$doDebug">
+      <xsl:message> + [DEBUG] @w:type: value="<xsl:value-of select="."/>"</xsl:message>
+    </xsl:if>
+    <xsl:attribute name="type" select="."/>
   </xsl:template>
   
   <xsl:template match="w:fldSimple">
