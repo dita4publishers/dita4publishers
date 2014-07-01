@@ -5,7 +5,11 @@
   version="2.0">
   
   <xsl:import href="../../net.sourceforge.dita4publishers.word2dita/xsl/docx2dita.xsl"/>
+
+  <!-- Override of a global parameter defined in the base docx2dita.xsl module: -->
+  <xsl:param name="filterBr" as="xs:string" select="'true'"/>
   
+
   <xsl:template match="concept/title" mode="final-fixup">
     <!-- Look for numbers for the form "1-1" at the start of titles and wrap in d4pSimpleEnumeration
          element. The number must be in the first text node, not in a subelement.
