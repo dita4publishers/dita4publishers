@@ -127,6 +127,18 @@
     </ParagraphStyleRange><xsl:text>&#x0a;</xsl:text>  
   </xsl:template>
   
+  <xsl:template match="*[df:class(., 'd4p-formatting-d/tab')]" mode="block-children cont" priority="10">
+    <xsl:param name="pStyle" select="'$ID/[No paragraph style]'" as="xs:string" tunnel="yes"/>
+    <xsl:param name="cStyle" select="'$ID/[No character style]'" as="xs:string" tunnel="yes"/>
+    <ParagraphStyleRange
+      AppliedParagraphStyle="ParagraphStyle/{$pStyle}"><xsl:text>&#x0a;</xsl:text>
+      <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/{$cStyle}"
+        >
+        <Content><xsl:value-of select="'&#09;'"
+        /></Content></CharacterStyleRange><xsl:text>&#x0a;</xsl:text>
+    </ParagraphStyleRange><xsl:text>&#x0a;</xsl:text> 
+  </xsl:template>
+  
   <xsl:template mode="cont" match="*[df:class(., 'topic/ph')]">
     <!-- If we get here with a ph element, it must be a passthrough -->
     <xsl:apply-templates mode="#current"/>
