@@ -21,8 +21,8 @@
 -->
 
   <require plugin="net.sourceforge.dita4publishers.html2"/> 
-    <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
-    <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
+  <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
+  <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
   
   <extension-point id="xsl.transtype-html5" name="HTML5 XSLT extension" />
   <extension-point id="d4p.html5.xslt.param" name="HTML5 XSLT parameters"/>
