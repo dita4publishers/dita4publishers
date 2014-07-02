@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"          
+  prefer="public">
+  <public publicId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:glossentry"
+    uri="glossentry.dtd"
+  />
+  <system systemId="urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:glossentry.dtd"
+          uri="glossentry.dtd"
+  />
+</catalog>  

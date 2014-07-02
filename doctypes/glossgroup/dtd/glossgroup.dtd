@@ -1,0 +1,149 @@
+<!--=============================================================
+    D4P Local shell for glossgroup topic type
+    ============================================================= -->
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ENTITY DECLARATIONS                 -->
+<!-- ============================================================= -->
+
+
+<!ENTITY % commonDomainIntegrations-dec
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations:entities"
+         "d4p_commonDomainIntegrations.ent"
+>%commonDomainIntegrations-dec;
+
+<!ENTITY % pr-d-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Programming Domain//EN" 
+         "programmingDomain.ent"                                              
+>%pr-d-dec;
+
+<!ENTITY % sw-d-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Software Domain//EN" 
+         "softwareDomain.ent"                                                 
+>%sw-d-dec;
+
+<!ENTITY % ui-d-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 User Interface Domain//EN" 
+         "uiDomain.ent"                                                       
+>%ui-d-dec;
+
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE DECLARATIONS              -->
+<!-- ============================================================= -->
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN EXTENSIONS                          -->
+<!-- ============================================================= -->
+<!--                    One for each extended base element, with
+                        the name of the domain(s) in which the
+                        extension was declared                     -->
+
+<!ENTITY % pre          "pre     | %pr-d-pre;     | %sw-d-pre;     | 
+                                   %ui-d-pre;"                       >
+<!ENTITY % keyword      
+  "keyword | 
+   %pr-d-keyword; | 
+   %sw-d-keyword; |
+   %ui-d-keyword; |
+   %d4p_variables-d-keyword; |
+   %xml-d-keyword;
+"                   >
+<!ENTITY % ph           
+  "ph | 
+   %pr-d-ph; | 
+   %sw-d-ph; | 
+   %hi-d-ph; | 
+   %ui-d-ph; |
+   %d4p_formatting-d-ph; |
+   %d4p_ruby-d-ph;
+"       >
+<!ENTITY % fig          "
+  fig     | 
+  %pr-d-fig;  "      
+>
+<!ENTITY % dl           "dl      | %pr-d-dl;"                        >
+<!ENTITY % index-base   "index-base | %indexing-d-index-base;"       >
+
+<!ENTITY % commonDomainEntityIntegrations-dec
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations:integrationEntities"
+         "d4p_commonDomainEntityIntegrations.ent"
+>%commonDomainEntityIntegrations-dec;
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ATTRIBUTE EXTENSIONS                -->
+<!-- ============================================================= -->
+<!ENTITY % props-attribute-extensions  ""                            >
+<!ENTITY % base-attribute-extensions   ""                            >
+
+
+<!-- ============================================================= -->
+<!--                    TOPIC NESTING OVERRIDE                     -->
+<!-- ============================================================= -->
+
+<!--                    Redefine the infotype entity to exclude 
+                        other topic types and disallow nesting     -->
+<!ENTITY % glossgroup-info-types 
+                        "no-topic-nesting"                                    >
+
+
+<!-- ============================================================= -->
+<!--                    DOMAINS ATTRIBUTE OVERRIDE                 -->
+<!-- ============================================================= -->
+<!--                    Must be declared ahead of the DTDs, which
+                        puts @domains first in order               -->
+
+<!ENTITY included-domains 
+                        "&ui-d-att; &hi-d-att; &pr-d-att; &sw-d-att;
+                         &ut-d-att; &indexing-d-att;"                >
+
+
+<!-- ============================================================= -->
+<!--                    TOPIC ELEMENT INTEGRATION                  -->
+<!-- ============================================================= -->
+
+<!--                    Embed topic to get generic elements        -->
+<!ENTITY % topic-type   PUBLIC 
+"-//OASIS//ELEMENTS DITA Topic//EN" 
+"../dita-base/topic.mod"                                                          >
+%topic-type;
+
+
+<!--                    Embed concept to get specific elements     -->
+<!ENTITY % glossgroup-typemod 
+                        PUBLIC 
+"-//OASIS//ELEMENTS DITA Glossary Group//EN" 
+"../dita-base/glossgroup.mod"                                                        >                                                     
+%glossgroup-typemod;
+
+
+<!-- ============================================================= -->
+<!--                    DOMAIN ELEMENT INTEGRATION                 -->
+<!-- ============================================================= -->
+
+<!ENTITY % commonDomainIntegrations
+  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:commonDomainIntegrations"
+         "d4p_commonDomainIntegrations.mod"
+>%commonDomainIntegrations;
+
+<!ENTITY % ui-d-def     PUBLIC 
+"-//OASIS//ELEMENTS DITA User Interface Domain//EN" 
+"../dita-base/uiDomain.mod"                                                       >
+%ui-d-def;
+
+<!ENTITY % pr-d-def     PUBLIC 
+"-//OASIS//ELEMENTS DITA Programming Domain//EN" 
+"../dita-base/programmingDomain.mod"                                              >
+%pr-d-def;
+
+<!ENTITY % sw-d-def     PUBLIC 
+"-//OASIS//ELEMENTS DITA Software Domain//EN" 
+"../dita-base/softwareDomain.mod"                                                 >
+%sw-d-def;
+
+
+
+<!-- ================== End DITA Concept DTD  ==================== -->
