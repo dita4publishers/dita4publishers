@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_qfg_cgd_q4">
+  <title>XRef Via Keyref to External Resource</title>
+  <body>
+    <p>Link to to key "grid-960-js":  <xref keyref="grid-960-js">grid-960-js</xref></p>
+  </body>
+</topic>

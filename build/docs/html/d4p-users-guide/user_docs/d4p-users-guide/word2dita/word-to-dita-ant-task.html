@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="concept"></meta>
+<meta name="DC.Title" content="Setting Up an Ant Script for Running the Word-to-DITA Transform"></meta>
+<meta name="abstract" content="How to set up an Ant task to run the Word-to-DITA transform against DOCX files."></meta>
+<meta name="description" content="How to set up an Ant task to run the Word-to-DITA transform against DOCX files."></meta>
+<meta name="DC.subject" content="word-to-dita Toolkit plugin, Ant script for"></meta>
+<meta name="keywords" content="word-to-dita Toolkit plugin, Ant script for"></meta>
+<meta name="DC.Relation" scheme="URI" content="word-to-dita-plugin-usage.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC12"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="conceptId"></meta>
+<link rel="stylesheet" type="text/css" href="../../../commonltr.css"></link>
+<title>Setting Up an Ant Script for Running the Word-to-DITA Transform</title>
+</head>
+<body id="conceptId">
+
+
+ <h1 class="title topictitle1">Setting Up an Ant Script for Running the Word-to-DITA Transform</h1>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">How to set up an Ant task to run the Word-to-DITA transform against DOCX files.</p>
+
+    <div class="p">You can set up an Ant script to run the transform against a specific Word document. A typical script looks like this:<pre class="pre codeblock">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;project name="Single Word Doc to Map and Topics 01" default="transformMyDoc"&gt;
+
+  &lt;property file="build.properties"/&gt;
+  &lt;property file="${user.home}/.build.properties"/&gt;
+  &lt;property file="${user.home}/build.properties"/&gt;
+  
+  &lt;!-- This property should be set in one of the included files above
+       to reflect the location of Toolkit on your machine:
+    --&gt;
+  &lt;property name="dita-ot-dir" location="c:\DITA-OT1.5"/&gt;
+  
+  &lt;dirname property="myAntFile.dir" file="${ant.file}"/&gt;
+  
+  &lt;tstamp/&gt;
+  
+  &lt;target name="transformMyDoc"&gt;
+    
+    &lt;property name="word.doc" 
+      location="${myAntFile.dir}/<strong class="ph b">word2dita_single_doc_to_map_and_topics_01.docx</strong>"/&gt;
+    
+    &lt;basename  property="doc.base.name" file="${word.doc}" suffix=".docx"/&gt;
+  
+    &lt;ant antfile="${dita-ot-dir}/build.xml" target="dita2word2dita"&gt;
+      &lt;!-- Set this to the filename of the DOCX file to be transformed: --&gt;
+      &lt;property name="args.input" 
+        location="${word.doc}"/&gt;
+  
+      &lt;!-- Change w2d.style-to-tag-map to point to your style-to-tag map document: --&gt;
+      &lt;property name="w2d.style-to-tag-map" 
+          location="${myAntFile.dir}/<strong class="ph b">style2tagmap.xml</strong>"/&gt;
+      
+      
+      &lt;property name="w2d.root.output.filename" 
+          value="${doc.base.name}.ditamap"/&gt;
+      
+      &lt;!-- Specify output.dir to set to the output directory to contain the generated DITA files: --&gt;
+      
+      &lt;property name="output.dir" location="${myAntFile.dir}/../dita"/&gt;
+      &lt;property name="w2d.clean.output.dir" value="true"/&gt;&lt;!-- Clean output directory before doing generation --&gt;
+      &lt;property name="w2d.debug.xslt" value="true"/&gt;&lt;!-- Turn XSLT debug messages on --&gt;
+    &lt;/ant&gt;
+    &lt;ant antfile="${dita-ot-dir}/build.xml" target="dita2xhtml"&gt;
+      &lt;property name="args.input" 
+        location="${myAntFile.dir}/../dita/${doc.base.name}.ditamap"/&gt;
+    &lt;/ant&gt;
+  &lt;/target&gt;  
+
+&lt;/project&gt;</pre>
+</div>
+
+    <p class="p">The text in bold is what you would change to reflect your documents.</p>
+
+    <p class="p">Note the initial <code>&lt;property&gt;</code> elements that import a file named <span class="ph filepath">build.properties</span>. This approach lets you put this script anywhere and use the build.properties file to set the location of your Toolkit, defined in the Ant property <var class="keyword varname">dita-ot-dir</var>. (See <a class="xref" href="w2d-getting-started.html#conceptId" title="How to set up an Ant task to convert a Word document to DITA using the Open Toolkit">Getting Started With The Word2DITA Transform</a> for more details on this one-time setup task.)</p>
+
+    <div class="p">If you name this file <span class="ph filepath">build.xml</span> in an appropriate directory (e.g., the same directory as the Word document), you can run this Ant script from the command line like so:<pre class="pre codeblock">c:\workspace\myworddoc\&gt; <strong class="ph b">ant</strong></pre>
+</div>
+
+    <div class="p">You can also specify the Word document as a command-line parameter:<pre class="pre codeblock">c:\workspace\myworddoc\ &gt; ant <strong class="ph b">-Dword.doc=c:/workspace/anotherworddoc/some-document.docx</strong></pre>
+</div>
+
+    <p class="p">TODO: It should be possible to use Ant to convert a set of documents in one go but I haven't worked out the details for that yet.</p>
+
+    <div class="p">If you want to get really sophisticated you can extend your Ant script to run the Toolkit against the DITA files you just generated, for example, to generate HTML as a way to validate the generated files. To do that you would add this <code>&lt;ant&gt;</code> element after the <code>&lt;ant&gt;</code> element that runs the Word-to-DITA transform:<pre class="pre codeblock">      &lt;ant antfile="${dita-ot-dir}/build.xml" target="dita2xhtml"&gt;
+        &lt;property name="args.input" 
+          location="${myAntFile.dir}/../dita/${doc.base.name}.ditamap"/&gt;
+      &lt;/ant&gt;</pre>
+</div>
+
+    <p class="p">You can, of course, add any other normal Toolkit arguments you might want to add.</p>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="word-to-dita-plugin-usage.html" title="How to use the Word-to-DITA Toolkit Plugin to generate DITA content from Word documents.">Generating DITA from Word Using the Toolkit Plugin</a></div>
+</div>
+</div>
+
+</body>
+</html>

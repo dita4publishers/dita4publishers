@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<!DOCTYPE task PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:task" "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:task">
 <task
   id="taskId">
   <title>Installing the DITA For Publishers Package</title>
@@ -75,14 +75,14 @@
             your Open Toolkit's directory and then issue this command:</p>
           <codeblock>tools/ant/bin/ant -f integrator.xml</codeblock>
           <p>That should run and you should see some sort of happy message.</p>
-          <note>The Open Toolkit that comes installed with OxygenXML does not
+          <note><p>The Open Toolkit that comes installed with OxygenXML does not
             include Ant in the <filepath>tools/ant</filepath> location within
             the Toolkit because OxygenXML already provides Ant in a different
             location. As of Oxygen 13.1, Ant is in
             <filepath>tools/ant</filepath> below the main Oxygen installation
             directory. If you are in a command window with Oxygen's Toolkit as
             your current directory, you would do
-            this:<codeblock>c:\Program Files\oxygen\frameworks\dita\DITA-OT > ..\..\..\tools\ant\bin\ant -f integrator.xml</codeblock></note>
+            this:<codeblock>c:\Program Files\oxygen\frameworks\dita\DITA-OT > ..\..\..\tools\ant\bin\ant -f integrator.xml</codeblock></p></note>
         </info>
       </step>
       <step>

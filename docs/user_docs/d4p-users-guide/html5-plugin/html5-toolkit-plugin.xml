@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept">
 <concept id="conceptId">
  <title>HTML5 Plugin</title>
  <shortdesc>Generates HTML5 from DITA maps.</shortdesc>
@@ -15,8 +15,8 @@
   </prolog>
  <conbody>
     <p>The HTML5 transformation type produces HTML5-based output that integrates
-      HTML5 technologies, including <term
-      keyref="def-AJAX">AJAX</term> and CSS. The resulting HTML5 provides
+      HTML5 technologies, including <!-- NOTE: the keyref causes OT 1.6, 1.7, 1.8 to fail --><!--<term
+      keyref="def-AJAX">AJAX</term>--><term>AJAX</term> and CSS. The resulting HTML5 provides
       dynamic and modern navigation and presentation. The supporting components
       such as the CSS style sheets and JavaScript used to render the HTML in
       browsers is designed to be easily adapted or replaced as required to

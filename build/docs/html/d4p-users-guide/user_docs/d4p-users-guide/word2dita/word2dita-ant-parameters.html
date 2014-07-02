@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="concept"></meta>
+<meta name="DC.Title" content="Word-to-DITA Ant Parameters"></meta>
+<meta name="abstract" content="Ant parameters for the Word-to-DITA transformation type"></meta>
+<meta name="description" content="Ant parameters for the Word-to-DITA transformation type"></meta>
+<meta name="DC.Relation" scheme="URI" content="word2dita-intro.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="transform-parameters.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC12"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="conceptId"></meta>
+<link rel="stylesheet" type="text/css" href="../../../commonltr.css"></link>
+<title>Word-to-DITA Ant Parameters</title>
+</head>
+<body id="conceptId">
+
+
+ <h1 class="title topictitle1">Word-to-DITA Ant Parameters</h1>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">Ant parameters for the Word-to-DITA transformation type</p>
+
+   <p class="p">To run the Word-to-DITA transformation using the Open Toolkit plugin, specify the following Ant parameters.</p>
+
+    <div class="section"><h2 class="title sectiontitle">Required Parameters</h2>
+      
+      <dl class="dl parml">
+        
+          <dt class="dt pt dlterm">args.input</dt>
+
+          <dd class="dd pd">The absolute filename and path of the DOCX file to process.</dd>
+
+        
+        
+          <dt class="dt pt dlterm">word.doc</dt>
+
+          <dd class="dd pd">The path and filename of the Word DOCX file to process.</dd>
+
+        
+      </dl>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Optional Parameters</h2>
+      
+      <dl class="dl parml">
+        
+          <dt class="dt pt dlterm">output.dir</dt>
+
+          <dd class="dd pd">Specifies the absolute path of of the directory to contain the generated output.</dd>
+
+        
+        
+          <dt class="dt pt dlterm">w2d.clean.output.dir</dt>
+
+          <dd class="dd pd">Set to "true" to have the output directory cleaned out before
+            running the transform. The default is "false".</dd>
+
+        
+        
+          <dt class="dt pt dlterm">w2d.debug.xslt</dt>
+
+          <dd class="dd pd">Turns on debugging of the XSLT transform. Default is "false".</dd>
+
+        
+        
+          <dt class="dt pt dlterm">w2d.defaultStyleToTagMap</dt>
+
+          <dd class="dd pd">Specifies the location of the style-to-tag map to use as the
+            default if no style-to-tag-map is specified. The default is the
+            word-builtin-styles-style2tagmap.xml file. This parameter is mostly
+            useful for setting as a default in installation-specific properties
+            files. You would not normally specify it for a specific
+            document.</dd>
+
+        
+        
+          <dt class="dt pt dlterm">w2d.filename.prefix</dt>
+
+          <dd class="dd pd">The prefix to use for generated files other than submaps. The
+            default is no prefix.</dd>
+
+        
+        
+          <dt class="dt pt dlterm">w2d.filter.br</dt>
+
+          <dd class="dd pd">Control whether or not <code>&lt;br&gt;</code> elements generated
+            from the Word data will be filtered out of the result DITA. Set to
+            "true" to filter out <code>&lt;br&gt;</code> elements. The default is
+            "false" (<code>&lt;br&gt;</code> elements are included in the result
+            DITA). The <code>&lt;br&gt;</code> element is provided by the DITA for
+            Publishers formatting vocabulary domain module.</dd>
+
+        
+        
+          <dt class="dt pt dlterm">w2d.filter.tabs</dt>
+
+          <dd class="dd pd">Control whether or not <code>&lt;tab&gt;</code> elements generated
+            from the Word data will be filtered out of the result DITA. Set to
+            "true" to filter out <code>&lt;tab&gt;</code> elements. The default is
+            "false" (<code>&lt;tab&gt;</code> elements are included in the result
+            DITA). The <code>&lt;tab&gt;</code> element is provided by the DITA
+            for Publishers formatting vocabulary domain module.</dd>
+
+        
+        
+          <dt class="dt pt dlterm">w2d.include.word.backpointers</dt>
+
+          <dd class="dd pd">Set to "false" to turn off inclusion of <code>@xtrc</code>
+            attributes in the generated DITA files that point back to the
+            original paragraphs in the Word document. Default is "true"
+            (<code>@xtrc</code> attributes are generated).</dd>
+
+        
+        
+          <dt class="dt pt dlterm">w2d.include.word.bookmarks</dt>
+
+          <dd class="dd pd">Set to "true" to turn inclusion of <code>&lt;data&gt;</code>
+            elements reflecting any Word bookmark start and end markers. Default
+            is "false".</dd>
+
+        
+        
+          <dt class="dt pt dlterm">w2d.root.map.name</dt>
+
+          <dd class="dd pd">The filename (without extension) to use for the root map if one is
+            generated. By default uses the filename of the input DOCX file. Only
+            specify this property if the style-to-tag mapping will result in a
+            map. If the style-to-tag mapping only produces topics, then do not
+            specify this property.</dd>
+
+        
+        
+          <dt class="dt pt dlterm">w2d.root.output.filename</dt>
+
+          <dd class="dd pd">Specifies the complete filename (including extension), of the root
+            output file, whether it's a topic or a map. You would not normally
+            specify this property unless the behavior of
+            <span class="keyword parmname">w2d.root.map.name</span> or
+            <span class="keyword parmname">w2d.root.topic.name</span> doesn't give you the result
+            you want.</dd>
+
+        
+        
+          <dt class="dt pt dlterm">w2d.root.topic.name</dt>
+
+          <dd class="dd pd">The filename (without extension) to use for the root topic. By
+            default, uses the filename of the input DOCX file. This property is
+            ignored if <span class="keyword parmname">w2d.root.topic.name</span> is also
+            specified.</dd>
+
+        
+        
+          <dt class="dt pt dlterm">w2d.style-to-tag-map</dt>
+
+          <dd class="dd pd">The absolute filename and path of the style-to-tag mapping to use.
+            If not specified, the built-in mapping file
+            <span class="ph filepath">net.sourceforge.dita4publishers.word2dita/xsl/word-builtin-styles-style2tagmap.xml</span>
+            is used.</dd>
+
+        
+        
+          <dt class="dt pt dlterm">w2d.submap.name.prefix</dt>
+
+          <dd class="dd pd">The prefix to use for generated submaps. The default is
+            "map".</dd>
+
+        
+        
+          <dt class="dt pt dlterm">w2d.temp.dir</dt>
+
+          <dd class="dd pd">The temporary directory to use for word2dita process. Default is
+            ${basedir}/temp.</dd>
+
+        
+        
+          <dt class="dt pt dlterm">w2d.topic.extension</dt>
+
+          <dd class="dd pd">The extension to use for generated topic files. The default is
+            ".dita".</dd>
+
+        
+        
+          <dt class="dt pt dlterm">w2d.word2dita.xslt</dt>
+
+          <dd class="dd pd">Specifies the name of the XSLT transform to use to convert the DOCX file to DITA. Default is the <span class="ph filepath">docx2dita.xsl</span> transform in the word2dita Toolkit plugin.</dd>
+
+        
+      </dl>
+
+    </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="word2dita-intro.html" title="The Word-to-DITA (Word2DITA) transformation framework enables the reliable generation of maps and topics form styled Word documents.">The Word-to-DITA Transformation Framework</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="transform-parameters.html" title="Required and optional parameters for the Word-to-DITA XSLT transformation">Word-to-DITA XSLT Transformation Parameters</a></div>
+</div>
+</div>
+
+</body>
+</html>

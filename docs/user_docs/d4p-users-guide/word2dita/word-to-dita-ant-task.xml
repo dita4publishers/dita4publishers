@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept">
 <concept id="conceptId">
  <title>Setting Up an Ant Script for Running the Word-to-DITA Transform</title>
  <shortdesc>How to set up an Ant task to run the Word-to-DITA transform against DOCX files.</shortdesc>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="chapter"></meta>
+<meta name="DC.Title" content="Generating EPUBs and Kindle Books from DITA Content"></meta>
+<meta name="abstract" content="The D4P EPUB and Kindle book generation Open Toolkit plugins enable generation of delivery-ready EPUBs and Kindle books from any conforming DITA content."></meta>
+<meta name="description" content="The D4P EPUB and Kindle book generation Open Toolkit plugins enable generation of delivery-ready EPUBs and Kindle books from any conforming DITA content."></meta>
+<meta name="DC.Relation" scheme="URI" content="../introduction-chapter.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="../tasks/plugin-installation.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="../map-driven-processing/map-driven-processing.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="generating-epubs-from-oxygen.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="generating-kindle-books-from-oxygen.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="using-custom-css.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="creating-cover-graphics.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="creating-opf-metadata.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="overriding-base-processing.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="epub-transtype-parameters-ref.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC12"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="chapter-id"></meta>
+<link rel="stylesheet" type="text/css" href="../../../commonltr.css"></link>
+<title>Generating EPUBs and Kindle Books from DITA Content</title>
+</head>
+<body id="chapter-id">
+
+
+  <h1 class="title topictitle1"><span xmlns="http://www.w3.org/1999/xhtml" class="enumeration_chapter">Chapter 3. </span>Generating EPUBs and Kindle Books from DITA Content</h1>
+  
+  <div class="body"><p class="shortdesc">The D4P EPUB and Kindle book generation Open Toolkit plugins enable generation of delivery-ready EPUBs and Kindle books from any conforming DITA content.</p>
+
+    <p class="p">The DITA for Publishers EPUB generation plugin (net.sourceforge.dita4publishers.epub) generates EPUBs that conform to the IDPF EPUB standard. The plugin works with any conforming DITA content. The resulting EPUBs may be used with any EPUB reader software or hardware. The EPUBs have been tested on a number of devices and readers, including iBooks and Adobe Digital Editions.</p>
+
+    <p class="p">The DITA for Publishers Kindle book generation plugin (net.sourceforge.dita4publishers.kindle) generates Kindle books (Mobipocket format) that can pass the kindlegen checks on Kindle book content and organization. The plugin works with any conforming DITA content. The resulting Kindle books may be used any Kindle reader or published through Amazon. The Kindle books have been tested with several different Kindle emulators and Mobipocket readers, as well as by publishing a sample book through Amazon's Kindle publishing process.</p>
+
+    <p class="p">See <a class="xref" href="../tasks/plugin-installation.html#taskId" title="How to install the DITA for Publishers Toolkit plugins to the Open Toolkit.">Installing the Toolkit Plugins</a> for instructions on how to install the EPUB and Kindle plugins to the DITA Open Toolkit.</p>
+
+    <p class="p">The plugins do not require any specific markup in order to get a usable EPUB or Kindle book. However, the plugin does take advantage of specific markup in order to generate EPUB- and Kindle-specific features such as cover graphics, book identifiers, and so on.</p>
+
+    <p class="p">The EPUB plugin defines the transformation type "epub" (Ant target "dita2epub"). It is based on the standard HTML transformation type and therefore takes all the same parameters as the HTML transformation type. All EPUB-specific parameters are optional.</p>
+
+    <p class="p">The Kindle plugin defines the transformation type "kindle" (Ant target "dita2kindle"). It is based on the standard HTML transformation type and therefore takes all the same parameters as the HTML transformation type. All Kindle-specific parameters are optional. The Kindle generation process attempts to use the Amazon-provided "kindlegen" command-line tool to construct a publishable Kindle book. You must acquire and install kindlegen separately. The kindlegen tool is proprietary Amazon software and therefore is not licensed in a way that is consistent with the Open Toolkit's open source license. The kindlegen tool can be downloaded from Amazon. Google "kindlegen" to find the exact download location.</p>
+
+    <p class="p">You can use the EPUB transformation type by simply specifying a transtype value of "epub" rather than "html" and use the same parameters you would use for HTML generation.</p>
+
+    <p class="p">You can use the Kindle transformation type by simply specifying a transtype value of "kindle" rather than "html" and use the same parameters you would use for HTML generation.</p>
+
+  </div>
+
+<div class="related-links">
+<ol class="olchildlinks">
+<li class="link olchildlink"><a href="generating-epubs-from-oxygen.html">Generating EPUBs From OxygenXML</a><br></br>
+You can configure a DITA transformation scenario in OxygenXML to generate EPUBs.</li>
+<li class="link olchildlink"><a href="generating-kindle-books-from-oxygen.html">Generating Kindle Books From OxygenXML</a><br></br>
+You can configure a DITA transformation scenario in OxygenXML to generate Kindle books.</li>
+<li class="link olchildlink"><a href="using-custom-css.html">Using Custom CSS Style Sheets</a><br></br>
+You can include custom CSS styles sheets in your EPUB just as you can for HTML output generally.</li>
+<li class="link olchildlink"><a href="creating-cover-graphics.html">Creating Cover Graphics and Covers</a><br></br>
+Some readers and book libraries, such as iBooks, have special conventions for cover graphics.</li>
+<li class="link olchildlink"><a href="creating-opf-metadata.html">Creating Arbitrary EPUB OPF Metadata</a><br></br>
+</li>
+<li class="link olchildlink"><a href="overriding-base-processing.html">Implementing Overrides for Common Processing</a><br></br>
+You can use the same <span class="keyword parmname">args.xsl</span> parameter as for the XHTML transform to specify a custom top-level transform that includes overrides to the base processing.</li>
+<li class="link olchildlink"><a href="epub-transtype-parameters-ref.html">EPUB and Kindle Transformation Parameters</a><br></br>
+EPUB-specific parameters for the EPUB transformation type</li>
+</ol>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../introduction-chapter.html">The DITA For Publishers Open Toolkit Plugins</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../tasks/plugin-installation.html" title="How to install the DITA for Publishers Toolkit plugins to the Open Toolkit.">Installing the Toolkit Plugins</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../map-driven-processing/map-driven-processing.html" title="Using and extending the DITA for Publishers map-driven processing framework">Map-Driven Processing</a></div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/reference.dtd">
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference">
 <reference id="referenceId">
   <title>title.only.topic.class.spec Ant parameter</title>
   <shortdesc>Specifies the @class attribute value to use for title-only topics generated from topicheads.</shortdesc>

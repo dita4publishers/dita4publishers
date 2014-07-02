@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="reference"></meta>
+<meta name="DC.Title" content="Availaible ant properties"></meta>
+<meta name="abstract" content="This properties allows to customize the output."></meta>
+<meta name="description" content="This properties allows to customize the output."></meta>
+<meta name="DC.Relation" scheme="URI" content="../html5-toolkit-plugin.html"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="reference_tss_dv4_sh"></meta>
+<link rel="stylesheet" type="text/css" href="../../../../commonltr.css"></link>
+<title>Availaible ant properties</title>
+</head>
+<body id="reference_tss_dv4_sh">
+
+
+  <h1 class="title topictitle1">Availaible ant properties </h1>
+  
+  <div class="body refbody"><p class="shortdesc">This properties allows to customize the output.</p>
+
+    <table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable properties"><tr>
+<th id="d12509e11-type" valign="bottom" align="left">Type</th>
+<th id="d12509e11-value" valign="bottom" align="left">Value</th>
+</tr>
+<tr class="strow property">
+<td valign="top" headers="d12509e11-type" class="stentry proptype">html5.site.theme</td>
+<td valign="top" headers="d12509e11-value" class="stentry propvalue">Refers to the theme you want to use for the output. Default value is
+          <span class="keyword option">default</span></td>
+</tr>
+<tr class="strow property">
+<td valign="top" headers="d12509e11-type" class="stentry proptype">html5.site.js.vars</td>
+<td valign="top" headers="d12509e11-value" class="stentry propvalue">Path to the xml files containing variables to be send to the
+          javascript d4p object. Default is
+          <span class="ph filepath">${<var class="keyword varname">html5.dir</var>}/sites/${<var class="keyword varname">htmkl5.site.theme</var>}/vars.xml</span></td>
+</tr>
+<tr class="strow property">
+<td valign="top" headers="d12509e11-type" class="stentry proptype">html5.args.theme.file</td>
+<td valign="top" headers="d12509e11-value" class="stentry propvalue">Refers to the final relative path to the compressed CSS. By convention, style.css is the
+          none-compressed file whereas style-min.css is the compressed one. Default is
+            <span class="ph filepath">themes/${site.theme}/css/style-min.css</span></td>
+</tr>
+<tr class="strow property">
+<td valign="top" headers="d12509e11-type" class="stentry proptype">html5.args.js.file</td>
+<td valign="top" headers="d12509e11-value" class="stentry propvalue">Refers to the final relative path to the compressed
+          javascript file. By convention, script.js is the none-compressed file
+          whereas script-min.js is the compressed one. Default is
+          <span class="ph filepath">themes/${<var class="keyword varname">html5.site.theme</var>}/js/script-min.js</span></td>
+</tr>
+<tr class="strow property">
+<td valign="top" headers="d12509e11-type" class="stentry proptype">html5.navigation.markup</td>
+<td valign="top" headers="d12509e11-value" class="stentry propvalue">This feature is experimental. The value of this variable is used to switch from an xsl to another to
+          output the navigation markup in different way. Default value is: <span class="keyword option">navigation-default</span>.
+          Different navigation way should be proposed in future released of the plugin.</td>
+</tr>
+<tr class="strow property">
+<td valign="top" headers="d12509e11-type" class="stentry proptype">html5.id.main.container</td>
+<td valign="top" headers="d12509e11-value" class="stentry propvalue">The @id of the main container element. This element is the first element after the body element.
+          Default value is: <span class="keyword option">d4h5-main-container</span>.</td>
+</tr>
+<tr class="strow property">
+<td valign="top" headers="d12509e11-type" class="stentry proptype">html5.class.main.container</td>
+<td valign="top" headers="d12509e11-value" class="stentry propvalue">The @class of the main container element. Default value is an empty string.</td>
+</tr>
+<tr class="strow property">
+<td valign="top" headers="d12509e11-type" class="stentry proptype">html5.id.section.container</td>
+<td valign="top" headers="d12509e11-value" class="stentry propvalue">The @id of the section container element. is the first element after the body element. Default value
+          is: <span class="keyword option">d4h5-section-container</span>.</td>
+</tr>
+<tr class="strow property">
+<td valign="top" headers="d12509e11-type" class="stentry proptype">html5.class.section.container</td>
+<td valign="top" headers="d12509e11-value" class="stentry propvalue">The @class of the section container element. Default value is: <span class="keyword option">container_24</span>, which
+          activate the 960 Grid for this element and its children.</td>
+</tr>
+<tr class="strow property">
+<td valign="top" headers="d12509e11-type" class="stentry proptype">html5.id.main.content</td>
+<td valign="top" headers="d12509e11-value" class="stentry propvalue">The @id of the main content element. The main content is the regions where the AJAX content is
+          output. Default value is: <span class="keyword option">d4h5-main-content</span>.</td>
+</tr>
+<tr class="strow property">
+<td valign="top" headers="d12509e11-type" class="stentry proptype">html5.class.main.content</td>
+<td valign="top" headers="d12509e11-value" class="stentry propvalue">The @class of the main-content element. Default value is: <span class="keyword option">prefix_1 grid_16</span>, which
+          means: add an empty column on the left, then add 16 columns for the content. Changing this value allows you to
+          set a different size for the content. . You should change it with the class.navigation property. </td>
+</tr>
+<tr class="strow property">
+<td valign="top" headers="d12509e11-type" class="stentry proptype">html5.class.navigation</td>
+<td valign="top" headers="d12509e11-value" class="stentry propvalue">The @class of the navigation element. Default value is: <span class="keyword option">nav-left grid_7</span>, which
+          means: the navigation is on the left and span 7 columns for the content. Changing this value allows you to set
+          a different size for the navigation. You should change it with the class.main.content property. </td>
+</tr>
+<tr class="strow property">
+<td valign="top" headers="d12509e11-type" class="stentry proptype">html5.js.options</td>
+<td valign="top" headers="d12509e11-value" class="stentry propvalue">Options that you want to pass to the d4p javascript object. The content of this property allows to
+          change the initializer of the d4p object. <samp class="ph codeph">$(function() { d4p.init({ &lt; ${js.options} &gt; });
+            });</samp> Default is an empty string. </td>
+</tr>
+<tr class="strow property">
+<td valign="top" headers="d12509e11-type" class="stentry proptype">html5.bodyClass</td>
+<td valign="top" headers="d12509e11-value" class="stentry propvalue">Allows to control the @class of the body element. Default value is: <span class="keyword option">centered img-with-shadow
+            ${navigation.markup}</span>, which means: centered layout wth all images having drop-shadows. The
+          navigation markup has been added for future development.</td>
+</tr>
+</table>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../html5-toolkit-plugin.html" title="Generates HTML5 from DITA maps.">HTML5 Plugin</a></div>
+</div>
+</div>
+
+</body>
+</html>

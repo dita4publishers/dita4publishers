@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="concept"></meta>
+<meta name="DC.Title" content="Release Notes: Version 0.9.19"></meta>
+<meta name="abstract" content="Version 0.9.19 (Under development)"></meta>
+<meta name="description" content="Version 0.9.19 (Under development)"></meta>
+<meta name="DC.subject" content=", release notes, Version 0.9.18"></meta>
+<meta name="keywords" content=", release notes, Version 0.9.18"></meta>
+<meta name="DC.Relation" scheme="URI" content="release-notes.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC12"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="conceptId"></meta>
+<link rel="stylesheet" type="text/css" href="../../../commonltr.css"></link>
+<title>Release Notes: Version 0.9.19</title>
+</head>
+<body id="conceptId">
+
+
+ <h1 class="title topictitle1">Release Notes: Version 0.9.19</h1>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">Version 0.9.19 (Under development)</p>
+
+    <div class="section"><h2 class="title sectiontitle">Theme for the Release</h2>
+      
+      <p class="p">The 0.9.19 release is primarily about finishing out and generalizing
+        the map-based processing used in the EPUB, Kindle, HTML2, and HTML5
+        transforms.</p>
+
+      <p class="p">I am also trying to get the vocabulary documentation finished out for
+        this release.</p>
+
+      <p class="p">It is also about HTML5 with the new HTML5 transformation type,
+        developed by Bertrand Lefort.</p>
+
+      <p class="p">The release also includes additions and refinements to the vocabulary,
+        numerous bug fixes and whatnot.</p>
+
+      <p class="p">See the Sourceforge project files area for release notes of the various
+        release candidates.</p>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Word to DITA</h2>
+      
+      <ul class="ul" id="conceptId__ul_ukr_j4t_f4">
+        <li class="li">Issue152: Reimplemented map and topic generation to correct errors in map generation. Made the intermediate simpleWP XML reflect the map and topic hierarchy to make DITA generation easier. This change could affect custom preprocessing applied to the simpleWP XML. Also adds a number of new attributes to style mapping definitions as required to fully specify map and topicref generation. </li>
+
+        <li class="li">Issue152: Broke out map and topic filename generation code into separate XSLT modules to make it easier to override or extend: <span class="ph filepath">modeMapUrl.xsl</span> and <span class="ph filepath">modeTopicUrl.xsl</span></li>
+
+        <li class="li">Improved table generation to capture all table geometry, including horizontal and vertical alignment within cells.</li>
+
+        <li class="li">Handle characters in non-Unicode, Word-specific Symbol and Wingdings fonts. These characters should be translated to the correct Unicode character when there is a Unicode character to use.</li>
+
+      </ul>
+
+    </div>
+
+    <div class="section"><h2 class="title sectiontitle">Transformation Types</h2>
+      
+      <ul class="ul" id="conceptId__ul_oyk_2pt_f4">
+        <li class="li">Added XSLT parameter extension points to all transform types</li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="release-notes.html" title="Details about changes from release to release">Release Notes</a></div>
+</div>
+</div>
+
+</body>
+</html>

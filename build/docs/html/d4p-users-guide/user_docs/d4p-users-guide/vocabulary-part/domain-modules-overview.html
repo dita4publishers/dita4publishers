@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="subsection"></meta>
+<meta name="DC.Title" content="DITA For Publishers Domains"></meta>
+<meta name="abstract" content="The D4P vocabulary modules include a number of domains you can use to augment both map and topic types."></meta>
+<meta name="description" content="The D4P vocabulary modules include a number of domains you can use to augment both map and topic types."></meta>
+<meta name="DC.subject" content="domain modules, vocabulary modules, domain"></meta>
+<meta name="keywords" content="domain modules, vocabulary modules, domain"></meta>
+<meta name="DC.Relation" scheme="URI" content="../../../website/topics/specialization-modules-overview.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="map-domains-overview.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="topic-domains-overview.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="../../../website/topics/classification-domain.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="../../../website/topics/enumeration-domains.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="../../../website/topics/formatting-domain.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="../../../website/topics/pubcontent-domain.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="rendition-target-att.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="../../../website/topics/ruby-domain.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="../../../website/topics/variables-domain.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="../../../website/topics/versie-domain.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="../../../website/topics/xml-domain.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC12"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="subsection-id"></meta>
+<link rel="stylesheet" type="text/css" href="../../../commonltr.css"></link>
+<title>DITA For Publishers Domains</title>
+</head>
+<body id="subsection-id">
+
+
+  <h1 class="title topictitle1">DITA For Publishers Domains</h1>
+  
+  
+  <div class="body"><p class="shortdesc">The D4P vocabulary modules include a number of domains you can use to augment both map and topic types.</p>
+
+    <p class="p">Domain vocabulary modules provide element types or attributes that can be mixed into map or topic types. DITA for Publishers provides a set of map domains, a set of topic domains, and a set of attribute domains.</p>
+
+    <p class="p">The map domains provide publication-specific metadata (pubmetadataDomain) and publication-specific topicref types (pubmapDomain) that can be used together or separately to create new map types specifically for publications. Because these are domains they can be integrated with existing map types or they can be used to create new map types. The D4P pubmap and pub-component-map map types are examples of using the map domains to define publication-specific map types. The D4P document types also includes an example of integrating the map domains into a generic <code>&lt;map&gt;</code> map type. The d4p_enumerationMapDomain provides markup for use within topicrefs to define and control numbering of things, such as topic titles and lists.</p>
+
+    <div class="p">The element domains provide elements for use within topics. They are:<ul class="ul">
+      <li class="li">d4p_classificationDomain<p class="p">Provides metadata elements with the specific semantic of "classification" as distinct from any other use of metadata.</p>
+</li>
+
+      <li class="li">d4p_enumerationTopicDomain<p class="p">Provides elements for capturing or controlling the number of things like topics and list items. There is a corresponding map domain, d4p_enumerationMapDomain.</p>
+</li>
+
+      <li class="li">d4p_formattingDomain<p class="p">Provides elements intended to express direct formatting intent, such as line breaks, tabs, additional inline decoration types (e.g., strikethrough), and inclusion of formatter-specific snippets, such as embedded InDesign INX markup.</p>
+</li>
+
+      <li class="li">d4p_pubcontentDomain<p class="p">Provides elements typical to publications, such as epigrams used in part and chapter openers.</p>
+</li>
+
+      <li class="li">d4p_simpleEnumerationDomain<p class="p">Provides simple enumeration markup for
+        simply capturing literal numbers, for example, from legacy
+        content.</p>
+</li>
+
+      <li class="li">d4p_variablesDomain<p class="p">Provides a simple mechanism for scoped variables
+        that can be referenced from any context.</p>
+</li>
+
+      <li class="li">d4p_verseDomain<p class="p">Provides markup for representing poetry and similar stanza-based content.</p>
+</li>
+
+      </ul>
+</div>
+
+    <div class="p">The attribute domains are:<ul class="ul">
+      <li class="li">d4p_renditionTargetAttDomain<p class="p">Provides a <code>@props</code> specialization intended to specify different rendition targets such as PDF, EPUB, HTML, etc. The allowed values are not defined by the module since the set of sensible values is unbounded.</p>
+</li>
+
+      </ul>
+</div>
+
+  </div>
+
+<div class="related-links">
+<ol class="olchildlinks">
+<li class="link olchildlink"><a href="map-domains-overview.html">Publication Map Domains</a><br></br>
+The publication map domains provide building blocks for maps that represent publications.</li>
+<li class="link olchildlink"><a href="topic-domains-overview.html">Topic Domains</a><br></br>
+The topic domains provide markup commonly needed in publications that would not be needed or wanted in most technical publications.</li>
+<li class="link olchildlink"><a href="../../../website/topics/classification-domain.html">Classification Domain</a><br></br>
+The classification domain provides metadata specifically for classifying topics or maps, typically in terms of a specific taxonomy.</li>
+<li class="link olchildlink"><a href="../../../website/topics/enumeration-domains.html">Enumeration Domains</a><br></br>
+Provides elements for simply identifying enumerations within content (simple enumeration domain) or for defining automatic enumeration "streams".</li>
+<li class="link olchildlink"><a href="../../../website/topics/formatting-domain.html">Formatting Domain</a><br></br>
+The formatting domain provides elements for producing specific formatting effects that are either arbitrary (not connected to any particular semantic or structural aspect of the content) or simply required to meet specific publication requirements. These elements should be used only when necessary but when they are necessary they are available.</li>
+<li class="link olchildlink"><a href="../../../website/topics/pubcontent-domain.html">Publication Content Domain</a><br></br>
+The publication content domain provides general-purpose content elements that are specific to publications.</li>
+<li class="link olchildlink"><a href="rendition-target-att.html">Rendition Target Attribute Domain</a><br></br>
+Provides a <code>@props</code> specialization for flagging and filtering based on output type (e.g., PDF, EPUB, etc.).</li>
+<li class="link olchildlink"><a href="../../../website/topics/ruby-domain.html">Ruby Domain</a><br></br>
+Provides markup based on the HTML 5 <code>&lt;ruby&gt;</code> elements for annotating ideographic characters as is done in Japanese-language documents.</li>
+<li class="link olchildlink"><a href="../../../website/topics/variables-domain.html">Variables Domain</a><br></br>
+The variables domain provides markup for declaring and referencing     variables that are scoped by the map and topic hierarchy.</li>
+<li class="link olchildlink"><a href="../../../website/topics/versie-domain.html">Verse Domain</a><br></br>
+The verse domain provides markup for representing poetry, songs, and other line-oriented content organized into stanzas.</li>
+<li class="link olchildlink"><a href="../../../website/topics/xml-domain.html">XML Domain</a><br></br>
+</li>
+</ol>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../website/topics/specialization-modules-overview.html">DITA for Publishers Vocabulary Modules Overview</a></div>
+</div>
+</div>
+
+</body>
+</html>

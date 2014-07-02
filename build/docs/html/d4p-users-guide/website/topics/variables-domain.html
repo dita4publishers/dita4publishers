@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="concept"></meta>
+<meta name="DC.Title" content="Variables Domain"></meta>
+<meta name="abstract" content="The variables domain provides markup for declaring and referencing variables that are scoped by the map and topic hierarchy."></meta>
+<meta name="description" content="The variables domain provides markup for declaring and referencing variables that are scoped by the map and topic hierarchy."></meta>
+<meta name="DC.Relation" scheme="URI" content="../../user_docs/d4p-users-guide/vocabulary-part/domain-modules-overview.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="ruby-domain.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="versie-domain.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC12"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="conceptId"></meta>
+<link rel="stylesheet" type="text/css" href="../../commonltr.css"></link>
+<title>Variables Domain</title>
+</head>
+<body id="conceptId">
+
+
+  <h1 class="title topictitle1">Variables Domain</h1>
+  
+  <div class="body conbody"><p class="shortdesc">The variables domain provides markup for declaring and referencing
+    variables that are scoped by the map and topic hierarchy.</p>
+
+    <p class="p">Variables are declared in map metadata, topicref metadata, topic prologs,
+      and topic content. Variable definitions are specializations of
+      <code>&lt;data&gt;</code> and may occur wherever <code>&lt;data&gt;</code> is
+      allowed.</p>
+
+    <p class="p">References may occur anywhere that <code>&lt;keyword&gt;</code> or
+      <code>&lt;text&gt;</code> is allowed.</p>
+
+    <p class="p">Variable resolution is done at output processing time, meaning the last
+      step in a normal DITA process. This means that all content references and
+      all filtering should have been applied by the time variable references and
+      definitions are processed. This means you can use normal content reference
+      and filtering facilities to determine the effective values of variable
+      definitions and variable references.</p>
+
+    <p class="p">Note that as of D4P version 0.9.19 the Variables mechanism does not
+      attempt to cover all use cases. It is intentionally simple so as to make
+      implementation easy and foster use and experimentation in order to gather
+      futher requirements. A complete variables facility, such as would be
+      appropriate for inclusion in the DITA specification, could be quite a bit
+      more complicated. </p>
+
+  </div>
+
+  <div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../user_docs/d4p-users-guide/vocabulary-part/domain-modules-overview.html" title="The D4P vocabulary modules include a number of domains you can use to augment both map and topic types.">DITA For Publishers Domains</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="ruby-domain.html" title="Provides markup based on the HTML 5 ruby elements for annotating ideographic characters as is done in Japanese-language documents.">Ruby Domain</a></div>
+<div class="nextlink"><strong>Next topic:</strong> <a class="link" href="versie-domain.html" title="The verse domain provides markup for representing poetry, songs, and other line-oriented content organized into stanzas.">Verse Domain</a></div>
+</div>
+</div>
+<div class="topic concept nested1" id="topic_yyg_twl_y3">
+    <h2 class="title topictitle2">Variable Definitions: <code>&lt;d4p-variable-definition&gt;</code> and
+      <code>&lt;d4p-variable-definitions&gt;</code></h2>
+
+    <div class="body conbody">
+      <div class="p">Variable definitions are defined using the
+        <code>&lt;d4p-variable-definition&gt;</code> element and always contained
+        by the <code>&lt;d4p-variable-definitions&gt;</code>
+        element:<pre class="pre codeblock">  &lt;topicmeta&gt;
+    <strong class="ph b">&lt;d4p-variable-definitions&gt;</strong>
+      <strong class="ph b">&lt;d4p-variable-definition</strong> name="prodname"
+       &gt;&lt;tm&gt;MyProduct&lt;/tm&gt;&lt;/d4p-variable-definition&gt;
+    &lt;/d4p-variable-definitions&gt;
+  &lt;/topicmeta&gt;</pre>
+</div>
+
+      <p class="p">The <code>@name</code> attribute is the name of the variable, by
+        which it is referenced using <code>&lt;d4p-variableref-keyword&gt;</code>
+        or <code>&lt;d4p-variableref-text&gt;</code>. The name may be any string.
+        Because it is defined in an XML attribute, any whitespace in the value
+        will be normalized to single space characters. This allows you to use
+        normal content as a variable name if appropriate, e.g.
+        <samp class="ph codeph">&lt;d4p-variable-definition name="default value for
+        variable"&gt;...</samp> where that variable name could be appropriate as
+        the default or fallback value for the variable, as the variable
+        reference will simply be rendered as-is when there is no declaration for
+        variable in the referencing scope.</p>
+
+      <p class="p">The variable value may be specified either using the
+        <code>@value</code> attribute or in the content of the
+        <code>&lt;d4p-variable-definition&gt;</code> element. If
+        <code>@value</code> is specified then the content of the element is
+        ignored. This allows you to use the content of the variable definition
+        as documentation for the variable if you choose.</p>
+
+      <p class="p">If you put the variable value in the content then you may use any
+        markup allowed where the variable reference is allowed (or, more
+        accurately, where the content can be usefully and correctly processed,
+        which is not quite the same thing).</p>
+
+      <p class="p">Note that variable references are not content references and so the
+        same strict content model consistency constraints do not necessarily
+        apply. However, you should be careful to only put markup in variables
+        that will be correctly and appropriately processed in the context where
+        the variables are referenced. In practice, this means limiting your
+        content to normal inline markup and avoiding things like footnotes,
+        cross references, block elements, and so on. If you want to impose more
+        constraints on what is allowed in variable definitions, you can use
+        constraint modules or further specialization to do so. The base markup
+        as defined by the D4P project errs on the side of generality.</p>
+
+      <div class="p">The <code>&lt;d4p-variable-definitions&gt;</code> element serves to group
+        and label sets of variable definitions. The element may have an initial
+        <code>&lt;title&gt;</code> element, which serves as a descriptive label
+        for the group, and <code>&lt;d4p-variable-definitions&gt;</code> may be
+        nested:<pre class="pre codeblock">  ...
+  &lt;prolog&gt;
+    <strong class="ph b">&lt;d4p-variable-definitions&gt;</strong>
+      <strong class="ph b">&lt;title&gt;Top-level variable definitions&lt;/title&gt;</strong>
+      <strong class="ph b">&lt;d4p-variable-definitions&gt;</strong>
+        <strong class="ph b">&lt;title&gt;Nested variable definitions element&lt;/title&gt;</strong>
+        &lt;d4p-variable-definition-fallback
+          name="varFallbackDefinedInRootTopic"&gt;This is the fallback value defined
+          in the root topic&lt;/d4p-variable-definition-fallback&gt;
+      &lt;/d4p-variable-definitions&gt;
+    &lt;/d4p-variable-definitions&gt;
+  &lt;/prolog&gt;
+  ...</pre>
+</div>
+
+      <p class="p">When resolving variables, the first definition within a given scope
+        (containing element) in document order wins, so in the case of nested
+        <code>&lt;d4p-variable-definitions&gt;</code> elements, the nesting is not
+        significant, only the order of the definitions in normal depth-first
+        tree order. This means that a definition contained by the top-level
+        variable definitions group but occurring after all nested variable
+        definition groups could be overridden by a definition within any of the
+        nested groups. You can take advantage of this behavior to have "default"
+        values that may be overridden by nested groups used by reference.</p>
+
+    </div>
+
+  </div>
+
+  <div class="topic concept nested1" id="concept_yrk_b4s_y3">
+    <h2 class="title topictitle2">Fallback values:
+      <code>&lt;d4p-variable-definition-fallback&gt;</code></h2>
+
+    <div class="body conbody">
+      <p class="p">For topics that may used in many contexts, you often want to have
+        fallback values for the variables referenced from those topics so that
+        when those variables are not declared at all, an appropriate value is
+        used, such as "variable XXX not defined" or an appropriate default
+        value, or whatever. Fallback values are used only when there is no other
+        in-scope declaration of the variable. That is, you don't want the
+        fallback value to override attempts to set the variable. </p>
+
+      <p class="p">Fallback values are declared using the
+        <code>&lt;d4p-variable-definition-fallback&gt;</code> element, normally
+        within topic prologs, although you can declare fallback values within
+        any scope, just as for other variables.</p>
+
+      <p class="p">Fallback values are used only when there is no other in-scope
+        definition of the variable. This includes definitions in the same scope
+        as the fallback, meaning that if you have both a fallback and normal
+        definition of the same variable name in the same scope, the fallback
+        will never be used. You might have this case if you have a set of
+        fallback values that are reused by conref and you happen, in one use
+        context, to also define a value for the variable. In that case, the
+        existence of the fallback will not interfere with the other definition
+        of the variable.</p>
+
+    </div>
+
+  </div>
+
+  <div class="topic concept nested1" id="concept_k13_zzl_y3">
+    <h2 class="title topictitle2">Variable References: <code>&lt;d4p-variableref_keyword&gt;</code> and
+      <code>&lt;d4p-variableref_text&gt;</code></h2>
+
+    <div class="body conbody">
+      <p class="p">Variables may be referenced in any context where
+        <code>&lt;keyword&gt;</code> or <code>&lt;text&gt;</code> are allowed, using
+        the corresponding specialization,
+        <code>&lt;d4p-variableref_keyword&gt;</code> or
+        <code>&lt;d4p-variableref_text&gt;</code>.</p>
+
+      <div class="p">The content of the reference element is the variable
+        name:<pre class="pre codeblock">&lt;p&gt;The <strong class="ph b">&lt;d4p-variableref_keyword&gt;prodname&lt;/d4p-variableref_keyword&gt;</strong> 
+product...&lt;/p&gt;</pre>
+</div>
+
+      <p class="p">If the variable cannot be resolved (or you don't have processing
+        support for D4P variables installed), then the content of the reference
+        element is used, just as for normal <code>&lt;keyword&gt;</code> or
+        <code>&lt;text&gt;</code> processing. If the variable can be resolved,
+        then the nearest variable definition is used to determine the effective
+        value.</p>
+
+      <div class="p">The effective binding for a variable is determined as follows:<ol class="ol" id="concept_k13_zzl_y3__ol_h1g_r1m_y3">
+        <li class="li">In all cases, only the direct element and map tree ancestry of the
+          reference is considered, with the exception of topic prologs, which
+          always appy to the entire topic (including the topic title).
+          Definitions in sibling topics, maps, or topicrefs are never considered
+          for the purpose of determining the effective definition for a given
+          reference. </li>
+
+        <li class="li">The nearest definition within ancestor elements determines the
+          effective binding. For elements within topics, this includes any
+          ancestry within the topic body as well as definitions within the
+          topic's prolog. Note that the placement of the definition within the
+          ancestor is not important—in particular, the variable definition could
+          come after the subelement that contains the reference. </li>
+
+        <li class="li">For topics referenced from maps, if there is no definition within
+          the topic, then the nearest definition in the map tree ancestry
+          determines the effective binding. That is, definitions are scoped by
+          topicrefs such that the definition in the nearest topicref to the
+          topic that references the topic provides the binding.</li>
+
+        <li class="li">If the variable is not defined within the topic or within any
+          topicref in the map tree ancestry, then any definition within the
+          map's metadata is used. This means that root maps may define default
+          values for variables.</li>
+
+        <li class="li">If a variable is not defined anywhere, processors may choose to
+          provide default values or otherwise allow for run-time definition of
+          variables.</li>
+
+        </ol>
+</div>
+
+      <div class="note note"><span class="notetitle">Note:</span> Because submap metadata is not always maintained or necessarily even
+        available in all processing contexts, variables defined in the
+        <code>&lt;topicmeta&gt;</code> child of submap elements will be ignored.
+        If you want to define variables in submaps, use a wrapper topicref
+        element around the topicrefs, either <code>&lt;topicgroup&gt;</code> or
+        another allowed topicref type.</div>
+
+      <p class="p">Stated more informally, the intent of these rules is that elements
+        define variable scopes within topics and topicrefs define scopes within
+        maps.</p>
+
+      <p class="p">Note: Within topics, only references defined within topic documents are
+        considered—topics related into a hierarchy via maps do not affect the
+        variable definitions within each other, meaning that variable resolution
+        processors do not need to look in map-defined ancestor topics for
+        variable definitions, only literal ancestor topics within the same XML
+        document. However, if topics are merged because of normal DITA
+        <code>@chunk</code> processing or via some type of topic merging,
+        such as is done for the Toolkit's PDF processing, then
+        previously-separate XML documents may become single XML documents and
+        thus affect variable resolution. However, this would normally only
+        affect fallback values such that a variable reference for which there
+        was no fallback (because none was defined in the topic's direct XML
+        ancestry) would now have a fallback or a defined value, because one was
+        defined in an ancestor in the merged document. Because the nearest
+        definition to a reference is the always used, it is not possible for
+        chunking and merging to affect the values of variables defined in the
+        original XML ancestry.</p>
+
+    </div>
+
+  </div>
+
+
+</body>
+</html>

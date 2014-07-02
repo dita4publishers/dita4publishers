@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept">
 <concept id="conceptId">
  <title>Generating DITA from Documents (Word-to-DITA Transformation Framework)</title>
  <shortdesc>The DITA for Publishers Word-to-DITA framework is packaged as an Open Toolkit plugin.</shortdesc>

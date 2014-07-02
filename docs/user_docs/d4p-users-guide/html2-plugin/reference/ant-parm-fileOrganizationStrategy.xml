@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/reference.dtd">
+<!DOCTYPE reference PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference" "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:reference">
 <reference id="referenceId">
   <title>html2.file.organization.strategy Ant parameter</title>
   <shortdesc>Names the output file organization strategy to use for generated files.</shortdesc>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE task PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:task" "task.dtd">
+<!DOCTYPE task PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:task" "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:task">
 <task id="taskId">
  <title>Generating EPUBs From OxygenXML</title>
  <shortdesc>You can configure a DITA transformation scenario in OxygenXML to generate EPUBs.</shortdesc>

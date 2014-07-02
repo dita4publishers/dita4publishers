@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "concept.dtd">
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept">
 <concept id="conceptId">
  <title>Extending the DITA for Publishers Transformations</title>
  <shortdesc>All the DITA for Publishers transformation plugins can be extended using normal Open Toolkit plugin extension techniques.</shortdesc>

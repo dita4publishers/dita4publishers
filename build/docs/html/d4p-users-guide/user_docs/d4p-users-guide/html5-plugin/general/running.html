@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="concept"></meta>
+<meta name="DC.Title" content="Running the html5 plugin"></meta>
+<meta name="abstract" content="The html5 plugin simply add the html5 transtype to the DITA-OT"></meta>
+<meta name="description" content="The html5 plugin simply add the html5 transtype to the DITA-OT"></meta>
+<meta name="DC.Relation" scheme="URI" content="../html5-toolkit-plugin.html"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="concept_phf_dyd_qh"></meta>
+<link rel="stylesheet" type="text/css" href="../../../../commonltr.css"></link>
+<title>Running the html5 plugin</title>
+</head>
+<body id="concept_phf_dyd_qh">
+
+
+ <h1 class="title topictitle1">Running the html5 plugin</h1>
+ 
+ <div class="body conbody"><p class="shortdesc">The html5 plugin simply add the html5 transtype to the DITA-OT</p>
+
+  <p class="p">In order to run the plugin, you must be familiar with the process of running the DITA-OT. Please refer to the
+   documentation.</p>
+
+  <div class="section"><h2 class="title sectiontitle">Running DITA-OT from Ant</h2>
+   
+   <p class="p">Execute the usual command using html5 as the transtype</p>
+
+   <pre class="pre codeblock">ant -Dargs.input=samples/hierarchy.ditamap 
+    -Doutput.dir=out/garage/html5 
+    -Dtranstype=html5</pre>
+
+   
+  </div>
+
+  
+  <div class="section"><h2 class="title sectiontitle">Running DITA-OT from command-line tool</h2>
+   
+   <pre class="pre codeblock">java -jar lib/dost.jar 
+    /i:samples/hierarchy.ditamap 
+    /outdir:out/garage/html5 
+    /transtype:html5</pre>
+
+   
+  </div>
+
+ </div>
+
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../html5-toolkit-plugin.html" title="Generates HTML5 from DITA maps.">HTML5 Plugin</a></div>
+</div>
+</div>
+
+</body>
+</html>

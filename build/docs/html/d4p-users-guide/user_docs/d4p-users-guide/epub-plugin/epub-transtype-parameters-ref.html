@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><html xml:lang="en-us" lang="en-us">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<meta name="copyright" content="(C) Copyright 2005"></meta>
+<meta name="DC.rights.owner" content="(C) Copyright 2005"></meta>
+<meta name="DC.Type" content="concept"></meta>
+<meta name="DC.Title" content="EPUB and Kindle Transformation Parameters"></meta>
+<meta name="abstract" content="EPUB-specific parameters for the EPUB transformation type"></meta>
+<meta name="description" content="EPUB-specific parameters for the EPUB transformation type"></meta>
+<meta name="DC.subject" content="transformation parameters"></meta>
+<meta name="keywords" content="transformation parameters"></meta>
+<meta name="DC.Relation" scheme="URI" content="generating-epubs.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="overriding-base-processing.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="reference/ant-parm-argsCssOutputDir.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="reference/ant-parm-coverGraphicFile.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="reference/ant-parm-d4pMaxNavDepth.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="reference/ant-parm-d4pMaxTocDepth.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="reference/ant-parm-epubIncludeAutoRellinks.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="reference/ant-parm-epubPubidUriStub.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="reference/ant-parm-epubTempDir.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="reference/ant-parm-imagesOutputDir.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="reference/ant-parm-kindleGenExecutable.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="reference/ant-parm-titleOnlyTopicClassSpec.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="reference/ant-parm-titleOnlyTopicTitleClassSpec.html"></meta>
+<meta name="DC.Relation" scheme="URI" content="reference/ant-parm-topicsOutputDir.html"></meta>
+<meta name="prodname" content="DITA For Publishers"></meta>
+<meta name="version" content="0.9.19RC12"></meta>
+<meta name="DC.Creator" content="W. Eliot Kimber"></meta>
+<meta name="DC.Format" content="XHTML"></meta>
+<meta name="DC.Identifier" content="conceptId"></meta>
+<link rel="stylesheet" type="text/css" href="../../../commonltr.css"></link>
+<title>EPUB and Kindle Transformation Parameters</title>
+</head>
+<body id="conceptId">
+
+
+  <h1 class="title topictitle1">EPUB and Kindle Transformation Parameters</h1>
+  
+  
+  <div class="body conbody"><p class="shortdesc">EPUB-specific parameters for the EPUB transformation type</p>
+
+    <div class="p">The EPUB transformation type allows a number of parameters that configure the details of the generated EPUB. Available options include:<ul class="ul" id="conceptId__ul_afc9168f-c20e-44a4-a21c-8f1317200eb8">
+      <li class="li">Include a back-of-the-book index</li>
+
+      <li class="li">The names of the directories used to hold topics, graphics, and CSS style sheets.</li>
+
+      <li class="li">The topic and title element @class values to use for topics generated from topicheads.</li>
+
+      <li class="li">The maximum depth of the generated table of contents.</li>
+
+      <li class="li">The graphic to use as the EPUB cover graphic (&lt;meta name="cover" content="coverimage" /&gt; as used by iBooks) if the cover image is not indicated by markup in the map.</li>
+
+      <li class="li">The EPUB publication ID</li>
+
+      <li class="li">Do not treat external-scope xrefs as links in the HTML (avoids EPUB validation issues with unavailable resources).</li>
+
+      <li class="li">Include user-specified CSS files in the generated EPUB package.</li>
+
+      </ul>
+</div>
+
+    <p class="p">The parameters documented in this section are Ant parameters recognized by the <span class="ph filepath">build_transtype_epub.xml</span> Ant script. Each of these Ant parameters corresponds to an XSLT parameter used by the underlying XSLT transforms. The XSLT parameters are defined in the <span class="ph filepath">map2epubImpl.xsl</span> transform in the EPUB plugin's <span class="ph filepath">xsl/</span> directory.</p>
+
+  </div>
+
+<div class="related-links">
+<ol class="olchildlinks">
+<li class="link olchildlink"><a href="reference/ant-parm-argsCssOutputDir.html">args.css.output.dir Ant parameter</a><br></br>
+Specifies the directory to put CSS files into for EPUB and Kindle     transforms. </li>
+<li class="link olchildlink"><a href="reference/ant-parm-coverGraphicFile.html">cover.graphic.file Ant parameter</a><br></br>
+Specifies the absolute or relative path of the graphic to use as the cover graphic for the EPUB.</li>
+<li class="link olchildlink"><a href="reference/ant-parm-d4pMaxNavDepth.html">d4p.max.nav.depth Ant parameter</a><br></br>
+Specifies the maximum depth of the navigation table of     contents.</li>
+<li class="link olchildlink"><a href="reference/ant-parm-d4pMaxTocDepth.html">d4p.max.toc.depth Ant parameter</a><br></br>
+Specifies the maximum depth of the generated HTML table of     contents.</li>
+<li class="link olchildlink"><a href="reference/ant-parm-epubIncludeAutoRellinks.html">epub.exclude.auto.rellinks Ant parameter</a><br></br>
+Turns on exclusion of auto-generated related links (as for normal HTML output)</li>
+<li class="link olchildlink"><a href="reference/ant-parm-epubPubidUriStub.html">epub.pubid.uri.stub Ant parameter</a><br></br>
+Specifies the URI prefix stub to use in constructing the full EPUB ID value in the EPUB metadata.</li>
+<li class="link olchildlink"><a href="reference/ant-parm-epubTempDir.html">epub.temp.dir Ant parameter</a><br></br>
+Specifies the directory to use for EPUB-specific processing separate from the main Toolkit's temp directory.</li>
+<li class="link olchildlink"><a href="reference/ant-parm-imagesOutputDir.html">images.output.dir Ant parameter</a><br></br>
+Specifies the name of the directory within the EPUB to hold all images.</li>
+<li class="link olchildlink"><a href="reference/ant-parm-kindleGenExecutable.html">kindlegen.executable Ant parameter</a><br></br>
+Specifies the name, and if necessary, full path of the kindlegen command-line executable</li>
+<li class="link olchildlink"><a href="reference/ant-parm-titleOnlyTopicClassSpec.html">title.only.topic.class.spec Ant parameter</a><br></br>
+Specifies the @class attribute value to use for title-only topics generated from topicheads.</li>
+<li class="link olchildlink"><a href="reference/ant-parm-titleOnlyTopicTitleClassSpec.html">title.only.topic.title.class.spec Ant parameter</a><br></br>
+Specifies the @class attribute value to use for titles for title-only topics generated from topicheads.</li>
+<li class="link olchildlink"><a href="reference/ant-parm-topicsOutputDir.html">topics.output.dir Ant parameter</a><br></br>
+Specifies the name of the directory within the EPUB to hold all the topics.</li>
+</ol>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="generating-epubs.html" title="The D4P EPUB and Kindle book generation Open Toolkit plugins enable generation of delivery-ready EPUBs and Kindle books from any conforming DITA content.">Generating EPUBs and Kindle Books from DITA Content</a></div>
+<div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="overriding-base-processing.html" title="You can use the same args.xsl parameter as for the XHTML transform to specify a custom top-level transform that includes overrides to the base processing.">Implementing Overrides for Common Processing</a></div>
+</div>
+</div>
+
+</body>
+</html>

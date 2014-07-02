@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+ <title>Keyrefs to External Resources Test 01</title>
+  <keydef href="http://960.gs" keys="grid-960-js" scope="external" format="html"/>
+  <topicref
+    href="topics/external-resource-keyref-01.dita"/>
+</map>
