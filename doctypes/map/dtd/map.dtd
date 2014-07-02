@@ -70,6 +70,11 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/map"
 >
 %d4p_variables-d-dec;
 
+<!ENTITY % glossref-d-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 1.2 Glossary Reference Domain//EN" 
+         "glossrefDomain.ent"                                                       
+>%glossref-d-dec;
+
 
 <!-- ============================================================= -->
 <!--                    DOMAIN ATTRIBUTE DECLARATIONS              -->
@@ -90,7 +95,8 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/map"
 <!ENTITY % topicref     "topicref |
                          %mapgroup-d-topicref; |
                          %pubmap-d-topicref; |
-                         %d4p_enumerationMap-d-topicref;
+                         %d4p_enumerationMap-d-topicref; |
+                         %glossref-d-topicref;
                         ">
 
 <!ENTITY % topicmeta "topicmeta |
@@ -140,6 +146,7 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/map"
                          &d4p_enumerationMap-d-att;
                          &d4p_simpleEnumerationMap-d-att;
                          &d4p_variables-d-att;
+                         &glossref-d-att;
                         ">
 
 <!-- ============================================================= -->
@@ -156,6 +163,11 @@ PUBLIC "urn:pubid:dita4publishers.sourceforge.net/doctypes/dita/dtd/map"
 "-//OASIS//ELEMENTS DITA 1.2 Map Group Domain//EN" 
 "mapGroup.mod"                                                 >
 %mapgroup-d-def;
+
+<!ENTITY % glossref-d-def     
+  PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Glossary Reference Domain//EN" 
+         "glossrefDomain.mod"
+>%glossref-d-def;
 
 <!ENTITY % pubmap-d-def PUBLIC 
 "urn:pubid:dita4publishers.sourceforge.net:modules:dtd:pubmapDomain" 
