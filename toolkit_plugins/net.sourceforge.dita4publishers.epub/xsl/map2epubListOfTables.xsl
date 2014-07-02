@@ -16,10 +16,8 @@
   <xsl:template match="*[df:class(., 'map/map')]" 
     mode="generate-list-of-tables-html-toc">
     <xsl:param name="collected-data" as="element()*" tunnel="yes"/>
-    <xsl:for-each select="$collected-data/enum:enumerables//*[df:class(., 'topic/table')][enum:title]">
-      <xsl:apply-templates mode="#current"
+    <xsl:apply-templates mode="#current"
         select="$collected-data/enum:enumerables//*[df:class(., 'topic/table')][enum:title]"/>
-    </xsl:for-each>
   </xsl:template>
   
   <xsl:template name="generate-table-list-html-doc">
