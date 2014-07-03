@@ -36,7 +36,7 @@
     <topicmeta>
       <navtitle>Key Definitions</navtitle>
     </topicmeta>
-    <keydef keys="language-reference" href="../languageRef/language-reference.ditamap" format="ditamap" />
+    <keydef keys="language-reference" href="../languageRef/language-reference.ditamap" format="ditamap"/>
   </keydefs>
   <publication>
     <covers>
@@ -169,9 +169,7 @@
               href="d4p-users-guide/html2-plugin/reference/ant-parm-generateStaticToc.xml"/>
           </subsection>
         </chapter>
-        <topicref
-          href="d4p-users-guide/html5-plugin/html5-plugin.ditamap"
-          format="ditamap"/>
+        <topicref href="d4p-users-guide/html5-plugin/html5-plugin.ditamap" format="ditamap"/>
         <chapter
           href="d4p-users-guide/word2dita/word-to-dita-plugin.xml"/>
         <chapter
@@ -222,7 +220,7 @@
         </chapter>
         <chapter
           href="d4p-users-guide/vocabulary-part/d4p-vocabulary-reference.xml">
-          <mapref keyref="language-reference" />
+          <mapref keyref="language-reference"/>
         </chapter>
       </part>
       <part
@@ -281,10 +279,6 @@
         </chapter>
       </part>
     </pubbody>
-    <appendixes>
-      <appendix
-        href="d4p-users-guide/appendixes/appendix-01.xml"/>
-    </appendixes>
     <backmatter>
       <topicref
         href="d4p-users-guide/backmatter/colophon.xml"/>

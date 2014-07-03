@@ -5,20 +5,13 @@
   <title>Using the DITA For Publishers Source</title>
   <taskbody>
     <context>
-      <p>You can also use the DITA For Publishers materials directly from the project's source code
-        control system. You can also use the materials as a model for local development setups for
-        developing your own DITA specializations. The materials are managed using Subversion through
-        SourceForge. You can use any Subversion client to access the source code, such as
-        TortoisSVN, the Oxygen Subversion client, or the Subclipse plugin for Eclipse.</p>
+      <p>You can also use the DITA For Publishers materials directly from the project's source code control system. You can also use the materials as a model for local development setups for developing your own DITA specializations. The materials are managed using git through SourceForge. You can use any git client to access the source code, such as TortoisGit, the Atlasian SourceTree tool, or a git plugin for Eclipse.</p>
     </context>
     <steps>
       <step>
-        <cmd>Using a Subversion client, check out a read-only copy of the
-          materials, following the instructions on the project's code access
-          page: <xref
-          format="html"
-          href="https://sourceforge.net/p/dita4publishers/code"
-          scope="external">https://sourceforge.net/p/dita4publishers/code</xref></cmd>
+        <cmd>Using a git client, clone the repository to your local machine, following the instructions on the project's code access page: <xref format="html"
+          href="https://sourceforge.net/p/dita4publishers/git" scope="external"
+          >https://sourceforge.net/p/dita4publishers/git</xref>. (Note that the "rc" branch has the latest code and is the one you should normally be working with.)</cmd>
       </step>
       <step>
         <cmd>Create a file named <filepath>build.properties</filepath> or <filepath

@@ -7,8 +7,8 @@
   <body>
     <p>The elements in this module are:<dl>
       <dlentry>
-        <dt><xmlelem>art</xmlelem></dt>
-        <dd>Represents an abstract piece of "art". Holds a reference to one or more graphic objects (<xmlelem>image</xmlelem>) (normally different formats of the same base image, such as a high-resolution TIF and low-resolution JPEG). It may have an "art title", which labels the art as a re-usable object (e.g., when displayed in a CMS system as a standalone object). It may also contain classifying metadata.</dd>
+        <dt><xmlelem>art</xmlelem>, <xmlelem>art-ph</xmlelem></dt>
+        <dd>Represents an abstract piece of "art". Holds a reference to one or more graphic objects (<xmlelem>image</xmlelem>) (normally different formats of the same base image, such as a high-resolution TIF and low-resolution JPEG). It may have an "art title", which labels the art as a re-usable object (e.g., when displayed in a CMS system as a standalone object). It may also contain classifying metadata. The <xmlelem>art</xmlelem> element is a paragraph specialization, the <xmlelem>art-ph</xmlelem> element is a specialization of <xmlelem>ph</xmlelem>.</dd>
       </dlentry>
       <dlentry>
         <dt><xmlelem>b-i</xmlelem></dt>
@@ -18,33 +18,37 @@
         <dt><xmlelem>b-sc</xmlelem></dt>
         <dd>"Bold small caps". Allows a single element to represent the combination of <xmlelem>b</xmlelem> and <xmlelem>sc</xmlelem>, which is useful for conversion from flat word processing formats.</dd>
       </dlentry>
-        <dlentry>
-          <dt><xmlelem>br</xmlelem></dt>
-          <dd>Represents a hard return (as for HTML <xmlelem>br</xmlelem> element). Can be used for
-            example in titles to indicate a hard break point.</dd>
-        </dlentry>
+      <dlentry>
+        <dt><xmlelem>br</xmlelem></dt>
+        <dd>Represents a hard return (as for HTML <xmlelem>br</xmlelem> element). Can be used for example in titles to indicate a hard break point.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>d4pSidebarAnchor</dt>
+        <dd>Anchors a sidebar topic to a specific point in a topic by linking to the sidebar anchor. The <xmlelem>d4pSidebarAnchor</xmlelem> is a specialization of <xmlelem>xref</xmlelem>.</dd>
+      </dlentry>
+      <dlentry>
+        <dt>dropcap</dt>
+        <dd>Represents a dropped capitol letter. Normally dropped caps should be generated as a matter of dynamically-applied style but it may be necessary to capture the fact that a letter was set as a drop cap in the original source or you just need to arbitrarily create a dropcap. If you need to specify details of how the dropped cap looks, use <xmlatt>outputclass</xmlatt> to specify some sort of style indicator.</dd>
+      </dlentry>
       <dlentry>
         <dt><xmlelem>eqn_block</xmlelem></dt>
         <dd>Represents a block equation. Same content as for <xmlelem>eqn_inline</xmlelem>.</dd>
       </dlentry>
-        <dlentry>
-          <dt><xmlelem>eqn_inline</xmlelem></dt>
-          <dd>Represents an inline equation. Can contain any combination of MathML markup, InDesign INX markup, or references to graphics (<xmlelem>art</xmlelem>).</dd>
-        </dlentry>
+      <dlentry>
+        <dt><xmlelem>eqn_inline</xmlelem></dt>
+        <dd>Represents an inline equation. Can contain any combination of MathML markup, InDesign INX markup, or references to graphics (<xmlelem>art</xmlelem>).</dd>
+      </dlentry>
       <dlentry>
         <dt><xmlelem>frac</xmlelem></dt>
         <dd>Represents a simple mathematical fraction. Enables the rendering of fractions without the use of full MathML markup.</dd>
       </dlentry>
-        <dlentry>
-          <dt><xmlelem>inx_snippet</xmlelem></dt>
-          <dd>Holds a snippet of InDesign CS3 interchange XML. This element is intended to be a
-            fallback for things like equations that simply cannot be easily represented in any other
-            way for printing purposes. Should be used only when absolutely necessary. INX snippets
-            can only be rendered directly by InDesign.</dd>
-        </dlentry>
+      <dlentry>
+        <dt><xmlelem>inx_snippet</xmlelem></dt>
+        <dd>Holds a snippet of InDesign CS3 interchange XML. This element is intended to be a fallback for things like equations that simply cannot be easily represented in any other way for printing purposes. Should be used only when absolutely necessary. INX snippets can only be rendered directly by InDesign.<note>This element is essentially obsolete as CS4 and later do not really support INX markup.</note></dd>
+      </dlentry>
       <dlentry>
         <dt><xmlelem>linethrough</xmlelem></dt>
-        <dd>Line-through or "strikeout". Text with a line drawn through it as is used for strike-outs.</dd>
+        <dd>Line-through or "strikeout". Text with a line drawn through it as is used for strike-outs.<note>This element will be replaced by the DITA 1.3 <xmlelem>line-through</xmlelem> element. </note></dd>
       </dlentry>
       <dlentry>
         <dt><xmlelem>roman</xmlelem></dt>
@@ -63,5 +67,6 @@
         <xmlelem>eqn_inline</xmlelem> and <xmlelem>eqn_block</xmlelem>. The ability to render MathML
       depends on the rendering system available. MathML rendering is available for HTML and
       XSL-FO-based outputs. Rendering MathML into InDesign requires commercial tools.</p>
+    <note>DITA 1.3 includes a built-in integration of MathML that functionally replaces the D4P integration. However, the D4P and DITA 1.3 integrations of MathML may be used together in the same document as they define differently-named <xmlelem>foreign</xmlelem> specializations for containing the MathML markup. The DITA 1.3 features make the D4P math support obsolete.</note>
   </body>
 </topic>

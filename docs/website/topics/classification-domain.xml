@@ -6,5 +6,6 @@
   <shortdesc>The classification domain provides metadata specifically for classifying topics or maps, typically in terms of a specific taxonomy.</shortdesc>
   <body>
     <p>The classification domain defines the metadata element <xmlelem>classification</xmlelem>, which is intended to hold metadata that serves to classify a topic or map in terms of one or more taxonomies. It's primary purpose is simply to provide a clear and convenient place to hold classification metadata or to enable the definition of more precise content models for classifying metadata such that the document type rules can require specific metadata elements.</p>
+    <p>The classification domain is entirely distinct from the DITA classification map, which is used to apply classifications to topics using maps. The D4P classification domain is intended to hold classifying metadata within topics, that is, metadata that is intrinsic to the topic, meaning it is applicable to all possible uses of the topic.</p>
   </body>
 </topic>

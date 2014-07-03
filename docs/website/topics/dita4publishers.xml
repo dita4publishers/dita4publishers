@@ -8,14 +8,15 @@
       <created
         date="2009-05-20"/>
       <revised
-        modified="2013-04-21"/>
+        modified="2014-07-02"/>
     </critdates>
   </prolog>
   <body>
-    <p>Updates for 21 April 2013:<ul
-      id="ul_e5a3356b-1f4e-4c6d-a24b-68eb7d56fed6">
-      <li>Reverted back to the HTML2 version of the User Guide as the HTML5
-        version appears to not work with older IE versions.</li>
+    <p>Updates for 2 July 2014:<ul id="ul_e5a3356b-1f4e-4c6d-a24b-68eb7d56fed6">
+      <li>Release of 0.9.19RC12. This is a major update: lots of code changes and improvements, especially to the Word-to-DITA process. This is still a release candidate because the necessary documentation updates have not been finished and need to do more regression testing. Also, the HTML5 transform currently has a few wrinkles that we are ironing out—this latest version may or may not work for you. We're working on it but it will probably be August before we can get everything sorted for HTML5.</li>
+      <li>The DITA for Publishers source repository has been migrated from Subversion to git (still on the SourceForge project). The latest code is now managed on the "rc" branch in the git repository, available at <xref
+        href="https://sourceforge.net/p/dita4publishers/git/ci/rc/tree/" format="html" scope="external">https://sourceforge.net/p/dita4publishers/git/ci/rc/tree/</xref>.</li>
+      <li>With 0.9.19RC12, the plugins work on the 1.6, 1.7, and 1.8 Open Toolkit versions, there is no longer a need for OT-version-specific packages.</li>
       </ul></p>
     <p>The DITA for Publishers project is an open-source, community project to enable the quick and productive use of DITA by Publishers. Enabling activities include:<ul
       id="ul_05546f8a-88ba-476d-8d8b-352681eb9e67">
@@ -58,7 +59,7 @@ version available at <xref
           colwidth="1*"/>
         <tbody>
           <row>
-            <entry>dita4publishers DITA materials (includes Open Toolkit plugins)</entry>
+            <entry>dita4publishers DITA materials (includes Open Toolkit plugins)<note>The 0.9.18 version is the last <i>stable</i> release. However 0.9.19RC12 is the latest release and is the one you should should use if at all possible.</note></entry>
             <entry><xref
               format="html"
               href="https://sourceforge.net/projects/dita4publishers/files/"
@@ -66,17 +67,8 @@ version available at <xref
           </row>
           <row>
             <entry>dita4publishers user documentation</entry>
-            <entry><xref
-              href="how-to-use.xml#topic-id"
-              format="dita">How To Use the DITA For Publishers Materials</xref><p><xref
-              href="../d4p-user-guide/index.html"
-              format="html"
-              scope="external"><i>DITA for Publishers User Guide</i></xref> (D4P HTML2 transform), 
-              <xref
-              href="../d4p-user-guide-html5/index.html"
-              scope="external"
-              format="html">../d4p-user-guide-html5/index.html</xref> (HTML5)</p><p>The D4P package also includes an EPUB and Kindle
-              version of the <cite>User Guide</cite>.</p></entry>
+            <entry><xref href="how-to-use.xml#topic-id" format="dita">How To Use the DITA For Publishers Materials</xref><p><xref href="../d4p-user-guide/index.html" format="html" scope="external"
+              ><i>DITA for Publishers User Guide</i></xref> (D4P HTML2 transform)<!--, <xref href="../d4p-user-guide-html5/index.html" scope="external" format="html">../d4p-user-guide-html5/index.html</xref> (HTML5)--></p><p>The D4P package also includes an EPUB and Kindle version of the <cite>User Guide</cite>.</p></entry>
           </row>
           <row>
             <entry>dita4publishers SourceForge project </entry>
@@ -86,11 +78,12 @@ version available at <xref
               scope="external">https://sourceforge.net/projects/dita4publishers/</xref></entry>
           </row>
           <row>
-            <entry>dita4publishers source code access (Subversion-based)</entry>
-            <entry><xref
-              format="html"
-              href="https://sourceforge.net/p/dita4publishers/code"
-              scope="external">https://sourceforge.net/p/dita4publishers/code</xref></entry>
+            <entry>Report bugs and request features</entry>
+            <entry><xref href="https://sourceforge.net/p/dita4publishers/_list/tickets" format="html" scope="external">https://sourceforge.net/p/dita4publishers/_list/tickets</xref></entry>
+          </row>
+          <row>
+            <entry>dita4publishers source code access (git-based)<note>The "rc" branch has the most recent code. The "release" branch will have the latest stable release (currently the very-old 0.9.18 release).</note></entry>
+            <entry><xref format="html" href="https://sourceforge.net/p/dita4publishers/code" scope="external">https://sourceforge.net/p/dita4publishers/git</xref></entry>
           </row>
           <row>
             <entry>EPUBs (readable with EPUB readers)</entry>
