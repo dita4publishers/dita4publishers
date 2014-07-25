@@ -581,14 +581,12 @@
     </xsl:apply-templates>
   </xsl:template>
 
-  <xsl:template match="w:r[w:rPr/w:rFonts[@w:ascii]]" priority="10">
-    <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
+  <xsl:template match="w:r[w:rPr/w:rFonts[w:rPr/w:rFonts/@w:ascii = ('Symbol', 'Wingdings')]]" priority="10">
     <xsl:variable name="fontFace" as="xs:string?"
       select="w:rPr/w:rFonts/@w:ascii"
     />
+<!--        <xsl:message> + [DEBUG] ==== w:r[w:rPr/w:rFonts]: fontFace="<xsl:sequence select="$fontFace"/>"</xsl:message>-->
 
-    <xsl:choose>
-      <xsl:when test="$fontFace = ('Symbol', 'Wingdings')">
         <!-- Treat the content as for w:sym -->
         <xsl:variable name="text" as="xs:string"
           select="string(w:t)"
@@ -597,22 +595,12 @@
           <xsl:variable name="codePoint" as="xs:string"
             select="local:int-to-hex(.)"
             />
+<!--          <xsl:message> + [DEBUG] codePoint="<xsl:sequence select="$codePoint"/>"</xsl:message>-->
           <xsl:sequence select="local:constructSymbolForCharcode(
             $codePoint, 
             $fontFace)"
           />
         </xsl:for-each>
-      </xsl:when>
-      <xsl:when test="$fontFace != ''">
-        <xsl:if test="$doDebug">          
-        <xsl:message> + [DEBUG] w:r[w:rPr/w:rFonts]: Value "<xsl:value-of select="$fontFace"/> for @w:ascii attribute.</xsl:message>
-        </xsl:if>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:message> + [WARN] w:r[w:rPr/w:rFonts]: No value for @w:ascii on wrFonts element: <xsl:sequence select="w:rPr/w:rFonts"/></xsl:message>
-        <xsl:next-match/>
-      </xsl:otherwise>
-    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="w:smartTag">
