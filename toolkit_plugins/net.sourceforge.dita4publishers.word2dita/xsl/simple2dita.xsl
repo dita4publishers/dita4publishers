@@ -91,6 +91,7 @@
       <xsl:document>
         <xsl:apply-templates>
           <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
+          <xsl:with-param name="simpleWpDoc" as="document-node()" tunnel="yes" select="$simpleWpDoc"/>
         </xsl:apply-templates>
       </xsl:document>
     </xsl:variable>
