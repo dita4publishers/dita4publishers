@@ -179,7 +179,7 @@
     <xsl:call-template name="makeTopic">
       <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
       <xsl:with-param name="parentMapUrl" as="xs:string?" tunnel="yes" select="$parentMapUrl"/>
-      <xsl:with-param name="topicUrl" as="xs:string?" select="$rootTopicUrl"/>    
+      <xsl:with-param name="topicUrl" as="xs:string" select="$rootTopicUrl"/>    
       <xsl:with-param name="topicName" as="xs:string" select="$rootTopicName" tunnel="yes"/>
       <xsl:with-param name="simpleWpDoc" as="document-node()" tunnel="yes"
         select="root(.)"
@@ -450,7 +450,7 @@
       <xsl:sequence select="@chunk, @collection-type, @processing-role, @toc"/>
       <xsl:apply-templates>
         <xsl:with-param name="doDebug" as="xs:boolean" tunnel="yes" select="$doDebug"/>
-        <xsl:with-param name="topicUrl" as="xs:string" select="$topicUrl"/>
+        <xsl:with-param name="topicUrl" as="xs:string" select="$topicUrl" tunnel="yes"/>
         <xsl:with-param name="topicName" as="xs:string" tunnel="yes" select="$topicName"/>
       </xsl:apply-templates>
     </xsl:element>
@@ -488,7 +488,7 @@
   <xsl:template match="rsiwp:topic">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="parentMapUrl" as="xs:string" tunnel="yes"/>
-    <xsl:param name="topicUrl" as="xs:string?"/><!-- Result URL for the topic document -->
+    <xsl:param name="topicUrl" as="xs:string" tunnel="yes"/><!-- Result URL for the topic document or its parent topic -->
     <xsl:param name="topicName" as="xs:string" tunnel="yes"/><!-- File/ID for the topic -->
     
     <!-- FIXME: This really needs to go through a mode for generating IDs
@@ -1193,7 +1193,7 @@
     <!-- Make a topic. The context element is an rsiwp:topic element -->
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>
     <xsl:param name="parentMapUrl" as="xs:string?" tunnel="yes"/>
-    <xsl:param name="topicUrl" as="xs:string"/><!-- Result URL for the topic document -->    
+    <xsl:param name="topicUrl" as="xs:string"/><!-- Result URL for the topic document or its parent topic -->    
     <xsl:param name="topicName" as="xs:string" select="generate-id(.)"/>   
         
     <xsl:if test="$doDebug">
