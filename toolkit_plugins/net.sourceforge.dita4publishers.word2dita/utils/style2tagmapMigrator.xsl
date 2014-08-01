@@ -65,7 +65,7 @@
   
   <xsl:template match="s2m:style[@topicZone = 'inline']" priority="10">
     <characterStyle>
-      <xsl:apply-templates select="@* except (@topicZone), node()"/>
+      <xsl:apply-templates select="@* except (@topicZone,@level), node()"/>
     </characterStyle>
   </xsl:template>
   
