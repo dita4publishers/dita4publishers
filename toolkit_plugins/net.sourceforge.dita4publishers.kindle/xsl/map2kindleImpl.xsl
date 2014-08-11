@@ -83,6 +83,8 @@
     -->
   <xsl:param name="idURIStub">http://example.org/dummy/URIstub/</xsl:param>
 
+  <xsl:param name="inputdir" select="relpath:getParent(document-uri(.))"/>
+
   <!-- Directory into which the generated output is put.
 
        This should be the directory that will be zipped up to

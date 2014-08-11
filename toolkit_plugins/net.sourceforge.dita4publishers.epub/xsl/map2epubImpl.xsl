@@ -96,6 +96,7 @@
     select="concat('file:///', translate($tempFilesDir,':\','|/'), '/')"/>
   
   
+  <xsl:param name="inputdir" select="relpath:getParent(document-uri(.))"/>
   <!-- Directory into which the generated output is put.
 
        This should be the directory that will be zipped up to

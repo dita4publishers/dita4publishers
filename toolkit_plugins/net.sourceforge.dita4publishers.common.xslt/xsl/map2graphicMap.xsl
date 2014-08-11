@@ -40,6 +40,7 @@
     <xsl:message> + [INFO] Found <xsl:sequence select="count($uniqueRefs/*)"/> unique graphic references.</xsl:message>
 
     <gmap:graphic-map>
+      <xsl:call-template name="handleImageListFile"/>
       <xsl:for-each select="$uniqueRefs/*">
         <xsl:variable name="absoluteUrl" as="xs:string" select="@href"/>
         <xsl:variable name="filename" as="xs:string" select="@filename"/>
@@ -111,15 +112,21 @@
                 BUT one topicref ancestor referencing the topic has a @copy-to 
                 which copy the file to a different location
                 
+      - case 4: topic is part of a chunk. If the topic is a descendant of the 
+                chunk root it should have an xtrf, otherwise it won't.
+                
         @xtrf is the absolute topic path of the original topic
         @href is the relative path to the image
-        so we two others params to figure the image location
+        so we have two others params to figure the image location
         param name="docMapUri" which is the basename of the main ditamap location
         param name="copyto" which is the value of the ancestor topicref @copy-to
      
   
   -->
-  <xsl:template match="*[df:class(.,'topic/image')]" mode="get-graphic-refs">
+  <!-- FIXME: I've disabled this template since we must use the image.list
+              file to reliably find graphics.
+    -->
+  <xsl:template match="*[df:class(.,'topic/xxx-image')]" mode="get-graphic-refs">
     <xsl:param name="copyto" select="''" as="xs:string" tunnel="yes"/>
     <xsl:param name="docMapUri" select="''" as="xs:string" tunnel="yes"/>
     <xsl:variable name="docUri">
@@ -143,8 +150,22 @@
             -->
           <!-- Handling the case where temporary files have <dita> wrapped around the
                root for some reason. -->
+          <!-- Issue 145: For chunked content, the image reference will have been
+               rewritten to reflect the location of the chunk, so in that case,
+               the @xtrf value is not the right one to use.
+               
+               In this case, the information we need is simply not in the source
+               document. Using the rewritten image URL and the @xtrf value may
+               (and likely will) produce an incorrect image reference. 
+            -->
+          <xsl:variable name="xtrfHolder" 
+            select="(ancestor::*[df:class(., 'topic/topic')][@xtrf != ''])[last()]" 
+            as="element()?"/>
+          <xsl:if test="not($xtrfHolder)">
+            <xsl:message> + [WARN] No @xtrf attribute on any topic ancestor of the image.</xsl:message>
+          </xsl:if>
           <xsl:variable name="xtrfValue" as="xs:string?"
-            select="normalize-space((root(.)/*[1]/@xtrf | root(.)/dita/*[1]/@xtrf)[1])"
+            select="normalize-space($xtrfHolder/@xtrf)"
           />
           <xsl:choose>
             <xsl:when test="$xtrfValue != ''">
@@ -314,9 +335,32 @@
       <gmap:graphic-ref href="{$absoluteUrl}" filename="{relpath:getName($absoluteUrl)}"/>
     </xsl:if>
   </xsl:template>
-  
-  
 
   <xsl:template match="text()" mode="generate-graphic-map get-graphic-refs"/>
+  
+  <xsl:template name="handleImageListFile">
+    <xsl:variable name="imageListUri" as="xs:string"
+       select="relpath:newFile($tempdir, 'image.list')"
+    />
+    <xsl:choose>
+      <xsl:when test="unparsed-text-available($imageListUri)">
+        <xsl:variable name="imageList"
+          select="unparsed-text($imageListUri)"
+        />
+        <xsl:for-each select="tokenize($imageList, '&#x0a;')">
+<!--          <xsl:message> + [DEBUG] line[<xsl:value-of select="position()"/>]="<xsl:value-of select="."/>"</xsl:message>-->
+          <xsl:variable name="absoluteUrl" as="xs:string"
+            select="relpath:newFile($inputdir, .)"
+          />
+<!--          <xsl:message> + [DEBUG]  absoluteUrl="<xsl:value-of select="$absoluteUrl"/>"</xsl:message>-->
+          <gmap:graphic-map-item input-url="{$absoluteUrl}"
+            output-url="{relpath:newFile($imagesOutputPath, relpath:getName($absoluteUrl))}"/>
+        </xsl:for-each>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:message> + [INFO] Did not file image list file "<xsl:value-of select="$imageListUri"/>"</xsl:message>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
 
 </xsl:stylesheet>

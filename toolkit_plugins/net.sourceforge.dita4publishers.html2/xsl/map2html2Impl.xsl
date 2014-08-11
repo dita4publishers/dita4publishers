@@ -92,6 +92,7 @@
 
        -->
   <xsl:param name="outdir" select="./html2"/>
+  <xsl:param name="inputdir" select="relpath:getParent(document-uri(.))"/>
   <!-- NOTE: Case of OUTEXT parameter matches case used in base HTML
        transformation type.
     -->

@@ -132,6 +132,7 @@
       <param name="mathJaxLocalJavascriptUri" expression="${html2.mathjax.local.javascript.uri}" if="html2.mathjax.local.javascript.uri"/>
       <param name="imagesOutputDir" expression="${images.output.dir}"/>    	
      	<param name="outdir" expression="${html2.xslt.outdir}"/>
+     	<param name="inputdir" expression="${dita.input.dirname}"/>
     	<!-- NOTE: Case of OUTEXT matches parameter used in base HTML transform type -->
     	<param name="OUTEXT" expression="${out.ext}"/><!-- Extension to use for result files, e.g., ".html" -->
      	<param name="tempdir" expression="${html2.xslt.tempdir}"/>
