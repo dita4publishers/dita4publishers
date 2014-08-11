@@ -64,6 +64,7 @@
   </xsl:template>
   
   <xsl:template match="s2m:style[@topicZone = 'inline']" priority="10">
+    <xsl:message> + [DEBUG] generating characterStyle element</xsl:message>
     <characterStyle>
       <xsl:apply-templates select="@* except (@topicZone,@level), node()"/>
     </characterStyle>
@@ -197,6 +198,12 @@
     @prologType[../@structureType = ('map', 'mapTitle')]
     ">
     <!-- These attributes are handled by the property subelement-creating templates. -->    
+  </xsl:template>
+  
+  <xsl:template match="s2m:characterStyle/@level">
+    <!-- Suppress in case we're remigrating an already-migrated
+         file that somehow still has level on characterStyle.
+      -->
   </xsl:template>
   
   <xsl:template match="*" priority="-1">

@@ -1,72 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <style2tagmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="urn:public::dita4publishers.org:namespaces:word2dita:style2tagmap style2tagmap.xsd"
-  xmlns="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap"
-  
-  >
+              xmlns="urn:public:dita4publishers.org:namespaces:word2dita:style2tagmap"
+              xsi:schemaLocation="urn:public::dita4publishers.org:namespaces:word2dita:style2tagmap style2tagmap.xsd">
   <title>Default Word Styles to BookMap Style-to-Tag Map</title>
   <documentation xmlns:html="http://www.w3.org/1999/xhtml">
-    <html:div xmlns="http://www.w3.org/1999/xhtml">
-      <p>Defines a usable mapping from the built-in MS Word styles to
+      <html:div xmlns="http://www.w3.org/1999/xhtml">
+         <p>Defines a usable mapping from the built-in MS Word styles to
       DITA markup. Generates a bookmap and topics from a single input document.</p>
-      <p>The First non-skipped paragraph in the document should styled as
+         <p>The First non-skipped paragraph in the document should styled as
       "Title", which it mapped to &lt;title&gt; within &lt;bookmap&gt; and triggers
       the generation of the root output map.</p>
-    </html:div>
+      </html:div>
   </documentation>
   <styles>
-    <output
-      name="map"
-      doctype-system="map.dtd"
-      doctype-public="-//OASIS//DTD DITA Map//EN"
-    />
-    <output
-      name="bookmap"
-      doctype-system="bookmap.dtd"
-      doctype-public="-//OASIS//DTD DITA BookMap//EN"
-    />
+      <output name="map"
+              doctype-system="map.dtd"
+              doctype-public="-//OASIS//DTD DITA Map//EN"/>
+      <output name="bookmap"
+              doctype-system="bookmap.dtd"
+              doctype-public="-//OASIS//DTD DITA BookMap//EN"/>
     
-    <output
-      name="concept"
-      doctype-system="concept.dtd"
-      doctype-public="-//OASIS//DTD DITA Concept//EN"
-    />
+      <output topicType="concept"
+              bodyType="conbody"
+              name="concept"
+              doctype-system="concept.dtd"
+              doctype-public="-//OASIS//DTD DITA Concept//EN"/>
     
-    <output
-      name="task"
-      doctype-system="task.dtd"
-      doctype-public="-//OASIS//DTD DITA Task//EN"
-    />
+      <output name="task"
+              doctype-system="task.dtd"
+              doctype-public="-//OASIS//DTD DITA Task//EN"/>
     
-    <output
-      name="reference"
-      doctype-system="reference.dtd"
-      doctype-public="-//OASIS//DTD DITA Reference//EN"
-    />
+      <output name="reference"
+              doctype-system="reference.dtd"
+              doctype-public="-//OASIS//DTD DITA Reference//EN"/>
    
 
-    <style 
-      styleName="kick_prot_kop1"
-      structureType="topicTitle"
-      tagName="title"
-      topicType="concept"
-      bodyType="conbody"
-      level="0"
-      format="concept"
-    />   
+      <paragraphStyle styleName="kick_prot_kop1"
+                      structureType="topicTitle"
+                      tagName="title"
+                      level="0">
+         <topicProperties topicType="concept" bodyType="conbody" format="concept"/>
+      </paragraphStyle>   
 
-    <style
-      styleName="Normal"
-      tagName="p"
-      topicZone="body"
-      level="1"
-    />
+      <paragraphStyle styleName="Normal" tagName="p" topicZone="body" level="1"/>
     
-    <style
-      styleName="DefaultParagraph Font"
-      tagName="ph"
-      topicZone="body"
-      level="2"/>
+      <paragraphStyle styleName="DefaultParagraph Font"
+                      tagName="ph"
+                      topicZone="body"
+                      level="2"/>
+    <characterStyle styleName="bold"
+      tagName="b"
+      outputclass="myBold"
+    />
     
 
     

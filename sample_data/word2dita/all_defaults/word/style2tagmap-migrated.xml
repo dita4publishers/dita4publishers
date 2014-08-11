@@ -64,6 +64,7 @@
       </paragraphStyle>    
       <paragraphStyle styleName="heading 2"
                       structureType="topicTitle"
+                      containingTopic="currenttopicref"
                       tagName="title"
                       level="2">
          <topicrefProperties topicrefType="topicref"/>
