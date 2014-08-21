@@ -72,6 +72,7 @@
       <xsl:apply-templates>
         <xsl:with-param name="colCount" select="$numCols" as="xs:integer" tunnel="yes"/>
         <xsl:with-param name="rowCount" select="$numHeaderRows + $numBodyRows" as="xs:integer" tunnel="yes"/>
+        <xsl:with-param name="colspecElems" as="element()*" select="*[df:class(., 'topic/colspec')]" tunnel="yes"/>
       </xsl:apply-templates>
     </Table><xsl:text>&#x0a;</xsl:text>    
   </xsl:template>
@@ -118,7 +119,10 @@
     <xsl:param name="articleType" as="xs:string" tunnel="yes"/>
     <xsl:param name="cellStyle" as="xs:string" tunnel="yes" select="'[None]'"/>
     <xsl:param name="colspecElems" as="element()*" tunnel="yes" />
-    
+
+    <xsl:message> + [DEBUG] topic/entry: "<xsl:value-of select="substring(., 80)"/>"</xsl:message>
+    <xsl:message> + [DEBUG] topic/entry: colspecElems="<xsl:sequence select="$colspecElems"/>"</xsl:message>
+
     <xsl:variable name="rowNumber" 
       select="if (../parent::*[df:class(., 'topic/tbody')])
       then count(../../../*[df:class(., 'topic/thead')]/*[df:class(., 'topic/row')]) +
@@ -140,6 +144,7 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
+    <xsl:message> + [DEBUG] topice/entry: colspan="<xsl:value-of select="$colspan"/></xsl:message>
     <xsl:variable name="rowspan">
       <xsl:choose>
         <xsl:when test="@morerows">
@@ -152,6 +157,11 @@
     </xsl:variable>
     <xsl:variable name="colSpan" select="incxgen:makeCSpnAttr($colspan,$colCount)"/>
     <xsl:variable name="rowSpan" select="incxgen:makeRSpnAttr($rowspan,$rowCount)"/>
+    <xsl:variable name="justification" as="xs:string"
+      select="if (@align = 'center') then 'CenterAlign'
+                 else if (@align = 'right') then 'RightAlign'
+                      else ''"
+    />
     <!-- <xsl:message select="concat('[DEBUG: r: ',$colSpan,' c: ',$rowSpan)"/> -->
     <xsl:text> </xsl:text><Cell 
       Name="{$colNumber}:{$rowNumber}" 
@@ -159,7 +169,21 @@
       ColumnSpan="{$colSpan}" 
       AppliedCellStyle="CellStyle/$ID/${cellStyle}" 
       ppcs="l_0" 
-      Self="rc_{generate-id()}"><xsl:text>&#x0a;</xsl:text>
+      Self="rc_{generate-id()}">
+      <xsl:if test="@valign">
+        <xsl:choose>
+          <xsl:when test="@valign = 'bottom'">
+            <xsl:attribute name="VerticalJustification" select="'BottomAlign'"/>
+          </xsl:when>
+          <xsl:when test="@valign='middle'">
+            <xsl:attribute name="VerticalJustification" select="'CenterAlign'"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <!-- Top is the default -->
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:if>
+      <xsl:text>&#x0a;</xsl:text>
       <!-- must wrap cell contents in txsr and pcnt -->
       <xsl:variable name="pStyle" as="xs:string">
         <xsl:choose>
@@ -177,11 +201,14 @@
       <xsl:choose>
         <xsl:when test="df:hasBlockChildren(.)">
           <!-- FIXME: handle non-empty text before first block element -->
-          <xsl:apply-templates/>
+          <xsl:apply-templates>
+            <xsl:with-param name="justification" tunnel="yes" select="$justification" as="xs:string"/>
+          </xsl:apply-templates>
         </xsl:when>
         <xsl:otherwise>
           <xsl:call-template name="makeBlock-cont">
             <xsl:with-param name="pStyle" tunnel="yes" select="e2s:getPStyleForElement(., $articleType)"/>
+            <xsl:with-param name="justification" tunnel="yes" select="$justification" as="xs:string"/>
           </xsl:call-template>
         </xsl:otherwise>
       </xsl:choose>
@@ -419,7 +446,7 @@
     <xsl:variable name="isColSpan" select="
       if ($namest ne '' and $nameend ne '') then
       (if ($namest ne $nameend) then 
-      (if ($colspecElems/*[@colname=$namest] and $colspecElems/*[@colname=$nameend]) then true()
+      (if ($colspecElems[@colname=$namest] and $colspecElems[@colname=$nameend]) then true()
       else false())
       else false ())
       else false ()"
@@ -432,8 +459,8 @@
     <xsl:param name="colspecElems" as="element()*"/>
     <xsl:variable name="namest" select="if ($elem/@namest) then $elem/@namest else ''" as="xs:string" />
     <xsl:variable name="nameend" select="if ($elem/@nameend) then $elem/@nameend else ''" as="xs:string" />
-    <xsl:variable name="numColsBeforeStartColSpan" select="count($colspecElems/*[@colname=$namest]/preceding::*[self::colspec or df:class(.,'topic/colspec')])" as="xs:integer" />
-    <xsl:variable name="numColsBeforeEndColSpan" select="count($colspecElems/*[@colname=$nameend]/preceding::*[self::colspec or df:class(.,'topic/colspec')])" as="xs:integer" />
+    <xsl:variable name="numColsBeforeStartColSpan" select="count($colspecElems[@colname=$namest]/preceding::*[self::colspec or df:class(.,'topic/colspec')])" as="xs:integer" />
+    <xsl:variable name="numColsBeforeEndColSpan" select="count($colspecElems[@colname=$nameend]/preceding::*[self::colspec or df:class(.,'topic/colspec')])" as="xs:integer" />
     <xsl:sequence select="$numColsBeforeEndColSpan - $numColsBeforeStartColSpan + 1"/>    
   </xsl:function>
   

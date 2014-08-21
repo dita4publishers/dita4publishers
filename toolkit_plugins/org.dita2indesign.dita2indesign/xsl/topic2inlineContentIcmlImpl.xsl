@@ -104,6 +104,7 @@
     <xsl:param name="cStyle" select="'$ID/[No character style]'" as="xs:string" tunnel="yes"/>
     <xsl:param name="txsrAtts" tunnel="yes" as="attribute()*"/>
     <xsl:param name="text" as="xs:string" select="''"/>
+    <xsl:param name="justification" as="xs:string?" select="''" tunnel="yes"/>
     
     <xsl:variable name="pStyleEscaped" as="xs:string" select="incxgen:escapeStyleName($pStyle)"/>
     <xsl:variable name="cStyleEscaped" as="xs:string" select="incxgen:escapeStyleName($cStyle)"/>
@@ -119,7 +120,11 @@
 <!--    <xsl:message> + [DEBUG] block-children/cont: text(): pStyle="<xsl:sequence select="$pStyle"/>", cStyle="<xsl:sequence select="$cStyleEscaped"/>"</xsl:message>-->
     
     <ParagraphStyleRange
-      AppliedParagraphStyle="ParagraphStyle/{$pStyleEscaped}"><xsl:text>&#x0a;</xsl:text>
+      AppliedParagraphStyle="ParagraphStyle/{$pStyleEscaped}">
+      <xsl:if test="$justification != ''">
+        <xsl:attribute name="Justification" select="$justification"/>
+      </xsl:if>
+      <xsl:text>&#x0a;</xsl:text>
       <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/{$cStyleEscaped}"
         >
         <Content><xsl:value-of select="incxgen:normalizeText($textValue)"
@@ -130,6 +135,8 @@
   <xsl:template match="*[df:class(., 'd4p-formatting-d/tab')]" mode="block-children cont" priority="10">
     <xsl:param name="pStyle" select="'$ID/[No paragraph style]'" as="xs:string" tunnel="yes"/>
     <xsl:param name="cStyle" select="'$ID/[No character style]'" as="xs:string" tunnel="yes"/>
+    <xsl:param name="justification" as="xs:string?" select="''" tunnel="yes"/>
+
     <ParagraphStyleRange
       AppliedParagraphStyle="ParagraphStyle/{$pStyle}"><xsl:text>&#x0a;</xsl:text>
       <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/{$cStyle}"

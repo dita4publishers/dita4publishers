@@ -37,6 +37,7 @@
     <xsl:param name="txsrAtts" tunnel="yes" as="attribute()*"/>
     <xsl:param name="content" as="node()*"/>
     <xsl:param name="markerType" as="xs:string" select="'para'"/>
+    <xsl:param name="justification" as="xs:string?" select="''" tunnel="yes"/>
     
     <xsl:variable name="pStyleEscaped" as="xs:string" select="incxgen:escapeStyleName($pStyle)"/>
     <xsl:variable name="cStyleEscaped" as="xs:string" select="incxgen:escapeStyleName($cStyle)"/>
@@ -55,65 +56,55 @@
     </xsl:variable>
     
     <xsl:sequence select="$pcntContent"/>
-    <xsl:choose>
-      <xsl:when test="$markerType = 'framebreak'">
         <ParagraphStyleRange
           AppliedParagraphStyle="ParagraphStyle/{$pStyleEscaped}">
-          <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]" ParagraphBreakType="NextFrame">
-            <Br/>
-          </CharacterStyleRange>
+          <xsl:if test="$justification != ''">
+            <xsl:attribute name="Justification" select="$justification"/>
+          </xsl:if>
+          <xsl:choose>
+            <xsl:when test="$markerType = 'framebreak'">
+                <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]"
+                  ParagraphBreakType="NextFrame">
+                  <Br/>
+                </CharacterStyleRange>
+            </xsl:when>
+            <xsl:when test="$markerType = 'columnbreak'">
+                <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]"
+                  ParagraphBreakType="NextColumn">
+                  <Br/>
+                </CharacterStyleRange>
+            </xsl:when>
+            <xsl:when test="$markerType = 'linebreak'">
+                <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]">
+                  <Content><xsl:text>&#x2028;</xsl:text></Content>
+                </CharacterStyleRange>
+            </xsl:when>
+            <xsl:when test="$markerType = 'pagebreak'">
+                <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]"
+                   ParagraphBreakType="NextPage">
+                  <Br/>
+                </CharacterStyleRange>
+            </xsl:when>
+            <xsl:when test="$markerType = 'oddpagebreak'">
+                <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]"
+                  ParagraphBreakType="NextOddPage">
+                  <Br/>
+                </CharacterStyleRange>
+            </xsl:when>
+            <xsl:when test="$markerType = 'evenpagebreak'">
+                <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]"
+                  ParagraphBreakType="NextEvenPage">
+                  <Br/>
+                </CharacterStyleRange>
+            </xsl:when>
+            <xsl:when test="$markerType = 'none'"/>
+            <xsl:otherwise>
+                <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]">
+                  <Br/>
+                </CharacterStyleRange>
+            </xsl:otherwise>
+          </xsl:choose>
         </ParagraphStyleRange>  
-      </xsl:when>
-      <xsl:when test="$markerType = 'columnbreak'">
-        <ParagraphStyleRange
-          AppliedParagraphStyle="ParagraphStyle/{$pStyleEscaped}">
-          <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]" ParagraphBreakType="NextColumn">
-            <Br/>
-          </CharacterStyleRange>
-        </ParagraphStyleRange>  
-      </xsl:when>
-      <xsl:when test="$markerType = 'linebreak'">
-        <ParagraphStyleRange
-          AppliedParagraphStyle="ParagraphStyle/{$pStyleEscaped}">
-          <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]">
-            <Content><xsl:text>&#x2028;</xsl:text></Content>
-          </CharacterStyleRange>
-        </ParagraphStyleRange>  
-      </xsl:when>
-      <xsl:when test="$markerType = 'pagebreak'">
-        <ParagraphStyleRange
-          AppliedParagraphStyle="ParagraphStyle/{$pStyleEscaped}">
-          <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]" ParagraphBreakType="NextPage">
-            <Br/>
-          </CharacterStyleRange>
-        </ParagraphStyleRange>  
-      </xsl:when>
-      <xsl:when test="$markerType = 'oddpagebreak'">
-        <ParagraphStyleRange
-          AppliedParagraphStyle="ParagraphStyle/{$pStyleEscaped}">
-          <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]" ParagraphBreakType="NextOddPage">
-            <Br/>
-          </CharacterStyleRange>
-        </ParagraphStyleRange>  
-      </xsl:when>
-      <xsl:when test="$markerType = 'evenpagebreak'">
-        <ParagraphStyleRange
-          AppliedParagraphStyle="ParagraphStyle/{$pStyleEscaped}">
-          <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]" ParagraphBreakType="NextEvenPage">
-            <Br/>
-          </CharacterStyleRange>
-        </ParagraphStyleRange>  
-      </xsl:when>
-      <xsl:when test="$markerType = 'none'"/>
-      <xsl:otherwise>
-        <ParagraphStyleRange
-          AppliedParagraphStyle="ParagraphStyle/{$pStyleEscaped}">
-          <CharacterStyleRange AppliedCharacterStyle="CharacterStyle/$ID/[No character style]">
-            <Br/>
-          </CharacterStyleRange>
-        </ParagraphStyleRange>  
-      </xsl:otherwise>
-    </xsl:choose>
     
   </xsl:template>
   

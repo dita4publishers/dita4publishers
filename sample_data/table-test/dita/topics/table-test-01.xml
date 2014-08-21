@@ -98,5 +98,49 @@
         </tbody>
       </tgroup>
     </table>
+    <table frame="all" rowsep="1" colsep="1" id="table_cvh_xm2_2p">
+      <title>Table With Spans</title>
+      <tgroup cols="4">
+        <colspec colname="c1" colnum="1" colwidth="1.0*" class="- topic/colspec "/>
+        <colspec colname="c2" colnum="2" colwidth="1.0*"/>
+        <colspec colname="c3" colnum="3" colwidth="1.0*"/>
+        <colspec colname="c4" colnum="4" colwidth="1.0*"/>
+        <thead>
+          <row>
+            <entry>C1</entry>
+            <entry>C2</entry>
+            <entry>C3</entry>
+            <entry>C4</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry namest="c1" nameend="c2">Horizontal span</entry>
+            <entry>R1C3</entry>
+            <entry>R1C4</entry>
+          </row>
+          <row>
+            <entry>R2C1</entry>
+            <entry morerows="1">Vertical span</entry>
+            <entry>R2C3</entry>
+            <entry>R2C4</entry>
+          </row>
+          <row>
+            <entry>R3C1</entry>
+            <entry>R3C3</entry>
+            <entry>R3C4</entry>
+          </row>
+          <row>
+            <entry>R4C1</entry>
+            <entry>R4C2</entry>
+            <entry namest="c3" nameend="c4" morerows="1">Horizontal and vertical span</entry>
+          </row>
+          <row>
+            <entry>R5C1</entry>
+            <entry>R5C2</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
   </body>
 </topic>
