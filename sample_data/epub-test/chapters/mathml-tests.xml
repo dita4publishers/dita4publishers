@@ -10,7 +10,7 @@
       <fig>
         <title>MathML using inline markup</title>
         <d4p_MathML>
-          <m:math>
+          <m:math  xmlns:m="http://www.w3.org/1998/Math/MathML">
             <m:mrow>
               <m:mi>A</m:mi>
               <m:mo>=</m:mo>
