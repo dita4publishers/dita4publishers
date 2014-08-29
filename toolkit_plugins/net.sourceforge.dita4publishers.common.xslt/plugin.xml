@@ -1,0 +1,6 @@
+<plugin id="net.sourceforge.dita4publishers.common.xslt">
+  <!-- This plugin provides shared XSLT components that are used
+       by reference from other plugins. It provides no
+       transtypes nor does it extend any other plugins.
+    -->
+</plugin>
