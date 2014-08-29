@@ -3,7 +3,7 @@
   <extension-point id="xsl.transtype-subjectscheme2navmap"/>
   
   <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
-  <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
+  <require plugin="org.dita-community.common.xslt"/> 
 
   <template file="build_transtype-subjectscheme2navmap_template.xml"/>
   

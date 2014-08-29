@@ -8,7 +8,7 @@
 
   <require plugin="net.sourceforge.dita4publishers.common.html"/> 
   <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
-  <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
+  <require plugin="org.dita-community.common.xslt"/> 
 
   <template file="build_transtype-epub_template.xml"/>
   

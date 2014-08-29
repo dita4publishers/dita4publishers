@@ -42,16 +42,16 @@
   
   <!-- These two libraries end up getting imported via the dita2xhtml.xsl from the main toolkit
      because the base XSL support lib is integrated into that file. So these inclusions are redundant.
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="../../org.dita-community.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../org.dita-community.common.xslt/xsl/lib/relpath_util.xsl"/>
   -->
   
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
+  <xsl:import href="../../org.dita-community.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   
   <xsl:import
-    href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMapImpl.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
+    href="../../org.dita-community.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
+  <xsl:import href="../../org.dita-community.common.xslt/xsl/map2graphicMapImpl.xsl"/>
+  <xsl:import href="../../org.dita-community.common.xslt/xsl/topicHrefFixup.xsl"/>
   
   <xsl:import href="../../net.sourceforge.dita4publishers.epub/xsl/html2xhtmlImpl.xsl"/>
 

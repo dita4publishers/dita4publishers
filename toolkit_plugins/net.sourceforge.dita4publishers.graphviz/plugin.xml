@@ -2,7 +2,7 @@
   <extension id="xsl.transtype-graphviz"/>
 
   <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> 
-  <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
+  <require plugin="org.dita-community.common.xslt"/> 
 
   <template file="build_transtype-graphviz_template.xml"/>
   

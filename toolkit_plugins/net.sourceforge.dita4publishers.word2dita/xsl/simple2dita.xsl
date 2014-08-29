@@ -59,7 +59,7 @@
   The root importer of this module must also import the following module:
   
   
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="../../org.dita-community.common.xslt/xsl/lib/relpath_util.xsl"/>
  -->  
   
   <!-- Paragraphs indexed by the first child bookmark that doesn't have a name starting with "_" 

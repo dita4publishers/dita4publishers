@@ -25,8 +25,8 @@
     'false' - Turns it off (the default)
     =====================================================================-->
   
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="../../org.dita-community.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../org.dita-community.common.xslt/xsl/lib/relpath_util.xsl"/>
   
   <xsl:include href="topic2icmlImpl.xsl"/>
   

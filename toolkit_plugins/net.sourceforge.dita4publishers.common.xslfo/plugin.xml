@@ -6,7 +6,7 @@
        In particular, it centralizes imports of library modules
        so that a given module is imported exactly once.
   -->
-  <require plugin="net.sourceforge.dita4publishers.common.xslt"/> 
+  <require plugin="org.dita-community.common.xslt"/> 
   
   <feature extension="dita.xsl.xslfo"
     value="xsl/commonXslfoExtensionSupport.xsl" 
