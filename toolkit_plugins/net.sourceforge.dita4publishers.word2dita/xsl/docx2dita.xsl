@@ -136,6 +136,9 @@ version="2.0">
   <xsl:variable name="includeWordBookmarksBoolean" as="xs:boolean" 
     select="matches($includeWordBookmarks, 'yes|true|1', 'i')"/>
   
+  <!-- To make it easy to get to the original input doc later -->
+  <xsl:variable name="documentXML" as="document-node()" select="root(.)"/>
+  
   <xsl:output name="indented" 
     method="xml"
     indent="yes"

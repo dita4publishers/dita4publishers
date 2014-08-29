@@ -751,10 +751,10 @@
                               xs:integer(@colspan)"
               />
               <xsl:variable name="startColName" as="xs:string"
-                select="local:constructColumnName(ancestor::rsiwp:table/rsiwp:cols/rsiwp:col[$startColNum])"
+                select="local:constructColumnName(ancestor::rsiwp:table[1]/rsiwp:cols/rsiwp:col[$startColNum])"
               />
               <xsl:variable name="endColName" as="xs:string"
-                select="local:constructColumnName(ancestor::rsiwp:table/rsiwp:cols/rsiwp:col[$endColNum])"
+                select="local:constructColumnName(ancestor::rsiwp:table[1]/rsiwp:cols/rsiwp:col[$endColNum])"
               />
                 <xsl:attribute name="namest" select="$startColName"/>
                 <xsl:attribute name="nameend" select="$endColName"/>
@@ -1149,6 +1149,15 @@
       ><data name="font" value="{@font}"
       /><xsl:apply-templates mode="#current"
       /></ph>
+  </xsl:template>
+  
+  <xsl:template match="rsiwp:sdt" mode="p-content #default">
+    <!-- Could try to generate elements that reflect the SDT tagname or
+         alias, but knowing what's allowed is tricky because it depends
+         both on the context we're putting things out into and
+         the content of the SDT itself.
+      -->
+    <xsl:apply-templates select="rsiwp:sdtContent/node()" mode="#current"/>
   </xsl:template>
   
   <xsl:template name="handleTopicProlog">

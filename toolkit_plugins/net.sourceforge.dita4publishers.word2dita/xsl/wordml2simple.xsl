@@ -1236,6 +1236,63 @@
     
   </xsl:template>
   
+  <!--==================================
+      Structured Document Tags (w:sdt)
+    
+      Structured document tags provide
+      a way to capture input in the Word
+      document where the value is associated
+      with a semantic tag. This tag can
+      be translated into an XML element
+      containing the sdt content.
+      
+      See 17.5.2 Structured Document Tags 
+      in the Office Open XML Part 1 
+      specification.
+      ================================== -->
+  
+  <xsl:template match="w:sdt">
+    <xsl:message> + [DEBUG] w:sdt: Starting....</xsl:message>
+    <!-- Note: the sdt may not always have an alias. -->
+    <xsl:variable name="alias" as="xs:string?"
+      select="w:sdtPr/w:alias/@w:val"/>
+    <xsl:variable name="tagname" as="xs:string?"
+      select="w:sdtPr/w:tag/@w:val"/>
+    <xsl:variable name="dataBinding" as="xs:string?"
+      select="w:sdtPr/w:dataBinding/@w:xpath"
+    />
+    <xsl:variable name="prefixMappings" as="xs:string?"
+      select="w:sdtPr/w:dataBinding/@w:prefixMappings"
+    />
+    <xsl:variable name="dataPartId" as="xs:string?"
+      select="w:sdtPr/w:dataBinding/@w:storeItemID"
+    />
+    
+    <!-- Per the Office Open spec: If there is a data binding
+         then if there is a storeItemID, the data binding
+         is applied to that document. 
+         
+         If there is no store item ID, then the data binding
+         is applied to each custom XML item document in turn
+         until either an element is located or all the documents
+         are tried.
+         
+         If an element is found then it is used in place of any
+         literal content for the sdt.
+      -->
+    <sdt tagname="{$tagname}">
+      <xsl:if test="$alias">
+        <xsl:attribute name="alias" select="$alias"/>
+      </xsl:if>
+      <sdtContent>
+        <!-- The content of the SDT is just normal stuff: paragraphs, table components, runs, etc. -->
+        <xsl:apply-templates select="w:sdtContent/*" mode="#current"/>
+      </sdtContent>
+    </sdt>
+    
+  </xsl:template>
+    
+  
   
     <!--==================================
       simpleWpDoc-fixup
