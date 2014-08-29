@@ -3,9 +3,9 @@
   <extension id="xsl.transtype-epub-custom"/> <!-- update the text after the first hyphen to match your custom transtype -->
 
   <require plugin="org.dita.xhtml"/> <!-- require the base xhtml plugin from the DITA-OT, because most of the epub processing is based off of this -->
-  <require plugin="net.sourceforge.dita4publishers.common.mapdriven"/> <!-- the epub generation makes uses of the D4P mapdriven processing -->
+  <require plugin="org.dita4publishers.common.mapdriven"/> <!-- the epub generation makes uses of the D4P mapdriven processing -->
   <require plugin="org.dita-community.common.xslt"/> <!-- we also need this D4P library (e.g., we need it for the custom df:class function that abstracts out the checking of an element's class) -->
-  <require plugin="net.sourceforge.dita4publishers.epub"/> <!-- we are extending the base epub plugin so we need to include it -->
+  <require plugin="org.dita4publishers.epub"/> <!-- we are extending the base epub plugin so we need to include it -->
   
   <template file="build_transtype-epub-custom_template.xml"/> <!-- change the text between the first hyphen and the first underscore to match your custom transtype -->
   

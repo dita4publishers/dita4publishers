@@ -18,7 +18,7 @@
   exclude-result-prefixes="xs "
   version="2.0">
   
-  &lt;xsl:import href="../../net.sourceforge.dita4publishers.word2dita/xsl/docx2dita.xsl"/>
+  &lt;xsl:import href="../../org.dita4publishers.word2dita/xsl/docx2dita.xsl"/>
   
   &lt;xsl:template match="<b>concept/title</b>" mode="final-fixup">
     &lt;!-- Look for numbers for the form "1-1" at the start of titles and wrap in d4pSimpleEnumeration
@@ -57,7 +57,7 @@
   
   -->
 &lt;plugin id="org.example.d4p.word2ditaextension">
-  &lt;require plugin="net.sourceforge.dita4publishers.word2dita"/> 
+  &lt;require plugin="org.dita4publishers.word2dita"/> 
 
   &lt;!-- This plugin just provides the transform in a reliable location
        relative to the base transform. It doesn't define its own

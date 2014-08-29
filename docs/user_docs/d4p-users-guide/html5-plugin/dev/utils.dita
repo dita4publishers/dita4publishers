@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE task PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:task" "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:task">
 <task id="task_u5b_dlw_pm">
-    <title>Using the net.sourceforge.dita4publishers.utils</title>
-    <shortdesc>The net.sourceforge.dita4publishers.utils is a small experimental utility intented to simplify the development of custimization plugins</shortdesc>
+    <title>Using the org.dita4publishers.utils</title>
+    <shortdesc>The org.dita4publishers.utils is a small experimental utility intented to simplify the development of custimization plugins</shortdesc>
     <taskbody>
         <context>
             <p>This tutorial assumes you already have a html mockup developped, with all css and javascript coded.</p>
         </context>
         <steps>
             <step>
-                <cmd>Using the command line, at the root of the DITA-OT installation, run <cmdname>ant -f plugins/net.sourceforge.dita4publishers.utils</cmdname></cmd>
+                <cmd>Using the command line, at the root of the DITA-OT installation, run <cmdname>ant -f plugins/org.dita4publishers.utils</cmdname></cmd>
                 <stepresult>You will be prompted to create a new plugin:
                     <pre>
      [echo] 

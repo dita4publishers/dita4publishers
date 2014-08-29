@@ -6,6 +6,6 @@
              exist within the plug-in's directory.
     -->
   
-  <nextCatalog catalog="plugins/net.sourceforge.dita4publishers.shakespear.doctypes/doctypes/catalog.xml"/>
+  <nextCatalog catalog="plugins/org.dita4publishers.shakespear.doctypes/doctypes/catalog.xml"/>
   
 </catalog>

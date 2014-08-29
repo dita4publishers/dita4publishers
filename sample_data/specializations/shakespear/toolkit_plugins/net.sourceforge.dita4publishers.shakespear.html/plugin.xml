@@ -7,7 +7,7 @@
   rendering for play-specific .
   
   -->
-<plugin id="net.sourceforge.dita4publishers.shakespear.html">
-  <require plugin="net.sourceforge.dita4publishers.shakespear.doctypes"/> 
+<plugin id="org.dita4publishers.shakespear.html">
+  <require plugin="org.dita4publishers.shakespear.doctypes"/> 
   <feature extension="dita.xsl.xhtml" value="xsl/play2html.xsl" type="file"/>  
 </plugin>

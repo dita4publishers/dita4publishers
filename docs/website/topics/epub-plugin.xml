@@ -4,7 +4,7 @@
   id="topic-id">
   <title>EPub Plugin</title>
   <body>
-    <p>The EPub plugin (net.sourceforge.dita4publishers.epub) generates electronic books in <xref
+    <p>The EPub plugin (org.dita4publishers.epub) generates electronic books in <xref
         href="http://www.openebook.org/"
         format="html"
         scope="external">IDPF</xref> epub format. These ebooks can be read by most eBook readers,

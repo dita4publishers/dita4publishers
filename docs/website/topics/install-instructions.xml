@@ -47,13 +47,13 @@
           the Zip file is a direct child of <filepath>plugins</filepath>.</cmd>
         <stepresult>
           <p>Your <filepath>plugins</filepath> directory should include a number of DITA for Publishers plugin directories, including:<ul>
-            <li>net.sourceforge.dita4publishers.doctypes</li>
-            <li>net.sourceforge.dita4publishers.epub</li>
-            <li>net.sourceforge.dita4publishers.kindle</li>
-            <li>net.sourceforge.dita4publishers.pubmap.html</li>
-            <li>net.sourceforge.dita4publishers.word2dita</li>
-            <li>net.sourceforge.dita4publishers.xmldomain.doctypes</li>
-            <li>net.sourceforge.dita4publishers.xmldomain.html</li>
+            <li>org.dita4publishers.doctypes</li>
+            <li>org.dita4publishers.epub</li>
+            <li>org.dita4publishers.kindle</li>
+            <li>org.dita4publishers.pubmap.html</li>
+            <li>org.dita4publishers.word2dita</li>
+            <li>org.dita4publishers.xmldomain.doctypes</li>
+            <li>org.dita4publishers.xmldomain.html</li>
             </ul></p>
         </stepresult>
       </step>

@@ -1,0 +1,16 @@
+<plugin id="org.dita4publishers.common.html">
+  <!-- This plugin provides common XSLT imports and 
+       supporting code used by all D4P HTML transformation
+       type extensions.
+       
+       In particular, it centralizes imports of library modules
+       so that a given module is imported exactly once.
+  -->
+  <require plugin="org.dita-community.common.xslt"/> 
+  
+  <feature extension="dita.xsl.xhtml"
+    value="xsl/commonHtmlExtensionSupport.xsl" 
+    type="file"
+  />
+  
+</plugin>

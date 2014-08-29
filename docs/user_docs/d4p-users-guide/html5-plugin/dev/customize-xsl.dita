@@ -3,11 +3,11 @@
 <task id="task_tcn_kfy_pm">
     <title>Customize the xsl code</title>
     <shortdesc>In order to customize the xsl code, you should have a look at this file
-        <filepath>plugins/net.sourceforge.dita4publishers.html5/xsl/map2html5Template.xsl</filepath>.
+        <filepath>plugins/org.dita4publishers.html5/xsl/map2html5Template.xsl</filepath>.
         This xsl template is the main template file use in the html5 plugin.</shortdesc>
     <taskbody>
         <context>
-            Edit the file <filepath>plugins/net.sourceforge.dita4publishers.html5.foundation/xsl/map2foundationImpl.xsl</filepath>
+            Edit the file <filepath>plugins/org.dita4publishers.html5.foundation/xsl/map2foundationImpl.xsl</filepath>
         </context>
         <steps>
             <step>

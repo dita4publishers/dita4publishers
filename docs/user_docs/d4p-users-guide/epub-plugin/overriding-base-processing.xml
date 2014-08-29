@@ -25,7 +25,7 @@
   exclude-result-prefixes="xs"
   version="2.0">
   
-  &lt;xsl:import href="/Applications/oxygen/frameworks/dita//DITA-OT/plugins/net.sourceforge.dita4publishers.epub/xsl/map2epub.xsl"/>
+  &lt;xsl:import href="/Applications/oxygen/frameworks/dita//DITA-OT/plugins/org.dita4publishers.epub/xsl/map2epub.xsl"/>
   &lt;xsl:include href="my-html-overrides.xsl"/>
   
 &lt;/xsl:stylesheet></codeblock></p>
@@ -36,7 +36,7 @@
     <p>The <filepath>plugin.xml</filepath> file should look like this:<codeblock>&lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;plugin id="<b>my.unique.plugin.name</b>">
   
-  &lt;require plugin="net.sourceforge.dita4publishers.epub"/> 
+  &lt;require plugin="org.dita4publishers.epub"/> 
   
 &lt;/plugin></codeblock></p>
     <p>Where the bold text should reflect a unique name for this particular plugin.</p>
@@ -47,7 +47,7 @@
   exclude-result-prefixes="xs"
   version="2.0">
   
-  &lt;xsl:import href="../net.sourceforge.dita4publishers.epub/xsl/map2epub.xsl"/>
+  &lt;xsl:import href="../org.dita4publishers.epub/xsl/map2epub.xsl"/>
   &lt;xsl:include href="my-html-overrides.xsl"/>
   
 &lt;/xsl:stylesheet></codeblock></p>

@@ -114,7 +114,7 @@
           <pt>w2d.style-to-tag-map</pt>
           <pd>The absolute filename and path of the style-to-tag mapping to use.
             If not specified, the built-in mapping file
-            <filepath>net.sourceforge.dita4publishers.word2dita/xsl/word-builtin-styles-style2tagmap.xml</filepath>
+            <filepath>org.dita4publishers.word2dita/xsl/word-builtin-styles-style2tagmap.xml</filepath>
             is used.</pd>
         </plentry>
         <plentry>

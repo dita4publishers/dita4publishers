@@ -20,7 +20,7 @@
         transforms.</p>
       <p>The transforms should work with the 1.6, 1.7, and 1.8 versions of the Open Toolkit.</p>
       <p>There is the start of vocabulary reference document, developed by Steven Calderwood of Human Kinetics.</p>
-      <p>Significant improvements to Word-to-DITA transformation framework. The markup for style-to-tag maps has been enhanced to be more complete and hopefully easier to work with. A migration utility is provided in <filepath>net.sourceforge.dita4publishers.word2dita/utils/style2tagmapMigrator.xsl</filepath>. It should produce working style-to-tag maps from most existing style-to-tag maps. A few may require manual adjustment, especially if you are trying to generate maps and topics at the same time.</p>
+      <p>Significant improvements to Word-to-DITA transformation framework. The markup for style-to-tag maps has been enhanced to be more complete and hopefully easier to work with. A migration utility is provided in <filepath>org.dita4publishers.word2dita/utils/style2tagmapMigrator.xsl</filepath>. It should produce working style-to-tag maps from most existing style-to-tag maps. A few may require manual adjustment, especially if you are trying to generate maps and topics at the same time.</p>
       <p>The release also includes additions and refinements to the vocabulary,
         numerous bug fixes and whatnot.</p>
     </section>

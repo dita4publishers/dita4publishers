@@ -76,7 +76,7 @@
       (meaning all the places the original term occurred in the source), and any
       subordinate terms.</p>
     <p>The index grouping and sorting is implemented in the file
-      <filepath>net.sourceforge.dita4publishers.common.mapdriven/xsl/indexProcessing.xsl</filepath>.
+      <filepath>org.dita4publishers.common.mapdriven/xsl/indexProcessing.xsl</filepath>.
       You can modify the default grouping and sorting behavior by overriding or
       extending the mode <keyword>group-and-sort-index</keyword>. You can modify
       the default grouping and sorting key construction by overriding the

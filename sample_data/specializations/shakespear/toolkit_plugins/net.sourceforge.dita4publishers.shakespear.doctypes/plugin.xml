@@ -20,6 +20,6 @@
   This will add the documentation-specific catalog entries to the catalog-dita.xml 
   catalog.
   -->
-<plugin id="net.sourceforge.dita4publishers.shakespear.doctypes">
+<plugin id="org.dita4publishers.shakespear.doctypes">
   <feature extension="dita.specialization.catalog" value="catalog.xml" type="file"/>
 </plugin>

@@ -1,0 +1,14 @@
+<!-- 
+  Plugin descriptor for the DITA4Publishers formatting domain PDF2 extensions
+  
+  Copyright (c) 2010 DITA For Publishers
+  
+  Implements HTML rendering for the formatting domain.
+  -->
+<plugin id="org.dita4publishers.formatting-d.html">
+  <require plugin="org.dita4publishers.common.html"/> 
+  <require plugin="org.dita4publishers.doctypes"/> 
+  <feature extension="dita.xsl.xhtml"
+      value="xsl/formatting-d2html.xsl" type="file"/>
+      
+</plugin>

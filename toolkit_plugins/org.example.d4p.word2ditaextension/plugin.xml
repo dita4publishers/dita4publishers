@@ -5,7 +5,7 @@
   
   -->
 <plugin id="org.example.d4p.word2ditaextension">
-  <require plugin="net.sourceforge.dita4publishers.word2dita"/> 
+  <require plugin="org.dita4publishers.word2dita"/> 
 
   <!-- This plugin just provides the transform in a reliable location
        relative to the base transform. It doesn't define its own

@@ -22,7 +22,7 @@
       generation, references to graphics are rewritten to reflect their output
       location.</p>
     <p>The graphic map generation is implemented in the module
-      <filepath>net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMap.xsl</filepath>.
+      <filepath>org.dita4publishers.common.xslt/xsl/map2graphicMap.xsl</filepath>.
       You can extend the default processing to provide mapping for any graphics
       that are not represented by normal DITA markup, such as covers determined
       by run-time parameters or branding graphics defined separately or
@@ -61,10 +61,10 @@
       processing and is used to generate the
       <filepath>copy-graphics.xml</filepath> Ant script (mode
       "generate-graphic-copy-ant-script" implemented in module
-      <filepath>net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl</filepath>).</p>
+      <filepath>org.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl</filepath>).</p>
     <p>Image URLs are rewritten during initial topic processing using the mode
       "href-fixup" implemented in the module
-      <filepath>net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl</filepath>.
+      <filepath>org.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl</filepath>.
       URLs are rewritten to reflect the output location of the images so that
       the default HTML output processing will automatically construct the
       correct URL for the images.</p>

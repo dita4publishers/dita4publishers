@@ -4,7 +4,7 @@
   exclude-result-prefixes="xs "
   version="2.0">
   
-  <xsl:import href="../../net.sourceforge.dita4publishers.word2dita/xsl/docx2dita.xsl"/>
+  <xsl:import href="../../org.dita4publishers.word2dita/xsl/docx2dita.xsl"/>
 
   <!-- Override of a global parameter defined in the base docx2dita.xsl module: -->
   <xsl:param name="filterBr" as="xs:string" select="'true'"/>

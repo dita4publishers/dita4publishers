@@ -1,0 +1,17 @@
+<plugin id="org.dita4publishers.html2">
+  <extension-point id="xsl.transtype-html2"/>
+
+  <extension-point id="d4p.html2.xslt.param" name="HTML2 XSLT parameters"/>
+
+  <require plugin="org.dita4publishers.common.html"/> 
+  <require plugin="org.dita4publishers.common.mapdriven"/> 
+  <require plugin="org.dita-community.common.xslt"/> 
+
+  <template file="build_transtype-html2_template.xml"/>
+  
+  <template file="xsl/map2html2_template.xsl"/>
+
+  <feature extension="dita.conductor.transtype.check" value="html2" type="txt"/>
+  <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
+
+</plugin>

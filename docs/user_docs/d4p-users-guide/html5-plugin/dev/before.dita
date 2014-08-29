@@ -14,7 +14,7 @@
             </step>
             <step>
                 <cmd>Move the directory into the lib directory of the html5 plugin so the final path of the jar file is:
-                        <filepath>DITA-OT/plugins/net.sourceforge.dita4publishers.html5/libs/yuicompressor-2.4.7/build/yuicompressor-2.4.7.jar</filepath></cmd>
+                        <filepath>DITA-OT/plugins/org.dita4publishers.html5/libs/yuicompressor-2.4.7/build/yuicompressor-2.4.7.jar</filepath></cmd>
                 <info>
                     <p>The html5 plugin has been developped with the yuicompressor version 2.4.7.
                     If you use a different version, you might have to edit the file
@@ -28,7 +28,7 @@
                     <codeblock>
 shell: cd DITA-OT
 shell: ./startcmd.sh
-shell: cd plugins/net.sourceforge.dita4publishers.html5/libs
+shell: cd plugins/org.dita4publishers.html5/libs
 shell: ant -f build.xml
                 </codeblock>
                     <p>This steps takes independantly all the css and js defined in the

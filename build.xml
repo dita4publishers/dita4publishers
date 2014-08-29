@@ -50,8 +50,8 @@
 	<property name="shakespear-sample" location="${basedir}/sample_data/specializations/shakespear"/>
   <property name="plugin-shakespear-samples-src" value="${shakespear-sample}/toolkit_plugins"/>
   <property name="plugin-deploy_target" location="${dita-ot-dir}/plugins"/>
-  <property name="doctypes.plugin-dist" location="${plugin.dist}/net.sourceforge.dita4publishers.doctypes"/>
-  <property name="doctypes.plugin-shakespear-dist" value="${plugin.dist}/net.sourceforge.dita4publishers.shakespear.doctypes"/>
+  <property name="doctypes.plugin-dist" location="${plugin.dist}/org.dita4publishers.doctypes"/>
+  <property name="doctypes.plugin-shakespear-dist" value="${plugin.dist}/org.dita4publishers.shakespear.doctypes"/>
   <property name="doctypes.src" location="${basedir}/doctypes"/>
   <property name="doctypes-skakespear-samples.src" value="${shakespear-sample}/doctypes"/>
   <property name="xslt.src" location="${basedir}/xslt"/>
@@ -123,7 +123,7 @@
   </target>
 	
 	<target name="add-version-info-to-files">
-    <replace file="${plugin.dist}/net.sourceforge.dita4publishers.epub/xsl/map2epubImpl.xsl"
+    <replace file="${plugin.dist}/org.dita4publishers.epub/xsl/map2epubImpl.xsl"
       propertyfile="${basedir}/build.number"
       >
       <replacefilter
@@ -139,7 +139,7 @@
         value="${package.date}"
       />
     </replace>
-    <replace file="${plugin.dist}/net.sourceforge.dita4publishers.kindle/xsl/map2kindleImpl.xsl"
+    <replace file="${plugin.dist}/org.dita4publishers.kindle/xsl/map2kindleImpl.xsl"
       propertyfile="${basedir}/build.number"
       >
       <replacefilter
@@ -155,7 +155,7 @@
         value="${package.date}"
       />
     </replace>
-    <replace file="${plugin.dist}/net.sourceforge.dita4publishers.html2/xsl/map2html2Impl.xsl"
+    <replace file="${plugin.dist}/org.dita4publishers.html2/xsl/map2html2Impl.xsl"
       propertyfile="${basedir}/build.number"
       >
       <replacefilter
@@ -171,7 +171,7 @@
         value="${package.date}"
       />
     </replace>
-    <replace file="${plugin.dist}/net.sourceforge.dita4publishers.word2dita/xsl/docx2dita.xsl"
+    <replace file="${plugin.dist}/org.dita4publishers.word2dita/xsl/docx2dita.xsl"
       propertyfile="${basedir}/build.number"
       >
       <replacefilter
@@ -220,7 +220,7 @@
 		"
 		>
     <delete includeEmptyDirs="true" failonerror="false">
-      <fileset dir="${plugin.dist}"  includes="net.sourceforge.dita4publishers.*/**"/>
+      <fileset dir="${plugin.dist}"  includes="org.dita4publishers.*/**"/>
       <fileset dir="${plugin.dist}"  includes="org.dita4publshers.*/**"/>
       <fileset dir="${plugin.dist}"  includes="org.dita-community.*/**"/>
     </delete>
@@ -231,7 +231,7 @@
     </copy>
 		<copy todir="${plugin.dist}">
 			<fileset dir="${plugin.src}">
-				<exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/> 
+				<exclude name="org.dita4publishers.pubmap.fo/**"/> 
 				<exclude name="*.zip"/> 
 			</fileset>
 		</copy>
@@ -264,7 +264,7 @@
       <replacevalue><![CDATA[%mml_character;]]></replacevalue>
     </replace>
 		<!-- Standalone Math plugin -->
-	    <copy todir="${plugin.dist}/net.sourceforge.dita4publishers.math/doctypes">
+	    <copy todir="${plugin.dist}/org.dita4publishers.math/doctypes">
 	      <fileset dir="${doctypes.src}">
 	        <include name="d4p_mathDomain/**"/>
 	        <include name="mathml2/**"/>
@@ -272,7 +272,7 @@
 	      </fileset>
 	    </copy>
 		<!-- FIX a bug/unfortunate potential parameter entity name clash with the MathML3 DTD -->
-		<replace dir="${plugin.dist}/net.sourceforge.dita4publishers.math/doctypes/mathml3/dtd">
+		<replace dir="${plugin.dist}/org.dita4publishers.math/doctypes/mathml3/dtd">
 			<!-- 
 			<!ENTITY % character "CDATA"> to <!ENTITY % mll3_character "CDATA" >
 			-->
@@ -280,7 +280,7 @@
 			<replacetoken><![CDATA[<!ENTITY % character ]]></replacetoken>
 			<replacevalue><![CDATA[<!ENTITY % mml_character ]]></replacevalue>
 		</replace>
-    <replace dir="${plugin.dist}/net.sourceforge.dita4publishers.math/doctypes/mathml3/dtd">
+    <replace dir="${plugin.dist}/org.dita4publishers.math/doctypes/mathml3/dtd">
       <!-- 
       %character; to %mll3_character;
       -->
@@ -297,7 +297,7 @@
         <exclude name="xmlDomain/**"/>
       </fileset>
     </copy>
-    <copy todir="${plugin.dist}/net.sourceforge.dita4publishers.xmldomain.doctypes">
+    <copy todir="${plugin.dist}/org.dita4publishers.xmldomain.doctypes">
       <fileset dir="${doctypes.src}/xmlDomain">
         <include name="*/**"/>
       </fileset>
@@ -351,7 +351,7 @@
 	<target name="deploy-toolkit-plugins" depends="dist-toolkit-plugins"
 	  description="Deploy plugins to local DITA Open Toolkit">
 		<delete failonerror="true" includeemptydirs="true">
-			<fileset dir="${plugin-deploy_target}" includes="net.sourceforge.dita4publishers.*/**">
+			<fileset dir="${plugin-deploy_target}" includes="org.dita4publishers.*/**">
 			</fileset>
 		</delete>
 		<mkdir dir="${plugin-deploy_target}"/>
@@ -360,7 +360,7 @@
 				<include name="**/*"/>
         <exclude name="**/CVS"/>
 				<!--
-				<exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/>
+				<exclude name="org.dita4publishers.pubmap.fo/**"/>
 				-->
 			</fileset>
 		</copy>
@@ -388,21 +388,21 @@
   
 	<target name="dist-epub-plugin" depends="build-d4p-user-guide">
     <delete failonerror="true" includeemptydirs="true">
-      <fileset dir="${plugin.dist}" includes="net.sourceforge.dita4publishers.epub/**"/>
+      <fileset dir="${plugin.dist}" includes="org.dita4publishers.epub/**"/>
     </delete>
-    <copy todir="${plugin.dist}/net.sourceforge.dita4publishers.epub">
+    <copy todir="${plugin.dist}/org.dita4publishers.epub">
       <fileset dir="${build}/docs">
         <include name="*.epub"/>
         <include name="*.mobi"/>
         <include name="*.pdf"/>
       </fileset>
-      <fileset dir="${plugin.src}/net.sourceforge.dita4publishers.epub">
+      <fileset dir="${plugin.src}/org.dita4publishers.epub">
         <include name="**/*"/>
       </fileset>
-      <fileset dir="${plugin.src}/net.sourceforge.dita4publishers.common.xslt">
+      <fileset dir="${plugin.src}/org.dita4publishers.common.xslt">
         <include name="**/*"/>
       </fileset>
-      <fileset dir="${plugin.src}/net.sourceforge.dita4publishers.kindle">
+      <fileset dir="${plugin.src}/org.dita4publishers.kindle">
         <include name="**/*"/>
       </fileset>
     </copy>
@@ -425,7 +425,7 @@
 	<target name="package-epub-plugin" depends="dist-epub-plugin">
     <zip destfile="${dist}/dita4publishers-epub-plugin-${epub_version}.zip">
       <fileset dir="${plugin.dist}">
-        <include name="net.sourceforge.dita4publishers.epub/**"/>
+        <include name="org.dita4publishers.epub/**"/>
       </fileset>
     </zip>		
 	</target>
@@ -435,7 +435,7 @@
 		>
     <zip destfile="${package.dist}/dita4publishers-vocabulary-plugins-${vocab_version}.zip">
       <fileset dir="${plugin.dist}">
-        <include name="net.sourceforge.dita4publishers.doctypes/**"/>
+        <include name="org.dita4publishers.doctypes/**"/>
       </fileset>
     </zip>
   </target>
@@ -447,8 +447,8 @@
       <fileset dir="${plugin.dist}">
         <include name="*.txt"/>
       	<include name="*/**"/>
-        <exclude name="net.sourceforge.dita4publishers.pubmap.fo/**"/>
-        <exclude name="net.sourceforge.dita4publishers.epub3/**"/>
+        <exclude name="org.dita4publishers.pubmap.fo/**"/>
+        <exclude name="org.dita4publishers.epub3/**"/>
         <exclude name="org.dita2indesign.test.*/**"/>
       </fileset>
     </zip>
@@ -1004,7 +1004,7 @@
     <jar destfile="${api-and-tools.target}/dita4publishers-mapbosreporter.jar" basedir="${classes.home}">
       <include name="net/sourceforge/dita4publishers/tools/mapreporter/**/**.*"/>
       <manifest>
-        <attribute name="Main-Class" value="net.sourceforge.dita4publishers.tools.mapreporter.MapBosReporter"/>
+        <attribute name="Main-Class" value="org.dita4publishers.tools.mapreporter.MapBosReporter"/>
         <attribute name="Class-Path" value=". 
           lib/.
           lib/dita4publishers-dita-api.jar
@@ -1027,7 +1027,7 @@
     <jar destfile="${api-and-tools.target}/dita4publishers-dxppackager.jar" basedir="${classes.home}">
       <include name="net/sourceforge/dita4publishers/tools/ditadxpmappackager/**/**.*"/>
       <manifest>
-        <attribute name="Main-Class" value="net.sourceforge.dita4publishers.tools.ditadxpmappackager.DitaDxpMapPackager"/>
+        <attribute name="Main-Class" value="org.dita4publishers.tools.ditadxpmappackager.DitaDxpMapPackager"/>
         <attribute name="Class-Path" value=". 
           lib/.
           lib/dita4publishers-dita-api.jar
@@ -1050,7 +1050,7 @@
     <jar destfile="${api-and-tools.target}/dita4publishers-dxpunpacker.jar" basedir="${classes.home}">
       <include name="net/sourceforge/dita4publishers/tools/ditadxpunpacker/**/**.*"/>
       <manifest>
-        <attribute name="Main-Class" value="net.sourceforge.dita4publishers.tools.ditadxpunpacker.DitaDxpUnpacker"/>
+        <attribute name="Main-Class" value="org.dita4publishers.tools.ditadxpunpacker.DitaDxpUnpacker"/>
         <attribute name="Class-Path" value=". 
           lib/.
           lib/dita4publishers-dita-api.jar
@@ -1141,14 +1141,14 @@
     	<!-- This location for the word2dita stuff is retained for older
     	     code that reflects the old location.
     	  -->
-      <fileset dir="${toolkit.plugin.src}/net.sourceforge.dita4publishers.word2dita/xsl"/>
+      <fileset dir="${toolkit.plugin.src}/org.dita4publishers.word2dita/xsl"/>
     </copy>
     <copy todir="${classes.home}/WebContent/toolkit_plugins">
       <fileset dir="${toolkit.plugin.src}">
-      	<include name="net.sourceforge.dita4publishers.common.*/**/*"/>
+      	<include name="org.dita4publishers.common.*/**/*"/>
       	<include name="org.dita2indesign.dita2indesign/**/*"/>
-        <include name="net.sourceforge.dita4publishers.word2dita/**/*"/>
-        <include name="net.sourceforge.dita4publishers.slideset/**/*"/>
+        <include name="org.dita4publishers.word2dita/**/*"/>
+        <include name="org.dita4publishers.slideset/**/*"/>
     	</fileset>
     </copy>
 

@@ -19,7 +19,7 @@
             <step>
                 <cmd>Unzip the plugin's Zip file into your Toolkit's <filepath>plugins</filepath> directory.</cmd>
         <stepresult>
-          <p>You should get one or more directories under <filepath>plugins</filepath> named like <filepath>net.sourceforge.dita4publishers.doctypes</filepath>.</p>
+          <p>You should get one or more directories under <filepath>plugins</filepath> named like <filepath>org.dita4publishers.doctypes</filepath>.</p>
         </stepresult>
             </step>
       <step>
