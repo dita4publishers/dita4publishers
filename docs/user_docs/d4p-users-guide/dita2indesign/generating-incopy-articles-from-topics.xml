@@ -3,7 +3,7 @@
 <concept id="conceptId">
  <title>Generating InCopy Articles from DITA Topics</title>
  <shortdesc>You can directly generate InCopy articles from DITA topics using the
-    XSLT transforms in the org.dita2indesign.dita2indesign plugin. You do not
+    XSLT transforms in the org.dita4publishers.dita2indesign plugin. You do not
     have to use the Open Toolkit to run the transform.</shortdesc>
   <prolog>
     <metadata>
@@ -13,7 +13,7 @@
     </metadata>
   </prolog>
  <conbody>
-   <p>The <filepath>org.dita2indesign.dita2indesign/xsl</filepath> directory
+   <p>The <filepath>org.dita4publishers.dita2indesign/xsl</filepath> directory
       holds the XSLT transforms used to generate InCopy articles from topics and
       maps. You can run the transforms directly or run them using the Open
       Toolkit in order to do all necessary DITA preprocessing (conref

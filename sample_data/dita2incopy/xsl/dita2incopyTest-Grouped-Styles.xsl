@@ -5,7 +5,7 @@
   exclude-result-prefixes="xs xd"
   version="2.0">
   
-    <xsl:import href="plugin:org.dita2indesign.dita2indesign:xsl/dita2indesignImpl.xsl"/>
+    <xsl:import href="plugin:org.dita4publishers.dita2indesign:xsl/dita2indesignImpl.xsl"/>
   
 
   <xd:doc scope="stylesheet">

@@ -13,26 +13,26 @@
   <uri name="rsuite:/res/plugin/dita4publishers/toolkit_plugins/org.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl" 
     uri="WebContent/toolkit_plugins/org.dita4publishers.common.xslt/xsl/lib/dita-support-lib.xsl"/>
              
-  <uri name="rsuite:/res/plugin/dita4publishers/toolkit_plugins/org.dita2indesign.dita2indesign/xsl/lib/incx_generation_util.xsl" 
-    uri="WebContent/toolkit_plugins/org.dita2indesign.dita2indesign/xsl/lib/incx_generation_util.xsl"/>
+  <uri name="rsuite:/res/plugin/dita4publishers/toolkit_plugins/org.dita4publishers.dita2indesign/xsl/lib/incx_generation_util.xsl" 
+    uri="WebContent/toolkit_plugins/org.dita4publishers.dita2indesign/xsl/lib/incx_generation_util.xsl"/>
 
-  <uri name="rsuite:/res/plugin/dita4publishers/toolkit_plugins/org.dita2indesign.dita2indesign/xsl/lib/icml_generation_util.xsl" 
-    uri="WebContent/toolkit_plugins/org.dita2indesign.dita2indesign/xsl/lib/icml_generation_util.xsl"/>
+  <uri name="rsuite:/res/plugin/dita4publishers/toolkit_plugins/org.dita4publishers.dita2indesign/xsl/lib/icml_generation_util.xsl" 
+    uri="WebContent/toolkit_plugins/org.dita4publishers.dita2indesign/xsl/lib/icml_generation_util.xsl"/>
 
-  <uri name="rsuite:/res/plugin/dita4publishers/toolkit_plugins/org.dita2indesign.dita2indesign/xsl/elem2styleMapper.xsl" 
-    uri="WebContent/toolkit_plugins/org.dita2indesign.dita2indesign/xsl/elem2styleMapper.xsl"/>
+  <uri name="rsuite:/res/plugin/dita4publishers/toolkit_plugins/org.dita4publishers.dita2indesign/xsl/elem2styleMapper.xsl" 
+    uri="WebContent/toolkit_plugins/org.dita4publishers.dita2indesign/xsl/elem2styleMapper.xsl"/>
 
-  <uri name="rsuite:/res/plugin/dita4publishers/toolkit_plugins/org.dita2indesign.dita2indesign/xsl/topic2article.xsl" 
-    uri="WebContent/toolkit_plugins/org.dita2indesign.dita2indesign/xsl/topic2article.xsl"/>
+  <uri name="rsuite:/res/plugin/dita4publishers/toolkit_plugins/org.dita4publishers.dita2indesign/xsl/topic2article.xsl" 
+    uri="WebContent/toolkit_plugins/org.dita4publishers.dita2indesign/xsl/topic2article.xsl"/>
   
-  <uri name="rsuite:/res/plugin/dita4publishers/toolkit_plugins/org.dita2indesign.dita2indesign/xsl/topic2articleIcml.xsl" 
-    uri="WebContent/toolkit_plugins/org.dita2indesign.dita2indesign/xsl/topic2articleIcml.xsl"/>
+  <uri name="rsuite:/res/plugin/dita4publishers/toolkit_plugins/org.dita4publishers.dita2indesign/xsl/topic2articleIcml.xsl" 
+    uri="WebContent/toolkit_plugins/org.dita4publishers.dita2indesign/xsl/topic2articleIcml.xsl"/>
   
-  <uri name="rsuite:/res/plugin/dita4publishers/toolkit_plugins/org.dita2indesign.dita2indesign/xsl/dita2indesignImpl.xsl" 
-    uri="WebContent/toolkit_plugins/org.dita2indesign.dita2indesign/xsl/dita2indesignImpl.xsl"/>
+  <uri name="rsuite:/res/plugin/dita4publishers/toolkit_plugins/org.dita4publishers.dita2indesign/xsl/dita2indesignImpl.xsl" 
+    uri="WebContent/toolkit_plugins/org.dita4publishers.dita2indesign/xsl/dita2indesignImpl.xsl"/>
 
-  <uri name="rsuite:/res/plugin/dita4publishers/toolkit_plugins/org.dita2indesign.dita2indesign/xsl/topic2icmlImpl.xsl" 
-    uri="WebContent/toolkit_plugins/org.dita2indesign.dita2indesign/xsl/topic2icmlImpl.xsl"/>
+  <uri name="rsuite:/res/plugin/dita4publishers/toolkit_plugins/org.dita4publishers.dita2indesign/xsl/topic2icmlImpl.xsl" 
+    uri="WebContent/toolkit_plugins/org.dita4publishers.dita2indesign/xsl/topic2icmlImpl.xsl"/>
   
   <uri name="rsuite:/res/plugin/dita4publishers/xslt/lib/resolve-map.xsl" 
     uri="WebContent/xslt/lib/resolve-map.xsl"/>

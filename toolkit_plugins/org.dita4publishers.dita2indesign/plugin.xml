@@ -1,4 +1,4 @@
-<plugin id="org.dita2indesign.dita2indesign">
+<plugin id="org.dita4publishers.dita2indesign">
   <extension-point id="xsl.transtype-indesign"/>
   
   <template file="build_transtype-indesign_template.xml"/>
