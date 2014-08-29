@@ -39,7 +39,7 @@
   <xsl:import href="plugin:org.dita.xhtml:xsl/dita2xhtml.xsl"/>
   
   
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
+  <xsl:import href="../../org.dita4publishers.common.html/xsl/html-generation-utils.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMap.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
   

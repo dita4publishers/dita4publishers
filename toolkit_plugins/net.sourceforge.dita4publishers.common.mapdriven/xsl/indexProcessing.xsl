@@ -30,7 +30,6 @@
   <xsl:import href="../../org.dita-community.common.xslt/xsl/dita-support-lib.xsl"/>
   <xsl:import href="../../org.dita-community.common.xslt/xsl/relpath_util.xsl"/>
   
-  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/html-generation-utils.xsl"/>
 -->
   <xsl:template match="/*[df:class(., 'map/map')]" mode="group-and-sort-index">
     <xsl:param name="doDebug" as="xs:boolean" tunnel="yes" select="false()"/>

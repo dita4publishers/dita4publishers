@@ -49,7 +49,7 @@
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   
   <xsl:import
-    href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
+    href="../../org.dita4publishers.common.html/xsl/html-generation-utils.xsl"/>
   <xsl:import href="../../org.dita-community.common.xslt/xsl/map2graphicMapImpl.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
   
