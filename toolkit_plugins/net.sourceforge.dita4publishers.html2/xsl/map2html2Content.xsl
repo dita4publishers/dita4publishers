@@ -30,9 +30,9 @@
     
     =============================================================  -->
 <!--  
-  <xsl:import href="../../org.dita-community.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../org.dita-community.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../../org.dita-community.common.xslt/xsl/lib/html-generation-utils.xsl"/>
+  <xsl:import href="../../org.dita-community.common.xslt/xsl/dita-support-lib.xsl"/>
+  <xsl:import href="../../org.dita-community.common.xslt/xsl/relpath_util.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   -->
   <xsl:output name="topic-html"
     method="xhtml"

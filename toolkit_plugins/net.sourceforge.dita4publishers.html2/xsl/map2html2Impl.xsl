@@ -48,19 +48,19 @@
 <!--  These two imports are provided by the commonHtmlExtensionSupport.xsl module from the common.html
        plugin. These imports are integrated into the dita2html-base.xsl in the base Toolkit transform:
        
-  <xsl:import href="../../org.dita-community.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../org.dita-community.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="../../org.dita-community.common.xslt/xsl/dita-support-lib.xsl"/>
+  <xsl:import href="../../org.dita-community.common.xslt/xsl/relpath_util.xsl"/>
 -->  
   <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/reportParametersBase.xsl"/>
-  <xsl:import href="../../org.dita-community.common.xslt/xsl/lib/html-generation-utils.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/lib/html-generation-utils.xsl"/>
   <xsl:import href="../../net.sourceforge.dita4publishers.common.mapdriven/xsl/dataCollection.xsl"/>
   <!-- Import the base HTML output generation transform. -->
   <xsl:import href="plugin:org.dita.xhtml:xsl/dita2xhtml.xsl"/>
   
   
-  <xsl:import href="../../org.dita-community.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
-  <xsl:import href="../../org.dita-community.common.xslt/xsl/map2graphicMap.xsl"/>
-  <xsl:import href="../../org.dita-community.common.xslt/xsl/topicHrefFixup.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/graphicMap2AntCopyScript.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/map2graphicMap.xsl"/>
+  <xsl:import href="../../net.sourceforge.dita4publishers.common.xslt/xsl/topicHrefFixup.xsl"/>
   
   <!-- FIXME: This URL syntax is local to me: I hacked catalog-dita_template.xml
               to add this entry:

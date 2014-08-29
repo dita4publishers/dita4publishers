@@ -4,6 +4,7 @@
        
        This plugin does not define any transformation types.
       -->
+  <require plugin="org.dita-community.common.xslt"/>
       
   <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
       

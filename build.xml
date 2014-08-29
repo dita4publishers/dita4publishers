@@ -221,6 +221,8 @@
 		>
     <delete includeEmptyDirs="true" failonerror="false">
       <fileset dir="${plugin.dist}"  includes="net.sourceforge.dita4publishers.*/**"/>
+      <fileset dir="${plugin.dist}"  includes="org.dita4publshers.*/**"/>
+      <fileset dir="${plugin.dist}"  includes="org.dita-community.*/**"/>
     </delete>
     <copy todir="${plugin.dist}">
       <fileset dir="${license.dir}">

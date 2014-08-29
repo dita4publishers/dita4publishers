@@ -4,3 +4,6 @@
 [submodule "toolkit_plugins/org.dita-community.common.xslt"]
 	path = toolkit_plugins/org.dita-community.common.xslt
 	url = https://github.com/dita-community/org.dita-community.common.xslt.git
+[submodule "toolkit_plugins/org.dita4publishers.common.xslt"]
+	path = toolkit_plugins/org.dita4publishers.common.xslt
+	url = https://github.com/dita4publishers/org.dita4publishers.common.xslt.git

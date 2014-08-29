@@ -44,7 +44,7 @@
       
       =========================================== -->
 <!-- 
-  <xsl:import href="../../org.dita-community.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="../../org.dita-community.common.xslt/xsl/relpath_util.xsl"/>
  -->
   
   <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">

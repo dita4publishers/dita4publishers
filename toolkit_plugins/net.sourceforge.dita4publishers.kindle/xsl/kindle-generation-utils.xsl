@@ -8,7 +8,7 @@
   exclude-result-prefixes="xs kindleutil relpath"  
   version="2.0">
   
-  <xsl:import href="../../org.dita-community.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="../../org.dita-community.common.xslt/xsl/relpath_util.xsl"/>
   
   <xsl:function name="kindleutil:getKindleCoverGraphicFilename" as="xs:string">
     <xsl:param name="context" as="element()"/>

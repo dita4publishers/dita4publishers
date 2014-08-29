@@ -19,7 +19,7 @@
     NOTE: This material is intended to be donated to the RSI-sponsored
     DITA2InDesign open-source project.
 
-<xsl:import href="../../org.dita-community.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+<xsl:import href="../../org.dita-community.common.xslt/xsl/dita-support-lib.xsl"/>
   <xsl:import href="lib/incx_generation_util.xsl"/>
   -->
   

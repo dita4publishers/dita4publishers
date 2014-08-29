@@ -8,7 +8,7 @@
   <!-- Common imports and supporting code for D4P HTML transformation type extensions (not 
        standalone transformation types. 
     -->
-  <xsl:import href="../../org.dita-community.common.xslt/xsl/lib/relpath_util.xsl"/>
-  <xsl:import href="../../org.dita-community.common.xslt/xsl/lib/dita-support-lib.xsl"/>
+  <xsl:import href="../../org.dita-community.common.xslt/xsl/relpath_util.xsl"/>
+  <xsl:import href="../../org.dita-community.common.xslt/xsl/dita-support-lib.xsl"/>
   
 </xsl:stylesheet>

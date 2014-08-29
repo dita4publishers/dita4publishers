@@ -23,8 +23,8 @@
        
        Copyright (c) DITA for Publishers, 2013
        ================================================= -->
-  <xsl:import href="../../org.dita-community.common.xslt/xsl/lib/dita-support-lib.xsl"/>
-  <xsl:import href="../../org.dita-community.common.xslt/xsl/lib/relpath_util.xsl"/>
+  <xsl:import href="../../org.dita-community.common.xslt/xsl/dita-support-lib.xsl"/>
+  <xsl:import href="../../org.dita-community.common.xslt/xsl/relpath_util.xsl"/>
   
   <xsl:output 
     doctype-public="-//OASIS//DTD DITA Map//EN"
