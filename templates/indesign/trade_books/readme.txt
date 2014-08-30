@@ -1,1 +1,0 @@
-Templates for trade books (travel guides, novels, non-fiction books, etc.)
