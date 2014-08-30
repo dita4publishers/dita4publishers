@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<val>
-  <prop action="exclude" att="d4p_renditionTarget"/>
-  <prop action="flag" att="d4p_renditionTarget" val="kindle" color="green" >
-    <startflag><alt-text>[KINDLE]</alt-text></startflag>
-  </prop>
-</val>

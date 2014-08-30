@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:topic" "topic.dtd">
-<topic
-  id="topic-id">
-  <title>Subordinate Topic 3 from Topic Head 1</title>
-  <body>
-    <p>This is a subordinate topic referenced via a nested topicref from within <xmlelem>topichead</xmlelem> "Topic Head 1" </p>
-  </body>
-</topic>
