@@ -1,6 +1,87 @@
-[submodule "toolkit_plugins/org.dita-community.common.xslt"]
-	path = toolkit_plugins/org.dita-community.common.xslt
-	url = https://github.com/dita-community/org.dita-community.common.xslt.git
 [submodule "toolkit_plugins/org.dita4publishers.common.xslt"]
 	path = toolkit_plugins/org.dita4publishers.common.xslt
 	url = https://github.com/dita4publishers/org.dita4publishers.common.xslt.git
+[submodule "toolkit_plugins/org.dita4publishers.common.mapdriven"]
+	path = toolkit_plugins/org.dita4publishers.common.mapdriven
+	url = https://github.com/dita4publishers/org.dita4publishers.common.mapdriven
+[submodule "toolkit_plugins/org.dita4publishers.common.xslfo"]
+	path = toolkit_plugins/org.dita4publishers.common.xslfo
+	url = https://github.com/dita4publishers/org.dita4publishers.common.xslfo
+[submodule "toolkit_plugins/org.dita4publishers.dita2indesign"]
+	path = toolkit_plugins/org.dita4publishers.dita2indesign
+	url = https://github.com/dita4publishers/org.dita4publishers.dita2indesign
+[submodule "toolkit_plugins/org.dita4publishers.doctypes"]
+	path = toolkit_plugins/org.dita4publishers.doctypes
+	url = https://github.com/dita4publishers/org.dita4publishers.doctypes
+[submodule "toolkit_plugins/org.dita4publishers.enumeration-d.fo"]
+	path = toolkit_plugins/org.dita4publishers.enumeration-d.fo
+	url = https://github.com/dita4publishers/org.dita4publishers.enumeration-d.fo
+[submodule "toolkit_plugins/org.dita4publishers.enumeration-d.html"]
+	path = toolkit_plugins/org.dita4publishers.enumeration-d.html
+	url = https://github.com/dita4publishers/org.dita4publishers.enumeration-d.html
+[submodule "toolkit_plugins/org.dita4publishers.formatting-d.fo"]
+	path = toolkit_plugins/org.dita4publishers.formatting-d.fo
+	url = https://github.com/dita4publishers/org.dita4publishers.formatting-d.fo
+[submodule "toolkit_plugins/org.dita4publishers.formatting-d.html"]
+	path = toolkit_plugins/org.dita4publishers.formatting-d.html
+	url = https://github.com/dita4publishers/org.dita4publishers.formatting-d.html
+[submodule "toolkit_plugins/org.dita4publishers.graphviz"]
+	path = toolkit_plugins/org.dita4publishers.graphviz
+	url = https://github.com/dita4publishers/org.dita4publishers.graphviz
+[submodule "toolkit_plugins/org.dita4publishers.html2"]
+	path = toolkit_plugins/org.dita4publishers.html2
+	url = https://github.com/dita4publishers/org.dita4publishers.html2
+[submodule "toolkit_plugins/org.dita4publishers.html5"]
+	path = toolkit_plugins/org.dita4publishers.html5
+	url = https://github.com/dita4publishers/org.dita4publishers.html5
+[submodule "toolkit_plugins/org.dita4publishers.kindle"]
+	path = toolkit_plugins/org.dita4publishers.kindle
+	url = https://github.com/dita4publishers/org.dita4publishers.kindle
+[submodule "toolkit_plugins/org.dita4publishers.math"]
+	path = toolkit_plugins/org.dita4publishers.math
+	url = https://github.com/dita4publishers/org.dita4publishers.math
+[submodule "toolkit_plugins/org.dita4publishers.math-d.html"]
+	path = toolkit_plugins/org.dita4publishers.math-d.html
+	url = https://github.com/dita4publishers/org.dita4publishers.math-d.html
+[submodule "toolkit_plugins/org.dita4publishers.pubContent-d.fo"]
+	path = toolkit_plugins/org.dita4publishers.pubContent-d.fo
+	url = https://github.com/dita4publishers/org.dita4publishers.pubContent-d.fo
+[submodule "toolkit_plugins/org.dita4publishers.pubmap.fo"]
+	path = toolkit_plugins/org.dita4publishers.pubmap.fo
+	url = https://github.com/dita4publishers/org.dita4publishers.pubmap.fo
+[submodule "toolkit_plugins/org.dita4publishers.pubmap.html"]
+	path = toolkit_plugins/org.dita4publishers.pubmap.html
+	url = https://github.com/dita4publishers/org.dita4publishers.pubmap.html
+[submodule "toolkit_plugins/org.dita4publishers.rss"]
+	path = toolkit_plugins/org.dita4publishers.rss
+	url = https://github.com/dita4publishers/org.dita4publishers.rss
+[submodule "toolkit_plugins/org.dita4publishers.ruby.fo"]
+	path = toolkit_plugins/org.dita4publishers.ruby.fo
+	url = https://github.com/dita4publishers/org.dita4publishers.ruby.fo
+[submodule "toolkit_plugins/org.dita4publishers.ruby.html"]
+	path = toolkit_plugins/org.dita4publishers.ruby.html
+	url = https://github.com/dita4publishers/org.dita4publishers.ruby.html
+[submodule "toolkit_plugins/org.dita4publishers.sample.epub_override"]
+	path = toolkit_plugins/org.dita4publishers.sample.epub_override
+	url = https://github.com/dita4publishers/org.dita4publishers.sample.epub_override
+[submodule "toolkit_plugins/org.dita4publishers.xmldomain.doctypes"]
+	path = toolkit_plugins/org.dita4publishers.xmldomain.doctypes
+	url = https://github.com/dita4publishers/org.dita4publishers.xmldomain.doctypes
+[submodule "toolkit_plugins/org.dita4publishers.xmldomain.fo"]
+	path = toolkit_plugins/org.dita4publishers.xmldomain.fo
+	url = https://github.com/dita4publishers/org.dita4publishers.xmldomain.fo
+[submodule "toolkit_plugins/org.dita4publishers.xmldomain.html"]
+	path = toolkit_plugins/org.dita4publishers.xmldomain.html
+	url = https://github.com/dita4publishers/org.dita4publishers.xmldomain.html
+[submodule "toolkit_plugins/org.example.d4p.epub-custom"]
+	path = toolkit_plugins/org.example.d4p.epub-custom
+	url = https://github.com/dita4publishers/org.example.d4p.epub-custom
+[submodule "toolkit_plugins/org.example.d4p.html2extensions"]
+	path = toolkit_plugins/org.example.d4p.html2extensions
+	url = https://github.com/dita4publishers/org.example.d4p.html2extensions
+[submodule "toolkit_plugins/org.example.d4p.word2ditaextension"]
+	path = toolkit_plugins/org.example.d4p.word2ditaextension
+	url = https://github.com/dita4publishers/org.example.d4p.word2ditaextension
+[submodule "toolkit_plugins/org.dita-community.common.xslt"]
+	path = toolkit_plugins/org.dita-community.common.xslt
+	url = https://github.com/dita-community/org.dita-community.common.xslt.git
