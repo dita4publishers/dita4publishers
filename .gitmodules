@@ -91,3 +91,15 @@
 [submodule "sample-data"]
 	path = sample-data
 	url = https://github.com/dita4publishers/d4p-sample-data.git
+[submodule "sample_data"]
+	path = sample_data
+	url = https://github.com/dita4publishers/d4p-sample-data.git
+[submodule "toolkit_plugins/org.dita4publishers.epub"]
+	path = toolkit_plugins/org.dita4publishers.epub
+	url = https://github.com/dita4publishers/org.dita4publishers.epub.git
+[submodule "toolkit_plugins/org.dita4publishers.common.html"]
+	path = toolkit_plugins/org.dita4publishers.common.html
+	url = https://github.com/dita4publishers/org.dita4publishers.common.html.git
+[submodule "toolkit_plugins/org.dita4publishers.word2dita"]
+	path = toolkit_plugins/org.dita4publishers.word2dita
+	url = https://github.com/dita4publishers/org.dita4publishers.word2dita.git

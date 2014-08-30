@@ -52,7 +52,6 @@
   <property name="plugin-deploy_target" location="${dita-ot-dir}/plugins"/>
   <property name="doctypes.plugin-dist" location="${plugin.dist}/org.dita4publishers.doctypes"/>
   <property name="doctypes.plugin-shakespear-dist" value="${plugin.dist}/org.dita4publishers.shakespear.doctypes"/>
-  <property name="doctypes.src" location="${basedir}/doctypes"/>
   <property name="doctypes-skakespear-samples.src" value="${shakespear-sample}/doctypes"/>
   <property name="xslt.src" location="${basedir}/xslt"/>
 	<property name="target.home" location="${basedir}/target"/>
@@ -239,38 +238,7 @@
       <fileset dir="${plugin-shakespear-samples-src}">
       </fileset>
     </copy>
-    <copy todir="${doctypes.plugin-dist}/doctypes">
-      <fileset dir="${doctypes.src}">
-        <!-- NOTE: the D4P XML domain is made obsolete by the DITA 1.3 XML domain, but the two
-             are not identical, so we need to maintain the D4P domain for a while. -->
-        <!-- <exclude name="xmlDomain/**"/> -->
-      </fileset>
-    </copy>
-    <!-- FIX a bug/unfortunate potential parameter entity name clash with the MathML3 DTD -->
-    <replace dir="${doctypes.plugin-dist}/doctypes/mathml3/dtd">
-      <!-- 
-      <!ENTITY % character "CDATA"> to <!ENTITY % mll3_character "CDATA" >
-      -->
-      <include name="*.dtd"/>
-      <replacetoken><![CDATA[<!ENTITY % character ]]></replacetoken>
-      <replacevalue><![CDATA[<!ENTITY % mml_character ]]></replacevalue>
-    </replace>
-    <replace dir="${doctypes.plugin-dist}/doctypes/mathml3/dtd">
-      <!-- 
-      %character; to %mml3_character;
-      -->
-      <include name="*.dtd"/>
-      <replacetoken><![CDATA[%character;]]></replacetoken>
-      <replacevalue><![CDATA[%mml_character;]]></replacevalue>
-    </replace>
-		<!-- Standalone Math plugin -->
-	    <copy todir="${plugin.dist}/org.dita4publishers.math/doctypes">
-	      <fileset dir="${doctypes.src}">
-	        <include name="d4p_mathDomain/**"/>
-	        <include name="mathml2/**"/>
-	        <include name="mathml3/**"/>
-	      </fileset>
-	    </copy>
+	  <!-- Standalone Math plugin -->
 		<!-- FIX a bug/unfortunate potential parameter entity name clash with the MathML3 DTD -->
 		<replace dir="${plugin.dist}/org.dita4publishers.math/doctypes/mathml3/dtd">
 			<!-- 
@@ -292,18 +260,9 @@
       <fileset dir="${doctypes-skakespear-samples.src}">
       </fileset>
     </copy>
-    <copy todir="${doctypes.plugin-dist}/doctypes">
-      <fileset dir="${doctypes.src}">
-        <exclude name="xmlDomain/**"/>
-      </fileset>
-    </copy>
-    <copy todir="${plugin.dist}/org.dita4publishers.xmldomain.doctypes">
-      <fileset dir="${doctypes.src}/xmlDomain">
-        <include name="*/**"/>
-      </fileset>
-    </copy>
 		
-    <antcall target="add-version-info-to-files"/>
+		<!-- FIXME: Make this work again -->
+<!--    <antcall target="add-version-info-to-files"/>-->
 		
   </target>
 	
