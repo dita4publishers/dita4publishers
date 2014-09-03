@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept">
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
 <concept id="concept_tv2_cd2_h3">
  <title>Notes</title>
  <shortdesc>Notes are output with the aside element except when @importance is set to low or obsolete, which will output a details elements. Details elements should be collapsed by default on new browsers.</shortdesc>

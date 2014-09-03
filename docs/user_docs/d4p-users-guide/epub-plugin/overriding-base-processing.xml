@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept">
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
 <concept id="conceptId">
  <title>Implementing Overrides for Common Processing</title>
  <shortdesc>You can use the same <parmname>args.xsl</parmname> parameter as for the XHTML transform to specify a custom top-level transform that includes overrides to the base processing.</shortdesc>
