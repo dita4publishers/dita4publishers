@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept" "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:concept">
-<concept id="concept_ntp_yhk_th">
- <title>UI</title>
- <shortdesc>The plugin allows to interact with jQuery UI to output UI on the content.</shortdesc>
- <conbody> 
-  <p>The examples provided for now, are just a proof of concept. A lots of improvements is to come in future releases.</p>
- </conbody>
-</concept>
