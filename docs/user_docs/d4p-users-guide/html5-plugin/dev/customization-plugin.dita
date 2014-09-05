@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_mrm_42c_w4">
+ <title>Creating a customization plugin</title>
+ <shortdesc>The steps required to create a customization plugin does not differ from others
+  DITA-OT plugin.</shortdesc>
+ <conbody>
+  <p>Please read fist the <xref keyref="dita_ot_doc_dev"/>.</p>
+  
+  <section>
+   <title>Ant import extension point</title>
+   <p>The ant target <apiname>dita2d4p-html5</apiname> has the dita:extension <apiname>org.dita.dost.platform.InsertDependsAction</apiname></p>
+  </section>
+  
+  <section>
+   <title>XSLT import extension point</title>
+   <p>The XSL template <filepath>map2html5_template.xsl</filepath> has the extension point id <apiname>xsl.transtype-html5</apiname></p>
+  </section>
+  
+ </conbody>
+</concept>

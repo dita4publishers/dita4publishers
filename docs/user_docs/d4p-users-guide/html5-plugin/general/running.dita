@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_phf_dyd_qh">
+ <title>Running the HTML5 Plugin</title>
+  <!-- CW capitalized HTML5 24/03/2014 -->
+ <shortdesc>The HTML5 plugin can run as a regular DITA-OT plugin.</shortdesc>
+  <!-- CW capitalized HTML5 and Plugin, changed 'can be' to 'can' 24/03/2014 -->
+ <conbody>
+  <p>To run the HTML5 plugin, you must be familiar with the process of running the DITA-OT (refer to the
+        <xref keyref="dita-ot-doc"/> for more details). The transtype is d4p-html5 to prevent conflict with the HTML5
+      transtype, available in DITA-OT version 2.0.</p>
+   <!-- CW Added capitalized HTML5. Added parentheses to 'Refer to the..' rather than be a separate sentence. Removed 'the' pre-fix on DITA-OT versions.  24/03/2014 -->
+  <p>The plugin works with DITA-OT versions 1.7.x and prior.</p>
+  
+  <p>The plugin uses ant parameters similar to those used for the XHTML transform. Some parameters
+      available for the xhtml transform are not currently supported in the HTML5 plugin. For a
+      complete list of available properties, consult the reference material.<draft-comment
+        author="Jim">"reference material" needs clearer identification, and a
+        link.</draft-comment></p> 
+   <draft-comment
+     author="CW">What if people are unfamiliar with the XHMTL transform? Link required? </draft-comment>
+   <!-- CW capitalized HTML5 and XHTML, added 'used' 24/03/2014 -->
+  <section>
+   <title>Running DITA-OT from Ant</title>
+   <p>Execute the usual command using HTML5 as the transtype.</p>
+    <!-- CW capitalized HTML5 24/03/2014 -->
+    <draft-comment author="CW">What is the usual command? Would be better to name it.</draft-comment>
+       <codeblock>
+    <data-about>
+      <data name="language" value="bash"/>
+    </data-about> 
+    ant -Dargs.input=samples/hierarchy.ditamap 
+    -Doutput.dir=out/garage/html5 
+    -Dtranstype=d4p-html5</codeblock>   
+  </section>
+  
+  <section>
+   <title>Running DITA-OT from a Command-Line Tool</title>
+    <!-- CW added 'a', capitalized Command-Line and Tool 24/03/2014 -->
+    <draft-comment author="CW">Introductory statement needed?</draft-comment>
+   <codeblock>
+        <data-about>
+      <data name="language" value="bash"/>
+    </data-about> 
+    java -jar lib/dost.jar 
+    /i:samples/hierarchy.ditamap 
+    /outdir:out/garage/html5 
+    /transtype:d4p-html5</codeblock>  
+  </section>
+  
+ 
+ </conbody>
+</concept>

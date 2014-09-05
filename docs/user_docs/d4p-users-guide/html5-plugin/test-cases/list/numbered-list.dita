@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_wy1_vnf_qm">
+ <title>List</title>
+ <shortdesc>Test for list</shortdesc>
+ <conbody>
+  <section>
+   <title>Unordered list</title>
+   <ul>
+     <li>Test</li>
+    <li>Test</li>
+    <li>Test
+     <ul>
+      <li>Test</li>
+      <li>Test</li>
+      <li>Test</li>
+     </ul>
+    </li>
+   </ul>
+  </section>
+  <section>
+   <title>Ordered list</title>
+   <ol>
+    <li>Test</li>
+    <li>Test</li>
+    <li>Test
+     <ol>
+      <li>Test</li>
+      <li>Test</li>
+      <li>Test</li>
+     </ol>
+    </li>
+   </ol>
+  </section>
+  <section>
+   <title>Ordered list</title>
+   <ol outputclass="full-scope">
+    <li>Test</li>
+    <li>Test</li>
+    <li>Test
+     <ol>
+      <li>Test</li>
+      <li>Test</li>
+      <li>Test
+       <ol>
+        <li>Test</li>
+        <li>Test</li>
+        <li>Test</li>
+       </ol>
+      </li>
+     </ol>
+    </li>
+   </ol>
+  </section>
+ </conbody>
+</concept>

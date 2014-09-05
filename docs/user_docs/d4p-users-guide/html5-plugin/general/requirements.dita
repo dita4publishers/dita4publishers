@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_lhs_3dn_q4">
+ <title>Requirements</title>
+ <shortdesc/>
+ <conbody>
+  <p>The HTML5 plugin requires:
+   <ul>
+    <li>An installation of DITA OT versions 1.6.3, 1.7.5 or 1.8.4;</li>
+    <li>Ant 1.8.4 or superior;</li>
+    <li>Java 1.6 or superior.</li>
+   </ul>
+   </p>
+  <p>The HTML5 plugin has been tested sucessfully using a fresh installation on: <ul
+    id="ul_whn_kdn_q4">
+   <li>CentOS 6, ant 1.8.4, java 1.6.0_20, 
+    OpenJDK Runtime Environment (IcedTea6 1.9.8) (rhel-1.22.1.9.8.el5_6-x86_64);</li>
+    <li>Mac OS X.8.5, ant 1.9.4, java 1.6.0_65 on DITA_OT versions 1.6.3, 1.7.5 and 1.8.4;</li>
+    <li>Windows 7 ant 1.9.4, java 1.6.0_65 on DITA_OT versions 1.6.3, 1.7.5 and 1.8.4.</li>
+   </ul></p>
+  <p>However, the plugin is mostly developped on Linux technology, so any information that might improve the plugin on Windows will be appreciated.</p>
+ </conbody>
+</concept>

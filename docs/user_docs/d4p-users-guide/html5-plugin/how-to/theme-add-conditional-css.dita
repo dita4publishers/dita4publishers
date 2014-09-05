@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_dky_d2y_qm">
+ <title>How to add Internet Explorer conditional css</title>
+ <shortdesc></shortdesc>
+ <conbody>
+<codeblock>
+ <data-about>
+  <data name="language" value="xml"/>
+ </data-about>
+ 
+    &lt;tag&gt;
+      &lt;name&gt;style&lt;/name&gt;
+      &lt;output&gt;yes&lt;/output&gt;
+      &lt;prefix&gt;&lt;![CDATA[&lt;!--[if IE]&gt;]]&gt;&lt;/prefix&gt;
+      &lt;suffix&gt;&lt;![CDATA[&lt;![endif]--&gt;]]&gt;&lt;/suffix&gt;
+      &lt;value&gt;
+
+        .my-class {
+          /** ... **/
+        }
+
+      &lt;/value&gt;
+    &lt;/tag&gt; 
+</codeblock>
+ </conbody>
+</concept>
