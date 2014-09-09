@@ -110,3 +110,6 @@
 [submodule "toolkit_plugins/net.sourceforge.dita4publishers.doctypes"]
 	path = toolkit_plugins/net.sourceforge.dita4publishers.doctypes
 	url = https://github.com/dita4publishers/net.sourceforge.dita4publishers.doctypes.git
+[submodule "toolkit_plugins/org.dita4publishers.json.git"]
+	path = toolkit_plugins/org.dita4publishers.json.git
+	url = https://github.com/dita4publishers/org.dita4publishers.json.git
