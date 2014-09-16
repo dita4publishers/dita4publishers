@@ -103,3 +103,6 @@
 [submodule "toolkit_plugins/org.dita4publishers.word2dita"]
 	path = toolkit_plugins/org.dita4publishers.word2dita
 	url = https://github.com/dita4publishers/org.dita4publishers.word2dita.git
+[submodule "toolkit_plugins/org.dita4publishers.json"]
+	path = toolkit_plugins/org.dita4publishers.json
+	url = https://github.com/dita4publishers/org.dita4publishers.json.git
