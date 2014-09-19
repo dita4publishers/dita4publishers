@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# This script clone every repositories into the director of your choice
+
+# find right location
 realpath() {
 
   case $1 in
@@ -21,11 +25,7 @@ fi
 CLONEPATH=$1
 cd $CLONEPATH
 
-# This script clone every repositories from Github info the DITA_OT plugins directory.
-# It should be runned that wa
-# - You have an installation of DITA_OT + DITA4Publishers + uOttawa plugins with the right versions
-# - The uo-hr-info (this repo) is cloned at the root of the DITA_OT
-# - you have a ssh certificate to the development server
+# clone
 git clone git@github.com:dita-community/org.dita-community.common.xslt.git
 git clone git@github.com:dita4publishers/org.dita4publishers.common.xslt.git
 git clone git@github.com:dita4publishers/org.dita4publishers.common.html.git
@@ -62,5 +62,5 @@ git clone git@github.com:dita4publishers/org.example.d4p.epub-custom.git
 git clone git@github.com:dita4publishers/org.example.d4p.html2extensions.git
 git clone git@github.com:dita4publishers/org.example.d4p.word2ditaextension.git
 
-
+# come back
 cd $CURRENT_DIR
