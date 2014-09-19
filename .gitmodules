@@ -106,3 +106,6 @@
 [submodule "toolkit_plugins/org.dita4publishers.json"]
 	path = toolkit_plugins/org.dita4publishers.json
 	url = https://github.com/dita4publishers/org.dita4publishers.json.git
+[submodule "toolkit_plugins/org.dita4publishers.media-d.html"]
+	path = toolkit_plugins/org.dita4publishers.media-d.html
+	url = git@github.com:dita4publishers/org.dita4publishers.media-d.html.git
