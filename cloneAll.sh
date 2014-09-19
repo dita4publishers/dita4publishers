@@ -46,6 +46,7 @@ git clone git@github.com:dita4publishers/org.dita4publishers.json.git
 git clone git@github.com:dita4publishers/org.dita4publishers.kindle.git
 git clone git@github.com:dita4publishers/org.dita4publishers.math.git
 git clone git@github.com:dita4publishers/org.dita4publishers.math-d.html.git
+git clone git@github.com:dita4publishers/org.dita4publishers.media-d.html.git
 git clone git@github.com:dita4publishers/org.dita4publishers.pubContent-d.fo.git
 git clone git@github.com:dita4publishers/org.dita4publishers.pubmap.fo.git
 git clone git@github.com:dita4publishers/org.dita4publishers.pubmap.html.git
