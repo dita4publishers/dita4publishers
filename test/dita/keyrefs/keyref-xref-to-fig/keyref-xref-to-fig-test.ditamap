@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+ <title>Test of Key-based XRef to A Figure</title>
+  <topicgroup>
+    <keydef keys="topic-with-fig-01" href="topic-with-fig-01.dita"/>
+  </topicgroup>
+  <topicref href="keyref-to-figure-01.dita"/>
+  <topicref href="topic-with-fig-01.dita"/>
+</map>

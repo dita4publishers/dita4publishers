@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_app_2f5_mp">
+  <title>Topic With Figure</title>
+  <body>
+    <p>This figure is a cross-reference target:</p>
+    <fig id="fig-01">
+      <title>Figure Containing a Code Sample</title>
+      <codeblock>// This is a code sample
+more code;</codeblock>
+    </fig>
+  </body>
+</topic>

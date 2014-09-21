@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="topic_dlm_3f5_mp">
+  <title>Keyref to Figure</title>
+  <body>
+    <p>Cross reference to figure in topic "Topic With Figure" via keyref: No local link text: /<xref keyref="topic-with-fig-01/fig-01"/>/, local link text: /<xref keyref="topic-with-fig-01/fig-01"
+      >click here</xref>/</p>
+  </body>
+</topic>
