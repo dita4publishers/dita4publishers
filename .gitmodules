@@ -33,7 +33,8 @@
 	url = https://github.com/dita4publishers/org.dita4publishers.html2
 [submodule "toolkit_plugins/org.dita4publishers.html5"]
 	path = toolkit_plugins/org.dita4publishers.html5
-	url = https://github.com/dita4publishers/org.dita4publishers.html5
+	url = https://github.com/dita4publishers/org.dita4publishers.html5.git
+	branch = master
 [submodule "toolkit_plugins/org.dita4publishers.kindle"]
 	path = toolkit_plugins/org.dita4publishers.kindle
 	url = https://github.com/dita4publishers/org.dita4publishers.kindle

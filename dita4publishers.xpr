@@ -26,9 +26,6 @@
         <file name="docs/website/dita4publishers.ditamap"/>
         <file name="sample_data/epub-test/epub-test.ditamap"/>
         <file name="test/dita/image_scaling/imageSample/flowers.ditamap"/>
-        <file name="toolkit_plugins/net.sourceforge.dita4publishers.epub/xsl/map2epubImpl.xsl"/>
-        <file name="toolkit_plugins/net.sourceforge.dita4publishers.html2/xsl/map2html2Impl.xsl"/>
-        <file name="toolkit_plugins/net.sourceforge.dita4publishers.kindle/xsl/map2kindleImpl.xsl"/>
         <file name="doctypes/pubmap/dtd/pubmap.mod"/>
         <file name="sample_data/simple_publication/simple_publication.ditamap"/>
         <file name="sample_data/website/website.ditamap"/>

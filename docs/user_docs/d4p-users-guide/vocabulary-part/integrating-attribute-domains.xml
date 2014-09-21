@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE task PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:task" "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:task">
+<!DOCTYPE task PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:task" "urn:pubid:dita4publishers.org:doctypes:dita:task">
 <task
   id="subsection-id">
   <title>Integrating Attribute Domains</title>
@@ -17,7 +17,7 @@
 &lt;!--                    DOMAIN ATTRIBUTE DECLARATIONS              -->
 &lt;!-- ============================================================= --></codeblock></p>
           <p>After this comment, add an entry that looks like this (e.g., for the d4p_renditionTarget attribute domain):<codeblock>&lt;!ENTITY % d4p_renditionTargetAtt-d-dec     
-  PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:modules:d4p_renditionTargetAttDomain:entities" 
+  PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:modules:d4p_renditionTargetAttDomain:entities" 
          "d4p_renditionTargetAttDomain.ent"                                                
 >
 %d4p_renditionTargetAtt-d-dec;
