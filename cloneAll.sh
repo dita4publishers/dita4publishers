@@ -32,7 +32,6 @@ git clone git@github.com:dita4publishers/org.dita4publishers.common.xslt.git
 git clone git@github.com:dita4publishers/org.dita4publishers.common.html.git
 git clone git@github.com:dita4publishers/org.dita4publishers.common.mapdriven.git
 git clone git@github.com:dita4publishers/org.dita4publishers.common.xslfo.git
-git clone git@github.com:dita4publishers/org.dita4publishers.common.xslt.git
 git clone git@github.com:dita4publishers/org.dita4publishers.dita2indesign.git
 git clone git@github.com:dita4publishers/org.dita4publishers.doctypes.git
 git clone git@github.com:dita4publishers/org.dita4publishers.enumeration-d.fo.git
