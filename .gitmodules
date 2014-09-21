@@ -110,3 +110,6 @@
 [submodule "toolkit_plugins/org.dita4publishers.media-d.html"]
 	path = toolkit_plugins/org.dita4publishers.media-d.html
 	url = git@github.com:dita4publishers/org.dita4publishers.media-d.html.git
+[submodule "docs/github-websites/dita4publishers.github.io"]
+	path = docs/github-websites/dita4publishers.github.io
+	url = https://github.com/dita4publishers/dita4publishers.github.io.git
