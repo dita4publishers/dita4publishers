@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_qqp_z4k_x4">
+ <title>Adding Google analytics tracking code</title>
+ <shortdesc>To add google analytics to your theme, you need add this code to the theme.xml</shortdesc>
+ <conbody>
+  <note>The tracking code presented here is from Google Analytics from July 28, 2014.
+   It may change in time, please consult Google Analytics documentation to ensure you have the latest.</note>
+  <p>
+  <codeblock>
+   <data-about>
+    <data name="language" value="xml"/>
+   </data-about>
+    &lt;tag&gt;
+    &lt;name&gt;script&lt;/name&gt;
+      &lt;output&gt;yes&lt;/output&gt;
+      &lt;prefix&gt;&lt;/prefix&gt;
+      &lt;suffix&gt;&lt;/suffix&gt;
+      &lt;attributes&gt;
+          &lt;type&gt;text/javascript&lt;/type&gt;
+      &lt;/attributes&gt;
+      &lt;value&gt;
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'your tracking code', 'auto');
+ga('send', 'pageview');
+      &lt;/value&gt;
+  &lt;/tag&gt;
+
+  </codeblock>
+  </p>
+  
+ </conbody>
+</concept>

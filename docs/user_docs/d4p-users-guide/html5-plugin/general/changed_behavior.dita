@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_fct_vhq_q4">
+ <title>Changed Behaviours</title>
+ <shortdesc>This plugin does not always behaves the same way than others DITA OT
+  plugins.</shortdesc>
+ <conbody>
+  <p>This plugin is an attempt to bring more capabilities to do Web development into the DITA OT. It
+   has been design to allows the creations of Themes (you might name this Skins). </p>
+  
+  <p>Below are the list of arguments for which the behavior change using this plugin.</p>
+  <section>
+   <title>Ant parameters: changed behaviors</title>
+   <dl>
+    <dlentry>
+     <dt>args.cssroot</dt>
+     <dd>The <varname>args.cssroot</varname> is used to choose a theme instead of a css. The default theme is
+      dita-d4p-classic. If you run a build with args.cssroot=my-custom-theme, the plugin will try to
+      fetch the my-custom-theme if it exists in the </dd>
+    </dlentry>
+    
+    <dlentry>
+     <dt>args.debug</dt>
+     <dd>Once set to yes <varname>args.debug</varname>, the generated HTML will contains a reference to each script and style referenced in the theme configuration (config.xml).
+      A copy of the library will be send to the ouput directory. This allows a developper to work on each file individually, write and debug code. 
+     </dd>
+    </dlentry>
+    
+    <dlentry>
+     <dt>args.hdf</dt>
+     <dd>This property is not supported yet but will be in a future release.
+     </dd>
+    </dlentry>
+    
+    <dlentry>
+     <dt>args.hdr</dt>
+     <dd>This property is not supported yet but will be in a future release.
+     </dd>
+    </dlentry>
+       
+   </dl>
+  </section>
+  
+  <section>
+   <title>Ant parameters: not supported</title>
+   <p>Theses properties are ignored since the system has a built-in theme mechanism.</p>
+   <ul>
+    <li>args.copycss</li>
+    <li>args.css</li>
+    <li>args.csspath</li>
+   </ul>
+  </section>
+  
+  
+
+ </conbody>
+</concept>

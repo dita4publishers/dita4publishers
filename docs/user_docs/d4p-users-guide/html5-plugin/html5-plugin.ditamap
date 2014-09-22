@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pubmap PUBLIC "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap" "urn:pubid:dita4publishers.sourceforge.net:doctypes:dita:dtd:pubmap">
+<pubmap>
+  <pubtitle>
+    <mainpubtitle>DITA for Publishers HTML5 Plugin</mainpubtitle>
+  </pubtitle>
+  <pubmeta>
+    <data name="version" value="Alpha"></data>
+  </pubmeta>
+  <mapref href="keys.ditamap"/>
+  <mapref href="keys-external.ditamap"/>
+  
+  <chapter keyref="html5-intro" collection-type="sequence">
+    <topichead>
+      <topicmeta>
+        <navtitle>Getting Started</navtitle>
+      </topicmeta>
+      <topicref keyref="html5-requirements"/>
+      <topicref keyref="html5-download"/>
+      <topicref keyref="html5-install"/>
+      <topicref keyref="html5-run"/>
+      <topicref keyref="html5-changed-behavior"/>  
+      <topicref keyref="html5-license"/>
+    </topichead>
+    
+    <topichead>
+      <topicmeta>
+        <navtitle>The default theme</navtitle>
+      </topicmeta>
+      <topicref keyref="html5-index-file"/>
+      <topicref keyref="html5-feature-muti-columns"/>
+      <topicref keyref="html5-feature-css-grid"/>
+      <topicref keyref="html5-feature-images"/>
+      <topicref keyref="html5-feature-notes"/>
+      <topicref keyref="html5-feature-ui-intro">
+        <topicref keyref="html5-feature-ui-accordion"/>
+        <topicref keyref="html5-feature-ui-images"/>
+      </topicref>
+      
+    </topichead>
+    
+    <topicref keyref="html5-developper">
+      <topicref keyref="html5-customization-plugin"/>
+      <topicref keyref="html5-theme-dev">
+        <topicref keyref="html5-theme-general-process"/>
+        <topicref keyref="html5-theme-configuration"/>
+        <topicref keyref="html5-theme-configuration-file"/>
+        <topicref keyref="html5-theme-add-conditional-css"/>
+        <topicref keyref="html5-analytics"/>
+      </topicref>    
+    </topicref>
+
+    <topichead>
+      <topicmeta>
+        <navtitle>References</navtitle>
+      </topicmeta>
+      <topicref keyref="html5-plugin-directory-structure"/>
+      <topicref keyref="html5-plugin-ant-properties"/>
+    </topichead>
+  </chapter>
+</pubmap>

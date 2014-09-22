@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="reference_tss_dv4_sh">
+  <title>Availaible ant properties </title>
+  <shortdesc>This properties allows to customize the output.</shortdesc>
+  <refbody>
+    <properties>
+      
+      <property>
+        <proptype>html5.class.body</proptype>
+        <propdesc>Allows to control the @class of the body element.</propdesc>
+      </property>
+      
+      <property>
+        <proptype>html5.class.home.page</proptype>
+        <propdesc>The class of the body element for the home page (Table of contents).</propdesc>
+      </property>
+         
+      <property>
+        <proptype>html5.class.icon.left</proptype>
+        <propdesc>The class of the icon used to represents the previous link.</propdesc>
+      </property>
+      
+      <property>
+        <proptype>html5.class.icon.right</proptype>
+        <propdesc>The class of the icon used to represents the next link.</propdesc>
+      </property>
+      
+      <property>
+        <proptype>html5.class.icon.parent</proptype>
+        <propdesc>The class of the icon used to represents the parent link.</propdesc>
+      </property>
+      
+      <property>
+        <proptype>html5.class.main.content</proptype>
+        <propdesc>The @class of the main-content element. Default value is: <option>prefix_1 grid_16</option>, which
+          means: add an empty column on the left, then add 16 columns for the content. Changing this value allows you to
+          set a different size for the content. You should change it with the class.navigation property. </propdesc>
+      </property>
+      
+      <property>
+        <proptype>html5.class.main.container</proptype>
+        <propdesc>The @class of the main container element. Default value is an empty string.</propdesc>
+      </property>
+      
+      <property>
+        <proptype>html5.class.navigation</proptype>
+        <propdesc>The @class of the navigation element. Default value is: <option>nav-left grid_7</option>, which
+          means: the navigation is on the left and span 7 columns for the content. Changing this value allows you to set
+          a different size for the navigation. You should change it with the class.main.content property. </propdesc>
+      </property>
+      
+      <property>
+        <proptype>html5.class.section.container</proptype>
+        <propdesc>The @class of the section container element. Default value is: <option>container_24</option>, which
+          activate the 960 Grid for this element and its children.</propdesc>
+      </property>
+      
+      <property>
+        <proptype>html5.copy.libs</proptype>
+        <propvalue>Default: no</propvalue>
+        <propdesc>Tells wheather or not the html5 library should be copied to the output directory. The libraries are only copied if args.debug is set.</propdesc>
+      </property>
+      
+      <property>
+        <proptype>html5.copy.assets</proptype>
+        <propvalue>Default: yes</propvalue>
+        <propdesc>Tells wheather or not the html5 library should be copied to the final assets (the theme directory). 
+          If you use the http.absolute.uri property, you might want to set this value to no and copy it manually.</propdesc>
+      </property>
+      
+      <property>
+        <proptype>html5.id.main.content</proptype>
+        <propdesc>The @id of the main content element. The main content is the regions where the AJAX content is
+          output. Default value is: <option>d4h5-main-content</option>.</propdesc>
+      </property>
+      
+      <property>
+        <proptype>html5.id.main.container</proptype>
+        <propdesc>The @id of the main container element. This element is the first element after the body element.
+          Default value is: <option>d4h5-main-container</option>.</propdesc>
+      </property>
+      
+   
+      
+      <property>
+        <proptype>html5.id.section.container</proptype>
+        <propdesc>The @id of the section container element. is the first element after the body element. Default value
+          is: <option>d4h5-section-container</option>.</propdesc>
+      </property>
+      
+
+      <property>
+        <proptype>html5.grid.prefix</proptype>
+        <propvalue>Default is the 960.js grid: grid_</propvalue>
+        <propdesc>Allows to se a prefix for a CSS grid. The value is automatically preffixed everywhere a column is calculated and output.</propdesc>      
+      </property>
+      
+      <property>
+        <proptype>html5.site.theme</proptype>
+        <propvalue>Default: dita-d4p-classic</propvalue>
+        <propdesc>Refers to the theme you want to use for the output. This value could also be set
+          by using the args.cssroot argument in the command line.<note conref="#reference_tss_dv4_sh/dev-be-aware"/></propdesc>
+      </property>
+      
+      <property>
+        <proptype>html5.theme.file</proptype>
+        <propdesc>Refers to the final relative path to the compressed CSS. By convention, style.css is the
+          none-compressed file whereas style-min.css is the compressed one. Default is
+          <filepath>themes/${site.theme}/css/style-min.css</filepath></propdesc>
+      </property>
+      
+          
+      <!--property>
+        <proptype>html5.js.options</proptype>
+        <propdesc>Options that you want to pass to the d4p javascript object. The content of this property allows to
+          change the initializer of the d4p object. <codeph>$(function() { d4p.init({ &lt; ${js.options} &gt; });
+            });</codeph> Default is an empty string. </propdesc>
+      </property-->
+      
+   
+      <property>
+        <proptype>http.absolute.uri</proptype>
+        <propvalue>Default is empty string</propvalue>
+        <propdesc>
+          If you set this property, the references to css and javascripts won't be relative to the page but to the value of the http.absolute.uri.          
+        </propdesc>      
+      </property>
+      
+      <property>
+        <proptype>out.ext</proptype>
+        <propvalue>Default: .html</propvalue>
+        <propdesc>The html file extension</propdesc>
+      </property>
+      
+    </properties>
+  </refbody>
+</reference>
