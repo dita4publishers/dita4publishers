@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:concept" "urn:pubid:dita4publishers.org:doctypes:dita:concept">
+<concept id="conceptId">
+ <title>Release Notes: Version 1.0.0RC00 (github version)</title>
+ <shortdesc>Version 1.0.0RC00</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <indexterm>
+          <indexterm>release notes<indexterm>Version 1.0.0RC00</indexterm></indexterm>
+        </indexterm>
+      </keywords>
+    </metadata>
+  </prolog>
+ <conbody>
+    <section>
+      <title>Theme for the Release</title>
+      <p>This release has the DITA for Publishers project moved from SourceForge to GitHub. The DITA for Publishers project is now the GitHub organization "dita4publishers": <xref
+        href="http://dita4publishers.github.com" format="html" scope="external"
+        >http://dita4publishers.github.com</xref>. The original SourceForge project will be maintained until most or all D4P users have migrated to the GitHub version.</p>
+      <p>For the move the GitHub the code has been promoted to the 1.0.0 version, reflecting the maturity of the code and a significant renaming of the plugins and related materials.</p>
+      <p>As part of this move the following changes have been made:<ul id="ul_jtr_s3y_np">
+        <li>All plugins have been renamed to "org.dita4publishers.*" from "net.sourceforge.dita4publishers".</li>
+        <li>The URNs for all D4P vocabulary modules have been changed to use "dita4publishers.org" rather than "dita4publishers.sourceforge.net". A set of catalogs that map the old SourceForge URIs to the new github versions is provided to minimize disruption to documents and shells that refer to the SourceForge URIs. Shells and documents should be updated as soon as possible.</li>
+        <li>Each plugin and the sample data has been made into its own github git repository. The main dita4publishers project references each of the plugins as a git submodule.</li>
+        <li>The HTML5 plugin code has been updated and refined. All future HTML features will be found here—the Sourceforge version of the HTML5 plugin is obsolete and should not be used.</li>
+        <li>All of the HTML-based transforms have been updated to take any plugin-provided Ant property extensions for the base XHTML transform. This makes general XHTML extension plugins that require custom Ant parameters work with all the D4P HTML-based transforms (EPUB, Kindle, HTML2, HTML5).</li>
+        <li>The dita-support-lib.xsl and relpath_utils.xsl libraries have been moved to a new DITA Community plugin managed in the DITA Community github organization (<xref
+          href="http://dita-community.github.com" format="html" scope="external">http://dita-community.github.com</xref>). Also used as a git submodule from the main dita4publishers project.</li>
+        </ul></p>
+    </section>
+  </conbody>
+</concept>

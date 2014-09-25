@@ -19,9 +19,9 @@
       <li>The DITA-to-InDesign transformation framework and Toolkit plugin</li>
       </ul></p>
     <p>The package also contains renditions of the <cite>DITA for Publishers User Guide</cite>.</p>
-    <p>The source materials for the DITA for Publishers project are available via anonymous Subversion access (including Web-based Subversion access) from <xref
-      href="http://sourceforge.net/projects/dita4publishers"
-      format="html"
-      scope="external">http://sourceforge.net/projects/dita4publishers/develop</xref>.</p>
+    <p>The source materials for the DITA for Publishers project are available via anonymous git access (including Web-based git access) from <xref
+      href="http://github.com/dita4publishers/dita4publishers" format="html" scope="external"
+      >http://github.com/dita4publishers/dita4publishers</xref>. Note that each of the individual plugins is managed as a separate git project within the dita4publishers GitHub organization and referenced as a git submodule from the main dita4publishers project.</p>
+    <p>If you clone the dita4publishers project you will need to run the git command <codeph>git submodule init</codeph> to initialize all the submodules and get the source for them. You will also find the bash script <filepath>submoduleAll.sh</filepath>, which will set up the D4P Open Toolkit submodules in any git repository you specify. For example, if you make your Open Toolkit directory into a git repository (Command <codeph>git init</codeph> in the DITA-OT directory) then you can run the command <codeph>./submoduleAll.sh {path to OT plugins directory}</codeph> to get all the D4P plugins into your open toolkit. Just run the Toolkit's integrator.xml Ant script to integrate the D4P plugins and you should be ready to go. To update the plugins you can then use the command "git submodule foreach git pull" to get the latest versions of the plugins.</p>
   </conbody>
 </concept>

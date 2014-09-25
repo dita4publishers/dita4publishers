@@ -75,11 +75,9 @@
       documents. You will likely find that you also need to refine how your documents are styled so
       that they map most effectively.</p>
     <p>Finally, remember that the Word-to-DITA process is a work in progress and there is always room for improvement. Please report any bugs or feature requests to the DITA for Publishers bug tracker
-      on SourceForge (<xref
+      on GitHub (<xref
       format="html"
-      href="http://sourceforge.net/p/dita4publishers/bugs"
-      scope="external">http://sourceforge.net/p/dita4publishers/bugs</xref>). The Word to DITA transform has been used in production by many companies but for a relatively narrow set of requirements,
-      so I cannot claim to have tested it broadly.</p>
+      href="https://github.com/dita4publishers/d4p-word2dita/issues">https://github.com/dita4publishers/d4p-word2dita/issues</xref></p>
     <p>Remember too that the Word to DITA framework is open source, which means I welcome fixes and
       enhancements from the community.</p>
   </conbody>
