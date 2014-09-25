@@ -100,7 +100,7 @@
         <proptype>html5.site.theme</proptype>
         <propvalue>Default: dita-d4p-classic</propvalue>
         <propdesc>Refers to the theme you want to use for the output. This value could also be set
-          by using the args.cssroot argument in the command line.<note conref="#reference_tss_dv4_sh/dev-be-aware"/></propdesc>
+          by using the args.cssroot argument in the command line.<!--<note conref="#reference_tss_dv4_sh/dev-be-aware"/> [WEK: target element does not exist.]--></propdesc>
       </property>
       
       <property>
